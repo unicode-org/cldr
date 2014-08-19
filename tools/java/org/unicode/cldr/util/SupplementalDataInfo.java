@@ -853,6 +853,9 @@ public class SupplementalDataInfo {
     public Relation<String, String> alpha3TerritoryMapping = Relation.of(new HashMap<String, Set<String>>(),
         HashSet.class);
 
+    public Relation<String, Integer> numericCurrencyCodeMapping = Relation.of(new HashMap<String, Set<Integer>>(),
+        HashSet.class);
+
     static Map<String, SupplementalDataInfo> directory_instance = new HashMap<String, SupplementalDataInfo>();
 
     public Map<String, Map<String, Row.R2<List<String>, String>>> typeToTagToReplacement = new TreeMap<String, Map<String, Row.R2<List<String>, String>>>();
@@ -886,6 +889,10 @@ public class SupplementalDataInfo {
 
     public Relation<String, Integer> getNumericTerritoryMapping() {
         return numericTerritoryMapping;
+    }
+
+    public Relation<String, Integer> getNumericCurrencyCodeMapping() {
+        return numericCurrencyCodeMapping;
     }
 
     /**
@@ -1070,6 +1077,7 @@ public class SupplementalDataInfo {
 
         numericTerritoryMapping.freeze();
         alpha3TerritoryMapping.freeze();
+        numericCurrencyCodeMapping.freeze();
 
         // freeze contents
         for (String language : languageToPopulation.keySet()) {
@@ -1416,6 +1424,14 @@ public class SupplementalDataInfo {
                     alpha3TerritoryMapping.put(type, alpha3);
                 }
                 return true;
+            } else if (level2.equals("currencyCodes")) {
+              // <currencyCodes type="BBD" numeric="52"/>
+              String type = parts.getAttributeValue(-1, "type");
+              final String numeric = parts.getAttributeValue(-1, "numeric");
+              if (numeric != null) {
+                numericCurrencyCodeMapping.put(type, Integer.parseInt(numeric));
+              }
+              return true;
             }
             return false;
         }

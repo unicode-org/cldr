@@ -342,7 +342,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT skipDefaultLocale EMPTY >
 <!ATTLIST skipDefaultLocale services NMTOKENS #IMPLIED >
 
-<!ELEMENT codeMappings (languageCodes*, territoryCodes*) >
+<!ELEMENT codeMappings (languageCodes*, territoryCodes*, currencyCodes*) >
 
 <!ELEMENT languageCodes EMPTY >
 <!ATTLIST languageCodes type NMTOKEN #REQUIRED>
@@ -355,6 +355,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST territoryCodes fips10 NMTOKEN #IMPLIED>
 <!ATTLIST territoryCodes internet NMTOKENS #IMPLIED>
 
+<!ELEMENT currencyCodes EMPTY >
+<!ATTLIST currencyCodes type NMTOKEN #REQUIRED>
+<!ATTLIST currencyCodes numeric NMTOKEN #REQUIRED>
 <!ELEMENT likelySubtags (likelySubtag*) >
 <!ELEMENT likelySubtag EMPTY >
 <!ATTLIST likelySubtag from NMTOKEN #REQUIRED>

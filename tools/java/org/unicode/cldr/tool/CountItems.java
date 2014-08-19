@@ -235,6 +235,47 @@ public class CountItems {
     /**
      * 
      */
+    public static void generateSupplementalCurrencyItems() {
+        IsoCurrencyParser isoCurrencyParser = IsoCurrencyParser.getInstance();
+        Relation<String, Data> codeList = isoCurrencyParser.getCodeList();
+        Map<String, String> numericTocurrencyCode = new TreeMap<String, String>();
+        StringBuffer list = new StringBuffer();
+        
+        for (Iterator<String> it = codeList.keySet().iterator(); it.hasNext();) {
+            String currencyCode = it.next();
+            int numericCode = -1;
+            Set<Data> dataSet = codeList.getAll(currencyCode);
+            boolean first = true;
+            for (Data data : dataSet) {
+                if (first) {
+                    first = false;
+                }
+                numericCode = data.getNumericCode();
+            }
+            
+            String strNumCode = "" + numericCode;
+            String otherCode = numericTocurrencyCode.get(strNumCode);
+            if (otherCode != null) {
+                System.out.println("Warning: duplicate code " + otherCode +
+                     "for " + numericCode);
+            }
+            numericTocurrencyCode.put(strNumCode, currencyCode);
+            if (list.length() != 0)
+                list.append(" ");
+            String currencyLine = "<currencyCodes type=" + "\"" + currencyCode +
+                "\"" + " numeric=" + "\"" + numericCode + "\"/>";
+            list.append(currencyLine);
+            System.out.println(currencyLine);
+
+
+        }
+        System.out.println();            
+    
+    }
+
+    /**
+     * 
+     */
     public static void generateCurrencyItems() {
         IsoCurrencyParser isoCurrencyParser = IsoCurrencyParser.getInstance();
         Relation<String, Data> codeList = isoCurrencyParser.getCodeList();

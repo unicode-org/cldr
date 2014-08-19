@@ -10,6 +10,7 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.MyanmarZawgyiConverter;
 import org.unicode.cldr.util.SimpleFactory;
 
 import com.ibm.icu.dev.test.TestFmwk;

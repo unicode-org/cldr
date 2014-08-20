@@ -3437,7 +3437,7 @@ public class SupplementalDataInfo {
         public static final FixedDecimal POSITIVE_INFINITY = new FixedDecimal(Double.POSITIVE_INFINITY, 0, 0);
 
         static double doubleValue(FixedDecimal a) {
-            return a.isNegative ? -a.doubleValue() : a.doubleValue();
+            return a.doubleValue();
         }
 
         public boolean rangeExists(Count s, Count e, Output<FixedDecimal> minSample, Output<FixedDecimal> maxSample) {

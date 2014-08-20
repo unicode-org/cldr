@@ -56,6 +56,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
+import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -133,12 +134,17 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
             localesToTest.add(locale);
         }
+        Set<String> modernLocales = testInfo.getStandardCodes().getLocaleCoverageLocales(Organization.cldr.toString(), EnumSet.of(Level.MODERN));
 
         for (String locale : localesToTest) {
 
             // check that there are no null values
             PluralRanges pluralRanges = SUPPLEMENTAL.getPluralRanges(locale);
             if (pluralRanges == null) {
+                if (!modernLocales.contains(locale)) {
+                    logln("Missing plural ranges for " + locale);
+                    break;
+                }
                 ignoreErrln("Missing plural ranges for " + locale);
                 pluralRanges = new PluralRanges().freeze();
             }
@@ -195,11 +201,11 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     }
 
     public void ignoreErrln(String s) {
-        if (logKnownIssue("Cldrbug:7137", "Missing/extra plural ranges")) {
-            logln(s);
-        } else {
+//        if (false && logKnownIssue("Cldrbug:7137", "Missing/extra plural ranges")) {
+//            logln(s);
+//        } else {
             errln(s);
-        }
+//        }
     }
 
     public void TestPluralSamples() {

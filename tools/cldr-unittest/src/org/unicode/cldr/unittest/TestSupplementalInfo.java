@@ -143,10 +143,10 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             if (pluralRanges == null) {
                 if (!modernLocales.contains(locale)) {
                     logln("Missing plural ranges for " + locale);
-                    break;
+                } else {
+                    ignoreErrln("Missing plural ranges for " + locale);
                 }
-                ignoreErrln("Missing plural ranges for " + locale);
-                pluralRanges = new PluralRanges().freeze();
+                continue;
             }
             PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(locale);
             Set<Count> counts = pluralInfo.getCounts();
@@ -201,11 +201,11 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     }
 
     public void ignoreErrln(String s) {
-//        if (false && logKnownIssue("Cldrbug:7137", "Missing/extra plural ranges")) {
-//            logln(s);
-//        } else {
+        if (logKnownIssue("Cldrbug:7839", "Missing plural data for modern locales")) {
+            logln(s);
+        } else {
             errln(s);
-//        }
+        }
     }
 
     public void TestPluralSamples() {

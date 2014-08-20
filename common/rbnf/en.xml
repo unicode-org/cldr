@@ -13,10 +13,6 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <!-- Temporarily disabling lenient parsing for en until ICU #9503 is fixed -->
-            <!-- <ruleset type="lenient-parse" access="private"> -->
-            <!--     <rbnfrule value="0">&amp;[last primary ignorable ] ←← ' ' ←← ',' ←← '-' ←← '­';</rbnfrule> -->
-            <!-- </ruleset> -->
             <ruleset type="2d-year" access="private">
                 <rbnfrule value="0">hundred;</rbnfrule>
                 <rbnfrule value="1">oh-=%spellout-numbering=;</rbnfrule>
@@ -190,18 +186,9 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
-            <ruleset type="digits-ordinal-indicator" access="private">
-                <rbnfrule value="0">th;</rbnfrule>
-                <rbnfrule value="1">st;</rbnfrule>
-                <rbnfrule value="2">nd;</rbnfrule>
-                <rbnfrule value="3">rd;</rbnfrule>
-                <rbnfrule value="4">th;</rbnfrule>
-                <rbnfrule value="20">→→;</rbnfrule>
-                <rbnfrule value="100">→→;</rbnfrule>
-            </ruleset>
             <ruleset type="digits-ordinal">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%digits-ordinal-indicator=;</rbnfrule>
+                <rbnfrule value="0">=#,##0=$(ordinal,one{st}two{nd}few{rd}other{th})$;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

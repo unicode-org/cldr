@@ -133,7 +133,7 @@ public class IcuTextWriter {
             }
             List<String[]> values = icuData.get(path);
             try {
-                wasSingular = appendValues(path, values, labels.length, out);
+                wasSingular = appendValues(name, path, values, labels.length, out);
             } catch (NullPointerException npe) {
                 System.err.println("Null value encountered in " + path);
             }
@@ -155,21 +155,21 @@ public class IcuTextWriter {
 
     /**
      * Inserts padding and values between braces.
-     * 
+     * @param name
+     * @param rbPath
      * @param values
      * @param numTabs
-     * @param quote
      * @param out
      * @return
      */
-    private static boolean appendValues(String rbPath, List<String[]> values, int numTabs,
+    private static boolean appendValues(String name, String rbPath, List<String[]> values, int numTabs,
         PrintWriter out) {
         String[] firstArray;
         boolean wasSingular = false;
         boolean quote = !IcuData.isIntRbPath(rbPath);
         boolean isSequence = rbPath.endsWith("/Sequence");
-        if (values.size() == 1) {
-            if ((firstArray = values.get(0)).length == 1 && !mustBeArray(rbPath)) {
+        if (values.size() == 1 && !mustBeArray(true, name, rbPath)) {
+            if ((firstArray = values.get(0)).length == 1 && !mustBeArray(false, name, rbPath)) {
                 String value = firstArray[0];
                 if (quote) {
                     value = quoteInside(value);
@@ -220,13 +220,23 @@ public class IcuTextWriter {
      * Wrapper for a hack to determine if the given rb path should always
      * present its values as an array. This hack is required for an ICU data test to pass.
      * 
+     * @param topValues
+     * @param name
      * @param rbPath
      * @return
      */
-    private static boolean mustBeArray(String rbPath) {
+    private static boolean mustBeArray(boolean topValues, String name, String rbPath) {
         // TODO(jchye): Add this as an option to the locale file instead of hardcoding.
-        return rbPath.equals("/LocaleScript") || (rbPath.contains("/eras/") && !rbPath.endsWith(":alias")) ||
-            rbPath.startsWith("/calendarPreferenceData") || rbPath.startsWith("/metazoneInfo");
+        // System.out.println(name + "\t" + rbPath);
+        if (topValues) {
+            return (rbPath.startsWith("/rules/set") 
+                && name.equals("pluralRanges"));
+        }
+        return rbPath.equals("/LocaleScript") 
+            || (rbPath.contains("/eras/") && !rbPath.endsWith(":alias"))
+            || rbPath.startsWith("/calendarPreferenceData") 
+            || rbPath.startsWith("/metazoneInfo")
+            ;
     }
 
     private static PrintWriter appendArray(String padding, String[] valueArray,

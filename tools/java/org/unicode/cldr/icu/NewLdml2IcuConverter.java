@@ -59,6 +59,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         metadata, metaZones,
         numberingSystems,
         plurals,
+        pluralRanges,
         postalCodeData,
         supplementalData,
         windowsZones,
@@ -72,13 +73,13 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         "Usage: LDML2ICUConverter [OPTIONS] [FILES]\n" +
             "This program is used to convert LDML files to ICU data text files.\n" +
             "Please refer to the following options. Options are not case sensitive.\n" +
-            "\texample: org.unicode.cldr.icu.Ldml2IcuConverter -s xxx -d yyy en")
-        .add("sourcedir", ".*", "Source directory for CLDR files")
-        .add("destdir", ".*", ".", "Destination directory for output files, defaults to the current directory")
-        .add("specialsdir", 'p', ".*", null, "Source directory for files containing special data, if any")
-        .add("supplementaldir", 'm', ".*", null, "The supplemental data directory")
-        .add("keeptogether", 'k', null, null,
-            "Write locale data to one file instead of splitting into separate directories. For debugging")
+        "\texample: org.unicode.cldr.icu.Ldml2IcuConverter -s xxx -d yyy en")
+    .add("sourcedir", ".*", "Source directory for CLDR files")
+    .add("destdir", ".*", ".", "Destination directory for output files, defaults to the current directory")
+    .add("specialsdir", 'p', ".*", null, "Source directory for files containing special data, if any")
+    .add("supplementaldir", 'm', ".*", null, "The supplemental data directory")
+    .add("keeptogether", 'k', null, null,
+        "Write locale data to one file instead of splitting into separate directories. For debugging")
         .add("type", 't', "\\w+", null, "The type of file to be generated")
         .add("xpath", 'x', ".*", null, "An optional xpath to debug the regexes with")
         .add("filter", 'f', null, null, "Perform filtering on the locale data to be converted.")
@@ -273,18 +274,29 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
 
     private void processSupplemental(Type type, String debugXPath) {
         IcuData icuData;
-        if (type == Type.plurals) {
+        switch (type) {
+        case plurals: {
             PluralsMapper mapper = new PluralsMapper(sourceDir);
             icuData = mapper.fillFromCldr();
-        } else if (type == Type.dayPeriods) {
+            break;
+        }
+        case pluralRanges: {
+            PluralRangesMapper mapper = new PluralRangesMapper(sourceDir);
+            icuData = mapper.fillFromCldr();
+            break;
+        }
+        case dayPeriods: {
             DayPeriodsMapper mapper = new DayPeriodsMapper(sourceDir);
             icuData = mapper.fillFromCldr();
-        } else {
+            break;
+        }
+        default: {
             SupplementalMapper mapper = SupplementalMapper.create(sourceDir);
             if (debugXPath != null) {
                 mapper.setDebugXPath(debugXPath);
             }
             icuData = mapper.fillFromCldr(type.toString());
+        }
         }
         writeIcuData(icuData, destinationDir);
     }

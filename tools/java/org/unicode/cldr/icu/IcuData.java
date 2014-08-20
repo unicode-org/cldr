@@ -105,7 +105,7 @@ public class IcuData implements Iterable<String> {
      * @param value
      * @return
      */
-    public void add(String path, String[] values) {
+    public void add(String path, String... values) {
         List<String[]> list = rbPathToValues.get(path);
         if (list == null) {
             rbPathToValues.put(path, list = new ArrayList<String[]>(1));
@@ -131,7 +131,7 @@ public class IcuData implements Iterable<String> {
         }
     }
 
-    public void replace(String path, String[] values) {
+    public void replace(String path, String... values) {
         List<String[]> list = new ArrayList<String[]>(1);
         rbPathToValues.put(path, list);
         list.add(normalizeValues(path, values));

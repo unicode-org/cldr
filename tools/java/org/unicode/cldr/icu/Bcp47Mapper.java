@@ -15,7 +15,7 @@ import org.xml.sax.SAXException;
  */
 public class Bcp47Mapper {
     private static final String[] KEYTYPE_FILES = {
-        "calendar", "collation", "currency", "number"
+        "calendar", "collation", "currency", "number", "variant"
     };
     private String sourceDir;
 
@@ -50,6 +50,7 @@ public class Bcp47Mapper {
         // Add aliases for timezone data.
         keyTypeData.add("/typeAlias/timezone:alias", "/ICUDATA/timezoneTypes/typeAlias/timezone");
         keyTypeData.add("/typeMap/timezone:alias", "/ICUDATA/timezoneTypes/typeMap/timezone");
+        keyTypeData.add("/bcpTypeAlias/tz:alias", "/ICUDATA/timezoneTypes/bcpTypeAlias/tz");
         return new IcuData[] { timezoneData, keyTypeData };
     }
 

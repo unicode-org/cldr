@@ -721,6 +721,19 @@ public class GenerateMaximalLocales {
         { "yi", "yi_Hebr_001" },
         { "yi_Hebr", "yi_Hebr_001" },
         { "zh_Hani", "zh_Hani_CN" },
+        
+        { "zh_Bopo", "zh_Bopo_TW" },
+        { "ccp_Cakm", "ccp_Cakm_BD" },
+        { "cu_Glag", "cu_Glag_BG" },
+        { "sd_Khoj", "sd_Khoj_IN" },
+        { "lif_Limb", "lif_Limb_IN" },
+        { "grc_Linb", "grc_Linb_GR" },
+        { "arc_Nbat", "arc_Nbat_JO" },
+        { "arc_Palm", "arc_Palm_SY" },
+        { "pal_Phlp", "pal_Phlp_CN" },
+        { "en_Shaw", "en_Shaw_GB" },
+        { "sd_Sind", "sd_Sind_IN" },
+        { "und_Brai", "fr_Brai_FR" }, // hack
     });
 
     private static NumberFormat percent = NumberFormat.getPercentInstance();
@@ -956,7 +969,10 @@ public class GenerateMaximalLocales {
             Info i = ScriptMetadata.getInfo(script);
             String likelyLanguage = i.likelyLanguage;
             String originCountry = i.originCountry;
-            add("und_" + script, likelyLanguage + "_" + script + "_" + originCountry, toMaximized, "S->LR",
+            final String result = likelyLanguage + "_" + script + "_" + originCountry;
+            add("und_" + script, result, toMaximized, "S->LR•",
+                Override.KEEP_EXISTING, SHOW_ADD);
+            add(likelyLanguage, result, toMaximized, "L->SR•",
                 Override.KEEP_EXISTING, SHOW_ADD);
         }
 

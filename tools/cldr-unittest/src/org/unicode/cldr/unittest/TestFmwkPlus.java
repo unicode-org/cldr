@@ -64,7 +64,7 @@ public class TestFmwkPlus extends TestFmwk {
             ? ((Transliterator) transform).getID()
             : transform.getClass().getSimpleName();
         return prefix
-            + sourceLocation() + " "
+            + sourceLocationPlus() + " "
             + (message == null ? "" : message + " : ")
             + "got ‹" + actual + "› from "
             + simpleName + "(‹" + source + "›)";
@@ -80,7 +80,7 @@ public class TestFmwkPlus extends TestFmwk {
             others.append(relation.showOther(arg));
         }
         return prefix
-            + sourceLocation() + " "
+            + sourceLocationPlus() + " "
             + (message == null ? "" : message + " : ")
             + relation.showFirst(arg0)
             + (expected ? " " : " NOT ")
@@ -303,7 +303,7 @@ public class TestFmwkPlus extends TestFmwk {
         }
     };
 
-    private String sourceLocation() {
+    private String sourceLocationPlus() {
         // Walk up the stack to the first call site outside this file
         StackTraceElement[] st = new Throwable().getStackTrace();
         for (int i = 0; i < st.length; ++i) {

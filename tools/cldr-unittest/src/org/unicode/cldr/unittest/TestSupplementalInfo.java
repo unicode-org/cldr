@@ -486,6 +486,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         for (String script : SUPPLEMENTAL.getCLDRScriptCodes()) {
             if (!likely.containsKey("und_" + script) &&
                     !script.equals("Latn") &&
+                    !script.equals("Zyyy") &&
                     ScriptMetadata.getInfo(script) != null &&
                     ScriptMetadata.getInfo(script).idUsage != ScriptMetadata.IdUsage.EXCLUSION &&
                     ScriptMetadata.getInfo(script).idUsage != ScriptMetadata.IdUsage.UNKNOWN) {

@@ -465,8 +465,8 @@ public class SupplementalDataInfo {
      * @author markdavis
      */
     public static final class DateRange implements Comparable<DateRange> {
-        static final long START_OF_TIME = Long.MIN_VALUE;
-        static final long END_OF_TIME = Long.MAX_VALUE;
+        public static final long START_OF_TIME = Long.MIN_VALUE;
+        public static final long END_OF_TIME = Long.MAX_VALUE;
         public final long from;
         public final long to;
 

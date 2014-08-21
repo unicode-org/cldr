@@ -49,6 +49,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.ContainmentStyle;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.DateRange;
 import org.unicode.cldr.util.SupplementalDataInfo.MetaZoneRange;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -1362,7 +1363,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     }
 
     public void TestMetazones() {
-        Date goalMin = new Date(70,0,2);
+        Date goalMin = new Date(70,0,1);
         Date goalMax = new Date(300,0,2);
         for (String timezoneRaw : TimeZone.getAvailableIDs()) {
             String timezone = TimeZone.getCanonicalID(timezoneRaw);
@@ -1370,10 +1371,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             if (!timezone.equals(timezoneRaw) || "001".equals(region)) {
                 continue;
             }
-            if ((timezone.equals("Asia/Chongqing")
-                    || timezone.equals("Asia/Harbin")
-                    || timezone.equals("Asia/Kashgar"))
-                    && logKnownIssue("cldrbug:7802", "ICU/CLDR time zone data sync problem")) {
+            if (timezone.equals("America/Montreal")) {
+                // Montreal was deprecated. It's still 'available' in the tz database and ICU,
+            	// but no mapping data in CLDR.
                 continue;
             }
             final Set<MetaZoneRange> ranges = SUPPLEMENTAL.getMetaZoneRanges(timezone);
@@ -1382,11 +1382,15 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 long min = Long.MAX_VALUE;
                 long max = Long.MIN_VALUE;
                 for (MetaZoneRange range : ranges) {
-                    min = Math.min(min, range.dateRange.from);
-                    max = Math.max(max, range.dateRange.to);
+                    if (range.dateRange.from != DateRange.START_OF_TIME) {
+                        min = Math.min(min, range.dateRange.from);
+                    }
+                    if (range.dateRange.to != DateRange.END_OF_TIME) {
+                        max = Math.max(max, range.dateRange.to);
+                    }
                 }
-                assertRelation(timezone + " has metazone from 1970?", true, goalMin, GEQ, new Date(min));
-                assertRelation(timezone + " has metazone until way in the future?", true, goalMax, LEQ, new Date(max));
+                assertRelation(timezone + " has metazone before 1970?", true, goalMin, LEQ, new Date(min));
+                assertRelation(timezone + " has metazone until way in the future?", true, goalMax, GEQ, new Date(max));
             }
         }
         com.google.common.collect.Interners i;

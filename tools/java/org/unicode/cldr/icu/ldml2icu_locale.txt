@@ -100,13 +100,26 @@
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/intervalFormats/intervalFormatFallback ; /calendar/$1/intervalFormats/fallback
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="(am|pm)"] ; /calendar/$1/AmPmMarkers
-//ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="(am|pm)"] ; /calendar/$1/AmPmMarkersNarrow
 //ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="noon"] ; /calendar/$1/NoonMarker
+//ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="(am|pm)"] ; /calendar/$1/AmPmMarkersNarrow
 //ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="noon"] ; /calendar/$1/NoonMarkerNarrow
+//ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="abbreviated"]/dayPeriod[@type="(am|pm)"] ; /calendar/$1/AmPmMarkersAbbr
+//ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="abbreviated"]/dayPeriod[@type="noon"] ; /calendar/$1/NoonMarkerAbbr
+
+//ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="(am|pm)"][@alt="(%A)"] ; /calendar/$1/AmPmMarkers%$3
+//ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="noon"][@alt="(%A)"] ; /calendar/$1/NoonMarker%$3
+//ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="(am|pm)"][@alt="(%A)"] ; /calendar/$1/AmPmMarkersNarrow%$3
+//ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="noon"][@alt="(%A)"] ; /calendar/$1/NoonMarkerNarrow%$3
+//ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="abbreviated"]/dayPeriod[@type="(am|pm)"][@alt="(%A)"] ; /calendar/$1/AmPmMarkersAbbr%$3
+//ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="abbreviated"]/dayPeriod[@type="noon"][@alt="(%A)"] ; /calendar/$1/NoonMarkerAbbr%$3
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/eras/eraNarrow/era[@type="(%A)"] ; /calendar/$1/eras/narrow
 //ldml/dates/calendars/calendar[@type="(%A)"]/eras/eraAbbr/era[@type="(%A)"] ; /calendar/$1/eras/abbreviated
 //ldml/dates/calendars/calendar[@type="(%A)"]/eras/eraNames/era[@type="(%A)"] ; /calendar/$1/eras/wide
+
+//ldml/dates/calendars/calendar[@type="(%A)"]/eras/eraNarrow/era[@type="(%A)"][@alt="(%A)"] ; /calendar/$1/eras/narrow%$3
+//ldml/dates/calendars/calendar[@type="(%A)"]/eras/eraAbbr/era[@type="(%A)"][@alt="(%A)"] ; /calendar/$1/eras/abbreviated%$3
+//ldml/dates/calendars/calendar[@type="(%A)"]/eras/eraNames/era[@type="(%A)"][@alt="(%A)"] ; /calendar/$1/eras/wide%$3
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/(day|month)s/%W[@type="(%A)"]/%W[@type="(%A)"]/%W[@type="(%A)"]([@yeartype="(%A)"])? ; /calendar/$1/$2Names/$3/$4
 //ldml/dates/calendars/calendar[@type="(%A)"]/(quarters)/%W[@type="(%A)"]/%W[@type="(%A)"]/%W[@type="(?:%A)"] ; /calendar/$1/$2/$3/$4
@@ -162,7 +175,7 @@
 
 //ldml/numbers/currencies/currency[@type="(%A)"]/displayName[@count="(%A)"] ; /CurrencyPlurals/$1/$2
 
-//ldml/numbers/currencies/currency[@type="(%W)"]/symbol[@alt="narrow"] ; /Currencies%narrow/$1
+//ldml/numbers/currencies/currency[@type="(%W)"]/symbol[@alt="(%A)"] ; /Currencies%$2/$1
 //ldml/numbers/currencies/currency[@type="(%W)"]/symbol ; /Currencies/$1 ; fallback=$1
 //ldml/numbers/currencies/currency[@type="(%W)"]/displayName ; /Currencies/$1 ; fallback=$1
 //ldml/numbers/currencies/currency[@type="(%W)"]/pattern[@type="standard"]; /Currencies/$1/ ; fallback=//ldml/numbers/currencyFormats[@numberSystem="%D"]/currencyFormatLength/currencyFormat[@type="standard"]/pattern[@type="standard"]

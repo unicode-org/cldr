@@ -77,6 +77,18 @@ public class TestLdml2ICU extends TestFmwk {
         checkLocaleRegexes("root");
     }
 
+    public void TestRussian() {
+        checkLocaleRegexes("ru");
+    }
+
+    public void TestJapanese() {
+        checkLocaleRegexes("ja");
+    }
+
+    public void TestTamil() {
+        checkLocaleRegexes("ta");
+    }
+
     public void TestSupplemental() {
         checkSupplementalRegexes("supplementalData");
     }

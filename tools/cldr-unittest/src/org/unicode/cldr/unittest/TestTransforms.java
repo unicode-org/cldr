@@ -17,6 +17,7 @@ import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
@@ -255,15 +256,20 @@ public class TestTransforms extends TestFmwkPlus {
         Transliterator azLower = checkString("az", Casing.Lower, "ısii isıı", turkishSource, true);
         Transliterator azUpper = checkString("az", Casing.Upper, "ISİİ İSII", turkishSource, true);
 
-        if (!logKnownIssue("cldrbug:7039", "Investigate/fix lt casing transforms")) {
-            String lithuanianSource = "I Ï J J̈ Į Į̈ Ì Í Ĩ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ XI XÏ XJ XJ̈ XĮ XĮ̈";
+        String lithuanianSource =
+            "I \u00CF J J\u0308 \u012E \u012E\u0308 \u00CC \u00CD \u0128 xi\u0307\u0308 xj\u0307\u0308 x\u012F\u0307\u0308 xi\u0307\u0300 xi\u0307\u0301 xi\u0307\u0303 XI X\u00CF XJ XJ\u0308 X\u012E X\u012E\u0308";
+        if (!logKnownIssue("ICU #11094", "Fix ICU4J UCharacter.toTitleCase/toLowerCase for lt")) {
             Transliterator ltTitle = checkString("lt", Casing.Title,
-                "I Ï J J̈ Į Į̈ Ì Í Ĩ Xi̇̈ Xj̇̈ Xį̇̈ Xi̇̀ Xi̇́ Xi̇̃ Xi Xi̇̈ Xj Xj̇̈ Xį Xį̇̈", lithuanianSource, true);
+                "I \u00CF J J\u0308 \u012E \u012E\u0308 \u00CC \u00CD \u0128 Xi\u0307\u0308 Xj\u0307\u0308 X\u012F\u0307\u0308 Xi\u0307\u0300 Xi\u0307\u0301 Xi\u0307\u0303 Xi Xi\u0307\u0308 Xj Xj\u0307\u0308 X\u012F X\u012F\u0307\u0308",
+                lithuanianSource, true);
             Transliterator ltLower = checkString("lt", Casing.Lower,
-                "i i̇̈ j j̇̈ į į̇̈ i̇̀ i̇́ i̇̃ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ xi xi̇̈ xj xj̇̈ xį xį̇̈", lithuanianSource, true);
-            Transliterator ltUpper = checkString("lt", Casing.Upper, "I Ï J J̈ Į Į̈ Ì Í Ĩ XÏ XJ̈ XĮ̈ XÌ XÍ XĨ XI XÏ XJ XJ̈ XĮ XĮ̈",
+                "i i\u0307\u0308 j j\u0307\u0308 \u012F \u012F\u0307\u0308 i\u0307\u0300 i\u0307\u0301 i\u0307\u0303 xi\u0307\u0308 xj\u0307\u0308 x\u012F\u0307\u0308 xi\u0307\u0300 xi\u0307\u0301 xi\u0307\u0303 xi xi\u0307\u0308 xj xj\u0307\u0308 x\u012F x\u012F\u0307\u0308",
                 lithuanianSource, true);
         }
+        Transliterator ltUpper = checkString("lt", Casing.Upper,
+            "I \u00CF J J\u0308 \u012E \u012E\u0308 \u00CC \u00CD \u0128 X\u00CF XJ\u0308 X\u012E\u0308 X\u00CC X\u00CD X\u0128 XI X\u00CF XJ XJ\u0308 X\u012E X\u012E\u0308",
+            lithuanianSource, true);
+
         String dutchSource = "IJKIJ ijkij IjkIj";
         Transliterator nlTitle = checkString("nl", Casing.Title, "IJkij IJkij IJkij", dutchSource, true);
         //        Transliterator nlLower = checkString("nl", Casing.Lower, "ısii isıı", turkishSource);
@@ -275,15 +281,16 @@ public class TestTransforms extends TestFmwkPlus {
         String result = checkString(locale, expected, source, translit);
         ULocale ulocale = new ULocale(locale);
         String specialCasing;
+        Normalizer2 normNFC = Normalizer2.getNFCInstance(); // UCharacter.toXxxCase doesn't normalize, Transliterator does
         switch (casing) {
         case Upper:
-            specialCasing = UCharacter.toUpperCase(ulocale, source);
+            specialCasing = normNFC.normalize(UCharacter.toUpperCase(ulocale, source));
             break;
         case Title:
-            specialCasing = UCharacter.toTitleCase(ulocale, source, null);
+            specialCasing = normNFC.normalize(UCharacter.toTitleCase(ulocale, source, null));
             break;
         case Lower:
-            specialCasing = UCharacter.toLowerCase(ulocale, source);
+            specialCasing = normNFC.normalize(UCharacter.toLowerCase(ulocale, source));
             break;
         default:
             throw new IllegalArgumentException();

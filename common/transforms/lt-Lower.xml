@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -10,8 +10,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<generation date="$Date$"/>
 	<transforms>
 		<transform source="lt" target="Lower" direction="forward">
-			<comment># Copyright (C) 2011-2013, Google, Inc.; Unicode, Inc.; and others. All Rights Reserved.</comment>
-			<comment># Introduce an explicit dot above when lowercasing capital I's and J's</comment>
+			<comment># Copyright (C) 2011-2014, Google, Inc.; Unicode, Inc.; and others. All Rights Reserved.</comment>
+			<comment># Introduce an explicit dot above when lowercasing capital Is and Js</comment>
 			<comment># whenever there are more accents above.</comment>
 			<comment># (of the accents used in Lithuanian: grave, acute, tilde above, and ogonek)</comment>
 			<comment># 0049; 0069 0307; 0049; 0049; lt More_Above; # LATIN CAPITAL LETTER I</comment>
@@ -23,10 +23,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<tRule>::NFD();</tRule>
 			<tRule>I } [^[:ccc=Not_Reordered:][:ccc=Above:]]* [:ccc=Above:] → i \u0307;</tRule> 
 			<tRule>J } [^[:ccc=Not_Reordered:][:ccc=Above:]]* [:ccc=Above:] → j \u0307;</tRule> 
-			<tRule>Į } [^[:ccc=Not_Reordered:][:ccc=Above:]]* [:ccc=Above:] → į \u0307;</tRule> 
-			<tRule>Ì → i \u0307 \u0300;</tRule> 
-			<tRule>Í → i \u0307 \u0301;</tRule> 
-			<tRule>Ĩ → i \u0307 \u0303;</tRule> 
+			<tRule>I \u0328 } [^[:ccc=Not_Reordered:][:ccc=Above:]]* [:ccc=Above:] → i \u0328 \u0307;</tRule> 
+			<tRule>I \u0300 → i \u0307 \u0300;</tRule> 
+			<tRule>I \u0301 → i \u0307 \u0301;</tRule> 
+			<tRule>I \u0303 → i \u0307 \u0303;</tRule> 
 			<tRule>::Any-Lower();</tRule>
 			<tRule>::NFC();</tRule>
 		</transform>

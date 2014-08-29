@@ -82,8 +82,10 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center"><span class="changed">Proposed Update
-		</span>Unicode Technical Standard #35</h2>
+		<h2 style="text-align: center">
+			<span class="changed">Proposed Update </span>Unicode Technical
+			Standard #35
+		</h2>
 		<h1 style="text-align: center">Unicode Locale Data Markup
 			Language (LDML)</h1>
 
@@ -103,18 +105,17 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2014-08-13</span></td>
+				<td><span class="changed">2014-08-29</span></td>
 			</tr>
 			<tr>
 				<td>This Version</td>
-				<td>
-				<a class="changed" ignoreuntilreleasehref="http://www.unicode.org/reports/tr35/tr35-36/tr35.html">http://www.unicode.org/reports/tr35/tr35-36/tr35.html</a></td>
+				<td><a class="changed"
+					ignoreuntilreleasehref="http://www.unicode.org/reports/tr35/tr35-36/tr35.html">http://www.unicode.org/reports/tr35/tr35-36/tr35.html</a></td>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
 			</tr>
 			<tr>
 				<td>Previous Version</td>
-				<td>
-				<a class="changed"
+				<td><a class="changed"
 					href="http://www.unicode.org/reports/tr35/tr35-35/tr35.html">http://www.unicode.org/reports/tr35/tr35-35/tr35.html</a></td>
 			</tr>
 			<tr>
@@ -248,34 +249,42 @@ h2,h3,h4,table {
 									47 Language Tag Conversion</a></li>
 						</ul>
 					</li>
-					<li>3.4 <a href="#Field_Definitions">Field Definitions</a></li>
-					<li>3.5 <a href="#Key_And_Type_Definitions_">Key And Type
-							Definitions</a></li>
-					<li>3.6 <a href="#Unknown_or_Invalid_Identifiers">Special
-							Codes</a>
+					<li>3.4 <a href="#Field_Definitions"><span class="changed">Language
+								Identifier </span>Field Definitions</a></li>
+					<li><span class="changed">3.5</span> <a
+						href="#Unknown_or_Invalid_Identifiers">Special Codes</a>
 						<ul class="toc">
-							<li>3.6.1 <a href="#Unknown_or_Invalid_Identifiers">Unknown
-									or Invalid Identifiers</a></li>
-							<li>3.6.2 <a href="#Numeric_Codes">Numeric Codes</a></li>
-							<li>3.6.3 <a href="#Numeric_Codes">Priviate Use Codes</a></li>
-						</ul>
-					</li>
-					<li>3.7 <a href="#Locale_Extension_Key_and_Type_Data">Unicode
-							BCP 47 Extension Data</a>
+							<li><span class="changed">3.5</span>.1 <a
+								href="#Unknown_or_Invalid_Identifiers">Unknown or Invalid
+									Identifiers</a></li>
+							<li><span class="changed">3.5</span>.2 <a
+								href="#Numeric_Codes">Numeric Codes</a></li>
+							<li><span class="changed">3.5</span>.3 <a
+								href="#Numeric_Codes">Priviate Use Codes</a></li>
+						</ul></li>
+					<li><span class="changed">3.6 </span><a
+						href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 U
+							Extension<span class="removed"> Data</span>
+					</a>
 						<ul class="toc">
-							<li>3.7.1 <a href="#Unicode_Locale_Extension_Data_Files">Unicode
-									Locale Extension Data Files</a>
-								<ul class="toc">
-									<li>3.7.1.1 <a href="#Numbering System Data">Numbering
-											System Data</a></li>
-									<li>3.7.1.2 <a href="#Time_Zone_Identifiers">Time Zone
-											Identifiers</a></li>
-								</ul>
-							</li>
-							<li>3.7.2 <a href="#Transformed_Content_Data_File">Transformed
-									Content Data File</a></li>
-						</ul>
-					</li>
+							<li><span class="changed">3.6.1</span> <a
+								href="#Key_And_Type_Definitions_">Key And Type Definitions</a></li>
+							<li><span class="changed">3.6.2</span> <a
+								href="#Numbering System Data">Numbering System Data</a></li>
+							<li><span class="changed">3.6.3</span><a
+								href="#Time_Zone_Identifiers"> Time Zone Identifiers</a></li>
+							<li><span class="changed">3.6.4</span><a
+								href="#Unicode_Locale_Extension_Data_Files"> <span
+									class="changed">U</span> Extension Data Files
+							</a></li>
+						</ul></li>
+					<li><span class="changed">3.7 <a
+							href="#BCP47_T_Extension">Unicode BCP 47 T Extension</a></span></li>
+					<ul class="toc">
+						<li><span class="changed">3.7.1</span> <a
+							href="#Transformed_Content_Data_File"><span class="changed">T</span>
+								Extension Data Files</a></li>
+					</ul>
 					<li>3.8 <a href="#Compatibility_with_Older_Identifiers">Compatibility
 							with Older Identifiers</a>
 						<ul class="toc">
@@ -405,7 +414,8 @@ h2,h3,h4,table {
 						href="#Renamed_attribute_values_for_contextTransformUsage">
 							Renamed attribute values for &lt;contextTransformUsage&gt;
 							element</a></li>
-					<li class="changed">8.13 <a href="#Deprecated_subelements_of_segmentations">Deprecated
+					<li class="changed">8.13 <a
+						href="#Deprecated_subelements_of_segmentations">Deprecated
 							subelements of &lt;segmentations&gt;</a></li>
 				</ul>
 			</li>
@@ -617,6 +627,13 @@ h2,h3,h4,table {
 			process of identifier translation may be required when using LDML
 			data.
 		</p>
+		<p class="changed">
+			The BCP47 extensions (-u- and -t-) are described in <em>Section
+				3.6 <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47
+					U Extension</a>
+			</em> and <em>Section 3.7 <a href="#BCP47_T_Extension">Unicode
+					BCP 47 T Extension</a></em>.
+		</p>
 		<h3>
 			<i><a name="Unicode_language_identifier"
 				href="#Unicode_language_identifier">3.1 Unicode Language
@@ -663,7 +680,8 @@ h2,h3,h4,table {
 		</h3>
 		<p>
 			A <i>Unicode locale identifier</i> is composed of a Unicode language
-			identifier plus (optional) locale extensions. It has the following
+			identifier plus (optional) locale extensions<span class="changed">
+				(U and T)</span>. It has the following
 		</p>
 		<table border="0">
 			<tr>
@@ -758,8 +776,9 @@ h2,h3,h4,table {
 		<p>
 			Although not shown in the syntax above, Unicode locale identifiers
 			may also have [<a href="#BCP47">BCP47</a>] extensions (other than
-			&quot;u&quot;) and private use subtags; these are not, however,
-			relevant to their use in Unicode.
+			&quot;u&quot;<span class="changed"> and &quot;t&quot;</span>) and
+			private use subtags; these are not, however, relevant to their use in
+			Unicode.
 		</p>
 		<p></p>
 		<p>
@@ -824,6 +843,7 @@ h2,h3,h4,table {
 			A Unicode language/locale identifier can be converted to a valid [<a
 				href="#BCP47">BCP 47</a>] language tag by performing the following
 			transformation.
+		</p>
 		<ol>
 			<li>Replace the "_" separators with "-"</li>
 			<li>Replace the special language identifier "root" with the BCP
@@ -851,6 +871,7 @@ h2,h3,h4,table {
 			A valid [<a href="#BCP47">BCP 47</a>] language tag can be converted
 			to a valid Unicode language/locale identifier by performing the
 			following transformation.
+		</p>
 		<ol>
 			<li>Canonicalize the language tag (afterwards, there will be no
 				extlang subtag)</li>
@@ -948,8 +969,9 @@ h2,h3,h4,table {
 			certain [<a href="#BCP47">BCP 47</a>] grandfathered tags.
 		</p>
 		<h3>
-			<a name="Field_Definitions" href="#Field_Definitions">3.4 Field
-				Definitions</a>
+			<a name="Field_Definitions" href="#Field_Definitions">3.4 <span
+				class="changed">Language Identifier </span>Field Definitions
+			</a>
 		</h3>
 		<p>Unicode language and locale identifier field values are
 			provided in the following table. Note that some private-use BCP 47
@@ -957,8 +979,9 @@ h2,h3,h4,table {
 		<table>
 			<caption>
 				<a name="Language_Locale_Field_Definitions"
-					href="#Language_Locale_Field_Definitions">Language/Locale Field
-					Definitions</a>
+					href="#Language_Locale_Field_Definitions">Language <span
+					class='changed'>Identifier</span> Field Definitions
+				</a>
 			</caption>
 			<tr>
 				<th>Field</th>
@@ -969,6 +992,7 @@ h2,h3,h4,table {
 				<td>unicode_language_subtag
 					<p>
 						(also known as a <i>Unicode base language code)</i>
+					</p>
 				</td>
 				<td>ASCII letters</td>
 				<td>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
@@ -1041,6 +1065,7 @@ h2,h3,h4,table {
 				<td>unicode_script_subtag
 					<p>
 						(also known as a <i>Unicode script code)</i>
+					</p>
 				</td>
 				<td>ASCII letters</td>
 				<td>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
@@ -1104,6 +1129,7 @@ h2,h3,h4,table {
 					<p>
 						(also known as a <i>Unicode region code, </i>or<i> a Unicode
 							territory code)</i>
+					</p>
 				</td>
 				<td>ASCII letters and digits</td>
 				<td>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
@@ -1165,34 +1191,12 @@ h2,h3,h4,table {
 				<td>unicode_variant_subtag
 					<p>
 						(also known as a <i>Unicode language variant code)</i>
+					</p>
 				</td>
 				<td>ASCII letters</td>
 				<td>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						variant</b>
 					<p>The CLDR provides data for normalizing variant codes.</p></td>
-			</tr>
-			<tr>
-				<td><i>attribute</i></td>
-				<td>ASCII letters and digits</td>
-				<td>Currently not used, reserved for future use.</td>
-			</tr>
-			<tr>
-				<td><i>key</i></td>
-				<td>ASCII letters and digits</td>
-				<td rowspan="2"><i>key</i>/<i>type</i> definitions are
-					discussed below. For information on the process for adding new <i>key</i>/<i>type</i>,
-					see [<a href="#localeProject">LocaleProject</a>].
-					<p>All type values except ones used for key "ka" (colAlternate)
-						and "vt" (variableTop) are represented by a single subtag in the
-						current version of CLDR. If the type is not included, and one of
-						the possible type values is &quot;true&quot;, then that value is
-						assumed. Note that the default for key with a possible
-						&quot;true&quot; value is often &quot;false&quot;, but may not
-						always be.</p></td>
-			</tr>
-			<tr>
-				<td><i>type</i></td>
-				<td>ASCII letters and digits</td>
 			</tr>
 		</table>
 		<p>
@@ -1201,7 +1205,8 @@ h2,h3,h4,table {
 		<blockquote>
 			<pre>en
 fr_BE
-de_DE_u_co_phonebk_cu_ddm</pre>
+<span class="changed">zh-Hant-HK</span>
+			</pre>
 		</blockquote>
 		<p>
 			A locale that only has a language subtag (and optionally a script
@@ -1210,337 +1215,12 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 				locale</i>).
 		</p>
 		<h3>
-			<a name="Key_And_Type_Definitions_" href="#Key_And_Type_Definitions_">3.5
-				Key And Type Definitions</a>
-		</h3>
-		<p>
-			The following chart contains a set of key values that are currently
-			available, with a description or sampling of type values. Each
-			category is associated with an XML file in the bcp47 directory. For
-			the complete list of valid keys and types defined for Unicode locale
-			extensions, see <a href="#Locale_Extension_Key_and_Type_Data">Section
-				3.7 Unicode BCP 47 Extension Data</a>.
-		</p>
-		<p>The BCP47 form is the canonical form, and recommended. Other
-			aliases are included for backwards compatibility.
-		<table>
-			<caption>
-				<a name="Key_Type_Definitions" href="#Key_Type_Definitions">Key/Type
-					Definitions</a>
-			</caption>
-			<tr>
-				<th>category</th>
-				<th>key<br>(old key name)
-				</th>
-				<th>key description</th>
-				<th>type<br>(old type name)
-				</th>
-				<th>type description</th>
-			</tr>
-
-			<tr>
-				<td rowspan="10"><p>Calendar</p>
-					<p>
-						<em>bcp47/calendar.xml</em>
-					</p></td>
-				<td rowspan="10">"ca"<br>(calendar)
-				</td>
-				<td rowspan="10">Calendar algorithm<br> <br> <i>(For
-						information on the calendar algorithms associated with the data
-						used with these, see [<a href="#Calendars">Calendars</a>].)
-				</i></td>
-				<td>"buddhist"</td>
-				<td>Thai Buddhist calendar (same as Gregorian except for the
-					year)</td>
-			</tr>
-
-			<tr>
-				<td>"chinese"</td>
-				<td>Traditional Chinese calendar</td>
-			</tr>
-
-
-			<tr>
-				<td colspan="2">…</td>
-			</tr>
-
-			<tr>
-				<td>"gregory"<br>(gregorian)
-				</td>
-				<td>Gregorian calendar</td>
-			</tr>
-
-			<tr>
-				<td colspan="2">…</td>
-			</tr>
-
-			<tr>
-				<td>"islamic"</td>
-				<td>Islamic calendar</td>
-			</tr>
-
-			<tr>
-				<td>"islamic-civil"</td>
-				<td>Islamic calendar, tabular (intercalary years
-					[2,5,7,10,13,16,18,21,24,26,29] - civil epoch)</td>
-			</tr>
-
-			<tr>
-				<td>"islamic-umalqura"</td>
-				<td>Islamic calendar, Umm al-Qura</td>
-			</tr>
-
-			<tr>
-				<td colspan="2">…</td>
-			</tr>
-
-			<tr>
-				<td colspan="2"><b>Note:</b> <i>Some calendar types are
-						represented by two subtags. In such cases, the first subtag
-						specifies a generic calendar type and the second subtag specifies
-						a calendar algorithm variant. The CLDR uses generic calendar types
-						(single subtag types) for tagging data when calendar algorithm
-						variations within a generic calendar type are irrelevant. For
-						example, type "islamic" is used for specifying Islamic calendar
-						formatting data for all Islamic calendar types, including
-						"islamic-civil" and "islamic-umalqura".</i></td>
-			</tr>
-
-			<tr>
-				<td rowspan="10"><p>Collation</p>
-					<p>
-						<em>bcp47/collation.xml</em>
-					</p></td>
-				<td rowspan="9">"co"<br>(collation)
-				</td>
-				<td rowspan="9">Collation type</td>
-
-				<td>"standard"</td>
-				<td>The default ordering for each language. For root it is
-					based on the [<a href="#DUCET">DUCET</a>] (Default Unicode
-					Collation Element Table): see <em><a
-						href="tr35-collation.html#Root_Collation">Root Collation</a></em>. Each
-					other locale is based on that, except for appropriate modifications
-					to certain characters for that language.
-				</td>
-			</tr>
-
-			<tr>
-				<td>"search"</td>
-				<td>A special collation type dedicated for string search—it is
-					not used to determine the relative order of two strings, but only
-					to determine whether they should be considered equivalent for the
-					specified strength, using the string search matching rules
-					appropriate for the language. Compared to the normal collator for
-					the language, this may add or remove primary equivalences, may make
-					additional characters ignorable or change secondary equivalences,
-					and may modify contractions to allow matching within them,
-					depending on the desired behavior. For example, in Czech, the
-					distinction between ‘a’ and ‘á’ is secondary for normal collation,
-					but primary for search; a search for ‘a’ should never match ‘á’ and
-					vice versa. A search collator is normally used with strength set to
-					PRIMARY or SECONDARY (should be SECONDARY if using “asymmetric”
-					search as described in the [<a
-					href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] section
-					Asymmetric Search). The search collator in root supplies matching
-					rules that are appropriate for most languages (and which are
-					different than the root collation behavior); language-specific
-					search collators may be provided to override the matching rules for
-					a given language as necessary.
-				</td>
-			</tr>
-
-			<tr>
-				<td colspan=2><p>
-						Other keywords provide additional choices for certain locales; <i>they
-							only have effect in certain locales.</i>
-					</p></td>
-			</tr>
-
-			<tr>
-				<td colspan="2">…</td>
-			</tr>
-
-			<tr>
-				<td>"phonetic"</td>
-				<td>Requests a phonetic variant if available, where text is
-					sorted based on pronunciation. It may interleave different scripts,
-					if multiple scripts are in common use.</td>
-			</tr>
-
-			<tr>
-				<td>"pinyin"</td>
-				<td>Pinyin ordering for Latin and for CJK characters; that is,
-					an ordering for CJK characters based on a character-by-character
-					transliteration into a pinyin. (used in Chinese)</td>
-			</tr>
-
-			<tr>
-				<td>"reformed"</td>
-				<td>Reformed collation (such as in Swedish)</td>
-			</tr>
-
-			<tr>
-				<td>"searchjl"</td>
-				<td>Special collation type for a modified string search in
-					which a pattern consisting of a sequence of Hangul initial
-					consonants (jamo lead consonants) will match a sequence of Hangul
-					syllable characters whose initial consonants match the pattern. The
-					jamo lead consonants can be represented using conjoining or
-					compatibility jamo. This search collator is best used at SECONDARY
-					strength with an "asymmetric" search as described in the [<a
-					href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] section
-					Asymmetric Search and obtained, for example, using ICU4C's usearch
-					facility with attribute USEARCH_ELEMENT_COMPARISON set to value
-					USEARCH_PATTERN_BASE_WEIGHT_IS_WILDCARD; this ensures that a full
-					Hangul syllable in the search pattern will only match the same
-					syllable in the searched text (instead of matching any syllable
-					with the same initial consonant), while a Hangul initial consonant
-					in the search pattern will match any Hangul syllable in the
-					searched text with the same initial consonant.
-				</td>
-			</tr>
-
-			<tr>
-				<td colspan="2">…</td>
-			</tr>
-			<tr>
-				<td colspan="4"><i>For information on each collation
-						setting parameter, from <strong>ka</strong> to <strong>vt</strong>,
-						see <a href="tr35-collation.html#Setting_Options">Setting
-							Options</a>
-				</i></td>
-			</tr>
-
-
-
-			<tr>
-				<td><p>Currency</p>
-					<p>
-						<em>bcp47/currency.xml</em>
-					</p></td>
-				<td>"cu"<br>(currency)
-				</td>
-				<td>Currency type</td>
-				<td><i>ISO 4217 code,</i>
-					<p>
-						<i>plus others in common use</i></td>
-				<td><p>Codes that are or have been valid in ISO 4217, plus
-						certain additional codes that are or have been in common use. The
-						full list of codes, with descriptions, is available in the
-						common/main/en.xml file for each release of CLDR. The list of
-						countries and time periods associated with each currency value is
-						available.</p>
-					<p>The XXX code is given a broader interpretation as Unknown or
-						Invalid Currency.</p>
-					<p>
-						For more information, see <a
-							href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental
-							Currency Data</a>.</td>
-			</tr>
-
-			<tr>
-				<td rowspan="7"><p>Number</p>
-					<p>
-						<em>bcp47/number.xml</em>
-					</p></td>
-				<td rowspan="7">"nu"<br>(numbers)
-				</td>
-				<td rowspan="7">Numbering system</td>
-				<td><i>Unicode script subtag</i></td>
-				<td><p>
-						Four-letter types indicating the primary numbering system for the
-						corresponding script represented in Unicode. Unless otherwise
-						specified, it is a decimal numbering system using digits
-						[:GeneralCategory=Nd:]. For example, &quot;latn&quot; refers to
-						the ASCII / Western digits 0-9, while &quot;taml&quot; is an
-						algorithmic (non-decimal) numbering system. (The code "tamldec" is
-						indicates the "modern Tamil decimal digits".)<br>
-					</p> <br>
-					<p class="note">
-						For more information, see <a
-							href="tr35-numbers.html#Numbering_Systems">Numbering Systems</a>.
-					</p></td>
-			</tr>
-
-			<tr>
-				<td>"arabext"</td>
-				<td>Extended Arabic-Indic digits ("arab" means the base
-					Arabic-Indic digits)</td>
-			</tr>
-
-			<tr>
-				<td>"armnlow"</td>
-				<td>Armenian lowercase numerals</td>
-			</tr>
-
-			<tr>
-				<td colspan="2">…</td>
-			</tr>
-
-			<tr>
-				<td>"roman"</td>
-				<td>Roman numerals</td>
-			</tr>
-
-			<tr>
-				<td>"romanlow"</td>
-				<td>Roman lowercase numerals</td>
-			</tr>
-
-			<tr>
-				<td>"tamldec"</td>
-				<td>Modern Tamil decimal digits</td>
-			</tr>
-
-			<tr>
-				<td><p>Time zone</p>
-					<p>
-						<em>bcp47/timezone.xml</em>
-					</p></td>
-				<td>"tz"<br>(timezone)
-				</td>
-				<td>Time zone</td>
-				<td><i>Unicode short time zone IDs</i></td>
-				<td><p>
-						Short identifiers defined in terms of a TZ time zone database [<a
-							href="#Olson">Olson</a>] identifier in the file
-						common/bcp47/timezone.xml file.
-					</p>
-					<p>
-						For more information, see <a href="#Time_Zone_Identifiers">Section
-							3.7.1.2 Time Zone Identifiers</a>.
-					<p>The CLDR provides data for normalizing timezone codes.</p></td>
-			</tr>
-
-			<tr>
-				<td><p>Locale variant</p>
-					<p>
-						<em>bcp47/variant.xml</em>
-					</p></td>
-				<td>"va"</td>
-				<td>Common variant type</td>
-				<td>"posix"</td>
-				<td>POSIX style locale variant</td>
-			</tr>
-		</table>
-
-		<p>
-			For more information on the allowed keys and types, see the specific
-			elements below, and <a href="#Locale_Extension_Key_and_Type_Data">Section
-				3.7 Locale Extension Key and Type Data</a>.
-		</p>
-
-		<p>Additional keys or types might be added in future versions.
-			Implementations of LDML should be robust to handle any syntactically
-			valid key or type values.</p>
-		<h3>
-			<a name="Special_Codes" href="#Special_Codes">3.6 Special Codes</a>
+			<a name="Special_Codes" href="#Special_Codes">3.5 Special Codes</a>
 		</h3>
 
 		<h4>
 			<a name="Unknown_or_Invalid_Identifiers"
-				href="#Unknown_or_Invalid_Identifiers">3.6.1 Unknown or Invalid
+				href="#Unknown_or_Invalid_Identifiers">3.5.1 Unknown or Invalid
 				Identifiers</a>
 		</h4>
 		<p>The following identifiers are used to indicate an unknown or
@@ -1592,7 +1272,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			tag &quot;und_Grek&quot; represents the Greek script;
 			&quot;und_US&quot; represents the US territory.</p>
 		<h4>
-			<a name="Numeric_Codes" href="#Numeric_Codes">3.6.2 Numeric Codes</a>
+			<a name="Numeric_Codes" href="#Numeric_Codes">3.5.2 Numeric Codes</a>
 		</h4>
 		<p>For region codes, ISO and the UN establish a mapping to
 			three-letter codes and numeric codes. However, this does not extend
@@ -1645,7 +1325,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		</table>
 		<br>
 		<h4>
-			3.6.3 <a name="Private_Use" href="#Private_Use">Private Use Codes</a>
+			3.5.3 <a name="Private_Use" href="#Private_Use">Private Use Codes</a>
 		</h4>
 		<p>Private use codes fall into three groups.</p>
 		<ul>
@@ -1723,15 +1403,14 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			</tr>
 		</table>
 		<p>
-			See also <em>Section 3.6.1 <a
+			See also <em>Section 3.5.1 <a
 				href="#Unknown_or_Invalid_Identifiers">Unknown or Invalid
 					Identifiers</a></em>.
 		</p>
 		<p></p>
-		<h3>
-			<a name="Locale_Extension_Key_and_Type_Data"
-				href="#Locale_Extension_Key_and_Type_Data">3.7 Unicode BCP 47
-				Extension Data</a><a name="u_Extension"></a>
+		<h3 class="changed">
+			<a name="u_Extension" href="#u_Extension">3.6 Unicode BCP 47 U
+				Extension</a><a name="Locale_Extension_Key_and_Type_Data"></a>
 		</h3>
 		<p>
 			[<a href="#BCP47">BCP47</a>] Language Tags provides a mechanism for
@@ -1744,7 +1423,8 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			authority for two BCP 47 language tag extensions: the extension 'u'
 			for Unicode locale extension [<a href="#RFC6067">RFC6067</a>] and
 			extension 't' for transformed content [<a href="#RFC6497">RFC6497</a>].
-			The Unicode BCP 47 extension data defines the complete list of
+			The Unicode BCP 47 extension data defines the complete list of valid
+			subtags.
 		</p>
 
 		<p>
@@ -1778,12 +1458,13 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			<code>keyword</code>
 			s does not matter, this specification defines the canonical form as
 			below:
+		</p>
 		<ul>
-			<li>All attributes are sorted in alphabetical order.
-			<li>All keywords are sorted by alphabetical order of keys.
-			<li>All keywords are in lowercase.
+			<li>All attributes are sorted in alphabetical order.</li>
+			<li>All keywords are sorted by alphabetical order of keys.</li>
+			<li>All keywords are in lowercase.</li>
 			<li>All keys and types use the canonical form (from the name
-				attribute; see Appendix Q).
+				attribute; see Appendix Q).</li>
 		</ul>
 		<p>For example, the canonical form of 'u' extension
 			"u-foo-bar-nu-thai-ca-buddhist" is "u-bar-foo-ca-buddhist-nu-thai".
@@ -1791,26 +1472,416 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			illustration; no attribute subtags are defined by the current CLDR
 			specification.</p>
 		<p>
-			<strong>The -t- Extension.</strong> The syntax of 't' extension
-			subtags is defined by the rule
-			<code>unicode_locale_extensions</code>
-			in <a href="#Unicode_locale_identifier">Section 3.2 Unicode
-				locale identifier</a>, except the separator of subtags
-			<code>sep</code>
-			must be always hyphen '-' when the extension is used as a part of BCP
-			47 language tag. For information about the registration process,
-			meaning, and usage of the 't' extension, see [<a href="#RFC6497">RFC6497</a>].
-		</p>
-		<p>
 			<em>See also <a
 				href="http://cldr.unicode.org/index/bcp47-extension"> Unicode
 					Extensions for BCP 47</a> on the CLDR site.
 			</em>
 		</p>
+		<h3>
+			<a href="#Key_And_Type_Definitions_" name="Key_And_Type_Definitions_"
+				class="changed">3.6.1 Key And Type Definitions</a>
+		</h3>
+		<p>
+			The following chart contains a set of <span class="changed">U
+				extension </span>key values that are currently available, with a
+			description or sampling of the <span class="changed">U
+				extension </span>type values. Each category is associated with an XML file
+			in the bcp47 directory.
+		</p>
+		<p>
+			For the complete list of valid keys and types defined for Unicode
+			locale extensions, see <a href="#Locale_Extension_Key_and_Type_Data">Section
+				3.7 Unicode BCP 47 Extension Data</a>. For information on the process
+			for adding new <i>key</i>/<i>type</i>, see [<a href="#localeProject">LocaleProject</a>].
+		</p>
+		<p>
+			<span class="changed">Most</span> type values are represented by a
+			single subtag in the current version of CLDR. <span class="changed">There
+				are exceptions, such as types used for key "ka" (colAlternate) and
+				&quot;ca&quot; (calendar).</span> If the type is not included, and one of
+			the possible type values is &quot;true&quot;, then that value is
+			assumed. Note that the default for key with a possible
+			&quot;true&quot; value is often &quot;false&quot;, but may not always
+			be.
+		</p>
+		<p>
+			The BCP47 form for <span class="changed">keys and types</span> is the
+			canonical form, and recommended. Other aliases are included for
+			backwards compatibility.
+		</p>
+		<table>
+			<caption>
+				<a name="Key_Type_Definitions" href="#Key_Type_Definitions">Key/Type
+					Definitions</a>
+			</caption>
+			<tr>
+				<th>category</th>
+				<th>key<br> (old key name)
+				</th>
+				<th>key description</th>
+				<th>type<br> (old type name)
+				</th>
+				<th>type description</th>
+			</tr>
+			<tr>
+				<td rowspan="10"><p>Calendar</p>
+					<p>
+						<em>bcp47/calendar.xml</em>
+					</p></td>
+				<td rowspan="10">"ca"<br> (calendar)
+				</td>
+				<td rowspan="10">Calendar algorithm<br> <br> <i>(For
+						information on the calendar algorithms associated with the data
+						used with these, see [<a href="#Calendars">Calendars</a>].)
+				</i></td>
+				<td>"buddhist"</td>
+				<td>Thai Buddhist calendar (same as Gregorian except for the
+					year)</td>
+			</tr>
+			<tr>
+				<td>"chinese"</td>
+				<td>Traditional Chinese calendar</td>
+			</tr>
+			<tr>
+				<td colspan="2">…</td>
+			</tr>
+			<tr>
+				<td>"gregory"<br> (gregorian)
+				</td>
+				<td>Gregorian calendar</td>
+			</tr>
+			<tr>
+				<td colspan="2">…</td>
+			</tr>
+			<tr>
+				<td>"islamic"</td>
+				<td>Islamic calendar</td>
+			</tr>
+			<tr>
+				<td>"islamic-civil"</td>
+				<td>Islamic calendar, tabular (intercalary years
+					[2,5,7,10,13,16,18,21,24,26,29] - civil epoch)</td>
+			</tr>
+			<tr>
+				<td>"islamic-umalqura"</td>
+				<td>Islamic calendar, Umm al-Qura</td>
+			</tr>
+			<tr>
+				<td colspan="2">…</td>
+			</tr>
+			<tr>
+				<td colspan="2"><b>Note:</b> <i>Some calendar types are
+						represented by two subtags. In such cases, the first subtag
+						specifies a generic calendar type and the second subtag specifies
+						a calendar algorithm variant. The CLDR uses generic calendar types
+						(single subtag types) for tagging data when calendar algorithm
+						variations within a generic calendar type are irrelevant. For
+						example, type "islamic" is used for specifying Islamic calendar
+						formatting data for all Islamic calendar types, including
+						"islamic-civil" and "islamic-umalqura".</i></td>
+			</tr>
+			<tr>
+				<td rowspan="10"><p>Collation</p>
+					<p>
+						<em>bcp47/collation.xml</em>
+					</p></td>
+				<td rowspan="9">"co"<br> (collation)
+				</td>
+				<td rowspan="9">Collation type</td>
+				<td>"standard"</td>
+				<td>The default ordering for each language. For root it is
+					based on the [<a href="#DUCET">DUCET</a>] (Default Unicode
+					Collation Element Table): see <em><a
+						href="tr35-collation.html#Root_Collation">Root Collation</a></em>. Each
+					other locale is based on that, except for appropriate modifications
+					to certain characters for that language.
+				</td>
+			</tr>
+			<tr>
+				<td>"search"</td>
+				<td>A special collation type dedicated for string search—it is
+					not used to determine the relative order of two strings, but only
+					to determine whether they should be considered equivalent for the
+					specified strength, using the string search matching rules
+					appropriate for the language. Compared to the normal collator for
+					the language, this may add or remove primary equivalences, may make
+					additional characters ignorable or change secondary equivalences,
+					and may modify contractions to allow matching within them,
+					depending on the desired behavior. For example, in Czech, the
+					distinction between ‘a’ and ‘á’ is secondary for normal collation,
+					but primary for search; a search for ‘a’ should never match ‘á’ and
+					vice versa. A search collator is normally used with strength set to
+					PRIMARY or SECONDARY (should be SECONDARY if using “asymmetric”
+					search as described in the [<a
+					href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] section
+					Asymmetric Search). The search collator in root supplies matching
+					rules that are appropriate for most languages (and which are
+					different than the root collation behavior); language-specific
+					search collators may be provided to override the matching rules for
+					a given language as necessary.
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><p>
+						Other keywords provide additional choices for certain locales; <i>they
+							only have effect in certain locales.</i>
+					</p></td>
+			</tr>
+			<tr>
+				<td colspan="2">…</td>
+			</tr>
+			<tr>
+				<td>"phonetic"</td>
+				<td>Requests a phonetic variant if available, where text is
+					sorted based on pronunciation. It may interleave different scripts,
+					if multiple scripts are in common use.</td>
+			</tr>
+			<tr>
+				<td>"pinyin"</td>
+				<td>Pinyin ordering for Latin and for CJK characters; that is,
+					an ordering for CJK characters based on a character-by-character
+					transliteration into a pinyin. (used in Chinese)</td>
+			</tr>
+			<tr>
+				<td>"reformed"</td>
+				<td>Reformed collation (such as in Swedish)</td>
+			</tr>
+			<tr>
+				<td>"searchjl"</td>
+				<td>Special collation type for a modified string search in
+					which a pattern consisting of a sequence of Hangul initial
+					consonants (jamo lead consonants) will match a sequence of Hangul
+					syllable characters whose initial consonants match the pattern. The
+					jamo lead consonants can be represented using conjoining or
+					compatibility jamo. This search collator is best used at SECONDARY
+					strength with an "asymmetric" search as described in the [<a
+					href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] section
+					Asymmetric Search and obtained, for example, using ICU4C's usearch
+					facility with attribute USEARCH_ELEMENT_COMPARISON set to value
+					USEARCH_PATTERN_BASE_WEIGHT_IS_WILDCARD; this ensures that a full
+					Hangul syllable in the search pattern will only match the same
+					syllable in the searched text (instead of matching any syllable
+					with the same initial consonant), while a Hangul initial consonant
+					in the search pattern will match any Hangul syllable in the
+					searched text with the same initial consonant.
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">…</td>
+			</tr>
+			<tr>
+				<td colspan="4"><i>For information on each collation
+						setting parameter, from <strong>ka</strong> to <strong>vt</strong>,
+						see <a href="tr35-collation.html#Setting_Options">Setting
+							Options</a>
+				</i></td>
+			</tr>
+			<tr>
+				<td><p>Currency</p>
+					<p>
+						<em>bcp47/currency.xml</em>
+					</p></td>
+				<td>"cu"<br> (currency)
+				</td>
+				<td>Currency type</td>
+				<td><i>ISO 4217 code,</i>
+					<p>
+						<i>plus others in common use</i>
+					</p></td>
+				<td><p>Codes that are or have been valid in ISO 4217, plus
+						certain additional codes that are or have been in common use. The
+						full list of codes, with descriptions, is available in the
+						common/main/en.xml file for each release of CLDR. The list of
+						countries and time periods associated with each currency value is
+						available.</p>
+					<p>The XXX code is given a broader interpretation as Unknown or
+						Invalid Currency.</p>
+					<p>
+						For more information, see <a
+							href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental
+							Currency Data</a>.
+					</p></td>
+			</tr>
+			<tr>
+				<td rowspan="7"><p>Number</p>
+					<p>
+						<em>bcp47/number.xml</em>
+					</p></td>
+				<td rowspan="7">"nu"<br> (numbers)
+				</td>
+				<td rowspan="7">Numbering system</td>
+				<td><i>Unicode script subtag</i></td>
+				<td><p>
+						Four-letter types indicating the primary numbering system for the
+						corresponding script represented in Unicode. Unless otherwise
+						specified, it is a decimal numbering system using digits
+						[:GeneralCategory=Nd:]. For example, &quot;latn&quot; refers to
+						the ASCII / Western digits 0-9, while &quot;taml&quot; is an
+						algorithmic (non-decimal) numbering system. (The code "tamldec" is
+						indicates the "modern Tamil decimal digits".)<br>
+					</p> <br>
+					<p class="note">
+						For more information, see <a
+							href="tr35-numbers.html#Numbering_Systems">Numbering Systems</a>.
+					</p></td>
+			</tr>
+			<tr>
+				<td>"arabext"</td>
+				<td>Extended Arabic-Indic digits ("arab" means the base
+					Arabic-Indic digits)</td>
+			</tr>
+			<tr>
+				<td>"armnlow"</td>
+				<td>Armenian lowercase numerals</td>
+			</tr>
+			<tr>
+				<td colspan="2">…</td>
+			</tr>
+			<tr>
+				<td>"roman"</td>
+				<td>Roman numerals</td>
+			</tr>
+			<tr>
+				<td>"romanlow"</td>
+				<td>Roman lowercase numerals</td>
+			</tr>
+			<tr>
+				<td>"tamldec"</td>
+				<td>Modern Tamil decimal digits</td>
+			</tr>
+			<tr>
+				<td><p>Time zone</p>
+					<p>
+						<em>bcp47/timezone.xml</em>
+					</p></td>
+				<td>"tz"<br> (timezone)
+				</td>
+				<td>Time zone</td>
+				<td><i>Unicode short time zone IDs</i></td>
+				<td><p>
+						Short identifiers defined in terms of a TZ time zone database [<a
+							href="#Olson">Olson</a>] identifier in the file
+						common/bcp47/timezone.xml file.
+					</p>
+					<p>
+						For more information, see <a href="#Time_Zone_Identifiers">Section
+							3.7.1.2 Time Zone Identifiers</a>.
+					</p>
+					<p>The CLDR provides data for normalizing timezone codes.</p></td>
+			</tr>
+			<tr>
+				<td><p>Locale variant</p>
+					<p>
+						<em>bcp47/variant.xml</em>
+					</p></td>
+				<td>"va"</td>
+				<td>Common variant type</td>
+				<td>"posix"</td>
+				<td>POSIX style locale variant</td>
+			</tr>
+		</table>
+		<p>
+			For more information on the allowed keys and types, see the specific
+			elements below, and <a href="#Locale_Extension_Key_and_Type_Data">Section
+				3.7 Locale Extension Key and Type Data</a>.
+		</p>
+		<p>Additional keys or types might be added in future versions.
+			Implementations of LDML should be robust to handle any syntactically
+			valid key or type values.</p>
 		<h4>
-			<a name="Unicode_Locale_Extension_Data_Files"
-				href="#Unicode_Locale_Extension_Data_Files">3.7.1 Unicode Locale
-				Extension Data Files</a>
+			<a href="#Numbering System Data" name="Numbering System Data"
+				class="changed">3.6.2 Numbering System Data </a>
+		</h4>
+		<p>
+			LDML supports multiple numbering systems. The identifiers for those
+			numbering systems are defined in the file <strong>bcp47/number.xml</strong>.
+			For example, for the 'trunk' version of the data see <a
+				href="http://unicode.org/cldr/trac/browser/trunk/common/bcp47/number.xml">bcp47/number.xml</a>.<br>
+		</p>
+		<p>
+			Details about those numbering systems are defined in <strong>supplemental/numberingSystems.xml</strong>.
+			For example, for the 'trunk' version of the data see <a
+				href="http://unicode.org/cldr/trac/browser/trunk/common/supplemental/numberingSystems.xml">supplemental/numberingSystems.xml</a>.<br>
+		</p>
+		<p>
+			LDML makes certain stability guarantees on this data: <br>
+		</p>
+		<ol>
+			<li>Like other BCP47 identifiers, once a numeric identifier is
+				added to <strong>bcp47/number.xml</strong> or <strong>numberingSystems.xml</strong>,
+				it will never be removed from either of those files.
+			</li>
+			<li>If an identifier has type="numeric" in numberingSystems.xml,
+				then
+				<ol>
+					<li>It is a decimal, positional numbering system with an
+						attribute digits=X, where X is a string with the 10 digits in
+						order used by the numbering system.</li>
+					<li>The values of the type and digits will never change.</li>
+				</ol>
+			</li>
+		</ol>
+		<h4>
+			<a href="#Time_Zone_Identifiers" name="Time_Zone_Identifiers"
+				class="changed">3.6.3 Time Zone Identifiers</a>
+		</h4>
+		<p>
+			LDML inherits time zone IDs from the tz database [<a href="#Olson">Olson</a>].
+			Because these IDs from the tz database do not satisfy the BCP 47
+			language subtag syntax requirements, CLDR defines short identifiers
+			for the use in the Unicode locale extension. The short identifiers
+			are defined in the file <strong>common/bcp47/timezone.xml</strong>.
+		</p>
+		<p>
+			The short identifiers use UN/LOCODE [<a href="#LOCODE">LOCODE</a>]
+			(excluding a space character) codes where possible. For example, the
+			short identifier for "America/Los_Angeles" is "uslax" (the LOCODE for
+			Los Angeles, US is "US LAX"). Identifiers of length not equal to 5
+			are used where there is no corresponding UN/LOCODE, such as
+			"usnavajo" for "America/Shiprock", or "utcw01" for "Etc/GMT+1", so
+			that they do not overlap with future UN/LOCODE.
+		</p>
+		<p>Although the first two letters of a short identifier may match
+			an ISO 3166 two-letter country code, a user should not assume that
+			the time zone belongs to the country. The first two letters in an
+			identifier of length not equal to 5 has no meaning. Also, the
+			identifiers are stabilized, meaning that they will not change no
+			matter what changes happen in the base standard. So if Hawaii leaves
+			the US and joins Canada as a new province, the short time zone
+			identifier "ushnl" would not change in CLDR even if the UN/LOCODE
+			changes to "cahnl" or something else.</p>
+		<p>There is a special code "unk" for an Unknown or Invalid time
+			zone. This can be expressed in the tz database style ID
+			"Etc/Unknown", although it is not defined in the tz database.</p>
+		<p>
+			<b>Stability of Time Zone Identifiers</b>
+		</p>
+		<p>
+			Although the short time zone identifiers are guaranteed to be stable,
+			the preferred IDs in the tz database (as those found in <strong>zone.tab</strong>
+			file) might be changed time to time. For example, "Asia/Culcutta" was
+			replaced with "Asia/Kolkata" and moved to <strong>backward</strong>
+			file in the tz database. CLDR contains locale data using a time zone
+			ID from the tz database as the key, stability of the IDs is cirtical.
+		</p>
+		<p>
+			To maintain the stability of "long" IDs (for those inherited from the
+			tz database), a special rule applied to the <i>alias</i> attribute in
+			the &lt;type&gt; element for "tz" - the first "long" ID is the CLDR
+			canonical "long" time zone ID.
+		</p>
+		<p>For example:</p>
+		<blockquote>&lt;type name="inccu" alias="Asia/Calcutta
+			Asia/Kolkata" description="Kolkata, India"/&gt;</blockquote>
+		<p>
+			Above &lt;type&gt; element defines the short time zone ID "inccu"
+			(for the use in the Unicode locale extension), corresponding <em>CLDR
+				canonical "long" ID</em> "Asia/Culcutta", and an alias "Asia/Kolkata".
+		</p>
+		<h4>
+			<a href="#Unicode_Locale_Extension_Data_Files"
+				name="Unicode_Locale_Extension_Data_Files" class="changed">3.6.4
+				U Extension Data Files</a>
 		</h4>
 		<p>
 			The 'u' extension data is stored in multiple XML files located under
@@ -1858,7 +1929,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 
 		<p>In the Unicode locale extension 'u' data files, the common
 			attributes for the &lt;key&gt;, &lt;type&gt; and &lt;attribute&gt;
-			elements are as follows:
+			elements are as follows:</p>
 		<dl>
 			<dt>
 				<b>name</b>
@@ -1871,7 +1942,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 						href="#Old_Locale_Extension_Syntax"> "@key=type" syntax</a>.
 				</p>
 				<p>The type name "CODEPOINTS" is reserved for a variable
-					representing Unicode code point(s). The syntax is:
+					representing Unicode code point(s). The syntax is:</p>
 				<table border="0">
 					<tr>
 						<th>&nbsp;</th>
@@ -2001,7 +2072,8 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		<p>
 			<em>Note: There are no values defined for the locale extension
 				attribute in the current CLDR release. </em>
-		<p>For example,
+		</p>
+		<p>For example,</p>
 		<pre>
 &lt;key name="co" alias="collation" description="Collation type key"&gt;
   &lt;type name="pinyin" description="Pinyin ordering for Latin and for CJK characters (used in Chinese)"/&gt;
@@ -2036,111 +2108,56 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			<li>type "aumqi" is valid for key "tz", supported by CLDR 1.8.1
 				or later versions.</li>
 		</ul>
-		<h5>
-			<a name="Numbering System Data" href="#Numbering System Data">3.7.1.1
-				Numbering System Data </a>
-		</h5>
+		<p>It is strongly recommended that all API methods accept all
+			possible aliases for keywords and types, but generate the canonical
+			form. For example, &quot;ar-u-ca-islamicc&quot; would be equivalent
+			to &quot;ar-u-ca-islamic-civil&quot; on input, but the latter should
+			be output. The one exception is where an alias would only be
+			well-formed with the old syntax, such as &quot;gregorian&quot; (for
+			&quot;gregory&quot;).</p>
+		<h3 class="changed">
+			<a name="BCP47_T_Extension" href="#BCP47_T_Extension">3.7 Unicode
+				BCP 47 T Extension</a><a name="u_Extension"></a>
+		</h3>
 		<p>
-			LDML supports multiple numbering systems. The identifiers for those
-			numbering systems are defined in the file <strong>bcp47/number.xml</strong>.
-			For example, for the 'trunk' version of the data see <a
-				href="http://unicode.org/cldr/trac/browser/trunk/common/bcp47/number.xml">bcp47/number.xml</a>.<br>
+			The Unicode Consortium has registered and is the maintaining
+			authority for two BCP 47 language tag extensions: the extension 'u'
+			for Unicode locale extension [<a href="#RFC6067">RFC6067</a>] and
+			extension 't' for transformed content [<a href="#RFC6497">RFC6497</a>].
+			The Unicode BCP 47 extension data defines the complete list of valid
+			subtags.
 		</p>
 		<p>
-			Details about those numbering systems are defined in <strong>supplemental/numberingSystems.xml</strong>.
-			For example, for the 'trunk' version of the data see <a
-				href="http://unicode.org/cldr/trac/browser/trunk/common/supplemental/numberingSystems.xml">supplemental/numberingSystems.xml</a>.<br>
+			<strong>The -t- Extension.</strong> The syntax of 't' extension
+			subtags is defined by the rule
+			<code>unicode_locale_extensions</code>
+			in <a href="#Unicode_locale_identifier"><em>Section 3.2
+					Unicode locale identifier</em></a>, except the separator of subtags
+			<code>sep</code>
+			must be always hyphen '-' when the extension is used as a part of BCP
+			47 language tag. For information about the registration process,
+			meaning, and usage of the 't' extension, see [<a href="#RFC6497">RFC6497</a>].
 		</p>
 		<p>
-			LDML makes certain stability guarantees on this data: <br>
+			These subtags are all in lowercase (that is the canonical casing for
+			these subtags), however, subtags are case-insensitive and casing does
+			not carry any specific meaning. All subtags within the Unicode
+			extensions are alphanumeric characters in length of two to eight that
+			meet the rule
+			<code>extension</code>
+			in the [<a href="#BCP47">BCP47</a>]
 		</p>
-		<ol>
-			<li>Like other BCP47 identifiers, once a numeric identifier is
-				added to <strong>bcp47/number.xml</strong> or <strong>numberingSystems.xml</strong>,
-				it will never be removed from either of those files.
-			</li>
-			<li>If an identifier has type="numeric" in numberingSystems.xml,
-				then
-				<ol>
-					<li>It is a decimal, positional numbering system with an
-						attribute digits=X, where X is a string with the 10 digits in
-						order used by the numbering system.</li>
-					<li>The values of the type and digits will never change.</li>
-				</ol>
-			</li>
-		</ol>
-		<h5>
-			<a name="Time_Zone_Identifiers" href="#Time_Zone_Identifiers">3.7.1.2
-				Time Zone Identifiers</a>
-		</h5>
-		<div>
-			<p>
-				<b>Short Time Zone Identifiers</b>
-			</p>
-			<p>
-				LDML inherits time zone IDs from the tz database [<a href="#Olson">Olson</a>].
-				Because these IDs from the tz database do not satisfy the BCP 47
-				language subtag syntax requirements, CLDR defines short identifiers
-				for the use in the Unicode locale extension. The short identifiers
-				are defined in the file <strong>common/bcp47/timezone.xml</strong>.
-			</p>
-			<p>
-				The short identifiers use UN/LOCODE [<a href="#LOCODE">LOCODE</a>]
-				(excluding a space character) codes where possible. For example, the
-				short identifier for "America/Los_Angeles" is "uslax" (the LOCODE
-				for Los Angeles, US is "US LAX"). Identifiers of length not equal to
-				5 are used where there is no corresponding UN/LOCODE, such as
-				"usnavajo" for "America/Shiprock", or "utcw01" for "Etc/GMT+1", so
-				that they do not overlap with future UN/LOCODE.
-			</p>
-			<p>Although the first two letters of a short identifier may match
-				an ISO 3166 two-letter country code, a user should not assume that
-				the time zone belongs to the country. The first two letters in an
-				identifier of length not equal to 5 has no meaning. Also, the
-				identifiers are stabilized, meaning that they will not change no
-				matter what changes happen in the base standard. So if Hawaii leaves
-				the US and joins Canada as a new province, the short time zone
-				identifier "ushnl" would not change in CLDR even if the UN/LOCODE
-				changes to "cahnl" or something else.</p>
-			<p>There is a special code "unk" for an Unknown or Invalid time
-				zone. This can be expressed in the tz database style ID
-				"Etc/Unknown", although it is not defined in the tz database.</p>
-			<p>
-				<b>Stability of Time Zone Identifiers</b>
-			</p>
-			<p>
-				Although the short time zone identifiers are guaranteed to be
-				stable, the preferred IDs in the tz database (as those found in <strong>zone.tab</strong>
-				file) might be changed time to time. For example, "Asia/Culcutta"
-				was replaced with "Asia/Kolkata" and moved to <strong>backward</strong>
-				file in the tz database. CLDR contains locale data using a time zone
-				ID from the tz database as the key, stability of the IDs is
-				cirtical.
-			</p>
-			<p>
-				To maintain the stability of "long" IDs (for those inherited from
-				the tz database), a special rule applied to the <i>alias</i>
-				attribute in the &lt;type&gt; element for "tz" - the first "long" ID
-				is the CLDR canonical "long" time zone ID.
-			</p>
-			<p>For example:</p>
-			<blockquote>&lt;type name="inccu" alias="Asia/Calcutta
-				Asia/Kolkata" description="Kolkata, India"/&gt;</blockquote>
-			<p>
-				Above &lt;type&gt; element defines the short time zone ID "inccu"
-				(for the use in the Unicode locale extension), corresponding <em>CLDR
-					canonical "long" ID</em> "Asia/Culcutta", and an alias "Asia/Kolkata".
-			</p>
-		</div>
 		<h4>
-			<a name="Transformed_Content_Data_File"
-				href="#Transformed_Content_Data_File">3.7.2 Transformed Content
-				Data File</a>
+			<a href="#Transformed_Content_Data_File"
+				name="Transformed_Content_Data_File" class="changed">3.7.1 T
+				Extension Data Files</a>
 		</h4>
+		<p>The overall structure of the data files is the similar to the U
+			Extension, with the following exceptions.</p>
 		<p>In the transformed content 't' data file, the name attribute in
 			a &lt;key&gt; element defines a valid field separator subtag. The
 			name attribute in an enclosed &lt;type&gt; element defines a valid
-			field subtag for the field separator subtag. For example:
+			field subtag for the field separator subtag. For example:</p>
 		<pre>
 &lt;key extension="t" name="m0" 
     description="Transform extension mechanism"&gt;
@@ -2185,13 +2202,6 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 				names or designations. <em>(Optional)</em>
 			</dd>
 		</dl>
-		<p>It is strongly recommended that all API methods accept all
-			possible aliases for keywords and types, but generate the canonical
-			form. For example, &quot;ar-u-ca-islamicc&quot; would be equivalent
-			to &quot;ar-u-ca-islamic-civil&quot; on input, but the latter should
-			be output. The one exception is where an alias would only be
-			well-formed with the old syntax, such as &quot;gregorian&quot; (for
-			&quot;gregory&quot;).</p>
 		<p>
 			For information about the registration process, meaning, and usage of
 			the 't' extension, see [<a href="#RFC6497">RFC6497</a>].
@@ -2217,6 +2227,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			Unicode locale identifiers including such variant codes can be
 			converted to the new [<a href="#BCP47">BCP47</a>] compatible
 			identifiers by following the descriptions below:
+		</p>
 		<table>
 			<caption>Legacy Variant Mappings</caption>
 			<tr>
@@ -2269,7 +2280,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		</h4>
 		<p>LDML 1.7 or older specification used different syntax for
 			representing unicode locale extensions. The previous definition of
-			Unicode locale extensions had the following structure:
+			Unicode locale extensions had the following structure:</p>
 		<table border="0">
 			<tr>
 				<th>&nbsp;</th>
@@ -2731,25 +2742,30 @@ root</pre>
 						<th id="x40y1" style="vertical-align: top;" nowrap>
 							<p>
 								Lookup Type<br id="x40y2"> &nbsp;
+							</p>
 						</th>
 						<th id="x40y3" style="vertical-align: top;" nowrap>
 							<p>
 								Example<br id="x40y4"> &nbsp;
+							</p>
 						</th>
 						<th id="x40y5" style="vertical-align: top;">
 							<p>
 								Comments<br id="x40y6"> &nbsp;
+							</p>
 						</th>
 					</tr>
 					<tr id="iqaw4">
 						<td id="iqaw5" style="vertical-align: top;" nowrap>
 							<p id="rkc40">
 								Resource <b>bundle</b> lookup
+							</p>
 						</td>
 						<td id="iqaw7" style="vertical-align: top;" nowrap>
 							<p>
 								se-FI&nbsp;→&nbsp;se<br> &nbsp; → default*<br>
 								&nbsp;&nbsp;→&nbsp;root
+							</p>
 						</td>
 						<td id="rkc41" style="vertical-align: top;">
 							<p>
@@ -2758,17 +2774,20 @@ root</pre>
 								is expanded by inserting the chain, resulting in:<br> se-FI
 								→ se<br> &nbsp; → fi →&nbsp;en-GB → en<br>
 								&nbsp;&nbsp;→ root&nbsp;
+							</p>
 						</td>
 					</tr>
 					<tr id="iqaw9">
 						<td id="iqaw10" style="vertical-align: top;" nowrap>
 							<p>
 								Resource <b>item</b> lookup
+							</p>
 						</td>
 						<td id="iqaw12" style="vertical-align: top;" nowrap>
 							<p>
 								se-FI+key&nbsp;→ se+key<br> &nbsp; →
 								root_alias*+key&nbsp;→&nbsp;root+key
+							</p>
 						</td>
 						<td id="rkc43" style="vertical-align: top;">
 							<p>
@@ -2780,8 +2799,10 @@ root</pre>
 								&nbsp;&nbsp;→&nbsp;root_alias*+key<br> &nbsp;
 								→&nbsp;se-FI+key2&nbsp;→&nbsp;se+key2<br>
 								&nbsp;&nbsp;→&nbsp;root_alias*+key2 → root+key2
+							</p>
 						</td>
 					</tr>
+				</tbody>
 			</table>
 		</div>
 		<p>
@@ -2919,6 +2940,7 @@ root</pre>
 							//ldml/units/unitLength[@type="<strong>narrow</strong>"]/unit[@type="mass-gram"]/unitPattern<strong>[@count="other"]</strong>
 						</code></td>
 				</tr>
+			</tbody>
 		</table>
 		<p>Note that there may be an alias in root that changes the path
 			and starts again from the requested locale, such as:</p>
@@ -2986,6 +3008,7 @@ root</pre>
 					<td nowrap style="vertical-align: top;">root</td>
 					<td nowrap id="iqaw23" style="vertical-align: top;"><code>//ldml/numbers/currencies/currency[@type="CAD"]/displayName</code></td>
 				</tr>
+			</tbody>
 		</table>
 		<br>
 		<h4>
@@ -5160,9 +5183,9 @@ decimal?, group?, special*)) &gt;</pre>
 			semicolon-delimited format derived from that of the Unicode Character
 			Database. That is because the data is more likely to be parsed by
 			implementations that already parse UCD data. Those files are present
-			in the common/properties directory.
+			in the common/properties directory.</p>
 		<p>Each file has a header that explains the format and usage of
-			the data.
+			the data.</p>
 		<h2>
 			<a name="Lenient_Parsing" href="#Lenient_Parsing">7 Lenient
 				Parsing</a>
@@ -5506,7 +5529,7 @@ decimal?, group?, special*)) &gt;</pre>
 			<li><a name="week" href="#week">&lt;week&gt;</a> is deprecated
 				in the main LDML files, because the data is more appropriately
 				organized as connected to territories, not to linguistic data. Use
-				the supplemental &lt;weekData&gt; element instead.
+				the supplemental &lt;weekData&gt; element instead.</li>
 			<li>&lt;am&gt; and &lt;pm&gt;; these are now included as part of
 				the &lt;dayPeriods&gt; element</li>
 			<li>&lt;fields&gt; is deprecated as a subelement of
@@ -5570,8 +5593,8 @@ decimal?, group?, special*)) &gt;</pre>
 				subelements of &lt;segmentations&gt;</a>
 		</h3>
 		<ul class="changed">
-			<li>&lt;exceptions&gt; and &lt;exceptions&gt; were deprecated and replaced
-				with &lt;suppressions&gt; and &lt;suppression&gt;.</li>
+			<li>&lt;exceptions&gt; and &lt;exceptions&gt; were deprecated
+				and replaced with &lt;suppressions&gt; and &lt;suppression&gt;.</li>
 		</ul>
 
 		<hr>
@@ -6776,76 +6799,87 @@ decimal?, group?, special*)) &gt;</pre>
 		<h3 class="changed">Revision 36</h3>
 		<ul class="changed">
 			<li>Updated for Version 26.</li>
-			<li><strong>Part 2: <a href="tr35-general.html#Contents">General</a></strong>
+			<li>Part 1: Core Specification
 				<ul>
-					<li>In <em>Section 6 <a
-							href="tr35-general.html#Unit_Elements">Unit Elements</a>,</em>
-						added &lt;displayName&gt; for &lt;unit&gt; elements.
-						[<a href="http://unicode.org/cldr/trac/ticket/7200">#7200</a>]
-					</li>
-					<li>In <em>Section 9 <a
-							href="tr35-general.html#Segmentations">Segmentations</a>,</em>
-						deprecated &lt;exceptions&gt; element and its sub-element, replaced with
-						&lt;suppressions&gt; element (which can take a type attribute) and its
-						sub-element.
-						[<a href="http://unicode.org/cldr/trac/ticket/7237">#7237</a>]
+					<li>Reorganized 3 <a
+						href="#Unicode_Language_and_Locale_Identifiers">Unicode
+							Language and Locale Identifiers</a> to collect the information about
+						BCP47 extensions together into sections 3.6 and 3.7. Old Section
+						3.5 became part of section 3.6, and old section 3.6 became section
+						3.5.
 					</li>
 				</ul>
 			</li>
+			<li><strong>Part 2: <a
+					href="tr35-general.html#Contents">General</a></strong>
+				<ul>
+					<li>In <em>Section 6 <a
+							href="tr35-general.html#Unit_Elements">Unit Elements</a>,
+					</em> added &lt;displayName&gt; for &lt;unit&gt; elements. [<a
+						href="http://unicode.org/cldr/trac/ticket/7200">#7200</a>]
+					</li>
+					<li>In <em>Section 9 <a
+							href="tr35-general.html#Segmentations">Segmentations</a>,
+					</em> deprecated &lt;exceptions&gt; element and its sub-element,
+						replaced with &lt;suppressions&gt; element (which can take a type
+						attribute) and its sub-element. [<a
+						href="http://unicode.org/cldr/trac/ticket/7237">#7237</a>]
+					</li>
+				</ul></li>
 			<li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong>
 				<ul>
 					<li>In <em>Section 2.1 <a
 							href="tr35-dates.html#months_days_quarters_eras">&lt;months&gt;,
-						&lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></em>, clarified
-						that grapheme cluster limits for narrow stand-alone forms do not
+								&lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></em>, clarified that
+						grapheme cluster limits for narrow stand-alone forms do not
 						include punctuation. [<a
 						href="http://unicode.org/cldr/trac/ticket/7555">#7555</a>]
 					</li>
 					<li>In <em>Section 2.3 <a
 							href="tr35-dates.html#monthPatterns_cyclicNameSets">&lt;monthPatterns&gt;,
-						&lt;cyclicNameSets&gt;</a></em>, added a &lt;cyclicNameSet&gt;
-						for solar terms. [<a
-						href="http://unicode.org/cldr/trac/ticket/7285">#7285</a>]
+								&lt;cyclicNameSets&gt;</a></em>, added a &lt;cyclicNameSet&gt; for solar
+						terms. [<a href="http://unicode.org/cldr/trac/ticket/7285">#7285</a>]
 					</li>
 					<li>In <em>Section 3 <a
-							href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></em>,
-						added field type quarter, and added -short and -narrow forms of
-						many field types. [<a
-						href="http://unicode.org/cldr/trac/ticket/6042">#6042</a>,<a
+							href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></em>, added
+						field type quarter, and added -short and -narrow forms of many
+						field types. [<a href="http://unicode.org/cldr/trac/ticket/6042">#6042</a>,<a
 						href="http://unicode.org/cldr/trac/ticket/6702">#6702</a>]
 					</li>
-				</ul>
-			</li>
-			<li><strong>Part 5: <a href="tr35-collation.html#Contents">Collation</a></strong>
+				</ul></li>
+			<li><strong>Part 5: <a
+					href="tr35-collation.html#Contents">Collation</a></strong>
 				<ul>
-					<li><i>Section 2.6,
-						<a href="tr35-collation.html#Root_Data_File_Formats">Root Collation Data File Formats</a></i>:
-						A new section of <code>[radical ...]</code> lines in FractionalUCA.txt
-						defines a radical-stroke order of the Unified_Ideograph characters.
-						[<a href="http://unicode.org/cldr/trac/ticket/7176">#7176</a>]</li>
-					<li>Most of the mappings were removed from CJK type="unihan" tailorings,
-						assuming that the root collation order sorts
-						Han characters in Unihan radical-stroke order according to the
-						<code>[radical ...]</code> data in FractionalUCA.txt.
-						The only remaining mappings in the CJK type="unihan" tailorings
-						are those for the radicals for
-						<a href="tr35-collation.html#CJK_Index_Markers">CJK Index Markers</a>.</li>
-					<li><i>Section 3.12,
-						<a href="tr35-collation.html#Special_Purpose_Commands">Special-Purpose Commands</a></i>:
-						The <code>&lt;import&gt;</code> source attribute value "locale" is deprecated.
-						The source must be an explicit language tag.
-						[<a href="http://unicode.org/cldr/trac/ticket/7663">#7663</a>]</li>
-					<li><i>Section 3.15,
-						<a href="tr35-collation.html#Visibility">Visibility</a></i>:
-						The <code>&lt;collation&gt;</code> visibility attribute is deprecated.
-						Use a collation type name beginning with "private-" instead.
-						[<a href="http://unicode.org/cldr/trac/ticket/7662">#7662</a>]</li>
-				</ul>
-			</li>
+					<li><i>Section 2.6, <a
+							href="tr35-collation.html#Root_Data_File_Formats">Root
+								Collation Data File Formats</a></i>: A new section of <code>[radical
+							...]</code> lines in FractionalUCA.txt defines a radical-stroke order of
+						the Unified_Ideograph characters. [<a
+						href="http://unicode.org/cldr/trac/ticket/7176">#7176</a>]</li>
+					<li>Most of the mappings were removed from CJK type="unihan"
+						tailorings, assuming that the root collation order sorts Han
+						characters in Unihan radical-stroke order according to the <code>[radical
+							...]</code> data in FractionalUCA.txt. The only remaining mappings in
+						the CJK type="unihan" tailorings are those for the radicals for <a
+						href="tr35-collation.html#CJK_Index_Markers">CJK Index Markers</a>.
+					</li>
+					<li><i>Section 3.12, <a
+							href="tr35-collation.html#Special_Purpose_Commands">Special-Purpose
+								Commands</a></i>: The <code>&lt;import&gt;</code> source attribute value
+						"locale" is deprecated. The source must be an explicit language
+						tag. [<a href="http://unicode.org/cldr/trac/ticket/7663">#7663</a>]</li>
+					<li><i>Section 3.15, <a
+							href="tr35-collation.html#Visibility">Visibility</a></i>: The <code>&lt;collation&gt;</code>
+						visibility attribute is deprecated. Use a collation type name
+						beginning with "private-" instead. [<a
+						href="http://unicode.org/cldr/trac/ticket/7662">#7662</a>]</li>
+				</ul></li>
 		</ul>
 
 
-		<h3><span class="changed">Revision 35</span></h3>
+		<h3>
+			<span class="changed">Revision 35</span>
+		</h3>
 		<ul>
 			<li>Updated for Version 25.</li>
 			<li><strong>Part 1: <a href="tr35.html#Contents">Core
@@ -7518,7 +7552,8 @@ decimal?, group?, special*)) &gt;</pre>
 				to specify the details of the Windows TZID mapping data extended by
 				ticket <a href="http://unicode.org/cldr/trac/ticket/4067">#4067</a>
 				in this release. [<a href="http://unicode.org/cldr/trac/ticket/4296">#4296</a>]
-			
+
+			</li>
 			<li>Added documentation for the new date format pattern "ZZZZZ"
 				(ISO 8601 time zone format) in <i>Appendix F: <a
 					href="#Date_Format_Patterns"> Date Format Patterns</a></i> and <i>Appendix
@@ -7841,9 +7876,9 @@ decimal?, group?, special*)) &gt;</pre>
 				Also added bookmarks for <a href="#Unicode_language_identifier">
 					Unicode_language_identifier</a>, <a href="#Unicode_locale_identifier">
 					Unicode_locale_identifier</a>, <a
-				href="#Language_Locale_Field_Definitions">
-					Language_Locale_Field_Definitions</a>, Variant_Definitions, <a
-				href="#Key_Type_Definitions"> Key_Type_Definitions</a></li>
+				href="#Language_Locale_Field_Definitions"> <span class='changed'>Identifier</span></a>,
+				Variant_Definitions, <a href="#Key_Type_Definitions">
+					Key_Type_Definitions</a></li>
 			<li style="margin-top: 0.5em; margin-bottom: 0.5em">Added <b>defaultNumberingSystem</b>
 				in 5.10 <a href="#Number_Elements">Number Elements</a></li>
 			<li style="margin-top: 0.5em; margin-bottom: 0.5em">Added <b>tender</b>

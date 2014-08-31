@@ -176,11 +176,11 @@
 //ldml/numbers/currencies/currency[@type="(%A)"]/displayName[@count="(%A)"] ; /CurrencyPlurals/$1/$2
 
 //ldml/numbers/currencies/currency[@type="(%W)"]/symbol[@alt="(%A)"] ; /Currencies%$2/$1
-//ldml/numbers/currencies/currency[@type="(%W)"]/symbol ; /Currencies/$1 ; fallback=$1
-//ldml/numbers/currencies/currency[@type="(%W)"]/displayName ; /Currencies/$1 ; fallback=$1
 //ldml/numbers/currencies/currency[@type="(%W)"]/pattern[@type="standard"]; /Currencies/$1/ ; fallback=//ldml/numbers/currencyFormats[@numberSystem="%D"]/currencyFormatLength/currencyFormat[@type="standard"]/pattern[@type="standard"]
 //ldml/numbers/currencies/currency[@type="(%W)"]/decimal ; /Currencies/$1/ ; fallback=//ldml/numbers/symbols[@numberSystem="%D"]/decimal
 //ldml/numbers/currencies/currency[@type="(%W)"]/group ; /Currencies/$1/ ; fallback=//ldml/numbers/symbols[@numberSystem="%D"]/group
+//ldml/numbers/currencies/currency[@type="(%W)"]/symbol ; /Currencies/$1 ; fallback=$1
+//ldml/numbers/currencies/currency[@type="(%W)"]/displayName ; /Currencies/$1 ; fallback=$1
 
 
 //ldml/numbers/currencyFormats[@numberSystem="%D"]/currencySpacing/(%W)/(%W)   ; /currencySpacing/$1/$2

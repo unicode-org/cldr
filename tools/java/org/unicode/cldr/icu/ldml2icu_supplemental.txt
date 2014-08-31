@@ -44,7 +44,7 @@
 //supplementalData/calendarPreferenceData/calendarPreference[@territories="(%A)"][@ordering="(%A)"] ; /calendarPreferenceData/$1    ; values=$2
 //supplementalData/codeMappings/territoryCodes[@type="(%W)"][@numeric="(%N)"][@alpha3="(%W)"].* ; /codeMappings/<$1> ; values=$1 $2 $3
 
-//supplementalData/codeMappings/currencyCodes[@type="(%W)"][@numeric="(%N)"].* ; /codeMappings/<$1> ; values=$1 $2
+//supplementalData/codeMappings/currencyCodes[@type="(%W)"][@numeric="(%N)"].* ; /codeMappingsCurrency/<$1> ; values=$1 $2
 
 //supplementalData/languageData/language[@type="(%W)"][@scripts="(%W)"] ; /languageData/$1/primary/scripts ; values=$2
 //supplementalData/languageData/language[@type="(%W)"][@scripts="(%W)"][@territories="(%W)"]

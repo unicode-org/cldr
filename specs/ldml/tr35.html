@@ -105,7 +105,7 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2014-08-29</span></td>
+				<td><span class="changed">2014-09-01</span></td>
 			</tr>
 			<tr>
 				<td>This Version</td>
@@ -312,12 +312,16 @@ h2,h3,h4,table {
 			<li>4 <a href="#Locale_Inheritance">Locale Inheritance and
 					Matching</a>
 				<ul class="toc">
-					<li>4.1 <a href="#Multiple_Inheritance">Multiple
-							Inheritance</a>
+					<li><span class="changed">4.1 <a href="#Lookup">Lookup</a></span>
 						<ul class="toc">
-							<li>4.1.1 <a href="#Parent_Locales">Parent Locales</a></li>
-						</ul>
-					</li>
+							<li class="changed">4.1.1 <a href="#Bundle_vs_Item_Lookup">Bundle
+									vs Item Lookup </a></li>
+							<li><span class="changed">4.1.2 <a
+									href="#Lateral_Inheritance">Lateral</a></span><a
+								href="#Lateral_Inheritance"> Inheritance</a></li>
+							<li>4.1.<span class="changed">3</span> <a
+								href="#Parent_Locales">Parent Locales</a></li>
+						</ul></li>
 					<li>4.2 <a href="#Inheritance_and_Validity">Inheritance
 							and Validity</a>
 						<ul class="toc">
@@ -2663,6 +2667,10 @@ en_IE
 en
 root</pre>
 		</blockquote>
+		<p class="changed">
+			<em>The inheritance is often not simple truncation, as will be
+				seen later in this section.</em>
+		</p>
 		<p>If a type and key are supplied in the locale id, then logically
 			the chain from that id to the root is searched for a resource tag
 			with a given type, all the way up to root. If no resource is found
@@ -2714,6 +2722,9 @@ root</pre>
 			items such as those above are obtained from the likely region for the
 			locale (obtained via <a href="#Likely_Subtags">Likely Subtags</a>).
 		</p>
+		<h3>
+			<a href="#Lookup" name="Lookup" class="changed">4.1 Lookup</a>
+		</h3>
 
 		<p>If a language has more than one script in customary modern use,
 			then the CLDR file structure in common/main follows the following
@@ -2724,35 +2735,51 @@ root</pre>
 				lang_region<i> (aliases to lang_script_region)</i>
 			</p>
 		</blockquote>
-		<p>There are actually two different kinds of fallback:
-			resource&nbsp;bundle&nbsp;lookup and resource&nbsp;item&nbsp;lookup.
+		<h4>
+			<a href="#Bundle_vs_Item_Lookup" name="Bundle_vs_Item_Lookup"
+				class="changed">4.1.1 Bundle vs Item Lookup</a>
+		</h4>
+		<p>
+			There are actually two different kinds of <span class="changed">inheritance</span>
+			fallback: <em>resource&nbsp;bundle&nbsp;lookup</em> and <em>resource&nbsp;item&nbsp;lookup</em>.
 			For the former, a process is looking to find the first, best resource
 			bundle it can; for the later, it is fallback&nbsp;within&nbsp;bundles
-			on individual items, like a the translated name for the region
-			&quot;CN&quot; in Breton. These are closely related, but distinct,
-			processes. Below &quot;key&quot; stands for zero or more key/type
-			pairs.</p>
+			on individual items, like the translated name for the region
+			&quot;CN&quot; in Breton.
+		</p>
+		<p>
+			These are closely related, but distinct, processes. <span
+				class="changed">They are illustrated in the table <a
+				href="#Lookup-Differences">Lookup Differences</a>, where
+			</span> &quot;key&quot; stands for zero or more key/type pairs. <span
+				class="changed">Logically speaking, when looking up an item
+				for a given locale, you first do a resource bundle lookup for the
+				locale, then you do a resource item lookup starting with that
+				resource bundle. For the purposes of CLDR, everything with the
+				&lt;ldml&gt; dtd is treated logically as if it is one resource
+				bundle, even if the implementation separates data into separate
+				physical resource bundles. For example, suppose that there is a main
+				XML file for Nama (naq), but there are no &lt;unit&gt; elements for
+				it because the units are all inherited from root. If the
+				&lt;unit&gt; elements are separated into a separate data tree for
+				modularity in the implementation, the Nama &lt;unit&gt; resource
+				bundle would be empty. However, for purposes of resource-bundle
+				lookup the resource bundle lookup still stops at naq.xml.</span>
+		</p>
+
 		<div id="iqaw2" style="margin-top: 0px; margin-bottom: 0px;">
 			<table id="a1bn" border="1" cellpadding="3" cellspacing="0"
 				style="font-size: 1em; line-height: inherit; border-collapse: collapse">
-				<caption>Lookup Differences</caption>
+				<caption>
+					<a href="#Lookup-Differences" name="Lookup-Differences">Lookup
+						Differences</a>
+				</caption>
 				<tbody id="iqaw3">
 					<tr id="x40y0">
-						<th id="x40y1" style="vertical-align: top;" nowrap>
-							<p>
-								Lookup Type<br id="x40y2"> &nbsp;
-							</p>
-						</th>
-						<th id="x40y3" style="vertical-align: top;" nowrap>
-							<p>
-								Example<br id="x40y4"> &nbsp;
-							</p>
-						</th>
-						<th id="x40y5" style="vertical-align: top;">
-							<p>
-								Comments<br id="x40y6"> &nbsp;
-							</p>
-						</th>
+						<th id="x40y1" style="vertical-align: top;" nowrap>Lookup
+							Type</th>
+						<th id="x40y3" style="vertical-align: top;" nowrap>Example</th>
+						<th id="x40y5" style="vertical-align: top;">Comments</th>
 					</tr>
 					<tr id="iqaw4">
 						<td id="iqaw5" style="vertical-align: top;" nowrap>
@@ -2761,19 +2788,30 @@ root</pre>
 							</p>
 						</td>
 						<td id="iqaw7" style="vertical-align: top;" nowrap>
+							<p>se-FI&nbsp;→</p>
+							<p>se&nbsp; →</p>
 							<p>
-								se-FI&nbsp;→&nbsp;se<br> &nbsp; → default*<br>
-								&nbsp;&nbsp;→&nbsp;root
+								<em>default-locale*&nbsp;&nbsp;→</em>
 							</p>
+							<p>root</p>
 						</td>
 						<td id="rkc41" style="vertical-align: top;">
-							<p>
-								* default may have its own inheritance change; for example, it
-								may be &quot;en-GB&nbsp;→&nbsp;en&quot; In that case, the chain
-								is expanded by inserting the chain, resulting in:<br> se-FI
-								→ se<br> &nbsp; → fi →&nbsp;en-GB → en<br>
-								&nbsp;&nbsp;→ root&nbsp;
-							</p>
+							<p>* The default-locale may have its own inheritance change;
+								for example, it may be &quot;en-GB&nbsp;→&nbsp;en&quot; In that
+								case, the chain is expanded by inserting the chain, resulting
+								in:</p>
+							<blockquote>
+								<p>se-FI →</p>
+								<p>se →</p>
+								<p>fi →</p>
+								<p>
+									<em>en-GB →</em>
+								</p>
+								<p>
+									<em>en →</em>
+								</p>
+								<p>root</p>
+							</blockquote>
 						</td>
 					</tr>
 					<tr id="iqaw9">
@@ -2783,39 +2821,84 @@ root</pre>
 							</p>
 						</td>
 						<td id="iqaw12" style="vertical-align: top;" nowrap>
+							<p>se-FI+key&nbsp;→</p>
+							<p>se+key →</p>
 							<p>
-								se-FI+key&nbsp;→ se+key<br> &nbsp; →
-								root_alias*+key&nbsp;→&nbsp;root+key
+								<em>root_alias*+key&nbsp;</em>
 							</p>
+							<p>→&nbsp;root+key</p>
 						</td>
 						<td id="rkc43" style="vertical-align: top;">
-							<p>
-								* if there is a root_alias to another key or locale, then insert
-								that entire chain. For example, suppose that months for another
-								calendar system have a root alias to Gregorian months. In that
-								case, the root alias would change the key, and retry from se-FI
-								downward.<br> se-FI+key&nbsp;→&nbsp;se+key<br>
-								&nbsp;&nbsp;→&nbsp;root_alias*+key<br> &nbsp;
-								→&nbsp;se-FI+key2&nbsp;→&nbsp;se+key2<br>
-								&nbsp;&nbsp;→&nbsp;root_alias*+key2 → root+key2
-							</p>
+							<p>* If there is a root_alias to another key or locale, then
+								insert that entire chain. For example, suppose that months for
+								another calendar system have a root alias to Gregorian months.
+								In that case, the root alias would change the key, and retry
+								from se-FI downward. This can happen multiple times.</p>
+							<blockquote>
+								<p>se-FI+key&nbsp;→</p>
+								<p>se+key →</p>
+								<p>root_alias*+key →</p>
+								<p>
+									<em>se-FI+key2&nbsp;→</em>
+								</p>
+								<p>
+									<em>se+key2 →</em>
+								</p>
+								<p>root_alias*+key2 →</p>
+								<p>root+key2</p>
+							</blockquote>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 		<p>
+			<span class="changed">Both the resource bundle inheritance and
+				the resource item inheritance use the parentLocale data, where
+				available, instead of simple trunctation. </span>
+		</p>
+		<p>
 			The fallback is a bit different for these two cases; internal aliases
 			and keys are are not involved in the bundle lookup, and the default
-			locale is not involved in the item lookup. Moreover, the resource
-			item lookup&nbsp;must&nbsp;remain stable, because the resources are
-			built with a certain fallback in mind; changing the core fallback
-			order can render the bundle structure incoherent. Resource bundle
-			lookup, on the other hand, is more flexible; changes in the view of
-			the &quot;best&quot; match between the input request and the output
-			bundle are more tolerant, when represent overall improvements for
-			users. For more information, see <i> <a href="#Fallback_Elements">Section
-					8.1 Element fallback</a></i>.
+			locale is not involved in the item lookup. <span class="changed">If
+				the default-locale were used in the resource-item lookup, then
+				strange results will occur. For example, suppose that the default
+				locale is Swedish, and there is a Nama locale but no specific
+				resource item for collation. If the default-locale were used in
+				resource-item lookup, it would produce odd and unexpected results
+				for Nama sorting.</span>
+		</p>
+		<p class="changed">The default locale is not even always used in
+			resource bundle inheritance. For the following services, the fallback
+			is always directly to the root locale rather than through default
+			locale.</p>
+		<ul>
+			<li class="changed">collation</li>
+			<li class="changed">break iteration</li>
+			<li class="changed">case mapping</li>
+			<li><span class="changed">transliteration </span>
+				<ul>
+					<li class="changed">The lookup for transliteration is yet more
+						complicated because of the interplay of source and target locales:
+						see <em>Part 2 General, Section 10.1 <a
+							href="http://www.unicode.org/reports/tr35/tr35-general.html#Inheritance">Inheritance.</a></em>
+					</li>
+				</ul></li>
+		</ul>
+		<p class="changed">
+			Thus if there is no Akan locale, for example, asking for a collation
+			for Akan should produce the root collation, <em>not the Swedish
+				collation.</em>
+		</p>
+		<p>The resource item lookup&nbsp;must&nbsp;remain stable, because
+			the resources are built with a certain fallback in mind; changing the
+			core fallback order can render the bundle structure incoherent.</p>
+		<p>
+			Resource bundle lookup, on the other hand, is more flexible; changes
+			in the view of the &quot;best&quot; match between the input request
+			and the output bundle are more tolerant, when represent overall
+			improvements for users. For more information, see <i> <a
+				href="#Fallback_Elements">Section 8.1 Element fallback</a></i>.
 		</p>
 		<p>
 			Where the LDML inheritance relationship does not match a target
@@ -2855,10 +2938,11 @@ root</pre>
 		<pre>&lt;field type="day"&gt;
   &lt;relative type="-2"&gt;∅∅∅&lt;/relative&gt;
 </pre>
-		<h3>
-			<a name="Multiple_Inheritance" href="#Multiple_Inheritance">4.1
-				Multiple Inheritance</a>
-		</h3>
+		<h4>
+			<a name="Lateral_Inheritance" href="#Lateral_Inheritance">4.1<span
+				class="changed">.2 Lateral</span> Inheritance
+			</a><a name="Multiple_Inheritance"></a>
+		</h4>
 		<p>
 			In clearly specified instances, resources may inherit from within the
 			same locale. For example, currency format symbols inherit from the
@@ -3011,8 +3095,9 @@ root</pre>
 		</table>
 		<br>
 		<h4>
-			<a name="Parent_Locales" href="#Parent_Locales">4.1.1 Parent
-				Locales</a>
+			<a name="Parent_Locales" href="#Parent_Locales">4.1<span
+				class="changed">.3</span> Parent Locales
+			</a>
 		</h4>
 		<p class="dtd">
 			&lt;!ELEMENT parentLocales ( parentLocale* ) &gt;<br>
@@ -4323,10 +4408,13 @@ root</pre>
 			</p>
 			<p>xx-YY → xx // finds value here</p>
 		</blockquote>
-		<p>It is an error to have a circular chain of aliases. That is, a
+		<p>
+			It is an error to have a circular chain of aliases. That is, a
 			collection of LDML XML documents must not have situations where a
-			sequence of alias lookups (including inheritance and multiple
-			inheritance) can be followed indefinitely without terminating.</p>
+			sequence of alias lookups (including inheritance and <span
+				class="changed">lateral</span> inheritance) can be followed
+			indefinitely without terminating.
+		</p>
 		<h4>
 			<a name="Element_displayName" href="#Element_displayName">5.1.3
 				Element displayName</a>
@@ -6798,17 +6886,27 @@ decimal?, group?, special*)) &gt;</pre>
 		<h3 class="changed">Revision 36</h3>
 		<ul class="changed">
 			<li>Updated for Version 26.</li>
-			<li>Part 1: Core Specification
+			<li><strong>Part 1</strong>: Core Specification
 				<ul>
-					<li>Reorganized 3 <a
+					<li>Section 3 <a
 						href="#Unicode_Language_and_Locale_Identifiers">Unicode
-							Language and Locale Identifiers</a> to collect the information about
-						BCP47 extensions together into sections 3.6 and 3.7. Old Section
-						3.5 became part of section 3.6, and old section 3.6 became section
-						3.5.
+							Language and Locale Identifiers</a>, reorganized to collect the
+						information about BCP47 extensions together into sections 3.6 and
+						3.7. Old Section 3.5 became part of section 3.6, and old section
+						3.6 became section 3.5.
 					</li>
-				</ul>
-			</li>
+					<li>Section 4.1 <a href="#Lookup">Lookup</a>. Added more
+						information about the use of default-locales and the difference
+						between bundle and item lookup. Gathered the material into the new
+						subsection Section 4.1 <a href="#Lookup">Lookup</a>, and added a
+						subheading for the material in Section 4.1.1 <a
+						href="#Bundle_vs_Item_Lookup">Bundle vs Item Lookup</a>. Renamed
+						4.1 <em>Multiple Inheritance</em> to 4.1.2 <a
+						href="#Lateral_Inheritance">Lateral Inheritance</a>, and dropped
+						it down one level. [<a
+						href="http://unicode.org/cldr/trac/ticket/7196">#7196</a>]
+					</li>
+				</ul></li>
 			<li><strong>Part 2: <a
 					href="tr35-general.html#Contents">General</a></strong>
 				<ul>

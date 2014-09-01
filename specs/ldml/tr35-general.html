@@ -225,7 +225,7 @@ h2,h3,h4,table {
 			</li>
 			<li>6 <a href="#Unit_Elements">Unit Elements</a>
 				<ul class="toc">
-					<li>6.1 <a href="#compoundUnitPattern">compoundUnitPattern</a></li>
+					<li>6.1 <a href="#perUnitPatterns" class="changed">Per Unit Patterns</a></li>
 					<li>6.2 <a href="#Unit_Sequences">Unit Sequences</a></li>
 					<li>6.3 <a href="#durationUnit">durationUnit</a></li>
 				</ul>
@@ -1293,7 +1293,7 @@ h2,h3,h4,table {
 		</p>
 
 		<p>The units in CLDR are not comprehensive; it is anticipated that
-			more will be added over time. They currently include the following:</p>
+  more will be added over time. <span class="changed">Current examples include:</span></p>
 		<table>
 			<tr>
 				<td><strong>Type</strong></td>
@@ -1553,26 +1553,45 @@ h2,h3,h4,table {
 			specialized domains, such as the German “̌Fernseher von 32 bis 55
 			Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.</p>
 		<h3>
-			6.1 <a name="compoundUnitPattern" href="#compoundUnitPattern">compoundUnitPattern</a>
-		</h3>
+			6.1 <span class="changed"><a name="perUnitPatterns" href="#perUnitPatterns">per Unit patterns</a><a name="compoundUnitPattern" href="#compoundUnitPattern"></a>
+    </span></h3>
 		<p>
-			The compoundUnitPattern for &quot;per&quot; is used to construct a
-			pattern such as &quot;feet per second&quot; or &quot;ft/s&quot;. Some
+			<span class="changed">A common combination of units is X per Y, such as <em>miles per hour</em> or <em>liters per second</em>. Some
 			units already have 'precomputed' forms, such as <strong>kilometer-per-hour</strong>;
-			where such units exist, they should be used in preference to
-			composing with compoundUnitPattern.
-		</p>
-		<p>For the divisor, the &quot;one&quot; plural category should be
-			used, while for the dividend the appropriate plural form according
-			the placeholder number should be used.</p>
-		<p>[There is a known problem with some languages in the long form
-			in that the divisor should be inflected. This will probably require
-			the future addition of a special 'divisor' form of units commonly
-			used in the divisor.]</p>
-		<h3>
-			6.2 <a name="Unit_Sequences" href="#Unit_Sequences">Unit
+	  where such units exist, they should be used in preference. There are two other patterns that can be used to compose unit symbols or names.</span></p>
+		<p class="changed"><strong>compoundUnit</strong> — This is used to construct a
+		pattern from two unit names. For example, a form such as &quot;{0} per {1}&quot; or &quot;{0}/{1}&quot; can be used to construct  cases such as &quot;2 feet<strong> per </strong>second&quot; or &quot;ft<strong>/</strong>s&quot;</p>
+		<p class="changed"><strong>perUnitPattern</strong> — This is used as the denominator with another unit name. For example, a form such as &quot;{0} per second&quot; can be used to form &quot;2 feet<strong> per second</strong>&quot;.</p>
+	  <p class="changed">The difference between these is that in some inflected languages, the compoundUnit cannot be used to form grammatical phrases. This is typically because the &quot;per&quot; + &quot;second&quot; combine in a non-trivial way. For such languages, the compoundUnit should only be used as a fallback, when there is no other recourse.</p>
+<p class="changed">When constructing a pattern for value=V, numeratorUnit=N, denominatorUnit=D, the following precess is used.</p>
+<ol>
+  <li class="changed">If there is a compound form for N/D already available, use it.</li>
+  <li class="changed">Otherwise, format the N pattern with the number using plural categories.  </li>
+  <ul>
+    <li class="changed">→ &quot;3 kilograms&quot;</li>
+  </ul>
+  <li class="changed">See if there is a <strong>perUnitPattern</strong> for D.
+  </li>
+
+  <ol>
+    <li class="changed">If so, then substitute the formatted numerator into the <strong>perUnitPattern</strong></li>
+    <ul>
+      <li class="changed">&quot;3 kilograms&quot; + &quot;{0} per second&quot; → &quot;3 kilograms per second&quot;</li>
+      </ul>
+    <li><span class="changed">If not, get the <strong>compoundUnit</strong> pattern, and substitute the formatted numerator for {0} and the singular form of the denominator for {1}, after stripping the {0} and trimming spaces.
+      </span>
+      <ul>
+        <li class="changed">&quot;3 kilograms&quot; + &quot;{0} per {1}&quot; + &quot;{0} seconds&quot; →</li>
+        <li class="changed">&quot;3 kilograms&quot; + &quot;{0} per {1}&quot; + &quot;seconds&quot; →</li>
+        <li class="changed">&quot;3 kilograms per second&quot;    </li>
+      </ul>
+    </li>
+  </ol>
+</ol>
+<h3>
+	  6.2 <a name="Unit_Sequences" href="#Unit_Sequences">Unit
 				Sequences</a>
-		</h3>
+	</h3>
 		<p>
 			Units may be used in composed sequences, such as <strong>5°
 				30′</strong> for 5 degrees 30 minutes, or <strong>3 ft 2 in.</strong>For that

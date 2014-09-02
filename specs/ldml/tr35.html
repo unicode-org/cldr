@@ -4095,8 +4095,9 @@ root</pre>
 			<li class="changed">/keyboards/chromeos/ja-t-k0-chromeos.xml</li>
 			<li class="changed">...</li>
 		</ul>
-		<p>
-			The following sections describe the structure of the XML format for
+		<p class="changed">Like the &lt;ldml&gt; files, the keyboard file names must match internal data: in particular, the locale attribute on the keyboard element must have a value that corresponds to the file name, such as &lt;keyboard locale=&quot;af-t-k0-android&quot;&gt; for the file af-t-k0-android.xml.</p>
+<p>
+	  The following sections describe the structure of the XML format for
 			language-dependent data. The more precise syntax is in the<span class="changed"> ldml.dtd file</span><i>; however, the DTD does not
 				describe all the constraints on the structure.</i>
 </p>
@@ -6918,6 +6919,11 @@ decimal?, group?, special*)) &gt;</pre>
 								href="#Lateral_Inheritance">Lateral Inheritance</a>, and dropped
                     it down one level. [<a
 								href="http://unicode.org/cldr/trac/ticket/7196">#7196</a>] </li>
+                </ul>
+              </li>
+              <li>5 <a href="#XML_Format">XML Format</a>
+                <ul>
+                  <li>Updated introductory text to introduce more dtd types, and discuss the relations among files.</li>
                 </ul>
               </li>
             </ul>

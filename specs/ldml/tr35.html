@@ -710,9 +710,15 @@ h2,h3,h4,table {
 			</tr>
 		</table>
 
+		<p class="changed">
+			While theoretically the
+			<code>unicode_language_subtag</code>
+			may have more than 3 letters, in practice that has not occurred.
+		</p>
 		<p>For example, &quot;en-US&quot; (American English),
 			&quot;en_GB&quot; (British English), &quot;es-419&quot; (Latin
-			American Spanish), and &quot;uz-Cyrl&quot; (Uzbek in Cyrillic) are</p>
+			American Spanish), and &quot;uz-Cyrl&quot; (Uzbek in Cyrillic) are
+			all valid Unicode language identifiers.</p>
 		<h3>
 			<i><a name="Unicode_locale_identifier"
 				href="#Unicode_locale_identifier">3.2 Unicode Locale Identifier</a></i>
@@ -6986,6 +6992,9 @@ decimal?, group?, special*)) &gt;</pre>
 								became part of section 3.6, and old section 3.6 became section
 								3.5. [<a href="http://unicode.org/cldr/trac/ticket/7854">#7854</a>]
 							</li>
+							<li>Updated BNF to allow it to work independently, and in
+								ICU's UnicodeRegex.compileBnf. Corrected the BNF to allow -u-
+								and -t- in either order.</li>
 						</ul></li>
 					<li><em>Section 4.1 <a href="#Lookup">Lookup</a></em>
 						<ul>

@@ -1623,17 +1623,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern numbers="d=hanidays">U年MMMd日EEEE</pattern>
+							<pattern numbers="d=hanidays">U年MMMdEEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern numbers="d=hanidays">U年MMMd日</pattern>
+							<pattern numbers="d=hanidays">U年MMMd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern numbers="d=hanidays">U年MMMd日</pattern>
+							<pattern numbers="d=hanidays">U年MMMd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -6245,7 +6245,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<traditional>hant</traditional>
 			<finance>hantfin</finance>
 		</otherNumberingSystems>
-		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
+		<minimumGroupingDigits draft="contributed">3</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
 			<group>,</group>

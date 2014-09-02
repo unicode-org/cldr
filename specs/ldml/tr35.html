@@ -3940,50 +3940,47 @@ root</pre>
 			{language, language_script, language_region} in the above. If that
 			variant is used, then the result in this example would be zh_Hant
 			instead of zh_TW.</p>
-		<pre></pre>
-		<div>
-			<h3>
-				<a name="LanguageMatching" href="#LanguageMatching">4.4 Language
-					Matching</a>
-			</h3>
-			<p class="dtd">
-				&lt;!ELEMENT languageMatching ( languageMatches* ) &gt;<br>
-				&lt;!ELEMENT languageMatches ( languageMatch* ) &gt;<br>
-				&lt;!ATTLIST languageMatches type NMTOKEN #REQUIRED &gt;<br>
-				&lt;!ELEMENT languageMatch EMPTY &gt;<br> &lt;!ATTLIST
-				languageMatch desired CDATA #REQUIRED &gt;<br> &lt;!ATTLIST
-				languageMatch supported CDATA #REQUIRED &gt;<br> &lt;!ATTLIST
-				languageMatch percent NMTOKEN #REQUIRED &gt;<br> &lt;!ATTLIST
-				languageMatch oneway ( true | false ) #IMPLIED &gt;
-			</p>
-			<p>
-				Implementers are often faced with the issue of how to match the
-				user's requested languages with their product's supported languages.
-				For example, suppose that a product supports {ja-JP, de, zh-TW}. If
-				the user understands written American English, German, French, Swiss
-				German, and Italian, then <strong>de</strong> would be the best
-				match; if s/he understands only Chinese (zh), then zh-TW would be
-				the best match.
-			</p>
-			<p>The standard truncation-fallback algorithm does not work well
-				when faced with the complexities of natural language. The language
-				matching data is designed to fill that gap. Stated in those terms,
-				language matching can have the effect of a more complex fallback,
-				such as:</p>
-			<p>
-				sr-Cyrl-RS<br> sr-Cyrl<br> sr-Latn-RS<br> sr-Latn<br>
-				sr<br> hr-Latn<br> hr
-			</p>
-			<p>Language matching is used to find the best supported locale ID
-				given a requested list of languages. The requested list could come
-				from different sources, such as such as the user's list of preferred
-				languages in the OS Settings, or from a browser Accept-Language
-				list. For example, if my native tongue is English, I can understand
-				Swiss German and German, my French is rusty but usable, and Italian
-				basic, ideally an implementation would allow me to select {gsw, de,
-				fr} as my preferred list of languages, skipping Italian because my
-				comprehension is not good enough for arbitrary content.</p>
-		</div>
+		<h3>
+			<a name="LanguageMatching" href="#LanguageMatching">4.4 Language
+				Matching</a>
+		</h3>
+		<p class="dtd">
+			&lt;!ELEMENT languageMatching ( languageMatches* ) &gt;<br>
+			&lt;!ELEMENT languageMatches ( languageMatch* ) &gt;<br>
+			&lt;!ATTLIST languageMatches type NMTOKEN #REQUIRED &gt;<br>
+			&lt;!ELEMENT languageMatch EMPTY &gt;<br> &lt;!ATTLIST
+			languageMatch desired CDATA #REQUIRED &gt;<br> &lt;!ATTLIST
+			languageMatch supported CDATA #REQUIRED &gt;<br> &lt;!ATTLIST
+			languageMatch percent NMTOKEN #REQUIRED &gt;<br> &lt;!ATTLIST
+			languageMatch oneway ( true | false ) #IMPLIED &gt;
+		</p>
+		<p>
+			Implementers are often faced with the issue of how to match the
+			user's requested languages with their product's supported languages.
+			For example, suppose that a product supports {ja-JP, de, zh-TW}. If
+			the user understands written American English, German, French, Swiss
+			German, and Italian, then <strong>de</strong> would be the best
+			match; if s/he understands only Chinese (zh), then zh-TW would be the
+			best match.
+		</p>
+		<p>The standard truncation-fallback algorithm does not work well
+			when faced with the complexities of natural language. The language
+			matching data is designed to fill that gap. Stated in those terms,
+			language matching can have the effect of a more complex fallback,
+			such as:</p>
+		<p>
+			sr-Cyrl-RS<br> sr-Cyrl<br> sr-Latn-RS<br> sr-Latn<br>
+			sr<br> hr-Latn<br> hr
+		</p>
+		<p>Language matching is used to find the best supported locale ID
+			given a requested list of languages. The requested list could come
+			from different sources, such as such as the user's list of preferred
+			languages in the OS Settings, or from a browser Accept-Language list.
+			For example, if my native tongue is English, I can understand Swiss
+			German and German, my French is rusty but usable, and Italian basic,
+			ideally an implementation would allow me to select {gsw, de, fr} as
+			my preferred list of languages, skipping Italian because my
+			comprehension is not good enough for arbitrary content.</p>
 		Language Matching can also be used to get fallback data elements. In
 		many cases, there may not be full data for a particular locale. For
 		example, for a Breton speaker, the best fallback if data is
@@ -4111,7 +4108,15 @@ root</pre>
 			&lt;!-- [Default value - must be at end!] Normally there are small
 			differences across regions.--&gt;
 		</p>
-		<p>&nbsp;</p>
+		<p class="changed">When the language+region is not matched, and
+			there is otherwise no reason to pick among the supported regions for
+			that language, then some measure of geographic &quot;closeness&quot;
+			can be used. The results are then more understandable by users.
+			Looking for en-SK, for example, should fall back to something within
+			Europe (eg en-GB) in preference to something far away and unrelated
+			(eg en-SG). Such a closeness metric does not need to be exact; a
+			small amount to data can be used to give an approximate distance
+			between any two regions.</p>
 		<h2>
 			<a name="XML_Format" href="#XML_Format">5 XML Format</a>
 		</h2>
@@ -7029,6 +7034,15 @@ decimal?, group?, special*)) &gt;</pre>
 								href="http://unicode.org/cldr/trac/ticket/7196">#7196</a>]
 							</li>
 						</ul></li>
+					<li>Section 4.4 <a href="#LanguageMatching">Language
+							Matching</a>
+						<ul>
+							<li>Documented the use of geographic closeness in improving
+								language matching. [<a
+								href="http://unicode.org/cldr/trac/ticket/7187">#7187</a>]
+							</li>
+						</ul>
+					</li>
 					<li><em>Section 5 <a href="#XML_Format">XML Format</a>
 					</em>
 						<ul>

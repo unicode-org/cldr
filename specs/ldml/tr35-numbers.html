@@ -905,7 +905,9 @@ h2,h3,h4,table {
 					<td>,</td>
 					<td>Number</td>
 					<td>Yes</td>
-					<td>Grouping separator</td>
+					<td>Grouping separator.<span class="changed"> May occur
+							in both the integer part and the fractional part. The position
+							determines the grouping.</span></td>
 				</tr>
 				<tr valign="top" bgcolor="#eeeeff">
 					<td>E</td>
@@ -1021,8 +1023,15 @@ h2,h3,h4,table {
 			grouping size. All others are ignored, so &quot;#,##,###,####&quot;
 			== &quot;###,###,####&quot; == &quot;##,#,###,####&quot;.
 		</p>
-		<p>For consistency in the CLDR data, the following conventions
-			should be observed so as to have a canonical representation:</p>
+		<p class="changed">
+			The grouping separator may also occur in the fractional part, such as
+			in “#,##0.###,#”. This is most commonly done where the grouping
+			separator character is a thin, non-breaking space (U+202F), such as
+			“1.618 033 988 75”. See <a
+				href="http://physics.nist.gov/cuu/Units/checklist.html ">physics.nist.gov/cuu/Units/checklist.html</a>.
+		</p>
+
+		<p>For consistency in the CLDR data, the following conventions</p>
 		<ul>
 			<li>All number patterns should be minimal: there should be no
 				leading # marks except to specify the position of the grouping

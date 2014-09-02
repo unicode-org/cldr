@@ -309,7 +309,18 @@ h2,h3,h4,table {
 		<p align="center">World</p>
 		<p align="center">Continent</p>
 		<p align="center">Subcontinent</p>
-		<p align="center">Country/Region</p>
+		<p align="center">Country</p>
+		<p class="changed">
+			Excluding groupings, in this tree:<br>
+		</p>
+		<ul>
+			<li class="changed">All non-overlapping regions form a strict
+				tree rooted at World</li>
+			<li class="changed">All leaf-nodes (country) are always at depth
+				4. Some of these “country” regions are actually parts of other
+				countries, such as Hong Kong (part of China). Such relationships are
+				not part of the containment data.</li>
+		</ul>
 		<p>
 			For a chart showing the relationships (plus the included timezones),
 			see the <a

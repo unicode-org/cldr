@@ -4827,11 +4827,12 @@ root</pre>
 		<p>
 			Property names and values are case-insensitive, and whitespace,
 			&quot;-&quot;, and &quot;_&quot; are ignored. The property name can
-			be omitted for the Category and Script properties, but is required
-			for other properties. If the property value is omitted, it is assumed
-			to represent a boolean property with the value &quot;true&quot;. Thus
-			<b>[:Letter:]</b> is equivalent to <b>[:General_Category=Letter:]</b>,
-			and <b>[:Wh-ite-s pa_ce:]</b> is equivalent to <b>[:Whitespace=true:]</b>.
+			be omitted for the <span class="changed"><strong>General_</strong></span><strong>Category</strong>
+			and <strong>Script</strong> properties, but is required for other
+			properties. If the property value is omitted, it is assumed to
+			represent a boolean property with the value &quot;true&quot;. Thus <b>[:Letter:]</b>
+			is equivalent to <b>[:General_Category=Letter:]</b>, and <b>[:Wh-ite-s
+				pa_ce:]</b> is equivalent to <b>[:Whitespace=true:]</b>.
 		</p>
 		<p>
 			The table below shows the two kinds of syntax: POSIX and Perl style.

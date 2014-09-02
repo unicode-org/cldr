@@ -340,53 +340,53 @@ h2,h3,h4,table {
 				</ul>
 			</li>
 			<li>5 <a href="#XML_Format">XML Format</a>
-				<ul class="toc">
-					<li>5.1 <a href="#Common_Elements">Common Elements</a>
-						<ul class="toc">
-							<li>5.1.1 <a href="#special">Element special</a>
-								<ul class="toc">
-									<li>5.1.1.1 <a href="#Sample_Special_Elements">Sample
-											Special Elements</a></li>
-								</ul>
-							</li>
-							<li>5.1.2 <a href="#Alias_Elements">Element alias</a></li>
-							<li>5.1.3 <a href="#Element_displayName">Element
-									displayName</a></li>
-							<li>5.1.4 <a href="#Escaping_Characters">Element cp</a></li>
-						</ul>
-					</li>
-					<li>5.2 <a href="#Common_Attributes">Common Attributes</a>
-						<ul class="toc">
-							<li>5.2.1 <a href="#Attribute_type">Attribute type</a></li>
-							<li>5.2.2 <a href="#Attribute_draft">Attribute draft</a></li>
-							<li>5.2.3 <a href="#alt_attribute">Attribute alt</a></li>
-						</ul>
-					</li>
-					<li>5.3 <a href="#Common_Structures">Common Structures</a>
-						<ul class="toc">
-							<li>5.3.1 <a href="#Date_Ranges">Date and Date Ranges</a></li>
-							<li>5.3.2 <a href="#Text_Directionality">Text
-									Directionality</a></li>
-							<li>5.3.3 <a href="#Unicode_Sets">Unicode Sets</a>
-								<ul class="toc">
-									<li>5.3.3.1 <a href="#Single_Quote">Single Quote</a></li>
-									<li>5.3.3.2 <a href="#Backslash_Escapes">Backslash
-											Escapes</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<li>5.4 <a href="#Identity_Elements">Identity Elements</a></li>
-					<li>5.5 <a href="#Valid_Attribute_Values">Valid Attribute
-							Values</a></li>
-					<li>5.6 <a href="#Canonical_Form">Canonical Form</a>
-						<ul class="toc">
-							<li>5.6.1 <a href="#Content">Content</a></li>
-							<li>5.6.2 <a href="#Ordering">Ordering</a></li>
-							<li>5.6.3 <a href="#Comments">Comments</a></li>
-						</ul>
-					</li>
-				</ul>
+<ul class="toc">
+			  <li>5.1 <a href="#Common_Elements">Common Elements</a>
+				  <ul class="toc">
+					  <li>5.1.1 <a href="#special">Element special</a>
+						  <ul class="toc">
+							  <li>5.1.1.1 <a href="#Sample_Special_Elements">Sample
+									  Special Elements</a></li>
+						  </ul>
+					  </li>
+					  <li>5.1.2 <a href="#Alias_Elements">Element alias</a></li>
+					  <li>5.1.3 <a href="#Element_displayName">Element
+							  displayName</a></li>
+					  <li>5.1.4 <a href="#Escaping_Characters">Element cp</a></li>
+				  </ul>
+			  </li>
+			  <li>5.2 <a href="#Common_Attributes">Common Attributes</a>
+				  <ul class="toc">
+					  <li>5.2.1 <a href="#Attribute_type">Attribute type</a></li>
+					  <li>5.2.2 <a href="#Attribute_draft">Attribute draft</a></li>
+					  <li>5.2.3 <a href="#alt_attribute">Attribute alt</a></li>
+				  </ul>
+			  </li>
+			  <li>5.3 <a href="#Common_Structures">Common Structures</a>
+				  <ul class="toc">
+					  <li>5.3.1 <a href="#Date_Ranges">Date and Date Ranges</a></li>
+					  <li>5.3.2 <a href="#Text_Directionality">Text
+							  Directionality</a></li>
+					  <li>5.3.3 <a href="#Unicode_Sets">Unicode Sets</a>
+						  <ul class="toc">
+							  <li>5.3.3.1 <a href="#Single_Quote">Single Quote</a></li>
+							  <li>5.3.3.2 <a href="#Backslash_Escapes">Backslash
+									  Escapes</a></li>
+						  </ul>
+					  </li>
+				  </ul>
+			  </li>
+			  <li>5.4 <a href="#Identity_Elements">Identity Elements</a></li>
+			  <li>5.5 <a href="#Valid_Attribute_Values">Valid Attribute
+					  Values</a></li>
+			  <li>5.6 <a href="#Canonical_Form">Canonical Form</a>
+				  <ul class="toc">
+					  <li>5.6.1 <a href="#Content">Content</a></li>
+					  <li>5.6.2 <a href="#Ordering">Ordering</a></li>
+					  <li>5.6.3 <a href="#Comments">Comments</a></li>
+				  </ul>
+			  </li>
+		  </ul>
 			</li>
 			<li>6 <a href="#Property_Data">Property Data</a></li>
 			<li>7 <a href="#Lenient_Parsing">Lenient Parsing</a>
@@ -429,7 +429,7 @@ h2,h3,h4,table {
 		</ul>
 		<h2>
 			<a name="Introduction" href="#Introduction">1 Introduction</a>
-		</h2>
+	  </h2>
 		<p>Not long ago, computer systems were like separate worlds,
 			isolated from one another. The internet and related events have
 			changed all that. A single system can be built of many different
@@ -4072,24 +4072,34 @@ root</pre>
 			<li>common/rbnf/ja.xml</li>
 			<li>common/segmentations/ja.xml</li>
 		</ul>
-		<p>The status of the data is the same, whether or not data is
+		<p class="changed">Data for cased languages such as French are in files like:</p>
+		<ul>
+		  <li class="changed">common/casing/fr.xml</li>
+	  </ul>
+<p>The status of the data is the same, whether or not data is
 			split. That is, for the purpose of validation and lookup, all of the
 			data for the above ja.xml files is treated as if it was in a single
-			file.</p>
-		<p>Supplemental data relating to Japan or the Japanese writing
-			system can be found in:</p>
+		  file. <span class="changed">These files have the &lt;ldml&gt; root element and use ldml.dtd. The file name must match the identity element. For example, the &lt;ldml&gt; file pa_Arab_PK.xml must contain the following  elements:</span></p>
+		<pre class="changed"><strong>&lt;ldml&gt;</strong><br> 	&lt;identity&gt;<br> 		…<br> 		<strong>&lt;language type=&quot;pa&quot;/&gt;<br> 		&lt;script type=&quot;Arab&quot;/&gt;<br> 		&lt;territory type=&quot;PK&quot;/&gt;</strong><br> 	&lt;/identity&gt;
+…</pre>
+<p class="changed">Supplemental data can have different root elements, currently: ldmlBCP47, supplementalData, keyboard, and platform. Keyboard and platform files are considered distinct. The ldmlBCP47 files and supplementalData files that have the same root are all logically part of the same file; they are simply split into separate files for convenience. Implementations may split the files in different ways, also for their convenience. The files in /properties are also supplemental data files, but are structured like UCD properties.</p>
+
+<p><span class="changed">For example, </span>supplemental data relating to Japan or the Japanese writing are in: </p>
 		<ul>
-			<li>Files in common/supplemental/ such as supplementalData.xml</li>
+			<li>common/supplemental/ (in many files, such as supplementalData.xml)</li>
 			<li>common/transforms/Hiragana-Katakana.xml</li>
 			<li>common/transforms/Hiragana-Latin.xml</li>
-			<li>...</li>
+			<li class="changed">common/properties/scriptMetadata.txt</li>
+			<li class="changed">common/bcp47/calendar.xml</li>
+			<li class="changed">uca/allkeys_CLDR.txt (sorting)</li>
+			<li class="changed">/keyboards/chromeos/ja-t-k0-chromeos.xml</li>
+			<li class="changed">...</li>
 		</ul>
 		<p>
 			The following sections describe the structure of the XML format for
-			language-dependent data. The more precise syntax is in the DTD,
-			listed at the top of this document<i>; however, the DTD does not
+			language-dependent data. The more precise syntax is in the<span class="changed"> ldml.dtd file</span><i>; however, the DTD does not
 				describe all the constraints on the structure.</i>
-		</p>
+</p>
 		<p>To start with, the root element is &lt;ldml&gt;, with the
 			following DTD entry:</p>
 		<span class="dtd">&lt;!ELEMENT ldml (identity, (alias

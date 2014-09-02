@@ -1595,39 +1595,37 @@ h2,h3,h4,table {
 			other recourse.</p>
 		<p class="changed">When constructing a pattern for value=V,
 			numeratorUnit=N, denominatorUnit=D, the following precess is used.</p>
-		<ol>
-			<li class="changed">If there is a compound form for N/D already
-				available, use it.</li>
-			<li class="changed">Otherwise, format the N pattern with the
-				number using plural categories.</li>
-			<ul>
-				<li class="changed">→ &quot;3 kilograms&quot;</li>
-			</ul>
-			<li class="changed">See if there is a <strong>perUnitPattern</strong>
-				for D.
-			</li>
-
-			<ol>
-				<li class="changed">If so, then substitute the formatted
-					numerator into the <strong>perUnitPattern</strong>
-				</li>
+		<ol class="changed">
+			<li>If there is a compound form for N/D already available, use
+				it.</li>
+			<li>Otherwise, format the N pattern with the number using plural
+				categories.
 				<ul>
-					<li class="changed">&quot;3 kilograms&quot; + &quot;{0} per
-						second&quot; → &quot;3 kilograms per second&quot;</li>
+					<li>→ &quot;3 kilograms&quot;</li>
 				</ul>
-				<li><span class="changed">If not, get the <strong>compoundUnit</strong>
-						pattern, and substitute the formatted numerator for {0} and the
-						singular form of the denominator for {1}, after stripping the {0}
-						and trimming spaces.
-				</span>
-					<ul>
-						<li class="changed">&quot;3 kilograms&quot; + &quot;{0} per
-							{1}&quot; + &quot;{0} seconds&quot; →</li>
-						<li class="changed">&quot;3 kilograms&quot; + &quot;{0} per
-							{1}&quot; + &quot;seconds&quot; →</li>
-						<li class="changed">&quot;3 kilograms per second&quot;</li>
-					</ul></li>
-			</ol>
+			</li>
+			<li>See if there is a <strong>perUnitPattern</strong> for D.
+
+				<ol>
+					<li>If so, then substitute the formatted numerator into the <strong>perUnitPattern</strong>
+						<ul>
+							<li>&quot;3 kilograms&quot; + &quot;{0} per second&quot; →
+								&quot;3 kilograms per second&quot;</li>
+						</ul>
+					</li>
+					<li>If not, get the <strong>compoundUnit</strong> pattern, and
+						substitute the formatted numerator for {0} and the singular form
+						of the denominator for {1}, after stripping the {0} and trimming
+						spaces.
+						<ul>
+							<li>&quot;3 kilograms&quot; + &quot;{0} per {1}&quot; +
+								&quot;{0} seconds&quot; →</li>
+							<li>&quot;3 kilograms&quot; + &quot;{0} per {1}&quot; +
+								&quot;seconds&quot; →</li>
+							<li>&quot;3 kilograms per second&quot;</li>
+						</ul></li>
+				</ol>
+			</li>
 		</ol>
 		<p class="changed">The patterns can have different unit lengths,
 			so the appropriate unit length should be used (with fallbacks if

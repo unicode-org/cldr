@@ -954,28 +954,30 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 		</h3>
 		<p class="dtd">
 			&lt;!ELEMENT alias ( languageAlias*, scriptAlias*, territoryAlias*,
-			variantAlias*, zoneAlias* ) &gt;<br> <br> &lt;!ELEMENT
-			languageAlias EMPTY &gt;<br> &lt;!ATTLIST languageAlias type
-			NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST languageAlias replacement
-			NMTOKEN #IMPLIED &gt;<br> <br> &lt;!ELEMENT scriptAlias
-			EMPTY &gt;<br> &lt;!ATTLIST scriptAlias type NMTOKEN #IMPLIED
-			&gt;<br> &lt;!ATTLIST scriptAlias replacement NMTOKEN #IMPLIED
-			&gt;<br> <br> &lt;!ELEMENT territoryAlias EMPTY &gt;<br>
-			&lt;!ATTLIST territoryAlias type NMTOKEN #IMPLIED &gt;<br>
-			&lt;!ATTLIST territoryAlias replacement NMTOKENS #IMPLIED &gt;<br>
-			<br> &lt;!ELEMENT variantAlias EMPTY &gt;<br> &lt;!ATTLIST
-			variantAlias type NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST
-			variantAlias replacement NMTOKEN #IMPLIED &gt;<br> <br>
-			&lt;!ELEMENT zoneAlias EMPTY &gt;<br> &lt;!ATTLIST zoneAlias
-			type CDATA #IMPLIED &gt;<br> &lt;!ATTLIST zoneAlias replacement
-			CDATA #IMPLIED &gt;<br> &nbsp;
+			variantAlias*, zoneAlias* ) &gt;<br> <br> <span
+				class="changed"><em>The following are common attributes
+					for subelements of &lt;alias&gt;:</em><br> </span>&lt;!ELEMENT *Alias
+			EMPTY &gt;<br> &lt;!ATTLIST *Alias type NMTOKEN #IMPLIED &gt;<br>
+			&lt;!ATTLIST *Alias replacement NMTOKEN #IMPLIED &gt;<br> <span
+				class="changed">&lt;!ATTLIST *Alias reason ( deprecated |
+				overlong ) #IMPLIED&gt; <br> <br> <em>The
+					languageAlias has additional reasons</em><br> &lt;!ATTLIST
+				languageAlias reason ( deprecated | overlong | macrolanguage |
+				legacy | bibliographic ) #IMPLIED&gt;
+			</span>
 		</p>
-		<p>This element provides information as to parts of locale IDs
-			that should be substituted when accessing CLDR data. This logical
+		<p>
+			This element provides information as to parts of locale IDs that
+			should be substituted when accessing CLDR data. This logical
 			substitution should be done to both the locale id, and to any lookup
-			for display names of languages, territories, and so on. As with the
-			display names, the language type and replacement may be any prefix of
-			a valid locale id, such as &quot;no_NO&quot;.</p>
+			for display names of languages, territories, and so on. <span
+				class="changed">The replacement for the language and
+				territory types is more complicated: see <em>Part 1: <a
+					href="tr35.html#Contents">Core specification</a>, Section 3.3.1 <a
+					href="#BCP_47_Language_Tag_Conversion">BCP 47 Language Tag
+						Conversion</a></em> for details.
+			</span>
+		</p>
 		<pre>&lt;alias&gt;
   &lt;languageAlias type=&quot;in&quot; replacement=&quot;id&quot;&gt;
   &lt;languageAlias type=&quot;sh&quot; replacement=&quot;sr&quot;&gt;
@@ -984,6 +986,58 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
   &lt;territoryAlias type=&quot;BU&quot; replacement=&quot;MM&quot;&gt;
 ...
 &lt;/alias&gt;</pre>
+		<p class="changed">Attribute values for the *Alias values include
+			the following:</p>
+		<table class="changed">
+			<tr>
+				<th scope="col">Attribute</th>
+				<th scope="col">Value</th>
+				<th scope="col">Description</th>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>NMTOKEN</td>
+				<td>The code to be replaced</td>
+			</tr>
+			<tr>
+				<td>replacement</td>
+				<td>NMTOKEN</td>
+				<td>The code(s) to replace it, space-delimited.</td>
+			</tr>
+			<tr>
+				<td rowspan="5">reason</td>
+				<td>deprecated</td>
+				<td>The code in type is deprecated, such as 'iw' by 'he', or
+					'CS' by 'RS ME'.</td>
+			</tr>
+			<tr>
+				<td>overlong</td>
+				<td>The code in type is too long, such as 'eng' by 'en' or
+					'USA' or '840' by 'US'</td>
+			</tr>
+			<tr>
+				<td>macrolanguage</td>
+				<td>The code in type is an encompassed languagethat is replaced
+					by a macrolanguage, such as '<a
+					href="http://www-01.sil.org/iso639-3/documentation.asp?id=arb">arb'</a>
+					by 'ar'.
+				</td>
+			</tr>
+			<tr>
+				<td>legacy</td>
+				<td>The code in type is a legacy code that is replaced by
+					another code for compatiblity with established legacy usage, such
+					as 'sh' by 'sr_Latn'</td>
+			</tr>
+			<tr>
+				<td>bibliographic</td>
+				<td>The code in type is a <a
+					href="http://www.loc.gov/standards/iso639-2/langhome.html">bibliographic
+						code</a>, which is replaced by a terminology code, such as 'alb' by
+					'sq'.
+				</td>
+			</tr>
+		</table>
 		<h3>
 			9.2 <a name="Supplemental_Deprecated_Information"
 				href="#Supplemental_Deprecated_Information">Supplemental

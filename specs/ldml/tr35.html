@@ -1092,7 +1092,8 @@ h2,h3,h4,table {
 						</tr>
 						<tr>
 							<td><code>zh_Hans</code></td>
-							<td>Chinese, in simplified script</td>
+							<td>Chinese, in simplified script <span class="changed">(=zh,
+									zh-Hans, zh-CN, zh-Hans-CN)</span></td>
 						</tr>
 						<tr>
 							<td><code>zh_Hant</code></td>
@@ -1114,7 +1115,8 @@ h2,h3,h4,table {
 						<tr>
 							<td><code>Qaai</code></td>
 							<td>Inherited</td>
-							<td>the preferred form is now Zinh</td>
+							<td><span class="changed"><strong>deprecated</strong>:
+									the <em>canonicalized</em> form is</span> Zinh</td>
 						</tr>
 						<tr>
 							<td><code>Zzzz</code></td>
@@ -1157,14 +1159,22 @@ h2,h3,h4,table {
 						<tr>
 							<td><code>QU</code></td>
 							<td>European Union</td>
-							<td><em>the preferred form is now EU</em></td>
+							<td><span class="changed"><strong>deprecated</strong>:
+									the <em>canonicalized</em> form is</span> EU</td>
 							<td>private use</td>
 						</tr>
 						<tr>
-							<td>UK</td>
+							<td><code>UK</code></td>
 							<td>United Kingdom</td>
-							<td><em>the correct form is GB</em></td>
+							<td><span class="changed"><strong>deprecated</strong>:
+									the <em>canonicalized</em> form is</span> GB</td>
 							<td>exceptionally reserved</td>
+						</tr>
+						<tr class="changed">
+							<td><code>XK</code></td>
+							<td>Kosovo</td>
+							<td>industry practice</td>
+							<td>private use</td>
 						</tr>
 						<tr>
 							<td><code>ZZ</code></td>
@@ -1173,9 +1183,13 @@ h2,h3,h4,table {
 							<td>private use</td>
 						</tr>
 					</table>
-					<p>The private use subtags from XA..XZ will never be given
-						specific semantics in Unicode identifiers, and are thus safe for
-						use for other purposes by other applications.</p>
+					<p>
+						The private use subtags from XA..XZ will never be given specific
+						semantics in Unicode identifiers, and are thus safe for use for
+						other purposes by other applications. <span class="changed">LDML
+							may follow industry practice in the use of some of these codes,
+							however, such as for XK.</span>
+					</p>
 					<p>The CLDR provides data for normalizing territory/region
 						codes, including mapping overlong codes like &quot;eng-840&quot;
 						or &quot;eng-USA&quot; to the correct code &quot;en-US&quot;.</p>

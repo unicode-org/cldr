@@ -4929,7 +4929,8 @@ root</pre>
 			</tr>
 			<tr>
 				<td>\a</td>
-				<td>U+0007 (BELL)</td>
+				<td>U+0007 (BEL<span class="changed"> / ALERT</span>)
+				</td>
 			</tr>
 			<tr>
 				<td>\b</td>
@@ -4937,7 +4938,9 @@ root</pre>
 			</tr>
 			<tr>
 				<td>\t</td>
-				<td>U+0009 (HORIZONTAL TAB)</td>
+				<td>U+0009 (<span class="changed">TAB / CHARACTER
+						TABULATION</span>)
+				</td>
 			</tr>
 			<tr>
 				<td>\n</td>
@@ -4945,7 +4948,8 @@ root</pre>
 			</tr>
 			<tr>
 				<td>\v</td>
-				<td>U+000B (VERTICAL TAB)</td>
+				<td>U+000B (<span class="changed">LINE TABULATION</span>)
+				</td>
 			</tr>
 			<tr>
 				<td>\f</td>
@@ -4957,7 +4961,9 @@ root</pre>
 			</tr>
 			<tr>
 				<td>\\</td>
-				<td>U+005C (BACKSLASH)</td>
+				<td>U+005C (BACKSLASH<span class="changed"> / REVERSE
+						SOLIDUS</span>)
+				</td>
 			</tr>
 			<tr>
 				<td>\N{name}</td>
@@ -7034,6 +7040,9 @@ decimal?, group?, special*)) &gt;</pre>
 					</em>
 						<ul>
 							<li>Added \x{h...h} syntax for Unicode code points.</li>
+							<li>Used backslash character names from NamedAliases or
+								UnicodeData. [<a href="http://unicode.org/cldr/trac/ticket/6953">#6953</a>]
+							</li>
 						</ul></li>
 				</ul></li>
 			<li><strong>Part 2: <a

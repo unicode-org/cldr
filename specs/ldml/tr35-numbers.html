@@ -2290,6 +2290,10 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			that result has been verified for a given language, it is included in
 			the CLDR data.
 		</p>
+		<p class="changed">The data has been gathered presuming that in
+			any usage, the start value is strictly less than the end value, and
+			that no values are negative. Results for any cases that do not meet
+			these criteria are undefined.</p>
 		<h2>
 			6 <a name="Rule-Based_Number_Formatting"
 				href="#Rule-Based_Number_Formatting">Rule-Based Number

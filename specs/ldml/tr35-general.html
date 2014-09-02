@@ -82,8 +82,10 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center"><span class="changed">Proposed Update
-		</span>Unicode Technical Standard #35</h2>
+		<h2 style="text-align: center">
+			<span class="changed">Proposed Update </span>Unicode Technical
+			Standard #35
+		</h2>
 		<h1 style="text-align: center">
 			Unicode Locale Data Markup Language (LDML)<br> Part 2: General
 		</h1>
@@ -225,7 +227,8 @@ h2,h3,h4,table {
 			</li>
 			<li>6 <a href="#Unit_Elements">Unit Elements</a>
 				<ul class="toc">
-					<li>6.1 <a href="#perUnitPatterns" class="changed">Per Unit Patterns</a></li>
+					<li>6.1 <a href="#perUnitPatterns" class="changed">Per
+							Unit Patterns</a></li>
 					<li>6.2 <a href="#Unit_Sequences">Unit Sequences</a></li>
 					<li>6.3 <a href="#durationUnit">durationUnit</a></li>
 				</ul>
@@ -236,15 +239,16 @@ h2,h3,h4,table {
 				<ul class="toc">
 					<li>9.1 <a href="#Segmentation_Inheritance">Segmentation
 							Inheritance</a></li>
-					<li>9.2 <a href="#Segmentation_Exceptions">Segmentation
-							<span class="changed">Suppressions</span></a></li>
+					<li>9.2 <a href="#Segmentation_Exceptions">Segmentation <span
+							class="changed">Suppressions</span></a></li>
 				</ul>
 			</li>
 			<li>10 <a href="#Transforms">Transforms</a>
 				<ul class="toc">
 					<li>10.1 <a href="#Inheritance">Inheritance</a></li>
 					<li>10.2 <a href="#Variants">Variants</a></li>
-					<li>10.3 <a href="#Transform_Rules_Syntax">Transform Rules Syntax</a>
+					<li>10.3 <a href="#Transform_Rules_Syntax">Transform Rules
+							Syntax</a>
 						<ul class="toc">
 							<li>10.3.1 <a href="#Dual_Rules">Dual Rules</a></li>
 							<li>10.3.2 <a href="#Context">Context</a></li>
@@ -1253,8 +1257,9 @@ h2,h3,h4,table {
 			&gt;<br> &lt;!ATTLIST compoundUnit type NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT unit (alias | (<span class="changed">displayName*, </span>unitPattern*, <span class="changed">perUnitPattern*, </span>special*)) &gt;<br>
-			&lt;!ATTLIST unit type NMTOKEN #REQUIRED &gt;
+			&lt;!ELEMENT unit (alias | (<span class="changed">displayName*,
+			</span>unitPattern*, <span class="changed">perUnitPattern*, </span>special*))
+			&gt;<br> &lt;!ATTLIST unit type NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT durationUnit (alias | (durationUnitPattern*, special*))
@@ -1279,7 +1284,8 @@ h2,h3,h4,table {
 			position of the formatted numeric value):</p>
 
 		<pre>&lt;unit type="day"&gt;
-&nbsp;&nbsp;<span class="changed">&lt;displayName&gt;<span style="color: blue">Day</span>&lt;/displayName&gt;</span>
+&nbsp;&nbsp;<span class="changed">&lt;displayName&gt;<span
+				style="color: blue">Day</span>&lt;/displayName&gt;</span>
 &nbsp;&nbsp;&lt;unitPattern count="one"&gt;<span style="color: blue">{0} day</span>&lt;/unitName&gt;
 &nbsp;&nbsp;&lt;unitPattern count="other"&gt;<span style="color: blue">{0} days</span>&lt;/unitName&gt;
 &lt;/unit&gt;</pre>
@@ -1292,8 +1298,11 @@ h2,h3,h4,table {
 			</em>.
 		</p>
 
-		<p>The units in CLDR are not comprehensive; it is anticipated that
-  more will be added over time. <span class="changed">Current examples include:</span></p>
+		<p>
+			The units in CLDR are not comprehensive; it is anticipated that more
+			will be added over time. <span class="changed">Current
+				examples include:</span>
+		</p>
 		<table>
 			<tr>
 				<td><strong>Type</strong></td>
@@ -1553,45 +1562,79 @@ h2,h3,h4,table {
 			specialized domains, such as the German “̌Fernseher von 32 bis 55
 			Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.</p>
 		<h3>
-			6.1 <span class="changed"><a name="perUnitPatterns" href="#perUnitPatterns">per Unit patterns</a><a name="compoundUnitPattern" href="#compoundUnitPattern"></a>
-    </span></h3>
+			6.1 <span class="changed"><a name="perUnitPatterns"
+				href="#perUnitPatterns">per Unit patterns</a><a
+				name="compoundUnitPattern" href="#compoundUnitPattern"></a> </span>
+		</h3>
 		<p>
-			<span class="changed">A common combination of units is X per Y, such as <em>miles per hour</em> or <em>liters per second</em>. Some
-			units already have 'precomputed' forms, such as <strong>kilometer-per-hour</strong>;
-	  where such units exist, they should be used in preference. There are two other patterns that can be used to compose unit symbols or names.</span></p>
-		<p class="changed"><strong>compoundUnit</strong> — This is used to construct a
-		pattern from two unit names. For example, a form such as &quot;{0} per {1}&quot; or &quot;{0}/{1}&quot; can be used to construct  cases such as &quot;2 feet<strong> per </strong>second&quot; or &quot;ft<strong>/</strong>s&quot;</p>
-		<p class="changed"><strong>perUnitPattern</strong> — This is used as the denominator with another unit name. For example, a form such as &quot;{0} per second&quot; can be used to form &quot;2 feet<strong> per second</strong>&quot;.</p>
-	  <p class="changed">The difference between these is that in some inflected languages, the compoundUnit cannot be used to form grammatical phrases. This is typically because the &quot;per&quot; + &quot;second&quot; combine in a non-trivial way. For such languages, the compoundUnit should only be used as a fallback, when there is no other recourse.</p>
-<p class="changed">When constructing a pattern for value=V, numeratorUnit=N, denominatorUnit=D, the following precess is used.</p>
-<ol>
-  <li class="changed">If there is a compound form for N/D already available, use it.</li>
-  <li class="changed">Otherwise, format the N pattern with the number using plural categories.  </li>
-  <ul>
-    <li class="changed">→ &quot;3 kilograms&quot;</li>
-  </ul>
-  <li class="changed">See if there is a <strong>perUnitPattern</strong> for D.
-  </li>
+			<span class="changed">A common combination of units is X per
+				Y, such as <em>miles per hour</em> or <em>liters per second</em>.
+				Some units already have 'precomputed' forms, such as <strong>kilometer-per-hour</strong>;
+				where such units exist, they should be used in preference. There are
+				two other patterns that can be used to compose unit symbols or
+				names.
+			</span>
+		</p>
+		<p class="changed">
+			<strong>compoundUnit</strong> — This is used to construct a pattern
+			from two unit names. For example, a form such as &quot;{0} per
+			{1}&quot; or &quot;{0}/{1}&quot; can be used to construct cases such
+			as &quot;2 feet<strong> per </strong>second&quot; or &quot;ft<strong>/</strong>s&quot;
+		</p>
+		<p class="changed">
+			<strong>perUnitPattern</strong> — This is used as the denominator
+			with another unit name. For example, a form such as &quot;{0} per
+			second&quot; can be used to form &quot;2 feet<strong> per
+				second</strong>&quot;.
+		</p>
+		<p class="changed">The difference between these is that in some
+			inflected languages, the compoundUnit cannot be used to form
+			grammatical phrases. This is typically because the &quot;per&quot; +
+			&quot;second&quot; combine in a non-trivial way. For such languages,
+			the compoundUnit should only be used as a fallback, when there is no
+			other recourse.</p>
+		<p class="changed">When constructing a pattern for value=V,
+			numeratorUnit=N, denominatorUnit=D, the following precess is used.</p>
+		<ol>
+			<li class="changed">If there is a compound form for N/D already
+				available, use it.</li>
+			<li class="changed">Otherwise, format the N pattern with the
+				number using plural categories.</li>
+			<ul>
+				<li class="changed">→ &quot;3 kilograms&quot;</li>
+			</ul>
+			<li class="changed">See if there is a <strong>perUnitPattern</strong>
+				for D.
+			</li>
 
-  <ol>
-    <li class="changed">If so, then substitute the formatted numerator into the <strong>perUnitPattern</strong></li>
-    <ul>
-      <li class="changed">&quot;3 kilograms&quot; + &quot;{0} per second&quot; → &quot;3 kilograms per second&quot;</li>
-      </ul>
-    <li><span class="changed">If not, get the <strong>compoundUnit</strong> pattern, and substitute the formatted numerator for {0} and the singular form of the denominator for {1}, after stripping the {0} and trimming spaces.
-      </span>
-      <ul>
-        <li class="changed">&quot;3 kilograms&quot; + &quot;{0} per {1}&quot; + &quot;{0} seconds&quot; →</li>
-        <li class="changed">&quot;3 kilograms&quot; + &quot;{0} per {1}&quot; + &quot;seconds&quot; →</li>
-        <li class="changed">&quot;3 kilograms per second&quot;    </li>
-      </ul>
-    </li>
-  </ol>
-</ol>
-<h3>
-	  6.2 <a name="Unit_Sequences" href="#Unit_Sequences">Unit
+			<ol>
+				<li class="changed">If so, then substitute the formatted
+					numerator into the <strong>perUnitPattern</strong>
+				</li>
+				<ul>
+					<li class="changed">&quot;3 kilograms&quot; + &quot;{0} per
+						second&quot; → &quot;3 kilograms per second&quot;</li>
+				</ul>
+				<li><span class="changed">If not, get the <strong>compoundUnit</strong>
+						pattern, and substitute the formatted numerator for {0} and the
+						singular form of the denominator for {1}, after stripping the {0}
+						and trimming spaces.
+				</span>
+					<ul>
+						<li class="changed">&quot;3 kilograms&quot; + &quot;{0} per
+							{1}&quot; + &quot;{0} seconds&quot; →</li>
+						<li class="changed">&quot;3 kilograms&quot; + &quot;{0} per
+							{1}&quot; + &quot;seconds&quot; →</li>
+						<li class="changed">&quot;3 kilograms per second&quot;</li>
+					</ul>
+			  </li>
+			</ol>
+        </ol>
+				<p class="changed">The patterns can have different unit lengths, so the appropriate unit length should be used (with fallbacks if necessary).</p>
+	<h3>
+			6.2 <a name="Unit_Sequences" href="#Unit_Sequences">Unit
 				Sequences</a>
-	</h3>
+	  </h3>
 		<p>
 			Units may be used in composed sequences, such as <strong>5°
 				30′</strong> for 5 degrees 30 minutes, or <strong>3 ft 2 in.</strong>For that
@@ -1711,26 +1754,50 @@ h2,h3,h4,table {
 			&gt;</p>
 		<p class="dtd">
 			&lt;!ELEMENT segmentation ( alias | (variables?, segmentRules? ,
-			exceptions?<span class="changed">, suppressions?</span>) | special*) &gt;
-                        <br> &lt;!ATTLIST segmentation type
-			NMTOKEN #REQUIRED &gt;
+			exceptions?<span class="changed">, suppressions?</span>) | special*)
+			&gt; <br> &lt;!ATTLIST segmentation type NMTOKEN #REQUIRED &gt;
 		</p>
-		<p class="dtd"><span class="changed">&lt;!ELEMENT variables ( alias | variable*) &gt;</span></p>
-		<p class="dtd"><span class="changed">
-			&lt;!ELEMENT variable ( #PCDATA ) &gt;<br> &lt;!ATTLIST variable
-			id CDATA #REQUIRED &gt;
-		</span></p>
-		<p class="dtd"><span class="changed">&lt;!ELEMENT segmentRules ( alias | rule*) &gt;</span></p>
-		<p class="dtd"><span class="changed">
-			&lt;!ELEMENT rule ( #PCDATA ) &gt;<br> &lt;!ATTLIST rule id
-			NMTOKEN #REQUIRED &gt;
-		</span></p>
-		<p class="dtd"><span class="changed">&lt;!ELEMENT suppressions ( suppression* ) &gt;</span></p>
-		<p class="dtd"><span class="changed">&lt;!ATTLIST suppressions type NMTOKEN "standard" &gt;</span></p>
-		<p class="dtd"><span class="changed">&lt;!ATTLIST suppressions draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED &gt;</span></p>
-		<p class="dtd"><span class="changed">&lt;!ELEMENT suppression ( #PCDATA ) &gt;</span></p>
-		<p class="dtd"><span class="removed">&lt;!ELEMENT exceptions ( exception* ) &gt;</span></p>
-		<p class="dtd"><span class="removed">&lt;!ELEMENT exception ( #PCDATA ) &gt;</span></p>
+		<p class="dtd">
+			<span class="changed">&lt;!ELEMENT variables ( alias |
+				variable*) &gt;</span>
+		</p>
+		<p class="dtd">
+			<span class="changed"> &lt;!ELEMENT variable ( #PCDATA ) &gt;<br>
+				&lt;!ATTLIST variable id CDATA #REQUIRED &gt;
+			</span>
+		</p>
+		<p class="dtd">
+			<span class="changed">&lt;!ELEMENT segmentRules ( alias |
+				rule*) &gt;</span>
+		</p>
+		<p class="dtd">
+			<span class="changed"> &lt;!ELEMENT rule ( #PCDATA ) &gt;<br>
+				&lt;!ATTLIST rule id NMTOKEN #REQUIRED &gt;
+			</span>
+		</p>
+		<p class="dtd">
+			<span class="changed">&lt;!ELEMENT suppressions ( suppression*
+				) &gt;</span>
+		</p>
+		<p class="dtd">
+			<span class="changed">&lt;!ATTLIST suppressions type NMTOKEN
+				"standard" &gt;</span>
+		</p>
+		<p class="dtd">
+			<span class="changed">&lt;!ATTLIST suppressions draft (
+				approved | contributed | provisional | unconfirmed ) #IMPLIED &gt;</span>
+		</p>
+		<p class="dtd">
+			<span class="changed">&lt;!ELEMENT suppression ( #PCDATA )
+				&gt;</span>
+		</p>
+		<p class="dtd">
+			<span class="removed">&lt;!ELEMENT exceptions ( exception* )
+				&gt;</span>
+		</p>
+		<p class="dtd">
+			<span class="removed">&lt;!ELEMENT exception ( #PCDATA ) &gt;</span>
+		</p>
 
 		<p>
 			The segmentations element provides for segmentation of text into
@@ -1879,22 +1946,24 @@ h2,h3,h4,table {
 
 		<h3>
 			9.2 <a name="Segmentation_Exceptions" href="#Segmentation_Exceptions">Segmentation
-				<span class="changed">Suppressions</span></a>
+				<span class="changed">Suppressions</span>
+			</a>
 		</h3>
 
 		<p>
-			<b>Note:</b> As of CLDR <span class="changed">26</span>, the
-			<span class="changed"><code>&lt;suppressions&gt;</code></span>
-			data is to be considered a technology preview. Data currently in CLDR
-			was extracted from the Unicode Localization Interoperability project,
-			or ULI. See <a href="http://uli.unicode.org">http://uli.unicode.org</a>
+			<b>Note:</b> As of CLDR <span class="changed">26</span>, the <span
+				class="changed"><code>&lt;suppressions&gt;</code></span> data is to
+			be considered a technology preview. Data currently in CLDR was
+			extracted from the Unicode Localization Interoperability project, or
+			ULI. See <a href="http://uli.unicode.org">http://uli.unicode.org</a>
 			for more information on the ULI project.
 		</p>
 
 		<p>
-			The segmentation <span class="changed"><b>suppressions</b></span> list provides a set of cases
-			which, though otherwise identified as a segment by rules, should be
-			skipped <span class="changed">(suppressed) </span>during segmentation.
+			The segmentation <span class="changed"><b>suppressions</b></span>
+			list provides a set of cases which, though otherwise identified as a
+			segment by rules, should be skipped <span class="changed">(suppressed)
+			</span>during segmentation.
 		</p>
 
 		<p>For example, in the English phrase "Mr. Smith", CLDR
@@ -1903,14 +1972,14 @@ h2,h3,h4,table {
 			"Mister", and not actually the end of a sentence.</p>
 
 		<p>
-			Each <span class="changed">suppression</span> has a separate
-			<span class="changed"><code>&lt;suppression&gt;</code></span>
-			element, whose contents are the break to be skipped.
+			Each <span class="changed">suppression</span> has a separate <span
+				class="changed"><code>&lt;suppression&gt;</code></span> element,
+			whose contents are the break to be skipped.
 		</p>
 
 		<p>Example:</p>
 
-                <pre>
+		<pre>
     &lt;segmentation type="SentenceBreak"&gt;
       <span class="changed">&lt;suppressions type="standard" draft="provisional"&gt;</span>
         <span class="changed">&lt;suppression&gt;Maj.&lt;/suppression&gt;</span>
@@ -1921,13 +1990,13 @@ h2,h3,h4,table {
     &lt;/segmentation&gt;
                 </pre>
 
-                <p class="changed">
-                  <b>Note:</b> These  elements were called
-                   <code>&lt;exceptions&gt;</code>
-                   and
-                   <code>&lt;exception&gt;</code>
-                   prior to CLDR 26, but those names are now deprecated.
-                </p>
+		<p class="changed">
+			<b>Note:</b> These elements were called
+			<code>&lt;exceptions&gt;</code>
+			and
+			<code>&lt;exception&gt;</code>
+			prior to CLDR 26, but those names are now deprecated.
+		</p>
 
 		<h2>
 			10 <a name="Transforms" href="#Transforms">Transforms</a>
@@ -2188,7 +2257,7 @@ h2,h3,h4,table {
 					<td>Cyrl</td>
 					<td>-</td>
 					<td>Grek</td>
-					<td>
+					<td></td>
 				</tr>
 			</table>
 		</div>
@@ -2241,8 +2310,8 @@ h2,h3,h4,table {
 
 		<p>
 			The rules for transforms are described in Section 10.3 <a
-				href="#Transform_Rules_Syntax">Transform Rules Syntax</a>. For more information on
-			Transliteration, see <a
+				href="#Transform_Rules_Syntax">Transform Rules Syntax</a>. For more
+			information on Transliteration, see <a
 				href="http://cldr.unicode.org/index/cldr-spec/transliteration-guidelines">Transliteration
 				Guidelines</a>.
 		</p>
@@ -2535,6 +2604,7 @@ h2,h3,h4,table {
 			<p>
 				<b>Any-Lower, Any-Upper, Any-Title</b> - full case transformations,
 				defined by [<a href="tr35.html#Unicode">Unicode</a>] Chapter 3.
+			</p>
 		</blockquote>
 
 		<p>In addition, the following special cases are defined:</p>

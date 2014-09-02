@@ -1451,11 +1451,13 @@ fr_BE
 			</tr>
 			<tr>
 				<td>reserved</td>
-				<td>bcp47: all non-5 letter codes</td>
+				<td>bcp47: all non-5 letter codes<span class="changed">
+						not starting with x</span></td>
 			</tr>
 			<tr>
 				<td>excluded</td>
-				<td>none</td>
+				<td class="changed">bcp47: all non-5 letter codes starting with
+					x</td>
 			</tr>
 		</table>
 		<p>
@@ -7001,8 +7003,11 @@ decimal?, group?, special*)) &gt;</pre>
 							<li>Updated BNF to allow it to work independently, and in
 								ICU's UnicodeRegex.compileBnf. Corrected the BNF to allow -u-
 								and -t- in either order.</li>
-							<li>3.4 <a href="#Field_Definitions">Language Identifier
-									Field Definitions</a>, added XK (Kosovo)
+							<li>Section 3.4 <a href="#Field_Definitions">Language
+									Identifier Field Definitions</a>, added XK (Kosovo)
+							</li>
+							<li>Section 3.5.3 <a href="#Numeric_Codes">Priviate Use
+									Codes</a>, reserved codes starting with 'x' for application use.
 							</li>
 						</ul></li>
 					<li><em>Section 4.1 <a href="#Lookup">Lookup</a></em>

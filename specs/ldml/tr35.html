@@ -4778,7 +4778,6 @@ root</pre>
 			should include an explicit direction mark, such as U+200E
 			LEFT-TO-RIGHT MARK or U+200F RIGHT-TO-LEFT MARK, at the beginning or
 			end of the element content, or both.</p>
-		<pre></pre>
 		<h4>
 			<a name="Unicode_Sets" href="#Unicode_Sets">5.3.3 Unicode Sets</a>
 		</h4>
@@ -4900,12 +4899,19 @@ root</pre>
 			<a name="Backslash_Escapes" href="#Backslash_Escapes">5.3.3.2
 				Backslash Escapes</a>
 		</h5>
-		<p>Outside of single quotes, certain backslashed characters have
-			special meaning:</p>
+		<p>
+			Outside of single quotes, certain backslashed character <span
+				class="changed">sequence</span>s have special meaning<span
+				class="changed"> (h represents a hex digit, eg [0-9A-Fa-f])</span>:
+		</p>
 		<table>
+			<tr class="changed">
+				<td>\x{h...h}</td>
+				<td>1-6 hex digits</td>
+			</tr>
 			<tr>
 				<td>\uhhhh</td>
-				<td>Exactly 4 hex digits; h in [0-9A-Fa-f]</td>
+				<td>Exactly 4 hex digits</td>
 			</tr>
 			<tr>
 				<td>\Uhhhhhhhh</td>
@@ -7012,18 +7018,24 @@ decimal?, group?, special*)) &gt;</pre>
 								href="http://unicode.org/cldr/trac/ticket/7196">#7196</a>]
 							</li>
 						</ul></li>
-					<li>5 <a href="#XML_Format">XML Format</a>
+					<li><em>Section 5 <a href="#XML_Format">XML Format</a>
+					</em>
 						<ul>
 							<li>Updated introductory text to introduce more dtd types,
 								and discuss the relations among files.</li>
-						</ul>
-					</li>
+						</ul></li>
+					<li><em>Section 5.3.3 <a href="#Unicode_Sets">Unicode
+								Sets</a>
+					</em>
+						<ul>
+							<li>Added \x{h...h} syntax for Unicode code points.</li>
+						</ul></li>
 				</ul></li>
 			<li><strong>Part 2: <a
 					href="tr35-general.html#Contents">General</a></strong>
 				<ul>
-					<li><em>Section 3.1 <a href="tr35-general.html#ExemplarSyntax">Exemplar
-								Syntax</a></em>
+					<li><em>Section 3.1 <a
+							href="tr35-general.html#ExemplarSyntax">Exemplar Syntax</a></em>
 						<ul>
 							<li>Documented restriction on UnicodeSet syntax for
 								exemplars.</li>

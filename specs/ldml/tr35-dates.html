@@ -82,8 +82,10 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center"><span class="changed">Proposed Update
-		</span>Unicode Technical Standard #35</h2>
+		<h2 style="text-align: center">
+			<span class="changed">Proposed Update </span>Unicode Technical
+			Standard #35
+		</h2>
 		<h1 style="text-align: center">
 			Unicode Locale Data Markup Language (LDML)<br> Part 4: Dates
 		</h1>
@@ -215,9 +217,12 @@ h2,h3,h4,table {
 					<li>2.6 <a href="#dateTimeFormats">&lt;dateTimeFormats&gt;</a>
 						<ul class="toc">
 							<li>2.6.1 <a href="#dateTimeFormat">&lt;dateTimeFormat&gt;</a>
+							</li>
 							<li>2.6.2 <a href="#availableFormats_appendItems">&lt;availableFormats&gt;,
 									&lt;appendItems&gt;</a>
+							</li>
 							<li>2.6.3 <a href="#intervalFormats">&lt;intervalFormats&gt;</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -440,17 +445,20 @@ h2,h3,h4,table {
 			</li>
 		</ul>
 
-		<p>The format values must be distinct for the wide, abbreviated,
-			and short widths. However, values for the narrow width in either
-			format or stand-alone contexts, as well as values for other widths in
+		<p>
+			The format values must be distinct for the wide, abbreviated, and
+			short widths. However, values for the narrow width in either format
+			or stand-alone contexts, as well as values for other widths in
 			stand-alone contexts, need not be distinct; they might only be
 			distinguished by context. For example, &quot;S&quot; may be used both
 			for Saturday and for Sunday. The narrow width is typically used in
 			calendar headers; it must be the shortest possible width, no more
 			than one character (or grapheme cluster, or exemplar set element) in
-			stand-alone values<span class="changed"> (not including punctuation)</span>,
-			and the shortest possible widths (in terms of grapheme clusters) in format
-			values. The short width (if present) is often the shortest unambiguous form.</p>
+			stand-alone values<span class="changed"> (not including
+				punctuation)</span>, and the shortest possible widths (in terms of grapheme
+			clusters) in format values. The short width (if present) is often the
+			shortest unambiguous form.
+		</p>
 
 		<p>Era names should be distinct within each of the widths,
 			including narrow; there is less disambiguating information for them,
@@ -709,14 +717,15 @@ h2,h3,h4,table {
 			&lt;!ELEMENT cyclicNameSets ( alias | (cyclicNameSet*, special*))
 			&gt;<br> &lt;!ELEMENT cyclicNameSet ( alias |
 			(cyclicNameContext*, special*)) &gt;<br> &lt;!ATTLIST
-			cyclicNameSet type ( years | months | days | dayParts | zodiacs <span class="changed">| solarTerms </span>)
-			#REQUIRED &gt;<br> &lt;!ELEMENT cyclicNameContext ( alias |
-			(cyclicNameWidth*, special*)) &gt;<br> &lt;!ATTLIST
-			cyclicNameContext type ( format | stand-alone ) #REQUIRED &gt;<br>
-			&lt;!ELEMENT cyclicNameWidth ( alias | (cyclicName*, special*)) &gt;<br>
-			&lt;!ATTLIST cyclicNameWidth type ( abbreviated | narrow | wide )
-			#REQUIRED &gt;<br> &lt;!ELEMENT cyclicName ( #PCDATA ) &gt;<br>
-			&lt;!ATTLIST cyclicName type NMTOKEN #REQUIRED &gt;<br>
+			cyclicNameSet type ( years | months | days | dayParts | zodiacs <span
+				class="changed">| solarTerms </span>) #REQUIRED &gt;<br>
+			&lt;!ELEMENT cyclicNameContext ( alias | (cyclicNameWidth*,
+			special*)) &gt;<br> &lt;!ATTLIST cyclicNameContext type ( format
+			| stand-alone ) #REQUIRED &gt;<br> &lt;!ELEMENT cyclicNameWidth
+			( alias | (cyclicName*, special*)) &gt;<br> &lt;!ATTLIST
+			cyclicNameWidth type ( abbreviated | narrow | wide ) #REQUIRED &gt;<br>
+			&lt;!ELEMENT cyclicName ( #PCDATA ) &gt;<br> &lt;!ATTLIST
+			cyclicName type NMTOKEN #REQUIRED &gt;<br>
 		</p>
 
 		<p>The Chinese lunar calendar can insert a leap month after nearly
@@ -745,18 +754,20 @@ h2,h3,h4,table {
 				calendars that do not need it.</li>
 		</ul>
 
-		<p>The Chinese and Hindu lunar calendars also use a 60-name cycle
-			for designating years. The Chinese lunar calendars can also use that
+		<p>
+			The Chinese and Hindu lunar calendars also use a 60-name cycle for
+			designating years. The Chinese lunar calendars can also use that
 			cycle for months and days, and can use 12-name cycles for designating
-			day subdivisions or zodiac names associated with
-			years<span class="changed">; a 24-name cycle of solar terms (12 pairs of
-			minor and major terms) is used to mark intervals in the solar cycle</span>.
+			day subdivisions or zodiac names associated with years<span
+				class="changed">; a 24-name cycle of solar terms (12 pairs of
+				minor and major terms) is used to mark intervals in the solar cycle</span>.
 			The &lt;cyclicNameSets&gt; element structure supports these special
-			kinds of name cycles; a cyclicNameSet can be provided for types "year",
-			"month", "day", "dayParts", or "zodiacs". For each cyclicNameSet,
-			there is a context and width structure similar to that for day names.
-			For a given context and width, a set of cyclicName elements provides
-			the actual names.</p>
+			kinds of name cycles; a cyclicNameSet can be provided for types
+			"year", "month", "day", "dayParts", or "zodiacs". For each
+			cyclicNameSet, there is a context and width structure similar to that
+			for day names. For a given context and width, a set of cyclicName
+			elements provides the actual names.
+		</p>
 		<p>Example:</p>
 		<pre>
     &lt;monthPatterns&gt;
@@ -1320,26 +1331,22 @@ h2,h3,h4,table {
 		<p class="dtd">
 			&lt;!ELEMENT fields ( alias | (field*, special*)) &gt;<br>
 			&lt;!ELEMENT field ( alias | (displayName*, relative*, relativeTime*,
-			special*)) &gt;<br>
-			&lt;!ATTLIST field type ( era |
-			year<span class="changed"> | year-short | year-narrow |
-			quarter | quarter-short | quarter-narrow</span> |
-			month<span class="changed"> | month-short | month-narrow</span> |
-			week<span class="changed"> | week-short | week-narrow</span> |
-			day<span class="changed"> | day-short | day-narrow</span> |
-			weekday |
-			sun<span class="changed"> | sun-short | sun-narrow</span> |
-			mon<span class="changed"> | mon-short | mon-narrow</span> |
-			tue<span class="changed"> | tue-short | tue-narrow</span> |
-			wed<span class="changed"> | wed-short | wed-narrow</span> |
-			thu<span class="changed"> | thu-short | thu-narrow</span> |
-			fri<span class="changed"> | fri-short | fri-narrow</span> |
-			sat<span class="changed"> | sat-short | sat-narrow</span> |
-			dayperiod |
-			hour<span class="changed"> | hour-short | hour-narrow</span> |
-			minute<span class="changed"> | minute-short | minute-narrow</span> |
-			second<span class="changed"> | second-short | second-narrow</span> |
-			zone ) #IMPLIED &gt;
+			special*)) &gt;<br> &lt;!ATTLIST field type ( era | year<span
+				class="changed"> | year-short | year-narrow | quarter |
+				quarter-short | quarter-narrow</span> | month<span class="changed">
+				| month-short | month-narrow</span> | week<span class="changed"> |
+				week-short | week-narrow</span> | day<span class="changed"> |
+				day-short | day-narrow</span> | weekday | sun<span class="changed">
+				| sun-short | sun-narrow</span> | mon<span class="changed"> |
+				mon-short | mon-narrow</span> | tue<span class="changed"> |
+				tue-short | tue-narrow</span> | wed<span class="changed"> |
+				wed-short | wed-narrow</span> | thu<span class="changed"> |
+				thu-short | thu-narrow</span> | fri<span class="changed"> |
+				fri-short | fri-narrow</span> | sat<span class="changed"> |
+				sat-short | sat-narrow</span> | dayperiod | hour<span class="changed">
+				| hour-short | hour-narrow</span> | minute<span class="changed"> |
+				minute-short | minute-narrow</span> | second<span class="changed"> |
+				second-short | second-narrow</span> | zone ) #IMPLIED &gt;
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT relative (#PCDATA) &gt;<br> &lt;!ATTLIST relative
@@ -2106,6 +2113,7 @@ h2,h3,h4,table {
 			characters for time zone formatting. For more information, see <a
 				href="#Date_Format_Patterns"> <u>Date Format Patterns</u>
 			</a>.
+		</p>
 		<p>The commonlyUsed element is now deprecated. The CLDR committee
 			has found it nearly impossible to obtain accurate and reliable data
 			regarding which time zone abbreviations may be understood in a given
@@ -2408,7 +2416,7 @@ h2,h3,h4,table {
 		<ul>
 			<li>&quot;-0800&quot; (basic)</li>
 			<li>&quot;-08&quot; (basic - short)</li>
-			<li>&quot;-08:00&quot; (extended)
+			<li>&quot;-08:00&quot; (extended)</li>
 			<li>&quot;Z&quot; (UTC)</li>
 		</ul>
 		<blockquote>
@@ -2563,6 +2571,7 @@ h2,h3,h4,table {
 				patterns (but not necessarily every timezone). That is, given a time
 				and a format pattern with a zone string, you can format, then parse,
 				and get back the same time.
+			</p>
 			<p>
 				Note that the round-tripping is not just important for parsing; it
 				provides for formatting dates and times in an unambiguous way for
@@ -2604,6 +2613,7 @@ h2,h3,h4,table {
 						<ul>
 							<li>falling back to long localized GMT</li>
 						</ul>
+					</li>
 					<li>Z/ZZZZZ/X+/x+ - ISO 8601 formats (no fallback necessary)</li>
 					<li>ZZZZ/O+ - Localized GMT formats (no fallback necessary)</li>
 				</ul></li>
@@ -2641,6 +2651,7 @@ h2,h3,h4,table {
 						<ul>
 							<li>falling back to long localized GMT</li>
 						</ul>
+					</li>
 				</ul></li>
 		</ol>
 
@@ -3688,7 +3699,8 @@ h2,h3,h4,table {
 				<td>Pacific Time</td>
 				<td>The <i>long generic non-location format</i>. Where that is
 					unavailable, falls back to <i>generic location format</i> ("VVVV").
-				
+
+				</td>
 			</tr>
 			<tr>
 				<td rowspan="4" style="text-align: center">V</td>

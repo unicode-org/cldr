@@ -82,8 +82,10 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center"><span class="changed">Proposed Update
-		</span>Unicode Technical Standard #35</h2>
+		<h2 style="text-align: center">
+			<span class="changed">Proposed Update </span>Unicode Technical
+			Standard #35
+		</h2>
 		<h1>
 			Unicode Locale Data Markup Language (LDML)<br>Part 6: Related
 			Information
@@ -205,6 +207,7 @@ h2,h3,h4,table {
 		<ul class="toc">
 			<li>1 Introduction to <a href="#Supplemental_Data">Supplemental
 					Data</a>
+			</li>
 			<li>2 <a href="#Territory_Data">Territory Data</a>
 				<ul class="toc">
 					<li>2.1 <a href="#Supplemental_Territory_Containment">Supplemental
@@ -262,8 +265,9 @@ h2,h3,h4,table {
 			likelySubtags.xml, ordinals.xml, plurals.xml, telephoneCodeData.xml,
 			genderList.xml, plus transforms (see <i>Part 2 Section 10 <a
 				href="tr35-general.html#Transforms">Transforms</a>
-			</i>and<i> Part 2 Section 10.3 <a href="tr35-general.html#Transform_Rules_Syntax">Transform
-					Rule Syntax</a></i>). The split is just for convenience: logically, they are
+			</i>and<i> Part 2 Section 10.3 <a
+				href="tr35-general.html#Transform_Rules_Syntax">Transform Rule
+					Syntax</a></i>). The split is just for convenience: logically, they are
 			treated as though they were a single file. Future versions of CLDR
 			may split the data in a different fashion. Do not depend on any
 			specific XML filename or path for supplemental data.
@@ -725,7 +729,8 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			&lt;!ATTLIST approvalRequirement votes CDATA #REQUIRED&gt;<br>
 			&lt;!ATTLIST approvalRequirement locales CDATA #REQUIRED&gt;<br>
 			&lt;!ATTLIST approvalRequirement paths CDATA #REQUIRED&gt;<br>
-		<p>
+		</p>
+		<p></p>
 		<p>The approvalRequirements allows to specify the number of survey
 			tool votes required for approval, either based on locale, or path, or
 			both. Certain locales require a higher voting threshhold (usually 8

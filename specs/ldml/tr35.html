@@ -340,53 +340,53 @@ h2,h3,h4,table {
 				</ul>
 			</li>
 			<li>5 <a href="#XML_Format">XML Format</a>
-<ul class="toc">
-			  <li>5.1 <a href="#Common_Elements">Common Elements</a>
-				  <ul class="toc">
-					  <li>5.1.1 <a href="#special">Element special</a>
-						  <ul class="toc">
-							  <li>5.1.1.1 <a href="#Sample_Special_Elements">Sample
-									  Special Elements</a></li>
-						  </ul>
-					  </li>
-					  <li>5.1.2 <a href="#Alias_Elements">Element alias</a></li>
-					  <li>5.1.3 <a href="#Element_displayName">Element
-							  displayName</a></li>
-					  <li>5.1.4 <a href="#Escaping_Characters">Element cp</a></li>
-				  </ul>
-			  </li>
-			  <li>5.2 <a href="#Common_Attributes">Common Attributes</a>
-				  <ul class="toc">
-					  <li>5.2.1 <a href="#Attribute_type">Attribute type</a></li>
-					  <li>5.2.2 <a href="#Attribute_draft">Attribute draft</a></li>
-					  <li>5.2.3 <a href="#alt_attribute">Attribute alt</a></li>
-				  </ul>
-			  </li>
-			  <li>5.3 <a href="#Common_Structures">Common Structures</a>
-				  <ul class="toc">
-					  <li>5.3.1 <a href="#Date_Ranges">Date and Date Ranges</a></li>
-					  <li>5.3.2 <a href="#Text_Directionality">Text
-							  Directionality</a></li>
-					  <li>5.3.3 <a href="#Unicode_Sets">Unicode Sets</a>
-						  <ul class="toc">
-							  <li>5.3.3.1 <a href="#Single_Quote">Single Quote</a></li>
-							  <li>5.3.3.2 <a href="#Backslash_Escapes">Backslash
-									  Escapes</a></li>
-						  </ul>
-					  </li>
-				  </ul>
-			  </li>
-			  <li>5.4 <a href="#Identity_Elements">Identity Elements</a></li>
-			  <li>5.5 <a href="#Valid_Attribute_Values">Valid Attribute
-					  Values</a></li>
-			  <li>5.6 <a href="#Canonical_Form">Canonical Form</a>
-				  <ul class="toc">
-					  <li>5.6.1 <a href="#Content">Content</a></li>
-					  <li>5.6.2 <a href="#Ordering">Ordering</a></li>
-					  <li>5.6.3 <a href="#Comments">Comments</a></li>
-				  </ul>
-			  </li>
-		  </ul>
+				<ul class="toc">
+					<li>5.1 <a href="#Common_Elements">Common Elements</a>
+						<ul class="toc">
+							<li>5.1.1 <a href="#special">Element special</a>
+								<ul class="toc">
+									<li>5.1.1.1 <a href="#Sample_Special_Elements">Sample
+											Special Elements</a></li>
+								</ul>
+							</li>
+							<li>5.1.2 <a href="#Alias_Elements">Element alias</a></li>
+							<li>5.1.3 <a href="#Element_displayName">Element
+									displayName</a></li>
+							<li>5.1.4 <a href="#Escaping_Characters">Element cp</a></li>
+						</ul>
+					</li>
+					<li>5.2 <a href="#Common_Attributes">Common Attributes</a>
+						<ul class="toc">
+							<li>5.2.1 <a href="#Attribute_type">Attribute type</a></li>
+							<li>5.2.2 <a href="#Attribute_draft">Attribute draft</a></li>
+							<li>5.2.3 <a href="#alt_attribute">Attribute alt</a></li>
+						</ul>
+					</li>
+					<li>5.3 <a href="#Common_Structures">Common Structures</a>
+						<ul class="toc">
+							<li>5.3.1 <a href="#Date_Ranges">Date and Date Ranges</a></li>
+							<li>5.3.2 <a href="#Text_Directionality">Text
+									Directionality</a></li>
+							<li>5.3.3 <a href="#Unicode_Sets">Unicode Sets</a>
+								<ul class="toc">
+									<li>5.3.3.1 <a href="#Single_Quote">Single Quote</a></li>
+									<li>5.3.3.2 <a href="#Backslash_Escapes">Backslash
+											Escapes</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>5.4 <a href="#Identity_Elements">Identity Elements</a></li>
+					<li>5.5 <a href="#Valid_Attribute_Values">Valid Attribute
+							Values</a></li>
+					<li>5.6 <a href="#Canonical_Form">Canonical Form</a>
+						<ul class="toc">
+							<li>5.6.1 <a href="#Content">Content</a></li>
+							<li>5.6.2 <a href="#Ordering">Ordering</a></li>
+							<li>5.6.3 <a href="#Comments">Comments</a></li>
+						</ul>
+					</li>
+				</ul>
 			</li>
 			<li>6 <a href="#Property_Data">Property Data</a></li>
 			<li>7 <a href="#Lenient_Parsing">Lenient Parsing</a>
@@ -429,7 +429,7 @@ h2,h3,h4,table {
 		</ul>
 		<h2>
 			<a name="Introduction" href="#Introduction">1 Introduction</a>
-	  </h2>
+		</h2>
 		<p>Not long ago, computer systems were like separate worlds,
 			isolated from one another. The internet and related events have
 			changed all that. A single system can be built of many different
@@ -4072,21 +4072,40 @@ root</pre>
 			<li>common/rbnf/ja.xml</li>
 			<li>common/segmentations/ja.xml</li>
 		</ul>
-		<p class="changed">Data for cased languages such as French are in files like:</p>
+		<p class="changed">Data for cased languages such as French are in
+			files like:</p>
 		<ul>
-		  <li class="changed">common/casing/fr.xml</li>
-	  </ul>
-<p>The status of the data is the same, whether or not data is
-			split. That is, for the purpose of validation and lookup, all of the
-			data for the above ja.xml files is treated as if it was in a single
-		  file. <span class="changed">These files have the &lt;ldml&gt; root element and use ldml.dtd. The file name must match the identity element. For example, the &lt;ldml&gt; file pa_Arab_PK.xml must contain the following  elements:</span></p>
-		<pre class="changed"><strong>&lt;ldml&gt;</strong><br> 	&lt;identity&gt;<br> 		…<br> 		<strong>&lt;language type=&quot;pa&quot;/&gt;<br> 		&lt;script type=&quot;Arab&quot;/&gt;<br> 		&lt;territory type=&quot;PK&quot;/&gt;</strong><br> 	&lt;/identity&gt;
+			<li class="changed">common/casing/fr.xml</li>
+		</ul>
+		<p>
+			The status of the data is the same, whether or not data is split.
+			That is, for the purpose of validation and lookup, all of the data
+			for the above ja.xml files is treated as if it was in a single file.
+			<span class="changed">These files have the &lt;ldml&gt; root
+				element and use ldml.dtd. The file name must match the identity
+				element. For example, the &lt;ldml&gt; file pa_Arab_PK.xml must
+				contain the following elements:</span>
+		</p>
+		<pre class="changed">
+			<strong>&lt;ldml&gt;</strong><br> 	&lt;identity&gt;<br> 		…<br> 		<strong>&lt;language type=&quot;pa&quot;/&gt;<br> 		&lt;script type=&quot;Arab&quot;/&gt;<br> 		&lt;territory type=&quot;PK&quot;/&gt;</strong><br> 	&lt;/identity&gt;
 …</pre>
-<p class="changed">Supplemental data can have different root elements, currently: ldmlBCP47, supplementalData, keyboard, and platform. Keyboard and platform files are considered distinct. The ldmlBCP47 files and supplementalData files that have the same root are all logically part of the same file; they are simply split into separate files for convenience. Implementations may split the files in different ways, also for their convenience. The files in /properties are also supplemental data files, but are structured like UCD properties.</p>
+		<p class="changed">Supplemental data can have different root
+			elements, currently: ldmlBCP47, supplementalData, keyboard, and
+			platform. Keyboard and platform files are considered distinct. The
+			ldmlBCP47 files and supplementalData files that have the same root
+			are all logically part of the same file; they are simply split into
+			separate files for convenience. Implementations may split the files
+			in different ways, also for their convenience. The files in
+			/properties are also supplemental data files, but are structured like
+			UCD properties.</p>
 
-<p><span class="changed">For example, </span>supplemental data relating to Japan or the Japanese writing are in: </p>
+		<p>
+			<span class="changed">For example, </span>supplemental data relating
+			to Japan or the Japanese writing are in:
+		</p>
 		<ul>
-			<li>common/supplemental/ (in many files, such as supplementalData.xml)</li>
+			<li>common/supplemental/ (in many files, such as
+				supplementalData.xml)</li>
 			<li>common/transforms/Hiragana-Katakana.xml</li>
 			<li>common/transforms/Hiragana-Latin.xml</li>
 			<li class="changed">common/properties/scriptMetadata.txt</li>
@@ -4095,12 +4114,18 @@ root</pre>
 			<li class="changed">/keyboards/chromeos/ja-t-k0-chromeos.xml</li>
 			<li class="changed">...</li>
 		</ul>
-		<p class="changed">Like the &lt;ldml&gt; files, the keyboard file names must match internal data: in particular, the locale attribute on the keyboard element must have a value that corresponds to the file name, such as &lt;keyboard locale=&quot;af-t-k0-android&quot;&gt; for the file af-t-k0-android.xml.</p>
-<p>
-	  The following sections describe the structure of the XML format for
-			language-dependent data. The more precise syntax is in the<span class="changed"> ldml.dtd file</span><i>; however, the DTD does not
-				describe all the constraints on the structure.</i>
-</p>
+		<p class="changed">Like the &lt;ldml&gt; files, the keyboard file
+			names must match internal data: in particular, the locale attribute
+			on the keyboard element must have a value that corresponds to the
+			file name, such as &lt;keyboard
+			locale=&quot;af-t-k0-android&quot;&gt; for the file
+			af-t-k0-android.xml.</p>
+		<p>
+			The following sections describe the structure of the XML format for
+			language-dependent data. The more precise syntax is in the<span
+				class="changed"> ldml.dtd file</span><i>; however, the DTD does
+				not describe all the constraints on the structure.</i>
+		</p>
 		<p>To start with, the root element is &lt;ldml&gt;, with the
 			following DTD entry:</p>
 		<span class="dtd">&lt;!ELEMENT ldml (identity, (alias
@@ -6895,169 +6920,171 @@ decimal?, group?, special*)) &gt;</pre>
 		</p>
 
 		<h3 class="changed">Revision 36</h3>
-        <ul class="changed">
-          <li><strong>Part 1</strong>: Core Specification
-            <ul>
-              <li><em>Section 3 <a
+		<ul class="changed">
+			<li><strong>Part 1</strong>: Core Specification
+				<ul>
+					<li><em>Section 3 <a
 							href="#Unicode_Language_and_Locale_Identifiers">Unicode
-                Language and Locale Identifiers</a></em>
-                <ul>
-                  <li>Reorganized to collect the information about BCP47
-                    extensions together into sections 3.6 and 3.7. Old Section 3.5
-                    became part of section 3.6, and old section 3.6 became section
-                    3.5. [<a href="http://unicode.org/cldr/trac/ticket/7854">#7854</a>] </li>
-                </ul>
-              </li>
-              <li><em>Section 4.1 <a href="#Lookup">Lookup</a></em>
-                <ul>
-                  <li>Added more information about the use of default-locales
-                    and the difference between bundle and item lookup. Gathered the
-                    material into the new subsection Section 4.1 <a href="#Lookup">Lookup</a>,
-                    and added a subheading for the material in Section 4.1.1 <a
+								Language and Locale Identifiers</a></em>
+						<ul>
+							<li>Reorganized to collect the information about BCP47
+								extensions together into sections 3.6 and 3.7. Old Section 3.5
+								became part of section 3.6, and old section 3.6 became section
+								3.5. [<a href="http://unicode.org/cldr/trac/ticket/7854">#7854</a>]
+							</li>
+						</ul></li>
+					<li><em>Section 4.1 <a href="#Lookup">Lookup</a></em>
+						<ul>
+							<li>Added more information about the use of default-locales
+								and the difference between bundle and item lookup. Gathered the
+								material into the new subsection Section 4.1 <a href="#Lookup">Lookup</a>,
+								and added a subheading for the material in Section 4.1.1 <a
 								href="#Bundle_vs_Item_Lookup">Bundle vs Item Lookup</a>. Renamed
-                    4.1 <em>Multiple Inheritance</em> to 4.1.2 <a
+								4.1 <em>Multiple Inheritance</em> to 4.1.2 <a
 								href="#Lateral_Inheritance">Lateral Inheritance</a>, and dropped
-                    it down one level. [<a
-								href="http://unicode.org/cldr/trac/ticket/7196">#7196</a>] </li>
-                </ul>
-              </li>
-              <li>5 <a href="#XML_Format">XML Format</a>
-                <ul>
-                  <li>Updated introductory text to introduce more dtd types, and discuss the relations among files.</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><strong>Part 2: <a
+								it down one level. [<a
+								href="http://unicode.org/cldr/trac/ticket/7196">#7196</a>]
+							</li>
+						</ul></li>
+					<li>5 <a href="#XML_Format">XML Format</a>
+						<ul>
+							<li>Updated introductory text to introduce more dtd types,
+								and discuss the relations among files.</li>
+						</ul>
+					</li>
+				</ul></li>
+			<li><strong>Part 2: <a
 					href="tr35-general.html#Contents">General</a></strong>
-            <ul>
-              <li><em>Section 6 <a
+				<ul>
+					<li><em>Section 6 <a
 							href="tr35-general.html#Unit_Elements">Unit Elements</a></em>
-                <ul>
-                  <li>Added &lt;displayName&gt; for &lt;unit&gt; elements. [<a
-								href="http://unicode.org/cldr/trac/ticket/7200">#7200</a>] </li>
-                  <li>Modified Section 6.1 <a
-								href="tr35-general.html#perUnitPatterns">Per Unit Patterns</a> to describe how to use <strong>perUnitPattern</strong> and <strong>compoundUnit</strong> to format units of the form m/s or feet per hour. [<a
-								href="http://unicode.org/cldr/trac/ticket/7846">#7846</a>] </li>
-                </ul>
-              </li>
-              <li><em>Section 9 <a
+						<ul>
+							<li>Added &lt;displayName&gt; for &lt;unit&gt; elements. [<a
+								href="http://unicode.org/cldr/trac/ticket/7200">#7200</a>]
+							</li>
+							<li>Modified Section 6.1 <a
+								href="tr35-general.html#perUnitPatterns">Per Unit Patterns</a>
+								to describe how to use <strong>perUnitPattern</strong> and <strong>compoundUnit</strong>
+								to format units of the form m/s or feet per hour. [<a
+								href="http://unicode.org/cldr/trac/ticket/7846">#7846</a>]
+							</li>
+						</ul></li>
+					<li><em>Section 9 <a
 							href="tr35-general.html#Segmentations">Segmentations</a></em>
-                <ul>
-                  <li><em>D</em>eprecated &lt;exceptions&gt; element and its
-                    sub-element, replaced with &lt;suppressions&gt; element (which
-                    can take a type attribute) and its sub-element. [<a
+						<ul>
+							<li><em>D</em>eprecated &lt;exceptions&gt; element and its
+								sub-element, replaced with &lt;suppressions&gt; element (which
+								can take a type attribute) and its sub-element. [<a
 								href="http://unicode.org/cldr/trac/ticket/7237">#7237</a>]</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><strong>Part 3: <a
+						</ul></li>
+				</ul></li>
+			<li><strong>Part 3: <a
 					href="tr35-numbers.html#Contents">Numbers</a></strong>
-            <ul>
-              <li><em>Section 3.2 <a
+				<ul>
+					<li><em>Section 3.2 <a
 							href="tr35-numbers.html#Special_Pattern_Characters">Special
-                Pattern Characters</a></em>
-                <ul>
-                  <li>Documented the behavior of <strong>minimumGroupingDigits</strong> [<a href="http://unicode.org/cldr/trac/ticket/5375">#5375</a>] [<a
-								href="http://unicode.org/cldr/trac/ticket/7847">#7847</a>] </li>
-                </ul>
-              </li>
-              <li><em>Section 2.3 <a
+								Pattern Characters</a></em>
+						<ul>
+							<li>Documented the behavior of <strong>minimumGroupingDigits</strong>
+								[<a href="http://unicode.org/cldr/trac/ticket/5375">#5375</a>] [<a
+								href="http://unicode.org/cldr/trac/ticket/7847">#7847</a>]
+							</li>
+						</ul></li>
+					<li><em>Section 2.3 <a
 							href="tr35-numbers.html#Number_Symbols">Number Symbols</a></em>
-                <ul>
-                  <li>Documented the use of <strong>timeSeparator </strong>[<a
+						<ul>
+							<li>Documented the use of <strong>timeSeparator </strong>[<a
 								href="http://unicode.org/cldr/trac/ticket/4254">#4254</a>] [<a
-								href="http://unicode.org/cldr/trac/ticket/7847">#7847</a>] </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong>
-            <ul>
-              <li><em>Section 2.1 <a
+								href="http://unicode.org/cldr/trac/ticket/7847">#7847</a>]
+							</li>
+						</ul></li>
+				</ul></li>
+			<li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong>
+				<ul>
+					<li><em>Section 2.1 <a
 							href="tr35-dates.html#months_days_quarters_eras">&lt;months&gt;,
-                &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></em>
-                <ul>
-                  <li>Clarified that grapheme cluster limits for narrow
-                    stand-alone forms do not include punctuation. [<a
-								href="http://unicode.org/cldr/trac/ticket/7555">#7555</a>] </li>
-                </ul>
-              </li>
-              <li><em>Section 2.3 <a
+								&lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></em>
+						<ul>
+							<li>Clarified that grapheme cluster limits for narrow
+								stand-alone forms do not include punctuation. [<a
+								href="http://unicode.org/cldr/trac/ticket/7555">#7555</a>]
+							</li>
+						</ul></li>
+					<li><em>Section 2.3 <a
 							href="tr35-dates.html#monthPatterns_cyclicNameSets">&lt;monthPatterns&gt;,
-                &lt;cyclicNameSets&gt;</a></em>
-                <ul>
-                  <li>Added a &lt;cyclicNameSet&gt; for solar terms. [<a
-								href="http://unicode.org/cldr/trac/ticket/7285">#7285</a>] </li>
-                </ul>
-              </li>
-              <li><em>Section 3 <a
+								&lt;cyclicNameSets&gt;</a></em>
+						<ul>
+							<li>Added a &lt;cyclicNameSet&gt; for solar terms. [<a
+								href="http://unicode.org/cldr/trac/ticket/7285">#7285</a>]
+							</li>
+						</ul></li>
+					<li><em>Section 3 <a
 							href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></em>
-                <ul>
-                  <li>Added field type quarter, and added -short and -narrow
-                    forms of many field types. [<a
+						<ul>
+							<li>Added field type quarter, and added -short and -narrow
+								forms of many field types. [<a
 								href="http://unicode.org/cldr/trac/ticket/6042">#6042</a>,<a
-								href="http://unicode.org/cldr/trac/ticket/6702">#6702</a>] </li>
-                </ul>
-              </li>
-              <li><em>Section 8 <a href="#Date_Format_Patterns">Date
-                Format Patterns</a></em>
-                <ul>
-                  <li>Documented the use of <strong>timeSeparator </strong>[<a
+								href="http://unicode.org/cldr/trac/ticket/6702">#6702</a>]
+							</li>
+						</ul></li>
+					<li><em>Section 8 <a href="#Date_Format_Patterns">Date
+								Format Patterns</a></em>
+						<ul>
+							<li>Documented the use of <strong>timeSeparator </strong>[<a
 								href="http://unicode.org/cldr/trac/ticket/4254">#4254</a>] [<a
-								href="http://unicode.org/cldr/trac/ticket/7847">#7847</a>] </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><strong>Part 5: <a
+								href="http://unicode.org/cldr/trac/ticket/7847">#7847</a>]
+							</li>
+						</ul></li>
+				</ul></li>
+			<li><strong>Part 5: <a
 					href="tr35-collation.html#Contents">Collation</a></strong>
-            <ul>
-              <li><i>Section 2.6 <a
+				<ul>
+					<li><i>Section 2.6 <a
 							href="tr35-collation.html#Root_Data_File_Formats">Root
-                Collation Data File Formats</a></i>
-                <ul>
-                  <li>A new section of <code>[radical ...]</code> lines in
-                    FractionalUCA.txt defines a radical-stroke order of the
-                    Unified_Ideograph characters. [<a
-								href="http://unicode.org/cldr/trac/ticket/7176">#7176</a>] </li>
-                  <li>Most of the mappings were removed from CJK type="unihan"
-                    tailorings, assuming that the root collation order sorts Han
-                    characters in Unihan radical-stroke order according to the <code>[radical
-                      ...]</code> data in FractionalUCA.txt. The only remaining mappings in
-                    the CJK type="unihan" tailorings are those for the radicals for <a href="tr35-collation.html#CJK_Index_Markers">CJK Index
-                      Markers</a>. </li>
-                </ul>
-              </li>
-              <li><i>Section 3.12 <a
+								Collation Data File Formats</a></i>
+						<ul>
+							<li>A new section of <code>[radical ...]</code> lines in
+								FractionalUCA.txt defines a radical-stroke order of the
+								Unified_Ideograph characters. [<a
+								href="http://unicode.org/cldr/trac/ticket/7176">#7176</a>]
+							</li>
+							<li>Most of the mappings were removed from CJK type="unihan"
+								tailorings, assuming that the root collation order sorts Han
+								characters in Unihan radical-stroke order according to the <code>[radical
+									...]</code> data in FractionalUCA.txt. The only remaining mappings in
+								the CJK type="unihan" tailorings are those for the radicals for
+								<a href="tr35-collation.html#CJK_Index_Markers">CJK Index
+									Markers</a>.
+							</li>
+						</ul></li>
+					<li><i>Section 3.12 <a
 							href="tr35-collation.html#Special_Purpose_Commands">Special-Purpose
-                Commands</a></i>
-                <ul>
-                  <li>The <code>&lt;import&gt;</code> source attribute value
-                    "locale" is deprecated. The source must be an explicit language
-                    tag. [<a href="http://unicode.org/cldr/trac/ticket/7663">#7663</a>] </li>
-                </ul>
-              </li>
-              <li><i>Section 3.15 <a
+								Commands</a></i>
+						<ul>
+							<li>The <code>&lt;import&gt;</code> source attribute value
+								"locale" is deprecated. The source must be an explicit language
+								tag. [<a href="http://unicode.org/cldr/trac/ticket/7663">#7663</a>]
+							</li>
+						</ul></li>
+					<li><i>Section 3.15 <a
 							href="tr35-collation.html#Visibility">Visibility</a></i>
-                <ul>
-                  <li>The <code>&lt;collation&gt;</code> visibility attribute
-                    is deprecated. Use a collation type name beginning with
-                    "private-" instead. [<a
-								href="http://unicode.org/cldr/trac/ticket/7662">#7662</a>] </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <ul class="changed"><li></li>
+						<ul>
+							<li>The <code>&lt;collation&gt;</code> visibility attribute
+								is deprecated. Use a collation type name beginning with
+								"private-" instead. [<a
+								href="http://unicode.org/cldr/trac/ticket/7662">#7662</a>]
+							</li>
+						</ul></li>
+				</ul></li>
+		</ul>
+		<ul class="changed">
+			<li></li>
 		</ul>
 
 
 		<h3>
 			<span class="changed">Revision 35</span>
-</h3>
+		</h3>
 		<ul>
 			<li>Updated for Version 25.</li>
 			<li><strong>Part 1: <a href="tr35.html#Contents">Core

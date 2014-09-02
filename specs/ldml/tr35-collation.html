@@ -82,8 +82,10 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center"><span class="changed">Proposed Update
-		</span>Unicode Technical Standard #35</h2>
+		<h2 style="text-align: center">
+			<span class="changed">Proposed Update </span>Unicode Technical
+			Standard #35
+		</h2>
 		<h1>
 			Unicode Locale Data Markup Language (LDML)<br>Part 5: Collation
 		</h1>
@@ -227,7 +229,8 @@ h2,h3,h4,table {
 			</li>
 			<li>3 <a href="#Collation_Tailorings">Collation Tailorings</a>
 				<ul class="toc">
-					<li class="changed">3.1 <a href="#Collation_Types">Collation Types</a></li>
+					<li class="changed">3.1 <a href="#Collation_Types">Collation
+							Types</a></li>
 					<li>3.2 <a href="#Collation_Version">Version</a></li>
 					<li>3.3 <a href="#Collation_Element">Collation Element</a></li>
 					<li>3.4 <a href="#Setting_Options">Setting Options</a>
@@ -709,8 +712,8 @@ h2,h3,h4,table {
 		<blockquote>
 			<p>
 				Lists the ranges of Unified_Ideograph characters in collation order.
-				<span class="changed">(New in CLDR 24.)</span>
-				They map to collation elements with <a
+				<span class="changed">(New in CLDR 24.)</span> They map to collation
+				elements with <a
 					href="http://www.unicode.org/reports/tr10/#Implicit_Weights">implicit
 					(constructed) primary weights</a>.
 			</p>
@@ -721,52 +724,75 @@ h2,h3,h4,table {
 [radical 210'=⻬齐:齐齑]
 [radical end]</pre>
 		<blockquote class="changed">
-			<p>Data for Unihan radical-stroke order. (New in CLDR 26.)
-			Following the [Unified_Ideograph] line,
-			a section of <code>[radical ...]</code> lines defines
-			a radical-stroke order of the Unified_Ideograph characters.</p>
+			<p>
+				Data for Unihan radical-stroke order. (New in CLDR 26.) Following
+				the [Unified_Ideograph] line, a section of
+				<code>[radical ...]</code>
+				lines defines a radical-stroke order of the Unified_Ideograph
+				characters.
+			</p>
 
-			<p>For Han characters,
-			an implementation may choose either
-			to implement the order defined in the UCA and the [Unified_Ideograph] data,
-			or to implement the order defined by the <code>[radical ...]</code> lines.
-			Beginning with CLDR 26, the CJK type="unihan" tailorings assume
-			that the root collation order sorts
-			Han characters in Unihan radical-stroke order according to the
-			<code>[radical ...]</code> data.
-			The CollationTest_CLDR files only contain Han characters
-			that are in the same relative order using implicit weights
-			or the radical-stroke order.</p>
+			<p>
+				For Han characters, an implementation may choose either to implement
+				the order defined in the UCA and the [Unified_Ideograph] data, or to
+				implement the order defined by the
+				<code>[radical ...]</code>
+				lines. Beginning with CLDR 26, the CJK type="unihan" tailorings
+				assume that the root collation order sorts Han characters in Unihan
+				radical-stroke order according to the
+				<code>[radical ...]</code>
+				data. The CollationTest_CLDR files only contain Han characters that
+				are in the same relative order using implicit weights or the
+				radical-stroke order.
+			</p>
 
-			<p>The root collation radical-stroke order is derived from
-			the first (normative) values of the
-			<a href="http://www.unicode.org/reports/tr38/#kRSUnicode">Unihan kRSUnicode</a>
-			field for each Han character.
-			Han characters are ordered by radical,
-			with traditional forms sorting before simplified ones.
-			Characters with the same radical are ordered by residual stroke count.
-			Characters with the same radical-stroke values are ordered by
-			block and code point, as for
-			<a href="http://www.unicode.org/reports/tr10/#Implicit_Weights">UCA implicit weights</a>.</p>
+			<p>
+				The root collation radical-stroke order is derived from the first
+				(normative) values of the <a
+					href="http://www.unicode.org/reports/tr38/#kRSUnicode">Unihan
+					kRSUnicode</a> field for each Han character. Han characters are ordered
+				by radical, with traditional forms sorting before simplified ones.
+				Characters with the same radical are ordered by residual stroke
+				count. Characters with the same radical-stroke values are ordered by
+				block and code point, as for <a
+					href="http://www.unicode.org/reports/tr10/#Implicit_Weights">UCA
+					implicit weights</a>.
+			</p>
 
-			<p>There is one <code>[radical ...]</code> line per radical,
-			in the order of radical numbers.
-			Each line shows the radical number and the representative characters from the
-			<a href="http://www.unicode.org/reports/tr44/#UCD_Files_Table">UCD file CJKRadicals.txt</a>,
-			followed by a colon (“:”) and the Han characters with that radical
-			in the order as described above.
-			A range like <code>万-丌</code> indicates that the code points in that range
-			sort in code point order.</p>
+			<p>
+				There is one
+				<code>[radical ...]</code>
+				line per radical, in the order of radical numbers. Each line shows
+				the radical number and the representative characters from the <a
+					href="http://www.unicode.org/reports/tr44/#UCD_Files_Table">UCD
+					file CJKRadicals.txt</a>, followed by a colon (“:”) and the Han
+				characters with that radical in the order as described above. A
+				range like
+				<code>万-丌</code>
+				indicates that the code points in that range sort in code point
+				order.
+			</p>
 
-			<p>The radical number and characters are informational.
-			The sort order is established only by the order of the
-			<code>[radical ...]</code> lines, and within each line by the characters and ranges
-			between the colon (“:”) and the bracket (“]”).</p>
+			<p>
+				The radical number and characters are informational. The sort order
+				is established only by the order of the
+				<code>[radical ...]</code>
+				lines, and within each line by the characters and ranges between the
+				colon (“:”) and the bracket (“]”).
+			</p>
 
-			<p>Each Unified_Ideograph occurs exactly once.
-			Only Unified_Ideograph characters are listed on <code>[radical ...]</code> lines.</p>
+			<p>
+				Each Unified_Ideograph occurs exactly once. Only Unified_Ideograph
+				characters are listed on
+				<code>[radical ...]</code>
+				lines.
+			</p>
 
-			<p>This section is terminated with one <code>[radical end]</code> line.</p>
+			<p>
+				This section is terminated with one
+				<code>[radical end]</code>
+				line.
+			</p>
 		</blockquote>
 
 		<pre>0000; [,,]     # Zyyy Cc       [0000.0000.0000]        * &lt;NULL&gt;</pre>
@@ -1006,11 +1032,14 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			tailoring of the root order, or both.
 		</p>
 
-		<h3 class="changed">3.1 <a name="Collation_Types" href="#Collation_Types">Collation Types</a></h3>
+		<h3 class="changed">
+			3.1 <a name="Collation_Types" href="#Collation_Types">Collation
+				Types</a>
+		</h3>
 		<p>
-			Each locale may have multiple sort orders <span class="changed">(types)</span>. The <span class="element">defaultCollation</span>
-			element defines the default tailoring for a locale and its
-			sublocales. For example:
+			Each locale may have multiple sort orders <span class="changed">(types)</span>.
+			The <span class="element">defaultCollation</span> element defines the
+			default tailoring for a locale and its sublocales. For example:
 		</p>
 		<ul>
 			<li>root.xml: <code>&lt;defaultCollation&gt;standard&lt;/defaultCollation&gt;</code></li>
@@ -1026,12 +1055,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				class="attributeValue">short</span>&quot;.
 		</p>
 
-		<p class="changed">A collation type name that starts with "private-", for example, "private-kana",
-		indicates an incomplete tailoring that is only intended for import into one or more other tailorings
-		(usually for sharing common rules).
-		It does not establish a complete sort order.
-		An implementation should not build data tables for a private collation type,
-		and should not include a private collation type in a list of available types.</p>
+		<p class="changed">A collation type name that starts with
+			"private-", for example, "private-kana", indicates an incomplete
+			tailoring that is only intended for import into one or more other
+			tailorings (usually for sharing common rules). It does not establish
+			a complete sort order. An implementation should not build data tables
+			for a private collation type, and should not include a private
+			collation type in a list of available types.</p>
 
 		<p class="note">
 			<b>Note:</b>
@@ -2303,29 +2333,33 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			CDATA #REQUIRED &gt;<br> &lt;!ATTLIST import type CDATA #IMPLIED
 			&gt;
 		</p>
-		<p>The import command imports rules from another collation. This
-			allows for better maintenance and smaller rule sizes.
-			<span class="removed">The source is
-			the locale of the source, and the type is the type (if any).
-			If the source is &quot;locale&quot; it is the same locale.
-			The type is defaulted to &quot;standard&quot;.<br></span>
-			<span class="changed">The source is a BCP 47 language tag (without extensions).
-			It is required even when it refers to the same locale as
-			the importing tailoring itself.
-			The type is the BCP 47 form of the collation type in the source;
-			it defaults to "standard".
-			<code>(source)-u-co-(type)</code> must be a valid BCP 47 language tag.</p>
 		<p>
-			<em>Example<span class="changed">s</span>:</em>
+			The import command imports rules from another collation. This allows
+			for better maintenance and smaller rule sizes. <span class="removed">The
+				source is the locale of the source, and the type is the type (if
+				any). If the source is &quot;locale&quot; it is the same locale. The
+				type is defaulted to &quot;standard&quot;.<br>
+			</span> <span class="changed">The source is a BCP 47 language tag
+				(without extensions). It is required even when it refers to the same
+				locale as the importing tailoring itself. The type is the BCP 47
+				form of the collation type in the source; it defaults to "standard".
+				<code>(source)-u-co-(type)</code> must be a valid BCP 47 language
+				tag.
+			</span>
+		</p>
+		<p>
+			<em>Example<span class="changed">s</span>:
+			</em>
 		</p>
 		<ul>
-			<li><code>&lt;import source="de" type="phoneb<span class="removed">oo</span>k"/&gt;</code>
-				&nbsp; <span class="changed">(not type="phonebook")</span></li>
-			<li class="changed"><code>&lt;import source="und" type="search"/&gt;</code>
-				&nbsp; (not source="root")</li>
-			<li class="changed"><code>&lt;import source="ja" type="private-kana"/&gt;</code>
-				&nbsp; (source="ja" required even when this import itself is
-				in another "ja" tailoring.)</li>
+			<li><code>
+					&lt;import source="de" type="phoneb<span class="removed">oo</span>k"/&gt;
+				</code> &nbsp; <span class="changed">(not type="phonebook")</span></li>
+			<li class="changed"><code>&lt;import source="und"
+					type="search"/&gt;</code> &nbsp; (not source="root")</li>
+			<li class="changed"><code>&lt;import source="ja"
+					type="private-kana"/&gt;</code> &nbsp; (source="ja" required even when
+				this import itself is in another "ja" tailoring.)</li>
 		</ul>
 		<table>
 			<caption>Special-Purpose Commands</caption>
@@ -2861,15 +2895,22 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<h3>
 			3.15 <a name="Visibility" href="#Visibility">Visibility</a>
 		</h3>
-		<p class="dtd removed">&lt;!ATTLIST collation visibility ( internal |
-			external ) &quot;external&quot; &gt;</p>
-		<p><span class="removed">Collators</span> <span class="changed">Collations</span> have external visibility by default, meaning that
-			they can be displayed in a list of collation options for users to
-			choose from. <span class="removed">Collators marked as having internal visibility</span>
-			<span class="changed">A collation whose type name starts with "private-" is internal and</span>
-			should not be shown in such a list. <span class="removed">Collators</span> <span class="changed">Collations</span> are typically internal when
-			they are partial sequences included in other <span class="removed">collators</span> <span class="changed">collations</span>.
-			<span class="changed">See <i>Section 3.1, <a href="#Collation_Types">Collation Types</a></i>.</span></p>
+		<p class="dtd removed">&lt;!ATTLIST collation visibility (
+			internal | external ) &quot;external&quot; &gt;</p>
+		<p>
+			<span class="removed">Collators</span> <span class="changed">Collations</span>
+			have external visibility by default, meaning that they can be
+			displayed in a list of collation options for users to choose from. <span
+				class="removed">Collators marked as having internal
+				visibility</span> <span class="changed">A collation whose type name
+				starts with "private-" is internal and</span> should not be shown in such a
+			list. <span class="removed">Collators</span> <span class="changed">Collations</span>
+			are typically internal when they are partial sequences included in
+			other <span class="removed">collators</span> <span class="changed">collations</span>.
+			<span class="changed">See <i>Section 3.1, <a
+					href="#Collation_Types">Collation Types</a></i>.
+			</span>
+		</p>
 
 		<h3>
 			3.16 <a name="Collation_Indexes" href="#Collation_Indexes">Collation

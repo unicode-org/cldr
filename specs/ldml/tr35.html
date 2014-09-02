@@ -646,7 +646,7 @@ h2,h3,h4,table {
 			A <i>Unicode language identifier</i> has the following structure
 			(provided in either EBNF (Perl-based) or ABNF [<a href="#RFC5234">RFC5234</a>]):
 		</p>
-		<table border="0">
+		<table>
 			<tr>
 				<th>&nbsp;</th>
 				<th><div align="center">EBNF</div></th>
@@ -658,7 +658,7 @@ h2,h3,h4,table {
 | unicode_language_subtag 
   (sep unicode_script_subtag)? 
   (sep unicode_region_subtag)?
-  (sep unicode_variant_subtag)*</pre></td>
+  (sep unicode_variant_subtag)* ;</pre></td>
 				<td><pre>="root" 
 / unicode_language_subtag 
   [sep unicode_script_subtag] 
@@ -668,15 +668,51 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td><pre>sep</pre></td>
-				<td><pre>= "-" | "_"</pre></td>
+				<td><pre>= [-_] ;</pre></td>
 				<td><pre>= "-" / "_"</pre></td>
+			</tr>
+			<tr class="changed">
+				<td><code>unicode_language_subtag</code></td>
+				<td><code>= alpha{2,8} ;</code></td>
+				<td><code>2*8ALPHA</code></td>
+			</tr>
+			<tr class="changed">
+				<td><code>unicode_script_subtag</code></td>
+				<td><code> = alpha{4} ;</code></td>
+				<td><code>4ALPHA</code></td>
+			</tr>
+			<tr class="changed">
+				<td><code>unicode_region_subtag</code></td>
+				<td><code> = (alpha{2} | digit{3}) ;</code></td>
+				<td><code>2ALPHA / 3DIGIT</code></td>
+			</tr>
+			<tr class="changed">
+				<td><code>unicode_variant_subtag</code></td>
+				<td><code>
+						= (alphanum{5,8} <br> | digit alphanum{3}) ;
+					</code></td>
+				<td><pre>5*8alphanum<br>/ (DIGIT 3alphanum)</pre></td>
+			</tr>
+			<tr class="changed">
+				<td><pre>digit</pre></td>
+				<td><pre>= [0-9] ;</pre></td>
+				<td><pre>&nbsp;</pre></td>
+			</tr>
+			<tr class="changed">
+				<td><pre>alpha</pre></td>
+				<td><pre>= [A-Z a-z] ;</pre></td>
+				<td><pre>&nbsp;</pre></td>
+			</tr>
+			<tr>
+				<td><pre>alphanum</pre></td>
+				<td><pre>= [0-9 A-Z a-z] ;</pre></td>
+				<td><pre>= ALPHA / DIGIT</pre></td>
 			</tr>
 		</table>
 
 		<p>For example, &quot;en-US&quot; (American English),
 			&quot;en_GB&quot; (British English), &quot;es-419&quot; (Latin
-			American Spanish), and &quot;uz-Cyrl&quot; (Uzbek in Cyrillic) are
-			all Unicode language identifiers.</p>
+			American Spanish), and &quot;uz-Cyrl&quot; (Uzbek in Cyrillic) are</p>
 		<h3>
 			<i><a name="Unicode_locale_identifier"
 				href="#Unicode_locale_identifier">3.2 Unicode Locale Identifier</a></i>
@@ -695,8 +731,10 @@ h2,h3,h4,table {
 			<tr>
 				<td><pre>unicode_locale_id</pre></td>
 				<td><pre>= unicode_language_id
-  transformed_extensions?
-  unicode_locale_extensions?</pre></td>
+  (transformed_extensions
+  unicode_locale_extensions?<span class="changed">
+| unicode_locale_extensions?
+  transformed_extensions?</span>) ;</pre></td>
 				<td><pre>= unicode_language_id
   [transformed_extensions]
   [unicode_locale_extensions]</pre></td>
@@ -705,7 +743,7 @@ h2,h3,h4,table {
 				<td><pre>unicode_locale_extensions</pre></td>
 				<td><pre>= sep "u"
   ((sep keyword)+
-  |(sep attribute)+ (sep keyword)*)</pre></td>
+  |(sep attribute)+ (sep keyword)*) ;</pre></td>
 				<td><pre>= sep "u" 
   (1*(sep keyword)
  / 1*(sep attribute) *(sep keyword))</pre></td>
@@ -714,29 +752,29 @@ h2,h3,h4,table {
 				<td><pre>transformed_extensions</pre></td>
 				<td><pre>= sep &quot;t&quot;
   (("-" tlang ("-" tfield)*)
-  | ("-" tfield)+)</pre></td>
+  | ("-" tfield)+) ;</pre></td>
 				<td><pre>= sep &quot;t&quot;
   ((&quot;-&quot; tlang *(&quot;-&quot; tfield))
   / 1*(&quot;-&quot; tfield))</pre></td>
 			</tr>
 			<tr>
 				<td><pre>keyword</pre></td>
-				<td><pre>= key (sep type)?</pre></td>
+				<td><pre>= key (sep type)? ;</pre></td>
 				<td><pre>= key [sep type]</pre></td>
 			</tr>
 			<tr>
 				<td><pre>key</pre></td>
-				<td><pre>= alphanum{2}</pre></td>
+				<td><pre>= alphanum{2} ;</pre></td>
 				<td><pre>= 2alphanum</pre></td>
 			</tr>
 			<tr>
 				<td><pre>type</pre></td>
-				<td><pre>= alphanum{3,8} (sep alphanum{3,8})*</pre></td>
+				<td><pre>= alphanum{3,8} (sep alphanum{3,8})* ;</pre></td>
 				<td><pre>= 3*8alphanum *(sep 3*8alphanum)</pre></td>
 			</tr>
 			<tr>
 				<td><pre>attribute</pre></td>
-				<td><pre>= alphanum{3,8}</pre></td>
+				<td><pre>= alphanum{3,8} ;</pre></td>
 				<td><pre>= 3*8alphanum</pre></td>
 			</tr>
 			<tr>
@@ -744,7 +782,7 @@ h2,h3,h4,table {
 				<td><pre>= unicode_language_subtag
   (&quot;-&quot; unicode_script_subtag)?
   (&quot;-&quot; unicode_region_subtag)?
-  (&quot;-&quot; unicode_variant_subtag)*</pre></td>
+  (&quot;-&quot; unicode_variant_subtag)* ;</pre></td>
 				<td><pre>= unicode_language_subtag
   [&quot;-&quot; unicode_script_subtag]
   [&quot;-&quot; unicode_region_subtag]
@@ -752,18 +790,13 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td><pre>tfield</pre></td>
-				<td><pre>= fsep (&quot;-&quot; alphanum{3,8})+</pre></td>
+				<td><pre>= fsep (&quot;-&quot; alphanum{3,8})+ ;</pre></td>
 				<td><pre>= fsep 1*(&quot;-&quot; 3*8alphanum)</pre></td>
 			</tr>
 			<tr>
 				<td><pre>fsep</pre></td>
-				<td><pre>= [A-Z a-z] [0-9]</pre></td>
+				<td><pre>= [A-Z a-z] [0-9] ;</pre></td>
 				<td><pre>= ALPHA DIGIT</pre></td>
-			</tr>
-			<tr>
-				<td><pre>alphanum</pre></td>
-				<td><pre>= [0-9 A-Z a-z]</pre></td>
-				<td><pre>= ALPHA / DIGIT</pre></td>
 			</tr>
 		</table>
 

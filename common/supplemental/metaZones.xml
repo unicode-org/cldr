@@ -394,7 +394,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone from="1988-10-30 02:01" mzone="Atlantic"/>
 			</timezone>
 			<timezone type="America/Grand_Turk">
-				<usesMetazone mzone="America_Eastern"/>
+				<usesMetazone to="2014-11-02 06:00" mzone="America_Eastern"/>
+				<usesMetazone from="2014-11-02 06:00" mzone="Atlantic"/>
 			</timezone>
 			<timezone type="America/Grenada">
 				<usesMetazone mzone="Atlantic"/>
@@ -1562,7 +1563,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="America_Eastern" territory="JM" type="America/Jamaica"/>
 			<mapZone other="America_Eastern" territory="KY" type="America/Cayman"/>
 			<mapZone other="America_Eastern" territory="PA" type="America/Panama"/>
-			<mapZone other="America_Eastern" territory="TC" type="America/Grand_Turk"/>
 			<mapZone other="America_Mountain" territory="001" type="America/Denver"/>
 			<mapZone other="America_Mountain" territory="CA" type="America/Edmonton"/>
 			<mapZone other="America_Mountain" territory="MX" type="America/Hermosillo"/>

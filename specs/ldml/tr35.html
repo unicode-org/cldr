@@ -62,6 +62,11 @@ h2,h3,h4,table {
 	margin-top: 1.5em;
 	margin-bottom: 0.5em;
 }
+
+h5 {
+	font-size: medium;
+	font-style: italic
+}
 -->
 </style>
 </head>
@@ -105,7 +110,7 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2014-09-01</span></td>
+				<td><span class="changed">2014-09-03</span></td>
 			</tr>
 			<tr>
 				<td>This Version</td>
@@ -369,9 +374,14 @@ h2,h3,h4,table {
 									Directionality</a></li>
 							<li>5.3.3 <a href="#Unicode_Sets">Unicode Sets</a>
 								<ul class="toc">
-									<li>5.3.3.1 <a href="#Single_Quote">Single Quote</a></li>
-									<li>5.3.3.2 <a href="#Backslash_Escapes">Backslash
-											Escapes</a></li>
+									<li class="changed">5.3.3.1 <a
+										href="#Lists_of_Code_Points">Lists of Code Points</a></li>
+									<li class="changed">5.3.3.2 <a href="#Unicode_Properties">Unicode
+											Properties</a></li>
+									<li class="changed">5.3.3.3 <a href="#Boolean_Operations">Boolean
+											Operations</a></li>
+									<li class="changed">5.3.3.4 <a href="#UnicodeSet_Examples">UnicodeSet
+											Examples</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -4797,133 +4807,59 @@ root</pre>
 			<a name="Unicode_Sets" href="#Unicode_Sets">5.3.3 Unicode Sets</a>
 		</h4>
 		<p>
-			Some attribute values or element contents use UnicodeSet notation. A
-			UnicodeSet represents a set of Unicode characters (and possibly
-			strings) determined by a pattern, following <i>UTS #18: Unicode
-				Regular Expressions</i> [<a
-				href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>], Level
-			1 and RL2.5, including the syntax where given. For an example of a
-			concrete implementation of this, see [<a href="#ICUUnicodeSet">ICUUnicodeSet</a>].
+			Some attribute values or element contents use <em>UnicodeSet</em>
+			notation. A UnicodeSet represents a <span class="changed">finite
+			</span>set of Unicode <span class="changed">code point</span>s and strings<span
+				class="changed">, and is defined</span> by lists of <span
+				class="changed">code point</span>s and strings, Unicode property
+			sets, and set operators, all bounded by square brackets. <span
+				class="changed">In this context, a code point means a string
+				consisting of exactly one code point. A UnicodeSet is based on a
+				subset of features found in <i>UTS #18: Unicode Regular
+					Expressions</i> [<a href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>],
+				but with sometimes different syntax.
+			</span>
 		</p>
-		<p>
-			Patterns are a series of characters bounded by square brackets that
-			contain lists of characters and Unicode property sets. Lists are a
-			sequence of characters that may have ranges indicated by a
-			&#39;-&#39; between two characters, as in &quot;a-z&quot;. The
-			sequence specifies the range of all characters from the left to the
-			right, in Unicode order. For example, <b>[a c d-f m]</b> is
-			equivalent to <b>[a c d e f m]</b>. Whitespace can be freely used for
-			clarity, as <b>[a c d-f m]</b> means the same as <b>[acd-fm]</b>.
-		</p>
-		<p>
-			Unicode property sets are specified by any Unicode property and a
-			value of that property, such as <b>[:General_Category=Letter:]</b>.
-			The property names are defined by the PropertyAliases.txt file and
-			the property values by the PropertyValueAliases.txt file. For more
-			information, see [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>].
-			The syntax for specifying the property sets is an extension of either
-			POSIX or Perl syntax, by the addition of &quot;=&lt;value&gt;&quot;.
-			For example, you can match letters by using the POSIX-style syntax:
-		</p>
-		<p>
-			<b>[:General_Category=Letter:]</b>
-		</p>
-		<p>or by using the Perl-style syntax</p>
-		<p>
-			<b>\p{General_Category=Letter}</b>.
-		</p>
-		<p>
-			Property names and values are case-insensitive, and whitespace,
-			&quot;-&quot;, and &quot;_&quot; are ignored. The property name can
-			be omitted for the <span class="changed"><strong>General_</strong></span><strong>Category</strong>
-			and <strong>Script</strong> properties, but is required for other
-			properties. If the property value is omitted, it is assumed to
-			represent a boolean property with the value &quot;true&quot;. Thus <b>[:Letter:]</b>
-			is equivalent to <b>[:General_Category=Letter:]</b>, and <b>[:Wh-ite-s
-				pa_ce:]</b> is equivalent to <b>[:Whitespace=true:]</b>.
-		</p>
-		<p>
-			The table below shows the two kinds of syntax: POSIX and Perl style.
-			Also, the table shows the &quot;Negative&quot;, which is a property
-			that excludes all characters of a given kind. For example, <b>[:^Letter:]</b>
-			matches all characters that are not <b>[:Letter:]</b>.
-		</p>
-		<table>
-			<tr>
-				<th>&nbsp;</th>
-				<th>Positive</th>
-				<th>Negative</th>
-			</tr>
-			<tr>
-				<td>POSIX-style Syntax</td>
-				<td>[:type=value:]</td>
-				<td>[:^type=value:]</td>
-			</tr>
-			<tr>
-				<td>Perl-style Syntax</td>
-				<td>\p{type=value}</td>
-				<td>\P{type=value}</td>
-			</tr>
-		</table>
-		<p>These following low-level lists or properties then can be
-			freely combined with the normal set operations (union, inverse,
-			difference, and intersection):</p>
-		<ul>
-			<li>To union two sets, simply concatenate them. For example, <b>[[:letter:]
-					[:number:]]</b></li>
-			<li>To intersect two sets, use the &#39;&amp;&#39; operator. For
-				example, <b>[[:letter:] &amp; [a-z]] </b>
-			</li>
-			<li>To take the set-difference of two sets, use the &#39;-&#39;
-				operator. For example, <b>[[:letter:] - [a-z]]</b>
-			</li>
-			<li>To invert a set, place a &#39;^&#39; immediately after the
-				opening &#39;[&#39;. For example, <b>[^a-z]</b>. In any other
-				location, the &#39;^&#39; does not have a special meaning.
-			</li>
-		</ul>
-		<p>
-			The binary operators &#39;&amp;&#39;, &#39;-&#39;, and the implicit
-			union have equal precedence and bind left-to-right. Thus <b>[[:letter:]-[a-z]-[\u0100-\u01FF]]</b>
-			is equal to <b>[[[:letter:]-[a-z]]-[\u0100-\u01FF]]</b>. Another
-			example is the set <b>[[ace][bdf] - [abc][def]]</b>, which is not the
-			empty set, but instead equal to <b>[[[[ace] [bdf]] - [abc]]
-				[def]]</b>, which equals <b>[[[abcdef] - [abc]] [def]]</b>, which equals
-			<b>[[def] [def]]</b>, which equals <b>[def]</b>.
-		</p>
-		<p>
-			One caution: the &#39;&amp;&#39; and &#39;-&#39; operators operate
-			between sets. That is, they must be immediately preceded and
-			immediately followed by a set. For example, the pattern <b>[[:Lu:]-A]</b>
-			is illegal, since it is interpreted as the set <b>[:Lu:]</b> followed
-			by the incomplete range <b>-A</b>. To specify the set of upper case
-			letters except for &#39;A&#39;, enclose the &#39;A&#39; in a set: <b>[[:Lu:]-[A]]</b>.
-		</p>
-		<p>A multi-character string can be in a Unicode set, to represent
-			a tailored grapheme cluster for a particular language. The syntax
-			uses curly braces for that case.</p>
-		<p>In Unicode Sets, there are two ways to quote syntax characters
-			and whitespace:</p>
 		<h5>
-			<a name="Single_Quote" href="#Single_Quote">5.3.3.1 Single Quote</a>
-		</h5>
-		<p>Two single quotes represents a single quote, either inside or
-			outside single quotes. Text within single quotes is not interpreted
-			in any way (except for two adjacent single quotes). It is taken as
-			literal text (special characters become non-special).</p>
-		<h5>
-			<a name="Backslash_Escapes" href="#Backslash_Escapes">5.3.3.2
-				Backslash Escapes</a>
+			<a name="Lists_of_Code_Points" href="#Lists_of_Code_Points">5.3.3.1
+				Lists of Code Points</a>
 		</h5>
 		<p>
-			Outside of single quotes, certain backslashed character <span
-				class="changed">sequence</span>s have special meaning<span
-				class="changed"> (h represents a hex digit, eg [0-9A-Fa-f])</span>:
+			Lists are a sequence of <span class="changed">strings that may
+				include ranges, which are</span> indicated by a &#39;-&#39; between two <span
+				class="changed">code points</span>, as in &quot;a-z&quot;. The
+			sequence<em class="changed"> start-end</em> specifies the range of
+			all <span class="changed">code points</span> from the <span
+				class="changed">start to end, inclusive</span>, in Unicode order.
+			For example, <b>[a c d-f m]</b> is equivalent to <b>[a c d e f m]</b>.
+			Whitespace can be freely used for clarity, as <b>[a c d-f m]</b>
+			means the same as <b>[acd-fm]</b>. <span class="changed">A
+				string with multiple code points is represented in a list by being
+				surrounded by curly braces, such as in <strong>[a-z {ch}]</strong>.
+				It cannot be used with the range notation.
+			</span>
+		</p>
+		<p>
+			In UnicodeSets, there are two ways to quote syntax <span
+				class="changed">code point</span>s:
+		</p>
+		<p>
+			<a href="#Single_Quote"></a>Two single quotes represents a single
+			quote, either inside or outside single quotes. Text within single
+			quotes is not interpreted in any way (except for two adjacent single
+			quotes). It is taken as literal text (<span class="changed">syntax
+				code points become literal</span>).
+		</p>
+		<p>
+			<a href="#Backslash_Escapes"></a>Outside of single quotes, certain
+			backslashed <span class="changed">code point</span> <span
+				class="changed">sequence</span>s can be used<span class="changed">
+				to quote code points</span>:
 		</p>
 		<table>
 			<tr class="changed">
 				<td>\x{h...h}</td>
-				<td>1-6 hex digits</td>
+				<td>1-6 hex digits ([0-9A-Fa-f])</td>
 			</tr>
 			<tr>
 				<td>\uhhhh</td>
@@ -4981,23 +4917,143 @@ root</pre>
 			</tr>
 			<tr>
 				<td>\N{name}</td>
-				<td>The Unicode character named &quot;name&quot;.</td>
+				<td>The Unicode <span class="changed">code point</span> named
+					&quot;name&quot;.
+				</td>
+			</tr>
+			<tr class="changed">
+				<td>\p{…},\P{…}</td>
+				<td>Unicode property (see below)</td>
 			</tr>
 		</table>
 		<p>
-			Anything else following a backslash is mapped to itself, except in an
-			environment where it is defined to have some special meaning. For
-			example, <b>\p{uppercase}</b> is the set of upper case letters in
-			Unicode.
+			Anything else following a backslash is mapped to itself, except <span
+				class="changed">the property syntax described below, or</span> in an
+			environment where it is defined to have some special meaning.
 		</p>
 		<p>
-			Any character formed as the result of a backslash escape loses any
-			special meaning and is treated as a literal. In particular, note that
-			\u and \U escapes create literal characters. (In contrast, Java
-			treats Unicode escapes as just a way to represent arbitrary
-			characters in an ASCII source file, and any resulting characters are
-			<i><b>not</b></i> tagged as literals.)
+			Any <span class="changed">code point</span> formed as the result of a
+			backslash escape loses any special meaning and is treated as a
+			literal. In particular, note that \u and \U escapes create literal <span
+				class="changed">code point</span>s. (In contrast, Java treats
+			Unicode escapes as just a way to represent arbitrary <span
+				class="changed">code point</span>s in an ASCII source file, and any
+			resulting <span class="changed">code point</span>s are <i><b>not</b></i>
+			tagged as literals.)
 		</p>
+		<p>
+			Unicode property sets are defined as described as described in <i>UTS
+				#18: Unicode Regular Expressions</i> [<a
+				href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>], Level
+			1 and RL2.5, including the syntax where given. For an example of a
+			concrete implementation of this, see [<a href="#ICUUnicodeSet">ICUUnicodeSet</a>].
+		</p>
+		<h5>
+			<a name="Unicode_Properties" href="#Unicode_Properties">5.3.3.2
+				Unicode Properties</a>
+		</h5>
+
+		<p>
+			Briefly, Unicode property sets are specified by any Unicode property
+			and a value of that property, such as <b>[:General_Category=Letter:]</b>.
+			for Unicode letters or <b>\p{uppercase}</b> is the set of upper case
+			letters in Unicode. The property names are defined by the
+			PropertyAliases.txt file and the property values by the
+			PropertyValueAliases.txt file. For more information, see [<a
+				href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>]. The syntax
+			for specifying the property sets is an extension of either POSIX or
+			Perl syntax, by the addition of &quot;=&lt;value&gt;&quot;. For
+			example, you can match letters by using the POSIX-style syntax:
+		</p>
+		<p>
+			<b>[:General_Category=Letter:]</b>
+		</p>
+		<p>or by using the Perl-style syntax</p>
+		<p>
+			<b>\p{General_Category=Letter}</b>.
+		</p>
+		<p>
+			Property names and values are case-insensitive, and whitespace,
+			&quot;-&quot;, and &quot;_&quot; are ignored. The property name can
+			be omitted for the <span class="changed"><strong>General_</strong></span><strong>Category</strong>
+			and <strong>Script</strong> properties, but is required for other
+			properties. If the property value is omitted, it is assumed to
+			represent a boolean property with the value &quot;true&quot;. Thus <b>[:Letter:]</b>
+			is equivalent to <b>[:General_Category=Letter:]</b>, and <b>[:Wh-ite-s
+				pa_ce:]</b> is equivalent to <b>[:Whitespace=true:]</b>.
+		</p>
+		<p>
+			The table below shows the two kinds of syntax: POSIX and Perl style.
+			Also, the table shows the &quot;Negative&quot; version, which is a
+			property that excludes all <span class="changed">code point</span>s
+			of a given kind. For example, <b>[:^Letter:]</b> matches all <span
+				class="changed">code point</span>s that are not <b>[:Letter:]</b>.
+		</p>
+		<table>
+			<tr>
+				<th>&nbsp;</th>
+				<th>Positive</th>
+				<th>Negative</th>
+			</tr>
+			<tr>
+				<td>POSIX-style Syntax</td>
+				<td>[:type=value:]</td>
+				<td>[:^type=value:]</td>
+			</tr>
+			<tr>
+				<td>Perl-style Syntax</td>
+				<td>\p{type=value}</td>
+				<td>\P{type=value}</td>
+			</tr>
+		</table>
+		<h5>
+			<a name="Boolean_Operations" href="#Boolean_Operations">5.3.3.2
+				Boolean Operations</a>
+		</h5>
+
+		<p>The low-level lists or properties then can be freely combined
+			with the normal set operations (union, inverse, difference, and
+			intersection):</p>
+		<ul>
+			<li>To union two sets, simply concatenate them. For example, <b>[[:letter:]
+					[:number:]]</b></li>
+			<li>To intersect two sets, use the &#39;&amp;&#39; operator. For
+				example, <b>[[:letter:] &amp; [a-z]] </b>
+			</li>
+			<li>To take the set-difference of two sets, use the &#39;-&#39;
+				operator. For example, <b>[[:letter:] - [a-z]]</b>
+			</li>
+			<li>To invert a set, place a &#39;^&#39; immediately after the
+				opening &#39;[&#39;. For example, <b>[^a-z]</b>. In any other
+				location, the &#39;^&#39; does not have a special meaning. <span
+				class="changed">The inversion [^X] is equivalent to
+					[[\x{0}-\x{10FFFF}]-[X]]. Thus multi-code point strings are
+					discarded.</span>
+			</li>
+			<li class="changed">Symmetric difference (~) is not supported.</li>
+		</ul>
+		<p>
+			The binary operators &#39;&amp;&#39;, &#39;-&#39;, and the implicit
+			union have equal precedence and bind left-to-right. Thus <b>[[:letter:]-[a-z]-[\u0100-\u01FF]]</b>
+			is equal to <b>[[[:letter:]-[a-z]]-[\u0100-\u01FF]]</b>. Another
+			example is the set <b>[[ace][bdf] - [abc][def]]</b>, which is not the
+			empty set, but instead equal to <b>[[[[ace] [bdf]] - [abc]]
+				[def]]</b>, which equals <b>[[[abcdef] - [abc]] [def]]</b>, which equals
+			<b>[[def] [def]]</b>, which equals <b>[def]</b>.
+		</p>
+		<p>
+			<strong>One caution:</strong> the &#39;&amp;&#39; and &#39;-&#39;
+			operators operate between sets. That is, they must be immediately
+			preceded and immediately followed by a set. For example, the pattern
+			<b>[[:Lu:]-A]</b> is illegal, since it is interpreted as the set <b>[:Lu:]</b>
+			followed by the incomplete range <b>-A</b>. To specify the set of
+			upper case letters except for &#39;A&#39;, enclose the &#39;A&#39; in
+			<span class="changed">brackets</span>: <b>[[:Lu:]-[A]]</b>.
+		</p>
+		<h5>
+			<a name="UnicodeSet_Examples" href="#UnicodeSet_Examples">5.3.3.2
+				UnicodeSet Examples</a>
+		</h5>
 		<p>The following table summarizes the syntax that can be used.</p>
 		<table style="margin-top: 0.5em; margin-bottom: 0.5em" id="table18">
 			<tr>
@@ -5017,9 +5073,9 @@ root</pre>
 			</tr>
 			<tr>
 				<td nowrap>[^a-z]</td>
-				<td>The set containing all characters but &#39;a&#39; through
-					&#39;z&#39;.<br> Thus it is the same as [\u0000-\u0061
-					\u007B..\U0010FFFF].
+				<td>The set containing all <span class="changed">code
+						point</span>s but &#39;a&#39; through &#39;z&#39;.<br> Thus it is
+					the same as [\u0000-\u0061 \u007B..\U0010FFFF].
 				</td>
 			</tr>
 			<tr>
@@ -5037,21 +5093,25 @@ root</pre>
 			</tr>
 			<tr>
 				<td nowrap>[a {ab} {ac}]</td>
-				<td>The character &#39;a&#39; and the multi-character strings
-					&quot;ab&quot; and &quot;ac&quot;</td>
+				<td>The <span class="changed">code point</span> &#39;a&#39; and
+					the multi-<span class="changed">code point</span> strings
+					&quot;ab&quot; and &quot;ac&quot;
+				</td>
 			</tr>
 			<tr>
 				<td nowrap>[:Lu:]</td>
-				<td>The set of characters with a given property value, as
-					defined by PropertyValueAliases.txt. In this case, these are the
-					Unicode upper case letters. The long form for this is <b>[:General_Category=Uppercase_Letter:]</b>.
+				<td>The set of <span class="changed">code point</span>s with a
+					given property value, as defined by PropertyValueAliases.txt. In
+					this case, these are the Unicode upper case letters. The long form
+					for this is <b>[:General_Category=Uppercase_Letter:]</b>.
 				</td>
 			</tr>
 			<tr>
 				<td nowrap>[:L:]</td>
-				<td>The set of characters belonging to all Unicode categories
-					starting with &#39;L&#39;, that is, <b>[[:Lu:][:Ll:][:Lt:][:Lm:][:Lo:]]</b>.
-					The long form for this is <b>[:General_Category=Letter:]</b>.
+				<td>The set of <span class="changed">code point</span>s
+					belonging to all Unicode categories starting with &#39;L&#39;, that
+					is, <b>[[:Lu:][:Ll:][:Lt:][:Lm:][:Lo:]]</b>. The long form for this
+					is <b>[:General_Category=Letter:]</b>.
 				</td>
 			</tr>
 		</table>
@@ -7068,9 +7128,11 @@ decimal?, group?, special*)) &gt;</pre>
 					</em>
 						<ul>
 							<li>Added \x{h...h} syntax for Unicode code points.</li>
-							<li>Used backslash character names from NamedAliases or
+							<li>Used backslash code point names from NamedAliases or
 								UnicodeData. [<a href="http://unicode.org/cldr/trac/ticket/6953">#6953</a>]
 							</li>
+							<li>Substantial reordering and revision of the text for
+								clarity.</li>
 						</ul></li>
 				</ul></li>
 			<li><strong>Part 2: <a

@@ -1,4 +1,8 @@
-README.txt for regex files used by org.unicode.cldr.icu.NewLdml2IcuConverter.
+# README.txt for regex files used by org.unicode.cldr.icu.NewLdml2IcuConverter.
+#
+# Copyright © 2012-2014 Unicode, Inc.
+# CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+# For terms of use, see http://www.unicode.org/copyright.html
 
 ======
 Basics
@@ -29,6 +33,7 @@ The format of a line in the regex file is:
 
 All regexes in a file are assumed to be mutually exclusive and unique, so order
 is not important and the lines can be grouped logically.
+NOTE: The above is no longer true in CLDR 26 !!
 
 If an LDML xpath results in two or more ICU paths, they should be split into
 multiple lines, like this:

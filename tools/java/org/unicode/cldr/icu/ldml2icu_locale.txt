@@ -1,3 +1,9 @@
+# ldml2icu_locale.txt
+#
+# Copyright © 2011-2014 Unicode, Inc.
+# CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+# For terms of use, see http://www.unicode.org/copyright.html
+#
 # Used by LdmlLocaleMapper.
 # Data-driven file for mapping LDML locale paths to ICU paths.
 # See ldml2icu_readme.txt for a detailed explanation of this file.
@@ -171,6 +177,7 @@
 //ldml/localeDisplayNames/types/type[@type="(%A)"][@key="(%A)"][@alt="(%A)"] ; /Types%$3/$2/$1
 //ldml/localeDisplayNames/types/type[@type="(%A)"][@key="(%A)"] ; /Types/$2/$1
 
+//ldml/localeDisplayNames/variants/variant[@type="(%A)"][@alt="(%A)"] ; /Variants%$2/$1
 //ldml/localeDisplayNames/variants/variant[@type="(%A)"] ; /Variants/$1
 
 # Numbers

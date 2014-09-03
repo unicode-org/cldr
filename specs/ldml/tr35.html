@@ -1265,6 +1265,10 @@ fr_BE
 			</pre>
 		</blockquote>
 		<p>
+			<em>Deprecated</em> codes—such as QU above—are valid, but strongly
+			discouraged.
+		</p>
+		<p>
 			A locale that only has a language subtag (and optionally a script
 			subtag) is called a <i>language locale</i>; one with both language
 			and territory subtag is called a <i>territory locale</i> (or <i>country
@@ -4195,10 +4199,14 @@ root</pre>
 			rbnf?, </span>metadata?, <span class="dtd">references?, special*)))
 			&gt;</span>
 
-		<p>The XML structure is stable over releases. Elements and
-			attributes may be deprecated: they are retained in the DTD but their
-			usage is strongly discouraged. In most cases, an alternate structure
-			is provided for expressing the information.</p>
+		<p>
+			The XML structure is stable over releases. Elements and attributes
+			may be deprecated: they are retained in the DTD but their usage is
+			strongly discouraged. In most cases, an alternate structure is
+			provided for expressing the information.<span class="changed">
+				There is only one exception: newer DTDs cannot be used with version
+				1.1 files, without some modification.</span>
+		</p>
 		<p>In general, all translatable text in this format is in element
 			contents, while attributes are reserved for types and non-translated
 			information (such as numbers or dates). The reason that attributes
@@ -7049,6 +7057,11 @@ decimal?, group?, special*)) &gt;</pre>
 						<ul>
 							<li>Updated introductory text to introduce more dtd types,
 								and discuss the relations among files.</li>
+							<li>Documented the exception in backward compatibility: that
+								CLDR 1.1 XML files cannot be read with DTDs from later versions,
+								without some modification. [<a
+								href="http://unicode.org/cldr/trac/ticket/7772">#7772</a>]
+							</li>
 						</ul></li>
 					<li><em>Section 5.3.3 <a href="#Unicode_Sets">Unicode
 								Sets</a>

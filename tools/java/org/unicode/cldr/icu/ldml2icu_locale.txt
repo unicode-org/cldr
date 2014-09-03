@@ -137,8 +137,10 @@
 
 //ldml/dates/timeZoneNames/metazone[@type="(%A)"]/(\w)%W/(\w)%W ; /zoneStrings/"meta:$1"/$2$3
 
+//ldml/dates/timeZoneNames/zone[@type="(%W)/(%W)"]/exemplarCity[@alt="(%A)"] ; /zoneStrings/"$1:$2"/ec%$3
 //ldml/dates/timeZoneNames/zone[@type="(%W)/(%W)"]/exemplarCity ; /zoneStrings/"$1:$2"/ec
 //ldml/dates/timeZoneNames/zone[@type="(%W)/(%W)"]/(\w)%W/(\w)%W ; /zoneStrings/"$1:$2"/$3$4
+//ldml/dates/timeZoneNames/zone[@type="(%W)/(%W)/(%W)"]/exemplarCity[@alt="(%A)"] ; /zoneStrings/"$1:$2:$3"/ec%$4
 //ldml/dates/timeZoneNames/zone[@type="(%W)/(%W)/(%W)"]/exemplarCity ; /zoneStrings/"$1:$2:$3"/ec
 
 # Locale Display Names

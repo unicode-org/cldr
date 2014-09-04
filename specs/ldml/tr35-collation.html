@@ -204,11 +204,21 @@ h2,h3,h4,table {
 		<h2>
 			<a name="Contents" href="#Contents">Contents of Part 5, Collation</a>
 		</h2>
+
 		<ul class="toc">
 			<li>1 <a href="#CLDR_Collation">CLDR Collation</a>
 				<ul class="toc">
 					<li>1.1 <a href="#CLDR_Collation_Algorithm">CLDR Collation
-							Algorithm</a></li>
+							Algorithm</a>
+						<ul class="toc">
+							<li>1.1.1 <a href="#Algorithm_FFFE">U+FFFE</a></li>
+							<li>1.1.2 <a href="#Context_Sensitive_Mappings">Context-Sensitive
+									Mappings</a></li>
+							<li>1.1.3 <a href="#Algorithm_Case">Case Handling</a></li>
+							<li>1.1.4 <a href="#Algorithm_Reordering_Groups">Reordering
+									Groups</a></li>
+						</ul>
+					</li>
 				</ul>
 			</li>
 			<li>2 <a href="#Root_Collation">Root Collation</a>
@@ -224,19 +234,36 @@ h2,h3,h4,table {
 					<li>2.5 <a href="#Root_Data_Files">Root Collation Data
 							Files</a></li>
 					<li>2.6 <a href="#Root_Data_File_Formats">Root Collation
-							Data File Formats</a></li>
+							Data File Formats</a>
+						<ul class="toc">
+							<li>2.6.1 <a href="#File_Format_allkeys_CLDR_txt">allkeys_CLDR.txt</a></li>
+							<li>2.6.2 <a href="#File_Format_FractionalUCA_txt">FractionalUCA.txt</a></li>
+							<li>2.6.3 <a href="#File_Format_UCA_Rules_txt">UCA_Rules.txt</a></li>
+						</ul>
+					</li>
 				</ul>
 			</li>
 			<li>3 <a href="#Collation_Tailorings">Collation Tailorings</a>
 				<ul class="toc">
-					<li class="changed">3.1 <a href="#Collation_Types">Collation
-							Types</a></li>
+					<li><span class="changed">3.1 <a
+							href="#Collation_Types">Collation Types</a>
+					</span>
+						<ul class="toc">
+							<li>3.1.1 <a href="#Collation_Type_Fallback">Collation
+									Type Fallback</a></li>
+						</ul></li>
 					<li>3.2 <a href="#Collation_Version">Version</a></li>
 					<li>3.3 <a href="#Collation_Element">Collation Element</a></li>
 					<li>3.4 <a href="#Setting_Options">Setting Options</a>
 						<ul class="toc">
 							<li>Table: <a href="#Collation_Settings">Collation
 									Settings</a></li>
+							<li>3.4.1 <a href="#Common_Settings">Common settings
+									combinations</a></li>
+							<li>3.4.2 <a href="#Normalization_Setting">Notes on the
+									normalization setting</a></li>
+							<li>3.4.3 <a href="#Variable_Top_Settings">Notes on
+									variable top settings</a></li>
 						</ul>
 					</li>
 					<li>3.5 <a href="#Rules">Collation Rule Syntax</a></li>
@@ -250,10 +277,31 @@ h2,h3,h4,table {
 							Positions</a></li>
 					<li>3.12 <a href="#Special_Purpose_Commands">Special-Purpose
 							Commands</a></li>
-					<li>3.13 <a href="#Script_Reordering">Collation Reordering</a></li>
-					<li>3.14 <a href="#Case_Parameters">Case Parameters</a></li>
+					<li>3.13 <a href="#Script_Reordering">Collation Reordering</a>
+						<ul class="toc">
+							<li>3.13.1 <a href="#Interpretation_reordering">Interpretation
+									of a reordering list</a></li>
+							<li>3.13.2 <a href="#Reordering_Groups_allkeys">Reordering
+									Groups for allkeys.txt</a></li>
+						</ul>
+					</li>
+					<li>3.14 <a href="#Case_Parameters">Case Parameters</a>
+						<ul class="toc">
+							<li>3.14.1 <a href="#Case_Untailored">Untailored
+									Characters</a></li>
+							<li>3.14.2 <a href="#Case_Weights">Compute Modified
+									Collation Elements</a></li>
+							<li>3.14.3 <a href="#Case_Tailored">Tailored Strings</a></li>
+						</ul>
+					</li>
 					<li>3.15 <a href="#Visibility">Visibility</a></li>
-					<li>3.16 <a href="#Collation_Indexes">Collation Indexes</a></li>
+					<li>3.16 <a href="#Collation_Indexes">Collation Indexes</a>
+						<ul class="toc">
+							<li>3.16.1 <a href="#Index_Characters">Index Characters</a></li>
+							<li>3.16.2 <a href="#CJK_Index_Markers">CJK Index
+									Markers</a></li>
+						</ul>
+					</li>
 				</ul>
 			</li>
 		</ul>
@@ -311,8 +359,9 @@ h2,h3,h4,table {
 			For backwards secondary level sorting, text <i>segments</i> separated
 			by U+FFFE are processed in forward segment order, and <i>within</i>
 			each segment the secondary weights are compared backwards. This is so
-			that such combined strings are processed consistently with
-			concatenating their sort keys.
+			that such combined strings are processed consistently with <span
+				class="changed">merging their sort keys (for example, by
+				concatenating them level by level with a low separator).</span>
 		</p>
 
 		<h4>

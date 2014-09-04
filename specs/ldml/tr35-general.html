@@ -749,11 +749,46 @@ h2,h3,h4,table {
 			language/territory locale. The stopwords are an experimental feature,
 			and should not be used.
 		</p>
+		<h3 class="changed">
+			3.1 <a name="ExemplarSyntax" href="#ExemplarSyntax">Exemplars</a>
+		</h3>
 
-		<p class="element2">
-			&lt;exemplarCharacters&gt;<span style="color: blue">[a-zåæø]</span>&lt;/exemplarCharacters&gt;
-		</p>
-
+		<p class="changed">Exemplars are characters used by a language,
+			separated into different categories. The following table provides a
+			summary, with more details below.</p>
+		<table class="changed">
+			<tr>
+				<th scope="col">Type</th>
+				<th scope="col">Description</th>
+				<th scope="col">Examples</th>
+			</tr>
+			<tr>
+				<td>main / standard</td>
+				<td>Main letters used in the language</td>
+				<td style="font-family: Georgia, 'Times New Roman', Times, serif">a-z
+					å æ ø</td>
+			</tr>
+			<tr>
+				<td><span class="element2">auxiliary</span></td>
+				<td>Additional characters for common foreign words, technical
+					usage</td>
+				<td style="font-family: Georgia, 'Times New Roman', Times, serif">á
+					à ă â å ä ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ú ù ŭ û
+					ü ū ÿ</td>
+			</tr>
+			<tr>
+				<td><span class="element2">index</span></td>
+				<td>Characters for the header of an index</td>
+				<td style="font-family: Georgia, 'Times New Roman', Times, serif">A
+					B C D E F G H I J K L M N O P Q R S T U V W X Y Z</td>
+			</tr>
+			<tr>
+				<td>punctuation</td>
+				<td>Common punctuation</td>
+				<td style="font-family: Georgia, 'Times New Roman', Times, serif">-
+					‐ – — , ; \: ! ? . … “ ” ‘ ’ ( ) [ ] § @ * / &amp; # † ‡ ′ ″</td>
+			</tr>
+		</table>
 		<p>
 			The basic exemplar character sets (main and auxiliary) contain the
 			commonly used letters for a given modern form of a language, which
@@ -767,7 +802,42 @@ h2,h3,h4,table {
 			symbols should not be included in the main and auxiliary sets. In
 			particular, format characters like CGJ are not included.
 		</p>
-
+		<p class="changed">
+			There is no exemplar set for numbers used with a language. Instead,
+			those are obtained by looking at the <strong>defaultNumberingSystem</strong>,
+			<strong>otherNumberingSystems</strong>, and <strong>symbols</strong>
+			under the <strong>&lt;numbers&gt;</strong> element for the locale.
+			The digits used in each numbering system are then accessed in
+			numberingSystems.xml. For more information, see <em><strong>Part
+					3: <a href="tr35-numbers.html#Contents">Numbers</a>
+			</strong>, Section 2 <a href="tr35-numbers.html#Number_Elements">Number
+					Elements</a></em>.
+		</p>
+		<p class="changed">
+			<em>Examples for zh.xml:</em>
+		</p>
+		<table class="changed">
+			<tr>
+				<th class="changed" scope="col">Type</th>
+				<th class="changed" scope="col">Description</th>
+			</tr>
+			<tr>
+				<td class="changed">defaultNumberingSystem</td>
+				<td class="changed">latn</td>
+			</tr>
+			<tr>
+				<td class="changed">otherNumberingSystems/native</td>
+				<td class="changed">hanidec</td>
+			</tr>
+			<tr>
+				<td class="changed">otherNumberingSystems/traditional</td>
+				<td class="changed">hans</td>
+			</tr>
+			<tr>
+				<td class="changed">otherNumberingSystems/finance</td>
+				<td class="changed">hansfin</td>
+			</tr>
+		</table>
 		<p>
 			There are four sets altogether: main, auxiliary, punctuation, and
 			index. The <i>main</i> set should contain the minimal set required
@@ -855,10 +925,10 @@ h2,h3,h4,table {
 		<p>The display of the index characters can be modified with the
 			Index labels elements, discussed in Section 5.6.4.</p>
 
-		<h3>
-			3.1 <a name="ExemplarSyntax" href="#ExemplarSyntax">Exemplar
-				Syntax</a>
-		</h3>
+		<h4>
+			3.1<span class="changed">.1</span> <a name="ExemplarSyntax"
+				href="#ExemplarSyntax">Exemplar Syntax</a>
+		</h4>
 
 
 		<p>
@@ -916,7 +986,8 @@ h2,h3,h4,table {
 			Database.</p>
 
 		<h4>
-			3.1.1 <a name="Restrictions" href="#Restrictions">Restrictions</a>
+			3.1<span class="changed">.2</span> <a name="Restrictions"
+				href="#Restrictions">Restrictions</a>
 		</h4>
 
 

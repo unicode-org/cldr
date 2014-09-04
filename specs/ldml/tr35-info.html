@@ -438,15 +438,27 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 		</h2>
 
 		<p class="dtd">
+			<span class="changed"> &lt;!ELEMENT codeMappings
+				(languageCodes*, territoryCodes*, currencyCodes*) &gt;</span>
+		</p>
+		<p class="dtd">
 			&lt;!ELEMENT languageCodes EMPTY &gt;<br> &lt;!ATTLIST
 			languageCodes type NMTOKEN #REQUIRED&gt;<br> &lt;!ATTLIST
-			languageCodes alpha3 NMTOKEN #REQUIRED&gt;<br> <br>
+			languageCodes alpha3 NMTOKEN #REQUIRED&gt;
+		</p>
+		<p class="dtd">
 			&lt;!ELEMENT territoryCodes EMPTY &gt;<br> &lt;!ATTLIST
 			territoryCodes type NMTOKEN #REQUIRED&gt;<br> &lt;!ATTLIST
 			territoryCodes numeric NMTOKEN #REQUIRED&gt;<br> &lt;!ATTLIST
 			territoryCodes alpha3 NMTOKEN #REQUIRED&gt;<br> &lt;!ATTLIST
 			territoryCodes fips10 NMTOKEN #IMPLIED&gt;<br> &lt;!ATTLIST
 			territoryCodes internet NMTOKENS #IMPLIED&gt;
+		</p>
+		<p class="dtd">
+			<span class="changed">&lt;!ELEMENT currencyCodes EMPTY &gt;<br>
+				&lt;!ATTLIST currencyCodes type NMTOKEN #REQUIRED&gt; <br>
+				&lt;!ATTLIST currencyCodes numeric NMTOKEN #REQUIRED&gt;
+			</span>
 		</p>
 		<p>
 			The code mapping information provides mappings between the subtags
@@ -456,16 +468,23 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			equivalents. The territory codes provide mappings to numeric (UN M.49
 			[<a href="tr35.html#UNM49">UNM49</a>] codes, equivalent to ISO
 			numeric codes), ISO three-letter codes, FIPS 10 codes, and the
-			internet top-level domain codes. The alphabetic codes are only
-			provided where different from the type. For example:
+			internet top-level domain codes.<span class="changed"> The
+				currency codes supply a mapping to the ISO numeric forms.</span>
 		</p>
+		<p>The alphabetic codes are only provided where different from the
+			type. For example:</p>
 		<pre>&lt;territoryCodes type=&quot;AA&quot; numeric=&quot;958&quot; alpha3=&quot;AAA&quot;/&gt;
 &lt;territoryCodes type=&quot;AD&quot; numeric=&quot;020&quot; alpha3=&quot;AND&quot; fips10=&quot;AN&quot;/&gt;
 &lt;territoryCodes type=&quot;AE&quot; numeric=&quot;784&quot; alpha3=&quot;ARE&quot;/&gt;
 ...
 &lt;territoryCodes type=&quot;GB&quot; numeric=&quot;826&quot; alpha3=&quot;GBR&quot; fips10=&quot;UK&quot; internet=&quot;UK GB&quot;/&gt;
 ...
-&lt;territoryCodes type=&quot;QU&quot; numeric=&quot;967&quot; alpha3=&quot;QUU&quot; internet=&quot;EU&quot;/&gt;</pre>
+&lt;territoryCodes type=&quot;QU&quot; numeric=&quot;967&quot; alpha3=&quot;QUU&quot; internet=&quot;EU&quot;/&gt;
+...
+<span class="changed">&lt;territoryCodes type=&quot;XK&quot; numeric=&quot;983&quot; alpha3=&quot;XKK&quot;/&gt;</span>
+...</pre>
+		<p class="changed">Where there is no corresponding code, sometimes
+			private use codes are used, such as the numeric code for XK.</p>
 
 		<h2>
 			5 <a name="Telephone_Code_Data" href="#Telephone_Code_Data">Telephone

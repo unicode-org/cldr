@@ -311,7 +311,7 @@ class LdmlConvertRules {
             "|.*/windowsZones[^/]*/mapTimezones[^/]*/" +
             "|.*/metaZones[^/]*/mapTimezones[^/]*/" +
             "|.*/segmentation[^/]*/variables[^/]*/" +
-            "|.*/segmentation[^/]*/exceptions[^/]*/" +
+            "|.*/segmentation[^/]*/suppressions[^/]*/" +
             "|.*/transform[^/]*/tRules[^/]*/" +
             "|.*/region/region[^/]*/" +
             "|.*/keyword[^/]*/key[^/]*/" +

@@ -7082,12 +7082,17 @@ decimal?, group?, special*)) &gt;</pre>
 							</li>
 							<li>Updated BNF to allow it to work independently, and in
 								ICU's UnicodeRegex.compileBnf. Corrected the BNF to allow -u-
-								and -t- in either order.</li>
-							<li>Section 3.4 <a href="#Field_Definitions">Language
-									Identifier Field Definitions</a>, added XK (Kosovo)
+								and -t- in either order. [<a
+								href="http://unicode.org/cldr/trac/ticket/7765">#7765</a>]
 							</li>
-							<li>Section 3.5.3 <a href="#Numeric_Codes">Priviate Use
-									Codes</a>, reserved codes starting with 'x' for application use.
+							<li>Section 3.4 <a href="#Field_Definitions">Language
+									Identifier Field Definitions</a>, added XK (Kosovo) [<a
+								href="http://unicode.org/cldr/trac/ticket/7444">#7444</a>]
+							</li>
+							<li>Section 3.5.3 <a href="#Numeric_Codes">Private Use
+									Codes</a>, reserved timezone codes starting with 'x' for
+								application use. [<a
+								href="http://unicode.org/cldr/trac/ticket/7151">#7151</a>]
 							</li>
 						</ul></li>
 					<li><em>Section 4.1 <a href="#Lookup">Lookup</a></em>
@@ -7116,7 +7121,9 @@ decimal?, group?, special*)) &gt;</pre>
 					</em>
 						<ul>
 							<li>Updated introductory text to introduce more dtd types,
-								and discuss the relations among files.</li>
+								and discuss the relations among files. [<a
+								href="http://unicode.org/cldr/trac/ticket/7227">#7227</a>]
+							</li>
 							<li>Documented the exception in backward compatibility: that
 								CLDR 1.1 XML files cannot be read with DTDs from later versions,
 								without some modification. [<a
@@ -7127,12 +7134,15 @@ decimal?, group?, special*)) &gt;</pre>
 								Sets</a>
 					</em>
 						<ul>
-							<li>Added \x{h...h} syntax for Unicode code points.</li>
+							<li>Added \x{h...h} syntax for Unicode code points. [<a
+								href="http://unicode.org/cldr/trac/ticket/7508">#7508</a>]
+							</li>
 							<li>Used backslash code point names from NamedAliases or
 								UnicodeData. [<a href="http://unicode.org/cldr/trac/ticket/6953">#6953</a>]
 							</li>
 							<li>Substantial reordering and revision of the text for
-								clarity.</li>
+								clarity. [<a href="http://unicode.org/cldr/trac/ticket/7507">#7507</a>]
+							</li>
 						</ul></li>
 				</ul></li>
 			<li><strong>Part 2: <a
@@ -7146,7 +7156,8 @@ decimal?, group?, special*)) &gt;</pre>
 								href="http://unicode.org/cldr/trac/ticket/7863">#7863</a>]
 							</li>
 							<li>Documented restriction on UnicodeSet syntax for
-								exemplars.</li>
+								exemplars. [<a href="http://unicode.org/cldr/trac/ticket/7730">#7730</a>]
+							</li>
 						</ul></li>
 					<li><em>Section 6 <a
 							href="tr35-general.html#Unit_Elements">Unit Elements</a></em>
@@ -7302,7 +7313,18 @@ decimal?, group?, special*)) &gt;</pre>
 							</li>
 						</ul></li>
 				</ul></li>
-			<li>Misc. editing.</li>
+			<li><strong>General</strong>
+				<ul>
+					<li>Misc. editing.</li>
+					<li>Renamed parts and sections. &quot;Core
+						Specification&quot;→&quot;Core&quot;, "Related Information"→
+						"Supplemental" [<a href="http://unicode.org/cldr/trac/ticket/6699">#6699</a>]
+					</li>
+					<li>Fixed levels of headers [<a
+						href="http://unicode.org/cldr/trac/ticket/7158">#7158</a>] [<a
+						href="http://unicode.org/cldr/trac/ticket/7157">#7157</a>]
+					</li>
+				</ul></li>
 		</ul>
 		<h3>
 			<span class="changed">Revision 35</span>

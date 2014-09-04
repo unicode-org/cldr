@@ -95,6 +95,7 @@ class LdmlConvertRules {
         "calendar:calendarSystem:type",
         "codeMappings:territoryCodes:numeric",
         "codeMappings:territoryCodes:alpha3",
+        "codeMappings:currencyCodes:numeric",
 
         // common/supplemental/supplementalMetaData.xml
         "validity:variable:type",

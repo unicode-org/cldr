@@ -1466,11 +1466,14 @@ h2,h3,h4,table {
 		<p class="changed">Different widths can be supplied for certain
 			fields, such as:</p>
 		<pre class="changed">&lt;field type=&quot;<strong>year-short</strong>&quot;&gt;<br>	&lt;displayName&gt;yr.&lt;/displayName&gt;<br>	&lt;relative type=&quot;-1&quot;&gt;last yr.&lt;/relative&gt;<br>	&lt;relative type=&quot;0&quot;&gt;this yr.&lt;/relative&gt;<br>	&lt;relative type=&quot;1&quot;&gt;next yr.&lt;/relative&gt;<br>	&lt;relativeTime type=&quot;future&quot;&gt;<br>		&lt;relativeTimePattern count=&quot;one&quot;&gt;in {0} yr.&lt;/relativeTimePattern&gt;<br>		&lt;relativeTimePattern count=&quot;other&quot;&gt;in {0} yr.&lt;/relativeTimePattern&gt;<br>	&lt;/relativeTime&gt;<br>	&lt;relativeTime type=&quot;past&quot;&gt;<br>		&lt;relativeTimePattern count=&quot;one&quot;&gt;{0} yr. ago&lt;/relativeTimePattern&gt;<br>		&lt;relativeTimePattern count=&quot;other&quot;&gt;{0} yr. ago&lt;/relativeTimePattern&gt;<br>	&lt;/relativeTime&gt;<br>&lt;/field&gt;</pre>
-		<p class="changed">As in other cases, <strong>narrow</strong> may be ambiguous out of context.</p>
+		<p class="changed">
+			As in other cases, <strong>narrow</strong> may be ambiguous out of
+			context.
+		</p>
 		<h2>
 			4 <a name="Supplemental_Calendar_Data"
 				href="#Supplemental_Calendar_Data">Supplemental Calendar Data</a>
-	  </h2>
+		</h2>
 
 		<h3>
 			4.1 <a name="Calendar_Data" href="#Calendar_Data">Calendar Data</a>
@@ -3516,12 +3519,28 @@ h2,h3,h4,table {
 				<td style="vertical-align: top; text-align: left">Tu</td>
 			</tr>
 			<tr>
-				<th>period</th>
-				<td style="text-align: center">a</td>
-				<td style="text-align: center">1</td>
+				<th rowspan="3">period</th>
+				<td rowspan="3" style="text-align: center">a</td>
+				<td style="text-align: center">1<span class="changed">-3</span></td>
 				<td>AM</td>
-				<td>AM or PM</td>
+				<td><span class="changed">Abbreviated/short form of </span>AM
+					or PM</td>
 			</tr>
+			<tr class="changed">
+				<td style="text-align: center">4</td>
+				<td>AM</td>
+				<td>Wide form of AM or PM. May be the same as the short form if
+					the “real” long form (eg <em>ante meridiem</em>) is not customarily
+					be used.
+				</td>
+			</tr>
+			<tr class="changed">
+				<td style="text-align: center">5</td>
+				<td>a</td>
+				<td>Narrow form of AM or PM. Unlike some other narrow forms,
+					must be unique.</td>
+			</tr>
+
 			<tr>
 				<th rowspan="6">hour</th>
 				<td style="text-align: center">h</td>
@@ -3837,7 +3856,7 @@ h2,h3,h4,table {
 		<p>All non-letter characters represent themselves in a pattern,
 			except for the single quote. It is used to &#39;escape&#39; letters.
 			Two single quotes in a row, whether inside or outside a quoted
-			sequence, represent a &#39;real&#39; single quote.</p>
+			&#39;real&#39; single quote.</p>
 
 		<h3>
 			8.1 <a name="Localized_Pattern_Characters"
@@ -4030,3 +4049,4 @@ h2,h3,h4,table {
 </body>
 
 </html>
+<em></em>

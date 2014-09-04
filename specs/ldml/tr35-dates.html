@@ -106,7 +106,7 @@ h2,h3,h4,table {
 
 		<p>
 			For the full header, summary, and status, see <a href="tr35.html">
-				Part 1: Core</a>
+				Part 1: Core.</a>
 		</p>
 
 		<h3>
@@ -1462,13 +1462,15 @@ h2,h3,h4,table {
       &lt;displayName&gt;Second&lt;/displayName&gt;
       &lt;relative type="0"&gt;now&lt;/relative&gt;
       …
-    &lt;/field&gt;
-</pre>
-
+    &lt;/field&gt;</pre>
+		<p class="changed">Different widths can be supplied for certain
+			fields, such as:</p>
+		<pre class="changed">&lt;field type=&quot;<strong>year-short</strong>&quot;&gt;<br>	&lt;displayName&gt;yr.&lt;/displayName&gt;<br>	&lt;relative type=&quot;-1&quot;&gt;last yr.&lt;/relative&gt;<br>	&lt;relative type=&quot;0&quot;&gt;this yr.&lt;/relative&gt;<br>	&lt;relative type=&quot;1&quot;&gt;next yr.&lt;/relative&gt;<br>	&lt;relativeTime type=&quot;future&quot;&gt;<br>		&lt;relativeTimePattern count=&quot;one&quot;&gt;in {0} yr.&lt;/relativeTimePattern&gt;<br>		&lt;relativeTimePattern count=&quot;other&quot;&gt;in {0} yr.&lt;/relativeTimePattern&gt;<br>	&lt;/relativeTime&gt;<br>	&lt;relativeTime type=&quot;past&quot;&gt;<br>		&lt;relativeTimePattern count=&quot;one&quot;&gt;{0} yr. ago&lt;/relativeTimePattern&gt;<br>		&lt;relativeTimePattern count=&quot;other&quot;&gt;{0} yr. ago&lt;/relativeTimePattern&gt;<br>	&lt;/relativeTime&gt;<br>&lt;/field&gt;</pre>
+		<p class="changed">As in other cases, <strong>narrow</strong> may be ambiguous out of context.</p>
 		<h2>
 			4 <a name="Supplemental_Calendar_Data"
 				href="#Supplemental_Calendar_Data">Supplemental Calendar Data</a>
-		</h2>
+	  </h2>
 
 		<h3>
 			4.1 <a name="Calendar_Data" href="#Calendar_Data">Calendar Data</a>

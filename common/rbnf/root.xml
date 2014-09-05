@@ -370,12 +370,20 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="801">תת→%%hebrew-0-99→;</rbnfrule>
                 <rbnfrule value="900">תת״ק;</rbnfrule>
                 <rbnfrule value="901">תתק→%%hebrew-0-99→;</rbnfrule>
-                <rbnfrule value="1000">←%hebrew←׳ →→;</rbnfrule>
-                <rbnfrule value="1000000" radix="1000">←%hebrew←׳ →→→;</rbnfrule>
-                <rbnfrule value="1000000000" radix="1000">←%hebrew←׳ →→→;</rbnfrule>
-                <rbnfrule value="1000000000000" radix="1000">←%hebrew←׳ →→→;</rbnfrule>
-                <rbnfrule value="1000000000000000" radix="1000">←%hebrew←׳ →→→;</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+                <rbnfrule value="1000">אלף;</rbnfrule>
+                <rbnfrule value="1001">←%%hebrew-thousands←[→→];</rbnfrule>
+                <rbnfrule value="2000">אלפיים;</rbnfrule>
+                <rbnfrule value="2001">←%%hebrew-thousands←[→→];</rbnfrule>
+                <rbnfrule value="3000">←← אלפים;</rbnfrule>
+                <rbnfrule value="3001">←%%hebrew-thousands←[→→];</rbnfrule>
+                <rbnfrule value="1000000">אלף אלפים;</rbnfrule>
+                <rbnfrule value="1000001">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="hebrew-thousands" access="private">
+                <rbnfrule value="0">=%hebrew=;</rbnfrule>
+                <rbnfrule value="10">=%hebrew=[׳];</rbnfrule>
+                <rbnfrule value="100">=%hebrew=[׳];</rbnfrule>
+                <rbnfrule value="401">=%hebrew=׳;</rbnfrule>
             </ruleset>
             <ruleset type="hebrew-isolated">
                 <rbnfrule value="-x">−→→;</rbnfrule>

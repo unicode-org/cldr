@@ -4903,7 +4903,7 @@ root</pre>
 				<td>\xhh</td>
 				<td>1-2 hex digits</td>
 			</tr>
-			<tr>
+			<tr class='removed'>
 				<td>\ooo</td>
 				<td>1-3 octal digits; o in [0-7]&nbsp;</td>
 			</tr>
@@ -4964,7 +4964,7 @@ root</pre>
 		<p>
 			Any <span class="changed">code point</span> formed as the result of a
 			backslash escape loses any special meaning and is treated as a
-			literal. In particular, note that \u and \U escapes create literal <span
+			literal. In particular, note that \x, \u and \U escapes create literal <span
 				class="changed">code point</span>s. (In contrast, Java treats
 			Unicode escapes as just a way to represent arbitrary <span
 				class="changed">code point</span>s in an ASCII source file, and any
@@ -5105,7 +5105,7 @@ root</pre>
 				<td nowrap>[^a-z]</td>
 				<td>The set containing all <span class="changed">code
 						point</span>s but &#39;a&#39; through &#39;z&#39;.<br> Thus it is
-					the same as [\u0000-\u0061 \u007B..\U0010FFFF].
+					the same as [\u0000-\u0060 \u007B-\x{10FFFF}].
 				</td>
 			</tr>
 			<tr>

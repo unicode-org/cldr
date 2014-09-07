@@ -682,22 +682,30 @@ h5 {
 				<td><pre>= "-" / "_"</pre></td>
 			</tr>
 			<tr class="changed">
-				<td><code>unicode_language_subtag</code></td>
+				<td><code>
+						<a href="#unicode_language_subtag">unicode_language_subtag</a>
+					</code></td>
 				<td><code>= alpha{2,8} ;</code></td>
 				<td><code>2*8ALPHA</code></td>
 			</tr>
 			<tr class="changed">
-				<td><code>unicode_script_subtag</code></td>
+				<td><code>
+						<a href="#unicode_script_subtag">unicode_script_subtag</a>
+					</code></td>
 				<td><code> = alpha{4} ;</code></td>
 				<td><code>4ALPHA</code></td>
 			</tr>
 			<tr class="changed">
-				<td><code>unicode_region_subtag</code></td>
+				<td><code>
+						<a href="#unicode_region_subtag">unicode_region_subtag</a>
+					</code></td>
 				<td><code> = (alpha{2} | digit{3}) ;</code></td>
 				<td><code>2ALPHA / 3DIGIT</code></td>
 			</tr>
 			<tr class="changed">
-				<td><code>unicode_variant_subtag</code></td>
+				<td><code>
+						<a href="#unicode_variant_subtag">unicode_variant_subtag</a>
+					</code></td>
 				<td><code>
 						= (alphanum{5,8} <br> | digit alphanum{3}) ;
 					</code></td>
@@ -719,11 +727,18 @@ h5 {
 				<td><pre>= ALPHA / DIGIT</pre></td>
 			</tr>
 		</table>
-
 		<p class="changed">
-			While theoretically the
+			The semantics of the various subtags is explained in <em>Section
+				3.4 <a href="#Field_Definitions">Language Identifier Field
+					Definitions</a>
+			</em>; there are also direct linkes from
+			<code>
+				<a href="#unicode_language_subtag">unicode_language_subtag</a>
+			</code>
+			, etc. While theoretically the
 			<code>unicode_language_subtag</code>
-			may have more than 3 letters, in practice that has not occurred.
+			may have more than 3 letters through a registration process, in
+			practice that has not occurred.
 		</p>
 		<p>For example, &quot;en-US&quot; (American English),
 			&quot;en_GB&quot; (British English), &quot;es-419&quot; (Latin
@@ -736,7 +751,13 @@ h5 {
 		<p>
 			A <i>Unicode locale identifier</i> is composed of a Unicode language
 			identifier plus (optional) locale extensions<span class="changed">
-				(U and T)</span>. It has the following
+				(U and T)</span>. It has the following <span class="changed">structure.
+				The semantics of the U and T extensions are explained in <em>Section
+					3.6 <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP
+						47 U Extension</a>
+			</em> and <em>Section 3.7 <a href="#BCP47_T_Extension">Unicode
+						BCP 47 T Extension</a></em>.
+			</span>
 		</p>
 		<table border="0">
 			<tr>
@@ -1041,7 +1062,7 @@ h5 {
 				<th>Sample values</th>
 			</tr>
 			<tr>
-				<td><a href="unicode_language_subtag"
+				<td><a href="#unicode_language_subtag"
 					name="unicode_language_subtag">unicode_language_subtag</a>
 					<p>
 						(also known as a <i>Unicode base language code)</i>
@@ -1114,7 +1135,7 @@ h5 {
 						or &quot;eng-USA&quot; to the correct code &quot;en-US&quot;.</p></td>
 			</tr>
 			<tr>
-				<td><a href="unicode_script_subtag"
+				<td><a href="#unicode_script_subtag"
 					name="unicode_script_subtag">unicode_script_subtag</a>
 					<p>
 						(also known as a <i>Unicode script code)</i>
@@ -1179,7 +1200,7 @@ h5 {
 				</td>
 			</tr>
 			<tr>
-				<td><a href="unicode_region_subtag"
+				<td><a href="#unicode_region_subtag"
 					name="unicode_region_subtag">unicode_region_subtag</a>
 					<p>
 						(also known as a <i>Unicode region code, </i>or<i> a Unicode
@@ -1254,7 +1275,7 @@ h5 {
 				</td>
 			</tr>
 			<tr>
-				<td><a href="unicode_variant_subtag"
+				<td><a href="#unicode_variant_subtag"
 					name="unicode_variant_subtag">unicode_variant_subtag</a>
 					<p>
 						(also known as a <i>Unicode language variant code)</i>

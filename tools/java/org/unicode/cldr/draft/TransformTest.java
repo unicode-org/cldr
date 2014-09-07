@@ -73,7 +73,7 @@ public class TransformTest extends TestFmwk {
             if (setRules) {
                 rules = testCase;
                 transform = RegexTransformBuilder.createFromRules(rules);
-                if (SHOW) logln("New:\r\n" + transform.toString());
+                if (SHOW) logln("New:\n" + transform.toString());
                 oldTransform = Transliterator.createFromRules("foo", rules, Transliterator.FORWARD);
                 if (SHOW) show(oldTransform);
                 setRules = false;
@@ -133,7 +133,7 @@ public class TransformTest extends TestFmwk {
 
     private void show(Transliterator oldTransform) {
         UnicodeFilter filter = oldTransform.getFilter();
-        logln("Old:\r\n" + (filter == null ? "" : filter.toString() + ";\r\n") + oldTransform.toRules(true));
+        logln("Old:\n" + (filter == null ? "" : filter.toString() + ";\n") + oldTransform.toRules(true));
     }
 
 }

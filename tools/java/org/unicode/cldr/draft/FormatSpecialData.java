@@ -190,7 +190,7 @@ public class FormatSpecialData {
             throw (RuntimeException) new IllegalArgumentException("Bad file name: "
                 // + path + "\t" + externalForm + "\t" +
                 + file1.getCanonicalPath()
-                + "\r\n" + new File(".").getCanonicalFile() + " => "
+                + "\n" + new File(".").getCanonicalFile() + " => "
                 + Arrays.asList(new File(".").getCanonicalFile().list())).initCause(e);
         }
     }

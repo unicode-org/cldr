@@ -61,7 +61,7 @@ public class RegexTransform implements com.ibm.icu.text.StringTransform {
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < rules.size(); ++i) {
-            result.append(rules.get(i)).append("\r\n");
+            result.append(rules.get(i)).append("\n");
         }
         return result.toString();
     }

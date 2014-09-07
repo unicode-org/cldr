@@ -99,7 +99,7 @@ start:
 */
 //@formatter:on
     void add(String rules) {
-        for (String rule : rules.split("[\r\n]")) {
+        for (String rule : rules.split("[\n]")) {
             rule = rule.trim();
             // TODO allow # in the first field
             int commentPos = rule.indexOf('#');

@@ -485,17 +485,17 @@ public class GenerateItemCounts {
 
     static class MyErrorHandler implements ErrorHandler {
         public void error(SAXParseException exception) throws SAXException {
-            System.out.println("\r\nerror: " + XMLFileReader.showSAX(exception));
+            System.out.println("\nerror: " + XMLFileReader.showSAX(exception));
             throw exception;
         }
 
         public void fatalError(SAXParseException exception) throws SAXException {
-            System.out.println("\r\nfatalError: " + XMLFileReader.showSAX(exception));
+            System.out.println("\nfatalError: " + XMLFileReader.showSAX(exception));
             throw exception;
         }
 
         public void warning(SAXParseException exception) throws SAXException {
-            System.out.println("\r\nwarning: " + XMLFileReader.showSAX(exception));
+            System.out.println("\nwarning: " + XMLFileReader.showSAX(exception));
             throw exception;
         }
     }

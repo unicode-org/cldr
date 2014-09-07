@@ -161,8 +161,8 @@ public class StateMachineTest {
     }
 
     private static void showFailure(String testLine, String expectedString, String actualString) {
-        System.out.println("***\r\nFAILURE with: " + testLine + "\tExpected: " + expectedString
-            + "\tActual: " + actualString + "\r\n***");
+        System.out.println("***\nFAILURE with: " + testLine + "\tExpected: " + expectedString
+            + "\tActual: " + actualString + "\n***");
         failureCount++;
     }
 }

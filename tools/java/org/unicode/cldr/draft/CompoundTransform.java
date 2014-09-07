@@ -29,7 +29,7 @@ public class CompoundTransform implements StringTransform {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < transforms.size(); ++i) {
             if (i != 0) {
-                result.append(":: NULL ;\r\n");
+                result.append(":: NULL ;\n");
             }
             result.append(transforms.get(i).toString());
         }

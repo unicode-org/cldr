@@ -56,7 +56,7 @@ public class CldrUtility {
     public static final Charset UTF8 = Charset.forName("utf-8"); 
     public static final boolean BETA = false;
 
-    public static final String LINE_SEPARATOR = System.getProperty("line.separator");
+    public static final String LINE_SEPARATOR = "\n";
     public final static Pattern SEMI_SPLIT = Pattern.compile("\\s*;\\s*"); 
 
     private static final boolean HANDLEFILE_SHOW_SKIP = false; 

@@ -130,13 +130,13 @@ public class StateMachine<T> {
         int i = 0;
         for (UnicodeMap unicodeMap : stateToData) {
             String stateName = stateNames == null ? String.valueOf(i) : stateNames[i];
-            output.append(stateName).append(":\r\n");
+            output.append(stateName).append(":\n");
             if (unicodeMap == null) {
-                output.append("\tnull\r\n");
+                output.append("\tnull\n");
             } else {
                 for (Object action : unicodeMap.getAvailableValues()) {
                     UnicodeSet sources = unicodeMap.keySet(action);
-                    output.append("\t" + sources.toPattern(false) + "\t" + toString((StateAction) action) + "\r\n");
+                    output.append("\t" + sources.toPattern(false) + "\t" + toString((StateAction) action) + "\n");
                 }
             }
             i++;

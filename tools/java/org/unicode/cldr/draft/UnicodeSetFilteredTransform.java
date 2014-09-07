@@ -54,6 +54,6 @@ public class UnicodeSetFilteredTransform extends FilteredTransform {
     }
 
     public String toString() {
-        return ":: " + unicodeSet.toPattern(false) + ";\r\n" + super.toString();
+        return ":: " + unicodeSet.toPattern(false) + ";\n" + super.toString();
     }
 }

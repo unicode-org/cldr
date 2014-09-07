@@ -99,9 +99,9 @@ public class GenerateNormalizeForMatch {
             } else if (arg.equals("fix")) {
                 fix = true;
             } else {
-                throw new IllegalArgumentException("Unknown option: " + arg + "\r\n" +
-                    "-o <targetFile>\r\n" +
-                    "-i <inputFile>\r\n" +
+                throw new IllegalArgumentException("Unknown option: " + arg + "\n" +
+                    "-o <targetFile>\n" +
+                    "-i <inputFile>\n" +
                     "-l <logFile>");
             }
         }
@@ -111,16 +111,16 @@ public class GenerateNormalizeForMatch {
             LOG_WRITER = openUTF8Writer(logFile);
             LOG_WRITER.write(0xFEFF);
             if (TABLE) {
-                LOG_WRITER.write("<html>\r\n" +
-                    "<head>\r\n" +
-                    "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>\r\n" +
-                    "<style type='text/css'>\r\n" +
+                LOG_WRITER.write("<html>\n" +
+                    "<head>\n" +
+                    "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>\n" +
+                    "<style type='text/css'>\n" +
                     "table { border: 1px solid blue; border-collapse: collapse; }" +
                     "td,th { border: 1px solid blue; vertical-align: top; }" +
                     "</style>" +
-                    "</head>\r\n" +
-                    "<body>\r\n" +
-                    "<pre>\r\n");
+                    "</head>\n" +
+                    "<body>\n" +
+                    "<pre>\n");
             }
         }
         if (fix) {
@@ -192,7 +192,7 @@ public class GenerateNormalizeForMatch {
 
         if (title != null) {
             if (TABLE) {
-                title = "<h2><a name='" + anchorize(title) + "'>" + title + "</a></h2>\r\n";
+                title = "<h2><a name='" + anchorize(title) + "'>" + title + "</a></h2>\n";
             }
             LOG_WRITER.println(title);
         }
@@ -213,7 +213,7 @@ public class GenerateNormalizeForMatch {
             LOG_WRITER.println("<table>");
             if (longEnough) {
                 LOG_WRITER.println(
-                    "<tr>\r\n" +
+                    "<tr>\n" +
                         "<th>Code</th>" +
                         "<th>New Map</th>" +
                         "<th>Freq.</th>" +
@@ -246,8 +246,8 @@ public class GenerateNormalizeForMatch {
             LOG_WRITER.println(line);
         }
         if (TABLE) {
-            LOG_WRITER.println("</table>\r\n");
-            LOG_WRITER.println("<pre>\r\n");
+            LOG_WRITER.println("</table>\n");
+            LOG_WRITER.println("<pre>\n");
         }
     }
 

@@ -48,6 +48,7 @@ import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
+import org.unicode.cldr.util.LocaleIDParser;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
@@ -253,6 +254,14 @@ public class GenerateSidewaysView {
                         out.print("<i>\u00B7" + locale + "\u00B7</i>");
                     } else if (!containsRoot) {
                         out.print("\u00B7" + locale + "\u00B7");
+                    } else if (locale.contains("_")) {
+                        // not same as root, but need to test for parent
+                        // if the parent is not in the same list, then we include anyway.
+                        // Cf http://unicode.org/cldr/trac/ticket/7228
+                        String parent = LocaleIDParser.getParent(locale);
+                        if (!locales.contains(parent)) {
+                            out.print("<b>\u00B7" + locale + "\u00B7<b>");
+                        }
                     }
                 }
                 if (containsRoot) {

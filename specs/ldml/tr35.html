@@ -255,9 +255,14 @@ h5 {
 						</ul>
 					</li>
 					<li>3.4 <a href="#Field_Definitions"><span class="changed">Language
-								Identifier </span>Field Definitions</a></li>
-					<li><span class="changed">3.5</span> <a
-						href="#Unknown_or_Invalid_Identifiers">Special Codes</a>
+								Identifier </span>Field Definitions</a>
+						<ul class="toc">
+							<li>Table: <a href="#Language_Locale_Field_Definitions">Language
+									Identifier Field Definitions</a></li>
+						</ul>
+					</li>
+					<li><span class="changed">3.5</span> <a href="#Special_Codes">Special
+							Codes</a>
 						<ul class="toc">
 							<li><span class="changed">3.5</span>.1 <a
 								href="#Unknown_or_Invalid_Identifiers">Unknown or Invalid
@@ -265,19 +270,27 @@ h5 {
 							<li><span class="changed">3.5</span>.2 <a
 								href="#Numeric_Codes">Numeric Codes</a></li>
 							<li><span class="changed">3.5</span>.3 <a
-								href="#Numeric_Codes">Priviate Use Codes</a></li>
+								href="#Private_Use">Private Use Codes</a>
+								<ul class="toc">
+									<li>Table: <a href="#Private_Use_CLDR">Private Use
+											Codes in CLDR</a></li>
+								</ul></li>
 						</ul></li>
 					<li><span class="changed">3.6 </span><a href="#u_Extension">Unicode
 							BCP 47 U Extension<span class="removed"> Data</span>
 					</a>
 						<ul class="toc">
 							<li><span class="changed">3.6.1</span> <a
-								href="#Key_And_Type_Definitions_">Key And Type Definitions</a></li>
+								href="#Key_And_Type_Definitions_">Key And Type Definitions</a>
+								<ul class="toc">
+									<li>Table: <a href="#Key_Type_Definitions">Key/Type
+											Definitions</a></li>
+								</ul></li>
 							<li><span class="changed">3.6.2</span> <a
 								href="#Numbering System Data">Numbering System Data</a></li>
-							<li><span class="changed">3.6.3</span><a
-								href="#Time_Zone_Identifiers"> Time Zone Identifiers</a></li>
-							<li><span class="changed">3.6.4</span><a
+							<li><span class="changed">3.6.3</span> <a
+								href="#Time_Zone_Identifiers">Time Zone Identifiers</a></li>
+							<li><span class="changed">3.6.4</span> <a
 								href="#Unicode_Locale_Extension_Data_Files"> <span
 									class="changed">U</span> Extension Data Files
 							</a></li>
@@ -292,9 +305,19 @@ h5 {
 					<li>3.8 <a href="#Compatibility_with_Older_Identifiers">Compatibility
 							with Older Identifiers</a>
 						<ul class="toc">
-							<li>3.8.1 <a href="#Legacy_Variants">Legacy Variants</a></li>
+							<li>3.8.1 <a href="#Legacy_Variants">Legacy Variants</a>
+								<ul class="toc">
+									<li>Table: <a href="#Legacy_Variant_Mappings">Legacy
+											Variant Mappings</a></li>
+								</ul>
+							</li>
 							<li>3.8.2 <a href="#Old_Locale_Extension_Syntax">Old
-									Locale Extension Syntax</a></li>
+									Locale Extension Syntax</a>
+								<ul class="toc">
+									<li>Table: <a href="#Locale_Extension_Mappings">Locale
+											Extension Mappings</a></li>
+								</ul>
+							</li>
 							<li>3.8.3 <a href="#Relation_to_OpenI18n">Relation to
 									OpenI18n</a></li>
 						</ul>
@@ -317,13 +340,24 @@ h5 {
 			<li>4 <a href="#Locale_Inheritance">Locale Inheritance and
 					Matching</a>
 				<ul class="toc">
-					<li><span class="changed">4.1 <a href="#Lookup">Lookup</a></span>
+					<li><span class="changed">4.1 <a href="#Lookup">Lookup</a>
+					</span>
 						<ul class="toc">
-							<li class="changed">4.1.1 <a href="#Bundle_vs_Item_Lookup">Bundle
-									vs Item Lookup </a></li>
+							<li><span class="changed">4.1.1 <a
+									href="#Bundle_vs_Item_Lookup">Bundle vs Item Lookup</a></span>
+								<ul class="toc">
+									<li>Table: <a href="#Lookup-Differences">Lookup
+											Differences</a></li>
+								</ul></li>
 							<li><span class="changed">4.1.2 <a
 									href="#Lateral_Inheritance">Lateral</a></span><a
-								href="#Lateral_Inheritance"> Inheritance</a></li>
+								href="#Lateral_Inheritance"> Inheritance</a>
+								<ul class="toc">
+									<li>Table: <a href="#Count_Fallback_normal">Count
+											Fallback: normal</a></li>
+									<li>Table: <a href="#Count_Fallback_currency">Count
+											Fallback: currency</a></li>
+								</ul></li>
 							<li>4.1.<span class="changed">3</span> <a
 								href="#Parent_Locales">Parent Locales</a></li>
 						</ul></li>
@@ -354,10 +388,20 @@ h5 {
 											Special Elements</a></li>
 								</ul>
 							</li>
-							<li>5.1.2 <a href="#Alias_Elements">Element alias</a></li>
+							<li>5.1.2 <a href="#Alias_Elements">Element alias</a>
+								<ul class="toc">
+									<li>Table: <a href="#Inheritance_with_source_locale_">Inheritance
+											with source=&quot;locale&quot;</a></li>
+								</ul>
+							</li>
 							<li>5.1.3 <a href="#Element_displayName">Element
 									displayName</a></li>
-							<li>5.1.4 <a href="#Escaping_Characters">Element cp</a></li>
+							<li>5.1.4 <a href="#Escaping_Characters">Element cp</a>
+								<ul class="toc">
+									<li>Table: <a href="#Escaping_Characters">Escaping
+											Characters</a></li>
+								</ul>
+							</li>
 						</ul>
 					</li>
 					<li>5.2 <a href="#Common_Attributes">Common Attributes</a>
@@ -424,18 +468,35 @@ h5 {
 					<li>8.11 <a href="#Deprecated_subelements_of_zone_metazone">Deprecated
 							subelements of &lt;zone&gt; and &lt;metazone&gt;</a></li>
 					<li>8.12 <a
-						href="#Renamed_attribute_values_for_contextTransformUsage">
-							Renamed attribute values for &lt;contextTransformUsage&gt;
-							element</a></li>
+						href="#Renamed_attribute_values_for_contextTransformUsage">Renamed
+							attribute values for &lt;contextTransformUsage&gt; element</a></li>
 					<li class="changed">8.13 <a
 						href="#Deprecated_subelements_of_segmentations">Deprecated
 							subelements of &lt;segmentations&gt;</a></li>
 				</ul>
 			</li>
-			<li>9 <a href="#Links_to_Other_Parts">Links to Other Parts</a></li>
+			<li>9 <a href="#Links_to_Other_Parts">Links to Other Parts</a>
+				<ul class="toc">
+					<li>Table: <a href="#Part_2_Links">Part 2 Links: General
+							(display names &amp; transforms, etc.)</a></li>
+					<li>Table: <a href="#Part_3_Links">Part 3 Links: Numbers
+							(number &amp; currency formatting)</a></li>
+					<li>Table: <a href="#Part_4_Links">Part 4 Links: Dates
+							(date, time, time zone formatting)</a></li>
+					<li>Table: <a href="#Part_5_Links">Part 5 Links: Collation
+							(sorting, searching, grouping)</a></li>
+					<li>Table: <a href="#Part_6_Links">Part 6 Links:
+							Supplemental (supplemental data)</a></li>
+					<li>Table: <a href="#Part_7_Links">Part 7 Links: Keyboards
+							(keyboard mappings)</a></li>
+				</ul>
+			</li>
 			<li><a href="#References">References</a></li>
 			<li><a href="#Acknowledgments">Acknowledgments</a></li>
 			<li><a href="#Modifications">Modifications</a></li>
+		</ul>
+		<ul class="toc">
+			<li></li>
 		</ul>
 		<h2>
 			<a name="Introduction" href="#Introduction">1 Introduction</a>
@@ -1590,12 +1651,11 @@ fr_BE
 		<p>
 			<span class="changed">Most</span> type values are represented by a
 			single subtag in the current version of CLDR. <span class="changed">There
-			are exceptions, such as types used for key "ca" (calendar) and
-			"kr" (collation reordering).</span> If the type is not included, and one of
-			the possible type values is &quot;true&quot;, then that value is
-			assumed. Note that the default for key with a possible
-			&quot;true&quot; value is often &quot;false&quot;, but may not always
-			be.
+				are exceptions, such as types used for key "ca" (calendar) and "kr"
+				(collation reordering).</span> If the type is not included, and one of the
+			possible type values is &quot;true&quot;, then that value is assumed.
+			Note that the default for key with a possible &quot;true&quot; value
+			is often &quot;false&quot;, but may not always be.
 		</p>
 		<p>
 			The BCP47 form for <span class="changed">keys and types</span> is the
@@ -2322,7 +2382,10 @@ fr_BE
 			identifiers by following the descriptions below:
 		</p>
 		<table>
-			<caption>Legacy Variant Mappings</caption>
+			<caption>
+				<a name="Legacy_Variant_Mappings" href="#Legacy_Variant_Mappings">Legacy
+					Variant Mappings</a>
+			</caption>
 			<tr>
 				<th>Variant Code</th>
 				<th>Description</th>
@@ -2388,8 +2451,6 @@ fr_BE
 *(";" old_key "=" old_type)</pre></td>
 			</tr>
 		</table>
-
-
 		<p>The new specification mandates keys to be two alphanumeric
 			characters and types to be three to eight alphanumeric characters. As
 			the result, new codes were assigned to all existing keys and some
@@ -2408,7 +2469,10 @@ fr_BE
 			syntax and the old syntax.</p>
 
 		<table>
-			<caption>Locale Extension Mappings</caption>
+			<caption>
+				<a name="Locale_Extension_Mappings"
+					href="#Locale_Extension_Mappings">Locale Extension Mappings</a>
+			</caption>
 			<tr>
 				<th>Old (LDML 1.7 or older)</th>
 				<th>New</th>
@@ -3080,7 +3144,10 @@ root</pre>
 		</p>
 		<table border="1" cellpadding="3" cellspacing="0" id="a1bn3"
 			style="font-size: 1em; line-height: inherit; border-collapse: collapse">
-			<caption>Count Fallback: normal</caption>
+			<caption>
+				<a name="Count_Fallback_normal" href="#Count_Fallback_normal">Count
+					Fallback: normal</a>
+			</caption>
 			<tbody>
 				<tr>
 					<th nowrap style="vertical-align: top;">Locale</th>
@@ -3136,7 +3203,10 @@ root</pre>
 		</p>
 		<table border="1" cellpadding="3" cellspacing="0" id="a1bn2"
 			style="font-size: 1em; line-height: inherit; border-collapse: collapse">
-			<caption>Count Fallback: currency</caption>
+			<caption>
+				<a name="Count_Fallback_currency" href="#Count_Fallback_currency">Count
+					Fallback: currency</a>
+			</caption>
 			<tbody>
 				<tr>
 					<th nowrap style="vertical-align: top;">Locale</th>
@@ -4474,7 +4544,11 @@ root</pre>
 		<div align="center">
 			<center>
 				<table border="1" cellpadding="0" cellspacing="1">
-					<caption>Inheritance with source=&quot;locale&quot;</caption>
+					<caption>
+						<a name="Inheritance_with_source_locale_"
+							href="#Inheritance_with_source_locale_">Inheritance with
+							source=&quot;locale&quot;</a>
+					</caption>
 					<tr>
 						<th>Root</th>
 						<th>de</th>
@@ -4591,7 +4665,10 @@ root</pre>
 			represented in element content. These escapes are only allowed in
 			certain elements, according to the DTD.</p>
 		<table>
-			<caption>Escaping Characters</caption>
+			<caption>
+				<a name="Escaping_Characters" href="#Escaping_Characters">Escaping
+					Characters</a>
+			</caption>
 			<tr>
 				<th>Code Point</th>
 				<th>XML Example</th>
@@ -4964,9 +5041,9 @@ root</pre>
 		<p>
 			Any <span class="changed">code point</span> formed as the result of a
 			backslash escape loses any special meaning and is treated as a
-			literal. In particular, note that \x, \u and \U escapes create literal <span
-				class="changed">code point</span>s. (In contrast, Java treats
-			Unicode escapes as just a way to represent arbitrary <span
+			literal. In particular, note that \x, \u and \U escapes create
+			literal <span class="changed">code point</span>s. (In contrast, Java
+			treats Unicode escapes as just a way to represent arbitrary <span
 				class="changed">code point</span>s in an ASCII source file, and any
 			resulting <span class="changed">code point</span>s are <i><b>not</b></i>
 			tagged as literals.)
@@ -5903,11 +5980,12 @@ decimal?, group?, special*)) &gt;</pre>
 			links and bookmarks.
 		</p>
 
-		<p>Part 1: Core (this document): No redirects needed.</p>
+		<p>Part 1 Links: Core (this document): No redirects needed.</p>
 
 		<table cellspacing="0" cellpadding="2" border="1" width="100%">
 			<caption>
-				Part 2: <a href="tr35-general.html">General</a> (display names &amp;
+				<a href="#Part_2_Links" name="Part_2_Links">Part 2 Links</a>: <a
+					href="tr35-general.html">General</a> (display names &amp;
 				transforms, etc.)
 			</caption>
 			<tr>
@@ -6045,8 +6123,9 @@ decimal?, group?, special*)) &gt;</pre>
 
 		<table cellspacing="0" cellpadding="2" border="1" width="100%">
 			<caption>
-				Part 3: <a href="tr35-numbers.html">Numbers</a> (number &amp;
-				currency formatting)
+				<a href="#Part_3_Links" name="Part_3_Links">Part 3 Links</a>: <a
+					href="tr35-numbers.html">Numbers</a> (number &amp; currency
+				formatting)
 			</caption>
 			<tr>
 				<th>Old section</th>
@@ -6104,8 +6183,8 @@ decimal?, group?, special*)) &gt;</pre>
 
 		<table cellspacing="0" cellpadding="2" border="1" width="100%">
 			<caption>
-				Part 4: <a href="tr35-dates.html">Dates</a> (date, time, time zone
-				formatting)
+				<a href="#Part_4_Links" name="Part_4_Links">Part 4 Links</a>: <a
+					href="tr35-dates.html">Dates</a> (date, time, time zone formatting)
 			</caption>
 			<tr>
 				<th>Old section</th>
@@ -6239,8 +6318,9 @@ decimal?, group?, special*)) &gt;</pre>
 
 		<table cellspacing="0" cellpadding="2" border="1" width="100%">
 			<caption>
-				Part 5: <a href="tr35-collation.html">Collation</a> (sorting,
-				searching, grouping)
+				<a href="#Part_5_Links" name="Part_5_Links">Part 5 Links</a>: <a
+					href="tr35-collation.html">Collation</a> (sorting, searching,
+				grouping)
 			</caption>
 			<tr>
 				<th>Old section</th>
@@ -6354,8 +6434,8 @@ decimal?, group?, special*)) &gt;</pre>
 
 		<table cellspacing="0" cellpadding="2" border="1" width="100%">
 			<caption>
-				Part 6: <a href="tr35-info.html">Supplemental</a> (supplemental
-				data)
+				<a href="#Part_6_Links" name="Part_6_Links">Part 6 Links</a>: <a
+					href="tr35-info.html">Supplemental</a> (supplemental data)
 			</caption>
 			<tr>
 				<th>Old section</th>
@@ -6453,8 +6533,8 @@ decimal?, group?, special*)) &gt;</pre>
 
 		<table cellspacing="0" cellpadding="2" border="1" width="100%">
 			<caption>
-				Part 7: <a href="tr35-keyboards.html">Keyboards</a> (keyboard
-				mappings)
+				<a href="#Part_7_Links" name="Part_7_Links">Part 7 Links</a>: <a
+					href="tr35-keyboards.html">Keyboards</a> (keyboard mappings)
 			</caption>
 			<tr>
 				<th>Old section</th>
@@ -7097,7 +7177,9 @@ decimal?, group?, special*)) &gt;</pre>
 				Bug Reports</a>.
 		</p>
 
-		<h3>Revision <span class="changed">36</span></h3>
+		<h3>
+			Revision <span class="changed">36</span>
+		</h3>
 		<ul class="changed">
 			<li><strong>Part 1</strong>: Core
 				<ul>

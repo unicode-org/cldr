@@ -131,8 +131,11 @@ public class CheckHtmlFiles {
     static final Set<String> FORCEBREAK = new HashSet<String>(Arrays.asList(
         "table", "div", "blockquote",
         "p", "br", "td", "th", "h1", "h2", "h3", "h4", "h5", "li"));
+
+//    enum ContentsElements {h1, h2, h3, h4, h5, caption}
+
     static final Set<String> DO_CONTENTS = new HashSet<String>(Arrays.asList(
-        "h1", "h2", "h3", "h4", "h5"));
+        "h1", "h2", "h3", "h4", "h5", "caption"));
 
     static class Levels implements Comparable<Levels> {
         final int[] levels = new int[10];
@@ -234,21 +237,23 @@ public class CheckHtmlFiles {
         private String text = "";
         private Set<String> ids = new LinkedHashSet<String>();
         private boolean suppressSection;
+        private boolean isHeader;
 
         // temporary
         private int level;
 
-        public void setLevel(String headingLabel) {
-            level = headingLabel.charAt(1) - '0';
+        public void setLevel(String headingLabel, HeadingInfo lastHeading) {
+            isHeader = !headingLabel.equals("caption");
+            level = isHeader ? headingLabel.charAt(1) - '0' : lastHeading.level;
         }
 
         @Override
         public String toString() {
             //   <h3><a name="Identity_Elements" href="#Identity_Elements">5.3 Identity Elements</a></h3>
             String id = ids.isEmpty() ? "NOID" : ids.iterator().next();
-            String result = "<h" + level + ">"
+            String result = "<" + getLabel()
                 + "<a name=\"" + id + "\" href=\"#" + id + "\">"
-                + (suppressSection ? "" : levels + " ")
+                + (!isHeader ? "" : suppressSection ? "" : levels + " ")
                 + TransliteratorUtilities.toHTML.transform(text)
                 + "</a>";
             if (ids.size() > 1) {
@@ -261,13 +266,17 @@ public class CheckHtmlFiles {
                     }
                 }
             }
-            return result + "</h" + level + ">";
+            return result + "</" + getLabel();
+        }
+
+        public String getLabel() {
+            return isHeader ? "h" + level + ">" : "caption>";
         }
 
         public String toHeader() {
             String id = ids.iterator().next();
             return ("<li>"
-                + (suppressSection ? "" : levels + " ")
+                + (!isHeader ? "Table: " : suppressSection ? "" : levels + " ")
                 + "<a href=\"#" + id + "\">"
                 + TransliteratorUtilities.toHTML.transform(text)
                 + "</a>");
@@ -303,19 +312,21 @@ public class CheckHtmlFiles {
                 text = text.substring(badSectionMatcher.end());
                 error += "Extra 'Section...' at start; ";
             }
-            if (!headerMatcher.reset(text).matches()) {
-                if (!SUPPRESS_SECTION_NUMBER.matcher(text).matches()) {
-                    error += "Missing section numbers; ";
-                }
-            } else {
-                text = text.substring(headerMatcher.end(1));
-                if (text.startsWith(".")) {
-                    text = text.substring(1).trim();
-                    error += "Extra . at start; ";
-                }
-                Levels parsedLevels = Levels.parse(headerMatcher.group(1));
-                if (levels.compareTo(parsedLevels) != 0) {
-                    error += "Section numbers mismatch, was " + parsedLevels + "; ";
+            if (isHeader) {
+                if (!headerMatcher.reset(text).matches()) {
+                    if (!SUPPRESS_SECTION_NUMBER.matcher(text).matches()) {
+                        error += "Missing section numbers; ";
+                    }
+                } else {
+                    text = text.substring(headerMatcher.end(1));
+                    if (text.startsWith(".")) {
+                        text = text.substring(1).trim();
+                        error += "Extra . at start; ";
+                    }
+                    Levels parsedLevels = Levels.parse(headerMatcher.group(1));
+                    if (levels.compareTo(parsedLevels) != 0) {
+                        error += "Section numbers mismatch, was " + parsedLevels + "; ";
+                    }
                 }
             }
             if (ids.isEmpty()) {
@@ -362,7 +373,11 @@ public class CheckHtmlFiles {
             if (SUPPRESS_REVISION.matcher(h.text).matches()) {
                 return false;
             }
-            h.setLevels(lastBuildLevel.next(h.level, missingLevel), errors);
+            if (h.isHeader) {
+                h.setLevels(lastBuildLevel.next(h.level, missingLevel), errors);
+            } else {
+                h.setLevels(lastBuildLevel, errors);
+            }
             if (missingLevel.value) {
                 errors.add("FATAL: Missing Level in: " + h);
             }
@@ -376,15 +391,15 @@ public class CheckHtmlFiles {
             System.out.println("\n*REVISED TOC*");
             Counter<String> idCounter = new Counter<String>();
 
-            Levels lastLevel = new Levels();
+            int lastLevel = new Levels().getDepth();
             String pad = PAD;
             int ulCount = 0;
             int liCount = 0;
             for (HeadingInfo h : this) {
                 h.addIds(idCounter);
-
-                int levelDiff = h.levels.getDepth() - lastLevel.getDepth();
-                lastLevel = h.levels;
+                final int depth = h.levels.getDepth() + (h.isHeader ? 0 : 1);
+                int levelDiff = depth - lastLevel;
+                lastLevel = depth;
                 if (levelDiff > 0) {
                     System.out.println();
                     for (int i = 0; i < levelDiff; ++i) {
@@ -426,7 +441,7 @@ public class CheckHtmlFiles {
 
             // finish up and make sure we are balances
 
-            int levelDiff = -lastLevel.getDepth();
+            int levelDiff = -lastLevel;
             System.out.println("</li>");
             --liCount;
             for (int i = 0; i > levelDiff; --i) {
@@ -558,6 +573,8 @@ public class CheckHtmlFiles {
             boolean inPop = false;
             boolean inAnchor = false;
             boolean haveContents = false;
+            HeadingInfo lastHeading = null;
+
             main: while (true) {
                 Type x = parser.next(content);
                 if (verbose && !SUPPRESS.contains(x)) {
@@ -622,11 +639,12 @@ public class CheckHtmlFiles {
                                     haveContents = true;
                                 } else if (haveContents) {
                                     headingInfoList.add(heading);
+                                    lastHeading = heading;
                                 }
                                 heading = new HeadingInfo();
                             }
                         } else {
-                            heading.setLevel(contentString);
+                            heading.setLevel(contentString, lastHeading);
                             inHeading = true;
                         }
                     }

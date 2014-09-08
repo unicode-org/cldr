@@ -204,7 +204,6 @@ h2,h3,h4,table {
 		<h2>
 			<a name="Contents" href="#Contents">Contents of Part 5, Collation</a>
 		</h2>
-
 		<ul class="toc">
 			<li>1 <a href="#CLDR_Collation">CLDR Collation</a>
 				<ul class="toc">
@@ -246,8 +245,7 @@ h2,h3,h4,table {
 			<li>3 <a href="#Collation_Tailorings">Collation Tailorings</a>
 				<ul class="toc">
 					<li><span class="changed">3.1 <a
-							href="#Collation_Types">Collation Types</a>
-					</span>
+							href="#Collation_Types">Collation Types</a></span>
 						<ul class="toc">
 							<li>3.1.1 <a href="#Collation_Type_Fallback">Collation
 									Type Fallback</a></li>
@@ -256,8 +254,8 @@ h2,h3,h4,table {
 					<li>3.3 <a href="#Collation_Element">Collation Element</a></li>
 					<li>3.4 <a href="#Setting_Options">Setting Options</a>
 						<ul class="toc">
-							<li>Table: <a href="#Collation_Settings">Collation
-									Settings</a></li>
+							<li>Table: <a href="#Specifying_Collation_Ordering">Specifying
+									Collation Ordering</a><a href="#Collation_Settings"></a></li>
 							<li>3.4.1 <a href="#Common_Settings">Common settings
 									combinations</a></li>
 							<li>3.4.2 <a href="#Normalization_Setting">Notes on the
@@ -267,16 +265,42 @@ h2,h3,h4,table {
 						</ul>
 					</li>
 					<li>3.5 <a href="#Rules">Collation Rule Syntax</a></li>
-					<li>3.6 <a href="#Orderings">Orderings</a></li>
-					<li>3.7 <a href="#Contractions">Contractions</a></li>
+					<li>3.6 <a href="#Orderings">Orderings</a>
+						<ul class="toc">
+							<li>Table: <a href="#Abbreviating_Ordering_Specifications">Abbreviating
+									Ordering Specifications</a></li>
+							<li>Table: <a href="#Starred_Relations">Starred Relations</a></li>
+						</ul>
+					</li>
+					<li>3.7 <a href="#Contractions">Contractions</a>
+						<ul class="toc">
+							<li>Table: <a href="#Specifying_Contractions">Specifying
+									Contractions</a></li>
+						</ul>
+					</li>
 					<li>3.8 <a href="#Expansions">Expansions</a></li>
-					<li>3.9 <a href="#Context_Before">Context Before</a></li>
+					<li>3.9 <a href="#Context_Before">Context Before</a>
+						<ul class="toc">
+							<li>Table: <a href="#Specifying_Previous_Context">Specifying
+									Previous Context</a></li>
+						</ul>
+					</li>
 					<li>3.10 <a href="#Placing_Characters_Before_Others">Placing
 							Characters Before Others</a></li>
 					<li>3.11 <a href="#Logical_Reset_Positions">Logical Reset
-							Positions</a></li>
+							Positions</a>
+						<ul class="toc">
+							<li>Table: <a href="#Specifying_Logical_Positions">Specifying
+									Logical Positions</a></li>
+						</ul>
+					</li>
 					<li>3.12 <a href="#Special_Purpose_Commands">Special-Purpose
-							Commands</a></li>
+							Commands</a>
+						<ul class="toc">
+							<li>Table: <a href="#Special_Purpose_Elements">Special-Purpose
+									Commands</a></li>
+						</ul>
+					</li>
 					<li>3.13 <a href="#Script_Reordering">Collation Reordering</a>
 						<ul class="toc">
 							<li>3.13.1 <a href="#Interpretation_reordering">Interpretation
@@ -1304,8 +1328,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</p>
 		<table>
 			<caption>
-				<a name="Collation_Settings" href="#Collation_Settings">Collation
-					Settings</a>
+				<a name="Specifying_Collation_Ordering"
+					href="#Specifying_Collation_Ordering">Specifying Collation
+					Ordering</a>
 			</caption>
 			<tr>
 				<th>BCP47 Key</th>
@@ -1814,7 +1839,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			current collation elements, modified according to the operator.</p>
 
 		<table>
-			<caption>Specifying Collation Ordering</caption>
+			<caption>
+				<a name="Abbreviating_Ordering_Specifications"
+					href="#Abbreviating_Ordering_Specifications">Abbreviating
+					Ordering Specifications</a>
+			</caption>
 			<tr>
 				<th>Relation Operator</th>
 				<th>&nbsp;Example</th>
@@ -2005,7 +2034,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			is not allowed.)
 		</p>
 		<table>
-			<caption>Abbreviating Ordering Specifications</caption>
+			<caption>
+				<a name="Starred_Relations"
+					href="#Starred_Relations">Starred Relations</a>
+			</caption>
 			<tr>
 				<th>Relation Operator</th>
 				<th>Example</th>
@@ -2085,7 +2117,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<p>A multi-character relation string defines a contraction.</p>
 
 		<table>
-			<caption>Specifying Contractions</caption>
+			<caption>
+				<a name="Specifying_Contractions" href="#Specifying_Contractions">Specifying
+					Contractions</a>
+			</caption>
 			<tr>
 				<th>Example</th>
 				<th>Description</th>
@@ -2183,7 +2218,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			that when &quot;-&quot; is encountered, and it comes after an
 			&#39;a&#39;, it sorts like an &#39;a&#39;, and so on.</p>
 		<table>
-			<caption>Specifying Previous Context</caption>
+			<caption>
+				<a name="Specifying_Previous_Context"
+					href="#Specifying_Previous_Context">Specifying Previous Context</a>
+			</caption>
 			<tr>
 				<th>Rules</th>
 			</tr>
@@ -2230,7 +2268,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<p>The CLDR table (based on UCA) has the following overall
 			structure for weights, going from low to high.</p>
 		<table>
-			<caption>Specifying Logical Positions</caption>
+			<caption>
+				<a name="Specifying_Logical_Positions"
+					href="#Specifying_Logical_Positions">Specifying Logical
+					Positions</a>
+			</caption>
 			<tr>
 				<th>Name</th>
 				<th>Description</th>
@@ -2411,7 +2453,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				this import itself is in another "ja" tailoring.)</li>
 		</ul>
 		<table>
-			<caption>Special-Purpose Commands</caption>
+			<caption>
+				<a name="Special_Purpose_Elements" href="#Special_Purpose_Elements">Special-Purpose
+					Elements</a>
+			</caption>
 			<tr>
 				<th>Rule Syntax</th>
 				<th>Sub-Element of <span class="element">collation</span>

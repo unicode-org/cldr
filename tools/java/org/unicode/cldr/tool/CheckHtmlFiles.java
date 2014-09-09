@@ -36,12 +36,19 @@ import com.ibm.icu.util.ULocale;
 @CLDRTool(alias="checkhtmlfiles", description="Look for errors in CLDR documentation tools", hidden="Used for CLDR process")
 public class CheckHtmlFiles {
 
+    static final Set<String> NOPOP = new HashSet(Arrays.asList("br", "img", "link", "meta", "!doctype", "hr", "col", "input"));
+    
+    static final EnumSet<Type> SUPPRESS = EnumSet.of(
+        Type.ELEMENT, Type.ELEMENT_START, Type.ELEMENT_END, Type.ELEMENT_POP,
+        Type.ATTRIBUTE, Type.ATTRIBUTE_CONTENT);
+
+
     final static Options myOptions = new Options();
     final static Writer LOG = new OutputStreamWriter(System.out);
     static Pattern WELLFORMED_HEADER = Pattern.compile("\\s*(\\d+(\\.\\d+)*\\s*).*");
     static Pattern SUPPRESS_SECTION_NUMBER = Pattern.compile(
         "(Annex [A-Z]: .*)" +
-            "(Appendix [A-Z]: .*)" +
+            "|(Appendix [A-Z].*)" +
             "|Migration( Issues)?" +
             "|Step \\d+.*" +
             "|Example \\d+.*" +
@@ -49,6 +56,8 @@ public class CheckHtmlFiles {
             "|References" +
             "|Acknowledge?ments" +
             "|Modifications" +
+            "|Migrating Persistent Data" +
+            "|Updating Required" +
         "|(Revision \\d+\\.?)");
     static Pattern SUPPRESS_REVISION = Pattern.compile("Revision \\d+\\.?");
     static Pattern SPACES = Pattern.compile("\\s+");
@@ -83,6 +92,8 @@ public class CheckHtmlFiles {
         String targetString = MyOptions.target.option.getValue();
         if (targetString.equalsIgnoreCase("ucd")) {
             targetString = CLDRPaths.BASE_DIRECTORY + "../unicode-draft/reports/tr(\\d+)/tr(\\d+).html";
+        } else if (targetString.equalsIgnoreCase("security")) {
+            targetString = CLDRPaths.BASE_DIRECTORY + "../unicode-draft/reports/tr(3[69])/tr(3[69]).html";
         }
         Data target = new Data().getSentences(targetString);
         if (target.count == 0) {
@@ -276,7 +287,7 @@ public class CheckHtmlFiles {
         public String toHeader() {
             String id = ids.iterator().next();
             return ("<li>"
-                + (!isHeader ? "Table: " : suppressSection ? "" : levels + " ")
+                + (!isHeader ? (text.contains("Table") ? "" : "Table: ") : suppressSection ? "" : levels + " ")
                 + "<a href=\"#" + id + "\">"
                 + TransliteratorUtilities.toHTML.transform(text)
                 + "</a>");
@@ -509,10 +520,16 @@ public class CheckHtmlFiles {
         int totalFatalCount = 0;
 
         public Data getSentences(String fileRegex) throws IOException {
-            int firstParen = fileRegex.indexOf('(');
-            int lastSlash = fileRegex.lastIndexOf('/', firstParen);
-            String base = fileRegex.substring(0, lastSlash);
-            String regex = fileRegex.substring(lastSlash+1);
+            String base;
+            String regex;
+            try {
+                int firstParen = fileRegex.indexOf('(');
+                int lastSlash = fileRegex.lastIndexOf('/', firstParen);
+                base = fileRegex.substring(0, lastSlash);
+                regex = fileRegex.substring(lastSlash+1);
+            } catch (Exception e) {
+                throw new IllegalArgumentException("Target file must be in special format");
+            }
 
             //File sourceFile = new File(fileRegex);
             File sourceDirectory = new File(base);
@@ -552,11 +569,6 @@ public class CheckHtmlFiles {
             }
             return this;
         }
-
-        static final Set<String> NOPOP = new HashSet(Arrays.asList("br", "img", "link", "meta", "!doctype", "hr", "col"));
-        static final EnumSet<Type> SUPPRESS = EnumSet.of(
-            Type.ELEMENT, Type.ELEMENT_START, Type.ELEMENT_END, Type.ELEMENT_POP,
-            Type.ATTRIBUTE, Type.ATTRIBUTE_CONTENT);
 
         public void parseFile(File fileCanonical, int H2_START, Reader in) throws IOException {
             Matcher wsMatcher = WHITESPACE.matcher("");

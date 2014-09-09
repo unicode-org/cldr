@@ -255,7 +255,12 @@ h2,h3,h4,table {
 				</ul>
 			</li>
 			<li>6 <a href="#Rule-Based_Number_Formatting">Rule-Based
-					Number Formatting</a></li>
+					Number Formatting</a>
+                <ul class="toc changed">
+                    <li>6.1 <a href="#RBNF_Grammatical_Agreement">Grammatical
+                        Agreement</a></li>
+                </ul>
+            </li>
 			<li>7 <a href="#Parsing_Numbers">Parsing Numbers</a></li>
 		</ul>
 
@@ -2412,7 +2417,78 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			typically used for formatting year numbers in formal documents, such
 			as &quot;nineteen hundred seventy-six&quot; instead of &quot;one
 			thousand nine hundred seventy-six&quot;.</p>
+<div class="changed">
+        <h3>
+            <a name="RBNF_Grammatical_Agreement" href="#RBNF_Grammatical_Agreement">6.1 Grammatical Agreement</a>
+        </h3>
 
+        <p>When using a cardinal or ordinal number associated with a
+            noun, the words of the number need to have the same
+            grammatical features of the noun being referenced. This type
+            of grammatical agreement usually but not always depend on the
+            noun class. The relevant grammatical features for each
+            language vary widely. For a language like English, no
+            grammatical features affect the words of a number. For most
+            European languages, the words of the number has to be in
+            agreement with the gender of the noun being referenced.</p>
+
+        <p>The RBNF ruleset types for each language usually reflect
+            the grammatical features important for correctly spelling
+            these words. To illustrate these differences, the Spanish
+            example below for the value of 1 demonstrates where different
+            ruleset types are needed.</p>
+
+        <p class="example">Spanish example:</p>
+
+        <table cellspacing="0" cellpadding="4" border="1">
+            <tr>
+                <th>RBNF Spanish Ruleset Type</th>
+                <th>RBNF Spanish Result</th>
+                <th>Spanish Context</th>
+                <th>English Translation</th>
+            </tr>
+            <tr>
+                <td>spellout-numbering</td>
+                <td>uno</td>
+                <td><em>uno</em></td>
+                <td>one</td>
+            </tr>
+            <tr>
+                <td>spellout-cardinal-masculine</td>
+                <td>un</td>
+                <td><em>un</em> hombre</td>
+                <td>one man</td>
+            </tr>
+            <tr>
+                <td>spellout-cardinal-feminine</td>
+                <td>una</td>
+                <td><em>una</em> mujer</td>
+                <td>one woman</td>
+            </tr>
+            <tr>
+                <td>spellout-ordinal-masculine</td>
+                <td>primero</td>
+                <td>el <em>primero</em></td>
+                <td>the first</td>
+            </tr>
+            <tr>
+                <td>spellout-ordinal-feminine</td>
+                <td>primera</td>
+                <td>la <em>primera</em> casa de la derecha </td>
+                <td>the first house on the right</td>
+            </tr>
+            <tr>
+                <td>spellout-ordinal-masculine-adjective</td>
+                <td>primer</td>
+                <td>el <em>primer</em> mensaje</td>
+                <td>the first message</td>
+            </tr>
+        </table>
+
+        <p>For a language like German, the 4 cases and the plurality
+            (grammatical number) may need to be taken into account in
+            addition to the gender.</p>
+</div>
 		<h2>
 			<a name="Parsing_Numbers" href="#Parsing_Numbers">7 Parsing
 				Numbers</a>

@@ -80,12 +80,19 @@ public class SimpleHtmlParser {
     private State state;
 
     private Type bufferedReturn;
+    
+    private int lineCount;
 
     public SimpleHtmlParser setReader(Reader input) {
         this.input = input;
         state = State.IN_CONTENT;
         bufferedReturn = null;
+        lineCount = 0;
         return this;
+    }
+    
+    public int getLineCount() {
+        return lineCount;
     }
 
     public Type next(StringBuilder result) throws IOException {
@@ -107,6 +114,9 @@ public class SimpleHtmlParser {
                     chi = 0;
                 }
                 ch = (char) chi;
+                if (ch == '\n') {
+                    ++lineCount;
+                }
             }
 
             switch (state) {

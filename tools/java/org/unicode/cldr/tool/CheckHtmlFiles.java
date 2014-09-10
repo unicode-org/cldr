@@ -524,11 +524,15 @@ public class CheckHtmlFiles {
             String regex;
             try {
                 int firstParen = fileRegex.indexOf('(');
+                if (firstParen < 0) {
+                    firstParen = fileRegex.length();
+                }
                 int lastSlash = fileRegex.lastIndexOf('/', firstParen);
                 base = fileRegex.substring(0, lastSlash);
                 regex = fileRegex.substring(lastSlash+1);
             } catch (Exception e) {
-                throw new IllegalArgumentException("Target file must be in special format");
+                throw new IllegalArgumentException("Target file must be in special format. " +
+                		"Up to the first path part /.../ containing a paragraph is constant, and the rest is a regex.");
             }
 
             //File sourceFile = new File(fileRegex);
@@ -570,10 +574,13 @@ public class CheckHtmlFiles {
             return this;
         }
 
+        SimpleHtmlParser parser = new SimpleHtmlParser();
+        
         public void parseFile(File fileCanonical, int H2_START, Reader in) throws IOException {
             Matcher wsMatcher = WHITESPACE.matcher("");
             ++count;
-            SimpleHtmlParser parser = new SimpleHtmlParser().setReader(in);
+            // SimpleHtmlParser parser = new SimpleHtmlParser().setReader(in);
+            parser.setReader(in);
             StringBuilder buffer = new StringBuilder();
             StringBuilder content = new StringBuilder();
             HeadingInfo heading = new HeadingInfo();
@@ -588,9 +595,10 @@ public class CheckHtmlFiles {
             HeadingInfo lastHeading = null;
 
             main: while (true) {
+                int lineCount = parser.getLineCount();
                 Type x = parser.next(content);
                 if (verbose && !SUPPRESS.contains(x)) {
-                    LOG.write(x + ":\t«" + content + "»");
+                    LOG.write(parser.getLineCount() + "\t" + x + ":\t«" + content + "»");
                     //SimpleHtmlParser.writeResult(x, content, LOG);
                     LOG.write("\n");
                     LOG.flush();
@@ -612,7 +620,7 @@ public class CheckHtmlFiles {
                     }
                     Pair<String, String> lastAttribute = attributeStack.peek();
                     if (lastAttribute.getSecond() != null) {
-                        System.out.println("Double Attribute: " + contentString + ", peek=" + lastAttribute);
+                        System.out.println(lineCount + "\tDouble Attribute: " + contentString + ", peek=" + lastAttribute);
                     } else {
                         lastAttribute.setSecond(contentString);
                     }
@@ -629,7 +637,7 @@ public class CheckHtmlFiles {
                             elementStack.pop();
                         }
                         if (!peek.equals(contentString)) {
-                            System.out.println("Couldn't pop: " + contentString + ", peek=" + peek);
+                            System.out.println(lineCount + "\tCouldn't pop: " + contentString + ", peek=" + peek);
                         } else {
                             elementStack.pop();
                         }
@@ -637,7 +645,7 @@ public class CheckHtmlFiles {
                         elementStack.push(contentString);
                     }
                     if (verbose) {
-                        LOG.write("elem:\t" + showElementStack(elementStack) + "\n");
+                        LOG.write(parser.getLineCount() + "\telem:\t" + showElementStack(elementStack) + "\n");
                         LOG.flush();
                     }
                     if (FORCEBREAK.contains(contentString)) {
@@ -666,7 +674,7 @@ public class CheckHtmlFiles {
                     break;
                 case ELEMENT_END:
                     if (verbose && !attributeStack.isEmpty()) {
-                        LOG.write("attr:\t" + showAttributeStack(attributeStack) + "\n");
+                        LOG.write(parser.getLineCount() + "\tattr:\t" + showAttributeStack(attributeStack) + "\n");
                         LOG.flush();
                     }
                     attributeStack.clear();

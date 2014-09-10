@@ -47,9 +47,12 @@ public class GenerateItemCounts {
     private static String[] DIRECTORIES = {
         // MUST be oldest first!
         // "cldr-archive/cldr-21.0",
-        "cldr-23.0",
-        "cldr-24.0",
+        // "cldr-24.0",
+        "cldr-25.0",
+        "trunk"
     };
+
+    private static String TRUNK_VERSION = "26.0";
 
     static boolean doChanges = true;
     static Relation<String, String> path2value = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
@@ -61,8 +64,8 @@ public class GenerateItemCounts {
         summary(null, null, "if present, summarizes data already collected. Run once with, once without."),
         directory(".*", ".*",
             "if summary, creates filtered version (eg -d main): does a find in the name, which is of the form dir/file"),
-        verbose(null, null, "verbose debugging messages"),
-        rawfilter(".*", ".*", "filter the raw files (non-summary, mostly for debugging)"), ;
+            verbose(null, null, "verbose debugging messages"),
+            rawfilter(".*", ".*", "filter the raw files (non-summary, mostly for debugging)"), ;
         // boilerplate
         final Option option;
 
@@ -96,22 +99,27 @@ public class GenerateItemCounts {
             Relation<String, String> oldPath2value = null;
             for (String dir : DIRECTORIES) {
                 // if (dirPattern != null && !dirPattern.matcher(dir).find()) continue;
-                String fulldir = new File(CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir).getCanonicalPath();
+                final String pathname = dir.equals("trunk") ? CLDRPaths.BASE_DIRECTORY
+                    : CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir;
+                String fulldir = new File(pathname).getCanonicalPath();
                 String prefix = (MyOptions.rawfilter.option.doesOccur() ? "filtered_" : "");
                 String fileKey = dir.replace("/", "_");
                 PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY, prefix + "count_" + fileKey + ".txt");
                 PrintWriter changes = BagFormatter
                     .openUTF8Writer(OUT_DIRECTORY, prefix + "changes_" + fileKey + ".txt");
+                PrintWriter changesSummary = BagFormatter
+                    .openUTF8Writer(OUT_DIRECTORY, prefix + "changes_summary_" + fileKey + ".txt");
                 main.summarizeCoverage(summary, fulldir);
                 if (doChanges) {
                     if (oldPath2value != null) {
-                        compare(summary, changes, oldPath2value, path2value);
+                        compare(summary, changes, changesSummary, oldPath2value, path2value);
                     }
                     oldPath2value = path2value;
                     path2value = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
                 }
                 summary.close();
                 changes.close();
+                changesSummary.close();
             }
             ATTRIBUTE_TYPES.showStarred();
         } finally {
@@ -171,20 +179,51 @@ public class GenerateItemCounts {
     }
 
     static Pattern prefix = Pattern.compile("([^/]+/[^/]+)(.*)");
+    
+    static class Delta {
+        Counter<String> newCount = new Counter<String>();
+        Counter<String> deletedCount = new Counter<String>();
+        Counter<String> changedCount = new Counter<String>();
+        Counter<String> unchangedCount = new Counter<String>();
+        void print(PrintWriter changesSummary, Set<String> prefixes) {
+            changesSummary.println("Total" 
+                + "\t" + unchangedCount.getTotal()
+                + "\t" + deletedCount.getTotal() 
+                + "\t" + changedCount.getTotal() 
+                + "\t" + newCount.getTotal()
+                );
+            changesSummary.println("Directory\tSame\tRemoved\tChanged\tAdded");
+            for (String prefix : prefixes) {
+                changesSummary.println(prefix 
+                    + "\t" + unchangedCount.get(prefix)
+                    + "\t" + deletedCount.get(prefix)
+                    + "\t" + changedCount.get(prefix)
+                    + "\t" + newCount.get(prefix)
+                    );
+            }
+        }
+    }
 
-    private static void compare(PrintWriter summary, PrintWriter changes2, Relation<String, String> oldPath2value,
+    private static void compare(PrintWriter summary, PrintWriter changes2, PrintWriter changesSummary, 
+        Relation<String, String> oldPath2value,
         Relation<String, String> path2value2) {
         Set<String> union = Builder.with(new TreeSet<String>()).addAll(oldPath2value.keySet())
             .addAll(path2value2.keySet()).get();
         long total = 0;
         Matcher prefixMatcher = prefix.matcher("");
-        Counter<String> newCount = new Counter<String>();
-        Counter<String> deletedCount = new Counter<String>();
+        Delta charCount = new Delta();
+        Delta itemCount = new Delta();
+        Counter<String> newLength = new Counter<String>();
+        Counter<String> deletedLength = new Counter<String>();
+        Counter<String> changedLength = new Counter<String>();
+        Counter<String> unchangedLength = new Counter<String>();
+        Set<String> prefixes = new TreeSet();
         for (String path : union) {
             if (!prefixMatcher.reset(path).find()) {
                 throw new IllegalArgumentException();
             }
             String prefix = prefixMatcher.group(1);
+            prefixes.add(prefix);
             String localPath = prefixMatcher.group(2);
             Set<String> set1 = oldPath2value.getAll(path);
             Set<String> set2 = path2value2.getAll(path);
@@ -193,27 +232,47 @@ public class GenerateItemCounts {
             }
             if (set1 == null) {
                 changes2.println(prefix + "\tNew:\t" + "\t" + set2 + "\t" + localPath);
-                newCount.add(prefix, set2.size());
+                itemCount.newCount.add(prefix, set2.size());
+                charCount.newCount.add(prefix, totalLength(set2));
             } else if (set2 == null) {
                 changes2.println(prefix + "\tDeleted:\t" + set1 + "\t\t" + localPath);
-                deletedCount.add(prefix, set1.size());
+                itemCount.deletedCount.add(prefix, -set1.size());
+                charCount.deletedCount.add(prefix, -totalLength(set1));
             } else if (!set1.equals(set2)) {
                 TreeSet<String> set1minus2 = Builder.with(new TreeSet<String>()).addAll(set1).removeAll(set2).get();
                 TreeSet<String> set2minus1 = Builder.with(new TreeSet<String>()).addAll(set2).removeAll(set1).get();
-                newCount.add(prefix, set2minus1.size());
-                deletedCount.add(prefix, set1minus2.size());
+                TreeSet<String> set2and1 = Builder.with(new TreeSet<String>()).addAll(set2).retainAll(set1).get();
+                itemCount.changedCount.add(prefix, (set2minus1.size()+set1minus2.size()+1)/2);
+                itemCount.unchangedCount.add(prefix, set2and1.size());
+                charCount.changedCount.add(prefix, (totalLength(set2minus1)+totalLength(set1minus2)+1)/2);
+                charCount.unchangedCount.add(prefix, totalLength(set2and1));
                 changes2.println(prefix + "\tChanged:\t" + set1minus2
                     + "\t"
                     + set2minus1
                     + "\t" + localPath);
+            } else {
+                itemCount.unchangedCount.add(prefix, set2.size());
+                charCount.unchangedCount.add(prefix, totalLength(set2));
             }
         }
-        union = Builder.with(new TreeSet<String>()).addAll(newCount.keySet()).addAll(deletedCount.keySet()).get();
-        for (String prefix : union) {
-            changes2.println(prefix + "\tRemoved:\t" + deletedCount.get(prefix) + "\tAdded:\t" + newCount.get(prefix));
-        }
-        changes2.println("#Total" + "\tRemoved:\t" + deletedCount.getTotal() + "\tAdded:\t" + newCount.getTotal());
+        itemCount.print(changesSummary, prefixes);
+        changesSummary.println();
+        charCount.print(changesSummary, prefixes);
+//        union = Builder.with(new TreeSet<String>())
+//            .addAll(newCount.keySet())
+//            .addAll(deletedCount.keySet())
+//            .addAll(changedCount.keySet())
+//            .addAll(unchangedCount.keySet())
+//            .get();
         summary.println("#Total:\t" + total);
+    }
+
+    private static long totalLength(Set<String> set2) {
+        int result = 0;
+        for (String s : set2) {
+            result += s.length();
+        }
+        return result;
     }
 
     final static Pattern LOCALE_PATTERN = Pattern.compile(
@@ -223,7 +282,7 @@ public class GenerateItemCounts {
         Map<String, R4<Counter<String>, Counter<String>, Counter<String>, Counter<String>>> key_release_count = new TreeMap<String, R4<Counter<String>, Counter<String>, Counter<String>, Counter<String>>>();
         Matcher countryLocale = LOCALE_PATTERN.matcher("");
         List<String> releases = new ArrayList<String>();
-        Pattern releaseNumber = Pattern.compile("count_.*-(\\d+(\\.\\d+)*)\\.txt");
+        Pattern releaseNumber = Pattern.compile("count_(?:.*-(\\d+(\\.\\d+)*)|trunk)\\.txt");
         // int releaseCount = 1;
         Relation<String, String> release_keys = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Relation<String, String> localesToPaths = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
@@ -243,6 +302,9 @@ public class GenerateItemCounts {
                 continue;
             }
             String releaseNum = releaseMatcher.group(1); // "1." + releaseCount++;
+            if (releaseNum == null) {
+                releaseNum = TRUNK_VERSION;
+            }
             VersionInfo vi = VersionInfo.getInstance(releaseNum);
             if (vi.compareTo(mostRecentVersion) > 0) {
                 mostRecentVersion = vi;
@@ -259,6 +321,9 @@ public class GenerateItemCounts {
                 continue;
             }
             String releaseNum = releaseMatcher.group(1); // "1." + releaseCount++;
+            if (releaseNum == null) {
+                releaseNum = TRUNK_VERSION;
+            }
             VersionInfo vi = VersionInfo.getInstance(releaseNum);
             boolean captureData = vi.equals(mostRecentVersion);
             releases.add(releaseNum);
@@ -270,6 +335,8 @@ public class GenerateItemCounts {
                 if (line.startsWith("#")) {
                     continue;
                 }
+                // common/main  New:        [Yellowknife]   /gl//ldml/dates/timeZoneNames/zone[@type="America/Yellowknife"]/exemplarCity
+
                 String[] parts = line.split("\t");
                 try {
                     String file = parts[0];
@@ -327,7 +394,7 @@ public class GenerateItemCounts {
         }
         PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY,
             (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "summary" +
-                ".txt");
+            ".txt");
         for (String file : releases) {
             summary.print("\t" + file + "\tlen");
         }
@@ -349,7 +416,7 @@ public class GenerateItemCounts {
         summary.close();
         PrintWriter summary2 = BagFormatter.openUTF8Writer(OUT_DIRECTORY,
             (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "locales" +
-                ".txt");
+            ".txt");
         summary2.println("#Languages (inc. script):\t" + writtenLanguages.size());
         summary2.println("#Countries:\t" + countries.size());
         summary2.println("#Locales:\t" + localesToPaths.size());
@@ -510,13 +577,19 @@ public class GenerateItemCounts {
         summarizeFiles(summary, commonDirectory, 1);
     }
 
+    static final Set<String> SKIP_DIRS = new HashSet<>(Arrays.asList("specs", "tools"));
+
     public void summarizeFiles(PrintWriter summary, File directory, int level) {
         System.out.println("\t\t\t\t\t\t\t".substring(0, level) + directory);
         int count = 0;
         for (File file : directory.listFiles()) {
             String filename = file.getName();
-            if (file.isDirectory()) {
-                summarizeFiles(summary, file, level + 1);
+            if (filename.startsWith(".")) {
+                // do nothing
+            } else if (file.isDirectory()) {
+                if (!SKIP_DIRS.contains(filename)) {
+                    summarizeFiles(summary, file, level + 1);
+                }
             } else if (!filename.startsWith("#") && filename.endsWith(".xml")) {
                 String name = new File(directory.getParent()).getName() + "/" + directory.getName() + "/"
                     + file.getName();

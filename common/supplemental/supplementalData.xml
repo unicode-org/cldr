@@ -1369,7 +1369,7 @@ XXX Code for transations where no currency is involved
 		<language type="bjj" scripts="Deva"/>
 		<language type="bjj" territories="IN" alt="secondary"/>
 		<language type="bjn" scripts="Latn"/>
-		<language type="bjn" territories="ID MY" alt="secondary"/>
+		<language type="bjn" territories="ID" alt="secondary"/>
 		<language type="bkm" scripts="Latn"/>
 		<language type="bku" scripts="Latn"/>
 		<language type="bku" scripts="Buhd" alt="secondary"/>
@@ -3432,12 +3432,12 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="en" populationPercent="29"/>	<!--English-->
 			<languagePopulation type="zh_Hant" populationPercent="17"/>	<!--Chinese (Traditional)-->
 			<languagePopulation type="ta" populationPercent="4.2"/>	<!--Tamil-->
-			<languagePopulation type="bjn" populationPercent="3.6"/>	<!--Banjar-->
 			<languagePopulation type="jv" populationPercent="1.2"/>	<!--Javanese-->
 			<languagePopulation type="zmi" populationPercent="1.2"/>	<!--Negeri Sembilan Malay-->
 			<languagePopulation type="dtp" populationPercent="0.56"/>	<!--Central Dusun-->
 			<languagePopulation type="ml" populationPercent="0.15"/>	<!--Malayalam-->
 			<languagePopulation type="bug" populationPercent="0.079" references="R1056"/>	<!--Buginese-->
+			<languagePopulation type="bjn" populationPercent="0.017"/>	<!--Banjar-->
 		</territory>
 		<territory type="MZ" gdp="28150000000" literacyPercent="56.1" population="24692100">	<!--Mozambique-->
 			<languagePopulation type="pt" populationPercent="27" officialStatus="official"/>	<!--Portuguese-->
@@ -3804,7 +3804,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="SN" gdp="27720000000" literacyPercent="49.7" population="13635900">	<!--Senegal-->
 			<languagePopulation type="wo" populationPercent="70" officialStatus="de_facto_official" references="R1297"/>	<!--Wolof-->
-			<languagePopulation type="fr" populationPercent="39" officialStatus="official" references="R1069"/>	<!--French-->
+			<languagePopulation type="fr" writingPercent="100" populationPercent="39" officialStatus="official" references="R1069"/>	<!--French-->
 			<languagePopulation type="ff" populationPercent="21"/>	<!--Fulah-->
 			<languagePopulation type="srr" populationPercent="11" references="R1069"/>	<!--Serer-->
 			<languagePopulation type="dyo" writingPercent="10" populationPercent="2.6" references="R1281"/>	<!--Jola-Fonyi-->

@@ -372,12 +372,13 @@ h2,h3,h4,table {
 			"variable": U+FFFE must not become ignorable in alternate handling.
 			This allows for <a
 				href="http://www.unicode.org/reports/tr10/#Merging_Sort_Keys">Merging
-				Sort Keys</a> within code point space. For example, when sorting names
-			in a database, a sortable string can be formed with <em>last_name</em>
-			+ '\uFFFE' + <em>first_name</em>. These strings would sort properly,
-			without ever comparing the last part of a last name with the first
-			part of another first name.
-		</p>
+		Sort Keys</a> within code point space.</p>
+		<p>For example, when sorting names
+		  in a database, a sortable string can be formed with <em>last_name</em>
+		  + '\uFFFE' + <em>first_name</em>. These strings would sort properly,
+		  without ever comparing the last part of a last name with the first
+		  part of another first name.
+	  </p>
 
 		<p>
 			For backwards secondary level sorting, text <i>segments</i> separated
@@ -385,13 +386,12 @@ h2,h3,h4,table {
 			each segment the secondary weights are compared backwards. This is so
 			that such combined strings are processed consistently with <span
 				class="changed">merging their sort keys (for example, by
-				concatenating them level by level with a low separator).</span>
-		</p>
+		concatenating them level by level with a low separator).</span></p>
 
 		<h4>
 			1.1.2 <a name="Context_Sensitive_Mappings"
 				href="#Context_Sensitive_Mappings">Context-Sensitive Mappings</a>
-		</h4>
+	  </h4>
 
 		<p>Contraction matching, as in the UCA, starts from the first
 			character of the contraction string. It slows down processing of that

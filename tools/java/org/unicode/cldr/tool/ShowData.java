@@ -289,7 +289,7 @@ public class ShowData {
                     boolean lastEquals = false;
 
                     childValueToLocales.clear();
-                    
+
                     for (Entry<String, CLDRFile> s : sublocales.entrySet()) {
                         String newChildValue = s.getValue().getStringValue(path);
                         if (newChildValue == null || CldrUtility.equals(newChildValue, value)) {
@@ -338,8 +338,11 @@ public class ShowData {
                         + "</td>");
                     boolean isExemplar = path.contains("/exemplar");
                     showValue(pw, value, null, isExemplar);
-                    for (Entry<String, Set<String>> x : childValueToLocales.keyValuesSet()) {
-                        showValue(pw, x.getKey(), x.getValue(), isExemplar);
+                    if (!childValueToLocales.keyValuesSet().isEmpty()) {
+                        for (Entry<String, Set<String>> x : childValueToLocales.keyValuesSet()) {
+                            showValue(pw, x.getKey(), x.getValue(), isExemplar);
+                        }
+                        pw.println("<td class='info'><a class='rightLink' target='CLDR-ST-DOCS' href='http://cldr.org/index/charts#TOC-Summary'>ⓘ</a></td>");
                     }
                     pw.println("</tr>");
                     oldParts = prettyPath;
@@ -418,13 +421,12 @@ public class ShowData {
     }
 
     public static void showValue(PrintWriter pw, String value, Set<String> locales, boolean isExemplar) {
+        final boolean noLocales = locales == null || locales.isEmpty();
         pw.println("<td"
-            + (isExemplar ? " width='15%'" : "")
-            + (locales == null || locales.isEmpty() ? "" : " title='" + CollectionUtilities.join(locales, ", ") + "'")
-            +
-            (value == null ? "></i>n/a</i>"
-                : " class='v'" + DataShower.getBidiStyle(value) + ">" + DataShower.getPrettyValue(value))
-                + "</td>");
+            + (isExemplar ? " max-width='20%'" : "")
+            + (noLocales ? "" : " title='" + CollectionUtilities.join(locales, ", ") + "'")
+            + (value == null ? "></i>n/a</i>" : " class='v'" + DataShower.getBidiStyle(value) + ">" + DataShower.getPrettyValue(value))
+            + "</td>");
     }
 
     private static String addPart(String oldPart, String newPart) {
@@ -679,7 +681,7 @@ public class ShowData {
         }
         return full + " [" + locale + "]";
     }
-    
+
     static final LikelySubtags LIKELY = new LikelySubtags();
 
     // public static SimpleDateFormat isoDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm",

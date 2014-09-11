@@ -472,8 +472,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			equivalents. The territory codes provide mappings to numeric (UN M.49
 			[<a href="tr35.html#UNM49">UNM49</a>] codes, equivalent to ISO
 			numeric codes), ISO three-letter codes, FIPS 10 codes, and the
-			internet top-level domain codes.<span class="changed"> The
-				currency codes supply a mapping to the ISO numeric forms.</span>
+			internet top-level domain codes.
 		</p>
 		<p>The alphabetic codes are only provided where different from the
 			type. For example:</p>
@@ -489,7 +488,22 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 ...</pre>
 		<p class="changed">Where there is no corresponding code, sometimes
 			private use codes are used, such as the numeric code for XK.</p>
-
+		<p class="changed">
+			The currencyCodes are mappings from three letter currency codes to
+			numeric values (ISO 4217 <a
+				href=" ​http://www.currency-iso.org/en/home/tables/table-a1.html">Current
+				currency & funds code list</a>.) The mapping currently covers only
+			current codes and does not include historic currencies. For example:
+		</p>
+		<pre class="changed">
+&lt;currencyCodes type=&quot;AED&quot; numeric=&quot;784&quot;/&gt;
+&lt;currencyCodes type=&quot;AFN&quot; numeric=&quot;971&quot;/&gt;
+...
+&lt;currencyCodes type=&quot;EUR&quot; numeric=&quot;978&quot;/&gt;
+...
+&lt;currencyCodes type=&quot;ZAR&quot; numeric=&quot;710&quot;/&gt;
+&lt;currencyCodes type=&quot;ZMW&quot; numeric=&quot;967&quot;/&gt;
+</pre>
 		<h2>
 			5 <a name="Telephone_Code_Data" href="#Telephone_Code_Data">Telephone
 				Code Data</a>

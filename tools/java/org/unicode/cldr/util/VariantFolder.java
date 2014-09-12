@@ -40,9 +40,9 @@ public class VariantFolder {
                 }
                 return c.compare(s1, s2);
             }
-    
+
         };
-    
+
         public Set make() {
             return new TreeSet(bestIsLowest);
         }
@@ -79,12 +79,12 @@ public class VariantFolder {
                 equivalents.add(item, Normalizer.compose(item, true));
             }
         }
-    
+
         public Set<String> getAlternates(String item, Set<String> output) {
             output.add(item);
             return equivalents.getEquivalences(item);
         }
-    
+
     }
 
     public static class CanonicalFolder implements VariantFolder.AlternateFetcher {
@@ -96,12 +96,12 @@ public class VariantFolder {
                 equivalents.add(item, Normalizer.compose(item, false));
             }
         }
-    
+
         public Set<String> getAlternates(String item, Set<String> output) {
             output.add(item);
             return equivalents.getEquivalences(item);
         }
-    
+
     }
 
     public static class CaseVariantFolder implements VariantFolder.AlternateFetcher {
@@ -116,7 +116,7 @@ public class VariantFolder {
                 equivalents.add(item, UCharacter.toTitleCase(ULocale.ROOT, item, null));
             }
         }
-    
+
         public Set<String> getAlternates(String item, Set<String> output) {
             output.add(item);
             return equivalents.getEquivalences(item);

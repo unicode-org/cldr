@@ -259,7 +259,7 @@ public class SupplementalMapper {
                 continue;
             }
             List<String> debugResults = isDebugXPath(fullPath) ? new ArrayList<String>() : null;
-            Output<String[]> argInfo=new Output<>();
+            Output<String[]> argInfo = new Output<>();
             RegexResult regexResult = pathConverter.get(fullPath, null, argInfo, matcher, debugResults);
             if (regexResult == null) {
                 RegexManager.printLookupResults(fullPath, debugResults);
@@ -268,8 +268,8 @@ public class SupplementalMapper {
             if (debugResults != null) {
                 System.out.println(fullPath + " successfully matched");
             }
-           // String[] arguments = matcher.value.getInfo();
-            String[] arguments=argInfo.value;
+            // String[] arguments = matcher.value.getInfo();
+            String[] arguments = argInfo.value;
             String cldrValue = pair.getSecond();
             for (PathValueInfo info : regexResult) {
                 List<String> values = info.processValues(arguments, cldrValue);

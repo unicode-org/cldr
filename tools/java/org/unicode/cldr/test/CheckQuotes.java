@@ -22,10 +22,10 @@ public class CheckQuotes extends CheckCLDR {
             type = CheckStatus.errorType;
         }
         if (matcher.find()) {
-                result.add(new CheckStatus().setCause(this)
-                    .setMainType(type)
-                    .setSubtype(Subtype.asciiQuotesNotAllowed)
-                    .setMessage("Use of ASCII quote marks (' \") is discouraged. Use primes for units (′ ″) and curly quotes for text (‘ ’ “ ” …)"));
+            result.add(new CheckStatus().setCause(this)
+                .setMainType(type)
+                .setSubtype(Subtype.asciiQuotesNotAllowed)
+                .setMessage("Use of ASCII quote marks (' \") is discouraged. Use primes for units (′ ″) and curly quotes for text (‘ ’ “ ” …)"));
         }
         return this;
     }

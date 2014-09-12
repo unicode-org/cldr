@@ -140,7 +140,7 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
                     int min = Level.OPTIONAL.getLevel();
                     Iterable<String> iter = getPagePaths();
                     if (iter != null) {
-                        CoverageInfo covInfo=CLDRConfig.getInstance().getCoverageInfo();
+                        CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
                         for (String xp : iter) {
                             int l = covInfo.getCoverageValue(xp, loc.getBaseName());
                             if (l < min) {

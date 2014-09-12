@@ -20,7 +20,9 @@ import com.ibm.icu.impl.Row.R2;
 
 public class CompareSuppress {
 
-    enum Status {missingSuppress, missingLikely, difference}
+    enum Status {
+        missingSuppress, missingLikely, difference
+    }
 
     public static void main(String[] args) {
         CLDRConfig config = CLDRConfig.getInstance();
@@ -29,7 +31,7 @@ public class CompareSuppress {
         Map<String, Map<LstrField, String>> langData = lstr.get(LstrType.language);
         LanguageTagParser ltp = new LanguageTagParser();
 
-        Map<String,String> langToSuppress = new TreeMap<>();
+        Map<String, String> langToSuppress = new TreeMap<>();
         for (Entry<String, Map<LstrField, String>> entry : langData.entrySet()) {
             String lang = entry.getKey();
             Map<LstrField, String> value = entry.getValue();
@@ -65,7 +67,7 @@ public class CompareSuppress {
                     switch (status) {
                     case difference:
                         if (likelyScript != null && suppressScript != null) {
-                            System.out.println(prefix + status + "\t" 
+                            System.out.println(prefix + status + "\t"
                                 + langAndName(english, base)
                                 + "\tSuppress:\t" + scriptAndName(english, suppressScript)
                                 + "\tLikely:   \t" + scriptAndName(english, likelyScript));
@@ -73,14 +75,14 @@ public class CompareSuppress {
                         break;
                     case missingLikely:
                         if (likelyScript == null) {
-                            System.out.println(prefix + status + "\t" 
+                            System.out.println(prefix + status + "\t"
                                 + langAndName(english, base)
                                 + "\t" + scriptAndName(english, suppressScript));
                         }
                         break;
                     case missingSuppress:
                         if (suppressScript == null) {
-                            System.out.println(prefix + status + "\t" 
+                            System.out.println(prefix + status + "\t"
                                 + langAndName(english, base)
                                 + "\t" + scriptAndName(english, likelyScript));
                             break;
@@ -97,7 +99,7 @@ public class CompareSuppress {
     }
 
     public static String scriptAndName(CLDRFile english, String suppressScript) {
-        return suppressScript 
+        return suppressScript
             + "\t" + english.getName(CLDRFile.SCRIPT_NAME, suppressScript);
     }
 }

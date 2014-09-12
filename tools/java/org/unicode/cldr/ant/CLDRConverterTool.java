@@ -216,7 +216,7 @@ public abstract class CLDRConverterTool {
         ArrayList<String> myXPathList = new ArrayList<String>(xpathList.size());
         StandardCodes sc = StandardCodes.make();
         // Instantiate CoverageInfo outside the loop
-        CoverageInfo covInfo=CLDRConfig.getInstance().getCoverageInfo();
+        CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         // iterator of xpaths of the current CLDR file being processed
         // this map only contains xpaths of the leaf nodes
         for (int i = 0; i < xpathList.size(); i++) {
@@ -225,8 +225,8 @@ public abstract class CLDRConverterTool {
             Map<String, String> attr = parts.getAttributes(parts.size() - 1);
 
             boolean include = false;
-         
-            for (Task obj: pathList) {
+
+            for (Task obj : pathList) {
                 if (obj instanceof CLDRBuild.CoverageLevel) {
                     CLDRBuild.CoverageLevel level = (CLDRBuild.CoverageLevel) obj;
                     if (level.locales != null) {

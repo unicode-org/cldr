@@ -65,7 +65,6 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
     boolean isInitted = false;
     private Properties survprops;
 
-    
     /**
      * Defaults to SMOKETEST for server
      * @return
@@ -73,7 +72,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
     protected Environment getDefaultEnvironment() {
         return Environment.SMOKETEST;
     }
-    
+
     CLDRConfigImpl() {
         // TODO remove this after some time- just warn people about the old message
         final String cwt = System.getProperty("CLDR_WEB_TESTS");
@@ -338,15 +337,16 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
     public CheckCLDR.Phase getPhase() {
         return SurveyMain.phase().getCPhase();
     }
-    
+
     @Override
     public CLDRURLS internalGetUrls() {
-        if(contextUrl == null) contextUrl = CLDRURLS.DEFAULT_PATH;
+        if (contextUrl == null) contextUrl = CLDRURLS.DEFAULT_PATH;
         return new StaticCLDRURLS(this.getProperty(CLDRURLS.CLDR_SURVEY_PATH, contextUrl));
     }
+
     @Override
     public CLDRURLS internalGetAbsoluteUrls() {
-        if(fullUrl == null) fullUrl = CLDRURLS.DEFAULT_BASE;
+        if (fullUrl == null) fullUrl = CLDRURLS.DEFAULT_BASE;
         return new StaticCLDRURLS(this.getProperty(CLDRURLS.CLDR_SURVEY_BASE, fullUrl));
     }
 
@@ -358,7 +358,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
      * @param fromRequest
      */
     public static final void setUrls(HttpServletRequest fromRequest) {
-        if(fullUrl==null) {
+        if (fullUrl == null) {
             contextUrl = fromRequest.getContextPath();
             fullUrl = WebContext.contextBase(fromRequest);
         }

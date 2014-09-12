@@ -253,7 +253,7 @@ public class LikelySubtags {
         String language = ltp.getLanguage();
         String region = ltp.getRegion();
         String script = ltp.getScript();
-        
+
         // handle variants
         List<String> var = ltp.getVariants();
         Map<String, String> ext = ltp.getExtensions();

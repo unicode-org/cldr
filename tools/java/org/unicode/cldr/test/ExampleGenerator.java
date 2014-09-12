@@ -1196,8 +1196,8 @@ public class ExampleGenerator {
             Double numberSample = getExampleForPattern(numberFormat, count);
             if (numberSample == null) {
 //                if (type == ExampleType.ENGLISH) {
-                    int digits = numberFormat.getMinimumIntegerDigits();
-                    return formatNumber(numberFormat, 1.2345678 * Math.pow(10, digits - 1));
+                int digits = numberFormat.getMinimumIntegerDigits();
+                return formatNumber(numberFormat, 1.2345678 * Math.pow(10, digits - 1));
 //                } else {
 //                    return startItalicSymbol + "Superfluous Plural Form" + endItalicSymbol;
 //                }
@@ -1640,7 +1640,7 @@ public class ExampleGenerator {
 
         // now get the description
 
-        Level level= CLDRConfig.getInstance().getCoverageInfo().getCoverageLevel(xpath, cldrFile.getLocaleID());
+        Level level = CLDRConfig.getInstance().getCoverageInfo().getCoverageLevel(xpath, cldrFile.getLocaleID());
         String description = pathDescription.getDescription(xpath, value, level, null);
         if (description == null || description.equals("SKIP")) {
             return null;

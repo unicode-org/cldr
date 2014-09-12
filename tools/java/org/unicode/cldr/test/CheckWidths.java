@@ -104,7 +104,7 @@ public class CheckWidths extends CheckCLDR {
                 if (valueMeasure <= warningReference) {
                     return false;
                 }
-                if (valueMeasure > errorReference && cause.getPhase() != Phase.BUILD && !aliasedAndComprenehsive ) {
+                if (valueMeasure > errorReference && cause.getPhase() != Phase.BUILD && !aliasedAndComprenehsive) {
                     errorType = CheckStatus.errorType;
                 }
                 break;
@@ -254,6 +254,7 @@ public class CheckWidths extends CheckCLDR {
         }
         return this;
     }
+
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
         List<CheckStatus> possibleErrors) {
         final String localeID = cldrFileToCheck.getLocaleID();

@@ -59,9 +59,9 @@ public class CheckLogicalGroupings extends CheckCLDR {
             Options checkOptions = options.clone();
             checkOptions.set("lgWarningCheck", "true");
             List<CheckStatus> statuses = new ArrayList<CheckStatus>();
-            CompoundCheckCLDR secondaryChecker = CheckCLDR.getCheckAll(CLDRConfig.getInstance().getFullCldrFactory(),".*");
+            CompoundCheckCLDR secondaryChecker = CheckCLDR.getCheckAll(CLDRConfig.getInstance().getFullCldrFactory(), ".*");
             secondaryChecker.setCldrFileToCheck(getCldrFileToCheck(), checkOptions, statuses);
-            
+
             for (String apath : paths) {
                 if (apath == path) {
                     continue;
@@ -79,7 +79,7 @@ public class CheckLogicalGroupings extends CheckCLDR {
                 }
             }
         }
-        
+
         if (Phase.FINAL_TESTING.equals(this.getPhase())) {
             Factory factory = PathHeader.getFactory(CheckCLDR.getDisplayInformation());
             DraftStatus myStatus = null;

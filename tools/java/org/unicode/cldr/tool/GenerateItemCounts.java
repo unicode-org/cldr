@@ -64,8 +64,8 @@ public class GenerateItemCounts {
         summary(null, null, "if present, summarizes data already collected. Run once with, once without."),
         directory(".*", ".*",
             "if summary, creates filtered version (eg -d main): does a find in the name, which is of the form dir/file"),
-            verbose(null, null, "verbose debugging messages"),
-            rawfilter(".*", ".*", "filter the raw files (non-summary, mostly for debugging)"), ;
+        verbose(null, null, "verbose debugging messages"),
+        rawfilter(".*", ".*", "filter the raw files (non-summary, mostly for debugging)"), ;
         // boilerplate
         final Option option;
 
@@ -179,22 +179,23 @@ public class GenerateItemCounts {
     }
 
     static Pattern prefix = Pattern.compile("([^/]+/[^/]+)(.*)");
-    
+
     static class Delta {
         Counter<String> newCount = new Counter<String>();
         Counter<String> deletedCount = new Counter<String>();
         Counter<String> changedCount = new Counter<String>();
         Counter<String> unchangedCount = new Counter<String>();
+
         void print(PrintWriter changesSummary, Set<String> prefixes) {
-            changesSummary.println("Total" 
+            changesSummary.println("Total"
                 + "\t" + unchangedCount.getTotal()
-                + "\t" + deletedCount.getTotal() 
-                + "\t" + changedCount.getTotal() 
+                + "\t" + deletedCount.getTotal()
+                + "\t" + changedCount.getTotal()
                 + "\t" + newCount.getTotal()
                 );
             changesSummary.println("Directory\tSame\tRemoved\tChanged\tAdded");
             for (String prefix : prefixes) {
-                changesSummary.println(prefix 
+                changesSummary.println(prefix
                     + "\t" + unchangedCount.get(prefix)
                     + "\t" + deletedCount.get(prefix)
                     + "\t" + changedCount.get(prefix)
@@ -204,7 +205,7 @@ public class GenerateItemCounts {
         }
     }
 
-    private static void compare(PrintWriter summary, PrintWriter changes2, PrintWriter changesSummary, 
+    private static void compare(PrintWriter summary, PrintWriter changes2, PrintWriter changesSummary,
         Relation<String, String> oldPath2value,
         Relation<String, String> path2value2) {
         Set<String> union = Builder.with(new TreeSet<String>()).addAll(oldPath2value.keySet())
@@ -242,9 +243,9 @@ public class GenerateItemCounts {
                 TreeSet<String> set1minus2 = Builder.with(new TreeSet<String>()).addAll(set1).removeAll(set2).get();
                 TreeSet<String> set2minus1 = Builder.with(new TreeSet<String>()).addAll(set2).removeAll(set1).get();
                 TreeSet<String> set2and1 = Builder.with(new TreeSet<String>()).addAll(set2).retainAll(set1).get();
-                itemCount.changedCount.add(prefix, (set2minus1.size()+set1minus2.size()+1)/2);
+                itemCount.changedCount.add(prefix, (set2minus1.size() + set1minus2.size() + 1) / 2);
                 itemCount.unchangedCount.add(prefix, set2and1.size());
-                charCount.changedCount.add(prefix, (totalLength(set2minus1)+totalLength(set1minus2)+1)/2);
+                charCount.changedCount.add(prefix, (totalLength(set2minus1) + totalLength(set1minus2) + 1) / 2);
                 charCount.unchangedCount.add(prefix, totalLength(set2and1));
                 changes2.println(prefix + "\tChanged:\t" + set1minus2
                     + "\t"
@@ -394,7 +395,7 @@ public class GenerateItemCounts {
         }
         PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY,
             (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "summary" +
-            ".txt");
+                ".txt");
         for (String file : releases) {
             summary.print("\t" + file + "\tlen");
         }
@@ -416,7 +417,7 @@ public class GenerateItemCounts {
         summary.close();
         PrintWriter summary2 = BagFormatter.openUTF8Writer(OUT_DIRECTORY,
             (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "locales" +
-            ".txt");
+                ".txt");
         summary2.println("#Languages (inc. script):\t" + writtenLanguages.size());
         summary2.println("#Countries:\t" + countries.size());
         summary2.println("#Locales:\t" + localesToPaths.size());

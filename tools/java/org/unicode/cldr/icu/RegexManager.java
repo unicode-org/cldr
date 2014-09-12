@@ -50,7 +50,6 @@ class RegexManager {
     private Map<String, String> xpathVariables;
     private VariableReplacer cldrVariables;
 
-
     /**
      * Wrapper class for functions that need to be performed on CLDR values as
      * part of the ICU conversion,
@@ -237,7 +236,7 @@ class RegexManager {
         }
     }
 
-     static String processString(String value, String[] arguments) {
+    static String processString(String value, String[] arguments) {
         if (value == null) {
             return null;
         }
@@ -307,7 +306,7 @@ class RegexManager {
 
         public boolean findKey(Finder finder) {
             for (String key : map.keySet()) {
-                if (finder.find(key, null,null)) {
+                if (finder.find(key, null, null)) {
                     return true;
                 }
             }

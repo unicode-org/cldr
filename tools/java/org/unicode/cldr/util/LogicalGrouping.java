@@ -36,8 +36,8 @@ public class LogicalGrouping {
     public static final String[] days = { "sun", "mon", "tue", "wed", "thu", "fri", "sat" };
     public static final List<String> daysList = Arrays.asList(days);
 
-    public static final Set<String> calendarsWith13Months = new HashSet<String>(Arrays.asList( "coptic", "ethiopic", "hebrew" ));
-    public static final Set<String> compactDecimalFormatLengths = new HashSet<String>(Arrays.asList( "short", "long" ));
+    public static final Set<String> calendarsWith13Months = new HashSet<String>(Arrays.asList("coptic", "ethiopic", "hebrew"));
+    public static final Set<String> compactDecimalFormatLengths = new HashSet<String>(Arrays.asList("short", "long"));
 
     /**
      * Return the set of paths that are in the same logical set as the given path
@@ -110,8 +110,8 @@ public class LogicalGrouping {
                 compactDecimalFormatLengths.contains(decimalFormatLengthType)) {
                 int numZeroes = decimalFormatPatternType.length() - 1;
                 int baseZeroes = (numZeroes / 3) * 3;
-                for ( int i = 0 ; i < 3 ; i++ ) {                    
-                    String patType = "1" + String.format(String.format("%%0%dd", baseZeroes+i), 0); // This gives us "baseZeroes+i" zeroes at the end.
+                for (int i = 0; i < 3; i++) {
+                    String patType = "1" + String.format(String.format("%%0%dd", baseZeroes + i), 0); // This gives us "baseZeroes+i" zeroes at the end.
                     parts.setAttribute(5, "type", patType);
                     for (Count count : pluralTypes) {
                         parts.setAttribute(5, "count", count.toString());
@@ -119,7 +119,7 @@ public class LogicalGrouping {
                     }
                 }
             }
-         } else if (path.indexOf("[@count=") > 0) {
+        } else if (path.indexOf("[@count=") > 0) {
             parts.set(path);
             PluralInfo pluralInfo = getPluralInfo(cldrFile);
             Set<Count> pluralTypes = pluralInfo.getCounts();

@@ -294,15 +294,15 @@ public class CheckDates extends FactoryCheckCLDR {
                     result.add(item);
                 }
             }
-            
+
             String failure = flexInfo.checkValueAgainstSkeleton(path, value);
             if (failure != null) {
                 result.add(new CheckStatus()
-                .setCause(this)
-                .setMainType(CheckStatus.errorType)
-                .setSubtype(Subtype.illegalDatePattern)
-                .setMessage(failure));
-           }
+                    .setCause(this)
+                    .setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.illegalDatePattern)
+                    .setMessage(failure));
+            }
 
             final String collisionPrefix = "//ldml/dates/calendars/calendar";
             main: if (path.startsWith(collisionPrefix)) {
@@ -995,7 +995,6 @@ public class CheckDates extends FactoryCheckCLDR {
             .setFormat(x)
             .setCause(this).setMainType(CheckStatus.demoType));
     }
-
 
     static final UnicodeSet XGRAPHEME = new UnicodeSet("[[:mark:][:grapheme_extend:][:punctuation:]]");
     static final UnicodeSet DIGIT = new UnicodeSet("[:decimal_number:]");

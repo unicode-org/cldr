@@ -50,8 +50,8 @@ public class PluralRangesMapper {
             }
             icuData.add("/locales/" + locale, format(number));
         }
-        String intStyle = DO_INT_VECTOR ? ":intvector" : "" ;
-        
+        String intStyle = DO_INT_VECTOR ? ":intvector" : "";
+
         for (Entry<PluralRanges, Integer> rulesAndSet : rulesToSet.entrySet()) {
             PluralRanges ranges = rulesAndSet.getKey();
             Integer setNumber = rulesAndSet.getValue();

@@ -105,8 +105,8 @@ public class XPathTable {
             ixpaths++;
         }
         queryStmt.close();
-        final boolean hushMessages = CLDRConfig.getInstance().getEnvironment()==Environment.UNITTEST;
-        if(!hushMessages) System.err.println(et + ": " + ixpaths + " loaded");
+        final boolean hushMessages = CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST;
+        if (!hushMessages) System.err.println(et + ": " + ixpaths + " loaded");
     }
 
     /**
@@ -761,7 +761,7 @@ public class XPathTable {
     public final int getXpathIdFromStringId(String sid) {
         return getByXpath(getByStringID(sid));
     }
-    
+
     /**
      * Given an XPath stringid, return an integer xpid or NO_XPATH
      * This function is there to ease transition away from xpids.
@@ -770,9 +770,9 @@ public class XPathTable {
      */
     public int getXpathIdOrNoneFromStringID(String xpath) {
         int base_xpath;
-        if(xpath==null || xpath.isEmpty()) {
+        if (xpath == null || xpath.isEmpty()) {
             base_xpath = XPathTable.NO_XPATH;
-        } else if(xpath.startsWith("#")) {
+        } else if (xpath.startsWith("#")) {
             base_xpath = Integer.parseInt(xpath.substring(1));
         } else {
             base_xpath = getXpathIdFromStringId(xpath);

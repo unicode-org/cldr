@@ -24,7 +24,7 @@ public class DumpCoverage {
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set<String> languages = cldrFactory.getAvailableLanguages();
         PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "coverageDump.txt");
-        CoverageInfo covInfo=CLDRConfig.getInstance().getCoverageInfo();
+        CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         for (String lang : languages) {
             CLDRFile cf = cldrFactory.makeWithFallback(lang);
             Set<String> paths = new TreeSet<String>();
@@ -32,7 +32,7 @@ public class DumpCoverage {
             System.out.println("Dumping coverage for locale --> " + lang);
             for (String path : paths) {
 //                int cov = sdi.getCoverageValue(path, lang);
-                int cov= covInfo.getCoverageValue(path, lang);
+                int cov = covInfo.getCoverageValue(path, lang);
                 out.println(lang + " [" + cov + "] --> " + path);
 
             }

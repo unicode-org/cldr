@@ -59,14 +59,14 @@ import com.sun.syndication.io.SyndFeedOutput;
 public class SurveyForum {
     private static final String FLAGGED_FOR_REVIEW_HTML = " <p>[This item was flagged for CLDR TC review.]";
 
-    private static UnicodeSet VALID_FOR_XML = new UnicodeSet(     // from http://www.w3.org/TR/xml/#charsets
-        0x09,0x0A,
-        0x0D,0x0D,
-        0x20,0xD7FF,
-        0xe000,0xfffd,
-        0x10000,0x10ffff
+    private static UnicodeSet VALID_FOR_XML = new UnicodeSet( // from http://www.w3.org/TR/xml/#charsets
+        0x09, 0x0A,
+        0x0D, 0x0D,
+        0x20, 0xD7FF,
+        0xe000, 0xfffd,
+        0x10000, 0x10ffff
         ).freeze();
-    
+
     private static java.util.logging.Logger logger;
 
     public static String DB_FORA = "sf_fora"; // forum name -> id
@@ -121,7 +121,7 @@ public class SurveyForum {
     static final int GOOD_FORUM = 0; // 0 or greater
     static final int BAD_FORUM = -1;
     static final int NO_FORUM = -2;
-    
+
     static final int NO_PARENT = -1;
 
     /**
@@ -157,7 +157,7 @@ public class SurveyForum {
     int getForumNumber(CLDRLocale locale) {
         return getForumNumber(localeToForum(locale));
     }
-    
+
     private int getForumNumberFromDB(String forum) {
         try {
             Connection conn = null;
@@ -270,7 +270,7 @@ public class SurveyForum {
                 msg = "XPath lookup failed.";
             }
         }
-        if(ctx.getLocale()!=null) {
+        if (ctx.getLocale() != null) {
             forum = localeToForum(ctx.getLocale()); // always calculate the forum if a locale is specified
         }
         boolean loggedout = ((ctx.session == null) || (ctx.session.user == null));
@@ -368,7 +368,7 @@ public class SurveyForum {
         if (sessionMessage != null) {
             ctx.println("<hr>" + sessionMessage);
         }
-        if(!ctx.field("isReview").equals("1"))
+        if (!ctx.field("isReview").equals("1"))
             sm.printFooter(ctx);
     }
 
@@ -480,8 +480,7 @@ public class SurveyForum {
 
                 // Apparently, it posted.
 
-
-                if(ctx.field("isReview").equals("1")) {
+                if (ctx.field("isReview").equals("1")) {
                     ctx.response.resetBuffer();
                     try {
                         JSONArray post = this.toJSON(ctx.session, locale, base_xpath, postId);
@@ -491,7 +490,7 @@ public class SurveyForum {
                         e.printStackTrace();
                     } catch (SurveyException e) {
                         org.unicode.cldr.web.SurveyAjax.JSONWriter w = new org.unicode.cldr.web.SurveyAjax.JSONWriter();
-                        w.put("err",e.getErrCode());
+                        w.put("err", e.getErrCode());
                         try {
                             e.addDataTo(w);
                         } catch (JSONException e1) {
@@ -693,25 +692,24 @@ public class SurveyForum {
         // Do email-
         Set<Integer> cc_emails = new HashSet<Integer>();
         Set<Integer> bcc_emails = new HashSet<Integer>();
-        
+
         // Collect list of users to send to.
         gatherInterestedUsers(forum, cc_emails, bcc_emails);
 
         String subject = "CLDR forum post (" + locale.getDisplayName() + " - " + locale + "): " + subj;
 
-        String body = "Do not reply to this message, instead go to <" 
-            + CLDRConfig.getInstance().absoluteUrls().forSpecial(CLDRURLS.Special.Forum, locale,(String)null,Integer.toString(postId))
-            
+        String body = "Do not reply to this message, instead go to <"
+            + CLDRConfig.getInstance().absoluteUrls().forSpecial(CLDRURLS.Special.Forum, locale, (String) null, Integer.toString(postId))
+
             + ">\n====\n\n"
             + text;
-        
-        if(MailSender.getInstance().DEBUG){
-            System.out.println(et+": Forum notify: u#"+user.id+" x"+base_xpath+" queueing cc:" + cc_emails.size() + " and bcc:"+bcc_emails.size());
+
+        if (MailSender.getInstance().DEBUG) {
+            System.out.println(et + ": Forum notify: u#" + user.id + " x" + base_xpath + " queueing cc:" + cc_emails.size() + " and bcc:" + bcc_emails.size());
         }
 
         MailSender.getInstance().queue(user.id, cc_emails, bcc_emails, HTMLUnsafe(subject), HTMLUnsafe(body), locale, base_xpath, postId);
     }
-
 
     /**
      * @param base_xpath
@@ -725,7 +723,8 @@ public class SurveyForum {
      * @return
      * @throws SurveyException 
      */
-    public Integer doPostInternal(int base_xpath, int replyTo, final CLDRLocale locale, String subj, String text, final boolean couldFlagOnLosing, final UserRegistry.User user) throws SurveyException {
+    public Integer doPostInternal(int base_xpath, int replyTo, final CLDRLocale locale, String subj, String text, final boolean couldFlagOnLosing,
+        final UserRegistry.User user) throws SurveyException {
         final int forumNumber = getForumNumber(locale);
         int postId;
         try {
@@ -757,7 +756,7 @@ public class SurveyForum {
                 postId = DBUtils.getLastId(pAdd);
 
                 if (n != 1) {
-                    throw new RuntimeException("Couldn't post to "+ locale  + " - update failed.");
+                    throw new RuntimeException("Couldn't post to " + locale + " - update failed.");
                 }
             } finally {
                 DBUtils.close(pAdd, conn);
@@ -1045,10 +1044,10 @@ public class SurveyForum {
         printForumMenu(ctx, forum);
 
         ctx.print(forumFeedIcon(ctx, forum));
-        
-        ctx.println("<h3><a href='"+ CLDRConfig.getInstance()
+
+        ctx.println("<h3><a href='" + CLDRConfig.getInstance()
             .urls().forSpecial(CLDRURLS.Special.Forum, ctx.getLocale())
-            +"'>Please visit the NEW forum pages instead.</a></h3>");
+            + "'>Please visit the NEW forum pages instead.</a></h3>");
 
         ctx.println("<hr>");
         //        if (didpost) {
@@ -1637,7 +1636,7 @@ public class SurveyForum {
     static public String localeToForum(ULocale locale) {
         return locale.getLanguage();
     }
-    
+
     static public String localeToForum(CLDRLocale locale) {
         return localeToForum(locale.toULocale());
     }
@@ -1831,7 +1830,7 @@ public class SurveyForum {
                             String text = DBUtils.getStringUTF8(rs, 3);
                             java.sql.Timestamp lastDate = rs.getTimestamp(4); // TODO:
                                                                               // timestamp
-                            
+
                             subj = validateForXML(subj);
                             text = validateForXML(text);
                             int id = rs.getInt(5);
@@ -1902,22 +1901,21 @@ public class SurveyForum {
      * @return
      */
     private final String validateForXML(String str) {
-        if(VALID_FOR_XML.containsAll(str)) {
+        if (VALID_FOR_XML.containsAll(str)) {
             return str;
         } else {
-            UnicodeSet tmpSet = 
+            UnicodeSet tmpSet =
                 new UnicodeSet(VALID_FOR_XML)
-                .complement()
-                .retainAll(str);
+                    .complement()
+                    .retainAll(str);
             StringBuilder sb = new StringBuilder(str.length());
-            sb.append("((INVALID CHARS: " + tmpSet.toString() +" )) ");
+            sb.append("((INVALID CHARS: " + tmpSet.toString() + " )) ");
             int cp;
-            for(UCharacterIterator ui = UCharacterIterator.getInstance(str);
-                    (cp=ui.next())!=UCharacterIterator.DONE;) {
-                if(VALID_FOR_XML.contains(cp)) {
+            for (UCharacterIterator ui = UCharacterIterator.getInstance(str); (cp = ui.next()) != UCharacterIterator.DONE;) {
+                if (VALID_FOR_XML.contains(cp)) {
                     sb.append(Character.toChars(cp));
                 } else {
-                    sb.append("\\x{"+Integer.toHexString(cp)+"}");
+                    sb.append("\\x{" + Integer.toHexString(cp) + "}");
                 }
             }
             return sb.toString();
@@ -2054,7 +2052,7 @@ public class SurveyForum {
     public JSONArray toJSON(CookieSession session, CLDRLocale locale, int base_xpath) throws JSONException, SurveyException {
         return toJSON(session, locale, base_xpath, 0);
     }
-    
+
     /**
      * 
      * @param session
@@ -2077,30 +2075,35 @@ public class SurveyForum {
             try {
                 conn = sm.dbUtils.getDBConnection();
                 Object[][] o = null;
-                if(ident == 0) {
-                    if(base_xpath == 0) {
+                if (ident == 0) {
+                    if (base_xpath == 0) {
                         // all posts
                         o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora() + "  FROM " + DBUtils.Table.FORUM_POSTS.toString()
-                        + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? ) ORDER BY "
-                        + DBUtils.Table.FORUM_POSTS.toString()
-                        + ".last_time DESC", forumNumber);
+                            + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? ) ORDER BY "
+                            + DBUtils.Table.FORUM_POSTS.toString()
+                            + ".last_time DESC", forumNumber);
                     } else {
                         // all posts for xpath
                         o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora() + "  FROM " + DBUtils.Table.FORUM_POSTS.toString()
-                        + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? AND " + DBUtils.Table.FORUM_POSTS + " .xpath =? and " + DBUtils.Table.FORUM_POSTS + ".loc=? ) ORDER BY "
-                        + DBUtils.Table.FORUM_POSTS.toString()
-                        + ".last_time DESC", forumNumber, base_xpath,locale);
+                            + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? AND " + DBUtils.Table.FORUM_POSTS + " .xpath =? and "
+                            + DBUtils.Table.FORUM_POSTS + ".loc=? ) ORDER BY "
+                            + DBUtils.Table.FORUM_POSTS.toString()
+                            + ".last_time DESC", forumNumber, base_xpath, locale);
                     }
                 } else {
                     //specific POST
-                    if(base_xpath <= 0) {
-                        o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora() + "  FROM " + DBUtils.Table.FORUM_POSTS.toString()
-                            + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? AND " +/* DBUtils.Table.FORUM_POSTS + " .xpath =? AND " +*/ DBUtils.Table.FORUM_POSTS + " .id =?) ORDER BY " + DBUtils.Table.FORUM_POSTS.toString()
-                            + ".last_time DESC", forumNumber,/* base_xpath,*/ ident);
+                    if (base_xpath <= 0) {
+                        o = DBUtils.sqlQueryArrayArrayObj(conn,
+                            "select " + getPallresultfora() + "  FROM " + DBUtils.Table.FORUM_POSTS.toString()
+                                + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? AND "
+                                + /* DBUtils.Table.FORUM_POSTS + " .xpath =? AND " +*/DBUtils.Table.FORUM_POSTS + " .id =?) ORDER BY "
+                                + DBUtils.Table.FORUM_POSTS.toString()
+                                + ".last_time DESC", forumNumber,/* base_xpath,*/ident);
                     } else {
                         // just a restriction - specific post, specific xpath
                         o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora() + "  FROM " + DBUtils.Table.FORUM_POSTS.toString()
-                            + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? AND " + DBUtils.Table.FORUM_POSTS + " .xpath =? AND " + DBUtils.Table.FORUM_POSTS + " .id =?) ORDER BY " + DBUtils.Table.FORUM_POSTS.toString()
+                            + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? AND " + DBUtils.Table.FORUM_POSTS + " .xpath =? AND "
+                            + DBUtils.Table.FORUM_POSTS + " .id =?) ORDER BY " + DBUtils.Table.FORUM_POSTS.toString()
                             + ".last_time DESC", forumNumber, base_xpath, ident);
                     }
                 }
@@ -2115,18 +2118,19 @@ public class SurveyForum {
                         int id = (Integer) o[i][4];
                         int parent = (Integer) o[i][5];
                         int xpath = (Integer) o[i][6];
-                        String loc = (String)o[i][7];
+                        String loc = (String) o[i][7];
 
                         if (lastDate.after(oldOnOrBefore) || false) {
                             JSONObject post = new JSONObject();
                             post.put("poster", poster)
                                 .put("posterInfo", SurveyAjax.JSONWriter.wrap(CookieSession.sm.reg.getInfo(poster)))
-                                .put("subject", subj2).put("text", text2).put("date", lastDate).put("date_long", lastDate.getTime()).put("id", id).put("parent", parent);
-                            if(loc != null) {
+                                .put("subject", subj2).put("text", text2).put("date", lastDate).put("date_long", lastDate.getTime()).put("id", id)
+                                .put("parent", parent);
+                            if (loc != null) {
                                 post.put("locale", loc);
                             }
-                            post.put("xpath_id",xpath);
-                            if(xpath >0) {
+                            post.put("xpath_id", xpath);
+                            if (xpath > 0) {
                                 post.put("xpath", sm.xpt.getStringIDString(xpath));
                             }
                             ret.put(post);
@@ -2150,9 +2154,10 @@ public class SurveyForum {
     }
 
     private void assertCanAccessForum(CookieSession session, CLDRLocale locale) throws SurveyException {
-        if(session == null || session.user==null) throw new SurveyException(ErrorCode.E_NOT_LOGGED_IN);
+        if (session == null || session.user == null) throw new SurveyException(ErrorCode.E_NOT_LOGGED_IN);
         assertCanAccessForum(session.user, locale);
     }
+
     private void assertCanAccessForum(UserRegistry.User user, CLDRLocale locale) throws SurveyException {
         boolean canModify = (UserRegistry.userCanAccessForum(user, locale));
         if (!canModify)
@@ -2174,7 +2179,8 @@ public class SurveyForum {
     private static String getPallresultfora() {
         return DBUtils.Table.FORUM_POSTS + ".poster," + DBUtils.Table.FORUM_POSTS + ".subj," + DBUtils.Table.FORUM_POSTS + ".text,"
             + DBUtils.Table.FORUM_POSTS.toString()
-            + ".last_time," + DBUtils.Table.FORUM_POSTS + ".id,"+ DBUtils.Table.FORUM_POSTS + ".parent,"+ DBUtils.Table.FORUM_POSTS + ".xpath, "+DBUtils.Table.FORUM_POSTS+".loc";
+            + ".last_time," + DBUtils.Table.FORUM_POSTS + ".id," + DBUtils.Table.FORUM_POSTS + ".parent," + DBUtils.Table.FORUM_POSTS + ".xpath, "
+            + DBUtils.Table.FORUM_POSTS + ".loc";
     }
 
     /**
@@ -2191,7 +2197,7 @@ public class SurveyForum {
     public int doPost(CookieSession mySession, String xpath, CLDRLocale l, String subj, String text, int replyTo) throws SurveyException {
         assertCanAccessForum(mySession, l);
         int base_xpath;
-        if(replyTo < 0) {
+        if (replyTo < 0) {
             replyTo = NO_PARENT;
             base_xpath = mySession.sm.xpt.getXpathIdOrNoneFromStringID(xpath);
         } else {

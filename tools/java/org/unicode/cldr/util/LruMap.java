@@ -17,7 +17,7 @@ import java.util.Map;
  *            the value type
  *   
  */
-@Deprecated 
+@Deprecated
 public class LruMap<K, V> extends LinkedHashMap<K, V> {
 
     private static final boolean DEBUG_LRU_MAP = false;

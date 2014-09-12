@@ -229,7 +229,7 @@ public class OutdatedPaths {
 
     public static OutdatedPaths getInstance() {
         OutdatedPaths outdatedPaths = SINGLETON.get();
-        if(outdatedPaths == null) {
+        if (outdatedPaths == null) {
             outdatedPaths = new OutdatedPaths();
             SINGLETON = new SoftReference<OutdatedPaths>(outdatedPaths);
         }

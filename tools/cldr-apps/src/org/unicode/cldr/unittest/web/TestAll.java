@@ -119,10 +119,10 @@ public class TestAll extends TestGroup {
         super(new String[] {
             // use class.getName so we are in sync with name changes and
             // removals (if not additions)
-            TestIntHash.class.getName(), 
+            TestIntHash.class.getName(),
             TestXPathTable.class.getName(),
             TestMisc.class.getName(),
-            TestSTFactory.class.getName(), 
+            TestSTFactory.class.getName(),
             TestUserSettingsData.class.getName() }, "All tests in CLDR Web");
     }
 
@@ -315,7 +315,7 @@ public class TestAll extends TestGroup {
     public static DataSource setupDerbyDataSource(File theDir) {
         long start = System.currentTimeMillis();
         org.apache.derby.jdbc.EmbeddedDataSource ds = new EmbeddedDataSource();
-        if(theDir != null) {
+        if (theDir != null) {
             ds.setDatabaseName(theDir.getAbsolutePath());
         } else {
             ds.setDatabaseName("memory:sttest");

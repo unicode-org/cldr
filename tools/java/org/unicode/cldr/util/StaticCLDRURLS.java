@@ -7,6 +7,7 @@ package org.unicode.cldr.util;
  */
 public class StaticCLDRURLS extends CLDRURLS {
     private final String base;
+
     public StaticCLDRURLS(String base) {
         this.base = base;
     }

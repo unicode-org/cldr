@@ -100,9 +100,9 @@ public class SurveyLog {
                 .append('\n');
             sb.append(FIELD_SEP).append(LogField.STACK).append(' ').append(StackTracker.stackToString(t.getStackTrace(), 0))
                 .append('\n');
-            if(t instanceof SurveyException) {
-                sb.append(FIELD_SEP).append(LogField.SURVEYEXCEPTION).append(' ').append(((SurveyException)t).getErrCode())
-                .append('\n');
+            if (t instanceof SurveyException) {
+                sb.append(FIELD_SEP).append(LogField.SURVEYEXCEPTION).append(' ').append(((SurveyException) t).getErrCode())
+                    .append('\n');
             }
             if (t instanceof SQLException) {
                 SQLException se = ((SQLException) t);

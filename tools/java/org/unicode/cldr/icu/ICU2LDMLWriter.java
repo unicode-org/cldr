@@ -80,7 +80,6 @@ public class ICU2LDMLWriter extends CLDRConverterTool
 
     }
 
-
     private void usage()
     {
         System.out
@@ -101,7 +100,6 @@ public class ICU2LDMLWriter extends CLDRConverterTool
                 "** Note: ICU2LDMLWriter is no longer supported or functional. **\n");
         System.exit(-1);
     }
-
 
     // **********************Printing Methods *********************************
 

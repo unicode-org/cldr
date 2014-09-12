@@ -165,7 +165,7 @@ public interface BallotBox<T> {
      * @param xpath
      */
     public void revoteFor(User user, String xpath) throws InvalidXPathException, VoteNotAcceptedException;
-    
+
     /**
      * Get the last mod date (if known) of the most recent vote.
      * @param xpath

@@ -74,11 +74,11 @@ public class CLDRConfig extends Properties {
      * Object used for synchronization in getStandardCodes()
      */
     private static final Object GET_STANDARD_CODES_SYNC = new Object();
-    
+
     /**
      * Object used for synchronization in getCoverageInfo()
      */
-    private static Object COVERAGE_INFO_SYNC=new Object(); 
+    private static Object COVERAGE_INFO_SYNC = new Object();
 
     public enum Environment {
         LOCAL, // < == unknown.
@@ -137,8 +137,8 @@ public class CLDRConfig extends Properties {
     public String getInitStack() {
         return initStack;
     }
-  
-    private CoverageInfo coverageInfo=null;
+
+    private CoverageInfo coverageInfo = null;
     private SupplementalDataInfo supplementalDataInfo;
     private StandardCodes sc;
     private Factory cldrFactory;
@@ -193,15 +193,15 @@ public class CLDRConfig extends Properties {
         return sc;
     }
 
-    public CoverageInfo getCoverageInfo() { 
-        synchronized(COVERAGE_INFO_SYNC) { 
-            if (coverageInfo==null) { 
-                coverageInfo=new CoverageInfo(getSupplementalDataInfo()); 
-            } 
-        } 
-        return coverageInfo; 
-    } 
-    
+    public CoverageInfo getCoverageInfo() {
+        synchronized (COVERAGE_INFO_SYNC) {
+            if (coverageInfo == null) {
+                coverageInfo = new CoverageInfo(getSupplementalDataInfo());
+            }
+        }
+        return coverageInfo;
+    }
+
     public Factory getCldrFactory() {
         synchronized (CLDR_FACTORY_SYNC) {
             if (cldrFactory == null) {
@@ -210,7 +210,7 @@ public class CLDRConfig extends Properties {
         }
         return cldrFactory;
     }
-    
+
     public Factory getExemplarsFactory() {
         synchronized (EXEMPLARS_FACTORY_SYNC) {
             if (exemplarsFactory == null) {
@@ -219,6 +219,7 @@ public class CLDRConfig extends Properties {
         }
         return exemplarsFactory;
     }
+
     public Factory getCollationFactory() {
         synchronized (COLLATION_FACTORY_SYNC) {
             if (collationFactory == null) {
@@ -227,6 +228,7 @@ public class CLDRConfig extends Properties {
         }
         return collationFactory;
     }
+
     public Factory getRBNFFactory() {
         synchronized (RBNF_FACTORY_SYNC) {
             if (rbnfFactory == null) {
@@ -350,7 +352,7 @@ public class CLDRConfig extends Properties {
         }
         return curEnvironment;
     }
-    
+
     /**
      * If no environment is defined, what is the default?
      * @return
@@ -557,7 +559,7 @@ public class CLDRConfig extends Properties {
     public boolean getDebugSettingsFor(Class<?> callingClass) {
         return getDebugSettingsFor(callingClass, false);
     }
-    
+
     /**
      * Get the debug settings (whether debugging is enabled for the calling class; This will look for a property corresponding 
      * to the canonical classname +".debug"; if that property cannot be found, the default value will be returned.
@@ -567,32 +569,32 @@ public class CLDRConfig extends Properties {
      */
     public boolean getDebugSettingsFor(Class<?> callingClass, boolean defaultValue) {
         // avoid NPE
-        if (callingClass==null) {
+        if (callingClass == null) {
             return defaultValue;
         }
-       return getProperty(callingClass.getCanonicalName()+".debug", defaultValue);
+        return getProperty(callingClass.getCanonicalName() + ".debug", defaultValue);
     }
-    
+
     /**
      * Get the URL generator for "general purpose" (non chart) use.
      * @return
      */
     public CLDRURLS urls() {
-        if(urls == null) {
-            synchronized(this) {
+        if (urls == null) {
+            synchronized (this) {
                 urls = internalGetUrls();
             }
         }
         return urls;
     }
-    
+
     /**
      * Get the URL generator for "absolute" (chart, email) use.
      * By default, this is the same as urls.
      */
     public CLDRURLS absoluteUrls() {
-        if(absoluteUrls == null) {
-            synchronized(this) {
+        if (absoluteUrls == null) {
+            synchronized (this) {
                 absoluteUrls = internalGetAbsoluteUrls();
             }
         }

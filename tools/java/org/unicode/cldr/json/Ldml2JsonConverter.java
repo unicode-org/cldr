@@ -40,7 +40,7 @@ import com.ibm.icu.impl.Utility;
  * 
  * @author shanjian / emmons
  */
-@CLDRTool(alias="ldml2json",description="Convert CLDR data to JSON")
+@CLDRTool(alias = "ldml2json", description = "Convert CLDR data to JSON")
 public class Ldml2JsonConverter {
     private static boolean DEBUG = false;
     private static final String MAIN = "main";
@@ -246,7 +246,7 @@ public class Ldml2JsonConverter {
         } else {
             fileDtdType = DtdType.ldml;
         }
-        CoverageInfo covInfo=CLDRConfig.getInstance().getCoverageInfo();
+        CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         for (Iterator<String> it = file.iterator("", DtdData.getInstance(fileDtdType).getDtdComparator(null)); it.hasNext();) {
             int cv = Level.UNDETERMINED.getLevel();
             String path = it.next();
@@ -258,7 +258,7 @@ public class Ldml2JsonConverter {
             }
 
             if (!CLDRFile.isSupplementalName(locID) && path.startsWith("//ldml/") && !path.contains("/identity")) {
-                cv= covInfo.getCoverageValue(path, locID);
+                cv = covInfo.getCoverageValue(path, locID);
             }
             if (cv > coverageValue) {
                 continue;

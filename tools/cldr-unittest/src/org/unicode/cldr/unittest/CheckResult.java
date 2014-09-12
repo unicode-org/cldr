@@ -6,14 +6,16 @@ import com.ibm.icu.text.MessageFormat;
 
 /**
  * Class for holding error reports
+ * 
  * @author ribnitz
- *
+ * 
  */
 public class CheckResult {
 	/**
 	 * The status of a CheckResult
+	 * 
 	 * @author ribnitz
-	 *
+	 * 
 	 */
 	public enum ResultStatus {
 		error, warning;
@@ -23,7 +25,7 @@ public class CheckResult {
 	String message;
 	String locale;
 	String path;
-	
+
 	public String getLocale() {
 		return locale;
 	}
@@ -42,13 +44,13 @@ public class CheckResult {
 		return this;
 	}
 
-	public CheckResult() {}
-
-	public CheckResult setMessage(String msg, Object[] args) {
-		message=MessageFormat.format(msg, args);
-		return this;
+	public CheckResult() {
 	}
 
+	public CheckResult setMessage(String msg, Object[] args) {
+		message = MessageFormat.format(msg, args);
+		return this;
+	}
 
 	public CheckResult.ResultStatus getStatus() {
 		return status;
@@ -64,8 +66,9 @@ public class CheckResult {
 	}
 
 	/**
-	 * Factory method, initialize with (status,locale,path); depending on the result of pred, use ether (msgSuccess,objSuccess) or
-	 * (msgFail,objFail) to construct the message.
+	 * Factory method, initialize with (status,locale,path); depending on the
+	 * result of pred, use ether (msgSuccess,objSuccess) or (msgFail,objFail) to
+	 * construct the message.
 	 * 
 	 * @param status
 	 * @param locale
@@ -75,15 +78,19 @@ public class CheckResult {
 	 * @param msgFail
 	 * @param objSuccess
 	 * @param objFail
-	 * @return newly constructed CheckResult or null, in the case of an error occurring on Callable invocation
+	 * @return newly constructed CheckResult or null, in the case of an error
+	 *         occurring on Callable invocation
 	 */
-	public static CheckResult create(CheckResult.ResultStatus status,String locale,String path,Callable<Boolean> pred,
-			String msgSuccess,String msgFail, Object[] objSuccess,Object[] objFail) {
-		if (pred==null) {
+	public static CheckResult create(CheckResult.ResultStatus status,
+			String locale, String path, Callable<Boolean> pred,
+			String msgSuccess, String msgFail, Object[] objSuccess,
+			Object[] objFail) {
+		if (pred == null) {
 			throw new IllegalArgumentException("The callable must not be null");
 		}
 		try {
-			CheckResult result=new CheckResult().setStatus(status).setLocale(locale).setPath(path);
+			CheckResult result = new CheckResult().setStatus(status)
+					.setLocale(locale).setPath(path);
 			if (pred.call()) {
 				result.setMessage(msgSuccess, objSuccess);
 			} else {

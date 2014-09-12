@@ -358,7 +358,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 disallowed.removeAll(ALL_CURRENCY_SYMBOLS);
                 disallowed.removeAll(LETTER); // Allow ASCII A-Z in currency symbols
                 // String currency = new XPathParts().set(path).getAttributeValue(-2, "type");
-                if (disallowed.size() > 0 ) {
+                if (disallowed.size() > 0) {
                     // && asciiNotAllowed(getCldrFileToCheck().getLocaleID(), currency)) {
                     addMissingMessage(disallowed, CheckStatus.warningType,
                         Subtype.charactersNotInMainOrAuxiliaryExemplars,
@@ -369,7 +369,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         } else if (path.contains("/gmtFormat") || path.contains("/gmtZeroFormat")) {
             if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
                 disallowed.removeAll(LETTER); // Allow ASCII A-Z in gmtFormat and gmtZeroFormat
-                if (disallowed.size() > 0 ) {
+                if (disallowed.size() > 0) {
                     addMissingMessage(disallowed, CheckStatus.warningType,
                         Subtype.charactersNotInMainOrAuxiliaryExemplars,
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters",
@@ -382,7 +382,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 if (path.contains("/calendar[@type=\"generic\"]/months")) {
                     disallowed.removeAll("M"); // Generic-calendar month names contain 'M' and do not get modified
                 }
-                if (disallowed.size() > 0 ) {
+                if (disallowed.size() > 0) {
                     addMissingMessage(disallowed, CheckStatus.warningType,
                         Subtype.charactersNotInMainOrAuxiliaryExemplars,
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters",
@@ -395,7 +395,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 if (path.contains("[@type=\"iso8601\"]")) {
                     disallowed.removeAll("ISO"); // Name of ISO8601 calendar may contain "ISO" regardless of native script
                 }
-                if (disallowed.size() > 0 ) {
+                if (disallowed.size() > 0) {
                     addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars,
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
                 }

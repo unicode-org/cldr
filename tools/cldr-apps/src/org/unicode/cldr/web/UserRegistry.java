@@ -568,8 +568,7 @@ public class UserRegistry {
         try {
             synchronized (conn) {
                 // logger.info("UserRegistry DB: initializing...");
-            
-                
+
                 boolean hadUserTable = DBUtils.hasTable(conn, CLDR_USERS);
                 if (!hadUserTable) {
                     sql = createUserTable(conn);
@@ -584,7 +583,7 @@ public class UserRegistry {
                 }
 
                 //create review and post table
-                sql="(see ReviewHide.java)";
+                sql = "(see ReviewHide.java)";
                 ReviewHide.createTable(conn);
                 boolean hadInterestTable = DBUtils.hasTable(conn, CLDR_INTEREST);
                 if (!hadInterestTable) {
@@ -902,7 +901,7 @@ public class UserRegistry {
             throw new InternalError("UserRegistry: SQL error trying to get " + email + " - " + DBUtils.unchainSqlException(se));
             // return null;
         } catch (LogoutException le) {
-            if(pass!=null) {
+            if (pass != null) {
                 // only log this if they were actually trying to login.
                 logger.log(java.util.logging.Level.SEVERE, "AUTHENTICATION FAILURE; email=" + email + "; ip=" + ip);
             }
@@ -1516,7 +1515,7 @@ public class UserRegistry {
     }
 
     public User newUser(WebContext ctx, User u) {
-        final boolean hushUserMessages = CLDRConfig.getInstance().getEnvironment()==Environment.UNITTEST;
+        final boolean hushUserMessages = CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST;
         u.email = normalizeEmail(u.email);
         // prepare quotes
         u.email = u.email.replace('\'', '_').toLowerCase();
@@ -1537,7 +1536,7 @@ public class UserRegistry {
             insertStmt.setString(5, u.password);
             insertStmt.setString(6, normalizeLocaleList(u.locales));
             if (!insertStmt.execute()) {
-                if(!hushUserMessages)  logger.info("Added.");
+                if (!hushUserMessages) logger.info("Added.");
                 conn.commit();
                 if (ctx != null)
                     ctx.println("<p>Added user.<p>");
@@ -1606,7 +1605,7 @@ public class UserRegistry {
     }
 
     /** What level can the new user be, given requested? */
-    
+
     @Deprecated
     /**
      * 
@@ -1660,14 +1659,14 @@ public class UserRegistry {
         if (targetId == ADMIN_ID) {
             return false; // can't modify admin user
         }
-        if (managerUser==null) {
+        if (managerUser == null) {
             return false; // no user
         }
         if (userIsAdmin(managerUser)) {
             return true; // admin can modify everyone
         }
         final User otherUser = CookieSession.sm.reg.getInfo(targetId); // TODO static
-        if(otherUser == null) {
+        if (otherUser == null) {
             return false; // ?
         }
         if (!managerUser.org.equals(otherUser.org)) {
@@ -1687,11 +1686,11 @@ public class UserRegistry {
 
     static final boolean userCanDeleteUser(User managerUser, int targetId, int targetLevel) {
         return (userCanModifyUser(managerUser, targetId, targetLevel) && targetLevel > managerUser.userlevel); // must
-                                                                                        // be
-                                                                                        // at
-                                                                                        // a
-                                                                                        // lower
-                                                                                        // level
+        // be
+        // at
+        // a
+        // lower
+        // level
     }
 
     static final boolean userCanDoList(User managerUser) {
@@ -1775,18 +1774,20 @@ public class UserRegistry {
 
     public enum ModifyDenial {
         DENY_NULL_USER("No user specified"),
-        DENY_LOCALE_READONLY("Locale is read-only"), 
-        DENY_PHASE_READONLY("SurveyTool is in read-only mode"), 
+        DENY_LOCALE_READONLY("Locale is read-only"),
+        DENY_PHASE_READONLY("SurveyTool is in read-only mode"),
         DENY_ALIASLOCALE("Locale is an alias"),
-        DENY_DEFAULTCONTENT("Locale is the Default Content for another locale"), 
-        DENY_PHASE_CLOSED("SurveyTool is in 'closed' phase"), 
-        DENY_NO_RIGHTS("User does not have any voting rights"), 
+        DENY_DEFAULTCONTENT("Locale is the Default Content for another locale"),
+        DENY_PHASE_CLOSED("SurveyTool is in 'closed' phase"),
+        DENY_NO_RIGHTS("User does not have any voting rights"),
         DENY_LOCALE_LIST("User does not have rights to vote for this locale");
-        
+
         ModifyDenial(String reason) {
             this.reason = reason;
         }
+
         final String reason;
+
         public String getReason() {
             return reason;
         }
@@ -2297,9 +2298,9 @@ public class UserRegistry {
             }
         } catch (SQLException se) {
             /* logger.severe */System.err.println(/*
-                                                     * java.util.logging.Level.SEVERE
-                                                     * ,
-                                                     */"UserRegistry: SQL error trying to get orgs resultset for: VI " + " - "
+                                                      * java.util.logging.Level.SEVERE
+                                                      * ,
+                                                      */"UserRegistry: SQL error trying to get orgs resultset for: VI " + " - "
                 + DBUtils.unchainSqlException(se)/* ,se */);
         } finally {
             // close out the RS
@@ -2312,9 +2313,9 @@ public class UserRegistry {
                 }
             } catch (SQLException se) {
                 /* logger.severe */System.err.println(/*
-                                                         * java.util.logging.Level.
-                                                         * SEVERE,
-                                                         */"UserRegistry: SQL error trying to close out: "
+                                                          * java.util.logging.Level.
+                                                          * SEVERE,
+                                                          */"UserRegistry: SQL error trying to close out: "
                     + DBUtils.unchainSqlException(se)/* ,se */);
             }
         } // end try
@@ -2349,7 +2350,7 @@ public class UserRegistry {
         int nusers = 0;
         if (CLDRConfig.getInstance().getEnvironment() != Environment.SMOKETEST) {
             throw new InternalError("Error: can only do this in SMOKETEST"); // insanity
-                                                                         // check
+            // check
         }
 
         Connection conn = null;

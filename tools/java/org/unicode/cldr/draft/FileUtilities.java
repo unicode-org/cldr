@@ -20,12 +20,11 @@ import org.unicode.cldr.util.With.SimpleIterator;
 
 import com.ibm.icu.dev.util.BagFormatter;
 
-
 public final class FileUtilities {
 
     public static abstract class SemiFileReader extends FileProcessor {
         public final static Pattern SPLIT = Pattern.compile("\\s*;\\s*");
-        
+
         protected abstract boolean handleLine(int lineCount, int start, int end, String[] items);
 
         protected void handleEnd() {

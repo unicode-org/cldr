@@ -33,15 +33,14 @@ import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
-@CLDRTool(alias="checkhtmlfiles", description="Look for errors in CLDR documentation tools", hidden="Used for CLDR process")
+@CLDRTool(alias = "checkhtmlfiles", description = "Look for errors in CLDR documentation tools", hidden = "Used for CLDR process")
 public class CheckHtmlFiles {
 
     static final Set<String> NOPOP = new HashSet(Arrays.asList("br", "img", "link", "meta", "!doctype", "hr", "col", "input"));
-    
+
     static final EnumSet<Type> SUPPRESS = EnumSet.of(
         Type.ELEMENT, Type.ELEMENT_START, Type.ELEMENT_END, Type.ELEMENT_POP,
         Type.ATTRIBUTE, Type.ATTRIBUTE_CONTENT);
-
 
     final static Options myOptions = new Options();
     final static Writer LOG = new OutputStreamWriter(System.out);
@@ -58,7 +57,7 @@ public class CheckHtmlFiles {
             "|Modifications" +
             "|Migrating Persistent Data" +
             "|Updating Required" +
-        "|(Revision \\d+\\.?)");
+            "|(Revision \\d+\\.?)");
     static Pattern SUPPRESS_REVISION = Pattern.compile("Revision \\d+\\.?");
     static Pattern SPACES = Pattern.compile("\\s+");
 
@@ -99,8 +98,9 @@ public class CheckHtmlFiles {
         if (target.count == 0) {
             throw new IllegalArgumentException("No files matched with " + targetString);
         } else {
-            System.out.println("*TOTAL COUNTS*  files:"+target.count+", fatal errors:"+target.totalFatalCount+", nonfatal errors:"+target.totalErrorCount);
-            if(target.totalFatalCount>0 || target.totalErrorCount>0) {
+            System.out.println("*TOTAL COUNTS*  files:" + target.count + ", fatal errors:" + target.totalFatalCount + ", nonfatal errors:"
+                + target.totalErrorCount);
+            if (target.totalFatalCount > 0 || target.totalErrorCount > 0) {
                 System.exit(1); // give an error status
             } else {
                 System.exit(0);
@@ -358,7 +358,7 @@ public class CheckHtmlFiles {
 
         public HeadingInfo fixText() {
             if (text.endsWith(" ")) {
-                text = text.substring(0,text.length()-1);
+                text = text.substring(0, text.length() - 1);
             }
             return this;
         }
@@ -529,10 +529,10 @@ public class CheckHtmlFiles {
                 }
                 int lastSlash = fileRegex.lastIndexOf('/', firstParen);
                 base = fileRegex.substring(0, lastSlash);
-                regex = fileRegex.substring(lastSlash+1);
+                regex = fileRegex.substring(lastSlash + 1);
             } catch (Exception e) {
                 throw new IllegalArgumentException("Target file must be in special format. " +
-                		"Up to the first path part /.../ containing a paragraph is constant, and the rest is a regex.");
+                    "Up to the first path part /.../ containing a paragraph is constant, and the rest is a regex.");
             }
 
             //File sourceFile = new File(fileRegex);
@@ -544,7 +544,7 @@ public class CheckHtmlFiles {
             Matcher m = Pattern.compile(canonicalBase + "/" + regex).matcher("");
             System.out.println("Matcher: " + m);
 
-            return getSentences(sourceDirectory, m); 
+            return getSentences(sourceDirectory, m);
         }
 
         public Data getSentences(File sourceDirectory, Matcher m) throws IOException {
@@ -575,7 +575,7 @@ public class CheckHtmlFiles {
         }
 
         SimpleHtmlParser parser = new SimpleHtmlParser();
-        
+
         public void parseFile(File fileCanonical, int H2_START, Reader in) throws IOException {
             Matcher wsMatcher = WHITESPACE.matcher("");
             ++count;
@@ -586,7 +586,7 @@ public class CheckHtmlFiles {
             HeadingInfo heading = new HeadingInfo();
             HeadingInfoList headingInfoList = new HeadingInfoList(fileCanonical.getName(), H2_START);
             Stack<String> elementStack = new Stack<>();
-            Stack<Pair<String,String>> attributeStack = new Stack<>();
+            Stack<Pair<String, String>> attributeStack = new Stack<>();
             String contentString;
             boolean inHeading = false;
             boolean inPop = false;
@@ -611,7 +611,7 @@ public class CheckHtmlFiles {
                     } else {
                         inAnchor = false;
                     }
-                    attributeStack.add(new Pair(contentString,null));
+                    attributeStack.add(new Pair(contentString, null));
                     break;
                 case ATTRIBUTE_CONTENT:
                     contentString = content.toString().toLowerCase(Locale.ENGLISH);
@@ -633,7 +633,7 @@ public class CheckHtmlFiles {
                             peek = elementStack.peek();
                             if (!NOPOP.contains(peek)) {
                                 break;
-                            }                                
+                            }
                             elementStack.pop();
                         }
                         if (!peek.equals(contentString)) {
@@ -687,7 +687,7 @@ public class CheckHtmlFiles {
                     contentString = wsMatcher.reset(content).replaceAll(" ").replace("&nbsp;", " ");
                     buffer.append(contentString.indexOf('&') >= 0
                         ? TransliteratorUtilities.fromHTML.transform(contentString)
-                            : contentString);
+                        : contentString);
                     if (inHeading) {
                         heading.addText(contentString);
                     }

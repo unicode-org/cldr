@@ -555,7 +555,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     public boolean hasValueAtDPath(String path) {
         return (getValueAtDPath(path) != null);
     }
-    
+
     /**
      * Get the Last-Change Date (if known) when the value was changed.
      * SUBCLASSING: may be overridden. defaults to NULL.
@@ -801,7 +801,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             }
             return result;
         }
-        
+
         private String getFullPath(String xpath, AliasLocation fullStatus, String fullPathWhereFound) {
             String result = getFullPathAtDPathCache.get(xpath);
             if (result == null) {

@@ -339,8 +339,8 @@ public class QuickCheck {
         int total = 0;
         int mismatch = 0;
         LanguageTagParser ltp = new LanguageTagParser();
-        Iterable<String> locales=StandardCodes.make().getLocaleCoverageLocales(Organization.cldr.name(), EnumSet.of(Level.MODERN));
-        for (String locale : locales ) {
+        Iterable<String> locales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr.name(), EnumSet.of(Level.MODERN));
+        for (String locale : locales) {
             if (!ltp.set(locale).getRegion().isEmpty()) {
                 continue;
             }

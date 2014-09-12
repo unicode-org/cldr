@@ -323,7 +323,7 @@ public class Option {
      */
     private static String getCLDRToolDescription(Class<?> forClass) {
         CLDRTool cldrTool = forClass.getAnnotation(CLDRTool.class);
-        if( cldrTool != null  ) {
+        if (cldrTool != null) {
             return cldrTool.description();
         } else {
             return "(no @CLDRTool annotation)";

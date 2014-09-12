@@ -144,7 +144,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static final String R_STEPS = REPORT_PREFIX + "steps";
     public static final String R_VETTING = REPORT_PREFIX + "vetting";
     public static final String R_VETTING_JSON = REPORT_PREFIX + "vetting_json";
-    
+
     public static final String SURVEYMAIN_REVISION = "SurveyMain.java $Revision$";
 
     //private static final String CLDR_BULK_DIR = "CLDR_BULK_DIR";
@@ -171,12 +171,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public enum Phase {
         SUBMIT("Data Submission", CheckCLDR.Phase.SUBMISSION), // SUBMISSION
         VETTING("Vetting", CheckCLDR.Phase.VETTING), VETTING_CLOSED("Vetting Closed", CheckCLDR.Phase.FINAL_TESTING), // closed
-                                                                                                                // after
-                                                                                                                // vetting
-                                                                                                                // -
-                                                                                                                // open
-                                                                                                                // for
-                                                                                                                // admin
+        // after
+        // vetting
+        // -
+        // open
+        // for
+        // admin
         CLOSED("Closed", CheckCLDR.Phase.FINAL_TESTING), // closed
         DISPUTED("Dispute Resolution", CheckCLDR.Phase.VETTING), FINAL_TESTING("Final Testing", CheckCLDR.Phase.FINAL_TESTING), // FINAL_TESTING
         READONLY("Read-Only", CheckCLDR.Phase.FINAL_TESTING), BETA("Beta", CheckCLDR.Phase.SUBMISSION);
@@ -365,7 +365,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     /**
      * @deprecated use CLDRURLS
      */
-    private String defaultBase = CLDRURLS.DEFAULT_BASE+"/survey"; /* base URL */
+    private String defaultBase = CLDRURLS.DEFAULT_BASE + "/survey"; /* base URL */
     public static String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for
                                                                       // web
                                                                       // data
@@ -697,7 +697,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     final boolean autoProceed = ctx.hasField("new_and_login_autoProceed");
                     final boolean stayLoggedIn = ctx.hasField("new_and_login_stayLoggedIn");
                     ctx.println("<div style='margin: 2em;'>");
-                    if(autoProceed) {
+                    if (autoProceed) {
                         ctx.println("<img src='loader.gif' align='right'>");
                     } else {
                         ctx.println("<img src='STLogo.png' align='right'>");
@@ -729,8 +729,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     }
                     UserRegistry.User registeredUser = reg.newUser(ctx, u);
                     ctx.println("<i>" + ctx.iconHtml("okay", "added") + "'" + u.name
-                        + "'. <br>Email: " + u.email + "  <br>Password: " + u.password +" <br>userlevel: " + u.getLevel()+"<br>");
-                    if(autoProceed) {
+                        + "'. <br>Email: " + u.email + "  <br>Password: " + u.password + " <br>userlevel: " + u.getLevel() + "<br>");
+                    if (autoProceed) {
                         ctx.print("You should be logged in shortly, otherwise click this link:");
                     } else {
                         ctx.print("You will be logged in when you click this link:");
@@ -739,15 +739,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     ctx.println("<br>");
                     registeredUser.printPasswordLink(ctx);
                     ctx.println("<br><br><br><br><i>Note: this is a test account, and may be removed at any time.</i>");
-                    if(stayLoggedIn) {
+                    if (stayLoggedIn) {
                         ctx.addCookie(QUERY_EMAIL, u.email, TWELVE_WEEKS);
                         ctx.addCookie(QUERY_PASSWORD, u.password, TWELVE_WEEKS);
                     } else {
                         ctx.removeLoginCookies(request, response);
                     }
-                    if(autoProceed) {
+                    if (autoProceed) {
                         ctx.println("<script>window.setTimeout(function(){document.location = '" + ctx.base() + "/v?email=" + u.email + "&pw=" + u.password
-                           + "';},3000);</script>");
+                            + "';},3000);</script>");
                     }
                     ctx.println("</div>");
                 }
@@ -2696,7 +2696,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 //                    ctx.println("   <option value='" + LIST_ACTION_DELETE0
 //                        +"'>Delete user..</option>"); ctx.println("   <option>" +
 //                            LIST_ACTION_NONE + "</option>");
-                     
+
                     ctx.println("   <option value='" + LIST_ACTION_SHOW_PASSWORD + "'>Show password URL...</option>");
                     ctx.println("   <option value='" + LIST_ACTION_SEND_PASSWORD + "'>Resend password...</option>");
                     // ctx.println("   <option value='" + LIST_ACTION_SETLOCALES
@@ -2742,7 +2742,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 while (rs.next()) {
                     int theirId = rs.getInt(1);
                     int theirLevel = rs.getInt(2);
-                    if (!showLocked 
+                    if (!showLocked
                         && theirLevel >= UserRegistry.LOCKED
                         && just == null /* if only one user, show regardless of lock state. */) {
                         locked++;
@@ -2973,17 +2973,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
                                 "</option>");
 //                            if (just != null) {
-                                for (int i = 0; i < UserRegistry.ALL_LEVELS.length; i++) {
-                                    int lev = UserRegistry.ALL_LEVELS[i];
-                                    if(just == null && lev != UserRegistry.LOCKED) continue; // only allow mass LOCK (for now)
-                                    doChangeUserOption(
-                                        ctx,
-                                        lev,
-                                        theirLevel,
-                                        false && (preset_fromint == theirLevel)
-                                            && preset_do.equals(LIST_ACTION_SETLEVEL + lev));
-                                }
-                                ctx.println("   <option disabled>" + LIST_ACTION_NONE + "</option>");
+                            for (int i = 0; i < UserRegistry.ALL_LEVELS.length; i++) {
+                                int lev = UserRegistry.ALL_LEVELS[i];
+                                if (just == null && lev != UserRegistry.LOCKED) continue; // only allow mass LOCK (for now)
+                                doChangeUserOption(
+                                    ctx,
+                                    lev,
+                                    theirLevel,
+                                    false && (preset_fromint == theirLevel)
+                                        && preset_do.equals(LIST_ACTION_SETLEVEL + lev));
+                            }
+                            ctx.println("   <option disabled>" + LIST_ACTION_NONE + "</option>");
 //                            }
                             ctx.println("   <option ");
                             if ((preset_fromint == theirLevel) && preset_do.equals(LIST_ACTION_SHOW_PASSWORD)) {
@@ -4600,7 +4600,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public CLDRFile getOldFile(String locale, boolean resolved) {
         return getOldFile(CLDRLocale.getInstance(locale), resolved);
     }
-    
+
     /**
      * Get an "old" (previous CLDR version) locale file.
      * May return null if the locale wasn't available in that version.
@@ -4610,12 +4610,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     public CLDRFile getOldFile(CLDRLocale locale, boolean resolved) {
         Factory f = getOldFactory();
-        if(gOldAvailable.contains(locale)) {
+        if (gOldAvailable.contains(locale)) {
             return f.make(locale.getBaseName(), resolved);
         }
         return null; // not available
     }
-    
+
     /**
      * Get the factory corresponding to the old release version.
      * 
@@ -4689,9 +4689,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             try {
                 CLDRFile file = getDiskFactory().make(BASELINE_LOCALE.toString(), true);
                 file.setSupplementalDirectory(getSupplementalDirectory()); // so the
-                                                                    // icuServiceBuilder
-                                                                    // doesn't
-                                                                    // blow up.
+                // icuServiceBuilder
+                // doesn't
+                // blow up.
                 file.freeze(); // so it can be shared.
                 gBaselineFile = file;
 
@@ -5083,7 +5083,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             Set<CLDRLocale> failedSuppTest = new TreeSet<CLDRLocale>();
 
             // Initialize CoverageInfo outside the loop.
-            CoverageInfo covInfo=CLDRConfig.getInstance().getCoverageInfo();
+            CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
             for (File f : getInFiles()) {
                 CLDRLocale loc = fileNameToLocale(f.getName());
 
@@ -7277,14 +7277,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     private static CLDRFile gEnglishFile = null;
+
     /**
      * Get exactly the "en" disk file.
      * @see #getBaselineFile()
      * @return
      */
     public CLDRFile getEnglishFile() {
-        if(gEnglishFile == null) synchronized(this) {
-            CLDRFile english =  getDiskFactory().make(ULocale.ENGLISH.getBaseName(), true);
+        if (gEnglishFile == null) synchronized (this) {
+            CLDRFile english = getDiskFactory().make(ULocale.ENGLISH.getBaseName(), true);
             english.setSupplementalDirectory(getSupplementalDirectory());
             english.freeze();
             gEnglishFile = english;

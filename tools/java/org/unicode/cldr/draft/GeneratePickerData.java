@@ -49,7 +49,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.LocaleData;
 import com.ibm.icu.util.ULocale;
 
-@CLDRTool(alias = "generate-picker-data", description = "Generate draft.PickerData content", hidden="generator for draft data")
+@CLDRTool(alias = "generate-picker-data", description = "Generate draft.PickerData content", hidden = "generator for draft data")
 class GeneratePickerData {
     static final boolean DEBUG = true;
 
@@ -192,9 +192,9 @@ class GeneratePickerData {
         buildMainTable();
         addEmojiCharacters();
         addManualCorrections("ManualChanges.txt");
-        
+
         writeCategories();
-        
+
         String categoryData = CATEGORYTABLE.toString(true, outputDirectory);
         writeMainFile(outputDirectory, categoryData);
         // writeMainFile(outputDirectory, categoryData);
@@ -238,7 +238,6 @@ class GeneratePickerData {
         }
         out.close();
     }
-
 
     private static void buildMainTable() throws IOException {
         subheader = new Subheader(unicodeDataDirectory, outputDirectory);
@@ -1272,7 +1271,7 @@ class GeneratePickerData {
     }
 
     public static Set<Exception> ERROR_COUNT = new LinkedHashSet<Exception>();
-    
+
     /**
      * Provide a simple list of strings
      * @param source
@@ -1296,7 +1295,6 @@ class GeneratePickerData {
         return b.toString();
     }
 
-
     static class USet {
         Collection<String> strings;
 
@@ -1316,7 +1314,6 @@ class GeneratePickerData {
                 strings = new TreeSet<String>(sorted);
             }
         }
-        
 
         public String toString() {
             String result = Compacter.appendCompacted(strings);

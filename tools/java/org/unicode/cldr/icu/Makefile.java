@@ -78,7 +78,6 @@ class Makefile {
         addEntry(prefix + "_SOURCE", "Ordinary resources", sources);
     }
 
-  
     public void print(String outputDir, String filename) throws IOException {
         PrintWriter out = BagFormatter.openUTF8Writer(outputDir, filename);
         String[] params = {
@@ -89,7 +88,7 @@ class Makefile {
         };
         FileCopier.copyAndReplace(NewLdml2IcuConverter.class, "makefile_header.txt",
             Charset.forName("UTF-8"),
-            StringArrayToMap.from(params), 
+            StringArrayToMap.from(params),
             out);
 //        FileUtilities.appendFile(NewLdml2IcuConverter.class, "makefile_header.txt",
 //            Charset.forName("UTF-8"), params, out);

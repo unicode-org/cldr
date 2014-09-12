@@ -12,7 +12,7 @@ public class CheckNew extends CheckCLDR {
     private OutdatedPaths outdatedPaths;
 
     public CheckNew(Factory factory) {
-    	outdatedPaths = OutdatedPaths.getInstance();
+        outdatedPaths = OutdatedPaths.getInstance();
         english = factory.make("en", true);
     }
 
@@ -39,7 +39,7 @@ public class CheckNew extends CheckCLDR {
 
         Date modified = getCldrFileToCheck().getLastModifiedDate(path);
         if (modified != null) return this;
-        
+
         boolean isOutdated = outdatedPaths.isOutdated(getCldrFileToCheck().getLocaleID(), path);
         if (!isOutdated) return this;
 

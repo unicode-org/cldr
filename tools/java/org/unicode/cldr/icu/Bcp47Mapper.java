@@ -112,7 +112,7 @@ public class Bcp47Mapper {
                 typeAliasPrefix = "/typeAlias/" + keyAlias + '/';
                 typeMapPrefix = "/typeMap/" + keyAlias + '/';
                 keyMap.put(keyName, keyAlias);
-                bcpTypeAliasPrefix = "/bcpTypeAlias/" + keyName + '/'; 
+                bcpTypeAliasPrefix = "/bcpTypeAlias/" + keyName + '/';
             } else if (qName.equals("type")) {
                 String typeName = attr.getValue("name");
                 if (typeName == null) {

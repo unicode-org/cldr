@@ -223,8 +223,8 @@ public class LocaleMapper extends Mapper {
 
             // Add rb paths.
             Output<Finder> matcherFound = new Output<Finder>();
-            Output<String[]> firstInfo= new Output<>();
-            RegexResult regexResult = matchXPath(pathConverter, cldr, xpath, matcherFound,firstInfo);
+            Output<String[]> firstInfo = new Output<>();
+            RegexResult regexResult = matchXPath(pathConverter, cldr, xpath, matcherFound, firstInfo);
             if (regexResult == null) continue;
 //            String[] arguments = matcherFound.value.getInfo();
             String[] arguments = firstInfo.value;
@@ -319,7 +319,7 @@ public class LocaleMapper extends Mapper {
         String fullPath = cldr.getFullXPath(path);
         fullPath = fullPath == null ? path : DRAFT_PATTERN.matcher(fullPath).replaceAll("");
         List<String> debugResults = isDebugXPath(fullPath) ? new ArrayList<String>() : null;
-        Output<String[]> info=new Output<>();
+        Output<String[]> info = new Output<>();
         RegexResult result = lookup.get(fullPath, null, info, matcherFound, debugResults);
         if (debugResults != null) {
             if (result == null) {
@@ -328,8 +328,8 @@ public class LocaleMapper extends Mapper {
                 System.out.println(fullPath + " successfully matched");
             }
         }
-        if (firstInfo!=null && info.value!=null) {
-            firstInfo.value=info.value;
+        if (firstInfo != null && info.value != null) {
+            firstInfo.value = info.value;
         }
         return result;
     }
@@ -352,9 +352,9 @@ public class LocaleMapper extends Mapper {
         Set<String> validRbPaths, RegexLookup<RegexResult> pathConverter,
         Map<String, CldrArray> pathValueMap) {
         Output<Finder> matcher = new Output<Finder>();
-        Output<String[]> firstInfo=new Output<>();
+        Output<String[]> firstInfo = new Output<>();
         RegexResult regexResult = matchXPath(pathConverter,
-            cldrFile, xpath, matcher,firstInfo);
+            cldrFile, xpath, matcher, firstInfo);
         if (regexResult == null) return;
 //        String[] arguments = matcher.value.getInfo();
         String[] arguments = firstInfo.value;

@@ -66,7 +66,7 @@ public class IcuTextWriter {
         if (headerText != null) {
             return headerText;
         }
-        try(StringWriter stringWriter = new StringWriter();) {
+        try (StringWriter stringWriter = new StringWriter();) {
             FileCopier.copy(NewLdml2IcuConverter.class, "ldml2icu_header.txt", stringWriter);
             headerText = stringWriter.toString();
             headerText = headerText.replace("%year%", String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
@@ -229,14 +229,13 @@ public class IcuTextWriter {
         // TODO(jchye): Add this as an option to the locale file instead of hardcoding.
         // System.out.println(name + "\t" + rbPath);
         if (topValues) {
-            return (rbPath.startsWith("/rules/set") 
-                && name.equals("pluralRanges"));
+            return (rbPath.startsWith("/rules/set")
+            && name.equals("pluralRanges"));
         }
-        return rbPath.equals("/LocaleScript") 
+        return rbPath.equals("/LocaleScript")
             || (rbPath.contains("/eras/") && !rbPath.endsWith(":alias"))
-            || rbPath.startsWith("/calendarPreferenceData") 
-            || rbPath.startsWith("/metazoneInfo")
-            ;
+            || rbPath.startsWith("/calendarPreferenceData")
+            || rbPath.startsWith("/metazoneInfo");
     }
 
     private static PrintWriter appendArray(String padding, String[] valueArray,

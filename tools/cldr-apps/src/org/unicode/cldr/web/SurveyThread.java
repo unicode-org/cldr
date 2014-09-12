@@ -280,7 +280,7 @@ public class SurveyThread extends Thread {
             throw new InternalError(complaint);
         }
     }
-    
+
     public boolean removeTask(SurveyTask t) {
         return tasks.remove(t);
     }

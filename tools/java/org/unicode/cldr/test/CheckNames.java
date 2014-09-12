@@ -22,8 +22,8 @@ public class CheckNames extends CheckCLDR {
         Matcher matcher = YEAR_PATTERN.matcher(value);
         if (matcher.find()) {
             // If same as the code-fallback value (territories) then no error
-            if ( path.startsWith("//ldml/localeDisplayNames/territories") && 
-                getCldrFileToCheck().getBaileyValue(path,null,null).equals(value)) {
+            if (path.startsWith("//ldml/localeDisplayNames/territories") &&
+                getCldrFileToCheck().getBaileyValue(path, null, null).equals(value)) {
                 return this;
             }
             // Allow years in currencies if enclosed by brackets.

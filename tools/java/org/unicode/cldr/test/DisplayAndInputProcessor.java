@@ -85,8 +85,8 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale MYANMAR = CLDRLocale.getInstance("my");
     private static final CLDRLocale GERMAN_SWITZERLAND = CLDRLocale.getInstance("de_CH");
     private static final CLDRLocale SWISS_GERMAN = CLDRLocale.getInstance("gsw");
-    public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE = 
-        new HashSet<String>(Arrays.asList("br","bss","cch","gn","ha","ha_Latn","lkt","mgo","moh","nnh","qu","quc","uk","uz","uz_Latn"));
+    public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE =
+        new HashSet<String>(Arrays.asList("br", "bss", "cch", "gn", "ha", "ha_Latn", "lkt", "mgo", "moh", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
     private static final char[][] ROMANIAN_CONVERSIONS = {
@@ -245,7 +245,7 @@ public class DisplayAndInputProcessor {
         }
         // Fix up any apostrophes as appropriate (Don't do so for things like date patterns...
         if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
-             value = normalizeApostrophes(value);
+            value = normalizeApostrophes(value);
         }
         return value;
     }
@@ -396,7 +396,7 @@ public class DisplayAndInputProcessor {
 
             // Fix up any apostrophes as appropriate (Don't do so for things like date patterns...
             if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
-                 value = normalizeApostrophes(value);
+                value = normalizeApostrophes(value);
             }
             return value;
         } catch (RuntimeException e) {
@@ -479,6 +479,7 @@ public class DisplayAndInputProcessor {
             return builder.toString();
         }
     }
+
     private String standardizeRomanian(String value) {
         StringBuilder builder = new StringBuilder();
         for (char c : value.toCharArray()) {
@@ -546,7 +547,7 @@ public class DisplayAndInputProcessor {
         return builder.toString();
     }
 
-    private String standardizeSwissGerman(String value) {       
+    private String standardizeSwissGerman(String value) {
         return value.replaceAll("\u00DF", "ss");
     }
 

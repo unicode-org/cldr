@@ -133,14 +133,14 @@ public class TestSTFactory extends TestFmwk {
 
             box.voteForValue(getMyUser(), somePath, changedTo); // vote again
             expect(somePath, changedTo, true, mt, box);
-            
+
             Date modDate = mt.getLastModifiedDate(somePath);
-            if(modDate == null) {
+            if (modDate == null) {
                 errln("@1: mod date was null!");
             } else {
-                logln("@1: mod date " + modDate );
+                logln("@1: mod date " + modDate);
             }
-            
+
         }
 
         // Restart STFactory.
@@ -153,37 +153,37 @@ public class TestSTFactory extends TestFmwk {
 
             {
                 Date modDate = mt.getLastModifiedDate(somePath);
-                if(modDate == null) {
+                if (modDate == null) {
                     errln("@2: mod date was null!");
                 } else {
-                    logln("@2: mod date " + modDate );
+                    logln("@2: mod date " + modDate);
                 }
             }
-            CLDRFile mt2= fac.make(locale, true);
+            CLDRFile mt2 = fac.make(locale, true);
             {
                 Date modDate = mt2.getLastModifiedDate(somePath);
-                if(modDate == null) {
+                if (modDate == null) {
                     errln("@2a: mod date was null!");
                 } else {
-                    logln("@2a: mod date " + modDate );
+                    logln("@2a: mod date " + modDate);
                 }
             }
             CLDRFile mtMT = fac.make(localeSub, true);
             {
                 Date modDate = mtMT.getLastModifiedDate(somePath);
-                if(modDate == null) {
+                if (modDate == null) {
                     errln("@2b: mod date was null!");
                 } else {
-                    logln("@2b: mod date " + modDate );
+                    logln("@2b: mod date " + modDate);
                 }
             }
             CLDRFile mtMTb = fac.make(localeSub, false);
             {
                 Date modDate = mtMTb.getLastModifiedDate(somePath);
-                if(modDate != null) {
+                if (modDate != null) {
                     errln("@2c: mod date was " + modDate);
                 } else {
-                    logln("@2c: mod date was " + modDate );
+                    logln("@2c: mod date was " + modDate);
                 }
             }
             // unvote
@@ -192,10 +192,10 @@ public class TestSTFactory extends TestFmwk {
             expect(somePath, originalValue, false, mt, box);
             {
                 Date modDate = mt.getLastModifiedDate(somePath);
-                if(modDate != null) {
+                if (modDate != null) {
                     errln("@3: mod date was not null! " + modDate);
                 } else {
-                    logln("@3: mod date " + modDate );
+                    logln("@3: mod date " + modDate);
                 }
             }
         }
@@ -361,11 +361,11 @@ public class TestSTFactory extends TestFmwk {
     public void TestVettingDataDriven() throws SQLException, IOException {
         runDataDrivenTest(TestSTFactory.class.getSimpleName());
     }
-    
+
     public void TestUserRegistry() throws SQLException, IOException {
         runDataDrivenTest("TestUserRegistry");
     }
-    
+
     private void runDataDrivenTest(final String fileBasename) throws SQLException, IOException {
         final STFactory fac = getFactory();
         final File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName() + "_output");
@@ -377,6 +377,7 @@ public class TestSTFactory extends TestFmwk {
         final Map<String, String> vars = new TreeMap<String, String>();
         myReader.setHandler(new XMLFileReader.SimpleHandler() {
             final Map<String, UserRegistry.User> users = new TreeMap<String, UserRegistry.User>();
+
             public void handlePathValue(String path, String value) {
 
                 if (value != null && value.startsWith("$")) {
@@ -392,12 +393,12 @@ public class TestSTFactory extends TestFmwk {
                     attrs.put(k, xpp.getAttributeValue(-1, k));
                 }
                 String elem = xpp.getElement(-1);
-                if(false) logln("* <" + elem + " " + attrs.toString() + ">" + value + "</" + elem + ">");
+                if (false) logln("* <" + elem + " " + attrs.toString() + ">" + value + "</" + elem + ">");
                 String xpath = attrs.get("xpath");
                 if (xpath != null) {
                     xpath = xpath.trim().replace("'", "\"");
                 }
-                switch(elem) {
+                switch (elem) {
                 case "user": {
                     String name = attrs.get("name");
                     String org = attrs.get("org");
@@ -414,7 +415,7 @@ public class TestSTFactory extends TestFmwk {
                         proto.password = UserRegistry.makePassword(proto.email);
                         proto.userlevel = level.getSTLevel();
                         proto.locales = UserRegistry.normalizeLocaleList(locales);
-                        if(false) System.err.println("locale list was  " + proto.locales);
+                        if (false) System.err.println("locale list was  " + proto.locales);
                         u = fac.sm.reg.newUser(null, proto);
                     }
                     if (u == null) {
@@ -424,7 +425,7 @@ public class TestSTFactory extends TestFmwk {
                         users.put(name, u);
                     }
                 }
-                break;
+                    break;
                 case "setvar": {
                     final String id = attrs.get("id");
                     final CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
@@ -432,7 +433,7 @@ public class TestSTFactory extends TestFmwk {
                     vars.put(id, xvalue);
                     logln("$" + id + " = '" + xvalue + "' from " + locale + ":" + xpath);
                 }
-                break;
+                    break;
                 case "vote":
                 case "unvote": {
                     UserRegistry.User u = getUserFromAttrs(attrs, "name");
@@ -462,7 +463,7 @@ public class TestSTFactory extends TestFmwk {
                     }
                     logln(u + " " + elem + "d for " + xpath + " = " + value);
                 }
-                break;
+                    break;
                 case "verify": {
                     value = value.trim();
                     if (value.isEmpty())
@@ -572,54 +573,55 @@ public class TestSTFactory extends TestFmwk {
                     }
 
                 }
-                break;
+                    break;
                 case "verifyUser":
                 {
                     final User u = getUserFromAttrs(attrs, "name");
                     final User onUser = getUserFromAttrs(attrs, "onUser");
-                    
+
                     final String action = attrs.get("action");
                     final boolean allowed = getBooleanAttr(attrs, "allowed", true);
-                    
+
                     boolean actualResult = true;
-                    
+
 //                    <!ATTLIST verifyUser action ( create | delete | modify | list ) #REQUIRED>
                     final Level uLevel = u.getLevel();
                     final Level onLevel = onUser.getLevel();
-                    switch(action) {
+                    switch (action) {
                     case "create":
                         actualResult = actualResult && UserRegistry.userCanCreateUsers(u);
-                        if ( !u.isSameOrg(onUser) ) {
+                        if (!u.isSameOrg(onUser)) {
                             actualResult = actualResult && UserRegistry.userCreateOtherOrgs(u); // if of different org
                         }
                         {
                             // test both of these functions.
                             final boolean newTest = (uLevel.canCreateOrSetLevelTo(onLevel));
-                            final boolean oldTest = UserRegistry.userCanCreateUsers(u)&&(onUser.userlevel == UserRegistry.userCanCreateUserOfLevel(u, onUser.userlevel));
-                            assertEquals("New(ex) vs old(got) create test: "+  uLevel +"/"+onLevel, newTest, oldTest);
+                            final boolean oldTest = UserRegistry.userCanCreateUsers(u)
+                                && (onUser.userlevel == UserRegistry.userCanCreateUserOfLevel(u, onUser.userlevel));
+                            assertEquals("New(ex) vs old(got) create test: " + uLevel + "/" + onLevel, newTest, oldTest);
                             actualResult = actualResult && newTest;
                         }
                         break;
                     case "delete": // assume same perms for now (?)
                     case "modify":
-                        {
-                            final boolean oldTest = u.isAdminFor(onUser);
-                            final boolean newTest = uLevel.canManageSomeUsers() && uLevel.isManagerFor(u.getOrganization(), onLevel, onUser.getOrganization());
-                            assertEquals("New(ex) vs old(got) manage test: "+  uLevel +"/"+onLevel, newTest, oldTest);
-                            actualResult = actualResult && newTest;
-                        }
+                    {
+                        final boolean oldTest = u.isAdminFor(onUser);
+                        final boolean newTest = uLevel.canManageSomeUsers() && uLevel.isManagerFor(u.getOrganization(), onLevel, onUser.getOrganization());
+                        assertEquals("New(ex) vs old(got) manage test: " + uLevel + "/" + onLevel, newTest, oldTest);
+                        actualResult = actualResult && newTest;
+                    }
                         break;
                     default:
                         errln("Unhandled action: " + action);
                     }
-                    assertEquals(u.org+":"+uLevel +" "+action+" "+onUser.org+":"+onLevel, allowed, actualResult);
+                    assertEquals(u.org + ":" + uLevel + " " + action + " " + onUser.org + ":" + onLevel, allowed, actualResult);
                 }
-                break;
+                    break;
                 case "echo":
                 case "warn":
                     logln("*** " + elem + "  \"" + value.trim() + "\"");
                     break;
-                default:   
+                default:
                     throw new IllegalArgumentException("Unknown test element type " + elem);
                 }
             }
@@ -630,7 +632,7 @@ public class TestSTFactory extends TestFmwk {
              */
             public boolean getBooleanAttr(final Map<String, String> attrs, String attr, boolean defaultValue) {
                 final String strVal = attrs.get(attr);
-                if(strVal==null || strVal.isEmpty()) {
+                if (strVal == null || strVal.isEmpty()) {
                     return defaultValue;
                 }
                 return Boolean.parseBoolean(strVal);
@@ -650,7 +652,7 @@ public class TestSTFactory extends TestFmwk {
                 }
                 UserRegistry.User u = users.get(attrValue);
                 if (u == null) {
-                    throw new IllegalArgumentException("Undeclared user: " + attr+"=\"" + attrValue + "\" - are you missing a <user> element?");
+                    throw new IllegalArgumentException("Undeclared user: " + attr + "=\"" + attrValue + "\" - are you missing a <user> element?");
                 }
                 return u;
             };
@@ -904,7 +906,7 @@ public class TestSTFactory extends TestFmwk {
     }
 
     private STFactory resetFactory() throws SQLException {
-        if(gFac == null) {
+        if (gFac == null) {
             logln("STFactory wasn't loaded - not resetting.");
             return getFactory();
         } else {

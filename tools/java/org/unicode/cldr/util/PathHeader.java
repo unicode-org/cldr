@@ -142,13 +142,13 @@ public class PathHeader implements Comparable<PathHeader> {
         Alphabetic_Information(SectionId.Core_Data, "Alphabetic Information"),
         Numbering_Systems(SectionId.Core_Data, "Numbering Systems"),
         Locale_Name_Patterns(SectionId.Locale_Display_Names, "Locale Name Patterns"),
-        Languages_A_D(SectionId.Locale_Display_Names,"Languages (A-D)"),
-        Languages_E_J(SectionId.Locale_Display_Names,"Languages (E-J)"),
-        Languages_K_N(SectionId.Locale_Display_Names,"Languages (K-N)"),
-        Languages_O_S(SectionId.Locale_Display_Names,"Languages (O-S)"),
-        Languages_T_Z(SectionId.Locale_Display_Names,"Languages (T-Z)"),
+        Languages_A_D(SectionId.Locale_Display_Names, "Languages (A-D)"),
+        Languages_E_J(SectionId.Locale_Display_Names, "Languages (E-J)"),
+        Languages_K_N(SectionId.Locale_Display_Names, "Languages (K-N)"),
+        Languages_O_S(SectionId.Locale_Display_Names, "Languages (O-S)"),
+        Languages_T_Z(SectionId.Locale_Display_Names, "Languages (T-Z)"),
         Scripts(SectionId.Locale_Display_Names),
-        Territories(SectionId.Locale_Display_Names,"Geographic Regions"),
+        Territories(SectionId.Locale_Display_Names, "Geographic Regions"),
         T_NAmerica(SectionId.Locale_Display_Names, "Territories (North America)"),
         T_SAmerica(SectionId.Locale_Display_Names, "Territories (South America)"),
         T_Africa(SectionId.Locale_Display_Names, "Territories (Africa)"),
@@ -368,8 +368,8 @@ public class PathHeader implements Comparable<PathHeader> {
                 throw new IllegalArgumentException("English CLDRFile must not be null");
             }
             if (!englishFile.getLocaleID().equals(ULocale.ENGLISH.getBaseName())) {
-                throw new IllegalArgumentException("PathHeader's CLDRFile must be '"+
-                            ULocale.ENGLISH.getBaseName()+"', but found '"+englishFile.getLocaleID()+"'");
+                throw new IllegalArgumentException("PathHeader's CLDRFile must be '" +
+                    ULocale.ENGLISH.getBaseName() + "', but found '" + englishFile.getLocaleID() + "'");
             }
             factorySingleton = new Factory(englishFile);
         }
@@ -639,7 +639,7 @@ public class PathHeader implements Comparable<PathHeader> {
                         }
                         SectionPage sectionPage = pageToPathHeaders.get(result.pageId);
                         if (sectionPage == null) {
-                            sectionPage= new SectionPage(result.sectionId, result.pageId);
+                            sectionPage = new SectionPage(result.sectionId, result.pageId);
                             pageToPathHeaders.put(result.pageId, sectionPage);
                         }
                         sectionPageToPaths.put(sectionPage, path);
@@ -1112,13 +1112,15 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             });
             functionMap.put("languageSection", new Transform<String, String>() {
-                char [] languageRangeStartPoints = { 'a', 'e', 'k', 'o', 't' };
-                char [] languageRangeEndPoints = { 'd', 'j', 'n', 's', 'z' };
+                char[] languageRangeStartPoints = { 'a', 'e', 'k', 'o', 't' };
+                char[] languageRangeEndPoints = { 'd', 'j', 'n', 's', 'z' };
+
                 public String transform(String source0) {
                     char firstLetter = source0.charAt(0);
-                    for ( int i = 0 ; i < languageRangeStartPoints.length ; i++ ) {
-                        if ( firstLetter >= languageRangeStartPoints[i] && firstLetter <= languageRangeEndPoints[i] ) {
-                            return "Languages (" + Character.toUpperCase(languageRangeStartPoints[i]) + "-" + Character.toUpperCase(languageRangeEndPoints[i]) + ")";
+                    for (int i = 0; i < languageRangeStartPoints.length; i++) {
+                        if (firstLetter >= languageRangeStartPoints[i] && firstLetter <= languageRangeEndPoints[i]) {
+                            return "Languages (" + Character.toUpperCase(languageRangeStartPoints[i]) + "-" + Character.toUpperCase(languageRangeEndPoints[i])
+                                + ")";
                         }
                     }
                     return "Languages";
@@ -1151,27 +1153,28 @@ public class PathHeader implements Comparable<PathHeader> {
                         return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
                     }
                 });
-            functionMap.put("territorySection",new Transform<String, String>() {
-                final Set<String> specialRegions = new HashSet<String>(Arrays.asList("QO","ZZ"));
+            functionMap.put("territorySection", new Transform<String, String>() {
+                final Set<String> specialRegions = new HashSet<String>(Arrays.asList("QO", "ZZ"));
+
                 public String transform(String source0) {
                     String theTerritory = source0;
                     try {
                         if (specialRegions.contains(theTerritory) || Integer.valueOf(theTerritory) > 0) {
                             return "Geographic Regions";
                         }
-                    } catch ( NumberFormatException ex ) {
+                    } catch (NumberFormatException ex) {
                     }
                     String theContinent = Containment.getContinent(theTerritory);
                     String theSubContinent;
                     switch (Integer.valueOf(theContinent)) {
-                        case 19: // Americas - For the territorySection, we just group North America & South America
-                            theSubContinent = Integer.valueOf(Containment.getSubcontinent(theTerritory)) == 5 ? "005" : "003";
-                            return "Territories ("+englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent)+")";
-                        default:
-                            return "Territories ("+englishFile.getName(CLDRFile.TERRITORY_NAME, theContinent)+")";
+                    case 19: // Americas - For the territorySection, we just group North America & South America
+                        theSubContinent = Integer.valueOf(Containment.getSubcontinent(theTerritory)) == 5 ? "005" : "003";
+                        return "Territories (" + englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent) + ")";
+                    default:
+                        return "Territories (" + englishFile.getName(CLDRFile.TERRITORY_NAME, theContinent) + ")";
                     }
                 }
-           });
+            });
             functionMap.put("categoryFromTimezone",
                 catFromTimezone = new Transform<String, String>() {
                     public String transform(String source0) {
@@ -1182,8 +1185,9 @@ public class PathHeader implements Comparable<PathHeader> {
                         return catFromTerritory.transform(territory);
                     }
                 });
-            functionMap.put("timeZonePage",new Transform<String, String>() {
-                Set<String> singlePageTerritories = new HashSet<String>(Arrays.asList("AQ","RU","ZZ"));
+            functionMap.put("timeZonePage", new Transform<String, String>() {
+                Set<String> singlePageTerritories = new HashSet<String>(Arrays.asList("AQ", "RU", "ZZ"));
+
                 public String transform(String source0) {
                     String theTerritory = Containment.getRegionFromZone(source0);
                     if (theTerritory == null || theTerritory == "001") {
@@ -1195,23 +1199,23 @@ public class PathHeader implements Comparable<PathHeader> {
                     String theContinent = Containment.getContinent(theTerritory);
                     String theSubContinent;
                     switch (Integer.valueOf(theContinent)) {
-                        case 9: // Oceania - For the timeZonePage, we group Australasia on one page, and the rest of Oceania on the other.
-                            try {
-                                theSubContinent = Integer.valueOf(Containment.getSubcontinent(theTerritory)) == 53 ? "053" : "009";                                
-                            } catch ( NumberFormatException ex ) {
-                                theSubContinent = "009";
-                            }
-                            return englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent);
-                        case 19: // Americas - For the timeZonePage, we just group North America & South America
-                            theSubContinent = Integer.valueOf(Containment.getSubcontinent(theTerritory)) == 5 ? "005" : "003";
-                            return englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent);
-                       case 142: // Asia
-                            return englishFile.getName(CLDRFile.TERRITORY_NAME, Containment.getSubcontinent(theTerritory));
-                        default:
-                            return englishFile.getName(CLDRFile.TERRITORY_NAME, theContinent);
+                    case 9: // Oceania - For the timeZonePage, we group Australasia on one page, and the rest of Oceania on the other.
+                        try {
+                            theSubContinent = Integer.valueOf(Containment.getSubcontinent(theTerritory)) == 53 ? "053" : "009";
+                        } catch (NumberFormatException ex) {
+                            theSubContinent = "009";
+                        }
+                        return englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent);
+                    case 19: // Americas - For the timeZonePage, we just group North America & South America
+                        theSubContinent = Integer.valueOf(Containment.getSubcontinent(theTerritory)) == 5 ? "005" : "003";
+                        return englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent);
+                    case 142: // Asia
+                        return englishFile.getName(CLDRFile.TERRITORY_NAME, Containment.getSubcontinent(theTerritory));
+                    default:
+                        return englishFile.getName(CLDRFile.TERRITORY_NAME, theContinent);
                     }
                 }
-           });
+            });
 
             functionMap.put("timezoneSorting", new Transform<String, String>() {
                 public String transform(String source) {
@@ -1412,23 +1416,23 @@ public class PathHeader implements Comparable<PathHeader> {
                     String displayName = englishFile.getStringValue("//ldml/localeDisplayNames/types/type[@type=\""
                         + source0 +
                         "\"][@key=\"numbers\"]");
-                    return "using " + ( displayName == null ? source0 : displayName + " (" + source0 + ")");
+                    return "using " + (displayName == null ? source0 : displayName + " (" + source0 + ")");
                 }
             });
             // //ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]
             functionMap.put("datefield", new Transform<String, String>() {
                 private final String[] datefield = {
-                    "era", 
+                    "era",
                     "year", "year-short", "year-narrow",
-                    "quarter", "quarter-short", "quarter-narrow", 
-                    "month", "month-short", "month-narrow", 
+                    "quarter", "quarter-short", "quarter-narrow",
+                    "month", "month-short", "month-narrow",
                     "week", "week-short", "week-narrow",
-                    "day", "day-short", "day-narrow", 
+                    "day", "day-short", "day-narrow",
                     "weekday", "dayperiod", "zone",
                     "hour", "hour-short", "hour-narrow",
                     "minute", "minute-short", "minute-narrow",
                     "second", "second-short", "second-narrow",
-                    
+
                 };
 
                 public String transform(String source) {

@@ -350,7 +350,7 @@ public class VettingViewerQueue {
                 status = "Finished.";
                 statusCode = Status.READY;
             } catch (RuntimeException re) {
-                SurveyLog.logException(re, "While VettingViewer processing " + locale );
+                SurveyLog.logException(re, "While VettingViewer processing " + locale);
                 status = "Exception! " + re.toString();
                 // We're done.
                 statusCode = Status.STOPPED;
@@ -482,14 +482,13 @@ public class VettingViewerQueue {
             ;
             usersLevel = Level.get(levelString);
         }
-        
+
         usersOrg = VoteResolver.Organization.fromString(sess.user.voterOrg());
-        
+
         final String st_org = sess.user.org;
         SurveyMain sm = CookieSession.sm;
         VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
             sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
-
 
         EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
         if (usersOrg.equals(VoteResolver.Organization.surveytool)) {
@@ -501,13 +500,12 @@ public class VettingViewerQueue {
         }
         ArrayList<String> out = vv.getErrorOnPath(choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, path);
         JSONArray result = new JSONArray();
-        for(String issues : out) {
+        for (String issues : out) {
             result.put(issues);
         }
         return result;
     }
-    
-    
+
     private void getJSONReview(Appendable output, CLDRFile sourceFile, CLDRFile lastSourceFile,
         Relation<R2<SectionId, PageId>, WritingInfo> sorted,
         EnumSet<Choice> choices,
@@ -515,42 +513,39 @@ public class VettingViewerQueue {
         boolean nonVettingPhase,
         boolean quick, WebContext ctx
         ) {
-        
+
         try {
             boolean latin = VettingViewer.isLatinScriptLocale(sourceFile);
-            JSONObject reviewInfo = new JSONObject(); 
+            JSONObject reviewInfo = new JSONObject();
             JSONArray notificationsCount = new JSONArray();
             List<String> notifications = new ArrayList<String>();
             CLDRFile englishFile = ctx.sm.getSTFactory().make("en", true);
 
-               
             for (Choice choice : choices) {
-                    notificationsCount.put(new JSONObject().put("name",choice.buttonLabel.replace(' ', '_')).put("description", choice.description));
-                    notifications.add(choice.buttonLabel);
+                notificationsCount.put(new JSONObject().put("name", choice.buttonLabel.replace(' ', '_')).put("description", choice.description));
+                notifications.add(choice.buttonLabel);
             }
-            
+
             reviewInfo.put("notification", notificationsCount);
             // gather information on choices on each page
             //output.append(reviewInfo.toString());
-            
-            
+
             Relation<Row.R3<SectionId, PageId, String>, Choice> choicesForHeader = Relation.of(
                 new HashMap<Row.R3<SectionId, PageId, String>, Set<Choice>>(), HashSet.class);
 
             Relation<Row.R2<SectionId, PageId>, Choice> choicesForSection = Relation.of(
                 new HashMap<R2<SectionId, PageId>, Set<Choice>>(), HashSet.class);
 
-            Comparator<? super R4<Choice, SectionId, PageId, String>> comparator = new Comparator<Row.R4<Choice,SectionId, PageId, String>>() {
-                
+            Comparator<? super R4<Choice, SectionId, PageId, String>> comparator = new Comparator<Row.R4<Choice, SectionId, PageId, String>>() {
 
                 @Override
                 public int compare(R4<Choice, SectionId, PageId, String> o1, R4<Choice, SectionId, PageId, String> o2) {
                     int compChoice = o2.get0().order - o1.get0().order;
-                    if(compChoice == 0) {
+                    if (compChoice == 0) {
                         int compSection = o1.get1().compareTo(o2.get1());
-                        if(compSection == 0) {
+                        if (compSection == 0) {
                             int compPage = o1.get2().compareTo(o2.get2());
-                            if(compPage == 0)
+                            if (compPage == 0)
                                 return o1.get3().compareTo(o2.get3());
                             else
                                 return 0;
@@ -562,11 +557,10 @@ public class VettingViewerQueue {
                         return compChoice;
                 }
             };
-            
-            Relation<Row.R4<Choice,SectionId, PageId, String>, WritingInfo> notificationsList = Relation.of(
-                new TreeMap<Row.R4<Choice,SectionId, PageId, String>, Set<WritingInfo>>(), TreeSet.class);            
-            
- 
+
+            Relation<Row.R4<Choice, SectionId, PageId, String>, WritingInfo> notificationsList = Relation.of(
+                new TreeMap<Row.R4<Choice, SectionId, PageId, String>, Set<WritingInfo>>(), TreeSet.class);
+
             //TODO we can prob do it in only one loop, but with that we can sort
             for (Entry<R2<SectionId, PageId>, Set<WritingInfo>> entry0 : sorted.keyValuesSet()) {
                 final Set<WritingInfo> rows = entry0.getValue();
@@ -574,112 +568,108 @@ public class VettingViewerQueue {
                     Set<Choice> choicesForPath = pathInfo.problems;
                     SectionId section = entry0.getKey().get0();
                     PageId subsection = entry0.getKey().get1();
-                    for(Choice choice : choicesForPath) {
+                    for (Choice choice : choicesForPath) {
                         //reviewInfo
                         notificationsList.put(Row.of(choice, section, subsection, pathInfo.codeOutput.getHeader()), pathInfo);
-                        
-                        
+
                     }
                 }
-                
+
             }
 
             JSONArray allNotifications = new JSONArray();
-            for(Entry<R4<Choice, SectionId, PageId, String>, Set<WritingInfo>> entry : notificationsList.keyValuesSet()) {
-                        
-                        String notificationName = entry.getKey().get0().buttonLabel.replace(' ', '_');
-                        int notificationNumber = entry.getKey().get0().order;
-                        
-                        String sectionName = entry.getKey().get1().name();
-                        String pageName = entry.getKey().get2().name();
-                        String headerName = entry.getKey().get3();
-                        
-                        if(allNotifications.optJSONObject(notificationNumber) == null) {                            
-                            allNotifications.put(notificationNumber,new JSONObject().put(notificationName, new JSONObject()));
+            for (Entry<R4<Choice, SectionId, PageId, String>, Set<WritingInfo>> entry : notificationsList.keyValuesSet()) {
+
+                String notificationName = entry.getKey().get0().buttonLabel.replace(' ', '_');
+                int notificationNumber = entry.getKey().get0().order;
+
+                String sectionName = entry.getKey().get1().name();
+                String pageName = entry.getKey().get2().name();
+                String headerName = entry.getKey().get3();
+
+                if (allNotifications.optJSONObject(notificationNumber) == null) {
+                    allNotifications.put(notificationNumber, new JSONObject().put(notificationName, new JSONObject()));
+                }
+
+                JSONObject sections = allNotifications.getJSONObject(notificationNumber).getJSONObject(notificationName);
+
+                if (sections.optJSONObject(sectionName) == null) {
+                    sections.accumulate(sectionName, new JSONObject());
+                }
+                JSONObject pages = sections.getJSONObject(sectionName);
+
+                if (pages.optJSONObject(pageName) == null) {
+                    pages.accumulate(pageName, new JSONObject());
+                }
+                JSONObject header = pages.getJSONObject(pageName);
+
+                JSONArray allContent = new JSONArray();
+                //real info 
+                for (WritingInfo info : entry.getValue()) {
+                    JSONObject content = new JSONObject();
+                    String code = info.codeOutput.getCode();
+                    String path = info.codeOutput.getOriginalPath();
+                    Set<Choice> choicesForPath = info.problems;
+
+                    //code
+                    content.put("code", code);
+                    content.put("path", ctx.sm.xpt.getByXpath(path));
+
+                    //english
+                    if (choicesForPath.contains(Choice.englishChanged)) {
+                        String winning = englishFile.getWinningValue(path);
+                        String cellValue = winning == null ? "<i>missing</i>" : TransliteratorUtilities.toHTML
+                            .transform(winning);
+                        String previous = VettingViewer.getOutdatedPaths().getPreviousEnglish(path);
+                        if (previous != null) {
+                            cellValue += "<br><span style='color:#900'><b>OLD: </b>"
+                                + TransliteratorUtilities.toHTML.transform(previous) + "</span>";
+                        } else {
+                            cellValue += "<br><b><i>missing</i></b>";
                         }
-                        
-                        JSONObject sections = allNotifications.getJSONObject(notificationNumber).getJSONObject(notificationName);
-                        
-                        if(sections.optJSONObject(sectionName) == null) {
-                            sections.accumulate(sectionName, new JSONObject());
-                        }
-                        JSONObject pages = sections.getJSONObject(sectionName);
-                        
-                        if(pages.optJSONObject(pageName) == null) {
-                            pages.accumulate(pageName, new JSONObject());
-                        }
-                        JSONObject header = pages.getJSONObject(pageName);
-                        
-                        JSONArray allContent = new JSONArray();
-                        //real info 
-                        for(WritingInfo info : entry.getValue()) {
-                            JSONObject content = new JSONObject();
-                            String code = info.codeOutput.getCode();
-                            String path = info.codeOutput.getOriginalPath();
-                            Set<Choice> choicesForPath = info.problems;
-                            
-                            //code
-                            content.put("code",code);
-                            content.put("path", ctx.sm.xpt.getByXpath(path));
-                                
-                            //english
-                            if (choicesForPath.contains(Choice.englishChanged)) {
-                                String winning = englishFile.getWinningValue(path);
-                                String cellValue = winning == null ? "<i>missing</i>" : TransliteratorUtilities.toHTML
-                                    .transform(winning);
-                                String previous = VettingViewer.getOutdatedPaths().getPreviousEnglish(path);
-                                if (previous != null) {
-                                    cellValue += "<br><span style='color:#900'><b>OLD: </b>"
-                                        + TransliteratorUtilities.toHTML.transform(previous) + "</span>";
-                                } else {
-                                    cellValue += "<br><b><i>missing</i></b>";
-                                }
-                                content.put("english", cellValue);
-                            } else {
-                                content.put("english",englishFile.getWinningValue(path));
-                            }
-                            
-                            //old release
-                            final String oldStringValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
-                            content.put("old", oldStringValue);
-                            
-                            //
-                            
-                            //winning value
-                            String newWinningValue = sourceFile.getWinningValue(path);
-                            if (CharSequences.equals(newWinningValue, oldStringValue)) {
-                                newWinningValue = "=";
-                            }
-                            content.put("winning",newWinningValue);
-                            
-                            //comment
-                            String comment = "";
-                            if (!info.htmlMessage.isEmpty()) {
-                                comment = info.htmlMessage;
-                            }
-                            content.put("comment", comment.replace("\"", "&quot;"));
-                            
-                            content.put("id", StringId.getHexId(info.codeOutput.getOriginalPath()));  
-                           allContent.put(content);
-                        }
-                        header.put(headerName, allContent);
-                        
-            
+                        content.put("english", cellValue);
+                    } else {
+                        content.put("english", englishFile.getWinningValue(path));
+                    }
+
+                    //old release
+                    final String oldStringValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
+                    content.put("old", oldStringValue);
+
+                    //
+
+                    //winning value
+                    String newWinningValue = sourceFile.getWinningValue(path);
+                    if (CharSequences.equals(newWinningValue, oldStringValue)) {
+                        newWinningValue = "=";
+                    }
+                    content.put("winning", newWinningValue);
+
+                    //comment
+                    String comment = "";
+                    if (!info.htmlMessage.isEmpty()) {
+                        comment = info.htmlMessage;
+                    }
+                    content.put("comment", comment.replace("\"", "&quot;"));
+
+                    content.put("id", StringId.getHexId(info.codeOutput.getOriginalPath()));
+                    allContent.put(content);
+                }
+                header.put(headerName, allContent);
+
             }
             reviewInfo.put("allNotifications", allNotifications);
-            
+
             //hidden info 
             ReviewHide review = new ReviewHide();
             reviewInfo.put("hidden", review.getHiddenField(ctx.userId(), ctx.getLocale().toString()));
             reviewInfo.put("direction", ctx.getDirectionForLocale());
             output.append(reviewInfo.toString());
-        }
-        catch (JSONException | IOException e) {
-                e.printStackTrace();
+        } catch (JSONException | IOException e) {
+            e.printStackTrace();
         }
     }
 
-    
     public void writeVettingViewerOutput(CLDRLocale locale, StringBuffer aBuffer, WebContext ctx, CookieSession sess, boolean rJson) {
         String baseUrl = "http://example.com";
         Level usersLevel;
@@ -689,7 +679,7 @@ public class VettingViewerQueue {
             usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
             String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
             //if no coverage set, use default one
-            if(levelString.equals("default"))
+            if (levelString.equals("default"))
                 usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
             else
                 usersLevel = Level.get(levelString);
@@ -701,12 +691,12 @@ public class VettingViewerQueue {
             usersLevel = Level.get(levelString);
         }
         usersOrg = VoteResolver.Organization.fromString(sess.user.voterOrg());
-        
+
         writeVettingViewerOutput(locale, baseUrl, aBuffer, usersOrg, usersLevel, sess.user, ctx.hasField("quick"), ctx, rJson);
     }
 
     public void writeVettingViewerOutput(CLDRLocale locale, String baseUrl, StringBuffer aBuffer,
-        VoteResolver.Organization usersOrg, Level usersLevel, UserRegistry.User user, boolean quick, WebContext ctx,boolean rJson) {
+        VoteResolver.Organization usersOrg, Level usersLevel, UserRegistry.User user, boolean quick, WebContext ctx, boolean rJson) {
         final String st_org = user.org;
         SurveyMain sm = CookieSession.sm;
         VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
@@ -724,12 +714,13 @@ public class VettingViewerQueue {
         }
 
         if (locale != SUMMARY_LOCALE) {
-            if(rJson) {
+            if (rJson) {
                 Relation file = vv.generateFileInfoReview(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick);
-                this.getJSONReview(aBuffer, sm.getSTFactory().make(locale.getBaseName(), true), sm.getOldFile(locale.getBaseName(), true), file, choiceSet, locale.getBaseName(), true, quick, ctx);
-            } 
+                this.getJSONReview(aBuffer, sm.getSTFactory().make(locale.getBaseName(), true), sm.getOldFile(locale.getBaseName(), true), file, choiceSet,
+                    locale.getBaseName(), true, quick, ctx);
+            }
             else
-                vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick);            
+                vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick);
         } else {
             if (DEBUG)
                 System.err.println("Starting summary gen..");
@@ -765,14 +756,14 @@ public class VettingViewerQueue {
         boolean isSummary = (locale == SUMMARY_LOCALE);
         QueueEntry entry = null;
 //        if (!isSummary) {
-            entry = getEntry(sess);
+        entry = getEntry(sess);
 //        } else {
 //            entry = getSummaryEntry();
 //        }
         if (status == null)
             status = new Status[1];
-        jStatus.put("isSummary",isSummary);
-        jStatus.put("locale",locale);        
+        jStatus.put("isSummary", isSummary);
+        jStatus.put("locale", locale);
         if (forceRestart != LoadingPolicy.FORCERESTART &&
             forceRestart != LoadingPolicy.FORCESTOP) {
             VVOutput res = entry.output.get(key);
@@ -788,8 +779,7 @@ public class VettingViewerQueue {
             entry.output.remove(key);
         }
 
-        
-        if(forceRestart == LoadingPolicy.FORCESTOP) {
+        if (forceRestart == LoadingPolicy.FORCESTOP) {
             status[0] = Status.STOPPED;
             jStatus.put("t_running", false);
             jStatus.put("t_statuscode", Status.STOPPED);
@@ -808,14 +798,14 @@ public class VettingViewerQueue {
                     // get progress from current thread
                     status[0] = t.statusCode;
                     if (status[0] != Status.WAITING)
-                        waiting = "";                    
+                        waiting = "";
                     return PRE + "In Progress: " + waiting + t.status() + POST;
                 } else {
                     return PRE + "Stopped (refresh if stuck) " + t.status() + POST;
                 }
             } else if (forceRestart == LoadingPolicy.NOSTART) {
                 status[0] = Status.STOPPED;
-                jStatus.put("your_other_running",t.running());
+                jStatus.put("your_other_running", t.running());
                 if (t.running()) {
                     return PRE + " You have another locale being loaded: " + t.locale + POST;
                 } else {
@@ -947,7 +937,7 @@ public class VettingViewerQueue {
             BallotBox<User> ballotBox = getBox(sm, loc);
             return ballotBox.getResolver(path).getOrgVote(user);
         }
-        
+
         @Override
         public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, VoteResolver.Organization orgOfUser) {
             CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());

@@ -77,7 +77,7 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
-@CLDRTool(alias="showlanguages", description="Generate Lanugage info charts")
+@CLDRTool(alias = "showlanguages", description = "Generate Lanugage info charts")
 public class ShowLanguages {
     public static final String CHART_TARGET_DIR = CLDRPaths.CHART_DIRECTORY + "/supplemental/";
 
@@ -119,7 +119,7 @@ public class ShowLanguages {
 //        linfo.showTerritoryInfo();
 
         ShowLocaleCoverage.showCoverage(pw);
-        
+
         new ShowPlurals().printPlurals(english, null, pw, cldrFactory);
 
         linfo.showCoverageGoals(pw);
@@ -1237,7 +1237,7 @@ public class ShowLanguages {
                 parameters += "&summary=" + urlEncode(subject);
             }
             if (parameters.length() != 0) parameters = "?" + parameters;
-            return "<a target='_blank' href='"+CLDRURLS.CLDR_NEWTICKET_URL
+            return "<a target='_blank' href='" + CLDRURLS.CLDR_NEWTICKET_URL
                 + parameters + "'>" + text + "</a>";
         }
 
@@ -1511,7 +1511,7 @@ public class ShowLanguages {
             for (String old : localeAliasInfo.get("language").keySet()) {
                 if (locale.startsWith(old)) {
                     // the above is a rough check, and will fail with old=moh and locale=mo
-                    if (!locale.equals(old) && !locale.startsWith(old+"_")) {
+                    if (!locale.equals(old) && !locale.startsWith(old + "_")) {
                         continue;
                     }
                     temp = localeAliasInfo.get("language").get(old);

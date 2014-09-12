@@ -139,11 +139,11 @@ public class DBUtils {
                 tracker.remove(conn);
             }
             try {
-                if(db_Derby && 
+                if (db_Derby &&
                     datasource instanceof EmbeddedDataSource &&
-                    !conn.isClosed() && 
-                    !conn.getAutoCommit()) { 
-                	// commit on close if we are using Derby directly
+                    !conn.isClosed() &&
+                    !conn.getAutoCommit()) {
+                    // commit on close if we are using Derby directly
                     conn.commit();
                 }
                 conn.close();
@@ -347,7 +347,7 @@ public class DBUtils {
                     s = conn.createStatement();
                     rs = s.executeQuery("show tables like '" + canonName + "'");
                 }
-    
+
                 if (rs.next() == true) {
                     SurveyLog.warnOnce("table " + canonName + " did exist.");
                     return true;
@@ -356,7 +356,7 @@ public class DBUtils {
                     return false;
                 }
             } finally {
-                DBUtils.close(s,rs);
+                DBUtils.close(s, rs);
             }
         } catch (SQLException se) {
             SurveyMain.busted("While looking for table '" + table + "': ", se);
@@ -1392,7 +1392,7 @@ public class DBUtils {
         /**
          * Debug the cachedJSON
          */
-        final boolean CDEBUG = SurveyMain.isUnofficial()&&CldrUtility.getProperty("CLDR_QUERY_CACHEDEBUG", false);
+        final boolean CDEBUG = SurveyMain.isUnofficial() && CldrUtility.getProperty("CLDR_QUERY_CACHEDEBUG", false);
         DBUtils instance = getInstance(); // don't want the cache to be static
         Reference<JSONObject> ref = instance.cachedJsonQuery.get(id);
         JSONObject result = null;
@@ -1412,14 +1412,14 @@ public class DBUtils {
         }
 
         if (result == null) { // have to fetch it
-            if(CDEBUG) {
+            if (CDEBUG) {
                 System.out.println("cachedjson: id " + id + " fetching: " + query);
             }
             result = queryToJSON(query, args);
             long queryms = System.currentTimeMillis() - now;
             result.put("birth", (Long) now);
             if (CDEBUG) {
-                System.out.println("cachedjson: id " + id + " fetched in " + Double.toString(queryms/1000.0)+"s");
+                System.out.println("cachedjson: id " + id + " fetched in " + Double.toString(queryms / 1000.0) + "s");
             }
             result.put("queryms", (Long) (queryms));
             result.put("id", id);

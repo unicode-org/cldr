@@ -721,7 +721,7 @@ public class GenerateMaximalLocales {
         { "yi", "yi_Hebr_001" },
         { "yi_Hebr", "yi_Hebr_001" },
         { "zh_Hani", "zh_Hani_CN" },
-        
+
         { "zh_Bopo", "zh_Bopo_TW" },
         { "ccp_Cakm", "ccp_Cakm_BD" },
         { "cu_Glag", "cu_Glag_BG" },

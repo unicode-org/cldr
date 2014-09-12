@@ -272,6 +272,7 @@ public class MyanmarZawgyiConverter {
                 // Try to correctly render diacritics after a space.
                 + "$space([\u102e\u1037\u103a]) > \u00A0 $1 ;"
             , Transliterator.FORWARD);
+
     // TODO(ccorn): set a filter on this to restrict to range \u1000-\u109f ???
 
     /**
@@ -308,11 +309,11 @@ public class MyanmarZawgyiConverter {
      * @return
      *          the normalized Unicode string
      */
-     public static String standardizeMyanmar(String value) {
+    public static String standardizeMyanmar(String value) {
         if (isZawgyiEncoded(value)) {
             // Call the converter to produce a Unicode result.
-	    return zawgyiUnicodeTransliterator.transform(value);
+            return zawgyiUnicodeTransliterator.transform(value);
         }
-        return value;  // Unchanged since it was not Zawgyi.
+        return value; // Unchanged since it was not Zawgyi.
     }
 }

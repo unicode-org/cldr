@@ -712,7 +712,6 @@ public class DataSection implements JSONString {
         public String oldValue;
         private PathHeader pathHeader;
 
-     
         // the zoomout view, they must zoom
         // in.
 
@@ -1715,10 +1714,10 @@ public class DataSection implements JSONString {
                 jo.put("winningValue", winningValue);
                 jo.put("displayName", displayName);
                 jo.put("displayExample", displayExample);
-                    // .put("showstatus",
-                    // (ph!=null)?ph.getSurveyToolStatus():null)
+                // .put("showstatus",
+                // (ph!=null)?ph.getSurveyToolStatus():null)
                 jo.put("statusAction", getStatusAction());
-                    //.put("prettyPath", getPrettyPath())
+                //.put("prettyPath", getPrettyPath())
                 jo.put("code", pathCode);
                 jo.put("extraAttributes", getNonDistinguishingAttributes());
                 jo.put("coverageValue", coverageValue);
@@ -2194,12 +2193,12 @@ public class DataSection implements JSONString {
     /**
      * Field to cache the Coverage info
      */
-    private static CoverageInfo covInfo=null;
-    
+    private static CoverageInfo covInfo = null;
+
     /**
      * Synchronization Mutex used for accessing/setting the coverageInfo object
      */
-    private static final Object GET_COVERAGEINFO_SYNC=new Object();
+    private static final Object GET_COVERAGEINFO_SYNC = new Object();
     /**
      * Warn user why these messages are showing up.
      */
@@ -2696,7 +2695,7 @@ public class DataSection implements JSONString {
                     }
                     // Filter out data that is higher than the desired coverage
                     // level
-                    int coverageValue=getCoverageInfo().getCoverageValue(base_xpath_string, locale.getBaseName());
+                    int coverageValue = getCoverageInfo().getCoverageValue(base_xpath_string, locale.getBaseName());
                     if (coverageValue > workingCoverageValue) {
                         if (coverageValue <= 100) {
                             // KEEP COUNT OF FILTERED ITEMS
@@ -2727,17 +2726,16 @@ public class DataSection implements JSONString {
         } // tz
     }
 
-    
     /**
      * Get the CoverageInfo object from CLDR
      * @return
      */
     private CoverageInfo getCoverageInfo() {
-        synchronized(GET_COVERAGEINFO_SYNC) {
-            if (covInfo==null) {
-                covInfo=CLDRConfig.getInstance().getCoverageInfo();
+        synchronized (GET_COVERAGEINFO_SYNC) {
+            if (covInfo == null) {
+                covInfo = CLDRConfig.getInstance().getCoverageInfo();
             }
-          return covInfo;
+            return covInfo;
         }
     }
 
@@ -3050,7 +3048,7 @@ public class DataSection implements JSONString {
                 }
             }
             if (p.oldValue != null && !p.oldValue.equals(value) && (v == null || !v.contains(p.oldValue))) {
-            	// if "oldValue" isn't already represented as an item, add it.
+                // if "oldValue" isn't already represented as an item, add it.
                 CandidateItem oldItem = p.addItem(p.oldValue);
                 oldItem.isOldValue = true;
             }
@@ -3060,12 +3058,12 @@ public class DataSection implements JSONString {
             p.confirmOnly = confirmOnly;
 
             if (isExtraPath) {
-            	// This is an 'extra' item- it doesn't exist in xml (including root).
+                // This is an 'extra' item- it doesn't exist in xml (including root).
                 // Set up 'shim' tests, to display coverage
                 p.setShimTests(base_xpath, this.sm.xpt.getById(base_xpath), checkCldr, options);
                 // System.err.println("Shimmed! "+xpath);
             } else if (p.inheritedValue == null) {
-            	// This item fell back from root. Make sure it has an Item, and that tests are run.
+                // This item fell back from root. Make sure it has an Item, and that tests are run.
                 p.updateInheritedValue(ourSrc, checkCldr, options);
             }
 

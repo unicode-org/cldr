@@ -721,8 +721,7 @@ public class GenerateSidewaysView {
             .replace(" ", "_")
             .replace("/", "_")
             .replace("(", "_")
-            .replace(")", "_")
-            ;
+            .replace(")", "_");
         if (suffix != null) {
             result += "." + suffix;
         }

@@ -53,13 +53,13 @@ import com.ibm.icu.util.TimeZone;
 
 public class CldrUtility {
 
-    public static final Charset UTF8 = Charset.forName("utf-8"); 
+    public static final Charset UTF8 = Charset.forName("utf-8");
     public static final boolean BETA = false;
 
     public static final String LINE_SEPARATOR = "\n";
-    public final static Pattern SEMI_SPLIT = Pattern.compile("\\s*;\\s*"); 
+    public final static Pattern SEMI_SPLIT = Pattern.compile("\\s*;\\s*");
 
-    private static final boolean HANDLEFILE_SHOW_SKIP = false; 
+    private static final boolean HANDLEFILE_SHOW_SKIP = false;
     // Constant for "∅∅∅". Indicates that a child locale has no value for a
     // path even though a parent does.
     public static final String NO_INHERITANCE_MARKER = new String(new char[] { 0x2205, 0x2205, 0x2205 });
@@ -108,22 +108,23 @@ public class CldrUtility {
             }
         }
     }
-    public interface LineHandler { 
+
+    public interface LineHandler {
         /** 
          * Return false if line was skipped 
          *  
          * @param line 
          * @return 
-         */ 
-        boolean handle(String line) throws Exception; 
-    } 
+         */
+        boolean handle(String line) throws Exception;
+    }
 
     public static String getPath(String path, String filename) {
         if (path == null) {
             return null;
         }
         final File file = filename == null ? new File(path)
-        : new File(path, filename);
+            : new File(path, filename);
         try {
             return file.getCanonicalPath() + File.separatorChar;
         } catch (IOException e) {
@@ -277,7 +278,7 @@ public class CldrUtility {
             failureLines[0] = line1 != null ? line1 : "<end of file>";
             failureLines[1] = line2 != null ? line2 : "<end of file>";
             return false;
-        } 
+        }
     }
 
     /*
@@ -342,43 +343,43 @@ public class CldrUtility {
         piecesList.toArray(pieces);
         return pieces;
     }
-    
-    public static String[] splitCommaSeparated(String line) { 
+
+    public static String[] splitCommaSeparated(String line) {
         // items are separated by ',' 
         // each item is of the form abc... 
         // or "..." (required if a comma or quote is contained) 
         // " in a field is represented by "" 
-        List<String> result = new ArrayList<String>(); 
-        StringBuilder item = new StringBuilder(); 
-        boolean inQuote = false; 
-        for (int i = 0; i < line.length(); ++i) { 
+        List<String> result = new ArrayList<String>();
+        StringBuilder item = new StringBuilder();
+        boolean inQuote = false;
+        for (int i = 0; i < line.length(); ++i) {
             char ch = line.charAt(i); // don't worry about supplementaries 
-            switch (ch) { 
-            case '"': 
-                inQuote = !inQuote; 
+            switch (ch) {
+            case '"':
+                inQuote = !inQuote;
                 // at start or end, that's enough 
                 // if get a quote when we are not in a quote, and not at start, then add it and return to inQuote 
-                if (inQuote && item.length() != 0) { 
-                    item.append('"'); 
-                    inQuote = true; 
-                } 
-                break; 
-            case ',': 
-                if (!inQuote) { 
-                    result.add(item.toString()); 
-                    item.setLength(0); 
-                } else { 
-                    item.append(ch); 
-                } 
-                break; 
-            default: 
-                item.append(ch); 
-                break; 
-            } 
-        } 
-        result.add(item.toString()); 
-        return result.toArray(new String[result.size()]); 
-    } 
+                if (inQuote && item.length() != 0) {
+                    item.append('"');
+                    inQuote = true;
+                }
+                break;
+            case ',':
+                if (!inQuote) {
+                    result.add(item.toString());
+                    item.setLength(0);
+                } else {
+                    item.append(ch);
+                }
+                break;
+            default:
+                item.append(ch);
+                break;
+            }
+        }
+        result.add(item.toString());
+        return result.toArray(new String[result.size()]);
+    }
 
     public static List<String> splitList(String source, char separator) {
         return splitList(source, separator, false, null);
@@ -566,8 +567,8 @@ public class CldrUtility {
     private static final Transliterator DEFAULT_REGEX_ESCAPER = Transliterator.createFromRules(
         "foo",
         "([ \\- \\\\ \\[ \\] ]) > '\\' $1 ;"
-        // + " ([:c:]) > &hex($1);"
-        + " ([[:control:][[:z:]&[:ascii:]]]) > &hex($1);",
+            // + " ([:c:]) > &hex($1);"
+            + " ([[:control:][[:z:]&[:ascii:]]]) > &hex($1);",
         Transliterator.FORWARD);
 
     /**
@@ -672,7 +673,7 @@ public class CldrUtility {
             for (UnicodeSet last : lastToFirst.keySet()) {
                 ++alternateCount;
                 alternates.append('|').append(toRegex(lastToFirst.get(last), escaper, onlyBmp))
-                .append(toRegex(last, escaper, onlyBmp));
+                    .append(toRegex(last, escaper, onlyBmp));
             }
         }
         // Return the output. We separate cases in order to get the minimal extra apparatus
@@ -978,7 +979,7 @@ public class CldrUtility {
             return rules;
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't open " + dir + ", " + filename)
-            .initCause(e);
+                .initCause(e);
         }
     }
 
@@ -1232,11 +1233,11 @@ public class CldrUtility {
     public static String getCopyrightString() {
         // now do the rest
         return "Copyright \u00A9 1991-"
-        + Calendar.getInstance().get(Calendar.YEAR)
-        + " Unicode, Inc." + CldrUtility.LINE_SEPARATOR
-        + "CLDR data files are interpreted according to the LDML specification "
-        + "(http://unicode.org/reports/tr35/)" + CldrUtility.LINE_SEPARATOR
-        + "For terms of use, see http://www.unicode.org/copyright.html";
+            + Calendar.getInstance().get(Calendar.YEAR)
+            + " Unicode, Inc." + CldrUtility.LINE_SEPARATOR
+            + "CLDR data files are interpreted according to the LDML specification "
+            + "(http://unicode.org/reports/tr35/)" + CldrUtility.LINE_SEPARATOR
+            + "For terms of use, see http://www.unicode.org/copyright.html";
     }
 
     // TODO Move to collection utilities
@@ -1275,44 +1276,43 @@ public class CldrUtility {
         return map;
     }
 
-    public static String[] cleanSemiFields(String line) { 
-        line = cleanLine(line); 
-        return line.isEmpty() ? null : SEMI_SPLIT.split(line); 
-    } 
+    public static String[] cleanSemiFields(String line) {
+        line = cleanLine(line);
+        return line.isEmpty() ? null : SEMI_SPLIT.split(line);
+    }
 
-    private static String cleanLine(String line) { 
-        int comment = line.indexOf("#"); 
-        if (comment >= 0) { 
-            line = line.substring(0, comment); 
-        } 
-        if (line.startsWith("\uFEFF")) { 
-            line = line.substring(1); 
-        } 
-        return line.trim(); 
-    } 
+    private static String cleanLine(String line) {
+        int comment = line.indexOf("#");
+        if (comment >= 0) {
+            line = line.substring(0, comment);
+        }
+        if (line.startsWith("\uFEFF")) {
+            line = line.substring(1);
+        }
+        return line.trim();
+    }
 
-
-    public static void handleFile(String filename, LineHandler handler) throws IOException { 
-        try (BufferedReader in = getUTF8Data(filename);) { 
-            String line=null; 
-            while ((line = in.readLine())!=null) { 
+    public static void handleFile(String filename, LineHandler handler) throws IOException {
+        try (BufferedReader in = getUTF8Data(filename);) {
+            String line = null;
+            while ((line = in.readLine()) != null) {
                 //                String line = in.readLine(); 
                 //                if (line == null) { 
                 //                    break; 
                 //                } 
-                try { 
-                    if (!handler.handle(line)) { 
-                        if (HANDLEFILE_SHOW_SKIP)  { 
-                            System.out.println("Skipping line: " + line); 
-                        } 
-                    } 
-                } catch (Exception e) { 
-                    throw (RuntimeException) new IllegalArgumentException("Problem with line: " + line) 
-                    .initCause(e); 
-                } 
-            } 
-        } 
+                try {
+                    if (!handler.handle(line)) {
+                        if (HANDLEFILE_SHOW_SKIP) {
+                            System.out.println("Skipping line: " + line);
+                        }
+                    }
+                } catch (Exception e) {
+                    throw (RuntimeException) new IllegalArgumentException("Problem with line: " + line)
+                        .initCause(e);
+                }
+            }
+        }
         //        in.close(); 
-    } 
-    
+    }
+
 }

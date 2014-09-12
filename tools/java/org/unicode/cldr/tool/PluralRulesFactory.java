@@ -36,35 +36,47 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
 
     public abstract boolean hasOverride(ULocale locale);
 
-    public enum Type { NORMAL, ALTERNATE };
+    public enum Type {
+        NORMAL, ALTERNATE
+    };
+
     public static PluralRulesFactory getInstance(SupplementalDataInfo supplementalDataInfo) {
         return getInstance(supplementalDataInfo, Type.NORMAL);
     }
-    private static ConcurrentHashMap<Pair<Type,String>,PluralRulesFactory> singletons = new ConcurrentHashMap<Pair<Type,String>, PluralRulesFactory>();
+
+    private static ConcurrentHashMap<Pair<Type, String>, PluralRulesFactory> singletons = new ConcurrentHashMap<Pair<Type, String>, PluralRulesFactory>();
+
     public static PluralRulesFactory getInstance(SupplementalDataInfo supplementalDataInfo, Type type) {
-        Pair<Type, String> key = new Pair<Type,String>(type,supplementalDataInfo.getDirectory().getAbsolutePath());
+        Pair<Type, String> key = new Pair<Type, String>(type, supplementalDataInfo.getDirectory().getAbsolutePath());
         PluralRulesFactory prf = singletons.get(key);
-        if(prf==null) {
-            switch(type) {
-            case NORMAL: prf = new PluralRulesFactoryVanilla(supplementalDataInfo); break;
-            case ALTERNATE: prf = new PluralRulesFactoryWithOverrides(supplementalDataInfo); break;
-            default: throw new InternalError("Illegal type value: " + type);
+        if (prf == null) {
+            switch (type) {
+            case NORMAL:
+                prf = new PluralRulesFactoryVanilla(supplementalDataInfo);
+                break;
+            case ALTERNATE:
+                prf = new PluralRulesFactoryWithOverrides(supplementalDataInfo);
+                break;
+            default:
+                throw new InternalError("Illegal type value: " + type);
             }
             singletons.put(key, prf);
         }
         return prf;
     }
+
 //    static final PluralRulesFactory NORMAL = new PluralRulesFactoryVanilla();
 //    static final PluralRulesFactory ALTERNATE = new PluralRulesFactoryWithOverrides();
 
     private PluralRulesFactory(SupplementalDataInfo supplementalDataInfo) {
-        this.supplementalDataInfo  = supplementalDataInfo;
+        this.supplementalDataInfo = supplementalDataInfo;
     }
 
     static class PluralRulesFactoryVanilla extends PluralRulesFactory {
         private PluralRulesFactoryVanilla(SupplementalDataInfo supplementalDataInfo) {
             super(supplementalDataInfo);
         }
+
         @Override
         public boolean hasOverride(ULocale locale) {
             return false;
@@ -90,6 +102,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         private PluralRulesFactoryWithOverrides(SupplementalDataInfo supplementalDataInfo) {
             super(supplementalDataInfo);
         }
+
         @Override
         public boolean hasOverride(ULocale locale) {
             return getPluralOverrides().containsKey(locale);
@@ -767,7 +780,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         { "te", "{0}వ కుడి మలుపు తీసుకోండి.", "1" },
         { "th", "เลี้ยวขวาที่ทางเลี้ยวที่ {0}", "1" },
         { "tr", "{0}. sağdan dönün.", "2" },
-//        { "uk", "Поверніть праворуч на {0}-му повороті.", "1" },
+        //        { "uk", "Поверніть праворуч на {0}-му повороті.", "1" },
         { "uk", "{0}-а дивізія, {0}-е коло", "1" },
         { "uk", "{0}-я дивізія, {0}-є коло", "3" },
         { "ur", "دایاں موڑ نمبر {0} مڑیں۔", "1" },

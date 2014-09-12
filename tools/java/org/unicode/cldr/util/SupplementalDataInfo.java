@@ -82,6 +82,7 @@ import com.ibm.icu.util.VersionInfo;
 public class SupplementalDataInfo {
     private static final boolean DEBUG = false;
     private static final StandardCodes sc = StandardCodes.make();
+
     // TODO add structure for items shown by TestSupplementalData to be missing
     /*
      * [calendarData/calendar,
@@ -245,7 +246,7 @@ public class SupplementalDataInfo {
      * Simple language/script/region information
      */
     public static class BasicLanguageData implements Comparable<BasicLanguageData>,
-    com.ibm.icu.util.Freezable<BasicLanguageData> {
+        com.ibm.icu.util.Freezable<BasicLanguageData> {
         public enum Type {
             primary, secondary
         };
@@ -320,13 +321,13 @@ public class SupplementalDataInfo {
             if (scripts.size() == 0 && territories.size() == 0)
                 return "";
             return "\t\t<language type=\""
-            + languageSubtag
-            + "\""
-            + (scripts.size() == 0 ? "" : " scripts=\""
-                + CldrUtility.join(scripts, " ") + "\"")
+                + languageSubtag
+                + "\""
+                + (scripts.size() == 0 ? "" : " scripts=\""
+                    + CldrUtility.join(scripts, " ") + "\"")
                 + (territories.size() == 0 ? "" : " territories=\""
                     + CldrUtility.join(territories, " ") + "\"")
-                    + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
+                + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
         }
 
         public String toString() {
@@ -874,7 +875,6 @@ public class SupplementalDataInfo {
 
     public Map<String, Row.R2<String, String>> validityInfo = new HashMap<String, Row.R2<String, String>>();
     public Set<AttributeValidityInfo> attributeValidityInfo = new HashSet<>();
-
 
     public enum MeasurementType {
         measurementSystem, paperSize
@@ -1425,13 +1425,13 @@ public class SupplementalDataInfo {
                 }
                 return true;
             } else if (level2.equals("currencyCodes")) {
-              // <currencyCodes type="BBD" numeric="52"/>
-              String type = parts.getAttributeValue(-1, "type");
-              final String numeric = parts.getAttributeValue(-1, "numeric");
-              if (numeric != null) {
-                numericCurrencyCodeMapping.put(type, Integer.parseInt(numeric));
-              }
-              return true;
+                // <currencyCodes type="BBD" numeric="52"/>
+                String type = parts.getAttributeValue(-1, "type");
+                final String numeric = parts.getAttributeValue(-1, "numeric");
+                if (numeric != null) {
+                    numericCurrencyCodeMapping.put(type, Integer.parseInt(numeric));
+                }
+                return true;
             }
             return false;
         }
@@ -1698,9 +1698,9 @@ public class SupplementalDataInfo {
             double territoryGdp = parseDouble(territoryAttributes.get("gdp"));
             if (territoryToPopulationData.get(territory) == null) {
                 territoryToPopulationData.put(territory, new PopulationData()
-                .setPopulation(territoryPopulation)
-                .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation / 100)
-                .setGdp(territoryGdp));
+                    .setPopulation(territoryPopulation)
+                    .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation / 100)
+                    .setGdp(territoryGdp));
             }
             if (parts.size() > 3) {
 
@@ -1711,10 +1711,10 @@ public class SupplementalDataInfo {
                 if (Double.isNaN(languageLiteracyPercent)) {
                     languageLiteracyPercent = territoryLiteracyPercent;
                 }// else {
-                // System.out.println("writingPercent\t" + languageLiteracyPercent
-                // + "\tterritory\t" + territory
-                // + "\tlanguage\t" + language);
-                // }
+                 // System.out.println("writingPercent\t" + languageLiteracyPercent
+                 // + "\tterritory\t" + territory
+                 // + "\tlanguage\t" + language);
+                 // }
                 double languagePopulationPercent = parseDouble(languageInTerritoryAttributes.get("populationPercent"));
                 double languagePopulation = languagePopulationPercent * territoryPopulation / 100;
                 // double languageGdp = languagePopulationPercent * territoryGdp;
@@ -1731,16 +1731,16 @@ public class SupplementalDataInfo {
                 if (officialStatusString != null) officialStatus = OfficialStatus.valueOf(officialStatusString);
 
                 PopulationData newData = new PopulationData()
-                .setPopulation(languagePopulation)
-                .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
-                .setOfficialStatus(officialStatus)
+                    .setPopulation(languagePopulation)
+                    .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
+                    .setOfficialStatus(officialStatus)
                 // .setGdp(languageGdp)
                 ;
                 newData.freeze();
                 if (territoryLanguageToPopulation.get(language) != null) {
                     System.out
-                    .println("Internal Problem in supplementalData: multiple data items for "
-                        + language + ", " + territory + "\tSkipping " + newData);
+                        .println("Internal Problem in supplementalData: multiple data items for "
+                            + language + ", " + territory + "\tSkipping " + newData);
                     return true;
                 }
 
@@ -1849,10 +1849,10 @@ public class SupplementalDataInfo {
             String language = (String) parts.getAttributeValue(2, "type");
             BasicLanguageData languageData = new BasicLanguageData();
             languageData
-            .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
-                : BasicLanguageData.Type.secondary);
+                .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
+                    : BasicLanguageData.Type.secondary);
             languageData.setScripts(parts.getAttributeValue(2, "scripts"))
-            .setTerritories(parts.getAttributeValue(2, "territories"));
+                .setTerritories(parts.getAttributeValue(2, "territories"));
             Map<Type, BasicLanguageData> map = languageToBasicLanguageData.get(language);
             if (map == null) {
                 languageToBasicLanguageData.put(language, map = new EnumMap<Type, BasicLanguageData>(
@@ -1869,8 +1869,8 @@ public class SupplementalDataInfo {
                 return false;
             }
             System.out
-            .println("Internal Problem in supplementalData: range check fails for "
-                + input + ", min: " + min + ", max:" + max + "\t" + path);
+                .println("Internal Problem in supplementalData: range check fails for "
+                    + input + ", min: " + min + ", max:" + max + "\t" + path);
 
             return false;
         }
@@ -2241,20 +2241,20 @@ public class SupplementalDataInfo {
      * List that can hold up to MAX_LOCALES caches of locales, when one locale hasn't been used for a while it will removed and GC'd
      */
     private class CoverageCache {
-        private final Deque<Node> localeList=new LinkedList<>();
+        private final Deque<Node> localeList = new LinkedList<>();
         private final int MAX_LOCALES = 10;
 
         /**
          * Object to sync on for modifying the locale list
          */
-        private final Object LOCALE_LIST_ITER_SYNC=new Object();
+        private final Object LOCALE_LIST_ITER_SYNC = new Object();
+
         /*
          * constructor
          */
         public CoverageCache() {
 //            localeList = new LinkedList<Node>();
         }
-
 
         /*
          * retrieves coverage level associated with two keys if it exists in the cache, otherwise returns null
@@ -2263,20 +2263,20 @@ public class SupplementalDataInfo {
          * @return the coverage level of the above two keys
          */
         public Level get(String xpath, String loc) {
-            synchronized(LOCALE_LIST_ITER_SYNC) {
-                Iterator<Node> it=localeList.iterator();
-                Node reAddNode=null;
-                while (it.hasNext())  {
+            synchronized (LOCALE_LIST_ITER_SYNC) {
+                Iterator<Node> it = localeList.iterator();
+                Node reAddNode = null;
+                while (it.hasNext()) {
 //            for (Iterator<Node> it = localeList.iterator(); it.hasNext();) {
                     Node node = it.next();
                     if (node.loc.equals(loc)) {
-                        reAddNode=node;
+                        reAddNode = node;
                         it.remove();
                         break;
 
                     }
                 }
-                if (reAddNode!=null) {
+                if (reAddNode != null) {
                     localeList.addFirst(reAddNode);
                     return reAddNode.map.get(xpath);
                 }
@@ -2291,10 +2291,10 @@ public class SupplementalDataInfo {
          * @param covLevel    the coverage level of the above two keys
          */
         public void put(String xpath, String loc, Level covLevel) {
-            synchronized(LOCALE_LIST_ITER_SYNC) {
+            synchronized (LOCALE_LIST_ITER_SYNC) {
                 //if locale's map is already in the cache add to it
 //            for (Iterator<Node> it = localeList.iterator(); it.hasNext();) {
-                for (Node node: localeList) {
+                for (Node node : localeList) {
 //                Node node = it.next();
                     if (node.loc.equals(loc)) {
                         node.map.put(xpath, covLevel);
@@ -2605,10 +2605,10 @@ public class SupplementalDataInfo {
                         if (el[i].indexOf(":") == -1) { // Just a simple locale designation
                             localeList.add(CLDRLocale.getInstance(el[i]));
                         } else { // Org:CoverageLevel
-                            String [] coverageLocaleParts = el[i].split(":",2);
+                            String[] coverageLocaleParts = el[i].split(":", 2);
                             String org = coverageLocaleParts[0];
                             String level = coverageLocaleParts[1].toUpperCase();
-                            Set<String> coverageLocales =sc.getLocaleCoverageLocales(org, EnumSet.of(Level.valueOf(level)));
+                            Set<String> coverageLocales = sc.getLocaleCoverageLocales(org, EnumSet.of(Level.valueOf(level)));
                             for (String cl : coverageLocales) {
                                 localeList.add(CLDRLocale.getInstance(cl));
                             }
@@ -2821,7 +2821,7 @@ public class SupplementalDataInfo {
         }
     };
 
-    private EnumMap<PluralType,Map<String, PluralInfo>> localeToPluralInfo2 = new EnumMap<>(PluralType.class);
+    private EnumMap<PluralType, Map<String, PluralInfo>> localeToPluralInfo2 = new EnumMap<>(PluralType.class);
     {
         localeToPluralInfo2.put(PluralType.cardinal, new LinkedHashMap<String, PluralInfo>());
         localeToPluralInfo2.put(PluralType.ordinal, new LinkedHashMap<String, PluralInfo>());
@@ -2927,7 +2927,7 @@ public class SupplementalDataInfo {
             String result = path.getAttributeValue(-1, "result");
             lastPluralRanges.add(rangeStart == null ? null : Count.valueOf(rangeStart),
                 rangeEnd == null ? null : Count.valueOf(rangeEnd),
-                    Count.valueOf(result)
+                Count.valueOf(result)
                 );
             return true;
         } else if ("pluralRules".equals(element)) {
@@ -3836,25 +3836,24 @@ public class SupplementalDataInfo {
         return false;
     }
 
-
     private boolean isDeprecated(Map<String, Relation<String, String>> map,
         String element, String attribute, String value) {
         return map == null ? false
             : isDeprecated(map.get(STAR), attribute, value)
-            || isDeprecated(map.get(element), attribute, value);
+                || isDeprecated(map.get(element), attribute, value);
     }
 
     private boolean isDeprecated(Relation<String, String> relation,
         String attribute, String value) {
         return relation == null ? false
             : isDeprecated(relation.get(STAR), value)
-            || isDeprecated(relation.get(attribute), value);
+                || isDeprecated(relation.get(attribute), value);
     }
 
     private boolean isDeprecated(Set<String> set, String value) {
         return set == null ? false
             : set.contains(STAR)
-            || value != null && set.contains(value);
+                || value != null && set.contains(value);
     }
 
     /**
@@ -4151,7 +4150,7 @@ public class SupplementalDataInfo {
         return directory;
     }
 
-    public final static Splitter WHITESPACE_SPLTTER=Splitter.on(PatternCache.get("\\s+")).omitEmptyStrings();
+    public final static Splitter WHITESPACE_SPLTTER = Splitter.on(PatternCache.get("\\s+")).omitEmptyStrings();
 
     public static class AttributeValidityInfo {
         //<attributeValues elements="alias" attributes="path" type="path">notDoneYet</attributeValues>
@@ -4164,16 +4163,16 @@ public class SupplementalDataInfo {
 
         static void add(Map<String, String> inputAttibutes, String inputValue, Set<AttributeValidityInfo> data) {
             data.add(new AttributeValidityInfo(
-                inputAttibutes.get("type"), 
-                inputAttibutes.get("attributes"), 
-                inputAttibutes.get("elements"), 
-                inputAttibutes.get("order"), 
+                inputAttibutes.get("type"),
+                inputAttibutes.get("attributes"),
+                inputAttibutes.get("elements"),
+                inputAttibutes.get("order"),
                 inputValue));
         }
 
         public AttributeValidityInfo(String type, String attributes, String elements, String order, String value) {
             this.type = type;
-            this.elements = elements == null ? Collections.EMPTY_SET 
+            this.elements = elements == null ? Collections.EMPTY_SET
                 : With.in(WHITESPACE_SPLTTER.split(elements)).toUnmodifiableCollection(new HashSet<String>());
             this.attributes = With.in(WHITESPACE_SPLTTER.split(attributes)).toUnmodifiableCollection(new HashSet<String>());
             this.order = With.in(WHITESPACE_SPLTTER.split(attributes)).toUnmodifiableCollection(new ArrayList<String>());

@@ -507,7 +507,7 @@ public class ConsoleCheckCLDR {
             }
             paths.clear();
             // CollectionUtilities.addAll(file.iterator(pathFilter), paths);
-            CoverageInfo covInfo=cldrConf.getCoverageInfo();
+            CoverageInfo covInfo = cldrConf.getCoverageInfo();
             for (String path : file.fullIterable()) {
                 if (pathFilter != null && !pathFilter.reset(path).find()) {
                     continue;

@@ -80,7 +80,7 @@ public class SimpleHtmlParser {
     private State state;
 
     private Type bufferedReturn;
-    
+
     private int lineCount;
 
     public SimpleHtmlParser setReader(Reader input) {
@@ -90,7 +90,7 @@ public class SimpleHtmlParser {
         lineCount = 0;
         return this;
     }
-    
+
     public int getLineCount() {
         return lineCount;
     }

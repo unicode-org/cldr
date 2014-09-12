@@ -37,9 +37,9 @@ public class ShowStarredCoverage {
 
     public static void main(String[] args) {
         M4<Level, String, String, Boolean> levelToData = ChainedMap.of(
-            new TreeMap<Level,Object>(), 
-            new TreeMap<String,Object>(), 
-            new TreeMap<String,Object>(), 
+            new TreeMap<Level, Object>(),
+            new TreeMap<String, Object>(),
+            new TreeMap<String, Object>(),
             Boolean.class);
 
         if (true) {
@@ -77,7 +77,7 @@ public class ShowStarredCoverage {
             }
             SurveyToolStatus stStatus = ph.getSurveyToolStatus();
             String starred = pathStarrer.set(path);
-            String attributes = CollectionUtilities.join(pathStarrer.getAttributes(),"|");
+            String attributes = CollectionUtilities.join(pathStarrer.getAttributes(), "|");
             levelToData.put(level, starred + "|" + stStatus + "|" + requiredVotes, attributes, Boolean.TRUE);
             counter.add(level, 1);
         }
@@ -93,12 +93,12 @@ public class ShowStarredCoverage {
                 if (count < 1) {
                     count = 1;
                 }
-                System.out.println(count 
-                    + "\t" + level 
-                    + "\t" + starredStatus[0] 
-                        + "\t" + starredStatus[1]
-                            + "\t" + starredStatus[2]
-                                + "\t" + CollectionUtilities.join(attributes.keySet(), ", "));
+                System.out.println(count
+                    + "\t" + level
+                    + "\t" + starredStatus[0]
+                    + "\t" + starredStatus[1]
+                    + "\t" + starredStatus[2]
+                    + "\t" + CollectionUtilities.join(attributes.keySet(), ", "));
             }
         }
         Counter<String> pageCount = new Counter<>();
@@ -120,7 +120,10 @@ public class ShowStarredCoverage {
     static class LanguageTagCollector {
         private static final CLDRConfig CldrConfig = CLDRConfig.getInstance();
 
-        enum Source {main, canon, supp, seed, exemplars, keyboards, alias}
+        enum Source {
+            main, canon, supp, seed, exemplars, keyboards, alias
+        }
+
         LanguageTagParser ltp = new LanguageTagParser();
         LanguageTagCanonicalizer ltc = new LanguageTagCanonicalizer();
         Relation<String, Source> languageTags = Relation.of(new TreeMap(new LengthFirstComparator()), TreeSet.class);
@@ -159,20 +162,20 @@ public class ShowStarredCoverage {
             addFiles(base, "keyboards", Source.keyboards);
 
             Set<String> badLines = new LinkedHashSet();
-            
+
             for (Entry<String, Set<Source>> entry : languageTags.keyValuesSet()) {
                 final String written = entry.getKey();
                 final String name = getName(written);
                 Set<Source> source = entry.getValue();
                 if (source.contains(Source.alias) && source.size() > 1) {
-                    badLines.add(written 
-                        + "\t" + name 
+                    badLines.add(written
+                        + "\t" + name
                         + "\t" + languageFix.get(written).get0()
                         + "\t" + CollectionUtilities.join(source, " "));
                     source = Collections.singleton(Source.alias);
                 }
-                System.out.println(written 
-                    + "\t" + name 
+                System.out.println(written
+                    + "\t" + name
                     + "\t" + CollectionUtilities.join(source, " "));
             }
             for (String s : badLines) {
@@ -194,6 +197,7 @@ public class ShowStarredCoverage {
         private void addFiles(File base, String name, Source source) {
             addFiles(new File(base, name), source);
         }
+
         private void addFiles(File base, Source source) {
             if (!base.isDirectory()) {
                 return;
@@ -207,7 +211,7 @@ public class ShowStarredCoverage {
                 if (!fileName.endsWith(".xml") || fileName.startsWith("_")) {
                     continue;
                 }
-                addLanguage(fileName.substring(0, fileName.length()-4), source);
+                addLanguage(fileName.substring(0, fileName.length() - 4), source);
             }
 
         }

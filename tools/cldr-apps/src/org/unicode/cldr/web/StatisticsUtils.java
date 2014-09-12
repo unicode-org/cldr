@@ -22,8 +22,9 @@ public class StatisticsUtils {
     };
 
     public static final int NO_LIMIT = -1;
-    
-    public static final String QUERY_ALL_VOTES="select  locale,count(*) as count from "+DBUtils.Table.VOTE_VALUE+"  where submitter is not null "+ "" + " group by locale ";
+
+    public static final String QUERY_ALL_VOTES = "select  locale,count(*) as count from " + DBUtils.Table.VOTE_VALUE + "  where submitter is not null " + ""
+        + " group by locale ";
 
     public static String[][] calcSubmits(String[][] v, String[][] d) {
         return calcSubmits(v, d, NO_LIMIT);
@@ -88,7 +89,7 @@ public class StatisticsUtils {
         final String querySql = "select count(*) from " + DBUtils.Table.VOTE_VALUE + " where submitter is not null";
         return getCachedQuery(queryName, querySql);
     }
-    
+
     /**
      * Total items submitted. Updated every few minutes
      * @return
@@ -101,7 +102,7 @@ public class StatisticsUtils {
     }
 
     public static String getExcludeOldVotesSql() {
-        return " not exists ( select * from "+DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getOldVersion(), false)+" as old_votes "
+        return " not exists ( select * from " + DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getOldVersion(), false) + " as old_votes "
             + "where new_votes.locale=old_votes.locale and new_votes.xpath=old_votes.xpath and "
             + "new_votes.submitter=old_votes.submitter and new_votes.value=old_votes.value) ";
     }
@@ -112,10 +113,10 @@ public class StatisticsUtils {
      */
     public static int getTotalSubmitters() {
         final String queryName = "total_submitters";
-        final String querySql = "select count(distinct submitter) from "+DBUtils.Table.VOTE_VALUE+" ";
+        final String querySql = "select count(distinct submitter) from " + DBUtils.Table.VOTE_VALUE + " ";
         return getCachedQuery(queryName, querySql);
     }
-    
+
     /**
      * @param queryName
      * @param querySql

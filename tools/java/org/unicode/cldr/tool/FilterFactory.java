@@ -134,10 +134,10 @@ public class FilterFactory extends Factory {
         int minLevel = StandardCodes.make()
             .getLocaleCoverageLevel(organization, rawFile.getLocaleID())
             .getLevel();
-        CoverageInfo covInfo=CLDRConfig.getInstance().getCoverageInfo();
+        CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         for (String xpath : rawFile) {
             // Locale metadata shouldn't be stripped.
-            int level=covInfo.getCoverageValue(xpath, rawFile.getLocaleID());
+            int level = covInfo.getCoverageValue(xpath, rawFile.getLocaleID());
             if (level > minLevel) {
                 rawFile.remove(xpath);
             }
@@ -439,7 +439,7 @@ public class FilterFactory extends Factory {
     private static final Options options = new Options(
         "Filters CLDR XML files according to orgnizational coverage levels and an " +
             "input file of replacement values/xpaths.")
-//        .add("org", 'o', ".*", "google", "The organization that the filtering is for. If set, also removes duplicate paths.")
+        //        .add("org", 'o', ".*", "google", "The organization that the filtering is for. If set, also removes duplicate paths.")
         .add("org", 'o', ".*", Organization.cldr.name(), "The organization that the filtering is for. If set, also removes duplicate paths.")
         .add("locales", 'l', ".*", ".*", "A regular expression indicating the locales to be filtered");
 
@@ -456,7 +456,7 @@ public class FilterFactory extends Factory {
         FilterFactory filterFactory = FilterFactory.load(rawFactory, org, true);
         String outputDir = CLDRPaths.GEN_DIRECTORY + "/filter";
         for (String locale : rawFactory.getAvailable()) {
-            try (PrintWriter out = BagFormatter.openUTF8Writer(outputDir, locale + ".xml"); ) {
+            try (PrintWriter out = BagFormatter.openUTF8Writer(outputDir, locale + ".xml");) {
                 filterFactory.make(locale, false).write(out);
             }
 //            out.close();

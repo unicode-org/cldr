@@ -23,7 +23,7 @@ import com.google.common.cache.CacheBuilder;
  */
 public class SimpleTestCache extends TestCache {
     private static final boolean DEBUG = false;
-    
+
     /**
      * Hash the options map
      * 
@@ -32,6 +32,7 @@ public class SimpleTestCache extends TestCache {
      */
     private Cache<CheckCLDR.Options, TestResultBundle> cache = CacheBuilder.newBuilder().maximumSize(CLDRConfig.getInstance()
         .getProperty("CLDR_TESTCACHE_SIZE", 12)).softValues().build();
+
     /*
      * (non-Javadoc)
      * 
@@ -52,8 +53,8 @@ public class SimpleTestCache extends TestCache {
             return;
         }
         // Filter the cache to only keep the items where the locale matches
-        List<Options> toRemove=new ArrayList<>();
-        for (Options k: cache.asMap().keySet()) {
+        List<Options> toRemove = new ArrayList<>();
+        for (Options k : cache.asMap().keySet()) {
             if (k.getLocale().equals(locale)) {
                 toRemove.add(k);
             }
@@ -77,8 +78,8 @@ public class SimpleTestCache extends TestCache {
         int good = 0;
         int total = 0;
         for (Entry<Options, TestResultBundle> k : cache.asMap().entrySet()) {
-            Options key= k.getKey();
-            TestResultBundle bundle=k.getValue();
+            Options key = k.getKey();
+            TestResultBundle bundle = k.getValue();
             if (bundle != null) good++;
             if (DEBUG && true) stats.append("," + k.getKey() + "=" + key);
             total++;
@@ -96,7 +97,7 @@ public class SimpleTestCache extends TestCache {
             // ElapsedTimer et = new ElapsedTimer("New test bundle " + locale + " opt " + options);
             b = new TestResultBundle(options);
             // System.err.println(et.toString());
-            cache.put(options,b);
+            cache.put(options, b);
         }
         return b;
     }

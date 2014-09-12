@@ -87,7 +87,7 @@ public class VettingViewer<T> {
         /**
          * There is a console-check error
          */
-        error('E', "Error", "The Survey Tool detected an error in the winning value.",1),
+        error('E', "Error", "The Survey Tool detected an error in the winning value.", 1),
         /**
          * My choice is not the winning item
          */
@@ -95,54 +95,55 @@ public class VettingViewer<T> {
             'L',
             "Losing",
             "The value that your organization chose (overall) is either not the winning value, or doesn’t have enough votes to be approved. "
-                + "This might be due to a dispute between members of your organization.",2),
-                /**
-                 * There is a dispute.
-                 */
-                notApproved('P', "Provisional", "There are not enough votes for this item to be approved (and used).",3),
-                /**
-                 * There is a dispute.
-                 */
-                hasDispute('D', "Disputed", "Different organizations are choosing different values. "
-                    + "Please review to approve or reach consensus.",4),
-                    /**
-                     * There is a console-check warning
-                     */
-                    warning('W', "Warning", "The Survey Tool detected a warning about the winning value.",5),
-                    /**
-                     * The English value for the path changed AFTER the current value for
-                     * the locale.
-                     */
-                    englishChanged('U', "English Changed",
-                        "The English value has changed in CLDR, but the corresponding value for your language has not. Check if any changes are needed in your language.",6),
-                        /**
-                         * The value changed from the last version of CLDR
-                         */
-                        changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value. (Informational)",7),
-                        /**
-                         * Given the users' coverage, some items are missing.
-                         */
-                        missingCoverage(
-                            'M',
-                            "Missing",
-                            "Your current coverage level requires the item to be present. (During the vetting phase, this is informational: you can’t add new values.)",8),
-                            // /**
-                            // * There is a console-check error
-                            // */
-                            // other('O', "Other", "Everything else."),
-                            ;
+                + "This might be due to a dispute between members of your organization.", 2),
+        /**
+         * There is a dispute.
+         */
+        notApproved('P', "Provisional", "There are not enough votes for this item to be approved (and used).", 3),
+        /**
+         * There is a dispute.
+         */
+        hasDispute('D', "Disputed", "Different organizations are choosing different values. "
+            + "Please review to approve or reach consensus.", 4),
+        /**
+         * There is a console-check warning
+         */
+        warning('W', "Warning", "The Survey Tool detected a warning about the winning value.", 5),
+        /**
+         * The English value for the path changed AFTER the current value for
+         * the locale.
+         */
+        englishChanged('U', "English Changed",
+            "The English value has changed in CLDR, but the corresponding value for your language has not. Check if any changes are needed in your language.",
+            6),
+        /**
+         * The value changed from the last version of CLDR
+         */
+        changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value. (Informational)", 7),
+        /**
+         * Given the users' coverage, some items are missing.
+         */
+        missingCoverage(
+            'M',
+            "Missing",
+            "Your current coverage level requires the item to be present. (During the vetting phase, this is informational: you can’t add new values.)", 8),
+        // /**
+        // * There is a console-check error
+        // */
+        // other('O', "Other", "Everything else."),
+        ;
 
         public final char abbreviation;
         public final String buttonLabel;
         public final String description;
         public final int order;
-        
+
         Choice(char abbreviation, String buttonLabel, String description, int order) {
             this.abbreviation = abbreviation;
             this.buttonLabel = TransliteratorUtilities.toHTML.transform(buttonLabel);
             this.description = TransliteratorUtilities.toHTML.transform(description);
             this.order = order;
-            
+
         }
 
         public static <T extends Appendable> T appendDisplay(Set<Choice> choices, String htmlMessage, T target) {
@@ -214,7 +215,7 @@ public class VettingViewer<T> {
     public static OutdatedPaths getOutdatedPaths() {
         return outdatedPaths;
     }
-    
+
     static private PathHeader.Factory pathTransform;
     static final Pattern breaks = Pattern.compile("\\|");
     static final OutdatedPaths outdatedPaths = new OutdatedPaths();
@@ -755,14 +756,10 @@ public class VettingViewer<T> {
             getFileInfo(sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, user,
                 usersLevel, quick);
 
-        
         // now write the results out
         writeTables(output, sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, fileInfo, quick);
     }
 
-    
-    
-    
     /**
      * Give the list of errors
      * 
@@ -774,7 +771,7 @@ public class VettingViewer<T> {
      * @param usersLevel
      * @param nonVettingPhase
      */
-    public Relation<R2<SectionId, PageId>,WritingInfo> generateFileInfoReview(Appendable output, EnumSet<Choice> choices, String localeID, T user,
+    public Relation<R2<SectionId, PageId>, WritingInfo> generateFileInfoReview(Appendable output, EnumSet<Choice> choices, String localeID, T user,
         Level usersLevel, boolean nonVettingPhase, boolean quick) {
 
         // Gather the relevant paths
@@ -786,7 +783,7 @@ public class VettingViewer<T> {
 
         // Initialize
         CLDRFile lastSourceFile = null;
-        if(!quick){
+        if (!quick) {
             try {
                 lastSourceFile = cldrFactoryOld.make(localeID, true);
             } catch (Exception e) {
@@ -797,17 +794,17 @@ public class VettingViewer<T> {
             getFileInfo(sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, user,
                 usersLevel, quick);
 
-        
         // now write the results out
-        
+
         return sorted;
     }
-    
+
     class FileInfo {
         Counter<Choice> problemCounter = new Counter<Choice>();
         Counter<Subtype> errorSubtypeCounter = new Counter<Subtype>();
         Counter<Subtype> warningSubtypeCounter = new Counter<Subtype>();
         EnumSet<Choice> problems = EnumSet.noneOf(Choice.class);
+
         public void addAll(FileInfo other) {
             problemCounter.addAll(other.problemCounter);
             errorSubtypeCounter.addAll(other.errorSubtypeCounter);
@@ -818,11 +815,11 @@ public class VettingViewer<T> {
             Relation<R2<SectionId, PageId>, WritingInfo> sorted,
             EnumSet<Choice> choices, String localeID, boolean nonVettingPhase,
             T user, Level usersLevel, boolean quick) {
-            return this.getFileInfo(sourceFile,lastSourceFile,sorted,
-                choices,localeID,nonVettingPhase,
-               user, usersLevel,quick, null);
+            return this.getFileInfo(sourceFile, lastSourceFile, sorted,
+                choices, localeID, nonVettingPhase,
+                user, usersLevel, quick, null);
         }
-        
+
         private FileInfo getFileInfo(CLDRFile sourceFile, CLDRFile lastSourceFile,
             Relation<R2<SectionId, PageId>, WritingInfo> sorted,
             EnumSet<Choice> choices, String localeID, boolean nonVettingPhase,
@@ -841,7 +838,7 @@ public class VettingViewer<T> {
             Set<String> seenSoFar = new HashSet<String>();
             boolean latin = VettingViewer.isLatinScriptLocale(sourceFile);
             for (String path : sourceFile.fullIterable()) {
-                if(xpath != null && !xpath.equals(path))
+                if (xpath != null && !xpath.equals(path))
                     continue;
                 String value = sourceFile.getWinningValue(path);
                 statusMessage.setLength(0);
@@ -873,8 +870,7 @@ public class VettingViewer<T> {
                 if (path.contains("/references")) {
                     continue;
                 }
-                
-            
+
                 Level level = supplementalDataInfo.getCoverageLevel(path, sourceFile.getLocaleID());
 
                 // skip anything above the requested level
@@ -963,10 +959,10 @@ public class VettingViewer<T> {
                     }
                     break;
                 }
- 
-                if(xpath != null)
+
+                if (xpath != null)
                     return this;
-                
+
                 if (!problems.isEmpty()) {
                     // showAll ||
                     // if (showAll && problems.isEmpty()) {
@@ -1231,7 +1227,7 @@ public class VettingViewer<T> {
     private void appendNameAndCode(String name, String localeID, Appendable output) throws IOException {
         String[] names = name.split(SPLIT_CHAR);
         output
-            .append("<a href='" + urls.forSpecial(CLDRURLS.Special.Vetting,CLDRLocale.getInstance(localeID)))
+            .append("<a href='" + urls.forSpecial(CLDRURLS.Special.Vetting, CLDRLocale.getInstance(localeID)))
             .append("'>")
             .append(TransliteratorUtilities.toHTML.transform(names[0]))
             .append("</a>")
@@ -1466,7 +1462,7 @@ public class VettingViewer<T> {
     static final NumberFormat nf = NumberFormat.getIntegerInstance(ULocale.ENGLISH);
     private Relation<String, String> reasonsToPaths;
     private CLDRURLS urls = CLDRConfig.getInstance().urls();
-    
+
     static {
         nf.setGroupingUsed(true);
     }
@@ -1726,7 +1722,7 @@ public class VettingViewer<T> {
             throw new IllegalArgumentException(e); // damn'ed checked exceptions
         }
     }
-    
+
     /**
      * 
      * @param output
@@ -1749,23 +1745,23 @@ public class VettingViewer<T> {
 
         // Initialize
         CLDRFile lastSourceFile = null;
-            try {
-                lastSourceFile = cldrFactoryOld.make(localeID, true);
-            } catch (Exception e) {
-            }
+        try {
+            lastSourceFile = cldrFactoryOld.make(localeID, true);
+        } catch (Exception e) {
+        }
 
         EnumSet<Choice> errors = new FileInfo().
-            getFileInfo(sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, user,usersLevel,
+            getFileInfo(sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, user, usersLevel,
                 false, path).problems;
-        
+
         ArrayList<String> out = new ArrayList<String>();
-        for(Object error : errors.toArray()) {
-            out.add( ((Choice)error).buttonLabel);
+        for (Object error : errors.toArray()) {
+            out.add(((Choice) error).buttonLabel);
         }
-        
+
         return out;
     }
-   
+
     /*private void getJSONReview(Appendable output, CLDRFile sourceFile, CLDRFile lastSourceFile,
         Relation<R2<SectionId, PageId>, WritingInfo> sorted,
         EnumSet<Choice> choices,
@@ -1935,7 +1931,7 @@ public class VettingViewer<T> {
                 e.printStackTrace();
         }
     }
-*/
+    */
     private void startTable(Set<Choice> choices, Appendable output) throws IOException {
         output.append("<table class='tv-table'>\n");
         output.append("<tr class='");
@@ -2152,8 +2148,8 @@ public class VettingViewer<T> {
             // http: // unicode.org/cldr-apps/survey?_=ur
 
             if (!repeat) {
-               FileCopier.copy(VettingViewer.class, "vettingView.css", myOutputDir);
-               FileCopier.copy(VettingViewer.class, "vettingView.js", myOutputDir);
+                FileCopier.copy(VettingViewer.class, "vettingView.css", myOutputDir);
+                FileCopier.copy(VettingViewer.class, "vettingView.js", myOutputDir);
             }
             System.out.println("Creation: " + timer.getDuration() / NANOSECS + " secs");
 
@@ -2185,7 +2181,7 @@ public class VettingViewer<T> {
         } while (repeat);
     }
 
-   public enum CodeChoice {
+    public enum CodeChoice {
         /** For the normal (locale) view of data **/
         newCode,
         // /** @deprecated **/

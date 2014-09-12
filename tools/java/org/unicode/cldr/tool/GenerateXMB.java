@@ -598,7 +598,7 @@ public class GenerateXMB {
             out3File.println("}");
             out3File.close();
         } else {
-            
+
 //            FileUtilities.appendFile(GenerateXMB.class, "wsb-dtd.xml", out);
             FileCopier.copy(GenerateXMB.class, "wsb-dtd.xml", out);
             out.println("<!-- " + localeName + " -->");

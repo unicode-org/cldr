@@ -18,32 +18,33 @@ public class StringArrayToMap {
      * @return an Immutable Map of the Array
      * @throws IllegalArgumentException If the array is null
      */
-    public static Map<String,String> from(String[] arr) {
-       // sanity checks
-        if (arr==null) {
+    public static Map<String, String> from(String[] arr) {
+        // sanity checks
+        if (arr == null) {
             throw new IllegalArgumentException("Unable to handle null Array.");
         }
-        if (arr.length % 2 !=0) {
+        if (arr.length % 2 != 0) {
             throw new IllegalArgumentException("Please provide an array with an even number of entries, (key, value,...)");
         }
         // Empty array -> empty map
-        if (arr.length==0) {
+        if (arr.length == 0) {
             return Collections.emptyMap();
         }
         // actually do the work
-        Map<String,String> result=new HashMap<>(arr.length/2);
-        for (int i=0;i<arr.length/2;i+=2) {
-            result.put(arr[i],arr[i+1]);
+        Map<String, String> result = new HashMap<>(arr.length / 2);
+        for (int i = 0; i < arr.length / 2; i += 2) {
+            result.put(arr[i], arr[i + 1]);
         }
         return from(result);
     }
+
     /**
      * Make a Map of Strings immutable
      * @param aMap
      * @return
      */
-    public static Map<String,String> from(Map<String,String> aMap) {
-        if (aMap==null) {
+    public static Map<String, String> from(Map<String, String> aMap) {
+        if (aMap == null) {
             throw new IllegalArgumentException("Please call with non-null map");
         }
         if (aMap.isEmpty()) {

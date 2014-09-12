@@ -42,6 +42,7 @@ public class CharacterListCompressor {
         public int first() {
             return first;
         }
+
         public int last() {
             return last;
         }

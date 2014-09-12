@@ -32,7 +32,7 @@ public class CoverageLevel2 {
      * Enable to get more verbose output when debugging
      */
     private static final boolean DEBUG_LOOKUP = false;
-    
+
     private RegexLookup<Level> lookup = null;
 
     enum SetMatchType {
@@ -88,36 +88,36 @@ public class CoverageLevel2 {
             if (!lstOK) {
                 return false;
             }
-                boolean result = super.find(item, context,info); // also sets matcher in RegexFinder
-                if (!result) {
-                    return false;
-                }
-                if (additionalMatch != null) {
-                    String groupMatch= info.value[1];
+            boolean result = super.find(item, context, info); // also sets matcher in RegexFinder
+            if (!result) {
+                return false;
+            }
+            if (additionalMatch != null) {
+                String groupMatch = info.value[1];
 //                    String groupMatch = matcher.group(1);
-                    // we match on a group, so get the right one
-                    switch (additionalMatch) {
-                    case Target_Language:
-                        return localeSpecificInfo.targetLanguage.equals(groupMatch);
-                    case Target_Scripts:
-                        return localeSpecificInfo.cvi.targetScripts.contains(groupMatch);
-                    case Target_Territories:
-                        return localeSpecificInfo.cvi.targetTerritories.contains(groupMatch);
-                    case Target_TimeZones:
-                        return localeSpecificInfo.cvi.targetTimeZones.contains(groupMatch);
-                    case Target_Currencies:
-                        return localeSpecificInfo.cvi.targetCurrencies.contains(groupMatch);
-                        // For Target_Plurals, we have to account for the fact that the @count= part might not be in the
-                        // xpath, so we shouldn't reject the match because of that. ( i.e. The regex is usually
-                        // ([@count='${Target-Plurals}'])?
-                    case Target_Plurals:
-                        return (groupMatch == null ||
+                // we match on a group, so get the right one
+                switch (additionalMatch) {
+                case Target_Language:
+                    return localeSpecificInfo.targetLanguage.equals(groupMatch);
+                case Target_Scripts:
+                    return localeSpecificInfo.cvi.targetScripts.contains(groupMatch);
+                case Target_Territories:
+                    return localeSpecificInfo.cvi.targetTerritories.contains(groupMatch);
+                case Target_TimeZones:
+                    return localeSpecificInfo.cvi.targetTimeZones.contains(groupMatch);
+                case Target_Currencies:
+                    return localeSpecificInfo.cvi.targetCurrencies.contains(groupMatch);
+                    // For Target_Plurals, we have to account for the fact that the @count= part might not be in the
+                    // xpath, so we shouldn't reject the match because of that. ( i.e. The regex is usually
+                    // ([@count='${Target-Plurals}'])?
+                case Target_Plurals:
+                    return (groupMatch == null ||
                         groupMatch.length() == 0 || localeSpecificInfo.cvi.targetPlurals.contains(groupMatch));
-                    case Calendar_List:
-                        return localeSpecificInfo.cvi.calendars.contains(groupMatch);
-                    }
+                case Calendar_List:
+                    return localeSpecificInfo.cvi.calendars.contains(groupMatch);
                 }
-           
+            }
+
             return true;
         }
 
@@ -174,6 +174,7 @@ public class CoverageLevel2 {
     public int getIntLevel(String path) {
         return getLevel(path).getLevel();
     }
+
     public static void main(String[] args) {
         // quick test
         // TODO convert to unit test

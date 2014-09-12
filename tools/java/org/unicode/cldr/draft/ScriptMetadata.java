@@ -30,10 +30,10 @@ public class ScriptMetadata {
         // doesn't have to be in order
         WR, SAMPLE, ID_USAGE("ID Usage (UAX31)"), RTL("RTL?"), LB_LETTERS("LB letters?"), SHAPING_REQ("Shaping Req?"), IME(
             "IME?"),
-            ORIGIN_COUNTRY("Origin Country"),
-            DENSITY("~Density"),
-            LIKELY_LANGUAGE("Likely Language"),
-            HAS_CASE("Has Case?"), ;
+        ORIGIN_COUNTRY("Origin Country"),
+        DENSITY("~Density"),
+        LIKELY_LANGUAGE("Likely Language"),
+        HAS_CASE("Has Case?"), ;
         int columnNumber = -1;
         final Set<String> names = new HashSet<String>();
 
@@ -289,7 +289,7 @@ public class ScriptMetadata {
         EXTRAS.freeze();
     }
     static final Map<String, Info> data = new MyFileReader()
-    .process(ScriptMetadata.class, DATA_FILE).getData();
+        .process(ScriptMetadata.class, DATA_FILE).getData();
 
     public static Info getInfo(String s) {
         Info result = data.get(s);

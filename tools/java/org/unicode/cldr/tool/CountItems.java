@@ -240,7 +240,7 @@ public class CountItems {
         Relation<String, Data> codeList = isoCurrencyParser.getCodeList();
         Map<String, String> numericTocurrencyCode = new TreeMap<String, String>();
         StringBuffer list = new StringBuffer();
-        
+
         for (Iterator<String> it = codeList.keySet().iterator(); it.hasNext();) {
             String currencyCode = it.next();
             int numericCode = -1;
@@ -252,12 +252,12 @@ public class CountItems {
                 }
                 numericCode = data.getNumericCode();
             }
-            
+
             String strNumCode = "" + numericCode;
             String otherCode = numericTocurrencyCode.get(strNumCode);
             if (otherCode != null) {
                 System.out.println("Warning: duplicate code " + otherCode +
-                     "for " + numericCode);
+                    "for " + numericCode);
             }
             numericTocurrencyCode.put(strNumCode, currencyCode);
             if (list.length() != 0)
@@ -267,10 +267,9 @@ public class CountItems {
             list.append(currencyLine);
             System.out.println(currencyLine);
 
-
         }
-        System.out.println();            
-    
+        System.out.println();
+
     }
 
     /**
@@ -639,7 +638,7 @@ public class CountItems {
                 Iso639Data.getNames(target) + " -->");
         }
         System.out.println("\t\t\t<!-- Bibliographic -->");
-        TreeMap<String,String> sorted = new TreeMap<>();
+        TreeMap<String, String> sorted = new TreeMap<>();
         for (String hasBiblio : Iso639Data.hasBiblio3()) {
             String biblio = Iso639Data.toBiblio3(hasBiblio);
             sorted.put(biblio, hasBiblio);

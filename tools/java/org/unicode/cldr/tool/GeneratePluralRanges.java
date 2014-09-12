@@ -40,7 +40,7 @@ public class GeneratePluralRanges {
         SUPPLEMENTAL = supplementalDataInfo;
         prf = PluralRulesFactory.getInstance(SUPPLEMENTAL);
     }
-    
+
     private static final boolean MINIMAL = true;
 
     public static void main(String[] args) {
@@ -56,7 +56,7 @@ public class GeneratePluralRanges {
         Set<String> sorted = new TreeSet<String>(SUPPLEMENTAL.getPluralRangesLocales());
         // add the core locales
 //        sorted.addAll(StandardCodes.make().getLocaleCoverageLocales("google", EnumSet.of(Level.MODERN)));
-        sorted.addAll(StandardCodes.make().getLocaleCoverageLocales(Organization.cldr.name(),EnumSet.of(Level.MODERN)));
+        sorted.addAll(StandardCodes.make().getLocaleCoverageLocales(Organization.cldr.name(), EnumSet.of(Level.MODERN)));
         // add any variant plural forms
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : SUPPLEMENTAL.getPluralLocales()) {
@@ -219,7 +219,6 @@ public class GeneratePluralRanges {
     private final SupplementalDataInfo SUPPLEMENTAL;
     private final PluralRulesFactory prf;
 
-    
     public static final Comparator<Set<String>> STRING_SET_COMPARATOR = new SetComparator<String, Set<String>>();
     public static final Comparator<Set<Count>> COUNT_SET_COMPARATOR = new SetComparator<Count, Set<Count>>();
 

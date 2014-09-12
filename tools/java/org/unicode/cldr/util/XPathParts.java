@@ -462,7 +462,7 @@ public final class XPathParts implements Freezable<XPathParts> {
         elements.add(new Element(element));
         return this;
     }
-    
+
     /**
      * Varargs version of addElement.
      *  Usage:  xpp.addElements("ldml","localeDisplayNames")
@@ -470,7 +470,7 @@ public final class XPathParts implements Freezable<XPathParts> {
      * @return this for chaining
      */
     public XPathParts addElements(String... element) {
-        for(String e : element) {
+        for (String e : element) {
             addElement(e);
         }
         return this;

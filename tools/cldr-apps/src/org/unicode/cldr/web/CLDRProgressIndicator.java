@@ -5,7 +5,7 @@ package org.unicode.cldr.web;
  * 
  */
 public interface CLDRProgressIndicator {
-    public interface CLDRProgressTask extends java.lang.AutoCloseable{
+    public interface CLDRProgressTask extends java.lang.AutoCloseable {
         /**
          * Done with progress, reset to nothing.
          */

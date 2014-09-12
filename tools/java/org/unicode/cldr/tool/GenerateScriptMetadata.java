@@ -23,7 +23,7 @@ public class GenerateScriptMetadata {
         // PrintWriter out = new PrintWriter(System.out);
 //        FileUtilities.appendFile(GenerateScriptMetadata.class, "GenerateScriptMetadata.txt", out);
         FileCopier.copy(GenerateScriptMetadata.class, "GenerateScriptMetadata.txt", out);
-      
+
         Set<R3<Integer, String, Info>> sorted = new TreeSet<R3<Integer, String, Info>>();
         for (String script : ScriptMetadata.getScripts()) {
             Info i = ScriptMetadata.getInfo(script);

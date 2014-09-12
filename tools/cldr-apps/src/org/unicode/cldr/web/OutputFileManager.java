@@ -86,18 +86,19 @@ public class OutputFileManager {
 
     public enum Kind {
         vxml("Vetted XML. This is the 'final' output from the SurveyTool."),
-        xml("Input XML. This is the on-disk data as read by the SurveyTool."), 
-        rxml("Fully resolved, vetted, XML. This includes all parent data. Huge and expensive."), 
-        fxml("'Final' data. Obsolete."), 
+        xml("Input XML. This is the on-disk data as read by the SurveyTool."),
+        rxml("Fully resolved, vetted, XML. This includes all parent data. Huge and expensive."),
+        fxml("'Final' data. Obsolete."),
         pxml("Proposed XML. This data contains all possible user proposals and can be used to reconstruct the voting situation.");
-        
+
         Kind(String desc) {
             this.desc = desc;
         }
-        
+
         public String getDesc() {
             return desc;
         }
+
         private final String desc;
     };
 

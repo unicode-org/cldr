@@ -56,7 +56,7 @@ import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
-@CLDRTool(alias="showkeyboards", description="Generate keyboard charts")
+@CLDRTool(alias = "showkeyboards", description = "Generate keyboard charts")
 public class ShowKeyboards {
     // TODO - fix ' > xxx
     // TODO - check for bad locale ids
@@ -223,7 +223,7 @@ public class ShowKeyboards {
             }
         }
 
-       FileCopier.copy(ShowKeyboards.class, "keyboards.css", keyboardChartLayoutsDir, "index.css");
+        FileCopier.copy(ShowKeyboards.class, "keyboards.css", keyboardChartLayoutsDir, "index.css");
         PrintWriter index = BagFormatter.openUTF8Writer(keyboardChartLayoutsDir, "index.html");
         String[] headerAndFooter = new String[2];
         ShowData.getChartTemplate(

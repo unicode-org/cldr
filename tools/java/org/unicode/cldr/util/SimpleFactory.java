@@ -73,19 +73,19 @@ public class SimpleFactory extends Factory {
             this.resolved = resolved;
             this.draftStatus = draftStatus;
             // Parameter check: the directory/file supplied must be non-null and readable.
-            if (directory==null) {
+            if (directory == null) {
                 throw new IllegalArgumentException("Attempt to create a CLDRCacheKey with a null directory, please supply a non-null one.");
             }
             if (!directory.canRead()) {
-                throw new IllegalArgumentException("The directory specified, "+directory.getPath()+", cannot be read");
+                throw new IllegalArgumentException("The directory specified, " + directory.getPath() + ", cannot be read");
             }
             this.directory = directory.toString();
-            hashCode=Objects.hash(this.localeName,this.resolved,this.draftStatus,this.directory);
+            hashCode = Objects.hash(this.localeName, this.resolved, this.draftStatus, this.directory);
         }
 
         @Override
         public int hashCode() {
-           return hashCode;
+            return hashCode;
         }
 
         @Override
@@ -474,8 +474,8 @@ public class SimpleFactory extends Factory {
          *  Parameter check: parentDir being null means the source directory could not be found - throw exception here 
          *  rather than running into a  NullPointerException when trying to create/store the cache key further down.
          */
-        if (parentDir==null) {
-            throw new IllegalArgumentException("Unable to determine the source directory for locale "+localeName);
+        if (parentDir == null) {
+            throw new IllegalArgumentException("Unable to determine the source directory for locale " + localeName);
         }
         final Object cacheKey;
         CLDRFile result; // result of the lookup / generation

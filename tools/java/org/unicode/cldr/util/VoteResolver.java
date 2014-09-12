@@ -105,9 +105,9 @@ public class VoteResolver<T> {
         microsoft("Microsoft"),
         openinstitute("Open Inst (Cambodia)"),
         openoffice_org("Open Office"),
-        oracle("Oracle","sun","Sun Micro"),
+        oracle("Oracle", "sun", "Sun Micro"),
         pakistan("Pakistan"),
-	rumantscha("Lia Rumantscha"),
+        rumantscha("Lia Rumantscha"),
         sil("SIL"),
         srilanka("Sri Lanka ICTA", "Sri Lanka"),
         surveytool("Survey Tool"),
@@ -428,17 +428,17 @@ public class VoteResolver<T> {
                 conflictedOrganizations.clear();
             }
             totals.clear();
-            for (Map.Entry<Organization, MaxCounter<T>> entry: orgToVotes.entrySet()) {   
+            for (Map.Entry<Organization, MaxCounter<T>> entry : orgToVotes.entrySet()) {
                 //   for (Organization org : orgToVotes.keySet()) {
 //                Counter<T> items = orgToVotes.get(org);
-                Counter<T> items= entry.getValue();
+                Counter<T> items = entry.getValue();
                 if (items.size() == 0) {
                     continue;
                 }
                 Iterator<T> iterator = items.getKeysetSortedByCount(false).iterator();
                 T value = iterator.next();
                 long weight = items.getCount(value);
-                Organization org=entry.getKey();
+                Organization org = entry.getKey();
                 // if there is more than one item, check that it is less
                 if (iterator.hasNext()) {
                     T value2 = iterator.next();
@@ -465,10 +465,10 @@ public class VoteResolver<T> {
 
         public int getOrgCount(T winningValue) {
             int orgCount = 0;
-            for (Map.Entry<Organization, MaxCounter<T>> entry : orgToVotes.entrySet()) {  
+            for (Map.Entry<Organization, MaxCounter<T>> entry : orgToVotes.entrySet()) {
 //            for (Organization org : orgToVotes.keySet()) {
 //                Counter<T> counter = orgToVotes.get(org);
-                Counter<T> counter= entry.getValue();
+                Counter<T> counter = entry.getValue();
                 long count = counter.getCount(winningValue);
                 if (count > 0) {
                     orgCount++;
@@ -480,7 +480,7 @@ public class VoteResolver<T> {
         public int getBestPossibleVote() {
             int total = 0;
             for (Map.Entry<Organization, Integer> entry : orgToMax.entrySet()) {
-        //    for (Organization org : orgToMax.keySet()) {
+                //    for (Organization org : orgToMax.keySet()) {
 //                total += orgToMax.get(org);
                 total += entry.getValue();
             }
@@ -492,12 +492,12 @@ public class VoteResolver<T> {
             for (Entry<Organization, MaxCounter<T>> entry : orgToVotes.entrySet()) {
 //            for (Organization org : orgToVotes.keySet()) {
 //                Counter<T> counter = orgToVotes.get(org);
-                Counter<T> counter= entry.getValue();
+                Counter<T> counter = entry.getValue();
                 if (counter.size() != 0) {
                     if (orgToVotesString.length() != 0) {
                         orgToVotesString += ", ";
                     }
-                    Organization org= entry.getKey();
+                    Organization org = entry.getKey();
                     orgToVotesString += org + "=" + counter;
                 }
             }

@@ -117,7 +117,7 @@ public class XMLFileReader {
      * @return
      */
     public XMLFileReader readCLDRResource(String resName, int handlers, boolean validating) {
-        
+
         return read(resName, CldrUtility.getInputStream(resName), handlers, validating);
     }
 
@@ -131,12 +131,10 @@ public class XMLFileReader {
      * @return
      */
     public XMLFileReader read(String resName, Class<?> callingClass, int handlers, boolean validating) {
-        
+
         return read(resName, CldrUtility.getInputStream(callingClass, resName), handlers, validating);
     }
 
-
-    
     public XMLFileReader read(String systemID, Reader reader, int handlers, boolean validating) {
         try {
             XMLReader xmlReader = createXMLReader(validating);

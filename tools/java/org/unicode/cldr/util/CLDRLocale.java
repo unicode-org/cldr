@@ -548,13 +548,13 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 //        }
 //        return nf;
 //        return defaultFormatters.getIfPresent(loc);
-        final ULocale uLocFinal=loc;
+        final ULocale uLocFinal = loc;
         try {
             return defaultFormatters.get(loc, new Callable<NameFormatter>() {
 
                 @Override
                 public NameFormatter call() throws Exception {
-                   return new SimpleFormatter(uLocFinal);
+                    return new SimpleFormatter(uLocFinal);
                 }
             });
         } catch (ExecutionException e) {

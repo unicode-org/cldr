@@ -69,12 +69,12 @@ public class CldrResolver {
     // This is most useful for simple resolution, where the resolved locales are
     // required to resolve their children.
     //private Map<String, CLDRFile> resolvedCache = new LruMap<String, CLDRFile>(5);
-    
+
     /**
      * The initial size of the resolved cache
      */
-    private final int INITIAL_RESOLVED_CACHE_SIZE=10;
-    private Cache<String,CLDRFile> resolvedCache=CacheBuilder.newBuilder().initialCapacity(INITIAL_RESOLVED_CACHE_SIZE).build();
+    private final int INITIAL_RESOLVED_CACHE_SIZE = 10;
+    private Cache<String, CLDRFile> resolvedCache = CacheBuilder.newBuilder().initialCapacity(INITIAL_RESOLVED_CACHE_SIZE).build();
 
     public static void main(String[] args) {
         options.parse(args, true);

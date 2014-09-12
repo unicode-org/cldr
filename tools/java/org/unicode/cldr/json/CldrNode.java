@@ -216,8 +216,8 @@ public class CldrNode {
                 if (strbuf.length() != 0) {
                     throw new IllegalArgumentException(
                         "Can not have more than 1 key values in name: " +
-                        "both '" + strbuf + "' and '"+ distinguishingAttributes.get(key) +
-                        "'. attrIdStr=" + attrIdStr + " - check LdmlConvertRules.java");
+                            "both '" + strbuf + "' and '" + distinguishingAttributes.get(key) +
+                            "'. attrIdStr=" + attrIdStr + " - check LdmlConvertRules.java");
                 }
                 strbuf.append(distinguishingAttributes.get(key));
             }

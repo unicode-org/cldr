@@ -107,7 +107,7 @@ public class GenerateCoverageLevels {
             Inheritance inherited = !source.equals(locale) ? Inheritance.inherited : Inheritance.actual;
 
 //            Level level = supplementalData.getCoverageLevel(path, locale);
-            Level level= CLDRConfig.getInstance().getCoverageInfo().getCoverageLevel(path, locale);
+            Level level = CLDRConfig.getInstance().getCoverageInfo().getCoverageLevel(path, locale);
 
             items.add(Row.of(level, path, inherited));
         }
@@ -289,7 +289,7 @@ public class GenerateCoverageLevels {
         LocaleLevelData mapLevelData = new LocaleLevelData();
         TreeSet<String> mainAvailableSource = new TreeSet<String>(cldrFactory.getAvailable());
         TreeSet<String> mainAvailable = new TreeSet<String>();
-        Relation<String,String> localeToVariants = Relation.of(new HashMap(), HashSet.class);
+        Relation<String, String> localeToVariants = Relation.of(new HashMap(), HashSet.class);
         for (String locale : mainAvailableSource) {
             if (localeFilter.skipLocale(locale, localeToVariants)) {
                 continue;
@@ -462,8 +462,10 @@ public class GenerateCoverageLevels {
         }
     }
 
-    enum LocaleStatus {BASE, ALIAS, VARIANT, DEFAULT_CONTENTS}
-    
+    enum LocaleStatus {
+        BASE, ALIAS, VARIANT, DEFAULT_CONTENTS
+    }
+
     private static class LocaleFilter implements Transform<String, LocaleStatus> {
         private final LanguageTagParser ltp = new LanguageTagParser();
         private final boolean checkAliases;
@@ -498,9 +500,10 @@ public class GenerateCoverageLevels {
             return LocaleStatus.BASE;
         }
     }
-    
+
     private static class BooleanLocaleFilter implements Transform<String, Boolean> {
         private final LocaleFilter filter = new LocaleFilter(false);
+
         public Boolean transform(String locale) {
             return filter.transform(locale) == LocaleStatus.BASE ? Boolean.TRUE : Boolean.FALSE;
         }
@@ -547,7 +550,7 @@ public class GenerateCoverageLevels {
         Status status = new Status();
         Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(cldrFile.iterator())
             .addAll(cldrFile.getExtraPaths()).get();
-        CoverageInfo coverageInfo=CLDRConfig.getInstance().getCoverageInfo();
+        CoverageInfo coverageInfo = CLDRConfig.getInstance().getCoverageInfo();
         for (String path : sorted) {
             if (path.endsWith("/alias")) {
                 continue;
@@ -560,7 +563,7 @@ public class GenerateCoverageLevels {
                 : Inheritance.actual;
 
 //            Level level = sdi.getCoverageLevel(fullPath, locale);
-            Level level= coverageInfo.getCoverageLevel(fullPath, locale);
+            Level level = coverageInfo.getCoverageLevel(fullPath, locale);
             if (inherited == Inheritance.actual) {
                 levelData.found.add(level, 1);
             } else {

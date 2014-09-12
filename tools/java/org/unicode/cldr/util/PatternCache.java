@@ -17,24 +17,24 @@ import com.google.common.cache.CacheStats;
  *
  */
 public class PatternCache {
-    private final static int INITIAL_CAPACITY=30;
-    private final static int MAX_CAPACITY=1000;
-    
+    private final static int INITIAL_CAPACITY = 30;
+    private final static int MAX_CAPACITY = 1000;
+
     /** 
      * Variable to control whether patterns are cached (true);
      *  or whether they are created all the time */
-    private final static boolean USE_CACHE=true;
-    
+    private final static boolean USE_CACHE = true;
+
     /**
      * Variable that controls whether statistics are recorded for the caching.
      */
-    private final static boolean RECORD_STATISTICS=true;
-  
+    private final static boolean RECORD_STATISTICS = true;
+
     /**
      * The cache object
      */
-    private final static Cache<String,Pattern> cache;
-   
+    private final static Cache<String, Pattern> cache;
+
     /* 
      * A static initialization block is used to be able to cleanly handle the three different cases:
      * 
@@ -45,20 +45,21 @@ public class PatternCache {
     static {
         if (USE_CACHE) {
             if (RECORD_STATISTICS) {
-                cache=CacheBuilder.newBuilder().
+                cache = CacheBuilder.newBuilder().
                     initialCapacity(INITIAL_CAPACITY).
-                    maximumSize(MAX_CAPACITY). recordStats().
+                    maximumSize(MAX_CAPACITY).recordStats().
                     build();
             } else {
-                cache=CacheBuilder.newBuilder().
+                cache = CacheBuilder.newBuilder().
                     initialCapacity(INITIAL_CAPACITY).
                     maximumSize(MAX_CAPACITY).
                     build();
             }
         } else {
-            cache=null;
+            cache = null;
         }
     }
+
     /**
      * Obtain a compiled Pattern from the String given; results of the lookup are cached, a cached result will be returned if
      * possible. 
@@ -67,7 +68,7 @@ public class PatternCache {
      */
     public static Pattern get(final String patternStr) {
         // Pre-conditions: non-null, non-empty string
-        if (patternStr==null) {
+        if (patternStr == null) {
             throw new IllegalArgumentException("Please call with non-null argument");
         }
         if (patternStr.isEmpty()) {
@@ -77,9 +78,9 @@ public class PatternCache {
         if (!USE_CACHE) {
             return Pattern.compile(patternStr);
         }
-        Pattern result=null;
+        Pattern result = null;
         try {
-            result=cache.get(patternStr, new Callable<Pattern>() {
+            result = cache.get(patternStr, new Callable<Pattern>() {
 
                 @Override
                 public Pattern call() throws Exception {
@@ -88,11 +89,11 @@ public class PatternCache {
             });
         } catch (ExecutionException e) {
             // realistically, this is a PatternSyntaxException
-            throw new IllegalArgumentException("The supplied pattern is not valid: "+patternStr,e);
+            throw new IllegalArgumentException("The supplied pattern is not valid: " + patternStr, e);
         }
         return result;
     }
-    
+
     /**
      * Return true if the collection of statistics is enabled
      * @return
@@ -100,7 +101,7 @@ public class PatternCache {
     public static boolean isRecordStatistics() {
         return RECORD_STATISTICS;
     }
-    
+
     /**
      * Return true if caching is enabled; in the case it isn't this class acts like a Factory
      * for compiled Patterns
@@ -110,7 +111,7 @@ public class PatternCache {
     public static boolean isCachingEnabled() {
         return USE_CACHE;
     }
-    
+
     /**
      * Get Statistics for the Caching operation
      * @return
@@ -118,5 +119,5 @@ public class PatternCache {
     public static CacheStats getStatistics() {
         return cache.stats();
     }
-    
+
 }

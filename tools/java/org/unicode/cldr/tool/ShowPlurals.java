@@ -33,16 +33,18 @@ import com.ibm.icu.util.ULocale;
 public class ShowPlurals {
 
     private static final String NO_PLURAL_DIFFERENCES = "<i>no plural differences</i>";
-    private static final String NOT_AVAILABLE = "<i>Not available.<br>Please <a target='_blank' href='"+CLDRURLS.CLDR_NEWTICKET_URL+"'>file a ticket</a> to supply.</i>";
+    private static final String NOT_AVAILABLE = "<i>Not available.<br>Please <a target='_blank' href='" + CLDRURLS.CLDR_NEWTICKET_URL
+        + "'>file a ticket</a> to supply.</i>";
     final SupplementalDataInfo supplementalDataInfo;
 
     public ShowPlurals() {
         supplementalDataInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
     }
+
     public ShowPlurals(SupplementalDataInfo supplementalDataInfo) {
         this.supplementalDataInfo = supplementalDataInfo;
     }
-    
+
     public void printPlurals(CLDRFile english, String localeFilter, PrintWriter index, Factory factory) throws IOException {
         String section1 = "Rules";
         String section2 = "Comparison";
@@ -72,7 +74,7 @@ public class ShowPlurals {
         }
     }
 
-    public void printPluralTable(CLDRFile english, String localeFilter, 
+    public void printPluralTable(CLDRFile english, String localeFilter,
         Appendable appendable, Factory factory) throws IOException {
 
         final TablePrinter tablePrinter = new TablePrinter()
@@ -93,7 +95,7 @@ public class ShowPlurals {
         Set<String> ordinalLocales = supplementalDataInfo.getPluralLocales(PluralType.ordinal);
         Set<String> all = new LinkedHashSet<String>(cardinalLocales);
         all.addAll(ordinalLocales);
-        
+
         LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer();
 
         for (String locale : supplementalDataInfo.getPluralLocales()) {
@@ -105,14 +107,14 @@ public class ShowPlurals {
             if (!locale.equals(canonicalLocale)) {
                 String redirect = "<i>=<a href='#" + canonicalLocale + "'>" + canonicalLocale + "</a></i>";
                 tablePrinter.addRow()
-                .addCell(name)
-                .addCell(locale)
-                .addCell(redirect)
-                .addCell(redirect)
-                .addCell(redirect)
-                .addCell(redirect)
-                .addCell(redirect)
-                .finishRow();
+                    .addCell(name)
+                    .addCell(locale)
+                    .addCell(redirect)
+                    .addCell(redirect)
+                    .addCell(redirect)
+                    .addCell(redirect)
+                    .addCell(redirect)
+                    .finishRow();
                 continue;
             }
 
@@ -180,7 +182,8 @@ public class ShowPlurals {
             List<RangeSample> rangeInfoList = null;
             try {
                 rangeInfoList = new GeneratePluralRanges(supplementalDataInfo).getRangeInfo(factory.make(locale, true));
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
             if (rangeInfoList != null) {
                 for (RangeSample item : rangeInfoList) {
                     tablePrinter.addRow()

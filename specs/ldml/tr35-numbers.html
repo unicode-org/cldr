@@ -741,7 +741,7 @@ h2,h3,h4,table {
 			<dt>
 				<strong>range</strong>
 			</dt>
-			<dd>indicates a range of numbers, such as: “99-103” to indicate
+			<dd>indicates a range of numbers, such as: “99<span class="changed">–</span>103” to indicate
 				that there are from 99 to 103 items.</dd>
 		</dl>
 		<p>
@@ -1870,8 +1870,8 @@ h2,h3,h4,table {
 			the various plural forms of a language; for a given language, only
 			the tags necessary for that language are defined, along with the
 			specific numeric ranges covered by each tag (for example, the plural
-			form &quot;few&quot; may be used for the numeric range 2-4 in one
-			language and 3-9 in another):</p>
+			form &quot;few&quot; may be used for the numeric range 2<span class="changed">–</span>4 in one
+			language and 3<span class="changed">–</span>9 in another):</p>
 		<ul>
 			<li>zero</li>
 			<li>one</li>
@@ -1891,9 +1891,9 @@ h2,h3,h4,table {
 	&lt;pluralRules count=&quot;few&quot;&gt;<span style="color: blue">n mod 10 in 2..4 and n mod 100 not in 12..14</span>&lt;/pluralRule&gt;
 &lt;/pluralRules&gt;</pre>
 		<p>These rules specify that Russian has a &quot;one&quot; form
-			(for 1, 21, 31, 41, 51, …), a &quot;few&quot; form (for 2-4, 22-24,
-			32-34, …), and implicitly an &quot;other&quot; form (for everything
-			else: 0, 5-20, 25-30, 35-40, …, decimals). Russian does not need
+			(for 1, 21, 31, 41, 51, …), a &quot;few&quot; form (for 2<span class="changed">–</span>4, 22<span class="changed">–</span>24,
+			32<span class="changed">–</span>34, …), and implicitly an &quot;other&quot; form (for everything
+			else: 0, 5<span class="changed">–</span>20, 25<span class="changed">–</span>30, 35<span class="changed">–</span>40, …, decimals). Russian does not need
 			additional separate forms for zero, two, or many, so these are not
 			defined.</p>
 		<p>Plural categories may also differ according to the decimals.
@@ -2275,10 +2275,10 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 		</p>
 
 		<p>Often ranges of numbers are presented to users, such as in
-			“Length: 3.2-4.5 centimeters”. This means any length from 3.2 cm to
+			“Length: 3.2<span class="changed">–</span>4.5 centimeters”. This means any length from 3.2 cm to
 			4.5 cm, inclusive. However, different languages have different
-			conventions for the pluralization given to a range: should it be “0-1
-			centimeter” or “0-1 centimeters”? This becomes much more complicated
+			conventions for the pluralization given to a range: should it be “0<span class="changed">–</span>1
+			centimeter” or “0<span class="changed">–</span>1 centimeters”? This becomes much more complicated
 			for languages that have many different plural forms, such as Russian
 			or Arabic.</p>
 		<p>
@@ -2480,7 +2480,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001-2014 Unicode, Inc. All Rights Reserved. The Unicode
+			Copyright © 2001<span class="changed">–</span>2014 Unicode, Inc. All Rights Reserved. The Unicode
 			Consortium makes no expressed or implied warranty of any kind, and
 			assumes no liability for errors or omissions. No liability is assumed
 			for incidental and consequential damages in connection with or

@@ -9,7 +9,6 @@ import java.util.Set;
 
 import org.json.JSONObject;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.User;
 
 /**

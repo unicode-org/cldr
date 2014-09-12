@@ -21,9 +21,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.util.VariantFolder.CanonicalFolder;
-import org.unicode.cldr.util.VariantFolder.CaseVariantFolder;
-import org.unicode.cldr.util.VariantFolder.CompatibilityFolder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
@@ -36,6 +33,9 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VariantFolder;
+import org.unicode.cldr.util.VariantFolder.CanonicalFolder;
+import org.unicode.cldr.util.VariantFolder.CaseVariantFolder;
+import org.unicode.cldr.util.VariantFolder.CompatibilityFolder;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.BagFormatter;

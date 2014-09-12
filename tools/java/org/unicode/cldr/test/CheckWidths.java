@@ -2,21 +2,15 @@ package org.unicode.cldr.test;
 
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.ApproximateWidth;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 public class CheckWidths extends CheckCLDR {
     // remember to add this class to the list in CheckCLDR.getCheckAll

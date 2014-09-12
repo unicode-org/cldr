@@ -10,7 +10,6 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -23,7 +22,6 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.LruMap;
 import org.unicode.cldr.util.SimpleXMLSource;
 
 import com.google.common.cache.Cache;

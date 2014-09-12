@@ -11,7 +11,6 @@ import com.ibm.icu.dev.util.XEquivalenceClass.SetMaker;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UTF16.StringComparator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;

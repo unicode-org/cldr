@@ -4,15 +4,11 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.icu.LDMLConstants;
-import org.unicode.cldr.tool.CheckHtmlFiles.MyOptions;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -24,14 +20,11 @@ import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.Relation;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
-import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.VersionInfo;
-import com.ibm.icu.lang.UCharacter;
 
 /**
  * This tool is manually run to generate *part* of the ar.xml

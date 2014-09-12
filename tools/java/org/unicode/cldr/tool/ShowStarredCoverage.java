@@ -1,10 +1,7 @@
 package org.unicode.cldr.tool;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.EnumMap;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -15,12 +12,11 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.CLDRFile.DtdType;
-import org.unicode.cldr.util.ChainedMap.M3;
-import org.unicode.cldr.util.ChainedMap.M4;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;

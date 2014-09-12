@@ -2,7 +2,6 @@ package org.unicode.cldr.unittest;
 
 import java.util.concurrent.Callable;
 
-
 import com.ibm.icu.text.MessageFormat;
 
 /**

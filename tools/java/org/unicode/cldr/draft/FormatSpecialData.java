@@ -14,8 +14,8 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.draft.ScriptCategories.RemapType;
 import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.FileReaders;
 import org.unicode.cldr.util.CldrUtility.CollectionComparator;
+import org.unicode.cldr.util.FileReaders;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;

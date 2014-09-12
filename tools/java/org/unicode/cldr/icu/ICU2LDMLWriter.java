@@ -7,12 +7,6 @@
 package org.unicode.cldr.icu;
 
 //CLDR imports
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-
 import org.unicode.cldr.ant.CLDRConverterTool;
 
 import com.ibm.icu.dev.tool.UOption;

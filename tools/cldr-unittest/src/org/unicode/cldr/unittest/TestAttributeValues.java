@@ -33,7 +33,6 @@ import java.util.concurrent.Callable;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.unittest.CheckResult.ResultStatus;
-import org.unicode.cldr.unittest.ObjectMatcherFactory;
 import org.unicode.cldr.unittest.ObjectMatcherFactory.MatcherPattern;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Factory;
@@ -42,11 +41,11 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
-import org.unicode.cldr.util.XMLFileReader;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
-import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.XMLFileReader;
+import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Predicate;
@@ -59,8 +58,8 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.primitives.Ints;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.CollectionUtilities.ObjectMatcher;
+import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.UnicodeSet;
 

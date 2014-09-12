@@ -7,9 +7,9 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CldrUtility;

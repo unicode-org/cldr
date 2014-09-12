@@ -94,7 +94,6 @@ import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SpecialLocales.Type;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.StaticCLDRURLS;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;

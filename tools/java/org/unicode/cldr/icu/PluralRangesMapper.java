@@ -1,25 +1,12 @@
 package org.unicode.cldr.icu;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 import org.unicode.cldr.util.PluralRanges;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-
-import com.ibm.icu.dev.util.Relation;
-import com.ibm.icu.impl.Row.R2;
 
 /**
  * Class for converting CLDR plurals files to a format suitable for outputting

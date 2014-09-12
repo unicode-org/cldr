@@ -7,9 +7,6 @@
 package org.unicode.cldr.tool;
 
 import java.util.Collections;
-
-import org.unicode.cldr.util.Pair;
-
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -18,6 +15,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;

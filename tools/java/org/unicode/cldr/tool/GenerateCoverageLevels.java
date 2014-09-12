@@ -38,7 +38,6 @@ import com.ibm.icu.impl.Row.R5;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.Transform;
-import com.ibm.icu.util.Output;
 
 public class GenerateCoverageLevels {
     // see ShowLocaleCoverage.java

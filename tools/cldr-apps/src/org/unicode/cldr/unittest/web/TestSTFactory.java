@@ -24,8 +24,6 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.BallotBox;
 import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
-import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
-import org.unicode.cldr.web.CLDRProgressIndicator;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.STFactory;

@@ -8,7 +8,6 @@
 package org.unicode.cldr.web;
 
 import java.io.IOException;
-import java.io.StringWriter;
 import java.io.Writer;
 import java.net.URLEncoder;
 import java.sql.Connection;
@@ -17,7 +16,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.text.CharacterIterator;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -37,16 +35,13 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.PathUtilities;
-import org.unicode.cldr.util.Utf8StringByteConverter;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
-import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.StringCharacterIterator;
 import com.ibm.icu.text.UCharacterIterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;

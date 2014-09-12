@@ -10,6 +10,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
+
 import com.ibm.icu.dev.util.BagFormatter;
 
 public class DumpCoverage {

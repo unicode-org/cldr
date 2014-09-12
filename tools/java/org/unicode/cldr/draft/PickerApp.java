@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Vector;
 
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -27,9 +26,7 @@ import javax.swing.event.ListDataListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import org.apache.xerces.dom.NotationImpl;
 import org.unicode.cldr.draft.CharacterListCompressor.Interval;
-import org.unicode.cldr.draft.PickerData;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRTool;
 

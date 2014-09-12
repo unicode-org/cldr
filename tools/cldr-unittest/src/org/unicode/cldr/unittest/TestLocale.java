@@ -11,7 +11,6 @@ import java.util.Set;
 
 import javax.xml.xpath.XPathException;
 
-import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
@@ -29,9 +28,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathExpressionParser;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
-
-import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.util.ULocale;
 
 public class TestLocale extends TestFmwkPlus {
     static TestInfo testInfo = TestInfo.getInstance();

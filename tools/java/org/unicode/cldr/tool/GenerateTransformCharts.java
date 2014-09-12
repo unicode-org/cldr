@@ -24,9 +24,9 @@ import java.util.TreeSet;
 import org.unicode.cldr.test.TestTransformsSimple;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
-import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.SimpleEquivalenceClass;
 
 import com.ibm.icu.dev.util.BagFormatter;

@@ -17,7 +17,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
 import org.unicode.cldr.test.CheckCLDR;
-import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;

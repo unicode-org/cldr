@@ -1590,16 +1590,15 @@ h2,h3,h4,table {
 		</blockquote>
 		<p class="note">
 			Notice that the currency code is completely independent of the
-			end-user&#39;s language or locale. For example, RUR is the code for
-			Russian Rubles. A currency amount of &lt;RUR, 1.23457×10³&gt; would
-			be localized for a Russian user into &quot;1 234,57р.&quot; (using
-			U+0440 (р) <span style="FONT-VARIANT: small-caps">cyrillic
-				small letter er</span>). For an English user it would be localized into the
-			string &quot;Rub 1,234.57&quot; The end-user&#39;s language is needed
+			end-user&#39;s language or locale. <span class="changed">For example, BGN is the code for
+			Bulgarian Lev. A currency amount of &lt;BGN, 1.23457×10³&gt; would
+			be localized for a Bulgarian user into &quot;1 234,57лв.&quot; (using
+			Cyrillic letters). For an English user it would be localized into the
+			string &quot;BGN 1,234.57&quot; </span>The end-user&#39;s language is needed
 			for doing this last localization step; but that language is
 			completely orthogonal to the currency code needed in the data. After
 			all, the same English user could be working with dozens of
-			currencies.Notice also that the currency code is also independent of
+			currencies. Notice also that the currency code is also independent of
 			whether currency values are inter-converted, which requires more
 			interesting financial processing: the rate of conversion may depend
 			on a variety of factors.

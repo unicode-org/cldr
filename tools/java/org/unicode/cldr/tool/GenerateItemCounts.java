@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -19,12 +20,17 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdData.Attribute;
+import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexUtilities;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.unicode.cldr.util.XPathParts;
@@ -32,14 +38,17 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
+import com.google.common.base.Splitter;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.util.VersionInfo;
 
 public class GenerateItemCounts {
+    private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = CLDRConfig.getInstance().getSupplementalDataInfo();
     private static final boolean SKIP_ORDERING = true;
     private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/itemcount/"; // CldrUtility.MAIN_DIRECTORY;
     private Map<String, List<StackTraceElement>> cantRead = new TreeMap<String, List<StackTraceElement>>();
@@ -101,25 +110,31 @@ public class GenerateItemCounts {
                 // if (dirPattern != null && !dirPattern.matcher(dir).find()) continue;
                 final String pathname = dir.equals("trunk") ? CLDRPaths.BASE_DIRECTORY
                     : CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir;
+                boolean isFinal = dir == DIRECTORIES[DIRECTORIES.length-1];
+                
                 String fulldir = new File(pathname).getCanonicalPath();
                 String prefix = (MyOptions.rawfilter.option.doesOccur() ? "filtered_" : "");
                 String fileKey = dir.replace("/", "_");
-                PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY, prefix + "count_" + fileKey + ".txt");
-                PrintWriter changes = BagFormatter
-                    .openUTF8Writer(OUT_DIRECTORY, prefix + "changes_" + fileKey + ".txt");
-                PrintWriter changesSummary = BagFormatter
-                    .openUTF8Writer(OUT_DIRECTORY, prefix + "changes_summary_" + fileKey + ".txt");
-                main.summarizeCoverage(summary, fulldir);
-                if (doChanges) {
-                    if (oldPath2value != null) {
-                        compare(summary, changes, changesSummary, oldPath2value, path2value);
+                try (
+                    PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_count.txt");
+                    PrintWriter changes = BagFormatter
+                        .openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_changes.txt");
+                    PrintWriter changesNew = BagFormatter
+                        .openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_news.txt");
+                    PrintWriter changesDeletes = BagFormatter
+                        .openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_deletes.txt");
+                    PrintWriter changesSummary = BagFormatter
+                        .openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_changes_summary.txt"); ) {
+                    main.summarizeCoverage(summary, fulldir, isFinal);
+                    if (doChanges) {
+                        if (oldPath2value != null) {
+                            compare(summary, changes, changesNew, changesDeletes, changesSummary, oldPath2value, path2value);
+                            checkBadAttributes(path2value);
+                        }
+                        oldPath2value = path2value;
+                        path2value = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
                     }
-                    oldPath2value = path2value;
-                    path2value = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
                 }
-                summary.close();
-                changes.close();
-                changesSummary.close();
             }
             ATTRIBUTE_TYPES.showStarred();
         } finally {
@@ -133,6 +148,115 @@ public class GenerateItemCounts {
         }
     }
 
+    static final Set<String> SKIP_ATTRIBUTES = new HashSet<>(Arrays.asList("draft", "references", "validSubLocales"));
+    
+    static final Relation<String, DtdType> ELEMENTS_OCCURRING = Relation.of(new TreeMap(), TreeSet.class);
+    static final Relation<String, DtdType> ELEMENTS_POSSIBLE = Relation.of(new TreeMap(), TreeSet.class);
+    static final Relation<String, Row.R2<DtdType,String>> ATTRIBUTES_OCCURRING = Relation.of(new TreeMap(), TreeSet.class);
+    static final Relation<String, Row.R2<DtdType,String>> ATTRIBUTES_POSSIBLE= Relation.of(new TreeMap(), TreeSet.class);
+
+    private static void checkBadAttributes(Relation<String, String> path2value2) {
+        // an attribute is misplaced if it is not distinguishing, but is on a non-final node.
+        SupplementalDataInfo supp = SUPPLEMENTAL_DATA_INFO;
+        for (DtdType dtdType : DtdType.values()) {
+            if (dtdType == DtdType.ldmlICU){
+                continue;
+            }
+            DtdData data = DtdData.getInstance(dtdType);
+            for (Element element : data.getElements()) {
+                String elementName = element.name;
+                ELEMENTS_POSSIBLE.put(elementName, dtdType);
+                final Set<Element> children = element.getChildren().keySet();
+                
+                boolean skipFinal = children.isEmpty() 
+                    || children.size() == 1 
+                    && children.iterator().next().name.equals("special");
+                
+                for (Entry<Attribute, Integer> attributeInt : element.getAttributes().entrySet()) {
+                    Attribute attribute = attributeInt.getKey();
+                    String attributeName = attribute.name;
+                    final R2<DtdType, String> attributeRow = Row.of(dtdType, elementName);
+                    ATTRIBUTES_POSSIBLE.put(attributeName, attributeRow);
+                    if (skipFinal || SKIP_ATTRIBUTES.contains(attributeName)) { // don't worry about non-final, references, draft, standard
+                        continue;
+                    }
+                    if (supp.isDeprecated(dtdType, elementName, attributeName, null)) {
+                        continue;
+                    }
+                    if (!CLDRFile.isDistinguishing(dtdType, elementName, attributeName)) {
+                        String doesOccur = "";
+                        final Set<R2<DtdType, String>> attributeRows = ATTRIBUTES_OCCURRING.get(attributeName);
+                        if (attributeRows == null || !attributeRows.contains(attributeRow)) {
+                            doesOccur = "\tNEVER";
+                        }
+                        System.out.println(dtdType + "\t" + elementName + "\t" + attributeName + "\t" + children + doesOccur);
+                    }
+                }
+            }
+        }
+        
+        System.out.println("\nElements\tDeprecated\tOccurring\tPossible in DTD, but never occurs");
+        
+        for (Entry<String, Set<DtdType>> x : ELEMENTS_POSSIBLE.keyValuesSet()) {
+            final String element = x.getKey();
+            if (element.equals("#PCDATA") || element.equals("ANY") || element.equals("generation")) {
+                continue;
+            }
+            final Set<DtdType> possible = x.getValue();
+            Set<DtdType> occurs = ifNull(ELEMENTS_OCCURRING.get(element), Collections.EMPTY_SET);
+            Set<DtdType> noOccur = new TreeSet(possible);
+            noOccur.removeAll(occurs);
+            
+            Set<DtdType> deprecated = new TreeSet();
+            for (DtdType dtdType : possible) {
+                if (SUPPLEMENTAL_DATA_INFO.isDeprecated(dtdType, element, null, null)) {
+                    deprecated.add(dtdType);
+                    noOccur.remove(dtdType);
+                }
+            }
+            noOccur.removeAll(deprecated);
+            
+            System.out.println(element 
+                + "\t" + deprecated
+                + "\t" + occurs 
+                + "\t" + noOccur
+                );
+        }
+        
+        System.out.println("\nAttributes\tDeprecated\tOccurring\tPossible in DTD, but never occurs");
+
+        for (Entry<String, Set<R2<DtdType, String>>> x : ATTRIBUTES_POSSIBLE.keyValuesSet()) {
+            final String attribute = x.getKey();
+            if (attribute.equals("alt") || attribute.equals("draft") || attribute.equals("references")) {
+                continue;
+            }
+            final Set<R2<DtdType, String>> possible = x.getValue();
+            Set<R2<DtdType, String>> occurs = ifNull(ATTRIBUTES_OCCURRING.get(attribute), Collections.EMPTY_SET);
+            Set<R2<DtdType, String>> noOccur = new TreeSet(possible);
+            noOccur.removeAll(occurs);
+            
+            Set<R2<DtdType, String>> deprecated = new TreeSet();
+            for (R2<DtdType, String> s : possible) {
+                final DtdType dtdType = s.get0();
+                final String element = s.get1();
+                if (SUPPLEMENTAL_DATA_INFO.isDeprecated(dtdType, element, attribute, null)) {
+                    deprecated.add(s);
+                    noOccur.remove(s);
+                }
+            }
+            
+            System.out.println(attribute 
+                + "\t" + deprecated
+                + "\t" + occurs 
+                + "\t" + noOccur
+                );
+        }
+    }
+    
+    public static <T> T ifNull(T x, T y) {
+        return x == null ? y : x;
+    }
+    
     static class AttributeTypes {
         Relation<String, String> elementPathToAttributes = Relation.of(new TreeMap<String, Set<String>>(),
             TreeSet.class);
@@ -205,8 +329,8 @@ public class GenerateItemCounts {
         }
     }
 
-    private static void compare(PrintWriter summary, PrintWriter changes2, PrintWriter changesSummary,
-        Relation<String, String> oldPath2value,
+    private static void compare(PrintWriter summary, PrintWriter changes, PrintWriter changesNew, 
+        PrintWriter changesDeletes, PrintWriter changesSummary, Relation<String, String> oldPath2value,
         Relation<String, String> path2value2) {
         Set<String> union = Builder.with(new TreeSet<String>()).addAll(oldPath2value.keySet())
             .addAll(path2value2.keySet()).get();
@@ -232,11 +356,11 @@ public class GenerateItemCounts {
                 total += set2.size();
             }
             if (set1 == null) {
-                changes2.println(prefix + "\tNew:\t" + "\t" + set2 + "\t" + localPath);
+                changesNew.println(prefix + "\t" + "\t" + set2 + "\t" + localPath);
                 itemCount.newCount.add(prefix, set2.size());
                 charCount.newCount.add(prefix, totalLength(set2));
             } else if (set2 == null) {
-                changes2.println(prefix + "\tDeleted:\t" + set1 + "\t\t" + localPath);
+                changesDeletes.println(prefix + "\t" + set1 + "\t\t" + localPath);
                 itemCount.deletedCount.add(prefix, -set1.size());
                 charCount.deletedCount.add(prefix, -totalLength(set1));
             } else if (!set1.equals(set2)) {
@@ -247,7 +371,7 @@ public class GenerateItemCounts {
                 itemCount.unchangedCount.add(prefix, set2and1.size());
                 charCount.changedCount.add(prefix, (totalLength(set2minus1) + totalLength(set1minus2) + 1) / 2);
                 charCount.unchangedCount.add(prefix, totalLength(set2and1));
-                changes2.println(prefix + "\tChanged:\t" + set1minus2
+                changes.println(prefix + "\t" + set1minus2
                     + "\t"
                     + set2minus1
                     + "\t" + localPath);
@@ -433,9 +557,19 @@ public class GenerateItemCounts {
         "\\[\\@alt=\"[^\"]*proposed" +
         "|^//" +
         "(ldml(\\[[^/]*)?/identity" +
-        "|(ldmlBCP47|supplementalData)(\\[[^/]*)?/(generation|version)" +
+        "|(ldmlBCP47|supplementalData|keyboard)(\\[[^/]*)?/(generation|version)" +
         ")"
         );
+
+    static void capture(DtdType type2, XPathParts parts) {
+        for (int i = 0; i < parts.size(); ++i) {
+            String element = parts.getElement(i);
+            ELEMENTS_OCCURRING.put(element, type2);
+            for (String attribute : parts.getAttributes(i).keySet()) {
+                ATTRIBUTES_OCCURRING.put(attribute, Row.of(type2, element));
+            }                
+        }
+    }
 
     static class MyHandler extends SimpleHandler {
         XPathParts parts = new XPathParts();
@@ -444,12 +578,15 @@ public class GenerateItemCounts {
         long attributeCount;
         long attributeLen;
         Matcher skipPathMatcher = skipPath.matcher("");
+        Splitter lines = Splitter.onPattern("\n+").omitEmptyStrings().trimResults();
         String prefix;
         int orderedCount;
         DtdType type;
+        private final boolean isFinal;
 
-        MyHandler(String prefix) {
+        MyHandler(String prefix, boolean isFinal) {
             this.prefix = prefix;
+            this.isFinal = isFinal;
         }
 
         @Override
@@ -471,15 +608,35 @@ public class GenerateItemCounts {
                 // }
                 pathKey = fixKeyPath(path);
             }
+            int len = value.length();
+            value = value.trim();
+            if (value.isEmpty() && len > 0) {
+                value = " ";
+            }
             if (value.length() != 0) {
-                valueCount++;
-                valueLen += value.length();
-                if (doChanges) {
-                    path2value.put(pathKey, value);
+                List<String> valueLines = lines.splitToList(value);
+                if (valueLines.size() == 1) {
+                    valueCount++;
+                    valueLen += value.length();
+                    if (doChanges) {
+                        path2value.put(pathKey, value);
+                    }
+                } else {
+                    int count = 0;
+                    for (String v : valueLines) {
+                        valueCount++;
+                        valueLen += v.length();
+                        if (doChanges) {
+                            path2value.put(pathKey + "/_q" + count++, v);
+                        }
+                    }
                 }
             }
+            parts.set(path);
+            if (isFinal) {
+                capture(type, parts);
+            }
             if (path.contains("[@")) {
-                parts.set(path);
                 int i = parts.size() - 1; // only look at last item
                 Collection<String> attributes = parts.getAttributeKeys(i);
                 if (attributes.size() != 0) {
@@ -495,7 +652,7 @@ public class GenerateItemCounts {
                         attributeCount++;
                         attributeLen += valuePart.length();
                         if (doChanges) {
-                            path2value.put(pathKey, valuePart);
+                            path2value.put(pathKey + "/_" + attribute, valuePart);
                             // }
                         }
                     }
@@ -516,9 +673,9 @@ public class GenerateItemCounts {
             return prefix + CLDRFile.getDistinguishingXPath(parts.toString(), null, false);
         }
     }
-
-    private MyHandler check(String systemID, String name) {
-        MyHandler myHandler = new MyHandler(name);
+    
+    private MyHandler check(String systemID, String name, boolean isFinal) {
+        MyHandler myHandler = new MyHandler(name, isFinal);
         try {
             XMLFileReader reader = new XMLFileReader().setHandler(myHandler);
             reader.read(systemID, XMLFileReader.CONTENT_HANDLER, true);
@@ -568,19 +725,19 @@ public class GenerateItemCounts {
         }
     }
 
-    private void summarizeCoverage(PrintWriter summary, String commonDir) {
+    private void summarizeCoverage(PrintWriter summary, String commonDir, boolean isFinal) {
         System.out.println(commonDir);
         summary.println("#name" + "\t" + "value-count" + "\t" + "value-len" + "\t" + "attr-count" + "\t" + "attr-len");
         File commonDirectory = new File(commonDir);
         if (!commonDirectory.exists()) {
             System.out.println("Doesn't exist:\t" + commonDirectory);
         }
-        summarizeFiles(summary, commonDirectory, 1);
+        summarizeFiles(summary, commonDirectory, isFinal, 1);
     }
 
-    static final Set<String> SKIP_DIRS = new HashSet<>(Arrays.asList("specs", "tools"));
+    static final Set<String> SKIP_DIRS = new HashSet<>(Arrays.asList("specs", "tools", "seed", "exemplars"));
 
-    public void summarizeFiles(PrintWriter summary, File directory, int level) {
+    public void summarizeFiles(PrintWriter summary, File directory, boolean isFinal, int level) {
         System.out.println("\t\t\t\t\t\t\t".substring(0, level) + directory);
         int count = 0;
         for (File file : directory.listFiles()) {
@@ -589,7 +746,7 @@ public class GenerateItemCounts {
                 // do nothing
             } else if (file.isDirectory()) {
                 if (!SKIP_DIRS.contains(filename)) {
-                    summarizeFiles(summary, file, level + 1);
+                    summarizeFiles(summary, file, isFinal, level + 1);
                 }
             } else if (!filename.startsWith("#") && filename.endsWith(".xml")) {
                 String name = new File(directory.getParent()).getName() + "/" + directory.getName() + "/"
@@ -608,7 +765,7 @@ public class GenerateItemCounts {
                     }
                     System.out.flush();
                 }
-                MyHandler handler = check(file.toString(), name);
+                MyHandler handler = check(file.toString(), name, isFinal);
                 summary.println(name + "\t" + handler.valueCount + "\t" + handler.valueLen + "\t"
                     + handler.attributeCount + "\t" + handler.attributeLen);
             }

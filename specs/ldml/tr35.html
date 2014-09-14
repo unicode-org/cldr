@@ -396,11 +396,7 @@ h5 {
 							</li>
 							<li>5.1.3 <a href="#Element_displayName">Element
 									displayName</a></li>
-							<li>5.1.4 <a href="#Escaping_Characters">Element cp</a>
-								<ul class="toc">
-									<li>Table: <a href="#Escaping_Characters">Escaping
-											Characters</a></li>
-								</ul>
+							<li>5.1.4 <a href="#Escaping_Characters" class="changed">Escaping Characters</a>
 							</li>
 						</ul>
 					</li>
@@ -473,8 +469,10 @@ h5 {
 					<li class="changed">8.13 <a
 						href="#Deprecated_subelements_of_segmentations">Deprecated
 							subelements of &lt;segmentations&gt;</a></li>
+					<li class="changed">8.14 <a
+						href="#Deprecated_subelements_of_segmentations">Element cp</a></li>
 				</ul>
-			</li>
+		  </li>
 			<li>9 <a href="#Links_to_Other_Parts">Links to Other Parts</a>
 				<ul class="toc">
 					<li>Table: <a href="#Part_2_Links">Part 2 Links: General
@@ -4660,31 +4658,34 @@ root</pre>
 		</p>
 		<h4>
 			<a name="Escaping_Characters" href="#Escaping_Characters">5.1.4
-				Element cp</a>
+		  Escaping Characters</a>
 		</h4>
 		<p>Unfortunately, XML does not have the capability to contain all
 			Unicode code points. Due to this, in certain instances extra syntax
 			is required to represent those code points that cannot be otherwise
-			represented in element content. These escapes are only allowed in
-			certain elements, according to the DTD.</p>
+			represented in element content. <span class="changed">The escaping syntax is only defined on a few types of elements, such as in collation or exemplar sets, and uses the appropriate syntax for that type.</span></p>
+		<p><span class="changed">The element &lt;cp&gt;, which was formerly used for this purpose, has been deprecated.</span></p>
+		<p class="removed">These escapes are only allowed in
+		  certain elements, according to the DTD.</p>
 		<table>
 			<caption>
-				<a name="Escaping_Characters" href="#Escaping_Characters">Escaping
+			<span class="removed"><a name="Escaping_Characters_Table" href="#Escaping_Characters_Table">Escaping
 					Characters</a>
-			</caption>
+		    </span>
+		  </caption>
 			<tr>
-				<th>Code Point</th>
-				<th>XML Example</th>
+				<th class="removed">Code Point</th>
+				<th class="removed">XML Example</th>
 			</tr>
 			<tr>
-				<td><code>U+0000</code></td>
-				<td><code>&lt;cp hex=&quot;0&quot;&gt;</code></td>
+				<td class="removed"><code>U+0000</code></td>
+				<td class="removed"><code>&lt;cp hex=&quot;0&quot;&gt;</code></td>
 			</tr>
-		</table>
+</table>
 		<h3>
 			<a name="Common_Attributes" href="#Common_Attributes">5.2 Common
 				Attributes</a>
-		</h3>
+    </h3>
 		<h4>
 			<a name="Attribute_type" href="#Attribute_type">5.2.1 Attribute
 				type</a>
@@ -5636,13 +5637,14 @@ decimal?, group?, special*)) &gt;</pre>
 			<a name="Deprecated_Structure" href="#Deprecated_Structure">8
 				Deprecated Structure</a>
 		</h2>
-		<p>The following structure was present in previous versions of
-			CLDR. While valid LDML, it is discouraged, and no longer used in
-			CLDR.</p>
+		<p><span class="changed">The deprecated elements, attributes, and values are listed in the supplementalMetadata.xml file, under &lt;deprecatedItems&gt;. </span>While valid LDML, it is <span class="changed">strongly</span> discouraged, and no longer used in
+		  CLDR.</p>
+		<p><span class="changed">The remainder of this section describes selected cases of deprecated structure that were </span>present in previous versions of
+	    CLDR. </p>
 		<h3>
 			<a name="Fallback_Elements" href="#Fallback_Elements">8.1 Element
 				fallback</a>
-		</h3>
+</h3>
 		<p class="dtd">&lt;!ELEMENT fallback (#PCDATA) &gt;</p>
 		<p>
 			The fallback element is deprecated. Implementations should use
@@ -5970,8 +5972,23 @@ decimal?, group?, special*)) &gt;</pre>
 			<li>&lt;exceptions&gt; and &lt;exceptions&gt; were deprecated
 				and replaced with &lt;suppressions&gt; and &lt;suppression&gt;.</li>
 		</ul>
-
-		<hr>
+	  <h3><span class="changed"> <a name="Element_cp"
+				href="#Element_cp">8.14 Element cp</a> </span></h3>
+      <p class="changed">The cp element was used to escape characters that cannot be represented in XML, even with NCRs. These escapes were only allowed in
+	      certain elements, according to the DTD.</p>
+      <p class="changed">However, this mechanism is very clumsy, and was replaced by specialized syntax.</p>
+        <table>
+          <tr>
+            <th class="changed">Code Point</th>
+            <th class="changed">XML Example</th>
+          </tr>
+          <tr>
+            <td class="changed"><code>U+0000</code></td>
+            <td class="changed"><code>&lt;cp hex=&quot;0&quot;&gt;</code></td>
+          </tr>
+        </table>
+      <p>&nbsp;</p>
+<hr>
 		<h2>
 			<a name="Links_to_Other_Parts" href="#Links_to_Other_Parts">9
 				Links to Other Parts</a>

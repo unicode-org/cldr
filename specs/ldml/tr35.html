@@ -1616,10 +1616,12 @@ fr_BE
 			<li>All keywords are sorted by alphabetical order of keys.</li>
 			<li>All keywords are in lowercase.</li>
 			<li>All keys and types use the canonical form (from the name
-				attribute; see Appendix Q).</li>
+				attribute; see <span class="removed">Appendix Q</span><span class="changed"><a href="#Unicode_Locale_Extension_Data_Files">Section 3.6.4
+				U Extension Data Files</a></span>).</li>
+			<li class="changed">Type value "true" is removed.</li>
 		</ul>
 		<p>For example, the canonical form of 'u' extension
-			"u-foo-bar-nu-thai-ca-buddhist" is "u-bar-foo-ca-buddhist-nu-thai".
+			"u-foo-bar-nu-thai-ca-buddhist<span class="changed">-kk-true</span>" is "u-bar-foo-ca-buddhist<span class="changed">-kk</span>-nu-thai".
 			The attributes "foo" and "bar" in this example are provided only for
 			illustration; no attribute subtags are defined by the current CLDR
 			specification.</p>
@@ -7225,6 +7227,11 @@ decimal?, group?, special*)) &gt;</pre>
 									Codes</a>, reserved timezone codes starting with 'x' for
 								application use. [<a
 								href="http://unicode.org/cldr/trac/ticket/7151">#7151</a>]
+							</li>
+							<li>Section 3.6 <a href="#u_Extension">Unicode BCP 47 U Extension</a>,
+								documented the optional type value "true" is truncated in the
+								canonical form. [<a
+								href="http://unicode.org/cldr/trac/ticket/7796">#7796</a>]
 							</li>
 						</ul></li>
 					<li><em>Section 4.1 <a href="#Lookup">Lookup</a></em>

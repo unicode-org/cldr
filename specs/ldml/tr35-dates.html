@@ -98,9 +98,8 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Editors</td>
-				<td>Peter Edberg (<a href="mailto:pedberg@apple.com">pedberg@apple.com</a>)
-					and <a href="tr35.html#Acknowledgments">other CLDR committee
-						members</a></td>
+				<td>Peter Edberg and <a href="tr35.html#Acknowledgments">other CLDR
+					committee members</a></td>
 			</tr>
 		</table>
 
@@ -3354,7 +3353,8 @@ h2,h3,h4,table {
 				<td rowspan="4" style="vertical-align: top; text-align: left">Month
 					- Use one or two for the numerical month, three for the
 					abbreviation, four for the full (wide) name, or five for the narrow
-					name.</td>
+					name.<span class="changed"> With two ("MM"), the month number is
+					zero-padded if necessary (e.g. "08").</span></td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3375,7 +3375,8 @@ h2,h3,h4,table {
 				<td rowspan="4" style="vertical-align: top; text-align: left"><b>Stand-Alone</b>
 					Month - Use one or two for the numerical month, three for the
 					abbreviation, four for the full (wide) name, or 5 for the narrow
-					name.</td>
+					name.<span class="changed"> With two ("LL"), the month number is
+					zero-padded if necessary (e.g. "08").</span></td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3406,7 +3407,9 @@ h2,h3,h4,table {
 				<td style="text-align: center">w</td>
 				<td style="text-align: center">1..2</td>
 				<td>27</td>
-				<td>Week of Year.</td>
+				<td>Week of Year.<span class="changed"> Use "w" to show the minimum
+					number of digits, or "ww" to always show two digits (zero-padding
+					if necessary, e.g. "08").</span></td>
 			</tr>
 			<tr>
 				<td style="text-align: center">W</td>
@@ -3419,7 +3422,9 @@ h2,h3,h4,table {
 				<td style="text-align: center">d</td>
 				<td style="text-align: center">1..2</td>
 				<td>1</td>
-				<td>Date - Day of the month</td>
+				<td>Date - Day of the month.<span class="changed"> Use "d" to show the
+					minimum number of digits, or "dd" to always show two digits
+					(zero-padding if necessary, e.g. "08").</span></td>
 			</tr>
 			<tr>
 				<td style="text-align: center">D</td>
@@ -3611,14 +3616,18 @@ h2,h3,h4,table {
 				<td style="text-align: center">m</td>
 				<td style="text-align: center">1..2</td>
 				<td>59</td>
-				<td>Minute. Use one or two for zero padding.</td>
+				<td>Minute.<span class="changed"> Use "m" to show the minimum number of
+					digits, or "mm" to always show two digits (zero-padding if necessary,
+					e.g. "08").</span></td>
 			</tr>
 			<tr>
 				<th rowspan="3">second</th>
 				<td style="text-align: center">s</td>
 				<td style="text-align: center">1..2</td>
 				<td>12</td>
-				<td>Second. Use one or two for zero padding.</td>
+				<td>Second.<span class="changed"> Use "s" to show the minimum number of
+					digits, or "ss" to always show two digits (zero-padding if necessary,
+					e.g. "08").</span></td>
 			</tr>
 			<tr>
 				<td style="text-align: center">S</td>
@@ -4049,4 +4058,3 @@ h2,h3,h4,table {
 </body>
 
 </html>
-<em></em>

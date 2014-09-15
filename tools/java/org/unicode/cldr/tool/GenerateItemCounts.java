@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -73,8 +74,8 @@ public class GenerateItemCounts {
         summary(null, null, "if present, summarizes data already collected. Run once with, once without."),
         directory(".*", ".*",
             "if summary, creates filtered version (eg -d main): does a find in the name, which is of the form dir/file"),
-        verbose(null, null, "verbose debugging messages"),
-        rawfilter(".*", ".*", "filter the raw files (non-summary, mostly for debugging)"), ;
+            verbose(null, null, "verbose debugging messages"),
+            rawfilter(".*", ".*", "filter the raw files (non-summary, mostly for debugging)"), ;
         // boilerplate
         final Option option;
 
@@ -111,7 +112,7 @@ public class GenerateItemCounts {
                 final String pathname = dir.equals("trunk") ? CLDRPaths.BASE_DIRECTORY
                     : CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir;
                 boolean isFinal = dir == DIRECTORIES[DIRECTORIES.length-1];
-                
+
                 String fulldir = new File(pathname).getCanonicalPath();
                 String prefix = (MyOptions.rawfilter.option.doesOccur() ? "filtered_" : "");
                 String fileKey = dir.replace("/", "_");
@@ -129,7 +130,7 @@ public class GenerateItemCounts {
                     if (doChanges) {
                         if (oldPath2value != null) {
                             compare(summary, changes, changesNew, changesDeletes, changesSummary, oldPath2value, path2value);
-                            checkBadAttributes(path2value);
+                            checkBadAttributes(path2value, prefix + fileKey + "_dtd_check.txt");
                         }
                         oldPath2value = path2value;
                         path2value = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
@@ -149,14 +150,18 @@ public class GenerateItemCounts {
     }
 
     static final Set<String> SKIP_ATTRIBUTES = new HashSet<>(Arrays.asList("draft", "references", "validSubLocales"));
-    
+
     static final Relation<String, DtdType> ELEMENTS_OCCURRING = Relation.of(new TreeMap(), TreeSet.class);
     static final Relation<String, DtdType> ELEMENTS_POSSIBLE = Relation.of(new TreeMap(), TreeSet.class);
     static final Relation<String, Row.R2<DtdType,String>> ATTRIBUTES_OCCURRING = Relation.of(new TreeMap(), TreeSet.class);
     static final Relation<String, Row.R2<DtdType,String>> ATTRIBUTES_POSSIBLE= Relation.of(new TreeMap(), TreeSet.class);
 
-    private static void checkBadAttributes(Relation<String, String> path2value2) {
+    private static void checkBadAttributes(Relation<String, String> path2value2, String outputFile) 
+        throws IOException {
         // an attribute is misplaced if it is not distinguishing, but is on a non-final node.
+
+        Set<String> errors = new LinkedHashSet<>();
+
         SupplementalDataInfo supp = SUPPLEMENTAL_DATA_INFO;
         for (DtdType dtdType : DtdType.values()) {
             if (dtdType == DtdType.ldmlICU){
@@ -167,14 +172,18 @@ public class GenerateItemCounts {
                 String elementName = element.name;
                 ELEMENTS_POSSIBLE.put(elementName, dtdType);
                 final Set<Element> children = element.getChildren().keySet();
-                
+
                 boolean skipFinal = children.isEmpty() 
                     || children.size() == 1 
                     && children.iterator().next().name.equals("special");
-                
+
                 for (Entry<Attribute, Integer> attributeInt : element.getAttributes().entrySet()) {
                     Attribute attribute = attributeInt.getKey();
                     String attributeName = attribute.name;
+                    if (attribute.defaultValue != null) {
+                        errors.add("Warning, default value «" + attribute.defaultValue 
+                            + "» for: " + dtdType + "\t" + elementName + "\t" + attributeName);
+                    }
                     final R2<DtdType, String> attributeRow = Row.of(dtdType, elementName);
                     ATTRIBUTES_POSSIBLE.put(attributeName, attributeRow);
                     if (skipFinal || SKIP_ATTRIBUTES.contains(attributeName)) { // don't worry about non-final, references, draft, standard
@@ -189,74 +198,110 @@ public class GenerateItemCounts {
                         if (attributeRows == null || !attributeRows.contains(attributeRow)) {
                             doesOccur = "\tNEVER";
                         }
-                        System.out.println(dtdType + "\t" + elementName + "\t" + attributeName + "\t" + children + doesOccur);
+                        errors.add("Warning, !disting, !leaf: " + dtdType + "\t" + elementName + "\t" + attributeName + "\t" + children + doesOccur);
                     }
                 }
             }
         }
-        
-        System.out.println("\nElements\tDeprecated\tOccurring\tPossible in DTD, but never occurs");
-        
-        for (Entry<String, Set<DtdType>> x : ELEMENTS_POSSIBLE.keyValuesSet()) {
-            final String element = x.getKey();
-            if (element.equals("#PCDATA") || element.equals("ANY") || element.equals("generation")) {
-                continue;
-            }
-            final Set<DtdType> possible = x.getValue();
-            Set<DtdType> occurs = ifNull(ELEMENTS_OCCURRING.get(element), Collections.EMPTY_SET);
-            Set<DtdType> noOccur = new TreeSet(possible);
-            noOccur.removeAll(occurs);
-            
-            Set<DtdType> deprecated = new TreeSet();
-            for (DtdType dtdType : possible) {
-                if (SUPPLEMENTAL_DATA_INFO.isDeprecated(dtdType, element, null, null)) {
-                    deprecated.add(dtdType);
-                    noOccur.remove(dtdType);
-                }
-            }
-            noOccur.removeAll(deprecated);
-            
-            System.out.println(element 
-                + "\t" + deprecated
-                + "\t" + occurs 
-                + "\t" + noOccur
-                );
-        }
-        
-        System.out.println("\nAttributes\tDeprecated\tOccurring\tPossible in DTD, but never occurs");
+        try (
+            PrintWriter out = BagFormatter.openUTF8Writer(OUT_DIRECTORY, outputFile)) {
+            out.println("\nElements\tDeprecated\tOccurring\tPossible in DTD, but never occurs");
 
-        for (Entry<String, Set<R2<DtdType, String>>> x : ATTRIBUTES_POSSIBLE.keyValuesSet()) {
-            final String attribute = x.getKey();
-            if (attribute.equals("alt") || attribute.equals("draft") || attribute.equals("references")) {
-                continue;
-            }
-            final Set<R2<DtdType, String>> possible = x.getValue();
-            Set<R2<DtdType, String>> occurs = ifNull(ATTRIBUTES_OCCURRING.get(attribute), Collections.EMPTY_SET);
-            Set<R2<DtdType, String>> noOccur = new TreeSet(possible);
-            noOccur.removeAll(occurs);
-            
-            Set<R2<DtdType, String>> deprecated = new TreeSet();
-            for (R2<DtdType, String> s : possible) {
-                final DtdType dtdType = s.get0();
-                final String element = s.get1();
-                if (SUPPLEMENTAL_DATA_INFO.isDeprecated(dtdType, element, attribute, null)) {
-                    deprecated.add(s);
-                    noOccur.remove(s);
+            for (Entry<String, Set<DtdType>> x : ELEMENTS_POSSIBLE.keyValuesSet()) {
+                final String element = x.getKey();
+                if (element.equals("#PCDATA") || element.equals("ANY") || element.equals("generation")) {
+                    continue;
                 }
+                final Set<DtdType> possible = x.getValue();
+                Set<DtdType> deprecated = new TreeSet();
+                for (DtdType dtdType : possible) {
+                    if (SUPPLEMENTAL_DATA_INFO.isDeprecated(dtdType, element, null, null)) {
+                        deprecated.add(dtdType);
+                    }
+                }
+                Set<DtdType> notDeprecated = new TreeSet(possible);
+                notDeprecated.removeAll(deprecated);
+
+                Set<DtdType> occurs = ifNull(ELEMENTS_OCCURRING.get(element), Collections.EMPTY_SET);
+                Set<DtdType> noOccur = new TreeSet(possible);
+                noOccur.removeAll(occurs);
+
+                if (!Collections.disjoint(deprecated, occurs)) { // deprecated must not occur
+                    final Set<DtdType> intersection = intersect(deprecated, occurs);
+                    errors.add("Error: element «" + element 
+                        + "» is deprecated in " + (deprecated.equals(possible) ? "EVERYWHERE" : intersection) + 
+                        " but occurs in live data: " + intersection);
+                }
+                if (!Collections.disjoint(notDeprecated, noOccur)) { // if !deprecated & !occur, warning
+                    errors.add("Warning: element «" + element 
+                        + "» doesn't occur in and is not deprecated in " + intersect(notDeprecated, noOccur));
+                }
+
+                out.println(element 
+                    + "\t" + deprecated
+                    + "\t" + occurs 
+                    + "\t" + noOccur
+                    );
             }
-            
-            System.out.println(attribute 
-                + "\t" + deprecated
-                + "\t" + occurs 
-                + "\t" + noOccur
-                );
+
+            out.println("\nAttributes\tDeprecated\tOccurring\tPossible in DTD, but never occurs");
+
+            for (Entry<String, Set<R2<DtdType, String>>> x : ATTRIBUTES_POSSIBLE.keyValuesSet()) {
+                final String attribute = x.getKey();
+                if (attribute.equals("alt") || attribute.equals("draft") || attribute.equals("references")) {
+                    continue;
+                }
+                final Set<R2<DtdType, String>> possible = x.getValue();
+                Set<R2<DtdType, String>> deprecated = new TreeSet();
+                for (R2<DtdType, String> s : possible) {
+                    final DtdType dtdType = s.get0();
+                    final String element = s.get1();
+                    if (SUPPLEMENTAL_DATA_INFO.isDeprecated(dtdType, element, attribute, null)) {
+                        deprecated.add(s);
+                    }
+                }
+                Set<R2<DtdType, String>> notDeprecated = new TreeSet(possible);
+                notDeprecated.removeAll(deprecated);
+
+                Set<R2<DtdType, String>> occurs = ifNull(ATTRIBUTES_OCCURRING.get(attribute), Collections.EMPTY_SET);
+                Set<R2<DtdType, String>> noOccur = new TreeSet(possible);
+                noOccur.removeAll(occurs);
+
+                if (!Collections.disjoint(deprecated, occurs)) { // deprecated must not occur
+                    final Set<R2<DtdType, String>> intersection = intersect(deprecated, occurs);
+                    errors.add("Error: attribute «" + attribute
+                        + "» is deprecated in " + (deprecated.equals(possible) ? "EVERYWHERE" : intersection) + 
+                        " but occurs in live data: " + intersection);
+                }
+                if (!Collections.disjoint(notDeprecated, noOccur)) { // if !deprecated & !occur, warning
+                    errors.add("Warning: attribute «" + attribute
+                        + "» doesn't occur in and is not deprecated in " + intersect(notDeprecated, noOccur));
+                }
+                out.println(attribute 
+                    + "\t" + deprecated
+                    + "\t" + occurs 
+                    + "\t" + noOccur
+                    );
+            }
+            out.println("\nERRORS/WARNINGS");
+            out.println(CollectionUtilities.join(errors, "\n"));
         }
     }
-    
+
+    private static <T> Set<T> intersect(Set<T> a, Set<T> b) {
+        Set<T> result = new LinkedHashSet<>(a);
+        result.retainAll(b);
+        return result;
+    }
+
     public static <T> T ifNull(T x, T y) {
         return x == null ? y : x;
     }
-    
+
+    public static <T> T ifSame(T source, T replaceIfSame, T replacement) {
+        return source == replaceIfSame ? replacement : source;
+    }
+
     static class AttributeTypes {
         Relation<String, String> elementPathToAttributes = Relation.of(new TreeMap<String, Set<String>>(),
             TreeSet.class);
@@ -519,7 +564,7 @@ public class GenerateItemCounts {
         }
         PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY,
             (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "summary" +
-                ".txt");
+            ".txt");
         for (String file : releases) {
             summary.print("\t" + file + "\tlen");
         }
@@ -541,7 +586,7 @@ public class GenerateItemCounts {
         summary.close();
         PrintWriter summary2 = BagFormatter.openUTF8Writer(OUT_DIRECTORY,
             (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "locales" +
-                ".txt");
+            ".txt");
         summary2.println("#Languages (inc. script):\t" + writtenLanguages.size());
         summary2.println("#Countries:\t" + countries.size());
         summary2.println("#Locales:\t" + localesToPaths.size());
@@ -673,7 +718,7 @@ public class GenerateItemCounts {
             return prefix + CLDRFile.getDistinguishingXPath(parts.toString(), null, false);
         }
     }
-    
+
     private MyHandler check(String systemID, String name, boolean isFinal) {
         MyHandler myHandler = new MyHandler(name, isFinal);
         try {

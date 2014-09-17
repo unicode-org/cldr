@@ -232,7 +232,8 @@ h2,h3,h4,table {
 					<li>3.5 <a href="#sigdig">Significant Digits</a></li>
 					<li>3.6 <a href="#Padding">Padding</a></li>
 					<li><span class="changed">3.7 <a href="#Rounding">Rounding</a></span></li>
-					<li>3.<span class="changed">8</span> <a href="#Quoting_Rules">Quoting Rules</a></li>
+					<li>3.<span class="changed">8</span> <a href="#Quoting_Rules">Quoting
+							Rules</a></li>
 				</ul>
 			</li>
 			<li>4 <a href="#Currencies">Currencies</a>
@@ -333,11 +334,12 @@ h2,h3,h4,table {
 			<a name="Number_Elements" href="#Number_Elements">2 Number
 				Elements</a>
 		</h2>
-		<p class="dtd">&lt;!ELEMENT numbers (alias |
-			(defaultNumberingSystem*, otherNumberingSystems*,
-			<span class="changed">minimumGroupingDigits*, </span>symbols*,
-			decimalFormats*, scientificFormats*, percentFormats*,
-			currencyFormats*, currencies?, miscPatterns*, special*)) &gt;</p>
+		<p class="dtd">
+			&lt;!ELEMENT numbers (alias | (defaultNumberingSystem*,
+			otherNumberingSystems*, <span class="changed">minimumGroupingDigits*,
+			</span>symbols*, decimalFormats*, scientificFormats*, percentFormats*,
+			currencyFormats*, currencies?, miscPatterns*, special*)) &gt;
+		</p>
 		<p>
 			The numbers element supplies information for formatting and parsing
 			numbers and currencies. It has the following sub-elements:
@@ -743,8 +745,10 @@ h2,h3,h4,table {
 			<dt>
 				<strong>range</strong>
 			</dt>
-			<dd>indicates a range of numbers, such as: “99<span class="changed">–</span>103” to indicate
-				that there are from 99 to 103 items.</dd>
+			<dd>
+				indicates a range of numbers, such as: “99<span class="changed">–</span>103”
+				to indicate that there are from 99 to 103 items.
+			</dd>
 		</dl>
 		<p>
 			<em>For example: </em>
@@ -810,7 +814,8 @@ h2,h3,h4,table {
 					<td width="33%">01234,5670</td>
 				</tr>
 				<tr>
-					<td width="17%" rowspan="2"><span class="changed">#,##0.00 ¤</span></td>
+					<td width="17%" rowspan="2"><span class="changed">#,##0.00
+							¤</span></td>
 					<td width="16%">EUR</td>
 					<td width="33%">1 234,57 €</td>
 				</tr>
@@ -947,7 +952,8 @@ h2,h3,h4,table {
 					<td>Multiply by 1000 and show as per mille</td>
 				</tr>
 				<tr valign="top">
-					<td>¤ (<span class="changed">U+</span>00A4)</td>
+					<td>¤ (<span class="changed">U+</span>00A4)
+					</td>
 					<td>Prefix or suffix</td>
 					<td>No</td>
 					<td>Currency sign, replaced by currency symbol. If doubled,
@@ -1156,14 +1162,18 @@ h2,h3,h4,table {
 		<p>
 			<code>NaN</code>
 			is represented as a single character, typically
-			<code>(<span class="changed">U+</span>FFFD)</code>
+			<code>
+				(<span class="changed">U+</span>FFFD)
+			</code>
 			. This character is determined by the localized number symbols. This
 			is the only value for which the prefixes and suffixes are not used.
 		</p>
 		<p>
 			Infinity is represented as a single character, typically <font
 				size="3">∞ </font>
-			<code>(<span class="changed">U+</span>221E)</code>
+			<code>
+				(<span class="changed">U+</span>221E)
+			</code>
 			, with the positive or negative prefixes and suffixes applied. The
 			infinity character is determined by the localized number symbols.
 		</p>
@@ -1579,7 +1589,8 @@ h2,h3,h4,table {
 			<p class="note">
 				<b>Note: </b><i>Currency values should <b>never</b> be
 					interchanged without a known currency code. You never want the
-					number 3.5 interpreted as $3.5<span class="changed">0</span> by one user and <span class="changed">€3.50</span> by another.
+					number 3.5 interpreted as $3.5<span class="changed">0</span> by one
+					user and <span class="changed">€3.50</span> by another.
 				</i>Locale data contains localization information for currencies, not a
 				currency value for a country. A currency amount logically consists
 				of a numeric value, plus an accompanying currency code (or
@@ -1591,18 +1602,19 @@ h2,h3,h4,table {
 		</blockquote>
 		<p class="note">
 			Notice that the currency code is completely independent of the
-			end-user&#39;s language or locale. <span class="changed">For example, BGN is the code for
-			Bulgarian Lev. A currency amount of &lt;BGN, 1.23456×10³&gt; would
-			be localized for a Bulgarian user into &quot;1 234,56 лв.&quot; (using
-			Cyrillic letters). For an English user it would be localized into the
-			string &quot;BGN 1,234.56&quot; </span>The end-user&#39;s language is needed
-			for doing this last localization step; but that language is
-			completely orthogonal to the currency code needed in the data. After
-			all, the same English user could be working with dozens of
-			currencies. Notice also that the currency code is also independent of
-			whether currency values are inter-converted, which requires more
-			interesting financial processing: the rate of conversion may depend
-			on a variety of factors.
+			end-user&#39;s language or locale. <span class="changed">For
+				example, BGN is the code for Bulgarian Lev. A currency amount of
+				&lt;BGN, 1.23456×10³&gt; would be localized for a Bulgarian user
+				into &quot;1 234,56 лв.&quot; (using Cyrillic letters). For an
+				English user it would be localized into the string &quot;BGN
+				1,234.56&quot; </span>The end-user&#39;s language is needed for doing this
+			last localization step; but that language is completely orthogonal to
+			the currency code needed in the data. After all, the same English
+			user could be working with dozens of currencies. Notice also that the
+			currency code is also independent of whether currency values are
+			inter-converted, which requires more interesting financial
+			processing: the rate of conversion may depend on a variety of
+			factors.
 		</p>
 		<p class="note">Thus logically speaking, once a currency amount is
 			entered into a system, it should be logically accompanied by a
@@ -1866,13 +1878,16 @@ h2,h3,h4,table {
 			<li>form &quot;few&quot;: 3rd floor, 23rd floor, 103rd floor</li>
 			<li>form &quot;other&quot;: 4th floor, 11th floor, 96th floor</li>
 		</ul>
-		<p>Other languages may have additional forms or only one form for
-			each type of plural. CLDR provides the following tags for designating
-			the various plural forms of a language; for a given language, only
-			the tags necessary for that language are defined, along with the
-			specific numeric ranges covered by each tag (for example, the plural
-			form &quot;few&quot; may be used for the numeric range 2<span class="changed">–</span>4 in one
-			language and 3<span class="changed">–</span>9 in another):</p>
+		<p>
+			Other languages may have additional forms or only one form for each
+			type of plural. CLDR provides the following tags for designating the
+			various plural forms of a language; for a given language, only the
+			tags necessary for that language are defined, along with the specific
+			numeric ranges covered by each tag (for example, the plural form
+			&quot;few&quot; may be used for the numeric range 2<span
+				class="changed">–</span>4 in one language and 3<span class="changed">–</span>9
+			in another):
+		</p>
 		<ul>
 			<li>zero</li>
 			<li>one</li>
@@ -1891,12 +1906,16 @@ h2,h3,h4,table {
 	&lt;pluralRules count=&quot;one&quot;&gt;<span style="color: blue">n mod 10 is 1 and n mod 100 is not 11</span>&lt;/pluralRule&gt;
 	&lt;pluralRules count=&quot;few&quot;&gt;<span style="color: blue">n mod 10 in 2..4 and n mod 100 not in 12..14</span>&lt;/pluralRule&gt;
 &lt;/pluralRules&gt;</pre>
-		<p>These rules specify that Russian has a &quot;one&quot; form
-			(for 1, 21, 31, 41, 51, …), a &quot;few&quot; form (for 2<span class="changed">–</span>4, 22<span class="changed">–</span>24,
-			32<span class="changed">–</span>34, …), and implicitly an &quot;other&quot; form (for everything
-			else: 0, 5<span class="changed">–</span>20, 25<span class="changed">–</span>30, 35<span class="changed">–</span>40, …, decimals). Russian does not need
-			additional separate forms for zero, two, or many, so these are not
-			defined.</p>
+		<p>
+			These rules specify that Russian has a &quot;one&quot; form (for 1,
+			21, 31, 41, 51, …), a &quot;few&quot; form (for 2<span
+				class="changed">–</span>4, 22<span class="changed">–</span>24, 32<span
+				class="changed">–</span>34, …), and implicitly an &quot;other&quot;
+			form (for everything else: 0, 5<span class="changed">–</span>20, 25<span
+				class="changed">–</span>30, 35<span class="changed">–</span>40, …,
+			decimals). Russian does not need additional separate forms for zero,
+			two, or many, so these are not defined.
+		</p>
 		<p>Plural categories may also differ according to the decimals.
 			For example, here are some of the behaviors exhibited by different
 			languages:</p>
@@ -2275,13 +2294,16 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			(zero|one|two|few|many|other) #REQUIRED &gt;
 		</p>
 
-		<p>Often ranges of numbers are presented to users, such as in
-			“Length: 3.2<span class="changed">–</span>4.5 centimeters”. This means any length from 3.2 cm to
-			4.5 cm, inclusive. However, different languages have different
-			conventions for the pluralization given to a range: should it be “0<span class="changed">–</span>1
-			centimeter” or “0<span class="changed">–</span>1 centimeters”? This becomes much more complicated
-			for languages that have many different plural forms, such as Russian
-			or Arabic.</p>
+		<p>
+			Often ranges of numbers are presented to users, such as in “Length:
+			3.2<span class="changed">–</span>4.5 centimeters”. This means any
+			length from 3.2 cm to 4.5 cm, inclusive. However, different languages
+			have different conventions for the pluralization given to a range:
+			should it be “0<span class="changed">–</span>1 centimeter” or “0<span
+				class="changed">–</span>1 centimeters”? This becomes much more
+			complicated for languages that have many different plural forms, such
+			as Russian or Arabic.
+		</p>
 		<p>
 			The <strong>pluralRanges</strong> element provides information
 			allowing an implementation to derive the plural category of a range
@@ -2481,13 +2503,14 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001<span class="changed">–</span>2014 Unicode, Inc. All Rights Reserved. The Unicode
-			Consortium makes no expressed or implied warranty of any kind, and
-			assumes no liability for errors or omissions. No liability is assumed
-			for incidental and consequential damages in connection with or
-			arising out of the use of the information or programs contained or
-			accompanying this technical report. The Unicode <a
-				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
+			Copyright © 2001<span class="changed">–</span>2014 Unicode, Inc. All
+			Rights Reserved. The Unicode Consortium makes no expressed or implied
+			warranty of any kind, and assumes no liability for errors or
+			omissions. No liability is assumed for incidental and consequential
+			damages in connection with or arising out of the use of the
+			information or programs contained or accompanying this technical
+			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
+				of Use</a> apply.
 		</p>
 		<p class="copyright">Unicode and the Unicode logo are trademarks
 			of Unicode, Inc., and are registered in some jurisdictions.</p>

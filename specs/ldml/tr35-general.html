@@ -83,7 +83,7 @@ h2,h3,h4,table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2,h3,h4,table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">26</span></td>
+				<td>26</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -130,7 +130,7 @@ h2,h3,h4,table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -140,8 +140,8 @@ h2,h3,h4,table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -149,7 +149,7 @@ h2,h3,h4,table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -746,14 +746,14 @@ h2,h3,h4,table {
 			language/territory locale. The stopwords are an experimental feature,
 			and should not be used.
 		</p>
-		<h3 class="changed">
+		<h3>
 			3.1 <a name="ExemplarSyntax" href="#ExemplarSyntax">Exemplars</a>
 		</h3>
 
-		<p class="changed">Exemplars are characters used by a language,
+		<p>Exemplars are characters used by a language,
 			separated into different categories. The following table provides a
 			summary, with more details below.</p>
-		<table class="changed">
+		<table>
 			<tr>
 				<th scope="col">Type</th>
 				<th scope="col">Description</th>
@@ -799,7 +799,7 @@ h2,h3,h4,table {
 			symbols should not be included in the main and auxiliary sets. In
 			particular, format characters like CGJ are not included.
 		</p>
-		<p class="changed">
+		<p>
 			There is no exemplar set for numbers used with a language. Instead,
 			those are obtained by looking at the <strong>defaultNumberingSystem</strong>,
 			<strong>otherNumberingSystems</strong>, and <strong>symbols</strong>
@@ -810,29 +810,29 @@ h2,h3,h4,table {
 			</strong>, Section 2 <a href="tr35-numbers.html#Number_Elements">Number
 					Elements</a></em>.
 		</p>
-		<p class="changed">
+		<p>
 			<em>Examples for zh.xml:</em>
 		</p>
-		<table class="changed">
+		<table>
 			<tr>
-				<th class="changed" scope="col">Type</th>
-				<th class="changed" scope="col">Description</th>
+				<th scope="col">Type</th>
+				<th scope="col">Description</th>
 			</tr>
 			<tr>
-				<td class="changed">defaultNumberingSystem</td>
-				<td class="changed">latn</td>
+				<td>defaultNumberingSystem</td>
+				<td>latn</td>
 			</tr>
 			<tr>
-				<td class="changed">otherNumberingSystems/native</td>
-				<td class="changed">hanidec</td>
+				<td>otherNumberingSystems/native</td>
+				<td>hanidec</td>
 			</tr>
 			<tr>
-				<td class="changed">otherNumberingSystems/traditional</td>
-				<td class="changed">hans</td>
+				<td>otherNumberingSystems/traditional</td>
+				<td>hans</td>
 			</tr>
 			<tr>
-				<td class="changed">otherNumberingSystems/finance</td>
-				<td class="changed">hansfin</td>
+				<td>otherNumberingSystems/finance</td>
+				<td>hansfin</td>
 			</tr>
 		</table>
 		<p>
@@ -923,16 +923,15 @@ h2,h3,h4,table {
 			Index labels elements, discussed in Section 5.6.4.</p>
 
 		<h4>
-			3.1<span class="changed">.1</span> <a name="ExemplarSyntax"
+			3.1.1 <a name="ExemplarSyntax"
 				href="#ExemplarSyntax">Exemplar Syntax</a>
 		</h4>
 
 
 		<p>
 			In all of the exemplar characters, the list of characters is in the <a
-				href="tr35.html#Unicode_Sets">Unicode Set</a> format, which <span
-				class="changed">normally</span> allows boolean combinations of sets
-			of letters<span class="changed"> and Unicode properties.</span>
+				href="tr35.html#Unicode_Sets">Unicode Set</a> format, which normally allows boolean combinations of sets
+			of letters and Unicode properties.
 		</p>
 
 		<p>
@@ -983,7 +982,7 @@ h2,h3,h4,table {
 			Database.</p>
 
 		<h4>
-			3.1<span class="changed">.2</span> <a name="Restrictions"
+			3.1.2 <a name="Restrictions"
 				href="#Restrictions">Restrictions</a>
 		</h4>
 
@@ -1013,10 +1012,10 @@ h2,h3,h4,table {
 				RIGHT-TO-LEFT MARK which may be needed in bidirectional text in
 				order for date, currency or other formats to display correctly.
 			</li>
-			<li><span class="changed"> For exemplar characters the <a
+			<li>For exemplar characters the <a
 					href="tr35.html#Unicode_Sets">Unicode Set</a> format is restricted
 					so as to not use properties or boolean combinations
-			</span>.</li>
+			.</li>
 		</ol>
 
 		<h3>
@@ -1330,8 +1329,8 @@ h2,h3,h4,table {
 			&gt;<br> &lt;!ATTLIST compoundUnit type NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT unit (alias | (<span class="changed">displayName*,
-			</span>unitPattern*, <span class="changed">perUnitPattern*, </span>special*))
+			&lt;!ELEMENT unit (alias | (displayName*,
+			unitPattern*, perUnitPattern*, special*))
 			&gt;<br> &lt;!ATTLIST unit type NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">
@@ -1357,8 +1356,7 @@ h2,h3,h4,table {
 			position of the formatted numeric value):</p>
 
 		<pre>&lt;unit type="day"&gt;
-&nbsp;&nbsp;<span class="changed">&lt;displayName&gt;<span
-				style="color: blue">days</span>&lt;/displayName&gt;</span>
+&nbsp;&nbsp;&lt;displayName&gt;days&lt;/displayName&gt;
 &nbsp;&nbsp;&lt;unitPattern count="one"&gt;<span style="color: blue">{0} day</span>&lt;/unitName&gt;
 &nbsp;&nbsp;&lt;unitPattern count="other"&gt;<span style="color: blue">{0} days</span>&lt;/unitName&gt;
 &lt;/unit&gt;</pre>
@@ -1370,14 +1368,14 @@ h2,h3,h4,table {
 					Inheritance</a>
 			</em>.
 		</p>
-		<p class="changed">The displayName is used for labels, such as in
+		<p>The displayName is used for labels, such as in
 			a UI. It is typically lowercased and as neutral a plural form as
 			possible, and then uses the casing context for the proper display.
 			For example, for English in a UI it would appear as titlecase:</p>
-		<p class="changed" style="margin-left: 2em">
+		<p>
 			<strong>Duration:</strong>
 		</p>
-		<table class="changed" style="margin-left: 5em">
+		<table style="margin-left: 5em">
 			<tr>
 				<td>Days</td>
 				<td style="color: silver">enter the vacation length</td>
@@ -1386,8 +1384,7 @@ h2,h3,h4,table {
 		<p>&nbsp;</p>
 		<p>
 			The units in CLDR are not comprehensive; it is anticipated that more
-			will be added over time. <span class="changed">Current
-				examples include:</span>
+			will be added over time. Current examples include:
 		</p>
 		<table>
 			<tr>
@@ -1648,40 +1645,39 @@ h2,h3,h4,table {
 			specialized domains, such as the German “̌Fernseher von 32 bis 55
 			Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.</p>
 		<h3>
-			6.1 <span class="changed"><a name="perUnitPatterns"
+			6.1 <a name="perUnitPatterns"
 				href="#perUnitPatterns">per Unit patterns</a><a
-				name="compoundUnitPattern" href="#compoundUnitPattern"></a> </span>
+				name="compoundUnitPattern" href="#compoundUnitPattern"></a>
 		</h3>
 		<p>
-			<span class="changed">A common combination of units is X per
+			A common combination of units is X per
 				Y, such as <em>miles per hour</em> or <em>liters per second</em>.
 				Some units already have 'precomputed' forms, such as <strong>kilometer-per-hour</strong>;
 				where such units exist, they should be used in preference. There are
 				two other patterns that can be used to compose unit symbols or
 				names.
-			</span>
-		</p>
-		<p class="changed">
+			</p>
+		<p>
 			<strong>compoundUnit</strong> — This is used to construct a pattern
 			from two unit names. For example, a form such as &quot;{0} per
 			{1}&quot; or &quot;{0}/{1}&quot; can be used to construct cases such
 			as &quot;2 feet<strong> per </strong>second&quot; or &quot;ft<strong>/</strong>s&quot;
 		</p>
-		<p class="changed">
+		<p>
 			<strong>perUnitPattern</strong> — This is used as the denominator
 			with another unit name. For example, a form such as &quot;{0} per
 			second&quot; can be used to form &quot;2 feet<strong> per
 				second</strong>&quot;.
 		</p>
-		<p class="changed">The difference between these is that in some
+		<p>The difference between these is that in some
 			inflected languages, the compoundUnit cannot be used to form
 			grammatical phrases. This is typically because the &quot;per&quot; +
 			&quot;second&quot; combine in a non-trivial way. For such languages,
 			the compoundUnit should only be used as a fallback, when there is no
 			other recourse.</p>
-		<p class="changed">When constructing a pattern for value=V,
+		<p>When constructing a pattern for value=V,
 			numeratorUnit=N, denominatorUnit=D, the following precess is used.</p>
-		<ol class="changed">
+		<ol>
 			<li>If there is a compound form for N/D already available, use
 				it.</li>
 			<li>Otherwise, format the N pattern with the number using plural
@@ -1713,7 +1709,7 @@ h2,h3,h4,table {
 				</ol>
 			</li>
 		</ol>
-		<p class="changed">The patterns can have different unit lengths,
+		<p>The patterns can have different unit lengths,
 			so the appropriate unit length should be used (with fallbacks if
 			necessary).</p>
 		<h3>
@@ -1839,49 +1835,39 @@ h2,h3,h4,table {
 			&gt;</p>
 		<p class="dtd">
 			&lt;!ELEMENT segmentation ( alias | (variables?, segmentRules? ,
-			exceptions?<span class="changed">, suppressions?</span>) | special*)
+			exceptions?, suppressions?) | special*)
 			&gt; <br> &lt;!ATTLIST segmentation type NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">
-			<span class="changed">&lt;!ELEMENT variables ( alias |
-				variable*) &gt;</span>
+			&lt;!ELEMENT variables ( alias |
+				variable*) &gt;
 		</p>
 		<p class="dtd">
-			<span class="changed"> &lt;!ELEMENT variable ( #PCDATA ) &gt;<br>
+			 &lt;!ELEMENT variable ( #PCDATA ) &gt;<br>
 				&lt;!ATTLIST variable id CDATA #REQUIRED &gt;
-			</span>
 		</p>
 		<p class="dtd">
-			<span class="changed">&lt;!ELEMENT segmentRules ( alias |
-				rule*) &gt;</span>
-		</p>
+			&lt;!ELEMENT segmentRules ( alias |
+				rule*) &gt;		</p>
 		<p class="dtd">
-			<span class="changed"> &lt;!ELEMENT rule ( #PCDATA ) &gt;<br>
+			 &lt;!ELEMENT rule ( #PCDATA ) &gt;<br>
 				&lt;!ATTLIST rule id NMTOKEN #REQUIRED &gt;
-			</span>
 		</p>
 		<p class="dtd">
-			<span class="changed">&lt;!ELEMENT suppressions ( suppression*
-				) &gt;</span>
+			&lt;!ELEMENT suppressions ( suppression*
+				) &gt;
 		</p>
 		<p class="dtd">
-			<span class="changed">&lt;!ATTLIST suppressions type NMTOKEN
-				"standard" &gt;</span>
+			&lt;!ATTLIST suppressions type NMTOKEN
+				"standard" &gt;
 		</p>
 		<p class="dtd">
-			<span class="changed">&lt;!ATTLIST suppressions draft (
-				approved | contributed | provisional | unconfirmed ) #IMPLIED &gt;</span>
+			&lt;!ATTLIST suppressions draft (
+				approved | contributed | provisional | unconfirmed ) #IMPLIED &gt;
 		</p>
 		<p class="dtd">
-			<span class="changed">&lt;!ELEMENT suppression ( #PCDATA )
-				&gt;</span>
-		</p>
-		<p class="dtd">
-			<span class="removed">&lt;!ELEMENT exceptions ( exception* )
-				&gt;</span>
-		</p>
-		<p class="dtd">
-			<span class="removed">&lt;!ELEMENT exception ( #PCDATA ) &gt;</span>
+			&lt;!ELEMENT suppression ( #PCDATA )
+				&gt;
 		</p>
 
 		<p>
@@ -2031,13 +2017,12 @@ h2,h3,h4,table {
 
 		<h3>
 			9.2 <a name="Segmentation_Exceptions" href="#Segmentation_Exceptions">Segmentation
-				<span class="changed">Suppressions</span>
+				Suppressions
 			</a>
 		</h3>
 
 		<p>
-			<b>Note:</b> As of CLDR <span class="changed">26</span>, the <span
-				class="changed"><code>&lt;suppressions&gt;</code></span> data is to
+			<b>Note:</b> As of CLDR 26, the <code>&lt;suppressions&gt;</code> data is to
 			be considered a technology preview. Data currently in CLDR was
 			extracted from the Unicode Localization Interoperability project, or
 			ULI. See <a href="http://uli.unicode.org">http://uli.unicode.org</a>
@@ -2045,10 +2030,10 @@ h2,h3,h4,table {
 		</p>
 
 		<p>
-			The segmentation <span class="changed"><b>suppressions</b></span>
+			The segmentation <b>suppressions</b>
 			list provides a set of cases which, though otherwise identified as a
-			segment by rules, should be skipped <span class="changed">(suppressed)
-			</span>during segmentation.
+			segment by rules, should be skipped (suppressed)
+			during segmentation.
 		</p>
 
 		<p>For example, in the English phrase "Mr. Smith", CLDR
@@ -2057,8 +2042,7 @@ h2,h3,h4,table {
 			"Mister", and not actually the end of a sentence.</p>
 
 		<p>
-			Each <span class="changed">suppression</span> has a separate <span
-				class="changed"><code>&lt;suppression&gt;</code></span> element,
+			Each suppression has a separate <code>&lt;suppression&gt;</code> element,
 			whose contents are the break to be skipped.
 		</p>
 
@@ -2066,16 +2050,16 @@ h2,h3,h4,table {
 
 		<pre>
     &lt;segmentation type="SentenceBreak"&gt;
-      <span class="changed">&lt;suppressions type="standard" draft="provisional"&gt;</span>
-        <span class="changed">&lt;suppression&gt;Maj.&lt;/suppression&gt;</span>
-        <span class="changed">&lt;suppression&gt;Mr.&lt;/suppression&gt;</span>
-        <span class="changed">&lt;suppression&gt;Lt.Cdr.&lt;/suppression&gt;</span>
+      &lt;suppressions type="standard" draft="provisional"&gt;
+        &lt;suppression&gt;Maj.&lt;/suppression&gt;
+        &lt;suppression&gt;Mr.&lt;/suppression&gt;
+        &lt;suppression&gt;Lt.Cdr.&lt;/suppression&gt;
 	. . .
-      <span class="changed">&lt;/suppressions&gt;</span>
+      &lt;/suppressions&gt;
     &lt;/segmentation&gt;
                 </pre>
 
-		<p class="changed">
+		<p>
 			<b>Note:</b> These elements were called
 			<code>&lt;exceptions&gt;</code>
 			and
@@ -3420,7 +3404,7 @@ h2,h3,h4,table {
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001<span class="changed">–</span>2014 Unicode, Inc. All
+			Copyright © 2001–2014 Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied
 			warranty of any kind, and assumes no liability for errors or
 			omissions. No liability is assumed for incidental and consequential

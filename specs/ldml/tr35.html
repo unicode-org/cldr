@@ -88,7 +88,7 @@ h5 {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">Unicode Locale Data Markup
@@ -98,7 +98,7 @@ h5 {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">26 (draft)</span></td>
+				<td>26</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -110,17 +110,18 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2014-09-17</span></td>
+				<td>2014-09-17</td>
 			</tr>
 			<tr>
 				<td>This Version</td>
-				<td><a class="changed"
-					ignoreuntilreleasehref="http://www.unicode.org/reports/tr35/tr35-36/tr35.html">http://www.unicode.org/reports/tr35/tr35-36/tr35.html</a></td>
+				<td>
+				<a href="http://www.unicode.org/reports/tr35/tr35-37/tr35.html" ignoreuntilreleasehref="http://www.unicode.org/reports/tr35/tr35-36/tr35.html">http://www.unicode.org/reports/tr35/tr35-37/tr35.html</a></td>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
 			</tr>
 			<tr>
 				<td>Previous Version</td>
-				<td><a class="changed"
+				<td>
+				<a
 					href="http://www.unicode.org/reports/tr35/tr35-35/tr35.html">http://www.unicode.org/reports/tr35/tr35-35/tr35.html</a></td>
 			</tr>
 			<tr>
@@ -141,11 +142,11 @@ h5 {
 			</tr>
 			<tr>
 				<td>DTDs</td>
-				<td><a href="http://unicode.org/cldr/dtd/25/">http://unicode.org/cldr/dtd/25/</a></td>
+				<td><a href="http://unicode.org/cldr/dtd/26/">http://unicode.org/cldr/dtd/26/</a></td>
 			</tr>
 			<tr>
 				<td>Revision</td>
-				<td><a href="tr35.html#Modifications" class="changed">36</a></td>
+				<td><a href="tr35.html#Modifications">37</a></td>
 			</tr>
 		</table>
 		<h3>
@@ -162,7 +163,7 @@ h5 {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -172,8 +173,8 @@ h5 {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -181,7 +182,7 @@ h5 {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -699,7 +700,7 @@ h5 {
 			process of identifier translation may be required when using LDML
 			data.
 		</p>
-		<p class="changed">
+		<p>
 			The BCP47 extensions (-u- and -t-) are described in <em>Section
 				3.6 <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47
 					U Extension</a>
@@ -740,28 +741,28 @@ h5 {
 				<td><pre>= [-_] ;</pre></td>
 				<td><pre>= "-" / "_"</pre></td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><code>
 						<a href="#unicode_language_subtag">unicode_language_subtag</a>
 					</code></td>
 				<td><code>= alpha{2,8} ;</code></td>
 				<td><code>2*8ALPHA</code></td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><code>
 						<a href="#unicode_script_subtag">unicode_script_subtag</a>
 					</code></td>
 				<td><code> = alpha{4} ;</code></td>
 				<td><code>4ALPHA</code></td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><code>
 						<a href="#unicode_region_subtag">unicode_region_subtag</a>
 					</code></td>
 				<td><code> = (alpha{2} | digit{3}) ;</code></td>
 				<td><code>2ALPHA / 3DIGIT</code></td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><code>
 						<a href="#unicode_variant_subtag">unicode_variant_subtag</a>
 					</code></td>
@@ -770,12 +771,12 @@ h5 {
 					</code></td>
 				<td><pre>5*8alphanum<br>/ (DIGIT 3alphanum)</pre></td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><pre>digit</pre></td>
 				<td><pre>= [0-9] ;</pre></td>
 				<td><pre>&nbsp;</pre></td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><pre>alpha</pre></td>
 				<td><pre>= [A-Z a-z] ;</pre></td>
 				<td><pre>&nbsp;</pre></td>
@@ -786,7 +787,7 @@ h5 {
 				<td><pre>= ALPHA / DIGIT</pre></td>
 			</tr>
 		</table>
-		<p class="changed">
+		<p>
 			The semantics of the various subtags is explained in <em>Section
 				3.4 <a href="#Field_Definitions">Language Identifier Field
 					Definitions</a>
@@ -809,15 +810,14 @@ h5 {
 		</h3>
 		<p>
 			A <i>Unicode locale identifier</i> is composed of a Unicode language
-			identifier plus (optional) locale extensions<span class="changed">
-				(U and T)</span>. It has the following <span class="changed">structure.
+			identifier plus (optional) locale extensions
+				(U and T). It has the following structure.
 				The semantics of the U and T extensions are explained in <em>Section
 					3.6 <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP
 						47 U Extension</a>
 			</em> and <em>Section 3.7 <a href="#BCP47_T_Extension">Unicode
 						BCP 47 T Extension</a></em>.
-			</span>
-		</p>
+			</p>
 		<table border="0">
 			<tr>
 				<th>&nbsp;</th>
@@ -828,9 +828,9 @@ h5 {
 				<td><pre>unicode_locale_id</pre></td>
 				<td><pre>= unicode_language_id
   (transformed_extensions
-  unicode_locale_extensions?<span class="changed">
+  unicode_locale_extensions?
 | unicode_locale_extensions?
-  transformed_extensions?</span>) ;</pre></td>
+  transformed_extensions?) ;</pre></td>
 				<td><pre>= unicode_language_id
   [transformed_extensions]
   [unicode_locale_extensions]</pre></td>
@@ -908,7 +908,7 @@ h5 {
 		<p>
 			Although not shown in the syntax above, Unicode locale identifiers
 			may also have [<a href="#BCP47">BCP47</a>] extensions (other than
-			&quot;u&quot;<span class="changed"> and &quot;t&quot;</span>) and
+			&quot;u&quot; and &quot;t&quot;) and
 			private use subtags; these are not, however, relevant to their use in
 			Unicode.
 		</p>
@@ -1101,8 +1101,7 @@ h5 {
 			certain [<a href="#BCP47">BCP 47</a>] grandfathered tags.
 		</p>
 		<h3>
-			<a name="Field_Definitions" href="#Field_Definitions">3.4 <span
-				class="changed">Language Identifier </span>Field Definitions
+			<a name="Field_Definitions" href="#Field_Definitions">3.4 Language Identifier Field Definitions
 			</a>
 		</h3>
 		<p>Unicode language and locale identifier field values are
@@ -1111,8 +1110,7 @@ h5 {
 		<table>
 			<caption>
 				<a name="Language_Locale_Field_Definitions"
-					href="#Language_Locale_Field_Definitions">Language <span
-					class='changed'>Identifier</span> Field Definitions
+					href="#Language_Locale_Field_Definitions">Language Identifier Field Definitions
 				</a>
 			</caption>
 			<tr>
@@ -1221,8 +1219,8 @@ h5 {
 						</tr>
 						<tr>
 							<td><code>zh_Hans</code></td>
-							<td>Chinese, in simplified script <span class="changed">(=zh,
-									zh-Hans, zh-CN, zh-Hans-CN)</span></td>
+							<td>Chinese, in simplified script (=zh,
+									zh-Hans, zh-CN, zh-Hans-CN)</td>
 						</tr>
 						<tr>
 							<td><code>zh_Hant</code></td>
@@ -1244,8 +1242,8 @@ h5 {
 						<tr>
 							<td><code>Qaai</code></td>
 							<td>Inherited</td>
-							<td><span class="changed"><strong>deprecated</strong>:
-									the <em>canonicalized</em> form is</span> Zinh</td>
+							<td><strong>deprecated</strong>:
+									the <em>canonicalized</em> form is Zinh</td>
 						</tr>
 						<tr>
 							<td><code>Zzzz</code></td>
@@ -1288,18 +1286,18 @@ h5 {
 						<tr>
 							<td><code>QU</code></td>
 							<td>European Union</td>
-							<td><span class="changed"><strong>deprecated</strong>:
-									the <em>canonicalized</em> form is</span> EU</td>
+							<td><strong>deprecated</strong>:
+									the <em>canonicalized</em> form is EU</td>
 							<td>private use</td>
 						</tr>
 						<tr>
 							<td><code>UK</code></td>
 							<td>United Kingdom</td>
-							<td><span class="changed"><strong>deprecated</strong>:
-									the <em>canonicalized</em> form is</span> GB</td>
+							<td><strong>deprecated</strong>:
+									the <em>canonicalized</em> form is GB</td>
 							<td>exceptionally reserved</td>
 						</tr>
-						<tr class="changed">
+						<tr>
 							<td><code>XK</code></td>
 							<td>Kosovo</td>
 							<td>industry practice</td>
@@ -1315,9 +1313,9 @@ h5 {
 					<p>
 						The private use subtags from XA..XZ will never be given specific
 						semantics in Unicode identifiers, and are thus safe for use for
-						other purposes by other applications. <span class="changed">LDML
+						other purposes by other applications. LDML
 							may follow industry practice in the use of some of these codes,
-							however, such as for XK.</span>
+							however, such as for XK.
 					</p>
 					<p>The CLDR provides data for normalizing territory/region
 						codes, including mapping overlong codes like &quot;eng-840&quot;
@@ -1351,7 +1349,7 @@ h5 {
 		<blockquote>
 			<pre>en
 fr_BE
-<span class="changed">zh-Hant-HK</span>
+zh-Hant-HK
 			</pre>
 		</blockquote>
 		<p>
@@ -1545,12 +1543,12 @@ fr_BE
 			</tr>
 			<tr>
 				<td>reserved</td>
-				<td>bcp47: all non-5 letter codes<span class="changed">
-						not starting with x</span></td>
+				<td>bcp47: all non-5 letter codes
+						not starting with x</td>
 			</tr>
 			<tr>
 				<td>excluded</td>
-				<td class="changed">bcp47: all non-5 letter codes starting with
+				<td>bcp47: all non-5 letter codes starting with
 					x</td>
 			</tr>
 		</table>
@@ -1560,7 +1558,7 @@ fr_BE
 					Identifiers</a></em>.
 		</p>
 		<p></p>
-		<h3 class="changed">
+		<h3>
 			<a name="u_Extension" href="#u_Extension">3.6 Unicode BCP 47 U
 				Extension</a><a name="Locale_Extension_Key_and_Type_Data"></a>
 		</h3>
@@ -1616,17 +1614,17 @@ fr_BE
 			<li>All keywords are sorted by alphabetical order of keys.</li>
 			<li>All keywords are in lowercase.</li>
 			<li>All keys and types use the canonical form (from the name
-				attribute; see <span class="removed">Appendix Q</span><span
-				class="changed"><a
+				attribute; see 
+			<a
 					href="#Unicode_Locale_Extension_Data_Files">Section 3.6.4 U
-						Extension Data Files</a></span>).
+						Extension Data Files</a>).
 			</li>
-			<li class="changed">Type value "true" is removed.</li>
+			<li>Type value "true" is removed.</li>
 		</ul>
 		<p>
 			For example, the canonical form of 'u' extension
-			"u-foo-bar-nu-thai-ca-buddhist<span class="changed">-kk-true</span>"
-			is "u-bar-foo-ca-buddhist<span class="changed">-kk</span>-nu-thai".
+			"u-foo-bar-nu-thai-ca-buddhist-kk-true"
+			is "u-bar-foo-ca-buddhist-kk-nu-thai".
 			The attributes "foo" and "bar" in this example are provided only for
 			illustration; no attribute subtags are defined by the current CLDR
 			specification.
@@ -1638,14 +1636,13 @@ fr_BE
 			</em>
 		</p>
 		<h4>
-			<a href="#Key_And_Type_Definitions_" name="Key_And_Type_Definitions_"
-				class="changed">3.6.1 Key And Type Definitions</a>
+			<a href="#Key_And_Type_Definitions_" name="Key_And_Type_Definitions_">3.6.1 Key And Type Definitions</a>
 		</h4>
 		<p>
-			The following chart contains a set of <span class="changed">U
-				extension </span>key values that are currently available, with a
-			description or sampling of the <span class="changed">U
-				extension </span>type values. Each category is associated with an XML file
+			The following chart contains a set of U
+				extension key values that are currently available, with a
+			description or sampling of the U
+				extension type values. Each category is associated with an XML file
 			in the bcp47 directory.
 		</p>
 		<p>
@@ -1655,16 +1652,16 @@ fr_BE
 			for adding new <i>key</i>/<i>type</i>, see [<a href="#localeProject">LocaleProject</a>].
 		</p>
 		<p>
-			<span class="changed">Most</span> type values are represented by a
-			single subtag in the current version of CLDR. <span class="changed">There
+			Most type values are represented by a
+			single subtag in the current version of CLDR. There
 				are exceptions, such as types used for key "ca" (calendar) and "kr"
-				(collation reordering).</span> If the type is not included, and one of the
+				(collation reordering). If the type is not included, and one of the
 			possible type values is &quot;true&quot;, then that value is assumed.
 			Note that the default for key with a possible &quot;true&quot; value
 			is often &quot;false&quot;, but may not always be.
 		</p>
 		<p>
-			The BCP47 form for <span class="changed">keys and types</span> is the
+			The BCP47 form for keys and types is the
 			canonical form, and recommended. Other aliases are included for
 			backwards compatibility.
 		</p>
@@ -1948,8 +1945,7 @@ fr_BE
 			Implementations of LDML should be robust to handle any syntactically
 			valid key or type values.</p>
 		<h4>
-			<a href="#Numbering System Data" name="Numbering System Data"
-				class="changed">3.6.2 Numbering System Data </a>
+			<a href="#Numbering System Data" name="Numbering System Data">3.6.2 Numbering System Data </a>
 		</h4>
 		<p>
 			LDML supports multiple numbering systems. The identifiers for those
@@ -1981,8 +1977,7 @@ fr_BE
 			</li>
 		</ol>
 		<h4>
-			<a href="#Time_Zone_Identifiers" name="Time_Zone_Identifiers"
-				class="changed">3.6.3 Time Zone Identifiers</a>
+			<a href="#Time_Zone_Identifiers" name="Time_Zone_Identifiers">3.6.3 Time Zone Identifiers</a>
 		</h4>
 		<p>
 			LDML inherits time zone IDs from the tz database [<a href="#Olson">Olson</a>].
@@ -2039,7 +2034,7 @@ fr_BE
 		</p>
 		<h4>
 			<a href="#Unicode_Locale_Extension_Data_Files"
-				name="Unicode_Locale_Extension_Data_Files" class="changed">3.6.4
+				name="Unicode_Locale_Extension_Data_Files">3.6.4
 				U Extension Data Files</a>
 		</h4>
 		<p>
@@ -2274,7 +2269,7 @@ fr_BE
 			be output. The one exception is where an alias would only be
 			well-formed with the old syntax, such as &quot;gregorian&quot; (for
 			&quot;gregory&quot;).</p>
-		<h3 class="changed">
+		<h3>
 			<a name="BCP47_T_Extension" href="#BCP47_T_Extension">3.7 Unicode
 				BCP 47 T Extension</a><a name="u_Extension"></a>
 		</h3>
@@ -2308,7 +2303,7 @@ fr_BE
 		</p>
 		<h4>
 			<a href="#Transformed_Content_Data_File"
-				name="Transformed_Content_Data_File" class="changed">3.7.1 T
+				name="Transformed_Content_Data_File">3.7.1 T
 				Extension Data Files</a>
 		</h4>
 		<p>The overall structure of the data files is the similar to the U
@@ -2464,15 +2459,14 @@ fr_BE
 			For example, a new key "co" replaced the previous key "collation", a
 			new type "phonebk" replaced the previous type "phonebook". However,
 			the existing collation type "big5han" already satisfied the new
-			requirement, so no new type code was assigned to the type. <span
-				class="changed">All new keys and types introduced after LDML
+			requirement, so no new type code was assigned to the type. All new keys and types introduced after LDML
 				1.7 satisfy the new requirement, so they do not have aliases
 				dedicated for the old syntax, except time zone types. The conversion
 				between old types and new types can be done regardless of key, with
 				one known exception (old type "traditional" is mapped to new type
 				"trad" for collation and "traditio" for numbering system), and this
 				relationship will be maintained in the future versions unless
-				otherwise noted.</span>
+				otherwise noted.
 		</p>
 		<p>The chart below shows some example mappings between the new
 			syntax and the old syntax.</p>
@@ -2839,7 +2833,7 @@ en_IE
 en
 root</pre>
 		</blockquote>
-		<p class="changed">
+		<p>
 			<em>The inheritance is often not simple truncation, as will be
 				seen later in this section.</em>
 		</p>
@@ -2895,7 +2889,7 @@ root</pre>
 			locale (obtained via <a href="#Likely_Subtags">Likely Subtags</a>).
 		</p>
 		<h3>
-			<a href="#Lookup" name="Lookup" class="changed">4.1 Lookup</a>
+			<a href="#Lookup" name="Lookup">4.1 Lookup</a>
 		</h3>
 
 		<p>If a language has more than one script in customary modern use,
@@ -2908,11 +2902,10 @@ root</pre>
 			</p>
 		</blockquote>
 		<h4>
-			<a href="#Bundle_vs_Item_Lookup" name="Bundle_vs_Item_Lookup"
-				class="changed">4.1.1 Bundle vs Item Lookup</a>
+			<a href="#Bundle_vs_Item_Lookup" name="Bundle_vs_Item_Lookup">4.1.1 Bundle vs Item Lookup</a>
 		</h4>
 		<p>
-			There are actually two different kinds of <span class="changed">inheritance</span>
+			There are actually two different kinds of inheritance
 			fallback: <em>resource&nbsp;bundle&nbsp;lookup</em> and <em>resource&nbsp;item&nbsp;lookup</em>.
 			For the former, a process is looking to find the first, best resource
 			bundle it can; for the later, it is fallback&nbsp;within&nbsp;bundles
@@ -2920,11 +2913,9 @@ root</pre>
 			&quot;CN&quot; in Breton.
 		</p>
 		<p>
-			These are closely related, but distinct, processes. <span
-				class="changed">They are illustrated in the table <a
+			These are closely related, but distinct, processes. They are illustrated in the table <a
 				href="#Lookup-Differences">Lookup Differences</a>, where
-			</span> &quot;key&quot; stands for zero or more key/type pairs. <span
-				class="changed">Logically speaking, when looking up an item
+			&quot;key&quot; stands for zero or more key/type pairs. Logically speaking, when looking up an item
 				for a given locale, you first do a resource bundle lookup for the
 				locale, then you do a resource item lookup starting with that
 				resource bundle. For the purposes of CLDR, everything with the
@@ -2936,7 +2927,7 @@ root</pre>
 				&lt;unit&gt; elements are separated into a separate data tree for
 				modularity in the implementation, the Nama &lt;unit&gt; resource
 				bundle would be empty. However, for purposes of resource-bundle
-				lookup the resource bundle lookup still stops at naq.xml.</span>
+				lookup the resource bundle lookup still stops at naq.xml.
 		</p>
 
 		<div id="iqaw2" style="margin-top: 0px; margin-bottom: 0px;">
@@ -3024,45 +3015,44 @@ root</pre>
 				</tbody>
 			</table>
 		</div>
-		<p>
-			<span class="changed">Both the resource bundle inheritance and
+		<p>Both the resource bundle inheritance and
 				the resource item inheritance use the parentLocale data, where
-				available, instead of simple trunctation. </span>
+				available, instead of simple trunctation.
 		</p>
 		<p>
 			The fallback is a bit different for these two cases; internal aliases
 			and keys are are not involved in the bundle lookup, and the default
-			locale is not involved in the item lookup. <span class="changed">If
+			locale is not involved in the item lookup. If
 				the default-locale were used in the resource-item lookup, then
 				strange results will occur. For example, suppose that the default
 				locale is Swedish, and there is a Nama locale but no specific
 				resource item for collation. If the default-locale were used in
 				resource-item lookup, it would produce odd and unexpected results
-				for Nama sorting.</span>
+				for Nama sorting.
 		</p>
-		<p class="changed">The default locale is not even always used in
+		<p>The default locale is not even always used in
 			resource bundle inheritance. For the following services, the fallback
 			is always directly to the root locale rather than through default
 			locale.</p>
 		<ul>
-			<li class="changed">collation</li>
-			<li class="changed">break iteration</li>
-			<li class="changed">case mapping</li>
-			<li><span class="changed">transliteration </span>
+			<li>collation</li>
+			<li>break iteration</li>
+			<li>case mapping</li>
+			<li>transliteration
 				<ul>
-					<li class="changed">The lookup for transliteration is yet more
+					<li>The lookup for transliteration is yet more
 						complicated because of the interplay of source and target locales:
 						see <em>Part 2 General, Section 10.1 <a
 							href="http://www.unicode.org/reports/tr35/tr35-general.html#Inheritance">Inheritance.</a></em>
 					</li>
 				</ul></li>
 		</ul>
-		<p class="changed">
+		<p>
 			Thus if there is no Akan locale, for example, asking for a collation
 			for Akan should produce the root collation, <em>not the Swedish
 				collation.</em>
 		</p>
-		<p>The resource item lookup&nbsp;must&nbsp;remain stable, because
+		<p>The resource item lookup must remain stable, because
 			the resources are built with a certain fallback in mind; changing the
 			core fallback order can render the bundle structure incoherent.</p>
 		<p>
@@ -3111,8 +3101,7 @@ root</pre>
   &lt;relative type="-2"&gt;∅∅∅&lt;/relative&gt;
 </pre>
 		<h4>
-			<a name="Lateral_Inheritance" href="#Lateral_Inheritance">4.1<span
-				class="changed">.2 Lateral</span> Inheritance
+			<a name="Lateral_Inheritance" href="#Lateral_Inheritance">4.1.2 Lateral Inheritance
 			</a><a name="Multiple_Inheritance"></a>
 		</h4>
 		<p>
@@ -3273,8 +3262,7 @@ root</pre>
 		</table>
 		<br>
 		<h4>
-			<a name="Parent_Locales" href="#Parent_Locales">4.1<span
-				class="changed">.3</span> Parent Locales
+			<a name="Parent_Locales" href="#Parent_Locales">4.1.3 Parent Locales
 			</a>
 		</h4>
 		<p class="dtd">
@@ -4231,7 +4219,7 @@ root</pre>
 			&lt;!-- [Default value - must be at end!] Normally there are small
 			differences across regions.--&gt;
 		</p>
-		<p class="changed">When the language+region is not matched, and
+		<p>When the language+region is not matched, and
 			there is otherwise no reason to pick among the supported regions for
 			that language, then some measure of geographic &quot;closeness&quot;
 			can be used. The results are then more understandable by users.
@@ -4255,24 +4243,24 @@ root</pre>
 			<li>common/rbnf/ja.xml</li>
 			<li>common/segmentations/ja.xml</li>
 		</ul>
-		<p class="changed">Data for cased languages such as French are in
+		<p>Data for cased languages such as French are in
 			files like:</p>
 		<ul>
-			<li class="changed">common/casing/fr.xml</li>
+			<li>common/casing/fr.xml</li>
 		</ul>
 		<p>
 			The status of the data is the same, whether or not data is split.
 			That is, for the purpose of validation and lookup, all of the data
 			for the above ja.xml files is treated as if it was in a single file.
-			<span class="changed">These files have the &lt;ldml&gt; root
+			These files have the &lt;ldml&gt; root
 				element and use ldml.dtd. The file name must match the identity
 				element. For example, the &lt;ldml&gt; file pa_Arab_PK.xml must
-				contain the following elements:</span>
+				contain the following elements:
 		</p>
-		<pre class="changed">
+		<pre>
 			<strong>&lt;ldml&gt;</strong><br> 	&lt;identity&gt;<br> 		…<br> 		<strong>&lt;language type=&quot;pa&quot;/&gt;<br> 		&lt;script type=&quot;Arab&quot;/&gt;<br> 		&lt;territory type=&quot;PK&quot;/&gt;</strong><br> 	&lt;/identity&gt;
 …</pre>
-		<p class="changed">Supplemental data can have different root
+		<p>Supplemental data can have different root
 			elements, currently: ldmlBCP47, supplementalData, keyboard, and
 			platform. Keyboard and platform files are considered distinct. The
 			ldmlBCP47 files and supplementalData files that have the same root
@@ -4283,7 +4271,7 @@ root</pre>
 			UCD properties.</p>
 
 		<p>
-			<span class="changed">For example, </span>supplemental data relating
+			For example, supplemental data relating
 			to Japan or the Japanese writing are in:
 		</p>
 		<ul>
@@ -4291,13 +4279,13 @@ root</pre>
 				supplementalData.xml)</li>
 			<li>common/transforms/Hiragana-Katakana.xml</li>
 			<li>common/transforms/Hiragana-Latin.xml</li>
-			<li class="changed">common/properties/scriptMetadata.txt</li>
-			<li class="changed">common/bcp47/calendar.xml</li>
-			<li class="changed">uca/allkeys_CLDR.txt (sorting)</li>
-			<li class="changed">/keyboards/chromeos/ja-t-k0-chromeos.xml</li>
-			<li class="changed">...</li>
+			<li>common/properties/scriptMetadata.txt</li>
+			<li>common/bcp47/calendar.xml</li>
+			<li>uca/allkeys_CLDR.txt (sorting)</li>
+			<li>/keyboards/chromeos/ja-t-k0-chromeos.xml</li>
+			<li>...</li>
 		</ul>
-		<p class="changed">Like the &lt;ldml&gt; files, the keyboard file
+		<p>Like the &lt;ldml&gt; files, the keyboard file
 			names must match internal data: in particular, the locale attribute
 			on the keyboard element must have a value that corresponds to the
 			file name, such as &lt;keyboard
@@ -4305,8 +4293,7 @@ root</pre>
 			af-t-k0-android.xml.</p>
 		<p>
 			The following sections describe the structure of the XML format for
-			language-dependent data. The more precise syntax is in the<span
-				class="changed"> ldml.dtd file</span><i>; however, the DTD does
+			language-dependent data. The more precise syntax is in the ldml.dtd file<i>; however, the DTD does
 				not describe all the constraints on the structure.</i>
 		</p>
 		<p>To start with, the root element is &lt;ldml&gt;, with the
@@ -4322,9 +4309,9 @@ root</pre>
 			The XML structure is stable over releases. Elements and attributes
 			may be deprecated: they are retained in the DTD but their usage is
 			strongly discouraged. In most cases, an alternate structure is
-			provided for expressing the information.<span class="changed">
+			provided for expressing the information.
 				There is only one exception: newer DTDs cannot be used with version
-				1.1 files, without some modification.</span>
+				1.1 files, without some modification.
 		</p>
 		<p>In general, all translatable text in this format is in element
 			contents, while attributes are reserved for types and non-translated
@@ -4347,7 +4334,7 @@ root</pre>
 		</ol>
 		<p>
 			Rule elements do not have this restriction, but also do not inherit,
-			except as an entire block. The <span class="changed">rule</span>
+			except as an entire block. The rule
 			elements are listed in serialElements in the supplemental metadata.
 			See also <i><a href="#Inheritance_and_Validity">Section 4.2
 					Inheritance and Validity</a></i>. For more technical details, see <a
@@ -4638,8 +4625,7 @@ root</pre>
 		<p>
 			It is an error to have a circular chain of aliases. That is, a
 			collection of LDML XML documents must not have situations where a
-			sequence of alias lookups (including inheritance and <span
-				class="changed">lateral</span> inheritance) can be followed
+			sequence of alias lookups (including inheritance and lateral inheritance) can be followed
 			indefinitely without terminating.
 		</p>
 		<h4>
@@ -4672,31 +4658,16 @@ root</pre>
 			Unfortunately, XML does not have the capability to contain all
 			Unicode code points. Due to this, in certain instances extra syntax
 			is required to represent those code points that cannot be otherwise
-			represented in element content. <span class="changed">The
+			represented in element content. The
 				escaping syntax is only defined on a few types of elements, such as
 				in collation or exemplar sets, and uses the appropriate syntax for
-				that type.</span>
+				that type.
 		</p>
 		<p>
-			<span class="changed">The element &lt;cp&gt;, which was
-				formerly used for this purpose, has been deprecated.</span>
+			The element &lt;cp&gt;, which was
+				formerly used for this purpose, has been deprecated.
 		</p>
-		<p class="removed">These escapes are only allowed in certain
-			elements, according to the DTD.</p>
-		<table>
-			<caption>
-				<span class="removed"><a name="Escaping_Characters_Table"
-					href="#Escaping_Characters_Table">Escaping Characters</a> </span>
-			</caption>
-			<tr>
-				<th class="removed">Code Point</th>
-				<th class="removed">XML Example</th>
-			</tr>
-			<tr>
-				<td class="removed"><code>U+0000</code></td>
-				<td class="removed"><code>&lt;cp hex=&quot;0&quot;&gt;</code></td>
-			</tr>
-		</table>
+
 		<h3>
 			<a name="Common_Attributes" href="#Common_Attributes">5.2 Common
 				Attributes</a>
@@ -4934,56 +4905,46 @@ root</pre>
 		</h4>
 		<p>
 			Some attribute values or element contents use <em>UnicodeSet</em>
-			notation. A UnicodeSet represents a <span class="changed">finite
-			</span>set of Unicode <span class="changed">code point</span>s and strings<span
-				class="changed">, and is defined</span> by lists of <span
-				class="changed">code point</span>s and strings, Unicode property
-			sets, and set operators, all bounded by square brackets. <span
-				class="changed">In this context, a code point means a string
+			notation. A UnicodeSet represents a finite
+			set of Unicode code points and strings, and is defined by lists of code points and strings, Unicode property
+			sets, and set operators, all bounded by square brackets. In this context, a code point means a string
 				consisting of exactly one code point. A UnicodeSet is based on a
 				subset of features found in <i>UTS #18: Unicode Regular
 					Expressions</i> [<a href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>],
 				but with sometimes different syntax.
-			</span>
-		</p>
+			</p>
 		<h5>
-			<a href="#Lists_of_Code_Points" name="Lists_of_Code_Points"
-				class="changed">5.3.3.1 Lists of Code Points</a>
+			<a href="#Lists_of_Code_Points" name="Lists_of_Code_Points">5.3.3.1 Lists of Code Points</a>
 		</h5>
 		<p>
-			Lists are a sequence of <span class="changed">strings that may
-				include ranges, which are</span> indicated by a &#39;-&#39; between two <span
-				class="changed">code points</span>, as in &quot;a-z&quot;. The
-			sequence<em class="changed"> start-end</em> specifies the range of
-			all <span class="changed">code points</span> from the <span
-				class="changed">start to end, inclusive</span>, in Unicode order.
+			Lists are a sequence of strings that may
+				include ranges, which are indicated by a &#39;-&#39; between two code points, as in &quot;a-z&quot;. The
+			sequence<em> start-end</em> specifies the range of
+			all code points from the start to end, inclusive, in Unicode order.
 			For example, <b>[a c d-f m]</b> is equivalent to <b>[a c d e f m]</b>.
 			Whitespace can be freely used for clarity, as <b>[a c d-f m]</b>
-			means the same as <b>[acd-fm]</b>. <span class="changed">A
+			means the same as <b>[acd-fm]</b>. A
 				string with multiple code points is represented in a list by being
 				surrounded by curly braces, such as in <strong>[a-z {ch}]</strong>.
 				It cannot be used with the range notation.
-			</span>
-		</p>
+			</p>
 		<p>
-			In UnicodeSets, there are two ways to quote syntax <span
-				class="changed">code point</span>s:
+			In UnicodeSets, there are two ways to quote syntax code points:
 		</p>
 		<p>
 			<a href="#Single_Quote"></a>Two single quotes represents a single
 			quote, either inside or outside single quotes. Text within single
 			quotes is not interpreted in any way (except for two adjacent single
-			quotes). It is taken as literal text (<span class="changed">syntax
-				code points become literal</span>).
+			quotes). It is taken as literal text (syntax
+				code points become literal).
 		</p>
 		<p>
 			<a href="#Backslash_Escapes"></a>Outside of single quotes, certain
-			backslashed <span class="changed">code point</span> <span
-				class="changed">sequence</span>s can be used<span class="changed">
-				to quote code points</span>:
+			backslashed code point sequences can be used
+				to quote code points:
 		</p>
 		<table>
-			<tr class="changed">
+			<tr>
 				<td>\x{h...h}</td>
 				<td>1-6 hex digits ([0-9A-Fa-f])</td>
 			</tr>
@@ -4999,13 +4960,9 @@ root</pre>
 				<td>\xhh</td>
 				<td>1-2 hex digits</td>
 			</tr>
-			<tr class='removed'>
-				<td>\ooo</td>
-				<td>1-3 octal digits; o in [0-7]&nbsp;</td>
-			</tr>
 			<tr>
 				<td>\a</td>
-				<td>U+0007 (BEL<span class="changed"> / ALERT</span>)
+				<td>U+0007 (BEL / ALERT)
 				</td>
 			</tr>
 			<tr>
@@ -5014,8 +4971,8 @@ root</pre>
 			</tr>
 			<tr>
 				<td>\t</td>
-				<td>U+0009 (<span class="changed">TAB / CHARACTER
-						TABULATION</span>)
+				<td>U+0009 (TAB / CHARACTER
+						TABULATION)
 				</td>
 			</tr>
 			<tr>
@@ -5024,7 +4981,7 @@ root</pre>
 			</tr>
 			<tr>
 				<td>\v</td>
-				<td>U+000B (<span class="changed">LINE TABULATION</span>)
+				<td>U+000B (LINE TABULATION)
 				</td>
 			</tr>
 			<tr>
@@ -5037,34 +4994,32 @@ root</pre>
 			</tr>
 			<tr>
 				<td>\\</td>
-				<td>U+005C (BACKSLASH<span class="changed"> / REVERSE
-						SOLIDUS</span>)
+				<td>U+005C (BACKSLASH / REVERSE
+						SOLIDUS)
 				</td>
 			</tr>
 			<tr>
 				<td>\N{name}</td>
-				<td>The Unicode <span class="changed">code point</span> named
+				<td>The Unicode code point named
 					&quot;name&quot;.
 				</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td>\p{…},\P{…}</td>
 				<td>Unicode property (see below)</td>
 			</tr>
 		</table>
 		<p>
-			Anything else following a backslash is mapped to itself, except <span
-				class="changed">the property syntax described below, or</span> in an
+			Anything else following a backslash is mapped to itself, except the property syntax described below, or in an
 			environment where it is defined to have some special meaning.
 		</p>
 		<p>
-			Any <span class="changed">code point</span> formed as the result of a
+			Any code point formed as the result of a
 			backslash escape loses any special meaning and is treated as a
 			literal. In particular, note that \x, \u and \U escapes create
-			literal <span class="changed">code point</span>s. (In contrast, Java
-			treats Unicode escapes as just a way to represent arbitrary <span
-				class="changed">code point</span>s in an ASCII source file, and any
-			resulting <span class="changed">code point</span>s are <i><b>not</b></i>
+			literal code points. (In contrast, Java
+			treats Unicode escapes as just a way to represent arbitrary code points in an ASCII source file, and any
+			resulting code points are <i><b>not</b></i>
 			tagged as literals.)
 		</p>
 		<p>
@@ -5075,8 +5030,7 @@ root</pre>
 			concrete implementation of this, see [<a href="#ICUUnicodeSet">ICUUnicodeSet</a>].
 		</p>
 		<h5>
-			<a href="#Unicode_Properties" name="Unicode_Properties"
-				class="changed">5.3.3.2 Unicode Properties</a>
+			<a href="#Unicode_Properties" name="Unicode_Properties">5.3.3.2 Unicode Properties</a>
 		</h5>
 
 		<p>
@@ -5101,7 +5055,7 @@ root</pre>
 		<p>
 			Property names and values are case-insensitive, and whitespace,
 			&quot;-&quot;, and &quot;_&quot; are ignored. The property name can
-			be omitted for the <span class="changed"><strong>General_</strong></span><strong>Category</strong>
+			be omitted for the <strong>General_Category</strong>
 			and <strong>Script</strong> properties, but is required for other
 			properties. If the property value is omitted, it is assumed to
 			represent a boolean property with the value &quot;true&quot;. Thus <b>[:Letter:]</b>
@@ -5111,9 +5065,8 @@ root</pre>
 		<p>
 			The table below shows the two kinds of syntax: POSIX and Perl style.
 			Also, the table shows the &quot;Negative&quot; version, which is a
-			property that excludes all <span class="changed">code point</span>s
-			of a given kind. For example, <b>[:^Letter:]</b> matches all <span
-				class="changed">code point</span>s that are not <b>[:Letter:]</b>.
+			property that excludes all code points
+			of a given kind. For example, <b>[:^Letter:]</b> matches all code points that are not <b>[:Letter:]</b>.
 		</p>
 		<table>
 			<tr>
@@ -5133,8 +5086,7 @@ root</pre>
 			</tr>
 		</table>
 		<h5>
-			<a href="#Boolean_Operations" name="Boolean_Operations"
-				class="changed">5.3.3.3 Boolean Operations</a>
+			<a href="#Boolean_Operations" name="Boolean_Operations">5.3.3.3 Boolean Operations</a>
 		</h5>
 
 		<p>The low-level lists or properties then can be freely combined
@@ -5151,12 +5103,11 @@ root</pre>
 			</li>
 			<li>To invert a set, place a &#39;^&#39; immediately after the
 				opening &#39;[&#39;. For example, <b>[^a-z]</b>. In any other
-				location, the &#39;^&#39; does not have a special meaning. <span
-				class="changed">The inversion [^X] is equivalent to
+				location, the &#39;^&#39; does not have a special meaning. The inversion [^X] is equivalent to
 					[[\x{0}-\x{10FFFF}]-[X]]. Thus multi-code point strings are
-					discarded.</span>
+					discarded.
 			</li>
-			<li class="changed">Symmetric difference (~) is not supported.</li>
+			<li>Symmetric difference (~) is not supported.</li>
 		</ul>
 		<p>
 			The binary operators &#39;&amp;&#39;, &#39;-&#39;, and the implicit
@@ -5174,11 +5125,10 @@ root</pre>
 			<b>[[:Lu:]-A]</b> is illegal, since it is interpreted as the set <b>[:Lu:]</b>
 			followed by the incomplete range <b>-A</b>. To specify the set of
 			upper case letters except for &#39;A&#39;, enclose the &#39;A&#39; in
-			<span class="changed">brackets</span>: <b>[[:Lu:]-[A]]</b>.
+			brackets: <b>[[:Lu:]-[A]]</b>.
 		</p>
 		<h5>
-			<a href="#UnicodeSet_Examples" name="UnicodeSet_Examples"
-				class="changed">5.3.3.4 UnicodeSet Examples</a>
+			<a href="#UnicodeSet_Examples" name="UnicodeSet_Examples">5.3.3.4 UnicodeSet Examples</a>
 		</h5>
 		<p>The following table summarizes the syntax that can be used.</p>
 		<table style="margin-top: 0.5em; margin-bottom: 0.5em" id="table18">
@@ -5199,8 +5149,8 @@ root</pre>
 			</tr>
 			<tr>
 				<td nowrap>[^a-z]</td>
-				<td>The set containing all <span class="changed">code
-						point</span>s but &#39;a&#39; through &#39;z&#39;.<br> Thus it is
+				<td>The set containing all code
+						points but &#39;a&#39; through &#39;z&#39;.<br> Thus it is
 					the same as [\u0000-\u0060 \u007B-\x{10FFFF}].
 				</td>
 			</tr>
@@ -5219,14 +5169,14 @@ root</pre>
 			</tr>
 			<tr>
 				<td nowrap>[a {ab} {ac}]</td>
-				<td>The <span class="changed">code point</span> &#39;a&#39; and
-					the multi-<span class="changed">code point</span> strings
+				<td>The code point &#39;a&#39; and
+					the multi-code point strings
 					&quot;ab&quot; and &quot;ac&quot;
 				</td>
 			</tr>
 			<tr>
 				<td nowrap>[:Lu:]</td>
-				<td>The set of <span class="changed">code point</span>s with a
+				<td>The set of code points with a
 					given property value, as defined by PropertyValueAliases.txt. In
 					this case, these are the Unicode upper case letters. The long form
 					for this is <b>[:General_Category=Uppercase_Letter:]</b>.
@@ -5234,7 +5184,7 @@ root</pre>
 			</tr>
 			<tr>
 				<td nowrap>[:L:]</td>
-				<td>The set of <span class="changed">code point</span>s
+				<td>The set of code points
 					belonging to all Unicode categories starting with &#39;L&#39;, that
 					is, <b>[[:Lu:][:Ll:][:Lt:][:Lm:][:Lo:]]</b>. The long form for this
 					is <b>[:General_Category=Letter:]</b>.
@@ -5653,15 +5603,14 @@ decimal?, group?, special*)) &gt;</pre>
 				Deprecated Structure</a>
 		</h2>
 		<p>
-			<span class="changed">The deprecated elements, attributes, and
+			The deprecated elements, attributes, and
 				values are listed in the supplementalMetadata.xml file, under
-				&lt;deprecatedItems&gt;. </span>While valid LDML, it is <span
-				class="changed">strongly</span> discouraged, and no longer used in
+				&lt;deprecatedItems&gt;. While valid LDML, it is strongly discouraged, and no longer used in
 			CLDR.
 		</p>
 		<p>
-			<span class="changed">The remainder of this section describes
-				selected cases of deprecated structure that were </span>present in previous
+			The remainder of this section describes
+				selected cases of deprecated structure that were present in previous
 			versions of CLDR.
 		</p>
 		<h3>
@@ -5986,33 +5935,32 @@ decimal?, group?, special*)) &gt;</pre>
 			<li>"tense" was renamed to "relative"</li>
 		</ul>
 
-		<h3 class="changed">
+		<h3>
 			<a name="Deprecated_subelements_of_segmentations"
 				href="#Deprecated_subelements_of_segmentations">8.13 Deprecated
 				subelements of &lt;segmentations&gt;</a>
 		</h3>
-		<ul class="changed">
+		<ul>
 			<li>&lt;exceptions&gt; and &lt;exceptions&gt; were deprecated
 				and replaced with &lt;suppressions&gt; and &lt;suppression&gt;.</li>
 		</ul>
 		<h3>
-			<span class="changed"> <a name="Element_cp" href="#Element_cp">8.14
+			<a name="Element_cp" href="#Element_cp">8.14
 					Element cp</a>
-			</span>
-		</h3>
-		<p class="changed">The cp element was used to escape characters
+			</h3>
+		<p>The cp element was used to escape characters
 			that cannot be represented in XML, even with NCRs. These escapes were
 			only allowed in certain elements, according to the DTD.</p>
-		<p class="changed">However, this mechanism is very clumsy, and was
+		<p>However, this mechanism is very clumsy, and was
 			replaced by specialized syntax.</p>
 		<table>
 			<tr>
-				<th class="changed">Code Point</th>
-				<th class="changed">XML Example</th>
+				<th>Code Point</th>
+				<th>XML Example</th>
 			</tr>
 			<tr>
-				<td class="changed"><code>U+0000</code></td>
-				<td class="changed"><code>&lt;cp hex=&quot;0&quot;&gt;</code></td>
+				<td><code>U+0000</code></td>
+				<td><code>&lt;cp hex=&quot;0&quot;&gt;</code></td>
 			</tr>
 		</table>
 		<p>&nbsp;</p>
@@ -7225,10 +7173,9 @@ decimal?, group?, special*)) &gt;</pre>
 				Bug Reports</a>.
 		</p>
 
-		<h3>
-			Revision <span class="changed">36</span>
-		</h3>
-		<ul class="changed">
+		<h3>Revision 37</h3>
+		<ul>
+			<li>Updated for Version 26.</li>
 			<li><strong>Part 1</strong>: Core
 				<ul>
 					<li><em>Section 3 <a
@@ -7553,10 +7500,11 @@ decimal?, group?, special*)) &gt;</pre>
 					</li>
 				</ul></li>
 		</ul>
-		<p class='changed'>Modifications in previous versions are listed
+		<p>Revision 36 being a proposed update, only changes between revisions 35 and 37 are summarized here.</p>
+		<p>&nbsp;</p>
+		<p>Modifications in previous versions are listed
 			in those respective versions:</p>
-		<table style='margin-left: 5em' class='changed' border="1"
-			cellspacing="0" cellpadding="0">
+		<table style='margin-left: 5em' border="1" cellspacing="0" cellpadding="0">
 			<tr>
 				<td><a href='../tr35-35/tr35.html#Modifications'>Version 25</a></td>
 			</tr>
@@ -7606,7 +7554,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<br>
 		<hr>
 		<p class="copyright">
-			Copyright © 2001<span class="changed">–</span>2014 Unicode, Inc. All
+			Copyright © 2001–2014 Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied
 			warranty of any kind, and assumes no liability for errors or
 			omissions. No liability is assumed for incidental and consequential

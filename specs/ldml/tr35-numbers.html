@@ -83,7 +83,7 @@ h2,h3,h4,table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2,h3,h4,table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">26</span></td>
+				<td>26</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -130,7 +130,7 @@ h2,h3,h4,table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -140,8 +140,8 @@ h2,h3,h4,table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -149,7 +149,7 @@ h2,h3,h4,table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -334,8 +334,8 @@ h2,h3,h4,table {
 		</h2>
 		<p class="dtd">
 			&lt;!ELEMENT numbers (alias | (defaultNumberingSystem*,
-			otherNumberingSystems*, <span class="changed">minimumGroupingDigits*,
-			</span>symbols*, decimalFormats*, scientificFormats*, percentFormats*,
+			otherNumberingSystems*, minimumGroupingDigits*,
+			symbols*, decimalFormats*, scientificFormats*, percentFormats*,
 			currencyFormats*, currencies?, miscPatterns*, special*)) &gt;
 		</p>
 		<p>
@@ -425,8 +425,8 @@ h2,h3,h4,table {
 			&lt;!ELEMENT symbols (alias | (decimal*, group*, list*, percentSign*,
 			nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, exponential*,
 			superscriptingExponent*, perMille*, infinity*, nan*,
-			currencyDecimal*, currencyGroup*, <span class="changed">timeSeparator*,
-			</span>special*)) &gt;
+			currencyDecimal*, currencyGroup*, timeSeparator*,
+			special*)) &gt;
 		</p>
 		<p>
 			Number symbols define the localized symbols that are commonly used
@@ -529,10 +529,10 @@ h2,h3,h4,table {
 			<dd>- This is used as the grouping separator in currency
 				formatting/parsing, instead of the regular grouping separator. This
 				item is optional in the CLDR.</dd>
-			<dt class="changed">
+			<dt>
 				<b>timeSeparator</b>
 			</dt>
-			<dd class="changed">- This replaces any use of &quot;:&quot; in
+			<dd>- This replaces any use of &quot;:&quot; in
 				a date-time format pattern. This allows the same time format to be
 				used for multiple number systems. For example, the time format for
 				Arabic should be : when using the Latin numbering system (0, 1, 2,
@@ -553,7 +553,7 @@ h2,h3,h4,table {
       &lt;perMille&gt;<span style="color: blue">‰</span>&lt;/perMille&gt;
       &lt;infinity&gt;<span style="color: blue">∞</span>&lt;/infinity&gt;
       &lt;nan&gt;<span style="color: blue">☹</span>&lt;/nan&gt;
-      <span class="changed">&lt;timeSeparator&gt;:&lt;/timeSeparator&gt;</span>
+      &lt;timeSeparator&gt;:&lt;/timeSeparator&gt;
 &lt;/symbols&gt;</pre>
 		<p>
 			<span class="dtd">&lt;!ATTLIST symbols numberSystem CDATA
@@ -744,7 +744,7 @@ h2,h3,h4,table {
 				<strong>range</strong>
 			</dt>
 			<dd>
-				indicates a range of numbers, such as: “99<span class="changed">–</span>103”
+				indicates a range of numbers, such as: “99–103”
 				to indicate that there are from 99 to 103 items.
 			</dd>
 		</dl>
@@ -812,14 +812,14 @@ h2,h3,h4,table {
 					<td width="33%">01234,5670</td>
 				</tr>
 				<tr>
-					<td width="17%" rowspan="2"><span class="changed">#,##0.00
-							¤</span></td>
+					<td width="17%" rowspan="2">#,##0.00
+							¤</td>
 					<td width="16%">EUR</td>
 					<td width="33%">1 234,57 €</td>
 				</tr>
 				<tr>
 					<td width="16%">JPY</td>
-					<td width="33%">1 235 ¥<span class="changed">JP</span></td>
+					<td width="33%">1 235 ¥JP</td>
 				</tr>
 			</table>
 		</blockquote>
@@ -910,9 +910,9 @@ h2,h3,h4,table {
 					<td>,</td>
 					<td>Number</td>
 					<td>Yes</td>
-					<td>Grouping separator.<span class="changed"> May occur
+					<td>Grouping separator. May occur
 							in both the integer part and the fractional part. The position
-							determines the grouping.</span></td>
+							determines the grouping.</td>
 				</tr>
 				<tr valign="top" bgcolor="#eeeeff">
 					<td>E</td>
@@ -943,14 +943,14 @@ h2,h3,h4,table {
 					<td>Multiply by 100 and show as percentage</td>
 				</tr>
 				<tr valign="top" bgcolor="#eeeeff">
-					<td>‰<br> (<span class="changed">U+</span>2030)
+					<td>‰<br> (U+2030)
 					</td>
 					<td>Prefix or suffix</td>
 					<td>Yes</td>
 					<td>Multiply by 1000 and show as per mille</td>
 				</tr>
 				<tr valign="top">
-					<td>¤ (<span class="changed">U+</span>00A4)
+					<td>¤ (U+00A4)
 					</td>
 					<td>Prefix or suffix</td>
 					<td>No</td>
@@ -1029,7 +1029,7 @@ h2,h3,h4,table {
 			grouping size. All others are ignored, so &quot;#,##,###,####&quot;
 			== &quot;###,###,####&quot; == &quot;##,#,###,####&quot;.
 		</p>
-		<p class="changed">
+		<p>
 			The grouping separator may also occur in the fractional part, such as
 			in “#,##0.###,#”. This is most commonly done where the grouping
 			separator character is a thin, non-breaking space (U+202F), such as
@@ -1055,7 +1055,7 @@ h2,h3,h4,table {
 			</li>
 			<li>The only time two thousands separators needs to be used is
 				when the number of digits varies, such as for Hindi: #,##,##0.</li>
-			<li class="changed">The <strong>minimumGroupingDigits</strong>
+			<li>The <strong>minimumGroupingDigits</strong>
 				can be used to suppress groupings below a certain value. This is
 				used for languages such as Polish, where one would only write the
 				grouping separator for values above 9999. The minimumGroupingDigits
@@ -1065,7 +1065,7 @@ h2,h3,h4,table {
 						separator value. If the input number has fewer integer digits, the
 						grouping separator is suppressed.</li>
 					<li>Examples:
-						<table border="1" cellpadding="0" cellspacing="0" class="changed">
+						<table border="1" cellpadding="0" cellspacing="0">
 							<tr>
 								<th width="25%" scope="col"><div align="center">minimum&shy;GroupingDigits</div></th>
 								<th width="25%" scope="col"><div align="center">Pattern
@@ -1161,7 +1161,7 @@ h2,h3,h4,table {
 			<code>NaN</code>
 			is represented as a single character, typically
 			<code>
-				(<span class="changed">U+</span>FFFD)
+				(U+FFFD)
 			</code>
 			. This character is determined by the localized number symbols. This
 			is the only value for which the prefixes and suffixes are not used.
@@ -1170,7 +1170,7 @@ h2,h3,h4,table {
 			Infinity is represented as a single character, typically <font
 				size="3">∞ </font>
 			<code>
-				(<span class="changed">U+</span>221E)
+				(U+221E)
 			</code>
 			, with the positive or negative prefixes and suffixes applied. The
 			infinity character is determined by the localized number symbols.
@@ -1355,7 +1355,7 @@ h2,h3,h4,table {
 			</li>
 		</ul>
 		<h3>
-			<span class="changed">3.7 <a name="Rounding" href="#Rounding">Rounding</a></span>
+			3.7 <a name="Rounding" href="#Rounding">Rounding</a>
 		</h3>
 		<p>Patterns support rounding to a specific increment. For example,
 			1230 rounded to the nearest 50 is 1250. Mathematically, rounding to
@@ -1587,8 +1587,8 @@ h2,h3,h4,table {
 			<p class="note">
 				<b>Note: </b><i>Currency values should <b>never</b> be
 					interchanged without a known currency code. You never want the
-					number 3.5 interpreted as $3.5<span class="changed">0</span> by one
-					user and <span class="changed">€3.50</span> by another.
+					number 3.5 interpreted as $3.50 by one
+					user and €3.50 by another.
 				</i>Locale data contains localization information for currencies, not a
 				currency value for a country. A currency amount logically consists
 				of a numeric value, plus an accompanying currency code (or
@@ -1600,12 +1600,12 @@ h2,h3,h4,table {
 		</blockquote>
 		<p class="note">
 			Notice that the currency code is completely independent of the
-			end-user&#39;s language or locale. <span class="changed">For
+			end-user&#39;s language or locale. For
 				example, BGN is the code for Bulgarian Lev. A currency amount of
 				&lt;BGN, 1.23456×10³&gt; would be localized for a Bulgarian user
 				into &quot;1 234,56 лв.&quot; (using Cyrillic letters). For an
 				English user it would be localized into the string &quot;BGN
-				1,234.56&quot; </span>The end-user&#39;s language is needed for doing this
+				1,234.56&quot; The end-user&#39;s language is needed for doing this
 			last localization step; but that language is completely orthogonal to
 			the currency code needed in the data. After all, the same English
 			user could be working with dozens of currencies. Notice also that the
@@ -1882,8 +1882,7 @@ h2,h3,h4,table {
 			various plural forms of a language; for a given language, only the
 			tags necessary for that language are defined, along with the specific
 			numeric ranges covered by each tag (for example, the plural form
-			&quot;few&quot; may be used for the numeric range 2<span
-				class="changed">–</span>4 in one language and 3<span class="changed">–</span>9
+			&quot;few&quot; may be used for the numeric range 2–4 in one language and 3–9
 			in another):
 		</p>
 		<ul>
@@ -1906,11 +1905,8 @@ h2,h3,h4,table {
 &lt;/pluralRules&gt;</pre>
 		<p>
 			These rules specify that Russian has a &quot;one&quot; form (for 1,
-			21, 31, 41, 51, …), a &quot;few&quot; form (for 2<span
-				class="changed">–</span>4, 22<span class="changed">–</span>24, 32<span
-				class="changed">–</span>34, …), and implicitly an &quot;other&quot;
-			form (for everything else: 0, 5<span class="changed">–</span>20, 25<span
-				class="changed">–</span>30, 35<span class="changed">–</span>40, …,
+			21, 31, 41, 51, …), a &quot;few&quot; form (for 2–4, 22–24, 32–34, …), and implicitly an &quot;other&quot;
+			form (for everything else: 0, 5–20, 25–30, 35–40, …,
 			decimals). Russian does not need additional separate forms for zero,
 			two, or many, so these are not defined.
 		</p>
@@ -1971,7 +1967,7 @@ h2,h3,h4,table {
 			values in CLDR are currently limited to just what is in the DTD, but
 			clients may support other values.</p>
 		<p>The conditions themselves have the following syntax.</p>
-		<pre>condition     = <span class="changed"></span>and_condition ('or' and_condition)*
+		<pre>condition     = and_condition ('or' and_condition)*
 samples       = ('@integer' sampleList)?<br>                ('@decimal' sampleList)?                
 and_condition = relation ('and' relation)*<br>relation      = is_relation | in_relation | within_relation <br>is_relation   = expr 'is' ('not')? value<br>in_relation   = expr (('not')? 'in' | '=' | '!=') range_list<br>within_relation = expr ('not')? 'within' range_list<br>expr          = operand (('mod' | '%') value)?
 operand       = 'n' | 'i' | 'f' | 't' | 'v' | 'w'<br>range_list    = (range | value) (',' range_list)*<br>range         = value'..'value
@@ -2294,11 +2290,10 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 
 		<p>
 			Often ranges of numbers are presented to users, such as in “Length:
-			3.2<span class="changed">–</span>4.5 centimeters”. This means any
+			3.2–4.5 centimeters”. This means any
 			length from 3.2 cm to 4.5 cm, inclusive. However, different languages
 			have different conventions for the pluralization given to a range:
-			should it be “0<span class="changed">–</span>1 centimeter” or “0<span
-				class="changed">–</span>1 centimeters”? This becomes much more
+			should it be “0–1 centimeter” or “0–1 centimeters”? This becomes much more
 			complicated for languages that have many different plural forms, such
 			as Russian or Arabic.
 		</p>
@@ -2307,11 +2302,11 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			allowing an implementation to derive the plural category of a range
 			from the plural categories of the <em>start</em> and <em>end</em>
 			values. If there is no value for a <em>&lt;start,end&gt;</em> pair,
-			the default result is <em class="changed">end</em>. However, where
+			the default result is <em>end</em>. However, where
 			that result has been verified for a given language, it is included in
 			the CLDR data.
 		</p>
-		<p class="changed">The data has been gathered presuming that in
+		<p>The data has been gathered presuming that in
 			any usage, the start value is strictly less than the end value, and
 			that no values are negative. Results for any cases that do not meet
 			these criteria are undefined.</p>
@@ -2501,7 +2496,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001<span class="changed">–</span>2014 Unicode, Inc. All
+			Copyright © 2001–2014 Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied
 			warranty of any kind, and assumes no liability for errors or
 			omissions. No liability is assumed for incidental and consequential

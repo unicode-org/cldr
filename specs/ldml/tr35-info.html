@@ -83,7 +83,7 @@ h2,h3,h4,table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1>
@@ -95,7 +95,7 @@ h2,h3,h4,table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">26</span></td>
+				<td>26</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -131,7 +131,7 @@ h2,h3,h4,table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -141,8 +141,8 @@ h2,h3,h4,table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -150,7 +150,7 @@ h2,h3,h4,table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -314,13 +314,13 @@ h2,h3,h4,table {
 		<p align="center">Continent</p>
 		<p align="center">Subcontinent</p>
 		<p align="center">Country</p>
-		<p class="changed">
+		<p>
 			Excluding groupings, in this tree:<br>
 		</p>
 		<ul>
-			<li class="changed">All non-overlapping regions form a strict
+			<li>All non-overlapping regions form a strict
 				tree rooted at World</li>
-			<li class="changed">All leaf-nodes (country) are always at depth
+			<li>All leaf-nodes (country) are always at depth
 				4. Some of these “country” regions are actually parts of other
 				countries, such as Hong Kong (part of China). Such relationships are
 				not part of the containment data.</li>
@@ -442,8 +442,8 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 		</h2>
 
 		<p class="dtd">
-			<span class="changed"> &lt;!ELEMENT codeMappings
-				(languageCodes*, territoryCodes*, currencyCodes*) &gt;</span>
+			&lt;!ELEMENT codeMappings
+				(languageCodes*, territoryCodes*, currencyCodes*) &gt;
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT languageCodes EMPTY &gt;<br> &lt;!ATTLIST
@@ -459,11 +459,10 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			territoryCodes internet NMTOKENS #IMPLIED&gt;
 		</p>
 		<p class="dtd">
-			<span class="changed">&lt;!ELEMENT currencyCodes EMPTY &gt;<br>
+			&lt;!ELEMENT currencyCodes EMPTY &gt;<br>
 				&lt;!ATTLIST currencyCodes type NMTOKEN #REQUIRED&gt; <br>
 				&lt;!ATTLIST currencyCodes numeric NMTOKEN #REQUIRED&gt;
-			</span>
-		</p>
+			</p>
 		<p>
 			The code mapping information provides mappings between the subtags
 			used in the CLDR locale IDs (from BCP 47) and other coding systems or
@@ -484,18 +483,18 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 ...
 &lt;territoryCodes type=&quot;QU&quot; numeric=&quot;967&quot; alpha3=&quot;QUU&quot; internet=&quot;EU&quot;/&gt;
 ...
-<span class="changed">&lt;territoryCodes type=&quot;XK&quot; numeric=&quot;983&quot; alpha3=&quot;XKK&quot;/&gt;</span>
+&lt;territoryCodes type=&quot;XK&quot; numeric=&quot;983&quot; alpha3=&quot;XKK&quot;/&gt;
 ...</pre>
-		<p class="changed">Where there is no corresponding code, sometimes
+		<p>Where there is no corresponding code, sometimes
 			private use codes are used, such as the numeric code for XK.</p>
-		<p class="changed">
+		<p>
 			The currencyCodes are mappings from three letter currency codes to
 			numeric values (ISO 4217 <a
 				href=" ​http://www.currency-iso.org/en/home/tables/table-a1.html">Current
 				currency & funds code list</a>.) The mapping currently covers only
 			current codes and does not include historic currencies. For example:
 		</p>
-		<pre class="changed">
+		<pre>
 &lt;currencyCodes type=&quot;AED&quot; numeric=&quot;784&quot;/&gt;
 &lt;currencyCodes type=&quot;AFN&quot; numeric=&quot;971&quot;/&gt;
 ...
@@ -1002,29 +1001,24 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 		</h3>
 		<p class="dtd">
 			&lt;!ELEMENT alias ( languageAlias*, scriptAlias*, territoryAlias*,
-			variantAlias*, zoneAlias* ) &gt;<br> <br> <span
-				class="changed"><em>The following are common attributes
-					for subelements of &lt;alias&gt;:</em><br> </span>&lt;!ELEMENT *Alias
+			variantAlias*, zoneAlias* ) &gt;<br> <br> <em>The following are common attributes
+					for subelements of &lt;alias&gt;:</em><br> &lt;!ELEMENT *Alias
 			EMPTY &gt;<br> &lt;!ATTLIST *Alias type NMTOKEN #IMPLIED &gt;<br>
-			&lt;!ATTLIST *Alias replacement NMTOKEN #IMPLIED &gt;<br> <span
-				class="changed">&lt;!ATTLIST *Alias reason ( deprecated |
+			&lt;!ATTLIST *Alias replacement NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST *Alias reason ( deprecated |
 				overlong ) #IMPLIED&gt; <br> <br> <em>The
 					languageAlias has additional reasons</em><br> &lt;!ATTLIST
 				languageAlias reason ( deprecated | overlong | macrolanguage |
 				legacy | bibliographic ) #IMPLIED&gt;
-			</span>
 		</p>
 		<p>
 			This element provides information as to parts of locale IDs that
 			should be substituted when accessing CLDR data. This logical
 			substitution should be done to both the locale id, and to any lookup
-			for display names of languages, territories, and so on. <span
-				class="changed">The replacement for the language and
+			for display names of languages, territories, and so on. The replacement for the language and
 				territory types is more complicated: see <em>Part 1: <a
 					href="tr35.html#Contents">Core</a>, Section 3.3.1 <a
 					href="#BCP_47_Language_Tag_Conversion">BCP 47 Language Tag
 						Conversion</a></em> for details.
-			</span>
 		</p>
 		<pre>&lt;alias&gt;
   &lt;languageAlias type=&quot;in&quot; replacement=&quot;id&quot;&gt;
@@ -1034,9 +1028,9 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
   &lt;territoryAlias type=&quot;BU&quot; replacement=&quot;MM&quot;&gt;
 ...
 &lt;/alias&gt;</pre>
-		<p class="changed">Attribute values for the *Alias values include
+		<p>Attribute values for the *Alias values include
 			the following:</p>
-		<table class="changed">
+		<table>
 			<tr>
 				<th scope="col">Attribute</th>
 				<th scope="col">Value</th>
@@ -1229,7 +1223,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001<span class="changed">–</span>2014 Unicode, Inc. All
+			Copyright © 2001–2014 Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied
 			warranty of any kind, and assumes no liability for errors or
 			omissions. No liability is assumed for incidental and consequential

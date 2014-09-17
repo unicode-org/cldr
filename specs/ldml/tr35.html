@@ -396,7 +396,8 @@ h5 {
 							</li>
 							<li>5.1.3 <a href="#Element_displayName">Element
 									displayName</a></li>
-							<li>5.1.4 <a href="#Escaping_Characters" class="changed">Escaping Characters</a>
+							<li>5.1.4 <a href="#Escaping_Characters" class="changed">Escaping
+									Characters</a>
 							</li>
 						</ul>
 					</li>
@@ -472,7 +473,7 @@ h5 {
 					<li class="changed">8.14 <a
 						href="#Deprecated_subelements_of_segmentations">Element cp</a></li>
 				</ul>
-		  </li>
+			</li>
 			<li>9 <a href="#Links_to_Other_Parts">Links to Other Parts</a>
 				<ul class="toc">
 					<li>Table: <a href="#Part_2_Links">Part 2 Links: General
@@ -1616,15 +1617,21 @@ fr_BE
 			<li>All keywords are sorted by alphabetical order of keys.</li>
 			<li>All keywords are in lowercase.</li>
 			<li>All keys and types use the canonical form (from the name
-				attribute; see <span class="removed">Appendix Q</span><span class="changed"><a href="#Unicode_Locale_Extension_Data_Files">Section 3.6.4
-				U Extension Data Files</a></span>).</li>
+				attribute; see <span class="removed">Appendix Q</span><span
+				class="changed"><a
+					href="#Unicode_Locale_Extension_Data_Files">Section 3.6.4 U
+						Extension Data Files</a></span>).
+			</li>
 			<li class="changed">Type value "true" is removed.</li>
 		</ul>
-		<p>For example, the canonical form of 'u' extension
-			"u-foo-bar-nu-thai-ca-buddhist<span class="changed">-kk-true</span>" is "u-bar-foo-ca-buddhist<span class="changed">-kk</span>-nu-thai".
+		<p>
+			For example, the canonical form of 'u' extension
+			"u-foo-bar-nu-thai-ca-buddhist<span class="changed">-kk-true</span>"
+			is "u-bar-foo-ca-buddhist<span class="changed">-kk</span>-nu-thai".
 			The attributes "foo" and "bar" in this example are provided only for
 			illustration; no attribute subtags are defined by the current CLDR
-			specification.</p>
+			specification.
+		</p>
 		<p>
 			<em>See also <a
 				href="http://cldr.unicode.org/index/bcp47-extension"> Unicode
@@ -4660,21 +4667,28 @@ root</pre>
 		</p>
 		<h4>
 			<a name="Escaping_Characters" href="#Escaping_Characters">5.1.4
-		  Escaping Characters</a>
+				Escaping Characters</a>
 		</h4>
-		<p>Unfortunately, XML does not have the capability to contain all
+		<p>
+			Unfortunately, XML does not have the capability to contain all
 			Unicode code points. Due to this, in certain instances extra syntax
 			is required to represent those code points that cannot be otherwise
-			represented in element content. <span class="changed">The escaping syntax is only defined on a few types of elements, such as in collation or exemplar sets, and uses the appropriate syntax for that type.</span></p>
-		<p><span class="changed">The element &lt;cp&gt;, which was formerly used for this purpose, has been deprecated.</span></p>
-		<p class="removed">These escapes are only allowed in
-		  certain elements, according to the DTD.</p>
+			represented in element content. <span class="changed">The
+				escaping syntax is only defined on a few types of elements, such as
+				in collation or exemplar sets, and uses the appropriate syntax for
+				that type.</span>
+		</p>
+		<p>
+			<span class="changed">The element &lt;cp&gt;, which was
+				formerly used for this purpose, has been deprecated.</span>
+		</p>
+		<p class="removed">These escapes are only allowed in certain
+			elements, according to the DTD.</p>
 		<table>
 			<caption>
-			<span class="removed"><a name="Escaping_Characters_Table" href="#Escaping_Characters_Table">Escaping
-					Characters</a>
-		    </span>
-		  </caption>
+				<span class="removed"><a name="Escaping_Characters_Table"
+					href="#Escaping_Characters_Table">Escaping Characters</a> </span>
+			</caption>
 			<tr>
 				<th class="removed">Code Point</th>
 				<th class="removed">XML Example</th>
@@ -4683,11 +4697,11 @@ root</pre>
 				<td class="removed"><code>U+0000</code></td>
 				<td class="removed"><code>&lt;cp hex=&quot;0&quot;&gt;</code></td>
 			</tr>
-</table>
+		</table>
 		<h3>
 			<a name="Common_Attributes" href="#Common_Attributes">5.2 Common
 				Attributes</a>
-    </h3>
+		</h3>
 		<h4>
 			<a name="Attribute_type" href="#Attribute_type">5.2.1 Attribute
 				type</a>
@@ -5639,14 +5653,22 @@ decimal?, group?, special*)) &gt;</pre>
 			<a name="Deprecated_Structure" href="#Deprecated_Structure">8
 				Deprecated Structure</a>
 		</h2>
-		<p><span class="changed">The deprecated elements, attributes, and values are listed in the supplementalMetadata.xml file, under &lt;deprecatedItems&gt;. </span>While valid LDML, it is <span class="changed">strongly</span> discouraged, and no longer used in
-		  CLDR.</p>
-		<p><span class="changed">The remainder of this section describes selected cases of deprecated structure that were </span>present in previous versions of
-	    CLDR. </p>
+		<p>
+			<span class="changed">The deprecated elements, attributes, and
+				values are listed in the supplementalMetadata.xml file, under
+				&lt;deprecatedItems&gt;. </span>While valid LDML, it is <span
+				class="changed">strongly</span> discouraged, and no longer used in
+			CLDR.
+		</p>
+		<p>
+			<span class="changed">The remainder of this section describes
+				selected cases of deprecated structure that were </span>present in previous
+			versions of CLDR.
+		</p>
 		<h3>
 			<a name="Fallback_Elements" href="#Fallback_Elements">8.1 Element
 				fallback</a>
-</h3>
+		</h3>
 		<p class="dtd">&lt;!ELEMENT fallback (#PCDATA) &gt;</p>
 		<p>
 			The fallback element is deprecated. Implementations should use
@@ -5974,23 +5996,28 @@ decimal?, group?, special*)) &gt;</pre>
 			<li>&lt;exceptions&gt; and &lt;exceptions&gt; were deprecated
 				and replaced with &lt;suppressions&gt; and &lt;suppression&gt;.</li>
 		</ul>
-	  <h3><span class="changed"> <a name="Element_cp"
-				href="#Element_cp">8.14 Element cp</a> </span></h3>
-      <p class="changed">The cp element was used to escape characters that cannot be represented in XML, even with NCRs. These escapes were only allowed in
-	      certain elements, according to the DTD.</p>
-      <p class="changed">However, this mechanism is very clumsy, and was replaced by specialized syntax.</p>
-        <table>
-          <tr>
-            <th class="changed">Code Point</th>
-            <th class="changed">XML Example</th>
-          </tr>
-          <tr>
-            <td class="changed"><code>U+0000</code></td>
-            <td class="changed"><code>&lt;cp hex=&quot;0&quot;&gt;</code></td>
-          </tr>
-        </table>
-      <p>&nbsp;</p>
-<hr>
+		<h3>
+			<span class="changed"> <a name="Element_cp" href="#Element_cp">8.14
+					Element cp</a>
+			</span>
+		</h3>
+		<p class="changed">The cp element was used to escape characters
+			that cannot be represented in XML, even with NCRs. These escapes were
+			only allowed in certain elements, according to the DTD.</p>
+		<p class="changed">However, this mechanism is very clumsy, and was
+			replaced by specialized syntax.</p>
+		<table>
+			<tr>
+				<th class="changed">Code Point</th>
+				<th class="changed">XML Example</th>
+			</tr>
+			<tr>
+				<td class="changed"><code>U+0000</code></td>
+				<td class="changed"><code>&lt;cp hex=&quot;0&quot;&gt;</code></td>
+			</tr>
+		</table>
+		<p>&nbsp;</p>
+		<hr>
 		<h2>
 			<a name="Links_to_Other_Parts" href="#Links_to_Other_Parts">9
 				Links to Other Parts</a>
@@ -7228,9 +7255,9 @@ decimal?, group?, special*)) &gt;</pre>
 								application use. [<a
 								href="http://unicode.org/cldr/trac/ticket/7151">#7151</a>]
 							</li>
-							<li>Section 3.6 <a href="#u_Extension">Unicode BCP 47 U Extension</a>,
-								documented the optional type value "true" is truncated in the
-								canonical form. [<a
+							<li>Section 3.6 <a href="#u_Extension">Unicode BCP 47 U
+									Extension</a>, documented the optional type value "true" is
+								truncated in the canonical form. [<a
 								href="http://unicode.org/cldr/trac/ticket/7796">#7796</a>]
 							</li>
 						</ul></li>
@@ -7362,29 +7389,31 @@ decimal?, group?, special*)) &gt;</pre>
 								href="http://unicode.org/cldr/trac/ticket/7117">#7117</a>]
 							</li>
 						</ul></li>
-					<li><em>Section 3.7 <a
-							href="tr35-numbers.html#Rounding">Rounding</a></em>
+					<li><em>Section 3.7 <a href="tr35-numbers.html#Rounding">Rounding</a></em>
 						<ul>
-							<li>Separated the information about rounding into a standalone section [<a
+							<li>Separated the information about rounding into a
+								standalone section [<a
 								href="http://unicode.org/cldr/trac/ticket/7114">#7114</a>]
 							</li>
 						</ul></li>
-					<li><em>Section 4 <a
-							href="tr35-numbers.html#Currencies">Currencies</a></em>
+					<li><em>Section 4 <a href="tr35-numbers.html#Currencies">Currencies</a></em>
 						<ul>
-							<li>Improved the currency formatting example to use EUR instead of JPY [<a
+							<li>Improved the currency formatting example to use EUR
+								instead of JPY [<a
 								href="http://unicode.org/cldr/trac/ticket/7392">#7392</a>]
 							</li>
-							<li>Rewrote the RUB currency formatting example to use BGN instead, since Russia now has a currency symbol [<a
+							<li>Rewrote the RUB currency formatting example to use BGN
+								instead, since Russia now has a currency symbol [<a
 								href="http://unicode.org/cldr/trac/ticket/7116">#7116</a>]
 							</li>
 						</ul></li>
 					<li><em>Various sections</em>
 						<ul>
-							<li>Updated to use EN-DASH (U+2013) instead of HYPHEN-MINUS in ranges [<a
-								href="http://unicode.org/cldr/trac/ticket/7394">#7394</a>]
+							<li>Updated to use EN-DASH (U+2013) instead of HYPHEN-MINUS
+								in ranges [<a href="http://unicode.org/cldr/trac/ticket/7394">#7394</a>]
 							</li>
-							<li>Updated to consistently use (U+xxxx) instead of (\uxxxx) to refer to code points [<a
+							<li>Updated to consistently use (U+xxxx) instead of (\uxxxx)
+								to refer to code points [<a
 								href="http://unicode.org/cldr/trac/ticket/7115">#7115</a>]
 							</li>
 						</ul></li>
@@ -7578,13 +7607,14 @@ decimal?, group?, special*)) &gt;</pre>
 		<br>
 		<hr>
 		<p class="copyright">
-			Copyright © 2001<span class="changed">–</span>2014 Unicode, Inc. All Rights Reserved. The Unicode
-			Consortium makes no expressed or implied warranty of any kind, and
-			assumes no liability for errors or omissions. No liability is assumed
-			for incidental and consequential damages in connection with or
-			arising out of the use of the information or programs contained or
-			accompanying this technical report. The Unicode <a
-				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
+			Copyright © 2001<span class="changed">–</span>2014 Unicode, Inc. All
+			Rights Reserved. The Unicode Consortium makes no expressed or implied
+			warranty of any kind, and assumes no liability for errors or
+			omissions. No liability is assumed for incidental and consequential
+			damages in connection with or arising out of the use of the
+			information or programs contained or accompanying this technical
+			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
+				of Use</a> apply.
 		</p>
 		<p class="copyright">Unicode and the Unicode logo are trademarks
 			of Unicode, Inc., and are registered in some jurisdictions.</p>

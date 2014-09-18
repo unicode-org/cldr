@@ -82,10 +82,7 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center">
-			Unicode Technical
-			Standard #35
-		</h2>
+		<h2 style="text-align: center">Unicode Technical Standard #35</h2>
 		<h1>
 			Unicode Locale Data Markup Language (LDML)<br>Part 6:
 			Supplemental
@@ -318,12 +315,12 @@ h2,h3,h4,table {
 			Excluding groupings, in this tree:<br>
 		</p>
 		<ul>
-			<li>All non-overlapping regions form a strict
-				tree rooted at World</li>
-			<li>All leaf-nodes (country) are always at depth
-				4. Some of these “country” regions are actually parts of other
-				countries, such as Hong Kong (part of China). Such relationships are
-				not part of the containment data.</li>
+			<li>All non-overlapping regions form a strict tree rooted at
+				World</li>
+			<li>All leaf-nodes (country) are always at depth 4. Some of
+				these “country” regions are actually parts of other countries, such
+				as Hong Kong (part of China). Such relationships are not part of the
+				containment data.</li>
 		</ul>
 		<p>
 			For a chart showing the relationships (plus the included timezones),
@@ -441,10 +438,8 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 				href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a>
 		</h2>
 
-		<p class="dtd">
-			&lt;!ELEMENT codeMappings
-				(languageCodes*, territoryCodes*, currencyCodes*) &gt;
-		</p>
+		<p class="dtd">&lt;!ELEMENT codeMappings (languageCodes*,
+			territoryCodes*, currencyCodes*) &gt;</p>
 		<p class="dtd">
 			&lt;!ELEMENT languageCodes EMPTY &gt;<br> &lt;!ATTLIST
 			languageCodes type NMTOKEN #REQUIRED&gt;<br> &lt;!ATTLIST
@@ -459,10 +454,10 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			territoryCodes internet NMTOKENS #IMPLIED&gt;
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT currencyCodes EMPTY &gt;<br>
-				&lt;!ATTLIST currencyCodes type NMTOKEN #REQUIRED&gt; <br>
-				&lt;!ATTLIST currencyCodes numeric NMTOKEN #REQUIRED&gt;
-			</p>
+			&lt;!ELEMENT currencyCodes EMPTY &gt;<br> &lt;!ATTLIST
+			currencyCodes type NMTOKEN #REQUIRED&gt; <br> &lt;!ATTLIST
+			currencyCodes numeric NMTOKEN #REQUIRED&gt;
+		</p>
 		<p>
 			The code mapping information provides mappings between the subtags
 			used in the CLDR locale IDs (from BCP 47) and other coding systems or
@@ -485,8 +480,8 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 ...
 &lt;territoryCodes type=&quot;XK&quot; numeric=&quot;983&quot; alpha3=&quot;XKK&quot;/&gt;
 ...</pre>
-		<p>Where there is no corresponding code, sometimes
-			private use codes are used, such as the numeric code for XK.</p>
+		<p>Where there is no corresponding code, sometimes private use
+			codes are used, such as the numeric code for XK.</p>
 		<p>
 			The currencyCodes are mappings from three letter currency codes to
 			numeric values (ISO 4217 <a
@@ -999,27 +994,28 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 				href="#Supplemental_Alias_Information">Supplemental Alias
 				Information</a>
 		</h3>
-		
+
 		<p class="dtd">
 			&lt;!ELEMENT alias ( languageAlias*, scriptAlias*, territoryAlias*,
-			variantAlias*, zoneAlias* ) &gt;<br> <br> <em>The following are common attributes
-					for subelements of &lt;alias&gt;:</em><br> &lt;!ELEMENT *Alias
-			EMPTY &gt;<br> &lt;!ATTLIST *Alias type NMTOKEN #IMPLIED &gt;<br>
-			&lt;!ATTLIST *Alias replacement NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST *Alias reason ( deprecated |
-				overlong ) #IMPLIED&gt; <br> <br> <em>The
-					languageAlias has additional reasons</em><br> &lt;!ATTLIST
-				languageAlias reason ( deprecated | overlong | macrolanguage |
-				legacy | bibliographic ) #IMPLIED&gt;
+			variantAlias*, zoneAlias* ) &gt;<br> <br> <em>The
+				following are common attributes for subelements of &lt;alias&gt;:</em><br>
+			&lt;!ELEMENT *Alias EMPTY &gt;<br> &lt;!ATTLIST *Alias type
+			NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST *Alias replacement
+			NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST *Alias reason (
+			deprecated | overlong ) #IMPLIED&gt; <br> <br> <em>The
+				languageAlias has additional reasons</em><br> &lt;!ATTLIST
+			languageAlias reason ( deprecated | overlong | macrolanguage | legacy
+			| bibliographic ) #IMPLIED&gt;
 		</p>
 		<p>
 			This element provides information as to parts of locale IDs that
 			should be substituted when accessing CLDR data. This logical
 			substitution should be done to both the locale id, and to any lookup
-			for display names of languages, territories, and so on. The replacement for the language and
-				territory types is more complicated: see <em>Part 1: <a
-					href="tr35.html#Contents">Core</a>, Section 3.3.1 <a
-					href="tr35.html#BCP_47_Language_Tag_Conversion">BCP 47 Language Tag
-						Conversion</a></em> for details.
+			for display names of languages, territories, and so on. The
+			replacement for the language and territory types is more complicated:
+			see <em>Part 1: <a href="tr35.html#Contents">Core</a>, Section
+				3.3.1 <a href="tr35.html#BCP_47_Language_Tag_Conversion">BCP 47
+					Language Tag Conversion</a></em> for details.
 		</p>
 		<pre>&lt;alias&gt;
   &lt;languageAlias type=&quot;in&quot; replacement=&quot;id&quot;&gt;
@@ -1029,8 +1025,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
   &lt;territoryAlias type=&quot;BU&quot; replacement=&quot;MM&quot;&gt;
 ...
 &lt;/alias&gt;</pre>
-		<p>Attribute values for the *Alias values include
-			the following:</p>
+		<p>Attribute values for the *Alias values include the following:</p>
 		<table>
 			<tr>
 				<th scope="col">Attribute</th>
@@ -1224,14 +1219,13 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–2014 Unicode, Inc. All
-			Rights Reserved. The Unicode Consortium makes no expressed or implied
-			warranty of any kind, and assumes no liability for errors or
-			omissions. No liability is assumed for incidental and consequential
-			damages in connection with or arising out of the use of the
-			information or programs contained or accompanying this technical
-			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
-				of Use</a> apply.
+			Copyright © 2001–2014 Unicode, Inc. All Rights Reserved. The Unicode
+			Consortium makes no expressed or implied warranty of any kind, and
+			assumes no liability for errors or omissions. No liability is assumed
+			for incidental and consequential damages in connection with or
+			arising out of the use of the information or programs contained or
+			accompanying this technical report. The Unicode <a
+				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
 		</p>
 		<p class="copyright">Unicode and the Unicode logo are trademarks
 			of Unicode, Inc., and are registered in some jurisdictions.</p>

@@ -82,10 +82,7 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center">
-			Unicode Technical
-			Standard #35
-		</h2>
+		<h2 style="text-align: center">Unicode Technical Standard #35</h2>
 		<h1>
 			Unicode Locale Data Markup Language (LDML)<br>Part 5: Collation
 		</h1>
@@ -207,24 +204,33 @@ h2,h3,h4,table {
 		<ul class="toc">
 			<li>1 <a href="#CLDR_Collation">CLDR Collation</a>
 				<ul class="toc">
-					<li>1.1 <a href="#CLDR_Collation_Algorithm">CLDR Collation Algorithm</a>
+					<li>1.1 <a href="#CLDR_Collation_Algorithm">CLDR Collation
+							Algorithm</a>
 						<ul class="toc">
 							<li>1.1.1 <a href="#Algorithm_FFFE">U+FFFE</a></li>
-							<li>1.1.2 <a href="#Context_Sensitive_Mappings">Context-Sensitive Mappings</a></li>
+							<li>1.1.2 <a href="#Context_Sensitive_Mappings">Context-Sensitive
+									Mappings</a></li>
 							<li>1.1.3 <a href="#Algorithm_Case">Case Handling</a></li>
-							<li>1.1.4 <a href="#Algorithm_Reordering_Groups">Reordering Groups</a></li>
+							<li>1.1.4 <a href="#Algorithm_Reordering_Groups">Reordering
+									Groups</a></li>
 						</ul>
 					</li>
 				</ul>
 			</li>
 			<li>2 <a href="#Root_Collation">Root Collation</a>
 				<ul class="toc">
-					<li>2.1 <a href="#grouping_classes_of_characters">Grouping classes of characters</a></li>
-					<li>2.2 <a href="#non_variable_symbols">Non-variable symbols</a></li>
-					<li>2.3 <a href="#tibetan_contractions">Additional contractions for Tibetan</a></li>
-					<li>2.4 <a href="#tailored_noncharacter_weights">Tailored noncharacter weights</a></li>
-					<li>2.5 <a href="#Root_Data_Files">Root Collation Data Files</a></li>
-					<li>2.6 <a href="#Root_Data_File_Formats">Root Collation Data File Formats</a>
+					<li>2.1 <a href="#grouping_classes_of_characters">Grouping
+							classes of characters</a></li>
+					<li>2.2 <a href="#non_variable_symbols">Non-variable
+							symbols</a></li>
+					<li>2.3 <a href="#tibetan_contractions">Additional
+							contractions for Tibetan</a></li>
+					<li>2.4 <a href="#tailored_noncharacter_weights">Tailored
+							noncharacter weights</a></li>
+					<li>2.5 <a href="#Root_Data_Files">Root Collation Data
+							Files</a></li>
+					<li>2.6 <a href="#Root_Data_File_Formats">Root Collation
+							Data File Formats</a>
 						<ul class="toc">
 							<li>2.6.1 <a href="#File_Format_allkeys_CLDR_txt">allkeys_CLDR.txt</a></li>
 							<li>2.6.2 <a href="#File_Format_FractionalUCA_txt">FractionalUCA.txt</a></li>
@@ -237,7 +243,8 @@ h2,h3,h4,table {
 				<ul class="toc">
 					<li>3.1 <a href="#Collation_Types">Collation Types</a>
 						<ul class="toc">
-							<li>3.1.1 <a href="#Collation_Type_Fallback">Collation Type Fallback</a></li>
+							<li>3.1.1 <a href="#Collation_Type_Fallback">Collation
+									Type Fallback</a></li>
 						</ul>
 					</li>
 					<li>3.2 <a href="#Collation_Version">Version</a></li>
@@ -245,50 +252,66 @@ h2,h3,h4,table {
 					<li>3.4 <a href="#Setting_Options">Setting Options</a>
 						<ul class="toc">
 							<li>Table: <a href="#Collation_Settings">Collation_Settings</a></li>
-							<li>3.4.1 <a href="#Common_Settings">Common settings combinations</a></li>
-							<li>3.4.2 <a href="#Normalization_Setting">Notes on the normalization setting</a></li>
-							<li>3.4.3 <a href="#Variable_Top_Settings">Notes on variable top settings</a></li>
+							<li>3.4.1 <a href="#Common_Settings">Common settings
+									combinations</a></li>
+							<li>3.4.2 <a href="#Normalization_Setting">Notes on the
+									normalization setting</a></li>
+							<li>3.4.3 <a href="#Variable_Top_Settings">Notes on
+									variable top settings</a></li>
 						</ul>
 					</li>
 					<li>3.5 <a href="#Rules">Collation Rule Syntax</a></li>
 					<li>3.6 <a href="#Orderings">Orderings</a>
 						<ul class="toc">
-							<li>Table: <a href="#Specifying_Collation_Ordering">Specifying Collation Ordering</a></li>
-							<li>Table: <a href="#Abbreviating_Ordering_Specifications">Abbreviating Ordering Specifications</a></li>
+							<li>Table: <a href="#Specifying_Collation_Ordering">Specifying
+									Collation Ordering</a></li>
+							<li>Table: <a href="#Abbreviating_Ordering_Specifications">Abbreviating
+									Ordering Specifications</a></li>
 						</ul>
 					</li>
 					<li>3.7 <a href="#Contractions">Contractions</a>
 						<ul class="toc">
-							<li>Table: <a href="#Specifying_Contractions">Specifying Contractions</a></li>
+							<li>Table: <a href="#Specifying_Contractions">Specifying
+									Contractions</a></li>
 						</ul>
 					</li>
 					<li>3.8 <a href="#Expansions">Expansions</a></li>
 					<li>3.9 <a href="#Context_Before">Context Before</a>
 						<ul class="toc">
-							<li>Table: <a href="#Specifying_Previous_Context">Specifying Previous Context</a></li>
+							<li>Table: <a href="#Specifying_Previous_Context">Specifying
+									Previous Context</a></li>
 						</ul>
 					</li>
-					<li>3.10 <a href="#Placing_Characters_Before_Others">Placing Characters Before Others</a></li>
-					<li>3.11 <a href="#Logical_Reset_Positions">Logical Reset Positions</a>
+					<li>3.10 <a href="#Placing_Characters_Before_Others">Placing
+							Characters Before Others</a></li>
+					<li>3.11 <a href="#Logical_Reset_Positions">Logical Reset
+							Positions</a>
 						<ul class="toc">
-							<li>Table: <a href="#Specifying_Logical_Positions">Specifying Logical Positions</a></li>
+							<li>Table: <a href="#Specifying_Logical_Positions">Specifying
+									Logical Positions</a></li>
 						</ul>
 					</li>
-					<li>3.12 <a href="#Special_Purpose_Commands">Special-Purpose Commands</a>
+					<li>3.12 <a href="#Special_Purpose_Commands">Special-Purpose
+							Commands</a>
 						<ul class="toc">
-							<li>Table: <a href="#Special_Purpose_Elements">Special-Purpose Elements</a></li>
+							<li>Table: <a href="#Special_Purpose_Elements">Special-Purpose
+									Elements</a></li>
 						</ul>
 					</li>
 					<li>3.13 <a href="#Script_Reordering">Collation Reordering</a>
 						<ul class="toc">
-							<li>3.13.1 <a href="#Interpretation_reordering">Interpretation of a reordering list</a></li>
-							<li>3.13.2 <a href="#Reordering_Groups_allkeys">Reordering Groups for allkeys.txt</a></li>
+							<li>3.13.1 <a href="#Interpretation_reordering">Interpretation
+									of a reordering list</a></li>
+							<li>3.13.2 <a href="#Reordering_Groups_allkeys">Reordering
+									Groups for allkeys.txt</a></li>
 						</ul>
 					</li>
 					<li>3.14 <a href="#Case_Parameters">Case Parameters</a>
 						<ul class="toc">
-							<li>3.14.1 <a href="#Case_Untailored">Untailored Characters</a></li>
-							<li>3.14.2 <a href="#Case_Weights">Compute Modified Collation Elements</a></li>
+							<li>3.14.1 <a href="#Case_Untailored">Untailored
+									Characters</a></li>
+							<li>3.14.2 <a href="#Case_Weights">Compute Modified
+									Collation Elements</a></li>
 							<li>3.14.3 <a href="#Case_Tailored">Tailored Strings</a></li>
 						</ul>
 					</li>
@@ -296,7 +319,8 @@ h2,h3,h4,table {
 					<li>3.16 <a href="#Collation_Indexes">Collation Indexes</a>
 						<ul class="toc">
 							<li>3.16.1 <a href="#Index_Characters">Index Characters</a></li>
-							<li>3.16.2 <a href="#CJK_Index_Markers">CJK Index Markers</a></li>
+							<li>3.16.2 <a href="#CJK_Index_Markers">CJK Index
+									Markers</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -358,8 +382,9 @@ h2,h3,h4,table {
 			For backwards secondary level sorting, text <i>segments</i> separated
 			by U+FFFE are processed in forward segment order, and <i>within</i>
 			each segment the secondary weights are compared backwards. This is so
-			that such combined strings are processed consistently with merging their sort keys (for example, by
-				concatenating them level by level with a low separator).
+			that such combined strings are processed consistently with merging
+			their sort keys (for example, by concatenating them level by level
+			with a low separator).
 		</p>
 
 		<h4>
@@ -759,8 +784,7 @@ h2,h3,h4,table {
 		<blockquote>
 			<p>
 				Lists the ranges of Unified_Ideograph characters in collation order.
-				(New in CLDR 24.) They map to collation
-				elements with <a
+				(New in CLDR 24.) They map to collation elements with <a
 					href="http://www.unicode.org/reports/tr10/#Implicit_Weights">implicit
 					(constructed) primary weights</a>.
 			</p>
@@ -1084,9 +1108,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				Types</a>
 		</h3>
 		<p>
-			Each locale may have multiple sort orders (types).
-			The <span class="element">defaultCollation</span> element defines the
-			default tailoring for a locale and its sublocales. For example:
+			Each locale may have multiple sort orders (types). The <span
+				class="element">defaultCollation</span> element defines the default
+			tailoring for a locale and its sublocales. For example:
 		</p>
 		<ul>
 			<li>root.xml: <code>&lt;defaultCollation&gt;standard&lt;/defaultCollation&gt;</code></li>
@@ -1102,13 +1126,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				class="attributeValue">short</span>&quot;.
 		</p>
 
-		<p>A collation type name that starts with
-			"private-", for example, "private-kana", indicates an incomplete
-			tailoring that is only intended for import into one or more other
-			tailorings (usually for sharing common rules). It does not establish
-			a complete sort order. An implementation should not build data tables
-			for a private collation type, and should not include a private
-			collation type in a list of available types.</p>
+		<p>A collation type name that starts with "private-", for example,
+			"private-kana", indicates an incomplete tailoring that is only
+			intended for import into one or more other tailorings (usually for
+			sharing common rules). It does not establish a complete sort order.
+			An implementation should not build data tables for a private
+			collation type, and should not include a private collation type in a
+			list of available types.</p>
 
 		<p class="note">
 			<b>Note:</b>
@@ -1302,8 +1326,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</p>
 		<table>
 			<caption>
-				<a name="Collation_Settings"
-					href="#Collation_Settings">Collation_Settings</a>
+				<a name="Collation_Settings" href="#Collation_Settings">Collation_Settings</a>
 			</caption>
 			<tr>
 				<th>BCP47 Key</th>
@@ -1813,7 +1836,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
 		<table>
 			<caption>
-					<a name="Specifying_Collation_Ordering"
+				<a name="Specifying_Collation_Ordering"
 					href="#Specifying_Collation_Ordering">Specifying Collation
 					Ordering</a>
 
@@ -2009,7 +2032,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</p>
 		<table>
 			<caption>
-            		<a name="Abbreviating_Ordering_Specifications"
+				<a name="Abbreviating_Ordering_Specifications"
 					href="#Abbreviating_Ordering_Specifications">Abbreviating
 					Ordering Specifications</a><a name="Starred_Relations"></a>
 			</caption>
@@ -2399,26 +2422,25 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</p>
 		<p>
 			The import command imports rules from another collation. This allows
-			for better maintenance and smaller rule sizes. The source is a BCP 47 language tag
-				(without extensions). It is required even when it refers to the same
-				locale as the importing tailoring itself. The type is the BCP 47
-				form of the collation type in the source; it defaults to "standard".
-				<code>(source)-u-co-(type)</code> must be a valid BCP 47 language
-				tag.
+			for better maintenance and smaller rule sizes. The source is a BCP 47
+			language tag (without extensions). It is required even when it refers
+			to the same locale as the importing tailoring itself. The type is the
+			BCP 47 form of the collation type in the source; it defaults to
+			"standard".
+			<code>(source)-u-co-(type)</code>
+			must be a valid BCP 47 language tag.
 		</p>
 		<p>
-			<em>Examples:
-			</em>
+			<em>Examples: </em>
 		</p>
 		<ul>
-			<li><code>
-					&lt;import source="de" type="phonebk"/&gt;
-				</code> &nbsp; (not type="phonebook")</li>
-			<li><code>&lt;import source="und"
-					type="search"/&gt;</code> &nbsp; (not source="root")</li>
-			<li><code>&lt;import source="ja"
-					type="private-kana"/&gt;</code> &nbsp; (source="ja" required even when
-				this import itself is in another "ja" tailoring.)</li>
+			<li><code> &lt;import source="de" type="phonebk"/&gt; </code>
+				&nbsp; (not type="phonebook")</li>
+			<li><code>&lt;import source="und" type="search"/&gt;</code>
+				&nbsp; (not source="root")</li>
+			<li><code>&lt;import source="ja" type="private-kana"/&gt;</code>
+				&nbsp; (source="ja" required even when this import itself is in
+				another "ja" tailoring.)</li>
 		</ul>
 		<table>
 			<caption>
@@ -2958,16 +2980,14 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			3.15 <a name="Visibility" href="#Visibility">Visibility</a>
 		</h3>
 		<p>
-			Collations
-			have external visibility by default, meaning that they can be
-			displayed in a list of collation options for users to choose from. A collation whose type name
-				starts with "private-" is internal and should not be shown in such a
-			list. Collations
-			are typically internal when they are partial sequences included in
-			other collations.
-			See <i>Section 3.1, <a
-					href="#Collation_Types">Collation Types</a></i>.
-			</p>
+			Collations have external visibility by default, meaning that they can
+			be displayed in a list of collation options for users to choose from.
+			A collation whose type name starts with "private-" is internal and
+			should not be shown in such a list. Collations are typically internal
+			when they are partial sequences included in other collations. See <i>Section
+				3.1, <a href="#Collation_Types">Collation Types</a>
+			</i>.
+		</p>
 
 		<h3>
 			3.16 <a name="Collation_Indexes" href="#Collation_Indexes">Collation
@@ -3160,14 +3180,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–2014 Unicode, Inc. All
-			Rights Reserved. The Unicode Consortium makes no expressed or implied
-			warranty of any kind, and assumes no liability for errors or
-			omissions. No liability is assumed for incidental and consequential
-			damages in connection with or arising out of the use of the
-			information or programs contained or accompanying this technical
-			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
-				of Use</a> apply.
+			Copyright © 2001–2014 Unicode, Inc. All Rights Reserved. The Unicode
+			Consortium makes no expressed or implied warranty of any kind, and
+			assumes no liability for errors or omissions. No liability is assumed
+			for incidental and consequential damages in connection with or
+			arising out of the use of the information or programs contained or
+			accompanying this technical report. The Unicode <a
+				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
 		</p>
 		<p class="copyright">Unicode and the Unicode logo are trademarks
 			of Unicode, Inc., and are registered in some jurisdictions.</p>

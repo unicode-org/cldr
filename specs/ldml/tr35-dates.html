@@ -82,10 +82,7 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center">
-			Unicode Technical
-			Standard #35
-		</h2>
+		<h2 style="text-align: center">Unicode Technical Standard #35</h2>
 		<h1 style="text-align: center">
 			Unicode Locale Data Markup Language (LDML)<br> Part 4: Dates
 		</h1>
@@ -387,10 +384,9 @@ h2,h3,h4,table {
 			stand-alone ) #REQUIRED &gt;<br> &lt;!ELEMENT monthWidth ( alias
 			| (month*, special*)) &gt;<br> &lt;!ATTLIST monthWidth type (
 			abbreviated| narrow | wide) #REQUIRED &gt;<br> &lt;!ELEMENT
-			month ( #PCDATA )* &gt;<br>
-			&lt;!ATTLIST month type ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11
-			| 12 | 13 ) #REQUIRED &gt;<br> &lt;!ATTLIST month yeartype (
-			standard | leap ) #IMPLIED &gt;
+			month ( #PCDATA )* &gt;<br> &lt;!ATTLIST month type ( 1 | 2 | 3
+			| 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 ) #REQUIRED &gt;<br>
+			&lt;!ATTLIST month yeartype ( standard | leap ) #IMPLIED &gt;
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT days ( alias | (dayContext*, special*)) &gt;<br>
@@ -443,20 +439,17 @@ h2,h3,h4,table {
 			</li>
 		</ul>
 
-		<p>
-			The format values must be distinct for the wide, abbreviated, and
-			short widths. However, values for the narrow width in either format
-			or stand-alone contexts, as well as values for other widths in
+		<p>The format values must be distinct for the wide, abbreviated,
+			and short widths. However, values for the narrow width in either
+			format or stand-alone contexts, as well as values for other widths in
 			stand-alone contexts, need not be distinct; they might only be
 			distinguished by context. For example, &quot;S&quot; may be used both
 			for Saturday and for Sunday. The narrow width is typically used in
 			calendar headers; it must be the shortest possible width, no more
 			than one character (or grapheme cluster, or exemplar set element) in
-			stand-alone values (not including
-				punctuation), and the shortest possible widths (in terms of grapheme
-			clusters) in format values. The short width (if present) is often the
-			shortest unambiguous form.
-		</p>
+			stand-alone values (not including punctuation), and the shortest
+			possible widths (in terms of grapheme clusters) in format values. The
+			short width (if present) is often the shortest unambiguous form.</p>
 
 		<p>Era names should be distinct within each of the widths,
 			including narrow; there is less disambiguating information for them,
@@ -715,14 +708,14 @@ h2,h3,h4,table {
 			&lt;!ELEMENT cyclicNameSets ( alias | (cyclicNameSet*, special*))
 			&gt;<br> &lt;!ELEMENT cyclicNameSet ( alias |
 			(cyclicNameContext*, special*)) &gt;<br> &lt;!ATTLIST
-			cyclicNameSet type ( years | months | days | dayParts | zodiacs | solarTerms ) #REQUIRED &gt;<br>
-			&lt;!ELEMENT cyclicNameContext ( alias | (cyclicNameWidth*,
-			special*)) &gt;<br> &lt;!ATTLIST cyclicNameContext type ( format
-			| stand-alone ) #REQUIRED &gt;<br> &lt;!ELEMENT cyclicNameWidth
-			( alias | (cyclicName*, special*)) &gt;<br> &lt;!ATTLIST
-			cyclicNameWidth type ( abbreviated | narrow | wide ) #REQUIRED &gt;<br>
-			&lt;!ELEMENT cyclicName ( #PCDATA ) &gt;<br> &lt;!ATTLIST
-			cyclicName type NMTOKEN #REQUIRED &gt;<br>
+			cyclicNameSet type ( years | months | days | dayParts | zodiacs |
+			solarTerms ) #REQUIRED &gt;<br> &lt;!ELEMENT cyclicNameContext (
+			alias | (cyclicNameWidth*, special*)) &gt;<br> &lt;!ATTLIST
+			cyclicNameContext type ( format | stand-alone ) #REQUIRED &gt;<br>
+			&lt;!ELEMENT cyclicNameWidth ( alias | (cyclicName*, special*)) &gt;<br>
+			&lt;!ATTLIST cyclicNameWidth type ( abbreviated | narrow | wide )
+			#REQUIRED &gt;<br> &lt;!ELEMENT cyclicName ( #PCDATA ) &gt;<br>
+			&lt;!ATTLIST cyclicName type NMTOKEN #REQUIRED &gt;<br>
 		</p>
 
 		<p>The Chinese lunar calendar can insert a leap month after nearly
@@ -751,19 +744,18 @@ h2,h3,h4,table {
 				calendars that do not need it.</li>
 		</ul>
 
-		<p>
-			The Chinese and Hindu lunar calendars also use a 60-name cycle for
-			designating years. The Chinese lunar calendars can also use that
+		<p>The Chinese and Hindu lunar calendars also use a 60-name cycle
+			for designating years. The Chinese lunar calendars can also use that
 			cycle for months and days, and can use 12-name cycles for designating
-			day subdivisions or zodiac names associated with years; a 24-name cycle of solar terms (12 pairs of
-				minor and major terms) is used to mark intervals in the solar cycle.
-			The &lt;cyclicNameSets&gt; element structure supports these special
-			kinds of name cycles; a cyclicNameSet can be provided for types
-			"year", "month", "day", "dayParts", or "zodiacs". For each
-			cyclicNameSet, there is a context and width structure similar to that
-			for day names. For a given context and width, a set of cyclicName
-			elements provides the actual names.
-		</p>
+			day subdivisions or zodiac names associated with years; a 24-name
+			cycle of solar terms (12 pairs of minor and major terms) is used to
+			mark intervals in the solar cycle. The &lt;cyclicNameSets&gt; element
+			structure supports these special kinds of name cycles; a
+			cyclicNameSet can be provided for types "year", "month", "day",
+			"dayParts", or "zodiacs". For each cyclicNameSet, there is a context
+			and width structure similar to that for day names. For a given
+			context and width, a set of cyclicName elements provides the actual
+			names.</p>
 		<p>Example:</p>
 		<pre>
     &lt;monthPatterns&gt;
@@ -1330,21 +1322,16 @@ h2,h3,h4,table {
 		<p class="dtd">
 			&lt;!ELEMENT fields ( alias | (field*, special*)) &gt;<br>
 			&lt;!ELEMENT field ( alias | (displayName*, relative*, relativeTime*,
-			special*)) &gt;<br> &lt;!ATTLIST field type ( era | year | year-short | year-narrow | quarter |
-				quarter-short | quarter-narrow | month
-				| month-short | month-narrow | week |
-				week-short | week-narrow | day |
-				day-short | day-narrow | weekday | sun
-				| sun-short | sun-narrow | mon |
-				mon-short | mon-narrow | tue |
-				tue-short | tue-narrow | wed |
-				wed-short | wed-narrow | thu |
-				thu-short | thu-narrow | fri |
-				fri-short | fri-narrow | sat |
-				sat-short | sat-narrow | dayperiod | hour
-				| hour-short | hour-narrow | minute |
-				minute-short | minute-narrow | second |
-				second-short | second-narrow | zone ) #IMPLIED &gt;
+			special*)) &gt;<br> &lt;!ATTLIST field type ( era | year |
+			year-short | year-narrow | quarter | quarter-short | quarter-narrow |
+			month | month-short | month-narrow | week | week-short | week-narrow
+			| day | day-short | day-narrow | weekday | sun | sun-short |
+			sun-narrow | mon | mon-short | mon-narrow | tue | tue-short |
+			tue-narrow | wed | wed-short | wed-narrow | thu | thu-short |
+			thu-narrow | fri | fri-short | fri-narrow | sat | sat-short |
+			sat-narrow | dayperiod | hour | hour-short | hour-narrow | minute |
+			minute-short | minute-narrow | second | second-short | second-narrow
+			| zone ) #IMPLIED &gt;
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT relative (#PCDATA) &gt;<br> &lt;!ATTLIST relative
@@ -1456,8 +1443,7 @@ h2,h3,h4,table {
       &lt;relative type="0"&gt;now&lt;/relative&gt;
       …
     &lt;/field&gt;</pre>
-		<p>Different widths can be supplied for certain
-			fields, such as:</p>
+		<p>Different widths can be supplied for certain fields, such as:</p>
 		<pre>&lt;field type=&quot;<strong>year-short</strong>&quot;&gt;<br>	&lt;displayName&gt;yr.&lt;/displayName&gt;<br>	&lt;relative type=&quot;-1&quot;&gt;last yr.&lt;/relative&gt;<br>	&lt;relative type=&quot;0&quot;&gt;this yr.&lt;/relative&gt;<br>	&lt;relative type=&quot;1&quot;&gt;next yr.&lt;/relative&gt;<br>	&lt;relativeTime type=&quot;future&quot;&gt;<br>		&lt;relativeTimePattern count=&quot;one&quot;&gt;in {0} yr.&lt;/relativeTimePattern&gt;<br>		&lt;relativeTimePattern count=&quot;other&quot;&gt;in {0} yr.&lt;/relativeTimePattern&gt;<br>	&lt;/relativeTime&gt;<br>	&lt;relativeTime type=&quot;past&quot;&gt;<br>		&lt;relativeTimePattern count=&quot;one&quot;&gt;{0} yr. ago&lt;/relativeTimePattern&gt;<br>		&lt;relativeTimePattern count=&quot;other&quot;&gt;{0} yr. ago&lt;/relativeTimePattern&gt;<br>	&lt;/relativeTime&gt;<br>&lt;/field&gt;</pre>
 		<p>
 			As in other cases, <strong>narrow</strong> may be ambiguous out of
@@ -2250,9 +2236,9 @@ h2,h3,h4,table {
 			Therefore, if you want to get an equivalent Windows TZID for a zone
 			ID in the tz dadtabase, you have to resolve the long canonical
 			Unicode time zone ID (e.g. "Asia/Culcutta") for the zone ID (e.g.
-			"Asia/Kolkata"). For more details, see 
-			<a href="tr35.html#Time_Zone_Identifiers">Section 3.7.1.2 Time Zone 
-			Identifiers</a>.
+			"Asia/Kolkata"). For more details, see <a
+				href="tr35.html#Time_Zone_Identifiers">Section 3.7.1.2 Time Zone
+				Identifiers</a>.
 		</p>
 		<p>
 			<b>Note: </b>Not all Unicode time zones have equivalent Windows TZID
@@ -3347,9 +3333,8 @@ h2,h3,h4,table {
 				<td rowspan="4" style="vertical-align: top; text-align: left">Month
 					- Use one or two for the numerical month, three for the
 					abbreviation, four for the full (wide) name, or five for the narrow
-					name. With two ("MM"), the month
-						number is zero-padded if necessary (e.g. "08").
-				</td>
+					name. With two ("MM"), the month number is zero-padded if necessary
+					(e.g. "08").</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3367,11 +3352,10 @@ h2,h3,h4,table {
 				<td rowspan="4" style="text-align: center; vertical-align: top">L</td>
 				<td style="text-align: center; vertical-align: top">1..2</td>
 				<td style="vertical-align: top; text-align: left">09</td>
-				<td rowspan="4"><b>Stand-Alone</b>
-					Month - Use one or two for the numerical month, three for the
-					abbreviation, four for the full (wide) name, or 5 for the narrow
-					name. With two ("LL"), the month
-						number is zero-padded if necessary (e.g. "08").</td>
+				<td rowspan="4"><b>Stand-Alone</b> Month - Use one or two for
+					the numerical month, three for the abbreviation, four for the full
+					(wide) name, or 5 for the narrow name. With two ("LL"), the month
+					number is zero-padded if necessary (e.g. "08").</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3402,9 +3386,9 @@ h2,h3,h4,table {
 				<td style="text-align: center">w</td>
 				<td style="text-align: center">1..2</td>
 				<td>27</td>
-				<td>Week of Year. Use "w" to show
-						the minimum number of digits, or "ww" to always show two digits
-						(zero-padding if necessary, e.g. "08").</td>
+				<td>Week of Year. Use "w" to show the minimum number of digits,
+					or "ww" to always show two digits (zero-padding if necessary, e.g.
+					"08").</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">W</td>
@@ -3417,9 +3401,9 @@ h2,h3,h4,table {
 				<td style="text-align: center">d</td>
 				<td style="text-align: center">1..2</td>
 				<td>1</td>
-				<td>Date - Day of the month. Use
-						"d" to show the minimum number of digits, or "dd" to always show
-						two digits (zero-padding if necessary, e.g. "08").</td>
+				<td>Date - Day of the month. Use "d" to show the minimum number
+					of digits, or "dd" to always show two digits (zero-padding if
+					necessary, e.g. "08").</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">D</td>
@@ -3523,8 +3507,7 @@ h2,h3,h4,table {
 				<td rowspan="3" style="text-align: center">a</td>
 				<td style="text-align: center">1-3</td>
 				<td>AM</td>
-				<td>Abbreviated/short form of AM
-					or PM</td>
+				<td>Abbreviated/short form of AM or PM</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">4</td>
@@ -3611,18 +3594,18 @@ h2,h3,h4,table {
 				<td style="text-align: center">m</td>
 				<td style="text-align: center">1..2</td>
 				<td>59</td>
-				<td>Minute. Use "m" to show the
-						minimum number of digits, or "mm" to always show two digits
-						(zero-padding if necessary, e.g. "08").</td>
+				<td>Minute. Use "m" to show the minimum number of digits, or
+					"mm" to always show two digits (zero-padding if necessary, e.g.
+					"08").</td>
 			</tr>
 			<tr>
 				<th rowspan="3">second</th>
 				<td style="text-align: center">s</td>
 				<td style="text-align: center">1..2</td>
 				<td>12</td>
-				<td>Second. Use "s" to show the
-						minimum number of digits, or "ss" to always show two digits
-						(zero-padding if necessary, e.g. "08").</td>
+				<td>Second. Use "s" to show the minimum number of digits, or
+					"ss" to always show two digits (zero-padding if necessary, e.g.
+					"08").</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">S</td>
@@ -4037,14 +4020,13 @@ h2,h3,h4,table {
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–2014 Unicode, Inc. All
-			Rights Reserved. The Unicode Consortium makes no expressed or implied
-			warranty of any kind, and assumes no liability for errors or
-			omissions. No liability is assumed for incidental and consequential
-			damages in connection with or arising out of the use of the
-			information or programs contained or accompanying this technical
-			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
-				of Use</a> apply.
+			Copyright © 2001–2014 Unicode, Inc. All Rights Reserved. The Unicode
+			Consortium makes no expressed or implied warranty of any kind, and
+			assumes no liability for errors or omissions. No liability is assumed
+			for incidental and consequential damages in connection with or
+			arising out of the use of the information or programs contained or
+			accompanying this technical report. The Unicode <a
+				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
 		</p>
 
 		<p class="copyright">Unicode and the Unicode logo are trademarks

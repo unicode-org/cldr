@@ -82,10 +82,7 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center">
-			Unicode Technical
-			Standard #35
-		</h2>
+		<h2 style="text-align: center">Unicode Technical Standard #35</h2>
 		<h1 style="text-align: center">
 			Unicode Locale Data Markup Language (LDML)<br> Part 2: General
 		</h1>
@@ -750,9 +747,9 @@ h2,h3,h4,table {
 			3.1 <a name="ExemplarSyntax" href="#ExemplarSyntax">Exemplars</a>
 		</h3>
 
-		<p>Exemplars are characters used by a language,
-			separated into different categories. The following table provides a
-			summary, with more details below.</p>
+		<p>Exemplars are characters used by a language, separated into
+			different categories. The following table provides a summary, with
+			more details below.</p>
 		<table>
 			<tr>
 				<th scope="col">Type</th>
@@ -923,15 +920,16 @@ h2,h3,h4,table {
 			Index labels elements, discussed in Section 5.6.4.</p>
 
 		<h4>
-			3.1.1 <a name="ExemplarSyntax"
-				href="#ExemplarSyntax">Exemplar Syntax</a>
+			3.1.1 <a name="ExemplarSyntax" href="#ExemplarSyntax">Exemplar
+				Syntax</a>
 		</h4>
 
 
 		<p>
 			In all of the exemplar characters, the list of characters is in the <a
-				href="tr35.html#Unicode_Sets">Unicode Set</a> format, which normally allows boolean combinations of sets
-			of letters and Unicode properties.
+				href="tr35.html#Unicode_Sets">Unicode Set</a> format, which normally
+			allows boolean combinations of sets of letters and Unicode
+			properties.
 		</p>
 
 		<p>
@@ -982,8 +980,7 @@ h2,h3,h4,table {
 			Database.</p>
 
 		<h4>
-			3.1.2 <a name="Restrictions"
-				href="#Restrictions">Restrictions</a>
+			3.1.2 <a name="Restrictions" href="#Restrictions">Restrictions</a>
 		</h4>
 
 
@@ -1012,10 +1009,10 @@ h2,h3,h4,table {
 				RIGHT-TO-LEFT MARK which may be needed in bidirectional text in
 				order for date, currency or other formats to display correctly.
 			</li>
-			<li>For exemplar characters the <a
-					href="tr35.html#Unicode_Sets">Unicode Set</a> format is restricted
-					so as to not use properties or boolean combinations
-			.</li>
+			<li>For exemplar characters the <a href="tr35.html#Unicode_Sets">Unicode
+					Set</a> format is restricted so as to not use properties or boolean
+				combinations .
+			</li>
 		</ol>
 
 		<h3>
@@ -1329,9 +1326,9 @@ h2,h3,h4,table {
 			&gt;<br> &lt;!ATTLIST compoundUnit type NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT unit (alias | (displayName*,
-			unitPattern*, perUnitPattern*, special*))
-			&gt;<br> &lt;!ATTLIST unit type NMTOKEN #REQUIRED &gt;
+			&lt;!ELEMENT unit (alias | (displayName*, unitPattern*,
+			perUnitPattern*, special*)) &gt;<br> &lt;!ATTLIST unit type
+			NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT durationUnit (alias | (durationUnitPattern*, special*))
@@ -1368,10 +1365,10 @@ h2,h3,h4,table {
 					Inheritance</a>
 			</em>.
 		</p>
-		<p>The displayName is used for labels, such as in
-			a UI. It is typically lowercased and as neutral a plural form as
-			possible, and then uses the casing context for the proper display.
-			For example, for English in a UI it would appear as titlecase:</p>
+		<p>The displayName is used for labels, such as in a UI. It is
+			typically lowercased and as neutral a plural form as possible, and
+			then uses the casing context for the proper display. For example, for
+			English in a UI it would appear as titlecase:</p>
 		<p>
 			<strong>Duration:</strong>
 		</p>
@@ -1382,10 +1379,8 @@ h2,h3,h4,table {
 			</tr>
 		</table>
 		<p>&nbsp;</p>
-		<p>
-			The units in CLDR are not comprehensive; it is anticipated that more
-			will be added over time. Current examples include:
-		</p>
+		<p>The units in CLDR are not comprehensive; it is anticipated that
+			more will be added over time. Current examples include:</p>
 		<table>
 			<tr>
 				<td><strong>Type</strong></td>
@@ -1645,18 +1640,16 @@ h2,h3,h4,table {
 			specialized domains, such as the German “̌Fernseher von 32 bis 55
 			Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.</p>
 		<h3>
-			6.1 <a name="perUnitPatterns"
-				href="#perUnitPatterns">per Unit patterns</a><a
-				name="compoundUnitPattern" href="#compoundUnitPattern"></a>
+			6.1 <a name="perUnitPatterns" href="#perUnitPatterns">per Unit
+				patterns</a><a name="compoundUnitPattern" href="#compoundUnitPattern"></a>
 		</h3>
 		<p>
-			A common combination of units is X per
-				Y, such as <em>miles per hour</em> or <em>liters per second</em>.
-				Some units already have 'precomputed' forms, such as <strong>kilometer-per-hour</strong>;
-				where such units exist, they should be used in preference. There are
-				two other patterns that can be used to compose unit symbols or
-				names.
-			</p>
+			A common combination of units is X per Y, such as <em>miles per
+				hour</em> or <em>liters per second</em>. Some units already have
+			'precomputed' forms, such as <strong>kilometer-per-hour</strong>;
+			where such units exist, they should be used in preference. There are
+			two other patterns that can be used to compose unit symbols or names.
+		</p>
 		<p>
 			<strong>compoundUnit</strong> — This is used to construct a pattern
 			from two unit names. For example, a form such as &quot;{0} per
@@ -1669,14 +1662,14 @@ h2,h3,h4,table {
 			second&quot; can be used to form &quot;2 feet<strong> per
 				second</strong>&quot;.
 		</p>
-		<p>The difference between these is that in some
-			inflected languages, the compoundUnit cannot be used to form
-			grammatical phrases. This is typically because the &quot;per&quot; +
+		<p>The difference between these is that in some inflected
+			languages, the compoundUnit cannot be used to form grammatical
+			phrases. This is typically because the &quot;per&quot; +
 			&quot;second&quot; combine in a non-trivial way. For such languages,
 			the compoundUnit should only be used as a fallback, when there is no
 			other recourse.</p>
-		<p>When constructing a pattern for value=V,
-			numeratorUnit=N, denominatorUnit=D, the following precess is used.</p>
+		<p>When constructing a pattern for value=V, numeratorUnit=N,
+			denominatorUnit=D, the following precess is used.</p>
 		<ol>
 			<li>If there is a compound form for N/D already available, use
 				it.</li>
@@ -1709,9 +1702,8 @@ h2,h3,h4,table {
 				</ol>
 			</li>
 		</ol>
-		<p>The patterns can have different unit lengths,
-			so the appropriate unit length should be used (with fallbacks if
-			necessary).</p>
+		<p>The patterns can have different unit lengths, so the
+			appropriate unit length should be used (with fallbacks if necessary).</p>
 		<h3>
 			6.2 <a name="Unit_Sequences" href="#Unit_Sequences">Unit
 				Sequences</a>
@@ -1835,40 +1827,25 @@ h2,h3,h4,table {
 			&gt;</p>
 		<p class="dtd">
 			&lt;!ELEMENT segmentation ( alias | (variables?, segmentRules? ,
-			exceptions?, suppressions?) | special*)
-			&gt; <br> &lt;!ATTLIST segmentation type NMTOKEN #REQUIRED &gt;
+			exceptions?, suppressions?) | special*) &gt; <br> &lt;!ATTLIST
+			segmentation type NMTOKEN #REQUIRED &gt;
 		</p>
+		<p class="dtd">&lt;!ELEMENT variables ( alias | variable*) &gt;</p>
 		<p class="dtd">
-			&lt;!ELEMENT variables ( alias |
-				variable*) &gt;
+			&lt;!ELEMENT variable ( #PCDATA ) &gt;<br> &lt;!ATTLIST variable
+			id CDATA #REQUIRED &gt;
 		</p>
+		<p class="dtd">&lt;!ELEMENT segmentRules ( alias | rule*) &gt;</p>
 		<p class="dtd">
-			 &lt;!ELEMENT variable ( #PCDATA ) &gt;<br>
-				&lt;!ATTLIST variable id CDATA #REQUIRED &gt;
+			&lt;!ELEMENT rule ( #PCDATA ) &gt;<br> &lt;!ATTLIST rule id
+			NMTOKEN #REQUIRED &gt;
 		</p>
-		<p class="dtd">
-			&lt;!ELEMENT segmentRules ( alias |
-				rule*) &gt;		</p>
-		<p class="dtd">
-			 &lt;!ELEMENT rule ( #PCDATA ) &gt;<br>
-				&lt;!ATTLIST rule id NMTOKEN #REQUIRED &gt;
-		</p>
-		<p class="dtd">
-			&lt;!ELEMENT suppressions ( suppression*
-				) &gt;
-		</p>
-		<p class="dtd">
-			&lt;!ATTLIST suppressions type NMTOKEN
-				"standard" &gt;
-		</p>
-		<p class="dtd">
-			&lt;!ATTLIST suppressions draft (
-				approved | contributed | provisional | unconfirmed ) #IMPLIED &gt;
-		</p>
-		<p class="dtd">
-			&lt;!ELEMENT suppression ( #PCDATA )
-				&gt;
-		</p>
+		<p class="dtd">&lt;!ELEMENT suppressions ( suppression* ) &gt;</p>
+		<p class="dtd">&lt;!ATTLIST suppressions type NMTOKEN "standard"
+			&gt;</p>
+		<p class="dtd">&lt;!ATTLIST suppressions draft ( approved |
+			contributed | provisional | unconfirmed ) #IMPLIED &gt;</p>
+		<p class="dtd">&lt;!ELEMENT suppression ( #PCDATA ) &gt;</p>
 
 		<p>
 			The segmentations element provides for segmentation of text into
@@ -2017,23 +1994,22 @@ h2,h3,h4,table {
 
 		<h3>
 			9.2 <a name="Segmentation_Exceptions" href="#Segmentation_Exceptions">Segmentation
-				Suppressions
-			</a>
+				Suppressions </a>
 		</h3>
 
 		<p>
-			<b>Note:</b> As of CLDR 26, the <code>&lt;suppressions&gt;</code> data is to
-			be considered a technology preview. Data currently in CLDR was
-			extracted from the Unicode Localization Interoperability project, or
-			ULI. See <a href="http://uli.unicode.org">http://uli.unicode.org</a>
+			<b>Note:</b> As of CLDR 26, the
+			<code>&lt;suppressions&gt;</code>
+			data is to be considered a technology preview. Data currently in CLDR
+			was extracted from the Unicode Localization Interoperability project,
+			or ULI. See <a href="http://uli.unicode.org">http://uli.unicode.org</a>
 			for more information on the ULI project.
 		</p>
 
 		<p>
-			The segmentation <b>suppressions</b>
-			list provides a set of cases which, though otherwise identified as a
-			segment by rules, should be skipped (suppressed)
-			during segmentation.
+			The segmentation <b>suppressions</b> list provides a set of cases
+			which, though otherwise identified as a segment by rules, should be
+			skipped (suppressed) during segmentation.
 		</p>
 
 		<p>For example, in the English phrase "Mr. Smith", CLDR
@@ -2042,8 +2018,9 @@ h2,h3,h4,table {
 			"Mister", and not actually the end of a sentence.</p>
 
 		<p>
-			Each suppression has a separate <code>&lt;suppression&gt;</code> element,
-			whose contents are the break to be skipped.
+			Each suppression has a separate
+			<code>&lt;suppression&gt;</code>
+			element, whose contents are the break to be skipped.
 		</p>
 
 		<p>Example:</p>
@@ -3404,14 +3381,13 @@ h2,h3,h4,table {
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–2014 Unicode, Inc. All
-			Rights Reserved. The Unicode Consortium makes no expressed or implied
-			warranty of any kind, and assumes no liability for errors or
-			omissions. No liability is assumed for incidental and consequential
-			damages in connection with or arising out of the use of the
-			information or programs contained or accompanying this technical
-			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
-				of Use</a> apply.
+			Copyright © 2001–2014 Unicode, Inc. All Rights Reserved. The Unicode
+			Consortium makes no expressed or implied warranty of any kind, and
+			assumes no liability for errors or omissions. No liability is assumed
+			for incidental and consequential damages in connection with or
+			arising out of the use of the information or programs contained or
+			accompanying this technical report. The Unicode <a
+				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
 		</p>
 		<p class="copyright">Unicode and the Unicode logo are trademarks
 			of Unicode, Inc., and are registered in some jurisdictions.</p>

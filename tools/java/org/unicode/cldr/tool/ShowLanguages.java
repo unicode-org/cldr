@@ -2660,15 +2660,15 @@ public class ShowLanguages {
 
     public static void showContents(Appendable pw, String... items) {
         try {
-            pw.append("</div>\n");
-            pw.append("<h3>Contents</h3>\n");
-            pw.append("<ol>\n");
+            pw.append("</div>" + System.lineSeparator());
+            pw.append("<h3>Contents</h3>" + System.lineSeparator());
+            pw.append("<ol>" + System.lineSeparator());
             for (int i = 0; i < items.length; i += 2) {
-                pw.append("<li><a href='#" + items[i] + "'>" + items[i + 1] + "</a></li>\n");
+                pw.append("<li><a href='#" + items[i] + "'>" + items[i + 1] + "</a></li>" + System.lineSeparator());
             }
-            pw.append("</ol><hr>\n");
+            pw.append("</ol><hr>" + System.lineSeparator());
 
-            pw.append("<div align='center'>\n");
+            pw.append("<div align='center'>" + System.lineSeparator());
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
         }

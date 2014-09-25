@@ -297,7 +297,7 @@ public class TablePrinter {
         if (tableAttributes != null) {
             result.append(' ').append(tableAttributes);
         }
-        result.append(">\n");
+        result.append(">" + System.lineSeparator());
 
         if (caption != null) {
             result.append("<caption>").append(caption).append("</caption>");
@@ -365,7 +365,7 @@ public class TablePrinter {
                 }
                 result.append(columnsFlat[j].isHeader ? "</th>" : "</td>");
             }
-            result.append("</tr>\n");
+            result.append("</tr>" + System.lineSeparator());
         }
         result.append("</table>");
         return result.toString();
@@ -397,7 +397,7 @@ public class TablePrinter {
             result.append('>').append(columnsFlat[j].header).append("</th>");
 
         }
-        result.append("</tr>\n");
+        result.append("</tr>" + System.lineSeparator());
     }
 
     /**

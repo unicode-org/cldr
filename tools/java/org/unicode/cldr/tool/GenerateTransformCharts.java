@@ -702,7 +702,8 @@ public class GenerateTransformCharts {
         // add extras
         extras = (UnicodeSet) scriptExtras.get(scriptName);
         if (extras != null) {
-            System.out.println(script + "\tAdding1: " + extras + "\n" + extras.toPattern(false));
+            System.out.println(script + "\tAdding1: " + extras);
+            System.out.println(extras.toPattern(false));
             nonLatinUnicodeSet.addAll(extras);
         }
 

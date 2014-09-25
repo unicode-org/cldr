@@ -89,6 +89,6 @@ public class GenerateBcp47Text {
     }
 
     private void showField(PrintWriter out, String title, String item) {
-        out.write(item == null || item.isEmpty() ? "" : title + ": " + item + "\n");
+        out.write(item == null || item.isEmpty() ? "" : title + ": " + item + System.lineSeparator());
     }
 }

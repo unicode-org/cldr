@@ -152,7 +152,7 @@ public class ShowKeyboards {
             }
         }
         if (totalErrors.size() != 0) {
-            System.out.println("Errors\t" + CollectionUtilities.join(totalErrors, "\n\t"));
+            System.out.println("Errors\t" + CollectionUtilities.join(totalErrors, System.lineSeparator()+"\t"));
         }
         for (String item : totalModifiers) {
             System.out.println(item);
@@ -377,7 +377,8 @@ public class ShowKeyboards {
             + "'<span class=\"cc\">"
             + toItem
             + "</span>'"
-            + ";\n");
+            + ";"
+            + System.lineSeparator());
     }
 
     static UnicodeSet INVISIBLE = new UnicodeSet("[[:C:][:Z:][:whitespace:][:Default_Ignorable_Code_Point:]-[\\u0020]]").freeze();

@@ -224,7 +224,7 @@ public class IsoCurrencyParser {
                     try {
                         minor_unit = Integer.valueOf(value);
                     } catch (NumberFormatException ex) {
-                        minor_unit = 0;
+                        minor_unit = 2;
                     }
                 }
 

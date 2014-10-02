@@ -49,6 +49,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.ContainmentStyle;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.DateRange;
 import org.unicode.cldr.util.SupplementalDataInfo.MetaZoneRange;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
@@ -1378,7 +1379,27 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 					+ getRegionName(country));
 		}
 	}
-
+	
+	public void TestCurrencyDecimalPlaces() {
+		IsoCurrencyParser isoCodes = IsoCurrencyParser.getInstance();
+		Relation<String, IsoCurrencyParser.Data> codeList = isoCodes
+				.getCodeList();
+		Set<String> currencyCodes = STANDARD_CODES
+				.getGoodAvailableCodes("currency");
+		for (String cc : currencyCodes) {
+			Set<IsoCurrencyParser.Data> d = codeList.get(cc);
+			if (d != null) {
+				for (IsoCurrencyParser.Data x : d) {
+					CurrencyNumberInfo cni = SUPPLEMENTAL.getCurrencyNumberInfo(cc);
+					if (cni.digits != x.getMinorUnit()) {
+						logln("Mismatch between ISO/CLDR for decimal places for currency => "+cc+
+								". ISO = " +x.getMinorUnit() +" CLDR = "+cni.digits);
+					}				
+				}
+			}
+		}
+	}
+	
 	public void TestDayPeriods() {
 		int count = 0;
 		for (String locale : SUPPLEMENTAL.getDayPeriodLocales()) {

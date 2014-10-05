@@ -413,12 +413,13 @@ public class TablePrinter {
         if (!columnsFlat[colIndex].spanRows) return 1;
         Comparable item = sortedFlat[rowIndex][colIndex];
         if (rowIndex > 0 && item.equals(sortedFlat[rowIndex - 1][colIndex])) {
-            if (!breakSpans(sortedFlat, rowIndex)) {
+            if (!breakSpans(sortedFlat, rowIndex, colIndex)) {
                 return 0;
             }
         }
         for (int k = rowIndex + 1; k < sortedFlat.length; ++k) {
-            if (!item.equals(sortedFlat[k][colIndex]) || breakSpans(sortedFlat, k)) {
+            if (!item.equals(sortedFlat[k][colIndex]) 
+                || breakSpans(sortedFlat, k, colIndex)) {
                 return k - rowIndex;
             }
         }
@@ -432,13 +433,15 @@ public class TablePrinter {
      * Only called with rowIndex > 0
      * 
      * @param rowIndex
+     * @param colIndex2 
      * @return
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
-    private boolean breakSpans(Comparable[][] sortedFlat, int rowIndex) {
-        for (int colIndex = 0; colIndex < breaksSpans.length(); ++colIndex) {
-            if (!breaksSpans.get(colIndex)) return false;
-            if (sortedFlat[rowIndex][colIndex].compareTo(sortedFlat[rowIndex - 1][colIndex]) != 0) {
+    private boolean breakSpans(Comparable[][] sortedFlat, int rowIndex, int colIndex2) {
+        final int limit = Math.min(breaksSpans.length(), colIndex2);
+        for (int colIndex = 0; colIndex < limit; ++colIndex) {
+            if (breaksSpans.get(colIndex)
+                && sortedFlat[rowIndex][colIndex].compareTo(sortedFlat[rowIndex - 1][colIndex]) != 0) {
                 return true;
             }
         }

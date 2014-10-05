@@ -399,7 +399,7 @@ public class PathHeader implements Comparable<PathHeader> {
     }
 
     public String getHeader() {
-        return header;
+        return header == null ? "" : header;
     }
 
     public String getCode() {
@@ -473,6 +473,41 @@ public class PathHeader implements Comparable<PathHeader> {
         }
     }
 
+    public int compareHeader(PathHeader other) {
+        int result;
+        if (0 != (result = headerOrder - other.headerOrder)) {
+            return result;
+        }
+        if (0 != (result = alphabeticCompare(header, other.header))) {
+            return result;
+        }
+        return result;
+    }
+    
+    public int compareCode(PathHeader other) {
+        int result;
+        if (0 != (result = codeOrder - other.codeOrder)) {
+            return result;
+        }
+        if (codeSuborder != null) { // do all three cases, for transitivity
+            if (other.codeSuborder != null) {
+                if (0 != (result = codeSuborder.compareTo(other.codeSuborder))) {
+                    return result;
+                }
+            } else {
+                return 1; // if codeSuborder != null (and other.codeSuborder
+                // == null), it is greater
+            }
+        } else if (other.codeSuborder != null) {
+            return -1; // if codeSuborder == null (and other.codeSuborder !=
+            // null), it is greater
+        }
+        if (0 != (result = alphabeticCompare(code, other.code))) {
+            return result;
+        }
+        return result;
+    }
+    
     @Override
     public boolean equals(Object obj) {
         PathHeader other;

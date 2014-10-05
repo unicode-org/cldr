@@ -631,9 +631,12 @@ public class ShowLanguages {
 
         private String filename;
 
+        private String dir;
+        
         public FormattedFileWriter(PrintWriter indexFile, String title, String explanation, boolean skipIndex)
             throws IOException {
             String anchor = FileUtilities.anchorize(title);
+            this.dir = CHART_TARGET_DIR;
             filename = anchor + ".html";
             this.title = title;
             if (!skipIndex) {
@@ -660,7 +663,7 @@ public class ShowLanguages {
 
         public void close() throws IOException {
             out.write("</div>");
-            PrintWriter pw2 = BagFormatter.openUTF8Writer(CHART_TARGET_DIR, filename);
+            PrintWriter pw2 = BagFormatter.openUTF8Writer(dir, filename);
             String[] replacements = { "%header%", "", "%title%", title, "%version%", ToolConstants.CHART_DISPLAY_VERSION,
                 "%date%", CldrUtility.isoFormat(new Date()), "%body%", out.toString() };
             final String templateFileName = "chart-template.html";

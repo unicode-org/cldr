@@ -11,7 +11,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<generation date="$Date$"/>
 
 	<windowsZones>
-		<mapTimezones otherVersion="7de0006" typeVersion="2014g">
+		<mapTimezones otherVersion="7de0007" typeVersion="2014h">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -381,6 +381,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Israel Standard Time" territory="001" type="Asia/Jerusalem"/>
 			<mapZone other="Israel Standard Time" territory="IL" type="Asia/Jerusalem"/>
 
+			<!-- (UTC+02:00) Kaliningrad (RTZ 1) -->
+			<mapZone other="Kaliningrad Standard Time" territory="001" type="Europe/Kaliningrad"/>
+			<mapZone other="Kaliningrad Standard Time" territory="RU" type="Europe/Kaliningrad"/>
+
 			<!-- (UTC+02:00) Tripoli -->
 			<mapZone other="Libya Standard Time" territory="001" type="Africa/Tripoli"/>
 			<mapZone other="Libya Standard Time" territory="LY" type="Africa/Tripoli"/>
@@ -389,11 +393,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Arabic Standard Time" territory="001" type="Asia/Baghdad"/>
 			<mapZone other="Arabic Standard Time" territory="IQ" type="Asia/Baghdad"/>
 
-			<!-- (UTC+03:00) Kaliningrad, Minsk -->
-			<mapZone other="Kaliningrad Standard Time" territory="001" type="Europe/Kaliningrad"/>
-			<mapZone other="Kaliningrad Standard Time" territory="BY" type="Europe/Minsk"/>
-			<mapZone other="Kaliningrad Standard Time" territory="RU" type="Europe/Kaliningrad"/>
-
 			<!-- (UTC+03:00) Kuwait, Riyadh -->
 			<mapZone other="Arab Standard Time" territory="001" type="Asia/Riyadh"/>
 			<mapZone other="Arab Standard Time" territory="BH" type="Asia/Bahrain"/>
@@ -401,6 +400,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Arab Standard Time" territory="QA" type="Asia/Qatar"/>
 			<mapZone other="Arab Standard Time" territory="SA" type="Asia/Riyadh"/>
 			<mapZone other="Arab Standard Time" territory="YE" type="Asia/Aden"/>
+
+			<!-- (UTC+03:00) Minsk -->
+			<mapZone other="Belarus Standard Time" territory="001" type="Europe/Minsk"/>
+			<mapZone other="Belarus Standard Time" territory="BY" type="Europe/Minsk"/>
+
+			<!-- (UTC+03:00) Moscow, St. Petersburg, Volgograd (RTZ 2) -->
+			<mapZone other="Russian Standard Time" territory="001" type="Europe/Moscow"/>
+			<mapZone other="Russian Standard Time" territory="RU" type="Europe/Moscow Europe/Simferopol Europe/Volgograd"/>
 
 			<!-- (UTC+03:00) Nairobi -->
 			<mapZone other="E. Africa Standard Time" territory="001" type="Africa/Nairobi"/>
@@ -433,9 +440,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Azerbaijan Standard Time" territory="001" type="Asia/Baku"/>
 			<mapZone other="Azerbaijan Standard Time" territory="AZ" type="Asia/Baku"/>
 
-			<!-- (UTC+04:00) Moscow, St. Petersburg, Volgograd -->
-			<mapZone other="Russian Standard Time" territory="001" type="Europe/Moscow"/>
-			<mapZone other="Russian Standard Time" territory="RU" type="Europe/Moscow Europe/Samara Europe/Simferopol Europe/Volgograd"/>
+			<!-- (UTC+04:00) Izhevsk, Samara (RTZ 3) -->
+			<mapZone other="Russia Time Zone 3" territory="001" type="Europe/Samara"/>
+			<mapZone other="Russia Time Zone 3" territory="RU" type="Europe/Samara"/>
 
 			<!-- (UTC+04:00) Port Louis -->
 			<mapZone other="Mauritius Standard Time" territory="001" type="Indian/Mauritius"/>
@@ -465,6 +472,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="West Asia Standard Time" territory="TM" type="Asia/Ashgabat"/>
 			<mapZone other="West Asia Standard Time" territory="UZ" type="Asia/Tashkent Asia/Samarkand"/>
 			<mapZone other="West Asia Standard Time" territory="ZZ" type="Etc/GMT-5"/>
+
+			<!-- (UTC+05:00) Ekaterinburg (RTZ 4) -->
+			<mapZone other="Ekaterinburg Standard Time" territory="001" type="Asia/Yekaterinburg"/>
+			<mapZone other="Ekaterinburg Standard Time" territory="RU" type="Asia/Yekaterinburg"/>
 
 			<!-- (UTC+05:00) Islamabad, Karachi -->
 			<mapZone other="Pakistan Standard Time" territory="001" type="Asia/Karachi"/>
@@ -496,9 +507,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Bangladesh Standard Time" territory="BD" type="Asia/Dhaka"/>
 			<mapZone other="Bangladesh Standard Time" territory="BT" type="Asia/Thimphu"/>
 
-			<!-- (UTC+06:00) Ekaterinburg -->
-			<mapZone other="Ekaterinburg Standard Time" territory="001" type="Asia/Yekaterinburg"/>
-			<mapZone other="Ekaterinburg Standard Time" territory="RU" type="Asia/Yekaterinburg"/>
+			<!-- (UTC+06:00) Novosibirsk (RTZ 5) -->
+			<mapZone other="N. Central Asia Standard Time" territory="001" type="Asia/Novosibirsk"/>
+			<mapZone other="N. Central Asia Standard Time" territory="RU" type="Asia/Novosibirsk Asia/Omsk"/>
 
 			<!-- (UTC+06:30) Yangon (Rangoon) -->
 			<mapZone other="Myanmar Standard Time" territory="001" type="Asia/Rangoon"/>
@@ -517,9 +528,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="SE Asia Standard Time" territory="VN" type="Asia/Saigon"/>
 			<mapZone other="SE Asia Standard Time" territory="ZZ" type="Etc/GMT-7"/>
 
-			<!-- (UTC+07:00) Novosibirsk -->
-			<mapZone other="N. Central Asia Standard Time" territory="001" type="Asia/Novosibirsk"/>
-			<mapZone other="N. Central Asia Standard Time" territory="RU" type="Asia/Novosibirsk Asia/Novokuznetsk Asia/Omsk"/>
+			<!-- (UTC+07:00) Krasnoyarsk (RTZ 6) -->
+			<mapZone other="North Asia Standard Time" territory="001" type="Asia/Krasnoyarsk"/>
+			<mapZone other="North Asia Standard Time" territory="RU" type="Asia/Krasnoyarsk Asia/Novokuznetsk"/>
 
 			<!-- (UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi -->
 			<mapZone other="China Standard Time" territory="001" type="Asia/Shanghai"/>
@@ -527,9 +538,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="China Standard Time" territory="HK" type="Asia/Hong_Kong"/>
 			<mapZone other="China Standard Time" territory="MO" type="Asia/Macau"/>
 
-			<!-- (UTC+08:00) Krasnoyarsk -->
-			<mapZone other="North Asia Standard Time" territory="001" type="Asia/Krasnoyarsk"/>
-			<mapZone other="North Asia Standard Time" territory="RU" type="Asia/Krasnoyarsk"/>
+			<!-- (UTC+08:00) Irkutsk (RTZ 7) -->
+			<mapZone other="North Asia East Standard Time" territory="001" type="Asia/Irkutsk"/>
+			<mapZone other="North Asia East Standard Time" territory="RU" type="Asia/Irkutsk Asia/Chita"/>
 
 			<!-- (UTC+08:00) Kuala Lumpur, Singapore -->
 			<mapZone other="Singapore Standard Time" territory="001" type="Asia/Singapore"/>
@@ -553,10 +564,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Ulaanbaatar Standard Time" territory="001" type="Asia/Ulaanbaatar"/>
 			<mapZone other="Ulaanbaatar Standard Time" territory="MN" type="Asia/Ulaanbaatar Asia/Choibalsan"/>
 
-			<!-- (UTC+09:00) Irkutsk -->
-			<mapZone other="North Asia East Standard Time" territory="001" type="Asia/Irkutsk"/>
-			<mapZone other="North Asia East Standard Time" territory="RU" type="Asia/Irkutsk"/>
-
 			<!-- (UTC+09:00) Osaka, Sapporo, Tokyo -->
 			<mapZone other="Tokyo Standard Time" territory="001" type="Asia/Tokyo"/>
 			<mapZone other="Tokyo Standard Time" territory="ID" type="Asia/Jayapura"/>
@@ -569,6 +576,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Korea Standard Time" territory="001" type="Asia/Seoul"/>
 			<mapZone other="Korea Standard Time" territory="KP" type="Asia/Pyongyang"/>
 			<mapZone other="Korea Standard Time" territory="KR" type="Asia/Seoul"/>
+
+			<!-- (UTC+09:00) Yakutsk (RTZ 8) -->
+			<mapZone other="Yakutsk Standard Time" territory="001" type="Asia/Yakutsk"/>
+			<mapZone other="Yakutsk Standard Time" territory="RU" type="Asia/Yakutsk Asia/Khandyga"/>
 
 			<!-- (UTC+09:30) Adelaide -->
 			<mapZone other="Cen. Australia Standard Time" territory="001" type="Australia/Adelaide"/>
@@ -599,9 +610,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Tasmania Standard Time" territory="001" type="Australia/Hobart"/>
 			<mapZone other="Tasmania Standard Time" territory="AU" type="Australia/Hobart Australia/Currie"/>
 
-			<!-- (UTC+10:00) Yakutsk -->
-			<mapZone other="Yakutsk Standard Time" territory="001" type="Asia/Yakutsk"/>
-			<mapZone other="Yakutsk Standard Time" territory="RU" type="Asia/Yakutsk Asia/Chita Asia/Khandyga"/>
+			<!-- (UTC+10:00) Magadan -->
+			<mapZone other="Magadan Standard Time" territory="001" type="Asia/Magadan"/>
+			<mapZone other="Magadan Standard Time" territory="RU" type="Asia/Magadan"/>
+
+			<!-- (UTC+10:00) Vladivostok, Magadan (RTZ 9) -->
+			<mapZone other="Vladivostok Standard Time" territory="001" type="Asia/Vladivostok"/>
+			<mapZone other="Vladivostok Standard Time" territory="RU" type="Asia/Vladivostok Asia/Sakhalin Asia/Ust-Nera"/>
+
+			<!-- (UTC+11:00) Chokurdakh (RTZ 10) -->
+			<mapZone other="Russia Time Zone 10" territory="001" type="Asia/Srednekolymsk"/>
+			<mapZone other="Russia Time Zone 10" territory="RU" type="Asia/Srednekolymsk"/>
 
 			<!-- (UTC+11:00) Solomon Is., New Caledonia -->
 			<mapZone other="Central Pacific Standard Time" territory="001" type="Pacific/Guadalcanal"/>
@@ -612,9 +631,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Central Pacific Standard Time" territory="VU" type="Pacific/Efate"/>
 			<mapZone other="Central Pacific Standard Time" territory="ZZ" type="Etc/GMT-11"/>
 
-			<!-- (UTC+11:00) Vladivostok -->
-			<mapZone other="Vladivostok Standard Time" territory="001" type="Asia/Vladivostok"/>
-			<mapZone other="Vladivostok Standard Time" territory="RU" type="Asia/Vladivostok Asia/Sakhalin Asia/Ust-Nera"/>
+			<!-- (UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky (RTZ 11) -->
+			<mapZone other="Russia Time Zone 11" territory="001" type="Asia/Kamchatka"/>
+			<mapZone other="Russia Time Zone 11" territory="RU" type="Asia/Kamchatka Asia/Anadyr"/>
 
 			<!-- (UTC+12:00) Auckland, Wellington -->
 			<mapZone other="New Zealand Standard Time" territory="001" type="Pacific/Auckland"/>
@@ -634,10 +653,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- (UTC+12:00) Fiji -->
 			<mapZone other="Fiji Standard Time" territory="001" type="Pacific/Fiji"/>
 			<mapZone other="Fiji Standard Time" territory="FJ" type="Pacific/Fiji"/>
-
-			<!-- (UTC+12:00) Magadan -->
-			<mapZone other="Magadan Standard Time" territory="001" type="Asia/Magadan"/>
-			<mapZone other="Magadan Standard Time" territory="RU" type="Asia/Magadan Asia/Anadyr Asia/Kamchatka Asia/Srednekolymsk"/>
 
 			<!-- (UTC+13:00) Nuku'alofa -->
 			<mapZone other="Tonga Standard Time" territory="001" type="Pacific/Tongatapu"/>

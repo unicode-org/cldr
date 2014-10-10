@@ -14,15 +14,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<collations >
 		<collation type="standard">
 			<settings reorder="Cyrl"/>
-			<suppress_contractions>[АаӘәЕеЖжЗзИиІіОоӨөУуЧчЫыЭэѴѵ]</suppress_contractions>
-			<!--
-				List of UCA contractions remaining after suppression:
-
-				Ѓ 0413 0301 CYRILLIC CAPITAL LETTER GJE
-				ѓ 0433 0301 CYRILLIC SMALL LETTER GJE
-				Ќ 041A 0301 CYRILLIC CAPITAL LETTER KJE
-				ќ 043A 0301 CYRILLIC SMALL LETTER KJE
-			-->
+			<suppress_contractions>[Ии]</suppress_contractions>
+			<cr><![CDATA[
+			    &ԃ<ѓ<<<Ѓ
+			    &ћ<ќ<<<Ќ
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

@@ -14,11 +14,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<collations>
 		<collation type="standard">
 			<settings reorder="Cyrl"/>
-			<!-- Standard Cyrillic sort order,
+			<!-- Mostly standard Cyrillic sort order,
 			  see http://en.wikipedia.org/wiki/Kyrgyz_alphabets#Correspondence_chart
-			  Tilek Mamutov (Google) confirms that й should sort as a base letter,
-			  but ё should sort secondary-after е. -->
+			  Tilek Mamutov (Google) confirms that ё and й should sort as base letters,
+			  but for string search ё should only be secondary-different from е. -->
 			<!-- The root collation already sorts й/Й as a base letter. -->
+			<cr><![CDATA[
+			    &е<ё<<<Ё
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

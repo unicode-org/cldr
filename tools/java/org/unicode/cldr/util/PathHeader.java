@@ -1147,11 +1147,11 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             });
             functionMap.put("languageSection", new Transform<String, String>() {
-                char[] languageRangeStartPoints = { 'a', 'e', 'k', 'o', 't' };
-                char[] languageRangeEndPoints = { 'd', 'j', 'n', 's', 'z' };
+                char[] languageRangeStartPoints = { 'A', 'E', 'K', 'O', 'T' };
+                char[] languageRangeEndPoints = { 'D', 'J', 'N', 'S', 'Z' };
 
                 public String transform(String source0) {
-                    char firstLetter = source0.charAt(0);
+                    char firstLetter = getEnglishFirstLetter(source0).charAt(0);
                     for (int i = 0; i < languageRangeStartPoints.length; i++) {
                         if (firstLetter >= languageRangeStartPoints[i] && firstLetter <= languageRangeEndPoints[i]) {
                             return "Languages (" + Character.toUpperCase(languageRangeStartPoints[i]) + "-" + Character.toUpperCase(languageRangeEndPoints[i])
@@ -1163,7 +1163,26 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("firstLetter", new Transform<String, String>() {
                 public String transform(String source0) {
-                    return source0.substring(0, 1).toUpperCase();
+                   return getEnglishFirstLetter(source0);
+                }
+            });
+            functionMap.put("languageSort", new Transform<String, String>() {
+                public String transform(String source0) {
+                    String languageOnlyPart, tag;
+                    int underscorePos = source0.indexOf("_");
+                    if ( underscorePos > 0) {
+                        languageOnlyPart = source0.substring(0,underscorePos);
+                        tag = " (" + source0.substring(underscorePos+1) + ")";
+                    } else {
+                        languageOnlyPart = source0;
+                        tag = null;
+                    }
+                    
+                    String result = englishFile.getName(CLDRFile.LANGUAGE_NAME, languageOnlyPart);
+                    if ( tag != null ) {
+                        result = result + tag;
+                    }
+                    return result;
                 }
             });
             functionMap.put("scriptFromLanguage", new Transform<String, String>() {
@@ -1579,6 +1598,16 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             }
             return -1;
+        }
+        private static String getEnglishFirstLetter(String s) {
+            String languageOnlyPart;
+            int underscorePos = s.indexOf("_");
+            if ( underscorePos > 0) {
+                languageOnlyPart = s.substring(0,underscorePos);
+            } else {
+                languageOnlyPart = s;
+            }
+            return englishFile.getName(CLDRFile.LANGUAGE_NAME, languageOnlyPart).substring(0, 1).toUpperCase();
         }
 
         static class HyphenSplitter {

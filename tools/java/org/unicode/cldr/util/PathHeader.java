@@ -1172,16 +1172,14 @@ public class PathHeader implements Comparable<PathHeader> {
                     int underscorePos = source0.indexOf("_");
                     if ( underscorePos > 0) {
                         languageOnlyPart = source0.substring(0,underscorePos);
-                        tag = " (" + source0.substring(underscorePos+1) + ")";
+                        tag = " [" +languageOnlyPart + "]" + "[" + source0.substring(underscorePos+1) + "]";
                     } else {
                         languageOnlyPart = source0;
-                        tag = null;
+                        tag = " [" +languageOnlyPart + "]";
                     }
+
                     
-                    String result = englishFile.getName(CLDRFile.LANGUAGE_NAME, languageOnlyPart);
-                    if ( tag != null ) {
-                        result = result + tag;
-                    }
+                    String result = englishFile.getName(CLDRFile.LANGUAGE_NAME, languageOnlyPart) + tag;
                     return result;
                 }
             });

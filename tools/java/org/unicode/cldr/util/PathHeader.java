@@ -1168,19 +1168,15 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("languageSort", new Transform<String, String>() {
                 public String transform(String source0) {
-                    String languageOnlyPart, tag;
+                    String languageOnlyPart;
                     int underscorePos = source0.indexOf("_");
                     if ( underscorePos > 0) {
                         languageOnlyPart = source0.substring(0,underscorePos);
-                        tag = " [" +languageOnlyPart + "]" + "[" + source0.substring(underscorePos+1) + "]";
                     } else {
                         languageOnlyPart = source0;
-                        tag = " [" +languageOnlyPart + "]";
                     }
 
-                    
-                    String result = englishFile.getName(CLDRFile.LANGUAGE_NAME, languageOnlyPart) + tag;
-                    return result;
+                    return englishFile.getName(CLDRFile.LANGUAGE_NAME, languageOnlyPart) + " \u25BA " + source0;
                 }
             });
             functionMap.put("scriptFromLanguage", new Transform<String, String>() {

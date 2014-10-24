@@ -992,7 +992,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="Arabian"/>
 			</timezone>
 			<timezone type="Asia/Saigon">
-				<usesMetazone mzone="Indochina"/>
+				<usesMetazone from="1975-06-12 16:00" mzone="Indochina"/>
 			</timezone>
 			<timezone type="Asia/Sakhalin">
 				<usesMetazone mzone="Sakhalin"/>
@@ -1386,6 +1386,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Pacific/Auckland">
 				<usesMetazone mzone="New_Zealand"/>
 			</timezone>
+			<timezone type="Pacific/Bougainville">
+				<usesMetazone to="2014-12-27 16:00" mzone="Papua_New_Guinea"/>
+			</timezone>
 			<timezone type="Pacific/Chatham">
 				<usesMetazone mzone="Chatham"/>
 			</timezone>
@@ -1728,10 +1731,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="India" territory="001" type="Asia/Calcutta"/>
 			<mapZone other="India" territory="LK" type="Asia/Colombo"/>
 			<mapZone other="Indian_Ocean" territory="001" type="Indian/Chagos"/>
-			<mapZone other="Indochina" territory="001" type="Asia/Saigon"/>
+			<mapZone other="Indochina" territory="001" type="Asia/Bangkok"/>
 			<mapZone other="Indochina" territory="KH" type="Asia/Phnom_Penh"/>
 			<mapZone other="Indochina" territory="LA" type="Asia/Vientiane"/>
-			<mapZone other="Indochina" territory="TH" type="Asia/Bangkok"/>
 			<mapZone other="Indonesia_Central" territory="001" type="Asia/Makassar"/>
 			<mapZone other="Indonesia_Eastern" territory="001" type="Asia/Jayapura"/>
 			<mapZone other="Indonesia_Western" territory="001" type="Asia/Jakarta"/>

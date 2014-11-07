@@ -187,12 +187,15 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
 
         // Get list of locales if defined.
         Set<String> includedLocales = getIncludedLocales();
+        Map<String,String> localesMap = getLocalesMap();
         if (includedLocales != null && includedLocales.size() > 0) {
             final Set<String> locales = new HashSet<String>();
             for (String locale : includedLocales) {
-                // Remove ".xml" from the end.
-                locales.add(locale);
+                if (localesMap.containsKey(locale + ".xml")) {
+                    locales.add(locale);
+                }
             }
+
             filter = new Filter() {
                 @Override
                 public boolean includes(String value) {
@@ -404,7 +407,9 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
      */
     private void writeMakefile(Makefile makefile, String outputDir, String makefileName) {
         try {
-            makefile.print(outputDir, makefileName);
+            if (new File(outputDir+File.separator+makefileName).createNewFile()) {
+                makefile.print(outputDir, makefileName);
+            }
         } catch (IOException e) {
             System.err.println("Error while writing makefile for " + outputDir);
         }
@@ -433,7 +438,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         String from = alias.from;
         String to = alias.to;
         // Add synthetic destination file for alias if necessary.
-        if (!sources.contains(to) && !aliasTargets.contains(to)) {
+        if (!sources.contains(to) && !aliasTargets.contains(to) && new File(outputDir+File.separator+alias.to+".txt").createNewFile()) {
             System.out.println(to + " not found, creating empty file in " + outputDir);
             IcuTextWriter.writeToFile(createEmptyFile(alias.to), outputDir);
             aliasTargets.add(to);
@@ -459,15 +464,17 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         }
 
         IcuData icuData = new IcuData("icu-locale-deprecates.xml & build.xml", from, true);
-        System.out.println("aliased " + from + " to " + to);
         if (rbPath == null) {
             icuData.add(ALIAS_PATH, to);
         } else {
             icuData.add(rbPath, value);
         }
 
-        IcuTextWriter.writeToFile(icuData, outputDir);
-        aliasTargets.add(alias.from);
+        if (new File(outputDir + File.separator + from + ".txt").createNewFile()) {
+            IcuTextWriter.writeToFile(icuData, outputDir);
+            aliasTargets.add(alias.from);
+            System.out.println("Created alias from " + from + " to " + to + " in " + outputDir + ".");
+        }
     }
 
     public static void main(String[] args) throws IOException {

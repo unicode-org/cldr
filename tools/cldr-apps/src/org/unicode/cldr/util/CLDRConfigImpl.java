@@ -256,7 +256,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
                 pw.println();
                 pw.println("## Special message shown to users.");
                 pw.println("CLDR_HEADER=Welcome to SurveyTool@" + SurveyMain.localhost() + ". Please edit "
-                    + propsFile.getAbsolutePath()
+                    + propsFile.getAbsolutePath().replaceAll("\\\\",  "/")
                     + " to change CLDR_HEADER (to change this message), or comment it out entirely. Also see "
                     + homeFile.getAbsolutePath() + "/admin.html to get to the admin panel.");
                 pw.println();
@@ -273,7 +273,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
                 pw.println("CLDR_PHASE=" + Phase.BETA.name());
                 pw.println();
                 pw.println("## CLDR trunk. Default value shown");
-                pw.println("CLDR_DIR=" + homeFile.getAbsolutePath() + "/cldr-trunk");
+                pw.println("CLDR_DIR=" + homeFile.getAbsolutePath().replaceAll("\\\\", "/") + "/cldr-trunk");
                 pw.println();
                 pw.println("## SMTP server. Mail is disabled by default.");
                 pw.println("#CLDR_SMTP=127.0.0.1");

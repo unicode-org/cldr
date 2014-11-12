@@ -425,7 +425,7 @@ public class GenerateSidewaysView {
                     int str_len = strings.length();
                     if (str_len != 0) {
                         if (str_len - lastLineStart > 20) {
-                            strings.append('\n');
+                            strings.append(System.lineSeparator());
                             lastLineStart = str_len;
                         } else {
                             strings.append(' ');
@@ -437,7 +437,7 @@ public class GenerateSidewaysView {
             if (strings.length() == 0) {
                 out.println("<td class='empty'>\u00a0</td>");
             } else {
-                out.println("<td class='cell nowrap'>" + displayCharacter(strings.toString()).replace("\n", "<br>")
+                out.println("<td class='cell nowrap'>" + displayCharacter(strings.toString()).replace(System.lineSeparator(), "<br>")
                     + "</td>");
             }
 
@@ -752,7 +752,7 @@ public class GenerateSidewaysView {
             String subName = pathHeader.getPage();
             if (!mainName.equals(lastMain)) {
                 if (lastMain.length() != 0) {
-                    out.append("</tr>\n<tr>");
+                    out.append("</tr>" + System.lineSeparator() + "<tr>");
                 }
                 out.append("<th align='right' nowrap><b>"
                     + TransliteratorUtilities.toHTML.transform(mainName)
@@ -775,7 +775,7 @@ public class GenerateSidewaysView {
         }
         // <a href="patterns.labels.html">Labels</a>
         // file:///Users/markdavis/Documents/indigo/cldr-tmp/charts/by_type/misc.exemplarCharacters.html
-        return out.append("</td></tr>\n</table>").toString();
+        return out.append("</td></tr>" + System.lineSeparator() + "</table>").toString();
     }
 
     private static PrintWriter writeHeader(String main, String title) throws IOException {

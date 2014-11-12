@@ -216,6 +216,27 @@ public class ICUServiceBuilder {
             df.setMinimumFractionDigits(0); // To prevent "Jan 1.00, 1997.00"
         }
         result.setNumberFormat((NumberFormat) numberFormat.clone());
+        // Need to put the field specific number format override formatters back in place, since
+        // the previous result.setNumberFormat above nukes them.
+        if ( numbersOverride != null && numbersOverride.indexOf("=") != -1) {
+            String [] overrides = numbersOverride.split(",");
+            for ( String override : overrides ) {
+                String [] fields = override.split("=",2);
+                if (fields.length == 2) {
+                    String overrideField = fields[0].substring(0,1);
+                    ULocale curLocaleWithNumbers = new ULocale(cldrFile.getLocaleID() + "@numbers=" + fields[1]);
+                    NumberFormat onf = NumberFormat.getInstance(curLocaleWithNumbers,NumberFormat.NUMBERSTYLE);
+                    if (onf instanceof DecimalFormat) {
+                        DecimalFormat df = (DecimalFormat) onf;
+                        df.setGroupingUsed(false);
+                        df.setDecimalSeparatorAlwaysShown(false);
+                        df.setParseIntegerOnly(true); /* So that dd.MM.yy can be parsed */
+                        df.setMinimumFractionDigits(0); // To prevent "Jan 1.00, 1997.00"
+                    }
+                    result.setNumberFormat(overrideField, onf);
+                }
+            }
+        }
         return result;
     }
 

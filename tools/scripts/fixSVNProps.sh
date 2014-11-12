@@ -30,6 +30,11 @@ do
       svn propset -q svn:eol-style native ${filename}
       svn propset -q svn:mime-type "text/plain" ${filename}
    fi
+   if [ "x${ext}" = "xcss" ];
+   then
+      svn propset -q svn:eol-style native ${filename}
+      svn propset -q svn:mime-type "text/css" ${filename}
+   fi
    if [ "x${ext}" = "xhtml" ];
    then
       svn propset -q svn:eol-style native ${filename}

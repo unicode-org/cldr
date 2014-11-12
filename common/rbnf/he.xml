@@ -254,7 +254,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-construct-masculine">
                 <rbnfrule value="-x">מינוס →→;</rbnfrule>
-                <rbnfrule value="0">=%spellout-cardinal-masculine= ;</rbnfrule>
+                <rbnfrule value="0">=%spellout-cardinal-masculine=;</rbnfrule>
                 <rbnfrule value="1">אחד;</rbnfrule>
                 <rbnfrule value="2">שני;</rbnfrule>
                 <rbnfrule value="3">שלושת;</rbnfrule>
@@ -265,6 +265,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="8">שמונת;</rbnfrule>
                 <rbnfrule value="9">תשעת;</rbnfrule>
                 <rbnfrule value="10">עשרת;</rbnfrule>
+                <rbnfrule value="11">=%spellout-cardinal-masculine=;</rbnfrule>
             </ruleset>
             <ruleset type="and-masculine" access="private">
                 <rbnfrule value="1">ו=%%spellout-numbering-m=;</rbnfrule>

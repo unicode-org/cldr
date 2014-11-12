@@ -747,8 +747,9 @@ public class TestPathHeader extends TestFmwkPlus {
 					final PageId pageId = pathHeader.getPageId();
 					if (badZonePages.contains(pageId)
 							&& !pathHeader.getCode().equals("Unknown")) {
-						if ((pathHeader.getCode().equals("Chita") || pathHeader
-								.getCode().equals("Srednekolymsk"))
+						if ((pathHeader.getCode().equals("Chita")
+								|| pathHeader.getCode().equals("Srednekolymsk")
+								|| pathHeader.getCode().equals("Bougainville"))
 								&& logKnownIssue("cldrbug:7802",
 										"ICU/CLDR time zone data sync problem")) {
 							logln("Bad page ID:\t" + pageId + "\t" + pathHeader

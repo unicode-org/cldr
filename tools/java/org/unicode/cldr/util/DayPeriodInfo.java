@@ -15,7 +15,7 @@ public class DayPeriodInfo {
     public static int DAY_LIMIT = 24 * 60 * 60 * 1000;
 
     public enum DayPeriod {
-        am, pm, weeHours, earlyMorning, morning, lateMorning, noon, midDay, earlyAfternoon, afternoon, lateAfternoon, earlyEvening, evening, lateEvening, earlyNight, night
+        am, pm, midnight, weeHours, earlyMorning, morning, lateMorning, noon, midDay, earlyAfternoon, afternoon, lateAfternoon, earlyEvening, evening, lateEvening, earlyNight, night
     };
 
     // the starts must be in sorted order. First must be zero. Last must be < DAY_LIMIT
@@ -103,7 +103,7 @@ public class DayPeriodInfo {
         } else if (millisInDay > 24 * 60 * 60 * 1000) {
             throw new IllegalArgumentException("millisInDay too big");
         }
-        for (int i = 1; i < starts.length; ++i) {
+        for (int i = 0; i < starts.length; ++i) {
             int start = starts[i];
             if (start == millisInDay && includesStart[i]) {
                 return periods[i];

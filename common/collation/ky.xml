@@ -11,5 +11,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$"/>
 		<language type="ky"/>
 	</identity>
-	<!-- The root collation order is valid for this language. -->
+	<collations>
+		<collation type="standard">
+			<settings reorder="Cyrl"/>
+			<!-- Mostly standard Cyrillic sort order,
+			  see http://en.wikipedia.org/wiki/Kyrgyz_alphabets#Correspondence_chart
+			  Tilek Mamutov (Google) confirms that ё and й should sort as base letters,
+			  but for string search ё should only be secondary-different from е. -->
+			<!-- The root collation already sorts й/Й as a base letter. -->
+			<cr><![CDATA[
+			    &е<ё<<<Ё
+			]]></cr>
+		</collation>
+	</collations>
 </ldml>

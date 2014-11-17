@@ -14,19 +14,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<collations  >
 		<collation type="standard">
 			<settings reorder="Cyrl"/>
-			<suppress_contractions>[АаӘәГгЕеЖжЗзІіОоӨөКкЧчЫыЭэѴѵ]</suppress_contractions>
-			<!--
-				List of UCA contractions remaining after suppression:
-
-				Ё 0415 0308 CYRILLIC CAPITAL LETTER IO
-				ё 0435 0308 CYRILLIC SMALL LETTER IO
-				Й 0418 0306 CYRILLIC CAPITAL LETTER SHORT I
-				й 0438 0306 CYRILLIC SMALL LETTER SHORT I
-				Ў 0423 0306 CYRILLIC CAPITAL LETTER SHORT U
-				ў 0443 0306 CYRILLIC SMALL LETTER SHORT U
-			-->
+			<!-- The root collation already sorts й/Й as a base letter. -->
 			<cr><![CDATA[
 			    &Е<ё<<<Ё
+			    &у<ў<<<Ў
 			]]></cr>
 		</collation>
 	</collations>

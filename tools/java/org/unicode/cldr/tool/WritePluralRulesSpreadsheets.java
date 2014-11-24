@@ -131,7 +131,7 @@ public class WritePluralRulesSpreadsheets {
 
     //
     //        // TODO use options
-    //        public static final String TARGETDIR = "/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/Generated/icu/plural-verification/";
+    //        public static final String TARGETDIR = Settings.OTHER_WORKSPACE_DIRECTORY + "Generated/icu/plural-verification/";
     //    
     //        public static void main(String[] args) throws Exception {
     //            if (args.length == 0) {

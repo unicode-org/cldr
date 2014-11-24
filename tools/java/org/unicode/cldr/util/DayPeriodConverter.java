@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -11,6 +12,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+
+import org.unicode.cldr.util.DayPeriods.DayPeriod;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
@@ -23,218 +26,473 @@ public class DayPeriodConverter {
     // Will be replaced by real data table in the future
 
     static final String[][] RAW_DATA = {
-        {"germanic", "en", "English", "night", "night", "night", "night", "night", "night", "morning", "morning", "morning", "morning", "morning", "morning", "afternoon", "afternoon", "afternoon", "afternoon", "afternoon", "afternoon", "evening", "evening", "evening", "night", "night", "night"},
-        {"germanic", "en-GB", "English (UK)", "night", "night", "night", "night", "night", "night", "morning", "morning", "morning", "morning", "morning", "morning", "afternoon", "afternoon", "afternoon", "afternoon", "afternoon", "evening", "evening", "evening", "evening", "night", "night", "night"},
-        {"germanic", "af", "Afrikaans", "nag", "nag", "nag", "nag", "nag", "oggend", "oggend", "oggend", "oggend", "oggend", "oggend", "oggend", "middag", "middag", "middag", "middag", "middag", "middag", "aand", "aand", "aand", "aand", "aand", "aand"},
-        {"germanic", "nl", "Dutch", "nacht", "nacht", "nacht", "nacht", "nacht", "nacht", "ochtend", "ochtend", "ochtend", "ochtend", "ochtend", "ochtend", "middag", "middag", "middag", "middag", "middag", "middag", "avond", "avond", "avond", "avond", "avond", "avond"},
-        {"germanic", "de", "German", "Nacht", "Nacht", "Nacht", "Nacht", "Nacht", "Morgen", "Morgen", "Morgen", "Morgen", "Morgen", "Vormittag", "Vormittag", "Mittag", "Nachmittag", "Nachmittag", "Nachmittag", "Nachmittag", "Nachmittag", "Abend", "Abend", "Abend", "Abend", "Abend", "Abend"},
-        {"germanic", "da", "Danish", "nat", "nat", "nat", "nat", "nat", "morgen", "morgen", "morgen", "morgen", "morgen", "formiddag", "formiddag", "eftermiddag", "eftermiddag", "eftermiddag", "eftermiddag", "eftermiddag", "eftermiddag", "aften", "aften", "aften", "aften", "aften", "aften"},
-        {"germanic", "nb", "Norwegian Bokmål", "natt", "natt", "natt", "natt", "natt", "natt", "morgen", "morgen", "morgen", "morgen", "formiddag", "formiddag", "ettermiddag", "ettermiddag", "ettermiddag", "ettermiddag", "ettermiddag", "ettermiddag", "kveld", "kveld", "kveld", "kveld", "kveld", "kveld"},
-        {"germanic", "sv", "Swedish", "natt", "natt", "natt", "natt", "natt", "morgon", "morgon", "morgon", "morgon", "morgon", "förmiddag", "förmiddag", "eftermiddag", "eftermiddag", "eftermiddag", "eftermiddag", "eftermiddag", "eftermiddag", "kväll", "kväll", "kväll", "kväll", "kväll", "kväll"},
-        {"germanic", "is", "Icelandic", "nótt", "nótt", "nótt", "nótt", "nótt", "nótt", "morgunn", "morgunn", "morgunn", "morgunn", "morgunn", "morgunn", "eftir hádegi", "eftir hádegi", "eftir hádegi", "eftir hádegi", "eftir hádegi", "eftir hádegi", "kvöld", "kvöld", "kvöld", "kvöld", "kvöld", "kvöld"},
-        {"romance", "pt", "Portuguese", "madrugada", "madrugada", "madrugada", "madrugada", "madrugada", "madrugada", "manhã", "manhã", "manhã", "manhã", "manhã", "manhã", "tarde", "tarde", "tarde", "tarde", "tarde", "tarde", "tarde", "noite", "noite", "noite", "noite", "noite"},
-        {"romance", "pt_PT", "European Portuguese", "noite", "noite", "noite", "noite", "noite", "noite", "manhã", "manhã", "manhã", "manhã", "manhã", "manhã", "tarde", "tarde", "tarde", "tarde", "tarde", "tarde", "tarde", "tarde", "noite", "noite", "noite", "noite"},
-        {"romance", "gl", "Galician", "madrugada", "madrugada", "madrugada", "madrugada", "madrugada", "madrugada", "mañá", "mañá", "mañá", "mañá", "mañá", "mañá", "mediodía", "tarde", "tarde", "tarde", "tarde", "tarde", "tarde", "tarde", "tarde", "noite", "noite", "noite"},
-        {"romance", "es", "Spanish", "madrugada", "madrugada", "madrugada", "madrugada", "madrugada", "madrugada", "mañana", "mañana", "mañana", "mañana", "mañana", "mañana", "tarde", "tarde", "tarde", "tarde", "tarde", "tarde", "tarde", "tarde", "noche", "noche", "noche", "noche"},
-        {"romance", "es_419", "Latin American Spanish", "madrugada", "madrugada", "madrugada", "madrugada", "madrugada", "madrugada", "mañana", "mañana", "mañana", "mañana", "mañana", "mañana", "tarde", "tarde", "tarde", "tarde", "tarde", "tarde", "tarde", "tarde", "noche", "noche", "noche", "noche"},
-        {"romance", "ca", "Catalan", "matinada", "matinada", "matinada", "matinada", "matinada", "matinada", "matí", "matí", "matí", "matí", "matí", "matí", "migdia", "tarda", "tarda", "tarda", "tarda", "tarda", "tarda", "vespre", "vespre", "nit", "nit", "nit"},
-        {"romance", "it", "Italian", "notte", "notte", "notte", "notte", "notte", "notte", "mattina", "mattina", "mattina", "mattina", "mattina", "mattina", "pomeriggio", "pomeriggio", "pomeriggio", "pomeriggio", "pomeriggio", "pomeriggio", "sera", "sera", "sera", "sera", "sera", "sera"},
-        {"romance", "ro", "Romanian", "noapte", "noapte", "noapte", "noapte", "noapte", "dimineață", "dimineață", "dimineață", "dimineață", "dimineață", "dimineață", "dimineață", "după-amiază", "după-amiază", "după-amiază", "după-amiază", "după-amiază", "după-amiază", "seară", "seară", "seară", "seară", "noapte", "noapte"},
-        {"romance", "fr", "French", "nuit", "nuit", "nuit", "nuit", "matin", "matin", "matin", "matin", "matin", "matin", "matin", "matin", "après-midi", "après-midi", "après-midi", "après-midi", "après-midi", "après-midi", "soir", "soir", "soir", "soir", "soir", "soir"},
-        {"romance", "fr-CA", "French (Canada)", "nuit", "nuit", "nuit", "nuit", "matin", "matin", "matin", "matin", "matin", "matin", "matin", "matin", "après-midi", "après-midi", "après-midi", "après-midi", "après-midi", "après-midi", "soir", "soir", "soir", "soir", "soir", "soir"},
-        {"slavic", "hr", "Croatian", "noć", "noć", "noć", "noć", "jutro", "jutro", "jutro", "jutro", "jutro", "jutro", "jutro", "jutro", "popodne", "popodne", "popodne", "popodne", "popodne", "popodne", "večer", "večer", "večer", "noć", "noć", "noć"},
-        {"slavic", "bs", "Bosnian", "noć", "noć", "noć", "noć", "jutro", "jutro", "jutro", "jutro", "jutro", "jutro", "jutro", "jutro", "popodne", "popodne", "popodne", "popodne", "popodne", "popodne", "veče", "veče", "veče", "noć", "noć", "noć"},
-        {"slavic", "sr", "Serbian", "ноћ", "ноћ", "ноћ", "ноћ", "ноћ", "ноћ", "јутро", "јутро", "јутро", "јутро", "јутро", "јутро", "поподне", "поподне", "поподне", "поподне", "поподне", "поподне", "вече", "вече", "вече", "ноћ", "ноћ", "ноћ"},
-        {"slavic", "sl", "Slovenian", "noč", "noč", "noč", "noč", "noč", "noč", "jutro", "jutro", "jutro", "jutro", "dopoldne", "dopoldne", "popoldne", "popoldne", "popoldne", "popoldne", "popoldne", "popoldne", "večer", "večer", "večer", "večer", "noč", "noč"},
-        {"slavic", "cs", "Czech", "noc", "noc", "noc", "noc", "ráno", "ráno", "ráno", "ráno", "ráno", "dopoledne", "dopoledne", "dopoledne", "odpoledne", "odpoledne", "odpoledne", "odpoledne", "odpoledne", "odpoledne", "večer", "večer", "večer", "večer", "noc", "noc"},
-        {"slavic", "sk", "Slovak", "noc", "noc", "noc", "noc", "ráno", "ráno", "ráno", "ráno", "ráno", "dopoludnie", "dopoludnie", "dopoludnie", "popoludnie", "popoludnie", "popoludnie", "popoludnie", "popoludnie", "popoludnie", "večer", "večer", "večer", "večer", "noc", "noc"},
-        {"slavic", "pl", "Polish", "noc", "noc", "noc", "noc", "noc", "noc", "rano", "rano", "rano", "rano", "przedpołudnie", "przedpołudnie", "popołudnie", "popołudnie", "popołudnie", "popołudnie", "popołudnie", "popołudnie", "wieczór", "wieczór", "wieczór", "noc", "noc", "noc"},
-        {"slavic", "bg", "Bulgarian", "нощ", "нощ", "нощ", "нощ", "сутринта", "сутринта", "сутринта", "сутринта", "сутринта", "сутринта", "сутринта", "на обяд", "на обяд", "на обяд", "следобяд", "следобяд", "следобяд", "следобяд", "вечерта", "вечерта", "вечерта", "вечерта", "нощ", "нощ"},
-        {"slavic", "mk", "Macedonian", "по полноќ", "по полноќ", "по полноќ", "по полноќ", "наутро", "наутро", "наутро", "наутро", "наутро", "наутро", "претпладне", "претпладне", "попладне", "попладне", "попладне", "попладне", "попладне", "попладне", "навечер", "навечер", "навечер", "навечер", "навечер", "навечер"},
-        {"slavic", "ru", "Russian", "ночь", "ночь", "ночь", "ночь", "утро", "утро", "утро", "утро", "утро", "утро", "утро", "утро", "день", "день", "день", "день", "день", "день", "вечер", "вечер", "вечер", "вечер", "вечер", "вечер"},
-        {"slavic", "uk", "Ukrainian", "ніч", "ніч", "ніч", "ніч", "ранок", "ранок", "ранок", "ранок", "ранок", "ранок", "ранок", "ранок", "день", "день", "день", "день", "день", "день", "вечір", "вечір", "вечір", "вечір", "вечір", "вечір"},
-        {"baltic", "lt", "Lithuanian", "naktis", "naktis", "naktis", "naktis", "naktis", "naktis", "rytas", "rytas", "rytas", "rytas", "rytas", "rytas", "diena", "diena", "diena", "diena", "diena", "diena", "vakaras", "vakaras", "vakaras", "vakaras", "vakaras", "vakaras"},
-        {"baltic", "lv", "Latvian", "nakts", "nakts", "nakts", "nakts", "nakts", "nakts", "rīts", "rīts", "rīts", "rīts", "rīts", "rīts", "pēcpusdiena", "pēcpusdiena", "pēcpusdiena", "pēcpusdiena", "pēcpusdiena", "pēcpusdiena", "vakars", "vakars", "vakars", "vakars", "vakars", "nakts"},
-        {"other-indo", "el", "Greek", "μεσάνυχτα", "βράδυ", "βράδυ", "βράδυ", "πρωί", "πρωί", "πρωί", "πρωί", "πρωί", "πρωί", "πρωί", "πρωί", "μεσημέρι", "μεσημέρι", "μεσημέρι", "μεσημέρι", "μεσημέρι", "απόγευμα", "απόγευμα", "απόγευμα", "βράδυ", "βράδυ", "βράδυ", "βράδυ"},
-        {"other-indo", "fa", "Persian", "شب", "شب", "شب", "شب", "صبح", "صبح", "صبح", "صبح", "صبح", "صبح", "صبح", "صبح", "بعد از ظهر", "بعد از ظهر", "بعد از ظهر", "بعد از ظهر", "بعد از ظهر", "عصر", "عصر", "شب", "شب", "شب", "شب", "شب"},
-        {"other-indo", "hy", "Armenian", "գիշեր", "գիշեր", "գիշեր", "գիշեր", "գիշեր", "գիշեր", "առավոտ", "առավոտ", "առավոտ", "առավոտ", "առավոտ", "առավոտ", "ցերեկ", "ցերեկ", "ցերեկ", "ցերեկ", "ցերեկ", "ցերեկ", "երեկո", "երեկո", "երեկո", "երեկո", "երեկո", "երեկո"},
-        {"other-indo", "ka", "Georgian", "ღამე", "ღამე", "ღამე", "ღამე", "ღამე", "დილა", "დილა", "დილა", "დილა", "დილა", "დილა", "დილა", "მეორე ნახევარი", "მეორე ნახევარი", "მეორე ნახევარი", "მეორე ნახევარი", "მეორე ნახევარი", "მეირე ნახევარი", "საღამო", "საღამო", "საღამო", "ღამე", "ღამე", "ღამე"},
-        {"other-indo", "sq", "Albanian", "natë", "natë", "natë", "natë", "mëngjes", "mëngjes", "mëngjes", "mëngjes", "mëngjes", "paradite", "paradite", "paradite", "pasdite", "pasdite", "pasdite", "pasdite", "pasdite", "pasdite", "mbrëmje", "mbrëmje", "mbrëmje", "mbrëmje", "mbrëmje", "mbrëmje"},
-        {"indic", "ur", "Urdu", "رات", "رات", "رات", "رات", "صبح", "صبح", "صبح", "صبح", "صبح", "صبح", "صبح", "صبح", "دوپہر", "دوپہر", "دوپہر", "دوپہر", "سہ پہر", "سہ پہر", "شام", "شام", "رات", "رات", "رات", "رات"},
-        {"indic", "hi", "Hindi", "रात", "रात", "रात", "रात", "सुबह", "सुबह", "सुबह", "सुबह", "सुबह", "सुबह", "सुबह", "सुबह", "दोपहर", "दोपहर", "दोपहर", "दोपहर", "शाम", "शाम", "शाम", "शाम", "रात", "रात", "रात", "रात"},
-        {"indic", "bn", "Bengali", "রাত্রি", "রাত্রি", "রাত্রি", "রাত্রি", "ভোর", "ভোর", "সকাল", "সকাল", "সকাল", "সকাল", "সকাল", "সকাল", "দুপুর", "দুপুর", "দুপুর", "দুপুর", "বিকাল", "বিকাল", "সন্ধ্যা", "সন্ধ্যা", "রাত্রি", "রাত্রি", "রাত্রি", "রাত্রি"},
-        {"indic", "gu", "Gujarati", "રાત", "રાત", "રાત", "રાત", "સવાર", "સવાર", "સવાર", "સવાર", "સવાર", "સવાર", "સવાર", "સવાર", "બપોર", "બપોર", "બપોર", "બપોર", "સાંજ", "સાંજ", "સાંજ", "સાંજ", "રાત", "રાત", "રાત", "રાત"},
-        {"indic", "mr", "Marathi", "रात्री", "रात्री", "रात्री", "रात्र", "पहाटे", "पहाटे", "सकाळी", "सकाळी", "सकाळी", "सकाळी", "सकाळी", "सकाळी", "दुपारी", "दुपारी", "दुपारी", "दुपारी", "संध्याकाळी", "संध्याकाळी", "संध्याकाळी", "संध्याकाळी", "रात्री", "रात्री", "रात्री", "रात्री"},
-        {"indic", "ne", "Nepali", "रात", "रात", "रात", "रात", "विहान", "विहान", "विहान", "विहान", "विहान", "विहान", "विहान", "विहान", "अपरान्ह", "अपरान्ह", "अपरान्ह", "अपरान्ह", "साँझ", "साँझ", "साँझ", "बेलुका", "बेलुका", "बेलुका", "रात", "रात"},
-        {"indic", "pa", "Punjabi", "ਰਾਤ", "ਰਾਤ", "ਰਾਤ", "ਰਾਤ", "ਸਵੇਰ", "ਸਵੇਰ", "ਸਵੇਰ", "ਸਵੇਰ", "ਸਵੇਰ", "ਸਵੇਰ", "ਸਵੇਰ", "ਸਵੇਰ", "ਦੁਪਹਿਰ", "ਦੁਪਹਿਰ", "ਦੁਪਹਿਰ", "ਦੁਪਹਿਰ", "ਸ਼ਾਮ", "ਸ਼ਾਮ", "ਸ਼ਾਮ", "ਸ਼ਾਮ", "ਸ਼ਾਮ", "ਰਾਤ", "ਰਾਤ", "ਰਾਤ"},
-        {"indic", "si", "Sinhala", "මැදියමට පසු", "පාන්දර", "පාන්දර", "පාන්දර", "පාන්දර", "පාන්දර", "උදේ", "උදේ", "උදේ", "උදේ", "උදේ", "උදේ", "දවල්", "දවල්", "හවස", "හවස", "හවස", "හවස", "රෑ", "රෑ", "රෑ", "රෑ", "රෑ", "රෑ"},
-        {"dravidian", "ta", "Tamil", "இரவு", "இரவு", "இரவு", "அதிகாலை", "அதிகாலை", "காலை", "காலை", "காலை", "காலை", "காலை", "காலை", "காலை", "பிற்பகல்", "பிற்பகல்", "மாலை", "மாலை", "பிற்பகல்", "பிற்பகல்", "மாலை", "மாலை", "மாலை", "இரவு", "இரவு", "இரவு"},
-        {"dravidian", "te", "Telugu", "రాత్రి", "రాత్రి", "రాత్రి", "రాత్రి", "రాత్రి", "రాత్రి", "ఉదయం", "ఉదయం", "ఉదయం", "ఉదయం", "ఉదయం", "ఉదయం", "మధ్యాహ్నం", "మధ్యాహ్నం", "మధ్యాహ్నం", "మధ్యాహ్నం", "మధ్యాహ్నం", "మధ్యాహ్నం", "సాయంత్రం", "సాయంత్రం", "సాయంత్రం", "రాత్రి", "రాత్రి", "రాత్రి"},
-        {"dravidian", "ml", "Malayalam", "രാത്രി", "രാത്രി", "രാത്രി", "പുലർച്ചെ", "പുലർച്ചെ", "പുലർച്ചെ", "രാവിലെ", "രാവിലെ", "രാവിലെ", "രാവിലെ", "രാവിലെ", "രാവിലെ", "ഉച്ചയ്ക്ക്", "ഉച്ചയ്ക്ക്", "ഉച്ചതിരിഞ്ഞ്", "വൈകുന്നേരം", "വൈകുന്നേരം", "വൈകുന്നേരം", "സന്ധ്യയ്ക്ക്", "രാത്രി", "രാത്രി", "രാത്രി", "രാത്രി", "രാത്രി"},
-        {"dravidian", "kn", "Kannada", "ರಾತ್ರಿ", "ರಾತ್ರಿ", "ರಾತ್ರಿ", "ರಾತ್ರಿ", "ರಾತ್ರಿ", "ರಾತ್ರಿ", "ಬೆಳಗ್ಗೆ", "ಬೆಳಗ್ಗೆ", "ಬೆಳಗ್ಗೆ", "ಬೆಳಗ್ಗೆ", "ಬೆಳಗ್ಗೆ", "ಬೆಳಗ್ಗೆ", "ಮಧ್ಯಾಹ್ನ", "ಮಧ್ಯಾಹ್ನ", "ಮಧ್ಯಾಹ್ನ", "ಮಧ್ಯಾಹ್ನ", "ಮಧ್ಯಾಹ್ನ", "ಮಧ್ಯಾಹ್ನ", "ಸಂಜೆ", "ಸಂಜೆ", "ಸಂಜೆ", "ರಾತ್ರಿ", "ರಾತ್ರಿ", "ರಾತ್ರಿ"},
-        {"cjk", "zh", "Chinese", "凌晨", "凌晨", "凌晨", "凌晨", "凌晨", "早上", "早上", "早上", "上午", "上午", "上午", "上午", "中午", "下午", "下午", "下午", "下午", "下午", "下午", "晚上", "晚上", "晚上", "晚上", "晚上"},
-        {"cjk", "zh_Hant", "Traditional Chinese", "凌晨", "凌晨", "凌晨", "凌晨", "凌晨", "早上", "早上", "早上", "上午", "上午", "上午", "上午", "中午", "下午", "下午", "下午", "下午", "下午", "下午", "晚上", "晚上", "晚上", "晚上", "晚上"},
-        {"cjk", "zh-HK", "Chinese (Hong Kong)", "凌晨", "凌晨", "凌晨", "凌晨", "凌晨", "早上", "早上", "早上", "上午", "上午", "上午", "上午", "中午", "下午", "下午", "下午", "下午", "下午", "下午", "晚上", "晚上", "晚上", "晚上", "晚上"},
-        {"cjk", "ja", "Japanese", "夜中", "夜中", "夜中", "夜中", "明け方", "明け方", "朝", "朝", "朝", "午前", "午前", "午前", "午後", "午後", "午後", "午後", "夕方", "夕方", "夕方", "夜", "夜", "夜", "夜", "夜中"},
-        {"cjk", "ko", "Korean", "밤", "밤", "밤", "새벽", "새벽", "새벽", "오전", "오전", "오전", "오전", "오전", "오전", "오후", "오후", "오후", "오후", "오후", "오후", "저녁", "저녁", "저녁", "밤", "밤", "밤"},
-        {"turkic", "tr", "Turkish", "gece", "gece", "gece", "gece", "gece", "gece", "sabah", "sabah", "sabah", "sabah", "sabah", "öğleden önce", "öğleden sonra", "öğleden sonra", "öğleden sonra", "öğleden sonra", "öğleden sonra", "öğleden sonra", "akşamüstü", "akşam", "akşam", "gece", "gece", "gece"},
-        {"turkic", "az", "Azerbaijani", "gecə", "gecə", "gecə", "gecə", "sübh", "sübh", "səhər", "səhər", "səhər", "səhər", "səhər", "səhər", "gündüz", "gündüz", "gündüz", "gündüz", "gündüz", "axşamüstü", "axşamüstü", "axşam", "axşam", "axşam", "axşam", "axşam"},
-        {"turkic", "kk", "Kazakh", "түн", "түн", "түн", "түн", "түн", "түн", "таң", "таң", "таң", "таң", "таң", "таң", "түс", "түс", "түс", "түс", "түс", "түс", "кеш", "кеш", "кеш", "түн", "түн", "түн"},
-        {"turkic", "ky", "Kyrgyz", "түн", "түн", "түн", "түн", "түн", "түн", "эртең менен", "эртең менен", "эртең менен", "эртең менен", "эртең менен", "эртең менен", "түштөн кийин", "түштөн кийин", "түштөн кийин", "түштөн кийин", "түштөн кийин", "түштөн кийин", "кечкурун", "кечкурун", "кечкурун", "түн", "түн", "түн"},
-        {"turkic", "uz", "Uzbek", "tun", "tun", "tun", "tun", "tun", "tun", "ertalab", "ertalab", "ertalab", "ertalab", "ertalab", "kunduz", "kunduz", "kunduz", "kunduz", "kunduz", "kunduz", "kunduz", "kechqurun", "kechqurun", "kechqurun", "kechqurun", "tun", "tun"},
-        {"uralic", "et", "Estonian", "öö", "öö", "öö", "öö", "öö", "hommik", "hommik", "hommik", "hommik", "hommik", "hommik", "hommik", "pärastlõuna", "pärastlõuna", "pärastlõuna", "pärastlõuna", "pärastlõuna", "pärastlõuna", "õhtu", "õhtu", "õhtu", "õhtu", "õhtu", "öö"},
-        {"uralic", "fi", "b", "yö", "yö", "yö", "yö", "yö", "aamu", "aamu", "aamu", "aamu", "aamu", "aamupäivä", "aamupäivä", "iltapäivä", "iltapäivä", "iltapäivä", "iltapäivä", "iltapäivä", "iltapäivä", "ilta", "ilta", "ilta", "ilta", "ilta", "yö"},
-        {"uralic", "hu", "Hungarian", "éjjel", "éjjel", "éjjel", "éjjel", "hajnal", "hajnal", "reggel", "reggel", "reggel", "délelőtt", "délelőtt", "délelőtt", "délután", "délután", "délután", "délután", "délután", "délután", "este", "este", "este", "éjjel", "éjjel", "éjjel"},
-        {"tai", "th", "Thai", "กลางคืน", "กลางคืน", "กลางคืน", "กลางคืน", "กลางคืน", "กลางคืน", "เช้า", "เช้า", "เช้า", "เช้า", "เช้า", "เช้า", "เที่ยง", "บ่าย", "บ่าย", "บ่าย", "เย็น", "เย็น", "ค่ำ", "ค่ำ", "ค่ำ", "กลางคืน", "กลางคืน", "กลางคืน"},
-        {"tai", "lo", "Lao", "​ກາງ​ຄືນ", "​ກາງ​ຄືນ", "​ກາງ​ຄືນ", "​ກາງ​ຄືນ", "​ກາງ​ຄືນ", "​ເຊົ້າ", "​ເຊົ້າ", "​ເຊົ້າ", "​ເຊົ້າ", "​ເຊົ້າ", "​ເຊົ້າ", "​ເຊົ້າ", "​ສວາຍ", "​ສວາຍ", "​ສວາຍ", "​ສວາຍ", "ແລງ", "​ແລງ", "​ແລງ", "​ແລງ", "​ຄ່ຳ", "​ຄ່ຳ", "​ຄ່ຳ", "​ຄ່ຳ"},
-        {"semitic", "ar", "Arabic", " منتصف الليل", "ليلا", "ليلا", "فجرا", "فجرا", "فجرا", "صباحا", "صباحا", "صباحا", "صباحا", "صباحا", "صباحا", "ظهرا", "بعد الظهر", "بعد الظهر", "بعد الظهر", "بعد الظهر", "بعد الظهر", "مساء", "مساء", "مساء", "مساء", "مساء", "مساء"},
-        {"semitic", "he", "Hebrew", "לילה", "לילה", "לילה", "לילה", "לילה", "בוקר", "בוקר", "בוקר", "בוקר", "בוקר", "בוקר", "צהריים", "צהריים", "צהריים", "צהריים", "אחר הצהריים", "אחר הצהריים", "אחר הצהריים", "ערב", "ערב", "ערב", "ערב", "לילה", "לילה"},
-        {"malayic", "id", "Indonesian", "pagi", "pagi", "pagi", "pagi", "pagi", "pagi", "pagi", "pagi", "pagi", "pagi", "siang", "siang", "siang", "siang", "siang", "sore", "sore", "sore", "malam", "malam", "malam", "malam", "malam", "malam"},
-        {"malayic", "ms", "Malay", "tengah malam", "pagi", "pagi", "pagi", "pagi", "pagi", "pagi", "pagi", "pagi", "pagi", "pagi", "pagi", "tengah hari", "tengah hari", "petang", "petang", "petang", "petang", "petang", "malam", "malam", "malam", "malam", "malam"},
-        {"malayic", "fil", "Filipino", "madaling-araw", "madaling-araw", "madaling-araw", "madaling-araw", "madaling-araw", "madaling-araw", "umaga", "umaga", "umaga", "umaga", "umaga", "umaga", "tanghali", "tanghali", "tanghali", "tanghali", "hapon", "hapon", "gabi", "gabi", "gabi", "gabi", "gabi", "gabi"},
-        {"austroasiatic", "vi", "Vietnamese", "đêm", "đêm", "đêm", "đêm", "sáng", "sáng", "sáng", "sáng", "sáng", "sáng", "sáng", "sáng", "chiều", "chiều", "chiều", "chiều", "chiều", "chiều", "tối", "tối", "tối", "đêm", "đêm", "đêm"},
-        {"austroasiatic", "km", "Khmer", "ព្រឹក", "ព្រឹក", "ព្រឹក", "ព្រឹក", "ព្រឹក", "ព្រឹក", "ព្រឹក", "ព្រឹក", "ព្រឹក", "ព្រឹក", "ព្រឹក", "ព្រឹក", "រសៀល", "រសៀល", "រសៀល", "រសៀល", "រសៀល", "រសៀល", "ល្ងាច", "ល្ងាច", "ល្ងាច", "យប់", "យប់", "យប់"},
-        {"other", "sw", "Swahili", "usiku", "usiku", "usiku", "usiku", "alfajiri", "alfajiri", "alfajiri", "asubuhi", "asubuhi", "asubuhi", "asubuhi", "asubuhi", "mchana", "mchana", "mchana", "mchana", "jioni", "jioni", "jioni", "usiku", "usiku", "usiku", "usiku", "usiku"},
-        {"other", "zu", "Zulu", "ntathakusa", "ntathakusa", "ntathakusa", "ntathakusa", "ntathakusa", "ntathakusa", "ekuseni", "ekuseni", "ekuseni", "ekuseni", "emini", "emini", "emini", "ntambama", "ntambama", "ntambama", "ntambama", "ntambama", "ntambama", "ebusuku", "ebusuku", "ebusuku", "ebusuku", "ebusuku"},
-        {"other", "am", "Amharic", "ሌሊት", "ሌሊት", "ሌሊት", "ሌሊት", "ሌሊት", "ሌሊት", "ጥዋት", "ጥዋት", "ጥዋት", "ጥዋት", "ጥዋት", "ጥዋት", "ከሰዓት በኋላ", "ከሰዓት በኋላ", "ከሰዓት በኋላ", "ከሰዓት በኋላ", "ከሰዓት በኋላ", "ከሰዓት በኋላ", "ማታ", "ማታ", "ማታ", "ማታ", "ማታ", "ማታ"},
-        {"other", "eu", "Basque", "goizaldea", "goizaldea", "goizaldea", "goizaldea", "goizaldea", "goizaldea", "goiza", "goiza", "goiza", "goiza", "goiza", "goiza", "eguerdia", "eguerdia", "arratsaldea", "arratsaldea", "arratsaldea", "arratsaldea", "arratsaldea", "arratsaldea", "arratsaldea", "gaua", "gaua", "gaua"},
-        {"other", "mn", "Mongolian", "шөнө", "шөнө", "шөнө", "шөнө", "шөнө", "шөнө", "өглөө", "өглөө", "өглөө", "өглөө", "өглөө", "өглөө", "өдөр", "өдөр", "өдөр", "өдөр", "өдөр", "өдөр", "орой", "орой", "орой", "шөнө", "шөнө", "шөнө"},
-        {"other", "my", "Burmese", "နံနက်", "နံနက်", "နံနက်", "နံနက်", "နံနက်", "နံနက်", "နံနက်", "နံနက်", "နံနက်", "နံနက်", "နံနက်", "နံနက်", "နေ့လည်", "နေ့လည်", "နေ့လည်", "နေ့လည်", "ညနေ", "ညနေ", "ညနေ", "ည", "ည", "ည", "ည", "ည"},    };
+        {"en", "0", "NIGHT1", "night"},
+        {"en", "6", "MORNING1", "morning"},
+        {"en", "12", "AFTERNOON1", "afternoon"},
+        {"en", "18", "EVENING1", "evening"},
+        {"en", "21", "NIGHT1", "night"},
+        {"af", "0", "NIGHT1", "nag"},
+        {"af", "5", "MORNING1", "oggend"},
+        {"af", "12", "AFTERNOON1", "middag"},
+        {"af", "18", "EVENING1", "aand"},
+        {"nl", "0", "NIGHT1", "nacht"},
+        {"nl", "6", "MORNING1", "ochtend"},
+        {"nl", "12", "AFTERNOON1", "middag"},
+        {"nl", "18", "EVENING1", "avond"},
+        {"de", "0", "NIGHT1", "Nacht"},
+        {"de", "5", "MORNING1", "Morgen"},
+        {"de", "10", "MORNING2", "Vormittag"},
+        {"de", "12", "AFTERNOON1", "Mittag"},
+        {"de", "13", "AFTERNOON2", "Nachmittag"},
+        {"de", "18", "EVENING1", "Abend"},
+        {"da", "0", "NIGHT1", "nat"},
+        {"da", "5", "MORNING1", "morgen"},
+        {"da", "10", "MORNING2", "formiddag"},
+        {"da", "12", "AFTERNOON1", "eftermiddag"},
+        {"da", "18", "EVENING1", "aften"},
+        {"nb", "0", "NIGHT1", "natt"},
+        {"nb", "6", "MORNING1", "morgen"},
+        {"nb", "10", "MORNING2", "formiddag"},
+        {"nb", "12", "AFTERNOON1", "ettermiddag"},
+        {"nb", "18", "EVENING1", "kveld"},
+        {"sv", "0", "NIGHT1", "natt"},
+        {"sv", "5", "MORNING1", "morgon"},
+        {"sv", "10", "MORNING2", "förmiddag"},
+        {"sv", "12", "AFTERNOON1", "eftermiddag"},
+        {"sv", "18", "EVENING1", "kväll"},
+        {"is", "0", "NIGHT1", "nótt"},
+        {"is", "6", "MORNING1", "morgunn"},
+        {"is", "12", "AFTERNOON1", "eftir hádegi"},
+        {"is", "18", "EVENING1", "kvöld"},
+        {"pt", "0", "NIGHT1", "madrugada"},
+        {"pt", "6", "MORNING1", "manhã"},
+        {"pt", "12", "AFTERNOON1", "tarde"},
+        {"pt", "19", "EVENING1", "noite"},
+        {"gl", "0", "MORNING1", "madrugada"},
+        {"gl", "6", "MORNING2", "mañá"},
+        {"gl", "12", "AFTERNOON1", "mediodía"},
+        {"gl", "13", "EVENING1", "tarde"},
+        {"gl", "21", "NIGHT1", "noite"},
+        {"es", "0", "MORNING1", "madrugada"},
+        {"es", "6", "MORNING2", "mañana"},
+        {"es", "12", "EVENING1", "tarde"},
+        {"es", "20", "NIGHT1", "noche"},
+        {"ca", "0", "MORNING1", "matinada"},
+        {"ca", "6", "MORNING2", "matí"},
+        {"ca", "12", "AFTERNOON1", "migdia"},
+        {"ca", "13", "AFTERNOON2", "tarda"},
+        {"ca", "19", "EVENING1", "vespre"},
+        {"ca", "21", "NIGHT1", "nit"},
+        {"it", "0", "NIGHT1", "notte"},
+        {"it", "6", "MORNING1", "mattina"},
+        {"it", "12", "AFTERNOON1", "pomeriggio"},
+        {"it", "18", "EVENING1", "sera"},
+        {"ro", "0", "NIGHT1", "noapte"},
+        {"ro", "5", "MORNING1", "dimineață"},
+        {"ro", "12", "AFTERNOON1", "după-amiază"},
+        {"ro", "18", "EVENING1", "seară"},
+        {"ro", "22", "NIGHT1", "noapte"},
+        {"fr", "0", "NIGHT1", "nuit"},
+        {"fr", "4", "MORNING1", "matin"},
+        {"fr", "12", "AFTERNOON1", "après-midi"},
+        {"fr", "18", "EVENING1", "soir"},
+        {"hr", "0", "NIGHT1", "noć"},
+        {"hr", "4", "MORNING1", "jutro"},
+        {"hr", "12", "AFTERNOON1", "popodne"},
+        {"hr", "18", "EVENING1", "večer"},
+        {"hr", "21", "NIGHT1", "noć"},
+        {"bs", "0", "NIGHT1", "noć"},
+        {"bs", "4", "MORNING1", "jutro"},
+        {"bs", "12", "AFTERNOON1", "popodne"},
+        {"bs", "18", "EVENING1", "veče"},
+        {"bs", "21", "NIGHT1", "noć"},
+        {"sr", "0", "NIGHT1", "ноћ"},
+        {"sr", "6", "MORNING1", "јутро"},
+        {"sr", "12", "AFTERNOON1", "поподне"},
+        {"sr", "18", "EVENING1", "вече"},
+        {"sr", "21", "NIGHT1", "ноћ"},
+        {"sl", "0", "NIGHT1", "noč"},
+        {"sl", "6", "MORNING1", "jutro"},
+        {"sl", "10", "MORNING2", "dopoldne"},
+        {"sl", "12", "AFTERNOON1", "popoldne"},
+        {"sl", "18", "EVENING1", "večer"},
+        {"sl", "22", "NIGHT1", "noč"},
+        {"cs", "0", "NIGHT1", "noc"},
+        {"cs", "4", "MORNING1", "ráno"},
+        {"cs", "9", "MORNING2", "dopoledne"},
+        {"cs", "12", "AFTERNOON1", "odpoledne"},
+        {"cs", "18", "EVENING1", "večer"},
+        {"cs", "22", "NIGHT1", "noc"},
+        {"sk", "0", "NIGHT1", "noc"},
+        {"sk", "4", "MORNING1", "ráno"},
+        {"sk", "9", "MORNING2", "dopoludnie"},
+        {"sk", "12", "AFTERNOON1", "popoludnie"},
+        {"sk", "18", "EVENING1", "večer"},
+        {"sk", "22", "NIGHT1", "noc"},
+        {"pl", "0", "NIGHT1", "noc"},
+        {"pl", "6", "MORNING1", "rano"},
+        {"pl", "10", "MORNING2", "przedpołudnie"},
+        {"pl", "12", "AFTERNOON1", "popołudnie"},
+        {"pl", "18", "EVENING1", "wieczór"},
+        {"pl", "21", "NIGHT1", "noc"},
+        {"bg", "0", "NIGHT1", "нощ"},
+        {"bg", "4", "MORNING1", "сутринта"},
+        {"bg", "11", "MORNING2", "на обяд"},
+        {"bg", "14", "AFTERNOON1", "следобяд"},
+        {"bg", "18", "EVENING1", "вечерта"},
+        {"bg", "22", "NIGHT1", "нощ"},
+        {"mk", "0", "NIGHT1", "по полноќ"},
+        {"mk", "4", "MORNING1", "наутро"},
+        {"mk", "10", "MORNING2", "претпладне"},
+        {"mk", "12", "AFTERNOON1", "попладне"},
+        {"mk", "18", "EVENING1", "навечер"},
+        {"ru", "0", "NIGHT1", "ночь"},
+        {"ru", "4", "MORNING1", "утро"},
+        {"ru", "12", "AFTERNOON1", "день"},
+        {"ru", "18", "EVENING1", "вечер"},
+        {"uk", "0", "NIGHT1", "ніч"},
+        {"uk", "4", "MORNING1", "ранок"},
+        {"uk", "12", "AFTERNOON1", "день"},
+        {"uk", "18", "EVENING1", "вечір"},
+        {"lt", "0", "NIGHT1", "naktis"},
+        {"lt", "6", "MORNING1", "rytas"},
+        {"lt", "12", "AFTERNOON1", "diena"},
+        {"lt", "18", "EVENING1", "vakaras"},
+        {"lv", "0", "NIGHT1", "nakts"},
+        {"lv", "6", "MORNING1", "rīts"},
+        {"lv", "12", "AFTERNOON1", "pēcpusdiena"},
+        {"lv", "18", "EVENING1", "vakars"},
+        {"lv", "23", "NIGHT1", "nakts"},
+        {"el", "0", "NIGHT1", "βράδυ"},
+        {"el", "4", "MORNING1", "πρωί"},
+        {"el", "12", "AFTERNOON1", "μεσημέρι"},
+        {"el", "17", "EVENING1", "απόγευμα"},
+        {"el", "20", "NIGHT1", "βράδυ"},
+        {"fa", "0", "NIGHT1", "شب"},
+        {"fa", "4", "MORNING1", "صبح"},
+        {"fa", "12", "AFTERNOON1", "بعد از ظهر"},
+        {"fa", "17", "EVENING1", "عصر"},
+        {"fa", "19", "NIGHT1", "شب"},
+        {"hy", "0", "NIGHT1", "գիշեր"},
+        {"hy", "6", "MORNING1", "առավոտ"},
+        {"hy", "12", "AFTERNOON1", "ցերեկ"},
+        {"hy", "18", "EVENING1", "երեկո"},
+        {"ka", "0", "NIGHT1", "ღამე"},
+        {"ka", "5", "MORNING1", "დილა"},
+        {"ka", "12", "AFTERNOON1", "ნაშუადღევი"},
+        {"ka", "18", "EVENING1", "საღამო"},
+        {"ka", "21", "NIGHT1", "ღამე"},
+        {"sq", "0", "NIGHT1", "natë"},
+        {"sq", "4", "MORNING1", "mëngjes"},
+        {"sq", "9", "MORNING2", "paradite"},
+        {"sq", "12", "AFTERNOON1", "pasdite"},
+        {"sq", "18", "EVENING1", "mbrëmje"},
+        {"ur", "0", "NIGHT1", "رات"},
+        {"ur", "4", "MORNING1", "صبح"},
+        {"ur", "12", "AFTERNOON1", "دوپہر"},
+        {"ur", "16", "AFTERNOON2", "سہ پہر"},
+        {"ur", "18", "EVENING1", "شام"},
+        {"ur", "20", "NIGHT1", "رات"},
+        {"hi", "0", "NIGHT1", "रात"},
+        {"hi", "4", "MORNING1", "सुबह"},
+        {"hi", "12", "AFTERNOON1", "दोपहर"},
+        {"hi", "16", "EVENING1", "शाम"},
+        {"hi", "20", "NIGHT1", "रात"},
+        {"bn", "0", "NIGHT1", "রাত্রি"},
+        {"bn", "4", "MORNING1", "ভোর"},
+        {"bn", "6", "MORNING2", "সকাল"},
+        {"bn", "12", "AFTERNOON1", "দুপুর"},
+        {"bn", "16", "AFTERNOON2", "বিকাল"},
+        {"bn", "18", "EVENING1", "সন্ধ্যা"},
+        {"bn", "20", "NIGHT1", "রাত্রি"},
+        {"gu", "0", "NIGHT1", "રાત"},
+        {"gu", "4", "MORNING1", "સવાર"},
+        {"gu", "12", "AFTERNOON1", "બપોર"},
+        {"gu", "16", "EVENING1", "સાંજ"},
+        {"gu", "20", "NIGHT1", "રાત"},
+        {"mr", "0", "NIGHT1", "रात्री"},
+        {"mr", "3", "NIGHT2", "रात्र"},
+        {"mr", "4", "MORNING1", "पहाटे"},
+        {"mr", "6", "MORNING2", "सकाळी"},
+        {"mr", "12", "AFTERNOON1", "दुपारी"},
+        {"mr", "16", "EVENING1", "संध्याकाळी"},
+        {"mr", "20", "NIGHT1", "रात्री"},
+        {"ne", "0", "NIGHT1", "रात"},
+        {"ne", "4", "MORNING1", "विहान"},
+        {"ne", "12", "AFTERNOON1", "अपरान्ह"},
+        {"ne", "16", "AFTERNOON2", "साँझ"},
+        {"ne", "19", "EVENING1", "बेलुका"},
+        {"ne", "22", "NIGHT1", "रात"},
+        {"pa", "0", "NIGHT1", "ਰਾਤ"},
+        {"pa", "4", "MORNING1", "ਸਵੇਰ"},
+        {"pa", "12", "AFTERNOON1", "ਦੁਪਹਿਰ"},
+        {"pa", "16", "EVENING1", "ਸ਼ਾਮ"},
+        {"pa", "21", "NIGHT1", "ਰਾਤ"},
+        {"si", "0", "NIGHT2", "මැදියමට පසු"},
+        {"si", "1", "MORNING1", "පාන්දර"},
+        {"si", "6", "MORNING2", "උදේ"},
+        {"si", "12", "AFTERNOON1", "දවල්"},
+        {"si", "14", "EVENING1", "හවස"},
+        {"si", "18", "NIGHT1", "රෑ"},
+        {"ta", "0", "NIGHT1", "இரவு"},
+        {"ta", "3", "MORNING1", "அதிகாலை"},
+        {"ta", "5", "MORNING2", "காலை"},
+        {"ta", "12", "AFTERNOON1", "மதியம்"},
+        {"ta", "14", "AFTERNOON2", "பிற்பகல்"},
+        {"ta", "16", "EVENING1", "மாலை"},
+        {"ta", "18", "EVENING2", "அந்தி மாலை"},
+        {"ta", "21", "NIGHT1", "இரவு"},
+        {"te", "0", "NIGHT1", "రాత్రి"},
+        {"te", "6", "MORNING1", "ఉదయం"},
+        {"te", "12", "AFTERNOON1", "మధ్యాహ్నం"},
+        {"te", "18", "EVENING1", "సాయంత్రం"},
+        {"te", "21", "NIGHT1", "రాత్రి"},
+        {"ml", "0", "NIGHT1", "രാത്രി"},
+        {"ml", "3", "MORNING1", "പുലർച്ചെ"},
+        {"ml", "6", "MORNING2", "രാവിലെ"},
+        {"ml", "12", "AFTERNOON1", "ഉച്ചയ്ക്ക്"},
+        {"ml", "14", "AFTERNOON2", "ഉച്ചതിരിഞ്ഞ്"},
+        {"ml", "15", "EVENING1", "വൈകുന്നേരം"},
+        {"ml", "18", "EVENING2", "സന്ധ്യയ്ക്ക്"},
+        {"ml", "19", "NIGHT1", "രാത്രി"},
+        {"kn", "0", "NIGHT1", "ರಾತ್ರಿ"},
+        {"kn", "6", "MORNING1", "ಬೆಳಗ್ಗೆ"},
+        {"kn", "12", "AFTERNOON1", "ಮಧ್ಯಾಹ್ನ"},
+        {"kn", "18", "EVENING1", "ಸಂಜೆ"},
+        {"kn", "21", "NIGHT1", "ರಾತ್ರಿ"},
+        {"zh", "0", "NIGHT1", "凌晨"},
+        {"zh", "5", "MORNING1", "早上"},
+        {"zh", "8", "MORNING2", "上午"},
+        {"zh", "12", "AFTERNOON1", "中午"},
+        {"zh", "13", "AFTERNOON2", "下午"},
+        {"zh", "19", "EVENING1", "晚上"},
+        {"ja", "0", "NIGHT2", "夜中"},
+        {"ja", "4", "MORNING1", "朝"},
+        {"ja", "12", "AFTERNOON1", "昼"},
+        {"ja", "16", "EVENING1", "夕方"},
+        {"ja", "19", "NIGHT1", "夜"},
+        {"ja", "23", "NIGHT2", "夜中"},
+        {"ko", "0", "NIGHT1", "밤"},
+        {"ko", "3", "MORNING1", "새벽"},
+        {"ko", "6", "MORNING2", "오전"},
+        {"ko", "12", "AFTERNOON1", "오후"},
+        {"ko", "18", "EVENING1", "저녁"},
+        {"ko", "21", "NIGHT1", "밤"},
+        {"tr", "0", "NIGHT1", "gece"},
+        {"tr", "6", "MORNING1", "sabah"},
+        {"tr", "11", "MORNING2", "öğleden önce"},
+        {"tr", "12", "AFTERNOON1", "öğleden sonra"},
+        {"tr", "18", "AFTERNOON2", "akşamüstü"},
+        {"tr", "19", "EVENING1", "akşam"},
+        {"tr", "21", "NIGHT1", "gece"},
+        {"az", "0", "NIGHT2", "gecə"},
+        {"az", "4", "MORNING1", "sübh"},
+        {"az", "6", "MORNING2", "səhər"},
+        {"az", "12", "AFTERNOON1", "gündüz"},
+        {"az", "17", "EVENING1", "axşamüstü"},
+        {"az", "19", "NIGHT1", "axşam"},
+        {"kk", "0", "NIGHT1", "түн"},
+        {"kk", "6", "MORNING1", "таң"},
+        {"kk", "12", "AFTERNOON1", "түс"},
+        {"kk", "18", "EVENING1", "кеш"},
+        {"kk", "21", "NIGHT1", "түн"},
+        {"ky", "0", "NIGHT1", "түн"},
+        {"ky", "6", "MORNING1", "эртең менен"},
+        {"ky", "12", "AFTERNOON1", "түштөн кийин"},
+        {"ky", "18", "EVENING1", "кечкурун"},
+        {"ky", "21", "NIGHT1", "түн"},
+        {"uz", "0", "NIGHT1", "tun"},
+        {"uz", "6", "MORNING1", "ertalab"},
+        {"uz", "11", "AFTERNOON1", "kunduzi"},
+        {"uz", "18", "EVENING1", "kechqurun"},
+        {"uz", "22", "NIGHT1", "tun"},
+        {"et", "0", "NIGHT1", "öö"},
+        {"et", "5", "MORNING1", "hommik"},
+        {"et", "12", "AFTERNOON1", "pärastlõuna"},
+        {"et", "18", "EVENING1", "õhtu"},
+        {"et", "23", "NIGHT1", "öö"},
+        {"fi", "0", "NIGHT1", "yö"},
+        {"fi", "5", "MORNING1", "aamu"},
+        {"fi", "10", "MORNING2", "aamupäivä"},
+        {"fi", "12", "AFTERNOON1", "iltapäivä"},
+        {"fi", "18", "EVENING1", "ilta"},
+        {"fi", "23", "NIGHT1", "yö"},
+        {"hu", "0", "NIGHT1", "éjjel"},
+        {"hu", "4", "NIGHT2", "hajnal"},
+        {"hu", "6", "MORNING1", "reggel"},
+        {"hu", "9", "MORNING2", "délelőtt"},
+        {"hu", "12", "AFTERNOON1", "délután"},
+        {"hu", "18", "EVENING1", "este"},
+        {"hu", "21", "NIGHT1", "éjjel"},
+        {"th", "0", "NIGHT1", "กลางคืน"},
+        {"th", "6", "MORNING1", "เช้า"},
+        {"th", "12", "AFTERNOON1", "เที่ยง"},
+        {"th", "13", "AFTERNOON2", "บ่าย"},
+        {"th", "16", "EVENING1", "เย็น"},
+        {"th", "18", "EVENING2", "ค่ำ"},
+        {"th", "21", "NIGHT1", "กลางคืน"},
+        {"lo", "0", "NIGHT1", "​ກາງ​ຄືນ"},
+        {"lo", "5", "MORNING1", "​ເຊົ້າ"},
+        {"lo", "12", "AFTERNOON1", "ສວຍ"},
+        {"lo", "16", "EVENING1", "ແລງ"},
+        {"lo", "17", "EVENING2", "​ແລງ"},
+        {"lo", "20", "NIGHT1", "​ກາງ​ຄືນ"}, // "ກາງ​ຄືນ"},
+        {"ar", "0", "NIGHT1", "منتصف الليل"},
+        {"ar", "1", "NIGHT2", "ليلا"},
+        {"ar", "3", "MORNING1", "فجرا"},
+        {"ar", "6", "MORNING2", "صباحا"},
+        {"ar", "12", "AFTERNOON1", "ظهرا"},
+        {"ar", "13", "AFTERNOON2", "بعد الظهر"},
+        {"ar", "18", "EVENING1", "مساء"},
+        {"he", "0", "NIGHT1", "לילה"},
+        {"he", "5", "MORNING1", "בוקר"},
+        {"he", "11", "AFTERNOON1", "צהריים"},
+        {"he", "15", "AFTERNOON2", "אחר הצהריים"},
+        {"he", "18", "EVENING1", "ערב"},
+        {"he", "22", "NIGHT1", "לילה"},
+        {"id", "0", "MORNING1", "pagi"},
+        {"id", "10", "AFTERNOON1", "siang"},
+        {"id", "15", "EVENING1", "sore"},
+        {"id", "18", "NIGHT1", "malam"},
+        {"ms", "0", "MORNING1", "tengah malam"},
+        {"ms", "1", "MORNING2", "pagi"},
+        {"ms", "12", "AFTERNOON1", "tengah hari"},
+        {"ms", "14", "EVENING1", "petang"},
+        {"ms", "19", "NIGHT1", "malam"},
+        {"fil", "0", "MORNING1", "madaling-araw"},
+        {"fil", "6", "MORNING2", "umaga"},
+        {"fil", "12", "AFTERNOON1", "tanghali"},
+        {"fil", "16", "EVENING1", "hapon"},
+        {"fil", "18", "NIGHT1", "gabi"},
+        {"vi", "0", "NIGHT1", "đêm"},
+        {"vi", "4", "MORNING1", "sáng"},
+        {"vi", "12", "AFTERNOON1", "chiều"},
+        {"vi", "18", "EVENING1", "tối"},
+        {"vi", "21", "NIGHT1", "đêm"},
+        {"km", "0", "MORNING1", "ព្រឹក"},
+        {"km", "12", "AFTERNOON1", "រសៀល"},
+        {"km", "18", "EVENING1", "ល្ងាច"},
+        {"km", "21", "NIGHT1", "យប់"},
+        {"sw", "0", "NIGHT1", "usiku"},
+        {"sw", "4", "MORNING1", "alfajiri"},
+        {"sw", "7", "MORNING2", "asubuhi"},
+        {"sw", "12", "AFTERNOON1", "mchana"},
+        {"sw", "16", "EVENING1", "jioni"},
+        {"sw", "19", "NIGHT1", "usiku"},
+        {"zu", "0", "MORNING1", "ntathakusa"},
+        {"zu", "6", "MORNING2", "ekuseni"},
+        {"zu", "10", "AFTERNOON1", "emini"},
+        {"zu", "13", "EVENING1", "ntambama"},
+        {"zu", "19", "NIGHT1", "ebusuku"},
+        {"am", "0", "NIGHT1", "ሌሊት"},
+        {"am", "6", "MORNING1", "ጥዋት"},
+        {"am", "12", "AFTERNOON1", "ከሰዓት በኋላ"},
+        {"am", "18", "EVENING1", "ማታ"},
+        {"eu", "0", "MORNING1", "goizaldea"},
+        {"eu", "6", "MORNING2", "goiza"},
+        {"eu", "12", "AFTERNOON1", "eguerdia"},
+        {"eu", "14", "AFTERNOON2", "arratsaldea"},
+        {"eu", "19", "EVENING1", "iluntzea"},
+        {"eu", "21", "NIGHT1", "gaua"},
+        {"mn", "0", "NIGHT1", "шөнө"},
+        {"mn", "6", "MORNING1", "өглөө"},
+        {"mn", "12", "AFTERNOON1", "өдөр"},
+        {"mn", "18", "EVENING1", "орой"},
+        {"mn", "21", "NIGHT1", "шөнө"},
+        {"my", "0", "MORNING1", "နံနက်"},
+        {"my", "12", "AFTERNOON1", "နေ့လည်"},
+        {"my", "16", "EVENING1", "ညနေ"},
+        {"my", "19", "NIGHT1", "ည"},
+    };
 
-    public enum DayPeriod {EARLY_MORNING, MORNING, EARLY_AFTERNOON, AFTERNOON, EARLY_EVENING, EVENING, NIGHT, LATE_NIGHT}
-
-    static final Map<ULocale,DayPeriod[]> DATA;
-    static {
-        Map<ULocale,DayPeriod[]> temp  = new LinkedHashMap<>();
-        EnumSet<DayPeriod> missing = EnumSet.allOf(DayPeriod.class);
-        for (String[] x : RAW_DATA) {
-            String locale = (String) x[1];
-            if (locale.contains("-") || locale.contains("_")) {
-                continue;
-            }
-            Relation<String,Integer> raw = Relation.of(new TreeMap<String,Set<Integer>>(), TreeSet.class);
-            Set<String> am = new LinkedHashSet<>();
-            Set<String> pm = new LinkedHashSet<>();
-            for (int i=0; i < x.length-3; ++i) {
-                String value = x[i+3];
-                raw.put(value, i);
-                if (i < 12) {
-                    am.add(value);
-                } else {
-                    pm.add(value);
+    static class DayInfo {
+        ULocale locale;
+        DayPeriods.DayPeriod[] data = new DayPeriod[24];
+        Map<DayPeriod,String> toNativeName = new EnumMap<DayPeriod,String>(DayPeriod.class);
+        Map<String, DayPeriod> toDayPeriod = new HashMap<String,DayPeriod>();
+        @Override
+        public String toString() {
+            String result = "make(\"" + locale + "\"";
+            DayPeriod lastDayPeriod = null;
+            for (int i = 0; i < 24; ++i) {
+                DayPeriod dayPeriod = data[i];
+                if (dayPeriod != lastDayPeriod) {
+                    result += ")\n.add(\""
+                        + dayPeriod
+                        + "\", \""
+                        + toNativeName.get(dayPeriod)
+                        + "\"";
+                    lastDayPeriod = dayPeriod;
                 }
+                result += ", " + i;
             }
-            // handle overlaps
-            am.removeAll(pm);
-            if (am.size() > 3) {
-                am.remove(x[0+3]);
-                pm.add(x[0+3]);
-            }
-//            if (am.contains(x[12+3]) && pm.contains(x[12+3])) {
-//                am.remove(x[12+3]); // keep afternoon in PM
-//            }
-//            if (am.contains(x[0+3]) && (pm.contains(x[0+3]) || am.size() > 3)) {
-//                am.remove(x[0+3]); // keep night in PM
-//            }
-            ArrayList<String> amList = new ArrayList<>(am);
-            ArrayList<String> pmList = new ArrayList<>(pm);
-            Map<DayPeriod,String> result = new EnumMap<DayPeriod,String>(DayPeriod.class);
-            switch(amList.size()) {
-            case 1: 
-                put(result,amList.get(0), DayPeriod.MORNING); 
-                break;
-            case 2: 
-                put(result,amList.get(0), DayPeriod.EARLY_MORNING); 
-                put(result,amList.get(1), DayPeriod.MORNING); 
-                break;
-            case 3: 
-                put(result,amList.get(0), DayPeriod.LATE_NIGHT); 
-                put(result,amList.get(1), DayPeriod.EARLY_MORNING); 
-                put(result,amList.get(2), DayPeriod.MORNING); 
-                break;
-//            case 4: 
-//                put(result,amList.get(0), DayPeriod.LATE_NIGHT); 
-//                put(result,amList.get(1), DayPeriod.EARLY_MORNING); 
-//                put(result,amList.get(2), DayPeriod.MORNING); 
-//                break;
-            default:
-                throw new IllegalArgumentException(locale + " Too many items in am: " + amList);
-            }
-            switch(pmList.size()) {
-            case 1: 
-                put(result,pmList.get(0), DayPeriod.AFTERNOON); 
-                break;
-            case 2: 
-                put(result,pmList.get(0), DayPeriod.AFTERNOON); 
-                put(result,pmList.get(1), DayPeriod.EVENING); 
-                break;
-            case 3: 
-                put(result,pmList.get(0), DayPeriod.AFTERNOON); 
-                put(result,pmList.get(1), DayPeriod.EVENING); 
-                put(result,pmList.get(2), DayPeriod.NIGHT); 
-                break;
-            case 4: 
-                put(result,pmList.get(0), DayPeriod.EARLY_AFTERNOON); 
-                put(result,pmList.get(1), DayPeriod.AFTERNOON); 
-                put(result,pmList.get(2), DayPeriod.EVENING); 
-                put(result,pmList.get(3), DayPeriod.NIGHT); 
-                break;
-            case 5: 
-                put(result,pmList.get(0), DayPeriod.EARLY_AFTERNOON); 
-                put(result,pmList.get(1), DayPeriod.AFTERNOON); 
-                put(result,pmList.get(2), DayPeriod.EARLY_EVENING); 
-                put(result,pmList.get(3), DayPeriod.EVENING); 
-                put(result,pmList.get(4), DayPeriod.NIGHT); 
-                break;
-            default:
-                throw new IllegalArgumentException(locale + "Too many items in pm: " + pmList);
-            }
-            fix(result, DayPeriod.LATE_NIGHT, DayPeriod.NIGHT);
-            fix(result, DayPeriod.EARLY_MORNING, DayPeriod.NIGHT);
-            fix(result, DayPeriod.EARLY_AFTERNOON, DayPeriod.AFTERNOON);
-            fix(result, DayPeriod.EARLY_EVENING, DayPeriod.EVENING);
-            Set<Integer> hoursSoFar = new TreeSet<Integer>();
-            if (TO_CODE) {
-                System.out.println("\t\tmake(\"" + locale + "\")");
-                for (Entry<DayPeriod, String> entry : result.entrySet()) {
-                    missing.remove(entry.getKey());
-                    Set<Integer> hours = raw.get(entry.getValue());
-                    System.out.println("\t\t.add(\"" + entry.getKey() 
-                        + "\", \"" + entry.getValue()
-                        + "\", " + CollectionUtilities.join(hours, ", ")
-                        + ")"
-                        );
-                    hoursSoFar.addAll(hours);
-                }
-                if (hoursSoFar.size() != 24) {
-                    System.out.println("Missing!");
-                }
-                System.out.println("\t\t.build();");
-            } else {
-                for (Entry<DayPeriod, String> entry : result.entrySet()) {
-                    missing.remove(entry.getKey());
-                    System.out.println(locale + "\t" + entry.getValue() + "\t" + entry.getKey() + "\t\t" + raw.get(entry.getValue()));
-                }
-            }
-            System.out.println();
-//            DayPeriod[] map = new DayPeriod[24];
-//            temp.put(new ULocale(locale), map);
+            result += ")\n.build();\n";
+            /*
+            make("en")
+           .add("MORNING", "morning", 6, 7, 8, 9, 10, 11)
+           .add("AFTERNOON", "afternoon", 12, 13, 14, 15, 16, 17)
+           .add("EVENING", "evening", 18, 19, 20)
+           .add("NIGHT", "night", 0, 1, 2, 3, 4, 5, 21, 22, 23)
+           .build();
+             */
+            return result;
         }
-        System.out.println("// Missing: " + missing);
-        DATA = Collections.unmodifiableMap(temp);
+    }
+
+    static final Map<ULocale,DayInfo> DATA = new LinkedHashMap<>();
+    static {
+        for (String[] x : RAW_DATA) {
+            ULocale locale = new ULocale(x[0]);
+            int start = Integer.parseInt(x[1]);
+            DayPeriod dayPeriod = DayPeriod.valueOf(x[2]);
+            String nativeName = x[3].trim();
+            DayInfo data = DATA.get(locale);
+            if (data == null) {
+                DATA.put(locale, data = new DayInfo());
+            }
+            data.locale = locale;
+            for (int i = start; i < 24; ++i) {
+                data.data[i] = dayPeriod;
+            }
+            String old = data.toNativeName.get(dayPeriod);
+            if (old != null && !old.equals(nativeName)) {
+                throw new IllegalArgumentException(locale + " inconsistent native name for "
+                    + dayPeriod + ", old: «" + old + "», new: «" + nativeName + "»");
+            }
+            DayPeriod oldDp = data.toDayPeriod.get(nativeName);
+            if (oldDp != null && oldDp != dayPeriod) {
+                throw new IllegalArgumentException(locale + " inconsistent day periods for name «"
+                    + nativeName + "», old: " + oldDp + ", new: " + dayPeriod);
+            }
+            data.toDayPeriod.put(nativeName, dayPeriod);
+            data.toNativeName.put(dayPeriod, nativeName);
+        }
     }
     public static void main(String[] args) {
-
+        for ( Entry<ULocale, DayInfo> foo : DATA.entrySet()) {
+            check(foo.getKey(), foo.getValue());
+            System.out.println(foo.getValue());
+        }
     }
-    private static void put(Map<DayPeriod, String> result, String string, DayPeriod earlyAfternoon) {
-        result.put(earlyAfternoon, string);
+    private static void check(ULocale locale, DayInfo value) {
+        check(locale, DayPeriod.MORNING1, DayPeriod.MORNING2, value);
+        check(locale, DayPeriod.AFTERNOON1, DayPeriod.AFTERNOON2, value);
+        check(locale, DayPeriod.EVENING1, DayPeriod.EVENING2, value);
+        check(locale, DayPeriod.NIGHT1, DayPeriod.NIGHT2, value);
+        DayPeriod lastDp = value.data[23];
+        for (DayPeriod dp : value.data) {
+            if (lastDp.compareTo(dp) > 0) {
+                if ((lastDp == DayPeriod.NIGHT1 || lastDp == DayPeriod.NIGHT2) && dp == DayPeriod.MORNING1) {
+                } else {
+                    throw new IllegalArgumentException(locale + " " + lastDp + " > " + dp);  
+                }
+            }
+            lastDp = dp;
+        }
     }
-    private static void fix(Map<DayPeriod, String> result, DayPeriod lessDesirable, DayPeriod moreDesirable) {
-        Set<DayPeriod> keySet = result.keySet();
-        if (keySet.contains(lessDesirable) && !keySet.contains(moreDesirable)) {
-            String oldValue = result.get(lessDesirable);
-            result.remove(lessDesirable);
-            result.put(moreDesirable, oldValue);
+    private static void check(ULocale locale, DayPeriod morning1, DayPeriod morning2, DayInfo value) {
+        if (value.toNativeName.containsKey(morning2) && !value.toNativeName.containsKey(morning1)) {
+            throw new IllegalArgumentException(locale + " Contains " + morning2 + ", but not " + morning1);            
         }
     }
 }

@@ -5,20 +5,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <ldml>
-  <identity>
-    <version number="$Revision$"/>
-    <generation date="$Date$"/>
-    <language type="tem"/>
-    <script type="Latn"/>
-  </identity>
-  <layout>
-    <orientation>
-      <characterOrder>left-to-right</characterOrder>
-      <lineOrder>top-to-bottom</lineOrder>
-    </orientation>
-  </layout>
-  <characters>
-    <exemplarCharacters draft="unconfirmed">[a ʌ b d e ɛ ə f {gb} h i k l m n ŋ o ɔ p r s t {th} u w y]</exemplarCharacters>
-    <exemplarCharacters type="auxiliary" draft="unconfirmed">[c j q v x z]</exemplarCharacters>
-  </characters>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="tem"/>
+		<script type="Latn"/>
+	</identity>
+	<layout>
+		<orientation>
+			<characterOrder>left-to-right</characterOrder>
+			<lineOrder>top-to-bottom</lineOrder>
+		</orientation>
+	</layout>
+	<characters>
+		<exemplarCharacters draft="unconfirmed">[a b d e ə ɛ f {gb} h i k l m n ŋ o ɔ p r s t {th} u ʌ w y]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="unconfirmed">[c j q v x z]</exemplarCharacters>
+	</characters>
 </ldml>
+

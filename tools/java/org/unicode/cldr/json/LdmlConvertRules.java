@@ -338,6 +338,13 @@ class LdmlConvertRules {
     };
 
     /**
+     * Root language id pattern should be discarded in all locales except root,
+     * even though the path will exist in a resolved CLDRFile.
+     */
+    public static final Pattern ROOT_IDENTITY_PATTERN = Pattern
+        .compile("//ldml/identity/language\\[@type=\"root\"\\]");
+
+    /**
      * A simple class to hold the specification of a path transformation.
      */
     public static class PathTransformSpec {

@@ -364,10 +364,13 @@ h2,h3,h4,table {
 		</h4>
 
 		<p>
-			U+FFFE maps to a CE with special minimal weights on all levels,
+			U+FFFE maps to a CE with <span class="removed">special minimal weights on all levels,
 			including case, quaternary and identical levels &mdash; which may
-			require special code for those levels. Its primary weight is not
+			require special code for those levels.</span>
+			<span class="changed">a minimal, unique primary weight.</span>
+			Its primary weight is not
 			"variable": U+FFFE must not become ignorable in alternate handling.
+			<span class="changed">On the identical level, a minimal, unique “weight” must be emitted for U+FFFE as well.</span>
 			This allows for <a
 				href="http://www.unicode.org/reports/tr10/#Merging_Sort_Keys">Merging
 				Sort Keys</a> within code point space.
@@ -387,6 +390,13 @@ h2,h3,h4,table {
 			their sort keys (for example, by concatenating them level by level
 			with a low separator).
 		</p>
+
+		<p class="changed">Note: With unique, low weights on <i>all</i> levels it is possible to achieve
+		<code>sortkey(str1 + "\uFFFE" + str2) == mergeSortkeys(sortkey(str1), sortkey(str2))</code>.
+		When that is not necessary, then code can be a little simpler
+		(no special handling for U+FFFE except for backwards-secondary),
+		sort keys can be a little shorter (when using compressible common non-primary weights for U+FFFE),
+		and another low weight can be used in tailorings.</p>
 
 		<h4>
 			1.1.2 <a name="Context_Sensitive_Mappings"
@@ -645,8 +655,10 @@ h2,h3,h4,table {
 				&quot;sch&quot; or equivalent.
 			</p>
 			<p>
-				<strong>U+FFFE: </strong>This code point produces a CE with special
-				minimal weights on all levels. For details see the <i><a
+				<strong>U+FFFE: </strong>This code point produces a CE with <span class="removed">special
+				minimal weights on all levels.</span>
+				<span class="changed">minimal, unique weights on primary and identical levels.</span>
+				For details see the <i><a
 					href="#Algorithm_FFFE">CLDR Collation Algorithm</a></i> above.
 			</p>
 		</blockquote>
@@ -914,7 +926,7 @@ h2,h3,h4,table {
 				exact frequency.</p>
 		</blockquote>
 		<pre># SPECIAL MAX/MIN COLLATION ELEMENTS
-FFFE; [02, 02, 02]     # Special LOWEST primary, for merge/interleaving
+FFFE; [02, <span class="changed">05, 05</span>]     # Special LOWEST primary, for merge/interleaving
 FFFF; [EF FE, 05, 05]  # Special HIGHEST primary, for ranges</pre>
 		<blockquote>
 			<p>The two tailored noncharacters have their own weights.</p>
@@ -2806,20 +2818,16 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			the root collation, the case value for each collation element is
 			computed from the tertiary weight listed in allkeys_CLDR.txt. This is
 			used to modify the collation element.</p>
+		<p class="removed">If the character is U+FFFE (lowest-weight), set case value = LOWEST.</p>
+		<p><span class="removed">Otherwise,</span> Look up a case value for the tertiary weight x of
+				each collation element:</p>
 		<ol>
-			<li>If the character is U+FFFE (lowest-weight), set case value =
-				LOWEST.</li>
-			<li>Otherwise, look up a case value for the tertiary weight x of
-				each collation element:
-				<ol>
-					<li>UPPER if x ∈ {08-0C, 0E, 11, 12, 1D}</li>
-					<li>UNCASED otherwise</li>
-					<li>FractionalUCA.txt encodes the case information in bits 6
-						and 7 of the first byte in each tertiary weight. The case bits are
-						set to 00 for UNCASED, LOWEST and LOWERCASE, and 10 for UPPER.
-						There is no MIXED case value (01) in the root collation.</li>
-				</ol>
-			</li>
+			<li>UPPER if x ∈ {08-0C, 0E, 11, 12, 1D}</li>
+			<li>UNCASED otherwise</li>
+			<li>FractionalUCA.txt encodes the case information in bits 6
+				and 7 of the first byte in each tertiary weight. The case bits are
+				set to 00 for UNCASED<span class="removed">, LOWEST</span> and LOWERCASE, and 10 for UPPER.
+				There is no MIXED case value (01) in the root collation.</li>
 		</ol>
 
 		<h4>
@@ -2831,13 +2839,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			to the following.
 		</p>
 		<ol>
-			<li>If the value is LOWEST (U+FEFF), set <strong>c</strong> = 1
-			</li>
-			<li>Otherwise if <strong>CaseFirst=UpperFirst</strong>, set <strong>c</strong>
-				= UPPER ? <strong>2</strong> : MIXED ? 3 : <strong>4</strong></li>
-			<li>Otherwise set <strong>c</strong> = UPPER ? <strong>4</strong>
-				: MIXED ? 3 : <strong>2</strong></li>
+			<li class="removed">If the value is LOWEST (U+FEFF), set <strong>c</strong> = 1</li>
+			<li><span class="removed">Otherwise,</span> If <strong>CaseFirst=UpperFirst</strong>, set <strong>c</strong>
+				= UPPER ? <strong>1</strong> : MIXED ? 2 : <strong>3</strong></li>
+			<li>Otherwise set <strong>c</strong> = UPPER ? <strong>3</strong>
+				: MIXED ? 2 : <strong>1</strong></li>
 		</ol>
+		<p class="reviewnote">All numeric values reduced by 1 but not individually marked.</p>
 		<p>
 			Compute a new collation element according to the following table. The
 			notation <em>xt</em> means that the values are numerically combined
@@ -2899,7 +2907,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					</tr>
 					<tr>
 						<td><code>0.0.T</code></td>
-						<td><code>0.0.4T</code></td>
+						<td><code>0.0.<span class="changed">3</span>T</code></td>
 					</tr>
 					<tr>
 						<td><code>0.S.t</code></td>
@@ -2925,8 +2933,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<a href="http://www.unicode.org/reports/tr10/#WF2">well-formedness
 				condition 2</a> is fulfilled. Since the tertiary CE’s tertiary weight T
 			is already greater than any t of primary or secondary CEs, it is
-			sufficient to set its case weight to UPPER=4. It must not be affected
-			by <strong>caseFirst=upper</strong>. (The table uses the constant 4
+			sufficient to set its case weight to UPPER=<span class="changed">3</span>. It must not be affected
+			by <strong>caseFirst=upper</strong>. (The table uses the constant <span class="changed">3</span>
 			in this case rather than the computed c.)
 		</p>
 		<p>

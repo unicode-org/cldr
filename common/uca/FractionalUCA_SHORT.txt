@@ -1,6 +1,6 @@
 # Fractional UCA Table, generated from standard UCA
-# 2014-10-09 [MS]
-# VERSION: UCA=8.0.0, UCD=7.0.0
+# 2014-12-08 [MS]
+# VERSION: UCA=8.0.0, UCD=8.0.0
 # For a description of the format and usage, see
 #   http://www.unicode.org/reports/tr35/tr35-collation.html
 
@@ -47050,7 +47050,7 @@ FDD1 FDD0;	[E4, 05, 05]	# unassigned first primary
 
 # SPECIAL MAX/MIN COLLATION ELEMENTS
 
-FFFE;	[02, 02, 02]	# Special LOWEST primary, for merge/interleaving
+FFFE;	[02, 05, 05]	# Special LOWEST primary, for merge/interleaving
 FFFF;	[EF FF, 05, 05]	# Special HIGHEST primary, for ranges
 
 

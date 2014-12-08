@@ -7110,6 +7110,9 @@ decimal?, group?, special*)) &gt;</pre>
                         <li><strong>Part 5: <a
                                         href="tr35-collation.html#Contents">Collation</a></strong>
                                 <ul>
+                                        <li><a href="tr35-collation.html#Algorithm_FFFE">U+FFFE collation</a> was simplified;
+                                            U+FFFE needs to map to minimal, unique weights only on primary and identical levels.
+                                            [<a href="http://unicode.org/cldr/trac/ticket/7202">#7202</a>]</li>
                                         <li>The <a href="tr35-collation.html#Root_Collation">CLDR 27 root collation</a> order
                                             is still based on the UCA 7.0 DUCET,
                                             but with most of the Cyrillic contractions removed as in UCA 8.0.

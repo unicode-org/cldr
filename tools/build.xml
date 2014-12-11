@@ -95,7 +95,7 @@
         <sysproperty key="CLDR_DIR" value=".."/>
         <sysproperty key="CLDR_GEN_DIR" value="${dist.dir}/json/main"/>
         <arg value="ldml2json"/>
-        <arg value="-o"/> <arg value="true"/>
+        <arg value="-o"/> <arg value="false"/>
         <arg value="-t"/> <arg value="main"/>
         <arg value="-r"/> <arg value="true"/>
         <arg value="-m"/> <arg value="${localeMatch}"/>
@@ -127,7 +127,7 @@
       <sysproperty key="CLDR_DIR" value=".."/>
       <sysproperty key="CLDR_GEN_DIR" value="${dist.dir}/json/"/>
       <arg value="ldml2json"/>
-      <arg value="-o"/> <arg value="true"/>
+      <arg value="-o"/> <arg value="false"/>
       <arg value="-t"/> <arg value="supplemental"/>
     </java>
   </target>
@@ -137,7 +137,7 @@
       <sysproperty key="CLDR_DIR" value=".."/>
       <sysproperty key="CLDR_GEN_DIR" value="${dist.dir}/json/segments"/>
       <arg value="ldml2json"/>
-      <arg value="-o"/> <arg value="true"/>
+      <arg value="-o"/> <arg value="false"/>
       <arg value="-t"/> <arg value="segments"/>
     </java>
   </target>

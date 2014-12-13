@@ -64,6 +64,12 @@ public class TestInheritance extends TestFmwk {
 
 	private static final boolean EXPECT_EQUALITY = false;
 
+	private static Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
+	private static Factory factory2 = Factory.make(CLDRPaths.SEED_DIRECTORY, ".*");
+	private static Set<String> availableLocales = Builder.with(new TreeSet<String>())
+			.addAll(factory.getAvailable()).addAll(factory2.getAvailable())
+			.freeze();
+
 	public void TestLocalesHaveOfficial() {
 		// If we have a language, we have all the region locales where the
 		// language is official
@@ -244,12 +250,6 @@ public class TestInheritance extends TestFmwk {
 
 	public void TestLikelyAndDefaultConsistency() {
 		LikelySubtags likelySubtags = new LikelySubtags();
-		Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-		Factory factory2 = Factory.make(CLDRPaths.BASE_DIRECTORY + "seed/",
-				".*");
-		Set<String> available = Builder.with(new TreeSet<String>())
-				.addAll(factory.getAvailable()).addAll(factory2.getAvailable())
-				.freeze();
 		LanguageTagParser ltp = new LanguageTagParser();
 		// find multiscript locales
 		Relation<String, String> base2scripts = Relation.of(
@@ -260,10 +260,10 @@ public class TestInheritance extends TestFmwk {
 				new TreeMap<String, Set<String>>(), TreeSet.class);
 
 		// get multiscript locales
-		for (String localeID : available) {
+		for (String localeID : availableLocales) {
 			String script = ltp.set(localeID).getScript();
 			final String base = ltp.getLanguage();
-			if (!available.contains(base)) {
+			if (!availableLocales.contains(base)) {
 				errln("Missing base locale for: " + localeID);
 			}
 			base2locales.put(base, localeID);
@@ -309,13 +309,37 @@ public class TestInheritance extends TestFmwk {
 		verifyScriptsWithDefaultContents(ltp, base2scripts, parent2default,
 				base2locales);
 	}
+	
+	public void TestParentLocaleRelationships() {
+		// Testing invariant relationships between locales - See http://unicode.org/cldr/trac/ticket/5758
+		Matcher langScript = Pattern.compile("^[a-z]{2,3}_[A-Z][a-z]{3}$").matcher("");
+		for ( String loc : availableLocales ) {
+			if ( langScript.reset(loc).matches()) {
+				String expectedParent = loc.split("_")[0];
+				if (!defaultContents.contains(loc)) {
+					expectedParent = "root";
+				}
+				String actualParent = dataInfo.getExplicitParentLocale(loc);
+				if (actualParent == null) {
+					actualParent = loc.split("_")[0];
+				}
+				if ( !actualParent.equals(expectedParent)) {
+					errln("Unexpected parent locale for locale "+loc+". Expected: "+expectedParent+" Got: "+actualParent);
+				}
+
+				if (dataInfo.getExplicitParentLocale(loc) != null && defaultContents.contains(loc)) {
+					errln("Locale "+loc+" can't have an explicit parent AND be a default content locale");
+				}
+			}
+		}
+	}
 
 	private void verifyScriptsWithDefaultContents(LanguageTagParser ltp,
 			Relation<String, String> base2scripts,
 			Map<String, String> parent2default,
 			Relation<String, String> base2locales) {
 		Set<String> skip = Builder.with(new HashSet<String>())
-				.addAll("in", "iw", "mo", "no", "root", "sh", "tl").freeze();
+				.addAll("in", "iw", "mo", "no", "root", "sh", "tl", "und").freeze();
 
 		// for each base we have to have,
 		// if multiscript, we have default contents for base+script,

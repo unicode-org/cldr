@@ -1,22 +1,14 @@
 package org.unicode.cldr.util;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.EnumMap;
-import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
 
 import org.unicode.cldr.util.DayPeriods.DayPeriod;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.util.ULocale;
 
 public class DayPeriodConverter {
@@ -437,6 +429,34 @@ public class DayPeriodConverter {
              */
             return result;
         }
+        public String toCldr() {
+            String result = "\t\t<dayPeriodRules locales=\"" + locale + "\">\n";
+            DayPeriod lastDayPeriod = data[0];
+            int start = 0;
+            for (int i = 1; i < 24; ++i) {
+                DayPeriod dayPeriod = data[i];
+                if (dayPeriod != lastDayPeriod) {
+                    result = addPeriod(result, lastDayPeriod, start, i);
+                    lastDayPeriod = dayPeriod;
+                    start = i;
+                }
+            }
+            result = addPeriod(result, lastDayPeriod, start, 24);
+            result += "\t\t</dayPeriodRules>";
+            return result;
+        }
+        
+        private String addPeriod(String result, DayPeriod dayPeriod, int start, int i) {
+            result += "\t\t\t<dayPeriodRule type=\""
+                + dayPeriod.toString().toLowerCase(Locale.ENGLISH)
+                + "\" from=\""
+                + start + ":00"
+                + "\" before=\""
+                + i + ":00"
+                + "\"/> <!-- " + toNativeName.get(dayPeriod)
+                + " -->\n";
+            return result;
+        }
     }
 
     static final Map<ULocale,DayInfo> DATA = new LinkedHashMap<>();
@@ -469,10 +489,12 @@ public class DayPeriodConverter {
         }
     }
     public static void main(String[] args) {
+        System.out.println("\t<dayPeriodRuleSet type=\"selection\">");
         for ( Entry<ULocale, DayInfo> foo : DATA.entrySet()) {
             check(foo.getKey(), foo.getValue());
-            System.out.println(foo.getValue());
+            System.out.println(foo.getValue().toCldr());
         }
+        System.out.println("\t</dayPeriodRuleSet>");
     }
     private static void check(ULocale locale, DayInfo value) {
         check(locale, DayPeriod.MORNING1, DayPeriod.MORNING2, value);

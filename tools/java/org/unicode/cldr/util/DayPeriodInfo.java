@@ -14,8 +14,18 @@ import com.ibm.icu.impl.Row.R3;
 public class DayPeriodInfo {
     public static int DAY_LIMIT = 24 * 60 * 60 * 1000;
 
+    public enum Type {
+        format, selection
+    }
+    
     public enum DayPeriod {
-        am, pm, midnight, weeHours, earlyMorning, morning, lateMorning, noon, midDay, earlyAfternoon, afternoon, lateAfternoon, earlyEvening, evening, lateEvening, earlyNight, night
+        midnight, noon, 
+        morning1, morning2, afternoon1, afternoon2, evening1, evening2, night1, night2;
+        public static final DayPeriod am = morning1;
+        public static final DayPeriod pm = afternoon1;
+        public static DayPeriod fromString(String value) {
+            return value.equals("am") ? morning1 : value.equals("pm") ? afternoon1: DayPeriod.valueOf(value);
+        }
     };
 
     // the starts must be in sorted order. First must be zero. Last must be < DAY_LIMIT

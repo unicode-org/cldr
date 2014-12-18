@@ -1107,7 +1107,7 @@ public class SupplementalDataInfo {
         if (lastDayPeriodLocales != null) {
             addDayPeriodInfo();
         }
-        localeToDayPeriodInfo = Collections.unmodifiableMap(localeToDayPeriodInfo);
+        typeToLocaleToDayPeriodInfo = CldrUtility.protectCollection(typeToLocaleToDayPeriodInfo);
         languageMatch = CldrUtility.protectCollection(languageMatch);
         bcp47Key2Subtypes.freeze();
         bcp47Extension2Keys.freeze();
@@ -2828,13 +2828,15 @@ public class SupplementalDataInfo {
     }
     private Map<String, PluralRanges> localeToPluralRanges = new LinkedHashMap<String, PluralRanges>();
 
-    private Map<String, DayPeriodInfo> localeToDayPeriodInfo = new LinkedHashMap<String, DayPeriodInfo>();
+    private Map<DayPeriodInfo.Type, Map<String, DayPeriodInfo>> typeToLocaleToDayPeriodInfo 
+    = new EnumMap<DayPeriodInfo.Type, Map<String, DayPeriodInfo>>(DayPeriodInfo.Type.class);
     private Map<String, CoverageLevel2> localeToCoverageLevelInfo = new ConcurrentHashMap<String, CoverageLevel2>();
     private CoverageCache coverageCache = new CoverageCache();
     private transient String lastPluralLocales = "";
     private transient PluralType lastPluralWasOrdinal = null;
     private transient Map<Count, String> lastPluralMap = new EnumMap<Count, String>(Count.class);
     private transient String lastDayPeriodLocales = null;
+    private transient DayPeriodInfo.Type lastDayPeriodType = null;
     private transient DayPeriodInfo.Builder dayPeriodBuilder = new DayPeriodInfo.Builder();
 
     private void addDayPeriodPath(XPathParts path, String value) {
@@ -2848,14 +2850,20 @@ public class SupplementalDataInfo {
          * <dayPeriodRule type = "am" from = "0:00" before="12:00"/>
          * <dayPeriodRule type = "pm" from = "12:00" to="24:00"/>
          */
+        String typeString = path.getAttributeValue(1, "type");
         String locales = path.getAttributeValue(2, "locales").trim();
-        if (!locales.equals(lastDayPeriodLocales)) {
+        DayPeriodInfo.Type type = typeString == null 
+            ? DayPeriodInfo.Type.format 
+                : DayPeriodInfo.Type.valueOf(typeString.trim());
+        if (!locales.equals(lastDayPeriodLocales) || type != lastDayPeriodType) {
             if (lastDayPeriodLocales != null) {
                 addDayPeriodInfo();
             }
             lastDayPeriodLocales = locales;
+            lastDayPeriodType = type;
+            // System.out.println(type + ", " + locales + ", " + path);
         }
-        DayPeriod dayPeriod = DayPeriod.valueOf(path.getAttributeValue(-1, "type"));
+        DayPeriod dayPeriod = DayPeriod.fromString(path.getAttributeValue(-1, "type"));
         String at = path.getAttributeValue(-1, "at");
         String from = path.getAttributeValue(-1, "from");
         String after = path.getAttributeValue(-1, "after");
@@ -2897,8 +2905,13 @@ public class SupplementalDataInfo {
     private void addDayPeriodInfo() {
         String[] locales = lastDayPeriodLocales.split("\\s+");
         DayPeriodInfo temp = dayPeriodBuilder.finish(locales);
+        Map<String, DayPeriodInfo> locale2DPI = typeToLocaleToDayPeriodInfo.get(lastDayPeriodType);
+        if (locale2DPI == null) {
+            typeToLocaleToDayPeriodInfo.put(lastDayPeriodType, locale2DPI = new LinkedHashMap<String, DayPeriodInfo>());
+            //System.out.println(lastDayPeriodType + ", " + locale2DPI);
+        }
         for (String locale : locales) {
-            localeToDayPeriodInfo.put(locale, temp);
+            locale2DPI.put(locale, temp);
         }
     }
 
@@ -3605,16 +3618,27 @@ public class SupplementalDataInfo {
     }
 
     public DayPeriodInfo getDayPeriods(String locale) {
+        return getDayPeriods(DayPeriodInfo.Type.format, locale);    
+        }
+
+    public Set<String> getDayPeriodLocales() {
+        return getDayPeriodLocales(DayPeriodInfo.Type.format);
+    }
+
+    public DayPeriodInfo getDayPeriods(DayPeriodInfo.Type type, String locale) {
+        Map<String, DayPeriodInfo> map1 = typeToLocaleToDayPeriodInfo.get(type);
         while (locale != null) {
-            DayPeriodInfo result = localeToDayPeriodInfo.get(locale);
-            if (result != null) return result;
+            DayPeriodInfo result = map1.get(locale);
+            if (result != null) {
+                return result;
+            }
             locale = LocaleIDParser.getSimpleParent(locale);
         }
         return null;
     }
 
-    public Set<String> getDayPeriodLocales() {
-        return localeToDayPeriodInfo.keySet();
+    public Set<String> getDayPeriodLocales(DayPeriodInfo.Type type) {
+        return typeToLocaleToDayPeriodInfo.get(type).keySet();
     }
 
     private static CurrencyNumberInfo DEFAULT_NUMBER_INFO = new CurrencyNumberInfo(2, 0, 0);

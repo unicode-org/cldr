@@ -62,8 +62,9 @@ public class CheckHtmlFiles {
     static Pattern SPACES = Pattern.compile("\\s+");
 
     enum MyOptions {
-//        old(".*", "/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
-        target(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "target data (regex); ucd for Unicode docs."),
+//        old(".*", Settings.OTHER_WORKSPACE_DIRECTORY + "cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
+        target(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "target data (regex); ucd for Unicode docs; "
+            + "for others use the format -t ${workspace_loc}/unicode-draft/reports/tr51/tr51.html"),
         verbose(null, null, "verbose debugging messages"),
 //        contents(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
         // /cldr-archive

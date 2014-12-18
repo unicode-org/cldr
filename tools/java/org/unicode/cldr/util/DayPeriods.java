@@ -5,6 +5,7 @@ import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import com.ibm.icu.util.ULocale;
 
@@ -176,8 +177,8 @@ public class DayPeriods {
 
     static {
         make("en")
-        .add("NIGHT1", "night", 0, 1, 2, 3, 4, 5)
-        .add("MORNING1", "morning", 6, 7, 8, 9, 10, 11)
+        .add("NIGHT1", "night", 0, 1, 2, 3)
+        .add("MORNING1", "morning", 4, 5, 6, 7, 8, 9, 10, 11)
         .add("AFTERNOON1", "afternoon", 12, 13, 14, 15, 16, 17)
         .add("EVENING1", "evening", 18, 19, 20)
         .add("NIGHT1", "night", 21, 22, 23)

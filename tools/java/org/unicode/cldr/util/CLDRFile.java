@@ -2243,6 +2243,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 if (set != null) {
                     return set.iterator().next();
                 }
+                Map<String, Map<String, String>> map = StandardCodes.getLStreg().get("language");
+                Map<String, String> info = map.get(code);
+                if (info != null) {
+                    result = info.get("Description");
+                }
             } else if (type == TERRITORY_NAME) {
                 Map<String, String> info = StandardCodes.getLStreg()
                     .get("region")

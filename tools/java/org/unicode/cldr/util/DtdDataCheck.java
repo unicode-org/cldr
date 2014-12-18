@@ -175,7 +175,7 @@ public class DtdDataCheck {
             timer.start();
             DtdType type = CLDRFile.DtdType.valueOf(arg);
             DtdData dtdData = DtdData.getInstance(type);
-            PrintWriter br = BagFormatter.openUTF8Writer("/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/dataproj/src/temp/", type
+            PrintWriter br = BagFormatter.openUTF8Writer(Settings.OTHER_WORKSPACE_DIRECTORY + "dataproj/src/temp/", type
                 + "-gen.dtd");
             br.append(dtdData.toString());
             br.close();

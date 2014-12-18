@@ -26,6 +26,7 @@ import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -1315,4 +1316,23 @@ public class CldrUtility {
         //        in.close(); 
     }
 
+    public static <T> T ifNull(T x, T y) {
+        return x == null ? y : x;
+    }
+
+    public static <T> T ifSame(T source, T replaceIfSame, T replacement) {
+        return source == replaceIfSame ? replacement : source;
+    }
+
+    public static <T> Set<T> intersect(Set<T> a, Collection<T> b) {
+        Set<T> result = new LinkedHashSet<>(a);
+        result.retainAll(b);
+        return result;
+    }
+    
+    public static <T> Set<T> subtract(Set<T> a, Collection<T> b) {
+        Set<T> result = new LinkedHashSet<>(a);
+        result.removeAll(b);
+        return result;
+    }
 }

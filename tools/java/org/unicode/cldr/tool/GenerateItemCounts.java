@@ -25,6 +25,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
@@ -222,19 +223,19 @@ public class GenerateItemCounts {
                 Set<DtdType> notDeprecated = new TreeSet(possible);
                 notDeprecated.removeAll(deprecated);
 
-                Set<DtdType> occurs = ifNull(ELEMENTS_OCCURRING.get(element), Collections.EMPTY_SET);
+                Set<DtdType> occurs = CldrUtility.ifNull(ELEMENTS_OCCURRING.get(element), Collections.EMPTY_SET);
                 Set<DtdType> noOccur = new TreeSet(possible);
                 noOccur.removeAll(occurs);
 
                 if (!Collections.disjoint(deprecated, occurs)) { // deprecated must not occur
-                    final Set<DtdType> intersection = intersect(deprecated, occurs);
+                    final Set<DtdType> intersection = CldrUtility.intersect(deprecated, occurs);
                     errors.add("Error: element «" + element 
                         + "» is deprecated in " + (deprecated.equals(possible) ? "EVERYWHERE" : intersection) + 
                         " but occurs in live data: " + intersection);
                 }
                 if (!Collections.disjoint(notDeprecated, noOccur)) { // if !deprecated & !occur, warning
                     errors.add("Warning: element «" + element 
-                        + "» doesn't occur in and is not deprecated in " + intersect(notDeprecated, noOccur));
+                        + "» doesn't occur in and is not deprecated in " + CldrUtility.intersect(notDeprecated, noOccur));
                 }
 
                 out.println(element 
@@ -263,19 +264,19 @@ public class GenerateItemCounts {
                 Set<R2<DtdType, String>> notDeprecated = new TreeSet(possible);
                 notDeprecated.removeAll(deprecated);
 
-                Set<R2<DtdType, String>> occurs = ifNull(ATTRIBUTES_OCCURRING.get(attribute), Collections.EMPTY_SET);
+                Set<R2<DtdType, String>> occurs = CldrUtility.ifNull(ATTRIBUTES_OCCURRING.get(attribute), Collections.EMPTY_SET);
                 Set<R2<DtdType, String>> noOccur = new TreeSet(possible);
                 noOccur.removeAll(occurs);
 
                 if (!Collections.disjoint(deprecated, occurs)) { // deprecated must not occur
-                    final Set<R2<DtdType, String>> intersection = intersect(deprecated, occurs);
+                    final Set<R2<DtdType, String>> intersection = CldrUtility.intersect(deprecated, occurs);
                     errors.add("Error: attribute «" + attribute
                         + "» is deprecated in " + (deprecated.equals(possible) ? "EVERYWHERE" : intersection) + 
                         " but occurs in live data: " + intersection);
                 }
                 if (!Collections.disjoint(notDeprecated, noOccur)) { // if !deprecated & !occur, warning
                     errors.add("Warning: attribute «" + attribute
-                        + "» doesn't occur in and is not deprecated in " + intersect(notDeprecated, noOccur));
+                        + "» doesn't occur in and is not deprecated in " + CldrUtility.intersect(notDeprecated, noOccur));
                 }
                 out.println(attribute 
                     + "\t" + deprecated
@@ -286,20 +287,6 @@ public class GenerateItemCounts {
             out.println("\nERRORS/WARNINGS");
             out.println(CollectionUtilities.join(errors, "\n"));
         }
-    }
-
-    private static <T> Set<T> intersect(Set<T> a, Set<T> b) {
-        Set<T> result = new LinkedHashSet<>(a);
-        result.retainAll(b);
-        return result;
-    }
-
-    public static <T> T ifNull(T x, T y) {
-        return x == null ? y : x;
-    }
-
-    public static <T> T ifSame(T source, T replaceIfSame, T replacement) {
-        return source == replaceIfSame ? replacement : source;
     }
 
     static class AttributeTypes {

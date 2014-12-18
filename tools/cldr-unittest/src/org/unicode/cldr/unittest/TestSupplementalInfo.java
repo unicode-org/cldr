@@ -1424,15 +1424,15 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 		}
 
 		// Check that day periods are recognized.
-		assertEquals("night", DayPeriodInfo.DayPeriod.night,
+		assertEquals("night1", DayPeriodInfo.DayPeriod.night1,
 				dayPeriods.getDayPeriod(0));
-		assertEquals("earlyMorning", DayPeriodInfo.DayPeriod.earlyMorning,
+		assertEquals("night2", DayPeriodInfo.DayPeriod.night2,
 				dayPeriods.getDayPeriod(3 * 60 * 60 * 1000));
 		assertEquals("noon", DayPeriodInfo.DayPeriod.noon,
 				dayPeriods.getDayPeriod(12 * 60 * 60 * 1000));
-		assertEquals("evening", DayPeriodInfo.DayPeriod.evening,
+		assertEquals("evening1", DayPeriodInfo.DayPeriod.evening1,
 				dayPeriods.getDayPeriod((16 * 60 + 5) * 60 * 1000));
-		assertEquals("11pm = night ", DayPeriodInfo.DayPeriod.night,
+		assertEquals("11pm = night1 ", DayPeriodInfo.DayPeriod.night1,
 				dayPeriods.getDayPeriod(23 * 60 * 60 * 1000));
 	}
 

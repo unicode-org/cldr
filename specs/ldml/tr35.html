@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Content-Language" content="en-us">
-<link rel="stylesheet" href="http://unicode.org/reports/reports.css"
+<link rel="stylesheet" href="./reports.css"
 	type="text/css">
 <title>UTS #35: Unicode Locale Data Markup Language</title>
 <style type="text/css">
@@ -7118,6 +7118,11 @@ decimal?, group?, special*)) &gt;</pre>
                                             but with most of the Cyrillic contractions removed as in UCA 8.0.
                                             The Cyrillic tailorings have been updated. [<a
                                                                 href="http://unicode.org/cldr/trac/ticket/7246">#7246</a>]</li>
+					<li><a href="tr35-collation.html#File_Format_FractionalUCA_txt">FractionalUCA.txt</a> tertiary weights:
+					    Some fractional root collation elements have below-common tertiary weights (e.g., <code>03</code>),
+					    in particular to allow normal Hiragana letters to have common tertiary weights.
+					    This is the first time that the root collation data uses below-common tertiary weights.
+					    [<a href="http://unicode.org/cldr/trac/ticket/7222">#7222</a>]</li>
                                 </ul></li>
 		</ul>
 

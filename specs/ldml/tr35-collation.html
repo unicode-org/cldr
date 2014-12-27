@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Content-Language" content="en-us">
-<link rel="stylesheet" href="http://www.unicode.org/reports/reports.css"
+<link rel="stylesheet" href="./reports.css"
 	type="text/css">
 <title>UTS #35: Unicode LDML: Collation</title>
 <style type="text/css">
@@ -925,6 +925,18 @@ h2,h3,h4,table {
 			<p>The assignment of 2 vs 3 bytes does not reflect importance, or
 				exact frequency.</p>
 		</blockquote>
+
+		<pre class="changed">
+3041; [76 06, 05, 03]	# Hira Lo	[3888.0020.000D]	* HIRAGANA LETTER SMALL A
+3042; [76 06, 05, 85]	# Hira Lo	[3888.0020.000E]	* HIRAGANA LETTER A
+30A1; [76 06, 05, 10]	# Kana Lo	[3888.0020.000F]	* KATAKANA LETTER SMALL A
+30A2; [76 06, 05, 9E]	# Kana Lo	[3888.0020.0011]	* KATAKANA LETTER A</pre>
+		<blockquote class="changed">
+			<p>Beginning with CLDR 27, some primary or secondary collation elements
+			may have below-common tertiary weights (e.g., <code>03</code>),
+			in particular to allow normal Hiragana letters to have common tertiary weights.</p>
+		</blockquote>
+
 		<pre># SPECIAL MAX/MIN COLLATION ELEMENTS
 FFFE; [02, <span class="changed">05, 05</span>]     # Special LOWEST primary, for merge/interleaving
 FFFF; [EF FE, 05, 05]  # Special HIGHEST primary, for ranges</pre>

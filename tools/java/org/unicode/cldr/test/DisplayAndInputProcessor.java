@@ -6,6 +6,7 @@ package org.unicode.cldr.test;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -26,6 +27,8 @@ import org.unicode.cldr.util.XPathParts;
 import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DateIntervalInfo;
+import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -65,6 +68,7 @@ public class DisplayAndInputProcessor {
         + "units/.+/durationUnitPattern.*|"
         + "numbers/symbols.*|"
         + "numbers/(decimal|currency|percent|scientific)Formats.+/(decimal|currency|percent|scientific)Format.*)");
+    private static final Pattern INTERVAL_FORMAT_PATHS = Pattern.compile("//ldml/dates/.+/intervalFormatItem.*");
     private static final Pattern NON_DECIMAL_PERIOD = Pattern.compile("(?<![0#'])\\.(?![0#'])");
     private static final Pattern WHITESPACE_NO_NBSP_TO_NORMALIZE = Pattern.compile("\\s+"); // string of whitespace not
     // including NBSP, i.e. [
@@ -247,6 +251,10 @@ public class DisplayAndInputProcessor {
         if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
             value = normalizeApostrophes(value);
         }
+        // Fix up hyphens, replacing with N-dash as appropriate
+        if (INTERVAL_FORMAT_PATHS.matcher(path).matches()) {
+            value = normalizeHyphens(value);
+        }
         return value;
     }
 
@@ -398,6 +406,10 @@ public class DisplayAndInputProcessor {
             if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
                 value = normalizeApostrophes(value);
             }
+            // Fix up hyphens, replacing with N-dash as appropriate
+            if (INTERVAL_FORMAT_PATHS.matcher(path).matches()) {
+                value = normalizeHyphens(value);
+            }
             return value;
         } catch (RuntimeException e) {
             if (internalException != null) {
@@ -478,6 +490,27 @@ public class DisplayAndInputProcessor {
             }
             return builder.toString();
         }
+    }
+
+    private String normalizeHyphens(String value) {
+        DateTimePatternGenerator.FormatParser fp = new DateTimePatternGenerator.FormatParser();
+        fp.set(DateIntervalInfo.genPatternInfo(value, false).getFirstPart());
+        List<Object> items = fp.getItems();
+        Object last = items.get(items.size() - 1);
+        if (last instanceof String) {
+            String separator = last.toString();
+            if (separator.contains("-")) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(DateIntervalInfo.genPatternInfo(value, false).getFirstPart());
+                if (sb.lastIndexOf(separator) >= 0) {
+                    sb.delete(sb.lastIndexOf(separator), sb.length());
+                    sb.append(separator.replace("-", "\u2013"));
+                    sb.append(DateIntervalInfo.genPatternInfo(value, false).getSecondPart());
+                    return sb.toString();
+                }
+            }
+        }
+        return value;
     }
 
     private String standardizeRomanian(String value) {

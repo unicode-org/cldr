@@ -7118,6 +7118,13 @@ decimal?, group?, special*)) &gt;</pre>
                                             but with most of the Cyrillic contractions removed as in UCA 8.0.
                                             The Cyrillic tailorings have been updated. [<a
                                                                 href="http://unicode.org/cldr/trac/ticket/7246">#7246</a>]</li>
+					<li><a href="tr35-collation.html#File_Format_FractionalUCA_txt">FractionalUCA.txt</a>
+					    supports <a href="tr35-collation.html#Script_Reordering">reordering</a>
+					    of single scripts rather than groups of scripts.
+					    Implementations that support script reordering should base it on the
+					    script-first-primary boundaries and use the new reorder-reserved ranges.
+					    Some Recommended Scripts may share primary lead bytes.
+					    [<a href="http://unicode.org/cldr/trac/ticket/7382">#7382</a>]</li>
 					<li><a href="tr35-collation.html#File_Format_FractionalUCA_txt">FractionalUCA.txt</a> tertiary weights:
 					    Some fractional root collation elements have below-common tertiary weights (e.g., <code>03</code>),
 					    in particular to allow normal Hiragana letters to have common tertiary weights.
@@ -7509,7 +7516,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<br>
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">4</span> Unicode, Inc. All Rights Reserved. The Unicode
+			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All Rights Reserved. The Unicode
 			Consortium makes no expressed or implied warranty of any kind, and
 			assumes no liability for errors or omissions. No liability is assumed
 			for incidental and consequential damages in connection with or

@@ -975,10 +975,18 @@ F967; [U+4E0D]  # Hani Lo       [FB40.0020.0002][CE0D.0000.0000]        * CJK CO
 				specified in the UCA.</p>
 		</blockquote>
 
-		<pre>
+		<pre class="removed">
 FDD1 00A0;      [03 02 02, 05, 05]      # SPACE first primary starts reordering group
 FDD1 03A9;      [5D 04 02, 05, 05]      # GREEK first primary starts reordering group (compressible)
 FDD1 03E2;      [5D 64 02, 05, 05]      # COPTIC first primary</pre>
+		<pre class="changed">
+FDD1 20AC;	[0D 20 02, 05, 05]	# CURRENCY first primary
+FDD1 0034;	[0E 02 02, 05, 05]	# DIGIT first primary starts new lead byte
+FDD0 FF21;	[26 02 02, 05, 05]	# REORDER_RESERVED_BEFORE_LATIN first primary starts new lead byte
+FDD1 004C;	[28 02 02, 05, 05]	# LATIN first primary starts new lead byte
+FDD0 FF3A;	[5D 02 02, 05, 05]	# REORDER_RESERVED_AFTER_LATIN first primary starts new lead byte
+FDD1 03A9;	[5F 04 02, 05, 05]	# GREEK first primary starts new lead byte (compressible)
+FDD1 03E2;	[5F 60 02, 05, 05]	# COPTIC first primary (compressible)</pre>
 		<blockquote>
 			<p>
 				These are special mappings with primaries at the boundaries of
@@ -990,8 +998,24 @@ FDD1 03E2;      [5D 64 02, 05, 05]      # COPTIC first primary</pre>
 				script or group. They can be enumerated for implementations of <a
 					href="#Collation_Indexes">Collation Indexes</a>. (Earlier versions
 				mapped contractions with U+FDD0 to the last primary weights of each
-				group but not each script.)
-			</p>
+				group but not each script.)</p>
+			<p class="changed">Beginning with CLDR 27,
+				these mappings alone define the boundaries for reordering single scripts.
+				There are some reserved ranges,
+				beginning at boundaries marked with U+FDD0 plus following characters as shown above.
+				The reserved ranges are not used for collation elements
+				and are not available for tailoring.
+				Some primary lead bytes must be reserved so that reordering of scripts
+				along partial-lead-byte boundaries can “split” the primary lead byte
+				and use up a reserved byte.
+				This is for implementations that write sort keys,
+				which must reorder primary weights by offsetting them by whole lead bytes.
+				There are reorder-reserved ranges before and after Latin,
+				so that reordering scripts with few primary lead bytes relative to Latin
+				can move those scripts into the reserved ranges
+				without changing the primary weights of any other script.
+				Each of these boundaries begins with a new two-byte primary;
+				that is, no two groups/scripts/ranges share the top 16 bits of their primary weights.</p>
 		</blockquote>
 
 		<pre>
@@ -1051,7 +1075,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				Most reordering tokens are script values; others are special-purpose
 				values, such as PUNCTUATION. Beginning with CLDR 24, this table
 				precedes the regular mappings, so that parsers can use this
-				information while processing and optimizing mappings.</p>
+				information while processing and optimizing mappings.
+				<span class="changed">Beginning with CLDR 27, most of this data is irrelevant
+				because single scripts can be reordered.
+				Only the "COMPRESS" data is still useful.</span></p>
 		</blockquote>
 		<pre># Reordering Tokens =&gt; Top Bytes
 [reorderingTokens     Arab    61=910 62=910 ]
@@ -2585,14 +2612,15 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<ol>
 			<li><strong>space, punct, symbol, currency, digit</strong> -
 				core groups of characters below 'a'</li>
-			<li><strong>any script code</strong> from the <a
+			<li><strong>any script code</strong> <span class="removed">from the <a
 				href="http://www.unicode.org/reports/tr31/tr31-15.html#Table_Recommended_Scripts">Recommended</a>
-				Table in UAX 31 except <strong>Katakana</strong>, <strong>Common</strong>,
-				and <strong>Inherited</strong>.
-				<ol>
-					<li>Katakana characters are are always reordered with
+				Table in UAX 31 except <strong>Katakana</strong>,</span>
+				<span class="changed">except</span> <strong>Common</strong> and <strong>Inherited</strong>.
+				<ul>
+					<li><span class="changed">Some pairs of scripts sort primary-equal and always reorder together.
+						For example,</span> Katakana characters are are always reordered with
 						Hiragana.</li>
-					<li>Characters in any script not in the <a
+					<li class="removed">Characters in any script not in the <a
 						href="http://www.unicode.org/reports/tr31/tr31-15.html#Table_Recommended_Scripts">Recommended</a>
 						Table are treated as being in the preceding <a
 						href="http://www.unicode.org/reports/tr31/tr31-15.html#Table_Recommended_Scripts">Recommended</a>
@@ -2676,10 +2704,14 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</table>
 		<p>The default reordering groups are defined by the
 			FractionalUCA.txt file, based on the primary weights of associated
-			collation elements. The [top_byte] table contains a mapping from the
+			collation elements.
+			<span class="removed">The [top_byte] table contains a mapping from the
 			first (top) byte of primary weights to the associated reordering
-			group. For example:</p>
-		<blockquote>
+			group. For example:</span>
+			<span class="changed">The file contains special mappings for the start of each
+			group, script, and reorder-reserved range, see <i>Section
+			2.6.2, <a href="#File_Format_FractionalUCA_txt">FractionalUCA.txt</a></i>.</span></p>
+		<blockquote class="removed">
 			<p>
 				U+02D0 MODIFIER LETTER TRIANGULAR COLON has a fractional UCA
 				collation weight of [<strong>0E</strong> 0B, 05, 05]. In the
@@ -2714,11 +2746,35 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			sorts Hani, Latin, Cyrillic, ... (all other scripts) ..., unassigned,
 			Greek, TRAILING.
 		</p>
-		<p>
+		<p class="removed">
 			The reordering groups are defined in FractionalUCA.txt, see <i>Section
 				2.6.2, <a href="#File_Format_FractionalUCA_txt">FractionalUCA.txt</a>
 			</i>.
 		</p>
+		<p class="changed">Notes for implementations that write sort keys:</p>
+		<ul class="changed">
+			<li>Primaries must always be offset by one or more whole primary lead bytes.
+				(Otherwise the number of bytes in a fractional weight may change,
+				compressible scripts may span multiple lead bytes,
+				or trailing primary bytes may collide with separators and primary-compression terminators.)</li>
+			<li>When a script is reordered that does not start and end
+				on whole-primary-lead-byte boundaries,
+				then the lead byte needs to be “split”, and a reserved byte is used up.
+				The data supports this via reorder-reserved ranges of primary weights
+				that are not used for collation elements.</li>
+			<li>Primary weights from different original lead bytes can be reordered
+				to a shared lead byte, as long as they do not overlap.
+				Primary compression ends when the target lead byte differs
+				or when the original lead byte of the next primary is not compressible.</li>
+			<li>Non-compressible groups and scripts begin or end
+				on whole-primary-lead-byte boundaries (or both),
+				so that reordering cannot surrounded a non-compressible script
+				by two compressible ones within the same target lead byte.
+				This is so that primary compression can be terminated reliably
+				(choosing the low or high terminator byte)
+				simply by comparing the previous and current primary weights.
+				Otherwise it would have to also check for another condition (e.g., equal scripts).</li>
+		</ul>
 
 		<h4>
 			3.13.2 <a name="Reordering_Groups_allkeys"
@@ -2727,21 +2783,22 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</h4>
 		<p>
 			For allkeys_CLDR.txt, the start of each reordering group can be
-			determined from FractionalUCA.txt, by looking up the first
+			determined from FractionalUCA.txt, by <span class="removed">looking up the first
 			<code>top_byte</code>
 			of the group (e.g.,
-			<code>[top_byte 0D SYMBOL ]</code>
-			), finding the first real mapping (after “xyz first primary”) with
-			that
-			<code>top_byte</code>
+			<code>[top_byte 0D SYMBOL ]</code>),</span>
+			finding the first real mapping (after “xyz first primary”)
+			<span class="removed">with that
+			<code>top_byte</code></span>
+			<span class="changed">of that group</span>
 			(e.g.,
 			<code>0060; [0D 07, 05, 05] # Zyyy Sk [0312.0020.0002] * GRAVE
-				ACCENT</code>
-			), and looking for that mapping's character sequence (
-			<code>0060</code>
-			) in allkeys_CLDR.txt. The comment in FractionalUCA.txt (
-			<code>[0312.0020.0002]</code>
-			) also shows the allkeys_CLDR.txt collation elements.
+				ACCENT</code>),
+			and looking for that mapping's character sequence
+			(<code>0060</code>)
+			in allkeys_CLDR.txt. The comment in FractionalUCA.txt
+			(<code>[0312.0020.0002]</code>)
+			also shows the allkeys_CLDR.txt collation elements.
 		</p>
 
 		<p>The DUCET ordering of some characters is slightly different
@@ -2779,7 +2836,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			found among punctuation, symbols, and digits.</p>
 		<p>Each collation element of an expansion may be in a different
 			reordering group, for example for parenthesized characters.</p>
-		<p>
+		<p class="removed">
 			Some scripts are grouped together by CLDR and cannot be ordered
 			independently, as mentioned above in <i>Section 3.12, <a
 				href="#Script_Reordering">Collation Reordering</a></i>. Implementations
@@ -3201,7 +3258,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">4</span> Unicode, Inc. All Rights Reserved. The Unicode
+			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All Rights Reserved. The Unicode
 			Consortium makes no expressed or implied warranty of any kind, and
 			assumes no liability for errors or omissions. No liability is assumed
 			for incidental and consequential damages in connection with or

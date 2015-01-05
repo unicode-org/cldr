@@ -1001,11 +1001,14 @@ FDD1 03E2;	[5F 60 02, 05, 05]	# COPTIC first primary (compressible)</pre>
 				group but not each script.)</p>
 			<p class="changed">Beginning with CLDR 27,
 				these mappings alone define the boundaries for reordering single scripts.
+				(There are no mappings for Hrkt, Hans, or Hant
+				because they are not fully distinct scripts;
+				they share primary weights with other scripts: Hrkt=Hira=Kana &amp; Hans=Hant=Hani.)
 				There are some reserved ranges,
 				beginning at boundaries marked with U+FDD0 plus following characters as shown above.
 				The reserved ranges are not used for collation elements
-				and are not available for tailoring.
-				Some primary lead bytes must be reserved so that reordering of scripts
+				and are not available for tailoring.</p>
+			<p class="changed">Some primary lead bytes must be reserved so that reordering of scripts
 				along partial-lead-byte boundaries can “split” the primary lead byte
 				and use up a reserved byte.
 				This is for implementations that write sort keys,

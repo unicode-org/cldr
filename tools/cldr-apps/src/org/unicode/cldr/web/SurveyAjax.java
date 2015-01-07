@@ -1156,7 +1156,8 @@ public class SurveyAjax extends HttpServlet {
                                         if (value == null) continue; // ignore unvotes.
                                         PathHeader pathHeader = (PathHeader) m.get("pathHeader");
                                         //                                        System.err.println("PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
-                                        if (pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.READ_WRITE) {
+                                        if (pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.READ_WRITE &&
+                                            pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.LTR_ALWAYS) {
                                             bad++;
                                             continue; // skip these
                                         }

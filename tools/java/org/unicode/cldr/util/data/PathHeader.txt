@@ -61,13 +61,13 @@
 //ldml/dates/calendars/calendar[@type="%A"]/days/dayContext[@type="%A"]/dayWidth[@type="%A"]/day[@type="%A"]                    ; DateTime ; &calendar($1) ; &calField(Days:$3:$2) ; &day($4)
 //ldml/dates/calendars/calendar[@type="%A"]/dayPeriods/dayPeriodContext[@type="%A"]/dayPeriodWidth[@type="%A"]/dayPeriod[@type="%A"]  ; DateTime ; &calendar($1) ; &calField(DayPeriods:$3:$2) ; &day($4)
 
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(?![^"]*[hHms])%A"]            ; DateTime ; &calendar($1); &calField(Formats:Flexible:date) ; $2
-//ldml/dates/calendars/calendar[@type="%A"]/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &calField(Formats:Standard:$2) ; $4
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"]                           ; DateTime ; &calendar($1); &calField(Formats:Flexible:time) ; $2
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="(Timezone)"]    ; DateTime ; &calendar($1) ; &calField(Formats:Flexible:Append) ; $2 
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatFallback                              ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:Fallback) ; Fallback
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="%H%A"]/greatestDifference[@id="%A"] ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:time) ; $2$3/$4
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="%A"]/greatestDifference[@id="%A"] ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:date) ; $2/$3
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(?![^"]*[hHms])%A"]            ; DateTime ; &calendar($1); &calField(Formats:Flexible:date) ; $2 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &calField(Formats:Standard:$2) ; $4 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"]                           ; DateTime ; &calendar($1); &calField(Formats:Flexible:time) ; $2 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="(Timezone)"]    ; DateTime ; &calendar($1) ; &calField(Formats:Flexible:Append) ; $2  ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatFallback                              ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:Fallback) ; Fallback ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="%H%A"]/greatestDifference[@id="%A"] ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:time) ; $2$3/$4 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="%A"]/greatestDifference[@id="%A"] ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:date) ; $2/$3 ; LTR_ALWAYS
 
 //ldml/dates/calendars/calendar[@type="%A"]/cyclicNameSets/cyclicNameSet[@type="%A"]/cyclicNameContext[@type="%A"]/cyclicNameWidth[@type="%A"]/cyclicName[@type="%A"]   ; DateTime ; &calendar($1) ; $2 ; cyclic-$3-$4-$5
 //ldml/dates/calendars/calendar[@type="%A"]/monthPatterns/monthPatternContext[@type="%A"]/monthPatternWidth[@type="%A"]/monthPattern[@type="%A"]    ; DateTime ; &calendar($1) ; monthPatterns ; monthPattern-$2-$3-$4
@@ -90,9 +90,9 @@
 //ldml/numbers/symbols[@numberSystem="%A"]/timeSeparator                                                ; Numbers ; Symbols ; Time Symbols &numberingSystem($1) ; Time Separator
 //ldml/numbers/symbols[@numberSystem="%A"]/%E                                                           ; Numbers ; Symbols ; Symbols &numberingSystem($1) ; &number($2)
 //ldml/numbers/minimumGroupingDigits																	; Numbers ; Symbols ; Grouping Control ; Minimum Grouping Digits
-//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Numbers ; Number Formatting Patterns ; Standard Patterns &numberingSystem($2) ; &numberFormat($5-$1)
-//ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"]                             ; Numbers ; Number Formatting Patterns ; Currency Unit Patterns &numberingSystem($1) ; &count(currencies-$2)
-//ldml/numbers/miscPatterns[@numberSystem="%A"]/pattern[@type=\"%A\"]                                   ; Numbers ; Number Formatting Patterns ; Miscellaneous Patterns &numberingSystem($1) ; $2
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Numbers ; Number Formatting Patterns ; Standard Patterns &numberingSystem($2) ; &numberFormat($5-$1) ; LTR_ALWAYS
+//ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"]                             ; Numbers ; Number Formatting Patterns ; Currency Unit Patterns &numberingSystem($1) ; &count(currencies-$2) ; LTR_ALWAYS
+//ldml/numbers/miscPatterns[@numberSystem="%A"]/pattern[@type=\"%A\"]                                   ; Numbers ; Number Formatting Patterns ; Miscellaneous Patterns &numberingSystem($1) ; $2 ; LTR_ALWAYS
 
 //ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(long)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"]  ; Numbers ; Compact Decimal Formatting ; Long Formats &numberingSystem($2) ; &count2($7-digits-$4-$8)
 //ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting ; Short Formats &numberingSystem($2) ; &count2($7-digits-$4-$8)

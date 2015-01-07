@@ -3626,7 +3626,8 @@ function insertRowsIntoTbody(theTable,tbody) {
 		
 		var k = rowList[i];
 		var theRow = theRows[k];
-		
+		var dir = theRow.dir;
+		overridedir = (dir != null ? dir : null);
 		//no partition in the dashboard
 		if(!isDashboard()) {
 			var newPartition = findPartition(partitions,partitionList,curPartition,i);
@@ -4094,10 +4095,16 @@ function locInfo(loc) {
 	return locmap.getLocaleInfo(loc);
 }
 
+var overridedir = null;
 function setLang(node, loc) {
 	var info = locInfo(loc);
 	
-	if(info.dir) {
+	if(overridedir){
+		node.dir = overridedir;
+		if(info.dir && info.dir != overridedir){
+			// node.style.background = 'yellow';
+		}
+	} else if (info.dir) {
 		node.dir = info.dir;
 	}
 	

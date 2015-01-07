@@ -207,7 +207,7 @@ abstract public class CheckCLDR {
             }
 
             if (this == Phase.SUBMISSION) {
-                return status == SurveyToolStatus.READ_WRITE
+                return ( status ==  SurveyToolStatus.READ_WRITE || status == SurveyToolStatus.LTR_ALWAYS )
                     ? StatusAction.ALLOW
                     : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
@@ -218,7 +218,7 @@ abstract public class CheckCLDR {
             for (CandidateInfo value : pathValueInfo.getValues()) {
                 valueStatus = getValueStatus(value, valueStatus);
                 if (valueStatus != ValueStatus.NONE) {
-                    return status == SurveyToolStatus.READ_WRITE
+                    return ( status == SurveyToolStatus.READ_WRITE || status == SurveyToolStatus.LTR_ALWAYS )
                         ? StatusAction.ALLOW
                         : StatusAction.ALLOW_VOTING_AND_TICKET;
                 }
@@ -248,7 +248,7 @@ abstract public class CheckCLDR {
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
         ) {
-            if (status != SurveyToolStatus.READ_WRITE) {
+            if (status != SurveyToolStatus.READ_WRITE && status != SurveyToolStatus.LTR_ALWAYS) {
                 return StatusAction.FORBID_READONLY; // not writable.
             }
 

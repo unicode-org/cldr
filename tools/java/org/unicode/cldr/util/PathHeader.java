@@ -66,7 +66,12 @@ public class PathHeader implements Comparable<PathHeader> {
         /**
          * Allow change box and votes. Can be overridden in Phase.getAction()
          */
-        READ_WRITE
+        READ_WRITE,
+        /**
+         * Changes are allowed as READ_WRITE, but field is always displayed as
+         * LTR, even in RTL locales (used for patterns).
+         */
+        LTR_ALWAYS
     }
 
     private static EnumNames<SectionId> SectionIdNames = new EnumNames<SectionId>();

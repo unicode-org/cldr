@@ -41,7 +41,7 @@ public class IsoCurrencyParser {
         { "BOLIVIA, PLURINATIONAL STATE OF", "BO" },
         { "CONGO, DEMOCRATIC REPUBLIC OF THE", "CD" },
         { Utility.unescape("C\u00D4TE D\u2019IVOIRE"), "CI" },
-        { "CAPE VERDE", "CV" },
+        { "CABO VERDE", "CV" },
         { Utility.unescape("CURA\u00C7AO"), "CW" },
         { "HEARD ISLAND AND McDONALD ISLANDS", "HM" },
         { Utility.unescape("INTERNATIONAL MONETARY FUND (IMF)\u00A0"), "ZZ" },
@@ -54,7 +54,7 @@ public class IsoCurrencyParser {
         { "TANZANIA, UNITED REPUBLIC OF", "TZ" },
         { "Vatican City State (HOLY SEE)", "VA" },
         { Utility.unescape("LAO PEOPLE\u2019S DEMOCRATIC REPUBLIC"), "LA" },
-        { Utility.unescape("MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF"), "MK" },
+        { "MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF", "MK" },
         { "MEMBER COUNTRIES OF THE AFRICAN DEVELOPMENT BANK GROUP", "ZZ" },
         { "MOLDOVA, REPUBLIC OF", "MD" },
         { "PALESTINE, STATE OF", "PS" },
@@ -203,6 +203,7 @@ public class IsoCurrencyParser {
                 parts.set(path);
                 String type = parts.getElement(-1);
                 if (type.equals("CtryNm")) {
+                    value = value.replaceAll("\n", "");
                     country_code = getCountryCode(value);
                     if (country_code == null) {
                         country_code = "ZZ";

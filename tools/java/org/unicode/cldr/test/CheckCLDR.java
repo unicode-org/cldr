@@ -756,7 +756,8 @@ abstract public class CheckCLDR {
             illegalNumberingSystem,
             unexpectedOrderOfEraYear,
             invalidPlaceHolder,
-            asciiQuotesNotAllowed;
+            asciiQuotesNotAllowed,
+            badMinimumGroupingDigits;
 
             public String toString() {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();

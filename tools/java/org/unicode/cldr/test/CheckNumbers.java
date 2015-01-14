@@ -114,6 +114,35 @@ public class CheckNumbers extends FactoryCheckCLDR {
             return this;
         }
 
+        if (path.indexOf("/minimumGroupingDigits") >= 0) {
+            try {
+                int mgd = Integer.valueOf(value);
+                if (mgd > 4) {
+                    result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.badMinimumGroupingDigits)
+                        .setMessage("Minimum grouping digits cannot be greater than 4."));
+                    
+                }
+                if (mgd < 1) {
+                    result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.badMinimumGroupingDigits)
+                        .setMessage("Minimum grouping digits cannot be less than 1."));
+                    
+                }
+                if (mgd > 2) {
+                    result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
+                        .setSubtype(Subtype.badMinimumGroupingDigits)
+                        .setMessage("Minimum grouping digits > 2 is rare. Please double check this."));
+                    
+                }
+            } catch (NumberFormatException e) {
+                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.badMinimumGroupingDigits)
+                    .setMessage("Minimum grouping digits must be a numeric value."));
+            }
+            return this;
+        }
+
         if (path.indexOf("defaultNumberingSystem") >= 0 || path.indexOf("otherNumberingSystems") >= 0) {
             if (!validNumberingSystems.contains(value)) {
                 result.add(new CheckStatus()

@@ -1816,14 +1816,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="am">dop.</dayPeriod>
 							<dayPeriod type="noon">pol.</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="pm">odp.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="am">dopoledne</dayPeriod>
 							<dayPeriod type="noon">poledne</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="pm">odpoledne</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -2599,7 +2599,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="1">příští sobotu</relative>
 			</field>
 			<field type="dayperiod">
-				<displayName>AM/PM</displayName>
+				<displayName>dop./odp.</displayName>
 			</field>
 			<field type="hour">
 				<displayName>Hodina</displayName>

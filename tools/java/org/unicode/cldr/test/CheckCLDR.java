@@ -480,7 +480,7 @@ abstract public class CheckCLDR {
                 }
             }
             // otherwise, see if there is an organization level
-            return sc.getLocaleCoverageLevel(get(Option.CoverageLevel_localeType), localeID);
+            return sc.getLocaleCoverageLevel("Cldr", localeID);
         }
 
         public boolean contains(Option o) {
@@ -567,7 +567,7 @@ abstract public class CheckCLDR {
             .setFilter(Pattern.compile(nameMatcher, Pattern.CASE_INSENSITIVE).matcher(""))
             //.add(new CheckAttributeValues(factory))
             .add(new CheckChildren(factory))
-            // .add(new CheckCoverage(factory)) // outmoded
+            .add(new CheckCoverage(factory))
             .add(new CheckDates(factory))
             .add(new CheckForCopy(factory))
             .add(new CheckDisplayCollisions(factory))

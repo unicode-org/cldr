@@ -59,15 +59,6 @@ public class CheckCoverage extends FactoryCheckCLDR {
             return this;
         }
 
-        // if (false && path.indexOf("localeDisplayNames") >= 0 && path.indexOf("\"wo") >= 0) {
-        // System.out.println("debug: " + value);
-        // }
-        //
-        // if (path.indexOf("localeDisplayNames") < 0 && path.indexOf("currencies") < 0 && path.indexOf("exemplarCity")
-        // < 0) return this;
-        //
-        // // skip all items that are in anything but raw codes
-
         String source = getResolvedCldrFileToCheck().getSourceLocaleID(path, null);
 
         // if the source is a language locale (that is, not root or code fallback) then we have something already, so
@@ -91,7 +82,11 @@ public class CheckCoverage extends FactoryCheckCLDR {
 
         if (level == Level.UNDETERMINED) return this; // continue if we don't know what the status is
         if (requiredLevel.compareTo(level) >= 0) {
-            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
+            CheckStatus.Type coverageErrorType = CheckStatus.warningType;
+            if (this.getPhase().equals(CheckCLDR.Phase.VETTING)) {
+                coverageErrorType = CheckStatus.errorType;
+            }
+            result.add(new CheckStatus().setCause(this).setMainType(coverageErrorType)
                 .setSubtype(Subtype.coverageLevel)
                 .setCheckOnSubmit(false)
                 .setMessage("Needed to meet {0} coverage level.", new Object[] { level }));
@@ -113,7 +108,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
             PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal, localeID);
             if (pluralInfo == supplementalData.getPlurals(PluralType.cardinal, "root")) {
                 possibleErrors.add(new CheckStatus()
-                    .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.missingPluralInfo)
+                    .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.missingPluralInfo)
                     .setMessage("Missing Plural Information - see supplemental plural charts to file bug.",
                         new Object[] {}));
             }

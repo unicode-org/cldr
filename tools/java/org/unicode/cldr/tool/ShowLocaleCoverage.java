@@ -61,8 +61,9 @@ public class ShowLocaleCoverage {
     private static final StandardCodes STANDARD_CODES = SC;
     // added info using pattern in VettingViewer.
 
-    final static Options myOptions = new Options();
     private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/coverage/"; // CldrUtility.MAIN_DIRECTORY;
+    
+    final static Options myOptions = new Options();
 
     enum MyOptions {
         filter(".+", ".*", "Filter the information based on id, using a regex argument."),

@@ -21,7 +21,6 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.ChainedMap.M4;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
@@ -44,7 +43,7 @@ public class ShowRegionalVariants {
     private static final Factory FACTORY = CONFIG.getCldrFactory();
     private static final CLDRFile ENGLISH = CONFIG.getEnglish();
     private static final CLDRLocale ROOT = CLDRLocale.getInstance("root");
-    private static final CLDRLocale en_US_POSIX = CLDRLocale.getInstance("en_US_POSIX");
+    //private static final CLDRLocale en_US_POSIX = CLDRLocale.getInstance("en_US_POSIX");
     private static final CLDRLocale SWISS_HIGH_GERMAN = CLDRLocale.getInstance("de_CH");
 
     final static Options myOptions = new Options();
@@ -69,7 +68,7 @@ public class ShowRegionalVariants {
         Set<String> dc = new HashSet<>(SUPPLEMENTAL_DATA_INFO.getDefaultContentLocales());
         Set<String> skipLocales = new HashSet<>(Arrays.asList("root", "en_US_POSIX", "sr_Latn"));
 
-        Relation<CLDRLocale,CLDRLocale> parentToChildren = Relation.of(new TreeMap(), TreeSet.class);
+        Relation<CLDRLocale,CLDRLocale> parentToChildren = Relation.of(new TreeMap<CLDRLocale,Set<CLDRLocale>>(), TreeSet.class);
         // first, collect all locales for lookup by parents.
 
         for (String locale : FACTORY.getAvailable()) {
@@ -98,7 +97,7 @@ public class ShowRegionalVariants {
         }
 
         // next find out the unique items in children
-        Relation<String,String> valueToAncestors = Relation.of(new LinkedHashMap(), LinkedHashSet.class);
+        Relation<String,String> valueToAncestors = Relation.of(new LinkedHashMap<String,Set<String>>(), LinkedHashSet.class);
 
         int count = 0;
 

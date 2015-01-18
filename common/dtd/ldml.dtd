@@ -10,7 +10,7 @@ $Revision$
 $Date$
 -->
 
-<!ELEMENT ldml (identity, (alias | (fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, metadata?, references?, special*))) >
+<!ELEMENT ldml (identity, (alias | (fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, annotations?, metadata?, references?, special*))) >
 <!ATTLIST ldml draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!-- ######################################################### -->
@@ -1508,6 +1508,11 @@ $Date$
 <!ATTLIST rbnfrule radix CDATA #IMPLIED >
 <!ATTLIST rbnfrule decexp CDATA #IMPLIED >
 <!ATTLIST rbnfrule draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED ><!-- true and false are deprecated. -->
+
+<!ELEMENT annotations ( annotation* ) >
+
+<!ELEMENT annotation ( #PCDATA ) >
+<!ATTLIST annotation cp CDATA #REQUIRED >
 
 <!ELEMENT references ( reference* ) > <!-- deprecated. -->
 <!ELEMENT reference ( #PCDATA ) >

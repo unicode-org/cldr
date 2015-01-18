@@ -16,7 +16,9 @@ import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.text.UnicodeSet;
 
 public class Annotations {
-    private static final boolean DEBUG = true;
+    
+    private static final boolean DEBUG = false;
+    
     static Map<String, UnicodeMap<Set<String>>> data = new HashMap<>();
     static {
         File directory = new File(CLDRPaths.COMMON_DIRECTORY, "annotations");

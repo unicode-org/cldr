@@ -1815,6 +1815,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">dop.</dayPeriod>
+							<dayPeriod type="noon">pol.</dayPeriod>
+							<dayPeriod type="pm">odp.</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">dop.</dayPeriod>
 							<dayPeriod type="noon">pol.</dayPeriod>

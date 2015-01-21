@@ -1,0 +1,3745 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- Copyright © 1991-2013 Unicode, Inc. DRAFT emoji-annotations.txt For 
+ details about the format and other information, see /../../../reports/tr51/index.html#Data_Files. 
+ http://unicode.org/cldr/trac/ticket/8019 CLDR data files are interpreted 
+ according to the LDML specification (http://unicode.org/reports/tr35/) For 
+ terms of use, see http://www.unicode.org/copyright.html 
+ This is still under development, and will be refined before release. 
+ In particular, the annotations like 'people-apple' are only present during development, and will be withdrawn for the release.
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<generation date='$Date: 2014-06-19 06:23:55 +0200 (Thu, 19 Jun 2014) $' />
+		<language type='sv'/>
+	</identity>
+	<annotations>
+
+		<!-- WHITE SMILING FACE; face; human; outlined; relaxed; smile; smiley -->
+		<annotation cp='[☺]' tts='vitt leende ansikte'>smiley utan färg; smiley</annotation>
+
+		<!-- WHITE FROWNING FACE; face; frown; human -->
+		<annotation cp='[☹]'>MISSING</annotation>
+
+		<!-- SLIGHTLY FROWNING FACE; face; frown; human -->
+		<annotation cp='[🙁]'>MISSING</annotation>
+
+		<!-- SLIGHTLY SMILING FACE; face; human; smile; smiley -->
+		<annotation cp='[🙂]'>MISSING</annotation>
+
+		<!-- GRINNING FACE; face; grin; human -->
+		<annotation cp='[😀]' tts='leende ansikte'>leende; skratt; roligt</annotation>
+
+		<!-- GRINNING FACE WITH SMILING EYES; eye; face; grin; human; smile; smiley -->
+		<annotation cp='[😁]' tts='leende ansikte med leende ögon'>leende; skratt; roligt</annotation>
+
+		<!-- FACE WITH TEARS OF JOY; face; human; joy; tear -->
+		<annotation cp='[😂]' tts='ansikte med glädjetårar'>glädjetårar</annotation>
+
+		<!-- SMILING FACE WITH OPEN MOUTH; face; human; mouth; open; smile; smiley -->
+		<annotation cp='[😃]' tts='leende ansikte med öppen mun'>leende; öppen mun; skratt; roligt</annotation>
+
+		<!-- SMILING FACE WITH OPEN MOUTH AND SMILING EYES; eye; face; human; mouth; open; smile; smiley -->
+		<annotation cp='[😄]' tts='ansikte med leende ögon och mun'>leende ögon; skratt; roligt</annotation>
+
+		<!-- SMILING FACE WITH OPEN MOUTH AND COLD SWEAT; cold; face; human; open; smile; smiley; sweat -->
+		<annotation cp='[😅]' tts='leende ansikte med svettdroppe'>leende men svettas</annotation>
+
+		<!-- SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES; face; human; laugh; mouth; open; satisfied; smile; smiley -->
+		<annotation cp='[😆]' tts='leende med öppen mun'>leende med stängda ögon; öppen mun; stängda ögon; ansikte</annotation>
+
+		<!-- WINKING FACE; face; human; wink -->
+		<annotation cp='[😉]' tts='blinkande ansikte'>blinkning</annotation>
+
+		<!-- SMILING FACE WITH SMILING EYES; blush; eye; face; human; smile; smiley -->
+		<annotation cp='[😊]' tts='leende ansikte och ögon'>glad</annotation>
+
+		<!-- FACE SAVOURING DELICIOUS FOOD; delicious; face; food; human; savouring; smile; smiley; um; yum -->
+		<annotation cp='[😋]' tts='smakar gott'>gott; leende ansikte; god mat</annotation>
+
+		<!-- RELIEVED FACE; face; human; relieved -->
+		<annotation cp='[😌]' tts='lättat ansikte'>lättnad</annotation>
+
+		<!-- SMILING FACE WITH HEART-SHAPED EYES; eye; face; heart; human; love; smile; smiley -->
+		<annotation cp='[😍]' tts='leende med hjärtformade ögon'>kärlek; hjärta</annotation>
+
+		<!-- SMILING FACE WITH SUNGLASSES; bright; cool; eye; eyewear; face; glasses; human; smile; smiley; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='leende med solglasögon'>cool; leende; solglasögon</annotation>
+
+		<!-- SMIRKING FACE; face; human; smirk -->
+		<annotation cp='[😏]' tts='flinande ansikte'>flin</annotation>
+
+		<!-- NEUTRAL FACE; deadpan; face; human; neutral -->
+		<annotation cp='[😐]' tts='neutralt ansikte'>neutral; ingen kommentar</annotation>
+
+		<!-- EXPRESSIONLESS FACE; expressionless; face; human; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='uttryckslöst ansikte'>ingen kommentar</annotation>
+
+		<!-- UNAMUSED FACE; face; human; unamused; unhappy -->
+		<annotation cp='[😒]' tts='missnöjt ansikte'>inte glad; missnöjd</annotation>
+
+		<!-- FACE WITH COLD SWEAT; cold; face; human; sweat -->
+		<annotation cp='[😓]' tts='kallsvettigt ansikte'>svettig</annotation>
+
+		<!-- PENSIVE FACE; dejected; face; human; pensive -->
+		<annotation cp='[😔]' tts='funderande ansikte'>tänker; funderar</annotation>
+
+		<!-- CONFUSED FACE; confused; face; human -->
+		<annotation cp='[😕]' tts='förbryllat ansikte'>förbryllad</annotation>
+
+		<!-- CONFOUNDED FACE; confounded; face; human -->
+		<annotation cp='[😖]' tts='förvirrat ansikte'>förvirrad</annotation>
+
+		<!-- KISSING FACE; face; human; kiss -->
+		<annotation cp='[😗]' tts='kyssande ansikte'>pussas</annotation>
+
+		<!-- FACE THROWING A KISS; face; heart; human; kiss -->
+		<annotation cp='[😘]' tts='ansikte kastar slängkyss'>ger slängkyss</annotation>
+
+		<!-- KISSING FACE WITH SMILING EYES; eye; face; human; kiss; smile; smiley -->
+		<annotation cp='[😙]' tts='kyssande ansikte med glada ögon'>kysser med leende</annotation>
+
+		<!-- KISSING FACE WITH CLOSED EYES; closed; eye; face; human; kiss -->
+		<annotation cp='[😚]' tts='kyssande ansikte med stängda ögon'>kyssande ansikte med stängda ögon</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE; face; human; tongue -->
+		<annotation cp='[😛]' tts='lipande ansikte'>räcker ut tungan</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE AND WINKING EYE; eye; face; human; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='lipande/blinkande ansikte'>räcker ut tungan och blinkar</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES; eye; face; horrible; human; taste; tongue -->
+		<annotation cp='[😝]' tts='räcker ut tungan med stängda ögon'>äckligt; lipar</annotation>
+
+		<!-- DISAPPOINTED FACE; disappointed; face; human -->
+		<annotation cp='[😞]' tts='besviket ansikte'>besvikelse; besviken</annotation>
+
+		<!-- WORRIED FACE; face; human; worried -->
+		<annotation cp='[😟]' tts='bekymrat ansikte'>bekymrad; orolig</annotation>
+
+		<!-- ANGRY FACE; angry; face; human; mad -->
+		<annotation cp='[😠]' tts='argt ansikte'>arg</annotation>
+
+		<!-- POUTING FACE; angry; face; human; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='surt ansikte'>arg; sur; röd i ansiktet</annotation>
+
+		<!-- CRYING FACE; cry; face; human; sad; tear -->
+		<annotation cp='[😢]' tts='gråtande ansikte'>gråter; ledsen</annotation>
+
+		<!-- PERSEVERING FACE; face; human; persevere -->
+		<annotation cp='[😣]' tts='besviket ansikte'>misslyckades; besviken</annotation>
+
+		<!-- FACE WITH LOOK OF TRIUMPH; face; human; triumph; won -->
+		<annotation cp='[😤]' tts='nöjt ansikte'>jag klarade det; seger</annotation>
+
+		<!-- DISAPPOINTED BUT RELIEVED FACE; disappointed; face; human; relieved; whew -->
+		<annotation cp='[😥]' tts='besviken men lättad'>besviken; lättad</annotation>
+
+		<!-- FROWNING FACE WITH OPEN MOUTH; face; frown; human; mouth; open -->
+		<annotation cp='[😦]' tts='bister uppsyn'>bister; öppen mun</annotation>
+
+		<!-- ANGUISHED FACE; anguished; face; human -->
+		<annotation cp='[😧]' tts='ångerfullt ansikte'>ångest; lider</annotation>
+
+		<!-- FEARFUL FACE; face; fear; fearful; human; scared -->
+		<annotation cp='[😨]' tts='skräckinjagat ansikte'>rädd</annotation>
+
+		<!-- WEARY FACE; face; human; tired; weary -->
+		<annotation cp='[😩]' tts='bedrövat ansikte'>bedrövad</annotation>
+
+		<!-- SLEEPY FACE; face; human; sleep -->
+		<annotation cp='[😪]' tts='sömnigt ansikte'>trött; sömnig</annotation>
+
+		<!-- TIRED FACE; face; human; tired -->
+		<annotation cp='[😫]' tts='trött ansikte'>trött</annotation>
+
+		<!-- GRIMACING FACE; face; grimace; human -->
+		<annotation cp='[😬]' tts='grimaserande ansikte'>grimaserar</annotation>
+
+		<!-- LOUDLY CRYING FACE; cry; face; human; sad; sob; tear -->
+		<annotation cp='[😭]' tts='storgråtande ansikte'>gråter; gråt</annotation>
+
+		<!-- FACE WITH OPEN MOUTH; face; human; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='förvånat ansikte'>öppen mun; förvånad</annotation>
+
+		<!-- HUSHED FACE; face; human; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='tyst ansikte'>stum; överraskad</annotation>
+
+		<!-- FACE WITH OPEN MOUTH AND COLD SWEAT; blue; cold; face; human; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='stressat ansikte'>blått ansikte; kallsvettig</annotation>
+
+		<!-- FACE SCREAMING IN FEAR; face; fear; fearful; human; munch; scared; scream -->
+		<annotation cp='[😱]' tts='skrikande ansikte'>skriker; rädd</annotation>
+
+		<!-- ASTONISHED FACE; astonished; face; human; shocked; totally -->
+		<annotation cp='[😲]' tts='chockat ansikte'>förvånad; chockad</annotation>
+
+		<!-- FLUSHED FACE; dazed; face; flushed; human -->
+		<annotation cp='[😳]' tts='generat ansikte'>generad; omtumlad</annotation>
+
+		<!-- SLEEPING FACE; face; human; sleep -->
+		<annotation cp='[😴]' tts='sovande ansikte'>sover</annotation>
+
+		<!-- DIZZY FACE; dizzy; face; human -->
+		<annotation cp='[😵]' tts='yr'>yr; yrar</annotation>
+
+		<!-- FACE WITHOUT MOUTH; face; human; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='ansikte utan mun'>ingen mun</annotation>
+
+		<!-- FACE WITH MEDICAL MASK; cold; doctor; face; human; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='ansikte med mask över mun'>sjuk; dålig</annotation>
+
+		<!-- SMILING FACE WITH HALO; angel; face; fantasy; halo; human; innocent; smile; smiley -->
+		<annotation cp='[😇]' tts='leende med gloria'>leende; gloria</annotation>
+
+		<!-- SMILING FACE WITH HORNS; face; fantasy; horns; human; smile; smiley -->
+		<annotation cp='[😈]' tts='leende med horn'>leende; horn</annotation>
+
+		<!-- IMP; devil; face; fairy tale; fantasy; human; imp -->
+		<annotation cp='[👿]' tts='liten djävul'>djävul</annotation>
+
+		<!-- BOY; boy; human; person -->
+		<annotation cp='[👦]' tts='pojke'>pojke; kille; människor</annotation>
+
+		<!-- GIRL; girl; human; maiden; person; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' tts='flicka'>flicka; tjej; människor</annotation>
+
+		<!-- MAN; human; man; person -->
+		<annotation cp='[👨]' tts='man'>man; människor</annotation>
+
+		<!-- WOMAN; human; person; woman -->
+		<annotation cp='[👩]' tts='kvinna'>kvinna; människor</annotation>
+
+		<!-- OLDER MAN; human; man; old; person -->
+		<annotation cp='[👴]' tts='äldre man'>man; gammal; människor</annotation>
+
+		<!-- OLDER WOMAN; human; old; person; woman -->
+		<annotation cp='[👵]' tts='äldre kvinna'>kvinna; gammal; människor</annotation>
+
+		<!-- BABY; baby; human; person -->
+		<annotation cp='[👶]' tts='bebis'>bebis; baby; människor</annotation>
+
+		<!-- PERSON WITH BLOND HAIR; blond; human; person -->
+		<annotation cp='[👱]' tts='blond person'>blond; människor</annotation>
+
+		<!-- POLICE OFFICER; cop; human; officer; person; police -->
+		<annotation cp='[👮]' tts='polis'>polis; människor</annotation>
+
+		<!-- MAN WITH GUA PI MAO; gua pi mao; hat; human; man; person -->
+		<annotation cp='[👲]' tts='man med mössa'>kinesisk mössa; man; människor</annotation>
+
+		<!-- MAN WITH TURBAN; human; man; person; turban -->
+		<annotation cp='[👳]' tts='man med turban'>man; turban; människor</annotation>
+
+		<!-- CONSTRUCTION WORKER; construction; hat; human; person; worker -->
+		<annotation cp='[👷]' tts='byggarbetare'>byggarbetare; arbetare; människor</annotation>
+
+		<!-- PRINCESS; fairy tale; fantasy; human; person; princess -->
+		<annotation cp='[👸]' tts='prinsessa'>prinsessa; saga; människor</annotation>
+
+		<!-- GUARDSMAN; guard; guardsman; human; person -->
+		<annotation cp='[💂]' tts='vakt'>vakt; människor</annotation>
+
+		<!-- FATHER CHRISTMAS; activity; celebration; christmas; fantasy; father; human; person; santa -->
+		<annotation cp='[🎅]' tts='jultomte'>jultomte; tomten; jul; högtid</annotation>
+
+		<!-- BABY ANGEL; angel; baby; face; fairy tale; fantasy; human -->
+		<annotation cp='[👼]' tts='bebisängel'>bebisängel; ängel; saga</annotation>
+
+		<!-- SLEUTH OR SPY; human; person; sleuth; spy -->
+		<annotation cp='[🕵]'>MISSING</annotation>
+
+		<!-- WOMAN WITH BUNNY EARS; bunny; dancer; ear; girl; human; person; woman -->
+		<annotation cp='[👯]' tts='tjej med kaninöron'>kaninöron; tjej; kvinna; människor</annotation>
+
+		<!-- FACE MASSAGE; face; human; massage; person; salon -->
+		<annotation cp='[💆]' tts='ansiktsmassage'>ansiktsmassage; massage; behandling</annotation>
+
+		<!-- HAIRCUT; barber; beauty; haircut; human; parlor; person -->
+		<annotation cp='[💇]' tts='hårklippning'>hårklippning; frisör; skönhet</annotation>
+
+		<!-- BRIDE WITH VEIL; bride; human; person; veil; wedding -->
+		<annotation cp='[👰]' tts='brud med slöja'>brud; slöja; bröllop; människor</annotation>
+
+		<!-- PERSON FROWNING; frown; gesture; human; person -->
+		<annotation cp='[🙍]' tts='bister uppsyn'>person; sur</annotation>
+
+		<!-- PERSON WITH POUTING FACE; face; gesture; human; person; pouting -->
+		<annotation cp='[🙎]' tts='plutar'>plutar; person som plutar</annotation>
+
+		<!-- FACE WITH NO GOOD GESTURE; face; forbidden; gesture; human; no; not; person; prohibited -->
+		<annotation cp='[🙅]' tts='gest för inte bra'>inte bra; förbjudet; gest</annotation>
+
+		<!-- FACE WITH OK GESTURE; face; gesture; human; ok; person -->
+		<annotation cp='[🙆]' tts='gest för OK'>okej; gest</annotation>
+
+		<!-- INFORMATION DESK PERSON; help; human; information; person; sassy -->
+		<annotation cp='[💁]' tts='receptionist'>receptionist; reception; information; människor</annotation>
+
+		<!-- HAPPY PERSON RAISING ONE HAND; gesture; hand; happy; human; person; raised -->
+		<annotation cp='[🙋]' tts='glad person räcker upp hand'>räcker upp handen; person</annotation>
+
+		<!-- PERSON BOWING DEEPLY; apology; bow; gesture; human; person; sorry -->
+		<annotation cp='[🙇]' tts='person som ber om ursäkt'>beklagar; bugar; gest</annotation>
+
+		<!-- PERSON RAISING BOTH HANDS IN CELEBRATION; body; celebration; gesture; hand; hooray; human; person; raised -->
+		<annotation cp='[🙌]' tts='båda händerna i luften'>räcker upp händerna; hurra</annotation>
+
+		<!-- PERSON WITH FOLDED HANDS; ask; body; bow; folded; gesture; hand; human; person; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='knäppta händer'>ber; be; händer</annotation>
+
+		<!-- SPEAKING HEAD IN SILHOUETTE; face; head; human; person; silhouette; speak; speaking -->
+		<annotation cp='[🗣]'>MISSING</annotation>
+
+		<!-- BUST IN SILHOUETTE; bust; human; person; silhouette -->
+		<annotation cp='[👤]' tts='figur i silhuett'>figur; människa</annotation>
+
+		<!-- BUSTS IN SILHOUETTE; bust; human; person; silhouette -->
+		<annotation cp='[👥]' tts='figurer i silhuett'>figurer; människor</annotation>
+
+		<!-- PEDESTRIAN; hike; human; pedestrian; person; travel; walk; walking -->
+		<annotation cp='[🚶]' tts='fotgängare'>fotgängare; promenerar</annotation>
+
+		<!-- RUNNER; human; marathon; person; runner; running; sport -->
+		<annotation cp='[🏃]' tts='löpare'>löpare; löpning</annotation>
+
+		<!-- DANCER; dancer; human; person -->
+		<annotation cp='[💃]' tts='dansare'>dansare; dans; människor</annotation>
+
+		<!-- MAN IN BUSINESS SUIT LEVITATING; business; human; man; person; suit -->
+		<annotation cp='[🕴]'>MISSING</annotation>
+
+		<!-- KISS; couple; human; kiss; person; romance -->
+		<annotation cp='[💏]' tts='puss'>puss; kyssas; människor; kärlek</annotation>
+
+		<!-- COUPLE WITH HEART; couple; heart; human; love; person; romance -->
+		<annotation cp='[💑]' tts='par med hjärta'>hjärta; människor; kärlek</annotation>
+
+		<!-- FAMILY; child; family; father; human; mother; person -->
+		<annotation cp='[👪]' tts='familj'>familj; mamma; pappa; barn; människor</annotation>
+
+		<!-- MAN AND WOMAN HOLDING HANDS; couple; hand; hold; human; man; person; woman -->
+		<annotation cp='[👫]' tts='man och kvinna håller hand'>par; håller hand; man; kvinna; människor</annotation>
+
+		<!-- TWO MEN HOLDING HANDS; couple; gemini; hand; hold; human; men; person; twins; zodiac -->
+		<annotation cp='[👬]' tts='två män håller hand'>par; två män; håller hand; människor</annotation>
+
+		<!-- TWO WOMEN HOLDING HANDS; couple; hand; hold; human; person; woman -->
+		<annotation cp='[👭]' tts='två kvinnor håller hand'>par; två kvinnor; håller hand; människor</annotation>
+
+		<!-- WHITE LEFT POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point -->
+		<annotation cp='[👈]' tts='vänsterpekande finger'>peka åt vänster; pekfinger</annotation>
+
+		<!-- WHITE RIGHT POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point -->
+		<annotation cp='[👉]' tts='högerpekande finger'>peka åt höger; pekfinger</annotation>
+
+		<!-- WHITE UP POINTING INDEX; body; finger; hand; human; index; point; up -->
+		<annotation cp='[☝]'>MISSING</annotation>
+
+		<!-- WHITE UP POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point; up -->
+		<annotation cp='[👆]' tts='uppåtpekande finger'>finger; peka uppåt; pekfinger</annotation>
+
+		<!-- REVERSED HAND WITH MIDDLE FINGER EXTENDED; body; finger; hand; human; middle finger -->
+		<annotation cp='[🖕]'>MISSING</annotation>
+
+		<!-- WHITE DOWN POINTING BACKHAND INDEX; backhand; body; down; finger; hand; human; index; point -->
+		<annotation cp='[👇]' tts='nedåtpekande finger'>finger; peka nedåt; pekfinger</annotation>
+
+		<!-- VICTORY HAND; body; hand; human; v; victory -->
+		<annotation cp='[✌]' tts='v-tecken'>v-tecken; seger</annotation>
+
+		<!-- RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS; body; finger; hand; human; spock; vulcan -->
+		<annotation cp='[🖖]'>MISSING</annotation>
+
+		<!-- RAISED FIST; body; clenched; fist; hand; human; punch -->
+		<annotation cp='[✊]' tts='knytnäve i luften'>knytnäve i luften</annotation>
+
+		<!-- RAISED HAND; body; hand; human -->
+		<annotation cp='[✋]' tts='hand i luften'>hand i luften</annotation>
+
+		<!-- FISTED HAND SIGN; body; clenched; fist; hand; human; punch -->
+		<annotation cp='[👊]' tts='knuten hand'>knytnäve</annotation>
+
+		<!-- WAVING HAND SIGN; body; hand; human; wave; waving -->
+		<annotation cp='[👋]' tts='vinkande hand'>hand; vinka</annotation>
+
+		<!-- OK HAND SIGN; body; hand; human; ok -->
+		<annotation cp='[👌]' tts='OK-tecken'>OK-tecken; OK; hand; tecken</annotation>
+
+		<!-- THUMBS UP SIGN; +1; body; hand; human; thumb; thumbs’s up; up -->
+		<annotation cp='[👍]' tts='tummen upp'>tummen upp</annotation>
+
+		<!-- THUMBS DOWN SIGN; body; down; hand; human; thumb; thumb’s down -->
+		<annotation cp='[👎]' tts='tummen ned'>tummen ned</annotation>
+
+		<!-- CLAPPING HANDS SIGN; body; clap; hand; human -->
+		<annotation cp='[👏]' tts='klappande händer'>klappa händer; klappa</annotation>
+
+		<!-- OPEN HANDS SIGN; body; hand; human; open -->
+		<annotation cp='[👐]' tts='öppna händer'>händer; öppna</annotation>
+
+		<!-- WRITING HAND; body; education; hand; human; write -->
+		<annotation cp='[✍]'>MISSING</annotation>
+
+		<!-- RAISED HAND WITH FINGERS SPLAYED; body; finger; hand; human; splayed -->
+		<annotation cp='[🖐]'>MISSING</annotation>
+
+		<!-- NAIL POLISH; body; care; cosmetics; human; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='nagellack'>nagellack; manikyr; måla naglar; smink</annotation>
+
+		<!-- FLEXED BICEPS; biceps; body; comic; flex; human; muscle -->
+		<annotation cp='[💪]' tts='spänd biceps'>muskler; stark</annotation>
+
+		<!-- FOOTPRINTS; body; clothing; footprint; human; print -->
+		<annotation cp='[👣]' tts='fotavtryck'>fotavtryck; fötter; avtryck</annotation>
+
+		<!-- EYES; body; eye; face; human -->
+		<annotation cp='[👀]' tts='ögon'>ögon</annotation>
+
+		<!-- EYE; body; eye; human -->
+		<annotation cp='[👁]'>MISSING</annotation>
+
+		<!-- EAR; body; ear; human -->
+		<annotation cp='[👂]' tts='öra'>öra</annotation>
+
+		<!-- NOSE; body; human; nose -->
+		<annotation cp='[👃]' tts='näsa'>näsa</annotation>
+
+		<!-- TONGUE; body; human; tongue -->
+		<annotation cp='[👅]' tts='tunga'>tunga</annotation>
+
+		<!-- SKULL; body; death; face; fairy tale; skull -->
+		<annotation cp='[💀]' tts='dödskalle'>dödskalle; ansikte</annotation>
+
+		<!-- SKULL AND CROSSBONES; body; crossbones; death; face; skull -->
+		<annotation cp='[☠]'>MISSING</annotation>
+
+		<!-- KISS MARK; emotion; heart; human; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='läppavtryck'>läppavtryck; läppar; kyssmärke; kärlek</annotation>
+
+		<!-- MOUTH; body; human; lips; mouth -->
+		<annotation cp='[👄]' tts='mun'>mun; läppar</annotation>
+
+		<!-- HEART WITH ARROW; arrow; cupid; emotion; heart; romance -->
+		<annotation cp='[💘]' tts='hjärta med pil'>hjärta; pil; kärlek</annotation>
+
+		<!-- HEAVY BLACK HEART; emotion; heart -->
+		<annotation cp='[❤]'>MISSING</annotation>
+
+		<!-- BEATING HEART; beating; emotion; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='bultande hjärta'>bultar; slår; hjärta; kärlek; känslor</annotation>
+
+		<!-- BROKEN HEART; break; broken; emotion; heart -->
+		<annotation cp='[💔]' tts='brustet hjärta'>trasigt hjärta; brustet; känslor</annotation>
+
+		<!-- TWO HEARTS; emotion; heart; love -->
+		<annotation cp='[💕]' tts='två hjärtan'>kärlek; känslor</annotation>
+
+		<!-- SPARKLING HEART; emotion; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='gnistrande hjärta'>upprymd; kärlek; känslor</annotation>
+
+		<!-- GROWING HEART; emotion; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' tts='växande hjärta'>nervös; upprymd; hjärta; känslor; kärlek</annotation>
+
+		<!-- BLUE HEART; blue; emotion; heart -->
+		<annotation cp='[💙]' tts='blått hjärta'>blå; hjärta</annotation>
+
+		<!-- GREEN HEART; emotion; green; heart -->
+		<annotation cp='[💚]' tts='grönt hjärta'>grön; hjärta</annotation>
+
+		<!-- YELLOW HEART; emotion; heart; yellow -->
+		<annotation cp='[💛]' tts='gult hjärta'>gul; hjärta</annotation>
+
+		<!-- PURPLE HEART; emotion; heart; purple -->
+		<annotation cp='[💜]' tts='lila hjärta'>lila; hjärta</annotation>
+
+		<!-- HEART WITH RIBBON; emotion; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='hjärta med rosett'>hjärta; rosett; alla hjärtans dag</annotation>
+
+		<!-- REVOLVING HEARTS; emotion; heart; revolving -->
+		<annotation cp='[💞]' tts='snurrande hjärtan'>snurrar; hjärta; kärlek; känslor</annotation>
+
+		<!-- HEART DECORATION; emotion; heart -->
+		<annotation cp='[💟]' tts='hjärtdekoration'>hjärtdekoration; hjärta</annotation>
+
+		<!-- HEAVY HEART EXCLAMATION MARK ORNAMENT; emotion; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]'>MISSING</annotation>
+
+		<!-- LOVE LETTER; emotion; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='kärleksbrev'>kärleksbrev; brev med hjärta; brev; kärlek</annotation>
+
+		<!-- DROPLET; cold; comic; drop; emotion; object; sweat; weather -->
+		<annotation cp='[💧]' tts='svettdroppe'>svettdroppe; kallsvettig; svettig</annotation>
+
+		<!-- SLEEPING SYMBOL; comic; emotion; sleep; word; zzz -->
+		<annotation cp='[💤]' tts='snarkningar'>snarkningar; trött; Zzz; sömnig; snarkar</annotation>
+
+		<!-- ANGER SYMBOL; angry; comic; emotion; mad -->
+		<annotation cp='[💢]' tts='symbol för ilska'>ilska; arg</annotation>
+
+		<!-- BOMB; bomb; comic; emotion; object -->
+		<annotation cp='[💣]' tts='bomb'>bomb; känslor</annotation>
+
+		<!-- COLLISION SYMBOL; boom; collision; comic; emotion -->
+		<annotation cp='[💥]' tts='explosion'>explosion; smäll</annotation>
+
+		<!-- SPLASHING SWEAT SYMBOL; comic; emotion; object; splashing; sweat -->
+		<annotation cp='[💦]' tts='stänkande svett'>svettig; svett</annotation>
+
+		<!-- DASH SYMBOL; comic; dash; emotion; object; running -->
+		<annotation cp='[💨]' tts='fartsymbol'>fartsymbol; springer iväg; springa</annotation>
+
+		<!-- DIZZY SYMBOL; comic; dizzy; emotion; star -->
+		<annotation cp='[💫]' tts='yr'>yr; ser stjärnor</annotation>
+
+		<!-- SPEECH BALLOON; balloon; bubble; comic; dialog; emotion; speech -->
+		<annotation cp='[💬]' tts='pratbubbla'>pratbubbla; dialogbubbla; bubbla</annotation>
+
+		<!-- THOUGHT BALLOON; balloon; bubble; comic; emotion; thought -->
+		<annotation cp='[💭]' tts='tankebubbla'>tankebubbla; funderar; bubbla</annotation>
+
+		<!-- HOLE; hole -->
+		<annotation cp='[🕳]'>MISSING</annotation>
+
+		<!-- RIGHT ANGER BUBBLE; angry; balloon; bubble; emotion; mad -->
+		<annotation cp='[🗯]'>MISSING</annotation>
+
+		<!-- EYEGLASSES; clothing; eye; eyeglasses; eyewear; glasses -->
+		<annotation cp='[👓]' tts='glasögon'>glasögon</annotation>
+
+		<!-- DARK SUNGLASSES; dark; eye; eyewear; glasses; object; sunglasses -->
+		<annotation cp='[🕶]'>MISSING</annotation>
+
+		<!-- NECKTIE; clothing; necktie -->
+		<annotation cp='[👔]' tts='skjorta med slips'>slips; skjorta; kläder</annotation>
+
+		<!-- T-SHIRT; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' tts='T-shirt'>T-shirt; tröja; kläder</annotation>
+
+		<!-- JEANS; clothing; jeans; pants; trousers -->
+		<annotation cp='[👖]' tts='byxor'>byxor; jeans; kläder</annotation>
+
+		<!-- DRESS; clothing; dress -->
+		<annotation cp='[👗]' tts='klänning'>klänning; kläder</annotation>
+
+		<!-- KIMONO; clothing; kimono -->
+		<annotation cp='[👘]' tts='kimono'>kimono; klänning; kläder</annotation>
+
+		<!-- BIKINI; bikini; clothing; swim -->
+		<annotation cp='[👙]' tts='bikini'>bikini; badkläder; kläder</annotation>
+
+		<!-- WOMANS CLOTHES; clothing; woman -->
+		<annotation cp='[👚]' tts='blus'>blus; damkläder; kläder</annotation>
+
+		<!-- PURSE; clothing; coin; purse -->
+		<annotation cp='[👛]' tts='portmonnä'>portmonnä; accessoar</annotation>
+
+		<!-- HANDBAG; bag; clothing; handbag -->
+		<annotation cp='[👜]' tts='handväska'>handväska; väska; accessoar</annotation>
+
+		<!-- POUCH; bag; clothing; pouch -->
+		<annotation cp='[👝]' tts='pengaväska'>pengaväska; börs; accessoar</annotation>
+
+		<!-- MANS SHOE; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='herrsko'>herrsko; sko; skor</annotation>
+
+		<!-- ATHLETIC SHOE; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='gympasko'>gympasko; sneaker; sko</annotation>
+
+		<!-- HIGH-HEELED SHOE; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='högklackad sko'>sko; pumps</annotation>
+
+		<!-- WOMANS SANDAL; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='damsandal'>damsandal; sandal; sko</annotation>
+
+		<!-- WOMANS BOOTS; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='damstövel'>damstövel; stövel</annotation>
+
+		<!-- CROWN; clothing; crown; king; queen -->
+		<annotation cp='[👑]' tts='krona'>krona; kungakrona</annotation>
+
+		<!-- WOMANS HAT; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='damhatt'>damhatt; hatt</annotation>
+
+		<!-- TOP HAT; activity; entertainment; hat; object; top; tophat -->
+		<annotation cp='[🎩]' tts='hög hatt'>hatt</annotation>
+
+		<!-- HELMET WITH WHITE CROSS; aid; cross; hat; helmet; travel -->
+		<annotation cp='[⛑]'>MISSING</annotation>
+
+		<!-- MONKEY FACE; animal; face; monkey; nature -->
+		<annotation cp='[🐵]' tts='apansikte'>apansikte; apa; djur</annotation>
+
+		<!-- SEE-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='apa som inget ser'>ser inget; apa</annotation>
+
+		<!-- HEAR-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='apa som inget hör'>hör inget; apa</annotation>
+
+		<!-- SPEAK-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='apa som inget säger'>säger inget; apa</annotation>
+
+		<!-- MONKEY; animal; monkey; nature -->
+		<annotation cp='[🐒]' tts='apa'>apa; djur</annotation>
+
+		<!-- DOG FACE; animal; dog; face; nature; pet -->
+		<annotation cp='[🐶]' tts='hundansikte'>hundansikte; hund; djur</annotation>
+
+		<!-- DOG; animal; dog; nature; pet -->
+		<annotation cp='[🐕]' tts='hund'>hund; valp; djur</annotation>
+
+		<!-- POODLE; animal; dog; nature; poodle -->
+		<annotation cp='[🐩]' tts='pudel'>pudel; hund; djur</annotation>
+
+		<!-- WOLF FACE; animal; face; nature; wolf -->
+		<annotation cp='[🐺]' tts='vargansikte'>vargansikte; varg; djur</annotation>
+
+		<!-- CAT FACE; animal; cat; face; nature; pet -->
+		<annotation cp='[🐱]' tts='kattansikte'>kattansikte; katt; djur</annotation>
+
+		<!-- GRINNING CAT FACE WITH SMILING EYES; animal; cat; eye; face; grin; nature; smile; smiley -->
+		<annotation cp='[😸]' tts='leende katt'>katt som ler; kattansikte</annotation>
+
+		<!-- CAT FACE WITH TEARS OF JOY; animal; cat; face; joy; nature; tear -->
+		<annotation cp='[😹]' tts='katt med glädjetårar'>tårar; kattansikte</annotation>
+
+		<!-- SMILING CAT FACE WITH OPEN MOUTH; animal; cat; face; mouth; nature; open; smile; smiley -->
+		<annotation cp='[😺]' tts='leende katt med öppen mun'>leende katt; kattansikte; leende</annotation>
+
+		<!-- SMILING CAT FACE WITH HEART-SHAPED EYES; animal; cat; eye; face; heart; love; nature; smile; smiley -->
+		<annotation cp='[😻]' tts='leende katt med hjärtformade ögon'>kattansikte; leende; kärlek</annotation>
+
+		<!-- CAT FACE WITH WRY SMILE; animal; cat; face; ironic; nature; smile; smiley; wry -->
+		<annotation cp='[😼]' tts='katt med snett leende'>ironiskt leende; kattansikte</annotation>
+
+		<!-- KISSING CAT FACE WITH CLOSED EYES; animal; cat; eye; face; kiss; nature -->
+		<annotation cp='[😽]' tts='kyssande katt med stängda ögon'>kysser; stängda ögon; kattansikte</annotation>
+
+		<!-- POUTING CAT FACE; animal; cat; face; nature; pouting -->
+		<annotation cp='[😾]' tts='katt som plutar med munnen'>plutar; kattansikte</annotation>
+
+		<!-- CRYING CAT FACE; animal; cat; cry; face; nature; sad; tear -->
+		<annotation cp='[😿]' tts='gråtande kattansikte'>gråter; kattansikte</annotation>
+
+		<!-- WEARY CAT FACE; animal; cat; face; nature; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='bedrövat kattansikte'>förvånad; chockad</annotation>
+
+		<!-- CAT; animal; cat; nature; pet -->
+		<annotation cp='[🐈]' tts='katt'>katt; djur</annotation>
+
+		<!-- TIGER FACE; animal; face; nature; tiger -->
+		<annotation cp='[🐯]' tts='tigeransikte'>tigeransikte; tiger; djur</annotation>
+
+		<!-- TIGER; animal; nature; tiger -->
+		<annotation cp='[🐅]' tts='tiger'>tiger; djur</annotation>
+
+		<!-- LEOPARD; animal; leopard; nature -->
+		<annotation cp='[🐆]' tts='leopard'>leopard; djur</annotation>
+
+		<!-- HORSE FACE; animal; face; horse; nature -->
+		<annotation cp='[🐴]' tts='hästansikte'>hästansikte; häst; djur</annotation>
+
+		<!-- HORSE; animal; horse; nature; racehorse; racing -->
+		<annotation cp='[🐎]' tts='häst'>häst; djur</annotation>
+
+		<!-- COW FACE; animal; cow; face; nature -->
+		<annotation cp='[🐮]' tts='koansikte'>koansikte; ko; djur</annotation>
+
+		<!-- OX; animal; bull; nature; ox; taurus; zodiac -->
+		<annotation cp='[🐂]' tts='tjur'>tjur; djur</annotation>
+
+		<!-- WATER BUFFALO; animal; buffalo; nature; water -->
+		<annotation cp='[🐃]' tts='vattenbuffel'>vattenbuffel; djur</annotation>
+
+		<!-- COW; animal; cow; nature -->
+		<annotation cp='[🐄]' tts='ko'>ko; djur</annotation>
+
+		<!-- PIG FACE; animal; face; nature; pig -->
+		<annotation cp='[🐷]' tts='grisansikte'>grisansikte; gris; djur</annotation>
+
+		<!-- PIG; animal; nature; pig -->
+		<annotation cp='[🐖]' tts='gris'>gris; djur</annotation>
+
+		<!-- BOAR; animal; boar; nature -->
+		<annotation cp='[🐗]' tts='vildsvin'>vildsvin; djur</annotation>
+
+		<!-- PIG NOSE; animal; face; nature; nose; pig -->
+		<annotation cp='[🐽]' tts='gristryne'>gristryne; tryne; gris; djur</annotation>
+
+		<!-- RAM; animal; aries; nature; ram; sheep; zodiac -->
+		<annotation cp='[🐏]' tts='vädur'>vädur; djur</annotation>
+
+		<!-- SHEEP; animal; nature; sheep -->
+		<annotation cp='[🐑]' tts='får'>får; djur</annotation>
+
+		<!-- GOAT; animal; capricorn; goat; nature; zodiac -->
+		<annotation cp='[🐐]' tts='get'>get; djur</annotation>
+
+		<!-- DROMEDARY CAMEL; animal; camel; dromedary; hump; nature -->
+		<annotation cp='[🐪]' tts='dromedar'>dromedar; djur</annotation>
+
+		<!-- BACTRIAN CAMEL; animal; bactrian; camel; hump; nature -->
+		<annotation cp='[🐫]' tts='kamel'>kamel; djur</annotation>
+
+		<!-- ELEPHANT; animal; elephant; nature -->
+		<annotation cp='[🐘]' tts='elefant'>elefant; djur</annotation>
+
+		<!-- MOUSE FACE; animal; face; mouse; nature -->
+		<annotation cp='[🐭]' tts='musansikte'>musansikte; mus; djur</annotation>
+
+		<!-- MOUSE; animal; mouse; nature -->
+		<annotation cp='[🐁]' tts='mus'>mus; djur</annotation>
+
+		<!-- RAT; animal; nature; rat -->
+		<annotation cp='[🐀]' tts='råtta'>råtta; djur</annotation>
+
+		<!-- HAMSTER FACE; animal; face; hamster; nature; pet -->
+		<annotation cp='[🐹]' tts='hamsteransikte'>hamsteransikte; hamster; djur</annotation>
+
+		<!-- RABBIT FACE; animal; bunny; face; nature; pet; rabbit -->
+		<annotation cp='[🐰]' tts='kaninansikte'>kaninansikte; kanin; djur</annotation>
+
+		<!-- RABBIT; animal; bunny; nature; pet; rabbit -->
+		<annotation cp='[🐇]' tts='kanin'>kanin; djur</annotation>
+
+		<!-- CHIPMUNK; animal; chipmunk; nature -->
+		<annotation cp='[🐿]'>MISSING</annotation>
+
+		<!-- BEAR FACE; animal; bear; face; nature -->
+		<annotation cp='[🐻]' tts='björnansikte'>björnansikte; björn; djur</annotation>
+
+		<!-- KOALA; animal; bear; koala; nature -->
+		<annotation cp='[🐨]' tts='koala'>koala; koalabjörn; djur</annotation>
+
+		<!-- PANDA FACE; animal; face; nature; panda -->
+		<annotation cp='[🐼]' tts='pandaansikte'>pandaansikte; panda; djur</annotation>
+
+		<!-- PAW PRINTS; animal; feet; nature; paw; print -->
+		<annotation cp='[🐾]' tts='tassavtryck'>tassavtryck; tassar; djur</annotation>
+
+		<!-- CHICKEN; animal; chicken; nature -->
+		<annotation cp='[🐔]' tts='höna'>höna; djur</annotation>
+
+		<!-- ROOSTER; animal; nature; rooster -->
+		<annotation cp='[🐓]' tts='tupp'>tupp; djur</annotation>
+
+		<!-- HATCHING CHICK; animal; baby; chick; hatching; nature -->
+		<annotation cp='[🐣]' tts='nykläckt kyckling'>kyckling; kläckt; djur</annotation>
+
+		<!-- BABY CHICK; animal; baby; chick; nature -->
+		<annotation cp='[🐤]' tts='kyckling'>kyckling; djur</annotation>
+
+		<!-- FRONT-FACING BABY CHICK; animal; baby; chick; nature -->
+		<annotation cp='[🐥]' tts='kyckling framifrån'>kyckling; djur</annotation>
+
+		<!-- BIRD; animal; bird; nature -->
+		<annotation cp='[🐦]' tts='fågel'>fågel; djur</annotation>
+
+		<!-- PENGUIN; animal; nature; penguin -->
+		<annotation cp='[🐧]' tts='pingvin'>pingvin; djur</annotation>
+
+		<!-- DOVE OF PEACE; animal; bird; dove; fly; nature; peace -->
+		<annotation cp='[🕊]'>MISSING</annotation>
+
+		<!-- FROG FACE; animal; face; frog; nature -->
+		<annotation cp='[🐸]' tts='grodansikte'>grodansikte; groda; djur</annotation>
+
+		<!-- CROCODILE; animal; crocodile; nature -->
+		<annotation cp='[🐊]' tts='krokodil'>krokodil; djur</annotation>
+
+		<!-- SNAKE; animal; bearer; nature; ophiuchus; serpent; snake; zodiac -->
+		<annotation cp='[🐍]' tts='orm'>orm; djur</annotation>
+
+		<!-- TURTLE; animal; nature; turtle -->
+		<annotation cp='[🐢]' tts='sköldpadda'>sköldpadda; djur</annotation>
+
+		<!-- DRAGON FACE; animal; dragon; face; fairy tale; nature -->
+		<annotation cp='[🐲]' tts='drakansikte'>drakansikte; drake; djur</annotation>
+
+		<!-- DRAGON; animal; dragon; fairy tale; nature -->
+		<annotation cp='[🐉]' tts='drake'>drake; djur</annotation>
+
+		<!-- SPOUTING WHALE; animal; face; nature; spouting; whale -->
+		<annotation cp='[🐳]' tts='val som sprutar vatten'>vatten; val; djur</annotation>
+
+		<!-- WHALE; animal; nature; whale -->
+		<annotation cp='[🐋]' tts='val'>val; djur</annotation>
+
+		<!-- DOLPHIN; animal; dolphin; flipper; nature -->
+		<annotation cp='[🐬]' tts='delfin'>delfin; djur</annotation>
+
+		<!-- FISH; animal; fish; nature; pisces; zodiac -->
+		<annotation cp='[🐟]' tts='fisk'>fisk; djur</annotation>
+
+		<!-- TROPICAL FISH; animal; fish; nature; tropical -->
+		<annotation cp='[🐠]' tts='tropisk fisk'>fisk; djur</annotation>
+
+		<!-- BLOWFISH; animal; blowfish; fish; nature -->
+		<annotation cp='[🐡]' tts='blåsfisk'>blåsfisk; fisk; djur</annotation>
+
+		<!-- OCTOPUS; animal; nature; octopus -->
+		<annotation cp='[🐙]' tts='bläckfisk'>bläckfisk; djur</annotation>
+
+		<!-- SPIRAL SHELL; animal; nature; shell; spiral -->
+		<annotation cp='[🐚]' tts='snäcka'>snäcka; snäckskal; djur</annotation>
+
+		<!-- SNAIL; animal; nature; snail -->
+		<annotation cp='[🐌]' tts='snigel'>snigel; djur</annotation>
+
+		<!-- BUG; animal; bug; insect; nature -->
+		<annotation cp='[🐛]' tts='tusenfoting'>tusenfoting; kryp; djur</annotation>
+
+		<!-- ANT; animal; ant; insect; nature -->
+		<annotation cp='[🐜]' tts='myra'>myra; insekt; djur</annotation>
+
+		<!-- HONEYBEE; animal; bee; honeybee; insect; nature -->
+		<annotation cp='[🐝]' tts='bi'>bi; insekt; djur</annotation>
+
+		<!-- LADY BEETLE; animal; beetle; insect; lady beetle; ladybird; ladybug; nature -->
+		<annotation cp='[🐞]' tts='nyckelpiga'>nyckelpiga; skalbagge; insekt; djur</annotation>
+
+		<!-- SPIDER; animal; insect; object; spider -->
+		<annotation cp='[🕷]'>MISSING</annotation>
+
+		<!-- SPIDER WEB; animal; object; spider; web -->
+		<annotation cp='[🕸]'>MISSING</annotation>
+
+		<!-- PILE OF POO; comic; dung; nature; object; poo; poop -->
+		<annotation cp='[💩]' tts='bajs'>bajs; bajshög; avföring</annotation>
+
+		<!-- JAPANESE OGRE; creature; face; fairy tale; fantasy; japanese; ogre -->
+		<annotation cp='[👹]' tts='japanskt monster'>saga; monster; ansikte</annotation>
+
+		<!-- JAPANESE GOBLIN; creature; face; fairy tale; fantasy; goblin; japanese -->
+		<annotation cp='[👺]' tts='japanskt troll'>saga; troll; ansikte</annotation>
+
+		<!-- GHOST; creature; face; fairy tale; fantasy; ghost -->
+		<annotation cp='[👻]' tts='spöke'>spöke; saga; ansikte</annotation>
+
+		<!-- EXTRATERRESTRIAL ALIEN; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; nature; space; ufo -->
+		<annotation cp='[👽]' tts='alien'>alien; ufo; saga; utomjording; rymdvarelse</annotation>
+
+		<!-- ALIEN MONSTER; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; monster; nature; space; ufo -->
+		<annotation cp='[👾]' tts='alienmonster'>alienmonster; monster; utomjording; rymdvarelse; ufo; saga</annotation>
+
+		<!-- BOUQUET; bouquet; flower; nature; object; romance -->
+		<annotation cp='[💐]' tts='blombukett'>blombukett; blommor; kärlek</annotation>
+
+		<!-- CHERRY BLOSSOM; blossom; cherry; flower; nature; plant -->
+		<annotation cp='[🌸]' tts='körsbärsblomma'>körsbärsblomma; körsbär; blomma</annotation>
+
+		<!-- WHITE FLOWER; flower; object -->
+		<annotation cp='[💮]' tts='vit blomma'>blomma</annotation>
+
+		<!-- ROSETTE; nature; rosette -->
+		<annotation cp='[🏵]'>MISSING</annotation>
+
+		<!-- ROSE; flower; nature; plant; rose -->
+		<annotation cp='[🌹]' tts='ros'>ros; blomma</annotation>
+
+		<!-- HIBISCUS; flower; hibiscus; nature; plant -->
+		<annotation cp='[🌺]' tts='hibiskus'>hibiskus; blomma</annotation>
+
+		<!-- SUNFLOWER; flower; nature; plant; sun; sunflower -->
+		<annotation cp='[🌻]' tts='solros'>solros; blomma</annotation>
+
+		<!-- BLOSSOM; blossom; flower; nature; plant -->
+		<annotation cp='[🌼]' tts='blomma'>blomma</annotation>
+
+		<!-- TULIP; flower; nature; plant; tulip -->
+		<annotation cp='[🌷]' tts='tulpan'>tulpan; blomma</annotation>
+
+		<!-- PALM BRANCH; branch; nature; palm; plant -->
+		<annotation cp='[⸙]'>MISSING</annotation>
+
+		<!-- SHAMROCK; nature; plant; shamrock -->
+		<annotation cp='[☘]'>MISSING</annotation>
+
+		<!-- SEEDLING; nature; plant; seedling; young -->
+		<annotation cp='[🌱]' tts='liten växt'>skott</annotation>
+
+		<!-- EVERGREEN TREE; evergreen; nature; plant; tree -->
+		<annotation cp='[🌲]' tts='vintergröna träd'>vintergrön; träd</annotation>
+
+		<!-- DECIDUOUS TREE; deciduous; nature; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='lövträd'>lövträd; lövfällande träd; lövfällande; träd</annotation>
+
+		<!-- PALM TREE; nature; palm; plant; tree -->
+		<annotation cp='[🌴]' tts='palm'>palm; träd</annotation>
+
+		<!-- CACTUS; cactus; nature; plant -->
+		<annotation cp='[🌵]' tts='kaktus'>kaktus; växt</annotation>
+
+		<!-- EAR OF RICE; ear; nature; plant; rice -->
+		<annotation cp='[🌾]' tts='risplanta'>risplanta; ris; planta</annotation>
+
+		<!-- HERB; herb; leaf; nature; plant -->
+		<annotation cp='[🌿]' tts='ört'>ört; blad</annotation>
+
+		<!-- FOUR LEAF CLOVER; 4; clover; four; leaf; nature; plant -->
+		<annotation cp='[🍀]' tts='fyrklöver'>fyrklöver; klöver; lycka</annotation>
+
+		<!-- MAPLE LEAF; falling; leaf; maple; nature; plant -->
+		<annotation cp='[🍁]' tts='lönnlöv'>lönnlöv; löv</annotation>
+
+		<!-- FALLEN LEAF; falling; leaf; nature; plant -->
+		<annotation cp='[🍂]' tts='fallande löv'>fallna löv; faller; löv</annotation>
+
+		<!-- LEAF FLUTTERING IN WIND; blow; flutter; leaf; nature; plant; wind -->
+		<annotation cp='[🍃]' tts='löv i vinden'>fladdrande; löv; vind; blåser</annotation>
+
+		<!-- GRAPES; food; fruit; grape; nature; plant -->
+		<annotation cp='[🍇]' tts='vindruvor'>vindruvor; frukt</annotation>
+
+		<!-- MELON; food; fruit; melon; nature; plant -->
+		<annotation cp='[🍈]' tts='melon'>melon; frukt</annotation>
+
+		<!-- WATERMELON; food; fruit; nature; plant; watermelon -->
+		<annotation cp='[🍉]' tts='vattenmelon'>vattenmelon; frukt</annotation>
+
+		<!-- TANGERINE; food; fruit; nature; orange; plant; tangerine -->
+		<annotation cp='[🍊]' tts='apelsin'>apelsin; frukt</annotation>
+
+		<!-- LEMON; citrus; food; fruit; lemon; nature; plant -->
+		<annotation cp='[🍋]' tts='citron'>citron; citrusfrukt; frukt</annotation>
+
+		<!-- BANANA; banana; food; fruit; nature; plant -->
+		<annotation cp='[🍌]' tts='banan'>banan; frukt</annotation>
+
+		<!-- PINEAPPLE; food; fruit; nature; pineapple; plant -->
+		<annotation cp='[🍍]' tts='ananas'>ananas; frukt</annotation>
+
+		<!-- RED APPLE; apple; food; fruit; nature; plant; red -->
+		<annotation cp='[🍎]' tts='rött äpple'>äpple; rött; frukt</annotation>
+
+		<!-- GREEN APPLE; apple; food; fruit; green; nature; plant -->
+		<annotation cp='[🍏]' tts='grönt äpple'>äpple; grönt; frukt</annotation>
+
+		<!-- PEAR; food; fruit; nature; pear; plant -->
+		<annotation cp='[🍐]' tts='päron'>päron; frukt</annotation>
+
+		<!-- PEACH; food; fruit; nature; peach; plant -->
+		<annotation cp='[🍑]' tts='persika'>persika; frukt</annotation>
+
+		<!-- CHERRIES; cherry; food; fruit; nature; plant -->
+		<annotation cp='[🍒]' tts='körsbär'>körsbär; frukt</annotation>
+
+		<!-- STRAWBERRY; berry; food; fruit; nature; plant; strawberry -->
+		<annotation cp='[🍓]' tts='jordgubbe'>jordgubbe; bär; frukt</annotation>
+
+		<!-- TOMATO; food; nature; plant; tomato; vegetable -->
+		<annotation cp='[🍅]' tts='tomat'>tomat; grönsak</annotation>
+
+		<!-- AUBERGINE; aubergine; eggplant; food; nature; plant; vegetable -->
+		<annotation cp='[🍆]' tts='aubergine'>aubergine; äggplanta; grönsak</annotation>
+
+		<!-- EAR OF MAIZE; corn; ear; maize; maze; nature; plant -->
+		<annotation cp='[🌽]' tts='majskolv'>majskolv; majs</annotation>
+
+		<!-- HOT PEPPER; food; hot; nature; pepper; plant -->
+		<annotation cp='[🌶]'>MISSING</annotation>
+
+		<!-- MUSHROOM; mushroom; nature; plant -->
+		<annotation cp='[🍄]' tts='svamp'>svamp</annotation>
+
+		<!-- CHESTNUT; chestnut; nature; plant -->
+		<annotation cp='[🌰]' tts='kastanj'>kastanj</annotation>
+
+		<!-- BREAD; bread; food; loaf; restaurant -->
+		<annotation cp='[🍞]' tts='bröd'>bröd; limpa</annotation>
+
+		<!-- MEAT ON BONE; bone; food; meat; restaurant -->
+		<annotation cp='[🍖]' tts='köttben'>köttben; kött; på ben</annotation>
+
+		<!-- POULTRY LEG; bone; chicken; food; leg; poultry; restaurant -->
+		<annotation cp='[🍗]' tts='kycklinglår'>kycklinglår; kyckling; lår</annotation>
+
+		<!-- HAMBURGER; burger; food; hamburger; restaurant -->
+		<annotation cp='[🍔]' tts='hamburgare'>hamburgare; burgare</annotation>
+
+		<!-- FRENCH FRIES; food; french; fries; restaurant -->
+		<annotation cp='[🍟]' tts='pommes frites'>pommes</annotation>
+
+		<!-- SLICE OF PIZZA; food; pizza; restaurant; slice -->
+		<annotation cp='[🍕]' tts='pizzabit'>pizzabit; pizza; bit</annotation>
+
+		<!-- POT OF FOOD; food; pot; restaurant; stew -->
+		<annotation cp='[🍲]' tts='gryta'>gryta; varm gryta; mat</annotation>
+
+		<!-- BENTO BOX; bento; box; food; restaurant -->
+		<annotation cp='[🍱]' tts='bentolåda'>bentolåda; bento; låda</annotation>
+
+		<!-- RICE CRACKER; cracker; food; restaurant; rice -->
+		<annotation cp='[🍘]' tts='riskaka'>riskaka; ris; kex</annotation>
+
+		<!-- RICE BALL; ball; food; japanese; restaurant; rice -->
+		<annotation cp='[🍙]' tts='risportion'>risportion; ris</annotation>
+
+		<!-- COOKED RICE; cooked; food; restaurant; rice -->
+		<annotation cp='[🍚]' tts='kokt ris'>ris</annotation>
+
+		<!-- CURRY AND RICE; curry; food; restaurant; rice -->
+		<annotation cp='[🍛]' tts='curry och ris'>curry; ris</annotation>
+
+		<!-- STEAMING BOWL; bowl; food; noodle; ramen; restaurant; steaming -->
+		<annotation cp='[🍜]' tts='skål nudelsoppa'>nudlar; soppa; skål; rykande</annotation>
+
+		<!-- SPAGHETTI; food; pasta; restaurant; spaghetti -->
+		<annotation cp='[🍝]' tts='spagetti'>spagetti; pasta</annotation>
+
+		<!-- ROASTED SWEET POTATO; food; potato; restaurant; roasted; sweet -->
+		<annotation cp='[🍠]' tts='rostad potatis'>sötpotatis; rostad sötpotatis</annotation>
+
+		<!-- ODEN; food; kebab; oden; restaurant; seafood; skewer; stick -->
+		<annotation cp='[🍢]' tts='skaldjursspett'>skaldjursspett; skaldjur; spett</annotation>
+
+		<!-- SUSHI; food; restaurant; sushi -->
+		<annotation cp='[🍣]' tts='sushi'>sushi</annotation>
+
+		<!-- FRIED SHRIMP; food; fried; prawn; restaurant; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='friterad räka'>räka; </annotation>
+
+		<!-- FISH CAKE WITH SWIRL DESIGN; cake; fish; food; pastry; restaurant; swirl -->
+		<annotation cp='[🍥]' tts='fiskkaka'>fiskkaka; snurrad fiskkaka; fisk</annotation>
+
+		<!-- DANGO; dango; dessert; food; japanese; restaurant; skewer; stick; sweet -->
+		<annotation cp='[🍡]' tts='dumplings'>dumplings; på spett</annotation>
+
+		<!-- SOFT ICE CREAM; cream; dessert; food; ice; icecream; restaurant; soft; sweet -->
+		<annotation cp='[🍦]' tts='mjukglass'>mjukglass; glass</annotation>
+
+		<!-- SHAVED ICE; dessert; food; ice; restaurant; shaved; sweet -->
+		<annotation cp='[🍧]' tts='sorbet'>sorbet; glass</annotation>
+
+		<!-- ICE CREAM; cream; dessert; food; ice; restaurant; sweet -->
+		<annotation cp='[🍨]' tts='glass'>glass</annotation>
+
+		<!-- DOUGHNUT; dessert; donut; doughnut; food; restaurant; sweet -->
+		<annotation cp='[🍩]' tts='munk'>munk; donut</annotation>
+
+		<!-- COOKIE; cookie; dessert; food; restaurant; sweet -->
+		<annotation cp='[🍪]' tts='kaka'>kaka</annotation>
+
+		<!-- BIRTHDAY CAKE; birthday; cake; celebration; dessert; food; pastry; sweet -->
+		<annotation cp='[🎂]' tts='födelsedagstårta'>födelsedagstårta; tårta; födelsedag; fest</annotation>
+
+		<!-- SHORTCAKE; cake; dessert; food; pastry; restaurant; shortcake; slice; sweet -->
+		<annotation cp='[🍰]' tts='tårtbit'>tårtbit; kaka; kakbit</annotation>
+
+		<!-- CHOCOLATE BAR; bar; chocolate; dessert; food; restaurant; sweet -->
+		<annotation cp='[🍫]' tts='chokladkaka'>chokladkaka; chokladbit</annotation>
+
+		<!-- CANDY; candy; dessert; food; restaurant; sweet -->
+		<annotation cp='[🍬]' tts='godis'>godis</annotation>
+
+		<!-- LOLLIPOP; candy; dessert; food; lollipop; restaurant; sweet -->
+		<annotation cp='[🍭]' tts='klubba'>klubba; godis</annotation>
+
+		<!-- CUSTARD; custard; dessert; food; pudding; restaurant; sweet -->
+		<annotation cp='[🍮]' tts='brylépudding'>brylépudding; efterrätt</annotation>
+
+		<!-- HONEY POT; food; honey; honeypot; pot; restaurant; sweet -->
+		<annotation cp='[🍯]' tts='honungsburk'>honungsburk; honung; burk</annotation>
+
+		<!-- HOT BEVERAGE; beverage; coffee; drink; food; hot; steaming; tea -->
+		<annotation cp='[☕]'>MISSING</annotation>
+
+		<!-- TEACUP WITHOUT HANDLE; beverage; cup; drink; food; tea; teacup -->
+		<annotation cp='[🍵]' tts='tekopp utan handtag'>tekopp; te; varm dryck</annotation>
+
+		<!-- SAKE BOTTLE AND CUP; bar; beverage; bottle; cup; drink; food; restaurant; sake -->
+		<annotation cp='[🍶]' tts='flaska och kopp med saké'>flaska; kopp; dryck</annotation>
+
+		<!-- WINE GLASS; bar; beverage; drink; food; glass; restaurant; wine -->
+		<annotation cp='[🍷]' tts='vinglas'>vinglas; glas vin; vin; glas; dryck</annotation>
+
+		<!-- COCKTAIL GLASS; bar; cocktail; drink; food; glass; restaurant -->
+		<annotation cp='[🍸]' tts='cocktailglas'>cocktailglas; drink; cocktail</annotation>
+
+		<!-- TROPICAL DRINK; bar; drink; food; restaurant; tropical -->
+		<annotation cp='[🍹]' tts='tropisk drink'>tropisk; drink</annotation>
+
+		<!-- BEER MUG; bar; beer; drink; food; mug; restaurant -->
+		<annotation cp='[🍺]' tts='ölglas'>ölglas; öl; glas</annotation>
+
+		<!-- CLINKING BEER MUGS; bar; beer; clink; drink; food; mug; restaurant -->
+		<annotation cp='[🍻]' tts='ölglas'>ölglas; öl; glas</annotation>
+
+		<!-- BABY BOTTLE; baby; bottle; drink; food; milk -->
+		<annotation cp='[🍼]' tts='nappflaska'>nappflaska; mjölk; flaska; dryck</annotation>
+
+		<!-- FORK AND KNIFE WITH PLATE; food; fork; knife; plate; restaurant -->
+		<annotation cp='[🍽]'>MISSING</annotation>
+
+		<!-- FORK AND KNIFE; food; fork; knife; restaurant -->
+		<annotation cp='[🍴]' tts='gaffel och kniv'>gaffel; kniv</annotation>
+
+		<!-- COOKING; cooking; egg; food; frying; pan; restaurant -->
+		<annotation cp='[🍳]' tts='stekpanna'>stekpanna; matlagning</annotation>
+
+		<!-- EARTH GLOBE EUROPE-AFRICA; africa; earth; europe; globe; nature; place; world -->
+		<annotation cp='[🌍]' tts='jordglob Europa–Afrika'>jorden; Europa; Afrika</annotation>
+
+		<!-- EARTH GLOBE AMERICAS; americas; earth; globe; nature; place; world -->
+		<annotation cp='[🌎]' tts='jordglob Amerika'>jorden; Amerika</annotation>
+
+		<!-- EARTH GLOBE ASIA-AUSTRALIA; asia; australia; earth; globe; nature; place; world -->
+		<annotation cp='[🌏]' tts='jordglob Asien–Australien'>jorden; Asien; Australien</annotation>
+
+		<!-- GLOBE WITH MERIDIANS; earth; globe; meridians; nature; place; world -->
+		<annotation cp='[🌐]' tts='jordglob med meridianer'>meridianer</annotation>
+
+		<!-- WORLD MAP; map; place; world -->
+		<annotation cp='[🗺]'>MISSING</annotation>
+
+		<!-- SNOW CAPPED MOUNTAIN; cold; mountain; nature; place; snow -->
+		<annotation cp='[🏔]'>MISSING</annotation>
+
+		<!-- MOUNTAIN; mountain; place -->
+		<annotation cp='[⛰]'>MISSING</annotation>
+
+		<!-- VOLCANO; eruption; mountain; nature; place; volcano; weather -->
+		<annotation cp='[🌋]' tts='vulkan'>vulkan; vulkanutbrott</annotation>
+
+		<!-- MOUNT FUJI; fuji; mountain; nature; place -->
+		<annotation cp='[🗻]' tts='berg'>berg</annotation>
+
+		<!-- CAMPING; camping; nature; place -->
+		<annotation cp='[🏕]'>MISSING</annotation>
+
+		<!-- BEACH WITH UMBRELLA; beach; nature; place; umbrella -->
+		<annotation cp='[🏖]'>MISSING</annotation>
+
+		<!-- DESERT; desert; nature; place -->
+		<annotation cp='[🏜]'>MISSING</annotation>
+
+		<!-- DESERT ISLAND; desert; island; nature; place -->
+		<annotation cp='[🏝]'>MISSING</annotation>
+
+		<!-- NATIONAL PARK; national park; nature; park; place -->
+		<annotation cp='[🏞]'>MISSING</annotation>
+
+		<!-- STADIUM; place; stadium -->
+		<annotation cp='[🏟]'>MISSING</annotation>
+
+		<!-- CLASSICAL BUILDING; building; classical; place -->
+		<annotation cp='[🏛]'>MISSING</annotation>
+
+		<!-- BUILDING CONSTRUCTION; building; construction; place -->
+		<annotation cp='[🏗]'>MISSING</annotation>
+
+		<!-- HOUSE BUILDINGS; building; house; place -->
+		<annotation cp='[🏘]'>MISSING</annotation>
+
+		<!-- CITYSCAPE; building; city; place -->
+		<annotation cp='[🏙]'>MISSING</annotation>
+
+		<!-- DERELICT HOUSE BUILDING; building; derelict; house; place -->
+		<annotation cp='[🏚]'>MISSING</annotation>
+
+		<!-- HOUSE BUILDING; building; home; house; place -->
+		<annotation cp='[🏠]' tts='hus'>hus; byggnad</annotation>
+
+		<!-- HOUSE WITH GARDEN; building; garden; home; house; place -->
+		<annotation cp='[🏡]' tts='hus med trädgård'>hus; trädgård</annotation>
+
+		<!-- CHURCH; building; christian; church; cross; place; religion -->
+		<annotation cp='[⛪]' tts='kyrka'>kyrka; byggnad</annotation>
+
+		<!-- OFFICE BUILDING; building; office; place -->
+		<annotation cp='[🏢]' tts='kontorsbyggnad'>kontorsbyggnad; kontor; byggnad</annotation>
+
+		<!-- JAPANESE POST OFFICE; building; japanese; office; place; post -->
+		<annotation cp='[🏣]' tts='japanskt postkontor'>postkontor; byggnad</annotation>
+
+		<!-- EUROPEAN POST OFFICE; building; european; office; place; post -->
+		<annotation cp='[🏤]' tts='europeiskt postkontor'>postkontor; byggnad</annotation>
+
+		<!-- HOSPITAL; building; doctor; hospital; medicine; place -->
+		<annotation cp='[🏥]' tts='sjukhus'>sjukhus; byggnad</annotation>
+
+		<!-- BANK; bank; building; place -->
+		<annotation cp='[🏦]' tts='bank'>bank; byggnad</annotation>
+
+		<!-- HOTEL; building; hotel; place -->
+		<annotation cp='[🏨]' tts='hotell'>hotell; byggnad</annotation>
+
+		<!-- LOVE HOTEL; building; hotel; love; place -->
+		<annotation cp='[🏩]' tts='hotell med hjärta'>hotell; kärlek</annotation>
+
+		<!-- CONVENIENCE STORE; building; convenience; place; store -->
+		<annotation cp='[🏪]' tts='butik'>butik; byggnad; affär</annotation>
+
+		<!-- SCHOOL; building; education; place; school -->
+		<annotation cp='[🏫]' tts='skola'>skola; skolbyggnad</annotation>
+
+		<!-- DEPARTMENT STORE; building; department; place; store -->
+		<annotation cp='[🏬]' tts='varuhus'>varuhus; butik</annotation>
+
+		<!-- FACTORY; building; factory; place -->
+		<annotation cp='[🏭]' tts='fabrik'>fabrik; byggnad</annotation>
+
+		<!-- JAPANESE CASTLE; building; castle; japanese; place -->
+		<annotation cp='[🏯]' tts='japanskt slott'>slott</annotation>
+
+		<!-- EUROPEAN CASTLE; building; castle; european; place -->
+		<annotation cp='[🏰]' tts='europeiskt slott'>slott</annotation>
+
+		<!-- WEDDING; activity; chapel; place; romance; wedding -->
+		<annotation cp='[💒]' tts='bröllop'>bröllop; kyrka; kärlek</annotation>
+
+		<!-- TOKYO TOWER; place; tokyo; tower -->
+		<annotation cp='[🗼]' tts='torn i Tokyo'>torn</annotation>
+
+		<!-- STATUE OF LIBERTY; liberty; place; statue -->
+		<annotation cp='[🗽]' tts='Frihetsgudinnan'>Frihetsgudinnan</annotation>
+
+		<!-- SILHOUETTE OF JAPAN; japan; map; place -->
+		<annotation cp='[🗾]' tts='karta över Japan'>karta; Japan</annotation>
+
+		<!-- FOUNTAIN; fountain; object; place -->
+		<annotation cp='[⛲]' tts='fontän'>fontän</annotation>
+
+		<!-- TENT; camping; place; tent -->
+		<annotation cp='[⛺]' tts='tält'>tält; camping</annotation>
+
+		<!-- FOGGY; fog; nature; place; weather -->
+		<annotation cp='[🌁]' tts='dimma'>dimma; dimmigt</annotation>
+
+		<!-- NIGHT WITH STARS; night; place; star; weather -->
+		<annotation cp='[🌃]' tts='stjärnklar natt'>stjärnor; natt</annotation>
+
+		<!-- SUNRISE OVER MOUNTAINS; morning; mountain; place; sun; sunrise; time; weather -->
+		<annotation cp='[🌄]' tts='soluppgång vid berg'>morgonsol; berg</annotation>
+
+		<!-- SUNRISE; morning; place; sun; sunrise; time; weather -->
+		<annotation cp='[🌅]' tts='soluppgång'>soluppgång; morgonsol</annotation>
+
+		<!-- CITYSCAPE AT DUSK; building; city; dusk; evening; landscape; place; sun; sunset; time; weather -->
+		<annotation cp='[🌆]' tts='stad i skymning'>skymning; kväll; solnedgång; stadsvy; byggnader</annotation>
+
+		<!-- SUNSET OVER BUILDINGS; building; dusk; place; sun; sunset; time; weather -->
+		<annotation cp='[🌇]' tts='solnedgång över stad'>skymning; solnedgång; byggnader</annotation>
+
+		<!-- BRIDGE AT NIGHT; bridge; night; place; weather -->
+		<annotation cp='[🌉]' tts='bro på natten'>natt</annotation>
+
+		<!-- WATER WAVE; ocean; place; water; wave; weather -->
+		<annotation cp='[🌊]' tts='våg'>våg; havsvåg</annotation>
+
+		<!-- HOT SPRINGS; hot; hotsprings; springs; steaming; travel -->
+		<annotation cp='[♨]'>MISSING</annotation>
+
+		<!-- MOYAI; face; moyai; statue; travel -->
+		<annotation cp='[🗿]' tts='staty'>staty</annotation>
+
+		<!-- MILKY WAY; milky way; place; space; weather -->
+		<annotation cp='[🌌]' tts='Vintergatan'>Vintergatan</annotation>
+
+		<!-- CAROUSEL HORSE; activity; carousel; entertainment; horse; place -->
+		<annotation cp='[🎠]' tts='karusellhäst'>karusellhäst; häst; karusell</annotation>
+
+		<!-- FERRIS WHEEL; activity; amusement park; entertainment; ferris; place; wheel -->
+		<annotation cp='[🎡]' tts='pariserhjul'>pariserhjul; nöjespark; karusell</annotation>
+
+		<!-- ROLLER COASTER; activity; amusement park; coaster; entertainment; place; roller -->
+		<annotation cp='[🎢]' tts='berg- och dalbana'>karusell; nöjespark</annotation>
+
+		<!-- BARBER POLE; barber; haircut; place; pole -->
+		<annotation cp='[💈]' tts='barberare'>barberare; stolpe; frisör</annotation>
+
+		<!-- CIRCUS TENT; activity; circus; entertainment; place; tent -->
+		<annotation cp='[🎪]' tts='cirkustält'>cirkustält; tält; cirkus</annotation>
+
+		<!-- TICKET; activity; admission; entertainment; object; place; ticket -->
+		<annotation cp='[🎫]' tts='biljett'>biljett; inträde</annotation>
+
+		<!-- PERFORMING ARTS; activity; art; entertainment; face; mask; object; performing; place; theater; theatre -->
+		<annotation cp='[🎭]' tts='ansiktsmasker'>ansiktsmasker; teater; masker</annotation>
+
+		<!-- SLOT MACHINE; activity; game; object; place; slot -->
+		<annotation cp='[🎰]' tts='spelmaskin'>spelmaskin; spelautomat; enarmad bandit; spel</annotation>
+
+		<!-- STEAM LOCOMOTIVE; engine; locomotive; railway; steam; train; travel; vehicle -->
+		<annotation cp='[🚂]' tts='ånglok'>ånglok; lok; tåg; fordon</annotation>
+
+		<!-- RAILWAY CAR; car; electric; railway; train; tram; travel; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='spårvagn'>spårvagn; tåg; järnväg; fordon</annotation>
+
+		<!-- HIGH-SPEED TRAIN; railway; shinkansen; speed; train; travel; vehicle -->
+		<annotation cp='[🚄]' tts='snabbtåg'>snabbtåg; tåg; fordon</annotation>
+
+		<!-- HIGH-SPEED TRAIN WITH BULLET NOSE; bullet; railway; shinkansen; speed; train; travel; vehicle -->
+		<annotation cp='[🚅]' tts='snabbtåg'>snabbtåg; tåg; fordon</annotation>
+
+		<!-- TRAIN; railway; train; travel; vehicle -->
+		<annotation cp='[🚆]' tts='tåg'>tåg; järnväg; fordon</annotation>
+
+		<!-- METRO; metro; subway; travel; vehicle -->
+		<annotation cp='[🚇]' tts='tunnelbana'>tunnelbana; metro; fordon</annotation>
+
+		<!-- LIGHT RAIL; railway; travel; vehicle -->
+		<annotation cp='[🚈]' tts='snabbspårväg'>snabbspårväg; lättbana; fordon</annotation>
+
+		<!-- STATION; railway; station; train; travel; vehicle -->
+		<annotation cp='[🚉]' tts='tågstation'>tågstation; tåg; station</annotation>
+
+		<!-- TRAM; tram; travel; trolleybus; vehicle -->
+		<annotation cp='[🚊]' tts='spårvagn'>spårvagn; fordon</annotation>
+
+		<!-- MONORAIL; monorail; travel; vehicle -->
+		<annotation cp='[🚝]' tts='balkbana'>balkbana; fordon</annotation>
+
+		<!-- MOUNTAIN RAILWAY; car; mountain; railway; travel; vehicle -->
+		<annotation cp='[🚞]' tts='bergsbana'>bergsbana; bergståg; fordon</annotation>
+
+		<!-- TRAM CAR; car; tram; travel; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='spårvagn'>spårvagn; fordon</annotation>
+
+		<!-- BUS; bus; travel; vehicle -->
+		<annotation cp='[🚌]' tts='buss'>buss; fordon</annotation>
+
+		<!-- ONCOMING BUS; bus; oncoming; travel; vehicle -->
+		<annotation cp='[🚍]' tts='mötande buss'>buss; mötande; fordon</annotation>
+
+		<!-- TROLLEYBUS; bus; tram; travel; trolley; trolleybus; vehicle -->
+		<annotation cp='[🚎]' tts='trådbuss'>trådbuss; buss; fordon</annotation>
+
+		<!-- BUS STOP; bus; busstop; stop; travel -->
+		<annotation cp='[🚏]' tts='busshållplats'>busshållplats; hållplats; buss</annotation>
+
+		<!-- MINIBUS; bus; minibus; travel; vehicle -->
+		<annotation cp='[🚐]' tts='minibuss'>minibuss; buss; fordon</annotation>
+
+		<!-- AMBULANCE; ambulance; travel; vehicle -->
+		<annotation cp='[🚑]' tts='ambulans'>ambulans; fordon</annotation>
+
+		<!-- FIRE ENGINE; engine; fire; travel; truck; vehicle -->
+		<annotation cp='[🚒]' tts='brandbil'>brandbil; fordon</annotation>
+
+		<!-- POLICE CAR; car; patrol; police; travel; vehicle -->
+		<annotation cp='[🚓]' tts='polisbil'>polisbil; polis; fordon</annotation>
+
+		<!-- ONCOMING POLICE CAR; car; oncoming; police; travel; vehicle -->
+		<annotation cp='[🚔]' tts='mötande polisbil'>polisbil; polis; fordon</annotation>
+
+		<!-- TAXI; taxi; travel; vehicle -->
+		<annotation cp='[🚕]' tts='taxi'>taxi; fordon</annotation>
+
+		<!-- ONCOMING TAXI; oncoming; taxi; travel; vehicle -->
+		<annotation cp='[🚖]' tts='mötande taxi'>taxi; fordon</annotation>
+
+		<!-- AUTOMOBILE; automobile; car; travel; vehicle -->
+		<annotation cp='[🚗]' tts='bil'>bil; fordon</annotation>
+
+		<!-- ONCOMING AUTOMOBILE; automobile; car; oncoming; travel; vehicle -->
+		<annotation cp='[🚘]' tts='mötande bil'>bil; mötande; fordon</annotation>
+
+		<!-- RECREATIONAL VEHICLE; recreational; rv; travel; vehicle -->
+		<annotation cp='[🚙]' tts='bil'>bil; fordon</annotation>
+
+		<!-- DELIVERY TRUCK; delivery; travel; truck; vehicle -->
+		<annotation cp='[🚚]' tts='budbil'>budbil; skåpbil; fordon</annotation>
+
+		<!-- ARTICULATED LORRY; lorry; semi; travel; truck; vehicle -->
+		<annotation cp='[🚛]' tts='lastbil'>lastbil; fordon</annotation>
+
+		<!-- TRACTOR; tractor; travel; vehicle -->
+		<annotation cp='[🚜]' tts='traktor'>traktor; fordon</annotation>
+
+		<!-- BICYCLE; bicycle; bike; sport; travel; vehicle -->
+		<annotation cp='[🚲]' tts='cykel'>cykel; fordon</annotation>
+
+		<!-- NO BICYCLES; bicycle; bike; forbidden; no; not; prohibited; sign; sport; travel; vehicle -->
+		<annotation cp='[🚳]' tts='cyklar förbjudna'>inte tillåtet att cykla; fordon</annotation>
+
+		<!-- BICYCLIST; bicycle; bicyclist; bike; cyclist; human; person; sport; travel -->
+		<annotation cp='[🚴]' tts='cyklist'>cyklist; cykel</annotation>
+
+		<!-- MOUNTAIN BICYCLIST; bicycle; bicyclist; bike; cyclist; human; mountain; person; sport; travel -->
+		<annotation cp='[🚵]' tts='mountainbikeåkare'>mountainbikeåkare; cyklist; cykel</annotation>
+
+		<!-- RACING CAR; car; racing; sport; travel -->
+		<annotation cp='[🏎]'>MISSING</annotation>
+
+		<!-- RACING MOTORCYCLE; human; motorcycle; person; racing; sport; travel -->
+		<annotation cp='[🏍]'>MISSING</annotation>
+
+		<!-- FUEL PUMP; fuel; fuelpump; gas; pump; station; travel -->
+		<annotation cp='[⛽]' tts='bensinpump'>bensinpump; bensin; bränsle</annotation>
+
+		<!-- MOTORWAY; highway; motorway; road; travel -->
+		<annotation cp='[🛣]'>MISSING</annotation>
+
+		<!-- RAILWAY TRACK; railway; train; travel -->
+		<annotation cp='[🛤]'>MISSING</annotation>
+
+		<!-- POLICE CARS REVOLVING LIGHT; beacon; car; light; police; revolving; travel -->
+		<annotation cp='[🚨]' tts='polissiren'>polissiren; siren; polisbil</annotation>
+
+		<!-- HELM SYMBOL; helm; travel -->
+		<annotation cp='[⎈]'>MISSING</annotation>
+
+		<!-- ANCHOR; anchor; ship; tool; travel -->
+		<annotation cp='[⚓]' tts='ankare'>ankare</annotation>
+
+		<!-- SAILBOAT; boat; resort; sailboat; sea; travel; yacht -->
+		<annotation cp='[⛵]' tts='segelbåt'>segelbåt; båt; segling</annotation>
+
+		<!-- ROWBOAT; boat; rowboat; travel; vehicle -->
+		<annotation cp='[🚣]' tts='eka'>eka; roddbåt; fordon</annotation>
+
+		<!-- SPEEDBOAT; boat; speedboat; travel; vehicle -->
+		<annotation cp='[🚤]' tts='motorbåt'>motorbåt; båt; fordon</annotation>
+
+		<!-- PASSENGER SHIP; passenger; ship; travel; vehicle -->
+		<annotation cp='[🛳]'>MISSING</annotation>
+
+		<!-- FERRY; boat; ferry; travel -->
+		<annotation cp='[⛴]'>MISSING</annotation>
+
+		<!-- MOTOR BOAT; boat; motorboat; travel; vehicle -->
+		<annotation cp='[🛥]'>MISSING</annotation>
+
+		<!-- SHIP; ship; travel; vehicle -->
+		<annotation cp='[🚢]' tts='fartyg'>fartyg; båt; fordon</annotation>
+
+		<!-- AIRPLANE; airplane; travel -->
+		<annotation cp='[✈]'>MISSING</annotation>
+
+		<!-- SMALL AIRPLANE; airplane; travel; vehicle -->
+		<annotation cp='[🛩]'>MISSING</annotation>
+
+		<!-- AIRPLANE DEPARTURE; airplane; departure; departures; travel; vehicle -->
+		<annotation cp='[🛫]'>MISSING</annotation>
+
+		<!-- AIRPLANE ARRIVING; airplane; arrivals; arriving; landing; travel; vehicle -->
+		<annotation cp='[🛬]'>MISSING</annotation>
+
+		<!-- SEAT; chair; office; seat; travel -->
+		<annotation cp='[💺]' tts='stol'>stol</annotation>
+
+		<!-- HELICOPTER; helicopter; travel; vehicle -->
+		<annotation cp='[🚁]' tts='helikopter'>helikopter; fordon</annotation>
+
+		<!-- SUSPENSION RAILWAY; railway; suspension; travel; vehicle -->
+		<annotation cp='[🚟]' tts='hängbana'>hängbana; fordon</annotation>
+
+		<!-- MOUNTAIN CABLEWAY; cable; gondola; mountain; travel; vehicle -->
+		<annotation cp='[🚠]' tts='linbana'>linbana; fordon</annotation>
+
+		<!-- AERIAL TRAMWAY; aerial; cable; car; gondola; ropeway; tramway; travel; vehicle -->
+		<annotation cp='[🚡]' tts='kabinbana'>kabinbana; fordon</annotation>
+
+		<!-- ROCKET; fantasy; rocket; space; travel; vehicle -->
+		<annotation cp='[🚀]' tts='raket'>raket; fordon</annotation>
+
+		<!-- SATELLITE; place; satellite; space; vehicle -->
+		<annotation cp='[🛰]'>MISSING</annotation>
+
+		<!-- AUTOMATED TELLER MACHINE; atm; automated; bank; place; sign; teller -->
+		<annotation cp='[🏧]' tts='uttagsautomat'>uttagsautomat</annotation>
+
+		<!-- PUT LITTER IN ITS PLACE SYMBOL; human; litter; litterbox; place; travel -->
+		<annotation cp='[🚮]' tts='papperskorg'>papperskorg; symbol; slänga skräp</annotation>
+
+		<!-- HORIZONTAL TRAFFIC LIGHT; light; signal; traffic; travel -->
+		<annotation cp='[🚥]' tts='vågräta trafikljus'>trafikljus</annotation>
+
+		<!-- VERTICAL TRAFFIC LIGHT; light; signal; traffic; travel -->
+		<annotation cp='[🚦]' tts='lodräta trafikljus'>trafikljus</annotation>
+
+		<!-- CONSTRUCTION SIGN; barrier; construction; travel -->
+		<annotation cp='[🚧]' tts='skylt för byggområde'>bygge</annotation>
+
+		<!-- NO ENTRY SIGN; entry; forbidden; no; not; prohibited; travel -->
+		<annotation cp='[🚫]' tts='förbjuden ingång'>symbol</annotation>
+
+		<!-- NO SMOKING SYMBOL; forbidden; no; not; prohibited; sign; smoking; travel -->
+		<annotation cp='[🚭]' tts='rökning förbjudet'>rökning; symbol</annotation>
+
+		<!-- DO NOT LITTER SYMBOL; forbidden; litter; no; not; prohibited; sign; travel -->
+		<annotation cp='[🚯]' tts='släng inte skräp här'>inget skräp; symbol</annotation>
+
+		<!-- POTABLE WATER SYMBOL; drink; potable; sign; travel; water -->
+		<annotation cp='[🚰]' tts='dricksvatten'>dricksvatten; symbol; drickbart vatten</annotation>
+
+		<!-- NON-POTABLE WATER SYMBOL; drink; forbidden; no; not; potable; prohibited; sign; travel; water -->
+		<annotation cp='[🚱]' tts='ej dricksvatten'>symbol; odrickbart vatten</annotation>
+
+		<!-- NO PEDESTRIANS; forbidden; human; no; not; pedestrian; prohibited; sign; travel -->
+		<annotation cp='[🚷]' tts='inga fotgängare'>inte tillåtet att gå; symbol</annotation>
+
+		<!-- CHILDREN CROSSING; child; crossing; human; pedestrian; sign; traffic; travel -->
+		<annotation cp='[🚸]' tts='passerande barn'>barn; passerar; symbol</annotation>
+
+		<!-- WHEELCHAIR SYMBOL; access; human; sign; travel; wheelchair -->
+		<annotation cp='[♿]' tts='rullstolssymbol'>rullstolssymbol; rullstol; tillgänglighet; symbol</annotation>
+
+		<!-- MENS SYMBOL; human; lavatory; men; men’s; restroom; sign; travel; wc -->
+		<annotation cp='[🚹]' tts='symbol för män'>herrtoalett; toalett; män</annotation>
+
+		<!-- WOMENS SYMBOL; human; lavatory; restroom; sign; travel; wc; woman; women’s -->
+		<annotation cp='[🚺]' tts='symbol för kvinnor'>damtoalett; toalett; kvinnor</annotation>
+
+		<!-- RESTROOM; human; lavatory; restroom; sign; travel; wc -->
+		<annotation cp='[🚻]' tts='wc-skylt'>wc-skylt; toalett; wc</annotation>
+
+		<!-- BABY SYMBOL; baby; changing; human; sign; travel -->
+		<annotation cp='[🚼]' tts='bebissymbol'>bebissymbol; skötrum; bebis</annotation>
+
+		<!-- WATER CLOSET; closet; lavatory; restroom; sign; travel; water; wc -->
+		<annotation cp='[🚾]' tts='toalett'>toalett</annotation>
+
+		<!-- PASSPORT CONTROL; control; passport; sign; travel -->
+		<annotation cp='[🛂]' tts='passkontroll'>passkontroll; pass; kontroll</annotation>
+
+		<!-- CUSTOMS; customs; sign; travel -->
+		<annotation cp='[🛃]' tts='tull'>tull</annotation>
+
+		<!-- BAGGAGE CLAIM; baggage; claim; sign; travel -->
+		<annotation cp='[🛄]' tts='bagagehämtning'>bagagehämtning; bagage</annotation>
+
+		<!-- LEFT LUGGAGE; baggage; left luggage; locker; luggage; sign; travel -->
+		<annotation cp='[🛅]' tts='kvarlämnat bagage'>bagageservice; bagage</annotation>
+
+		<!-- WARNING SIGN; travel; warning -->
+		<annotation cp='[⚠]' tts='varningstecken'>varningstecken</annotation>
+
+		<!-- NO ENTRY; entry; forbidden; no; not; prohibited; traffic; travel -->
+		<annotation cp='[⛔]' tts='Förbjuden ingång'>ingång; förbjuden</annotation>
+
+		<!-- BELLHOP BELL; bell; bellhop; hotel; object -->
+		<annotation cp='[🛎]'>MISSING</annotation>
+
+		<!-- DOOR; door; object; travel -->
+		<annotation cp='[🚪]' tts='dörr'>dörr</annotation>
+
+		<!-- SLEEPING ACCOMMODATION; hotel; object; sleep -->
+		<annotation cp='[🛌]'>MISSING</annotation>
+
+		<!-- BED; bed; hotel; object; sleep -->
+		<annotation cp='[🛏]'>MISSING</annotation>
+
+		<!-- COUCH AND LAMP; couch; hotel; lamp; object -->
+		<annotation cp='[🛋]'>MISSING</annotation>
+
+		<!-- TOILET; object; toilet; travel -->
+		<annotation cp='[🚽]' tts='toalett'>toalett</annotation>
+
+		<!-- SHOWER; object; shower; travel; water -->
+		<annotation cp='[🚿]' tts='dusch'>dusch</annotation>
+
+		<!-- BATH; bath; bathtub; object; travel -->
+		<annotation cp='[🛀]' tts='bad'>bad</annotation>
+
+		<!-- BATHTUB; bath; bathtub; object; travel -->
+		<annotation cp='[🛁]' tts='badkar'>badkar</annotation>
+
+		<!-- SHOPPING BAGS; bag; hotel; object; shopping -->
+		<annotation cp='[🛍]'>MISSING</annotation>
+
+		<!-- HOURGLASS; hourglass; sand; time; timer -->
+		<annotation cp='[⌛]' tts='timglas'>timglas; sand</annotation>
+
+		<!-- HOURGLASS WITH FLOWING SAND; hourglass; sand; time; timer -->
+		<annotation cp='[⏳]' tts='timglas med rinnande sand'>timglas; sand; tid</annotation>
+
+		<!-- WATCH; clock; time; watch -->
+		<annotation cp='[⌚]' tts='armbandsur'>armbandsur; klocka</annotation>
+
+		<!-- ALARM CLOCK; alarm; clock; time -->
+		<annotation cp='[⏰]' tts='väckarklocka'>väckarklocka; klocka</annotation>
+
+		<!-- STOPWATCH; clock; stopwatch; time -->
+		<annotation cp='[⏱]'>MISSING</annotation>
+
+		<!-- TIMER CLOCK; clock; time; timer -->
+		<annotation cp='[⏲]'>MISSING</annotation>
+
+		<!-- MANTELPIECE CLOCK; clock; object -->
+		<annotation cp='[🕰]'>MISSING</annotation>
+
+		<!-- CLOCK FACE TWELVE OCLOCK; 00; 12; 12:00; clock; face; o’clock; time; twelve -->
+		<annotation cp='[🕛]' tts='klockan tolv'>24.00; 00.00; tolv</annotation>
+
+		<!-- CLOCK FACE TWELVE-THIRTY; 12; 30; 12:30; clock; face; thirty; time; twelve -->
+		<annotation cp='[🕧]' tts='halv ett'>00.30; 12.30</annotation>
+
+		<!-- CLOCK FACE ONE OCLOCK; 00; 1; 1:00; clock; face; o’clock; one; time -->
+		<annotation cp='[🕐]' tts='klockan ett'>13.00; 01.00; ett</annotation>
+
+		<!-- CLOCK FACE ONE-THIRTY; 1; 30; 1:30; clock; face; one; thirty; time -->
+		<annotation cp='[🕜]' tts='halv två'>13.30; 01.30</annotation>
+
+		<!-- CLOCK FACE TWO OCLOCK; 00; 2; 2:00; clock; face; o’clock; time; two -->
+		<annotation cp='[🕑]' tts='klockan två'>14.00; 02.00; två</annotation>
+
+		<!-- CLOCK FACE TWO-THIRTY; 2; 30; 2:30; clock; face; thirty; time; two -->
+		<annotation cp='[🕝]' tts='halv tre'>14.30; 02.30</annotation>
+
+		<!-- CLOCK FACE THREE OCLOCK; 00; 3; 3:00; clock; face; o’clock; three; time -->
+		<annotation cp='[🕒]' tts='klockan tre'>15.00; 03.00; tre</annotation>
+
+		<!-- CLOCK FACE THREE-THIRTY; 3; 30; 3:30; clock; face; thirty; three; time -->
+		<annotation cp='[🕞]' tts='halv fyra'>15.30; 03.30</annotation>
+
+		<!-- CLOCK FACE FOUR OCLOCK; 00; 4; 4:00; clock; face; four; o’clock; time -->
+		<annotation cp='[🕓]' tts='klockan fyra'>16.00; 04.00; fyra</annotation>
+
+		<!-- CLOCK FACE FOUR-THIRTY; 4; 30; 4:30; clock; face; four; thirty; time -->
+		<annotation cp='[🕟]' tts='halv fem'>16.30; 04.30</annotation>
+
+		<!-- CLOCK FACE FIVE OCLOCK; 00; 5; 5:00; clock; face; five; o’clock; time -->
+		<annotation cp='[🕔]' tts='klockan fem'>17.00; 05.00; fem</annotation>
+
+		<!-- CLOCK FACE FIVE-THIRTY; 5; 30; 5:30; clock; face; five; thirty; time -->
+		<annotation cp='[🕠]' tts='halv sex'>17.30; 05.30</annotation>
+
+		<!-- CLOCK FACE SIX OCLOCK; 00; 6; 6:00; clock; face; o’clock; six; time -->
+		<annotation cp='[🕕]' tts='klockan sex'>18.00; 06.00; sex</annotation>
+
+		<!-- CLOCK FACE SIX-THIRTY; 6; 30; 6:30; clock; face; six; thirty; time -->
+		<annotation cp='[🕡]' tts='halv sju'>18.30; 06.30</annotation>
+
+		<!-- CLOCK FACE SEVEN OCLOCK; 00; 7; 7:00; clock; face; o’clock; seven; time -->
+		<annotation cp='[🕖]' tts='klockan sju'>19.00; 07.00; sju</annotation>
+
+		<!-- CLOCK FACE SEVEN-THIRTY; 7; 30; 7:30; clock; face; seven; thirty; time -->
+		<annotation cp='[🕢]' tts='halv åtta'>19.30; 07.30</annotation>
+
+		<!-- CLOCK FACE EIGHT OCLOCK; 00; 8; 8:00; clock; eight; face; o’clock; time -->
+		<annotation cp='[🕗]' tts='klockan åtta'>20.00; 08.00; åtta</annotation>
+
+		<!-- CLOCK FACE EIGHT-THIRTY; 8; 30; 8:30; clock; eight; face; thirty; time -->
+		<annotation cp='[🕣]' tts='halv nio'>20.30; 08.30</annotation>
+
+		<!-- CLOCK FACE NINE OCLOCK; 00; 9; 9:00; clock; face; nine; o’clock; time -->
+		<annotation cp='[🕘]' tts='klockan nio'>21.00; 09.00; nio</annotation>
+
+		<!-- CLOCK FACE NINE-THIRTY; 9; 30; 9:30; clock; face; nine; thirty; time -->
+		<annotation cp='[🕤]' tts='halv tio'>21.30; 09.30</annotation>
+
+		<!-- CLOCK FACE TEN OCLOCK; 00; 10; 10:00; clock; face; o’clock; ten; time -->
+		<annotation cp='[🕙]' tts='klockan tio'>22.00; 10.00; tio</annotation>
+
+		<!-- CLOCK FACE TEN-THIRTY; 10; 30; 10:30; clock; face; ten; thirty; time -->
+		<annotation cp='[🕥]' tts='halv elva'>22.30; 10.30</annotation>
+
+		<!-- CLOCK FACE ELEVEN OCLOCK; 00; 11; 11:00; clock; eleven; face; o’clock; time -->
+		<annotation cp='[🕚]' tts='klockan elva'>23.00; 11.00; elva</annotation>
+
+		<!-- CLOCK FACE ELEVEN-THIRTY; 11; 30; 11:30; clock; eleven; face; thirty; time -->
+		<annotation cp='[🕦]' tts='halv tolv'>23.30; 11.30</annotation>
+
+		<!-- ARIES; aries; ram; time; zodiac -->
+		<annotation cp='[♈]' tts='Väduren'>Väduren; stjärntecken</annotation>
+
+		<!-- TAURUS; bull; ox; taurus; time; zodiac -->
+		<annotation cp='[♉]' tts='Oxen'>Oxen; stjärntecken</annotation>
+
+		<!-- GEMINI; gemini; time; twins; zodiac -->
+		<annotation cp='[♊]' tts='Tvillingarna'>Tvillingarna; stjärntecken</annotation>
+
+		<!-- CANCER; cancer; crab; time; zodiac -->
+		<annotation cp='[♋]' tts='Kräftan'>Kräftan; stjärntecken</annotation>
+
+		<!-- LEO; leo; lion; time; zodiac -->
+		<annotation cp='[♌]' tts='Lejonet'>Lejonet; stjärntecken</annotation>
+
+		<!-- VIRGO; maiden; time; virgin; virgo; zodiac -->
+		<annotation cp='[♍]' tts='Jungfrun'>Jungfrun; stjärntecken</annotation>
+
+		<!-- LIBRA; balance; justice; libra; scales; time; zodiac -->
+		<annotation cp='[♎]' tts='Vågen'>Vågen; stjärntecken</annotation>
+
+		<!-- SCORPIUS; scorpion; scorpius; time; zodiac -->
+		<annotation cp='[♏]' tts='Skorpionen'>Skorpionen; stjärntecken</annotation>
+
+		<!-- SAGITTARIUS; archer; sagittarius; time; zodiac -->
+		<annotation cp='[♐]' tts='Skytten'>Skytten; stjärntecken</annotation>
+
+		<!-- CAPRICORN; capricorn; goat; time; zodiac -->
+		<annotation cp='[♑]' tts='Stenbocken'>Stenbocken; stjärntecken</annotation>
+
+		<!-- AQUARIUS; aquarius; bearer; time; water; zodiac -->
+		<annotation cp='[♒]' tts='Vattumannen'>Vattumannen; stjärntecken</annotation>
+
+		<!-- PISCES; fish; pisces; time; zodiac -->
+		<annotation cp='[♓]' tts='Fiskarna'>Fiskarna; stjärntecken</annotation>
+
+		<!-- OPHIUCHUS; bearer; ophiuchus; serpent; snake; word; zodiac -->
+		<annotation cp='[⛎]' tts='Ormbäraren'>Ormbäraren; stjärnbild</annotation>
+
+		<!-- NEW MOON SYMBOL; dark; moon; place; space; time; weather -->
+		<annotation cp='[🌑]' tts='nymåne'>nymåne; mörk måne; mörkt; ny; måne</annotation>
+
+		<!-- WAXING CRESCENT MOON SYMBOL; crescent; moon; place; space; time; waxing; weather -->
+		<annotation cp='[🌒]' tts='halvmåne'>halvmåne; tilltagande måne</annotation>
+
+		<!-- FIRST QUARTER MOON SYMBOL; moon; place; quarter; space; time; weather -->
+		<annotation cp='[🌓]' tts='kvartsmåne'>kvartsmåne; måne; kvarts</annotation>
+
+		<!-- WAXING GIBBOUS MOON SYMBOL; gibbous; moon; place; space; time; waxing; weather -->
+		<annotation cp='[🌔]' tts='mellan halvmåne–fullmåne'>tilltagande måne; halvmåne till fullmåne</annotation>
+
+		<!-- FULL MOON SYMBOL; full; moon; place; space; time; weather -->
+		<annotation cp='[🌕]' tts='fullmåne'>fullmåne; klar måne; måne</annotation>
+
+		<!-- WANING GIBBOUS MOON SYMBOL; gibbous; moon; place; space; time; waning; weather -->
+		<annotation cp='[🌖]' tts='avtagande måne'>tilltagande; måne</annotation>
+
+		<!-- LAST QUARTER MOON SYMBOL; moon; place; quarter; space; time; weather -->
+		<annotation cp='[🌗]' tts='kvartsmåne'>kvartsmåne; kvart; måne</annotation>
+
+		<!-- WANING CRESCENT MOON SYMBOL; crescent; moon; place; space; time; waning; weather -->
+		<annotation cp='[🌘]' tts='halvmåne'>halvmåne; avtagande måne; avtagande; måne</annotation>
+
+		<!-- CRESCENT MOON; crescent; moon; place; space; time; weather -->
+		<annotation cp='[🌙]' tts='halvmåne'>halvmåne; måne</annotation>
+
+		<!-- NEW MOON WITH FACE; face; moon; place; time; weather -->
+		<annotation cp='[🌚]' tts='nymåne med ansikte'>nymåne; måne; ansikte</annotation>
+
+		<!-- FIRST QUARTER MOON WITH FACE; face; moon; place; quarter; weather -->
+		<annotation cp='[🌛]' tts='kvartsmåne med ansikte'>måne med ansikte; kvartsmåne första; måne; ansikte</annotation>
+
+		<!-- LAST QUARTER MOON WITH FACE; face; moon; place; quarter; weather -->
+		<annotation cp='[🌜]' tts='kvartsmåne med ansikte'>måne med ansikte; kvartsmåne sista; måne; ansikte</annotation>
+
+		<!-- THERMOMETER; thermometer; weather -->
+		<annotation cp='[🌡]'>MISSING</annotation>
+
+		<!-- BLACK SUN WITH RAYS; bright; rays; sun; sunny; weather -->
+		<annotation cp='[☀]'>MISSING</annotation>
+
+		<!-- FULL MOON WITH FACE; bright; face; full; moon; place; weather -->
+		<annotation cp='[🌝]' tts='fullmåne med ansikte'>måne med ansikte; fullmåne; måne; ansikte</annotation>
+
+		<!-- SUN WITH FACE; bright; face; place; sun; weather -->
+		<annotation cp='[🌞]' tts='sol med ansikte'>sol; ansikte</annotation>
+
+		<!-- CLOUD; cloud; weather -->
+		<annotation cp='[☁]' tts='moln'>moln; väder</annotation>
+
+		<!-- SUN BEHIND CLOUD; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='sol bakom moln'>sol med moln; sol; moln</annotation>
+
+		<!-- THUNDER CLOUD AND RAIN; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]'>MISSING</annotation>
+
+		<!-- WHITE SUN WITH SMALL CLOUD; cloud; sun; weather -->
+		<annotation cp='[🌤]'>MISSING</annotation>
+
+		<!-- WHITE SUN BEHIND CLOUD; cloud; sun; weather -->
+		<annotation cp='[🌥]'>MISSING</annotation>
+
+		<!-- WHITE SUN BEHIND CLOUD WITH RAIN; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]'>MISSING</annotation>
+
+		<!-- CLOUD WITH RAIN; cloud; rain; weather -->
+		<annotation cp='[🌧]'>MISSING</annotation>
+
+		<!-- CLOUD WITH SNOW; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]'>MISSING</annotation>
+
+		<!-- CLOUD WITH LIGHTNING; cloud; lightning; weather -->
+		<annotation cp='[🌩]'>MISSING</annotation>
+
+		<!-- CLOUD WITH TORNADO; cloud; tornado; weather -->
+		<annotation cp='[🌪]'>MISSING</annotation>
+
+		<!-- FOG; cloud; fog; nature; weather -->
+		<annotation cp='[🌫]'>MISSING</annotation>
+
+		<!-- WIND BLOWING FACE; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]'>MISSING</annotation>
+
+		<!-- CYCLONE; cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='cyklon'>cyklon; tyfon; tromb</annotation>
+
+		<!-- RAINBOW; rain; rainbow; weather -->
+		<annotation cp='[🌈]' tts='regnbåge'>regnbåge</annotation>
+
+		<!-- CLOSED UMBRELLA; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='hopfällt paraply'>regn; regnigt</annotation>
+
+		<!-- UMBRELLA; rain; umbrella; weather -->
+		<annotation cp='[☂]'>MISSING</annotation>
+
+		<!-- UMBRELLA WITH RAIN DROPS; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]'>MISSING</annotation>
+
+		<!-- UMBRELLA ON GROUND; rain; sun; travel; umbrella; weather -->
+		<annotation cp='[⛱]'>MISSING</annotation>
+
+		<!-- SNOWFLAKE; cold; snow; snowflake; weather -->
+		<annotation cp='[❄]'>MISSING</annotation>
+
+		<!-- SNOWMAN; cold; snow; snowman; weather -->
+		<annotation cp='[☃]'>MISSING</annotation>
+
+		<!-- SNOWMAN WITHOUT SNOW; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='snögubbe'>snögubbe; snö</annotation>
+
+		<!-- GLOWING STAR; glittery; glow; place; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='blänkande stjärna'>gnistrande; glittrande; blänkande; stjärna</annotation>
+
+		<!-- SHOOTING STAR; activity; falling; nature; place; shooting; space; star -->
+		<annotation cp='[🌠]' tts='stjärnfall'>stjärnfall; fallande stjärna</annotation>
+
+		<!-- COMET; comet; object; space -->
+		<annotation cp='[☄]'>MISSING</annotation>
+
+		<!-- GAME DIE; dice; die; game -->
+		<annotation cp='[🎲]' tts='speltärning'>speltärning; tärning; spel</annotation>
+
+		<!-- BLACK SPADE SUIT; card; game; spade; suit -->
+		<annotation cp='[♠]'>MISSING</annotation>
+
+		<!-- BLACK HEART SUIT; card; emotion; game; heart; hearts; suit -->
+		<annotation cp='[♥]'>MISSING</annotation>
+
+		<!-- BLACK DIAMOND SUIT; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]'>MISSING</annotation>
+
+		<!-- BLACK CLUB SUIT; card; club; clubs; game; suit -->
+		<annotation cp='[♣]'>MISSING</annotation>
+
+		<!-- PLAYING CARD BLACK JOKER; card; game; joker; playing -->
+		<annotation cp='[🃏]' tts='Joker-kort'>Joker-kort; Joker; spelkort</annotation>
+
+		<!-- MAHJONG TILE RED DRAGON; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='Mahjong-bricka'>Mahjong-bricka; röd drake; drake; spelbricka</annotation>
+
+		<!-- VIDEO GAME; controller; entertainment; game; video game -->
+		<annotation cp='[🎮]' tts='tv-spelskontroll'>tv-spelskontroll; tv-spel; kontroll; spel</annotation>
+
+		<!-- JOYSTICK; entertainment; game; joystick; object; video game -->
+		<annotation cp='[🕹]'>MISSING</annotation>
+
+		<!-- SOCCER BALL; ball; soccer; sport -->
+		<annotation cp='[⚽]' tts='fotboll'>fotboll; boll</annotation>
+
+		<!-- BASEBALL; ball; baseball; sport -->
+		<annotation cp='[⚾]' tts='baseboll'>baseboll</annotation>
+
+		<!-- BASKETBALL AND HOOP; ball; basketball; hoop; sport -->
+		<annotation cp='[🏀]' tts='basketboll'>basketboll; basket; boll</annotation>
+
+		<!-- AMERICAN FOOTBALL; american; ball; football; sport -->
+		<annotation cp='[🏈]' tts='amerikansk fotboll'>boll</annotation>
+
+		<!-- RUGBY FOOTBALL; ball; football; rugby; sport -->
+		<annotation cp='[🏉]' tts='rugbyboll'>rugbyboll; boll</annotation>
+
+		<!-- TENNIS RACQUET AND BALL; ball; racquet; sport; tennis -->
+		<annotation cp='[🎾]' tts='tennisboll'>tennisboll; tennisrack och boll; tennisracket och boll; boll</annotation>
+
+		<!-- BILLIARDS; 8; 8 ball; ball; billiard; eight; game; sport -->
+		<annotation cp='[🎱]' tts='biljardboll'>biljardboll; åttan; biljard</annotation>
+
+		<!-- BOWLING; ball; bowling; game; sport -->
+		<annotation cp='[🎳]' tts='bowling'>bowling; bowlingklot; klot</annotation>
+
+		<!-- FLAG IN HOLE; flag; golf; hole; sport; travel -->
+		<annotation cp='[⛳]' tts='flagga i hål'>golf; golfflagga; hål</annotation>
+
+		<!-- GOLFER; ball; golf; human; person; sport -->
+		<annotation cp='[🏌]'>MISSING</annotation>
+
+		<!-- ICE SKATE; ice; skate; sport; travel -->
+		<annotation cp='[⛸]'>MISSING</annotation>
+
+		<!-- FISHING POLE AND FISH; entertainment; fish; pole; sport -->
+		<annotation cp='[🎣]' tts='fiskespö och fisk'>fiskespö; fisk; spö; fiska</annotation>
+
+		<!-- RUNNING SHIRT WITH SASH; running; sash; shirt; sport -->
+		<annotation cp='[🎽]' tts='löparlinne'>löparlinne; träningskläder; löpartröja; löpning</annotation>
+
+		<!-- SKI AND SKI BOOT; ski; snow; sport -->
+		<annotation cp='[🎿]' tts='skidor och stavar'>skidor</annotation>
+
+		<!-- SKIER; human; person; ski; snow; sport; travel -->
+		<annotation cp='[⛷]'>MISSING</annotation>
+
+		<!-- SNOWBOARDER; human; person; ski; snow; snowboard; sport -->
+		<annotation cp='[🏂]' tts='snowboardåkare'>snowboardåkare; snowboard</annotation>
+
+		<!-- SURFER; human; person; sport; surfer; surfing -->
+		<annotation cp='[🏄]' tts='surfare'>surfare; surfning; surfing</annotation>
+
+		<!-- HORSE RACING; horse; human; jockey; person; racehorse; racing; sport; travel -->
+		<annotation cp='[🏇]' tts='hästkapplöpning'>hästkapplöpning; häst; jockey; kapplöpning</annotation>
+
+		<!-- SWIMMER; human; person; sport; swim; swimmer; travel -->
+		<annotation cp='[🏊]' tts='simmare'>simmare; simning</annotation>
+
+		<!-- PERSON WITH BALL; ball; human; person; sport; travel -->
+		<annotation cp='[⛹]'>MISSING</annotation>
+
+		<!-- WEIGHT LIFTER; human; lifter; person; sport; weight -->
+		<annotation cp='[🏋]'>MISSING</annotation>
+
+		<!-- SPORTS MEDAL; medal; sport -->
+		<annotation cp='[🏅]'>MISSING</annotation>
+
+		<!-- TROPHY; prize; sport; trophy -->
+		<annotation cp='[🏆]' tts='pokal'>pokal; pris</annotation>
+
+		<!-- SPEAKER WITH CANCELLATION STROKE; mute; quiet; silent; sound; speaker; volume -->
+		<annotation cp='[🔇]' tts='avstängd högtalare'>tyst; överkryssad högtalare</annotation>
+
+		<!-- SPEAKER; sound; speaker; volume -->
+		<annotation cp='[🔈]' tts='högtalare'>högtalare</annotation>
+
+		<!-- SPEAKER WITH ONE SOUND WAVE; low; sound; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='högtalare med låg volym'>högtalare med låg volym</annotation>
+
+		<!-- SPEAKER WITH THREE SOUND WAVES; 3; high; loud; sound; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='högtalare med hög volym'>högtalare med hög volym</annotation>
+
+		<!-- PUBLIC ADDRESS LOUDSPEAKER; communication; loud; loudspeaker; public address; sound -->
+		<annotation cp='[📢]' tts='megafon'>megafon; handhögtalare; kommunikation</annotation>
+
+		<!-- CHEERING MEGAPHONE; cheering; communication; megaphone; sound -->
+		<annotation cp='[📣]' tts='megafon'>megafon; kommunikation</annotation>
+
+		<!-- POSTAL HORN; communication; horn; object; post; postal; sound -->
+		<annotation cp='[📯]' tts='postsymbol'>postsymbol; posthorn</annotation>
+
+		<!-- BELL; bell; sound -->
+		<annotation cp='[🔔]' tts='ringklocka'>ringklocka</annotation>
+
+		<!-- BELL WITH CANCELLATION STROKE; bell; forbidden; mute; no; not; prohibited; quiet; silent; sound -->
+		<annotation cp='[🔕]' tts='överstruken ringklocka'>inget ljud; ringklocka</annotation>
+
+		<!-- TWISTED RIGHTWARDS ARROWS; arrow; crossed -->
+		<annotation cp='[🔀]' tts='korsade högerpilar'>pilar; korsade</annotation>
+
+		<!-- CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='pilar medurs'>pilar</annotation>
+
+		<!-- CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS WITH CIRCLED ONE OVERLAY; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='pilar medurs med siffran 1'>pilar</annotation>
+
+		<!-- BLACK RIGHT-POINTING TRIANGLE; arrow; play; right; sound; triangle -->
+		<annotation cp='[▶]'>MISSING</annotation>
+
+		<!-- BLACK RIGHT-POINTING DOUBLE TRIANGLE; arrow; double; fast; forward; sound -->
+		<annotation cp='[⏩]' tts='spola framåt'>dubbla högerpilar; pilar</annotation>
+
+		<!-- BLACK RIGHT-POINTING DOUBLE TRIANGLE WITH VERTICAL BAR; arrow; next scene; next track; sound; triangle -->
+		<annotation cp='[⏭]'>MISSING</annotation>
+
+		<!-- BLACK RIGHT-POINTING TRIANGLE WITH DOUBLE VERTICAL BAR; arrow; pause; play; right; sound; triangle -->
+		<annotation cp='[⏯]'>MISSING</annotation>
+
+		<!-- BLACK LEFT-POINTING TRIANGLE; arrow; left; reverse; sound; triangle -->
+		<annotation cp='[◀]'>MISSING</annotation>
+
+		<!-- BLACK LEFT-POINTING DOUBLE TRIANGLE; arrow; double; rewind; sound -->
+		<annotation cp='[⏪]' tts='spola bakåt'>dubbla vänsterpilar; pilar</annotation>
+
+		<!-- BLACK LEFT-POINTING DOUBLE TRIANGLE WITH VERTICAL BAR; arrow; previous scene; previous track; sound; triangle -->
+		<annotation cp='[⏮]'>MISSING</annotation>
+
+		<!-- UP-POINTING SMALL RED TRIANGLE; arrow; button; red -->
+		<annotation cp='[🔼]' tts='uppåtpekande liten triangel'>triangel</annotation>
+
+		<!-- BLACK UP-POINTING DOUBLE TRIANGLE; arrow; double; sound -->
+		<annotation cp='[⏫]' tts='dubbla uppåtpilar'>uppåtpilar</annotation>
+
+		<!-- DOWN-POINTING SMALL RED TRIANGLE; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='nedåtpekande liten triangel'>triangel</annotation>
+
+		<!-- BLACK DOWN-POINTING DOUBLE TRIANGLE; arrow; double; down; sound -->
+		<annotation cp='[⏬]' tts='dubbla nedåtpilar'>nedåtpilar</annotation>
+
+		<!-- DOUBLE VERTICAL BAR; bar; double; pause; sound; vertical -->
+		<annotation cp='[⏸]'>MISSING</annotation>
+
+		<!-- BLACK SQUARE FOR STOP; sound; square; stop -->
+		<annotation cp='[⏹]'>MISSING</annotation>
+
+		<!-- BLACK CIRCLE FOR RECORD; circle; record; sound -->
+		<annotation cp='[⏺]'>MISSING</annotation>
+
+		<!-- EJECT SYMBOL; eject; sound -->
+		<annotation cp='[⏏]'>MISSING</annotation>
+
+		<!-- MUSICAL SCORE; activity; music; score; sound -->
+		<annotation cp='[🎼]' tts='g-klav'>g-klav; musik; noter</annotation>
+
+		<!-- MUSICAL NOTE; activity; music; note; sound -->
+		<annotation cp='[🎵]' tts='not'>not; musik</annotation>
+
+		<!-- MULTIPLE MUSICAL NOTES; activity; music; note; notes; sound -->
+		<annotation cp='[🎶]' tts='noter'>noter; musik; not</annotation>
+
+		<!-- STUDIO MICROPHONE; mic; microphone; music; object; sound; studio -->
+		<annotation cp='[🎙]'>MISSING</annotation>
+
+		<!-- LEVEL SLIDER; level; music; object; slider; sound -->
+		<annotation cp='[🎚]'>MISSING</annotation>
+
+		<!-- CONTROL KNOBS; control; knobs; music; object; sound -->
+		<annotation cp='[🎛]'>MISSING</annotation>
+
+		<!-- MICROPHONE; activity; entertainment; karaoke; mic; microphone; sound -->
+		<annotation cp='[🎤]' tts='mikrofon'>mikrofon; karaoke</annotation>
+
+		<!-- HEADPHONE; activity; earbud; entertainment; headphone; sound -->
+		<annotation cp='[🎧]' tts='hörlur'>hörlur</annotation>
+
+		<!-- SAXOPHONE; activity; instrument; music; sax; saxophone; sound -->
+		<annotation cp='[🎷]' tts='saxofon'>saxofon; musikinstrument; musik</annotation>
+
+		<!-- GUITAR; activity; guitar; instrument; music; sound -->
+		<annotation cp='[🎸]' tts='gitarr'>gitarr; musikinstrument; musik</annotation>
+
+		<!-- MUSICAL KEYBOARD; activity; instrument; keyboard; music; piano; sound -->
+		<annotation cp='[🎹]' tts='piano'>piano; keyboard; musikinstrument; musik</annotation>
+
+		<!-- TRUMPET; activity; instrument; music; sound; trumpet -->
+		<annotation cp='[🎺]' tts='trumpet'>trumpet; musikinstrument; musik</annotation>
+
+		<!-- VIOLIN; activity; instrument; music; sound; violin -->
+		<annotation cp='[🎻]' tts='fiol'>fiol; musikinstrument; musik</annotation>
+
+		<!-- RADIO; object; radio; video -->
+		<annotation cp='[📻]' tts='radio'>radio</annotation>
+
+		<!-- MOBILE PHONE; cell; communication; mobile; object; phone -->
+		<annotation cp='[📱]' tts='mobiltelefon'>mobiltelefon; mobil; telefon</annotation>
+
+		<!-- VIBRATION MODE; cell; communication; mobile; mode; object; phone; vibration -->
+		<annotation cp='[📳]' tts='vibrationsläge'>vibrationsläge; mobil; telefon; läge</annotation>
+
+		<!-- MOBILE PHONE OFF; cell; communication; mobile; object; off; phone -->
+		<annotation cp='[📴]' tts='avstängd mobil'>mobil av; telefon; avstängd</annotation>
+
+		<!-- MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT; arrow; call; cell; communication; mobile; object; phone; receive -->
+		<annotation cp='[📲]' tts='mobiltelefon med pil'>ringa; mobil; telefon</annotation>
+
+		<!-- NO MOBILE PHONES; cell; communication; forbidden; mobile; no; not; object; phone; prohibited -->
+		<annotation cp='[📵]' tts='mobil förbjuden'>inga mobiler; inga samtal</annotation>
+
+		<!-- BLACK TELEPHONE; office; phone; sound; telephone -->
+		<annotation cp='[☎]'>MISSING</annotation>
+
+		<!-- TELEPHONE RECEIVER; communication; phone; receiver; sound; telephone -->
+		<annotation cp='[📞]' tts='telefonlur'>telefonlur; telefon; kommunikation</annotation>
+
+		<!-- NUMBER SIGN+COMBINING ENCLOSING KEYCAP; hash; keycap; pound; word -->
+		<annotation cp='[{#⃣}]'>MISSING</annotation>
+
+		<!-- ASTERISK+COMBINING ENCLOSING KEYCAP; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT ZERO+COMBINING ENCLOSING KEYCAP; 0; keycap; word; zero -->
+		<annotation cp='[{0⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT ONE+COMBINING ENCLOSING KEYCAP; 1; keycap; one; word -->
+		<annotation cp='[{1⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT TWO+COMBINING ENCLOSING KEYCAP; 2; keycap; two; word -->
+		<annotation cp='[{2⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT THREE+COMBINING ENCLOSING KEYCAP; 3; keycap; three; word -->
+		<annotation cp='[{3⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT FOUR+COMBINING ENCLOSING KEYCAP; 4; four; keycap; word -->
+		<annotation cp='[{4⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT FIVE+COMBINING ENCLOSING KEYCAP; 5; five; keycap; word -->
+		<annotation cp='[{5⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT SIX+COMBINING ENCLOSING KEYCAP; 6; keycap; six; word -->
+		<annotation cp='[{6⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT SEVEN+COMBINING ENCLOSING KEYCAP; 7; keycap; seven; word -->
+		<annotation cp='[{7⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT EIGHT+COMBINING ENCLOSING KEYCAP; 8; eight; keycap; word -->
+		<annotation cp='[{8⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT NINE+COMBINING ENCLOSING KEYCAP; 9; keycap; nine; word -->
+		<annotation cp='[{9⃣}]'>MISSING</annotation>
+
+		<!-- KEYCAP TEN; 10; keycap; ten; word -->
+		<annotation cp='[🔟]' tts='siffran 10'>10</annotation>
+
+		<!-- ANTENNA WITH BARS; antenna; bar; communication; mobile; object; phone; signal -->
+		<annotation cp='[📶]' tts='stapel signalstyrka'>staplar för mottagning; signalstyrka; mobil</annotation>
+
+		<!-- PAGER; communication; office; pager -->
+		<annotation cp='[📟]' tts='personsökare'>personsökare; kommunikation</annotation>
+
+		<!-- FAX MACHINE; communication; fax; office -->
+		<annotation cp='[📠]' tts='fax'>fax; kommunikation</annotation>
+
+		<!-- MOVIE CAMERA; activity; camera; cinema; entertainment; movie; object -->
+		<annotation cp='[🎥]' tts='filmkamera'>filmkamera; film; spela in film</annotation>
+
+		<!-- CINEMA; activity; camera; cinema; entertainment; film; movie; object -->
+		<annotation cp='[🎦]' tts='bio'>bio; film; bioskylt</annotation>
+
+		<!-- CLAPPER BOARD; activity; clapper; entertainment; movie; object -->
+		<annotation cp='[🎬]' tts='filmklappa'>filmklappa; klappa; film</annotation>
+
+		<!-- FILM PROJECTOR; cinema; entertainment; film; movie; object; projector; video -->
+		<annotation cp='[📽]'>MISSING</annotation>
+
+		<!-- TELEVISION; entertainment; object; television; tv; video -->
+		<annotation cp='[📺]' tts='tv'>tv</annotation>
+
+		<!-- CAMERA; camera; object; video -->
+		<annotation cp='[📷]' tts='kamera'>kamera</annotation>
+
+		<!-- CAMERA WITH FLASH; camera; flash; object; video -->
+		<annotation cp='[📸]'>MISSING</annotation>
+
+		<!-- VIDEO CAMERA; camera; object; video -->
+		<annotation cp='[📹]' tts='videokamera'>videokamera</annotation>
+
+		<!-- VIDEOCASSETTE; object; tape; vhs; video; videocassette -->
+		<annotation cp='[📼]' tts='videoband'>videoband</annotation>
+
+		<!-- LOW BRIGHTNESS SYMBOL; brightness; dim; low; sign -->
+		<annotation cp='[🔅]' tts='låg ljusstyrka'>låg; ljusstyrka</annotation>
+
+		<!-- HIGH BRIGHTNESS SYMBOL; bright; brightness; sign -->
+		<annotation cp='[🔆]' tts='hög ljusstyrka'>hög; ljusstyrka</annotation>
+
+		<!-- LEFT-POINTING MAGNIFYING GLASS; glass; magnifying; object; search; tool -->
+		<annotation cp='[🔍]' tts='förstoringsglas vänster'>förstoringsglas; vänsterpekande</annotation>
+
+		<!-- RIGHT-POINTING MAGNIFYING GLASS; glass; magnifying; object; search; tool -->
+		<annotation cp='[🔎]' tts='förstoringsglas höger'>förstoringsglas; högerpekande</annotation>
+
+		<!-- MICROSCOPE; microscope; object; tool -->
+		<annotation cp='[🔬]' tts='mikroskop'>mikroskop</annotation>
+
+		<!-- TELESCOPE; object; telescope; tool -->
+		<annotation cp='[🔭]' tts='teleskop'>teleskop</annotation>
+
+		<!-- FIRE; fire; flame; object; tool -->
+		<annotation cp='[🔥]' tts='eld'>eld; flamma</annotation>
+
+		<!-- CANDLE; candle; light; object -->
+		<annotation cp='[🕯]'>MISSING</annotation>
+
+		<!-- ELECTRIC LIGHT BULB; bulb; comic; electric; idea; light; object -->
+		<annotation cp='[💡]' tts='glödlampa'>glödlampa; fått en idé; elektrisk; lampa</annotation>
+
+		<!-- ELECTRIC TORCH; electric; flashlight; light; object; tool; torch -->
+		<annotation cp='[🔦]' tts='ficklampa'>ficklampa; lampa</annotation>
+
+		<!-- IZAKAYA LANTERN; bar; japanese; lantern; light; place; red; restaurant -->
+		<annotation cp='[🏮]' tts='röd lykta'>lykta; restaurang</annotation>
+
+		<!-- JACK-O-LANTERN; activity; celebration; halloween; jack; lantern; object -->
+		<annotation cp='[🎃]' tts='pumpa'>pumpa; Halloween; lykta; fest</annotation>
+
+		<!-- CHRISTMAS TREE; activity; celebration; christmas; object; tree -->
+		<annotation cp='[🎄]' tts='julgran'>julgran; gran; högtid</annotation>
+
+		<!-- FIREWORKS; activity; celebration; fireworks; object -->
+		<annotation cp='[🎆]' tts='fyrverkerier'>fyrverkerier; högtid</annotation>
+
+		<!-- FIREWORK SPARKLER; activity; celebration; fireworks; object; sparkle -->
+		<annotation cp='[🎇]' tts='glittrande fyrverkeri'>fyrverkerier; högtid</annotation>
+
+		<!-- SPARKLES; sign; sparkle; star -->
+		<annotation cp='[✨]' tts='gnistrande stjärnor'>gnistrar; stjärnor</annotation>
+
+		<!-- BALLOON; activity; balloon; celebration; object -->
+		<annotation cp='[🎈]' tts='ballong'>ballong; fest</annotation>
+
+		<!-- PARTY POPPER; activity; celebration; object; party; popper; tada -->
+		<annotation cp='[🎉]' tts='partypopper'>partypopper; fest; serpentiner</annotation>
+
+		<!-- CONFETTI BALL; activity; ball; celebration; confetti; object -->
+		<annotation cp='[🎊]' tts='konfetti'>konfetti; konfettiboll; boll; fest</annotation>
+
+		<!-- TANABATA TREE; activity; banner; celebration; japanese; object; tree -->
+		<annotation cp='[🎋]' tts='träd med pappersremsor'>japansk festival; träd; pappersremsor; fest</annotation>
+
+		<!-- CROSSED FLAGS; activity; celebration; cross; crossed; flag; japanese -->
+		<annotation cp='[🎌]' tts='korsade flaggor'>korsade flaggor Japan; korsade; flaggor; fest</annotation>
+
+		<!-- PINE DECORATION; activity; bamboo; celebration; japanese; object; pine; plant -->
+		<annotation cp='[🎍]' tts='pinjedekoration'>pinjedekoration; nyår; japanskt</annotation>
+
+		<!-- JAPANESE DOLLS; activity; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='japanska dockor'>dockor</annotation>
+
+		<!-- CARP STREAMER; activity; carp; celebration; flag; object; streamer -->
+		<annotation cp='[🎏]' tts='vindstrut'>vindstrut; fest</annotation>
+
+		<!-- WIND CHIME; activity; bell; celebration; chime; object; wind -->
+		<annotation cp='[🎐]' tts='vindspel'>vindspel</annotation>
+
+		<!-- MOON VIEWING CEREMONY; activity; celebration; ceremony; moon; object -->
+		<annotation cp='[🎑]' tts='månskådning'>månskådning; titta på månen</annotation>
+
+		<!-- GRADUATION CAP; activity; cap; celebration; education; graduation; hat; object -->
+		<annotation cp='[🎓]' tts='examenshatt'>examenshatt; hatt; examen; högtid</annotation>
+
+		<!-- ARTIST PALETTE; activity; art; entertainment; object; painting; palette -->
+		<annotation cp='[🎨]' tts='färgpalett'>färgpalett; palett; konst; färger</annotation>
+
+		<!-- DIRECT HIT; activity; bull’s eye; dart; eye; game; hit; object; target -->
+		<annotation cp='[🎯]' tts='mitt i prick'>fullträff; rakt på mål; pilkastning</annotation>
+
+		<!-- FLOWER PLAYING CARDS; activity; card; flower; game; japanese; object; playing -->
+		<annotation cp='[🎴]' tts='spelkort med blomma'>blomma; spelkort; kort; kortspel</annotation>
+
+		<!-- RIBBON; celebration; object; ribbon -->
+		<annotation cp='[🎀]' tts='rosett'>rosett; fest</annotation>
+
+		<!-- WRAPPED PRESENT; box; celebration; gift; object; present; wrapped -->
+		<annotation cp='[🎁]' tts='inslagen present'>present; gåva; inslagen; fest</annotation>
+
+		<!-- MILITARY MEDAL; celebration; medal; military; object -->
+		<annotation cp='[🎖]'>MISSING</annotation>
+
+		<!-- REMINDER RIBBON; celebration; object; reminder; ribbon -->
+		<annotation cp='[🎗]'>MISSING</annotation>
+
+		<!-- FILM FRAMES; cinema; entertainment; film; frames; movie; object -->
+		<annotation cp='[🎞]'>MISSING</annotation>
+
+		<!-- ADMISSION TICKETS; admission; entertainment; object; ticket -->
+		<annotation cp='[🎟]'>MISSING</annotation>
+
+		<!-- LABEL; label; object -->
+		<annotation cp='[🏷]'>MISSING</annotation>
+
+		<!-- NOTEBOOK WITH DECORATIVE COVER; book; cover; decorated; education; notebook; office -->
+		<annotation cp='[📔]' tts='anteckningsbok med snyggt omslag'>skrivbok</annotation>
+
+		<!-- CLOSED BOOK; book; closed; education; office -->
+		<annotation cp='[📕]' tts='stängd bok'>bok</annotation>
+
+		<!-- OPEN BOOK; book; education; office; open -->
+		<annotation cp='[📖]' tts='öppen bok'>bok</annotation>
+
+		<!-- GREEN BOOK; book; education; green; office -->
+		<annotation cp='[📗]' tts='grön bok'>bok</annotation>
+
+		<!-- BLUE BOOK; blue; book; education; office -->
+		<annotation cp='[📘]' tts='blå bok'>bok</annotation>
+
+		<!-- ORANGE BOOK; book; education; office; orange -->
+		<annotation cp='[📙]' tts='orange bok'>bok</annotation>
+
+		<!-- BOOKS; book; books; education; office -->
+		<annotation cp='[📚]' tts='böcker'>böcker; bok</annotation>
+
+		<!-- NOTEBOOK; notebook; office -->
+		<annotation cp='[📓]' tts='anteckningsbok'>anteckningsbok; skrivbok</annotation>
+
+		<!-- LEDGER; ledger; notebook; office -->
+		<annotation cp='[📒]' tts='anteckningsbok'>anteckningsbok; skrivbok</annotation>
+
+		<!-- PAGE WITH CURL; curl; document; office; page -->
+		<annotation cp='[📃]' tts='upprullad sida'>dokument</annotation>
+
+		<!-- SCROLL; office; paper; scroll -->
+		<annotation cp='[📜]' tts='pergament'>pergament; rulle</annotation>
+
+		<!-- PAGE FACING UP; document; office; page -->
+		<annotation cp='[📄]' tts='sida med text uppåt'>text uppåt; sida</annotation>
+
+		<!-- NEWSPAPER; communication; news; newspaper; object; paper -->
+		<annotation cp='[📰]' tts='tidning'>tidning; nyheter</annotation>
+
+		<!-- ROLLED-UP NEWSPAPER; news; newspaper; object; paper; rolled -->
+		<annotation cp='[🗞]'>MISSING</annotation>
+
+		<!-- BOOKMARK TABS; bookmark; mark; marker; office; tabs -->
+		<annotation cp='[📑]' tts='bokmärkesflikar'>bokmärkesflikar; flikar; markörer; bokmärken</annotation>
+
+		<!-- BOOKMARK; bookmark; mark; object -->
+		<annotation cp='[🔖]' tts='bokmärke'>bokmärke</annotation>
+
+		<!-- FRAME WITH PICTURE; art; frame; object; office; painting; picture -->
+		<annotation cp='[🖼]'>MISSING</annotation>
+
+		<!-- MONEY BAG; bag; dollar; money; moneybag; office -->
+		<annotation cp='[💰]' tts='pengapåse'>pengapåse; pengar; säck</annotation>
+
+		<!-- BANKNOTE WITH YEN SIGN; bank; banknote; bill; currency; money; note; office; yen -->
+		<annotation cp='[💴]' tts='yensedel'>yensedel; sedel; yen; pengar</annotation>
+
+		<!-- BANKNOTE WITH DOLLAR SIGN; bank; banknote; bill; currency; dollar; money; note; office -->
+		<annotation cp='[💵]' tts='dollarsedel'>dollarsedel; sedel; dollar; pengar</annotation>
+
+		<!-- BANKNOTE WITH EURO SIGN; bank; banknote; bill; currency; euro; money; note; office -->
+		<annotation cp='[💶]' tts='eurosedel'>eurosedel; sedel; euro; pengar</annotation>
+
+		<!-- BANKNOTE WITH POUND SIGN; bank; banknote; bill; currency; money; note; office; pound -->
+		<annotation cp='[💷]' tts='pundsedel'>pundsedel; sedel; pund; pengar</annotation>
+
+		<!-- MONEY WITH WINGS; bank; banknote; bill; dollar; fly; money; note; office; wings -->
+		<annotation cp='[💸]' tts='pengar med vingar'>flygande sedlar; pengar</annotation>
+
+		<!-- CURRENCY EXCHANGE; bank; currency; exchange; money; office -->
+		<annotation cp='[💱]' tts='växelkurs'>växelkurs; valuta; pengar</annotation>
+
+		<!-- HEAVY DOLLAR SIGN; currency; dollar; money; office -->
+		<annotation cp='[💲]' tts='dollartecken'>dollartecken; dollar; pengar</annotation>
+
+		<!-- CREDIT CARD; bank; card; credit; money; office -->
+		<annotation cp='[💳]' tts='kreditkort'>kreditkort; kort; betalkort</annotation>
+
+		<!-- CHART WITH UPWARDS TREND AND YEN SIGN; bank; chart; currency; graph; growth; market; money; office; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='diagram stigande marknad'>stigande marknad; diagram; uppåtpekande</annotation>
+
+		<!-- ENVELOPE; email; envelope; office -->
+		<annotation cp='[✉]'>MISSING</annotation>
+
+		<!-- E-MAIL SYMBOL; communication; email; letter; mail; office -->
+		<annotation cp='[📧]' tts='e-postsymbol'>e-postsymbol; brev; kommunikation</annotation>
+
+		<!-- INCOMING ENVELOPE; communication; email; envelope; incoming; letter; mail; office; receive -->
+		<annotation cp='[📨]' tts='inkommande brev'>mottaget brev; e-post; kuvert; kommunikation</annotation>
+
+		<!-- ENVELOPE WITH DOWNWARDS ARROW ABOVE; arrow; communication; down; email; envelope; letter; mail; office; outgoing; sent -->
+		<annotation cp='[📩]' tts='utgående brev'>skickat brev; e-post; kuvert; kommunikation</annotation>
+
+		<!-- OUTBOX TRAY; box; communication; letter; mail; office; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='utkorg'>utkorg; skickat; kommunikation</annotation>
+
+		<!-- INBOX TRAY; box; communication; inbox; letter; mail; office; receive; tray -->
+		<annotation cp='[📥]' tts='inkorg'>inkorg; mottaget; kommunikation</annotation>
+
+		<!-- PACKAGE; box; communication; office; package; parcel -->
+		<annotation cp='[📦]' tts='paket'>paket; låda</annotation>
+
+		<!-- CLOSED MAILBOX WITH RAISED FLAG; closed; communication; flag; mail; mailbox; office; postbox -->
+		<annotation cp='[📫]' tts='öppen brevlåda med hissad flagga'>post</annotation>
+
+		<!-- CLOSED MAILBOX WITH LOWERED FLAG; closed; communication; flag; lowered; mail; mailbox; office; postbox -->
+		<annotation cp='[📪]' tts='stängd brevlåda med sänkt flagga'>post</annotation>
+
+		<!-- OPEN MAILBOX WITH RAISED FLAG; communication; flag; mail; mailbox; office; open; postbox -->
+		<annotation cp='[📬]' tts='öppen brevlåda med hissad flagga'>post</annotation>
+
+		<!-- OPEN MAILBOX WITH LOWERED FLAG; communication; flag; lowered; mail; mailbox; office; open; postbox -->
+		<annotation cp='[📭]' tts='öppen brevlåda med sänkt flagga'>post</annotation>
+
+		<!-- POSTBOX; communication; mail; mailbox; office; postbox -->
+		<annotation cp='[📮]' tts='postlåda'>postlåda</annotation>
+
+		<!-- PENCIL; office; pencil -->
+		<annotation cp='[✏]'>MISSING</annotation>
+
+		<!-- BLACK NIB; nib; office; pen -->
+		<annotation cp='[✒]'>MISSING</annotation>
+
+		<!-- LOWER LEFT FOUNTAIN PEN; communication; fountain; office; pen -->
+		<annotation cp='[🖋]'>MISSING</annotation>
+
+		<!-- LOWER LEFT BALLPOINT PEN; ballpoint; communication; office; pen -->
+		<annotation cp='[🖊]'>MISSING</annotation>
+
+		<!-- LOWER LEFT PAINTBRUSH; communication; office; paintbrush; painting -->
+		<annotation cp='[🖌]'>MISSING</annotation>
+
+		<!-- LOWER LEFT CRAYON; communication; crayon; office -->
+		<annotation cp='[🖍]'>MISSING</annotation>
+
+		<!-- MEMO; communication; memo; office; pencil -->
+		<annotation cp='[📝]' tts='kom ihåg-block'>anteckningar</annotation>
+
+		<!-- PERSONAL COMPUTER; computer; office; pc; personal -->
+		<annotation cp='[💻]' tts='dator'>dator</annotation>
+
+		<!-- DESKTOP COMPUTER; computer; desktop; office -->
+		<annotation cp='[🖥]'>MISSING</annotation>
+
+		<!-- PRINTER; computer; office; printer -->
+		<annotation cp='[🖨]'>MISSING</annotation>
+
+		<!-- KEYBOARD; computer; keyboard; sign -->
+		<annotation cp='[⌨]'>MISSING</annotation>
+
+		<!-- THREE BUTTON MOUSE; 3; button; computer; mouse; office; three -->
+		<annotation cp='[🖱]'>MISSING</annotation>
+
+		<!-- TRACKBALL; computer; office; trackball -->
+		<annotation cp='[🖲]'>MISSING</annotation>
+
+		<!-- MINIDISC; computer; disc; minidisc; office; optical -->
+		<annotation cp='[💽]' tts='md-skiva'>md-skiva; minidisc</annotation>
+
+		<!-- FLOPPY DISK; computer; disc; disk; floppy; office -->
+		<annotation cp='[💾]' tts='diskett'>diskett</annotation>
+
+		<!-- OPTICAL DISC; cd; computer; disc; dvd; office; optical -->
+		<annotation cp='[💿]' tts='cd-skiva'>cd-skiva; bluray-skiva; dvd-skiva</annotation>
+
+		<!-- DVD; computer; disc; dvd; office; optical -->
+		<annotation cp='[📀]' tts='dvd-skiva'>dvd-skiva</annotation>
+
+		<!-- BRIEFCASE; briefcase; office -->
+		<annotation cp='[💼]' tts='portfölj'>portfölj</annotation>
+
+		<!-- FILE FOLDER; file; folder; office -->
+		<annotation cp='[📁]' tts='arkivmapp'>arkivmapp; mapp; arkiv</annotation>
+
+		<!-- OPEN FILE FOLDER; file; folder; office; open -->
+		<annotation cp='[📂]' tts='öppen mapp'>öppet arkiv; mapp</annotation>
+
+		<!-- CARD INDEX DIVIDERS; card; dividers; index; office -->
+		<annotation cp='[🗂]'>MISSING</annotation>
+
+		<!-- CALENDAR; calendar; date; office -->
+		<annotation cp='[📅]' tts='kalender'>kalender</annotation>
+
+		<!-- TEAR-OFF CALENDAR; calendar; office -->
+		<annotation cp='[📆]' tts='avdragbar kalender'>kalender</annotation>
+
+		<!-- SPIRAL NOTE PAD; note; office; pad; spiral -->
+		<annotation cp='[🗒]'>MISSING</annotation>
+
+		<!-- SPIRAL CALENDAR PAD; calendar; office; pad; spiral -->
+		<annotation cp='[🗓]'>MISSING</annotation>
+
+		<!-- CARD INDEX; card; index; office; rolodex -->
+		<annotation cp='[📇]' tts='kortregister'>kortregister; register</annotation>
+
+		<!-- CHART WITH UPWARDS TREND; chart; graph; growth; office; trend; upward -->
+		<annotation cp='[📈]' tts='uppåtgående trend'>diagram; graf</annotation>
+
+		<!-- CHART WITH DOWNWARDS TREND; chart; down; graph; office; trend -->
+		<annotation cp='[📉]' tts='nedåtgående trend'>diagram; graf</annotation>
+
+		<!-- BAR CHART; bar; chart; graph; office -->
+		<annotation cp='[📊]' tts='stapeldiagram'>stapeldiagram; diagram; staplar</annotation>
+
+		<!-- CLIPBOARD; clipboard; office -->
+		<annotation cp='[📋]' tts='clipboard'>clipboard; skrivplatta; urklipp</annotation>
+
+		<!-- PUSHPIN; office; pin; pushpin -->
+		<annotation cp='[📌]' tts='häftstift'>häftstift; stift</annotation>
+
+		<!-- ROUND PUSHPIN; office; pin; place; pushpin -->
+		<annotation cp='[📍]' tts='rund nål'>runt stift</annotation>
+
+		<!-- PAPERCLIP; office; paperclip -->
+		<annotation cp='[📎]' tts='gem'>gem</annotation>
+
+		<!-- LINKED PAPERCLIPS; communication; link; office; paperclip -->
+		<annotation cp='[🖇]'>MISSING</annotation>
+
+		<!-- STRAIGHT RULER; office; ruler; straight edge -->
+		<annotation cp='[📏]' tts='linjal'>linjal</annotation>
+
+		<!-- TRIANGULAR RULER; office; ruler; set; triangle -->
+		<annotation cp='[📐]' tts='rätvinklig linjal'>rätvinklig linjal</annotation>
+
+		<!-- NAME BADGE; badge; name; office -->
+		<annotation cp='[📛]' tts='namnskylt'>namnskylt; skylt; namn</annotation>
+
+		<!-- BLACK SCISSORS; office; scissors; tool -->
+		<annotation cp='[✂]'>MISSING</annotation>
+
+		<!-- CARD FILE BOX; box; card; file; office -->
+		<annotation cp='[🗃]'>MISSING</annotation>
+
+		<!-- FILE CABINET; cabinet; file; office -->
+		<annotation cp='[🗄]'>MISSING</annotation>
+
+		<!-- WASTEBASKET; office; wastebasket -->
+		<annotation cp='[🗑]'>MISSING</annotation>
+
+		<!-- LOCK; closed; lock; object -->
+		<annotation cp='[🔒]' tts='lås'>lås; stängt lås</annotation>
+
+		<!-- OPEN LOCK; lock; object; open; unlock -->
+		<annotation cp='[🔓]' tts='lås'>lås; öppet lås</annotation>
+
+		<!-- LOCK WITH INK PEN; ink; lock; nib; object; pen; privacy -->
+		<annotation cp='[🔏]' tts='lås med bläckpenna'>lås; bläckpenna</annotation>
+
+		<!-- CLOSED LOCK WITH KEY; closed; key; lock; object; secure -->
+		<annotation cp='[🔐]' tts='lås med nyckel'>lås; stängt</annotation>
+
+		<!-- KEY; key; lock; object; password -->
+		<annotation cp='[🔑]' tts='nyckel'>nyckel; lösenord</annotation>
+
+		<!-- OLD KEY; clue; key; lock; object; old -->
+		<annotation cp='[🗝]'>MISSING</annotation>
+
+		<!-- HAMMER; hammer; object; tool -->
+		<annotation cp='[🔨]' tts='hammare'>hammare; verktyg</annotation>
+
+		<!-- PICK; mining; object; pick; tool; travel -->
+		<annotation cp='[⛏]'>MISSING</annotation>
+
+		<!-- HAMMER AND PICK; hammer; object; pick; tool -->
+		<annotation cp='[⚒]'>MISSING</annotation>
+
+		<!-- HAMMER AND WRENCH; hammer; object; tool; wrench -->
+		<annotation cp='[🛠]'>MISSING</annotation>
+
+		<!-- WRENCH; object; tool; wrench -->
+		<annotation cp='[🔧]' tts='skiftnyckel'>skiftnyckel; verktyg</annotation>
+
+		<!-- NUT AND BOLT; bolt; nut; object; tool -->
+		<annotation cp='[🔩]' tts='skruv och mutter'>skruv; mutter</annotation>
+
+		<!-- GEAR; gear; object; tool -->
+		<annotation cp='[⚙]'>MISSING</annotation>
+
+		<!-- COMPRESSION; compression; object; tool; vice -->
+		<annotation cp='[🗜]'>MISSING</annotation>
+
+		<!-- ALEMBIC; alembic; chemistry; object; tool -->
+		<annotation cp='[⚗]'>MISSING</annotation>
+
+		<!-- SCALES; balance; justice; libra; object; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]'>MISSING</annotation>
+
+		<!-- SYRINGE; doctor; medicine; needle; object; shot; sick; syringe; tool -->
+		<annotation cp='[💉]' tts='spruta'>spruta; nål; sjukvård</annotation>
+
+		<!-- DAGGER KNIFE; dagger; knife; object; weapon -->
+		<annotation cp='[🗡]'>MISSING</annotation>
+
+		<!-- HOCHO; cooking; hocho; knife; object; tool; weapon -->
+		<annotation cp='[🔪]' tts='kökskniv'>kökskniv; kniv</annotation>
+
+		<!-- CROSSED SWORDS; crossed; object; swords; weapon -->
+		<annotation cp='[⚔]'>MISSING</annotation>
+
+		<!-- PISTOL; gun; object; pistol; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='pistol'>pistol; vapen; revolver</annotation>
+
+		<!-- SHIELD; object; shield; weapon -->
+		<annotation cp='[🛡]'>MISSING</annotation>
+
+		<!-- SCHOOL SATCHEL; activity; bag; education; object; satchel; school -->
+		<annotation cp='[🎒]' tts='skolväska'>skolväska; väska</annotation>
+
+		<!-- BATTERY; battery; object -->
+		<annotation cp='[🔋]' tts='batteri'>batteri</annotation>
+
+		<!-- ELECTRIC PLUG; electric; electricity; object; plug -->
+		<annotation cp='[🔌]' tts='elkontakt'>elkontakt; kontakt</annotation>
+
+		<!-- LINK SYMBOL; link; object -->
+		<annotation cp='[🔗]' tts='länksymbol'>länksymbol; länkar; två ringar</annotation>
+
+		<!-- CHAINS; chain; object; travel -->
+		<annotation cp='[⛓]'>MISSING</annotation>
+
+		<!-- SMOKING SYMBOL; activity; object; smoking; travel -->
+		<annotation cp='[🚬]' tts='rökning tillåtet'>rökning; symbol</annotation>
+
+		<!-- LIPSTICK; cosmetics; lipstick; makeup; object -->
+		<annotation cp='[💄]' tts='läppstift'>läppstift; makeup; smink</annotation>
+
+		<!-- RING; diamond; object; ring; romance -->
+		<annotation cp='[💍]' tts='ring'>ring; kärlek</annotation>
+
+		<!-- GEM STONE; diamond; gem; jewel; object; romance -->
+		<annotation cp='[💎]' tts='diamant'>diamant; juvel; ädelsten; kärlek</annotation>
+
+		<!-- OIL DRUM; drum; object; oil -->
+		<annotation cp='[🛢]'>MISSING</annotation>
+
+		<!-- CRYSTAL BALL; ball; crystal; fantasy; fortune; object; tool -->
+		<annotation cp='[🔮]' tts='kristallkula'>kristallkula; spåkula</annotation>
+
+		<!-- SIX POINTED STAR WITH MIDDLE DOT; fortune; object; star -->
+		<annotation cp='[🔯]' tts='stjärna med prick'>spådom; stjärna</annotation>
+
+		<!-- TRIDENT EMBLEM; anchor; emblem; object; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='treudd'>treudd; ankare</annotation>
+
+		<!-- BALLOT BOX WITH BALLOT; ballot; box; object -->
+		<annotation cp='[🗳]'>MISSING</annotation>
+
+		<!-- PILL; doctor; medicine; object; pill; sick -->
+		<annotation cp='[💊]' tts='piller'>piller; tablett; medicin</annotation>
+
+		<!-- ATOM SYMBOL; atheist; atom; object -->
+		<annotation cp='[⚛]'>MISSING</annotation>
+
+		<!-- FLEUR-DE-LIS; object -->
+		<annotation cp='[⚜]'>MISSING</annotation>
+
+		<!-- COFFIN; coffin; death; object -->
+		<annotation cp='[⚰]'>MISSING</annotation>
+
+		<!-- FUNERAL URN; death; funeral; object; urn -->
+		<annotation cp='[⚱]'>MISSING</annotation>
+
+		<!-- JAPANESE SYMBOL FOR BEGINNER; beginner; chevron; green; japanese; leaf; object; place; tool; yellow -->
+		<annotation cp='[🔰]' tts='japansk symbol för nybörjare'>grönt och gult blad</annotation>
+
+		<!-- HUNDRED POINTS SYMBOL; 100; full; hundred; office; score -->
+		<annotation cp='[💯]' tts='100 poäng'>full pott</annotation>
+
+		<!-- SATELLITE ANTENNA; antenna; communication; dish; office; satellite -->
+		<annotation cp='[📡]' tts='tv-satellit'>tv-satellit; antenn; satellit; kommunikation</annotation>
+
+		<!-- CHEQUERED FLAG; checkered; chequered; flag; racing; sport -->
+		<annotation cp='[🏁]' tts='schackrutig flagga'>schackrutig; flagga; racing</annotation>
+
+		<!-- WAVING WHITE FLAG; flag; waving -->
+		<annotation cp='[🏳]'>MISSING</annotation>
+
+		<!-- WAVING BLACK FLAG; flag; waving -->
+		<annotation cp='[🏴]'>MISSING</annotation>
+
+		<!-- TRIANGULAR FLAG ON POST; flag; post; travel -->
+		<annotation cp='[🚩]' tts='trekantig platsflagga'>flagga; trekantig</annotation>
+
+		<!-- Afghanistan; afghanistan; flag -->
+		<annotation cp='[{🇦🇫}]'>Afghanistan</annotation>
+
+		<!-- Åland Islands; åland; flag; islands -->
+		<annotation cp='[{🇦🇽}]'>Åland</annotation>
+
+		<!-- Albania; albania; flag -->
+		<annotation cp='[{🇦🇱}]'>Albanien</annotation>
+
+		<!-- Algeria; algeria; flag -->
+		<annotation cp='[{🇩🇿}]'>Algeriet</annotation>
+
+		<!-- American Samoa; american; flag; samoa -->
+		<annotation cp='[{🇦🇸}]'>Amerikanska Samoa</annotation>
+
+		<!-- Andorra; andorra; flag -->
+		<annotation cp='[{🇦🇩}]'>Andorra</annotation>
+
+		<!-- Angola; angola; flag -->
+		<annotation cp='[{🇦🇴}]'>Angola</annotation>
+
+		<!-- Anguilla; anguilla; flag -->
+		<annotation cp='[{🇦🇮}]'>Anguilla</annotation>
+
+		<!-- Antarctica; antarctica; flag -->
+		<annotation cp='[{🇦🇶}]'>Antarktis</annotation>
+
+		<!-- Antigua & Barbuda; antigua; barbuda; flag -->
+		<annotation cp='[{🇦🇬}]'>Antigua och Barbuda</annotation>
+
+		<!-- Argentina; argentina; flag -->
+		<annotation cp='[{🇦🇷}]'>Argentina</annotation>
+
+		<!-- Armenia; armenia; flag -->
+		<annotation cp='[{🇦🇲}]'>Armenien</annotation>
+
+		<!-- Aruba; aruba; flag -->
+		<annotation cp='[{🇦🇼}]'>Aruba</annotation>
+
+		<!-- Ascension Island; ascension; flag; island -->
+		<annotation cp='[{🇦🇨}]'>Ascension</annotation>
+
+		<!-- Australia; australia; flag -->
+		<annotation cp='[{🇦🇺}]'>Australien</annotation>
+
+		<!-- Austria; austria; flag -->
+		<annotation cp='[{🇦🇹}]'>Österrike</annotation>
+
+		<!-- Azerbaijan; azerbaijan; flag -->
+		<annotation cp='[{🇦🇿}]'>Azerbajdzjan</annotation>
+
+		<!-- Bahamas; bahamas; flag -->
+		<annotation cp='[{🇧🇸}]'>Bahamas</annotation>
+
+		<!-- Bahrain; bahrain; flag -->
+		<annotation cp='[{🇧🇭}]'>Bahrain</annotation>
+
+		<!-- Bangladesh; bangladesh; flag -->
+		<annotation cp='[{🇧🇩}]'>Bangladesh</annotation>
+
+		<!-- Barbados; barbados; flag -->
+		<annotation cp='[{🇧🇧}]'>Barbados</annotation>
+
+		<!-- Belarus; belarus; flag -->
+		<annotation cp='[{🇧🇾}]'>Vitryssland</annotation>
+
+		<!-- Belgium; belgium; flag -->
+		<annotation cp='[{🇧🇪}]'>Belgien</annotation>
+
+		<!-- Belize; belize; flag -->
+		<annotation cp='[{🇧🇿}]'>Belize</annotation>
+
+		<!-- Benin; benin; flag -->
+		<annotation cp='[{🇧🇯}]'>Benin</annotation>
+
+		<!-- Bermuda; bermuda; flag -->
+		<annotation cp='[{🇧🇲}]'>Bermuda</annotation>
+
+		<!-- Bhutan; bhutan; flag -->
+		<annotation cp='[{🇧🇹}]'>Bhutan</annotation>
+
+		<!-- Bolivia; bolivia; flag -->
+		<annotation cp='[{🇧🇴}]'>Bolivia</annotation>
+
+		<!-- Bosnia & Herzegovina; bosnia; flag; herzegovina -->
+		<annotation cp='[{🇧🇦}]'>Bosnien och Hercegovina</annotation>
+
+		<!-- Botswana; botswana; flag -->
+		<annotation cp='[{🇧🇼}]'>Botswana</annotation>
+
+		<!-- Bouvet Island; bouvet; flag; island -->
+		<annotation cp='[{🇧🇻}]'>Bouvetön</annotation>
+
+		<!-- Brazil; brazil; flag -->
+		<annotation cp='[{🇧🇷}]'>Brasilien</annotation>
+
+		<!-- British Indian Ocean Territory; british; flag; indian; ocean -->
+		<annotation cp='[{🇮🇴}]'>Brittiska territoriet i Indiska oceanen</annotation>
+
+		<!-- British Virgin Islands; british; flag; islands; virgin islands -->
+		<annotation cp='[{🇻🇬}]'>Brittiska Jungfruöarna</annotation>
+
+		<!-- Brunei; brunei; darussalam; flag -->
+		<annotation cp='[{🇧🇳}]'>Brunei</annotation>
+
+		<!-- Bulgaria; bulgaria; flag -->
+		<annotation cp='[{🇧🇬}]'>Bulgarien</annotation>
+
+		<!-- Burkina Faso; burkina; faso; flag -->
+		<annotation cp='[{🇧🇫}]'>Burkina Faso</annotation>
+
+		<!-- Burundi; burundi; flag -->
+		<annotation cp='[{🇧🇮}]'>Burundi</annotation>
+
+		<!-- Cambodia; cambodia; flag -->
+		<annotation cp='[{🇰🇭}]'>Kambodja</annotation>
+
+		<!-- Cameroon; cameroon; flag -->
+		<annotation cp='[{🇨🇲}]'>Kamerun</annotation>
+
+		<!-- Canada; canada; flag -->
+		<annotation cp='[{🇨🇦}]'>Kanada</annotation>
+
+		<!-- Canary Islands; canary; flag; islands -->
+		<annotation cp='[{🇮🇨}]'>Kanarieöarna</annotation>
+
+		<!-- Cape Verde; cabo; cape; flag; verde -->
+		<annotation cp='[{🇨🇻}]'>Kap Verde</annotation>
+
+		<!-- Caribbean Netherlands; bonaire; caribbean; eustatius; flag; netherlands; saba; sint -->
+		<annotation cp='[{🇧🇶}]'>Karibiska Nederländerna</annotation>
+
+		<!-- Cayman Islands; cayman; flag; islands -->
+		<annotation cp='[{🇰🇾}]'>Caymanöarna</annotation>
+
+		<!-- Central African Republic; african; central; flag -->
+		<annotation cp='[{🇨🇫}]'>Centralafrikanska republiken</annotation>
+
+		<!-- Ceuta & Melilla; ceuta; flag; melilla -->
+		<annotation cp='[{🇪🇦}]'>Ceuta och Melilla</annotation>
+
+		<!-- Chad; chad; flag -->
+		<annotation cp='[{🇹🇩}]'>Tchad</annotation>
+
+		<!-- Chile; chile; flag -->
+		<annotation cp='[{🇨🇱}]'>Chile</annotation>
+
+		<!-- China; china; flag -->
+		<annotation cp='[{🇨🇳}]'>Kina</annotation>
+
+		<!-- Christmas Island; christmas; flag; island -->
+		<annotation cp='[{🇨🇽}]'>Julön</annotation>
+
+		<!-- Clipperton Island; clipperton; flag; island -->
+		<annotation cp='[{🇨🇵}]'>Clippertonön</annotation>
+
+		<!-- Cocos (Keeling) Islands; cocos; flag; islands; keeling -->
+		<annotation cp='[{🇨🇨}]'>Kokosöarna</annotation>
+
+		<!-- Colombia; colombia; flag -->
+		<annotation cp='[{🇨🇴}]'>Colombia</annotation>
+
+		<!-- Comoros; comoros; flag -->
+		<annotation cp='[{🇰🇲}]'>Komorerna</annotation>
+
+		<!-- Congo - Brazzaville; brazzaville; congo; flag -->
+		<annotation cp='[{🇨🇬}]'>Kongo-Brazzaville</annotation>
+
+		<!-- Congo - Kinshasa; congo; flag; kinshasa -->
+		<annotation cp='[{🇨🇩}]'>Kongo-Kinshasa</annotation>
+
+		<!-- Cook Islands; cook; flag; islands -->
+		<annotation cp='[{🇨🇰}]'>Cooköarna</annotation>
+
+		<!-- Costa Rica; costa; flag; rica -->
+		<annotation cp='[{🇨🇷}]'>Costa Rica</annotation>
+
+		<!-- Côte d’Ivoire; coast; cote; côte; flag; ivoire; ivory -->
+		<annotation cp='[{🇨🇮}]'>Elfenbenskusten</annotation>
+
+		<!-- Croatia; croatia; flag -->
+		<annotation cp='[{🇭🇷}]'>Kroatien</annotation>
+
+		<!-- Cuba; cuba; flag -->
+		<annotation cp='[{🇨🇺}]'>Kuba</annotation>
+
+		<!-- Curaçao; antilles; curacao; curaçao; flag; netherlands -->
+		<annotation cp='[{🇨🇼}]'>Curaçao</annotation>
+
+		<!-- Cyprus; cyprus; flag -->
+		<annotation cp='[{🇨🇾}]'>Cypern</annotation>
+
+		<!-- Czech Republic; czech; flag -->
+		<annotation cp='[{🇨🇿}]'>Tjeckien</annotation>
+
+		<!-- Denmark; denmark; flag -->
+		<annotation cp='[{🇩🇰}]'>Danmark</annotation>
+
+		<!-- Diego Garcia; diego; flag; garcia -->
+		<annotation cp='[{🇩🇬}]'>Diego Garcia</annotation>
+
+		<!-- Djibouti; djibouti; flag -->
+		<annotation cp='[{🇩🇯}]'>Djibouti</annotation>
+
+		<!-- Dominica; dominica; flag -->
+		<annotation cp='[{🇩🇲}]'>Dominica</annotation>
+
+		<!-- Dominican Republic; dominica; dominican; flag -->
+		<annotation cp='[{🇩🇴}]'>Dominikanska republiken</annotation>
+
+		<!-- Ecuador; ecuador; flag -->
+		<annotation cp='[{🇪🇨}]'>Ecuador</annotation>
+
+		<!-- Egypt; arab; egypt; flag -->
+		<annotation cp='[{🇪🇬}]'>Egypten</annotation>
+
+		<!-- El Salvador; el salvador; flag -->
+		<annotation cp='[{🇸🇻}]'>El Salvador</annotation>
+
+		<!-- Equatorial Guinea; equatorial; flag; guinea -->
+		<annotation cp='[{🇬🇶}]'>Ekvatorialguinea</annotation>
+
+		<!-- Eritrea; eritrea; flag -->
+		<annotation cp='[{🇪🇷}]'>Eritrea</annotation>
+
+		<!-- Estonia; estonia; flag -->
+		<annotation cp='[{🇪🇪}]'>Estland</annotation>
+
+		<!-- Ethiopia; ethiopia; flag -->
+		<annotation cp='[{🇪🇹}]'>Etiopien</annotation>
+
+		<!-- European Union; european; flag; union -->
+		<annotation cp='[{🇪🇺}]'>Europeiska unionen</annotation>
+
+		<!-- Falkland Islands; falkland; flag; islands; islas; malvinas -->
+		<annotation cp='[{🇫🇰}]'>Falklandsöarna</annotation>
+
+		<!-- Faroe Islands; faeroe; faroe; flag; islands -->
+		<annotation cp='[{🇫🇴}]'>Färöarna</annotation>
+
+		<!-- Fiji; fiji; flag -->
+		<annotation cp='[{🇫🇯}]'>Fiji</annotation>
+
+		<!-- Finland; finland; flag -->
+		<annotation cp='[{🇫🇮}]'>Finland</annotation>
+
+		<!-- France; flag; france -->
+		<annotation cp='[{🇫🇷}]'>Frankrike</annotation>
+
+		<!-- French Guiana; flag; french; guiana -->
+		<annotation cp='[{🇬🇫}]'>Franska Guyana</annotation>
+
+		<!-- French Polynesia; flag; french; polynesia -->
+		<annotation cp='[{🇵🇫}]'>Franska Polynesien</annotation>
+
+		<!-- French Southern Territories; flag; french; southern -->
+		<annotation cp='[{🇹🇫}]'>Franska sydterritorierna</annotation>
+
+		<!-- Gabon; flag; gabon -->
+		<annotation cp='[{🇬🇦}]'>Gabon</annotation>
+
+		<!-- Gambia; flag; gambia -->
+		<annotation cp='[{🇬🇲}]'>Gambia</annotation>
+
+		<!-- Georgia; flag; georgia -->
+		<annotation cp='[{🇬🇪}]'>Georgien</annotation>
+
+		<!-- Germany; flag; germany -->
+		<annotation cp='[{🇩🇪}]'>Tyskland</annotation>
+
+		<!-- Ghana; flag; ghana -->
+		<annotation cp='[{🇬🇭}]'>Ghana</annotation>
+
+		<!-- Gibraltar; flag; gibraltar -->
+		<annotation cp='[{🇬🇮}]'>Gibraltar</annotation>
+
+		<!-- Greece; flag; greece -->
+		<annotation cp='[{🇬🇷}]'>Grekland</annotation>
+
+		<!-- Greenland; flag; greenland -->
+		<annotation cp='[{🇬🇱}]'>Grönland</annotation>
+
+		<!-- Grenada; flag; grenada -->
+		<annotation cp='[{🇬🇩}]'>Grenada</annotation>
+
+		<!-- Guadeloupe; flag; guadeloupe -->
+		<annotation cp='[{🇬🇵}]'>Guadeloupe</annotation>
+
+		<!-- Guam; flag; guam -->
+		<annotation cp='[{🇬🇺}]'>Guam</annotation>
+
+		<!-- Guatemala; flag; guatemala -->
+		<annotation cp='[{🇬🇹}]'>Guatemala</annotation>
+
+		<!-- Guernsey; flag; guernsey; islands -->
+		<annotation cp='[{🇬🇬}]'>Guernsey</annotation>
+
+		<!-- Guinea; flag; guinea -->
+		<annotation cp='[{🇬🇳}]'>Guinea</annotation>
+
+		<!-- Guinea-Bissau; bissau; flag; guinea -->
+		<annotation cp='[{🇬🇼}]'>Guinea-Bissau</annotation>
+
+		<!-- Guyana; flag; guyana -->
+		<annotation cp='[{🇬🇾}]'>Guyana</annotation>
+
+		<!-- Haiti; flag; haiti -->
+		<annotation cp='[{🇭🇹}]'>Haiti</annotation>
+
+		<!-- Heard & McDonald Islands; flag; heard; island; islands; mcdonald -->
+		<annotation cp='[{🇭🇲}]'>Heardön och McDonaldöarna</annotation>
+
+		<!-- Honduras; flag; honduras -->
+		<annotation cp='[{🇭🇳}]'>Honduras</annotation>
+
+		<!-- Hong Kong SAR China; china; flag; hong kong -->
+		<annotation cp='[{🇭🇰}]'>Hongkong (S.A.R. Kina)</annotation>
+
+		<!-- Hungary; flag; hungary -->
+		<annotation cp='[{🇭🇺}]'>Ungern</annotation>
+
+		<!-- Iceland; flag; iceland -->
+		<annotation cp='[{🇮🇸}]'>Island</annotation>
+
+		<!-- India; flag; india -->
+		<annotation cp='[{🇮🇳}]'>Indien</annotation>
+
+		<!-- Indonesia; flag; indonesia -->
+		<annotation cp='[{🇮🇩}]'>Indonesien</annotation>
+
+		<!-- Iran; flag; iran -->
+		<annotation cp='[{🇮🇷}]'>Iran</annotation>
+
+		<!-- Iraq; flag; iraq -->
+		<annotation cp='[{🇮🇶}]'>Irak</annotation>
+
+		<!-- Ireland; flag; ireland -->
+		<annotation cp='[{🇮🇪}]'>Irland</annotation>
+
+		<!-- Isle of Man; flag; isle; man -->
+		<annotation cp='[{🇮🇲}]'>Isle of Man</annotation>
+
+		<!-- Israel; flag; israel -->
+		<annotation cp='[{🇮🇱}]'>Israel</annotation>
+
+		<!-- Italy; flag; italy -->
+		<annotation cp='[{🇮🇹}]'>Italien</annotation>
+
+		<!-- Jamaica; flag; jamaica -->
+		<annotation cp='[{🇯🇲}]'>Jamaica</annotation>
+
+		<!-- Japan; flag; japan -->
+		<annotation cp='[{🇯🇵}]'>Japan</annotation>
+
+		<!-- Jersey; flag; jersey -->
+		<annotation cp='[{🇯🇪}]'>Jersey</annotation>
+
+		<!-- Jordan; flag; jordan -->
+		<annotation cp='[{🇯🇴}]'>Jordanien</annotation>
+
+		<!-- Kazakhstan; flag; kazakhstan -->
+		<annotation cp='[{🇰🇿}]'>Kazakstan</annotation>
+
+		<!-- Kenya; flag; kenya -->
+		<annotation cp='[{🇰🇪}]'>Kenya</annotation>
+
+		<!-- Kiribati; flag; kiribati -->
+		<annotation cp='[{🇰🇮}]'>Kiribati</annotation>
+
+		<!-- Kosovo; flag; kosovo -->
+		<annotation cp='[{🇽🇰}]'>Kosovo</annotation>
+
+		<!-- Kuwait; flag; kuwait -->
+		<annotation cp='[{🇰🇼}]'>Kuwait</annotation>
+
+		<!-- Kyrgyzstan; flag; kyrgyz; kyrgyzstan -->
+		<annotation cp='[{🇰🇬}]'>Kirgizistan</annotation>
+
+		<!-- Laos; flag; lao; laos -->
+		<annotation cp='[{🇱🇦}]'>Laos</annotation>
+
+		<!-- Latvia; flag; latvia -->
+		<annotation cp='[{🇱🇻}]'>Lettland</annotation>
+
+		<!-- Lebanon; flag; lebanon -->
+		<annotation cp='[{🇱🇧}]'>Libanon</annotation>
+
+		<!-- Lesotho; flag; lesotho -->
+		<annotation cp='[{🇱🇸}]'>Lesotho</annotation>
+
+		<!-- Liberia; flag; liberia -->
+		<annotation cp='[{🇱🇷}]'>Liberia</annotation>
+
+		<!-- Libya; arab; flag; libya; libyan -->
+		<annotation cp='[{🇱🇾}]'>Libyen</annotation>
+
+		<!-- Liechtenstein; flag; liechtenstein -->
+		<annotation cp='[{🇱🇮}]'>Liechtenstein</annotation>
+
+		<!-- Lithuania; flag; lithuania -->
+		<annotation cp='[{🇱🇹}]'>Litauen</annotation>
+
+		<!-- Luxembourg; flag; luxembourg -->
+		<annotation cp='[{🇱🇺}]'>Luxemburg</annotation>
+
+		<!-- Macau SAR China; china; flag; macao; macau -->
+		<annotation cp='[{🇲🇴}]'>Macao (S.A.R. Kina)</annotation>
+
+		<!-- Macedonia; flag; macedonia -->
+		<annotation cp='[{🇲🇰}]'>Makedonien</annotation>
+
+		<!-- Madagascar; flag; madagascar -->
+		<annotation cp='[{🇲🇬}]'>Madagaskar</annotation>
+
+		<!-- Malawi; flag; malawi -->
+		<annotation cp='[{🇲🇼}]'>Malawi</annotation>
+
+		<!-- Malaysia; flag; malaysia -->
+		<annotation cp='[{🇲🇾}]'>Malaysia</annotation>
+
+		<!-- Maldives; flag; maldives -->
+		<annotation cp='[{🇲🇻}]'>Maldiverna</annotation>
+
+		<!-- Mali; flag; mali -->
+		<annotation cp='[{🇲🇱}]'>Mali</annotation>
+
+		<!-- Malta; flag; malta -->
+		<annotation cp='[{🇲🇹}]'>Malta</annotation>
+
+		<!-- Marshall Islands; flag; islands; marshall -->
+		<annotation cp='[{🇲🇭}]'>Marshallöarna</annotation>
+
+		<!-- Martinique; flag; martinique -->
+		<annotation cp='[{🇲🇶}]'>Martinique</annotation>
+
+		<!-- Mauritania; flag; mauritania -->
+		<annotation cp='[{🇲🇷}]'>Mauretanien</annotation>
+
+		<!-- Mauritius; flag; mauritius -->
+		<annotation cp='[{🇲🇺}]'>Mauritius</annotation>
+
+		<!-- Mayotte; flag; mayotte -->
+		<annotation cp='[{🇾🇹}]'>Mayotte</annotation>
+
+		<!-- Mexico; flag; mexico -->
+		<annotation cp='[{🇲🇽}]'>Mexiko</annotation>
+
+		<!-- Micronesia; flag; micronesia -->
+		<annotation cp='[{🇫🇲}]'>Mikronesien</annotation>
+
+		<!-- Moldova; flag; moldova -->
+		<annotation cp='[{🇲🇩}]'>Moldavien</annotation>
+
+		<!-- Monaco; flag; monaco -->
+		<annotation cp='[{🇲🇨}]'>Monaco</annotation>
+
+		<!-- Mongolia; flag; mongolia -->
+		<annotation cp='[{🇲🇳}]'>Mongoliet</annotation>
+
+		<!-- Montenegro; flag; montenegro -->
+		<annotation cp='[{🇲🇪}]'>Montenegro</annotation>
+
+		<!-- Montserrat; flag; montserrat -->
+		<annotation cp='[{🇲🇸}]'>Montserrat</annotation>
+
+		<!-- Morocco; flag; morocco -->
+		<annotation cp='[{🇲🇦}]'>Marocko</annotation>
+
+		<!-- Mozambique; flag; mozambique -->
+		<annotation cp='[{🇲🇿}]'>Moçambique</annotation>
+
+		<!-- Myanmar (Burma); burma; flag; myanmar -->
+		<annotation cp='[{🇲🇲}]'>Myanmar (Burma)</annotation>
+
+		<!-- Namibia; flag; namibia -->
+		<annotation cp='[{🇳🇦}]'>Namibia</annotation>
+
+		<!-- Nauru; flag; nauru -->
+		<annotation cp='[{🇳🇷}]'>Nauru</annotation>
+
+		<!-- Nepal; flag; nepal -->
+		<annotation cp='[{🇳🇵}]'>Nepal</annotation>
+
+		<!-- Netherlands; flag; netherlands -->
+		<annotation cp='[{🇳🇱}]'>Nederländerna</annotation>
+
+		<!-- New Caledonia; flag; new; new caledonia -->
+		<annotation cp='[{🇳🇨}]'>Nya Kaledonien</annotation>
+
+		<!-- New Zealand; flag; new; new zealand -->
+		<annotation cp='[{🇳🇿}]'>Nya Zeeland</annotation>
+
+		<!-- Nicaragua; flag; nicaragua -->
+		<annotation cp='[{🇳🇮}]'>Nicaragua</annotation>
+
+		<!-- Niger; flag; niger -->
+		<annotation cp='[{🇳🇪}]'>Niger</annotation>
+
+		<!-- Nigeria; flag; nigeria -->
+		<annotation cp='[{🇳🇬}]'>Nigeria</annotation>
+
+		<!-- Niue; flag; niue -->
+		<annotation cp='[{🇳🇺}]'>Niue</annotation>
+
+		<!-- Norfolk Island; flag; island; norfolk -->
+		<annotation cp='[{🇳🇫}]'>Norfolkön</annotation>
+
+		<!-- Northern Mariana Islands; flag; islands; mariana; northern -->
+		<annotation cp='[{🇲🇵}]'>Nordmarianerna</annotation>
+
+		<!-- North Korea; flag; korea; north -->
+		<annotation cp='[{🇰🇵}]'>Nordkorea</annotation>
+
+		<!-- Norway; flag; norway -->
+		<annotation cp='[{🇳🇴}]'>Norge</annotation>
+
+		<!-- Oman; flag; oman -->
+		<annotation cp='[{🇴🇲}]'>Oman</annotation>
+
+		<!-- Pakistan; flag; pakistan -->
+		<annotation cp='[{🇵🇰}]'>Pakistan</annotation>
+
+		<!-- Palau; flag; palau -->
+		<annotation cp='[{🇵🇼}]'>Palau</annotation>
+
+		<!-- Palestinian Territories; flag; palestine -->
+		<annotation cp='[{🇵🇸}]'>Palestinska territorierna</annotation>
+
+		<!-- Panama; flag; panama -->
+		<annotation cp='[{🇵🇦}]'>Panama</annotation>
+
+		<!-- Papua New Guinea; flag; guinea; new; papua new guinea -->
+		<annotation cp='[{🇵🇬}]'>Papua Nya Guinea</annotation>
+
+		<!-- Paraguay; flag; paraguay -->
+		<annotation cp='[{🇵🇾}]'>Paraguay</annotation>
+
+		<!-- Peru; flag; peru -->
+		<annotation cp='[{🇵🇪}]'>Peru</annotation>
+
+		<!-- Philippines; flag; philippines -->
+		<annotation cp='[{🇵🇭}]'>Filippinerna</annotation>
+
+		<!-- Pitcairn Islands; flag; islands; pitcairn -->
+		<annotation cp='[{🇵🇳}]'>Pitcairnöarna</annotation>
+
+		<!-- Poland; flag; poland -->
+		<annotation cp='[{🇵🇱}]'>Polen</annotation>
+
+		<!-- Portugal; flag; portugal -->
+		<annotation cp='[{🇵🇹}]'>Portugal</annotation>
+
+		<!-- Puerto Rico; flag; puerto; rico -->
+		<annotation cp='[{🇵🇷}]'>Puerto Rico</annotation>
+
+		<!-- Qatar; flag; qatar -->
+		<annotation cp='[{🇶🇦}]'>Qatar</annotation>
+
+		<!-- Réunion; flag; reunion; réunion -->
+		<annotation cp='[{🇷🇪}]'>Réunion</annotation>
+
+		<!-- Romania; flag; romania -->
+		<annotation cp='[{🇷🇴}]'>Rumänien</annotation>
+
+		<!-- Russia; flag; russia; russian -->
+		<annotation cp='[{🇷🇺}]'>Ryssland</annotation>
+
+		<!-- Rwanda; flag; rwanda -->
+		<annotation cp='[{🇷🇼}]'>Rwanda</annotation>
+
+		<!-- Samoa; flag; samoa -->
+		<annotation cp='[{🇼🇸}]'>Samoa</annotation>
+
+		<!-- San Marino; flag; san marino -->
+		<annotation cp='[{🇸🇲}]'>San Marino</annotation>
+
+		<!-- São Tomé & Príncipe; flag; principe; príncipe; sao; são; tome; tomé -->
+		<annotation cp='[{🇸🇹}]'>São Tomé och Príncipe</annotation>
+
+		<!-- Saudi Arabia; arabia; flag; saudi -->
+		<annotation cp='[{🇸🇦}]'>Saudiarabien</annotation>
+
+		<!-- Senegal; flag; senegal -->
+		<annotation cp='[{🇸🇳}]'>Senegal</annotation>
+
+		<!-- Serbia; flag; serbia -->
+		<annotation cp='[{🇷🇸}]'>Serbien</annotation>
+
+		<!-- Seychelles; flag; seychelles -->
+		<annotation cp='[{🇸🇨}]'>Seychellerna</annotation>
+
+		<!-- Sierra Leone; flag; sierra leone -->
+		<annotation cp='[{🇸🇱}]'>Sierra Leone</annotation>
+
+		<!-- Singapore; flag; singapore -->
+		<annotation cp='[{🇸🇬}]'>Singapore</annotation>
+
+		<!-- Sint Maarten; dutch; flag; maarten; sint -->
+		<annotation cp='[{🇸🇽}]'>Sint Maarten</annotation>
+
+		<!-- Slovakia; flag; slovak; slovakia -->
+		<annotation cp='[{🇸🇰}]'>Slovakien</annotation>
+
+		<!-- Slovenia; flag; slovenia -->
+		<annotation cp='[{🇸🇮}]'>Slovenien</annotation>
+
+		<!-- Solomon Islands; flag; islands; solomon -->
+		<annotation cp='[{🇸🇧}]'>Salomonöarna</annotation>
+
+		<!-- Somalia; flag; somalia -->
+		<annotation cp='[{🇸🇴}]'>Somalia</annotation>
+
+		<!-- South Africa; africa; flag; south -->
+		<annotation cp='[{🇿🇦}]'>Sydafrika</annotation>
+
+		<!-- South Georgia & South Sandwich Islands; flag; georgia; islands; sandwich; south -->
+		<annotation cp='[{🇬🇸}]'>Sydgeorgien och Sydsandwichöarna</annotation>
+
+		<!-- South Korea; flag; korea; south -->
+		<annotation cp='[{🇰🇷}]'>Sydkorea</annotation>
+
+		<!-- South Sudan; flag; south; sudan -->
+		<annotation cp='[{🇸🇸}]'>Sydsudan</annotation>
+
+		<!-- Spain; flag; spain -->
+		<annotation cp='[{🇪🇸}]'>Spanien</annotation>
+
+		<!-- Sri Lanka; flag; lanka; sri -->
+		<annotation cp='[{🇱🇰}]'>Sri Lanka</annotation>
+
+		<!-- St. Barthélemy; barthelemy; barthélemy; flag; saint; st. -->
+		<annotation cp='[{🇧🇱}]'>S:t Barthélemy</annotation>
+
+		<!-- St. Helena; ascension; cunha; flag; helena; saint; st.; tristan -->
+		<annotation cp='[{🇸🇭}]'>S:t Helena</annotation>
+
+		<!-- St. Kitts & Nevis; flag; kitts; nevis; saint; st. -->
+		<annotation cp='[{🇰🇳}]'>S:t Kitts och Nevis</annotation>
+
+		<!-- St. Lucia; flag; lucia; saint; st. -->
+		<annotation cp='[{🇱🇨}]'>S:t Lucia</annotation>
+
+		<!-- St. Martin; flag; french; martin; saint; st. -->
+		<annotation cp='[{🇲🇫}]'>S:t Martin</annotation>
+
+		<!-- St. Pierre & Miquelon; flag; miquelon; pierre; saint; st. -->
+		<annotation cp='[{🇵🇲}]'>S:t Pierre och Miquelon</annotation>
+
+		<!-- St. Vincent & Grenadines; flag; grenadines; saint; st.; vincent -->
+		<annotation cp='[{🇻🇨}]'>S:t Vincent och Grenadinerna</annotation>
+
+		<!-- Sudan; flag; sudan -->
+		<annotation cp='[{🇸🇩}]'>Sudan</annotation>
+
+		<!-- Suriname; flag; suriname -->
+		<annotation cp='[{🇸🇷}]'>Surinam</annotation>
+
+		<!-- Svalbard & Jan Mayen; flag; islands; jan; mayen; svalbard -->
+		<annotation cp='[{🇸🇯}]'>Svalbard och Jan Mayen</annotation>
+
+		<!-- Swaziland; flag; swaziland -->
+		<annotation cp='[{🇸🇿}]'>Swaziland</annotation>
+
+		<!-- Sweden; flag; sweden -->
+		<annotation cp='[{🇸🇪}]'>Sverige</annotation>
+
+		<!-- Switzerland; flag; switzerland -->
+		<annotation cp='[{🇨🇭}]'>Schweiz</annotation>
+
+		<!-- Syria; arab; flag; syria; syrian -->
+		<annotation cp='[{🇸🇾}]'>Syrien</annotation>
+
+		<!-- Taiwan; china; flag; taiwan -->
+		<annotation cp='[{🇹🇼}]'>Taiwan</annotation>
+
+		<!-- Tajikistan; flag; tajikistan -->
+		<annotation cp='[{🇹🇯}]'>Tadzjikistan</annotation>
+
+		<!-- Tanzania; flag; tanzania; united -->
+		<annotation cp='[{🇹🇿}]'>Tanzania</annotation>
+
+		<!-- Thailand; flag; thailand -->
+		<annotation cp='[{🇹🇭}]'>Thailand</annotation>
+
+		<!-- Timor-Leste; east; flag; leste; timor -->
+		<annotation cp='[{🇹🇱}]'>Östtimor</annotation>
+
+		<!-- Togo; flag; togo -->
+		<annotation cp='[{🇹🇬}]'>Togo</annotation>
+
+		<!-- Tokelau; flag; tokelau -->
+		<annotation cp='[{🇹🇰}]'>Tokelau</annotation>
+
+		<!-- Tonga; flag; tonga -->
+		<annotation cp='[{🇹🇴}]'>Tonga</annotation>
+
+		<!-- Trinidad & Tobago; flag; tobago; trinidad -->
+		<annotation cp='[{🇹🇹}]'>Trinidad och Tobago</annotation>
+
+		<!-- Tristan da Cunha; cunha; flag; tristan -->
+		<annotation cp='[{🇹🇦}]'>Tristan da Cunha</annotation>
+
+		<!-- Tunisia; flag; tunisia -->
+		<annotation cp='[{🇹🇳}]'>Tunisien</annotation>
+
+		<!-- Turkey; flag; turkey -->
+		<annotation cp='[{🇹🇷}]'>Turkiet</annotation>
+
+		<!-- Turkmenistan; flag; turkmenistan -->
+		<annotation cp='[{🇹🇲}]'>Turkmenistan</annotation>
+
+		<!-- Turks & Caicos Islands; caicos; flag; islands; turks -->
+		<annotation cp='[{🇹🇨}]'>Turks- och Caicosöarna</annotation>
+
+		<!-- Tuvalu; flag; tuvalu -->
+		<annotation cp='[{🇹🇻}]'>Tuvalu</annotation>
+
+		<!-- Uganda; flag; uganda -->
+		<annotation cp='[{🇺🇬}]'>Uganda</annotation>
+
+		<!-- Ukraine; flag; ukraine -->
+		<annotation cp='[{🇺🇦}]'>Ukraina</annotation>
+
+		<!-- United Arab Emirates; arab; emirates; flag; united -->
+		<annotation cp='[{🇦🇪}]'>Förenade Arabemiraten</annotation>
+
+		<!-- United Kingdom; britain; cornwall; flag; great; ireland; kingdom; northern; scotland; united; wales -->
+		<annotation cp='[{🇬🇧}]'>Storbritannien</annotation>
+
+		<!-- United States; america; flag; u.s.; u.s.a.; united; us; usa -->
+		<annotation cp='[{🇺🇸}]'>USA</annotation>
+
+		<!-- Uruguay; flag; uruguay -->
+		<annotation cp='[{🇺🇾}]'>Uruguay</annotation>
+
+		<!-- U.S. Outlying Islands; flag; islands; outlying; u.s.; united -->
+		<annotation cp='[{🇺🇲}]'>USA:s yttre öar</annotation>
+
+		<!-- U.S. Virgin Islands; flag; islands; u.s.; united; virgin islands -->
+		<annotation cp='[{🇻🇮}]'>Amerikanska Jungfruöarna</annotation>
+
+		<!-- Uzbekistan; flag; uzbekistan -->
+		<annotation cp='[{🇺🇿}]'>Uzbekistan</annotation>
+
+		<!-- Vanuatu; flag; vanuatu -->
+		<annotation cp='[{🇻🇺}]'>Vanuatu</annotation>
+
+		<!-- Vatican City; city; flag; holy; see; vatican -->
+		<annotation cp='[{🇻🇦}]'>Vatikanstaten</annotation>
+
+		<!-- Venezuela; flag; venezuela -->
+		<annotation cp='[{🇻🇪}]'>Venezuela</annotation>
+
+		<!-- Vietnam; flag; nam; viet; vietnam -->
+		<annotation cp='[{🇻🇳}]'>Vietnam</annotation>
+
+		<!-- Wallis & Futuna; flag; futuna; islands; wallis -->
+		<annotation cp='[{🇼🇫}]'>Wallis- och Futunaöarna</annotation>
+
+		<!-- Western Sahara; flag; sahara; western -->
+		<annotation cp='[{🇪🇭}]'>Västsahara</annotation>
+
+		<!-- Yemen; flag; yemen -->
+		<annotation cp='[{🇾🇪}]'>Jemen</annotation>
+
+		<!-- Zambia; flag; zambia -->
+		<annotation cp='[{🇿🇲}]'>Zambia</annotation>
+
+		<!-- Zimbabwe; flag; zimbabwe -->
+		<annotation cp='[{🇿🇼}]'>Zimbabwe</annotation>
+
+		<!-- UPWARDS BLACK ARROW; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]'>MISSING</annotation>
+
+		<!-- NORTH EAST ARROW; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]'>MISSING</annotation>
+
+		<!-- BLACK RIGHTWARDS ARROW; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]'>MISSING</annotation>
+
+		<!-- SOUTH EAST ARROW; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]'>MISSING</annotation>
+
+		<!-- DOWNWARDS BLACK ARROW; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]'>MISSING</annotation>
+
+		<!-- SOUTH WEST ARROW; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]'>MISSING</annotation>
+
+		<!-- LEFTWARDS BLACK ARROW; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]'>MISSING</annotation>
+
+		<!-- NORTH WEST ARROW; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]'>MISSING</annotation>
+
+		<!-- UP DOWN ARROW; arrow -->
+		<annotation cp='[↕]'>MISSING</annotation>
+
+		<!-- LEFT RIGHT ARROW; arrow -->
+		<annotation cp='[↔]'>MISSING</annotation>
+
+		<!-- LEFTWARDS ARROW WITH HOOK; arrow -->
+		<annotation cp='[↩]'>MISSING</annotation>
+
+		<!-- RIGHTWARDS ARROW WITH HOOK; arrow -->
+		<annotation cp='[↪]'>MISSING</annotation>
+
+		<!-- ARROW POINTING RIGHTWARDS THEN CURVING UPWARDS; arrow -->
+		<annotation cp='[⤴]'>MISSING</annotation>
+
+		<!-- ARROW POINTING RIGHTWARDS THEN CURVING DOWNWARDS; arrow; down -->
+		<annotation cp='[⤵]'>MISSING</annotation>
+
+		<!-- CLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='pilar medurs'>uppdateringssymbol; pilar</annotation>
+
+		<!-- ANTICLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='pilar moturs'>moturs; pilar</annotation>
+
+		<!-- BACK WITH LEFTWARDS ARROW ABOVE; arrow; back -->
+		<annotation cp='[🔙]' tts='Back med vänsterpil'>bakåt; vänsterpil</annotation>
+
+		<!-- END WITH LEFTWARDS ARROW ABOVE; arrow; end -->
+		<annotation cp='[🔚]' tts='End med högerpil'>framåt; högerpil</annotation>
+
+		<!-- ON WITH EXCLAMATION MARK WITH LEFT RIGHT ARROW ABOVE; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='ON! med vänsterpil ovanför'>vänsterpil; utropstecken</annotation>
+
+		<!-- SOON WITH RIGHTWARDS ARROW ABOVE; arrow; soon -->
+		<annotation cp='[🔜]' tts='Soon med högerpil ovanför'>högerpil; pil</annotation>
+
+		<!-- TOP WITH UPWARDS ARROW ABOVE; arrow; top; up -->
+		<annotation cp='[🔝]' tts='Top med uppåtpil'>uppåtpil; pil</annotation>
+
+		<!-- OM SYMBOL; hindu; om; religion -->
+		<annotation cp='[🕉]'>MISSING</annotation>
+
+		<!-- STAR OF DAVID; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]'>MISSING</annotation>
+
+		<!-- WHEEL OF DHARMA; buddhist; dharma; object; religion; wheel -->
+		<annotation cp='[☸]'>MISSING</annotation>
+
+		<!-- YIN YANG; religion; sign; tao; taoist; yang; yin -->
+		<annotation cp='[☯]'>MISSING</annotation>
+
+		<!-- LATIN CROSS; christian; cross; religion -->
+		<annotation cp='[✝]'>MISSING</annotation>
+
+		<!-- ORTHODOX CROSS; christian; cross; religion -->
+		<annotation cp='[☦]'>MISSING</annotation>
+
+		<!-- SHINTO SHRINE; religion; shinto; shrine -->
+		<annotation cp='[⛩]'>MISSING</annotation>
+
+		<!-- STAR AND CRESCENT; islam; muslim; religion -->
+		<annotation cp='[☪]'>MISSING</annotation>
+
+		<!-- PEACE SYMBOL; peace; sign -->
+		<annotation cp='[☮]'>MISSING</annotation>
+
+		<!-- RADIOACTIVE SIGN; radioactive; sign -->
+		<annotation cp='[☢]'>MISSING</annotation>
+
+		<!-- BIOHAZARD SIGN; biohazard; sign -->
+		<annotation cp='[☣]'>MISSING</annotation>
+
+		<!-- BLACK UNIVERSAL RECYCLING SYMBOL; recycle; sign; travel -->
+		<annotation cp='[♻]' tts='återvinningssymbol'>återvinningssymbol; återvinning; symbol</annotation>
+
+		<!-- HIGH VOLTAGE SIGN; danger; electric; electricity; lightning; nature; travel; voltage; zap -->
+		<annotation cp='[⚡]' tts='hög spänning'>varningssymbol; fara; spänning</annotation>
+
+		<!-- WHITE MEDIUM STAR; nature; star -->
+		<annotation cp='[⭐]'>MISSING</annotation>
+
+		<!-- HEAVY LARGE CIRCLE; circle; o; travel -->
+		<annotation cp='[⭕]'>MISSING</annotation>
+
+		<!-- WHITE HEAVY CHECK MARK; check; mark; sign -->
+		<annotation cp='[✅]' tts='vit bock'>bock</annotation>
+
+		<!-- BALLOT BOX WITH CHECK; ballot; box; check; sign -->
+		<annotation cp='[☑]'>MISSING</annotation>
+
+		<!-- HEAVY CHECK MARK; check; mark; sign -->
+		<annotation cp='[✔]'>MISSING</annotation>
+
+		<!-- HEAVY MULTIPLICATION X; cancel; multiplication; multiply; sign; x -->
+		<annotation cp='[✖]'>MISSING</annotation>
+
+		<!-- CROSS MARK; cancel; mark; multiplication; multiply; sign; x -->
+		<annotation cp='[❌]' tts='rött kryss'>X</annotation>
+
+		<!-- NEGATIVE SQUARED CROSS MARK; mark; sign; square -->
+		<annotation cp='[❎]' tts='vitt kryss i ruta'>X i ruta</annotation>
+
+		<!-- HEAVY PLUS SIGN; math; plus; sign -->
+		<annotation cp='[➕]' tts='plustecken'>plustecken; plus</annotation>
+
+		<!-- HEAVY MINUS SIGN; math; minus; sign -->
+		<annotation cp='[➖]' tts='minustecken'>minustecken; minus</annotation>
+
+		<!-- HEAVY DIVISION SIGN; division; math; sign -->
+		<annotation cp='[➗]' tts='divisionstecken'>divisionstecken; division; </annotation>
+
+		<!-- CURLY LOOP; curl; loop; sign -->
+		<annotation cp='[➰]' tts='ögla'>ögla</annotation>
+
+		<!-- DOUBLE CURLY LOOP; curl; double; loop; sign -->
+		<annotation cp='[➿]' tts='dubbel ögla'>dubbel ögla</annotation>
+
+		<!-- PART ALTERNATION MARK; mark; part; sign -->
+		<annotation cp='[〽]'>MISSING</annotation>
+
+		<!-- EIGHT SPOKED ASTERISK; asterisk; sign -->
+		<annotation cp='[✳]'>MISSING</annotation>
+
+		<!-- EIGHT POINTED BLACK STAR; sign; star -->
+		<annotation cp='[✴]'>MISSING</annotation>
+
+		<!-- SPARKLE; sign; sparkle -->
+		<annotation cp='[❇]'>MISSING</annotation>
+
+		<!-- BLACK SMALL SQUARE; geometric; sign; square -->
+		<annotation cp='[▪]'>MISSING</annotation>
+
+		<!-- WHITE SMALL SQUARE; geometric; sign; square -->
+		<annotation cp='[▫]'>MISSING</annotation>
+
+		<!-- WHITE MEDIUM SQUARE; geometric; sign; square -->
+		<annotation cp='[◻]'>MISSING</annotation>
+
+		<!-- BLACK MEDIUM SQUARE; geometric; sign; square -->
+		<annotation cp='[◼]'>MISSING</annotation>
+
+		<!-- WHITE MEDIUM SMALL SQUARE; geometric; sign; square -->
+		<annotation cp='[◽]'>MISSING</annotation>
+
+		<!-- BLACK MEDIUM SMALL SQUARE; geometric; sign; square -->
+		<annotation cp='[◾]'>MISSING</annotation>
+
+		<!-- BLACK LARGE SQUARE; geometric; sign; square -->
+		<annotation cp='[⬛]'>MISSING</annotation>
+
+		<!-- WHITE LARGE SQUARE; geometric; sign; square -->
+		<annotation cp='[⬜]'>MISSING</annotation>
+
+		<!-- LARGE ORANGE DIAMOND; diamond; geometric; orange; sign -->
+		<annotation cp='[🔶]' tts='stor orange diamantform'>diamant; orange</annotation>
+
+		<!-- LARGE BLUE DIAMOND; blue; diamond; geometric; sign -->
+		<annotation cp='[🔷]' tts='stor blå diamantform'>blå; diamant</annotation>
+
+		<!-- SMALL ORANGE DIAMOND; diamond; geometric; orange; sign -->
+		<annotation cp='[🔸]' tts='liten orange diamantform'>orange; diamant</annotation>
+
+		<!-- SMALL BLUE DIAMOND; blue; diamond; geometric; sign -->
+		<annotation cp='[🔹]' tts='liten blå diamantform'>blå; diamant</annotation>
+
+		<!-- UP-POINTING RED TRIANGLE; geometric; red; sign -->
+		<annotation cp='[🔺]' tts='uppåtpekande röd triangel'>röd triangel</annotation>
+
+		<!-- DOWN-POINTING RED TRIANGLE; down; geometric; red; sign -->
+		<annotation cp='[🔻]' tts='nedåtpekande röd triangel'>röd triangel</annotation>
+
+		<!-- DIAMOND SHAPE WITH A DOT INSIDE; comic; diamond; emotion; geometric; inside; sign -->
+		<annotation cp='[💠]' tts='diamantform'>diamantform; blomblad; diamant; känslor</annotation>
+
+		<!-- RADIO BUTTON; button; geometric; radio; sign -->
+		<annotation cp='[🔘]' tts='alternativknapp'>alternativknapp; knapp</annotation>
+
+		<!-- BLACK SQUARE BUTTON; button; geometric; sign; square -->
+		<annotation cp='[🔲]' tts='knapp med vit ruta'>knapp; fyrkant</annotation>
+
+		<!-- WHITE SQUARE BUTTON; button; geometric; outlined; sign; square -->
+		<annotation cp='[🔳]' tts='knapp med svart ruta'>knapp; fyrkant</annotation>
+
+		<!-- MEDIUM WHITE CIRCLE; circle; geometric; sign -->
+		<annotation cp='[⚪]'>MISSING</annotation>
+
+		<!-- MEDIUM BLACK CIRCLE; circle; geometric; sign -->
+		<annotation cp='[⚫]'>MISSING</annotation>
+
+		<!-- LARGE RED CIRCLE; circle; geometric; red; sign -->
+		<annotation cp='[🔴]' tts='stor röd cirkel'>cirkel; röd</annotation>
+
+		<!-- LARGE BLUE CIRCLE; blue; circle; geometric; sign -->
+		<annotation cp='[🔵]' tts='stor blå cirkel'>cirkel; blå</annotation>
+
+		<!-- DOUBLE EXCLAMATION MARK; bangbang; exclamation; mark; punctuation; word -->
+		<annotation cp='[‼]'>MISSING</annotation>
+
+		<!-- EXCLAMATION QUESTION MARK; exclamation; interrobang; mark; punctuation; question; word -->
+		<annotation cp='[⁉]'>MISSING</annotation>
+
+		<!-- BLACK QUESTION MARK ORNAMENT; mark; punctuation; question; word -->
+		<annotation cp='[❓]' tts='frågetecken'>frågetecken; fråga</annotation>
+
+		<!-- WHITE QUESTION MARK ORNAMENT; mark; outlined; punctuation; question; word -->
+		<annotation cp='[❔]' tts='frågetecken'>frågetecken; fråga</annotation>
+
+		<!-- WHITE EXCLAMATION MARK ORNAMENT; exclamation; mark; outlined; punctuation; word -->
+		<annotation cp='[❕]' tts='utropstecken'>utropstecken</annotation>
+
+		<!-- HEAVY EXCLAMATION MARK SYMBOL; exclamation; mark; punctuation; word -->
+		<annotation cp='[❗]'>MISSING</annotation>
+
+		<!-- WAVY DASH; dash; punctuation; sound; wavy -->
+		<annotation cp='[〰]' tts='vågigt tankstreck'>vågigt tankstreck</annotation>
+
+		<!-- NO ONE UNDER EIGHTEEN SYMBOL; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage; word -->
+		<annotation cp='[🔞]' tts='Ej för under 18'>förbjudet för minderåriga</annotation>
+
+		<!-- COPYRIGHT SIGN; copyright; symbol; word -->
+		<annotation cp='[©]' tts='upphovsrättssymbol'>upphovsrättssymbol; upphovsrätt</annotation>
+
+		<!-- REGISTERED SIGN; registered; symbol; word -->
+		<annotation cp='[®]' tts='registrerat varumärke'>registrerat</annotation>
+
+		<!-- INPUT SYMBOL FOR LATIN CAPITAL LETTERS; input; latin; letters; uppercase; word -->
+		<annotation cp='[🔠]' tts='versaler'>versaler; stora bokstäver</annotation>
+
+		<!-- INPUT SYMBOL FOR LATIN SMALL LETTERS; abcd; input; latin; letters; lowercase; word -->
+		<annotation cp='[🔡]' tts='gemener'>gemener; små bokstäver</annotation>
+
+		<!-- INPUT SYMBOL FOR NUMBERS; 1234; input; numbers; word -->
+		<annotation cp='[🔢]' tts='siffror'>siffror</annotation>
+
+		<!-- INPUT SYMBOL FOR SYMBOLS; input; symbols; word -->
+		<annotation cp='[🔣]' tts='specialtecken'>specialtecken; symboler</annotation>
+
+		<!-- INPUT SYMBOL FOR LATIN LETTERS; abc; alphabet; input; latin; letters; word -->
+		<annotation cp='[🔤]' tts='bokstäver'>bokstäver; ABC</annotation>
+
+		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER A; a; blood; word -->
+		<annotation cp='[🅰]' tts='blodgrupp A'>typ A</annotation>
+
+		<!-- NEGATIVE SQUARED AB; ab; blood; word -->
+		<annotation cp='[🆎]' tts='blodgrupp AB'>typ AB</annotation>
+
+		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER B; b; blood; word -->
+		<annotation cp='[🅱]' tts='blodgrupp B'>typ B</annotation>
+
+		<!-- SQUARED CL; cl; word -->
+		<annotation cp='[🆑]' tts='redo-symbol'>redo-symbol; redo; CL-symbol</annotation>
+
+		<!-- SQUARED COOL; cool; word -->
+		<annotation cp='[🆒]' tts='cool'>cool; cool-symbol</annotation>
+
+		<!-- SQUARED FREE; free; word -->
+		<annotation cp='[🆓]' tts='gratis'>gratis; gratis-symbol; symbol</annotation>
+
+		<!-- INFORMATION SOURCE; i; information; word -->
+		<annotation cp='[ℹ]'>MISSING</annotation>
+
+		<!-- SQUARED ID; id; identity; word -->
+		<annotation cp='[🆔]' tts='ID'>ID; ID-symbol; identitet</annotation>
+
+		<!-- CIRCLED LATIN CAPITAL LETTER M; circle; m; word -->
+		<annotation cp='[Ⓜ]'>MISSING</annotation>
+
+		<!-- SQUARED NEW; new; word -->
+		<annotation cp='[🆕]' tts='Nyhet'>Nyhet; nyhetssymbol; symbol</annotation>
+
+		<!-- SQUARED NG; ng; word -->
+		<annotation cp='[🆖]' tts='inte bra'>inte bra-symbol; symbol</annotation>
+
+		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER O; blood; o; word -->
+		<annotation cp='[🅾]' tts='blodgrupp 0'>typ 0</annotation>
+
+		<!-- SQUARED OK; ok; word -->
+		<annotation cp='[🆗]' tts='OK'>OK; OK-symbol</annotation>
+
+		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER P; parking; sign; word -->
+		<annotation cp='[🅿]' tts='parkering'>parkering; parkeringsplats</annotation>
+
+		<!-- SQUARED SOS; help; sos; word -->
+		<annotation cp='[🆘]' tts='SOS'>SOS; SOS-symbol; hjälp; symbol</annotation>
+
+		<!-- TRADE MARK SIGN; mark; symbol; tm; trademark; word -->
+		<annotation cp='[™]' tts='registrerat varumärke'>varumärke; skyddat varumärke</annotation>
+
+		<!-- SQUARED UP WITH EXCLAMATION MARK; mark; up; word -->
+		<annotation cp='[🆙]' tts='UPP!'>UPP!; UPP!-symbol; symbol</annotation>
+
+		<!-- SQUARED VS; versus; vs; word -->
+		<annotation cp='[🆚]' tts='mot'>mot; kontra; symbol</annotation>
+
+		<!-- SQUARED KATAKANA KOKO; japanese; word -->
+		<annotation cp='[🈁]' tts='japanskt ord'>japanskt ord</annotation>
+
+		<!-- SQUARED KATAKANA SA; japanese; word -->
+		<annotation cp='[🈂]' tts='japanskt ord'>japanskt ord</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-5272; japanese; word -->
+		<annotation cp='[🈹]' tts='japanskt ord'>japanskt ord</annotation>
+
+		<!-- CIRCLED IDEOGRAPH ACCEPT; chinese; word -->
+		<annotation cp='[🉑]' tts='kinesiskt ord'>kinesiskt ord</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-5408; chinese; word -->
+		<annotation cp='[🈴]' tts='kinesiskt ord'>kinesiskt ord</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-55B6; chinese; word -->
+		<annotation cp='[🈺]' tts='kinesiskt ord'>kinesiskt ord</annotation>
+
+		<!-- CIRCLED IDEOGRAPH ADVANTAGE; japanese; word -->
+		<annotation cp='[🉐]' tts='japanskt ord'>japanskt ord</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6307; japanese; word -->
+		<annotation cp='[🈯]' tts='japanskt ord'>japanskt ord</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6708; japanese; word -->
+		<annotation cp='[🈷]' tts='japanskt ord'>japanskt ord</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6709; japanese; word -->
+		<annotation cp='[🈶]' tts='japanskt ord'>japanskt ord</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6E80; chinese; word -->
+		<annotation cp='[🈵]' tts='kinesiskt ord'>kinesiskt ord</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7121; japanese; word -->
+		<annotation cp='[🈚]' tts='japanskt ord'>japanskt ord</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7533; chinese; word -->
+		<annotation cp='[🈸]' tts='kinesiskt ord'>kinesiskt ord</annotation>
+
+		<!-- CIRCLED IDEOGRAPH CONGRATULATION; congratulation; congratulations; ideograph; word -->
+		<annotation cp='[㊗]'>MISSING</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7981; japanese; word -->
+		<annotation cp='[🈲]' tts='japanskt ord'>japanskt ord</annotation>
+
+		<!-- CIRCLED IDEOGRAPH SECRET; ideograph; secret; word -->
+		<annotation cp='[㊙]'>MISSING</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7A7A; chinese; word -->
+		<annotation cp='[🈳]' tts='kinesiskt ord'>kinesiskt ord</annotation>
+	</annotations>
+</ldml>

@@ -1513,6 +1513,7 @@ $Date$
 
 <!ELEMENT annotation ( #PCDATA ) >
 <!ATTLIST annotation cp CDATA #REQUIRED >
+<!ATTLIST annotation tts CDATA #IMPLIED >
 
 <!ELEMENT references ( reference* ) > <!-- deprecated. -->
 <!ELEMENT reference ( #PCDATA ) >

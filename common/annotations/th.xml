@@ -1,0 +1,3745 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- Copyright © 1991-2013 Unicode, Inc. DRAFT emoji-annotations.txt For 
+ details about the format and other information, see /../../../reports/tr51/index.html#Data_Files. 
+ http://unicode.org/cldr/trac/ticket/8019 CLDR data files are interpreted 
+ according to the LDML specification (http://unicode.org/reports/tr35/) For 
+ terms of use, see http://www.unicode.org/copyright.html 
+ This is still under development, and will be refined before release. 
+ In particular, the annotations like 'people-apple' are only present during development, and will be withdrawn for the release.
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<generation date='$Date: 2014-06-19 06:23:55 +0200 (Thu, 19 Jun 2014) $' />
+		<language type='th'/>
+	</identity>
+	<annotations>
+
+		<!-- WHITE SMILING FACE; face; human; outlined; relaxed; smile; smiley -->
+		<annotation cp='[☺]' tts='หน้ายิ้ม'>หน้ายิ้ม</annotation>
+
+		<!-- WHITE FROWNING FACE; face; frown; human -->
+		<annotation cp='[☹]'>MISSING</annotation>
+
+		<!-- SLIGHTLY FROWNING FACE; face; frown; human -->
+		<annotation cp='[🙁]'>MISSING</annotation>
+
+		<!-- SLIGHTLY SMILING FACE; face; human; smile; smiley -->
+		<annotation cp='[🙂]'>MISSING</annotation>
+
+		<!-- GRINNING FACE; face; grin; human -->
+		<annotation cp='[😀]' tts='หน้ายิ้ม'>หน้ายิ้ม; ตลก; หัวเราะ</annotation>
+
+		<!-- GRINNING FACE WITH SMILING EYES; eye; face; grin; human; smile; smiley -->
+		<annotation cp='[😁]' tts='หน้ายิ้มตายิ้ม'>หน้ายิ้มตายิ้ม</annotation>
+
+		<!-- FACE WITH TEARS OF JOY; face; human; joy; tear -->
+		<annotation cp='[😂]' tts='ร้องไห้ดีใจ'>ร้องไห้ดีใจ</annotation>
+
+		<!-- SMILING FACE WITH OPEN MOUTH; face; human; mouth; open; smile; smiley -->
+		<annotation cp='[😃]' tts='หน้ายิ้ม'>หน้ายิ้ม; หัวเราะ</annotation>
+
+		<!-- SMILING FACE WITH OPEN MOUTH AND SMILING EYES; eye; face; human; mouth; open; smile; smiley -->
+		<annotation cp='[😄]' tts='หน้ายิ้มตายิ้ม'>หน้ายิ้มตายิ้ม</annotation>
+
+		<!-- SMILING FACE WITH OPEN MOUTH AND COLD SWEAT; cold; face; human; open; smile; smiley; sweat -->
+		<annotation cp='[😅]' tts='ยิ้มเหงื่อตก'>ยิ้มเหงื่อตก</annotation>
+
+		<!-- SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES; face; human; laugh; mouth; open; satisfied; smile; smiley -->
+		<annotation cp='[😆]' tts='ยิ้มตาหยี'>ยิ้มตาหยี; ปากกว้าง; ใบหน้า</annotation>
+
+		<!-- WINKING FACE; face; human; wink -->
+		<annotation cp='[😉]' tts='ขยิบตา'>ขยิบตา; ใบหน้า</annotation>
+
+		<!-- SMILING FACE WITH SMILING EYES; blush; eye; face; human; smile; smiley -->
+		<annotation cp='[😊]' tts='หน้ายิ้มตายิ้ม'>หน้ายิ้มตายิ้ม; ใบหน้า</annotation>
+
+		<!-- FACE SAVOURING DELICIOUS FOOD; delicious; face; food; human; savouring; smile; smiley; um; yum -->
+		<annotation cp='[😋]' tts='น้ำลายไหล'>น้ำลายไหล; ใบหน้า</annotation>
+
+		<!-- RELIEVED FACE; face; human; relieved -->
+		<annotation cp='[😌]' tts='โล่งใจ'>โล่งใจ; ใบหน้า</annotation>
+
+		<!-- SMILING FACE WITH HEART-SHAPED EYES; eye; face; heart; human; love; smile; smiley -->
+		<annotation cp='[😍]' tts='ตาหัวใจ'>ตาหัวใจ; ใบหน้า</annotation>
+
+		<!-- SMILING FACE WITH SUNGLASSES; bright; cool; eye; eyewear; face; glasses; human; smile; smiley; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='หน้ายิ้มใส่แว่น'>หน้ายิ้มใส่แว่น; ใบหน้า</annotation>
+
+		<!-- SMIRKING FACE; face; human; smirk -->
+		<annotation cp='[😏]' tts='แสยะยิ้ม'>แสยะยิ้ม; ใบหน้า</annotation>
+
+		<!-- NEUTRAL FACE; deadpan; face; human; neutral -->
+		<annotation cp='[😐]' tts='หน้าเฉยๆ'>หน้าเฉยๆ; ใบหน้า</annotation>
+
+		<!-- EXPRESSIONLESS FACE; expressionless; face; human; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='หน้าเย็นชา'>หน้าเย็นชา; หน้าไม่แสดงความรู้สึก; ใบหน้า</annotation>
+
+		<!-- UNAMUSED FACE; face; human; unamused; unhappy -->
+		<annotation cp='[😒]' tts='หน้าหน่าย'>หน้าหน่าย; ไม่มีความสุข; ใบหน้า</annotation>
+
+		<!-- FACE WITH COLD SWEAT; cold; face; human; sweat -->
+		<annotation cp='[😓]' tts='เหงื่อตก'>เหงื่อตก; ใบหน้า</annotation>
+
+		<!-- PENSIVE FACE; dejected; face; human; pensive -->
+		<annotation cp='[😔]' tts='หน้าครุ่นคิด'>หน้าครุ่นคิด; ใบหน้า</annotation>
+
+		<!-- CONFUSED FACE; confused; face; human -->
+		<annotation cp='[😕]' tts='หน้าสับสน'>หน้าสับสน; ใบหน้า</annotation>
+
+		<!-- CONFOUNDED FACE; confounded; face; human -->
+		<annotation cp='[😖]' tts='หน้าสับสนมาก'>หน้าสับสนมาก; ใบหน้า</annotation>
+
+		<!-- KISSING FACE; face; human; kiss -->
+		<annotation cp='[😗]' tts='หน้าจุ๊บ'>หน้าจุ๊บ; ใบหน้า</annotation>
+
+		<!-- FACE THROWING A KISS; face; heart; human; kiss -->
+		<annotation cp='[😘]' tts='หน้าส่งจุ๊บ'>หน้าส่งจุ๊บ; ใบหน้า</annotation>
+
+		<!-- KISSING FACE WITH SMILING EYES; eye; face; human; kiss; smile; smiley -->
+		<annotation cp='[😙]' tts='หน้ายิ้มส่งจุ๊บ'>หน้ายิ้มส่งจุ๊บ; ใบหน้า</annotation>
+
+		<!-- KISSING FACE WITH CLOSED EYES; closed; eye; face; human; kiss -->
+		<annotation cp='[😚]' tts='หยีตาส่งจุ๊บ'>หยีตาส่งจุ๊บ; ใบหน้า</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE; face; human; tongue -->
+		<annotation cp='[😛]' tts='แลบลิ้น'>แลบลิ้น; ใบหน้า</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE AND WINKING EYE; eye; face; human; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='แลบลิ้นหน้าทะเล้น'>แลบลิ้นหน้าทะเล้น; ใบหน้า</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES; eye; face; horrible; human; taste; tongue -->
+		<annotation cp='[😝]' tts='ตาหยีแลบลิ้น'>ตาหยีแลบลิ้น; ใบหน้า</annotation>
+
+		<!-- DISAPPOINTED FACE; disappointed; face; human -->
+		<annotation cp='[😞]' tts='ผิดหวัง'>ผิดหวัง; ใบหน้า</annotation>
+
+		<!-- WORRIED FACE; face; human; worried -->
+		<annotation cp='[😟]' tts='กังวล'>กังวล; ใบหน้า</annotation>
+
+		<!-- ANGRY FACE; angry; face; human; mad -->
+		<annotation cp='[😠]' tts='โกรธ'>โกรธ; โมโห; ใบหน้า</annotation>
+
+		<!-- POUTING FACE; angry; face; human; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='โกรธมาก'>โกรธมาก; ใบหน้า</annotation>
+
+		<!-- CRYING FACE; cry; face; human; sad; tear -->
+		<annotation cp='[😢]' tts='ร้องไห้'>ร้องไห้; ใบหน้า; เสียใจ</annotation>
+
+		<!-- PERSEVERING FACE; face; human; persevere -->
+		<annotation cp='[😣]' tts='อดทน'>อดทน; ใบหน้า</annotation>
+
+		<!-- FACE WITH LOOK OF TRIUMPH; face; human; triumph; won -->
+		<annotation cp='[😤]' tts='หน้าชนะ'>หน้าชนะ; ชนะแล้ว; ใบหน้า</annotation>
+
+		<!-- DISAPPOINTED BUT RELIEVED FACE; disappointed; face; human; relieved; whew -->
+		<annotation cp='[😥]' tts='โล่งอก'>โล่งอก; ใบหน้า</annotation>
+
+		<!-- FROWNING FACE WITH OPEN MOUTH; face; frown; human; mouth; open -->
+		<annotation cp='[😦]' tts='หน้าบึ้งอ้าปาก'>หน้าบึ้งอ้าปาก; ใบหน้า</annotation>
+
+		<!-- ANGUISHED FACE; anguished; face; human -->
+		<annotation cp='[😧]' tts='รวดร้าว'>รวดร้าว; ใบหน้า</annotation>
+
+		<!-- FEARFUL FACE; face; fear; fearful; human; scared -->
+		<annotation cp='[😨]' tts='ผวา'>ผวา; กลัว; ใบหน้า</annotation>
+
+		<!-- WEARY FACE; face; human; tired; weary -->
+		<annotation cp='[😩]' tts='เหนื่อย'>เหนื่อย; ใบหน้า</annotation>
+
+		<!-- SLEEPY FACE; face; human; sleep -->
+		<annotation cp='[😪]' tts='ง่วง'>ง่วง; ใบหน้า</annotation>
+
+		<!-- TIRED FACE; face; human; tired -->
+		<annotation cp='[😫]' tts='เหนื่อย'>เหนื่อย; ใบหน้า</annotation>
+
+		<!-- GRIMACING FACE; face; grimace; human -->
+		<annotation cp='[😬]' tts='ยิ้มยิงฟัน'>ยิ้มยิงฟัน; ใบหน้า</annotation>
+
+		<!-- LOUDLY CRYING FACE; cry; face; human; sad; sob; tear -->
+		<annotation cp='[😭]' tts='ร้องไห้โฮ'>ร้องไห้โฮ; น้ำตา; ร้องไห้; ใบหน้า</annotation>
+
+		<!-- FACE WITH OPEN MOUTH; face; human; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='อ้าปาก'>อ้าปาก; ใบหน้า</annotation>
+
+		<!-- HUSHED FACE; face; human; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='หน้าจุ๊ๆ'>หน้าจุ๊ๆ; ใบหน้า</annotation>
+
+		<!-- FACE WITH OPEN MOUTH AND COLD SWEAT; blue; cold; face; human; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='กังวลเหงื่อตก'>กังวลเหงื่อตก; ใบหน้า</annotation>
+
+		<!-- FACE SCREAMING IN FEAR; face; fear; fearful; human; munch; scared; scream -->
+		<annotation cp='[😱]' tts='กลัวกรีดร้อง'>กลัวกรีดร้อง; ใบหน้า</annotation>
+
+		<!-- ASTONISHED FACE; astonished; face; human; shocked; totally -->
+		<annotation cp='[😲]' tts='ตกใจ'>ตกใจ; ใบหน้า</annotation>
+
+		<!-- FLUSHED FACE; dazed; face; flushed; human -->
+		<annotation cp='[😳]' tts='อายหน้าแดง'>อายหน้าแดง; ใบหน้า</annotation>
+
+		<!-- SLEEPING FACE; face; human; sleep -->
+		<annotation cp='[😴]' tts='หลับ'>หลับ; ใบหน้า</annotation>
+
+		<!-- DIZZY FACE; dizzy; face; human -->
+		<annotation cp='[😵]' tts='หน้ามึน'>หน้ามึน; ใบหน้า</annotation>
+
+		<!-- FACE WITHOUT MOUTH; face; human; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='หน้าไม่มีปาก'>หน้าไม่มีปาก; ไม่มีปาก; ใบหน้า</annotation>
+
+		<!-- FACE WITH MEDICAL MASK; cold; doctor; face; human; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='ผ้าคาดปาก'>ผ้าคาดปาก; เป็นหวัด; ใบหน้า</annotation>
+
+		<!-- SMILING FACE WITH HALO; angel; face; fantasy; halo; human; innocent; smile; smiley -->
+		<annotation cp='[😇]' tts='ยิ้มเทวดา'>ยิ้มเทวดา; ใบหน้า</annotation>
+
+		<!-- SMILING FACE WITH HORNS; face; fantasy; horns; human; smile; smiley -->
+		<annotation cp='[😈]' tts='ยิ้มมีเขา'>ยิ้มมีเขา; ใบหน้า</annotation>
+
+		<!-- IMP; devil; face; fairy tale; fantasy; human; imp -->
+		<annotation cp='[👿]' tts='อิมป์'>อิมป์; ภูต</annotation>
+
+		<!-- BOY; boy; human; person -->
+		<annotation cp='[👦]' tts='เด็กชาย'>เด็กชาย; คน</annotation>
+
+		<!-- GIRL; girl; human; maiden; person; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' tts='เด็กหญิง'>เด็กหญิง; คน</annotation>
+
+		<!-- MAN; human; man; person -->
+		<annotation cp='[👨]' tts='ผู้ชาย'>ผู้ชาย; คน</annotation>
+
+		<!-- WOMAN; human; person; woman -->
+		<annotation cp='[👩]' tts='ผู้หญิง'>ผู้หญิง; คน</annotation>
+
+		<!-- OLDER MAN; human; man; old; person -->
+		<annotation cp='[👴]' tts='ชายแก่'>ชายแก่; ชาย; คน</annotation>
+
+		<!-- OLDER WOMAN; human; old; person; woman -->
+		<annotation cp='[👵]' tts='หญิงแก่'>หญิงแก่; คน</annotation>
+
+		<!-- BABY; baby; human; person -->
+		<annotation cp='[👶]' tts='ทารก'>ทารก; คน</annotation>
+
+		<!-- PERSON WITH BLOND HAIR; blond; human; person -->
+		<annotation cp='[👱]' tts='คนผมทอง'>คนผมทอง; ผมทอง</annotation>
+
+		<!-- POLICE OFFICER; cop; human; officer; person; police -->
+		<annotation cp='[👮]' tts='เจ้าหน้าที่ตำรวจ'>เจ้าหน้าที่ตำรวจ; ตำรวจ; คน</annotation>
+
+		<!-- MAN WITH GUA PI MAO; gua pi mao; hat; human; man; person -->
+		<annotation cp='[👲]' tts='ชายจีน'>ชายจีน; คน</annotation>
+
+		<!-- MAN WITH TURBAN; human; man; person; turban -->
+		<annotation cp='[👳]' tts='ชายโพกหัว'>ชายโพกหัว; คน</annotation>
+
+		<!-- CONSTRUCTION WORKER; construction; hat; human; person; worker -->
+		<annotation cp='[👷]' tts='คนงานก่อสร้าง'>คนงานก่อสร้าง; คน; ปลอดภัยไว้ก่อน</annotation>
+
+		<!-- PRINCESS; fairy tale; fantasy; human; person; princess -->
+		<annotation cp='[👸]' tts='เจ้าหญิง'>เจ้าหญิง; เทพนิยาย</annotation>
+
+		<!-- GUARDSMAN; guard; guardsman; human; person -->
+		<annotation cp='[💂]' tts='การ์ดคุ้มกัน'>การ์ดคุ้มกัน; การ์ด</annotation>
+
+		<!-- FATHER CHRISTMAS; activity; celebration; christmas; fantasy; father; human; person; santa -->
+		<annotation cp='[🎅]' tts='ซานต้า'>ซานต้า; ซานตาคลอส; คริสต์มาส</annotation>
+
+		<!-- BABY ANGEL; angel; baby; face; fairy tale; fantasy; human -->
+		<annotation cp='[👼]' tts='นางฟ้าเด็ก'>นางฟ้าเด็ก; นางฟ้า; เทพนิยาย</annotation>
+
+		<!-- SLEUTH OR SPY; human; person; sleuth; spy -->
+		<annotation cp='[🕵]'>MISSING</annotation>
+
+		<!-- WOMAN WITH BUNNY EARS; bunny; dancer; ear; girl; human; person; woman -->
+		<annotation cp='[👯]' tts='ผู้หญิงในชุดหูกระต่าย'>ผู้หญิงในชุดหูกระต่าย; สาวๆ; คน</annotation>
+
+		<!-- FACE MASSAGE; face; human; massage; person; salon -->
+		<annotation cp='[💆]' tts='นวดหน้า'>นวดหน้า; นวด; เสริมสวย</annotation>
+
+		<!-- HAIRCUT; barber; beauty; haircut; human; parlor; person -->
+		<annotation cp='[💇]' tts='ตัดผม'>ตัดผม; ร้านเสริมสวย</annotation>
+
+		<!-- BRIDE WITH VEIL; bride; human; person; veil; wedding -->
+		<annotation cp='[👰]' tts='เจ้าสาว'>เจ้าสาว; เจ้าสาวมีผ้าคลุมหน้า</annotation>
+
+		<!-- PERSON FROWNING; frown; gesture; human; person -->
+		<annotation cp='[🙍]' tts='ขมวดคิ้ว'>ขมวดคิ้ว</annotation>
+
+		<!-- PERSON WITH POUTING FACE; face; gesture; human; person; pouting -->
+		<annotation cp='[🙎]' tts='หน้าโกรธ'>หน้าโกรธ</annotation>
+
+		<!-- FACE WITH NO GOOD GESTURE; face; forbidden; gesture; human; no; not; person; prohibited -->
+		<annotation cp='[🙅]' tts='ทำมือไม่โอเค'>ทำมือไม่โอเค</annotation>
+
+		<!-- FACE WITH OK GESTURE; face; gesture; human; ok; person -->
+		<annotation cp='[🙆]' tts='ทำมือโอเค'>ทำมือโอเค; ตกลง</annotation>
+
+		<!-- INFORMATION DESK PERSON; help; human; information; person; sassy -->
+		<annotation cp='[💁]' tts='โต๊ะสอบถาม'>โต๊ะสอบถาม; ความช่วยเหลือ</annotation>
+
+		<!-- HAPPY PERSON RAISING ONE HAND; gesture; hand; happy; human; person; raised -->
+		<annotation cp='[🙋]' tts='ยกมือขึ้น'>ยกมือขึ้น</annotation>
+
+		<!-- PERSON BOWING DEEPLY; apology; bow; gesture; human; person; sorry -->
+		<annotation cp='[🙇]' tts='ท่าขอโทษ'>ท่าขอโทษ; โค้งตัวคำนับ</annotation>
+
+		<!-- PERSON RAISING BOTH HANDS IN CELEBRATION; body; celebration; gesture; hand; hooray; human; person; raised -->
+		<annotation cp='[🙌]' tts='ชู 2 มือ'>ชู 2 มือ</annotation>
+
+		<!-- PERSON WITH FOLDED HANDS; ask; body; bow; folded; gesture; hand; human; person; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='พนมมือ'>พนมมือ</annotation>
+
+		<!-- SPEAKING HEAD IN SILHOUETTE; face; head; human; person; silhouette; speak; speaking -->
+		<annotation cp='[🗣]'>MISSING</annotation>
+
+		<!-- BUST IN SILHOUETTE; bust; human; person; silhouette -->
+		<annotation cp='[👤]' tts='ภาพเงาครึ่งตัว'>ภาพเงาครึ่งตัว; ผู้คน</annotation>
+
+		<!-- BUSTS IN SILHOUETTE; bust; human; person; silhouette -->
+		<annotation cp='[👥]' tts='ภาพเงาครึ่งตัว 2 คน'>ผู้คน</annotation>
+
+		<!-- PEDESTRIAN; hike; human; pedestrian; person; travel; walk; walking -->
+		<annotation cp='[🚶]' tts='คนเดินเท้า'>คนเดินเท้า; เดิน</annotation>
+
+		<!-- RUNNER; human; marathon; person; runner; running; sport -->
+		<annotation cp='[🏃]' tts='นักวิ่ง'>นักวิ่ง; กีฬา</annotation>
+
+		<!-- DANCER; dancer; human; person -->
+		<annotation cp='[💃]' tts='นักเต้น'>นักเต้น; เต้น</annotation>
+
+		<!-- MAN IN BUSINESS SUIT LEVITATING; business; human; man; person; suit -->
+		<annotation cp='[🕴]'>MISSING</annotation>
+
+		<!-- KISS; couple; human; kiss; person; romance -->
+		<annotation cp='[💏]' tts='จูบ'>จูบ; ความรัก</annotation>
+
+		<!-- COUPLE WITH HEART; couple; heart; human; love; person; romance -->
+		<annotation cp='[💑]' tts='คู่รัก'>คู่รัก; โรแมนติก; รักกัน</annotation>
+
+		<!-- FAMILY; child; family; father; human; mother; person -->
+		<annotation cp='[👪]' tts='ครอบครัว'>ครอบครัว; คน; พ่อ; แม่; เด็ก</annotation>
+
+		<!-- MAN AND WOMAN HOLDING HANDS; couple; hand; hold; human; man; person; woman -->
+		<annotation cp='[👫]' tts='ชาย-หญิงจับมือ'>ชาย-หญิงจับมือ; คู่; ชาย; หญิง; คน; จับมือ</annotation>
+
+		<!-- TWO MEN HOLDING HANDS; couple; gemini; hand; hold; human; men; person; twins; zodiac -->
+		<annotation cp='[👬]' tts='ชาย-ชายจับมือ'>ชาย-ชายจับมือ; ชาย; คน; จับมือ</annotation>
+
+		<!-- TWO WOMEN HOLDING HANDS; couple; hand; hold; human; person; woman -->
+		<annotation cp='[👭]' tts='หญิง-หญิงจับมือ'>หญิง-หญิงจับมือ; หญิง; คน; จับมือ</annotation>
+
+		<!-- WHITE LEFT POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point -->
+		<annotation cp='[👈]' tts='นิ้วชี้ทางซ้าย'>นิ้วชี้ทางซ้าย; ซ้าย; นิ้ว</annotation>
+
+		<!-- WHITE RIGHT POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point -->
+		<annotation cp='[👉]' tts='นิ้วชี้ทางขวา'>นิ้วชี้ทางขวา; ขวา; นิ้ว</annotation>
+
+		<!-- WHITE UP POINTING INDEX; body; finger; hand; human; index; point; up -->
+		<annotation cp='[☝]'>MISSING</annotation>
+
+		<!-- WHITE UP POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point; up -->
+		<annotation cp='[👆]' tts='นิ้วชี้ขึ้น'>นิ้วชี้ขึ้น; ขึ้น; นิ้ว</annotation>
+
+		<!-- REVERSED HAND WITH MIDDLE FINGER EXTENDED; body; finger; hand; human; middle finger -->
+		<annotation cp='[🖕]'>MISSING</annotation>
+
+		<!-- WHITE DOWN POINTING BACKHAND INDEX; backhand; body; down; finger; hand; human; index; point -->
+		<annotation cp='[👇]' tts='นิ้วชี้ลง'>นิ้วชี้ลง; ลง; นิ้ว</annotation>
+
+		<!-- VICTORY HAND; body; hand; human; v; victory -->
+		<annotation cp='[✌]' tts='กรรไกร'>กรรไกร; ชูสองนิ้ว</annotation>
+
+		<!-- RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS; body; finger; hand; human; spock; vulcan -->
+		<annotation cp='[🖖]'>MISSING</annotation>
+
+		<!-- RAISED FIST; body; clenched; fist; hand; human; punch -->
+		<annotation cp='[✊]' tts='ค้อน'>ค้อน</annotation>
+
+		<!-- RAISED HAND; body; hand; human -->
+		<annotation cp='[✋]' tts='กระดาษ'>กระดาษ</annotation>
+
+		<!-- FISTED HAND SIGN; body; clenched; fist; hand; human; punch -->
+		<annotation cp='[👊]' tts='กำปั้น'>กำปั้น; ชก</annotation>
+
+		<!-- WAVING HAND SIGN; body; hand; human; wave; waving -->
+		<annotation cp='[👋]' tts='โบกมือ'>โบกมือ; มือ</annotation>
+
+		<!-- OK HAND SIGN; body; hand; human; ok -->
+		<annotation cp='[👌]' tts='ทำมือโอเค'>ทำมือโอเค; โอเค; ตกลง</annotation>
+
+		<!-- THUMBS UP SIGN; +1; body; hand; human; thumb; thumbs’s up; up -->
+		<annotation cp='[👍]' tts='ชูนิ้วโป้งขึ้น'>ชูนิ้วโป้งขึ้น; มือ</annotation>
+
+		<!-- THUMBS DOWN SIGN; body; down; hand; human; thumb; thumb’s down -->
+		<annotation cp='[👎]' tts='ชูนิ้วโป้งลง'>ชูนิ้วโป้งลง; มือ</annotation>
+
+		<!-- CLAPPING HANDS SIGN; body; clap; hand; human -->
+		<annotation cp='[👏]' tts='ปรบมือ'>ปรบมือ; มือ</annotation>
+
+		<!-- OPEN HANDS SIGN; body; hand; human; open -->
+		<annotation cp='[👐]' tts='แบมือ'>แบมือ; มือ</annotation>
+
+		<!-- WRITING HAND; body; education; hand; human; write -->
+		<annotation cp='[✍]'>MISSING</annotation>
+
+		<!-- RAISED HAND WITH FINGERS SPLAYED; body; finger; hand; human; splayed -->
+		<annotation cp='[🖐]'>MISSING</annotation>
+
+		<!-- NAIL POLISH; body; care; cosmetics; human; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='สีทาเล็บ'>สีทาเล็บ; ทำเล็บ</annotation>
+
+		<!-- FLEXED BICEPS; biceps; body; comic; flex; human; muscle -->
+		<annotation cp='[💪]' tts='เบ่งกล้าม'>เบ่งกล้าม; กล้าม; แข็งแรง</annotation>
+
+		<!-- FOOTPRINTS; body; clothing; footprint; human; print -->
+		<annotation cp='[👣]' tts='รอยเท้า'>รอยเท้า; เท้า</annotation>
+
+		<!-- EYES; body; eye; face; human -->
+		<annotation cp='[👀]' tts='ตา'>ตา; ดู; เห็น</annotation>
+
+		<!-- EYE; body; eye; human -->
+		<annotation cp='[👁]'>MISSING</annotation>
+
+		<!-- EAR; body; ear; human -->
+		<annotation cp='[👂]' tts='หู'>หู; ฟัง; ได้ยิน</annotation>
+
+		<!-- NOSE; body; human; nose -->
+		<annotation cp='[👃]' tts='จมูก'>จมูก; ดม</annotation>
+
+		<!-- TONGUE; body; human; tongue -->
+		<annotation cp='[👅]' tts='ลิ้น'>ลิ้น</annotation>
+
+		<!-- SKULL; body; death; face; fairy tale; skull -->
+		<annotation cp='[💀]' tts='หัวกระโหลก'>หัวกระโหลก; เทพนิยาย</annotation>
+
+		<!-- SKULL AND CROSSBONES; body; crossbones; death; face; skull -->
+		<annotation cp='[☠]'>MISSING</annotation>
+
+		<!-- KISS MARK; emotion; heart; human; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='รอยจูบ'>รอยจูบ; ริมฝีปาก; จูบ</annotation>
+
+		<!-- MOUTH; body; human; lips; mouth -->
+		<annotation cp='[👄]' tts='ปาก'>ปาก; ริมฝีปาก</annotation>
+
+		<!-- HEART WITH ARROW; arrow; cupid; emotion; heart; romance -->
+		<annotation cp='[💘]' tts='ศรปักใจ'>ศรปักใจ; ลูกศร; ความรัก</annotation>
+
+		<!-- HEAVY BLACK HEART; emotion; heart -->
+		<annotation cp='[❤]'>MISSING</annotation>
+
+		<!-- BEATING HEART; beating; emotion; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='หัวใจเต้น'>หัวใจเต้น; หัวใจ</annotation>
+
+		<!-- BROKEN HEART; break; broken; emotion; heart -->
+		<annotation cp='[💔]' tts='อกหัก'>อกหัก; หัวใจ</annotation>
+
+		<!-- TWO HEARTS; emotion; heart; love -->
+		<annotation cp='[💕]' tts='ใจ 2 ดวง'>คู่รัก</annotation>
+
+		<!-- SPARKLING HEART; emotion; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='หัวใจวิบวับ'>หัวใจวิบวับ; รัก; หัวใจ; ตื่นเต้น</annotation>
+
+		<!-- GROWING HEART; emotion; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' tts='ใจพองโต'>ใจพองโต; ประหม่า</annotation>
+
+		<!-- BLUE HEART; blue; emotion; heart -->
+		<annotation cp='[💙]' tts='หัวใจน้ำเงิน'>หัวใจน้ำเงิน; หัวใจ; อารมณ์</annotation>
+
+		<!-- GREEN HEART; emotion; green; heart -->
+		<annotation cp='[💚]' tts='หัวใจเขียว'>หัวใจเขียว; หัวใจ; อารมณ์</annotation>
+
+		<!-- YELLOW HEART; emotion; heart; yellow -->
+		<annotation cp='[💛]' tts='หัวใจเหลือง'>หัวใจเหลือง; หัวใจ; อารมณ์</annotation>
+
+		<!-- PURPLE HEART; emotion; heart; purple -->
+		<annotation cp='[💜]' tts='หัวใจม่วง'>หัวใจม่วง; หัวใจ; อารมณ์</annotation>
+
+		<!-- HEART WITH RIBBON; emotion; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='หัวใจผูกริบบิ้น'>หัวใจผูกริบบิ้น; หัวใจ; อารมณ์</annotation>
+
+		<!-- REVOLVING HEARTS; emotion; heart; revolving -->
+		<annotation cp='[💞]' tts='หัวใจโคจร'>หัวใจโคจร; หัวใจ; อารมณ์</annotation>
+
+		<!-- HEART DECORATION; emotion; heart -->
+		<annotation cp='[💟]' tts='หัวใจประดับ'>หัวใจประดับ; หัวใจ</annotation>
+
+		<!-- HEAVY HEART EXCLAMATION MARK ORNAMENT; emotion; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]'>MISSING</annotation>
+
+		<!-- LOVE LETTER; emotion; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='จดหมายรัก'>จดหมายรัก</annotation>
+
+		<!-- DROPLET; cold; comic; drop; emotion; object; sweat; weather -->
+		<annotation cp='[💧]' tts='หยดน้ำ'>หยดน้ำ; เหงื่อ</annotation>
+
+		<!-- SLEEPING SYMBOL; comic; emotion; sleep; word; zzz -->
+		<annotation cp='[💤]' tts='หลับ'>หลับ; ง่วง</annotation>
+
+		<!-- ANGER SYMBOL; angry; comic; emotion; mad -->
+		<annotation cp='[💢]' tts='โกรธ'>โกรธ; อารมณ์</annotation>
+
+		<!-- BOMB; bomb; comic; emotion; object -->
+		<annotation cp='[💣]' tts='ระเบิด'>ระเบิด; อารมณ์</annotation>
+
+		<!-- COLLISION SYMBOL; boom; collision; comic; emotion -->
+		<annotation cp='[💥]' tts='การปะทะ'>การปะทะ; ระเบิด</annotation>
+
+		<!-- SPLASHING SWEAT SYMBOL; comic; emotion; object; splashing; sweat -->
+		<annotation cp='[💦]' tts='เหงื่อหยด'>เหงื่อหยด</annotation>
+
+		<!-- DASH SYMBOL; comic; dash; emotion; object; running -->
+		<annotation cp='[💨]' tts='วิ่งฉิว'>วิ่งฉิว; วิ่งหนี</annotation>
+
+		<!-- DIZZY SYMBOL; comic; dizzy; emotion; star -->
+		<annotation cp='[💫]' tts='มึนหัว'>มึนหัว; เห็นดาว</annotation>
+
+		<!-- SPEECH BALLOON; balloon; bubble; comic; dialog; emotion; speech -->
+		<annotation cp='[💬]' tts='พูดไม่ออก'>พูดไม่ออก</annotation>
+
+		<!-- THOUGHT BALLOON; balloon; bubble; comic; emotion; thought -->
+		<annotation cp='[💭]' tts='ลูกโป่งความคิด'>ลูกโป่งความคิด</annotation>
+
+		<!-- HOLE; hole -->
+		<annotation cp='[🕳]'>MISSING</annotation>
+
+		<!-- RIGHT ANGER BUBBLE; angry; balloon; bubble; emotion; mad -->
+		<annotation cp='[🗯]'>MISSING</annotation>
+
+		<!-- EYEGLASSES; clothing; eye; eyeglasses; eyewear; glasses -->
+		<annotation cp='[👓]' tts='แว่นตา'>แว่นตา</annotation>
+
+		<!-- DARK SUNGLASSES; dark; eye; eyewear; glasses; object; sunglasses -->
+		<annotation cp='[🕶]'>MISSING</annotation>
+
+		<!-- NECKTIE; clothing; necktie -->
+		<annotation cp='[👔]' tts='เนคไท'>เนคไท; เสื้อผ้า</annotation>
+
+		<!-- T-SHIRT; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' tts='เสื้อยืด'>เสื้อยืด; เสื้อผ้า</annotation>
+
+		<!-- JEANS; clothing; jeans; pants; trousers -->
+		<annotation cp='[👖]' tts='ยีนส์'>ยีนส์; เสื้อผ้า</annotation>
+
+		<!-- DRESS; clothing; dress -->
+		<annotation cp='[👗]' tts='ชุดกระโปรง'>ชุดกระโปรง; เสื้อผ้า</annotation>
+
+		<!-- KIMONO; clothing; kimono -->
+		<annotation cp='[👘]' tts='กิโมโน'>กิโมโน; เสื้อผ้า</annotation>
+
+		<!-- BIKINI; bikini; clothing; swim -->
+		<annotation cp='[👙]' tts='บิกินี'>บิกินี; เสื้อผ้า</annotation>
+
+		<!-- WOMANS CLOTHES; clothing; woman -->
+		<annotation cp='[👚]' tts='เสื้อผู้หญิง'>เสื้อผู้หญิง; เสื้อผ้า</annotation>
+
+		<!-- PURSE; clothing; coin; purse -->
+		<annotation cp='[👛]' tts='กระเป๋าใส่เงิน'>กระเป๋าใส่เงิน; กระเป๋าใส่เหรียญ</annotation>
+
+		<!-- HANDBAG; bag; clothing; handbag -->
+		<annotation cp='[👜]' tts='กระเป๋าถือ'>กระเป๋าถือ; กระเป๋า</annotation>
+
+		<!-- POUCH; bag; clothing; pouch -->
+		<annotation cp='[👝]' tts='กระเป๋าใบเล็ก'>กระเป๋าใบเล็ก; กระเป๋า</annotation>
+
+		<!-- MANS SHOE; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='รองเท้าชาย'>รองเท้าชาย; รองเท้า</annotation>
+
+		<!-- ATHLETIC SHOE; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='รองเท้ากีฬา'>รองเท้ากีฬา; รองเท้า</annotation>
+
+		<!-- HIGH-HEELED SHOE; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='รองเท้าส้นสูง'>รองเท้าส้นสูง; รองเท้า</annotation>
+
+		<!-- WOMANS SANDAL; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='รองเท้าแตะผู้หญิง'>รองเท้าแตะผู้หญิง</annotation>
+
+		<!-- WOMANS BOOTS; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='รองเท้าบู๊ตผู้หญิง'>รองเท้าบู๊ตผู้หญิง</annotation>
+
+		<!-- CROWN; clothing; crown; king; queen -->
+		<annotation cp='[👑]' tts='มงกุฎ'>มงกุฎ</annotation>
+
+		<!-- WOMANS HAT; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='หมวกผู้หญิง'>หมวกผู้หญิง; หมวก</annotation>
+
+		<!-- TOP HAT; activity; entertainment; hat; object; top; tophat -->
+		<annotation cp='[🎩]' tts='หมวกสูง'>หมวกสูง; หมวก</annotation>
+
+		<!-- HELMET WITH WHITE CROSS; aid; cross; hat; helmet; travel -->
+		<annotation cp='[⛑]'>MISSING</annotation>
+
+		<!-- MONKEY FACE; animal; face; monkey; nature -->
+		<annotation cp='[🐵]' tts='หน้าลิง'>หน้าลิง; ลิง; สัตว์; ใบหน้า</annotation>
+
+		<!-- SEE-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='ลิงปิดตา'>ลิงปิดตา; ลิง</annotation>
+
+		<!-- HEAR-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='ลิงปิดหู'>ลิงปิดหู; ลิง</annotation>
+
+		<!-- SPEAK-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='ลิงปิดปาก'>ลิงปิดปาก; ลิง</annotation>
+
+		<!-- MONKEY; animal; monkey; nature -->
+		<annotation cp='[🐒]' tts='ลิง'>ลิง; สัตว์</annotation>
+
+		<!-- DOG FACE; animal; dog; face; nature; pet -->
+		<annotation cp='[🐶]' tts='หน้าสุนัข'>หน้าสุนัข; สุนัข; สัตว์; ใบหน้า</annotation>
+
+		<!-- DOG; animal; dog; nature; pet -->
+		<annotation cp='[🐕]' tts='สุนัข'>สุนัข; สัตว์</annotation>
+
+		<!-- POODLE; animal; dog; nature; poodle -->
+		<annotation cp='[🐩]' tts='พุดเดิ้ล'>พุดเดิ้ล; สุนัข; สัตว์</annotation>
+
+		<!-- WOLF FACE; animal; face; nature; wolf -->
+		<annotation cp='[🐺]' tts='หน้าหมาป่า'>หน้าหมาป่า; สัตว์; ใบหน้า</annotation>
+
+		<!-- CAT FACE; animal; cat; face; nature; pet -->
+		<annotation cp='[🐱]' tts='หน้าแมว'>หน้าแมว; แมว; สัตว์</annotation>
+
+		<!-- GRINNING CAT FACE WITH SMILING EYES; animal; cat; eye; face; grin; nature; smile; smiley -->
+		<annotation cp='[😸]' tts='แมวยิ้ม'>แมวยิ้ม; ใบหน้า</annotation>
+
+		<!-- CAT FACE WITH TEARS OF JOY; animal; cat; face; joy; nature; tear -->
+		<annotation cp='[😹]' tts='แมวร้องไห้ดีใจ'>แมวร้องไห้ดีใจ; ใบหน้า</annotation>
+
+		<!-- SMILING CAT FACE WITH OPEN MOUTH; animal; cat; face; mouth; nature; open; smile; smiley -->
+		<annotation cp='[😺]' tts='แมวยิ้มอ้าปาก'>แมวยิ้มอ้าปาก; ใบหน้า</annotation>
+
+		<!-- SMILING CAT FACE WITH HEART-SHAPED EYES; animal; cat; eye; face; heart; love; nature; smile; smiley -->
+		<annotation cp='[😻]' tts='แมวตาหัวใจ'>แมวตาหัวใจ; ใบหน้า</annotation>
+
+		<!-- CAT FACE WITH WRY SMILE; animal; cat; face; ironic; nature; smile; smiley; wry -->
+		<annotation cp='[😼]' tts='แมวยิ้มเจ้าเล่ห์'>แมวยิ้มเจ้าเล่ห์; ยิ้มเยาะ; ใบหน้า</annotation>
+
+		<!-- KISSING CAT FACE WITH CLOSED EYES; animal; cat; eye; face; kiss; nature -->
+		<annotation cp='[😽]' tts='แมวส่งจุ๊บ'>แมวส่งจุ๊บ; ใบหน้า</annotation>
+
+		<!-- POUTING CAT FACE; animal; cat; face; nature; pouting -->
+		<annotation cp='[😾]' tts='แมวโกรธ'>แมวโกรธ; ใบหน้า</annotation>
+
+		<!-- CRYING CAT FACE; animal; cat; cry; face; nature; sad; tear -->
+		<annotation cp='[😿]' tts='แมวร้องไห้'>แมวร้องไห้; ใบหน้า</annotation>
+
+		<!-- WEARY CAT FACE; animal; cat; face; nature; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='แมวตกใจ'>แมวตกใจ; ใบหน้า</annotation>
+
+		<!-- CAT; animal; cat; nature; pet -->
+		<annotation cp='[🐈]' tts='แมว'>แมว; สัตว์</annotation>
+
+		<!-- TIGER FACE; animal; face; nature; tiger -->
+		<annotation cp='[🐯]' tts='หน้าเสือ'>หน้าเสือ; เสือ; สัตว์</annotation>
+
+		<!-- TIGER; animal; nature; tiger -->
+		<annotation cp='[🐅]' tts='เสือ'>เสือ; สัตว์</annotation>
+
+		<!-- LEOPARD; animal; leopard; nature -->
+		<annotation cp='[🐆]' tts='เสือดาว'>เสือดาว; สัตว์</annotation>
+
+		<!-- HORSE FACE; animal; face; horse; nature -->
+		<annotation cp='[🐴]' tts='หน้าม้า'>หน้าม้า; ม้า; สัตว์</annotation>
+
+		<!-- HORSE; animal; horse; nature; racehorse; racing -->
+		<annotation cp='[🐎]' tts='ม้า'>ม้า; สัตว์</annotation>
+
+		<!-- COW FACE; animal; cow; face; nature -->
+		<annotation cp='[🐮]' tts='หน้าวัว'>หน้าวัว; วัว; สัตว์</annotation>
+
+		<!-- OX; animal; bull; nature; ox; taurus; zodiac -->
+		<annotation cp='[🐂]' tts='วัว'>วัว; สัตว์</annotation>
+
+		<!-- WATER BUFFALO; animal; buffalo; nature; water -->
+		<annotation cp='[🐃]' tts='ควาย'>ควาย; สัตว์</annotation>
+
+		<!-- COW; animal; cow; nature -->
+		<annotation cp='[🐄]' tts='วัว'>วัว; สัตว์</annotation>
+
+		<!-- PIG FACE; animal; face; nature; pig -->
+		<annotation cp='[🐷]' tts='หน้าหมู'>หน้าหมู; หมู; สัตว์; ใบหน้า</annotation>
+
+		<!-- PIG; animal; nature; pig -->
+		<annotation cp='[🐖]' tts='หมู'>หมู; สัตว์</annotation>
+
+		<!-- BOAR; animal; boar; nature -->
+		<annotation cp='[🐗]' tts='หมูป่าตัวผู้'>หมูป่าตัวผู้; สัตว์</annotation>
+
+		<!-- PIG NOSE; animal; face; nature; nose; pig -->
+		<annotation cp='[🐽]' tts='จมูกหมู'>จมูกหมู; หมู</annotation>
+
+		<!-- RAM; animal; aries; nature; ram; sheep; zodiac -->
+		<annotation cp='[🐏]' tts='แกะตัวผู้'>แกะตัวผู้; สัตว์</annotation>
+
+		<!-- SHEEP; animal; nature; sheep -->
+		<annotation cp='[🐑]' tts='แกะ'>แกะ; สัตว์</annotation>
+
+		<!-- GOAT; animal; capricorn; goat; nature; zodiac -->
+		<annotation cp='[🐐]' tts='แพะ'>แพะ; สัตว์</annotation>
+
+		<!-- DROMEDARY CAMEL; animal; camel; dromedary; hump; nature -->
+		<annotation cp='[🐪]' tts='อูฐโหนกเดียว'>อูฐโหนกเดียว; สัตว์; อูฐ</annotation>
+
+		<!-- BACTRIAN CAMEL; animal; bactrian; camel; hump; nature -->
+		<annotation cp='[🐫]' tts='อูฐสองโหนก'>อูฐสองโหนก; สัตว์; อูฐ</annotation>
+
+		<!-- ELEPHANT; animal; elephant; nature -->
+		<annotation cp='[🐘]' tts='ช้าง'>ช้าง; สัตว์</annotation>
+
+		<!-- MOUSE FACE; animal; face; mouse; nature -->
+		<annotation cp='[🐭]' tts='หน้าหนู'>หน้าหนู; หนู; สัตว์</annotation>
+
+		<!-- MOUSE; animal; mouse; nature -->
+		<annotation cp='[🐁]' tts='หนู'>หนู; สัตว์</annotation>
+
+		<!-- RAT; animal; nature; rat -->
+		<annotation cp='[🐀]' tts='หนู'>หนู; สัตว์</annotation>
+
+		<!-- HAMSTER FACE; animal; face; hamster; nature; pet -->
+		<annotation cp='[🐹]' tts='หน้าหนูแฮมสเตอร์'>หน้าหนูแฮมสเตอร์; สัตว์; ใบหน้า</annotation>
+
+		<!-- RABBIT FACE; animal; bunny; face; nature; pet; rabbit -->
+		<annotation cp='[🐰]' tts='หน้ากระต่าย กระต่าย'>สัตว์</annotation>
+
+		<!-- RABBIT; animal; bunny; nature; pet; rabbit -->
+		<annotation cp='[🐇]' tts='กระต่าย'>กระต่าย; สัตว์</annotation>
+
+		<!-- CHIPMUNK; animal; chipmunk; nature -->
+		<annotation cp='[🐿]'>MISSING</annotation>
+
+		<!-- BEAR FACE; animal; bear; face; nature -->
+		<annotation cp='[🐻]' tts='หน้าหมี'>หน้าหมี; สัตว์; ใบหน้า</annotation>
+
+		<!-- KOALA; animal; bear; koala; nature -->
+		<annotation cp='[🐨]' tts='โคอาล่า'>โคอาล่า; สัตว์</annotation>
+
+		<!-- PANDA FACE; animal; face; nature; panda -->
+		<annotation cp='[🐼]' tts='หน้าแพนด้า'>หน้าแพนด้า; สัตว์; ใบหน้า</annotation>
+
+		<!-- PAW PRINTS; animal; feet; nature; paw; print -->
+		<annotation cp='[🐾]' tts='รอยเท้าสัตว์'>รอยเท้าสัตว์; เท้าสัตว์</annotation>
+
+		<!-- CHICKEN; animal; chicken; nature -->
+		<annotation cp='[🐔]' tts='ไก่'>ไก่; สัตว์</annotation>
+
+		<!-- ROOSTER; animal; nature; rooster -->
+		<annotation cp='[🐓]' tts='ไก่ตัวผู้'>ไก่ตัวผู้; สัตว์</annotation>
+
+		<!-- HATCHING CHICK; animal; baby; chick; hatching; nature -->
+		<annotation cp='[🐣]' tts='ลูกเจี๊ยบออกจากไข่'>ลูกเจี๊ยบออกจากไข่; สัตว์; ลูกเจี๊ยบ</annotation>
+
+		<!-- BABY CHICK; animal; baby; chick; nature -->
+		<annotation cp='[🐤]' tts='ลูกเจี๊ยบ'>ลูกเจี๊ยบ; สัตว์</annotation>
+
+		<!-- FRONT-FACING BABY CHICK; animal; baby; chick; nature -->
+		<annotation cp='[🐥]' tts='ลูกเจี๊ยบยืน'>ลูกเจี๊ยบยืน; ลูกเจี๊ยบ; ไก่; สัตว์</annotation>
+
+		<!-- BIRD; animal; bird; nature -->
+		<annotation cp='[🐦]' tts='นก'>นก; สัตว์</annotation>
+
+		<!-- PENGUIN; animal; nature; penguin -->
+		<annotation cp='[🐧]' tts='เพนกวิน'>เพนกวิน; สัตว์</annotation>
+
+		<!-- DOVE OF PEACE; animal; bird; dove; fly; nature; peace -->
+		<annotation cp='[🕊]'>MISSING</annotation>
+
+		<!-- FROG FACE; animal; face; frog; nature -->
+		<annotation cp='[🐸]' tts='หน้ากบ'>หน้ากบ; กบ; สัตว์; ใบหน้า</annotation>
+
+		<!-- CROCODILE; animal; crocodile; nature -->
+		<annotation cp='[🐊]' tts='จระเข้'>จระเข้; สัตว์</annotation>
+
+		<!-- SNAKE; animal; bearer; nature; ophiuchus; serpent; snake; zodiac -->
+		<annotation cp='[🐍]' tts='งู'>งู; สัตว์</annotation>
+
+		<!-- TURTLE; animal; nature; turtle -->
+		<annotation cp='[🐢]' tts='เต่า'>เต่า; สัตว์</annotation>
+
+		<!-- DRAGON FACE; animal; dragon; face; fairy tale; nature -->
+		<annotation cp='[🐲]' tts='หน้ามังกร'>หน้ามังกร; สัตว์</annotation>
+
+		<!-- DRAGON; animal; dragon; fairy tale; nature -->
+		<annotation cp='[🐉]' tts='มังกร'>มังกร; สัตว์</annotation>
+
+		<!-- SPOUTING WHALE; animal; face; nature; spouting; whale -->
+		<annotation cp='[🐳]' tts='ปลาวาฬพ่นน้ำ'>ปลาวาฬพ่นน้ำ; สัตว์</annotation>
+
+		<!-- WHALE; animal; nature; whale -->
+		<annotation cp='[🐋]' tts='ปลาวาฬ'>ปลาวาฬ; สัตว์</annotation>
+
+		<!-- DOLPHIN; animal; dolphin; flipper; nature -->
+		<annotation cp='[🐬]' tts='ปลาโลมา'>ปลาโลมา; สัตว์</annotation>
+
+		<!-- FISH; animal; fish; nature; pisces; zodiac -->
+		<annotation cp='[🐟]' tts='ปลา'>ปลา; สัตว์</annotation>
+
+		<!-- TROPICAL FISH; animal; fish; nature; tropical -->
+		<annotation cp='[🐠]' tts='ปลาเขตร้อน'>ปลาเขตร้อน; สัตว์; ปลา</annotation>
+
+		<!-- BLOWFISH; animal; blowfish; fish; nature -->
+		<annotation cp='[🐡]' tts='ปลาปักเป้า'>ปลาปักเป้า; สัตว์; ปลา</annotation>
+
+		<!-- OCTOPUS; animal; nature; octopus -->
+		<annotation cp='[🐙]' tts='ปลาหมึกยักษ์'>ปลาหมึกยักษ์; สัตว์</annotation>
+
+		<!-- SPIRAL SHELL; animal; nature; shell; spiral -->
+		<annotation cp='[🐚]' tts='หอย'>หอย; สัตว์</annotation>
+
+		<!-- SNAIL; animal; nature; snail -->
+		<annotation cp='[🐌]' tts='หอยทาก'>หอยทาก; สัตว์</annotation>
+
+		<!-- BUG; animal; bug; insect; nature -->
+		<annotation cp='[🐛]' tts='แมลง'>แมลง; สัตว์</annotation>
+
+		<!-- ANT; animal; ant; insect; nature -->
+		<annotation cp='[🐜]' tts='มด'>มด; สัตว์</annotation>
+
+		<!-- HONEYBEE; animal; bee; honeybee; insect; nature -->
+		<annotation cp='[🐝]' tts='ผึ้ง'>ผึ้ง; สัตว์</annotation>
+
+		<!-- LADY BEETLE; animal; beetle; insect; lady beetle; ladybird; ladybug; nature -->
+		<annotation cp='[🐞]' tts='เต่าทอง'>เต่าทอง; สัตว์</annotation>
+
+		<!-- SPIDER; animal; insect; object; spider -->
+		<annotation cp='[🕷]'>MISSING</annotation>
+
+		<!-- SPIDER WEB; animal; object; spider; web -->
+		<annotation cp='[🕸]'>MISSING</annotation>
+
+		<!-- PILE OF POO; comic; dung; nature; object; poo; poop -->
+		<annotation cp='[💩]' tts='กองอึ'>กองอึ; อึ</annotation>
+
+		<!-- JAPANESE OGRE; creature; face; fairy tale; fantasy; japanese; ogre -->
+		<annotation cp='[👹]' tts='ยักษ์ญี่ปุ่น'>ยักษ์ญี่ปุ่น</annotation>
+
+		<!-- JAPANESE GOBLIN; creature; face; fairy tale; fantasy; goblin; japanese -->
+		<annotation cp='[👺]' tts='ปีศาจญี่ปุ่น'>ปีศาจญี่ปุ่น</annotation>
+
+		<!-- GHOST; creature; face; fairy tale; fantasy; ghost -->
+		<annotation cp='[👻]' tts='ผี'>ผี; เทพนิยาย</annotation>
+
+		<!-- EXTRATERRESTRIAL ALIEN; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; nature; space; ufo -->
+		<annotation cp='[👽]' tts='เอเลี่ยน'>เอเลี่ยน; ยูเอฟโอ</annotation>
+
+		<!-- ALIEN MONSTER; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; monster; nature; space; ufo -->
+		<annotation cp='[👾]' tts='สัตว์ประหลาดเอเลี่ยน'>สัตว์ประหลาดเอเลี่ยน</annotation>
+
+		<!-- BOUQUET; bouquet; flower; nature; object; romance -->
+		<annotation cp='[💐]' tts='ช่อดอกไม้'>ช่อดอกไม้; ดอกไม้</annotation>
+
+		<!-- CHERRY BLOSSOM; blossom; cherry; flower; nature; plant -->
+		<annotation cp='[🌸]' tts='ดอกซากุระ'>ดอกซากุระ; ดอกไม้</annotation>
+
+		<!-- WHITE FLOWER; flower; object -->
+		<annotation cp='[💮]' tts='ตราดอกไม้'>ตราดอกไม้; ดอกไม้</annotation>
+
+		<!-- ROSETTE; nature; rosette -->
+		<annotation cp='[🏵]'>MISSING</annotation>
+
+		<!-- ROSE; flower; nature; plant; rose -->
+		<annotation cp='[🌹]' tts='ดอกกุหลาบ'>ดอกกุหลาบ; ดอกไม้</annotation>
+
+		<!-- HIBISCUS; flower; hibiscus; nature; plant -->
+		<annotation cp='[🌺]' tts='ดอกชบา'>ดอกชบา; ดอกไม้</annotation>
+
+		<!-- SUNFLOWER; flower; nature; plant; sun; sunflower -->
+		<annotation cp='[🌻]' tts='ดอกทานตะวัน'>ดอกทานตะวัน; ดอกไม้</annotation>
+
+		<!-- BLOSSOM; blossom; flower; nature; plant -->
+		<annotation cp='[🌼]' tts='ดอกไม้บาน'>ดอกไม้บาน; ดอกไม้</annotation>
+
+		<!-- TULIP; flower; nature; plant; tulip -->
+		<annotation cp='[🌷]' tts='ทิวลิป'>ทิวลิป; ดอกไม้</annotation>
+
+		<!-- PALM BRANCH; branch; nature; palm; plant -->
+		<annotation cp='[⸙]'>MISSING</annotation>
+
+		<!-- SHAMROCK; nature; plant; shamrock -->
+		<annotation cp='[☘]'>MISSING</annotation>
+
+		<!-- SEEDLING; nature; plant; seedling; young -->
+		<annotation cp='[🌱]' tts='ต้นอ่อน'>ต้นอ่อน; พืช</annotation>
+
+		<!-- EVERGREEN TREE; evergreen; nature; plant; tree -->
+		<annotation cp='[🌲]' tts='ต้นสน'>ต้นสน; ต้นไม้</annotation>
+
+		<!-- DECIDUOUS TREE; deciduous; nature; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='ต้นไม้ร่มรื่น'>ต้นไม้ร่มรื่น; ร่มเงา; ต้นไม้</annotation>
+
+		<!-- PALM TREE; nature; palm; plant; tree -->
+		<annotation cp='[🌴]' tts='ต้นมะพร้าว'>ต้นมะพร้าว; ต้นปาล์ม</annotation>
+
+		<!-- CACTUS; cactus; nature; plant -->
+		<annotation cp='[🌵]' tts='ตะบองเพชร'>ตะบองเพชร; พืช</annotation>
+
+		<!-- EAR OF RICE; ear; nature; plant; rice -->
+		<annotation cp='[🌾]' tts='รวงข้าว'>รวงข้าว; ต้นข้าว</annotation>
+
+		<!-- HERB; herb; leaf; nature; plant -->
+		<annotation cp='[🌿]' tts='สมุนไพร'>สมุนไพร; ใบไม้</annotation>
+
+		<!-- FOUR LEAF CLOVER; 4; clover; four; leaf; nature; plant -->
+		<annotation cp='[🍀]' tts='ใบโคลเวอร์ 4 แฉก'>ใบไม้; โชคดี</annotation>
+
+		<!-- MAPLE LEAF; falling; leaf; maple; nature; plant -->
+		<annotation cp='[🍁]' tts='ใบเมเปิ้ล'>ใบเมเปิ้ล; ใบไม้ร่วง</annotation>
+
+		<!-- FALLEN LEAF; falling; leaf; nature; plant -->
+		<annotation cp='[🍂]' tts='ใบไม้ร่วง'>ใบไม้ร่วง</annotation>
+
+		<!-- LEAF FLUTTERING IN WIND; blow; flutter; leaf; nature; plant; wind -->
+		<annotation cp='[🍃]' tts='ใบไม้ปลิว'>ใบไม้ปลิว</annotation>
+
+		<!-- GRAPES; food; fruit; grape; nature; plant -->
+		<annotation cp='[🍇]' tts='องุ่น'>องุ่น; ผลไม้</annotation>
+
+		<!-- MELON; food; fruit; melon; nature; plant -->
+		<annotation cp='[🍈]' tts='เมลอน'>เมลอน; ผลไม้</annotation>
+
+		<!-- WATERMELON; food; fruit; nature; plant; watermelon -->
+		<annotation cp='[🍉]' tts='แตงโม'>แตงโม; ผลไม้</annotation>
+
+		<!-- TANGERINE; food; fruit; nature; orange; plant; tangerine -->
+		<annotation cp='[🍊]' tts='ส้ม'>ส้ม; ผลไม้</annotation>
+
+		<!-- LEMON; citrus; food; fruit; lemon; nature; plant -->
+		<annotation cp='[🍋]' tts='เลมอน'>เลมอน; ผลไม้</annotation>
+
+		<!-- BANANA; banana; food; fruit; nature; plant -->
+		<annotation cp='[🍌]' tts='กล้วย'>กล้วย; ผลไม้</annotation>
+
+		<!-- PINEAPPLE; food; fruit; nature; pineapple; plant -->
+		<annotation cp='[🍍]' tts='สับปะรด'>สับปะรด; ผลไม้</annotation>
+
+		<!-- RED APPLE; apple; food; fruit; nature; plant; red -->
+		<annotation cp='[🍎]' tts='แอปเปิ้ลแดง'>แอปเปิ้ลแดง; ผลไม้; แอปเปิ้ล</annotation>
+
+		<!-- GREEN APPLE; apple; food; fruit; green; nature; plant -->
+		<annotation cp='[🍏]' tts='แอปเปิ้ลเขียว'>แอปเปิ้ลเขียว; ผลไม้; แอปเปิ้ล</annotation>
+
+		<!-- PEAR; food; fruit; nature; pear; plant -->
+		<annotation cp='[🍐]' tts='ลูกแพร์'>ลูกแพร์; ผลไม้</annotation>
+
+		<!-- PEACH; food; fruit; nature; peach; plant -->
+		<annotation cp='[🍑]' tts='ลูกพีช'>ลูกพีช; ผลไม้</annotation>
+
+		<!-- CHERRIES; cherry; food; fruit; nature; plant -->
+		<annotation cp='[🍒]' tts='เชอร์รี่'>เชอร์รี่; ผลไม้</annotation>
+
+		<!-- STRAWBERRY; berry; food; fruit; nature; plant; strawberry -->
+		<annotation cp='[🍓]' tts='สตรอว์เบอร์รี่'>สตรอว์เบอร์รี่; ผลไม้</annotation>
+
+		<!-- TOMATO; food; nature; plant; tomato; vegetable -->
+		<annotation cp='[🍅]' tts='มะเขือเทศ'>มะเขือเทศ; ผัก</annotation>
+
+		<!-- AUBERGINE; aubergine; eggplant; food; nature; plant; vegetable -->
+		<annotation cp='[🍆]' tts='มะเขือยาว'>มะเขือยาว; ผัก</annotation>
+
+		<!-- EAR OF MAIZE; corn; ear; maize; maze; nature; plant -->
+		<annotation cp='[🌽]' tts='ข้าวโพด'>ข้าวโพด</annotation>
+
+		<!-- HOT PEPPER; food; hot; nature; pepper; plant -->
+		<annotation cp='[🌶]'>MISSING</annotation>
+
+		<!-- MUSHROOM; mushroom; nature; plant -->
+		<annotation cp='[🍄]' tts='เห็ด'>เห็ด</annotation>
+
+		<!-- CHESTNUT; chestnut; nature; plant -->
+		<annotation cp='[🌰]' tts='เกาลัด'>เกาลัด</annotation>
+
+		<!-- BREAD; bread; food; loaf; restaurant -->
+		<annotation cp='[🍞]' tts='ขนมปัง'>ขนมปัง; ก้อนขนมปัง</annotation>
+
+		<!-- MEAT ON BONE; bone; food; meat; restaurant -->
+		<annotation cp='[🍖]' tts='เนื้อ'>เนื้อ; เนื้อติดกระดูก</annotation>
+
+		<!-- POULTRY LEG; bone; chicken; food; leg; poultry; restaurant -->
+		<annotation cp='[🍗]' tts='น่องไก่'>น่องไก่; ไก่</annotation>
+
+		<!-- HAMBURGER; burger; food; hamburger; restaurant -->
+		<annotation cp='[🍔]' tts='แฮมเบอร์เกอร์'>แฮมเบอร์เกอร์; เบอร์เกอร์</annotation>
+
+		<!-- FRENCH FRIES; food; french; fries; restaurant -->
+		<annotation cp='[🍟]' tts='เฟรนช์ฟราย'>เฟรนช์ฟราย</annotation>
+
+		<!-- SLICE OF PIZZA; food; pizza; restaurant; slice -->
+		<annotation cp='[🍕]' tts='พิซซ่า 1 ชิ้น'>พิซซ่า</annotation>
+
+		<!-- POT OF FOOD; food; pot; restaurant; stew -->
+		<annotation cp='[🍲]' tts='สตูว์'>สตูว์; หม้ออาหาร</annotation>
+
+		<!-- BENTO BOX; bento; box; food; restaurant -->
+		<annotation cp='[🍱]' tts='กล่องเบนโตะ'>กล่องเบนโตะ; เบนโตะ</annotation>
+
+		<!-- RICE CRACKER; cracker; food; restaurant; rice -->
+		<annotation cp='[🍘]' tts='ข้าวอบกรอบ'>ข้าวอบกรอบ; แครกเกอร์</annotation>
+
+		<!-- RICE BALL; ball; food; japanese; restaurant; rice -->
+		<annotation cp='[🍙]' tts='ข้าวปั้น'>ข้าวปั้น; ก้อนข้าวปั้น</annotation>
+
+		<!-- COOKED RICE; cooked; food; restaurant; rice -->
+		<annotation cp='[🍚]' tts='ข้าวสวย'>ข้าวสวย; ข้าว; ชามข้าว</annotation>
+
+		<!-- CURRY AND RICE; curry; food; restaurant; rice -->
+		<annotation cp='[🍛]' tts='ข้าวแกงกะหรี่'>ข้าวแกงกะหรี่; แกงกะหรี่</annotation>
+
+		<!-- STEAMING BOWL; bowl; food; noodle; ramen; restaurant; steaming -->
+		<annotation cp='[🍜]' tts='ราเมน'>ราเมน; ชามก๋วยเตี๋ยว; บะหมี่</annotation>
+
+		<!-- SPAGHETTI; food; pasta; restaurant; spaghetti -->
+		<annotation cp='[🍝]' tts='สปาเก็ตตี้'>สปาเก็ตตี้; พาสต้า</annotation>
+
+		<!-- ROASTED SWEET POTATO; food; potato; restaurant; roasted; sweet -->
+		<annotation cp='[🍠]' tts='มันเผา'>มันเผา; มันเทศเผา</annotation>
+
+		<!-- ODEN; food; kebab; oden; restaurant; seafood; skewer; stick -->
+		<annotation cp='[🍢]' tts='โอเด้ง'>โอเด้ง; โอเด้งเสียบไม้</annotation>
+
+		<!-- SUSHI; food; restaurant; sushi -->
+		<annotation cp='[🍣]' tts='ซูชิ'>ซูชิ</annotation>
+
+		<!-- FRIED SHRIMP; food; fried; prawn; restaurant; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='กุ้งทอด'>กุ้งทอด; กุ้ง</annotation>
+
+		<!-- FISH CAKE WITH SWIRL DESIGN; cake; fish; food; pastry; restaurant; swirl -->
+		<annotation cp='[🍥]' tts='ลูกชิ้นปลา'>ลูกชิ้นปลา</annotation>
+
+		<!-- DANGO; dango; dessert; food; japanese; restaurant; skewer; stick; sweet -->
+		<annotation cp='[🍡]' tts='ดังโงะ'>ดังโงะ; โมจิ; ดังโงะเสียบไม้</annotation>
+
+		<!-- SOFT ICE CREAM; cream; dessert; food; ice; icecream; restaurant; soft; sweet -->
+		<annotation cp='[🍦]' tts='ซอฟต์ครีม'>ซอฟต์ครีม; ไอศกรีม</annotation>
+
+		<!-- SHAVED ICE; dessert; food; ice; restaurant; shaved; sweet -->
+		<annotation cp='[🍧]' tts='น้ำแข็งไส'>น้ำแข็งไส</annotation>
+
+		<!-- ICE CREAM; cream; dessert; food; ice; restaurant; sweet -->
+		<annotation cp='[🍨]' tts='ไอศกรีม'>ไอศกรีม</annotation>
+
+		<!-- DOUGHNUT; dessert; donut; doughnut; food; restaurant; sweet -->
+		<annotation cp='[🍩]' tts='โดนัท'>โดนัท</annotation>
+
+		<!-- COOKIE; cookie; dessert; food; restaurant; sweet -->
+		<annotation cp='[🍪]' tts='คุกกี้'>คุกกี้</annotation>
+
+		<!-- BIRTHDAY CAKE; birthday; cake; celebration; dessert; food; pastry; sweet -->
+		<annotation cp='[🎂]' tts='เค้กวันเกิด'>เค้กวันเกิด; วันเกิด; เค้ก</annotation>
+
+		<!-- SHORTCAKE; cake; dessert; food; pastry; restaurant; shortcake; slice; sweet -->
+		<annotation cp='[🍰]' tts='เค้ก'>เค้ก; ชิ้นเค้ก</annotation>
+
+		<!-- CHOCOLATE BAR; bar; chocolate; dessert; food; restaurant; sweet -->
+		<annotation cp='[🍫]' tts='ช็อกโกแลต'>ช็อกโกแลต; ช็อกโกแลตแท่ง</annotation>
+
+		<!-- CANDY; candy; dessert; food; restaurant; sweet -->
+		<annotation cp='[🍬]' tts='ลูกอม'>ลูกอม</annotation>
+
+		<!-- LOLLIPOP; candy; dessert; food; lollipop; restaurant; sweet -->
+		<annotation cp='[🍭]' tts='อมยิ้ม'>อมยิ้ม</annotation>
+
+		<!-- CUSTARD; custard; dessert; food; pudding; restaurant; sweet -->
+		<annotation cp='[🍮]' tts='คัสตาร์ด'>คัสตาร์ด; พุดดิ้ง</annotation>
+
+		<!-- HONEY POT; food; honey; honeypot; pot; restaurant; sweet -->
+		<annotation cp='[🍯]' tts='โถน้ำผึ้ง'>โถน้ำผึ้ง; น้ำผึ้ง</annotation>
+
+		<!-- HOT BEVERAGE; beverage; coffee; drink; food; hot; steaming; tea -->
+		<annotation cp='[☕]'>MISSING</annotation>
+
+		<!-- TEACUP WITHOUT HANDLE; beverage; cup; drink; food; tea; teacup -->
+		<annotation cp='[🍵]' tts='ถ้วยชา'>ถ้วยชา; ชา</annotation>
+
+		<!-- SAKE BOTTLE AND CUP; bar; beverage; bottle; cup; drink; food; restaurant; sake -->
+		<annotation cp='[🍶]' tts='สาเก'>สาเก; ขวดสาเก; เหล้าสาเก</annotation>
+
+		<!-- WINE GLASS; bar; beverage; drink; food; glass; restaurant; wine -->
+		<annotation cp='[🍷]' tts='ไวน์'>ไวน์; แก้วไวน์; ไวน์แดง</annotation>
+
+		<!-- COCKTAIL GLASS; bar; cocktail; drink; food; glass; restaurant -->
+		<annotation cp='[🍸]' tts='ค็อกเทล'>ค็อกเทล; แก้วค็อกเทล</annotation>
+
+		<!-- TROPICAL DRINK; bar; drink; food; restaurant; tropical -->
+		<annotation cp='[🍹]' tts='เครื่องดื่มผสมน้ำผลไม้'>เครื่องดื่มผสมน้ำผลไม้</annotation>
+
+		<!-- BEER MUG; bar; beer; drink; food; mug; restaurant -->
+		<annotation cp='[🍺]' tts='เบียร์'>เบียร์; เหยือกเบียร์</annotation>
+
+		<!-- CLINKING BEER MUGS; bar; beer; clink; drink; food; mug; restaurant -->
+		<annotation cp='[🍻]' tts='เหยือกเบียร์ชนกัน'>เหยือกเบียร์ชนกัน; ฉลอง</annotation>
+
+		<!-- BABY BOTTLE; baby; bottle; drink; food; milk -->
+		<annotation cp='[🍼]' tts='ขวดนม'>ขวดนม; นม</annotation>
+
+		<!-- FORK AND KNIFE WITH PLATE; food; fork; knife; plate; restaurant -->
+		<annotation cp='[🍽]'>MISSING</annotation>
+
+		<!-- FORK AND KNIFE; food; fork; knife; restaurant -->
+		<annotation cp='[🍴]' tts='ส้อมและมีด'>ส้อมและมีด; ร้านอาหาร</annotation>
+
+		<!-- COOKING; cooking; egg; food; frying; pan; restaurant -->
+		<annotation cp='[🍳]' tts='กระทะ'>กระทะ; ทำอาหาร; ไข่ดาว</annotation>
+
+		<!-- EARTH GLOBE EUROPE-AFRICA; africa; earth; europe; globe; nature; place; world -->
+		<annotation cp='[🌍]' tts='โลก'>โลก; ยุโรป; แอฟริกา</annotation>
+
+		<!-- EARTH GLOBE AMERICAS; americas; earth; globe; nature; place; world -->
+		<annotation cp='[🌎]' tts='โลก'>โลก; อเมริกา</annotation>
+
+		<!-- EARTH GLOBE ASIA-AUSTRALIA; asia; australia; earth; globe; nature; place; world -->
+		<annotation cp='[🌏]' tts='โลก'>โลก; เอเชีย; ออสเตรเลีย</annotation>
+
+		<!-- GLOBE WITH MERIDIANS; earth; globe; meridians; nature; place; world -->
+		<annotation cp='[🌐]' tts='โลก'>โลก; เส้นเมริเดียน</annotation>
+
+		<!-- WORLD MAP; map; place; world -->
+		<annotation cp='[🗺]'>MISSING</annotation>
+
+		<!-- SNOW CAPPED MOUNTAIN; cold; mountain; nature; place; snow -->
+		<annotation cp='[🏔]'>MISSING</annotation>
+
+		<!-- MOUNTAIN; mountain; place -->
+		<annotation cp='[⛰]'>MISSING</annotation>
+
+		<!-- VOLCANO; eruption; mountain; nature; place; volcano; weather -->
+		<annotation cp='[🌋]' tts='ภูเขาไฟ'>ภูเขาไฟ; ภูเขาไฟระเบิด</annotation>
+
+		<!-- MOUNT FUJI; fuji; mountain; nature; place -->
+		<annotation cp='[🗻]' tts='ภูเขาไฟฟูจิ'>ภูเขาไฟฟูจิ; ภูเขา</annotation>
+
+		<!-- CAMPING; camping; nature; place -->
+		<annotation cp='[🏕]'>MISSING</annotation>
+
+		<!-- BEACH WITH UMBRELLA; beach; nature; place; umbrella -->
+		<annotation cp='[🏖]'>MISSING</annotation>
+
+		<!-- DESERT; desert; nature; place -->
+		<annotation cp='[🏜]'>MISSING</annotation>
+
+		<!-- DESERT ISLAND; desert; island; nature; place -->
+		<annotation cp='[🏝]'>MISSING</annotation>
+
+		<!-- NATIONAL PARK; national park; nature; park; place -->
+		<annotation cp='[🏞]'>MISSING</annotation>
+
+		<!-- STADIUM; place; stadium -->
+		<annotation cp='[🏟]'>MISSING</annotation>
+
+		<!-- CLASSICAL BUILDING; building; classical; place -->
+		<annotation cp='[🏛]'>MISSING</annotation>
+
+		<!-- BUILDING CONSTRUCTION; building; construction; place -->
+		<annotation cp='[🏗]'>MISSING</annotation>
+
+		<!-- HOUSE BUILDINGS; building; house; place -->
+		<annotation cp='[🏘]'>MISSING</annotation>
+
+		<!-- CITYSCAPE; building; city; place -->
+		<annotation cp='[🏙]'>MISSING</annotation>
+
+		<!-- DERELICT HOUSE BUILDING; building; derelict; house; place -->
+		<annotation cp='[🏚]'>MISSING</annotation>
+
+		<!-- HOUSE BUILDING; building; home; house; place -->
+		<annotation cp='[🏠]' tts='บ้าน'>บ้าน; ตึก</annotation>
+
+		<!-- HOUSE WITH GARDEN; building; garden; home; house; place -->
+		<annotation cp='[🏡]' tts='บ้านพร้อมสวน'>บ้านพร้อมสวน; บ้าน</annotation>
+
+		<!-- CHURCH; building; christian; church; cross; place; religion -->
+		<annotation cp='[⛪]' tts='โบสถ์'>โบสถ์</annotation>
+
+		<!-- OFFICE BUILDING; building; office; place -->
+		<annotation cp='[🏢]' tts='ตึกสำนักงาน'>ตึกสำนักงาน; ตึก; สำนักงาน</annotation>
+
+		<!-- JAPANESE POST OFFICE; building; japanese; office; place; post -->
+		<annotation cp='[🏣]' tts='ไปรษณีย์ญี่ปุ่น'>ไปรษณีย์ญี่ปุ่น; ตึก</annotation>
+
+		<!-- EUROPEAN POST OFFICE; building; european; office; place; post -->
+		<annotation cp='[🏤]' tts='ไปรษณีย์ยุโรป'>ไปรษณีย์ยุโรป; ตึก</annotation>
+
+		<!-- HOSPITAL; building; doctor; hospital; medicine; place -->
+		<annotation cp='[🏥]' tts='โรงพยาบาล'>โรงพยาบาล; ตึก</annotation>
+
+		<!-- BANK; bank; building; place -->
+		<annotation cp='[🏦]' tts='ธนาคาร'>ธนาคาร; ตึก</annotation>
+
+		<!-- HOTEL; building; hotel; place -->
+		<annotation cp='[🏨]' tts='โรงแรม'>โรงแรม; ตึก</annotation>
+
+		<!-- LOVE HOTEL; building; hotel; love; place -->
+		<annotation cp='[🏩]' tts='ม่านรูด'>ม่านรูด; โรงแรม</annotation>
+
+		<!-- CONVENIENCE STORE; building; convenience; place; store -->
+		<annotation cp='[🏪]' tts='ร้านสะดวกซื้อ'>ร้านสะดวกซื้อ</annotation>
+
+		<!-- SCHOOL; building; education; place; school -->
+		<annotation cp='[🏫]' tts='โรงเรียน'>โรงเรียน; ตึกเรียน</annotation>
+
+		<!-- DEPARTMENT STORE; building; department; place; store -->
+		<annotation cp='[🏬]' tts='ห้างสรรพสินค้า'>ห้างสรรพสินค้า</annotation>
+
+		<!-- FACTORY; building; factory; place -->
+		<annotation cp='[🏭]' tts='โรงงาน'>โรงงาน</annotation>
+
+		<!-- JAPANESE CASTLE; building; castle; japanese; place -->
+		<annotation cp='[🏯]' tts='ปราสาทญี่ปุ่น'>ปราสาทญี่ปุ่น</annotation>
+
+		<!-- EUROPEAN CASTLE; building; castle; european; place -->
+		<annotation cp='[🏰]' tts='ปราสาทยุโรป'>ปราสาทยุโรป; ปราสาท</annotation>
+
+		<!-- WEDDING; activity; chapel; place; romance; wedding -->
+		<annotation cp='[💒]' tts='งานแต่งงาน'>งานแต่งงาน; โบสถ์</annotation>
+
+		<!-- TOKYO TOWER; place; tokyo; tower -->
+		<annotation cp='[🗼]' tts='โตเกียวทาวเวอร์'>โตเกียวทาวเวอร์; โตเกียว</annotation>
+
+		<!-- STATUE OF LIBERTY; liberty; place; statue -->
+		<annotation cp='[🗽]' tts='เทพีเสรีภาพ'>เทพีเสรีภาพ; รูปปั้น</annotation>
+
+		<!-- SILHOUETTE OF JAPAN; japan; map; place -->
+		<annotation cp='[🗾]' tts='แผนที่ญี่ปุ่น'>แผนที่ญี่ปุ่น; ญี่ปุ่น</annotation>
+
+		<!-- FOUNTAIN; fountain; object; place -->
+		<annotation cp='[⛲]' tts='น้ำพุ'>น้ำพุ</annotation>
+
+		<!-- TENT; camping; place; tent -->
+		<annotation cp='[⛺]' tts='เต๊นท์'>เต๊นท์; ตั้งแคมป์</annotation>
+
+		<!-- FOGGY; fog; nature; place; weather -->
+		<annotation cp='[🌁]' tts='หมอกลง'>หมอกลง; หมอก</annotation>
+
+		<!-- NIGHT WITH STARS; night; place; star; weather -->
+		<annotation cp='[🌃]' tts='ดาว'>ดาว; ดาวยามค่ำคืน; กลางคืน</annotation>
+
+		<!-- SUNRISE OVER MOUNTAINS; morning; mountain; place; sun; sunrise; time; weather -->
+		<annotation cp='[🌄]' tts='ดวงอาทิตย์ขึ้น'>ดวงอาทิตย์ขึ้น; ดวงอาทิตย์ตอนเช้า</annotation>
+
+		<!-- SUNRISE; morning; place; sun; sunrise; time; weather -->
+		<annotation cp='[🌅]' tts='ดวงอาทิตย์ขึ้น'>ดวงอาทิตย์ขึ้น; ดวงอาทิตย์ตอนเช้า</annotation>
+
+		<!-- CITYSCAPE AT DUSK; building; city; dusk; evening; landscape; place; sun; sunset; time; weather -->
+		<annotation cp='[🌆]' tts='เมืองยามโพล้เพล้'>เมืองยามโพล้เพล้; โพล้เพล้; ตอนเย็น</annotation>
+
+		<!-- SUNSET OVER BUILDINGS; building; dusk; place; sun; sunset; time; weather -->
+		<annotation cp='[🌇]' tts='ดวงอาทิตย์ตก'>ดวงอาทิตย์ตก; โพล้เพล้; ดวงอาทิตย์ตกเหนือตึก</annotation>
+
+		<!-- BRIDGE AT NIGHT; bridge; night; place; weather -->
+		<annotation cp='[🌉]' tts='สะพานกลางคืน'>สะพานกลางคืน; สะพาน; กลางคืน</annotation>
+
+		<!-- WATER WAVE; ocean; place; water; wave; weather -->
+		<annotation cp='[🌊]' tts='คลื่น'>คลื่น; คลื่นทะเล</annotation>
+
+		<!-- HOT SPRINGS; hot; hotsprings; springs; steaming; travel -->
+		<annotation cp='[♨]'>MISSING</annotation>
+
+		<!-- MOYAI; face; moyai; statue; travel -->
+		<annotation cp='[🗿]' tts='รูปปั้นโมไอ'>รูปปั้นโมไอ</annotation>
+
+		<!-- MILKY WAY; milky way; place; space; weather -->
+		<annotation cp='[🌌]' tts='ทางช้างเผือก'>ทางช้างเผือก</annotation>
+
+		<!-- CAROUSEL HORSE; activity; carousel; entertainment; horse; place -->
+		<annotation cp='[🎠]' tts='ม้าหมุน'>ม้าหมุน; สวนสนุก</annotation>
+
+		<!-- FERRIS WHEEL; activity; amusement park; entertainment; ferris; place; wheel -->
+		<annotation cp='[🎡]' tts='ชิงช้าสวรรค์'>ชิงช้าสวรรค์; สวนสนุก</annotation>
+
+		<!-- ROLLER COASTER; activity; amusement park; coaster; entertainment; place; roller -->
+		<annotation cp='[🎢]' tts='รถไฟเหาะ'>รถไฟเหาะ; สวนสนุก</annotation>
+
+		<!-- BARBER POLE; barber; haircut; place; pole -->
+		<annotation cp='[💈]' tts='ร้านตัดผม'>ร้านตัดผม; บาร์เบอร์</annotation>
+
+		<!-- CIRCUS TENT; activity; circus; entertainment; place; tent -->
+		<annotation cp='[🎪]' tts='ละครสัตว์'>ละครสัตว์; เต๊นท์ละครสัตว์</annotation>
+
+		<!-- TICKET; activity; admission; entertainment; object; place; ticket -->
+		<annotation cp='[🎫]' tts='ตั๋ว'>ตั๋ว</annotation>
+
+		<!-- PERFORMING ARTS; activity; art; entertainment; face; mask; object; performing; place; theater; theatre -->
+		<annotation cp='[🎭]' tts='หน้ากาก'>หน้ากาก; ศาสตร์การแสดง</annotation>
+
+		<!-- SLOT MACHINE; activity; game; object; place; slot -->
+		<annotation cp='[🎰]' tts='สล็อตแมชชีน'>สล็อตแมชชีน</annotation>
+
+		<!-- STEAM LOCOMOTIVE; engine; locomotive; railway; steam; train; travel; vehicle -->
+		<annotation cp='[🚂]' tts='หัวรถจักรไอน้ำ'>หัวรถจักรไอน้ำ</annotation>
+
+		<!-- RAILWAY CAR; car; electric; railway; train; tram; travel; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='รถไฟ'>รถไฟ; รถไฟฟ้า; รถราง</annotation>
+
+		<!-- HIGH-SPEED TRAIN; railway; shinkansen; speed; train; travel; vehicle -->
+		<annotation cp='[🚄]' tts='ชินคันเซ็น'>ชินคันเซ็น; รถไฟความเร็วสูง</annotation>
+
+		<!-- HIGH-SPEED TRAIN WITH BULLET NOSE; bullet; railway; shinkansen; speed; train; travel; vehicle -->
+		<annotation cp='[🚅]' tts='รถไฟความเร็วสูง'>รถไฟความเร็วสูง</annotation>
+
+		<!-- TRAIN; railway; train; travel; vehicle -->
+		<annotation cp='[🚆]' tts='รถไฟ'>รถไฟ</annotation>
+
+		<!-- METRO; metro; subway; travel; vehicle -->
+		<annotation cp='[🚇]' tts='รถไฟใต้ดิน'>รถไฟใต้ดิน</annotation>
+
+		<!-- LIGHT RAIL; railway; travel; vehicle -->
+		<annotation cp='[🚈]' tts='รถไฟรางเบา'>รถไฟรางเบา</annotation>
+
+		<!-- STATION; railway; station; train; travel; vehicle -->
+		<annotation cp='[🚉]' tts='สถานีรถไฟ'>สถานีรถไฟ</annotation>
+
+		<!-- TRAM; tram; travel; trolleybus; vehicle -->
+		<annotation cp='[🚊]' tts='รถราง'>รถราง</annotation>
+
+		<!-- MONORAIL; monorail; travel; vehicle -->
+		<annotation cp='[🚝]' tts='รถไฟรางเดี่ยว'>รถไฟรางเดี่ยว</annotation>
+
+		<!-- MOUNTAIN RAILWAY; car; mountain; railway; travel; vehicle -->
+		<annotation cp='[🚞]' tts='รางรถไฟภูเขา'>รางรถไฟภูเขา</annotation>
+
+		<!-- TRAM CAR; car; tram; travel; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='รถราง'>รถราง</annotation>
+
+		<!-- BUS; bus; travel; vehicle -->
+		<annotation cp='[🚌]' tts='รถบัส'>รถบัส</annotation>
+
+		<!-- ONCOMING BUS; bus; oncoming; travel; vehicle -->
+		<annotation cp='[🚍]' tts='รถบัส'>รถบัส</annotation>
+
+		<!-- TROLLEYBUS; bus; tram; travel; trolley; trolleybus; vehicle -->
+		<annotation cp='[🚎]' tts='รถราง'>รถราง</annotation>
+
+		<!-- BUS STOP; bus; busstop; stop; travel -->
+		<annotation cp='[🚏]' tts='ป้ายรถบัส'>ป้ายรถบัส</annotation>
+
+		<!-- MINIBUS; bus; minibus; travel; vehicle -->
+		<annotation cp='[🚐]' tts='มินิบัส'>มินิบัส</annotation>
+
+		<!-- AMBULANCE; ambulance; travel; vehicle -->
+		<annotation cp='[🚑]' tts='รถพยาบาล'>รถพยาบาล</annotation>
+
+		<!-- FIRE ENGINE; engine; fire; travel; truck; vehicle -->
+		<annotation cp='[🚒]' tts='รถดับเพลิง'>รถดับเพลิง</annotation>
+
+		<!-- POLICE CAR; car; patrol; police; travel; vehicle -->
+		<annotation cp='[🚓]' tts='รถตำรวจ'>รถตำรวจ</annotation>
+
+		<!-- ONCOMING POLICE CAR; car; oncoming; police; travel; vehicle -->
+		<annotation cp='[🚔]' tts='รถตำรวจกำลังมา'>รถตำรวจกำลังมา</annotation>
+
+		<!-- TAXI; taxi; travel; vehicle -->
+		<annotation cp='[🚕]' tts='แท็กซี่'>แท็กซี่</annotation>
+
+		<!-- ONCOMING TAXI; oncoming; taxi; travel; vehicle -->
+		<annotation cp='[🚖]' tts='แท็กซี่กำลังมา'>แท็กซี่กำลังมา</annotation>
+
+		<!-- AUTOMOBILE; automobile; car; travel; vehicle -->
+		<annotation cp='[🚗]' tts='รถ'>รถ</annotation>
+
+		<!-- ONCOMING AUTOMOBILE; automobile; car; oncoming; travel; vehicle -->
+		<annotation cp='[🚘]' tts='รถกำลังมา'>รถกำลังมา; รถ</annotation>
+
+		<!-- RECREATIONAL VEHICLE; recreational; rv; travel; vehicle -->
+		<annotation cp='[🚙]' tts='รถบ้าน'>รถบ้าน; รถพักผ่อน; รถ</annotation>
+
+		<!-- DELIVERY TRUCK; delivery; travel; truck; vehicle -->
+		<annotation cp='[🚚]' tts='รถขนส่ง'>รถขนส่ง; รถ</annotation>
+
+		<!-- ARTICULATED LORRY; lorry; semi; travel; truck; vehicle -->
+		<annotation cp='[🚛]' tts='รถบรรทุก'>รถบรรทุก</annotation>
+
+		<!-- TRACTOR; tractor; travel; vehicle -->
+		<annotation cp='[🚜]' tts='แทร็กเตอร์'>แทร็กเตอร์</annotation>
+
+		<!-- BICYCLE; bicycle; bike; sport; travel; vehicle -->
+		<annotation cp='[🚲]' tts='จักรยาน'>จักรยาน</annotation>
+
+		<!-- NO BICYCLES; bicycle; bike; forbidden; no; not; prohibited; sign; sport; travel; vehicle -->
+		<annotation cp='[🚳]' tts='ห้ามจักรยาน'>ห้ามจักรยาน</annotation>
+
+		<!-- BICYCLIST; bicycle; bicyclist; bike; cyclist; human; person; sport; travel -->
+		<annotation cp='[🚴]' tts='นักปั่นจักรยาน'>นักปั่นจักรยาน; ปั่นจักรยาน</annotation>
+
+		<!-- MOUNTAIN BICYCLIST; bicycle; bicyclist; bike; cyclist; human; mountain; person; sport; travel -->
+		<annotation cp='[🚵]' tts='นักปั่นจักรยานเสือภูเขา'>นักปั่นจักรยานเสือภูเขา; นักปั่นจักรยาน; ปั่นจักรยาน</annotation>
+
+		<!-- RACING CAR; car; racing; sport; travel -->
+		<annotation cp='[🏎]'>MISSING</annotation>
+
+		<!-- RACING MOTORCYCLE; human; motorcycle; person; racing; sport; travel -->
+		<annotation cp='[🏍]'>MISSING</annotation>
+
+		<!-- FUEL PUMP; fuel; fuelpump; gas; pump; station; travel -->
+		<annotation cp='[⛽]' tts='ปั๊มน้ำมัน'>ปั๊มน้ำมัน; น้ำมัน</annotation>
+
+		<!-- MOTORWAY; highway; motorway; road; travel -->
+		<annotation cp='[🛣]'>MISSING</annotation>
+
+		<!-- RAILWAY TRACK; railway; train; travel -->
+		<annotation cp='[🛤]'>MISSING</annotation>
+
+		<!-- POLICE CARS REVOLVING LIGHT; beacon; car; light; police; revolving; travel -->
+		<annotation cp='[🚨]' tts='สัญญาณไฟตำรวจ'>สัญญาณไฟตำรวจ</annotation>
+
+		<!-- HELM SYMBOL; helm; travel -->
+		<annotation cp='[⎈]'>MISSING</annotation>
+
+		<!-- ANCHOR; anchor; ship; tool; travel -->
+		<annotation cp='[⚓]' tts='สมอเรือ'>สมอเรือ</annotation>
+
+		<!-- SAILBOAT; boat; resort; sailboat; sea; travel; yacht -->
+		<annotation cp='[⛵]' tts='เรือใบ'>เรือใบ; เรือ; ทะเล</annotation>
+
+		<!-- ROWBOAT; boat; rowboat; travel; vehicle -->
+		<annotation cp='[🚣]' tts='เรือพาย'>เรือพาย</annotation>
+
+		<!-- SPEEDBOAT; boat; speedboat; travel; vehicle -->
+		<annotation cp='[🚤]' tts='เรือด่วน'>เรือด่วน</annotation>
+
+		<!-- PASSENGER SHIP; passenger; ship; travel; vehicle -->
+		<annotation cp='[🛳]'>MISSING</annotation>
+
+		<!-- FERRY; boat; ferry; travel -->
+		<annotation cp='[⛴]'>MISSING</annotation>
+
+		<!-- MOTOR BOAT; boat; motorboat; travel; vehicle -->
+		<annotation cp='[🛥]'>MISSING</annotation>
+
+		<!-- SHIP; ship; travel; vehicle -->
+		<annotation cp='[🚢]' tts='เรือ'>เรือ</annotation>
+
+		<!-- AIRPLANE; airplane; travel -->
+		<annotation cp='[✈]'>MISSING</annotation>
+
+		<!-- SMALL AIRPLANE; airplane; travel; vehicle -->
+		<annotation cp='[🛩]'>MISSING</annotation>
+
+		<!-- AIRPLANE DEPARTURE; airplane; departure; departures; travel; vehicle -->
+		<annotation cp='[🛫]'>MISSING</annotation>
+
+		<!-- AIRPLANE ARRIVING; airplane; arrivals; arriving; landing; travel; vehicle -->
+		<annotation cp='[🛬]'>MISSING</annotation>
+
+		<!-- SEAT; chair; office; seat; travel -->
+		<annotation cp='[💺]' tts='ที่นั่ง'>ที่นั่ง; เก้าอี้</annotation>
+
+		<!-- HELICOPTER; helicopter; travel; vehicle -->
+		<annotation cp='[🚁]' tts='เฮลิคอปเตอร์'>เฮลิคอปเตอร์</annotation>
+
+		<!-- SUSPENSION RAILWAY; railway; suspension; travel; vehicle -->
+		<annotation cp='[🚟]' tts='รถไฟสะพานแขวน'>รถไฟสะพานแขวน</annotation>
+
+		<!-- MOUNTAIN CABLEWAY; cable; gondola; mountain; travel; vehicle -->
+		<annotation cp='[🚠]' tts='เคเบิลคาร์'>เคเบิลคาร์; เคเบิลคาร์ภูเขา</annotation>
+
+		<!-- AERIAL TRAMWAY; aerial; cable; car; gondola; ropeway; tramway; travel; vehicle -->
+		<annotation cp='[🚡]' tts='เคเบิลคาร์'>เคเบิลคาร์</annotation>
+
+		<!-- ROCKET; fantasy; rocket; space; travel; vehicle -->
+		<annotation cp='[🚀]' tts='จรวด'>จรวด</annotation>
+
+		<!-- SATELLITE; place; satellite; space; vehicle -->
+		<annotation cp='[🛰]'>MISSING</annotation>
+
+		<!-- AUTOMATED TELLER MACHINE; atm; automated; bank; place; sign; teller -->
+		<annotation cp='[🏧]' tts='เอทีเอ็ม'>เอทีเอ็ม</annotation>
+
+		<!-- PUT LITTER IN ITS PLACE SYMBOL; human; litter; litterbox; place; travel -->
+		<annotation cp='[🚮]' tts='ทิ้งขยะให้ลงถัง'>ทิ้งขยะให้ลงถัง; ป้ายถังขยะ</annotation>
+
+		<!-- HORIZONTAL TRAFFIC LIGHT; light; signal; traffic; travel -->
+		<annotation cp='[🚥]' tts='ไฟจราจร'>ไฟจราจร; ไฟจราจรแนวนอน</annotation>
+
+		<!-- VERTICAL TRAFFIC LIGHT; light; signal; traffic; travel -->
+		<annotation cp='[🚦]' tts='ไฟจราจร'>ไฟจราจร; ไฟจราจรแนวตั้ง</annotation>
+
+		<!-- CONSTRUCTION SIGN; barrier; construction; travel -->
+		<annotation cp='[🚧]' tts='ป้ายไซต์ก่อสร้าง'>ป้ายไซต์ก่อสร้าง; กำลังก่อสร้าง</annotation>
+
+		<!-- NO ENTRY SIGN; entry; forbidden; no; not; prohibited; travel -->
+		<annotation cp='[🚫]' tts='ป้ายห้ามเข้า'>ป้ายห้ามเข้า; ห้ามเข้า</annotation>
+
+		<!-- NO SMOKING SYMBOL; forbidden; no; not; prohibited; sign; smoking; travel -->
+		<annotation cp='[🚭]' tts='ป้ายห้ามสูบบุหรี่'>ป้ายห้ามสูบบุหรี่; ห้ามสูบบุหรี่</annotation>
+
+		<!-- DO NOT LITTER SYMBOL; forbidden; litter; no; not; prohibited; sign; travel -->
+		<annotation cp='[🚯]' tts='ห้ามทิ้งขยะ'>ห้ามทิ้งขยะ; ป้ายห้ามทิ้งขยะ</annotation>
+
+		<!-- POTABLE WATER SYMBOL; drink; potable; sign; travel; water -->
+		<annotation cp='[🚰]' tts='น้ำดื่ม'>น้ำดื่ม; ก๊อก</annotation>
+
+		<!-- NON-POTABLE WATER SYMBOL; drink; forbidden; no; not; potable; prohibited; sign; travel; water -->
+		<annotation cp='[🚱]' tts='ห้ามดื่มน้ำ'>ห้ามดื่มน้ำ</annotation>
+
+		<!-- NO PEDESTRIANS; forbidden; human; no; not; pedestrian; prohibited; sign; travel -->
+		<annotation cp='[🚷]' tts='ไม่มีคนเดินเท้า'>ไม่มีคนเดินเท้า; ห้ามเดิน</annotation>
+
+		<!-- CHILDREN CROSSING; child; crossing; human; pedestrian; sign; traffic; travel -->
+		<annotation cp='[🚸]' tts='เด็กๆ ข้ามถนน'>โรงเรียน</annotation>
+
+		<!-- WHEELCHAIR SYMBOL; access; human; sign; travel; wheelchair -->
+		<annotation cp='[♿]' tts='รถเข็นผู้ป่วย'>รถเข็นผู้ป่วย; คนพิการ</annotation>
+
+		<!-- MENS SYMBOL; human; lavatory; men; men’s; restroom; sign; travel; wc -->
+		<annotation cp='[🚹]' tts='ห้องชาย'>ห้องชาย</annotation>
+
+		<!-- WOMENS SYMBOL; human; lavatory; restroom; sign; travel; wc; woman; women’s -->
+		<annotation cp='[🚺]' tts='ห้องหญิง'>ห้องหญิง; สัญลักษณ์ผู้หญิง</annotation>
+
+		<!-- RESTROOM; human; lavatory; restroom; sign; travel; wc -->
+		<annotation cp='[🚻]' tts='ห้องน้ำ'>ห้องน้ำ</annotation>
+
+		<!-- BABY SYMBOL; baby; changing; human; sign; travel -->
+		<annotation cp='[🚼]' tts='ป้ายทารก'>ป้ายทารก; ที่เปลี่ยนผ้าอ้อมเด็ก</annotation>
+
+		<!-- WATER CLOSET; closet; lavatory; restroom; sign; travel; water; wc -->
+		<annotation cp='[🚾]' tts='ป้ายห้องน้ำ'>ป้ายห้องน้ำ; ห้องน้ำ</annotation>
+
+		<!-- PASSPORT CONTROL; control; passport; sign; travel -->
+		<annotation cp='[🛂]' tts='ตรวจพาสปอร์ต'>ตรวจพาสปอร์ต; พาสปอร์ต</annotation>
+
+		<!-- CUSTOMS; customs; sign; travel -->
+		<annotation cp='[🛃]' tts='ศุลกากร'>ศุลกากร</annotation>
+
+		<!-- BAGGAGE CLAIM; baggage; claim; sign; travel -->
+		<annotation cp='[🛄]' tts='รับสัมภาระ'>รับสัมภาระ; กระเป๋าเดินทาง</annotation>
+
+		<!-- LEFT LUGGAGE; baggage; left luggage; locker; luggage; sign; travel -->
+		<annotation cp='[🛅]' tts='บริการฝากกระเป๋า'>บริการฝากกระเป๋า</annotation>
+
+		<!-- WARNING SIGN; travel; warning -->
+		<annotation cp='[⚠]' tts='ป้ายระวัง'>ป้ายระวัง; ระวัง</annotation>
+
+		<!-- NO ENTRY; entry; forbidden; no; not; prohibited; traffic; travel -->
+		<annotation cp='[⛔]' tts='ป้ายห้ามเข้า'>ป้ายห้ามเข้า; หวงห้าม</annotation>
+
+		<!-- BELLHOP BELL; bell; bellhop; hotel; object -->
+		<annotation cp='[🛎]'>MISSING</annotation>
+
+		<!-- DOOR; door; object; travel -->
+		<annotation cp='[🚪]' tts='ประตู'>ประตู</annotation>
+
+		<!-- SLEEPING ACCOMMODATION; hotel; object; sleep -->
+		<annotation cp='[🛌]'>MISSING</annotation>
+
+		<!-- BED; bed; hotel; object; sleep -->
+		<annotation cp='[🛏]'>MISSING</annotation>
+
+		<!-- COUCH AND LAMP; couch; hotel; lamp; object -->
+		<annotation cp='[🛋]'>MISSING</annotation>
+
+		<!-- TOILET; object; toilet; travel -->
+		<annotation cp='[🚽]' tts='ห้องน้ำ'>ห้องน้ำ</annotation>
+
+		<!-- SHOWER; object; shower; travel; water -->
+		<annotation cp='[🚿]' tts='ฝักบัว'>ฝักบัว</annotation>
+
+		<!-- BATH; bath; bathtub; object; travel -->
+		<annotation cp='[🛀]' tts='อาบน้ำ'>อาบน้ำ</annotation>
+
+		<!-- BATHTUB; bath; bathtub; object; travel -->
+		<annotation cp='[🛁]' tts='อ่างอาบน้ำ'>อ่างอาบน้ำ</annotation>
+
+		<!-- SHOPPING BAGS; bag; hotel; object; shopping -->
+		<annotation cp='[🛍]'>MISSING</annotation>
+
+		<!-- HOURGLASS; hourglass; sand; time; timer -->
+		<annotation cp='[⌛]' tts='นาฬิกาทราย'>นาฬิกาทราย; ทราย</annotation>
+
+		<!-- HOURGLASS WITH FLOWING SAND; hourglass; sand; time; timer -->
+		<annotation cp='[⏳]' tts='นาฬิกาทรายจับเวลา'>นาฬิกาทรายจับเวลา; นาฬิกาทราย</annotation>
+
+		<!-- WATCH; clock; time; watch -->
+		<annotation cp='[⌚]' tts='นาฬิกาข้อมือ'>นาฬิกาข้อมือ; นาฬิกา</annotation>
+
+		<!-- ALARM CLOCK; alarm; clock; time -->
+		<annotation cp='[⏰]' tts='นาฬิกาปลุก'>นาฬิกาปลุก; ปลุก</annotation>
+
+		<!-- STOPWATCH; clock; stopwatch; time -->
+		<annotation cp='[⏱]'>MISSING</annotation>
+
+		<!-- TIMER CLOCK; clock; time; timer -->
+		<annotation cp='[⏲]'>MISSING</annotation>
+
+		<!-- MANTELPIECE CLOCK; clock; object -->
+		<annotation cp='[🕰]'>MISSING</annotation>
+
+		<!-- CLOCK FACE TWELVE OCLOCK; 00; 12; 12:00; clock; face; o’clock; time; twelve -->
+		<annotation cp='[🕛]' tts='สิบสองนาฬิกา'>สิบสองนาฬิกา; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE TWELVE-THIRTY; 12; 30; 12:30; clock; face; thirty; time; twelve -->
+		<annotation cp='[🕧]' tts='สิบสองนาฬิกาครึ่ง'>สิบสองนาฬิกาครึ่ง; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE ONE OCLOCK; 00; 1; 1:00; clock; face; o’clock; one; time -->
+		<annotation cp='[🕐]' tts='หนึ่งนาฬิกา'>หนึ่งนาฬิกา; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE ONE-THIRTY; 1; 30; 1:30; clock; face; one; thirty; time -->
+		<annotation cp='[🕜]' tts='หนึ่งนาฬิกาครึ่ง'>หนึ่งนาฬิกาครึ่ง; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE TWO OCLOCK; 00; 2; 2:00; clock; face; o’clock; time; two -->
+		<annotation cp='[🕑]' tts='สองนาฬิกา'>สองนาฬิกา; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE TWO-THIRTY; 2; 30; 2:30; clock; face; thirty; time; two -->
+		<annotation cp='[🕝]' tts='สองนาฬิกาครึ่ง'>สองนาฬิกาครึ่ง; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE THREE OCLOCK; 00; 3; 3:00; clock; face; o’clock; three; time -->
+		<annotation cp='[🕒]' tts='สามนาฬิกา'>สามนาฬิกา; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE THREE-THIRTY; 3; 30; 3:30; clock; face; thirty; three; time -->
+		<annotation cp='[🕞]' tts='สามนาฬิกาครึ่ง'>สามนาฬิกาครึ่ง; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE FOUR OCLOCK; 00; 4; 4:00; clock; face; four; o’clock; time -->
+		<annotation cp='[🕓]' tts='สี่นาฬิกา'>สี่นาฬิกา; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE FOUR-THIRTY; 4; 30; 4:30; clock; face; four; thirty; time -->
+		<annotation cp='[🕟]' tts='สี่นาฬิกาครึ่ง'>สี่นาฬิกาครึ่ง; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE FIVE OCLOCK; 00; 5; 5:00; clock; face; five; o’clock; time -->
+		<annotation cp='[🕔]' tts='ห้านาฬิกา'>ห้านาฬิกา; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE FIVE-THIRTY; 5; 30; 5:30; clock; face; five; thirty; time -->
+		<annotation cp='[🕠]' tts='ห้านาฬิกาครึ่ง'>ห้านาฬิกาครึ่ง; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE SIX OCLOCK; 00; 6; 6:00; clock; face; o’clock; six; time -->
+		<annotation cp='[🕕]' tts='หกนาฬิกา'>หกนาฬิกา; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE SIX-THIRTY; 6; 30; 6:30; clock; face; six; thirty; time -->
+		<annotation cp='[🕡]' tts='หกนาฬิกาครึ่ง'>หกนาฬิกาครึ่ง; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE SEVEN OCLOCK; 00; 7; 7:00; clock; face; o’clock; seven; time -->
+		<annotation cp='[🕖]' tts='เจ็ดนาฬิกา'>เจ็ดนาฬิกา; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE SEVEN-THIRTY; 7; 30; 7:30; clock; face; seven; thirty; time -->
+		<annotation cp='[🕢]' tts='เจ็ดนาฬิกาครึ่ง'>เจ็ดนาฬิกาครึ่ง; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE EIGHT OCLOCK; 00; 8; 8:00; clock; eight; face; o’clock; time -->
+		<annotation cp='[🕗]' tts='แปดนาฬิกา'>แปดนาฬิกา; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE EIGHT-THIRTY; 8; 30; 8:30; clock; eight; face; thirty; time -->
+		<annotation cp='[🕣]' tts='แปดนาฬิกาครึ่ง'>แปดนาฬิกาครึ่ง; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE NINE OCLOCK; 00; 9; 9:00; clock; face; nine; o’clock; time -->
+		<annotation cp='[🕘]' tts='เก้านาฬิกา'>เก้านาฬิกา; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE NINE-THIRTY; 9; 30; 9:30; clock; face; nine; thirty; time -->
+		<annotation cp='[🕤]' tts='เก้านาฬิกาครึ่ง'>เก้านาฬิกาครึ่ง; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE TEN OCLOCK; 00; 10; 10:00; clock; face; o’clock; ten; time -->
+		<annotation cp='[🕙]' tts='สิบนาฬิกา'>สิบนาฬิกา; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE TEN-THIRTY; 10; 30; 10:30; clock; face; ten; thirty; time -->
+		<annotation cp='[🕥]' tts='สิบนาฬิกาครึ่ง'>สิบนาฬิกาครึ่ง; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE ELEVEN OCLOCK; 00; 11; 11:00; clock; eleven; face; o’clock; time -->
+		<annotation cp='[🕚]' tts='สิบเอ็ดนาฬิกา'>สิบเอ็ดนาฬิกา; นาฬิกา</annotation>
+
+		<!-- CLOCK FACE ELEVEN-THIRTY; 11; 30; 11:30; clock; eleven; face; thirty; time -->
+		<annotation cp='[🕦]' tts='สิบเอ็ดนาฬิกาครึ่ง'>สิบเอ็ดนาฬิกาครึ่ง; นาฬิกา</annotation>
+
+		<!-- ARIES; aries; ram; time; zodiac -->
+		<annotation cp='[♈]' tts='ราศีเมษ'>ราศีเมษ; จักรราศี</annotation>
+
+		<!-- TAURUS; bull; ox; taurus; time; zodiac -->
+		<annotation cp='[♉]' tts='ราศีพฤษภ'>ราศีพฤษภ; จักรราศี</annotation>
+
+		<!-- GEMINI; gemini; time; twins; zodiac -->
+		<annotation cp='[♊]' tts='ราศีเมถุน'>ราศีเมถุน; จักรราศี</annotation>
+
+		<!-- CANCER; cancer; crab; time; zodiac -->
+		<annotation cp='[♋]' tts='ราศีกรกฎ'>ราศีกรกฎ; จักรราศี</annotation>
+
+		<!-- LEO; leo; lion; time; zodiac -->
+		<annotation cp='[♌]' tts='ราศีสิงห์'>ราศีสิงห์; จักรราศี</annotation>
+
+		<!-- VIRGO; maiden; time; virgin; virgo; zodiac -->
+		<annotation cp='[♍]' tts='ราศีกันย์'>ราศีกันย์; จักรราศี</annotation>
+
+		<!-- LIBRA; balance; justice; libra; scales; time; zodiac -->
+		<annotation cp='[♎]' tts='ราศีตุลย์'>ราศีตุลย์; จักรราศี</annotation>
+
+		<!-- SCORPIUS; scorpion; scorpius; time; zodiac -->
+		<annotation cp='[♏]' tts='ราศีพิจิก'>ราศีพิจิก; จักรราศี</annotation>
+
+		<!-- SAGITTARIUS; archer; sagittarius; time; zodiac -->
+		<annotation cp='[♐]' tts='ราศีธนู'>ราศีธนู; จักรราศี</annotation>
+
+		<!-- CAPRICORN; capricorn; goat; time; zodiac -->
+		<annotation cp='[♑]' tts='ราศีมังกร'>ราศีมังกร; จักรราศี</annotation>
+
+		<!-- AQUARIUS; aquarius; bearer; time; water; zodiac -->
+		<annotation cp='[♒]' tts='ราศีกุมภ์'>ราศีกุมภ์; จักรราศี</annotation>
+
+		<!-- PISCES; fish; pisces; time; zodiac -->
+		<annotation cp='[♓]' tts='ราศีมีน'>ราศีมีน; จักรราศี</annotation>
+
+		<!-- OPHIUCHUS; bearer; ophiuchus; serpent; snake; word; zodiac -->
+		<annotation cp='[⛎]' tts='กลุ่มดาวคนแบกงู'>กลุ่มดาวคนแบกงู; จักรราศี</annotation>
+
+		<!-- NEW MOON SYMBOL; dark; moon; place; space; time; weather -->
+		<annotation cp='[🌑]' tts='จันทร์ดับ'>จันทร์ดับ; จันทร์มืด; มืด</annotation>
+
+		<!-- WAXING CRESCENT MOON SYMBOL; crescent; moon; place; space; time; waxing; weather -->
+		<annotation cp='[🌒]' tts='พระจันทร์เสี้ยว'>พระจันทร์เสี้ยว; ข้างขึ้น</annotation>
+
+		<!-- FIRST QUARTER MOON SYMBOL; moon; place; quarter; space; time; weather -->
+		<annotation cp='[🌓]' tts='พระจันทร์ครึ่งซีก'>พระจันทร์ครึ่งซีก</annotation>
+
+		<!-- WAXING GIBBOUS MOON SYMBOL; gibbous; moon; place; space; time; waxing; weather -->
+		<annotation cp='[🌔]' tts='ข้างขึ้น'>ข้างขึ้น; พระจันทร์เกือบเต็มดวง</annotation>
+
+		<!-- FULL MOON SYMBOL; full; moon; place; space; time; weather -->
+		<annotation cp='[🌕]' tts='พระจันทร์เต็มดวง'>พระจันทร์เต็มดวง</annotation>
+
+		<!-- WANING GIBBOUS MOON SYMBOL; gibbous; moon; place; space; time; waning; weather -->
+		<annotation cp='[🌖]' tts='ข้างแรม'>ข้างแรม; พระจันทร์เกือบเต็มดวง</annotation>
+
+		<!-- LAST QUARTER MOON SYMBOL; moon; place; quarter; space; time; weather -->
+		<annotation cp='[🌗]' tts='พระจันทร์ครึ่งซีก'>พระจันทร์ครึ่งซีก</annotation>
+
+		<!-- WANING CRESCENT MOON SYMBOL; crescent; moon; place; space; time; waning; weather -->
+		<annotation cp='[🌘]' tts='พระจันทร์เสี้ยว'>พระจันทร์เสี้ยว</annotation>
+
+		<!-- CRESCENT MOON; crescent; moon; place; space; time; weather -->
+		<annotation cp='[🌙]' tts='พระจันทร์เสี้ยว'>พระจันทร์เสี้ยว</annotation>
+
+		<!-- NEW MOON WITH FACE; face; moon; place; time; weather -->
+		<annotation cp='[🌚]' tts='หน้าพระจันทร์ดับ'>หน้าพระจันทร์ดับ; หน้าดำ</annotation>
+
+		<!-- FIRST QUARTER MOON WITH FACE; face; moon; place; quarter; weather -->
+		<annotation cp='[🌛]' tts='หน้าพระจันทร์เสี้ยว'>หน้าพระจันทร์เสี้ยว; หน้าพระจันทร์</annotation>
+
+		<!-- LAST QUARTER MOON WITH FACE; face; moon; place; quarter; weather -->
+		<annotation cp='[🌜]' tts='หน้าพระจันทร์เสี้ยว'>หน้าพระจันทร์เสี้ยว; หน้าพระจันทร์</annotation>
+
+		<!-- THERMOMETER; thermometer; weather -->
+		<annotation cp='[🌡]'>MISSING</annotation>
+
+		<!-- BLACK SUN WITH RAYS; bright; rays; sun; sunny; weather -->
+		<annotation cp='[☀]'>MISSING</annotation>
+
+		<!-- FULL MOON WITH FACE; bright; face; full; moon; place; weather -->
+		<annotation cp='[🌝]' tts='หน้าพระจันทร์เต็มดวง'>หน้าพระจันทร์เต็มดวง</annotation>
+
+		<!-- SUN WITH FACE; bright; face; place; sun; weather -->
+		<annotation cp='[🌞]' tts='หน้าพระอาทิตย์'>หน้าพระอาทิตย์</annotation>
+
+		<!-- CLOUD; cloud; weather -->
+		<annotation cp='[☁]' tts='เมฆ'>เมฆ; สภาพอากาศ; เมฆดำ</annotation>
+
+		<!-- SUN BEHIND CLOUD; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='ดวงอาทิตย์หลังเมฆ'>ดวงอาทิตย์หลังเมฆ; ดวงอาทิตย์</annotation>
+
+		<!-- THUNDER CLOUD AND RAIN; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]'>MISSING</annotation>
+
+		<!-- WHITE SUN WITH SMALL CLOUD; cloud; sun; weather -->
+		<annotation cp='[🌤]'>MISSING</annotation>
+
+		<!-- WHITE SUN BEHIND CLOUD; cloud; sun; weather -->
+		<annotation cp='[🌥]'>MISSING</annotation>
+
+		<!-- WHITE SUN BEHIND CLOUD WITH RAIN; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]'>MISSING</annotation>
+
+		<!-- CLOUD WITH RAIN; cloud; rain; weather -->
+		<annotation cp='[🌧]'>MISSING</annotation>
+
+		<!-- CLOUD WITH SNOW; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]'>MISSING</annotation>
+
+		<!-- CLOUD WITH LIGHTNING; cloud; lightning; weather -->
+		<annotation cp='[🌩]'>MISSING</annotation>
+
+		<!-- CLOUD WITH TORNADO; cloud; tornado; weather -->
+		<annotation cp='[🌪]'>MISSING</annotation>
+
+		<!-- FOG; cloud; fog; nature; weather -->
+		<annotation cp='[🌫]'>MISSING</annotation>
+
+		<!-- WIND BLOWING FACE; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]'>MISSING</annotation>
+
+		<!-- CYCLONE; cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='ไซโคลน'>ไซโคลน; ไต้ฝุ่น; พายุหมุน</annotation>
+
+		<!-- RAINBOW; rain; rainbow; weather -->
+		<annotation cp='[🌈]' tts='รุ้ง'>รุ้ง</annotation>
+
+		<!-- CLOSED UMBRELLA; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='ร่ม'>ร่ม; ฝน; หน้าฝน</annotation>
+
+		<!-- UMBRELLA; rain; umbrella; weather -->
+		<annotation cp='[☂]'>MISSING</annotation>
+
+		<!-- UMBRELLA WITH RAIN DROPS; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]'>MISSING</annotation>
+
+		<!-- UMBRELLA ON GROUND; rain; sun; travel; umbrella; weather -->
+		<annotation cp='[⛱]'>MISSING</annotation>
+
+		<!-- SNOWFLAKE; cold; snow; snowflake; weather -->
+		<annotation cp='[❄]'>MISSING</annotation>
+
+		<!-- SNOWMAN; cold; snow; snowman; weather -->
+		<annotation cp='[☃]'>MISSING</annotation>
+
+		<!-- SNOWMAN WITHOUT SNOW; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='สโนว์แมน'>สโนว์แมน</annotation>
+
+		<!-- GLOWING STAR; glittery; glow; place; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='ดาวส่องแสง'>ดาวส่องแสง; ดาว</annotation>
+
+		<!-- SHOOTING STAR; activity; falling; nature; place; shooting; space; star -->
+		<annotation cp='[🌠]' tts='ดาวตก'>ดาวตก; ดาว</annotation>
+
+		<!-- COMET; comet; object; space -->
+		<annotation cp='[☄]'>MISSING</annotation>
+
+		<!-- GAME DIE; dice; die; game -->
+		<annotation cp='[🎲]' tts='ลูกเต๋า'>ลูกเต๋า; ทอยลูกเต๋า</annotation>
+
+		<!-- BLACK SPADE SUIT; card; game; spade; suit -->
+		<annotation cp='[♠]'>MISSING</annotation>
+
+		<!-- BLACK HEART SUIT; card; emotion; game; heart; hearts; suit -->
+		<annotation cp='[♥]'>MISSING</annotation>
+
+		<!-- BLACK DIAMOND SUIT; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]'>MISSING</annotation>
+
+		<!-- BLACK CLUB SUIT; card; club; clubs; game; suit -->
+		<annotation cp='[♣]'>MISSING</annotation>
+
+		<!-- PLAYING CARD BLACK JOKER; card; game; joker; playing -->
+		<annotation cp='[🃏]' tts='ไพ่โจ๊กเกอร์'>ไพ่โจ๊กเกอร์; โจ๊กเกอร์; เล่นไพ่</annotation>
+
+		<!-- MAHJONG TILE RED DRAGON; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='ไพ่นกกระจอก'>ไพ่นกกระจอก; มังกรแดง</annotation>
+
+		<!-- VIDEO GAME; controller; entertainment; game; video game -->
+		<annotation cp='[🎮]' tts='วิดีโอเกม'>วิดีโอเกม; เกม; จอยสติ๊ก</annotation>
+
+		<!-- JOYSTICK; entertainment; game; joystick; object; video game -->
+		<annotation cp='[🕹]'>MISSING</annotation>
+
+		<!-- SOCCER BALL; ball; soccer; sport -->
+		<annotation cp='[⚽]' tts='ลูกฟุตบอล'>ลูกฟุตบอล; ฟุตบอล</annotation>
+
+		<!-- BASEBALL; ball; baseball; sport -->
+		<annotation cp='[⚾]' tts='เบสบอล'>เบสบอล</annotation>
+
+		<!-- BASKETBALL AND HOOP; ball; basketball; hoop; sport -->
+		<annotation cp='[🏀]' tts='บาสเกตบอล'>บาสเกตบอล; กีฬา</annotation>
+
+		<!-- AMERICAN FOOTBALL; american; ball; football; sport -->
+		<annotation cp='[🏈]' tts='อเมริกันฟุตบอล'>อเมริกันฟุตบอล; กีฬา</annotation>
+
+		<!-- RUGBY FOOTBALL; ball; football; rugby; sport -->
+		<annotation cp='[🏉]' tts='รักบี้'>รักบี้; กีฬา</annotation>
+
+		<!-- TENNIS RACQUET AND BALL; ball; racquet; sport; tennis -->
+		<annotation cp='[🎾]' tts='เทนนิส'>เทนนิส; ลูกเทนนิส</annotation>
+
+		<!-- BILLIARDS; 8; 8 ball; ball; billiard; eight; game; sport -->
+		<annotation cp='[🎱]' tts='บิลเลียด'>บิลเลียด; แปด</annotation>
+
+		<!-- BOWLING; ball; bowling; game; sport -->
+		<annotation cp='[🎳]' tts='โบว์ลิ่ง'>โบว์ลิ่ง; ลูกโบว์ลิ่ง</annotation>
+
+		<!-- FLAG IN HOLE; flag; golf; hole; sport; travel -->
+		<annotation cp='[⛳]' tts='ธงในหลุม'>ธงในหลุม; กอล์ฟ</annotation>
+
+		<!-- GOLFER; ball; golf; human; person; sport -->
+		<annotation cp='[🏌]'>MISSING</annotation>
+
+		<!-- ICE SKATE; ice; skate; sport; travel -->
+		<annotation cp='[⛸]'>MISSING</annotation>
+
+		<!-- FISHING POLE AND FISH; entertainment; fish; pole; sport -->
+		<annotation cp='[🎣]' tts='ตกปลา'>ตกปลา</annotation>
+
+		<!-- RUNNING SHIRT WITH SASH; running; sash; shirt; sport -->
+		<annotation cp='[🎽]' tts='เสื้อวิ่ง'>เสื้อวิ่ง; วิ่ง</annotation>
+
+		<!-- SKI AND SKI BOOT; ski; snow; sport -->
+		<annotation cp='[🎿]' tts='สกี'>สกี</annotation>
+
+		<!-- SKIER; human; person; ski; snow; sport; travel -->
+		<annotation cp='[⛷]'>MISSING</annotation>
+
+		<!-- SNOWBOARDER; human; person; ski; snow; snowboard; sport -->
+		<annotation cp='[🏂]' tts='นักสโนว์บอร์ด'>นักสโนว์บอร์ด; กีฬา</annotation>
+
+		<!-- SURFER; human; person; sport; surfer; surfing -->
+		<annotation cp='[🏄]' tts='โต้คลื่น'>โต้คลื่น; นักโต้คลื่น</annotation>
+
+		<!-- HORSE RACING; horse; human; jockey; person; racehorse; racing; sport; travel -->
+		<annotation cp='[🏇]' tts='แข่งม้า'>แข่งม้า; ม้า; จ็อกกี้</annotation>
+
+		<!-- SWIMMER; human; person; sport; swim; swimmer; travel -->
+		<annotation cp='[🏊]' tts='นักว่ายน้ำ'>นักว่ายน้ำ; ว่ายน้ำ; กีฬา</annotation>
+
+		<!-- PERSON WITH BALL; ball; human; person; sport; travel -->
+		<annotation cp='[⛹]'>MISSING</annotation>
+
+		<!-- WEIGHT LIFTER; human; lifter; person; sport; weight -->
+		<annotation cp='[🏋]'>MISSING</annotation>
+
+		<!-- SPORTS MEDAL; medal; sport -->
+		<annotation cp='[🏅]'>MISSING</annotation>
+
+		<!-- TROPHY; prize; sport; trophy -->
+		<annotation cp='[🏆]' tts='ถ้วยรางวัล'>ถ้วยรางวัล</annotation>
+
+		<!-- SPEAKER WITH CANCELLATION STROKE; mute; quiet; silent; sound; speaker; volume -->
+		<annotation cp='[🔇]' tts='ไม่ใช้เสียง'>ไม่ใช้เสียง; โปรดเงียบ; ปิดเสียง</annotation>
+
+		<!-- SPEAKER; sound; speaker; volume -->
+		<annotation cp='[🔈]' tts='ลำโพง'>ลำโพง; เครื่องขยายเสียง</annotation>
+
+		<!-- SPEAKER WITH ONE SOUND WAVE; low; sound; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='ลำโพงเบา'>ลำโพงเบา; ลำโพง</annotation>
+
+		<!-- SPEAKER WITH THREE SOUND WAVES; 3; high; loud; sound; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='ลำโพงดัง'>ลำโพงดัง; ลำโพง</annotation>
+
+		<!-- PUBLIC ADDRESS LOUDSPEAKER; communication; loud; loudspeaker; public address; sound -->
+		<annotation cp='[📢]' tts='เครื่องขยายเสียง'>เครื่องขยายเสียง</annotation>
+
+		<!-- CHEERING MEGAPHONE; cheering; communication; megaphone; sound -->
+		<annotation cp='[📣]' tts='โทรโข่ง'>โทรโข่ง</annotation>
+
+		<!-- POSTAL HORN; communication; horn; object; post; postal; sound -->
+		<annotation cp='[📯]' tts='แตรส่งสาร'>แตรส่งสาร</annotation>
+
+		<!-- BELL; bell; sound -->
+		<annotation cp='[🔔]' tts='กระดิ่ง'>กระดิ่ง; โบสถ์</annotation>
+
+		<!-- BELL WITH CANCELLATION STROKE; bell; forbidden; mute; no; not; prohibited; quiet; silent; sound -->
+		<annotation cp='[🔕]' tts='ไม่มีกระดิ่ง'>ไม่มีกระดิ่ง; ไม่มีเสียง</annotation>
+
+		<!-- TWISTED RIGHTWARDS ARROWS; arrow; crossed -->
+		<annotation cp='[🔀]' tts='ลูกศรไขว้'>ลูกศรไขว้</annotation>
+
+		<!-- CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='ลูกศรตามเข็มนาฬิกา'>ลูกศรตามเข็มนาฬิกา</annotation>
+
+		<!-- CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS WITH CIRCLED ONE OVERLAY; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='ลูกศรตามเข็มนาฬิกาพร้อมเลข 1'>ลูกศรตามเข็มนาฬิกาพร้อมเลข 1</annotation>
+
+		<!-- BLACK RIGHT-POINTING TRIANGLE; arrow; play; right; sound; triangle -->
+		<annotation cp='[▶]'>MISSING</annotation>
+
+		<!-- BLACK RIGHT-POINTING DOUBLE TRIANGLE; arrow; double; fast; forward; sound -->
+		<annotation cp='[⏩]' tts='เร่งไปข้างหน้า'>เร่งไปข้างหน้า</annotation>
+
+		<!-- BLACK RIGHT-POINTING DOUBLE TRIANGLE WITH VERTICAL BAR; arrow; next scene; next track; sound; triangle -->
+		<annotation cp='[⏭]'>MISSING</annotation>
+
+		<!-- BLACK RIGHT-POINTING TRIANGLE WITH DOUBLE VERTICAL BAR; arrow; pause; play; right; sound; triangle -->
+		<annotation cp='[⏯]'>MISSING</annotation>
+
+		<!-- BLACK LEFT-POINTING TRIANGLE; arrow; left; reverse; sound; triangle -->
+		<annotation cp='[◀]'>MISSING</annotation>
+
+		<!-- BLACK LEFT-POINTING DOUBLE TRIANGLE; arrow; double; rewind; sound -->
+		<annotation cp='[⏪]' tts='ถอยกลับ'>ถอยกลับ</annotation>
+
+		<!-- BLACK LEFT-POINTING DOUBLE TRIANGLE WITH VERTICAL BAR; arrow; previous scene; previous track; sound; triangle -->
+		<annotation cp='[⏮]'>MISSING</annotation>
+
+		<!-- UP-POINTING SMALL RED TRIANGLE; arrow; button; red -->
+		<annotation cp='[🔼]' tts='ปุ่มสามเหลี่ยมขึ้น'>ปุ่มสามเหลี่ยมขึ้น</annotation>
+
+		<!-- BLACK UP-POINTING DOUBLE TRIANGLE; arrow; double; sound -->
+		<annotation cp='[⏫]' tts='ลูกศรขึ้น'>ลูกศรขึ้น</annotation>
+
+		<!-- DOWN-POINTING SMALL RED TRIANGLE; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='ปุ่มสามเหลี่ยมลง'>ปุ่มสามเหลี่ยมลง</annotation>
+
+		<!-- BLACK DOWN-POINTING DOUBLE TRIANGLE; arrow; double; down; sound -->
+		<annotation cp='[⏬]' tts='ลูกศรลง'>ลูกศรลง</annotation>
+
+		<!-- DOUBLE VERTICAL BAR; bar; double; pause; sound; vertical -->
+		<annotation cp='[⏸]'>MISSING</annotation>
+
+		<!-- BLACK SQUARE FOR STOP; sound; square; stop -->
+		<annotation cp='[⏹]'>MISSING</annotation>
+
+		<!-- BLACK CIRCLE FOR RECORD; circle; record; sound -->
+		<annotation cp='[⏺]'>MISSING</annotation>
+
+		<!-- EJECT SYMBOL; eject; sound -->
+		<annotation cp='[⏏]'>MISSING</annotation>
+
+		<!-- MUSICAL SCORE; activity; music; score; sound -->
+		<annotation cp='[🎼]' tts='บรรทัดห้าเส้น'>บรรทัดห้าเส้น; โน้ตเพลง; กุญแจซอล</annotation>
+
+		<!-- MUSICAL NOTE; activity; music; note; sound -->
+		<annotation cp='[🎵]' tts='โน้ตดนตรี'>โน้ตดนตรี</annotation>
+
+		<!-- MULTIPLE MUSICAL NOTES; activity; music; note; notes; sound -->
+		<annotation cp='[🎶]' tts='โน้ตดนตรีหลายตัว'>โน้ตดนตรีหลายตัว; โน้ตดนตรี</annotation>
+
+		<!-- STUDIO MICROPHONE; mic; microphone; music; object; sound; studio -->
+		<annotation cp='[🎙]'>MISSING</annotation>
+
+		<!-- LEVEL SLIDER; level; music; object; slider; sound -->
+		<annotation cp='[🎚]'>MISSING</annotation>
+
+		<!-- CONTROL KNOBS; control; knobs; music; object; sound -->
+		<annotation cp='[🎛]'>MISSING</annotation>
+
+		<!-- MICROPHONE; activity; entertainment; karaoke; mic; microphone; sound -->
+		<annotation cp='[🎤]' tts='ไมค์'>ไมค์; ไมโครโฟน</annotation>
+
+		<!-- HEADPHONE; activity; earbud; entertainment; headphone; sound -->
+		<annotation cp='[🎧]' tts='หูฟัง'>หูฟัง</annotation>
+
+		<!-- SAXOPHONE; activity; instrument; music; sax; saxophone; sound -->
+		<annotation cp='[🎷]' tts='แซ็ก'>แซ็ก; แซ็กโซโฟน; เครื่องดนตรี</annotation>
+
+		<!-- GUITAR; activity; guitar; instrument; music; sound -->
+		<annotation cp='[🎸]' tts='กีต้าร์'>กีต้าร์; เครื่องดนตรี</annotation>
+
+		<!-- MUSICAL KEYBOARD; activity; instrument; keyboard; music; piano; sound -->
+		<annotation cp='[🎹]' tts='เปียโน'>เปียโน; คีย์บอร์ด; เครื่องดนตรี</annotation>
+
+		<!-- TRUMPET; activity; instrument; music; sound; trumpet -->
+		<annotation cp='[🎺]' tts='ทรัมเป็ต'>ทรัมเป็ต; เครื่องดนตรี</annotation>
+
+		<!-- VIOLIN; activity; instrument; music; sound; violin -->
+		<annotation cp='[🎻]' tts='ไวโอลิน'>ไวโอลิน; เครื่องดนตรี</annotation>
+
+		<!-- RADIO; object; radio; video -->
+		<annotation cp='[📻]' tts='วิทยุ'>วิทยุ</annotation>
+
+		<!-- MOBILE PHONE; cell; communication; mobile; object; phone -->
+		<annotation cp='[📱]' tts='โทรศัพท์มือถือ'>โทรศัพท์มือถือ; โทรศัพท์</annotation>
+
+		<!-- VIBRATION MODE; cell; communication; mobile; mode; object; phone; vibration -->
+		<annotation cp='[📳]' tts='โหมดสั่น'>โหมดสั่น; โทรศัพท์มือถือ</annotation>
+
+		<!-- MOBILE PHONE OFF; cell; communication; mobile; object; off; phone -->
+		<annotation cp='[📴]' tts='ปิดมือถือ'>ปิดมือถือ</annotation>
+
+		<!-- MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT; arrow; call; cell; communication; mobile; object; phone; receive -->
+		<annotation cp='[📲]' tts='โทรศัพท์มือถือพร้อมลูกศรชี้'>โทรศัพท์มือถือพร้อมลูกศรชี้</annotation>
+
+		<!-- NO MOBILE PHONES; cell; communication; forbidden; mobile; no; not; object; phone; prohibited -->
+		<annotation cp='[📵]' tts='ห้ามมือถือ'>ห้ามมือถือ</annotation>
+
+		<!-- BLACK TELEPHONE; office; phone; sound; telephone -->
+		<annotation cp='[☎]'>MISSING</annotation>
+
+		<!-- TELEPHONE RECEIVER; communication; phone; receiver; sound; telephone -->
+		<annotation cp='[📞]' tts='โทรศัพท์'>โทรศัพท์</annotation>
+
+		<!-- NUMBER SIGN+COMBINING ENCLOSING KEYCAP; hash; keycap; pound; word -->
+		<annotation cp='[{#⃣}]'>MISSING</annotation>
+
+		<!-- ASTERISK+COMBINING ENCLOSING KEYCAP; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT ZERO+COMBINING ENCLOSING KEYCAP; 0; keycap; word; zero -->
+		<annotation cp='[{0⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT ONE+COMBINING ENCLOSING KEYCAP; 1; keycap; one; word -->
+		<annotation cp='[{1⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT TWO+COMBINING ENCLOSING KEYCAP; 2; keycap; two; word -->
+		<annotation cp='[{2⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT THREE+COMBINING ENCLOSING KEYCAP; 3; keycap; three; word -->
+		<annotation cp='[{3⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT FOUR+COMBINING ENCLOSING KEYCAP; 4; four; keycap; word -->
+		<annotation cp='[{4⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT FIVE+COMBINING ENCLOSING KEYCAP; 5; five; keycap; word -->
+		<annotation cp='[{5⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT SIX+COMBINING ENCLOSING KEYCAP; 6; keycap; six; word -->
+		<annotation cp='[{6⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT SEVEN+COMBINING ENCLOSING KEYCAP; 7; keycap; seven; word -->
+		<annotation cp='[{7⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT EIGHT+COMBINING ENCLOSING KEYCAP; 8; eight; keycap; word -->
+		<annotation cp='[{8⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT NINE+COMBINING ENCLOSING KEYCAP; 9; keycap; nine; word -->
+		<annotation cp='[{9⃣}]'>MISSING</annotation>
+
+		<!-- KEYCAP TEN; 10; keycap; ten; word -->
+		<annotation cp='[🔟]' tts='แป้นพิมพ์เลข 10'>แป้นพิมพ์เลข 10</annotation>
+
+		<!-- ANTENNA WITH BARS; antenna; bar; communication; mobile; object; phone; signal -->
+		<annotation cp='[📶]' tts='สัญญาณมือถือ'>สัญญาณมือถือ</annotation>
+
+		<!-- PAGER; communication; office; pager -->
+		<annotation cp='[📟]' tts='เพจเจอร์'>เพจเจอร์</annotation>
+
+		<!-- FAX MACHINE; communication; fax; office -->
+		<annotation cp='[📠]' tts='แฟกซ์'>แฟกซ์; เครื่องแฟกซ์</annotation>
+
+		<!-- MOVIE CAMERA; activity; camera; cinema; entertainment; movie; object -->
+		<annotation cp='[🎥]' tts='กล้องภาพยนตร์'>กล้องภาพยนตร์</annotation>
+
+		<!-- CINEMA; activity; camera; cinema; entertainment; film; movie; object -->
+		<annotation cp='[🎦]' tts='โรงภาพยนตร์'>โรงภาพยนตร์; หนัง</annotation>
+
+		<!-- CLAPPER BOARD; activity; clapper; entertainment; movie; object -->
+		<annotation cp='[🎬]' tts='สเลท'>สเลท; ถ่ายหนัง</annotation>
+
+		<!-- FILM PROJECTOR; cinema; entertainment; film; movie; object; projector; video -->
+		<annotation cp='[📽]'>MISSING</annotation>
+
+		<!-- TELEVISION; entertainment; object; television; tv; video -->
+		<annotation cp='[📺]' tts='ทีวี'>ทีวี; โทรทัศน์</annotation>
+
+		<!-- CAMERA; camera; object; video -->
+		<annotation cp='[📷]' tts='กล้อง'>กล้อง</annotation>
+
+		<!-- CAMERA WITH FLASH; camera; flash; object; video -->
+		<annotation cp='[📸]'>MISSING</annotation>
+
+		<!-- VIDEO CAMERA; camera; object; video -->
+		<annotation cp='[📹]' tts='กล้องวิดีโอ'>กล้องวิดีโอ</annotation>
+
+		<!-- VIDEOCASSETTE; object; tape; vhs; video; videocassette -->
+		<annotation cp='[📼]' tts='วิดีโอเทป'>วิดีโอเทป</annotation>
+
+		<!-- LOW BRIGHTNESS SYMBOL; brightness; dim; low; sign -->
+		<annotation cp='[🔅]' tts='แสงสว่างน้อย'>แสงสว่างน้อย; ความสว่าง</annotation>
+
+		<!-- HIGH BRIGHTNESS SYMBOL; bright; brightness; sign -->
+		<annotation cp='[🔆]' tts='แสงสว่างมาก'>แสงสว่างมาก; ความสว่าง</annotation>
+
+		<!-- LEFT-POINTING MAGNIFYING GLASS; glass; magnifying; object; search; tool -->
+		<annotation cp='[🔍]' tts='แว่นขยาย'>แว่นขยาย</annotation>
+
+		<!-- RIGHT-POINTING MAGNIFYING GLASS; glass; magnifying; object; search; tool -->
+		<annotation cp='[🔎]' tts='แว่นขยาย'>แว่นขยาย</annotation>
+
+		<!-- MICROSCOPE; microscope; object; tool -->
+		<annotation cp='[🔬]' tts='กล้องจุลทรรศน์'>กล้องจุลทรรศน์</annotation>
+
+		<!-- TELESCOPE; object; telescope; tool -->
+		<annotation cp='[🔭]' tts='กล้องโทรทรรศน์'>กล้องโทรทรรศน์</annotation>
+
+		<!-- FIRE; fire; flame; object; tool -->
+		<annotation cp='[🔥]' tts='ไฟ'>ไฟ; เปลวไฟ</annotation>
+
+		<!-- CANDLE; candle; light; object -->
+		<annotation cp='[🕯]'>MISSING</annotation>
+
+		<!-- ELECTRIC LIGHT BULB; bulb; comic; electric; idea; light; object -->
+		<annotation cp='[💡]' tts='หลอดไฟ'>หลอดไฟ; ปิ๊งไอเดีย</annotation>
+
+		<!-- ELECTRIC TORCH; electric; flashlight; light; object; tool; torch -->
+		<annotation cp='[🔦]' tts='ไฟฉาย'>ไฟฉาย</annotation>
+
+		<!-- IZAKAYA LANTERN; bar; japanese; lantern; light; place; red; restaurant -->
+		<annotation cp='[🏮]' tts='โคมไฟแดง'>โคมไฟแดง</annotation>
+
+		<!-- JACK-O-LANTERN; activity; celebration; halloween; jack; lantern; object -->
+		<annotation cp='[🎃]' tts='ฟักทองฮาโลวีน'>ฟักทองฮาโลวีน; ฟักทอง</annotation>
+
+		<!-- CHRISTMAS TREE; activity; celebration; christmas; object; tree -->
+		<annotation cp='[🎄]' tts='ต้นคริสต์มาส'>ต้นคริสต์มาส; คริสต์มาส</annotation>
+
+		<!-- FIREWORKS; activity; celebration; fireworks; object -->
+		<annotation cp='[🎆]' tts='พลุ'>พลุ; การเฉลิมฉลอง</annotation>
+
+		<!-- FIREWORK SPARKLER; activity; celebration; fireworks; object; sparkle -->
+		<annotation cp='[🎇]' tts='ดอกไม้ไฟ'>ดอกไม้ไฟ; พลุ</annotation>
+
+		<!-- SPARKLES; sign; sparkle; star -->
+		<annotation cp='[✨]' tts='ประกายวิบวับ'>ประกายวิบวับ; ดาววิบวับ</annotation>
+
+		<!-- BALLOON; activity; balloon; celebration; object -->
+		<annotation cp='[🎈]' tts='ลูกโป่ง'>ลูกโป่ง; การเฉลิมฉลอง</annotation>
+
+		<!-- PARTY POPPER; activity; celebration; object; party; popper; tada -->
+		<annotation cp='[🎉]' tts='ปาร์ตี้'>ปาร์ตี้; การเฉลิมฉลอง</annotation>
+
+		<!-- CONFETTI BALL; activity; ball; celebration; confetti; object -->
+		<annotation cp='[🎊]' tts='ลูกบอลใส่เศษกระดาษงานปาร์ตี้'>ลูกบอลใส่เศษกระดาษงานปาร์ตี้; การเฉลิมฉลอง</annotation>
+
+		<!-- TANABATA TREE; activity; banner; celebration; japanese; object; tree -->
+		<annotation cp='[🎋]' tts='ต้นไม้ประดับคำอวยพร'>ต้นไม้ประดับคำอวยพร</annotation>
+
+		<!-- CROSSED FLAGS; activity; celebration; cross; crossed; flag; japanese -->
+		<annotation cp='[🎌]' tts='ธงไขว้'>ธงไขว้; ธง</annotation>
+
+		<!-- PINE DECORATION; activity; bamboo; celebration; japanese; object; pine; plant -->
+		<annotation cp='[🎍]' tts='ต้นสนประดับ'>ต้นสนประดับ; ปีใหม่</annotation>
+
+		<!-- JAPANESE DOLLS; activity; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='ตุ๊กตาญี่ปุ่น'>ตุ๊กตาญี่ปุ่น</annotation>
+
+		<!-- CARP STREAMER; activity; carp; celebration; flag; object; streamer -->
+		<annotation cp='[🎏]' tts='ธงปลาคาร์พ'>ธงปลาคาร์พ</annotation>
+
+		<!-- WIND CHIME; activity; bell; celebration; chime; object; wind -->
+		<annotation cp='[🎐]' tts='โมบายล์กระดิ่ง'>โมบายล์กระดิ่ง; โมบายล์</annotation>
+
+		<!-- MOON VIEWING CEREMONY; activity; celebration; ceremony; moon; object -->
+		<annotation cp='[🎑]' tts='ดูจันทร์'>ดูจันทร์</annotation>
+
+		<!-- GRADUATION CAP; activity; cap; celebration; education; graduation; hat; object -->
+		<annotation cp='[🎓]' tts='หมวกรับปริญญา'>หมวกรับปริญญา; หมวก; รับปริญญา</annotation>
+
+		<!-- ARTIST PALETTE; activity; art; entertainment; object; painting; palette -->
+		<annotation cp='[🎨]' tts='จานสีวาดรูป'>จานสีวาดรูป</annotation>
+
+		<!-- DIRECT HIT; activity; bull’s eye; dart; eye; game; hit; object; target -->
+		<annotation cp='[🎯]' tts='กลางเป้า'>กลางเป้า; ตรงเป้า; ปาเป้า; ลูกดอก</annotation>
+
+		<!-- FLOWER PLAYING CARDS; activity; card; flower; game; japanese; object; playing -->
+		<annotation cp='[🎴]' tts='ไพ่ดอกไม้'>ไพ่ดอกไม้</annotation>
+
+		<!-- RIBBON; celebration; object; ribbon -->
+		<annotation cp='[🎀]' tts='ริบบิ้น'>ริบบิ้น; การเฉลิมฉลอง</annotation>
+
+		<!-- WRAPPED PRESENT; box; celebration; gift; object; present; wrapped -->
+		<annotation cp='[🎁]' tts='ของขวัญ'>ของขวัญ; ของขวัญในกล่อง</annotation>
+
+		<!-- MILITARY MEDAL; celebration; medal; military; object -->
+		<annotation cp='[🎖]'>MISSING</annotation>
+
+		<!-- REMINDER RIBBON; celebration; object; reminder; ribbon -->
+		<annotation cp='[🎗]'>MISSING</annotation>
+
+		<!-- FILM FRAMES; cinema; entertainment; film; frames; movie; object -->
+		<annotation cp='[🎞]'>MISSING</annotation>
+
+		<!-- ADMISSION TICKETS; admission; entertainment; object; ticket -->
+		<annotation cp='[🎟]'>MISSING</annotation>
+
+		<!-- LABEL; label; object -->
+		<annotation cp='[🏷]'>MISSING</annotation>
+
+		<!-- NOTEBOOK WITH DECORATIVE COVER; book; cover; decorated; education; notebook; office -->
+		<annotation cp='[📔]' tts='สมุดโน้ตมีลาย'>สมุดโน้ตมีลาย; สมุดโน้ต</annotation>
+
+		<!-- CLOSED BOOK; book; closed; education; office -->
+		<annotation cp='[📕]' tts='หนังสือปิด'>หนังสือปิด; หนังสือ</annotation>
+
+		<!-- OPEN BOOK; book; education; office; open -->
+		<annotation cp='[📖]' tts='หนังสือเปิด'>หนังสือเปิด; หนังสือ</annotation>
+
+		<!-- GREEN BOOK; book; education; green; office -->
+		<annotation cp='[📗]' tts='หนังสือสีเขียว'>หนังสือสีเขียว; หนังสือ</annotation>
+
+		<!-- BLUE BOOK; blue; book; education; office -->
+		<annotation cp='[📘]' tts='หนังสือสีน้ำเงิน'>หนังสือสีน้ำเงิน; หนังสือ</annotation>
+
+		<!-- ORANGE BOOK; book; education; office; orange -->
+		<annotation cp='[📙]' tts='หนังสือสีส้ม'>หนังสือสีส้ม; หนังสือ</annotation>
+
+		<!-- BOOKS; book; books; education; office -->
+		<annotation cp='[📚]' tts='หนังสือ'>หนังสือ</annotation>
+
+		<!-- NOTEBOOK; notebook; office -->
+		<annotation cp='[📓]' tts='สมุดโน้ต'>สมุดโน้ต</annotation>
+
+		<!-- LEDGER; ledger; notebook; office -->
+		<annotation cp='[📒]' tts='สมุดโน้ตเจาะรูข้าง'>สมุดโน้ตเจาะรูข้าง; สมุดโน้ต</annotation>
+
+		<!-- PAGE WITH CURL; curl; document; office; page -->
+		<annotation cp='[📃]' tts='เอกสาร'>เอกสาร; เอกสารงอ</annotation>
+
+		<!-- SCROLL; office; paper; scroll -->
+		<annotation cp='[📜]' tts='ม้วนกระดาษ'>ม้วนกระดาษ</annotation>
+
+		<!-- PAGE FACING UP; document; office; page -->
+		<annotation cp='[📄]' tts='เอกสาร'>เอกสาร</annotation>
+
+		<!-- NEWSPAPER; communication; news; newspaper; object; paper -->
+		<annotation cp='[📰]' tts='หนังสือพิมพ์'>หนังสือพิมพ์; ข่าวสาร</annotation>
+
+		<!-- ROLLED-UP NEWSPAPER; news; newspaper; object; paper; rolled -->
+		<annotation cp='[🗞]'>MISSING</annotation>
+
+		<!-- BOOKMARK TABS; bookmark; mark; marker; office; tabs -->
+		<annotation cp='[📑]' tts='แถบคั่นหน้า'>แถบคั่นหน้า</annotation>
+
+		<!-- BOOKMARK; bookmark; mark; object -->
+		<annotation cp='[🔖]' tts='ที่คั่นหนังสือ'>ที่คั่นหนังสือ</annotation>
+
+		<!-- FRAME WITH PICTURE; art; frame; object; office; painting; picture -->
+		<annotation cp='[🖼]'>MISSING</annotation>
+
+		<!-- MONEY BAG; bag; dollar; money; moneybag; office -->
+		<annotation cp='[💰]' tts='ถุงเงิน'>ถุงเงิน; เงิน</annotation>
+
+		<!-- BANKNOTE WITH YEN SIGN; bank; banknote; bill; currency; money; note; office; yen -->
+		<annotation cp='[💴]' tts='ธนบัตรเยน'>ธนบัตรเยน; เยน; ธนบัตร</annotation>
+
+		<!-- BANKNOTE WITH DOLLAR SIGN; bank; banknote; bill; currency; dollar; money; note; office -->
+		<annotation cp='[💵]' tts='ธนบัตรดอลลาร์'>ธนบัตรดอลลาร์; ดอลลาร์; เงิน</annotation>
+
+		<!-- BANKNOTE WITH EURO SIGN; bank; banknote; bill; currency; euro; money; note; office -->
+		<annotation cp='[💶]' tts='ธนบัตรยูโร'>ธนบัตรยูโร; ยูโร; ธนบัตร</annotation>
+
+		<!-- BANKNOTE WITH POUND SIGN; bank; banknote; bill; currency; money; note; office; pound -->
+		<annotation cp='[💷]' tts='ธนบัตรปอนด์'>ธนบัตรปอนด์; ธนบัตร; เงิน</annotation>
+
+		<!-- MONEY WITH WINGS; bank; banknote; bill; dollar; fly; money; note; office; wings -->
+		<annotation cp='[💸]' tts='เงินบิน'>เงินบิน; เงินมีปีก</annotation>
+
+		<!-- CURRENCY EXCHANGE; bank; currency; exchange; money; office -->
+		<annotation cp='[💱]' tts='การแลกเปลี่ยนเงิน'>การแลกเปลี่ยนเงิน</annotation>
+
+		<!-- HEAVY DOLLAR SIGN; currency; dollar; money; office -->
+		<annotation cp='[💲]' tts='สัญลักษณ์ดอลลาร์'>สัญลักษณ์ดอลลาร์; เงิน</annotation>
+
+		<!-- CREDIT CARD; bank; card; credit; money; office -->
+		<annotation cp='[💳]' tts='บัตรเครดิต'>บัตรเครดิต; บัตร</annotation>
+
+		<!-- CHART WITH UPWARDS TREND AND YEN SIGN; bank; chart; currency; graph; growth; market; money; office; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='ตลาดขึ้น'>ตลาดขึ้น; ฟอเร็กซ์</annotation>
+
+		<!-- ENVELOPE; email; envelope; office -->
+		<annotation cp='[✉]'>MISSING</annotation>
+
+		<!-- E-MAIL SYMBOL; communication; email; letter; mail; office -->
+		<annotation cp='[📧]' tts='อีเมล'>อีเมล; จดหมาย; การสื่อสาร</annotation>
+
+		<!-- INCOMING ENVELOPE; communication; email; envelope; incoming; letter; mail; office; receive -->
+		<annotation cp='[📨]' tts='จดหมายเข้า'>จดหมายเข้า; จดหมาย; การสื่อสาร</annotation>
+
+		<!-- ENVELOPE WITH DOWNWARDS ARROW ABOVE; arrow; communication; down; email; envelope; letter; mail; office; outgoing; sent -->
+		<annotation cp='[📩]' tts='จดหมายออก'>จดหมายออก; จดหมาย; การสื่อสาร</annotation>
+
+		<!-- OUTBOX TRAY; box; communication; letter; mail; office; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='กล่องขาออก'>กล่องขาออก; จดหมายออก</annotation>
+
+		<!-- INBOX TRAY; box; communication; inbox; letter; mail; office; receive; tray -->
+		<annotation cp='[📥]' tts='กล่องขาเข้า'>กล่องขาเข้า; จดหมายเข้า</annotation>
+
+		<!-- PACKAGE; box; communication; office; package; parcel -->
+		<annotation cp='[📦]' tts='พัสดุ'>พัสดุ; กล่อง</annotation>
+
+		<!-- CLOSED MAILBOX WITH RAISED FLAG; closed; communication; flag; mail; mailbox; office; postbox -->
+		<annotation cp='[📫]' tts='กล่องจดหมายปิด'>กล่องจดหมายปิด; กล่องจดหมาย</annotation>
+
+		<!-- CLOSED MAILBOX WITH LOWERED FLAG; closed; communication; flag; lowered; mail; mailbox; office; postbox -->
+		<annotation cp='[📪]' tts='กล่องจดหมายปิด'>กล่องจดหมายปิด; กล่องจดหมาย</annotation>
+
+		<!-- OPEN MAILBOX WITH RAISED FLAG; communication; flag; mail; mailbox; office; open; postbox -->
+		<annotation cp='[📬]' tts='มีจดหมาย กล่องจดหมาย'>มีจดหมาย กล่องจดหมาย</annotation>
+
+		<!-- OPEN MAILBOX WITH LOWERED FLAG; communication; flag; lowered; mail; mailbox; office; open; postbox -->
+		<annotation cp='[📭]' tts='กล่องจดหมายว่า'>กล่องจดหมายว่า; กล่องจดหมาย</annotation>
+
+		<!-- POSTBOX; communication; mail; mailbox; office; postbox -->
+		<annotation cp='[📮]' tts='ตู้ไปรษณีย์'>ตู้ไปรษณีย์; กล่องจดหมาย</annotation>
+
+		<!-- PENCIL; office; pencil -->
+		<annotation cp='[✏]'>MISSING</annotation>
+
+		<!-- BLACK NIB; nib; office; pen -->
+		<annotation cp='[✒]'>MISSING</annotation>
+
+		<!-- LOWER LEFT FOUNTAIN PEN; communication; fountain; office; pen -->
+		<annotation cp='[🖋]'>MISSING</annotation>
+
+		<!-- LOWER LEFT BALLPOINT PEN; ballpoint; communication; office; pen -->
+		<annotation cp='[🖊]'>MISSING</annotation>
+
+		<!-- LOWER LEFT PAINTBRUSH; communication; office; paintbrush; painting -->
+		<annotation cp='[🖌]'>MISSING</annotation>
+
+		<!-- LOWER LEFT CRAYON; communication; crayon; office -->
+		<annotation cp='[🖍]'>MISSING</annotation>
+
+		<!-- MEMO; communication; memo; office; pencil -->
+		<annotation cp='[📝]' tts='จดบันทึก'>จดบันทึก</annotation>
+
+		<!-- PERSONAL COMPUTER; computer; office; pc; personal -->
+		<annotation cp='[💻]' tts='คอมพิวเตอร์'>คอมพิวเตอร์; พีซี</annotation>
+
+		<!-- DESKTOP COMPUTER; computer; desktop; office -->
+		<annotation cp='[🖥]'>MISSING</annotation>
+
+		<!-- PRINTER; computer; office; printer -->
+		<annotation cp='[🖨]'>MISSING</annotation>
+
+		<!-- KEYBOARD; computer; keyboard; sign -->
+		<annotation cp='[⌨]'>MISSING</annotation>
+
+		<!-- THREE BUTTON MOUSE; 3; button; computer; mouse; office; three -->
+		<annotation cp='[🖱]'>MISSING</annotation>
+
+		<!-- TRACKBALL; computer; office; trackball -->
+		<annotation cp='[🖲]'>MISSING</annotation>
+
+		<!-- MINIDISC; computer; disc; minidisc; office; optical -->
+		<annotation cp='[💽]' tts='แผ่นดิสก์ขนาดเล็ก'>แผ่นดิสก์ขนาดเล็ก; ดิสก์</annotation>
+
+		<!-- FLOPPY DISK; computer; disc; disk; floppy; office -->
+		<annotation cp='[💾]' tts='แผ่นบันทึก'>แผ่นบันทึก; ฟล็อปปี้</annotation>
+
+		<!-- OPTICAL DISC; cd; computer; disc; dvd; office; optical -->
+		<annotation cp='[💿]' tts='บลูเรย์'>บลูเรย์; ดีวีดี; ซีดี</annotation>
+
+		<!-- DVD; computer; disc; dvd; office; optical -->
+		<annotation cp='[📀]' tts='ดีวีดี'>ดีวีดี; แผ่นดีวีดี</annotation>
+
+		<!-- BRIEFCASE; briefcase; office -->
+		<annotation cp='[💼]' tts='กระเป๋าเอกสาร'>กระเป๋าเอกสาร</annotation>
+
+		<!-- FILE FOLDER; file; folder; office -->
+		<annotation cp='[📁]' tts='แฟ้มเอกสาร'>แฟ้มเอกสาร; โฟลเดอร์</annotation>
+
+		<!-- OPEN FILE FOLDER; file; folder; office; open -->
+		<annotation cp='[📂]' tts='เปิดเอกสาร'>เปิดเอกสาร; แฟ้มเปิด</annotation>
+
+		<!-- CARD INDEX DIVIDERS; card; dividers; index; office -->
+		<annotation cp='[🗂]'>MISSING</annotation>
+
+		<!-- CALENDAR; calendar; date; office -->
+		<annotation cp='[📅]' tts='ปฎิทิน'>ปฎิทิน</annotation>
+
+		<!-- TEAR-OFF CALENDAR; calendar; office -->
+		<annotation cp='[📆]' tts='ปฎิทินแบบฉีกออก'>ปฎิทินแบบฉีกออก; ปฎิทิน</annotation>
+
+		<!-- SPIRAL NOTE PAD; note; office; pad; spiral -->
+		<annotation cp='[🗒]'>MISSING</annotation>
+
+		<!-- SPIRAL CALENDAR PAD; calendar; office; pad; spiral -->
+		<annotation cp='[🗓]'>MISSING</annotation>
+
+		<!-- CARD INDEX; card; index; office; rolodex -->
+		<annotation cp='[📇]' tts='ที่ใส่บัตร'>ที่ใส่บัตร</annotation>
+
+		<!-- CHART WITH UPWARDS TREND; chart; graph; growth; office; trend; upward -->
+		<annotation cp='[📈]' tts='แนวโน้มขึ้น'>แนวโน้มขึ้น; ขาขึ้น</annotation>
+
+		<!-- CHART WITH DOWNWARDS TREND; chart; down; graph; office; trend -->
+		<annotation cp='[📉]' tts='แนวโน้มลง'>แนวโน้มลง; ขาลง</annotation>
+
+		<!-- BAR CHART; bar; chart; graph; office -->
+		<annotation cp='[📊]' tts='กราฟแท่ง'>กราฟแท่ง; ชาร์ต</annotation>
+
+		<!-- CLIPBOARD; clipboard; office -->
+		<annotation cp='[📋]' tts='คลิปบอร์ด'>คลิปบอร์ด</annotation>
+
+		<!-- PUSHPIN; office; pin; pushpin -->
+		<annotation cp='[📌]' tts='หมุดปัก'>หมุดปัก; หมุด</annotation>
+
+		<!-- ROUND PUSHPIN; office; pin; place; pushpin -->
+		<annotation cp='[📍]' tts='หมุดหัวกลม'>หมุดหัวกลม; หมุด</annotation>
+
+		<!-- PAPERCLIP; office; paperclip -->
+		<annotation cp='[📎]' tts='คลิปหนีบกระดาษ'>คลิปหนีบกระดาษ; คลิป</annotation>
+
+		<!-- LINKED PAPERCLIPS; communication; link; office; paperclip -->
+		<annotation cp='[🖇]'>MISSING</annotation>
+
+		<!-- STRAIGHT RULER; office; ruler; straight edge -->
+		<annotation cp='[📏]' tts='ไม้บรรทัดตรง'>ไม้บรรทัดตรง; ไม้บรรทัด</annotation>
+
+		<!-- TRIANGULAR RULER; office; ruler; set; triangle -->
+		<annotation cp='[📐]' tts='ไม้บรรทัดสามเหลี่ยม'>ไม้บรรทัดสามเหลี่ยม; ไม้บรรทัด</annotation>
+
+		<!-- NAME BADGE; badge; name; office -->
+		<annotation cp='[📛]' tts='ป้ายชื่อ'>ป้ายชื่อ</annotation>
+
+		<!-- BLACK SCISSORS; office; scissors; tool -->
+		<annotation cp='[✂]'>MISSING</annotation>
+
+		<!-- CARD FILE BOX; box; card; file; office -->
+		<annotation cp='[🗃]'>MISSING</annotation>
+
+		<!-- FILE CABINET; cabinet; file; office -->
+		<annotation cp='[🗄]'>MISSING</annotation>
+
+		<!-- WASTEBASKET; office; wastebasket -->
+		<annotation cp='[🗑]'>MISSING</annotation>
+
+		<!-- LOCK; closed; lock; object -->
+		<annotation cp='[🔒]' tts='ล็อกปิด'>ล็อกปิด</annotation>
+
+		<!-- OPEN LOCK; lock; object; open; unlock -->
+		<annotation cp='[🔓]' tts='ล็อกเปิด'>ล็อกเปิด</annotation>
+
+		<!-- LOCK WITH INK PEN; ink; lock; nib; object; pen; privacy -->
+		<annotation cp='[🔏]' tts='ล็อก'>ล็อก; ข้อมูลส่วนตัว</annotation>
+
+		<!-- CLOSED LOCK WITH KEY; closed; key; lock; object; secure -->
+		<annotation cp='[🔐]' tts='ล็อกด้วยกุญแจ'>ล็อกด้วยกุญแจ</annotation>
+
+		<!-- KEY; key; lock; object; password -->
+		<annotation cp='[🔑]' tts='กุญแจ'>กุญแจ</annotation>
+
+		<!-- OLD KEY; clue; key; lock; object; old -->
+		<annotation cp='[🗝]'>MISSING</annotation>
+
+		<!-- HAMMER; hammer; object; tool -->
+		<annotation cp='[🔨]' tts='ค้อน'>ค้อน; เครื่องมือ</annotation>
+
+		<!-- PICK; mining; object; pick; tool; travel -->
+		<annotation cp='[⛏]'>MISSING</annotation>
+
+		<!-- HAMMER AND PICK; hammer; object; pick; tool -->
+		<annotation cp='[⚒]'>MISSING</annotation>
+
+		<!-- HAMMER AND WRENCH; hammer; object; tool; wrench -->
+		<annotation cp='[🛠]'>MISSING</annotation>
+
+		<!-- WRENCH; object; tool; wrench -->
+		<annotation cp='[🔧]' tts='ประแจ'>ประแจ; เครื่องมือ</annotation>
+
+		<!-- NUT AND BOLT; bolt; nut; object; tool -->
+		<annotation cp='[🔩]' tts='สลักและน็อต'>สลักและน็อต; เครื่องมือ</annotation>
+
+		<!-- GEAR; gear; object; tool -->
+		<annotation cp='[⚙]'>MISSING</annotation>
+
+		<!-- COMPRESSION; compression; object; tool; vice -->
+		<annotation cp='[🗜]'>MISSING</annotation>
+
+		<!-- ALEMBIC; alembic; chemistry; object; tool -->
+		<annotation cp='[⚗]'>MISSING</annotation>
+
+		<!-- SCALES; balance; justice; libra; object; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]'>MISSING</annotation>
+
+		<!-- SYRINGE; doctor; medicine; needle; object; shot; sick; syringe; tool -->
+		<annotation cp='[💉]' tts='กระบอกฉีดยา'>กระบอกฉีดยา; ฉีดยา; เข็มฉีดยา</annotation>
+
+		<!-- DAGGER KNIFE; dagger; knife; object; weapon -->
+		<annotation cp='[🗡]'>MISSING</annotation>
+
+		<!-- HOCHO; cooking; hocho; knife; object; tool; weapon -->
+		<annotation cp='[🔪]' tts='มืดทำครัว'>มืดทำครัว; มีด</annotation>
+
+		<!-- CROSSED SWORDS; crossed; object; swords; weapon -->
+		<annotation cp='[⚔]'>MISSING</annotation>
+
+		<!-- PISTOL; gun; object; pistol; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='ปืน'>ปืน; ปืนพก</annotation>
+
+		<!-- SHIELD; object; shield; weapon -->
+		<annotation cp='[🛡]'>MISSING</annotation>
+
+		<!-- SCHOOL SATCHEL; activity; bag; education; object; satchel; school -->
+		<annotation cp='[🎒]' tts='เป้นักเรียน'>เป้นักเรียน; กระเป๋าเรียน</annotation>
+
+		<!-- BATTERY; battery; object -->
+		<annotation cp='[🔋]' tts='แบตเตอรี่'>แบตเตอรี่</annotation>
+
+		<!-- ELECTRIC PLUG; electric; electricity; object; plug -->
+		<annotation cp='[🔌]' tts='ปลั๊กไฟ'>ปลั๊กไฟ</annotation>
+
+		<!-- LINK SYMBOL; link; object -->
+		<annotation cp='[🔗]' tts='สัญลักษณ์การลิงก์'>สัญลักษณ์การลิงก์</annotation>
+
+		<!-- CHAINS; chain; object; travel -->
+		<annotation cp='[⛓]'>MISSING</annotation>
+
+		<!-- SMOKING SYMBOL; activity; object; smoking; travel -->
+		<annotation cp='[🚬]' tts='ป้ายสูบบุหรี่'>ป้ายสูบบุหรี่; สูบบุหรี่ได้; สูบบุหรี่</annotation>
+
+		<!-- LIPSTICK; cosmetics; lipstick; makeup; object -->
+		<annotation cp='[💄]' tts='ลิปสติก'>ลิปสติก; เครื่องสำอาง</annotation>
+
+		<!-- RING; diamond; object; ring; romance -->
+		<annotation cp='[💍]' tts='แหวน'>แหวน; ความรัก</annotation>
+
+		<!-- GEM STONE; diamond; gem; jewel; object; romance -->
+		<annotation cp='[💎]' tts='อัญมณี'>อัญมณี; เพชร</annotation>
+
+		<!-- OIL DRUM; drum; object; oil -->
+		<annotation cp='[🛢]'>MISSING</annotation>
+
+		<!-- CRYSTAL BALL; ball; crystal; fantasy; fortune; object; tool -->
+		<annotation cp='[🔮]' tts='ลูกแก้ววิเศษ'>ลูกแก้ววิเศษ; ดูดวง</annotation>
+
+		<!-- SIX POINTED STAR WITH MIDDLE DOT; fortune; object; star -->
+		<annotation cp='[🔯]' tts='ดาว 6 แฉก'>ดาว</annotation>
+
+		<!-- TRIDENT EMBLEM; anchor; emblem; object; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='ฉมวก'>ฉมวก; สมอ</annotation>
+
+		<!-- BALLOT BOX WITH BALLOT; ballot; box; object -->
+		<annotation cp='[🗳]'>MISSING</annotation>
+
+		<!-- PILL; doctor; medicine; object; pill; sick -->
+		<annotation cp='[💊]' tts='ยาเม็ด'>ยาเม็ด; ยา; หมอ</annotation>
+
+		<!-- ATOM SYMBOL; atheist; atom; object -->
+		<annotation cp='[⚛]'>MISSING</annotation>
+
+		<!-- FLEUR-DE-LIS; object -->
+		<annotation cp='[⚜]'>MISSING</annotation>
+
+		<!-- COFFIN; coffin; death; object -->
+		<annotation cp='[⚰]'>MISSING</annotation>
+
+		<!-- FUNERAL URN; death; funeral; object; urn -->
+		<annotation cp='[⚱]'>MISSING</annotation>
+
+		<!-- JAPANESE SYMBOL FOR BEGINNER; beginner; chevron; green; japanese; leaf; object; place; tool; yellow -->
+		<annotation cp='[🔰]' tts='ป้ายสีเขียวและเหลือง'>ป้ายสีเขียวและเหลือง</annotation>
+
+		<!-- HUNDRED POINTS SYMBOL; 100; full; hundred; office; score -->
+		<annotation cp='[💯]' tts='คะแนนเต็ม'>คะแนนเต็ม; 100 คะแนน</annotation>
+
+		<!-- SATELLITE ANTENNA; antenna; communication; dish; office; satellite -->
+		<annotation cp='[📡]' tts='จานดาวเทียม'>จานดาวเทียม</annotation>
+
+		<!-- CHEQUERED FLAG; checkered; chequered; flag; racing; sport -->
+		<annotation cp='[🏁]' tts='ธงหมากรุก'>ธงหมากรุก; กีฬา</annotation>
+
+		<!-- WAVING WHITE FLAG; flag; waving -->
+		<annotation cp='[🏳]'>MISSING</annotation>
+
+		<!-- WAVING BLACK FLAG; flag; waving -->
+		<annotation cp='[🏴]'>MISSING</annotation>
+
+		<!-- TRIANGULAR FLAG ON POST; flag; post; travel -->
+		<annotation cp='[🚩]' tts='ธงปักตำแหน่ง'>ธงปักตำแหน่ง; ธง; ธงแดง; ธงสามเหลี่ยม</annotation>
+
+		<!-- Afghanistan; afghanistan; flag -->
+		<annotation cp='[{🇦🇫}]'>อัฟกานิสถาน</annotation>
+
+		<!-- Åland Islands; åland; flag; islands -->
+		<annotation cp='[{🇦🇽}]'>หมู่เกาะโอลันด์</annotation>
+
+		<!-- Albania; albania; flag -->
+		<annotation cp='[{🇦🇱}]'>แอลเบเนีย</annotation>
+
+		<!-- Algeria; algeria; flag -->
+		<annotation cp='[{🇩🇿}]'>แอลจีเรีย</annotation>
+
+		<!-- American Samoa; american; flag; samoa -->
+		<annotation cp='[{🇦🇸}]'>อเมริกันซามัว</annotation>
+
+		<!-- Andorra; andorra; flag -->
+		<annotation cp='[{🇦🇩}]'>อันดอร์รา</annotation>
+
+		<!-- Angola; angola; flag -->
+		<annotation cp='[{🇦🇴}]'>แองโกลา</annotation>
+
+		<!-- Anguilla; anguilla; flag -->
+		<annotation cp='[{🇦🇮}]'>แองกวิลลา</annotation>
+
+		<!-- Antarctica; antarctica; flag -->
+		<annotation cp='[{🇦🇶}]'>แอนตาร์กติกา</annotation>
+
+		<!-- Antigua & Barbuda; antigua; barbuda; flag -->
+		<annotation cp='[{🇦🇬}]'>แอนติกาและบาร์บูดา</annotation>
+
+		<!-- Argentina; argentina; flag -->
+		<annotation cp='[{🇦🇷}]'>อาร์เจนตินา</annotation>
+
+		<!-- Armenia; armenia; flag -->
+		<annotation cp='[{🇦🇲}]'>อาร์เมเนีย</annotation>
+
+		<!-- Aruba; aruba; flag -->
+		<annotation cp='[{🇦🇼}]'>อารูบา</annotation>
+
+		<!-- Ascension Island; ascension; flag; island -->
+		<annotation cp='[{🇦🇨}]'>เกาะแอสเซนชัน</annotation>
+
+		<!-- Australia; australia; flag -->
+		<annotation cp='[{🇦🇺}]'>ออสเตรเลีย</annotation>
+
+		<!-- Austria; austria; flag -->
+		<annotation cp='[{🇦🇹}]'>ออสเตรีย</annotation>
+
+		<!-- Azerbaijan; azerbaijan; flag -->
+		<annotation cp='[{🇦🇿}]'>อาเซอร์ไบจาน</annotation>
+
+		<!-- Bahamas; bahamas; flag -->
+		<annotation cp='[{🇧🇸}]'>บาฮามาส</annotation>
+
+		<!-- Bahrain; bahrain; flag -->
+		<annotation cp='[{🇧🇭}]'>บาห์เรน</annotation>
+
+		<!-- Bangladesh; bangladesh; flag -->
+		<annotation cp='[{🇧🇩}]'>บังกลาเทศ</annotation>
+
+		<!-- Barbados; barbados; flag -->
+		<annotation cp='[{🇧🇧}]'>บาร์เบโดส</annotation>
+
+		<!-- Belarus; belarus; flag -->
+		<annotation cp='[{🇧🇾}]'>เบลารุส</annotation>
+
+		<!-- Belgium; belgium; flag -->
+		<annotation cp='[{🇧🇪}]'>เบลเยียม</annotation>
+
+		<!-- Belize; belize; flag -->
+		<annotation cp='[{🇧🇿}]'>เบลีซ</annotation>
+
+		<!-- Benin; benin; flag -->
+		<annotation cp='[{🇧🇯}]'>เบนิน</annotation>
+
+		<!-- Bermuda; bermuda; flag -->
+		<annotation cp='[{🇧🇲}]'>เบอร์มิวดา</annotation>
+
+		<!-- Bhutan; bhutan; flag -->
+		<annotation cp='[{🇧🇹}]'>ภูฏาน</annotation>
+
+		<!-- Bolivia; bolivia; flag -->
+		<annotation cp='[{🇧🇴}]'>โบลิเวีย</annotation>
+
+		<!-- Bosnia & Herzegovina; bosnia; flag; herzegovina -->
+		<annotation cp='[{🇧🇦}]'>บอสเนียและเฮอร์เซโกวีนา</annotation>
+
+		<!-- Botswana; botswana; flag -->
+		<annotation cp='[{🇧🇼}]'>บอตสวานา</annotation>
+
+		<!-- Bouvet Island; bouvet; flag; island -->
+		<annotation cp='[{🇧🇻}]'>เกาะบูเวต</annotation>
+
+		<!-- Brazil; brazil; flag -->
+		<annotation cp='[{🇧🇷}]'>บราซิล</annotation>
+
+		<!-- British Indian Ocean Territory; british; flag; indian; ocean -->
+		<annotation cp='[{🇮🇴}]'>บริติชอินเดียนโอเชียนเทร์ริทอรี</annotation>
+
+		<!-- British Virgin Islands; british; flag; islands; virgin islands -->
+		<annotation cp='[{🇻🇬}]'>หมู่เกาะบริติชเวอร์จิน</annotation>
+
+		<!-- Brunei; brunei; darussalam; flag -->
+		<annotation cp='[{🇧🇳}]'>บรูไน</annotation>
+
+		<!-- Bulgaria; bulgaria; flag -->
+		<annotation cp='[{🇧🇬}]'>บัลแกเรีย</annotation>
+
+		<!-- Burkina Faso; burkina; faso; flag -->
+		<annotation cp='[{🇧🇫}]'>บูร์กินาฟาโซ</annotation>
+
+		<!-- Burundi; burundi; flag -->
+		<annotation cp='[{🇧🇮}]'>บุรุนดี</annotation>
+
+		<!-- Cambodia; cambodia; flag -->
+		<annotation cp='[{🇰🇭}]'>กัมพูชา</annotation>
+
+		<!-- Cameroon; cameroon; flag -->
+		<annotation cp='[{🇨🇲}]'>แคเมอรูน</annotation>
+
+		<!-- Canada; canada; flag -->
+		<annotation cp='[{🇨🇦}]'>แคนาดา</annotation>
+
+		<!-- Canary Islands; canary; flag; islands -->
+		<annotation cp='[{🇮🇨}]'>หมู่เกาะคานารี</annotation>
+
+		<!-- Cape Verde; cabo; cape; flag; verde -->
+		<annotation cp='[{🇨🇻}]'>เคปเวิร์ด</annotation>
+
+		<!-- Caribbean Netherlands; bonaire; caribbean; eustatius; flag; netherlands; saba; sint -->
+		<annotation cp='[{🇧🇶}]'>เนเธอร์แลนด์แคริบเบียน</annotation>
+
+		<!-- Cayman Islands; cayman; flag; islands -->
+		<annotation cp='[{🇰🇾}]'>หมู่เกาะเคย์แมน</annotation>
+
+		<!-- Central African Republic; african; central; flag -->
+		<annotation cp='[{🇨🇫}]'>สาธารณรัฐแอฟริกากลาง</annotation>
+
+		<!-- Ceuta & Melilla; ceuta; flag; melilla -->
+		<annotation cp='[{🇪🇦}]'>ซีโอตาและเมลิลลา</annotation>
+
+		<!-- Chad; chad; flag -->
+		<annotation cp='[{🇹🇩}]'>ชาด</annotation>
+
+		<!-- Chile; chile; flag -->
+		<annotation cp='[{🇨🇱}]'>ชิลี</annotation>
+
+		<!-- China; china; flag -->
+		<annotation cp='[{🇨🇳}]'>จีน</annotation>
+
+		<!-- Christmas Island; christmas; flag; island -->
+		<annotation cp='[{🇨🇽}]'>เกาะคริสต์มาส</annotation>
+
+		<!-- Clipperton Island; clipperton; flag; island -->
+		<annotation cp='[{🇨🇵}]'>เกาะคลิปเปอร์ตัน</annotation>
+
+		<!-- Cocos (Keeling) Islands; cocos; flag; islands; keeling -->
+		<annotation cp='[{🇨🇨}]'>หมู่เกาะโคโคส (คีลิง)</annotation>
+
+		<!-- Colombia; colombia; flag -->
+		<annotation cp='[{🇨🇴}]'>โคลอมเบีย</annotation>
+
+		<!-- Comoros; comoros; flag -->
+		<annotation cp='[{🇰🇲}]'>คอโมโรส</annotation>
+
+		<!-- Congo - Brazzaville; brazzaville; congo; flag -->
+		<annotation cp='[{🇨🇬}]'>คองโก-บราซซาวิล</annotation>
+
+		<!-- Congo - Kinshasa; congo; flag; kinshasa -->
+		<annotation cp='[{🇨🇩}]'>คองโก-กินชาซา</annotation>
+
+		<!-- Cook Islands; cook; flag; islands -->
+		<annotation cp='[{🇨🇰}]'>หมู่เกาะคุก</annotation>
+
+		<!-- Costa Rica; costa; flag; rica -->
+		<annotation cp='[{🇨🇷}]'>คอสตาริกา</annotation>
+
+		<!-- Côte d’Ivoire; coast; cote; côte; flag; ivoire; ivory -->
+		<annotation cp='[{🇨🇮}]'>ไอวอรี่โคสต์</annotation>
+
+		<!-- Croatia; croatia; flag -->
+		<annotation cp='[{🇭🇷}]'>โครเอเชีย</annotation>
+
+		<!-- Cuba; cuba; flag -->
+		<annotation cp='[{🇨🇺}]'>คิวบา</annotation>
+
+		<!-- Curaçao; antilles; curacao; curaçao; flag; netherlands -->
+		<annotation cp='[{🇨🇼}]'>คูราเซา</annotation>
+
+		<!-- Cyprus; cyprus; flag -->
+		<annotation cp='[{🇨🇾}]'>ไซปรัส</annotation>
+
+		<!-- Czech Republic; czech; flag -->
+		<annotation cp='[{🇨🇿}]'>สาธารณรัฐเช็ก</annotation>
+
+		<!-- Denmark; denmark; flag -->
+		<annotation cp='[{🇩🇰}]'>เดนมาร์ก</annotation>
+
+		<!-- Diego Garcia; diego; flag; garcia -->
+		<annotation cp='[{🇩🇬}]'>ดิเอโกการ์เซีย</annotation>
+
+		<!-- Djibouti; djibouti; flag -->
+		<annotation cp='[{🇩🇯}]'>จิบูตี</annotation>
+
+		<!-- Dominica; dominica; flag -->
+		<annotation cp='[{🇩🇲}]'>โดมินิกา</annotation>
+
+		<!-- Dominican Republic; dominica; dominican; flag -->
+		<annotation cp='[{🇩🇴}]'>สาธารณรัฐโดมินิกัน</annotation>
+
+		<!-- Ecuador; ecuador; flag -->
+		<annotation cp='[{🇪🇨}]'>เอกวาดอร์</annotation>
+
+		<!-- Egypt; arab; egypt; flag -->
+		<annotation cp='[{🇪🇬}]'>อียิปต์</annotation>
+
+		<!-- El Salvador; el salvador; flag -->
+		<annotation cp='[{🇸🇻}]'>เอลซัลวาดอร์</annotation>
+
+		<!-- Equatorial Guinea; equatorial; flag; guinea -->
+		<annotation cp='[{🇬🇶}]'>อิเควทอเรียลกินี</annotation>
+
+		<!-- Eritrea; eritrea; flag -->
+		<annotation cp='[{🇪🇷}]'>เอริเทรีย</annotation>
+
+		<!-- Estonia; estonia; flag -->
+		<annotation cp='[{🇪🇪}]'>เอสโตเนีย</annotation>
+
+		<!-- Ethiopia; ethiopia; flag -->
+		<annotation cp='[{🇪🇹}]'>เอธิโอเปีย</annotation>
+
+		<!-- European Union; european; flag; union -->
+		<annotation cp='[{🇪🇺}]'>สหภาพยุโรป</annotation>
+
+		<!-- Falkland Islands; falkland; flag; islands; islas; malvinas -->
+		<annotation cp='[{🇫🇰}]'>หมู่เกาะฟอล์กแลนด์</annotation>
+
+		<!-- Faroe Islands; faeroe; faroe; flag; islands -->
+		<annotation cp='[{🇫🇴}]'>หมู่เกาะแฟโร</annotation>
+
+		<!-- Fiji; fiji; flag -->
+		<annotation cp='[{🇫🇯}]'>ฟิจิ</annotation>
+
+		<!-- Finland; finland; flag -->
+		<annotation cp='[{🇫🇮}]'>ฟินแลนด์</annotation>
+
+		<!-- France; flag; france -->
+		<annotation cp='[{🇫🇷}]'>ฝรั่งเศส</annotation>
+
+		<!-- French Guiana; flag; french; guiana -->
+		<annotation cp='[{🇬🇫}]'>เฟรนช์เกียนา</annotation>
+
+		<!-- French Polynesia; flag; french; polynesia -->
+		<annotation cp='[{🇵🇫}]'>เฟรนช์โปลินีเซีย</annotation>
+
+		<!-- French Southern Territories; flag; french; southern -->
+		<annotation cp='[{🇹🇫}]'>เฟรนช์เซาเทิร์นเทร์ริทอรีส์</annotation>
+
+		<!-- Gabon; flag; gabon -->
+		<annotation cp='[{🇬🇦}]'>กาบอง</annotation>
+
+		<!-- Gambia; flag; gambia -->
+		<annotation cp='[{🇬🇲}]'>แกมเบีย</annotation>
+
+		<!-- Georgia; flag; georgia -->
+		<annotation cp='[{🇬🇪}]'>จอร์เจีย</annotation>
+
+		<!-- Germany; flag; germany -->
+		<annotation cp='[{🇩🇪}]'>เยอรมนี</annotation>
+
+		<!-- Ghana; flag; ghana -->
+		<annotation cp='[{🇬🇭}]'>กานา</annotation>
+
+		<!-- Gibraltar; flag; gibraltar -->
+		<annotation cp='[{🇬🇮}]'>ยิบรอลตาร์</annotation>
+
+		<!-- Greece; flag; greece -->
+		<annotation cp='[{🇬🇷}]'>กรีซ</annotation>
+
+		<!-- Greenland; flag; greenland -->
+		<annotation cp='[{🇬🇱}]'>กรีนแลนด์</annotation>
+
+		<!-- Grenada; flag; grenada -->
+		<annotation cp='[{🇬🇩}]'>เกรเนดา</annotation>
+
+		<!-- Guadeloupe; flag; guadeloupe -->
+		<annotation cp='[{🇬🇵}]'>กวาเดอลูป</annotation>
+
+		<!-- Guam; flag; guam -->
+		<annotation cp='[{🇬🇺}]'>กวม</annotation>
+
+		<!-- Guatemala; flag; guatemala -->
+		<annotation cp='[{🇬🇹}]'>กัวเตมาลา</annotation>
+
+		<!-- Guernsey; flag; guernsey; islands -->
+		<annotation cp='[{🇬🇬}]'>เกิร์นซีย์</annotation>
+
+		<!-- Guinea; flag; guinea -->
+		<annotation cp='[{🇬🇳}]'>กินี</annotation>
+
+		<!-- Guinea-Bissau; bissau; flag; guinea -->
+		<annotation cp='[{🇬🇼}]'>กินี-บิสเซา</annotation>
+
+		<!-- Guyana; flag; guyana -->
+		<annotation cp='[{🇬🇾}]'>กายอานา</annotation>
+
+		<!-- Haiti; flag; haiti -->
+		<annotation cp='[{🇭🇹}]'>เฮติ</annotation>
+
+		<!-- Heard & McDonald Islands; flag; heard; island; islands; mcdonald -->
+		<annotation cp='[{🇭🇲}]'>เกาะเฮิร์ดและหมู่เกาะแมกดอนัลด์</annotation>
+
+		<!-- Honduras; flag; honduras -->
+		<annotation cp='[{🇭🇳}]'>ฮอนดูรัส</annotation>
+
+		<!-- Hong Kong SAR China; china; flag; hong kong -->
+		<annotation cp='[{🇭🇰}]'>เขตปกครองพิเศษฮ่องกงแห่งสาธารณรัฐประชาชนจีน</annotation>
+
+		<!-- Hungary; flag; hungary -->
+		<annotation cp='[{🇭🇺}]'>ฮังการี</annotation>
+
+		<!-- Iceland; flag; iceland -->
+		<annotation cp='[{🇮🇸}]'>ไอซ์แลนด์</annotation>
+
+		<!-- India; flag; india -->
+		<annotation cp='[{🇮🇳}]'>อินเดีย</annotation>
+
+		<!-- Indonesia; flag; indonesia -->
+		<annotation cp='[{🇮🇩}]'>อินโดนีเซีย</annotation>
+
+		<!-- Iran; flag; iran -->
+		<annotation cp='[{🇮🇷}]'>อิหร่าน</annotation>
+
+		<!-- Iraq; flag; iraq -->
+		<annotation cp='[{🇮🇶}]'>อิรัก</annotation>
+
+		<!-- Ireland; flag; ireland -->
+		<annotation cp='[{🇮🇪}]'>ไอร์แลนด์</annotation>
+
+		<!-- Isle of Man; flag; isle; man -->
+		<annotation cp='[{🇮🇲}]'>เกาะแมน</annotation>
+
+		<!-- Israel; flag; israel -->
+		<annotation cp='[{🇮🇱}]'>อิสราเอล</annotation>
+
+		<!-- Italy; flag; italy -->
+		<annotation cp='[{🇮🇹}]'>อิตาลี</annotation>
+
+		<!-- Jamaica; flag; jamaica -->
+		<annotation cp='[{🇯🇲}]'>จาเมกา</annotation>
+
+		<!-- Japan; flag; japan -->
+		<annotation cp='[{🇯🇵}]'>ญี่ปุ่น</annotation>
+
+		<!-- Jersey; flag; jersey -->
+		<annotation cp='[{🇯🇪}]'>เจอร์ซีย์</annotation>
+
+		<!-- Jordan; flag; jordan -->
+		<annotation cp='[{🇯🇴}]'>จอร์แดน</annotation>
+
+		<!-- Kazakhstan; flag; kazakhstan -->
+		<annotation cp='[{🇰🇿}]'>คาซัคสถาน</annotation>
+
+		<!-- Kenya; flag; kenya -->
+		<annotation cp='[{🇰🇪}]'>เคนยา</annotation>
+
+		<!-- Kiribati; flag; kiribati -->
+		<annotation cp='[{🇰🇮}]'>คิริบาส</annotation>
+
+		<!-- Kosovo; flag; kosovo -->
+		<annotation cp='[{🇽🇰}]'>โคโซโว</annotation>
+
+		<!-- Kuwait; flag; kuwait -->
+		<annotation cp='[{🇰🇼}]'>คูเวต</annotation>
+
+		<!-- Kyrgyzstan; flag; kyrgyz; kyrgyzstan -->
+		<annotation cp='[{🇰🇬}]'>คีร์กีซสถาน</annotation>
+
+		<!-- Laos; flag; lao; laos -->
+		<annotation cp='[{🇱🇦}]'>ลาว</annotation>
+
+		<!-- Latvia; flag; latvia -->
+		<annotation cp='[{🇱🇻}]'>ลัตเวีย</annotation>
+
+		<!-- Lebanon; flag; lebanon -->
+		<annotation cp='[{🇱🇧}]'>เลบานอน</annotation>
+
+		<!-- Lesotho; flag; lesotho -->
+		<annotation cp='[{🇱🇸}]'>เลโซโท</annotation>
+
+		<!-- Liberia; flag; liberia -->
+		<annotation cp='[{🇱🇷}]'>ไลบีเรีย</annotation>
+
+		<!-- Libya; arab; flag; libya; libyan -->
+		<annotation cp='[{🇱🇾}]'>ลิเบีย</annotation>
+
+		<!-- Liechtenstein; flag; liechtenstein -->
+		<annotation cp='[{🇱🇮}]'>ลิกเตนสไตน์</annotation>
+
+		<!-- Lithuania; flag; lithuania -->
+		<annotation cp='[{🇱🇹}]'>ลิทัวเนีย</annotation>
+
+		<!-- Luxembourg; flag; luxembourg -->
+		<annotation cp='[{🇱🇺}]'>ลักเซมเบิร์ก</annotation>
+
+		<!-- Macau SAR China; china; flag; macao; macau -->
+		<annotation cp='[{🇲🇴}]'>เขตปกครองพิเศษมาเก๊าแห่งสาธารณรัฐประชาชนจีน</annotation>
+
+		<!-- Macedonia; flag; macedonia -->
+		<annotation cp='[{🇲🇰}]'>มาซิโดเนีย</annotation>
+
+		<!-- Madagascar; flag; madagascar -->
+		<annotation cp='[{🇲🇬}]'>มาดากัสการ์</annotation>
+
+		<!-- Malawi; flag; malawi -->
+		<annotation cp='[{🇲🇼}]'>มาลาวี</annotation>
+
+		<!-- Malaysia; flag; malaysia -->
+		<annotation cp='[{🇲🇾}]'>มาเลเซีย</annotation>
+
+		<!-- Maldives; flag; maldives -->
+		<annotation cp='[{🇲🇻}]'>มัลดีฟส์</annotation>
+
+		<!-- Mali; flag; mali -->
+		<annotation cp='[{🇲🇱}]'>มาลี</annotation>
+
+		<!-- Malta; flag; malta -->
+		<annotation cp='[{🇲🇹}]'>มอลตา</annotation>
+
+		<!-- Marshall Islands; flag; islands; marshall -->
+		<annotation cp='[{🇲🇭}]'>หมู่เกาะมาร์แชลล์</annotation>
+
+		<!-- Martinique; flag; martinique -->
+		<annotation cp='[{🇲🇶}]'>มาร์ตินีก</annotation>
+
+		<!-- Mauritania; flag; mauritania -->
+		<annotation cp='[{🇲🇷}]'>มอริเตเนีย</annotation>
+
+		<!-- Mauritius; flag; mauritius -->
+		<annotation cp='[{🇲🇺}]'>มอริเชียส</annotation>
+
+		<!-- Mayotte; flag; mayotte -->
+		<annotation cp='[{🇾🇹}]'>มายอต</annotation>
+
+		<!-- Mexico; flag; mexico -->
+		<annotation cp='[{🇲🇽}]'>เม็กซิโก</annotation>
+
+		<!-- Micronesia; flag; micronesia -->
+		<annotation cp='[{🇫🇲}]'>ไมโครนีเซีย</annotation>
+
+		<!-- Moldova; flag; moldova -->
+		<annotation cp='[{🇲🇩}]'>มอลโดวา</annotation>
+
+		<!-- Monaco; flag; monaco -->
+		<annotation cp='[{🇲🇨}]'>โมนาโก</annotation>
+
+		<!-- Mongolia; flag; mongolia -->
+		<annotation cp='[{🇲🇳}]'>มองโกเลีย</annotation>
+
+		<!-- Montenegro; flag; montenegro -->
+		<annotation cp='[{🇲🇪}]'>มอนเตเนโกร</annotation>
+
+		<!-- Montserrat; flag; montserrat -->
+		<annotation cp='[{🇲🇸}]'>มอนต์เซอร์รัต</annotation>
+
+		<!-- Morocco; flag; morocco -->
+		<annotation cp='[{🇲🇦}]'>โมร็อกโก</annotation>
+
+		<!-- Mozambique; flag; mozambique -->
+		<annotation cp='[{🇲🇿}]'>โมซัมบิก</annotation>
+
+		<!-- Myanmar (Burma); burma; flag; myanmar -->
+		<annotation cp='[{🇲🇲}]'>เมียนม่าร์ (พม่า)</annotation>
+
+		<!-- Namibia; flag; namibia -->
+		<annotation cp='[{🇳🇦}]'>นามิเบีย</annotation>
+
+		<!-- Nauru; flag; nauru -->
+		<annotation cp='[{🇳🇷}]'>นาอูรู</annotation>
+
+		<!-- Nepal; flag; nepal -->
+		<annotation cp='[{🇳🇵}]'>เนปาล</annotation>
+
+		<!-- Netherlands; flag; netherlands -->
+		<annotation cp='[{🇳🇱}]'>เนเธอร์แลนด์</annotation>
+
+		<!-- New Caledonia; flag; new; new caledonia -->
+		<annotation cp='[{🇳🇨}]'>นิวแคลิโดเนีย</annotation>
+
+		<!-- New Zealand; flag; new; new zealand -->
+		<annotation cp='[{🇳🇿}]'>นิวซีแลนด์</annotation>
+
+		<!-- Nicaragua; flag; nicaragua -->
+		<annotation cp='[{🇳🇮}]'>นิการากัว</annotation>
+
+		<!-- Niger; flag; niger -->
+		<annotation cp='[{🇳🇪}]'>ไนเจอร์</annotation>
+
+		<!-- Nigeria; flag; nigeria -->
+		<annotation cp='[{🇳🇬}]'>ไนจีเรีย</annotation>
+
+		<!-- Niue; flag; niue -->
+		<annotation cp='[{🇳🇺}]'>นีอูเอ</annotation>
+
+		<!-- Norfolk Island; flag; island; norfolk -->
+		<annotation cp='[{🇳🇫}]'>เกาะนอร์ฟอล์ก</annotation>
+
+		<!-- Northern Mariana Islands; flag; islands; mariana; northern -->
+		<annotation cp='[{🇲🇵}]'>หมู่เกาะนอร์เทิร์นมาเรียนา</annotation>
+
+		<!-- North Korea; flag; korea; north -->
+		<annotation cp='[{🇰🇵}]'>เกาหลีเหนือ</annotation>
+
+		<!-- Norway; flag; norway -->
+		<annotation cp='[{🇳🇴}]'>นอร์เวย์</annotation>
+
+		<!-- Oman; flag; oman -->
+		<annotation cp='[{🇴🇲}]'>โอมาน</annotation>
+
+		<!-- Pakistan; flag; pakistan -->
+		<annotation cp='[{🇵🇰}]'>ปากีสถาน</annotation>
+
+		<!-- Palau; flag; palau -->
+		<annotation cp='[{🇵🇼}]'>ปาเลา</annotation>
+
+		<!-- Palestinian Territories; flag; palestine -->
+		<annotation cp='[{🇵🇸}]'>ดินแดนปาเลสไตน์</annotation>
+
+		<!-- Panama; flag; panama -->
+		<annotation cp='[{🇵🇦}]'>ปานามา</annotation>
+
+		<!-- Papua New Guinea; flag; guinea; new; papua new guinea -->
+		<annotation cp='[{🇵🇬}]'>ปาปัวนิวกินี</annotation>
+
+		<!-- Paraguay; flag; paraguay -->
+		<annotation cp='[{🇵🇾}]'>ปารากวัย</annotation>
+
+		<!-- Peru; flag; peru -->
+		<annotation cp='[{🇵🇪}]'>เปรู</annotation>
+
+		<!-- Philippines; flag; philippines -->
+		<annotation cp='[{🇵🇭}]'>ฟิลิปปินส์</annotation>
+
+		<!-- Pitcairn Islands; flag; islands; pitcairn -->
+		<annotation cp='[{🇵🇳}]'>หมู่เกาะพิตแคร์น</annotation>
+
+		<!-- Poland; flag; poland -->
+		<annotation cp='[{🇵🇱}]'>โปแลนด์</annotation>
+
+		<!-- Portugal; flag; portugal -->
+		<annotation cp='[{🇵🇹}]'>โปรตุเกส</annotation>
+
+		<!-- Puerto Rico; flag; puerto; rico -->
+		<annotation cp='[{🇵🇷}]'>เปอร์โตริโก</annotation>
+
+		<!-- Qatar; flag; qatar -->
+		<annotation cp='[{🇶🇦}]'>กาตาร์</annotation>
+
+		<!-- Réunion; flag; reunion; réunion -->
+		<annotation cp='[{🇷🇪}]'>เรอูนียง</annotation>
+
+		<!-- Romania; flag; romania -->
+		<annotation cp='[{🇷🇴}]'>โรมาเนีย</annotation>
+
+		<!-- Russia; flag; russia; russian -->
+		<annotation cp='[{🇷🇺}]'>รัสเซีย</annotation>
+
+		<!-- Rwanda; flag; rwanda -->
+		<annotation cp='[{🇷🇼}]'>รวันดา</annotation>
+
+		<!-- Samoa; flag; samoa -->
+		<annotation cp='[{🇼🇸}]'>ซามัว</annotation>
+
+		<!-- San Marino; flag; san marino -->
+		<annotation cp='[{🇸🇲}]'>ซานมารีโน</annotation>
+
+		<!-- São Tomé & Príncipe; flag; principe; príncipe; sao; são; tome; tomé -->
+		<annotation cp='[{🇸🇹}]'>เซาตูเมและปรินซิปี</annotation>
+
+		<!-- Saudi Arabia; arabia; flag; saudi -->
+		<annotation cp='[{🇸🇦}]'>ซาอุดีอาระเบีย</annotation>
+
+		<!-- Senegal; flag; senegal -->
+		<annotation cp='[{🇸🇳}]'>เซเนกัล</annotation>
+
+		<!-- Serbia; flag; serbia -->
+		<annotation cp='[{🇷🇸}]'>เซอร์เบีย</annotation>
+
+		<!-- Seychelles; flag; seychelles -->
+		<annotation cp='[{🇸🇨}]'>เซเชลส์</annotation>
+
+		<!-- Sierra Leone; flag; sierra leone -->
+		<annotation cp='[{🇸🇱}]'>เซียร์ราลีโอน</annotation>
+
+		<!-- Singapore; flag; singapore -->
+		<annotation cp='[{🇸🇬}]'>สิงคโปร์</annotation>
+
+		<!-- Sint Maarten; dutch; flag; maarten; sint -->
+		<annotation cp='[{🇸🇽}]'>เซนต์มาร์ติน</annotation>
+
+		<!-- Slovakia; flag; slovak; slovakia -->
+		<annotation cp='[{🇸🇰}]'>สโลวะเกีย</annotation>
+
+		<!-- Slovenia; flag; slovenia -->
+		<annotation cp='[{🇸🇮}]'>สโลวีเนีย</annotation>
+
+		<!-- Solomon Islands; flag; islands; solomon -->
+		<annotation cp='[{🇸🇧}]'>หมู่เกาะโซโลมอน</annotation>
+
+		<!-- Somalia; flag; somalia -->
+		<annotation cp='[{🇸🇴}]'>โซมาเลีย</annotation>
+
+		<!-- South Africa; africa; flag; south -->
+		<annotation cp='[{🇿🇦}]'>แอฟริกาใต้</annotation>
+
+		<!-- South Georgia & South Sandwich Islands; flag; georgia; islands; sandwich; south -->
+		<annotation cp='[{🇬🇸}]'>เกาะเซาท์จอร์เจียและหมู่เกาะเซาท์แซนด์วิช</annotation>
+
+		<!-- South Korea; flag; korea; south -->
+		<annotation cp='[{🇰🇷}]'>เกาหลีใต้</annotation>
+
+		<!-- South Sudan; flag; south; sudan -->
+		<annotation cp='[{🇸🇸}]'>ซูดานใต้</annotation>
+
+		<!-- Spain; flag; spain -->
+		<annotation cp='[{🇪🇸}]'>สเปน</annotation>
+
+		<!-- Sri Lanka; flag; lanka; sri -->
+		<annotation cp='[{🇱🇰}]'>ศรีลังกา</annotation>
+
+		<!-- St. Barthélemy; barthelemy; barthélemy; flag; saint; st. -->
+		<annotation cp='[{🇧🇱}]'>เซนต์บาร์เธเลมี</annotation>
+
+		<!-- St. Helena; ascension; cunha; flag; helena; saint; st.; tristan -->
+		<annotation cp='[{🇸🇭}]'>เซนต์เฮเลนา</annotation>
+
+		<!-- St. Kitts & Nevis; flag; kitts; nevis; saint; st. -->
+		<annotation cp='[{🇰🇳}]'>เซนต์คิตส์และเนวิส</annotation>
+
+		<!-- St. Lucia; flag; lucia; saint; st. -->
+		<annotation cp='[{🇱🇨}]'>เซนต์ลูเซีย</annotation>
+
+		<!-- St. Martin; flag; french; martin; saint; st. -->
+		<annotation cp='[{🇲🇫}]'>เซนต์มาติน</annotation>
+
+		<!-- St. Pierre & Miquelon; flag; miquelon; pierre; saint; st. -->
+		<annotation cp='[{🇵🇲}]'>แซงปีแยร์และมีเกอลง</annotation>
+
+		<!-- St. Vincent & Grenadines; flag; grenadines; saint; st.; vincent -->
+		<annotation cp='[{🇻🇨}]'>เซนต์วินเซนต์และเกรนาดีนส์</annotation>
+
+		<!-- Sudan; flag; sudan -->
+		<annotation cp='[{🇸🇩}]'>ซูดาน</annotation>
+
+		<!-- Suriname; flag; suriname -->
+		<annotation cp='[{🇸🇷}]'>ซูรินาเม</annotation>
+
+		<!-- Svalbard & Jan Mayen; flag; islands; jan; mayen; svalbard -->
+		<annotation cp='[{🇸🇯}]'>สฟาลบาร์และยานไมเอน</annotation>
+
+		<!-- Swaziland; flag; swaziland -->
+		<annotation cp='[{🇸🇿}]'>สวาซิแลนด์</annotation>
+
+		<!-- Sweden; flag; sweden -->
+		<annotation cp='[{🇸🇪}]'>สวีเดน</annotation>
+
+		<!-- Switzerland; flag; switzerland -->
+		<annotation cp='[{🇨🇭}]'>สวิตเซอร์แลนด์</annotation>
+
+		<!-- Syria; arab; flag; syria; syrian -->
+		<annotation cp='[{🇸🇾}]'>ซีเรีย</annotation>
+
+		<!-- Taiwan; china; flag; taiwan -->
+		<annotation cp='[{🇹🇼}]'>ไต้หวัน</annotation>
+
+		<!-- Tajikistan; flag; tajikistan -->
+		<annotation cp='[{🇹🇯}]'>ทาจิกิสถาน</annotation>
+
+		<!-- Tanzania; flag; tanzania; united -->
+		<annotation cp='[{🇹🇿}]'>แทนซาเนีย</annotation>
+
+		<!-- Thailand; flag; thailand -->
+		<annotation cp='[{🇹🇭}]'>ไทย</annotation>
+
+		<!-- Timor-Leste; east; flag; leste; timor -->
+		<annotation cp='[{🇹🇱}]'>ติมอร์-เลสเต</annotation>
+
+		<!-- Togo; flag; togo -->
+		<annotation cp='[{🇹🇬}]'>โตโก</annotation>
+
+		<!-- Tokelau; flag; tokelau -->
+		<annotation cp='[{🇹🇰}]'>โตเกเลา</annotation>
+
+		<!-- Tonga; flag; tonga -->
+		<annotation cp='[{🇹🇴}]'>ตองกา</annotation>
+
+		<!-- Trinidad & Tobago; flag; tobago; trinidad -->
+		<annotation cp='[{🇹🇹}]'>ตรินิแดดและโตเบโก</annotation>
+
+		<!-- Tristan da Cunha; cunha; flag; tristan -->
+		<annotation cp='[{🇹🇦}]'>ทริสตัน เดอ คูนา</annotation>
+
+		<!-- Tunisia; flag; tunisia -->
+		<annotation cp='[{🇹🇳}]'>ตูนิเซีย</annotation>
+
+		<!-- Turkey; flag; turkey -->
+		<annotation cp='[{🇹🇷}]'>ตุรกี</annotation>
+
+		<!-- Turkmenistan; flag; turkmenistan -->
+		<annotation cp='[{🇹🇲}]'>เติร์กเมนิสถาน</annotation>
+
+		<!-- Turks & Caicos Islands; caicos; flag; islands; turks -->
+		<annotation cp='[{🇹🇨}]'>หมู่เกาะเติกส์และหมู่เกาะเคคอส</annotation>
+
+		<!-- Tuvalu; flag; tuvalu -->
+		<annotation cp='[{🇹🇻}]'>ตูวาลู</annotation>
+
+		<!-- Uganda; flag; uganda -->
+		<annotation cp='[{🇺🇬}]'>ยูกันดา</annotation>
+
+		<!-- Ukraine; flag; ukraine -->
+		<annotation cp='[{🇺🇦}]'>ยูเครน</annotation>
+
+		<!-- United Arab Emirates; arab; emirates; flag; united -->
+		<annotation cp='[{🇦🇪}]'>สหรัฐอาหรับเอมิเรตส์</annotation>
+
+		<!-- United Kingdom; britain; cornwall; flag; great; ireland; kingdom; northern; scotland; united; wales -->
+		<annotation cp='[{🇬🇧}]'>สหราชอาณาจักร</annotation>
+
+		<!-- United States; america; flag; u.s.; u.s.a.; united; us; usa -->
+		<annotation cp='[{🇺🇸}]'>สหรัฐอเมริกา</annotation>
+
+		<!-- Uruguay; flag; uruguay -->
+		<annotation cp='[{🇺🇾}]'>อุรุกวัย</annotation>
+
+		<!-- U.S. Outlying Islands; flag; islands; outlying; u.s.; united -->
+		<annotation cp='[{🇺🇲}]'>หมู่เกาะรอบนอกของสหรัฐอเมริกา</annotation>
+
+		<!-- U.S. Virgin Islands; flag; islands; u.s.; united; virgin islands -->
+		<annotation cp='[{🇻🇮}]'>หมู่เกาะยูเอสเวอร์จิน</annotation>
+
+		<!-- Uzbekistan; flag; uzbekistan -->
+		<annotation cp='[{🇺🇿}]'>อุซเบกิสถาน</annotation>
+
+		<!-- Vanuatu; flag; vanuatu -->
+		<annotation cp='[{🇻🇺}]'>วานูอาตู</annotation>
+
+		<!-- Vatican City; city; flag; holy; see; vatican -->
+		<annotation cp='[{🇻🇦}]'>นครวาติกัน</annotation>
+
+		<!-- Venezuela; flag; venezuela -->
+		<annotation cp='[{🇻🇪}]'>เวเนซุเอลา</annotation>
+
+		<!-- Vietnam; flag; nam; viet; vietnam -->
+		<annotation cp='[{🇻🇳}]'>เวียดนาม</annotation>
+
+		<!-- Wallis & Futuna; flag; futuna; islands; wallis -->
+		<annotation cp='[{🇼🇫}]'>วาลลิสและฟุตูนา</annotation>
+
+		<!-- Western Sahara; flag; sahara; western -->
+		<annotation cp='[{🇪🇭}]'>ซาฮาราตะวันตก</annotation>
+
+		<!-- Yemen; flag; yemen -->
+		<annotation cp='[{🇾🇪}]'>เยเมน</annotation>
+
+		<!-- Zambia; flag; zambia -->
+		<annotation cp='[{🇿🇲}]'>แซมเบีย</annotation>
+
+		<!-- Zimbabwe; flag; zimbabwe -->
+		<annotation cp='[{🇿🇼}]'>ซิมบับเว</annotation>
+
+		<!-- UPWARDS BLACK ARROW; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]'>MISSING</annotation>
+
+		<!-- NORTH EAST ARROW; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]'>MISSING</annotation>
+
+		<!-- BLACK RIGHTWARDS ARROW; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]'>MISSING</annotation>
+
+		<!-- SOUTH EAST ARROW; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]'>MISSING</annotation>
+
+		<!-- DOWNWARDS BLACK ARROW; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]'>MISSING</annotation>
+
+		<!-- SOUTH WEST ARROW; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]'>MISSING</annotation>
+
+		<!-- LEFTWARDS BLACK ARROW; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]'>MISSING</annotation>
+
+		<!-- NORTH WEST ARROW; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]'>MISSING</annotation>
+
+		<!-- UP DOWN ARROW; arrow -->
+		<annotation cp='[↕]'>MISSING</annotation>
+
+		<!-- LEFT RIGHT ARROW; arrow -->
+		<annotation cp='[↔]'>MISSING</annotation>
+
+		<!-- LEFTWARDS ARROW WITH HOOK; arrow -->
+		<annotation cp='[↩]'>MISSING</annotation>
+
+		<!-- RIGHTWARDS ARROW WITH HOOK; arrow -->
+		<annotation cp='[↪]'>MISSING</annotation>
+
+		<!-- ARROW POINTING RIGHTWARDS THEN CURVING UPWARDS; arrow -->
+		<annotation cp='[⤴]'>MISSING</annotation>
+
+		<!-- ARROW POINTING RIGHTWARDS THEN CURVING DOWNWARDS; arrow; down -->
+		<annotation cp='[⤵]'>MISSING</annotation>
+
+		<!-- CLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='สัญลักษณ์โหลดซ้ำ'>สัญลักษณ์โหลดซ้ำ</annotation>
+
+		<!-- ANTICLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='ลูกศรทวนเข็มนาฬิกา'>ลูกศรทวนเข็มนาฬิกา</annotation>
+
+		<!-- BACK WITH LEFTWARDS ARROW ABOVE; arrow; back -->
+		<annotation cp='[🔙]' tts='กลับ'>กลับ; ลูกศรกลับ; ลูกศร</annotation>
+
+		<!-- END WITH LEFTWARDS ARROW ABOVE; arrow; end -->
+		<annotation cp='[🔚]' tts='สิ้นสุด'>สิ้นสุด; ลูกศรสิ้นสุด; ลูกศร</annotation>
+
+		<!-- ON WITH EXCLAMATION MARK WITH LEFT RIGHT ARROW ABOVE; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='เปิด'>เปิด; ลูกศร</annotation>
+
+		<!-- SOON WITH RIGHTWARDS ARROW ABOVE; arrow; soon -->
+		<annotation cp='[🔜]' tts='สัญลักษณ์เร็วๆ นี้'>ลูกศร</annotation>
+
+		<!-- TOP WITH UPWARDS ARROW ABOVE; arrow; top; up -->
+		<annotation cp='[🔝]' tts='สัญลักษณ์บน'>สัญลักษณ์บน; ลูกศร</annotation>
+
+		<!-- OM SYMBOL; hindu; om; religion -->
+		<annotation cp='[🕉]'>MISSING</annotation>
+
+		<!-- STAR OF DAVID; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]'>MISSING</annotation>
+
+		<!-- WHEEL OF DHARMA; buddhist; dharma; object; religion; wheel -->
+		<annotation cp='[☸]'>MISSING</annotation>
+
+		<!-- YIN YANG; religion; sign; tao; taoist; yang; yin -->
+		<annotation cp='[☯]'>MISSING</annotation>
+
+		<!-- LATIN CROSS; christian; cross; religion -->
+		<annotation cp='[✝]'>MISSING</annotation>
+
+		<!-- ORTHODOX CROSS; christian; cross; religion -->
+		<annotation cp='[☦]'>MISSING</annotation>
+
+		<!-- SHINTO SHRINE; religion; shinto; shrine -->
+		<annotation cp='[⛩]'>MISSING</annotation>
+
+		<!-- STAR AND CRESCENT; islam; muslim; religion -->
+		<annotation cp='[☪]'>MISSING</annotation>
+
+		<!-- PEACE SYMBOL; peace; sign -->
+		<annotation cp='[☮]'>MISSING</annotation>
+
+		<!-- RADIOACTIVE SIGN; radioactive; sign -->
+		<annotation cp='[☢]'>MISSING</annotation>
+
+		<!-- BIOHAZARD SIGN; biohazard; sign -->
+		<annotation cp='[☣]'>MISSING</annotation>
+
+		<!-- BLACK UNIVERSAL RECYCLING SYMBOL; recycle; sign; travel -->
+		<annotation cp='[♻]' tts='สัญลักษณ์รีไซเคิล'>สัญลักษณ์รีไซเคิล; การรีไซเคิล; ป้ายรีไซเคิล</annotation>
+
+		<!-- HIGH VOLTAGE SIGN; danger; electric; electricity; lightning; nature; travel; voltage; zap -->
+		<annotation cp='[⚡]' tts='ไฟฟ้าแรงสูง'>ไฟฟ้าแรงสูง; สัญลักษณ์ไฟฟ้าแรงสูง</annotation>
+
+		<!-- WHITE MEDIUM STAR; nature; star -->
+		<annotation cp='[⭐]'>MISSING</annotation>
+
+		<!-- HEAVY LARGE CIRCLE; circle; o; travel -->
+		<annotation cp='[⭕]'>MISSING</annotation>
+
+		<!-- WHITE HEAVY CHECK MARK; check; mark; sign -->
+		<annotation cp='[✅]' tts='เครื่องหมายถูก'>เครื่องหมายถูก; เช็ค</annotation>
+
+		<!-- BALLOT BOX WITH CHECK; ballot; box; check; sign -->
+		<annotation cp='[☑]'>MISSING</annotation>
+
+		<!-- HEAVY CHECK MARK; check; mark; sign -->
+		<annotation cp='[✔]'>MISSING</annotation>
+
+		<!-- HEAVY MULTIPLICATION X; cancel; multiplication; multiply; sign; x -->
+		<annotation cp='[✖]'>MISSING</annotation>
+
+		<!-- CROSS MARK; cancel; mark; multiplication; multiply; sign; x -->
+		<annotation cp='[❌]' tts='เครื่องหมายกากบาท'>เครื่องหมายกากบาท</annotation>
+
+		<!-- NEGATIVE SQUARED CROSS MARK; mark; sign; square -->
+		<annotation cp='[❎]' tts='เครื่องหมายกากบาท'>เครื่องหมายกากบาท</annotation>
+
+		<!-- HEAVY PLUS SIGN; math; plus; sign -->
+		<annotation cp='[➕]' tts='บวก'>บวก; เครื่องหมายบวก</annotation>
+
+		<!-- HEAVY MINUS SIGN; math; minus; sign -->
+		<annotation cp='[➖]' tts='ลบ'>ลบ; เครื่องหมายลบ</annotation>
+
+		<!-- HEAVY DIVISION SIGN; division; math; sign -->
+		<annotation cp='[➗]' tts='หาร'>หาร; เครื่องหมายหาร</annotation>
+
+		<!-- CURLY LOOP; curl; loop; sign -->
+		<annotation cp='[➰]' tts='ห่วง'>ห่วง; วง</annotation>
+
+		<!-- DOUBLE CURLY LOOP; curl; double; loop; sign -->
+		<annotation cp='[➿]' tts='ห่วง 2 รู'>ห่วง 2 รู</annotation>
+
+		<!-- PART ALTERNATION MARK; mark; part; sign -->
+		<annotation cp='[〽]'>MISSING</annotation>
+
+		<!-- EIGHT SPOKED ASTERISK; asterisk; sign -->
+		<annotation cp='[✳]'>MISSING</annotation>
+
+		<!-- EIGHT POINTED BLACK STAR; sign; star -->
+		<annotation cp='[✴]'>MISSING</annotation>
+
+		<!-- SPARKLE; sign; sparkle -->
+		<annotation cp='[❇]'>MISSING</annotation>
+
+		<!-- BLACK SMALL SQUARE; geometric; sign; square -->
+		<annotation cp='[▪]'>MISSING</annotation>
+
+		<!-- WHITE SMALL SQUARE; geometric; sign; square -->
+		<annotation cp='[▫]'>MISSING</annotation>
+
+		<!-- WHITE MEDIUM SQUARE; geometric; sign; square -->
+		<annotation cp='[◻]'>MISSING</annotation>
+
+		<!-- BLACK MEDIUM SQUARE; geometric; sign; square -->
+		<annotation cp='[◼]'>MISSING</annotation>
+
+		<!-- WHITE MEDIUM SMALL SQUARE; geometric; sign; square -->
+		<annotation cp='[◽]'>MISSING</annotation>
+
+		<!-- BLACK MEDIUM SMALL SQUARE; geometric; sign; square -->
+		<annotation cp='[◾]'>MISSING</annotation>
+
+		<!-- BLACK LARGE SQUARE; geometric; sign; square -->
+		<annotation cp='[⬛]'>MISSING</annotation>
+
+		<!-- WHITE LARGE SQUARE; geometric; sign; square -->
+		<annotation cp='[⬜]'>MISSING</annotation>
+
+		<!-- LARGE ORANGE DIAMOND; diamond; geometric; orange; sign -->
+		<annotation cp='[🔶]' tts='เพชรใหญ่สีส้ม'>เพชรใหญ่สีส้ม</annotation>
+
+		<!-- LARGE BLUE DIAMOND; blue; diamond; geometric; sign -->
+		<annotation cp='[🔷]' tts='เพชรใหญ่สีน้ำเงิน'>เพชรใหญ่สีน้ำเงิน</annotation>
+
+		<!-- SMALL ORANGE DIAMOND; diamond; geometric; orange; sign -->
+		<annotation cp='[🔸]' tts='เพชรเล็กสีส้ม'>เพชรเล็กสีส้ม</annotation>
+
+		<!-- SMALL BLUE DIAMOND; blue; diamond; geometric; sign -->
+		<annotation cp='[🔹]' tts='เพชรเล็กสีน้ำเงิน'>เพชรเล็กสีน้ำเงิน</annotation>
+
+		<!-- UP-POINTING RED TRIANGLE; geometric; red; sign -->
+		<annotation cp='[🔺]' tts='สามเหลี่ยมขึ้น'>สามเหลี่ยมขึ้น</annotation>
+
+		<!-- DOWN-POINTING RED TRIANGLE; down; geometric; red; sign -->
+		<annotation cp='[🔻]' tts='สามเหลี่ยมลง'>สามเหลี่ยมลง</annotation>
+
+		<!-- DIAMOND SHAPE WITH A DOT INSIDE; comic; diamond; emotion; geometric; inside; sign -->
+		<annotation cp='[💠]' tts='ข้าวหลามตัด'>ข้าวหลามตัด</annotation>
+
+		<!-- RADIO BUTTON; button; geometric; radio; sign -->
+		<annotation cp='[🔘]' tts='ปุ่มวิทยุ'>ปุ่มวิทยุ</annotation>
+
+		<!-- BLACK SQUARE BUTTON; button; geometric; sign; square -->
+		<annotation cp='[🔲]' tts='ปุ่มสี่เหลี่ยม'>ปุ่มสี่เหลี่ยม; ปุ่ม; สี่เหลี่ยม</annotation>
+
+		<!-- WHITE SQUARE BUTTON; button; geometric; outlined; sign; square -->
+		<annotation cp='[🔳]' tts='ปุ่มสี่เหลี่ยม'>ปุ่มสี่เหลี่ยม; ปุ่ม; สี่เหลี่ยม</annotation>
+
+		<!-- MEDIUM WHITE CIRCLE; circle; geometric; sign -->
+		<annotation cp='[⚪]'>MISSING</annotation>
+
+		<!-- MEDIUM BLACK CIRCLE; circle; geometric; sign -->
+		<annotation cp='[⚫]'>MISSING</annotation>
+
+		<!-- LARGE RED CIRCLE; circle; geometric; red; sign -->
+		<annotation cp='[🔴]' tts='วงกลมสีแดง'>วงกลมสีแดง; แดง; วงกลม</annotation>
+
+		<!-- LARGE BLUE CIRCLE; blue; circle; geometric; sign -->
+		<annotation cp='[🔵]' tts='วงกลมสีน้ำเงิน'>วงกลมสีน้ำเงิน; น้ำเงิน; วงกลม</annotation>
+
+		<!-- DOUBLE EXCLAMATION MARK; bangbang; exclamation; mark; punctuation; word -->
+		<annotation cp='[‼]'>MISSING</annotation>
+
+		<!-- EXCLAMATION QUESTION MARK; exclamation; interrobang; mark; punctuation; question; word -->
+		<annotation cp='[⁉]'>MISSING</annotation>
+
+		<!-- BLACK QUESTION MARK ORNAMENT; mark; punctuation; question; word -->
+		<annotation cp='[❓]' tts='เครื่องหมายคำถาม'>เครื่องหมายคำถาม</annotation>
+
+		<!-- WHITE QUESTION MARK ORNAMENT; mark; outlined; punctuation; question; word -->
+		<annotation cp='[❔]' tts='เครื่องหมายคำถาม'>เครื่องหมายคำถาม</annotation>
+
+		<!-- WHITE EXCLAMATION MARK ORNAMENT; exclamation; mark; outlined; punctuation; word -->
+		<annotation cp='[❕]' tts='เครื่องหมายตกใจ'>เครื่องหมายตกใจ</annotation>
+
+		<!-- HEAVY EXCLAMATION MARK SYMBOL; exclamation; mark; punctuation; word -->
+		<annotation cp='[❗]'>MISSING</annotation>
+
+		<!-- WAVY DASH; dash; punctuation; sound; wavy -->
+		<annotation cp='[〰]' tts='เส้นคลื่น'>เส้นคลื่น</annotation>
+
+		<!-- NO ONE UNDER EIGHTEEN SYMBOL; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage; word -->
+		<annotation cp='[🔞]' tts='ห้ามอายุต่ำกว่า 18 ปี'>ห้ามอายุต่ำกว่า 18 ปี</annotation>
+
+		<!-- COPYRIGHT SIGN; copyright; symbol; word -->
+		<annotation cp='[©]' tts='สัญลักษณ์ลิขสิทธิ์'>สัญลักษณ์ลิขสิทธิ์; ลิขสิทธิ์</annotation>
+
+		<!-- REGISTERED SIGN; registered; symbol; word -->
+		<annotation cp='[®]' tts='สัญลักษณ์จดทะเบียน'>สัญลักษณ์จดทะเบียน; จดทะเบียน</annotation>
+
+		<!-- INPUT SYMBOL FOR LATIN CAPITAL LETTERS; input; latin; letters; uppercase; word -->
+		<annotation cp='[🔠]' tts='อักษรตัวใหญ่'>อักษรตัวใหญ่; ภาษาอังกฤษ</annotation>
+
+		<!-- INPUT SYMBOL FOR LATIN SMALL LETTERS; abcd; input; latin; letters; lowercase; word -->
+		<annotation cp='[🔡]' tts='อักษรตัวเล็ก'>อักษรตัวเล็ก; ภาษาอังกฤษ</annotation>
+
+		<!-- INPUT SYMBOL FOR NUMBERS; 1234; input; numbers; word -->
+		<annotation cp='[🔢]' tts='หมายเลข'>หมายเลข</annotation>
+
+		<!-- INPUT SYMBOL FOR SYMBOLS; input; symbols; word -->
+		<annotation cp='[🔣]' tts='สัญลักษณ์'>สัญลักษณ์</annotation>
+
+		<!-- INPUT SYMBOL FOR LATIN LETTERS; abc; alphabet; input; latin; letters; word -->
+		<annotation cp='[🔤]' tts='เอบีซี'>เอบีซี; อักษรละติน</annotation>
+
+		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER A; a; blood; word -->
+		<annotation cp='[🅰]' tts='เลือดกรุ๊ปเอ'>เลือดกรุ๊ปเอ; กรุ๊ปเอ; กรุ๊ปเลือด</annotation>
+
+		<!-- NEGATIVE SQUARED AB; ab; blood; word -->
+		<annotation cp='[🆎]' tts='กรุ๊ปเลือดเอบี'>กรุ๊ปเลือดเอบี; กรุ๊ปเอบี; กรุ๊ปเลือด</annotation>
+
+		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER B; b; blood; word -->
+		<annotation cp='[🅱]' tts='เลือดกรุ๊ปบี'>เลือดกรุ๊ปบี; กรุ๊ปบี; กรุ๊ปเลือด</annotation>
+
+		<!-- SQUARED CL; cl; word -->
+		<annotation cp='[🆑]' tts='ลบ'>ลบ; สัญลักษณ์ลบ</annotation>
+
+		<!-- SQUARED COOL; cool; word -->
+		<annotation cp='[🆒]' tts='เย็น'>เย็น; สัญลักษณ์ความเย็น</annotation>
+
+		<!-- SQUARED FREE; free; word -->
+		<annotation cp='[🆓]' tts='ฟรี'>ฟรี; สัญลักษณ์ฟรี; ไม่มีค่าใช้จ่าย</annotation>
+
+		<!-- INFORMATION SOURCE; i; information; word -->
+		<annotation cp='[ℹ]'>MISSING</annotation>
+
+		<!-- SQUARED ID; id; identity; word -->
+		<annotation cp='[🆔]' tts='หมายเลขประจำตัว'>หมายเลขประจำตัว; สัญลักษณ์หมายเลขประจำตัว; รหัสประจำตัว</annotation>
+
+		<!-- CIRCLED LATIN CAPITAL LETTER M; circle; m; word -->
+		<annotation cp='[Ⓜ]'>MISSING</annotation>
+
+		<!-- SQUARED NEW; new; word -->
+		<annotation cp='[🆕]' tts='ใหม่'>ใหม่; สัญลักษณ์ใหม่</annotation>
+
+		<!-- SQUARED NG; ng; word -->
+		<annotation cp='[🆖]' tts='NG'>NG; สัญลักษณ์ NG</annotation>
+
+		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER O; blood; o; word -->
+		<annotation cp='[🅾]' tts='เลือดกรุ๊ปโอ'>เลือดกรุ๊ปโอ; กรุ๊ปโอ; กรุ๊ปเลือด</annotation>
+
+		<!-- SQUARED OK; ok; word -->
+		<annotation cp='[🆗]' tts='โอเค'>โอเค; ตกลง; สัญลักษณ์โอเค</annotation>
+
+		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER P; parking; sign; word -->
+		<annotation cp='[🅿]' tts='ที่จอดรถ'>ที่จอดรถ; จอดรถ</annotation>
+
+		<!-- SQUARED SOS; help; sos; word -->
+		<annotation cp='[🆘]' tts='ช่วยด้วย'>ช่วยด้วย; ขอความช่วยเหลือ; สัญลักษณ์ขอความช่วยเหลือ</annotation>
+
+		<!-- TRADE MARK SIGN; mark; symbol; tm; trademark; word -->
+		<annotation cp='[™]' tts='เครื่องหมายการค้า'>เครื่องหมายการค้า; ป้ายเครื่องหมายการค้า</annotation>
+
+		<!-- SQUARED UP WITH EXCLAMATION MARK; mark; up; word -->
+		<annotation cp='[🆙]' tts='ขึ้น'>ขึ้น; สัญลักษณ์ขึ้น</annotation>
+
+		<!-- SQUARED VS; versus; vs; word -->
+		<annotation cp='[🆚]' tts='ต่อสู้กับ'>ต่อสู้กับ; สัญลักษณ์ต่อสู้กับ</annotation>
+
+		<!-- SQUARED KATAKANA KOKO; japanese; word -->
+		<annotation cp='[🈁]' tts='คำภาษาญี่ปุ่น'>คำภาษาญี่ปุ่น</annotation>
+
+		<!-- SQUARED KATAKANA SA; japanese; word -->
+		<annotation cp='[🈂]' tts='คำภาษาญี่ปุ่น'>คำภาษาญี่ปุ่น</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-5272; japanese; word -->
+		<annotation cp='[🈹]' tts='คำภาษาญี่ปุ่น'>คำภาษาญี่ปุ่น</annotation>
+
+		<!-- CIRCLED IDEOGRAPH ACCEPT; chinese; word -->
+		<annotation cp='[🉑]' tts='คำภาษาจีน'>คำภาษาจีน</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-5408; chinese; word -->
+		<annotation cp='[🈴]' tts='คำภาษาจีน'>คำภาษาจีน</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-55B6; chinese; word -->
+		<annotation cp='[🈺]' tts='คำภาษาจีน'>คำภาษาจีน</annotation>
+
+		<!-- CIRCLED IDEOGRAPH ADVANTAGE; japanese; word -->
+		<annotation cp='[🉐]' tts='คำภาษาญี่ปุ่น'>คำภาษาญี่ปุ่น</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6307; japanese; word -->
+		<annotation cp='[🈯]' tts='คำภาษาญี่ปุ่น'>คำภาษาญี่ปุ่น</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6708; japanese; word -->
+		<annotation cp='[🈷]' tts='คำภาษาญี่ปุ่น'>คำภาษาญี่ปุ่น</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6709; japanese; word -->
+		<annotation cp='[🈶]' tts='คำภาษาญี่ปุ่น'>คำภาษาญี่ปุ่น</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6E80; chinese; word -->
+		<annotation cp='[🈵]' tts='คำภาษาจีน'>คำภาษาจีน</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7121; japanese; word -->
+		<annotation cp='[🈚]' tts='คำภาษาญี่ปุ่น'>คำภาษาญี่ปุ่น</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7533; chinese; word -->
+		<annotation cp='[🈸]' tts='คำภาษาจีน'>คำภาษาจีน</annotation>
+
+		<!-- CIRCLED IDEOGRAPH CONGRATULATION; congratulation; congratulations; ideograph; word -->
+		<annotation cp='[㊗]'>MISSING</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7981; japanese; word -->
+		<annotation cp='[🈲]' tts='คำภาษาญี่ปุ่น'>คำภาษาญี่ปุ่น</annotation>
+
+		<!-- CIRCLED IDEOGRAPH SECRET; ideograph; secret; word -->
+		<annotation cp='[㊙]'>MISSING</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7A7A; chinese; word -->
+		<annotation cp='[🈳]' tts='คำภาษาจีน'>คำภาษาจีน</annotation>
+	</annotations>
+</ldml>

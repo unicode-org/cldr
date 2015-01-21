@@ -1,0 +1,3745 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- Copyright © 1991-2013 Unicode, Inc. DRAFT emoji-annotations.txt For 
+ details about the format and other information, see /../../../reports/tr51/index.html#Data_Files. 
+ http://unicode.org/cldr/trac/ticket/8019 CLDR data files are interpreted 
+ according to the LDML specification (http://unicode.org/reports/tr35/) For 
+ terms of use, see http://www.unicode.org/copyright.html 
+ This is still under development, and will be refined before release. 
+ In particular, the annotations like 'people-apple' are only present during development, and will be withdrawn for the release.
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<generation date='$Date: 2014-06-19 06:23:55 +0200 (Thu, 19 Jun 2014) $' />
+		<language type='is'/>
+	</identity>
+	<annotations>
+
+		<!-- WHITE SMILING FACE; face; human; outlined; relaxed; smile; smiley -->
+		<annotation cp='[☺]' tts='broskarl'>broskarl; broskall; bros; brosandi andlit; andlit</annotation>
+
+		<!-- WHITE FROWNING FACE; face; frown; human -->
+		<annotation cp='[☹]'>MISSING</annotation>
+
+		<!-- SLIGHTLY FROWNING FACE; face; frown; human -->
+		<annotation cp='[🙁]'>MISSING</annotation>
+
+		<!-- SLIGHTLY SMILING FACE; face; human; smile; smiley -->
+		<annotation cp='[🙂]'>MISSING</annotation>
+
+		<!-- GRINNING FACE; face; grin; human -->
+		<annotation cp='[😀]' tts='glottandi andlit'>glott; andlit</annotation>
+
+		<!-- GRINNING FACE WITH SMILING EYES; eye; face; grin; human; smile; smiley -->
+		<annotation cp='[😁]' tts='glott'>glott; glottandi andlit; hlæja; andlit</annotation>
+
+		<!-- FACE WITH TEARS OF JOY; face; human; joy; tear -->
+		<annotation cp='[😂]' tts='andlit tárast af gleði'>gleðitár; andlit</annotation>
+
+		<!-- SMILING FACE WITH OPEN MOUTH; face; human; mouth; open; smile; smiley -->
+		<annotation cp='[😃]' tts='brosandi andlit með opinn munn'>hlæjandi; bros; opinn; munnur; andlit</annotation>
+
+		<!-- SMILING FACE WITH OPEN MOUTH AND SMILING EYES; eye; face; human; mouth; open; smile; smiley -->
+		<annotation cp='[😄]' tts='hlæjandi andlit'>bros og opinn munnur; bros; hlæja; andlit</annotation>
+
+		<!-- SMILING FACE WITH OPEN MOUTH AND COLD SWEAT; cold; face; human; open; smile; smiley; sweat -->
+		<annotation cp='[😅]' tts='bros og kaldur sviti'>brosandi sveitt andlit; bros; sviti; andlit</annotation>
+
+		<!-- SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES; face; human; laugh; mouth; open; satisfied; smile; smiley -->
+		<annotation cp='[😆]' tts='brosandi andlit með opinn munn'>hlæjandi; bros; opinn; munnur; andlit</annotation>
+
+		<!-- WINKING FACE; face; human; wink -->
+		<annotation cp='[😉]' tts='blikkandi andlit'>blikk; andlit</annotation>
+
+		<!-- SMILING FACE WITH SMILING EYES; blush; eye; face; human; smile; smiley -->
+		<annotation cp='[😊]' tts='bros'>bros; brosandi augu; brosandi andlit og augu; andlit</annotation>
+
+		<!-- FACE SAVOURING DELICIOUS FOOD; delicious; face; food; human; savouring; smile; smiley; um; yum -->
+		<annotation cp='[😋]' tts='namm'>namm; góður matur; andlit</annotation>
+
+		<!-- RELIEVED FACE; face; human; relieved -->
+		<annotation cp='[😌]' tts='andlit sem er létt'>léttir; andlit</annotation>
+
+		<!-- SMILING FACE WITH HEART-SHAPED EYES; eye; face; heart; human; love; smile; smiley -->
+		<annotation cp='[😍]' tts='brosandi andlit'>hjartalaga augu; hjörtu; ást; bros; andlit</annotation>
+
+		<!-- SMILING FACE WITH SUNGLASSES; bright; cool; eye; eyewear; face; glasses; human; smile; smiley; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='brosandi andlit með sólgleraugu'>brosandi; bros; sólgleraugu; andlit</annotation>
+
+		<!-- SMIRKING FACE; face; human; smirk -->
+		<annotation cp='[😏]' tts='glottandi andlit'>glott; andlit</annotation>
+
+		<!-- NEUTRAL FACE; deadpan; face; human; neutral -->
+		<annotation cp='[😐]' tts='hlutlaust andlit'>hlutleysi; andlit</annotation>
+
+		<!-- EXPRESSIONLESS FACE; expressionless; face; human; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='svipbrigðalaust andlit'>engin svipbrigði; andlit</annotation>
+
+		<!-- UNAMUSED FACE; face; human; unamused; unhappy -->
+		<annotation cp='[😒]' tts='engin gleði'>ekki skemmt; fýla; andlit</annotation>
+
+		<!-- FACE WITH COLD SWEAT; cold; face; human; sweat -->
+		<annotation cp='[😓]' tts='kaldur sviti'>andlit með köldum svita; andlit</annotation>
+
+		<!-- PENSIVE FACE; dejected; face; human; pensive -->
+		<annotation cp='[😔]' tts='hugsandi andlit'>í þungum þönkum; andlit</annotation>
+
+		<!-- CONFUSED FACE; confused; face; human -->
+		<annotation cp='[😕]' tts='ringlað andlit'>ringlun; andlit</annotation>
+
+		<!-- CONFOUNDED FACE; confounded; face; human -->
+		<annotation cp='[😖]' tts='forviða andlit'>forviða; andlit</annotation>
+
+		<!-- KISSING FACE; face; human; kiss -->
+		<annotation cp='[😗]' tts='kyssandi andlit'>kyssa; koss; andlit</annotation>
+
+		<!-- FACE THROWING A KISS; face; heart; human; kiss -->
+		<annotation cp='[😘]' tts='kveðjukoss'>kveðjukoss; kasta kossi; koss; kyssa; andlit</annotation>
+
+		<!-- KISSING FACE WITH SMILING EYES; eye; face; human; kiss; smile; smiley -->
+		<annotation cp='[😙]' tts='kyssa og brosa'>koss og bros; kyssandi og brosandi andlit; andlit</annotation>
+
+		<!-- KISSING FACE WITH CLOSED EYES; closed; eye; face; human; kiss -->
+		<annotation cp='[😚]' tts='kyssandi andlit'>kyssa með lokuð augun; kyssa; koss; lokuð augu; andlit</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE; face; human; tongue -->
+		<annotation cp='[😛]' tts='tunga út'>ulla; andlit að ulla; andlit</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE AND WINKING EYE; eye; face; human; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='tunga út'>tunga út og blikk; blikk; grín; stríðni; andlit</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES; eye; face; horrible; human; taste; tongue -->
+		<annotation cp='[😝]' tts='oj'>oj; tunga út og lokuð augu; ógeð; tunga út; lokuð augu; andlit</annotation>
+
+		<!-- DISAPPOINTED FACE; disappointed; face; human -->
+		<annotation cp='[😞]' tts='vonbrigði'>vonbrigði; vonbrigðaandlit; andlit</annotation>
+
+		<!-- WORRIED FACE; face; human; worried -->
+		<annotation cp='[😟]' tts='áhyggjufullt andlit'>áhyggjur; andlit</annotation>
+
+		<!-- ANGRY FACE; angry; face; human; mad -->
+		<annotation cp='[😠]' tts='reiði'>reiði; reiðiandlit; andlit</annotation>
+
+		<!-- POUTING FACE; angry; face; human; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='fýla'>fýla; reiði; rautt reiðiandlit; rautt andlit; andlit</annotation>
+
+		<!-- CRYING FACE; cry; face; human; sad; tear -->
+		<annotation cp='[😢]' tts='grátandi andlit'>grátur; tár; depurð; andlit</annotation>
+
+		<!-- PERSEVERING FACE; face; human; persevere -->
+		<annotation cp='[😣]' tts='klúður'>klúður; andlit</annotation>
+
+		<!-- FACE WITH LOOK OF TRIUMPH; face; human; triumph; won -->
+		<annotation cp='[😤]' tts='sigursvipur'>sigursvipur; ég vann; sigur; andlit</annotation>
+
+		<!-- DISAPPOINTED BUT RELIEVED FACE; disappointed; face; human; relieved; whew -->
+		<annotation cp='[😥]' tts='léttir'>léttir; hjúkk; andlit</annotation>
+
+		<!-- FROWNING FACE WITH OPEN MOUTH; face; frown; human; mouth; open -->
+		<annotation cp='[😦]' tts='fýluandlit'>fýluandlit; andlit í fýlu með opinn munn; fýla; opinn munnur; andlit</annotation>
+
+		<!-- ANGUISHED FACE; anguished; face; human -->
+		<annotation cp='[😧]' tts='angistarfullt andlit'>angist; kvalir; andlit</annotation>
+
+		<!-- FEARFUL FACE; face; fear; fearful; human; scared -->
+		<annotation cp='[😨]' tts='hrætt andlit'>hræðsla; ótti; andlit</annotation>
+
+		<!-- WEARY FACE; face; human; tired; weary -->
+		<annotation cp='[😩]' tts='þreytt andlit'>þreyta; andlit</annotation>
+
+		<!-- SLEEPY FACE; face; human; sleep -->
+		<annotation cp='[😪]' tts='syfjað andlit'>syfja; andlit</annotation>
+
+		<!-- TIRED FACE; face; human; tired -->
+		<annotation cp='[😫]' tts='þreytt andlit'>þreyta; andlit</annotation>
+
+		<!-- GRIMACING FACE; face; grimace; human -->
+		<annotation cp='[😬]' tts='gretta'>gretta; andlit með grettu; andlit</annotation>
+
+		<!-- LOUDLY CRYING FACE; cry; face; human; sad; sob; tear -->
+		<annotation cp='[😭]' tts='grátandi andlit'>grátur; tár; andlit</annotation>
+
+		<!-- FACE WITH OPEN MOUTH; face; human; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='andlit með opinn munn'>opinn munnur; munnur; andlit</annotation>
+
+		<!-- HUSHED FACE; face; human; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='undrandi andlit'>undrandi; undrun; andlit</annotation>
+
+		<!-- FACE WITH OPEN MOUTH AND COLD SWEAT; blue; cold; face; human; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='sveitt andlit'>sviti; kaldur sviti; andlit</annotation>
+
+		<!-- FACE SCREAMING IN FEAR; face; fear; fearful; human; munch; scared; scream -->
+		<annotation cp='[😱]' tts='óttaslegið andlit'>ótti; öskra af ótta; hræðsla; andlit</annotation>
+
+		<!-- ASTONISHED FACE; astonished; face; human; shocked; totally -->
+		<annotation cp='[😲]' tts='undrandi andlit'>undrandi; undrun; andlit</annotation>
+
+		<!-- FLUSHED FACE; dazed; face; flushed; human -->
+		<annotation cp='[😳]' tts='andlit að roðna'>roðna; andlit</annotation>
+
+		<!-- SLEEPING FACE; face; human; sleep -->
+		<annotation cp='[😴]' tts='sofandi'>sofandi; sofandi andlit; andlit</annotation>
+
+		<!-- DIZZY FACE; dizzy; face; human -->
+		<annotation cp='[😵]' tts='svimi'>svimi; andlit með svima; andlit</annotation>
+
+		<!-- FACE WITHOUT MOUTH; face; human; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='andlit án munns'>enginn munnur; andlit</annotation>
+
+		<!-- FACE WITH MEDICAL MASK; cold; doctor; face; human; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='andlit með grímu'>grímuklætt andlit; andlitsgríma; læknagríma; gríma; andlit</annotation>
+
+		<!-- SMILING FACE WITH HALO; angel; face; fantasy; halo; human; innocent; smile; smiley -->
+		<annotation cp='[😇]' tts='broskarl með geislabaug'>bros og geislabaugur; bros; geislabaugur; andlit</annotation>
+
+		<!-- SMILING FACE WITH HORNS; face; fantasy; horns; human; smile; smiley -->
+		<annotation cp='[😈]' tts='broskarl með horn'>bros og horn; bros; horn; andlit</annotation>
+
+		<!-- IMP; devil; face; fairy tale; fantasy; human; imp -->
+		<annotation cp='[👿]' tts='púki'>púki; skratti; djöfull; andlit</annotation>
+
+		<!-- BOY; boy; human; person -->
+		<annotation cp='[👦]' tts='drengur'>drengur; strákur; fólk</annotation>
+
+		<!-- GIRL; girl; human; maiden; person; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' tts='stúlka'>stúlka; stelpa; fólk</annotation>
+
+		<!-- MAN; human; man; person -->
+		<annotation cp='[👨]' tts='karl'>karl; fólk</annotation>
+
+		<!-- WOMAN; human; person; woman -->
+		<annotation cp='[👩]' tts='kona'>kona; fólk</annotation>
+
+		<!-- OLDER MAN; human; man; old; person -->
+		<annotation cp='[👴]' tts='eldri maður'>gamall maður; maður; gamall; fólk</annotation>
+
+		<!-- OLDER WOMAN; human; old; person; woman -->
+		<annotation cp='[👵]' tts='eldri kona'>gömul kona; kona; gömul; fólk</annotation>
+
+		<!-- BABY; baby; human; person -->
+		<annotation cp='[👶]' tts='barn'>barn; fólk</annotation>
+
+		<!-- PERSON WITH BLOND HAIR; blond; human; person -->
+		<annotation cp='[👱]' tts='ljóshærð manneskja'>ljóst hár; fólk</annotation>
+
+		<!-- POLICE OFFICER; cop; human; officer; person; police -->
+		<annotation cp='[👮]' tts='lögregluþjónn'>lögregluþjónn; lögreglumaður; lögregla; fólk</annotation>
+
+		<!-- MAN WITH GUA PI MAO; gua pi mao; hat; human; man; person -->
+		<annotation cp='[👲]' tts='maður'>maður; maður með kínverskan hatt; maður með gua pi mao; kínverskur hattur; gua pi mao; fólk</annotation>
+
+		<!-- MAN WITH TURBAN; human; man; person; turban -->
+		<annotation cp='[👳]' tts='maður'>maður; maður með túrban; túrban; fólk</annotation>
+
+		<!-- CONSTRUCTION WORKER; construction; hat; human; person; worker -->
+		<annotation cp='[👷]' tts='verkamaður'>verkamaður; fólk</annotation>
+
+		<!-- PRINCESS; fairy tale; fantasy; human; person; princess -->
+		<annotation cp='[👸]' tts='prinsessa'>prinsessa; ævintýri; fólk</annotation>
+
+		<!-- GUARDSMAN; guard; guardsman; human; person -->
+		<annotation cp='[💂]' tts='vörður'>vörður; vakt; fólk</annotation>
+
+		<!-- FATHER CHRISTMAS; activity; celebration; christmas; fantasy; father; human; person; santa -->
+		<annotation cp='[🎅]' tts='jólasveinn'>jólasveinn; jól; hátíð</annotation>
+
+		<!-- BABY ANGEL; angel; baby; face; fairy tale; fantasy; human -->
+		<annotation cp='[👼]' tts='barnsengill'>barnsengill; engill; ævintýri; andlit</annotation>
+
+		<!-- SLEUTH OR SPY; human; person; sleuth; spy -->
+		<annotation cp='[🕵]'>MISSING</annotation>
+
+		<!-- WOMAN WITH BUNNY EARS; bunny; dancer; ear; girl; human; person; woman -->
+		<annotation cp='[👯]' tts='kanínueyru'>kanínueyru; stelpa; kona; fólk</annotation>
+
+		<!-- FACE MASSAGE; face; human; massage; person; salon -->
+		<annotation cp='[💆]' tts='andlitsnudd'>andlitsnudd; nudd; snyrtistofa</annotation>
+
+		<!-- HAIRCUT; barber; beauty; haircut; human; parlor; person -->
+		<annotation cp='[💇]' tts='klipping'>klipping; snyrtistofa; fegurð; hárgreiðslustofa</annotation>
+
+		<!-- BRIDE WITH VEIL; bride; human; person; veil; wedding -->
+		<annotation cp='[👰]' tts='brúður'>brúður; brúður með slör; brúðarslör; brúðkaup; fólk</annotation>
+
+		<!-- PERSON FROWNING; frown; gesture; human; person -->
+		<annotation cp='[🙍]' tts='fýla'>fýla; fýlusvipur</annotation>
+
+		<!-- PERSON WITH POUTING FACE; face; gesture; human; person; pouting -->
+		<annotation cp='[🙎]' tts='fýla'>fýla; fýlusvipur</annotation>
+
+		<!-- FACE WITH NO GOOD GESTURE; face; forbidden; gesture; human; no; not; person; prohibited -->
+		<annotation cp='[🙅]' tts='ekki gott'>hendur í kross; bannað</annotation>
+
+		<!-- FACE WITH OK GESTURE; face; gesture; human; ok; person -->
+		<annotation cp='[🙆]' tts='allt í lagi'>í lagi</annotation>
+
+		<!-- INFORMATION DESK PERSON; help; human; information; person; sassy -->
+		<annotation cp='[💁]' tts='upplýsingaborð'>upplýsingaborð; hjálp; aðstoð; upplýsingar; fólk</annotation>
+
+		<!-- HAPPY PERSON RAISING ONE HAND; gesture; hand; happy; human; person; raised -->
+		<annotation cp='[🙋]' tts='gleði'>gleði; upprétt hönd; önnur hönd</annotation>
+
+		<!-- PERSON BOWING DEEPLY; apology; bow; gesture; human; person; sorry -->
+		<annotation cp='[🙇]' tts='fyrirgefðu'>fyrirgefðu; hneiging; hneigja; auðmýkt</annotation>
+
+		<!-- PERSON RAISING BOTH HANDS IN CELEBRATION; body; celebration; gesture; hand; hooray; human; person; raised -->
+		<annotation cp='[🙌]' tts='húrra'>húrra; hendur upp í loft; fagna; báðar hendur</annotation>
+
+		<!-- PERSON WITH FOLDED HANDS; ask; body; bow; folded; gesture; hand; human; person; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='bæn'>bæn; spenna greipar; spenntar greipar</annotation>
+
+		<!-- SPEAKING HEAD IN SILHOUETTE; face; head; human; person; silhouette; speak; speaking -->
+		<annotation cp='[🗣]'>MISSING</annotation>
+
+		<!-- BUST IN SILHOUETTE; bust; human; person; silhouette -->
+		<annotation cp='[👤]' tts='efri hluti líkama'>framan á; brjóstmynd; fólk</annotation>
+
+		<!-- BUSTS IN SILHOUETTE; bust; human; person; silhouette -->
+		<annotation cp='[👥]' tts='efri hluti líkama'>framan á; brjóstmynd; fólk</annotation>
+
+		<!-- PEDESTRIAN; hike; human; pedestrian; person; travel; walk; walking -->
+		<annotation cp='[🚶]' tts='vegfarandi'>vegfarandi; ganga</annotation>
+
+		<!-- RUNNER; human; marathon; person; runner; running; sport -->
+		<annotation cp='[🏃]' tts='hlaupari'>hlaupari; hlaup; íþróttir</annotation>
+
+		<!-- DANCER; dancer; human; person -->
+		<annotation cp='[💃]' tts='dansari'>dansari; dans; fólk</annotation>
+
+		<!-- MAN IN BUSINESS SUIT LEVITATING; business; human; man; person; suit -->
+		<annotation cp='[🕴]'>MISSING</annotation>
+
+		<!-- KISS; couple; human; kiss; person; romance -->
+		<annotation cp='[💏]' tts='koss'>koss; kyssast; fólk; rómantík</annotation>
+
+		<!-- COUPLE WITH HEART; couple; heart; human; love; person; romance -->
+		<annotation cp='[💑]' tts='par'>par; par með hjarta; hjarta; fólk; rómantík</annotation>
+
+		<!-- FAMILY; child; family; father; human; mother; person -->
+		<annotation cp='[👪]' tts='fjölskylda'>fjölskylda; faðir; móðir; barn; fólk</annotation>
+
+		<!-- MAN AND WOMAN HOLDING HANDS; couple; hand; hold; human; man; person; woman -->
+		<annotation cp='[👫]' tts='karl og kona'>par; karl og kona leiðast; karl; kona; leiðast; fólk</annotation>
+
+		<!-- TWO MEN HOLDING HANDS; couple; gemini; hand; hold; human; men; person; twins; zodiac -->
+		<annotation cp='[👬]' tts='tveir karlar'>par; tveir karlar leiðast; karl; leiðast; fólk</annotation>
+
+		<!-- TWO WOMEN HOLDING HANDS; couple; hand; hold; human; person; woman -->
+		<annotation cp='[👭]' tts='tvær konur'>par; tvær konur leiðast; kona; leiðast; fólk</annotation>
+
+		<!-- WHITE LEFT POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point -->
+		<annotation cp='[👈]' tts='fingur bendir til vinstri'>vísifingur; fingur</annotation>
+
+		<!-- WHITE RIGHT POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point -->
+		<annotation cp='[👉]' tts='fingur bendir til hægri'>vísifingur; fingur</annotation>
+
+		<!-- WHITE UP POINTING INDEX; body; finger; hand; human; index; point; up -->
+		<annotation cp='[☝]'>MISSING</annotation>
+
+		<!-- WHITE UP POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point; up -->
+		<annotation cp='[👆]' tts='fingur bendir upp'>vísifingur; fingur</annotation>
+
+		<!-- REVERSED HAND WITH MIDDLE FINGER EXTENDED; body; finger; hand; human; middle finger -->
+		<annotation cp='[🖕]'>MISSING</annotation>
+
+		<!-- WHITE DOWN POINTING BACKHAND INDEX; backhand; body; down; finger; hand; human; index; point -->
+		<annotation cp='[👇]' tts='fingur bendir niður'>vísifingur; fingur</annotation>
+
+		<!-- VICTORY HAND; body; hand; human; v; victory -->
+		<annotation cp='[✌]' tts='friðarmerki'>friðarmerki; sigurmerki; friður; sigur</annotation>
+
+		<!-- RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS; body; finger; hand; human; spock; vulcan -->
+		<annotation cp='[🖖]'>MISSING</annotation>
+
+		<!-- RAISED FIST; body; clenched; fist; hand; human; punch -->
+		<annotation cp='[✊]' tts='hnefi'>hnefi; uppréttur hnefi</annotation>
+
+		<!-- RAISED HAND; body; hand; human -->
+		<annotation cp='[✋]' tts='lófi'>lófi; upprétt hönd</annotation>
+
+		<!-- FISTED HAND SIGN; body; clenched; fist; hand; human; punch -->
+		<annotation cp='[👊]' tts='krepptur hnefi'>hnefi; hönd</annotation>
+
+		<!-- WAVING HAND SIGN; body; hand; human; wave; waving -->
+		<annotation cp='[👋]' tts='hönd veifar'>veifa; hönd</annotation>
+
+		<!-- OK HAND SIGN; body; hand; human; ok -->
+		<annotation cp='[👌]' tts='Í lagi'>OK; ókei; handarmerki; bending</annotation>
+
+		<!-- THUMBS UP SIGN; +1; body; hand; human; thumb; thumbs’s up; up -->
+		<annotation cp='[👍]' tts='þumall upp'>hönd; bending</annotation>
+
+		<!-- THUMBS DOWN SIGN; body; down; hand; human; thumb; thumb’s down -->
+		<annotation cp='[👎]' tts='þumall niður'>hönd; bending</annotation>
+
+		<!-- CLAPPING HANDS SIGN; body; clap; hand; human -->
+		<annotation cp='[👏]' tts='lófaklapp'>lófaklapp; hendur klappa; hendur; klapp; </annotation>
+
+		<!-- OPEN HANDS SIGN; body; hand; human; open -->
+		<annotation cp='[👐]' tts='opinn lófi'>opnir lófar; hendur; lófar</annotation>
+
+		<!-- WRITING HAND; body; education; hand; human; write -->
+		<annotation cp='[✍]'>MISSING</annotation>
+
+		<!-- RAISED HAND WITH FINGERS SPLAYED; body; finger; hand; human; splayed -->
+		<annotation cp='[🖐]'>MISSING</annotation>
+
+		<!-- NAIL POLISH; body; care; cosmetics; human; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='naglalakk'>naglalakk; neglur; handsnyrting; snyrtivörur</annotation>
+
+		<!-- FLEXED BICEPS; biceps; body; comic; flex; human; muscle -->
+		<annotation cp='[💪]' tts='upphandleggsvöðvar'>upphandleggsvöðvar; spenntir vöðvar; hnykla; vöðvar; sterkur; skrípó</annotation>
+
+		<!-- FOOTPRINTS; body; clothing; footprint; human; print -->
+		<annotation cp='[👣]' tts='fótspor'>fótspor; fótur; spor; líkami</annotation>
+
+		<!-- EYES; body; eye; face; human -->
+		<annotation cp='[👀]' tts='augu'>augu; andlit</annotation>
+
+		<!-- EYE; body; eye; human -->
+		<annotation cp='[👁]'>MISSING</annotation>
+
+		<!-- EAR; body; ear; human -->
+		<annotation cp='[👂]' tts='eyru'>eyru; líkami</annotation>
+
+		<!-- NOSE; body; human; nose -->
+		<annotation cp='[👃]' tts='nef'>nef; andlit; líkami</annotation>
+
+		<!-- TONGUE; body; human; tongue -->
+		<annotation cp='[👅]' tts='tunga'>tunga; andlit; líkami</annotation>
+
+		<!-- SKULL; body; death; face; fairy tale; skull -->
+		<annotation cp='[💀]' tts='hauskúpa'>hauskúpa; ævintýri; líkami; andlit</annotation>
+
+		<!-- SKULL AND CROSSBONES; body; crossbones; death; face; skull -->
+		<annotation cp='[☠]'>MISSING</annotation>
+
+		<!-- KISS MARK; emotion; heart; human; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='kossafar'>kossafar; varir; koss; rómantík</annotation>
+
+		<!-- MOUTH; body; human; lips; mouth -->
+		<annotation cp='[👄]' tts='munnur'>munnur; varir; andlit; líkami</annotation>
+
+		<!-- HEART WITH ARROW; arrow; cupid; emotion; heart; romance -->
+		<annotation cp='[💘]' tts='hjarta með ör'>hjarta; ör; ást; tilfinningar</annotation>
+
+		<!-- HEAVY BLACK HEART; emotion; heart -->
+		<annotation cp='[❤]'>MISSING</annotation>
+
+		<!-- BEATING HEART; beating; emotion; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='hjartsláttur'>hjartsláttur; sláttur; hjarta; ást; tilfinningar</annotation>
+
+		<!-- BROKEN HEART; break; broken; emotion; heart -->
+		<annotation cp='[💔]' tts='ástarsorg'>ástarsorg; hjartasorg; hjarta; sorg; tilfinningar</annotation>
+
+		<!-- TWO HEARTS; emotion; heart; love -->
+		<annotation cp='[💕]' tts='tvö hjörtu'>elskendur; ást; tilfinningar</annotation>
+
+		<!-- SPARKLING HEART; emotion; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='glitrandi hjarta'>æsingur; glitrandi; ást; tilfinningar</annotation>
+
+		<!-- GROWING HEART; emotion; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' tts='stækkandi hjarta'>taugaóstyrkur; æsingur; hjarta; ást; tilfinningar</annotation>
+
+		<!-- BLUE HEART; blue; emotion; heart -->
+		<annotation cp='[💙]' tts='blátt hjarta'>blátt; hjarta; tilfinningar</annotation>
+
+		<!-- GREEN HEART; emotion; green; heart -->
+		<annotation cp='[💚]' tts='grænt hjarta'>grænt; hjarta; tilfinningar</annotation>
+
+		<!-- YELLOW HEART; emotion; heart; yellow -->
+		<annotation cp='[💛]' tts='gult hjarta'>gult; hjarta; tilfinningar</annotation>
+
+		<!-- PURPLE HEART; emotion; heart; purple -->
+		<annotation cp='[💜]' tts='fjólublátt hjarta'>fjólublátt; hjarta; tilfinningar</annotation>
+
+		<!-- HEART WITH RIBBON; emotion; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='hjarta með slaufu'>hjarta; slaufa; valentínusardagurinn; tilfinningar</annotation>
+
+		<!-- REVOLVING HEARTS; emotion; heart; revolving -->
+		<annotation cp='[💞]' tts='snúningshjörtu'>snúningshjörtu; hjarta; snúast; sætt; kawaii; ást; krúttlegt; tilfinningar</annotation>
+
+		<!-- HEART DECORATION; emotion; heart -->
+		<annotation cp='[💟]' tts='skraut með hjarta'>hjarta</annotation>
+
+		<!-- HEAVY HEART EXCLAMATION MARK ORNAMENT; emotion; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]'>MISSING</annotation>
+
+		<!-- LOVE LETTER; emotion; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='ástarbréf'>ástarbréf; bréf með hjarta; bréf; hjarta; rómantík</annotation>
+
+		<!-- DROPLET; cold; comic; drop; emotion; object; sweat; weather -->
+		<annotation cp='[💧]' tts='kaldur sviti'>sviti; dropi; skrípó</annotation>
+
+		<!-- SLEEPING SYMBOL; comic; emotion; sleep; word; zzz -->
+		<annotation cp='[💤]' tts='þreyta'>þreyta; zzz; sofandi; hrotur; skrípó; tilfinningar</annotation>
+
+		<!-- ANGER SYMBOL; angry; comic; emotion; mad -->
+		<annotation cp='[💢]' tts='reiði'>reiði; reiðitákn; reiður; skrípó; tilfinningar</annotation>
+
+		<!-- BOMB; bomb; comic; emotion; object -->
+		<annotation cp='[💣]' tts='sprengja'>sprengja; skrípó; tilfinningar</annotation>
+
+		<!-- COLLISION SYMBOL; boom; collision; comic; emotion -->
+		<annotation cp='[💥]' tts='árekstur'>árekstur; árekstrartákn; skrípó; tilfinningar</annotation>
+
+		<!-- SPLASHING SWEAT SYMBOL; comic; emotion; object; splashing; sweat -->
+		<annotation cp='[💦]' tts='svitadropar'>svitadropar; sviti; skrípó; tilfinningar</annotation>
+
+		<!-- DASH SYMBOL; comic; dash; emotion; object; running -->
+		<annotation cp='[💨]' tts='hraðferð'>hraðferð; hlaupa; flýja; skrípó; tilfinningar</annotation>
+
+		<!-- DIZZY SYMBOL; comic; dizzy; emotion; star -->
+		<annotation cp='[💫]' tts='ringlaður'>ringlaður; sjá stjörnur; stjörnur; skrípó; tilfinningar</annotation>
+
+		<!-- SPEECH BALLOON; balloon; bubble; comic; dialog; emotion; speech -->
+		<annotation cp='[💬]' tts='talblaðra'>talblaðra; blaðra; tala; skrípó</annotation>
+
+		<!-- THOUGHT BALLOON; balloon; bubble; comic; emotion; thought -->
+		<annotation cp='[💭]' tts='hugsanablaðra'>hugsanablaðra; hugsa; blaðra; skrípó</annotation>
+
+		<!-- HOLE; hole -->
+		<annotation cp='[🕳]'>MISSING</annotation>
+
+		<!-- RIGHT ANGER BUBBLE; angry; balloon; bubble; emotion; mad -->
+		<annotation cp='[🗯]'>MISSING</annotation>
+
+		<!-- EYEGLASSES; clothing; eye; eyeglasses; eyewear; glasses -->
+		<annotation cp='[👓]' tts='gleraugu'>gleraugu; klæðaður</annotation>
+
+		<!-- DARK SUNGLASSES; dark; eye; eyewear; glasses; object; sunglasses -->
+		<annotation cp='[🕶]'>MISSING</annotation>
+
+		<!-- NECKTIE; clothing; necktie -->
+		<annotation cp='[👔]' tts='hálsbindi'>hálsbindi; bindi; klæðnaður</annotation>
+
+		<!-- T-SHIRT; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' tts='stuttermabolur'>stuttermabolur; bolur; klæðnaður</annotation>
+
+		<!-- JEANS; clothing; jeans; pants; trousers -->
+		<annotation cp='[👖]' tts='buxur'>buxur; gallabuxur; klæðnaður</annotation>
+
+		<!-- DRESS; clothing; dress -->
+		<annotation cp='[👗]' tts='kjóll'>kjóll; klæðnaður</annotation>
+
+		<!-- KIMONO; clothing; kimono -->
+		<annotation cp='[👘]' tts='kimono'>kimono; kjóll; klæðnaður</annotation>
+
+		<!-- BIKINI; bikini; clothing; swim -->
+		<annotation cp='[👙]' tts='bíkiní'>bíkiní; sundföt; klæðnaður</annotation>
+
+		<!-- WOMANS CLOTHES; clothing; woman -->
+		<annotation cp='[👚]' tts='kvenföt'>kvenföt; föt; klæðnaður</annotation>
+
+		<!-- PURSE; clothing; coin; purse -->
+		<annotation cp='[👛]' tts='budda'>budda; peningabudda; smápeningar; klæðnaður</annotation>
+
+		<!-- HANDBAG; bag; clothing; handbag -->
+		<annotation cp='[👜]' tts='handtaska'>handtaska; taska; klæðnaður</annotation>
+
+		<!-- POUCH; bag; clothing; pouch -->
+		<annotation cp='[👝]' tts='smáveski'>smáveski; budda; klæðnaður</annotation>
+
+		<!-- MANS SHOE; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='herraskór'>herraskór; skór; klæðnaður</annotation>
+
+		<!-- ATHLETIC SHOE; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='íþróttaskór'>íþróttaskór; strigaskór; skór; klæðnaður</annotation>
+
+		<!-- HIGH-HEELED SHOE; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='háhælaður skór'>skór; klæðnaður</annotation>
+
+		<!-- WOMANS SANDAL; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='kvensandali'>kvensandali; sandali; kvenskór; klæðnaður</annotation>
+
+		<!-- WOMANS BOOTS; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='kvenstígvél'>kvenstígvél; stígvél; kvenskór; klæðnaður</annotation>
+
+		<!-- CROWN; clothing; crown; king; queen -->
+		<annotation cp='[👑]' tts='kóróna'>kóróna; klæðnaður</annotation>
+
+		<!-- WOMANS HAT; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='kvenhattur'>kvenhattur; hattur; klæðnaður</annotation>
+
+		<!-- TOP HAT; activity; entertainment; hat; object; top; tophat -->
+		<annotation cp='[🎩]' tts='pípuhattur'>pípuhattur; hattur; skemmtun</annotation>
+
+		<!-- HELMET WITH WHITE CROSS; aid; cross; hat; helmet; travel -->
+		<annotation cp='[⛑]'>MISSING</annotation>
+
+		<!-- MONKEY FACE; animal; face; monkey; nature -->
+		<annotation cp='[🐵]' tts='apahöfuð'>apahöfuð; api; höfuð; dýr</annotation>
+
+		<!-- SEE-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='api heldur fyrir augu'>halda fyrir augu; api</annotation>
+
+		<!-- HEAR-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='api heldur fyrir eyru'>halda fyrir eyru; api</annotation>
+
+		<!-- SPEAK-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='api heldur fyrir munn'>halda fyrir munn; api</annotation>
+
+		<!-- MONKEY; animal; monkey; nature -->
+		<annotation cp='[🐒]' tts='api'>api; dýr</annotation>
+
+		<!-- DOG FACE; animal; dog; face; nature; pet -->
+		<annotation cp='[🐶]' tts='hundshöfuð'>hundshöfuð; hundur; höfuð; dýr</annotation>
+
+		<!-- DOG; animal; dog; nature; pet -->
+		<annotation cp='[🐕]' tts='hundur'>hundur; hvolpur; dýr</annotation>
+
+		<!-- POODLE; animal; dog; nature; poodle -->
+		<annotation cp='[🐩]' tts='púðluhundur'>púðluhundur; hundur; dýr</annotation>
+
+		<!-- WOLF FACE; animal; face; nature; wolf -->
+		<annotation cp='[🐺]' tts='úlfshöfuð'>úlfshöfuð; úlfur; höfuð; dýr</annotation>
+
+		<!-- CAT FACE; animal; cat; face; nature; pet -->
+		<annotation cp='[🐱]' tts='kattarhöfuð'>kattarhöfuð; köttur; höfuð; dýr</annotation>
+
+		<!-- GRINNING CAT FACE WITH SMILING EYES; animal; cat; eye; face; grin; nature; smile; smiley -->
+		<annotation cp='[😸]' tts='glottandi köttur'>glott; köttur með glott; köttur</annotation>
+
+		<!-- CAT FACE WITH TEARS OF JOY; animal; cat; face; joy; nature; tear -->
+		<annotation cp='[😹]' tts='gleðitár'>gleðitár; köttur með gleðitár; köttur</annotation>
+
+		<!-- SMILING CAT FACE WITH OPEN MOUTH; animal; cat; face; mouth; nature; open; smile; smiley -->
+		<annotation cp='[😺]' tts='hlæjandi köttur'>brosandi köttur með opinn munn; bros; opinn munnur; köttur</annotation>
+
+		<!-- SMILING CAT FACE WITH HEART-SHAPED EYES; animal; cat; eye; face; heart; love; nature; smile; smiley -->
+		<annotation cp='[😻]' tts='brosandi köttur'>brosandi köttur með hjartalaga augu; ástfanginn köttur; ástarköttur; ást; köttur</annotation>
+
+		<!-- CAT FACE WITH WRY SMILE; animal; cat; face; ironic; nature; smile; smiley; wry -->
+		<annotation cp='[😼]' tts='lúmskur köttur'>glottandi köttur; glott; köttur; lymska</annotation>
+
+		<!-- KISSING CAT FACE WITH CLOSED EYES; animal; cat; eye; face; kiss; nature -->
+		<annotation cp='[😽]' tts='kyssandi köttur'>kattarkoss; köttur að kyssa; kyssa; koss; köttur</annotation>
+
+		<!-- POUTING CAT FACE; animal; cat; face; nature; pouting -->
+		<annotation cp='[😾]' tts='köttur í fýlu'>fýluköttur; fýla; köttur</annotation>
+
+		<!-- CRYING CAT FACE; animal; cat; cry; face; nature; sad; tear -->
+		<annotation cp='[😿]' tts='grátandi köttur'>grátandi; grátur; köttur</annotation>
+
+		<!-- WEARY CAT FACE; animal; cat; face; nature; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='hnugginn köttur'>undrun; köttur</annotation>
+
+		<!-- CAT; animal; cat; nature; pet -->
+		<annotation cp='[🐈]' tts='köttur'>köttur; dýr</annotation>
+
+		<!-- TIGER FACE; animal; face; nature; tiger -->
+		<annotation cp='[🐯]' tts='tígrisdýrshöfuð'>tígrisdýrshöfuð; tígrisdýr; dýr</annotation>
+
+		<!-- TIGER; animal; nature; tiger -->
+		<annotation cp='[🐅]' tts='tígrisdýr'>tígrisdýr; dýr</annotation>
+
+		<!-- LEOPARD; animal; leopard; nature -->
+		<annotation cp='[🐆]' tts='hlébarður'>hlébarður; dýr</annotation>
+
+		<!-- HORSE FACE; animal; face; horse; nature -->
+		<annotation cp='[🐴]' tts='hestshöfuð'>hestshöfuð; hestur; höfuð; dýr</annotation>
+
+		<!-- HORSE; animal; horse; nature; racehorse; racing -->
+		<annotation cp='[🐎]' tts='hestur'>hestur; dýr</annotation>
+
+		<!-- COW FACE; animal; cow; face; nature -->
+		<annotation cp='[🐮]' tts='kýrhöfuð'>kýrhöfuð; kýr; höfuð; dýr</annotation>
+
+		<!-- OX; animal; bull; nature; ox; taurus; zodiac -->
+		<annotation cp='[🐂]' tts='uxi'>uxi; dýr</annotation>
+
+		<!-- WATER BUFFALO; animal; buffalo; nature; water -->
+		<annotation cp='[🐃]' tts='vatnabuffaló'>vatnabuffaló; dýr</annotation>
+
+		<!-- COW; animal; cow; nature -->
+		<annotation cp='[🐄]' tts='kýr'>kýr; dýr</annotation>
+
+		<!-- PIG FACE; animal; face; nature; pig -->
+		<annotation cp='[🐷]' tts='svínshöfuð'>svínshöfuð; svín; höfuð; dýr</annotation>
+
+		<!-- PIG; animal; nature; pig -->
+		<annotation cp='[🐖]' tts='svín'>svín; dýr</annotation>
+
+		<!-- BOAR; animal; boar; nature -->
+		<annotation cp='[🐗]' tts='villisvín'>villisvín; dýr</annotation>
+
+		<!-- PIG NOSE; animal; face; nature; nose; pig -->
+		<annotation cp='[🐽]' tts='svínsnef'>svínsnef; nef; svín; dýr</annotation>
+
+		<!-- RAM; animal; aries; nature; ram; sheep; zodiac -->
+		<annotation cp='[🐏]' tts='hrútur'>hrútur; dýr</annotation>
+
+		<!-- SHEEP; animal; nature; sheep -->
+		<annotation cp='[🐑]' tts='kind'>kind; ær; dýr</annotation>
+
+		<!-- GOAT; animal; capricorn; goat; nature; zodiac -->
+		<annotation cp='[🐐]' tts='geit'>geit; dýr</annotation>
+
+		<!-- DROMEDARY CAMEL; animal; camel; dromedary; hump; nature -->
+		<annotation cp='[🐪]' tts='drómedari'>drómedari; kameldýr; dýr</annotation>
+
+		<!-- BACTRIAN CAMEL; animal; bactrian; camel; hump; nature -->
+		<annotation cp='[🐫]' tts='úlfaldi'>úlfaldi; kameldýr; dýr</annotation>
+
+		<!-- ELEPHANT; animal; elephant; nature -->
+		<annotation cp='[🐘]' tts='fíll'>fíll; dýr</annotation>
+
+		<!-- MOUSE FACE; animal; face; mouse; nature -->
+		<annotation cp='[🐭]' tts='músarhöfuð'>músarhöfuð; mús; höfuð; dýr</annotation>
+
+		<!-- MOUSE; animal; mouse; nature -->
+		<annotation cp='[🐁]' tts='mús'>mús; dýr</annotation>
+
+		<!-- RAT; animal; nature; rat -->
+		<annotation cp='[🐀]' tts='rotta'>rotta; dýr</annotation>
+
+		<!-- HAMSTER FACE; animal; face; hamster; nature; pet -->
+		<annotation cp='[🐹]' tts='hamsturshöfuð'>hamsturshöfuð; hamstur; höfuð; dýr</annotation>
+
+		<!-- RABBIT FACE; animal; bunny; face; nature; pet; rabbit -->
+		<annotation cp='[🐰]' tts='kanínuhöfuð'>kanínuhöfuð; kanína; höfuð; dýr</annotation>
+
+		<!-- RABBIT; animal; bunny; nature; pet; rabbit -->
+		<annotation cp='[🐇]' tts='kanína'>kanína; dýr</annotation>
+
+		<!-- CHIPMUNK; animal; chipmunk; nature -->
+		<annotation cp='[🐿]'>MISSING</annotation>
+
+		<!-- BEAR FACE; animal; bear; face; nature -->
+		<annotation cp='[🐻]' tts='bjarnarhöfuð'>bjarnarhöfuð; björn; höfuð; dýr</annotation>
+
+		<!-- KOALA; animal; bear; koala; nature -->
+		<annotation cp='[🐨]' tts='kóalabjörn'>kóalabjörn; dýr</annotation>
+
+		<!-- PANDA FACE; animal; face; nature; panda -->
+		<annotation cp='[🐼]' tts='pönduhöfuð'>pönduhöfuð; pandabjörn; panda; höfuð; dýr</annotation>
+
+		<!-- PAW PRINTS; animal; feet; nature; paw; print -->
+		<annotation cp='[🐾]' tts='loppa'>loppa; fótspor; spor; dýr</annotation>
+
+		<!-- CHICKEN; animal; chicken; nature -->
+		<annotation cp='[🐔]' tts='hæna'>hæna; dýr</annotation>
+
+		<!-- ROOSTER; animal; nature; rooster -->
+		<annotation cp='[🐓]' tts='hani'>hani; dýr</annotation>
+
+		<!-- HATCHING CHICK; animal; baby; chick; hatching; nature -->
+		<annotation cp='[🐣]' tts='hænuungi í eggi'>hænuungi; fuglsungi; kjúklingur; dýr</annotation>
+
+		<!-- BABY CHICK; animal; baby; chick; nature -->
+		<annotation cp='[🐤]' tts='hænuungi'>hænuungi; kjúklingur; dýr</annotation>
+
+		<!-- FRONT-FACING BABY CHICK; animal; baby; chick; nature -->
+		<annotation cp='[🐥]' tts='hænuungi'>hænuungi; hænuungi með höfuð fram; ungi; kjúklingur; dýr</annotation>
+
+		<!-- BIRD; animal; bird; nature -->
+		<annotation cp='[🐦]' tts='fugl'>fugl; dýr</annotation>
+
+		<!-- PENGUIN; animal; nature; penguin -->
+		<annotation cp='[🐧]' tts='mörgæs'>mörgæs; dýr</annotation>
+
+		<!-- DOVE OF PEACE; animal; bird; dove; fly; nature; peace -->
+		<annotation cp='[🕊]'>MISSING</annotation>
+
+		<!-- FROG FACE; animal; face; frog; nature -->
+		<annotation cp='[🐸]' tts='froskshöfuð'>froskshöfuð; froskur; höfuð; dýr</annotation>
+
+		<!-- CROCODILE; animal; crocodile; nature -->
+		<annotation cp='[🐊]' tts='krókódíll'>krókódíll; dýr</annotation>
+
+		<!-- SNAKE; animal; bearer; nature; ophiuchus; serpent; snake; zodiac -->
+		<annotation cp='[🐍]' tts='snákur'>snákur; dýr</annotation>
+
+		<!-- TURTLE; animal; nature; turtle -->
+		<annotation cp='[🐢]' tts='skjaldbaka'>skjaldbaka; dýr</annotation>
+
+		<!-- DRAGON FACE; animal; dragon; face; fairy tale; nature -->
+		<annotation cp='[🐲]' tts='drekahöfuð'>drekahöfuð; dreki; höfuð; dýr</annotation>
+
+		<!-- DRAGON; animal; dragon; fairy tale; nature -->
+		<annotation cp='[🐉]' tts='dreki'>dreki; dýr</annotation>
+
+		<!-- SPOUTING WHALE; animal; face; nature; spouting; whale -->
+		<annotation cp='[🐳]' tts='hvalur að sprauta vatni'>hvalur; dýr</annotation>
+
+		<!-- WHALE; animal; nature; whale -->
+		<annotation cp='[🐋]' tts='hvalur'>hvalur; dýr</annotation>
+
+		<!-- DOLPHIN; animal; dolphin; flipper; nature -->
+		<annotation cp='[🐬]' tts='höfrungur'>höfrungur; dýr</annotation>
+
+		<!-- FISH; animal; fish; nature; pisces; zodiac -->
+		<annotation cp='[🐟]' tts='fiskur'>fiskur; dýr</annotation>
+
+		<!-- TROPICAL FISH; animal; fish; nature; tropical -->
+		<annotation cp='[🐠]' tts='hitabeltisfiskur'>hitabeltisfiskur; fiskur; dýr</annotation>
+
+		<!-- BLOWFISH; animal; blowfish; fish; nature -->
+		<annotation cp='[🐡]' tts='blöðrufiskur'>blöðrufiskur; fiskur; dýr</annotation>
+
+		<!-- OCTOPUS; animal; nature; octopus -->
+		<annotation cp='[🐙]' tts='kolkrabbi'>kolkrabbi; dýr</annotation>
+
+		<!-- SPIRAL SHELL; animal; nature; shell; spiral -->
+		<annotation cp='[🐚]' tts='kuðungur'>kuðungur; dýr</annotation>
+
+		<!-- SNAIL; animal; nature; snail -->
+		<annotation cp='[🐌]' tts='snigill'>snigill; dýr</annotation>
+
+		<!-- BUG; animal; bug; insect; nature -->
+		<annotation cp='[🐛]' tts='skordýr'>skordýr; margfætla; padda; dýr</annotation>
+
+		<!-- ANT; animal; ant; insect; nature -->
+		<annotation cp='[🐜]' tts='maur'>maur; dýr</annotation>
+
+		<!-- HONEYBEE; animal; bee; honeybee; insect; nature -->
+		<annotation cp='[🐝]' tts='hunangsfluga'>hunangsfluga; býfluga; dýr</annotation>
+
+		<!-- LADY BEETLE; animal; beetle; insect; lady beetle; ladybird; ladybug; nature -->
+		<annotation cp='[🐞]' tts='maríuhæna'>maríuhæna; maríubjalla; bjalla; dýr</annotation>
+
+		<!-- SPIDER; animal; insect; object; spider -->
+		<annotation cp='[🕷]'>MISSING</annotation>
+
+		<!-- SPIDER WEB; animal; object; spider; web -->
+		<annotation cp='[🕸]'>MISSING</annotation>
+
+		<!-- PILE OF POO; comic; dung; nature; object; poo; poop -->
+		<annotation cp='[💩]' tts='kúkur'>kúkur; skítur; della</annotation>
+
+		<!-- JAPANESE OGRE; creature; face; fairy tale; fantasy; japanese; ogre -->
+		<annotation cp='[👹]' tts='tröll'>tröll; skrímsli; oni; ævintýri; japanskt tröll; andlit</annotation>
+
+		<!-- JAPANESE GOBLIN; creature; face; fairy tale; fantasy; goblin; japanese -->
+		<annotation cp='[👺]' tts='púki'>púki; skrímsli; tengu; ævintýri; japanskur púki; andlit</annotation>
+
+		<!-- GHOST; creature; face; fairy tale; fantasy; ghost -->
+		<annotation cp='[👻]' tts='draugur'>draugur; ævintýri; andlit</annotation>
+
+		<!-- EXTRATERRESTRIAL ALIEN; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; nature; space; ufo -->
+		<annotation cp='[👽]' tts='geimvera'>geimvera; geimskip; ævintýri; andlit</annotation>
+
+		<!-- ALIEN MONSTER; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; monster; nature; space; ufo -->
+		<annotation cp='[👾]' tts='geimveruskrímsli'>geimveruskrímsli; skrímsli; geimskip; ævintýri; andlit</annotation>
+
+		<!-- BOUQUET; bouquet; flower; nature; object; romance -->
+		<annotation cp='[💐]' tts='blómavöndur'>blómavöndur; blóm; rómantík</annotation>
+
+		<!-- CHERRY BLOSSOM; blossom; cherry; flower; nature; plant -->
+		<annotation cp='[🌸]' tts='kirsuberjablóm'>kirsuberjablóm; kirsuber; blóm</annotation>
+
+		<!-- WHITE FLOWER; flower; object -->
+		<annotation cp='[💮]' tts='blómastimpill'>blómastimpill; blóm; stimpill</annotation>
+
+		<!-- ROSETTE; nature; rosette -->
+		<annotation cp='[🏵]'>MISSING</annotation>
+
+		<!-- ROSE; flower; nature; plant; rose -->
+		<annotation cp='[🌹]' tts='rós'>rós; blóm</annotation>
+
+		<!-- HIBISCUS; flower; hibiscus; nature; plant -->
+		<annotation cp='[🌺]' tts='Havaírós'>Havaírós; blóm</annotation>
+
+		<!-- SUNFLOWER; flower; nature; plant; sun; sunflower -->
+		<annotation cp='[🌻]' tts='sólblóm'>sólblóm; blóm</annotation>
+
+		<!-- BLOSSOM; blossom; flower; nature; plant -->
+		<annotation cp='[🌼]' tts='blóm'>blóm; í blóma</annotation>
+
+		<!-- TULIP; flower; nature; plant; tulip -->
+		<annotation cp='[🌷]' tts='túlípani'>túlípani; blóm</annotation>
+
+		<!-- PALM BRANCH; branch; nature; palm; plant -->
+		<annotation cp='[⸙]'>MISSING</annotation>
+
+		<!-- SHAMROCK; nature; plant; shamrock -->
+		<annotation cp='[☘]'>MISSING</annotation>
+
+		<!-- SEEDLING; nature; plant; seedling; young -->
+		<annotation cp='[🌱]' tts='græðlingur'>græðlingur</annotation>
+
+		<!-- EVERGREEN TREE; evergreen; nature; plant; tree -->
+		<annotation cp='[🌲]' tts='sígrænt tré'>sígrænt; tré</annotation>
+
+		<!-- DECIDUOUS TREE; deciduous; nature; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='sumargrænt tré'>lauftré; tré</annotation>
+
+		<!-- PALM TREE; nature; palm; plant; tree -->
+		<annotation cp='[🌴]' tts='pálmatré'>pálmatré; pálmi; tré</annotation>
+
+		<!-- CACTUS; cactus; nature; plant -->
+		<annotation cp='[🌵]' tts='kaktus'>kaktus; planta</annotation>
+
+		<!-- EAR OF RICE; ear; nature; plant; rice -->
+		<annotation cp='[🌾]' tts='hrísgrjónaplanta'>hrísgrjónaplanta; hrísgrjónaax; hrísgrjón; ax</annotation>
+
+		<!-- HERB; herb; leaf; nature; plant -->
+		<annotation cp='[🌿]' tts='kryddjurt'>kryddjurt; lauf; krydd</annotation>
+
+		<!-- FOUR LEAF CLOVER; 4; clover; four; leaf; nature; plant -->
+		<annotation cp='[🍀]' tts='fjögurra laufa smári'>smári; happamerki</annotation>
+
+		<!-- MAPLE LEAF; falling; leaf; maple; nature; plant -->
+		<annotation cp='[🍁]' tts='hlynslauf'>hlynslauf; hlynur; laufblað; lauf</annotation>
+
+		<!-- FALLEN LEAF; falling; leaf; nature; plant -->
+		<annotation cp='[🍂]' tts='fallandi lauf'>fallandi laufblöð; fallandi; lauf; laufblað; haust</annotation>
+
+		<!-- LEAF FLUTTERING IN WIND; blow; flutter; leaf; nature; plant; wind -->
+		<annotation cp='[🍃]' tts='lauf í vindi'>vindur; lauf; laufblað</annotation>
+
+		<!-- GRAPES; food; fruit; grape; nature; plant -->
+		<annotation cp='[🍇]' tts='vínber'>vínber; ávöxtur</annotation>
+
+		<!-- MELON; food; fruit; melon; nature; plant -->
+		<annotation cp='[🍈]' tts='melóna'>melóna; ávöxtur</annotation>
+
+		<!-- WATERMELON; food; fruit; nature; plant; watermelon -->
+		<annotation cp='[🍉]' tts='vatnsmelóna'>vatnsmelóna; ávöxtur</annotation>
+
+		<!-- TANGERINE; food; fruit; nature; orange; plant; tangerine -->
+		<annotation cp='[🍊]' tts='mandarína'>mandarína; appelsína; ávöxtur</annotation>
+
+		<!-- LEMON; citrus; food; fruit; lemon; nature; plant -->
+		<annotation cp='[🍋]' tts='sítróna'>sítróna; sítrusávöxtur; ávöxtur</annotation>
+
+		<!-- BANANA; banana; food; fruit; nature; plant -->
+		<annotation cp='[🍌]' tts='banani'>banani; ávöxtur</annotation>
+
+		<!-- PINEAPPLE; food; fruit; nature; pineapple; plant -->
+		<annotation cp='[🍍]' tts='ananas'>ananas; ávöxtur; </annotation>
+
+		<!-- RED APPLE; apple; food; fruit; nature; plant; red -->
+		<annotation cp='[🍎]' tts='rautt epli'>epli; rautt; ávöxtur</annotation>
+
+		<!-- GREEN APPLE; apple; food; fruit; green; nature; plant -->
+		<annotation cp='[🍏]' tts='grænt epli'>epli; græn; ávöxtur</annotation>
+
+		<!-- PEAR; food; fruit; nature; pear; plant -->
+		<annotation cp='[🍐]' tts='pera'>pera; ávöxtur</annotation>
+
+		<!-- PEACH; food; fruit; nature; peach; plant -->
+		<annotation cp='[🍑]' tts='ferskja'>ferskja; ávöxtur</annotation>
+
+		<!-- CHERRIES; cherry; food; fruit; nature; plant -->
+		<annotation cp='[🍒]' tts='kirsuber'>kirsuber; ávöxtur</annotation>
+
+		<!-- STRAWBERRY; berry; food; fruit; nature; plant; strawberry -->
+		<annotation cp='[🍓]' tts='jarðarber'>jarðarber; ber; ávöxtur</annotation>
+
+		<!-- TOMATO; food; nature; plant; tomato; vegetable -->
+		<annotation cp='[🍅]' tts='tómatur'>tómatur; grænmeti</annotation>
+
+		<!-- AUBERGINE; aubergine; eggplant; food; nature; plant; vegetable -->
+		<annotation cp='[🍆]' tts='eggaldin'>eggaldin; grænmeti</annotation>
+
+		<!-- EAR OF MAIZE; corn; ear; maize; maze; nature; plant -->
+		<annotation cp='[🌽]' tts='maís'>maís; kólfur; maískólfur</annotation>
+
+		<!-- HOT PEPPER; food; hot; nature; pepper; plant -->
+		<annotation cp='[🌶]'>MISSING</annotation>
+
+		<!-- MUSHROOM; mushroom; nature; plant -->
+		<annotation cp='[🍄]' tts='sveppur'>sveppur</annotation>
+
+		<!-- CHESTNUT; chestnut; nature; plant -->
+		<annotation cp='[🌰]' tts='kastanía'>kastanía</annotation>
+
+		<!-- BREAD; bread; food; loaf; restaurant -->
+		<annotation cp='[🍞]' tts='brauð'>brauð; brauðhleifur; veitingastaður</annotation>
+
+		<!-- MEAT ON BONE; bone; food; meat; restaurant -->
+		<annotation cp='[🍖]' tts='kjöt'>kjöt; kjöt með beini; veitingastaður</annotation>
+
+		<!-- POULTRY LEG; bone; chicken; food; leg; poultry; restaurant -->
+		<annotation cp='[🍗]' tts='kjúklingaleggur'>kjúklingaleggur; fuglakjöt; kjúklingur; leggur; veitingastaður</annotation>
+
+		<!-- HAMBURGER; burger; food; hamburger; restaurant -->
+		<annotation cp='[🍔]' tts='hamborgari'>hamborgari; borgari; veitingastaður</annotation>
+
+		<!-- FRENCH FRIES; food; french; fries; restaurant -->
+		<annotation cp='[🍟]' tts='franskar'>franskar; franskar kartöflur; veitingastaður</annotation>
+
+		<!-- SLICE OF PIZZA; food; pizza; restaurant; slice -->
+		<annotation cp='[🍕]' tts='pítsusneið'>pítsusneið; pizzusneið; pítsa; pizza; sneið; veitingastaður</annotation>
+
+		<!-- POT OF FOOD; food; pot; restaurant; stew -->
+		<annotation cp='[🍲]' tts='pottréttur'>pottréttur; kássa; veitingastaður</annotation>
+
+		<!-- BENTO BOX; bento; box; food; restaurant -->
+		<annotation cp='[🍱]' tts='bento-box'>bento-box; nesti; nestisbox; veitingastaður</annotation>
+
+		<!-- RICE CRACKER; cracker; food; restaurant; rice -->
+		<annotation cp='[🍘]' tts='hrísgrjónakex'>hrísgrjónakex; hrísgrjón</annotation>
+
+		<!-- RICE BALL; ball; food; japanese; restaurant; rice -->
+		<annotation cp='[🍙]' tts='hrísgrjónabolla'>hrísgrjónabolla; onigiri; hrísgrjón; veitingastaður</annotation>
+
+		<!-- COOKED RICE; cooked; food; restaurant; rice -->
+		<annotation cp='[🍚]' tts='soðin hrísgrjón'>hrísgrjón; veitingastaður</annotation>
+
+		<!-- CURRY AND RICE; curry; food; restaurant; rice -->
+		<annotation cp='[🍛]' tts='hrísgrjón og karrí'>karrí; hrísgrjón; veitingastaður</annotation>
+
+		<!-- STEAMING BOWL; bowl; food; noodle; ramen; restaurant; steaming -->
+		<annotation cp='[🍜]' tts='núðlur'>núðlur; núðluskál; gufusoðnar; skál; veitingastaður</annotation>
+
+		<!-- SPAGHETTI; food; pasta; restaurant; spaghetti -->
+		<annotation cp='[🍝]' tts='spagettí'>spagettí; pasta; veitingastaður</annotation>
+
+		<!-- ROASTED SWEET POTATO; food; potato; restaurant; roasted; sweet -->
+		<annotation cp='[🍠]' tts='steiktar kartöflur'>sætar kartöflur steikt sæt kartafla; sæt kartafla; veitingastaður</annotation>
+
+		<!-- ODEN; food; kebab; oden; restaurant; seafood; skewer; stick -->
+		<annotation cp='[🍢]' tts='oden'>oden; sjávarréttir á teini; sjávarréttir; veitingastaður</annotation>
+
+		<!-- SUSHI; food; restaurant; sushi -->
+		<annotation cp='[🍣]' tts='sushi'>sushi; veitingastaður</annotation>
+
+		<!-- FRIED SHRIMP; food; fried; prawn; restaurant; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='djúpsteikt rækja'>rækja; veitingastaður</annotation>
+
+		<!-- FISH CAKE WITH SWIRL DESIGN; cake; fish; food; pastry; restaurant; swirl -->
+		<annotation cp='[🍥]' tts='fiskkaka'>fiskkaka; fiskur; veitingastaður</annotation>
+
+		<!-- DANGO; dango; dessert; food; japanese; restaurant; skewer; stick; sweet -->
+		<annotation cp='[🍡]' tts='soðkökur á teini'>soðkökur; mochi; dango; veitingastaður</annotation>
+
+		<!-- SOFT ICE CREAM; cream; dessert; food; ice; icecream; restaurant; soft; sweet -->
+		<annotation cp='[🍦]' tts='rjómaís'>rjómaís; ís; ís úr vél; veitingastaður</annotation>
+
+		<!-- SHAVED ICE; dessert; food; ice; restaurant; shaved; sweet -->
+		<annotation cp='[🍧]' tts='skafís'>skafís; ís; skafinn; veitingastaður</annotation>
+
+		<!-- ICE CREAM; cream; dessert; food; ice; restaurant; sweet -->
+		<annotation cp='[🍨]' tts='kúluís'>kúluís; ís; veitingastaður</annotation>
+
+		<!-- DOUGHNUT; dessert; donut; doughnut; food; restaurant; sweet -->
+		<annotation cp='[🍩]' tts='kleinuhringur'>kleinuhringur; veitingastaður</annotation>
+
+		<!-- COOKIE; cookie; dessert; food; restaurant; sweet -->
+		<annotation cp='[🍪]' tts='smákaka'>smákaka; súkkulaðibitakaka; veitingastaður</annotation>
+
+		<!-- BIRTHDAY CAKE; birthday; cake; celebration; dessert; food; pastry; sweet -->
+		<annotation cp='[🎂]' tts='afmæliskaka'>afmæliskaka; afmæli; kaka; veisla</annotation>
+
+		<!-- SHORTCAKE; cake; dessert; food; pastry; restaurant; shortcake; slice; sweet -->
+		<annotation cp='[🍰]' tts='kökusneið'>kökusneið; kaka; terta; veitingastaður</annotation>
+
+		<!-- CHOCOLATE BAR; bar; chocolate; dessert; food; restaurant; sweet -->
+		<annotation cp='[🍫]' tts='súkkulaði'>súkkulaði; súkkulaðiplata; veitingastaður</annotation>
+
+		<!-- CANDY; candy; dessert; food; restaurant; sweet -->
+		<annotation cp='[🍬]' tts='nammi'>nammi; sælgæti; veitingastaður</annotation>
+
+		<!-- LOLLIPOP; candy; dessert; food; lollipop; restaurant; sweet -->
+		<annotation cp='[🍭]' tts='sleikibrjóstsykur'>sleikibrjóstsykur; sleikjó; nammi; sælgæti; veitingastaður</annotation>
+
+		<!-- CUSTARD; custard; dessert; food; pudding; restaurant; sweet -->
+		<annotation cp='[🍮]' tts='búðingur'>búðingur; veitingastaður</annotation>
+
+		<!-- HONEY POT; food; honey; honeypot; pot; restaurant; sweet -->
+		<annotation cp='[🍯]' tts='hunang'>hunang; hunangskrukka; veitingastaður</annotation>
+
+		<!-- HOT BEVERAGE; beverage; coffee; drink; food; hot; steaming; tea -->
+		<annotation cp='[☕]'>MISSING</annotation>
+
+		<!-- TEACUP WITHOUT HANDLE; beverage; cup; drink; food; tea; teacup -->
+		<annotation cp='[🍵]' tts='tebolli'>tebolli; bolli; te; drykkur</annotation>
+
+		<!-- SAKE BOTTLE AND CUP; bar; beverage; bottle; cup; drink; food; restaurant; sake -->
+		<annotation cp='[🍶]' tts='sake'>sake; sake-flaska og -glas; glas; flaska; drykkur; veitingastaður; bar</annotation>
+
+		<!-- WINE GLASS; bar; beverage; drink; food; glass; restaurant; wine -->
+		<annotation cp='[🍷]' tts='vín'>vín; vínglas; glas; drykkur; veitingastaður; bar</annotation>
+
+		<!-- COCKTAIL GLASS; bar; cocktail; drink; food; glass; restaurant -->
+		<annotation cp='[🍸]' tts='kokteill'>kokteill; hanastél; kokteilglas; veitingastaður; bar</annotation>
+
+		<!-- TROPICAL DRINK; bar; drink; food; restaurant; tropical -->
+		<annotation cp='[🍹]' tts='suðrænn kokteill'>glas; drykkur; veitingastaður; bar</annotation>
+
+		<!-- BEER MUG; bar; beer; drink; food; mug; restaurant -->
+		<annotation cp='[🍺]' tts='bjór'>bjór; bjórglas; glas; veitingastaður; bar</annotation>
+
+		<!-- CLINKING BEER MUGS; bar; beer; clink; drink; food; mug; restaurant -->
+		<annotation cp='[🍻]' tts='bjórglös'>bjórglös; skál; bjór; glös; veitingastaður; bar</annotation>
+
+		<!-- BABY BOTTLE; baby; bottle; drink; food; milk -->
+		<annotation cp='[🍼]' tts='peli'>peli; mjólk; drekka</annotation>
+
+		<!-- FORK AND KNIFE WITH PLATE; food; fork; knife; plate; restaurant -->
+		<annotation cp='[🍽]'>MISSING</annotation>
+
+		<!-- FORK AND KNIFE; food; fork; knife; restaurant -->
+		<annotation cp='[🍴]' tts='hnífur og gaffall'>hnífapör; veitingastaður</annotation>
+
+		<!-- COOKING; cooking; egg; food; frying; pan; restaurant -->
+		<annotation cp='[🍳]' tts='steikarpanna'>steikarpanna; steiking; elda; veitingastaður</annotation>
+
+		<!-- EARTH GLOBE EUROPE-AFRICA; africa; earth; europe; globe; nature; place; world -->
+		<annotation cp='[🌍]' tts='hnöttur'>hnöttur; jörðin; Evrópa; Afríka</annotation>
+
+		<!-- EARTH GLOBE AMERICAS; americas; earth; globe; nature; place; world -->
+		<annotation cp='[🌎]' tts='hnöttur'>hnöttur; jörðin; N- og S-Ameríka; Ameríka</annotation>
+
+		<!-- EARTH GLOBE ASIA-AUSTRALIA; asia; australia; earth; globe; nature; place; world -->
+		<annotation cp='[🌏]' tts='hnöttur'>hnöttur; jörðin; Asía; Ástralía</annotation>
+
+		<!-- GLOBE WITH MERIDIANS; earth; globe; meridians; nature; place; world -->
+		<annotation cp='[🌐]' tts='hnöttur'>hnöttur; breiddargráður; lengdargráður</annotation>
+
+		<!-- WORLD MAP; map; place; world -->
+		<annotation cp='[🗺]'>MISSING</annotation>
+
+		<!-- SNOW CAPPED MOUNTAIN; cold; mountain; nature; place; snow -->
+		<annotation cp='[🏔]'>MISSING</annotation>
+
+		<!-- MOUNTAIN; mountain; place -->
+		<annotation cp='[⛰]'>MISSING</annotation>
+
+		<!-- VOLCANO; eruption; mountain; nature; place; volcano; weather -->
+		<annotation cp='[🌋]' tts='eldfjall'>eldfjall; eldgos</annotation>
+
+		<!-- MOUNT FUJI; fuji; mountain; nature; place -->
+		<annotation cp='[🗻]' tts='fuji-fjall'>fuji-fjall; fjall</annotation>
+
+		<!-- CAMPING; camping; nature; place -->
+		<annotation cp='[🏕]'>MISSING</annotation>
+
+		<!-- BEACH WITH UMBRELLA; beach; nature; place; umbrella -->
+		<annotation cp='[🏖]'>MISSING</annotation>
+
+		<!-- DESERT; desert; nature; place -->
+		<annotation cp='[🏜]'>MISSING</annotation>
+
+		<!-- DESERT ISLAND; desert; island; nature; place -->
+		<annotation cp='[🏝]'>MISSING</annotation>
+
+		<!-- NATIONAL PARK; national park; nature; park; place -->
+		<annotation cp='[🏞]'>MISSING</annotation>
+
+		<!-- STADIUM; place; stadium -->
+		<annotation cp='[🏟]'>MISSING</annotation>
+
+		<!-- CLASSICAL BUILDING; building; classical; place -->
+		<annotation cp='[🏛]'>MISSING</annotation>
+
+		<!-- BUILDING CONSTRUCTION; building; construction; place -->
+		<annotation cp='[🏗]'>MISSING</annotation>
+
+		<!-- HOUSE BUILDINGS; building; house; place -->
+		<annotation cp='[🏘]'>MISSING</annotation>
+
+		<!-- CITYSCAPE; building; city; place -->
+		<annotation cp='[🏙]'>MISSING</annotation>
+
+		<!-- DERELICT HOUSE BUILDING; building; derelict; house; place -->
+		<annotation cp='[🏚]'>MISSING</annotation>
+
+		<!-- HOUSE BUILDING; building; home; house; place -->
+		<annotation cp='[🏠]' tts='hús'>hús; bygging</annotation>
+
+		<!-- HOUSE WITH GARDEN; building; garden; home; house; place -->
+		<annotation cp='[🏡]' tts='hús með garði'>hús; heimili; garður</annotation>
+
+		<!-- CHURCH; building; christian; church; cross; place; religion -->
+		<annotation cp='[⛪]' tts='kirkja'>kirkja</annotation>
+
+		<!-- OFFICE BUILDING; building; office; place -->
+		<annotation cp='[🏢]' tts='skrifstofuhúsnæði'>skrifstofuhúsnæði; skrifstofur; bygging; hús</annotation>
+
+		<!-- JAPANESE POST OFFICE; building; japanese; office; place; post -->
+		<annotation cp='[🏣]' tts='japanskt pósthús'>pósthús; japan</annotation>
+
+		<!-- EUROPEAN POST OFFICE; building; european; office; place; post -->
+		<annotation cp='[🏤]' tts='evrópskt pósthús'>pósthús; evrópskt; póstur</annotation>
+
+		<!-- HOSPITAL; building; doctor; hospital; medicine; place -->
+		<annotation cp='[🏥]' tts='sjúkrahús'>sjúkrahús; bygging</annotation>
+
+		<!-- BANK; bank; building; place -->
+		<annotation cp='[🏦]' tts='banki'>banki; bygging</annotation>
+
+		<!-- HOTEL; building; hotel; place -->
+		<annotation cp='[🏨]' tts='hótel'>hótel; bygging</annotation>
+
+		<!-- LOVE HOTEL; building; hotel; love; place -->
+		<annotation cp='[🏩]' tts='ástarhótel'>ástarhótel; hótel; bygging</annotation>
+
+		<!-- CONVENIENCE STORE; building; convenience; place; store -->
+		<annotation cp='[🏪]' tts='matvörubúð'>matvörubúð; búð; verslun; bygging</annotation>
+
+		<!-- SCHOOL; building; education; place; school -->
+		<annotation cp='[🏫]' tts='skóli'>skóli; skólahús; bygging</annotation>
+
+		<!-- DEPARTMENT STORE; building; department; place; store -->
+		<annotation cp='[🏬]' tts='stórmarkaður'>stórmarkaður; verslun</annotation>
+
+		<!-- FACTORY; building; factory; place -->
+		<annotation cp='[🏭]' tts='verksmiðja'>verksmiðja; bygging</annotation>
+
+		<!-- JAPANESE CASTLE; building; castle; japanese; place -->
+		<annotation cp='[🏯]' tts='japanskur kastali'>kastali; bygging</annotation>
+
+		<!-- EUROPEAN CASTLE; building; castle; european; place -->
+		<annotation cp='[🏰]' tts='evrópskur kastali'>kastali; bygging</annotation>
+
+		<!-- WEDDING; activity; chapel; place; romance; wedding -->
+		<annotation cp='[💒]' tts='brúðkaup'>brúðkaup; kirkja; kirkjubrúðkaup; rómantík</annotation>
+
+		<!-- TOKYO TOWER; place; tokyo; tower -->
+		<annotation cp='[🗼]' tts='tokyo-turninn'>tokyo-turninn; tokyo; turn</annotation>
+
+		<!-- STATUE OF LIBERTY; liberty; place; statue -->
+		<annotation cp='[🗽]' tts='frelsisstyttan'>frelsisstyttan; stytta</annotation>
+
+		<!-- SILHOUETTE OF JAPAN; japan; map; place -->
+		<annotation cp='[🗾]' tts='kort af japan'>kort; japan</annotation>
+
+		<!-- FOUNTAIN; fountain; object; place -->
+		<annotation cp='[⛲]' tts='gosbrunnur'>gosbrunnur; brunnur</annotation>
+
+		<!-- TENT; camping; place; tent -->
+		<annotation cp='[⛺]' tts='tjald'>tjald; útilega; tjaldstæði</annotation>
+
+		<!-- FOGGY; fog; nature; place; weather -->
+		<annotation cp='[🌁]' tts='þoka'>þoka</annotation>
+
+		<!-- NIGHT WITH STARS; night; place; star; weather -->
+		<annotation cp='[🌃]' tts='stjörnuhiminn'>stjörnuhiminn; stjörnur; nótt; næturhiminn</annotation>
+
+		<!-- SUNRISE OVER MOUNTAINS; morning; mountain; place; sun; sunrise; time; weather -->
+		<annotation cp='[🌄]' tts='sólarupprás'>sólarupprás; morgunsól; sólarupprás yfir fjöllum; sól kemur upp; fjall</annotation>
+
+		<!-- SUNRISE; morning; place; sun; sunrise; time; weather -->
+		<annotation cp='[🌅]' tts='sólarupprás'>sólarupprás; morgunsól</annotation>
+
+		<!-- CITYSCAPE AT DUSK; building; city; dusk; evening; landscape; place; sun; sunset; time; weather -->
+		<annotation cp='[🌆]' tts='borg um kvöld'>rökkur; kvöld; sólarlag; borg; hús</annotation>
+
+		<!-- SUNSET OVER BUILDINGS; building; dusk; place; sun; sunset; time; weather -->
+		<annotation cp='[🌇]' tts='sólarlag'>sólarlag; rökkur; sólarlag yfir húsum; hús</annotation>
+
+		<!-- BRIDGE AT NIGHT; bridge; night; place; weather -->
+		<annotation cp='[🌉]' tts='brú um nótt'>brú; nótt</annotation>
+
+		<!-- WATER WAVE; ocean; place; water; wave; weather -->
+		<annotation cp='[🌊]' tts='alda'>alda; bylgja</annotation>
+
+		<!-- HOT SPRINGS; hot; hotsprings; springs; steaming; travel -->
+		<annotation cp='[♨]'>MISSING</annotation>
+
+		<!-- MOYAI; face; moyai; statue; travel -->
+		<annotation cp='[🗿]' tts='moyai-stytta'>moyai-stytta; stytta; moyai</annotation>
+
+		<!-- MILKY WAY; milky way; place; space; weather -->
+		<annotation cp='[🌌]' tts='Vetrarbrautin'>Vetrarbrautin</annotation>
+
+		<!-- CAROUSEL HORSE; activity; carousel; entertainment; horse; place -->
+		<annotation cp='[🎠]' tts='hringekjuhestur'>hringekjuhestur; hringekja; hestur; skemmtun</annotation>
+
+		<!-- FERRIS WHEEL; activity; amusement park; entertainment; ferris; place; wheel -->
+		<annotation cp='[🎡]' tts='parísarhjól'>parísarhjól; skemmtigarður; skemmtun</annotation>
+
+		<!-- ROLLER COASTER; activity; amusement park; coaster; entertainment; place; roller -->
+		<annotation cp='[🎢]' tts='rússíbani'>rússíbani; skemmtigarður; skemmtun</annotation>
+
+		<!-- BARBER POLE; barber; haircut; place; pole -->
+		<annotation cp='[💈]' tts='rakarastofa'>rakarastofa; rakari</annotation>
+
+		<!-- CIRCUS TENT; activity; circus; entertainment; place; tent -->
+		<annotation cp='[🎪]' tts='sirkus'>sirkus; sirkustjald; tjald; skemmtun</annotation>
+
+		<!-- TICKET; activity; admission; entertainment; object; place; ticket -->
+		<annotation cp='[🎫]' tts='miði'>miði; aðgöngumiði; skemmtun</annotation>
+
+		<!-- PERFORMING ARTS; activity; art; entertainment; face; mask; object; performing; place; theater; theatre -->
+		<annotation cp='[🎭]' tts='leikhúsgrímur'>leikhúsgrímur; leiklist; list; skemmtun; sviðslistir</annotation>
+
+		<!-- SLOT MACHINE; activity; game; object; place; slot -->
+		<annotation cp='[🎰]' tts='spilakassi'>spilakassi; leikur</annotation>
+
+		<!-- STEAM LOCOMOTIVE; engine; locomotive; railway; steam; train; travel; vehicle -->
+		<annotation cp='[🚂]' tts='eimreið'>eimreið; lest; gufulest</annotation>
+
+		<!-- RAILWAY CAR; car; electric; railway; train; tram; travel; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='lest'>lest; lestarvagn; rafmagnslest</annotation>
+
+		<!-- HIGH-SPEED TRAIN; railway; shinkansen; speed; train; travel; vehicle -->
+		<annotation cp='[🚄]' tts='hraðlest'>hraðlest; lest</annotation>
+
+		<!-- HIGH-SPEED TRAIN WITH BULLET NOSE; bullet; railway; shinkansen; speed; train; travel; vehicle -->
+		<annotation cp='[🚅]' tts='háhraðalest'>háhraðalest; hraðlest; lest</annotation>
+
+		<!-- TRAIN; railway; train; travel; vehicle -->
+		<annotation cp='[🚆]' tts='lest'>lest; járnbraut</annotation>
+
+		<!-- METRO; metro; subway; travel; vehicle -->
+		<annotation cp='[🚇]' tts='neðanjarðarlest'>neðanjarðarlest</annotation>
+
+		<!-- LIGHT RAIL; railway; travel; vehicle -->
+		<annotation cp='[🚈]' tts='léttlest'>léttlest; lest; létt</annotation>
+
+		<!-- STATION; railway; station; train; travel; vehicle -->
+		<annotation cp='[🚉]' tts='lestarstöð'>lestarstöð; lest; stöð</annotation>
+
+		<!-- TRAM; tram; travel; trolleybus; vehicle -->
+		<annotation cp='[🚊]' tts='sporvagn'>sporvagn</annotation>
+
+		<!-- MONORAIL; monorail; travel; vehicle -->
+		<annotation cp='[🚝]' tts='einteinungur'>einteinungur; lest</annotation>
+
+		<!-- MOUNTAIN RAILWAY; car; mountain; railway; travel; vehicle -->
+		<annotation cp='[🚞]' tts='fjallalest'>fjallalest; fjallakláfur; kláfur; fjall; lest</annotation>
+
+		<!-- TRAM CAR; car; tram; travel; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='sporvagn'>sporvagn</annotation>
+
+		<!-- BUS; bus; travel; vehicle -->
+		<annotation cp='[🚌]' tts='strætó'>strætó; rúta; strætisvagn</annotation>
+
+		<!-- ONCOMING BUS; bus; oncoming; travel; vehicle -->
+		<annotation cp='[🚍]' tts='strætó á móti'>strætó nálgast; strætó</annotation>
+
+		<!-- TROLLEYBUS; bus; tram; travel; trolley; trolleybus; vehicle -->
+		<annotation cp='[🚎]' tts='trissustrætó'>trissustrætó; rafknúinn strætisvagn; rafmagnsstrætó; strætó</annotation>
+
+		<!-- BUS STOP; bus; busstop; stop; travel -->
+		<annotation cp='[🚏]' tts='rúta'>rúta; strætó; strætisvagn; langferðabíll</annotation>
+
+		<!-- MINIBUS; bus; minibus; travel; vehicle -->
+		<annotation cp='[🚐]' tts='smárúta'>smárúta; rúta</annotation>
+
+		<!-- AMBULANCE; ambulance; travel; vehicle -->
+		<annotation cp='[🚑]' tts='sjúkrabíll'>sjúkrabíll; sjúkrabifreið</annotation>
+
+		<!-- FIRE ENGINE; engine; fire; travel; truck; vehicle -->
+		<annotation cp='[🚒]' tts='slökkviliðsbíll'>slökkviliðsbíll; slökkvibíll; brunabíll; slökkvilið</annotation>
+
+		<!-- POLICE CAR; car; patrol; police; travel; vehicle -->
+		<annotation cp='[🚓]' tts='lögreglubíll'>lögreglubíll; lögreglubifreið; lögregla</annotation>
+
+		<!-- ONCOMING POLICE CAR; car; oncoming; police; travel; vehicle -->
+		<annotation cp='[🚔]' tts='lögreglubíll á móti'>lögreglubíll; lögreglubifreið; lögregla</annotation>
+
+		<!-- TAXI; taxi; travel; vehicle -->
+		<annotation cp='[🚕]' tts='leigubíll'>leigubíll; leigubifreið</annotation>
+
+		<!-- ONCOMING TAXI; oncoming; taxi; travel; vehicle -->
+		<annotation cp='[🚖]' tts='leigubíll á móti'>leigubíll</annotation>
+
+		<!-- AUTOMOBILE; automobile; car; travel; vehicle -->
+		<annotation cp='[🚗]' tts='bíll'>bíll; bifreið</annotation>
+
+		<!-- ONCOMING AUTOMOBILE; automobile; car; oncoming; travel; vehicle -->
+		<annotation cp='[🚘]' tts='bíll á móti'>bíll nálgast; bíll</annotation>
+
+		<!-- RECREATIONAL VEHICLE; recreational; rv; travel; vehicle -->
+		<annotation cp='[🚙]' tts='jeppi'>jeppi</annotation>
+
+		<!-- DELIVERY TRUCK; delivery; travel; truck; vehicle -->
+		<annotation cp='[🚚]' tts='flutningabíll'>flutningabíll; flutningabifreið; sendibíll</annotation>
+
+		<!-- ARTICULATED LORRY; lorry; semi; travel; truck; vehicle -->
+		<annotation cp='[🚛]' tts='vörubíll'>vörubíll; vörubifreið; trukkur; flutningabíll</annotation>
+
+		<!-- TRACTOR; tractor; travel; vehicle -->
+		<annotation cp='[🚜]' tts='dráttarvél'>dráttarvél; traktor</annotation>
+
+		<!-- BICYCLE; bicycle; bike; sport; travel; vehicle -->
+		<annotation cp='[🚲]' tts='hjólreiðar'>hjólreiðar; hjól; reiðhjól</annotation>
+
+		<!-- NO BICYCLES; bicycle; bike; forbidden; no; not; prohibited; sign; sport; travel; vehicle -->
+		<annotation cp='[🚳]' tts='hjólreiðar bannaðar'>hjól bönnuð; hjól</annotation>
+
+		<!-- BICYCLIST; bicycle; bicyclist; bike; cyclist; human; person; sport; travel -->
+		<annotation cp='[🚴]' tts='hjól'>hjól; hjólreiðar</annotation>
+
+		<!-- MOUNTAIN BICYCLIST; bicycle; bicyclist; bike; cyclist; human; mountain; person; sport; travel -->
+		<annotation cp='[🚵]' tts='fjallahjól'>fjallahjól; hjól; hjólreiðar</annotation>
+
+		<!-- RACING CAR; car; racing; sport; travel -->
+		<annotation cp='[🏎]'>MISSING</annotation>
+
+		<!-- RACING MOTORCYCLE; human; motorcycle; person; racing; sport; travel -->
+		<annotation cp='[🏍]'>MISSING</annotation>
+
+		<!-- FUEL PUMP; fuel; fuelpump; gas; pump; station; travel -->
+		<annotation cp='[⛽]' tts='bensíndæla'>bensíndæla; bensínstöð; bensín</annotation>
+
+		<!-- MOTORWAY; highway; motorway; road; travel -->
+		<annotation cp='[🛣]'>MISSING</annotation>
+
+		<!-- RAILWAY TRACK; railway; train; travel -->
+		<annotation cp='[🛤]'>MISSING</annotation>
+
+		<!-- POLICE CARS REVOLVING LIGHT; beacon; car; light; police; revolving; travel -->
+		<annotation cp='[🚨]' tts='sírena'>sírena; lögregluljós; lögregla</annotation>
+
+		<!-- HELM SYMBOL; helm; travel -->
+		<annotation cp='[⎈]'>MISSING</annotation>
+
+		<!-- ANCHOR; anchor; ship; tool; travel -->
+		<annotation cp='[⚓]' tts='akkeri'>akkeri; ankeri</annotation>
+
+		<!-- SAILBOAT; boat; resort; sailboat; sea; travel; yacht -->
+		<annotation cp='[⛵]' tts='seglskúta'>seglskúta; bátur; skúta; smábátahöfn</annotation>
+
+		<!-- ROWBOAT; boat; rowboat; travel; vehicle -->
+		<annotation cp='[🚣]' tts='árabátur'>árabátur; bátur</annotation>
+
+		<!-- SPEEDBOAT; boat; speedboat; travel; vehicle -->
+		<annotation cp='[🚤]' tts='hraðbátur'>hraðbátur; spíttbátur; bátur</annotation>
+
+		<!-- PASSENGER SHIP; passenger; ship; travel; vehicle -->
+		<annotation cp='[🛳]'>MISSING</annotation>
+
+		<!-- FERRY; boat; ferry; travel -->
+		<annotation cp='[⛴]'>MISSING</annotation>
+
+		<!-- MOTOR BOAT; boat; motorboat; travel; vehicle -->
+		<annotation cp='[🛥]'>MISSING</annotation>
+
+		<!-- SHIP; ship; travel; vehicle -->
+		<annotation cp='[🚢]' tts='skip'>skip; bátur</annotation>
+
+		<!-- AIRPLANE; airplane; travel -->
+		<annotation cp='[✈]'>MISSING</annotation>
+
+		<!-- SMALL AIRPLANE; airplane; travel; vehicle -->
+		<annotation cp='[🛩]'>MISSING</annotation>
+
+		<!-- AIRPLANE DEPARTURE; airplane; departure; departures; travel; vehicle -->
+		<annotation cp='[🛫]'>MISSING</annotation>
+
+		<!-- AIRPLANE ARRIVING; airplane; arrivals; arriving; landing; travel; vehicle -->
+		<annotation cp='[🛬]'>MISSING</annotation>
+
+		<!-- SEAT; chair; office; seat; travel -->
+		<annotation cp='[💺]' tts='sæti'>sæti; stóll</annotation>
+
+		<!-- HELICOPTER; helicopter; travel; vehicle -->
+		<annotation cp='[🚁]' tts='þyrla'>þyrla</annotation>
+
+		<!-- SUSPENSION RAILWAY; railway; suspension; travel; vehicle -->
+		<annotation cp='[🚟]' tts='loftlest'>loftlest; lest</annotation>
+
+		<!-- MOUNTAIN CABLEWAY; cable; gondola; mountain; travel; vehicle -->
+		<annotation cp='[🚠]' tts='kláfferja'>kláfferja; fjallakláfur; fjall; kláfur</annotation>
+
+		<!-- AERIAL TRAMWAY; aerial; cable; car; gondola; ropeway; tramway; travel; vehicle -->
+		<annotation cp='[🚡]' tts='kláfferja'>kláfferja; kláfur; loftferja</annotation>
+
+		<!-- ROCKET; fantasy; rocket; space; travel; vehicle -->
+		<annotation cp='[🚀]' tts='eldflaug'>eldflaug</annotation>
+
+		<!-- SATELLITE; place; satellite; space; vehicle -->
+		<annotation cp='[🛰]'>MISSING</annotation>
+
+		<!-- AUTOMATED TELLER MACHINE; atm; automated; bank; place; sign; teller -->
+		<annotation cp='[🏧]' tts='hraðbanki'>hraðbanki; banki</annotation>
+
+		<!-- PUT LITTER IN ITS PLACE SYMBOL; human; litter; litterbox; place; travel -->
+		<annotation cp='[🚮]' tts='ruslakarfa'>ruslakarfa; ruslafata; rusl</annotation>
+
+		<!-- HORIZONTAL TRAFFIC LIGHT; light; signal; traffic; travel -->
+		<annotation cp='[🚥]' tts='umferðarljós'>umferðarljós; lárétt umferðarljós; ljós; umferð</annotation>
+
+		<!-- VERTICAL TRAFFIC LIGHT; light; signal; traffic; travel -->
+		<annotation cp='[🚦]' tts='umferðarljós'>umferðarljós; lóðrétt umferðarljós; ljós; umferð</annotation>
+
+		<!-- CONSTRUCTION SIGN; barrier; construction; travel -->
+		<annotation cp='[🚧]' tts='vegavinna'>vegavinna; framkvæmdir</annotation>
+
+		<!-- NO ENTRY SIGN; entry; forbidden; no; not; prohibited; travel -->
+		<annotation cp='[🚫]' tts='bannað'>bannað; bannað að leggja</annotation>
+
+		<!-- NO SMOKING SYMBOL; forbidden; no; not; prohibited; sign; smoking; travel -->
+		<annotation cp='[🚭]' tts='reykingar bannaðar'>bannað að reykja</annotation>
+
+		<!-- DO NOT LITTER SYMBOL; forbidden; litter; no; not; prohibited; sign; travel -->
+		<annotation cp='[🚯]' tts='ekkert rusl'>ekki henda rusli; bannað að fleygja rusli</annotation>
+
+		<!-- POTABLE WATER SYMBOL; drink; potable; sign; travel; water -->
+		<annotation cp='[🚰]' tts='drykkjarvatn'>drykkjarvatn; vatn</annotation>
+
+		<!-- NON-POTABLE WATER SYMBOL; drink; forbidden; no; not; potable; prohibited; sign; travel; water -->
+		<annotation cp='[🚱]' tts='óhæft drykkjarvatn'>ódrekkandi; ekki drekka</annotation>
+
+		<!-- NO PEDESTRIANS; forbidden; human; no; not; pedestrian; prohibited; sign; travel -->
+		<annotation cp='[🚷]' tts='bannað að ganga'>vegfarendur bannaðir; vegfarendur</annotation>
+
+		<!-- CHILDREN CROSSING; child; crossing; human; pedestrian; sign; traffic; travel -->
+		<annotation cp='[🚸]' tts='börn á ferð'>börn</annotation>
+
+		<!-- WHEELCHAIR SYMBOL; access; human; sign; travel; wheelchair -->
+		<annotation cp='[♿]' tts='hjólastólaaðgengi'>hjólastólaaðgengi; hjólastóll; aðgengi; fatlaðir</annotation>
+
+		<!-- MENS SYMBOL; human; lavatory; men; men’s; restroom; sign; travel; wc -->
+		<annotation cp='[🚹]' tts='karlaklósett'>karlaklósett; karl</annotation>
+
+		<!-- WOMENS SYMBOL; human; lavatory; restroom; sign; travel; wc; woman; women’s -->
+		<annotation cp='[🚺]' tts='kvennaklósett'>kvennaklósett; kona</annotation>
+
+		<!-- RESTROOM; human; lavatory; restroom; sign; travel; wc -->
+		<annotation cp='[🚻]' tts='salerni'>salerni; klósett; snyrting; WC</annotation>
+
+		<!-- BABY SYMBOL; baby; changing; human; sign; travel -->
+		<annotation cp='[🚼]' tts='barn'>barn; barn um borð; bleyjuskipti; skiptiborð</annotation>
+
+		<!-- WATER CLOSET; closet; lavatory; restroom; sign; travel; water; wc -->
+		<annotation cp='[🚾]' tts='salerni'>salerni; klósett; snyrting; WC</annotation>
+
+		<!-- PASSPORT CONTROL; control; passport; sign; travel -->
+		<annotation cp='[🛂]' tts='vegabréfaeftirlit'>vegabréfaeftirlit; vegabréf</annotation>
+
+		<!-- CUSTOMS; customs; sign; travel -->
+		<annotation cp='[🛃]' tts='tollur'>tollur; tollhlið</annotation>
+
+		<!-- BAGGAGE CLAIM; baggage; claim; sign; travel -->
+		<annotation cp='[🛄]' tts='farangur'>farangur; farangursfæriband</annotation>
+
+		<!-- LEFT LUGGAGE; baggage; left luggage; locker; luggage; sign; travel -->
+		<annotation cp='[🛅]' tts='farangur'>farangur; tapað og fundið</annotation>
+
+		<!-- WARNING SIGN; travel; warning -->
+		<annotation cp='[⚠]' tts='varúð'>varúð; viðvörun; varúðarmerki</annotation>
+
+		<!-- NO ENTRY; entry; forbidden; no; not; prohibited; traffic; travel -->
+		<annotation cp='[⛔]' tts='einstefna'>einstefna; enginn aðgangur; bannað</annotation>
+
+		<!-- BELLHOP BELL; bell; bellhop; hotel; object -->
+		<annotation cp='[🛎]'>MISSING</annotation>
+
+		<!-- DOOR; door; object; travel -->
+		<annotation cp='[🚪]' tts='dyr'>dyr; hurð</annotation>
+
+		<!-- SLEEPING ACCOMMODATION; hotel; object; sleep -->
+		<annotation cp='[🛌]'>MISSING</annotation>
+
+		<!-- BED; bed; hotel; object; sleep -->
+		<annotation cp='[🛏]'>MISSING</annotation>
+
+		<!-- COUCH AND LAMP; couch; hotel; lamp; object -->
+		<annotation cp='[🛋]'>MISSING</annotation>
+
+		<!-- TOILET; object; toilet; travel -->
+		<annotation cp='[🚽]' tts='klósett'>klósett</annotation>
+
+		<!-- SHOWER; object; shower; travel; water -->
+		<annotation cp='[🚿]' tts='sturta'>sturta</annotation>
+
+		<!-- BATH; bath; bathtub; object; travel -->
+		<annotation cp='[🛀]' tts='bað'>bað</annotation>
+
+		<!-- BATHTUB; bath; bathtub; object; travel -->
+		<annotation cp='[🛁]' tts='baðker'>baðker; baðkar; bað</annotation>
+
+		<!-- SHOPPING BAGS; bag; hotel; object; shopping -->
+		<annotation cp='[🛍]'>MISSING</annotation>
+
+		<!-- HOURGLASS; hourglass; sand; time; timer -->
+		<annotation cp='[⌛]' tts='stundaglas'>stundaglas; sandur</annotation>
+
+		<!-- HOURGLASS WITH FLOWING SAND; hourglass; sand; time; timer -->
+		<annotation cp='[⏳]' tts='stundaglas'>stundaglas; tími</annotation>
+
+		<!-- WATCH; clock; time; watch -->
+		<annotation cp='[⌚]' tts='úr'>úr; klukka</annotation>
+
+		<!-- ALARM CLOCK; alarm; clock; time -->
+		<annotation cp='[⏰]' tts='vekjaraklukka'>vekjaraklukka; vekjari; klukka</annotation>
+
+		<!-- STOPWATCH; clock; stopwatch; time -->
+		<annotation cp='[⏱]'>MISSING</annotation>
+
+		<!-- TIMER CLOCK; clock; time; timer -->
+		<annotation cp='[⏲]'>MISSING</annotation>
+
+		<!-- MANTELPIECE CLOCK; clock; object -->
+		<annotation cp='[🕰]'>MISSING</annotation>
+
+		<!-- CLOCK FACE TWELVE OCLOCK; 00; 12; 12:00; clock; face; o’clock; time; twelve -->
+		<annotation cp='[🕛]' tts='klukkan tólf'>klukka; tólf; 12:00</annotation>
+
+		<!-- CLOCK FACE TWELVE-THIRTY; 12; 30; 12:30; clock; face; thirty; time; twelve -->
+		<annotation cp='[🕧]' tts='hálfeitt'>hálfeitt; tólf þrjátíu; klukka; 12:30</annotation>
+
+		<!-- CLOCK FACE ONE OCLOCK; 00; 1; 1:00; clock; face; o’clock; one; time -->
+		<annotation cp='[🕐]' tts='klukkan eitt'>klukka; eitt; 1:00</annotation>
+
+		<!-- CLOCK FACE ONE-THIRTY; 1; 30; 1:30; clock; face; one; thirty; time -->
+		<annotation cp='[🕜]' tts='hálftvö'>hálftvö; eitt þrjátíu; klukka; 1:30</annotation>
+
+		<!-- CLOCK FACE TWO OCLOCK; 00; 2; 2:00; clock; face; o’clock; time; two -->
+		<annotation cp='[🕑]' tts='klukkan tvö'>klukka; tvö; 2:00</annotation>
+
+		<!-- CLOCK FACE TWO-THIRTY; 2; 30; 2:30; clock; face; thirty; time; two -->
+		<annotation cp='[🕝]' tts='hálfþrjú'>hálfþrjú; tvö þrjátíu; klukka; 2:30</annotation>
+
+		<!-- CLOCK FACE THREE OCLOCK; 00; 3; 3:00; clock; face; o’clock; three; time -->
+		<annotation cp='[🕒]' tts='klukkan þrjú'>klukka; þrjú; 3:00</annotation>
+
+		<!-- CLOCK FACE THREE-THIRTY; 3; 30; 3:30; clock; face; thirty; three; time -->
+		<annotation cp='[🕞]' tts='hálffjögur'>hálffjögur; þrjú þrjátíu; klukka; 3:30</annotation>
+
+		<!-- CLOCK FACE FOUR OCLOCK; 00; 4; 4:00; clock; face; four; o’clock; time -->
+		<annotation cp='[🕓]' tts='klukkan fjögur'>klukka; fjögur; 4:00</annotation>
+
+		<!-- CLOCK FACE FOUR-THIRTY; 4; 30; 4:30; clock; face; four; thirty; time -->
+		<annotation cp='[🕟]' tts='hálffimm'>hálffimm; fjögur þrjátíu; klukka; 4:30</annotation>
+
+		<!-- CLOCK FACE FIVE OCLOCK; 00; 5; 5:00; clock; face; five; o’clock; time -->
+		<annotation cp='[🕔]' tts='klukkan fimm'>klukka; fimm; 5:00</annotation>
+
+		<!-- CLOCK FACE FIVE-THIRTY; 5; 30; 5:30; clock; face; five; thirty; time -->
+		<annotation cp='[🕠]' tts='hálfsex'>hálfsex; fimm þrjátíu; klukka; 5:30</annotation>
+
+		<!-- CLOCK FACE SIX OCLOCK; 00; 6; 6:00; clock; face; o’clock; six; time -->
+		<annotation cp='[🕕]' tts='klukkan sex'>klukka; sex; 6:00</annotation>
+
+		<!-- CLOCK FACE SIX-THIRTY; 6; 30; 6:30; clock; face; six; thirty; time -->
+		<annotation cp='[🕡]' tts='hálfsjö'>hálfsjö; sex þrjátíu; klukka; 6:30</annotation>
+
+		<!-- CLOCK FACE SEVEN OCLOCK; 00; 7; 7:00; clock; face; o’clock; seven; time -->
+		<annotation cp='[🕖]' tts='klukkan sjö'>klukka; sjö; 7:00</annotation>
+
+		<!-- CLOCK FACE SEVEN-THIRTY; 7; 30; 7:30; clock; face; seven; thirty; time -->
+		<annotation cp='[🕢]' tts='hálfátta'>hálfátta; sjö þrjátíu; klukka; 7:30</annotation>
+
+		<!-- CLOCK FACE EIGHT OCLOCK; 00; 8; 8:00; clock; eight; face; o’clock; time -->
+		<annotation cp='[🕗]' tts='klukkan átta'>klukka; átta; 8:00</annotation>
+
+		<!-- CLOCK FACE EIGHT-THIRTY; 8; 30; 8:30; clock; eight; face; thirty; time -->
+		<annotation cp='[🕣]' tts='hálfníu'>hálfníu; átta þrjátíu; klukka; 8:30</annotation>
+
+		<!-- CLOCK FACE NINE OCLOCK; 00; 9; 9:00; clock; face; nine; o’clock; time -->
+		<annotation cp='[🕘]' tts='klukkan níu'>klukka; níu; 9:00</annotation>
+
+		<!-- CLOCK FACE NINE-THIRTY; 9; 30; 9:30; clock; face; nine; thirty; time -->
+		<annotation cp='[🕤]' tts='hálftíu'>hálftíu; níu þrjátíu; klukka; 9:30</annotation>
+
+		<!-- CLOCK FACE TEN OCLOCK; 00; 10; 10:00; clock; face; o’clock; ten; time -->
+		<annotation cp='[🕙]' tts='klukkan tíu'>klukka; tíu; 10:00</annotation>
+
+		<!-- CLOCK FACE TEN-THIRTY; 10; 30; 10:30; clock; face; ten; thirty; time -->
+		<annotation cp='[🕥]' tts='hálfellefu'>hálfellefu; tíu þrjátíu; klukka; 10:30</annotation>
+
+		<!-- CLOCK FACE ELEVEN OCLOCK; 00; 11; 11:00; clock; eleven; face; o’clock; time -->
+		<annotation cp='[🕚]' tts='klukkan ellefu'>klukka; ellefu; 11:00</annotation>
+
+		<!-- CLOCK FACE ELEVEN-THIRTY; 11; 30; 11:30; clock; eleven; face; thirty; time -->
+		<annotation cp='[🕦]' tts='hálftólf'>hálftólf; ellefu þrjátíu; klukka; 11:30</annotation>
+
+		<!-- ARIES; aries; ram; time; zodiac -->
+		<annotation cp='[♈]' tts='hrútur'>hrútur; stjörnumerki</annotation>
+
+		<!-- TAURUS; bull; ox; taurus; time; zodiac -->
+		<annotation cp='[♉]' tts='naut'>naut; stjörnumerki</annotation>
+
+		<!-- GEMINI; gemini; time; twins; zodiac -->
+		<annotation cp='[♊]' tts='tvíburar'>tvíburar; stjörnumerki</annotation>
+
+		<!-- CANCER; cancer; crab; time; zodiac -->
+		<annotation cp='[♋]' tts='krabbi'>krabbi; stjörnumerki</annotation>
+
+		<!-- LEO; leo; lion; time; zodiac -->
+		<annotation cp='[♌]' tts='ljón'>ljón; stjörnumerki</annotation>
+
+		<!-- VIRGO; maiden; time; virgin; virgo; zodiac -->
+		<annotation cp='[♍]' tts='meyja'>meyja; stjörnumerki</annotation>
+
+		<!-- LIBRA; balance; justice; libra; scales; time; zodiac -->
+		<annotation cp='[♎]' tts='vog'>vog; stjörnumerki</annotation>
+
+		<!-- SCORPIUS; scorpion; scorpius; time; zodiac -->
+		<annotation cp='[♏]' tts='sporðdreki'>sporðdreki; stjörnumerki</annotation>
+
+		<!-- SAGITTARIUS; archer; sagittarius; time; zodiac -->
+		<annotation cp='[♐]' tts='bogmaður'>bogmaður; stjörnumerki</annotation>
+
+		<!-- CAPRICORN; capricorn; goat; time; zodiac -->
+		<annotation cp='[♑]' tts='steingeit'>steingeit; stjörnumerki</annotation>
+
+		<!-- AQUARIUS; aquarius; bearer; time; water; zodiac -->
+		<annotation cp='[♒]' tts='vatnsberi'>vatnsberi; stjörnumerki</annotation>
+
+		<!-- PISCES; fish; pisces; time; zodiac -->
+		<annotation cp='[♓]' tts='fiskar'>fiskar; stjörnumerki</annotation>
+
+		<!-- OPHIUCHUS; bearer; ophiuchus; serpent; snake; word; zodiac -->
+		<annotation cp='[⛎]' tts='naðurvaldi'>naðurvaldi; stjörnumerki</annotation>
+
+		<!-- NEW MOON SYMBOL; dark; moon; place; space; time; weather -->
+		<annotation cp='[🌑]' tts='nýtt tungl'>nýr máni; dökkt tungl; dökkt; nýtt; tungl; máni</annotation>
+
+		<!-- WAXING CRESCENT MOON SYMBOL; crescent; moon; place; space; time; waxing; weather -->
+		<annotation cp='[🌒]' tts='vaxandi tungl'>mánasigð; vaxandi máni; máni; vaxandi; tungl</annotation>
+
+		<!-- FIRST QUARTER MOON SYMBOL; moon; place; quarter; space; time; weather -->
+		<annotation cp='[🌓]' tts='fyrsta kvartil tungls'>vaxandi hálfmáni; máni; tungl</annotation>
+
+		<!-- WAXING GIBBOUS MOON SYMBOL; gibbous; moon; place; space; time; waxing; weather -->
+		<annotation cp='[🌔]' tts='vaxandi tungl'>vaxandi; ávalt tungl; tungl; máni; hálfmáni</annotation>
+
+		<!-- FULL MOON SYMBOL; full; moon; place; space; time; weather -->
+		<annotation cp='[🌕]' tts='fullt tungl'>fullt; tungl; máni</annotation>
+
+		<!-- WANING GIBBOUS MOON SYMBOL; gibbous; moon; place; space; time; waning; weather -->
+		<annotation cp='[🌖]' tts='minnkandi tungl'>minnkandi; ávalt tungl; tungl; máni</annotation>
+
+		<!-- LAST QUARTER MOON SYMBOL; moon; place; quarter; space; time; weather -->
+		<annotation cp='[🌗]' tts='síðasta kvartil'>kvartil; tungl; máni; hálfmáni</annotation>
+
+		<!-- WANING CRESCENT MOON SYMBOL; crescent; moon; place; space; time; waning; weather -->
+		<annotation cp='[🌘]' tts='minnkandi tungl'>hálfmáni; minnkandi; tungl; máni</annotation>
+
+		<!-- CRESCENT MOON; crescent; moon; place; space; time; weather -->
+		<annotation cp='[🌙]' tts='hálfmáni'>hálfmáni; máni; tungl</annotation>
+
+		<!-- NEW MOON WITH FACE; face; moon; place; time; weather -->
+		<annotation cp='[🌚]' tts='nýtt tungl'>nýr máni; andlit; karlinn í tunglinu; nýtt tungl með andliti; tungl; máni</annotation>
+
+		<!-- FIRST QUARTER MOON WITH FACE; face; moon; place; quarter; weather -->
+		<annotation cp='[🌛]' tts='fyrsta kvartil tungls með andliti'>hálfmáni; andlit; karlinn í tunglinu; tungl með andliti; tungl; máni</annotation>
+
+		<!-- LAST QUARTER MOON WITH FACE; face; moon; place; quarter; weather -->
+		<annotation cp='[🌜]' tts='síðasta kvartil tungls með andliti'>hálfmáni; andlit; karlinn í tunglinu; tungl með andliti; tungl; máni</annotation>
+
+		<!-- THERMOMETER; thermometer; weather -->
+		<annotation cp='[🌡]'>MISSING</annotation>
+
+		<!-- BLACK SUN WITH RAYS; bright; rays; sun; sunny; weather -->
+		<annotation cp='[☀]'>MISSING</annotation>
+
+		<!-- FULL MOON WITH FACE; bright; face; full; moon; place; weather -->
+		<annotation cp='[🌝]' tts='fullt tungl með andliti'>andlit; karlinn í tunglinu; tungl með andliti; tungl; máni</annotation>
+
+		<!-- SUN WITH FACE; bright; face; place; sun; weather -->
+		<annotation cp='[🌞]' tts='sól með andliti'>sól; andlit</annotation>
+
+		<!-- CLOUD; cloud; weather -->
+		<annotation cp='[☁]' tts='ský'>ský; skýjað; svart ský</annotation>
+
+		<!-- SUN BEHIND CLOUD; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='sól bakvið ský'>sól og ský; sól; ský</annotation>
+
+		<!-- THUNDER CLOUD AND RAIN; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]'>MISSING</annotation>
+
+		<!-- WHITE SUN WITH SMALL CLOUD; cloud; sun; weather -->
+		<annotation cp='[🌤]'>MISSING</annotation>
+
+		<!-- WHITE SUN BEHIND CLOUD; cloud; sun; weather -->
+		<annotation cp='[🌥]'>MISSING</annotation>
+
+		<!-- WHITE SUN BEHIND CLOUD WITH RAIN; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]'>MISSING</annotation>
+
+		<!-- CLOUD WITH RAIN; cloud; rain; weather -->
+		<annotation cp='[🌧]'>MISSING</annotation>
+
+		<!-- CLOUD WITH SNOW; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]'>MISSING</annotation>
+
+		<!-- CLOUD WITH LIGHTNING; cloud; lightning; weather -->
+		<annotation cp='[🌩]'>MISSING</annotation>
+
+		<!-- CLOUD WITH TORNADO; cloud; tornado; weather -->
+		<annotation cp='[🌪]'>MISSING</annotation>
+
+		<!-- FOG; cloud; fog; nature; weather -->
+		<annotation cp='[🌫]'>MISSING</annotation>
+
+		<!-- WIND BLOWING FACE; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]'>MISSING</annotation>
+
+		<!-- CYCLONE; cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='fellibylur'>fellibylur; stormsveipur; hvirfilbylur; hvirfilvindur; snýst</annotation>
+
+		<!-- RAINBOW; rain; rainbow; weather -->
+		<annotation cp='[🌈]' tts='regnbogi'>regnbogi</annotation>
+
+		<!-- CLOSED UMBRELLA; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='regnhlíf'>regnhlíf; rigning; regn</annotation>
+
+		<!-- UMBRELLA; rain; umbrella; weather -->
+		<annotation cp='[☂]'>MISSING</annotation>
+
+		<!-- UMBRELLA WITH RAIN DROPS; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]'>MISSING</annotation>
+
+		<!-- UMBRELLA ON GROUND; rain; sun; travel; umbrella; weather -->
+		<annotation cp='[⛱]'>MISSING</annotation>
+
+		<!-- SNOWFLAKE; cold; snow; snowflake; weather -->
+		<annotation cp='[❄]'>MISSING</annotation>
+
+		<!-- SNOWMAN; cold; snow; snowman; weather -->
+		<annotation cp='[☃]'>MISSING</annotation>
+
+		<!-- SNOWMAN WITHOUT SNOW; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='snjókarl'>snjókarl; snjókall; snjór</annotation>
+
+		<!-- GLOWING STAR; glittery; glow; place; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='skínandi stjarna'>skínandi; stjarna</annotation>
+
+		<!-- SHOOTING STAR; activity; falling; nature; place; shooting; space; star -->
+		<annotation cp='[🌠]' tts='stjörnuhrap'>stjörnuhrap; óskastjarna; stjarna</annotation>
+
+		<!-- COMET; comet; object; space -->
+		<annotation cp='[☄]'>MISSING</annotation>
+
+		<!-- GAME DIE; dice; die; game -->
+		<annotation cp='[🎲]' tts='teningur'>teningur; spilateningur; leikur</annotation>
+
+		<!-- BLACK SPADE SUIT; card; game; spade; suit -->
+		<annotation cp='[♠]'>MISSING</annotation>
+
+		<!-- BLACK HEART SUIT; card; emotion; game; heart; hearts; suit -->
+		<annotation cp='[♥]'>MISSING</annotation>
+
+		<!-- BLACK DIAMOND SUIT; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]'>MISSING</annotation>
+
+		<!-- BLACK CLUB SUIT; card; club; clubs; game; suit -->
+		<annotation cp='[♣]'>MISSING</annotation>
+
+		<!-- PLAYING CARD BLACK JOKER; card; game; joker; playing -->
+		<annotation cp='[🃏]' tts='jókerspil'>jókerspil; jóker; spil</annotation>
+
+		<!-- MAHJONG TILE RED DRAGON; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='Mahjong-tafla'>Mahjong-tafla; rauður dreki; dreki; mahjong</annotation>
+
+		<!-- VIDEO GAME; controller; entertainment; game; video game -->
+		<annotation cp='[🎮]' tts='tölvuleikur'>tölvuleikur; stýripinni; leikjatölva; leikur</annotation>
+
+		<!-- JOYSTICK; entertainment; game; joystick; object; video game -->
+		<annotation cp='[🕹]'>MISSING</annotation>
+
+		<!-- SOCCER BALL; ball; soccer; sport -->
+		<annotation cp='[⚽]' tts='fótbolti'>fótbolti</annotation>
+
+		<!-- BASEBALL; ball; baseball; sport -->
+		<annotation cp='[⚾]' tts='hafnabolti'>hafnabolti</annotation>
+
+		<!-- BASKETBALL AND HOOP; ball; basketball; hoop; sport -->
+		<annotation cp='[🏀]' tts='körfubolti'>körfubolti; karfa; bolti; íþróttir</annotation>
+
+		<!-- AMERICAN FOOTBALL; american; ball; football; sport -->
+		<annotation cp='[🏈]' tts='bandarískur fótbolti'>ruðningur; bolti; íþrótt</annotation>
+
+		<!-- RUGBY FOOTBALL; ball; football; rugby; sport -->
+		<annotation cp='[🏉]' tts='fótbolti'>fótbolti; bolti; íþrótt</annotation>
+
+		<!-- TENNIS RACQUET AND BALL; ball; racquet; sport; tennis -->
+		<annotation cp='[🎾]' tts='tennis'>tennis; tennisbolti; tennisspaði og bolti; bolti; íþróttir</annotation>
+
+		<!-- BILLIARDS; 8; 8 ball; ball; billiard; eight; game; sport -->
+		<annotation cp='[🎱]' tts='billjard'>billjard; pool; biljarður; leikur</annotation>
+
+		<!-- BOWLING; ball; bowling; game; sport -->
+		<annotation cp='[🎳]' tts='keila'>keila; keilukúla; keilur; leikur</annotation>
+
+		<!-- FLAG IN HOLE; flag; golf; hole; sport; travel -->
+		<annotation cp='[⛳]' tts='golf'>golf; hola; golfhola; flagg í holu</annotation>
+
+		<!-- GOLFER; ball; golf; human; person; sport -->
+		<annotation cp='[🏌]'>MISSING</annotation>
+
+		<!-- ICE SKATE; ice; skate; sport; travel -->
+		<annotation cp='[⛸]'>MISSING</annotation>
+
+		<!-- FISHING POLE AND FISH; entertainment; fish; pole; sport -->
+		<annotation cp='[🎣]' tts='stangveiði'>stangveiði; veiðistöng og fiskur; fiskur; veiðistöng; afþreying; skemmtun</annotation>
+
+		<!-- RUNNING SHIRT WITH SASH; running; sash; shirt; sport -->
+		<annotation cp='[🎽]' tts='hlaupabolur'>hlaupabolur; hlaupabolur með rönd; hlaupa; skokka; bolur; rönd; íþróttir</annotation>
+
+		<!-- SKI AND SKI BOOT; ski; snow; sport -->
+		<annotation cp='[🎿]' tts='skíði'>skíði; skíði og skíðaskór; skíðaskór; íþróttir</annotation>
+
+		<!-- SKIER; human; person; ski; snow; sport; travel -->
+		<annotation cp='[⛷]'>MISSING</annotation>
+
+		<!-- SNOWBOARDER; human; person; ski; snow; snowboard; sport -->
+		<annotation cp='[🏂]' tts='snjóbrettamaður'>snjóbrettamaður; snjóbretti; íþróttir</annotation>
+
+		<!-- SURFER; human; person; sport; surfer; surfing -->
+		<annotation cp='[🏄]' tts='brimbrettamaður'>brimbrettamaður; brimbretti; íþróttir</annotation>
+
+		<!-- HORSE RACING; horse; human; jockey; person; racehorse; racing; sport; travel -->
+		<annotation cp='[🏇]' tts='veðreiðar'>veðreiðar; veðreiðahestur; knapi; hestur; íþrótt</annotation>
+
+		<!-- SWIMMER; human; person; sport; swim; swimmer; travel -->
+		<annotation cp='[🏊]' tts='sund'>sund; sundmaður; synda; íþrótt</annotation>
+
+		<!-- PERSON WITH BALL; ball; human; person; sport; travel -->
+		<annotation cp='[⛹]'>MISSING</annotation>
+
+		<!-- WEIGHT LIFTER; human; lifter; person; sport; weight -->
+		<annotation cp='[🏋]'>MISSING</annotation>
+
+		<!-- SPORTS MEDAL; medal; sport -->
+		<annotation cp='[🏅]'>MISSING</annotation>
+
+		<!-- TROPHY; prize; sport; trophy -->
+		<annotation cp='[🏆]' tts='verðlaunabikar'>verðlaunabikar; bikar; verðlaun</annotation>
+
+		<!-- SPEAKER WITH CANCELLATION STROKE; mute; quiet; silent; sound; speaker; volume -->
+		<annotation cp='[🔇]' tts='ekki tala'>þögn; yfirstrikaður hátalari</annotation>
+
+		<!-- SPEAKER; sound; speaker; volume -->
+		<annotation cp='[🔈]' tts='hátalari'>hátalari</annotation>
+
+		<!-- SPEAKER WITH ONE SOUND WAVE; low; sound; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='hátalari'>hátalari; lítill hljóðstyrkur; lágt; hátalari með lítinn hljóðstyrk</annotation>
+
+		<!-- SPEAKER WITH THREE SOUND WAVES; 3; high; loud; sound; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='hátalari'>hátalari; mikill hljóðstyrkur; hátt; hátalari með mikinn hljóðstyrk</annotation>
+
+		<!-- PUBLIC ADDRESS LOUDSPEAKER; communication; loud; loudspeaker; public address; sound -->
+		<annotation cp='[📢]' tts='Almannavarnahátalari'>Almannavarnahátalari; gjallarhorn; almannavarnir; samskipti</annotation>
+
+		<!-- CHEERING MEGAPHONE; cheering; communication; megaphone; sound -->
+		<annotation cp='[📣]' tts='gjallarhorn'>gjallarhorn; fögnuður; samskipti</annotation>
+
+		<!-- POSTAL HORN; communication; horn; object; post; postal; sound -->
+		<annotation cp='[📯]' tts='póstlúður'>póstlúður; póstur; lúður</annotation>
+
+		<!-- BELL; bell; sound -->
+		<annotation cp='[🔔]' tts='bjalla'>bjalla; hringing</annotation>
+
+		<!-- BELL WITH CANCELLATION STROKE; bell; forbidden; mute; no; not; prohibited; quiet; silent; sound -->
+		<annotation cp='[🔕]' tts='engin bjalla'>ekkert hljóð; yfirstrikuð bjalla; bjalla</annotation>
+
+		<!-- TWISTED RIGHTWARDS ARROWS; arrow; crossed -->
+		<annotation cp='[🔀]' tts='fléttaðar örvar til hægri'>fléttaðar örvar; örvar í kross; örvar</annotation>
+
+		<!-- CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='réttsælis örvar'>réttsælis; örvar</annotation>
+
+		<!-- CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS WITH CIRCLED ONE OVERLAY; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='réttsælis örvar'>réttsælis örvar með tölunni 1; réttsælis; örvar; númer 1</annotation>
+
+		<!-- BLACK RIGHT-POINTING TRIANGLE; arrow; play; right; sound; triangle -->
+		<annotation cp='[▶]'>MISSING</annotation>
+
+		<!-- BLACK RIGHT-POINTING DOUBLE TRIANGLE; arrow; double; fast; forward; sound -->
+		<annotation cp='[⏩]' tts='spóla áfram'>tvöföld ör til hægri; hægri; ör</annotation>
+
+		<!-- BLACK RIGHT-POINTING DOUBLE TRIANGLE WITH VERTICAL BAR; arrow; next scene; next track; sound; triangle -->
+		<annotation cp='[⏭]'>MISSING</annotation>
+
+		<!-- BLACK RIGHT-POINTING TRIANGLE WITH DOUBLE VERTICAL BAR; arrow; pause; play; right; sound; triangle -->
+		<annotation cp='[⏯]'>MISSING</annotation>
+
+		<!-- BLACK LEFT-POINTING TRIANGLE; arrow; left; reverse; sound; triangle -->
+		<annotation cp='[◀]'>MISSING</annotation>
+
+		<!-- BLACK LEFT-POINTING DOUBLE TRIANGLE; arrow; double; rewind; sound -->
+		<annotation cp='[⏪]' tts='spóla til baka'>tvöföld ör til vinstri; vinstri; ör</annotation>
+
+		<!-- BLACK LEFT-POINTING DOUBLE TRIANGLE WITH VERTICAL BAR; arrow; previous scene; previous track; sound; triangle -->
+		<annotation cp='[⏮]'>MISSING</annotation>
+
+		<!-- UP-POINTING SMALL RED TRIANGLE; arrow; button; red -->
+		<annotation cp='[🔼]' tts='uppvísandi þríhyrningur'>þríhyrningur upp; þríhyrningur; hnappur</annotation>
+
+		<!-- BLACK UP-POINTING DOUBLE TRIANGLE; arrow; double; sound -->
+		<annotation cp='[⏫]' tts='uppör'>uppör; tvöföld uppör; upp; ör</annotation>
+
+		<!-- DOWN-POINTING SMALL RED TRIANGLE; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='niðurvísandi þríhyrningur'>þríhyrningur niður; þríhyrningur; hnappur</annotation>
+
+		<!-- BLACK DOWN-POINTING DOUBLE TRIANGLE; arrow; double; down; sound -->
+		<annotation cp='[⏬]' tts='niðurör'>niðurör; tvöföld niðurör; niður; ör</annotation>
+
+		<!-- DOUBLE VERTICAL BAR; bar; double; pause; sound; vertical -->
+		<annotation cp='[⏸]'>MISSING</annotation>
+
+		<!-- BLACK SQUARE FOR STOP; sound; square; stop -->
+		<annotation cp='[⏹]'>MISSING</annotation>
+
+		<!-- BLACK CIRCLE FOR RECORD; circle; record; sound -->
+		<annotation cp='[⏺]'>MISSING</annotation>
+
+		<!-- EJECT SYMBOL; eject; sound -->
+		<annotation cp='[⏏]'>MISSING</annotation>
+
+		<!-- MUSICAL SCORE; activity; music; score; sound -->
+		<annotation cp='[🎼]' tts='nótur'>nótur; G-lykill; tónlist</annotation>
+
+		<!-- MUSICAL NOTE; activity; music; note; sound -->
+		<annotation cp='[🎵]' tts='nóta'>nóta; tónlist</annotation>
+
+		<!-- MULTIPLE MUSICAL NOTES; activity; music; note; notes; sound -->
+		<annotation cp='[🎶]' tts='nótur'>nótur; tónlist; nóta</annotation>
+
+		<!-- STUDIO MICROPHONE; mic; microphone; music; object; sound; studio -->
+		<annotation cp='[🎙]'>MISSING</annotation>
+
+		<!-- LEVEL SLIDER; level; music; object; slider; sound -->
+		<annotation cp='[🎚]'>MISSING</annotation>
+
+		<!-- CONTROL KNOBS; control; knobs; music; object; sound -->
+		<annotation cp='[🎛]'>MISSING</annotation>
+
+		<!-- MICROPHONE; activity; entertainment; karaoke; mic; microphone; sound -->
+		<annotation cp='[🎤]' tts='hljóðnemi'>hljóðnemi; míkrófónn; karaoke; karókí; skemmtun</annotation>
+
+		<!-- HEADPHONE; activity; earbud; entertainment; headphone; sound -->
+		<annotation cp='[🎧]' tts='heyrnartól'>heyrnartól; skemmtun</annotation>
+
+		<!-- SAXOPHONE; activity; instrument; music; sax; saxophone; sound -->
+		<annotation cp='[🎷]' tts='saxófónn'>saxófónn; hljóðfæri; tónlist</annotation>
+
+		<!-- GUITAR; activity; guitar; instrument; music; sound -->
+		<annotation cp='[🎸]' tts='gítar'>gítar; hljóðfæri; tónlist</annotation>
+
+		<!-- MUSICAL KEYBOARD; activity; instrument; keyboard; music; piano; sound -->
+		<annotation cp='[🎹]' tts='píanó'>píanó; hljómborð; hljóðfæri; tónlist</annotation>
+
+		<!-- TRUMPET; activity; instrument; music; sound; trumpet -->
+		<annotation cp='[🎺]' tts='trompet'>trompet; hljóðfæri; tónlist</annotation>
+
+		<!-- VIOLIN; activity; instrument; music; sound; violin -->
+		<annotation cp='[🎻]' tts='fiðla'>fiðla; hljóðfæri; tónlist</annotation>
+
+		<!-- RADIO; object; radio; video -->
+		<annotation cp='[📻]' tts='útvarp'>útvarp</annotation>
+
+		<!-- MOBILE PHONE; cell; communication; mobile; object; phone -->
+		<annotation cp='[📱]' tts='farsími'>farsími; sími</annotation>
+
+		<!-- VIBRATION MODE; cell; communication; mobile; mode; object; phone; vibration -->
+		<annotation cp='[📳]' tts='titringur'>titringur; farsími; sími; stilling</annotation>
+
+		<!-- MOBILE PHONE OFF; cell; communication; mobile; object; off; phone -->
+		<annotation cp='[📴]' tts='slökkt á síma'>slökkt á farsíma; farsími; sími; slökkt</annotation>
+
+		<!-- MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT; arrow; call; cell; communication; mobile; object; phone; receive -->
+		<annotation cp='[📲]' tts='farsími með ör'>hringja; farsími; sími</annotation>
+
+		<!-- NO MOBILE PHONES; cell; communication; forbidden; mobile; no; not; object; phone; prohibited -->
+		<annotation cp='[📵]' tts='enginn farsími'>bannað að hringja; farsími; sími</annotation>
+
+		<!-- BLACK TELEPHONE; office; phone; sound; telephone -->
+		<annotation cp='[☎]'>MISSING</annotation>
+
+		<!-- TELEPHONE RECEIVER; communication; phone; receiver; sound; telephone -->
+		<annotation cp='[📞]' tts='sími'>sími; símtól; samskipti</annotation>
+
+		<!-- NUMBER SIGN+COMBINING ENCLOSING KEYCAP; hash; keycap; pound; word -->
+		<annotation cp='[{#⃣}]'>MISSING</annotation>
+
+		<!-- ASTERISK+COMBINING ENCLOSING KEYCAP; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT ZERO+COMBINING ENCLOSING KEYCAP; 0; keycap; word; zero -->
+		<annotation cp='[{0⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT ONE+COMBINING ENCLOSING KEYCAP; 1; keycap; one; word -->
+		<annotation cp='[{1⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT TWO+COMBINING ENCLOSING KEYCAP; 2; keycap; two; word -->
+		<annotation cp='[{2⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT THREE+COMBINING ENCLOSING KEYCAP; 3; keycap; three; word -->
+		<annotation cp='[{3⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT FOUR+COMBINING ENCLOSING KEYCAP; 4; four; keycap; word -->
+		<annotation cp='[{4⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT FIVE+COMBINING ENCLOSING KEYCAP; 5; five; keycap; word -->
+		<annotation cp='[{5⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT SIX+COMBINING ENCLOSING KEYCAP; 6; keycap; six; word -->
+		<annotation cp='[{6⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT SEVEN+COMBINING ENCLOSING KEYCAP; 7; keycap; seven; word -->
+		<annotation cp='[{7⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT EIGHT+COMBINING ENCLOSING KEYCAP; 8; eight; keycap; word -->
+		<annotation cp='[{8⃣}]'>MISSING</annotation>
+
+		<!-- DIGIT NINE+COMBINING ENCLOSING KEYCAP; 9; keycap; nine; word -->
+		<annotation cp='[{9⃣}]'>MISSING</annotation>
+
+		<!-- KEYCAP TEN; 10; keycap; ten; word -->
+		<annotation cp='[🔟]' tts='reitur'>reitur; tíu; 10</annotation>
+
+		<!-- ANTENNA WITH BARS; antenna; bar; communication; mobile; object; phone; signal -->
+		<annotation cp='[📶]' tts='farsímastyrkur'>farsímastyrkur; sendistyrkur; loftnet; strik; styrkur; farsími; sími</annotation>
+
+		<!-- PAGER; communication; office; pager -->
+		<annotation cp='[📟]' tts='símboði'>símboði; samskipti</annotation>
+
+		<!-- FAX MACHINE; communication; fax; office -->
+		<annotation cp='[📠]' tts='fax'>fax; bréfsími; samskipti</annotation>
+
+		<!-- MOVIE CAMERA; activity; camera; cinema; entertainment; movie; object -->
+		<annotation cp='[🎥]' tts='kvikmyndatökuvél'>kvikmyndatökuvél; kvikmynd; bíó; skemmtun</annotation>
+
+		<!-- CINEMA; activity; camera; cinema; entertainment; film; movie; object -->
+		<annotation cp='[🎦]' tts='bíó'>bíó; bíóhús; kvikmyndahús; kvikmynd; skemmtun</annotation>
+
+		<!-- CLAPPER BOARD; activity; clapper; entertainment; movie; object -->
+		<annotation cp='[🎬]' tts='klapptré'>klapptré; klappspjald; kvikmynd; skemmtun</annotation>
+
+		<!-- FILM PROJECTOR; cinema; entertainment; film; movie; object; projector; video -->
+		<annotation cp='[📽]'>MISSING</annotation>
+
+		<!-- TELEVISION; entertainment; object; television; tv; video -->
+		<annotation cp='[📺]' tts='sjónvar'>sjónvar</annotation>
+
+		<!-- CAMERA; camera; object; video -->
+		<annotation cp='[📷]' tts='myndavél'>myndavél</annotation>
+
+		<!-- CAMERA WITH FLASH; camera; flash; object; video -->
+		<annotation cp='[📸]'>MISSING</annotation>
+
+		<!-- VIDEO CAMERA; camera; object; video -->
+		<annotation cp='[📹]' tts='kvikmyndatökuvél'>kvikmyndatökuvél; myndavél; vídeó</annotation>
+
+		<!-- VIDEOCASSETTE; object; tape; vhs; video; videocassette -->
+		<annotation cp='[📼]' tts='myndbandsspóla'>myndbandsspóla; vídeóspóla</annotation>
+
+		<!-- LOW BRIGHTNESS SYMBOL; brightness; dim; low; sign -->
+		<annotation cp='[🔅]' tts='lítil birta'>dimmt; tákn um litla birtu; birta</annotation>
+
+		<!-- HIGH BRIGHTNESS SYMBOL; bright; brightness; sign -->
+		<annotation cp='[🔆]' tts='mikil birta'>bjart; tákn um mikla birtu; birta</annotation>
+
+		<!-- LEFT-POINTING MAGNIFYING GLASS; glass; magnifying; object; search; tool -->
+		<annotation cp='[🔍]' tts='stækkunargler'>stækkunargler</annotation>
+
+		<!-- RIGHT-POINTING MAGNIFYING GLASS; glass; magnifying; object; search; tool -->
+		<annotation cp='[🔎]' tts='stækkunargler'>stækkunargler; leita; stækkunargler til hægri; hægri</annotation>
+
+		<!-- MICROSCOPE; microscope; object; tool -->
+		<annotation cp='[🔬]' tts='smásjá'>smásjá</annotation>
+
+		<!-- TELESCOPE; object; telescope; tool -->
+		<annotation cp='[🔭]' tts='sjónauki'>sjónauki</annotation>
+
+		<!-- FIRE; fire; flame; object; tool -->
+		<annotation cp='[🔥]' tts='eldur'>eldur; logi</annotation>
+
+		<!-- CANDLE; candle; light; object -->
+		<annotation cp='[🕯]'>MISSING</annotation>
+
+		<!-- ELECTRIC LIGHT BULB; bulb; comic; electric; idea; light; object -->
+		<annotation cp='[💡]' tts='ljósapera'>ljósapera; hugmynd; rafmagn; ljós; pera; skrípó</annotation>
+
+		<!-- ELECTRIC TORCH; electric; flashlight; light; object; tool; torch -->
+		<annotation cp='[🔦]' tts='vasaljós'>vasaljós; ljós</annotation>
+
+		<!-- IZAKAYA LANTERN; bar; japanese; lantern; light; place; red; restaurant -->
+		<annotation cp='[🏮]' tts='rauður lampi'>rauður; lampi; izakaya; bar; veitingastaður</annotation>
+
+		<!-- JACK-O-LANTERN; activity; celebration; halloween; jack; lantern; object -->
+		<annotation cp='[🎃]' tts='grasker'>grasker; hrekkjavökugrasker; hrekkjavaka; hátíð</annotation>
+
+		<!-- CHRISTMAS TREE; activity; celebration; christmas; object; tree -->
+		<annotation cp='[🎄]' tts='jólatré'>jólatré; tré; hátíð</annotation>
+
+		<!-- FIREWORKS; activity; celebration; fireworks; object -->
+		<annotation cp='[🎆]' tts='flugeldar'>flugeldar; hátíð; áramót</annotation>
+
+		<!-- FIREWORK SPARKLER; activity; celebration; fireworks; object; sparkle -->
+		<annotation cp='[🎇]' tts='stjörnuljós'>stjörnuljós; blys; hátíð; áramót</annotation>
+
+		<!-- SPARKLES; sign; sparkle; star -->
+		<annotation cp='[✨]' tts='stjörnur'>stjörnur; glit; neistar</annotation>
+
+		<!-- BALLOON; activity; balloon; celebration; object -->
+		<annotation cp='[🎈]' tts='blaðra'>blaðra; veisla</annotation>
+
+		<!-- PARTY POPPER; activity; celebration; object; party; popper; tada -->
+		<annotation cp='[🎉]' tts='knall'>knall; veisla; hátíð</annotation>
+
+		<!-- CONFETTI BALL; activity; ball; celebration; confetti; object -->
+		<annotation cp='[🎊]' tts='veisluskraut'>veisluskraut; confetti; pappírssnifsi; veisla</annotation>
+
+		<!-- TANABATA TREE; activity; banner; celebration; japanese; object; tree -->
+		<annotation cp='[🎋]' tts='Tanabata-tré'>Tanabata-tré; tré og pappírsræmur; stjörnuhátíð; tré; pappírsskraut; hátíð</annotation>
+
+		<!-- CROSSED FLAGS; activity; celebration; cross; crossed; flag; japanese -->
+		<annotation cp='[🎌]' tts='japanskir fánar í kross'>fánar í kross; fánar; hátíð</annotation>
+
+		<!-- PINE DECORATION; activity; bamboo; celebration; japanese; object; pine; plant -->
+		<annotation cp='[🎍]' tts='blómaskreyting með furu'>áramót; japanskt; fura; hátíð</annotation>
+
+		<!-- JAPANESE DOLLS; activity; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='japanskar brúður'>brúðuhátíð; hátíð; japanskt; </annotation>
+
+		<!-- CARP STREAMER; activity; carp; celebration; flag; object; streamer -->
+		<annotation cp='[🎏]' tts='fiskveifur'>fiskveifur; veifur; hátíð</annotation>
+
+		<!-- WIND CHIME; activity; bell; celebration; chime; object; wind -->
+		<annotation cp='[🎐]' tts='órói'>órói; vindharpa</annotation>
+
+		<!-- MOON VIEWING CEREMONY; activity; celebration; ceremony; moon; object -->
+		<annotation cp='[🎑]' tts='tunglskoðun'>tunglskoðun; tunglskoðunarhátíð; tungl; hátíð</annotation>
+
+		<!-- GRADUATION CAP; activity; cap; celebration; education; graduation; hat; object -->
+		<annotation cp='[🎓]' tts='útskriftarhúfa'>útskriftarhúfa; stúdentshúfa; húfa; útskrift; hátíð</annotation>
+
+		<!-- ARTIST PALETTE; activity; art; entertainment; object; painting; palette -->
+		<annotation cp='[🎨]' tts='litapalletta'>litapalletta; palletta; listamaður; málning; list</annotation>
+
+		<!-- DIRECT HIT; activity; bull’s eye; dart; eye; game; hit; object; target -->
+		<annotation cp='[🎯]' tts='skotmark'>skotmark; beint í mark; skotfimi; leikur</annotation>
+
+		<!-- FLOWER PLAYING CARDS; activity; card; flower; game; japanese; object; playing -->
+		<annotation cp='[🎴]' tts='blómaspil'>blómaspil; spilastokkur; blóm; spil; leikur; Hanafuda</annotation>
+
+		<!-- RIBBON; celebration; object; ribbon -->
+		<annotation cp='[🎀]' tts='borði'>borði; slaufa; veisla</annotation>
+
+		<!-- WRAPPED PRESENT; box; celebration; gift; object; present; wrapped -->
+		<annotation cp='[🎁]' tts='gjöf'>gjöf; innpökkuð gjöf; veisla</annotation>
+
+		<!-- MILITARY MEDAL; celebration; medal; military; object -->
+		<annotation cp='[🎖]'>MISSING</annotation>
+
+		<!-- REMINDER RIBBON; celebration; object; reminder; ribbon -->
+		<annotation cp='[🎗]'>MISSING</annotation>
+
+		<!-- FILM FRAMES; cinema; entertainment; film; frames; movie; object -->
+		<annotation cp='[🎞]'>MISSING</annotation>
+
+		<!-- ADMISSION TICKETS; admission; entertainment; object; ticket -->
+		<annotation cp='[🎟]'>MISSING</annotation>
+
+		<!-- LABEL; label; object -->
+		<annotation cp='[🏷]'>MISSING</annotation>
+
+		<!-- NOTEBOOK WITH DECORATIVE COVER; book; cover; decorated; education; notebook; office -->
+		<annotation cp='[📔]' tts='glósubók með skrautkápu'>skreytt glósubók; glósubók; kápa</annotation>
+
+		<!-- CLOSED BOOK; book; closed; education; office -->
+		<annotation cp='[📕]' tts='lokuð bók'>bók</annotation>
+
+		<!-- OPEN BOOK; book; education; office; open -->
+		<annotation cp='[📖]' tts='opin bók'>bók</annotation>
+
+		<!-- GREEN BOOK; book; education; green; office -->
+		<annotation cp='[📗]' tts='græn bók'>bók</annotation>
+
+		<!-- BLUE BOOK; blue; book; education; office -->
+		<annotation cp='[📘]' tts='bók'>bók; blá bók</annotation>
+
+		<!-- ORANGE BOOK; book; education; office; orange -->
+		<annotation cp='[📙]' tts='appelsínugul bók'>bók</annotation>
+
+		<!-- BOOKS; book; books; education; office -->
+		<annotation cp='[📚]' tts='bækur'>bækur; bók</annotation>
+
+		<!-- NOTEBOOK; notebook; office -->
+		<annotation cp='[📓]' tts='glósubók'>glósubók</annotation>
+
+		<!-- LEDGER; ledger; notebook; office -->
+		<annotation cp='[📒]' tts='dagbók'>dagbók; færslubók</annotation>
+
+		<!-- PAGE WITH CURL; curl; document; office; page -->
+		<annotation cp='[📃]' tts='skjal'>skjal; uppábrett síða; síða</annotation>
+
+		<!-- SCROLL; office; paper; scroll -->
+		<annotation cp='[📜]' tts='bókrolla'>bókrolla; pappír</annotation>
+
+		<!-- PAGE FACING UP; document; office; page -->
+		<annotation cp='[📄]' tts='skjal'>skjal; síða snýr upp; snýr upp; síða</annotation>
+
+		<!-- NEWSPAPER; communication; news; newspaper; object; paper -->
+		<annotation cp='[📰]' tts='dagblað'>dagblað; fréttir; blað</annotation>
+
+		<!-- ROLLED-UP NEWSPAPER; news; newspaper; object; paper; rolled -->
+		<annotation cp='[🗞]'>MISSING</annotation>
+
+		<!-- BOOKMARK TABS; bookmark; mark; marker; office; tabs -->
+		<annotation cp='[📑]' tts='bókamerki'>bókamerki; flipar; merki</annotation>
+
+		<!-- BOOKMARK; bookmark; mark; object -->
+		<annotation cp='[🔖]' tts='bókamerki'>bókamerki</annotation>
+
+		<!-- FRAME WITH PICTURE; art; frame; object; office; painting; picture -->
+		<annotation cp='[🖼]'>MISSING</annotation>
+
+		<!-- MONEY BAG; bag; dollar; money; moneybag; office -->
+		<annotation cp='[💰]' tts='peningapoki'>peningapoki; peningar; poki</annotation>
+
+		<!-- BANKNOTE WITH YEN SIGN; bank; banknote; bill; currency; money; note; office; yen -->
+		<annotation cp='[💴]' tts='yenaseðill'>yenaseðill; yen; peningaseðill; peningar; seðill</annotation>
+
+		<!-- BANKNOTE WITH DOLLAR SIGN; bank; banknote; bill; currency; dollar; money; note; office -->
+		<annotation cp='[💵]' tts='dollaraseðill'>dollaraseðill; peningaseðill; dollari; dalur; peningar; seðill</annotation>
+
+		<!-- BANKNOTE WITH EURO SIGN; bank; banknote; bill; currency; euro; money; note; office -->
+		<annotation cp='[💶]' tts='evruseðill'>evruseðill; evra; peningaseðill; peningar; seðill</annotation>
+
+		<!-- BANKNOTE WITH POUND SIGN; bank; banknote; bill; currency; money; note; office; pound -->
+		<annotation cp='[💷]' tts='pundaseðill'>pundaseðill; pund; peningaseðill; peningar</annotation>
+
+		<!-- MONEY WITH WINGS; bank; banknote; bill; dollar; fly; money; note; office; wings -->
+		<annotation cp='[💸]' tts='fljúgandi peningar'>peningaseðill með vængi; fljúgandi peningaseðill; seðill; peningar</annotation>
+
+		<!-- CURRENCY EXCHANGE; bank; currency; exchange; money; office -->
+		<annotation cp='[💱]' tts='gjaldmiðlar'>gjaldmiðlar; gjaldmiðlareikningur; gjaldmiðlaskipti; peningar</annotation>
+
+		<!-- HEAVY DOLLAR SIGN; currency; dollar; money; office -->
+		<annotation cp='[💲]' tts='dollaramerki'>dollaramerki; feitletrað dollaramerki; dalur; dollari; peningar</annotation>
+
+		<!-- CREDIT CARD; bank; card; credit; money; office -->
+		<annotation cp='[💳]' tts='kreditkort'>kreditkort; greiðslukort; kort; kredit</annotation>
+
+		<!-- CHART WITH UPWARDS TREND AND YEN SIGN; bank; chart; currency; graph; growth; market; money; office; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='markaður á uppleið'>á uppleið; jákvætt; hækkar; verðbréfamarkaður</annotation>
+
+		<!-- ENVELOPE; email; envelope; office -->
+		<annotation cp='[✉]'>MISSING</annotation>
+
+		<!-- E-MAIL SYMBOL; communication; email; letter; mail; office -->
+		<annotation cp='[📧]' tts='tölvupóstur'>tölvupóstur; tölvubréf; póstur; bréf; samskipti</annotation>
+
+		<!-- INCOMING ENVELOPE; communication; email; envelope; incoming; letter; mail; office; receive -->
+		<annotation cp='[📨]' tts='póstur á innleið'>móttekinn póstur; móttekið; tölvupóstur; póstur; bréf; umslag; samskipti</annotation>
+
+		<!-- ENVELOPE WITH DOWNWARDS ARROW ABOVE; arrow; communication; down; email; envelope; letter; mail; office; outgoing; sent -->
+		<annotation cp='[📩]' tts='póstur á útleið'>sendur póstur; útleið; tölvupóstur; póstur; bréf; umslag; samskipti</annotation>
+
+		<!-- OUTBOX TRAY; box; communication; letter; mail; office; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='sendur póstur'>sent; póstur; úthólf; bakki; samskipti</annotation>
+
+		<!-- INBOX TRAY; box; communication; inbox; letter; mail; office; receive; tray -->
+		<annotation cp='[📥]' tts='móttekinn póstur'>móttekið; póstur; innhólf; bakki; samskipti</annotation>
+
+		<!-- PACKAGE; box; communication; office; package; parcel -->
+		<annotation cp='[📦]' tts='pakki'>pakki; böggull; kassi</annotation>
+
+		<!-- CLOSED MAILBOX WITH RAISED FLAG; closed; communication; flag; mail; mailbox; office; postbox -->
+		<annotation cp='[📫]' tts='póstkassi'>póstkassi; lokaður; póstkassi með flaggið uppi; póstur; flagg</annotation>
+
+		<!-- CLOSED MAILBOX WITH LOWERED FLAG; closed; communication; flag; lowered; mail; mailbox; office; postbox -->
+		<annotation cp='[📪]' tts='póstkassi'>póstkassi; lokaður; póstkassi með flaggið niðri; póstur; flagg</annotation>
+
+		<!-- OPEN MAILBOX WITH RAISED FLAG; communication; flag; mail; mailbox; office; open; postbox -->
+		<annotation cp='[📬]' tts='póstkassi'>póstkassi; opinn; opinn póstkassi með flaggið uppi; póstur; flagg</annotation>
+
+		<!-- OPEN MAILBOX WITH LOWERED FLAG; communication; flag; lowered; mail; mailbox; office; open; postbox -->
+		<annotation cp='[📭]' tts='póstkassi'>póstkassi; opinn; opinn póstkassi með flaggið niðri; póstur; flagg</annotation>
+
+		<!-- POSTBOX; communication; mail; mailbox; office; postbox -->
+		<annotation cp='[📮]' tts='póstkassi'>póstkassi</annotation>
+
+		<!-- PENCIL; office; pencil -->
+		<annotation cp='[✏]'>MISSING</annotation>
+
+		<!-- BLACK NIB; nib; office; pen -->
+		<annotation cp='[✒]'>MISSING</annotation>
+
+		<!-- LOWER LEFT FOUNTAIN PEN; communication; fountain; office; pen -->
+		<annotation cp='[🖋]'>MISSING</annotation>
+
+		<!-- LOWER LEFT BALLPOINT PEN; ballpoint; communication; office; pen -->
+		<annotation cp='[🖊]'>MISSING</annotation>
+
+		<!-- LOWER LEFT PAINTBRUSH; communication; office; paintbrush; painting -->
+		<annotation cp='[🖌]'>MISSING</annotation>
+
+		<!-- LOWER LEFT CRAYON; communication; crayon; office -->
+		<annotation cp='[🖍]'>MISSING</annotation>
+
+		<!-- MEMO; communication; memo; office; pencil -->
+		<annotation cp='[📝]' tts='minnismiði'>minnismiði; minnisbók; samskipti</annotation>
+
+		<!-- PERSONAL COMPUTER; computer; office; pc; personal -->
+		<annotation cp='[💻]' tts='tölva'>tölva; fartölva</annotation>
+
+		<!-- DESKTOP COMPUTER; computer; desktop; office -->
+		<annotation cp='[🖥]'>MISSING</annotation>
+
+		<!-- PRINTER; computer; office; printer -->
+		<annotation cp='[🖨]'>MISSING</annotation>
+
+		<!-- KEYBOARD; computer; keyboard; sign -->
+		<annotation cp='[⌨]'>MISSING</annotation>
+
+		<!-- THREE BUTTON MOUSE; 3; button; computer; mouse; office; three -->
+		<annotation cp='[🖱]'>MISSING</annotation>
+
+		<!-- TRACKBALL; computer; office; trackball -->
+		<annotation cp='[🖲]'>MISSING</annotation>
+
+		<!-- MINIDISC; computer; disc; minidisc; office; optical -->
+		<annotation cp='[💽]' tts='MD-diskur'>MD-diskur; MD; smádiskur; mini disc</annotation>
+
+		<!-- FLOPPY DISK; computer; disc; disk; floppy; office -->
+		<annotation cp='[💾]' tts='disketta'>disketta; diskur</annotation>
+
+		<!-- OPTICAL DISC; cd; computer; disc; dvd; office; optical -->
+		<annotation cp='[💿]' tts='blu-ray'>blu-ray; DVD; CD; DVD-diskur; geisladiskur; mynddiskur; diskur</annotation>
+
+		<!-- DVD; computer; disc; dvd; office; optical -->
+		<annotation cp='[📀]' tts='DVD'>DVD; DVD-diskur; mynddiskur; diskur</annotation>
+
+		<!-- BRIEFCASE; briefcase; office -->
+		<annotation cp='[💼]' tts='skjalataska'>skjalataska; taska</annotation>
+
+		<!-- FILE FOLDER; file; folder; office -->
+		<annotation cp='[📁]' tts='skráamappa'>skráamappa; skrá; mappa</annotation>
+
+		<!-- OPEN FILE FOLDER; file; folder; office; open -->
+		<annotation cp='[📂]' tts='opin mappa'>opin skráamappa</annotation>
+
+		<!-- CARD INDEX DIVIDERS; card; dividers; index; office -->
+		<annotation cp='[🗂]'>MISSING</annotation>
+
+		<!-- CALENDAR; calendar; date; office -->
+		<annotation cp='[📅]' tts='dagatal'>dagatal</annotation>
+
+		<!-- TEAR-OFF CALENDAR; calendar; office -->
+		<annotation cp='[📆]' tts='dagatal með rifgötum'>dagatal</annotation>
+
+		<!-- SPIRAL NOTE PAD; note; office; pad; spiral -->
+		<annotation cp='[🗒]'>MISSING</annotation>
+
+		<!-- SPIRAL CALENDAR PAD; calendar; office; pad; spiral -->
+		<annotation cp='[🗓]'>MISSING</annotation>
+
+		<!-- CARD INDEX; card; index; office; rolodex -->
+		<annotation cp='[📇]' tts='spjaldskrá'>spjaldskrá; uppflettiskrá</annotation>
+
+		<!-- CHART WITH UPWARDS TREND; chart; graph; growth; office; trend; upward -->
+		<annotation cp='[📈]' tts='á uppleið'>graf á uppleið</annotation>
+
+		<!-- CHART WITH DOWNWARDS TREND; chart; down; graph; office; trend -->
+		<annotation cp='[📉]' tts='á niðurleið'>graf á niðurleið</annotation>
+
+		<!-- BAR CHART; bar; chart; graph; office -->
+		<annotation cp='[📊]' tts='súlurit'>súlurit; súlur; myndrit</annotation>
+
+		<!-- CLIPBOARD; clipboard; office -->
+		<annotation cp='[📋]' tts='klemmuspjald'>klemmuspjald</annotation>
+
+		<!-- PUSHPIN; office; pin; pushpin -->
+		<annotation cp='[📌]' tts='teiknibóla'>teiknibóla</annotation>
+
+		<!-- ROUND PUSHPIN; office; pin; place; pushpin -->
+		<annotation cp='[📍]' tts='teiknibóla með kúlu'>teiknibóla</annotation>
+
+		<!-- PAPERCLIP; office; paperclip -->
+		<annotation cp='[📎]' tts='bréfaklemma'>bréfaklemma; klemma</annotation>
+
+		<!-- LINKED PAPERCLIPS; communication; link; office; paperclip -->
+		<annotation cp='[🖇]'>MISSING</annotation>
+
+		<!-- STRAIGHT RULER; office; ruler; straight edge -->
+		<annotation cp='[📏]' tts='reglustika'>reglustika; bein reglustika</annotation>
+
+		<!-- TRIANGULAR RULER; office; ruler; set; triangle -->
+		<annotation cp='[📐]' tts='þríhyrnd reglustika'>þríhyrningur; reglustika</annotation>
+
+		<!-- NAME BADGE; badge; name; office -->
+		<annotation cp='[📛]' tts='nafnspjald'>nafnspjald; spjald; nafn</annotation>
+
+		<!-- BLACK SCISSORS; office; scissors; tool -->
+		<annotation cp='[✂]'>MISSING</annotation>
+
+		<!-- CARD FILE BOX; box; card; file; office -->
+		<annotation cp='[🗃]'>MISSING</annotation>
+
+		<!-- FILE CABINET; cabinet; file; office -->
+		<annotation cp='[🗄]'>MISSING</annotation>
+
+		<!-- WASTEBASKET; office; wastebasket -->
+		<annotation cp='[🗑]'>MISSING</annotation>
+
+		<!-- LOCK; closed; lock; object -->
+		<annotation cp='[🔒]' tts='lás'>lás; lokaður lás</annotation>
+
+		<!-- OPEN LOCK; lock; object; open; unlock -->
+		<annotation cp='[🔓]' tts='lás'>lás; opinn lás</annotation>
+
+		<!-- LOCK WITH INK PEN; ink; lock; nib; object; pen; privacy -->
+		<annotation cp='[🔏]' tts='lás'>lás; persónuvernd; lás með blekpenna; blekpenni</annotation>
+
+		<!-- CLOSED LOCK WITH KEY; closed; key; lock; object; secure -->
+		<annotation cp='[🔐]' tts='lokaður lás'>lás með lykli; öruggt</annotation>
+
+		<!-- KEY; key; lock; object; password -->
+		<annotation cp='[🔑]' tts='lykill'>lykill; aðgangsorð; lykilorð</annotation>
+
+		<!-- OLD KEY; clue; key; lock; object; old -->
+		<annotation cp='[🗝]'>MISSING</annotation>
+
+		<!-- HAMMER; hammer; object; tool -->
+		<annotation cp='[🔨]' tts='hamar'>hamar; verkfæri</annotation>
+
+		<!-- PICK; mining; object; pick; tool; travel -->
+		<annotation cp='[⛏]'>MISSING</annotation>
+
+		<!-- HAMMER AND PICK; hammer; object; pick; tool -->
+		<annotation cp='[⚒]'>MISSING</annotation>
+
+		<!-- HAMMER AND WRENCH; hammer; object; tool; wrench -->
+		<annotation cp='[🛠]'>MISSING</annotation>
+
+		<!-- WRENCH; object; tool; wrench -->
+		<annotation cp='[🔧]' tts='skiptilykill'>skiptilykill; verkfæri</annotation>
+
+		<!-- NUT AND BOLT; bolt; nut; object; tool -->
+		<annotation cp='[🔩]' tts='bolti og ró'>bolti; ró; verkfæri</annotation>
+
+		<!-- GEAR; gear; object; tool -->
+		<annotation cp='[⚙]'>MISSING</annotation>
+
+		<!-- COMPRESSION; compression; object; tool; vice -->
+		<annotation cp='[🗜]'>MISSING</annotation>
+
+		<!-- ALEMBIC; alembic; chemistry; object; tool -->
+		<annotation cp='[⚗]'>MISSING</annotation>
+
+		<!-- SCALES; balance; justice; libra; object; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]'>MISSING</annotation>
+
+		<!-- SYRINGE; doctor; medicine; needle; object; shot; sick; syringe; tool -->
+		<annotation cp='[💉]' tts='sprauta'>sprauta; nál; lyf; læknir</annotation>
+
+		<!-- DAGGER KNIFE; dagger; knife; object; weapon -->
+		<annotation cp='[🗡]'>MISSING</annotation>
+
+		<!-- HOCHO; cooking; hocho; knife; object; tool; weapon -->
+		<annotation cp='[🔪]' tts='hnífur'>hnífur</annotation>
+
+		<!-- CROSSED SWORDS; crossed; object; swords; weapon -->
+		<annotation cp='[⚔]'>MISSING</annotation>
+
+		<!-- PISTOL; gun; object; pistol; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='byssa'>byssa; skammbyssa</annotation>
+
+		<!-- SHIELD; object; shield; weapon -->
+		<annotation cp='[🛡]'>MISSING</annotation>
+
+		<!-- SCHOOL SATCHEL; activity; bag; education; object; satchel; school -->
+		<annotation cp='[🎒]' tts='skólataska'>skólataska; skóli; taska</annotation>
+
+		<!-- BATTERY; battery; object -->
+		<annotation cp='[🔋]' tts='rafhlaða'>rafhlaða</annotation>
+
+		<!-- ELECTRIC PLUG; electric; electricity; object; plug -->
+		<annotation cp='[🔌]' tts='innstunga'>innstunga; rafmagn</annotation>
+
+		<!-- LINK SYMBOL; link; object -->
+		<annotation cp='[🔗]' tts='tenglamerki'>tenglamerki; tenglar; tveir hlekkir</annotation>
+
+		<!-- CHAINS; chain; object; travel -->
+		<annotation cp='[⛓]'>MISSING</annotation>
+
+		<!-- SMOKING SYMBOL; activity; object; smoking; travel -->
+		<annotation cp='[🚬]' tts='reykingar leyfðar'>reykingar</annotation>
+
+		<!-- LIPSTICK; cosmetics; lipstick; makeup; object -->
+		<annotation cp='[💄]' tts='varalitur'>varalitur; förðun; snyrtivörur</annotation>
+
+		<!-- RING; diamond; object; ring; romance -->
+		<annotation cp='[💍]' tts='hringur'>hringur; rómantík</annotation>
+
+		<!-- GEM STONE; diamond; gem; jewel; object; romance -->
+		<annotation cp='[💎]' tts='gimsteinn'>gimsteinn; demantur; rómantík</annotation>
+
+		<!-- OIL DRUM; drum; object; oil -->
+		<annotation cp='[🛢]'>MISSING</annotation>
+
+		<!-- CRYSTAL BALL; ball; crystal; fantasy; fortune; object; tool -->
+		<annotation cp='[🔮]' tts='kristalskúla'>kristalskúla; spá; kristall; kúla; spádómur</annotation>
+
+		<!-- SIX POINTED STAR WITH MIDDLE DOT; fortune; object; star -->
+		<annotation cp='[🔯]' tts='sexhyrnd stjarna'>spá; sexhyrnd; stjarna; spádómur</annotation>
+
+		<!-- TRIDENT EMBLEM; anchor; emblem; object; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='þríforkur'>þríforkur; akkeri</annotation>
+
+		<!-- BALLOT BOX WITH BALLOT; ballot; box; object -->
+		<annotation cp='[🗳]'>MISSING</annotation>
+
+		<!-- PILL; doctor; medicine; object; pill; sick -->
+		<annotation cp='[💊]' tts='pilla'>pilla; lyf; læknir</annotation>
+
+		<!-- ATOM SYMBOL; atheist; atom; object -->
+		<annotation cp='[⚛]'>MISSING</annotation>
+
+		<!-- FLEUR-DE-LIS; object -->
+		<annotation cp='[⚜]'>MISSING</annotation>
+
+		<!-- COFFIN; coffin; death; object -->
+		<annotation cp='[⚰]'>MISSING</annotation>
+
+		<!-- FUNERAL URN; death; funeral; object; urn -->
+		<annotation cp='[⚱]'>MISSING</annotation>
+
+		<!-- JAPANESE SYMBOL FOR BEGINNER; beginner; chevron; green; japanese; leaf; object; place; tool; yellow -->
+		<annotation cp='[🔰]' tts='græn og gul lauf'>græn og gul; byrjandi; japanskt</annotation>
+
+		<!-- HUNDRED POINTS SYMBOL; 100; full; hundred; office; score -->
+		<annotation cp='[💯]' tts='fullt hús'>100 stig; 100; stig</annotation>
+
+		<!-- SATELLITE ANTENNA; antenna; communication; dish; office; satellite -->
+		<annotation cp='[📡]' tts='gervihnattardiskur'>gervihnattardiskur; gervihnattarloftnet; loftnet; diskur; gervihnöttur; samskipti</annotation>
+
+		<!-- CHEQUERED FLAG; checkered; chequered; flag; racing; sport -->
+		<annotation cp='[🏁]' tts='rásflagg'>rásflagg; flagg; kappakstur; íþróttir</annotation>
+
+		<!-- WAVING WHITE FLAG; flag; waving -->
+		<annotation cp='[🏳]'>MISSING</annotation>
+
+		<!-- WAVING BLACK FLAG; flag; waving -->
+		<annotation cp='[🏴]'>MISSING</annotation>
+
+		<!-- TRIANGULAR FLAG ON POST; flag; post; travel -->
+		<annotation cp='[🚩]' tts='flagg'>flagg; fáni; veifa; staðsetningarmerki</annotation>
+
+		<!-- Afghanistan; afghanistan; flag -->
+		<annotation cp='[{🇦🇫}]'>Afganistan</annotation>
+
+		<!-- Åland Islands; åland; flag; islands -->
+		<annotation cp='[{🇦🇽}]'>Álandseyjar</annotation>
+
+		<!-- Albania; albania; flag -->
+		<annotation cp='[{🇦🇱}]'>Albanía</annotation>
+
+		<!-- Algeria; algeria; flag -->
+		<annotation cp='[{🇩🇿}]'>Alsír</annotation>
+
+		<!-- American Samoa; american; flag; samoa -->
+		<annotation cp='[{🇦🇸}]'>Bandaríska Samóa</annotation>
+
+		<!-- Andorra; andorra; flag -->
+		<annotation cp='[{🇦🇩}]'>Andorra</annotation>
+
+		<!-- Angola; angola; flag -->
+		<annotation cp='[{🇦🇴}]'>Angóla</annotation>
+
+		<!-- Anguilla; anguilla; flag -->
+		<annotation cp='[{🇦🇮}]'>Angvilla</annotation>
+
+		<!-- Antarctica; antarctica; flag -->
+		<annotation cp='[{🇦🇶}]'>Suðurskautslandið</annotation>
+
+		<!-- Antigua & Barbuda; antigua; barbuda; flag -->
+		<annotation cp='[{🇦🇬}]'>Antígva og Barbúda</annotation>
+
+		<!-- Argentina; argentina; flag -->
+		<annotation cp='[{🇦🇷}]'>Argentína</annotation>
+
+		<!-- Armenia; armenia; flag -->
+		<annotation cp='[{🇦🇲}]'>Armenía</annotation>
+
+		<!-- Aruba; aruba; flag -->
+		<annotation cp='[{🇦🇼}]'>Arúba</annotation>
+
+		<!-- Ascension Island; ascension; flag; island -->
+		<annotation cp='[{🇦🇨}]'>Ascension-eyja</annotation>
+
+		<!-- Australia; australia; flag -->
+		<annotation cp='[{🇦🇺}]'>Ástralía</annotation>
+
+		<!-- Austria; austria; flag -->
+		<annotation cp='[{🇦🇹}]'>Austurríki</annotation>
+
+		<!-- Azerbaijan; azerbaijan; flag -->
+		<annotation cp='[{🇦🇿}]'>Aserbaídsjan</annotation>
+
+		<!-- Bahamas; bahamas; flag -->
+		<annotation cp='[{🇧🇸}]'>Bahamaeyjar</annotation>
+
+		<!-- Bahrain; bahrain; flag -->
+		<annotation cp='[{🇧🇭}]'>Barein</annotation>
+
+		<!-- Bangladesh; bangladesh; flag -->
+		<annotation cp='[{🇧🇩}]'>Bangladess</annotation>
+
+		<!-- Barbados; barbados; flag -->
+		<annotation cp='[{🇧🇧}]'>Barbados</annotation>
+
+		<!-- Belarus; belarus; flag -->
+		<annotation cp='[{🇧🇾}]'>Hvíta-Rússland</annotation>
+
+		<!-- Belgium; belgium; flag -->
+		<annotation cp='[{🇧🇪}]'>Belgía</annotation>
+
+		<!-- Belize; belize; flag -->
+		<annotation cp='[{🇧🇿}]'>Belís</annotation>
+
+		<!-- Benin; benin; flag -->
+		<annotation cp='[{🇧🇯}]'>Benín</annotation>
+
+		<!-- Bermuda; bermuda; flag -->
+		<annotation cp='[{🇧🇲}]'>Bermúdaeyjar</annotation>
+
+		<!-- Bhutan; bhutan; flag -->
+		<annotation cp='[{🇧🇹}]'>Bútan</annotation>
+
+		<!-- Bolivia; bolivia; flag -->
+		<annotation cp='[{🇧🇴}]'>Bólivía</annotation>
+
+		<!-- Bosnia & Herzegovina; bosnia; flag; herzegovina -->
+		<annotation cp='[{🇧🇦}]'>Bosnía og Hersegóvína</annotation>
+
+		<!-- Botswana; botswana; flag -->
+		<annotation cp='[{🇧🇼}]'>Botsvana</annotation>
+
+		<!-- Bouvet Island; bouvet; flag; island -->
+		<annotation cp='[{🇧🇻}]'>Bouveteyja</annotation>
+
+		<!-- Brazil; brazil; flag -->
+		<annotation cp='[{🇧🇷}]'>Brasilía</annotation>
+
+		<!-- British Indian Ocean Territory; british; flag; indian; ocean -->
+		<annotation cp='[{🇮🇴}]'>Bresku Indlandshafseyjar</annotation>
+
+		<!-- British Virgin Islands; british; flag; islands; virgin islands -->
+		<annotation cp='[{🇻🇬}]'>Bresku Jómfrúaeyjar</annotation>
+
+		<!-- Brunei; brunei; darussalam; flag -->
+		<annotation cp='[{🇧🇳}]'>Brúnei</annotation>
+
+		<!-- Bulgaria; bulgaria; flag -->
+		<annotation cp='[{🇧🇬}]'>Búlgaría</annotation>
+
+		<!-- Burkina Faso; burkina; faso; flag -->
+		<annotation cp='[{🇧🇫}]'>Búrkína Fasó</annotation>
+
+		<!-- Burundi; burundi; flag -->
+		<annotation cp='[{🇧🇮}]'>Búrúndí</annotation>
+
+		<!-- Cambodia; cambodia; flag -->
+		<annotation cp='[{🇰🇭}]'>Kambódía</annotation>
+
+		<!-- Cameroon; cameroon; flag -->
+		<annotation cp='[{🇨🇲}]'>Kamerún</annotation>
+
+		<!-- Canada; canada; flag -->
+		<annotation cp='[{🇨🇦}]'>Kanada</annotation>
+
+		<!-- Canary Islands; canary; flag; islands -->
+		<annotation cp='[{🇮🇨}]'>Kanaríeyjar</annotation>
+
+		<!-- Cape Verde; cabo; cape; flag; verde -->
+		<annotation cp='[{🇨🇻}]'>Grænhöfðaeyjar</annotation>
+
+		<!-- Caribbean Netherlands; bonaire; caribbean; eustatius; flag; netherlands; saba; sint -->
+		<annotation cp='[{🇧🇶}]'>Karíbahafshluti Hollands</annotation>
+
+		<!-- Cayman Islands; cayman; flag; islands -->
+		<annotation cp='[{🇰🇾}]'>Caymaneyjar</annotation>
+
+		<!-- Central African Republic; african; central; flag -->
+		<annotation cp='[{🇨🇫}]'>Mið-Afríkulýðveldið</annotation>
+
+		<!-- Ceuta & Melilla; ceuta; flag; melilla -->
+		<annotation cp='[{🇪🇦}]'>Ceuta og Melilla</annotation>
+
+		<!-- Chad; chad; flag -->
+		<annotation cp='[{🇹🇩}]'>Tsjad</annotation>
+
+		<!-- Chile; chile; flag -->
+		<annotation cp='[{🇨🇱}]'>Síle</annotation>
+
+		<!-- China; china; flag -->
+		<annotation cp='[{🇨🇳}]'>Kína</annotation>
+
+		<!-- Christmas Island; christmas; flag; island -->
+		<annotation cp='[{🇨🇽}]'>Jólaey</annotation>
+
+		<!-- Clipperton Island; clipperton; flag; island -->
+		<annotation cp='[{🇨🇵}]'>Clipperton-eyja</annotation>
+
+		<!-- Cocos (Keeling) Islands; cocos; flag; islands; keeling -->
+		<annotation cp='[{🇨🇨}]'>Kókoseyjar (Keeling)</annotation>
+
+		<!-- Colombia; colombia; flag -->
+		<annotation cp='[{🇨🇴}]'>Kólumbía</annotation>
+
+		<!-- Comoros; comoros; flag -->
+		<annotation cp='[{🇰🇲}]'>Kómoreyjar</annotation>
+
+		<!-- Congo - Brazzaville; brazzaville; congo; flag -->
+		<annotation cp='[{🇨🇬}]'>Kongó-Brazzaville</annotation>
+
+		<!-- Congo - Kinshasa; congo; flag; kinshasa -->
+		<annotation cp='[{🇨🇩}]'>Kongó-Kinshasa</annotation>
+
+		<!-- Cook Islands; cook; flag; islands -->
+		<annotation cp='[{🇨🇰}]'>Cooks-eyjar</annotation>
+
+		<!-- Costa Rica; costa; flag; rica -->
+		<annotation cp='[{🇨🇷}]'>Kostaríka</annotation>
+
+		<!-- Côte d’Ivoire; coast; cote; côte; flag; ivoire; ivory -->
+		<annotation cp='[{🇨🇮}]'>Fílabeinsströndin</annotation>
+
+		<!-- Croatia; croatia; flag -->
+		<annotation cp='[{🇭🇷}]'>Króatía</annotation>
+
+		<!-- Cuba; cuba; flag -->
+		<annotation cp='[{🇨🇺}]'>Kúba</annotation>
+
+		<!-- Curaçao; antilles; curacao; curaçao; flag; netherlands -->
+		<annotation cp='[{🇨🇼}]'>Curacao</annotation>
+
+		<!-- Cyprus; cyprus; flag -->
+		<annotation cp='[{🇨🇾}]'>Kýpur</annotation>
+
+		<!-- Czech Republic; czech; flag -->
+		<annotation cp='[{🇨🇿}]'>Tékkland</annotation>
+
+		<!-- Denmark; denmark; flag -->
+		<annotation cp='[{🇩🇰}]'>Danmörk</annotation>
+
+		<!-- Diego Garcia; diego; flag; garcia -->
+		<annotation cp='[{🇩🇬}]'>Diego Garcia</annotation>
+
+		<!-- Djibouti; djibouti; flag -->
+		<annotation cp='[{🇩🇯}]'>Djíbútí</annotation>
+
+		<!-- Dominica; dominica; flag -->
+		<annotation cp='[{🇩🇲}]'>Dóminíka</annotation>
+
+		<!-- Dominican Republic; dominica; dominican; flag -->
+		<annotation cp='[{🇩🇴}]'>Dóminíska lýðveldið</annotation>
+
+		<!-- Ecuador; ecuador; flag -->
+		<annotation cp='[{🇪🇨}]'>Ekvador</annotation>
+
+		<!-- Egypt; arab; egypt; flag -->
+		<annotation cp='[{🇪🇬}]'>Egyptaland</annotation>
+
+		<!-- El Salvador; el salvador; flag -->
+		<annotation cp='[{🇸🇻}]'>El Salvador</annotation>
+
+		<!-- Equatorial Guinea; equatorial; flag; guinea -->
+		<annotation cp='[{🇬🇶}]'>Miðbaugs-Gínea</annotation>
+
+		<!-- Eritrea; eritrea; flag -->
+		<annotation cp='[{🇪🇷}]'>Erítrea</annotation>
+
+		<!-- Estonia; estonia; flag -->
+		<annotation cp='[{🇪🇪}]'>Eistland</annotation>
+
+		<!-- Ethiopia; ethiopia; flag -->
+		<annotation cp='[{🇪🇹}]'>Eþíópía</annotation>
+
+		<!-- European Union; european; flag; union -->
+		<annotation cp='[{🇪🇺}]'>Evrópusambandið</annotation>
+
+		<!-- Falkland Islands; falkland; flag; islands; islas; malvinas -->
+		<annotation cp='[{🇫🇰}]'>Falklandseyjar</annotation>
+
+		<!-- Faroe Islands; faeroe; faroe; flag; islands -->
+		<annotation cp='[{🇫🇴}]'>Færeyjar</annotation>
+
+		<!-- Fiji; fiji; flag -->
+		<annotation cp='[{🇫🇯}]'>Fídjieyjar</annotation>
+
+		<!-- Finland; finland; flag -->
+		<annotation cp='[{🇫🇮}]'>Finnland</annotation>
+
+		<!-- France; flag; france -->
+		<annotation cp='[{🇫🇷}]'>Frakkland</annotation>
+
+		<!-- French Guiana; flag; french; guiana -->
+		<annotation cp='[{🇬🇫}]'>Franska Gvæjana</annotation>
+
+		<!-- French Polynesia; flag; french; polynesia -->
+		<annotation cp='[{🇵🇫}]'>Franska Pólýnesía</annotation>
+
+		<!-- French Southern Territories; flag; french; southern -->
+		<annotation cp='[{🇹🇫}]'>Frönsku suðlægu landsvæðin</annotation>
+
+		<!-- Gabon; flag; gabon -->
+		<annotation cp='[{🇬🇦}]'>Gabon</annotation>
+
+		<!-- Gambia; flag; gambia -->
+		<annotation cp='[{🇬🇲}]'>Gambía</annotation>
+
+		<!-- Georgia; flag; georgia -->
+		<annotation cp='[{🇬🇪}]'>Georgía</annotation>
+
+		<!-- Germany; flag; germany -->
+		<annotation cp='[{🇩🇪}]'>Þýskaland</annotation>
+
+		<!-- Ghana; flag; ghana -->
+		<annotation cp='[{🇬🇭}]'>Gana</annotation>
+
+		<!-- Gibraltar; flag; gibraltar -->
+		<annotation cp='[{🇬🇮}]'>Gíbraltar</annotation>
+
+		<!-- Greece; flag; greece -->
+		<annotation cp='[{🇬🇷}]'>Grikkland</annotation>
+
+		<!-- Greenland; flag; greenland -->
+		<annotation cp='[{🇬🇱}]'>Grænland</annotation>
+
+		<!-- Grenada; flag; grenada -->
+		<annotation cp='[{🇬🇩}]'>Grenada</annotation>
+
+		<!-- Guadeloupe; flag; guadeloupe -->
+		<annotation cp='[{🇬🇵}]'>Gvadelúpeyjar</annotation>
+
+		<!-- Guam; flag; guam -->
+		<annotation cp='[{🇬🇺}]'>Gvam</annotation>
+
+		<!-- Guatemala; flag; guatemala -->
+		<annotation cp='[{🇬🇹}]'>Gvatemala</annotation>
+
+		<!-- Guernsey; flag; guernsey; islands -->
+		<annotation cp='[{🇬🇬}]'>Guernsey</annotation>
+
+		<!-- Guinea; flag; guinea -->
+		<annotation cp='[{🇬🇳}]'>Gínea</annotation>
+
+		<!-- Guinea-Bissau; bissau; flag; guinea -->
+		<annotation cp='[{🇬🇼}]'>Gínea-Bissá</annotation>
+
+		<!-- Guyana; flag; guyana -->
+		<annotation cp='[{🇬🇾}]'>Gvæjana</annotation>
+
+		<!-- Haiti; flag; haiti -->
+		<annotation cp='[{🇭🇹}]'>Haítí</annotation>
+
+		<!-- Heard & McDonald Islands; flag; heard; island; islands; mcdonald -->
+		<annotation cp='[{🇭🇲}]'>Heard og McDonaldseyjar</annotation>
+
+		<!-- Honduras; flag; honduras -->
+		<annotation cp='[{🇭🇳}]'>Hondúras</annotation>
+
+		<!-- Hong Kong SAR China; china; flag; hong kong -->
+		<annotation cp='[{🇭🇰}]'>Sjálfstjórnarsvæðið Hong Kong</annotation>
+
+		<!-- Hungary; flag; hungary -->
+		<annotation cp='[{🇭🇺}]'>Ungverjaland</annotation>
+
+		<!-- Iceland; flag; iceland -->
+		<annotation cp='[{🇮🇸}]'>Ísland</annotation>
+
+		<!-- India; flag; india -->
+		<annotation cp='[{🇮🇳}]'>Indland</annotation>
+
+		<!-- Indonesia; flag; indonesia -->
+		<annotation cp='[{🇮🇩}]'>Indónesía</annotation>
+
+		<!-- Iran; flag; iran -->
+		<annotation cp='[{🇮🇷}]'>Íran</annotation>
+
+		<!-- Iraq; flag; iraq -->
+		<annotation cp='[{🇮🇶}]'>Írak</annotation>
+
+		<!-- Ireland; flag; ireland -->
+		<annotation cp='[{🇮🇪}]'>Írland</annotation>
+
+		<!-- Isle of Man; flag; isle; man -->
+		<annotation cp='[{🇮🇲}]'>Mön</annotation>
+
+		<!-- Israel; flag; israel -->
+		<annotation cp='[{🇮🇱}]'>Ísrael</annotation>
+
+		<!-- Italy; flag; italy -->
+		<annotation cp='[{🇮🇹}]'>Ítalía</annotation>
+
+		<!-- Jamaica; flag; jamaica -->
+		<annotation cp='[{🇯🇲}]'>Jamaíka</annotation>
+
+		<!-- Japan; flag; japan -->
+		<annotation cp='[{🇯🇵}]'>Japan</annotation>
+
+		<!-- Jersey; flag; jersey -->
+		<annotation cp='[{🇯🇪}]'>Jersey</annotation>
+
+		<!-- Jordan; flag; jordan -->
+		<annotation cp='[{🇯🇴}]'>Jórdanía</annotation>
+
+		<!-- Kazakhstan; flag; kazakhstan -->
+		<annotation cp='[{🇰🇿}]'>Kasakstan</annotation>
+
+		<!-- Kenya; flag; kenya -->
+		<annotation cp='[{🇰🇪}]'>Kenía</annotation>
+
+		<!-- Kiribati; flag; kiribati -->
+		<annotation cp='[{🇰🇮}]'>Kíribatí</annotation>
+
+		<!-- Kosovo; flag; kosovo -->
+		<annotation cp='[{🇽🇰}]'>Kósóvó</annotation>
+
+		<!-- Kuwait; flag; kuwait -->
+		<annotation cp='[{🇰🇼}]'>Kúveit</annotation>
+
+		<!-- Kyrgyzstan; flag; kyrgyz; kyrgyzstan -->
+		<annotation cp='[{🇰🇬}]'>Kirgistan</annotation>
+
+		<!-- Laos; flag; lao; laos -->
+		<annotation cp='[{🇱🇦}]'>Laos</annotation>
+
+		<!-- Latvia; flag; latvia -->
+		<annotation cp='[{🇱🇻}]'>Lettland</annotation>
+
+		<!-- Lebanon; flag; lebanon -->
+		<annotation cp='[{🇱🇧}]'>Líbanon</annotation>
+
+		<!-- Lesotho; flag; lesotho -->
+		<annotation cp='[{🇱🇸}]'>Lesótó</annotation>
+
+		<!-- Liberia; flag; liberia -->
+		<annotation cp='[{🇱🇷}]'>Líbería</annotation>
+
+		<!-- Libya; arab; flag; libya; libyan -->
+		<annotation cp='[{🇱🇾}]'>Líbía</annotation>
+
+		<!-- Liechtenstein; flag; liechtenstein -->
+		<annotation cp='[{🇱🇮}]'>Liechtenstein</annotation>
+
+		<!-- Lithuania; flag; lithuania -->
+		<annotation cp='[{🇱🇹}]'>Litháen</annotation>
+
+		<!-- Luxembourg; flag; luxembourg -->
+		<annotation cp='[{🇱🇺}]'>Lúxemborg</annotation>
+
+		<!-- Macau SAR China; china; flag; macao; macau -->
+		<annotation cp='[{🇲🇴}]'>Sjálfstjórnarsvæðið Makaó</annotation>
+
+		<!-- Macedonia; flag; macedonia -->
+		<annotation cp='[{🇲🇰}]'>Makedónía</annotation>
+
+		<!-- Madagascar; flag; madagascar -->
+		<annotation cp='[{🇲🇬}]'>Madagaskar</annotation>
+
+		<!-- Malawi; flag; malawi -->
+		<annotation cp='[{🇲🇼}]'>Malaví</annotation>
+
+		<!-- Malaysia; flag; malaysia -->
+		<annotation cp='[{🇲🇾}]'>Malasía</annotation>
+
+		<!-- Maldives; flag; maldives -->
+		<annotation cp='[{🇲🇻}]'>Maldíveyjar</annotation>
+
+		<!-- Mali; flag; mali -->
+		<annotation cp='[{🇲🇱}]'>Malí</annotation>
+
+		<!-- Malta; flag; malta -->
+		<annotation cp='[{🇲🇹}]'>Malta</annotation>
+
+		<!-- Marshall Islands; flag; islands; marshall -->
+		<annotation cp='[{🇲🇭}]'>Marshalleyjar</annotation>
+
+		<!-- Martinique; flag; martinique -->
+		<annotation cp='[{🇲🇶}]'>Martiník</annotation>
+
+		<!-- Mauritania; flag; mauritania -->
+		<annotation cp='[{🇲🇷}]'>Máritanía</annotation>
+
+		<!-- Mauritius; flag; mauritius -->
+		<annotation cp='[{🇲🇺}]'>Máritíus</annotation>
+
+		<!-- Mayotte; flag; mayotte -->
+		<annotation cp='[{🇾🇹}]'>Mayotte</annotation>
+
+		<!-- Mexico; flag; mexico -->
+		<annotation cp='[{🇲🇽}]'>Mexíkó</annotation>
+
+		<!-- Micronesia; flag; micronesia -->
+		<annotation cp='[{🇫🇲}]'>Míkrónesía</annotation>
+
+		<!-- Moldova; flag; moldova -->
+		<annotation cp='[{🇲🇩}]'>Moldóva</annotation>
+
+		<!-- Monaco; flag; monaco -->
+		<annotation cp='[{🇲🇨}]'>Mónakó</annotation>
+
+		<!-- Mongolia; flag; mongolia -->
+		<annotation cp='[{🇲🇳}]'>Mongólía</annotation>
+
+		<!-- Montenegro; flag; montenegro -->
+		<annotation cp='[{🇲🇪}]'>Svartfjallaland</annotation>
+
+		<!-- Montserrat; flag; montserrat -->
+		<annotation cp='[{🇲🇸}]'>Montserrat</annotation>
+
+		<!-- Morocco; flag; morocco -->
+		<annotation cp='[{🇲🇦}]'>Marokkó</annotation>
+
+		<!-- Mozambique; flag; mozambique -->
+		<annotation cp='[{🇲🇿}]'>Mósambík</annotation>
+
+		<!-- Myanmar (Burma); burma; flag; myanmar -->
+		<annotation cp='[{🇲🇲}]'>Mjanmar (Búrma)</annotation>
+
+		<!-- Namibia; flag; namibia -->
+		<annotation cp='[{🇳🇦}]'>Namibía</annotation>
+
+		<!-- Nauru; flag; nauru -->
+		<annotation cp='[{🇳🇷}]'>Nárú</annotation>
+
+		<!-- Nepal; flag; nepal -->
+		<annotation cp='[{🇳🇵}]'>Nepal</annotation>
+
+		<!-- Netherlands; flag; netherlands -->
+		<annotation cp='[{🇳🇱}]'>Holland</annotation>
+
+		<!-- New Caledonia; flag; new; new caledonia -->
+		<annotation cp='[{🇳🇨}]'>Nýja-Kaledónía</annotation>
+
+		<!-- New Zealand; flag; new; new zealand -->
+		<annotation cp='[{🇳🇿}]'>Nýja-Sjáland</annotation>
+
+		<!-- Nicaragua; flag; nicaragua -->
+		<annotation cp='[{🇳🇮}]'>Níkaragva</annotation>
+
+		<!-- Niger; flag; niger -->
+		<annotation cp='[{🇳🇪}]'>Níger</annotation>
+
+		<!-- Nigeria; flag; nigeria -->
+		<annotation cp='[{🇳🇬}]'>Nígería</annotation>
+
+		<!-- Niue; flag; niue -->
+		<annotation cp='[{🇳🇺}]'>Niue</annotation>
+
+		<!-- Norfolk Island; flag; island; norfolk -->
+		<annotation cp='[{🇳🇫}]'>Norfolkeyja</annotation>
+
+		<!-- Northern Mariana Islands; flag; islands; mariana; northern -->
+		<annotation cp='[{🇲🇵}]'>Norður-Maríanaeyjar</annotation>
+
+		<!-- North Korea; flag; korea; north -->
+		<annotation cp='[{🇰🇵}]'>Norður-Kórea</annotation>
+
+		<!-- Norway; flag; norway -->
+		<annotation cp='[{🇳🇴}]'>Noregur</annotation>
+
+		<!-- Oman; flag; oman -->
+		<annotation cp='[{🇴🇲}]'>Óman</annotation>
+
+		<!-- Pakistan; flag; pakistan -->
+		<annotation cp='[{🇵🇰}]'>Pakistan</annotation>
+
+		<!-- Palau; flag; palau -->
+		<annotation cp='[{🇵🇼}]'>Palá</annotation>
+
+		<!-- Palestinian Territories; flag; palestine -->
+		<annotation cp='[{🇵🇸}]'>Heimastjórnarsvæði Palestínumanna</annotation>
+
+		<!-- Panama; flag; panama -->
+		<annotation cp='[{🇵🇦}]'>Panama</annotation>
+
+		<!-- Papua New Guinea; flag; guinea; new; papua new guinea -->
+		<annotation cp='[{🇵🇬}]'>Papúa Nýja-Gínea</annotation>
+
+		<!-- Paraguay; flag; paraguay -->
+		<annotation cp='[{🇵🇾}]'>Paragvæ</annotation>
+
+		<!-- Peru; flag; peru -->
+		<annotation cp='[{🇵🇪}]'>Perú</annotation>
+
+		<!-- Philippines; flag; philippines -->
+		<annotation cp='[{🇵🇭}]'>Filippseyjar</annotation>
+
+		<!-- Pitcairn Islands; flag; islands; pitcairn -->
+		<annotation cp='[{🇵🇳}]'>Pitcairn-eyjar</annotation>
+
+		<!-- Poland; flag; poland -->
+		<annotation cp='[{🇵🇱}]'>Pólland</annotation>
+
+		<!-- Portugal; flag; portugal -->
+		<annotation cp='[{🇵🇹}]'>Portúgal</annotation>
+
+		<!-- Puerto Rico; flag; puerto; rico -->
+		<annotation cp='[{🇵🇷}]'>Púertó Ríkó</annotation>
+
+		<!-- Qatar; flag; qatar -->
+		<annotation cp='[{🇶🇦}]'>Katar</annotation>
+
+		<!-- Réunion; flag; reunion; réunion -->
+		<annotation cp='[{🇷🇪}]'>Réunion</annotation>
+
+		<!-- Romania; flag; romania -->
+		<annotation cp='[{🇷🇴}]'>Rúmenía</annotation>
+
+		<!-- Russia; flag; russia; russian -->
+		<annotation cp='[{🇷🇺}]'>Rússland</annotation>
+
+		<!-- Rwanda; flag; rwanda -->
+		<annotation cp='[{🇷🇼}]'>Rúanda</annotation>
+
+		<!-- Samoa; flag; samoa -->
+		<annotation cp='[{🇼🇸}]'>Samóa</annotation>
+
+		<!-- San Marino; flag; san marino -->
+		<annotation cp='[{🇸🇲}]'>San Marínó</annotation>
+
+		<!-- São Tomé & Príncipe; flag; principe; príncipe; sao; são; tome; tomé -->
+		<annotation cp='[{🇸🇹}]'>Saó Tóme og Prinsípe</annotation>
+
+		<!-- Saudi Arabia; arabia; flag; saudi -->
+		<annotation cp='[{🇸🇦}]'>Sádi-Arabía</annotation>
+
+		<!-- Senegal; flag; senegal -->
+		<annotation cp='[{🇸🇳}]'>Senegal</annotation>
+
+		<!-- Serbia; flag; serbia -->
+		<annotation cp='[{🇷🇸}]'>Serbía</annotation>
+
+		<!-- Seychelles; flag; seychelles -->
+		<annotation cp='[{🇸🇨}]'>Seychelles-eyjar</annotation>
+
+		<!-- Sierra Leone; flag; sierra leone -->
+		<annotation cp='[{🇸🇱}]'>Síerra Leóne</annotation>
+
+		<!-- Singapore; flag; singapore -->
+		<annotation cp='[{🇸🇬}]'>Singapúr</annotation>
+
+		<!-- Sint Maarten; dutch; flag; maarten; sint -->
+		<annotation cp='[{🇸🇽}]'>Sint Maarten</annotation>
+
+		<!-- Slovakia; flag; slovak; slovakia -->
+		<annotation cp='[{🇸🇰}]'>Slóvakía</annotation>
+
+		<!-- Slovenia; flag; slovenia -->
+		<annotation cp='[{🇸🇮}]'>Slóvenía</annotation>
+
+		<!-- Solomon Islands; flag; islands; solomon -->
+		<annotation cp='[{🇸🇧}]'>Salómonseyjar</annotation>
+
+		<!-- Somalia; flag; somalia -->
+		<annotation cp='[{🇸🇴}]'>Sómalía</annotation>
+
+		<!-- South Africa; africa; flag; south -->
+		<annotation cp='[{🇿🇦}]'>Suður-Afríka</annotation>
+
+		<!-- South Georgia & South Sandwich Islands; flag; georgia; islands; sandwich; south -->
+		<annotation cp='[{🇬🇸}]'>Suður-Georgía og Suður-Sandvíkureyjar</annotation>
+
+		<!-- South Korea; flag; korea; south -->
+		<annotation cp='[{🇰🇷}]'>Suður-Kórea</annotation>
+
+		<!-- South Sudan; flag; south; sudan -->
+		<annotation cp='[{🇸🇸}]'>Suður-Súdan</annotation>
+
+		<!-- Spain; flag; spain -->
+		<annotation cp='[{🇪🇸}]'>Spánn</annotation>
+
+		<!-- Sri Lanka; flag; lanka; sri -->
+		<annotation cp='[{🇱🇰}]'>Srí Lanka</annotation>
+
+		<!-- St. Barthélemy; barthelemy; barthélemy; flag; saint; st. -->
+		<annotation cp='[{🇧🇱}]'>Saint Barthélemy</annotation>
+
+		<!-- St. Helena; ascension; cunha; flag; helena; saint; st.; tristan -->
+		<annotation cp='[{🇸🇭}]'>Sankti Helena</annotation>
+
+		<!-- St. Kitts & Nevis; flag; kitts; nevis; saint; st. -->
+		<annotation cp='[{🇰🇳}]'>Sankti Kitts og Nevis</annotation>
+
+		<!-- St. Lucia; flag; lucia; saint; st. -->
+		<annotation cp='[{🇱🇨}]'>Sankti Lúsía</annotation>
+
+		<!-- St. Martin; flag; french; martin; saint; st. -->
+		<annotation cp='[{🇲🇫}]'>Saint Martin</annotation>
+
+		<!-- St. Pierre & Miquelon; flag; miquelon; pierre; saint; st. -->
+		<annotation cp='[{🇵🇲}]'>Sankti Pierre og Miquelon</annotation>
+
+		<!-- St. Vincent & Grenadines; flag; grenadines; saint; st.; vincent -->
+		<annotation cp='[{🇻🇨}]'>Sankti Vinsent og Grenadíneyjar</annotation>
+
+		<!-- Sudan; flag; sudan -->
+		<annotation cp='[{🇸🇩}]'>Súdan</annotation>
+
+		<!-- Suriname; flag; suriname -->
+		<annotation cp='[{🇸🇷}]'>Súrínam</annotation>
+
+		<!-- Svalbard & Jan Mayen; flag; islands; jan; mayen; svalbard -->
+		<annotation cp='[{🇸🇯}]'>Svalbarði og Jan Mayen</annotation>
+
+		<!-- Swaziland; flag; swaziland -->
+		<annotation cp='[{🇸🇿}]'>Svasíland</annotation>
+
+		<!-- Sweden; flag; sweden -->
+		<annotation cp='[{🇸🇪}]'>Svíþjóð</annotation>
+
+		<!-- Switzerland; flag; switzerland -->
+		<annotation cp='[{🇨🇭}]'>Sviss</annotation>
+
+		<!-- Syria; arab; flag; syria; syrian -->
+		<annotation cp='[{🇸🇾}]'>Sýrland</annotation>
+
+		<!-- Taiwan; china; flag; taiwan -->
+		<annotation cp='[{🇹🇼}]'>Taívan</annotation>
+
+		<!-- Tajikistan; flag; tajikistan -->
+		<annotation cp='[{🇹🇯}]'>Tadsjikistan</annotation>
+
+		<!-- Tanzania; flag; tanzania; united -->
+		<annotation cp='[{🇹🇿}]'>Tansanía</annotation>
+
+		<!-- Thailand; flag; thailand -->
+		<annotation cp='[{🇹🇭}]'>Taíland</annotation>
+
+		<!-- Timor-Leste; east; flag; leste; timor -->
+		<annotation cp='[{🇹🇱}]'>Tímor-Leste</annotation>
+
+		<!-- Togo; flag; togo -->
+		<annotation cp='[{🇹🇬}]'>Tógó</annotation>
+
+		<!-- Tokelau; flag; tokelau -->
+		<annotation cp='[{🇹🇰}]'>Tókelá</annotation>
+
+		<!-- Tonga; flag; tonga -->
+		<annotation cp='[{🇹🇴}]'>Tonga</annotation>
+
+		<!-- Trinidad & Tobago; flag; tobago; trinidad -->
+		<annotation cp='[{🇹🇹}]'>Trínidad og Tóbagó</annotation>
+
+		<!-- Tristan da Cunha; cunha; flag; tristan -->
+		<annotation cp='[{🇹🇦}]'>Tristan da Cunha</annotation>
+
+		<!-- Tunisia; flag; tunisia -->
+		<annotation cp='[{🇹🇳}]'>Túnis</annotation>
+
+		<!-- Turkey; flag; turkey -->
+		<annotation cp='[{🇹🇷}]'>Tyrkland</annotation>
+
+		<!-- Turkmenistan; flag; turkmenistan -->
+		<annotation cp='[{🇹🇲}]'>Túrkmenistan</annotation>
+
+		<!-- Turks & Caicos Islands; caicos; flag; islands; turks -->
+		<annotation cp='[{🇹🇨}]'>Turks- og Caicoseyjar</annotation>
+
+		<!-- Tuvalu; flag; tuvalu -->
+		<annotation cp='[{🇹🇻}]'>Túvalú</annotation>
+
+		<!-- Uganda; flag; uganda -->
+		<annotation cp='[{🇺🇬}]'>Úganda</annotation>
+
+		<!-- Ukraine; flag; ukraine -->
+		<annotation cp='[{🇺🇦}]'>Úkraína</annotation>
+
+		<!-- United Arab Emirates; arab; emirates; flag; united -->
+		<annotation cp='[{🇦🇪}]'>Sameinuðu arabísku furstadæmin</annotation>
+
+		<!-- United Kingdom; britain; cornwall; flag; great; ireland; kingdom; northern; scotland; united; wales -->
+		<annotation cp='[{🇬🇧}]'>Bretland</annotation>
+
+		<!-- United States; america; flag; u.s.; u.s.a.; united; us; usa -->
+		<annotation cp='[{🇺🇸}]'>Bandaríkin</annotation>
+
+		<!-- Uruguay; flag; uruguay -->
+		<annotation cp='[{🇺🇾}]'>Úrúgvæ</annotation>
+
+		<!-- U.S. Outlying Islands; flag; islands; outlying; u.s.; united -->
+		<annotation cp='[{🇺🇲}]'>Smáeyjar Bandaríkjanna</annotation>
+
+		<!-- U.S. Virgin Islands; flag; islands; u.s.; united; virgin islands -->
+		<annotation cp='[{🇻🇮}]'>Bandarísku Jómfrúaeyjar</annotation>
+
+		<!-- Uzbekistan; flag; uzbekistan -->
+		<annotation cp='[{🇺🇿}]'>Úsbekistan</annotation>
+
+		<!-- Vanuatu; flag; vanuatu -->
+		<annotation cp='[{🇻🇺}]'>Vanúatú</annotation>
+
+		<!-- Vatican City; city; flag; holy; see; vatican -->
+		<annotation cp='[{🇻🇦}]'>Vatíkanið</annotation>
+
+		<!-- Venezuela; flag; venezuela -->
+		<annotation cp='[{🇻🇪}]'>Venesúela</annotation>
+
+		<!-- Vietnam; flag; nam; viet; vietnam -->
+		<annotation cp='[{🇻🇳}]'>Víetnam</annotation>
+
+		<!-- Wallis & Futuna; flag; futuna; islands; wallis -->
+		<annotation cp='[{🇼🇫}]'>Wallis- og Fútúnaeyjar</annotation>
+
+		<!-- Western Sahara; flag; sahara; western -->
+		<annotation cp='[{🇪🇭}]'>Vestur-Sahara</annotation>
+
+		<!-- Yemen; flag; yemen -->
+		<annotation cp='[{🇾🇪}]'>Jemen</annotation>
+
+		<!-- Zambia; flag; zambia -->
+		<annotation cp='[{🇿🇲}]'>Sambía</annotation>
+
+		<!-- Zimbabwe; flag; zimbabwe -->
+		<annotation cp='[{🇿🇼}]'>Simbabve</annotation>
+
+		<!-- UPWARDS BLACK ARROW; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]'>MISSING</annotation>
+
+		<!-- NORTH EAST ARROW; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]'>MISSING</annotation>
+
+		<!-- BLACK RIGHTWARDS ARROW; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]'>MISSING</annotation>
+
+		<!-- SOUTH EAST ARROW; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]'>MISSING</annotation>
+
+		<!-- DOWNWARDS BLACK ARROW; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]'>MISSING</annotation>
+
+		<!-- SOUTH WEST ARROW; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]'>MISSING</annotation>
+
+		<!-- LEFTWARDS BLACK ARROW; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]'>MISSING</annotation>
+
+		<!-- NORTH WEST ARROW; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]'>MISSING</annotation>
+
+		<!-- UP DOWN ARROW; arrow -->
+		<annotation cp='[↕]'>MISSING</annotation>
+
+		<!-- LEFT RIGHT ARROW; arrow -->
+		<annotation cp='[↔]'>MISSING</annotation>
+
+		<!-- LEFTWARDS ARROW WITH HOOK; arrow -->
+		<annotation cp='[↩]'>MISSING</annotation>
+
+		<!-- RIGHTWARDS ARROW WITH HOOK; arrow -->
+		<annotation cp='[↪]'>MISSING</annotation>
+
+		<!-- ARROW POINTING RIGHTWARDS THEN CURVING UPWARDS; arrow -->
+		<annotation cp='[⤴]'>MISSING</annotation>
+
+		<!-- ARROW POINTING RIGHTWARDS THEN CURVING DOWNWARDS; arrow; down -->
+		<annotation cp='[⤵]'>MISSING</annotation>
+
+		<!-- CLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='endurhlaða'>endurhlaða; endurhleðslutákn; lóðréttar réttsælisörvar; örvar</annotation>
+
+		<!-- ANTICLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='rangsælis örvar'>rangsælis; örvar</annotation>
+
+		<!-- BACK WITH LEFTWARDS ARROW ABOVE; arrow; back -->
+		<annotation cp='[🔙]' tts='til baka'>ör til baka; ör til vinstri; vinstri ör; ör</annotation>
+
+		<!-- END WITH LEFTWARDS ARROW ABOVE; arrow; end -->
+		<annotation cp='[🔚]' tts='endir'>endir; endaör; endaör til vinstri; vinstri ör; ör</annotation>
+
+		<!-- ON WITH EXCLAMATION MARK WITH LEFT RIGHT ARROW ABOVE; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='kveikt-ör'>kveikt-ör; Kveikt með upphrópunarmerki og ör; ör; upphrópunarmerki; upphrópun</annotation>
+
+		<!-- SOON WITH RIGHTWARDS ARROW ABOVE; arrow; soon -->
+		<annotation cp='[🔜]' tts='bráðum-merki'>bráðum-merki; bráðum; bráðum með vinstri ör; ör</annotation>
+
+		<!-- TOP WITH UPWARDS ARROW ABOVE; arrow; top; up -->
+		<annotation cp='[🔝]' tts='efst-ör'>efst-ör; efst; toppur; ör upp; upp ör; upp</annotation>
+
+		<!-- OM SYMBOL; hindu; om; religion -->
+		<annotation cp='[🕉]'>MISSING</annotation>
+
+		<!-- STAR OF DAVID; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]'>MISSING</annotation>
+
+		<!-- WHEEL OF DHARMA; buddhist; dharma; object; religion; wheel -->
+		<annotation cp='[☸]'>MISSING</annotation>
+
+		<!-- YIN YANG; religion; sign; tao; taoist; yang; yin -->
+		<annotation cp='[☯]'>MISSING</annotation>
+
+		<!-- LATIN CROSS; christian; cross; religion -->
+		<annotation cp='[✝]'>MISSING</annotation>
+
+		<!-- ORTHODOX CROSS; christian; cross; religion -->
+		<annotation cp='[☦]'>MISSING</annotation>
+
+		<!-- SHINTO SHRINE; religion; shinto; shrine -->
+		<annotation cp='[⛩]'>MISSING</annotation>
+
+		<!-- STAR AND CRESCENT; islam; muslim; religion -->
+		<annotation cp='[☪]'>MISSING</annotation>
+
+		<!-- PEACE SYMBOL; peace; sign -->
+		<annotation cp='[☮]'>MISSING</annotation>
+
+		<!-- RADIOACTIVE SIGN; radioactive; sign -->
+		<annotation cp='[☢]'>MISSING</annotation>
+
+		<!-- BIOHAZARD SIGN; biohazard; sign -->
+		<annotation cp='[☣]'>MISSING</annotation>
+
+		<!-- BLACK UNIVERSAL RECYCLING SYMBOL; recycle; sign; travel -->
+		<annotation cp='[♻]' tts='endurvinnsla'>endurvinnsla; alþjóðlegt endurvinnslumerki; endurvinnslumerki</annotation>
+
+		<!-- HIGH VOLTAGE SIGN; danger; electric; electricity; lightning; nature; travel; voltage; zap -->
+		<annotation cp='[⚡]' tts='háspenna'>háspenna; háspenna lífshætta; lífshætta; spenna; rafmagn</annotation>
+
+		<!-- WHITE MEDIUM STAR; nature; star -->
+		<annotation cp='[⭐]'>MISSING</annotation>
+
+		<!-- HEAVY LARGE CIRCLE; circle; o; travel -->
+		<annotation cp='[⭕]'>MISSING</annotation>
+
+		<!-- WHITE HEAVY CHECK MARK; check; mark; sign -->
+		<annotation cp='[✅]' tts='hak'>hak; hakmerki</annotation>
+
+		<!-- BALLOT BOX WITH CHECK; ballot; box; check; sign -->
+		<annotation cp='[☑]'>MISSING</annotation>
+
+		<!-- HEAVY CHECK MARK; check; mark; sign -->
+		<annotation cp='[✔]'>MISSING</annotation>
+
+		<!-- HEAVY MULTIPLICATION X; cancel; multiplication; multiply; sign; x -->
+		<annotation cp='[✖]'>MISSING</annotation>
+
+		<!-- CROSS MARK; cancel; mark; multiplication; multiply; sign; x -->
+		<annotation cp='[❌]' tts='kross'>kross; krossmerki; "X"</annotation>
+
+		<!-- NEGATIVE SQUARED CROSS MARK; mark; sign; square -->
+		<annotation cp='[❎]' tts='kross'>kross; krossmerki; "X" í kassa</annotation>
+
+		<!-- HEAVY PLUS SIGN; math; plus; sign -->
+		<annotation cp='[➕]' tts='plús'>plús; þykkur plús; plúsmerki</annotation>
+
+		<!-- HEAVY MINUS SIGN; math; minus; sign -->
+		<annotation cp='[➖]' tts='mínus'>mínus; þykkur mínus; mínusmerki</annotation>
+
+		<!-- HEAVY DIVISION SIGN; division; math; sign -->
+		<annotation cp='[➗]' tts='deiling'>deiling; þykkt deilingarmerki; deilingarmerki</annotation>
+
+		<!-- CURLY LOOP; curl; loop; sign -->
+		<annotation cp='[➰]' tts='lykkja'>lykkja</annotation>
+
+		<!-- DOUBLE CURLY LOOP; curl; double; loop; sign -->
+		<annotation cp='[➿]' tts='tvöföld lykkja'>lykkjur; gormur</annotation>
+
+		<!-- PART ALTERNATION MARK; mark; part; sign -->
+		<annotation cp='[〽]'>MISSING</annotation>
+
+		<!-- EIGHT SPOKED ASTERISK; asterisk; sign -->
+		<annotation cp='[✳]'>MISSING</annotation>
+
+		<!-- EIGHT POINTED BLACK STAR; sign; star -->
+		<annotation cp='[✴]'>MISSING</annotation>
+
+		<!-- SPARKLE; sign; sparkle -->
+		<annotation cp='[❇]'>MISSING</annotation>
+
+		<!-- BLACK SMALL SQUARE; geometric; sign; square -->
+		<annotation cp='[▪]'>MISSING</annotation>
+
+		<!-- WHITE SMALL SQUARE; geometric; sign; square -->
+		<annotation cp='[▫]'>MISSING</annotation>
+
+		<!-- WHITE MEDIUM SQUARE; geometric; sign; square -->
+		<annotation cp='[◻]'>MISSING</annotation>
+
+		<!-- BLACK MEDIUM SQUARE; geometric; sign; square -->
+		<annotation cp='[◼]'>MISSING</annotation>
+
+		<!-- WHITE MEDIUM SMALL SQUARE; geometric; sign; square -->
+		<annotation cp='[◽]'>MISSING</annotation>
+
+		<!-- BLACK MEDIUM SMALL SQUARE; geometric; sign; square -->
+		<annotation cp='[◾]'>MISSING</annotation>
+
+		<!-- BLACK LARGE SQUARE; geometric; sign; square -->
+		<annotation cp='[⬛]'>MISSING</annotation>
+
+		<!-- WHITE LARGE SQUARE; geometric; sign; square -->
+		<annotation cp='[⬜]'>MISSING</annotation>
+
+		<!-- LARGE ORANGE DIAMOND; diamond; geometric; orange; sign -->
+		<annotation cp='[🔶]' tts='stór tígull'>stór appelsínugulur tígull; appelsínugulur; tígull</annotation>
+
+		<!-- LARGE BLUE DIAMOND; blue; diamond; geometric; sign -->
+		<annotation cp='[🔷]' tts='stór tígull'>stór blár tígull; blár; tígull; </annotation>
+
+		<!-- SMALL ORANGE DIAMOND; diamond; geometric; orange; sign -->
+		<annotation cp='[🔸]' tts='lítill tígull'>lítill appelsínugulur tígull; appelsínugulur; tígull</annotation>
+
+		<!-- SMALL BLUE DIAMOND; blue; diamond; geometric; sign -->
+		<annotation cp='[🔹]' tts='lítill tígull'>lítill blár tígull; blár; tígull</annotation>
+
+		<!-- UP-POINTING RED TRIANGLE; geometric; red; sign -->
+		<annotation cp='[🔺]' tts='uppvísandi þríhyrningur'>rauður þríhyrningur upp; rauður; þríhyrningur</annotation>
+
+		<!-- DOWN-POINTING RED TRIANGLE; down; geometric; red; sign -->
+		<annotation cp='[🔻]' tts='niðurvísandi þríhyrningur'>rauður þríhyrningur niður; rauður; þríhyrningur</annotation>
+
+		<!-- DIAMOND SHAPE WITH A DOT INSIDE; comic; diamond; emotion; geometric; inside; sign -->
+		<annotation cp='[💠]' tts='blóm'>blóm; sætt; tígullaga; tígull; tilfinningar</annotation>
+
+		<!-- RADIO BUTTON; button; geometric; radio; sign -->
+		<annotation cp='[🔘]' tts='valhnappur'>valhnappur; hnappur</annotation>
+
+		<!-- BLACK SQUARE BUTTON; button; geometric; sign; square -->
+		<annotation cp='[🔲]' tts='ferningslaga hnappur'>ferningur; hnappur</annotation>
+
+		<!-- WHITE SQUARE BUTTON; button; geometric; outlined; sign; square -->
+		<annotation cp='[🔳]' tts='ferningslaga hnappur'>ferningur; hnappur</annotation>
+
+		<!-- MEDIUM WHITE CIRCLE; circle; geometric; sign -->
+		<annotation cp='[⚪]'>MISSING</annotation>
+
+		<!-- MEDIUM BLACK CIRCLE; circle; geometric; sign -->
+		<annotation cp='[⚫]'>MISSING</annotation>
+
+		<!-- LARGE RED CIRCLE; circle; geometric; red; sign -->
+		<annotation cp='[🔴]' tts='stór hringur'>stór rauður hringur; rauður; hringur</annotation>
+
+		<!-- LARGE BLUE CIRCLE; blue; circle; geometric; sign -->
+		<annotation cp='[🔵]' tts='stór hringur'>stór blár hringur; blár; hringur</annotation>
+
+		<!-- DOUBLE EXCLAMATION MARK; bangbang; exclamation; mark; punctuation; word -->
+		<annotation cp='[‼]'>MISSING</annotation>
+
+		<!-- EXCLAMATION QUESTION MARK; exclamation; interrobang; mark; punctuation; question; word -->
+		<annotation cp='[⁉]'>MISSING</annotation>
+
+		<!-- BLACK QUESTION MARK ORNAMENT; mark; punctuation; question; word -->
+		<annotation cp='[❓]' tts='spurningarmerki'>spurningarmerki; spurning</annotation>
+
+		<!-- WHITE QUESTION MARK ORNAMENT; mark; outlined; punctuation; question; word -->
+		<annotation cp='[❔]' tts='spurningarmerki'>spurningarmerki; spurning</annotation>
+
+		<!-- WHITE EXCLAMATION MARK ORNAMENT; exclamation; mark; outlined; punctuation; word -->
+		<annotation cp='[❕]' tts='upphrópunarmerki'>upphrópunarmerki; upphrópun</annotation>
+
+		<!-- HEAVY EXCLAMATION MARK SYMBOL; exclamation; mark; punctuation; word -->
+		<annotation cp='[❗]'>MISSING</annotation>
+
+		<!-- WAVY DASH; dash; punctuation; sound; wavy -->
+		<annotation cp='[〰]' tts='bugðustrik'>bugðustrik; alda; bugða; strik</annotation>
+
+		<!-- NO ONE UNDER EIGHTEEN SYMBOL; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage; word -->
+		<annotation cp='[🔞]' tts='enginn undir 18 ára'>bannað undir 18 ára; undir 18; 18</annotation>
+
+		<!-- COPYRIGHT SIGN; copyright; symbol; word -->
+		<annotation cp='[©]' tts='höfundarréttarmerki'>höfundarréttarmerki; höfundarréttur; höfundarréttarvarið</annotation>
+
+		<!-- REGISTERED SIGN; registered; symbol; word -->
+		<annotation cp='[®]' tts='skráð'>skráð; skráð vörumerki</annotation>
+
+		<!-- INPUT SYMBOL FOR LATIN CAPITAL LETTERS; input; latin; letters; uppercase; word -->
+		<annotation cp='[🔠]' tts='hástafir'>hástafir; setja inn latneska hástafi; latneskir hástafir; latneskt letur</annotation>
+
+		<!-- INPUT SYMBOL FOR LATIN SMALL LETTERS; abcd; input; latin; letters; lowercase; word -->
+		<annotation cp='[🔡]' tts='lágstafir'>lágstafir; setja inn latneska lágstafi; latneskir lágstafir; latneskt letur</annotation>
+
+		<!-- INPUT SYMBOL FOR NUMBERS; 1234; input; numbers; word -->
+		<annotation cp='[🔢]' tts='tölustafir'>tölustafir; setja inn tölustafi</annotation>
+
+		<!-- INPUT SYMBOL FOR SYMBOLS; input; symbols; word -->
+		<annotation cp='[🔣]' tts='tákn'>tákn; setja inn tákn</annotation>
+
+		<!-- INPUT SYMBOL FOR LATIN LETTERS; abc; alphabet; input; latin; letters; word -->
+		<annotation cp='[🔤]' tts='latneska stafrófið'>setja inn latneska stafrófið; enska; ABC</annotation>
+
+		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER A; a; blood; word -->
+		<annotation cp='[🅰]' tts='A-blóðflokkur'>A-blóðflokkur; blóðflokkur A; blóðflokkur; blóð; A</annotation>
+
+		<!-- NEGATIVE SQUARED AB; ab; blood; word -->
+		<annotation cp='[🆎]' tts='AB-blóðflokkur'>AB-blóðflokkur; blóðflokkur AB; blóðflokkur; blóð; AB</annotation>
+
+		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER B; b; blood; word -->
+		<annotation cp='[🅱]' tts='B-blóðflokkur'>B-blóðflokkur; blóðflokkur B; blóðflokkur; blóð; B</annotation>
+
+		<!-- SQUARED CL; cl; word -->
+		<annotation cp='[🆑]' tts='CL'>CL; CL-skilti; skilti</annotation>
+
+		<!-- SQUARED COOL; cool; word -->
+		<annotation cp='[🆒]' tts='svalt'>svalt; kúl; skilti</annotation>
+
+		<!-- SQUARED FREE; free; word -->
+		<annotation cp='[🆓]' tts='ókeypis'>ókeypis; ókeypis-skilti; skilti</annotation>
+
+		<!-- INFORMATION SOURCE; i; information; word -->
+		<annotation cp='[ℹ]'>MISSING</annotation>
+
+		<!-- SQUARED ID; id; identity; word -->
+		<annotation cp='[🆔]' tts='ID'>ID; ID-skilti; skilríki; skilti</annotation>
+
+		<!-- CIRCLED LATIN CAPITAL LETTER M; circle; m; word -->
+		<annotation cp='[Ⓜ]'>MISSING</annotation>
+
+		<!-- SQUARED NEW; new; word -->
+		<annotation cp='[🆕]' tts='nýtt'>nýtt; nýtt-skilti; skilti</annotation>
+
+		<!-- SQUARED NG; ng; word -->
+		<annotation cp='[🆖]' tts='NG'>NG; NG-skilti; skilti</annotation>
+
+		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER O; blood; o; word -->
+		<annotation cp='[🅾]' tts='O-blóðflokkur'>O-blóðflokkur; blóðflokkur O; blóðflokkur; blóð; O</annotation>
+
+		<!-- SQUARED OK; ok; word -->
+		<annotation cp='[🆗]' tts='OK'>OK; OK-skilti; í lagi</annotation>
+
+		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER P; parking; sign; word -->
+		<annotation cp='[🅿]' tts='bílastæði'>bílastæði; leggja</annotation>
+
+		<!-- SQUARED SOS; help; sos; word -->
+		<annotation cp='[🆘]' tts='SOS'>SOS; SOS-skilti; hjálp; skilti</annotation>
+
+		<!-- TRADE MARK SIGN; mark; symbol; tm; trademark; word -->
+		<annotation cp='[™]' tts='skrásett vörumerki'>vörumerki</annotation>
+
+		<!-- SQUARED UP WITH EXCLAMATION MARK; mark; up; word -->
+		<annotation cp='[🆙]' tts='UP!'>UP!; UP! skilti; skilti</annotation>
+
+		<!-- SQUARED VS; versus; vs; word -->
+		<annotation cp='[🆚]' tts='VS'>VS; versus; versus-skilti; skilti; gegn</annotation>
+
+		<!-- SQUARED KATAKANA KOKO; japanese; word -->
+		<annotation cp='[🈁]' tts='Japanskt orð'>Japanskt orð</annotation>
+
+		<!-- SQUARED KATAKANA SA; japanese; word -->
+		<annotation cp='[🈂]' tts='Japanskt orð'>Japanskt orð</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-5272; japanese; word -->
+		<annotation cp='[🈹]' tts='Japanskt orð'>Japanskt orð</annotation>
+
+		<!-- CIRCLED IDEOGRAPH ACCEPT; chinese; word -->
+		<annotation cp='[🉑]' tts='Kínverskt orð'>Kínverskt orð</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-5408; chinese; word -->
+		<annotation cp='[🈴]' tts='Kínverskt orð'>Kínverskt orð</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-55B6; chinese; word -->
+		<annotation cp='[🈺]' tts='Kínverskt orð'>Kínverskt orð</annotation>
+
+		<!-- CIRCLED IDEOGRAPH ADVANTAGE; japanese; word -->
+		<annotation cp='[🉐]' tts='Japanskt orð'>Japanskt orð</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6307; japanese; word -->
+		<annotation cp='[🈯]' tts='Japanskt orð'>Japanskt orð</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6708; japanese; word -->
+		<annotation cp='[🈷]' tts='Japanskt orð'>Japanskt orð</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6709; japanese; word -->
+		<annotation cp='[🈶]' tts='Japanskt orð'>Japanskt orð</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6E80; chinese; word -->
+		<annotation cp='[🈵]' tts='Kínverskt orð'>Kínverskt orð</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7121; japanese; word -->
+		<annotation cp='[🈚]' tts='Japanskt orð'>Japanskt orð</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7533; chinese; word -->
+		<annotation cp='[🈸]' tts='Kínverskt orð'>Kínverskt orð</annotation>
+
+		<!-- CIRCLED IDEOGRAPH CONGRATULATION; congratulation; congratulations; ideograph; word -->
+		<annotation cp='[㊗]'>MISSING</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7981; japanese; word -->
+		<annotation cp='[🈲]' tts='Japanskt orð'>Japanskt orð</annotation>
+
+		<!-- CIRCLED IDEOGRAPH SECRET; ideograph; secret; word -->
+		<annotation cp='[㊙]'>MISSING</annotation>
+
+		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7A7A; chinese; word -->
+		<annotation cp='[🈳]' tts='Kínverskt orð'>Kínverskt orð</annotation>
+	</annotations>
+</ldml>

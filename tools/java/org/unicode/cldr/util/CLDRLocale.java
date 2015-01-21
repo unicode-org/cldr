@@ -289,7 +289,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         // }
         str = process(str);
         // System.err.println("bn: " + str);
-        if (str.equals(ULocale.ROOT.getBaseName()) || str.equals("root")) {
+        if (str.equals(ULocale.ROOT.getBaseName()) || str.equalsIgnoreCase("root")) {
             fullname = "root";
             parent = null;
         } else {

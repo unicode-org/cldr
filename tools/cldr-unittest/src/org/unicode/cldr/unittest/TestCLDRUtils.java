@@ -247,6 +247,13 @@ public class TestCLDRUtils extends TestFmwk {
 			checkChild(ml, child, false);
 		}
 	}
+	
+	public void TestCLDRLocaleEquivalence() {
+        assertEquals("root is caseless", CLDRLocale.getInstance("root"), CLDRLocale.getInstance("RoOt"));
+        assertEquals("root = empty", CLDRLocale.getInstance("root"), CLDRLocale.getInstance(""));
+        String test = "zh-TW-u-co-pinyin";
+        assertEquals(test, test, CLDRLocale.getInstance(test).toLanguageTag());
+	}
 
 	private boolean checkChild(CLDRLocale parent, CLDRLocale child,
 			boolean expected) {

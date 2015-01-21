@@ -95,6 +95,9 @@ public class ShowRegionalVariants {
             }
             parentToChildren.put(parent, loc);
         }
+        
+        // show inheritance
+        showInheritance(parentToChildren);
 
         // next find out the unique items in children
         Relation<String,String> valueToAncestors = Relation.of(new LinkedHashMap<String,Set<String>>(), LinkedHashSet.class);
@@ -108,8 +111,7 @@ public class ShowRegionalVariants {
             ) {
             grandSummary.println("Parent\tName\tTotal Diff Count\tChildren");
             summary.println("Parent\tName\tDiff Count\tChild\tChild Name");
-            detailFile.println("No.\tBase\tSection\tPage\tHeader\tCode\tEnglish\tLocales\tvalue\tChange?\tComment?\tParent Locales\tvalue\tParent Locales\tvalue");
-
+            detailFile.println("№\tBase\tParent Locales I\tParent Locales II\tChild Locales\tEnglish value\tParent value I\tParent value II\tChild value\tCorrected Child value\tComments\tFix Parent value?\tSection\tPage\tHeader\tCode");
             PathHeader.Factory phf = PathHeader.getFactory(ENGLISH);
             String lastBase = "";
             for (Entry<CLDRLocale, Set<CLDRLocale>> item : parentToChildren.keyValuesSet()) {
@@ -214,19 +216,46 @@ public class ShowRegionalVariants {
                         Set<CLDRLocale> childLocales = values.get(value).keySet();
                         String englishValue = ENGLISH.getStringValue(ph.getOriginalPath());
                         String originalPath = ph.getOriginalPath();
-                        detailFile.print(++count + "\t" + base + "\t" + ph 
-                            + "\t" + quote(englishValue)
-                            + "\t" + childLocales 
-                            + "\t" + quote(value)
-                            + "\t" + "change?"
-                            + "\t" + "comment?"
-                            );
                         for (CLDRFile grand : parentChain) {
                             valueToAncestors.put(quote(grand.getStringValue(originalPath)), grand.getLocaleID());
                         }
-                        for (Entry<String, Set<String>> entry : valueToAncestors.keyValuesSet()) {
-                            detailFile.print("\t" + entry.getValue() + "\t" + entry.getKey());
+                        Set<Entry<String, Set<String>>> keyValuesSet = valueToAncestors.keyValuesSet();
+                        final int countParents = keyValuesSet.size();
+                        if (countParents < 1 || countParents > 2) {
+                            throw new IllegalArgumentException("Too few/many parents");
                         }
+
+                        // // №  Base    Parent Locales I    Parent Locales II   Child Locales   English value   Parent value I  Parent value II Child value
+                        // Corrected Child value   Comments    Fix Parent value?   Section Page    Header  Code                                            
+
+                        detailFile.print(
+                            ++count 
+                            + "\t" + base 
+                            );
+                        
+                        for (Entry<String, Set<String>> entry : keyValuesSet) {
+                            detailFile.print("\t" + entry.getValue());
+                        }
+                        if (countParents == 1) {
+                            detailFile.print("\t"); 
+                        }
+                        detailFile.print(""
+                            + "\t" + childLocales 
+                            + "\t" + quote(englishValue)
+                            );
+                        for (Entry<String, Set<String>> entry : keyValuesSet) {
+                            detailFile.print("\t" + entry.getKey());
+                        }
+                        if (countParents == 1) {
+                            detailFile.print("\t"); 
+                        }
+                        detailFile.print(""
+                            + "\t" + quote(value)
+                            + "\t" + ""
+                            + "\t" + ""
+                            + "\t" + ""
+                            + "\t" + ph 
+                            );
                         detailFile.println();
                     }
                 }
@@ -237,6 +266,29 @@ public class ShowRegionalVariants {
 //        if (detailFile != null) {
 //            detailFile.close();
 //        }
+    }
+
+    private static void showInheritance(Relation<CLDRLocale, CLDRLocale> parentToChildren) {
+        Set<CLDRLocale> values = parentToChildren.values();
+        Set<CLDRLocale> topParents = new TreeSet<>(parentToChildren.keySet());
+        topParents.removeAll(values);
+        showInheritance(topParents, "", parentToChildren);
+    }
+
+    private static void showInheritance(Set<CLDRLocale> topParents, String prefix, Relation<CLDRLocale, CLDRLocale> parentToChildren) {
+        for (CLDRLocale locale : topParents) {
+            String current = nameForLocale(locale) + "\t" + prefix;
+            System.out.println(current);
+            Set<CLDRLocale> newChildren = parentToChildren.get(locale);
+            if (newChildren == null) {
+                continue;
+            }
+            showInheritance(newChildren, current, parentToChildren);
+        }
+    }
+
+    private static String nameForLocale(CLDRLocale key) {
+        return ENGLISH.getName(key.toString(), false, CLDRFile.SHORT_ALTS) + "\t" + key + "\t" + key.getCountry();
     }
 
     private static boolean sameExceptEnd(String childValue, String childEnding, String parentValue, String parentEnding) {

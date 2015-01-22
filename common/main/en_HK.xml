@@ -38,7 +38,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
 						<dateFormatItem id="yyyyMd">d/M/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">E, d/M/y GGGGG</dateFormatItem>
@@ -89,33 +88,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Md" draft="unconfirmed">d/M</dateFormatItem>
 						<dateFormatItem id="MEd" draft="unconfirmed">E, d/M</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
 						<dateFormatItem id="yM" draft="unconfirmed">M/y</dateFormatItem>
 						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
@@ -147,12 +123,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="d">E, d/M/y – E, d/M/y</greatestDifference>
 							<greatestDifference id="M">E, d/M/y – E, d/M/y</greatestDifference>
 							<greatestDifference id="y">E, d/M/y – E, d/M/y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="unconfirmed">MMM – MMM y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M" draft="unconfirmed">MMMM – MMMM y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>

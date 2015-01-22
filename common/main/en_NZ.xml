@@ -29,7 +29,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="yyyyMd">d/MM/y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
@@ -38,21 +37,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="d" draft="contributed">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="a" draft="contributed">h:mm a – h:mm a</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h:mm–h:mm a</greatestDifference>
 							<greatestDifference id="m" draft="contributed">h:mm–h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a" draft="contributed">h:mm a – h:mm a v</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h:mm–h:mm a v</greatestDifference>
 							<greatestDifference id="m" draft="contributed">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a" draft="contributed">h a – h a v</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
@@ -71,7 +66,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
 							<greatestDifference id="d" draft="contributed">d–d MMM</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM – d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d" draft="contributed">E, d – E, d MMM</greatestDifference>
@@ -93,17 +87,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M" draft="contributed">MMM–MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">MMM y – MMM y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
 							<greatestDifference id="d" draft="contributed">d–d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d MMM y – d MMM y G</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d" draft="contributed">E, d – E, d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E, d MMM – E, d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E, d MMM y – E, d MMM y G</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -121,32 +107,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="yMd">d/MM/y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
@@ -155,21 +118,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="d" draft="contributed">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="a" draft="contributed">h:mm a – h:mm a</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h:mm–h:mm a</greatestDifference>
 							<greatestDifference id="m" draft="contributed">h:mm–h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a" draft="contributed">h:mm a – h:mm a v</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h:mm–h:mm a v</greatestDifference>
 							<greatestDifference id="m" draft="contributed">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a" draft="contributed">h a – h a v</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
@@ -188,15 +147,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
 							<greatestDifference id="d" draft="contributed">d–d MMM</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM – d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d" draft="contributed">E, d – E, d MMM</greatestDifference>
 							<greatestDifference id="M" draft="contributed">E, d MMM – E, d MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yM">
-							<greatestDifference id="M" draft="contributed">MM/y – MM/y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">MM/y – MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="d" draft="contributed">d/MM/y – d/MM/y</greatestDifference>
@@ -210,17 +164,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M" draft="contributed">MMM–MMM y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">MMM y – MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
 							<greatestDifference id="d" draft="contributed">d–d MMM y</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM – d MMM y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d MMM y – d MMM y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d" draft="contributed">E, d – E, d MMM y</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E, d MMM – E, d MMM y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E, d MMM y – E, d MMM y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>

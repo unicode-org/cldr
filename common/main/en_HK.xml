@@ -68,7 +68,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y">E, d/M/y – E, d/M/y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d–d MMM, y G</greatestDifference>
+							<greatestDifference id="d">d – d MMM, y G</greatestDifference>
 							<greatestDifference id="M">d MMM – d MMM, y G</greatestDifference>
 							<greatestDifference id="y">d MMM, y – d MMM, y G</greatestDifference>
 						</intervalFormatItem>
@@ -127,42 +127,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
-			<calendar type="japanese">
-				<eras>
-					<eraAbbr>
-						<era type="161">Bunchū</era>
-						<era type="165">Genchū</era>
-					</eraAbbr>
-				</eras>
-			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<zone type="Europe/London">
-				<short>
-					<daylight>∅∅∅</daylight>
-				</short>
-			</zone>
-			<metazone type="Europe_Central">
-				<short>
-					<generic>∅∅∅</generic>
-					<standard>∅∅∅</standard>
-					<daylight>∅∅∅</daylight>
-				</short>
-			</metazone>
-			<metazone type="Europe_Eastern">
-				<short>
-					<generic>∅∅∅</generic>
-					<standard>∅∅∅</standard>
-					<daylight>∅∅∅</daylight>
-				</short>
-			</metazone>
-			<metazone type="Europe_Western">
-				<short>
-					<generic>∅∅∅</generic>
-					<standard>∅∅∅</standard>
-					<daylight>∅∅∅</daylight>
-				</short>
-			</metazone>
 			<metazone type="Hong_Kong">
 				<short>
 					<generic>HKT</generic>

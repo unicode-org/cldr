@@ -1168,10 +1168,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">Robo ya 1</quarter>
-							<quarter type="2">Robo ya 2</quarter>
-							<quarter type="3">Robo ya 3</quarter>
-							<quarter type="4">Robo ya 4</quarter>
+							<quarter type="1">R1</quarter>
+							<quarter type="2">R2</quarter>
+							<quarter type="3">R3</quarter>
+							<quarter type="4">R4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1</quarter>
@@ -1188,10 +1188,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">Robo ya 1</quarter>
-							<quarter type="2">Robo ya 2</quarter>
-							<quarter type="3">Robo ya 3</quarter>
-							<quarter type="4">Robo ya 4</quarter>
+							<quarter type="1">R1</quarter>
+							<quarter type="2">R2</quarter>
+							<quarter type="3">R3</quarter>
+							<quarter type="4">R4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1</quarter>
@@ -1319,7 +1319,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">d-M</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
@@ -4110,7 +4110,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
-				<displayName>dirham ya Falme za Kiarabu</displayName>
+				<displayName>Dirham ya Falme za Kiarabu</displayName>
 				<displayName count="one">dirham ya Falme za Kiarabu</displayName>
 				<displayName count="other">dirham za Falme za Kiarabu</displayName>
 				<symbol>AED</symbol>
@@ -4140,7 +4140,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
-				<displayName>kwanza ya Angola</displayName>
+				<displayName>Kwanza ya Angola</displayName>
 				<displayName count="one">kwanza ya Angola</displayName>
 				<displayName count="other">kwanza za Angola</displayName>
 				<symbol>AOA</symbol>
@@ -4153,7 +4153,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="AUD">
-				<displayName>dola ya Australia</displayName>
+				<displayName>Dola ya Australia</displayName>
 				<displayName count="one">dola ya Australia</displayName>
 				<displayName count="other">dola za Australia</displayName>
 				<symbol>A$</symbol>
@@ -4198,13 +4198,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
-				<displayName>dinari ya Bahareni</displayName>
+				<displayName>Dinari ya Bahareni</displayName>
 				<displayName count="one">dinari ya Bahareni</displayName>
 				<displayName count="other">dinari za Bahareni</displayName>
 				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
-				<displayName>faranga ya Burundi</displayName>
+				<displayName>Faranga ya Burundi</displayName>
 				<displayName count="one">faranga ya Burundi</displayName>
 				<displayName count="other">faranga za Burundi</displayName>
 				<symbol>BIF</symbol>
@@ -4250,7 +4250,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BWP">
-				<displayName>pula ya Botswana</displayName>
+				<displayName>Pula ya Botswana</displayName>
 				<displayName count="one">pula ya Botswana</displayName>
 				<displayName count="other">pula za Botswana</displayName>
 				<symbol>BWP</symbol>
@@ -4270,20 +4270,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CAD">
-				<displayName>dola ya Kanada</displayName>
+				<displayName>Dola ya Kanada</displayName>
 				<displayName count="one">dola ya Kanada</displayName>
 				<displayName count="other">dola za Kanada</displayName>
 				<symbol>CA$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CDF">
-				<displayName>faranga ya Kongo</displayName>
+				<displayName>Faranga ya Kongo</displayName>
 				<displayName count="one">faranga ya Kongo</displayName>
 				<displayName count="other">faranga za Kongo</displayName>
 				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHF">
-				<displayName>faranga ya Uswisi</displayName>
+				<displayName>Faranga ya Uswisi</displayName>
 				<displayName count="one">faranga ya Uswisi</displayName>
 				<displayName count="other">faranga za Uswisi</displayName>
 				<symbol>CHF</symbol>
@@ -4296,7 +4296,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CNY">
-				<displayName>yuan ya Uchina</displayName>
+				<displayName>Yuan ya Uchina</displayName>
 				<displayName count="one">yuan ya Uchina</displayName>
 				<displayName count="other">yuan za Uchina</displayName>
 				<symbol>CN¥</symbol>
@@ -4330,7 +4330,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CVE">
-				<displayName>eskudo ya Kepuvede</displayName>
+				<displayName>Eskudo ya Kepuvede</displayName>
 				<displayName count="one">eskudo ya Kepuvede</displayName>
 				<displayName count="other">eskudo za Kepuvede</displayName>
 				<symbol>CVE</symbol>
@@ -4342,7 +4342,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DJF">
-				<displayName>faranga ya Jibuti</displayName>
+				<displayName>Faranga ya Jibuti</displayName>
 				<displayName count="one">faranga ya Jibuti</displayName>
 				<displayName count="other">faranga za Jibuti</displayName>
 				<symbol>DJF</symbol>
@@ -4361,31 +4361,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="DZD">
-				<displayName>dinari ya Aljeria</displayName>
+				<displayName>Dinari ya Aljeria</displayName>
 				<displayName count="one">dinari ya Aljeria</displayName>
 				<displayName count="other">dinari za Aljeria</displayName>
 				<symbol>DZD</symbol>
 			</currency>
 			<currency type="EGP">
-				<displayName>pauni ya Misri</displayName>
+				<displayName>Pauni ya Misri</displayName>
 				<displayName count="one">pauni ya Misri</displayName>
 				<displayName count="other">pauni za Misri</displayName>
 				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
-				<displayName>nakfa ya Eritrea</displayName>
+				<displayName>Nakfa ya Eritrea</displayName>
 				<displayName count="one">nakfa ya Eritrea</displayName>
 				<displayName count="other">nakfa za Eritrea</displayName>
 				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ETB">
-				<displayName>birr ya Uhabeshi</displayName>
+				<displayName>Nirr ya Uhabeshi</displayName>
 				<displayName count="one">birr ya Uhabeshi</displayName>
 				<displayName count="other">birr za Uhabeshi</displayName>
 				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
-				<displayName>yuro</displayName>
+				<displayName>Yuro</displayName>
 				<displayName count="one">yuro</displayName>
 				<displayName count="other">yuro</displayName>
 				<symbol>€</symbol>
@@ -4405,7 +4405,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>FKP</symbol>
 			</currency>
 			<currency type="GBP">
-				<displayName>pauni ya Uingereza</displayName>
+				<displayName>Pauni ya Uingereza</displayName>
 				<displayName count="one">pauni ya Uingereza</displayName>
 				<displayName count="other">pauni za Uingereza</displayName>
 				<symbol>£</symbol>
@@ -4418,7 +4418,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHC">
-				<displayName>sedi ya Ghana</displayName>
+				<displayName>Sedi ya Ghana</displayName>
 			</currency>
 			<currency type="GHS">
 				<displayName>Cedi ya Ghana</displayName>
@@ -4434,19 +4434,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GMD">
-				<displayName>dalasi ya Gambia</displayName>
+				<displayName>Dalasi ya Gambia</displayName>
 				<displayName count="one">dalasi ya Gambia</displayName>
 				<displayName count="other">dalasi za Gambia</displayName>
 				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
-				<displayName>faranga ya Guinea</displayName>
+				<displayName>Faranga ya Guinea</displayName>
 				<displayName count="one">faranga ya Guinea</displayName>
 				<displayName count="other">faranga za Guinea</displayName>
 				<symbol>GNF</symbol>
 			</currency>
 			<currency type="GNS">
-				<displayName>faranga ya Gine</displayName>
+				<displayName>Faranga ya Gine</displayName>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Quetzal ya Guatemala</displayName>
@@ -4506,7 +4506,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">₪</symbol>
 			</currency>
 			<currency type="INR">
-				<displayName>rupia ya India</displayName>
+				<displayName>Rupia ya India</displayName>
 				<displayName count="one">rupia ya India</displayName>
 				<displayName count="other">rupia za India</displayName>
 				<symbol>₹</symbol>
@@ -4551,7 +4551,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="KES">
-				<displayName>shilingi ya Kenya</displayName>
+				<displayName>Shilingi ya Kenya</displayName>
 				<displayName count="one">shilingi ya Kenya</displayName>
 				<displayName count="other">shilingi za Kenya</displayName>
 				<symbol>Ksh</symbol>
@@ -4570,7 +4570,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">៛</symbol>
 			</currency>
 			<currency type="KMF">
-				<displayName>faranga ya Komoro</displayName>
+				<displayName>Faranga ya Komoro</displayName>
 				<displayName count="one">faranga ya Komoro</displayName>
 				<displayName count="other">faranga za Komoro</displayName>
 				<symbol>KMF</symbol>
@@ -4628,14 +4628,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>LKR</symbol>
 			</currency>
 			<currency type="LRD">
-				<displayName>dola ya Liberia</displayName>
+				<displayName>Dola ya Liberia</displayName>
 				<displayName count="one">dola ya Liberia</displayName>
 				<displayName count="other">dola za Liberia</displayName>
 				<symbol>LRD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="LSL">
-				<displayName>loti ya Lesoto</displayName>
+				<displayName>Loti ya Lesoto</displayName>
 			</currency>
 			<currency type="LTL">
 				<displayName>Litas ya Lithuania</displayName>
@@ -4650,13 +4650,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LYD">
-				<displayName>dinari ya Libya</displayName>
+				<displayName>Dinari ya Libya</displayName>
 				<displayName count="one">dinari ya Libya</displayName>
 				<displayName count="other">dinari za Libya</displayName>
 				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
-				<displayName>dirham ya Moroko</displayName>
+				<displayName>Dirham ya Moroko</displayName>
 				<displayName count="one">dirham ya Moroko</displayName>
 				<displayName count="other">dirham za Moroko</displayName>
 				<symbol>MAD</symbol>
@@ -4705,7 +4705,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MUR">
-				<displayName>rupia ya Morisi</displayName>
+				<displayName>Rupia ya Morisi</displayName>
 				<displayName count="one">rupia ya Morisi</displayName>
 				<displayName count="other">rupia za Morisi</displayName>
 				<symbol>MUR</symbol>
@@ -4717,7 +4717,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
-				<displayName>kwacha ya Malawi</displayName>
+				<displayName>Kwacha ya Malawi</displayName>
 				<displayName count="one">kwacha ya Malawi</displayName>
 				<displayName count="other">kwacha za Malawi</displayName>
 				<symbol>MWK</symbol>
@@ -4736,7 +4736,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>MYR</symbol>
 			</currency>
 			<currency type="MZM">
-				<displayName>metikali ya Msumbiji (1980–2006)</displayName>
+				<displayName>Metikali ya Msumbiji (1980–2006)</displayName>
 				<displayName count="one">metikali ya Msumbiji (1980–2006)</displayName>
 				<displayName count="other">metikali ya Msumbiji (1980–2006)</displayName>
 			</currency>
@@ -4747,14 +4747,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
-				<displayName>dola ya Namibia</displayName>
+				<displayName>Dola ya Namibia</displayName>
 				<displayName count="one">dola ya Namibia</displayName>
 				<displayName count="other">dola za Namibia</displayName>
 				<symbol>NAD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="NGN">
-				<displayName>naira ya Nijeria</displayName>
+				<displayName>Naira ya Nijeria</displayName>
 				<displayName count="one">naira ya Nijeria</displayName>
 				<displayName count="other">naira za Nijeria</displayName>
 				<symbol>NGN</symbol>
@@ -4860,13 +4860,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RWF">
-				<displayName>faranga ya Rwanda</displayName>
+				<displayName>Faranga ya Rwanda</displayName>
 				<displayName count="one">faranga ya Rwanda</displayName>
 				<displayName count="other">faranga za Rwanda</displayName>
 				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
-				<displayName>riyal ya Saudia</displayName>
+				<displayName>Riyal ya Saudia</displayName>
 				<displayName count="one">riyal ya Saudia</displayName>
 				<displayName count="other">riyal za Saudia</displayName>
 				<symbol>SAR</symbol>
@@ -4879,19 +4879,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SCR">
-				<displayName>rupia ya Ushelisheli</displayName>
+				<displayName>Rupia ya Ushelisheli</displayName>
 				<displayName count="one">rupia ya Ushelisheli</displayName>
 				<displayName count="other">rupia za Ushelisheli</displayName>
 				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDG">
-				<displayName>pauni ya Sudani</displayName>
+				<displayName>Pauni ya Sudani</displayName>
 				<displayName count="one">pauni ya Sudani</displayName>
 				<displayName count="other">pauni za Sudani</displayName>
 				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SDP">
-				<displayName>pauni ya Sudani (1957–1998)</displayName>
+				<displayName>Pauni ya Sudani (1957–1998)</displayName>
 				<displayName count="one">pauni ya Sudani (1957–1998)</displayName>
 				<displayName count="other">pauni za Sudani (1957–1998)</displayName>
 			</currency>
@@ -4909,19 +4909,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SHP">
-				<displayName>pauni ya Santahelena</displayName>
+				<displayName>Pauni ya Santahelena</displayName>
 				<displayName count="one">pauni ya Santahelena</displayName>
 				<displayName count="other">pauni za Santahelena</displayName>
 				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SLL">
-				<displayName>leoni</displayName>
+				<displayName>Leoni</displayName>
 				<displayName count="one">leoni</displayName>
 				<displayName count="other">leoni</displayName>
 				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
-				<displayName>shilingi ya Somalia</displayName>
+				<displayName>Shilingi ya Somalia</displayName>
 				<displayName count="one">shilingi ya Somalia</displayName>
 				<displayName count="other">shilingi za Somalia</displayName>
 				<symbol>SOS</symbol>
@@ -4934,14 +4934,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SSP">
-				<displayName>pauni ya Sudani Kusini</displayName>
+				<displayName>Pauni ya Sudani Kusini</displayName>
 				<displayName count="one">pauni ya Sudani Kusini</displayName>
 				<displayName count="other">pauni za Sudani Kusini</displayName>
 				<symbol>SSP</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="STD">
-				<displayName>dobra ya Sao Tome na Principe</displayName>
+				<displayName>Dobra ya Sao Tome na Principe</displayName>
 				<displayName count="one">dobra ya Sao Tome na Principe</displayName>
 				<displayName count="other">dobra za Sao Tome na Principe</displayName>
 				<symbol>STD</symbol>
@@ -4953,7 +4953,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>SYP</symbol>
 			</currency>
 			<currency type="SZL">
-				<displayName>lilangeni</displayName>
+				<displayName>Lilangeni</displayName>
 				<displayName count="one">lilangeni</displayName>
 				<displayName count="other">lilangeni</displayName>
 				<symbol>SZL</symbol>
@@ -4977,7 +4977,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
-				<displayName>dinari ya Tunisia</displayName>
+				<displayName>Dinari ya Tunisia</displayName>
 				<displayName count="one">dinari ya Tunisia</displayName>
 				<displayName count="other">dinari za Tunisia</displayName>
 				<symbol>TND</symbol>
@@ -5010,7 +5010,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">NT$</symbol>
 			</currency>
 			<currency type="TZS">
-				<displayName>shilingi ya Tanzania</displayName>
+				<displayName>Shilingi ya Tanzania</displayName>
 				<displayName count="one">shilingi ya Tanzania</displayName>
 				<displayName count="other">shilingi za Tanzania</displayName>
 				<symbol>TSh</symbol>
@@ -5023,13 +5023,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">₴</symbol>
 			</currency>
 			<currency type="UGX">
-				<displayName>shilingi ya Uganda</displayName>
+				<displayName>Shilingi ya Uganda</displayName>
 				<displayName count="one">shilingi ya Uganda</displayName>
 				<displayName count="other">shilingi za Uganda</displayName>
 				<symbol>UGX</symbol>
 			</currency>
 			<currency type="USD">
-				<displayName>dola ya Marekani</displayName>
+				<displayName>Dola ya Marekani</displayName>
 				<displayName count="one">dola ya Marekani</displayName>
 				<displayName count="other">dola za Marekani</displayName>
 				<symbol>US$</symbol>
@@ -5109,22 +5109,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>YER</symbol>
 			</currency>
 			<currency type="ZAR">
-				<displayName>randi ya Afrika Kusini</displayName>
+				<displayName>Randi ya Afrika Kusini</displayName>
 				<displayName count="one">randi ya Afrika Kusini</displayName>
 				<displayName count="other">randi za Afrika Kusini</displayName>
 				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
-				<displayName>kwacha ya Zambia (1968–2012)</displayName>
+				<displayName>Kwacha ya Zambia (1968–2012)</displayName>
 			</currency>
 			<currency type="ZMW">
-				<displayName>kwacha ya Zambia</displayName>
+				<displayName>Kwacha ya Zambia</displayName>
 				<displayName count="one">kwacha ya Zambia</displayName>
 				<displayName count="other">kwacha za Zambia</displayName>
 				<symbol>ZMW</symbol>
 			</currency>
 			<currency type="ZWD">
-				<displayName>dola ya Zimbabwe</displayName>
+				<displayName>Dola ya Zimbabwe</displayName>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">

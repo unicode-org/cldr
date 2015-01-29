@@ -28,6 +28,8 @@ import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileProcessor;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
@@ -45,7 +47,8 @@ public class Ldml2JsonConverter {
     private static boolean DEBUG = false;
     private static final String MAIN = "main";
     private static final String SEGMENTS = "segments";
-
+    private static final StandardCodes sc = StandardCodes.make();
+    private Set<String> defaultContentLocales = SupplementalDataInfo.getInstance().getDefaultContentLocales();
     private static final Options options = new Options(
         "Usage: LDML2JsonConverter [OPTIONS] [FILES]\n" +
             "This program converts CLDR data to the JSON format.\n" +
@@ -69,6 +72,8 @@ public class Ldml2JsonConverter {
             "Whether the output JSON should output data for all numbering systems, even those not used in the locale")
         .add("other", 'o', "(true|false)", "false",
             "Whether to write out the 'other' section, which contains any unmatched paths")
+        .add("packages", 'p', "(true|false)", "false",
+            "Whether to group data files into installable packages")
         .add("identity", 'i', "(true|false)", "true",
             "Whether to copy the identity info into all sections containing data")
         .add("konfig", 'k', ".*", null, "LDML to JSON configuration file");
@@ -108,6 +113,7 @@ public class Ldml2JsonConverter {
     private class JSONSection implements Comparable<JSONSection> {
         public String section;
         public Matcher matcher;
+        public String packageName;
 
         public int compareTo(JSONSection other) {
             return section.compareTo(other.section);
@@ -133,9 +139,10 @@ public class Ldml2JsonConverter {
             @Override
             protected boolean handleLine(int lineCount, String line) {
                 String[] lineParts = line.trim().split("\\s*;\\s*");
-                String key, value, section = null, path = null;
+                String key, value, section = null, path = null, packageName = null;
                 boolean hasSection = false;
                 boolean hasPath = false;
+                boolean hasPackage = false;
                 for (String linePart : lineParts) {
                     int pos = linePart.indexOf('=');
                     if (pos < 0) {
@@ -149,13 +156,19 @@ public class Ldml2JsonConverter {
                     } else if (key.equals("path")) {
                         hasPath = true;
                         path = value;
+                    } else if (key.equals("package")) {
+                        hasPackage = true;
+                        packageName = value;
                     }
-                    if (hasSection && hasPath) {
-                        JSONSection j = new JSONSection();
-                        j.section = section;
-                        j.matcher = Pattern.compile(path).matcher("");
-                        sections.add(j);
+                }
+                if (hasSection && hasPath) {
+                    JSONSection j = new JSONSection();
+                    j.section = section;
+                    j.matcher = Pattern.compile(path).matcher("");
+                    if (hasPackage) {
+                        j.packageName = packageName;
                     }
+                    sections.add(j);
                 }
 
                 return true;
@@ -352,7 +365,7 @@ public class Ldml2JsonConverter {
      * @throws IOException
      * @throws ParseException
      */
-    private void convertCldrItems(String outDirname, String pathPrefix)
+    private void convertCldrItems(String dirName, String filename, String pathPrefix)
         throws IOException, ParseException {
         // zone and timezone items are queued for sorting first before they are
         // processed.
@@ -433,10 +446,36 @@ public class Ldml2JsonConverter {
             String outFilename;
             outFilename = js.section + ".json";
             boolean writeOther = Boolean.parseBoolean(options.get("other").getValue());
+            boolean writePackages = Boolean.parseBoolean(options.get("packages").getValue());
             if (js.section.equals("other") && !writeOther) {
                 continue;
             } else {
-                writeToFile(outDirname, outFilename, out);
+                StringBuilder outputDirname = new StringBuilder(outputDir);
+                if (writePackages && js.packageName != null) {
+                    outputDirname.append(File.separator + "cldr-" + js.packageName);
+                }
+                if (dirName.equals(MAIN) || dirName.equals(SEGMENTS)) {
+                    LocaleIDParser lp = new LocaleIDParser();
+                    lp.set(filename);
+                    if (writePackages && defaultContentLocales.contains(filename) &&
+                        lp.getRegion().length() > 0) {
+                        continue;
+                    }
+                    Level localeCoverageLevel = sc.getLocaleCoverageLevel("Cldr", filename);
+                    String tier;
+                    if (localeCoverageLevel == Level.MODERN || filename.equals("root")) {
+                        tier = "modern";
+                    } else {
+                        tier = "full";
+                    }
+                    outputDirname.append("-"+tier);
+                    outputDirname.append(File.separator + filename.replaceAll("_", "-"));
+                }
+                File dir = new File(outputDirname.toString());
+                if (!dir.exists()) {
+                    dir.mkdirs();
+                }
+                writeToFile(outputDirname.toString(), outFilename, out);
             }
 
             System.out.println(String.format("  %s = %d values", outFilename, valueCount));
@@ -885,17 +924,7 @@ public class Ldml2JsonConverter {
             }
             mapPathsToSections(file, pathPrefix, sdi);
 
-            String outputDirname;
-            if (dirName.equals(MAIN) || dirName.equals(SEGMENTS)) {
-                outputDirname = outputDir + File.separator + filename.replaceAll("_", "-");
-            } else {
-                outputDirname = outputDir + File.separator + dirName;
-            }
-            File dir = new File(outputDirname);
-            if (!dir.exists()) {
-                dir.mkdirs();
-            }
-            convertCldrItems(outputDirname, pathPrefix);
+            convertCldrItems(dirName, filename, pathPrefix);
         }
     }
 

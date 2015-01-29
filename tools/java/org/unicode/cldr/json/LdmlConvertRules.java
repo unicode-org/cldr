@@ -12,7 +12,7 @@ class LdmlConvertRules {
 
     /** File set that will not be processed in JSON transformation. */
     public static final Set<String> IGNORE_FILE_SET = Builder.with(new HashSet<String>())
-        .add("coverageLevels").add("pluralRanges").freeze();
+        .add("coverageLevels").add("pluralRanges").add("dayPeriods").freeze();
 
     /**
      * The attribute list that should become part of the name in form of

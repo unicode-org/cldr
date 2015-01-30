@@ -494,7 +494,7 @@ public class TestCLDRFile extends TestFmwk {
 		assertEquals("contructed bailey", "Spanish (United States)", display);
 		display = eng.getConstructedBaileyValue(prefix + "es_US"
 				+ "\"][@alt=\"short\"]", null, null);
-		assertEquals("contructed bailey", "Spanish (U.S.)", display);
+		assertEquals("contructed bailey", "Spanish (US)", display);
 		display = eng.getConstructedBaileyValue(prefix + "es" + "\"]", null,
 				null);
 		assertEquals("contructed bailey", "es", display);

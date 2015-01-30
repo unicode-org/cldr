@@ -131,6 +131,7 @@
 //ldml/dates/calendars/calendar[@type="(%A)"]/(day|month)s/%W[@type="(%A)"]/%W[@type="(%A)"]/%W[@type="(%A)"]([@yeartype="(%A)"])? ; /calendar/$1/$2Names/$3/$4
 //ldml/dates/calendars/calendar[@type="(%A)"]/(quarters)/%W[@type="(%A)"]/%W[@type="(%A)"]/%W[@type="(?:%A)"] ; /calendar/$1/$2/$3/$4
 
+//ldml/dates/fields/field[@type="(%A)"]/displayName[@alt="(%A)"] ; /fields/$1/dn%$2
 //ldml/dates/fields/field[@type="(%A)"]/displayName ; /fields/$1/dn
 //ldml/dates/fields/field[@type="(%A)"]/relative[@type="(%A)"] ; /fields/$1/relative/"$2"
 //ldml/dates/fields/field[@type="(%A)"]/relativeTime[@type="(%A)"]/relativeTimePattern[@count="(%A)"] ; /fields/$1/relativeTime/$2/$3

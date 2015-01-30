@@ -238,16 +238,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="SCR">
 				<displayName>Seychelles Rupee</displayName>
 			</currency>
-			<currency type="XAF">
-				<displayName>Central African CFA Franc</displayName>
-				<displayName count="one">Central African CFA franc</displayName>
-				<displayName count="other">Central African CFA francs</displayName>
-			</currency>
-			<currency type="XOF">
-				<displayName>West African CFA Franc</displayName>
-				<displayName count="one">West African CFA franc</displayName>
-				<displayName count="other">West African CFA francs</displayName>
-			</currency>
 		</currencies>
 	</numbers>
 	<units>
@@ -270,10 +260,5 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 	</units>
-	<listPatterns>
-		<listPattern type="unit">
-			<listPatternPart type="2">{0} and {1}</listPatternPart>
-		</listPattern>
-	</listPatterns>
 </ldml>
 

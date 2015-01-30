@@ -12,41 +12,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<territory type="GB"/>
 	</identity>
 	<localeDisplayNames>
-		<languages>
-			<language type="en_GB" alt="short">UK English</language>
-			<language type="en_US" alt="short">US English</language>
-		</languages>
-		<territories>
-			<territory type="GB" alt="short">UK</territory>
-			<territory type="US" alt="short">US</territory>
-		</territories>
 		<keys>
-			<key type="colCaseLevel">Case-Sensitive Sorting</key>
 			<key type="colNormalization">Normalised Sorting</key>
 		</keys>
 		<types>
-			<type type="fullwide" key="numbers">Full-Width Digits</type>
 			<type type="no" key="colNormalization">Sort Without Normalisation</type>
 			<type type="yes" key="colNormalization">Sort Unicode Normalised</type>
 		</types>
 	</localeDisplayNames>
-	<characters>
-		<ellipsis type="final">{0}…</ellipsis>
-		<ellipsis type="initial">…{0}</ellipsis>
-		<ellipsis type="medial">{0}… {1}</ellipsis>
-		<ellipsis type="word-final">{0} …</ellipsis>
-		<ellipsis type="word-initial">… {0}</ellipsis>
-		<ellipsis type="word-medial">{0} … {1}</ellipsis>
-		<moreInformation>?</moreInformation>
-	</characters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">am</dayPeriod>
-							<dayPeriod type="pm">pm</dayPeriod>
+							<dayPeriod type="am">a.m.</dayPeriod>
+							<dayPeriod type="pm">p.m.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -76,11 +57,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</calendars>
 		<fields>
 			<field type="dayperiod">
-				<displayName>am/pm</displayName>
+				<displayName>a.m./p.m.</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<zone type="Europe/London">
 				<short>
 					<daylight>BST</daylight>
@@ -131,13 +111,5 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 	</units>
-	<listPatterns>
-		<listPattern>
-			<listPatternPart type="end">{0} and {1}</listPatternPart>
-		</listPattern>
-		<listPattern type="unit">
-			<listPatternPart type="end">{0} and {1}</listPatternPart>
-		</listPattern>
-	</listPatterns>
 </ldml>
 

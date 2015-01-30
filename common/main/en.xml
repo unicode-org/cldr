@@ -162,9 +162,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="en_AU">Australian English</language>
 			<language type="en_CA">Canadian English</language>
 			<language type="en_GB">British English</language>
-			<language type="en_GB" alt="short">U.K. English</language>
+			<language type="en_GB" alt="short">UK English</language>
 			<language type="en_US">American English</language>
-			<language type="en_US" alt="short">U.S. English</language>
+			<language type="en_US" alt="short">US English</language>
 			<language type="enm">Middle English</language>
 			<language type="eo">Esperanto</language>
 			<language type="es">Spanish</language>
@@ -923,7 +923,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FR">France</territory>
 			<territory type="GA">Gabon</territory>
 			<territory type="GB">United Kingdom</territory>
-			<territory type="GB" alt="short">U.K.</territory>
+			<territory type="GB" alt="short">UK</territory>
 			<territory type="GD">Grenada</territory>
 			<territory type="GE">Georgia</territory>
 			<territory type="GF">French Guiana</territory>
@@ -1089,7 +1089,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">U.S. Outlying Islands</territory>
 			<territory type="US">United States</territory>
-			<territory type="US" alt="short">U.S.</territory>
+			<territory type="US" alt="short">US</territory>
 			<territory type="UY">Uruguay</territory>
 			<territory type="UZ">Uzbekistan</territory>
 			<territory type="VA">Vatican City</territory>
@@ -1206,7 +1206,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="ethiopic" key="calendar">Ethiopic Calendar</type>
 			<type type="ethiopic-amete-alem" key="calendar">Ethiopic Amete Alem Calendar</type>
 			<type type="finance" key="numbers">Financial Numerals</type>
-			<type type="fullwide" key="numbers">Full Width Digits</type>
+			<type type="fullwide" key="numbers">Full-Width Digits</type>
 			<type type="gb2312han" key="collation">Simplified Chinese Sort Order - GB2312</type>
 			<type type="geor" key="numbers">Georgian Numerals</type>
 			<type type="gregorian" key="calendar">Gregorian Calendar</type>
@@ -2540,6 +2540,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="dayperiod">
 				<displayName>AM/PM</displayName>
+				<displayName alt="variant">am/pm</displayName>
 			</field>
 			<field type="hour">
 				<displayName>Hour</displayName>
@@ -5073,9 +5074,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">Samoan tala</displayName>
 			</currency>
 			<currency type="XAF">
-				<displayName>CFA Franc BEAC</displayName>
-				<displayName count="one">CFA franc BEAC</displayName>
-				<displayName count="other">CFA francs BEAC</displayName>
+				<displayName>Central African CFA Franc</displayName>
+				<displayName count="one">Central African CFA franc</displayName>
+				<displayName count="other">Central African CFA francs</displayName>
 			</currency>
 			<currency type="XAG">
 				<displayName>Silver</displayName>
@@ -5133,9 +5134,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">French UIC-francs</displayName>
 			</currency>
 			<currency type="XOF">
-				<displayName>CFA Franc BCEAO</displayName>
-				<displayName count="one">CFA franc BCEAO</displayName>
-				<displayName count="other">CFA francs BCEAO</displayName>
+				<displayName>West African CFA Franc</displayName>
+				<displayName count="one">West African CFA franc</displayName>
+				<displayName count="other">West African CFA francs</displayName>
 			</currency>
 			<currency type="XPD">
 				<displayName>Palladium</displayName>

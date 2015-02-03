@@ -11,7 +11,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<generation date="$Date$"/>
 
 	<windowsZones>
-		<mapTimezones otherVersion="7de0007" typeVersion="2014i">
+		<mapTimezones otherVersion="7df0000" typeVersion="2015a">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -85,7 +85,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC-06:00) Guadalajara, Mexico City, Monterrey -->
 			<mapZone other="Central Standard Time (Mexico)" territory="001" type="America/Mexico_City"/>
-			<mapZone other="Central Standard Time (Mexico)" territory="MX" type="America/Mexico_City America/Bahia_Banderas America/Cancun America/Merida America/Monterrey"/>
+			<mapZone other="Central Standard Time (Mexico)" territory="MX" type="America/Mexico_City America/Bahia_Banderas America/Merida America/Monterrey"/>
 
 			<!-- (UTC-06:00) Saskatchewan -->
 			<mapZone other="Canada Central Standard Time" territory="001" type="America/Regina"/>
@@ -99,6 +99,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="SA Pacific Standard Time" territory="EC" type="America/Guayaquil"/>
 			<mapZone other="SA Pacific Standard Time" territory="JM" type="America/Jamaica"/>
 			<mapZone other="SA Pacific Standard Time" territory="KY" type="America/Cayman"/>
+			<mapZone other="SA Pacific Standard Time" territory="MX" type="America/Cancun"/>
 			<mapZone other="SA Pacific Standard Time" territory="PA" type="America/Panama"/>
 			<mapZone other="SA Pacific Standard Time" territory="PE" type="America/Lima"/>
 			<mapZone other="SA Pacific Standard Time" territory="ZZ" type="Etc/GMT+5"/>
@@ -214,7 +215,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Azores Standard Time" territory="GL" type="America/Scoresbysund"/>
 			<mapZone other="Azores Standard Time" territory="PT" type="Atlantic/Azores"/>
 
-			<!-- (UTC-01:00) Cape Verde Is. -->
+			<!-- (UTC-01:00) Cabo Verde Is. -->
 			<mapZone other="Cape Verde Standard Time" territory="001" type="Atlantic/Cape_Verde"/>
 			<mapZone other="Cape Verde Standard Time" territory="CV" type="Atlantic/Cape_Verde"/>
 			<mapZone other="Cape Verde Standard Time" territory="ZZ" type="Etc/GMT+1"/>
@@ -603,7 +604,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="West Pacific Standard Time" territory="FM" type="Pacific/Truk"/>
 			<mapZone other="West Pacific Standard Time" territory="GU" type="Pacific/Guam"/>
 			<mapZone other="West Pacific Standard Time" territory="MP" type="Pacific/Saipan"/>
-			<mapZone other="West Pacific Standard Time" territory="PG" type="Pacific/Port_Moresby Pacific/Bougainville"/>
+			<mapZone other="West Pacific Standard Time" territory="PG" type="Pacific/Port_Moresby"/>
 			<mapZone other="West Pacific Standard Time" territory="ZZ" type="Etc/GMT-10"/>
 
 			<!-- (UTC+10:00) Hobart -->
@@ -627,6 +628,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Central Pacific Standard Time" territory="AU" type="Antarctica/Macquarie"/>
 			<mapZone other="Central Pacific Standard Time" territory="FM" type="Pacific/Ponape Pacific/Kosrae"/>
 			<mapZone other="Central Pacific Standard Time" territory="NC" type="Pacific/Noumea"/>
+			<mapZone other="Central Pacific Standard Time" territory="PG" type="Pacific/Bougainville"/>
 			<mapZone other="Central Pacific Standard Time" territory="SB" type="Pacific/Guadalcanal"/>
 			<mapZone other="Central Pacific Standard Time" territory="VU" type="Pacific/Efate"/>
 			<mapZone other="Central Pacific Standard Time" territory="ZZ" type="Etc/GMT-11"/>

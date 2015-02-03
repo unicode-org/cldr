@@ -302,7 +302,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="America/Cancun">
 				<usesMetazone to="1981-12-23 06:00" mzone="America_Central"/>
 				<usesMetazone to="1998-08-02 06:00" from="1981-12-23 06:00" mzone="America_Eastern"/>
-				<usesMetazone from="1998-08-02 06:00" mzone="America_Central"/>
+				<usesMetazone to="2015-02-01 08:00" from="1998-08-02 06:00" mzone="America_Central"/>
+				<usesMetazone from="2015-02-01 08:00" mzone="America_Eastern"/>
 			</timezone>
 			<timezone type="America/Caracas">
 				<usesMetazone mzone="Venezuela"/>

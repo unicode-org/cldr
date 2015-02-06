@@ -11,88 +11,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="bn"/>
 		<territory type="IN"/>
 	</identity>
-	<localeDisplayNames>
-		<languages>
-			<language type="ab">আবখাজিয়ান</language>
-			<language type="ace">অ্যাচাইনিজ</language>
-			<language type="ach">আকোলি</language>
-			<language type="anp" draft="contributed">আঙ্গিকা</language>
-			<language type="ch" draft="contributed">চামোরো</language>
-			<language type="chn" draft="contributed">চিনুক জার্গন</language>
-			<language type="cho" draft="contributed">চকটোও</language>
-			<language type="chp" draft="contributed">চিপেওয়াইয়ান</language>
-			<language type="chy" draft="contributed">চেয়েনি</language>
-			<language type="cu" draft="contributed">চার্চ স্লাভিক</language>
-			<language type="de_AT">অস্ট্রিয়ান জারমান</language>
-			<language type="doi">ডোগরি</language>
-			<language type="fr_CA">ক্যানাডিয়ান ফরাসী</language>
-			<language type="or">উড়িয়া</language>
-			<language type="rup" draft="contributed">আরমেনিয়ান</language>
-			<language type="zbl" draft="contributed">ব্লিসসিম্বলস</language>
-		</languages>
-		<scripts>
-			<script type="Hant">ঐতিহ্যবাহী</script>
-		</scripts>
-		<territories>
-			<territory type="GD">গ্রেনেডা</territory>
-			<territory type="GT">গোয়াতেমালা</territory>
-			<territory type="JM">জামাইকা</territory>
-		</territories>
-		<keys>
-			<key type="calendar">ক্যালেন্ডার</key>
-		</keys>
-	</localeDisplayNames>
 	<characters>
 		<ellipsis type="final" draft="contributed">{0}…</ellipsis>
 		<ellipsis type="initial" draft="contributed">…{0}</ellipsis>
 		<ellipsis type="medial" draft="contributed">{0}…{1}</ellipsis>
 	</characters>
 	<dates>
-		<calendars>
-			<calendar type="gregorian">
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">ত্রৈমাসিক</quarter>
-							<quarter type="2">ষাণ্মাসিক</quarter>
-							<quarter type="4">বার্ষিক</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">ত্রৈমাসিক</quarter>
-							<quarter type="2">ষাণ্মাসিক</quarter>
-							<quarter type="3">তৃতীয় চতুর্থাংশ</quarter>
-							<quarter type="4">বার্ষিক</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">ত্রৈমাসিক</quarter>
-							<quarter type="2">ষাণ্মাসিক</quarter>
-							<quarter type="3">তৃতীয় চতুর্থাংশ</quarter>
-							<quarter type="4">বার্ষিক</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MM – MM -y</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
-		</calendars>
-		<fields>
-			<field type="dayperiod">
-				<displayName>AM/PM</displayName>
-			</field>
-		</fields>
 		<timeZoneNames>
 			<gmtZeroFormat>গ্রীনিচ মানক সময়</gmtZeroFormat>
 			<metazone type="Alaska">

@@ -12,29 +12,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<territory type="BE"/>
 	</identity>
 	<localeDisplayNames>
-		<languages>
-			<language type="oc">Occitaans; Provençaals</language>
-			<language type="sh">Servo-Kroatisch</language>
-		</languages>
 		<territories>
 			<territory type="013" draft="provisional">Centraal-Amerika</territory>
-			<territory type="IM">Het Eiland Man</territory>
 			<territory type="MV" draft="unconfirmed">Malediven</territory>
 			<territory type="SB" draft="unconfirmed">Salomoneilanden</territory>
 		</territories>
-		<types>
-			<type type="traditional" key="collation">Traditioneel</type>
-		</types>
 	</localeDisplayNames>
 	<dates>
 		<calendars>
 			<calendar type="generic">
 				<dateFormats>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>d-MMM-y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>d/MM/yy GGGGG</pattern>
@@ -70,11 +57,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</calendar>
 			<calendar type="gregorian">
 				<dateFormats>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>d-MMM-y</pattern>
-						</dateFormat>
-					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>d/MM/yy</pattern>

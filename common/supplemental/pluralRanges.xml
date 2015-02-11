@@ -211,5 +211,16 @@
 			<pluralRange start="other" end="many"  result="many"/>
 			<pluralRange start="other" end="other" result="other"/>
 		</pluralRanges>
+<!-- zero, one, two, many -->
+		<pluralRanges locales="wbp">
+			<pluralRange start="zero" end="zero" result="zero"/>
+			<pluralRange start="zero" end="one"  result="one"/>
+			<pluralRange start="zero" end="two"  result="two"/>
+			<pluralRange start="zero" end="many" result="many"/>
+			<pluralRange start="one"  end="two"  result="two"/>
+			<pluralRange start="one"  end="many" result="many"/>
+			<pluralRange start="two"  end="many" result="many"/>
+			<pluralRange start="many" end="many" result="many"/>
+		</pluralRanges>
 	</plurals>
 </supplementalData>

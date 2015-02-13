@@ -16,57 +16,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="en_GB" alt="short">inglés (R. U.)</language>
 		</languages>
 		<territories>
-			<territory type="GB" alt="short" draft="contributed">R. U.</territory>
+			<territory type="GB" alt="short">R. U.</territory>
 		</territories>
-		<keys>
-			<key type="numbers" draft="contributed">Números</key>
-		</keys>
-		<types>
-			<type type="arab" key="numbers" draft="contributed">Dígitos arábigo-índicos</type>
-			<type type="arabext" key="numbers" draft="contributed">Dígitos árabe-hindú extendidos</type>
-			<type type="armn" key="numbers" draft="contributed">Números armenios</type>
-			<type type="armnlow" key="numbers" draft="contributed">Números armenios en minúscula</type>
-			<type type="beng" key="numbers" draft="contributed">Dígitos en bengalí</type>
-			<type type="coptic" key="calendar" draft="contributed">Calendario cóptico</type>
-			<type type="deva" key="numbers" draft="contributed">Dígitos en devanagari</type>
-			<type type="dictionary" key="collation" draft="contributed">Orden de clasificación del diccionario</type>
-			<type type="ducet" key="collation" draft="contributed">Orden de clasificación de Unicode predeterminado</type>
-			<type type="ethi" key="numbers" draft="contributed">Números etíopes</type>
-			<type type="ethiopic" key="calendar" draft="contributed">Calendario etíope</type>
-			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">Calendario etíope Amete Alem</type>
-			<type type="fullwide" key="numbers" draft="contributed">Dígitos en formato completo</type>
-			<type type="geor" key="numbers" draft="contributed">Números georgianos</type>
-			<type type="grek" key="numbers" draft="contributed">Números griegos</type>
-			<type type="greklow" key="numbers" draft="contributed">Números griegos en minúscula</type>
-			<type type="gujr" key="numbers" draft="contributed">Dígitos en guyaratí</type>
-			<type type="guru" key="numbers" draft="contributed">Dígitos en gurumuji</type>
-			<type type="hanidec" key="numbers" draft="contributed">Numerales decimales chinos</type>
-			<type type="hans" key="numbers" draft="contributed">Números simplificados chinos</type>
-			<type type="hansfin" key="numbers" draft="contributed">Números financieros simplificados chinos</type>
-			<type type="hant" key="numbers" draft="contributed">Números chinos tradicionales</type>
-			<type type="hantfin" key="numbers" draft="contributed">Números financieros chinos tradicionales</type>
-			<type type="hebr" key="numbers" draft="contributed">Números hebreos</type>
-			<type type="jpan" key="numbers" draft="contributed">Números en japonés</type>
-			<type type="jpanfin" key="numbers" draft="contributed">Números financieros japoneses</type>
-			<type type="khmr" key="numbers" draft="contributed">Dígitos en jemer</type>
-			<type type="knda" key="numbers" draft="contributed">Dígitos en canarés</type>
-			<type type="laoo" key="numbers" draft="contributed">Dígitos de Lao</type>
-			<type type="latn" key="numbers" draft="contributed">Dígitos occidentales</type>
-			<type type="mlym" key="numbers" draft="contributed">Dígitos malabares</type>
-			<type type="mong" key="numbers" draft="contributed">Dígitos en mongol</type>
-			<type type="mymr" key="numbers" draft="contributed">Dígitos en birmano</type>
-			<type type="orya" key="numbers" draft="contributed">Dígitos en oriya</type>
-			<type type="persian" key="calendar" draft="contributed">Calendario persa</type>
-			<type type="reformed" key="collation" draft="contributed">Orden de clasificación reformado</type>
-			<type type="roman" key="numbers" draft="contributed">Números romanos</type>
-			<type type="romanlow" key="numbers" draft="contributed">Números romanos en minúscula</type>
-			<type type="search" key="collation" draft="contributed">Búsqueda generalizada</type>
-			<type type="taml" key="numbers" draft="contributed">Números en Tamil</type>
-			<type type="telu" key="numbers" draft="contributed">Dígitos en telugu</type>
-			<type type="thai" key="numbers" draft="contributed">Dígitos en tailandés</type>
-			<type type="tibt" key="numbers" draft="contributed">Dígitos tibetanos</type>
-			<type type="unihan" key="collation" draft="contributed">Orden de clasificación de trazos radicales</type>
-		</types>
 		<transformNames>
 			<transformName type="Numeric" draft="contributed">Numéricas</transformName>
 		</transformNames>
@@ -88,99 +39,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M" draft="contributed">M/y–M/y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">M/y–M/y GGGGG</greatestDifference>
+							<greatestDifference id="M" draft="contributed">M/y – M/y GGGGG</greatestDifference>
+							<greatestDifference id="y" draft="contributed">M/y – M/y GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d" draft="contributed">d/M/y–d/M/y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d/M/y–d/M/y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d/M/y–d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">d/M/y – d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="M" draft="contributed">d/M/y – d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="y" draft="contributed">d/M/y – d/M/y GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d" draft="contributed">E, d/M/y–E, d/M/y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E, d/M/y–E, d/M/y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E, d/M/y–E, d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">E, d/M/y – E, d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="M" draft="contributed">E, d/M/y – E, d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="y" draft="contributed">E, d/M/y – E, d/M/y GGGGG</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="contributed">ene.</month>
-							<month type="2" draft="contributed">feb.</month>
-							<month type="3" draft="contributed">mar.</month>
-							<month type="4" draft="contributed">abr.</month>
-							<month type="5" draft="contributed">may.</month>
-							<month type="6" draft="contributed">jun.</month>
-							<month type="7" draft="contributed">jul.</month>
-							<month type="8" draft="contributed">ago.</month>
-							<month type="9" draft="contributed">set.</month>
-							<month type="10" draft="contributed">oct.</month>
-							<month type="11" draft="contributed">nov.</month>
-							<month type="12" draft="contributed">dic.</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">e</month>
-							<month type="2" draft="contributed">f</month>
-							<month type="3" draft="contributed">m</month>
-							<month type="4" draft="contributed">a</month>
-							<month type="5" draft="contributed">m</month>
-							<month type="6" draft="contributed">j</month>
-							<month type="7" draft="contributed">j</month>
-							<month type="8" draft="contributed">a</month>
-							<month type="9" draft="contributed">s</month>
-							<month type="10" draft="contributed">o</month>
-							<month type="11" draft="contributed">n</month>
-							<month type="12" draft="contributed">d</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="contributed">enero</month>
-							<month type="2" draft="contributed">febrero</month>
-							<month type="3" draft="contributed">marzo</month>
-							<month type="4" draft="contributed">abril</month>
-							<month type="5" draft="contributed">mayo</month>
-							<month type="6" draft="contributed">junio</month>
-							<month type="7" draft="contributed">julio</month>
-							<month type="8" draft="contributed">agosto</month>
-							<month type="9" draft="contributed">setiembre</month>
-							<month type="10" draft="contributed">octubre</month>
-							<month type="11" draft="contributed">noviembre</month>
-							<month type="12" draft="contributed">diciembre</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="contributed">Ene.</month>
-							<month type="2" draft="contributed">Feb.</month>
-							<month type="3" draft="contributed">Mar.</month>
-							<month type="4" draft="contributed">Abr.</month>
-							<month type="5" draft="contributed">May.</month>
-							<month type="6" draft="contributed">Jun.</month>
-							<month type="7" draft="contributed">Jul.</month>
-							<month type="8" draft="contributed">Ago.</month>
-							<month type="9" draft="contributed">Set.</month>
-							<month type="10" draft="contributed">Oct.</month>
-							<month type="11" draft="contributed">Nov.</month>
-							<month type="12" draft="contributed">Dic.</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="contributed">Enero</month>
-							<month type="2" draft="contributed">Febrero</month>
-							<month type="3" draft="contributed">Marzo</month>
-							<month type="4" draft="contributed">Abril</month>
-							<month type="5" draft="contributed">Mayo</month>
-							<month type="6" draft="contributed">Junio</month>
-							<month type="7" draft="contributed">Julio</month>
-							<month type="8" draft="contributed">Agosto</month>
-							<month type="9" draft="contributed">Setiembre</month>
-							<month type="10" draft="contributed">Octubre</month>
-							<month type="11" draft="contributed">Noviembre</month>
-							<month type="12" draft="contributed">Diciembre</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="narrow">
@@ -191,15 +66,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="thu">j</day>
 							<day type="fri">v</day>
 							<day type="sat">s</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun" draft="contributed">dom.</day>
-							<day type="mon" draft="contributed">lun.</day>
-							<day type="tue" draft="contributed">mar.</day>
-							<day type="wed" draft="contributed">mié.</day>
-							<day type="thu" draft="contributed">jue.</day>
-							<day type="fri" draft="contributed">vie.</day>
-							<day type="sat" draft="contributed">sáb.</day>
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
@@ -212,85 +78,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="fri">V</day>
 							<day type="sat">S</day>
 						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun" draft="contributed">Dom.</day>
-							<day type="mon" draft="contributed">Lun.</day>
-							<day type="tue" draft="contributed">Mar.</day>
-							<day type="wed" draft="contributed">Mié.</day>
-							<day type="thu" draft="contributed">Jue.</day>
-							<day type="fri" draft="contributed">Vie.</day>
-							<day type="sat" draft="contributed">Sáb.</day>
-						</dayWidth>
 					</dayContext>
 				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">1.er trim.</quarter>
-							<quarter type="2" draft="contributed">2.º trim.</quarter>
-							<quarter type="3" draft="contributed">3.er trim.</quarter>
-							<quarter type="4" draft="contributed">4.º trim.</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1" draft="contributed">1</quarter>
-							<quarter type="2" draft="contributed">2</quarter>
-							<quarter type="3" draft="contributed">3</quarter>
-							<quarter type="4" draft="contributed">4</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">1.er trim.</quarter>
-							<quarter type="2" draft="contributed">2.º trim.</quarter>
-							<quarter type="3" draft="contributed">3.er trim.</quarter>
-							<quarter type="4" draft="contributed">4.º trim.</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1" draft="contributed">1</quarter>
-							<quarter type="2" draft="contributed">2</quarter>
-							<quarter type="3" draft="contributed">3</quarter>
-							<quarter type="4" draft="contributed">4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
-				<eras>
-					<eraNames>
-						<era type="0" alt="variant" draft="contributed">antes de la era común</era>
-						<era type="1" draft="contributed">después de Cristo</era>
-						<era type="1" alt="variant" draft="contributed">era común</era>
-					</eraNames>
-				</eras>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="contributed">h:mm:ss a zzzz</pattern>
+							<pattern>h:mm:ss a zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="contributed">h:mm:ss a z</pattern>
+							<pattern>h:mm:ss a z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="contributed">h:mm:ss a</pattern>
+							<pattern>h:mm:ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="contributed">h:mm a</pattern>
+							<pattern>h:mm a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -309,265 +117,50 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H" draft="contributed">HH–HH</greatestDifference>
+							<greatestDifference id="H" draft="contributed">HH – HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="a" draft="contributed">h:mm a–h:mm a</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h:mm–h:mm a</greatestDifference>
-							<greatestDifference id="m" draft="contributed">h:mm–h:mm a</greatestDifference>
+							<greatestDifference id="a" draft="contributed">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="h" draft="contributed">h:mm – h:mm a</greatestDifference>
+							<greatestDifference id="m" draft="contributed">h:mm – h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="H" draft="contributed">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="contributed">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="H" draft="contributed">HH:mm – HH:mm</greatestDifference>
+							<greatestDifference id="m" draft="contributed">HH:mm – HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H" draft="contributed">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="contributed">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="H" draft="contributed">HH:mm – HH:mm v</greatestDifference>
+							<greatestDifference id="m" draft="contributed">HH:mm – HH:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="H" draft="contributed">HH–HH v</greatestDifference>
+							<greatestDifference id="H" draft="contributed">HH – HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d" draft="contributed">d–d 'de' MMM</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d 'de' MMM–d 'de' MMM</greatestDifference>
+							<greatestDifference id="d" draft="contributed">d – d 'de' MMM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">d 'de' MMM – d 'de' MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d" draft="contributed">E, d 'de' MMM–E, d 'de' MMM</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E, d 'de' MMM–E, d 'de' MMM</greatestDifference>
+							<greatestDifference id="d" draft="contributed">E, d 'de' MMM – E, d 'de' MMM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">E, d 'de' MMM – E, d 'de' MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="y" draft="contributed">MMM 'de' y–MMM 'de' y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">MMM 'de' y – MMM 'de' y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d" draft="contributed">d–d 'de' MMM 'de' y</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d 'de' MMM–d 'de' MMM 'de' y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d 'de' MMM 'de' y–d 'de' MMM 'de' y</greatestDifference>
+							<greatestDifference id="d" draft="contributed">d – d 'de' MMM 'de' y</greatestDifference>
+							<greatestDifference id="M" draft="contributed">d 'de' MMM – d 'de' MMM 'de' y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">d 'de' MMM 'de' y – d 'de' MMM 'de' y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d" draft="contributed">E, d 'de' MMM–E, d 'de' MMM 'de' y</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E, d 'de' MMM–E, d 'de' MMM 'de' y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E, d 'de' MMM 'de' y–E, d 'de' MMM 'de' y</greatestDifference>
+							<greatestDifference id="d" draft="contributed">E, d 'de' MMM – E, d 'de' MMM 'de' y</greatestDifference>
+							<greatestDifference id="M" draft="contributed">E, d 'de' MMM – E, d 'de' MMM 'de' y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">E, d 'de' MMM 'de' y – E, d 'de' MMM 'de' y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
-		<fields>
-			<field type="year">
-				<relative type="-1" draft="contributed">Año pasado</relative>
-				<relative type="0" draft="contributed">Este año</relative>
-				<relative type="1" draft="contributed">Año próximo</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">En {0} año</relativeTimePattern>
-					<relativeTimePattern count="other">En {0} años</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="year-short">
-				<displayName draft="contributed">a.</displayName>
-				<relativeTime type="future">
-					<relativeTimePattern count="one" draft="contributed">dentro de {0} a.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">dentro de {0} aa.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one" draft="contributed">hace {0} a.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">hace {0} aa.</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="year-narrow">
-				<displayName draft="contributed">a.</displayName>
-				<relativeTime type="future">
-					<relativeTimePattern count="one" draft="contributed">dentro de {0} a.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">dentro de {0} aa.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one" draft="contributed">hace {0} a.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">hace {0} aa.</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="quarter-short">
-				<relativeTime type="future">
-					<relativeTimePattern count="one" draft="contributed">dentro de {0} trim.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">dentro de {0} trims.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one" draft="contributed">hace {0} trim.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">hace {0} trims.</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="quarter-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one" draft="contributed">dentro de {0} trim.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">dentro de {0} trims.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one" draft="contributed">hace {0} trim.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">hace {0} trims.</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="month">
-				<relative type="-1" draft="contributed">El mes pasado</relative>
-				<relative type="0" draft="contributed">Este mes</relative>
-				<relative type="1" draft="contributed">Mes próximo</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">En {0} mes</relativeTimePattern>
-					<relativeTimePattern count="other">En {0} meses</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="month-short">
-				<displayName draft="contributed">m.</displayName>
-				<relativeTime type="future">
-					<relativeTimePattern count="one" draft="contributed">dentro de {0} m.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">dentro de {0} mm.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one" draft="contributed">hace {0} m.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">hace {0} mm.</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="month-narrow">
-				<displayName draft="contributed">m.</displayName>
-				<relativeTime type="future">
-					<relativeTimePattern count="one" draft="contributed">dentro de {0} m.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">dentro de {0} mm.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one" draft="contributed">hace {0} m.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">hace {0} mm.</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="week">
-				<relative type="-1" draft="contributed">Semana pasada</relative>
-				<relative type="0" draft="contributed">Esta semana</relative>
-				<relative type="1" draft="contributed">Próxima semana</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">En {0} semana</relativeTimePattern>
-					<relativeTimePattern count="other">En {0} semanas</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="week-short">
-				<relativeTime type="future">
-					<relativeTimePattern count="one" draft="contributed">dentro de {0} sem.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">dentro de {0} sems.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one" draft="contributed">hace {0} sem.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">dentro de {0} sems.</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="week-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one" draft="contributed">dentro de {0} sem.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">dentro de {0} sems.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one" draft="contributed">hace {0} sem.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">hace {0} sems.</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="day">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">En {0} día</relativeTimePattern>
-					<relativeTimePattern count="other">En {0} días</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="day-short">
-				<displayName draft="contributed">D.</displayName>
-			</field>
-			<field type="day-narrow">
-				<displayName draft="contributed">D.</displayName>
-			</field>
-			<field type="sun-narrow">
-				<relative type="-1" draft="contributed">el d pasado</relative>
-				<relative type="0" draft="contributed">este d</relative>
-				<relative type="1" draft="contributed">el próximo d</relative>
-			</field>
-			<field type="mon-narrow">
-				<relative type="-1" draft="contributed">el l pasado</relative>
-				<relative type="0" draft="contributed">este l</relative>
-				<relative type="1" draft="contributed">el próximo l</relative>
-			</field>
-			<field type="tue-narrow">
-				<relative type="-1" draft="contributed">el m pasado</relative>
-				<relative type="0" draft="contributed">este m</relative>
-				<relative type="1" draft="contributed">el próximo m</relative>
-			</field>
-			<field type="wed-narrow">
-				<relative type="-1" draft="contributed">el m pasado</relative>
-				<relative type="0" draft="contributed">este m</relative>
-				<relative type="1" draft="contributed">el próximo m</relative>
-			</field>
-			<field type="thu-narrow">
-				<relative type="-1" draft="contributed">el j pasado</relative>
-				<relative type="0" draft="contributed">este j</relative>
-				<relative type="1" draft="contributed">el próximo j</relative>
-			</field>
-			<field type="fri-narrow">
-				<relative type="-1" draft="contributed">el v pasado</relative>
-				<relative type="0" draft="contributed">este v</relative>
-				<relative type="1" draft="contributed">el próximo v</relative>
-			</field>
-			<field type="sat-narrow">
-				<relative type="-1" draft="contributed">el s pasado</relative>
-				<relative type="0" draft="contributed">este s</relative>
-				<relative type="1" draft="contributed">el próximo s</relative>
-			</field>
-			<field type="dayperiod">
-				<displayName draft="contributed">A. M./P. M.</displayName>
-			</field>
-			<field type="hour">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">En {0} hora</relativeTimePattern>
-					<relativeTimePattern count="other">En {0} horas</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="hour-short">
-				<relativeTime type="future">
-					<relativeTimePattern count="one" draft="contributed">dentro de {0} h.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">dentro de {0} hh.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one" draft="contributed">hace {0} h.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">hace {0} hh.</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="hour-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one" draft="contributed">dentro de {0} h.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">dentro de {0} hh.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one" draft="contributed">hace {0} h.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">hace {0} hh.</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="minute">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">En {0} minuto</relativeTimePattern>
-					<relativeTimePattern count="other">En {0} minutos</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="second">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">En {0} segundo</relativeTimePattern>
-					<relativeTimePattern count="other">En {0} segundos</relativeTimePattern>
-				</relativeTime>
-			</field>
-		</fields>
 		<timeZoneNames>
-			<regionFormat type="daylight" draft="contributed">hora de verano de {0}</regionFormat>
-			<regionFormat type="standard" draft="contributed">hora estándar de {0}</regionFormat>
-			<zone type="Etc/Unknown">
-				<exemplarCity draft="contributed">Desconocida</exemplarCity>
-			</zone>
-			<zone type="Pacific/Pitcairn">
-				<exemplarCity draft="contributed">Pitcairn</exemplarCity>
-			</zone>
-			<zone type="Africa/Tunis">
-				<exemplarCity draft="contributed">Túnez</exemplarCity>
-			</zone>
-			<zone type="America/North_Dakota/Center">
-				<exemplarCity draft="contributed">Centro, Dakota del Norte</exemplarCity>
-			</zone>
 			<metazone type="Europe_Central">
 				<short>
 					<generic>∅∅∅</generic>
@@ -593,23 +186,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<short>
 					<standard>∅∅∅</standard>
 				</short>
-			</metazone>
-			<metazone type="Greenland_Eastern">
-				<long>
-					<generic draft="contributed">hora de Groenlandia oriental</generic>
-					<standard draft="contributed">Hora estándar de Groenlandia oriental</standard>
-					<daylight draft="contributed">hora de verano de Groenlandia oriental</daylight>
-				</long>
-			</metazone>
-			<metazone type="Marquesas">
-				<long>
-					<standard draft="contributed">hora de Marquesas</standard>
-				</long>
-			</metazone>
-			<metazone type="Norfolk">
-				<long>
-					<standard draft="contributed">hora de la isla Norfolk</standard>
-				</long>
 			</metazone>
 		</timeZoneNames>
 	</dates>
@@ -659,76 +235,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
-			<currency type="AMD">
-				<displayName draft="contributed">dram</displayName>
-			</currency>
-			<currency type="AWG">
-				<displayName draft="contributed">florín arubeño</displayName>
-				<displayName count="one" draft="contributed">florín arubeño</displayName>
-				<displayName count="other" draft="contributed">florines arubeños</displayName>
-			</currency>
-			<currency type="BBD">
-				<displayName draft="contributed">dólar barbadense</displayName>
-				<displayName count="one" draft="contributed">dólar barbadense</displayName>
-				<displayName count="other" draft="contributed">dólares barbadenses</displayName>
-			</currency>
-			<currency type="BHD">
-				<displayName count="one" draft="contributed">dinar bareiní</displayName>
-				<displayName count="other" draft="contributed">dinares bareiníes</displayName>
-			</currency>
-			<currency type="BSD">
-				<displayName draft="contributed">dólar bahameño</displayName>
-				<displayName count="one" draft="contributed">dólar bahameño</displayName>
-				<displayName count="other" draft="contributed">dólares bahameños</displayName>
-			</currency>
-			<currency type="BZD">
-				<displayName draft="contributed">dólar beliceño</displayName>
-				<displayName count="one" draft="contributed">dólar beliceño</displayName>
-				<displayName count="other" draft="contributed">dólares beliceños</displayName>
-			</currency>
 			<currency type="CAD">
 				<symbol draft="contributed">CAD</symbol>
-			</currency>
-			<currency type="ERN">
-				<displayName draft="contributed">nakfa</displayName>
 			</currency>
 			<currency type="EUR">
 				<symbol draft="contributed">EUR</symbol>
 				<symbol alt="narrow" draft="contributed">€</symbol>
-			</currency>
-			<currency type="HKD">
-				<displayName draft="contributed">dólar hongkonés</displayName>
-				<displayName count="one" draft="contributed">dólar hongkonés</displayName>
-				<displayName count="other" draft="contributed">dólares hongkoneses</displayName>
-			</currency>
-			<currency type="ILS">
-				<displayName draft="contributed">nuevo sheqel israelí</displayName>
-				<displayName count="one" draft="contributed">nuevo sheqel israelí</displayName>
-				<displayName count="other" draft="contributed">nuevos sheqels israelíes</displayName>
-			</currency>
-			<currency type="JMD">
-				<displayName draft="contributed">dólar jamaicano</displayName>
-				<displayName count="one" draft="contributed">dólar jamaicano</displayName>
-				<displayName count="other" draft="contributed">dólares jamaicanos</displayName>
-			</currency>
-			<currency type="KZT">
-				<displayName draft="contributed">tenge kazako</displayName>
-				<displayName count="one" draft="contributed">tenge kazako</displayName>
-				<displayName count="other" draft="contributed">tenges kazakos</displayName>
-			</currency>
-			<currency type="LKR">
-				<displayName draft="contributed">rupia esrilanquesa</displayName>
-				<displayName count="one" draft="contributed">rupia esrilanquesa</displayName>
-				<displayName count="other" draft="contributed">rupias esrilanquesas</displayName>
-			</currency>
-			<currency type="MOP">
-				<displayName draft="contributed">pataca</displayName>
-				<displayName count="one" draft="contributed">pataca</displayName>
-				<displayName count="other" draft="contributed">patacas</displayName>
-			</currency>
-			<currency type="MWK">
-				<displayName count="one" draft="contributed">kuacha malauí</displayName>
-				<displayName count="other" draft="contributed">kuachas malauíes</displayName>
 			</currency>
 			<currency type="THB">
 				<symbol draft="contributed">THB</symbol>
@@ -739,18 +251,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="VND">
 				<symbol draft="contributed">VND</symbol>
 			</currency>
-			<currency type="XXX">
-				<displayName draft="contributed">moneda desconocida</displayName>
-				<displayName count="one" draft="contributed">(unidad de moneda desconocida)</displayName>
-				<displayName count="other" draft="contributed">(moneda desconocida)</displayName>
-			</currency>
-			<currency type="ZMW">
-				<symbol draft="contributed">ZMK</symbol>
-			</currency>
 		</currencies>
-		<miscPatterns numberSystem="latn">
-			<pattern type="atLeast" draft="contributed">más de {0}</pattern>
-		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">

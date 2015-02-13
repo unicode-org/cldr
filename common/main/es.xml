@@ -1025,14 +1025,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="big5han" key="collation">orden del chino tradicional - Big5</type>
 			<type type="buddhist" key="calendar">calendario budista</type>
 			<type type="chinese" key="calendar">calendario chino</type>
-			<type type="coptic" key="calendar">calendario copto</type>
+			<type type="coptic" key="calendar">calendario cóptico</type>
 			<type type="dangi" key="calendar">calendario dangi</type>
 			<type type="deva" key="numbers">dígitos en devanagari</type>
-			<type type="dictionary" key="collation">orden de diccionario</type>
-			<type type="ducet" key="collation">orden Unicode predeterminado</type>
+			<type type="dictionary" key="collation">orden de clasificación del diccionario</type>
+			<type type="ducet" key="collation">orden de clasificación de Unicode predeterminado</type>
 			<type type="ethi" key="numbers">números en etíope</type>
 			<type type="ethiopic" key="calendar">calendario etíope</type>
-			<type type="ethiopic-amete-alem" key="calendar">calendario amete alem etíope</type>
+			<type type="ethiopic-amete-alem" key="calendar">calendario etíope Amete Alem</type>
 			<type type="finance" key="numbers" draft="contributed">Números financieros</type>
 			<type type="fullwide" key="numbers">dígitos de ancho completo</type>
 			<type type="gb2312han" key="collation">orden del chino simplificado - GB2312</type>
@@ -1080,7 +1080,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="pinyin" key="collation">orden pinyin</type>
 			<type type="primary" key="colStrength" draft="contributed">Ordenar solo letras base</type>
 			<type type="quaternary" key="colStrength" draft="contributed">Ordenar acentos/mayúsculas y minúsculas/ancho/kana</type>
-			<type type="reformed" key="collation">orden reformado</type>
+			<type type="reformed" key="collation">orden de clasificación reformado</type>
 			<type type="roc" key="calendar">calendario de la República de China</type>
 			<type type="roman" key="numbers">números romanos</type>
 			<type type="romanlow" key="numbers">números romanos en minúscula</type>
@@ -1098,7 +1098,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="tibt" key="numbers">dígitos en tibetano</type>
 			<type type="traditional" key="collation">orden tradicional</type>
 			<type type="traditional" key="numbers" draft="contributed">Números tradicionales</type>
-			<type type="unihan" key="collation">orden por radical-trazos</type>
+			<type type="unihan" key="collation">orden de clasificación de trazos radicales</type>
 			<type type="upper" key="colCaseFirst" draft="contributed">Ordenar empezando por mayúsculas</type>
 			<type type="vaii" key="numbers" draft="contributed">Dígitos vai</type>
 			<type type="yes" key="colBackwards" draft="contributed">Ordenar acentos con inversión</type>
@@ -1590,12 +1590,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<quarter type="3">T3</quarter>
 							<quarter type="4">T4</quarter>
 						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">1T</quarter>
-							<quarter type="2">2T</quarter>
-							<quarter type="3">3T</quarter>
-							<quarter type="4">4T</quarter>
-						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">1.er trimestre</quarter>
 							<quarter type="2">2.º trimestre</quarter>
@@ -1604,23 +1598,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">T1</quarter>
-							<quarter type="2">T2</quarter>
-							<quarter type="3">T3</quarter>
-							<quarter type="4">T4</quarter>
-						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1">1T</quarter>
-							<quarter type="2">2T</quarter>
-							<quarter type="3">3T</quarter>
-							<quarter type="4">4T</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">1.er trimestre</quarter>
-							<quarter type="2">2.º trimestre</quarter>
-							<quarter type="3">3.er trimestre</quarter>
-							<quarter type="4">4.º trimestre</quarter>
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1641,9 +1623,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<eras>
 					<eraNames>
 						<era type="0">antes de Cristo</era>
-						<era type="0" alt="variant">a. e. c.</era>
-						<era type="1">anno Dómini</era>
-						<era type="1" alt="variant">e. c.</era>
+						<era type="0" alt="variant">antes de la era común</era>
+						<era type="1">después de Cristo</era>
+						<era type="1" alt="variant">era común</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">a. C.</era>
@@ -3202,7 +3184,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Miquelón</exemplarCity>
 			</zone>
 			<zone type="Pacific/Pitcairn">
-				<exemplarCity>Islas Pitcairn</exemplarCity>
+				<exemplarCity>Pitcairn</exemplarCity>
 			</zone>
 			<zone type="America/Puerto_Rico">
 				<exemplarCity>Puerto Rico</exemplarCity>
@@ -3391,7 +3373,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Asjabad</exemplarCity>
 			</zone>
 			<zone type="Africa/Tunis">
-				<exemplarCity>Túnez capital</exemplarCity>
+				<exemplarCity>Túnez</exemplarCity>
 			</zone>
 			<zone type="Pacific/Tongatapu">
 				<exemplarCity>Tongatapu</exemplarCity>
@@ -3977,7 +3959,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<generic>hora de Groenlandia oriental</generic>
 					<standard>hora estándar de Groenlandia oriental</standard>
-					<daylight>hora de verano de de Groenlandia oriental</daylight>
+					<daylight>hora de verano de Groenlandia oriental</daylight>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Western">
@@ -4170,7 +4152,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Marquesas">
 				<long>
-					<standard>hora de las islas Marquesas</standard>
+					<standard>hora de Marquesas</standard>
 				</long>
 			</metazone>
 			<metazone type="Marshall_Islands">
@@ -4261,7 +4243,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Norfolk">
 				<long>
-					<standard>hora de las islas Norfolk</standard>
+					<standard>hora de la isla Norfolk</standard>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
@@ -4728,9 +4710,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="AWG">
-				<displayName>florín de Aruba</displayName>
-				<displayName count="one">florín de Aruba</displayName>
-				<displayName count="other">florines de Aruba</displayName>
+				<displayName>florín arubeño</displayName>
+				<displayName count="one">florín arubeño</displayName>
+				<displayName count="other">florines arubeños</displayName>
 				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
@@ -4754,9 +4736,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>BAM</symbol>
 			</currency>
 			<currency type="BBD">
-				<displayName>dólar de Barbados</displayName>
-				<displayName count="one">dólar de Barbados</displayName>
-				<displayName count="other">dólares de Barbados</displayName>
+				<displayName>dólar barbadense</displayName>
+				<displayName count="one">dólar barbadense</displayName>
+				<displayName count="other">dólares barbadenses</displayName>
 				<symbol>BBD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
@@ -4868,9 +4850,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">cruceiros brasileños</displayName>
 			</currency>
 			<currency type="BSD">
-				<displayName>dólar de las Bahamas</displayName>
-				<displayName count="one">dólar de las Bahamas</displayName>
-				<displayName count="other">dólares de las Bahamas</displayName>
+				<displayName>dólar bahameño</displayName>
+				<displayName count="one">dólar bahameño</displayName>
+				<displayName count="other">dólares bahameños</displayName>
 				<symbol>BSD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
@@ -4904,9 +4886,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">р.</symbol>
 			</currency>
 			<currency type="BZD">
-				<displayName>dólar de Belice</displayName>
-				<displayName count="one">dólar de Belice</displayName>
-				<displayName count="other">dólares de Belice</displayName>
+				<displayName>dólar beliceño</displayName>
+				<displayName count="one">dólar beliceño</displayName>
+				<displayName count="other">dólares beliceños</displayName>
 				<symbol>BZD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
@@ -5206,9 +5188,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HKD">
-				<displayName>dólar de Hong Kong</displayName>
-				<displayName count="one">dólar de Hong Kong</displayName>
-				<displayName count="other">dólares de Hong Kong</displayName>
+				<displayName>dólar hongkonés</displayName>
+				<displayName count="one">dólar hongkonés</displayName>
+				<displayName count="other">dólares hongkoneses</displayName>
 				<symbol>HKD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
@@ -5295,9 +5277,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">liras italianas</displayName>
 			</currency>
 			<currency type="JMD">
-				<displayName>dólar de Jamaica</displayName>
-				<displayName count="one">dólar de Jamaica</displayName>
-				<displayName count="other">dólares de Jamaica</displayName>
+				<displayName>dólar jamaicano</displayName>
+				<displayName count="one">dólar jamaicano</displayName>
+				<displayName count="other">dólares jamaicanos</displayName>
 				<symbol>JMD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
@@ -5366,9 +5348,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="KZT">
-				<displayName>tengue</displayName>
-				<displayName count="one">tengue</displayName>
-				<displayName count="other">tengues</displayName>
+				<displayName>tenge kazako</displayName>
+				<displayName count="one">tenge kazako</displayName>
+				<displayName count="other">tenges kazakos</displayName>
 				<symbol>KZT</symbol>
 				<symbol alt="narrow" draft="contributed">₸</symbol>
 			</currency>
@@ -5386,9 +5368,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>LBP</symbol>
 			</currency>
 			<currency type="LKR">
-				<displayName>rupia de Sri Lanka</displayName>
-				<displayName count="one">rupia de Sri Lanka</displayName>
-				<displayName count="other">rupias de Sri Lanka</displayName>
+				<displayName>rupia esrilanquesa</displayName>
+				<displayName count="one">rupia esrilanquesa</displayName>
+				<displayName count="other">rupias esrilanquesas</displayName>
 				<symbol>LKR</symbol>
 			</currency>
 			<currency type="LRD">
@@ -5527,9 +5509,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
-				<displayName>kuacha malauí</displayName>
-				<displayName count="one">kuacha malauí</displayName>
-				<displayName count="other">kuachas malauís</displayName>
+				<displayName>kwacha malauí</displayName>
+				<displayName count="one">kwacha malauí</displayName>
+				<displayName count="other">kwachas malauís</displayName>
 				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
@@ -6105,9 +6087,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>código reservado para pruebas</displayName>
 			</currency>
 			<currency type="XXX">
-				<displayName>divisa desconocida</displayName>
-				<displayName count="one">moneda desconocida/no válida</displayName>
-				<displayName count="other">monedas desconocidas/no válidas</displayName>
+				<displayName>moneda desconocida</displayName>
+				<displayName count="one">(unidad de moneda desconocida)</displayName>
+				<displayName count="other">(moneda desconocida)</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>dinar yemení</displayName>

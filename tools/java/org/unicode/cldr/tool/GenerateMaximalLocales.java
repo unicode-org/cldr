@@ -1365,6 +1365,14 @@ public class GenerateMaximalLocales {
                 + CldrUtility.LINE_SEPARATOR
                 + "-->"
                 + CldrUtility.LINE_SEPARATOR
+                + "<!--"
+                + CldrUtility.LINE_SEPARATOR
+                + "Likely subtags data is generated programatically from CLDR's language/territory/population" + CldrUtility.LINE_SEPARATOR
+                + "data using the GenerateMaximalLocales tool. Under normal circumstances, this file should" + CldrUtility.LINE_SEPARATOR
+                + "not be patched by hand, as any changes made in that fashion may be lost."
+                + CldrUtility.LINE_SEPARATOR
+                + "-->"
+                + CldrUtility.LINE_SEPARATOR
                 + "<supplementalData>" + CldrUtility.LINE_SEPARATOR
                 + "    <version number=\"$" +
                 "Revision$\"/>" + CldrUtility.LINE_SEPARATOR

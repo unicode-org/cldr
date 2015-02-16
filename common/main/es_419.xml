@@ -18,13 +18,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<territories>
 			<territory type="GB" alt="short">R. U.</territory>
 		</territories>
-		<transformNames>
-			<transformName type="Numeric" draft="contributed">Numéricas</transformName>
-		</transformNames>
-		<measurementSystemNames>
-			<measurementSystemName type="UK" draft="contributed">Reino Unido</measurementSystemName>
-			<measurementSystemName type="US" draft="contributed">EE. UU.</measurementSystemName>
-		</measurementSystemNames>
 	</localeDisplayNames>
 	<dates>
 		<calendars>
@@ -236,70 +229,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencyFormats>
 		<currencies>
 			<currency type="CAD">
-				<symbol draft="contributed">CAD</symbol>
+				<symbol>CAD</symbol>
 			</currency>
 			<currency type="EUR">
-				<symbol draft="contributed">EUR</symbol>
-				<symbol alt="narrow" draft="contributed">€</symbol>
+				<symbol>EUR</symbol>
+				<symbol alt="narrow">€</symbol>
 			</currency>
 			<currency type="THB">
-				<symbol draft="contributed">THB</symbol>
+				<symbol>THB</symbol>
 			</currency>
 			<currency type="USD">
-				<symbol draft="contributed">USD</symbol>
+				<symbol>USD</symbol>
 			</currency>
 			<currency type="VND">
-				<symbol draft="contributed">VND</symbol>
+				<symbol>VND</symbol>
 			</currency>
 		</currencies>
 	</numbers>
 	<units>
-		<unitLength type="long">
-			<unit type="acceleration-g-force">
-				<displayName draft="contributed">unidad de fuerza gravitacional</displayName>
-			</unit>
-			<unit type="energy-calorie">
-				<displayName draft="contributed">calorías por gramo</displayName>
-				<unitPattern count="one" draft="contributed">{0} caloría por gramo</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} calorías por gramo</unitPattern>
-			</unit>
-			<unit type="energy-foodcalorie">
-				<displayName draft="contributed">calorías por kilogramo</displayName>
-				<unitPattern count="one" draft="contributed">{0} caloría por kilogramo</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} calorías por kilogramo</unitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName draft="contributed">decímetro</displayName>
-			</unit>
-			<unit type="mass-carat">
-				<displayName draft="contributed">quilates de gemología</displayName>
-				<unitPattern count="one" draft="contributed">{0} quilate de gemología</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} quilates de gemología</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName draft="contributed">quilates de orfebrería</displayName>
-				<unitPattern count="one" draft="contributed">{0} quilate de orfebrería</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} quilates de orfebrería</unitPattern>
-			</unit>
-			<unit type="temperature-kelvin">
-				<displayName draft="contributed">grados Kelvin</displayName>
-				<unitPattern count="one" draft="contributed">{0} grado Kelvin</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} grados Kelvin</unitPattern>
-			</unit>
-		</unitLength>
 		<unitLength type="short">
-			<unit type="angle-degree">
-				<displayName draft="contributed">°</displayName>
-				<unitPattern count="one" draft="contributed">{0} °</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} °</unitPattern>
-			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">dd.</displayName>
 				<unitPattern count="one" draft="contributed">{0} d.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} dd.</unitPattern>
-			</unit>
-			<unit type="duration-hour">
-				<displayName draft="contributed">h</displayName>
 			</unit>
 			<unit type="duration-month">
 				<displayName draft="contributed">mm.</displayName>
@@ -316,19 +268,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} a.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} aa.</unitPattern>
 			</unit>
-			<unit type="electric-volt">
-				<displayName draft="contributed">V</displayName>
-			</unit>
-			<unit type="energy-foodcalorie">
-				<displayName draft="contributed">C</displayName>
-				<unitPattern count="one" draft="contributed">{0} C</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} C</unitPattern>
-			</unit>
-			<unit type="energy-joule">
-				<displayName draft="contributed">j</displayName>
-				<unitPattern count="one" draft="contributed">{0} j</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} j</unitPattern>
-			</unit>
 			<unit type="length-light-year">
 				<displayName draft="contributed">aa. l.</displayName>
 				<unitPattern count="one" draft="contributed">{0} a. l.</unitPattern>
@@ -344,57 +283,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="length-yard">
 				<displayName draft="contributed">yardas</displayName>
-			</unit>
-			<unit type="mass-carat">
-				<displayName draft="contributed">CD</displayName>
-				<unitPattern count="one" draft="contributed">{0} CD</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} CD</unitPattern>
-			</unit>
-			<unit type="mass-ounce-troy">
-				<displayName draft="contributed">oz t</displayName>
-				<unitPattern count="one" draft="contributed">{0} oz t</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} oz t</unitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName draft="contributed">tn</displayName>
-				<unitPattern count="one" draft="contributed">{0} tn</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} tn</unitPattern>
-			</unit>
-			<unit type="power-watt">
-				<displayName draft="contributed">W</displayName>
-			</unit>
-			<unit type="pressure-pound-per-square-inch">
-				<displayName draft="contributed">lb/in²</displayName>
-				<unitPattern count="one" draft="contributed">{0} lb/in²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} lb/in²</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName draft="contributed">kt</displayName>
-				<unitPattern count="one" draft="contributed">{0} kt</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} kt</unitPattern>
-			</unit>
-			<unit type="temperature-kelvin">
-				<displayName draft="contributed">°K</displayName>
-				<unitPattern count="one" draft="contributed">{0} °K</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} °K</unitPattern>
-			</unit>
-			<unit type="volume-cup">
-				<displayName draft="contributed">c</displayName>
-				<unitPattern count="one" draft="contributed">{0} c</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} c</unitPattern>
-			</unit>
-			<unit type="volume-pint">
-				<displayName draft="contributed">pintas</displayName>
-			</unit>
-			<unit type="volume-tablespoon">
-				<displayName draft="contributed">cdas.</displayName>
-				<unitPattern count="one" draft="contributed">{0} cd.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} cdas.</unitPattern>
-			</unit>
-			<unit type="volume-teaspoon">
-				<displayName draft="contributed">cdtas.</displayName>
-				<unitPattern count="one" draft="contributed">{0} cdta.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} cdtas.</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">

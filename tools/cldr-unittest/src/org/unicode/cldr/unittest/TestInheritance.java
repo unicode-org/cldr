@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -64,11 +65,13 @@ public class TestInheritance extends TestFmwk {
 
 	private static final boolean EXPECT_EQUALITY = false;
 
-	private static Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-	private static Factory factory2 = Factory.make(CLDRPaths.SEED_DIRECTORY, ".*");
-	private static Set<String> availableLocales = Builder.with(new TreeSet<String>())
-			.addAll(factory.getAvailable()).addAll(factory2.getAvailable())
-			.freeze();
+	private static Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY,
+			".*");
+	private static Factory factory2 = Factory.make(CLDRPaths.SEED_DIRECTORY,
+			".*");
+	private static Set<String> availableLocales = Builder
+			.with(new TreeSet<String>()).addAll(factory.getAvailable())
+			.addAll(factory2.getAvailable()).freeze();
 
 	public void TestLocalesHaveOfficial() {
 		// If we have a language, we have all the region locales where the
@@ -309,12 +312,14 @@ public class TestInheritance extends TestFmwk {
 		verifyScriptsWithDefaultContents(ltp, base2scripts, parent2default,
 				base2locales);
 	}
-	
+
 	public void TestParentLocaleRelationships() {
-		// Testing invariant relationships between locales - See http://unicode.org/cldr/trac/ticket/5758
-		Matcher langScript = Pattern.compile("^[a-z]{2,3}_[A-Z][a-z]{3}$").matcher("");
-		for ( String loc : availableLocales ) {
-			if ( langScript.reset(loc).matches()) {
+		// Testing invariant relationships between locales - See
+		// http://unicode.org/cldr/trac/ticket/5758
+		Matcher langScript = Pattern.compile("^[a-z]{2,3}_[A-Z][a-z]{3}$")
+				.matcher("");
+		for (String loc : availableLocales) {
+			if (langScript.reset(loc).matches()) {
 				String expectedParent = loc.split("_")[0];
 				if (!defaultContents.contains(loc)) {
 					expectedParent = "root";
@@ -323,14 +328,65 @@ public class TestInheritance extends TestFmwk {
 				if (actualParent == null) {
 					actualParent = loc.split("_")[0];
 				}
-				if ( !actualParent.equals(expectedParent)) {
-					errln("Unexpected parent locale for locale "+loc+". Expected: "+expectedParent+" Got: "+actualParent);
+				if (!actualParent.equals(expectedParent)) {
+					errln("Unexpected parent locale for locale " + loc
+							+ ". Expected: " + expectedParent + " Got: "
+							+ actualParent);
 				}
 
-				if (dataInfo.getExplicitParentLocale(loc) != null && defaultContents.contains(loc)) {
-					errln("Locale "+loc+" can't have an explicit parent AND be a default content locale");
+				if (dataInfo.getExplicitParentLocale(loc) != null
+						&& defaultContents.contains(loc)) {
+					errln("Locale "
+							+ loc
+							+ " can't have an explicit parent AND be a default content locale");
 				}
 			}
+		}
+	}
+
+	public void TestParentLocaleInvariants() {
+		// Testing invariant relationships in parent locales - See
+		// http://unicode.org/cldr/trac/ticket/7887
+		LocaleIDParser lp = new LocaleIDParser();
+		for (String loc : availableLocales) {
+			String parentLocale = dataInfo.getExplicitParentLocale(loc);
+			if (parentLocale != null) {
+				if (!"root".equals(parentLocale)
+						&& !lp.set(loc).getLanguage()
+								.equals(lp.set(parentLocale).getLanguage())) {
+					errln("Parent locale [" + parentLocale + "] for locale ["
+							+ loc + "] cannot be a different language code.");
+				}
+				if (!"root".equals(parentLocale)
+						&& !lp.set(loc).getScript()
+								.equals(lp.set(parentLocale).getScript())) {
+					errln("Parent locale [" + parentLocale + "] for locale ["
+							+ loc + "] cannot be a different script code.");
+				}
+				lp.set(loc);
+				if (lp.getScript().length() == 0 && lp.getRegion().length() == 0) {
+					errln("Base language locale [" + loc + "] cannot have an explicit parent.");
+				}
+				
+			}
+		}
+	}
+	public void TestParentLocalesForCycles() {
+		// Testing for cyclic relationships in parent locales - See
+		// http://unicode.org/cldr/trac/ticket/7887
+		for (String loc : availableLocales) {
+			String currentLoc = loc;
+			boolean foundError = false;
+			List<String> inheritanceChain = new ArrayList<String>(Arrays.asList(loc));
+			while (currentLoc != null && !foundError) {
+				currentLoc = LocaleIDParser.getParent(currentLoc);
+				if (inheritanceChain.contains(currentLoc)) {
+					foundError = true;
+					inheritanceChain.add(currentLoc);
+					errln("Inheritance chain for locale [" + loc + "] contains a cyclic relationship. "+inheritanceChain.toString());
+				}
+				inheritanceChain.add(currentLoc);
+			}				
 		}
 	}
 
@@ -339,7 +395,8 @@ public class TestInheritance extends TestFmwk {
 			Map<String, String> parent2default,
 			Relation<String, String> base2locales) {
 		Set<String> skip = Builder.with(new HashSet<String>())
-				.addAll("in", "iw", "mo", "no", "root", "sh", "tl", "und").freeze();
+				.addAll("in", "iw", "mo", "no", "root", "sh", "tl", "und")
+				.freeze();
 
 		// for each base we have to have,
 		// if multiscript, we have default contents for base+script,

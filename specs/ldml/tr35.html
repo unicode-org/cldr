@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Content-Language" content="en-us">
-<link rel="stylesheet" href="./reports.css"
+<link rel="stylesheet" href="http://unicode.org/reports/reports.css"
 	type="text/css">
 <title>UTS #35: Unicode Locale Data Markup Language</title>
 <style type="text/css">
@@ -108,7 +108,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2014-11-16</span></td>
+				<td><span class="changed">2015-02-16</span></td>
 			</tr>
 			<tr class="changed">
 				<td><span class="changed">This Version</span></td>
@@ -3272,6 +3272,18 @@ root</pre>
 			but for collation data, the parent locale would still be
 			&quot;zh&quot;, even though the parentLocale element is present for
 			that locale.</p>
+		
+		<p class="changed">When a <span class="element">parentLocale</span> element is used to override normal inheritance,
+		   the following invariants must always be true:
+		<ol>
+		   <li class="changed">If X is the parentLocale of Y, then either X is the root locale, or X has the same base language code as Y.
+		       For example, the parent of &quot;en&quot; cannot be &quot;fr&quot;,
+		       and the parent of &quot;en_YY&quot; cannot be &quot;fr&quot; or &quot;fr_XX&quot;.</li>
+		   <li class="changed">If X is the parentLocale of Y, Y must not be a base language locale. 
+               For example, the parent of &quot;en&quot; cannot be &quot;en_XX&quot;.</li>
+		   <li class="changed">There can never be cycles, such as: X parent of Y ... parent of X.</li>
+		</ol>
+		</p>
 		<h3>
 			<a name="Inheritance_and_Validity" href="#Inheritance_and_Validity">4.2
 				Inheritance and Validity</a>

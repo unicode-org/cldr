@@ -1699,14 +1699,8 @@ public class PathHeader implements Comparable<PathHeader> {
     private static final List<String> COUNTS = Arrays.asList("displayName", "zero", "one", "two", "few", "many", "other", "per");
 
     private static int alphabeticCompare(String aa, String bb) {
+        // A frozen Collator is thread-safe.
         return alphabetic.compare(aa, bb);
-        // workaround for ICU threading issue http://bugs.icu-project.org/trac/ticket/10215
-//        while (true) {
-//            try {
-//                return alphabetic.compare(aa, bb);
-//            } catch (IndexOutOfBoundsException e) {
-//            }
-//        }
     }
 
     public enum BaseUrl {

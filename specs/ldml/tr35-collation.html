@@ -1559,7 +1559,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					code points in <strong>shifted</strong>. That is, the normal Level
 					4 value for a regular collation element is FFFF, as described in [<a
 					href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], <em>Section
-						3.7, Variable Weighting</em>. This is changed to FFFE for
+						3.<span class="removed">7</span><span class="changed">6</span>, <a href="http://www.unicode.org/reports/tr10/#Variable_Weighting">Variable Weighting</a></em>.
+					This is changed to FFFE for
 					[:script=Hiragana:] characters. The strength must be greater or
 					equal than quaternary if this attribute is to have any effect.
 				</td>
@@ -1685,8 +1686,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				<td rowspan="3"><code>
 						match-boundaries = &quot;<span style="color: blue">whole-word</span>&quot;
 					</code><br> <br> n/a<br></td>
-				<td rowspan="3">Defined by <em>Section 8, Searching and
-						Matching</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
+				<td rowspan="3">Defined by <em>Section 8,
+					<a href="http://www.unicode.org/reports/tr10/#Searching">Searching and
+						Matching</a></em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
 				</td>
 			</tr>
 			<tr>
@@ -1705,8 +1707,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				<td rowspan="3"><code>
 						match-style = &quot;<span style="color: blue">medial</span>&quot;
 					</code><br> <br> n/a</td>
-				<td rowspan="3">Defined by <em>Section 8, Searching and
-						Matching</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
+				<td rowspan="3">Defined by <em>Section 8,
+					<a href="http://www.unicode.org/reports/tr10/#Searching">Searching and
+						Matching</a></em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
 				</td>
 			</tr>
 			<tr>
@@ -3080,8 +3083,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</h4>
 		<p>
 			The main data includes &lt;exemplarCharacters&gt; for collation
-			indexes. See the main document, <i>Section 5.6 <a
-				href="tr35.html#Character_Elements">Character Elements</a></i>, for
+			indexes. See <span class="removed">the main document, Section 5.6</span> <i><span class="changed">Part 2 General, Section 3</span> <a
+				href="tr35-general.html#Character_Elements">Character Elements</a></i>, for
 			general information about exemplar characters.
 		</p>
 		<p>The index characters are a set of characters for use as a UI
@@ -3219,8 +3222,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<pre>&lt;exemplarCharacters type=&quot;index&quot;&gt;[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]&lt;/exemplarCharacters&gt;</pre>
 		<p>
 			The display of the index characters can be modified with the Index
-			labels elements, discussed in the main document, <i>Section 5.6.4
-				<a href="tr35.html#IndexLabels">Index Labels</a>
+			labels elements, discussed in the <span class="removed">main document, Section 5.6.4</span> <i><span class="changed">Part 2 General, Section 3.3</span>
+				<a href="tr35-general.html#IndexLabels">Index Labels</a>
 			</i>.
 		</p>
 

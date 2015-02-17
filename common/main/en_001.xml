@@ -500,6 +500,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litres/km</displayName>
 			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} hr</unitPattern>
+				<unitPattern count="other">{0} hrs</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} min</unitPattern>
+				<unitPattern count="other">{0} mins</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} sec</unitPattern>
+				<unitPattern count="other">{0} secs</unitPattern>
+			</unit>
 			<unit type="length-meter">
 				<displayName>metres</displayName>
 			</unit>

@@ -3233,7 +3233,18 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</h4>
 		<p>Special index markers have been added to the CJK collations for
 			stroke, pinyin, zhuyin, and unihan. These markers allow for effective
-			and robust use of indexes for these collations. For example, near the
+			and robust use of indexes for these collations.</p>
+		<p class="changed">The per-language index exemplar characters are not useful
+			for collation indexes for CJK because for each such language
+			there are multiple sort orders in use
+			(for example, Chinese pinyin vs. stroke vs. unihan vs. zhuyin),
+			and these sort orders use very different index characters.
+			In addition, sometimes the boundary strings
+			are different from the bucket label strings.
+			For collations that contain index markers,
+			the boundary strings and bucket labels should be derived from those index markers,
+			ignoring the index exemplar characters.</p>
+		<p>For example, near the
 			start of the pinyin tailoring there is the following:</p>
 		<p>
 			&lt;p&gt; A&lt;/p&gt;&lt;!-- INDEX A --&gt;<br>

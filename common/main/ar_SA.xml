@@ -11,27 +11,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="ar"/>
 		<territory type="SA"/>
 	</identity>
-	<dates>
-		<calendars>
-			<calendar type="islamic">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Md" draft="contributed">M/d</dateFormatItem>
-						<dateFormatItem id="MEd" draft="contributed">E, M/d</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="contributed">MMM d</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="contributed">E, MMM d</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-		</calendars>
-	</dates>
-	<numbers>
-		<currencyFormats numberSystem="latn">
-			<currencyFormatLength>
-				<currencyFormat type="standard">
-					<pattern>¤#0.00</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
-		</currencyFormats>
-	</numbers>
 </ldml>

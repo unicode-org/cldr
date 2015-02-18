@@ -13,43 +13,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<dates>
 		<calendars>
-			<calendar type="generic">
-				<dateFormats>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>G y/MM/dd</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>GGGGG y/M/d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Md">M/d</dateFormatItem>
-						<dateFormatItem id="MMdd">MM/dd</dateFormatItem>
-						<dateFormatItem id="yyyyM">G y/M</dateFormatItem>
-						<dateFormatItem id="yyyyMd">G y/M/d</dateFormatItem>
-						<dateFormatItem id="yyyyMM">G y/MM</dateFormatItem>
-					</availableFormats>
-					<intervalFormats>
-						<intervalFormatItem id="d">
-							<greatestDifference id="d">d‏–d</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="M">
-							<greatestDifference id="M">M‏–M</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">d‏–d MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="y">
-							<greatestDifference id="y">G y‏–y</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -141,41 +104,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dateFormats>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>y/MM/dd</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>y/M/d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Md">M/d</dateFormatItem>
-						<dateFormatItem id="MMdd">MM/dd</dateFormatItem>
-						<dateFormatItem id="yM">y/M</dateFormatItem>
-						<dateFormatItem id="yMd">y/M/d</dateFormatItem>
-						<dateFormatItem id="yMM">y/MM</dateFormatItem>
-					</availableFormats>
-					<intervalFormats>
-						<intervalFormatItem id="d">
-							<greatestDifference id="d">d‏–d</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="M">
-							<greatestDifference id="M">M‏–M</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">d‏–d MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="y">
-							<greatestDifference id="y">y‏–y</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>

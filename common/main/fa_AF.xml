@@ -14,7 +14,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<localeDisplayNames>
 		<languages>
 			<language type="es">هسپانوی</language>
-			<language type="fa">دری</language>
 			<language type="fi">فنلندی</language>
 			<language type="ga">آیرلندی</language>
 			<language type="hr">کروشیایی</language>
@@ -52,9 +51,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="BR">برازیل</territory>
 			<territory type="BS">بهاماس</territory>
 			<territory type="BY">روسیهٔ سفید</territory>
-			<territory type="CD">جمهوری دموکراتیک کانگو</territory>
-			<territory type="CF">افریقای مرکزی</territory>
-			<territory type="CG">کانگو</territory>
+			<territory type="CD" draft="contributed">کانگو - کینشاسا</territory>
+			<territory type="CG" draft="contributed">کانگو - برازویل</territory>
 			<territory type="CH">سویس</territory>
 			<territory type="CL">چلی</territory>
 			<territory type="CO">کولمبیا</territory>
@@ -83,7 +81,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="KE">کینیا</territory>
 			<territory type="KG">قرغزستان</territory>
 			<territory type="KH">کمپوچیا</territory>
-			<territory type="KN">سنت کیتس و نیویس</territory>
 			<territory type="KP">کوریای شمالی</territory>
 			<territory type="KR">کوریای جنوبی</territory>
 			<territory type="LK">سریلانکا</territory>
@@ -112,7 +109,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="PY">پاراگوای</territory>
 			<territory type="RO">رومانیا</territory>
 			<territory type="RW">روآندا</territory>
-			<territory type="SB">جزایر سلومون</territory>
 			<territory type="SE">سویدن</territory>
 			<territory type="SG">سینگاپور</territory>
 			<territory type="SI">سلونیا</territory>
@@ -120,18 +116,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="SL">سیرالیون</territory>
 			<territory type="SN">سینیگال</territory>
 			<territory type="SO">سومالیه</territory>
-			<territory type="ST">سائو تومه و پرینسیپ</territory>
 			<territory type="SV">السلوادور</territory>
 			<territory type="TJ">تاجکستان</territory>
 			<territory type="UA">اکراین</territory>
 			<territory type="UY">یوروگوای</territory>
-			<territory type="VC">سنت وینسنت و گرینادین</territory>
 			<territory type="VE">ونزویلا</territory>
 			<territory type="ZW">زیمبابوی</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters type="auxiliary">[\u200C \u200D \u0656 \u0670 ټ ځ څ ډ ړ ږ ښ ګ ڼ ي]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u200C \u200D \u200E\u200F \u064E \u0650 \u064F \u0652 \u0656 \u0670 إ ټ ځ څ ډ ړ ږ ښ ك ګ ڼ ى ي]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -212,22 +206,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 					</monthContext>
 				</months>
-				<eras>
-					<eraAbbr>
-						<era type="0">ه‍. ش.</era>
-					</eraAbbr>
-				</eras>
 			</calendar>
 		</calendars>
 	</dates>
 	<numbers>
-		<percentFormats numberSystem="latn">
-			<percentFormatLength>
-				<percentFormat>
-					<pattern>'‪'#,##0%'‬'</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
 		<currencies>
 			<currency type="AUD">
 				<displayName>دالر آسترالیا</displayName>

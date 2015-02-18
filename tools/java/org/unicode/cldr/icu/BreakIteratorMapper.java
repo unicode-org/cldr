@@ -81,9 +81,11 @@ class BreakIteratorMapper extends Mapper {
                 if (filename == null || type == null) {
                     System.err.println("WARNING: brkiter: in " + locale + ".xml (ICU specials): Malformed path: " + fullPath);
                 } else {
+                    final String altValue = xpp.getAttributeValue(-1, "alt");
+                    final String extType = (altValue == null)? type: type.concat("_").concat(altValue);
                     source.add(filename.substring(0, filename.lastIndexOf('.'))); // "title.brk" -> "title"
                     icuData.add(
-                        MessageFormat.format("/{0}/{1}:process(dependency)", element2.split(":")[1], type), filename); // "Laoo", "laodict.dict"
+                        MessageFormat.format("/{0}/{1}:process(dependency)", element2.split(":")[1], extType), filename); // "Laoo", "laodict.dict"
                 }
             }
         }

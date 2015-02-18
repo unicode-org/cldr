@@ -11,11 +11,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="ar"/>
 		<territory type="LB"/>
 	</identity>
-	<localeDisplayNames>
-		<types>
-			<type type="ducet" key="collation" draft="contributed">ترتيب تصنيف الشفرة الافتراضية</type>
-		</types>
-	</localeDisplayNames>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -109,18 +104,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dateFormats>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern draft="contributed">MMM d, y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="GyMMMEd" draft="contributed">E, MMM d, y G</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -136,4 +119,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 </ldml>
-

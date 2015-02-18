@@ -65,7 +65,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST icu:line icu:class NMTOKEN #IMPLIED >
 <!ATTLIST icu:line icu:append NMTOKEN #IMPLIED >
 <!ATTLIST icu:line icu:import NMTOKEN #IMPLIED >
-<!ATTLIST icu:line icu:alt NMTOKEN #IMPLIED >
+<!ATTLIST icu:line alt NMTOKEN #IMPLIED >
 <!ATTLIST icu:line icu:dependency NMTOKEN #IMPLIED >
 
 <!ELEMENT icu:sentence ( #PCDATA ) >
@@ -86,7 +86,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST icu:xgc icu:import NMTOKEN #IMPLIED >
 <!ATTLIST icu:xgc icu:dependency NMTOKEN #IMPLIED >
 
-<!--deorecated -->
+<!--deprecated -->
 <!ELEMENT icu:breakDictionaryData EMPTY >
 <!ATTLIST icu:breakDictionaryData icu:class NMTOKEN #IMPLIED >
 <!ATTLIST icu:breakDictionaryData icu:import NMTOKEN #IMPLIED >

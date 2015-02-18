@@ -65,6 +65,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST icu:line icu:class NMTOKEN #IMPLIED >
 <!ATTLIST icu:line icu:append NMTOKEN #IMPLIED >
 <!ATTLIST icu:line icu:import NMTOKEN #IMPLIED >
+<!ATTLIST icu:line icu:alt NMTOKEN #IMPLIED >
 <!ATTLIST icu:line icu:dependency NMTOKEN #IMPLIED >
 
 <!ELEMENT icu:sentence ( #PCDATA ) >

@@ -11,6 +11,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="es"/>
 		<territory type="CR"/>
 	</identity>
+	<dates>
+		<fields>
+			<field type="day">
+				<displayName>Día</displayName>
+				<relative type="-2">antier</relative>
+				<relative type="-1">ayer</relative>
+				<relative type="0">hoy</relative>
+				<relative type="1">mañana</relative>
+				<relative type="2">pasado mañana</relative>
+			</field>
+		</fields>
+	</dates>
 	<numbers>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>

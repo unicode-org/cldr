@@ -3125,13 +3125,27 @@ h2,h3,h4,table {
 			specifies a category of data from the table below; the element
 			includes one or more &lt;contextTransform&gt; elements that specify
 			how to perform capitalization of this category of data in different
-			contexts. The &lt;contextTransform&gt; elements are only needed for
-			cases in which the capitalization is other than the default form used
-			in the middle of running text. The only value currently defined for
-			the &lt;contextTransform&gt; element is the transformation
-			"titlecase-firstword", covering the case in which text that is
-			otherwise lowercase needs to have its first word titlecased. No other
-			necessary case transforms have been identified.</p>
+			contexts. The &lt;contextTransform&gt; elements are <span class="changed">needed
+			primarily</span> for cases in which the capitalization is other than the
+			default form used in the middle of running text. <span class="changed">However,
+			it is also useful to distinguish cases in which it is <em>known</em> that no
+			transformation from this default form is needed from cases in which any
+			necessary tranformation may simply be unknown or unspecified. The
+			following values are </span>currently defined for the &lt;contextTransform&gt;
+			element:</p>
+
+		<ul>
+			<li>"titlecase-firstword" <span class="changed">designates </span>the case in
+				which <span class="changed">raw CLDR </span>text that is <span class="changed">in
+				middle-of-sentence form, typically lowercase, </span>needs to have its
+				first word titlecased.</li>
+			<li class="changed">"no-change" designates the case in which it is known that no
+				change from the raw CLDR text (middle-of-sentence form) is needed.</li>
+			<li class="changed">"∅∅∅" has the same effect as "no-change" (i.e. no change to
+				CLDR raw data), but instead indicates that a value of "titlecase-firstword"
+				or "no-change" that would otherwise be inherited from a parent locale is
+				not known to apply to the child locale in which it is specified.</li>
+		</ul>
 
 		<p>Four contexts for capitalization behavior are currently
 			identified. Two need no data, and hence have no corresponding

@@ -169,7 +169,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="eo">espéranto</language>
 			<language type="es">espagnol</language>
 			<language type="es_419">espagnol latino-américain</language>
-			<language type="es_ES">espagnol d’Europe</language>
+			<language type="es_ES">espagnol européen</language>
 			<language type="es_MX">espagnol mexicain</language>
 			<language type="esu" draft="unconfirmed">youpik central</language>
 			<language type="et">estonien</language>
@@ -454,7 +454,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ps" alt="variant">pashto</language>
 			<language type="pt">portugais</language>
 			<language type="pt_BR">portugais brésilien</language>
-			<language type="pt_PT">portugais d’Europe</language>
+			<language type="pt_PT">portugais européen</language>
 			<language type="qu">quechua</language>
 			<language type="quc">k’iche’</language>
 			<language type="qug" draft="unconfirmed">quichua du Haut-Chimborazo</language>
@@ -924,7 +924,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="GP">Guadeloupe</territory>
 			<territory type="GQ">Guinée équatoriale</territory>
 			<territory type="GR">Grèce</territory>
-			<territory type="GS">Îles Géorgie du Sud et Sandwich du Sud</territory>
+			<territory type="GS">Géorgie du Sud et îles Sandwich du Sud</territory>
 			<territory type="GT">Guatemala</territory>
 			<territory type="GU">Guam</territory>
 			<territory type="GW">Guinée-Bissau</territory>
@@ -1286,7 +1286,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="tibt" key="numbers">chiffres tibétains</type>
 			<type type="traditional" key="collation">Ordre traditionnel</type>
 			<type type="traditional" key="numbers" draft="contributed">Chiffres traditionnels</type>
-			<type type="unihan" key="collation">Ordre par radical et nombre de traits</type>
+			<type type="unihan" key="collation">Ordre de tri radical-traits</type>
 			<type type="upper" key="colCaseFirst" draft="contributed">Trier avec les majuscules d’abord</type>
 			<type type="vaii" key="numbers" draft="contributed">Chiffres en vaï</type>
 			<type type="yes" key="colBackwards" draft="contributed">Trier les caractères accentués dans l’ordre inverse</type>
@@ -6425,9 +6425,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="FKP">
-				<displayName>livre des Falkland</displayName>
-				<displayName count="one">livre des Falkland</displayName>
-				<displayName count="other">livres des Falkland</displayName>
+				<displayName>livre des îles Malouines</displayName>
+				<displayName count="one">livre des îles Malouines</displayName>
+				<displayName count="other">livres des îles Malouines</displayName>
 				<symbol>£FK</symbol>
 			</currency>
 			<currency type="FRF">
@@ -7840,9 +7840,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} calories</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>grandes calories</displayName>
-				<unitPattern count="one">{0} grande calorie</unitPattern>
-				<unitPattern count="other">{0} grandes calories</unitPattern>
+				<displayName>kilocalories</displayName>
+				<unitPattern count="one">{0} kilocalorie</unitPattern>
+				<unitPattern count="other">{0} kilocalories</unitPattern>
 			</unit>
 			<unit type="energy-joule">
 				<displayName>joules</displayName>
@@ -8452,9 +8452,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} cal</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>Cal</displayName>
-				<unitPattern count="one">{0} Cal</unitPattern>
-				<unitPattern count="other">{0} Cal</unitPattern>
+				<displayName>kcal</displayName>
+				<unitPattern count="one">{0} kcal</unitPattern>
+				<unitPattern count="other">{0} kcal</unitPattern>
 			</unit>
 			<unit type="energy-joule">
 				<displayName>J</displayName>

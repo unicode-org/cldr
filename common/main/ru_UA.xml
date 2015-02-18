@@ -11,28 +11,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="ru"/>
 		<territory type="UA"/>
 	</identity>
-	<localeDisplayNames>
-		<languages>
-			<language type="den">слэйви</language>
-			<language type="mh">маршальский</language>
-			<language type="tlh">клингон</language>
-		</languages>
-	</localeDisplayNames>
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<dateFormats>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>d MMMM y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>d MMM y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
@@ -100,18 +81,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
-				<dateFormats>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>d MMMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>d MMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
@@ -135,9 +104,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
-					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="h">
 							<greatestDifference id="h" draft="unconfirmed">h–h 'ч'. a</greatestDifference>

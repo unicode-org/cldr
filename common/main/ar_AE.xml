@@ -12,27 +12,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<territory type="AE"/>
 	</identity>
 	<localeDisplayNames>
-		<languages>
-			<language type="shi" draft="contributed">تشلحيت</language>
-		</languages>
 		<territories>
 			<territory type="CI" alt="variant" draft="contributed">ساحل العاج</territory>
 			<territory type="TL" alt="variant" draft="contributed">التيمور الشرقية</territory>
 		</territories>
-		<types>
-			<type type="ducet" key="collation" draft="contributed">الإفتراضي Unicode ترتيب</type>
-		</types>
 	</localeDisplayNames>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="noon" draft="contributed">ظهرا</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0" alt="variant" draft="contributed">قبل الميلاد</era>
@@ -50,18 +37,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0" draft="contributed">هذه السنة</relative>
 			</field>
 		</fields>
-		<timeZoneNames>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="contributed">توقيت ايرلندا الصيفي</daylight>
-				</long>
-			</zone>
-			<metazone type="French_Guiana">
-				<long>
-					<standard draft="contributed">توقيت غويانا الفرنسية</standard>
-				</long>
-			</metazone>
-		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencies>
@@ -70,17 +45,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 		</currencies>
 	</numbers>
-	<units>
-		<unitLength type="narrow">
-			<unit type="length-millimeter">
-				<unitPattern count="zero" draft="contributed">ملم</unitPattern>
-				<unitPattern count="one" draft="contributed">ملم</unitPattern>
-				<unitPattern count="two" draft="contributed">ملم</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} ملم</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} ملم</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ملم</unitPattern>
-			</unit>
-		</unitLength>
-	</units>
 </ldml>
-

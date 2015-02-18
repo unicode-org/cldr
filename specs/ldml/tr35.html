@@ -466,6 +466,7 @@ h5 {
 					<li>8.13 <a href="#Deprecated_subelements_of_segmentations">Deprecated
 							subelements of &lt;segmentations&gt;</a></li>
 					<li>8.14 <a href="#Element_cp">Element cp</a></li>
+					<li class="changed">8.15 <a href="#validSubLocales">Attribute validSubLocales</a></li>
 				</ul>
 			</li>
 			<li>9 <a href="#Links_to_Other_Parts">Links to Other Parts</a>
@@ -3508,46 +3509,6 @@ root</pre>
 			should be interpreted as if it were the canonicalized version of that
 			file.
 		</p>
-		<p>
-			The attribute <i>validSubLocales</i> allows sublocales in a given
-			tree to be treated as though a file for them were present when there
-			is not one. It only has an effect for locales that inherit from the
-			current file where a file is missing, and the elements would
-		</p>
-		<p>
-			<b>Example 1. </b>Suppose that in a particular LDML tree, there are
-			no region locales for German, for example, there is a de.xml file,
-			but no files for de_AT.xml, de_CH.xml, or de_DE.xml. Then no elements
-			are valid for any of those region locales. If we want to mark one of
-			those files as having valid elements, then we introduce an empty
-			file, such as the following.
-		</p>
-		<p>
-			<code>
-				&lt;ldml version=&quot;1.1&quot;&gt;<br> &nbsp;&lt;identity&gt;<br>
-				&nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br> &nbsp;
-				&lt;generation date=&quot;2004-06-04&quot; /&gt; <br> &nbsp;
-				&lt;language type=&quot;de&quot; /&gt; <br> &nbsp;
-				&lt;territory type=&quot;AT&quot; /&gt; <br>
-				&nbsp;&lt;/identity&gt;<br> &lt;/ldml&gt;
-			</code>
-		</p>
-		<p>
-			With the <i>validSubLocales</i> attribute, instead of adding the
-			empty files for de_AT.xml, de_CH.xml, and de_DE.xml, in the de file
-			we can add to the parent locale a list of the child locales that
-			should behave as if files were present.
-		</p>
-		<p>
-			<code>
-				&lt;ldml version=&quot;1.1&quot; validSubLocales=&quot;de_AT de_CH
-				de_DE&quot;&gt;<br> &nbsp;&lt;identity&gt;<br> &nbsp;
-				&lt;version number=&quot;1.1&quot; /&gt; <br> &nbsp;
-				&lt;generation date=&quot;2004-06-04&quot; /&gt; <br> &nbsp;
-				&lt;language type=&quot;de&quot; /&gt; <br>
-				&nbsp;&lt;/identity&gt;<br> ...<br> &lt;/ldml&gt;
-			</code>
-		</p>
 		<p>More formally, here is how to determine whether data for an
 			element chain E is implicitly or explicitly draft, given a locale L.
 			Sections 1, 2, and 4 are simply formalizations of what is in LDML
@@ -4356,7 +4317,7 @@ root</pre>
 			<li>singleCountries</li>
 			<li>preferenceOrdering</li>
 			<li>references</li>
-			<li>validSubLocales</li>
+			<li class="removed">validSubLocales</li>
 		</ul>
 		<h3>
 			<a name="Common_Elements" href="#Common_Elements">5.1 Common
@@ -4746,8 +4707,8 @@ root</pre>
 				class="attributeValue">short</span>&quot;, and &quot;<span
 				style="color: blue">secondary</span>&quot;.
 		</p>
-		<p>Attribute validSubLocales</p>
-		<p>
+		<p class="removed">Attribute validSubLocales</p>
+		<p class="removed">
 			The attribute <i>validSubLocales</i> allows sublocales in a given
 			tree to be treated as though a file for them were present when there
 			is not one. It can be applied to any element. It only has an effect
@@ -5914,6 +5875,54 @@ decimal?, group?, special*)) &gt;</pre>
 			</tr>
 		</table>
 		<p>&nbsp;</p>
+		<h3>
+			<a name="validSubLocales" href="#validSubLocales" class="changed">8.15 Attribute validSubLocales</a>
+		</h3>
+		<p class="changed">
+			The attribute <i>validSubLocales</i> allowed sublocales in a given
+			tree to be treated as though a file for them were present when there
+			was not one. It only had an effect for locales that inherit from the
+			current file where a file is missing.
+		</p>
+		<p class="changed">
+			<b>Example 1. </b>Suppose that in a particular LDML tree, there are
+			no region locales for German, for example, there is a de.xml file,
+			but no files for de_AT.xml, de_CH.xml, or de_DE.xml. Then no elements
+			are valid for any of those region locales. If we want to mark one of
+			those files as having valid elements, then we introduce an empty
+			file, such as the following.
+		</p>
+		<p class="changed">
+			<code>
+				&lt;ldml version=&quot;1.1&quot;&gt;<br> &nbsp;&lt;identity&gt;<br>
+				&nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br> &nbsp;
+				&lt;generation date=&quot;2004-06-04&quot; /&gt; <br> &nbsp;
+				&lt;language type=&quot;de&quot; /&gt; <br> &nbsp;
+				&lt;territory type=&quot;AT&quot; /&gt; <br>
+				&nbsp;&lt;/identity&gt;<br> &lt;/ldml&gt;
+			</code>
+		</p>
+		<p class="changed">
+			With the <i>validSubLocales</i> attribute, instead of adding the
+			empty files for de_AT.xml, de_CH.xml, and de_DE.xml, in the de file
+			we could add to the parent locale a list of the child locales that
+			should behave as if files were present.
+		</p>
+		<p class="changed">
+			<code>
+				&lt;ldml version=&quot;1.1&quot; validSubLocales=&quot;de_AT de_CH
+				de_DE&quot;&gt;<br> &nbsp;&lt;identity&gt;<br> &nbsp;
+				&lt;version number=&quot;1.1&quot; /&gt; <br> &nbsp;
+				&lt;generation date=&quot;2004-06-04&quot; /&gt; <br> &nbsp;
+				&lt;language type=&quot;de&quot; /&gt; <br>
+				&nbsp;&lt;/identity&gt;<br> ...<br> &lt;/ldml&gt;
+			</code>
+		</p>
+		<p class="changed">
+			Now that the <i>validSubLocales</i> attribute has been deprecated,
+			it is recommended to simply add empty files to specify which sublocales are
+			valid. This convention is used throughout the CLDR.
+		</p>
 		<hr>
 		<h2>
 			<a name="Links_to_Other_Parts" href="#Links_to_Other_Parts">9

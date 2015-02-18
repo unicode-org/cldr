@@ -1907,7 +1907,7 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <deprecatedItems elements="unit" attributes="type" values="day hour minute month second week year day-future day-past hour-future hour-past minute-future minute-past month-future month-past second-future second-past week-future week-past year-future year-past"/>
             <deprecatedItems type="ldml" elements="compressedIndexSeparator cp currencyGroup indexLabel indexLabelAfter indexLabelBefore indexLabels indexRangePattern indexSeparator mapping nativeZeroDigit patternDigit reference usesMetazone"/>
             <deprecatedItems type="supplementalData" elements="languageCodes"/>
-            <deprecatedItems type="ldml" elements="collations" attributes="validSubLocales"/>
+            <deprecatedItems type="ldml" attributes="validSubLocales"/>
             <!-- segments -->
             <deprecatedItems type="ldml" elements="exceptions exception"/>
         </deprecated>

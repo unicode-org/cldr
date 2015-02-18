@@ -48,7 +48,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateFormats>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>y-MM-dd G</pattern>
+							<pattern>d MMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -132,7 +132,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y">E y-MM-dd – E y-MM-dd G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="y">'de' MMM y 'à' MMM y G</greatestDifference>
+							<greatestDifference id="y">MMM y – MMM y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
 							<greatestDifference id="M">d MMM – d MMM y G</greatestDifference>
@@ -204,7 +204,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateFormats>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>y-MM-dd</pattern>
+							<pattern>d MMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1245,9 +1245,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="contributed">kilomètres à l’heure</displayName>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName draft="contributed">milles à l'heure</displayName>
-				<unitPattern count="one" draft="contributed">{0} mille à l'heure</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} milles à l'heure</unitPattern>
+				<displayName draft="contributed">milles à l’heure</displayName>
+				<unitPattern count="one" draft="contributed">{0} mille à l’heure</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} milles à l’heure</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName draft="contributed">milles cubes</displayName>

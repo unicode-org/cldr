@@ -325,7 +325,7 @@ class ExtractMessages {
         NONE, FORCE_TITLE, FORCE_LOWER
     }
 
-    static class DataHandler implements Comparable<Object> {
+    static class DataHandler implements Comparable<DataHandler> {
         // mostly stable
         private Matcher matcher;
         private Type type;
@@ -651,7 +651,7 @@ class ExtractMessages {
             return name_code.get(value);
         }
 
-        public int compareTo(Object o) {
+        public int compareTo(DataHandler o) {
             throw new IllegalArgumentException();
         }
 

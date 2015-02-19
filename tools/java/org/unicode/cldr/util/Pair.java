@@ -12,18 +12,18 @@ package org.unicode.cldr.util;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
 
-public final class Pair<T extends Comparable<?>, U extends Comparable<?>> implements java.lang.Comparable<Object>,
+public final class Pair<T extends Comparable<T>, U extends Comparable<U>> implements java.lang.Comparable<Pair<T, U>>,
     Cloneable, Freezable<Object> {
 
     private T first;
     private U second;
     private boolean frozen;
 
-    public static <T extends Comparable<?>, U extends Comparable<?>> Pair<T, U> of(T arg0, U arg1) {
+    public static <T extends Comparable<T>, U extends Comparable<U>> Pair<T, U> of(T arg0, U arg1) {
         return new Pair<T, U>(arg0, arg1);
     }
 
-    public static <T extends Comparable<?>, U extends Comparable<?>> Pair<T, U> ofFrozen(T arg0, U arg1) {
+    public static <T extends Comparable<T>, U extends Comparable<U>> Pair<T, U> ofFrozen(T arg0, U arg1) {
         return of(arg0, arg1).freeze();
     }
 
@@ -78,9 +78,7 @@ public final class Pair<T extends Comparable<?>, U extends Comparable<?>> implem
         }
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    public int compareTo(Object other) {
-        Pair that = (Pair) other;
+    public int compareTo(Pair<T, U> that) {
         int trial = Utility.checkCompare(first, that.first);
         if (trial != 0) return trial;
         return Utility.checkCompare(second, that.second);

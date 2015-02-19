@@ -83,6 +83,10 @@
      ; /timeData/$3/allowed ; values=$1
      ; /timeData/$3/preferred ; values=$2
 
+//supplementalData/measurementData/measurementSystem[@type="metric"][@category="(%W)"][@territories="(%W)"] ; /measurementData/$2/MeasurementSystemCategory/$1:int ; values=0
+//supplementalData/measurementData/measurementSystem[@type="US"][@category="(%W)"][@territories="(%W)"] ; /measurementData/$2/MeasurementSystemCategory/$1:int ; values=1
+//supplementalData/measurementData/measurementSystem[@type="UK"][@category="(%W)"][@territories="(%W)"] ; /measurementData/$2/MeasurementSystemCategory/$1:int ; values=2
+
 //supplementalData/measurementData/measurementSystem[@type="metric"][@territories="(%W)"] ; /measurementData/$1/MeasurementSystem:int ; values=0
 //supplementalData/measurementData/measurementSystem[@type="US"][@territories="(%W)"] ; /measurementData/$1/MeasurementSystem:int ; values=1
 //supplementalData/measurementData/measurementSystem[@type="UK"][@territories="(%W)"] ; /measurementData/$1/MeasurementSystem:int ; values=2

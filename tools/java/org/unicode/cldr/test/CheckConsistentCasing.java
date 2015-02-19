@@ -13,6 +13,7 @@ import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.draft.ScriptMetadata.Trinary;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
@@ -54,7 +55,10 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         locale = cldrFileToCheck.getLocaleID();
         // get info about casing; note that this is done in two steps since 
         // ScriptMetadata.getInfo() returns null, in some instances.
-        Info localeInfo = ScriptMetadata.getInfo(locale);
+        // OLD: Info localeInfo = ScriptMetadata.getInfo(locale);
+        String script = new LikelySubtags().getLikelyScript(locale);
+        Info localeInfo = ScriptMetadata.getInfo(script);
+        
         if (localeInfo != null && localeInfo.hasCase == Trinary.YES) {
             // this script has casing info, so we can request it here
             types = casingInfo.getLocaleCasing(locale);
@@ -96,7 +100,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     /**
      * The casing type of a given string.
      */
-    enum CasingType {
+    public enum CasingType {
         titlecase, lowercase, other;
         public static CasingType from(String s) {
             if (s == null || s.length() == 0) {

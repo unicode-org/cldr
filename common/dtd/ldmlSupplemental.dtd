@@ -173,6 +173,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT measurementSystem EMPTY >
 <!ATTLIST measurementSystem type ( metric | US | UK ) #REQUIRED >
+<!ATTLIST measurementSystem category ( temperature ) #IMPLIED >
 <!ATTLIST measurementSystem territories NMTOKENS #REQUIRED >
 <!ATTLIST measurementSystem draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST measurementSystem references CDATA #IMPLIED >

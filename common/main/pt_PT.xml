@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2014 Unicode, Inc.
+<!-- Copyright © 1991-2015 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -147,13 +147,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards" draft="contributed">Ordenação de acentos invertida</key>
 			<key type="colCaseLevel" draft="contributed">Ordenação sensível a maiúsculas e minúsculas</key>
 			<key type="colHiraganaQuaternary" draft="contributed">Ordenação kana</key>
-			<key type="colNormalization" draft="contributed">Ordenação Normalizada</key>
-			<key type="colNumeric" draft="contributed">Ordenação Numérica</key>
-			<key type="colStrength" draft="contributed">Força da Ordenação</key>
-			<key type="timezone" draft="contributed">Fuso Horário</key>
-			<key type="va" draft="contributed">Variante Local</key>
-			<key type="variableTop" draft="contributed">Ordenar Como Símbolos</key>
-			<key type="x" draft="contributed">Utilização Privada</key>
+			<key type="colNormalization" draft="contributed">Ordenação normalizada</key>
+			<key type="colNumeric" draft="contributed">Ordenação numérica</key>
+			<key type="colStrength" draft="contributed">Força da ordenação</key>
+			<key type="variableTop" draft="contributed">Ordenar como símbolos</key>
+			<key type="x" draft="contributed">Utilização privada</key>
 		</keys>
 		<types>
 			<type type="armn" key="numbers">Numeração arménia</type>
@@ -169,7 +167,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="ethi" key="numbers">Numeração etíope</type>
 			<type type="ethiopic" key="calendar">Calendário etíope</type>
 			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">Calendário Etíope Amete Alem</type>
-			<type type="finance" key="numbers" draft="contributed">Algarismos Financeiros</type>
+			<type type="finance" key="numbers" draft="contributed">Algarismos financeiros</type>
 			<type type="fullwide" key="numbers">Algarismos de largura completa</type>
 			<type type="geor" key="numbers">Numeração georgiana</type>
 			<type type="gregorian" key="calendar">Calendário gregoriano</type>
@@ -184,7 +182,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="hantfin" key="numbers">Numeração financeira em chinês tradicional</type>
 			<type type="hebr" key="numbers">Numeração hebraica</type>
 			<type type="hebrew" key="calendar">Calendário hebraico</type>
-			<type type="identical" key="colStrength" draft="contributed">Ordenar Tudo</type>
+			<type type="identical" key="colStrength" draft="contributed">Ordenar tudo</type>
 			<type type="islamic" key="calendar">Calendário islâmico</type>
 			<type type="japanese" key="calendar">Calendário japonês</type>
 			<type type="jpan" key="numbers">Numeração japonesa</type>
@@ -193,54 +191,48 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="knda" key="numbers">Algarismos de canarim</type>
 			<type type="lower" key="colCaseFirst" draft="contributed">Ordenar por minúsculas</type>
 			<type type="mlym" key="numbers">Algarismos de malaiala</type>
-			<type type="mong" key="numbers" draft="contributed">Algarismos Mongóis</type>
+			<type type="mong" key="numbers" draft="contributed">Algarismos mongóis</type>
 			<type type="mymr" key="numbers">Algarismos birmaneses</type>
-			<type type="native" key="numbers" draft="contributed">Dígitos Nativos</type>
+			<type type="native" key="numbers" draft="contributed">Dígitos nativos</type>
 			<type type="no" key="colBackwards" draft="contributed">Ordenar acentos normalmente</type>
 			<type type="no" key="colCaseFirst" draft="contributed">Ordenar disposição de tipo de letra normal</type>
 			<type type="no" key="colCaseLevel" draft="contributed">Ordenar insensível a maiúsculas/minúsculas</type>
 			<type type="no" key="colHiraganaQuaternary" draft="contributed">Ordenar kana separadamente</type>
-			<type type="no" key="colNormalization" draft="contributed">Ordenar Sem Normalização</type>
-			<type type="no" key="colNumeric" draft="contributed">Ordenar Dígitos Individualmente</type>
+			<type type="no" key="colNormalization" draft="contributed">Ordenar sem normalização</type>
+			<type type="no" key="colNumeric" draft="contributed">Ordenar dígitos individualmente</type>
 			<type type="non-ignorable" key="colAlternate" draft="contributed">Ordenar símbolos</type>
 			<type type="orya" key="numbers">Algarismos de oriya</type>
 			<type type="persian" key="calendar">Calendário persa</type>
 			<type type="phonebook" key="collation">Ordem da lista telefónica</type>
 			<type type="phonetic" key="collation" draft="contributed">Sequência de ordenação fonética</type>
-			<type type="primary" key="colStrength" draft="contributed">Ordenar Apenas Letras Básicas</type>
-			<type type="quaternary" key="colStrength" draft="contributed">Ordenar Acentos/Tipo de Letra/Largura/Kana</type>
+			<type type="primary" key="colStrength" draft="contributed">Ordenar apenas letras básicas</type>
+			<type type="quaternary" key="colStrength" draft="contributed">Ordenar acentos/tipo de letra/largura/kana</type>
 			<type type="reformed" key="collation" draft="contributed">Reforma da ordenação</type>
 			<type type="roman" key="numbers">Numeração romana</type>
 			<type type="romanlow" key="numbers">Numeração romana minúscula</type>
-			<type type="secondary" key="colStrength" draft="contributed">Ordenar Acentos</type>
+			<type type="secondary" key="colStrength" draft="contributed">Ordenar acentos</type>
 			<type type="shifted" key="colAlternate" draft="contributed">Ordenar símbolos ignorados</type>
 			<type type="standard" key="collation">Ordenação padrão</type>
 			<type type="stroke" key="collation">Ordem por traços</type>
 			<type type="taml" key="numbers">Numeração tâmil</type>
 			<type type="tamldec" key="numbers">Algarismos de tâmil</type>
 			<type type="telu" key="numbers">Algarismos de telugu</type>
-			<type type="tertiary" key="colStrength" draft="contributed">Ordenar Acentos/Tipo de Letra/Largura</type>
+			<type type="tertiary" key="colStrength" draft="contributed">Ordenar acentos/tipo de letra/largura</type>
 			<type type="traditional" key="collation" draft="contributed">Ordem tradicional</type>
-			<type type="traditional" key="numbers" draft="contributed">Algarismos Tradicionais</type>
+			<type type="traditional" key="numbers" draft="contributed">Algarismos tradicionais</type>
 			<type type="unihan" key="collation">Ordem por radical e traços</type>
 			<type type="upper" key="colCaseFirst" draft="contributed">Ordenar por maiúsculas</type>
-			<type type="vaii" key="numbers" draft="contributed">Dígitos Vai</type>
 			<type type="yes" key="colBackwards" draft="contributed">Ordenar acentos inversamente</type>
 			<type type="yes" key="colCaseLevel" draft="contributed">Ordenar sensível a maiúsculas/minúsculas</type>
 			<type type="yes" key="colHiraganaQuaternary" draft="contributed">Ordenar kana diferentemente</type>
-			<type type="yes" key="colNormalization" draft="contributed">Ordenar Unicode Normalizado</type>
-			<type type="yes" key="colNumeric" draft="contributed">Ordenar Dígitos Numericamente</type>
+			<type type="yes" key="colNormalization" draft="contributed">Ordenar Unicode normalizado</type>
+			<type type="yes" key="colNumeric" draft="contributed">Ordenar dígitos numericamente</type>
 		</types>
 		<transformNames>
 			<transformName type="x-Accents" draft="contributed">Acentos</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Largura Completa</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Meia Largura</transformName>
+			<transformName type="x-Fullwidth" draft="contributed">Largura completa</transformName>
+			<transformName type="x-Halfwidth" draft="contributed">Meia largura</transformName>
 		</transformNames>
-		<measurementSystemNames>
-			<measurementSystemName type="metric">Métrico</measurementSystemName>
-			<measurementSystemName type="UK">Reino Unido</measurementSystemName>
-			<measurementSystemName type="US">Estados Unidos</measurementSystemName>
-		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="script">Escrita: {0}</codePattern>
 		</codePatterns>
@@ -388,62 +380,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
-				<months>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1">Jan</month>
-							<month type="2">Fev</month>
-							<month type="3">Mar</month>
-							<month type="4">Abr</month>
-							<month type="5">Mai</month>
-							<month type="6">Jun</month>
-							<month type="7">Jul</month>
-							<month type="8">Ago</month>
-							<month type="9">Set</month>
-							<month type="10">Out</month>
-							<month type="11">Nov</month>
-							<month type="12">Dez</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Janeiro</month>
-							<month type="2">Fevereiro</month>
-							<month type="3">Março</month>
-							<month type="4">Abril</month>
-							<month type="5">Maio</month>
-							<month type="6">Junho</month>
-							<month type="7">Julho</month>
-							<month type="8">Agosto</month>
-							<month type="9">Setembro</month>
-							<month type="10">Outubro</month>
-							<month type="11">Novembro</month>
-							<month type="12">Dezembro</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<days>
-					<dayContext type="format">
-						<dayWidth type="short">
-							<day type="sun">do</day>
-							<day type="mon">sg</day>
-							<day type="tue">te</day>
-							<day type="wed">qu</day>
-							<day type="thu">qi</day>
-							<day type="fri">sx</day>
-							<day type="sat">sb</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="short">
-							<day type="sun">do</day>
-							<day type="mon">sg</day>
-							<day type="tue">te</day>
-							<day type="wed">qu</day>
-							<day type="thu">qi</day>
-							<day type="fri">sx</day>
-							<day type="sat">sb</day>
-						</dayWidth>
-					</dayContext>
-				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="wide">
@@ -758,9 +694,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="thu-narrow">
 				<relative type="1">próxima qui.</relative>
 			</field>
-			<field type="dayperiod">
-				<displayName>Da manhã/da tarde</displayName>
-			</field>
 			<field type="hour">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">dentro de {0} hora</relativeTimePattern>
@@ -838,7 +771,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</fields>
 		<timeZoneNames>
 			<regionFormat>Hora de {0}</regionFormat>
-			<regionFormat type="daylight">Hora de Verão de {0}</regionFormat>
+			<regionFormat type="daylight">Hora padrão de {0}</regionFormat>
 			<regionFormat type="standard">Hora padrão de {0}</regionFormat>
 			<zone type="Asia/Kabul">
 				<exemplarCity>Cabul</exemplarCity>
@@ -1021,8 +954,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Acre">
 				<long>
 					<generic>Hora do Acre</generic>
-					<standard>Hora Padrão do Acre</standard>
-					<daylight>Hora de Verão do Acre</daylight>
+					<standard>Hora padrão do Acre</standard>
+					<daylight>Hora de verão do Acre</daylight>
 				</long>
 				<short>
 					<generic>∅∅∅</generic>
@@ -1053,29 +986,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Africa_Western">
 				<long>
 					<generic>Hora da África Ocidental</generic>
-					<standard>Hora Padrão da África Ocidental</standard>
-					<daylight>Hora de Verão da África Ocidental</daylight>
+					<standard>Hora padrão da África Ocidental</standard>
+					<daylight>Hora de verão da África Ocidental</daylight>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
 				<long>
 					<generic>Hora do Alasca</generic>
-					<standard>Hora Padrão do Alasca</standard>
-					<daylight>Hora de Verão do Alasca</daylight>
+					<standard>Hora padrão do Alasca</standard>
+					<daylight>Hora de verão do Alasca</daylight>
 				</long>
 			</metazone>
 			<metazone type="Almaty">
 				<long>
 					<generic>Hora de Almaty</generic>
-					<standard>Hora Padrão de Almaty</standard>
-					<daylight>Hora de Verão de Almaty</daylight>
+					<standard>Hora padrão de Almaty</standard>
+					<daylight>Hora de verão de Almaty</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Hora do Amazonas</generic>
-					<standard>Hora Padrão do Amazonas</standard>
-					<daylight>Hora de Verão do Amazonas</daylight>
+					<standard>Hora padrão do Amazonas</standard>
+					<daylight>Hora de verão do Amazonas</daylight>
 				</long>
 				<short>
 					<generic>∅∅∅</generic>
@@ -1086,127 +1019,127 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="America_Central">
 				<long>
 					<generic>Hora Central</generic>
-					<standard>Hora Padrão Central</standard>
-					<daylight>Hora de Verão Central</daylight>
+					<standard>Hora padrão Central</standard>
+					<daylight>Hora de verão Central</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
 					<generic>Hora Oriental</generic>
-					<standard>Hora Padrão Oriental</standard>
-					<daylight>Hora de Verão Oriental</daylight>
+					<standard>Hora padrão Oriental</standard>
+					<daylight>Hora de verão Oriental</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
 					<generic>Hora da Montanha</generic>
-					<standard>Hora Padrão da Montanha</standard>
-					<daylight>Hora de Verão da Montanha</daylight>
+					<standard>Hora padrão da Montanha</standard>
+					<daylight>Hora de verão da Montanha</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
 					<generic>Hora do Pacífico</generic>
-					<standard>Hora Padrão do Pacífico</standard>
-					<daylight>Hora de Verão do Pacífico</daylight>
+					<standard>Hora padrão do Pacífico</standard>
+					<daylight>Hora de verão do Pacífico</daylight>
 				</long>
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
 					<generic>Hora de Anadyr</generic>
-					<standard>Hora Padrão de Anadyr</standard>
-					<daylight>Hora de Verão de Anadyr</daylight>
+					<standard>Hora padrão de Anadyr</standard>
+					<daylight>Hora de verão de Anadyr</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
 				<long>
 					<generic>Hora de Aqtau</generic>
-					<standard>Hora Padrão de Aqtau</standard>
-					<daylight>Hora de Verão de Aqtau</daylight>
+					<standard>Hora padrão de Aqtau</standard>
+					<daylight>Hora de verão de Aqtau</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtobe">
 				<long>
 					<generic>Hora de Aqtobe</generic>
-					<standard>Hora Padrão de Aqtobe</standard>
-					<daylight>Hora de Verão de Aqtobe</daylight>
+					<standard>Hora padrão de Aqtobe</standard>
+					<daylight>Hora de verão de Aqtobe</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
 				<long>
 					<generic>Hora da Arábia</generic>
-					<standard>Hora Padrão da Arábia</standard>
-					<daylight>Hora de Verão da Arábia</daylight>
+					<standard>Hora padrão da Arábia</standard>
+					<daylight>Hora de verão da Arábia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic>Hora da Argentina</generic>
-					<standard>Hora Padrão da Argentina</standard>
-					<daylight>Hora de Verão da Argentina</daylight>
+					<standard>Hora padrão da Argentina</standard>
+					<daylight>Hora de verão da Argentina</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<generic>Hora da Argentina Ocidental</generic>
-					<standard>Hora Padrão da Argentina Ocidental</standard>
-					<daylight>Hora de Verão da Argentina Ocidental</daylight>
+					<standard>Hora padrão da Argentina Ocidental</standard>
+					<daylight>Hora de verão da Argentina Ocidental</daylight>
 				</long>
 			</metazone>
 			<metazone type="Armenia">
 				<long>
 					<generic>Hora da Arménia</generic>
-					<standard>Hora Padrão da Arménia</standard>
-					<daylight>Hora de Verão da Arménia</daylight>
+					<standard>Hora padrão da Arménia</standard>
+					<daylight>Hora de verão da Arménia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Atlantic">
 				<long>
 					<generic>Hora do Atlântico</generic>
-					<standard>Hora Padrão do Atlântico</standard>
-					<daylight>Hora de Verão do Atlântico</daylight>
+					<standard>Hora padrão do Atlântico</standard>
+					<daylight>Hora de verão do Atlântico</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
 					<generic>Hora da Austrália Central</generic>
-					<standard>Hora Padrão da Austrália Central</standard>
-					<daylight>Hora de Verão da Austrália Central</daylight>
+					<standard>Hora padrão da Austrália Central</standard>
+					<daylight>Hora de verão da Austrália Central</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
 					<generic>Hora da Austrália Central Ocidental</generic>
-					<standard>Hora Padrão da Austrália Central Ocidental</standard>
-					<daylight>Hora de Verão da Austrália Central Ocidental</daylight>
+					<standard>Hora padrão da Austrália Central Ocidental</standard>
+					<daylight>Hora de verão da Austrália Central Ocidental</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
 					<generic>Hora da Austrália Oriental</generic>
-					<standard>Hora Padrão da Austrália Oriental</standard>
-					<daylight>Hora de Verão da Austrália Oriental</daylight>
+					<standard>Hora padrão da Austrália Oriental</standard>
+					<daylight>Hora de verão da Austrália Oriental</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
 					<generic>Hora da Austrália Ocidental</generic>
-					<standard>Hora Padrão da Austrália Ocidental</standard>
-					<daylight>Hora de Verão da Austrália Ocidental</daylight>
+					<standard>Hora padrão da Austrália Ocidental</standard>
+					<daylight>Hora de verão da Austrália Ocidental</daylight>
 				</long>
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
 					<generic>Hora do Azerbaijão</generic>
-					<standard>Hora Padrão do Azerbaijão</standard>
-					<daylight>Hora de Verão do Azerbaijão</daylight>
+					<standard>Hora padrão do Azerbaijão</standard>
+					<daylight>Hora de verão do Azerbaijão</daylight>
 				</long>
 			</metazone>
 			<metazone type="Azores">
 				<long>
 					<generic>Hora dos Açores</generic>
-					<standard>Hora Padrão dos Açores</standard>
-					<daylight>Hora de Verão dos Açores</daylight>
+					<standard>Hora padrão dos Açores</standard>
+					<daylight>Hora de verão dos Açores</daylight>
 				</long>
 				<short>
 					<generic>AZOT</generic>
@@ -1217,8 +1150,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Bangladesh">
 				<long>
 					<generic>Hora do Bangladesh</generic>
-					<standard>Hora Padrão do Bangladesh</standard>
-					<daylight>Hora de Verão do Bangladesh</daylight>
+					<standard>Hora padrão do Bangladesh</standard>
+					<daylight>Hora de verão do Bangladesh</daylight>
 				</long>
 			</metazone>
 			<metazone type="Bhutan">
@@ -1234,8 +1167,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Brasilia">
 				<long>
 					<generic>Hora de Brasília</generic>
-					<standard>Hora Padrão de Brasília</standard>
-					<daylight>Hora de Verão de Brasília</daylight>
+					<standard>Hora padrão de Brasília</standard>
+					<daylight>Hora de verão de Brasília</daylight>
 				</long>
 				<short>
 					<generic>∅∅∅</generic>
@@ -1251,41 +1184,41 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Cape_Verde">
 				<long>
 					<generic>Hora de Cabo Verde</generic>
-					<standard>Hora Padrão de Cabo Verde</standard>
-					<daylight>Hora de Verão de Cabo Verde</daylight>
+					<standard>Hora padrão de Cabo Verde</standard>
+					<daylight>Hora de verão de Cabo Verde</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chamorro">
 				<long>
-					<standard>Hora Padrão do Chamorro</standard>
+					<standard>Hora padrão do Chamorro</standard>
 				</long>
 			</metazone>
 			<metazone type="Chatham">
 				<long>
 					<generic>Hora do Chatham</generic>
-					<standard>Hora Padrão do Chatham</standard>
-					<daylight>Hora de Verão do Chatham</daylight>
+					<standard>Hora padrão do Chatham</standard>
+					<daylight>Hora de verão do Chatham</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chile">
 				<long>
 					<generic>Hora do Chile</generic>
-					<standard>Hora Padrão do Chile</standard>
-					<daylight>Hora de Verão do Chile</daylight>
+					<standard>Hora padrão do Chile</standard>
+					<daylight>Hora de verão do Chile</daylight>
 				</long>
 			</metazone>
 			<metazone type="China">
 				<long>
 					<generic>Hora da China</generic>
-					<standard>Hora Padrão da China</standard>
-					<daylight>Hora de Verão da China</daylight>
+					<standard>Hora padrão da China</standard>
+					<daylight>Hora de verão da China</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
 					<generic>Hora de Choibalsan</generic>
-					<standard>Hora Padrão de Choibalsan</standard>
-					<daylight>Hora de Verão de Choibalsan</daylight>
+					<standard>Hora padrão de Choibalsan</standard>
+					<daylight>Hora de verão de Choibalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -1301,22 +1234,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Colombia">
 				<long>
 					<generic>Hora da Colômbia</generic>
-					<standard>Hora Padrão da Colômbia</standard>
-					<daylight>Hora de Verão da Colômbia</daylight>
+					<standard>Hora padrão da Colômbia</standard>
+					<daylight>Hora de verão da Colômbia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Cook">
 				<long>
 					<generic>Hora das Ilhas Cook</generic>
-					<standard>Hora Padrão das Ilhas Cook</standard>
-					<daylight>Hora de Verão das Ilhas Cook</daylight>
+					<standard>Hora padrão das Ilhas Cook</standard>
+					<daylight>Hora de verão das Ilhas Cook</daylight>
 				</long>
 			</metazone>
 			<metazone type="Cuba">
 				<long>
 					<generic>Hora de Cuba</generic>
-					<standard>Hora Padrão de Cuba</standard>
-					<daylight>Hora de Verão de Cuba</daylight>
+					<standard>Hora padrão de Cuba</standard>
+					<daylight>Hora de verão de Cuba</daylight>
 				</long>
 			</metazone>
 			<metazone type="Davis">
@@ -1337,8 +1270,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Easter">
 				<long>
 					<generic>Hora da Ilha da Páscoa</generic>
-					<standard>Hora Padrão da Ilha da Páscoa</standard>
-					<daylight>Hora de Verão da Ilha da Páscoa</daylight>
+					<standard>Hora padrão da Ilha da Páscoa</standard>
+					<daylight>Hora de verão da Ilha da Páscoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Ecuador">
@@ -1349,8 +1282,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Europe_Central">
 				<long>
 					<generic>Hora da Europa Central</generic>
-					<standard>Hora Padrão da Europa Central</standard>
-					<daylight>Hora de Verão da Europa Central</daylight>
+					<standard>Hora padrão da Europa Central</standard>
+					<daylight>Hora de verão da Europa Central</daylight>
 				</long>
 				<short>
 					<generic>CET</generic>
@@ -1361,8 +1294,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Europe_Eastern">
 				<long>
 					<generic>Hora da Europa Oriental</generic>
-					<standard>Hora Padrão da Europa Oriental</standard>
-					<daylight>Hora de Verão da Europa Oriental</daylight>
+					<standard>Hora padrão da Europa Oriental</standard>
+					<daylight>Hora de verão da Europa Oriental</daylight>
 				</long>
 				<short>
 					<generic>EET</generic>
@@ -1378,8 +1311,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Europe_Western">
 				<long>
 					<generic>Hora da Europa Ocidental</generic>
-					<standard>Hora Padrão da Europa Ocidental</standard>
-					<daylight>Hora de Verão da Europa Ocidental</daylight>
+					<standard>Hora padrão da Europa Ocidental</standard>
+					<daylight>Hora de verão da Europa Ocidental</daylight>
 				</long>
 				<short>
 					<generic>WET</generic>
@@ -1390,15 +1323,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Falkland">
 				<long>
 					<generic>Hora das Ilhas Falkland</generic>
-					<standard>Hora Padrão das Ilhas Falkland</standard>
-					<daylight>Hora de Verão das Ilhas Falkland</daylight>
+					<standard>Hora padrão das Ilhas Falkland</standard>
+					<daylight>Hora de verão das Ilhas Falkland</daylight>
 				</long>
 			</metazone>
 			<metazone type="Fiji">
 				<long>
 					<generic>Hora de Fiji</generic>
-					<standard>Hora Padrão de Fiji</standard>
-					<daylight>Hora de Verão de Fiji</daylight>
+					<standard>Hora padrão de Fiji</standard>
+					<daylight>Hora de verão de Fiji</daylight>
 				</long>
 			</metazone>
 			<metazone type="French_Guiana">
@@ -1424,8 +1357,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Georgia">
 				<long>
 					<generic>Hora da Geórgia</generic>
-					<standard>Hora Padrão da Geórgia</standard>
-					<daylight>Hora de Verão da Geórgia</daylight>
+					<standard>Hora padrão da Geórgia</standard>
+					<daylight>Hora de verão da Geórgia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Gilbert_Islands">
@@ -1441,25 +1374,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Greenland_Eastern">
 				<long>
 					<generic>Hora da Gronelândia Oriental</generic>
-					<standard>Hora Padrão da Gronelândia Oriental</standard>
-					<daylight>Hora de Verão da Gronelândia Oriental</daylight>
+					<standard>Hora padrão da Gronelândia Oriental</standard>
+					<daylight>Hora de verão da Gronelândia Oriental</daylight>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Western">
 				<long>
 					<generic>Hora da Gronelândia Ocidental</generic>
-					<standard>Hora Padrão da Gronelândia Ocidental</standard>
-					<daylight>Hora de Verão da Gronelândia Ocidental</daylight>
+					<standard>Hora padrão da Gronelândia Ocidental</standard>
+					<daylight>Hora de verão da Gronelândia Ocidental</daylight>
 				</long>
 			</metazone>
 			<metazone type="Guam">
 				<long>
-					<standard draft="contributed">Hora Padrão de Guam</standard>
+					<standard draft="contributed">Hora padrão de Guam</standard>
 				</long>
 			</metazone>
 			<metazone type="Gulf">
 				<long>
-					<standard>Hora Padrão do Golfo</standard>
+					<standard>Hora padrão do Golfo</standard>
 				</long>
 			</metazone>
 			<metazone type="Guyana">
@@ -1470,27 +1403,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Hora do Havai e Aleutas</generic>
-					<standard>Hora Padrão do Havai e Aleutas</standard>
-					<daylight>Hora de Verão do Havai e Aleutas</daylight>
+					<standard>Hora padrão do Havai e Aleutas</standard>
+					<daylight>Hora de verão do Havai e Aleutas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
 					<generic>Hora de Hong Kong</generic>
-					<standard>Hora Padrão de Hong Kong</standard>
-					<daylight>Hora de Verão de Hong Kong</daylight>
+					<standard>Hora padrão de Hong Kong</standard>
+					<daylight>Hora de verão de Hong Kong</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
 					<generic>Hora de Hovd</generic>
-					<standard>Hora Padrão de Hovd</standard>
-					<daylight>Hora de Verão de Hovd</daylight>
+					<standard>Hora padrão de Hovd</standard>
+					<daylight>Hora de verão de Hovd</daylight>
 				</long>
 			</metazone>
 			<metazone type="India">
 				<long>
-					<standard>Hora Padrão da Índia</standard>
+					<standard>Hora padrão da Índia</standard>
 				</long>
 			</metazone>
 			<metazone type="Indian_Ocean">
@@ -1521,36 +1454,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Iran">
 				<long>
 					<generic>Hora do Irão</generic>
-					<standard>Hora Padrão do Irão</standard>
-					<daylight>Hora de Verão do Irão</daylight>
+					<standard>Hora padrão do Irão</standard>
+					<daylight>Hora de verão do Irão</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
 					<generic>Hora de Irkutsk</generic>
-					<standard>Hora Padrão de Irkutsk</standard>
-					<daylight>Hora de Verão de Irkutsk</daylight>
+					<standard>Hora padrão de Irkutsk</standard>
+					<daylight>Hora de verão de Irkutsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Israel">
 				<long>
 					<generic>Hora de Israel</generic>
-					<standard>Hora Padrão de Israel</standard>
-					<daylight>Hora de Verão de Israel</daylight>
+					<standard>Hora padrão de Israel</standard>
+					<daylight>Hora de verão de Israel</daylight>
 				</long>
 			</metazone>
 			<metazone type="Japan">
 				<long>
 					<generic>Hora do Japão</generic>
-					<standard>Hora Padrão do Japão</standard>
-					<daylight>Hora de Verão do Japão</daylight>
+					<standard>Hora padrão do Japão</standard>
+					<daylight>Hora de verão do Japão</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
 					<generic draft="contributed">Hora de Petropavlovsk-Kamchatski</generic>
-					<standard draft="contributed">Hora Padrão de Petropavlovsk-Kamchatski</standard>
-					<daylight draft="contributed">Hora de Verão de Petropavlovsk-Kamchatski</daylight>
+					<standard draft="contributed">Hora padrão de Petropavlovsk-Kamchatski</standard>
+					<daylight draft="contributed">Hora de verão de Petropavlovsk-Kamchatski</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
@@ -1566,8 +1499,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Korea">
 				<long>
 					<generic>Hora da Coreia</generic>
-					<standard>Hora Padrão da Coreia</standard>
-					<daylight>Hora de Verão da Coreia</daylight>
+					<standard>Hora padrão da Coreia</standard>
+					<daylight>Hora de verão da Coreia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kosrae">
@@ -1578,8 +1511,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Krasnoyarsk">
 				<long>
 					<generic>Hora de Krasnoyarsk</generic>
-					<standard>Hora Padrão de Krasnoyarsk</standard>
-					<daylight>Hora de Verão de Krasnoyarsk</daylight>
+					<standard>Hora padrão de Krasnoyarsk</standard>
+					<daylight>Hora de verão de Krasnoyarsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kyrgystan">
@@ -1600,15 +1533,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Lord_Howe">
 				<long>
 					<generic>Hora de Lord Howe</generic>
-					<standard>Hora Padrão de Lord Howe</standard>
-					<daylight>Hora de Verão de Lord Howe</daylight>
+					<standard>Hora padrão de Lord Howe</standard>
+					<daylight>Hora de verão de Lord Howe</daylight>
 				</long>
 			</metazone>
 			<metazone type="Macau">
 				<long>
 					<generic draft="contributed">Hora de Macau</generic>
-					<standard draft="contributed">Hora Padrão de Macau</standard>
-					<daylight draft="contributed">Hora de Verão de Macau</daylight>
+					<standard draft="contributed">Hora padrão de Macau</standard>
+					<daylight draft="contributed">Hora de verão de Macau</daylight>
 				</long>
 			</metazone>
 			<metazone type="Macquarie">
@@ -1619,8 +1552,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Magadan">
 				<long>
 					<generic>Hora de Magadan</generic>
-					<standard>Hora Padrão de Magadan</standard>
-					<daylight>Hora de Verão de Magadan</daylight>
+					<standard>Hora padrão de Magadan</standard>
+					<daylight>Hora de verão de Magadan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Malaysia">
@@ -1646,8 +1579,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Mauritius">
 				<long>
 					<generic>Hora da Maurícia</generic>
-					<standard>Hora Padrão da Maurícia</standard>
-					<daylight>Hora de Verão da Maurícia</daylight>
+					<standard>Hora padrão da Maurícia</standard>
+					<daylight>Hora de verão da Maurícia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mawson">
@@ -1658,29 +1591,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Mexico_Northwest">
 				<long>
 					<generic>Hora do Noroeste do México</generic>
-					<standard>Hora Padrão do Noroeste do México</standard>
-					<daylight>Hora de Verão do Noroeste do México</daylight>
+					<standard>Hora padrão do Noroeste do México</standard>
+					<daylight>Hora de verão do Noroeste do México</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">
 				<long>
 					<generic>Hora do Pacífico Mexicano</generic>
-					<standard>Hora Padrão do Pacífico Mexicano</standard>
-					<daylight>Hora de Verão do Pacífico Mexicano</daylight>
+					<standard>Hora padrão do Pacífico Mexicano</standard>
+					<daylight>Hora de verão do Pacífico Mexicano</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
 					<generic>Hora de Ulan Bator</generic>
-					<standard>Hora Padrão de Ulan Bator</standard>
-					<daylight>Hora de Verão de Ulan Bator</daylight>
+					<standard>Hora padrão de Ulan Bator</standard>
+					<daylight>Hora de verão de Ulan Bator</daylight>
 				</long>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
 					<generic>Hora de Moscovo</generic>
-					<standard>Hora Padrão de Moscovo</standard>
-					<daylight>Hora de Verão de Moscovo</daylight>
+					<standard>Hora padrão de Moscovo</standard>
+					<daylight>Hora de verão de Moscovo</daylight>
 				</long>
 			</metazone>
 			<metazone type="Myanmar">
@@ -1701,22 +1634,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="New_Caledonia">
 				<long>
 					<generic>Hora da Nova Caledónia</generic>
-					<standard>Hora Padrão da Nova Caledónia</standard>
-					<daylight>Hora de Verão da Nova Caledónia</daylight>
+					<standard>Hora padrão da Nova Caledónia</standard>
+					<daylight>Hora de verão da Nova Caledónia</daylight>
 				</long>
 			</metazone>
 			<metazone type="New_Zealand">
 				<long>
 					<generic>Hora da Nova Zelândia</generic>
-					<standard>Hora Padrão da Nova Zelândia</standard>
-					<daylight>Hora de Verão da Nova Zelândia</daylight>
+					<standard>Hora padrão da Nova Zelândia</standard>
+					<daylight>Hora de verão da Nova Zelândia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
 					<generic>Hora da Terra Nova</generic>
-					<standard>Hora Padrão da Terra Nova</standard>
-					<daylight>Hora de Verão da Terra Nova</daylight>
+					<standard>Hora padrão da Terra Nova</standard>
+					<daylight>Hora de verão da Terra Nova</daylight>
 				</long>
 			</metazone>
 			<metazone type="Niue">
@@ -1732,8 +1665,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Noronha">
 				<long>
 					<generic>Hora de Fernando de Noronha</generic>
-					<standard>Hora Padrão de Fernando de Noronha</standard>
-					<daylight>Hora de Verão de Fernando de Noronha</daylight>
+					<standard>Hora padrão de Fernando de Noronha</standard>
+					<daylight>Hora de verão de Fernando de Noronha</daylight>
 				</long>
 			</metazone>
 			<metazone type="North_Mariana">
@@ -1744,22 +1677,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Hora de Novosibirsk</generic>
-					<standard>Hora Padrão de Novosibirsk</standard>
-					<daylight>Hora de Verão de Novosibirsk</daylight>
+					<standard>Hora padrão de Novosibirsk</standard>
+					<daylight>Hora de verão de Novosibirsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
 					<generic>Hora de Omsk</generic>
-					<standard>Hora Padrão de Omsk</standard>
-					<daylight>Hora de Verão de Omsk</daylight>
+					<standard>Hora padrão de Omsk</standard>
+					<daylight>Hora de verão de Omsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pakistan">
 				<long>
 					<generic>Hora do Paquistão</generic>
-					<standard>Hora Padrão do Paquistão</standard>
-					<daylight>Hora de Verão do Paquistão</daylight>
+					<standard>Hora padrão do Paquistão</standard>
+					<daylight>Hora de verão do Paquistão</daylight>
 				</long>
 			</metazone>
 			<metazone type="Palau">
@@ -1775,22 +1708,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Paraguay">
 				<long>
 					<generic>Hora do Paraguai</generic>
-					<standard>Hora Padrão do Paraguai</standard>
-					<daylight>Hora de Verão do Paraguai</daylight>
+					<standard>Hora padrão do Paraguai</standard>
+					<daylight>Hora de verão do Paraguai</daylight>
 				</long>
 			</metazone>
 			<metazone type="Peru">
 				<long>
 					<generic>Hora do Peru</generic>
-					<standard>Hora Padrão do Peru</standard>
-					<daylight>Hora de Verão do Peru</daylight>
+					<standard>Hora padrão do Peru</standard>
+					<daylight>Hora de verão do Peru</daylight>
 				</long>
 			</metazone>
 			<metazone type="Philippines">
 				<long>
 					<generic>Hora das Filipinas</generic>
-					<standard>Hora Padrão das Filipinas</standard>
-					<daylight>Hora de Verão das Filipinas</daylight>
+					<standard>Hora padrão das Filipinas</standard>
+					<daylight>Hora de verão das Filipinas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Phoenix_Islands">
@@ -1801,8 +1734,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Pierre_Miquelon">
 				<long>
 					<generic>Hora de São Pedro e Miquelão</generic>
-					<standard>Hora Padrão de São Pedro e Miquelão</standard>
-					<daylight>Hora de Verão de São Pedro e Miquelão</daylight>
+					<standard>Hora padrão de São Pedro e Miquelão</standard>
+					<daylight>Hora de verão de São Pedro e Miquelão</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pitcairn">
@@ -1818,8 +1751,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Qyzylorda">
 				<long>
 					<generic draft="contributed">Hora de Qyzylorda</generic>
-					<standard draft="contributed">Hora Padrão de Qyzylorda</standard>
-					<daylight draft="contributed">Hora de Verão de Qyzylorda</daylight>
+					<standard draft="contributed">Hora padrão de Qyzylorda</standard>
+					<daylight draft="contributed">Hora de verão de Qyzylorda</daylight>
 				</long>
 			</metazone>
 			<metazone type="Reunion">
@@ -1835,22 +1768,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Sakhalin">
 				<long>
 					<generic>Hora de Sacalina</generic>
-					<standard>Hora Padrão de Sacalina</standard>
-					<daylight>Hora de Verão de Sacalina</daylight>
+					<standard>Hora padrão de Sacalina</standard>
+					<daylight>Hora de verão de Sacalina</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<generic draft="contributed">Hora de Samara</generic>
-					<standard draft="contributed">Hora Padrão de Samara</standard>
-					<daylight draft="contributed">Hora de Verão de Samara</daylight>
+					<standard draft="contributed">Hora padrão de Samara</standard>
+					<daylight draft="contributed">Hora de verão de Samara</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samoa">
 				<long>
 					<generic>Hora de Samoa</generic>
-					<standard>Hora Padrão de Samoa</standard>
-					<daylight>Hora de Verão de Samoa</daylight>
+					<standard>Hora padrão de Samoa</standard>
+					<daylight>Hora de verão de Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -1860,7 +1793,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Singapore">
 				<long>
-					<standard>Hora Padrão de Singapura</standard>
+					<standard>Hora padrão de Singapura</standard>
 				</long>
 			</metazone>
 			<metazone type="Solomon">
@@ -1891,8 +1824,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Taipei">
 				<long>
 					<generic>Hora de Taipé</generic>
-					<standard>Hora Padrão de Taipé</standard>
-					<daylight>Hora de Verão de Taipé</daylight>
+					<standard>Hora padrão de Taipé</standard>
+					<daylight>Hora de verão de Taipé</daylight>
 				</long>
 			</metazone>
 			<metazone type="Tajikistan">
@@ -1908,8 +1841,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Tonga">
 				<long>
 					<generic>Hora de Tonga</generic>
-					<standard>Hora Padrão de Tonga</standard>
-					<daylight>Hora de Verão de Tonga</daylight>
+					<standard>Hora padrão de Tonga</standard>
+					<daylight>Hora de verão de Tonga</daylight>
 				</long>
 			</metazone>
 			<metazone type="Truk">
@@ -1920,8 +1853,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Turkmenistan">
 				<long>
 					<generic>Hora do Turquemenistão</generic>
-					<standard>Hora Padrão do Turquemenistão</standard>
-					<daylight>Hora de Verão do Turquemenistão</daylight>
+					<standard>Hora padrão do Turquemenistão</standard>
+					<daylight>Hora de verão do Turquemenistão</daylight>
 				</long>
 			</metazone>
 			<metazone type="Tuvalu">
@@ -1932,22 +1865,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Uruguay">
 				<long>
 					<generic>Hora do Uruguai</generic>
-					<standard>Hora Padrão do Uruguai</standard>
-					<daylight>Hora de Verão do Uruguai</daylight>
+					<standard>Hora padrão do Uruguai</standard>
+					<daylight>Hora de verão do Uruguai</daylight>
 				</long>
 			</metazone>
 			<metazone type="Uzbekistan">
 				<long>
 					<generic>Hora do Uzbequistão</generic>
-					<standard>Hora Padrão do Uzbequistão</standard>
-					<daylight>Hora de Verão do Uzbequistão</daylight>
+					<standard>Hora padrão do Uzbequistão</standard>
+					<daylight>Hora de verão do Uzbequistão</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vanuatu">
 				<long>
 					<generic>Hora do Vanuatu</generic>
-					<standard>Hora Padrão do Vanuatu</standard>
-					<daylight>Hora de Verão do Vanuatu</daylight>
+					<standard>Hora padrão do Vanuatu</standard>
+					<daylight>Hora de verão do Vanuatu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Venezuela">
@@ -1958,15 +1891,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Vladivostok">
 				<long>
 					<generic>Hora de Vladivostok</generic>
-					<standard>Hora Padrão de Vladivostok</standard>
-					<daylight>Hora de Verão de Vladivostok</daylight>
+					<standard>Hora padrão de Vladivostok</standard>
+					<daylight>Hora de verão de Vladivostok</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<generic>Hora de Volgogrado</generic>
-					<standard>Hora Padrão de Volgogrado</standard>
-					<daylight>Hora de Verão de Volgogrado</daylight>
+					<standard>Hora padrão de Volgogrado</standard>
+					<daylight>Hora de verão de Volgogrado</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vostok">
@@ -1987,15 +1920,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Yakutsk">
 				<long>
 					<generic>Hora de Yakutsk</generic>
-					<standard>Hora Padrão de Yakutsk</standard>
-					<daylight>Hora de Verão de Yakutsk</daylight>
+					<standard>Hora padrão de Yakutsk</standard>
+					<daylight>Hora de verão de Yakutsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
 					<generic>Hora de Ecaterimburgo</generic>
-					<standard>Hora Padrão de Ecaterimburgo</standard>
-					<daylight>Hora de Verão de Ecaterimburgo</daylight>
+					<standard>Hora padrão de Ecaterimburgo</standard>
+					<daylight>Hora de verão de Ecaterimburgo</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -2325,12 +2258,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">Dólares da Namíbia</displayName>
 			</currency>
 			<currency type="NIC">
-				<displayName>Córdoba nicaraguano</displayName>
+				<displayName>Córdoba nicaraguano (1988–1991)</displayName>
+				<displayName count="one">Córdoba nicaraguano (1988–1991)</displayName>
+				<displayName count="other">Córdobas nicaraguano (1988–1991)</displayName>
 			</currency>
 			<currency type="NIO">
-				<displayName>Córdoba de ouro da Nicarágua</displayName>
-				<displayName count="one">Córdoba de ouro da Nicarágua</displayName>
-				<displayName count="other">Córdobas de ouro da Nicarágua</displayName>
+				<displayName>Córdoba nicaraguano</displayName>
+				<displayName count="one">Córdoba nicaraguano</displayName>
+				<displayName count="other">Córdoba nicaraguano</displayName>
 			</currency>
 			<currency type="OMR">
 				<displayName>Rial de Omã</displayName>
@@ -2611,7 +2546,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>minutos</displayName>
 			</unit>
 			<unit type="duration-second">
-				<displayName>segundos</displayName>
 				<unitPattern count="one">{0} s</unitPattern>
 				<unitPattern count="other">{0} s</unitPattern>
 			</unit>
@@ -2715,13 +2649,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</unitLength>
 	</units>
 </ldml>
-<!-- Comments without bases
-per cldrbug 2835, added from gregorian and adjusted for G	 - was on: //ldml/dates/calendars/calendar[@type="roc"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yQ"]
-per
-cldrbug 2835, added from gregorian and adjusted for G	 - was on: //ldml/dates/calendars/calendar[@type="japanese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yQ"]
-per
-cldrbug 2835, added from gregorian and adjusted for G	 - was on: //ldml/dates/calendars/calendar[@type="buddhist"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yQ"]
-per
-cldrbug 2835, added from gregorian and adjusted for G	 - was on: //ldml/dates/calendars/calendar[@type="islamic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yQ"]
--->
-

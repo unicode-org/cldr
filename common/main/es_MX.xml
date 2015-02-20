@@ -13,42 +13,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="arn" draft="contributed">araucano</language>
 			<language type="ba" draft="contributed">bashkir</language>
-			<language type="chr" draft="contributed">cheroki</language>
-			<language type="ckb" draft="contributed">sorani</language>
-			<language type="de_CH" draft="contributed">alto alemán suizo</language>
-			<language type="dsb" draft="contributed">bajo sorbio</language>
-			<language type="en_GB" alt="short" draft="contributed">inglés (R.U.)</language>
-			<language type="es_419" draft="contributed">español latinoamericano</language>
-			<language type="gsw" draft="contributed">alemán suizo</language>
-			<language type="gv" draft="contributed">manés</language>
-			<language type="hsb" draft="contributed">alto sorbio</language>
-			<language type="kab" draft="contributed">cabilio</language>
-			<language type="kln" draft="contributed">halenjin</language>
-			<language type="luo" draft="contributed">luo</language>
-			<language type="nd" draft="contributed">sindebele</language>
-			<language type="nqo" draft="contributed">N’Ko</language>
-			<language type="pa" draft="contributed">panyabí</language>
-			<language type="ps" alt="variant" draft="contributed">pashto</language>
-			<language type="rm" draft="contributed">romanche</language>
-			<language type="rn" draft="contributed">rundi</language>
-			<language type="smj" draft="contributed">sami de Lule</language>
-			<language type="smn" draft="contributed">sami de Inari</language>
-			<language type="su" draft="contributed">sondanés</language>
 			<language type="ug" alt="variant" draft="contributed">uyghur</language>
-			<language type="vai" draft="contributed">vai</language>
-			<language type="vun" draft="contributed">vunjo</language>
-			<language type="zgh" draft="contributed">tamazight estándar marroquí</language>
 		</languages>
 		<scripts>
-			<script type="Arab" alt="variant" draft="contributed">perso-árabe</script>
-			<script type="Hans" draft="contributed">han simplificado</script>
-			<script type="Hans" alt="stand-alone" draft="contributed">han simplificado</script>
-			<script type="Hant" draft="contributed">han tradicional</script>
-			<script type="Hant" alt="stand-alone" draft="contributed">han tradicional</script>
-			<script type="Laoo" draft="contributed">lao</script>
-			<script type="Sinh" draft="contributed">cingalés</script>
 			<script type="Telu" draft="contributed">telugú</script>
 		</scripts>
 		<territories>
@@ -59,7 +27,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="017" draft="contributed">África Central</territory>
 			<territory type="018" draft="contributed">África del Sur</territory>
 			<territory type="019" draft="contributed">Américas</territory>
-			<territory type="021" draft="contributed">América Septentrional</territory>
 			<territory type="030" draft="contributed">Asia Oriental</territory>
 			<territory type="034" draft="contributed">Asia del Sur</territory>
 			<territory type="035" draft="contributed">Sudeste Asiático</territory>
@@ -69,28 +36,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="151" draft="contributed">Europa Oriental</territory>
 			<territory type="154" draft="contributed">Europa del Norte</territory>
 			<territory type="155" draft="contributed">Europa Occidental</territory>
-			<territory type="BA" draft="contributed">Bosnia-Herzegovina</territory>
 			<territory type="BD" draft="contributed">Bangladesh</territory>
 			<territory type="CC" draft="contributed">Islas Cocos (Keeling)</territory>
-			<territory type="CG" draft="contributed">Congo Brazzaville</territory>
 			<territory type="CX" draft="contributed">Isla de Navidad</territory>
 			<territory type="GB" alt="short" draft="contributed">RU</territory>
 			<territory type="GG" draft="contributed">Guernsey</territory>
-			<territory type="GS" draft="contributed">Islas Georgias del Sur y Sandwich del Sur</territory>
-			<territory type="GW" draft="contributed">Guinea-Bissau</territory>
 			<territory type="HK" draft="contributed">Región Administrativa Especial de Hong Kong de la República Popular China</territory>
 			<territory type="IC" draft="contributed">Islas Canarias</territory>
 			<territory type="MO" draft="contributed">Región Administrativa Especial de Macao de la República Popular China</territory>
 			<territory type="PW" draft="contributed">Palaos</territory>
-			<territory type="QA" draft="contributed">Qatar</territory>
 			<territory type="QO" draft="contributed">Islas Ultramarinas</territory>
 			<territory type="TA" draft="contributed">Tristán de Acuña</territory>
-			<territory type="UM" draft="contributed">Islas UltramarinasMenores de Estados Unidos</territory>
+			<territory type="UM" draft="contributed">Islas Ultramarinas Menores de Estados Unidos</territory>
 			<territory type="VI" draft="contributed">Islas Vírgenes de los Estados Unidos</territory>
 		</territories>
 		<keys>
 			<key type="calendar" draft="contributed">Calendario</key>
-			<key type="collation" draft="contributed">Intercalación</key>
+			<key type="collation" draft="contributed">Orden</key>
 			<key type="currency" draft="contributed">Moneda</key>
 		</keys>
 		<types>
@@ -126,9 +88,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<measurementSystemNames>
 			<measurementSystemName type="US" draft="contributed">estadounidense</measurementSystemName>
 		</measurementSystemNames>
-		<codePatterns>
-			<codePattern type="script" draft="contributed">Dialecto: {0}</codePattern>
-		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<moreInformation draft="contributed">[...]</moreInformation>
@@ -144,11 +103,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="contributed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="GyMMM" draft="contributed">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="contributed">d MMM y G</dateFormatItem>
@@ -407,39 +361,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>H:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>H:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>H:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>H:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="contributed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern draft="contributed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Ehm" draft="contributed">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm" draft="contributed">E H:mm</dateFormatItem>
@@ -795,9 +717,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 		</fields>
 		<timeZoneNames>
-			<regionFormat draft="contributed">Hora de {0}</regionFormat>
-			<regionFormat type="daylight" draft="contributed">(horario de verano de {0})</regionFormat>
-			<regionFormat type="standard" draft="contributed">(horario estándar de {0})</regionFormat>
 			<zone type="Asia/Kashgar">
 				<exemplarCity draft="contributed">Kasgar</exemplarCity>
 			</zone>
@@ -1923,11 +1842,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one" draft="contributed">birr etíope</displayName>
 				<displayName count="other" draft="contributed">birrs etíopes</displayName>
 			</currency>
-			<currency type="FKP">
-				<displayName draft="contributed">libra malvinense</displayName>
-				<displayName count="one" draft="contributed">libra malvinense</displayName>
-				<displayName count="other" draft="contributed">libras malvinenses</displayName>
-			</currency>
 			<currency type="GEL">
 				<displayName draft="contributed">lari georgiano</displayName>
 				<displayName count="one" draft="contributed">lari georgiano</displayName>
@@ -1953,20 +1867,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one" draft="contributed">kuna croata</displayName>
 				<displayName count="other" draft="contributed">kunas croatas</displayName>
 			</currency>
-			<currency type="HUF">
-				<displayName draft="contributed">florín húngaro</displayName>
-				<displayName count="one" draft="contributed">florín húngaro</displayName>
-				<displayName count="other" draft="contributed">florines húngaros</displayName>
-			</currency>
 			<currency type="ILS">
 				<displayName draft="contributed">nuevo shéquel israelí</displayName>
 				<displayName count="one" draft="contributed">nuevo shéquel israelí</displayName>
 				<displayName count="other" draft="contributed">nuevos shéquels israelíes</displayName>
-			</currency>
-			<currency type="JMD">
-				<displayName draft="contributed">dólar jamaiquino</displayName>
-				<displayName count="one" draft="contributed">dólar jamaiquino</displayName>
-				<displayName count="other" draft="contributed">dólares jamaiquinos</displayName>
 			</currency>
 			<currency type="JPY">
 				<displayName draft="contributed">yen japonés</displayName>
@@ -2182,11 +2086,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="XPF">
 				<symbol draft="contributed">XPF</symbol>
-			</currency>
-			<currency type="XXX">
-				<displayName draft="contributed">divisa desconocida</displayName>
-				<displayName count="one" draft="contributed">moneda desconocida/no válida</displayName>
-				<displayName count="other" draft="contributed">monedas desconocidas/no válidas</displayName>
 			</currency>
 			<currency type="ZAR">
 				<displayName draft="contributed">rand sudafricano</displayName>

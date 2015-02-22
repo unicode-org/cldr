@@ -1525,22 +1525,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern numbers="d=hanidays">U年MMMdEEEE</pattern>
+							<pattern numbers="d=hanidays">rU年MMMdEEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern numbers="d=hanidays">U年MMMd</pattern>
+							<pattern numbers="d=hanidays">rU年MMMd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern numbers="d=hanidays">U年MMMd</pattern>
+							<pattern numbers="d=hanidays">r年MMMd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>U-M-d</pattern>
+							<pattern>r-M-d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1548,26 +1548,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
-						<dateFormatItem id="Gy">U年</dateFormatItem>
-						<dateFormatItem id="GyMMM">U年MMM</dateFormatItem>
-						<dateFormatItem id="GyMMMd">U年MMMd日</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">U年MMMd日E</dateFormatItem>
+						<dateFormatItem id="Gy">rU年</dateFormatItem>
+						<dateFormatItem id="GyMMM">rU年MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMd">r年MMMd</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">rU年MMMdE</dateFormatItem>
 						<dateFormatItem id="M">MMM</dateFormatItem>
 						<dateFormatItem id="Md">M-d</dateFormatItem>
 						<dateFormatItem id="MEd">M-dE</dateFormatItem>
 						<dateFormatItem id="MMMd">MMMd日</dateFormatItem>
 						<dateFormatItem id="MMMEd">MMMd日E</dateFormatItem>
-						<dateFormatItem id="y">U年</dateFormatItem>
-						<dateFormatItem id="yMd">U年MMMd日</dateFormatItem>
-						<dateFormatItem id="yyyy">U年</dateFormatItem>
-						<dateFormatItem id="yyyyM">U年MMM</dateFormatItem>
-						<dateFormatItem id="yyyyMd">U年MMMd日</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">U年MMMd日，E</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">U年MMM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">U年MMMd日</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">U年MMMd日E</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">U年QQQQ</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ">U年QQQQ</dateFormatItem>
+						<dateFormatItem id="UM">U年MMM</dateFormatItem>
+						<dateFormatItem id="UMd">U年MMMd</dateFormatItem>
+						<dateFormatItem id="UMMM">U年MMM</dateFormatItem>
+						<dateFormatItem id="UMMMd">U年MMMd</dateFormatItem>
+						<dateFormatItem id="y">rU年</dateFormatItem>
+						<dateFormatItem id="yMd">r年MMMd</dateFormatItem>
+						<dateFormatItem id="yyyy">rU年</dateFormatItem>
+						<dateFormatItem id="yyyyM">rU年MMM</dateFormatItem>
+						<dateFormatItem id="yyyyMd">r年MMMd</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">rU年MMMd，E</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">rU年MMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">r年MMMd</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">rU年MMMdE</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">rU年QQQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">rU年QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0}–{1}</intervalFormatFallback>
@@ -1618,39 +1622,39 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">MMMd日E至MMMd日E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y">U至U</greatestDifference>
+							<greatestDifference id="y">rU至rU</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">U-M至U-M</greatestDifference>
-							<greatestDifference id="y">U-M至U-M</greatestDifference>
+							<greatestDifference id="M">r-M至r-M</greatestDifference>
+							<greatestDifference id="y">r-M至r-M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">U-M-d至U-M-d</greatestDifference>
-							<greatestDifference id="M">U-M-d至U-M-d</greatestDifference>
-							<greatestDifference id="y">U-M-d至U-M-d</greatestDifference>
+							<greatestDifference id="d">r-M-d至r-M-d</greatestDifference>
+							<greatestDifference id="M">r-M-d至r-M-d</greatestDifference>
+							<greatestDifference id="y">r-M-d至r-M-d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">U-M-dE至U-M-dE</greatestDifference>
-							<greatestDifference id="M">U-M-dE至U-M-dE</greatestDifference>
-							<greatestDifference id="y">U-M-dE至U-M-dE</greatestDifference>
+							<greatestDifference id="d">r-M-dE至r-M-dE</greatestDifference>
+							<greatestDifference id="M">r-M-dE至r-M-dE</greatestDifference>
+							<greatestDifference id="y">r-M-dE至r-M-dE</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">U年MMM至MMM</greatestDifference>
-							<greatestDifference id="y">U年MMM至U年MMM</greatestDifference>
+							<greatestDifference id="M">rU年MMM至MMM</greatestDifference>
+							<greatestDifference id="y">rU年MMM至rU年MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">U年MMMd日至d日</greatestDifference>
-							<greatestDifference id="M">U年MMMd日至MMMd日</greatestDifference>
-							<greatestDifference id="y">U年MMMd日至U年MMMd日</greatestDifference>
+							<greatestDifference id="d">r年MMMd至d</greatestDifference>
+							<greatestDifference id="M">r年MMMd至MMMd</greatestDifference>
+							<greatestDifference id="y">r年MMMd至r年MMMd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">U年MMMd日E至d日E</greatestDifference>
-							<greatestDifference id="M">U年MMMd日E至MMMd日E</greatestDifference>
-							<greatestDifference id="y">U年MMMd日E至U年MMMd日E</greatestDifference>
+							<greatestDifference id="d">rU年MMMdE至dE</greatestDifference>
+							<greatestDifference id="M">rU年MMMdE至MMMdE</greatestDifference>
+							<greatestDifference id="y">rU年MMMdE至rU年MMMdE</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">U年MMMM至MMMM</greatestDifference>
-							<greatestDifference id="y">U年MMMM至U年MMMM</greatestDifference>
+							<greatestDifference id="M">rU年MMMM至MMMM</greatestDifference>
+							<greatestDifference id="y">rU年MMMM至rU年MMMM</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>

@@ -1421,22 +1421,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, MMMM d, U</pattern>
+							<pattern>EEEE, MMMM d, r(U)</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>MMMM d, U</pattern>
+							<pattern>MMMM d, r(U)</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>MMM d, U</pattern>
+							<pattern>MMM d, r</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>M/d/yy</pattern>
+							<pattern>M/d/r</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1469,10 +1469,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="Gy">U</dateFormatItem>
-						<dateFormatItem id="GyMMM">MMM U</dateFormatItem>
-						<dateFormatItem id="GyMMMd">MMM d, U</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E, MMM d, U</dateFormatItem>
+						<dateFormatItem id="Gy">r(U)</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM r(U)</dateFormatItem>
+						<dateFormatItem id="GyMMMd">MMM d, r</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, MMM d, r(U)</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1486,17 +1486,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">U</dateFormatItem>
-						<dateFormatItem id="yMd">M/d/y</dateFormatItem>
-						<dateFormatItem id="yyyy">U</dateFormatItem>
-						<dateFormatItem id="yyyyM">M/y</dateFormatItem>
-						<dateFormatItem id="yyyyMd">M/d/y</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">E, M/d/y</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">MMM U</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">MMM d, U</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">E, MMM d, U</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">QQQ U</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ">QQQQ U</dateFormatItem>
+						<dateFormatItem id="UM">M/U</dateFormatItem>
+						<dateFormatItem id="UMd">M/d/U</dateFormatItem>
+						<dateFormatItem id="UMMM">MMM U</dateFormatItem>
+						<dateFormatItem id="UMMMd">MMM d, U</dateFormatItem>
+						<dateFormatItem id="y">r(U)</dateFormatItem>
+						<dateFormatItem id="yMd">M/d/r</dateFormatItem>
+						<dateFormatItem id="yyyy">r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyM">M/r</dateFormatItem>
+						<dateFormatItem id="yyyyMd">M/d/r</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, M/d/r</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">MMM d, r</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, MMM d, r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ r(U)</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>

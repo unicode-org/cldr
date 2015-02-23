@@ -67,6 +67,10 @@ public class LanguageInfoTest extends TestFmwk {
 	}
 
 	public void TestChinese() {
+		if (logKnownIssue("Cldrbug:8169",
+				"Problems with language matcher TestChinese.")) {
+			return;
+		}
 		LocaleMatcher matcher = new LocaleMatcher(LocalePriorityList.add(
 				"zh_CN, zh_TW, iw").build(), data);
 		ULocale taiwanChinese = new ULocale("zh_TW");

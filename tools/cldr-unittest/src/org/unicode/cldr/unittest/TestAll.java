@@ -180,7 +180,9 @@ public class TestAll extends TestGroup {
 	}
 
 	public TestAll() {
-		super(new String[] { "org.unicode.cldr.unittest.GenerateTransformTest",
+		super(new String[] { 
+                "org.unicode.cldr.unittest.LocaleMatcherTest",
+                "org.unicode.cldr.unittest.GenerateTransformTest",
 				"org.unicode.cldr.unittest.LanguageInfoTest",
 				"org.unicode.cldr.unittest.LanguageTest",
 				"org.unicode.cldr.unittest.LikelySubtagsTest",
@@ -216,7 +218,8 @@ public class TestAll extends TestGroup {
 				"org.unicode.cldr.unittest.TestSupplementalInfo",
 				"org.unicode.cldr.unittest.TestTransforms",
 				"org.unicode.cldr.unittest.TestUtilities",
-				"org.unicode.cldr.unittest.TestCLDRLocaleCoverage" },
+				"org.unicode.cldr.unittest.TestCLDRLocaleCoverage"
+				},
 				"All tests in CLDR");
 	}
 

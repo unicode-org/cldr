@@ -1126,6 +1126,7 @@ public class SupplementalDataInfo {
 
         validityInfo = CldrUtility.protectCollection(validityInfo);
         attributeValidityInfo = CldrUtility.protectCollection(attributeValidityInfo);
+        parentLocales = Collections.unmodifiableMap(parentLocales);
     }
 
     // private Map<String, Map<String, String>> makeUnmodifiable(Map<String, Map<String, String>>
@@ -2578,10 +2579,15 @@ public class SupplementalDataInfo {
     }
 
     public String getExplicitParentLocale(String loc) {
-        if (parentLocales.containsKey(loc)) {
-            return parentLocales.get(loc);
-        }
-        return null;
+        return parentLocales.get(loc);
+    }
+    
+    public Set<String> getExplicitChildren() {
+        return parentLocales.keySet();
+    }
+
+    public Collection<String> getExplicitParents() {
+        return parentLocales.values();
     }
 
     private final static class ApprovalRequirementMatcher {

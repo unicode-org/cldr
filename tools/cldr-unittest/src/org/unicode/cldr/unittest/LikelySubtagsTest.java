@@ -27,6 +27,7 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class LikelySubtagsTest extends TestFmwk {
 
+	private boolean DEBUG = false;
 	private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = TestInfo
 			.getInstance().getSupplementalDataInfo();
 	static final Map<String, String> likely = SUPPLEMENTAL_DATA_INFO
@@ -214,9 +215,11 @@ public class LikelySubtagsTest extends TestFmwk {
 		// checkAdding("und_Shaw");
 
 		final LanguageTagParser ltp = new LanguageTagParser();
-		System.out.println(TAGS.languages.size() + "\t" + TAGS.languages);
-		System.out.println(TAGS.scripts.size() + "\t" + TAGS.scripts);
-		System.out.println(TAGS.regions.size() + "\t" + TAGS.regions);
+		if (DEBUG) {
+			System.out.println(TAGS.languages.size() + "\t" + TAGS.languages);
+			System.out.println(TAGS.scripts.size() + "\t" + TAGS.scripts);
+			System.out.println(TAGS.regions.size() + "\t" + TAGS.regions);
+		}
 		main: for (Entry<String, Map<String, Map<String, Boolean>>> languageScriptRegion : TAGS.languageToScriptToRegions) {
 			String language = languageScriptRegion.getKey();
 			ltp.set(language); // clears script, region

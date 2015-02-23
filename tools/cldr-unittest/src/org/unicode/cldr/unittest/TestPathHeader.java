@@ -87,7 +87,7 @@ public class TestPathHeader extends TestFmwkPlus {
 		}
 	}
 
-	public void Test6170Exception() {
+	public void Test6170() {
 		String p1 = "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"speed-kilometer-per-hour\"]/unitPattern[@count=\"other\"]";
 		String p2 = "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"area-square-meter\"]/unitPattern[@count=\"other\"]";
 		PathHeader ph1 = pathHeaderFactory.fromPath(p1);

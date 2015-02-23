@@ -220,7 +220,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="sma">جنوبی سامی</language>
 			<language type="smj">لول سامی</language>
 			<language type="smn">اناری سامی</language>
-            <language type="sms" draft="contributed">سکولٹ سامی</language>
+			<language type="sms" draft="contributed">سکولٹ سامی</language>
 			<language type="sn">شونا</language>
 			<language type="so">صومالی</language>
 			<language type="sq">البانی</language>
@@ -1824,15 +1824,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} (+1)</regionFormat>
 			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
-			<zone type="Asia/Chongqing">
-				<exemplarCity>چانگ کنگ</exemplarCity>
-			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity>ہربِن</exemplarCity>
-			</zone>
-			<zone type="Asia/Kashgar">
-				<exemplarCity>کاشغر</exemplarCity>
-			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>نامعلوم شہر</exemplarCity>
 			</zone>
@@ -1984,7 +1975,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>سراجیوو</exemplarCity>
 			</zone>
 			<zone type="America/Barbados">
-			    <exemplarCity>بارباڈوس</exemplarCity>
+				<exemplarCity>بارباڈوس</exemplarCity>
 			</zone>
 			<zone type="Asia/Dhaka">
 				<exemplarCity>ڈھاکہ</exemplarCity>
@@ -5734,10 +5725,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} آرک منٹ</unitPattern>
 				<unitPattern count="other">{0} آرک منٹ</unitPattern>
 			</unit>
-            <unit type="angle-arc-second">
-                <unitPattern count="one" draft="contributed">{0} آرک سیکنڈ</unitPattern>
-                <unitPattern count="other" draft="contributed">{0} آرک سیکنڈ</unitPattern>
-            </unit>
+			<unit type="angle-arc-second">
+				<unitPattern count="one" draft="contributed">{0} آرک سیکنڈ</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} آرک سیکنڈ</unitPattern>
+			</unit>
 			<unit type="angle-degree">
 				<displayName>ڈگری</displayName>
 				<unitPattern count="one">{0} ڈگری</unitPattern>
@@ -5866,8 +5857,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="duration-microsecond">
 				<displayName draft="contributed">مائیکرو سیکنڈ</displayName>
-                <unitPattern count="one" draft="contributed">{0} مائیکرو سیکنڈ</unitPattern>
-                <unitPattern count="other" draft="contributed">{0} مائیکرو سیکنڈ</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} مائیکرو سیکنڈ</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} مائیکرو سیکنڈ</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>ملی سیکنڈ</displayName>

@@ -192,7 +192,24 @@ public class SupplementalMapper {
         Map<String, CldrArray> pathValueMap = new HashMap<String, CldrArray>();
         String category = outputName;
         if (outputName.equals("supplementalData")) {
-            String[] categories = { "supplementalData", "supplementalMetadata", "telephoneCodeData", "languageInfo" };
+            String[] categories = { 
+//                "characters", explicitly skipped
+//                "coverageLevels", explicitly skipped
+//                "dayPeriods", done in processSupplemental
+//                "genderList", done elsewhere??
+                "languageInfo",
+//                "likelySubtags", done elsewhere??
+//                "metaZones", done elsewhere??
+//                "numberingSystems", done elsewhere??
+//                "ordinals", done in processSupplemental
+//                "pluralRanges", done in processSupplemental
+//                "plurals", done in processSupplemental
+//                "postalCodeData", deprecated
+                "supplementalData",
+                "supplementalMetadata",
+                "telephoneCodeData",
+//                "windowsZones", done elsewhere??
+                };
             for (String cat : categories) {
                 loadValues(cat, pathValueMap);
             }

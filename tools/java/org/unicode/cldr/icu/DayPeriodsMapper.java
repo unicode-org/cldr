@@ -33,6 +33,7 @@ public class DayPeriodsMapper {
     private class DayPeriodsHandler extends MapperUtils.EmptyHandler {
         private IcuData icuData;
         private int setNum;
+        private String selection;
 
         public DayPeriodsHandler(IcuData icuData) {
             this.icuData = icuData;
@@ -41,11 +42,19 @@ public class DayPeriodsMapper {
 
         @Override
         public void startElement(String uri, String localName, String qName, Attributes attr) throws SAXException {
-            if (qName.equals("dayPeriodRules")) {
+            //  <dayPeriodRuleSet type="selection">
+            if (qName.equals("dayPeriodRuleSet")) {
+                selection = attr.getValue("type");
+                if (selection == null) {
+                    selection = "";
+                } else {
+                    selection = "_" + selection;
+                }
+            } else if (qName.equals("dayPeriodRules")) {
                 setNum++;
                 String[] locales = attr.getValue("locales").split("\\s+");
                 for (String locale : locales) {
-                    icuData.add("/locales/" + locale, "set" + setNum);
+                    icuData.add("/locales" + selection + "/" + locale, "set" + setNum);
                 }
             } else if (qName.equals("dayPeriodRule")) {
                 String type = attr.getValue("type");

@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copyright (C) 2013, International Business Machines Corporation
+# Copyright (C) 2013-2015, International Business Machines Corporation
 #  and others.  All Rights Reserved.
 #
 
@@ -10,7 +10,7 @@ then
 fi
 
 cd ${CLDR_DIR}
-find common exemplars keyboards seed specs tools/java -type f -print | while read filename
+find common exemplars keyboards seed specs tools/java tools/cldr-unittest -type f -print | while read filename
 do
    echo "Processing... ${filename}"
    ext=`echo ${filename} | cut -f2 -d'.'`

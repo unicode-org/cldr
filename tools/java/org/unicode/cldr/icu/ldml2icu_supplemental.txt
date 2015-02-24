@@ -161,8 +161,6 @@
 //supplementalData/metadata/defaultContent[@locales="(%A)"] ; /defaultContent ; values=$1
 
 # supplementalMetadata.xml
-//supplementalData/metadata/alias/(language|script|territory|variant|zone)Alias[@type="(%A)"][@replacement="(%A)"][@reason="(%A)"] ; /alias/$1/$2 ; values="$3" "$4"
+# Question: do we really need this?
 # Specify the value explicitly so that the LDMLConverter will split it.
-# //supplementalData/metadata/validity/variable[@type="choice"][@id="\$territory"] ; /regionCodes ; values={value}
-
-
+//supplementalData/metadata/validity/variable[@type="choice"][@id="\$territory"] ; /regionCodes ; values={value}

@@ -1606,7 +1606,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				<td>Specifies a reordering of scripts or other significant
 					blocks of characters such as symbols, punctuation, and digits. For
 					the precise meaning and usage of the reorder codes, see <em>Section
-						3.12, <a href="#Script_Reordering">Collation Reordering</a>.
+						3.13, <a href="#Script_Reordering">Collation Reordering</a>.
 				</em>
 				</td>
 			</tr>
@@ -2641,6 +2641,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</ol>
 		<p>It is an error if a code occurs multiple times.</p>
 
+		<p class="changed">It is an error if the sequence of reorder codes is empty
+		in the XML attribute or in the locale identifier.
+		Some implementations may interpret an empty sequence in the <code>[reorder]</code>
+		rule syntax as a reset to the DUCET ordering,
+		synonymous with <code>[reorder others]</code>;
+		other implementations may forbid an empty sequence in the rule syntax as well.</p>
+
 		<p>
 			Interaction with <strong>alternate=shifted</strong>: Whether a
 			primary weight is “variable” is determined according to the “variable
@@ -2672,11 +2679,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<p>
 			The locale data may have a particular ordering. For example, the
 			Czech locale data could put digits after all letters, with
-			<code>[reorder others digit]</code>
-			. Any reordering codes specified on top of that (such as with a bcp47
+			<code>[reorder others digit]</code>.
+			Any reordering codes specified on top of that (such as with a bcp47
 			locale identifier) completely replace what was there. To specify a
 			version of collation that completely resets any existing reordering
-			to the DUCET ordering, the single code <strong>others</strong> can be
+			to the DUCET ordering, the single code <span class="changed"><strong>Zzzz</strong> or </span> <strong>others</strong> can be
 			used, as below<strong></strong>.
 		</p>
 		<p>
@@ -2845,7 +2852,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			reordering group, for example for parenthesized characters.</p>
 		<p class="removed">
 			Some scripts are grouped together by CLDR and cannot be ordered
-			independently, as mentioned above in <i>Section 3.12, <a
+			independently, as mentioned above in <i>Section 3.13, <a
 				href="#Script_Reordering">Collation Reordering</a></i>. Implementations
 			that are not based on the primary weights of FractionalUCA.txt may
 			group scripts differently or may not have this limitation.

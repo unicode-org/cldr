@@ -38,28 +38,29 @@ public class LocaleMatcherTest extends TestFmwk {
 
     private static final ULocale ZH_MO = new ULocale("zh_MO");
     private static final ULocale ZH_HK = new ULocale("zh_HK");
-    static LanguageMatcherData cldrData = new LanguageMatcherData();
+    static LanguageMatcherData LANGUAGE_MATCHER_DATA = new LanguageMatcherData();
+
     static {
         for (R4<String, String, Integer, Boolean> foo : INFO.getLanguageMatcherData("written")) {
-            cldrData.addDistance(foo.get0(), foo.get1(), 100 - foo.get2(), foo.get3());
+            LANGUAGE_MATCHER_DATA.addDistance(foo.get0(), foo.get1(), 100 - foo.get2(), foo.get3());
         }
-        cldrData.freeze();
+        LANGUAGE_MATCHER_DATA.freeze();
     }
 
     private LocaleMatcher newLocaleMatcher(LocalePriorityList build) {
-        return new LocaleMatcher(build, cldrData);
+        return new LocaleMatcher(build, LANGUAGE_MATCHER_DATA);
     }
 
     private LocaleMatcher newLocaleMatcher(LocalePriorityList build, LanguageMatcherData data) {
-        return new LocaleMatcher(build, data == null ? cldrData : data);
+        return new LocaleMatcher(build, data == null ? LANGUAGE_MATCHER_DATA : data);
     }
 
     private LocaleMatcher newLocaleMatcher(LocalePriorityList lpl, LanguageMatcherData data, double d) {
-        return new LocaleMatcher(lpl, data == null ? cldrData : data, d);
+        return new LocaleMatcher(lpl, data == null ? LANGUAGE_MATCHER_DATA : data, d);
     }
 
     private LocaleMatcher newLocaleMatcher(String string) {
-        return new LocaleMatcher(LocalePriorityList.add(string).build(), cldrData);
+        return new LocaleMatcher(LocalePriorityList.add(string).build(), LANGUAGE_MATCHER_DATA);
     }
 
     // public LocaleMatcher(LocalePriorityList languagePriorityList,

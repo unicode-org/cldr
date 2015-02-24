@@ -58,8 +58,6 @@
      ; /languageData/$1/primary/territories; values=$3
 //supplementalData/languageData/language[@type="(%W)"][@territories="(%W)"] ; /languageData/$1/primary/territories ; values=$2
 
-//supplementalData/parentLocales/parentLocale[@parent="(%A)"][@locales="(%A)"] ; /languageData/parentLocales/$1 ; values=$2
-
 //supplementalData/languageData/language[@type="(%W)"][@scripts="(%W)"][@alt="secondary"] ; /languageData/$1/secondary/scripts ; values=$2
 //supplementalData/languageData/language[@type="(%W)"][@territories="(%G)"][@alt="secondary"] ; /languageData/$1/secondary/territories ; values=$2
 //supplementalData/languageData/language[@type="(%W)"][@scripts="(%W)"][@territories="(%W)"][@alt="secondary"]
@@ -129,11 +127,6 @@
 # likelySubtags.xml
 //supplementalData/likelySubtags/likelySubtag[@from="(%A)"][@to="(%A)"] ; /$1 ; values=$2
 
-# supplementalMetadata.xml
-//supplementalData/metadata/alias/(language|script|territory|variant)Alias[@type="(%A)"][@replacement="(%A)"][@reason="%A"] ; /$1Alias/$2 ; values="$3"
-# Specify the value explicitly so that the LDMLConverter will split it.
-//supplementalData/metadata/validity/variable[@type="choice"][@id="\$territory"] ; /regionCodes ; values={value}
-
 # metaZones.xml - metaZones.txt
 //supplementalData/metaZones/mapTimezones[@type="metazones"][@typeVersion="%A"]/mapZone[@type="(%A)"][@other="(%W)"][@territory="(%W)"] ; /mapTimezones/$2/$3 ; values=$1
 //supplementalData/metaZones/metazoneInfo/timezone[@type="(%W)"]/usesMetazone[@mzone="(%W)"] ; /metazoneInfo/"$1"/<$2> ; values=$2
@@ -162,3 +155,14 @@
 
 # postalCodeData.xml
 //supplementalData/postalCodeData/postCodeRegex[@territoryId="(%W)"] ; /$1
+
+# locale info
+//supplementalData/parentLocales/parentLocale[@parent="(%A)"][@locales="(%A)"] ; /parentLocales/$1 ; values=$2
+//supplementalData/metadata/defaultContent[@locales="(%A)"] ; /defaultContent ; values=$1
+
+# supplementalMetadata.xml
+//supplementalData/metadata/alias/(language|script|territory|variant|zone)Alias[@type="(%A)"][@replacement="(%A)"][@reason="(%A)"] ; /alias/$1/$2 ; values="$3" "$4"
+# Specify the value explicitly so that the LDMLConverter will split it.
+# //supplementalData/metadata/validity/variable[@type="choice"][@id="\$territory"] ; /regionCodes ; values={value}
+
+

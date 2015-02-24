@@ -192,7 +192,7 @@ public class SupplementalMapper {
         Map<String, CldrArray> pathValueMap = new HashMap<String, CldrArray>();
         String category = outputName;
         if (outputName.equals("supplementalData")) {
-            String[] categories = { "supplementalData", "telephoneCodeData", "languageInfo" };
+            String[] categories = { "supplementalData", "supplementalMetadata", "telephoneCodeData", "languageInfo" };
             for (String cat : categories) {
                 loadValues(cat, pathValueMap);
             }

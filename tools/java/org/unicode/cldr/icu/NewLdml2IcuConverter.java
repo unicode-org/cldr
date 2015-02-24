@@ -85,7 +85,9 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         .add("filter", 'f', null, null, "Perform filtering on the locale data to be converted.")
         .add("organization", 'o', ".*", null, "The organization to filter the data for")
         .add("makefile", 'g', ".*", null, "If set, generates makefiles and alias files for the specified type. " +
-            "The value to set should be the name of the makefile.");
+            "The value to set should be the name of the makefile.")
+        .add("verbose", 'v', null, null, "Debugging aids")
+            ;
 
     private static final String LOCALES_DIR = "locales";
 
@@ -96,6 +98,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
     private String destinationDir;
     private IcuDataSplitter splitter;
     private Filter filter;
+    private boolean verbose = false;
 
     /**
      * Maps ICU paths to the directories they should end up in.
@@ -165,6 +168,8 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             }
             splitter = IcuDataSplitter.make(destinationDir, splitInfos);
         }
+
+        verbose = options.get("verbose").doesOccur();
 
         String debugXPath = options.get("xpath").getValue();
         // Quotes are stripped out at the command line so add them back in.

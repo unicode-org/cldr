@@ -22,13 +22,6 @@
 
 //ldml/posix ; unconverted
 
-# Old items that are now converted
-
-#//ldml/dates/calendars/calendar[@type="%A"]/.*[@alt="variant"] ; unconverted
-#//ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="variant"] ; unconverted
-#//supplementalData/weekData/.*[@alt="variant"] ; unconverted
-#//supplementalData/parentLocales/.* ; unconverted
-
 # This is intentionally empty
 
 //supplementalData/calendarData/calendar[@type="generic"]$ ; unconverted
@@ -45,7 +38,16 @@
 # These are all internal items for CLDR
 
 //supplementalData/metadata/alias/zoneAlias ; unconverted
-//supplementalData/metadata/alias/.*[@type="%A"][@reason="%A"] ; unconverted
-//supplementalData/metadata/(?!alias|validity) ; unconverted
+//supplementalData/metadata/(?!alias|validity|defaultContent) ; unconverted
 //supplementalData/metadata/validity/attributeValues.* ; unconverted
 //supplementalData/metadata/validity/variable.*[@id="(?!\$territory)%A"] ; unconverted
+//supplementalData/metadata/validity/variable.* ; unconverted
+
+# Old items that are now converted
+
+#//ldml/dates/calendars/calendar[@type="%A"]/.*[@alt="variant"] ; unconverted
+#//ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="variant"] ; unconverted
+#//supplementalData/weekData/.*[@alt="variant"] ; unconverted
+#//supplementalData/parentLocales/.* ; unconverted
+
+#//supplementalData/metadata/alias/.*[@type="%A"][@reason="%A"] ; unconverted

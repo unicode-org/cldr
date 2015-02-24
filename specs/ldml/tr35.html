@@ -108,7 +108,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2015-02-17</span></td>
+				<td><span class="changed">2015-02-24</span></td>
 			</tr>
 			<tr class="changed">
 				<td><span class="changed">This Version</span></td>
@@ -1330,7 +1330,9 @@ h5 {
 				<td>ASCII letters</td>
 				<td>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						variant</b>
-					<p>The CLDR provides data for normalizing variant codes.</p></td>
+				<p>The CLDR provides data for normalizing variant codes.
+				<span class="changed">About handling of the "POSIX" variant see
+				<i>Section 3.8.1, <a href="#Legacy_Variants">Legacy Variants</a></i>.</span></p></td>
 			</tr>
 		</table>
 		<p>
@@ -1910,7 +1912,9 @@ zh-Hant-HK
 				<td>"va"</td>
 				<td>Common variant type</td>
 				<td>"posix"</td>
-				<td>POSIX style locale variant</td>
+				<td>POSIX style locale variant.
+				<span class="changed">About handling of the "POSIX" variant see
+				<i>Section 3.8.1, <a href="#Legacy_Variants">Legacy Variants</a></i>.</span></td>
 			</tr>
 		</table>
 		<p>
@@ -2408,6 +2412,21 @@ zh-Hant-HK
 					"ssy" to indicated this.</td>
 			</tr>
 		</table>
+		<p class="changed">When converting to old syntax,
+		the Unicode locale extension "-u-va-posix" should be converted to the "POSIX" variant,
+		<i>not</i> to old extension syntax like "@va=posix".
+		This is an exception: The other mappings above should not be reversed.</p>
+
+		<p class="changed">Examples:</p>
+		<ul class="changed">
+			<li>en_US_POSIX ↔ en-US-u-va-posix</li>
+			<li>en_US_POSIX@colNumeric=yes ↔ en-US-u-kn-va-posix</li>
+			<li>en-US-POSIX-u-kn-true → en-US-u-kn-va-posix</li>
+			<li>en-US-POSIX-u-kn-va-posix → en-US-u-kn-va-posix</li>
+		</ul>
+		<p class="reviewnote">Review note: This would flow better if sections 3.8.1 &amp; 3.8.2 were swapped,
+		so that conversion of variants to locale extensions would be discussed after talking about
+		the old locale extension syntax.</p><!-- http://unicode.org/cldr/trac/ticket/7958 -->
 
 		<h4>
 			<a name="Old_Locale_Extension_Syntax"

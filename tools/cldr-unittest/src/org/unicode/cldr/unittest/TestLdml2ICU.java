@@ -1,7 +1,6 @@
 package org.unicode.cldr.unittest;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,20 +10,19 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.RegexFileParser;
 import org.unicode.cldr.util.RegexFileParser.RegexLineParser;
 import org.unicode.cldr.util.RegexFileParser.VariableProcessor;
 import org.unicode.cldr.util.RegexLookup;
-import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.RegexLookup.RegexFinder;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.Transform;
-import com.ibm.icu.util.Output;
 
 /**
  * Tests the parts of the Ldml2IcuConverter that uses RegexLookups to convert
@@ -209,7 +207,7 @@ public class TestLdml2ICU extends TestFmwk {
             String errorMessage = "CLDR xpath  <" + xpath + "> with value <"
                     + value + "> was not converted to ICU.";
             if (exclusionType == null) {
-                logRegexLookup(lookup, xpath);
+                CldrUtility.logRegexLookup(this, lookup, xpath);
                 errln(errorMessage);
             } else if (exclusionType == ExclusionType.WARNING) {
                 logln(errorMessage);
@@ -220,24 +218,11 @@ public class TestLdml2ICU extends TestFmwk {
                 }
             }
         } else if (exclusionType == ExclusionType.UNCONVERTED) {
-            logRegexLookup(exclusions, xpath);
+            CldrUtility.logRegexLookup(this, exclusions, xpath);
             errln("CLDR xpath <"
                     + xpath
                     + "> is in the exclusions list but was matched. "
                     + "To make the test pass, remove the relevant regex from org/unicode/cldr/util/data/testLdml2Icu.txt");
-        }
-    }
-
-    private <T> void logRegexLookup(RegexLookup<T> lookup, String xpath) {
-        // for debugging
-        Output<String[]> arguments = new Output<>();
-        Output<Finder> matcherFound = new Output<>();
-        List<String> failures = new ArrayList<String>();
-        lookup.get(xpath, null, arguments , matcherFound, failures);
-        logln("lookup arguments: " + Arrays.asList(arguments.value));
-        logln("lookup matcherFound: " + matcherFound);
-        for (String s : failures) {
-            logln(s);
         }
     }
 

@@ -480,7 +480,7 @@ public class LocaleMatcherTest extends TestFmwk {
     // }
 
     public void testGetBestMatchForList_matchOnMaximized2() {
-        if (logKnownIssue("8215", "better matching with regional variants")) {
+        if (logKnownIssue("Cldrbug:8215", "better matching with regional variants")) {
             return;
         }
         final LocaleMatcher matcher = newLocaleMatcher("fr, en-GB, ja, es-ES, es-MX");
@@ -495,7 +495,7 @@ public class LocaleMatcherTest extends TestFmwk {
 
 
     public void testGetBestMatchForList_closeEnoughMatchOnMaximized() {
-        if (logKnownIssue("8215", "better matching with regional variants")) {
+        if (logKnownIssue("Cldrbug:8215", "better matching with regional variants")) {
             return;
         }
         final LocaleMatcher matcher = newLocaleMatcher("en-GB, en, de, fr, ja");
@@ -505,7 +505,7 @@ public class LocaleMatcherTest extends TestFmwk {
 
     public void testGetBestMatchForPortuguese() {
 
-        if (logKnownIssue("8215", "better matching with regional variants")) {
+        if (logKnownIssue("Cldrbug:8215", "better matching with regional variants")) {
             return;
         }
 
@@ -534,7 +534,7 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testVariantWithScriptMatch() {
-        if (logKnownIssue("8215", "better matching with regional variants")) {
+        if (logKnownIssue("Cldrbug:8215", "better matching with regional variants")) {
             return;
         }
         final LocaleMatcher matcher = newLocaleMatcher("fr, en, sv");

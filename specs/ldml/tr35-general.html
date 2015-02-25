@@ -3128,9 +3128,9 @@ h2,h3,h4,table {
 			contexts. The &lt;contextTransform&gt; elements are <span class="changed">needed
 			primarily</span> for cases in which the capitalization is other than the
 			default form used in the middle of running text. <span class="changed">However,
-			it is also useful to distinguish cases in which it is <em>known</em> that no
-			transformation from this default form is needed from cases in which any
-			necessary tranformation may simply be unknown or unspecified. The
+			it is also useful to mark cases in which it is <em>known</em> that no
+			transformation from this default form is needed; this may be necessary, for
+			example, to override the transformation specified by a parent locale. The
 			following values are </span>currently defined for the &lt;contextTransform&gt;
 			element:</p>
 
@@ -3141,10 +3141,6 @@ h2,h3,h4,table {
 				first word titlecased.</li>
 			<li class="changed">"no-change" designates the case in which it is known that no
 				change from the raw CLDR text (middle-of-sentence form) is needed.</li>
-			<li class="changed">"∅∅∅" has the same effect as "no-change" (i.e. no change to
-				CLDR raw data), but instead indicates that a value of "titlecase-firstword"
-				or "no-change" that would otherwise be inherited from a parent locale is
-				not known to apply to the child locale in which it is specified.</li>
 		</ul>
 
 		<p>Four contexts for capitalization behavior are currently

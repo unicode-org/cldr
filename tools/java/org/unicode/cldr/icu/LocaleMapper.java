@@ -41,7 +41,6 @@ public class LocaleMapper extends Mapper {
     private static final Map<String, String> enumMap = Builder.with(new HashMap<String, String>())
         .put("titlecase-firstword", "1")
         .put("no-change", "0")
-        .put("∅∅∅", "0")
         .freeze();
 
     private static final Pattern DRAFT_PATTERN = Pattern.compile("\\[@draft=\"\\w+\"]");

@@ -48,15 +48,13 @@ public class CheckHtmlFiles {
     static Pattern SUPPRESS_SECTION_NUMBER = Pattern.compile(
         "(Annex [A-Z]: .*)" +
             "|(Appendix [A-Z].*)" +
-            "|Migration( Issues)?" +
+            "|(.*Migrati(on|ng).*)" +
             "|Step \\d+.*" +
             "|Example \\d+.*" +
             "|D\\d+\\.\\s.*" +
             "|References" +
             "|Acknowledge?ments" +
             "|Modifications" +
-            "|Migrating Persistent Data" +
-            "|Updating Required" +
             "|(Revision \\d+\\.?)");
     static Pattern SUPPRESS_REVISION = Pattern.compile("Revision \\d+\\.?");
     static Pattern SPACES = Pattern.compile("\\s+");
@@ -288,7 +286,7 @@ public class CheckHtmlFiles {
         public String toHeader() {
             String id = ids.iterator().next();
             return ("<li>"
-                + (!isHeader ? (text.contains("Table") ? "" : "Table: ") : suppressSection ? "" : levels + " ")
+                + (!isHeader ? (text.contains("Table") || text.contains("Figure") ? "" : "Table: ") : suppressSection ? "" : levels + " ")
                 + "<a href=\"#" + id + "\">"
                 + TransliteratorUtilities.toHTML.transform(text)
                 + "</a>");

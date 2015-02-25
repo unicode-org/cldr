@@ -23,6 +23,7 @@ import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -97,6 +98,7 @@ public class ShowRegionalVariants {
         }
         
         // show inheritance
+        System.out.println("Locale Name\tCode\tRegion\tInherits from\tCode");
         showInheritance(parentToChildren);
 
         // next find out the unique items in children
@@ -287,8 +289,16 @@ public class ShowRegionalVariants {
         }
     }
 
+    static final LikelySubtags LS = new LikelySubtags();
+    
     private static String nameForLocale(CLDRLocale key) {
-        return ENGLISH.getName(key.toString(), false, CLDRFile.SHORT_ALTS) + "\t" + key + "\t" + key.getCountry();
+        String country = key.getCountry();
+        if (country.isEmpty()) {
+            String max = LS.maximize(key.toString());
+            LanguageTagParser ltp = new LanguageTagParser().set(max);
+            country = "(" + ltp.getRegion() + ")";
+        }
+        return ENGLISH.getName(key.toString(), false, CLDRFile.SHORT_ALTS) + "\t" + key + "\t" + country;
     }
 
     private static boolean sameExceptEnd(String childValue, String childEnding, String parentValue, String parentEnding) {

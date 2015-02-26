@@ -112,11 +112,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<intervalFormatItem id="H">
 							<greatestDifference id="H" draft="contributed">HH – HH</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a" draft="contributed">h:mm a – h:mm a</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h:mm – h:mm a</greatestDifference>
-							<greatestDifference id="m" draft="contributed">h:mm – h:mm a</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
 							<greatestDifference id="H" draft="contributed">HH:mm – HH:mm</greatestDifference>
 							<greatestDifference id="m" draft="contributed">HH:mm – HH:mm</greatestDifference>
@@ -196,24 +191,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern type="10000" count="other" draft="contributed">00k</pattern>
 					<pattern type="100000" count="one" draft="contributed">000k</pattern>
 					<pattern type="100000" count="other" draft="contributed">000k</pattern>
-					<pattern type="1000000" count="one" draft="contributed">0 M</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 M</pattern>
-					<pattern type="10000000" count="one" draft="contributed">00 M</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 M</pattern>
-					<pattern type="100000000" count="one" draft="contributed">000 M</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 M</pattern>
 					<pattern type="1000000000" count="one" draft="contributed">0k M</pattern>
 					<pattern type="1000000000" count="other" draft="contributed">0k M</pattern>
 					<pattern type="10000000000" count="one" draft="contributed">00k M</pattern>
 					<pattern type="10000000000" count="other" draft="contributed">00k M</pattern>
 					<pattern type="100000000000" count="one" draft="contributed">000k M</pattern>
 					<pattern type="100000000000" count="other" draft="contributed">000k M</pattern>
-					<pattern type="1000000000000" count="one" draft="contributed">0 B</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0 B</pattern>
-					<pattern type="10000000000000" count="one" draft="contributed">00 B</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 B</pattern>
-					<pattern type="100000000000000" count="one" draft="contributed">000 B</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 B</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -277,12 +260,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="contributed">nmi</displayName>
 				<unitPattern count="one" draft="contributed">{0} nmi</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} nmi</unitPattern>
-			</unit>
-			<unit type="length-parsec">
-				<displayName draft="contributed">parsecs</displayName>
-			</unit>
-			<unit type="length-yard">
-				<displayName draft="contributed">yardas</displayName>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">

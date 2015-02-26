@@ -71,7 +71,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="061" draft="provisional">波利尼西亞</territory>
 			<territory type="AE">阿拉伯聯合酋長國</territory>
 			<territory type="AG" draft="unconfirmed">安提瓜及巴布達</territory>
-			<territory type="AI" draft="provisional">安圭拉</territory>
 			<territory type="AW">阿魯巴</territory>
 			<territory type="AZ">阿塞拜疆</territory>
 			<territory type="BA">波斯尼亞和黑塞哥維那</territory>
@@ -116,7 +115,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="MU">毛里裘斯</territory>
 			<territory type="MV">馬爾代夫</territory>
 			<territory type="MZ">莫桑比克</territory>
-			<territory type="NC">新喀里多尼亞</territory>
 			<territory type="NE" draft="contributed">尼日爾</territory>
 			<territory type="NG">尼日利亞</territory>
 			<territory type="NR" draft="provisional">瑙魯</territory>
@@ -134,7 +132,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="SL">塞拉利昂</territory>
 			<territory type="SO" draft="unconfirmed">索馬里</territory>
 			<territory type="SR" draft="unconfirmed">蘇里南</territory>
-			<territory type="ST" draft="unconfirmed">聖多美普林西比</territory>
 			<territory type="SZ">斯威士蘭</territory>
 			<territory type="TC">特克斯和凱科斯群島</territory>
 			<territory type="TD" draft="unconfirmed">乍得</territory>
@@ -328,21 +325,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="contributed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
 						<dateFormatItem id="Gy">Gy年</dateFormatItem>
@@ -454,21 +436,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
 						<dateFormatItem id="Ehm" draft="provisional">E ah:mm</dateFormatItem>
@@ -1702,31 +1669,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-hour">
 				<unitPattern count="other" draft="contributed">{0}小時</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<unitPattern count="other" draft="contributed">{0}毫秒</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName draft="unconfirmed">分</displayName>
-				<unitPattern count="other" draft="contributed">{0}分</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<unitPattern count="other" draft="contributed">{0}個月</unitPattern>
-			</unit>
-			<unit type="duration-second">
-				<unitPattern count="other" draft="contributed">{0}秒</unitPattern>
-			</unit>
-			<unit type="duration-week">
-				<unitPattern count="other" draft="contributed">{0}週</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<unitPattern count="other" draft="contributed">{0}年</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName draft="contributed">厘米</displayName>
 				<unitPattern count="other" draft="contributed">{0}厘米</unitPattern>
-			</unit>
-			<unit type="length-kilometer">
-				<unitPattern count="other" draft="contributed">{0}公里</unitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>米</displayName>
@@ -1735,12 +1683,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="length-millimeter">
 				<displayName draft="contributed">毫米</displayName>
 				<unitPattern count="other" draft="contributed">{0}毫米</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<unitPattern count="other" draft="contributed">{0}克</unitPattern>
-			</unit>
-			<unit type="mass-kilogram">
-				<unitPattern count="other" draft="contributed">{0}公斤</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<unitPattern count="other" draft="contributed">{0} 安士</unitPattern>
@@ -1758,9 +1700,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="speed-mile-per-hour">
 				<unitPattern count="other" draft="contributed">{0}mph</unitPattern>
 			</unit>
-			<unit type="volume-cubic-kilometer">
-				<unitPattern count="other" draft="contributed">{0}km³</unitPattern>
-			</unit>
 			<unit type="volume-cubic-mile">
 				<unitPattern count="other" draft="contributed">{0}mi³</unitPattern>
 			</unit>
@@ -1770,20 +1709,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 	</units>
-	<listPatterns>
-		<listPattern type="unit">
-			<listPatternPart type="start">{0} {1}</listPatternPart>
-			<listPatternPart type="middle">{0} {1}</listPatternPart>
-			<listPatternPart type="end">{0} {1}</listPatternPart>
-			<listPatternPart type="2">{0} {1}</listPatternPart>
-		</listPattern>
-		<listPattern type="unit-short">
-			<listPatternPart type="start">{0} {1}</listPatternPart>
-			<listPatternPart type="middle">{0} {1}</listPatternPart>
-			<listPatternPart type="end">{0} {1}</listPatternPart>
-			<listPatternPart type="2">{0} {1}</listPatternPart>
-		</listPattern>
-	</listPatterns>
 	<posix>
 		<messages>
 			<yesstr>是</yesstr>

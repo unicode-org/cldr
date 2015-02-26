@@ -13,7 +13,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="gsw" draft="contributed">suisse allemand</language>
 			<language type="luo" draft="contributed">luo</language>
 		</languages>
 		<scripts>
@@ -35,8 +34,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</types>
 		<transformNames>
 			<transformName type="x-Accents" draft="unconfirmed">accents</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Pleine chasse</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Demi-chasse</transformName>
 			<transformName type="x-Jamo" draft="unconfirmed">jamo</transformName>
 			<transformName type="x-Pinyin" draft="unconfirmed">pinyin</transformName>
 			<transformName type="x-Publishing" draft="contributed">Édition</transformName>
@@ -46,11 +43,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<calendars>
 			<calendar type="generic">
 				<dateFormats>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>d MMM y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>yy-MM-dd GGGGG</pattern>
@@ -69,40 +61,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yyyyMM">y-MM G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatItem id="d">
-							<greatestDifference id="d">d – d</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="h">
-							<greatestDifference id="h">h – h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="H">HH – HH</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="h">h:mm – h:mm a</greatestDifference>
-							<greatestDifference id="m">h:mm – h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="H">HH:mm – HH:mm</greatestDifference>
-							<greatestDifference id="m">HH:mm – HH:mm</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="h">h:mm – h:mm a v</greatestDifference>
-							<greatestDifference id="m">h:mm – h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H">HH:mm – HH:mm v</greatestDifference>
-							<greatestDifference id="m">HH:mm – HH:mm v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="h">h – h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="H">HH – HH v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="M">
-							<greatestDifference id="M" draft="contributed">M – M</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d">MM-dd – MM-dd</greatestDifference>
 							<greatestDifference id="M">MM-dd – MM-dd</greatestDifference>
@@ -113,9 +71,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d" draft="contributed">E d – E d MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="y">
-							<greatestDifference id="y">y – y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">y-MM – y-MM G</greatestDifference>
@@ -130,18 +85,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="d">E y-MM-dd – E y-MM-dd G</greatestDifference>
 							<greatestDifference id="M">E y-MM-dd – E y-MM-dd G</greatestDifference>
 							<greatestDifference id="y">E y-MM-dd – E y-MM-dd G</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMM">
-							<greatestDifference id="y">MMM y – MMM y G</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="M">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y">d MMM y – d MMM y G</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E d – E d MMM y G</greatestDifference>
-							<greatestDifference id="M">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="y">E d MMM y – E d MMM y G</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -202,11 +145,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dayContext>
 				</days>
 				<dateFormats>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>d MMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>yy-MM-dd</pattern>
@@ -228,35 +166,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
-							<greatestDifference id="h">h – h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="H">HH – HH</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="h">h:mm – h:mm a</greatestDifference>
-							<greatestDifference id="m">h:mm – h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="H">HH:mm – HH:mm</greatestDifference>
-							<greatestDifference id="m">HH:mm – HH:mm</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="h">h:mm – h:mm a v</greatestDifference>
-							<greatestDifference id="m">h:mm – h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H">HH:mm – HH:mm v</greatestDifference>
-							<greatestDifference id="m">HH:mm – HH:mm v</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a" draft="contributed">h 'h' a – h 'h' a v</greatestDifference>
-							<greatestDifference id="h">h – h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="H">HH – HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d">MM-dd – MM-dd</greatestDifference>
@@ -279,18 +190,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="d">E y-MM-dd – E y-MM-dd</greatestDifference>
 							<greatestDifference id="M">E y-MM-dd – E y-MM-dd</greatestDifference>
 							<greatestDifference id="y">E y-MM-dd – E y-MM-dd</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMM">
-							<greatestDifference id="y">MMM y – MMM y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="M">d MMM – d MMM y</greatestDifference>
-							<greatestDifference id="y">d MMM y – d MMM y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E d – E d MMM y</greatestDifference>
-							<greatestDifference id="M">E d MMM – E d MMM y</greatestDifference>
-							<greatestDifference id="y">E d MMM y – E d MMM y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1223,11 +1122,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-second">
 				<perUnitPattern draft="contributed">{0} à la seconde</perUnitPattern>
 			</unit>
-			<unit type="energy-foodcalorie">
-				<displayName draft="contributed">kilocalories</displayName>
-				<unitPattern count="one" draft="contributed">{0} kilocalorie</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} kilocalories</unitPattern>
-			</unit>
 			<unit type="length-mile">
 				<displayName draft="contributed">mille</displayName>
 				<unitPattern count="one" draft="contributed">{0} mille</unitPattern>
@@ -1281,11 +1175,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="contributed">vg²</displayName>
 				<unitPattern count="one" draft="contributed">{0} vg²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} vg²</unitPattern>
-			</unit>
-			<unit type="energy-foodcalorie">
-				<displayName draft="contributed">kcal</displayName>
-				<unitPattern count="one" draft="contributed">{0} kcal</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} kcal</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
 				<unitPattern count="one" draft="contributed">{0} ua</unitPattern>

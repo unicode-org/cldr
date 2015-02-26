@@ -59,7 +59,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="tk">turcomano</language>
 			<language type="tl" draft="provisional">tagalogue</language>
 			<language type="to">tonga</language>
-			<language type="tzm">tamazight do Atlas Central</language>
 			<language type="vai">vai</language>
 			<language type="xog">soga</language>
 		</languages>
@@ -103,9 +102,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FK" alt="variant">Ilhas Malvinas</territory>
 			<territory type="FO">Ilhas Faroé</territory>
 			<territory type="GL">Gronelândia</territory>
-			<territory type="GS">Ilhas Geórgia do Sul e Sandwich do Sul</territory>
 			<territory type="GU">Guame</territory>
-			<territory type="GW">Guiné-Bissau</territory>
 			<territory type="IR">Irão</territory>
 			<territory type="KE">Quénia</territory>
 			<territory type="KY">Ilhas Caimão</territory>
@@ -191,9 +188,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="knda" key="numbers">Algarismos de canarim</type>
 			<type type="lower" key="colCaseFirst" draft="contributed">Ordenar por minúsculas</type>
 			<type type="mlym" key="numbers">Algarismos de malaiala</type>
-			<type type="mong" key="numbers" draft="contributed">Algarismos mongóis</type>
 			<type type="mymr" key="numbers">Algarismos birmaneses</type>
-			<type type="native" key="numbers" draft="contributed">Dígitos nativos</type>
 			<type type="no" key="colBackwards" draft="contributed">Ordenar acentos normalmente</type>
 			<type type="no" key="colCaseFirst" draft="contributed">Ordenar disposição de tipo de letra normal</type>
 			<type type="no" key="colCaseLevel" draft="contributed">Ordenar insensível a maiúsculas/minúsculas</type>
@@ -489,29 +484,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
 							<greatestDifference id="H">HH–HH</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
-							<greatestDifference id="h">h:mm – h:mm a</greatestDifference>
-							<greatestDifference id="m">h:mm – h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="H">HH:mm – HH:mm</greatestDifference>
-							<greatestDifference id="m">HH:mm – HH:mm</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="h">h:mm – h:mm a v</greatestDifference>
-							<greatestDifference id="m">h:mm – h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H">HH:mm – HH:mm v</greatestDifference>
-							<greatestDifference id="m">HH:mm – HH:mm v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="h">h – h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="H">HH – HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M–M</greatestDifference>
@@ -2642,10 +2614,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
-			<unit type="temperature-celsius">
-				<unitPattern count="one">{0}°C</unitPattern>
-				<unitPattern count="other">{0}°C</unitPattern>
-			</unit>
 		</unitLength>
 	</units>
 </ldml>
+

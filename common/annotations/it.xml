@@ -16,416 +16,371 @@
 	</identity>
 	<annotations>
 
-		<!-- WHITE SMILING FACE; face; human; outlined; relaxed; smile; smiley -->
-		<annotation cp='[☺]' tts='faccina sorridente'>contorno faccina sorridente; sorridente; faccina</annotation>
-
-		<!-- WHITE FROWNING FACE; face; frown; human -->
-		<annotation cp='[☹]'>MISSING</annotation>
-
-		<!-- SLIGHTLY FROWNING FACE; face; frown; human -->
-		<annotation cp='[🙁]'>MISSING</annotation>
-
-		<!-- SLIGHTLY SMILING FACE; face; human; smile; smiley -->
-		<annotation cp='[🙂]'>MISSING</annotation>
-
-		<!-- GRINNING FACE; face; grin; human -->
+		<!-- GRINNING FACE; face; grin -->
 		<annotation cp='[😀]' tts='sogghigno'>sogghigno; sogghignare; faccina che sogghigna; sorriso; faccina; risata</annotation>
 
-		<!-- GRINNING FACE WITH SMILING EYES; eye; face; grin; human; smile; smiley -->
+		<!-- GRINNING FACE WITH SMILING EYES; eye; face; grin; smile -->
 		<annotation cp='[😁]' tts='sogghigno con occhi felici'>sogghigno; occhi  felici; sogghignare; sorriso; faccina; risata</annotation>
 
-		<!-- FACE WITH TEARS OF JOY; face; human; joy; tear -->
+		<!-- FACE WITH TEARS OF JOY; face; joy; tear -->
 		<annotation cp='[😂]' tts='lacrime di gioia'>faccina con lacrime di gioia; lacrime; gioia; faccina</annotation>
 
-		<!-- SMILING FACE WITH OPEN MOUTH; face; human; mouth; open; smile; smiley -->
+		<!-- SMILING FACE WITH OPEN MOUTH; face; mouth; open; smile -->
 		<annotation cp='[😃]' tts='sorriso a bocca aperta'>sorridere; sorriso; faccina  sorridente; faccina; risata</annotation>
 
-		<!-- SMILING FACE WITH OPEN MOUTH AND SMILING EYES; eye; face; human; mouth; open; smile; smiley -->
+		<!-- SMILING FACE WITH OPEN MOUTH AND SMILING EYES; eye; face; mouth; open; smile -->
 		<annotation cp='[😄]' tts='sorriso a bocca aperta con occhi felici'>sorriso a  bocca aperta; sorriso; bocca aperta; occhi felici; risata</annotation>
 
-		<!-- SMILING FACE WITH OPEN MOUTH AND COLD SWEAT; cold; face; human; open; smile; smiley; sweat -->
+		<!-- SMILING FACE WITH OPEN MOUTH AND COLD SWEAT; cold; face; open; smile; sweat -->
 		<annotation cp='[😅]' tts='sorriso con goccia di sudore'>sudore; goccia</annotation>
 
-		<!-- SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES; face; human; laugh; mouth; open; satisfied; smile; smiley -->
+		<!-- SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES; face; laugh; mouth; open; satisfied; smile -->
 		<annotation cp='[😆]' tts='sorriso a bocca aperta con occhi chiusi'>sorriso; bocca aperta; occhi chiusi</annotation>
 
-		<!-- WINKING FACE; face; human; wink -->
+		<!-- WINKING FACE; face; wink -->
 		<annotation cp='[😉]' tts='occhiolino'>occhiolino; fare l&apos;occhiolino; faccina</annotation>
 
-		<!-- SMILING FACE WITH SMILING EYES; blush; eye; face; human; smile; smiley -->
+		<!-- SMILING FACE WITH SMILING EYES; blush; eye; face; smile -->
 		<annotation cp='[😊]' tts='faccina con occhi sorridenti'>sorriso; occhi  sorridenti; faccina</annotation>
 
-		<!-- FACE SAVOURING DELICIOUS FOOD; delicious; face; food; human; savouring; smile; smiley; um; yum -->
+		<!-- FACE SAVOURING DELICIOUS FOOD; delicious; face; food; savouring; smile; um; yum -->
 		<annotation cp='[😋]' tts='leccarsi i baffi'>cibo delizioso; buono; faccina</annotation>
 
-		<!-- RELIEVED FACE; face; human; relieved -->
-		<annotation cp='[😌]' tts='sollievo'>sollievo; faccina sollevata; faccina</annotation>
-
-		<!-- SMILING FACE WITH HEART-SHAPED EYES; eye; face; heart; human; love; smile; smiley -->
-		<annotation cp='[😍]' tts='sorriso con occhi a cuore'>cuore; occhi; sorriso; amore; faccina</annotation>
-
-		<!-- SMILING FACE WITH SUNGLASSES; bright; cool; eye; eyewear; face; glasses; human; smile; smiley; sun; sunglasses; weather -->
+		<!-- SMILING FACE WITH SUNGLASSES; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
 		<annotation cp='[😎]' tts='faccina con occhiali da sole'>sorriso; occhiali  da sole; faccina</annotation>
 
-		<!-- SMIRKING FACE; face; human; smirk -->
-		<annotation cp='[😏]' tts='sorrisetto'>sorrisetto; faccina che sorride; faccina</annotation>
+		<!-- SMILING FACE WITH HEART-SHAPED EYES; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='sorriso con occhi a cuore'>cuore; occhi; sorriso; amore; faccina</annotation>
 
-		<!-- NEUTRAL FACE; deadpan; face; human; neutral -->
-		<annotation cp='[😐]' tts='faccina neutra'>faccina impassibile; neutra; impassibile; faccina; no comment</annotation>
-
-		<!-- EXPRESSIONLESS FACE; expressionless; face; human; inexpressive; unexpressive -->
-		<annotation cp='[😑]' tts='faccina inespressiva'>inespressiva; faccina; no comment</annotation>
-
-		<!-- UNAMUSED FACE; face; human; unamused; unhappy -->
-		<annotation cp='[😒]' tts='faccina contrariata'>contrariata; triste; faccina</annotation>
-
-		<!-- FACE WITH COLD SWEAT; cold; face; human; sweat -->
-		<annotation cp='[😓]' tts='faccina sudata'>faccina; sudore</annotation>
-
-		<!-- PENSIVE FACE; dejected; face; human; pensive -->
-		<annotation cp='[😔]' tts='faccina pensierosa'>scoraggiata; pensierosa; faccina</annotation>
-
-		<!-- CONFUSED FACE; confused; face; human -->
-		<annotation cp='[😕]' tts='faccina confusa'>confusa; faccina</annotation>
-
-		<!-- CONFOUNDED FACE; confounded; face; human -->
-		<annotation cp='[😖]' tts='faccina frustrata'>frustrata; faccina</annotation>
-
-		<!-- KISSING FACE; face; human; kiss -->
-		<annotation cp='[😗]' tts='bacio'>bacio; faccina che dà bacio; faccina</annotation>
-
-		<!-- FACE THROWING A KISS; face; heart; human; kiss -->
+		<!-- FACE THROWING A KISS; face; heart; kiss -->
 		<annotation cp='[😘]' tts='mandare baci'>faccina che manda baci; baci; faccina</annotation>
 
-		<!-- KISSING FACE WITH SMILING EYES; eye; face; human; kiss; smile; smiley -->
+		<!-- KISSING FACE; face; kiss -->
+		<annotation cp='[😗]' tts='bacio'>bacio; faccina che dà bacio; faccina</annotation>
+
+		<!-- KISSING FACE WITH SMILING EYES; eye; face; kiss; smile -->
 		<annotation cp='[😙]' tts='bacio e sorriso'>faccina sorridente; faccina che  manda baci; faccina; sorriso; occhi sorridenti</annotation>
 
-		<!-- KISSING FACE WITH CLOSED EYES; closed; eye; face; human; kiss -->
+		<!-- KISSING FACE WITH CLOSED EYES; closed; eye; face; kiss -->
 		<annotation cp='[😚]' tts='bacio a occhi chiusi'>occhi chiusi; bacio; baciare; faccina</annotation>
 
-		<!-- FACE WITH STUCK-OUT TONGUE; face; human; tongue -->
-		<annotation cp='[😛]' tts='lingua fuori'>faccina con lingua fuori; linguaccia; faccina</annotation>
+		<!-- WHITE SMILING FACE; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='faccina sorridente'>contorno faccina sorridente; sorridente; faccina</annotation>
 
-		<!-- FACE WITH STUCK-OUT TONGUE AND WINKING EYE; eye; face; human; joke; tongue; wink -->
-		<annotation cp='[😜]' tts='lingua fuori con occhiolino'>linguaccia con  occhiolino; occhiolino; sto scherzando; scherzo; faccina</annotation>
-
-		<!-- FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES; eye; face; horrible; human; taste; tongue -->
-		<annotation cp='[😝]' tts='linguaccia con occhi chiusi'>bleah; orribile; linguaccia; occhi chiusi; faccina</annotation>
-
-		<!-- DISAPPOINTED FACE; disappointed; face; human -->
-		<annotation cp='[😞]' tts='faccina delusa'>delusione; delusa; faccina</annotation>
-
-		<!-- WORRIED FACE; face; human; worried -->
-		<annotation cp='[😟]' tts='faccina preoccupata'>preoccupazione preoccupata; faccina</annotation>
-
-		<!-- ANGRY FACE; angry; face; human; mad -->
-		<annotation cp='[😠]' tts='faccina arrabbiata'>rabbia; arrabbiata; faccina</annotation>
-
-		<!-- POUTING FACE; angry; face; human; mad; pouting; rage; red -->
-		<annotation cp='[😡]' tts='broncio'>broncio; muso; faccina imbronciata; arrabbiata; imbronciata; faccina rossa; faccina</annotation>
-
-		<!-- CRYING FACE; cry; face; human; sad; tear -->
-		<annotation cp='[😢]' tts='faccina che piange'>piangere; triste; lacrime; faccina</annotation>
-
-		<!-- PERSEVERING FACE; face; human; persevere -->
-		<annotation cp='[😣]' tts='faccina perseverante'>perseverante; faccina</annotation>
-
-		<!-- FACE WITH LOOK OF TRIUMPH; face; human; triumph; won -->
-		<annotation cp='[😤]' tts='faccina trionfante'>trionfo; vittoria; trionfante; faccina</annotation>
-
-		<!-- DISAPPOINTED BUT RELIEVED FACE; disappointed; face; human; relieved; whew -->
-		<annotation cp='[😥]' tts='deluso ma sollevato'>sollevato; deluso; faccina</annotation>
-
-		<!-- FROWNING FACE WITH OPEN MOUTH; face; frown; human; mouth; open -->
-		<annotation cp='[😦]' tts='faccina corrucciata'>corrucciata con bocca  aperta; corrucciata; bocca aperta; faccina</annotation>
-
-		<!-- ANGUISHED FACE; anguished; face; human -->
-		<annotation cp='[😧]' tts='faccina angosciata'>angosciata; sofferente; faccina</annotation>
-
-		<!-- FEARFUL FACE; face; fear; fearful; human; scared -->
-		<annotation cp='[😨]' tts='faccina impaurita'>paura; impaurita; faccina</annotation>
-
-		<!-- WEARY FACE; face; human; tired; weary -->
-		<annotation cp='[😩]' tts='faccina esausta'>sfinita; esausta; faccina</annotation>
-
-		<!-- SLEEPY FACE; face; human; sleep -->
-		<annotation cp='[😪]' tts='faccina assonnata'>assonnata; faccina</annotation>
-
-		<!-- TIRED FACE; face; human; tired -->
-		<annotation cp='[😫]' tts='faccina stanca'>stanca; faccina</annotation>
-
-		<!-- GRIMACING FACE; face; grimace; human -->
-		<annotation cp='[😬]' tts='smorfia'>smorfia; faccina con smorfia; faccina</annotation>
-
-		<!-- LOUDLY CRYING FACE; cry; face; human; sad; sob; tear -->
-		<annotation cp='[😭]' tts='faccina disperata'>lacrime; piangere; pianto; faccina</annotation>
-
-		<!-- FACE WITH OPEN MOUTH; face; human; mouth; open; sympathy -->
-		<annotation cp='[😮]' tts='bocca aperta'>faccina con bocca aperta; aperta; bocca; faccina</annotation>
-
-		<!-- HUSHED FACE; face; human; hushed; stunned; surprised -->
-		<annotation cp='[😯]' tts='faccina silenziosa'>sbalordita; sorpresa; faccina</annotation>
-
-		<!-- FACE WITH OPEN MOUTH AND COLD SWEAT; blue; cold; face; human; mouth; open; rushed; sweat -->
-		<annotation cp='[😰]' tts='faccina blu sudata'>faccina frettolosa; sudata; faccina</annotation>
-
-		<!-- FACE SCREAMING IN FEAR; face; fear; fearful; human; munch; scared; scream -->
-		<annotation cp='[😱]' tts='faccina terrorizzata'>grido di paura; paura; terrorizzata; faccina</annotation>
-
-		<!-- ASTONISHED FACE; astonished; face; human; shocked; totally -->
-		<annotation cp='[😲]' tts='faccina stupita'>stupita; scioccata; faccina</annotation>
-
-		<!-- FLUSHED FACE; dazed; face; flushed; human -->
-		<annotation cp='[😳]' tts='guance rosse'>faccina con guance rosse; faccina</annotation>
-
-		<!-- SLEEPING FACE; face; human; sleep -->
-		<annotation cp='[😴]' tts='faccina che dorme'>sonno; faccina</annotation>
-
-		<!-- DIZZY FACE; dizzy; face; human -->
-		<annotation cp='[😵]' tts='vertigini'>vertigini; faccina frastornata; testa che gira</annotation>
-
-		<!-- FACE WITHOUT MOUTH; face; human; mouth; quiet; silent -->
-		<annotation cp='[😶]' tts='faccina senza bocca'>senza bocca; faccina</annotation>
-
-		<!-- FACE WITH MEDICAL MASK; cold; doctor; face; human; mask; medicine; sick -->
-		<annotation cp='[😷]' tts='faccina con mascherina'>mascherina; maschera; faccina</annotation>
-
-		<!-- SMILING FACE WITH HALO; angel; face; fantasy; halo; human; innocent; smile; smiley -->
+		<!-- SMILING FACE WITH HALO; angel; face; fairy tale; fantasy; halo; innocent; smile -->
 		<annotation cp='[😇]' tts='sorriso con aureola'>faccina sorridente con  aureola; sorriso; faccina; aureola</annotation>
 
-		<!-- SMILING FACE WITH HORNS; face; fantasy; horns; human; smile; smiley -->
-		<annotation cp='[😈]' tts='sorriso con corna'>sorriso; corna; faccina</annotation>
+		<!-- NEUTRAL FACE; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='faccina neutra'>faccina impassibile; neutra; impassibile; faccina; no comment</annotation>
 
-		<!-- IMP; devil; face; fairy tale; fantasy; human; imp -->
+		<!-- EXPRESSIONLESS FACE; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='faccina inespressiva'>inespressiva; faccina; no comment</annotation>
+
+		<!-- FACE WITHOUT MOUTH; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='faccina senza bocca'>senza bocca; faccina</annotation>
+
+		<!-- SMIRKING FACE; face; smirk -->
+		<annotation cp='[😏]' tts='sorrisetto'>sorrisetto; faccina che sorride; faccina</annotation>
+
+		<!-- PERSEVERING FACE; face; persevere -->
+		<annotation cp='[😣]' tts='faccina perseverante'>perseverante; faccina</annotation>
+
+		<!-- DISAPPOINTED BUT RELIEVED FACE; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='deluso ma sollevato'>sollevato; deluso; faccina</annotation>
+
+		<!-- FACE WITH OPEN MOUTH; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='bocca aperta'>faccina con bocca aperta; aperta; bocca; faccina</annotation>
+
+		<!-- HUSHED FACE; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='faccina silenziosa'>sbalordita; sorpresa; faccina</annotation>
+
+		<!-- SLEEPY FACE; face; sleep -->
+		<annotation cp='[😪]' tts='faccina assonnata'>assonnata; faccina</annotation>
+
+		<!-- TIRED FACE; face; tired -->
+		<annotation cp='[😫]' tts='faccina stanca'>stanca; faccina</annotation>
+
+		<!-- SLEEPING FACE; face; sleep -->
+		<annotation cp='[😴]' tts='faccina che dorme'>sonno; faccina</annotation>
+
+		<!-- RELIEVED FACE; face; relieved -->
+		<annotation cp='[😌]' tts='sollievo'>sollievo; faccina sollevata; faccina</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE; face; tongue -->
+		<annotation cp='[😛]' tts='lingua fuori'>faccina con lingua fuori; linguaccia; faccina</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE AND WINKING EYE; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='lingua fuori con occhiolino'>linguaccia con  occhiolino; occhiolino; sto scherzando; scherzo; faccina</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='linguaccia con occhi chiusi'>bleah; orribile; linguaccia; occhi chiusi; faccina</annotation>
+
+		<!-- UNAMUSED FACE; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='faccina contrariata'>contrariata; triste; faccina</annotation>
+
+		<!-- FACE WITH COLD SWEAT; cold; face; sweat -->
+		<annotation cp='[😓]' tts='faccina sudata'>faccina; sudore</annotation>
+
+		<!-- PENSIVE FACE; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='faccina pensierosa'>scoraggiata; pensierosa; faccina</annotation>
+
+		<!-- CONFUSED FACE; confused; face -->
+		<annotation cp='[😕]' tts='faccina confusa'>confusa; faccina</annotation>
+
+		<!-- CONFOUNDED FACE; confounded; face -->
+		<annotation cp='[😖]' tts='faccina frustrata'>frustrata; faccina</annotation>
+
+		<!-- FACE WITH MEDICAL MASK; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='faccina con mascherina'>mascherina; maschera; faccina</annotation>
+
+		<!-- ASTONISHED FACE; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='faccina stupita'>stupita; scioccata; faccina</annotation>
+
+		<!-- DISAPPOINTED FACE; disappointed; face -->
+		<annotation cp='[😞]' tts='faccina delusa'>delusione; delusa; faccina</annotation>
+
+		<!-- WORRIED FACE; face; worried -->
+		<annotation cp='[😟]' tts='faccina preoccupata'>preoccupazione preoccupata; faccina</annotation>
+
+		<!-- FACE WITH LOOK OF TRIUMPH; face; triumph; won -->
+		<annotation cp='[😤]' tts='faccina trionfante'>trionfo; vittoria; trionfante; faccina</annotation>
+
+		<!-- CRYING FACE; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='faccina che piange'>piangere; triste; lacrime; faccina</annotation>
+
+		<!-- LOUDLY CRYING FACE; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='faccina disperata'>lacrime; piangere; pianto; faccina</annotation>
+
+		<!-- FROWNING FACE WITH OPEN MOUTH; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='faccina corrucciata'>corrucciata con bocca  aperta; corrucciata; bocca aperta; faccina</annotation>
+
+		<!-- ANGUISHED FACE; anguished; face -->
+		<annotation cp='[😧]' tts='faccina angosciata'>angosciata; sofferente; faccina</annotation>
+
+		<!-- FEARFUL FACE; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='faccina impaurita'>paura; impaurita; faccina</annotation>
+
+		<!-- WEARY FACE; face; tired; weary -->
+		<annotation cp='[😩]' tts='faccina esausta'>sfinita; esausta; faccina</annotation>
+
+		<!-- GRIMACING FACE; face; grimace -->
+		<annotation cp='[😬]' tts='smorfia'>smorfia; faccina con smorfia; faccina</annotation>
+
+		<!-- FACE WITH OPEN MOUTH AND COLD SWEAT; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='faccina blu sudata'>faccina frettolosa; sudata; faccina</annotation>
+
+		<!-- FACE SCREAMING IN FEAR; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='faccina terrorizzata'>grido di paura; paura; terrorizzata; faccina</annotation>
+
+		<!-- FLUSHED FACE; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='guance rosse'>faccina con guance rosse; faccina</annotation>
+
+		<!-- DIZZY FACE; dizzy; face -->
+		<annotation cp='[😵]' tts='vertigini'>vertigini; faccina frastornata; testa che gira</annotation>
+
+		<!-- POUTING FACE; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='broncio'>broncio; muso; faccina imbronciata; arrabbiata; imbronciata; faccina rossa; faccina</annotation>
+
+		<!-- ANGRY FACE; angry; face; mad -->
+		<annotation cp='[😠]' tts='faccina arrabbiata'>rabbia; arrabbiata; faccina</annotation>
+
+		<!-- IMP; devil; face; fairy tale; fantasy; imp -->
 		<annotation cp='[👿]' tts='diavoletto'>diavoletto; diavolo; faccina</annotation>
 
-		<!-- BOY; boy; human; person -->
+		<!-- SMILING FACE WITH HORNS; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='sorriso con corna'>sorriso; corna; faccina</annotation>
+
+		<!-- BOY; boy; person -->
 		<annotation cp='[👦]' tts='bambino'>bambino; persone</annotation>
 
-		<!-- GIRL; girl; human; maiden; person; virgin; virgo; zodiac -->
+		<!-- GIRL; girl; maiden; person; virgin; virgo; zodiac -->
 		<annotation cp='[👧]' tts='bambina'>bambina; persone</annotation>
 
-		<!-- MAN; human; man; person -->
+		<!-- MAN; man; person -->
 		<annotation cp='[👨]' tts='uomo'>uomo; persone</annotation>
 
-		<!-- WOMAN; human; person; woman -->
+		<!-- WOMAN; person; woman -->
 		<annotation cp='[👩]' tts='donna'>donna; persone</annotation>
 
-		<!-- OLDER MAN; human; man; old; person -->
+		<!-- OLDER MAN; man; old; person -->
 		<annotation cp='[👴]' tts='uomo anziano'>uomo; anziano; persone</annotation>
 
-		<!-- OLDER WOMAN; human; old; person; woman -->
+		<!-- OLDER WOMAN; old; person; woman -->
 		<annotation cp='[👵]' tts='donna anziana'>donna; anziana; persone</annotation>
 
-		<!-- BABY; baby; human; person -->
+		<!-- BABY; baby; person -->
 		<annotation cp='[👶]' tts='neonato'>neonato; persone</annotation>
 
-		<!-- PERSON WITH BLOND HAIR; blond; human; person -->
+		<!-- PERSON WITH BLOND HAIR; blond; person -->
 		<annotation cp='[👱]' tts='persona bionda'>biondo; persone</annotation>
 
-		<!-- POLICE OFFICER; cop; human; officer; person; police -->
+		<!-- POLICE OFFICER; cop; officer; person; police -->
 		<annotation cp='[👮]' tts='poliziotto'>poliziotto; polizia; agente; persone</annotation>
 
-		<!-- MAN WITH GUA PI MAO; gua pi mao; hat; human; man; person -->
+		<!-- MAN WITH GUA PI MAO; gua pi mao; hat; man; person -->
 		<annotation cp='[👲]' tts='uomo'>uomo; uomo con zucchetto; zucchetto; persone</annotation>
 
-		<!-- MAN WITH TURBAN; human; man; person; turban -->
+		<!-- MAN WITH TURBAN; man; person; turban -->
 		<annotation cp='[👳]' tts='uomo'>uomo; uomo con turbante; turbante; persone</annotation>
 
-		<!-- CONSTRUCTION WORKER; construction; hat; human; person; worker -->
+		<!-- CONSTRUCTION WORKER; construction; hat; person; worker -->
 		<annotation cp='[👷]' tts='operaio edile'>edile; operaio; persone</annotation>
 
-		<!-- PRINCESS; fairy tale; fantasy; human; person; princess -->
+		<!-- PRINCESS; fairy tale; fantasy; person; princess -->
 		<annotation cp='[👸]' tts='principessa'>principessa; favola; persone</annotation>
 
-		<!-- GUARDSMAN; guard; guardsman; human; person -->
+		<!-- GUARDSMAN; guard; guardsman; person -->
 		<annotation cp='[💂]' tts='guardia'>guardia; persone</annotation>
 
-		<!-- FATHER CHRISTMAS; activity; celebration; christmas; fantasy; father; human; person; santa -->
+		<!-- FATHER CHRISTMAS; activity; celebration; christmas; fairy tale; fantasy; father; person; santa -->
 		<annotation cp='[🎅]' tts='Babbo Natale'>Natale; festa</annotation>
 
-		<!-- BABY ANGEL; angel; baby; face; fairy tale; fantasy; human -->
+		<!-- BABY ANGEL; angel; baby; face; fairy tale; fantasy -->
 		<annotation cp='[👼]' tts='angioletto'>angioletto; angelo; favola; faccina</annotation>
 
-		<!-- SLEUTH OR SPY; human; person; sleuth; spy -->
-		<annotation cp='[🕵]'>MISSING</annotation>
-
-		<!-- WOMAN WITH BUNNY EARS; bunny; dancer; ear; girl; human; person; woman -->
+		<!-- WOMAN WITH BUNNY EARS; bunny; dancer; ear; girl; person; woman -->
 		<annotation cp='[👯]' tts='coniglietta'>coniglietta; orecchie da coniglio; ragazza; donna; persone</annotation>
 
-		<!-- FACE MASSAGE; face; human; massage; person; salon -->
+		<!-- FACE MASSAGE; face; massage; person; salon -->
 		<annotation cp='[💆]' tts='massaggio facciale'>massaggio; centro  estetico</annotation>
 
-		<!-- HAIRCUT; barber; beauty; haircut; human; parlor; person -->
+		<!-- HAIRCUT; barber; beauty; haircut; parlor; person -->
 		<annotation cp='[💇]' tts='taglio di capelli'>salone di bellezza; bellezza; salone</annotation>
 
-		<!-- BRIDE WITH VEIL; bride; human; person; veil; wedding -->
+		<!-- BRIDE WITH VEIL; bride; person; veil; wedding -->
 		<annotation cp='[👰]' tts='sposa'>sposa; sposa con il velo; velo; matrimonio persone</annotation>
 
-		<!-- PERSON FROWNING; frown; gesture; human; person -->
+		<!-- PERSON FROWNING; frown; gesture; person -->
 		<annotation cp='[🙍]' tts='persona corrucciata'>corrucciata; persona; gesto</annotation>
 
-		<!-- PERSON WITH POUTING FACE; face; gesture; human; person; pouting -->
+		<!-- PERSON WITH POUTING FACE; face; gesture; person; pouting -->
 		<annotation cp='[🙎]' tts='persona imbronciata'>imbronciata; persona; gesto</annotation>
 
-		<!-- FACE WITH NO GOOD GESTURE; face; forbidden; gesture; human; no; not; person; prohibited -->
+		<!-- FACE WITH NO GOOD GESTURE; face; forbidden; gesture; hand; no; not; person; prohibited -->
 		<annotation cp='[🙅]' tts='rifiuto'>rifiuto; gesto di rifiuto; non bene; vietato; gesto; faccina</annotation>
 
-		<!-- FACE WITH OK GESTURE; face; gesture; human; ok; person -->
+		<!-- FACE WITH OK GESTURE; face; gesture; hand; ok; person -->
 		<annotation cp='[🙆]' tts='gesto OK'>tutto bene; gesto; OK; faccina</annotation>
 
-		<!-- INFORMATION DESK PERSON; help; human; information; person; sassy -->
+		<!-- INFORMATION DESK PERSON; hand; help; information; person; sassy -->
 		<annotation cp='[💁]' tts='punto informazioni'>assistenza; informazioni; persone</annotation>
 
-		<!-- HAPPY PERSON RAISING ONE HAND; gesture; hand; happy; human; person; raised -->
+		<!-- HAPPY PERSON RAISING ONE HAND; gesture; hand; happy; person; raised -->
 		<annotation cp='[🙋]' tts='persona felice'>persona felice con mano alzata; mano alzata; felice; persona; gesto</annotation>
 
-		<!-- PERSON BOWING DEEPLY; apology; bow; gesture; human; person; sorry -->
+		<!-- PERSON BOWING DEEPLY; apology; bow; gesture; person; sorry -->
 		<annotation cp='[🙇]' tts='inchino'>inchino; mi dispiace; gesto; persona</annotation>
 
-		<!-- PERSON RAISING BOTH HANDS IN CELEBRATION; body; celebration; gesture; hand; hooray; human; person; raised -->
+		<!-- PERSON RAISING BOTH HANDS IN CELEBRATION; body; celebration; gesture; hand; hooray; person; raised -->
 		<annotation cp='[🙌]' tts='urrà'>urrà; evviva; mani alzate; vittoria; mani</annotation>
 
-		<!-- PERSON WITH FOLDED HANDS; ask; body; bow; folded; gesture; hand; human; person; please; pray; thanks -->
+		<!-- PERSON WITH FOLDED HANDS; ask; body; bow; folded; gesture; hand; person; please; pray; thanks -->
 		<annotation cp='[🙏]' tts='mani giunte'>preghiera; pregare; mano; gesto</annotation>
 
-		<!-- SPEAKING HEAD IN SILHOUETTE; face; head; human; person; silhouette; speak; speaking -->
-		<annotation cp='[🗣]'>MISSING</annotation>
-
-		<!-- BUST IN SILHOUETTE; bust; human; person; silhouette -->
+		<!-- BUST IN SILHOUETTE; bust; person; silhouette -->
 		<annotation cp='[👤]' tts='profilo di persona'>profilo; persona</annotation>
 
-		<!-- BUSTS IN SILHOUETTE; bust; human; person; silhouette -->
+		<!-- BUSTS IN SILHOUETTE; bust; person; silhouette -->
 		<annotation cp='[👥]' tts='profilo di due persone'>profilo; persone</annotation>
 
-		<!-- PEDESTRIAN; hike; human; pedestrian; person; travel; walk; walking -->
+		<!-- PEDESTRIAN; hike; pedestrian; person; travel; walk; walking -->
 		<annotation cp='[🚶]' tts='pedone'>pedone; omino a piedi</annotation>
 
-		<!-- RUNNER; human; marathon; person; runner; running; sport -->
+		<!-- RUNNER; marathon; person; runner; running; sport -->
 		<annotation cp='[🏃]' tts='omino che corre'>corsa; maratona; sport</annotation>
 
-		<!-- DANCER; dancer; human; person -->
+		<!-- DANCER; dancer; person -->
 		<annotation cp='[💃]' tts='ballerino'>ballerino; ballerina; ballare; persone</annotation>
 
-		<!-- MAN IN BUSINESS SUIT LEVITATING; business; human; man; person; suit -->
-		<annotation cp='[🕴]'>MISSING</annotation>
-
-		<!-- KISS; couple; human; kiss; person; romance -->
+		<!-- KISS; couple; kiss; person; romance -->
 		<annotation cp='[💏]' tts='bacio'>bacio; baciarsi; persone; romanticismo</annotation>
 
-		<!-- COUPLE WITH HEART; couple; heart; human; love; person; romance -->
+		<!-- COUPLE WITH HEART; couple; heart; love; person; romance -->
 		<annotation cp='[💑]' tts='coppia'>coppia; coppia con cuore; cuore; persone; romanticismo</annotation>
 
-		<!-- FAMILY; child; family; father; human; mother; person -->
+		<!-- FAMILY; child; family; father; mother; person -->
 		<annotation cp='[👪]' tts='famiglia'>famiglia; papà; mamma; bambino; persone</annotation>
 
-		<!-- MAN AND WOMAN HOLDING HANDS; couple; hand; hold; human; man; person; woman -->
+		<!-- MAN AND WOMAN HOLDING HANDS; couple; hand; hold; man; person; woman -->
 		<annotation cp='[👫]' tts='uomo e donna'>coppia; uomo e donna per mano; uomo; donna; tenersi per mano; persone</annotation>
 
-		<!-- TWO MEN HOLDING HANDS; couple; gemini; hand; hold; human; men; person; twins; zodiac -->
+		<!-- TWO MEN HOLDING HANDS; couple; gemini; hand; hold; man; person; twins; zodiac -->
 		<annotation cp='[👬]' tts='due uomini'>coppia; due uomini per mano; uomo; tenersi per mano; persone</annotation>
 
-		<!-- TWO WOMEN HOLDING HANDS; couple; hand; hold; human; person; woman -->
+		<!-- TWO WOMEN HOLDING HANDS; couple; hand; hold; person; woman -->
 		<annotation cp='[👭]' tts='due donne'>coppia; due donne per mano; donna; tenersi per mano; persone</annotation>
 
-		<!-- WHITE LEFT POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point -->
-		<annotation cp='[👈]' tts='indice verso sinistra'>dito verso sinistra; dito indice; dito</annotation>
-
-		<!-- WHITE RIGHT POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point -->
-		<annotation cp='[👉]' tts='indice verso destra'>dito verso destra; dito indice; dito</annotation>
-
-		<!-- WHITE UP POINTING INDEX; body; finger; hand; human; index; point; up -->
-		<annotation cp='[☝]'>MISSING</annotation>
-
-		<!-- WHITE UP POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point; up -->
-		<annotation cp='[👆]' tts='indice alzato'>indice in su; dito indice; dito alzato; dito in su; dito</annotation>
-
-		<!-- REVERSED HAND WITH MIDDLE FINGER EXTENDED; body; finger; hand; human; middle finger -->
-		<annotation cp='[🖕]'>MISSING</annotation>
-
-		<!-- WHITE DOWN POINTING BACKHAND INDEX; backhand; body; down; finger; hand; human; index; point -->
-		<annotation cp='[👇]' tts='indice abbassato'>indice in giù; dito indice; dito abbassato; dito in giù; dito</annotation>
-
-		<!-- VICTORY HAND; body; hand; human; v; victory -->
-		<annotation cp='[✌]' tts='forbice'>forbice; segno di vittoria; yeah; mano</annotation>
-
-		<!-- RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS; body; finger; hand; human; spock; vulcan -->
-		<annotation cp='[🖖]'>MISSING</annotation>
-
-		<!-- RAISED FIST; body; clenched; fist; hand; human; punch -->
-		<annotation cp='[✊]' tts='sasso'>sasso; pugno alzato; alzato; pugno</annotation>
-
-		<!-- RAISED HAND; body; hand; human -->
-		<annotation cp='[✋]' tts='carta'>carta; mano alzata; alzata; mano</annotation>
-
-		<!-- FISTED HAND SIGN; body; clenched; fist; hand; human; punch -->
-		<annotation cp='[👊]' tts='pugno chiuso'>pugno; mano</annotation>
-
-		<!-- WAVING HAND SIGN; body; hand; human; wave; waving -->
-		<annotation cp='[👋]' tts='mano che saluta'>mano; salutare</annotation>
-
-		<!-- OK HAND SIGN; body; hand; human; ok -->
-		<annotation cp='[👌]' tts='mano che fa OK'>segno di OK; OK con la mano; OK; mano; segno</annotation>
-
-		<!-- THUMBS UP SIGN; +1; body; hand; human; thumb; thumbs’s up; up -->
-		<annotation cp='[👍]' tts='pollice alzato'>pollice; pollice in su; su; mano; segno</annotation>
-
-		<!-- THUMBS DOWN SIGN; body; down; hand; human; thumb; thumb’s down -->
-		<annotation cp='[👎]' tts='pollice abbassato'>pollice; pollice in giù; giù; mano; segno</annotation>
-
-		<!-- CLAPPING HANDS SIGN; body; clap; hand; human -->
-		<annotation cp='[👏]' tts='mani che applaudono'>mani; applaudire; segno</annotation>
-
-		<!-- OPEN HANDS SIGN; body; hand; human; open -->
-		<annotation cp='[👐]' tts='mani aperte'>segno delle mani aperte; mano; aperta; segno</annotation>
-
-		<!-- WRITING HAND; body; education; hand; human; write -->
-		<annotation cp='[✍]'>MISSING</annotation>
-
-		<!-- RAISED HAND WITH FINGERS SPLAYED; body; finger; hand; human; splayed -->
-		<annotation cp='[🖐]'>MISSING</annotation>
-
-		<!-- NAIL POLISH; body; care; cosmetics; human; manicure; nail; polish -->
-		<annotation cp='[💅]' tts='unghie con smalto'>manicure; smalto; cosmetici</annotation>
-
-		<!-- FLEXED BICEPS; biceps; body; comic; flex; human; muscle -->
+		<!-- FLEXED BICEPS; biceps; body; comic; flex; muscle -->
 		<annotation cp='[💪]' tts='bicipite'>bicipite; muscolo teso; muscolo; forte; teso; fumetto</annotation>
 
-		<!-- FOOTPRINTS; body; clothing; footprint; human; print -->
+		<!-- WHITE LEFT POINTING BACKHAND INDEX; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='indice verso sinistra'>dito verso sinistra; dito indice; dito</annotation>
+
+		<!-- WHITE RIGHT POINTING BACKHAND INDEX; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='indice verso destra'>dito verso destra; dito indice; dito</annotation>
+
+		<!-- WHITE UP POINTING BACKHAND INDEX; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='indice alzato'>indice in su; dito indice; dito alzato; dito in su; dito</annotation>
+
+		<!-- WHITE DOWN POINTING BACKHAND INDEX; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='indice abbassato'>indice in giù; dito indice; dito abbassato; dito in giù; dito</annotation>
+
+		<!-- VICTORY HAND; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='forbice'>forbice; segno di vittoria; yeah; mano</annotation>
+
+		<!-- RAISED FIST; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='sasso'>sasso; pugno alzato; alzato; pugno</annotation>
+
+		<!-- RAISED HAND; body; hand -->
+		<annotation cp='[✋]' tts='carta'>carta; mano alzata; alzata; mano</annotation>
+
+		<!-- FISTED HAND SIGN; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='pugno chiuso'>pugno; mano</annotation>
+
+		<!-- OK HAND SIGN; body; hand; ok -->
+		<annotation cp='[👌]' tts='mano che fa OK'>segno di OK; OK con la mano; OK; mano; segno</annotation>
+
+		<!-- THUMBS UP SIGN; +1; body; hand; thumb; thumbs up; up -->
+		<annotation cp='[👍]' tts='pollice alzato'>pollice; pollice in su; su; mano; segno</annotation>
+
+		<!-- THUMBS DOWN SIGN; -1; body; down; hand; thumb; thumbs down -->
+		<annotation cp='[👎]' tts='pollice abbassato'>pollice; pollice in giù; giù; mano; segno</annotation>
+
+		<!-- WAVING HAND SIGN; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='mano che saluta'>mano; salutare</annotation>
+
+		<!-- CLAPPING HANDS SIGN; body; clap; hand -->
+		<annotation cp='[👏]' tts='mani che applaudono'>mani; applaudire; segno</annotation>
+
+		<!-- OPEN HANDS SIGN; body; hand; open -->
+		<annotation cp='[👐]' tts='mani aperte'>segno delle mani aperte; mano; aperta; segno</annotation>
+
+		<!-- NAIL POLISH; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='unghie con smalto'>manicure; smalto; cosmetici</annotation>
+
+		<!-- FOOTPRINTS; body; clothing; footprint; print -->
 		<annotation cp='[👣]' tts='impronta di piedi'>piede; impronta; corpo</annotation>
 
-		<!-- EYES; body; eye; face; human -->
+		<!-- EYES; body; eye; face -->
 		<annotation cp='[👀]' tts='occhi'>occhi; faccia</annotation>
 
-		<!-- EYE; body; eye; human -->
-		<annotation cp='[👁]'>MISSING</annotation>
-
-		<!-- EAR; body; ear; human -->
+		<!-- EAR; body; ear -->
 		<annotation cp='[👂]' tts='orecchio'>orecchio; corpo</annotation>
 
-		<!-- NOSE; body; human; nose -->
+		<!-- NOSE; body; nose -->
 		<annotation cp='[👃]' tts='naso'>naso; faccia; corpo</annotation>
 
-		<!-- TONGUE; body; human; tongue -->
+		<!-- TONGUE; body; tongue -->
 		<annotation cp='[👅]' tts='lingua'>lingua; faccia; corpo</annotation>
 
-		<!-- SKULL; body; death; face; fairy tale; skull -->
-		<annotation cp='[💀]' tts='teschio'>teschio; favola; corpo; faccia</annotation>
-
-		<!-- SKULL AND CROSSBONES; body; crossbones; death; face; skull -->
-		<annotation cp='[☠]'>MISSING</annotation>
-
-		<!-- KISS MARK; emotion; heart; human; kiss; lips; mark; romance -->
-		<annotation cp='[💋]' tts='segno delle labbra'>labbra; bacio; romanticismo</annotation>
-
-		<!-- MOUTH; body; human; lips; mouth -->
+		<!-- MOUTH; body; lips; mouth -->
 		<annotation cp='[👄]' tts='bocca'>bocca; labbra; faccia; corpo</annotation>
+
+		<!-- KISS MARK; emotion; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='segno delle labbra'>labbra; bacio; romanticismo</annotation>
 
 		<!-- HEART WITH ARROW; arrow; cupid; emotion; heart; romance -->
 		<annotation cp='[💘]' tts='cuore con freccia'>cuore; freccia; amore; emozione</annotation>
-
-		<!-- HEAVY BLACK HEART; emotion; heart -->
-		<annotation cp='[❤]'>MISSING</annotation>
 
 		<!-- BEATING HEART; beating; emotion; heart; heartbeat; pulsating -->
 		<annotation cp='[💓]' tts='cuore che batte'>pulsazione; battito; cuore; amore; emozione</annotation>
@@ -463,13 +418,10 @@
 		<!-- HEART DECORATION; emotion; heart -->
 		<annotation cp='[💟]' tts='decorazione con cuore'>cuore</annotation>
 
-		<!-- HEAVY HEART EXCLAMATION MARK ORNAMENT; emotion; exclamation; heart; mark; punctuation -->
-		<annotation cp='[❣]'>MISSING</annotation>
-
 		<!-- LOVE LETTER; emotion; heart; letter; love; mail; romance -->
 		<annotation cp='[💌]' tts='lettera d&apos;amore'>busta con cuore; cuore; romanticismo</annotation>
 
-		<!-- DROPLET; cold; comic; drop; emotion; object; sweat; weather -->
+		<!-- DROPLET; cold; comic; drop; emotion; sweat; weather -->
 		<annotation cp='[💧]' tts='goccia di sudore'>sudori freddi; sudore; sudato; fumetto</annotation>
 
 		<!-- SLEEPING SYMBOL; comic; emotion; sleep; word; zzz -->
@@ -478,16 +430,16 @@
 		<!-- ANGER SYMBOL; angry; comic; emotion; mad -->
 		<annotation cp='[💢]' tts='rabbia'>rabbia; simbolo rabbia; arrabbiato; fumetto; emozione</annotation>
 
-		<!-- BOMB; bomb; comic; emotion; object -->
+		<!-- BOMB; bomb; comic; emotion -->
 		<annotation cp='[💣]' tts='bomba'>bomba; fumetto; emozione</annotation>
 
 		<!-- COLLISION SYMBOL; boom; collision; comic; emotion -->
 		<annotation cp='[💥]' tts='collisione'>collisione; simbolo collisione; fumetto; emozione</annotation>
 
-		<!-- SPLASHING SWEAT SYMBOL; comic; emotion; object; splashing; sweat -->
+		<!-- SPLASHING SWEAT SYMBOL; comic; emotion; splashing; sweat -->
 		<annotation cp='[💦]' tts='bagno di sudore'>sudore; sudato; fumetto; emozione</annotation>
 
-		<!-- DASH SYMBOL; comic; dash; emotion; object; running -->
+		<!-- DASH SYMBOL; comic; dash; emotion; running -->
 		<annotation cp='[💨]' tts='nuvola di polvere'>scappare; fuga; fumetto; emozione</annotation>
 
 		<!-- DIZZY SYMBOL; comic; dizzy; emotion; star -->
@@ -499,17 +451,8 @@
 		<!-- THOUGHT BALLOON; balloon; bubble; comic; emotion; thought -->
 		<annotation cp='[💭]' tts='nuvoletta'>nuvoletta; fumetto</annotation>
 
-		<!-- HOLE; hole -->
-		<annotation cp='[🕳]'>MISSING</annotation>
-
-		<!-- RIGHT ANGER BUBBLE; angry; balloon; bubble; emotion; mad -->
-		<annotation cp='[🗯]'>MISSING</annotation>
-
 		<!-- EYEGLASSES; clothing; eye; eyeglasses; eyewear; glasses -->
 		<annotation cp='[👓]' tts='occhiali da vista'>occhiali; abbigliamento</annotation>
-
-		<!-- DARK SUNGLASSES; dark; eye; eyewear; glasses; object; sunglasses -->
-		<annotation cp='[🕶]'>MISSING</annotation>
 
 		<!-- NECKTIE; clothing; necktie -->
 		<annotation cp='[👔]' tts='cravatta'>cravatta; abbigliamento</annotation>
@@ -541,6 +484,9 @@
 		<!-- POUCH; bag; clothing; pouch -->
 		<annotation cp='[👝]' tts='borsetta'>borsetta; pochette; borsa; abbigliamento</annotation>
 
+		<!-- SCHOOL SATCHEL; activity; bag; education; satchel; school -->
+		<annotation cp='[🎒]' tts='zaino di scuola'>cartella di scuola; cartella; scuola</annotation>
+
 		<!-- MANS SHOE; clothing; man; shoe -->
 		<annotation cp='[👞]' tts='scarpa da uomo'>scarpa; abbigliamento</annotation>
 
@@ -562,13 +508,40 @@
 		<!-- WOMANS HAT; clothing; hat; woman -->
 		<annotation cp='[👒]' tts='cappello da donna'>cappello; abbigliamento</annotation>
 
-		<!-- TOP HAT; activity; entertainment; hat; object; top; tophat -->
+		<!-- TOP HAT; activity; entertainment; hat; top; tophat -->
 		<annotation cp='[🎩]' tts='cilindro'>cilindro; cappello; intrattenimento</annotation>
 
-		<!-- HELMET WITH WHITE CROSS; aid; cross; hat; helmet; travel -->
-		<annotation cp='[⛑]'>MISSING</annotation>
+		<!-- LIPSTICK; cosmetics; lipstick; makeup -->
+		<annotation cp='[💄]' tts='rossetto'>rossetto; trucco; makeup; cosmetici</annotation>
 
-		<!-- MONKEY FACE; animal; face; monkey; nature -->
+		<!-- RING; diamond; ring; romance -->
+		<annotation cp='[💍]' tts='anello'>anello; romanticismo</annotation>
+
+		<!-- GEM STONE; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='gemma'>gemma; pietra preziosa; diamante; romanticismo</annotation>
+
+		<!-- JAPANESE OGRE; creature; face; fairy tale; fantasy; japanese; monster; ogre -->
+		<annotation cp='[👹]' tts='orco'>orco; mostro; favola; orco giapponese; faccina</annotation>
+
+		<!-- JAPANESE GOBLIN; creature; face; fairy tale; fantasy; goblin; japanese; monster -->
+		<annotation cp='[👺]' tts='goblin'>goblin; mostro; favola; goblin giapponese; faccina</annotation>
+
+		<!-- GHOST; creature; face; fairy tale; fantasy; ghost; monster -->
+		<annotation cp='[👻]' tts='fantasma'>fantasma; favola; faccina</annotation>
+
+		<!-- SKULL; body; death; face; fairy tale; monster; skull -->
+		<annotation cp='[💀]' tts='teschio'>teschio; favola; corpo; faccia</annotation>
+
+		<!-- EXTRATERRESTRIAL ALIEN; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' tts='alieno'>alieno; extraterrestre; UFO; favola; faccina</annotation>
+
+		<!-- ALIEN MONSTER; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='mostro alieno'>mostro; UFO; favola; faccina</annotation>
+
+		<!-- PILE OF POO; comic; dung; monster; poo; poop -->
+		<annotation cp='[💩]' tts='cacca'>cacca; popò; pupù</annotation>
+
+		<!-- MONKEY FACE; animal; face; monkey -->
 		<annotation cp='[🐵]' tts='faccina scimmia'>scimmia; faccina; animale</annotation>
 
 		<!-- SEE-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
@@ -580,370 +553,328 @@
 		<!-- SPEAK-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
 		<annotation cp='[🙊]' tts='non parlo'>scimmietta non parlo; scimmietta</annotation>
 
-		<!-- MONKEY; animal; monkey; nature -->
+		<!-- MONKEY; animal; monkey -->
 		<annotation cp='[🐒]' tts='scimmia'>scimmia; animale</annotation>
 
-		<!-- DOG FACE; animal; dog; face; nature; pet -->
+		<!-- DOG FACE; animal; dog; face; pet -->
 		<annotation cp='[🐶]' tts='faccina cane'>cane; faccina; animale</annotation>
 
-		<!-- DOG; animal; dog; nature; pet -->
+		<!-- DOG; animal; dog; pet -->
 		<annotation cp='[🐕]' tts='cane'>cane; cucciolo; animale</annotation>
 
-		<!-- POODLE; animal; dog; nature; poodle -->
+		<!-- POODLE; animal; dog; poodle -->
 		<annotation cp='[🐩]' tts='barboncino'>barboncino; cane; animale</annotation>
 
-		<!-- WOLF FACE; animal; face; nature; wolf -->
+		<!-- WOLF FACE; animal; face; wolf -->
 		<annotation cp='[🐺]' tts='faccina lupo'>lupo; faccina; animale</annotation>
 
-		<!-- CAT FACE; animal; cat; face; nature; pet -->
+		<!-- CAT FACE; animal; cat; face; pet -->
 		<annotation cp='[🐱]' tts='faccina gatto'>gatto; faccina; animale</annotation>
 
-		<!-- GRINNING CAT FACE WITH SMILING EYES; animal; cat; eye; face; grin; nature; smile; smiley -->
+		<!-- GRINNING CAT FACE WITH SMILING EYES; animal; cat; eye; face; grin; smile -->
 		<annotation cp='[😸]' tts='gatto che sogghigna'>sogghignare; ghigno; gatto con occhi sorridenti; gatto; faccina</annotation>
 
-		<!-- CAT FACE WITH TEARS OF JOY; animal; cat; face; joy; nature; tear -->
+		<!-- CAT FACE WITH TEARS OF JOY; animal; cat; face; joy; tear -->
 		<annotation cp='[😹]' tts='gatto lacrime di gioia'>lacrime di gioia; gioia; lacrime; gatto; faccina</annotation>
 
-		<!-- SMILING CAT FACE WITH OPEN MOUTH; animal; cat; face; mouth; nature; open; smile; smiley -->
+		<!-- SMILING CAT FACE WITH OPEN MOUTH; animal; cat; face; mouth; open; smile -->
 		<annotation cp='[😺]' tts='gatto che sorride'>sorridente; bocca aperta; aperta; bocca; gatto; faccina</annotation>
 
-		<!-- SMILING CAT FACE WITH HEART-SHAPED EYES; animal; cat; eye; face; heart; love; nature; smile; smiley -->
+		<!-- SMILING CAT FACE WITH HEART-SHAPED EYES; animal; cat; eye; face; heart; love; smile -->
 		<annotation cp='[😻]' tts='gatto innamorato'>gatto sorridente con occhi a  cuore; innamorato; amore; occhi; cuore; gatto; faccina</annotation>
 
-		<!-- CAT FACE WITH WRY SMILE; animal; cat; face; ironic; nature; smile; smiley; wry -->
+		<!-- CAT FACE WITH WRY SMILE; animal; cat; face; ironic; smile; wry -->
 		<annotation cp='[😼]' tts='gatto sorriso sarcastico'>sarcastico; sorriso  ironico; gatto; faccina</annotation>
 
-		<!-- KISSING CAT FACE WITH CLOSED EYES; animal; cat; eye; face; kiss; nature -->
+		<!-- KISSING CAT FACE WITH CLOSED EYES; animal; cat; eye; face; kiss -->
 		<annotation cp='[😽]' tts='gatto che manda baci'>gatto con occhi chiusi; occhi chiusi; bacio; chiusi; occhi; gatto; faccina</annotation>
 
-		<!-- POUTING CAT FACE; animal; cat; face; nature; pouting -->
+		<!-- POUTING CAT FACE; animal; cat; face; pouting -->
 		<annotation cp='[😾]' tts='gatto imbronciato'>broncio; muso; gatto; faccina</annotation>
 
-		<!-- CRYING CAT FACE; animal; cat; cry; face; nature; sad; tear -->
+		<!-- CRYING CAT FACE; animal; cat; cry; face; sad; tear -->
 		<annotation cp='[😿]' tts='gatto che piange'>piangere; gatto; faccina</annotation>
 
-		<!-- WEARY CAT FACE; animal; cat; face; nature; oh; surprised; weary -->
+		<!-- WEARY CAT FACE; animal; cat; face; oh; surprised; weary -->
 		<annotation cp='[🙀]' tts='gatto esausto'>oh mio Dio; esterrefatto; gatto; faccina</annotation>
 
-		<!-- CAT; animal; cat; nature; pet -->
+		<!-- CAT; animal; cat; pet -->
 		<annotation cp='[🐈]' tts='gatto'>gatto; animale</annotation>
 
-		<!-- TIGER FACE; animal; face; nature; tiger -->
+		<!-- TIGER FACE; animal; face; tiger -->
 		<annotation cp='[🐯]' tts='faccina tigre'>tigre; faccina; animale</annotation>
 
-		<!-- TIGER; animal; nature; tiger -->
+		<!-- TIGER; animal; tiger -->
 		<annotation cp='[🐅]' tts='tigre'>tigre; animale</annotation>
 
-		<!-- LEOPARD; animal; leopard; nature -->
+		<!-- LEOPARD; animal; leopard -->
 		<annotation cp='[🐆]' tts='leopardo'>leopardo; animale</annotation>
 
-		<!-- HORSE FACE; animal; face; horse; nature -->
+		<!-- HORSE FACE; animal; face; horse -->
 		<annotation cp='[🐴]' tts='faccina cavallo'>cavallo; faccina; animale</annotation>
 
-		<!-- HORSE; animal; horse; nature; racehorse; racing -->
+		<!-- HORSE; animal; horse; racehorse; racing -->
 		<annotation cp='[🐎]' tts='cavallo'>cavallo; animale</annotation>
 
-		<!-- COW FACE; animal; cow; face; nature -->
+		<!-- COW FACE; animal; cow; face -->
 		<annotation cp='[🐮]' tts='faccina mucca'>mucca; faccina; animale</annotation>
 
-		<!-- OX; animal; bull; nature; ox; taurus; zodiac -->
+		<!-- OX; animal; bull; ox; taurus; zodiac -->
 		<annotation cp='[🐂]' tts='Bue'>Bue; animale</annotation>
 
-		<!-- WATER BUFFALO; animal; buffalo; nature; water -->
+		<!-- WATER BUFFALO; animal; buffalo; water -->
 		<annotation cp='[🐃]' tts='bufalo'>bufalo; animale</annotation>
 
-		<!-- COW; animal; cow; nature -->
+		<!-- COW; animal; cow -->
 		<annotation cp='[🐄]' tts='mucca'>mucca; animale</annotation>
 
-		<!-- PIG FACE; animal; face; nature; pig -->
+		<!-- PIG FACE; animal; face; pig -->
 		<annotation cp='[🐷]' tts='faccina maiale'>maiale; faccina; animale</annotation>
 
-		<!-- PIG; animal; nature; pig -->
+		<!-- PIG; animal; pig -->
 		<annotation cp='[🐖]' tts='maiale'>maiale; animale</annotation>
 
-		<!-- BOAR; animal; boar; nature -->
+		<!-- BOAR; animal; boar -->
 		<annotation cp='[🐗]' tts='cinghiale'>cinghiale; animale</annotation>
 
-		<!-- PIG NOSE; animal; face; nature; nose; pig -->
+		<!-- PIG NOSE; animal; face; nose; pig -->
 		<annotation cp='[🐽]' tts='naso maiale'>naso; maiale; faccina; animale</annotation>
 
-		<!-- RAM; animal; aries; nature; ram; sheep; zodiac -->
+		<!-- RAM; animal; aries; ram; sheep; zodiac -->
 		<annotation cp='[🐏]' tts='ariete'>ariete; animale</annotation>
 
-		<!-- SHEEP; animal; nature; sheep -->
+		<!-- SHEEP; animal; sheep -->
 		<annotation cp='[🐑]' tts='pecora'>pecora; animale</annotation>
 
-		<!-- GOAT; animal; capricorn; goat; nature; zodiac -->
+		<!-- GOAT; animal; capricorn; goat; zodiac -->
 		<annotation cp='[🐐]' tts='capra'>capra; animale</annotation>
 
-		<!-- DROMEDARY CAMEL; animal; camel; dromedary; hump; nature -->
+		<!-- DROMEDARY CAMEL; animal; camel; dromedary; hump -->
 		<annotation cp='[🐪]' tts='dromedario'>dromedario; gobba; cammello; animale</annotation>
 
-		<!-- BACTRIAN CAMEL; animal; bactrian; camel; hump; nature -->
+		<!-- BACTRIAN CAMEL; animal; bactrian; camel; hump -->
 		<annotation cp='[🐫]' tts='cammello'>cammello; gobba; animale</annotation>
 
-		<!-- ELEPHANT; animal; elephant; nature -->
+		<!-- ELEPHANT; animal; elephant -->
 		<annotation cp='[🐘]' tts='elefante'>elefante; animale</annotation>
 
-		<!-- MOUSE FACE; animal; face; mouse; nature -->
+		<!-- MOUSE FACE; animal; face; mouse -->
 		<annotation cp='[🐭]' tts='faccina topo'>topo; faccina; animale</annotation>
 
-		<!-- MOUSE; animal; mouse; nature -->
+		<!-- MOUSE; animal; mouse -->
 		<annotation cp='[🐁]' tts='Topo'>Topo; animale</annotation>
 
-		<!-- RAT; animal; nature; rat -->
+		<!-- RAT; animal; rat -->
 		<annotation cp='[🐀]' tts='Ratto'>Ratto; animale</annotation>
 
-		<!-- HAMSTER FACE; animal; face; hamster; nature; pet -->
+		<!-- HAMSTER FACE; animal; face; hamster; pet -->
 		<annotation cp='[🐹]' tts='faccina criceto'>criceto; faccina; animale</annotation>
 
-		<!-- RABBIT FACE; animal; bunny; face; nature; pet; rabbit -->
+		<!-- RABBIT FACE; animal; bunny; face; pet; rabbit -->
 		<annotation cp='[🐰]' tts='faccina coniglio'>coniglio; faccina; animale</annotation>
 
-		<!-- RABBIT; animal; bunny; nature; pet; rabbit -->
+		<!-- RABBIT; animal; bunny; pet; rabbit -->
 		<annotation cp='[🐇]' tts='coniglio'>coniglio; coniglietto; animale</annotation>
 
-		<!-- CHIPMUNK; animal; chipmunk; nature -->
-		<annotation cp='[🐿]'>MISSING</annotation>
-
-		<!-- BEAR FACE; animal; bear; face; nature -->
+		<!-- BEAR FACE; animal; bear; face -->
 		<annotation cp='[🐻]' tts='faccina orso'>orso; faccina; animale</annotation>
 
-		<!-- KOALA; animal; bear; koala; nature -->
+		<!-- KOALA; animal; bear; koala -->
 		<annotation cp='[🐨]' tts='koala'>koala; animale</annotation>
 
-		<!-- PANDA FACE; animal; face; nature; panda -->
+		<!-- PANDA FACE; animal; face; panda -->
 		<annotation cp='[🐼]' tts='faccina panda'>panda; faccina; animale</annotation>
 
-		<!-- PAW PRINTS; animal; feet; nature; paw; print -->
+		<!-- PAW PRINTS; animal; feet; paw; print -->
 		<annotation cp='[🐾]' tts='zampa'>zampa; impronta di zampa; impronta; animale</annotation>
 
-		<!-- CHICKEN; animal; chicken; nature -->
+		<!-- CHICKEN; animal; chicken -->
 		<annotation cp='[🐔]' tts='gallina'>gallina; animale</annotation>
 
-		<!-- ROOSTER; animal; nature; rooster -->
+		<!-- ROOSTER; animal; rooster -->
 		<annotation cp='[🐓]' tts='gallo'>gallo; animale</annotation>
 
-		<!-- HATCHING CHICK; animal; baby; chick; hatching; nature -->
+		<!-- HATCHING CHICK; animal; baby; chick; hatching -->
 		<annotation cp='[🐣]' tts='pulcino che esce dall&apos;uovo'>pulcino; uovo che si  schiude; cucciolo; gallina; animale</annotation>
 
-		<!-- BABY CHICK; animal; baby; chick; nature -->
+		<!-- BABY CHICK; animal; baby; chick -->
 		<annotation cp='[🐤]' tts='faccina pulcino'>cucciolo; pulcino; gallina; animale</annotation>
 
-		<!-- FRONT-FACING BABY CHICK; animal; baby; chick; nature -->
+		<!-- FRONT-FACING BABY CHICK; animal; baby; chick -->
 		<annotation cp='[🐥]' tts='pulcino visto di fronte'>cucciolo; pulcino; gallina; animale</annotation>
 
-		<!-- BIRD; animal; bird; nature -->
+		<!-- BIRD; animal; bird -->
 		<annotation cp='[🐦]' tts='uccellino'>uccellino; animale</annotation>
 
-		<!-- PENGUIN; animal; nature; penguin -->
+		<!-- PENGUIN; animal; penguin -->
 		<annotation cp='[🐧]' tts='pinguino'>pinguino; animale</annotation>
 
-		<!-- DOVE OF PEACE; animal; bird; dove; fly; nature; peace -->
-		<annotation cp='[🕊]'>MISSING</annotation>
-
-		<!-- FROG FACE; animal; face; frog; nature -->
+		<!-- FROG FACE; animal; face; frog -->
 		<annotation cp='[🐸]' tts='faccina rana'>rana; faccina; animale</annotation>
 
-		<!-- CROCODILE; animal; crocodile; nature -->
+		<!-- CROCODILE; animal; crocodile -->
 		<annotation cp='[🐊]' tts='coccodrillo'>coccodrillo; animale</annotation>
 
-		<!-- SNAKE; animal; bearer; nature; ophiuchus; serpent; snake; zodiac -->
-		<annotation cp='[🐍]' tts='serpente'>serpente; animale</annotation>
-
-		<!-- TURTLE; animal; nature; turtle -->
+		<!-- TURTLE; animal; turtle -->
 		<annotation cp='[🐢]' tts='tartaruga'>tartaruga; animale</annotation>
 
-		<!-- DRAGON FACE; animal; dragon; face; fairy tale; nature -->
+		<!-- SNAKE; animal; bearer; ophiuchus; serpent; snake; zodiac -->
+		<annotation cp='[🐍]' tts='serpente'>serpente; animale</annotation>
+
+		<!-- DRAGON FACE; animal; dragon; face; fairy tale -->
 		<annotation cp='[🐲]' tts='faccina drago'>drago; faccina; animale</annotation>
 
-		<!-- DRAGON; animal; dragon; fairy tale; nature -->
+		<!-- DRAGON; animal; dragon; fairy tale -->
 		<annotation cp='[🐉]' tts='drago'>drago; animale</annotation>
 
-		<!-- SPOUTING WHALE; animal; face; nature; spouting; whale -->
+		<!-- SPOUTING WHALE; animal; face; spouting; whale -->
 		<annotation cp='[🐳]' tts='balena che spruzza acqua'>spruzzare; balena; animale</annotation>
 
-		<!-- WHALE; animal; nature; whale -->
+		<!-- WHALE; animal; whale -->
 		<annotation cp='[🐋]' tts='balena'>balena; animale</annotation>
 
-		<!-- DOLPHIN; animal; dolphin; flipper; nature -->
+		<!-- DOLPHIN; animal; dolphin; flipper -->
 		<annotation cp='[🐬]' tts='delfino'>delfino; animale</annotation>
 
-		<!-- FISH; animal; fish; nature; pisces; zodiac -->
+		<!-- FISH; animal; fish; pisces; zodiac -->
 		<annotation cp='[🐟]' tts='pesce'>pesce; animale</annotation>
 
-		<!-- TROPICAL FISH; animal; fish; nature; tropical -->
+		<!-- TROPICAL FISH; animal; fish; tropical -->
 		<annotation cp='[🐠]' tts='pesce tropicale'>pese; animale</annotation>
 
-		<!-- BLOWFISH; animal; blowfish; fish; nature -->
+		<!-- BLOWFISH; animal; blowfish; fish -->
 		<annotation cp='[🐡]' tts='pesce palla'>pesce; animale</annotation>
 
-		<!-- OCTOPUS; animal; nature; octopus -->
+		<!-- OCTOPUS; animal; octopus -->
 		<annotation cp='[🐙]' tts='polpo'>polpo; animale</annotation>
 
-		<!-- SPIRAL SHELL; animal; nature; shell; spiral -->
+		<!-- SPIRAL SHELL; animal; shell; spiral -->
 		<annotation cp='[🐚]' tts='conchiglia'>conchiglia; conchiglia a spirale; animale</annotation>
 
-		<!-- SNAIL; animal; nature; snail -->
+		<!-- SNAIL; animal; snail -->
 		<annotation cp='[🐌]' tts='lumaca'>lumaca; animale</annotation>
 
-		<!-- BUG; animal; bug; insect; nature -->
+		<!-- BUG; animal; bug; insect -->
 		<annotation cp='[🐛]' tts='insetto'>insetto; millepiedi; bruco; animale</annotation>
 
-		<!-- ANT; animal; ant; insect; nature -->
+		<!-- ANT; animal; ant; insect -->
 		<annotation cp='[🐜]' tts='formica'>formica; animale</annotation>
 
-		<!-- HONEYBEE; animal; bee; honeybee; insect; nature -->
+		<!-- HONEYBEE; animal; bee; honeybee; insect -->
 		<annotation cp='[🐝]' tts='ape'>ape; animale</annotation>
 
-		<!-- LADY BEETLE; animal; beetle; insect; lady beetle; ladybird; ladybug; nature -->
+		<!-- LADY BEETLE; animal; beetle; insect; lady beetle; ladybird; ladybug -->
 		<annotation cp='[🐞]' tts='coccinella'>coccinella; animale</annotation>
 
-		<!-- SPIDER; animal; insect; object; spider -->
-		<annotation cp='[🕷]'>MISSING</annotation>
-
-		<!-- SPIDER WEB; animal; object; spider; web -->
-		<annotation cp='[🕸]'>MISSING</annotation>
-
-		<!-- PILE OF POO; comic; dung; nature; object; poo; poop -->
-		<annotation cp='[💩]' tts='cacca'>cacca; popò; pupù</annotation>
-
-		<!-- JAPANESE OGRE; creature; face; fairy tale; fantasy; japanese; ogre -->
-		<annotation cp='[👹]' tts='orco'>orco; mostro; favola; orco giapponese; faccina</annotation>
-
-		<!-- JAPANESE GOBLIN; creature; face; fairy tale; fantasy; goblin; japanese -->
-		<annotation cp='[👺]' tts='goblin'>goblin; mostro; favola; goblin giapponese; faccina</annotation>
-
-		<!-- GHOST; creature; face; fairy tale; fantasy; ghost -->
-		<annotation cp='[👻]' tts='fantasma'>fantasma; favola; faccina</annotation>
-
-		<!-- EXTRATERRESTRIAL ALIEN; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; nature; space; ufo -->
-		<annotation cp='[👽]' tts='alieno'>alieno; extraterrestre; UFO; favola; faccina</annotation>
-
-		<!-- ALIEN MONSTER; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; monster; nature; space; ufo -->
-		<annotation cp='[👾]' tts='mostro alieno'>mostro; UFO; favola; faccina</annotation>
-
-		<!-- BOUQUET; bouquet; flower; nature; object; romance -->
+		<!-- BOUQUET; bouquet; flower; romance -->
 		<annotation cp='[💐]' tts='mazzo di fiori'>fiore; romanticismo</annotation>
 
-		<!-- CHERRY BLOSSOM; blossom; cherry; flower; nature; plant -->
+		<!-- CHERRY BLOSSOM; blossom; cherry; flower; plant -->
 		<annotation cp='[🌸]' tts='fiore di ciliegio'>ciliegio; fiore</annotation>
 
-		<!-- WHITE FLOWER; flower; object -->
+		<!-- WHITE FLOWER; flower -->
 		<annotation cp='[💮]' tts='simbolo fiorellino'>simbolo ben fatto; fiore</annotation>
 
-		<!-- ROSETTE; nature; rosette -->
-		<annotation cp='[🏵]'>MISSING</annotation>
-
-		<!-- ROSE; flower; nature; plant; rose -->
+		<!-- ROSE; flower; plant; rose -->
 		<annotation cp='[🌹]' tts='rosa'>rosa; fiore</annotation>
 
-		<!-- HIBISCUS; flower; hibiscus; nature; plant -->
+		<!-- HIBISCUS; flower; hibiscus; plant -->
 		<annotation cp='[🌺]' tts='ibisco'>ibisco; fiore</annotation>
 
-		<!-- SUNFLOWER; flower; nature; plant; sun; sunflower -->
+		<!-- SUNFLOWER; flower; plant; sun; sunflower -->
 		<annotation cp='[🌻]' tts='girasole'>girasole; fiore</annotation>
 
-		<!-- BLOSSOM; blossom; flower; nature; plant -->
+		<!-- BLOSSOM; blossom; flower; plant -->
 		<annotation cp='[🌼]' tts='fiore'>fiore; bocciolo</annotation>
 
-		<!-- TULIP; flower; nature; plant; tulip -->
+		<!-- TULIP; flower; plant; tulip -->
 		<annotation cp='[🌷]' tts='tulipano'>tulipano; fiore</annotation>
 
-		<!-- PALM BRANCH; branch; nature; palm; plant -->
-		<annotation cp='[⸙]'>MISSING</annotation>
-
-		<!-- SHAMROCK; nature; plant; shamrock -->
-		<annotation cp='[☘]'>MISSING</annotation>
-
-		<!-- SEEDLING; nature; plant; seedling; young -->
+		<!-- SEEDLING; plant; seedling; young -->
 		<annotation cp='[🌱]' tts='germoglio'>germoglio; piantina</annotation>
 
-		<!-- EVERGREEN TREE; evergreen; nature; plant; tree -->
+		<!-- EVERGREEN TREE; evergreen; plant; tree -->
 		<annotation cp='[🌲]' tts='albero sempreverde'>sempreverde; albero</annotation>
 
-		<!-- DECIDUOUS TREE; deciduous; nature; plant; shedding; tree -->
+		<!-- DECIDUOUS TREE; deciduous; plant; shedding; tree -->
 		<annotation cp='[🌳]' tts='albero deciduo'>deciduo; caduco; albero</annotation>
 
-		<!-- PALM TREE; nature; palm; plant; tree -->
+		<!-- PALM TREE; palm; plant; tree -->
 		<annotation cp='[🌴]' tts='palma'>palma; albero</annotation>
 
-		<!-- CACTUS; cactus; nature; plant -->
+		<!-- CACTUS; cactus; plant -->
 		<annotation cp='[🌵]' tts='cactus'>cactus; pianta</annotation>
 
-		<!-- EAR OF RICE; ear; nature; plant; rice -->
+		<!-- EAR OF RICE; ear; plant; rice -->
 		<annotation cp='[🌾]' tts='pianta di riso'>spiga diriso; riso; spiga</annotation>
 
-		<!-- HERB; herb; leaf; nature; plant -->
+		<!-- HERB; herb; leaf; plant -->
 		<annotation cp='[🌿]' tts='pianta'>pianta; foglia</annotation>
 
-		<!-- FOUR LEAF CLOVER; 4; clover; four; leaf; nature; plant -->
+		<!-- FOUR LEAF CLOVER; 4; clover; four; leaf; plant -->
 		<annotation cp='[🍀]' tts='quadrifoglio'>quadrifoglio; quattro; foglia; fortuna</annotation>
 
-		<!-- MAPLE LEAF; falling; leaf; maple; nature; plant -->
+		<!-- MAPLE LEAF; falling; leaf; maple; plant -->
 		<annotation cp='[🍁]' tts='foglia d&apos;acero'>foglia caduta; foglia</annotation>
 
-		<!-- FALLEN LEAF; falling; leaf; nature; plant -->
+		<!-- FALLEN LEAF; falling; leaf; plant -->
 		<annotation cp='[🍂]' tts='foglie che cadono'>foglie cadute; cadute foglia; foglie</annotation>
 
-		<!-- LEAF FLUTTERING IN WIND; blow; flutter; leaf; nature; plant; wind -->
+		<!-- LEAF FLUTTERING IN WIND; blow; flutter; leaf; plant; wind -->
 		<annotation cp='[🍃]' tts='foglia al vento'>vento che soffia; foglia; vento</annotation>
 
-		<!-- GRAPES; food; fruit; grape; nature; plant -->
+		<!-- GRAPES; food; fruit; grape; plant -->
 		<annotation cp='[🍇]' tts='uva'>uva; frutta</annotation>
 
-		<!-- MELON; food; fruit; melon; nature; plant -->
+		<!-- MELON; food; fruit; melon; plant -->
 		<annotation cp='[🍈]' tts='melone'>melone; frutta</annotation>
 
-		<!-- WATERMELON; food; fruit; nature; plant; watermelon -->
+		<!-- WATERMELON; food; fruit; plant; watermelon -->
 		<annotation cp='[🍉]' tts='anguria'>anguria; frutta</annotation>
 
-		<!-- TANGERINE; food; fruit; nature; orange; plant; tangerine -->
+		<!-- TANGERINE; food; fruit; orange; plant; tangerine -->
 		<annotation cp='[🍊]' tts='mandarino'>mandarino; arancia; frutta</annotation>
 
-		<!-- LEMON; citrus; food; fruit; lemon; nature; plant -->
+		<!-- LEMON; citrus; food; fruit; lemon; plant -->
 		<annotation cp='[🍋]' tts='limone'>limone; agrume; frutta</annotation>
 
-		<!-- BANANA; banana; food; fruit; nature; plant -->
+		<!-- BANANA; banana; food; fruit; plant -->
 		<annotation cp='[🍌]' tts='banana'>banana; frutta</annotation>
 
-		<!-- PINEAPPLE; food; fruit; nature; pineapple; plant -->
+		<!-- PINEAPPLE; food; fruit; pineapple; plant -->
 		<annotation cp='[🍍]' tts='ananas'>ananas; frutta</annotation>
 
-		<!-- RED APPLE; apple; food; fruit; nature; plant; red -->
+		<!-- RED APPLE; apple; food; fruit; plant; red -->
 		<annotation cp='[🍎]' tts='mela rossa'>mela; rossa; frutta</annotation>
 
-		<!-- GREEN APPLE; apple; food; fruit; green; nature; plant -->
+		<!-- GREEN APPLE; apple; food; fruit; green; plant -->
 		<annotation cp='[🍏]' tts='mela verde'>mela; verde; frutta</annotation>
 
-		<!-- PEAR; food; fruit; nature; pear; plant -->
+		<!-- PEAR; food; fruit; pear; plant -->
 		<annotation cp='[🍐]' tts='pera'>pera; frutta</annotation>
 
-		<!-- PEACH; food; fruit; nature; peach; plant -->
+		<!-- PEACH; food; fruit; peach; plant -->
 		<annotation cp='[🍑]' tts='pesca'>pesca; frutta</annotation>
 
-		<!-- CHERRIES; cherry; food; fruit; nature; plant -->
+		<!-- CHERRIES; cherry; food; fruit; plant -->
 		<annotation cp='[🍒]' tts='ciliegia'>ciliegia; frutta</annotation>
 
-		<!-- STRAWBERRY; berry; food; fruit; nature; plant; strawberry -->
+		<!-- STRAWBERRY; berry; food; fruit; plant; strawberry -->
 		<annotation cp='[🍓]' tts='fragola'>fragola; frutta</annotation>
 
-		<!-- TOMATO; food; nature; plant; tomato; vegetable -->
+		<!-- TOMATO; food; plant; tomato; vegetable -->
 		<annotation cp='[🍅]' tts='pomodoro'>pomodoro; verdura</annotation>
 
-		<!-- AUBERGINE; aubergine; eggplant; food; nature; plant; vegetable -->
+		<!-- AUBERGINE; aubergine; eggplant; food; plant; vegetable -->
 		<annotation cp='[🍆]' tts='melanzana'>melanzana; verdura</annotation>
 
-		<!-- EAR OF MAIZE; corn; ear; maize; maze; nature; plant -->
+		<!-- EAR OF MAIZE; corn; ear; maize; maze; plant -->
 		<annotation cp='[🌽]' tts='pannocchia'>pannocchia; mais; granoturco</annotation>
 
-		<!-- HOT PEPPER; food; hot; nature; pepper; plant -->
-		<annotation cp='[🌶]'>MISSING</annotation>
-
-		<!-- MUSHROOM; mushroom; nature; plant -->
+		<!-- MUSHROOM; mushroom; plant -->
 		<annotation cp='[🍄]' tts='fungo'>fungo</annotation>
 
-		<!-- CHESTNUT; chestnut; nature; plant -->
+		<!-- CHESTNUT; chestnut; plant -->
 		<annotation cp='[🌰]' tts='nocciola'>nocciola</annotation>
 
 		<!-- BREAD; bread; food; loaf; restaurant -->
@@ -1042,223 +973,172 @@
 		<!-- HONEY POT; food; honey; honeypot; pot; restaurant; sweet -->
 		<annotation cp='[🍯]' tts='vaso di miele'>miele; vaso; ristorante</annotation>
 
-		<!-- HOT BEVERAGE; beverage; coffee; drink; food; hot; steaming; tea -->
-		<annotation cp='[☕]'>MISSING</annotation>
-
-		<!-- TEACUP WITHOUT HANDLE; beverage; cup; drink; food; tea; teacup -->
-		<annotation cp='[🍵]' tts='tazza'>tazza; tazza di tè; tè; bere</annotation>
-
-		<!-- SAKE BOTTLE AND CUP; bar; beverage; bottle; cup; drink; food; restaurant; sake -->
-		<annotation cp='[🍶]' tts='sake'>sake; bottiglia e bicchiere di sake; bicchiere; bottiglia; bere; ristorante; bar</annotation>
-
-		<!-- WINE GLASS; bar; beverage; drink; food; glass; restaurant; wine -->
-		<annotation cp='[🍷]' tts='vino'>vino; bicchiere di vino; bicchiere; bere; ristorante; bar</annotation>
-
-		<!-- COCKTAIL GLASS; bar; cocktail; drink; food; glass; restaurant -->
-		<annotation cp='[🍸]' tts='cocktail'>cocktail; bicchiere da cocktail; ristorante; bar</annotation>
-
-		<!-- TROPICAL DRINK; bar; drink; food; restaurant; tropical -->
-		<annotation cp='[🍹]' tts='cocktail tropicale'>tropicale; bere; ristorante; bar</annotation>
-
-		<!-- BEER MUG; bar; beer; drink; food; mug; restaurant -->
-		<annotation cp='[🍺]' tts='birra'>birra; boccale di birra; boccale; ristorante; bar</annotation>
-
-		<!-- CLINKING BEER MUGS; bar; beer; clink; drink; food; mug; restaurant -->
-		<annotation cp='[🍻]' tts='boccali di birra'>birra; boccali; boccale; ristorante; bar</annotation>
-
-		<!-- BABY BOTTLE; baby; bottle; drink; food; milk -->
+		<!-- BABY BOTTLE; baby; bottle; drink; milk -->
 		<annotation cp='[🍼]' tts='biberon'>biberon; latte; bere</annotation>
 
-		<!-- FORK AND KNIFE WITH PLATE; food; fork; knife; plate; restaurant -->
-		<annotation cp='[🍽]'>MISSING</annotation>
+		<!-- TEACUP WITHOUT HANDLE; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' tts='tazza'>tazza; tazza di tè; tè; bere</annotation>
 
-		<!-- FORK AND KNIFE; food; fork; knife; restaurant -->
+		<!-- SAKE BOTTLE AND CUP; bar; beverage; bottle; cup; drink; restaurant; sake -->
+		<annotation cp='[🍶]' tts='sake'>sake; bottiglia e bicchiere di sake; bicchiere; bottiglia; bere; ristorante; bar</annotation>
+
+		<!-- WINE GLASS; bar; beverage; drink; glass; restaurant; wine -->
+		<annotation cp='[🍷]' tts='vino'>vino; bicchiere di vino; bicchiere; bere; ristorante; bar</annotation>
+
+		<!-- COCKTAIL GLASS; bar; cocktail; drink; glass; restaurant -->
+		<annotation cp='[🍸]' tts='cocktail'>cocktail; bicchiere da cocktail; ristorante; bar</annotation>
+
+		<!-- TROPICAL DRINK; bar; drink; restaurant; tropical -->
+		<annotation cp='[🍹]' tts='cocktail tropicale'>tropicale; bere; ristorante; bar</annotation>
+
+		<!-- BEER MUG; bar; beer; drink; mug; restaurant -->
+		<annotation cp='[🍺]' tts='birra'>birra; boccale di birra; boccale; ristorante; bar</annotation>
+
+		<!-- CLINKING BEER MUGS; bar; beer; clink; drink; mug; restaurant -->
+		<annotation cp='[🍻]' tts='boccali di birra'>birra; boccali; boccale; ristorante; bar</annotation>
+
+		<!-- FORK AND KNIFE; cooking; fork; knife; restaurant -->
 		<annotation cp='[🍴]' tts='forchetta e coltello'>forchetta; coltello; ristorante</annotation>
 
-		<!-- COOKING; cooking; egg; food; frying; pan; restaurant -->
+		<!-- COOKING; cooking; egg; frying; pan; restaurant -->
 		<annotation cp='[🍳]' tts='padella'>padella; cucinare; ristorante</annotation>
 
-		<!-- EARTH GLOBE EUROPE-AFRICA; africa; earth; europe; globe; nature; place; world -->
+		<!-- EARTH GLOBE EUROPE-AFRICA; africa; earth; europe; globe; world -->
 		<annotation cp='[🌍]' tts='globo'>globo; terra; Europa; Africa</annotation>
 
-		<!-- EARTH GLOBE AMERICAS; americas; earth; globe; nature; place; world -->
+		<!-- EARTH GLOBE AMERICAS; americas; earth; globe; world -->
 		<annotation cp='[🌎]' tts='globo'>globo; terra; Americhe; America</annotation>
 
-		<!-- EARTH GLOBE ASIA-AUSTRALIA; asia; australia; earth; globe; nature; place; world -->
+		<!-- EARTH GLOBE ASIA-AUSTRALIA; asia; australia; earth; globe; world -->
 		<annotation cp='[🌏]' tts='globo'>globo; terra; Asia; Australia</annotation>
 
-		<!-- GLOBE WITH MERIDIANS; earth; globe; meridians; nature; place; world -->
+		<!-- GLOBE WITH MERIDIANS; earth; globe; meridians; world -->
 		<annotation cp='[🌐]' tts='globo'>globo; meridiani</annotation>
 
-		<!-- WORLD MAP; map; place; world -->
-		<annotation cp='[🗺]'>MISSING</annotation>
-
-		<!-- SNOW CAPPED MOUNTAIN; cold; mountain; nature; place; snow -->
-		<annotation cp='[🏔]'>MISSING</annotation>
-
-		<!-- MOUNTAIN; mountain; place -->
-		<annotation cp='[⛰]'>MISSING</annotation>
-
-		<!-- VOLCANO; eruption; mountain; nature; place; volcano; weather -->
+		<!-- VOLCANO; eruption; mountain; volcano; weather -->
 		<annotation cp='[🌋]' tts='vulcano'>vulcano; vulcano in eruzione</annotation>
 
-		<!-- MOUNT FUJI; fuji; mountain; nature; place -->
+		<!-- MOUNT FUJI; fuji; mountain -->
 		<annotation cp='[🗻]' tts='Monte Fuji'>montagna</annotation>
 
-		<!-- CAMPING; camping; nature; place -->
-		<annotation cp='[🏕]'>MISSING</annotation>
-
-		<!-- BEACH WITH UMBRELLA; beach; nature; place; umbrella -->
-		<annotation cp='[🏖]'>MISSING</annotation>
-
-		<!-- DESERT; desert; nature; place -->
-		<annotation cp='[🏜]'>MISSING</annotation>
-
-		<!-- DESERT ISLAND; desert; island; nature; place -->
-		<annotation cp='[🏝]'>MISSING</annotation>
-
-		<!-- NATIONAL PARK; national park; nature; park; place -->
-		<annotation cp='[🏞]'>MISSING</annotation>
-
-		<!-- STADIUM; place; stadium -->
-		<annotation cp='[🏟]'>MISSING</annotation>
-
-		<!-- CLASSICAL BUILDING; building; classical; place -->
-		<annotation cp='[🏛]'>MISSING</annotation>
-
-		<!-- BUILDING CONSTRUCTION; building; construction; place -->
-		<annotation cp='[🏗]'>MISSING</annotation>
-
-		<!-- HOUSE BUILDINGS; building; house; place -->
-		<annotation cp='[🏘]'>MISSING</annotation>
-
-		<!-- CITYSCAPE; building; city; place -->
-		<annotation cp='[🏙]'>MISSING</annotation>
-
-		<!-- DERELICT HOUSE BUILDING; building; derelict; house; place -->
-		<annotation cp='[🏚]'>MISSING</annotation>
-
-		<!-- HOUSE BUILDING; building; home; house; place -->
+		<!-- HOUSE BUILDING; building; home; house -->
 		<annotation cp='[🏠]' tts='casa'>casa; abitazione; edificio</annotation>
 
-		<!-- HOUSE WITH GARDEN; building; garden; home; house; place -->
+		<!-- HOUSE WITH GARDEN; building; garden; home; house -->
 		<annotation cp='[🏡]' tts='casa con giardino'>casa; giardino; edificio</annotation>
 
-		<!-- CHURCH; building; christian; church; cross; place; religion -->
+		<!-- CHURCH; building; christian; church; cross; religion -->
 		<annotation cp='[⛪]' tts='chiesa'>chiesa; edificio</annotation>
 
-		<!-- OFFICE BUILDING; building; office; place -->
+		<!-- OFFICE BUILDING; building; office -->
 		<annotation cp='[🏢]' tts='edifico di uffici'>ufficio; edificio</annotation>
 
-		<!-- JAPANESE POST OFFICE; building; japanese; office; place; post -->
+		<!-- JAPANESE POST OFFICE; building; japanese; office; post -->
 		<annotation cp='[🏣]' tts='ufficio postale giapponese'>ufficio postale; giapponese; posta; edificio</annotation>
 
-		<!-- EUROPEAN POST OFFICE; building; european; office; place; post -->
+		<!-- EUROPEAN POST OFFICE; building; european; office; post -->
 		<annotation cp='[🏤]' tts='ufficio postale europeo'>ufficio postale; europeo; posta; edificio</annotation>
 
-		<!-- HOSPITAL; building; doctor; hospital; medicine; place -->
+		<!-- HOSPITAL; building; doctor; hospital; medicine -->
 		<annotation cp='[🏥]' tts='ospedale'>ospedale; edificio</annotation>
 
-		<!-- BANK; bank; building; place -->
+		<!-- BANK; bank; building -->
 		<annotation cp='[🏦]' tts='banca'>banca; edificio</annotation>
 
-		<!-- HOTEL; building; hotel; place -->
+		<!-- HOTEL; building; hotel -->
 		<annotation cp='[🏨]' tts='hotel'>hotel; edificio</annotation>
 
-		<!-- LOVE HOTEL; building; hotel; love; place -->
+		<!-- LOVE HOTEL; building; hotel; love -->
 		<annotation cp='[🏩]' tts='motel'>motel; amore; hotel; love hotel; edificio</annotation>
 
-		<!-- CONVENIENCE STORE; building; convenience; place; store -->
+		<!-- CONVENIENCE STORE; building; convenience; store -->
 		<annotation cp='[🏪]' tts='autogrill'>autogrill; negozio; edificio</annotation>
 
-		<!-- SCHOOL; building; education; place; school -->
+		<!-- SCHOOL; building; education; school -->
 		<annotation cp='[🏫]' tts='scuola'>scuola; edificio</annotation>
 
-		<!-- DEPARTMENT STORE; building; department; place; store -->
+		<!-- DEPARTMENT STORE; building; department; store -->
 		<annotation cp='[🏬]' tts='centro commerciale'>commerciale; centro</annotation>
 
-		<!-- FACTORY; building; factory; place -->
+		<!-- FACTORY; building; factory -->
 		<annotation cp='[🏭]' tts='fabbrica'>fabbrica; edificio</annotation>
 
-		<!-- JAPANESE CASTLE; building; castle; japanese; place -->
+		<!-- JAPANESE CASTLE; building; castle; japanese -->
 		<annotation cp='[🏯]' tts='casa giapponese'>casa; edificio</annotation>
 
-		<!-- EUROPEAN CASTLE; building; castle; european; place -->
+		<!-- EUROPEAN CASTLE; building; castle; european -->
 		<annotation cp='[🏰]' tts='castello'>castello; edificio</annotation>
 
-		<!-- WEDDING; activity; chapel; place; romance; wedding -->
+		<!-- WEDDING; activity; chapel; romance; wedding -->
 		<annotation cp='[💒]' tts='chiesa per matrimonio'>matrimonio; chiesa; cappella; romanticismo</annotation>
 
-		<!-- TOKYO TOWER; place; tokyo; tower -->
+		<!-- TOKYO TOWER; tokyo; tower -->
 		<annotation cp='[🗼]' tts='Torre di Tokyo'>Tokyo Tower; Tokyo; torre</annotation>
 
-		<!-- STATUE OF LIBERTY; liberty; place; statue -->
+		<!-- STATUE OF LIBERTY; liberty; statue -->
 		<annotation cp='[🗽]' tts='Statua della Libertà'>libertà; statua</annotation>
 
-		<!-- SILHOUETTE OF JAPAN; japan; map; place -->
+		<!-- SILHOUETTE OF JAPAN; japan; map -->
 		<annotation cp='[🗾]' tts='Mappa del Giappone'>mappa; Giappone</annotation>
 
-		<!-- FOUNTAIN; fountain; object; place -->
+		<!-- FOUNTAIN; fountain -->
 		<annotation cp='[⛲]' tts='fontana'>fontana</annotation>
 
-		<!-- TENT; camping; place; tent -->
+		<!-- TENT; camping; tent -->
 		<annotation cp='[⛺]' tts='tenda'>tenda; campeggio</annotation>
 
-		<!-- FOGGY; fog; nature; place; weather -->
+		<!-- FOGGY; fog; weather -->
 		<annotation cp='[🌁]' tts='nebbia'>nebbia; nebbioso</annotation>
 
-		<!-- NIGHT WITH STARS; night; place; star; weather -->
+		<!-- NIGHT WITH STARS; night; star; weather -->
 		<annotation cp='[🌃]' tts='notte stellata'>stelle; notte</annotation>
 
-		<!-- SUNRISE OVER MOUNTAINS; morning; mountain; place; sun; sunrise; time; weather -->
+		<!-- SUNRISE OVER MOUNTAINS; morning; mountain; sun; sunrise; time; weather -->
 		<annotation cp='[🌄]' tts='alba'>alba; sole che sorge; alba sulle montagne</annotation>
 
-		<!-- SUNRISE; morning; place; sun; sunrise; time; weather -->
+		<!-- SUNRISE; morning; sun; sunrise; time; weather -->
 		<annotation cp='[🌅]' tts='alba'>alba; sole che sorge</annotation>
 
-		<!-- CITYSCAPE AT DUSK; building; city; dusk; evening; landscape; place; sun; sunset; time; weather -->
+		<!-- CITYSCAPE AT DUSK; building; city; dusk; evening; landscape; sun; sunset; time; weather -->
 		<annotation cp='[🌆]' tts='città al tramonto'>tramonto; città; edifici; paesaggio</annotation>
 
-		<!-- SUNSET OVER BUILDINGS; building; dusk; place; sun; sunset; time; weather -->
+		<!-- SUNSET OVER BUILDINGS; building; dusk; sun; sunset; time; weather -->
 		<annotation cp='[🌇]' tts='tramonto'>tramonto; sole che tramonta sulla città</annotation>
 
-		<!-- BRIDGE AT NIGHT; bridge; night; place; weather -->
+		<!-- BRIDGE AT NIGHT; bridge; night; weather -->
 		<annotation cp='[🌉]' tts='ponte di notte'>ponte; notte</annotation>
 
-		<!-- WATER WAVE; ocean; place; water; wave; weather -->
+		<!-- WATER WAVE; ocean; water; wave; weather -->
 		<annotation cp='[🌊]' tts='onda'>onda; onda del mare; onda d&apos;acqua</annotation>
-
-		<!-- HOT SPRINGS; hot; hotsprings; springs; steaming; travel -->
-		<annotation cp='[♨]'>MISSING</annotation>
 
 		<!-- MOYAI; face; moyai; statue; travel -->
 		<annotation cp='[🗿]' tts='Statua Moyai'>statua; Moyai</annotation>
 
-		<!-- MILKY WAY; milky way; place; space; weather -->
+		<!-- MILKY WAY; milky way; space; weather -->
 		<annotation cp='[🌌]' tts='Via Lattea'>lattea</annotation>
 
-		<!-- CAROUSEL HORSE; activity; carousel; entertainment; horse; place -->
+		<!-- CAROUSEL HORSE; activity; carousel; entertainment; horse -->
 		<annotation cp='[🎠]' tts='cavallo da giostra'>giostra; cavallo; intrattenimento</annotation>
 
-		<!-- FERRIS WHEEL; activity; amusement park; entertainment; ferris; place; wheel -->
+		<!-- FERRIS WHEEL; activity; amusement park; entertainment; ferris; wheel -->
 		<annotation cp='[🎡]' tts='ruota panoramica'>panoramica; ruota; parco divertimenti; intrattenimento</annotation>
 
-		<!-- ROLLER COASTER; activity; amusement park; coaster; entertainment; place; roller -->
+		<!-- ROLLER COASTER; activity; amusement park; coaster; entertainment; roller -->
 		<annotation cp='[🎢]' tts='montagne russe'>montagne; russe; parco divertimenti; intrattenimento</annotation>
 
-		<!-- BARBER POLE; barber; haircut; place; pole -->
+		<!-- BARBER POLE; barber; haircut; pole -->
 		<annotation cp='[💈]' tts='barbiere'>barbiere; insegna barbiere; insegna</annotation>
 
-		<!-- CIRCUS TENT; activity; circus; entertainment; place; tent -->
+		<!-- CIRCUS TENT; activity; circus; entertainment; tent -->
 		<annotation cp='[🎪]' tts='circo'>circo; tenda da circo; tenda; intrattenimento</annotation>
 
-		<!-- TICKET; activity; admission; entertainment; object; place; ticket -->
-		<annotation cp='[🎫]' tts='biglietto'>biglietto; intrattenimento</annotation>
-
-		<!-- PERFORMING ARTS; activity; art; entertainment; face; mask; object; performing; place; theater; theatre -->
+		<!-- PERFORMING ARTS; activity; art; entertainment; face; mask; performing; theater; theatre -->
 		<annotation cp='[🎭]' tts='maschere'>maschere; arti performative; arte; intrattenimento; performance</annotation>
 
-		<!-- SLOT MACHINE; activity; game; object; place; slot -->
+		<!-- ARTIST PALETTE; activity; art; entertainment; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='tavolozza dei colori'>tavolozza; colori; pittura; arte</annotation>
+
+		<!-- SLOT MACHINE; activity; game; slot -->
 		<annotation cp='[🎰]' tts='slot machine'>slot; gioco</annotation>
 
 		<!-- STEAM LOCOMOTIVE; engine; locomotive; railway; steam; train; travel; vehicle -->
@@ -1354,35 +1234,17 @@
 		<!-- NO BICYCLES; bicycle; bike; forbidden; no; not; prohibited; sign; sport; travel; vehicle -->
 		<annotation cp='[🚳]' tts='divieto transito biciclette'>bicicletta</annotation>
 
-		<!-- BICYCLIST; bicycle; bicyclist; bike; cyclist; human; person; sport; travel -->
-		<annotation cp='[🚴]' tts='ciclista'>ciclista; bici</annotation>
-
-		<!-- MOUNTAIN BICYCLIST; bicycle; bicyclist; bike; cyclist; human; mountain; person; sport; travel -->
-		<annotation cp='[🚵]' tts='ciclista mountain bike'>mountain bike; ciclista</annotation>
-
-		<!-- RACING CAR; car; racing; sport; travel -->
-		<annotation cp='[🏎]'>MISSING</annotation>
-
-		<!-- RACING MOTORCYCLE; human; motorcycle; person; racing; sport; travel -->
-		<annotation cp='[🏍]'>MISSING</annotation>
-
 		<!-- FUEL PUMP; fuel; fuelpump; gas; pump; station; travel -->
 		<annotation cp='[⛽]' tts='stazione di servizio'>pompa di benzina; carburante; benzina; stazione</annotation>
-
-		<!-- MOTORWAY; highway; motorway; road; travel -->
-		<annotation cp='[🛣]'>MISSING</annotation>
-
-		<!-- RAILWAY TRACK; railway; train; travel -->
-		<annotation cp='[🛤]'>MISSING</annotation>
 
 		<!-- POLICE CARS REVOLVING LIGHT; beacon; car; light; police; revolving; travel -->
 		<annotation cp='[🚨]' tts='lampeggiante'>lampeggiante; sirena della polizia</annotation>
 
-		<!-- HELM SYMBOL; helm; travel -->
-		<annotation cp='[⎈]'>MISSING</annotation>
-
 		<!-- ANCHOR; anchor; ship; tool; travel -->
 		<annotation cp='[⚓]' tts='ancora'>ancora; simbolo</annotation>
+
+		<!-- TRIDENT EMBLEM; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='tridente'>tridente; simbolo tridente; ancora</annotation>
 
 		<!-- SAILBOAT; boat; resort; sailboat; sea; travel; yacht -->
 		<annotation cp='[⛵]' tts='barca a vela'>yacht; vela; barca; località  balneare</annotation>
@@ -1393,29 +1255,8 @@
 		<!-- SPEEDBOAT; boat; speedboat; travel; vehicle -->
 		<annotation cp='[🚤]' tts='motoscafo'>motoscafo; barca; veicolo</annotation>
 
-		<!-- PASSENGER SHIP; passenger; ship; travel; vehicle -->
-		<annotation cp='[🛳]'>MISSING</annotation>
-
-		<!-- FERRY; boat; ferry; travel -->
-		<annotation cp='[⛴]'>MISSING</annotation>
-
-		<!-- MOTOR BOAT; boat; motorboat; travel; vehicle -->
-		<annotation cp='[🛥]'>MISSING</annotation>
-
 		<!-- SHIP; ship; travel; vehicle -->
 		<annotation cp='[🚢]' tts='nave'>nave; veicolo</annotation>
-
-		<!-- AIRPLANE; airplane; travel -->
-		<annotation cp='[✈]'>MISSING</annotation>
-
-		<!-- SMALL AIRPLANE; airplane; travel; vehicle -->
-		<annotation cp='[🛩]'>MISSING</annotation>
-
-		<!-- AIRPLANE DEPARTURE; airplane; departure; departures; travel; vehicle -->
-		<annotation cp='[🛫]'>MISSING</annotation>
-
-		<!-- AIRPLANE ARRIVING; airplane; arrivals; arriving; landing; travel; vehicle -->
-		<annotation cp='[🛬]'>MISSING</annotation>
 
 		<!-- SEAT; chair; office; seat; travel -->
 		<annotation cp='[💺]' tts='sedile'>sedile; sedia</annotation>
@@ -1432,16 +1273,13 @@
 		<!-- AERIAL TRAMWAY; aerial; cable; car; gondola; ropeway; tramway; travel; vehicle -->
 		<annotation cp='[🚡]' tts='funivia aerea'>aerea; funivia; veicolo</annotation>
 
-		<!-- ROCKET; fantasy; rocket; space; travel; vehicle -->
+		<!-- ROCKET; rocket; space; travel; vehicle -->
 		<annotation cp='[🚀]' tts='razzo'>razzo; veicolo; viaggio</annotation>
 
-		<!-- SATELLITE; place; satellite; space; vehicle -->
-		<annotation cp='[🛰]'>MISSING</annotation>
-
-		<!-- AUTOMATED TELLER MACHINE; atm; automated; bank; place; sign; teller -->
+		<!-- AUTOMATED TELLER MACHINE; atm; automated; bank; sign; teller -->
 		<annotation cp='[🏧]' tts='bancomat'>bancomat; ATM</annotation>
 
-		<!-- PUT LITTER IN ITS PLACE SYMBOL; human; litter; litterbox; place; travel -->
+		<!-- PUT LITTER IN ITS PLACE SYMBOL; litter; litterbox; travel -->
 		<annotation cp='[🚮]' tts='raccolta rifiuti'>simbolo raccolta rifiuti; simbolo</annotation>
 
 		<!-- HORIZONTAL TRAFFIC LIGHT; light; signal; traffic; travel -->
@@ -1468,25 +1306,25 @@
 		<!-- NON-POTABLE WATER SYMBOL; drink; forbidden; no; not; potable; prohibited; sign; travel; water -->
 		<annotation cp='[🚱]' tts='acqua non potabile'>simbolo acqua non potabile; non potabile; acqua; simbolo</annotation>
 
-		<!-- NO PEDESTRIANS; forbidden; human; no; not; pedestrian; prohibited; sign; travel -->
+		<!-- NO PEDESTRIANS; forbidden; no; not; pedestrian; prohibited; sign; travel -->
 		<annotation cp='[🚷]' tts='divieto transito pedoni'>pedone; simbolo</annotation>
 
-		<!-- CHILDREN CROSSING; child; crossing; human; pedestrian; sign; traffic; travel -->
+		<!-- CHILDREN CROSSING; child; crossing; pedestrian; sign; traffic; travel -->
 		<annotation cp='[🚸]' tts='attraversamento bambini'>bambini; attraversamento; simbolo</annotation>
 
-		<!-- WHEELCHAIR SYMBOL; access; human; sign; travel; wheelchair -->
+		<!-- WHEELCHAIR SYMBOL; access; sign; travel; wheelchair -->
 		<annotation cp='[♿]' tts='sedia a rotelle'>accesso sedia a rotelle; accesso; simbolo sedia a rotelle; simbolo</annotation>
 
-		<!-- MENS SYMBOL; human; lavatory; men; men’s; restroom; sign; travel; wc -->
+		<!-- MENS SYMBOL; lavatory; man; restroom; sign; travel; wc -->
 		<annotation cp='[🚹]' tts='Uomini'>Uomini; Bagno uomini; simbolo Bagno uomini; simbolo</annotation>
 
-		<!-- WOMENS SYMBOL; human; lavatory; restroom; sign; travel; wc; woman; women’s -->
+		<!-- WOMENS SYMBOL; lavatory; restroom; sign; travel; wc; woman -->
 		<annotation cp='[🚺]' tts='Donne'>Donne; Bagno donne; simbolo Bagno donne; simbolo</annotation>
 
-		<!-- RESTROOM; human; lavatory; restroom; sign; travel; wc -->
+		<!-- RESTROOM; lavatory; restroom; sign; travel; wc -->
 		<annotation cp='[🚻]' tts='bagni'>bagni; simbolo bagni; wc; simbolo</annotation>
 
-		<!-- BABY SYMBOL; baby; changing; human; sign; travel -->
+		<!-- BABY SYMBOL; baby; changing; sign; travel -->
 		<annotation cp='[🚼]' tts='neonato'>neonato; bambino a bordo; simbolo neonato; fasciatoio</annotation>
 
 		<!-- WATER CLOSET; closet; lavatory; restroom; sign; travel; water; wc -->
@@ -1510,35 +1348,20 @@
 		<!-- NO ENTRY; entry; forbidden; no; not; prohibited; traffic; travel -->
 		<annotation cp='[⛔]' tts='Simbolo divieto di accesso'>Divieto di accesso; divieto; accesso; simbolo</annotation>
 
-		<!-- BELLHOP BELL; bell; bellhop; hotel; object -->
-		<annotation cp='[🛎]'>MISSING</annotation>
-
-		<!-- DOOR; door; object; travel -->
+		<!-- DOOR; door; travel -->
 		<annotation cp='[🚪]' tts='door'>door</annotation>
 
-		<!-- SLEEPING ACCOMMODATION; hotel; object; sleep -->
-		<annotation cp='[🛌]'>MISSING</annotation>
-
-		<!-- BED; bed; hotel; object; sleep -->
-		<annotation cp='[🛏]'>MISSING</annotation>
-
-		<!-- COUCH AND LAMP; couch; hotel; lamp; object -->
-		<annotation cp='[🛋]'>MISSING</annotation>
-
-		<!-- TOILET; object; toilet; travel -->
+		<!-- TOILET; toilet; travel -->
 		<annotation cp='[🚽]' tts='toilette'>toilette; water</annotation>
 
-		<!-- SHOWER; object; shower; travel; water -->
+		<!-- SHOWER; shower; travel; water -->
 		<annotation cp='[🚿]' tts='doccia'>doccia</annotation>
 
-		<!-- BATH; bath; bathtub; object; travel -->
+		<!-- BATH; bath; bathtub; travel -->
 		<annotation cp='[🛀]' tts='bagno'>bagno</annotation>
 
-		<!-- BATHTUB; bath; bathtub; object; travel -->
+		<!-- BATHTUB; bath; bathtub; travel -->
 		<annotation cp='[🛁]' tts='vasca'>vasca; vasca da bagno</annotation>
-
-		<!-- SHOPPING BAGS; bag; hotel; object; shopping -->
-		<annotation cp='[🛍]'>MISSING</annotation>
 
 		<!-- HOURGLASS; hourglass; sand; time; timer -->
 		<annotation cp='[⌛]' tts='clessidra'>clessidra; sabbia</annotation>
@@ -1551,15 +1374,6 @@
 
 		<!-- ALARM CLOCK; alarm; clock; time -->
 		<annotation cp='[⏰]' tts='sveglia'>sveglia</annotation>
-
-		<!-- STOPWATCH; clock; stopwatch; time -->
-		<annotation cp='[⏱]'>MISSING</annotation>
-
-		<!-- TIMER CLOCK; clock; time; timer -->
-		<annotation cp='[⏲]'>MISSING</annotation>
-
-		<!-- MANTELPIECE CLOCK; clock; object -->
-		<annotation cp='[🕰]'>MISSING</annotation>
 
 		<!-- CLOCK FACE TWELVE OCLOCK; 00; 12; 12:00; clock; face; o’clock; time; twelve -->
 		<annotation cp='[🕛]' tts='ore dodici'>12:00; mezzogiorno; mezzanotte; orologio</annotation>
@@ -1654,7 +1468,7 @@
 		<!-- LIBRA; balance; justice; libra; scales; time; zodiac -->
 		<annotation cp='[♎]' tts='Bilancia'>Bilancia; zodiaco</annotation>
 
-		<!-- SCORPIUS; scorpion; scorpius; time; zodiac -->
+		<!-- SCORPIUS; scorpio; scorpion; scorpius; time; zodiac -->
 		<annotation cp='[♏]' tts='Scorpione'>Scorpione; zodiaco</annotation>
 
 		<!-- SAGITTARIUS; archer; sagittarius; time; zodiac -->
@@ -1669,55 +1483,49 @@
 		<!-- PISCES; fish; pisces; time; zodiac -->
 		<annotation cp='[♓]' tts='Pesci'>Pesci; zodiaco</annotation>
 
-		<!-- OPHIUCHUS; bearer; ophiuchus; serpent; snake; word; zodiac -->
+		<!-- OPHIUCHUS; bearer; ophiuchus; serpent; snake; zodiac -->
 		<annotation cp='[⛎]' tts='Ofiuco'>Ofiuco; zodiaco</annotation>
 
-		<!-- NEW MOON SYMBOL; dark; moon; place; space; time; weather -->
+		<!-- NEW MOON SYMBOL; dark; moon; space; time; weather -->
 		<annotation cp='[🌑]' tts='luna nuova'>novilunio; nuova; luna</annotation>
 
-		<!-- WAXING CRESCENT MOON SYMBOL; crescent; moon; place; space; time; waxing; weather -->
+		<!-- WAXING CRESCENT MOON SYMBOL; crescent; moon; space; time; waxing; weather -->
 		<annotation cp='[🌒]' tts='luna crescente'>crescente; luna</annotation>
 
-		<!-- FIRST QUARTER MOON SYMBOL; moon; place; quarter; space; time; weather -->
+		<!-- FIRST QUARTER MOON SYMBOL; moon; quarter; space; time; weather -->
 		<annotation cp='[🌓]' tts='quarto di luna'>primo quarto di luna; luna; quarto</annotation>
 
-		<!-- WAXING GIBBOUS MOON SYMBOL; gibbous; moon; place; space; time; waxing; weather -->
+		<!-- WAXING GIBBOUS MOON SYMBOL; gibbous; moon; space; time; waxing; weather -->
 		<annotation cp='[🌔]' tts='gibbosa crescente'>crescente; gibbosa; luna</annotation>
 
-		<!-- FULL MOON SYMBOL; full; moon; place; space; time; weather -->
+		<!-- FULL MOON SYMBOL; full; moon; space; time; weather -->
 		<annotation cp='[🌕]' tts='luna piena'>plenilunio; luna; piena</annotation>
 
-		<!-- WANING GIBBOUS MOON SYMBOL; gibbous; moon; place; space; time; waning; weather -->
+		<!-- WANING GIBBOUS MOON SYMBOL; gibbous; moon; space; time; waning; weather -->
 		<annotation cp='[🌖]' tts='gibbosa calante'>calante; gibbosa; luna</annotation>
 
-		<!-- LAST QUARTER MOON SYMBOL; moon; place; quarter; space; time; weather -->
+		<!-- LAST QUARTER MOON SYMBOL; moon; quarter; space; time; weather -->
 		<annotation cp='[🌗]' tts='quarto di luna'>ultimo quarto di luna; luna; quarto</annotation>
 
-		<!-- WANING CRESCENT MOON SYMBOL; crescent; moon; place; space; time; waning; weather -->
+		<!-- WANING CRESCENT MOON SYMBOL; crescent; moon; space; time; waning; weather -->
 		<annotation cp='[🌘]' tts='luna calante'>calante; luna</annotation>
 
-		<!-- CRESCENT MOON; crescent; moon; place; space; time; weather -->
+		<!-- CRESCENT MOON; crescent; moon; space; time; weather -->
 		<annotation cp='[🌙]' tts='luna crescente'>crescente; luna</annotation>
 
-		<!-- NEW MOON WITH FACE; face; moon; place; time; weather -->
+		<!-- NEW MOON WITH FACE; face; moon; space; time; weather -->
 		<annotation cp='[🌚]' tts='faccina luna nuova'>luna nuova; luna nuova con faccina; luna; faccina</annotation>
 
-		<!-- FIRST QUARTER MOON WITH FACE; face; moon; place; quarter; weather -->
+		<!-- FIRST QUARTER MOON WITH FACE; face; moon; quarter; space; weather -->
 		<annotation cp='[🌛]' tts='faccina primo quarto di luna'>quarto di luna con  faccina; luna con faccina; primo quarto di luna; luna; faccina</annotation>
 
-		<!-- LAST QUARTER MOON WITH FACE; face; moon; place; quarter; weather -->
+		<!-- LAST QUARTER MOON WITH FACE; face; moon; quarter; space; weather -->
 		<annotation cp='[🌜]' tts='faccina ultimo quarto di luna'>quarto di luna con  faccina; luna con faccina; ultimo quarto di luna; luna; faccina</annotation>
 
-		<!-- THERMOMETER; thermometer; weather -->
-		<annotation cp='[🌡]'>MISSING</annotation>
-
-		<!-- BLACK SUN WITH RAYS; bright; rays; sun; sunny; weather -->
-		<annotation cp='[☀]'>MISSING</annotation>
-
-		<!-- FULL MOON WITH FACE; bright; face; full; moon; place; weather -->
+		<!-- FULL MOON WITH FACE; bright; face; full; moon; space; weather -->
 		<annotation cp='[🌝]' tts='faccina luna piena'>luna piena con  faccina; luna con faccina; luna piena; luna; faccina</annotation>
 
-		<!-- SUN WITH FACE; bright; face; place; sun; weather -->
+		<!-- SUN WITH FACE; bright; face; space; sun; weather -->
 		<annotation cp='[🌞]' tts='faccina sole'>sole; faccina</annotation>
 
 		<!-- CLOUD; cloud; weather -->
@@ -1725,36 +1533,6 @@
 
 		<!-- SUN BEHIND CLOUD; cloud; sun; weather -->
 		<annotation cp='[⛅]' tts='sole coperto'>sole con nuvole; sole; nuvola</annotation>
-
-		<!-- THUNDER CLOUD AND RAIN; cloud; rain; thunder; weather -->
-		<annotation cp='[⛈]'>MISSING</annotation>
-
-		<!-- WHITE SUN WITH SMALL CLOUD; cloud; sun; weather -->
-		<annotation cp='[🌤]'>MISSING</annotation>
-
-		<!-- WHITE SUN BEHIND CLOUD; cloud; sun; weather -->
-		<annotation cp='[🌥]'>MISSING</annotation>
-
-		<!-- WHITE SUN BEHIND CLOUD WITH RAIN; cloud; rain; sun; weather -->
-		<annotation cp='[🌦]'>MISSING</annotation>
-
-		<!-- CLOUD WITH RAIN; cloud; rain; weather -->
-		<annotation cp='[🌧]'>MISSING</annotation>
-
-		<!-- CLOUD WITH SNOW; cloud; cold; snow; weather -->
-		<annotation cp='[🌨]'>MISSING</annotation>
-
-		<!-- CLOUD WITH LIGHTNING; cloud; lightning; weather -->
-		<annotation cp='[🌩]'>MISSING</annotation>
-
-		<!-- CLOUD WITH TORNADO; cloud; tornado; weather -->
-		<annotation cp='[🌪]'>MISSING</annotation>
-
-		<!-- FOG; cloud; fog; nature; weather -->
-		<annotation cp='[🌫]'>MISSING</annotation>
-
-		<!-- WIND BLOWING FACE; blow; cloud; face; weather; wind -->
-		<annotation cp='[🌬]'>MISSING</annotation>
 
 		<!-- CYCLONE; cyclone; dizzy; twister; typhoon; weather -->
 		<annotation cp='[🌀]' tts='ciclone'>ciclone; tifone; tornado</annotation>
@@ -1765,59 +1543,80 @@
 		<!-- CLOSED UMBRELLA; rain; umbrella; weather -->
 		<annotation cp='[🌂]' tts='ombrello'>ombrello; pioggia</annotation>
 
-		<!-- UMBRELLA; rain; umbrella; weather -->
-		<annotation cp='[☂]'>MISSING</annotation>
-
-		<!-- UMBRELLA WITH RAIN DROPS; drop; rain; umbrella; weather -->
-		<annotation cp='[☔]'>MISSING</annotation>
-
-		<!-- UMBRELLA ON GROUND; rain; sun; travel; umbrella; weather -->
-		<annotation cp='[⛱]'>MISSING</annotation>
-
-		<!-- SNOWFLAKE; cold; snow; snowflake; weather -->
-		<annotation cp='[❄]'>MISSING</annotation>
-
-		<!-- SNOWMAN; cold; snow; snowman; weather -->
-		<annotation cp='[☃]'>MISSING</annotation>
-
 		<!-- SNOWMAN WITHOUT SNOW; cold; snow; snowman; weather -->
 		<annotation cp='[⛄]' tts='pupazzo di neve'>neve; pupazzo</annotation>
 
-		<!-- GLOWING STAR; glittery; glow; place; shining; sparkle; star -->
+		<!-- GLOWING STAR; glittery; glow; shining; sparkle; star -->
 		<annotation cp='[🌟]' tts='stella che brilla'>brillante; scintillante; stella</annotation>
 
-		<!-- SHOOTING STAR; activity; falling; nature; place; shooting; space; star -->
+		<!-- SHOOTING STAR; activity; falling; shooting; space; star -->
 		<annotation cp='[🌠]' tts='stella cadente'>cadente; stella</annotation>
 
-		<!-- COMET; comet; object; space -->
-		<annotation cp='[☄]'>MISSING</annotation>
+		<!-- FIRE; fire; flame; tool -->
+		<annotation cp='[🔥]' tts='fuoco'>fuoco; fiamma</annotation>
 
-		<!-- GAME DIE; dice; die; game -->
-		<annotation cp='[🎲]' tts='dado'>dado; gioco dei dadi; dadi; gioco</annotation>
+		<!-- JACK-O-LANTERN; activity; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='zucca di Halloween'>zucca; Halloween; festa</annotation>
 
-		<!-- BLACK SPADE SUIT; card; game; spade; suit -->
-		<annotation cp='[♠]'>MISSING</annotation>
+		<!-- CHRISTMAS TREE; activity; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='albero di Natale'>albero; Natale; festa</annotation>
 
-		<!-- BLACK HEART SUIT; card; emotion; game; heart; hearts; suit -->
-		<annotation cp='[♥]'>MISSING</annotation>
+		<!-- FIREWORKS; activity; celebration; fireworks -->
+		<annotation cp='[🎆]' tts='fuoco d&apos;artificio'>festa</annotation>
 
-		<!-- BLACK DIAMOND SUIT; card; diamond; diamonds; game; suit -->
-		<annotation cp='[♦]'>MISSING</annotation>
+		<!-- FIREWORK SPARKLER; activity; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' tts='stella filante'>fuoco d&apos;artificio; festa</annotation>
 
-		<!-- BLACK CLUB SUIT; card; club; clubs; game; suit -->
-		<annotation cp='[♣]'>MISSING</annotation>
+		<!-- SPARKLES; sign; sparkle; star -->
+		<annotation cp='[✨]' tts='stelline'>stelline; scintille; stelle</annotation>
 
-		<!-- PLAYING CARD BLACK JOKER; card; game; joker; playing -->
-		<annotation cp='[🃏]' tts='Joker'>Joker; carta Joker; carta da gioco</annotation>
+		<!-- BALLOON; activity; balloon; celebration -->
+		<annotation cp='[🎈]' tts='palloncino'>palloncino; festa</annotation>
 
-		<!-- MAHJONG TILE RED DRAGON; game; mahjong; red -->
-		<annotation cp='[🀄]' tts='Tessera Mahjong'>drago rosso; drago; tessera</annotation>
+		<!-- PARTY POPPER; activity; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='spara coriandoli'>party; coriandoli; festa</annotation>
 
-		<!-- VIDEO GAME; controller; entertainment; game; video game -->
-		<annotation cp='[🎮]' tts='video gioco'>console video gioco; console; gioco</annotation>
+		<!-- CONFETTI BALL; activity; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='coriandoli'>coriandoli; palla di coriandoli; palla; festa</annotation>
 
-		<!-- JOYSTICK; entertainment; game; joystick; object; video game -->
-		<annotation cp='[🕹]'>MISSING</annotation>
+		<!-- TANABATA TREE; activity; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='albero decorato'>Festa delle stelle; albero; decorazioni di carta; festa</annotation>
+
+		<!-- CROSSED FLAGS; activity; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='bandiere incrociate'>bandiere del Giappone incrociate; incrociate; bandiere; festa</annotation>
+
+		<!-- PINE DECORATION; activity; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='pino decorato'>Capodanno; giapponese; pino festa</annotation>
+
+		<!-- JAPANESE DOLLS; activity; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='bambole giapponesi'>bambole; giapponesi; Festa delle bambole; festa</annotation>
+
+		<!-- CARP STREAMER; activity; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='aquilone a forma di carpa'>aquilone; carpa; festa</annotation>
+
+		<!-- WIND CHIME; activity; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='campana al vento'>campana</annotation>
+
+		<!-- MOON VIEWING CEREMONY; activity; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='contemplazione della luna'>festa della contemplazione della luna; luna; contemplazione festa</annotation>
+
+		<!-- GRADUATION CAP; activity; cap; celebration; education; graduation; hat -->
+		<annotation cp='[🎓]' tts='cappello da laureato'>cappello; laurea; festa</annotation>
+
+		<!-- DIRECT HIT; activity; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' tts='bersaglio'>bersaglio; colpire; target; gioco</annotation>
+
+		<!-- FLOWER PLAYING CARDS; activity; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='carta da gioco'>carta dei fiori; gioco di carte; carta; gioco; Hanafuda</annotation>
+
+		<!-- RIBBON; celebration; ribbon -->
+		<annotation cp='[🎀]' tts='fiocco'>fiocco; festa</annotation>
+
+		<!-- WRAPPED PRESENT; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='regalo'>regalo; dono; pacchetto regalo; pacchetto; festa</annotation>
+
+		<!-- TICKET; activity; admission; entertainment; ticket -->
+		<annotation cp='[🎫]' tts='biglietto'>biglietto; intrattenimento</annotation>
 
 		<!-- SOCCER BALL; ball; soccer; sport -->
 		<annotation cp='[⚽]' tts='pallone da calcio'>calcio; pallone</annotation>
@@ -1843,14 +1642,8 @@
 		<!-- BOWLING; ball; bowling; game; sport -->
 		<annotation cp='[🎳]' tts='bowling'>bowling; palla da bowling; palla; gioco</annotation>
 
-		<!-- FLAG IN HOLE; flag; golf; hole; sport; travel -->
+		<!-- FLAG IN HOLE; golf; hole; sport; travel -->
 		<annotation cp='[⛳]' tts='bandiera in buca'>golf; bandiera golf; buca</annotation>
-
-		<!-- GOLFER; ball; golf; human; person; sport -->
-		<annotation cp='[🏌]'>MISSING</annotation>
-
-		<!-- ICE SKATE; ice; skate; sport; travel -->
-		<annotation cp='[⛸]'>MISSING</annotation>
 
 		<!-- FISHING POLE AND FISH; entertainment; fish; pole; sport -->
 		<annotation cp='[🎣]' tts='canna da pesca'>pesca; pesce; lenza; intrattenimento</annotation>
@@ -1861,32 +1654,38 @@
 		<!-- SKI AND SKI BOOT; ski; snow; sport -->
 		<annotation cp='[🎿]' tts='sci'>sci; scarpone da sci; scarpone; sport</annotation>
 
-		<!-- SKIER; human; person; ski; snow; sport; travel -->
-		<annotation cp='[⛷]'>MISSING</annotation>
-
-		<!-- SNOWBOARDER; human; person; ski; snow; snowboard; sport -->
+		<!-- SNOWBOARDER; person; ski; snow; snowboard; sport -->
 		<annotation cp='[🏂]' tts='omino in snowboard'>snowboard; sport</annotation>
 
-		<!-- SURFER; human; person; sport; surfer; surfing -->
+		<!-- SURFER; person; sport; surfer; surfing -->
 		<annotation cp='[🏄]' tts='surf'>surf; omino che fa surf; sport</annotation>
 
-		<!-- HORSE RACING; horse; human; jockey; person; racehorse; racing; sport; travel -->
+		<!-- HORSE RACING; horse; jockey; person; racehorse; racing; sport; travel -->
 		<annotation cp='[🏇]' tts='ippica'>ippica; cavallo da corsa; fantino; corse; cavallo; sport</annotation>
 
-		<!-- SWIMMER; human; person; sport; swim; swimmer; travel -->
+		<!-- SWIMMER; person; sport; swim; swimmer; travel -->
 		<annotation cp='[🏊]' tts='omino che nuota'>nuotare; nuoto; sport</annotation>
 
-		<!-- PERSON WITH BALL; ball; human; person; sport; travel -->
-		<annotation cp='[⛹]'>MISSING</annotation>
+		<!-- BICYCLIST; bicycle; bicyclist; bike; cyclist; person; sport; travel -->
+		<annotation cp='[🚴]' tts='ciclista'>ciclista; bici</annotation>
 
-		<!-- WEIGHT LIFTER; human; lifter; person; sport; weight -->
-		<annotation cp='[🏋]'>MISSING</annotation>
-
-		<!-- SPORTS MEDAL; medal; sport -->
-		<annotation cp='[🏅]'>MISSING</annotation>
+		<!-- MOUNTAIN BICYCLIST; bicycle; bicyclist; bike; cyclist; mountain; person; sport; travel -->
+		<annotation cp='[🚵]' tts='ciclista mountain bike'>mountain bike; ciclista</annotation>
 
 		<!-- TROPHY; prize; sport; trophy -->
 		<annotation cp='[🏆]' tts='coppa'>coppa; trofeo; premio</annotation>
+
+		<!-- VIDEO GAME; controller; entertainment; game; video game -->
+		<annotation cp='[🎮]' tts='video gioco'>console video gioco; console; gioco</annotation>
+
+		<!-- GAME DIE; dice; die; game -->
+		<annotation cp='[🎲]' tts='dado'>dado; gioco dei dadi; dadi; gioco</annotation>
+
+		<!-- PLAYING CARD BLACK JOKER; card; game; joker; playing -->
+		<annotation cp='[🃏]' tts='Joker'>Joker; carta Joker; carta da gioco</annotation>
+
+		<!-- MAHJONG TILE RED DRAGON; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='Tessera Mahjong'>drago rosso; drago; tessera</annotation>
 
 		<!-- SPEAKER WITH CANCELLATION STROKE; mute; quiet; silent; sound; speaker; volume -->
 		<annotation cp='[🔇]' tts='suono disattivato'>altoparlante barrato; silenzio</annotation>
@@ -1906,7 +1705,7 @@
 		<!-- CHEERING MEGAPHONE; cheering; communication; megaphone; sound -->
 		<annotation cp='[📣]' tts='megafono'>megafono; comunicazione</annotation>
 
-		<!-- POSTAL HORN; communication; horn; object; post; postal; sound -->
+		<!-- POSTAL HORN; communication; horn; post; postal; sound -->
 		<annotation cp='[📯]' tts='cornetto postale'>postale; cornetto</annotation>
 
 		<!-- BELL; bell; sound -->
@@ -1924,26 +1723,11 @@
 		<!-- CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS WITH CIRCLED ONE OVERLAY; arrow; clockwise; once -->
 		<annotation cp='[🔂]' tts='frecce a cerchio numero 1'>frecce senso orario  numero 1; frecce senso orario; senso orario; frecce; numero 1</annotation>
 
-		<!-- BLACK RIGHT-POINTING TRIANGLE; arrow; play; right; sound; triangle -->
-		<annotation cp='[▶]'>MISSING</annotation>
-
 		<!-- BLACK RIGHT-POINTING DOUBLE TRIANGLE; arrow; double; fast; forward; sound -->
 		<annotation cp='[⏩]' tts='avanzamento rapido'>doppia freccia a destra; destra; freccia</annotation>
 
-		<!-- BLACK RIGHT-POINTING DOUBLE TRIANGLE WITH VERTICAL BAR; arrow; next scene; next track; sound; triangle -->
-		<annotation cp='[⏭]'>MISSING</annotation>
-
-		<!-- BLACK RIGHT-POINTING TRIANGLE WITH DOUBLE VERTICAL BAR; arrow; pause; play; right; sound; triangle -->
-		<annotation cp='[⏯]'>MISSING</annotation>
-
-		<!-- BLACK LEFT-POINTING TRIANGLE; arrow; left; reverse; sound; triangle -->
-		<annotation cp='[◀]'>MISSING</annotation>
-
 		<!-- BLACK LEFT-POINTING DOUBLE TRIANGLE; arrow; double; rewind; sound -->
 		<annotation cp='[⏪]' tts='riavvolgimento rapido'>doppia freccia a sinistra; sinistra; freccia</annotation>
-
-		<!-- BLACK LEFT-POINTING DOUBLE TRIANGLE WITH VERTICAL BAR; arrow; previous scene; previous track; sound; triangle -->
-		<annotation cp='[⏮]'>MISSING</annotation>
 
 		<!-- UP-POINTING SMALL RED TRIANGLE; arrow; button; red -->
 		<annotation cp='[🔼]' tts='pulsante triangolo alto'>triangolo; pulsante; alto</annotation>
@@ -1957,18 +1741,6 @@
 		<!-- BLACK DOWN-POINTING DOUBLE TRIANGLE; arrow; double; down; sound -->
 		<annotation cp='[⏬]' tts='freccia in basso'>doppia freccia in basso; basso; freccia</annotation>
 
-		<!-- DOUBLE VERTICAL BAR; bar; double; pause; sound; vertical -->
-		<annotation cp='[⏸]'>MISSING</annotation>
-
-		<!-- BLACK SQUARE FOR STOP; sound; square; stop -->
-		<annotation cp='[⏹]'>MISSING</annotation>
-
-		<!-- BLACK CIRCLE FOR RECORD; circle; record; sound -->
-		<annotation cp='[⏺]'>MISSING</annotation>
-
-		<!-- EJECT SYMBOL; eject; sound -->
-		<annotation cp='[⏏]'>MISSING</annotation>
-
 		<!-- MUSICAL SCORE; activity; music; score; sound -->
 		<annotation cp='[🎼]' tts='pentagramma'>pentagramma; musica; partitura</annotation>
 
@@ -1977,15 +1749,6 @@
 
 		<!-- MULTIPLE MUSICAL NOTES; activity; music; note; notes; sound -->
 		<annotation cp='[🎶]' tts='note musicali'>musica; nota; note</annotation>
-
-		<!-- STUDIO MICROPHONE; mic; microphone; music; object; sound; studio -->
-		<annotation cp='[🎙]'>MISSING</annotation>
-
-		<!-- LEVEL SLIDER; level; music; object; slider; sound -->
-		<annotation cp='[🎚]'>MISSING</annotation>
-
-		<!-- CONTROL KNOBS; control; knobs; music; object; sound -->
-		<annotation cp='[🎛]'>MISSING</annotation>
 
 		<!-- MICROPHONE; activity; entertainment; karaoke; mic; microphone; sound -->
 		<annotation cp='[🎤]' tts='microfono'>microfono; Karaoke; intrattenimento</annotation>
@@ -2008,70 +1771,31 @@
 		<!-- VIOLIN; activity; instrument; music; sound; violin -->
 		<annotation cp='[🎻]' tts='violino'>violino; strumento musicale; musica; strumento</annotation>
 
-		<!-- RADIO; object; radio; video -->
+		<!-- RADIO; radio; video -->
 		<annotation cp='[📻]' tts='radio'>radio</annotation>
 
-		<!-- MOBILE PHONE; cell; communication; mobile; object; phone -->
+		<!-- MOBILE PHONE; cell; communication; mobile; phone -->
 		<annotation cp='[📱]' tts='cellulare'>cellulare; telefono</annotation>
 
-		<!-- VIBRATION MODE; cell; communication; mobile; mode; object; phone; vibration -->
+		<!-- VIBRATION MODE; cell; communication; mobile; mode; phone; vibration -->
 		<annotation cp='[📳]' tts='modalità vibrazione'>cellulare; telefono modalità</annotation>
 
-		<!-- MOBILE PHONE OFF; cell; communication; mobile; object; off; phone -->
+		<!-- MOBILE PHONE OFF; cell; communication; mobile; off; phone -->
 		<annotation cp='[📴]' tts='cellulare spento'>cellulare; telefono; spento</annotation>
 
-		<!-- MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT; arrow; call; cell; communication; mobile; object; phone; receive -->
+		<!-- MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT; arrow; call; cell; communication; mobile; phone; receive -->
 		<annotation cp='[📲]' tts='cellulare con freccia'>telefonare; cellulare; telefono</annotation>
 
-		<!-- NO MOBILE PHONES; cell; communication; forbidden; mobile; no; not; object; phone; prohibited -->
+		<!-- NO MOBILE PHONES; cell; communication; forbidden; mobile; no; not; phone; prohibited -->
 		<annotation cp='[📵]' tts='divieto cellulare'>vietato telefonare; telefono</annotation>
-
-		<!-- BLACK TELEPHONE; office; phone; sound; telephone -->
-		<annotation cp='[☎]'>MISSING</annotation>
 
 		<!-- TELEPHONE RECEIVER; communication; phone; receiver; sound; telephone -->
 		<annotation cp='[📞]' tts='cornetta'>cornetta; telefono; cornetta del telefono; comunicazione</annotation>
 
-		<!-- NUMBER SIGN+COMBINING ENCLOSING KEYCAP; hash; keycap; pound; word -->
-		<annotation cp='[{#⃣}]'>MISSING</annotation>
-
-		<!-- ASTERISK+COMBINING ENCLOSING KEYCAP; asterisk; keycap; star -->
-		<annotation cp='[{*⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT ZERO+COMBINING ENCLOSING KEYCAP; 0; keycap; word; zero -->
-		<annotation cp='[{0⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT ONE+COMBINING ENCLOSING KEYCAP; 1; keycap; one; word -->
-		<annotation cp='[{1⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT TWO+COMBINING ENCLOSING KEYCAP; 2; keycap; two; word -->
-		<annotation cp='[{2⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT THREE+COMBINING ENCLOSING KEYCAP; 3; keycap; three; word -->
-		<annotation cp='[{3⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT FOUR+COMBINING ENCLOSING KEYCAP; 4; four; keycap; word -->
-		<annotation cp='[{4⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT FIVE+COMBINING ENCLOSING KEYCAP; 5; five; keycap; word -->
-		<annotation cp='[{5⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT SIX+COMBINING ENCLOSING KEYCAP; 6; keycap; six; word -->
-		<annotation cp='[{6⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT SEVEN+COMBINING ENCLOSING KEYCAP; 7; keycap; seven; word -->
-		<annotation cp='[{7⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT EIGHT+COMBINING ENCLOSING KEYCAP; 8; eight; keycap; word -->
-		<annotation cp='[{8⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT NINE+COMBINING ENCLOSING KEYCAP; 9; keycap; nine; word -->
-		<annotation cp='[{9⃣}]'>MISSING</annotation>
-
 		<!-- KEYCAP TEN; 10; keycap; ten; word -->
 		<annotation cp='[🔟]' tts='tasto dieci'>10</annotation>
 
-		<!-- ANTENNA WITH BARS; antenna; bar; communication; mobile; object; phone; signal -->
+		<!-- ANTENNA WITH BARS; antenna; bar; communication; mobile; phone; signal -->
 		<annotation cp='[📶]' tts='segnale cellulare'>antenna con tacche intensità segnale; segnale; antenna; cellulare; telefono</annotation>
 
 		<!-- PAGER; communication; office; pager -->
@@ -2080,31 +1804,46 @@
 		<!-- FAX MACHINE; communication; fax; office -->
 		<annotation cp='[📠]' tts='fax'>fax; comunicazione</annotation>
 
-		<!-- MOVIE CAMERA; activity; camera; cinema; entertainment; movie; object -->
+		<!-- BATTERY; battery -->
+		<annotation cp='[🔋]' tts='batteria'>batteria</annotation>
+
+		<!-- ELECTRIC PLUG; electric; electricity; plug -->
+		<annotation cp='[🔌]' tts='spina'>spina; spina elettrica; elettrica</annotation>
+
+		<!-- PERSONAL COMPUTER; computer; office; pc; personal -->
+		<annotation cp='[💻]' tts='PC'>PC; personal computer; computer; personal</annotation>
+
+		<!-- MINIDISC; computer; disc; minidisc; office; optical -->
+		<annotation cp='[💽]' tts='MD'>MD; mini disc; disc</annotation>
+
+		<!-- FLOPPY DISK; computer; disc; disk; floppy; office -->
+		<annotation cp='[💾]' tts='floppy disc'>floppy; disc</annotation>
+
+		<!-- OPTICAL DISC; blu-ray; cd; computer; disc; dvd; office; optical -->
+		<annotation cp='[💿]' tts='disco ottico'>blu-ray; DVD; CD; disco</annotation>
+
+		<!-- DVD; computer; disc; dvd; office; optical -->
+		<annotation cp='[📀]' tts='DVD'>DVD; disco DVD; disco</annotation>
+
+		<!-- MOVIE CAMERA; activity; camera; cinema; entertainment; movie -->
 		<annotation cp='[🎥]' tts='cinepresa'>cinepresa; telecamera; film; cinema; intrattenimento</annotation>
 
-		<!-- CINEMA; activity; camera; cinema; entertainment; film; movie; object -->
+		<!-- CINEMA; activity; camera; cinema; entertainment; film; movie -->
 		<annotation cp='[🎦]' tts='film'>film; cinema; simbolo film; intrattenimento</annotation>
 
-		<!-- CLAPPER BOARD; activity; clapper; entertainment; movie; object -->
+		<!-- CLAPPER BOARD; activity; clapper; entertainment; movie -->
 		<annotation cp='[🎬]' tts='ciak'>ciak; film; intrattenimento</annotation>
 
-		<!-- FILM PROJECTOR; cinema; entertainment; film; movie; object; projector; video -->
-		<annotation cp='[📽]'>MISSING</annotation>
-
-		<!-- TELEVISION; entertainment; object; television; tv; video -->
+		<!-- TELEVISION; entertainment; television; tv; video -->
 		<annotation cp='[📺]' tts='TV'>TV; televisione</annotation>
 
-		<!-- CAMERA; camera; object; video -->
+		<!-- CAMERA; camera; video -->
 		<annotation cp='[📷]' tts='fotocamera'>fotocamera</annotation>
 
-		<!-- CAMERA WITH FLASH; camera; flash; object; video -->
-		<annotation cp='[📸]'>MISSING</annotation>
-
-		<!-- VIDEO CAMERA; camera; object; video -->
+		<!-- VIDEO CAMERA; camera; video -->
 		<annotation cp='[📹]' tts='videocamera'>videocamera; camera; video</annotation>
 
-		<!-- VIDEOCASSETTE; object; tape; vhs; video; videocassette -->
+		<!-- VIDEOCASSETTE; tape; vhs; video; videocassette -->
 		<annotation cp='[📼]' tts='videocassetta'>videocassetta; video; cassetta</annotation>
 
 		<!-- LOW BRIGHTNESS SYMBOL; brightness; dim; low; sign -->
@@ -2113,110 +1852,29 @@
 		<!-- HIGH BRIGHTNESS SYMBOL; bright; brightness; sign -->
 		<annotation cp='[🔆]' tts='alta luminosità'>luminoso; simbolo alta  luminosità; luminosità</annotation>
 
-		<!-- LEFT-POINTING MAGNIFYING GLASS; glass; magnifying; object; search; tool -->
+		<!-- LEFT-POINTING MAGNIFYING GLASS; glass; magnifying; search; tool -->
 		<annotation cp='[🔍]' tts='lente ingrandimento verso sinistra'>lente  ingrandimento; cerca; verso sinistra; lente</annotation>
 
-		<!-- RIGHT-POINTING MAGNIFYING GLASS; glass; magnifying; object; search; tool -->
+		<!-- RIGHT-POINTING MAGNIFYING GLASS; glass; magnifying; search; tool -->
 		<annotation cp='[🔎]' tts='lente ingrandimento verso destra'>lente  ingrandimento; cerca; verso destra; lente</annotation>
 
-		<!-- MICROSCOPE; microscope; object; tool -->
+		<!-- MICROSCOPE; microscope; tool -->
 		<annotation cp='[🔬]' tts='microscopio'>microscopio</annotation>
 
-		<!-- TELESCOPE; object; telescope; tool -->
+		<!-- TELESCOPE; telescope; tool -->
 		<annotation cp='[🔭]' tts='telescopio'>telescopio</annotation>
 
-		<!-- FIRE; fire; flame; object; tool -->
-		<annotation cp='[🔥]' tts='fuoco'>fuoco; fiamma</annotation>
+		<!-- SATELLITE ANTENNA; antenna; communication; dish; office; satellite -->
+		<annotation cp='[📡]' tts='antenna'>antenna; satellitare; antenna satellitare; parabola; comunicazione</annotation>
 
-		<!-- CANDLE; candle; light; object -->
-		<annotation cp='[🕯]'>MISSING</annotation>
-
-		<!-- ELECTRIC LIGHT BULB; bulb; comic; electric; idea; light; object -->
+		<!-- ELECTRIC LIGHT BULB; bulb; comic; electric; idea; light -->
 		<annotation cp='[💡]' tts='lampadina'>lampadina; idea; elettrica; luce; fumetto</annotation>
 
-		<!-- ELECTRIC TORCH; electric; flashlight; light; object; tool; torch -->
+		<!-- ELECTRIC TORCH; electric; flashlight; light; tool; torch -->
 		<annotation cp='[🔦]' tts='torcia'>torcia; torcia elettrica; elettrica</annotation>
 
-		<!-- IZAKAYA LANTERN; bar; japanese; lantern; light; place; red; restaurant -->
+		<!-- IZAKAYA LANTERN; bar; japanese; lantern; light; red; restaurant -->
 		<annotation cp='[🏮]' tts='lanterna rossa'>rosso; lanterna; izakaya; bar ristorante</annotation>
-
-		<!-- JACK-O-LANTERN; activity; celebration; halloween; jack; lantern; object -->
-		<annotation cp='[🎃]' tts='zucca di Halloween'>zucca; Halloween; festa</annotation>
-
-		<!-- CHRISTMAS TREE; activity; celebration; christmas; object; tree -->
-		<annotation cp='[🎄]' tts='albero di Natale'>albero; Natale; festa</annotation>
-
-		<!-- FIREWORKS; activity; celebration; fireworks; object -->
-		<annotation cp='[🎆]' tts='fuoco d&apos;artificio'>festa</annotation>
-
-		<!-- FIREWORK SPARKLER; activity; celebration; fireworks; object; sparkle -->
-		<annotation cp='[🎇]' tts='stella filante'>fuoco d&apos;artificio; festa</annotation>
-
-		<!-- SPARKLES; sign; sparkle; star -->
-		<annotation cp='[✨]' tts='stelline'>stelline; scintille; stelle</annotation>
-
-		<!-- BALLOON; activity; balloon; celebration; object -->
-		<annotation cp='[🎈]' tts='palloncino'>palloncino; festa</annotation>
-
-		<!-- PARTY POPPER; activity; celebration; object; party; popper; tada -->
-		<annotation cp='[🎉]' tts='spara coriandoli'>party; coriandoli; festa</annotation>
-
-		<!-- CONFETTI BALL; activity; ball; celebration; confetti; object -->
-		<annotation cp='[🎊]' tts='coriandoli'>coriandoli; palla di coriandoli; palla; festa</annotation>
-
-		<!-- TANABATA TREE; activity; banner; celebration; japanese; object; tree -->
-		<annotation cp='[🎋]' tts='albero decorato'>Festa delle stelle; albero; decorazioni di carta; festa</annotation>
-
-		<!-- CROSSED FLAGS; activity; celebration; cross; crossed; flag; japanese -->
-		<annotation cp='[🎌]' tts='bandiere incrociate'>bandiere del Giappone incrociate; incrociate; bandiere; festa</annotation>
-
-		<!-- PINE DECORATION; activity; bamboo; celebration; japanese; object; pine; plant -->
-		<annotation cp='[🎍]' tts='pino decorato'>Capodanno; giapponese; pino festa</annotation>
-
-		<!-- JAPANESE DOLLS; activity; celebration; doll; festival; japanese -->
-		<annotation cp='[🎎]' tts='bambole giapponesi'>bambole; giapponesi; Festa delle bambole; festa</annotation>
-
-		<!-- CARP STREAMER; activity; carp; celebration; flag; object; streamer -->
-		<annotation cp='[🎏]' tts='aquilone a forma di carpa'>aquilone; carpa; festa</annotation>
-
-		<!-- WIND CHIME; activity; bell; celebration; chime; object; wind -->
-		<annotation cp='[🎐]' tts='campana al vento'>campana</annotation>
-
-		<!-- MOON VIEWING CEREMONY; activity; celebration; ceremony; moon; object -->
-		<annotation cp='[🎑]' tts='contemplazione della luna'>festa della contemplazione della luna; luna; contemplazione festa</annotation>
-
-		<!-- GRADUATION CAP; activity; cap; celebration; education; graduation; hat; object -->
-		<annotation cp='[🎓]' tts='cappello da laureato'>cappello; laurea; festa</annotation>
-
-		<!-- ARTIST PALETTE; activity; art; entertainment; object; painting; palette -->
-		<annotation cp='[🎨]' tts='tavolozza dei colori'>tavolozza; colori; pittura; arte</annotation>
-
-		<!-- DIRECT HIT; activity; bull’s eye; dart; eye; game; hit; object; target -->
-		<annotation cp='[🎯]' tts='bersaglio'>bersaglio; colpire; target; gioco</annotation>
-
-		<!-- FLOWER PLAYING CARDS; activity; card; flower; game; japanese; object; playing -->
-		<annotation cp='[🎴]' tts='carta da gioco'>carta dei fiori; gioco di carte; carta; gioco; Hanafuda</annotation>
-
-		<!-- RIBBON; celebration; object; ribbon -->
-		<annotation cp='[🎀]' tts='fiocco'>fiocco; festa</annotation>
-
-		<!-- WRAPPED PRESENT; box; celebration; gift; object; present; wrapped -->
-		<annotation cp='[🎁]' tts='regalo'>regalo; dono; pacchetto regalo; pacchetto; festa</annotation>
-
-		<!-- MILITARY MEDAL; celebration; medal; military; object -->
-		<annotation cp='[🎖]'>MISSING</annotation>
-
-		<!-- REMINDER RIBBON; celebration; object; reminder; ribbon -->
-		<annotation cp='[🎗]'>MISSING</annotation>
-
-		<!-- FILM FRAMES; cinema; entertainment; film; frames; movie; object -->
-		<annotation cp='[🎞]'>MISSING</annotation>
-
-		<!-- ADMISSION TICKETS; admission; entertainment; object; ticket -->
-		<annotation cp='[🎟]'>MISSING</annotation>
-
-		<!-- LABEL; label; object -->
-		<annotation cp='[🏷]'>MISSING</annotation>
 
 		<!-- NOTEBOOK WITH DECORATIVE COVER; book; cover; decorated; education; notebook; office -->
 		<annotation cp='[📔]' tts='taccuino copertina decorata'>taccuino decorato; taccuino con decorazione; taccuino; copertina</annotation>
@@ -2254,20 +1912,14 @@
 		<!-- PAGE FACING UP; document; office; page -->
 		<annotation cp='[📄]' tts='pagina di fronte'>documento; di fronte; pagina</annotation>
 
-		<!-- NEWSPAPER; communication; news; newspaper; object; paper -->
+		<!-- NEWSPAPER; communication; news; newspaper; paper -->
 		<annotation cp='[📰]' tts='quotidiano'>quotidiano; giornale</annotation>
-
-		<!-- ROLLED-UP NEWSPAPER; news; newspaper; object; paper; rolled -->
-		<annotation cp='[🗞]'>MISSING</annotation>
 
 		<!-- BOOKMARK TABS; bookmark; mark; marker; office; tabs -->
 		<annotation cp='[📑]' tts='linguette segnalibro'>segnalibro; linguette</annotation>
 
-		<!-- BOOKMARK; bookmark; mark; object -->
+		<!-- BOOKMARK; bookmark; mark -->
 		<annotation cp='[🔖]' tts='segnalibro'>segnalibro</annotation>
-
-		<!-- FRAME WITH PICTURE; art; frame; object; office; painting; picture -->
-		<annotation cp='[🖼]'>MISSING</annotation>
 
 		<!-- MONEY BAG; bag; dollar; money; moneybag; office -->
 		<annotation cp='[💰]' tts='sacco per soldi'>denaro; sacco</annotation>
@@ -2299,16 +1951,13 @@
 		<!-- CHART WITH UPWARDS TREND AND YEN SIGN; bank; chart; currency; graph; growth; market; money; office; rise; trend; upward; yen -->
 		<annotation cp='[💹]' tts='grafico ascendente'>mercato in salita; ascendente; grafico; mercato</annotation>
 
-		<!-- ENVELOPE; email; envelope; office -->
-		<annotation cp='[✉]'>MISSING</annotation>
-
-		<!-- E-MAIL SYMBOL; communication; email; letter; mail; office -->
+		<!-- E-MAIL SYMBOL; communication; e-mail; email; letter; mail; office -->
 		<annotation cp='[📧]' tts='email'>email; posta; posta elettronica; lettera; comunicazione</annotation>
 
-		<!-- INCOMING ENVELOPE; communication; email; envelope; incoming; letter; mail; office; receive -->
+		<!-- INCOMING ENVELOPE; communication; e-mail; email; envelope; incoming; letter; mail; office; receive -->
 		<annotation cp='[📨]' tts='posta in arrivo'>posta ricevuta; in arrivo; email; posta; lettera; busta; comunicazione</annotation>
 
-		<!-- ENVELOPE WITH DOWNWARDS ARROW ABOVE; arrow; communication; down; email; envelope; letter; mail; office; outgoing; sent -->
+		<!-- ENVELOPE WITH DOWNWARDS ARROW ABOVE; arrow; communication; down; e-mail; email; envelope; letter; mail; office; outgoing; sent -->
 		<annotation cp='[📩]' tts='posta in uscita'>posta inviata; in uscita; email; posta; lettera; busta; comunicazione</annotation>
 
 		<!-- OUTBOX TRAY; box; communication; letter; mail; office; outbox; sent; tray -->
@@ -2320,71 +1969,23 @@
 		<!-- PACKAGE; box; communication; office; package; parcel -->
 		<annotation cp='[📦]' tts='pacco'>pacco; collo; scatola</annotation>
 
-		<!-- CLOSED MAILBOX WITH RAISED FLAG; closed; communication; flag; mail; mailbox; office; postbox -->
+		<!-- CLOSED MAILBOX WITH RAISED FLAG; closed; communication; mail; mailbox; office; postbox -->
 		<annotation cp='[📫]' tts='cassetta postale chiusa bandierina su'>cassetta postale; chiusa; posta; bandierina</annotation>
 
-		<!-- CLOSED MAILBOX WITH LOWERED FLAG; closed; communication; flag; lowered; mail; mailbox; office; postbox -->
+		<!-- CLOSED MAILBOX WITH LOWERED FLAG; closed; communication; lowered; mail; mailbox; office; postbox -->
 		<annotation cp='[📪]' tts='cassetta postale chiusa bandierina giù'>cassetta postale; chiusa; posta; bandierina</annotation>
 
-		<!-- OPEN MAILBOX WITH RAISED FLAG; communication; flag; mail; mailbox; office; open; postbox -->
+		<!-- OPEN MAILBOX WITH RAISED FLAG; communication; mail; mailbox; office; open; postbox -->
 		<annotation cp='[📬]' tts='cassetta postale aperta bandierina su'>cassetta postale; aperta; posta; bandierina</annotation>
 
-		<!-- OPEN MAILBOX WITH LOWERED FLAG; communication; flag; lowered; mail; mailbox; office; open; postbox -->
+		<!-- OPEN MAILBOX WITH LOWERED FLAG; communication; lowered; mail; mailbox; office; open; postbox -->
 		<annotation cp='[📭]' tts='casetta postale aperta bandierina giù'>cassetta postale; aperta; posta; bandierina</annotation>
 
 		<!-- POSTBOX; communication; mail; mailbox; office; postbox -->
 		<annotation cp='[📮]' tts='cassetta delle lettere'>cassetta delle lettere</annotation>
 
-		<!-- PENCIL; office; pencil -->
-		<annotation cp='[✏]'>MISSING</annotation>
-
-		<!-- BLACK NIB; nib; office; pen -->
-		<annotation cp='[✒]'>MISSING</annotation>
-
-		<!-- LOWER LEFT FOUNTAIN PEN; communication; fountain; office; pen -->
-		<annotation cp='[🖋]'>MISSING</annotation>
-
-		<!-- LOWER LEFT BALLPOINT PEN; ballpoint; communication; office; pen -->
-		<annotation cp='[🖊]'>MISSING</annotation>
-
-		<!-- LOWER LEFT PAINTBRUSH; communication; office; paintbrush; painting -->
-		<annotation cp='[🖌]'>MISSING</annotation>
-
-		<!-- LOWER LEFT CRAYON; communication; crayon; office -->
-		<annotation cp='[🖍]'>MISSING</annotation>
-
 		<!-- MEMO; communication; memo; office; pencil -->
 		<annotation cp='[📝]' tts='memo'>memo; block notes; comunicazione</annotation>
-
-		<!-- PERSONAL COMPUTER; computer; office; pc; personal -->
-		<annotation cp='[💻]' tts='PC'>PC; personal computer; computer; personal</annotation>
-
-		<!-- DESKTOP COMPUTER; computer; desktop; office -->
-		<annotation cp='[🖥]'>MISSING</annotation>
-
-		<!-- PRINTER; computer; office; printer -->
-		<annotation cp='[🖨]'>MISSING</annotation>
-
-		<!-- KEYBOARD; computer; keyboard; sign -->
-		<annotation cp='[⌨]'>MISSING</annotation>
-
-		<!-- THREE BUTTON MOUSE; 3; button; computer; mouse; office; three -->
-		<annotation cp='[🖱]'>MISSING</annotation>
-
-		<!-- TRACKBALL; computer; office; trackball -->
-		<annotation cp='[🖲]'>MISSING</annotation>
-
-		<!-- MINIDISC; computer; disc; minidisc; office; optical -->
-		<annotation cp='[💽]' tts='MD'>MD; mini disc; disc</annotation>
-
-		<!-- FLOPPY DISK; computer; disc; disk; floppy; office -->
-		<annotation cp='[💾]' tts='floppy disc'>floppy; disc</annotation>
-
-		<!-- OPTICAL DISC; cd; computer; disc; dvd; office; optical -->
-		<annotation cp='[💿]' tts='disco ottico'>blu-ray; DVD; CD; disco</annotation>
-
-		<!-- DVD; computer; disc; dvd; office; optical -->
-		<annotation cp='[📀]' tts='DVD'>DVD; disco DVD; disco</annotation>
 
 		<!-- BRIEFCASE; briefcase; office -->
 		<annotation cp='[💼]' tts='valigetta'>valigetta</annotation>
@@ -2395,20 +1996,11 @@
 		<!-- OPEN FILE FOLDER; file; folder; office; open -->
 		<annotation cp='[📂]' tts='cartella aperta'>cartella file aperta; aperta; file; cartella</annotation>
 
-		<!-- CARD INDEX DIVIDERS; card; dividers; index; office -->
-		<annotation cp='[🗂]'>MISSING</annotation>
-
 		<!-- CALENDAR; calendar; date; office -->
 		<annotation cp='[📅]' tts='calendario'>calendario</annotation>
 
 		<!-- TEAR-OFF CALENDAR; calendar; office -->
 		<annotation cp='[📆]' tts='calendario a strappo'>calendario</annotation>
-
-		<!-- SPIRAL NOTE PAD; note; office; pad; spiral -->
-		<annotation cp='[🗒]'>MISSING</annotation>
-
-		<!-- SPIRAL CALENDAR PAD; calendar; office; pad; spiral -->
-		<annotation cp='[🗓]'>MISSING</annotation>
 
 		<!-- CARD INDEX; card; index; office; rolodex -->
 		<annotation cp='[📇]' tts='schedario'>schedario</annotation>
@@ -2428,14 +2020,11 @@
 		<!-- PUSHPIN; office; pin; pushpin -->
 		<annotation cp='[📌]' tts='puntina'>puntina; puntina da disegno</annotation>
 
-		<!-- ROUND PUSHPIN; office; pin; place; pushpin -->
+		<!-- ROUND PUSHPIN; office; pin; pushpin -->
 		<annotation cp='[📍]' tts='puntina arrotondata'>puntina; puntina da disegno</annotation>
 
 		<!-- PAPERCLIP; office; paperclip -->
 		<annotation cp='[📎]' tts='graffetta'>graffetta; fermaglio</annotation>
-
-		<!-- LINKED PAPERCLIPS; communication; link; office; paperclip -->
-		<annotation cp='[🖇]'>MISSING</annotation>
 
 		<!-- STRAIGHT RULER; office; ruler; straight edge -->
 		<annotation cp='[📏]' tts='righello'>righello</annotation>
@@ -2446,974 +2035,824 @@
 		<!-- NAME BADGE; badge; name; office -->
 		<annotation cp='[📛]' tts='tesserino per nome'>tesserino; nome</annotation>
 
-		<!-- BLACK SCISSORS; office; scissors; tool -->
-		<annotation cp='[✂]'>MISSING</annotation>
-
-		<!-- CARD FILE BOX; box; card; file; office -->
-		<annotation cp='[🗃]'>MISSING</annotation>
-
-		<!-- FILE CABINET; cabinet; file; office -->
-		<annotation cp='[🗄]'>MISSING</annotation>
-
-		<!-- WASTEBASKET; office; wastebasket -->
-		<annotation cp='[🗑]'>MISSING</annotation>
-
-		<!-- LOCK; closed; lock; object -->
+		<!-- LOCK; closed; lock -->
 		<annotation cp='[🔒]' tts='lucchetto chiuso'>chiuso; lucchetto</annotation>
 
-		<!-- OPEN LOCK; lock; object; open; unlock -->
+		<!-- OPEN LOCK; lock; open; unlock -->
 		<annotation cp='[🔓]' tts='lucchetto aperto'>aperto; lucchetto</annotation>
 
-		<!-- LOCK WITH INK PEN; ink; lock; nib; object; pen; privacy -->
+		<!-- LOCK WITH INK PEN; ink; lock; nib; pen; privacy -->
 		<annotation cp='[🔏]' tts='lucchetto con penna stilo'>lucchetto; privacy; stilografica</annotation>
 
-		<!-- CLOSED LOCK WITH KEY; closed; key; lock; object; secure -->
+		<!-- CLOSED LOCK WITH KEY; closed; key; lock; secure -->
 		<annotation cp='[🔐]' tts='lucchetto chiuso con chiave'>lucchetto chiuso; chiave; sicuro</annotation>
 
-		<!-- KEY; key; lock; object; password -->
+		<!-- KEY; key; lock; password -->
 		<annotation cp='[🔑]' tts='chiave'>chiave; password</annotation>
 
-		<!-- OLD KEY; clue; key; lock; object; old -->
-		<annotation cp='[🗝]'>MISSING</annotation>
-
-		<!-- HAMMER; hammer; object; tool -->
+		<!-- HAMMER; hammer; tool -->
 		<annotation cp='[🔨]' tts='martello'>martello; attrezzo; utensile</annotation>
 
-		<!-- PICK; mining; object; pick; tool; travel -->
-		<annotation cp='[⛏]'>MISSING</annotation>
-
-		<!-- HAMMER AND PICK; hammer; object; pick; tool -->
-		<annotation cp='[⚒]'>MISSING</annotation>
-
-		<!-- HAMMER AND WRENCH; hammer; object; tool; wrench -->
-		<annotation cp='[🛠]'>MISSING</annotation>
-
-		<!-- WRENCH; object; tool; wrench -->
+		<!-- WRENCH; tool; wrench -->
 		<annotation cp='[🔧]' tts='chiave inglese'>inglese; chiave; attrezzo; utensile</annotation>
 
-		<!-- NUT AND BOLT; bolt; nut; object; tool -->
+		<!-- NUT AND BOLT; bolt; nut; tool -->
 		<annotation cp='[🔩]' tts='bullone'>bullone</annotation>
 
-		<!-- GEAR; gear; object; tool -->
-		<annotation cp='[⚙]'>MISSING</annotation>
-
-		<!-- COMPRESSION; compression; object; tool; vice -->
-		<annotation cp='[🗜]'>MISSING</annotation>
-
-		<!-- ALEMBIC; alembic; chemistry; object; tool -->
-		<annotation cp='[⚗]'>MISSING</annotation>
-
-		<!-- SCALES; balance; justice; libra; object; scales; tool; weight; zodiac -->
-		<annotation cp='[⚖]'>MISSING</annotation>
-
-		<!-- SYRINGE; doctor; medicine; needle; object; shot; sick; syringe; tool -->
-		<annotation cp='[💉]' tts='iniezione'>iniezione; siringa; ago; medicina; dottore</annotation>
-
-		<!-- DAGGER KNIFE; dagger; knife; object; weapon -->
-		<annotation cp='[🗡]'>MISSING</annotation>
-
-		<!-- HOCHO; cooking; hocho; knife; object; tool; weapon -->
-		<annotation cp='[🔪]' tts='coltello da cucina'>cucina; coltello</annotation>
-
-		<!-- CROSSED SWORDS; crossed; object; swords; weapon -->
-		<annotation cp='[⚔]'>MISSING</annotation>
-
-		<!-- PISTOL; gun; object; pistol; revolver; tool; weapon -->
-		<annotation cp='[🔫]' tts='pistola'>pistola; revolver; arma</annotation>
-
-		<!-- SHIELD; object; shield; weapon -->
-		<annotation cp='[🛡]'>MISSING</annotation>
-
-		<!-- SCHOOL SATCHEL; activity; bag; education; object; satchel; school -->
-		<annotation cp='[🎒]' tts='zaino di scuola'>cartella di scuola; cartella; scuola</annotation>
-
-		<!-- BATTERY; battery; object -->
-		<annotation cp='[🔋]' tts='batteria'>batteria</annotation>
-
-		<!-- ELECTRIC PLUG; electric; electricity; object; plug -->
-		<annotation cp='[🔌]' tts='spina'>spina; spina elettrica; elettrica</annotation>
-
-		<!-- LINK SYMBOL; link; object -->
+		<!-- LINK SYMBOL; link -->
 		<annotation cp='[🔗]' tts='link'>link; simbolo link; due anelli</annotation>
 
-		<!-- CHAINS; chain; object; travel -->
-		<annotation cp='[⛓]'>MISSING</annotation>
+		<!-- SYRINGE; doctor; medicine; needle; shot; sick; syringe; tool -->
+		<annotation cp='[💉]' tts='iniezione'>iniezione; siringa; ago; medicina; dottore</annotation>
 
-		<!-- SMOKING SYMBOL; activity; object; smoking; travel -->
-		<annotation cp='[🚬]' tts='sigaretta'>sigaretta; area fumatori; simbolo</annotation>
-
-		<!-- LIPSTICK; cosmetics; lipstick; makeup; object -->
-		<annotation cp='[💄]' tts='rossetto'>rossetto; trucco; makeup; cosmetici</annotation>
-
-		<!-- RING; diamond; object; ring; romance -->
-		<annotation cp='[💍]' tts='anello'>anello; romanticismo</annotation>
-
-		<!-- GEM STONE; diamond; gem; jewel; object; romance -->
-		<annotation cp='[💎]' tts='gemma'>gemma; pietra preziosa; diamante; romanticismo</annotation>
-
-		<!-- OIL DRUM; drum; object; oil -->
-		<annotation cp='[🛢]'>MISSING</annotation>
-
-		<!-- CRYSTAL BALL; ball; crystal; fantasy; fortune; object; tool -->
-		<annotation cp='[🔮]' tts='sfera di cristallo'>cristallo; sfera; chiromanzia; futuro</annotation>
-
-		<!-- SIX POINTED STAR WITH MIDDLE DOT; fortune; object; star -->
-		<annotation cp='[🔯]' tts='stella a sei punte'>chiromanzia; sei punte; stella; futuro</annotation>
-
-		<!-- TRIDENT EMBLEM; anchor; emblem; object; ship; tool; trident -->
-		<annotation cp='[🔱]' tts='tridente'>tridente; simbolo tridente; ancora</annotation>
-
-		<!-- BALLOT BOX WITH BALLOT; ballot; box; object -->
-		<annotation cp='[🗳]'>MISSING</annotation>
-
-		<!-- PILL; doctor; medicine; object; pill; sick -->
+		<!-- PILL; doctor; medicine; pill; sick -->
 		<annotation cp='[💊]' tts='pillola'>pillola; medicina; dottore</annotation>
 
-		<!-- ATOM SYMBOL; atheist; atom; object -->
-		<annotation cp='[⚛]'>MISSING</annotation>
+		<!-- HOCHO; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='coltello da cucina'>cucina; coltello</annotation>
 
-		<!-- FLEUR-DE-LIS; object -->
-		<annotation cp='[⚜]'>MISSING</annotation>
+		<!-- PISTOL; gun; pistol; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='pistola'>pistola; revolver; arma</annotation>
 
-		<!-- COFFIN; coffin; death; object -->
-		<annotation cp='[⚰]'>MISSING</annotation>
+		<!-- SMOKING SYMBOL; activity; smoking; travel -->
+		<annotation cp='[🚬]' tts='sigaretta'>sigaretta; area fumatori; simbolo</annotation>
 
-		<!-- FUNERAL URN; death; funeral; object; urn -->
-		<annotation cp='[⚱]'>MISSING</annotation>
-
-		<!-- JAPANESE SYMBOL FOR BEGINNER; beginner; chevron; green; japanese; leaf; object; place; tool; yellow -->
-		<annotation cp='[🔰]' tts='principiante'>principiante; simbolo principiante Giappone; etichetta gialla e verde principiante</annotation>
-
-		<!-- HUNDRED POINTS SYMBOL; 100; full; hundred; office; score -->
-		<annotation cp='[💯]' tts='100 punti'>punteggio pieno; 100; punti</annotation>
-
-		<!-- SATELLITE ANTENNA; antenna; communication; dish; office; satellite -->
-		<annotation cp='[📡]' tts='antenna'>antenna; satellitare; antenna satellitare; parabola; comunicazione</annotation>
-
-		<!-- CHEQUERED FLAG; checkered; chequered; flag; racing; sport -->
+		<!-- CHEQUERED FLAG; checkered; chequered; racing; sport -->
 		<annotation cp='[🏁]' tts='bandiera a scacchi'>bandiera; scacchi; gara; sport</annotation>
 
-		<!-- WAVING WHITE FLAG; flag; waving -->
-		<annotation cp='[🏳]'>MISSING</annotation>
-
-		<!-- WAVING BLACK FLAG; flag; waving -->
-		<annotation cp='[🏴]'>MISSING</annotation>
-
-		<!-- TRIANGULAR FLAG ON POST; flag; post; travel -->
+		<!-- TRIANGULAR FLAG ON POST; post; travel -->
 		<annotation cp='[🚩]' tts='bandierina rossa'>bandierina rossa triangolare</annotation>
 
-		<!-- Afghanistan; afghanistan; flag -->
+		<!-- Afghanistan; afghanistan -->
 		<annotation cp='[{🇦🇫}]'>Afghanistan</annotation>
 
-		<!-- Åland Islands; åland; flag; islands -->
+		<!-- Åland Islands; åland -->
 		<annotation cp='[{🇦🇽}]'>Isole Aland</annotation>
 
-		<!-- Albania; albania; flag -->
+		<!-- Albania; albania -->
 		<annotation cp='[{🇦🇱}]'>Albania</annotation>
 
-		<!-- Algeria; algeria; flag -->
+		<!-- Algeria; algeria -->
 		<annotation cp='[{🇩🇿}]'>Algeria</annotation>
 
-		<!-- American Samoa; american; flag; samoa -->
+		<!-- American Samoa; american; samoa -->
 		<annotation cp='[{🇦🇸}]'>Samoa Americane</annotation>
 
-		<!-- Andorra; andorra; flag -->
+		<!-- Andorra; andorra -->
 		<annotation cp='[{🇦🇩}]'>Andorra</annotation>
 
-		<!-- Angola; angola; flag -->
+		<!-- Angola; angola -->
 		<annotation cp='[{🇦🇴}]'>Angola</annotation>
 
-		<!-- Anguilla; anguilla; flag -->
+		<!-- Anguilla; anguilla -->
 		<annotation cp='[{🇦🇮}]'>Anguilla</annotation>
 
-		<!-- Antarctica; antarctica; flag -->
+		<!-- Antarctica; antarctica -->
 		<annotation cp='[{🇦🇶}]'>Antartide</annotation>
 
-		<!-- Antigua &amp; Barbuda; antigua; barbuda; flag -->
+		<!-- Antigua &amp; Barbuda; antigua; barbuda -->
 		<annotation cp='[{🇦🇬}]'>Antigua e Barbuda</annotation>
 
-		<!-- Argentina; argentina; flag -->
+		<!-- Argentina; argentina -->
 		<annotation cp='[{🇦🇷}]'>Argentina</annotation>
 
-		<!-- Armenia; armenia; flag -->
+		<!-- Armenia; armenia -->
 		<annotation cp='[{🇦🇲}]'>Armenia</annotation>
 
-		<!-- Aruba; aruba; flag -->
+		<!-- Aruba; aruba -->
 		<annotation cp='[{🇦🇼}]'>Aruba</annotation>
 
-		<!-- Ascension Island; ascension; flag; island -->
+		<!-- Ascension Island; ascension; island -->
 		<annotation cp='[{🇦🇨}]'>Isola di Ascensione</annotation>
 
-		<!-- Australia; australia; flag -->
+		<!-- Australia; australia -->
 		<annotation cp='[{🇦🇺}]'>Australia</annotation>
 
-		<!-- Austria; austria; flag -->
+		<!-- Austria; austria -->
 		<annotation cp='[{🇦🇹}]'>Austria</annotation>
 
-		<!-- Azerbaijan; azerbaijan; flag -->
+		<!-- Azerbaijan; azerbaijan -->
 		<annotation cp='[{🇦🇿}]'>Azerbaigian</annotation>
 
-		<!-- Bahamas; bahamas; flag -->
+		<!-- Bahamas; bahamas -->
 		<annotation cp='[{🇧🇸}]'>Bahamas</annotation>
 
-		<!-- Bahrain; bahrain; flag -->
+		<!-- Bahrain; bahrain -->
 		<annotation cp='[{🇧🇭}]'>Bahrein</annotation>
 
-		<!-- Bangladesh; bangladesh; flag -->
+		<!-- Bangladesh; bangladesh -->
 		<annotation cp='[{🇧🇩}]'>Bangladesh</annotation>
 
-		<!-- Barbados; barbados; flag -->
+		<!-- Barbados; barbados -->
 		<annotation cp='[{🇧🇧}]'>Barbados</annotation>
 
-		<!-- Belarus; belarus; flag -->
+		<!-- Belarus; belarus -->
 		<annotation cp='[{🇧🇾}]'>Bielorussia</annotation>
 
-		<!-- Belgium; belgium; flag -->
+		<!-- Belgium; belgium -->
 		<annotation cp='[{🇧🇪}]'>Belgio</annotation>
 
-		<!-- Belize; belize; flag -->
+		<!-- Belize; belize -->
 		<annotation cp='[{🇧🇿}]'>Belize</annotation>
 
-		<!-- Benin; benin; flag -->
+		<!-- Benin; benin -->
 		<annotation cp='[{🇧🇯}]'>Benin</annotation>
 
-		<!-- Bermuda; bermuda; flag -->
+		<!-- Bermuda; bermuda -->
 		<annotation cp='[{🇧🇲}]'>Bermuda</annotation>
 
-		<!-- Bhutan; bhutan; flag -->
+		<!-- Bhutan; bhutan -->
 		<annotation cp='[{🇧🇹}]'>Bhutan</annotation>
 
-		<!-- Bolivia; bolivia; flag -->
+		<!-- Bolivia; bolivia -->
 		<annotation cp='[{🇧🇴}]'>Bolivia</annotation>
 
-		<!-- Bosnia &amp; Herzegovina; bosnia; flag; herzegovina -->
+		<!-- Bosnia &amp; Herzegovina; bosnia; herzegovina -->
 		<annotation cp='[{🇧🇦}]'>Bosnia-Erzegovina</annotation>
 
-		<!-- Botswana; botswana; flag -->
+		<!-- Botswana; botswana -->
 		<annotation cp='[{🇧🇼}]'>Botswana</annotation>
 
-		<!-- Bouvet Island; bouvet; flag; island -->
+		<!-- Bouvet Island; bouvet; island -->
 		<annotation cp='[{🇧🇻}]'>Isola Bouvet</annotation>
 
-		<!-- Brazil; brazil; flag -->
+		<!-- Brazil; brazil -->
 		<annotation cp='[{🇧🇷}]'>Brasile</annotation>
 
-		<!-- British Indian Ocean Territory; british; flag; indian; ocean -->
+		<!-- British Indian Ocean Territory; british; chagos; indian ocean; island -->
 		<annotation cp='[{🇮🇴}]'>Territorio Britannico dell’Oceano Indiano</annotation>
 
-		<!-- British Virgin Islands; british; flag; islands; virgin islands -->
+		<!-- British Virgin Islands; british; island; virgin -->
 		<annotation cp='[{🇻🇬}]'>Isole Vergini Britanniche</annotation>
 
-		<!-- Brunei; brunei; darussalam; flag -->
+		<!-- Brunei; brunei; darussalam -->
 		<annotation cp='[{🇧🇳}]'>Brunei</annotation>
 
-		<!-- Bulgaria; bulgaria; flag -->
+		<!-- Bulgaria; bulgaria -->
 		<annotation cp='[{🇧🇬}]'>Bulgaria</annotation>
 
-		<!-- Burkina Faso; burkina; faso; flag -->
+		<!-- Burkina Faso; burkina faso -->
 		<annotation cp='[{🇧🇫}]'>Burkina Faso</annotation>
 
-		<!-- Burundi; burundi; flag -->
+		<!-- Burundi; burundi -->
 		<annotation cp='[{🇧🇮}]'>Burundi</annotation>
 
-		<!-- Cambodia; cambodia; flag -->
+		<!-- Cambodia; cambodia -->
 		<annotation cp='[{🇰🇭}]'>Cambogia</annotation>
 
-		<!-- Cameroon; cameroon; flag -->
+		<!-- Cameroon; cameroon -->
 		<annotation cp='[{🇨🇲}]'>Camerun</annotation>
 
-		<!-- Canada; canada; flag -->
+		<!-- Canada; canada -->
 		<annotation cp='[{🇨🇦}]'>Canada</annotation>
 
-		<!-- Canary Islands; canary; flag; islands -->
+		<!-- Canary Islands; canary; island -->
 		<annotation cp='[{🇮🇨}]'>Isole Canarie</annotation>
 
-		<!-- Cape Verde; cabo; cape; flag; verde -->
+		<!-- Cape Verde; cabo; cape; verde -->
 		<annotation cp='[{🇨🇻}]'>Capo Verde</annotation>
 
-		<!-- Caribbean Netherlands; bonaire; caribbean; eustatius; flag; netherlands; saba; sint -->
+		<!-- Caribbean Netherlands; bonaire; caribbean; eustatius; netherlands; saba; sint -->
 		<annotation cp='[{🇧🇶}]'>Caraibi Olandesi</annotation>
 
-		<!-- Cayman Islands; cayman; flag; islands -->
+		<!-- Cayman Islands; cayman; island -->
 		<annotation cp='[{🇰🇾}]'>Isole Cayman</annotation>
 
-		<!-- Central African Republic; african; central; flag -->
+		<!-- Central African Republic; central african republic; republic -->
 		<annotation cp='[{🇨🇫}]'>Repubblica Centrafricana</annotation>
 
-		<!-- Ceuta &amp; Melilla; ceuta; flag; melilla -->
+		<!-- Ceuta &amp; Melilla; ceuta; melilla -->
 		<annotation cp='[{🇪🇦}]'>Ceuta e Melilla</annotation>
 
-		<!-- Chad; chad; flag -->
+		<!-- Chad; chad -->
 		<annotation cp='[{🇹🇩}]'>Ciad</annotation>
 
-		<!-- Chile; chile; flag -->
+		<!-- Chile; chile -->
 		<annotation cp='[{🇨🇱}]'>Cile</annotation>
 
-		<!-- China; china; flag -->
+		<!-- China; china -->
 		<annotation cp='[{🇨🇳}]'>Cina</annotation>
 
-		<!-- Christmas Island; christmas; flag; island -->
+		<!-- Christmas Island; christmas; island -->
 		<annotation cp='[{🇨🇽}]'>Isola di Christmas</annotation>
 
-		<!-- Clipperton Island; clipperton; flag; island -->
+		<!-- Clipperton Island; clipperton; island -->
 		<annotation cp='[{🇨🇵}]'>Isola di Clipperton</annotation>
 
-		<!-- Cocos (Keeling) Islands; cocos; flag; islands; keeling -->
+		<!-- Cocos (Keeling) Islands; cocos; island; keeling -->
 		<annotation cp='[{🇨🇨}]'>Isole Cocos</annotation>
 
-		<!-- Colombia; colombia; flag -->
+		<!-- Colombia; colombia -->
 		<annotation cp='[{🇨🇴}]'>Colombia</annotation>
 
-		<!-- Comoros; comoros; flag -->
+		<!-- Comoros; comoros -->
 		<annotation cp='[{🇰🇲}]'>Comore</annotation>
 
-		<!-- Congo - Brazzaville; brazzaville; congo; flag -->
+		<!-- Congo - Brazzaville; brazzaville; congo; congo republic; congo-brazzaville; republic; republic of the congo -->
 		<annotation cp='[{🇨🇬}]'>Congo-Brazzaville</annotation>
 
-		<!-- Congo - Kinshasa; congo; flag; kinshasa -->
+		<!-- Congo - Kinshasa; congo; congo-kinshasa; democratic republic of congo; drc; kinshasa; republic -->
 		<annotation cp='[{🇨🇩}]'>Congo - Kinshasa</annotation>
 
-		<!-- Cook Islands; cook; flag; islands -->
+		<!-- Cook Islands; cook; island -->
 		<annotation cp='[{🇨🇰}]'>Isole Cook</annotation>
 
-		<!-- Costa Rica; costa; flag; rica -->
+		<!-- Costa Rica; costa rica -->
 		<annotation cp='[{🇨🇷}]'>Costa Rica</annotation>
 
-		<!-- Côte d’Ivoire; coast; cote; côte; flag; ivoire; ivory -->
+		<!-- Côte d’Ivoire; cote ivoire; côte ivoire; ivory coast -->
 		<annotation cp='[{🇨🇮}]'>Costa d’Avorio</annotation>
 
-		<!-- Croatia; croatia; flag -->
+		<!-- Croatia; croatia -->
 		<annotation cp='[{🇭🇷}]'>Croazia</annotation>
 
-		<!-- Cuba; cuba; flag -->
+		<!-- Cuba; cuba -->
 		<annotation cp='[{🇨🇺}]'>Cuba</annotation>
 
-		<!-- Curaçao; antilles; curacao; curaçao; flag; netherlands -->
+		<!-- Curaçao; antilles; curacao; curaçao -->
 		<annotation cp='[{🇨🇼}]'>Curaçao</annotation>
 
-		<!-- Cyprus; cyprus; flag -->
+		<!-- Cyprus; cyprus -->
 		<annotation cp='[{🇨🇾}]'>Cipro</annotation>
 
-		<!-- Czech Republic; czech; flag -->
+		<!-- Czech Republic; czech republic -->
 		<annotation cp='[{🇨🇿}]'>Repubblica Ceca</annotation>
 
-		<!-- Denmark; denmark; flag -->
+		<!-- Denmark; denmark -->
 		<annotation cp='[{🇩🇰}]'>Danimarca</annotation>
 
-		<!-- Diego Garcia; diego; flag; garcia -->
+		<!-- Diego Garcia; diego garcia -->
 		<annotation cp='[{🇩🇬}]'>Diego Garcia</annotation>
 
-		<!-- Djibouti; djibouti; flag -->
+		<!-- Djibouti; djibouti -->
 		<annotation cp='[{🇩🇯}]'>Gibuti</annotation>
 
-		<!-- Dominica; dominica; flag -->
+		<!-- Dominica; dominica -->
 		<annotation cp='[{🇩🇲}]'>Dominica</annotation>
 
-		<!-- Dominican Republic; dominica; dominican; flag -->
+		<!-- Dominican Republic; dominican republic -->
 		<annotation cp='[{🇩🇴}]'>Repubblica Dominicana</annotation>
 
-		<!-- Ecuador; ecuador; flag -->
+		<!-- Ecuador; ecuador -->
 		<annotation cp='[{🇪🇨}]'>Ecuador</annotation>
 
-		<!-- Egypt; arab; egypt; flag -->
+		<!-- Egypt; egypt -->
 		<annotation cp='[{🇪🇬}]'>Egitto</annotation>
 
-		<!-- El Salvador; el salvador; flag -->
+		<!-- El Salvador; el salvador -->
 		<annotation cp='[{🇸🇻}]'>El Salvador</annotation>
 
-		<!-- Equatorial Guinea; equatorial; flag; guinea -->
+		<!-- Equatorial Guinea; equatorial guinea; guinea -->
 		<annotation cp='[{🇬🇶}]'>Guinea Equatoriale</annotation>
 
-		<!-- Eritrea; eritrea; flag -->
+		<!-- Eritrea; eritrea -->
 		<annotation cp='[{🇪🇷}]'>Eritrea</annotation>
 
-		<!-- Estonia; estonia; flag -->
+		<!-- Estonia; estonia -->
 		<annotation cp='[{🇪🇪}]'>Estonia</annotation>
 
-		<!-- Ethiopia; ethiopia; flag -->
+		<!-- Ethiopia; ethiopia -->
 		<annotation cp='[{🇪🇹}]'>Etiopia</annotation>
 
-		<!-- European Union; european; flag; union -->
+		<!-- European Union; european union -->
 		<annotation cp='[{🇪🇺}]'>Unione Europea</annotation>
 
-		<!-- Falkland Islands; falkland; flag; islands; islas; malvinas -->
+		<!-- Falkland Islands; falkland; falklands; island; islas; malvinas -->
 		<annotation cp='[{🇫🇰}]'>Isole Falkland</annotation>
 
-		<!-- Faroe Islands; faeroe; faroe; flag; islands -->
+		<!-- Faroe Islands; faroe; island -->
 		<annotation cp='[{🇫🇴}]'>Isole Faroe</annotation>
 
-		<!-- Fiji; fiji; flag -->
+		<!-- Fiji; fiji -->
 		<annotation cp='[{🇫🇯}]'>Figi</annotation>
 
-		<!-- Finland; finland; flag -->
+		<!-- Finland; finland -->
 		<annotation cp='[{🇫🇮}]'>Finlandia</annotation>
 
-		<!-- France; flag; france -->
+		<!-- France; france -->
 		<annotation cp='[{🇫🇷}]'>Francia</annotation>
 
-		<!-- French Guiana; flag; french; guiana -->
+		<!-- French Guiana; french; guiana -->
 		<annotation cp='[{🇬🇫}]'>Guiana Francese</annotation>
 
-		<!-- French Polynesia; flag; french; polynesia -->
+		<!-- French Polynesia; french; polynesia -->
 		<annotation cp='[{🇵🇫}]'>Polinesia Francese</annotation>
 
-		<!-- French Southern Territories; flag; french; southern -->
+		<!-- French Southern Territories; antarctic; french -->
 		<annotation cp='[{🇹🇫}]'>Territori australi francesi</annotation>
 
-		<!-- Gabon; flag; gabon -->
+		<!-- Gabon; gabon -->
 		<annotation cp='[{🇬🇦}]'>Gabon</annotation>
 
-		<!-- Gambia; flag; gambia -->
+		<!-- Gambia; gambia -->
 		<annotation cp='[{🇬🇲}]'>Gambia</annotation>
 
-		<!-- Georgia; flag; georgia -->
+		<!-- Georgia; georgia -->
 		<annotation cp='[{🇬🇪}]'>Georgia</annotation>
 
-		<!-- Germany; flag; germany -->
+		<!-- Germany; germany -->
 		<annotation cp='[{🇩🇪}]'>Germania</annotation>
 
-		<!-- Ghana; flag; ghana -->
+		<!-- Ghana; ghana -->
 		<annotation cp='[{🇬🇭}]'>Ghana</annotation>
 
-		<!-- Gibraltar; flag; gibraltar -->
+		<!-- Gibraltar; gibraltar -->
 		<annotation cp='[{🇬🇮}]'>Gibilterra</annotation>
 
-		<!-- Greece; flag; greece -->
+		<!-- Greece; greece -->
 		<annotation cp='[{🇬🇷}]'>Grecia</annotation>
 
-		<!-- Greenland; flag; greenland -->
+		<!-- Greenland; greenland -->
 		<annotation cp='[{🇬🇱}]'>Groenlandia</annotation>
 
-		<!-- Grenada; flag; grenada -->
+		<!-- Grenada; grenada -->
 		<annotation cp='[{🇬🇩}]'>Grenada</annotation>
 
-		<!-- Guadeloupe; flag; guadeloupe -->
+		<!-- Guadeloupe; guadeloupe -->
 		<annotation cp='[{🇬🇵}]'>Guadalupa</annotation>
 
-		<!-- Guam; flag; guam -->
+		<!-- Guam; guam -->
 		<annotation cp='[{🇬🇺}]'>Guam</annotation>
 
-		<!-- Guatemala; flag; guatemala -->
+		<!-- Guatemala; guatemala -->
 		<annotation cp='[{🇬🇹}]'>Guatemala</annotation>
 
-		<!-- Guernsey; flag; guernsey; islands -->
+		<!-- Guernsey; guernsey -->
 		<annotation cp='[{🇬🇬}]'>Guernsey</annotation>
 
-		<!-- Guinea; flag; guinea -->
+		<!-- Guinea; guinea -->
 		<annotation cp='[{🇬🇳}]'>Guinea</annotation>
 
-		<!-- Guinea-Bissau; bissau; flag; guinea -->
+		<!-- Guinea-Bissau; bissau; guinea -->
 		<annotation cp='[{🇬🇼}]'>Guinea-Bissau</annotation>
 
-		<!-- Guyana; flag; guyana -->
+		<!-- Guyana; guyana -->
 		<annotation cp='[{🇬🇾}]'>Guyana</annotation>
 
-		<!-- Haiti; flag; haiti -->
+		<!-- Haiti; haiti -->
 		<annotation cp='[{🇭🇹}]'>Haiti</annotation>
 
-		<!-- Heard &amp; McDonald Islands; flag; heard; island; islands; mcdonald -->
+		<!-- Heard &amp; McDonald Islands; heard; island; mcdonald -->
 		<annotation cp='[{🇭🇲}]'>Isole Heard ed Isole McDonald</annotation>
 
-		<!-- Honduras; flag; honduras -->
+		<!-- Honduras; honduras -->
 		<annotation cp='[{🇭🇳}]'>Honduras</annotation>
 
-		<!-- Hong Kong SAR China; china; flag; hong kong -->
+		<!-- Hong Kong SAR China; china; hong kong -->
 		<annotation cp='[{🇭🇰}]'>RAS di Hong Kong</annotation>
 
-		<!-- Hungary; flag; hungary -->
+		<!-- Hungary; hungary -->
 		<annotation cp='[{🇭🇺}]'>Ungheria</annotation>
 
-		<!-- Iceland; flag; iceland -->
+		<!-- Iceland; iceland -->
 		<annotation cp='[{🇮🇸}]'>Islanda</annotation>
 
-		<!-- India; flag; india -->
+		<!-- India; india -->
 		<annotation cp='[{🇮🇳}]'>India</annotation>
 
-		<!-- Indonesia; flag; indonesia -->
+		<!-- Indonesia; indonesia -->
 		<annotation cp='[{🇮🇩}]'>Indonesia</annotation>
 
-		<!-- Iran; flag; iran -->
+		<!-- Iran; iran -->
 		<annotation cp='[{🇮🇷}]'>Iran</annotation>
 
-		<!-- Iraq; flag; iraq -->
+		<!-- Iraq; iraq -->
 		<annotation cp='[{🇮🇶}]'>Iraq</annotation>
 
-		<!-- Ireland; flag; ireland -->
+		<!-- Ireland; ireland -->
 		<annotation cp='[{🇮🇪}]'>Irlanda</annotation>
 
-		<!-- Isle of Man; flag; isle; man -->
+		<!-- Isle of Man; isle of man -->
 		<annotation cp='[{🇮🇲}]'>Isola di Man</annotation>
 
-		<!-- Israel; flag; israel -->
+		<!-- Israel; israel -->
 		<annotation cp='[{🇮🇱}]'>Israele</annotation>
 
-		<!-- Italy; flag; italy -->
+		<!-- Italy; italy -->
 		<annotation cp='[{🇮🇹}]'>Italia</annotation>
 
-		<!-- Jamaica; flag; jamaica -->
+		<!-- Jamaica; jamaica -->
 		<annotation cp='[{🇯🇲}]'>Giamaica</annotation>
 
-		<!-- Japan; flag; japan -->
+		<!-- Japan; japan -->
 		<annotation cp='[{🇯🇵}]'>Giappone</annotation>
 
-		<!-- Jersey; flag; jersey -->
+		<!-- Jersey; jersey -->
 		<annotation cp='[{🇯🇪}]'>Jersey</annotation>
 
-		<!-- Jordan; flag; jordan -->
+		<!-- Jordan; jordan -->
 		<annotation cp='[{🇯🇴}]'>Giordania</annotation>
 
-		<!-- Kazakhstan; flag; kazakhstan -->
+		<!-- Kazakhstan; kazakhstan -->
 		<annotation cp='[{🇰🇿}]'>Kazakistan</annotation>
 
-		<!-- Kenya; flag; kenya -->
+		<!-- Kenya; kenya -->
 		<annotation cp='[{🇰🇪}]'>Kenya</annotation>
 
-		<!-- Kiribati; flag; kiribati -->
+		<!-- Kiribati; kiribati -->
 		<annotation cp='[{🇰🇮}]'>Kiribati</annotation>
 
-		<!-- Kosovo; flag; kosovo -->
+		<!-- Kosovo; kosovo -->
 		<annotation cp='[{🇽🇰}]'>Kosovo</annotation>
 
-		<!-- Kuwait; flag; kuwait -->
+		<!-- Kuwait; kuwait -->
 		<annotation cp='[{🇰🇼}]'>Kuwait</annotation>
 
-		<!-- Kyrgyzstan; flag; kyrgyz; kyrgyzstan -->
+		<!-- Kyrgyzstan; kyrgyzstan -->
 		<annotation cp='[{🇰🇬}]'>Kirghizistan</annotation>
 
-		<!-- Laos; flag; lao; laos -->
+		<!-- Laos; laos -->
 		<annotation cp='[{🇱🇦}]'>Laos</annotation>
 
-		<!-- Latvia; flag; latvia -->
+		<!-- Latvia; latvia -->
 		<annotation cp='[{🇱🇻}]'>Lettonia</annotation>
 
-		<!-- Lebanon; flag; lebanon -->
+		<!-- Lebanon; lebanon -->
 		<annotation cp='[{🇱🇧}]'>Libano</annotation>
 
-		<!-- Lesotho; flag; lesotho -->
+		<!-- Lesotho; lesotho -->
 		<annotation cp='[{🇱🇸}]'>Lesotho</annotation>
 
-		<!-- Liberia; flag; liberia -->
+		<!-- Liberia; liberia -->
 		<annotation cp='[{🇱🇷}]'>Liberia</annotation>
 
-		<!-- Libya; arab; flag; libya; libyan -->
+		<!-- Libya; libya -->
 		<annotation cp='[{🇱🇾}]'>Libia</annotation>
 
-		<!-- Liechtenstein; flag; liechtenstein -->
+		<!-- Liechtenstein; liechtenstein -->
 		<annotation cp='[{🇱🇮}]'>Liechtenstein</annotation>
 
-		<!-- Lithuania; flag; lithuania -->
+		<!-- Lithuania; lithuania -->
 		<annotation cp='[{🇱🇹}]'>Lituania</annotation>
 
-		<!-- Luxembourg; flag; luxembourg -->
+		<!-- Luxembourg; luxembourg -->
 		<annotation cp='[{🇱🇺}]'>Lussemburgo</annotation>
 
-		<!-- Macau SAR China; china; flag; macao; macau -->
+		<!-- Macau SAR China; china; macao; macau -->
 		<annotation cp='[{🇲🇴}]'>RAS di Macao</annotation>
 
-		<!-- Macedonia; flag; macedonia -->
+		<!-- Macedonia; macedonia -->
 		<annotation cp='[{🇲🇰}]'>Repubblica di Macedonia</annotation>
 
-		<!-- Madagascar; flag; madagascar -->
+		<!-- Madagascar; madagascar -->
 		<annotation cp='[{🇲🇬}]'>Madagascar</annotation>
 
-		<!-- Malawi; flag; malawi -->
+		<!-- Malawi; malawi -->
 		<annotation cp='[{🇲🇼}]'>Malawi</annotation>
 
-		<!-- Malaysia; flag; malaysia -->
+		<!-- Malaysia; malaysia -->
 		<annotation cp='[{🇲🇾}]'>Malesia</annotation>
 
-		<!-- Maldives; flag; maldives -->
+		<!-- Maldives; maldives -->
 		<annotation cp='[{🇲🇻}]'>Maldive</annotation>
 
-		<!-- Mali; flag; mali -->
+		<!-- Mali; mali -->
 		<annotation cp='[{🇲🇱}]'>Mali</annotation>
 
-		<!-- Malta; flag; malta -->
+		<!-- Malta; malta -->
 		<annotation cp='[{🇲🇹}]'>Malta</annotation>
 
-		<!-- Marshall Islands; flag; islands; marshall -->
+		<!-- Marshall Islands; island; marshall -->
 		<annotation cp='[{🇲🇭}]'>Isole Marshall</annotation>
 
-		<!-- Martinique; flag; martinique -->
+		<!-- Martinique; martinique -->
 		<annotation cp='[{🇲🇶}]'>Martinica</annotation>
 
-		<!-- Mauritania; flag; mauritania -->
+		<!-- Mauritania; mauritania -->
 		<annotation cp='[{🇲🇷}]'>Mauritania</annotation>
 
-		<!-- Mauritius; flag; mauritius -->
+		<!-- Mauritius; mauritius -->
 		<annotation cp='[{🇲🇺}]'>Mauritius</annotation>
 
-		<!-- Mayotte; flag; mayotte -->
+		<!-- Mayotte; mayotte -->
 		<annotation cp='[{🇾🇹}]'>Mayotte</annotation>
 
-		<!-- Mexico; flag; mexico -->
+		<!-- Mexico; mexico -->
 		<annotation cp='[{🇲🇽}]'>Messico</annotation>
 
-		<!-- Micronesia; flag; micronesia -->
+		<!-- Micronesia; micronesia -->
 		<annotation cp='[{🇫🇲}]'>Micronesia</annotation>
 
-		<!-- Moldova; flag; moldova -->
+		<!-- Moldova; moldova -->
 		<annotation cp='[{🇲🇩}]'>Moldavia</annotation>
 
-		<!-- Monaco; flag; monaco -->
+		<!-- Monaco; monaco -->
 		<annotation cp='[{🇲🇨}]'>Monaco</annotation>
 
-		<!-- Mongolia; flag; mongolia -->
+		<!-- Mongolia; mongolia -->
 		<annotation cp='[{🇲🇳}]'>Mongolia</annotation>
 
-		<!-- Montenegro; flag; montenegro -->
+		<!-- Montenegro; montenegro -->
 		<annotation cp='[{🇲🇪}]'>Montenegro</annotation>
 
-		<!-- Montserrat; flag; montserrat -->
+		<!-- Montserrat; montserrat -->
 		<annotation cp='[{🇲🇸}]'>Montserrat</annotation>
 
-		<!-- Morocco; flag; morocco -->
+		<!-- Morocco; morocco -->
 		<annotation cp='[{🇲🇦}]'>Marocco</annotation>
 
-		<!-- Mozambique; flag; mozambique -->
+		<!-- Mozambique; mozambique -->
 		<annotation cp='[{🇲🇿}]'>Mozambico</annotation>
 
-		<!-- Myanmar (Burma); burma; flag; myanmar -->
+		<!-- Myanmar (Burma); burma; myanmar -->
 		<annotation cp='[{🇲🇲}]'>Myanmar (Birmania)</annotation>
 
-		<!-- Namibia; flag; namibia -->
+		<!-- Namibia; namibia -->
 		<annotation cp='[{🇳🇦}]'>Namibia</annotation>
 
-		<!-- Nauru; flag; nauru -->
+		<!-- Nauru; nauru -->
 		<annotation cp='[{🇳🇷}]'>Nauru</annotation>
 
-		<!-- Nepal; flag; nepal -->
+		<!-- Nepal; nepal -->
 		<annotation cp='[{🇳🇵}]'>Nepal</annotation>
 
-		<!-- Netherlands; flag; netherlands -->
+		<!-- Netherlands; netherlands -->
 		<annotation cp='[{🇳🇱}]'>Paesi Bassi</annotation>
 
-		<!-- New Caledonia; flag; new; new caledonia -->
+		<!-- New Caledonia; new; new caledonia -->
 		<annotation cp='[{🇳🇨}]'>Nuova Caledonia</annotation>
 
-		<!-- New Zealand; flag; new; new zealand -->
+		<!-- New Zealand; new; new zealand -->
 		<annotation cp='[{🇳🇿}]'>Nuova Zelanda</annotation>
 
-		<!-- Nicaragua; flag; nicaragua -->
+		<!-- Nicaragua; nicaragua -->
 		<annotation cp='[{🇳🇮}]'>Nicaragua</annotation>
 
-		<!-- Niger; flag; niger -->
+		<!-- Niger; niger -->
 		<annotation cp='[{🇳🇪}]'>Niger</annotation>
 
-		<!-- Nigeria; flag; nigeria -->
+		<!-- Nigeria; nigeria -->
 		<annotation cp='[{🇳🇬}]'>Nigeria</annotation>
 
-		<!-- Niue; flag; niue -->
+		<!-- Niue; niue -->
 		<annotation cp='[{🇳🇺}]'>Niue</annotation>
 
-		<!-- Norfolk Island; flag; island; norfolk -->
+		<!-- Norfolk Island; island; norfolk -->
 		<annotation cp='[{🇳🇫}]'>Isola Norfolk</annotation>
 
-		<!-- Northern Mariana Islands; flag; islands; mariana; northern -->
+		<!-- Northern Mariana Islands; island; mariana; north; northern mariana -->
 		<annotation cp='[{🇲🇵}]'>Isole Marianne Settentrionali</annotation>
 
-		<!-- North Korea; flag; korea; north -->
+		<!-- North Korea; korea; north; north korea -->
 		<annotation cp='[{🇰🇵}]'>Corea del Nord</annotation>
 
-		<!-- Norway; flag; norway -->
+		<!-- Norway; norway -->
 		<annotation cp='[{🇳🇴}]'>Norvegia</annotation>
 
-		<!-- Oman; flag; oman -->
+		<!-- Oman; oman -->
 		<annotation cp='[{🇴🇲}]'>Oman</annotation>
 
-		<!-- Pakistan; flag; pakistan -->
+		<!-- Pakistan; pakistan -->
 		<annotation cp='[{🇵🇰}]'>Pakistan</annotation>
 
-		<!-- Palau; flag; palau -->
+		<!-- Palau; palau -->
 		<annotation cp='[{🇵🇼}]'>Palau</annotation>
 
-		<!-- Palestinian Territories; flag; palestine -->
+		<!-- Palestinian Territories; palestine -->
 		<annotation cp='[{🇵🇸}]'>Territori palestinesi</annotation>
 
-		<!-- Panama; flag; panama -->
+		<!-- Panama; panama -->
 		<annotation cp='[{🇵🇦}]'>Panamá</annotation>
 
-		<!-- Papua New Guinea; flag; guinea; new; papua new guinea -->
+		<!-- Papua New Guinea; guinea; new; papua new guinea -->
 		<annotation cp='[{🇵🇬}]'>Papua Nuova Guinea</annotation>
 
-		<!-- Paraguay; flag; paraguay -->
+		<!-- Paraguay; paraguay -->
 		<annotation cp='[{🇵🇾}]'>Paraguay</annotation>
 
-		<!-- Peru; flag; peru -->
+		<!-- Peru; peru -->
 		<annotation cp='[{🇵🇪}]'>Perù</annotation>
 
-		<!-- Philippines; flag; philippines -->
+		<!-- Philippines; philippines -->
 		<annotation cp='[{🇵🇭}]'>Filippine</annotation>
 
-		<!-- Pitcairn Islands; flag; islands; pitcairn -->
+		<!-- Pitcairn Islands; island; pitcairn -->
 		<annotation cp='[{🇵🇳}]'>Isole Pitcairn</annotation>
 
-		<!-- Poland; flag; poland -->
+		<!-- Poland; poland -->
 		<annotation cp='[{🇵🇱}]'>Polonia</annotation>
 
-		<!-- Portugal; flag; portugal -->
+		<!-- Portugal; portugal -->
 		<annotation cp='[{🇵🇹}]'>Portogallo</annotation>
 
-		<!-- Puerto Rico; flag; puerto; rico -->
+		<!-- Puerto Rico; puerto rico -->
 		<annotation cp='[{🇵🇷}]'>Portorico</annotation>
 
-		<!-- Qatar; flag; qatar -->
+		<!-- Qatar; qatar -->
 		<annotation cp='[{🇶🇦}]'>Qatar</annotation>
 
-		<!-- Réunion; flag; reunion; réunion -->
+		<!-- Réunion; reunion; réunion -->
 		<annotation cp='[{🇷🇪}]'>Réunion</annotation>
 
-		<!-- Romania; flag; romania -->
+		<!-- Romania; romania -->
 		<annotation cp='[{🇷🇴}]'>Romania</annotation>
 
-		<!-- Russia; flag; russia; russian -->
+		<!-- Russia; russia -->
 		<annotation cp='[{🇷🇺}]'>Federazione Russa</annotation>
 
-		<!-- Rwanda; flag; rwanda -->
+		<!-- Rwanda; rwanda -->
 		<annotation cp='[{🇷🇼}]'>Ruanda</annotation>
 
-		<!-- Samoa; flag; samoa -->
+		<!-- Samoa; samoa -->
 		<annotation cp='[{🇼🇸}]'>Samoa</annotation>
 
-		<!-- San Marino; flag; san marino -->
+		<!-- San Marino; san marino -->
 		<annotation cp='[{🇸🇲}]'>San Marino</annotation>
 
-		<!-- São Tomé &amp; Príncipe; flag; principe; príncipe; sao; são; tome; tomé -->
+		<!-- São Tomé &amp; Príncipe; principe; príncipe; sao tome; são tomé -->
 		<annotation cp='[{🇸🇹}]'>São Tomé e Príncipe</annotation>
 
-		<!-- Saudi Arabia; arabia; flag; saudi -->
+		<!-- Saudi Arabia; saudi arabia -->
 		<annotation cp='[{🇸🇦}]'>Arabia Saudita</annotation>
 
-		<!-- Senegal; flag; senegal -->
+		<!-- Senegal; senegal -->
 		<annotation cp='[{🇸🇳}]'>Senegal</annotation>
 
-		<!-- Serbia; flag; serbia -->
+		<!-- Serbia; serbia -->
 		<annotation cp='[{🇷🇸}]'>Serbia</annotation>
 
-		<!-- Seychelles; flag; seychelles -->
+		<!-- Seychelles; seychelles -->
 		<annotation cp='[{🇸🇨}]'>Seychelles</annotation>
 
-		<!-- Sierra Leone; flag; sierra leone -->
+		<!-- Sierra Leone; sierra leone -->
 		<annotation cp='[{🇸🇱}]'>Sierra Leone</annotation>
 
-		<!-- Singapore; flag; singapore -->
+		<!-- Singapore; singapore -->
 		<annotation cp='[{🇸🇬}]'>Singapore</annotation>
 
-		<!-- Sint Maarten; dutch; flag; maarten; sint -->
+		<!-- Sint Maarten; maarten; sint -->
 		<annotation cp='[{🇸🇽}]'>Sint Maarten</annotation>
 
-		<!-- Slovakia; flag; slovak; slovakia -->
+		<!-- Slovakia; slovakia -->
 		<annotation cp='[{🇸🇰}]'>Slovacchia</annotation>
 
-		<!-- Slovenia; flag; slovenia -->
+		<!-- Slovenia; slovenia -->
 		<annotation cp='[{🇸🇮}]'>Slovenia</annotation>
 
-		<!-- Solomon Islands; flag; islands; solomon -->
+		<!-- Solomon Islands; island; solomon -->
 		<annotation cp='[{🇸🇧}]'>Isole Solomon</annotation>
 
-		<!-- Somalia; flag; somalia -->
+		<!-- Somalia; somalia -->
 		<annotation cp='[{🇸🇴}]'>Somalia</annotation>
 
-		<!-- South Africa; africa; flag; south -->
+		<!-- South Africa; south; south africa -->
 		<annotation cp='[{🇿🇦}]'>Sudafrica</annotation>
 
-		<!-- South Georgia &amp; South Sandwich Islands; flag; georgia; islands; sandwich; south -->
+		<!-- South Georgia &amp; South Sandwich Islands; georgia; island; south; south georgia; south sandwich -->
 		<annotation cp='[{🇬🇸}]'>Georgia del Sud e isole Sandwich meridionali</annotation>
 
-		<!-- South Korea; flag; korea; south -->
+		<!-- South Korea; korea; south; south korea -->
 		<annotation cp='[{🇰🇷}]'>Corea del Sud</annotation>
 
-		<!-- South Sudan; flag; south; sudan -->
+		<!-- South Sudan; south; south sudan; sudan -->
 		<annotation cp='[{🇸🇸}]'>Sudan del Sud</annotation>
 
-		<!-- Spain; flag; spain -->
+		<!-- Spain; spain -->
 		<annotation cp='[{🇪🇸}]'>Spagna</annotation>
 
-		<!-- Sri Lanka; flag; lanka; sri -->
+		<!-- Sri Lanka; sri lanka -->
 		<annotation cp='[{🇱🇰}]'>Sri Lanka</annotation>
 
-		<!-- St. Barthélemy; barthelemy; barthélemy; flag; saint; st. -->
+		<!-- St. Barthélemy; barthelemy; barthélemy; saint -->
 		<annotation cp='[{🇧🇱}]'>Saint-Barthélemy</annotation>
 
-		<!-- St. Helena; ascension; cunha; flag; helena; saint; st.; tristan -->
+		<!-- St. Helena; helena; saint -->
 		<annotation cp='[{🇸🇭}]'>Sant’Elena</annotation>
 
-		<!-- St. Kitts &amp; Nevis; flag; kitts; nevis; saint; st. -->
+		<!-- St. Kitts &amp; Nevis; kitts; nevis; saint -->
 		<annotation cp='[{🇰🇳}]'>Saint Kitts e Nevis</annotation>
 
-		<!-- St. Lucia; flag; lucia; saint; st. -->
+		<!-- St. Lucia; lucia; saint -->
 		<annotation cp='[{🇱🇨}]'>Saint Lucia</annotation>
 
-		<!-- St. Martin; flag; french; martin; saint; st. -->
+		<!-- St. Martin; french; martin; saint -->
 		<annotation cp='[{🇲🇫}]'>Saint Martin</annotation>
 
-		<!-- St. Pierre &amp; Miquelon; flag; miquelon; pierre; saint; st. -->
+		<!-- St. Pierre &amp; Miquelon; miquelon; pierre; saint -->
 		<annotation cp='[{🇵🇲}]'>Saint Pierre e Miquelon</annotation>
 
-		<!-- St. Vincent &amp; Grenadines; flag; grenadines; saint; st.; vincent -->
+		<!-- St. Vincent &amp; Grenadines; grenadines; saint; vincent -->
 		<annotation cp='[{🇻🇨}]'>Saint Vincent e Grenadines</annotation>
 
-		<!-- Sudan; flag; sudan -->
+		<!-- Sudan; sudan -->
 		<annotation cp='[{🇸🇩}]'>Sudan</annotation>
 
-		<!-- Suriname; flag; suriname -->
+		<!-- Suriname; suriname -->
 		<annotation cp='[{🇸🇷}]'>Suriname</annotation>
 
-		<!-- Svalbard &amp; Jan Mayen; flag; islands; jan; mayen; svalbard -->
+		<!-- Svalbard &amp; Jan Mayen; jan mayen; svalbard -->
 		<annotation cp='[{🇸🇯}]'>Svalbard e Jan Mayen</annotation>
 
-		<!-- Swaziland; flag; swaziland -->
+		<!-- Swaziland; swaziland -->
 		<annotation cp='[{🇸🇿}]'>Swaziland</annotation>
 
-		<!-- Sweden; flag; sweden -->
+		<!-- Sweden; sweden -->
 		<annotation cp='[{🇸🇪}]'>Svezia</annotation>
 
-		<!-- Switzerland; flag; switzerland -->
+		<!-- Switzerland; switzerland -->
 		<annotation cp='[{🇨🇭}]'>Svizzera</annotation>
 
-		<!-- Syria; arab; flag; syria; syrian -->
+		<!-- Syria; syria -->
 		<annotation cp='[{🇸🇾}]'>Siria</annotation>
 
-		<!-- Taiwan; china; flag; taiwan -->
+		<!-- Taiwan; china; taiwan -->
 		<annotation cp='[{🇹🇼}]'>Taiwan</annotation>
 
-		<!-- Tajikistan; flag; tajikistan -->
+		<!-- Tajikistan; tajikistan -->
 		<annotation cp='[{🇹🇯}]'>Tagikistan</annotation>
 
-		<!-- Tanzania; flag; tanzania; united -->
+		<!-- Tanzania; tanzania -->
 		<annotation cp='[{🇹🇿}]'>Tanzania</annotation>
 
-		<!-- Thailand; flag; thailand -->
+		<!-- Thailand; thailand -->
 		<annotation cp='[{🇹🇭}]'>Tailandia</annotation>
 
-		<!-- Timor-Leste; east; flag; leste; timor -->
+		<!-- Timor-Leste; east; east timor; timor-leste -->
 		<annotation cp='[{🇹🇱}]'>Timor Est</annotation>
 
-		<!-- Togo; flag; togo -->
+		<!-- Togo; togo -->
 		<annotation cp='[{🇹🇬}]'>Togo</annotation>
 
-		<!-- Tokelau; flag; tokelau -->
+		<!-- Tokelau; tokelau -->
 		<annotation cp='[{🇹🇰}]'>Tokelau</annotation>
 
-		<!-- Tonga; flag; tonga -->
+		<!-- Tonga; tonga -->
 		<annotation cp='[{🇹🇴}]'>Tonga</annotation>
 
-		<!-- Trinidad &amp; Tobago; flag; tobago; trinidad -->
+		<!-- Trinidad &amp; Tobago; tobago; trinidad -->
 		<annotation cp='[{🇹🇹}]'>Trinidad e Tobago</annotation>
 
-		<!-- Tristan da Cunha; cunha; flag; tristan -->
+		<!-- Tristan da Cunha; tristan da cunha -->
 		<annotation cp='[{🇹🇦}]'>Tristan da Cunha</annotation>
 
-		<!-- Tunisia; flag; tunisia -->
+		<!-- Tunisia; tunisia -->
 		<annotation cp='[{🇹🇳}]'>Tunisia</annotation>
 
-		<!-- Turkey; flag; turkey -->
+		<!-- Turkey; turkey -->
 		<annotation cp='[{🇹🇷}]'>Turchia</annotation>
 
-		<!-- Turkmenistan; flag; turkmenistan -->
+		<!-- Turkmenistan; turkmenistan -->
 		<annotation cp='[{🇹🇲}]'>Turkmenistan</annotation>
 
-		<!-- Turks &amp; Caicos Islands; caicos; flag; islands; turks -->
+		<!-- Turks &amp; Caicos Islands; caicos; island; turks -->
 		<annotation cp='[{🇹🇨}]'>Isole Turks e Caicos</annotation>
 
-		<!-- Tuvalu; flag; tuvalu -->
+		<!-- Tuvalu; tuvalu -->
 		<annotation cp='[{🇹🇻}]'>Tuvalu</annotation>
 
-		<!-- Uganda; flag; uganda -->
+		<!-- Uganda; uganda -->
 		<annotation cp='[{🇺🇬}]'>Uganda</annotation>
 
-		<!-- Ukraine; flag; ukraine -->
+		<!-- Ukraine; ukraine -->
 		<annotation cp='[{🇺🇦}]'>Ucraina</annotation>
 
-		<!-- United Arab Emirates; arab; emirates; flag; united -->
+		<!-- United Arab Emirates; emirates; uae; united -->
 		<annotation cp='[{🇦🇪}]'>Emirati Arabi Uniti</annotation>
 
-		<!-- United Kingdom; britain; cornwall; flag; great; ireland; kingdom; northern; scotland; united; wales -->
+		<!-- United Kingdom; britain; british; cornwall; england; great britain; ireland; northern ireland; scotland; uk; union jack; united; united kingdom; wales -->
 		<annotation cp='[{🇬🇧}]'>Regno Unito</annotation>
 
-		<!-- United States; america; flag; u.s.; u.s.a.; united; us; usa -->
+		<!-- United States; america; stars and stripes; united; united states -->
 		<annotation cp='[{🇺🇸}]'>Stati Uniti</annotation>
 
-		<!-- Uruguay; flag; uruguay -->
+		<!-- Uruguay; uruguay -->
 		<annotation cp='[{🇺🇾}]'>Uruguay</annotation>
 
-		<!-- U.S. Outlying Islands; flag; islands; outlying; u.s.; united -->
+		<!-- U.S. Outlying Islands; america; island; minor outlying; united; united states; us; usa -->
 		<annotation cp='[{🇺🇲}]'>Isole minori lontane dagli USA</annotation>
 
-		<!-- U.S. Virgin Islands; flag; islands; u.s.; united; virgin islands -->
+		<!-- U.S. Virgin Islands; america; american; island; united; united states; us; usa; virgin -->
 		<annotation cp='[{🇻🇮}]'>Isole Vergini Americane</annotation>
 
-		<!-- Uzbekistan; flag; uzbekistan -->
+		<!-- Uzbekistan; uzbekistan -->
 		<annotation cp='[{🇺🇿}]'>Uzbekistan</annotation>
 
-		<!-- Vanuatu; flag; vanuatu -->
+		<!-- Vanuatu; vanuatu -->
 		<annotation cp='[{🇻🇺}]'>Vanuatu</annotation>
 
-		<!-- Vatican City; city; flag; holy; see; vatican -->
+		<!-- Vatican City; vatican -->
 		<annotation cp='[{🇻🇦}]'>Città del Vaticano</annotation>
 
-		<!-- Venezuela; flag; venezuela -->
+		<!-- Venezuela; venezuela -->
 		<annotation cp='[{🇻🇪}]'>Venezuela</annotation>
 
-		<!-- Vietnam; flag; nam; viet; vietnam -->
+		<!-- Vietnam; viet nam; vietnam -->
 		<annotation cp='[{🇻🇳}]'>Vietnam</annotation>
 
-		<!-- Wallis &amp; Futuna; flag; futuna; islands; wallis -->
+		<!-- Wallis &amp; Futuna; futuna; wallis -->
 		<annotation cp='[{🇼🇫}]'>Wallis e Futuna</annotation>
 
-		<!-- Western Sahara; flag; sahara; western -->
+		<!-- Western Sahara; sahara; west; western sahara -->
 		<annotation cp='[{🇪🇭}]'>Sahara Occidentale</annotation>
 
-		<!-- Yemen; flag; yemen -->
+		<!-- Yemen; yemen -->
 		<annotation cp='[{🇾🇪}]'>Yemen</annotation>
 
-		<!-- Zambia; flag; zambia -->
+		<!-- Zambia; zambia -->
 		<annotation cp='[{🇿🇲}]'>Zambia</annotation>
 
-		<!-- Zimbabwe; flag; zimbabwe -->
+		<!-- Zimbabwe; zimbabwe -->
 		<annotation cp='[{🇿🇼}]'>Zimbabwe</annotation>
-
-		<!-- UPWARDS BLACK ARROW; arrow; cardinal; direction; north -->
-		<annotation cp='[⬆]'>MISSING</annotation>
-
-		<!-- NORTH EAST ARROW; arrow; direction; intercardinal; northeast -->
-		<annotation cp='[↗]'>MISSING</annotation>
-
-		<!-- BLACK RIGHTWARDS ARROW; arrow; cardinal; direction; east -->
-		<annotation cp='[➡]'>MISSING</annotation>
-
-		<!-- SOUTH EAST ARROW; arrow; direction; intercardinal; southeast -->
-		<annotation cp='[↘]'>MISSING</annotation>
-
-		<!-- DOWNWARDS BLACK ARROW; arrow; cardinal; direction; down; south -->
-		<annotation cp='[⬇]'>MISSING</annotation>
-
-		<!-- SOUTH WEST ARROW; arrow; direction; intercardinal; southwest -->
-		<annotation cp='[↙]'>MISSING</annotation>
-
-		<!-- LEFTWARDS BLACK ARROW; arrow; cardinal; direction; west -->
-		<annotation cp='[⬅]'>MISSING</annotation>
-
-		<!-- NORTH WEST ARROW; arrow; direction; intercardinal; northwest -->
-		<annotation cp='[↖]'>MISSING</annotation>
-
-		<!-- UP DOWN ARROW; arrow -->
-		<annotation cp='[↕]'>MISSING</annotation>
-
-		<!-- LEFT RIGHT ARROW; arrow -->
-		<annotation cp='[↔]'>MISSING</annotation>
-
-		<!-- LEFTWARDS ARROW WITH HOOK; arrow -->
-		<annotation cp='[↩]'>MISSING</annotation>
-
-		<!-- RIGHTWARDS ARROW WITH HOOK; arrow -->
-		<annotation cp='[↪]'>MISSING</annotation>
-
-		<!-- ARROW POINTING RIGHTWARDS THEN CURVING UPWARDS; arrow -->
-		<annotation cp='[⤴]'>MISSING</annotation>
-
-		<!-- ARROW POINTING RIGHTWARDS THEN CURVING DOWNWARDS; arrow; down -->
-		<annotation cp='[⤵]'>MISSING</annotation>
 
 		<!-- CLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS; arrow; clockwise; reload -->
 		<annotation cp='[🔃]' tts='frecce a cerchio verticali'>ricarica; simbolo ricarica; frecce verticali senso orario; frecce</annotation>
@@ -3436,62 +2875,23 @@
 		<!-- TOP WITH UPWARDS ARROW ABOVE; arrow; top; up -->
 		<annotation cp='[🔝]' tts='Top'>Top; simbolo Top; Top con freccia verso l&apos;alto; freccia verso l&apos;alto; alto</annotation>
 
-		<!-- OM SYMBOL; hindu; om; religion -->
-		<annotation cp='[🕉]'>MISSING</annotation>
+		<!-- JAPANESE SYMBOL FOR BEGINNER; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='principiante'>principiante; simbolo principiante Giappone; etichetta gialla e verde principiante</annotation>
 
-		<!-- STAR OF DAVID; david; jew; jewish; religion; star -->
-		<annotation cp='[✡]'>MISSING</annotation>
+		<!-- CRYSTAL BALL; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='sfera di cristallo'>cristallo; sfera; chiromanzia; futuro</annotation>
 
-		<!-- WHEEL OF DHARMA; buddhist; dharma; object; religion; wheel -->
-		<annotation cp='[☸]'>MISSING</annotation>
-
-		<!-- YIN YANG; religion; sign; tao; taoist; yang; yin -->
-		<annotation cp='[☯]'>MISSING</annotation>
-
-		<!-- LATIN CROSS; christian; cross; religion -->
-		<annotation cp='[✝]'>MISSING</annotation>
-
-		<!-- ORTHODOX CROSS; christian; cross; religion -->
-		<annotation cp='[☦]'>MISSING</annotation>
-
-		<!-- SHINTO SHRINE; religion; shinto; shrine -->
-		<annotation cp='[⛩]'>MISSING</annotation>
-
-		<!-- STAR AND CRESCENT; islam; muslim; religion -->
-		<annotation cp='[☪]'>MISSING</annotation>
-
-		<!-- PEACE SYMBOL; peace; sign -->
-		<annotation cp='[☮]'>MISSING</annotation>
-
-		<!-- RADIOACTIVE SIGN; radioactive; sign -->
-		<annotation cp='[☢]'>MISSING</annotation>
-
-		<!-- BIOHAZARD SIGN; biohazard; sign -->
-		<annotation cp='[☣]'>MISSING</annotation>
+		<!-- SIX POINTED STAR WITH MIDDLE DOT; fortune; star -->
+		<annotation cp='[🔯]' tts='stella a sei punte'>chiromanzia; sei punte; stella; futuro</annotation>
 
 		<!-- BLACK UNIVERSAL RECYCLING SYMBOL; recycle; sign; travel -->
 		<annotation cp='[♻]' tts='riciclo'>riciclo; simbolo riciclo; simbolo</annotation>
 
-		<!-- HIGH VOLTAGE SIGN; danger; electric; electricity; lightning; nature; travel; voltage; zap -->
+		<!-- HIGH VOLTAGE SIGN; danger; electric; electricity; lightning; travel; voltage; zap -->
 		<annotation cp='[⚡]' tts='alta tensione'>pericolo alta tensione; simbolo  alta tensione; pericolo; alta; tensione; simbolo</annotation>
-
-		<!-- WHITE MEDIUM STAR; nature; star -->
-		<annotation cp='[⭐]'>MISSING</annotation>
-
-		<!-- HEAVY LARGE CIRCLE; circle; o; travel -->
-		<annotation cp='[⭕]'>MISSING</annotation>
 
 		<!-- WHITE HEAVY CHECK MARK; check; mark; sign -->
 		<annotation cp='[✅]' tts='segno di spunta'>baffo; segno di spunta  grande</annotation>
-
-		<!-- BALLOT BOX WITH CHECK; ballot; box; check; sign -->
-		<annotation cp='[☑]'>MISSING</annotation>
-
-		<!-- HEAVY CHECK MARK; check; mark; sign -->
-		<annotation cp='[✔]'>MISSING</annotation>
-
-		<!-- HEAVY MULTIPLICATION X; cancel; multiplication; multiply; sign; x -->
-		<annotation cp='[✖]'>MISSING</annotation>
 
 		<!-- CROSS MARK; cancel; mark; multiplication; multiply; sign; x -->
 		<annotation cp='[❌]' tts='croce'>croce; «X»</annotation>
@@ -3514,90 +2914,6 @@
 		<!-- DOUBLE CURLY LOOP; curl; double; loop; sign -->
 		<annotation cp='[➿]' tts='doppio occhiello'>doppio; occhiello</annotation>
 
-		<!-- PART ALTERNATION MARK; mark; part; sign -->
-		<annotation cp='[〽]'>MISSING</annotation>
-
-		<!-- EIGHT SPOKED ASTERISK; asterisk; sign -->
-		<annotation cp='[✳]'>MISSING</annotation>
-
-		<!-- EIGHT POINTED BLACK STAR; sign; star -->
-		<annotation cp='[✴]'>MISSING</annotation>
-
-		<!-- SPARKLE; sign; sparkle -->
-		<annotation cp='[❇]'>MISSING</annotation>
-
-		<!-- BLACK SMALL SQUARE; geometric; sign; square -->
-		<annotation cp='[▪]'>MISSING</annotation>
-
-		<!-- WHITE SMALL SQUARE; geometric; sign; square -->
-		<annotation cp='[▫]'>MISSING</annotation>
-
-		<!-- WHITE MEDIUM SQUARE; geometric; sign; square -->
-		<annotation cp='[◻]'>MISSING</annotation>
-
-		<!-- BLACK MEDIUM SQUARE; geometric; sign; square -->
-		<annotation cp='[◼]'>MISSING</annotation>
-
-		<!-- WHITE MEDIUM SMALL SQUARE; geometric; sign; square -->
-		<annotation cp='[◽]'>MISSING</annotation>
-
-		<!-- BLACK MEDIUM SMALL SQUARE; geometric; sign; square -->
-		<annotation cp='[◾]'>MISSING</annotation>
-
-		<!-- BLACK LARGE SQUARE; geometric; sign; square -->
-		<annotation cp='[⬛]'>MISSING</annotation>
-
-		<!-- WHITE LARGE SQUARE; geometric; sign; square -->
-		<annotation cp='[⬜]'>MISSING</annotation>
-
-		<!-- LARGE ORANGE DIAMOND; diamond; geometric; orange; sign -->
-		<annotation cp='[🔶]' tts='rombo arancione grande'>grande; arancione; rombo</annotation>
-
-		<!-- LARGE BLUE DIAMOND; blue; diamond; geometric; sign -->
-		<annotation cp='[🔷]' tts='rombo blu grande'>grande; blu; rombo</annotation>
-
-		<!-- SMALL ORANGE DIAMOND; diamond; geometric; orange; sign -->
-		<annotation cp='[🔸]' tts='rombo arancione piccolo'>piccolo; arancione; rombo</annotation>
-
-		<!-- SMALL BLUE DIAMOND; blue; diamond; geometric; sign -->
-		<annotation cp='[🔹]' tts='rombo blu piccolo'>piccolo; blu; rombo</annotation>
-
-		<!-- UP-POINTING RED TRIANGLE; geometric; red; sign -->
-		<annotation cp='[🔺]' tts='triangolo rosso punta in alto'>rosso; triangolo; alto</annotation>
-
-		<!-- DOWN-POINTING RED TRIANGLE; down; geometric; red; sign -->
-		<annotation cp='[🔻]' tts='triangolo rosso punta in basso'>rosso; triangolo; basso</annotation>
-
-		<!-- DIAMOND SHAPE WITH A DOT INSIDE; comic; diamond; emotion; geometric; inside; sign -->
-		<annotation cp='[💠]' tts='petalo di fiore'>carino; fiore; forma di diamante; diamante; emozione</annotation>
-
-		<!-- RADIO BUTTON; button; geometric; radio; sign -->
-		<annotation cp='[🔘]' tts='pulsante opzione'>pulsante; opzione</annotation>
-
-		<!-- BLACK SQUARE BUTTON; button; geometric; sign; square -->
-		<annotation cp='[🔲]' tts='pulsante quadrato pieno'>quadrato; pulsante</annotation>
-
-		<!-- WHITE SQUARE BUTTON; button; geometric; outlined; sign; square -->
-		<annotation cp='[🔳]' tts='pulsante quadrato con contorno'>contorno; pulsante</annotation>
-
-		<!-- MEDIUM WHITE CIRCLE; circle; geometric; sign -->
-		<annotation cp='[⚪]'>MISSING</annotation>
-
-		<!-- MEDIUM BLACK CIRCLE; circle; geometric; sign -->
-		<annotation cp='[⚫]'>MISSING</annotation>
-
-		<!-- LARGE RED CIRCLE; circle; geometric; red; sign -->
-		<annotation cp='[🔴]' tts='cerchio rosso grande'>grande; rosso; cerchio</annotation>
-
-		<!-- LARGE BLUE CIRCLE; blue; circle; geometric; sign -->
-		<annotation cp='[🔵]' tts='cerchio blu grande'>grande; blu; cerchio</annotation>
-
-		<!-- DOUBLE EXCLAMATION MARK; bangbang; exclamation; mark; punctuation; word -->
-		<annotation cp='[‼]'>MISSING</annotation>
-
-		<!-- EXCLAMATION QUESTION MARK; exclamation; interrobang; mark; punctuation; question; word -->
-		<annotation cp='[⁉]'>MISSING</annotation>
-
 		<!-- BLACK QUESTION MARK ORNAMENT; mark; punctuation; question; word -->
 		<annotation cp='[❓]' tts='punto di domanda pieno'>domanda</annotation>
 
@@ -3607,20 +2923,23 @@
 		<!-- WHITE EXCLAMATION MARK ORNAMENT; exclamation; mark; outlined; punctuation; word -->
 		<annotation cp='[❕]' tts='punto esclamativo'>esclamazione</annotation>
 
-		<!-- HEAVY EXCLAMATION MARK SYMBOL; exclamation; mark; punctuation; word -->
-		<annotation cp='[❗]'>MISSING</annotation>
-
 		<!-- WAVY DASH; dash; punctuation; sound; wavy -->
 		<annotation cp='[〰]' tts='trattino ondulato'>ondulato; trattino</annotation>
-
-		<!-- NO ONE UNDER EIGHTEEN SYMBOL; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage; word -->
-		<annotation cp='[🔞]' tts='Vietato ai minori di 18'>18 sbarrato; 18</annotation>
 
 		<!-- COPYRIGHT SIGN; copyright; symbol; word -->
 		<annotation cp='[©]' tts='Simbolo copyright'>copyright</annotation>
 
 		<!-- REGISTERED SIGN; registered; symbol; word -->
 		<annotation cp='[®]' tts='Simbolo marchio registrato'>marchio registrato</annotation>
+
+		<!-- TRADE MARK SIGN; mark; symbol; tm; trademark; word -->
+		<annotation cp='[™]' tts='marchio registrato'>simbolo marchio registrato; simbolo</annotation>
+
+		<!-- HUNDRED POINTS SYMBOL; 100; full; hundred; office; score -->
+		<annotation cp='[💯]' tts='100 punti'>punteggio pieno; 100; punti</annotation>
+
+		<!-- NO ONE UNDER EIGHTEEN SYMBOL; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage; word -->
+		<annotation cp='[🔞]' tts='Vietato ai minori di 18'>18 sbarrato; 18</annotation>
 
 		<!-- INPUT SYMBOL FOR LATIN CAPITAL LETTERS; input; latin; letters; uppercase; word -->
 		<annotation cp='[🔠]' tts='lettere maiuscole'>maiuscole; lettere; inserire; caratteri latini</annotation>
@@ -3631,7 +2950,7 @@
 		<!-- INPUT SYMBOL FOR NUMBERS; 1234; input; numbers; word -->
 		<annotation cp='[🔢]' tts='numeri'>numeri; inserire</annotation>
 
-		<!-- INPUT SYMBOL FOR SYMBOLS; input; symbols; word -->
+		<!-- INPUT SYMBOL FOR SYMBOLS; input; word -->
 		<annotation cp='[🔣]' tts='simboli'>simboli; inserire</annotation>
 
 		<!-- INPUT SYMBOL FOR LATIN LETTERS; abc; alphabet; input; latin; letters; word -->
@@ -3655,14 +2974,8 @@
 		<!-- SQUARED FREE; free; word -->
 		<annotation cp='[🆓]' tts='free'>free; simbolo free; gratis; simbolo gratis</annotation>
 
-		<!-- INFORMATION SOURCE; i; information; word -->
-		<annotation cp='[ℹ]'>MISSING</annotation>
-
 		<!-- SQUARED ID; id; identity; word -->
 		<annotation cp='[🆔]' tts='ID'>ID; simbolo ID; identità</annotation>
-
-		<!-- CIRCLED LATIN CAPITAL LETTER M; circle; m; word -->
-		<annotation cp='[Ⓜ]'>MISSING</annotation>
 
 		<!-- SQUARED NEW; new; word -->
 		<annotation cp='[🆕]' tts='New'>New; simbolo New</annotation>
@@ -3681,9 +2994,6 @@
 
 		<!-- SQUARED SOS; help; sos; word -->
 		<annotation cp='[🆘]' tts='SOS'>SOS; simbolo SOS; aiuto</annotation>
-
-		<!-- TRADE MARK SIGN; mark; symbol; tm; trademark; word -->
-		<annotation cp='[™]' tts='marchio registrato'>simbolo marchio registrato; simbolo</annotation>
 
 		<!-- SQUARED UP WITH EXCLAMATION MARK; mark; up; word -->
 		<annotation cp='[🆙]' tts='UP!'>UP!; simbolo UP!</annotation>
@@ -3730,16 +3040,46 @@
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7533; chinese; word -->
 		<annotation cp='[🈸]' tts='Parola cinese'>Parola cinese</annotation>
 
-		<!-- CIRCLED IDEOGRAPH CONGRATULATION; congratulation; congratulations; ideograph; word -->
-		<annotation cp='[㊗]'>MISSING</annotation>
-
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7981; japanese; word -->
 		<annotation cp='[🈲]' tts='Parola giapponese'>Parola giapponese</annotation>
 
-		<!-- CIRCLED IDEOGRAPH SECRET; ideograph; secret; word -->
-		<annotation cp='[㊙]'>MISSING</annotation>
-
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7A7A; chinese; word -->
 		<annotation cp='[🈳]' tts='Parola cinese'>Parola cinese</annotation>
+
+		<!-- LARGE ORANGE DIAMOND; diamond; geometric; orange; sign -->
+		<annotation cp='[🔶]' tts='rombo arancione grande'>grande; arancione; rombo</annotation>
+
+		<!-- LARGE BLUE DIAMOND; blue; diamond; geometric; sign -->
+		<annotation cp='[🔷]' tts='rombo blu grande'>grande; blu; rombo</annotation>
+
+		<!-- SMALL ORANGE DIAMOND; diamond; geometric; orange; sign -->
+		<annotation cp='[🔸]' tts='rombo arancione piccolo'>piccolo; arancione; rombo</annotation>
+
+		<!-- SMALL BLUE DIAMOND; blue; diamond; geometric; sign -->
+		<annotation cp='[🔹]' tts='rombo blu piccolo'>piccolo; blu; rombo</annotation>
+
+		<!-- UP-POINTING RED TRIANGLE; geometric; red; sign -->
+		<annotation cp='[🔺]' tts='triangolo rosso punta in alto'>rosso; triangolo; alto</annotation>
+
+		<!-- DOWN-POINTING RED TRIANGLE; down; geometric; red; sign -->
+		<annotation cp='[🔻]' tts='triangolo rosso punta in basso'>rosso; triangolo; basso</annotation>
+
+		<!-- DIAMOND SHAPE WITH A DOT INSIDE; comic; diamond; emotion; geometric; inside; sign -->
+		<annotation cp='[💠]' tts='petalo di fiore'>carino; fiore; forma di diamante; diamante; emozione</annotation>
+
+		<!-- RADIO BUTTON; button; geometric; radio; sign -->
+		<annotation cp='[🔘]' tts='pulsante opzione'>pulsante; opzione</annotation>
+
+		<!-- BLACK SQUARE BUTTON; button; geometric; sign; square -->
+		<annotation cp='[🔲]' tts='pulsante quadrato pieno'>quadrato; pulsante</annotation>
+
+		<!-- WHITE SQUARE BUTTON; button; geometric; outlined; sign; square -->
+		<annotation cp='[🔳]' tts='pulsante quadrato con contorno'>contorno; pulsante</annotation>
+
+		<!-- LARGE RED CIRCLE; circle; geometric; red; sign -->
+		<annotation cp='[🔴]' tts='cerchio rosso grande'>grande; rosso; cerchio</annotation>
+
+		<!-- LARGE BLUE CIRCLE; blue; circle; geometric; sign -->
+		<annotation cp='[🔵]' tts='cerchio blu grande'>grande; blu; cerchio</annotation>
 	</annotations>
 </ldml>

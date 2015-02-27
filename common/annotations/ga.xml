@@ -16,416 +16,371 @@
 	</identity>
 	<annotations>
 
-		<!-- WHITE SMILING FACE; face; human; outlined; relaxed; smile; smiley -->
-		<annotation cp='[☺]' tts='éadan straoiseoige'>éadan straoiseoige neamhlíonta; éadan</annotation>
-
-		<!-- WHITE FROWNING FACE; face; frown; human -->
-		<annotation cp='[☹]'>MISSING</annotation>
-
-		<!-- SLIGHTLY FROWNING FACE; face; frown; human -->
-		<annotation cp='[🙁]'>MISSING</annotation>
-
-		<!-- SLIGHTLY SMILING FACE; face; human; smile; smiley -->
-		<annotation cp='[🙂]'>MISSING</annotation>
-
-		<!-- GRINNING FACE; face; grin; human -->
+		<!-- GRINNING FACE; face; grin -->
 		<annotation cp='[😀]' tts='gáire'>gáire; meangadh</annotation>
 
-		<!-- GRINNING FACE WITH SMILING EYES; eye; face; grin; human; smile; smiley -->
+		<!-- GRINNING FACE WITH SMILING EYES; eye; face; grin; smile -->
 		<annotation cp='[😁]' tts='gáire'>gáire; meangadh; súile ag gáire</annotation>
 
-		<!-- FACE WITH TEARS OF JOY; face; human; joy; tear -->
+		<!-- FACE WITH TEARS OF JOY; face; joy; tear -->
 		<annotation cp='[😂]' tts='deora áthais'>deora áthais</annotation>
 
-		<!-- SMILING FACE WITH OPEN MOUTH; face; human; mouth; open; smile; smiley -->
+		<!-- SMILING FACE WITH OPEN MOUTH; face; mouth; open; smile -->
 		<annotation cp='[😃]' tts='meangadh gáire'>béal ar oscailt</annotation>
 
-		<!-- SMILING FACE WITH OPEN MOUTH AND SMILING EYES; eye; face; human; mouth; open; smile; smiley -->
+		<!-- SMILING FACE WITH OPEN MOUTH AND SMILING EYES; eye; face; mouth; open; smile -->
 		<annotation cp='[😄]' tts='meangadh gáire'>béal ar oscailt; súile ag gáire</annotation>
 
-		<!-- SMILING FACE WITH OPEN MOUTH AND COLD SWEAT; cold; face; human; open; smile; smiley; sweat -->
+		<!-- SMILING FACE WITH OPEN MOUTH AND COLD SWEAT; cold; face; open; smile; sweat -->
 		<annotation cp='[😅]' tts='meangadh gáire'>béal ar oscailt; fuarallas</annotation>
 
-		<!-- SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES; face; human; laugh; mouth; open; satisfied; smile; smiley -->
+		<!-- SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES; face; laugh; mouth; open; satisfied; smile -->
 		<annotation cp='[😆]' tts='meangadh gáire'>béal ar oscailt; súile dúnta go dlúth</annotation>
 
-		<!-- WINKING FACE; face; human; wink -->
+		<!-- WINKING FACE; face; wink -->
 		<annotation cp='[😉]' tts='caochadh'>caochadh; caochadh súile</annotation>
 
-		<!-- SMILING FACE WITH SMILING EYES; blush; eye; face; human; smile; smiley -->
+		<!-- SMILING FACE WITH SMILING EYES; blush; eye; face; smile -->
 		<annotation cp='[😊]' tts='meangadh gáire'>súile ag gáire</annotation>
 
-		<!-- FACE SAVOURING DELICIOUS FOOD; delicious; face; food; human; savouring; smile; smiley; um; yum -->
+		<!-- FACE SAVOURING DELICIOUS FOOD; delicious; face; food; savouring; smile; um; yum -->
 		<annotation cp='[😋]' tts='bia blasta'>blasta; bia; meangadh gáire</annotation>
 
-		<!-- RELIEVED FACE; face; human; relieved -->
-		<annotation cp='[😌]' tts='faoiseamh'>faoiseamh; suaimhneas intinne</annotation>
-
-		<!-- SMILING FACE WITH HEART-SHAPED EYES; eye; face; heart; human; love; smile; smiley -->
-		<annotation cp='[😍]' tts='meangadh gáire'>súile i bhfoirm croí</annotation>
-
-		<!-- SMILING FACE WITH SUNGLASSES; bright; cool; eye; eyewear; face; glasses; human; smile; smiley; sun; sunglasses; weather -->
+		<!-- SMILING FACE WITH SUNGLASSES; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
 		<annotation cp='[😎]' tts='meangadh gáire'>spéaclaí gréine</annotation>
 
-		<!-- SMIRKING FACE; face; human; smirk -->
-		<annotation cp='[😏]' tts='siotgháire'>siotgháire</annotation>
+		<!-- SMILING FACE WITH HEART-SHAPED EYES; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='meangadh gáire'>súile i bhfoirm croí</annotation>
 
-		<!-- NEUTRAL FACE; deadpan; face; human; neutral -->
-		<annotation cp='[😐]' tts='neodrach'>neodrach; aghaidh neodrach</annotation>
-
-		<!-- EXPRESSIONLESS FACE; expressionless; face; human; inexpressive; unexpressive -->
-		<annotation cp='[😑]' tts='féachaint folamh'>gnúis dhúrúnta</annotation>
-
-		<!-- UNAMUSED FACE; face; human; unamused; unhappy -->
-		<annotation cp='[😒]' tts='míshásta'>míshásta; aghaidh mhíshásta</annotation>
-
-		<!-- FACE WITH COLD SWEAT; cold; face; human; sweat -->
-		<annotation cp='[😓]' tts='fuarallas'>fuarallas; imní</annotation>
-
-		<!-- PENSIVE FACE; dejected; face; human; pensive -->
-		<annotation cp='[😔]' tts='smaointeach'>smaointeach; machnamhach</annotation>
-
-		<!-- CONFUSED FACE; confused; face; human -->
-		<annotation cp='[😕]' tts='measctha'>measctha; trína chéile</annotation>
-
-		<!-- CONFOUNDED FACE; confounded; face; human -->
-		<annotation cp='[😖]' tts='mearbhall'>mearbhall</annotation>
-
-		<!-- KISSING FACE; face; human; kiss -->
-		<annotation cp='[😗]' tts='pógadh'>pógadh; póg</annotation>
-
-		<!-- FACE THROWING A KISS; face; heart; human; kiss -->
+		<!-- FACE THROWING A KISS; face; heart; kiss -->
 		<annotation cp='[😘]' tts='póg'>póg; séid póg</annotation>
 
-		<!-- KISSING FACE WITH SMILING EYES; eye; face; human; kiss; smile; smiley -->
+		<!-- KISSING FACE; face; kiss -->
+		<annotation cp='[😗]' tts='pógadh'>pógadh; póg</annotation>
+
+		<!-- KISSING FACE WITH SMILING EYES; eye; face; kiss; smile -->
 		<annotation cp='[😙]' tts='pógadh'>pógadh; póg; súile ag gáire</annotation>
 
-		<!-- KISSING FACE WITH CLOSED EYES; closed; eye; face; human; kiss -->
+		<!-- KISSING FACE WITH CLOSED EYES; closed; eye; face; kiss -->
 		<annotation cp='[😚]' tts='pógadh'>pógadh; póg; súile dúnta</annotation>
 
-		<!-- FACE WITH STUCK-OUT TONGUE; face; human; tongue -->
-		<annotation cp='[😛]' tts='teanga'>teanga; teanga ag gobadh amach; teanga churtha amach</annotation>
+		<!-- WHITE SMILING FACE; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='éadan straoiseoige'>éadan straoiseoige neamhlíonta; éadan</annotation>
 
-		<!-- FACE WITH STUCK-OUT TONGUE AND WINKING EYE; eye; face; human; joke; tongue; wink -->
-		<annotation cp='[😜]' tts='teanga ag gobadh amach'>teanga churtha amach; caochadh</annotation>
-
-		<!-- FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES; eye; face; horrible; human; taste; tongue -->
-		<annotation cp='[😝]' tts='teanga ag gobadh amach'>teanga churtha amach; súile dúnta go dlúth</annotation>
-
-		<!-- DISAPPOINTED FACE; disappointed; face; human -->
-		<annotation cp='[😞]' tts='díomá'>díomá</annotation>
-
-		<!-- WORRIED FACE; face; human; worried -->
-		<annotation cp='[😟]' tts='imní'>imní</annotation>
-
-		<!-- ANGRY FACE; angry; face; human; mad -->
-		<annotation cp='[😠]' tts='fearg'>fearg</annotation>
-
-		<!-- POUTING FACE; angry; face; human; mad; pouting; rage; red -->
-		<annotation cp='[😡]' tts='pus'>pus; smut</annotation>
-
-		<!-- CRYING FACE; cry; face; human; sad; tear -->
-		<annotation cp='[😢]' tts='caoineadh'>caoineadh; gol; deora</annotation>
-
-		<!-- PERSEVERING FACE; face; human; persevere -->
-		<annotation cp='[😣]' tts='buanseasmhach'>buanseasmhach; leanaim orm</annotation>
-
-		<!-- FACE WITH LOOK OF TRIUMPH; face; human; triumph; won -->
-		<annotation cp='[😤]' tts='bua'>bua; mórtas</annotation>
-
-		<!-- DISAPPOINTED BUT RELIEVED FACE; disappointed; face; human; relieved; whew -->
-		<annotation cp='[😥]' tts='díomá'>díomá; faoiseamh; suaimhneas intinne</annotation>
-
-		<!-- FROWNING FACE WITH OPEN MOUTH; face; frown; human; mouth; open -->
-		<annotation cp='[😦]' tts='gruama'>gruama; grainc; béal ar oscailt; aghaidh</annotation>
-
-		<!-- ANGUISHED FACE; anguished; face; human -->
-		<annotation cp='[😧]' tts='cráite'>cráite; ciaptha</annotation>
-
-		<!-- FEARFUL FACE; face; fear; fearful; human; scared -->
-		<annotation cp='[😨]' tts='eagla'>eagla; faitíos</annotation>
-
-		<!-- WEARY FACE; face; human; tired; weary -->
-		<annotation cp='[😩]' tts='tuirse'>tuirse; tuirseach; </annotation>
-
-		<!-- SLEEPY FACE; face; human; sleep -->
-		<annotation cp='[😪]' tts='codlatach'>codlatach; codladh; tuirseach; tuirse</annotation>
-
-		<!-- TIRED FACE; face; human; tired -->
-		<annotation cp='[😫]' tts='tuirse'>tuirse; tuirseach; </annotation>
-
-		<!-- GRIMACING FACE; face; grimace; human -->
-		<annotation cp='[😬]' tts='grainc'>grainc; strainc; strabhas</annotation>
-
-		<!-- LOUDLY CRYING FACE; cry; face; human; sad; sob; tear -->
-		<annotation cp='[😭]' tts='caoineadh go hard'>gol go hard; deora</annotation>
-
-		<!-- FACE WITH OPEN MOUTH; face; human; mouth; open; sympathy -->
-		<annotation cp='[😮]' tts='béal ar oscailt'>béal ar oscailt</annotation>
-
-		<!-- HUSHED FACE; face; human; hushed; stunned; surprised -->
-		<annotation cp='[😯]' tts='iontas'>iontas; ionadh</annotation>
-
-		<!-- FACE WITH OPEN MOUTH AND COLD SWEAT; blue; cold; face; human; mouth; open; rushed; sweat -->
-		<annotation cp='[😰]' tts='deifir'>deifir; faoi dheifir; brostaigh; fuarallas; allas</annotation>
-
-		<!-- FACE SCREAMING IN FEAR; face; fear; fearful; human; munch; scared; scream -->
-		<annotation cp='[😱]' tts='eagla'>eagla; faitíos; scread; béic</annotation>
-
-		<!-- ASTONISHED FACE; astonished; face; human; shocked; totally -->
-		<annotation cp='[😲]' tts='iontas'>iontas; ionadh</annotation>
-
-		<!-- FLUSHED FACE; dazed; face; flushed; human -->
-		<annotation cp='[😳]' tts='aghaidh dhearg'>aghaidh lasta; mearbhall</annotation>
-
-		<!-- SLEEPING FACE; face; human; sleep -->
-		<annotation cp='[😴]' tts='codladh'>codladh; ina chodladh</annotation>
-
-		<!-- DIZZY FACE; dizzy; face; human -->
-		<annotation cp='[😵]' tts='meadhránach'>meadhránach; míobhánach</annotation>
-
-		<!-- FACE WITHOUT MOUTH; face; human; mouth; quiet; silent -->
-		<annotation cp='[😶]' tts='aghaidh gan bhéal'>aghaidh gan bhéal</annotation>
-
-		<!-- FACE WITH MEDICAL MASK; cold; doctor; face; human; mask; medicine; sick -->
-		<annotation cp='[😷]' tts='masc'>masc; aghaidh agus masc uirthi; masc máinliachta; tinn</annotation>
-
-		<!-- SMILING FACE WITH HALO; angel; face; fantasy; halo; human; innocent; smile; smiley -->
+		<!-- SMILING FACE WITH HALO; angel; face; fairy tale; fantasy; halo; innocent; smile -->
 		<annotation cp='[😇]' tts='meangadh gáire'>fáinne solais</annotation>
 
-		<!-- SMILING FACE WITH HORNS; face; fantasy; horns; human; smile; smiley -->
-		<annotation cp='[😈]' tts='meangadh gáire'>adharca</annotation>
+		<!-- NEUTRAL FACE; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='neodrach'>neodrach; aghaidh neodrach</annotation>
 
-		<!-- IMP; devil; face; fairy tale; fantasy; human; imp -->
+		<!-- EXPRESSIONLESS FACE; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='féachaint folamh'>gnúis dhúrúnta</annotation>
+
+		<!-- FACE WITHOUT MOUTH; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='aghaidh gan bhéal'>aghaidh gan bhéal</annotation>
+
+		<!-- SMIRKING FACE; face; smirk -->
+		<annotation cp='[😏]' tts='siotgháire'>siotgháire</annotation>
+
+		<!-- PERSEVERING FACE; face; persevere -->
+		<annotation cp='[😣]' tts='buanseasmhach'>buanseasmhach; leanaim orm</annotation>
+
+		<!-- DISAPPOINTED BUT RELIEVED FACE; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='díomá'>díomá; faoiseamh; suaimhneas intinne</annotation>
+
+		<!-- FACE WITH OPEN MOUTH; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='béal ar oscailt'>béal ar oscailt</annotation>
+
+		<!-- HUSHED FACE; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='iontas'>iontas; ionadh</annotation>
+
+		<!-- SLEEPY FACE; face; sleep -->
+		<annotation cp='[😪]' tts='codlatach'>codlatach; codladh; tuirseach; tuirse</annotation>
+
+		<!-- TIRED FACE; face; tired -->
+		<annotation cp='[😫]' tts='tuirse'>tuirse; tuirseach; </annotation>
+
+		<!-- SLEEPING FACE; face; sleep -->
+		<annotation cp='[😴]' tts='codladh'>codladh; ina chodladh</annotation>
+
+		<!-- RELIEVED FACE; face; relieved -->
+		<annotation cp='[😌]' tts='faoiseamh'>faoiseamh; suaimhneas intinne</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE; face; tongue -->
+		<annotation cp='[😛]' tts='teanga'>teanga; teanga ag gobadh amach; teanga churtha amach</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE AND WINKING EYE; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='teanga ag gobadh amach'>teanga churtha amach; caochadh</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='teanga ag gobadh amach'>teanga churtha amach; súile dúnta go dlúth</annotation>
+
+		<!-- UNAMUSED FACE; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='míshásta'>míshásta; aghaidh mhíshásta</annotation>
+
+		<!-- FACE WITH COLD SWEAT; cold; face; sweat -->
+		<annotation cp='[😓]' tts='fuarallas'>fuarallas; imní</annotation>
+
+		<!-- PENSIVE FACE; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='smaointeach'>smaointeach; machnamhach</annotation>
+
+		<!-- CONFUSED FACE; confused; face -->
+		<annotation cp='[😕]' tts='measctha'>measctha; trína chéile</annotation>
+
+		<!-- CONFOUNDED FACE; confounded; face -->
+		<annotation cp='[😖]' tts='mearbhall'>mearbhall</annotation>
+
+		<!-- FACE WITH MEDICAL MASK; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='masc'>masc; aghaidh agus masc uirthi; masc máinliachta; tinn</annotation>
+
+		<!-- ASTONISHED FACE; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='iontas'>iontas; ionadh</annotation>
+
+		<!-- DISAPPOINTED FACE; disappointed; face -->
+		<annotation cp='[😞]' tts='díomá'>díomá</annotation>
+
+		<!-- WORRIED FACE; face; worried -->
+		<annotation cp='[😟]' tts='imní'>imní</annotation>
+
+		<!-- FACE WITH LOOK OF TRIUMPH; face; triumph; won -->
+		<annotation cp='[😤]' tts='bua'>bua; mórtas</annotation>
+
+		<!-- CRYING FACE; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='caoineadh'>caoineadh; gol; deora</annotation>
+
+		<!-- LOUDLY CRYING FACE; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='caoineadh go hard'>gol go hard; deora</annotation>
+
+		<!-- FROWNING FACE WITH OPEN MOUTH; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='gruama'>gruama; grainc; béal ar oscailt; aghaidh</annotation>
+
+		<!-- ANGUISHED FACE; anguished; face -->
+		<annotation cp='[😧]' tts='cráite'>cráite; ciaptha</annotation>
+
+		<!-- FEARFUL FACE; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='eagla'>eagla; faitíos</annotation>
+
+		<!-- WEARY FACE; face; tired; weary -->
+		<annotation cp='[😩]' tts='tuirse'>tuirse; tuirseach; </annotation>
+
+		<!-- GRIMACING FACE; face; grimace -->
+		<annotation cp='[😬]' tts='grainc'>grainc; strainc; strabhas</annotation>
+
+		<!-- FACE WITH OPEN MOUTH AND COLD SWEAT; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='deifir'>deifir; faoi dheifir; brostaigh; fuarallas; allas</annotation>
+
+		<!-- FACE SCREAMING IN FEAR; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='eagla'>eagla; faitíos; scread; béic</annotation>
+
+		<!-- FLUSHED FACE; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='aghaidh dhearg'>aghaidh lasta; mearbhall</annotation>
+
+		<!-- DIZZY FACE; dizzy; face -->
+		<annotation cp='[😵]' tts='meadhránach'>meadhránach; míobhánach</annotation>
+
+		<!-- POUTING FACE; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='pus'>pus; smut</annotation>
+
+		<!-- ANGRY FACE; angry; face; mad -->
+		<annotation cp='[😠]' tts='fearg'>fearg</annotation>
+
+		<!-- IMP; devil; face; fairy tale; fantasy; imp -->
 		<annotation cp='[👿]' tts='diaibhlín'>diaibhlín</annotation>
 
-		<!-- BOY; boy; human; person -->
+		<!-- SMILING FACE WITH HORNS; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='meangadh gáire'>adharca</annotation>
+
+		<!-- BOY; boy; person -->
 		<annotation cp='[👦]' tts='buachaill'>buachaill; duine</annotation>
 
-		<!-- GIRL; girl; human; maiden; person; virgin; virgo; zodiac -->
+		<!-- GIRL; girl; maiden; person; virgin; virgo; zodiac -->
 		<annotation cp='[👧]' tts='cailín'>cailín; duine</annotation>
 
-		<!-- MAN; human; man; person -->
+		<!-- MAN; man; person -->
 		<annotation cp='[👨]' tts='fear'>fear; duine</annotation>
 
-		<!-- WOMAN; human; person; woman -->
+		<!-- WOMAN; person; woman -->
 		<annotation cp='[👩]' tts='bean'>bean; duine</annotation>
 
-		<!-- OLDER MAN; human; man; old; person -->
+		<!-- OLDER MAN; man; old; person -->
 		<annotation cp='[👴]' tts='seanfhear'>seanfhear; fear aosta; fear</annotation>
 
-		<!-- OLDER WOMAN; human; old; person; woman -->
+		<!-- OLDER WOMAN; old; person; woman -->
 		<annotation cp='[👵]' tts='seanbhean'>seanbhean; bean aosta; bean</annotation>
 
-		<!-- BABY; baby; human; person -->
+		<!-- BABY; baby; person -->
 		<annotation cp='[👶]' tts='babaí'>babaí; duine</annotation>
 
-		<!-- PERSON WITH BLOND HAIR; blond; human; person -->
+		<!-- PERSON WITH BLOND HAIR; blond; person -->
 		<annotation cp='[👱]' tts='duine fionn'>fionn; gruaig fhionn</annotation>
 
-		<!-- POLICE OFFICER; cop; human; officer; person; police -->
+		<!-- POLICE OFFICER; cop; officer; person; police -->
 		<annotation cp='[👮]' tts='garda'>garda; póilíní; duine</annotation>
 
-		<!-- MAN WITH GUA PI MAO; gua pi mao; hat; human; man; person -->
+		<!-- MAN WITH GUA PI MAO; gua pi mao; hat; man; person -->
 		<annotation cp='[👲]' tts='fear le gua pi mao air'>fear le hata air; hata</annotation>
 
-		<!-- MAN WITH TURBAN; human; man; person; turban -->
+		<!-- MAN WITH TURBAN; man; person; turban -->
 		<annotation cp='[👳]' tts='fear le turban air'>turban</annotation>
 
-		<!-- CONSTRUCTION WORKER; construction; hat; human; person; worker -->
+		<!-- CONSTRUCTION WORKER; construction; hat; person; worker -->
 		<annotation cp='[👷]' tts='tógálaí'>tógálaí; oibrí tógála</annotation>
 
-		<!-- PRINCESS; fairy tale; fantasy; human; person; princess -->
+		<!-- PRINCESS; fairy tale; fantasy; person; princess -->
 		<annotation cp='[👸]' tts='banphrionsa'>banphrionsa; síscéal</annotation>
 
-		<!-- GUARDSMAN; guard; guardsman; human; person -->
+		<!-- GUARDSMAN; guard; guardsman; person -->
 		<annotation cp='[💂]' tts='garda'>garda; saighdiúir</annotation>
 
-		<!-- FATHER CHRISTMAS; activity; celebration; christmas; fantasy; father; human; person; santa -->
+		<!-- FATHER CHRISTMAS; activity; celebration; christmas; fairy tale; fantasy; father; person; santa -->
 		<annotation cp='[🎅]' tts='Daidí na Nollag'>Santa; Saintí; San Nioclás; Nollaig; ceiliúradh</annotation>
 
-		<!-- BABY ANGEL; angel; baby; face; fairy tale; fantasy; human -->
+		<!-- BABY ANGEL; angel; baby; face; fairy tale; fantasy -->
 		<annotation cp='[👼]' tts='aingeal óg'>aingeal</annotation>
 
-		<!-- SLEUTH OR SPY; human; person; sleuth; spy -->
-		<annotation cp='[🕵]'>MISSING</annotation>
-
-		<!-- WOMAN WITH BUNNY EARS; bunny; dancer; ear; girl; human; person; woman -->
+		<!-- WOMAN WITH BUNNY EARS; bunny; dancer; ear; girl; person; woman -->
 		<annotation cp='[👯]' tts='cailín'>cailín; cluasa coinín</annotation>
 
-		<!-- FACE MASSAGE; face; human; massage; person; salon -->
+		<!-- FACE MASSAGE; face; massage; person; salon -->
 		<annotation cp='[💆]' tts='suathaireacht'>suathaireacht; suathaireacht aghaidhe</annotation>
 
-		<!-- HAIRCUT; barber; beauty; haircut; human; parlor; person -->
+		<!-- HAIRCUT; barber; beauty; haircut; parlor; person -->
 		<annotation cp='[💇]' tts='gruagaire'>gruagaire; bearradh gruaige; gruaig</annotation>
 
-		<!-- BRIDE WITH VEIL; bride; human; person; veil; wedding -->
+		<!-- BRIDE WITH VEIL; bride; person; veil; wedding -->
 		<annotation cp='[👰]' tts='brídeach'>brídeach; caille; bainis; pósadh</annotation>
 
-		<!-- PERSON FROWNING; frown; gesture; human; person -->
+		<!-- PERSON FROWNING; frown; gesture; person -->
 		<annotation cp='[🙍]' tts='gruama'>gruama; duine gruama; duine; gotha</annotation>
 
-		<!-- PERSON WITH POUTING FACE; face; gesture; human; person; pouting -->
+		<!-- PERSON WITH POUTING FACE; face; gesture; person; pouting -->
 		<annotation cp='[🙎]' tts='pus'>pus; smut; duine pusach; duine; gotha</annotation>
 
-		<!-- FACE WITH NO GOOD GESTURE; face; forbidden; gesture; human; no; not; person; prohibited -->
+		<!-- FACE WITH NO GOOD GESTURE; face; forbidden; gesture; hand; no; not; person; prohibited -->
 		<annotation cp='[🙅]' tts='níl cead'>cosc; bac</annotation>
 
-		<!-- FACE WITH OK GESTURE; face; gesture; human; ok; person -->
+		<!-- FACE WITH OK GESTURE; face; gesture; hand; ok; person -->
 		<annotation cp='[🙆]' tts='OK'>OK; ceart go leor; gach rud i gceart</annotation>
 
-		<!-- INFORMATION DESK PERSON; help; human; information; person; sassy -->
+		<!-- INFORMATION DESK PERSON; hand; help; information; person; sassy -->
 		<annotation cp='[💁]' tts='deasc faisnéise'>faisnéis</annotation>
 
-		<!-- HAPPY PERSON RAISING ONE HAND; gesture; hand; happy; human; person; raised -->
+		<!-- HAPPY PERSON RAISING ONE HAND; gesture; hand; happy; person; raised -->
 		<annotation cp='[🙋]' tts='duine sona'>lámh á hardú; duine ag ardú láimhe; sona; duine; gotha</annotation>
 
-		<!-- PERSON BOWING DEEPLY; apology; bow; gesture; human; person; sorry -->
+		<!-- PERSON BOWING DEEPLY; apology; bow; gesture; person; sorry -->
 		<annotation cp='[🙇]' tts='tá brón orm'>gabh mo leithscéal; brón; aiféala</annotation>
 
-		<!-- PERSON RAISING BOTH HANDS IN CELEBRATION; body; celebration; gesture; hand; hooray; human; person; raised -->
+		<!-- PERSON RAISING BOTH HANDS IN CELEBRATION; body; celebration; gesture; hand; hooray; person; raised -->
 		<annotation cp='[🙌]' tts='hurá'>hurá; ardú lámha; na lámha; ceiliúradh</annotation>
 
-		<!-- PERSON WITH FOLDED HANDS; ask; body; bow; folded; gesture; hand; human; person; please; pray; thanks -->
+		<!-- PERSON WITH FOLDED HANDS; ask; body; bow; folded; gesture; hand; person; please; pray; thanks -->
 		<annotation cp='[🙏]' tts='lámha le chéile'>paidir; ag guí; guí; lámh; gotha</annotation>
 
-		<!-- SPEAKING HEAD IN SILHOUETTE; face; head; human; person; silhouette; speak; speaking -->
-		<annotation cp='[🗣]'>MISSING</annotation>
-
-		<!-- BUST IN SILHOUETTE; bust; human; person; silhouette -->
+		<!-- BUST IN SILHOUETTE; bust; person; silhouette -->
 		<annotation cp='[👤]' tts='corp'>corp; cabhail; duine</annotation>
 
-		<!-- BUSTS IN SILHOUETTE; bust; human; person; silhouette -->
+		<!-- BUSTS IN SILHOUETTE; bust; person; silhouette -->
 		<annotation cp='[👥]' tts='coirp'>coirp; cabhlacha; daoine</annotation>
 
-		<!-- PEDESTRIAN; hike; human; pedestrian; person; travel; walk; walking -->
+		<!-- PEDESTRIAN; hike; pedestrian; person; travel; walk; walking -->
 		<annotation cp='[🚶]' tts='coisí'>coisí; siúlóir</annotation>
 
-		<!-- RUNNER; human; marathon; person; runner; running; sport -->
+		<!-- RUNNER; marathon; person; runner; running; sport -->
 		<annotation cp='[🏃]' tts='reathaí'>reathaí; ag rith; maratón; spórt</annotation>
 
-		<!-- DANCER; dancer; human; person -->
+		<!-- DANCER; dancer; person -->
 		<annotation cp='[💃]' tts='damhsóir'>damhsóir; damhsa</annotation>
 
-		<!-- MAN IN BUSINESS SUIT LEVITATING; business; human; man; person; suit -->
-		<annotation cp='[🕴]'>MISSING</annotation>
-
-		<!-- KISS; couple; human; kiss; person; romance -->
+		<!-- KISS; couple; kiss; person; romance -->
 		<annotation cp='[💏]' tts='póg'>póg; pógadh; grá</annotation>
 
-		<!-- COUPLE WITH HEART; couple; heart; human; love; person; romance -->
+		<!-- COUPLE WITH HEART; couple; heart; love; person; romance -->
 		<annotation cp='[💑]' tts='lánúin'>lánúin; croí; grá</annotation>
 
-		<!-- FAMILY; child; family; father; human; mother; person -->
+		<!-- FAMILY; child; family; father; mother; person -->
 		<annotation cp='[👪]' tts='teaghlach'>teaghlach; clann; athair; máthair; páiste; leanaí; duine</annotation>
 
-		<!-- MAN AND WOMAN HOLDING HANDS; couple; hand; hold; human; man; person; woman -->
+		<!-- MAN AND WOMAN HOLDING HANDS; couple; hand; hold; man; person; woman -->
 		<annotation cp='[👫]' tts='fear agus bean'>lánúin; lámha le chéile; fear; bean</annotation>
 
-		<!-- TWO MEN HOLDING HANDS; couple; gemini; hand; hold; human; men; person; twins; zodiac -->
+		<!-- TWO MEN HOLDING HANDS; couple; gemini; hand; hold; man; person; twins; zodiac -->
 		<annotation cp='[👬]' tts='beirt fhear'>lánúin; lámha le chéile; fear; duine</annotation>
 
-		<!-- TWO WOMEN HOLDING HANDS; couple; hand; hold; human; person; woman -->
+		<!-- TWO WOMEN HOLDING HANDS; couple; hand; hold; person; woman -->
 		<annotation cp='[👭]' tts='beirt bhan'>lánúin; lámha le chéile; bean; duine</annotation>
 
-		<!-- WHITE LEFT POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point -->
-		<annotation cp='[👈]' tts='méar'>méar; corrmhéar; lámh; pointeáil ar chlé</annotation>
-
-		<!-- WHITE RIGHT POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point -->
-		<annotation cp='[👉]' tts='méar'>méar; corrmhéar; lámh; pointeáil ar dheis</annotation>
-
-		<!-- WHITE UP POINTING INDEX; body; finger; hand; human; index; point; up -->
-		<annotation cp='[☝]'>MISSING</annotation>
-
-		<!-- WHITE UP POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point; up -->
-		<annotation cp='[👆]' tts='méar'>méar; corrmhéar; lámh; pointeáil suas</annotation>
-
-		<!-- REVERSED HAND WITH MIDDLE FINGER EXTENDED; body; finger; hand; human; middle finger -->
-		<annotation cp='[🖕]'>MISSING</annotation>
-
-		<!-- WHITE DOWN POINTING BACKHAND INDEX; backhand; body; down; finger; hand; human; index; point -->
-		<annotation cp='[👇]' tts='méar'>méar; corrmhéar; lámh; pointeáil síos</annotation>
-
-		<!-- VICTORY HAND; body; hand; human; v; victory -->
-		<annotation cp='[✌]' tts='siosúr'>siosúr; lámh bua; bua; sea</annotation>
-
-		<!-- RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS; body; finger; hand; human; spock; vulcan -->
-		<annotation cp='[🖖]'>MISSING</annotation>
-
-		<!-- RAISED FIST; body; clenched; fist; hand; human; punch -->
-		<annotation cp='[✊]' tts='carraig'>carraig; dorn ardaithe</annotation>
-
-		<!-- RAISED HAND; body; hand; human -->
-		<annotation cp='[✋]' tts='páipéar'>páipéar; lámh ardaithe</annotation>
-
-		<!-- FISTED HAND SIGN; body; clenched; fist; hand; human; punch -->
-		<annotation cp='[👊]' tts='dorn'>dorn; lámh</annotation>
-
-		<!-- WAVING HAND SIGN; body; hand; human; wave; waving -->
-		<annotation cp='[👋]' tts='lámh'>lámh; croitheadh</annotation>
-
-		<!-- OK HAND SIGN; body; hand; human; ok -->
-		<annotation cp='[👌]' tts='OK'>OK; lámh</annotation>
-
-		<!-- THUMBS UP SIGN; +1; body; hand; human; thumb; thumbs’s up; up -->
-		<annotation cp='[👍]' tts='ordóg'>ordóg; ordóg suas; OK; moladh</annotation>
-
-		<!-- THUMBS DOWN SIGN; body; down; hand; human; thumb; thumb’s down -->
-		<annotation cp='[👎]' tts='ordóg'>ordóg; ordóg síos; OK; cáineadh</annotation>
-
-		<!-- CLAPPING HANDS SIGN; body; clap; hand; human -->
-		<annotation cp='[👏]' tts='bualadh bos'>lámha</annotation>
-
-		<!-- OPEN HANDS SIGN; body; hand; human; open -->
-		<annotation cp='[👐]' tts='lámha'>lámha; lámha oscailte</annotation>
-
-		<!-- WRITING HAND; body; education; hand; human; write -->
-		<annotation cp='[✍]'>MISSING</annotation>
-
-		<!-- RAISED HAND WITH FINGERS SPLAYED; body; finger; hand; human; splayed -->
-		<annotation cp='[🖐]'>MISSING</annotation>
-
-		<!-- NAIL POLISH; body; care; cosmetics; human; manicure; nail; polish -->
-		<annotation cp='[💅]' tts='vearnais ingne'>smideadh; cosmaidí</annotation>
-
-		<!-- FLEXED BICEPS; biceps; body; comic; flex; human; muscle -->
+		<!-- FLEXED BICEPS; biceps; body; comic; flex; muscle -->
 		<annotation cp='[💪]' tts='matáin'>matáin; bícéips; láidir</annotation>
 
-		<!-- FOOTPRINTS; body; clothing; footprint; human; print -->
+		<!-- WHITE LEFT POINTING BACKHAND INDEX; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='méar'>méar; corrmhéar; lámh; pointeáil ar chlé</annotation>
+
+		<!-- WHITE RIGHT POINTING BACKHAND INDEX; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='méar'>méar; corrmhéar; lámh; pointeáil ar dheis</annotation>
+
+		<!-- WHITE UP POINTING BACKHAND INDEX; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='méar'>méar; corrmhéar; lámh; pointeáil suas</annotation>
+
+		<!-- WHITE DOWN POINTING BACKHAND INDEX; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='méar'>méar; corrmhéar; lámh; pointeáil síos</annotation>
+
+		<!-- VICTORY HAND; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='siosúr'>siosúr; lámh bua; bua; sea</annotation>
+
+		<!-- RAISED FIST; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='carraig'>carraig; dorn ardaithe</annotation>
+
+		<!-- RAISED HAND; body; hand -->
+		<annotation cp='[✋]' tts='páipéar'>páipéar; lámh ardaithe</annotation>
+
+		<!-- FISTED HAND SIGN; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='dorn'>dorn; lámh</annotation>
+
+		<!-- OK HAND SIGN; body; hand; ok -->
+		<annotation cp='[👌]' tts='OK'>OK; lámh</annotation>
+
+		<!-- THUMBS UP SIGN; +1; body; hand; thumb; thumbs up; up -->
+		<annotation cp='[👍]' tts='ordóg'>ordóg; ordóg suas; OK; moladh</annotation>
+
+		<!-- THUMBS DOWN SIGN; -1; body; down; hand; thumb; thumbs down -->
+		<annotation cp='[👎]' tts='ordóg'>ordóg; ordóg síos; OK; cáineadh</annotation>
+
+		<!-- WAVING HAND SIGN; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='lámh'>lámh; croitheadh</annotation>
+
+		<!-- CLAPPING HANDS SIGN; body; clap; hand -->
+		<annotation cp='[👏]' tts='bualadh bos'>lámha</annotation>
+
+		<!-- OPEN HANDS SIGN; body; hand; open -->
+		<annotation cp='[👐]' tts='lámha'>lámha; lámha oscailte</annotation>
+
+		<!-- NAIL POLISH; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='vearnais ingne'>smideadh; cosmaidí</annotation>
+
+		<!-- FOOTPRINTS; body; clothing; footprint; print -->
 		<annotation cp='[👣]' tts='lorg coise'>cos; lorg</annotation>
 
-		<!-- EYES; body; eye; face; human -->
+		<!-- EYES; body; eye; face -->
 		<annotation cp='[👀]' tts='súile'>súile; aghaidh</annotation>
 
-		<!-- EYE; body; eye; human -->
-		<annotation cp='[👁]'>MISSING</annotation>
-
-		<!-- EAR; body; ear; human -->
+		<!-- EAR; body; ear -->
 		<annotation cp='[👂]' tts='cluas'>cluas</annotation>
 
-		<!-- NOSE; body; human; nose -->
+		<!-- NOSE; body; nose -->
 		<annotation cp='[👃]' tts='srón'>srón</annotation>
 
-		<!-- TONGUE; body; human; tongue -->
+		<!-- TONGUE; body; tongue -->
 		<annotation cp='[👅]' tts='teanga'>teanga</annotation>
 
-		<!-- SKULL; body; death; face; fairy tale; skull -->
-		<annotation cp='[💀]' tts='blaosc'>blaosc</annotation>
-
-		<!-- SKULL AND CROSSBONES; body; crossbones; death; face; skull -->
-		<annotation cp='[☠]'>MISSING</annotation>
-
-		<!-- KISS MARK; emotion; heart; human; kiss; lips; mark; romance -->
-		<annotation cp='[💋]' tts='póg'>póg; beola; pógadh</annotation>
-
-		<!-- MOUTH; body; human; lips; mouth -->
+		<!-- MOUTH; body; lips; mouth -->
 		<annotation cp='[👄]' tts='béal'>béal</annotation>
+
+		<!-- KISS MARK; emotion; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='póg'>póg; beola; pógadh</annotation>
 
 		<!-- HEART WITH ARROW; arrow; cupid; emotion; heart; romance -->
 		<annotation cp='[💘]' tts='croí agus saighead'>saighead; croí; grá</annotation>
-
-		<!-- HEAVY BLACK HEART; emotion; heart -->
-		<annotation cp='[❤]'>MISSING</annotation>
 
 		<!-- BEATING HEART; beating; emotion; heart; heartbeat; pulsating -->
 		<annotation cp='[💓]' tts='croí ag preabadh'>croí; preabadh; grá</annotation>
@@ -463,13 +418,10 @@
 		<!-- HEART DECORATION; emotion; heart -->
 		<annotation cp='[💟]' tts='maisiúchán croí'>croí</annotation>
 
-		<!-- HEAVY HEART EXCLAMATION MARK ORNAMENT; emotion; exclamation; heart; mark; punctuation -->
-		<annotation cp='[❣]'>MISSING</annotation>
-
 		<!-- LOVE LETTER; emotion; heart; letter; love; mail; romance -->
 		<annotation cp='[💌]' tts='litir ghrá'>litir; grá; croí</annotation>
 
-		<!-- DROPLET; cold; comic; drop; emotion; object; sweat; weather -->
+		<!-- DROPLET; cold; comic; drop; emotion; sweat; weather -->
 		<annotation cp='[💧]' tts='braon'>braon; allas; cur allais</annotation>
 
 		<!-- SLEEPING SYMBOL; comic; emotion; sleep; word; zzz -->
@@ -478,16 +430,16 @@
 		<!-- ANGER SYMBOL; angry; comic; emotion; mad -->
 		<annotation cp='[💢]' tts='fearg'>fearg; feargach</annotation>
 
-		<!-- BOMB; bomb; comic; emotion; object -->
+		<!-- BOMB; bomb; comic; emotion -->
 		<annotation cp='[💣]' tts='buama'>buama; pléascadh</annotation>
 
 		<!-- COLLISION SYMBOL; boom; collision; comic; emotion -->
 		<annotation cp='[💥]' tts='pléasc'>pléasc; plab; torann</annotation>
 
-		<!-- SPLASHING SWEAT SYMBOL; comic; emotion; object; splashing; sweat -->
+		<!-- SPLASHING SWEAT SYMBOL; comic; emotion; splashing; sweat -->
 		<annotation cp='[💦]' tts='uisce'>uisce; braonta; stealladh</annotation>
 
-		<!-- DASH SYMBOL; comic; dash; emotion; object; running -->
+		<!-- DASH SYMBOL; comic; dash; emotion; running -->
 		<annotation cp='[💨]' tts='rith'>rith; sciuird; tapa</annotation>
 
 		<!-- DIZZY SYMBOL; comic; dizzy; emotion; star -->
@@ -499,17 +451,8 @@
 		<!-- THOUGHT BALLOON; balloon; bubble; comic; emotion; thought -->
 		<annotation cp='[💭]' tts='bolgán smaointe'>smaoineamh; bolgán</annotation>
 
-		<!-- HOLE; hole -->
-		<annotation cp='[🕳]'>MISSING</annotation>
-
-		<!-- RIGHT ANGER BUBBLE; angry; balloon; bubble; emotion; mad -->
-		<annotation cp='[🗯]'>MISSING</annotation>
-
 		<!-- EYEGLASSES; clothing; eye; eyeglasses; eyewear; glasses -->
 		<annotation cp='[👓]' tts='spéaclaí'>spéaclaí</annotation>
-
-		<!-- DARK SUNGLASSES; dark; eye; eyewear; glasses; object; sunglasses -->
-		<annotation cp='[🕶]'>MISSING</annotation>
 
 		<!-- NECKTIE; clothing; necktie -->
 		<annotation cp='[👔]' tts='carbhat'>carbhat</annotation>
@@ -541,6 +484,9 @@
 		<!-- POUCH; bag; clothing; pouch -->
 		<annotation cp='[👝]' tts='mála'>mála; máilín; tiachóg</annotation>
 
+		<!-- SCHOOL SATCHEL; activity; bag; education; satchel; school -->
+		<annotation cp='[🎒]' tts='mála scoile'>mála; scoil</annotation>
+
 		<!-- MANS SHOE; clothing; man; shoe -->
 		<annotation cp='[👞]' tts='bróg fir'>bróg</annotation>
 
@@ -562,13 +508,40 @@
 		<!-- WOMANS HAT; clothing; hat; woman -->
 		<annotation cp='[👒]' tts='hata mná'>hata</annotation>
 
-		<!-- TOP HAT; activity; entertainment; hat; object; top; tophat -->
+		<!-- TOP HAT; activity; entertainment; hat; top; tophat -->
 		<annotation cp='[🎩]' tts='hata'>hata; hata ard</annotation>
 
-		<!-- HELMET WITH WHITE CROSS; aid; cross; hat; helmet; travel -->
-		<annotation cp='[⛑]'>MISSING</annotation>
+		<!-- LIPSTICK; cosmetics; lipstick; makeup -->
+		<annotation cp='[💄]' tts='béaldath'>béaldath; smideadh; cosmaidí</annotation>
 
-		<!-- MONKEY FACE; animal; face; monkey; nature -->
+		<!-- RING; diamond; ring; romance -->
+		<annotation cp='[💍]' tts='fáinne'>fáinne; grá</annotation>
+
+		<!-- GEM STONE; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='seoid'>seoid; seodra; diamant; grá</annotation>
+
+		<!-- JAPANESE OGRE; creature; face; fairy tale; fantasy; japanese; monster; ogre -->
+		<annotation cp='[👹]' tts='fathach'>fathach; arrachtach; síscéal; aghaidh</annotation>
+
+		<!-- JAPANESE GOBLIN; creature; face; fairy tale; fantasy; goblin; japanese; monster -->
+		<annotation cp='[👺]' tts='gruagach'>gruagach; arrachtach; síscéal; aghaidh</annotation>
+
+		<!-- GHOST; creature; face; fairy tale; fantasy; ghost; monster -->
+		<annotation cp='[👻]' tts='taibhse'>taibhse; síscéal; aghaidh</annotation>
+
+		<!-- SKULL; body; death; face; fairy tale; monster; skull -->
+		<annotation cp='[💀]' tts='blaosc'>blaosc</annotation>
+
+		<!-- EXTRATERRESTRIAL ALIEN; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' tts='eachtrán'>eachtrán; úfó; eachtardhomhandach</annotation>
+
+		<!-- ALIEN MONSTER; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='eachtrán arrachtaigh'>úfó</annotation>
+
+		<!-- PILE OF POO; comic; dung; monster; poo; poop -->
+		<annotation cp='[💩]' tts='cac'>cac</annotation>
+
+		<!-- MONKEY FACE; animal; face; monkey -->
 		<annotation cp='[🐵]' tts='aghaidh moncaí'>moncaí; ainmhí</annotation>
 
 		<!-- SEE-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
@@ -580,370 +553,328 @@
 		<!-- SPEAK-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
 		<annotation cp='[🙊]' tts='ná labhair faoin olc'>moncaí nach labhraíonn faoin olc; moncaí</annotation>
 
-		<!-- MONKEY; animal; monkey; nature -->
+		<!-- MONKEY; animal; monkey -->
 		<annotation cp='[🐒]' tts='moncaí'>moncaí; ainmhí</annotation>
 
-		<!-- DOG FACE; animal; dog; face; nature; pet -->
+		<!-- DOG FACE; animal; dog; face; pet -->
 		<annotation cp='[🐶]' tts='aghaidh madra'>madra; ainmhí</annotation>
 
-		<!-- DOG; animal; dog; nature; pet -->
+		<!-- DOG; animal; dog; pet -->
 		<annotation cp='[🐕]' tts='madra'>madra; ainmhí</annotation>
 
-		<!-- POODLE; animal; dog; nature; poodle -->
+		<!-- POODLE; animal; dog; poodle -->
 		<annotation cp='[🐩]' tts='púdal'>púdal; madra; ainmhí</annotation>
 
-		<!-- WOLF FACE; animal; face; nature; wolf -->
+		<!-- WOLF FACE; animal; face; wolf -->
 		<annotation cp='[🐺]' tts='aghaidh mic tíre'>mac tíre; ainmhí</annotation>
 
-		<!-- CAT FACE; animal; cat; face; nature; pet -->
+		<!-- CAT FACE; animal; cat; face; pet -->
 		<annotation cp='[🐱]' tts='aghaidh cait'>cat; ainmhí</annotation>
 
-		<!-- GRINNING CAT FACE WITH SMILING EYES; animal; cat; eye; face; grin; nature; smile; smiley -->
+		<!-- GRINNING CAT FACE WITH SMILING EYES; animal; cat; eye; face; grin; smile -->
 		<annotation cp='[😸]' tts='cat ag gáire'>cat ag meangadh gáire; fiacla</annotation>
 
-		<!-- CAT FACE WITH TEARS OF JOY; animal; cat; face; joy; nature; tear -->
+		<!-- CAT FACE WITH TEARS OF JOY; animal; cat; face; joy; tear -->
 		<annotation cp='[😹]' tts='deora áthais'>cat; áthas; áthasach</annotation>
 
-		<!-- SMILING CAT FACE WITH OPEN MOUTH; animal; cat; face; mouth; nature; open; smile; smiley -->
+		<!-- SMILING CAT FACE WITH OPEN MOUTH; animal; cat; face; mouth; open; smile -->
 		<annotation cp='[😺]' tts='cat ag gáire'>cat ag meangadh gáire; béal ar oscailt</annotation>
 
-		<!-- SMILING CAT FACE WITH HEART-SHAPED EYES; animal; cat; eye; face; heart; love; nature; smile; smiley -->
+		<!-- SMILING CAT FACE WITH HEART-SHAPED EYES; animal; cat; eye; face; heart; love; smile -->
 		<annotation cp='[😻]' tts='cat ag gáire'>cat ag meangadh gáire; súile i bhfoirm croí; croíthe</annotation>
 
-		<!-- CAT FACE WITH WRY SMILE; animal; cat; face; ironic; nature; smile; smiley; wry -->
+		<!-- CAT FACE WITH WRY SMILE; animal; cat; face; ironic; smile; wry -->
 		<annotation cp='[😼]' tts='gáire beag searbh'>strainc; cat; meangadh gáire</annotation>
 
-		<!-- KISSING CAT FACE WITH CLOSED EYES; animal; cat; eye; face; kiss; nature -->
+		<!-- KISSING CAT FACE WITH CLOSED EYES; animal; cat; eye; face; kiss -->
 		<annotation cp='[😽]' tts='cat ag pógadh'>pógadh; póg</annotation>
 
-		<!-- POUTING CAT FACE; animal; cat; face; nature; pouting -->
+		<!-- POUTING CAT FACE; animal; cat; face; pouting -->
 		<annotation cp='[😾]' tts='cat agus pus air'>cat</annotation>
 
-		<!-- CRYING CAT FACE; animal; cat; cry; face; nature; sad; tear -->
+		<!-- CRYING CAT FACE; animal; cat; cry; face; sad; tear -->
 		<annotation cp='[😿]' tts='cat ag caoineadh'>cat ag gol; cat</annotation>
 
-		<!-- WEARY CAT FACE; animal; cat; face; nature; oh; surprised; weary -->
+		<!-- WEARY CAT FACE; animal; cat; face; oh; surprised; weary -->
 		<annotation cp='[🙀]' tts='cat tuirseach'>go bhfóire Dia orainn</annotation>
 
-		<!-- CAT; animal; cat; nature; pet -->
+		<!-- CAT; animal; cat; pet -->
 		<annotation cp='[🐈]' tts='cat'>cat; ainmhí</annotation>
 
-		<!-- TIGER FACE; animal; face; nature; tiger -->
+		<!-- TIGER FACE; animal; face; tiger -->
 		<annotation cp='[🐯]' tts='aghaidh tíogair'>tíogar; ainmhí</annotation>
 
-		<!-- TIGER; animal; nature; tiger -->
+		<!-- TIGER; animal; tiger -->
 		<annotation cp='[🐅]' tts='tíogar'>tíogar; ainmhí</annotation>
 
-		<!-- LEOPARD; animal; leopard; nature -->
+		<!-- LEOPARD; animal; leopard -->
 		<annotation cp='[🐆]' tts='liopard'>liopard; ainmhí</annotation>
 
-		<!-- HORSE FACE; animal; face; horse; nature -->
+		<!-- HORSE FACE; animal; face; horse -->
 		<annotation cp='[🐴]' tts='aghaidh capaill'>capall; ainmhí</annotation>
 
-		<!-- HORSE; animal; horse; nature; racehorse; racing -->
+		<!-- HORSE; animal; horse; racehorse; racing -->
 		<annotation cp='[🐎]' tts='capall'>capall; ainmhí</annotation>
 
-		<!-- COW FACE; animal; cow; face; nature -->
+		<!-- COW FACE; animal; cow; face -->
 		<annotation cp='[🐮]' tts='aghaidh bó'>bó; ainmhí</annotation>
 
-		<!-- OX; animal; bull; nature; ox; taurus; zodiac -->
+		<!-- OX; animal; bull; ox; taurus; zodiac -->
 		<annotation cp='[🐂]' tts='damh'>damh; ainmhí</annotation>
 
-		<!-- WATER BUFFALO; animal; buffalo; nature; water -->
+		<!-- WATER BUFFALO; animal; buffalo; water -->
 		<annotation cp='[🐃]' tts='buabhall uisce'>buabhall; uisce; ainmhí</annotation>
 
-		<!-- COW; animal; cow; nature -->
+		<!-- COW; animal; cow -->
 		<annotation cp='[🐄]' tts='bó'>bó; ainmhí</annotation>
 
-		<!-- PIG FACE; animal; face; nature; pig -->
+		<!-- PIG FACE; animal; face; pig -->
 		<annotation cp='[🐷]' tts='aghaidh muice'>muc; ainmhí</annotation>
 
-		<!-- PIG; animal; nature; pig -->
+		<!-- PIG; animal; pig -->
 		<annotation cp='[🐖]' tts='muc'>muc; ainmhí</annotation>
 
-		<!-- BOAR; animal; boar; nature -->
+		<!-- BOAR; animal; boar -->
 		<annotation cp='[🐗]' tts='torc'>torc; ainmhí</annotation>
 
-		<!-- PIG NOSE; animal; face; nature; nose; pig -->
+		<!-- PIG NOSE; animal; face; nose; pig -->
 		<annotation cp='[🐽]' tts='srón muice'>muc; srón; ainmhí</annotation>
 
-		<!-- RAM; animal; aries; nature; ram; sheep; zodiac -->
+		<!-- RAM; animal; aries; ram; sheep; zodiac -->
 		<annotation cp='[🐏]' tts='reithe'>reithe; ainmhí</annotation>
 
-		<!-- SHEEP; animal; nature; sheep -->
+		<!-- SHEEP; animal; sheep -->
 		<annotation cp='[🐑]' tts='caora'>caora; ainmhí</annotation>
 
-		<!-- GOAT; animal; capricorn; goat; nature; zodiac -->
+		<!-- GOAT; animal; capricorn; goat; zodiac -->
 		<annotation cp='[🐐]' tts='gabhar'>gabhar; ainmhí</annotation>
 
-		<!-- DROMEDARY CAMEL; animal; camel; dromedary; hump; nature -->
+		<!-- DROMEDARY CAMEL; animal; camel; dromedary; hump -->
 		<annotation cp='[🐪]' tts='camall'>camall; dromadaire; ainmhí</annotation>
 
-		<!-- BACTRIAN CAMEL; animal; bactrian; camel; hump; nature -->
+		<!-- BACTRIAN CAMEL; animal; bactrian; camel; hump -->
 		<annotation cp='[🐫]' tts='camall'>camall; camall Baictriach; ainmhí</annotation>
 
-		<!-- ELEPHANT; animal; elephant; nature -->
+		<!-- ELEPHANT; animal; elephant -->
 		<annotation cp='[🐘]' tts='eilifint'>eilifint; ainmhí</annotation>
 
-		<!-- MOUSE FACE; animal; face; mouse; nature -->
+		<!-- MOUSE FACE; animal; face; mouse -->
 		<annotation cp='[🐭]' tts='aghaidh luiche'>luch; aghaidh; ainmhí</annotation>
 
-		<!-- MOUSE; animal; mouse; nature -->
+		<!-- MOUSE; animal; mouse -->
 		<annotation cp='[🐁]' tts='luch'>luch; ainmhí</annotation>
 
-		<!-- RAT; animal; nature; rat -->
+		<!-- RAT; animal; rat -->
 		<annotation cp='[🐀]' tts='francach'>francach; ainmhí</annotation>
 
-		<!-- HAMSTER FACE; animal; face; hamster; nature; pet -->
+		<!-- HAMSTER FACE; animal; face; hamster; pet -->
 		<annotation cp='[🐹]' tts='aghaidh hamstair'>hamstar; ainmhí</annotation>
 
-		<!-- RABBIT FACE; animal; bunny; face; nature; pet; rabbit -->
+		<!-- RABBIT FACE; animal; bunny; face; pet; rabbit -->
 		<annotation cp='[🐰]' tts='aghaidh coinín'>coinín; ainmhí</annotation>
 
-		<!-- RABBIT; animal; bunny; nature; pet; rabbit -->
+		<!-- RABBIT; animal; bunny; pet; rabbit -->
 		<annotation cp='[🐇]' tts='coinín'>coinín; ainmhí</annotation>
 
-		<!-- CHIPMUNK; animal; chipmunk; nature -->
-		<annotation cp='[🐿]'>MISSING</annotation>
-
-		<!-- BEAR FACE; animal; bear; face; nature -->
+		<!-- BEAR FACE; animal; bear; face -->
 		<annotation cp='[🐻]' tts='aghaidh béair'>béar; ainmhí</annotation>
 
-		<!-- KOALA; animal; bear; koala; nature -->
+		<!-- KOALA; animal; bear; koala -->
 		<annotation cp='[🐨]' tts='cóála'>cóála; ainmhí</annotation>
 
-		<!-- PANDA FACE; animal; face; nature; panda -->
+		<!-- PANDA FACE; animal; face; panda -->
 		<annotation cp='[🐼]' tts='aghaidh panda'>panda; ainmhí</annotation>
 
-		<!-- PAW PRINTS; animal; feet; nature; paw; print -->
+		<!-- PAW PRINTS; animal; feet; paw; print -->
 		<annotation cp='[🐾]' tts='lapa'>lapa; lorg lapa; lorg; ainmhí</annotation>
 
-		<!-- CHICKEN; animal; chicken; nature -->
+		<!-- CHICKEN; animal; chicken -->
 		<annotation cp='[🐔]' tts='sicín'>sicín; ainmhí</annotation>
 
-		<!-- ROOSTER; animal; nature; rooster -->
+		<!-- ROOSTER; animal; rooster -->
 		<annotation cp='[🐓]' tts='coileach'>coileach; ainmhí</annotation>
 
-		<!-- HATCHING CHICK; animal; baby; chick; hatching; nature -->
+		<!-- HATCHING CHICK; animal; baby; chick; hatching -->
 		<annotation cp='[🐣]' tts='éan ag teacht as an ubh'>éan; éinín; sicín; ubh</annotation>
 
-		<!-- BABY CHICK; animal; baby; chick; nature -->
+		<!-- BABY CHICK; animal; baby; chick -->
 		<annotation cp='[🐤]' tts='éinín'>éinín; éan óg; sicín; ainmhí</annotation>
 
-		<!-- FRONT-FACING BABY CHICK; animal; baby; chick; nature -->
+		<!-- FRONT-FACING BABY CHICK; animal; baby; chick -->
 		<annotation cp='[🐥]' tts='éinín'>éinín; éan óg; sicín; aghaidh éinín; ainmhí</annotation>
 
-		<!-- BIRD; animal; bird; nature -->
+		<!-- BIRD; animal; bird -->
 		<annotation cp='[🐦]' tts='éan'>éan; ainmhí</annotation>
 
-		<!-- PENGUIN; animal; nature; penguin -->
+		<!-- PENGUIN; animal; penguin -->
 		<annotation cp='[🐧]' tts='piongain'>piongain; éan</annotation>
 
-		<!-- DOVE OF PEACE; animal; bird; dove; fly; nature; peace -->
-		<annotation cp='[🕊]'>MISSING</annotation>
-
-		<!-- FROG FACE; animal; face; frog; nature -->
+		<!-- FROG FACE; animal; face; frog -->
 		<annotation cp='[🐸]' tts='aghaidh froig'>frog; ainmhí</annotation>
 
-		<!-- CROCODILE; animal; crocodile; nature -->
+		<!-- CROCODILE; animal; crocodile -->
 		<annotation cp='[🐊]' tts='crogall'>crogall; ainmhí</annotation>
 
-		<!-- SNAKE; animal; bearer; nature; ophiuchus; serpent; snake; zodiac -->
-		<annotation cp='[🐍]' tts='nathair'>nathair; ainmhí</annotation>
-
-		<!-- TURTLE; animal; nature; turtle -->
+		<!-- TURTLE; animal; turtle -->
 		<annotation cp='[🐢]' tts='turtar'>turtar; ainmhí</annotation>
 
-		<!-- DRAGON FACE; animal; dragon; face; fairy tale; nature -->
+		<!-- SNAKE; animal; bearer; ophiuchus; serpent; snake; zodiac -->
+		<annotation cp='[🐍]' tts='nathair'>nathair; ainmhí</annotation>
+
+		<!-- DRAGON FACE; animal; dragon; face; fairy tale -->
 		<annotation cp='[🐲]' tts='aghaidh dragain'>dragan; ainmhí</annotation>
 
-		<!-- DRAGON; animal; dragon; fairy tale; nature -->
+		<!-- DRAGON; animal; dragon; fairy tale -->
 		<annotation cp='[🐉]' tts='dragan'>dragan; ainmhí</annotation>
 
-		<!-- SPOUTING WHALE; animal; face; nature; spouting; whale -->
+		<!-- SPOUTING WHALE; animal; face; spouting; whale -->
 		<annotation cp='[🐳]' tts='míol mór ag séideadh'>séideadh; míol mór; ainmhí</annotation>
 
-		<!-- WHALE; animal; nature; whale -->
+		<!-- WHALE; animal; whale -->
 		<annotation cp='[🐋]' tts='míol mór'>ainmhí</annotation>
 
-		<!-- DOLPHIN; animal; dolphin; flipper; nature -->
+		<!-- DOLPHIN; animal; dolphin; flipper -->
 		<annotation cp='[🐬]' tts='deilf'>deilf; ainmhí</annotation>
 
-		<!-- FISH; animal; fish; nature; pisces; zodiac -->
+		<!-- FISH; animal; fish; pisces; zodiac -->
 		<annotation cp='[🐟]' tts='iasc'>iasc; ainmhí</annotation>
 
-		<!-- TROPICAL FISH; animal; fish; nature; tropical -->
+		<!-- TROPICAL FISH; animal; fish; tropical -->
 		<annotation cp='[🐠]' tts='iasc teochreasa'>iasc; ainmhí</annotation>
 
-		<!-- BLOWFISH; animal; blowfish; fish; nature -->
+		<!-- BLOWFISH; animal; blowfish; fish -->
 		<annotation cp='[🐡]' tts='iasc'>iasc; iasc bolgach; ainmhí</annotation>
 
-		<!-- OCTOPUS; animal; nature; octopus -->
+		<!-- OCTOPUS; animal; octopus -->
 		<annotation cp='[🐙]' tts='ochtapas'>ochtapas; ainmhí</annotation>
 
-		<!-- SPIRAL SHELL; animal; nature; shell; spiral -->
+		<!-- SPIRAL SHELL; animal; shell; spiral -->
 		<annotation cp='[🐚]' tts='sliogán'>sliogán; ainmhí</annotation>
 
-		<!-- SNAIL; animal; nature; snail -->
+		<!-- SNAIL; animal; snail -->
 		<annotation cp='[🐌]' tts='seilide'>seilide; ainmhí</annotation>
 
-		<!-- BUG; animal; bug; insect; nature -->
+		<!-- BUG; animal; bug; insect -->
 		<annotation cp='[🐛]' tts='fríd'>fríd; céadchosach; cruimh cabáiste; ainmhí</annotation>
 
-		<!-- ANT; animal; ant; insect; nature -->
+		<!-- ANT; animal; ant; insect -->
 		<annotation cp='[🐜]' tts='seangán'>seangán; ainmhí</annotation>
 
-		<!-- HONEYBEE; animal; bee; honeybee; insect; nature -->
+		<!-- HONEYBEE; animal; bee; honeybee; insect -->
 		<annotation cp='[🐝]' tts='beach'>beach; beach mheala; ainmhí</annotation>
 
-		<!-- LADY BEETLE; animal; beetle; insect; lady beetle; ladybird; ladybug; nature -->
+		<!-- LADY BEETLE; animal; beetle; insect; lady beetle; ladybird; ladybug -->
 		<annotation cp='[🐞]' tts='bóín Dé'>ciaróg; ainmhí</annotation>
 
-		<!-- SPIDER; animal; insect; object; spider -->
-		<annotation cp='[🕷]'>MISSING</annotation>
-
-		<!-- SPIDER WEB; animal; object; spider; web -->
-		<annotation cp='[🕸]'>MISSING</annotation>
-
-		<!-- PILE OF POO; comic; dung; nature; object; poo; poop -->
-		<annotation cp='[💩]' tts='cac'>cac</annotation>
-
-		<!-- JAPANESE OGRE; creature; face; fairy tale; fantasy; japanese; ogre -->
-		<annotation cp='[👹]' tts='fathach'>fathach; arrachtach; síscéal; aghaidh</annotation>
-
-		<!-- JAPANESE GOBLIN; creature; face; fairy tale; fantasy; goblin; japanese -->
-		<annotation cp='[👺]' tts='gruagach'>gruagach; arrachtach; síscéal; aghaidh</annotation>
-
-		<!-- GHOST; creature; face; fairy tale; fantasy; ghost -->
-		<annotation cp='[👻]' tts='taibhse'>taibhse; síscéal; aghaidh</annotation>
-
-		<!-- EXTRATERRESTRIAL ALIEN; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; nature; space; ufo -->
-		<annotation cp='[👽]' tts='eachtrán'>eachtrán; úfó; eachtardhomhandach</annotation>
-
-		<!-- ALIEN MONSTER; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; monster; nature; space; ufo -->
-		<annotation cp='[👾]' tts='eachtrán arrachtaigh'>úfó</annotation>
-
-		<!-- BOUQUET; bouquet; flower; nature; object; romance -->
+		<!-- BOUQUET; bouquet; flower; romance -->
 		<annotation cp='[💐]' tts='bláthanna'>bláthanna; grá</annotation>
 
-		<!-- CHERRY BLOSSOM; blossom; cherry; flower; nature; plant -->
+		<!-- CHERRY BLOSSOM; blossom; cherry; flower; plant -->
 		<annotation cp='[🌸]' tts='bláth silíní'>silín; bláth</annotation>
 
-		<!-- WHITE FLOWER; flower; object -->
+		<!-- WHITE FLOWER; flower -->
 		<annotation cp='[💮]' tts='bláth'>bláth</annotation>
 
-		<!-- ROSETTE; nature; rosette -->
-		<annotation cp='[🏵]'>MISSING</annotation>
-
-		<!-- ROSE; flower; nature; plant; rose -->
+		<!-- ROSE; flower; plant; rose -->
 		<annotation cp='[🌹]' tts='rós'>rós; bláth</annotation>
 
-		<!-- HIBISCUS; flower; hibiscus; nature; plant -->
+		<!-- HIBISCUS; flower; hibiscus; plant -->
 		<annotation cp='[🌺]' tts='roiseog'>roiseog; bláth</annotation>
 
-		<!-- SUNFLOWER; flower; nature; plant; sun; sunflower -->
+		<!-- SUNFLOWER; flower; plant; sun; sunflower -->
 		<annotation cp='[🌻]' tts='lus na gréine'>bláth</annotation>
 
-		<!-- BLOSSOM; blossom; flower; nature; plant -->
+		<!-- BLOSSOM; blossom; flower; plant -->
 		<annotation cp='[🌼]' tts='bláth'>bláth</annotation>
 
-		<!-- TULIP; flower; nature; plant; tulip -->
+		<!-- TULIP; flower; plant; tulip -->
 		<annotation cp='[🌷]' tts='tiúilip'>tiúilip; bláth</annotation>
 
-		<!-- PALM BRANCH; branch; nature; palm; plant -->
-		<annotation cp='[⸙]'>MISSING</annotation>
-
-		<!-- SHAMROCK; nature; plant; shamrock -->
-		<annotation cp='[☘]'>MISSING</annotation>
-
-		<!-- SEEDLING; nature; plant; seedling; young -->
+		<!-- SEEDLING; plant; seedling; young -->
 		<annotation cp='[🌱]' tts='planda óg'>síológ</annotation>
 
-		<!-- EVERGREEN TREE; evergreen; nature; plant; tree -->
+		<!-- EVERGREEN TREE; evergreen; plant; tree -->
 		<annotation cp='[🌲]' tts='crann síorghlas'>crann; síorghlas</annotation>
 
-		<!-- DECIDUOUS TREE; deciduous; nature; plant; shedding; tree -->
+		<!-- DECIDUOUS TREE; deciduous; plant; shedding; tree -->
 		<annotation cp='[🌳]' tts='crann'>crann; caitheamh an duilliúir; duillsilteach</annotation>
 
-		<!-- PALM TREE; nature; palm; plant; tree -->
+		<!-- PALM TREE; palm; plant; tree -->
 		<annotation cp='[🌴]' tts='pailm'>pailm; crann pailme</annotation>
 
-		<!-- CACTUS; cactus; nature; plant -->
+		<!-- CACTUS; cactus; plant -->
 		<annotation cp='[🌵]' tts='cachtas'>cachtas; planda</annotation>
 
-		<!-- EAR OF RICE; ear; nature; plant; rice -->
+		<!-- EAR OF RICE; ear; plant; rice -->
 		<annotation cp='[🌾]' tts='rís'>rís; dias</annotation>
 
-		<!-- HERB; herb; leaf; nature; plant -->
+		<!-- HERB; herb; leaf; plant -->
 		<annotation cp='[🌿]' tts='luibh'>luibh; duilleog</annotation>
 
-		<!-- FOUR LEAF CLOVER; 4; clover; four; leaf; nature; plant -->
+		<!-- FOUR LEAF CLOVER; 4; clover; four; leaf; plant -->
 		<annotation cp='[🍀]' tts='seamair'>seamair; seamair ceithre dhuilleog; ádh</annotation>
 
-		<!-- MAPLE LEAF; falling; leaf; maple; nature; plant -->
+		<!-- MAPLE LEAF; falling; leaf; maple; plant -->
 		<annotation cp='[🍁]' tts='mailp'>mailp; duilleog mhailpe</annotation>
 
-		<!-- FALLEN LEAF; falling; leaf; nature; plant -->
+		<!-- FALLEN LEAF; falling; leaf; plant -->
 		<annotation cp='[🍂]' tts='duilleog'>duilleog; duilleoga; duilleoga ag titim</annotation>
 
-		<!-- LEAF FLUTTERING IN WIND; blow; flutter; leaf; nature; plant; wind -->
+		<!-- LEAF FLUTTERING IN WIND; blow; flutter; leaf; plant; wind -->
 		<annotation cp='[🍃]' tts='duilleog'>duilleog; gaoth; duilleog sa ghaoth; séideadh</annotation>
 
-		<!-- GRAPES; food; fruit; grape; nature; plant -->
+		<!-- GRAPES; food; fruit; grape; plant -->
 		<annotation cp='[🍇]' tts='caora fíniúna'>toradh</annotation>
 
-		<!-- MELON; food; fruit; melon; nature; plant -->
+		<!-- MELON; food; fruit; melon; plant -->
 		<annotation cp='[🍈]' tts='mealbhacán'>mealbhacán; toradh</annotation>
 
-		<!-- WATERMELON; food; fruit; nature; plant; watermelon -->
+		<!-- WATERMELON; food; fruit; plant; watermelon -->
 		<annotation cp='[🍉]' tts='mealbhacán uisce'>toradh</annotation>
 
-		<!-- TANGERINE; food; fruit; nature; orange; plant; tangerine -->
+		<!-- TANGERINE; food; fruit; orange; plant; tangerine -->
 		<annotation cp='[🍊]' tts='oráiste'>oráiste; toradh</annotation>
 
-		<!-- LEMON; citrus; food; fruit; lemon; nature; plant -->
+		<!-- LEMON; citrus; food; fruit; lemon; plant -->
 		<annotation cp='[🍋]' tts='líomón'>líomón; toradh; citreas</annotation>
 
-		<!-- BANANA; banana; food; fruit; nature; plant -->
+		<!-- BANANA; banana; food; fruit; plant -->
 		<annotation cp='[🍌]' tts='banana'>banana; toradh</annotation>
 
-		<!-- PINEAPPLE; food; fruit; nature; pineapple; plant -->
+		<!-- PINEAPPLE; food; fruit; pineapple; plant -->
 		<annotation cp='[🍍]' tts='anann'>anann; toradh</annotation>
 
-		<!-- RED APPLE; apple; food; fruit; nature; plant; red -->
+		<!-- RED APPLE; apple; food; fruit; plant; red -->
 		<annotation cp='[🍎]' tts='úll dearg'>úll; dearg; toradh</annotation>
 
-		<!-- GREEN APPLE; apple; food; fruit; green; nature; plant -->
+		<!-- GREEN APPLE; apple; food; fruit; green; plant -->
 		<annotation cp='[🍏]' tts='úll glas'>úll; glas; toradh</annotation>
 
-		<!-- PEAR; food; fruit; nature; pear; plant -->
+		<!-- PEAR; food; fruit; pear; plant -->
 		<annotation cp='[🍐]' tts='piorra'>piorra; toradh</annotation>
 
-		<!-- PEACH; food; fruit; nature; peach; plant -->
+		<!-- PEACH; food; fruit; peach; plant -->
 		<annotation cp='[🍑]' tts='péitseog'>péitseog; toradh</annotation>
 
-		<!-- CHERRIES; cherry; food; fruit; nature; plant -->
+		<!-- CHERRIES; cherry; food; fruit; plant -->
 		<annotation cp='[🍒]' tts='silín'>silín; toradh</annotation>
 
-		<!-- STRAWBERRY; berry; food; fruit; nature; plant; strawberry -->
+		<!-- STRAWBERRY; berry; food; fruit; plant; strawberry -->
 		<annotation cp='[🍓]' tts='sú talún'>toradh</annotation>
 
-		<!-- TOMATO; food; nature; plant; tomato; vegetable -->
+		<!-- TOMATO; food; plant; tomato; vegetable -->
 		<annotation cp='[🍅]' tts='tráta'>tráta; glasra</annotation>
 
-		<!-- AUBERGINE; aubergine; eggplant; food; nature; plant; vegetable -->
+		<!-- AUBERGINE; aubergine; eggplant; food; plant; vegetable -->
 		<annotation cp='[🍆]' tts='ubhthoradh'>ubhthoradh; glasra</annotation>
 
-		<!-- EAR OF MAIZE; corn; ear; maize; maze; nature; plant -->
+		<!-- EAR OF MAIZE; corn; ear; maize; maze; plant -->
 		<annotation cp='[🌽]' tts='grán buí'>arbhar Indiach; dias</annotation>
 
-		<!-- HOT PEPPER; food; hot; nature; pepper; plant -->
-		<annotation cp='[🌶]'>MISSING</annotation>
-
-		<!-- MUSHROOM; mushroom; nature; plant -->
+		<!-- MUSHROOM; mushroom; plant -->
 		<annotation cp='[🍄]' tts='beacán'>beacán; muisiriún</annotation>
 
-		<!-- CHESTNUT; chestnut; nature; plant -->
+		<!-- CHESTNUT; chestnut; plant -->
 		<annotation cp='[🌰]' tts='cnó capaill'>cnó capaill</annotation>
 
 		<!-- BREAD; bread; food; loaf; restaurant -->
@@ -1042,223 +973,172 @@
 		<!-- HONEY POT; food; honey; honeypot; pot; restaurant; sweet -->
 		<annotation cp='[🍯]' tts='mil'>mil; próca meala</annotation>
 
-		<!-- HOT BEVERAGE; beverage; coffee; drink; food; hot; steaming; tea -->
-		<annotation cp='[☕]'>MISSING</annotation>
-
-		<!-- TEACUP WITHOUT HANDLE; beverage; cup; drink; food; tea; teacup -->
-		<annotation cp='[🍵]' tts='cupán'>cupán; cupán tae; tae; cupán caife; caife; deoch</annotation>
-
-		<!-- SAKE BOTTLE AND CUP; bar; beverage; bottle; cup; drink; food; restaurant; sake -->
-		<annotation cp='[🍶]' tts='sake'>sake; buidéal agus cupán sake; cupán; buidéal sake; deoch; bialann</annotation>
-
-		<!-- WINE GLASS; bar; beverage; drink; food; glass; restaurant; wine -->
-		<annotation cp='[🍷]' tts='fíon'>fíon; gloine fíona; gloine; deoch; teach tábhairne</annotation>
-
-		<!-- COCKTAIL GLASS; bar; cocktail; drink; food; glass; restaurant -->
-		<annotation cp='[🍸]' tts='manglam'>manglam; gloine mhanglaim; teach tábhairne</annotation>
-
-		<!-- TROPICAL DRINK; bar; drink; food; restaurant; tropical -->
-		<annotation cp='[🍹]' tts='puins'>puins; deoch; teach tábhairne</annotation>
-
-		<!-- BEER MUG; bar; beer; drink; food; mug; restaurant -->
-		<annotation cp='[🍺]' tts='beoir'>beoir; gloine bheorach; gloine beorach; gloine; teach tábhairne</annotation>
-
-		<!-- CLINKING BEER MUGS; bar; beer; clink; drink; food; mug; restaurant -->
-		<annotation cp='[🍻]' tts='gloiní beorach'>deochanna; teach tábhairne</annotation>
-
-		<!-- BABY BOTTLE; baby; bottle; drink; food; milk -->
+		<!-- BABY BOTTLE; baby; bottle; drink; milk -->
 		<annotation cp='[🍼]' tts='buidéal babaí'>bainne; buidéal; deoch</annotation>
 
-		<!-- FORK AND KNIFE WITH PLATE; food; fork; knife; plate; restaurant -->
-		<annotation cp='[🍽]'>MISSING</annotation>
+		<!-- TEACUP WITHOUT HANDLE; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' tts='cupán'>cupán; cupán tae; tae; cupán caife; caife; deoch</annotation>
 
-		<!-- FORK AND KNIFE; food; fork; knife; restaurant -->
+		<!-- SAKE BOTTLE AND CUP; bar; beverage; bottle; cup; drink; restaurant; sake -->
+		<annotation cp='[🍶]' tts='sake'>sake; buidéal agus cupán sake; cupán; buidéal sake; deoch; bialann</annotation>
+
+		<!-- WINE GLASS; bar; beverage; drink; glass; restaurant; wine -->
+		<annotation cp='[🍷]' tts='fíon'>fíon; gloine fíona; gloine; deoch; teach tábhairne</annotation>
+
+		<!-- COCKTAIL GLASS; bar; cocktail; drink; glass; restaurant -->
+		<annotation cp='[🍸]' tts='manglam'>manglam; gloine mhanglaim; teach tábhairne</annotation>
+
+		<!-- TROPICAL DRINK; bar; drink; restaurant; tropical -->
+		<annotation cp='[🍹]' tts='puins'>puins; deoch; teach tábhairne</annotation>
+
+		<!-- BEER MUG; bar; beer; drink; mug; restaurant -->
+		<annotation cp='[🍺]' tts='beoir'>beoir; gloine bheorach; gloine beorach; gloine; teach tábhairne</annotation>
+
+		<!-- CLINKING BEER MUGS; bar; beer; clink; drink; mug; restaurant -->
+		<annotation cp='[🍻]' tts='gloiní beorach'>deochanna; teach tábhairne</annotation>
+
+		<!-- FORK AND KNIFE; cooking; fork; knife; restaurant -->
 		<annotation cp='[🍴]' tts='scian agus forc'>sceana; scian; forc</annotation>
 
-		<!-- COOKING; cooking; egg; food; frying; pan; restaurant -->
+		<!-- COOKING; cooking; egg; frying; pan; restaurant -->
 		<annotation cp='[🍳]' tts='friochtán'>friochtán; friochadh; cócaireacht</annotation>
 
-		<!-- EARTH GLOBE EUROPE-AFRICA; africa; earth; europe; globe; nature; place; world -->
+		<!-- EARTH GLOBE EUROPE-AFRICA; africa; earth; europe; globe; world -->
 		<annotation cp='[🌍]' tts='cruinneog'>cruinneog; an domhan; an Eoraip; an Afraic</annotation>
 
-		<!-- EARTH GLOBE AMERICAS; americas; earth; globe; nature; place; world -->
+		<!-- EARTH GLOBE AMERICAS; americas; earth; globe; world -->
 		<annotation cp='[🌎]' tts='cruinneog'>cruinneog; an domhan; Meiriceá</annotation>
 
-		<!-- EARTH GLOBE ASIA-AUSTRALIA; asia; australia; earth; globe; nature; place; world -->
+		<!-- EARTH GLOBE ASIA-AUSTRALIA; asia; australia; earth; globe; world -->
 		<annotation cp='[🌏]' tts='cruinneog'>cruinneog; an domhan; an Áis; an Astráil</annotation>
 
-		<!-- GLOBE WITH MERIDIANS; earth; globe; meridians; nature; place; world -->
+		<!-- GLOBE WITH MERIDIANS; earth; globe; meridians; world -->
 		<annotation cp='[🌐]' tts='cruinneog'>cruinneog; an domhan</annotation>
 
-		<!-- WORLD MAP; map; place; world -->
-		<annotation cp='[🗺]'>MISSING</annotation>
-
-		<!-- SNOW CAPPED MOUNTAIN; cold; mountain; nature; place; snow -->
-		<annotation cp='[🏔]'>MISSING</annotation>
-
-		<!-- MOUNTAIN; mountain; place -->
-		<annotation cp='[⛰]'>MISSING</annotation>
-
-		<!-- VOLCANO; eruption; mountain; nature; place; volcano; weather -->
+		<!-- VOLCANO; eruption; mountain; volcano; weather -->
 		<annotation cp='[🌋]' tts='bolcán'>bolcán; brúchtadh bolcáin</annotation>
 
-		<!-- MOUNT FUJI; fuji; mountain; nature; place -->
+		<!-- MOUNT FUJI; fuji; mountain -->
 		<annotation cp='[🗻]' tts='Sliabh Fuji'>Sliabh Fuji</annotation>
 
-		<!-- CAMPING; camping; nature; place -->
-		<annotation cp='[🏕]'>MISSING</annotation>
-
-		<!-- BEACH WITH UMBRELLA; beach; nature; place; umbrella -->
-		<annotation cp='[🏖]'>MISSING</annotation>
-
-		<!-- DESERT; desert; nature; place -->
-		<annotation cp='[🏜]'>MISSING</annotation>
-
-		<!-- DESERT ISLAND; desert; island; nature; place -->
-		<annotation cp='[🏝]'>MISSING</annotation>
-
-		<!-- NATIONAL PARK; national park; nature; park; place -->
-		<annotation cp='[🏞]'>MISSING</annotation>
-
-		<!-- STADIUM; place; stadium -->
-		<annotation cp='[🏟]'>MISSING</annotation>
-
-		<!-- CLASSICAL BUILDING; building; classical; place -->
-		<annotation cp='[🏛]'>MISSING</annotation>
-
-		<!-- BUILDING CONSTRUCTION; building; construction; place -->
-		<annotation cp='[🏗]'>MISSING</annotation>
-
-		<!-- HOUSE BUILDINGS; building; house; place -->
-		<annotation cp='[🏘]'>MISSING</annotation>
-
-		<!-- CITYSCAPE; building; city; place -->
-		<annotation cp='[🏙]'>MISSING</annotation>
-
-		<!-- DERELICT HOUSE BUILDING; building; derelict; house; place -->
-		<annotation cp='[🏚]'>MISSING</annotation>
-
-		<!-- HOUSE BUILDING; building; home; house; place -->
+		<!-- HOUSE BUILDING; building; home; house -->
 		<annotation cp='[🏠]' tts='teach'>teach; tógáil</annotation>
 
-		<!-- HOUSE WITH GARDEN; building; garden; home; house; place -->
+		<!-- HOUSE WITH GARDEN; building; garden; home; house -->
 		<annotation cp='[🏡]' tts='teach'>teach; teach agus gairdín; gairdín; foirgneamh</annotation>
 
-		<!-- CHURCH; building; christian; church; cross; place; religion -->
+		<!-- CHURCH; building; christian; church; cross; religion -->
 		<annotation cp='[⛪]' tts='séipéal'>séipéal; foirgneamh</annotation>
 
-		<!-- OFFICE BUILDING; building; office; place -->
+		<!-- OFFICE BUILDING; building; office -->
 		<annotation cp='[🏢]' tts='foirgneamh oifigí'>oifig; foirgneamh</annotation>
 
-		<!-- JAPANESE POST OFFICE; building; japanese; office; place; post -->
+		<!-- JAPANESE POST OFFICE; building; japanese; office; post -->
 		<annotation cp='[🏣]' tts='oifig an phoist'>post</annotation>
 
-		<!-- EUROPEAN POST OFFICE; building; european; office; place; post -->
+		<!-- EUROPEAN POST OFFICE; building; european; office; post -->
 		<annotation cp='[🏤]' tts='oifig an phoist'>post</annotation>
 
-		<!-- HOSPITAL; building; doctor; hospital; medicine; place -->
+		<!-- HOSPITAL; building; doctor; hospital; medicine -->
 		<annotation cp='[🏥]' tts='ospidéal'>ospidéal; dochtúir</annotation>
 
-		<!-- BANK; bank; building; place -->
+		<!-- BANK; bank; building -->
 		<annotation cp='[🏦]' tts='banc'>banc</annotation>
 
-		<!-- HOTEL; building; hotel; place -->
+		<!-- HOTEL; building; hotel -->
 		<annotation cp='[🏨]' tts='óstán'>óstán</annotation>
 
-		<!-- LOVE HOTEL; building; hotel; love; place -->
+		<!-- LOVE HOTEL; building; hotel; love -->
 		<annotation cp='[🏩]' tts='leaba'>leaba; óstán; grá</annotation>
 
-		<!-- CONVENIENCE STORE; building; convenience; place; store -->
+		<!-- CONVENIENCE STORE; building; convenience; store -->
 		<annotation cp='[🏪]' tts='siopa áise'>siopa; áisiúlacht</annotation>
 
-		<!-- SCHOOL; building; education; place; school -->
+		<!-- SCHOOL; building; education; school -->
 		<annotation cp='[🏫]' tts='scoil'>scoil; foirgneamh scoile; foirgneamh</annotation>
 
-		<!-- DEPARTMENT STORE; building; department; place; store -->
+		<!-- DEPARTMENT STORE; building; department; store -->
 		<annotation cp='[🏬]' tts='siopa ilrannach'>ranna; siopa</annotation>
 
-		<!-- FACTORY; building; factory; place -->
+		<!-- FACTORY; building; factory -->
 		<annotation cp='[🏭]' tts='monarcha'>monarcha; foirgneamh</annotation>
 
-		<!-- JAPANESE CASTLE; building; castle; japanese; place -->
+		<!-- JAPANESE CASTLE; building; castle; japanese -->
 		<annotation cp='[🏯]' tts='caisleán Seápánach'>caisleán</annotation>
 
-		<!-- EUROPEAN CASTLE; building; castle; european; place -->
+		<!-- EUROPEAN CASTLE; building; castle; european -->
 		<annotation cp='[🏰]' tts='caisleán Eorpach'>caisleán</annotation>
 
-		<!-- WEDDING; activity; chapel; place; romance; wedding -->
+		<!-- WEDDING; activity; chapel; romance; wedding -->
 		<annotation cp='[💒]' tts='bainis'>bainis; pósadh; séipéal; grá; croí</annotation>
 
-		<!-- TOKYO TOWER; place; tokyo; tower -->
+		<!-- TOKYO TOWER; tokyo; tower -->
 		<annotation cp='[🗼]' tts='Túr Thóiceo'>Túr Thóiceo</annotation>
 
-		<!-- STATUE OF LIBERTY; liberty; place; statue -->
+		<!-- STATUE OF LIBERTY; liberty; statue -->
 		<annotation cp='[🗽]' tts='Dealbh na Saoirse'>Dealbh na Saoirse</annotation>
 
-		<!-- SILHOUETTE OF JAPAN; japan; map; place -->
+		<!-- SILHOUETTE OF JAPAN; japan; map -->
 		<annotation cp='[🗾]' tts='an tSeapáin'>an tSeapáin</annotation>
 
-		<!-- FOUNTAIN; fountain; object; place -->
+		<!-- FOUNTAIN; fountain -->
 		<annotation cp='[⛲]' tts='scardán'>scardán; fuarán</annotation>
 
-		<!-- TENT; camping; place; tent -->
+		<!-- TENT; camping; tent -->
 		<annotation cp='[⛺]' tts='campa'>campa; campáil</annotation>
 
-		<!-- FOGGY; fog; nature; place; weather -->
+		<!-- FOGGY; fog; weather -->
 		<annotation cp='[🌁]' tts='ceo'>ceo; ceomhar</annotation>
 
-		<!-- NIGHT WITH STARS; night; place; star; weather -->
+		<!-- NIGHT WITH STARS; night; star; weather -->
 		<annotation cp='[🌃]' tts='réaltaí'>réaltaí; réalta; oíche</annotation>
 
-		<!-- SUNRISE OVER MOUNTAINS; morning; mountain; place; sun; sunrise; time; weather -->
+		<!-- SUNRISE OVER MOUNTAINS; morning; mountain; sun; sunrise; time; weather -->
 		<annotation cp='[🌄]' tts='éirí na gréine'>grian na maidine; éirí na gréine ar shléibhte; sliabh</annotation>
 
-		<!-- SUNRISE; morning; place; sun; sunrise; time; weather -->
+		<!-- SUNRISE; morning; sun; sunrise; time; weather -->
 		<annotation cp='[🌅]' tts='éirí na gréine'>grian na maidine</annotation>
 
-		<!-- CITYSCAPE AT DUSK; building; city; dusk; evening; landscape; place; sun; sunset; time; weather -->
+		<!-- CITYSCAPE AT DUSK; building; city; dusk; evening; landscape; sun; sunset; time; weather -->
 		<annotation cp='[🌆]' tts='cathair'>cathair; breacdhorcha; breacdhorchadas; dreach cathrach; foirgneamh</annotation>
 
-		<!-- SUNSET OVER BUILDINGS; building; dusk; place; sun; sunset; time; weather -->
+		<!-- SUNSET OVER BUILDINGS; building; dusk; sun; sunset; time; weather -->
 		<annotation cp='[🌇]' tts='dul faoi na gréine'>breacdhorcha; foirgnimh; foirgneamh</annotation>
 
-		<!-- BRIDGE AT NIGHT; bridge; night; place; weather -->
+		<!-- BRIDGE AT NIGHT; bridge; night; weather -->
 		<annotation cp='[🌉]' tts='droichead'>droichead; oíche; droichead istoíche</annotation>
 
-		<!-- WATER WAVE; ocean; place; water; wave; weather -->
+		<!-- WATER WAVE; ocean; water; wave; weather -->
 		<annotation cp='[🌊]' tts='tonn'>tonn; uisce; farraige; muir</annotation>
-
-		<!-- HOT SPRINGS; hot; hotsprings; springs; steaming; travel -->
-		<annotation cp='[♨]'>MISSING</annotation>
 
 		<!-- MOYAI; face; moyai; statue; travel -->
 		<annotation cp='[🗿]' tts='Moyai'>Moyai</annotation>
 
-		<!-- MILKY WAY; milky way; place; space; weather -->
+		<!-- MILKY WAY; milky way; space; weather -->
 		<annotation cp='[🌌]' tts='Bealach na Bó Finne'>Claí Mór na Réaltaí; an Láir Bhán</annotation>
 
-		<!-- CAROUSEL HORSE; activity; carousel; entertainment; horse; place -->
+		<!-- CAROUSEL HORSE; activity; carousel; entertainment; horse -->
 		<annotation cp='[🎠]' tts='roithleagán ró'>capall; capall roithleagáin ró; siamsaíocht</annotation>
 
-		<!-- FERRIS WHEEL; activity; amusement park; entertainment; ferris; place; wheel -->
+		<!-- FERRIS WHEEL; activity; amusement park; entertainment; ferris; wheel -->
 		<annotation cp='[🎡]' tts='roth mór'>páirc siamsaíochta; siamsaíochta</annotation>
 
-		<!-- ROLLER COASTER; activity; amusement park; coaster; entertainment; place; roller -->
+		<!-- ROLLER COASTER; activity; amusement park; coaster; entertainment; roller -->
 		<annotation cp='[🎢]' tts='rollchóstóir'>rollchóstóir; aonach; páirc siamsaíochta; siamsaíocht</annotation>
 
-		<!-- BARBER POLE; barber; haircut; place; pole -->
+		<!-- BARBER POLE; barber; haircut; pole -->
 		<annotation cp='[💈]' tts='gruagaire'>gruagaire; bearbóir; siopa an bhearbóra</annotation>
 
-		<!-- CIRCUS TENT; activity; circus; entertainment; place; tent -->
+		<!-- CIRCUS TENT; activity; circus; entertainment; tent -->
 		<annotation cp='[🎪]' tts='sorcas'>sorcas; puball sorcais; puball</annotation>
 
-		<!-- TICKET; activity; admission; entertainment; object; place; ticket -->
-		<annotation cp='[🎫]' tts='ticéad'>ticéad; siamsaíocht</annotation>
-
-		<!-- PERFORMING ARTS; activity; art; entertainment; face; mask; object; performing; place; theater; theatre -->
+		<!-- PERFORMING ARTS; activity; art; entertainment; face; mask; performing; theater; theatre -->
 		<annotation cp='[🎭]' tts='aghaidhmhasc'>aghaidhmhasc; taibh-ealaín; ealaín; siamsaíocht; taibhiúchán</annotation>
 
-		<!-- SLOT MACHINE; activity; game; object; place; slot -->
+		<!-- ARTIST PALETTE; activity; art; entertainment; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='péint'>péint; ealaín; ealaíontóir; pictiúr</annotation>
+
+		<!-- SLOT MACHINE; activity; game; slot -->
 		<annotation cp='[🎰]' tts='meaisín sliotáin'>cluiche</annotation>
 
 		<!-- STEAM LOCOMOTIVE; engine; locomotive; railway; steam; train; travel; vehicle -->
@@ -1354,35 +1234,17 @@
 		<!-- NO BICYCLES; bicycle; bike; forbidden; no; not; prohibited; sign; sport; travel; vehicle -->
 		<annotation cp='[🚳]' tts='cosc ar rothar'>rothar; feithicil</annotation>
 
-		<!-- BICYCLIST; bicycle; bicyclist; bike; cyclist; human; person; sport; travel -->
-		<annotation cp='[🚴]' tts='rothaí'>rothaí; rothar</annotation>
-
-		<!-- MOUNTAIN BICYCLIST; bicycle; bicyclist; bike; cyclist; human; mountain; person; sport; travel -->
-		<annotation cp='[🚵]' tts='rothaí sléibhe'>rothar; rothaí; sliabh</annotation>
-
-		<!-- RACING CAR; car; racing; sport; travel -->
-		<annotation cp='[🏎]'>MISSING</annotation>
-
-		<!-- RACING MOTORCYCLE; human; motorcycle; person; racing; sport; travel -->
-		<annotation cp='[🏍]'>MISSING</annotation>
-
 		<!-- FUEL PUMP; fuel; fuelpump; gas; pump; station; travel -->
 		<annotation cp='[⛽]' tts='stáisiún peitril'>caidéal breosla; breosla; peitreal; stáisiún</annotation>
-
-		<!-- MOTORWAY; highway; motorway; road; travel -->
-		<annotation cp='[🛣]'>MISSING</annotation>
-
-		<!-- RAILWAY TRACK; railway; train; travel -->
-		<annotation cp='[🛤]'>MISSING</annotation>
 
 		<!-- POLICE CARS REVOLVING LIGHT; beacon; car; light; police; revolving; travel -->
 		<annotation cp='[🚨]' tts='solas rothlach'>solas gardaí; rabhachán gardaí; carr gardaí</annotation>
 
-		<!-- HELM SYMBOL; helm; travel -->
-		<annotation cp='[⎈]'>MISSING</annotation>
-
 		<!-- ANCHOR; anchor; ship; tool; travel -->
 		<annotation cp='[⚓]' tts='ancaire'>ancaire; comhartha</annotation>
+
+		<!-- TRIDENT EMBLEM; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='trírinn'>trírinn</annotation>
 
 		<!-- SAILBOAT; boat; resort; sailboat; sea; travel; yacht -->
 		<annotation cp='[⛵]' tts='bás seoil'>bád; luamh; ionad mara; ionad saoire</annotation>
@@ -1393,29 +1255,8 @@
 		<!-- SPEEDBOAT; boat; speedboat; travel; vehicle -->
 		<annotation cp='[🚤]' tts='luasbhád'>luasbhád; bád; feithicil</annotation>
 
-		<!-- PASSENGER SHIP; passenger; ship; travel; vehicle -->
-		<annotation cp='[🛳]'>MISSING</annotation>
-
-		<!-- FERRY; boat; ferry; travel -->
-		<annotation cp='[⛴]'>MISSING</annotation>
-
-		<!-- MOTOR BOAT; boat; motorboat; travel; vehicle -->
-		<annotation cp='[🛥]'>MISSING</annotation>
-
 		<!-- SHIP; ship; travel; vehicle -->
 		<annotation cp='[🚢]' tts='long'>long; feithicil</annotation>
-
-		<!-- AIRPLANE; airplane; travel -->
-		<annotation cp='[✈]'>MISSING</annotation>
-
-		<!-- SMALL AIRPLANE; airplane; travel; vehicle -->
-		<annotation cp='[🛩]'>MISSING</annotation>
-
-		<!-- AIRPLANE DEPARTURE; airplane; departure; departures; travel; vehicle -->
-		<annotation cp='[🛫]'>MISSING</annotation>
-
-		<!-- AIRPLANE ARRIVING; airplane; arrivals; arriving; landing; travel; vehicle -->
-		<annotation cp='[🛬]'>MISSING</annotation>
 
 		<!-- SEAT; chair; office; seat; travel -->
 		<annotation cp='[💺]' tts='suíochán'>suíochán; cathaoir</annotation>
@@ -1432,16 +1273,13 @@
 		<!-- AERIAL TRAMWAY; aerial; cable; car; gondola; ropeway; tramway; travel; vehicle -->
 		<annotation cp='[🚡]' tts='carr cábla'>trambhealach aerga; téadbhealach; aerga; trambhealach; gandala; feithicil</annotation>
 
-		<!-- ROCKET; fantasy; rocket; space; travel; vehicle -->
+		<!-- ROCKET; rocket; space; travel; vehicle -->
 		<annotation cp='[🚀]' tts='roicéad'>roicéad; feithicil</annotation>
 
-		<!-- SATELLITE; place; satellite; space; vehicle -->
-		<annotation cp='[🛰]'>MISSING</annotation>
-
-		<!-- AUTOMATED TELLER MACHINE; atm; automated; bank; place; sign; teller -->
+		<!-- AUTOMATED TELLER MACHINE; atm; automated; bank; sign; teller -->
 		<annotation cp='[🏧]' tts='ATM'>ATM; UMB; meaisín bainc; poll an bhainc</annotation>
 
-		<!-- PUT LITTER IN ITS PLACE SYMBOL; human; litter; litterbox; place; travel -->
+		<!-- PUT LITTER IN ITS PLACE SYMBOL; litter; litterbox; travel -->
 		<annotation cp='[🚮]' tts='comhartha bosca bruscair'>caith bruscar sa bhosca brúscair; bosca bruscair; comhartha</annotation>
 
 		<!-- HORIZONTAL TRAFFIC LIGHT; light; signal; traffic; travel -->
@@ -1468,25 +1306,25 @@
 		<!-- NON-POTABLE WATER SYMBOL; drink; forbidden; no; not; potable; prohibited; sign; travel; water -->
 		<annotation cp='[🚱]' tts='uisce nach bhfuil le hól'>uisce; nach bhfuil le hól</annotation>
 
-		<!-- NO PEDESTRIANS; forbidden; human; no; not; pedestrian; prohibited; sign; travel -->
+		<!-- NO PEDESTRIANS; forbidden; no; not; pedestrian; prohibited; sign; travel -->
 		<annotation cp='[🚷]' tts='cosc ar choisithe'>coisí; siúlóir; comhartha</annotation>
 
-		<!-- CHILDREN CROSSING; child; crossing; human; pedestrian; sign; traffic; travel -->
+		<!-- CHILDREN CROSSING; child; crossing; pedestrian; sign; traffic; travel -->
 		<annotation cp='[🚸]' tts='páistí ag trasnú'>páistí; leanaí; trasnú; comhartha</annotation>
 
-		<!-- WHEELCHAIR SYMBOL; access; human; sign; travel; wheelchair -->
+		<!-- WHEELCHAIR SYMBOL; access; sign; travel; wheelchair -->
 		<annotation cp='[♿]' tts='bealach isteach do chathaoireacha rothaí'>cathaoir rothaí; bealach isteach; siombal cathaoireacha rothaí; comhartha</annotation>
 
-		<!-- MENS SYMBOL; human; lavatory; men; men’s; restroom; sign; travel; wc -->
+		<!-- MENS SYMBOL; lavatory; man; restroom; sign; travel; wc -->
 		<annotation cp='[🚹]' tts='Fir'>Fir; Seomra na bhFear; Comhartha Fear; comhartha</annotation>
 
-		<!-- WOMENS SYMBOL; human; lavatory; restroom; sign; travel; wc; woman; women’s -->
+		<!-- WOMENS SYMBOL; lavatory; restroom; sign; travel; wc; woman -->
 		<annotation cp='[🚺]' tts='Mná'>Mná; Seomra na mBan; Comhartha na mBan; comhartha</annotation>
 
-		<!-- RESTROOM; human; lavatory; restroom; sign; travel; wc -->
+		<!-- RESTROOM; lavatory; restroom; sign; travel; wc -->
 		<annotation cp='[🚻]' tts='comhartha na leithreas'>leithreas</annotation>
 
-		<!-- BABY SYMBOL; baby; changing; human; sign; travel -->
+		<!-- BABY SYMBOL; baby; changing; sign; travel -->
 		<annotation cp='[🚼]' tts='comhartha linbh'>leanbh sa charr; bord athraithe; leanbh</annotation>
 
 		<!-- WATER CLOSET; closet; lavatory; restroom; sign; travel; water; wc -->
@@ -1510,35 +1348,20 @@
 		<!-- NO ENTRY; entry; forbidden; no; not; prohibited; traffic; travel -->
 		<annotation cp='[⛔]' tts='Cosc ar iontráil'>cosc; comhartha</annotation>
 
-		<!-- BELLHOP BELL; bell; bellhop; hotel; object -->
-		<annotation cp='[🛎]'>MISSING</annotation>
-
-		<!-- DOOR; door; object; travel -->
+		<!-- DOOR; door; travel -->
 		<annotation cp='[🚪]' tts='doras'>doras</annotation>
 
-		<!-- SLEEPING ACCOMMODATION; hotel; object; sleep -->
-		<annotation cp='[🛌]'>MISSING</annotation>
-
-		<!-- BED; bed; hotel; object; sleep -->
-		<annotation cp='[🛏]'>MISSING</annotation>
-
-		<!-- COUCH AND LAMP; couch; hotel; lamp; object -->
-		<annotation cp='[🛋]'>MISSING</annotation>
-
-		<!-- TOILET; object; toilet; travel -->
+		<!-- TOILET; toilet; travel -->
 		<annotation cp='[🚽]' tts='leithreas'>leithreas</annotation>
 
-		<!-- SHOWER; object; shower; travel; water -->
+		<!-- SHOWER; shower; travel; water -->
 		<annotation cp='[🚿]' tts='cithfholcadán'>cithfholcadán</annotation>
 
-		<!-- BATH; bath; bathtub; object; travel -->
+		<!-- BATH; bath; bathtub; travel -->
 		<annotation cp='[🛀]' tts='folcadh'>folcadh</annotation>
 
-		<!-- BATHTUB; bath; bathtub; object; travel -->
+		<!-- BATHTUB; bath; bathtub; travel -->
 		<annotation cp='[🛁]' tts='folcadán'>folcadán</annotation>
-
-		<!-- SHOPPING BAGS; bag; hotel; object; shopping -->
-		<annotation cp='[🛍]'>MISSING</annotation>
 
 		<!-- HOURGLASS; hourglass; sand; time; timer -->
 		<annotation cp='[⌛]' tts='orláiste'>orláiste; gaineamh</annotation>
@@ -1551,15 +1374,6 @@
 
 		<!-- ALARM CLOCK; alarm; clock; time -->
 		<annotation cp='[⏰]' tts='clog aláraim'>alárm; clog</annotation>
-
-		<!-- STOPWATCH; clock; stopwatch; time -->
-		<annotation cp='[⏱]'>MISSING</annotation>
-
-		<!-- TIMER CLOCK; clock; time; timer -->
-		<annotation cp='[⏲]'>MISSING</annotation>
-
-		<!-- MANTELPIECE CLOCK; clock; object -->
-		<annotation cp='[🕰]'>MISSING</annotation>
 
 		<!-- CLOCK FACE TWELVE OCLOCK; 00; 12; 12:00; clock; face; o’clock; time; twelve -->
 		<annotation cp='[🕛]' tts='12 a chlog'>12:00</annotation>
@@ -1654,7 +1468,7 @@
 		<!-- LIBRA; balance; justice; libra; scales; time; zodiac -->
 		<annotation cp='[♎]' tts='Libra'>Libra; stoidiaca</annotation>
 
-		<!-- SCORPIUS; scorpion; scorpius; time; zodiac -->
+		<!-- SCORPIUS; scorpio; scorpion; scorpius; time; zodiac -->
 		<annotation cp='[♏]' tts='Scorpion'>Scorpion; Scorpius; stoidiaca</annotation>
 
 		<!-- SAGITTARIUS; archer; sagittarius; time; zodiac -->
@@ -1669,55 +1483,49 @@
 		<!-- PISCES; fish; pisces; time; zodiac -->
 		<annotation cp='[♓]' tts='Pisces'>Pisces; stoidiaca</annotation>
 
-		<!-- OPHIUCHUS; bearer; ophiuchus; serpent; snake; word; zodiac -->
+		<!-- OPHIUCHUS; bearer; ophiuchus; serpent; snake; zodiac -->
 		<annotation cp='[⛎]' tts='Ophiuchus'>Ophiuchus; stoidiaca</annotation>
 
-		<!-- NEW MOON SYMBOL; dark; moon; place; space; time; weather -->
+		<!-- NEW MOON SYMBOL; dark; moon; space; time; weather -->
 		<annotation cp='[🌑]' tts='gealach úr'>duibhré; dorcha; gealach; úr</annotation>
 
-		<!-- WAXING CRESCENT MOON SYMBOL; crescent; moon; place; space; time; waxing; weather -->
+		<!-- WAXING CRESCENT MOON SYMBOL; crescent; moon; space; time; waxing; weather -->
 		<annotation cp='[🌒]' tts='gealach ag líonadh'>gealach ag teacht ann; corrán gealaí</annotation>
 
-		<!-- FIRST QUARTER MOON SYMBOL; moon; place; quarter; space; time; weather -->
+		<!-- FIRST QUARTER MOON SYMBOL; moon; quarter; space; time; weather -->
 		<annotation cp='[🌓]' tts='ceathrú gealaí'>gealach i mbéal ceathrún; gealach</annotation>
 
-		<!-- WAXING GIBBOUS MOON SYMBOL; gibbous; moon; place; space; time; waxing; weather -->
+		<!-- WAXING GIBBOUS MOON SYMBOL; gibbous; moon; space; time; waxing; weather -->
 		<annotation cp='[🌔]' tts='gealach ag líonadh'>gealach ag teach ann; líonadh; gealach</annotation>
 
-		<!-- FULL MOON SYMBOL; full; moon; place; space; time; weather -->
+		<!-- FULL MOON SYMBOL; full; moon; space; time; weather -->
 		<annotation cp='[🌕]' tts='gealach lán'>gealach; lán</annotation>
 
-		<!-- WANING GIBBOUS MOON SYMBOL; gibbous; moon; place; space; time; waning; weather -->
+		<!-- WANING GIBBOUS MOON SYMBOL; gibbous; moon; space; time; waning; weather -->
 		<annotation cp='[🌖]' tts='gealach ag caitheamh'>gealach ag dul ar gcúl; gealach</annotation>
 
-		<!-- LAST QUARTER MOON SYMBOL; moon; place; quarter; space; time; weather -->
+		<!-- LAST QUARTER MOON SYMBOL; moon; quarter; space; time; weather -->
 		<annotation cp='[🌗]' tts='gealach ina ceathrú dheireanach'>ceathrú; gealach</annotation>
 
-		<!-- WANING CRESCENT MOON SYMBOL; crescent; moon; place; space; time; waning; weather -->
+		<!-- WANING CRESCENT MOON SYMBOL; crescent; moon; space; time; waning; weather -->
 		<annotation cp='[🌘]' tts='corrán gealaí ag caitheamh'>corrán gealaí ag dul ar gcúl; gealach</annotation>
 
-		<!-- CRESCENT MOON; crescent; moon; place; space; time; weather -->
+		<!-- CRESCENT MOON; crescent; moon; space; time; weather -->
 		<annotation cp='[🌙]' tts='corrán gealaí'>gealach</annotation>
 
-		<!-- NEW MOON WITH FACE; face; moon; place; time; weather -->
+		<!-- NEW MOON WITH FACE; face; moon; space; time; weather -->
 		<annotation cp='[🌚]' tts='gealach úr le haghaidh'>gealach úr le haghaidh</annotation>
 
-		<!-- FIRST QUARTER MOON WITH FACE; face; moon; place; quarter; weather -->
+		<!-- FIRST QUARTER MOON WITH FACE; face; moon; quarter; space; weather -->
 		<annotation cp='[🌛]' tts='aghaidh ghealaí'>corrán gealaí le haghaidh</annotation>
 
-		<!-- LAST QUARTER MOON WITH FACE; face; moon; place; quarter; weather -->
+		<!-- LAST QUARTER MOON WITH FACE; face; moon; quarter; space; weather -->
 		<annotation cp='[🌜]' tts='aghaidh ghealaí ina ceathrú dheireanach'>aghaidh ghealaí; ceathrú</annotation>
 
-		<!-- THERMOMETER; thermometer; weather -->
-		<annotation cp='[🌡]'>MISSING</annotation>
-
-		<!-- BLACK SUN WITH RAYS; bright; rays; sun; sunny; weather -->
-		<annotation cp='[☀]'>MISSING</annotation>
-
-		<!-- FULL MOON WITH FACE; bright; face; full; moon; place; weather -->
+		<!-- FULL MOON WITH FACE; bright; face; full; moon; space; weather -->
 		<annotation cp='[🌝]' tts='aghaidh ghealaí láine'>aghaidh ar ghealach; aghaidh; gealach</annotation>
 
-		<!-- SUN WITH FACE; bright; face; place; sun; weather -->
+		<!-- SUN WITH FACE; bright; face; space; sun; weather -->
 		<annotation cp='[🌞]' tts='aghaidh ar ghrian'>grian; aghaidh</annotation>
 
 		<!-- CLOUD; cloud; weather -->
@@ -1725,36 +1533,6 @@
 
 		<!-- SUN BEHIND CLOUD; cloud; sun; weather -->
 		<annotation cp='[⛅]' tts='grian taobh thiar de na scamaill'>grian agus scamaill; grian; scamall</annotation>
-
-		<!-- THUNDER CLOUD AND RAIN; cloud; rain; thunder; weather -->
-		<annotation cp='[⛈]'>MISSING</annotation>
-
-		<!-- WHITE SUN WITH SMALL CLOUD; cloud; sun; weather -->
-		<annotation cp='[🌤]'>MISSING</annotation>
-
-		<!-- WHITE SUN BEHIND CLOUD; cloud; sun; weather -->
-		<annotation cp='[🌥]'>MISSING</annotation>
-
-		<!-- WHITE SUN BEHIND CLOUD WITH RAIN; cloud; rain; sun; weather -->
-		<annotation cp='[🌦]'>MISSING</annotation>
-
-		<!-- CLOUD WITH RAIN; cloud; rain; weather -->
-		<annotation cp='[🌧]'>MISSING</annotation>
-
-		<!-- CLOUD WITH SNOW; cloud; cold; snow; weather -->
-		<annotation cp='[🌨]'>MISSING</annotation>
-
-		<!-- CLOUD WITH LIGHTNING; cloud; lightning; weather -->
-		<annotation cp='[🌩]'>MISSING</annotation>
-
-		<!-- CLOUD WITH TORNADO; cloud; tornado; weather -->
-		<annotation cp='[🌪]'>MISSING</annotation>
-
-		<!-- FOG; cloud; fog; nature; weather -->
-		<annotation cp='[🌫]'>MISSING</annotation>
-
-		<!-- WIND BLOWING FACE; blow; cloud; face; weather; wind -->
-		<annotation cp='[🌬]'>MISSING</annotation>
 
 		<!-- CYCLONE; cyclone; dizzy; twister; typhoon; weather -->
 		<annotation cp='[🌀]' tts='cioclón'>cioclón; cuaranfa; iomghaoth</annotation>
@@ -1765,59 +1543,80 @@
 		<!-- CLOSED UMBRELLA; rain; umbrella; weather -->
 		<annotation cp='[🌂]' tts='scáth báistí'>scáth fearthainne; báiste; báisteach</annotation>
 
-		<!-- UMBRELLA; rain; umbrella; weather -->
-		<annotation cp='[☂]'>MISSING</annotation>
-
-		<!-- UMBRELLA WITH RAIN DROPS; drop; rain; umbrella; weather -->
-		<annotation cp='[☔]'>MISSING</annotation>
-
-		<!-- UMBRELLA ON GROUND; rain; sun; travel; umbrella; weather -->
-		<annotation cp='[⛱]'>MISSING</annotation>
-
-		<!-- SNOWFLAKE; cold; snow; snowflake; weather -->
-		<annotation cp='[❄]'>MISSING</annotation>
-
-		<!-- SNOWMAN; cold; snow; snowman; weather -->
-		<annotation cp='[☃]'>MISSING</annotation>
-
 		<!-- SNOWMAN WITHOUT SNOW; cold; snow; snowman; weather -->
 		<annotation cp='[⛄]' tts='fear sneachta'>fear sneachta gan sneachta; sneachta</annotation>
 
-		<!-- GLOWING STAR; glittery; glow; place; shining; sparkle; star -->
+		<!-- GLOWING STAR; glittery; glow; shining; sparkle; star -->
 		<annotation cp='[🌟]' tts='réalta ag lonrú'>réalta; lonrú</annotation>
 
-		<!-- SHOOTING STAR; activity; falling; nature; place; shooting; space; star -->
+		<!-- SHOOTING STAR; activity; falling; shooting; space; star -->
 		<annotation cp='[🌠]' tts='réalta reatha'>réalta</annotation>
 
-		<!-- COMET; comet; object; space -->
-		<annotation cp='[☄]'>MISSING</annotation>
+		<!-- FIRE; fire; flame; tool -->
+		<annotation cp='[🔥]' tts='tine'>tine; dóiteán</annotation>
 
-		<!-- GAME DIE; dice; die; game -->
-		<annotation cp='[🎲]' tts='dísle'>dísle; cluiche</annotation>
+		<!-- JACK-O-LANTERN; activity; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='Oíche Shamhna'>Seán na Gealaí; tine ghealáin; cóisir; puimcín</annotation>
 
-		<!-- BLACK SPADE SUIT; card; game; spade; suit -->
-		<annotation cp='[♠]'>MISSING</annotation>
+		<!-- CHRISTMAS TREE; activity; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='crann Nollag'>Nollaig; crann; ceiliúradh</annotation>
 
-		<!-- BLACK HEART SUIT; card; emotion; game; heart; hearts; suit -->
-		<annotation cp='[♥]'>MISSING</annotation>
+		<!-- FIREWORKS; activity; celebration; fireworks -->
+		<annotation cp='[🎆]' tts='tine ealaíne'>ceiliúradh</annotation>
 
-		<!-- BLACK DIAMOND SUIT; card; diamond; diamonds; game; suit -->
-		<annotation cp='[♦]'>MISSING</annotation>
+		<!-- FIREWORK SPARKLER; activity; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' tts='spréachaire'>spréachaire; tine ealaíne; spréachaire tine ealaíne; ceiliúradh</annotation>
 
-		<!-- BLACK CLUB SUIT; card; club; clubs; game; suit -->
-		<annotation cp='[♣]'>MISSING</annotation>
+		<!-- SPARKLES; sign; sparkle; star -->
+		<annotation cp='[✨]' tts='gealán'>gealán; réaltaí glioscarnacha; spréachaire; réaltaí</annotation>
 
-		<!-- PLAYING CARD BLACK JOKER; card; game; joker; playing -->
-		<annotation cp='[🃏]' tts='Fear na gcrúb'>an buachaill mór; cárta imeartha; cárta</annotation>
+		<!-- BALLOON; activity; balloon; celebration -->
+		<annotation cp='[🎈]' tts='balún'>balún; ceiliúradh</annotation>
 
-		<!-- MAHJONG TILE RED DRAGON; game; mahjong; red -->
-		<annotation cp='[🀄]' tts='Tíl mah-jongg'>Dragan rua; Dragan; mah-jongg; tíl</annotation>
+		<!-- PARTY POPPER; activity; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='pléiscín cóisire'>cóisir; pléiscín; ceiliúradh</annotation>
 
-		<!-- VIDEO GAME; controller; entertainment; game; video game -->
-		<annotation cp='[🎮]' tts='cluiche ríomhaire'>rialaitheoir cluichíochta; rialaitheoir; cluiche</annotation>
+		<!-- CONFETTI BALL; activity; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='confetti'>confetti; bainis; pósadh</annotation>
 
-		<!-- JOYSTICK; entertainment; game; joystick; object; video game -->
-		<annotation cp='[🕹]'>MISSING</annotation>
+		<!-- TANABATA TREE; activity; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='stiallacha páipéir'>ceiliúradh; maisiúchá</annotation>
+
+		<!-- CROSSED FLAGS; activity; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='bratacha'>bratacha; bratacha trasnaithe; bratacha na Seapáine</annotation>
+
+		<!-- PINE DECORATION; activity; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='maisiúchán'>maisiúchán; Athbhliain; Seapánach; péine</annotation>
+
+		<!-- JAPANESE DOLLS; activity; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='babóga'>babóga; féile; babóga Seapánacha; ceiliúradh</annotation>
+
+		<!-- CARP STREAMER; activity; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='sraoilleán'>sraoilleán; sraoilleán éisc; maisiúchán</annotation>
+
+		<!-- WIND CHIME; activity; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='clingíní gaoithe'>clingíní</annotation>
+
+		<!-- MOON VIEWING CEREMONY; activity; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='gealach'>gealach; amharc ar an ngealach; féile na gealaí</annotation>
+
+		<!-- GRADUATION CAP; activity; cap; celebration; education; graduation; hat -->
+		<annotation cp='[🎓]' tts='caipín bronnta céime'>bronnadh céime; lucht acadúil; ollscoil</annotation>
+
+		<!-- DIRECT HIT; activity; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' tts='súil sprice'>súil ghloine; sprioc; cluiche</annotation>
+
+		<!-- FLOWER PLAYING CARDS; activity; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='cárta imeartha'>cárta; cluiche; cártaí</annotation>
+
+		<!-- RIBBON; celebration; ribbon -->
+		<annotation cp='[🎀]' tts='ribín'>ribín; ceiliúradh</annotation>
+
+		<!-- WRAPPED PRESENT; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='bronntanas'>bronntanas; beart; breithlá; cóisir</annotation>
+
+		<!-- TICKET; activity; admission; entertainment; ticket -->
+		<annotation cp='[🎫]' tts='ticéad'>ticéad; siamsaíocht</annotation>
 
 		<!-- SOCCER BALL; ball; soccer; sport -->
 		<annotation cp='[⚽]' tts='liathróid sacair'>sacar; liathróid</annotation>
@@ -1843,14 +1642,8 @@
 		<!-- BOWLING; ball; bowling; game; sport -->
 		<annotation cp='[🎳]' tts='babhláil'>babhláil; liathróid bhabhlála; cluiche; liathróid</annotation>
 
-		<!-- FLAG IN HOLE; flag; golf; hole; sport; travel -->
+		<!-- FLAG IN HOLE; golf; hole; sport; travel -->
 		<annotation cp='[⛳]' tts='brat i bpoll'>galf; brat gailf; poll</annotation>
-
-		<!-- GOLFER; ball; golf; human; person; sport -->
-		<annotation cp='[🏌]'>MISSING</annotation>
-
-		<!-- ICE SKATE; ice; skate; sport; travel -->
-		<annotation cp='[⛸]'>MISSING</annotation>
 
 		<!-- FISHING POLE AND FISH; entertainment; fish; pole; sport -->
 		<annotation cp='[🎣]' tts='iascaireacht'>iascaireacht; iascach; slat iascaigh; iasc</annotation>
@@ -1861,32 +1654,38 @@
 		<!-- SKI AND SKI BOOT; ski; snow; sport -->
 		<annotation cp='[🎿]' tts='scí'>scí; scí agus buatais; buatais; spórt</annotation>
 
-		<!-- SKIER; human; person; ski; snow; sport; travel -->
-		<annotation cp='[⛷]'>MISSING</annotation>
-
-		<!-- SNOWBOARDER; human; person; ski; snow; snowboard; sport -->
+		<!-- SNOWBOARDER; person; ski; snow; snowboard; sport -->
 		<annotation cp='[🏂]' tts='clár sneachta'>scimeáil sneachta; spórt</annotation>
 
-		<!-- SURFER; human; person; sport; surfer; surfing -->
+		<!-- SURFER; person; sport; surfer; surfing -->
 		<annotation cp='[🏄]' tts='surfáil'>surfáil; surfálaí; spórt</annotation>
 
-		<!-- HORSE RACING; horse; human; jockey; person; racehorse; racing; sport; travel -->
+		<!-- HORSE RACING; horse; jockey; person; racehorse; racing; sport; travel -->
 		<annotation cp='[🏇]' tts='rásaíocht chapall'>capall rása; marcaí; rásaíocht; capall; spórt</annotation>
 
-		<!-- SWIMMER; human; person; sport; swim; swimmer; travel -->
+		<!-- SWIMMER; person; sport; swim; swimmer; travel -->
 		<annotation cp='[🏊]' tts='snámhaí'>snámhaí; snámh; spórt</annotation>
 
-		<!-- PERSON WITH BALL; ball; human; person; sport; travel -->
-		<annotation cp='[⛹]'>MISSING</annotation>
+		<!-- BICYCLIST; bicycle; bicyclist; bike; cyclist; person; sport; travel -->
+		<annotation cp='[🚴]' tts='rothaí'>rothaí; rothar</annotation>
 
-		<!-- WEIGHT LIFTER; human; lifter; person; sport; weight -->
-		<annotation cp='[🏋]'>MISSING</annotation>
-
-		<!-- SPORTS MEDAL; medal; sport -->
-		<annotation cp='[🏅]'>MISSING</annotation>
+		<!-- MOUNTAIN BICYCLIST; bicycle; bicyclist; bike; cyclist; mountain; person; sport; travel -->
+		<annotation cp='[🚵]' tts='rothaí sléibhe'>rothar; rothaí; sliabh</annotation>
 
 		<!-- TROPHY; prize; sport; trophy -->
 		<annotation cp='[🏆]' tts='corn'>corn; duais</annotation>
+
+		<!-- VIDEO GAME; controller; entertainment; game; video game -->
+		<annotation cp='[🎮]' tts='cluiche ríomhaire'>rialaitheoir cluichíochta; rialaitheoir; cluiche</annotation>
+
+		<!-- GAME DIE; dice; die; game -->
+		<annotation cp='[🎲]' tts='dísle'>dísle; cluiche</annotation>
+
+		<!-- PLAYING CARD BLACK JOKER; card; game; joker; playing -->
+		<annotation cp='[🃏]' tts='Fear na gcrúb'>an buachaill mór; cárta imeartha; cárta</annotation>
+
+		<!-- MAHJONG TILE RED DRAGON; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='Tíl mah-jongg'>Dragan rua; Dragan; mah-jongg; tíl</annotation>
 
 		<!-- SPEAKER WITH CANCELLATION STROKE; mute; quiet; silent; sound; speaker; volume -->
 		<annotation cp='[🔇]' tts='callaire ar ceal'>balbh</annotation>
@@ -1906,7 +1705,7 @@
 		<!-- CHEERING MEGAPHONE; cheering; communication; megaphone; sound -->
 		<annotation cp='[📣]' tts='meigeafón'>meigeafón</annotation>
 
-		<!-- POSTAL HORN; communication; horn; object; post; postal; sound -->
+		<!-- POSTAL HORN; communication; horn; post; postal; sound -->
 		<annotation cp='[📯]' tts='corn poist'>corn</annotation>
 
 		<!-- BELL; bell; sound -->
@@ -1924,26 +1723,11 @@
 		<!-- CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS WITH CIRCLED ONE OVERLAY; arrow; clockwise; once -->
 		<annotation cp='[🔂]' tts='saigheada deisil'>saigheada deisil le huimhir 1; deiseal; saigheada; 1</annotation>
 
-		<!-- BLACK RIGHT-POINTING TRIANGLE; arrow; play; right; sound; triangle -->
-		<annotation cp='[▶]'>MISSING</annotation>
-
 		<!-- BLACK RIGHT-POINTING DOUBLE TRIANGLE; arrow; double; fast; forward; sound -->
 		<annotation cp='[⏩]' tts='mearchasadh'>mearchasadh; saighead dúbailte ar dheis; deas; saighead</annotation>
 
-		<!-- BLACK RIGHT-POINTING DOUBLE TRIANGLE WITH VERTICAL BAR; arrow; next scene; next track; sound; triangle -->
-		<annotation cp='[⏭]'>MISSING</annotation>
-
-		<!-- BLACK RIGHT-POINTING TRIANGLE WITH DOUBLE VERTICAL BAR; arrow; pause; play; right; sound; triangle -->
-		<annotation cp='[⏯]'>MISSING</annotation>
-
-		<!-- BLACK LEFT-POINTING TRIANGLE; arrow; left; reverse; sound; triangle -->
-		<annotation cp='[◀]'>MISSING</annotation>
-
 		<!-- BLACK LEFT-POINTING DOUBLE TRIANGLE; arrow; double; rewind; sound -->
 		<annotation cp='[⏪]' tts='siar'>siar; saighead dúbailte ar chlé; clé; saighead</annotation>
-
-		<!-- BLACK LEFT-POINTING DOUBLE TRIANGLE WITH VERTICAL BAR; arrow; previous scene; previous track; sound; triangle -->
-		<annotation cp='[⏮]'>MISSING</annotation>
 
 		<!-- UP-POINTING SMALL RED TRIANGLE; arrow; button; red -->
 		<annotation cp='[🔼]' tts='triantán beag dearg suas'>triantán beag dearg suas</annotation>
@@ -1957,18 +1741,6 @@
 		<!-- BLACK DOWN-POINTING DOUBLE TRIANGLE; arrow; double; down; sound -->
 		<annotation cp='[⏬]' tts='saighead síos'>saighead dúbailte síos; síos; saighead</annotation>
 
-		<!-- DOUBLE VERTICAL BAR; bar; double; pause; sound; vertical -->
-		<annotation cp='[⏸]'>MISSING</annotation>
-
-		<!-- BLACK SQUARE FOR STOP; sound; square; stop -->
-		<annotation cp='[⏹]'>MISSING</annotation>
-
-		<!-- BLACK CIRCLE FOR RECORD; circle; record; sound -->
-		<annotation cp='[⏺]'>MISSING</annotation>
-
-		<!-- EJECT SYMBOL; eject; sound -->
-		<annotation cp='[⏏]'>MISSING</annotation>
-
 		<!-- MUSICAL SCORE; activity; music; score; sound -->
 		<annotation cp='[🎼]' tts='scór ceoil'>scór; ceol</annotation>
 
@@ -1977,15 +1749,6 @@
 
 		<!-- MULTIPLE MUSICAL NOTES; activity; music; note; notes; sound -->
 		<annotation cp='[🎶]' tts='nótaí ceoil'>ceol; nótaí; nóta</annotation>
-
-		<!-- STUDIO MICROPHONE; mic; microphone; music; object; sound; studio -->
-		<annotation cp='[🎙]'>MISSING</annotation>
-
-		<!-- LEVEL SLIDER; level; music; object; slider; sound -->
-		<annotation cp='[🎚]'>MISSING</annotation>
-
-		<!-- CONTROL KNOBS; control; knobs; music; object; sound -->
-		<annotation cp='[🎛]'>MISSING</annotation>
 
 		<!-- MICROPHONE; activity; entertainment; karaoke; mic; microphone; sound -->
 		<annotation cp='[🎤]' tts='micreafón'>micreafón; karoke; siamsaíocht</annotation>
@@ -2008,70 +1771,31 @@
 		<!-- VIOLIN; activity; instrument; music; sound; violin -->
 		<annotation cp='[🎻]' tts='veidhlín'>veidhlín; fidil; uirlis; ceol</annotation>
 
-		<!-- RADIO; object; radio; video -->
+		<!-- RADIO; radio; video -->
 		<annotation cp='[📻]' tts='raidió'>raidió</annotation>
 
-		<!-- MOBILE PHONE; cell; communication; mobile; object; phone -->
+		<!-- MOBILE PHONE; cell; communication; mobile; phone -->
 		<annotation cp='[📱]' tts='fón póca'>fón</annotation>
 
-		<!-- VIBRATION MODE; cell; communication; mobile; mode; object; phone; vibration -->
+		<!-- VIBRATION MODE; cell; communication; mobile; mode; phone; vibration -->
 		<annotation cp='[📳]' tts='mód creatha'>fón póca; fón</annotation>
 
-		<!-- MOBILE PHONE OFF; cell; communication; mobile; object; off; phone -->
+		<!-- MOBILE PHONE OFF; cell; communication; mobile; off; phone -->
 		<annotation cp='[📴]' tts='fón casta as'>casta; fón póca</annotation>
 
-		<!-- MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT; arrow; call; cell; communication; mobile; object; phone; receive -->
+		<!-- MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT; arrow; call; cell; communication; mobile; phone; receive -->
 		<annotation cp='[📲]' tts='fón póca le saighead'>cuir glaoch; fón póca</annotation>
 
-		<!-- NO MOBILE PHONES; cell; communication; forbidden; mobile; no; not; object; phone; prohibited -->
+		<!-- NO MOBILE PHONES; cell; communication; forbidden; mobile; no; not; phone; prohibited -->
 		<annotation cp='[📵]' tts='cosc ar fhóin phóca'>cosc ar fhóin phóca</annotation>
-
-		<!-- BLACK TELEPHONE; office; phone; sound; telephone -->
-		<annotation cp='[☎]'>MISSING</annotation>
 
 		<!-- TELEPHONE RECEIVER; communication; phone; receiver; sound; telephone -->
 		<annotation cp='[📞]' tts='fón'>fón; teileafón; guthán; cumarsáid</annotation>
 
-		<!-- NUMBER SIGN+COMBINING ENCLOSING KEYCAP; hash; keycap; pound; word -->
-		<annotation cp='[{#⃣}]'>MISSING</annotation>
-
-		<!-- ASTERISK+COMBINING ENCLOSING KEYCAP; asterisk; keycap; star -->
-		<annotation cp='[{*⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT ZERO+COMBINING ENCLOSING KEYCAP; 0; keycap; word; zero -->
-		<annotation cp='[{0⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT ONE+COMBINING ENCLOSING KEYCAP; 1; keycap; one; word -->
-		<annotation cp='[{1⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT TWO+COMBINING ENCLOSING KEYCAP; 2; keycap; two; word -->
-		<annotation cp='[{2⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT THREE+COMBINING ENCLOSING KEYCAP; 3; keycap; three; word -->
-		<annotation cp='[{3⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT FOUR+COMBINING ENCLOSING KEYCAP; 4; four; keycap; word -->
-		<annotation cp='[{4⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT FIVE+COMBINING ENCLOSING KEYCAP; 5; five; keycap; word -->
-		<annotation cp='[{5⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT SIX+COMBINING ENCLOSING KEYCAP; 6; keycap; six; word -->
-		<annotation cp='[{6⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT SEVEN+COMBINING ENCLOSING KEYCAP; 7; keycap; seven; word -->
-		<annotation cp='[{7⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT EIGHT+COMBINING ENCLOSING KEYCAP; 8; eight; keycap; word -->
-		<annotation cp='[{8⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT NINE+COMBINING ENCLOSING KEYCAP; 9; keycap; nine; word -->
-		<annotation cp='[{9⃣}]'>MISSING</annotation>
-
 		<!-- KEYCAP TEN; 10; keycap; ten; word -->
 		<annotation cp='[🔟]' tts='deich'>deich</annotation>
 
-		<!-- ANTENNA WITH BARS; antenna; bar; communication; mobile; object; phone; signal -->
+		<!-- ANTENNA WITH BARS; antenna; bar; communication; mobile; phone; signal -->
 		<annotation cp='[📶]' tts='comharthaí fóin'>aeróg le barraí; aeróg; láidreacht</annotation>
 
 		<!-- PAGER; communication; office; pager -->
@@ -2080,31 +1804,46 @@
 		<!-- FAX MACHINE; communication; fax; office -->
 		<annotation cp='[📠]' tts='facs'>facs; meaisín facs</annotation>
 
-		<!-- MOVIE CAMERA; activity; camera; cinema; entertainment; movie; object -->
+		<!-- BATTERY; battery -->
+		<annotation cp='[🔋]' tts='ceallra'>ceallra</annotation>
+
+		<!-- ELECTRIC PLUG; electric; electricity; plug -->
+		<annotation cp='[🔌]' tts='pluga leictreach'>pluga leictreach</annotation>
+
+		<!-- PERSONAL COMPUTER; computer; office; pc; personal -->
+		<annotation cp='[💻]' tts='ríomhaire'>ríomhaire; PC</annotation>
+
+		<!-- MINIDISC; computer; disc; minidisc; office; optical -->
+		<annotation cp='[💽]' tts='MD'>MD; miondiosca</annotation>
+
+		<!-- FLOPPY DISK; computer; disc; disk; floppy; office -->
+		<annotation cp='[💾]' tts='diosca bog'>diosca; bog</annotation>
+
+		<!-- OPTICAL DISC; blu-ray; cd; computer; disc; dvd; office; optical -->
+		<annotation cp='[💿]' tts='blu-ray'>blu-ray; DVD; diosca</annotation>
+
+		<!-- DVD; computer; disc; dvd; office; optical -->
+		<annotation cp='[📀]' tts='DVD'>DVD; diosca DVD; diosca</annotation>
+
+		<!-- MOVIE CAMERA; activity; camera; cinema; entertainment; movie -->
 		<annotation cp='[🎥]' tts='ceamara'>ceamara; cinecheamara; scannán; siamsaíocht</annotation>
 
-		<!-- CINEMA; activity; camera; cinema; entertainment; film; movie; object -->
+		<!-- CINEMA; activity; camera; cinema; entertainment; film; movie -->
 		<annotation cp='[🎦]' tts='scannán'>scannán; pictiúrlann; siamsaíocht</annotation>
 
-		<!-- CLAPPER BOARD; activity; clapper; entertainment; movie; object -->
+		<!-- CLAPPER BOARD; activity; clapper; entertainment; movie -->
 		<annotation cp='[🎬]' tts='clabaire'>clabaire; scannán</annotation>
 
-		<!-- FILM PROJECTOR; cinema; entertainment; film; movie; object; projector; video -->
-		<annotation cp='[📽]'>MISSING</annotation>
-
-		<!-- TELEVISION; entertainment; object; television; tv; video -->
+		<!-- TELEVISION; entertainment; television; tv; video -->
 		<annotation cp='[📺]' tts='TV'>TV; teilifís</annotation>
 
-		<!-- CAMERA; camera; object; video -->
+		<!-- CAMERA; camera; video -->
 		<annotation cp='[📷]' tts='ceamara'>ceamara</annotation>
 
-		<!-- CAMERA WITH FLASH; camera; flash; object; video -->
-		<annotation cp='[📸]'>MISSING</annotation>
-
-		<!-- VIDEO CAMERA; camera; object; video -->
+		<!-- VIDEO CAMERA; camera; video -->
 		<annotation cp='[📹]' tts='físcheamara'>físcheamara</annotation>
 
-		<!-- VIDEOCASSETTE; object; tape; vhs; video; videocassette -->
+		<!-- VIDEOCASSETTE; tape; vhs; video; videocassette -->
 		<annotation cp='[📼]' tts='fístéip'>fístéip; físeán; téip</annotation>
 
 		<!-- LOW BRIGHTNESS SYMBOL; brightness; dim; low; sign -->
@@ -2113,110 +1852,29 @@
 		<!-- HIGH BRIGHTNESS SYMBOL; bright; brightness; sign -->
 		<annotation cp='[🔆]' tts='gile ard'>gile ard</annotation>
 
-		<!-- LEFT-POINTING MAGNIFYING GLASS; glass; magnifying; object; search; tool -->
+		<!-- LEFT-POINTING MAGNIFYING GLASS; glass; magnifying; search; tool -->
 		<annotation cp='[🔍]' tts='gloine formhéadúcháin ar chlé'>gloine formhéadúcháin ar chlé</annotation>
 
-		<!-- RIGHT-POINTING MAGNIFYING GLASS; glass; magnifying; object; search; tool -->
+		<!-- RIGHT-POINTING MAGNIFYING GLASS; glass; magnifying; search; tool -->
 		<annotation cp='[🔎]' tts='gloine formhéadúcháin ar dheis'>gloine formhéadúcháin ar dheis</annotation>
 
-		<!-- MICROSCOPE; microscope; object; tool -->
+		<!-- MICROSCOPE; microscope; tool -->
 		<annotation cp='[🔬]' tts='micreascóp'>micreascóp</annotation>
 
-		<!-- TELESCOPE; object; telescope; tool -->
+		<!-- TELESCOPE; telescope; tool -->
 		<annotation cp='[🔭]' tts='teileascóp'>teileascóp</annotation>
 
-		<!-- FIRE; fire; flame; object; tool -->
-		<annotation cp='[🔥]' tts='tine'>tine; dóiteán</annotation>
+		<!-- SATELLITE ANTENNA; antenna; communication; dish; office; satellite -->
+		<annotation cp='[📡]' tts='mias satailíte'>aeróg shatailíte; aeróg; mias; satailít</annotation>
 
-		<!-- CANDLE; candle; light; object -->
-		<annotation cp='[🕯]'>MISSING</annotation>
-
-		<!-- ELECTRIC LIGHT BULB; bulb; comic; electric; idea; light; object -->
+		<!-- ELECTRIC LIGHT BULB; bulb; comic; electric; idea; light -->
 		<annotation cp='[💡]' tts='solas'>solas; bolgán solais; bolgán; leictreach</annotation>
 
-		<!-- ELECTRIC TORCH; electric; flashlight; light; object; tool; torch -->
+		<!-- ELECTRIC TORCH; electric; flashlight; light; tool; torch -->
 		<annotation cp='[🔦]' tts='lampa leictreach'>lampa leictreach</annotation>
 
-		<!-- IZAKAYA LANTERN; bar; japanese; lantern; light; place; red; restaurant -->
+		<!-- IZAKAYA LANTERN; bar; japanese; lantern; light; red; restaurant -->
 		<annotation cp='[🏮]' tts='laindéar dearg'>laintéar; dearg; izakaya</annotation>
-
-		<!-- JACK-O-LANTERN; activity; celebration; halloween; jack; lantern; object -->
-		<annotation cp='[🎃]' tts='Oíche Shamhna'>Seán na Gealaí; tine ghealáin; cóisir; puimcín</annotation>
-
-		<!-- CHRISTMAS TREE; activity; celebration; christmas; object; tree -->
-		<annotation cp='[🎄]' tts='crann Nollag'>Nollaig; crann; ceiliúradh</annotation>
-
-		<!-- FIREWORKS; activity; celebration; fireworks; object -->
-		<annotation cp='[🎆]' tts='tine ealaíne'>ceiliúradh</annotation>
-
-		<!-- FIREWORK SPARKLER; activity; celebration; fireworks; object; sparkle -->
-		<annotation cp='[🎇]' tts='spréachaire'>spréachaire; tine ealaíne; spréachaire tine ealaíne; ceiliúradh</annotation>
-
-		<!-- SPARKLES; sign; sparkle; star -->
-		<annotation cp='[✨]' tts='gealán'>gealán; réaltaí glioscarnacha; spréachaire; réaltaí</annotation>
-
-		<!-- BALLOON; activity; balloon; celebration; object -->
-		<annotation cp='[🎈]' tts='balún'>balún; ceiliúradh</annotation>
-
-		<!-- PARTY POPPER; activity; celebration; object; party; popper; tada -->
-		<annotation cp='[🎉]' tts='pléiscín cóisire'>cóisir; pléiscín; ceiliúradh</annotation>
-
-		<!-- CONFETTI BALL; activity; ball; celebration; confetti; object -->
-		<annotation cp='[🎊]' tts='confetti'>confetti; bainis; pósadh</annotation>
-
-		<!-- TANABATA TREE; activity; banner; celebration; japanese; object; tree -->
-		<annotation cp='[🎋]' tts='stiallacha páipéir'>ceiliúradh; maisiúchá</annotation>
-
-		<!-- CROSSED FLAGS; activity; celebration; cross; crossed; flag; japanese -->
-		<annotation cp='[🎌]' tts='bratacha'>bratacha; bratacha trasnaithe; bratacha na Seapáine</annotation>
-
-		<!-- PINE DECORATION; activity; bamboo; celebration; japanese; object; pine; plant -->
-		<annotation cp='[🎍]' tts='maisiúchán'>maisiúchán; Athbhliain; Seapánach; péine</annotation>
-
-		<!-- JAPANESE DOLLS; activity; celebration; doll; festival; japanese -->
-		<annotation cp='[🎎]' tts='babóga'>babóga; féile; babóga Seapánacha; ceiliúradh</annotation>
-
-		<!-- CARP STREAMER; activity; carp; celebration; flag; object; streamer -->
-		<annotation cp='[🎏]' tts='sraoilleán'>sraoilleán; sraoilleán éisc; maisiúchán</annotation>
-
-		<!-- WIND CHIME; activity; bell; celebration; chime; object; wind -->
-		<annotation cp='[🎐]' tts='clingíní gaoithe'>clingíní</annotation>
-
-		<!-- MOON VIEWING CEREMONY; activity; celebration; ceremony; moon; object -->
-		<annotation cp='[🎑]' tts='gealach'>gealach; amharc ar an ngealach; féile na gealaí</annotation>
-
-		<!-- GRADUATION CAP; activity; cap; celebration; education; graduation; hat; object -->
-		<annotation cp='[🎓]' tts='caipín bronnta céime'>bronnadh céime; lucht acadúil; ollscoil</annotation>
-
-		<!-- ARTIST PALETTE; activity; art; entertainment; object; painting; palette -->
-		<annotation cp='[🎨]' tts='péint'>péint; ealaín; ealaíontóir; pictiúr</annotation>
-
-		<!-- DIRECT HIT; activity; bull’s eye; dart; eye; game; hit; object; target -->
-		<annotation cp='[🎯]' tts='súil sprice'>súil ghloine; sprioc; cluiche</annotation>
-
-		<!-- FLOWER PLAYING CARDS; activity; card; flower; game; japanese; object; playing -->
-		<annotation cp='[🎴]' tts='cárta imeartha'>cárta; cluiche; cártaí</annotation>
-
-		<!-- RIBBON; celebration; object; ribbon -->
-		<annotation cp='[🎀]' tts='ribín'>ribín; ceiliúradh</annotation>
-
-		<!-- WRAPPED PRESENT; box; celebration; gift; object; present; wrapped -->
-		<annotation cp='[🎁]' tts='bronntanas'>bronntanas; beart; breithlá; cóisir</annotation>
-
-		<!-- MILITARY MEDAL; celebration; medal; military; object -->
-		<annotation cp='[🎖]'>MISSING</annotation>
-
-		<!-- REMINDER RIBBON; celebration; object; reminder; ribbon -->
-		<annotation cp='[🎗]'>MISSING</annotation>
-
-		<!-- FILM FRAMES; cinema; entertainment; film; frames; movie; object -->
-		<annotation cp='[🎞]'>MISSING</annotation>
-
-		<!-- ADMISSION TICKETS; admission; entertainment; object; ticket -->
-		<annotation cp='[🎟]'>MISSING</annotation>
-
-		<!-- LABEL; label; object -->
-		<annotation cp='[🏷]'>MISSING</annotation>
 
 		<!-- NOTEBOOK WITH DECORATIVE COVER; book; cover; decorated; education; notebook; office -->
 		<annotation cp='[📔]' tts='leabhar nótaí maisithe'>leabhar nótaí maisithe</annotation>
@@ -2254,20 +1912,14 @@
 		<!-- PAGE FACING UP; document; office; page -->
 		<annotation cp='[📄]' tts='doiciméad'>doiciméad; leathanach aghaidh suas; aghaidh suas; leathanach</annotation>
 
-		<!-- NEWSPAPER; communication; news; newspaper; object; paper -->
+		<!-- NEWSPAPER; communication; news; newspaper; paper -->
 		<annotation cp='[📰]' tts='nuachtán'>nuachtán; páipéar nuachta; nuacht</annotation>
-
-		<!-- ROLLED-UP NEWSPAPER; news; newspaper; object; paper; rolled -->
-		<annotation cp='[🗞]'>MISSING</annotation>
 
 		<!-- BOOKMARK TABS; bookmark; mark; marker; office; tabs -->
 		<annotation cp='[📑]' tts='leabharmharc'>leabharmharc; leabharmharcanna; táib</annotation>
 
-		<!-- BOOKMARK; bookmark; mark; object -->
+		<!-- BOOKMARK; bookmark; mark -->
 		<annotation cp='[🔖]' tts='leabharmharc'>leabharmharc</annotation>
-
-		<!-- FRAME WITH PICTURE; art; frame; object; office; painting; picture -->
-		<annotation cp='[🖼]'>MISSING</annotation>
 
 		<!-- MONEY BAG; bag; dollar; money; moneybag; office -->
 		<annotation cp='[💰]' tts='airgead'>airgead; mála airgid; dollar</annotation>
@@ -2299,16 +1951,13 @@
 		<!-- CHART WITH UPWARDS TREND AND YEN SIGN; bank; chart; currency; graph; growth; market; money; office; rise; trend; upward; yen -->
 		<annotation cp='[💹]' tts='margadh ag éirí'>méadú; dul i méid; cairt; margadh</annotation>
 
-		<!-- ENVELOPE; email; envelope; office -->
-		<annotation cp='[✉]'>MISSING</annotation>
-
-		<!-- E-MAIL SYMBOL; communication; email; letter; mail; office -->
+		<!-- E-MAIL SYMBOL; communication; e-mail; email; letter; mail; office -->
 		<annotation cp='[📧]' tts='ríomhphost'>ríomhphost; post; clúdach litreach</annotation>
 
-		<!-- INCOMING ENVELOPE; communication; email; envelope; incoming; letter; mail; office; receive -->
+		<!-- INCOMING ENVELOPE; communication; e-mail; email; envelope; incoming; letter; mail; office; receive -->
 		<annotation cp='[📨]' tts='post isteach'>post faighte; isteach; ríomhphost; litir; clúdach litreach</annotation>
 
-		<!-- ENVELOPE WITH DOWNWARDS ARROW ABOVE; arrow; communication; down; email; envelope; letter; mail; office; outgoing; sent -->
+		<!-- ENVELOPE WITH DOWNWARDS ARROW ABOVE; arrow; communication; down; e-mail; email; envelope; letter; mail; office; outgoing; sent -->
 		<annotation cp='[📩]' tts='post amach'>post seolta; amach; seolta; post; litir; ríomhphost; clúdach litreach</annotation>
 
 		<!-- OUTBOX TRAY; box; communication; letter; mail; office; outbox; sent; tray -->
@@ -2320,71 +1969,23 @@
 		<!-- PACKAGE; box; communication; office; package; parcel -->
 		<annotation cp='[📦]' tts='pacáiste'>pacáiste; beart; bosca</annotation>
 
-		<!-- CLOSED MAILBOX WITH RAISED FLAG; closed; communication; flag; mail; mailbox; office; postbox -->
+		<!-- CLOSED MAILBOX WITH RAISED FLAG; closed; communication; mail; mailbox; office; postbox -->
 		<annotation cp='[📫]' tts='bosca poist dúnta'>bosca poist; dúnta; post</annotation>
 
-		<!-- CLOSED MAILBOX WITH LOWERED FLAG; closed; communication; flag; lowered; mail; mailbox; office; postbox -->
+		<!-- CLOSED MAILBOX WITH LOWERED FLAG; closed; communication; lowered; mail; mailbox; office; postbox -->
 		<annotation cp='[📪]' tts='bosca poist dúnta'>bosca poist; dúnta; post</annotation>
 
-		<!-- OPEN MAILBOX WITH RAISED FLAG; communication; flag; mail; mailbox; office; open; postbox -->
+		<!-- OPEN MAILBOX WITH RAISED FLAG; communication; mail; mailbox; office; open; postbox -->
 		<annotation cp='[📬]' tts='bosca poist oscailte'>bosca poist; oscailte; post</annotation>
 
-		<!-- OPEN MAILBOX WITH LOWERED FLAG; communication; flag; lowered; mail; mailbox; office; open; postbox -->
+		<!-- OPEN MAILBOX WITH LOWERED FLAG; communication; lowered; mail; mailbox; office; open; postbox -->
 		<annotation cp='[📭]' tts='bosca poist oscailte'>bosca poist; oscailte; post</annotation>
 
 		<!-- POSTBOX; communication; mail; mailbox; office; postbox -->
 		<annotation cp='[📮]' tts='bosca poist'>bosca poist</annotation>
 
-		<!-- PENCIL; office; pencil -->
-		<annotation cp='[✏]'>MISSING</annotation>
-
-		<!-- BLACK NIB; nib; office; pen -->
-		<annotation cp='[✒]'>MISSING</annotation>
-
-		<!-- LOWER LEFT FOUNTAIN PEN; communication; fountain; office; pen -->
-		<annotation cp='[🖋]'>MISSING</annotation>
-
-		<!-- LOWER LEFT BALLPOINT PEN; ballpoint; communication; office; pen -->
-		<annotation cp='[🖊]'>MISSING</annotation>
-
-		<!-- LOWER LEFT PAINTBRUSH; communication; office; paintbrush; painting -->
-		<annotation cp='[🖌]'>MISSING</annotation>
-
-		<!-- LOWER LEFT CRAYON; communication; crayon; office -->
-		<annotation cp='[🖍]'>MISSING</annotation>
-
 		<!-- MEMO; communication; memo; office; pencil -->
 		<annotation cp='[📝]' tts='meabhrán'>meabhrán; leabhar meabhrán; cumarsáid</annotation>
-
-		<!-- PERSONAL COMPUTER; computer; office; pc; personal -->
-		<annotation cp='[💻]' tts='ríomhaire'>ríomhaire; PC</annotation>
-
-		<!-- DESKTOP COMPUTER; computer; desktop; office -->
-		<annotation cp='[🖥]'>MISSING</annotation>
-
-		<!-- PRINTER; computer; office; printer -->
-		<annotation cp='[🖨]'>MISSING</annotation>
-
-		<!-- KEYBOARD; computer; keyboard; sign -->
-		<annotation cp='[⌨]'>MISSING</annotation>
-
-		<!-- THREE BUTTON MOUSE; 3; button; computer; mouse; office; three -->
-		<annotation cp='[🖱]'>MISSING</annotation>
-
-		<!-- TRACKBALL; computer; office; trackball -->
-		<annotation cp='[🖲]'>MISSING</annotation>
-
-		<!-- MINIDISC; computer; disc; minidisc; office; optical -->
-		<annotation cp='[💽]' tts='MD'>MD; miondiosca</annotation>
-
-		<!-- FLOPPY DISK; computer; disc; disk; floppy; office -->
-		<annotation cp='[💾]' tts='diosca bog'>diosca; bog</annotation>
-
-		<!-- OPTICAL DISC; cd; computer; disc; dvd; office; optical -->
-		<annotation cp='[💿]' tts='blu-ray'>blu-ray; DVD; diosca</annotation>
-
-		<!-- DVD; computer; disc; dvd; office; optical -->
-		<annotation cp='[📀]' tts='DVD'>DVD; diosca DVD; diosca</annotation>
 
 		<!-- BRIEFCASE; briefcase; office -->
 		<annotation cp='[💼]' tts='cás'>cás</annotation>
@@ -2395,20 +1996,11 @@
 		<!-- OPEN FILE FOLDER; file; folder; office; open -->
 		<annotation cp='[📂]' tts='fillteán oscailte'>oscailte; fillteán comhad oscailte; comhad; fillteán</annotation>
 
-		<!-- CARD INDEX DIVIDERS; card; dividers; index; office -->
-		<annotation cp='[🗂]'>MISSING</annotation>
-
 		<!-- CALENDAR; calendar; date; office -->
 		<annotation cp='[📅]' tts='féilire'>féilire</annotation>
 
 		<!-- TEAR-OFF CALENDAR; calendar; office -->
 		<annotation cp='[📆]' tts='féilire le stróiceadh'>féilire le stróiceadh</annotation>
-
-		<!-- SPIRAL NOTE PAD; note; office; pad; spiral -->
-		<annotation cp='[🗒]'>MISSING</annotation>
-
-		<!-- SPIRAL CALENDAR PAD; calendar; office; pad; spiral -->
-		<annotation cp='[🗓]'>MISSING</annotation>
 
 		<!-- CARD INDEX; card; index; office; rolodex -->
 		<annotation cp='[📇]' tts='innéacs cártaí'>innéacs</annotation>
@@ -2428,14 +2020,11 @@
 		<!-- PUSHPIN; office; pin; pushpin -->
 		<annotation cp='[📌]' tts='tacóid ordóige'>tacóid ordóige</annotation>
 
-		<!-- ROUND PUSHPIN; office; pin; place; pushpin -->
+		<!-- ROUND PUSHPIN; office; pin; pushpin -->
 		<annotation cp='[📍]' tts='tacóid chruinn'>tacóid chruinn</annotation>
 
 		<!-- PAPERCLIP; office; paperclip -->
 		<annotation cp='[📎]' tts='fáiscín páipéir'>fáiscín</annotation>
-
-		<!-- LINKED PAPERCLIPS; communication; link; office; paperclip -->
-		<annotation cp='[🖇]'>MISSING</annotation>
 
 		<!-- STRAIGHT RULER; office; ruler; straight edge -->
 		<annotation cp='[📏]' tts='rialóir díreach'>rialóir</annotation>
@@ -2446,974 +2035,824 @@
 		<!-- NAME BADGE; badge; name; office -->
 		<annotation cp='[📛]' tts='suaitheantas ainm'>ainm</annotation>
 
-		<!-- BLACK SCISSORS; office; scissors; tool -->
-		<annotation cp='[✂]'>MISSING</annotation>
-
-		<!-- CARD FILE BOX; box; card; file; office -->
-		<annotation cp='[🗃]'>MISSING</annotation>
-
-		<!-- FILE CABINET; cabinet; file; office -->
-		<annotation cp='[🗄]'>MISSING</annotation>
-
-		<!-- WASTEBASKET; office; wastebasket -->
-		<annotation cp='[🗑]'>MISSING</annotation>
-
-		<!-- LOCK; closed; lock; object -->
+		<!-- LOCK; closed; lock -->
 		<annotation cp='[🔒]' tts='glas'>glas</annotation>
 
-		<!-- OPEN LOCK; lock; object; open; unlock -->
+		<!-- OPEN LOCK; lock; open; unlock -->
 		<annotation cp='[🔓]' tts='glas oscailte'>glas oscailte</annotation>
 
-		<!-- LOCK WITH INK PEN; ink; lock; nib; object; pen; privacy -->
+		<!-- LOCK WITH INK PEN; ink; lock; nib; pen; privacy -->
 		<annotation cp='[🔏]' tts='glas agus peann'>glas agus peann</annotation>
 
-		<!-- CLOSED LOCK WITH KEY; closed; key; lock; object; secure -->
+		<!-- CLOSED LOCK WITH KEY; closed; key; lock; secure -->
 		<annotation cp='[🔐]' tts='glas dúnta agus peann'>glas dúnta agus peann</annotation>
 
-		<!-- KEY; key; lock; object; password -->
+		<!-- KEY; key; lock; password -->
 		<annotation cp='[🔑]' tts='eochair'>eochair</annotation>
 
-		<!-- OLD KEY; clue; key; lock; object; old -->
-		<annotation cp='[🗝]'>MISSING</annotation>
-
-		<!-- HAMMER; hammer; object; tool -->
+		<!-- HAMMER; hammer; tool -->
 		<annotation cp='[🔨]' tts='casúr'>casúr</annotation>
 
-		<!-- PICK; mining; object; pick; tool; travel -->
-		<annotation cp='[⛏]'>MISSING</annotation>
-
-		<!-- HAMMER AND PICK; hammer; object; pick; tool -->
-		<annotation cp='[⚒]'>MISSING</annotation>
-
-		<!-- HAMMER AND WRENCH; hammer; object; tool; wrench -->
-		<annotation cp='[🛠]'>MISSING</annotation>
-
-		<!-- WRENCH; object; tool; wrench -->
+		<!-- WRENCH; tool; wrench -->
 		<annotation cp='[🔧]' tts='rinse'>rinse</annotation>
 
-		<!-- NUT AND BOLT; bolt; nut; object; tool -->
+		<!-- NUT AND BOLT; bolt; nut; tool -->
 		<annotation cp='[🔩]' tts='cnó agus bolta'>cnó agus bolta</annotation>
 
-		<!-- GEAR; gear; object; tool -->
-		<annotation cp='[⚙]'>MISSING</annotation>
-
-		<!-- COMPRESSION; compression; object; tool; vice -->
-		<annotation cp='[🗜]'>MISSING</annotation>
-
-		<!-- ALEMBIC; alembic; chemistry; object; tool -->
-		<annotation cp='[⚗]'>MISSING</annotation>
-
-		<!-- SCALES; balance; justice; libra; object; scales; tool; weight; zodiac -->
-		<annotation cp='[⚖]'>MISSING</annotation>
-
-		<!-- SYRINGE; doctor; medicine; needle; object; shot; sick; syringe; tool -->
-		<annotation cp='[💉]' tts='instealladh'>instealladh; leigheas; dochtúir</annotation>
-
-		<!-- DAGGER KNIFE; dagger; knife; object; weapon -->
-		<annotation cp='[🗡]'>MISSING</annotation>
-
-		<!-- HOCHO; cooking; hocho; knife; object; tool; weapon -->
-		<annotation cp='[🔪]' tts='scian'>scian</annotation>
-
-		<!-- CROSSED SWORDS; crossed; object; swords; weapon -->
-		<annotation cp='[⚔]'>MISSING</annotation>
-
-		<!-- PISTOL; gun; object; pistol; revolver; tool; weapon -->
-		<annotation cp='[🔫]' tts='gunna'>gunna</annotation>
-
-		<!-- SHIELD; object; shield; weapon -->
-		<annotation cp='[🛡]'>MISSING</annotation>
-
-		<!-- SCHOOL SATCHEL; activity; bag; education; object; satchel; school -->
-		<annotation cp='[🎒]' tts='mála scoile'>mála; scoil</annotation>
-
-		<!-- BATTERY; battery; object -->
-		<annotation cp='[🔋]' tts='ceallra'>ceallra</annotation>
-
-		<!-- ELECTRIC PLUG; electric; electricity; object; plug -->
-		<annotation cp='[🔌]' tts='pluga leictreach'>pluga leictreach</annotation>
-
-		<!-- LINK SYMBOL; link; object -->
+		<!-- LINK SYMBOL; link -->
 		<annotation cp='[🔗]' tts='nasc'>nasc</annotation>
 
-		<!-- CHAINS; chain; object; travel -->
-		<annotation cp='[⛓]'>MISSING</annotation>
+		<!-- SYRINGE; doctor; medicine; needle; shot; sick; syringe; tool -->
+		<annotation cp='[💉]' tts='instealladh'>instealladh; leigheas; dochtúir</annotation>
 
-		<!-- SMOKING SYMBOL; activity; object; smoking; travel -->
-		<annotation cp='[🚬]' tts='cead tobac a chaitheamh'>caitheamh tobac; comhartha</annotation>
-
-		<!-- LIPSTICK; cosmetics; lipstick; makeup; object -->
-		<annotation cp='[💄]' tts='béaldath'>béaldath; smideadh; cosmaidí</annotation>
-
-		<!-- RING; diamond; object; ring; romance -->
-		<annotation cp='[💍]' tts='fáinne'>fáinne; grá</annotation>
-
-		<!-- GEM STONE; diamond; gem; jewel; object; romance -->
-		<annotation cp='[💎]' tts='seoid'>seoid; seodra; diamant; grá</annotation>
-
-		<!-- OIL DRUM; drum; object; oil -->
-		<annotation cp='[🛢]'>MISSING</annotation>
-
-		<!-- CRYSTAL BALL; ball; crystal; fantasy; fortune; object; tool -->
-		<annotation cp='[🔮]' tts='cruinneog chriostail'>cruinneog chriostail</annotation>
-
-		<!-- SIX POINTED STAR WITH MIDDLE DOT; fortune; object; star -->
-		<annotation cp='[🔯]' tts='réalta sé-rinneach agus ponc sa lár'>réalta sé-rinneach agus ponc sa lár</annotation>
-
-		<!-- TRIDENT EMBLEM; anchor; emblem; object; ship; tool; trident -->
-		<annotation cp='[🔱]' tts='trírinn'>trírinn</annotation>
-
-		<!-- BALLOT BOX WITH BALLOT; ballot; box; object -->
-		<annotation cp='[🗳]'>MISSING</annotation>
-
-		<!-- PILL; doctor; medicine; object; pill; sick -->
+		<!-- PILL; doctor; medicine; pill; sick -->
 		<annotation cp='[💊]' tts='piolla'>piolla; leigheas; dochtúir</annotation>
 
-		<!-- ATOM SYMBOL; atheist; atom; object -->
-		<annotation cp='[⚛]'>MISSING</annotation>
+		<!-- HOCHO; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='scian'>scian</annotation>
 
-		<!-- FLEUR-DE-LIS; object -->
-		<annotation cp='[⚜]'>MISSING</annotation>
+		<!-- PISTOL; gun; pistol; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='gunna'>gunna</annotation>
 
-		<!-- COFFIN; coffin; death; object -->
-		<annotation cp='[⚰]'>MISSING</annotation>
+		<!-- SMOKING SYMBOL; activity; smoking; travel -->
+		<annotation cp='[🚬]' tts='cead tobac a chaitheamh'>caitheamh tobac; comhartha</annotation>
 
-		<!-- FUNERAL URN; death; funeral; object; urn -->
-		<annotation cp='[⚱]'>MISSING</annotation>
-
-		<!-- JAPANESE SYMBOL FOR BEGINNER; beginner; chevron; green; japanese; leaf; object; place; tool; yellow -->
-		<annotation cp='[🔰]' tts='tosaitheoir'>tosaitheoir</annotation>
-
-		<!-- HUNDRED POINTS SYMBOL; 100; full; hundred; office; score -->
-		<annotation cp='[💯]' tts='scór iomlán'>100; 100 pointe</annotation>
-
-		<!-- SATELLITE ANTENNA; antenna; communication; dish; office; satellite -->
-		<annotation cp='[📡]' tts='mias satailíte'>aeróg shatailíte; aeróg; mias; satailít</annotation>
-
-		<!-- CHEQUERED FLAG; checkered; chequered; flag; racing; sport -->
+		<!-- CHEQUERED FLAG; checkered; chequered; racing; sport -->
 		<annotation cp='[🏁]' tts='bratach chríche'>bratach; rásaíocht; spórt</annotation>
 
-		<!-- WAVING WHITE FLAG; flag; waving -->
-		<annotation cp='[🏳]'>MISSING</annotation>
-
-		<!-- WAVING BLACK FLAG; flag; waving -->
-		<annotation cp='[🏴]'>MISSING</annotation>
-
-		<!-- TRIANGULAR FLAG ON POST; flag; post; travel -->
+		<!-- TRIANGULAR FLAG ON POST; post; travel -->
 		<annotation cp='[🚩]' tts='brat suímh'>brat faisnéise suímh; brat suímh triantánach; brat triantánach; brat; suíomh</annotation>
 
-		<!-- Afghanistan; afghanistan; flag -->
+		<!-- Afghanistan; afghanistan -->
 		<annotation cp='[{🇦🇫}]'>An Afganastáin</annotation>
 
-		<!-- Åland Islands; åland; flag; islands -->
+		<!-- Åland Islands; åland -->
 		<annotation cp='[{🇦🇽}]'>Oileáin Åland</annotation>
 
-		<!-- Albania; albania; flag -->
+		<!-- Albania; albania -->
 		<annotation cp='[{🇦🇱}]'>An Albáin</annotation>
 
-		<!-- Algeria; algeria; flag -->
+		<!-- Algeria; algeria -->
 		<annotation cp='[{🇩🇿}]'>An Ailgéir</annotation>
 
-		<!-- American Samoa; american; flag; samoa -->
+		<!-- American Samoa; american; samoa -->
 		<annotation cp='[{🇦🇸}]'>Samó Meiriceánach</annotation>
 
-		<!-- Andorra; andorra; flag -->
+		<!-- Andorra; andorra -->
 		<annotation cp='[{🇦🇩}]'>Andóra</annotation>
 
-		<!-- Angola; angola; flag -->
+		<!-- Angola; angola -->
 		<annotation cp='[{🇦🇴}]'>Angóla</annotation>
 
-		<!-- Anguilla; anguilla; flag -->
+		<!-- Anguilla; anguilla -->
 		<annotation cp='[{🇦🇮}]'>Angaíle</annotation>
 
-		<!-- Antarctica; antarctica; flag -->
+		<!-- Antarctica; antarctica -->
 		<annotation cp='[{🇦🇶}]'>An Antartaice</annotation>
 
-		<!-- Antigua &amp; Barbuda; antigua; barbuda; flag -->
+		<!-- Antigua &amp; Barbuda; antigua; barbuda -->
 		<annotation cp='[{🇦🇬}]'>Antigua agus Barbúda</annotation>
 
-		<!-- Argentina; argentina; flag -->
+		<!-- Argentina; argentina -->
 		<annotation cp='[{🇦🇷}]'>An Airgintín</annotation>
 
-		<!-- Armenia; armenia; flag -->
+		<!-- Armenia; armenia -->
 		<annotation cp='[{🇦🇲}]'>An Airméin</annotation>
 
-		<!-- Aruba; aruba; flag -->
+		<!-- Aruba; aruba -->
 		<annotation cp='[{🇦🇼}]'>Arúba</annotation>
 
-		<!-- Ascension Island; ascension; flag; island -->
+		<!-- Ascension Island; ascension; island -->
 		<annotation cp='[{🇦🇨}]'>Oileán na Deascabhála</annotation>
 
-		<!-- Australia; australia; flag -->
+		<!-- Australia; australia -->
 		<annotation cp='[{🇦🇺}]'>An Astráil</annotation>
 
-		<!-- Austria; austria; flag -->
+		<!-- Austria; austria -->
 		<annotation cp='[{🇦🇹}]'>An Ostair</annotation>
 
-		<!-- Azerbaijan; azerbaijan; flag -->
+		<!-- Azerbaijan; azerbaijan -->
 		<annotation cp='[{🇦🇿}]'>An Asarbaiseáin</annotation>
 
-		<!-- Bahamas; bahamas; flag -->
+		<!-- Bahamas; bahamas -->
 		<annotation cp='[{🇧🇸}]'>Na Bahámaí</annotation>
 
-		<!-- Bahrain; bahrain; flag -->
+		<!-- Bahrain; bahrain -->
 		<annotation cp='[{🇧🇭}]'>Bairéin</annotation>
 
-		<!-- Bangladesh; bangladesh; flag -->
+		<!-- Bangladesh; bangladesh -->
 		<annotation cp='[{🇧🇩}]'>An Bhanglaidéis</annotation>
 
-		<!-- Barbados; barbados; flag -->
+		<!-- Barbados; barbados -->
 		<annotation cp='[{🇧🇧}]'>Barbadós</annotation>
 
-		<!-- Belarus; belarus; flag -->
+		<!-- Belarus; belarus -->
 		<annotation cp='[{🇧🇾}]'>An Bhealarúis</annotation>
 
-		<!-- Belgium; belgium; flag -->
+		<!-- Belgium; belgium -->
 		<annotation cp='[{🇧🇪}]'>An Bheilg</annotation>
 
-		<!-- Belize; belize; flag -->
+		<!-- Belize; belize -->
 		<annotation cp='[{🇧🇿}]'>An Bheilís</annotation>
 
-		<!-- Benin; benin; flag -->
+		<!-- Benin; benin -->
 		<annotation cp='[{🇧🇯}]'>Beinin</annotation>
 
-		<!-- Bermuda; bermuda; flag -->
+		<!-- Bermuda; bermuda -->
 		<annotation cp='[{🇧🇲}]'>Beirmiúda</annotation>
 
-		<!-- Bhutan; bhutan; flag -->
+		<!-- Bhutan; bhutan -->
 		<annotation cp='[{🇧🇹}]'>An Bhútáin</annotation>
 
-		<!-- Bolivia; bolivia; flag -->
+		<!-- Bolivia; bolivia -->
 		<annotation cp='[{🇧🇴}]'>An Bholaiv</annotation>
 
-		<!-- Bosnia &amp; Herzegovina; bosnia; flag; herzegovina -->
+		<!-- Bosnia &amp; Herzegovina; bosnia; herzegovina -->
 		<annotation cp='[{🇧🇦}]'>An Bhoisnia agus An Heirseagaivéin</annotation>
 
-		<!-- Botswana; botswana; flag -->
+		<!-- Botswana; botswana -->
 		<annotation cp='[{🇧🇼}]'>An Bhotsuáin</annotation>
 
-		<!-- Bouvet Island; bouvet; flag; island -->
+		<!-- Bouvet Island; bouvet; island -->
 		<annotation cp='[{🇧🇻}]'>Oileán Bouvet</annotation>
 
-		<!-- Brazil; brazil; flag -->
+		<!-- Brazil; brazil -->
 		<annotation cp='[{🇧🇷}]'>An Bhrasaíl</annotation>
 
-		<!-- British Indian Ocean Territory; british; flag; indian; ocean -->
+		<!-- British Indian Ocean Territory; british; chagos; indian ocean; island -->
 		<annotation cp='[{🇮🇴}]'>Críoch Aigéan Indiach na Breataine</annotation>
 
-		<!-- British Virgin Islands; british; flag; islands; virgin islands -->
+		<!-- British Virgin Islands; british; island; virgin -->
 		<annotation cp='[{🇻🇬}]'>Oileáin Bhriotanacha na Maighdean</annotation>
 
-		<!-- Brunei; brunei; darussalam; flag -->
+		<!-- Brunei; brunei; darussalam -->
 		<annotation cp='[{🇧🇳}]'>Brúiné</annotation>
 
-		<!-- Bulgaria; bulgaria; flag -->
+		<!-- Bulgaria; bulgaria -->
 		<annotation cp='[{🇧🇬}]'>An Bhulgáir</annotation>
 
-		<!-- Burkina Faso; burkina; faso; flag -->
+		<!-- Burkina Faso; burkina faso -->
 		<annotation cp='[{🇧🇫}]'>Buircíne Fasó</annotation>
 
-		<!-- Burundi; burundi; flag -->
+		<!-- Burundi; burundi -->
 		<annotation cp='[{🇧🇮}]'>An Bhurúin</annotation>
 
-		<!-- Cambodia; cambodia; flag -->
+		<!-- Cambodia; cambodia -->
 		<annotation cp='[{🇰🇭}]'>An Chambóid</annotation>
 
-		<!-- Cameroon; cameroon; flag -->
+		<!-- Cameroon; cameroon -->
 		<annotation cp='[{🇨🇲}]'>Camarún</annotation>
 
-		<!-- Canada; canada; flag -->
+		<!-- Canada; canada -->
 		<annotation cp='[{🇨🇦}]'>Ceanada</annotation>
 
-		<!-- Canary Islands; canary; flag; islands -->
+		<!-- Canary Islands; canary; island -->
 		<annotation cp='[{🇮🇨}]'>Na hOileáin Chanáracha</annotation>
 
-		<!-- Cape Verde; cabo; cape; flag; verde -->
+		<!-- Cape Verde; cabo; cape; verde -->
 		<annotation cp='[{🇨🇻}]'>Rinn Verde</annotation>
 
-		<!-- Caribbean Netherlands; bonaire; caribbean; eustatius; flag; netherlands; saba; sint -->
+		<!-- Caribbean Netherlands; bonaire; caribbean; eustatius; netherlands; saba; sint -->
 		<annotation cp='[{🇧🇶}]'>An Ísiltír Chairibeach</annotation>
 
-		<!-- Cayman Islands; cayman; flag; islands -->
+		<!-- Cayman Islands; cayman; island -->
 		<annotation cp='[{🇰🇾}]'>Oileáin Cayman</annotation>
 
-		<!-- Central African Republic; african; central; flag -->
+		<!-- Central African Republic; central african republic; republic -->
 		<annotation cp='[{🇨🇫}]'>Poblacht na hAfraice Láir</annotation>
 
-		<!-- Ceuta &amp; Melilla; ceuta; flag; melilla -->
+		<!-- Ceuta &amp; Melilla; ceuta; melilla -->
 		<annotation cp='[{🇪🇦}]'>Ceuta agus Melilla</annotation>
 
-		<!-- Chad; chad; flag -->
+		<!-- Chad; chad -->
 		<annotation cp='[{🇹🇩}]'>Sead</annotation>
 
-		<!-- Chile; chile; flag -->
+		<!-- Chile; chile -->
 		<annotation cp='[{🇨🇱}]'>An tSile</annotation>
 
-		<!-- China; china; flag -->
+		<!-- China; china -->
 		<annotation cp='[{🇨🇳}]'>An tSín</annotation>
 
-		<!-- Christmas Island; christmas; flag; island -->
+		<!-- Christmas Island; christmas; island -->
 		<annotation cp='[{🇨🇽}]'>Oileán na Nollag</annotation>
 
-		<!-- Clipperton Island; clipperton; flag; island -->
+		<!-- Clipperton Island; clipperton; island -->
 		<annotation cp='[{🇨🇵}]'>Oileán Clipperton</annotation>
 
-		<!-- Cocos (Keeling) Islands; cocos; flag; islands; keeling -->
+		<!-- Cocos (Keeling) Islands; cocos; island; keeling -->
 		<annotation cp='[{🇨🇨}]'>Oileáin Cocos (Keeling)</annotation>
 
-		<!-- Colombia; colombia; flag -->
+		<!-- Colombia; colombia -->
 		<annotation cp='[{🇨🇴}]'>An Cholóim</annotation>
 
-		<!-- Comoros; comoros; flag -->
+		<!-- Comoros; comoros -->
 		<annotation cp='[{🇰🇲}]'>Oileáin Chomóra</annotation>
 
-		<!-- Congo - Brazzaville; brazzaville; congo; flag -->
+		<!-- Congo - Brazzaville; brazzaville; congo; congo republic; congo-brazzaville; republic; republic of the congo -->
 		<annotation cp='[{🇨🇬}]'>An Congó</annotation>
 
-		<!-- Congo - Kinshasa; congo; flag; kinshasa -->
+		<!-- Congo - Kinshasa; congo; congo-kinshasa; democratic republic of congo; drc; kinshasa; republic -->
 		<annotation cp='[{🇨🇩}]'>Poblacht Dhaonlathach an Chongó</annotation>
 
-		<!-- Cook Islands; cook; flag; islands -->
+		<!-- Cook Islands; cook; island -->
 		<annotation cp='[{🇨🇰}]'>Oileáin Cook</annotation>
 
-		<!-- Costa Rica; costa; flag; rica -->
+		<!-- Costa Rica; costa rica -->
 		<annotation cp='[{🇨🇷}]'>Cósta Ríce</annotation>
 
-		<!-- Côte d’Ivoire; coast; cote; côte; flag; ivoire; ivory -->
+		<!-- Côte d’Ivoire; cote ivoire; côte ivoire; ivory coast -->
 		<annotation cp='[{🇨🇮}]'>An Cósta Eabhair</annotation>
 
-		<!-- Croatia; croatia; flag -->
+		<!-- Croatia; croatia -->
 		<annotation cp='[{🇭🇷}]'>An Chróit</annotation>
 
-		<!-- Cuba; cuba; flag -->
+		<!-- Cuba; cuba -->
 		<annotation cp='[{🇨🇺}]'>Cúba</annotation>
 
-		<!-- Curaçao; antilles; curacao; curaçao; flag; netherlands -->
+		<!-- Curaçao; antilles; curacao; curaçao -->
 		<annotation cp='[{🇨🇼}]'>Curaçao</annotation>
 
-		<!-- Cyprus; cyprus; flag -->
+		<!-- Cyprus; cyprus -->
 		<annotation cp='[{🇨🇾}]'>An Chipir</annotation>
 
-		<!-- Czech Republic; czech; flag -->
+		<!-- Czech Republic; czech republic -->
 		<annotation cp='[{🇨🇿}]'>Poblacht na Seice</annotation>
 
-		<!-- Denmark; denmark; flag -->
+		<!-- Denmark; denmark -->
 		<annotation cp='[{🇩🇰}]'>An Danmhairg</annotation>
 
-		<!-- Diego Garcia; diego; flag; garcia -->
+		<!-- Diego Garcia; diego garcia -->
 		<annotation cp='[{🇩🇬}]'>Diego Garcia</annotation>
 
-		<!-- Djibouti; djibouti; flag -->
+		<!-- Djibouti; djibouti -->
 		<annotation cp='[{🇩🇯}]'>Djibouti</annotation>
 
-		<!-- Dominica; dominica; flag -->
+		<!-- Dominica; dominica -->
 		<annotation cp='[{🇩🇲}]'>Doiminice</annotation>
 
-		<!-- Dominican Republic; dominica; dominican; flag -->
+		<!-- Dominican Republic; dominican republic -->
 		<annotation cp='[{🇩🇴}]'>An Phoblacht Dhoiminiceach</annotation>
 
-		<!-- Ecuador; ecuador; flag -->
+		<!-- Ecuador; ecuador -->
 		<annotation cp='[{🇪🇨}]'>Eacuadór</annotation>
 
-		<!-- Egypt; arab; egypt; flag -->
+		<!-- Egypt; egypt -->
 		<annotation cp='[{🇪🇬}]'>An Éigipt</annotation>
 
-		<!-- El Salvador; el salvador; flag -->
+		<!-- El Salvador; el salvador -->
 		<annotation cp='[{🇸🇻}]'>An tSalvadóir</annotation>
 
-		<!-- Equatorial Guinea; equatorial; flag; guinea -->
+		<!-- Equatorial Guinea; equatorial guinea; guinea -->
 		<annotation cp='[{🇬🇶}]'>An Ghuine Mheánchriosach</annotation>
 
-		<!-- Eritrea; eritrea; flag -->
+		<!-- Eritrea; eritrea -->
 		<annotation cp='[{🇪🇷}]'>An Eiritré</annotation>
 
-		<!-- Estonia; estonia; flag -->
+		<!-- Estonia; estonia -->
 		<annotation cp='[{🇪🇪}]'>An Eastóin</annotation>
 
-		<!-- Ethiopia; ethiopia; flag -->
+		<!-- Ethiopia; ethiopia -->
 		<annotation cp='[{🇪🇹}]'>An Aetóip</annotation>
 
-		<!-- European Union; european; flag; union -->
+		<!-- European Union; european union -->
 		<annotation cp='[{🇪🇺}]'>An tAontas Eorpach</annotation>
 
-		<!-- Falkland Islands; falkland; flag; islands; islas; malvinas -->
+		<!-- Falkland Islands; falkland; falklands; island; islas; malvinas -->
 		<annotation cp='[{🇫🇰}]'>Oileáin Fháclainne</annotation>
 
-		<!-- Faroe Islands; faeroe; faroe; flag; islands -->
+		<!-- Faroe Islands; faroe; island -->
 		<annotation cp='[{🇫🇴}]'>Oileáin Fharó</annotation>
 
-		<!-- Fiji; fiji; flag -->
+		<!-- Fiji; fiji -->
 		<annotation cp='[{🇫🇯}]'>Fidsí</annotation>
 
-		<!-- Finland; finland; flag -->
+		<!-- Finland; finland -->
 		<annotation cp='[{🇫🇮}]'>An Fhionlainn</annotation>
 
-		<!-- France; flag; france -->
+		<!-- France; france -->
 		<annotation cp='[{🇫🇷}]'>An Fhrainc</annotation>
 
-		<!-- French Guiana; flag; french; guiana -->
+		<!-- French Guiana; french; guiana -->
 		<annotation cp='[{🇬🇫}]'>Guáin na Fraince</annotation>
 
-		<!-- French Polynesia; flag; french; polynesia -->
+		<!-- French Polynesia; french; polynesia -->
 		<annotation cp='[{🇵🇫}]'>Polainéis na Fraince</annotation>
 
-		<!-- French Southern Territories; flag; french; southern -->
+		<!-- French Southern Territories; antarctic; french -->
 		<annotation cp='[{🇹🇫}]'>Críocha Francacha Dheisceart an Domhain</annotation>
 
-		<!-- Gabon; flag; gabon -->
+		<!-- Gabon; gabon -->
 		<annotation cp='[{🇬🇦}]'>An Ghabúin</annotation>
 
-		<!-- Gambia; flag; gambia -->
+		<!-- Gambia; gambia -->
 		<annotation cp='[{🇬🇲}]'>An Ghaimbia</annotation>
 
-		<!-- Georgia; flag; georgia -->
+		<!-- Georgia; georgia -->
 		<annotation cp='[{🇬🇪}]'>An tSeoirsia</annotation>
 
-		<!-- Germany; flag; germany -->
+		<!-- Germany; germany -->
 		<annotation cp='[{🇩🇪}]'>An Ghearmáin</annotation>
 
-		<!-- Ghana; flag; ghana -->
+		<!-- Ghana; ghana -->
 		<annotation cp='[{🇬🇭}]'>Gána</annotation>
 
-		<!-- Gibraltar; flag; gibraltar -->
+		<!-- Gibraltar; gibraltar -->
 		<annotation cp='[{🇬🇮}]'>Giobráltar</annotation>
 
-		<!-- Greece; flag; greece -->
+		<!-- Greece; greece -->
 		<annotation cp='[{🇬🇷}]'>An Ghréig</annotation>
 
-		<!-- Greenland; flag; greenland -->
+		<!-- Greenland; greenland -->
 		<annotation cp='[{🇬🇱}]'>An Ghraonlainn</annotation>
 
-		<!-- Grenada; flag; grenada -->
+		<!-- Grenada; grenada -->
 		<annotation cp='[{🇬🇩}]'>Greanáda</annotation>
 
-		<!-- Guadeloupe; flag; guadeloupe -->
+		<!-- Guadeloupe; guadeloupe -->
 		<annotation cp='[{🇬🇵}]'>Guadalúip</annotation>
 
-		<!-- Guam; flag; guam -->
+		<!-- Guam; guam -->
 		<annotation cp='[{🇬🇺}]'>Guam</annotation>
 
-		<!-- Guatemala; flag; guatemala -->
+		<!-- Guatemala; guatemala -->
 		<annotation cp='[{🇬🇹}]'>Guatamala</annotation>
 
-		<!-- Guernsey; flag; guernsey; islands -->
+		<!-- Guernsey; guernsey -->
 		<annotation cp='[{🇬🇬}]'>Geansaí</annotation>
 
-		<!-- Guinea; flag; guinea -->
+		<!-- Guinea; guinea -->
 		<annotation cp='[{🇬🇳}]'>An Ghuine</annotation>
 
-		<!-- Guinea-Bissau; bissau; flag; guinea -->
+		<!-- Guinea-Bissau; bissau; guinea -->
 		<annotation cp='[{🇬🇼}]'>Guine Bissau</annotation>
 
-		<!-- Guyana; flag; guyana -->
+		<!-- Guyana; guyana -->
 		<annotation cp='[{🇬🇾}]'>An Ghuáin</annotation>
 
-		<!-- Haiti; flag; haiti -->
+		<!-- Haiti; haiti -->
 		<annotation cp='[{🇭🇹}]'>Háítí</annotation>
 
-		<!-- Heard &amp; McDonald Islands; flag; heard; island; islands; mcdonald -->
+		<!-- Heard &amp; McDonald Islands; heard; island; mcdonald -->
 		<annotation cp='[{🇭🇲}]'>Oileán Heard agus Oileáin McDonald</annotation>
 
-		<!-- Honduras; flag; honduras -->
+		<!-- Honduras; honduras -->
 		<annotation cp='[{🇭🇳}]'>Hondúras</annotation>
 
-		<!-- Hong Kong SAR China; china; flag; hong kong -->
+		<!-- Hong Kong SAR China; china; hong kong -->
 		<annotation cp='[{🇭🇰}]'>S.R.R. na Síne Hong Cong</annotation>
 
-		<!-- Hungary; flag; hungary -->
+		<!-- Hungary; hungary -->
 		<annotation cp='[{🇭🇺}]'>An Ungáir</annotation>
 
-		<!-- Iceland; flag; iceland -->
+		<!-- Iceland; iceland -->
 		<annotation cp='[{🇮🇸}]'>An Íoslainn</annotation>
 
-		<!-- India; flag; india -->
+		<!-- India; india -->
 		<annotation cp='[{🇮🇳}]'>An India</annotation>
 
-		<!-- Indonesia; flag; indonesia -->
+		<!-- Indonesia; indonesia -->
 		<annotation cp='[{🇮🇩}]'>An Indinéis</annotation>
 
-		<!-- Iran; flag; iran -->
+		<!-- Iran; iran -->
 		<annotation cp='[{🇮🇷}]'>An Iaráin</annotation>
 
-		<!-- Iraq; flag; iraq -->
+		<!-- Iraq; iraq -->
 		<annotation cp='[{🇮🇶}]'>An Iaráic</annotation>
 
-		<!-- Ireland; flag; ireland -->
+		<!-- Ireland; ireland -->
 		<annotation cp='[{🇮🇪}]'>Éire</annotation>
 
-		<!-- Isle of Man; flag; isle; man -->
+		<!-- Isle of Man; isle of man -->
 		<annotation cp='[{🇮🇲}]'>Oileán Mhanann</annotation>
 
-		<!-- Israel; flag; israel -->
+		<!-- Israel; israel -->
 		<annotation cp='[{🇮🇱}]'>Iosrael</annotation>
 
-		<!-- Italy; flag; italy -->
+		<!-- Italy; italy -->
 		<annotation cp='[{🇮🇹}]'>An Iodáil</annotation>
 
-		<!-- Jamaica; flag; jamaica -->
+		<!-- Jamaica; jamaica -->
 		<annotation cp='[{🇯🇲}]'>Iamáice</annotation>
 
-		<!-- Japan; flag; japan -->
+		<!-- Japan; japan -->
 		<annotation cp='[{🇯🇵}]'>An tSeapáin</annotation>
 
-		<!-- Jersey; flag; jersey -->
+		<!-- Jersey; jersey -->
 		<annotation cp='[{🇯🇪}]'>Geirsí</annotation>
 
-		<!-- Jordan; flag; jordan -->
+		<!-- Jordan; jordan -->
 		<annotation cp='[{🇯🇴}]'>An Iordáin</annotation>
 
-		<!-- Kazakhstan; flag; kazakhstan -->
+		<!-- Kazakhstan; kazakhstan -->
 		<annotation cp='[{🇰🇿}]'>An Chasacstáin</annotation>
 
-		<!-- Kenya; flag; kenya -->
+		<!-- Kenya; kenya -->
 		<annotation cp='[{🇰🇪}]'>An Chéinia</annotation>
 
-		<!-- Kiribati; flag; kiribati -->
+		<!-- Kiribati; kiribati -->
 		<annotation cp='[{🇰🇮}]'>Cireabaití</annotation>
 
-		<!-- Kosovo; flag; kosovo -->
+		<!-- Kosovo; kosovo -->
 		<annotation cp='[{🇽🇰}]'>An Chosaiv</annotation>
 
-		<!-- Kuwait; flag; kuwait -->
+		<!-- Kuwait; kuwait -->
 		<annotation cp='[{🇰🇼}]'>Cuáit</annotation>
 
-		<!-- Kyrgyzstan; flag; kyrgyz; kyrgyzstan -->
+		<!-- Kyrgyzstan; kyrgyzstan -->
 		<annotation cp='[{🇰🇬}]'>An Chirgeastáin</annotation>
 
-		<!-- Laos; flag; lao; laos -->
+		<!-- Laos; laos -->
 		<annotation cp='[{🇱🇦}]'>Laos</annotation>
 
-		<!-- Latvia; flag; latvia -->
+		<!-- Latvia; latvia -->
 		<annotation cp='[{🇱🇻}]'>An Laitvia</annotation>
 
-		<!-- Lebanon; flag; lebanon -->
+		<!-- Lebanon; lebanon -->
 		<annotation cp='[{🇱🇧}]'>An Liobáin</annotation>
 
-		<!-- Lesotho; flag; lesotho -->
+		<!-- Lesotho; lesotho -->
 		<annotation cp='[{🇱🇸}]'>Leosóta</annotation>
 
-		<!-- Liberia; flag; liberia -->
+		<!-- Liberia; liberia -->
 		<annotation cp='[{🇱🇷}]'>An Libéir</annotation>
 
-		<!-- Libya; arab; flag; libya; libyan -->
+		<!-- Libya; libya -->
 		<annotation cp='[{🇱🇾}]'>An Libia</annotation>
 
-		<!-- Liechtenstein; flag; liechtenstein -->
+		<!-- Liechtenstein; liechtenstein -->
 		<annotation cp='[{🇱🇮}]'>Lichtinstéin</annotation>
 
-		<!-- Lithuania; flag; lithuania -->
+		<!-- Lithuania; lithuania -->
 		<annotation cp='[{🇱🇹}]'>An Liotuáin</annotation>
 
-		<!-- Luxembourg; flag; luxembourg -->
+		<!-- Luxembourg; luxembourg -->
 		<annotation cp='[{🇱🇺}]'>Lucsamburg</annotation>
 
-		<!-- Macau SAR China; china; flag; macao; macau -->
+		<!-- Macau SAR China; china; macao; macau -->
 		<annotation cp='[{🇲🇴}]'>S.R.R. na Síne Macao</annotation>
 
-		<!-- Macedonia; flag; macedonia -->
+		<!-- Macedonia; macedonia -->
 		<annotation cp='[{🇲🇰}]'>An Mhacadóin</annotation>
 
-		<!-- Madagascar; flag; madagascar -->
+		<!-- Madagascar; madagascar -->
 		<annotation cp='[{🇲🇬}]'>Madagascar</annotation>
 
-		<!-- Malawi; flag; malawi -->
+		<!-- Malawi; malawi -->
 		<annotation cp='[{🇲🇼}]'>An Mhaláiv</annotation>
 
-		<!-- Malaysia; flag; malaysia -->
+		<!-- Malaysia; malaysia -->
 		<annotation cp='[{🇲🇾}]'>An Mhalaeisia</annotation>
 
-		<!-- Maldives; flag; maldives -->
+		<!-- Maldives; maldives -->
 		<annotation cp='[{🇲🇻}]'>Oileáin Mhaildíve</annotation>
 
-		<!-- Mali; flag; mali -->
+		<!-- Mali; mali -->
 		<annotation cp='[{🇲🇱}]'>Mailí</annotation>
 
-		<!-- Malta; flag; malta -->
+		<!-- Malta; malta -->
 		<annotation cp='[{🇲🇹}]'>Málta</annotation>
 
-		<!-- Marshall Islands; flag; islands; marshall -->
+		<!-- Marshall Islands; island; marshall -->
 		<annotation cp='[{🇲🇭}]'>Oileáin Marshall</annotation>
 
-		<!-- Martinique; flag; martinique -->
+		<!-- Martinique; martinique -->
 		<annotation cp='[{🇲🇶}]'>Martinique</annotation>
 
-		<!-- Mauritania; flag; mauritania -->
+		<!-- Mauritania; mauritania -->
 		<annotation cp='[{🇲🇷}]'>An Mháratáin</annotation>
 
-		<!-- Mauritius; flag; mauritius -->
+		<!-- Mauritius; mauritius -->
 		<annotation cp='[{🇲🇺}]'>Oileán Mhuirís</annotation>
 
-		<!-- Mayotte; flag; mayotte -->
+		<!-- Mayotte; mayotte -->
 		<annotation cp='[{🇾🇹}]'>Mayotte</annotation>
 
-		<!-- Mexico; flag; mexico -->
+		<!-- Mexico; mexico -->
 		<annotation cp='[{🇲🇽}]'>Meicsiceo</annotation>
 
-		<!-- Micronesia; flag; micronesia -->
+		<!-- Micronesia; micronesia -->
 		<annotation cp='[{🇫🇲}]'>An Mhicrinéis</annotation>
 
-		<!-- Moldova; flag; moldova -->
+		<!-- Moldova; moldova -->
 		<annotation cp='[{🇲🇩}]'>An Mholdóiv</annotation>
 
-		<!-- Monaco; flag; monaco -->
+		<!-- Monaco; monaco -->
 		<annotation cp='[{🇲🇨}]'>Monacó</annotation>
 
-		<!-- Mongolia; flag; mongolia -->
+		<!-- Mongolia; mongolia -->
 		<annotation cp='[{🇲🇳}]'>An Mhongóil</annotation>
 
-		<!-- Montenegro; flag; montenegro -->
+		<!-- Montenegro; montenegro -->
 		<annotation cp='[{🇲🇪}]'>Montainéagró</annotation>
 
-		<!-- Montserrat; flag; montserrat -->
+		<!-- Montserrat; montserrat -->
 		<annotation cp='[{🇲🇸}]'>Montsarat</annotation>
 
-		<!-- Morocco; flag; morocco -->
+		<!-- Morocco; morocco -->
 		<annotation cp='[{🇲🇦}]'>Maracó</annotation>
 
-		<!-- Mozambique; flag; mozambique -->
+		<!-- Mozambique; mozambique -->
 		<annotation cp='[{🇲🇿}]'>Mósaimbíc</annotation>
 
-		<!-- Myanmar (Burma); burma; flag; myanmar -->
+		<!-- Myanmar (Burma); burma; myanmar -->
 		<annotation cp='[{🇲🇲}]'>Maenmar (Burma)</annotation>
 
-		<!-- Namibia; flag; namibia -->
+		<!-- Namibia; namibia -->
 		<annotation cp='[{🇳🇦}]'>An Namaib</annotation>
 
-		<!-- Nauru; flag; nauru -->
+		<!-- Nauru; nauru -->
 		<annotation cp='[{🇳🇷}]'>Nárú</annotation>
 
-		<!-- Nepal; flag; nepal -->
+		<!-- Nepal; nepal -->
 		<annotation cp='[{🇳🇵}]'>Neipeal</annotation>
 
-		<!-- Netherlands; flag; netherlands -->
+		<!-- Netherlands; netherlands -->
 		<annotation cp='[{🇳🇱}]'>An Ísiltír</annotation>
 
-		<!-- New Caledonia; flag; new; new caledonia -->
+		<!-- New Caledonia; new; new caledonia -->
 		<annotation cp='[{🇳🇨}]'>An Nua-Chaladóin</annotation>
 
-		<!-- New Zealand; flag; new; new zealand -->
+		<!-- New Zealand; new; new zealand -->
 		<annotation cp='[{🇳🇿}]'>An Nua-Shéalainn</annotation>
 
-		<!-- Nicaragua; flag; nicaragua -->
+		<!-- Nicaragua; nicaragua -->
 		<annotation cp='[{🇳🇮}]'>Nicearagua</annotation>
 
-		<!-- Niger; flag; niger -->
+		<!-- Niger; niger -->
 		<annotation cp='[{🇳🇪}]'>An Nígir</annotation>
 
-		<!-- Nigeria; flag; nigeria -->
+		<!-- Nigeria; nigeria -->
 		<annotation cp='[{🇳🇬}]'>An Nigéir</annotation>
 
-		<!-- Niue; flag; niue -->
+		<!-- Niue; niue -->
 		<annotation cp='[{🇳🇺}]'>Niue</annotation>
 
-		<!-- Norfolk Island; flag; island; norfolk -->
+		<!-- Norfolk Island; island; norfolk -->
 		<annotation cp='[{🇳🇫}]'>Oileán Norfolk</annotation>
 
-		<!-- Northern Mariana Islands; flag; islands; mariana; northern -->
+		<!-- Northern Mariana Islands; island; mariana; north; northern mariana -->
 		<annotation cp='[{🇲🇵}]'>Na hOileáin Mháirianacha Thuaidh</annotation>
 
-		<!-- North Korea; flag; korea; north -->
+		<!-- North Korea; korea; north; north korea -->
 		<annotation cp='[{🇰🇵}]'>An Chóiré Thuaidh</annotation>
 
-		<!-- Norway; flag; norway -->
+		<!-- Norway; norway -->
 		<annotation cp='[{🇳🇴}]'>An Iorua</annotation>
 
-		<!-- Oman; flag; oman -->
+		<!-- Oman; oman -->
 		<annotation cp='[{🇴🇲}]'>Óman</annotation>
 
-		<!-- Pakistan; flag; pakistan -->
+		<!-- Pakistan; pakistan -->
 		<annotation cp='[{🇵🇰}]'>An Phacastáin</annotation>
 
-		<!-- Palau; flag; palau -->
+		<!-- Palau; palau -->
 		<annotation cp='[{🇵🇼}]'>Palau</annotation>
 
-		<!-- Palestinian Territories; flag; palestine -->
+		<!-- Palestinian Territories; palestine -->
 		<annotation cp='[{🇵🇸}]'>Na Críocha Palaistíneacha</annotation>
 
-		<!-- Panama; flag; panama -->
+		<!-- Panama; panama -->
 		<annotation cp='[{🇵🇦}]'>Panama</annotation>
 
-		<!-- Papua New Guinea; flag; guinea; new; papua new guinea -->
+		<!-- Papua New Guinea; guinea; new; papua new guinea -->
 		<annotation cp='[{🇵🇬}]'>Nua-Ghuine Phapua</annotation>
 
-		<!-- Paraguay; flag; paraguay -->
+		<!-- Paraguay; paraguay -->
 		<annotation cp='[{🇵🇾}]'>Paragua</annotation>
 
-		<!-- Peru; flag; peru -->
+		<!-- Peru; peru -->
 		<annotation cp='[{🇵🇪}]'>Peiriú</annotation>
 
-		<!-- Philippines; flag; philippines -->
+		<!-- Philippines; philippines -->
 		<annotation cp='[{🇵🇭}]'>Na hOileáin Fhilipíneacha</annotation>
 
-		<!-- Pitcairn Islands; flag; islands; pitcairn -->
+		<!-- Pitcairn Islands; island; pitcairn -->
 		<annotation cp='[{🇵🇳}]'>Oileáin Pitcairn</annotation>
 
-		<!-- Poland; flag; poland -->
+		<!-- Poland; poland -->
 		<annotation cp='[{🇵🇱}]'>An Pholainn</annotation>
 
-		<!-- Portugal; flag; portugal -->
+		<!-- Portugal; portugal -->
 		<annotation cp='[{🇵🇹}]'>An Phortaingéil</annotation>
 
-		<!-- Puerto Rico; flag; puerto; rico -->
+		<!-- Puerto Rico; puerto rico -->
 		<annotation cp='[{🇵🇷}]'>Portó Ríce</annotation>
 
-		<!-- Qatar; flag; qatar -->
+		<!-- Qatar; qatar -->
 		<annotation cp='[{🇶🇦}]'>Catar</annotation>
 
-		<!-- Réunion; flag; reunion; réunion -->
+		<!-- Réunion; reunion; réunion -->
 		<annotation cp='[{🇷🇪}]'>Réunion</annotation>
 
-		<!-- Romania; flag; romania -->
+		<!-- Romania; romania -->
 		<annotation cp='[{🇷🇴}]'>An Rómáin</annotation>
 
-		<!-- Russia; flag; russia; russian -->
+		<!-- Russia; russia -->
 		<annotation cp='[{🇷🇺}]'>An Rúis</annotation>
 
-		<!-- Rwanda; flag; rwanda -->
+		<!-- Rwanda; rwanda -->
 		<annotation cp='[{🇷🇼}]'>Ruanda</annotation>
 
-		<!-- Samoa; flag; samoa -->
+		<!-- Samoa; samoa -->
 		<annotation cp='[{🇼🇸}]'>Samó</annotation>
 
-		<!-- San Marino; flag; san marino -->
+		<!-- San Marino; san marino -->
 		<annotation cp='[{🇸🇲}]'>San Mairíne</annotation>
 
-		<!-- São Tomé &amp; Príncipe; flag; principe; príncipe; sao; são; tome; tomé -->
+		<!-- São Tomé &amp; Príncipe; principe; príncipe; sao tome; são tomé -->
 		<annotation cp='[{🇸🇹}]'>São Tomé agus Príncipe</annotation>
 
-		<!-- Saudi Arabia; arabia; flag; saudi -->
+		<!-- Saudi Arabia; saudi arabia -->
 		<annotation cp='[{🇸🇦}]'>An Araib Shádach</annotation>
 
-		<!-- Senegal; flag; senegal -->
+		<!-- Senegal; senegal -->
 		<annotation cp='[{🇸🇳}]'>An tSeineagáil</annotation>
 
-		<!-- Serbia; flag; serbia -->
+		<!-- Serbia; serbia -->
 		<annotation cp='[{🇷🇸}]'>An tSeirbia</annotation>
 
-		<!-- Seychelles; flag; seychelles -->
+		<!-- Seychelles; seychelles -->
 		<annotation cp='[{🇸🇨}]'>Na Séiséil</annotation>
 
-		<!-- Sierra Leone; flag; sierra leone -->
+		<!-- Sierra Leone; sierra leone -->
 		<annotation cp='[{🇸🇱}]'>Siarra Leon</annotation>
 
-		<!-- Singapore; flag; singapore -->
+		<!-- Singapore; singapore -->
 		<annotation cp='[{🇸🇬}]'>Singeapór</annotation>
 
-		<!-- Sint Maarten; dutch; flag; maarten; sint -->
+		<!-- Sint Maarten; maarten; sint -->
 		<annotation cp='[{🇸🇽}]'>Sint Maarten</annotation>
 
-		<!-- Slovakia; flag; slovak; slovakia -->
+		<!-- Slovakia; slovakia -->
 		<annotation cp='[{🇸🇰}]'>An tSlóvaic</annotation>
 
-		<!-- Slovenia; flag; slovenia -->
+		<!-- Slovenia; slovenia -->
 		<annotation cp='[{🇸🇮}]'>An tSlóivéin</annotation>
 
-		<!-- Solomon Islands; flag; islands; solomon -->
+		<!-- Solomon Islands; island; solomon -->
 		<annotation cp='[{🇸🇧}]'>Oileáin Sholomón</annotation>
 
-		<!-- Somalia; flag; somalia -->
+		<!-- Somalia; somalia -->
 		<annotation cp='[{🇸🇴}]'>An tSomáil</annotation>
 
-		<!-- South Africa; africa; flag; south -->
+		<!-- South Africa; south; south africa -->
 		<annotation cp='[{🇿🇦}]'>An Afraic Theas</annotation>
 
-		<!-- South Georgia &amp; South Sandwich Islands; flag; georgia; islands; sandwich; south -->
+		<!-- South Georgia &amp; South Sandwich Islands; georgia; island; south; south georgia; south sandwich -->
 		<annotation cp='[{🇬🇸}]'>An tSeoirsia Theas agus Oileáin Sandwich Theas</annotation>
 
-		<!-- South Korea; flag; korea; south -->
+		<!-- South Korea; korea; south; south korea -->
 		<annotation cp='[{🇰🇷}]'>An Chóiré Theas</annotation>
 
-		<!-- South Sudan; flag; south; sudan -->
+		<!-- South Sudan; south; south sudan; sudan -->
 		<annotation cp='[{🇸🇸}]'>An tSúdáin Theas</annotation>
 
-		<!-- Spain; flag; spain -->
+		<!-- Spain; spain -->
 		<annotation cp='[{🇪🇸}]'>An Spáinn</annotation>
 
-		<!-- Sri Lanka; flag; lanka; sri -->
+		<!-- Sri Lanka; sri lanka -->
 		<annotation cp='[{🇱🇰}]'>Srí Lanca</annotation>
 
-		<!-- St. Barthélemy; barthelemy; barthélemy; flag; saint; st. -->
+		<!-- St. Barthélemy; barthelemy; barthélemy; saint -->
 		<annotation cp='[{🇧🇱}]'>Saint Barthélemy</annotation>
 
-		<!-- St. Helena; ascension; cunha; flag; helena; saint; st.; tristan -->
+		<!-- St. Helena; helena; saint -->
 		<annotation cp='[{🇸🇭}]'>San Héilin</annotation>
 
-		<!-- St. Kitts &amp; Nevis; flag; kitts; nevis; saint; st. -->
+		<!-- St. Kitts &amp; Nevis; kitts; nevis; saint -->
 		<annotation cp='[{🇰🇳}]'>San Críostóir-Nimheas</annotation>
 
-		<!-- St. Lucia; flag; lucia; saint; st. -->
+		<!-- St. Lucia; lucia; saint -->
 		<annotation cp='[{🇱🇨}]'>Saint Lucia</annotation>
 
-		<!-- St. Martin; flag; french; martin; saint; st. -->
+		<!-- St. Martin; french; martin; saint -->
 		<annotation cp='[{🇲🇫}]'>Saint-Martin</annotation>
 
-		<!-- St. Pierre &amp; Miquelon; flag; miquelon; pierre; saint; st. -->
+		<!-- St. Pierre &amp; Miquelon; miquelon; pierre; saint -->
 		<annotation cp='[{🇵🇲}]'>Saint-Pierre-et-Miquelon</annotation>
 
-		<!-- St. Vincent &amp; Grenadines; flag; grenadines; saint; st.; vincent -->
+		<!-- St. Vincent &amp; Grenadines; grenadines; saint; vincent -->
 		<annotation cp='[{🇻🇨}]'>San Uinseann agus na Greanáidíní</annotation>
 
-		<!-- Sudan; flag; sudan -->
+		<!-- Sudan; sudan -->
 		<annotation cp='[{🇸🇩}]'>An tSúdáin</annotation>
 
-		<!-- Suriname; flag; suriname -->
+		<!-- Suriname; suriname -->
 		<annotation cp='[{🇸🇷}]'>Suranam</annotation>
 
-		<!-- Svalbard &amp; Jan Mayen; flag; islands; jan; mayen; svalbard -->
+		<!-- Svalbard &amp; Jan Mayen; jan mayen; svalbard -->
 		<annotation cp='[{🇸🇯}]'>Svalbard agus Jan Mayen</annotation>
 
-		<!-- Swaziland; flag; swaziland -->
+		<!-- Swaziland; swaziland -->
 		<annotation cp='[{🇸🇿}]'>An tSuasalainn</annotation>
 
-		<!-- Sweden; flag; sweden -->
+		<!-- Sweden; sweden -->
 		<annotation cp='[{🇸🇪}]'>An tSualainn</annotation>
 
-		<!-- Switzerland; flag; switzerland -->
+		<!-- Switzerland; switzerland -->
 		<annotation cp='[{🇨🇭}]'>An Eilvéis</annotation>
 
-		<!-- Syria; arab; flag; syria; syrian -->
+		<!-- Syria; syria -->
 		<annotation cp='[{🇸🇾}]'>An tSiria</annotation>
 
-		<!-- Taiwan; china; flag; taiwan -->
+		<!-- Taiwan; china; taiwan -->
 		<annotation cp='[{🇹🇼}]'>An Téaváin</annotation>
 
-		<!-- Tajikistan; flag; tajikistan -->
+		<!-- Tajikistan; tajikistan -->
 		<annotation cp='[{🇹🇯}]'>An Táidsíceastáin</annotation>
 
-		<!-- Tanzania; flag; tanzania; united -->
+		<!-- Tanzania; tanzania -->
 		<annotation cp='[{🇹🇿}]'>An Tansáin</annotation>
 
-		<!-- Thailand; flag; thailand -->
+		<!-- Thailand; thailand -->
 		<annotation cp='[{🇹🇭}]'>An Téalainn</annotation>
 
-		<!-- Timor-Leste; east; flag; leste; timor -->
+		<!-- Timor-Leste; east; east timor; timor-leste -->
 		<annotation cp='[{🇹🇱}]'>Tíomór Thoir</annotation>
 
-		<!-- Togo; flag; togo -->
+		<!-- Togo; togo -->
 		<annotation cp='[{🇹🇬}]'>Tóga</annotation>
 
-		<!-- Tokelau; flag; tokelau -->
+		<!-- Tokelau; tokelau -->
 		<annotation cp='[{🇹🇰}]'>Tócalá</annotation>
 
-		<!-- Tonga; flag; tonga -->
+		<!-- Tonga; tonga -->
 		<annotation cp='[{🇹🇴}]'>Tonga</annotation>
 
-		<!-- Trinidad &amp; Tobago; flag; tobago; trinidad -->
+		<!-- Trinidad &amp; Tobago; tobago; trinidad -->
 		<annotation cp='[{🇹🇹}]'>Oileán na Tríonóide agus Tobága</annotation>
 
-		<!-- Tristan da Cunha; cunha; flag; tristan -->
+		<!-- Tristan da Cunha; tristan da cunha -->
 		<annotation cp='[{🇹🇦}]'>Tristan da Cunha</annotation>
 
-		<!-- Tunisia; flag; tunisia -->
+		<!-- Tunisia; tunisia -->
 		<annotation cp='[{🇹🇳}]'>An Túinéis</annotation>
 
-		<!-- Turkey; flag; turkey -->
+		<!-- Turkey; turkey -->
 		<annotation cp='[{🇹🇷}]'>An Tuirc</annotation>
 
-		<!-- Turkmenistan; flag; turkmenistan -->
+		<!-- Turkmenistan; turkmenistan -->
 		<annotation cp='[{🇹🇲}]'>An Tuircméanastáin</annotation>
 
-		<!-- Turks &amp; Caicos Islands; caicos; flag; islands; turks -->
+		<!-- Turks &amp; Caicos Islands; caicos; island; turks -->
 		<annotation cp='[{🇹🇨}]'>Oileáin na dTurcach agus Caicos</annotation>
 
-		<!-- Tuvalu; flag; tuvalu -->
+		<!-- Tuvalu; tuvalu -->
 		<annotation cp='[{🇹🇻}]'>Tuvalu</annotation>
 
-		<!-- Uganda; flag; uganda -->
+		<!-- Uganda; uganda -->
 		<annotation cp='[{🇺🇬}]'>Uganda</annotation>
 
-		<!-- Ukraine; flag; ukraine -->
+		<!-- Ukraine; ukraine -->
 		<annotation cp='[{🇺🇦}]'>An Úcráin</annotation>
 
-		<!-- United Arab Emirates; arab; emirates; flag; united -->
+		<!-- United Arab Emirates; emirates; uae; united -->
 		<annotation cp='[{🇦🇪}]'>Aontas na nÉimíríochtaí Arabacha</annotation>
 
-		<!-- United Kingdom; britain; cornwall; flag; great; ireland; kingdom; northern; scotland; united; wales -->
+		<!-- United Kingdom; britain; british; cornwall; england; great britain; ireland; northern ireland; scotland; uk; union jack; united; united kingdom; wales -->
 		<annotation cp='[{🇬🇧}]'>An Ríocht Aontaithe</annotation>
 
-		<!-- United States; america; flag; u.s.; u.s.a.; united; us; usa -->
+		<!-- United States; america; stars and stripes; united; united states -->
 		<annotation cp='[{🇺🇸}]'>Stáit Aontaithe Mheiriceá</annotation>
 
-		<!-- Uruguay; flag; uruguay -->
+		<!-- Uruguay; uruguay -->
 		<annotation cp='[{🇺🇾}]'>Urugua</annotation>
 
-		<!-- U.S. Outlying Islands; flag; islands; outlying; u.s.; united -->
+		<!-- U.S. Outlying Islands; america; island; minor outlying; united; united states; us; usa -->
 		<annotation cp='[{🇺🇲}]'>Oileáin Imeallacha S.A.M.</annotation>
 
-		<!-- U.S. Virgin Islands; flag; islands; u.s.; united; virgin islands -->
+		<!-- U.S. Virgin Islands; america; american; island; united; united states; us; usa; virgin -->
 		<annotation cp='[{🇻🇮}]'>Oileáin Mheiriceánacha na Maighdean</annotation>
 
-		<!-- Uzbekistan; flag; uzbekistan -->
+		<!-- Uzbekistan; uzbekistan -->
 		<annotation cp='[{🇺🇿}]'>An Úisbéiceastáin</annotation>
 
-		<!-- Vanuatu; flag; vanuatu -->
+		<!-- Vanuatu; vanuatu -->
 		<annotation cp='[{🇻🇺}]'>Vanuatú</annotation>
 
-		<!-- Vatican City; city; flag; holy; see; vatican -->
+		<!-- Vatican City; vatican -->
 		<annotation cp='[{🇻🇦}]'>An Vatacáin</annotation>
 
-		<!-- Venezuela; flag; venezuela -->
+		<!-- Venezuela; venezuela -->
 		<annotation cp='[{🇻🇪}]'>Veiniséala</annotation>
 
-		<!-- Vietnam; flag; nam; viet; vietnam -->
+		<!-- Vietnam; viet nam; vietnam -->
 		<annotation cp='[{🇻🇳}]'>Vítneam</annotation>
 
-		<!-- Wallis &amp; Futuna; flag; futuna; islands; wallis -->
+		<!-- Wallis &amp; Futuna; futuna; wallis -->
 		<annotation cp='[{🇼🇫}]'>Vailís agus Futúna</annotation>
 
-		<!-- Western Sahara; flag; sahara; western -->
+		<!-- Western Sahara; sahara; west; western sahara -->
 		<annotation cp='[{🇪🇭}]'>An Sahára Thiar</annotation>
 
-		<!-- Yemen; flag; yemen -->
+		<!-- Yemen; yemen -->
 		<annotation cp='[{🇾🇪}]'>Éimin</annotation>
 
-		<!-- Zambia; flag; zambia -->
+		<!-- Zambia; zambia -->
 		<annotation cp='[{🇿🇲}]'>An tSaimbia</annotation>
 
-		<!-- Zimbabwe; flag; zimbabwe -->
+		<!-- Zimbabwe; zimbabwe -->
 		<annotation cp='[{🇿🇼}]'>An tSiombáib</annotation>
-
-		<!-- UPWARDS BLACK ARROW; arrow; cardinal; direction; north -->
-		<annotation cp='[⬆]'>MISSING</annotation>
-
-		<!-- NORTH EAST ARROW; arrow; direction; intercardinal; northeast -->
-		<annotation cp='[↗]'>MISSING</annotation>
-
-		<!-- BLACK RIGHTWARDS ARROW; arrow; cardinal; direction; east -->
-		<annotation cp='[➡]'>MISSING</annotation>
-
-		<!-- SOUTH EAST ARROW; arrow; direction; intercardinal; southeast -->
-		<annotation cp='[↘]'>MISSING</annotation>
-
-		<!-- DOWNWARDS BLACK ARROW; arrow; cardinal; direction; down; south -->
-		<annotation cp='[⬇]'>MISSING</annotation>
-
-		<!-- SOUTH WEST ARROW; arrow; direction; intercardinal; southwest -->
-		<annotation cp='[↙]'>MISSING</annotation>
-
-		<!-- LEFTWARDS BLACK ARROW; arrow; cardinal; direction; west -->
-		<annotation cp='[⬅]'>MISSING</annotation>
-
-		<!-- NORTH WEST ARROW; arrow; direction; intercardinal; northwest -->
-		<annotation cp='[↖]'>MISSING</annotation>
-
-		<!-- UP DOWN ARROW; arrow -->
-		<annotation cp='[↕]'>MISSING</annotation>
-
-		<!-- LEFT RIGHT ARROW; arrow -->
-		<annotation cp='[↔]'>MISSING</annotation>
-
-		<!-- LEFTWARDS ARROW WITH HOOK; arrow -->
-		<annotation cp='[↩]'>MISSING</annotation>
-
-		<!-- RIGHTWARDS ARROW WITH HOOK; arrow -->
-		<annotation cp='[↪]'>MISSING</annotation>
-
-		<!-- ARROW POINTING RIGHTWARDS THEN CURVING UPWARDS; arrow -->
-		<annotation cp='[⤴]'>MISSING</annotation>
-
-		<!-- ARROW POINTING RIGHTWARDS THEN CURVING DOWNWARDS; arrow; down -->
-		<annotation cp='[⤵]'>MISSING</annotation>
 
 		<!-- CLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS; arrow; clockwise; reload -->
 		<annotation cp='[🔃]' tts='ciorcal saighead'>athlódáil; saigheada deisil ingearacha; saigheada</annotation>
@@ -3436,62 +2875,23 @@
 		<!-- TOP WITH UPWARDS ARROW ABOVE; arrow; top; up -->
 		<annotation cp='[🔝]' tts='barr agus saighead thuas'>barr agus saighead thuas</annotation>
 
-		<!-- OM SYMBOL; hindu; om; religion -->
-		<annotation cp='[🕉]'>MISSING</annotation>
+		<!-- JAPANESE SYMBOL FOR BEGINNER; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='tosaitheoir'>tosaitheoir</annotation>
 
-		<!-- STAR OF DAVID; david; jew; jewish; religion; star -->
-		<annotation cp='[✡]'>MISSING</annotation>
+		<!-- CRYSTAL BALL; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='cruinneog chriostail'>cruinneog chriostail</annotation>
 
-		<!-- WHEEL OF DHARMA; buddhist; dharma; object; religion; wheel -->
-		<annotation cp='[☸]'>MISSING</annotation>
-
-		<!-- YIN YANG; religion; sign; tao; taoist; yang; yin -->
-		<annotation cp='[☯]'>MISSING</annotation>
-
-		<!-- LATIN CROSS; christian; cross; religion -->
-		<annotation cp='[✝]'>MISSING</annotation>
-
-		<!-- ORTHODOX CROSS; christian; cross; religion -->
-		<annotation cp='[☦]'>MISSING</annotation>
-
-		<!-- SHINTO SHRINE; religion; shinto; shrine -->
-		<annotation cp='[⛩]'>MISSING</annotation>
-
-		<!-- STAR AND CRESCENT; islam; muslim; religion -->
-		<annotation cp='[☪]'>MISSING</annotation>
-
-		<!-- PEACE SYMBOL; peace; sign -->
-		<annotation cp='[☮]'>MISSING</annotation>
-
-		<!-- RADIOACTIVE SIGN; radioactive; sign -->
-		<annotation cp='[☢]'>MISSING</annotation>
-
-		<!-- BIOHAZARD SIGN; biohazard; sign -->
-		<annotation cp='[☣]'>MISSING</annotation>
+		<!-- SIX POINTED STAR WITH MIDDLE DOT; fortune; star -->
+		<annotation cp='[🔯]' tts='réalta sé-rinneach agus ponc sa lár'>réalta sé-rinneach agus ponc sa lár</annotation>
 
 		<!-- BLACK UNIVERSAL RECYCLING SYMBOL; recycle; sign; travel -->
 		<annotation cp='[♻]' tts='siombal athchúrsála'>siombal athchúrsala soladach uilíoch; athchúrsáil; soladach; comhartha</annotation>
 
-		<!-- HIGH VOLTAGE SIGN; danger; electric; electricity; lightning; nature; travel; voltage; zap -->
+		<!-- HIGH VOLTAGE SIGN; danger; electric; electricity; lightning; travel; voltage; zap -->
 		<annotation cp='[⚡]' tts='ardvoltas'>ardvoltas; contúirt ardvoltais; comhartha ardvoltais; contúirt; ard; voltas; comhartha</annotation>
-
-		<!-- WHITE MEDIUM STAR; nature; star -->
-		<annotation cp='[⭐]'>MISSING</annotation>
-
-		<!-- HEAVY LARGE CIRCLE; circle; o; travel -->
-		<annotation cp='[⭕]'>MISSING</annotation>
 
 		<!-- WHITE HEAVY CHECK MARK; check; mark; sign -->
 		<annotation cp='[✅]' tts='ticmharc'>ticmharc; tic; ticmharc trom</annotation>
-
-		<!-- BALLOT BOX WITH CHECK; ballot; box; check; sign -->
-		<annotation cp='[☑]'>MISSING</annotation>
-
-		<!-- HEAVY CHECK MARK; check; mark; sign -->
-		<annotation cp='[✔]'>MISSING</annotation>
-
-		<!-- HEAVY MULTIPLICATION X; cancel; multiplication; multiply; sign; x -->
-		<annotation cp='[✖]'>MISSING</annotation>
 
 		<!-- CROSS MARK; cancel; mark; multiplication; multiply; sign; x -->
 		<annotation cp='[❌]' tts='crosmharc'>crosmharc; “X”</annotation>
@@ -3514,90 +2914,6 @@
 		<!-- DOUBLE CURLY LOOP; curl; double; loop; sign -->
 		<annotation cp='[➿]' tts='lúb dhúbailte chatach'>lúb chatach; an tSeapáin; dialaigh saor in aisce</annotation>
 
-		<!-- PART ALTERNATION MARK; mark; part; sign -->
-		<annotation cp='[〽]'>MISSING</annotation>
-
-		<!-- EIGHT SPOKED ASTERISK; asterisk; sign -->
-		<annotation cp='[✳]'>MISSING</annotation>
-
-		<!-- EIGHT POINTED BLACK STAR; sign; star -->
-		<annotation cp='[✴]'>MISSING</annotation>
-
-		<!-- SPARKLE; sign; sparkle -->
-		<annotation cp='[❇]'>MISSING</annotation>
-
-		<!-- BLACK SMALL SQUARE; geometric; sign; square -->
-		<annotation cp='[▪]'>MISSING</annotation>
-
-		<!-- WHITE SMALL SQUARE; geometric; sign; square -->
-		<annotation cp='[▫]'>MISSING</annotation>
-
-		<!-- WHITE MEDIUM SQUARE; geometric; sign; square -->
-		<annotation cp='[◻]'>MISSING</annotation>
-
-		<!-- BLACK MEDIUM SQUARE; geometric; sign; square -->
-		<annotation cp='[◼]'>MISSING</annotation>
-
-		<!-- WHITE MEDIUM SMALL SQUARE; geometric; sign; square -->
-		<annotation cp='[◽]'>MISSING</annotation>
-
-		<!-- BLACK MEDIUM SMALL SQUARE; geometric; sign; square -->
-		<annotation cp='[◾]'>MISSING</annotation>
-
-		<!-- BLACK LARGE SQUARE; geometric; sign; square -->
-		<annotation cp='[⬛]'>MISSING</annotation>
-
-		<!-- WHITE LARGE SQUARE; geometric; sign; square -->
-		<annotation cp='[⬜]'>MISSING</annotation>
-
-		<!-- LARGE ORANGE DIAMOND; diamond; geometric; orange; sign -->
-		<annotation cp='[🔶]' tts='muileata mór oráiste'>muileata mór oráiste</annotation>
-
-		<!-- LARGE BLUE DIAMOND; blue; diamond; geometric; sign -->
-		<annotation cp='[🔷]' tts='muileata mór gorm'>muileata mór gorm</annotation>
-
-		<!-- SMALL ORANGE DIAMOND; diamond; geometric; orange; sign -->
-		<annotation cp='[🔸]' tts='muileata beag oráiste'>muileata beag oráiste</annotation>
-
-		<!-- SMALL BLUE DIAMOND; blue; diamond; geometric; sign -->
-		<annotation cp='[🔹]' tts='muileata beag gorm'>muileata beag gorm</annotation>
-
-		<!-- UP-POINTING RED TRIANGLE; geometric; red; sign -->
-		<annotation cp='[🔺]' tts='triantán dearg suas'>triantán dearg suas</annotation>
-
-		<!-- DOWN-POINTING RED TRIANGLE; down; geometric; red; sign -->
-		<annotation cp='[🔻]' tts='triantán dearg síos'>triantán dearg síos</annotation>
-
-		<!-- DIAMOND SHAPE WITH A DOT INSIDE; comic; diamond; emotion; geometric; inside; sign -->
-		<annotation cp='[💠]' tts='muileata'>muileata; diamant</annotation>
-
-		<!-- RADIO BUTTON; button; geometric; radio; sign -->
-		<annotation cp='[🔘]' tts='cnaipe raidió'>cnaipe raidió</annotation>
-
-		<!-- BLACK SQUARE BUTTON; button; geometric; sign; square -->
-		<annotation cp='[🔲]' tts='cearnóg dhubh'>cearnóg dhubh</annotation>
-
-		<!-- WHITE SQUARE BUTTON; button; geometric; outlined; sign; square -->
-		<annotation cp='[🔳]' tts='cearnóg bhán'>cearnóg bhán</annotation>
-
-		<!-- MEDIUM WHITE CIRCLE; circle; geometric; sign -->
-		<annotation cp='[⚪]'>MISSING</annotation>
-
-		<!-- MEDIUM BLACK CIRCLE; circle; geometric; sign -->
-		<annotation cp='[⚫]'>MISSING</annotation>
-
-		<!-- LARGE RED CIRCLE; circle; geometric; red; sign -->
-		<annotation cp='[🔴]' tts='ciorcal mór dearg'>ciorcal mór dearg</annotation>
-
-		<!-- LARGE BLUE CIRCLE; blue; circle; geometric; sign -->
-		<annotation cp='[🔵]' tts='ciorcal mór gorm'>ciorcal mór gorm</annotation>
-
-		<!-- DOUBLE EXCLAMATION MARK; bangbang; exclamation; mark; punctuation; word -->
-		<annotation cp='[‼]'>MISSING</annotation>
-
-		<!-- EXCLAMATION QUESTION MARK; exclamation; interrobang; mark; punctuation; question; word -->
-		<annotation cp='[⁉]'>MISSING</annotation>
-
 		<!-- BLACK QUESTION MARK ORNAMENT; mark; punctuation; question; word -->
 		<annotation cp='[❓]' tts='comhartha ceiste'>ceist</annotation>
 
@@ -3607,20 +2923,23 @@
 		<!-- WHITE EXCLAMATION MARK ORNAMENT; exclamation; mark; outlined; punctuation; word -->
 		<annotation cp='[❕]' tts='comhartha uaillbhreasa'>uaillbhreas</annotation>
 
-		<!-- HEAVY EXCLAMATION MARK SYMBOL; exclamation; mark; punctuation; word -->
-		<annotation cp='[❗]'>MISSING</annotation>
-
 		<!-- WAVY DASH; dash; punctuation; sound; wavy -->
 		<annotation cp='[〰]' tts='dais chorrach'>fuaim-mharc fada; corrach; dais</annotation>
-
-		<!-- NO ONE UNDER EIGHTEEN SYMBOL; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage; word -->
-		<annotation cp='[🔞]' tts='os cionn 18'>os cionn 18</annotation>
 
 		<!-- COPYRIGHT SIGN; copyright; symbol; word -->
 		<annotation cp='[©]' tts='Cóipcheart'>Cóipcheart; Siombail cóipchirt</annotation>
 
 		<!-- REGISTERED SIGN; registered; symbol; word -->
 		<annotation cp='[®]' tts='Cláraithe'>Cláraithe; Siombail trádmhairc chláraithe</annotation>
+
+		<!-- TRADE MARK SIGN; mark; symbol; tm; trademark; word -->
+		<annotation cp='[™]' tts='comhartha trádmhairc'>trádmharc; comhartha</annotation>
+
+		<!-- HUNDRED POINTS SYMBOL; 100; full; hundred; office; score -->
+		<annotation cp='[💯]' tts='scór iomlán'>100; 100 pointe</annotation>
+
+		<!-- NO ONE UNDER EIGHTEEN SYMBOL; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage; word -->
+		<annotation cp='[🔞]' tts='os cionn 18'>os cionn 18</annotation>
 
 		<!-- INPUT SYMBOL FOR LATIN CAPITAL LETTERS; input; latin; letters; uppercase; word -->
 		<annotation cp='[🔠]' tts='ceannlitreacha Laidineacha'>ceannlitreacha Laidineacha</annotation>
@@ -3631,7 +2950,7 @@
 		<!-- INPUT SYMBOL FOR NUMBERS; 1234; input; numbers; word -->
 		<annotation cp='[🔢]' tts='uimhreacha'>uimhreacha</annotation>
 
-		<!-- INPUT SYMBOL FOR SYMBOLS; input; symbols; word -->
+		<!-- INPUT SYMBOL FOR SYMBOLS; input; word -->
 		<annotation cp='[🔣]' tts='comharthaí'>comharthaí; siombailí</annotation>
 
 		<!-- INPUT SYMBOL FOR LATIN LETTERS; abc; alphabet; input; latin; letters; word -->
@@ -3655,14 +2974,8 @@
 		<!-- SQUARED FREE; free; word -->
 		<annotation cp='[🆓]' tts='saor'>saor; saor in aisce; comhartha saor; comhartha</annotation>
 
-		<!-- INFORMATION SOURCE; i; information; word -->
-		<annotation cp='[ℹ]'>MISSING</annotation>
-
 		<!-- SQUARED ID; id; identity; word -->
 		<annotation cp='[🆔]' tts='aitheantas'>aitheantas; ID; comhartha aitheantais; comhartha</annotation>
-
-		<!-- CIRCLED LATIN CAPITAL LETTER M; circle; m; word -->
-		<annotation cp='[Ⓜ]'>MISSING</annotation>
 
 		<!-- SQUARED NEW; new; word -->
 		<annotation cp='[🆕]' tts='nua'>nua; comhartha nua; comhartha</annotation>
@@ -3681,9 +2994,6 @@
 
 		<!-- SQUARED SOS; help; sos; word -->
 		<annotation cp='[🆘]' tts='SOS'>SOS; comhartha SOS; cabhair; comhartha cabhrach</annotation>
-
-		<!-- TRADE MARK SIGN; mark; symbol; tm; trademark; word -->
-		<annotation cp='[™]' tts='comhartha trádmhairc'>trádmharc; comhartha</annotation>
 
 		<!-- SQUARED UP WITH EXCLAMATION MARK; mark; up; word -->
 		<annotation cp='[🆙]' tts='UP!'>UP!; Suas!; comhartha suas; comhartha</annotation>
@@ -3730,16 +3040,46 @@
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7533; chinese; word -->
 		<annotation cp='[🈸]' tts='Sínis'>Sínis</annotation>
 
-		<!-- CIRCLED IDEOGRAPH CONGRATULATION; congratulation; congratulations; ideograph; word -->
-		<annotation cp='[㊗]'>MISSING</annotation>
-
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7981; japanese; word -->
 		<annotation cp='[🈲]' tts='Seapáinis'>Seapáinis</annotation>
 
-		<!-- CIRCLED IDEOGRAPH SECRET; ideograph; secret; word -->
-		<annotation cp='[㊙]'>MISSING</annotation>
-
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7A7A; chinese; word -->
 		<annotation cp='[🈳]' tts='Sínis'>Sínis</annotation>
+
+		<!-- LARGE ORANGE DIAMOND; diamond; geometric; orange; sign -->
+		<annotation cp='[🔶]' tts='muileata mór oráiste'>muileata mór oráiste</annotation>
+
+		<!-- LARGE BLUE DIAMOND; blue; diamond; geometric; sign -->
+		<annotation cp='[🔷]' tts='muileata mór gorm'>muileata mór gorm</annotation>
+
+		<!-- SMALL ORANGE DIAMOND; diamond; geometric; orange; sign -->
+		<annotation cp='[🔸]' tts='muileata beag oráiste'>muileata beag oráiste</annotation>
+
+		<!-- SMALL BLUE DIAMOND; blue; diamond; geometric; sign -->
+		<annotation cp='[🔹]' tts='muileata beag gorm'>muileata beag gorm</annotation>
+
+		<!-- UP-POINTING RED TRIANGLE; geometric; red; sign -->
+		<annotation cp='[🔺]' tts='triantán dearg suas'>triantán dearg suas</annotation>
+
+		<!-- DOWN-POINTING RED TRIANGLE; down; geometric; red; sign -->
+		<annotation cp='[🔻]' tts='triantán dearg síos'>triantán dearg síos</annotation>
+
+		<!-- DIAMOND SHAPE WITH A DOT INSIDE; comic; diamond; emotion; geometric; inside; sign -->
+		<annotation cp='[💠]' tts='muileata'>muileata; diamant</annotation>
+
+		<!-- RADIO BUTTON; button; geometric; radio; sign -->
+		<annotation cp='[🔘]' tts='cnaipe raidió'>cnaipe raidió</annotation>
+
+		<!-- BLACK SQUARE BUTTON; button; geometric; sign; square -->
+		<annotation cp='[🔲]' tts='cearnóg dhubh'>cearnóg dhubh</annotation>
+
+		<!-- WHITE SQUARE BUTTON; button; geometric; outlined; sign; square -->
+		<annotation cp='[🔳]' tts='cearnóg bhán'>cearnóg bhán</annotation>
+
+		<!-- LARGE RED CIRCLE; circle; geometric; red; sign -->
+		<annotation cp='[🔴]' tts='ciorcal mór dearg'>ciorcal mór dearg</annotation>
+
+		<!-- LARGE BLUE CIRCLE; blue; circle; geometric; sign -->
+		<annotation cp='[🔵]' tts='ciorcal mór gorm'>ciorcal mór gorm</annotation>
 	</annotations>
 </ldml>

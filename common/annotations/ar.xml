@@ -16,416 +16,371 @@
 	</identity>
 	<annotations>
 
-		<!-- WHITE SMILING FACE; face; human; outlined; relaxed; smile; smiley -->
-		<annotation cp='[☺]' tts='وجه مبتسم'>ابتسامة; وجه مبتسم مفرغ; وجه</annotation>
-
-		<!-- WHITE FROWNING FACE; face; frown; human -->
-		<annotation cp='[☹]'>MISSING</annotation>
-
-		<!-- SLIGHTLY FROWNING FACE; face; frown; human -->
-		<annotation cp='[🙁]'>MISSING</annotation>
-
-		<!-- SLIGHTLY SMILING FACE; face; human; smile; smiley -->
-		<annotation cp='[🙂]'>MISSING</annotation>
-
-		<!-- GRINNING FACE; face; grin; human -->
+		<!-- GRINNING FACE; face; grin -->
 		<annotation cp='[😀]' tts='ابتسامة'>ابتسامة; ابتسام; وجه مبتسم; ضحك</annotation>
 
-		<!-- GRINNING FACE WITH SMILING EYES; eye; face; grin; human; smile; smiley -->
+		<!-- GRINNING FACE WITH SMILING EYES; eye; face; grin; smile -->
 		<annotation cp='[😁]' tts='تكشيرة'>تكشيرة; أعين مبتسمة; تكشير; وجه مكشر وعين مبتسمة</annotation>
 
-		<!-- FACE WITH TEARS OF JOY; face; human; joy; tear -->
+		<!-- FACE WITH TEARS OF JOY; face; joy; tear -->
 		<annotation cp='[😂]' tts='دموع الفرح'>فرح; دموع; وجه عليه دموع فرح; وجه</annotation>
 
-		<!-- SMILING FACE WITH OPEN MOUTH; face; human; mouth; open; smile; smiley -->
+		<!-- SMILING FACE WITH OPEN MOUTH; face; mouth; open; smile -->
 		<annotation cp='[😃]' tts='ابتسامة بفم مفتوح'>ابتسام; وجه مبتسم بفم مفتوح</annotation>
 
-		<!-- SMILING FACE WITH OPEN MOUTH AND SMILING EYES; eye; face; human; mouth; open; smile; smiley -->
+		<!-- SMILING FACE WITH OPEN MOUTH AND SMILING EYES; eye; face; mouth; open; smile -->
 		<annotation cp='[😄]' tts='ابتسامة بفم مفتوح'>ابتسام; فم مفتوح; أعين مبتسمة</annotation>
 
-		<!-- SMILING FACE WITH OPEN MOUTH AND COLD SWEAT; cold; face; human; open; smile; smiley; sweat -->
+		<!-- SMILING FACE WITH OPEN MOUTH AND COLD SWEAT; cold; face; open; smile; sweat -->
 		<annotation cp='[😅]' tts='ابتسامة بعرق بارد'>ابتسامة ولكن بعرق بارد; عرق بارد</annotation>
 
-		<!-- SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES; face; human; laugh; mouth; open; satisfied; smile; smiley -->
+		<!-- SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES; face; laugh; mouth; open; satisfied; smile -->
 		<annotation cp='[😆]' tts='ابتسامة بفم مفتوح'>ابتسامة بأعين مغلقة; فم مفتوح</annotation>
 
-		<!-- WINKING FACE; face; human; wink -->
+		<!-- WINKING FACE; face; wink -->
 		<annotation cp='[😉]' tts='وجه يغمز'>غمزة</annotation>
 
-		<!-- SMILING FACE WITH SMILING EYES; blush; eye; face; human; smile; smiley -->
+		<!-- SMILING FACE WITH SMILING EYES; blush; eye; face; smile -->
 		<annotation cp='[😊]' tts='ابتسام'>ابتسام; أعين مبتسمة; ابتسامة وجه وأعين</annotation>
 
-		<!-- FACE SAVOURING DELICIOUS FOOD; delicious; face; food; human; savouring; smile; smiley; um; yum -->
+		<!-- FACE SAVOURING DELICIOUS FOOD; delicious; face; food; savouring; smile; um; yum -->
 		<annotation cp='[😋]' tts='وجه يستحسن الطعم'>لذيذ; طعام لذيذ</annotation>
 
-		<!-- RELIEVED FACE; face; human; relieved -->
-		<annotation cp='[😌]' tts='وجه مرتاح'>مطمئن</annotation>
-
-		<!-- SMILING FACE WITH HEART-SHAPED EYES; eye; face; heart; human; love; smile; smiley -->
-		<annotation cp='[😍]' tts='وجه مبتسم'>أعين على شكل قلب; حب; قلب</annotation>
-
-		<!-- SMILING FACE WITH SUNGLASSES; bright; cool; eye; eyewear; face; glasses; human; smile; smiley; sun; sunglasses; weather -->
+		<!-- SMILING FACE WITH SUNGLASSES; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
 		<annotation cp='[😎]' tts='رايق'>رايق; كول; جان الرايق; ابتسامة مع نظارة شمس; نظارة شمس</annotation>
 
-		<!-- SMIRKING FACE; face; human; smirk -->
-		<annotation cp='[😏]' tts='ابتسامة متكلفة'>وجه متكلف; تكلف</annotation>
+		<!-- SMILING FACE WITH HEART-SHAPED EYES; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='وجه مبتسم'>أعين على شكل قلب; حب; قلب</annotation>
 
-		<!-- NEUTRAL FACE; deadpan; face; human; neutral -->
-		<annotation cp='[😐]' tts='وجه جامد'>وجه محايد; جمود; حيادية; لا تعليق</annotation>
-
-		<!-- EXPRESSIONLESS FACE; expressionless; face; human; inexpressive; unexpressive -->
-		<annotation cp='[😑]' tts='غير معبر'>وجه بدون تعبير; لا تعليق</annotation>
-
-		<!-- UNAMUSED FACE; face; human; unamused; unhappy -->
-		<annotation cp='[😒]' tts='غير مستمتع'>وجه غير مستمتع; غير سعيد</annotation>
-
-		<!-- FACE WITH COLD SWEAT; cold; face; human; sweat -->
-		<annotation cp='[😓]' tts='عرق بارد'>وجه عليه عرق بارد</annotation>
-
-		<!-- PENSIVE FACE; dejected; face; human; pensive -->
-		<annotation cp='[😔]' tts='وجه متأمل'>مكتئب; حزين</annotation>
-
-		<!-- CONFUSED FACE; confused; face; human -->
-		<annotation cp='[😕]' tts='وجه متحير'>متحير</annotation>
-
-		<!-- CONFOUNDED FACE; confounded; face; human -->
-		<annotation cp='[😖]' tts='وجه مرتبك'>تائه</annotation>
-
-		<!-- KISSING FACE; face; human; kiss -->
-		<annotation cp='[😗]' tts='وجه يبعث قبلة'>وجه تقبيل; قبلة</annotation>
-
-		<!-- FACE THROWING A KISS; face; heart; human; kiss -->
+		<!-- FACE THROWING A KISS; face; heart; kiss -->
 		<annotation cp='[😘]' tts='طرح قبلات'>وجه يطرح قبلات</annotation>
 
-		<!-- KISSING FACE WITH SMILING EYES; eye; face; human; kiss; smile; smiley -->
+		<!-- KISSING FACE; face; kiss -->
+		<annotation cp='[😗]' tts='وجه يبعث قبلة'>وجه تقبيل; قبلة</annotation>
+
+		<!-- KISSING FACE WITH SMILING EYES; eye; face; kiss; smile -->
 		<annotation cp='[😙]' tts='قبلة وابتسامة'>وجه تقبيل وابتسامة; أعين مبتسمة</annotation>
 
-		<!-- KISSING FACE WITH CLOSED EYES; closed; eye; face; human; kiss -->
+		<!-- KISSING FACE WITH CLOSED EYES; closed; eye; face; kiss -->
 		<annotation cp='[😚]' tts='تقبيل'>تقبيل; تقبيل بأعين مغلقة; أعين مغلقة</annotation>
 
-		<!-- FACE WITH STUCK-OUT TONGUE; face; human; tongue -->
-		<annotation cp='[😛]' tts='لسان بارز'>لسان متدلي; وجه بلسان متدلي</annotation>
+		<!-- WHITE SMILING FACE; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='وجه مبتسم'>ابتسامة; وجه مبتسم مفرغ; وجه</annotation>
 
-		<!-- FACE WITH STUCK-OUT TONGUE AND WINKING EYE; eye; face; human; joke; tongue; wink -->
-		<annotation cp='[😜]' tts='لسان بارز'>مجرد تشويق; لسان متدلي مع غمزة; غمزة</annotation>
-
-		<!-- FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES; eye; face; horrible; human; taste; tongue -->
-		<annotation cp='[😝]' tts='تعبير عن القرف'>لسان متدلي وأعين مغلقة; مقزز</annotation>
-
-		<!-- DISAPPOINTED FACE; disappointed; face; human -->
-		<annotation cp='[😞]' tts='مستاء'>مستاء; استياء; وجه مستاء</annotation>
-
-		<!-- WORRIED FACE; face; human; worried -->
-		<annotation cp='[😟]' tts='قلق'>قلق; وجه منزعج</annotation>
-
-		<!-- ANGRY FACE; angry; face; human; mad -->
-		<annotation cp='[😠]' tts='غاضب'>غاضب; هائج; وجه غاضب</annotation>
-
-		<!-- POUTING FACE; angry; face; human; mad; pouting; rage; red -->
-		<annotation cp='[😡]' tts='متجهم الوجه'>غاضب; هائج; وجه مقطب ومتجهم; وجه أحمر</annotation>
-
-		<!-- CRYING FACE; cry; face; human; sad; tear -->
-		<annotation cp='[😢]' tts='بكاء'>بكاء; وجه باك; حزين; دموع</annotation>
-
-		<!-- PERSEVERING FACE; face; human; persevere -->
-		<annotation cp='[😣]' tts='يستشيط غضبًا'>وجه مغتاظ; مستشيط</annotation>
-
-		<!-- FACE WITH LOOK OF TRIUMPH; face; human; triumph; won -->
-		<annotation cp='[😤]' tts='نظرة انتصار'>وجه منتصر; انتصرت; منصور</annotation>
-
-		<!-- DISAPPOINTED BUT RELIEVED FACE; disappointed; face; human; relieved; whew -->
-		<annotation cp='[😥]' tts='سكون بعد خيبة أمل'>راحة; خيبة أمل</annotation>
-
-		<!-- FROWNING FACE WITH OPEN MOUTH; face; frown; human; mouth; open -->
-		<annotation cp='[😦]' tts='وجه عبوس'>عبوس بفم مفتوح; عبوس; فم مفتوح</annotation>
-
-		<!-- ANGUISHED FACE; anguished; face; human -->
-		<annotation cp='[😧]' tts='مكروب'>مكروب; وجه مكروب; تألم</annotation>
-
-		<!-- FEARFUL FACE; face; fear; fearful; human; scared -->
-		<annotation cp='[😨]' tts='خائف'>خائف; مرعوب; وجه خائف</annotation>
-
-		<!-- WEARY FACE; face; human; tired; weary -->
-		<annotation cp='[😩]' tts='مجهد'>مجهد; متعب; وجه ضجر</annotation>
-
-		<!-- SLEEPY FACE; face; human; sleep -->
-		<annotation cp='[😪]' tts='ناعس'>ناعس; وجه ناعس</annotation>
-
-		<!-- TIRED FACE; face; human; tired -->
-		<annotation cp='[😫]' tts='متعب'>متعب; وجه مجهد</annotation>
-
-		<!-- GRIMACING FACE; face; grimace; human -->
-		<annotation cp='[😬]' tts='تجهم'>تجهم; وجه متجهم; عبوس</annotation>
-
-		<!-- LOUDLY CRYING FACE; cry; face; human; sad; sob; tear -->
-		<annotation cp='[😭]' tts='صراخ مرتفع'>دموع; صراخ</annotation>
-
-		<!-- FACE WITH OPEN MOUTH; face; human; mouth; open; sympathy -->
-		<annotation cp='[😮]' tts='وجه بفم مفتوح'>فم مفتوح</annotation>
-
-		<!-- HUSHED FACE; face; human; hushed; stunned; surprised -->
-		<annotation cp='[😯]' tts='وجه هادئ'>مشدوه; مذهول</annotation>
-
-		<!-- FACE WITH OPEN MOUTH AND COLD SWEAT; blue; cold; face; human; mouth; open; rushed; sweat -->
-		<annotation cp='[😰]' tts='وجه مندفع'>وجه أزرق يتصبب عرقًا باردًا; فم مفتوح; عرق بارد</annotation>
-
-		<!-- FACE SCREAMING IN FEAR; face; fear; fearful; human; munch; scared; scream -->
-		<annotation cp='[😱]' tts='وجه خائف'>يصرخ خوفًا; وجه يصرخ خوفًا; خوف; مرعوب</annotation>
-
-		<!-- ASTONISHED FACE; astonished; face; human; shocked; totally -->
-		<annotation cp='[😲]' tts='وجه مندهش'>مندهش; مندهش تمامًا; مصدوم</annotation>
-
-		<!-- FLUSHED FACE; dazed; face; flushed; human -->
-		<annotation cp='[😳]' tts='وجه متورد'>متورد; مصاب بدوار</annotation>
-
-		<!-- SLEEPING FACE; face; human; sleep -->
-		<annotation cp='[😴]' tts='نائم'>نائم; وجه نائم</annotation>
-
-		<!-- DIZZY FACE; dizzy; face; human -->
-		<annotation cp='[😵]' tts='دائخ'>دائخ; وجه مصاب بالدوار</annotation>
-
-		<!-- FACE WITHOUT MOUTH; face; human; mouth; quiet; silent -->
-		<annotation cp='[😶]' tts='وجه بدون فم'>بدون فم</annotation>
-
-		<!-- FACE WITH MEDICAL MASK; cold; doctor; face; human; mask; medicine; sick -->
-		<annotation cp='[😷]' tts='وجه بكمامة'>برد; متوعك صحيًا; كمامة طبية; كمامة</annotation>
-
-		<!-- SMILING FACE WITH HALO; angel; face; fantasy; halo; human; innocent; smile; smiley -->
+		<!-- SMILING FACE WITH HALO; angel; face; fairy tale; fantasy; halo; innocent; smile -->
 		<annotation cp='[😇]' tts='ابتسامة مع هالة'>ابتسام; هالة</annotation>
 
-		<!-- SMILING FACE WITH HORNS; face; fantasy; horns; human; smile; smiley -->
-		<annotation cp='[😈]' tts='ابتسامة وقرون'>ابتسام; قرون</annotation>
+		<!-- NEUTRAL FACE; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='وجه جامد'>وجه محايد; جمود; حيادية; لا تعليق</annotation>
 
-		<!-- IMP; devil; face; fairy tale; fantasy; human; imp -->
+		<!-- EXPRESSIONLESS FACE; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='غير معبر'>وجه بدون تعبير; لا تعليق</annotation>
+
+		<!-- FACE WITHOUT MOUTH; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='وجه بدون فم'>بدون فم</annotation>
+
+		<!-- SMIRKING FACE; face; smirk -->
+		<annotation cp='[😏]' tts='ابتسامة متكلفة'>وجه متكلف; تكلف</annotation>
+
+		<!-- PERSEVERING FACE; face; persevere -->
+		<annotation cp='[😣]' tts='يستشيط غضبًا'>وجه مغتاظ; مستشيط</annotation>
+
+		<!-- DISAPPOINTED BUT RELIEVED FACE; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='سكون بعد خيبة أمل'>راحة; خيبة أمل</annotation>
+
+		<!-- FACE WITH OPEN MOUTH; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='وجه بفم مفتوح'>فم مفتوح</annotation>
+
+		<!-- HUSHED FACE; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='وجه هادئ'>مشدوه; مذهول</annotation>
+
+		<!-- SLEEPY FACE; face; sleep -->
+		<annotation cp='[😪]' tts='ناعس'>ناعس; وجه ناعس</annotation>
+
+		<!-- TIRED FACE; face; tired -->
+		<annotation cp='[😫]' tts='متعب'>متعب; وجه مجهد</annotation>
+
+		<!-- SLEEPING FACE; face; sleep -->
+		<annotation cp='[😴]' tts='نائم'>نائم; وجه نائم</annotation>
+
+		<!-- RELIEVED FACE; face; relieved -->
+		<annotation cp='[😌]' tts='وجه مرتاح'>مطمئن</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE; face; tongue -->
+		<annotation cp='[😛]' tts='لسان بارز'>لسان متدلي; وجه بلسان متدلي</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE AND WINKING EYE; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='لسان بارز'>مجرد تشويق; لسان متدلي مع غمزة; غمزة</annotation>
+
+		<!-- FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='تعبير عن القرف'>لسان متدلي وأعين مغلقة; مقزز</annotation>
+
+		<!-- UNAMUSED FACE; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='غير مستمتع'>وجه غير مستمتع; غير سعيد</annotation>
+
+		<!-- FACE WITH COLD SWEAT; cold; face; sweat -->
+		<annotation cp='[😓]' tts='عرق بارد'>وجه عليه عرق بارد</annotation>
+
+		<!-- PENSIVE FACE; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='وجه متأمل'>مكتئب; حزين</annotation>
+
+		<!-- CONFUSED FACE; confused; face -->
+		<annotation cp='[😕]' tts='وجه متحير'>متحير</annotation>
+
+		<!-- CONFOUNDED FACE; confounded; face -->
+		<annotation cp='[😖]' tts='وجه مرتبك'>تائه</annotation>
+
+		<!-- FACE WITH MEDICAL MASK; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='وجه بكمامة'>برد; متوعك صحيًا; كمامة طبية; كمامة</annotation>
+
+		<!-- ASTONISHED FACE; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='وجه مندهش'>مندهش; مندهش تمامًا; مصدوم</annotation>
+
+		<!-- DISAPPOINTED FACE; disappointed; face -->
+		<annotation cp='[😞]' tts='مستاء'>مستاء; استياء; وجه مستاء</annotation>
+
+		<!-- WORRIED FACE; face; worried -->
+		<annotation cp='[😟]' tts='قلق'>قلق; وجه منزعج</annotation>
+
+		<!-- FACE WITH LOOK OF TRIUMPH; face; triumph; won -->
+		<annotation cp='[😤]' tts='نظرة انتصار'>وجه منتصر; انتصرت; منصور</annotation>
+
+		<!-- CRYING FACE; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='بكاء'>بكاء; وجه باك; حزين; دموع</annotation>
+
+		<!-- LOUDLY CRYING FACE; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='صراخ مرتفع'>دموع; صراخ</annotation>
+
+		<!-- FROWNING FACE WITH OPEN MOUTH; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='وجه عبوس'>عبوس بفم مفتوح; عبوس; فم مفتوح</annotation>
+
+		<!-- ANGUISHED FACE; anguished; face -->
+		<annotation cp='[😧]' tts='مكروب'>مكروب; وجه مكروب; تألم</annotation>
+
+		<!-- FEARFUL FACE; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='خائف'>خائف; مرعوب; وجه خائف</annotation>
+
+		<!-- WEARY FACE; face; tired; weary -->
+		<annotation cp='[😩]' tts='مجهد'>مجهد; متعب; وجه ضجر</annotation>
+
+		<!-- GRIMACING FACE; face; grimace -->
+		<annotation cp='[😬]' tts='تجهم'>تجهم; وجه متجهم; عبوس</annotation>
+
+		<!-- FACE WITH OPEN MOUTH AND COLD SWEAT; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='وجه مندفع'>وجه أزرق يتصبب عرقًا باردًا; فم مفتوح; عرق بارد</annotation>
+
+		<!-- FACE SCREAMING IN FEAR; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='وجه خائف'>يصرخ خوفًا; وجه يصرخ خوفًا; خوف; مرعوب</annotation>
+
+		<!-- FLUSHED FACE; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='وجه متورد'>متورد; مصاب بدوار</annotation>
+
+		<!-- DIZZY FACE; dizzy; face -->
+		<annotation cp='[😵]' tts='دائخ'>دائخ; وجه مصاب بالدوار</annotation>
+
+		<!-- POUTING FACE; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='متجهم الوجه'>غاضب; هائج; وجه مقطب ومتجهم; وجه أحمر</annotation>
+
+		<!-- ANGRY FACE; angry; face; mad -->
+		<annotation cp='[😠]' tts='غاضب'>غاضب; هائج; وجه غاضب</annotation>
+
+		<!-- IMP; devil; face; fairy tale; fantasy; imp -->
 		<annotation cp='[👿]' tts='شيطان'>شيطان; شيطان صغير; وجه</annotation>
 
-		<!-- BOY; boy; human; person -->
+		<!-- SMILING FACE WITH HORNS; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='ابتسامة وقرون'>ابتسام; قرون</annotation>
+
+		<!-- BOY; boy; person -->
 		<annotation cp='[👦]' tts='ولد'>ولد; أشخاص</annotation>
 
-		<!-- GIRL; girl; human; maiden; person; virgin; virgo; zodiac -->
+		<!-- GIRL; girl; maiden; person; virgin; virgo; zodiac -->
 		<annotation cp='[👧]' tts='بنت'>بنت; أشخاص</annotation>
 
-		<!-- MAN; human; man; person -->
+		<!-- MAN; man; person -->
 		<annotation cp='[👨]' tts='رجل'>رجل; أشخاص</annotation>
 
-		<!-- WOMAN; human; person; woman -->
+		<!-- WOMAN; person; woman -->
 		<annotation cp='[👩]' tts='سيدة'>سيدة; أشخاص</annotation>
 
-		<!-- OLDER MAN; human; man; old; person -->
+		<!-- OLDER MAN; man; old; person -->
 		<annotation cp='[👴]' tts='رجل عجوز'>رجل; عجوز; أشخاص</annotation>
 
-		<!-- OLDER WOMAN; human; old; person; woman -->
+		<!-- OLDER WOMAN; old; person; woman -->
 		<annotation cp='[👵]' tts='سيدة عجوز'>سيدة; عجوز; أشخاص</annotation>
 
-		<!-- BABY; baby; human; person -->
+		<!-- BABY; baby; person -->
 		<annotation cp='[👶]' tts='رضيع'>رضيع; أشخاص</annotation>
 
-		<!-- PERSON WITH BLOND HAIR; blond; human; person -->
+		<!-- PERSON WITH BLOND HAIR; blond; person -->
 		<annotation cp='[👱]' tts='أشقر'>أشقر; أشخاص</annotation>
 
-		<!-- POLICE OFFICER; cop; human; officer; person; police -->
+		<!-- POLICE OFFICER; cop; officer; person; police -->
 		<annotation cp='[👮]' tts='ضابط شرطة'>شرطة; شرطي; أشخاص</annotation>
 
-		<!-- MAN WITH GUA PI MAO; gua pi mao; hat; human; man; person -->
+		<!-- MAN WITH GUA PI MAO; gua pi mao; hat; man; person -->
 		<annotation cp='[👲]' tts='رجل'>رجل; رجل يرتدي قبعة; غوا بي ماو; أشخاص</annotation>
 
-		<!-- MAN WITH TURBAN; human; man; person; turban -->
+		<!-- MAN WITH TURBAN; man; person; turban -->
 		<annotation cp='[👳]' tts='رجل'>رجل; رجل يرتدي عمامة; عمامة; أشخاص</annotation>
 
-		<!-- CONSTRUCTION WORKER; construction; hat; human; person; worker -->
+		<!-- CONSTRUCTION WORKER; construction; hat; person; worker -->
 		<annotation cp='[👷]' tts='عامل بناء'>بناء; عامل; أشخاص</annotation>
 
-		<!-- PRINCESS; fairy tale; fantasy; human; person; princess -->
+		<!-- PRINCESS; fairy tale; fantasy; person; princess -->
 		<annotation cp='[👸]' tts='أميرة'>أميرة; حدوتة; أشخاص</annotation>
 
-		<!-- GUARDSMAN; guard; guardsman; human; person -->
+		<!-- GUARDSMAN; guard; guardsman; person -->
 		<annotation cp='[💂]' tts='حارس'>حارس; أشخاص</annotation>
 
-		<!-- FATHER CHRISTMAS; activity; celebration; christmas; fantasy; father; human; person; santa -->
+		<!-- FATHER CHRISTMAS; activity; celebration; christmas; fairy tale; fantasy; father; person; santa -->
 		<annotation cp='[🎅]' tts='بابا نويل'>سانتا; سانتا كلوز; عيد الميلاد</annotation>
 
-		<!-- BABY ANGEL; angel; baby; face; fairy tale; fantasy; human -->
+		<!-- BABY ANGEL; angel; baby; face; fairy tale; fantasy -->
 		<annotation cp='[👼]' tts='طفل ملاك'>ملاك; حدوتة; وجه</annotation>
 
-		<!-- SLEUTH OR SPY; human; person; sleuth; spy -->
-		<annotation cp='[🕵]'>MISSING</annotation>
-
-		<!-- WOMAN WITH BUNNY EARS; bunny; dancer; ear; girl; human; person; woman -->
+		<!-- WOMAN WITH BUNNY EARS; bunny; dancer; ear; girl; person; woman -->
 		<annotation cp='[👯]' tts='بنت'>بنت; أذن أرنبية; امرأة; أشخاص</annotation>
 
-		<!-- FACE MASSAGE; face; human; massage; person; salon -->
+		<!-- FACE MASSAGE; face; massage; person; salon -->
 		<annotation cp='[💆]' tts='مساج وجه'>مساج; صالون</annotation>
 
-		<!-- HAIRCUT; barber; beauty; haircut; human; parlor; person -->
+		<!-- HAIRCUT; barber; beauty; haircut; parlor; person -->
 		<annotation cp='[💇]' tts='قص شعر'>صالون تجميل; جمال</annotation>
 
-		<!-- BRIDE WITH VEIL; bride; human; person; veil; wedding -->
+		<!-- BRIDE WITH VEIL; bride; person; veil; wedding -->
 		<annotation cp='[👰]' tts='عروس'>عروس; عروس بحجاب; حجاب; زفاف; أشخاص</annotation>
 
-		<!-- PERSON FROWNING; frown; gesture; human; person -->
+		<!-- PERSON FROWNING; frown; gesture; person -->
 		<annotation cp='[🙍]' tts='عبوس'>عبوس; شخص عابس; شخص; إشارة</annotation>
 
-		<!-- PERSON WITH POUTING FACE; face; gesture; human; person; pouting -->
+		<!-- PERSON WITH POUTING FACE; face; gesture; person; pouting -->
 		<annotation cp='[🙎]' tts='تجهم'>تجهم; شخص متجهم; شخص; إشارة</annotation>
 
-		<!-- FACE WITH NO GOOD GESTURE; face; forbidden; gesture; human; no; not; person; prohibited -->
+		<!-- FACE WITH NO GOOD GESTURE; face; forbidden; gesture; hand; no; not; person; prohibited -->
 		<annotation cp='[🙅]' tts='إشارة أمر سيء'>أمر سيء; لا; ممنوع</annotation>
 
-		<!-- FACE WITH OK GESTURE; face; gesture; human; ok; person -->
+		<!-- FACE WITH OK GESTURE; face; gesture; hand; ok; person -->
 		<annotation cp='[🙆]' tts='إشارة موافقة'>مضبوط; إشارة; وجه</annotation>
 
-		<!-- INFORMATION DESK PERSON; help; human; information; person; sassy -->
+		<!-- INFORMATION DESK PERSON; hand; help; information; person; sassy -->
 		<annotation cp='[💁]' tts='مكتب استعلامات'>مساعدة; معلومات; أشخاص</annotation>
 
-		<!-- HAPPY PERSON RAISING ONE HAND; gesture; hand; happy; human; person; raised -->
+		<!-- HAPPY PERSON RAISING ONE HAND; gesture; hand; happy; person; raised -->
 		<annotation cp='[🙋]' tts='شخص سعيد'>رفع اليد; شخص يرفع يده; سعادة; شخص; إشارة</annotation>
 
-		<!-- PERSON BOWING DEEPLY; apology; bow; gesture; human; person; sorry -->
+		<!-- PERSON BOWING DEEPLY; apology; bow; gesture; person; sorry -->
 		<annotation cp='[🙇]' tts='آسف'>آسف; انحناء شديد; أسف; انحناء; إشارة; شخص</annotation>
 
-		<!-- PERSON RAISING BOTH HANDS IN CELEBRATION; body; celebration; gesture; hand; hooray; human; person; raised -->
+		<!-- PERSON RAISING BOTH HANDS IN CELEBRATION; body; celebration; gesture; hand; hooray; person; raised -->
 		<annotation cp='[🙌]' tts='تشجيع'>تشجيع; رفع اليدين احتفالاً; اليدان; احتفال</annotation>
 
-		<!-- PERSON WITH FOLDED HANDS; ask; body; bow; folded; gesture; hand; human; person; please; pray; thanks -->
+		<!-- PERSON WITH FOLDED HANDS; ask; body; bow; folded; gesture; hand; person; please; pray; thanks -->
 		<annotation cp='[🙏]' tts='يدان مضمومتان'>صلاة; أداء صلاة; يد; إشارة</annotation>
 
-		<!-- SPEAKING HEAD IN SILHOUETTE; face; head; human; person; silhouette; speak; speaking -->
-		<annotation cp='[🗣]'>MISSING</annotation>
-
-		<!-- BUST IN SILHOUETTE; bust; human; person; silhouette -->
+		<!-- BUST IN SILHOUETTE; bust; person; silhouette -->
 		<annotation cp='[👤]' tts='صورة ظلية'>صورة; أشخاص</annotation>
 
-		<!-- BUSTS IN SILHOUETTE; bust; human; person; silhouette -->
+		<!-- BUSTS IN SILHOUETTE; bust; person; silhouette -->
 		<annotation cp='[👥]' tts='صورتان ظليتان'>صورتان; أشخاص</annotation>
 
-		<!-- PEDESTRIAN; hike; human; pedestrian; person; travel; walk; walking -->
+		<!-- PEDESTRIAN; hike; pedestrian; person; travel; walk; walking -->
 		<annotation cp='[🚶]' tts='مشاة'>مشاة</annotation>
 
-		<!-- RUNNER; human; marathon; person; runner; running; sport -->
+		<!-- RUNNER; marathon; person; runner; running; sport -->
 		<annotation cp='[🏃]' tts='جري'>جري; ماراثون; رياضة</annotation>
 
-		<!-- DANCER; dancer; human; person -->
+		<!-- DANCER; dancer; person -->
 		<annotation cp='[💃]' tts='راقصة'>راقصة; رقص; أشخاص</annotation>
 
-		<!-- MAN IN BUSINESS SUIT LEVITATING; business; human; man; person; suit -->
-		<annotation cp='[🕴]'>MISSING</annotation>
-
-		<!-- KISS; couple; human; kiss; person; romance -->
+		<!-- KISS; couple; kiss; person; romance -->
 		<annotation cp='[💏]' tts='قبلة'>قبلة; تقبيل; أشخاص; رومانسية</annotation>
 
-		<!-- COUPLE WITH HEART; couple; heart; human; love; person; romance -->
+		<!-- COUPLE WITH HEART; couple; heart; love; person; romance -->
 		<annotation cp='[💑]' tts='زوج'>زوج; زوج وقلب; قلب; أشخاص; رومانسية</annotation>
 
-		<!-- FAMILY; child; family; father; human; mother; person -->
+		<!-- FAMILY; child; family; father; mother; person -->
 		<annotation cp='[👪]' tts='عائلة'>عائلة; أب; أم; طفل; أشخاص</annotation>
 
-		<!-- MAN AND WOMAN HOLDING HANDS; couple; hand; hold; human; man; person; woman -->
+		<!-- MAN AND WOMAN HOLDING HANDS; couple; hand; hold; man; person; woman -->
 		<annotation cp='[👫]' tts='رجل وامرأة'>زوج; يد بيد; أشخاص</annotation>
 
-		<!-- TWO MEN HOLDING HANDS; couple; gemini; hand; hold; human; men; person; twins; zodiac -->
+		<!-- TWO MEN HOLDING HANDS; couple; gemini; hand; hold; man; person; twins; zodiac -->
 		<annotation cp='[👬]' tts='رجلان'>رجلان; زوج; يد بيد; أشخاص</annotation>
 
-		<!-- TWO WOMEN HOLDING HANDS; couple; hand; hold; human; person; woman -->
+		<!-- TWO WOMEN HOLDING HANDS; couple; hand; hold; person; woman -->
 		<annotation cp='[👭]' tts='امرأتان'>امرأتان; زوج; يد بيد; أشخاص</annotation>
 
-		<!-- WHITE LEFT POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point -->
-		<annotation cp='[👈]' tts='إصبع لليسار'>السبابة; إصبع</annotation>
-
-		<!-- WHITE RIGHT POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point -->
-		<annotation cp='[👉]' tts='إصبع لليمين'>السبابة; إصبع</annotation>
-
-		<!-- WHITE UP POINTING INDEX; body; finger; hand; human; index; point; up -->
-		<annotation cp='[☝]'>MISSING</annotation>
-
-		<!-- WHITE UP POINTING BACKHAND INDEX; backhand; body; finger; hand; human; index; point; up -->
-		<annotation cp='[👆]' tts='إصبع لأعلى'>السبابة; إصبع</annotation>
-
-		<!-- REVERSED HAND WITH MIDDLE FINGER EXTENDED; body; finger; hand; human; middle finger -->
-		<annotation cp='[🖕]'>MISSING</annotation>
-
-		<!-- WHITE DOWN POINTING BACKHAND INDEX; backhand; body; down; finger; hand; human; index; point -->
-		<annotation cp='[👇]' tts='إصبع لأسفل'>السبابة; إصبع</annotation>
-
-		<!-- VICTORY HAND; body; hand; human; v; victory -->
-		<annotation cp='[✌]' tts='علامة النصر'>مقص; انتصار</annotation>
-
-		<!-- RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS; body; finger; hand; human; spock; vulcan -->
-		<annotation cp='[🖖]'>MISSING</annotation>
-
-		<!-- RAISED FIST; body; clenched; fist; hand; human; punch -->
-		<annotation cp='[✊]' tts='قبضة يد مرفوعة'>هز</annotation>
-
-		<!-- RAISED HAND; body; hand; human -->
-		<annotation cp='[✋]' tts='يد مرفوعة'>ورقة</annotation>
-
-		<!-- FISTED HAND SIGN; body; clenched; fist; hand; human; punch -->
-		<annotation cp='[👊]' tts='قبضة يد'>كف; يد</annotation>
-
-		<!-- WAVING HAND SIGN; body; hand; human; wave; waving -->
-		<annotation cp='[👋]' tts='تلويح باليد'>يد; تلويح</annotation>
-
-		<!-- OK HAND SIGN; body; hand; human; ok -->
-		<annotation cp='[👌]' tts='علامة موافق'>موافقة; علامة</annotation>
-
-		<!-- THUMBS UP SIGN; +1; body; hand; human; thumb; thumbs’s up; up -->
-		<annotation cp='[👍]' tts='قبول'>قبول; إبهام; أعلى; يد; علامة</annotation>
-
-		<!-- THUMBS DOWN SIGN; body; down; hand; human; thumb; thumb’s down -->
-		<annotation cp='[👎]' tts='رفض'>رفض; إبهام; أسفل; يد; علامة</annotation>
-
-		<!-- CLAPPING HANDS SIGN; body; clap; hand; human -->
-		<annotation cp='[👏]' tts='يد تصفق'>أيادي; تصفيق; علامة</annotation>
-
-		<!-- OPEN HANDS SIGN; body; hand; human; open -->
-		<annotation cp='[👐]' tts='يدان مفتوحتان'>علامة فتح اليدين; يد; مفتوحة; علامة</annotation>
-
-		<!-- WRITING HAND; body; education; hand; human; write -->
-		<annotation cp='[✍]'>MISSING</annotation>
-
-		<!-- RAISED HAND WITH FINGERS SPLAYED; body; finger; hand; human; splayed -->
-		<annotation cp='[🖐]'>MISSING</annotation>
-
-		<!-- NAIL POLISH; body; care; cosmetics; human; manicure; nail; polish -->
-		<annotation cp='[💅]' tts='عناية أظافر'>أظافر; مانكير; تهذيب أظافر; مستحضرات تجميل</annotation>
-
-		<!-- FLEXED BICEPS; biceps; body; comic; flex; human; muscle -->
+		<!-- FLEXED BICEPS; biceps; body; comic; flex; muscle -->
 		<annotation cp='[💪]' tts='عضلة الذراع'>عضلات; قوية; مرنة; هزل</annotation>
 
-		<!-- FOOTPRINTS; body; clothing; footprint; human; print -->
+		<!-- WHITE LEFT POINTING BACKHAND INDEX; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='إصبع لليسار'>السبابة; إصبع</annotation>
+
+		<!-- WHITE RIGHT POINTING BACKHAND INDEX; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='إصبع لليمين'>السبابة; إصبع</annotation>
+
+		<!-- WHITE UP POINTING BACKHAND INDEX; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='إصبع لأعلى'>السبابة; إصبع</annotation>
+
+		<!-- WHITE DOWN POINTING BACKHAND INDEX; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='إصبع لأسفل'>السبابة; إصبع</annotation>
+
+		<!-- VICTORY HAND; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='علامة النصر'>مقص; انتصار</annotation>
+
+		<!-- RAISED FIST; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='قبضة يد مرفوعة'>هز</annotation>
+
+		<!-- RAISED HAND; body; hand -->
+		<annotation cp='[✋]' tts='يد مرفوعة'>ورقة</annotation>
+
+		<!-- FISTED HAND SIGN; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='قبضة يد'>كف; يد</annotation>
+
+		<!-- OK HAND SIGN; body; hand; ok -->
+		<annotation cp='[👌]' tts='علامة موافق'>موافقة; علامة</annotation>
+
+		<!-- THUMBS UP SIGN; +1; body; hand; thumb; thumbs up; up -->
+		<annotation cp='[👍]' tts='قبول'>قبول; إبهام; أعلى; يد; علامة</annotation>
+
+		<!-- THUMBS DOWN SIGN; -1; body; down; hand; thumb; thumbs down -->
+		<annotation cp='[👎]' tts='رفض'>رفض; إبهام; أسفل; يد; علامة</annotation>
+
+		<!-- WAVING HAND SIGN; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='تلويح باليد'>يد; تلويح</annotation>
+
+		<!-- CLAPPING HANDS SIGN; body; clap; hand -->
+		<annotation cp='[👏]' tts='يد تصفق'>أيادي; تصفيق; علامة</annotation>
+
+		<!-- OPEN HANDS SIGN; body; hand; open -->
+		<annotation cp='[👐]' tts='يدان مفتوحتان'>علامة فتح اليدين; يد; مفتوحة; علامة</annotation>
+
+		<!-- NAIL POLISH; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='عناية أظافر'>أظافر; مانكير; تهذيب أظافر; مستحضرات تجميل</annotation>
+
+		<!-- FOOTPRINTS; body; clothing; footprint; print -->
 		<annotation cp='[👣]' tts='أثر قدم'>قدم; خطى; جسم</annotation>
 
-		<!-- EYES; body; eye; face; human -->
+		<!-- EYES; body; eye; face -->
 		<annotation cp='[👀]' tts='أعين'>أعين; وجه</annotation>
 
-		<!-- EYE; body; eye; human -->
-		<annotation cp='[👁]'>MISSING</annotation>
-
-		<!-- EAR; body; ear; human -->
+		<!-- EAR; body; ear -->
 		<annotation cp='[👂]' tts='أذن'>أذن; جسم</annotation>
 
-		<!-- NOSE; body; human; nose -->
+		<!-- NOSE; body; nose -->
 		<annotation cp='[👃]' tts='أنف'>أنف; وجه; جسم</annotation>
 
-		<!-- TONGUE; body; human; tongue -->
+		<!-- TONGUE; body; tongue -->
 		<annotation cp='[👅]' tts='لسان'>لسان; وجه; جسم</annotation>
 
-		<!-- SKULL; body; death; face; fairy tale; skull -->
-		<annotation cp='[💀]' tts='جمجمة'>جمجمة; حدوتة; جسم; وجه</annotation>
-
-		<!-- SKULL AND CROSSBONES; body; crossbones; death; face; skull -->
-		<annotation cp='[☠]'>MISSING</annotation>
-
-		<!-- KISS MARK; emotion; heart; human; kiss; lips; mark; romance -->
-		<annotation cp='[💋]' tts='علامة قبلة'>شفاه; قبلة; رومانسية</annotation>
-
-		<!-- MOUTH; body; human; lips; mouth -->
+		<!-- MOUTH; body; lips; mouth -->
 		<annotation cp='[👄]' tts='فم'>فم; شفتان; وجه; جسم</annotation>
+
+		<!-- KISS MARK; emotion; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='علامة قبلة'>شفاه; قبلة; رومانسية</annotation>
 
 		<!-- HEART WITH ARROW; arrow; cupid; emotion; heart; romance -->
 		<annotation cp='[💘]' tts='قلب وسهم'>قلب; سهم; حب; مشاعر</annotation>
-
-		<!-- HEAVY BLACK HEART; emotion; heart -->
-		<annotation cp='[❤]'>MISSING</annotation>
 
 		<!-- BEATING HEART; beating; emotion; heart; heartbeat; pulsating -->
 		<annotation cp='[💓]' tts='قلب يخفق'>خفقان; نبض; قلب; حب; مشاعر</annotation>
@@ -463,13 +418,10 @@
 		<!-- HEART DECORATION; emotion; heart -->
 		<annotation cp='[💟]' tts='زخرفة قلب'>قلب</annotation>
 
-		<!-- HEAVY HEART EXCLAMATION MARK ORNAMENT; emotion; exclamation; heart; mark; punctuation -->
-		<annotation cp='[❣]'>MISSING</annotation>
-
 		<!-- LOVE LETTER; emotion; heart; letter; love; mail; romance -->
 		<annotation cp='[💌]' tts='خطاب حب'>رسالة عليها قلب; خطاب; قلب; رومانسية</annotation>
 
-		<!-- DROPLET; cold; comic; drop; emotion; object; sweat; weather -->
+		<!-- DROPLET; cold; comic; drop; emotion; sweat; weather -->
 		<annotation cp='[💧]' tts='عرق بارد'>عرق; مبلل عرقًا; هزل</annotation>
 
 		<!-- SLEEPING SYMBOL; comic; emotion; sleep; word; zzz -->
@@ -478,16 +430,16 @@
 		<!-- ANGER SYMBOL; angry; comic; emotion; mad -->
 		<annotation cp='[💢]' tts='غضب'>غضب; علامة غضب; مشاعر</annotation>
 
-		<!-- BOMB; bomb; comic; emotion; object -->
+		<!-- BOMB; bomb; comic; emotion -->
 		<annotation cp='[💣]' tts='قنبلة'>قنبلة; مشاعر</annotation>
 
 		<!-- COLLISION SYMBOL; boom; collision; comic; emotion -->
 		<annotation cp='[💥]' tts='تصادم'>تصادم; رمز تصادم; هزل; مشاعر</annotation>
 
-		<!-- SPLASHING SWEAT SYMBOL; comic; emotion; object; splashing; sweat -->
+		<!-- SPLASHING SWEAT SYMBOL; comic; emotion; splashing; sweat -->
 		<annotation cp='[💦]' tts='عرق يتصبب'>عرق; مبلل عرقًا; هزل; مشاعر</annotation>
 
-		<!-- DASH SYMBOL; comic; dash; emotion; object; running -->
+		<!-- DASH SYMBOL; comic; dash; emotion; running -->
 		<annotation cp='[💨]' tts='انطلاقة جري'>هرب; جري; هزل; مشاعر</annotation>
 
 		<!-- DIZZY SYMBOL; comic; dizzy; emotion; star -->
@@ -499,17 +451,8 @@
 		<!-- THOUGHT BALLOON; balloon; bubble; comic; emotion; thought -->
 		<annotation cp='[💭]' tts='فقاعة أفكار'>فكرة; بالونة; هزل</annotation>
 
-		<!-- HOLE; hole -->
-		<annotation cp='[🕳]'>MISSING</annotation>
-
-		<!-- RIGHT ANGER BUBBLE; angry; balloon; bubble; emotion; mad -->
-		<annotation cp='[🗯]'>MISSING</annotation>
-
 		<!-- EYEGLASSES; clothing; eye; eyeglasses; eyewear; glasses -->
 		<annotation cp='[👓]' tts='نظارة'>نظارة; ملابس</annotation>
-
-		<!-- DARK SUNGLASSES; dark; eye; eyewear; glasses; object; sunglasses -->
-		<annotation cp='[🕶]'>MISSING</annotation>
 
 		<!-- NECKTIE; clothing; necktie -->
 		<annotation cp='[👔]' tts='رابطة عنق'>كرافتة; ملابس</annotation>
@@ -541,6 +484,9 @@
 		<!-- POUCH; bag; clothing; pouch -->
 		<annotation cp='[👝]' tts='شنطة دبلوماسية'>حقيبة; ملابس</annotation>
 
+		<!-- SCHOOL SATCHEL; activity; bag; education; satchel; school -->
+		<annotation cp='[🎒]' tts='حقيبة مدرسة'>مدرسة</annotation>
+
 		<!-- MANS SHOE; clothing; man; shoe -->
 		<annotation cp='[👞]' tts='حذاء رجالي'>حذاء; ملابس</annotation>
 
@@ -562,13 +508,40 @@
 		<!-- WOMANS HAT; clothing; hat; woman -->
 		<annotation cp='[👒]' tts='قبعة حريمي'>قبعة; ملابس</annotation>
 
-		<!-- TOP HAT; activity; entertainment; hat; object; top; tophat -->
+		<!-- TOP HAT; activity; entertainment; hat; top; tophat -->
 		<annotation cp='[🎩]' tts='قبعة'>قبعة; قبعة عالية; ترفيه</annotation>
 
-		<!-- HELMET WITH WHITE CROSS; aid; cross; hat; helmet; travel -->
-		<annotation cp='[⛑]'>MISSING</annotation>
+		<!-- LIPSTICK; cosmetics; lipstick; makeup -->
+		<annotation cp='[💄]' tts='أحمر شفاه'>تجميل; مستحضرات تجميل</annotation>
 
-		<!-- MONKEY FACE; animal; face; monkey; nature -->
+		<!-- RING; diamond; ring; romance -->
+		<annotation cp='[💍]' tts='خاتم'>خاتم; رومانسية</annotation>
+
+		<!-- GEM STONE; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='جوهرة'>جوهرة; ماسة; رومانسية</annotation>
+
+		<!-- JAPANESE OGRE; creature; face; fairy tale; fantasy; japanese; monster; ogre -->
+		<annotation cp='[👹]' tts='غول'>غول; وحش; جني; حدوتة; غول ياباني; وجه</annotation>
+
+		<!-- JAPANESE GOBLIN; creature; face; fairy tale; fantasy; goblin; japanese; monster -->
+		<annotation cp='[👺]' tts='عفريت'>عفريت; وحش; حدوتة; عفريت ياباني; وجه</annotation>
+
+		<!-- GHOST; creature; face; fairy tale; fantasy; ghost; monster -->
+		<annotation cp='[👻]' tts='شبح'>شبح; حدوتة; وجه</annotation>
+
+		<!-- SKULL; body; death; face; fairy tale; monster; skull -->
+		<annotation cp='[💀]' tts='جمجمة'>جمجمة; حدوتة; جسم; وجه</annotation>
+
+		<!-- EXTRATERRESTRIAL ALIEN; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' tts='كائن غريب'>كائن فضائي; حدوتة; وجه</annotation>
+
+		<!-- ALIEN MONSTER; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='وحش غريب'>وحش; كائن فضائي; حدوتة; وجه</annotation>
+
+		<!-- PILE OF POO; comic; dung; monster; poo; poop -->
+		<annotation cp='[💩]' tts='فضلات'>فضلات; روث; كومة فضلات</annotation>
+
+		<!-- MONKEY FACE; animal; face; monkey -->
 		<annotation cp='[🐵]' tts='وجه قرد'>قرد; وجه; حيوان</annotation>
 
 		<!-- SEE-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
@@ -580,370 +553,328 @@
 		<!-- SPEAK-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
 		<annotation cp='[🙊]' tts='حجب الكلام'>قرد يحجب كلامه; قرد</annotation>
 
-		<!-- MONKEY; animal; monkey; nature -->
+		<!-- MONKEY; animal; monkey -->
 		<annotation cp='[🐒]' tts='قرد'>قرد; حيوان</annotation>
 
-		<!-- DOG FACE; animal; dog; face; nature; pet -->
+		<!-- DOG FACE; animal; dog; face; pet -->
 		<annotation cp='[🐶]' tts='وجه كلب'>كلب; وجه; حيوان</annotation>
 
-		<!-- DOG; animal; dog; nature; pet -->
+		<!-- DOG; animal; dog; pet -->
 		<annotation cp='[🐕]' tts='كلب'>كلب; حيوان</annotation>
 
-		<!-- POODLE; animal; dog; nature; poodle -->
+		<!-- POODLE; animal; dog; poodle -->
 		<annotation cp='[🐩]' tts='بودل'>بودل; كلب; حيوان</annotation>
 
-		<!-- WOLF FACE; animal; face; nature; wolf -->
+		<!-- WOLF FACE; animal; face; wolf -->
 		<annotation cp='[🐺]' tts='وجه ذئب'>ذئب; وجه; حيوان</annotation>
 
-		<!-- CAT FACE; animal; cat; face; nature; pet -->
+		<!-- CAT FACE; animal; cat; face; pet -->
 		<annotation cp='[🐱]' tts='وجه قطة'>قطة; وجه; حيوان</annotation>
 
-		<!-- GRINNING CAT FACE WITH SMILING EYES; animal; cat; eye; face; grin; nature; smile; smiley -->
+		<!-- GRINNING CAT FACE WITH SMILING EYES; animal; cat; eye; face; grin; smile -->
 		<annotation cp='[😸]' tts='وجه قطة مكشر'>تكشير; وجه قطة مكشر وعيون مبتسمة; وجه قطة</annotation>
 
-		<!-- CAT FACE WITH TEARS OF JOY; animal; cat; face; joy; nature; tear -->
+		<!-- CAT FACE WITH TEARS OF JOY; animal; cat; face; joy; tear -->
 		<annotation cp='[😹]' tts='دموع الفرح'>وجه قطة; وجه قطة بدموع فرح</annotation>
 
-		<!-- SMILING CAT FACE WITH OPEN MOUTH; animal; cat; face; mouth; nature; open; smile; smiley -->
+		<!-- SMILING CAT FACE WITH OPEN MOUTH; animal; cat; face; mouth; open; smile -->
 		<annotation cp='[😺]' tts='وجه قطة مبتسم'>وجه قطة مبتسم بفم مفتوح; وجه قطة</annotation>
 
-		<!-- SMILING CAT FACE WITH HEART-SHAPED EYES; animal; cat; eye; face; heart; love; nature; smile; smiley -->
+		<!-- SMILING CAT FACE WITH HEART-SHAPED EYES; animal; cat; eye; face; heart; love; smile -->
 		<annotation cp='[😻]' tts='وجه قطة مبتسم'>وجه قطة مبتسم بعين على شكل قلب; حب</annotation>
 
-		<!-- CAT FACE WITH WRY SMILE; animal; cat; face; ironic; nature; smile; smiley; wry -->
+		<!-- CAT FACE WITH WRY SMILE; animal; cat; face; ironic; smile; wry -->
 		<annotation cp='[😼]' tts='وجه قطة ساخر'>ساخر; ابتسامة ساخرة; وجه قطة</annotation>
 
-		<!-- KISSING CAT FACE WITH CLOSED EYES; animal; cat; eye; face; kiss; nature -->
+		<!-- KISSING CAT FACE WITH CLOSED EYES; animal; cat; eye; face; kiss -->
 		<annotation cp='[😽]' tts='بوسة قطة'>أعين مغلقة; تقبيل; بوسة</annotation>
 
-		<!-- POUTING CAT FACE; animal; cat; face; nature; pouting -->
+		<!-- POUTING CAT FACE; animal; cat; face; pouting -->
 		<annotation cp='[😾]' tts='وجه قطة مقطب'>تكشير; وجه قطة</annotation>
 
-		<!-- CRYING CAT FACE; animal; cat; cry; face; nature; sad; tear -->
+		<!-- CRYING CAT FACE; animal; cat; cry; face; sad; tear -->
 		<annotation cp='[😿]' tts='وجه قطة يبكي'>بكاء</annotation>
 
-		<!-- WEARY CAT FACE; animal; cat; face; nature; oh; surprised; weary -->
+		<!-- WEARY CAT FACE; animal; cat; face; oh; surprised; weary -->
 		<annotation cp='[🙀]' tts='وجه قطة قلق'>رباه; اندهاش شديد</annotation>
 
-		<!-- CAT; animal; cat; nature; pet -->
+		<!-- CAT; animal; cat; pet -->
 		<annotation cp='[🐈]' tts='قطة'>قطة; حيوان</annotation>
 
-		<!-- TIGER FACE; animal; face; nature; tiger -->
+		<!-- TIGER FACE; animal; face; tiger -->
 		<annotation cp='[🐯]' tts='وجه نمر'>نمر; حيوان</annotation>
 
-		<!-- TIGER; animal; nature; tiger -->
+		<!-- TIGER; animal; tiger -->
 		<annotation cp='[🐅]' tts='نمر'>نمر; حيوان</annotation>
 
-		<!-- LEOPARD; animal; leopard; nature -->
+		<!-- LEOPARD; animal; leopard -->
 		<annotation cp='[🐆]' tts='فهد'>فهد; حيوان</annotation>
 
-		<!-- HORSE FACE; animal; face; horse; nature -->
+		<!-- HORSE FACE; animal; face; horse -->
 		<annotation cp='[🐴]' tts='وجه حصان'>حصان; وجه; حيوان</annotation>
 
-		<!-- HORSE; animal; horse; nature; racehorse; racing -->
+		<!-- HORSE; animal; horse; racehorse; racing -->
 		<annotation cp='[🐎]' tts='حصان'>حصان; حيوان</annotation>
 
-		<!-- COW FACE; animal; cow; face; nature -->
+		<!-- COW FACE; animal; cow; face -->
 		<annotation cp='[🐮]' tts='وجه بقرة'>بقرة; وجه; حيوان</annotation>
 
-		<!-- OX; animal; bull; nature; ox; taurus; zodiac -->
+		<!-- OX; animal; bull; ox; taurus; zodiac -->
 		<annotation cp='[🐂]' tts='ثور'>ثور; حيوان</annotation>
 
-		<!-- WATER BUFFALO; animal; buffalo; nature; water -->
+		<!-- WATER BUFFALO; animal; buffalo; water -->
 		<annotation cp='[🐃]' tts='جاموس مائي'>جاموسة; حيوان</annotation>
 
-		<!-- COW; animal; cow; nature -->
+		<!-- COW; animal; cow -->
 		<annotation cp='[🐄]' tts='بقرة'>بقرة; حيوان</annotation>
 
-		<!-- PIG FACE; animal; face; nature; pig -->
+		<!-- PIG FACE; animal; face; pig -->
 		<annotation cp='[🐷]' tts='وجه خنزير'>خنزير; وجه; حيوان</annotation>
 
-		<!-- PIG; animal; nature; pig -->
+		<!-- PIG; animal; pig -->
 		<annotation cp='[🐖]' tts='خنزير'>خنزير; حيوان</annotation>
 
-		<!-- BOAR; animal; boar; nature -->
+		<!-- BOAR; animal; boar -->
 		<annotation cp='[🐗]' tts='خنزير بري'>حيوان</annotation>
 
-		<!-- PIG NOSE; animal; face; nature; nose; pig -->
+		<!-- PIG NOSE; animal; face; nose; pig -->
 		<annotation cp='[🐽]' tts='أنف خنزير'>أنف; خنزير; وجه; حيوان</annotation>
 
-		<!-- RAM; animal; aries; nature; ram; sheep; zodiac -->
+		<!-- RAM; animal; aries; ram; sheep; zodiac -->
 		<annotation cp='[🐏]' tts='حمل'>حمل; حيوان</annotation>
 
-		<!-- SHEEP; animal; nature; sheep -->
+		<!-- SHEEP; animal; sheep -->
 		<annotation cp='[🐑]' tts='نعجة'>نعجة; حيوان</annotation>
 
-		<!-- GOAT; animal; capricorn; goat; nature; zodiac -->
+		<!-- GOAT; animal; capricorn; goat; zodiac -->
 		<annotation cp='[🐐]' tts='معزة'>معزة; حيوان</annotation>
 
-		<!-- DROMEDARY CAMEL; animal; camel; dromedary; hump; nature -->
+		<!-- DROMEDARY CAMEL; animal; camel; dromedary; hump -->
 		<annotation cp='[🐪]' tts='جمل وحيد السنام'>سنام; حيوان</annotation>
 
-		<!-- BACTRIAN CAMEL; animal; bactrian; camel; hump; nature -->
+		<!-- BACTRIAN CAMEL; animal; bactrian; camel; hump -->
 		<annotation cp='[🐫]' tts='جمل ثنائي السنام'>سنام; حيوان</annotation>
 
-		<!-- ELEPHANT; animal; elephant; nature -->
+		<!-- ELEPHANT; animal; elephant -->
 		<annotation cp='[🐘]' tts='فيل'>فيل; حيوان</annotation>
 
-		<!-- MOUSE FACE; animal; face; mouse; nature -->
+		<!-- MOUSE FACE; animal; face; mouse -->
 		<annotation cp='[🐭]' tts='وجه فأر'>فأر; وجه; حيوان</annotation>
 
-		<!-- MOUSE; animal; mouse; nature -->
+		<!-- MOUSE; animal; mouse -->
 		<annotation cp='[🐁]' tts='فأر'>فأر; حيوان</annotation>
 
-		<!-- RAT; animal; nature; rat -->
+		<!-- RAT; animal; rat -->
 		<annotation cp='[🐀]' tts='فأر'>فأر; حيوان</annotation>
 
-		<!-- HAMSTER FACE; animal; face; hamster; nature; pet -->
+		<!-- HAMSTER FACE; animal; face; hamster; pet -->
 		<annotation cp='[🐹]' tts='وجه همستر'>همستر; وجه; حيوان</annotation>
 
-		<!-- RABBIT FACE; animal; bunny; face; nature; pet; rabbit -->
+		<!-- RABBIT FACE; animal; bunny; face; pet; rabbit -->
 		<annotation cp='[🐰]' tts='وجه أرنب'>أرنب; وجه; حيوان</annotation>
 
-		<!-- RABBIT; animal; bunny; nature; pet; rabbit -->
+		<!-- RABBIT; animal; bunny; pet; rabbit -->
 		<annotation cp='[🐇]' tts='أرنب'>أرنب; حيوان</annotation>
 
-		<!-- CHIPMUNK; animal; chipmunk; nature -->
-		<annotation cp='[🐿]'>MISSING</annotation>
-
-		<!-- BEAR FACE; animal; bear; face; nature -->
+		<!-- BEAR FACE; animal; bear; face -->
 		<annotation cp='[🐻]' tts='وجه دب'>دب; وجه; حيوان</annotation>
 
-		<!-- KOALA; animal; bear; koala; nature -->
+		<!-- KOALA; animal; bear; koala -->
 		<annotation cp='[🐨]' tts='دب'>دب; دب الكوال; حيوان</annotation>
 
-		<!-- PANDA FACE; animal; face; nature; panda -->
+		<!-- PANDA FACE; animal; face; panda -->
 		<annotation cp='[🐼]' tts='وجه باندا'>باندا; وجه; حيوان</annotation>
 
-		<!-- PAW PRINTS; animal; feet; nature; paw; print -->
+		<!-- PAW PRINTS; animal; feet; paw; print -->
 		<annotation cp='[🐾]' tts='حوافر'>حوافر; آثار حوافر; آثار; حيوان</annotation>
 
-		<!-- CHICKEN; animal; chicken; nature -->
+		<!-- CHICKEN; animal; chicken -->
 		<annotation cp='[🐔]' tts='فرخة'>فرخة; حيوان</annotation>
 
-		<!-- ROOSTER; animal; nature; rooster -->
+		<!-- ROOSTER; animal; rooster -->
 		<annotation cp='[🐓]' tts='ديك'>ديك; حيوان</annotation>
 
-		<!-- HATCHING CHICK; animal; baby; chick; hatching; nature -->
+		<!-- HATCHING CHICK; animal; baby; chick; hatching -->
 		<annotation cp='[🐣]' tts='كتكوت خارج البيضة'>كتكوت; فقس; حيوان</annotation>
 
-		<!-- BABY CHICK; animal; baby; chick; nature -->
+		<!-- BABY CHICK; animal; baby; chick -->
 		<annotation cp='[🐤]' tts='كتكوت'>كتكوت; حيوان</annotation>
 
-		<!-- FRONT-FACING BABY CHICK; animal; baby; chick; nature -->
+		<!-- FRONT-FACING BABY CHICK; animal; baby; chick -->
 		<annotation cp='[🐥]' tts='كتكوت'>كتكوت; حيوان</annotation>
 
-		<!-- BIRD; animal; bird; nature -->
+		<!-- BIRD; animal; bird -->
 		<annotation cp='[🐦]' tts='طائر'>طائر; حيوان</annotation>
 
-		<!-- PENGUIN; animal; nature; penguin -->
+		<!-- PENGUIN; animal; penguin -->
 		<annotation cp='[🐧]' tts='بطريق'>بطريق; حيوان</annotation>
 
-		<!-- DOVE OF PEACE; animal; bird; dove; fly; nature; peace -->
-		<annotation cp='[🕊]'>MISSING</annotation>
-
-		<!-- FROG FACE; animal; face; frog; nature -->
+		<!-- FROG FACE; animal; face; frog -->
 		<annotation cp='[🐸]' tts='وجه ضفدع'>ضفدع; وجه; حيوان</annotation>
 
-		<!-- CROCODILE; animal; crocodile; nature -->
+		<!-- CROCODILE; animal; crocodile -->
 		<annotation cp='[🐊]' tts='تمساح'>تمساح; حيوان</annotation>
 
-		<!-- SNAKE; animal; bearer; nature; ophiuchus; serpent; snake; zodiac -->
-		<annotation cp='[🐍]' tts='ثعبان'>ثعبان; حيوان</annotation>
-
-		<!-- TURTLE; animal; nature; turtle -->
+		<!-- TURTLE; animal; turtle -->
 		<annotation cp='[🐢]' tts='سلحفاة'>سلحفاة; حيوان</annotation>
 
-		<!-- DRAGON FACE; animal; dragon; face; fairy tale; nature -->
+		<!-- SNAKE; animal; bearer; ophiuchus; serpent; snake; zodiac -->
+		<annotation cp='[🐍]' tts='ثعبان'>ثعبان; حيوان</annotation>
+
+		<!-- DRAGON FACE; animal; dragon; face; fairy tale -->
 		<annotation cp='[🐲]' tts='وجه تنين'>تنين; وجه; حيوان</annotation>
 
-		<!-- DRAGON; animal; dragon; fairy tale; nature -->
+		<!-- DRAGON; animal; dragon; fairy tale -->
 		<annotation cp='[🐉]' tts='تنين'>تنين; حيوان</annotation>
 
-		<!-- SPOUTING WHALE; animal; face; nature; spouting; whale -->
+		<!-- SPOUTING WHALE; animal; face; spouting; whale -->
 		<annotation cp='[🐳]' tts='حوت بنافورة'>نافورة; حوت; حيوان</annotation>
 
-		<!-- WHALE; animal; nature; whale -->
+		<!-- WHALE; animal; whale -->
 		<annotation cp='[🐋]' tts='حوت'>حوت; حيوان</annotation>
 
-		<!-- DOLPHIN; animal; dolphin; flipper; nature -->
+		<!-- DOLPHIN; animal; dolphin; flipper -->
 		<annotation cp='[🐬]' tts='دولفين'>دولفين; حيوان</annotation>
 
-		<!-- FISH; animal; fish; nature; pisces; zodiac -->
+		<!-- FISH; animal; fish; pisces; zodiac -->
 		<annotation cp='[🐟]' tts='سمكة'>سمكة; حيوان</annotation>
 
-		<!-- TROPICAL FISH; animal; fish; nature; tropical -->
+		<!-- TROPICAL FISH; animal; fish; tropical -->
 		<annotation cp='[🐠]' tts='سمكة استوائية'>سمكة; حيوان</annotation>
 
-		<!-- BLOWFISH; animal; blowfish; fish; nature -->
+		<!-- BLOWFISH; animal; blowfish; fish -->
 		<annotation cp='[🐡]' tts='سمكة منتفخة'>سمكة; حيوان</annotation>
 
-		<!-- OCTOPUS; animal; nature; octopus -->
+		<!-- OCTOPUS; animal; octopus -->
 		<annotation cp='[🐙]' tts='أخطبوط'>أخطبوط; حيوان</annotation>
 
-		<!-- SPIRAL SHELL; animal; nature; shell; spiral -->
+		<!-- SPIRAL SHELL; animal; shell; spiral -->
 		<annotation cp='[🐚]' tts='صدفة'>صدفة; صدفة حلزونية; حيوان</annotation>
 
-		<!-- SNAIL; animal; nature; snail -->
+		<!-- SNAIL; animal; snail -->
 		<annotation cp='[🐌]' tts='قوقع'>قوقع; حيوان</annotation>
 
-		<!-- BUG; animal; bug; insect; nature -->
+		<!-- BUG; animal; bug; insect -->
 		<annotation cp='[🐛]' tts='بق'>بق; أم أربعة وأربعين; يرقانة حيوان</annotation>
 
-		<!-- ANT; animal; ant; insect; nature -->
+		<!-- ANT; animal; ant; insect -->
 		<annotation cp='[🐜]' tts='نملة'>نملة; حيوان</annotation>
 
-		<!-- HONEYBEE; animal; bee; honeybee; insect; nature -->
+		<!-- HONEYBEE; animal; bee; honeybee; insect -->
 		<annotation cp='[🐝]' tts='عسل نحل'>نحل; حيوان</annotation>
 
-		<!-- LADY BEETLE; animal; beetle; insect; lady beetle; ladybird; ladybug; nature -->
+		<!-- LADY BEETLE; animal; beetle; insect; lady beetle; ladybird; ladybug -->
 		<annotation cp='[🐞]' tts='خنفساء'>خنفساء; حيوان</annotation>
 
-		<!-- SPIDER; animal; insect; object; spider -->
-		<annotation cp='[🕷]'>MISSING</annotation>
-
-		<!-- SPIDER WEB; animal; object; spider; web -->
-		<annotation cp='[🕸]'>MISSING</annotation>
-
-		<!-- PILE OF POO; comic; dung; nature; object; poo; poop -->
-		<annotation cp='[💩]' tts='فضلات'>فضلات; روث; كومة فضلات</annotation>
-
-		<!-- JAPANESE OGRE; creature; face; fairy tale; fantasy; japanese; ogre -->
-		<annotation cp='[👹]' tts='غول'>غول; وحش; جني; حدوتة; غول ياباني; وجه</annotation>
-
-		<!-- JAPANESE GOBLIN; creature; face; fairy tale; fantasy; goblin; japanese -->
-		<annotation cp='[👺]' tts='عفريت'>عفريت; وحش; حدوتة; عفريت ياباني; وجه</annotation>
-
-		<!-- GHOST; creature; face; fairy tale; fantasy; ghost -->
-		<annotation cp='[👻]' tts='شبح'>شبح; حدوتة; وجه</annotation>
-
-		<!-- EXTRATERRESTRIAL ALIEN; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; nature; space; ufo -->
-		<annotation cp='[👽]' tts='كائن غريب'>كائن فضائي; حدوتة; وجه</annotation>
-
-		<!-- ALIEN MONSTER; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; monster; nature; space; ufo -->
-		<annotation cp='[👾]' tts='وحش غريب'>وحش; كائن فضائي; حدوتة; وجه</annotation>
-
-		<!-- BOUQUET; bouquet; flower; nature; object; romance -->
+		<!-- BOUQUET; bouquet; flower; romance -->
 		<annotation cp='[💐]' tts='باقة زهور'>ورد; رومانسية</annotation>
 
-		<!-- CHERRY BLOSSOM; blossom; cherry; flower; nature; plant -->
+		<!-- CHERRY BLOSSOM; blossom; cherry; flower; plant -->
 		<annotation cp='[🌸]' tts='وردة كرز'>زهرة</annotation>
 
-		<!-- WHITE FLOWER; flower; object -->
+		<!-- WHITE FLOWER; flower -->
 		<annotation cp='[💮]' tts='طابع زهور'>زهور; طابع</annotation>
 
-		<!-- ROSETTE; nature; rosette -->
-		<annotation cp='[🏵]'>MISSING</annotation>
-
-		<!-- ROSE; flower; nature; plant; rose -->
+		<!-- ROSE; flower; plant; rose -->
 		<annotation cp='[🌹]' tts='وردة'>وردة; زهرة</annotation>
 
-		<!-- HIBISCUS; flower; hibiscus; nature; plant -->
+		<!-- HIBISCUS; flower; hibiscus; plant -->
 		<annotation cp='[🌺]' tts='كركديه'>كركديه; زهرة</annotation>
 
-		<!-- SUNFLOWER; flower; nature; plant; sun; sunflower -->
+		<!-- SUNFLOWER; flower; plant; sun; sunflower -->
 		<annotation cp='[🌻]' tts='عباد الشمس'>دوار الشمس</annotation>
 
-		<!-- BLOSSOM; blossom; flower; nature; plant -->
+		<!-- BLOSSOM; blossom; flower; plant -->
 		<annotation cp='[🌼]' tts='نوارة'>نوارة; زهرة</annotation>
 
-		<!-- TULIP; flower; nature; plant; tulip -->
+		<!-- TULIP; flower; plant; tulip -->
 		<annotation cp='[🌷]' tts='خزامي'>خزامي; زهرة</annotation>
 
-		<!-- PALM BRANCH; branch; nature; palm; plant -->
-		<annotation cp='[⸙]'>MISSING</annotation>
-
-		<!-- SHAMROCK; nature; plant; shamrock -->
-		<annotation cp='[☘]'>MISSING</annotation>
-
-		<!-- SEEDLING; nature; plant; seedling; young -->
+		<!-- SEEDLING; plant; seedling; young -->
 		<annotation cp='[🌱]' tts='شتلة'>شتلة; نبتة</annotation>
 
-		<!-- EVERGREEN TREE; evergreen; nature; plant; tree -->
+		<!-- EVERGREEN TREE; evergreen; plant; tree -->
 		<annotation cp='[🌲]' tts='شجرة دائمة الخضرة'>شجرة دائمة الخضرة</annotation>
 
-		<!-- DECIDUOUS TREE; deciduous; nature; plant; shedding; tree -->
+		<!-- DECIDUOUS TREE; deciduous; plant; shedding; tree -->
 		<annotation cp='[🌳]' tts='شجرة زائلة الخضرة'>شجرة زائلة الخضرة</annotation>
 
-		<!-- PALM TREE; nature; palm; plant; tree -->
+		<!-- PALM TREE; palm; plant; tree -->
 		<annotation cp='[🌴]' tts='نخلة'>نخلة</annotation>
 
-		<!-- CACTUS; cactus; nature; plant -->
+		<!-- CACTUS; cactus; plant -->
 		<annotation cp='[🌵]' tts='صبار'>صبار</annotation>
 
-		<!-- EAR OF RICE; ear; nature; plant; rice -->
+		<!-- EAR OF RICE; ear; plant; rice -->
 		<annotation cp='[🌾]' tts='أرز'>أرز; سنبلة أرز</annotation>
 
-		<!-- HERB; herb; leaf; nature; plant -->
+		<!-- HERB; herb; leaf; plant -->
 		<annotation cp='[🌿]' tts='عشب'>عشب; ورق</annotation>
 
-		<!-- FOUR LEAF CLOVER; 4; clover; four; leaf; nature; plant -->
+		<!-- FOUR LEAF CLOVER; 4; clover; four; leaf; plant -->
 		<annotation cp='[🍀]' tts='ورقة برسيم رباعية'>ورقة برسيم رباعية</annotation>
 
-		<!-- MAPLE LEAF; falling; leaf; maple; nature; plant -->
+		<!-- MAPLE LEAF; falling; leaf; maple; plant -->
 		<annotation cp='[🍁]' tts='ورقة قبقب'>ورقة قبقب</annotation>
 
-		<!-- FALLEN LEAF; falling; leaf; nature; plant -->
+		<!-- FALLEN LEAF; falling; leaf; plant -->
 		<annotation cp='[🍂]' tts='أوراق متساقطة'>أوراق متساقطة</annotation>
 
-		<!-- LEAF FLUTTERING IN WIND; blow; flutter; leaf; nature; plant; wind -->
+		<!-- LEAF FLUTTERING IN WIND; blow; flutter; leaf; plant; wind -->
 		<annotation cp='[🍃]' tts='ورقة متطايرة'>ورقة متطايرة</annotation>
 
-		<!-- GRAPES; food; fruit; grape; nature; plant -->
+		<!-- GRAPES; food; fruit; grape; plant -->
 		<annotation cp='[🍇]' tts='عنب'>عنب; فاكهة</annotation>
 
-		<!-- MELON; food; fruit; melon; nature; plant -->
+		<!-- MELON; food; fruit; melon; plant -->
 		<annotation cp='[🍈]' tts='شمام'>شمام; فاكهة</annotation>
 
-		<!-- WATERMELON; food; fruit; nature; plant; watermelon -->
+		<!-- WATERMELON; food; fruit; plant; watermelon -->
 		<annotation cp='[🍉]' tts='بطيخ'>بطيخ; فاكهة</annotation>
 
-		<!-- TANGERINE; food; fruit; nature; orange; plant; tangerine -->
+		<!-- TANGERINE; food; fruit; orange; plant; tangerine -->
 		<annotation cp='[🍊]' tts='يوسفي'>يوسفي; برتقال; فاكهة</annotation>
 
-		<!-- LEMON; citrus; food; fruit; lemon; nature; plant -->
+		<!-- LEMON; citrus; food; fruit; lemon; plant -->
 		<annotation cp='[🍋]' tts='ليمون'>ليمون; موالح; فاكهة</annotation>
 
-		<!-- BANANA; banana; food; fruit; nature; plant -->
+		<!-- BANANA; banana; food; fruit; plant -->
 		<annotation cp='[🍌]' tts='موز'>موز; فاكهة</annotation>
 
-		<!-- PINEAPPLE; food; fruit; nature; pineapple; plant -->
+		<!-- PINEAPPLE; food; fruit; pineapple; plant -->
 		<annotation cp='[🍍]' tts='أناناس'>أناناس; فاكهة</annotation>
 
-		<!-- RED APPLE; apple; food; fruit; nature; plant; red -->
+		<!-- RED APPLE; apple; food; fruit; plant; red -->
 		<annotation cp='[🍎]' tts='تفاح أحمر'>فاكهة</annotation>
 
-		<!-- GREEN APPLE; apple; food; fruit; green; nature; plant -->
+		<!-- GREEN APPLE; apple; food; fruit; green; plant -->
 		<annotation cp='[🍏]' tts='تفاح أخضر'>فاكهة</annotation>
 
-		<!-- PEAR; food; fruit; nature; pear; plant -->
+		<!-- PEAR; food; fruit; pear; plant -->
 		<annotation cp='[🍐]' tts='كمثرى'>كمثرى; فاكهة</annotation>
 
-		<!-- PEACH; food; fruit; nature; peach; plant -->
+		<!-- PEACH; food; fruit; peach; plant -->
 		<annotation cp='[🍑]' tts='خوخ'>خوخ; فاكهة</annotation>
 
-		<!-- CHERRIES; cherry; food; fruit; nature; plant -->
+		<!-- CHERRIES; cherry; food; fruit; plant -->
 		<annotation cp='[🍒]' tts='كرز'>كرز; فاكهة</annotation>
 
-		<!-- STRAWBERRY; berry; food; fruit; nature; plant; strawberry -->
+		<!-- STRAWBERRY; berry; food; fruit; plant; strawberry -->
 		<annotation cp='[🍓]' tts='فراولة'>فراولة; فاكهة</annotation>
 
-		<!-- TOMATO; food; nature; plant; tomato; vegetable -->
+		<!-- TOMATO; food; plant; tomato; vegetable -->
 		<annotation cp='[🍅]' tts='طماطم'>طماطم; خضار</annotation>
 
-		<!-- AUBERGINE; aubergine; eggplant; food; nature; plant; vegetable -->
+		<!-- AUBERGINE; aubergine; eggplant; food; plant; vegetable -->
 		<annotation cp='[🍆]' tts='باذنجان'>باذنجان; خضار</annotation>
 
-		<!-- EAR OF MAIZE; corn; ear; maize; maze; nature; plant -->
+		<!-- EAR OF MAIZE; corn; ear; maize; maze; plant -->
 		<annotation cp='[🌽]' tts='ذرة'>ذرة; كوز</annotation>
 
-		<!-- HOT PEPPER; food; hot; nature; pepper; plant -->
-		<annotation cp='[🌶]'>MISSING</annotation>
-
-		<!-- MUSHROOM; mushroom; nature; plant -->
+		<!-- MUSHROOM; mushroom; plant -->
 		<annotation cp='[🍄]' tts='مشروم'>مشروم; عيش غراب; فطر</annotation>
 
-		<!-- CHESTNUT; chestnut; nature; plant -->
+		<!-- CHESTNUT; chestnut; plant -->
 		<annotation cp='[🌰]' tts='أبو فروة'>أبو فروة</annotation>
 
 		<!-- BREAD; bread; food; loaf; restaurant -->
@@ -1042,223 +973,172 @@
 		<!-- HONEY POT; food; honey; honeypot; pot; restaurant; sweet -->
 		<annotation cp='[🍯]' tts='جرة عسل'>عسل; جرة; مطعم</annotation>
 
-		<!-- HOT BEVERAGE; beverage; coffee; drink; food; hot; steaming; tea -->
-		<annotation cp='[☕]'>MISSING</annotation>
-
-		<!-- TEACUP WITHOUT HANDLE; beverage; cup; drink; food; tea; teacup -->
-		<annotation cp='[🍵]' tts='فنجان شاي'>شاي; شراب</annotation>
-
-		<!-- SAKE BOTTLE AND CUP; bar; beverage; bottle; cup; drink; food; restaurant; sake -->
-		<annotation cp='[🍶]' tts='زجاجة وفنجان'>زجاجة; شراب; مطعم</annotation>
-
-		<!-- WINE GLASS; bar; beverage; drink; food; glass; restaurant; wine -->
-		<annotation cp='[🍷]' tts='خمرة'>خمرة; كأس خمرة; كأس; شراب; مطعم; بار</annotation>
-
-		<!-- COCKTAIL GLASS; bar; cocktail; drink; food; glass; restaurant -->
-		<annotation cp='[🍸]' tts='كوكتيل'>كوكتيل; كأس كوكتيل; مطعم</annotation>
-
-		<!-- TROPICAL DRINK; bar; drink; food; restaurant; tropical -->
-		<annotation cp='[🍹]' tts='مشروب استوائي'>مشروب; مطعم</annotation>
-
-		<!-- BEER MUG; bar; beer; drink; food; mug; restaurant -->
-		<annotation cp='[🍺]' tts='بيرة'>بيرة; ماغ بيرة; مطعم; بار</annotation>
-
-		<!-- CLINKING BEER MUGS; bar; beer; clink; drink; food; mug; restaurant -->
-		<annotation cp='[🍻]' tts='اثنان ماغ بيرة'>بيرة; مطعم; بار</annotation>
-
-		<!-- BABY BOTTLE; baby; bottle; drink; food; milk -->
+		<!-- BABY BOTTLE; baby; bottle; drink; milk -->
 		<annotation cp='[🍼]' tts='بزازة'>بزازة; لبن</annotation>
 
-		<!-- FORK AND KNIFE WITH PLATE; food; fork; knife; plate; restaurant -->
-		<annotation cp='[🍽]'>MISSING</annotation>
+		<!-- TEACUP WITHOUT HANDLE; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' tts='فنجان شاي'>شاي; شراب</annotation>
 
-		<!-- FORK AND KNIFE; food; fork; knife; restaurant -->
+		<!-- SAKE BOTTLE AND CUP; bar; beverage; bottle; cup; drink; restaurant; sake -->
+		<annotation cp='[🍶]' tts='زجاجة وفنجان'>زجاجة; شراب; مطعم</annotation>
+
+		<!-- WINE GLASS; bar; beverage; drink; glass; restaurant; wine -->
+		<annotation cp='[🍷]' tts='خمرة'>خمرة; كأس خمرة; كأس; شراب; مطعم; بار</annotation>
+
+		<!-- COCKTAIL GLASS; bar; cocktail; drink; glass; restaurant -->
+		<annotation cp='[🍸]' tts='كوكتيل'>كوكتيل; كأس كوكتيل; مطعم</annotation>
+
+		<!-- TROPICAL DRINK; bar; drink; restaurant; tropical -->
+		<annotation cp='[🍹]' tts='مشروب استوائي'>مشروب; مطعم</annotation>
+
+		<!-- BEER MUG; bar; beer; drink; mug; restaurant -->
+		<annotation cp='[🍺]' tts='بيرة'>بيرة; ماغ بيرة; مطعم; بار</annotation>
+
+		<!-- CLINKING BEER MUGS; bar; beer; clink; drink; mug; restaurant -->
+		<annotation cp='[🍻]' tts='اثنان ماغ بيرة'>بيرة; مطعم; بار</annotation>
+
+		<!-- FORK AND KNIFE; cooking; fork; knife; restaurant -->
 		<annotation cp='[🍴]' tts='شوكة وسكينة'>شوكة; سكينة; مطعم</annotation>
 
-		<!-- COOKING; cooking; egg; food; frying; pan; restaurant -->
+		<!-- COOKING; cooking; egg; frying; pan; restaurant -->
 		<annotation cp='[🍳]' tts='قلاية'>قلاية; طهي; مطعم</annotation>
 
-		<!-- EARTH GLOBE EUROPE-AFRICA; africa; earth; europe; globe; nature; place; world -->
+		<!-- EARTH GLOBE EUROPE-AFRICA; africa; earth; europe; globe; world -->
 		<annotation cp='[🌍]' tts='كرة أرضية'>أوروبا; إفريقيا</annotation>
 
-		<!-- EARTH GLOBE AMERICAS; americas; earth; globe; nature; place; world -->
+		<!-- EARTH GLOBE AMERICAS; americas; earth; globe; world -->
 		<annotation cp='[🌎]' tts='كرة أرضية'>أمريكا</annotation>
 
-		<!-- EARTH GLOBE ASIA-AUSTRALIA; asia; australia; earth; globe; nature; place; world -->
+		<!-- EARTH GLOBE ASIA-AUSTRALIA; asia; australia; earth; globe; world -->
 		<annotation cp='[🌏]' tts='كرة أرضية'>آسيا; أستراليا</annotation>
 
-		<!-- GLOBE WITH MERIDIANS; earth; globe; meridians; nature; place; world -->
+		<!-- GLOBE WITH MERIDIANS; earth; globe; meridians; world -->
 		<annotation cp='[🌐]' tts='كرة أرضية'>خطوط طول</annotation>
 
-		<!-- WORLD MAP; map; place; world -->
-		<annotation cp='[🗺]'>MISSING</annotation>
-
-		<!-- SNOW CAPPED MOUNTAIN; cold; mountain; nature; place; snow -->
-		<annotation cp='[🏔]'>MISSING</annotation>
-
-		<!-- MOUNTAIN; mountain; place -->
-		<annotation cp='[⛰]'>MISSING</annotation>
-
-		<!-- VOLCANO; eruption; mountain; nature; place; volcano; weather -->
+		<!-- VOLCANO; eruption; mountain; volcano; weather -->
 		<annotation cp='[🌋]' tts='بركان'>بركان</annotation>
 
-		<!-- MOUNT FUJI; fuji; mountain; nature; place -->
+		<!-- MOUNT FUJI; fuji; mountain -->
 		<annotation cp='[🗻]' tts='جبل فوجي'>جبل</annotation>
 
-		<!-- CAMPING; camping; nature; place -->
-		<annotation cp='[🏕]'>MISSING</annotation>
-
-		<!-- BEACH WITH UMBRELLA; beach; nature; place; umbrella -->
-		<annotation cp='[🏖]'>MISSING</annotation>
-
-		<!-- DESERT; desert; nature; place -->
-		<annotation cp='[🏜]'>MISSING</annotation>
-
-		<!-- DESERT ISLAND; desert; island; nature; place -->
-		<annotation cp='[🏝]'>MISSING</annotation>
-
-		<!-- NATIONAL PARK; national park; nature; park; place -->
-		<annotation cp='[🏞]'>MISSING</annotation>
-
-		<!-- STADIUM; place; stadium -->
-		<annotation cp='[🏟]'>MISSING</annotation>
-
-		<!-- CLASSICAL BUILDING; building; classical; place -->
-		<annotation cp='[🏛]'>MISSING</annotation>
-
-		<!-- BUILDING CONSTRUCTION; building; construction; place -->
-		<annotation cp='[🏗]'>MISSING</annotation>
-
-		<!-- HOUSE BUILDINGS; building; house; place -->
-		<annotation cp='[🏘]'>MISSING</annotation>
-
-		<!-- CITYSCAPE; building; city; place -->
-		<annotation cp='[🏙]'>MISSING</annotation>
-
-		<!-- DERELICT HOUSE BUILDING; building; derelict; house; place -->
-		<annotation cp='[🏚]'>MISSING</annotation>
-
-		<!-- HOUSE BUILDING; building; home; house; place -->
+		<!-- HOUSE BUILDING; building; home; house -->
 		<annotation cp='[🏠]' tts='منزل'>منزل; مبنى</annotation>
 
-		<!-- HOUSE WITH GARDEN; building; garden; home; house; place -->
+		<!-- HOUSE WITH GARDEN; building; garden; home; house -->
 		<annotation cp='[🏡]' tts='منزل'>منزل; منزل بحديقة; حديقة; مبنى</annotation>
 
-		<!-- CHURCH; building; christian; church; cross; place; religion -->
+		<!-- CHURCH; building; christian; church; cross; religion -->
 		<annotation cp='[⛪]' tts='كنيسة'>كنيسة; مبنى</annotation>
 
-		<!-- OFFICE BUILDING; building; office; place -->
+		<!-- OFFICE BUILDING; building; office -->
 		<annotation cp='[🏢]' tts='مبنى إداري'>مكتب; مبنى</annotation>
 
-		<!-- JAPANESE POST OFFICE; building; japanese; office; place; post -->
+		<!-- JAPANESE POST OFFICE; building; japanese; office; post -->
 		<annotation cp='[🏣]' tts='مبنى'>مبنى; مكتب بريد; مكتب بريد ياباني; بريد</annotation>
 
-		<!-- EUROPEAN POST OFFICE; building; european; office; place; post -->
+		<!-- EUROPEAN POST OFFICE; building; european; office; post -->
 		<annotation cp='[🏤]' tts='مبنى'>مبنى; مكتب بريد; مكتب بريد أوروبي; بريد</annotation>
 
-		<!-- HOSPITAL; building; doctor; hospital; medicine; place -->
+		<!-- HOSPITAL; building; doctor; hospital; medicine -->
 		<annotation cp='[🏥]' tts='مستشفى'>مستشفى; مبنى</annotation>
 
-		<!-- BANK; bank; building; place -->
+		<!-- BANK; bank; building -->
 		<annotation cp='[🏦]' tts='بنك'>بنك; مبنى</annotation>
 
-		<!-- HOTEL; building; hotel; place -->
+		<!-- HOTEL; building; hotel -->
 		<annotation cp='[🏨]' tts='فندق'>فندق; مبنى</annotation>
 
-		<!-- LOVE HOTEL; building; hotel; love; place -->
+		<!-- LOVE HOTEL; building; hotel; love -->
 		<annotation cp='[🏩]' tts='فندق حب'>حب; فندق; مبنى</annotation>
 
-		<!-- CONVENIENCE STORE; building; convenience; place; store -->
+		<!-- CONVENIENCE STORE; building; convenience; store -->
 		<annotation cp='[🏪]' tts='سوق 24 ساعة'>متجر; مبنى</annotation>
 
-		<!-- SCHOOL; building; education; place; school -->
+		<!-- SCHOOL; building; education; school -->
 		<annotation cp='[🏫]' tts='مدرسة'>مدرسة; مبنى</annotation>
 
-		<!-- DEPARTMENT STORE; building; department; place; store -->
+		<!-- DEPARTMENT STORE; building; department; store -->
 		<annotation cp='[🏬]' tts='سوق شامل'>سوق</annotation>
 
-		<!-- FACTORY; building; factory; place -->
+		<!-- FACTORY; building; factory -->
 		<annotation cp='[🏭]' tts='مصنع'>مصنع; مبنى</annotation>
 
-		<!-- JAPANESE CASTLE; building; castle; japanese; place -->
+		<!-- JAPANESE CASTLE; building; castle; japanese -->
 		<annotation cp='[🏯]' tts='قلعة يابانية'>قلعة; مبنى</annotation>
 
-		<!-- EUROPEAN CASTLE; building; castle; european; place -->
+		<!-- EUROPEAN CASTLE; building; castle; european -->
 		<annotation cp='[🏰]' tts='قلعة أوروبية'>قلعة; مبنى</annotation>
 
-		<!-- WEDDING; activity; chapel; place; romance; wedding -->
+		<!-- WEDDING; activity; chapel; romance; wedding -->
 		<annotation cp='[💒]' tts='كنيسة زفاف'>زفاف; رومانسية</annotation>
 
-		<!-- TOKYO TOWER; place; tokyo; tower -->
+		<!-- TOKYO TOWER; tokyo; tower -->
 		<annotation cp='[🗼]' tts='برج طوكيو'>طوكيو; برج</annotation>
 
-		<!-- STATUE OF LIBERTY; liberty; place; statue -->
+		<!-- STATUE OF LIBERTY; liberty; statue -->
 		<annotation cp='[🗽]' tts='تمثال الحرية'>تمثال; الحرية</annotation>
 
-		<!-- SILHOUETTE OF JAPAN; japan; map; place -->
+		<!-- SILHOUETTE OF JAPAN; japan; map -->
 		<annotation cp='[🗾]' tts='خريطة اليابان'>خريطة; اليابان</annotation>
 
-		<!-- FOUNTAIN; fountain; object; place -->
+		<!-- FOUNTAIN; fountain -->
 		<annotation cp='[⛲]' tts='نافورة'>نافورة</annotation>
 
-		<!-- TENT; camping; place; tent -->
+		<!-- TENT; camping; tent -->
 		<annotation cp='[⛺]' tts='خيمة'>خيمة; مخيم</annotation>
 
-		<!-- FOGGY; fog; nature; place; weather -->
+		<!-- FOGGY; fog; weather -->
 		<annotation cp='[🌁]' tts='ضباب'>ضباب</annotation>
 
-		<!-- NIGHT WITH STARS; night; place; star; weather -->
+		<!-- NIGHT WITH STARS; night; star; weather -->
 		<annotation cp='[🌃]' tts='نجوم'>نجوم</annotation>
 
-		<!-- SUNRISE OVER MOUNTAINS; morning; mountain; place; sun; sunrise; time; weather -->
+		<!-- SUNRISE OVER MOUNTAINS; morning; mountain; sun; sunrise; time; weather -->
 		<annotation cp='[🌄]' tts='شروق'>شروق; شمس الصباح</annotation>
 
-		<!-- SUNRISE; morning; place; sun; sunrise; time; weather -->
+		<!-- SUNRISE; morning; sun; sunrise; time; weather -->
 		<annotation cp='[🌅]' tts='شروق'>شروق</annotation>
 
-		<!-- CITYSCAPE AT DUSK; building; city; dusk; evening; landscape; place; sun; sunset; time; weather -->
+		<!-- CITYSCAPE AT DUSK; building; city; dusk; evening; landscape; sun; sunset; time; weather -->
 		<annotation cp='[🌆]' tts='غروب مدينة'>غسق</annotation>
 
-		<!-- SUNSET OVER BUILDINGS; building; dusk; place; sun; sunset; time; weather -->
+		<!-- SUNSET OVER BUILDINGS; building; dusk; sun; sunset; time; weather -->
 		<annotation cp='[🌇]' tts='غسق'>غسق; شمس تغرب</annotation>
 
-		<!-- BRIDGE AT NIGHT; bridge; night; place; weather -->
+		<!-- BRIDGE AT NIGHT; bridge; night; weather -->
 		<annotation cp='[🌉]' tts='جسر في الليل'>جسر في الليل</annotation>
 
-		<!-- WATER WAVE; ocean; place; water; wave; weather -->
+		<!-- WATER WAVE; ocean; water; wave; weather -->
 		<annotation cp='[🌊]' tts='موجة'>موجة</annotation>
-
-		<!-- HOT SPRINGS; hot; hotsprings; springs; steaming; travel -->
-		<annotation cp='[♨]'>MISSING</annotation>
 
 		<!-- MOYAI; face; moyai; statue; travel -->
 		<annotation cp='[🗿]' tts='تمثال'>تمثال; موياي; تمثال موياي</annotation>
 
-		<!-- MILKY WAY; milky way; place; space; weather -->
+		<!-- MILKY WAY; milky way; space; weather -->
 		<annotation cp='[🌌]' tts='درب التبانة'>مجرة</annotation>
 
-		<!-- CAROUSEL HORSE; activity; carousel; entertainment; horse; place -->
+		<!-- CAROUSEL HORSE; activity; carousel; entertainment; horse -->
 		<annotation cp='[🎠]' tts='حصان الدوامة'>حصان; ترفيه</annotation>
 
-		<!-- FERRIS WHEEL; activity; amusement park; entertainment; ferris; place; wheel -->
+		<!-- FERRIS WHEEL; activity; amusement park; entertainment; ferris; wheel -->
 		<annotation cp='[🎡]' tts='مرجيحة'>مرجيحة; دولاب ملاهي; عجلة فيريس; دولاب هواء; حديقة; ترفيه</annotation>
 
-		<!-- ROLLER COASTER; activity; amusement park; coaster; entertainment; place; roller -->
+		<!-- ROLLER COASTER; activity; amusement park; coaster; entertainment; roller -->
 		<annotation cp='[🎢]' tts='قطار ملاهي'>قطار; حديقة; ترفيه</annotation>
 
-		<!-- BARBER POLE; barber; haircut; place; pole -->
+		<!-- BARBER POLE; barber; haircut; pole -->
 		<annotation cp='[💈]' tts='محل حلاقة'>شارة حلاق; حلاق; شارة</annotation>
 
-		<!-- CIRCUS TENT; activity; circus; entertainment; place; tent -->
+		<!-- CIRCUS TENT; activity; circus; entertainment; tent -->
 		<annotation cp='[🎪]' tts='سرك'>سرك; خيمة سرك; خيمة; ترفيه</annotation>
 
-		<!-- TICKET; activity; admission; entertainment; object; place; ticket -->
-		<annotation cp='[🎫]' tts='تذكرة'>تذكرة; ترفيه</annotation>
-
-		<!-- PERFORMING ARTS; activity; art; entertainment; face; mask; object; performing; place; theater; theatre -->
+		<!-- PERFORMING ARTS; activity; art; entertainment; face; mask; performing; theater; theatre -->
 		<annotation cp='[🎭]' tts='قناع وجه'>فن استعراضي; فن; ترفيه</annotation>
 
-		<!-- SLOT MACHINE; activity; game; object; place; slot -->
+		<!-- ARTIST PALETTE; activity; art; entertainment; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='لوحة ألوان'>لوحة رسم; لوحة; رسم</annotation>
+
+		<!-- SLOT MACHINE; activity; game; slot -->
 		<annotation cp='[🎰]' tts='جهاز قمار'>قمار; لعبة</annotation>
 
 		<!-- STEAM LOCOMOTIVE; engine; locomotive; railway; steam; train; travel; vehicle -->
@@ -1354,35 +1234,17 @@
 		<!-- NO BICYCLES; bicycle; bike; forbidden; no; not; prohibited; sign; sport; travel; vehicle -->
 		<annotation cp='[🚳]' tts='ممنوع ركوب الدراجات'>ممنوع البسكلتة; دراجة; مركبة</annotation>
 
-		<!-- BICYCLIST; bicycle; bicyclist; bike; cyclist; human; person; sport; travel -->
-		<annotation cp='[🚴]' tts='راكب دراجة'>دراجة</annotation>
-
-		<!-- MOUNTAIN BICYCLIST; bicycle; bicyclist; bike; cyclist; human; mountain; person; sport; travel -->
-		<annotation cp='[🚵]' tts='راكب دراجة في الجبال'>دراجة; جبال</annotation>
-
-		<!-- RACING CAR; car; racing; sport; travel -->
-		<annotation cp='[🏎]'>MISSING</annotation>
-
-		<!-- RACING MOTORCYCLE; human; motorcycle; person; racing; sport; travel -->
-		<annotation cp='[🏍]'>MISSING</annotation>
-
 		<!-- FUEL PUMP; fuel; fuelpump; gas; pump; station; travel -->
 		<annotation cp='[⛽]' tts='محطة بنزين'>بنزينة; وقود; بنزين; محطة</annotation>
-
-		<!-- MOTORWAY; highway; motorway; road; travel -->
-		<annotation cp='[🛣]'>MISSING</annotation>
-
-		<!-- RAILWAY TRACK; railway; train; travel -->
-		<annotation cp='[🛤]'>MISSING</annotation>
 
 		<!-- POLICE CARS REVOLVING LIGHT; beacon; car; light; police; revolving; travel -->
 		<annotation cp='[🚨]' tts='إضاءة دوارة'>إضاءة سيارة شرطة; سيارة شرطة</annotation>
 
-		<!-- HELM SYMBOL; helm; travel -->
-		<annotation cp='[⎈]'>MISSING</annotation>
-
 		<!-- ANCHOR; anchor; ship; tool; travel -->
 		<annotation cp='[⚓]' tts='مرساة'>مرساة; إشارة</annotation>
+
+		<!-- TRIDENT EMBLEM; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='رمز ثلاثي الشعب'>مرساة; شعار</annotation>
 
 		<!-- SAILBOAT; boat; resort; sailboat; sea; travel; yacht -->
 		<annotation cp='[⛵]' tts='مركب شراعي'>قارب; يخت; منتجع بحري; منتجع</annotation>
@@ -1393,29 +1255,8 @@
 		<!-- SPEEDBOAT; boat; speedboat; travel; vehicle -->
 		<annotation cp='[🚤]' tts='قارب سريع'>قارب; مركبة</annotation>
 
-		<!-- PASSENGER SHIP; passenger; ship; travel; vehicle -->
-		<annotation cp='[🛳]'>MISSING</annotation>
-
-		<!-- FERRY; boat; ferry; travel -->
-		<annotation cp='[⛴]'>MISSING</annotation>
-
-		<!-- MOTOR BOAT; boat; motorboat; travel; vehicle -->
-		<annotation cp='[🛥]'>MISSING</annotation>
-
 		<!-- SHIP; ship; travel; vehicle -->
 		<annotation cp='[🚢]' tts='سفينة'>سفينة; مركبة</annotation>
-
-		<!-- AIRPLANE; airplane; travel -->
-		<annotation cp='[✈]'>MISSING</annotation>
-
-		<!-- SMALL AIRPLANE; airplane; travel; vehicle -->
-		<annotation cp='[🛩]'>MISSING</annotation>
-
-		<!-- AIRPLANE DEPARTURE; airplane; departure; departures; travel; vehicle -->
-		<annotation cp='[🛫]'>MISSING</annotation>
-
-		<!-- AIRPLANE ARRIVING; airplane; arrivals; arriving; landing; travel; vehicle -->
-		<annotation cp='[🛬]'>MISSING</annotation>
 
 		<!-- SEAT; chair; office; seat; travel -->
 		<annotation cp='[💺]' tts='كرسي'>كرسي; مقعد</annotation>
@@ -1432,16 +1273,13 @@
 		<!-- AERIAL TRAMWAY; aerial; cable; car; gondola; ropeway; tramway; travel; vehicle -->
 		<annotation cp='[🚡]' tts='عربة قطار هوائي'>خط ترام هوائي; هوائي; خط ترام; غوندولا; مركبة</annotation>
 
-		<!-- ROCKET; fantasy; rocket; space; travel; vehicle -->
+		<!-- ROCKET; rocket; space; travel; vehicle -->
 		<annotation cp='[🚀]' tts='صاروخ'>صاروخ; مركبة</annotation>
 
-		<!-- SATELLITE; place; satellite; space; vehicle -->
-		<annotation cp='[🛰]'>MISSING</annotation>
-
-		<!-- AUTOMATED TELLER MACHINE; atm; automated; bank; place; sign; teller -->
+		<!-- AUTOMATED TELLER MACHINE; atm; automated; bank; sign; teller -->
 		<annotation cp='[🏧]' tts='ماكينة صرف آلي'>ATM</annotation>
 
-		<!-- PUT LITTER IN ITS PLACE SYMBOL; human; litter; litterbox; place; travel -->
+		<!-- PUT LITTER IN ITS PLACE SYMBOL; litter; litterbox; travel -->
 		<annotation cp='[🚮]' tts='إشارة صندوق النفايات'>ضع النفايات في مكانها; صندوق نفايات; إشارة</annotation>
 
 		<!-- HORIZONTAL TRAFFIC LIGHT; light; signal; traffic; travel -->
@@ -1468,25 +1306,25 @@
 		<!-- NON-POTABLE WATER SYMBOL; drink; forbidden; no; not; potable; prohibited; sign; travel; water -->
 		<annotation cp='[🚱]' tts='مياه غير صالحة للشرب'>مياه; غير صالحة للشرب</annotation>
 
-		<!-- NO PEDESTRIANS; forbidden; human; no; not; pedestrian; prohibited; sign; travel -->
+		<!-- NO PEDESTRIANS; forbidden; no; not; pedestrian; prohibited; sign; travel -->
 		<annotation cp='[🚷]' tts='ممنوع سير المشاة'>مشاة; إشارة</annotation>
 
-		<!-- CHILDREN CROSSING; child; crossing; human; pedestrian; sign; traffic; travel -->
+		<!-- CHILDREN CROSSING; child; crossing; pedestrian; sign; traffic; travel -->
 		<annotation cp='[🚸]' tts='عبور أطفال'>أطفال; عبور; إشارة</annotation>
 
-		<!-- WHEELCHAIR SYMBOL; access; human; sign; travel; wheelchair -->
+		<!-- WHEELCHAIR SYMBOL; access; sign; travel; wheelchair -->
 		<annotation cp='[♿]' tts='دخول الكرسي المتحرك'>كرسي متحرك; دخول; رمز كرسي متحرك; إشارة</annotation>
 
-		<!-- MENS SYMBOL; human; lavatory; men; men’s; restroom; sign; travel; wc -->
+		<!-- MENS SYMBOL; lavatory; man; restroom; sign; travel; wc -->
 		<annotation cp='[🚹]' tts='إشارة رجال'>غرفة رجال; علامة رجال; إشارة</annotation>
 
-		<!-- WOMENS SYMBOL; human; lavatory; restroom; sign; travel; wc; woman; women’s -->
+		<!-- WOMENS SYMBOL; lavatory; restroom; sign; travel; wc; woman -->
 		<annotation cp='[🚺]' tts='إشارة سيدات'>غرفة سيدات; علامة سيدات; إشارة</annotation>
 
-		<!-- RESTROOM; human; lavatory; restroom; sign; travel; wc -->
+		<!-- RESTROOM; lavatory; restroom; sign; travel; wc -->
 		<annotation cp='[🚻]' tts='إشارة مرحاض'>مرحاض; حمام; دورة مياه</annotation>
 
-		<!-- BABY SYMBOL; baby; changing; human; sign; travel -->
+		<!-- BABY SYMBOL; baby; changing; sign; travel -->
 		<annotation cp='[🚼]' tts='إشارة طفل'>طفل داخل السيارة; محطة تغيير ملابس أطفال; طفل</annotation>
 
 		<!-- WATER CLOSET; closet; lavatory; restroom; sign; travel; water; wc -->
@@ -1510,35 +1348,20 @@
 		<!-- NO ENTRY; entry; forbidden; no; not; prohibited; traffic; travel -->
 		<annotation cp='[⛔]' tts='إشارة ممنوع الدخول'>ممنوع الدخول; ممنوع</annotation>
 
-		<!-- BELLHOP BELL; bell; bellhop; hotel; object -->
-		<annotation cp='[🛎]'>MISSING</annotation>
-
-		<!-- DOOR; door; object; travel -->
+		<!-- DOOR; door; travel -->
 		<annotation cp='[🚪]' tts='باب'>باب</annotation>
 
-		<!-- SLEEPING ACCOMMODATION; hotel; object; sleep -->
-		<annotation cp='[🛌]'>MISSING</annotation>
-
-		<!-- BED; bed; hotel; object; sleep -->
-		<annotation cp='[🛏]'>MISSING</annotation>
-
-		<!-- COUCH AND LAMP; couch; hotel; lamp; object -->
-		<annotation cp='[🛋]'>MISSING</annotation>
-
-		<!-- TOILET; object; toilet; travel -->
+		<!-- TOILET; toilet; travel -->
 		<annotation cp='[🚽]' tts='مرحاض'>مرحاض</annotation>
 
-		<!-- SHOWER; object; shower; travel; water -->
+		<!-- SHOWER; shower; travel; water -->
 		<annotation cp='[🚿]' tts='دوش'>دوش; استحمام شاور</annotation>
 
-		<!-- BATH; bath; bathtub; object; travel -->
+		<!-- BATH; bath; bathtub; travel -->
 		<annotation cp='[🛀]' tts='استحمام'>استحمام</annotation>
 
-		<!-- BATHTUB; bath; bathtub; object; travel -->
+		<!-- BATHTUB; bath; bathtub; travel -->
 		<annotation cp='[🛁]' tts='حوض استحمام'>حوض استحمام</annotation>
-
-		<!-- SHOPPING BAGS; bag; hotel; object; shopping -->
-		<annotation cp='[🛍]'>MISSING</annotation>
 
 		<!-- HOURGLASS; hourglass; sand; time; timer -->
 		<annotation cp='[⌛]' tts='ساعة رملية'>رمال</annotation>
@@ -1551,15 +1374,6 @@
 
 		<!-- ALARM CLOCK; alarm; clock; time -->
 		<annotation cp='[⏰]' tts='ساعة منبه'>منبه; ساعة</annotation>
-
-		<!-- STOPWATCH; clock; stopwatch; time -->
-		<annotation cp='[⏱]'>MISSING</annotation>
-
-		<!-- TIMER CLOCK; clock; time; timer -->
-		<annotation cp='[⏲]'>MISSING</annotation>
-
-		<!-- MANTELPIECE CLOCK; clock; object -->
-		<annotation cp='[🕰]'>MISSING</annotation>
 
 		<!-- CLOCK FACE TWELVE OCLOCK; 00; 12; 12:00; clock; face; o’clock; time; twelve -->
 		<annotation cp='[🕛]' tts='الساعة 12'>الساعة; الثانية عشر; 12:00</annotation>
@@ -1654,7 +1468,7 @@
 		<!-- LIBRA; balance; justice; libra; scales; time; zodiac -->
 		<annotation cp='[♎]' tts='الميزان'>الميزان; الأبراج</annotation>
 
-		<!-- SCORPIUS; scorpion; scorpius; time; zodiac -->
+		<!-- SCORPIUS; scorpio; scorpion; scorpius; time; zodiac -->
 		<annotation cp='[♏]' tts='العقرب'>العقرب; الأبراج</annotation>
 
 		<!-- SAGITTARIUS; archer; sagittarius; time; zodiac -->
@@ -1669,55 +1483,49 @@
 		<!-- PISCES; fish; pisces; time; zodiac -->
 		<annotation cp='[♓]' tts='الحوت'>الحوت; الأبراج</annotation>
 
-		<!-- OPHIUCHUS; bearer; ophiuchus; serpent; snake; word; zodiac -->
+		<!-- OPHIUCHUS; bearer; ophiuchus; serpent; snake; zodiac -->
 		<annotation cp='[⛎]' tts='الحواء'>الحواء; الأبراج</annotation>
 
-		<!-- NEW MOON SYMBOL; dark; moon; place; space; time; weather -->
+		<!-- NEW MOON SYMBOL; dark; moon; space; time; weather -->
 		<annotation cp='[🌑]' tts='محاق'>محاق</annotation>
 
-		<!-- WAXING CRESCENT MOON SYMBOL; crescent; moon; place; space; time; waxing; weather -->
+		<!-- WAXING CRESCENT MOON SYMBOL; crescent; moon; space; time; waxing; weather -->
 		<annotation cp='[🌒]' tts='هلال'>هلال</annotation>
 
-		<!-- FIRST QUARTER MOON SYMBOL; moon; place; quarter; space; time; weather -->
+		<!-- FIRST QUARTER MOON SYMBOL; moon; quarter; space; time; weather -->
 		<annotation cp='[🌓]' tts='تربيع أول'>تربيع أول</annotation>
 
-		<!-- WAXING GIBBOUS MOON SYMBOL; gibbous; moon; place; space; time; waxing; weather -->
+		<!-- WAXING GIBBOUS MOON SYMBOL; gibbous; moon; space; time; waxing; weather -->
 		<annotation cp='[🌔]' tts='أحدب متزايد'>أحدب متزايد</annotation>
 
-		<!-- FULL MOON SYMBOL; full; moon; place; space; time; weather -->
+		<!-- FULL MOON SYMBOL; full; moon; space; time; weather -->
 		<annotation cp='[🌕]' tts='بدر'>بدر</annotation>
 
-		<!-- WANING GIBBOUS MOON SYMBOL; gibbous; moon; place; space; time; waning; weather -->
+		<!-- WANING GIBBOUS MOON SYMBOL; gibbous; moon; space; time; waning; weather -->
 		<annotation cp='[🌖]' tts='أحدب متناقص'>أحدب متناقص</annotation>
 
-		<!-- LAST QUARTER MOON SYMBOL; moon; place; quarter; space; time; weather -->
+		<!-- LAST QUARTER MOON SYMBOL; moon; quarter; space; time; weather -->
 		<annotation cp='[🌗]' tts='تربيع ثان'>تربيع ثان</annotation>
 
-		<!-- WANING CRESCENT MOON SYMBOL; crescent; moon; place; space; time; waning; weather -->
+		<!-- WANING CRESCENT MOON SYMBOL; crescent; moon; space; time; waning; weather -->
 		<annotation cp='[🌘]' tts='هلال'>هلال</annotation>
 
-		<!-- CRESCENT MOON; crescent; moon; place; space; time; weather -->
+		<!-- CRESCENT MOON; crescent; moon; space; time; weather -->
 		<annotation cp='[🌙]' tts='هلال'>هلال</annotation>
 
-		<!-- NEW MOON WITH FACE; face; moon; place; time; weather -->
+		<!-- NEW MOON WITH FACE; face; moon; space; time; weather -->
 		<annotation cp='[🌚]' tts='محاق بوجه'>محاق بوجه</annotation>
 
-		<!-- FIRST QUARTER MOON WITH FACE; face; moon; place; quarter; weather -->
+		<!-- FIRST QUARTER MOON WITH FACE; face; moon; quarter; space; weather -->
 		<annotation cp='[🌛]' tts='تربيع أول بوجه'>تربيع أول بوجه</annotation>
 
-		<!-- LAST QUARTER MOON WITH FACE; face; moon; place; quarter; weather -->
+		<!-- LAST QUARTER MOON WITH FACE; face; moon; quarter; space; weather -->
 		<annotation cp='[🌜]' tts='تربيع ثان بوجه'>تربيع ثان بوجه</annotation>
 
-		<!-- THERMOMETER; thermometer; weather -->
-		<annotation cp='[🌡]'>MISSING</annotation>
-
-		<!-- BLACK SUN WITH RAYS; bright; rays; sun; sunny; weather -->
-		<annotation cp='[☀]'>MISSING</annotation>
-
-		<!-- FULL MOON WITH FACE; bright; face; full; moon; place; weather -->
+		<!-- FULL MOON WITH FACE; bright; face; full; moon; space; weather -->
 		<annotation cp='[🌝]' tts='بدر بوجه'>بدر بوجه</annotation>
 
-		<!-- SUN WITH FACE; bright; face; place; sun; weather -->
+		<!-- SUN WITH FACE; bright; face; space; sun; weather -->
 		<annotation cp='[🌞]' tts='شمس بوجه'>شمس بوجه</annotation>
 
 		<!-- CLOUD; cloud; weather -->
@@ -1725,36 +1533,6 @@
 
 		<!-- SUN BEHIND CLOUD; cloud; sun; weather -->
 		<annotation cp='[⛅]' tts='شمس خلف السحب'>شمس مع سحب; شمس; سحابة</annotation>
-
-		<!-- THUNDER CLOUD AND RAIN; cloud; rain; thunder; weather -->
-		<annotation cp='[⛈]'>MISSING</annotation>
-
-		<!-- WHITE SUN WITH SMALL CLOUD; cloud; sun; weather -->
-		<annotation cp='[🌤]'>MISSING</annotation>
-
-		<!-- WHITE SUN BEHIND CLOUD; cloud; sun; weather -->
-		<annotation cp='[🌥]'>MISSING</annotation>
-
-		<!-- WHITE SUN BEHIND CLOUD WITH RAIN; cloud; rain; sun; weather -->
-		<annotation cp='[🌦]'>MISSING</annotation>
-
-		<!-- CLOUD WITH RAIN; cloud; rain; weather -->
-		<annotation cp='[🌧]'>MISSING</annotation>
-
-		<!-- CLOUD WITH SNOW; cloud; cold; snow; weather -->
-		<annotation cp='[🌨]'>MISSING</annotation>
-
-		<!-- CLOUD WITH LIGHTNING; cloud; lightning; weather -->
-		<annotation cp='[🌩]'>MISSING</annotation>
-
-		<!-- CLOUD WITH TORNADO; cloud; tornado; weather -->
-		<annotation cp='[🌪]'>MISSING</annotation>
-
-		<!-- FOG; cloud; fog; nature; weather -->
-		<annotation cp='[🌫]'>MISSING</annotation>
-
-		<!-- WIND BLOWING FACE; blow; cloud; face; weather; wind -->
-		<annotation cp='[🌬]'>MISSING</annotation>
 
 		<!-- CYCLONE; cyclone; dizzy; twister; typhoon; weather -->
 		<annotation cp='[🌀]' tts='التيفون'>التيفون</annotation>
@@ -1765,59 +1543,80 @@
 		<!-- CLOSED UMBRELLA; rain; umbrella; weather -->
 		<annotation cp='[🌂]' tts='أمطار'>أمطار</annotation>
 
-		<!-- UMBRELLA; rain; umbrella; weather -->
-		<annotation cp='[☂]'>MISSING</annotation>
-
-		<!-- UMBRELLA WITH RAIN DROPS; drop; rain; umbrella; weather -->
-		<annotation cp='[☔]'>MISSING</annotation>
-
-		<!-- UMBRELLA ON GROUND; rain; sun; travel; umbrella; weather -->
-		<annotation cp='[⛱]'>MISSING</annotation>
-
-		<!-- SNOWFLAKE; cold; snow; snowflake; weather -->
-		<annotation cp='[❄]'>MISSING</annotation>
-
-		<!-- SNOWMAN; cold; snow; snowman; weather -->
-		<annotation cp='[☃]'>MISSING</annotation>
-
 		<!-- SNOWMAN WITHOUT SNOW; cold; snow; snowman; weather -->
 		<annotation cp='[⛄]' tts='رجل من الثلج'>رجل ثلج بدون ثلج; ثلج</annotation>
 
-		<!-- GLOWING STAR; glittery; glow; place; shining; sparkle; star -->
+		<!-- GLOWING STAR; glittery; glow; shining; sparkle; star -->
 		<annotation cp='[🌟]' tts='نجم ساطع'>نجم ساطع</annotation>
 
-		<!-- SHOOTING STAR; activity; falling; nature; place; shooting; space; star -->
+		<!-- SHOOTING STAR; activity; falling; shooting; space; star -->
 		<annotation cp='[🌠]' tts='شهاب'>شهاب</annotation>
 
-		<!-- COMET; comet; object; space -->
-		<annotation cp='[☄]'>MISSING</annotation>
+		<!-- FIRE; fire; flame; tool -->
+		<annotation cp='[🔥]' tts='حريق'>حريق; لهب</annotation>
 
-		<!-- GAME DIE; dice; die; game -->
-		<annotation cp='[🎲]' tts='زهر'>زهر; نرد; لعبة</annotation>
+		<!-- JACK-O-LANTERN; activity; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='هالويين'>هالويين; قرعة مضيئة; قرع</annotation>
 
-		<!-- BLACK SPADE SUIT; card; game; spade; suit -->
-		<annotation cp='[♠]'>MISSING</annotation>
+		<!-- CHRISTMAS TREE; activity; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='شجرة عيد الميلاد'>شجرة</annotation>
 
-		<!-- BLACK HEART SUIT; card; emotion; game; heart; hearts; suit -->
-		<annotation cp='[♥]'>MISSING</annotation>
+		<!-- FIREWORKS; activity; celebration; fireworks -->
+		<annotation cp='[🎆]' tts='ألعاب نارية'>حفلة</annotation>
 
-		<!-- BLACK DIAMOND SUIT; card; diamond; diamonds; game; suit -->
-		<annotation cp='[♦]'>MISSING</annotation>
+		<!-- FIREWORK SPARKLER; activity; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' tts='ألعاب نارية'>ماسة ألعاب نارية</annotation>
 
-		<!-- BLACK CLUB SUIT; card; club; clubs; game; suit -->
-		<annotation cp='[♣]'>MISSING</annotation>
+		<!-- SPARKLES; sign; sparkle; star -->
+		<annotation cp='[✨]' tts='ومضات'>ومضات; نجوم ساطعة; ومضة; نجوم</annotation>
 
-		<!-- PLAYING CARD BLACK JOKER; card; game; joker; playing -->
-		<annotation cp='[🃏]' tts='جوكر'>جوكر</annotation>
+		<!-- BALLOON; activity; balloon; celebration -->
+		<annotation cp='[🎈]' tts='بالونة'>بالونة; احتفال</annotation>
 
-		<!-- MAHJONG TILE RED DRAGON; game; mahjong; red -->
-		<annotation cp='[🀄]' tts='ما جونغ'>تنين أحمر; تنين</annotation>
+		<!-- PARTY POPPER; activity; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='حفلة'>حفلة; بارتي بوبر</annotation>
 
-		<!-- VIDEO GAME; controller; entertainment; game; video game -->
-		<annotation cp='[🎮]' tts='لعبة فيديو'>جويستك; ألعاب</annotation>
+		<!-- CONFETTI BALL; activity; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='حفلة'>حفلة; كرة كونفتي; كونفتي</annotation>
 
-		<!-- JOYSTICK; entertainment; game; joystick; object; video game -->
-		<annotation cp='[🕹]'>MISSING</annotation>
+		<!-- TANABATA TREE; activity; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='حفلة'>حفلة; شجرة وشرائط ورقية; شجرة</annotation>
+
+		<!-- CROSSED FLAGS; activity; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='أعلام متقاطعة'>أعلام متقاطعة لليابان; أعلام; احتفال</annotation>
+
+		<!-- PINE DECORATION; activity; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='ديكور صنوبر'>عام جديد; صنوبر; احتفال</annotation>
+
+		<!-- JAPANESE DOLLS; activity; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='دميتان'>دميتان; مهرجان; احتفال</annotation>
+
+		<!-- CARP STREAMER; activity; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='احتفال'>احتفال; كارب ستريمر</annotation>
+
+		<!-- WIND CHIME; activity; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='جرس الريح'>جرس</annotation>
+
+		<!-- MOON VIEWING CEREMONY; activity; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='احتفال'>احتفال; استطلاع القمر; استطلاع</annotation>
+
+		<!-- GRADUATION CAP; activity; cap; celebration; education; graduation; hat -->
+		<annotation cp='[🎓]' tts='قبعة تخرج'>قبعة; تخرج; احتفال</annotation>
+
+		<!-- DIRECT HIT; activity; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' tts='نشان'>نشان; إصابة هدف; مركز هدف; هدف; لعبة</annotation>
+
+		<!-- FLOWER PLAYING CARDS; activity; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='كرت لعب'>كرت زهور; لعبة كرت</annotation>
+
+		<!-- RIBBON; celebration; ribbon -->
+		<annotation cp='[🎀]' tts='شريط'>شريط; حفلة</annotation>
+
+		<!-- WRAPPED PRESENT; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='هدية'>هدية; هدية ملفوفة; مناسبة</annotation>
+
+		<!-- TICKET; activity; admission; entertainment; ticket -->
+		<annotation cp='[🎫]' tts='تذكرة'>تذكرة; ترفيه</annotation>
 
 		<!-- SOCCER BALL; ball; soccer; sport -->
 		<annotation cp='[⚽]' tts='كرة قدم'>كرة</annotation>
@@ -1843,14 +1642,8 @@
 		<!-- BOWLING; ball; bowling; game; sport -->
 		<annotation cp='[🎳]' tts='بولينغ'>بولينغ; كرة بولينغ; لعبة</annotation>
 
-		<!-- FLAG IN HOLE; flag; golf; hole; sport; travel -->
+		<!-- FLAG IN HOLE; golf; hole; sport; travel -->
 		<annotation cp='[⛳]' tts='علم على حفرة'>غولف; علم غولف; حفرة</annotation>
-
-		<!-- GOLFER; ball; golf; human; person; sport -->
-		<annotation cp='[🏌]'>MISSING</annotation>
-
-		<!-- ICE SKATE; ice; skate; sport; travel -->
-		<annotation cp='[⛸]'>MISSING</annotation>
 
 		<!-- FISHING POLE AND FISH; entertainment; fish; pole; sport -->
 		<annotation cp='[🎣]' tts='صيد'>صيد; صنارة صيد; سمك; استجمام; ترفيه</annotation>
@@ -1861,32 +1654,38 @@
 		<!-- SKI AND SKI BOOT; ski; snow; sport -->
 		<annotation cp='[🎿]' tts='تزلج'>تزلج; رياضة</annotation>
 
-		<!-- SKIER; human; person; ski; snow; sport; travel -->
-		<annotation cp='[⛷]'>MISSING</annotation>
-
-		<!-- SNOWBOARDER; human; person; ski; snow; snowboard; sport -->
+		<!-- SNOWBOARDER; person; ski; snow; snowboard; sport -->
 		<annotation cp='[🏂]' tts='متزلج'>متزلج; تزلج; لوح تزلج; رياضة</annotation>
 
-		<!-- SURFER; human; person; sport; surfer; surfing -->
+		<!-- SURFER; person; sport; surfer; surfing -->
 		<annotation cp='[🏄]' tts='ركوب أمواج'>رياضة</annotation>
 
-		<!-- HORSE RACING; horse; human; jockey; person; racehorse; racing; sport; travel -->
+		<!-- HORSE RACING; horse; jockey; person; racehorse; racing; sport; travel -->
 		<annotation cp='[🏇]' tts='سباق خيول'>حصان سباق; سباق; حصان</annotation>
 
-		<!-- SWIMMER; human; person; sport; swim; swimmer; travel -->
+		<!-- SWIMMER; person; sport; swim; swimmer; travel -->
 		<annotation cp='[🏊]' tts='سباح'>سباح; سباحة; رياضة</annotation>
 
-		<!-- PERSON WITH BALL; ball; human; person; sport; travel -->
-		<annotation cp='[⛹]'>MISSING</annotation>
+		<!-- BICYCLIST; bicycle; bicyclist; bike; cyclist; person; sport; travel -->
+		<annotation cp='[🚴]' tts='راكب دراجة'>دراجة</annotation>
 
-		<!-- WEIGHT LIFTER; human; lifter; person; sport; weight -->
-		<annotation cp='[🏋]'>MISSING</annotation>
-
-		<!-- SPORTS MEDAL; medal; sport -->
-		<annotation cp='[🏅]'>MISSING</annotation>
+		<!-- MOUNTAIN BICYCLIST; bicycle; bicyclist; bike; cyclist; mountain; person; sport; travel -->
+		<annotation cp='[🚵]' tts='راكب دراجة في الجبال'>دراجة; جبال</annotation>
 
 		<!-- TROPHY; prize; sport; trophy -->
 		<annotation cp='[🏆]' tts='كأس'>كأس; جائزة</annotation>
+
+		<!-- VIDEO GAME; controller; entertainment; game; video game -->
+		<annotation cp='[🎮]' tts='لعبة فيديو'>جويستك; ألعاب</annotation>
+
+		<!-- GAME DIE; dice; die; game -->
+		<annotation cp='[🎲]' tts='زهر'>زهر; نرد; لعبة</annotation>
+
+		<!-- PLAYING CARD BLACK JOKER; card; game; joker; playing -->
+		<annotation cp='[🃏]' tts='جوكر'>جوكر</annotation>
+
+		<!-- MAHJONG TILE RED DRAGON; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='ما جونغ'>تنين أحمر; تنين</annotation>
 
 		<!-- SPEAKER WITH CANCELLATION STROKE; mute; quiet; silent; sound; speaker; volume -->
 		<annotation cp='[🔇]' tts='ممنوع الحديث'>هدوء; سماعة وعلامة إلغاء</annotation>
@@ -1906,7 +1705,7 @@
 		<!-- CHEERING MEGAPHONE; cheering; communication; megaphone; sound -->
 		<annotation cp='[📣]' tts='ميغافون'>ميغافون; هتاف; تواصل</annotation>
 
-		<!-- POSTAL HORN; communication; horn; object; post; postal; sound -->
+		<!-- POSTAL HORN; communication; horn; post; postal; sound -->
 		<annotation cp='[📯]' tts='جرس بريد'>جرس</annotation>
 
 		<!-- BELL; bell; sound -->
@@ -1924,26 +1723,11 @@
 		<!-- CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS WITH CIRCLED ONE OVERLAY; arrow; clockwise; once -->
 		<annotation cp='[🔂]' tts='أسهم باتجاه عقارب الساعة'>أسهم باتجاه عقارب الساعة مع رقم 1</annotation>
 
-		<!-- BLACK RIGHT-POINTING TRIANGLE; arrow; play; right; sound; triangle -->
-		<annotation cp='[▶]'>MISSING</annotation>
-
 		<!-- BLACK RIGHT-POINTING DOUBLE TRIANGLE; arrow; double; fast; forward; sound -->
 		<annotation cp='[⏩]' tts='تقديم سريع'>سهم مزدوج لليمين; يمين; سهم</annotation>
 
-		<!-- BLACK RIGHT-POINTING DOUBLE TRIANGLE WITH VERTICAL BAR; arrow; next scene; next track; sound; triangle -->
-		<annotation cp='[⏭]'>MISSING</annotation>
-
-		<!-- BLACK RIGHT-POINTING TRIANGLE WITH DOUBLE VERTICAL BAR; arrow; pause; play; right; sound; triangle -->
-		<annotation cp='[⏯]'>MISSING</annotation>
-
-		<!-- BLACK LEFT-POINTING TRIANGLE; arrow; left; reverse; sound; triangle -->
-		<annotation cp='[◀]'>MISSING</annotation>
-
 		<!-- BLACK LEFT-POINTING DOUBLE TRIANGLE; arrow; double; rewind; sound -->
 		<annotation cp='[⏪]' tts='ترجيع سريع'>سهم مزدوج لليسار; يسار; سهم</annotation>
-
-		<!-- BLACK LEFT-POINTING DOUBLE TRIANGLE WITH VERTICAL BAR; arrow; previous scene; previous track; sound; triangle -->
-		<annotation cp='[⏮]'>MISSING</annotation>
 
 		<!-- UP-POINTING SMALL RED TRIANGLE; arrow; button; red -->
 		<annotation cp='[🔼]' tts='مثلث لأعلى'>زر مثلث لأعلى; مثلث; زر</annotation>
@@ -1957,18 +1741,6 @@
 		<!-- BLACK DOWN-POINTING DOUBLE TRIANGLE; arrow; double; down; sound -->
 		<annotation cp='[⏬]' tts='سهم لاسفلن سهم مزدوج لأسفل'>أسفل; سهم</annotation>
 
-		<!-- DOUBLE VERTICAL BAR; bar; double; pause; sound; vertical -->
-		<annotation cp='[⏸]'>MISSING</annotation>
-
-		<!-- BLACK SQUARE FOR STOP; sound; square; stop -->
-		<annotation cp='[⏹]'>MISSING</annotation>
-
-		<!-- BLACK CIRCLE FOR RECORD; circle; record; sound -->
-		<annotation cp='[⏺]'>MISSING</annotation>
-
-		<!-- EJECT SYMBOL; eject; sound -->
-		<annotation cp='[⏏]'>MISSING</annotation>
-
 		<!-- MUSICAL SCORE; activity; music; score; sound -->
 		<annotation cp='[🎼]' tts='سكور موسيقى'>موسيقى; سكور</annotation>
 
@@ -1977,15 +1749,6 @@
 
 		<!-- MULTIPLE MUSICAL NOTES; activity; music; note; notes; sound -->
 		<annotation cp='[🎶]' tts='نوتات موسيقية'>موسيقى; نوتة; نوتات</annotation>
-
-		<!-- STUDIO MICROPHONE; mic; microphone; music; object; sound; studio -->
-		<annotation cp='[🎙]'>MISSING</annotation>
-
-		<!-- LEVEL SLIDER; level; music; object; slider; sound -->
-		<annotation cp='[🎚]'>MISSING</annotation>
-
-		<!-- CONTROL KNOBS; control; knobs; music; object; sound -->
-		<annotation cp='[🎛]'>MISSING</annotation>
 
 		<!-- MICROPHONE; activity; entertainment; karaoke; mic; microphone; sound -->
 		<annotation cp='[🎤]' tts='ميكروفون'>ميكروفون</annotation>
@@ -2008,70 +1771,31 @@
 		<!-- VIOLIN; activity; instrument; music; sound; violin -->
 		<annotation cp='[🎻]' tts='كمان'>كمان; آلة موسيقية; موسيقى; عزف</annotation>
 
-		<!-- RADIO; object; radio; video -->
+		<!-- RADIO; radio; video -->
 		<annotation cp='[📻]' tts='راديو'>راديو</annotation>
 
-		<!-- MOBILE PHONE; cell; communication; mobile; object; phone -->
+		<!-- MOBILE PHONE; cell; communication; mobile; phone -->
 		<annotation cp='[📱]' tts='هاتف'>هاتف; هاتف جوال</annotation>
 
-		<!-- VIBRATION MODE; cell; communication; mobile; mode; object; phone; vibration -->
+		<!-- VIBRATION MODE; cell; communication; mobile; mode; phone; vibration -->
 		<annotation cp='[📳]' tts='وضع اهتزاز'>هاتف خلوي; جوال; هاتف; وضع</annotation>
 
-		<!-- MOBILE PHONE OFF; cell; communication; mobile; object; off; phone -->
+		<!-- MOBILE PHONE OFF; cell; communication; mobile; off; phone -->
 		<annotation cp='[📴]' tts='مغلق'>مغلق; هاتف مغلق; هاتف خلوي; جوال</annotation>
 
-		<!-- MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT; arrow; call; cell; communication; mobile; object; phone; receive -->
+		<!-- MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT; arrow; call; cell; communication; mobile; phone; receive -->
 		<annotation cp='[📲]' tts='هاتف خلوي مع سهم'>إجراء مكالمة; هاتف جوال; هاتف</annotation>
 
-		<!-- NO MOBILE PHONES; cell; communication; forbidden; mobile; no; not; object; phone; prohibited -->
+		<!-- NO MOBILE PHONES; cell; communication; forbidden; mobile; no; not; phone; prohibited -->
 		<annotation cp='[📵]' tts='ممنوع استخدام الهاتف الخلوي'>ممنوع الاتصال; جوال; هاتف</annotation>
-
-		<!-- BLACK TELEPHONE; office; phone; sound; telephone -->
-		<annotation cp='[☎]'>MISSING</annotation>
 
 		<!-- TELEPHONE RECEIVER; communication; phone; receiver; sound; telephone -->
 		<annotation cp='[📞]' tts='تليفون'>تليفون; هاتف; سماعة هاتف; تواصل</annotation>
 
-		<!-- NUMBER SIGN+COMBINING ENCLOSING KEYCAP; hash; keycap; pound; word -->
-		<annotation cp='[{#⃣}]'>MISSING</annotation>
-
-		<!-- ASTERISK+COMBINING ENCLOSING KEYCAP; asterisk; keycap; star -->
-		<annotation cp='[{*⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT ZERO+COMBINING ENCLOSING KEYCAP; 0; keycap; word; zero -->
-		<annotation cp='[{0⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT ONE+COMBINING ENCLOSING KEYCAP; 1; keycap; one; word -->
-		<annotation cp='[{1⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT TWO+COMBINING ENCLOSING KEYCAP; 2; keycap; two; word -->
-		<annotation cp='[{2⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT THREE+COMBINING ENCLOSING KEYCAP; 3; keycap; three; word -->
-		<annotation cp='[{3⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT FOUR+COMBINING ENCLOSING KEYCAP; 4; four; keycap; word -->
-		<annotation cp='[{4⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT FIVE+COMBINING ENCLOSING KEYCAP; 5; five; keycap; word -->
-		<annotation cp='[{5⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT SIX+COMBINING ENCLOSING KEYCAP; 6; keycap; six; word -->
-		<annotation cp='[{6⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT SEVEN+COMBINING ENCLOSING KEYCAP; 7; keycap; seven; word -->
-		<annotation cp='[{7⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT EIGHT+COMBINING ENCLOSING KEYCAP; 8; eight; keycap; word -->
-		<annotation cp='[{8⃣}]'>MISSING</annotation>
-
-		<!-- DIGIT NINE+COMBINING ENCLOSING KEYCAP; 9; keycap; nine; word -->
-		<annotation cp='[{9⃣}]'>MISSING</annotation>
-
 		<!-- KEYCAP TEN; 10; keycap; ten; word -->
 		<annotation cp='[🔟]' tts='غطاء مفتاح عشرة'>10</annotation>
 
-		<!-- ANTENNA WITH BARS; antenna; bar; communication; mobile; object; phone; signal -->
+		<!-- ANTENNA WITH BARS; antenna; bar; communication; mobile; phone; signal -->
 		<annotation cp='[📶]' tts='إشارات الجوال'>مؤشر بأشرطة; قوة الإشارة; الإشارة; هاتف; جوال</annotation>
 
 		<!-- PAGER; communication; office; pager -->
@@ -2080,31 +1804,46 @@
 		<!-- FAX MACHINE; communication; fax; office -->
 		<annotation cp='[📠]' tts='فاكس'>فاكس; تواصل</annotation>
 
-		<!-- MOVIE CAMERA; activity; camera; cinema; entertainment; movie; object -->
+		<!-- BATTERY; battery -->
+		<annotation cp='[🔋]' tts='بطارية'>بطارية</annotation>
+
+		<!-- ELECTRIC PLUG; electric; electricity; plug -->
+		<annotation cp='[🔌]' tts='فيشة كهرباء'>كهرباء</annotation>
+
+		<!-- PERSONAL COMPUTER; computer; office; pc; personal -->
+		<annotation cp='[💻]' tts='كمبيوتر شخصي'>كمبيوتر شخصي</annotation>
+
+		<!-- MINIDISC; computer; disc; minidisc; office; optical -->
+		<annotation cp='[💽]' tts='قرص صغير'>قرص</annotation>
+
+		<!-- FLOPPY DISK; computer; disc; disk; floppy; office -->
+		<annotation cp='[💾]' tts='قرص مرن'>فلوبي; قرص</annotation>
+
+		<!-- OPTICAL DISC; blu-ray; cd; computer; disc; dvd; office; optical -->
+		<annotation cp='[💿]' tts='بلو راي'>دي في دي; سي دي; قرص ضوئي; قرص</annotation>
+
+		<!-- DVD; computer; disc; dvd; office; optical -->
+		<annotation cp='[📀]' tts='دي في دي'>قرص دي في دي; قرص</annotation>
+
+		<!-- MOVIE CAMERA; activity; camera; cinema; entertainment; movie -->
 		<annotation cp='[🎥]' tts='كاميرا فيديو'>كاميرا فيديو</annotation>
 
-		<!-- CINEMA; activity; camera; cinema; entertainment; film; movie; object -->
+		<!-- CINEMA; activity; camera; cinema; entertainment; film; movie -->
 		<annotation cp='[🎦]' tts='فيلم'>فيلم; سينما; ترفيه</annotation>
 
-		<!-- CLAPPER BOARD; activity; clapper; entertainment; movie; object -->
+		<!-- CLAPPER BOARD; activity; clapper; entertainment; movie -->
 		<annotation cp='[🎬]' tts='كلاكيت'>كلاكيت; فيلم; ترفيه</annotation>
 
-		<!-- FILM PROJECTOR; cinema; entertainment; film; movie; object; projector; video -->
-		<annotation cp='[📽]'>MISSING</annotation>
-
-		<!-- TELEVISION; entertainment; object; television; tv; video -->
+		<!-- TELEVISION; entertainment; television; tv; video -->
 		<annotation cp='[📺]' tts='تليفزيون'>تليفزيون</annotation>
 
-		<!-- CAMERA; camera; object; video -->
+		<!-- CAMERA; camera; video -->
 		<annotation cp='[📷]' tts='كاميرا'>كاميرا</annotation>
 
-		<!-- CAMERA WITH FLASH; camera; flash; object; video -->
-		<annotation cp='[📸]'>MISSING</annotation>
-
-		<!-- VIDEO CAMERA; camera; object; video -->
+		<!-- VIDEO CAMERA; camera; video -->
 		<annotation cp='[📹]' tts='كاميرا فيديو'>كاميرا فيديو</annotation>
 
-		<!-- VIDEOCASSETTE; object; tape; vhs; video; videocassette -->
+		<!-- VIDEOCASSETTE; tape; vhs; video; videocassette -->
 		<annotation cp='[📼]' tts='شريط فيديو'>فيديو; شريط</annotation>
 
 		<!-- LOW BRIGHTNESS SYMBOL; brightness; dim; low; sign -->
@@ -2113,110 +1852,29 @@
 		<!-- HIGH BRIGHTNESS SYMBOL; bright; brightness; sign -->
 		<annotation cp='[🔆]' tts='سطوع مرتفع'>ساطع; سطوع</annotation>
 
-		<!-- LEFT-POINTING MAGNIFYING GLASS; glass; magnifying; object; search; tool -->
+		<!-- LEFT-POINTING MAGNIFYING GLASS; glass; magnifying; search; tool -->
 		<annotation cp='[🔍]' tts='عدسة مكبرة'>بحث; عدسة مكبرة لليسار; عدسة</annotation>
 
-		<!-- RIGHT-POINTING MAGNIFYING GLASS; glass; magnifying; object; search; tool -->
+		<!-- RIGHT-POINTING MAGNIFYING GLASS; glass; magnifying; search; tool -->
 		<annotation cp='[🔎]' tts='عدسة مكبرة'>بحث; عدسة مكبرة لليمين; عدسة</annotation>
 
-		<!-- MICROSCOPE; microscope; object; tool -->
+		<!-- MICROSCOPE; microscope; tool -->
 		<annotation cp='[🔬]' tts='ميكروسكوب'>ميكروسكوب</annotation>
 
-		<!-- TELESCOPE; object; telescope; tool -->
+		<!-- TELESCOPE; telescope; tool -->
 		<annotation cp='[🔭]' tts='تليسكوب'>تليسكوب</annotation>
 
-		<!-- FIRE; fire; flame; object; tool -->
-		<annotation cp='[🔥]' tts='حريق'>حريق; لهب</annotation>
+		<!-- SATELLITE ANTENNA; antenna; communication; dish; office; satellite -->
+		<annotation cp='[📡]' tts='طبق قمر صناعي'>هوائي قمر صناعي; هوائي; دش; قمر صناعي; تواصل</annotation>
 
-		<!-- CANDLE; candle; light; object -->
-		<annotation cp='[🕯]'>MISSING</annotation>
-
-		<!-- ELECTRIC LIGHT BULB; bulb; comic; electric; idea; light; object -->
+		<!-- ELECTRIC LIGHT BULB; bulb; comic; electric; idea; light -->
 		<annotation cp='[💡]' tts='فكرة جديدة'>لمبة مضيئة; كهرباء</annotation>
 
-		<!-- ELECTRIC TORCH; electric; flashlight; light; object; tool; torch -->
+		<!-- ELECTRIC TORCH; electric; flashlight; light; tool; torch -->
 		<annotation cp='[🔦]' tts='ضوء فلاش'>ضوء; كشاف; كهربائي</annotation>
 
-		<!-- IZAKAYA LANTERN; bar; japanese; lantern; light; place; red; restaurant -->
+		<!-- IZAKAYA LANTERN; bar; japanese; lantern; light; red; restaurant -->
 		<annotation cp='[🏮]' tts='فانوس أحمر'>فانوس; إزاكايا; مطعم</annotation>
-
-		<!-- JACK-O-LANTERN; activity; celebration; halloween; jack; lantern; object -->
-		<annotation cp='[🎃]' tts='هالويين'>هالويين; قرعة مضيئة; قرع</annotation>
-
-		<!-- CHRISTMAS TREE; activity; celebration; christmas; object; tree -->
-		<annotation cp='[🎄]' tts='شجرة عيد الميلاد'>شجرة</annotation>
-
-		<!-- FIREWORKS; activity; celebration; fireworks; object -->
-		<annotation cp='[🎆]' tts='ألعاب نارية'>حفلة</annotation>
-
-		<!-- FIREWORK SPARKLER; activity; celebration; fireworks; object; sparkle -->
-		<annotation cp='[🎇]' tts='ألعاب نارية'>ماسة ألعاب نارية</annotation>
-
-		<!-- SPARKLES; sign; sparkle; star -->
-		<annotation cp='[✨]' tts='ومضات'>ومضات; نجوم ساطعة; ومضة; نجوم</annotation>
-
-		<!-- BALLOON; activity; balloon; celebration; object -->
-		<annotation cp='[🎈]' tts='بالونة'>بالونة; احتفال</annotation>
-
-		<!-- PARTY POPPER; activity; celebration; object; party; popper; tada -->
-		<annotation cp='[🎉]' tts='حفلة'>حفلة; بارتي بوبر</annotation>
-
-		<!-- CONFETTI BALL; activity; ball; celebration; confetti; object -->
-		<annotation cp='[🎊]' tts='حفلة'>حفلة; كرة كونفتي; كونفتي</annotation>
-
-		<!-- TANABATA TREE; activity; banner; celebration; japanese; object; tree -->
-		<annotation cp='[🎋]' tts='حفلة'>حفلة; شجرة وشرائط ورقية; شجرة</annotation>
-
-		<!-- CROSSED FLAGS; activity; celebration; cross; crossed; flag; japanese -->
-		<annotation cp='[🎌]' tts='أعلام متقاطعة'>أعلام متقاطعة لليابان; أعلام; احتفال</annotation>
-
-		<!-- PINE DECORATION; activity; bamboo; celebration; japanese; object; pine; plant -->
-		<annotation cp='[🎍]' tts='ديكور صنوبر'>عام جديد; صنوبر; احتفال</annotation>
-
-		<!-- JAPANESE DOLLS; activity; celebration; doll; festival; japanese -->
-		<annotation cp='[🎎]' tts='دميتان'>دميتان; مهرجان; احتفال</annotation>
-
-		<!-- CARP STREAMER; activity; carp; celebration; flag; object; streamer -->
-		<annotation cp='[🎏]' tts='احتفال'>احتفال; كارب ستريمر</annotation>
-
-		<!-- WIND CHIME; activity; bell; celebration; chime; object; wind -->
-		<annotation cp='[🎐]' tts='جرس الريح'>جرس</annotation>
-
-		<!-- MOON VIEWING CEREMONY; activity; celebration; ceremony; moon; object -->
-		<annotation cp='[🎑]' tts='احتفال'>احتفال; استطلاع القمر; استطلاع</annotation>
-
-		<!-- GRADUATION CAP; activity; cap; celebration; education; graduation; hat; object -->
-		<annotation cp='[🎓]' tts='قبعة تخرج'>قبعة; تخرج; احتفال</annotation>
-
-		<!-- ARTIST PALETTE; activity; art; entertainment; object; painting; palette -->
-		<annotation cp='[🎨]' tts='لوحة ألوان'>لوحة رسم; لوحة; رسم</annotation>
-
-		<!-- DIRECT HIT; activity; bull’s eye; dart; eye; game; hit; object; target -->
-		<annotation cp='[🎯]' tts='نشان'>نشان; إصابة هدف; مركز هدف; هدف; لعبة</annotation>
-
-		<!-- FLOWER PLAYING CARDS; activity; card; flower; game; japanese; object; playing -->
-		<annotation cp='[🎴]' tts='كرت لعب'>كرت زهور; لعبة كرت</annotation>
-
-		<!-- RIBBON; celebration; object; ribbon -->
-		<annotation cp='[🎀]' tts='شريط'>شريط; حفلة</annotation>
-
-		<!-- WRAPPED PRESENT; box; celebration; gift; object; present; wrapped -->
-		<annotation cp='[🎁]' tts='هدية'>هدية; هدية ملفوفة; مناسبة</annotation>
-
-		<!-- MILITARY MEDAL; celebration; medal; military; object -->
-		<annotation cp='[🎖]'>MISSING</annotation>
-
-		<!-- REMINDER RIBBON; celebration; object; reminder; ribbon -->
-		<annotation cp='[🎗]'>MISSING</annotation>
-
-		<!-- FILM FRAMES; cinema; entertainment; film; frames; movie; object -->
-		<annotation cp='[🎞]'>MISSING</annotation>
-
-		<!-- ADMISSION TICKETS; admission; entertainment; object; ticket -->
-		<annotation cp='[🎟]'>MISSING</annotation>
-
-		<!-- LABEL; label; object -->
-		<annotation cp='[🏷]'>MISSING</annotation>
 
 		<!-- NOTEBOOK WITH DECORATIVE COVER; book; cover; decorated; education; notebook; office -->
 		<annotation cp='[📔]' tts='دفتر مزين'>دفتر مزخرف; غلاف; دفتر ملاحظات</annotation>
@@ -2254,20 +1912,14 @@
 		<!-- PAGE FACING UP; document; office; page -->
 		<annotation cp='[📄]' tts='مستند'>مستند; صفحة بوجه لأعلى; وجه لأعلى; صفحة</annotation>
 
-		<!-- NEWSPAPER; communication; news; newspaper; object; paper -->
+		<!-- NEWSPAPER; communication; news; newspaper; paper -->
 		<annotation cp='[📰]' tts='جريدة'>جريدة; أخبار; صحيفة</annotation>
-
-		<!-- ROLLED-UP NEWSPAPER; news; newspaper; object; paper; rolled -->
-		<annotation cp='[🗞]'>MISSING</annotation>
 
 		<!-- BOOKMARK TABS; bookmark; mark; marker; office; tabs -->
 		<annotation cp='[📑]' tts='لصاقة علامات'>علامة; لصاقة</annotation>
 
-		<!-- BOOKMARK; bookmark; mark; object -->
+		<!-- BOOKMARK; bookmark; mark -->
 		<annotation cp='[🔖]' tts='علامة توقف قراءة'>علامة توقف قراءة</annotation>
-
-		<!-- FRAME WITH PICTURE; art; frame; object; office; painting; picture -->
-		<annotation cp='[🖼]'>MISSING</annotation>
 
 		<!-- MONEY BAG; bag; dollar; money; moneybag; office -->
 		<annotation cp='[💰]' tts='حقيبة نقود'>حقيبة دولارات; أموال; شنطة</annotation>
@@ -2299,16 +1951,13 @@
 		<!-- CHART WITH UPWARDS TREND AND YEN SIGN; bank; chart; currency; graph; growth; market; money; office; rise; trend; upward; yen -->
 		<annotation cp='[💹]' tts='سوق رائجة'>أسهم مرتفعة; سوق</annotation>
 
-		<!-- ENVELOPE; email; envelope; office -->
-		<annotation cp='[✉]'>MISSING</annotation>
-
-		<!-- E-MAIL SYMBOL; communication; email; letter; mail; office -->
+		<!-- E-MAIL SYMBOL; communication; e-mail; email; letter; mail; office -->
 		<annotation cp='[📧]' tts='بريد إلكتروني'>بريد; خطاب; تواصل</annotation>
 
-		<!-- INCOMING ENVELOPE; communication; email; envelope; incoming; letter; mail; office; receive -->
+		<!-- INCOMING ENVELOPE; communication; e-mail; email; envelope; incoming; letter; mail; office; receive -->
 		<annotation cp='[📨]' tts='بريد وارد'>بريد مستلم; وارد; بريد إلكتروني; بريد; خطاب; ظرف; تواصل</annotation>
 
-		<!-- ENVELOPE WITH DOWNWARDS ARROW ABOVE; arrow; communication; down; email; envelope; letter; mail; office; outgoing; sent -->
+		<!-- ENVELOPE WITH DOWNWARDS ARROW ABOVE; arrow; communication; down; e-mail; email; envelope; letter; mail; office; outgoing; sent -->
 		<annotation cp='[📩]' tts='بريد صادر'>بريد مرسل; صادر; بريد إلكتروني; بريد; خطاب; ظرف; تواصل</annotation>
 
 		<!-- OUTBOX TRAY; box; communication; letter; mail; office; outbox; sent; tray -->
@@ -2320,71 +1969,23 @@
 		<!-- PACKAGE; box; communication; office; package; parcel -->
 		<annotation cp='[📦]' tts='طرد'>طرد; رزمة; علبة</annotation>
 
-		<!-- CLOSED MAILBOX WITH RAISED FLAG; closed; communication; flag; mail; mailbox; office; postbox -->
+		<!-- CLOSED MAILBOX WITH RAISED FLAG; closed; communication; mail; mailbox; office; postbox -->
 		<annotation cp='[📫]' tts='صندوق بريد'>مغلق; صندوق بريد بعلامة لأعلى</annotation>
 
-		<!-- CLOSED MAILBOX WITH LOWERED FLAG; closed; communication; flag; lowered; mail; mailbox; office; postbox -->
+		<!-- CLOSED MAILBOX WITH LOWERED FLAG; closed; communication; lowered; mail; mailbox; office; postbox -->
 		<annotation cp='[📪]' tts='صندوق بريد'>مغلق; صندوق بريد بعلامة لأسفل</annotation>
 
-		<!-- OPEN MAILBOX WITH RAISED FLAG; communication; flag; mail; mailbox; office; open; postbox -->
+		<!-- OPEN MAILBOX WITH RAISED FLAG; communication; mail; mailbox; office; open; postbox -->
 		<annotation cp='[📬]' tts='صندوق بريد'>مفتوح; صندوق بريد بعلامة لأسفل</annotation>
 
-		<!-- OPEN MAILBOX WITH LOWERED FLAG; communication; flag; lowered; mail; mailbox; office; open; postbox -->
+		<!-- OPEN MAILBOX WITH LOWERED FLAG; communication; lowered; mail; mailbox; office; open; postbox -->
 		<annotation cp='[📭]' tts='صندوق بريد'>مفتوح; صندوق بريد بعلامة لأعلى</annotation>
 
 		<!-- POSTBOX; communication; mail; mailbox; office; postbox -->
 		<annotation cp='[📮]' tts='صندوق بريد'>صندوق بريد</annotation>
 
-		<!-- PENCIL; office; pencil -->
-		<annotation cp='[✏]'>MISSING</annotation>
-
-		<!-- BLACK NIB; nib; office; pen -->
-		<annotation cp='[✒]'>MISSING</annotation>
-
-		<!-- LOWER LEFT FOUNTAIN PEN; communication; fountain; office; pen -->
-		<annotation cp='[🖋]'>MISSING</annotation>
-
-		<!-- LOWER LEFT BALLPOINT PEN; ballpoint; communication; office; pen -->
-		<annotation cp='[🖊]'>MISSING</annotation>
-
-		<!-- LOWER LEFT PAINTBRUSH; communication; office; paintbrush; painting -->
-		<annotation cp='[🖌]'>MISSING</annotation>
-
-		<!-- LOWER LEFT CRAYON; communication; crayon; office -->
-		<annotation cp='[🖍]'>MISSING</annotation>
-
 		<!-- MEMO; communication; memo; office; pencil -->
 		<annotation cp='[📝]' tts='مذكرة'>مذكرة; تواصل</annotation>
-
-		<!-- PERSONAL COMPUTER; computer; office; pc; personal -->
-		<annotation cp='[💻]' tts='كمبيوتر شخصي'>كمبيوتر شخصي</annotation>
-
-		<!-- DESKTOP COMPUTER; computer; desktop; office -->
-		<annotation cp='[🖥]'>MISSING</annotation>
-
-		<!-- PRINTER; computer; office; printer -->
-		<annotation cp='[🖨]'>MISSING</annotation>
-
-		<!-- KEYBOARD; computer; keyboard; sign -->
-		<annotation cp='[⌨]'>MISSING</annotation>
-
-		<!-- THREE BUTTON MOUSE; 3; button; computer; mouse; office; three -->
-		<annotation cp='[🖱]'>MISSING</annotation>
-
-		<!-- TRACKBALL; computer; office; trackball -->
-		<annotation cp='[🖲]'>MISSING</annotation>
-
-		<!-- MINIDISC; computer; disc; minidisc; office; optical -->
-		<annotation cp='[💽]' tts='قرص صغير'>قرص</annotation>
-
-		<!-- FLOPPY DISK; computer; disc; disk; floppy; office -->
-		<annotation cp='[💾]' tts='قرص مرن'>فلوبي; قرص</annotation>
-
-		<!-- OPTICAL DISC; cd; computer; disc; dvd; office; optical -->
-		<annotation cp='[💿]' tts='بلو راي'>دي في دي; سي دي; قرص ضوئي; قرص</annotation>
-
-		<!-- DVD; computer; disc; dvd; office; optical -->
-		<annotation cp='[📀]' tts='دي في دي'>قرص دي في دي; قرص</annotation>
 
 		<!-- BRIEFCASE; briefcase; office -->
 		<annotation cp='[💼]' tts='محفظة أوراق'>محفظة أوراق</annotation>
@@ -2395,20 +1996,11 @@
 		<!-- OPEN FILE FOLDER; file; folder; office; open -->
 		<annotation cp='[📂]' tts='مجلد مفتوح'>مجلد ملفات مفتوح; مفتوح; ملف; مجلد</annotation>
 
-		<!-- CARD INDEX DIVIDERS; card; dividers; index; office -->
-		<annotation cp='[🗂]'>MISSING</annotation>
-
 		<!-- CALENDAR; calendar; date; office -->
 		<annotation cp='[📅]' tts='تقويم'>تقويم; روزنامة</annotation>
 
 		<!-- TEAR-OFF CALENDAR; calendar; office -->
 		<annotation cp='[📆]' tts='تقويم ممزق'>روزنامة</annotation>
-
-		<!-- SPIRAL NOTE PAD; note; office; pad; spiral -->
-		<annotation cp='[🗒]'>MISSING</annotation>
-
-		<!-- SPIRAL CALENDAR PAD; calendar; office; pad; spiral -->
-		<annotation cp='[🗓]'>MISSING</annotation>
 
 		<!-- CARD INDEX; card; index; office; rolodex -->
 		<annotation cp='[📇]' tts='فهرس بطاقات'>فهرس</annotation>
@@ -2428,14 +2020,11 @@
 		<!-- PUSHPIN; office; pin; pushpin -->
 		<annotation cp='[📌]' tts='دبوس'>دبوس</annotation>
 
-		<!-- ROUND PUSHPIN; office; pin; place; pushpin -->
+		<!-- ROUND PUSHPIN; office; pin; pushpin -->
 		<annotation cp='[📍]' tts='دبوس مستدير'>دبوس مستدير</annotation>
 
 		<!-- PAPERCLIP; office; paperclip -->
 		<annotation cp='[📎]' tts='مشبك ورق'>مشبك</annotation>
-
-		<!-- LINKED PAPERCLIPS; communication; link; office; paperclip -->
-		<annotation cp='[🖇]'>MISSING</annotation>
 
 		<!-- STRAIGHT RULER; office; ruler; straight edge -->
 		<annotation cp='[📏]' tts='مسطرة'>مسطرة</annotation>
@@ -2446,974 +2035,824 @@
 		<!-- NAME BADGE; badge; name; office -->
 		<annotation cp='[📛]' tts='ملصق اسم'>ملصق; اسم</annotation>
 
-		<!-- BLACK SCISSORS; office; scissors; tool -->
-		<annotation cp='[✂]'>MISSING</annotation>
-
-		<!-- CARD FILE BOX; box; card; file; office -->
-		<annotation cp='[🗃]'>MISSING</annotation>
-
-		<!-- FILE CABINET; cabinet; file; office -->
-		<annotation cp='[🗄]'>MISSING</annotation>
-
-		<!-- WASTEBASKET; office; wastebasket -->
-		<annotation cp='[🗑]'>MISSING</annotation>
-
-		<!-- LOCK; closed; lock; object -->
+		<!-- LOCK; closed; lock -->
 		<annotation cp='[🔒]' tts='قفل'>قفل; قفل مغلق</annotation>
 
-		<!-- OPEN LOCK; lock; object; open; unlock -->
+		<!-- OPEN LOCK; lock; open; unlock -->
 		<annotation cp='[🔓]' tts='قفل'>قفل; قفل مفتوح</annotation>
 
-		<!-- LOCK WITH INK PEN; ink; lock; nib; object; pen; privacy -->
+		<!-- LOCK WITH INK PEN; ink; lock; nib; pen; privacy -->
 		<annotation cp='[🔏]' tts='قفل'>قفل; خصوصية; قفل عليه قلم حبر</annotation>
 
-		<!-- CLOSED LOCK WITH KEY; closed; key; lock; object; secure -->
+		<!-- CLOSED LOCK WITH KEY; closed; key; lock; secure -->
 		<annotation cp='[🔐]' tts='قفل مغلق'>قفل عليه مفتاح; آمن</annotation>
 
-		<!-- KEY; key; lock; object; password -->
+		<!-- KEY; key; lock; password -->
 		<annotation cp='[🔑]' tts='مفتاح'>مفتاح; كلمة مرور</annotation>
 
-		<!-- OLD KEY; clue; key; lock; object; old -->
-		<annotation cp='[🗝]'>MISSING</annotation>
-
-		<!-- HAMMER; hammer; object; tool -->
+		<!-- HAMMER; hammer; tool -->
 		<annotation cp='[🔨]' tts='شاكوش'>شاكوش; عدة</annotation>
 
-		<!-- PICK; mining; object; pick; tool; travel -->
-		<annotation cp='[⛏]'>MISSING</annotation>
-
-		<!-- HAMMER AND PICK; hammer; object; pick; tool -->
-		<annotation cp='[⚒]'>MISSING</annotation>
-
-		<!-- HAMMER AND WRENCH; hammer; object; tool; wrench -->
-		<annotation cp='[🛠]'>MISSING</annotation>
-
-		<!-- WRENCH; object; tool; wrench -->
+		<!-- WRENCH; tool; wrench -->
 		<annotation cp='[🔧]' tts='مفتاح'>مفتاح; عدة</annotation>
 
-		<!-- NUT AND BOLT; bolt; nut; object; tool -->
+		<!-- NUT AND BOLT; bolt; nut; tool -->
 		<annotation cp='[🔩]' tts='صامولة ومسمار'>صامولة; مسمار; عدة</annotation>
 
-		<!-- GEAR; gear; object; tool -->
-		<annotation cp='[⚙]'>MISSING</annotation>
-
-		<!-- COMPRESSION; compression; object; tool; vice -->
-		<annotation cp='[🗜]'>MISSING</annotation>
-
-		<!-- ALEMBIC; alembic; chemistry; object; tool -->
-		<annotation cp='[⚗]'>MISSING</annotation>
-
-		<!-- SCALES; balance; justice; libra; object; scales; tool; weight; zodiac -->
-		<annotation cp='[⚖]'>MISSING</annotation>
-
-		<!-- SYRINGE; doctor; medicine; needle; object; shot; sick; syringe; tool -->
-		<annotation cp='[💉]' tts='إبرة'>إبرة; حقنة; سرنجة; طب; طبيب</annotation>
-
-		<!-- DAGGER KNIFE; dagger; knife; object; weapon -->
-		<annotation cp='[🗡]'>MISSING</annotation>
-
-		<!-- HOCHO; cooking; hocho; knife; object; tool; weapon -->
-		<annotation cp='[🔪]' tts='سكين طهي'>سكين</annotation>
-
-		<!-- CROSSED SWORDS; crossed; object; swords; weapon -->
-		<annotation cp='[⚔]'>MISSING</annotation>
-
-		<!-- PISTOL; gun; object; pistol; revolver; tool; weapon -->
-		<annotation cp='[🔫]' tts='مسدس'>مسدس; طبنجة</annotation>
-
-		<!-- SHIELD; object; shield; weapon -->
-		<annotation cp='[🛡]'>MISSING</annotation>
-
-		<!-- SCHOOL SATCHEL; activity; bag; education; object; satchel; school -->
-		<annotation cp='[🎒]' tts='حقيبة مدرسة'>مدرسة</annotation>
-
-		<!-- BATTERY; battery; object -->
-		<annotation cp='[🔋]' tts='بطارية'>بطارية</annotation>
-
-		<!-- ELECTRIC PLUG; electric; electricity; object; plug -->
-		<annotation cp='[🔌]' tts='فيشة كهرباء'>كهرباء</annotation>
-
-		<!-- LINK SYMBOL; link; object -->
+		<!-- LINK SYMBOL; link -->
 		<annotation cp='[🔗]' tts='علامة رابط'>روابط; حلقتان</annotation>
 
-		<!-- CHAINS; chain; object; travel -->
-		<annotation cp='[⛓]'>MISSING</annotation>
+		<!-- SYRINGE; doctor; medicine; needle; shot; sick; syringe; tool -->
+		<annotation cp='[💉]' tts='إبرة'>إبرة; حقنة; سرنجة; طب; طبيب</annotation>
 
-		<!-- SMOKING SYMBOL; activity; object; smoking; travel -->
-		<annotation cp='[🚬]' tts='إشارة تدخين'>مسموح بالتدخين; تدخين; إشارة</annotation>
-
-		<!-- LIPSTICK; cosmetics; lipstick; makeup; object -->
-		<annotation cp='[💄]' tts='أحمر شفاه'>تجميل; مستحضرات تجميل</annotation>
-
-		<!-- RING; diamond; object; ring; romance -->
-		<annotation cp='[💍]' tts='خاتم'>خاتم; رومانسية</annotation>
-
-		<!-- GEM STONE; diamond; gem; jewel; object; romance -->
-		<annotation cp='[💎]' tts='جوهرة'>جوهرة; ماسة; رومانسية</annotation>
-
-		<!-- OIL DRUM; drum; object; oil -->
-		<annotation cp='[🛢]'>MISSING</annotation>
-
-		<!-- CRYSTAL BALL; ball; crystal; fantasy; fortune; object; tool -->
-		<annotation cp='[🔮]' tts='كرة كريستال'>تنجيم; كريستال; كرة</annotation>
-
-		<!-- SIX POINTED STAR WITH MIDDLE DOT; fortune; object; star -->
-		<annotation cp='[🔯]' tts='نجمة سداسية'>تنجيم; نجمة</annotation>
-
-		<!-- TRIDENT EMBLEM; anchor; emblem; object; ship; tool; trident -->
-		<annotation cp='[🔱]' tts='رمز ثلاثي الشعب'>مرساة; شعار</annotation>
-
-		<!-- BALLOT BOX WITH BALLOT; ballot; box; object -->
-		<annotation cp='[🗳]'>MISSING</annotation>
-
-		<!-- PILL; doctor; medicine; object; pill; sick -->
+		<!-- PILL; doctor; medicine; pill; sick -->
 		<annotation cp='[💊]' tts='حبوب'>حبوب; طب; طبيب</annotation>
 
-		<!-- ATOM SYMBOL; atheist; atom; object -->
-		<annotation cp='[⚛]'>MISSING</annotation>
+		<!-- HOCHO; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='سكين طهي'>سكين</annotation>
 
-		<!-- FLEUR-DE-LIS; object -->
-		<annotation cp='[⚜]'>MISSING</annotation>
+		<!-- PISTOL; gun; pistol; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='مسدس'>مسدس; طبنجة</annotation>
 
-		<!-- COFFIN; coffin; death; object -->
-		<annotation cp='[⚰]'>MISSING</annotation>
+		<!-- SMOKING SYMBOL; activity; smoking; travel -->
+		<annotation cp='[🚬]' tts='إشارة تدخين'>مسموح بالتدخين; تدخين; إشارة</annotation>
 
-		<!-- FUNERAL URN; death; funeral; object; urn -->
-		<annotation cp='[⚱]'>MISSING</annotation>
-
-		<!-- JAPANESE SYMBOL FOR BEGINNER; beginner; chevron; green; japanese; leaf; object; place; tool; yellow -->
-		<annotation cp='[🔰]' tts='ورقة خضراء وصفراء'>أخضر وأصفر; مبتدئ; ياباني</annotation>
-
-		<!-- HUNDRED POINTS SYMBOL; 100; full; hundred; office; score -->
-		<annotation cp='[💯]' tts='درجة نهائية'>100 نقطة; 100; درجة</annotation>
-
-		<!-- SATELLITE ANTENNA; antenna; communication; dish; office; satellite -->
-		<annotation cp='[📡]' tts='طبق قمر صناعي'>هوائي قمر صناعي; هوائي; دش; قمر صناعي; تواصل</annotation>
-
-		<!-- CHEQUERED FLAG; checkered; chequered; flag; racing; sport -->
+		<!-- CHEQUERED FLAG; checkered; chequered; racing; sport -->
 		<annotation cp='[🏁]' tts='علم مربعات'>علم; سباق; رياضة</annotation>
 
-		<!-- WAVING WHITE FLAG; flag; waving -->
-		<annotation cp='[🏳]'>MISSING</annotation>
-
-		<!-- WAVING BLACK FLAG; flag; waving -->
-		<annotation cp='[🏴]'>MISSING</annotation>
-
-		<!-- TRIANGULAR FLAG ON POST; flag; post; travel -->
+		<!-- TRIANGULAR FLAG ON POST; post; travel -->
 		<annotation cp='[🚩]' tts='علم وقع'>علم معلومات موقع; علم موقع مثلث; علم مثلث; علم; موقع</annotation>
 
-		<!-- Afghanistan; afghanistan; flag -->
+		<!-- Afghanistan; afghanistan -->
 		<annotation cp='[{🇦🇫}]'>أفغانستان</annotation>
 
-		<!-- Åland Islands; åland; flag; islands -->
+		<!-- Åland Islands; åland -->
 		<annotation cp='[{🇦🇽}]'>جزر آلاند</annotation>
 
-		<!-- Albania; albania; flag -->
+		<!-- Albania; albania -->
 		<annotation cp='[{🇦🇱}]'>ألبانيا</annotation>
 
-		<!-- Algeria; algeria; flag -->
+		<!-- Algeria; algeria -->
 		<annotation cp='[{🇩🇿}]'>الجزائر</annotation>
 
-		<!-- American Samoa; american; flag; samoa -->
+		<!-- American Samoa; american; samoa -->
 		<annotation cp='[{🇦🇸}]'>ساموا الأمريكية</annotation>
 
-		<!-- Andorra; andorra; flag -->
+		<!-- Andorra; andorra -->
 		<annotation cp='[{🇦🇩}]'>أندورا</annotation>
 
-		<!-- Angola; angola; flag -->
+		<!-- Angola; angola -->
 		<annotation cp='[{🇦🇴}]'>أنغولا</annotation>
 
-		<!-- Anguilla; anguilla; flag -->
+		<!-- Anguilla; anguilla -->
 		<annotation cp='[{🇦🇮}]'>أنغويلا</annotation>
 
-		<!-- Antarctica; antarctica; flag -->
+		<!-- Antarctica; antarctica -->
 		<annotation cp='[{🇦🇶}]'>أنتاركتيكا</annotation>
 
-		<!-- Antigua &amp; Barbuda; antigua; barbuda; flag -->
+		<!-- Antigua &amp; Barbuda; antigua; barbuda -->
 		<annotation cp='[{🇦🇬}]'>أنتيغوا وبربودا</annotation>
 
-		<!-- Argentina; argentina; flag -->
+		<!-- Argentina; argentina -->
 		<annotation cp='[{🇦🇷}]'>الأرجنتين</annotation>
 
-		<!-- Armenia; armenia; flag -->
+		<!-- Armenia; armenia -->
 		<annotation cp='[{🇦🇲}]'>أرمينيا</annotation>
 
-		<!-- Aruba; aruba; flag -->
+		<!-- Aruba; aruba -->
 		<annotation cp='[{🇦🇼}]'>آروبا</annotation>
 
-		<!-- Ascension Island; ascension; flag; island -->
+		<!-- Ascension Island; ascension; island -->
 		<annotation cp='[{🇦🇨}]'>جزيرة أسينشيون</annotation>
 
-		<!-- Australia; australia; flag -->
+		<!-- Australia; australia -->
 		<annotation cp='[{🇦🇺}]'>أستراليا</annotation>
 
-		<!-- Austria; austria; flag -->
+		<!-- Austria; austria -->
 		<annotation cp='[{🇦🇹}]'>النمسا</annotation>
 
-		<!-- Azerbaijan; azerbaijan; flag -->
+		<!-- Azerbaijan; azerbaijan -->
 		<annotation cp='[{🇦🇿}]'>أذربيجان</annotation>
 
-		<!-- Bahamas; bahamas; flag -->
+		<!-- Bahamas; bahamas -->
 		<annotation cp='[{🇧🇸}]'>الباهاما</annotation>
 
-		<!-- Bahrain; bahrain; flag -->
+		<!-- Bahrain; bahrain -->
 		<annotation cp='[{🇧🇭}]'>البحرين</annotation>
 
-		<!-- Bangladesh; bangladesh; flag -->
+		<!-- Bangladesh; bangladesh -->
 		<annotation cp='[{🇧🇩}]'>بنجلاديش</annotation>
 
-		<!-- Barbados; barbados; flag -->
+		<!-- Barbados; barbados -->
 		<annotation cp='[{🇧🇧}]'>بربادوس</annotation>
 
-		<!-- Belarus; belarus; flag -->
+		<!-- Belarus; belarus -->
 		<annotation cp='[{🇧🇾}]'>روسيا البيضاء</annotation>
 
-		<!-- Belgium; belgium; flag -->
+		<!-- Belgium; belgium -->
 		<annotation cp='[{🇧🇪}]'>بلجيكا</annotation>
 
-		<!-- Belize; belize; flag -->
+		<!-- Belize; belize -->
 		<annotation cp='[{🇧🇿}]'>بليز</annotation>
 
-		<!-- Benin; benin; flag -->
+		<!-- Benin; benin -->
 		<annotation cp='[{🇧🇯}]'>بنين</annotation>
 
-		<!-- Bermuda; bermuda; flag -->
+		<!-- Bermuda; bermuda -->
 		<annotation cp='[{🇧🇲}]'>برمودا</annotation>
 
-		<!-- Bhutan; bhutan; flag -->
+		<!-- Bhutan; bhutan -->
 		<annotation cp='[{🇧🇹}]'>بوتان</annotation>
 
-		<!-- Bolivia; bolivia; flag -->
+		<!-- Bolivia; bolivia -->
 		<annotation cp='[{🇧🇴}]'>بوليفيا</annotation>
 
-		<!-- Bosnia &amp; Herzegovina; bosnia; flag; herzegovina -->
+		<!-- Bosnia &amp; Herzegovina; bosnia; herzegovina -->
 		<annotation cp='[{🇧🇦}]'>البوسنة والهرسك</annotation>
 
-		<!-- Botswana; botswana; flag -->
+		<!-- Botswana; botswana -->
 		<annotation cp='[{🇧🇼}]'>بتسوانا</annotation>
 
-		<!-- Bouvet Island; bouvet; flag; island -->
+		<!-- Bouvet Island; bouvet; island -->
 		<annotation cp='[{🇧🇻}]'>جزيرة بوفيه</annotation>
 
-		<!-- Brazil; brazil; flag -->
+		<!-- Brazil; brazil -->
 		<annotation cp='[{🇧🇷}]'>البرازيل</annotation>
 
-		<!-- British Indian Ocean Territory; british; flag; indian; ocean -->
+		<!-- British Indian Ocean Territory; british; chagos; indian ocean; island -->
 		<annotation cp='[{🇮🇴}]'>الإقليم البريطاني في المحيط الهندي</annotation>
 
-		<!-- British Virgin Islands; british; flag; islands; virgin islands -->
+		<!-- British Virgin Islands; british; island; virgin -->
 		<annotation cp='[{🇻🇬}]'>جزر فرجين البريطانية</annotation>
 
-		<!-- Brunei; brunei; darussalam; flag -->
+		<!-- Brunei; brunei; darussalam -->
 		<annotation cp='[{🇧🇳}]'>بروناي</annotation>
 
-		<!-- Bulgaria; bulgaria; flag -->
+		<!-- Bulgaria; bulgaria -->
 		<annotation cp='[{🇧🇬}]'>بلغاريا</annotation>
 
-		<!-- Burkina Faso; burkina; faso; flag -->
+		<!-- Burkina Faso; burkina faso -->
 		<annotation cp='[{🇧🇫}]'>بوركينا فاسو</annotation>
 
-		<!-- Burundi; burundi; flag -->
+		<!-- Burundi; burundi -->
 		<annotation cp='[{🇧🇮}]'>بوروندي</annotation>
 
-		<!-- Cambodia; cambodia; flag -->
+		<!-- Cambodia; cambodia -->
 		<annotation cp='[{🇰🇭}]'>كمبوديا</annotation>
 
-		<!-- Cameroon; cameroon; flag -->
+		<!-- Cameroon; cameroon -->
 		<annotation cp='[{🇨🇲}]'>الكاميرون</annotation>
 
-		<!-- Canada; canada; flag -->
+		<!-- Canada; canada -->
 		<annotation cp='[{🇨🇦}]'>كندا</annotation>
 
-		<!-- Canary Islands; canary; flag; islands -->
+		<!-- Canary Islands; canary; island -->
 		<annotation cp='[{🇮🇨}]'>جزر الكناري</annotation>
 
-		<!-- Cape Verde; cabo; cape; flag; verde -->
+		<!-- Cape Verde; cabo; cape; verde -->
 		<annotation cp='[{🇨🇻}]'>الرأس الأخضر</annotation>
 
-		<!-- Caribbean Netherlands; bonaire; caribbean; eustatius; flag; netherlands; saba; sint -->
+		<!-- Caribbean Netherlands; bonaire; caribbean; eustatius; netherlands; saba; sint -->
 		<annotation cp='[{🇧🇶}]'>هولندا الكاريبية</annotation>
 
-		<!-- Cayman Islands; cayman; flag; islands -->
+		<!-- Cayman Islands; cayman; island -->
 		<annotation cp='[{🇰🇾}]'>جزر الكايمن</annotation>
 
-		<!-- Central African Republic; african; central; flag -->
+		<!-- Central African Republic; central african republic; republic -->
 		<annotation cp='[{🇨🇫}]'>جمهورية أفريقيا الوسطى</annotation>
 
-		<!-- Ceuta &amp; Melilla; ceuta; flag; melilla -->
+		<!-- Ceuta &amp; Melilla; ceuta; melilla -->
 		<annotation cp='[{🇪🇦}]'>سيوتا وميليلا</annotation>
 
-		<!-- Chad; chad; flag -->
+		<!-- Chad; chad -->
 		<annotation cp='[{🇹🇩}]'>تشاد</annotation>
 
-		<!-- Chile; chile; flag -->
+		<!-- Chile; chile -->
 		<annotation cp='[{🇨🇱}]'>شيلي</annotation>
 
-		<!-- China; china; flag -->
+		<!-- China; china -->
 		<annotation cp='[{🇨🇳}]'>الصين</annotation>
 
-		<!-- Christmas Island; christmas; flag; island -->
+		<!-- Christmas Island; christmas; island -->
 		<annotation cp='[{🇨🇽}]'>جزيرة الكريسماس</annotation>
 
-		<!-- Clipperton Island; clipperton; flag; island -->
+		<!-- Clipperton Island; clipperton; island -->
 		<annotation cp='[{🇨🇵}]'>جزيرة كليبيرتون</annotation>
 
-		<!-- Cocos (Keeling) Islands; cocos; flag; islands; keeling -->
+		<!-- Cocos (Keeling) Islands; cocos; island; keeling -->
 		<annotation cp='[{🇨🇨}]'>جزر كوكوس</annotation>
 
-		<!-- Colombia; colombia; flag -->
+		<!-- Colombia; colombia -->
 		<annotation cp='[{🇨🇴}]'>كولومبيا</annotation>
 
-		<!-- Comoros; comoros; flag -->
+		<!-- Comoros; comoros -->
 		<annotation cp='[{🇰🇲}]'>جزر القمر</annotation>
 
-		<!-- Congo - Brazzaville; brazzaville; congo; flag -->
+		<!-- Congo - Brazzaville; brazzaville; congo; congo republic; congo-brazzaville; republic; republic of the congo -->
 		<annotation cp='[{🇨🇬}]'>الكونغو - برازافيل</annotation>
 
-		<!-- Congo - Kinshasa; congo; flag; kinshasa -->
+		<!-- Congo - Kinshasa; congo; congo-kinshasa; democratic republic of congo; drc; kinshasa; republic -->
 		<annotation cp='[{🇨🇩}]'>الكونغو - كينشاسا</annotation>
 
-		<!-- Cook Islands; cook; flag; islands -->
+		<!-- Cook Islands; cook; island -->
 		<annotation cp='[{🇨🇰}]'>جزر كوك</annotation>
 
-		<!-- Costa Rica; costa; flag; rica -->
+		<!-- Costa Rica; costa rica -->
 		<annotation cp='[{🇨🇷}]'>كوستاريكا</annotation>
 
-		<!-- Côte d’Ivoire; coast; cote; côte; flag; ivoire; ivory -->
+		<!-- Côte d’Ivoire; cote ivoire; côte ivoire; ivory coast -->
 		<annotation cp='[{🇨🇮}]'>ساحل العاج</annotation>
 
-		<!-- Croatia; croatia; flag -->
+		<!-- Croatia; croatia -->
 		<annotation cp='[{🇭🇷}]'>كرواتيا</annotation>
 
-		<!-- Cuba; cuba; flag -->
+		<!-- Cuba; cuba -->
 		<annotation cp='[{🇨🇺}]'>كوبا</annotation>
 
-		<!-- Curaçao; antilles; curacao; curaçao; flag; netherlands -->
+		<!-- Curaçao; antilles; curacao; curaçao -->
 		<annotation cp='[{🇨🇼}]'>كوراساو</annotation>
 
-		<!-- Cyprus; cyprus; flag -->
+		<!-- Cyprus; cyprus -->
 		<annotation cp='[{🇨🇾}]'>قبرص</annotation>
 
-		<!-- Czech Republic; czech; flag -->
+		<!-- Czech Republic; czech republic -->
 		<annotation cp='[{🇨🇿}]'>جمهورية التشيك</annotation>
 
-		<!-- Denmark; denmark; flag -->
+		<!-- Denmark; denmark -->
 		<annotation cp='[{🇩🇰}]'>الدانمرك</annotation>
 
-		<!-- Diego Garcia; diego; flag; garcia -->
+		<!-- Diego Garcia; diego garcia -->
 		<annotation cp='[{🇩🇬}]'>دييغو غارسيا</annotation>
 
-		<!-- Djibouti; djibouti; flag -->
+		<!-- Djibouti; djibouti -->
 		<annotation cp='[{🇩🇯}]'>جيبوتي</annotation>
 
-		<!-- Dominica; dominica; flag -->
+		<!-- Dominica; dominica -->
 		<annotation cp='[{🇩🇲}]'>دومينيكا</annotation>
 
-		<!-- Dominican Republic; dominica; dominican; flag -->
+		<!-- Dominican Republic; dominican republic -->
 		<annotation cp='[{🇩🇴}]'>جمهورية الدومينيك</annotation>
 
-		<!-- Ecuador; ecuador; flag -->
+		<!-- Ecuador; ecuador -->
 		<annotation cp='[{🇪🇨}]'>الإكوادور</annotation>
 
-		<!-- Egypt; arab; egypt; flag -->
+		<!-- Egypt; egypt -->
 		<annotation cp='[{🇪🇬}]'>مصر</annotation>
 
-		<!-- El Salvador; el salvador; flag -->
+		<!-- El Salvador; el salvador -->
 		<annotation cp='[{🇸🇻}]'>السلفادور</annotation>
 
-		<!-- Equatorial Guinea; equatorial; flag; guinea -->
+		<!-- Equatorial Guinea; equatorial guinea; guinea -->
 		<annotation cp='[{🇬🇶}]'>غينيا الإستوائية</annotation>
 
-		<!-- Eritrea; eritrea; flag -->
+		<!-- Eritrea; eritrea -->
 		<annotation cp='[{🇪🇷}]'>أريتريا</annotation>
 
-		<!-- Estonia; estonia; flag -->
+		<!-- Estonia; estonia -->
 		<annotation cp='[{🇪🇪}]'>أستونيا</annotation>
 
-		<!-- Ethiopia; ethiopia; flag -->
+		<!-- Ethiopia; ethiopia -->
 		<annotation cp='[{🇪🇹}]'>إثيوبيا</annotation>
 
-		<!-- European Union; european; flag; union -->
+		<!-- European Union; european union -->
 		<annotation cp='[{🇪🇺}]'>الاتحاد الأوروبي</annotation>
 
-		<!-- Falkland Islands; falkland; flag; islands; islas; malvinas -->
+		<!-- Falkland Islands; falkland; falklands; island; islas; malvinas -->
 		<annotation cp='[{🇫🇰}]'>جزر فوكلاند</annotation>
 
-		<!-- Faroe Islands; faeroe; faroe; flag; islands -->
+		<!-- Faroe Islands; faroe; island -->
 		<annotation cp='[{🇫🇴}]'>جزر فارو</annotation>
 
-		<!-- Fiji; fiji; flag -->
+		<!-- Fiji; fiji -->
 		<annotation cp='[{🇫🇯}]'>فيجي</annotation>
 
-		<!-- Finland; finland; flag -->
+		<!-- Finland; finland -->
 		<annotation cp='[{🇫🇮}]'>فنلندا</annotation>
 
-		<!-- France; flag; france -->
+		<!-- France; france -->
 		<annotation cp='[{🇫🇷}]'>فرنسا</annotation>
 
-		<!-- French Guiana; flag; french; guiana -->
+		<!-- French Guiana; french; guiana -->
 		<annotation cp='[{🇬🇫}]'>غويانا الفرنسية</annotation>
 
-		<!-- French Polynesia; flag; french; polynesia -->
+		<!-- French Polynesia; french; polynesia -->
 		<annotation cp='[{🇵🇫}]'>بولينيزيا الفرنسية</annotation>
 
-		<!-- French Southern Territories; flag; french; southern -->
+		<!-- French Southern Territories; antarctic; french -->
 		<annotation cp='[{🇹🇫}]'>المقاطعات الجنوبية الفرنسية</annotation>
 
-		<!-- Gabon; flag; gabon -->
+		<!-- Gabon; gabon -->
 		<annotation cp='[{🇬🇦}]'>الجابون</annotation>
 
-		<!-- Gambia; flag; gambia -->
+		<!-- Gambia; gambia -->
 		<annotation cp='[{🇬🇲}]'>غامبيا</annotation>
 
-		<!-- Georgia; flag; georgia -->
+		<!-- Georgia; georgia -->
 		<annotation cp='[{🇬🇪}]'>جورجيا</annotation>
 
-		<!-- Germany; flag; germany -->
+		<!-- Germany; germany -->
 		<annotation cp='[{🇩🇪}]'>ألمانيا</annotation>
 
-		<!-- Ghana; flag; ghana -->
+		<!-- Ghana; ghana -->
 		<annotation cp='[{🇬🇭}]'>غانا</annotation>
 
-		<!-- Gibraltar; flag; gibraltar -->
+		<!-- Gibraltar; gibraltar -->
 		<annotation cp='[{🇬🇮}]'>جبل طارق</annotation>
 
-		<!-- Greece; flag; greece -->
+		<!-- Greece; greece -->
 		<annotation cp='[{🇬🇷}]'>اليونان</annotation>
 
-		<!-- Greenland; flag; greenland -->
+		<!-- Greenland; greenland -->
 		<annotation cp='[{🇬🇱}]'>غرينلاند</annotation>
 
-		<!-- Grenada; flag; grenada -->
+		<!-- Grenada; grenada -->
 		<annotation cp='[{🇬🇩}]'>غرينادا</annotation>
 
-		<!-- Guadeloupe; flag; guadeloupe -->
+		<!-- Guadeloupe; guadeloupe -->
 		<annotation cp='[{🇬🇵}]'>جوادلوب</annotation>
 
-		<!-- Guam; flag; guam -->
+		<!-- Guam; guam -->
 		<annotation cp='[{🇬🇺}]'>غوام</annotation>
 
-		<!-- Guatemala; flag; guatemala -->
+		<!-- Guatemala; guatemala -->
 		<annotation cp='[{🇬🇹}]'>غواتيمالا</annotation>
 
-		<!-- Guernsey; flag; guernsey; islands -->
+		<!-- Guernsey; guernsey -->
 		<annotation cp='[{🇬🇬}]'>غيرنزي</annotation>
 
-		<!-- Guinea; flag; guinea -->
+		<!-- Guinea; guinea -->
 		<annotation cp='[{🇬🇳}]'>غينيا</annotation>
 
-		<!-- Guinea-Bissau; bissau; flag; guinea -->
+		<!-- Guinea-Bissau; bissau; guinea -->
 		<annotation cp='[{🇬🇼}]'>غينيا بيساو</annotation>
 
-		<!-- Guyana; flag; guyana -->
+		<!-- Guyana; guyana -->
 		<annotation cp='[{🇬🇾}]'>غيانا</annotation>
 
-		<!-- Haiti; flag; haiti -->
+		<!-- Haiti; haiti -->
 		<annotation cp='[{🇭🇹}]'>هايتي</annotation>
 
-		<!-- Heard &amp; McDonald Islands; flag; heard; island; islands; mcdonald -->
+		<!-- Heard &amp; McDonald Islands; heard; island; mcdonald -->
 		<annotation cp='[{🇭🇲}]'>جزيرة هيرد وجزر ماكدونالد</annotation>
 
-		<!-- Honduras; flag; honduras -->
+		<!-- Honduras; honduras -->
 		<annotation cp='[{🇭🇳}]'>هندوراس</annotation>
 
-		<!-- Hong Kong SAR China; china; flag; hong kong -->
+		<!-- Hong Kong SAR China; china; hong kong -->
 		<annotation cp='[{🇭🇰}]'>هونغ كونغ الصينية</annotation>
 
-		<!-- Hungary; flag; hungary -->
+		<!-- Hungary; hungary -->
 		<annotation cp='[{🇭🇺}]'>هنغاريا</annotation>
 
-		<!-- Iceland; flag; iceland -->
+		<!-- Iceland; iceland -->
 		<annotation cp='[{🇮🇸}]'>أيسلندا</annotation>
 
-		<!-- India; flag; india -->
+		<!-- India; india -->
 		<annotation cp='[{🇮🇳}]'>الهند</annotation>
 
-		<!-- Indonesia; flag; indonesia -->
+		<!-- Indonesia; indonesia -->
 		<annotation cp='[{🇮🇩}]'>أندونيسيا</annotation>
 
-		<!-- Iran; flag; iran -->
+		<!-- Iran; iran -->
 		<annotation cp='[{🇮🇷}]'>إيران</annotation>
 
-		<!-- Iraq; flag; iraq -->
+		<!-- Iraq; iraq -->
 		<annotation cp='[{🇮🇶}]'>العراق</annotation>
 
-		<!-- Ireland; flag; ireland -->
+		<!-- Ireland; ireland -->
 		<annotation cp='[{🇮🇪}]'>أيرلندا</annotation>
 
-		<!-- Isle of Man; flag; isle; man -->
+		<!-- Isle of Man; isle of man -->
 		<annotation cp='[{🇮🇲}]'>جزيرة مان</annotation>
 
-		<!-- Israel; flag; israel -->
+		<!-- Israel; israel -->
 		<annotation cp='[{🇮🇱}]'>إسرائيل</annotation>
 
-		<!-- Italy; flag; italy -->
+		<!-- Italy; italy -->
 		<annotation cp='[{🇮🇹}]'>إيطاليا</annotation>
 
-		<!-- Jamaica; flag; jamaica -->
+		<!-- Jamaica; jamaica -->
 		<annotation cp='[{🇯🇲}]'>جامايكا</annotation>
 
-		<!-- Japan; flag; japan -->
+		<!-- Japan; japan -->
 		<annotation cp='[{🇯🇵}]'>اليابان</annotation>
 
-		<!-- Jersey; flag; jersey -->
+		<!-- Jersey; jersey -->
 		<annotation cp='[{🇯🇪}]'>جيرسي</annotation>
 
-		<!-- Jordan; flag; jordan -->
+		<!-- Jordan; jordan -->
 		<annotation cp='[{🇯🇴}]'>الأردن</annotation>
 
-		<!-- Kazakhstan; flag; kazakhstan -->
+		<!-- Kazakhstan; kazakhstan -->
 		<annotation cp='[{🇰🇿}]'>كازاخستان</annotation>
 
-		<!-- Kenya; flag; kenya -->
+		<!-- Kenya; kenya -->
 		<annotation cp='[{🇰🇪}]'>كينيا</annotation>
 
-		<!-- Kiribati; flag; kiribati -->
+		<!-- Kiribati; kiribati -->
 		<annotation cp='[{🇰🇮}]'>كيريباتي</annotation>
 
-		<!-- Kosovo; flag; kosovo -->
+		<!-- Kosovo; kosovo -->
 		<annotation cp='[{🇽🇰}]'>كوسوفو</annotation>
 
-		<!-- Kuwait; flag; kuwait -->
+		<!-- Kuwait; kuwait -->
 		<annotation cp='[{🇰🇼}]'>الكويت</annotation>
 
-		<!-- Kyrgyzstan; flag; kyrgyz; kyrgyzstan -->
+		<!-- Kyrgyzstan; kyrgyzstan -->
 		<annotation cp='[{🇰🇬}]'>قرغيزستان</annotation>
 
-		<!-- Laos; flag; lao; laos -->
+		<!-- Laos; laos -->
 		<annotation cp='[{🇱🇦}]'>لاوس</annotation>
 
-		<!-- Latvia; flag; latvia -->
+		<!-- Latvia; latvia -->
 		<annotation cp='[{🇱🇻}]'>لاتفيا</annotation>
 
-		<!-- Lebanon; flag; lebanon -->
+		<!-- Lebanon; lebanon -->
 		<annotation cp='[{🇱🇧}]'>لبنان</annotation>
 
-		<!-- Lesotho; flag; lesotho -->
+		<!-- Lesotho; lesotho -->
 		<annotation cp='[{🇱🇸}]'>ليسوتو</annotation>
 
-		<!-- Liberia; flag; liberia -->
+		<!-- Liberia; liberia -->
 		<annotation cp='[{🇱🇷}]'>ليبيريا</annotation>
 
-		<!-- Libya; arab; flag; libya; libyan -->
+		<!-- Libya; libya -->
 		<annotation cp='[{🇱🇾}]'>ليبيا</annotation>
 
-		<!-- Liechtenstein; flag; liechtenstein -->
+		<!-- Liechtenstein; liechtenstein -->
 		<annotation cp='[{🇱🇮}]'>ليختنشتاين</annotation>
 
-		<!-- Lithuania; flag; lithuania -->
+		<!-- Lithuania; lithuania -->
 		<annotation cp='[{🇱🇹}]'>ليتوانيا</annotation>
 
-		<!-- Luxembourg; flag; luxembourg -->
+		<!-- Luxembourg; luxembourg -->
 		<annotation cp='[{🇱🇺}]'>لوكسمبورغ</annotation>
 
-		<!-- Macau SAR China; china; flag; macao; macau -->
+		<!-- Macau SAR China; china; macao; macau -->
 		<annotation cp='[{🇲🇴}]'>مكاو الصينية (منطقة إدارية خاصة)</annotation>
 
-		<!-- Macedonia; flag; macedonia -->
+		<!-- Macedonia; macedonia -->
 		<annotation cp='[{🇲🇰}]'>مقدونيا</annotation>
 
-		<!-- Madagascar; flag; madagascar -->
+		<!-- Madagascar; madagascar -->
 		<annotation cp='[{🇲🇬}]'>مدغشقر</annotation>
 
-		<!-- Malawi; flag; malawi -->
+		<!-- Malawi; malawi -->
 		<annotation cp='[{🇲🇼}]'>ملاوي</annotation>
 
-		<!-- Malaysia; flag; malaysia -->
+		<!-- Malaysia; malaysia -->
 		<annotation cp='[{🇲🇾}]'>ماليزيا</annotation>
 
-		<!-- Maldives; flag; maldives -->
+		<!-- Maldives; maldives -->
 		<annotation cp='[{🇲🇻}]'>جزر المالديف</annotation>
 
-		<!-- Mali; flag; mali -->
+		<!-- Mali; mali -->
 		<annotation cp='[{🇲🇱}]'>مالي</annotation>
 
-		<!-- Malta; flag; malta -->
+		<!-- Malta; malta -->
 		<annotation cp='[{🇲🇹}]'>مالطا</annotation>
 
-		<!-- Marshall Islands; flag; islands; marshall -->
+		<!-- Marshall Islands; island; marshall -->
 		<annotation cp='[{🇲🇭}]'>جزر المارشال</annotation>
 
-		<!-- Martinique; flag; martinique -->
+		<!-- Martinique; martinique -->
 		<annotation cp='[{🇲🇶}]'>مارتينيك</annotation>
 
-		<!-- Mauritania; flag; mauritania -->
+		<!-- Mauritania; mauritania -->
 		<annotation cp='[{🇲🇷}]'>موريتانيا</annotation>
 
-		<!-- Mauritius; flag; mauritius -->
+		<!-- Mauritius; mauritius -->
 		<annotation cp='[{🇲🇺}]'>موريشيوس</annotation>
 
-		<!-- Mayotte; flag; mayotte -->
+		<!-- Mayotte; mayotte -->
 		<annotation cp='[{🇾🇹}]'>مايوت</annotation>
 
-		<!-- Mexico; flag; mexico -->
+		<!-- Mexico; mexico -->
 		<annotation cp='[{🇲🇽}]'>المكسيك</annotation>
 
-		<!-- Micronesia; flag; micronesia -->
+		<!-- Micronesia; micronesia -->
 		<annotation cp='[{🇫🇲}]'>ميكرونيزيا</annotation>
 
-		<!-- Moldova; flag; moldova -->
+		<!-- Moldova; moldova -->
 		<annotation cp='[{🇲🇩}]'>مولدافيا</annotation>
 
-		<!-- Monaco; flag; monaco -->
+		<!-- Monaco; monaco -->
 		<annotation cp='[{🇲🇨}]'>موناكو</annotation>
 
-		<!-- Mongolia; flag; mongolia -->
+		<!-- Mongolia; mongolia -->
 		<annotation cp='[{🇲🇳}]'>منغوليا</annotation>
 
-		<!-- Montenegro; flag; montenegro -->
+		<!-- Montenegro; montenegro -->
 		<annotation cp='[{🇲🇪}]'>الجبل الأسود</annotation>
 
-		<!-- Montserrat; flag; montserrat -->
+		<!-- Montserrat; montserrat -->
 		<annotation cp='[{🇲🇸}]'>مونتسرات</annotation>
 
-		<!-- Morocco; flag; morocco -->
+		<!-- Morocco; morocco -->
 		<annotation cp='[{🇲🇦}]'>المغرب</annotation>
 
-		<!-- Mozambique; flag; mozambique -->
+		<!-- Mozambique; mozambique -->
 		<annotation cp='[{🇲🇿}]'>موزمبيق</annotation>
 
-		<!-- Myanmar (Burma); burma; flag; myanmar -->
+		<!-- Myanmar (Burma); burma; myanmar -->
 		<annotation cp='[{🇲🇲}]'>ميانمار -بورما</annotation>
 
-		<!-- Namibia; flag; namibia -->
+		<!-- Namibia; namibia -->
 		<annotation cp='[{🇳🇦}]'>ناميبيا</annotation>
 
-		<!-- Nauru; flag; nauru -->
+		<!-- Nauru; nauru -->
 		<annotation cp='[{🇳🇷}]'>ناورو</annotation>
 
-		<!-- Nepal; flag; nepal -->
+		<!-- Nepal; nepal -->
 		<annotation cp='[{🇳🇵}]'>نيبال</annotation>
 
-		<!-- Netherlands; flag; netherlands -->
+		<!-- Netherlands; netherlands -->
 		<annotation cp='[{🇳🇱}]'>هولندا</annotation>
 
-		<!-- New Caledonia; flag; new; new caledonia -->
+		<!-- New Caledonia; new; new caledonia -->
 		<annotation cp='[{🇳🇨}]'>كاليدونيا الجديدة</annotation>
 
-		<!-- New Zealand; flag; new; new zealand -->
+		<!-- New Zealand; new; new zealand -->
 		<annotation cp='[{🇳🇿}]'>نيوزيلاندا</annotation>
 
-		<!-- Nicaragua; flag; nicaragua -->
+		<!-- Nicaragua; nicaragua -->
 		<annotation cp='[{🇳🇮}]'>نيكاراغوا</annotation>
 
-		<!-- Niger; flag; niger -->
+		<!-- Niger; niger -->
 		<annotation cp='[{🇳🇪}]'>النيجر</annotation>
 
-		<!-- Nigeria; flag; nigeria -->
+		<!-- Nigeria; nigeria -->
 		<annotation cp='[{🇳🇬}]'>نيجيريا</annotation>
 
-		<!-- Niue; flag; niue -->
+		<!-- Niue; niue -->
 		<annotation cp='[{🇳🇺}]'>نيوي</annotation>
 
-		<!-- Norfolk Island; flag; island; norfolk -->
+		<!-- Norfolk Island; island; norfolk -->
 		<annotation cp='[{🇳🇫}]'>جزيرة نورفوك</annotation>
 
-		<!-- Northern Mariana Islands; flag; islands; mariana; northern -->
+		<!-- Northern Mariana Islands; island; mariana; north; northern mariana -->
 		<annotation cp='[{🇲🇵}]'>جزر ماريانا الشمالية</annotation>
 
-		<!-- North Korea; flag; korea; north -->
+		<!-- North Korea; korea; north; north korea -->
 		<annotation cp='[{🇰🇵}]'>كوريا الشمالية</annotation>
 
-		<!-- Norway; flag; norway -->
+		<!-- Norway; norway -->
 		<annotation cp='[{🇳🇴}]'>النرويج</annotation>
 
-		<!-- Oman; flag; oman -->
+		<!-- Oman; oman -->
 		<annotation cp='[{🇴🇲}]'>عُمان</annotation>
 
-		<!-- Pakistan; flag; pakistan -->
+		<!-- Pakistan; pakistan -->
 		<annotation cp='[{🇵🇰}]'>باكستان</annotation>
 
-		<!-- Palau; flag; palau -->
+		<!-- Palau; palau -->
 		<annotation cp='[{🇵🇼}]'>بالاو</annotation>
 
-		<!-- Palestinian Territories; flag; palestine -->
+		<!-- Palestinian Territories; palestine -->
 		<annotation cp='[{🇵🇸}]'>الأراضي الفلسطينية</annotation>
 
-		<!-- Panama; flag; panama -->
+		<!-- Panama; panama -->
 		<annotation cp='[{🇵🇦}]'>بنما</annotation>
 
-		<!-- Papua New Guinea; flag; guinea; new; papua new guinea -->
+		<!-- Papua New Guinea; guinea; new; papua new guinea -->
 		<annotation cp='[{🇵🇬}]'>بابوا غينيا الجديدة</annotation>
 
-		<!-- Paraguay; flag; paraguay -->
+		<!-- Paraguay; paraguay -->
 		<annotation cp='[{🇵🇾}]'>باراغواي</annotation>
 
-		<!-- Peru; flag; peru -->
+		<!-- Peru; peru -->
 		<annotation cp='[{🇵🇪}]'>بيرو</annotation>
 
-		<!-- Philippines; flag; philippines -->
+		<!-- Philippines; philippines -->
 		<annotation cp='[{🇵🇭}]'>الفلبين</annotation>
 
-		<!-- Pitcairn Islands; flag; islands; pitcairn -->
+		<!-- Pitcairn Islands; island; pitcairn -->
 		<annotation cp='[{🇵🇳}]'>جزر بيتكيرن</annotation>
 
-		<!-- Poland; flag; poland -->
+		<!-- Poland; poland -->
 		<annotation cp='[{🇵🇱}]'>بولندا</annotation>
 
-		<!-- Portugal; flag; portugal -->
+		<!-- Portugal; portugal -->
 		<annotation cp='[{🇵🇹}]'>البرتغال</annotation>
 
-		<!-- Puerto Rico; flag; puerto; rico -->
+		<!-- Puerto Rico; puerto rico -->
 		<annotation cp='[{🇵🇷}]'>بورتوريكو</annotation>
 
-		<!-- Qatar; flag; qatar -->
+		<!-- Qatar; qatar -->
 		<annotation cp='[{🇶🇦}]'>قطر</annotation>
 
-		<!-- Réunion; flag; reunion; réunion -->
+		<!-- Réunion; reunion; réunion -->
 		<annotation cp='[{🇷🇪}]'>روينيون</annotation>
 
-		<!-- Romania; flag; romania -->
+		<!-- Romania; romania -->
 		<annotation cp='[{🇷🇴}]'>رومانيا</annotation>
 
-		<!-- Russia; flag; russia; russian -->
+		<!-- Russia; russia -->
 		<annotation cp='[{🇷🇺}]'>روسيا</annotation>
 
-		<!-- Rwanda; flag; rwanda -->
+		<!-- Rwanda; rwanda -->
 		<annotation cp='[{🇷🇼}]'>رواندا</annotation>
 
-		<!-- Samoa; flag; samoa -->
+		<!-- Samoa; samoa -->
 		<annotation cp='[{🇼🇸}]'>ساموا</annotation>
 
-		<!-- San Marino; flag; san marino -->
+		<!-- San Marino; san marino -->
 		<annotation cp='[{🇸🇲}]'>سان مارينو</annotation>
 
-		<!-- São Tomé &amp; Príncipe; flag; principe; príncipe; sao; são; tome; tomé -->
+		<!-- São Tomé &amp; Príncipe; principe; príncipe; sao tome; são tomé -->
 		<annotation cp='[{🇸🇹}]'>ساو تومي وبرينسيبي</annotation>
 
-		<!-- Saudi Arabia; arabia; flag; saudi -->
+		<!-- Saudi Arabia; saudi arabia -->
 		<annotation cp='[{🇸🇦}]'>المملكة العربية السعودية</annotation>
 
-		<!-- Senegal; flag; senegal -->
+		<!-- Senegal; senegal -->
 		<annotation cp='[{🇸🇳}]'>السنغال</annotation>
 
-		<!-- Serbia; flag; serbia -->
+		<!-- Serbia; serbia -->
 		<annotation cp='[{🇷🇸}]'>صربيا</annotation>
 
-		<!-- Seychelles; flag; seychelles -->
+		<!-- Seychelles; seychelles -->
 		<annotation cp='[{🇸🇨}]'>سيشل</annotation>
 
-		<!-- Sierra Leone; flag; sierra leone -->
+		<!-- Sierra Leone; sierra leone -->
 		<annotation cp='[{🇸🇱}]'>سيراليون</annotation>
 
-		<!-- Singapore; flag; singapore -->
+		<!-- Singapore; singapore -->
 		<annotation cp='[{🇸🇬}]'>سنغافورة</annotation>
 
-		<!-- Sint Maarten; dutch; flag; maarten; sint -->
+		<!-- Sint Maarten; maarten; sint -->
 		<annotation cp='[{🇸🇽}]'>سينت مارتن</annotation>
 
-		<!-- Slovakia; flag; slovak; slovakia -->
+		<!-- Slovakia; slovakia -->
 		<annotation cp='[{🇸🇰}]'>سلوفاكيا</annotation>
 
-		<!-- Slovenia; flag; slovenia -->
+		<!-- Slovenia; slovenia -->
 		<annotation cp='[{🇸🇮}]'>سلوفينيا</annotation>
 
-		<!-- Solomon Islands; flag; islands; solomon -->
+		<!-- Solomon Islands; island; solomon -->
 		<annotation cp='[{🇸🇧}]'>جزر سليمان</annotation>
 
-		<!-- Somalia; flag; somalia -->
+		<!-- Somalia; somalia -->
 		<annotation cp='[{🇸🇴}]'>الصومال</annotation>
 
-		<!-- South Africa; africa; flag; south -->
+		<!-- South Africa; south; south africa -->
 		<annotation cp='[{🇿🇦}]'>جنوب أفريقيا</annotation>
 
-		<!-- South Georgia &amp; South Sandwich Islands; flag; georgia; islands; sandwich; south -->
+		<!-- South Georgia &amp; South Sandwich Islands; georgia; island; south; south georgia; south sandwich -->
 		<annotation cp='[{🇬🇸}]'>جورجيا الجنوبية وجزر ساندويتش الجنوبية</annotation>
 
-		<!-- South Korea; flag; korea; south -->
+		<!-- South Korea; korea; south; south korea -->
 		<annotation cp='[{🇰🇷}]'>كوريا الجنوبية</annotation>
 
-		<!-- South Sudan; flag; south; sudan -->
+		<!-- South Sudan; south; south sudan; sudan -->
 		<annotation cp='[{🇸🇸}]'>جنوب السودان</annotation>
 
-		<!-- Spain; flag; spain -->
+		<!-- Spain; spain -->
 		<annotation cp='[{🇪🇸}]'>إسبانيا</annotation>
 
-		<!-- Sri Lanka; flag; lanka; sri -->
+		<!-- Sri Lanka; sri lanka -->
 		<annotation cp='[{🇱🇰}]'>سريلانكا</annotation>
 
-		<!-- St. Barthélemy; barthelemy; barthélemy; flag; saint; st. -->
+		<!-- St. Barthélemy; barthelemy; barthélemy; saint -->
 		<annotation cp='[{🇧🇱}]'>سان بارتليمي</annotation>
 
-		<!-- St. Helena; ascension; cunha; flag; helena; saint; st.; tristan -->
+		<!-- St. Helena; helena; saint -->
 		<annotation cp='[{🇸🇭}]'>سانت هيلنا</annotation>
 
-		<!-- St. Kitts &amp; Nevis; flag; kitts; nevis; saint; st. -->
+		<!-- St. Kitts &amp; Nevis; kitts; nevis; saint -->
 		<annotation cp='[{🇰🇳}]'>سانت كيتس ونيفيس</annotation>
 
-		<!-- St. Lucia; flag; lucia; saint; st. -->
+		<!-- St. Lucia; lucia; saint -->
 		<annotation cp='[{🇱🇨}]'>سانت لوسيا</annotation>
 
-		<!-- St. Martin; flag; french; martin; saint; st. -->
+		<!-- St. Martin; french; martin; saint -->
 		<annotation cp='[{🇲🇫}]'>سانت مارتن</annotation>
 
-		<!-- St. Pierre &amp; Miquelon; flag; miquelon; pierre; saint; st. -->
+		<!-- St. Pierre &amp; Miquelon; miquelon; pierre; saint -->
 		<annotation cp='[{🇵🇲}]'>سانت بيير وميكولون</annotation>
 
-		<!-- St. Vincent &amp; Grenadines; flag; grenadines; saint; st.; vincent -->
+		<!-- St. Vincent &amp; Grenadines; grenadines; saint; vincent -->
 		<annotation cp='[{🇻🇨}]'>سانت فنسنت وغرنادين</annotation>
 
-		<!-- Sudan; flag; sudan -->
+		<!-- Sudan; sudan -->
 		<annotation cp='[{🇸🇩}]'>السودان</annotation>
 
-		<!-- Suriname; flag; suriname -->
+		<!-- Suriname; suriname -->
 		<annotation cp='[{🇸🇷}]'>سورينام</annotation>
 
-		<!-- Svalbard &amp; Jan Mayen; flag; islands; jan; mayen; svalbard -->
+		<!-- Svalbard &amp; Jan Mayen; jan mayen; svalbard -->
 		<annotation cp='[{🇸🇯}]'>سفالبارد وجان مايان</annotation>
 
-		<!-- Swaziland; flag; swaziland -->
+		<!-- Swaziland; swaziland -->
 		<annotation cp='[{🇸🇿}]'>سوازيلاند</annotation>
 
-		<!-- Sweden; flag; sweden -->
+		<!-- Sweden; sweden -->
 		<annotation cp='[{🇸🇪}]'>السويد</annotation>
 
-		<!-- Switzerland; flag; switzerland -->
+		<!-- Switzerland; switzerland -->
 		<annotation cp='[{🇨🇭}]'>سويسرا</annotation>
 
-		<!-- Syria; arab; flag; syria; syrian -->
+		<!-- Syria; syria -->
 		<annotation cp='[{🇸🇾}]'>سوريا</annotation>
 
-		<!-- Taiwan; china; flag; taiwan -->
+		<!-- Taiwan; china; taiwan -->
 		<annotation cp='[{🇹🇼}]'>تايوان</annotation>
 
-		<!-- Tajikistan; flag; tajikistan -->
+		<!-- Tajikistan; tajikistan -->
 		<annotation cp='[{🇹🇯}]'>طاجكستان</annotation>
 
-		<!-- Tanzania; flag; tanzania; united -->
+		<!-- Tanzania; tanzania -->
 		<annotation cp='[{🇹🇿}]'>تانزانيا</annotation>
 
-		<!-- Thailand; flag; thailand -->
+		<!-- Thailand; thailand -->
 		<annotation cp='[{🇹🇭}]'>تايلاند</annotation>
 
-		<!-- Timor-Leste; east; flag; leste; timor -->
+		<!-- Timor-Leste; east; east timor; timor-leste -->
 		<annotation cp='[{🇹🇱}]'>تيمور الشرقية</annotation>
 
-		<!-- Togo; flag; togo -->
+		<!-- Togo; togo -->
 		<annotation cp='[{🇹🇬}]'>توجو</annotation>
 
-		<!-- Tokelau; flag; tokelau -->
+		<!-- Tokelau; tokelau -->
 		<annotation cp='[{🇹🇰}]'>توكيلو</annotation>
 
-		<!-- Tonga; flag; tonga -->
+		<!-- Tonga; tonga -->
 		<annotation cp='[{🇹🇴}]'>تونغا</annotation>
 
-		<!-- Trinidad &amp; Tobago; flag; tobago; trinidad -->
+		<!-- Trinidad &amp; Tobago; tobago; trinidad -->
 		<annotation cp='[{🇹🇹}]'>ترينيداد وتوباغو</annotation>
 
-		<!-- Tristan da Cunha; cunha; flag; tristan -->
+		<!-- Tristan da Cunha; tristan da cunha -->
 		<annotation cp='[{🇹🇦}]'>تريستان دي كونها</annotation>
 
-		<!-- Tunisia; flag; tunisia -->
+		<!-- Tunisia; tunisia -->
 		<annotation cp='[{🇹🇳}]'>تونس</annotation>
 
-		<!-- Turkey; flag; turkey -->
+		<!-- Turkey; turkey -->
 		<annotation cp='[{🇹🇷}]'>تركيا</annotation>
 
-		<!-- Turkmenistan; flag; turkmenistan -->
+		<!-- Turkmenistan; turkmenistan -->
 		<annotation cp='[{🇹🇲}]'>تركمانستان</annotation>
 
-		<!-- Turks &amp; Caicos Islands; caicos; flag; islands; turks -->
+		<!-- Turks &amp; Caicos Islands; caicos; island; turks -->
 		<annotation cp='[{🇹🇨}]'>جزر الترك وجايكوس</annotation>
 
-		<!-- Tuvalu; flag; tuvalu -->
+		<!-- Tuvalu; tuvalu -->
 		<annotation cp='[{🇹🇻}]'>توفالو</annotation>
 
-		<!-- Uganda; flag; uganda -->
+		<!-- Uganda; uganda -->
 		<annotation cp='[{🇺🇬}]'>أوغندا</annotation>
 
-		<!-- Ukraine; flag; ukraine -->
+		<!-- Ukraine; ukraine -->
 		<annotation cp='[{🇺🇦}]'>أوكرانيا</annotation>
 
-		<!-- United Arab Emirates; arab; emirates; flag; united -->
+		<!-- United Arab Emirates; emirates; uae; united -->
 		<annotation cp='[{🇦🇪}]'>الإمارات العربية المتحدة</annotation>
 
-		<!-- United Kingdom; britain; cornwall; flag; great; ireland; kingdom; northern; scotland; united; wales -->
+		<!-- United Kingdom; britain; british; cornwall; england; great britain; ireland; northern ireland; scotland; uk; union jack; united; united kingdom; wales -->
 		<annotation cp='[{🇬🇧}]'>المملكة المتحدة</annotation>
 
-		<!-- United States; america; flag; u.s.; u.s.a.; united; us; usa -->
+		<!-- United States; america; stars and stripes; united; united states -->
 		<annotation cp='[{🇺🇸}]'>الولايات المتحدة</annotation>
 
-		<!-- Uruguay; flag; uruguay -->
+		<!-- Uruguay; uruguay -->
 		<annotation cp='[{🇺🇾}]'>أورغواي</annotation>
 
-		<!-- U.S. Outlying Islands; flag; islands; outlying; u.s.; united -->
+		<!-- U.S. Outlying Islands; america; island; minor outlying; united; united states; us; usa -->
 		<annotation cp='[{🇺🇲}]'>جزر الولايات المتحدة النائية</annotation>
 
-		<!-- U.S. Virgin Islands; flag; islands; u.s.; united; virgin islands -->
+		<!-- U.S. Virgin Islands; america; american; island; united; united states; us; usa; virgin -->
 		<annotation cp='[{🇻🇮}]'>جزر فرجين الأمريكية</annotation>
 
-		<!-- Uzbekistan; flag; uzbekistan -->
+		<!-- Uzbekistan; uzbekistan -->
 		<annotation cp='[{🇺🇿}]'>أوزبكستان</annotation>
 
-		<!-- Vanuatu; flag; vanuatu -->
+		<!-- Vanuatu; vanuatu -->
 		<annotation cp='[{🇻🇺}]'>فانواتو</annotation>
 
-		<!-- Vatican City; city; flag; holy; see; vatican -->
+		<!-- Vatican City; vatican -->
 		<annotation cp='[{🇻🇦}]'>الفاتيكان</annotation>
 
-		<!-- Venezuela; flag; venezuela -->
+		<!-- Venezuela; venezuela -->
 		<annotation cp='[{🇻🇪}]'>فنزويلا</annotation>
 
-		<!-- Vietnam; flag; nam; viet; vietnam -->
+		<!-- Vietnam; viet nam; vietnam -->
 		<annotation cp='[{🇻🇳}]'>فيتنام</annotation>
 
-		<!-- Wallis &amp; Futuna; flag; futuna; islands; wallis -->
+		<!-- Wallis &amp; Futuna; futuna; wallis -->
 		<annotation cp='[{🇼🇫}]'>جزر والس وفوتونا</annotation>
 
-		<!-- Western Sahara; flag; sahara; western -->
+		<!-- Western Sahara; sahara; west; western sahara -->
 		<annotation cp='[{🇪🇭}]'>الصحراء الغربية</annotation>
 
-		<!-- Yemen; flag; yemen -->
+		<!-- Yemen; yemen -->
 		<annotation cp='[{🇾🇪}]'>اليمن</annotation>
 
-		<!-- Zambia; flag; zambia -->
+		<!-- Zambia; zambia -->
 		<annotation cp='[{🇿🇲}]'>زامبيا</annotation>
 
-		<!-- Zimbabwe; flag; zimbabwe -->
+		<!-- Zimbabwe; zimbabwe -->
 		<annotation cp='[{🇿🇼}]'>زيمبابوي</annotation>
-
-		<!-- UPWARDS BLACK ARROW; arrow; cardinal; direction; north -->
-		<annotation cp='[⬆]'>MISSING</annotation>
-
-		<!-- NORTH EAST ARROW; arrow; direction; intercardinal; northeast -->
-		<annotation cp='[↗]'>MISSING</annotation>
-
-		<!-- BLACK RIGHTWARDS ARROW; arrow; cardinal; direction; east -->
-		<annotation cp='[➡]'>MISSING</annotation>
-
-		<!-- SOUTH EAST ARROW; arrow; direction; intercardinal; southeast -->
-		<annotation cp='[↘]'>MISSING</annotation>
-
-		<!-- DOWNWARDS BLACK ARROW; arrow; cardinal; direction; down; south -->
-		<annotation cp='[⬇]'>MISSING</annotation>
-
-		<!-- SOUTH WEST ARROW; arrow; direction; intercardinal; southwest -->
-		<annotation cp='[↙]'>MISSING</annotation>
-
-		<!-- LEFTWARDS BLACK ARROW; arrow; cardinal; direction; west -->
-		<annotation cp='[⬅]'>MISSING</annotation>
-
-		<!-- NORTH WEST ARROW; arrow; direction; intercardinal; northwest -->
-		<annotation cp='[↖]'>MISSING</annotation>
-
-		<!-- UP DOWN ARROW; arrow -->
-		<annotation cp='[↕]'>MISSING</annotation>
-
-		<!-- LEFT RIGHT ARROW; arrow -->
-		<annotation cp='[↔]'>MISSING</annotation>
-
-		<!-- LEFTWARDS ARROW WITH HOOK; arrow -->
-		<annotation cp='[↩]'>MISSING</annotation>
-
-		<!-- RIGHTWARDS ARROW WITH HOOK; arrow -->
-		<annotation cp='[↪]'>MISSING</annotation>
-
-		<!-- ARROW POINTING RIGHTWARDS THEN CURVING UPWARDS; arrow -->
-		<annotation cp='[⤴]'>MISSING</annotation>
-
-		<!-- ARROW POINTING RIGHTWARDS THEN CURVING DOWNWARDS; arrow; down -->
-		<annotation cp='[⤵]'>MISSING</annotation>
 
 		<!-- CLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS; arrow; clockwise; reload -->
 		<annotation cp='[🔃]' tts='إعادة تحميل'>علامة إعادة تحميل; أسهم عمودية باتجاه عقارب الساعة</annotation>
@@ -3436,62 +2875,23 @@
 		<!-- TOP WITH UPWARDS ARROW ABOVE; arrow; top; up -->
 		<annotation cp='[🔝]' tts='علامة أعلى'>أعلى; أعلى مع سهم لأعلى; سهم لأعلى</annotation>
 
-		<!-- OM SYMBOL; hindu; om; religion -->
-		<annotation cp='[🕉]'>MISSING</annotation>
+		<!-- JAPANESE SYMBOL FOR BEGINNER; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='ورقة خضراء وصفراء'>أخضر وأصفر; مبتدئ; ياباني</annotation>
 
-		<!-- STAR OF DAVID; david; jew; jewish; religion; star -->
-		<annotation cp='[✡]'>MISSING</annotation>
+		<!-- CRYSTAL BALL; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='كرة كريستال'>تنجيم; كريستال; كرة</annotation>
 
-		<!-- WHEEL OF DHARMA; buddhist; dharma; object; religion; wheel -->
-		<annotation cp='[☸]'>MISSING</annotation>
-
-		<!-- YIN YANG; religion; sign; tao; taoist; yang; yin -->
-		<annotation cp='[☯]'>MISSING</annotation>
-
-		<!-- LATIN CROSS; christian; cross; religion -->
-		<annotation cp='[✝]'>MISSING</annotation>
-
-		<!-- ORTHODOX CROSS; christian; cross; religion -->
-		<annotation cp='[☦]'>MISSING</annotation>
-
-		<!-- SHINTO SHRINE; religion; shinto; shrine -->
-		<annotation cp='[⛩]'>MISSING</annotation>
-
-		<!-- STAR AND CRESCENT; islam; muslim; religion -->
-		<annotation cp='[☪]'>MISSING</annotation>
-
-		<!-- PEACE SYMBOL; peace; sign -->
-		<annotation cp='[☮]'>MISSING</annotation>
-
-		<!-- RADIOACTIVE SIGN; radioactive; sign -->
-		<annotation cp='[☢]'>MISSING</annotation>
-
-		<!-- BIOHAZARD SIGN; biohazard; sign -->
-		<annotation cp='[☣]'>MISSING</annotation>
+		<!-- SIX POINTED STAR WITH MIDDLE DOT; fortune; star -->
+		<annotation cp='[🔯]' tts='نجمة سداسية'>تنجيم; نجمة</annotation>
 
 		<!-- BLACK UNIVERSAL RECYCLING SYMBOL; recycle; sign; travel -->
 		<annotation cp='[♻]' tts='رمز تدوير'>علامة تدوير النفايات الصلبة; تدوير; صلبة; إشارة</annotation>
 
-		<!-- HIGH VOLTAGE SIGN; danger; electric; electricity; lightning; nature; travel; voltage; zap -->
+		<!-- HIGH VOLTAGE SIGN; danger; electric; electricity; lightning; travel; voltage; zap -->
 		<annotation cp='[⚡]' tts='فولت عال'>خطر فولت عال; إشارة فولت عال; خطر; إشارة</annotation>
-
-		<!-- WHITE MEDIUM STAR; nature; star -->
-		<annotation cp='[⭐]'>MISSING</annotation>
-
-		<!-- HEAVY LARGE CIRCLE; circle; o; travel -->
-		<annotation cp='[⭕]'>MISSING</annotation>
 
 		<!-- WHITE HEAVY CHECK MARK; check; mark; sign -->
 		<annotation cp='[✅]' tts='علامة تحديد'>تحديد; </annotation>
-
-		<!-- BALLOT BOX WITH CHECK; ballot; box; check; sign -->
-		<annotation cp='[☑]'>MISSING</annotation>
-
-		<!-- HEAVY CHECK MARK; check; mark; sign -->
-		<annotation cp='[✔]'>MISSING</annotation>
-
-		<!-- HEAVY MULTIPLICATION X; cancel; multiplication; multiply; sign; x -->
-		<annotation cp='[✖]'>MISSING</annotation>
 
 		<!-- CROSS MARK; cancel; mark; multiplication; multiply; sign; x -->
 		<annotation cp='[❌]' tts='علامة X'>علامة X</annotation>
@@ -3514,90 +2914,6 @@
 		<!-- DOUBLE CURLY LOOP; curl; double; loop; sign -->
 		<annotation cp='[➿]' tts='عقدة مزدوجة'>عقدة; اليابان; اتصال مجاني</annotation>
 
-		<!-- PART ALTERNATION MARK; mark; part; sign -->
-		<annotation cp='[〽]'>MISSING</annotation>
-
-		<!-- EIGHT SPOKED ASTERISK; asterisk; sign -->
-		<annotation cp='[✳]'>MISSING</annotation>
-
-		<!-- EIGHT POINTED BLACK STAR; sign; star -->
-		<annotation cp='[✴]'>MISSING</annotation>
-
-		<!-- SPARKLE; sign; sparkle -->
-		<annotation cp='[❇]'>MISSING</annotation>
-
-		<!-- BLACK SMALL SQUARE; geometric; sign; square -->
-		<annotation cp='[▪]'>MISSING</annotation>
-
-		<!-- WHITE SMALL SQUARE; geometric; sign; square -->
-		<annotation cp='[▫]'>MISSING</annotation>
-
-		<!-- WHITE MEDIUM SQUARE; geometric; sign; square -->
-		<annotation cp='[◻]'>MISSING</annotation>
-
-		<!-- BLACK MEDIUM SQUARE; geometric; sign; square -->
-		<annotation cp='[◼]'>MISSING</annotation>
-
-		<!-- WHITE MEDIUM SMALL SQUARE; geometric; sign; square -->
-		<annotation cp='[◽]'>MISSING</annotation>
-
-		<!-- BLACK MEDIUM SMALL SQUARE; geometric; sign; square -->
-		<annotation cp='[◾]'>MISSING</annotation>
-
-		<!-- BLACK LARGE SQUARE; geometric; sign; square -->
-		<annotation cp='[⬛]'>MISSING</annotation>
-
-		<!-- WHITE LARGE SQUARE; geometric; sign; square -->
-		<annotation cp='[⬜]'>MISSING</annotation>
-
-		<!-- LARGE ORANGE DIAMOND; diamond; geometric; orange; sign -->
-		<annotation cp='[🔶]' tts='ماسة كبيرة'>ماسة برتقالية كبيرة; برتقالي; ماسة</annotation>
-
-		<!-- LARGE BLUE DIAMOND; blue; diamond; geometric; sign -->
-		<annotation cp='[🔷]' tts='ماسة كبيرة'>ماسة زرقاء كبيرة; أزرق; ماسة</annotation>
-
-		<!-- SMALL ORANGE DIAMOND; diamond; geometric; orange; sign -->
-		<annotation cp='[🔸]' tts='ماسة صغيرة'>ماسة برتقالية صغيرة; برتقالي; ماسة</annotation>
-
-		<!-- SMALL BLUE DIAMOND; blue; diamond; geometric; sign -->
-		<annotation cp='[🔹]' tts='ماسة صغيرة'>ماسة زرقاء صغيرة; أزرق; ماسة</annotation>
-
-		<!-- UP-POINTING RED TRIANGLE; geometric; red; sign -->
-		<annotation cp='[🔺]' tts='مثلث لأعلى'>مثلث أحمر لأعلى; أحمر; مثلث</annotation>
-
-		<!-- DOWN-POINTING RED TRIANGLE; down; geometric; red; sign -->
-		<annotation cp='[🔻]' tts='مثلث لأسفل'>مثلث أحمر لأسفل; أحمر; مثلث</annotation>
-
-		<!-- DIAMOND SHAPE WITH A DOT INSIDE; comic; diamond; emotion; geometric; inside; sign -->
-		<annotation cp='[💠]' tts='تشكيل زهور'>جذاب; ورد; شكل ماسة; ماسة; مشاعر</annotation>
-
-		<!-- RADIO BUTTON; button; geometric; radio; sign -->
-		<annotation cp='[🔘]' tts='زر راديو'>زر; راديو</annotation>
-
-		<!-- BLACK SQUARE BUTTON; button; geometric; sign; square -->
-		<annotation cp='[🔲]' tts='رمز مربع'>مربع; زر</annotation>
-
-		<!-- WHITE SQUARE BUTTON; button; geometric; outlined; sign; square -->
-		<annotation cp='[🔳]' tts='رمز مربع'>مربع; زر</annotation>
-
-		<!-- MEDIUM WHITE CIRCLE; circle; geometric; sign -->
-		<annotation cp='[⚪]'>MISSING</annotation>
-
-		<!-- MEDIUM BLACK CIRCLE; circle; geometric; sign -->
-		<annotation cp='[⚫]'>MISSING</annotation>
-
-		<!-- LARGE RED CIRCLE; circle; geometric; red; sign -->
-		<annotation cp='[🔴]' tts='دائرة كبيرة'>دائرة حمراء كبيرة; أحمر; دائرة</annotation>
-
-		<!-- LARGE BLUE CIRCLE; blue; circle; geometric; sign -->
-		<annotation cp='[🔵]' tts='دائرة كبيرة'>دائرة زرقاء كبيرة; أزرق; دائرة</annotation>
-
-		<!-- DOUBLE EXCLAMATION MARK; bangbang; exclamation; mark; punctuation; word -->
-		<annotation cp='[‼]'>MISSING</annotation>
-
-		<!-- EXCLAMATION QUESTION MARK; exclamation; interrobang; mark; punctuation; question; word -->
-		<annotation cp='[⁉]'>MISSING</annotation>
-
 		<!-- BLACK QUESTION MARK ORNAMENT; mark; punctuation; question; word -->
 		<annotation cp='[❓]' tts='علامة استفهام'>استفهام</annotation>
 
@@ -3607,20 +2923,23 @@
 		<!-- WHITE EXCLAMATION MARK ORNAMENT; exclamation; mark; outlined; punctuation; word -->
 		<annotation cp='[❕]' tts='علامة تعجب'>تعجب</annotation>
 
-		<!-- HEAVY EXCLAMATION MARK SYMBOL; exclamation; mark; punctuation; word -->
-		<annotation cp='[❗]'>MISSING</annotation>
-
 		<!-- WAVY DASH; dash; punctuation; sound; wavy -->
 		<annotation cp='[〰]' tts='شرطة مموجة'>علامة صوت طويل; مموج; شرطة</annotation>
-
-		<!-- NO ONE UNDER EIGHTEEN SYMBOL; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage; word -->
-		<annotation cp='[🔞]' tts='ممنوع أقل من 18'>أقل من 18; 18</annotation>
 
 		<!-- COPYRIGHT SIGN; copyright; symbol; word -->
 		<annotation cp='[©]' tts='علامة حقوق نشر'>حقوق طبع</annotation>
 
 		<!-- REGISTERED SIGN; registered; symbol; word -->
 		<annotation cp='[®]' tts='مسجَّل'>مسجَّل; علامة التسجيل</annotation>
+
+		<!-- TRADE MARK SIGN; mark; symbol; tm; trademark; word -->
+		<annotation cp='[™]' tts='إشارة علامة تجارية'>علامة تجارية; إشارة</annotation>
+
+		<!-- HUNDRED POINTS SYMBOL; 100; full; hundred; office; score -->
+		<annotation cp='[💯]' tts='درجة نهائية'>100 نقطة; 100; درجة</annotation>
+
+		<!-- NO ONE UNDER EIGHTEEN SYMBOL; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage; word -->
+		<annotation cp='[🔞]' tts='ممنوع أقل من 18'>أقل من 18; 18</annotation>
 
 		<!-- INPUT SYMBOL FOR LATIN CAPITAL LETTERS; input; latin; letters; uppercase; word -->
 		<annotation cp='[🔠]' tts='أحرف كبيرة'>حرف لاتيني كبير</annotation>
@@ -3631,7 +2950,7 @@
 		<!-- INPUT SYMBOL FOR NUMBERS; 1234; input; numbers; word -->
 		<annotation cp='[🔢]' tts='أرقام'>أرقام; أرقام إدخال</annotation>
 
-		<!-- INPUT SYMBOL FOR SYMBOLS; input; symbols; word -->
+		<!-- INPUT SYMBOL FOR SYMBOLS; input; word -->
 		<annotation cp='[🔣]' tts='رموز'>رموز; رموز إدخال</annotation>
 
 		<!-- INPUT SYMBOL FOR LATIN LETTERS; abc; alphabet; input; latin; letters; word -->
@@ -3655,14 +2974,8 @@
 		<!-- SQUARED FREE; free; word -->
 		<annotation cp='[🆓]' tts='مجاني'>مجاني</annotation>
 
-		<!-- INFORMATION SOURCE; i; information; word -->
-		<annotation cp='[ℹ]'>MISSING</annotation>
-
 		<!-- SQUARED ID; id; identity; word -->
 		<annotation cp='[🆔]' tts='هوية'>هوية</annotation>
-
-		<!-- CIRCLED LATIN CAPITAL LETTER M; circle; m; word -->
-		<annotation cp='[Ⓜ]'>MISSING</annotation>
 
 		<!-- SQUARED NEW; new; word -->
 		<annotation cp='[🆕]' tts='جديد'>جديد</annotation>
@@ -3681,9 +2994,6 @@
 
 		<!-- SQUARED SOS; help; sos; word -->
 		<annotation cp='[🆘]' tts='مساعدة'>مساعدة</annotation>
-
-		<!-- TRADE MARK SIGN; mark; symbol; tm; trademark; word -->
-		<annotation cp='[™]' tts='إشارة علامة تجارية'>علامة تجارية; إشارة</annotation>
 
 		<!-- SQUARED UP WITH EXCLAMATION MARK; mark; up; word -->
 		<annotation cp='[🆙]' tts='أعلى'>أعلى</annotation>
@@ -3730,16 +3040,46 @@
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7533; chinese; word -->
 		<annotation cp='[🈸]' tts='كلمة صينية'>كلمة صينية</annotation>
 
-		<!-- CIRCLED IDEOGRAPH CONGRATULATION; congratulation; congratulations; ideograph; word -->
-		<annotation cp='[㊗]'>MISSING</annotation>
-
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7981; japanese; word -->
 		<annotation cp='[🈲]' tts='كلمة يابانية'>كلمة يابانية</annotation>
 
-		<!-- CIRCLED IDEOGRAPH SECRET; ideograph; secret; word -->
-		<annotation cp='[㊙]'>MISSING</annotation>
-
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7A7A; chinese; word -->
 		<annotation cp='[🈳]' tts='كلمة صينية'>كلمة صينية</annotation>
+
+		<!-- LARGE ORANGE DIAMOND; diamond; geometric; orange; sign -->
+		<annotation cp='[🔶]' tts='ماسة كبيرة'>ماسة برتقالية كبيرة; برتقالي; ماسة</annotation>
+
+		<!-- LARGE BLUE DIAMOND; blue; diamond; geometric; sign -->
+		<annotation cp='[🔷]' tts='ماسة كبيرة'>ماسة زرقاء كبيرة; أزرق; ماسة</annotation>
+
+		<!-- SMALL ORANGE DIAMOND; diamond; geometric; orange; sign -->
+		<annotation cp='[🔸]' tts='ماسة صغيرة'>ماسة برتقالية صغيرة; برتقالي; ماسة</annotation>
+
+		<!-- SMALL BLUE DIAMOND; blue; diamond; geometric; sign -->
+		<annotation cp='[🔹]' tts='ماسة صغيرة'>ماسة زرقاء صغيرة; أزرق; ماسة</annotation>
+
+		<!-- UP-POINTING RED TRIANGLE; geometric; red; sign -->
+		<annotation cp='[🔺]' tts='مثلث لأعلى'>مثلث أحمر لأعلى; أحمر; مثلث</annotation>
+
+		<!-- DOWN-POINTING RED TRIANGLE; down; geometric; red; sign -->
+		<annotation cp='[🔻]' tts='مثلث لأسفل'>مثلث أحمر لأسفل; أحمر; مثلث</annotation>
+
+		<!-- DIAMOND SHAPE WITH A DOT INSIDE; comic; diamond; emotion; geometric; inside; sign -->
+		<annotation cp='[💠]' tts='تشكيل زهور'>جذاب; ورد; شكل ماسة; ماسة; مشاعر</annotation>
+
+		<!-- RADIO BUTTON; button; geometric; radio; sign -->
+		<annotation cp='[🔘]' tts='زر راديو'>زر; راديو</annotation>
+
+		<!-- BLACK SQUARE BUTTON; button; geometric; sign; square -->
+		<annotation cp='[🔲]' tts='رمز مربع'>مربع; زر</annotation>
+
+		<!-- WHITE SQUARE BUTTON; button; geometric; outlined; sign; square -->
+		<annotation cp='[🔳]' tts='رمز مربع'>مربع; زر</annotation>
+
+		<!-- LARGE RED CIRCLE; circle; geometric; red; sign -->
+		<annotation cp='[🔴]' tts='دائرة كبيرة'>دائرة حمراء كبيرة; أحمر; دائرة</annotation>
+
+		<!-- LARGE BLUE CIRCLE; blue; circle; geometric; sign -->
+		<annotation cp='[🔵]' tts='دائرة كبيرة'>دائرة زرقاء كبيرة; أزرق; دائرة</annotation>
 	</annotations>
 </ldml>

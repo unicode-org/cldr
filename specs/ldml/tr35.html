@@ -3566,7 +3566,7 @@ root</pre>
 					<li>Otherwise, walk again through the elements in E&#39;, from
 						back to front.
 						<ol>
-							<li>If you encounter a validSubLocales attribute:
+							<li>If you encounter a validSubLocales attribute<span class="changed"> (deprecated)</span>:
 								<ol>
 									<li>If L is in the attribute value, return <i>false</i></li>
 									<li>Otherwise return <i>true</i></li>
@@ -7160,6 +7160,15 @@ decimal?, group?, special*)) &gt;</pre>
 
 		<ul class="changed">
 			<li><b>Proposed update </b>for Version 27.</li>
+			<li><strong>Part 1: <a
+					href="#Contents">Core</a></strong>
+				<ul>
+					<li>Deprecated the valiSubLocales attribute everywhere; added
+							<em>Section 8.17 <a href="#validSubLocales">Attribute
+							validSubLocales</a></em> with details.
+							[<a href="http://unicode.org/cldr/trac/ticket/7903">#7903</a>]</li>
+				</ul>
+			</li>
 			<li><strong>Part 2: <a
 					href="tr35-general.html#Contents">General</a></strong>
 				<ul>

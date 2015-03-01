@@ -1922,7 +1922,7 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
 ​				http://i18napis.appspot.com/address/data/GB
 				...
 			-->
-            <deprecatedItems type="supplementalData" attributes="postalCodeData postCodeRegex"/>
+            <deprecatedItems type="supplementalData" elements="postalCodeData postCodeRegex"/>
         </deprecated>
         <distinguishing>
              <distinguishingItems attributes="key request id _q registry alt iso4217 iso3166 mzone from to type numberSystem count"/>

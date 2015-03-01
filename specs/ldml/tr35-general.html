@@ -280,6 +280,7 @@ h2,h3,h4,table {
 				</ul>
 			</li>
 			<li>13 <a href="#Choice_Patterns">Choice Patterns</a></li>
+			<li><span class="changed">14 <a href="#Annotations">Annotations</a></span></li>
 		</ul>
 		<h2>
 			1 <a name="Display_Name_Elements" href="#Display_Name_Elements">Display
@@ -3388,9 +3389,21 @@ h2,h3,h4,table {
 		</table>
 		<p>Quoting is done using ' characters, as in date or number
 			formats.</p>
-
-
-		<hr>
+		<h2 class="changed">14 <a name="Annotations" href="#Annotations">Annotations</a> </h2>
+		<p class="changed">Annotations provide information about characters, typically used in input. For example, on a mobile keyboard they can be used to do completion. They are typically used for symbols, especially emoji characters.</p>
+		<p class="changed xmlExample">&lt;!ELEMENT annotations ( annotation* ) &gt;<br>
+        &lt;!ELEMENT annotation ( #PCDATA ) &gt;<br>
+	    &lt;!ATTLIST annotation cp CDATA #REQUIRED &gt;<br>
+	    &lt;!ATTLIST annotation tts CDATA #IMPLIED &gt;</p>
+<p class="changed">The value of an annotation element is a semicolon-delimited list, such as the following for English and German respectively.</p>
+<p class='changed xmlExample'>&lt;annotation cp='[👎]'&gt;-1; thumbs down&lt;/annotation&gt;<br>
+&lt;annotation cp='[👎]' tts='Daumen runter'&gt;Hand; Daumen&lt;/annotation&gt;</p>
+<p class="changed">The values do not have to match between different languages; they should be the most common values that people using that language would associated with those characters. The tts attribute value, if present, is a value that can be used for text-to-speech, when reading text. It should be treated as one of the element values for other purposes. The Unicode character name can be used for English, when the tts value is not present.</p>
+<p class="changed">The cp attribute value is a UnicodeSet, and can thus contain multiple code points. A code point can occur in multiple annotation element cp values, such as the following, which also contains the &quot;thumbs down&quot; character.</p>
+<p class='xmlExample changed'>&lt;annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]'&gt;hand&lt;/annotation&gt;</p>
+<span class="changed"> For more information, see <a href='http://unicode.org/reports/tr51'>Unicode Emoji</a>.
+</span>
+<hr>
 		<p class="copyright">
 			Copyright © 2001–201<span class="changed">4</span> Unicode, Inc. All Rights Reserved. The Unicode
 			Consortium makes no expressed or implied warranty of any kind, and

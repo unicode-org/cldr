@@ -7187,33 +7187,42 @@ decimal?, group?, special*)) &gt;</pre>
 					</li>
 				</ul>
 			</li>
+			<li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong>
+			  <ul>
+			    <li><strong>Section 4.5 <a href="tr35-dates.html#Day_Period_Rule_Sets">Day Period Rule Sets</a></strong><a href="tr35-dates.html#Day_Period_Rule_Sets"></a>.
+			      <ul>
+			        <li>Added a selector for day periods, for use in selecting messages.</li>
+		          </ul>
+			    </li>
+		      </ul>
+			</li>
 			<li><strong>Part 5: <a
 				href="tr35-collation.html#Contents">Collation</a></strong>
-				<ul>
-					<li><a href="tr35-collation.html#Algorithm_FFFE">U+FFFE collation</a>
-						was simplified; U+FFFE needs to map to minimal, unique weights
-						only on primary and identical levels.
-						[<a href="http://unicode.org/cldr/trac/ticket/7202">#7202</a>]</li>
-					<li>The <a href="tr35-collation.html#Root_Collation">CLDR 27 root
-						collation</a> order is still based on the UCA 7.0 DUCET,
-						but with most of the Cyrillic contractions removed as in
-						UCA 8.0. The Cyrillic tailorings have been updated. [<a
+			  <ul>
+			    <li><a href="tr35-collation.html#Algorithm_FFFE">U+FFFE collation</a>
+			      was simplified; U+FFFE needs to map to minimal, unique weights
+			      only on primary and identical levels.
+			      [<a href="http://unicode.org/cldr/trac/ticket/7202">#7202</a>]</li>
+			    <li>The <a href="tr35-collation.html#Root_Collation">CLDR 27 root
+			      collation</a> order is still based on the UCA 7.0 DUCET,
+			      but with most of the Cyrillic contractions removed as in
+			      UCA 8.0. The Cyrillic tailorings have been updated. [<a
 						href="http://unicode.org/cldr/trac/ticket/7246">#7246</a>]</li>
-					<li><a href="tr35-collation.html#File_Format_FractionalUCA_txt">FractionalUCA.txt</a>
-						supports <a href="tr35-collation.html#Script_Reordering">reordering</a>
-						of single scripts rather than groups of scripts.
-						Implementations that support script reordering should base it on the
-						script-first-primary boundaries and use the new reorder-reserved ranges.
-						Some Recommended Scripts may share primary lead bytes.
-						[<a href="http://unicode.org/cldr/trac/ticket/7382">#7382</a>]</li>
-					<li><a href="tr35-collation.html#File_Format_FractionalUCA_txt">FractionalUCA.txt</a>
-						tertiary weights: Some fractional root collation elements have below-common
-						tertiary weights (e.g., <code>03</code>), in particular to allow normal
-						Hiragana letters to have common tertiary weights. This is the first time
-						that the root collation data uses below-common tertiary weights.
-						[<a href="http://unicode.org/cldr/trac/ticket/7222">#7222</a>]</li>
-				</ul>
-			</li>
+			    <li><a href="tr35-collation.html#File_Format_FractionalUCA_txt">FractionalUCA.txt</a>
+			      supports <a href="tr35-collation.html#Script_Reordering">reordering</a>
+			      of single scripts rather than groups of scripts.
+			      Implementations that support script reordering should base it on the
+			      script-first-primary boundaries and use the new reorder-reserved ranges.
+			      Some Recommended Scripts may share primary lead bytes.
+			      [<a href="http://unicode.org/cldr/trac/ticket/7382">#7382</a>]</li>
+			    <li><a href="tr35-collation.html#File_Format_FractionalUCA_txt">FractionalUCA.txt</a>
+			      tertiary weights: Some fractional root collation elements have below-common
+			      tertiary weights (e.g., <code>03</code>), in particular to allow normal
+			      Hiragana letters to have common tertiary weights. This is the first time
+			      that the root collation data uses below-common tertiary weights.
+			      [<a href="http://unicode.org/cldr/trac/ticket/7222">#7222</a>]</li>
+			    </ul>
+		  </li>
 			<li><strong>Part 6: <a href="tr35-info.html#Contents">Supplemental</a></strong><a href="tr35-info.html#Contents"></a>
 			  <ul>
 			    <li>Deprecated Section 6 <a href="tr35-info.html#Postal_Code_Validation">Postal

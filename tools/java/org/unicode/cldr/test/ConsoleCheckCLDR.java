@@ -743,18 +743,25 @@ public class ConsoleCheckCLDR {
             ErrorFile.writeErrorCountsText();
             ErrorFile.writeErrorFileIndex();
         }
+        System.out.println();
         for (ErrorType type : totalCount.keySet()) {
             System.out.println("Total " + type + ":\t" + totalCount.getCount(type));
         }
 
-        System.out.println("Total Elapsed: " + totalTimer);
+        System.out.println();
+        System.out.println("Total elapsed time: " + totalTimer);
         if (fatalErrors.size() != 0) {
             System.out.println("FATAL ERRORS:");
         }
         long errorCount = totalCount.getCount(ErrorType.error) + fatalErrors.size();
         if (errorCount != 0) {
             //            System.exit((int) errorCount); // cast is safe; we'll never have that many errors
+            System.out.println();
+            System.out.println("<< FAILURE - Error count is "+errorCount+" . >>");
             System.exit(-1);
+        } else {
+            System.out.println();
+            System.out.println("<< SUCCESS - No errors found. >>");
         }
     }
 

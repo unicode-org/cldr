@@ -107,19 +107,38 @@
         </copy>
     </target>
 
-    <target name="check" description="Run the standard CLDR test suite" depends="init,build">
-        <antcall target="_runCheck">
-            <param name="runcheck.arg" value="-n"/>
-            <param name="runcheck.jvmarg" value="${jvm_options}"/>
+    <target name="check" description="Run the CLDR test suite and data tests" depends="unittest,datacheck">
+    </target>
+
+    <target name="unittest" description="Run the standard CLDR test suite" depends="init,build">
+        <antcall target="_runUnitTests">
+            <param name="rununittest.arg" value="-n"/>
+            <param name="rununittest.jvmarg" value="${jvm_options}"/>
         </antcall>
     </target>
 
-   <target name="_runCheck" depends="init,build">
-        <echo message="JVM argument:   ${runcheck.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST  -Djava.awt.headless=true"/>
-        <echo message="Test argument:   ${runcheck.arg}"/>
+   <target name="_runUnitTests" depends="init,build">
+        <echo message="JVM argument:   ${rununittest.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST  -Djava.awt.headless=true"/>
+        <echo message="Test argument:   ${rununittest.arg}"/>
         <java classname="org.unicode.cldr.unittest.TestAll" fork="yes" failonerror="true" classpathref="project.class.path">
-            <arg line="${runcheck.arg}"/>
-            <jvmarg line="${runcheck.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST -Djava.awt.headless=true"/>
+            <arg line="${rununittest.arg}"/>
+            <jvmarg line="${rununittest.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST -Djava.awt.headless=true"/>
+        </java>
+   </target>
+
+    <target name="datacheck" description="Run the standard data tests" depends="init,build">
+        <antcall target="_dataCheck">
+            <param name="datacheck.arg" value="-e -z final_testing"/>
+            <param name="datacheck.jvmarg" value="${jvm_options}"/>
+        </antcall>
+    </target>
+
+   <target name="_dataCheck" depends="init,build">
+        <echo message="JVM argument:   ${datacheck.jvmarg} -Djava.awt.headless=true"/>
+        <echo message="Test argument:   ${datacheck.arg}"/>
+        <java classname="org.unicode.cldr.test.ConsoleCheckCLDR" fork="yes" failonerror="true" classpathref="project.class.path">
+            <arg line="${datacheck.arg}"/>
+            <jvmarg line="${datacheck.jvmarg} -Djava.awt.headless=true"/>
         </java>
    </target>
 

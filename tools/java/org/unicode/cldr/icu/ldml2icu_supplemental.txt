@@ -160,10 +160,11 @@
 //supplementalData/parentLocales/parentLocale[@parent="(%A)"][@locales="(%A)"] ; /parentLocales/$1 ; values=$2
 //supplementalData/metadata/defaultContent[@locales="(%A)"] ; /defaultContent ; values=$1
 
-//supplementalData/metadata/alias/(language|script|territory|variant)Alias[@type="(%A)"][@reason="(%A)"] ; /alias/$1/$2 ; values="" "$3"
-//supplementalData/metadata/alias/(language|script|territory|variant)Alias[@type="(%A)"][@replacement="(%A)"][@reason="(%A)"] ; /alias/$1/$2 ; values="$3" "$4"
-
 # supplementalMetadata.xml (metadata.txt)
+//supplementalData/metadata/alias/(language|script|territory|variant)Alias[@type="(%A)"][@replacement="(%A)"][@reason="(%A)"]
+     ; /alias/$1/$2/reason ; values="$4"
+     ; /alias/$1/$2/replacement ; values="$3"
+
 # Region codes used by ICU's Region class
 # Specify the value explicitly so that the LDMLConverter will split it.
 //supplementalData/metadata/validity/variable[@type="choice"][@id="\$territory"] ; /regionCodes ; values={value}

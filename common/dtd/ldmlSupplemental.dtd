@@ -260,28 +260,28 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST alias draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED ><!-- true and false are deprecated. -->
 
 <!ELEMENT languageAlias EMPTY >
-<!ATTLIST languageAlias type NMTOKEN #IMPLIED >
-<!ATTLIST languageAlias replacement NMTOKEN #IMPLIED >
+<!ATTLIST languageAlias type NMTOKEN #REQUIRED >
+<!ATTLIST languageAlias replacement NMTOKEN #REQUIRED >
 <!ATTLIST languageAlias reason ( deprecated | overlong | macrolanguage | legacy | bibliographic ) #IMPLIED >
 
 <!ELEMENT scriptAlias EMPTY >
-<!ATTLIST scriptAlias type NMTOKEN #IMPLIED >
-<!ATTLIST scriptAlias replacement NMTOKEN #IMPLIED >
+<!ATTLIST scriptAlias type NMTOKEN #REQUIRED >
+<!ATTLIST scriptAlias replacement NMTOKEN #REQUIRED >
 <!ATTLIST scriptAlias reason ( deprecated | overlong ) #IMPLIED >
 
 <!ELEMENT territoryAlias EMPTY >
-<!ATTLIST territoryAlias type NMTOKEN #IMPLIED >
-<!ATTLIST territoryAlias replacement NMTOKENS #IMPLIED >
+<!ATTLIST territoryAlias type NMTOKEN #REQUIRED >
+<!ATTLIST territoryAlias replacement NMTOKENS #REQUIRED >
 <!ATTLIST territoryAlias reason ( deprecated | overlong ) #IMPLIED >
 
 <!ELEMENT variantAlias EMPTY >
-<!ATTLIST variantAlias type NMTOKEN #IMPLIED >
-<!ATTLIST variantAlias replacement NMTOKEN #IMPLIED >
+<!ATTLIST variantAlias type NMTOKEN #REQUIRED >
+<!ATTLIST variantAlias replacement NMTOKEN #REQUIRED >
 <!ATTLIST variantAlias reason ( deprecated | overlong ) #IMPLIED >
 
 <!ELEMENT zoneAlias EMPTY >
-<!ATTLIST zoneAlias type CDATA #IMPLIED >
-<!ATTLIST zoneAlias replacement CDATA #IMPLIED >
+<!ATTLIST zoneAlias type CDATA #REQUIRED >
+<!ATTLIST zoneAlias replacement CDATA #REQUIRED >
 <!ATTLIST zoneAlias reason ( deprecated | overlong ) #IMPLIED >
 
 <!ELEMENT deprecated ( deprecatedItems* ) >

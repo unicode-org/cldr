@@ -855,7 +855,6 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <languageAlias type="sgn_CH_DE" replacement="sgg" reason="deprecated"/> <!-- Swiss German Sign Language -->
             <languageAlias type="zh_guoyu" replacement="zh" reason="deprecated"/> <!-- Mandarin or Standard Chinese -->
             <languageAlias type="zh_hakka" replacement="hak" reason="deprecated"/> <!-- Hakka -->
-            <languageAlias type="zh_min" reason="deprecated"/> <!-- Min, Fuzhou, Hokkien, Amoy, or Taiwanese -->
             <languageAlias type="zh_min_nan" replacement="nan" reason="deprecated"/> <!-- Minnan, Hokkien, Amoy, Taiwanese, Southern Min, Southern Fujian, Hoklo, Southern Fukien, Ho-lo -->
             <languageAlias type="zh_xiang" replacement="hsn" reason="deprecated"/> <!-- Xiang or Hunanese -->
             <!-- deprecated iso codes -->
@@ -1828,19 +1827,9 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <territoryAlias type="999" replacement="ZZ" reason="overlong"/> <!-- Unknown Region -->
             <!-- end of data generated with CountItems tool per http://sites.google.com/site/cldr/development/updating-codes/update-languagescriptregion-subtags -->
             <!-- variants -->
-            <variantAlias type="BOKMAL" reason="deprecated"/>
-            <variantAlias type="NYNORSK" reason="deprecated"/>
             <variantAlias type="AALAND" replacement="AX" reason="deprecated"/>
-            <variantAlias type="BOONT" reason="deprecated"/>
-            <variantAlias type="GAULISH" reason="deprecated"/>
-            <variantAlias type="GUOYU" reason="deprecated"/>
-            <variantAlias type="HAKKA" reason="deprecated"/>
-            <variantAlias type="LOJBAN" reason="deprecated"/>
-            <variantAlias type="SCOUSE" reason="deprecated"/>
-            <variantAlias type="XIANG" reason="deprecated"/>
             <variantAlias type="POLYTONI" replacement="POLYTON" reason="deprecated"/>
             <variantAlias type="HEPLOC" replacement="ALALC97" reason="deprecated"/>
-            <variantAlias type="SAAHO" reason="deprecated"/>
             <zoneAlias type="Africa/Timbuktu" replacement="Africa/Bamako" reason="deprecated"/>          
             <zoneAlias type="Pacific/Yap" replacement="Pacific/Truk" reason="deprecated"/>          
             <zoneAlias type="Europe/Belfast" replacement="Europe/London" reason="deprecated"/>

@@ -301,7 +301,7 @@ h2,h3,h4,table {
 
 		<p class="dtd">&lt;!ELEMENT supplementalData ( …, calendarData?,
 			calendarPreferenceData?, weekData?, timeData?, …, timezoneData?, …,
-			metazoneInfo?, …, dayPeriodRuleSet?, metaZones?, primaryZones?,
+			metazoneInfo?, …, dayPeriodRuleSet<span class="changed">*</span>, metaZones?, primaryZones?,
 			windowsZones?, …) &gt;</p>
 
 		<p>The relevant top-level supplemental elements are listed above.</p>
@@ -1671,27 +1671,45 @@ h2,h3,h4,table {
 			dayPeriodRule from NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST
 			dayPeriodRule before NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST
 		dayPeriodRule to NMTOKEN #IMPLIED &gt;</p>
-		<p class="changed">There are two kinds of dayPeriodRuleSets, based on the type. If the type is “selection”, then it is used for selecting a period of the day for a general time associated with an event. For example, it can be used to select a message like:</p>
-		<p class='xmlExample changed'>&lt;msg  ... &gt;<br>
-{day_period, select,<br>
-MORNING1  {Your email arrived yesterday morning.}<br>
-AFTERNOON1 {Your email arrived yesterday afternoon.}<br>
-EVENING1 {Your email arrived yesterday evening.}<br>
-NIGHT1 {Your email arrived last night.}<br>
-other {Your email arrived yesterday.}<br>
-...<br>
-}<br>
-&lt;/msg&gt;		</p>
-		<p class="changed">These are relative times within a single day. If the event can occur on multiple days, then that needs to be handled at a higher level.</p>
-		<p class="changed">As with plurals, the exact set of periods used for any language may be different. It is the responsibility of any translation software to pick the relevant day periods for the locale for display to the translator (and end user).</p>
-		<p class="changed">The default type (with no value) is used in conjunction with times, such as to express &quot;3:00 in the afternoon&quot;, or &quot;12:00 noon&quot;. Many languages do not normally use terms that match AM/PM for such times, instead breaking up the day into more periods.</p>
-		<h4>4.5.1 <a name="Day_Period_Rules" href="#Day_Period_Rules">Day
-		Period Rules</a></h4>
+
 		<p>Each locale can have a set of day period rules, which
-			determine the periods during a day if used with a 12 hour format. If
-		locales are not listed, dayPeriods fallback to AM/PM.</p>
-		<p>Here are the
-			requirements for a rule set:</p>
+			determine the periods during a day if used with a 12 hour format.
+			If locales are not listed, dayPeriods fallback to AM/PM.
+			<span class="changed">There are two kinds of dayPeriodRuleSets,
+			based on the type.</span></p>
+
+		<p class="changed">The default type (with no value) is used in
+			conjunction with times, such as to express &quot;3:00 in the afternoon&quot;,
+			or &quot;12:00 noon&quot;. Many languages do not normally use terms that
+			match AM/PM for such times, instead breaking up the day into more periods.</p>
+
+		<p class="changed">If the type is “selection”, then it is used for selecting
+			a period of the day for a general time associated with an event. For
+			example, it can be used to select a message like:</p>
+
+		<p class='xmlExample changed'>&lt;msg  ... &gt;<br>
+			{day_period, select,<br>
+			MORNING1  {Your email arrived yesterday morning.}<br>
+			AFTERNOON1 {Your email arrived yesterday afternoon.}<br>
+			EVENING1 {Your email arrived yesterday evening.}<br>
+			NIGHT1 {Your email arrived last night.}<br>
+			other {Your email arrived yesterday.}<br>
+			...<br>
+			}<br>
+			&lt;/msg&gt;</p>
+
+		<p class="changed">These are relative times within a single day. If the event
+			can occur on multiple days, then that needs to be handled at a higher level.</p>
+
+		<p class="changed">As with plurals, the exact set of periods used for any
+			language may be different. It is the responsibility of any translation
+			software to pick the relevant day periods for the locale for display to
+			the translator (and end user).</p>
+
+		<h4>4.5.1 <a name="Day_Period_Rules" href="#Day_Period_Rules">Day
+			Period Rules</a></h4>
+
+		<p>Here are the requirements for a rule set:</p>
 		<ol>
 		  <li>"from" and "to" are closed intervals (inclusive).</li>
 			<li>"after" and "before" are open intervals (exclusive).</li>

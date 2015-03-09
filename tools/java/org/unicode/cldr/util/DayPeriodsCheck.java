@@ -6,7 +6,6 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.DayPeriods.DayPeriod;
-import org.unicode.cldr.util.StandardCodes.CodeType;
 
 import com.ibm.icu.util.ULocale;
 

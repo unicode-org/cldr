@@ -5,7 +5,6 @@ import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 
 import com.ibm.icu.util.ULocale;
 

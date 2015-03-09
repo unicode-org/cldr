@@ -1,19 +1,14 @@
 package org.unicode.cldr.tool;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Date;
 import java.util.EnumSet;
+import java.util.List;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.tool.ShowLanguages.FormattedFileWriter;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -34,11 +29,7 @@ import org.unicode.cldr.util.XMLSource;
 import com.google.common.base.Objects;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.FileUtilities;
-import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.impl.Row.R5;
 
 public class GenerateChangeChart {

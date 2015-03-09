@@ -86,8 +86,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         .add("organization", 'o', ".*", null, "The organization to filter the data for")
         .add("makefile", 'g', ".*", null, "If set, generates makefiles and alias files for the specified type. " +
             "The value to set should be the name of the makefile.")
-        .add("verbose", 'v', null, null, "Debugging aids")
-            ;
+        .add("verbose", 'v', null, null, "Debugging aids");
 
     private static final String LOCALES_DIR = "locales";
 
@@ -192,7 +191,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
 
         // Get list of locales if defined.
         Set<String> includedLocales = getIncludedLocales();
-        Map<String,String> localesMap = getLocalesMap();
+        Map<String, String> localesMap = getLocalesMap();
         if (includedLocales != null && includedLocales.size() > 0) {
             final Set<String> locales = new HashSet<String>();
             for (String locale : includedLocales) {
@@ -412,7 +411,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
      */
     private void writeMakefile(Makefile makefile, String outputDir, String makefileName) {
         try {
-            if (new File(outputDir+File.separator+makefileName).createNewFile()) {
+            if (new File(outputDir + File.separator + makefileName).createNewFile()) {
                 makefile.print(outputDir, makefileName);
             }
         } catch (IOException e) {
@@ -443,7 +442,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         String from = alias.from;
         String to = alias.to;
         // Add synthetic destination file for alias if necessary.
-        if (!sources.contains(to) && !aliasTargets.contains(to) && new File(outputDir+File.separator+alias.to+".txt").createNewFile()) {
+        if (!sources.contains(to) && !aliasTargets.contains(to) && new File(outputDir + File.separator + alias.to + ".txt").createNewFile()) {
             System.out.println(to + " not found, creating empty file in " + outputDir);
             IcuTextWriter.writeToFile(createEmptyFile(alias.to), outputDir);
             aliasTargets.add(to);

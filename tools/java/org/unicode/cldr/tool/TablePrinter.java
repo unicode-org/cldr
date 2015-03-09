@@ -418,7 +418,7 @@ public class TablePrinter {
             }
         }
         for (int k = rowIndex + 1; k < sortedFlat.length; ++k) {
-            if (!item.equals(sortedFlat[k][colIndex]) 
+            if (!item.equals(sortedFlat[k][colIndex])
                 || breakSpans(sortedFlat, k, colIndex)) {
                 return k - rowIndex;
             }

@@ -35,17 +35,18 @@ public class GenerateCasingChart {
     enum ContextTransformUsage {
         languages,
         script,
-        keyValue, 
+        keyValue,
         calendar_field,
-        day_format_except_narrow, 
-        day_standalone_except_narrow, 
-        month_format_except_narrow, 
+        day_format_except_narrow,
+        day_standalone_except_narrow,
+        month_format_except_narrow,
         month_standalone_except_narrow,
         era_name,
         era_abbr,
         relative,
         currencyName,
-        number_spellout}
+        number_spellout
+    }
 
     enum ContextTransformType {
         stand_alone,
@@ -79,11 +80,11 @@ public class GenerateCasingChart {
         check(ULocale.ENGLISH);
         check(ULocale.FRENCH);
         check(new ULocale("ca"));
-        
+
         CasingInfo casingInfo = new CasingInfo();
         String dir = CLDRPaths.COMMON_DIRECTORY + "/casing";
         Splitter period = Splitter.on(".");
-        Relation<Map<Category, CasingType>,String> infoToLocales = Relation.of(new HashMap(), TreeSet.class);
+        Relation<Map<Category, CasingType>, String> infoToLocales = Relation.of(new HashMap(), TreeSet.class);
         Factory factory = CLDRConfig.getInstance().getFullCldrFactory();
 
         System.out.print("Locale\tLevel\tCount\tCLanguage");
@@ -111,8 +112,8 @@ public class GenerateCasingChart {
             UnicodeSet exemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
 
             M3<ContextTransformUsage, ContextTransformType, ContextTransformValue> data = ChainedMap.of(
-                new LinkedHashMap<ContextTransformUsage,Object>(), 
-                new LinkedHashMap<ContextTransformType,Object>(), 
+                new LinkedHashMap<ContextTransformUsage, Object>(),
+                new LinkedHashMap<ContextTransformType, Object>(),
                 ContextTransformValue.class);
 
             Level level = CLDRConfig.getInstance().getStandardCodes().getLocaleCoverageLevel("cldr", locale);
@@ -137,7 +138,7 @@ public class GenerateCasingChart {
             if (showCasing) {
                 for (Category x : Category.values()) {
                     CasingType value = info.get(x);
-                    System.out.print("\t" + (value == null ? "n/a" 
+                    System.out.print("\t" + (value == null ? "n/a"
                         : value.toString().toUpperCase(Locale.ENGLISH).charAt(0)));
 
                 }
@@ -166,7 +167,7 @@ public class GenerateCasingChart {
             //infoToLocales.put(info, locale);
             for (ContextTransformUsage contextTransformUsage : ContextTransformUsage.values()) {
                 Map<ContextTransformType, ContextTransformValue> map = data.get(contextTransformUsage);
-                System.out.print("\t" + (map == null ? "n/a" : map.entrySet().toString().replace("="," = ")));
+                System.out.print("\t" + (map == null ? "n/a" : map.entrySet().toString().replace("=", " = ")));
             }
             System.out.println();
         }
@@ -178,9 +179,9 @@ public class GenerateCasingChart {
     private static void check(ULocale locale) {
         LocaleDisplayNames localeDisplayNames = LocaleDisplayNames.getInstance(locale, DisplayContext.CAPITALIZATION_FOR_UI_LIST_OR_MENU);
         System.out.println(
-            locale.getDisplayName(ULocale.ENGLISH) 
-            + "\t" + locale.getDisplayName(locale)
-            + "\t" + localeDisplayNames.localeDisplayName(locale)
+            locale.getDisplayName(ULocale.ENGLISH)
+                + "\t" + locale.getDisplayName(locale)
+                + "\t" + localeDisplayNames.localeDisplayName(locale)
             );
     }
 

@@ -152,7 +152,7 @@ public class ShowKeyboards {
             }
         }
         if (totalErrors.size() != 0) {
-            System.out.println("Errors\t" + CollectionUtilities.join(totalErrors, System.lineSeparator()+"\t"));
+            System.out.println("Errors\t" + CollectionUtilities.join(totalErrors, System.lineSeparator() + "\t"));
         }
         for (String item : totalModifiers) {
             System.out.println(item);

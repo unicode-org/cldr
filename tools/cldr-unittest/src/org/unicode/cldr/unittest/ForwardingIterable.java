@@ -15,22 +15,22 @@ import java.util.Iterator;
  */
 public class ForwardingIterable<E> implements Iterable<E> {
 
-	/**
-	 * The iterator to forward to
-	 */
-	private final Iterator<E> iterator;
+    /**
+     * The iterator to forward to
+     */
+    private final Iterator<E> iterator;
 
-	/**
-	 * Construct using the iterator provided
-	 * 
-	 * @param anIterator
-	 */
-	public ForwardingIterable(Iterator<E> anIterator) {
-		iterator = anIterator;
-	}
+    /**
+     * Construct using the iterator provided
+     * 
+     * @param anIterator
+     */
+    public ForwardingIterable(Iterator<E> anIterator) {
+        iterator = anIterator;
+    }
 
-	@Override
-	public Iterator<E> iterator() {
-		return iterator;
-	}
+    @Override
+    public Iterator<E> iterator() {
+        return iterator;
+    }
 }

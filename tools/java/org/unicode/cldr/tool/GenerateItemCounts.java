@@ -75,8 +75,8 @@ public class GenerateItemCounts {
         summary(null, null, "if present, summarizes data already collected. Run once with, once without."),
         directory(".*", ".*",
             "if summary, creates filtered version (eg -d main): does a find in the name, which is of the form dir/file"),
-            verbose(null, null, "verbose debugging messages"),
-            rawfilter(".*", ".*", "filter the raw files (non-summary, mostly for debugging)"), ;
+        verbose(null, null, "verbose debugging messages"),
+        rawfilter(".*", ".*", "filter the raw files (non-summary, mostly for debugging)"), ;
         // boilerplate
         final Option option;
 
@@ -112,7 +112,7 @@ public class GenerateItemCounts {
                 // if (dirPattern != null && !dirPattern.matcher(dir).find()) continue;
                 final String pathname = dir.equals("trunk") ? CLDRPaths.BASE_DIRECTORY
                     : CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir;
-                boolean isFinal = dir == DIRECTORIES[DIRECTORIES.length-1];
+                boolean isFinal = dir == DIRECTORIES[DIRECTORIES.length - 1];
 
                 String fulldir = new File(pathname).getCanonicalPath();
                 String prefix = (MyOptions.rawfilter.option.doesOccur() ? "filtered_" : "");
@@ -126,7 +126,7 @@ public class GenerateItemCounts {
                     PrintWriter changesDeletes = BagFormatter
                         .openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_deletes.txt");
                     PrintWriter changesSummary = BagFormatter
-                        .openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_changes_summary.txt"); ) {
+                        .openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_changes_summary.txt");) {
                     main.summarizeCoverage(summary, fulldir, isFinal);
                     if (doChanges) {
                         if (oldPath2value != null) {
@@ -154,10 +154,10 @@ public class GenerateItemCounts {
 
     static final Relation<String, DtdType> ELEMENTS_OCCURRING = Relation.of(new TreeMap(), TreeSet.class);
     static final Relation<String, DtdType> ELEMENTS_POSSIBLE = Relation.of(new TreeMap(), TreeSet.class);
-    static final Relation<String, Row.R2<DtdType,String>> ATTRIBUTES_OCCURRING = Relation.of(new TreeMap(), TreeSet.class);
-    static final Relation<String, Row.R2<DtdType,String>> ATTRIBUTES_POSSIBLE= Relation.of(new TreeMap(), TreeSet.class);
+    static final Relation<String, Row.R2<DtdType, String>> ATTRIBUTES_OCCURRING = Relation.of(new TreeMap(), TreeSet.class);
+    static final Relation<String, Row.R2<DtdType, String>> ATTRIBUTES_POSSIBLE = Relation.of(new TreeMap(), TreeSet.class);
 
-    private static void checkBadAttributes(Relation<String, String> path2value2, String outputFile) 
+    private static void checkBadAttributes(Relation<String, String> path2value2, String outputFile)
         throws IOException {
         // an attribute is misplaced if it is not distinguishing, but is on a non-final node.
 
@@ -165,7 +165,7 @@ public class GenerateItemCounts {
 
         SupplementalDataInfo supp = SUPPLEMENTAL_DATA_INFO;
         for (DtdType dtdType : DtdType.values()) {
-            if (dtdType == DtdType.ldmlICU){
+            if (dtdType == DtdType.ldmlICU) {
                 continue;
             }
             DtdData data = DtdData.getInstance(dtdType);
@@ -174,15 +174,15 @@ public class GenerateItemCounts {
                 ELEMENTS_POSSIBLE.put(elementName, dtdType);
                 final Set<Element> children = element.getChildren().keySet();
 
-                boolean skipFinal = children.isEmpty() 
-                    || children.size() == 1 
+                boolean skipFinal = children.isEmpty()
+                    || children.size() == 1
                     && children.iterator().next().name.equals("special");
 
                 for (Entry<Attribute, Integer> attributeInt : element.getAttributes().entrySet()) {
                     Attribute attribute = attributeInt.getKey();
                     String attributeName = attribute.name;
                     if (attribute.defaultValue != null) {
-                        errors.add("Warning, default value «" + attribute.defaultValue 
+                        errors.add("Warning, default value «" + attribute.defaultValue
                             + "» for: " + dtdType + "\t" + elementName + "\t" + attributeName);
                     }
                     final R2<DtdType, String> attributeRow = Row.of(dtdType, elementName);
@@ -229,18 +229,18 @@ public class GenerateItemCounts {
 
                 if (!Collections.disjoint(deprecated, occurs)) { // deprecated must not occur
                     final Set<DtdType> intersection = CldrUtility.intersect(deprecated, occurs);
-                    errors.add("Error: element «" + element 
-                        + "» is deprecated in " + (deprecated.equals(possible) ? "EVERYWHERE" : intersection) + 
+                    errors.add("Error: element «" + element
+                        + "» is deprecated in " + (deprecated.equals(possible) ? "EVERYWHERE" : intersection) +
                         " but occurs in live data: " + intersection);
                 }
                 if (!Collections.disjoint(notDeprecated, noOccur)) { // if !deprecated & !occur, warning
-                    errors.add("Warning: element «" + element 
+                    errors.add("Warning: element «" + element
                         + "» doesn't occur in and is not deprecated in " + CldrUtility.intersect(notDeprecated, noOccur));
                 }
 
-                out.println(element 
+                out.println(element
                     + "\t" + deprecated
-                    + "\t" + occurs 
+                    + "\t" + occurs
                     + "\t" + noOccur
                     );
             }
@@ -271,16 +271,16 @@ public class GenerateItemCounts {
                 if (!Collections.disjoint(deprecated, occurs)) { // deprecated must not occur
                     final Set<R2<DtdType, String>> intersection = CldrUtility.intersect(deprecated, occurs);
                     errors.add("Error: attribute «" + attribute
-                        + "» is deprecated in " + (deprecated.equals(possible) ? "EVERYWHERE" : intersection) + 
+                        + "» is deprecated in " + (deprecated.equals(possible) ? "EVERYWHERE" : intersection) +
                         " but occurs in live data: " + intersection);
                 }
                 if (!Collections.disjoint(notDeprecated, noOccur)) { // if !deprecated & !occur, warning
                     errors.add("Warning: attribute «" + attribute
                         + "» doesn't occur in and is not deprecated in " + CldrUtility.intersect(notDeprecated, noOccur));
                 }
-                out.println(attribute 
+                out.println(attribute
                     + "\t" + deprecated
-                    + "\t" + occurs 
+                    + "\t" + occurs
                     + "\t" + noOccur
                     );
             }
@@ -361,7 +361,7 @@ public class GenerateItemCounts {
         }
     }
 
-    private static void compare(PrintWriter summary, PrintWriter changes, PrintWriter changesNew, 
+    private static void compare(PrintWriter summary, PrintWriter changes, PrintWriter changesNew,
         PrintWriter changesDeletes, PrintWriter changesSummary, Relation<String, String> oldPath2value,
         Relation<String, String> path2value2) {
         Set<String> union = Builder.with(new TreeSet<String>()).addAll(oldPath2value.keySet())
@@ -551,7 +551,7 @@ public class GenerateItemCounts {
         }
         PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY,
             (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "summary" +
-            ".txt");
+                ".txt");
         for (String file : releases) {
             summary.print("\t" + file + "\tlen");
         }
@@ -573,7 +573,7 @@ public class GenerateItemCounts {
         summary.close();
         PrintWriter summary2 = BagFormatter.openUTF8Writer(OUT_DIRECTORY,
             (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "locales" +
-            ".txt");
+                ".txt");
         summary2.println("#Languages (inc. script):\t" + writtenLanguages.size());
         summary2.println("#Countries:\t" + countries.size());
         summary2.println("#Locales:\t" + localesToPaths.size());
@@ -599,7 +599,7 @@ public class GenerateItemCounts {
             ELEMENTS_OCCURRING.put(element, type2);
             for (String attribute : parts.getAttributes(i).keySet()) {
                 ATTRIBUTES_OCCURRING.put(attribute, Row.of(type2, element));
-            }                
+            }
         }
     }
 

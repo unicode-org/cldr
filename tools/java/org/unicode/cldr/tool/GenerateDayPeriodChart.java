@@ -27,6 +27,7 @@ public class GenerateDayPeriodChart {
     static final StandardCodes SC = CLDRConfig.getInstance().getStandardCodes();
     static final int MINUTE = 60 * 1000;
     static final int HOUR = 60 * MINUTE;
+
 //    static final DayPeriodInfo ENGLISH_DAY_INFO;
 //    static final DayPeriodInfo ROOT_DAY_INFO;
 //    static {
@@ -50,14 +51,14 @@ public class GenerateDayPeriodChart {
         for (DayPeriodInfo.Type type : DayPeriodInfo.Type.values()) {
 
             final M4<DayPeriod, DayPeriod, String, Boolean> minimalPairs = ChainedMap.of(
-                new TreeMap<DayPeriod,Object>(),
-                new TreeMap<DayPeriod,Object>(), 
-                new TreeMap<String,Object>(),
+                new TreeMap<DayPeriod, Object>(),
+                new TreeMap<DayPeriod, Object>(),
+                new TreeMap<String, Object>(),
                 Boolean.class);
 
             EnumSet<DayPeriod> careAbout = EnumSet.noneOf(DayPeriod.class);
-            
-            M3<DayPeriod, Integer, Integer> dayPeriodToTimes = ChainedMap.of(new TreeMap<DayPeriod,Object>(), new TreeMap<Integer,Object>(), Integer.class);
+
+            M3<DayPeriod, Integer, Integer> dayPeriodToTimes = ChainedMap.of(new TreeMap<DayPeriod, Object>(), new TreeMap<Integer, Object>(), Integer.class);
 
             System.out.println(type);
             Set<String> dayPeriodLocales = SUP.getDayPeriodLocales(type);
@@ -81,7 +82,7 @@ public class GenerateDayPeriodChart {
                 for (int i = 0; i < 24; ++i) {
                     DayPeriod period = info.getDayPeriod((i * 60 + 30) * MINUTE);
                     Integer old = dayPeriodToTimes.get(period, i);
-                    dayPeriodToTimes.put(period, i, old == null ? 1 : old+1);
+                    dayPeriodToTimes.put(period, i, old == null ? 1 : old + 1);
                 }
             }
 //            careAbout.remove(DayPeriod.am);
@@ -90,7 +91,7 @@ public class GenerateDayPeriodChart {
             System.out.print("\t\t");
             for (int i = 0; i < 24; ++i) {
                 if (i == 12 || i == 0) {
-                    System.out.print("\t" + dt.format((i * 60) * MINUTE));                    
+                    System.out.print("\t" + dt.format((i * 60) * MINUTE));
                 }
                 System.out.print("\t" + dt.format((i * 60 + 30) * MINUTE));
             }
@@ -122,7 +123,7 @@ public class GenerateDayPeriodChart {
                 System.out.print("\t" + dt.format((i * 60 + 30) * MINUTE));
             }
             System.out.println();
-            for (DayPeriod dayPeriod : DayPeriod.values()){
+            for (DayPeriod dayPeriod : DayPeriod.values()) {
                 System.out.print(dayPeriod);
                 final Map<Integer, Integer> times = dayPeriodToTimes.get(dayPeriod);
                 for (int i = 0; i < 24; ++i) {
@@ -131,7 +132,7 @@ public class GenerateDayPeriodChart {
                 }
                 System.out.println();
             }
-            
+
             EnumSet<DayPeriod> present = EnumSet.allOf(DayPeriod.class);
             for (String locale : dayPeriodLocales) { // SC.getLocaleCoverageLocales("cldr", EnumSet.of(Level.MODERN))) {
                 DayPeriodInfo dayPeriod = getFixedDayPeriodInfo(type, locale);
@@ -157,7 +158,7 @@ public class GenerateDayPeriodChart {
             }
             if (i == 12 || i == 0) {
                 DayPeriod period = dayPeriod.getDayPeriod((i * 60) * MINUTE);
-                System.out.print("\t" + period);                    
+                System.out.print("\t" + period);
             }
             DayPeriod period = dayPeriod.getDayPeriod((i * 60 + 30) * MINUTE);
             System.out.print("\t" + period);

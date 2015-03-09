@@ -26,7 +26,7 @@ public class ReviewHide {
     public static void createTable(Connection conn) throws SQLException {
         String sql = null;
         Statement s = null;
-        if (!DBUtils.hasTable(DBUtils.Table.REVIEW_HIDE.toString()))
+        if (!DBUtils.hasTable(DBUtils.Table.REVIEW_HIDE.toString())) {
             try {
                 s = conn.createStatement();
                 s.execute(sql = "CREATE TABLE " + DBUtils.Table.REVIEW_HIDE + " (id int not null " + DBUtils.DB_SQL_IDENTITY
@@ -57,6 +57,7 @@ public class ReviewHide {
                     System.err.println("Last SQL: " + sql);
                 }
             }
+        }
     }
 
     //get all the field for an user and locale

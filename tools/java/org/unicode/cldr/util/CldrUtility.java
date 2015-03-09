@@ -1333,7 +1333,7 @@ public class CldrUtility {
         result.retainAll(b);
         return result;
     }
-    
+
     public static <T> Set<T> subtract(Set<T> a, Collection<T> b) {
         Set<T> result = new LinkedHashSet<>(a);
         result.removeAll(b);
@@ -1344,7 +1344,7 @@ public class CldrUtility {
         Output<String[]> arguments = new Output<>();
         Output<Finder> matcherFound = new Output<>();
         List<String> failures = new ArrayList<String>();
-        lookup.get(toLookup, null, arguments , matcherFound, failures);
+        lookup.get(toLookup, null, arguments, matcherFound, failures);
         testFramework.logln("lookup arguments: " + Arrays.asList(arguments.value));
         testFramework.logln("lookup matcherFound: " + matcherFound);
         for (String s : failures) {

@@ -11,27 +11,32 @@ import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.util.ULocale;
 
 public enum LanguageGroup {
-    germanic("gem"), celtic("cel"), romance("roa"), slavic("sla"), baltic("bat"), indic("inc"), other_indo("ine"), dravidian("dra"), 
-    uralic("urj"), cjk("und_Hani"), sino_tibetan("sit"), tai("tai"), austronesian("map"), turkic("trk"), 
-    afroasiatic("afa"), austroasiatic("aav"), niger_congo("nic"), east_sudanic("sdv"), 
+    germanic("gem"), celtic("cel"), romance("roa"), slavic("sla"), baltic("bat"), indic("inc"), other_indo("ine"), dravidian("dra"),
+    uralic("urj"), cjk("und_Hani"), sino_tibetan("sit"), tai("tai"), austronesian("map"), turkic("trk"),
+    afroasiatic("afa"), austroasiatic("aav"), niger_congo("nic"), east_sudanic("sdv"),
     songhay("son"), american("und_019"),
     art("art"), other("und");
     public final String iso;
+
     LanguageGroup(String iso) {
         this.iso = iso;
     }
-    static final Map<ULocale,LanguageGroup> LANGUAGE_GROUP;
-    static final Relation<LanguageGroup,ULocale> GROUP_LANGUAGE = Relation.of(new EnumMap<LanguageGroup,Set<ULocale>>(LanguageGroup.class), LinkedHashSet.class);
-    
+
+    static final Map<ULocale, LanguageGroup> LANGUAGE_GROUP;
+    static final Relation<LanguageGroup, ULocale> GROUP_LANGUAGE = Relation.of(new EnumMap<LanguageGroup, Set<ULocale>>(LanguageGroup.class),
+        LinkedHashSet.class);
+
     private static void add(Map<ULocale, LanguageGroup> map, LanguageGroup group, String... baseLanguages) {
         for (String s : baseLanguages) {
             ULocale loc = new ULocale(s);
             if (map.put(loc, group) != null) {
                 throw new IllegalArgumentException("duplicate: " + s + ", " + group);
-            };
+            }
+            ;
             GROUP_LANGUAGE.put(group, loc);
         }
     }
+
     static {
         LinkedHashMap<ULocale, LanguageGroup> temp = new LinkedHashMap<>();
         LANGUAGE_GROUP = Collections.unmodifiableMap(temp);
@@ -59,7 +64,9 @@ public enum LanguageGroup {
         add(temp, austronesian, "mg", "to");
         add(temp, east_sudanic, "luo", "mas", "nus", "saq", "teo", "kln");
         add(temp, indic, "kok", "ks", "os");
-        add(temp, niger_congo, "agq", "ak", "asa", "bas", "bem", "bez", "bm", "cgg", "dua", "dyo", "ebu", "ee", "ewo", "guz", "jgo", "kam", "ki", "kkj", "ksb", "ksf", "lag", "lg", "ln", "lu", "luy", "mua", "nd", "nnh", "nr", "nyn", "rn", "rof", "rw", "sbp", "sg", "ss", "tn", "ts", "vai", "ve", "dav", "jmc", "kde", "mer", "mgh", "mgo", "nmg", "nso", "rwk", "seh", "vun", "xog", "yav");
+        add(temp, niger_congo, "agq", "ak", "asa", "bas", "bem", "bez", "bm", "cgg", "dua", "dyo", "ebu", "ee", "ewo", "guz", "jgo", "kam", "ki", "kkj", "ksb",
+            "ksf", "lag", "lg", "ln", "lu", "luy", "mua", "nd", "nnh", "nr", "nyn", "rn", "rof", "rw", "sbp", "sg", "ss", "tn", "ts", "vai", "ve", "dav",
+            "jmc", "kde", "mer", "mgh", "mgo", "nmg", "nso", "rwk", "seh", "vun", "xog", "yav");
         add(temp, romance, "fur", "kea", "mfe");
         add(temp, sino_tibetan, "bo", "brx", "dz", "ii");
         add(temp, slavic, "dsb", "hsb");
@@ -67,13 +74,16 @@ public enum LanguageGroup {
         add(temp, turkic, "sah");
         GROUP_LANGUAGE.freeze();
     }
+
     public static LanguageGroup get(ULocale locale) {
         LanguageGroup result = LANGUAGE_GROUP.get(locale);
         return result == null ? LanguageGroup.other : result;
     }
+
     public static Set<ULocale> getExplicit() {
         return LANGUAGE_GROUP.keySet();
     }
+
     public static Set<ULocale> getLocales(LanguageGroup group) {
         return GROUP_LANGUAGE.get(group);
     }

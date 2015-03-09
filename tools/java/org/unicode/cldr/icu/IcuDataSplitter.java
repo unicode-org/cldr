@@ -108,7 +108,7 @@ public class IcuDataSplitter {
             } else {
                 // Split up regular paths.
                 for (SplitInfo splitInfo : splitInfos) {
-                    String checkPath = rbPath.replaceFirst(":alias","/"); // Handle splitting of a top level alias ( as in root/units )
+                    String checkPath = rbPath.replaceFirst(":alias", "/"); // Handle splitting of a top level alias ( as in root/units )
                     if (checkPath.startsWith(splitInfo.srcNodePath)) {
                         splitData.get(splitInfo.targetDirPath).addAll(rbPath, values);
                         wasSplit = true;

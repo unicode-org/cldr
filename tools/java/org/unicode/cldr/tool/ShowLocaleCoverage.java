@@ -62,7 +62,7 @@ public class ShowLocaleCoverage {
     // added info using pattern in VettingViewer.
 
     private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/coverage/"; // CldrUtility.MAIN_DIRECTORY;
-    
+
     final static Options myOptions = new Options();
 
     enum MyOptions {

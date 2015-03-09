@@ -256,7 +256,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
                 pw.println();
                 pw.println("## Special message shown to users.");
                 pw.println("CLDR_HEADER=Welcome to SurveyTool@" + SurveyMain.localhost() + ". Please edit "
-                    + propsFile.getAbsolutePath().replaceAll("\\\\",  "/")
+                    + propsFile.getAbsolutePath().replaceAll("\\\\", "/")
                     + " to change CLDR_HEADER (to change this message), or comment it out entirely. Also see "
                     + homeFile.getAbsolutePath() + "/admin.html to get to the admin panel.");
                 pw.println();

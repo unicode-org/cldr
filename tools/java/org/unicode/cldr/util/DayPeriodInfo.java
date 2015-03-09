@@ -17,14 +17,15 @@ public class DayPeriodInfo {
     public enum Type {
         format, selection
     }
-    
+
     public enum DayPeriod {
-        midnight, noon, 
+        midnight, noon,
         morning1, morning2, afternoon1, afternoon2, evening1, evening2, night1, night2;
         public static final DayPeriod am = morning1;
         public static final DayPeriod pm = afternoon1;
+
         public static DayPeriod fromString(String value) {
-            return value.equals("am") ? morning1 : value.equals("pm") ? afternoon1: DayPeriod.valueOf(value);
+            return value.equals("am") ? morning1 : value.equals("pm") ? afternoon1 : DayPeriod.valueOf(value);
         }
     };
 

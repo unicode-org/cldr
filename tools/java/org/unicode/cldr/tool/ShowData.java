@@ -640,11 +640,11 @@ public class ShowData {
             }
             char firstChar = name.charAt(0);
             if (first) {
-                pw.print(System.lineSeparator()+"<p style='margin-left:5em'>&gt; ");
+                pw.print(System.lineSeparator() + "<p style='margin-left:5em'>&gt; ");
                 lastFirstChar = firstChar;
                 first = false;
             } else if (firstChar != lastFirstChar) {
-                pw.print("</p>"+System.lineSeparator()+"<p style='margin-left:5em'> ");
+                pw.print("</p>" + System.lineSeparator() + "<p style='margin-left:5em'> ");
                 lastFirstChar = firstChar;
             } else {
                 pw.print(", ");

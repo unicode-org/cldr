@@ -632,7 +632,7 @@ public class ShowLanguages {
         private String filename;
 
         private String dir;
-        
+
         public FormattedFileWriter(PrintWriter indexFile, String title, String explanation, boolean skipIndex)
             throws IOException {
             String anchor = FileUtilities.anchorize(title);

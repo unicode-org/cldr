@@ -38,7 +38,6 @@ public class ShowRegionalVariants {
 
     private static final boolean SKIP_SUPPRESSED_PATHS = true;
 
-
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = CONFIG.getSupplementalDataInfo();
     private static final Factory FACTORY = CONFIG.getCldrFactory();
@@ -50,8 +49,7 @@ public class ShowRegionalVariants {
     final static Options myOptions = new Options();
 
     enum MyOptions {
-        targetDir(".*", CLDRPaths.GEN_DIRECTORY + "/regional/", "target output file."),
-        ;
+        targetDir(".*", CLDRPaths.GEN_DIRECTORY + "/regional/", "target output file."), ;
         // boilderplate
         final Option option;
 
@@ -69,7 +67,7 @@ public class ShowRegionalVariants {
         Set<String> dc = new HashSet<>(SUPPLEMENTAL_DATA_INFO.getDefaultContentLocales());
         Set<String> skipLocales = new HashSet<>(Arrays.asList("root", "en_US_POSIX", "sr_Latn"));
 
-        Relation<CLDRLocale,CLDRLocale> parentToChildren = Relation.of(new TreeMap<CLDRLocale,Set<CLDRLocale>>(), TreeSet.class);
+        Relation<CLDRLocale, CLDRLocale> parentToChildren = Relation.of(new TreeMap<CLDRLocale, Set<CLDRLocale>>(), TreeSet.class);
         // first, collect all locales for lookup by parents.
 
         for (String locale : FACTORY.getAvailable()) {
@@ -83,7 +81,7 @@ public class ShowRegionalVariants {
                 continue;
             }
             CLDRLocale parent = null;
-            for (CLDRLocale current = loc; ; current = parent) {
+            for (CLDRLocale current = loc;; current = parent) {
                 parent = current.getParent();
                 if (!dc.contains(parent.toString())) { // skip over default content
                     break;
@@ -96,24 +94,24 @@ public class ShowRegionalVariants {
             }
             parentToChildren.put(parent, loc);
         }
-        
+
         // show inheritance
         System.out.println("Locale Name\tCode\tRegion\tInherits from\tCode");
         showInheritance(parentToChildren);
 
         // next find out the unique items in children
-        Relation<String,String> valueToAncestors = Relation.of(new LinkedHashMap<String,Set<String>>(), LinkedHashSet.class);
+        Relation<String, String> valueToAncestors = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
 
         int count = 0;
 
         try (
             PrintWriter grandSummary = BagFormatter.openUTF8Writer(MY_DIR, "GrandSummary.txt");
             PrintWriter summary = BagFormatter.openUTF8Writer(MY_DIR, "Summary.txt");
-            PrintWriter detailFile = BagFormatter.openUTF8Writer(MY_DIR, "details.txt");
-            ) {
+            PrintWriter detailFile = BagFormatter.openUTF8Writer(MY_DIR, "details.txt");) {
             grandSummary.println("Parent\tName\tTotal Diff Count\tChildren");
             summary.println("Parent\tName\tDiff Count\tChild\tChild Name");
-            detailFile.println("№\tBase\tParent Locales I\tParent Locales II\tChild Locales\tEnglish value\tParent value I\tParent value II\tChild value\tCorrected Child value\tComments\tFix Parent value?\tSection\tPage\tHeader\tCode");
+            detailFile
+                .println("№\tBase\tParent Locales I\tParent Locales II\tChild Locales\tEnglish value\tParent value I\tParent value II\tChild value\tCorrected Child value\tComments\tFix Parent value?\tSection\tPage\tHeader\tCode");
             PathHeader.Factory phf = PathHeader.getFactory(ENGLISH);
             String lastBase = "";
             for (Entry<CLDRLocale, Set<CLDRLocale>> item : parentToChildren.keyValuesSet()) {
@@ -122,9 +120,9 @@ public class ShowRegionalVariants {
 
                 CLDRFile parentFile = FACTORY.make(parent.toString(), true, DraftStatus.contributed);
                 M4<PathHeader, String, CLDRLocale, Boolean> pathToValuesToLocales = ChainedMap.of(
-                    new TreeMap<PathHeader,Object>(), 
-                    new TreeMap<String,Object>(), 
-                    new TreeMap<CLDRLocale,Object>(), 
+                    new TreeMap<PathHeader, Object>(),
+                    new TreeMap<String, Object>(),
+                    new TreeMap<CLDRLocale, Object>(),
                     Boolean.class);
 
                 Counter<CLDRLocale> childDiffs = new Counter<>();
@@ -136,7 +134,7 @@ public class ShowRegionalVariants {
                     for (String path : childFile) {
                         if (SKIP_SUPPRESSED_PATHS) {
                             if (path.contains("/currency") && path.contains("/symbol")) {
-                                continue; 
+                                continue;
                             }
                         }
                         String childValue = childFile.getStringValue(path);
@@ -161,8 +159,7 @@ public class ShowRegionalVariants {
                                     }
                                 } else if (base.equals("en")) {
                                     if (sameExceptEnd(childValue, "re", parentValue, "er")
-                                        || sameExceptEnd(childValue, "res", parentValue, "ers")
-                                        ) {
+                                        || sameExceptEnd(childValue, "res", parentValue, "ers")) {
                                         continue;
                                     }
                                 }
@@ -198,7 +195,8 @@ public class ShowRegionalVariants {
                     if (childDiffValue == 0) {
                         continue;
                     }
-                    summary.println(parent + "\t" + ENGLISH.getName(parent.toString()) + "\t" + childDiffValue + "\t" + s + "\t" + ENGLISH.getName(s.toString()));
+                    summary.println(parent + "\t" + ENGLISH.getName(parent.toString()) + "\t" + childDiffValue + "\t" + s + "\t"
+                        + ENGLISH.getName(s.toString()));
                 }
 
                 ArrayList<CLDRFile> parentChain = new ArrayList<CLDRFile>();
@@ -231,32 +229,32 @@ public class ShowRegionalVariants {
                         // Corrected Child value   Comments    Fix Parent value?   Section Page    Header  Code                                            
 
                         detailFile.print(
-                            ++count 
-                            + "\t" + base 
+                            ++count
+                                + "\t" + base
                             );
-                        
+
                         for (Entry<String, Set<String>> entry : keyValuesSet) {
                             detailFile.print("\t" + entry.getValue());
                         }
                         if (countParents == 1) {
-                            detailFile.print("\t"); 
+                            detailFile.print("\t");
                         }
                         detailFile.print(""
-                            + "\t" + childLocales 
+                            + "\t" + childLocales
                             + "\t" + quote(englishValue)
                             );
                         for (Entry<String, Set<String>> entry : keyValuesSet) {
                             detailFile.print("\t" + entry.getKey());
                         }
                         if (countParents == 1) {
-                            detailFile.print("\t"); 
+                            detailFile.print("\t");
                         }
                         detailFile.print(""
                             + "\t" + quote(value)
                             + "\t" + ""
                             + "\t" + ""
                             + "\t" + ""
-                            + "\t" + ph 
+                            + "\t" + ph
                             );
                         detailFile.println();
                     }
@@ -290,7 +288,7 @@ public class ShowRegionalVariants {
     }
 
     static final LikelySubtags LS = new LikelySubtags();
-    
+
     private static String nameForLocale(CLDRLocale key) {
         String country = key.getCountry();
         if (country.isEmpty()) {
@@ -302,15 +300,16 @@ public class ShowRegionalVariants {
     }
 
     private static boolean sameExceptEnd(String childValue, String childEnding, String parentValue, String parentEnding) {
-        if (childValue.endsWith(childEnding) 
-            && parentValue.endsWith(parentEnding) 
-            && childValue.substring(0,childValue.length()-childEnding.length()).equals(parentValue.substring(0,parentValue.length()-parentEnding.length()))) {
+        if (childValue.endsWith(childEnding)
+            && parentValue.endsWith(parentEnding)
+            && childValue.substring(0, childValue.length() - childEnding.length()).equals(
+                parentValue.substring(0, parentValue.length() - parentEnding.length()))) {
             return true;
         }
         return false;
     }
 
-    static final UnicodeSet SPREAD_SHEET_SENSITIVE = new UnicodeSet().add('=').add('+').add('0','9');
+    static final UnicodeSet SPREAD_SHEET_SENSITIVE = new UnicodeSet().add('=').add('+').add('0', '9');
 
     private static String quote(String value) {
         if (value == null || value.isEmpty()) {

@@ -15,9 +15,9 @@ import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.text.UnicodeSet;
 
 public class Annotations {
-    
+
     private static final boolean DEBUG = false;
-    
+
     static Map<String, UnicodeMap<Set<String>>> data = new HashMap<>();
     static {
         File directory = new File(CLDRPaths.COMMON_DIRECTORY, "annotations");
@@ -45,14 +45,14 @@ public class Annotations {
             myHandler.cleanup();
         }
     }
-    
+
     static class MyHandler extends SimpleHandler {
         static final Splitter splitter = Splitter.on(";").trimResults();
         static final Splitter dotSplitter = Splitter.on(".").trimResults();
         String locale;
         UnicodeMap<Set<String>> localeData = new UnicodeMap<>();
         XPathParts parts = new XPathParts();
-        
+
         public MyHandler(String locale) {
             this.locale = dotSplitter.split(locale).iterator().next();
         }
@@ -60,7 +60,7 @@ public class Annotations {
         public void cleanup() {
             data.put(locale, localeData.freeze());
         }
-        
+
         @Override
         public void handlePathValue(String path, String value) {
             parts.set(path);
@@ -88,11 +88,11 @@ public class Annotations {
             }
         }
     }
-    
+
     public static Set<String> getAvailable() {
         return data.keySet();
     }
-    
+
     public static UnicodeMap<Set<String>> getData(String locale) {
         return data.get(locale);
     }

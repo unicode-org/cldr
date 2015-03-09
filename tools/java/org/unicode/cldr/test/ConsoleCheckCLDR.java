@@ -757,7 +757,7 @@ public class ConsoleCheckCLDR {
         if (errorCount != 0) {
             //            System.exit((int) errorCount); // cast is safe; we'll never have that many errors
             System.out.println();
-            System.out.println("<< FAILURE - Error count is "+errorCount+" . >>");
+            System.out.println("<< FAILURE - Error count is " + errorCount + " . >>");
             System.exit(-1);
         } else {
             System.out.println();

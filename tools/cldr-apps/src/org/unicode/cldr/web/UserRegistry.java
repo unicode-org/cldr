@@ -2298,9 +2298,9 @@ public class UserRegistry {
             }
         } catch (SQLException se) {
             /* logger.severe */System.err.println(/*
-                                                      * java.util.logging.Level.SEVERE
-                                                      * ,
-                                                      */"UserRegistry: SQL error trying to get orgs resultset for: VI " + " - "
+                                                       * java.util.logging.Level.SEVERE
+                                                       * ,
+                                                       */"UserRegistry: SQL error trying to get orgs resultset for: VI " + " - "
                 + DBUtils.unchainSqlException(se)/* ,se */);
         } finally {
             // close out the RS
@@ -2313,9 +2313,9 @@ public class UserRegistry {
                 }
             } catch (SQLException se) {
                 /* logger.severe */System.err.println(/*
-                                                          * java.util.logging.Level.
-                                                          * SEVERE,
-                                                          */"UserRegistry: SQL error trying to close out: "
+                                                           * java.util.logging.Level.
+                                                           * SEVERE,
+                                                           */"UserRegistry: SQL error trying to close out: "
                     + DBUtils.unchainSqlException(se)/* ,se */);
             }
         } // end try

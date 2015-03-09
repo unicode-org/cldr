@@ -488,7 +488,7 @@ public class PathHeader implements Comparable<PathHeader> {
         }
         return result;
     }
-    
+
     public int compareCode(PathHeader other) {
         int result;
         if (0 != (result = codeOrder - other.codeOrder)) {
@@ -512,7 +512,7 @@ public class PathHeader implements Comparable<PathHeader> {
         }
         return result;
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         PathHeader other;
@@ -1168,15 +1168,15 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("firstLetter", new Transform<String, String>() {
                 public String transform(String source0) {
-                   return getEnglishFirstLetter(source0);
+                    return getEnglishFirstLetter(source0);
                 }
             });
             functionMap.put("languageSort", new Transform<String, String>() {
                 public String transform(String source0) {
                     String languageOnlyPart;
                     int underscorePos = source0.indexOf("_");
-                    if ( underscorePos > 0) {
-                        languageOnlyPart = source0.substring(0,underscorePos);
+                    if (underscorePos > 0) {
+                        languageOnlyPart = source0.substring(0, underscorePos);
                     } else {
                         languageOnlyPart = source0;
                     }
@@ -1598,11 +1598,12 @@ public class PathHeader implements Comparable<PathHeader> {
             }
             return -1;
         }
+
         private static String getEnglishFirstLetter(String s) {
             String languageOnlyPart;
             int underscorePos = s.indexOf("_");
-            if ( underscorePos > 0) {
-                languageOnlyPart = s.substring(0,underscorePos);
+            if (underscorePos > 0) {
+                languageOnlyPart = s.substring(0, underscorePos);
             } else {
                 languageOnlyPart = s;
             }

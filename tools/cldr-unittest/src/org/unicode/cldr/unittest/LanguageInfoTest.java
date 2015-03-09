@@ -44,9 +44,9 @@ public class LanguageInfoTest extends TestFmwk {
         for (R4<String, String, Integer, Boolean> foo : testInfo.getSupplementalDataInfo().getLanguageMatcherData("written")) {
             //            assertTrue("check bounds", foo.get2() >= 0 && foo.get2() <= 100);
             logln(foo.get2()
-                    + "\t" + foo.get0() + "\t" + getName(foo.get0()) 
-                    + "\t" + foo.get1() + "\t" + getName(foo.get1()) 
-                    + "\t"+ foo.get3());
+                + "\t" + foo.get0() + "\t" + getName(foo.get0())
+                + "\t" + foo.get1() + "\t" + getName(foo.get1())
+                + "\t" + foo.get3());
         }
     }
 
@@ -60,18 +60,18 @@ public class LanguageInfoTest extends TestFmwk {
 
     public void testBasics() {
         final LocaleMatcher matcher = new LocaleMatcher(LocalePriorityList
-                .add(ULocale.FRENCH).add(ULocale.UK).add(ULocale.ENGLISH)
-                .build(), data);
+            .add(ULocale.FRENCH).add(ULocale.UK).add(ULocale.ENGLISH)
+            .build(), data);
         logln(matcher.toString());
 
         assertEquals("UK in FR, UK, EN", ULocale.UK,
-                matcher.getBestMatch(ULocale.UK));
+            matcher.getBestMatch(ULocale.UK));
         assertEquals("US in FR, UK, EN", ULocale.ENGLISH,
-                matcher.getBestMatch(ULocale.US));
+            matcher.getBestMatch(ULocale.US));
         assertEquals("FR in FR, UK, EN", ULocale.FRENCH,
-                matcher.getBestMatch(ULocale.FRANCE));
+            matcher.getBestMatch(ULocale.FRANCE));
         assertEquals("JA in FR, UK, EN", ULocale.FRENCH,
-                matcher.getBestMatch(ULocale.JAPAN));
+            matcher.getBestMatch(ULocale.JAPAN));
     }
 
     public void TestChinese() {
@@ -80,24 +80,24 @@ public class LanguageInfoTest extends TestFmwk {
         //			return;
         //		}
         LocaleMatcher matcher = new LocaleMatcher(LocalePriorityList.add(
-                "zh_CN, zh_TW, iw").build(), data);
+            "zh_CN, zh_TW, iw").build(), data);
         ULocale taiwanChinese = new ULocale("zh_TW");
         ULocale chinaChinese = new ULocale("zh_CN");
         assertEquals("zh_CN, zh_TW, iw;", taiwanChinese,
-                matcher.getBestMatch("zh_Hant_HK"));
+            matcher.getBestMatch("zh_Hant_HK"));
 
         assertEquals("zh_CN, zh_TW, iw;", taiwanChinese,
-                matcher.getBestMatch("zh_Hant_TW"));
+            matcher.getBestMatch("zh_Hant_TW"));
         assertEquals("zh_CN, zh_TW, iw;", taiwanChinese,
-                matcher.getBestMatch("zh_Hant"));
+            matcher.getBestMatch("zh_Hant"));
         assertEquals("zh_CN, zh_TW, iw;", taiwanChinese,
-                matcher.getBestMatch("zh_TW"));
+            matcher.getBestMatch("zh_TW"));
         assertEquals("zh_CN, zh_TW, iw;", chinaChinese,
-                matcher.getBestMatch("zh_Hans_CN"));
+            matcher.getBestMatch("zh_Hans_CN"));
         assertEquals("zh_CN, zh_TW, iw;", chinaChinese,
-                matcher.getBestMatch("zh_CN"));
+            matcher.getBestMatch("zh_CN"));
         assertEquals("zh_CN, zh_TW, iw;", chinaChinese,
-                matcher.getBestMatch("zh"));
+            matcher.getBestMatch("zh"));
     }
 
     public void testFallbacks() {
@@ -111,12 +111,12 @@ public class LanguageInfoTest extends TestFmwk {
             priorities.add(supported);
         }
         final LocaleMatcher matcher = new LocaleMatcher(priorities.build(),
-                data);
+            data);
         logln(matcher.toString());
         for (Entry<ULocale, ULocale> entry : FALLBACKS.entrySet()) {
             ULocale bestMatch = matcher.getBestMatch(entry.getKey());
             assertEquals(entry.getKey() + " => " + entry.getValue(),
-                    entry.getValue(), bestMatch);
+                entry.getValue(), bestMatch);
         }
     }
 }

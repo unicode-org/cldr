@@ -150,12 +150,12 @@ public class LocaleMatcherTest extends TestFmwk {
     public void testOverrideData() {
         double threshold = 0.05;
         LanguageMatcherData localeMatcherData = new LanguageMatcherData()
-        .addDistance("br", "fr", 10, true)
-        .addDistance("es", "cy", 10, true);
+            .addDistance("br", "fr", 10, true)
+            .addDistance("es", "cy", 10, true);
         logln(localeMatcherData.toString());
 
         final LocaleMatcher matcher = newLocaleMatcher(
-                LocalePriorityList
+            LocalePriorityList
                 .add(ULocale.ENGLISH)
                 .add(ULocale.FRENCH)
                 .add(ULocale.UK)
@@ -169,7 +169,7 @@ public class LocaleMatcherTest extends TestFmwk {
 
     public void testBasics() {
         final LocaleMatcher matcher = newLocaleMatcher(LocalePriorityList.add(ULocale.FRENCH).add(ULocale.UK)
-                .add(ULocale.ENGLISH).build());
+            .add(ULocale.ENGLISH).build());
         logln(matcher.toString());
 
         assertEquals(ULocale.UK, matcher.getBestMatch(ULocale.UK));
@@ -249,13 +249,13 @@ public class LocaleMatcherTest extends TestFmwk {
 
     public void testMatch_exact() {
         assertEquals(1.0,
-                LocaleMatcher.match(ENGLISH_CANADA, ENGLISH_CANADA));
+            LocaleMatcher.match(ENGLISH_CANADA, ENGLISH_CANADA));
     }
 
     public void testMatch_none() {
         double match = LocaleMatcher.match(
-                new ULocale("ar_MK"),
-                ENGLISH_CANADA);
+            new ULocale("ar_MK"),
+            ENGLISH_CANADA);
         assertTrue("Actual < 0: " + match, 0 <= match);
         assertTrue("Actual > 0.15 (~ language + script distance): " + match, 0.2 > match);
     }
@@ -266,16 +266,16 @@ public class LocaleMatcherTest extends TestFmwk {
         double matchZh = LocaleMatcher.match(undTw, new ULocale("zh"));
         double matchZhHant = LocaleMatcher.match(undTw, zhHant);
         assertTrue("und_TW should be closer to zh_Hant (" + matchZhHant +
-                ") than to zh (" + matchZh + ")",
-                matchZh < matchZhHant);
+            ") than to zh (" + matchZh + ")",
+            matchZh < matchZhHant);
         double matchEnHantTw = LocaleMatcher.match(new ULocale("en_Hant_TW"),
-                zhHant);
+            zhHant);
         assertTrue("zh_Hant should be closer to und_TW (" + matchZhHant +
-                ") than to en_Hant_TW (" + matchEnHantTw + ")",
-                matchEnHantTw < matchZhHant);
+            ") than to en_Hant_TW (" + matchEnHantTw + ")",
+            matchEnHantTw < matchZhHant);
         assertTrue("zh should be closer to und_TW (" + matchZh +
-                ") than to en_Hant_TW (" + matchEnHantTw + ")",
-                matchEnHantTw < matchZh);
+            ") than to en_Hant_TW (" + matchEnHantTw + ")",
+            matchEnHantTw < matchZh);
     }
 
     public void testMatchGrandfatheredCode() {
@@ -304,17 +304,17 @@ public class LocaleMatcherTest extends TestFmwk {
         // newLocaleMatcher("fr, en, ja, es_ES, es_MX");
         // Check that if the preference is maximized already, it works as well.
         assertEquals("Match for ja_Jpan_JP (maximized already)",
-                "ja", matcher.getBestMatch("ja_Jpan_JP, en-AU").toString());
+            "ja", matcher.getBestMatch("ja_Jpan_JP, en-AU").toString());
         if (true)
             return;
         // ja_JP matches ja on likely subtags, and it's listed first, thus it
         // wins over
         // thus it wins over the second preference en_GB.
         assertEquals("Match for ja_JP, with likely region subtag",
-                "ja", matcher.getBestMatch("ja_JP, en_US").toString());
+            "ja", matcher.getBestMatch("ja_JP, en_US").toString());
         // Check that if the preference is maximized already, it works as well.
         assertEquals("Match for ja_Jpan_JP (maximized already)",
-                "ja", matcher.getBestMatch("ja_Jpan_JP, en_US").toString());
+            "ja", matcher.getBestMatch("ja_Jpan_JP, en_US").toString());
     }
 
     public void testGetBestMatchForList_noMatchOnMaximized() {
@@ -394,7 +394,7 @@ public class LocaleMatcherTest extends TestFmwk {
         // See http://sites/intl_eng/pseudo_locales.
         // (See below for the region code based fall back options.)
         final LocaleMatcher matcher = newLocaleMatcher(
-                "fr, pt");
+            "fr, pt");
         assertEquals("fr", matcher.getBestMatch("de").toString());
         assertEquals("fr", matcher.getBestMatch("en_US").toString());
         assertEquals("fr", matcher.getBestMatch("en").toString());
@@ -449,9 +449,9 @@ public class LocaleMatcherTest extends TestFmwk {
         // TODO Auto-generated method stub
         logln("Checking: " + sorted);
         LocaleMatcher matcher = newLocaleMatcher(
-                LocalePriorityList.add(
-                        sorted.toArray(new ULocale[sorted.size()]))
-                        .build());
+            LocalePriorityList.add(
+                sorted.toArray(new ULocale[sorted.size()]))
+                .build());
         for (ULocale loc : sorted) {
             String stringLoc = loc.toString();
             assertEquals(stringLoc, matcher.getBestMatch(stringLoc).toString());
@@ -484,12 +484,11 @@ public class LocaleMatcherTest extends TestFmwk {
         // ja-JP matches ja on likely subtags, and it's listed first, thus it wins over
         // thus it wins over the second preference en-GB.
         assertEquals("Match for ja-JP, with likely region subtag",
-                "ja", matcher.getBestMatch("ja-JP, en-GB").toString());
+            "ja", matcher.getBestMatch("ja-JP, en-GB").toString());
         // Check that if the preference is maximized already, it works as well.
         assertEquals("Match for ja-Jpan-JP (maximized already)",
-                "ja", matcher.getBestMatch("ja-Jpan-JP, en-GB").toString());
+            "ja", matcher.getBestMatch("ja-Jpan-JP, en-GB").toString());
     }
-
 
     public void testGetBestMatchForList_closeEnoughMatchOnMaximized() {
         if (logKnownIssue("Cldrbug:8215", "better matching with regional variants")) {

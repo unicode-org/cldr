@@ -121,19 +121,19 @@ public class CheckNumbers extends FactoryCheckCLDR {
                     result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                         .setSubtype(Subtype.badMinimumGroupingDigits)
                         .setMessage("Minimum grouping digits cannot be greater than 4."));
-                    
+
                 }
                 if (mgd < 1) {
                     result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                         .setSubtype(Subtype.badMinimumGroupingDigits)
                         .setMessage("Minimum grouping digits cannot be less than 1."));
-                    
+
                 }
                 if (mgd > 2) {
                     result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
                         .setSubtype(Subtype.badMinimumGroupingDigits)
                         .setMessage("Minimum grouping digits > 2 is rare. Please double check this."));
-                    
+
                 }
             } catch (NumberFormatException e) {
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)

@@ -15,14 +15,16 @@ public class TestAnnotations extends TestFmwk {
     public static void main(String[] args) {
         new TestAnnotations().run(args);
     }
-    
-    enum Containment {contains, empty, not_contains}
-    
+
+    enum Containment {
+        contains, empty, not_contains
+    }
+
     public void TestBasic() {
         String[][] tests = {
-                {"en", "[\u2650]", "contains", "sagitarius", "zodiac"},
-                {"en", "[\u0020]", "empty"},
-                {"en", "[\u2651]", "not_contains", "foobar"},
+            { "en", "[\u2650]", "contains", "sagitarius", "zodiac" },
+            { "en", "[\u0020]", "empty" },
+            { "en", "[\u2651]", "not_contains", "foobar" },
         };
         for (String[] test : tests) {
             UnicodeMap<Set<String>> data = Annotations.getData(test[0]);
@@ -60,6 +62,7 @@ public class TestAnnotations extends TestFmwk {
             }
         }
     }
+
     public void TestList() {
         if (isVerbose()) {
             for (String locale : Annotations.getAvailable()) {

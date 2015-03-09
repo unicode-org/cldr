@@ -279,7 +279,7 @@ public class Ldml2JsonConverter {
             }
             // Discard root identity element unless the locale is root
             rootIdentityMatcher.reset(fullPath);
-            if (rootIdentityMatcher.matches() && !"root".equals(locID) ) {
+            if (rootIdentityMatcher.matches() && !"root".equals(locID)) {
                 continue;
             }
 
@@ -468,7 +468,7 @@ public class Ldml2JsonConverter {
                     } else {
                         tier = "full";
                     }
-                    outputDirname.append("-"+tier);
+                    outputDirname.append("-" + tier);
                     outputDirname.append(File.separator + filename.replaceAll("_", "-"));
                 }
                 File dir = new File(outputDirname.toString());

@@ -2581,7 +2581,7 @@ public class SupplementalDataInfo {
     public String getExplicitParentLocale(String loc) {
         return parentLocales.get(loc);
     }
-    
+
     public Set<String> getExplicitChildren() {
         return parentLocales.keySet();
     }
@@ -2834,8 +2834,8 @@ public class SupplementalDataInfo {
     }
     private Map<String, PluralRanges> localeToPluralRanges = new LinkedHashMap<String, PluralRanges>();
 
-    private Map<DayPeriodInfo.Type, Map<String, DayPeriodInfo>> typeToLocaleToDayPeriodInfo 
-    = new EnumMap<DayPeriodInfo.Type, Map<String, DayPeriodInfo>>(DayPeriodInfo.Type.class);
+    private Map<DayPeriodInfo.Type, Map<String, DayPeriodInfo>> typeToLocaleToDayPeriodInfo = new EnumMap<DayPeriodInfo.Type, Map<String, DayPeriodInfo>>(
+        DayPeriodInfo.Type.class);
     private Map<String, CoverageLevel2> localeToCoverageLevelInfo = new ConcurrentHashMap<String, CoverageLevel2>();
     private CoverageCache coverageCache = new CoverageCache();
     private transient String lastPluralLocales = "";
@@ -2858,9 +2858,9 @@ public class SupplementalDataInfo {
          */
         String typeString = path.getAttributeValue(1, "type");
         String locales = path.getAttributeValue(2, "locales").trim();
-        DayPeriodInfo.Type type = typeString == null 
-            ? DayPeriodInfo.Type.format 
-                : DayPeriodInfo.Type.valueOf(typeString.trim());
+        DayPeriodInfo.Type type = typeString == null
+            ? DayPeriodInfo.Type.format
+            : DayPeriodInfo.Type.valueOf(typeString.trim());
         if (!locales.equals(lastDayPeriodLocales) || type != lastDayPeriodType) {
             if (lastDayPeriodLocales != null) {
                 addDayPeriodInfo();
@@ -3624,8 +3624,8 @@ public class SupplementalDataInfo {
     }
 
     public DayPeriodInfo getDayPeriods(String locale) {
-        return getDayPeriods(DayPeriodInfo.Type.format, locale);    
-        }
+        return getDayPeriods(DayPeriodInfo.Type.format, locale);
+    }
 
     public Set<String> getDayPeriodLocales() {
         return getDayPeriodLocales(DayPeriodInfo.Type.format);

@@ -58,7 +58,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         // OLD: Info localeInfo = ScriptMetadata.getInfo(locale);
         String script = new LikelySubtags().getLikelyScript(locale);
         Info localeInfo = ScriptMetadata.getInfo(script);
-        
+
         if (localeInfo != null && localeInfo.hasCase == Trinary.YES) {
             // this script has casing info, so we can request it here
             types = casingInfo.getLocaleCasing(locale);

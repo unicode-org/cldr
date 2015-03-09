@@ -56,16 +56,16 @@ public class TestLdml2ICU extends TestFmwk {
                     value = split[1];
                 }
                 ExclusionType type = ExclusionType
-                        .valueOf(source.toUpperCase());
+                    .valueOf(source.toUpperCase());
                 return Pair.of(type, value);
             }
         };
     }
 
     static final RegexLookup<Pair<ExclusionType, String>> exclusions = RegexLookup
-            .of(ExclusionType.TRANSFORM)
-            .setPatternTransform(RegexLookup.RegexFinderTransformPath)
-            .loadFromFile(TestLdml2ICU.class, "../util/data/testLdml2Icu.txt");
+        .of(ExclusionType.TRANSFORM)
+        .setPatternTransform(RegexLookup.RegexFinderTransformPath)
+        .loadFromFile(TestLdml2ICU.class, "../util/data/testLdml2Icu.txt");
 
     public void TestEnglish() {
         checkLocaleRegexes("en");
@@ -136,7 +136,7 @@ public class TestLdml2ICU extends TestFmwk {
      */
     private static RegexLookup<Object> loadRegexes(String filename) {
         final RegexLookup<Object> lookup = RegexLookup.of()
-                .setPatternTransform(XPATH_TRANSFORM);
+            .setPatternTransform(XPATH_TRANSFORM);
         RegexFileParser parser = new RegexFileParser();
         parser.setLineParser(new RegexLineParser() {
             int patternNum = 0;
@@ -182,7 +182,7 @@ public class TestLdml2ICU extends TestFmwk {
         RegexLookup<Object> lookup = loadRegexes("ldml2icu_supplemental.txt");
         List<Pair<String, String>> cldrData = new ArrayList<Pair<String, String>>();
         XMLFileReader.loadPathValues(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY
-                + name + ".xml", cldrData, true);
+            + name + ".xml", cldrData, true);
         XPathParts parts = new XPathParts();
         for (Pair<String, String> pair : cldrData) {
             String xpath = CLDRFile.getNondraftNonaltXPath(pair.getFirst());
@@ -205,7 +205,7 @@ public class TestLdml2ICU extends TestFmwk {
 
         if (lookup.get(xpath) == null) {
             String errorMessage = "CLDR xpath  <" + xpath + "> with value <"
-                    + value + "> was not converted to ICU.";
+                + value + "> was not converted to ICU.";
             if (exclusionType == null) {
                 CldrUtility.logRegexLookup(this, lookup, xpath);
                 errln(errorMessage);
@@ -220,9 +220,9 @@ public class TestLdml2ICU extends TestFmwk {
         } else if (exclusionType == ExclusionType.UNCONVERTED) {
             CldrUtility.logRegexLookup(this, exclusions, xpath);
             errln("CLDR xpath <"
-                    + xpath
-                    + "> is in the exclusions list but was matched. "
-                    + "To make the test pass, remove the relevant regex from org/unicode/cldr/util/data/testLdml2Icu.txt");
+                + xpath
+                + "> is in the exclusions list but was matched. "
+                + "To make the test pass, remove the relevant regex from org/unicode/cldr/util/data/testLdml2Icu.txt");
         }
     }
 
@@ -234,11 +234,11 @@ public class TestLdml2ICU extends TestFmwk {
      */
     private void checkLocaleRegexes(String locale) {
         CLDRFile plain = info.getCldrFactory().make(locale, false,
-                DraftStatus.contributed);
+            DraftStatus.contributed);
         RegexLookup<Object> lookup = loadRegexes("ldml2icu_locale.txt");
         for (String xpath : plain) {
             String fullPath = CLDRFile.getNondraftNonaltXPath(plain
-                    .getFullXPath(xpath));
+                .getFullXPath(xpath));
             checkPath(lookup, fullPath, plain.getStringValue(xpath));
         }
     }

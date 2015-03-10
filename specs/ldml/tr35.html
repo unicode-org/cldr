@@ -108,7 +108,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2015-03-06</span></td>
+				<td><span class="changed">2015-03-10</span></td>
 			</tr>
 			<tr class="changed">
 				<td><span class="changed">This Version</span></td>
@@ -302,17 +302,17 @@ h5 {
 					<li>3.8 <a href="#Compatibility_with_Older_Identifiers">Compatibility
 							with Older Identifiers</a>
 						<ul class="toc">
-							<li>3.8.1 <a href="#Legacy_Variants">Legacy Variants</a>
-								<ul class="toc">
-									<li>Table: <a href="#Legacy_Variant_Mappings">Legacy
-											Variant Mappings</a></li>
-								</ul>
-							</li>
-							<li>3.8.2 <a href="#Old_Locale_Extension_Syntax">Old
+							<li>3.8.<span class="removed">2</span><span class="changed">1</span> <a href="#Old_Locale_Extension_Syntax">Old
 									Locale Extension Syntax</a>
 								<ul class="toc">
 									<li>Table: <a href="#Locale_Extension_Mappings">Locale
 											Extension Mappings</a></li>
+								</ul>
+							</li>
+							<li>3.8.<span class="removed">1</span><span class="changed">2</span> <a href="#Legacy_Variants">Legacy Variants</a>
+								<ul class="toc">
+									<li>Table: <a href="#Legacy_Variant_Mappings">Legacy
+											Variant Mappings</a></li>
 								</ul>
 							</li>
 							<li>3.8.3 <a href="#Relation_to_OpenI18n">Relation to
@@ -1332,7 +1332,7 @@ h5 {
 						variant</b>
 				<p>The CLDR provides data for normalizing variant codes.
 				<span class="changed">About handling of the "POSIX" variant see
-				<i>Section 3.8.1, <a href="#Legacy_Variants">Legacy Variants</a></i>.</span></p></td>
+				<i>Section 3.8.2, <a href="#Legacy_Variants">Legacy Variants</a></i>.</span></p></td>
 			</tr>
 		</table>
 		<p>
@@ -1917,7 +1917,7 @@ zh-Hant-HK
 				<td>"posix"</td>
 				<td>POSIX style locale variant.
 				<span class="changed">About handling of the "POSIX" variant see
-				<i>Section 3.8.1, <a href="#Legacy_Variants">Legacy Variants</a></i>.</span></td>
+				<i>Section 3.8.2, <a href="#Legacy_Variants">Legacy Variants</a></i>.</span></td>
 			</tr>
 		</table>
 		<p>
@@ -2357,83 +2357,8 @@ zh-Hant-HK
 			following sections.</p>
 
 		<h4>
-			<a name="Legacy_Variants" href="#Legacy_Variants">3.8.1 Legacy
-				Variants</a>
-		</h4>
-		<p>
-			Old LDML specification allowed codes other than registered [<a
-				href="#BCP47">BCP47</a>] variant subtags used in Unicode language
-			and locale identifiers for representing variations of locale data.
-			Unicode locale identifiers including such variant codes can be
-			converted to the new [<a href="#BCP47">BCP47</a>] compatible
-			identifiers by following the descriptions below:
-		</p>
-		<table>
-			<caption>
-				<a name="Legacy_Variant_Mappings" href="#Legacy_Variant_Mappings">Legacy
-					Variant Mappings</a>
-			</caption>
-			<tr>
-				<th>Variant Code</th>
-				<th>Description</th>
-			</tr>
-
-			<tr>
-				<td>AALAND</td>
-				<td>Åland, variant of "sv" Swedish used in Finland. Use "sv_AX"
-					to indicate this.</td>
-			</tr>
-
-			<tr>
-				<td>BOKMAL</td>
-				<td>Bokmål, variant of "no" Norwegian. Use primary language
-					subtag "nb" to indicate this.</td>
-			</tr>
-
-			<tr>
-				<td>NYNORSK</td>
-				<td>Nynorsk, variant of "no" Norwegian. Use primary language
-					subtag "nn" to indicate this.</td>
-			</tr>
-
-			<tr>
-				<td>POSIX</td>
-				<td>POSIX variation of locale data. Use Unicode locale
-					extension "-u-va-posix" to indicate this.</td>
-			</tr>
-
-			<tr>
-				<td>POLYTONI</td>
-				<td>Polytonic, variant of "el" Greek. Use [<a href="#BCP47">BCP47</a>]
-					variant subtag "polyton" to indicate this.
-				</td>
-			</tr>
-
-			<tr>
-				<td>SAAHO</td>
-				<td>The Saaho variant of Afar. Use primary language subtag
-					"ssy" to indicated this.</td>
-			</tr>
-		</table>
-		<p class="changed">When converting to old syntax,
-		the Unicode locale extension "-u-va-posix" should be converted to the "POSIX" variant,
-		<i>not</i> to old extension syntax like "@va=posix".
-		This is an exception: The other mappings above should not be reversed.</p>
-
-		<p class="changed">Examples:</p>
-		<ul class="changed">
-			<li>en_US_POSIX ↔ en-US-u-va-posix</li>
-			<li>en_US_POSIX@colNumeric=yes ↔ en-US-u-kn-va-posix</li>
-			<li>en-US-POSIX-u-kn-true → en-US-u-kn-va-posix</li>
-			<li>en-US-POSIX-u-kn-va-posix → en-US-u-kn-va-posix</li>
-		</ul>
-		<p class="reviewnote">Review note: This would flow better if sections 3.8.1 &amp; 3.8.2 were swapped,
-		so that conversion of variants to locale extensions would be discussed after talking about
-		the old locale extension syntax.</p><!-- http://unicode.org/cldr/trac/ticket/7958 -->
-
-		<h4>
 			<a name="Old_Locale_Extension_Syntax"
-				href="#Old_Locale_Extension_Syntax">3.8.2 Old Locale Extension
+				href="#Old_Locale_Extension_Syntax">3.8.<span class="removed">2</span><span class="changed">1</span> Old Locale Extension
 				Syntax</a>
 		</h4>
 		<p>LDML 1.7 or older specification used different syntax for
@@ -2529,6 +2454,78 @@ zh-Hant-HK
 				</ol>
 			</li>
 		</ol>
+
+		<h4>
+			<a name="Legacy_Variants" href="#Legacy_Variants">3.8.<span class="removed">1</span><span class="changed">2</span> Legacy
+				Variants</a>
+		</h4>
+		<p>
+			Old LDML specification allowed codes other than registered [<a
+				href="#BCP47">BCP47</a>] variant subtags used in Unicode language
+			and locale identifiers for representing variations of locale data.
+			Unicode locale identifiers including such variant codes can be
+			converted to the new [<a href="#BCP47">BCP47</a>] compatible
+			identifiers by following the descriptions below:
+		</p>
+		<table>
+			<caption>
+				<a name="Legacy_Variant_Mappings" href="#Legacy_Variant_Mappings">Legacy
+					Variant Mappings</a>
+			</caption>
+			<tr>
+				<th>Variant Code</th>
+				<th>Description</th>
+			</tr>
+
+			<tr>
+				<td>AALAND</td>
+				<td>Åland, variant of "sv" Swedish used in Finland. Use "sv_AX"
+					to indicate this.</td>
+			</tr>
+
+			<tr>
+				<td>BOKMAL</td>
+				<td>Bokmål, variant of "no" Norwegian. Use primary language
+					subtag "nb" to indicate this.</td>
+			</tr>
+
+			<tr>
+				<td>NYNORSK</td>
+				<td>Nynorsk, variant of "no" Norwegian. Use primary language
+					subtag "nn" to indicate this.</td>
+			</tr>
+
+			<tr>
+				<td>POSIX</td>
+				<td>POSIX variation of locale data. Use Unicode locale
+					extension "-u-va-posix" to indicate this.</td>
+			</tr>
+
+			<tr>
+				<td>POLYTONI</td>
+				<td>Polytonic, variant of "el" Greek. Use [<a href="#BCP47">BCP47</a>]
+					variant subtag "polyton" to indicate this.
+				</td>
+			</tr>
+
+			<tr>
+				<td>SAAHO</td>
+				<td>The Saaho variant of Afar. Use primary language subtag
+					"ssy" to indicated this.</td>
+			</tr>
+		</table>
+		<p class="changed">When converting to old syntax,
+		the Unicode locale extension "-u-va-posix" should be converted to the "POSIX" variant,
+		<i>not</i> to old extension syntax like "@va=posix".
+		This is an exception: The other mappings above should not be reversed.</p>
+
+		<p class="changed">Examples:</p>
+		<ul class="changed">
+			<li>en_US_POSIX ↔ en-US-u-va-posix</li>
+			<li>en_US_POSIX@colNumeric=yes ↔ en-US-u-kn-va-posix</li>
+			<li>en-US-POSIX-u-kn-true → en-US-u-kn-va-posix</li>
+			<li>en-US-POSIX-u-kn-va-posix → en-US-u-kn-va-posix</li>
+		</ul>
 
 		<h4>
 			<a name="Relation_to_OpenI18n" href="#Relation_to_OpenI18n">3.8.3

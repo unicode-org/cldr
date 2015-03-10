@@ -11,7 +11,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<generation date="$Date$"/>
 
 	<windowsZones>
-		<mapTimezones otherVersion="7df0000" typeVersion="2015a">
+		<mapTimezones otherVersion="7df0004" typeVersion="2015a">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -99,10 +99,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="SA Pacific Standard Time" territory="EC" type="America/Guayaquil"/>
 			<mapZone other="SA Pacific Standard Time" territory="JM" type="America/Jamaica"/>
 			<mapZone other="SA Pacific Standard Time" territory="KY" type="America/Cayman"/>
-			<mapZone other="SA Pacific Standard Time" territory="MX" type="America/Cancun"/>
 			<mapZone other="SA Pacific Standard Time" territory="PA" type="America/Panama"/>
 			<mapZone other="SA Pacific Standard Time" territory="PE" type="America/Lima"/>
 			<mapZone other="SA Pacific Standard Time" territory="ZZ" type="Etc/GMT+5"/>
+
+			<!-- (UTC-05:00) Chetumal -->
+			<mapZone other="Eastern Standard Time (Mexico)" territory="001" type="America/Cancun"/>
+			<mapZone other="Eastern Standard Time (Mexico)" territory="MX" type="America/Cancun"/>
 
 			<!-- (UTC-05:00) Eastern Time (US & Canada) -->
 			<mapZone other="Eastern Standard Time" territory="001" type="America/New_York"/>
@@ -166,11 +169,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="SA Western Standard Time" territory="VI" type="America/St_Thomas"/>
 			<mapZone other="SA Western Standard Time" territory="ZZ" type="Etc/GMT+4"/>
 
-			<!-- (UTC-04:00) Santiago -->
-			<mapZone other="Pacific SA Standard Time" territory="001" type="America/Santiago"/>
-			<mapZone other="Pacific SA Standard Time" territory="AQ" type="Antarctica/Palmer"/>
-			<mapZone other="Pacific SA Standard Time" territory="CL" type="America/Santiago"/>
-
 			<!-- (UTC-03:30) Newfoundland -->
 			<mapZone other="Newfoundland Standard Time" territory="001" type="America/St_Johns"/>
 			<mapZone other="Newfoundland Standard Time" territory="CA" type="America/St_Johns"/>
@@ -203,6 +201,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- (UTC-03:00) Salvador -->
 			<mapZone other="Bahia Standard Time" territory="001" type="America/Bahia"/>
 			<mapZone other="Bahia Standard Time" territory="BR" type="America/Bahia"/>
+
+			<!-- (UTC-03:00) Santiago -->
+			<mapZone other="Pacific SA Standard Time" territory="001" type="America/Santiago"/>
+			<mapZone other="Pacific SA Standard Time" territory="AQ" type="Antarctica/Palmer"/>
+			<mapZone other="Pacific SA Standard Time" territory="CL" type="America/Santiago"/>
 
 			<!-- (UTC-02:00) Coordinated Universal Time-02 -->
 			<mapZone other="UTC-02" territory="001" type="Etc/GMT+2"/>

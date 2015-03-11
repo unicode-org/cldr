@@ -1384,7 +1384,12 @@ h2,h3,h4,table {
 		</table>
 		<p>&nbsp;</p>
 		<p>The units in CLDR are not comprehensive; it is anticipated that
-			more will be added over time. Current examples include:</p>
+			more will be added over time. <span class="changed">The codes currently supported are found in the root.xml file, in items of the type:</span></p>
+		<p class="changed xmlExample">&lt;unit type=&quot;X-Y&quot;&gt;</p>
+		<p class="changed">The characters up to the first hyphen are the <strong>type</strong>, while the remainder after that hyphen are the <strong>unit</strong>.</p>
+	  <p class="changed xmlExample">&lt;unit type=&quot;acceleration-g-force&quot;&gt;</p>
+		<p>​</p>
+		<p>Examples of these   include:</p>
 		<table>
 			<tr>
 				<td><strong>Type</strong></td>
@@ -1643,6 +1648,7 @@ h2,h3,h4,table {
 			or inches in Germany. This is to account for use by travelers and
 			specialized domains, such as the German “̌Fernseher von 32 bis 55
 			Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.</p>
+		<p class="changed">There is a special unit 			&lt;unit type=&quot;temperature-generic&quot;&gt;, which is used when it is clear from context whether Celcius or Fahrenheit is implied.</p>
 		<h3>
 			6.1 <a name="perUnitPatterns" href="#perUnitPatterns">per Unit
 				patterns</a><a name="compoundUnitPattern" href="#compoundUnitPattern"></a>

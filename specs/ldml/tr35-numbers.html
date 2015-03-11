@@ -1457,8 +1457,7 @@ h2,h3,h4,table {
 &lt;/currency&gt;</pre>
 		<p>
 			To format a particular currency value &quot;ZWD&quot; for a
-			particular numeric value <em>n</em>:
-		</p>
+		particular numeric value <em>n</em><span class="changed"> using the (long) display name</span>: </p>
 		<ol>
 			<li>First see if there is a count with an explicit number (0 or
 				1). If so, use that string.</li>
@@ -1500,10 +1499,14 @@ h2,h3,h4,table {
 						itself (for example, &quot;ZWD&quot;).</li>
 				</ol>
 			</li>
-			<li style="margin-top: 0.5em; margin-bottom: 0.5em">The numeric
-				value, formatted according to the locale with the number of decimals
-				appropriate for the currency, is substituted for {0} in the
-				unitPattern, while the currency display name is substituted for the
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em">Format the numeric value according to the locale. <span class="changed">Use the locale’s &lt;decimalFormats ...&gt; pattern, not the &lt;currencyFormats&gt; pattern that is used with the symbol (eg, Z$). As when formatting symbol currency values, reset the number of decimals according to the supplemental &lt;currencyData&gt; and use the currencyDecimal symbol if different from the decimal
+symbol.</span>
+			  <ol>
+			    <li class="changed">The number of decimals should be overridable in an API, so that clients can choose between “2 US dollars” and “2.00 US dollars”.</li>
+		      </ol>
+			</li>
+			<li class="changed">Substitute the formatted numeric value for the {0} in the
+				unitPattern, and the currency display name  for the
 				{1}.</li>
 		</ol>
 		<p>While for English this may seem overly complex, for some other

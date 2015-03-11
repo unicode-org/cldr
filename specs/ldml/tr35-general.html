@@ -3032,9 +3032,11 @@ h2,h3,h4,table {
 
 		<pre class="example">&lt;listPatterns&gt;
  &lt;listPattern&gt;
-  &lt;listPatternPart type="2"&gt;{0} and {1}&lt;/listPatternPart&gt;<br>  &lt;listPatternPart type="start"&gt;{0}, {1}&lt;/listPatternPart&gt;
+  &lt;listPatternPart type="2"&gt;{0} and {1}&lt;/listPatternPart&gt;
+  &lt;listPatternPart type="start"&gt;{0}, {1}&lt;/listPatternPart&gt;
   &lt;listPatternPart type="middle"&gt;{0}, {1}&lt;/listPatternPart&gt;
-  &lt;listPatternPart type="end"&gt;{0}, and {1}&lt;/listPatternPart&gt;<br>&lt;/listPattern&gt;
+  &lt;listPatternPart type="end"&gt;{0}, and {1}&lt;/listPatternPart&gt;
+ &lt;/listPattern&gt;
 &lt;/listPatterns&gt;</pre>
 
 		<p>The data is used as follows: If there is a type type matches
@@ -3390,22 +3392,38 @@ h2,h3,h4,table {
 		<p>Quoting is done using ' characters, as in date or number
 			formats.</p>
 		<h2 class="changed">14 <a name="Annotations" href="#Annotations">Annotations</a> </h2>
-		<p class="changed">Annotations provide information about characters, typically used in input. For example, on a mobile keyboard they can be used to do completion. They are typically used for symbols, especially emoji characters.</p>
-		<p class="changed xmlExample">&lt;!ELEMENT annotations ( annotation* ) &gt;<br>
-        &lt;!ELEMENT annotation ( #PCDATA ) &gt;<br>
-	    &lt;!ATTLIST annotation cp CDATA #REQUIRED &gt;<br>
-	    &lt;!ATTLIST annotation tts CDATA #IMPLIED &gt;</p>
-<p class="changed">The value of an annotation element is a semicolon-delimited list, such as the following for English and German respectively.</p>
-<p class='changed xmlExample'>&lt;annotation cp='[👎]'&gt;-1; thumbs down&lt;/annotation&gt;<br>
-&lt;annotation cp='[👎]' tts='Daumen runter'&gt;Hand; Daumen&lt;/annotation&gt;</p>
-<p class="changed">The values do not have to match between different languages; they should be the most common values that people using that language would associated with those characters. The tts attribute value, if present, is a value that can be used for text-to-speech, when reading text. It should be treated as one of the element values for other purposes. The Unicode character name can be used for English, when the tts value is not present.</p>
-<p class="changed">The cp attribute value is a UnicodeSet, and can thus contain multiple code points. A code point can occur in multiple annotation element cp values, such as the following, which also contains the &quot;thumbs down&quot; character.</p>
-<p class='xmlExample changed'>&lt;annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]'&gt;hand&lt;/annotation&gt;</p>
-<span class="changed"> For more information, see <a href='http://unicode.org/reports/tr51'>Unicode Emoji</a>.
-</span>
+		<p class="changed">Annotations provide information about characters, typically used in input.
+			For example, on a mobile keyboard they can be used to do completion. They are typically
+			used for symbols, especially emoji characters.</p>
+
+		<p class="dtd"><span class="changed">&lt;!ELEMENT annotations ( annotation* ) &gt;</span></p>
+        <p class="dtd"><span class="changed">&lt;!ELEMENT annotation ( #PCDATA ) &gt;</span></p>
+	    <p class="dtd"><span class="changed">&lt;!ATTLIST annotation cp CDATA #REQUIRED &gt;</span></p>
+	    <p class="dtd"><span class="changed">&lt;!ATTLIST annotation tts CDATA #IMPLIED &gt;</span></p>
+
+		<p class="changed">The value of an annotation element is a semicolon-delimited list, such as
+			the following for English and German respectively.</p>
+
+		<pre class="example"><span class="changed">&lt;annotation cp='[👎]'&gt;-1; thumbs down&lt;/annotation&gt;
+&lt;annotation cp='[👎]' tts='Daumen runter'&gt;Hand; Daumen&lt;/annotation&gt;</span></pre>
+
+		<p class="changed">The values do not have to match between different languages; they should
+			be the most common values that people using that language would associated with those
+			characters. The tts attribute value, if present, is a value that can be used for text-to-speech,
+			when reading text. It should be treated as one of the element values for other purposes.
+			The Unicode character name can be used for English, when the tts value is not present.</p>
+
+		<p class="changed">The cp attribute value is a UnicodeSet, and can thus contain multiple code
+			points. A code point can occur in multiple annotation element cp values, such as the
+			following, which also contains the &quot;thumbs down&quot; character.</p>
+
+		<pre class="example"><span class="changed">&lt;annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]'&gt;hand&lt;/annotation&gt;</span></pre>
+
+		<p class="changed">For more information, see <a href='http://unicode.org/reports/tr51'>Unicode Emoji</a>.</p>
+
 <hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">4</span> Unicode, Inc. All Rights Reserved. The Unicode
+			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All Rights Reserved. The Unicode
 			Consortium makes no expressed or implied warranty of any kind, and
 			assumes no liability for errors or omissions. No liability is assumed
 			for incidental and consequential damages in connection with or

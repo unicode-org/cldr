@@ -1302,10 +1302,10 @@ h5 {
 							<td>private use</td>
 						</tr>
 					</table>
-					<p>The private use subtags from XA..XZ will never be given
+					<p>The private use subtags from XA..XZ will <span class="changed">normally</span> never be given
 						specific semantics in Unicode identifiers, and are thus safe for
-						use for other purposes by other applications. LDML may follow
-						industry practice in the use of some of these codes, however, such
+						use for other purposes by other applications. However, LDML may follow
+						<span class="changed">widespread</span> industry practice in the use of some of these codes, such
 						as for XK.</p>
 					<p>The CLDR provides data for normalizing territory/region
 						codes, including mapping overlong codes like &quot;eng-840&quot;
@@ -1474,8 +1474,8 @@ zh-Hant-HK
 			<li><strong>reserved:</strong> those that may be given
 				particular semantics in future versions of CLDR</li>
 			<li><strong>excluded:</strong> those that will never be given
-				particular CLDR semantics in the future, and thus can be used by
-				applications without worrying about collisions</li>
+				particular CLDR semantics in the future, and thus can <span class="changed">normally</span> be used by
+				applications without worrying about collisions. <span class="changed">However, CLDR may follow widespread industry practice in the use of some of these codes, such as for XK.</span></li>
 		</ul>
 		<table>
 			<caption>
@@ -1516,7 +1516,7 @@ zh-Hant-HK
 			<tr>
 				<td rowspan="3">region</td>
 				<td>defined</td>
-				<td>QO, QU, UK, ZZ</td>
+				<td>QO, QU, UK, <span class="changed">XK, </span>ZZ</td>
 			</tr>
 			<tr>
 				<td>reserved</td>
@@ -1524,7 +1524,7 @@ zh-Hant-HK
 			</tr>
 			<tr>
 				<td>excluded</td>
-				<td>XA..XZ</td>
+				<td>XA..<span class="changed">XJ, XL..</span>XZ</td>
 			</tr>
 			<tr>
 				<td rowspan="3">timezone</td>

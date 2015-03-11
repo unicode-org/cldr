@@ -182,7 +182,7 @@
             <attribute name="Main-Class"
                        value="org.unicode.cldr.tool.Main"/>
             <attribute name="Class-Path"
-                       value="./libs/${cldr.libs.icu4j} ./libs/${cldr.libs.utilities} ./libs/${cldr.libs.xerces} ./libs/${cldr.libs.guava} ${cldr.libs.icu4j} ${cldr.libs.utilities} ${cldr.libs.xerces}"/>
+                       value="./libs/${cldr.libs.icu4j} ./libs/${cldr.libs.utilities} ./libs/${cldr.libs.xerces} ./libs/${cldr.libs.guava} ./libs/${cldr.libs.gson} ${cldr.libs.icu4j} ${cldr.libs.utilities} ${cldr.libs.xerces} ${cldr.libs.gson}"/>
           </manifest>
         </jar>
     </target>

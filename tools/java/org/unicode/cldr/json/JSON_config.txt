@@ -62,3 +62,11 @@ section=telephoneCodeData ; path=//cldr/supplemental/telephoneCodeData/.* ; pack
 section=windowsZones ; path=//cldr/supplemental/windowsZones/.* ; package=core
 section=aliases ; path=//cldr/supplemental/metadata/alias/(language|script|territory|variant|zone)Alias.* ; package=core
 section=suppressions ; path=//cldr/segments/segmentations/.* ; package=segments
+dependency=core ; package=dates
+dependency=core ; package=localenames
+dependency=core ; package=numbers
+dependency=core ; package=misc
+dependency=core ; package=segments
+dependency=core ; package=units
+dependency=numbers ; package=dates
+dependency=dates ; package=cal

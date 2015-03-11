@@ -4118,25 +4118,75 @@ root</pre>
 			The locales in the fallback list are not used recursively. For
 			example, for the lookup of a path in nb-NO, if <strong>fr</strong>
 			were a fallback value for <strong>da</strong>, it would not matter
-			for the above process. Only the original language matters.
-		</p>
-		<p>&nbsp;</p>
-		<p>The languageMatching data is interpreted as an ordered list. To
-			find the match between any two languages, use the likely subtags to
-			maximize each language, and perform the following steps.</p>
+			for the above process. Only the original language matters.</p>
+		<p>T<span class="changed">he language matching data is intended to be used according to the following algorithm. This is a logical description, and can be optimized for production in many ways. In this algorithm, t</span>he languageMatching data is interpreted as an ordered list. </p>
+		<p class="changed">The language matching algorithm takes a list of a user’s desired languages, and a list of the application’s supported languages.</p>
+        <ul class="changed">
+          <li>Set the best weighted distance BWD to ∞</li>
+          <li>Set the best desired language BD to null</li>
+          <li>For each desired language D
+            <ul>
+              <li>Compute a discount factor F, based on the position in the list.
+                <ul>
+                  <li>This discount factor is up to the implementation, but is typically a positive value that increases according to how far D is from the start of the desired language list.</li>
+                </ul>
+              </li>
+              <li>For each supported language S
+                <ul>
+                  <li>Find the matching distance MD as described below.</li>
+                  <li>Compute the weighted distance as F + MD</li>
+                  <li>If WD &lt; BD
+                    <ul>
+                      <li>BWD = WD</li>
+                      <li>BD = D</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>If the BWD is less than a threshold, return BD.
+            <ul>
+              <li>The threshold is implementation-defined, typically set to greater than a default region difference, and less than a default script difference.</li>
+            </ul>
+          </li>
+          <li>Otherwise return a default supported language (like English).        </li>
+      </ul>
+        <p>To
+			find the match<span class="changed">ing distance</span> MD between any two languages, perform the following steps.</p>
 		<ol>
-			<li>Remove any trailing fields that are the same.</li>
-			<li>Traverse the list until a match is found. (If the oneway
-				flag is false, then the match is symmetric.)</li>
-			<li>Record the match value.</li>
-			<li>Remove the final field from each, and if any fields are
-				left, repeat these steps.</li>
+			<li>Maximize each language<span class="changed"> using Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a>.</span>
+<ul>
+	    <li>und is a special case: see below.</li>
+		      </ul>
+		  </li>
+			<li><span class="changed">Set the match-distance MD to 0</span></li>
+			<li><span class="changed">For each subtag in the list, starting from the end: region, script, base-language</span>
+			  <ol>
+			    <li class="changed">If respective subtags in each language tag are identical, remove the subtag from each (logically) and continue.</li>
+			    <li>Traverse the <span class="changed">languageMatching data</span> until a match is found.
+			      <ul>
+			        <li class="changed">* matches any field.</li>
+			        <li>If the oneway
+			          flag is false, then the match is symmetric.</li>
+		          </ul>
+		        </li>
+			    <li class="changed">Add 100 minus the <strong>percent</strong> attribute value to MD.</li>
+			    <li>Remove the <span class="changed">subtag</span> from each<span class="changed"> (logically)</span></li>
+		      </ol>
+		  </li>
+			<li class="changed">Return MD</li>
 		</ol>
-		<p>The end result is the product of the matched values.</p>
-		<p>There is one special case. Suppose we have the following
-			situation:</p>
+		<p class="changed">It is typically useful to set the discount factor between successive elements of the desired languages list to be slightly greater than the default region difference. That avoids the following problem:<br>
+      </p>
+        <p class="changed"><em>Supported languages:</em> "de, fr, ja"<br>
+      </p>
+      <p class="changed"><em>User's desired languages:</em> "de-AT, fr"</p>
+      <p class="changed">This user would expect to get "de", not "fr". In practice, when a user selects a list of preferred languages, they don't include all the  regional variants ahead of their second base language. Yet while the user's desired languages really doesn't tell us the priority ranking among their languages, normally the fall-off between the user's languages is substantially greater than regional variants. But unless F is greater than the distance between de-AT and de-DE, then the user’s second-choice language would be returned.</p>
+		<p><span class="changed">The base language subtag &quot;und&quot; is a </span>special case. Suppose we have the following
+		situation:</p>
 		<ul>
-			<li>desired languages: {und, it}</li>
+		  <li>desired languages: {und, it}</li>
 			<li>supported languages: {en, it}</li>
 			<li>resulting language: en<br>
 			</li>
@@ -4191,11 +4241,11 @@ root</pre>
 		<p>When the language+region is not matched, and there is otherwise
 			no reason to pick among the supported regions for that language, then
 			some measure of geographic &quot;closeness&quot; can be used. The
-			results are then more understandable by users. Looking for en-SK, for
+			results <span class="changed">may be</span> more understandable by users. Looking for en-SK, for
 			example, should fall back to something within Europe (eg en-GB) in
 			preference to something far away and unrelated (eg en-SG). Such a
-			closeness metric does not need to be exact; a small amount to data
-			can be used to give an approximate distance between any two regions.</p>
+			closeness metric does not need to be exact; a small amount of data
+			can be used to give an approximate distance between any two regions. <span class="changed">However, any such data must be used carefully; although Hong Kong is closer to India than to the UK, it is unlikely that en-IN would be a better match to en-HK than en-GB would.</span></p>
 		<h2>
 			<a name="XML_Format" href="#XML_Format">5 XML Format</a>
 		</h2>
@@ -7174,6 +7224,11 @@ decimal?, group?, special*)) &gt;</pre>
 							  Item Lookup</a></em>
 					  <ul>
 					    <li>clarified how the naïve resource bundle is to be used. [<a href="http://unicode.org/cldr/trac/ticket/8067" title="View ticket">#8067</a>]</li>
+				      </ul>
+					</li>
+					<li><em>Section 4.4 <a href="#LanguageMatching">Language Matching</a></em>
+					  <ul>
+					    <li>Extensive clarifications to the  intended use of the data.</li>
 				      </ul>
 					</li>
 					<li><em>Section 8.17 <a href="#validSubLocales">Attribute

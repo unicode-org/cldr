@@ -16,14 +16,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-//import javax.json.Json;
-//import javax.json.stream.JsonGenerator;
-//import javax.json.stream.JsonGeneratorFactory;
-
-
-
-
-
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;

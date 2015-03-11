@@ -935,11 +935,11 @@ h2,h3,h4,table {
 
 		<p>
 			The preference of 12 hour versus 24 hour for the locale can be
-			derived from the short timeFormat or from <a href="#Time_Data">Time
-				Data</a>. If the hour symbol is &quot;h&quot; or &quot;K&quot; (of
-			various lengths) then the format is 12 hour; otherwise it is 24 hour.
-		</p>
-
+			derived from the <span class="removed">short timeFormat or from</span> <a href="#Time_Data">Time
+				Data</a>. If the hour symbol is &quot;h&quot; or &quot;K&quot;<span class="removed"> (of
+		various lengths)</span> then the format is 12 hour; otherwise it is 24 hour.</p>
+		<p class="changed">To account for customary usage in some countries, APIs should allow for formatting times that go beyond 23:59:59. For example, in some countries it would be customary to indicate that  opening hours extending from <em>Friday at 7pm</em> to <em>Saturday at 2am</em> in a format like the following:</p>
+		<p align="center" class="changed">Friday: 19:00 – 26:00		</p>
 		<p>
 			Time formats use the specific non-location format (z or zzzz) for the
 			time zone name. This is the format that should be used when

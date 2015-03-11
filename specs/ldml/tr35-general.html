@@ -1254,7 +1254,8 @@ h2,h3,h4,table {
 			&lt;!ELEMENT measurementData ( measurementSystem*, paperSize* ) &gt;<br>
 			<br> &lt;!ELEMENT measurementSystem EMPTY &gt;<br>
 			&lt;!ATTLIST measurementSystem type ( metric | US | UK ) #REQUIRED
-			&gt;<br> &lt;!ATTLIST measurementSystem territories NMTOKENS
+			&gt;<br> 
+			<span class="changed">&lt;!ATTLIST measurementSystem category ( temperature ) #IMPLIED &gt;</span><br>&lt;!ATTLIST measurementSystem territories NMTOKENS
 			#REQUIRED &gt;<br> <br> &lt;!ELEMENT paperSize EMPTY &gt;<br>
 			&lt;!ATTLIST paperSize type ( A4 | US-Letter ) #REQUIRED &gt;<br>
 			&lt;!ATTLIST paperSize territories NMTOKENS #REQUIRED &gt;
@@ -1263,26 +1264,27 @@ h2,h3,h4,table {
 		<p>The measurement system is the normal measurement system in
 			common everyday use (except for date/time). For example:</p>
 
-		<pre>&lt;measurementData&gt;
-  &lt;measurementSystem type="metric" territories="001"/&gt;
-  &lt;measurementSystem type="US" territories="US"/&gt;
-  &lt;paperSize type="A4" territories="001"/&gt;
-  &lt;paperSize type="US-Letter" territories="US"/&gt;
-&lt;/measurementData&gt;</pre>
+		<pre>&lt;measurementData&gt;<br><span class="changed"> &lt;measurementSystem type=&quot;metric&quot;  territories=&quot;001&quot;/&gt;<br> &lt;measurementSystem type=&quot;US&quot;  territories=&quot;LR MM US&quot;/&gt;<br> &lt;measurementSystem type=&quot;metric&quot; category=&quot;temperature&quot; territories=&quot;LR MM&quot;/&gt;<br> &lt;measurementSystem type=&quot;US&quot; category=&quot;temperature&quot; territories=&quot;BS BZ KY PR PW&quot;/&gt;<br> &lt;measurementSystem type=&quot;UK&quot;  territories=&quot;GB&quot;/&gt;<br> &lt;paperSize type=&quot;A4&quot;  territories=&quot;001&quot;/&gt;<br> &lt;paperSize type=&quot;US-Letter&quot;  territories=&quot;BZ CA CL CO CR GT MX NI PA PH PR SV US VE&quot;/&gt;</span><br>&lt;/measurementData&gt;</pre>
 
 		<p>
 			The values are "metric", "US", or "UK"; others may be added over
-			time. The "metric" value indicates the use of SI [<a
+			time.</p>
+		<ul>
+		  <li>The "metric" value indicates the use of SI [<a
 				href="tr35.html#ISO1000">ISO1000</a>] base or derived units, or
-			non-SI units accepted for use with SI: For example, meters,
-			kilograms, liters, and degrees Celsius. The "US" value indicates the
-			customary system of measurement as used in the United States: feet,
-			inches, pints, quarts, degrees Fahrenheit, and so on. The "UK" value
-			indicates the customary system of measurement as used in the United
-			Kingdom: feet, inches, pints, quarts, and so on. It is also called
-			the Imperial system: the pint, quart, and so on are different sizes
-			than in "US".
-		</p>
+		    non-SI units accepted for use with SI: for example, meters,
+		    kilograms, liters, and degrees Celsius.</li>
+		  <li>The "US" value indicates the
+		    customary system of measurement as used in the United States: feet,
+		    inches, pints, quarts, degrees Fahrenheit, and so on.</li>
+		  <li>The "UK" value
+		    indicates the customary system of measurement as <span class="changed">was</span> used in the United
+		    Kingdom: feet, inches, pints, quarts, and so on. It is also called
+		    the <em>Imperial system</em>: the pint, quart, and so on are different sizes
+		    than in "US".</li>
+      </ul>
+		<p class="changed">In some cases, it may be common to use different measurement systems for different categories of measurements. For example, the following indicates that for the category of temperature, in the regions LR and MM,  it is more common to use metric units than US units.</p>
+		<p class="xmlExample changed"> &lt;measurementSystem type=&quot;metric&quot; category=&quot;temperature&quot; territories=&quot;LR MM&quot;/&gt;</p>
 
 		<p>The paperSize attribute gives the height and width of paper
 			used for normal business letters. The values are "A4" and
@@ -2474,7 +2476,7 @@ h2,h3,h4,table {
 		<table cellspacing="0" cellpadding="8" border="1">
 			<tr>
 				<td valign="top" bgcolor="#eeeeee"><code>\u03C0 → p ;<br>
-				  <span class="changed">\x{3C0} → p ;</span></code></td>
+			    <span class="changed">\x{3C0} → p ;</span></code></td>
 			</tr>
 		</table>
 

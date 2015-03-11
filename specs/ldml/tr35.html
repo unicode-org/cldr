@@ -2914,19 +2914,23 @@ root</pre>
 			illustrated in the table <a href="#Lookup-Differences">Lookup
 				Differences</a>, where &quot;key&quot; stands for zero or more key/type
 			pairs. Logically speaking, when looking up an item for a given
-			locale, you first do a resource bundle lookup for the locale, then
-			you do a resource item lookup starting with that resource bundle. For
-			the purposes of CLDR, everything with the &lt;ldml&gt; dtd is treated
-			logically as if it is one resource bundle, even if the implementation
-			separates data into separate physical resource bundles. For example,
-			suppose that there is a main XML file for Nama (naq), but there are
-			no &lt;unit&gt; elements for it because the units are all inherited
-			from root. If the &lt;unit&gt; elements are separated into a separate
-			data tree for modularity in the implementation, the Nama &lt;unit&gt;
-			resource bundle would be empty. However, for purposes of
-			resource-bundle lookup the resource bundle lookup still stops at
-			naq.xml.
-		</p>
+			locale, you first do a resource bundle lookup <span class="changed">to find the best bundle </span>for the locale, then
+		you do a <span class="changed">inherited</span> item lookup starting with that resource bundle.</p>
+		<p class="changed">The table <a href="#Lookup-Differences">Lookup
+		Differences</a> uses the naïve resource bundle lookup for illustration. More sophisticated systems will get far better results for resource bundle lookup if they use the algorithm described in <em>Section 4.4 <a href="#LanguageMatching">Language Matching</a></em>. That algorithm takes into account both the user’s desired locale(s) and the application’s supported locales, in order to get the best match.</p>
+		<p class="changed">If the  naïve resource bundle lookup is used, the desired locale needs to be canonicalized using 4.3 <a href="#Likely_Subtags">Likely Subtags</a> and the supplemental alias information, so that locales that CLDR considers identical are treated as such. Thus eng-Latn-GB should be mapped to en-GB, and cmn-TW mapped to zh-Hant-TW.</p>
+		<p>For
+		  the purposes of CLDR, everything with the &lt;ldml&gt; dtd is treated
+		  logically as if it is one resource bundle, even if the implementation
+		  separates data into separate physical resource bundles. For example,
+		  suppose that there is a main XML file for Nama (naq), but there are
+		  no &lt;unit&gt; elements for it because the units are all inherited
+		  from root. If the &lt;unit&gt; elements are separated into a separate
+		  data tree for modularity in the implementation, the Nama &lt;unit&gt;
+		  resource bundle would be empty. However, for purposes of
+		  resource-bundle lookup the resource bundle lookup still stops at
+		  naq.xml.
+	  </p>
 
 		<div id="iqaw2" style="margin-top: 0px; margin-bottom: 0px;">
 			<table id="a1bn" border="1" cellpadding="3" cellspacing="0"
@@ -2945,7 +2949,7 @@ root</pre>
 					<tr id="iqaw4">
 						<td id="iqaw5" style="vertical-align: top;" nowrap>
 							<p id="rkc40">
-								Resource <b>bundle</b> lookup
+								<strong>Resource bundle</strong> lookup
 							</p>
 						</td>
 						<td id="iqaw7" style="vertical-align: top;" nowrap>
@@ -2977,8 +2981,7 @@ root</pre>
 					</tr>
 					<tr id="iqaw9">
 						<td id="iqaw10" style="vertical-align: top;" nowrap>
-							<p>
-								Resource <b>item</b> lookup
+							<p><span class="changed"><strong>Inherited</strong></span><strong> item</strong> lookup
 							</p>
 						</td>
 						<td id="iqaw12" style="vertical-align: top;" nowrap>
@@ -3013,7 +3016,7 @@ root</pre>
 				</tbody>
 			</table>
 		</div>
-		<p>Both the resource bundle inheritance and the resource item
+		<p>Both the resource bundle inheritance and the <span class="changed">inherited</span> item
 			inheritance use the parentLocale data, where available, instead of
 			simple trunctation.</p>
 		<p>The fallback is a bit different for these two cases; internal
@@ -3021,7 +3024,7 @@ root</pre>
 			default locale is not involved in the item lookup. If the
 			default-locale were used in the resource-item lookup, then strange
 			results will occur. For example, suppose that the default locale is
-			Swedish, and there is a Nama locale but no specific resource item for
+			Swedish, and there is a Nama locale but no specific <span class="changed">inherited</span> item for
 			collation. If the default-locale were used in resource-item lookup,
 			it would produce odd and unexpected results for Nama sorting.</p>
 		<p>The default locale is not even always used in resource bundle
@@ -3047,7 +3050,7 @@ root</pre>
 			for Akan should produce the root collation, <em>not the Swedish
 				collation.</em>
 		</p>
-		<p>The resource item lookup must remain stable, because the
+		<p>The <span class="changed">inherited</span> item lookup must remain stable, because the
 			resources are built with a certain fallback in mind; changing the
 			core fallback order can render the bundle structure incoherent.</p>
 		<p>
@@ -4069,8 +4072,8 @@ root</pre>
 		used to get the closest fallback locales (of those supported) to a
 		given language.
 		<p>
-			When such fallback is used for resource item lookup, the normal order
-			of inheritance is used for resource item lookup, except that before
+			When such fallback is used for <span class="changed">inherited</span> item lookup, the normal order
+			of inheritance is used for <span class="changed">inherited</span> item lookup, except that before
 			using any data from <strong>root</strong>, the data for the fallback
 			locales would be used if available. Language matching does not
 			interact with the fallback of resources <em>within the
@@ -7160,17 +7163,27 @@ decimal?, group?, special*)) &gt;</pre>
 			<li><strong>Part 1: <a
 					href="#Contents">Core</a></strong>
 				<ul>
-					<li>Deprecated the valiSubLocales attribute everywhere; added
-							<em>Section 8.17 <a href="#validSubLocales">Attribute
-							validSubLocales</a></em> with details.
-							[<a href="http://unicode.org/cldr/trac/ticket/7903">#7903</a>]</li>
-					<li>Section 3.4 <a href="#Field_Definitions">Language Identifier
-					Field Definitions</a>,<br>Section 3.5.3 <a href="#Private_Use">Private Use Codes</a>
+				  <li>				  <em>Section 3.4 <a href="#Field_Definitions">Language Identifier
+					Field Definitions</a>,<br>Section 3.5.3 <a href="#Private_Use">Private Use Codes</a></em>
                     <ul>
-		    <li>Clarified use of XK. [<a href="http://unicode.org/cldr/trac/ticket/8012" title="View ticket">#8012</a>]</li>
-	        </ul>
+                      <li>Clarified use of XK. [<a href="http://unicode.org/cldr/trac/ticket/8012" title="View ticket">#8012</a>]</li>
+                    </ul>
+				  </li>
+					
+					<li><em>Section 4.1.1 <a href="#Bundle_vs_Item_Lookup">Bundle vs
+							  Item Lookup</a></em>
+					  <ul>
+					    <li>clarified how the naïve resource bundle is to be used. [<a href="http://unicode.org/cldr/trac/ticket/8067" title="View ticket">#8067</a>]</li>
+				      </ul>
 					</li>
-			    </ul>
+					<li><em>Section 8.17 <a href="#validSubLocales">Attribute
+							validSubLocales</a></em>
+                      <ul>
+                        <li>Deprecated the validSubLocales attribute everywhere; added this sectionwith details.
+                          [<a href="http://unicode.org/cldr/trac/ticket/7903">#7903</a>]                    </li>
+                      </ul>
+					</li>
+				</ul>
 			</li>
 			<li><strong>Part 2: <a
 					href="tr35-general.html#Contents">General</a></strong>

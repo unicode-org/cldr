@@ -1950,7 +1950,7 @@ samples       = ('@integer' sampleList)?<br>                ('@d
 and_condition = relation ('and' relation)*<br>relation      = is_relation | in_relation | within_relation <br>is_relation   = expr 'is' ('not')? value<br>in_relation   = expr (('not')? 'in' | '=' | '!=') range_list<br>within_relation = expr ('not')? 'within' range_list<br>expr          = operand (('mod' | '%') value)?
 operand       = 'n' | 'i' | 'f' | 't' | 'v' | 'w'<br>range_list    = (range | value) (',' range_list)*<br>range         = value'..'value
 sampleList    = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
-sampleRange   = decimalValue '~' decimalValue
+sampleRange   = decimalValue <span class="changed">(</span>'~' decimalValue<span class="changed">)?</span>
 value         = digit+
 decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9<br>
 		</pre>

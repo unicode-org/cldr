@@ -378,7 +378,11 @@ h2,h3,h4,table {
 				usually defined as a part of the script used to write the language.
 				The native numbering system can only be a numeric positional
 				decimal-digit numbering system, using digits with
-				General_Category=Decimal_Number.</dd>
+				General_Category=Decimal_Number. <span class="changed">Note: In locales
+				where the native numbering system is the default, it is assumed that the
+				numbering system "latn" ( Western Digits 0-9 ) is always acceptable, and
+				can be selected using the -nu keyword as part of a Unicode locale
+				identifier.</span></dd>
 			<dt>
 				<b>traditional</b>
 			</dt>
@@ -406,8 +410,10 @@ h2,h3,h4,table {
 				formatting, use locale ID: "hi-IN-u-nu-native".</li>
 			<li>To select Chinese language using the appropriate financial
 				numerals, use locale ID: "zh-u-nu-finance".</li>
-			<li>To select Tamil language using the traditional Tamil
-				numerals, use locale ID: "ta-u-nu-traditio".</li>
+            <li>To select Tamil language using the traditional Tamil
+                numerals, use locale ID: "ta-u-nu-traditio".</li>
+            <li><span class="changed">To select Arabic language using western
+                digits 0-9, use locale ID: "ar-u-nu-latn".</span></li>
 		</ul>
 		<p>
 			For more information on numbering systems and their definitions, see

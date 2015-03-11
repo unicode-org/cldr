@@ -2468,12 +2468,13 @@ h2,h3,h4,table {
 			</tr>
 		</table>
 
-		<p>The "\u" notation can be used instead of any letter. For
-			instance, instead of using the Greek π, one could write:</p>
+		<p>The “\u” <span class="changed">and “\x” hex </span>notations can be used instead of any letter. For
+			instance, instead of using the Greek π, one could write<span class="changed"> either of</span> the following:</p>
 
 		<table cellspacing="0" cellpadding="8" border="1">
 			<tr>
-				<td valign="top" bgcolor="#eeeeee"><code>\u03C0 → p ;</code></td>
+				<td valign="top" bgcolor="#eeeeee"><code>\u03C0 → p ;<br>
+				  <span class="changed">\x{3C0} → p ;</span></code></td>
 			</tr>
 		</table>
 
@@ -2516,19 +2517,44 @@ h2,h3,h4,table {
 
 		<p>Context can be used to have the results of a transformation be
 			different depending on the characters before or after. The following
-			means "Remove hyphens, but only when they follow lower case letters":</p>
+			rule removes hyphens, but only when they follow lowercase <span class="changed">characters</span>:</p>
 
 		<table cellspacing="0" cellpadding="8" border="1">
 			<tr>
-				<td valign="top" bgcolor="#eeeeee"><code>[:lowercase
-						letter:] } '-' → '' ;</code></td>
+				<td valign="top" bgcolor="#eeeeee"><code>[:<span class="changed">Lowercase</span>:] <span class="changed">{</span> '-' → ;</code></td>
 			</tr>
 		</table>
 
-		<p>The context itself ([:lowercase letter:]) is unaffected by the
-			replacement; only the text between the curly braces is changed.</p>
+		<p class="changed">Contexts can be before or after or both, such as in a rule to remove hyphens between lowercase and uppercase letters:</p>
+        <table cellspacing="0" cellpadding="8" border="1">
+          <tr>
+            <td valign="top" bgcolor="#eeeeee"><code class="changed">[:Lowercase:] { '-' } [:Uppercase:]  → ;</code></td>
+          </tr>
+      </table>
+        <p class="changed">Each context is optional and may be empty; the following two rules are equivalent:        </p>
+        <table cellspacing="0" cellpadding="8" border="1">
+          <tr>
+            <td valign="top" bgcolor="#eeeeee" class="changed"><code>$pi ↔ p ;<br>
+              {$pi} ↔ {p} ;</code></td>
+          </tr>
+      </table>
+        <p>The context itself ([:<code><span class="changed">Lowercase</span></code>:]) is unaffected by the
+			replacement; only the text within braces  is changed. </p>
+		<p class="changed">Character classes (UnicodeSets) in the contexts can contain the special symbol $, which means “off either end of the string”. It is roughly similar to $ and ^ in regex. Unlike normal regex, however, it can occur in character classes. Thus the following rule removes hyphens that are after lowercase characters, <em>or</em> are at the start of a string.</p>
+		<table cellspacing="0" cellpadding="8" border="1">
+          <tr>
+            <td valign="top" bgcolor="#eeeeee"><code class="changed">[[:Lowercase:]$] {'-'  → ;</code></td>
+          </tr>
+      </table>
 
-		<h4>
+		<p class="changed">Thus the negation of a UnicodeSet will normally also match before or after the end of a string. The following will remove hyphens that are not after lowercase characters<em>, including hyphens at the start of a string</em>.</p>
+      <table cellspacing="0" cellpadding="8" border="1">
+          <tr>
+            <td valign="top" bgcolor="#eeeeee"><code class="changed">[^[:Lowercase:]] {'-'  → ;</code></td>
+          </tr>
+        </table>
+        <p class="changed">It will thus convert “-B A-B a-b” to “B AB a-b”.</p>
+        <h4>
 			10.3.3 <a name="Revisiting" href="#Revisiting">Revisiting</a>
 		</h4>
 
@@ -2593,7 +2619,8 @@ h2,h3,h4,table {
 					</code></td>
 			</tr>
 		</table>
-
+<p class="changed">There is an online demo where the rules can be tested, at:</p>
+<p class="changed"><a target="demo" href="http://unicode.org/cldr/utility/transform.jsp">http://unicode.org/cldr/utility/transform.jsp</a></p>
 		<h4>
 			10.3.5 <a name="Rule_Syntax" href="#Rule_Syntax">Rule Syntax</a>
 		</h4>

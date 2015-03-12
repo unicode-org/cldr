@@ -354,23 +354,41 @@ h2,h3,h4,table {
 		<p>Each calendar provides—directly or indirectly—two general types
 			of data:</p>
 		<ul>
-			<li>Calendar symbols, such as names for eras, months, weekdays,
-				and dayPeriods. Names for weekdays and dayPeriods are typically
-				inherited from the Gregorian calendar data in the same locale;
-				symbols for eras and months should be provided for each calendar,
+			<li><em>Calendar symbols, such as names for eras, months, weekdays,
+				and dayPeriods.</em> Names for weekdays<span class="changed">, quarters</span> and dayPeriods
+				are typically inherited from the Gregorian calendar data in the same locale.
+				Symbols for eras and months should be provided for each calendar,
 				except that the "Gregorian-like" Buddhist, Japanese, and Minguo
 				(ROC) calendars also inherit their month names from the Gregorian
 				data in the same locale.</li>
-			<li>Format data for dates, times, and date-time intervals. Most
-				non-Gregorian calendars inherit format data from "generic" calendar
-				format data in the same locale (which in turn inherits from
-				Gregorian); the primary difference between Gregorian and "generic"
-				format data is that the latter usually includes era with years.</li>
+			<li><em>Format data for dates, times, and date-time intervals.</em>
+				<span class="changed">Non-Gregorian calendars inherit standard time
+				formats (in the &lt;timeFormats&gt; element) from the Gregorian
+				calendar in the same locale.</span> Most non-Gregorian calendars
+				<span class="changed">(other than Chinese and Dangi) </span>inherit
+				<span class="changed">general date</span> format data
+				<span class="changed">(in the &lt;dateFormats&gt; and &lt;dateTimeFormats&gt;
+				elements)</span> from the "generic" calendar format data in the same locale,
+				which in turn inherits from Gregorian.</li>
 		</ul>
-		<p>Calendars that use cyclicNameSets and monthPatterns have
-			additional symbols and distinct formats, and typically inherit these
-			items (along with month names) from their parent locales, instead of
-			inheriting them from Gregorian or generic data in the same locale.</p>
+		<p>Calendars that use cyclicNameSets and monthPatterns <span class="changed">(such as
+			Chinese and Dangi) </span> have additional symbols and distinct formats, and
+			typically inherit these items (along with month names) from their parent
+			locales, instead of inheriting them from Gregorian or generic data in the same
+			locale.</p>
+
+		<p class="changed">The primary difference between Gregorian and "generic" format
+			data is that date formats in "generic" usually include era with year, in
+			order to provide an indication of which calendar is being used (Gregorian
+			calendar formats may also commonly include era with year when Gregorian is
+			not the default calendar for the locale). Otherwise, the "generic" date
+			formats should normally be consistent with those in the Gregorian calendar.
+			The "generic" calendar formats are intended to provide a consistent set of
+			default formats for non-Gregorian calendars in the locale, so that in most
+			cases the only data items that need be provided for non-Gregorian calendars
+			are the era names and month names (and the latter only for calendars other
+			than Buddhist, Japanese, and Minguo, since those inherit month names from
+			Gregorian).</p>
 
 		<h3>
 			2.1 <a name="months_days_quarters_eras"

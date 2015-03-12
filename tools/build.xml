@@ -1,49 +1,19 @@
-<project name="CLDR Tools" default="all" basedir=".">
+<project name="CLDR Distribution" default="all" basedir=".">
   <target name="init">
     <tstamp/>
-    <property name="cldr.jar" value="java/cldr.jar"/>
+    <property name="version" value="27.0.0"/>
     <property name="dist.dir" value="dist"/>
     <property name="dist.conf.dir" value="dist.conf"/>
     <property name="excludes.file" value="${dist.conf.dir}/distExcludes.txt"/>
     <property name="includes.core.file" value="${dist.conf.dir}/includes-core.txt"/>
-    <property name="includes.json.file" value="${dist.conf.dir}/includes-json.txt"/>
-    <property name="includes.json-full.file" value="${dist.conf.dir}/includes-json-full.txt"/>
     <property name="includes.tools.file" value="${dist.conf.dir}/includes-tools.txt"/>
     <property name="includes.keyboards.file" value="${dist.conf.dir}/includes-keyboards.txt"/>
-
-    <!-- parallelize by splitting between 5 processes. Could be better, could be worse. wfm. -->
-    <property name="localematch.0" value="[ed].*"/>
-    <property name="localematch.1" value="[sk].*"/>
-    <property name="localematch.2" value="[fm].*"/>
-    <property name="localematch.3" value="[an].*"/>
-    <property name="localematch.4" value="[icv].*"/>
-    <property name="localematch.5" value="[trg].*"/>
-    <property name="localematch.6" value="[bhu].*"/>
-    <property name="localematch.7" value="[lpz].*"/>
-    <property name="localematch.8" value="[^edicvsktrgfmbhuanlpz].*"/> <!-- everything else -->
   </target>
 
-  <target name="build" depends="init" description="Build java/ (cldr-tools)">
-    <ant dir="java" inheritAll="true" target="all"/>
-  </target>
+  <target name="all" depends="dist-core,dist-tools,dist-keyboards"/>
 
-  <target name="all" depends="init,build,tests" description="Build java/ and the cldr-unittests"/>
-
-  <target name="tests" depends="init,build" description="Build cldr-unittests">
-    <ant dir="cldr-unittest" inheritAll="true" target="build"/>
-  </target>
-
-  <target name="check" depends="init,tests" description="Run the cldr-unittests">
-    <ant dir="cldr-unittest" inheritAll="true" target="check"/>
-  </target>
-
-  <target name="jar" depends="init" description="Create java/cldr.jar">
-    <ant dir="java" inheritAll="true" target="jar"/>
-  </target>
-
-  <target name="clean" depends="init" description="Clean out the java and cldr-unittest projects">
-    <ant dir="java" inheritAll="true" target="clean"/>
-    <ant dir="cldr-unittest" inheritAll="true" target="clean"/>
+  <target name="clean" depends="init" description="Clean out the distribution directory">
+    <delete dir="${dist.dir}"/>
   </target>
 
   <target name="dist-excludes" depends="init">
@@ -52,12 +22,12 @@
     </exec>
   </target>
 
-  <target name="dist-dir" depends="init">
+  <target name="dist-dir">
     <mkdir dir="${dist.dir}"/>
   </target>
 
   <target name="dist-core" depends="init,dist-dir,dist-excludes">
-    <zip destfile="${dist.dir}/core.zip"
+    <zip destfile="${dist.dir}/cldr-core-${version}.zip"
          compress="yes">
          <fileset
              excludesfile="${excludes.file}"
@@ -67,8 +37,8 @@
     </zip>
   </target>
 
-  <target name="dist-tools" depends="init,jar,dist-dir,dist-excludes">
-    <zip destfile="${dist.dir}/tools.zip"
+  <target name="dist-tools" depends="init,dist-dir,dist-excludes">
+    <zip destfile="${dist.dir}/cldr-tools-${version}.zip"
          compress="yes">
          <fileset
              excludesfile="${excludes.file}"
@@ -78,7 +48,7 @@
     </zip>
   </target>
   <target name="dist-keyboards" depends="init,dist-dir,dist-excludes">
-    <zip destfile="${dist.dir}/keyboards.zip"
+    <zip destfile="${dist.dir}/cldr-keyboards-${version}.zip"
          compress="yes">
          <fileset
              excludesfile="${excludes.file}"
@@ -87,128 +57,4 @@
          />
     </zip>
   </target>
-
-  <target name="build-json" depends="build-json-main,build-json-supplemental,build-json-segments"/>
-
-  <target name="_buildjsonmain"> <!-- no depends - DO NOT CALL outside of build-json-main -->
-      <java fork="true" jar="${cldr.jar}">
-        <sysproperty key="CLDR_DIR" value=".."/>
-        <sysproperty key="CLDR_GEN_DIR" value="${dist.dir}/json/main"/>
-        <arg value="ldml2json"/>
-        <arg value="-o"/> <arg value="false"/>
-        <arg value="-t"/> <arg value="main"/>
-        <arg value="-r"/> <arg value="true"/>
-        <arg value="-m"/> <arg value="${localeMatch}"/>
-      </java>
-  </target>
-
-  <target name="build-json-main" depends="init,dist-dir,jar">
-<!--
-    threaded
-    <parallel threadsPerProcessor="1">
-      <antcall target="_buildjsonmain"><param name="localeMatch" value="${localematch.0}"/></antcall>
-      <antcall target="_buildjsonmain"><param name="localeMatch" value="${localematch.1}"/></antcall>
-      <antcall target="_buildjsonmain"><param name="localeMatch" value="${localematch.2}"/></antcall>
-      <antcall target="_buildjsonmain"><param name="localeMatch" value="${localematch.3}"/></antcall>
-      <antcall target="_buildjsonmain"><param name="localeMatch" value="${localematch.4}"/></antcall>
-      <antcall target="_buildjsonmain"><param name="localeMatch" value="${localematch.5}"/></antcall>
-      <antcall target="_buildjsonmain"><param name="localeMatch" value="${localematch.6}"/></antcall>
-      <antcall target="_buildjsonmain"><param name="localeMatch" value="${localematch.7}"/></antcall>
-      <antcall target="_buildjsonmain"><param name="localeMatch" value="${localematch.8}"/></antcall>
-    </parallel>
--->
-
-<!-- nonthreaded -->
-      <antcall target="_buildjsonmain"><param name="localeMatch" value=".*"/></antcall>
-  </target>
-
-  <target name="build-json-supplemental" depends="init,dist-dir,jar">
-    <java fork="true" jar="${cldr.jar}">
-      <sysproperty key="CLDR_DIR" value=".."/>
-      <sysproperty key="CLDR_GEN_DIR" value="${dist.dir}/json/"/>
-      <arg value="ldml2json"/>
-      <arg value="-o"/> <arg value="false"/>
-      <arg value="-t"/> <arg value="supplemental"/>
-    </java>
-  </target>
-
-  <target name="build-json-segments" depends="init,dist-dir,jar">
-    <java fork="true" jar="${cldr.jar}">
-      <sysproperty key="CLDR_DIR" value=".."/>
-      <sysproperty key="CLDR_GEN_DIR" value="${dist.dir}/json/segments"/>
-      <arg value="ldml2json"/>
-      <arg value="-o"/> <arg value="false"/>
-      <arg value="-t"/> <arg value="segments"/>
-    </java>
-  </target>
-
-  <target name="dist-json" depends="init,dist-dir,dist-excludes,build-json"> <!-- ,build-json -->
-    <zip destfile="${dist.dir}/json.zip"
-         compress="yes">
-         <fileset
-             excludesfile="${excludes.file}"
-             dir=".."
-             includesfile="${includes.json.file}"
-         />
-         <zipfileset dir="${dist.dir}/json" includes="main/ar/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/ca/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/cs/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/da/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/de/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/el/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/en/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/en-001/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/en-AU/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/en-CA/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/en-GB/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/en-HK/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/en-IN/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/es/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/fi/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/fr/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/he/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/hi/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/hr/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/hu/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/it/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/ja/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/ko/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/nb/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/nl/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/pl/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/pt/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/pt-PT/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/ro/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/root/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/ru/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/sk/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/sl/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/sr/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/sv/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/th/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/tr/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/uk/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/vi/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/zh/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="main/zh-Hant/*.json" />
-         <zipfileset dir="${dist.dir}/json" includes="supplemental/*.json" />
-         <zipfileset dir="${dist.conf.dir}" includes="readme-json.txt" fullpath="README"/> 
-    </zip>
-  </target>
-
-  <target name="dist-json-full" depends="init,dist-dir,dist-excludes,build-json"> <!-- ,build-json-full -->
-    <zip destfile="${dist.dir}/json-full.zip"
-         compress="yes">
-         <fileset
-             excludesfile="${excludes.file}"
-             dir=".."
-             includesfile="${includes.json-full.file}"
-         />
-         <zipfileset dir="${dist.dir}/json" includes="**/*.json" /> 
-         <zipfileset dir="${dist.conf.dir}" includes="readme-json.txt" fullpath="README"/> 
-    </zip>
-  </target>
-
-  <target name="dist" depends="dist-core,dist-tools,dist-keyboards,dist-json,dist-json-full"/>
-
 </project>

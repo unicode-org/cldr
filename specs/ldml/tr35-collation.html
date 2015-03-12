@@ -530,7 +530,7 @@ h2,h3,h4,table {
 				href="#Algorithm_Reordering_Groups">Reordering Groups</a>
 		</h4>
 		<p>CLDR specifies how to do parametric reordering of groups of
-			scripts (e.g., “native script first”) as well special groups (e.g.,
+			scripts (e.g., “native script first”) as well <span class="changed">as</span> special groups (e.g.,
 			“digits after letters”), and provides data for the effective
 			implementation of such reordering.</p>
 
@@ -724,7 +724,8 @@ h2,h3,h4,table {
 				remapping of UCA DUCET weights for use with CLDR. The weight values
 				are modified:
 				<ul>
-					<li>The weights have variable length, with 1..4 bytes each.</li>
+					<li>The weights have variable length, with 1..4 bytes each.
+						<span class="changed">Each secondary or tertiary weight currently uses at most 2 bytes.</span></li>
 					<li>There are tailoring gaps between adjacent weights, so that
 						a number of characters can be tailored to sort between any two
 						root collation elements.</li>
@@ -732,8 +733,9 @@ h2,h3,h4,table {
 						boundaries between reordering groups and Unicode scripts, so that
 						tailoring around the first or last primary of a group/script
 						results in new collation elements that sort and reorder together
-						with that group or script.</li>
-					<li>Also, there is data that defines the primary weight ranges
+						with that group or script.
+						<span class="removed">Also, there is data that defines</span>
+						<span class="changed">These boundary weights also define</span> the primary weight ranges
 						for parametric group and script reordering.</li>
 				</ul> An implementation may modify the weights further to fit the needs
 				of its data structures.</li>
@@ -941,7 +943,7 @@ h2,h3,h4,table {
 FFFE; [02, <span class="changed">05, 05</span>]     # Special LOWEST primary, for merge/interleaving
 FFFF; [EF FE, 05, 05]  # Special HIGHEST primary, for ranges</pre>
 		<blockquote>
-			<p>The two tailored noncharacters have their own weights.</p>
+			<p>The two tailored noncharacters have their own <span class="changed">primary</span> weights.</p>
 		</blockquote>
 
 		<pre>
@@ -2636,7 +2638,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 						script, in DUCET order. Thus Phoenician characters always reorder
 						with Hebrew characters.
 					</li>
-				</ol></li>
+				</ul></li>
 			<li><strong>others</strong> - where all codes not explicitly
 				mentioned should be ordered. The script code <strong>Zzzz</strong>
 				(Unknown Script) is a synonym for <strong>others</strong>.</li>
@@ -2784,7 +2786,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				or when the original lead byte of the next primary is not compressible.</li>
 			<li>Non-compressible groups and scripts begin or end
 				on whole-primary-lead-byte boundaries (or both),
-				so that reordering cannot surrounded a non-compressible script
+				so that reordering cannot surround a non-compressible script
 				by two compressible ones within the same target lead byte.
 				This is so that primary compression can be terminated reliably
 				(choosing the low or high terminator byte)
@@ -3093,7 +3095,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</h4>
 		<p>
 			The main data includes &lt;exemplarCharacters&gt; for collation
-			indexes. See <span class="removed">the main document, Section 5.6</span> <i><span class="changed">Part 2 General, Section 3</span> <a
+			indexes. See <span class="removed">the main document, Section 5.6</span> <i><span class="changed">Part 2 General, Section 3,</span> <a
 				href="tr35-general.html#Character_Elements">Character Elements</a></i>, for
 			general information about exemplar characters.
 		</p>
@@ -3167,12 +3169,24 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<p>
 			The … items are special: each is a bucket for everything else, either
 			less or greater. They are inserted at the start and end of the index
-			list, <em>and</em> on script boundaries. These are really script
-			boundaries, <em>not</em> reordering code boundaries. Each script has
+			list, <em>and</em> on script boundaries.
+			<span class="removed">These are really script
+			boundaries, <em>not</em> reordering code boundaries.</span>
+			Each script has
 			its own range, except where scripts sort primary-equal (e.g., Hira
-			&amp; Kana). All characters that sort in the low reordering groups
+			&amp; Kana). All characters that sort in <span class="changed">one of</span> the low reordering groups
 			(whitespace, punctuation, symbols, currency symbols, digits) are
-			treated as a single script for this purpose. So if you had a
+			treated as a single script for this purpose.</p>
+		<p>If you tailor a Greek character into the Cyrillic script, that
+			Greek character will be bucketed (and sorted) among the Cyrillic
+			ones.</p>
+
+		<p><span class="changed">Even in an implementation that reorders groups of scripts
+			rather than single scripts,
+			for example Hebrew together with Phoenician and Samaritan,
+			the index boundaries are really script boundaries,
+			<em>not</em> multi-script-group boundaries.</span>
+			So if you had a
 			collation that reordered Hebrew after Ethiopic, you would still get
 			index boundaries between the following (and in that order):
 		</p>
@@ -3185,9 +3199,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					group</em></li>
 			<li>Devanagari</li>
 		</ol>
-		<p>If you tailor a Greek character into the Cyrillic script, that
-			Greek character will be bucketed (and sorted) among the Cyrillic
-			ones.</p>
+		<p class="changed">(Beginning with CLDR 27, single scripts can be reordered.)</p>
 		<p>In the UI, an index character could also be omitted or grayed
 			out if its bucket is empty. For example, if there is nothing in the
 			bucket for Q, then Q could be omitted. That would be up to the
@@ -3232,7 +3244,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<pre>&lt;exemplarCharacters type=&quot;index&quot;&gt;[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]&lt;/exemplarCharacters&gt;</pre>
 		<p>
 			The display of the index characters can be modified with the Index
-			labels elements, discussed in the <span class="removed">main document, Section 5.6.4</span> <i><span class="changed">Part 2 General, Section 3.3</span>
+			labels elements, discussed in the <span class="removed">main document, Section 5.6.4</span> <i><span class="changed">Part 2 General, Section 3.3,</span>
 				<a href="tr35-general.html#IndexLabels">Index Labels</a>
 			</i>.
 		</p>

@@ -391,7 +391,7 @@ h2,h3,h4,table {
 			with a low separator).
 		</p>
 
-		<p class="changed">Note: With unique, low weights on <i>all</i> levels it is possible to achieve
+		<p class="note changed">Note: With unique, low weights on <i>all</i> levels it is possible to achieve
 		<code>sortkey(str1 + "\uFFFE" + str2) == mergeSortkeys(sortkey(str1), sortkey(str2))</code>.
 		When that is not necessary, then code can be a little simpler
 		(no special handling for U+FFFE except for backwards-secondary),
@@ -443,7 +443,7 @@ h2,h3,h4,table {
 				part of contractions.)</li>
 		</ul>
 
-		<p>
+		<p class="note">
 			Note: Matching of discontiguous contractions should be implemented
 			without rewriting the text (unlike in the [<a
 				href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] algorithm
@@ -1124,7 +1124,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				&quot;trailing weights&quot; as described in the UCA.</p>
 		</blockquote>
 
-		<p>Note: The particular primary lead bytes for Hani vs. IMPLICIT
+		<p class="note">Note: The particular primary lead bytes for Hani vs. IMPLICIT
 			vs. TRAILING are only an example. An implementation is free to move
 			them if it also moves the explicit TRAILING weights. This affects
 			only a small number of explicit mappings in FractionalUCA.txt, such
@@ -1157,6 +1157,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			parametric settings, or rules that specify a certain sort order, as a
 			tailoring of the root order, or both.
 		</p>
+		<p class="note changed">Note: CLDR collation tailoring data should follow the
+			<a href="http://cldr.unicode.org/index/cldr-spec/collation-guidelines">CLDR Collation Guidelines</a>.</p>
 
 		<h3>
 			3.1 <a name="Collation_Types" href="#Collation_Types">Collation
@@ -1234,7 +1236,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				set the type to "standard" and use that &lt;collation&gt; element.</li>
 			<li>If it does not exist, then use the CLDR root collation.</li>
 		</ol>
-		<p>Note that the CLDR collation/root.xml contains
+		<p class="note">Note that the CLDR collation/root.xml contains
 			&lt;defaultCollation&gt;standard&lt;/defaultCollation&gt;,
 			&lt;collation type="standard"&gt; (with an empty tailoring, so this
 			is the same as the CLDR root collation), and &lt;collation
@@ -1324,7 +1326,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			by explicitly specifying the behavior of all characters used to write
 			the language in question.</span></p>
 		<blockquote>
-			<p>
+			<p class="note">
 				<b>Note: </b>For version 3.1.1 of the UCA, the version of Unicode
 				must also be specified with any versioning information; an example
 				would be &quot;3.1.1/3.2&quot; for version 3.1.1 of the UCA, for
@@ -3062,7 +3064,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<li>Tertiary-ignorable CEs 0.0.0 must get
 				ignorable-case=lowercase bits.</li>
 		</ol>
-		<p>Note: Almost all Cased characters have primary (non-ignorable)
+		<p class="note">Note: Almost all Cased characters have primary (non-ignorable)
 			root collation CEs, except for U+0345 Combining Ypogegrammeni which
 			is Lowercase. All Uppercase characters have primary root collation
 			CEs.</p>

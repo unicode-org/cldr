@@ -290,7 +290,12 @@ public class CldrItem implements Comparable<CldrItem> {
                 return result;
             }
         }
-        DtdType fileDtdType;
+        // Types are a special case, because you have to sort the key type ( i.e. numbers/calendar, etc.
+        // first before the type name.  So we have to sort based on transformed path.
+        if (thisxpp.containsElement("types") && otherxpp.containsElement("types")) {
+            return path.compareTo(otherItem.path);
+        }
+       DtdType fileDtdType;
         switch (thisxpp.getElement(0)) {
         case "supplementalData":
             fileDtdType = DtdType.supplementalData;

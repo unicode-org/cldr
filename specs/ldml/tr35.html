@@ -1656,8 +1656,8 @@ zh-Hant-HK
 			Most type values are represented by a single subtag in the current
 			version of CLDR. There are exceptions, such as types used for key
 			"ca" (calendar) and "kr" (collation reordering). If the type is not
-			included, and one of the possible type values is &quot;true&quot;,
-			then that value is assumed. Note that the default for key with a
+			included, <span class="removed">and one of the possible type values is &quot;true&quot;,</span>
+			then <span class="removed">that value</span><span class="changed">the type value "true"</span> is assumed. Note that the default for key with a
 			possible &quot;true&quot; value is often &quot;false&quot;, but may
 			not always be. <span class="changed">Note also that
 				"true"/"True" is not a valid script code, since <a
@@ -7370,6 +7370,8 @@ decimal?, group?, special*)) &gt;</pre>
 						<ul>
 							<li>Made explicit definitions for the different categories
 								of identifiers associated with key and type values. [<a href="http://unicode.org/cldr/trac/ticket/7960" title="View ticket">#7960</a>]</li>
+							<li>Updated the definition for a keyword without a type value.
+								[<a href="http://unicode.org/cldr/trac/ticket/7893" title="View ticket">#7893</a>]</li>
 						</ul></li>
 					<li><em>Section 3.4 <a href="#Field_Definitions">Language
 								Identifier Field Definitions</a>,<br>Section 3.5.3 <a

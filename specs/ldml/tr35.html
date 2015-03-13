@@ -2818,14 +2818,14 @@ zh-Hant-HK
 				href="tr35-collation.html#Root_Collation">Root Collation</a></em>). Since
 			English language collation has the same ordering as the root locale,
 			the &#39;en&#39; locale data does not need to supply any collation
-			data, nor does either the &#39;en_US&#39; or the &#39;en_IE&#39;
-			locale data.
+			data, nor do the &#39;en_US&#39;<span class="changed">, &#39;en_GB&#39;
+			or the any of the various other locales that use English.</span>
 		</p>
-		<p>Given a particular locale id &quot;en_IE_someVariant&quot;, the
+		<p class="changed">Given a particular locale id &quot;en_US_someVariant&quot;, the
 			search chain for a particular resource is the following.</p>
 		<blockquote>
-			<pre>en_IE_someVariant
-en_IE
+			<pre class="changed">en_US_someVariant
+en_US
 en
 root</pre>
 		</blockquote>
@@ -7220,6 +7220,12 @@ decimal?, group?, special*)) &gt;</pre>
                     </ul>
 				  </li>
 					
+                    <li><em>Section 4 <a href="#Locale_Inheritance">Locale Inheritance and Matching</a></em>
+                      <ul>
+                        <li>Simplified example for the case of basic locale inheritance, using a locale that does not use an explicit parent.
+                        [<a href="http://unicode.org/cldr/trac/ticket/8028" title="View ticket">#8028</a>]</li>
+                      </ul>
+                    </li>
 					<li><em>Section 4.1.1 <a href="#Bundle_vs_Item_Lookup">Bundle vs
 							  Item Lookup</a></em>
 					  <ul>
@@ -7227,11 +7233,11 @@ decimal?, group?, special*)) &gt;</pre>
 					    	[<a href="http://unicode.org/cldr/trac/ticket/8067" title="View ticket">#8067</a>]</li>
 				      </ul>
 					</li>
-					<li><em>Section 4.4 <a href="#LanguageMatching">Language Matching</a></em>
-					  <ul>
-					    <li>Extensive clarifications to the  intended use of the data.</li>
-				      </ul>
-					</li>
+                    <li><em>Section 4.4 <a href="#LanguageMatching">Language Matching</a></em>
+                      <ul>
+                        <li>Extensive clarifications to the  intended use of the data.</li>
+                      </ul>
+                    </li>
 					<li><em>Section 8.17 <a href="#validSubLocales">Attribute
 							validSubLocales</a></em>
                       <ul>

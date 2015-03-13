@@ -1681,8 +1681,11 @@ symbol.</span>
 				question. If a particular currency does not occur in the fractions
 				list, then it is given the defaults listed for the next two
 				attributes.</li>
-			<li><b>digits: </b>the number of decimal digits normally
-				formatted. The default is 2.</li>
+			<li><b>digits: </b>the <span class="changed">minimum and maximum </span>
+			    number of decimal digits normally formatted. The default is 2.
+			    <span class="changed">For example, in the en_US locale with the default
+			    value of 2 digits, the value 1 USD would format as "$1.00",
+			    and the value 1.123 USD would format as => "$1.12". </span></li>
 			<li><b>rounding: </b>the rounding increment, in units of 10<sup>-digits</sup>.
 				The default is 0, which means no rounding is to be done. Therefore,
 				rounding=0 and rounding=1 have identical behavior. Thus with

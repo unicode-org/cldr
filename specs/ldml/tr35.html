@@ -831,8 +831,12 @@ h5 {
 | unicode_locale_extensions?
   transformed_extensions?) ;</pre></td>
 				<td><pre>= unicode_language_id
-  [transformed_extensions]
-  [unicode_locale_extensions]</pre></td>
+<span class="removed">  [transformed_extensions]
+  [unicode_locale_extensions]</span>
+<span class="changed">  ([trasformed_extensions
+     [unicode_locale_extensions]]
+  /[unicode_locale_extensions
+     [transformed_extensions]])</span></pre></td>
 			</tr>
 			<tr>
 				<td><pre>unicode_locale_extensions</pre></td>
@@ -7365,13 +7369,11 @@ decimal?, group?, special*)) &gt;</pre>
 			<li><b>Proposed update </b>for Version 27.</li>
 			<li><strong>Part 1: <a href="#Contents">Core</a></strong>
 				<ul>
-					<li><em>Section 3.6.1 <a
-							href="#Key_And_Type_Definitions_">Key And Type Definitions</a></em>
+					<li><em>Section 3.2 <a
+							href="#Unicode_locale_identifier">Unicode Locale Identifier</a></em>
 						<ul>
-							<li>Made explicit definitions for the different categories
-								of identifiers associated with key and type values. [<a href="http://unicode.org/cldr/trac/ticket/7960" title="View ticket">#7960</a>]</li>
-							<li>Updated the definition for a keyword without a type value.
-								[<a href="http://unicode.org/cldr/trac/ticket/7893" title="View ticket">#7893</a>]</li>
+							<li>Corrected the ABNF for <code>unicode_locale_id</code> to match the EBNF version.
+								[<a href="http://unicode.org/cldr/trac/ticket/7976" title="View ticket">#7976</a>]</li>
 						</ul></li>
 					<li><em>Section 3.4 <a href="#Field_Definitions">Language
 								Identifier Field Definitions</a>,<br>Section 3.5.3 <a
@@ -7382,7 +7384,14 @@ decimal?, group?, special*)) &gt;</pre>
 								title="View ticket">#8012</a>]
 							</li>
 						</ul></li>
-
+					<li><em>Section 3.6.1 <a
+							href="#Key_And_Type_Definitions_">Key And Type Definitions</a></em>
+						<ul>
+							<li>Made explicit definitions for the different categories
+								of identifiers associated with key and type values. [<a href="http://unicode.org/cldr/trac/ticket/7960" title="View ticket">#7960</a>]</li>
+							<li>Updated the definition for a keyword without a type value.
+								[<a href="http://unicode.org/cldr/trac/ticket/7893" title="View ticket">#7893</a>]</li>
+						</ul></li>
 					<li><em>Section 4 <a href="#Locale_Inheritance">Locale
 								Inheritance and Matching</a></em>
 						<ul>

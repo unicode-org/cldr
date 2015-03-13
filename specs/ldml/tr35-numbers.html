@@ -949,10 +949,13 @@ h2,h3,h4,table {
 					<td>¤ (U+00A4)</td>
 					<td>Prefix or suffix</td>
 					<td>No</td>
-					<td>Currency sign, replaced by currency symbol. If doubled,
-						replaced by international currency symbol. If tripled, uses the
-						long form of the decimal symbol. If present in a pattern, the
-						monetary decimal separator and grouping separators (if available)
+					<td>Currency sign, replaced by currency symbol <span class="changed">
+					    for the currency being formatted. If doubled,
+						replaced by the international currency symbol (U+00A4). If tripled, replaced by the
+						appropriate currency display name for the currency, based on the plural rules in
+						effect for the locale. (For example, "5.00 US Dollars"). Refer to the formatting in
+						for long display names, steps 2 and 4 in <a href="#Currencies">Currencies.</a></span>
+						If present in a pattern, the monetary decimal separator and grouping separators (if available)
 						are used instead of the numeric ones.</td>
 				</tr>
 				<tr valign="top" bgcolor="#eeeeff">

@@ -28,6 +28,7 @@ import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.util.Output;
@@ -36,7 +37,7 @@ import com.ibm.icu.util.ULocale;
 @CLDRTool(alias = "checkhtmlfiles", description = "Look for errors in CLDR documentation tools", hidden = "Used for CLDR process")
 public class CheckHtmlFiles {
 
-    static final Set<String> NOPOP = new HashSet(Arrays.asList("br", "img", "link", "meta", "!doctype", "hr", "col", "input"));
+    static final Set<String> NOPOP = new HashSet<>(Arrays.asList("br", "img", "link", "meta", "!doctype", "hr", "col", "input"));
 
     static final EnumSet<Type> SUPPRESS = EnumSet.of(
         Type.ELEMENT, Type.ELEMENT_START, Type.ELEMENT_END, Type.ELEMENT_POP,
@@ -55,7 +56,7 @@ public class CheckHtmlFiles {
             "|References" +
             "|Acknowledge?ments" +
             "|Modifications" +
-            "|(Revision \\d+\\.?)");
+        "|(Revision \\d+\\.?)");
     static Pattern SUPPRESS_REVISION = Pattern.compile("Revision \\d+\\.?");
     static Pattern SPACES = Pattern.compile("\\s+");
 
@@ -63,10 +64,10 @@ public class CheckHtmlFiles {
 //        old(".*", Settings.OTHER_WORKSPACE_DIRECTORY + "cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
         target(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "target data (regex); ucd for Unicode docs; "
             + "for others use the format -t ${workspace_loc}/unicode-draft/reports/tr51/tr51.html"),
-        verbose(null, null, "verbose debugging messages"),
+            verbose(null, null, "verbose debugging messages"),
 //        contents(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
-        // /cldr-archive
-        ;
+            // /cldr-archive
+            ;
 
         // boilerplate
         final Option option;
@@ -592,6 +593,10 @@ public class CheckHtmlFiles {
             boolean inAnchor = false;
             boolean haveContents = false;
             HeadingInfo lastHeading = null;
+            // for detecting missing captions
+            boolean pushedTable = false;
+            boolean checkCaption = false;
+            List<Integer> captionWarnings = new ArrayList<Integer>();
 
             main: while (true) {
                 int lineCount = parser.getLineCount();
@@ -603,6 +608,12 @@ public class CheckHtmlFiles {
                     LOG.flush();
                 }
                 switch (x) {
+                case QUOTE:
+                    contentString = content.toString().toLowerCase(Locale.ENGLISH).trim();
+                    if (contentString.equalsIgnoreCase("nocaption")) {
+                        pushedTable = false;
+                    }
+                        break;
                 case ATTRIBUTE:
                     contentString = content.toString().toLowerCase(Locale.ENGLISH);
                     if (inHeading && (contentString.equals("name") || contentString.equals("id"))) {
@@ -610,7 +621,7 @@ public class CheckHtmlFiles {
                     } else {
                         inAnchor = false;
                     }
-                    attributeStack.add(new Pair(contentString, null));
+                    attributeStack.add(new Pair<String, String>(contentString, null));
                     break;
                 case ATTRIBUTE_CONTENT:
                     contentString = content.toString().toLowerCase(Locale.ENGLISH);
@@ -641,7 +652,15 @@ public class CheckHtmlFiles {
                             elementStack.pop();
                         }
                     } else {
+                        // check that the first element following a table is a caption
+                        if (pushedTable && !"caption".equals(contentString)) {
+                            captionWarnings.add(lineCount);
+                        }
                         elementStack.push(contentString);
+                        pushedTable = checkCaption && "table".equals(contentString);
+                        if (!checkCaption && "h3".equals(contentString)) { // h3 around Summary in standard format
+                            checkCaption = true; 
+                        }
                     }
                     if (verbose) {
                         LOG.write(parser.getLineCount() + "\telem:\t" + showElementStack(elementStack) + "\n");
@@ -686,7 +705,7 @@ public class CheckHtmlFiles {
                     contentString = wsMatcher.reset(content).replaceAll(" ").replace("&nbsp;", " ");
                     buffer.append(contentString.indexOf('&') >= 0
                         ? TransliteratorUtilities.fromHTML.transform(contentString)
-                        : contentString);
+                            : contentString);
                     if (inHeading) {
                         heading.addText(contentString);
                     }
@@ -714,6 +733,17 @@ public class CheckHtmlFiles {
                 }
                 hashedSentences.add(sentence, 1);
                 sentences.add(sentence);
+            }
+            if (!captionWarnings.isEmpty()) {
+                System.out.println("WARNING: Missing <caption> on the following lines: "
+                    + "\n    " + CollectionUtilities.join(captionWarnings, ", ")
+                    + "\n\tTo fix, add <caption> after the <table>, such as:"
+                    + "\n\t\t<table>"
+                    + "\n\t\t\t<caption>Private Use Codes in CLDR</a></caption>"
+                    + "\n\tOften the sentence just before the <table> can be made into the caption."
+                    + "\n\tThe next time you run this program, you’ll be prompted with double-links."
+                    + "\n\tIf it really shouldn't have a caption, add <!-- nocaption --> after the <table> instead."
+                    );
             }
             int fatalCount = headingInfoList.showErrors();
             totalFatalCount += fatalCount;

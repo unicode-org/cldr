@@ -7395,7 +7395,7 @@ decimal?, group?, special*)) &gt;</pre>
 								title="View ticket">#7960</a>]
 							</li>
 							<li>Updated the definition for a keyword without a type
-								value. [<a href="http://unicode.org/cldr/trac/ticket/7893"
+								value (&quot;true&quot; is assumed if a valid value). [<a href="http://unicode.org/cldr/trac/ticket/7893"
 								title="View ticket">#7893</a>]
 							</li>
 						</ul></li>
@@ -7411,12 +7411,12 @@ decimal?, group?, special*)) &gt;</pre>
 					<li><em>Section 4.1.1 <a href="#Bundle_vs_Item_Lookup">Bundle
 								vs Item Lookup</a></em>
 						<ul>
-							<li>clarified how the naïve resource bundle is to be used. [<a
+							<li>Documented the limitations of naïve resource bundle lookup. For clarity, changed &quot;Resource    item lookup&quot; to &quot;Inherited  item lookup&quot; [<a
 								href="http://unicode.org/cldr/trac/ticket/8067"
 								title="View ticket">#8067</a>]
 							</li>
 						</ul></li>
-					<li>Section 4.1.3 <a href="#Parent_Locales">Parent Locales</a>
+					<li><em>Section 4.1.3 <a href="#Parent_Locales">Parent Locales</a></em>
 						<ul>
 							<li>Clarified that the parentLocales information is in
 								supplemental data. [<a
@@ -7434,10 +7434,12 @@ decimal?, group?, special*)) &gt;</pre>
 								validSubLocales</a></em>
 						<ul>
 							<li>Deprecated the validSubLocales attribute everywhere;
-								added this sectionwith details. [<a
+								added this section with details. [<a
 								href="http://unicode.org/cldr/trac/ticket/7903">#7903</a>]
 							</li>
-						</ul></li>
+							<li>Deprecated the postalCodeData, postCodeRegex</li>
+						</ul>
+					</li>
 				</ul></li>
 			<li><strong>Part 2: <a
 					href="tr35-general.html#Contents">General</a></strong>
@@ -7451,8 +7453,8 @@ decimal?, group?, special*)) &gt;</pre>
 								title="View ticket">#8233</a>]
 							</li>
 						</ul></li>
-					<li>Section 6 <a href="tr35-general.html#Unit_Elements">Unit
-							Elements</a>
+					<li><em>Section 6 <a href="tr35-general.html#Unit_Elements">Unit
+							Elements</a></em>
 						<ul>
 							<li>Documented how the type and unit relate to the attribute
 								values.</li>
@@ -7461,28 +7463,29 @@ decimal?, group?, special*)) &gt;</pre>
 							<li>Added a note about the new temperature-generic.</li>
 						</ul>
 					</li>
-					<li><em>Section 12 <a
-							href="tr35-general.html#Context_Transform_Elements">ContextTransform
-								Elements</a></em>
-						<ul>
-							<li>For &lt;contextTransform&gt; element values, added
-								"no-change". [<a href="http://unicode.org/cldr/trac/ticket/8163">#8163</a>]
-							</li>
-						</ul></li>
 					<li><em>Section 10.3 <a
 							href="tr35-general.html#Transform_Rules_Syntax">Transform
 								Rules Syntax</a>
 					</em>
 						<ul>
-							<li>Documented the use of $ in contexts to mean &quot;off
-								the end of the string&quot;; also expanded some examples,
-								documented the use of the \x hex notation, and pointed to the
-								online tool for testing transformations. [<a
+						  <li>Documented the use of $ in contexts to mean &quot;off
+						    the end of the string&quot;; also expanded some examples,
+						    documented the use of the \x hex notation, and pointed to the
+						    online tool for testing transformations. [<a
 								href="http://unicode.org/cldr/trac/ticket/8085"
 								title="View ticket">#8085</a>]
-							</li>
-						</ul></li>
-					<li><em>Section 14 <a
+					      </li>
+					  </ul>
+					</li>
+					<li><em>Section 12 <a
+							href="tr35-general.html#Context_Transform_Elements">ContextTransform
+					  Elements</a></em>
+					  <ul>
+					    <li>For &lt;contextTransform&gt; element values, clarified usage, added
+					      "no-change". [<a href="http://unicode.org/cldr/trac/ticket/8163">#8163</a>] </li>
+				      </ul>
+				  </li>
+                    <li><em>Section 14 <a
 							href="tr35-general.html#Annotations">Annotations</a></em>
 						<ul>
 							<li>Added description of the new Annotations element. [<a
@@ -7585,44 +7588,83 @@ decimal?, group?, special*)) &gt;</pre>
 			<li><strong>Part 5: <a
 					href="tr35-collation.html#Contents">Collation</a></strong>
 				<ul>
-					<li><a href="tr35-collation.html#Algorithm_FFFE">U+FFFE
-							collation</a> was simplified; U+FFFE needs to map to minimal, unique
-						weights only on primary and identical levels. [<a
+					<li><em>Section 1.1.1 <a href="tr35-collation.html#Algorithm_FFFE">U+FFFE</a></em>
+					  <ul>
+					    <li> Use of U+FFFE was simplified; U+FFFE needs to map to minimal, unique
+					      weights only on primary and identical levels. Some other sections are also affected. [<a
 						href="http://unicode.org/cldr/trac/ticket/7202">#7202</a>]</li>
-					<li>The <a href="tr35-collation.html#Root_Collation">CLDR
-							27 root collation</a> order is still based on the UCA 7.0 DUCET, but
-						with most of the Cyrillic contractions removed as in UCA 8.0. The
-						Cyrillic tailorings have been updated. [<a
-						href="http://unicode.org/cldr/trac/ticket/7246">#7246</a>]
+				      </ul>
 					</li>
-					<li><a
-						href="tr35-collation.html#File_Format_FractionalUCA_txt">FractionalUCA.txt</a>
-						supports <a href="tr35-collation.html#Script_Reordering">reordering</a>
-						of single scripts rather than groups of scripts. Implementations
-						that support script reordering should base it on the
-						script-first-primary boundaries and use the new reorder-reserved
-						ranges. Some Recommended Scripts may share primary lead bytes. [<a
+					<li><em>Section 2 <a href="tr35-collation.html#Root_Collation">Root Collation</a></em>
+					  <ul>
+					    <li>In version 7, the order is still based on the UCA 7.0 DUCET, but
+					      with most of the Cyrillic contractions removed as in UCA 8.0. The
+					      Cyrillic tailorings have been updated. [<a
+						href="http://unicode.org/cldr/trac/ticket/7246">#7246</a>]
+				        </li>
+				      </ul>
+					</li>
+					<li><em>Section 2.6.2 <a
+						href="tr35-collation.html#File_Format_FractionalUCA_txt">FractionalUCA.txt</a></em>
+					  <ul>
+					    <li>Fractional UCA now supports <a href="tr35-collation.html#Script_Reordering">reordering</a>
+					      of single scripts rather than groups of scripts. Implementations
+					      that support script reordering should base it on the
+					      script-first-primary boundaries and use the new reorder-reserved
+					      ranges. Some Recommended Scripts may share primary lead bytes. Some other sections are also affected. [<a
 						href="http://unicode.org/cldr/trac/ticket/7382">#7382</a>]</li>
-					<li><a
-						href="tr35-collation.html#File_Format_FractionalUCA_txt">FractionalUCA.txt</a>
-						tertiary weights: Some fractional root collation elements have
-						below-common tertiary weights (e.g., <code>03</code>), in
-						particular to allow normal Hiragana letters to have common
-						tertiary weights. This is the first time that the root collation
-						data uses below-common tertiary weights. [<a
+				      </ul>
+					  <ul>
+					    <li>Below-common tertiary weights: Some fractional root collation elements have
+					      below-common tertiary weights (e.g., <code>03</code>), in
+					      particular to allow normal Hiragana letters to have common
+					      tertiary weights. This is the first time that the root collation
+					      data uses below-common tertiary weights. [<a
 						href="http://unicode.org/cldr/trac/ticket/7222">#7222</a>]</li>
-				</ul></li>
+				      </ul>
+					</li>
+					<li><em>Section 3.13 Collation Reordering</em>
+					  <ul>
+					    <li>Clarified reordering codes, and made it clear that an empty list is illegal.</li>
+					    <li>Added more implementation notes</li>
+				      </ul>
+					</li>
+					<li><em>Section 3.16.2 CJK Index Markers</em>
+					  <ul>
+					    <li>Noted that the per-language index exemplar characters are not useful for collation indexes for CJK.					</li>
+				      </ul>
+				  </li>
+				</ul>
+			</li>
 			<li><strong>Part 6: <a href="tr35-info.html#Contents">Supplemental</a></strong><a
 				href="tr35-info.html#Contents"></a>
 				<ul>
-					<li>Deprecated Section 6 <a
+					<li><em>Section 6 <a
 						href="tr35-info.html#Postal_Code_Validation">Postal Code
-							Validation</a></li>
-					<li>Added Section 11 <a
-						href="tr35-info.html#Version_Information">Version Information</a>
-						[<a href="http://unicode.org/cldr/trac/ticket/8235">#8235</a>]
+							Validation</a>
+				    </em>
+					  <ul>
+					    <li>Deprecated </li>
+				      </ul>
 					</li>
-				</ul></li>
+					<li><em>Section 11 <a
+						href="tr35-info.html#Version_Information">Version Information</a>
+				    </em>
+					  <ul>
+					    <li>Added 
+					      [<a href="http://unicode.org/cldr/trac/ticket/8235">#8235</a>]
+				        </li>
+				      </ul>
+					</li>
+					<li><em>Section 12 <a
+						href="tr35-info.html#Parent_Locales">Parent Locales</a>
+				    </em>
+					  <ul>
+					    <li>Added reference to Parent Locales, so that people can find it in the </li>
+				      </ul>
+					</li>
+				</ul>
+			</li>
 		</ul>
 
 		<h3>Revision 37</h3>

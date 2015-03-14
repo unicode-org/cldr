@@ -836,7 +836,8 @@ h5 {
 <span class="changed">  ([trasformed_extensions
      [unicode_locale_extensions]]
   /[unicode_locale_extensions
-     [transformed_extensions]])</span></pre></td>
+     [transformed_extensions]])</span>
+					</pre></td>
 			</tr>
 			<tr>
 				<td><pre>unicode_locale_extensions</pre></td>
@@ -1660,11 +1661,13 @@ zh-Hant-HK
 			Most type values are represented by a single subtag in the current
 			version of CLDR. There are exceptions, such as types used for key
 			"ca" (calendar) and "kr" (collation reordering). If the type is not
-			included, <span class="removed">and one of the possible type values is &quot;true&quot;,</span>
-			then <span class="removed">that value</span><span class="changed">the type value "true"</span> is assumed. Note that the default for key with a
-			possible &quot;true&quot; value is often &quot;false&quot;, but may
-			not always be. <span class="changed">Note also that
-				"true"/"True" is not a valid script code, since <a
+			included, <span class="removed">and one of the possible type
+				values is &quot;true&quot;,</span> then <span class="removed">that
+				value</span><span class="changed">the type value "true"</span> is assumed.
+			Note that the default for key with a possible &quot;true&quot; value
+			is often &quot;false&quot;, but may not always be. <span
+				class="changed">Note also that "true"/"True" is not a valid
+				script code, since <a
 				href="http://www.unicode.org/iso15924/codelists.html">the ISO
 					15924 Registration Authority has exceptionally reserved it</a>, which
 				means that it will not be assigned for any purpose.
@@ -6989,12 +6992,11 @@ decimal?, group?, special*)) &gt;</pre>
 				<td class="noborder" width="148">[<a name="Unicode"
 					href="#Unicode">Unicode</a>]
 				</td>
-				<td class="noborder" width="730">
-					The Unicode Consortium. <em>The Unicode Standard, Version 
-					7.0.0</em>,&nbsp;(Mountain View, CA: The Unicode Consortium, 
-					2014. ISBN 978-1-936213-09-2)<br>
-					<a href="http://www.unicode.org/versions/Unicode7.0.0/">
-					http://www.unicode.org/versions/Unicode7.0.0/</a>
+				<td class="noborder" width="730">The Unicode Consortium. <em>The
+						Unicode Standard, Version 7.0.0</em>,&nbsp;(Mountain View, CA: The
+					Unicode Consortium, 2014. ISBN 978-1-936213-09-2)<br> <a
+					href="http://www.unicode.org/versions/Unicode7.0.0/">
+						http://www.unicode.org/versions/Unicode7.0.0/</a>
 				</td>
 			</tr>
 			<tr>
@@ -7371,11 +7373,14 @@ decimal?, group?, special*)) &gt;</pre>
 			<li><b>Proposed update </b>for Version 27.</li>
 			<li><strong>Part 1: <a href="#Contents">Core</a></strong>
 				<ul>
-					<li><em>Section 3.2 <a
-							href="#Unicode_locale_identifier">Unicode Locale Identifier</a></em>
+					<li><em>Section 3.2 <a href="#Unicode_locale_identifier">Unicode
+								Locale Identifier</a></em>
 						<ul>
-							<li>Corrected the ABNF for <code>unicode_locale_id</code> to match the EBNF version.
-								[<a href="http://unicode.org/cldr/trac/ticket/7976" title="View ticket">#7976</a>]</li>
+							<li>Corrected the ABNF for <code>unicode_locale_id</code> to
+								match the EBNF version. [<a
+								href="http://unicode.org/cldr/trac/ticket/7976"
+								title="View ticket">#7976</a>]
+							</li>
 						</ul></li>
 					<li><em>Section 3.4 <a href="#Field_Definitions">Language
 								Identifier Field Definitions</a>,<br>Section 3.5.3 <a
@@ -7390,9 +7395,14 @@ decimal?, group?, special*)) &gt;</pre>
 							href="#Key_And_Type_Definitions_">Key And Type Definitions</a></em>
 						<ul>
 							<li>Made explicit definitions for the different categories
-								of identifiers associated with key and type values. [<a href="http://unicode.org/cldr/trac/ticket/7960" title="View ticket">#7960</a>]</li>
-							<li>Updated the definition for a keyword without a type value.
-								[<a href="http://unicode.org/cldr/trac/ticket/7893" title="View ticket">#7893</a>]</li>
+								of identifiers associated with key and type values. [<a
+								href="http://unicode.org/cldr/trac/ticket/7960"
+								title="View ticket">#7960</a>]
+							</li>
+							<li>Updated the definition for a keyword without a type
+								value. [<a href="http://unicode.org/cldr/trac/ticket/7893"
+								title="View ticket">#7893</a>]
+							</li>
 						</ul></li>
 					<li><em>Section 4 <a href="#Locale_Inheritance">Locale
 								Inheritance and Matching</a></em>

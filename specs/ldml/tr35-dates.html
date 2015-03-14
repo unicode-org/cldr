@@ -53,12 +53,12 @@
 	color: blue;
 }
 
-li,p {
+li, p {
 	margin-top: 0.5em;
 	margin-bottom: 0.5em
 }
 
-h2,h3,h4,table {
+h2, h3, h4, table {
 	margin-top: 1.5em;
 	margin-bottom: 0.5em;
 }
@@ -82,8 +82,10 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center"><span class="changed">Proposed Update
-		</span>Unicode Technical Standard #35</h2>
+		<h2 style="text-align: center">
+			<span class="changed">Proposed Update </span>Unicode Technical
+			Standard #35
+		</h2>
 		<h1 style="text-align: center">
 			Unicode Locale Data Markup Language (LDML)<br> Part 4: Dates
 		</h1>
@@ -232,7 +234,9 @@ h2,h3,h4,table {
 							Preference Data</a></li>
 					<li>4.3 <a href="#Week_Data">Week Data</a></li>
 					<li>4.4 <a href="#Time_Data">Time Data</a></li>
-					<li>4.5 <a href="#Day_Period_Rule_Sets">Day Period Rul<span class="changed">e Set</span>s</a></li>
+					<li>4.5 <a href="#Day_Period_Rule_Sets">Day Period Rul<span
+							class="changed">e Set</span>s
+					</a></li>
 				</ul>
 			</li>
 			<li>5 <a href="#Time_Zone_Names">Time Zone Names</a>
@@ -299,10 +303,12 @@ h2,h3,h4,table {
 			</li>
 		</ul>
 
-		<p class="dtd">&lt;!ELEMENT supplementalData ( …, calendarData?,
+		<p class="dtd">
+			&lt;!ELEMENT supplementalData ( …, calendarData?,
 			calendarPreferenceData?, weekData?, timeData?, …, timezoneData?, …,
-			metazoneInfo?, …, dayPeriodRuleSet<span class="changed">*</span>, metaZones?, primaryZones?,
-			windowsZones?, …) &gt;</p>
+			metazoneInfo?, …, dayPeriodRuleSet<span class="changed">*</span>,
+			metaZones?, primaryZones?, windowsZones?, …) &gt;
+		</p>
 
 		<p>The relevant top-level supplemental elements are listed above.</p>
 		<ul>
@@ -354,41 +360,45 @@ h2,h3,h4,table {
 		<p>Each calendar provides—directly or indirectly—two general types
 			of data:</p>
 		<ul>
-			<li><em>Calendar symbols, such as names for eras, months, weekdays,
-				and dayPeriods.</em> Names for weekdays<span class="changed">, quarters</span> and dayPeriods
-				are typically inherited from the Gregorian calendar data in the same locale.
-				Symbols for eras and months should be provided for each calendar,
-				except that the "Gregorian-like" Buddhist, Japanese, and Minguo
-				(ROC) calendars also inherit their month names from the Gregorian
-				data in the same locale.</li>
-			<li><em>Format data for dates, times, and date-time intervals.</em>
-				<span class="changed">Non-Gregorian calendars inherit standard time
-				formats (in the &lt;timeFormats&gt; element) from the Gregorian
-				calendar in the same locale.</span> Most non-Gregorian calendars
-				<span class="changed">(other than Chinese and Dangi) </span>inherit
-				<span class="changed">general date</span> format data
-				<span class="changed">(in the &lt;dateFormats&gt; and &lt;dateTimeFormats&gt;
-				elements)</span> from the "generic" calendar format data in the same locale,
-				which in turn inherits from Gregorian.</li>
+			<li><em>Calendar symbols, such as names for eras, months,
+					weekdays, and dayPeriods.</em> Names for weekdays<span class="changed">,
+					quarters</span> and dayPeriods are typically inherited from the Gregorian
+				calendar data in the same locale. Symbols for eras and months should
+				be provided for each calendar, except that the "Gregorian-like"
+				Buddhist, Japanese, and Minguo (ROC) calendars also inherit their
+				month names from the Gregorian data in the same locale.</li>
+			<li><em>Format data for dates, times, and date-time
+					intervals.</em> <span class="changed">Non-Gregorian calendars
+					inherit standard time formats (in the &lt;timeFormats&gt; element)
+					from the Gregorian calendar in the same locale.</span> Most non-Gregorian
+				calendars <span class="changed">(other than Chinese and
+					Dangi) </span>inherit <span class="changed">general date</span> format
+				data <span class="changed">(in the &lt;dateFormats&gt; and
+					&lt;dateTimeFormats&gt; elements)</span> from the "generic" calendar
+				format data in the same locale, which in turn inherits from
+				Gregorian.</li>
 		</ul>
-		<p>Calendars that use cyclicNameSets and monthPatterns <span class="changed">(such as
-			Chinese and Dangi) </span> have additional symbols and distinct formats, and
-			typically inherit these items (along with month names) from their parent
-			locales, instead of inheriting them from Gregorian or generic data in the same
-			locale.</p>
+		<p>
+			Calendars that use cyclicNameSets and monthPatterns <span
+				class="changed">(such as Chinese and Dangi) </span> have additional
+			symbols and distinct formats, and typically inherit these items
+			(along with month names) from their parent locales, instead of
+			inheriting them from Gregorian or generic data in the same locale.
+		</p>
 
-		<p class="changed">The primary difference between Gregorian and "generic" format
-			data is that date formats in "generic" usually include era with year, in
-			order to provide an indication of which calendar is being used (Gregorian
-			calendar formats may also commonly include era with year when Gregorian is
-			not the default calendar for the locale). Otherwise, the "generic" date
-			formats should normally be consistent with those in the Gregorian calendar.
-			The "generic" calendar formats are intended to provide a consistent set of
-			default formats for non-Gregorian calendars in the locale, so that in most
-			cases the only data items that need be provided for non-Gregorian calendars
-			are the era names and month names (and the latter only for calendars other
-			than Buddhist, Japanese, and Minguo, since those inherit month names from
-			Gregorian).</p>
+		<p class="changed">The primary difference between Gregorian and
+			"generic" format data is that date formats in "generic" usually
+			include era with year, in order to provide an indication of which
+			calendar is being used (Gregorian calendar formats may also commonly
+			include era with year when Gregorian is not the default calendar for
+			the locale). Otherwise, the "generic" date formats should normally be
+			consistent with those in the Gregorian calendar. The "generic"
+			calendar formats are intended to provide a consistent set of default
+			formats for non-Gregorian calendars in the locale, so that in most
+			cases the only data items that need be provided for non-Gregorian
+			calendars are the era names and month names (and the latter only for
+			calendars other than Buddhist, Japanese, and Minguo, since those
+			inherit month names from Gregorian).</p>
 
 		<h3>
 			2.1 <a name="months_days_quarters_eras"
@@ -953,11 +963,20 @@ h2,h3,h4,table {
 
 		<p>
 			The preference of 12 hour versus 24 hour for the locale can be
-			derived from the <span class="removed">short timeFormat or from</span> <a href="#Time_Data">Time
-				Data</a>. If the hour symbol is &quot;h&quot; or &quot;K&quot;<span class="removed"> (of
-		various lengths)</span> then the format is 12 hour; otherwise it is 24 hour.</p>
-		<p class="changed">To account for customary usage in some countries, APIs should allow for formatting times that go beyond 23:59:59. For example, in some countries it would be customary to indicate that  opening hours extending from <em>Friday at 7pm</em> to <em>Saturday at 2am</em> in a format like the following:</p>
-		<p align="center" class="changed">Friday: 19:00 – 26:00		</p>
+			derived from the <span class="removed">short timeFormat or
+				from</span> <a href="#Time_Data">Time Data</a>. If the hour symbol is
+			&quot;h&quot; or &quot;K&quot;<span class="removed"> (of
+				various lengths)</span> then the format is 12 hour; otherwise it is 24
+			hour.
+		</p>
+		<p class="changed">
+			To account for customary usage in some countries, APIs should allow
+			for formatting times that go beyond 23:59:59. For example, in some
+			countries it would be customary to indicate that opening hours
+			extending from <em>Friday at 7pm</em> to <em>Saturday at 2am</em> in
+			a format like the following:
+		</p>
+		<p align="center" class="changed">Friday: 19:00 – 26:00</p>
 		<p>
 			Time formats use the specific non-location format (z or zzzz) for the
 			time zone name. This is the format that should be used when
@@ -1669,12 +1688,15 @@ h2,h3,h4,table {
 
 		<h3>
 			4.5 <a name="Day_Period_Rule_Sets" href="#Day_Period_Rule_Sets">Day
-				Period Rul<span class="changed">e Sets</span></a>
+				Period Rul<span class="changed">e Sets</span>
+			</a>
 		</h3>
 
-		<p class="dtd">&lt;!ELEMENT dayPeriodRuleSet ( dayPeriodRules* )
-			&gt;<br>
-            <span class="changed">&lt;!ATTLIST dayPeriodRuleSet type NMTOKEN #IMPLIED &gt;</span></p>
+		<p class="dtd">
+			&lt;!ELEMENT dayPeriodRuleSet ( dayPeriodRules* ) &gt;<br> <span
+				class="changed">&lt;!ATTLIST dayPeriodRuleSet type NMTOKEN
+				#IMPLIED &gt;</span>
+		</p>
 
 		<p class="dtd">
 			&lt;!ELEMENT dayPeriodRules (dayPeriodRule*) &gt;<br>
@@ -1688,48 +1710,52 @@ h2,h3,h4,table {
 			dayPeriodRule after NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST
 			dayPeriodRule from NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST
 			dayPeriodRule before NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST
-		dayPeriodRule to NMTOKEN #IMPLIED &gt;</p>
+			dayPeriodRule to NMTOKEN #IMPLIED &gt;
+		</p>
 
-		<p>Each locale can have a set of day period rules, which
-			determine the periods during a day if used with a 12 hour format.
-			If locales are not listed, dayPeriods fallback to AM/PM.
-			<span class="changed">There are two kinds of dayPeriodRuleSets,
-			based on the type.</span></p>
+		<p>
+			Each locale can have a set of day period rules, which determine the
+			periods during a day if used with a 12 hour format. If locales are
+			not listed, dayPeriods fallback to AM/PM. <span class="changed">There
+				are two kinds of dayPeriodRuleSets, based on the type.</span>
+		</p>
 
 		<p class="changed">The default type (with no value) is used in
-			conjunction with times, such as to express &quot;3:00 in the afternoon&quot;,
-			or &quot;12:00 noon&quot;. Many languages do not normally use terms that
-			match AM/PM for such times, instead breaking up the day into more periods.</p>
+			conjunction with times, such as to express &quot;3:00 in the
+			afternoon&quot;, or &quot;12:00 noon&quot;. Many languages do not
+			normally use terms that match AM/PM for such times, instead breaking
+			up the day into more periods.</p>
 
-		<p class="changed">If the type is “selection”, then it is used for selecting
-			a period of the day for a general time associated with an event. For
-			example, it can be used to select a message like:</p>
+		<p class="changed">If the type is “selection”, then it is used for
+			selecting a period of the day for a general time associated with an
+			event. For example, it can be used to select a message like:</p>
 
-		<p class='xmlExample changed'>&lt;msg  ... &gt;<br>
-			{day_period, select,<br>
-			MORNING1  {Your email arrived yesterday morning.}<br>
-			AFTERNOON1 {Your email arrived yesterday afternoon.}<br>
-			EVENING1 {Your email arrived yesterday evening.}<br>
-			NIGHT1 {Your email arrived last night.}<br>
-			other {Your email arrived yesterday.}<br>
-			...<br>
-			}<br>
-			&lt;/msg&gt;</p>
+		<p class='xmlExample changed'>
+			&lt;msg ... &gt;<br> {day_period, select,<br> MORNING1
+			{Your email arrived yesterday morning.}<br> AFTERNOON1 {Your
+			email arrived yesterday afternoon.}<br> EVENING1 {Your email
+			arrived yesterday evening.}<br> NIGHT1 {Your email arrived last
+			night.}<br> other {Your email arrived yesterday.}<br> ...<br>
+			}<br> &lt;/msg&gt;
+		</p>
 
-		<p class="changed">These are relative times within a single day. If the event
-			can occur on multiple days, then that needs to be handled at a higher level.</p>
+		<p class="changed">These are relative times within a single day.
+			If the event can occur on multiple days, then that needs to be
+			handled at a higher level.</p>
 
-		<p class="changed">As with plurals, the exact set of periods used for any
-			language may be different. It is the responsibility of any translation
-			software to pick the relevant day periods for the locale for display to
-			the translator (and end user).</p>
+		<p class="changed">As with plurals, the exact set of periods used
+			for any language may be different. It is the responsibility of any
+			translation software to pick the relevant day periods for the locale
+			for display to the translator (and end user).</p>
 
-		<h4>4.5.1 <a name="Day_Period_Rules" href="#Day_Period_Rules">Day
-			Period Rules</a></h4>
+		<h4>
+			4.5.1 <a name="Day_Period_Rules" href="#Day_Period_Rules">Day
+				Period Rules</a>
+		</h4>
 
 		<p>Here are the requirements for a rule set:</p>
 		<ol>
-		  <li>"from" and "to" are closed intervals (inclusive).</li>
+			<li>"from" and "to" are closed intervals (inclusive).</li>
 			<li>"after" and "before" are open intervals (exclusive).</li>
 			<li>"at" means starting time and end time are the same.</li>
 			<li>There must be exactly one of {at, from, after} and exactly
@@ -3176,10 +3202,13 @@ h2,h3,h4,table {
 			characters in display).</p>
 
 		<blockquote>
-			<p>Note<span class="changed"> 1: T</span>he counter-intuitive use of 5 letters for the narrow
-				form of weekdays and months is forced by backwards compatibility.</p>
-			<p class="changed">Note 2: The examples in the table below are merely illustrative and may not
-				reflect current actual data.</p>
+			<p>
+				Note<span class="changed"> 1: T</span>he counter-intuitive use of 5
+				letters for the narrow form of weekdays and months is forced by
+				backwards compatibility.
+			</p>
+			<p class="changed">Note 2: The examples in the table below are
+				merely illustrative and may not reflect current actual data.</p>
 		</blockquote>
 
 		<table cellspacing="0" cellpadding="2" border="1">
@@ -3198,7 +3227,8 @@ h2,h3,h4,table {
 				<th rowspan="3" style="vertical-align: top; text-align: left">era</th>
 				<td style="text-align: center; vertical-align: top" rowspan="3">G</td>
 				<td style="text-align: center; vertical-align: top">1..3</td>
-				<td style="vertical-align: top; text-align: left">AD<span class="changed"> (variant: CE)</span></td>
+				<td style="vertical-align: top; text-align: left">AD<span
+					class="changed"> (variant: CE)</span></td>
 				<td rowspan="3" style="vertical-align: top; text-align: left">Era
 					- Replaced with the Era string for the current date. One to three
 					letters for the abbreviated form, four letters for the long (wide)
@@ -3206,7 +3236,8 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">4</td>
-				<td style="vertical-align: top; text-align: left">Anno Domini<span class="changed"> (variant: Common Era)</span></td>
+				<td style="vertical-align: top; text-align: left">Anno Domini<span
+					class="changed"> (variant: Common Era)</span></td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">5</td>
@@ -3393,7 +3424,8 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
-				<td style="vertical-align: top; text-align: left"><span class="changed">Sep</span></td>
+				<td style="vertical-align: top; text-align: left"><span
+					class="changed">Sep</span></td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">4</td>
@@ -3414,7 +3446,8 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
-				<td style="vertical-align: top; text-align: left"><span class="changed">Sep</span></td>
+				<td style="vertical-align: top; text-align: left"><span
+					class="changed">Sep</span></td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">4</td>
@@ -3490,7 +3523,8 @@ h2,h3,h4,table {
 				</th>
 				<td rowspan="4" style="text-align: center; vertical-align: top">E</td>
 				<td style="text-align: center; vertical-align: top">1..3</td>
-				<td style="vertical-align: top; text-align: left"><span class="changed">Tue</span></td>
+				<td style="vertical-align: top; text-align: left"><span
+					class="changed">Tue</span></td>
 				<td rowspan="4">Day of week - Use one through three letters for
 					the abbreviated day name, four for the full (wide) name, five for
 					the narrow name, or six for the short name.</td>
@@ -3518,7 +3552,8 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
-				<td style="vertical-align: top; text-align: left"><span class="changed">Tue</span></td>
+				<td style="vertical-align: top; text-align: left"><span
+					class="changed">Tue</span></td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">4</td>
@@ -3543,7 +3578,8 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
-				<td style="vertical-align: top; text-align: left"><span class="changed">Tue</span></td>
+				<td style="vertical-align: top; text-align: left"><span
+					class="changed">Tue</span></td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">4</td>
@@ -4075,13 +4111,14 @@ h2,h3,h4,table {
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All Rights Reserved. The Unicode
-			Consortium makes no expressed or implied warranty of any kind, and
-			assumes no liability for errors or omissions. No liability is assumed
-			for incidental and consequential damages in connection with or
-			arising out of the use of the information or programs contained or
-			accompanying this technical report. The Unicode <a
-				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
+			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All
+			Rights Reserved. The Unicode Consortium makes no expressed or implied
+			warranty of any kind, and assumes no liability for errors or
+			omissions. No liability is assumed for incidental and consequential
+			damages in connection with or arising out of the use of the
+			information or programs contained or accompanying this technical
+			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
+				of Use</a> apply.
 		</p>
 
 		<p class="copyright">Unicode and the Unicode logo are trademarks

@@ -53,12 +53,12 @@
 	color: blue;
 }
 
-li,p {
+li, p {
 	margin-top: 0.5em;
 	margin-bottom: 0.5em
 }
 
-h2,h3,h4,table {
+h2, h3, h4, table {
 	margin-top: 1.5em;
 	margin-bottom: 0.5em;
 }
@@ -82,8 +82,10 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center"><span class="changed">Proposed Update
-		</span>Unicode Technical Standard #35</h2>
+		<h2 style="text-align: center">
+			<span class="changed">Proposed Update </span>Unicode Technical
+			Standard #35
+		</h2>
 		<h1 style="text-align: center">
 			Unicode Locale Data Markup Language (LDML)<br> Part 2: General
 		</h1>
@@ -1254,11 +1256,12 @@ h2,h3,h4,table {
 			&lt;!ELEMENT measurementData ( measurementSystem*, paperSize* ) &gt;<br>
 			<br> &lt;!ELEMENT measurementSystem EMPTY &gt;<br>
 			&lt;!ATTLIST measurementSystem type ( metric | US | UK ) #REQUIRED
-			&gt;<br> 
-			<span class="changed">&lt;!ATTLIST measurementSystem category ( temperature ) #IMPLIED &gt;</span><br>&lt;!ATTLIST measurementSystem territories NMTOKENS
-			#REQUIRED &gt;<br> <br> &lt;!ELEMENT paperSize EMPTY &gt;<br>
-			&lt;!ATTLIST paperSize type ( A4 | US-Letter ) #REQUIRED &gt;<br>
-			&lt;!ATTLIST paperSize territories NMTOKENS #REQUIRED &gt;
+			&gt;<br> <span class="changed">&lt;!ATTLIST
+				measurementSystem category ( temperature ) #IMPLIED &gt;</span><br>&lt;!ATTLIST
+			measurementSystem territories NMTOKENS #REQUIRED &gt;<br> <br>
+			&lt;!ELEMENT paperSize EMPTY &gt;<br> &lt;!ATTLIST paperSize
+			type ( A4 | US-Letter ) #REQUIRED &gt;<br> &lt;!ATTLIST
+			paperSize territories NMTOKENS #REQUIRED &gt;
 		</p>
 
 		<p>The measurement system is the normal measurement system in
@@ -1274,26 +1277,33 @@ h2,h3,h4,table {
  &lt;paperSize type=&quot;US-Letter&quot;  territories=&quot;BZ CA CL CO CR GT MX NI PA PH PR SV US VE&quot;/&gt;</span>
 &lt;/measurementData&gt;</pre>
 
-		<p>
-			The values are "metric", "US", or "UK"; others may be added over
-			time.</p>
+		<p>The values are "metric", "US", or "UK"; others may be added
+			over time.</p>
 		<ul>
-		  <li>The "metric" value indicates the use of SI [<a
+			<li>The "metric" value indicates the use of SI [<a
 				href="tr35.html#ISO1000">ISO1000</a>] base or derived units, or
-		    non-SI units accepted for use with SI: for example, meters,
-		    kilograms, liters, and degrees Celsius.</li>
-		  <li>The "US" value indicates the
-		    customary system of measurement as used in the United States: feet,
-		    inches, pints, quarts, degrees Fahrenheit, and so on.</li>
-		  <li>The "UK" value
-		    indicates the customary system of measurement as <span class="changed">was</span> used in the United
-		    Kingdom: feet, inches, pints, quarts, and so on. It is also called
-		    the <em>Imperial system</em>: the pint, quart, and so on are different sizes
-		    than in "US".</li>
-      </ul>
-		<p class="changed">In some cases, it may be common to use different measurement systems for different categories of measurements. For example, the following indicates that for the category of temperature, in the regions LR and MM,  it is more common to use metric units than US units.</p>
+				non-SI units accepted for use with SI: for example, meters,
+				kilograms, liters, and degrees Celsius.
+			</li>
+			<li>The "US" value indicates the customary system of measurement
+				as used in the United States: feet, inches, pints, quarts, degrees
+				Fahrenheit, and so on.</li>
+			<li>The "UK" value indicates the customary system of measurement
+				as <span class="changed">was</span> used in the United Kingdom:
+				feet, inches, pints, quarts, and so on. It is also called the <em>Imperial
+					system</em>: the pint, quart, and so on are different sizes than in
+				"US".
+			</li>
+		</ul>
+		<p class="changed">In some cases, it may be common to use
+			different measurement systems for different categories of
+			measurements. For example, the following indicates that for the
+			category of temperature, in the regions LR and MM, it is more common
+			to use metric units than US units.</p>
 
-		<pre><span class="changed">&lt;measurementSystem type=&quot;metric&quot; category=&quot;temperature&quot; territories=&quot;LR MM&quot;/&gt;</span></pre>
+		<pre>
+			<span class="changed">&lt;measurementSystem type=&quot;metric&quot; category=&quot;temperature&quot; territories=&quot;LR MM&quot;/&gt;</span>
+		</pre>
 
 		<p>The paperSize attribute gives the height and width of paper
 			used for normal business letters. The values are "A4" and
@@ -1392,13 +1402,21 @@ h2,h3,h4,table {
 			</tr>
 		</table>
 		<p>&nbsp;</p>
-		<p>The units in CLDR are not comprehensive; it is anticipated that
-			more will be added over time. <span class="changed">The codes currently supported are found in the root.xml file, in items of the type:</span></p>
+		<p>
+			The units in CLDR are not comprehensive; it is anticipated that more
+			will be added over time. <span class="changed">The codes
+				currently supported are found in the root.xml file, in items of the
+				type:</span>
+		</p>
 		<p class="changed xmlExample">&lt;unit type=&quot;X-Y&quot;&gt;</p>
-		<p class="changed">The characters up to the first hyphen are the <strong>type</strong>, while the remainder after that hyphen are the <strong>unit</strong>.</p>
-	  <p class="changed xmlExample">&lt;unit type=&quot;acceleration-g-force&quot;&gt;</p>
+		<p class="changed">
+			The characters up to the first hyphen are the <strong>type</strong>,
+			while the remainder after that hyphen are the <strong>unit</strong>.
+		</p>
+		<p class="changed xmlExample">&lt;unit
+			type=&quot;acceleration-g-force&quot;&gt;</p>
 		<p>​</p>
-		<p>Examples of these   include:</p>
+		<p>Examples of these include:</p>
 		<table>
 			<tr>
 				<td><strong>Type</strong></td>
@@ -1902,7 +1920,9 @@ h2,h3,h4,table {
 			or inches in Germany. This is to account for use by travelers and
 			specialized domains, such as the German “̌Fernseher von 32 bis 55
 			Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.</p>
-		<p class="changed">There is a special unit 			&lt;unit type=&quot;temperature-generic&quot;&gt;, which is used when it is clear from context whether Celcius or Fahrenheit is implied.</p>
+		<p class="changed">There is a special unit &lt;unit
+			type=&quot;temperature-generic&quot;&gt;, which is used when it is
+			clear from context whether Celcius or Fahrenheit is implied.</p>
 		<h3>
 			6.1 <a name="perUnitPatterns" href="#perUnitPatterns">per Unit
 				patterns</a><a name="compoundUnitPattern" href="#compoundUnitPattern"></a>
@@ -2730,13 +2750,18 @@ h2,h3,h4,table {
 			</tr>
 		</table>
 
-		<p>The “\u” <span class="changed">and “\x” hex </span>notations can be used instead of any letter. For
-			instance, instead of using the Greek π, one could write<span class="changed"> either of</span> the following:</p>
+		<p>
+			The “\u” <span class="changed">and “\x” hex </span>notations can be
+			used instead of any letter. For instance, instead of using the Greek
+			π, one could write<span class="changed"> either of</span> the
+			following:
+		</p>
 
 		<table cellspacing="0" cellpadding="8" border="1">
 			<tr>
-				<td valign="top" bgcolor="#eeeeee"><code>\u03C0 → p ;<br>
-			    <span class="changed">\x{3C0} → p ;</span></code></td>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						\u03C0 → p ;<br> <span class="changed">\x{3C0} → p ;</span>
+					</code></td>
 			</tr>
 		</table>
 
@@ -2777,46 +2802,78 @@ h2,h3,h4,table {
 			10.3.2 <a name="Context" href="#Context">Context</a>
 		</h4>
 
-		<p>Context can be used to have the results of a transformation be
+		<p>
+			Context can be used to have the results of a transformation be
 			different depending on the characters before or after. The following
-			rule removes hyphens, but only when they follow lowercase <span class="changed">characters</span>:</p>
+			rule removes hyphens, but only when they follow lowercase <span
+				class="changed">characters</span>:
+		</p>
 
 		<table cellspacing="0" cellpadding="8" border="1">
 			<tr>
-				<td valign="top" bgcolor="#eeeeee"><code>[:<span class="changed">Lowercase</span>:] <span class="changed">{</span> '-' → ;</code></td>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						[:<span class="changed">Lowercase</span>:] <span class="changed">{</span>
+						'-' → ;
+					</code></td>
 			</tr>
 		</table>
 
-		<p class="changed">Contexts can be before or after or both, such as in a rule to remove hyphens between lowercase and uppercase letters:</p>
-        <table cellspacing="0" cellpadding="8" border="1">
-          <tr>
-            <td valign="top" bgcolor="#eeeeee"><code class="changed">[:Lowercase:] { '-' } [:Uppercase:]  → ;</code></td>
-          </tr>
-      </table>
-        <p class="changed">Each context is optional and may be empty; the following two rules are equivalent:        </p>
-        <table cellspacing="0" cellpadding="8" border="1">
-          <tr>
-            <td valign="top" bgcolor="#eeeeee" class="changed"><code>$pi ↔ p ;<br>
-              {$pi} ↔ {p} ;</code></td>
-          </tr>
-      </table>
-        <p>The context itself ([:<code><span class="changed">Lowercase</span></code>:]) is unaffected by the
-			replacement; only the text within braces  is changed. </p>
-		<p class="changed">Character classes (UnicodeSets) in the contexts can contain the special symbol $, which means “off either end of the string”. It is roughly similar to $ and ^ in regex. Unlike normal regex, however, it can occur in character classes. Thus the following rule removes hyphens that are after lowercase characters, <em>or</em> are at the start of a string.</p>
+		<p class="changed">Contexts can be before or after or both, such
+			as in a rule to remove hyphens between lowercase and uppercase
+			letters:</p>
 		<table cellspacing="0" cellpadding="8" border="1">
-          <tr>
-            <td valign="top" bgcolor="#eeeeee"><code class="changed">[[:Lowercase:]$] {'-'  → ;</code></td>
-          </tr>
-      </table>
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code class="changed">[:Lowercase:]
+						{ '-' } [:Uppercase:] → ;</code></td>
+			</tr>
+		</table>
+		<p class="changed">Each context is optional and may be empty; the
+			following two rules are equivalent:</p>
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee" class="changed"><code>
+						$pi ↔ p ;<br> {$pi} ↔ {p} ;
+					</code></td>
+			</tr>
+		</table>
+		<p>
+			The context itself ([:
+			<code>
+				<span class="changed">Lowercase</span>
+			</code>
+			:]) is unaffected by the replacement; only the text within braces is
+			changed.
+		</p>
+		<p class="changed">
+			Character classes (UnicodeSets) in the contexts can contain the
+			special symbol $, which means “off either end of the string”. It is
+			roughly similar to $ and ^ in regex. Unlike normal regex, however, it
+			can occur in character classes. Thus the following rule removes
+			hyphens that are after lowercase characters, <em>or</em> are at the
+			start of a string.
+		</p>
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code class="changed">[[:Lowercase:]$]
+						{'-' → ;</code></td>
+			</tr>
+		</table>
 
-		<p class="changed">Thus the negation of a UnicodeSet will normally also match before or after the end of a string. The following will remove hyphens that are not after lowercase characters<em>, including hyphens at the start of a string</em>.</p>
-      <table cellspacing="0" cellpadding="8" border="1">
-          <tr>
-            <td valign="top" bgcolor="#eeeeee"><code class="changed">[^[:Lowercase:]] {'-'  → ;</code></td>
-          </tr>
-        </table>
-        <p class="changed">It will thus convert “-B A-B a-b” to “B AB a-b”.</p>
-        <h4>
+		<p class="changed">
+			Thus the negation of a UnicodeSet will normally also match before or
+			after the end of a string. The following will remove hyphens that are
+			not after lowercase characters<em>, including hyphens at the
+				start of a string</em>.
+		</p>
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code class="changed">[^[:Lowercase:]]
+						{'-' → ;</code></td>
+			</tr>
+		</table>
+		<p class="changed">It will thus convert “-B A-B a-b” to “B AB
+			a-b”.</p>
+		<h4>
 			10.3.3 <a name="Revisiting" href="#Revisiting">Revisiting</a>
 		</h4>
 
@@ -2881,8 +2938,11 @@ h2,h3,h4,table {
 					</code></td>
 			</tr>
 		</table>
-<p class="changed">There is an online demo where the rules can be tested, at:</p>
-<p class="changed"><a target="demo" href="http://unicode.org/cldr/utility/transform.jsp">http://unicode.org/cldr/utility/transform.jsp</a></p>
+		<p class="changed">There is an online demo where the rules can be
+			tested, at:</p>
+		<p class="changed">
+			<a target="demo" href="http://unicode.org/cldr/utility/transform.jsp">http://unicode.org/cldr/utility/transform.jsp</a>
+		</p>
 		<h4>
 			10.3.5 <a name="Rule_Syntax" href="#Rule_Syntax">Rule Syntax</a>
 		</h4>
@@ -3413,26 +3473,31 @@ h2,h3,h4,table {
 			languages, other capitalization may be required in other contexts,
 			depending on the type of name or symbol.</p>
 
-		<p>Each &lt;contextTransformUsage&gt; element’s type attribute
-			specifies a category of data from the table below; the element
-			includes one or more &lt;contextTransform&gt; elements that specify
-			how to perform capitalization of this category of data in different
-			contexts. The &lt;contextTransform&gt; elements are <span class="changed">needed
-			primarily</span> for cases in which the capitalization is other than the
-			default form used in the middle of running text. <span class="changed">However,
-			it is also useful to mark cases in which it is <em>known</em> that no
-			transformation from this default form is needed; this may be necessary, for
-			example, to override the transformation specified by a parent locale. The
-			following values are </span>currently defined for the &lt;contextTransform&gt;
-			element:</p>
+		<p>
+			Each &lt;contextTransformUsage&gt; element’s type attribute specifies
+			a category of data from the table below; the element includes one or
+			more &lt;contextTransform&gt; elements that specify how to perform
+			capitalization of this category of data in different contexts. The
+			&lt;contextTransform&gt; elements are <span class="changed">needed
+				primarily</span> for cases in which the capitalization is other than the
+			default form used in the middle of running text. <span
+				class="changed">However, it is also useful to mark cases in
+				which it is <em>known</em> that no transformation from this default
+				form is needed; this may be necessary, for example, to override the
+				transformation specified by a parent locale. The following values
+				are
+			</span>currently defined for the &lt;contextTransform&gt; element:
+		</p>
 
 		<ul>
-			<li>"titlecase-firstword" <span class="changed">designates </span>the case in
-				which <span class="changed">raw CLDR </span>text that is <span class="changed">in
-				middle-of-sentence form, typically lowercase, </span>needs to have its
-				first word titlecased.</li>
-			<li class="changed">"no-change" designates the case in which it is known that no
-				change from the raw CLDR text (middle-of-sentence form) is needed.</li>
+			<li>"titlecase-firstword" <span class="changed">designates
+			</span>the case in which <span class="changed">raw CLDR </span>text that is
+				<span class="changed">in middle-of-sentence form, typically
+					lowercase, </span>needs to have its first word titlecased.
+			</li>
+			<li class="changed">"no-change" designates the case in which it
+				is known that no change from the raw CLDR text (middle-of-sentence
+				form) is needed.</li>
 		</ul>
 
 		<p>Four contexts for capitalization behavior are currently
@@ -3680,45 +3745,71 @@ h2,h3,h4,table {
 		</table>
 		<p>Quoting is done using ' characters, as in date or number
 			formats.</p>
-		<h2 class="changed">14 <a name="Annotations" href="#Annotations">Annotations</a> </h2>
-		<p class="changed">Annotations provide information about characters, typically used in input.
-			For example, on a mobile keyboard they can be used to do completion. They are typically
-			used for symbols, especially emoji characters.</p>
+		<h2 class="changed">
+			14 <a name="Annotations" href="#Annotations">Annotations</a>
+		</h2>
+		<p class="changed">Annotations provide information about
+			characters, typically used in input. For example, on a mobile
+			keyboard they can be used to do completion. They are typically used
+			for symbols, especially emoji characters.</p>
 
-		<p class="dtd"><span class="changed">&lt;!ELEMENT annotations ( annotation* ) &gt;</span></p>
-        <p class="dtd"><span class="changed">&lt;!ELEMENT annotation ( #PCDATA ) &gt;</span></p>
-	    <p class="dtd"><span class="changed">&lt;!ATTLIST annotation cp CDATA #REQUIRED &gt;</span></p>
-	    <p class="dtd"><span class="changed">&lt;!ATTLIST annotation tts CDATA #IMPLIED &gt;</span></p>
+		<p class="dtd">
+			<span class="changed">&lt;!ELEMENT annotations ( annotation* )
+				&gt;</span>
+		</p>
+		<p class="dtd">
+			<span class="changed">&lt;!ELEMENT annotation ( #PCDATA ) &gt;</span>
+		</p>
+		<p class="dtd">
+			<span class="changed">&lt;!ATTLIST annotation cp CDATA
+				#REQUIRED &gt;</span>
+		</p>
+		<p class="dtd">
+			<span class="changed">&lt;!ATTLIST annotation tts CDATA
+				#IMPLIED &gt;</span>
+		</p>
 
-		<p class="changed">The value of an annotation element is a semicolon-delimited list, such as
-			the following for English and German respectively.</p>
+		<p class="changed">The value of an annotation element is a
+			semicolon-delimited list, such as the following for English and
+			German respectively.</p>
 
-		<pre class="example"><span class="changed">&lt;annotation cp='[👎]'&gt;-1; thumbs down&lt;/annotation&gt;
-&lt;annotation cp='[👎]' tts='Daumen runter'&gt;Hand; Daumen&lt;/annotation&gt;</span></pre>
+		<pre class="example">
+			<span class="changed">&lt;annotation cp='[👎]'&gt;-1; thumbs down&lt;/annotation&gt;
+&lt;annotation cp='[👎]' tts='Daumen runter'&gt;Hand; Daumen&lt;/annotation&gt;</span>
+		</pre>
 
-		<p class="changed">The values do not have to match between different languages; they should
-			be the most common values that people using that language would associated with those
-			characters. The tts attribute value, if present, is a value that can be used for text-to-speech,
-			when reading text. It should be treated as one of the element values for other purposes.
-			The Unicode character name can be used for English, when the tts value is not present.</p>
+		<p class="changed">The values do not have to match between
+			different languages; they should be the most common values that
+			people using that language would associated with those characters.
+			The tts attribute value, if present, is a value that can be used for
+			text-to-speech, when reading text. It should be treated as one of the
+			element values for other purposes. The Unicode character name can be
+			used for English, when the tts value is not present.</p>
 
-		<p class="changed">The cp attribute value is a UnicodeSet, and can thus contain multiple code
-			points. A code point can occur in multiple annotation element cp values, such as the
-			following, which also contains the &quot;thumbs down&quot; character.</p>
+		<p class="changed">The cp attribute value is a UnicodeSet, and can
+			thus contain multiple code points. A code point can occur in multiple
+			annotation element cp values, such as the following, which also
+			contains the &quot;thumbs down&quot; character.</p>
 
-		<pre class="example"><span class="changed">&lt;annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]'&gt;hand&lt;/annotation&gt;</span></pre>
+		<pre class="example">
+			<span class="changed">&lt;annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]'&gt;hand&lt;/annotation&gt;</span>
+		</pre>
 
-		<p class="changed">For more information, see <a href='http://unicode.org/reports/tr51'>Unicode Emoji</a>.</p>
+		<p class="changed">
+			For more information, see <a href='http://unicode.org/reports/tr51'>Unicode
+				Emoji</a>.
+		</p>
 
-<hr>
+		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All Rights Reserved. The Unicode
-			Consortium makes no expressed or implied warranty of any kind, and
-			assumes no liability for errors or omissions. No liability is assumed
-			for incidental and consequential damages in connection with or
-			arising out of the use of the information or programs contained or
-			accompanying this technical report. The Unicode <a
-				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
+			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All
+			Rights Reserved. The Unicode Consortium makes no expressed or implied
+			warranty of any kind, and assumes no liability for errors or
+			omissions. No liability is assumed for incidental and consequential
+			damages in connection with or arising out of the use of the
+			information or programs contained or accompanying this technical
+			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
+				of Use</a> apply.
 		</p>
 		<p class="copyright">Unicode and the Unicode logo are trademarks
 			of Unicode, Inc., and are registered in some jurisdictions.</p>

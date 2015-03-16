@@ -1,11 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
-<!-- Copyright © 2014-2015 Unicode, Inc.
- For  details about the format and other information, see:
- * http://www.unicode.org/reports/tr51/index.html#Data_Files 
- * http://unicode.org/cldr/trac/ticket/8019
- CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
- For terms of use, see http://www.unicode.org/copyright.html 
+<!-- Copyright © 1991-2013 Unicode, Inc. DRAFT emoji-annotations.txt For 
+ details about the format and other information, see /../../../reports/tr51/index.html#Data_Files. 
+ http://unicode.org/cldr/trac/ticket/8019 CLDR data files are interpreted 
+ according to the LDML specification (http://unicode.org/reports/tr35/) For 
+ terms of use, see http://www.unicode.org/copyright.html 
+ This is still under development, and will be refined before release. 
+ In particular, the annotations like 'people-apple' are only present during development, and will be withdrawn for the release.
  -->
 <ldml>
 	<identity>
@@ -16,3102 +17,3102 @@
 	<annotations>
 
 		<!-- GRINNING FACE; face; grin -->
-		<annotation cp='[😀]' tts='笑臉'>笑臉</annotation>
+		<annotation cp='[😀]' tts='笑臉' draft='provisional'>笑臉</annotation>
 
 		<!-- GRINNING FACE WITH SMILING EYES; eye; face; grin; smile -->
-		<annotation cp='[😁]' tts='嘻嘻'>嘻嘻; 笑臉</annotation>
+		<annotation cp='[😁]' tts='嘻嘻' draft='provisional'>嘻嘻; 笑臉</annotation>
 
 		<!-- FACE WITH TEARS OF JOY; face; joy; tear -->
-		<annotation cp='[😂]' tts='感動'>感動</annotation>
+		<annotation cp='[😂]' tts='感動' draft='provisional'>感動</annotation>
 
 		<!-- SMILING FACE WITH OPEN MOUTH; face; mouth; open; smile -->
-		<annotation cp='[😃]' tts='大笑'>大笑; 呵呵; 笑臉; 哈哈</annotation>
+		<annotation cp='[😃]' tts='大笑' draft='provisional'>大笑; 呵呵; 笑臉; 哈哈</annotation>
 
 		<!-- SMILING FACE WITH OPEN MOUTH AND SMILING EYES; eye; face; mouth; open; smile -->
-		<annotation cp='[😄]' tts='呵呵'>呵呵; 笑臉; 哈哈</annotation>
+		<annotation cp='[😄]' tts='呵呵' draft='provisional'>呵呵; 笑臉; 哈哈</annotation>
 
 		<!-- SMILING FACE WITH OPEN MOUTH AND COLD SWEAT; cold; face; open; smile; sweat -->
-		<annotation cp='[😅]' tts='汗'>汗</annotation>
+		<annotation cp='[😅]' tts='汗' draft='provisional'>汗</annotation>
 
 		<!-- SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES; face; laugh; mouth; open; satisfied; smile -->
-		<annotation cp='[😆]' tts='狂笑'>狂笑; 哈哈; 呵呵; 笑臉</annotation>
+		<annotation cp='[😆]' tts='狂笑' draft='provisional'>狂笑; 哈哈; 呵呵; 笑臉</annotation>
 
 		<!-- WINKING FACE; face; wink -->
-		<annotation cp='[😉]' tts='眨眼'>眨眼</annotation>
+		<annotation cp='[😉]' tts='眨眼' draft='provisional'>眨眼</annotation>
 
 		<!-- SMILING FACE WITH SMILING EYES; blush; eye; face; smile -->
-		<annotation cp='[😊]' tts='紅紅的笑臉'>紅紅的笑臉; 笑臉</annotation>
+		<annotation cp='[😊]' tts='紅紅的笑臉' draft='provisional'>紅紅的笑臉; 笑臉</annotation>
 
 		<!-- FACE SAVOURING DELICIOUS FOOD; delicious; face; food; savouring; smile; um; yum -->
-		<annotation cp='[😋]' tts='口水'>口水; 哈喇子</annotation>
+		<annotation cp='[😋]' tts='口水' draft='provisional'>口水; 哈喇子</annotation>
 
 		<!-- SMILING FACE WITH SUNGLASSES; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
-		<annotation cp='[😎]' tts='墨鏡'>墨鏡; 酷</annotation>
+		<annotation cp='[😎]' tts='墨鏡' draft='provisional'>墨鏡; 酷</annotation>
 
 		<!-- SMILING FACE WITH HEART-SHAPED EYES; eye; face; heart; love; smile -->
-		<annotation cp='[😍]' tts='花痴'>花痴</annotation>
+		<annotation cp='[😍]' tts='花痴' draft='provisional'>花痴</annotation>
 
 		<!-- FACE THROWING A KISS; face; heart; kiss -->
-		<annotation cp='[😘]' tts='親親飛吻'>親親飛吻; 親親; 飛吻</annotation>
+		<annotation cp='[😘]' tts='親親飛吻' draft='provisional'>親親飛吻; 親親; 飛吻</annotation>
 
 		<!-- KISSING FACE; face; kiss -->
-		<annotation cp='[😗]' tts='親親'>親親</annotation>
+		<annotation cp='[😗]' tts='親親' draft='provisional'>親親</annotation>
 
 		<!-- KISSING FACE WITH SMILING EYES; eye; face; kiss; smile -->
-		<annotation cp='[😙]' tts='親親'>親親</annotation>
+		<annotation cp='[😙]' tts='親親' draft='provisional'>親親</annotation>
 
 		<!-- KISSING FACE WITH CLOSED EYES; closed; eye; face; kiss -->
-		<annotation cp='[😚]' tts='紅著臉親親'>紅著臉親親; 親親</annotation>
+		<annotation cp='[😚]' tts='紅著臉親親' draft='provisional'>紅著臉親親; 親親</annotation>
 
 		<!-- WHITE SMILING FACE; face; outlined; relaxed; smile -->
-		<annotation cp='[☺]' tts='笑臉'>笑臉</annotation>
+		<annotation cp='[☺]' tts='笑臉' draft='provisional'>笑臉</annotation>
 
 		<!-- SMILING FACE WITH HALO; angel; face; fairy tale; fantasy; halo; innocent; smile -->
-		<annotation cp='[😇]' tts='心知肚明的笑'>心知肚明的笑; 笑臉</annotation>
+		<annotation cp='[😇]' tts='心知肚明的笑' draft='provisional'>心知肚明的笑; 笑臉</annotation>
 
 		<!-- NEUTRAL FACE; deadpan; face; neutral -->
-		<annotation cp='[😐]' tts='無語'>無語</annotation>
+		<annotation cp='[😐]' tts='無語' draft='provisional'>無語</annotation>
 
 		<!-- EXPRESSIONLESS FACE; expressionless; face; inexpressive; unexpressive -->
-		<annotation cp='[😑]' tts='無語'>無語; 面無表情</annotation>
+		<annotation cp='[😑]' tts='無語' draft='provisional'>無語; 面無表情</annotation>
 
 		<!-- FACE WITHOUT MOUTH; face; mouth; quiet; silent -->
-		<annotation cp='[😶]' tts='無語'>無語; 沉默</annotation>
+		<annotation cp='[😶]' tts='無語' draft='provisional'>無語; 沉默</annotation>
 
 		<!-- SMIRKING FACE; face; smirk -->
-		<annotation cp='[😏]' tts='冷笑'>冷笑; 假笑</annotation>
+		<annotation cp='[😏]' tts='冷笑' draft='provisional'>冷笑; 假笑</annotation>
 
 		<!-- PERSEVERING FACE; face; persevere -->
-		<annotation cp='[😣]' tts='痛苦'>痛苦</annotation>
+		<annotation cp='[😣]' tts='痛苦' draft='provisional'>痛苦</annotation>
 
 		<!-- DISAPPOINTED BUT RELIEVED FACE; disappointed; face; relieved; whew -->
-		<annotation cp='[😥]' tts='汗'>汗</annotation>
+		<annotation cp='[😥]' tts='汗' draft='provisional'>汗</annotation>
 
 		<!-- FACE WITH OPEN MOUTH; face; mouth; open; sympathy -->
-		<annotation cp='[😮]' tts='驚訝'>驚訝; 啊</annotation>
+		<annotation cp='[😮]' tts='驚訝' draft='provisional'>驚訝; 啊</annotation>
 
 		<!-- HUSHED FACE; face; hushed; stunned; surprised -->
-		<annotation cp='[😯]' tts='啊'>啊</annotation>
+		<annotation cp='[😯]' tts='啊' draft='provisional'>啊</annotation>
 
 		<!-- SLEEPY FACE; face; sleep -->
-		<annotation cp='[😪]' tts='困'>困</annotation>
+		<annotation cp='[😪]' tts='困' draft='provisional'>困</annotation>
 
 		<!-- TIRED FACE; face; tired -->
-		<annotation cp='[😫]' tts='累'>累; 嘆氣; 疲憊; 疲勞</annotation>
+		<annotation cp='[😫]' tts='累' draft='provisional'>累; 嘆氣; 疲憊; 疲勞</annotation>
 
 		<!-- SLEEPING FACE; face; sleep -->
-		<annotation cp='[😴]' tts='睡著了'>睡著了; 打呼</annotation>
+		<annotation cp='[😴]' tts='睡著了' draft='provisional'>睡著了; 打呼</annotation>
 
 		<!-- RELIEVED FACE; face; relieved -->
-		<annotation cp='[😌]' tts='鬆了口氣'>鬆了口氣</annotation>
+		<annotation cp='[😌]' tts='鬆了口氣' draft='provisional'>鬆了口氣</annotation>
 
 		<!-- FACE WITH STUCK-OUT TONGUE; face; tongue -->
-		<annotation cp='[😛]' tts='嘿嘿'>嘿嘿; 吐舌頭</annotation>
+		<annotation cp='[😛]' tts='嘿嘿' draft='provisional'>嘿嘿; 吐舌頭</annotation>
 
 		<!-- FACE WITH STUCK-OUT TONGUE AND WINKING EYE; eye; face; joke; tongue; wink -->
-		<annotation cp='[😜]' tts='吐舌頭'>吐舌頭; 嘿嘿; </annotation>
+		<annotation cp='[😜]' tts='吐舌頭' draft='provisional'>吐舌頭; 嘿嘿; </annotation>
 
 		<!-- FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES; eye; face; horrible; taste; tongue -->
-		<annotation cp='[😝]' tts='貶眼吐舌頭'>貶眼吐舌頭; 嘿嘿; 吐舌頭</annotation>
+		<annotation cp='[😝]' tts='貶眼吐舌頭' draft='provisional'>貶眼吐舌頭; 嘿嘿; 吐舌頭</annotation>
 
 		<!-- UNAMUSED FACE; face; unamused; unhappy -->
-		<annotation cp='[😒]' tts='不高興'>不高興</annotation>
+		<annotation cp='[😒]' tts='不高興' draft='provisional'>不高興</annotation>
 
 		<!-- FACE WITH COLD SWEAT; cold; face; sweat -->
-		<annotation cp='[😓]' tts='汗'>汗</annotation>
+		<annotation cp='[😓]' tts='汗' draft='provisional'>汗</annotation>
 
 		<!-- PENSIVE FACE; dejected; face; pensive -->
-		<annotation cp='[😔]' tts='沉思'>沉思; 思考</annotation>
+		<annotation cp='[😔]' tts='沉思' draft='provisional'>沉思; 思考</annotation>
 
 		<!-- CONFUSED FACE; confused; face -->
-		<annotation cp='[😕]' tts='困擾'>困擾</annotation>
+		<annotation cp='[😕]' tts='困擾' draft='provisional'>困擾</annotation>
 
 		<!-- CONFOUNDED FACE; confounded; face -->
-		<annotation cp='[😖]' tts='困惑'>困惑</annotation>
+		<annotation cp='[😖]' tts='困惑' draft='provisional'>困惑</annotation>
 
 		<!-- FACE WITH MEDICAL MASK; cold; doctor; face; mask; medicine; sick -->
-		<annotation cp='[😷]' tts='口罩'>口罩</annotation>
+		<annotation cp='[😷]' tts='口罩' draft='provisional'>口罩</annotation>
 
 		<!-- ASTONISHED FACE; astonished; face; shocked; totally -->
-		<annotation cp='[😲]' tts='震驚'>震驚; 驚</annotation>
+		<annotation cp='[😲]' tts='震驚' draft='provisional'>震驚; 驚</annotation>
 
 		<!-- DISAPPOINTED FACE; disappointed; face -->
-		<annotation cp='[😞]' tts='失望'>失望</annotation>
+		<annotation cp='[😞]' tts='失望' draft='provisional'>失望</annotation>
 
 		<!-- WORRIED FACE; face; worried -->
-		<annotation cp='[😟]' tts='擔心'>擔心</annotation>
+		<annotation cp='[😟]' tts='擔心' draft='provisional'>擔心</annotation>
 
 		<!-- FACE WITH LOOK OF TRIUMPH; face; triumph; won -->
-		<annotation cp='[😤]' tts='傲慢'>傲慢</annotation>
+		<annotation cp='[😤]' tts='傲慢' draft='provisional'>傲慢</annotation>
 
 		<!-- CRYING FACE; cry; face; sad; tear -->
-		<annotation cp='[😢]' tts='哭'>哭; 淚; 哭臉</annotation>
+		<annotation cp='[😢]' tts='哭' draft='provisional'>哭; 淚; 哭臉</annotation>
 
 		<!-- LOUDLY CRYING FACE; cry; face; sad; sob; tear -->
-		<annotation cp='[😭]' tts='哭'>哭; 淚; 哭臉</annotation>
+		<annotation cp='[😭]' tts='哭' draft='provisional'>哭; 淚; 哭臉</annotation>
 
 		<!-- FROWNING FACE WITH OPEN MOUTH; face; frown; mouth; open -->
-		<annotation cp='[😦]' tts='啊'>啊</annotation>
+		<annotation cp='[😦]' tts='啊' draft='provisional'>啊</annotation>
 
 		<!-- ANGUISHED FACE; anguished; face -->
-		<annotation cp='[😧]' tts='啊'>啊</annotation>
+		<annotation cp='[😧]' tts='啊' draft='provisional'>啊</annotation>
 
 		<!-- FEARFUL FACE; face; fear; fearful; scared -->
-		<annotation cp='[😨]' tts='可怕'>可怕; 害怕</annotation>
+		<annotation cp='[😨]' tts='可怕' draft='provisional'>可怕; 害怕</annotation>
 
 		<!-- WEARY FACE; face; tired; weary -->
-		<annotation cp='[😩]' tts='唉!'>唉!; 累; 疲憊; 疲勞</annotation>
+		<annotation cp='[😩]' tts='唉!' draft='provisional'>唉!; 累; 疲憊; 疲勞</annotation>
 
 		<!-- GRIMACING FACE; face; grimace -->
-		<annotation cp='[😬]' tts='咬牙'>咬牙</annotation>
+		<annotation cp='[😬]' tts='咬牙' draft='provisional'>咬牙</annotation>
 
 		<!-- FACE WITH OPEN MOUTH AND COLD SWEAT; blue; cold; face; mouth; open; rushed; sweat -->
-		<annotation cp='[😰]' tts='汗'>汗</annotation>
+		<annotation cp='[😰]' tts='汗' draft='provisional'>汗</annotation>
 
 		<!-- FACE SCREAMING IN FEAR; face; fear; fearful; munch; scared; scream -->
-		<annotation cp='[😱]' tts='嚇死了'>嚇死了; 恐怖</annotation>
+		<annotation cp='[😱]' tts='嚇死了' draft='provisional'>嚇死了; 恐怖</annotation>
 
 		<!-- FLUSHED FACE; dazed; face; flushed -->
-		<annotation cp='[😳]' tts='囧'>囧; 害羞</annotation>
+		<annotation cp='[😳]' tts='囧' draft='provisional'>囧; 害羞</annotation>
 
 		<!-- DIZZY FACE; dizzy; face -->
-		<annotation cp='[😵]' tts='暈頭轉向'>暈頭轉向; 頭暈目眩</annotation>
+		<annotation cp='[😵]' tts='暈頭轉向' draft='provisional'>暈頭轉向; 頭暈目眩</annotation>
 
 		<!-- POUTING FACE; angry; face; mad; pouting; rage; red -->
-		<annotation cp='[😡]' tts='生氣'>生氣; 怒; 發飆; 發火</annotation>
+		<annotation cp='[😡]' tts='生氣' draft='provisional'>生氣; 怒; 發飆; 發火</annotation>
 
 		<!-- ANGRY FACE; angry; face; mad -->
-		<annotation cp='[😠]' tts='怒'>怒; 生氣</annotation>
+		<annotation cp='[😠]' tts='怒' draft='provisional'>怒; 生氣</annotation>
 
 		<!-- IMP; devil; face; fairy tale; fantasy; imp -->
-		<annotation cp='[👿]' tts='惡魔'>惡魔</annotation>
+		<annotation cp='[👿]' tts='惡魔' draft='provisional'>惡魔</annotation>
 
 		<!-- SMILING FACE WITH HORNS; face; fairy tale; fantasy; horns; smile -->
-		<annotation cp='[😈]' tts='惡魔的笑'>惡魔的笑</annotation>
+		<annotation cp='[😈]' tts='惡魔的笑' draft='provisional'>惡魔的笑</annotation>
 
 		<!-- BOY; boy; person -->
-		<annotation cp='[👦]' tts='男孩'>男孩</annotation>
+		<annotation cp='[👦]' tts='男孩' draft='provisional'>男孩</annotation>
 
 		<!-- GIRL; girl; maiden; person; virgin; virgo; zodiac -->
-		<annotation cp='[👧]' tts='女孩'>女孩</annotation>
+		<annotation cp='[👧]' tts='女孩' draft='provisional'>女孩</annotation>
 
 		<!-- MAN; man; person -->
-		<annotation cp='[👨]' tts='男人'>男人</annotation>
+		<annotation cp='[👨]' tts='男人' draft='provisional'>男人</annotation>
 
 		<!-- WOMAN; person; woman -->
-		<annotation cp='[👩]' tts='女人'>女人</annotation>
+		<annotation cp='[👩]' tts='女人' draft='provisional'>女人</annotation>
 
 		<!-- OLDER MAN; man; old; person -->
-		<annotation cp='[👴]' tts='老爺爺'>老爺爺; 老頭</annotation>
+		<annotation cp='[👴]' tts='老爺爺' draft='provisional'>老爺爺; 老頭</annotation>
 
 		<!-- OLDER WOMAN; old; person; woman -->
-		<annotation cp='[👵]' tts='老奶奶'>老奶奶; 老太太; 老太</annotation>
+		<annotation cp='[👵]' tts='老奶奶' draft='provisional'>老奶奶; 老太太; 老太</annotation>
 
 		<!-- BABY; baby; person -->
-		<annotation cp='[👶]' tts='寶寶'>寶寶</annotation>
+		<annotation cp='[👶]' tts='寶寶' draft='provisional'>寶寶</annotation>
 
 		<!-- PERSON WITH BLOND HAIR; blond; person -->
-		<annotation cp='[👱]' tts='金頭髮的人'>金頭髮的人; 金發; 白人</annotation>
+		<annotation cp='[👱]' tts='金頭髮的人' draft='provisional'>金頭髮的人; 金發; 白人</annotation>
 
 		<!-- POLICE OFFICER; cop; officer; person; police -->
-		<annotation cp='[👮]' tts='警察'>警察; 警官</annotation>
+		<annotation cp='[👮]' tts='警察' draft='provisional'>警察; 警官</annotation>
 
 		<!-- MAN WITH GUA PI MAO; gua pi mao; hat; man; person -->
-		<annotation cp='[👲]' tts='戴瓜皮帽的人'>戴瓜皮帽的人</annotation>
+		<annotation cp='[👲]' tts='戴瓜皮帽的人' draft='provisional'>戴瓜皮帽的人</annotation>
 
 		<!-- MAN WITH TURBAN; man; person; turban -->
-		<annotation cp='[👳]' tts='戴頭巾的人'>戴頭巾的人</annotation>
+		<annotation cp='[👳]' tts='戴頭巾的人' draft='provisional'>戴頭巾的人</annotation>
 
 		<!-- CONSTRUCTION WORKER; construction; hat; person; worker -->
-		<annotation cp='[👷]' tts='建築工人'>建築工人</annotation>
+		<annotation cp='[👷]' tts='建築工人' draft='provisional'>建築工人</annotation>
 
 		<!-- PRINCESS; fairy tale; fantasy; person; princess -->
-		<annotation cp='[👸]' tts='公主'>公主</annotation>
+		<annotation cp='[👸]' tts='公主' draft='provisional'>公主</annotation>
 
 		<!-- GUARDSMAN; guard; guardsman; person -->
-		<annotation cp='[💂]' tts='衛兵'>衛兵</annotation>
+		<annotation cp='[💂]' tts='衛兵' draft='provisional'>衛兵</annotation>
 
 		<!-- FATHER CHRISTMAS; activity; celebration; christmas; fairy tale; fantasy; father; person; santa -->
-		<annotation cp='[🎅]' tts='聖誕老人'>聖誕老人</annotation>
+		<annotation cp='[🎅]' tts='聖誕老人' draft='provisional'>聖誕老人</annotation>
 
 		<!-- BABY ANGEL; angel; baby; face; fairy tale; fantasy -->
-		<annotation cp='[👼]' tts='天使'>天使</annotation>
+		<annotation cp='[👼]' tts='天使' draft='provisional'>天使</annotation>
 
 		<!-- WOMAN WITH BUNNY EARS; bunny; dancer; ear; girl; person; woman -->
-		<annotation cp='[👯]' tts='兔女郎'>兔女郎</annotation>
+		<annotation cp='[👯]' tts='兔女郎' draft='provisional'>兔女郎</annotation>
 
 		<!-- FACE MASSAGE; face; massage; person; salon -->
-		<annotation cp='[💆]' tts='按摩'>按摩</annotation>
+		<annotation cp='[💆]' tts='按摩' draft='provisional'>按摩</annotation>
 
 		<!-- HAIRCUT; barber; beauty; haircut; parlor; person -->
-		<annotation cp='[💇]' tts='理髮'>理髮</annotation>
+		<annotation cp='[💇]' tts='理髮' draft='provisional'>理髮</annotation>
 
 		<!-- BRIDE WITH VEIL; bride; person; veil; wedding -->
-		<annotation cp='[👰]' tts='新娘'>新娘</annotation>
+		<annotation cp='[👰]' tts='新娘' draft='provisional'>新娘</annotation>
 
 		<!-- PERSON FROWNING; frown; gesture; person -->
-		<annotation cp='[🙍]' tts='皺眉'>皺眉</annotation>
+		<annotation cp='[🙍]' tts='皺眉' draft='provisional'>皺眉</annotation>
 
 		<!-- PERSON WITH POUTING FACE; face; gesture; person; pouting -->
-		<annotation cp='[🙎]' tts='生氣的人'>生氣的人</annotation>
+		<annotation cp='[🙎]' tts='生氣的人' draft='provisional'>生氣的人</annotation>
 
 		<!-- FACE WITH NO GOOD GESTURE; face; forbidden; gesture; hand; no; not; person; prohibited -->
-		<annotation cp='[🙅]' tts='禁止'>禁止; 不行; NG</annotation>
+		<annotation cp='[🙅]' tts='禁止' draft='provisional'>禁止; 不行; NG</annotation>
 
 		<!-- FACE WITH OK GESTURE; face; gesture; hand; ok; person -->
-		<annotation cp='[🙆]' tts='OK'>OK</annotation>
+		<annotation cp='[🙆]' tts='OK' draft='provisional'>OK</annotation>
 
 		<!-- INFORMATION DESK PERSON; hand; help; information; person; sassy -->
-		<annotation cp='[💁]' tts='服務台人員'>服務台人員</annotation>
+		<annotation cp='[💁]' tts='服務台人員' draft='provisional'>服務台人員</annotation>
 
 		<!-- HAPPY PERSON RAISING ONE HAND; gesture; hand; happy; person; raised -->
-		<annotation cp='[🙋]' tts='嗨'>嗨; 舉手</annotation>
+		<annotation cp='[🙋]' tts='嗨' draft='provisional'>嗨; 舉手</annotation>
 
 		<!-- PERSON BOWING DEEPLY; apology; bow; gesture; person; sorry -->
-		<annotation cp='[🙇]' tts='鞠躬'>鞠躬</annotation>
+		<annotation cp='[🙇]' tts='鞠躬' draft='provisional'>鞠躬</annotation>
 
 		<!-- PERSON RAISING BOTH HANDS IN CELEBRATION; body; celebration; gesture; hand; hooray; person; raised -->
-		<annotation cp='[🙌]' tts='歡呼'>歡呼; 舉雙手</annotation>
+		<annotation cp='[🙌]' tts='歡呼' draft='provisional'>歡呼; 舉雙手</annotation>
 
 		<!-- PERSON WITH FOLDED HANDS; ask; body; bow; folded; gesture; hand; person; please; pray; thanks -->
-		<annotation cp='[🙏]' tts='阿彌陀佛'>阿彌陀佛; 雙手合一</annotation>
+		<annotation cp='[🙏]' tts='阿彌陀佛' draft='provisional'>阿彌陀佛; 雙手合一</annotation>
 
 		<!-- BUST IN SILHOUETTE; bust; person; silhouette -->
-		<annotation cp='[👤]' tts='人影'>人影</annotation>
+		<annotation cp='[👤]' tts='人影' draft='provisional'>人影</annotation>
 
 		<!-- BUSTS IN SILHOUETTE; bust; person; silhouette -->
-		<annotation cp='[👥]' tts='多個人影'>多個人影</annotation>
+		<annotation cp='[👥]' tts='多個人影' draft='provisional'>多個人影</annotation>
 
 		<!-- PEDESTRIAN; hike; pedestrian; person; travel; walk; walking -->
-		<annotation cp='[🚶]' tts='行人'>行人; 路人</annotation>
+		<annotation cp='[🚶]' tts='行人' draft='provisional'>行人; 路人</annotation>
 
 		<!-- RUNNER; marathon; person; runner; running; sport -->
-		<annotation cp='[🏃]' tts='跑步'>跑步</annotation>
+		<annotation cp='[🏃]' tts='跑步' draft='provisional'>跑步</annotation>
 
 		<!-- DANCER; dancer; person -->
-		<annotation cp='[💃]' tts='跳舞'>跳舞</annotation>
+		<annotation cp='[💃]' tts='跳舞' draft='provisional'>跳舞</annotation>
 
 		<!-- KISS; couple; kiss; person; romance -->
-		<annotation cp='[💏]' tts='親'>親; 接吻</annotation>
+		<annotation cp='[💏]' tts='親' draft='provisional'>親; 接吻</annotation>
 
 		<!-- COUPLE WITH HEART; couple; heart; love; person; romance -->
-		<annotation cp='[💑]' tts='相愛'>相愛</annotation>
+		<annotation cp='[💑]' tts='相愛' draft='provisional'>相愛</annotation>
 
 		<!-- FAMILY; child; family; father; mother; person -->
-		<annotation cp='[👪]' tts='家庭'>家庭</annotation>
+		<annotation cp='[👪]' tts='家庭' draft='provisional'>家庭</annotation>
 
 		<!-- MAN AND WOMAN HOLDING HANDS; couple; hand; hold; man; person; woman -->
-		<annotation cp='[👫]' tts='一男一女'>一男一女; 一男一女手拉手; 手拉手</annotation>
+		<annotation cp='[👫]' tts='一男一女' draft='provisional'>一男一女; 一男一女手拉手; 手拉手</annotation>
 
 		<!-- TWO MEN HOLDING HANDS; couple; gemini; hand; hold; man; person; twins; zodiac -->
-		<annotation cp='[👬]' tts='兩個男人'>兩個男人; 兩個男人手拉手; 手拉手</annotation>
+		<annotation cp='[👬]' tts='兩個男人' draft='provisional'>兩個男人; 兩個男人手拉手; 手拉手</annotation>
 
 		<!-- TWO WOMEN HOLDING HANDS; couple; hand; hold; person; woman -->
-		<annotation cp='[👭]' tts='兩個女人'>兩個女人; 兩個女人手拉手; 手拉手</annotation>
+		<annotation cp='[👭]' tts='兩個女人' draft='provisional'>兩個女人; 兩個女人手拉手; 手拉手</annotation>
 
 		<!-- FLEXED BICEPS; biceps; body; comic; flex; muscle -->
-		<annotation cp='[💪]' tts='肌肉'>肌肉; 二頭肌; 強壯</annotation>
+		<annotation cp='[💪]' tts='肌肉' draft='provisional'>肌肉; 二頭肌; 強壯</annotation>
 
 		<!-- WHITE LEFT POINTING BACKHAND INDEX; backhand; body; finger; hand; index; point -->
-		<annotation cp='[👈]' tts='左'>左; 指; 手</annotation>
+		<annotation cp='[👈]' tts='左' draft='provisional'>左; 指; 手</annotation>
 
 		<!-- WHITE RIGHT POINTING BACKHAND INDEX; backhand; body; finger; hand; index; point -->
-		<annotation cp='[👉]' tts='右'>右; 指; 手</annotation>
+		<annotation cp='[👉]' tts='右' draft='provisional'>右; 指; 手</annotation>
 
 		<!-- WHITE UP POINTING BACKHAND INDEX; backhand; body; finger; hand; index; point; up -->
-		<annotation cp='[👆]' tts='上'>上; 指; 手</annotation>
+		<annotation cp='[👆]' tts='上' draft='provisional'>上; 指; 手</annotation>
 
 		<!-- WHITE DOWN POINTING BACKHAND INDEX; backhand; body; down; finger; hand; index; point -->
-		<annotation cp='[👇]' tts='下'>下; 指; 手</annotation>
+		<annotation cp='[👇]' tts='下' draft='provisional'>下; 指; 手</annotation>
 
 		<!-- VICTORY HAND; body; hand; v; victory -->
-		<annotation cp='[✌]' tts='勝利'>勝利; 耶</annotation>
+		<annotation cp='[✌]' tts='勝利' draft='provisional'>勝利; 耶</annotation>
 
 		<!-- RAISED FIST; body; clenched; fist; hand; punch -->
-		<annotation cp='[✊]' tts='拳頭'>拳頭</annotation>
+		<annotation cp='[✊]' tts='拳頭' draft='provisional'>拳頭</annotation>
 
 		<!-- RAISED HAND; body; hand -->
-		<annotation cp='[✋]' tts='舉手'>舉手</annotation>
+		<annotation cp='[✋]' tts='舉手' draft='provisional'>舉手</annotation>
 
 		<!-- FISTED HAND SIGN; body; clenched; fist; hand; punch -->
-		<annotation cp='[👊]' tts='拳頭'>拳頭</annotation>
+		<annotation cp='[👊]' tts='拳頭' draft='provisional'>拳頭</annotation>
 
 		<!-- OK HAND SIGN; body; hand; ok -->
-		<annotation cp='[👌]' tts='OK'>OK</annotation>
+		<annotation cp='[👌]' tts='OK' draft='provisional'>OK</annotation>
 
 		<!-- THUMBS UP SIGN; +1; body; hand; thumb; thumbs up; up -->
-		<annotation cp='[👍]' tts='讚'>讚</annotation>
+		<annotation cp='[👍]' tts='讚' draft='provisional'>讚</annotation>
 
 		<!-- THUMBS DOWN SIGN; -1; body; down; hand; thumb; thumbs down -->
-		<annotation cp='[👎]' tts='遜'>遜</annotation>
+		<annotation cp='[👎]' tts='遜' draft='provisional'>遜</annotation>
 
 		<!-- WAVING HAND SIGN; body; hand; wave; waving -->
-		<annotation cp='[👋]' tts='揮手'>揮手; 手</annotation>
+		<annotation cp='[👋]' tts='揮手' draft='provisional'>揮手; 手</annotation>
 
 		<!-- CLAPPING HANDS SIGN; body; clap; hand -->
-		<annotation cp='[👏]' tts='鼓掌'>鼓掌; 拍手</annotation>
+		<annotation cp='[👏]' tts='鼓掌' draft='provisional'>鼓掌; 拍手</annotation>
 
 		<!-- OPEN HANDS SIGN; body; hand; open -->
-		<annotation cp='[👐]' tts='攤開手'>攤開手; 雙手; 手</annotation>
+		<annotation cp='[👐]' tts='攤開手' draft='provisional'>攤開手; 雙手; 手</annotation>
 
 		<!-- NAIL POLISH; body; care; cosmetics; manicure; nail; polish -->
-		<annotation cp='[💅]' tts='指甲油'>指甲油; 美甲</annotation>
+		<annotation cp='[💅]' tts='指甲油' draft='provisional'>指甲油; 美甲</annotation>
 
 		<!-- FOOTPRINTS; body; clothing; footprint; print -->
-		<annotation cp='[👣]' tts='腳印'>腳印; 足跡</annotation>
+		<annotation cp='[👣]' tts='腳印' draft='provisional'>腳印; 足跡</annotation>
 
 		<!-- EYES; body; eye; face -->
-		<annotation cp='[👀]' tts='眼睛'>眼睛</annotation>
+		<annotation cp='[👀]' tts='眼睛' draft='provisional'>眼睛</annotation>
 
 		<!-- EAR; body; ear -->
-		<annotation cp='[👂]' tts='耳朵'>耳朵</annotation>
+		<annotation cp='[👂]' tts='耳朵' draft='provisional'>耳朵</annotation>
 
 		<!-- NOSE; body; nose -->
-		<annotation cp='[👃]' tts='鼻子'>鼻子</annotation>
+		<annotation cp='[👃]' tts='鼻子' draft='provisional'>鼻子</annotation>
 
 		<!-- TONGUE; body; tongue -->
-		<annotation cp='[👅]' tts='舌頭'>舌頭</annotation>
+		<annotation cp='[👅]' tts='舌頭' draft='provisional'>舌頭</annotation>
 
 		<!-- MOUTH; body; lips; mouth -->
-		<annotation cp='[👄]' tts='嘴巴'>嘴巴</annotation>
+		<annotation cp='[👄]' tts='嘴巴' draft='provisional'>嘴巴</annotation>
 
 		<!-- KISS MARK; emotion; heart; kiss; lips; mark; romance -->
-		<annotation cp='[💋]' tts='唇印'>唇印</annotation>
+		<annotation cp='[💋]' tts='唇印' draft='provisional'>唇印</annotation>
 
 		<!-- HEART WITH ARROW; arrow; cupid; emotion; heart; romance -->
-		<annotation cp='[💘]' tts='丘比特'>丘比特; 戀愛; 愛</annotation>
+		<annotation cp='[💘]' tts='丘比特' draft='provisional'>丘比特; 戀愛; 愛</annotation>
 
 		<!-- BEATING HEART; beating; emotion; heart; heartbeat; pulsating -->
-		<annotation cp='[💓]' tts='心跳'>心跳; 心; 愛</annotation>
+		<annotation cp='[💓]' tts='心跳' draft='provisional'>心跳; 心; 愛</annotation>
 
 		<!-- BROKEN HEART; break; broken; emotion; heart -->
-		<annotation cp='[💔]' tts='心碎'>心碎</annotation>
+		<annotation cp='[💔]' tts='心碎' draft='provisional'>心碎</annotation>
 
 		<!-- TWO HEARTS; emotion; heart; love -->
-		<annotation cp='[💕]' tts='心心相印'>心心相印</annotation>
+		<annotation cp='[💕]' tts='心心相印' draft='provisional'>心心相印</annotation>
 
 		<!-- SPARKLING HEART; emotion; excited; heart; sparkle -->
-		<annotation cp='[💖]' tts='開心'>開心</annotation>
+		<annotation cp='[💖]' tts='開心' draft='provisional'>開心</annotation>
 
 		<!-- GROWING HEART; emotion; excited; growing; heart; heartpulse; nervous -->
-		<annotation cp='[💗]' tts='心動'>心動</annotation>
+		<annotation cp='[💗]' tts='心動' draft='provisional'>心動</annotation>
 
 		<!-- BLUE HEART; blue; emotion; heart -->
-		<annotation cp='[💙]' tts='藍心'>藍心</annotation>
+		<annotation cp='[💙]' tts='藍心' draft='provisional'>藍心</annotation>
 
 		<!-- GREEN HEART; emotion; green; heart -->
-		<annotation cp='[💚]' tts='綠心'>綠心</annotation>
+		<annotation cp='[💚]' tts='綠心' draft='provisional'>綠心</annotation>
 
 		<!-- YELLOW HEART; emotion; heart; yellow -->
-		<annotation cp='[💛]' tts='黃心'>黃心</annotation>
+		<annotation cp='[💛]' tts='黃心' draft='provisional'>黃心</annotation>
 
 		<!-- PURPLE HEART; emotion; heart; purple -->
-		<annotation cp='[💜]' tts='紫心'>紫心</annotation>
+		<annotation cp='[💜]' tts='紫心' draft='provisional'>紫心</annotation>
 
 		<!-- HEART WITH RIBBON; emotion; heart; ribbon; valentine -->
-		<annotation cp='[💝]' tts='愛的禮物'>愛的禮物</annotation>
+		<annotation cp='[💝]' tts='愛的禮物' draft='provisional'>愛的禮物</annotation>
 
 		<!-- REVOLVING HEARTS; emotion; heart; revolving -->
-		<annotation cp='[💞]' tts='心之舞'>心之舞</annotation>
+		<annotation cp='[💞]' tts='心之舞' draft='provisional'>心之舞</annotation>
 
 		<!-- HEART DECORATION; emotion; heart -->
-		<annotation cp='[💟]' tts='心在框框裏'>心在框框裏</annotation>
+		<annotation cp='[💟]' tts='心在框框裏' draft='provisional'>心在框框裏</annotation>
 
 		<!-- LOVE LETTER; emotion; heart; letter; love; mail; romance -->
-		<annotation cp='[💌]' tts='情書'>情書</annotation>
+		<annotation cp='[💌]' tts='情書' draft='provisional'>情書</annotation>
 
 		<!-- DROPLET; cold; comic; drop; emotion; sweat; weather -->
-		<annotation cp='[💧]' tts='水滴'>水滴; 汗</annotation>
+		<annotation cp='[💧]' tts='水滴' draft='provisional'>水滴; 汗</annotation>
 
 		<!-- SLEEPING SYMBOL; comic; emotion; sleep; word; zzz -->
-		<annotation cp='[💤]' tts='睡著'>睡著; 睡了; 打呼</annotation>
+		<annotation cp='[💤]' tts='睡著' draft='provisional'>睡著; 睡了; 打呼</annotation>
 
 		<!-- ANGER SYMBOL; angry; comic; emotion; mad -->
-		<annotation cp='[💢]' tts='怒'>怒</annotation>
+		<annotation cp='[💢]' tts='怒' draft='provisional'>怒</annotation>
 
 		<!-- BOMB; bomb; comic; emotion -->
-		<annotation cp='[💣]' tts='炸彈'>炸彈</annotation>
+		<annotation cp='[💣]' tts='炸彈' draft='provisional'>炸彈</annotation>
 
 		<!-- COLLISION SYMBOL; boom; collision; comic; emotion -->
-		<annotation cp='[💥]' tts='碰撞'>碰撞</annotation>
+		<annotation cp='[💥]' tts='碰撞' draft='provisional'>碰撞</annotation>
 
 		<!-- SPLASHING SWEAT SYMBOL; comic; emotion; splashing; sweat -->
-		<annotation cp='[💦]' tts='出汗'>出汗; 汗</annotation>
+		<annotation cp='[💦]' tts='出汗' draft='provisional'>出汗; 汗</annotation>
 
 		<!-- DASH SYMBOL; comic; dash; emotion; running -->
-		<annotation cp='[💨]' tts='揚塵而去'>揚塵而去; 放屁</annotation>
+		<annotation cp='[💨]' tts='揚塵而去' draft='provisional'>揚塵而去; 放屁</annotation>
 
 		<!-- DIZZY SYMBOL; comic; dizzy; emotion; star -->
-		<annotation cp='[💫]' tts='暈頭轉向'>暈頭轉向; 頭暈目眩</annotation>
+		<annotation cp='[💫]' tts='暈頭轉向' draft='provisional'>暈頭轉向; 頭暈目眩</annotation>
 
 		<!-- SPEECH BALLOON; balloon; bubble; comic; dialog; emotion; speech -->
-		<annotation cp='[💬]' tts='聊天'>聊天</annotation>
+		<annotation cp='[💬]' tts='聊天' draft='provisional'>聊天</annotation>
 
 		<!-- THOUGHT BALLOON; balloon; bubble; comic; emotion; thought -->
-		<annotation cp='[💭]' tts='對話框'>對話框</annotation>
+		<annotation cp='[💭]' tts='對話框' draft='provisional'>對話框</annotation>
 
 		<!-- EYEGLASSES; clothing; eye; eyeglasses; eyewear; glasses -->
-		<annotation cp='[👓]' tts='眼鏡'>眼鏡</annotation>
+		<annotation cp='[👓]' tts='眼鏡' draft='provisional'>眼鏡</annotation>
 
 		<!-- NECKTIE; clothing; necktie -->
-		<annotation cp='[👔]' tts='領帶'>領帶</annotation>
+		<annotation cp='[👔]' tts='領帶' draft='provisional'>領帶</annotation>
 
 		<!-- T-SHIRT; clothing; shirt; tshirt -->
-		<annotation cp='[👕]' tts='T卹'>T卹; 襯衫</annotation>
+		<annotation cp='[👕]' tts='T卹' draft='provisional'>T卹; 襯衫</annotation>
 
 		<!-- JEANS; clothing; jeans; pants; trousers -->
-		<annotation cp='[👖]' tts='牛仔褲'>牛仔褲; 褲子</annotation>
+		<annotation cp='[👖]' tts='牛仔褲' draft='provisional'>牛仔褲; 褲子</annotation>
 
 		<!-- DRESS; clothing; dress -->
-		<annotation cp='[👗]' tts='洋裝'>洋裝</annotation>
+		<annotation cp='[👗]' tts='洋裝' draft='provisional'>洋裝</annotation>
 
 		<!-- KIMONO; clothing; kimono -->
-		<annotation cp='[👘]' tts='和服'>和服</annotation>
+		<annotation cp='[👘]' tts='和服' draft='provisional'>和服</annotation>
 
 		<!-- BIKINI; bikini; clothing; swim -->
-		<annotation cp='[👙]' tts='比基尼'>比基尼; 三點式</annotation>
+		<annotation cp='[👙]' tts='比基尼' draft='provisional'>比基尼; 三點式</annotation>
 
 		<!-- WOMANS CLOTHES; clothing; woman -->
-		<annotation cp='[👚]' tts='女裝'>女裝; 衣服</annotation>
+		<annotation cp='[👚]' tts='女裝' draft='provisional'>女裝; 衣服</annotation>
 
 		<!-- PURSE; clothing; coin; purse -->
-		<annotation cp='[👛]' tts='錢包'>錢包</annotation>
+		<annotation cp='[👛]' tts='錢包' draft='provisional'>錢包</annotation>
 
 		<!-- HANDBAG; bag; clothing; handbag -->
-		<annotation cp='[👜]' tts='手提包'>手提包; 挎包</annotation>
+		<annotation cp='[👜]' tts='手提包' draft='provisional'>手提包; 挎包</annotation>
 
 		<!-- POUCH; bag; clothing; pouch -->
-		<annotation cp='[👝]' tts='手袋'>手袋; 包包</annotation>
+		<annotation cp='[👝]' tts='手袋' draft='provisional'>手袋; 包包</annotation>
 
 		<!-- SCHOOL SATCHEL; activity; bag; education; satchel; school -->
-		<annotation cp='[🎒]' tts='書包'>書包</annotation>
+		<annotation cp='[🎒]' tts='書包' draft='provisional'>書包</annotation>
 
 		<!-- MANS SHOE; clothing; man; shoe -->
-		<annotation cp='[👞]' tts='皮鞋'>皮鞋</annotation>
+		<annotation cp='[👞]' tts='皮鞋' draft='provisional'>皮鞋</annotation>
 
 		<!-- ATHLETIC SHOE; athletic; clothing; shoe; sneaker -->
-		<annotation cp='[👟]' tts='運動鞋'>運動鞋</annotation>
+		<annotation cp='[👟]' tts='運動鞋' draft='provisional'>運動鞋</annotation>
 
 		<!-- HIGH-HEELED SHOE; clothing; heel; shoe; woman -->
-		<annotation cp='[👠]' tts='高跟鞋'>高跟鞋</annotation>
+		<annotation cp='[👠]' tts='高跟鞋' draft='provisional'>高跟鞋</annotation>
 
 		<!-- WOMANS SANDAL; clothing; sandal; shoe; woman -->
-		<annotation cp='[👡]' tts='涼鞋'>涼鞋</annotation>
+		<annotation cp='[👡]' tts='涼鞋' draft='provisional'>涼鞋</annotation>
 
 		<!-- WOMANS BOOTS; boot; clothing; shoe; woman -->
-		<annotation cp='[👢]' tts='靴子'>靴子</annotation>
+		<annotation cp='[👢]' tts='靴子' draft='provisional'>靴子</annotation>
 
 		<!-- CROWN; clothing; crown; king; queen -->
-		<annotation cp='[👑]' tts='皇冠'>皇冠</annotation>
+		<annotation cp='[👑]' tts='皇冠' draft='provisional'>皇冠</annotation>
 
 		<!-- WOMANS HAT; clothing; hat; woman -->
-		<annotation cp='[👒]' tts='帽子'>帽子</annotation>
+		<annotation cp='[👒]' tts='帽子' draft='provisional'>帽子</annotation>
 
 		<!-- TOP HAT; activity; entertainment; hat; top; tophat -->
-		<annotation cp='[🎩]' tts='禮帽'>禮帽</annotation>
+		<annotation cp='[🎩]' tts='禮帽' draft='provisional'>禮帽</annotation>
 
 		<!-- LIPSTICK; cosmetics; lipstick; makeup -->
-		<annotation cp='[💄]' tts='口紅'>口紅</annotation>
+		<annotation cp='[💄]' tts='口紅' draft='provisional'>口紅</annotation>
 
 		<!-- RING; diamond; ring; romance -->
-		<annotation cp='[💍]' tts='戒指'>戒指; 鑽戒</annotation>
+		<annotation cp='[💍]' tts='戒指' draft='provisional'>戒指; 鑽戒</annotation>
 
 		<!-- GEM STONE; diamond; gem; jewel; romance -->
-		<annotation cp='[💎]' tts='鑽石'>鑽石</annotation>
+		<annotation cp='[💎]' tts='鑽石' draft='provisional'>鑽石</annotation>
 
 		<!-- JAPANESE OGRE; creature; face; fairy tale; fantasy; japanese; monster; ogre -->
-		<annotation cp='[👹]' tts='魔鬼'>魔鬼</annotation>
+		<annotation cp='[👹]' tts='魔鬼' draft='provisional'>魔鬼</annotation>
 
 		<!-- JAPANESE GOBLIN; creature; face; fairy tale; fantasy; goblin; japanese; monster -->
-		<annotation cp='[👺]' tts='妖怪'>妖怪</annotation>
+		<annotation cp='[👺]' tts='妖怪' draft='provisional'>妖怪</annotation>
 
 		<!-- GHOST; creature; face; fairy tale; fantasy; ghost; monster -->
-		<annotation cp='[👻]' tts='鬼'>鬼</annotation>
+		<annotation cp='[👻]' tts='鬼' draft='provisional'>鬼</annotation>
 
 		<!-- SKULL; body; death; face; fairy tale; monster; skull -->
-		<annotation cp='[💀]' tts='骷髏頭'>骷髏頭</annotation>
+		<annotation cp='[💀]' tts='骷髏頭' draft='provisional'>骷髏頭</annotation>
 
 		<!-- EXTRATERRESTRIAL ALIEN; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
-		<annotation cp='[👽]' tts='外星人'>外星人</annotation>
+		<annotation cp='[👽]' tts='外星人' draft='provisional'>外星人</annotation>
 
 		<!-- ALIEN MONSTER; alien; animal; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
-		<annotation cp='[👾]' tts='怪物'>怪物</annotation>
+		<annotation cp='[👾]' tts='怪物' draft='provisional'>怪物</annotation>
 
 		<!-- PILE OF POO; comic; dung; monster; poo; poop -->
-		<annotation cp='[💩]' tts='大便'>大便; 粑粑</annotation>
+		<annotation cp='[💩]' tts='大便' draft='provisional'>大便; 粑粑</annotation>
 
 		<!-- MONKEY FACE; animal; face; monkey -->
-		<annotation cp='[🐵]' tts='猴'>猴</annotation>
+		<annotation cp='[🐵]' tts='猴' draft='provisional'>猴</annotation>
 
 		<!-- SEE-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
-		<annotation cp='[🙈]' tts='非禮勿視'>非禮勿視</annotation>
+		<annotation cp='[🙈]' tts='非禮勿視' draft='provisional'>非禮勿視</annotation>
 
 		<!-- HEAR-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
-		<annotation cp='[🙉]' tts='非禮勿聽'>非禮勿聽</annotation>
+		<annotation cp='[🙉]' tts='非禮勿聽' draft='provisional'>非禮勿聽</annotation>
 
 		<!-- SPEAK-NO-EVIL MONKEY; animal; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
-		<annotation cp='[🙊]' tts='非禮勿言'>非禮勿言</annotation>
+		<annotation cp='[🙊]' tts='非禮勿言' draft='provisional'>非禮勿言</annotation>
 
 		<!-- MONKEY; animal; monkey -->
-		<annotation cp='[🐒]' tts='猴子'>猴子; 猴</annotation>
+		<annotation cp='[🐒]' tts='猴子' draft='provisional'>猴子; 猴</annotation>
 
 		<!-- DOG FACE; animal; dog; face; pet -->
-		<annotation cp='[🐶]' tts='狗'>狗</annotation>
+		<annotation cp='[🐶]' tts='狗' draft='provisional'>狗</annotation>
 
 		<!-- DOG; animal; dog; pet -->
-		<annotation cp='[🐕]' tts='狗'>狗</annotation>
+		<annotation cp='[🐕]' tts='狗' draft='provisional'>狗</annotation>
 
 		<!-- POODLE; animal; dog; poodle -->
-		<annotation cp='[🐩]' tts='貴賓犬'>貴賓犬; 獅子狗</annotation>
+		<annotation cp='[🐩]' tts='貴賓犬' draft='provisional'>貴賓犬; 獅子狗</annotation>
 
 		<!-- WOLF FACE; animal; face; wolf -->
-		<annotation cp='[🐺]' tts='狼'>狼</annotation>
+		<annotation cp='[🐺]' tts='狼' draft='provisional'>狼</annotation>
 
 		<!-- CAT FACE; animal; cat; face; pet -->
-		<annotation cp='[🐱]' tts='貓'>貓</annotation>
+		<annotation cp='[🐱]' tts='貓' draft='provisional'>貓</annotation>
 
 		<!-- GRINNING CAT FACE WITH SMILING EYES; animal; cat; eye; face; grin; smile -->
-		<annotation cp='[😸]' tts='笑臉'>笑臉</annotation>
+		<annotation cp='[😸]' tts='笑臉' draft='provisional'>笑臉</annotation>
 
 		<!-- CAT FACE WITH TEARS OF JOY; animal; cat; face; joy; tear -->
-		<annotation cp='[😹]' tts='感動'>感動</annotation>
+		<annotation cp='[😹]' tts='感動' draft='provisional'>感動</annotation>
 
 		<!-- SMILING CAT FACE WITH OPEN MOUTH; animal; cat; face; mouth; open; smile -->
-		<annotation cp='[😺]' tts='哈哈'>哈哈; 呵呵; 笑臉</annotation>
+		<annotation cp='[😺]' tts='哈哈' draft='provisional'>哈哈; 呵呵; 笑臉</annotation>
 
 		<!-- SMILING CAT FACE WITH HEART-SHAPED EYES; animal; cat; eye; face; heart; love; smile -->
-		<annotation cp='[😻]' tts='花痴'>花痴</annotation>
+		<annotation cp='[😻]' tts='花痴' draft='provisional'>花痴</annotation>
 
 		<!-- CAT FACE WITH WRY SMILE; animal; cat; face; ironic; smile; wry -->
-		<annotation cp='[😼]' tts='苦笑'>苦笑</annotation>
+		<annotation cp='[😼]' tts='苦笑' draft='provisional'>苦笑</annotation>
 
 		<!-- KISSING CAT FACE WITH CLOSED EYES; animal; cat; eye; face; kiss -->
-		<annotation cp='[😽]' tts='親親的貓臉'>親親的貓臉; 親親</annotation>
+		<annotation cp='[😽]' tts='親親的貓臉' draft='provisional'>親親的貓臉; 親親</annotation>
 
 		<!-- POUTING CAT FACE; animal; cat; face; pouting -->
-		<annotation cp='[😾]' tts='生氣的貓臉'>生氣的貓臉; 怒; 生氣; 發飆; 發火</annotation>
+		<annotation cp='[😾]' tts='生氣的貓臉' draft='provisional'>生氣的貓臉; 怒; 生氣; 發飆; 發火</annotation>
 
 		<!-- CRYING CAT FACE; animal; cat; cry; face; sad; tear -->
-		<annotation cp='[😿]' tts='哭的貓臉'>哭的貓臉; 哭; 淚; 哭臉</annotation>
+		<annotation cp='[😿]' tts='哭的貓臉' draft='provisional'>哭的貓臉; 哭; 淚; 哭臉</annotation>
 
 		<!-- WEARY CAT FACE; animal; cat; face; oh; surprised; weary -->
-		<annotation cp='[🙀]' tts='累的貓臉'>累的貓臉; 累; 疲憊; 疲勞</annotation>
+		<annotation cp='[🙀]' tts='累的貓臉' draft='provisional'>累的貓臉; 累; 疲憊; 疲勞</annotation>
 
 		<!-- CAT; animal; cat; pet -->
-		<annotation cp='[🐈]' tts='貓'>貓</annotation>
+		<annotation cp='[🐈]' tts='貓' draft='provisional'>貓</annotation>
 
 		<!-- TIGER FACE; animal; face; tiger -->
-		<annotation cp='[🐯]' tts='老虎'>老虎; 虎</annotation>
+		<annotation cp='[🐯]' tts='老虎' draft='provisional'>老虎; 虎</annotation>
 
 		<!-- TIGER; animal; tiger -->
-		<annotation cp='[🐅]' tts='老虎'>老虎; 虎</annotation>
+		<annotation cp='[🐅]' tts='老虎' draft='provisional'>老虎; 虎</annotation>
 
 		<!-- LEOPARD; animal; leopard -->
-		<annotation cp='[🐆]' tts='豹子'>豹子; 豹</annotation>
+		<annotation cp='[🐆]' tts='豹子' draft='provisional'>豹子; 豹</annotation>
 
 		<!-- HORSE FACE; animal; face; horse -->
-		<annotation cp='[🐴]' tts='馬'>馬</annotation>
+		<annotation cp='[🐴]' tts='馬' draft='provisional'>馬</annotation>
 
 		<!-- HORSE; animal; horse; racehorse; racing -->
-		<annotation cp='[🐎]' tts='馬'>馬</annotation>
+		<annotation cp='[🐎]' tts='馬' draft='provisional'>馬</annotation>
 
 		<!-- COW FACE; animal; cow; face -->
-		<annotation cp='[🐮]' tts='牛'>牛</annotation>
+		<annotation cp='[🐮]' tts='牛' draft='provisional'>牛</annotation>
 
 		<!-- OX; animal; bull; ox; taurus; zodiac -->
-		<annotation cp='[🐂]' tts='公牛'>公牛; 牛</annotation>
+		<annotation cp='[🐂]' tts='公牛' draft='provisional'>公牛; 牛</annotation>
 
 		<!-- WATER BUFFALO; animal; buffalo; water -->
-		<annotation cp='[🐃]' tts='水牛'>水牛</annotation>
+		<annotation cp='[🐃]' tts='水牛' draft='provisional'>水牛</annotation>
 
 		<!-- COW; animal; cow -->
-		<annotation cp='[🐄]' tts='母牛'>母牛; 奶牛; 牛</annotation>
+		<annotation cp='[🐄]' tts='母牛' draft='provisional'>母牛; 奶牛; 牛</annotation>
 
 		<!-- PIG FACE; animal; face; pig -->
-		<annotation cp='[🐷]' tts='豬'>豬</annotation>
+		<annotation cp='[🐷]' tts='豬' draft='provisional'>豬</annotation>
 
-		<!-- PIG; animal; pig -->
-		<annotation cp='[🐖]' tts='豬'>豬</annotation>
+		<!-- PIG; animal; pig; sow -->
+		<annotation cp='[🐖]' tts='豬' draft='provisional'>豬</annotation>
 
-		<!-- BOAR; animal; boar -->
-		<annotation cp='[🐗]' tts='野豬'>野豬</annotation>
+		<!-- BOAR; animal; boar; pig -->
+		<annotation cp='[🐗]' tts='野豬' draft='provisional'>野豬</annotation>
 
 		<!-- PIG NOSE; animal; face; nose; pig -->
-		<annotation cp='[🐽]' tts='豬鼻子'>豬鼻子</annotation>
+		<annotation cp='[🐽]' tts='豬鼻子' draft='provisional'>豬鼻子</annotation>
 
 		<!-- RAM; animal; aries; ram; sheep; zodiac -->
-		<annotation cp='[🐏]' tts='公羊'>公羊; 羊</annotation>
+		<annotation cp='[🐏]' tts='公羊' draft='provisional'>公羊; 羊</annotation>
 
-		<!-- SHEEP; animal; sheep -->
-		<annotation cp='[🐑]' tts='綿羊'>綿羊; 羊</annotation>
+		<!-- SHEEP; animal; ewe; sheep -->
+		<annotation cp='[🐑]' tts='綿羊' draft='provisional'>綿羊; 羊</annotation>
 
 		<!-- GOAT; animal; capricorn; goat; zodiac -->
-		<annotation cp='[🐐]' tts='山羊'>山羊; 羊</annotation>
+		<annotation cp='[🐐]' tts='山羊' draft='provisional'>山羊; 羊</annotation>
 
 		<!-- DROMEDARY CAMEL; animal; camel; dromedary; hump -->
-		<annotation cp='[🐪]' tts='單峰駱駝'>單峰駱駝</annotation>
+		<annotation cp='[🐪]' tts='單峰駱駝' draft='provisional'>單峰駱駝</annotation>
 
 		<!-- BACTRIAN CAMEL; animal; bactrian; camel; hump -->
-		<annotation cp='[🐫]' tts='雙峰駱駝'>雙峰駱駝</annotation>
+		<annotation cp='[🐫]' tts='雙峰駱駝' draft='provisional'>雙峰駱駝</annotation>
 
 		<!-- ELEPHANT; animal; elephant -->
-		<annotation cp='[🐘]' tts='大象'>大象; 象</annotation>
+		<annotation cp='[🐘]' tts='大象' draft='provisional'>大象; 象</annotation>
 
 		<!-- MOUSE FACE; animal; face; mouse -->
-		<annotation cp='[🐭]' tts='老鼠'>老鼠</annotation>
+		<annotation cp='[🐭]' tts='老鼠' draft='provisional'>老鼠</annotation>
 
 		<!-- MOUSE; animal; mouse -->
-		<annotation cp='[🐁]' tts='小老鼠'>小老鼠</annotation>
+		<annotation cp='[🐁]' tts='小老鼠' draft='provisional'>小老鼠</annotation>
 
 		<!-- RAT; animal; rat -->
-		<annotation cp='[🐀]' tts='老鼠'>老鼠; 耗子; 鼠</annotation>
+		<annotation cp='[🐀]' tts='老鼠' draft='provisional'>老鼠; 耗子; 鼠</annotation>
 
 		<!-- HAMSTER FACE; animal; face; hamster; pet -->
-		<annotation cp='[🐹]' tts='倉鼠'>倉鼠</annotation>
+		<annotation cp='[🐹]' tts='倉鼠' draft='provisional'>倉鼠</annotation>
 
 		<!-- RABBIT FACE; animal; bunny; face; pet; rabbit -->
-		<annotation cp='[🐰]' tts='兔子'>兔子; 兔</annotation>
+		<annotation cp='[🐰]' tts='兔子' draft='provisional'>兔子; 兔</annotation>
 
 		<!-- RABBIT; animal; bunny; pet; rabbit -->
-		<annotation cp='[🐇]' tts='兔子'>兔子; 兔</annotation>
+		<annotation cp='[🐇]' tts='兔子' draft='provisional'>兔子; 兔</annotation>
 
 		<!-- BEAR FACE; animal; bear; face -->
-		<annotation cp='[🐻]' tts='熊'>熊</annotation>
+		<annotation cp='[🐻]' tts='熊' draft='provisional'>熊</annotation>
 
 		<!-- KOALA; animal; bear; koala -->
-		<annotation cp='[🐨]' tts='浣熊'>浣熊</annotation>
+		<annotation cp='[🐨]' tts='浣熊' draft='provisional'>浣熊</annotation>
 
 		<!-- PANDA FACE; animal; face; panda -->
-		<annotation cp='[🐼]' tts='熊貓'>熊貓</annotation>
+		<annotation cp='[🐼]' tts='熊貓' draft='provisional'>熊貓</annotation>
 
 		<!-- PAW PRINTS; animal; feet; paw; print -->
-		<annotation cp='[🐾]' tts='腳印'>腳印; 足跡</annotation>
+		<annotation cp='[🐾]' tts='腳印' draft='provisional'>腳印; 足跡</annotation>
 
 		<!-- CHICKEN; animal; chicken -->
-		<annotation cp='[🐔]' tts='小雞'>小雞; 雞</annotation>
+		<annotation cp='[🐔]' tts='小雞' draft='provisional'>小雞; 雞</annotation>
 
 		<!-- ROOSTER; animal; rooster -->
-		<annotation cp='[🐓]' tts='公雞'>公雞; 雞</annotation>
+		<annotation cp='[🐓]' tts='公雞' draft='provisional'>公雞; 雞</annotation>
 
 		<!-- HATCHING CHICK; animal; baby; chick; hatching -->
-		<annotation cp='[🐣]' tts='小雞破蛋'>小雞破蛋</annotation>
+		<annotation cp='[🐣]' tts='小雞破蛋' draft='provisional'>小雞破蛋</annotation>
 
 		<!-- BABY CHICK; animal; baby; chick -->
-		<annotation cp='[🐤]' tts='小雞的臉'>小雞的臉</annotation>
+		<annotation cp='[🐤]' tts='小雞的臉' draft='provisional'>小雞的臉</annotation>
 
 		<!-- FRONT-FACING BABY CHICK; animal; baby; chick -->
-		<annotation cp='[🐥]' tts='小雞'>小雞</annotation>
+		<annotation cp='[🐥]' tts='小雞' draft='provisional'>小雞</annotation>
 
 		<!-- BIRD; animal; bird -->
-		<annotation cp='[🐦]' tts='鳥'>鳥</annotation>
+		<annotation cp='[🐦]' tts='鳥' draft='provisional'>鳥</annotation>
 
 		<!-- PENGUIN; animal; penguin -->
-		<annotation cp='[🐧]' tts='企鵝'>企鵝</annotation>
+		<annotation cp='[🐧]' tts='企鵝' draft='provisional'>企鵝</annotation>
 
 		<!-- FROG FACE; animal; face; frog -->
-		<annotation cp='[🐸]' tts='青蛙'>青蛙</annotation>
+		<annotation cp='[🐸]' tts='青蛙' draft='provisional'>青蛙</annotation>
 
 		<!-- CROCODILE; animal; crocodile -->
-		<annotation cp='[🐊]' tts='鱷魚'>鱷魚</annotation>
+		<annotation cp='[🐊]' tts='鱷魚' draft='provisional'>鱷魚</annotation>
 
 		<!-- TURTLE; animal; turtle -->
-		<annotation cp='[🐢]' tts='烏龜'>烏龜</annotation>
+		<annotation cp='[🐢]' tts='烏龜' draft='provisional'>烏龜</annotation>
 
 		<!-- SNAKE; animal; bearer; ophiuchus; serpent; snake; zodiac -->
-		<annotation cp='[🐍]' tts='蛇'>蛇</annotation>
+		<annotation cp='[🐍]' tts='蛇' draft='provisional'>蛇</annotation>
 
 		<!-- DRAGON FACE; animal; dragon; face; fairy tale -->
-		<annotation cp='[🐲]' tts='龍'>龍</annotation>
+		<annotation cp='[🐲]' tts='龍' draft='provisional'>龍</annotation>
 
 		<!-- DRAGON; animal; dragon; fairy tale -->
-		<annotation cp='[🐉]' tts='龍'>龍</annotation>
+		<annotation cp='[🐉]' tts='龍' draft='provisional'>龍</annotation>
 
 		<!-- SPOUTING WHALE; animal; face; spouting; whale -->
-		<annotation cp='[🐳]' tts='鯨魚'>鯨魚</annotation>
+		<annotation cp='[🐳]' tts='鯨魚' draft='provisional'>鯨魚</annotation>
 
 		<!-- WHALE; animal; whale -->
-		<annotation cp='[🐋]' tts='鯨魚'>鯨魚; 鯨</annotation>
+		<annotation cp='[🐋]' tts='鯨魚' draft='provisional'>鯨魚; 鯨</annotation>
 
 		<!-- DOLPHIN; animal; dolphin; flipper -->
-		<annotation cp='[🐬]' tts='海豚'>海豚</annotation>
+		<annotation cp='[🐬]' tts='海豚' draft='provisional'>海豚</annotation>
 
 		<!-- FISH; animal; fish; pisces; zodiac -->
-		<annotation cp='[🐟]' tts='魚'>魚</annotation>
+		<annotation cp='[🐟]' tts='魚' draft='provisional'>魚</annotation>
 
 		<!-- TROPICAL FISH; animal; fish; tropical -->
-		<annotation cp='[🐠]' tts='熱帶魚'>熱帶魚; 魚</annotation>
+		<annotation cp='[🐠]' tts='熱帶魚' draft='provisional'>熱帶魚; 魚</annotation>
 
 		<!-- BLOWFISH; animal; blowfish; fish -->
-		<annotation cp='[🐡]' tts='河豚'>河豚</annotation>
+		<annotation cp='[🐡]' tts='河豚' draft='provisional'>河豚</annotation>
 
 		<!-- OCTOPUS; animal; octopus -->
-		<annotation cp='[🐙]' tts='章魚'>章魚</annotation>
+		<annotation cp='[🐙]' tts='章魚' draft='provisional'>章魚</annotation>
 
 		<!-- SPIRAL SHELL; animal; shell; spiral -->
-		<annotation cp='[🐚]' tts='海螺'>海螺; 貝殼</annotation>
+		<annotation cp='[🐚]' tts='海螺' draft='provisional'>海螺; 貝殼</annotation>
 
 		<!-- SNAIL; animal; snail -->
-		<annotation cp='[🐌]' tts='蝸牛'>蝸牛</annotation>
+		<annotation cp='[🐌]' tts='蝸牛' draft='provisional'>蝸牛</annotation>
 
 		<!-- BUG; animal; bug; insect -->
-		<annotation cp='[🐛]' tts='毛毛蟲'>毛毛蟲; 毛蟲</annotation>
+		<annotation cp='[🐛]' tts='毛毛蟲' draft='provisional'>毛毛蟲; 毛蟲</annotation>
 
 		<!-- ANT; animal; ant; insect -->
-		<annotation cp='[🐜]' tts='螞蟻'>螞蟻</annotation>
+		<annotation cp='[🐜]' tts='螞蟻' draft='provisional'>螞蟻</annotation>
 
 		<!-- HONEYBEE; animal; bee; honeybee; insect -->
-		<annotation cp='[🐝]' tts='蜜蜂'>蜜蜂</annotation>
+		<annotation cp='[🐝]' tts='蜜蜂' draft='provisional'>蜜蜂</annotation>
 
 		<!-- LADY BEETLE; animal; beetle; insect; lady beetle; ladybird; ladybug -->
-		<annotation cp='[🐞]' tts='瓢蟲'>瓢蟲</annotation>
+		<annotation cp='[🐞]' tts='瓢蟲' draft='provisional'>瓢蟲</annotation>
 
 		<!-- BOUQUET; bouquet; flower; romance -->
-		<annotation cp='[💐]' tts='花束'>花束; 鮮花</annotation>
+		<annotation cp='[💐]' tts='花束' draft='provisional'>花束; 鮮花</annotation>
 
 		<!-- CHERRY BLOSSOM; blossom; cherry; flower; plant -->
-		<annotation cp='[🌸]' tts='櫻花'>櫻花; 花</annotation>
+		<annotation cp='[🌸]' tts='櫻花' draft='provisional'>櫻花; 花</annotation>
 
 		<!-- WHITE FLOWER; flower -->
-		<annotation cp='[💮]' tts='白花'>白花</annotation>
+		<annotation cp='[💮]' tts='白花' draft='provisional'>白花</annotation>
 
 		<!-- ROSE; flower; plant; rose -->
-		<annotation cp='[🌹]' tts='玫瑰'>玫瑰; 花</annotation>
+		<annotation cp='[🌹]' tts='玫瑰' draft='provisional'>玫瑰; 花</annotation>
 
 		<!-- HIBISCUS; flower; hibiscus; plant -->
-		<annotation cp='[🌺]' tts='芙蓉'>芙蓉; 木槿; 花</annotation>
+		<annotation cp='[🌺]' tts='芙蓉' draft='provisional'>芙蓉; 木槿; 花</annotation>
 
 		<!-- SUNFLOWER; flower; plant; sun; sunflower -->
-		<annotation cp='[🌻]' tts='向日葵'>向日葵; 花</annotation>
+		<annotation cp='[🌻]' tts='向日葵' draft='provisional'>向日葵; 花</annotation>
 
 		<!-- BLOSSOM; blossom; flower; plant -->
-		<annotation cp='[🌼]' tts='開花'>開花; 花</annotation>
+		<annotation cp='[🌼]' tts='開花' draft='provisional'>開花; 花</annotation>
 
 		<!-- TULIP; flower; plant; tulip -->
-		<annotation cp='[🌷]' tts='鬱金香'>鬱金香; 花</annotation>
+		<annotation cp='[🌷]' tts='鬱金香' draft='provisional'>鬱金香; 花</annotation>
 
 		<!-- SEEDLING; plant; seedling; young -->
-		<annotation cp='[🌱]' tts='苗'>苗</annotation>
+		<annotation cp='[🌱]' tts='苗' draft='provisional'>苗</annotation>
 
 		<!-- EVERGREEN TREE; evergreen; plant; tree -->
-		<annotation cp='[🌲]' tts='常青樹'>常青樹; 樹</annotation>
+		<annotation cp='[🌲]' tts='常青樹' draft='provisional'>常青樹; 樹</annotation>
 
 		<!-- DECIDUOUS TREE; deciduous; plant; shedding; tree -->
-		<annotation cp='[🌳]' tts='樹'>樹</annotation>
+		<annotation cp='[🌳]' tts='樹' draft='provisional'>樹</annotation>
 
 		<!-- PALM TREE; palm; plant; tree -->
-		<annotation cp='[🌴]' tts='棕櫚樹'>棕櫚樹</annotation>
+		<annotation cp='[🌴]' tts='棕櫚樹' draft='provisional'>棕櫚樹</annotation>
 
 		<!-- CACTUS; cactus; plant -->
-		<annotation cp='[🌵]' tts='仙人掌'>仙人掌</annotation>
+		<annotation cp='[🌵]' tts='仙人掌' draft='provisional'>仙人掌</annotation>
 
 		<!-- EAR OF RICE; ear; plant; rice -->
-		<annotation cp='[🌾]' tts='水稻'>水稻</annotation>
+		<annotation cp='[🌾]' tts='水稻' draft='provisional'>水稻</annotation>
 
 		<!-- HERB; herb; leaf; plant -->
-		<annotation cp='[🌿]' tts='草藥'>草藥; 葉子; 植物; 香草</annotation>
+		<annotation cp='[🌿]' tts='草藥' draft='provisional'>草藥; 葉子; 植物; 香草</annotation>
 
 		<!-- FOUR LEAF CLOVER; 4; clover; four; leaf; plant -->
-		<annotation cp='[🍀]' tts='幸運草'>幸運草; 四葉草</annotation>
+		<annotation cp='[🍀]' tts='幸運草' draft='provisional'>幸運草; 四葉草</annotation>
 
 		<!-- MAPLE LEAF; falling; leaf; maple; plant -->
-		<annotation cp='[🍁]' tts='楓葉'>楓葉</annotation>
+		<annotation cp='[🍁]' tts='楓葉' draft='provisional'>楓葉</annotation>
 
 		<!-- FALLEN LEAF; falling; leaf; plant -->
-		<annotation cp='[🍂]' tts='落葉'>落葉; 枯葉</annotation>
+		<annotation cp='[🍂]' tts='落葉' draft='provisional'>落葉; 枯葉</annotation>
 
 		<!-- LEAF FLUTTERING IN WIND; blow; flutter; leaf; plant; wind -->
-		<annotation cp='[🍃]' tts='隨風飄落的葉子'>隨風飄落的葉子</annotation>
+		<annotation cp='[🍃]' tts='隨風飄落的葉子' draft='provisional'>隨風飄落的葉子</annotation>
 
 		<!-- GRAPES; food; fruit; grape; plant -->
-		<annotation cp='[🍇]' tts='葡萄'>葡萄; 水果</annotation>
+		<annotation cp='[🍇]' tts='葡萄' draft='provisional'>葡萄; 水果</annotation>
 
 		<!-- MELON; food; fruit; melon; plant -->
-		<annotation cp='[🍈]' tts='瓜'>瓜; 香瓜; 甜瓜; 蜜瓜; 水果</annotation>
+		<annotation cp='[🍈]' tts='瓜' draft='provisional'>瓜; 香瓜; 甜瓜; 蜜瓜; 水果</annotation>
 
 		<!-- WATERMELON; food; fruit; plant; watermelon -->
-		<annotation cp='[🍉]' tts='西瓜'>西瓜; 水果</annotation>
+		<annotation cp='[🍉]' tts='西瓜' draft='provisional'>西瓜; 水果</annotation>
 
 		<!-- TANGERINE; food; fruit; orange; plant; tangerine -->
-		<annotation cp='[🍊]' tts='橘子'>橘子; 水果</annotation>
+		<annotation cp='[🍊]' tts='橘子' draft='provisional'>橘子; 水果</annotation>
 
 		<!-- LEMON; citrus; food; fruit; lemon; plant -->
-		<annotation cp='[🍋]' tts='檸檬'>檸檬; 水果</annotation>
+		<annotation cp='[🍋]' tts='檸檬' draft='provisional'>檸檬; 水果</annotation>
 
 		<!-- BANANA; banana; food; fruit; plant -->
-		<annotation cp='[🍌]' tts='香蕉'>香蕉; 水果</annotation>
+		<annotation cp='[🍌]' tts='香蕉' draft='provisional'>香蕉; 水果</annotation>
 
 		<!-- PINEAPPLE; food; fruit; pineapple; plant -->
-		<annotation cp='[🍍]' tts='鳳梨'>鳳梨</annotation>
+		<annotation cp='[🍍]' tts='鳳梨' draft='provisional'>鳳梨</annotation>
 
 		<!-- RED APPLE; apple; food; fruit; plant; red -->
-		<annotation cp='[🍎]' tts='紅蘋果'>紅蘋果; 蘋果; 水果</annotation>
+		<annotation cp='[🍎]' tts='紅蘋果' draft='provisional'>紅蘋果; 蘋果; 水果</annotation>
 
 		<!-- GREEN APPLE; apple; food; fruit; green; plant -->
-		<annotation cp='[🍏]' tts='青蘋果'>青蘋果; 蘋果; 水果</annotation>
+		<annotation cp='[🍏]' tts='青蘋果' draft='provisional'>青蘋果; 蘋果; 水果</annotation>
 
 		<!-- PEAR; food; fruit; pear; plant -->
-		<annotation cp='[🍐]' tts='梨子'>梨子</annotation>
+		<annotation cp='[🍐]' tts='梨子' draft='provisional'>梨子</annotation>
 
 		<!-- PEACH; food; fruit; peach; plant -->
-		<annotation cp='[🍑]' tts='桃子'>桃子</annotation>
+		<annotation cp='[🍑]' tts='桃子' draft='provisional'>桃子</annotation>
 
 		<!-- CHERRIES; cherry; food; fruit; plant -->
-		<annotation cp='[🍒]' tts='櫻桃'>櫻桃; 水果</annotation>
+		<annotation cp='[🍒]' tts='櫻桃' draft='provisional'>櫻桃; 水果</annotation>
 
 		<!-- STRAWBERRY; berry; food; fruit; plant; strawberry -->
-		<annotation cp='[🍓]' tts='草莓'>草莓; 水果</annotation>
+		<annotation cp='[🍓]' tts='草莓' draft='provisional'>草莓; 水果</annotation>
 
 		<!-- TOMATO; food; plant; tomato; vegetable -->
-		<annotation cp='[🍅]' tts='番茄'>番茄</annotation>
+		<annotation cp='[🍅]' tts='番茄' draft='provisional'>番茄</annotation>
 
 		<!-- AUBERGINE; aubergine; eggplant; food; plant; vegetable -->
-		<annotation cp='[🍆]' tts='茄子'>茄子; 蔬菜</annotation>
+		<annotation cp='[🍆]' tts='茄子' draft='provisional'>茄子; 蔬菜</annotation>
 
 		<!-- EAR OF MAIZE; corn; ear; maize; maze; plant -->
-		<annotation cp='[🌽]' tts='玉米'>玉米</annotation>
+		<annotation cp='[🌽]' tts='玉米' draft='provisional'>玉米</annotation>
 
 		<!-- MUSHROOM; mushroom; plant -->
-		<annotation cp='[🍄]' tts='蘑菇'>蘑菇</annotation>
+		<annotation cp='[🍄]' tts='蘑菇' draft='provisional'>蘑菇</annotation>
 
 		<!-- CHESTNUT; chestnut; plant -->
-		<annotation cp='[🌰]' tts='栗'>栗; 栗子</annotation>
+		<annotation cp='[🌰]' tts='栗' draft='provisional'>栗; 栗子</annotation>
 
 		<!-- BREAD; bread; food; loaf; restaurant -->
-		<annotation cp='[🍞]' tts='麵包'>麵包</annotation>
+		<annotation cp='[🍞]' tts='麵包' draft='provisional'>麵包</annotation>
 
 		<!-- MEAT ON BONE; bone; food; meat; restaurant -->
-		<annotation cp='[🍖]' tts='排骨'>排骨</annotation>
+		<annotation cp='[🍖]' tts='排骨' draft='provisional'>排骨</annotation>
 
 		<!-- POULTRY LEG; bone; chicken; food; leg; poultry; restaurant -->
-		<annotation cp='[🍗]' tts='雞腿'>雞腿</annotation>
+		<annotation cp='[🍗]' tts='雞腿' draft='provisional'>雞腿</annotation>
 
 		<!-- HAMBURGER; burger; food; hamburger; restaurant -->
-		<annotation cp='[🍔]' tts='漢堡'>漢堡</annotation>
+		<annotation cp='[🍔]' tts='漢堡' draft='provisional'>漢堡</annotation>
 
 		<!-- FRENCH FRIES; food; french; fries; restaurant -->
-		<annotation cp='[🍟]' tts='薯條'>薯條</annotation>
+		<annotation cp='[🍟]' tts='薯條' draft='provisional'>薯條</annotation>
 
 		<!-- SLICE OF PIZZA; food; pizza; restaurant; slice -->
-		<annotation cp='[🍕]' tts='披薩'>披薩</annotation>
+		<annotation cp='[🍕]' tts='披薩' draft='provisional'>披薩</annotation>
 
 		<!-- POT OF FOOD; food; pot; restaurant; stew -->
-		<annotation cp='[🍲]' tts='火鍋'>火鍋</annotation>
+		<annotation cp='[🍲]' tts='火鍋' draft='provisional'>火鍋</annotation>
 
 		<!-- BENTO BOX; bento; box; food; restaurant -->
-		<annotation cp='[🍱]' tts='盒飯'>盒飯; 便當</annotation>
+		<annotation cp='[🍱]' tts='盒飯' draft='provisional'>盒飯; 便當</annotation>
 
 		<!-- RICE CRACKER; cracker; food; restaurant; rice -->
-		<annotation cp='[🍘]' tts='米果'>米果</annotation>
+		<annotation cp='[🍘]' tts='米果' draft='provisional'>米果</annotation>
 
 		<!-- RICE BALL; ball; food; japanese; restaurant; rice -->
-		<annotation cp='[🍙]' tts='飯糰'>飯糰</annotation>
+		<annotation cp='[🍙]' tts='飯糰' draft='provisional'>飯糰</annotation>
 
 		<!-- COOKED RICE; cooked; food; restaurant; rice -->
-		<annotation cp='[🍚]' tts='米飯'>米飯</annotation>
+		<annotation cp='[🍚]' tts='米飯' draft='provisional'>米飯</annotation>
 
 		<!-- CURRY AND RICE; curry; food; restaurant; rice -->
-		<annotation cp='[🍛]' tts='咖哩飯'>咖哩飯</annotation>
+		<annotation cp='[🍛]' tts='咖哩飯' draft='provisional'>咖哩飯</annotation>
 
 		<!-- STEAMING BOWL; bowl; food; noodle; ramen; restaurant; steaming -->
-		<annotation cp='[🍜]' tts='湯麵'>湯麵</annotation>
+		<annotation cp='[🍜]' tts='湯麵' draft='provisional'>湯麵</annotation>
 
 		<!-- SPAGHETTI; food; pasta; restaurant; spaghetti -->
-		<annotation cp='[🍝]' tts='義大利麵'>義大利麵</annotation>
+		<annotation cp='[🍝]' tts='義大利麵' draft='provisional'>義大利麵</annotation>
 
 		<!-- ROASTED SWEET POTATO; food; potato; restaurant; roasted; sweet -->
-		<annotation cp='[🍠]' tts='烤地瓜'>烤地瓜</annotation>
+		<annotation cp='[🍠]' tts='烤地瓜' draft='provisional'>烤地瓜</annotation>
 
 		<!-- ODEN; food; kebab; oden; restaurant; seafood; skewer; stick -->
-		<annotation cp='[🍢]' tts='關東煮'>關東煮</annotation>
+		<annotation cp='[🍢]' tts='關東煮' draft='provisional'>關東煮</annotation>
 
 		<!-- SUSHI; food; restaurant; sushi -->
-		<annotation cp='[🍣]' tts='壽司'>壽司</annotation>
+		<annotation cp='[🍣]' tts='壽司' draft='provisional'>壽司</annotation>
 
 		<!-- FRIED SHRIMP; food; fried; prawn; restaurant; shrimp; tempura -->
-		<annotation cp='[🍤]' tts='天婦羅'>天婦羅; 炸蝦</annotation>
+		<annotation cp='[🍤]' tts='天婦羅' draft='provisional'>天婦羅; 炸蝦</annotation>
 
 		<!-- FISH CAKE WITH SWIRL DESIGN; cake; fish; food; pastry; restaurant; swirl -->
-		<annotation cp='[🍥]' tts='魚板'>魚板</annotation>
+		<annotation cp='[🍥]' tts='魚板' draft='provisional'>魚板</annotation>
 
 		<!-- DANGO; dango; dessert; food; japanese; restaurant; skewer; stick; sweet -->
-		<annotation cp='[🍡]' tts='糥米丸子'>糥米丸子</annotation>
+		<annotation cp='[🍡]' tts='糥米丸子' draft='provisional'>糥米丸子</annotation>
 
 		<!-- SOFT ICE CREAM; cream; dessert; food; ice; icecream; restaurant; soft; sweet -->
-		<annotation cp='[🍦]' tts='霜淇淋'>霜淇淋</annotation>
+		<annotation cp='[🍦]' tts='霜淇淋' draft='provisional'>霜淇淋</annotation>
 
 		<!-- SHAVED ICE; dessert; food; ice; restaurant; shaved; sweet -->
-		<annotation cp='[🍧]' tts='刨冰'>刨冰</annotation>
+		<annotation cp='[🍧]' tts='刨冰' draft='provisional'>刨冰</annotation>
 
 		<!-- ICE CREAM; cream; dessert; food; ice; restaurant; sweet -->
-		<annotation cp='[🍨]' tts='冰淇淋'>冰淇淋</annotation>
+		<annotation cp='[🍨]' tts='冰淇淋' draft='provisional'>冰淇淋</annotation>
 
 		<!-- DOUGHNUT; dessert; donut; doughnut; food; restaurant; sweet -->
-		<annotation cp='[🍩]' tts='甜甜圈'>甜甜圈</annotation>
+		<annotation cp='[🍩]' tts='甜甜圈' draft='provisional'>甜甜圈</annotation>
 
 		<!-- COOKIE; cookie; dessert; food; restaurant; sweet -->
-		<annotation cp='[🍪]' tts='餅乾'>餅乾</annotation>
+		<annotation cp='[🍪]' tts='餅乾' draft='provisional'>餅乾</annotation>
 
 		<!-- BIRTHDAY CAKE; birthday; cake; celebration; dessert; food; pastry; sweet -->
-		<annotation cp='[🎂]' tts='生日蛋糕'>生日蛋糕; 蛋糕; 生日; 生日快樂</annotation>
+		<annotation cp='[🎂]' tts='生日蛋糕' draft='provisional'>生日蛋糕; 蛋糕; 生日; 生日快樂</annotation>
 
 		<!-- SHORTCAKE; cake; dessert; food; pastry; restaurant; shortcake; slice; sweet -->
-		<annotation cp='[🍰]' tts='蛋糕'>蛋糕</annotation>
+		<annotation cp='[🍰]' tts='蛋糕' draft='provisional'>蛋糕</annotation>
 
 		<!-- CHOCOLATE BAR; bar; chocolate; dessert; food; restaurant; sweet -->
-		<annotation cp='[🍫]' tts='巧克力'>巧克力</annotation>
+		<annotation cp='[🍫]' tts='巧克力' draft='provisional'>巧克力</annotation>
 
 		<!-- CANDY; candy; dessert; food; restaurant; sweet -->
-		<annotation cp='[🍬]' tts='糖'>糖</annotation>
+		<annotation cp='[🍬]' tts='糖' draft='provisional'>糖</annotation>
 
 		<!-- LOLLIPOP; candy; dessert; food; lollipop; restaurant; sweet -->
-		<annotation cp='[🍭]' tts='棒棒糖'>棒棒糖</annotation>
+		<annotation cp='[🍭]' tts='棒棒糖' draft='provisional'>棒棒糖</annotation>
 
 		<!-- CUSTARD; custard; dessert; food; pudding; restaurant; sweet -->
-		<annotation cp='[🍮]' tts='奶黃'>奶黃; 卡士達、吉士、蛋奶凍</annotation>
+		<annotation cp='[🍮]' tts='奶黃' draft='provisional'>奶黃; 卡士達、吉士、蛋奶凍</annotation>
 
 		<!-- HONEY POT; food; honey; honeypot; pot; restaurant; sweet -->
-		<annotation cp='[🍯]' tts='蜂蜜'>蜂蜜</annotation>
+		<annotation cp='[🍯]' tts='蜂蜜' draft='provisional'>蜂蜜</annotation>
 
 		<!-- BABY BOTTLE; baby; bottle; drink; milk -->
-		<annotation cp='[🍼]' tts='奶瓶'>奶瓶</annotation>
+		<annotation cp='[🍼]' tts='奶瓶' draft='provisional'>奶瓶</annotation>
 
 		<!-- TEACUP WITHOUT HANDLE; beverage; cup; drink; tea; teacup -->
-		<annotation cp='[🍵]' tts='茶杯'>茶杯; 茶</annotation>
+		<annotation cp='[🍵]' tts='茶杯' draft='provisional'>茶杯; 茶</annotation>
 
 		<!-- SAKE BOTTLE AND CUP; bar; beverage; bottle; cup; drink; restaurant; sake -->
-		<annotation cp='[🍶]' tts='清酒'>清酒; 酒</annotation>
+		<annotation cp='[🍶]' tts='清酒' draft='provisional'>清酒; 酒</annotation>
 
 		<!-- WINE GLASS; bar; beverage; drink; glass; restaurant; wine -->
-		<annotation cp='[🍷]' tts='葡萄酒'>葡萄酒; 酒杯; 酒</annotation>
+		<annotation cp='[🍷]' tts='葡萄酒' draft='provisional'>葡萄酒; 酒杯; 酒</annotation>
 
 		<!-- COCKTAIL GLASS; bar; cocktail; drink; glass; restaurant -->
-		<annotation cp='[🍸]' tts='雞尾酒'>雞尾酒; 酒</annotation>
+		<annotation cp='[🍸]' tts='雞尾酒' draft='provisional'>雞尾酒; 酒</annotation>
 
 		<!-- TROPICAL DRINK; bar; drink; restaurant; tropical -->
-		<annotation cp='[🍹]' tts='熱帶水果飲料'>熱帶水果飲料</annotation>
+		<annotation cp='[🍹]' tts='熱帶水果飲料' draft='provisional'>熱帶水果飲料</annotation>
 
 		<!-- BEER MUG; bar; beer; drink; mug; restaurant -->
-		<annotation cp='[🍺]' tts='啤酒'>啤酒; 酒</annotation>
+		<annotation cp='[🍺]' tts='啤酒' draft='provisional'>啤酒; 酒</annotation>
 
 		<!-- CLINKING BEER MUGS; bar; beer; clink; drink; mug; restaurant -->
-		<annotation cp='[🍻]' tts='乾杯'>乾杯; 酒</annotation>
+		<annotation cp='[🍻]' tts='乾杯' draft='provisional'>乾杯; 酒</annotation>
 
 		<!-- FORK AND KNIFE; cooking; fork; knife; restaurant -->
-		<annotation cp='[🍴]' tts='刀叉'>刀叉</annotation>
+		<annotation cp='[🍴]' tts='刀叉' draft='provisional'>刀叉</annotation>
 
 		<!-- COOKING; cooking; egg; frying; pan; restaurant -->
-		<annotation cp='[🍳]' tts='煎蛋'>煎蛋</annotation>
+		<annotation cp='[🍳]' tts='煎蛋' draft='provisional'>煎蛋</annotation>
 
 		<!-- EARTH GLOBE EUROPE-AFRICA; africa; earth; europe; globe; world -->
-		<annotation cp='[🌍]' tts='歐洲及非洲'>歐洲及非洲</annotation>
+		<annotation cp='[🌍]' tts='歐洲及非洲' draft='provisional'>歐洲及非洲</annotation>
 
 		<!-- EARTH GLOBE AMERICAS; americas; earth; globe; world -->
-		<annotation cp='[🌎]' tts='美洲'>美洲</annotation>
+		<annotation cp='[🌎]' tts='美洲' draft='provisional'>美洲</annotation>
 
 		<!-- EARTH GLOBE ASIA-AUSTRALIA; asia; australia; earth; globe; world -->
-		<annotation cp='[🌏]' tts='亞洲'>亞洲</annotation>
+		<annotation cp='[🌏]' tts='亞洲' draft='provisional'>亞洲</annotation>
 
 		<!-- GLOBE WITH MERIDIANS; earth; globe; meridians; world -->
-		<annotation cp='[🌐]' tts='子午線'>子午線; 地球</annotation>
+		<annotation cp='[🌐]' tts='子午線' draft='provisional'>子午線; 地球</annotation>
 
 		<!-- VOLCANO; eruption; mountain; volcano; weather -->
-		<annotation cp='[🌋]' tts='火山'>火山</annotation>
+		<annotation cp='[🌋]' tts='火山' draft='provisional'>火山</annotation>
 
 		<!-- MOUNT FUJI; fuji; mountain -->
-		<annotation cp='[🗻]' tts='富士山'>富士山</annotation>
+		<annotation cp='[🗻]' tts='富士山' draft='provisional'>富士山</annotation>
 
 		<!-- HOUSE BUILDING; building; home; house -->
-		<annotation cp='[🏠]' tts='房子'>房子; 家</annotation>
+		<annotation cp='[🏠]' tts='房子' draft='provisional'>房子; 家</annotation>
 
 		<!-- HOUSE WITH GARDEN; building; garden; home; house -->
-		<annotation cp='[🏡]' tts='別墅'>別墅; 家</annotation>
+		<annotation cp='[🏡]' tts='別墅' draft='provisional'>別墅; 家</annotation>
 
 		<!-- CHURCH; building; christian; church; cross; religion -->
-		<annotation cp='[⛪]' tts='教堂'>教堂</annotation>
+		<annotation cp='[⛪]' tts='教堂' draft='provisional'>教堂</annotation>
 
 		<!-- OFFICE BUILDING; building; office -->
-		<annotation cp='[🏢]' tts='辦公大樓'>辦公大樓</annotation>
+		<annotation cp='[🏢]' tts='辦公大樓' draft='provisional'>辦公大樓</annotation>
 
 		<!-- JAPANESE POST OFFICE; building; japanese; office; post -->
-		<annotation cp='[🏣]' tts='日本郵局'>日本郵局; 郵局</annotation>
+		<annotation cp='[🏣]' tts='日本郵局' draft='provisional'>日本郵局; 郵局</annotation>
 
 		<!-- EUROPEAN POST OFFICE; building; european; office; post -->
-		<annotation cp='[🏤]' tts='歐洲郵局'>歐洲郵局; 郵局</annotation>
+		<annotation cp='[🏤]' tts='歐洲郵局' draft='provisional'>歐洲郵局; 郵局</annotation>
 
 		<!-- HOSPITAL; building; doctor; hospital; medicine -->
-		<annotation cp='[🏥]' tts='醫院'>醫院</annotation>
+		<annotation cp='[🏥]' tts='醫院' draft='provisional'>醫院</annotation>
 
 		<!-- BANK; bank; building -->
-		<annotation cp='[🏦]' tts='銀行'>銀行</annotation>
+		<annotation cp='[🏦]' tts='銀行' draft='provisional'>銀行</annotation>
 
 		<!-- HOTEL; building; hotel -->
-		<annotation cp='[🏨]' tts='旅館'>旅館</annotation>
+		<annotation cp='[🏨]' tts='旅館' draft='provisional'>旅館</annotation>
 
 		<!-- LOVE HOTEL; building; hotel; love -->
-		<annotation cp='[🏩]' tts='Motel'>Motel</annotation>
+		<annotation cp='[🏩]' tts='Motel' draft='provisional'>Motel</annotation>
 
 		<!-- CONVENIENCE STORE; building; convenience; store -->
-		<annotation cp='[🏪]' tts='便利商店'>便利商店</annotation>
+		<annotation cp='[🏪]' tts='便利商店' draft='provisional'>便利商店</annotation>
 
 		<!-- SCHOOL; building; education; school -->
-		<annotation cp='[🏫]' tts='學校'>學校</annotation>
+		<annotation cp='[🏫]' tts='學校' draft='provisional'>學校</annotation>
 
 		<!-- DEPARTMENT STORE; building; department; store -->
-		<annotation cp='[🏬]' tts='百貨公司'>百貨公司</annotation>
+		<annotation cp='[🏬]' tts='百貨公司' draft='provisional'>百貨公司</annotation>
 
 		<!-- FACTORY; building; factory -->
-		<annotation cp='[🏭]' tts='工廠'>工廠</annotation>
+		<annotation cp='[🏭]' tts='工廠' draft='provisional'>工廠</annotation>
 
 		<!-- JAPANESE CASTLE; building; castle; japanese -->
-		<annotation cp='[🏯]' tts='日本城堡'>日本城堡; 城堡</annotation>
+		<annotation cp='[🏯]' tts='日本城堡' draft='provisional'>日本城堡; 城堡</annotation>
 
 		<!-- EUROPEAN CASTLE; building; castle; european -->
-		<annotation cp='[🏰]' tts='城堡歐洲'>城堡歐洲; 城堡</annotation>
+		<annotation cp='[🏰]' tts='城堡歐洲' draft='provisional'>城堡歐洲; 城堡</annotation>
 
 		<!-- WEDDING; activity; chapel; romance; wedding -->
-		<annotation cp='[💒]' tts='婚禮'>婚禮</annotation>
+		<annotation cp='[💒]' tts='婚禮' draft='provisional'>婚禮</annotation>
 
 		<!-- TOKYO TOWER; tokyo; tower -->
-		<annotation cp='[🗼]' tts='東京鐵塔'>東京鐵塔</annotation>
+		<annotation cp='[🗼]' tts='東京鐵塔' draft='provisional'>東京鐵塔</annotation>
 
 		<!-- STATUE OF LIBERTY; liberty; statue -->
-		<annotation cp='[🗽]' tts='自由女神'>自由女神</annotation>
+		<annotation cp='[🗽]' tts='自由女神' draft='provisional'>自由女神</annotation>
 
 		<!-- SILHOUETTE OF JAPAN; japan; map -->
-		<annotation cp='[🗾]' tts='日本'>日本</annotation>
+		<annotation cp='[🗾]' tts='日本' draft='provisional'>日本</annotation>
 
 		<!-- FOUNTAIN; fountain -->
-		<annotation cp='[⛲]' tts='噴泉'>噴泉</annotation>
+		<annotation cp='[⛲]' tts='噴泉' draft='provisional'>噴泉</annotation>
 
 		<!-- TENT; camping; tent -->
-		<annotation cp='[⛺]' tts='帳篷'>帳篷</annotation>
+		<annotation cp='[⛺]' tts='帳篷' draft='provisional'>帳篷</annotation>
 
 		<!-- FOGGY; fog; weather -->
-		<annotation cp='[🌁]' tts='霧'>霧</annotation>
+		<annotation cp='[🌁]' tts='霧' draft='provisional'>霧</annotation>
 
 		<!-- NIGHT WITH STARS; night; star; weather -->
-		<annotation cp='[🌃]' tts='星空'>星空</annotation>
+		<annotation cp='[🌃]' tts='星空' draft='provisional'>星空</annotation>
 
 		<!-- SUNRISE OVER MOUNTAINS; morning; mountain; sun; sunrise; time; weather -->
-		<annotation cp='[🌄]' tts='日出'>日出</annotation>
+		<annotation cp='[🌄]' tts='日出' draft='provisional'>日出</annotation>
 
 		<!-- SUNRISE; morning; sun; sunrise; time; weather -->
-		<annotation cp='[🌅]' tts='旭日'>旭日</annotation>
+		<annotation cp='[🌅]' tts='旭日' draft='provisional'>旭日</annotation>
 
 		<!-- CITYSCAPE AT DUSK; building; city; dusk; evening; landscape; sun; sunset; time; weather -->
-		<annotation cp='[🌆]' tts='黃昏'>黃昏</annotation>
+		<annotation cp='[🌆]' tts='黃昏' draft='provisional'>黃昏</annotation>
 
 		<!-- SUNSET OVER BUILDINGS; building; dusk; sun; sunset; time; weather -->
-		<annotation cp='[🌇]' tts='夕陽'>夕陽; 日落</annotation>
+		<annotation cp='[🌇]' tts='夕陽' draft='provisional'>夕陽; 日落</annotation>
 
 		<!-- BRIDGE AT NIGHT; bridge; night; weather -->
-		<annotation cp='[🌉]' tts='夜橋'>夜橋</annotation>
+		<annotation cp='[🌉]' tts='夜橋' draft='provisional'>夜橋</annotation>
 
 		<!-- WATER WAVE; ocean; water; wave; weather -->
-		<annotation cp='[🌊]' tts='波浪'>波浪; 海浪</annotation>
+		<annotation cp='[🌊]' tts='波浪' draft='provisional'>波浪; 海浪</annotation>
 
 		<!-- MOYAI; face; moyai; statue; travel -->
-		<annotation cp='[🗿]' tts='復活節島'>復活節島</annotation>
+		<annotation cp='[🗿]' tts='復活節島' draft='provisional'>復活節島</annotation>
 
 		<!-- MILKY WAY; milky way; space; weather -->
-		<annotation cp='[🌌]' tts='銀河'>銀河</annotation>
+		<annotation cp='[🌌]' tts='銀河' draft='provisional'>銀河</annotation>
 
 		<!-- CAROUSEL HORSE; activity; carousel; entertainment; horse -->
-		<annotation cp='[🎠]' tts='旋轉木馬'>旋轉木馬</annotation>
+		<annotation cp='[🎠]' tts='旋轉木馬' draft='provisional'>旋轉木馬</annotation>
 
 		<!-- FERRIS WHEEL; activity; amusement park; entertainment; ferris; wheel -->
-		<annotation cp='[🎡]' tts='摩天輪'>摩天輪</annotation>
+		<annotation cp='[🎡]' tts='摩天輪' draft='provisional'>摩天輪</annotation>
 
 		<!-- ROLLER COASTER; activity; amusement park; coaster; entertainment; roller -->
-		<annotation cp='[🎢]' tts='過山車'>過山車</annotation>
+		<annotation cp='[🎢]' tts='過山車' draft='provisional'>過山車</annotation>
 
 		<!-- BARBER POLE; barber; haircut; pole -->
-		<annotation cp='[💈]' tts='理髮店'>理髮店</annotation>
+		<annotation cp='[💈]' tts='理髮店' draft='provisional'>理髮店</annotation>
 
 		<!-- CIRCUS TENT; activity; circus; entertainment; tent -->
-		<annotation cp='[🎪]' tts='馬戲團'>馬戲團</annotation>
+		<annotation cp='[🎪]' tts='馬戲團' draft='provisional'>馬戲團</annotation>
 
 		<!-- PERFORMING ARTS; activity; art; entertainment; face; mask; performing; theater; theatre -->
-		<annotation cp='[🎭]' tts='面具'>面具</annotation>
+		<annotation cp='[🎭]' tts='面具' draft='provisional'>面具</annotation>
 
 		<!-- ARTIST PALETTE; activity; art; entertainment; museum; painting; palette -->
-		<annotation cp='[🎨]' tts='調色板'>調色板</annotation>
+		<annotation cp='[🎨]' tts='調色板' draft='provisional'>調色板</annotation>
 
 		<!-- SLOT MACHINE; activity; game; slot -->
-		<annotation cp='[🎰]' tts='吃角子老虎機'>吃角子老虎機</annotation>
+		<annotation cp='[🎰]' tts='吃角子老虎機' draft='provisional'>吃角子老虎機</annotation>
 
 		<!-- STEAM LOCOMOTIVE; engine; locomotive; railway; steam; train; travel; vehicle -->
-		<annotation cp='[🚂]' tts='蒸汽火車'>蒸汽火車; 火車</annotation>
+		<annotation cp='[🚂]' tts='蒸汽火車' draft='provisional'>蒸汽火車; 火車</annotation>
 
 		<!-- RAILWAY CAR; car; electric; railway; train; tram; travel; trolleybus; vehicle -->
-		<annotation cp='[🚃]' tts='電車'>電車</annotation>
+		<annotation cp='[🚃]' tts='電車' draft='provisional'>電車</annotation>
 
 		<!-- HIGH-SPEED TRAIN; railway; shinkansen; speed; train; travel; vehicle -->
-		<annotation cp='[🚄]' tts='高鐵'>高鐵; 火車</annotation>
+		<annotation cp='[🚄]' tts='高鐵' draft='provisional'>高鐵; 火車</annotation>
 
 		<!-- HIGH-SPEED TRAIN WITH BULLET NOSE; bullet; railway; shinkansen; speed; train; travel; vehicle -->
-		<annotation cp='[🚅]' tts='高鐡車頭'>高鐡車頭; 高鐵; 火車</annotation>
+		<annotation cp='[🚅]' tts='高鐡車頭' draft='provisional'>高鐡車頭; 高鐵; 火車</annotation>
 
 		<!-- TRAIN; railway; train; travel; vehicle -->
-		<annotation cp='[🚆]' tts='火車'>火車</annotation>
+		<annotation cp='[🚆]' tts='火車' draft='provisional'>火車</annotation>
 
 		<!-- METRO; metro; subway; travel; vehicle -->
-		<annotation cp='[🚇]' tts='地鐵'>地鐵</annotation>
+		<annotation cp='[🚇]' tts='地鐵' draft='provisional'>地鐵</annotation>
 
 		<!-- LIGHT RAIL; railway; travel; vehicle -->
-		<annotation cp='[🚈]' tts='輕軌'>輕軌; 火車</annotation>
+		<annotation cp='[🚈]' tts='輕軌' draft='provisional'>輕軌; 火車</annotation>
 
 		<!-- STATION; railway; station; train; travel; vehicle -->
-		<annotation cp='[🚉]' tts='車站'>車站</annotation>
+		<annotation cp='[🚉]' tts='車站' draft='provisional'>車站</annotation>
 
 		<!-- TRAM; tram; travel; trolleybus; vehicle -->
-		<annotation cp='[🚊]' tts='電車'>電車</annotation>
+		<annotation cp='[🚊]' tts='電車' draft='provisional'>電車</annotation>
 
 		<!-- MONORAIL; monorail; travel; vehicle -->
-		<annotation cp='[🚝]' tts='單軌'>單軌; 火車</annotation>
+		<annotation cp='[🚝]' tts='單軌' draft='provisional'>單軌; 火車</annotation>
 
 		<!-- MOUNTAIN RAILWAY; car; mountain; railway; travel; vehicle -->
-		<annotation cp='[🚞]' tts='山區鐵路'>山區鐵路</annotation>
+		<annotation cp='[🚞]' tts='山區鐵路' draft='provisional'>山區鐵路</annotation>
 
 		<!-- TRAM CAR; car; tram; travel; trolleybus; vehicle -->
-		<annotation cp='[🚋]' tts='電纜車'>電纜車</annotation>
+		<annotation cp='[🚋]' tts='電纜車' draft='provisional'>電纜車</annotation>
 
 		<!-- BUS; bus; travel; vehicle -->
-		<annotation cp='[🚌]' tts='公車'>公車; 公共汽車</annotation>
+		<annotation cp='[🚌]' tts='公車' draft='provisional'>公車; 公共汽車</annotation>
 
 		<!-- ONCOMING BUS; bus; oncoming; travel; vehicle -->
-		<annotation cp='[🚍]' tts='公共汽車'>公車; 公共汽車</annotation>
+		<annotation cp='[🚍]' tts='公共汽車' draft='provisional'>公車; 公共汽車</annotation>
 
 		<!-- TROLLEYBUS; bus; tram; travel; trolley; trolleybus; vehicle -->
-		<annotation cp='[🚎]' tts='纜車'>纜車</annotation>
+		<annotation cp='[🚎]' tts='纜車' draft='provisional'>纜車</annotation>
 
 		<!-- BUS STOP; bus; busstop; stop; travel -->
-		<annotation cp='[🚏]' tts='公車站'>公車站</annotation>
+		<annotation cp='[🚏]' tts='公車站' draft='provisional'>公車站</annotation>
 
 		<!-- MINIBUS; bus; minibus; travel; vehicle -->
-		<annotation cp='[🚐]' tts='小型巴士'>小型巴士</annotation>
+		<annotation cp='[🚐]' tts='小型巴士' draft='provisional'>小型巴士</annotation>
 
 		<!-- AMBULANCE; ambulance; travel; vehicle -->
-		<annotation cp='[🚑]' tts='救護車'>救護車</annotation>
+		<annotation cp='[🚑]' tts='救護車' draft='provisional'>救護車</annotation>
 
 		<!-- FIRE ENGINE; engine; fire; travel; truck; vehicle -->
-		<annotation cp='[🚒]' tts='消防車'>消防車; 救火車</annotation>
+		<annotation cp='[🚒]' tts='消防車' draft='provisional'>消防車; 救火車</annotation>
 
 		<!-- POLICE CAR; car; patrol; police; travel; vehicle -->
-		<annotation cp='[🚓]' tts='警車'>警車</annotation>
+		<annotation cp='[🚓]' tts='警車' draft='provisional'>警車</annotation>
 
 		<!-- ONCOMING POLICE CAR; car; oncoming; police; travel; vehicle -->
-		<annotation cp='[🚔]' tts='警察車'>警察車; 警車</annotation>
+		<annotation cp='[🚔]' tts='警察車' draft='provisional'>警察車; 警車</annotation>
 
 		<!-- TAXI; taxi; travel; vehicle -->
-		<annotation cp='[🚕]' tts='計程車'>計程車</annotation>
+		<annotation cp='[🚕]' tts='計程車' draft='provisional'>計程車</annotation>
 
 		<!-- ONCOMING TAXI; oncoming; taxi; travel; vehicle -->
-		<annotation cp='[🚖]' tts='計程車'>計程車</annotation>
+		<annotation cp='[🚖]' tts='計程車' draft='provisional'>計程車</annotation>
 
 		<!-- AUTOMOBILE; automobile; car; travel; vehicle -->
-		<annotation cp='[🚗]' tts='汽車'>汽車; 轎車</annotation>
+		<annotation cp='[🚗]' tts='汽車' draft='provisional'>汽車; 轎車</annotation>
 
 		<!-- ONCOMING AUTOMOBILE; automobile; car; oncoming; travel; vehicle -->
-		<annotation cp='[🚘]' tts='轎車'>汽車; 轎車</annotation>
+		<annotation cp='[🚘]' tts='轎車' draft='provisional'>汽車; 轎車</annotation>
 
 		<!-- RECREATIONAL VEHICLE; recreational; rv; travel; vehicle -->
-		<annotation cp='[🚙]' tts='休旅車'>休旅車</annotation>
+		<annotation cp='[🚙]' tts='休旅車' draft='provisional'>休旅車</annotation>
 
 		<!-- DELIVERY TRUCK; delivery; travel; truck; vehicle -->
-		<annotation cp='[🚚]' tts='貨車'>貨車; 卡車</annotation>
+		<annotation cp='[🚚]' tts='貨車' draft='provisional'>貨車; 卡車</annotation>
 
 		<!-- ARTICULATED LORRY; lorry; semi; travel; truck; vehicle -->
-		<annotation cp='[🚛]' tts='卡車'>貨車; 卡車</annotation>
+		<annotation cp='[🚛]' tts='卡車' draft='provisional'>貨車; 卡車</annotation>
 
 		<!-- TRACTOR; tractor; travel; vehicle -->
-		<annotation cp='[🚜]' tts='拖弋機'>拖弋機</annotation>
+		<annotation cp='[🚜]' tts='拖弋機' draft='provisional'>拖弋機</annotation>
 
 		<!-- BICYCLE; bicycle; bike; sport; travel; vehicle -->
-		<annotation cp='[🚲]' tts='自行車'>自行車</annotation>
+		<annotation cp='[🚲]' tts='自行車' draft='provisional'>自行車</annotation>
 
 		<!-- NO BICYCLES; bicycle; bike; forbidden; no; not; prohibited; sign; sport; travel; vehicle -->
-		<annotation cp='[🚳]' tts='禁止騎自行車'>禁止騎自行車</annotation>
+		<annotation cp='[🚳]' tts='禁止騎自行車' draft='provisional'>禁止騎自行車</annotation>
 
 		<!-- FUEL PUMP; fuel; fuelpump; gas; pump; station; travel -->
-		<annotation cp='[⛽]' tts='加油站'>加油站; 加油</annotation>
+		<annotation cp='[⛽]' tts='加油站' draft='provisional'>加油站; 加油</annotation>
 
 		<!-- POLICE CARS REVOLVING LIGHT; beacon; car; light; police; revolving; travel -->
-		<annotation cp='[🚨]' tts='警燈'>警燈</annotation>
+		<annotation cp='[🚨]' tts='警燈' draft='provisional'>警燈</annotation>
 
 		<!-- ANCHOR; anchor; ship; tool; travel -->
-		<annotation cp='[⚓]' tts='錨'>錨</annotation>
+		<annotation cp='[⚓]' tts='錨' draft='provisional'>錨</annotation>
 
 		<!-- TRIDENT EMBLEM; anchor; emblem; ship; tool; trident -->
-		<annotation cp='[🔱]' tts='三叉戟'>三叉戟</annotation>
+		<annotation cp='[🔱]' tts='三叉戟' draft='provisional'>三叉戟</annotation>
 
 		<!-- SAILBOAT; boat; resort; sailboat; sea; travel; yacht -->
-		<annotation cp='[⛵]' tts='帆船'>帆船</annotation>
+		<annotation cp='[⛵]' tts='帆船' draft='provisional'>帆船</annotation>
 
 		<!-- ROWBOAT; boat; rowboat; travel; vehicle -->
-		<annotation cp='[🚣]' tts='划艇'>划艇</annotation>
+		<annotation cp='[🚣]' tts='划艇' draft='provisional'>划艇</annotation>
 
 		<!-- SPEEDBOAT; boat; speedboat; travel; vehicle -->
-		<annotation cp='[🚤]' tts='快艇'>快艇</annotation>
+		<annotation cp='[🚤]' tts='快艇' draft='provisional'>快艇</annotation>
 
 		<!-- SHIP; ship; travel; vehicle -->
-		<annotation cp='[🚢]' tts='船'>船</annotation>
+		<annotation cp='[🚢]' tts='船' draft='provisional'>船</annotation>
 
 		<!-- SEAT; chair; office; seat; travel -->
-		<annotation cp='[💺]' tts='座位'>座位</annotation>
+		<annotation cp='[💺]' tts='座位' draft='provisional'>座位</annotation>
 
 		<!-- HELICOPTER; helicopter; travel; vehicle -->
-		<annotation cp='[🚁]' tts='直升機'>直升機; 直升飛機</annotation>
+		<annotation cp='[🚁]' tts='直升機' draft='provisional'>直升機; 直升飛機</annotation>
 
 		<!-- SUSPENSION RAILWAY; railway; suspension; travel; vehicle -->
-		<annotation cp='[🚟]' tts='懸索鐵路'>懸索鐵路</annotation>
+		<annotation cp='[🚟]' tts='懸索鐵路' draft='provisional'>懸索鐵路</annotation>
 
 		<!-- MOUNTAIN CABLEWAY; cable; gondola; mountain; travel; vehicle -->
-		<annotation cp='[🚠]' tts='纜車'>纜車</annotation>
+		<annotation cp='[🚠]' tts='纜車' draft='provisional'>纜車</annotation>
 
 		<!-- AERIAL TRAMWAY; aerial; cable; car; gondola; ropeway; tramway; travel; vehicle -->
-		<annotation cp='[🚡]' tts='空中纜車'>空中纜車; 纜車</annotation>
+		<annotation cp='[🚡]' tts='空中纜車' draft='provisional'>空中纜車; 纜車</annotation>
 
 		<!-- ROCKET; rocket; space; travel; vehicle -->
-		<annotation cp='[🚀]' tts='火箭'>火箭</annotation>
+		<annotation cp='[🚀]' tts='火箭' draft='provisional'>火箭</annotation>
 
 		<!-- AUTOMATED TELLER MACHINE; atm; automated; bank; sign; teller -->
-		<annotation cp='[🏧]' tts='提款機'>提款機</annotation>
+		<annotation cp='[🏧]' tts='提款機' draft='provisional'>提款機</annotation>
 
 		<!-- PUT LITTER IN ITS PLACE SYMBOL; litter; litterbox; travel -->
-		<annotation cp='[🚮]' tts='垃圾桶'>垃圾桶</annotation>
+		<annotation cp='[🚮]' tts='垃圾桶' draft='provisional'>垃圾桶</annotation>
 
 		<!-- HORIZONTAL TRAFFIC LIGHT; light; signal; traffic; travel -->
-		<annotation cp='[🚥]' tts='紅綠燈'>紅綠燈; 交通燈</annotation>
+		<annotation cp='[🚥]' tts='紅綠燈' draft='provisional'>紅綠燈; 交通燈</annotation>
 
 		<!-- VERTICAL TRAFFIC LIGHT; light; signal; traffic; travel -->
-		<annotation cp='[🚦]' tts='紅綠燈'>紅綠燈; 交通燈</annotation>
+		<annotation cp='[🚦]' tts='紅綠燈' draft='provisional'>紅綠燈; 交通燈</annotation>
 
 		<!-- CONSTRUCTION SIGN; barrier; construction; travel -->
-		<annotation cp='[🚧]' tts='施工'>施工</annotation>
+		<annotation cp='[🚧]' tts='施工' draft='provisional'>施工</annotation>
 
 		<!-- NO ENTRY SIGN; entry; forbidden; no; not; prohibited; travel -->
-		<annotation cp='[🚫]' tts='禁止入內'>禁止入內; 禁止通行; 禁止</annotation>
+		<annotation cp='[🚫]' tts='禁止入內' draft='provisional'>禁止入內; 禁止通行; 禁止</annotation>
 
 		<!-- NO SMOKING SYMBOL; forbidden; no; not; prohibited; sign; smoking; travel -->
-		<annotation cp='[🚭]' tts='禁止吸煙'>禁止吸煙</annotation>
+		<annotation cp='[🚭]' tts='禁止吸煙' draft='provisional'>禁止吸煙</annotation>
 
 		<!-- DO NOT LITTER SYMBOL; forbidden; litter; no; not; prohibited; sign; travel -->
-		<annotation cp='[🚯]' tts='禁止亂丟垃圾'>禁止亂丟垃圾</annotation>
+		<annotation cp='[🚯]' tts='禁止亂丟垃圾' draft='provisional'>禁止亂丟垃圾</annotation>
 
 		<!-- POTABLE WATER SYMBOL; drink; potable; sign; travel; water -->
-		<annotation cp='[🚰]' tts='飲用水'>飲用水</annotation>
+		<annotation cp='[🚰]' tts='飲用水' draft='provisional'>飲用水</annotation>
 
 		<!-- NON-POTABLE WATER SYMBOL; drink; forbidden; no; not; potable; prohibited; sign; travel; water -->
-		<annotation cp='[🚱]' tts='非飲用水'>非飲用水</annotation>
+		<annotation cp='[🚱]' tts='非飲用水' draft='provisional'>非飲用水</annotation>
 
 		<!-- NO PEDESTRIANS; forbidden; no; not; pedestrian; prohibited; sign; travel -->
-		<annotation cp='[🚷]' tts='禁止行人'>禁止行人</annotation>
+		<annotation cp='[🚷]' tts='禁止行人' draft='provisional'>禁止行人</annotation>
 
 		<!-- CHILDREN CROSSING; child; crossing; pedestrian; sign; traffic; travel -->
-		<annotation cp='[🚸]' tts='小心兒童'>小心兒童</annotation>
+		<annotation cp='[🚸]' tts='小心兒童' draft='provisional'>小心兒童</annotation>
 
 		<!-- WHEELCHAIR SYMBOL; access; sign; travel; wheelchair -->
-		<annotation cp='[♿]' tts='輪椅'>輪椅; 殘疾人</annotation>
+		<annotation cp='[♿]' tts='輪椅' draft='provisional'>輪椅; 殘疾人</annotation>
 
 		<!-- MENS SYMBOL; lavatory; man; restroom; sign; travel; wc -->
-		<annotation cp='[🚹]' tts='男廁'>男廁</annotation>
+		<annotation cp='[🚹]' tts='男廁' draft='provisional'>男廁</annotation>
 
 		<!-- WOMENS SYMBOL; lavatory; restroom; sign; travel; wc; woman -->
-		<annotation cp='[🚺]' tts='女廁'>女廁</annotation>
+		<annotation cp='[🚺]' tts='女廁' draft='provisional'>女廁</annotation>
 
 		<!-- RESTROOM; lavatory; restroom; sign; travel; wc -->
-		<annotation cp='[🚻]' tts='廁所'>廁所; 衛生間</annotation>
+		<annotation cp='[🚻]' tts='廁所' draft='provisional'>廁所; 衛生間</annotation>
 
 		<!-- BABY SYMBOL; baby; changing; sign; travel -->
-		<annotation cp='[🚼]' tts='寶寶'>寶寶; 嬰兒</annotation>
+		<annotation cp='[🚼]' tts='寶寶' draft='provisional'>寶寶; 嬰兒</annotation>
 
 		<!-- WATER CLOSET; closet; lavatory; restroom; sign; travel; water; wc -->
-		<annotation cp='[🚾]' tts='衛生間'>衛生間; 廁所; 盥洗室</annotation>
+		<annotation cp='[🚾]' tts='衛生間' draft='provisional'>衛生間; 廁所; 盥洗室</annotation>
 
 		<!-- PASSPORT CONTROL; control; passport; sign; travel -->
-		<annotation cp='[🛂]' tts='護照'>護照</annotation>
+		<annotation cp='[🛂]' tts='護照' draft='provisional'>護照</annotation>
 
 		<!-- CUSTOMS; customs; sign; travel -->
-		<annotation cp='[🛃]' tts='海關'>海關</annotation>
+		<annotation cp='[🛃]' tts='海關' draft='provisional'>海關</annotation>
 
 		<!-- BAGGAGE CLAIM; baggage; claim; sign; travel -->
-		<annotation cp='[🛄]' tts='提取行李'>提取行李</annotation>
+		<annotation cp='[🛄]' tts='提取行李' draft='provisional'>提取行李</annotation>
 
 		<!-- LEFT LUGGAGE; baggage; left luggage; locker; luggage; sign; travel -->
-		<annotation cp='[🛅]' tts='寄存行李'>寄存行李</annotation>
+		<annotation cp='[🛅]' tts='寄存行李' draft='provisional'>寄存行李</annotation>
 
 		<!-- WARNING SIGN; travel; warning -->
-		<annotation cp='[⚠]' tts='警告'>警告</annotation>
+		<annotation cp='[⚠]' tts='警告' draft='provisional'>警告</annotation>
 
 		<!-- NO ENTRY; entry; forbidden; no; not; prohibited; traffic; travel -->
-		<annotation cp='[⛔]' tts='禁止入內'>禁止入內; 禁行; 禁止通行</annotation>
+		<annotation cp='[⛔]' tts='禁止入內' draft='provisional'>禁止入內; 禁行; 禁止通行</annotation>
 
 		<!-- DOOR; door; travel -->
-		<annotation cp='[🚪]' tts='門'>門</annotation>
+		<annotation cp='[🚪]' tts='門' draft='provisional'>門</annotation>
 
 		<!-- TOILET; toilet; travel -->
-		<annotation cp='[🚽]' tts='廁所'>廁所; 馬桶; 衛生間</annotation>
+		<annotation cp='[🚽]' tts='廁所' draft='provisional'>廁所; 馬桶; 衛生間</annotation>
 
 		<!-- SHOWER; shower; travel; water -->
-		<annotation cp='[🚿]' tts='淋浴'>淋浴</annotation>
+		<annotation cp='[🚿]' tts='淋浴' draft='provisional'>淋浴</annotation>
 
 		<!-- BATH; bath; bathtub; travel -->
-		<annotation cp='[🛀]' tts='盆浴'>盆浴; 洗澡</annotation>
+		<annotation cp='[🛀]' tts='盆浴' draft='provisional'>盆浴; 洗澡</annotation>
 
 		<!-- BATHTUB; bath; bathtub; travel -->
-		<annotation cp='[🛁]' tts='澡盆'>澡盆; 浴盆</annotation>
+		<annotation cp='[🛁]' tts='澡盆' draft='provisional'>澡盆; 浴盆</annotation>
 
 		<!-- HOURGLASS; hourglass; sand; time; timer -->
-		<annotation cp='[⌛]' tts='沙漏'>沙漏</annotation>
+		<annotation cp='[⌛]' tts='沙漏' draft='provisional'>沙漏</annotation>
 
 		<!-- HOURGLASS WITH FLOWING SAND; hourglass; sand; time; timer -->
-		<annotation cp='[⏳]' tts='沙漏'>沙漏</annotation>
+		<annotation cp='[⏳]' tts='沙漏' draft='provisional'>沙漏</annotation>
 
 		<!-- WATCH; clock; time; watch -->
-		<annotation cp='[⌚]' tts='手錶'>手錶; 表</annotation>
+		<annotation cp='[⌚]' tts='手錶' draft='provisional'>手錶; 表</annotation>
 
 		<!-- ALARM CLOCK; alarm; clock; time -->
-		<annotation cp='[⏰]' tts='鬧鐘'>鬧鐘</annotation>
+		<annotation cp='[⏰]' tts='鬧鐘' draft='provisional'>鬧鐘</annotation>
 
 		<!-- CLOCK FACE TWELVE OCLOCK; 00; 12; 12:00; clock; face; o’clock; time; twelve -->
-		<annotation cp='[🕛]' tts='十二點'>十二點</annotation>
+		<annotation cp='[🕛]' tts='十二點' draft='provisional'>十二點</annotation>
 
 		<!-- CLOCK FACE TWELVE-THIRTY; 12; 30; 12:30; clock; face; thirty; time; twelve -->
-		<annotation cp='[🕧]' tts='十二點半'>十二點半</annotation>
+		<annotation cp='[🕧]' tts='十二點半' draft='provisional'>十二點半</annotation>
 
 		<!-- CLOCK FACE ONE OCLOCK; 00; 1; 1:00; clock; face; o’clock; one; time -->
-		<annotation cp='[🕐]' tts='一點'>一點</annotation>
+		<annotation cp='[🕐]' tts='一點' draft='provisional'>一點</annotation>
 
 		<!-- CLOCK FACE ONE-THIRTY; 1; 30; 1:30; clock; face; one; thirty; time -->
-		<annotation cp='[🕜]' tts='一點半'>一點半</annotation>
+		<annotation cp='[🕜]' tts='一點半' draft='provisional'>一點半</annotation>
 
 		<!-- CLOCK FACE TWO OCLOCK; 00; 2; 2:00; clock; face; o’clock; time; two -->
-		<annotation cp='[🕑]' tts='兩點'>兩點</annotation>
+		<annotation cp='[🕑]' tts='兩點' draft='provisional'>兩點</annotation>
 
 		<!-- CLOCK FACE TWO-THIRTY; 2; 30; 2:30; clock; face; thirty; time; two -->
-		<annotation cp='[🕝]' tts='兩點半'>兩點半</annotation>
+		<annotation cp='[🕝]' tts='兩點半' draft='provisional'>兩點半</annotation>
 
 		<!-- CLOCK FACE THREE OCLOCK; 00; 3; 3:00; clock; face; o’clock; three; time -->
-		<annotation cp='[🕒]' tts='三點'>三點</annotation>
+		<annotation cp='[🕒]' tts='三點' draft='provisional'>三點</annotation>
 
 		<!-- CLOCK FACE THREE-THIRTY; 3; 30; 3:30; clock; face; thirty; three; time -->
-		<annotation cp='[🕞]' tts='三點半'>三點半</annotation>
+		<annotation cp='[🕞]' tts='三點半' draft='provisional'>三點半</annotation>
 
 		<!-- CLOCK FACE FOUR OCLOCK; 00; 4; 4:00; clock; face; four; o’clock; time -->
-		<annotation cp='[🕓]' tts='四點'>四點</annotation>
+		<annotation cp='[🕓]' tts='四點' draft='provisional'>四點</annotation>
 
 		<!-- CLOCK FACE FOUR-THIRTY; 4; 30; 4:30; clock; face; four; thirty; time -->
-		<annotation cp='[🕟]' tts='四點半'>四點半</annotation>
+		<annotation cp='[🕟]' tts='四點半' draft='provisional'>四點半</annotation>
 
 		<!-- CLOCK FACE FIVE OCLOCK; 00; 5; 5:00; clock; face; five; o’clock; time -->
-		<annotation cp='[🕔]' tts='五點'>五點</annotation>
+		<annotation cp='[🕔]' tts='五點' draft='provisional'>五點</annotation>
 
 		<!-- CLOCK FACE FIVE-THIRTY; 5; 30; 5:30; clock; face; five; thirty; time -->
-		<annotation cp='[🕠]' tts='五點半'>五點半</annotation>
+		<annotation cp='[🕠]' tts='五點半' draft='provisional'>五點半</annotation>
 
 		<!-- CLOCK FACE SIX OCLOCK; 00; 6; 6:00; clock; face; o’clock; six; time -->
-		<annotation cp='[🕕]' tts='六點'>六點</annotation>
+		<annotation cp='[🕕]' tts='六點' draft='provisional'>六點</annotation>
 
 		<!-- CLOCK FACE SIX-THIRTY; 6; 30; 6:30; clock; face; six; thirty; time -->
-		<annotation cp='[🕡]' tts='六點半'>六點半</annotation>
+		<annotation cp='[🕡]' tts='六點半' draft='provisional'>六點半</annotation>
 
 		<!-- CLOCK FACE SEVEN OCLOCK; 00; 7; 7:00; clock; face; o’clock; seven; time -->
-		<annotation cp='[🕖]' tts='七點'>七點</annotation>
+		<annotation cp='[🕖]' tts='七點' draft='provisional'>七點</annotation>
 
 		<!-- CLOCK FACE SEVEN-THIRTY; 7; 30; 7:30; clock; face; seven; thirty; time -->
-		<annotation cp='[🕢]' tts='七點半'>七點半</annotation>
+		<annotation cp='[🕢]' tts='七點半' draft='provisional'>七點半</annotation>
 
 		<!-- CLOCK FACE EIGHT OCLOCK; 00; 8; 8:00; clock; eight; face; o’clock; time -->
-		<annotation cp='[🕗]' tts='八點'>八點</annotation>
+		<annotation cp='[🕗]' tts='八點' draft='provisional'>八點</annotation>
 
 		<!-- CLOCK FACE EIGHT-THIRTY; 8; 30; 8:30; clock; eight; face; thirty; time -->
-		<annotation cp='[🕣]' tts='八點半'>八點半</annotation>
+		<annotation cp='[🕣]' tts='八點半' draft='provisional'>八點半</annotation>
 
 		<!-- CLOCK FACE NINE OCLOCK; 00; 9; 9:00; clock; face; nine; o’clock; time -->
-		<annotation cp='[🕘]' tts='九點'>九點</annotation>
+		<annotation cp='[🕘]' tts='九點' draft='provisional'>九點</annotation>
 
 		<!-- CLOCK FACE NINE-THIRTY; 9; 30; 9:30; clock; face; nine; thirty; time -->
-		<annotation cp='[🕤]' tts='九點半'>九點半</annotation>
+		<annotation cp='[🕤]' tts='九點半' draft='provisional'>九點半</annotation>
 
 		<!-- CLOCK FACE TEN OCLOCK; 00; 10; 10:00; clock; face; o’clock; ten; time -->
-		<annotation cp='[🕙]' tts='十點'>十點</annotation>
+		<annotation cp='[🕙]' tts='十點' draft='provisional'>十點</annotation>
 
 		<!-- CLOCK FACE TEN-THIRTY; 10; 30; 10:30; clock; face; ten; thirty; time -->
-		<annotation cp='[🕥]' tts='十點半'>十點半</annotation>
+		<annotation cp='[🕥]' tts='十點半' draft='provisional'>十點半</annotation>
 
 		<!-- CLOCK FACE ELEVEN OCLOCK; 00; 11; 11:00; clock; eleven; face; o’clock; time -->
-		<annotation cp='[🕚]' tts='十一點'>十一點</annotation>
+		<annotation cp='[🕚]' tts='十一點' draft='provisional'>十一點</annotation>
 
 		<!-- CLOCK FACE ELEVEN-THIRTY; 11; 30; 11:30; clock; eleven; face; thirty; time -->
-		<annotation cp='[🕦]' tts='十一點半'>十一點半</annotation>
+		<annotation cp='[🕦]' tts='十一點半' draft='provisional'>十一點半</annotation>
 
 		<!-- ARIES; aries; ram; time; zodiac -->
-		<annotation cp='[♈]' tts='白羊座'>白羊座; 牡羊座</annotation>
+		<annotation cp='[♈]' tts='白羊座' draft='provisional'>白羊座; 牡羊座</annotation>
 
 		<!-- TAURUS; bull; ox; taurus; time; zodiac -->
-		<annotation cp='[♉]' tts='金牛座'>金牛座</annotation>
+		<annotation cp='[♉]' tts='金牛座' draft='provisional'>金牛座</annotation>
 
 		<!-- GEMINI; gemini; time; twins; zodiac -->
-		<annotation cp='[♊]' tts='雙子座'>雙子座</annotation>
+		<annotation cp='[♊]' tts='雙子座' draft='provisional'>雙子座</annotation>
 
 		<!-- CANCER; cancer; crab; time; zodiac -->
-		<annotation cp='[♋]' tts='巨蟹座'>巨蟹座</annotation>
+		<annotation cp='[♋]' tts='巨蟹座' draft='provisional'>巨蟹座</annotation>
 
 		<!-- LEO; leo; lion; time; zodiac -->
-		<annotation cp='[♌]' tts='獅子座'>獅子座</annotation>
+		<annotation cp='[♌]' tts='獅子座' draft='provisional'>獅子座</annotation>
 
 		<!-- VIRGO; maiden; time; virgin; virgo; zodiac -->
-		<annotation cp='[♍]' tts='處女座'>處女座</annotation>
+		<annotation cp='[♍]' tts='處女座' draft='provisional'>處女座</annotation>
 
 		<!-- LIBRA; balance; justice; libra; scales; time; zodiac -->
-		<annotation cp='[♎]' tts='天秤座'>天秤座</annotation>
+		<annotation cp='[♎]' tts='天秤座' draft='provisional'>天秤座</annotation>
 
 		<!-- SCORPIUS; scorpio; scorpion; scorpius; time; zodiac -->
-		<annotation cp='[♏]' tts='天蠍座'>天蠍座</annotation>
+		<annotation cp='[♏]' tts='天蠍座' draft='provisional'>天蠍座</annotation>
 
 		<!-- SAGITTARIUS; archer; sagittarius; time; zodiac -->
-		<annotation cp='[♐]' tts='射手座'>射手座</annotation>
+		<annotation cp='[♐]' tts='射手座' draft='provisional'>射手座</annotation>
 
 		<!-- CAPRICORN; capricorn; goat; time; zodiac -->
-		<annotation cp='[♑]' tts='摩羯座'>摩羯座</annotation>
+		<annotation cp='[♑]' tts='摩羯座' draft='provisional'>摩羯座</annotation>
 
 		<!-- AQUARIUS; aquarius; bearer; time; water; zodiac -->
-		<annotation cp='[♒]' tts='水瓶座'>水瓶座</annotation>
+		<annotation cp='[♒]' tts='水瓶座' draft='provisional'>水瓶座</annotation>
 
 		<!-- PISCES; fish; pisces; time; zodiac -->
-		<annotation cp='[♓]' tts='雙魚座'>雙魚座</annotation>
+		<annotation cp='[♓]' tts='雙魚座' draft='provisional'>雙魚座</annotation>
 
 		<!-- OPHIUCHUS; bearer; ophiuchus; serpent; snake; zodiac -->
-		<annotation cp='[⛎]' tts='蛇夫座'>蛇夫座</annotation>
+		<annotation cp='[⛎]' tts='蛇夫座' draft='provisional'>蛇夫座</annotation>
 
 		<!-- NEW MOON SYMBOL; dark; moon; space; time; weather -->
-		<annotation cp='[🌑]' tts='新月'>新月; 朔月; 月亮</annotation>
+		<annotation cp='[🌑]' tts='新月' draft='provisional'>新月; 朔月; 月亮</annotation>
 
 		<!-- WAXING CRESCENT MOON SYMBOL; crescent; moon; space; time; waxing; weather -->
-		<annotation cp='[🌒]' tts='眉形新月'>眉形新月; 彎月</annotation>
+		<annotation cp='[🌒]' tts='眉形新月' draft='provisional'>眉形新月; 彎月</annotation>
 
 		<!-- FIRST QUARTER MOON SYMBOL; moon; quarter; space; time; weather -->
-		<annotation cp='[🌓]' tts='上弦月'>上弦月; 月亮</annotation>
+		<annotation cp='[🌓]' tts='上弦月' draft='provisional'>上弦月; 月亮</annotation>
 
 		<!-- WAXING GIBBOUS MOON SYMBOL; gibbous; moon; space; time; waxing; weather -->
-		<annotation cp='[🌔]' tts='盈凸月'>盈凸月; 月亮</annotation>
+		<annotation cp='[🌔]' tts='盈凸月' draft='provisional'>盈凸月; 月亮</annotation>
 
 		<!-- FULL MOON SYMBOL; full; moon; space; time; weather -->
-		<annotation cp='[🌕]' tts='滿月'>滿月; 望月; 月亮</annotation>
+		<annotation cp='[🌕]' tts='滿月' draft='provisional'>滿月; 望月; 月亮</annotation>
 
 		<!-- WANING GIBBOUS MOON SYMBOL; gibbous; moon; space; time; waning; weather -->
-		<annotation cp='[🌖]' tts='虧凸月'>虧凸月</annotation>
+		<annotation cp='[🌖]' tts='虧凸月' draft='provisional'>虧凸月</annotation>
 
 		<!-- LAST QUARTER MOON SYMBOL; moon; quarter; space; time; weather -->
-		<annotation cp='[🌗]' tts='下弦月'>下弦月; 月亮</annotation>
+		<annotation cp='[🌗]' tts='下弦月' draft='provisional'>下弦月; 月亮</annotation>
 
 		<!-- WANING CRESCENT MOON SYMBOL; crescent; moon; space; time; waning; weather -->
-		<annotation cp='[🌘]' tts='眉形殘月'>眉形殘月; 殘月</annotation>
+		<annotation cp='[🌘]' tts='眉形殘月' draft='provisional'>眉形殘月; 殘月</annotation>
 
 		<!-- CRESCENT MOON; crescent; moon; space; time; weather -->
-		<annotation cp='[🌙]' tts='彎月'>彎月; 月芽; 残月; 月亮</annotation>
+		<annotation cp='[🌙]' tts='彎月' draft='provisional'>彎月; 月芽; 残月; 月亮</annotation>
 
 		<!-- NEW MOON WITH FACE; face; moon; space; time; weather -->
-		<annotation cp='[🌚]' tts='月亮公公'>月亮公公; 朔月; 月亮</annotation>
+		<annotation cp='[🌚]' tts='月亮公公' draft='provisional'>月亮公公; 朔月; 月亮</annotation>
 
 		<!-- FIRST QUARTER MOON WITH FACE; face; moon; quarter; space; weather -->
-		<annotation cp='[🌛]' tts='彎月臉朝左'>彎月臉朝左; 上弦月; 月亮</annotation>
+		<annotation cp='[🌛]' tts='彎月臉朝左' draft='provisional'>彎月臉朝左; 上弦月; 月亮</annotation>
 
 		<!-- LAST QUARTER MOON WITH FACE; face; moon; quarter; space; weather -->
-		<annotation cp='[🌜]' tts='彎月臉朝右'>彎月臉朝右; 下弦月; 月亮</annotation>
+		<annotation cp='[🌜]' tts='彎月臉朝右' draft='provisional'>彎月臉朝右; 下弦月; 月亮</annotation>
 
 		<!-- FULL MOON WITH FACE; bright; face; full; moon; space; weather -->
-		<annotation cp='[🌝]' tts='微笑的月亮'>微笑的月亮; 月亮</annotation>
+		<annotation cp='[🌝]' tts='微笑的月亮' draft='provisional'>微笑的月亮; 月亮</annotation>
 
 		<!-- SUN WITH FACE; bright; face; space; sun; weather -->
-		<annotation cp='[🌞]' tts='太陽'>太陽</annotation>
+		<annotation cp='[🌞]' tts='太陽' draft='provisional'>太陽</annotation>
 
 		<!-- CLOUD; cloud; weather -->
-		<annotation cp='[☁]' tts='雲'>雲</annotation>
+		<annotation cp='[☁]' tts='雲' draft='provisional'>雲</annotation>
 
 		<!-- SUN BEHIND CLOUD; cloud; sun; weather -->
-		<annotation cp='[⛅]' tts='陰天'>陰天</annotation>
+		<annotation cp='[⛅]' tts='陰天' draft='provisional'>陰天</annotation>
 
 		<!-- CYCLONE; cyclone; dizzy; twister; typhoon; weather -->
-		<annotation cp='[🌀]' tts='颱風'>颱風; 暈</annotation>
+		<annotation cp='[🌀]' tts='颱風' draft='provisional'>颱風; 暈</annotation>
 
 		<!-- RAINBOW; rain; rainbow; weather -->
-		<annotation cp='[🌈]' tts='彩虹'>彩虹</annotation>
+		<annotation cp='[🌈]' tts='彩虹' draft='provisional'>彩虹</annotation>
 
 		<!-- CLOSED UMBRELLA; rain; umbrella; weather -->
-		<annotation cp='[🌂]' tts='下雨'>下雨; 傘; 雨傘</annotation>
+		<annotation cp='[🌂]' tts='下雨' draft='provisional'>下雨; 傘; 雨傘</annotation>
 
 		<!-- SNOWMAN WITHOUT SNOW; cold; snow; snowman; weather -->
-		<annotation cp='[⛄]' tts='雪人'>雪人</annotation>
+		<annotation cp='[⛄]' tts='雪人' draft='provisional'>雪人</annotation>
 
 		<!-- GLOWING STAR; glittery; glow; shining; sparkle; star -->
-		<annotation cp='[🌟]' tts='星星'>星星</annotation>
+		<annotation cp='[🌟]' tts='星星' draft='provisional'>星星</annotation>
 
 		<!-- SHOOTING STAR; activity; falling; shooting; space; star -->
-		<annotation cp='[🌠]' tts='流星'>流星</annotation>
+		<annotation cp='[🌠]' tts='流星' draft='provisional'>流星</annotation>
 
 		<!-- FIRE; fire; flame; tool -->
-		<annotation cp='[🔥]' tts='火'>火</annotation>
+		<annotation cp='[🔥]' tts='火' draft='provisional'>火</annotation>
 
 		<!-- JACK-O-LANTERN; activity; celebration; halloween; jack; lantern -->
-		<annotation cp='[🎃]' tts='南瓜燈'>南瓜燈; 南瓜</annotation>
+		<annotation cp='[🎃]' tts='南瓜燈' draft='provisional'>南瓜燈; 南瓜</annotation>
 
 		<!-- CHRISTMAS TREE; activity; celebration; christmas; tree -->
-		<annotation cp='[🎄]' tts='聖誕樹'>聖誕樹</annotation>
+		<annotation cp='[🎄]' tts='聖誕樹' draft='provisional'>聖誕樹</annotation>
 
 		<!-- FIREWORKS; activity; celebration; fireworks -->
-		<annotation cp='[🎆]' tts='爆竹'>爆竹; 煙花; 焰火</annotation>
+		<annotation cp='[🎆]' tts='爆竹' draft='provisional'>爆竹; 煙花; 焰火</annotation>
 
 		<!-- FIREWORK SPARKLER; activity; celebration; fireworks; sparkle -->
-		<annotation cp='[🎇]' tts='煙花'>煙花; 焰火</annotation>
+		<annotation cp='[🎇]' tts='煙花' draft='provisional'>煙花; 焰火</annotation>
 
 		<!-- SPARKLES; sign; sparkle; star -->
-		<annotation cp='[✨]' tts='星星'>星星</annotation>
+		<annotation cp='[✨]' tts='星星' draft='provisional'>星星</annotation>
 
 		<!-- BALLOON; activity; balloon; celebration -->
-		<annotation cp='[🎈]' tts='氣球'>氣球</annotation>
+		<annotation cp='[🎈]' tts='氣球' draft='provisional'>氣球</annotation>
 
 		<!-- PARTY POPPER; activity; celebration; party; popper; tada -->
-		<annotation cp='[🎉]' tts='拉炮'>拉炮</annotation>
+		<annotation cp='[🎉]' tts='拉炮' draft='provisional'>拉炮</annotation>
 
 		<!-- CONFETTI BALL; activity; ball; celebration; confetti -->
-		<annotation cp='[🎊]' tts='五彩紙屑'>五彩紙屑</annotation>
+		<annotation cp='[🎊]' tts='五彩紙屑' draft='provisional'>五彩紙屑</annotation>
 
 		<!-- TANABATA TREE; activity; banner; celebration; japanese; tree -->
-		<annotation cp='[🎋]' tts='七夕'>七夕; 七夕樹</annotation>
+		<annotation cp='[🎋]' tts='七夕' draft='provisional'>七夕; 七夕樹</annotation>
 
 		<!-- CROSSED FLAGS; activity; celebration; cross; crossed; japanese -->
-		<annotation cp='[🎌]' tts='祝日'>祝日</annotation>
+		<annotation cp='[🎌]' tts='祝日' draft='provisional'>祝日</annotation>
 
 		<!-- PINE DECORATION; activity; bamboo; celebration; japanese; pine; plant -->
-		<annotation cp='[🎍]' tts='盆栽'>盆栽</annotation>
+		<annotation cp='[🎍]' tts='盆栽' draft='provisional'>盆栽</annotation>
 
 		<!-- JAPANESE DOLLS; activity; celebration; doll; festival; japanese -->
-		<annotation cp='[🎎]' tts='女兒節'>女兒節; 日本娃娃</annotation>
+		<annotation cp='[🎎]' tts='女兒節' draft='provisional'>女兒節; 日本娃娃</annotation>
 
 		<!-- CARP STREAMER; activity; carp; celebration; streamer -->
-		<annotation cp='[🎏]' tts='鯉魚旗'>鯉魚旗</annotation>
+		<annotation cp='[🎏]' tts='鯉魚旗' draft='provisional'>鯉魚旗</annotation>
 
 		<!-- WIND CHIME; activity; bell; celebration; chime; wind -->
-		<annotation cp='[🎐]' tts='風鈴'>風鈴</annotation>
+		<annotation cp='[🎐]' tts='風鈴' draft='provisional'>風鈴</annotation>
 
 		<!-- MOON VIEWING CEREMONY; activity; celebration; ceremony; moon -->
-		<annotation cp='[🎑]' tts='賞月'>賞月</annotation>
+		<annotation cp='[🎑]' tts='賞月' draft='provisional'>賞月</annotation>
 
 		<!-- GRADUATION CAP; activity; cap; celebration; education; graduation; hat -->
-		<annotation cp='[🎓]' tts='畢業'>畢業; 畢業帽</annotation>
+		<annotation cp='[🎓]' tts='畢業' draft='provisional'>畢業; 畢業帽</annotation>
 
 		<!-- DIRECT HIT; activity; bull; bullseye; dart; eye; game; hit; target -->
-		<annotation cp='[🎯]' tts='命中'>命中</annotation>
+		<annotation cp='[🎯]' tts='命中' draft='provisional'>命中</annotation>
 
 		<!-- FLOWER PLAYING CARDS; activity; card; flower; game; japanese; playing -->
-		<annotation cp='[🎴]' tts='花牌'>花牌; 花鬥</annotation>
+		<annotation cp='[🎴]' tts='花牌' draft='provisional'>花牌; 花鬥</annotation>
 
 		<!-- RIBBON; celebration; ribbon -->
-		<annotation cp='[🎀]' tts='蝴蝶結'>蝴蝶結</annotation>
+		<annotation cp='[🎀]' tts='蝴蝶結' draft='provisional'>蝴蝶結</annotation>
 
 		<!-- WRAPPED PRESENT; box; celebration; gift; present; wrapped -->
-		<annotation cp='[🎁]' tts='禮物'>禮物</annotation>
+		<annotation cp='[🎁]' tts='禮物' draft='provisional'>禮物</annotation>
 
 		<!-- TICKET; activity; admission; entertainment; ticket -->
-		<annotation cp='[🎫]' tts='門票'>門票; 車票</annotation>
+		<annotation cp='[🎫]' tts='門票' draft='provisional'>門票; 車票</annotation>
 
 		<!-- SOCCER BALL; ball; soccer; sport -->
-		<annotation cp='[⚽]' tts='足球'>足球</annotation>
+		<annotation cp='[⚽]' tts='足球' draft='provisional'>足球</annotation>
 
 		<!-- BASEBALL; ball; baseball; sport -->
-		<annotation cp='[⚾]' tts='棒球'>棒球</annotation>
+		<annotation cp='[⚾]' tts='棒球' draft='provisional'>棒球</annotation>
 
 		<!-- BASKETBALL AND HOOP; ball; basketball; hoop; sport -->
-		<annotation cp='[🏀]' tts='籃球'>籃球; 球</annotation>
+		<annotation cp='[🏀]' tts='籃球' draft='provisional'>籃球; 球</annotation>
 
 		<!-- AMERICAN FOOTBALL; american; ball; football; sport -->
-		<annotation cp='[🏈]' tts='美式足球'>美式足球</annotation>
+		<annotation cp='[🏈]' tts='美式足球' draft='provisional'>美式足球</annotation>
 
 		<!-- RUGBY FOOTBALL; ball; football; rugby; sport -->
-		<annotation cp='[🏉]' tts='橄欖球'>橄欖球; 球</annotation>
+		<annotation cp='[🏉]' tts='橄欖球' draft='provisional'>橄欖球; 球</annotation>
 
 		<!-- TENNIS RACQUET AND BALL; ball; racquet; sport; tennis -->
-		<annotation cp='[🎾]' tts='網球'>網球; 球</annotation>
+		<annotation cp='[🎾]' tts='網球' draft='provisional'>網球; 球</annotation>
 
 		<!-- BILLIARDS; 8; 8 ball; ball; billiard; eight; game; sport -->
-		<annotation cp='[🎱]' tts='撞球'>撞球</annotation>
+		<annotation cp='[🎱]' tts='撞球' draft='provisional'>撞球</annotation>
 
 		<!-- BOWLING; ball; bowling; game; sport -->
-		<annotation cp='[🎳]' tts='保齡球'>保齡球</annotation>
+		<annotation cp='[🎳]' tts='保齡球' draft='provisional'>保齡球</annotation>
 
 		<!-- FLAG IN HOLE; golf; hole; sport; travel -->
-		<annotation cp='[⛳]' tts='高爾夫'>高爾夫</annotation>
+		<annotation cp='[⛳]' tts='高爾夫' draft='provisional'>高爾夫</annotation>
 
 		<!-- FISHING POLE AND FISH; entertainment; fish; pole; sport -->
-		<annotation cp='[🎣]' tts='釣魚'>釣魚</annotation>
+		<annotation cp='[🎣]' tts='釣魚' draft='provisional'>釣魚</annotation>
 
 		<!-- RUNNING SHIRT WITH SASH; running; sash; shirt; sport -->
-		<annotation cp='[🎽]' tts='運動服'>運動服; 運動</annotation>
+		<annotation cp='[🎽]' tts='運動服' draft='provisional'>運動服; 運動</annotation>
 
 		<!-- SKI AND SKI BOOT; ski; snow; sport -->
-		<annotation cp='[🎿]' tts='滑雪'>滑雪</annotation>
+		<annotation cp='[🎿]' tts='滑雪' draft='provisional'>滑雪</annotation>
 
 		<!-- SNOWBOARDER; person; ski; snow; snowboard; sport -->
-		<annotation cp='[🏂]' tts='滑雪板'>滑雪板</annotation>
+		<annotation cp='[🏂]' tts='滑雪板' draft='provisional'>滑雪板</annotation>
 
 		<!-- SURFER; person; sport; surfer; surfing -->
-		<annotation cp='[🏄]' tts='衝浪'>衝浪</annotation>
+		<annotation cp='[🏄]' tts='衝浪' draft='provisional'>衝浪</annotation>
 
 		<!-- HORSE RACING; horse; jockey; person; racehorse; racing; sport; travel -->
-		<annotation cp='[🏇]' tts='賽馬'>賽馬; 騎馬</annotation>
+		<annotation cp='[🏇]' tts='賽馬' draft='provisional'>賽馬; 騎馬</annotation>
 
 		<!-- SWIMMER; person; sport; swim; swimmer; travel -->
-		<annotation cp='[🏊]' tts='游泳'>游泳</annotation>
+		<annotation cp='[🏊]' tts='游泳' draft='provisional'>游泳</annotation>
 
 		<!-- BICYCLIST; bicycle; bicyclist; bike; cyclist; person; sport; travel -->
-		<annotation cp='[🚴]' tts='自行車手'>自行車手</annotation>
+		<annotation cp='[🚴]' tts='自行車手' draft='provisional'>自行車手</annotation>
 
 		<!-- MOUNTAIN BICYCLIST; bicycle; bicyclist; bike; cyclist; mountain; person; sport; travel -->
-		<annotation cp='[🚵]' tts='山地車'>山地車</annotation>
+		<annotation cp='[🚵]' tts='山地車' draft='provisional'>山地車</annotation>
 
 		<!-- TROPHY; prize; sport; trophy -->
-		<annotation cp='[🏆]' tts='獎杯'>獎杯</annotation>
+		<annotation cp='[🏆]' tts='獎杯' draft='provisional'>獎杯</annotation>
 
 		<!-- VIDEO GAME; controller; entertainment; game; video game -->
-		<annotation cp='[🎮]' tts='電子遊戲'>電子遊戲</annotation>
+		<annotation cp='[🎮]' tts='電子遊戲' draft='provisional'>電子遊戲</annotation>
 
 		<!-- GAME DIE; dice; die; game -->
-		<annotation cp='[🎲]' tts='骰子'>骰子</annotation>
+		<annotation cp='[🎲]' tts='骰子' draft='provisional'>骰子</annotation>
 
 		<!-- PLAYING CARD BLACK JOKER; card; game; joker; playing -->
-		<annotation cp='[🃏]' tts='鬼牌'>鬼牌; 小丑牌</annotation>
+		<annotation cp='[🃏]' tts='鬼牌' draft='provisional'>鬼牌; 小丑牌</annotation>
 
 		<!-- MAHJONG TILE RED DRAGON; game; mahjong; red -->
-		<annotation cp='[🀄]' tts='紅中'>紅中</annotation>
+		<annotation cp='[🀄]' tts='紅中' draft='provisional'>紅中</annotation>
 
 		<!-- SPEAKER WITH CANCELLATION STROKE; mute; quiet; silent; sound; speaker; volume -->
-		<annotation cp='[🔇]' tts='關掉喇叭'>關掉喇叭; 静音</annotation>
+		<annotation cp='[🔇]' tts='關掉喇叭' draft='provisional'>關掉喇叭; 静音</annotation>
 
 		<!-- SPEAKER; sound; speaker; volume -->
-		<annotation cp='[🔈]' tts='喇叭'>喇叭</annotation>
+		<annotation cp='[🔈]' tts='喇叭' draft='provisional'>喇叭</annotation>
 
 		<!-- SPEAKER WITH ONE SOUND WAVE; low; sound; speaker; volume; wave -->
-		<annotation cp='[🔉]' tts='高聲量'>高聲量; </annotation>
+		<annotation cp='[🔉]' tts='高聲量' draft='provisional'>高聲量; </annotation>
 
 		<!-- SPEAKER WITH THREE SOUND WAVES; 3; high; loud; sound; speaker; three; volume -->
-		<annotation cp='[🔊]' tts='低聲量'>低聲量; 喇叭</annotation>
+		<annotation cp='[🔊]' tts='低聲量' draft='provisional'>低聲量; 喇叭</annotation>
 
 		<!-- PUBLIC ADDRESS LOUDSPEAKER; communication; loud; loudspeaker; public address; sound -->
-		<annotation cp='[📢]' tts='喇叭'>喇叭</annotation>
+		<annotation cp='[📢]' tts='喇叭' draft='provisional'>喇叭</annotation>
 
 		<!-- CHEERING MEGAPHONE; cheering; communication; megaphone; sound -->
-		<annotation cp='[📣]' tts='擴音器'>擴音器; 喇叭</annotation>
+		<annotation cp='[📣]' tts='擴音器' draft='provisional'>擴音器; 喇叭</annotation>
 
 		<!-- POSTAL HORN; communication; horn; post; postal; sound -->
-		<annotation cp='[📯]' tts='郵件通知'>郵件通知</annotation>
+		<annotation cp='[📯]' tts='郵件通知' draft='provisional'>郵件通知</annotation>
 
 		<!-- BELL; bell; sound -->
-		<annotation cp='[🔔]' tts='鈴鐺'>鈴鐺</annotation>
+		<annotation cp='[🔔]' tts='鈴鐺' draft='provisional'>鈴鐺</annotation>
 
 		<!-- BELL WITH CANCELLATION STROKE; bell; forbidden; mute; no; not; prohibited; quiet; silent; sound -->
-		<annotation cp='[🔕]' tts='靜音'>靜音</annotation>
+		<annotation cp='[🔕]' tts='靜音' draft='provisional'>靜音</annotation>
 
 		<!-- TWISTED RIGHTWARDS ARROWS; arrow; crossed -->
-		<annotation cp='[🔀]' tts='向右箭頭'>向右箭頭</annotation>
+		<annotation cp='[🔀]' tts='向右箭頭' draft='provisional'>向右箭頭</annotation>
 
 		<!-- CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS; arrow; clockwise; repeat -->
-		<annotation cp='[🔁]' tts='順時針'>順時針</annotation>
+		<annotation cp='[🔁]' tts='順時針' draft='provisional'>順時針</annotation>
 
 		<!-- CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS WITH CIRCLED ONE OVERLAY; arrow; clockwise; once -->
-		<annotation cp='[🔂]' tts='順時針一次'>順時針一次; 順時針</annotation>
+		<annotation cp='[🔂]' tts='順時針一次' draft='provisional'>順時針一次; 順時針</annotation>
 
 		<!-- BLACK RIGHT-POINTING DOUBLE TRIANGLE; arrow; double; fast; forward; sound -->
-		<annotation cp='[⏩]' tts='向右箭頭'>向右箭頭; 快進</annotation>
+		<annotation cp='[⏩]' tts='向右箭頭' draft='provisional'>向右箭頭; 快進</annotation>
 
 		<!-- BLACK LEFT-POINTING DOUBLE TRIANGLE; arrow; double; rewind; sound -->
-		<annotation cp='[⏪]' tts='向左箭頭'>向左箭頭; 快退</annotation>
+		<annotation cp='[⏪]' tts='向左箭頭' draft='provisional'>向左箭頭; 快退</annotation>
 
 		<!-- UP-POINTING SMALL RED TRIANGLE; arrow; button; red -->
-		<annotation cp='[🔼]' tts='向上三角'>向上三角</annotation>
+		<annotation cp='[🔼]' tts='向上三角' draft='provisional'>向上三角</annotation>
 
 		<!-- BLACK UP-POINTING DOUBLE TRIANGLE; arrow; double; sound -->
-		<annotation cp='[⏫]' tts='向上箭頭'>向上箭頭</annotation>
+		<annotation cp='[⏫]' tts='向上箭頭' draft='provisional'>向上箭頭</annotation>
 
 		<!-- DOWN-POINTING SMALL RED TRIANGLE; arrow; button; down; red -->
-		<annotation cp='[🔽]' tts='向下三角'>向下三角</annotation>
+		<annotation cp='[🔽]' tts='向下三角' draft='provisional'>向下三角</annotation>
 
 		<!-- BLACK DOWN-POINTING DOUBLE TRIANGLE; arrow; double; down; sound -->
-		<annotation cp='[⏬]' tts='向下箭頭'>向下箭頭</annotation>
+		<annotation cp='[⏬]' tts='向下箭頭' draft='provisional'>向下箭頭</annotation>
 
 		<!-- MUSICAL SCORE; activity; music; score; sound -->
-		<annotation cp='[🎼]' tts='樂譜'>樂譜; 音樂</annotation>
+		<annotation cp='[🎼]' tts='樂譜' draft='provisional'>樂譜; 音樂</annotation>
 
 		<!-- MUSICAL NOTE; activity; music; note; sound -->
-		<annotation cp='[🎵]' tts='音符'>音符; 音樂</annotation>
+		<annotation cp='[🎵]' tts='音符' draft='provisional'>音符; 音樂</annotation>
 
 		<!-- MULTIPLE MUSICAL NOTES; activity; music; note; notes; sound -->
-		<annotation cp='[🎶]' tts='樂符'>樂符</annotation>
+		<annotation cp='[🎶]' tts='樂符' draft='provisional'>樂符</annotation>
 
 		<!-- MICROPHONE; activity; entertainment; karaoke; mic; microphone; sound -->
-		<annotation cp='[🎤]' tts='麥克風'>麥克風; 唱歌; 卡拉OK; k歌</annotation>
+		<annotation cp='[🎤]' tts='麥克風' draft='provisional'>麥克風; 唱歌; 卡拉OK; k歌</annotation>
 
 		<!-- HEADPHONE; activity; earbud; entertainment; headphone; sound -->
-		<annotation cp='[🎧]' tts='耳機'>耳機; 音樂</annotation>
+		<annotation cp='[🎧]' tts='耳機' draft='provisional'>耳機; 音樂</annotation>
 
 		<!-- SAXOPHONE; activity; instrument; music; sax; saxophone; sound -->
-		<annotation cp='[🎷]' tts='薩克斯風'>薩克斯風; 樂器</annotation>
+		<annotation cp='[🎷]' tts='薩克斯風' draft='provisional'>薩克斯風; 樂器</annotation>
 
 		<!-- GUITAR; activity; guitar; instrument; music; sound -->
-		<annotation cp='[🎸]' tts='吉他'>吉他; 樂器</annotation>
+		<annotation cp='[🎸]' tts='吉他' draft='provisional'>吉他; 樂器</annotation>
 
 		<!-- MUSICAL KEYBOARD; activity; instrument; keyboard; music; piano; sound -->
-		<annotation cp='[🎹]' tts='鋼琴'>鋼琴; 電子琴; 樂器</annotation>
+		<annotation cp='[🎹]' tts='鋼琴' draft='provisional'>鋼琴; 電子琴; 樂器</annotation>
 
 		<!-- TRUMPET; activity; instrument; music; sound; trumpet -->
-		<annotation cp='[🎺]' tts='喇叭'>喇叭; 樂器</annotation>
+		<annotation cp='[🎺]' tts='喇叭' draft='provisional'>喇叭; 樂器</annotation>
 
 		<!-- VIOLIN; activity; instrument; music; sound; violin -->
-		<annotation cp='[🎻]' tts='小提琴'>小提琴; 樂器</annotation>
+		<annotation cp='[🎻]' tts='小提琴' draft='provisional'>小提琴; 樂器</annotation>
 
 		<!-- RADIO; radio; video -->
-		<annotation cp='[📻]' tts='收音機'>收音機</annotation>
+		<annotation cp='[📻]' tts='收音機' draft='provisional'>收音機</annotation>
 
 		<!-- MOBILE PHONE; cell; communication; mobile; phone -->
-		<annotation cp='[📱]' tts='手機'>手機</annotation>
+		<annotation cp='[📱]' tts='手機' draft='provisional'>手機</annotation>
 
 		<!-- VIBRATION MODE; cell; communication; mobile; mode; phone; vibration -->
-		<annotation cp='[📳]' tts='震動模式'>震動模式</annotation>
+		<annotation cp='[📳]' tts='震動模式' draft='provisional'>震動模式</annotation>
 
 		<!-- MOBILE PHONE OFF; cell; communication; mobile; off; phone -->
-		<annotation cp='[📴]' tts='關機'>關機</annotation>
+		<annotation cp='[📴]' tts='關機' draft='provisional'>關機</annotation>
 
 		<!-- MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT; arrow; call; cell; communication; mobile; phone; receive -->
-		<annotation cp='[📲]' tts='打電話'>打電話</annotation>
+		<annotation cp='[📲]' tts='打電話' draft='provisional'>打電話</annotation>
 
 		<!-- NO MOBILE PHONES; cell; communication; forbidden; mobile; no; not; phone; prohibited -->
-		<annotation cp='[📵]' tts='禁用手機'>禁用手機</annotation>
+		<annotation cp='[📵]' tts='禁用手機' draft='provisional'>禁用手機</annotation>
 
 		<!-- TELEPHONE RECEIVER; communication; phone; receiver; sound; telephone -->
-		<annotation cp='[📞]' tts='聽筒'>聽筒; 電話</annotation>
+		<annotation cp='[📞]' tts='聽筒' draft='provisional'>聽筒; 電話</annotation>
 
 		<!-- NUMBER SIGN+COMBINING ENCLOSING KEYCAP; hash; keycap; pound; word -->
-		<annotation cp='[{#⃣}]' tts='井號鍵'>井號鍵</annotation>
+		<annotation cp='[{#⃣}]' tts='井號鍵' draft='provisional'>井號鍵</annotation>
 
 		<!-- DIGIT ZERO+COMBINING ENCLOSING KEYCAP; 0; keycap; word; zero -->
-		<annotation cp='[{0⃣}]' tts='鍵帽0'>鍵帽0</annotation>
+		<annotation cp='[{0⃣}]' tts='鍵帽0' draft='provisional'>鍵帽0</annotation>
 
 		<!-- DIGIT ONE+COMBINING ENCLOSING KEYCAP; 1; keycap; one; word -->
-		<annotation cp='[{1⃣}]' tts='鍵帽1'>鍵帽1</annotation>
+		<annotation cp='[{1⃣}]' tts='鍵帽1' draft='provisional'>鍵帽1</annotation>
 
 		<!-- DIGIT TWO+COMBINING ENCLOSING KEYCAP; 2; keycap; two; word -->
-		<annotation cp='[{2⃣}]' tts='鍵帽2'>鍵帽2</annotation>
+		<annotation cp='[{2⃣}]' tts='鍵帽2' draft='provisional'>鍵帽2</annotation>
 
 		<!-- DIGIT THREE+COMBINING ENCLOSING KEYCAP; 3; keycap; three; word -->
-		<annotation cp='[{3⃣}]' tts='鍵帽3'>鍵帽3</annotation>
+		<annotation cp='[{3⃣}]' tts='鍵帽3' draft='provisional'>鍵帽3</annotation>
 
 		<!-- DIGIT FOUR+COMBINING ENCLOSING KEYCAP; 4; four; keycap; word -->
-		<annotation cp='[{4⃣}]' tts='鍵帽4'>鍵帽4</annotation>
+		<annotation cp='[{4⃣}]' tts='鍵帽4' draft='provisional'>鍵帽4</annotation>
 
 		<!-- DIGIT FIVE+COMBINING ENCLOSING KEYCAP; 5; five; keycap; word -->
-		<annotation cp='[{5⃣}]' tts='鍵帽5'>鍵帽5</annotation>
+		<annotation cp='[{5⃣}]' tts='鍵帽5' draft='provisional'>鍵帽5</annotation>
 
 		<!-- DIGIT SIX+COMBINING ENCLOSING KEYCAP; 6; keycap; six; word -->
-		<annotation cp='[{6⃣}]' tts='鍵帽6'>鍵帽6</annotation>
+		<annotation cp='[{6⃣}]' tts='鍵帽6' draft='provisional'>鍵帽6</annotation>
 
 		<!-- DIGIT SEVEN+COMBINING ENCLOSING KEYCAP; 7; keycap; seven; word -->
-		<annotation cp='[{7⃣}]' tts='鍵帽7'>鍵帽7</annotation>
+		<annotation cp='[{7⃣}]' tts='鍵帽7' draft='provisional'>鍵帽7</annotation>
 
 		<!-- DIGIT EIGHT+COMBINING ENCLOSING KEYCAP; 8; eight; keycap; word -->
-		<annotation cp='[{8⃣}]' tts='鍵帽8'>鍵帽8</annotation>
+		<annotation cp='[{8⃣}]' tts='鍵帽8' draft='provisional'>鍵帽8</annotation>
 
 		<!-- DIGIT NINE+COMBINING ENCLOSING KEYCAP; 9; keycap; nine; word -->
-		<annotation cp='[{9⃣}]' tts='鍵帽9'>鍵帽9</annotation>
+		<annotation cp='[{9⃣}]' tts='鍵帽9' draft='provisional'>鍵帽9</annotation>
 
 		<!-- KEYCAP TEN; 10; keycap; ten; word -->
-		<annotation cp='[🔟]' tts='鍵10'>鍵10</annotation>
+		<annotation cp='[🔟]' tts='鍵10' draft='provisional'>鍵10</annotation>
 
 		<!-- ANTENNA WITH BARS; antenna; bar; communication; mobile; phone; signal -->
-		<annotation cp='[📶]' tts='訊號強弱'>訊號強弱</annotation>
+		<annotation cp='[📶]' tts='訊號強弱' draft='provisional'>訊號強弱</annotation>
 
 		<!-- PAGER; communication; office; pager -->
-		<annotation cp='[📟]' tts='傳呼機'>傳呼機</annotation>
+		<annotation cp='[📟]' tts='傳呼機' draft='provisional'>傳呼機</annotation>
 
 		<!-- FAX MACHINE; communication; fax; office -->
-		<annotation cp='[📠]' tts='傳真機'>傳真機; FAX</annotation>
+		<annotation cp='[📠]' tts='傳真機' draft='provisional'>傳真機; FAX</annotation>
 
 		<!-- BATTERY; battery -->
-		<annotation cp='[🔋]' tts='電池'>電池</annotation>
+		<annotation cp='[🔋]' tts='電池' draft='provisional'>電池</annotation>
 
 		<!-- ELECTRIC PLUG; electric; electricity; plug -->
-		<annotation cp='[🔌]' tts='插頭'>插頭</annotation>
+		<annotation cp='[🔌]' tts='插頭' draft='provisional'>插頭</annotation>
 
 		<!-- PERSONAL COMPUTER; computer; office; pc; personal -->
-		<annotation cp='[💻]' tts='個人電腦'>個人電腦</annotation>
+		<annotation cp='[💻]' tts='個人電腦' draft='provisional'>個人電腦</annotation>
 
 		<!-- MINIDISC; computer; disc; minidisc; office; optical -->
-		<annotation cp='[💽]' tts='小隨身碟'>小隨身碟</annotation>
+		<annotation cp='[💽]' tts='小隨身碟' draft='provisional'>小隨身碟</annotation>
 
 		<!-- FLOPPY DISK; computer; disc; disk; floppy; office -->
-		<annotation cp='[💾]' tts='隨身碟'>隨身碟</annotation>
+		<annotation cp='[💾]' tts='隨身碟' draft='provisional'>隨身碟</annotation>
 
 		<!-- OPTICAL DISC; blu-ray; cd; computer; disc; dvd; office; optical -->
-		<annotation cp='[💿]' tts='光碟'>光碟</annotation>
+		<annotation cp='[💿]' tts='光碟' draft='provisional'>光碟</annotation>
 
 		<!-- DVD; computer; disc; dvd; office; optical -->
-		<annotation cp='[📀]' tts='DVD'>DVD</annotation>
+		<annotation cp='[📀]' tts='DVD' draft='provisional'>DVD</annotation>
 
 		<!-- MOVIE CAMERA; activity; camera; cinema; entertainment; movie -->
-		<annotation cp='[🎥]' tts='攝影機'>攝影機</annotation>
+		<annotation cp='[🎥]' tts='攝影機' draft='provisional'>攝影機</annotation>
 
 		<!-- CINEMA; activity; camera; cinema; entertainment; film; movie -->
-		<annotation cp='[🎦]' tts='電影院'>電影院</annotation>
+		<annotation cp='[🎦]' tts='電影院' draft='provisional'>電影院</annotation>
 
 		<!-- CLAPPER BOARD; activity; clapper; entertainment; movie -->
-		<annotation cp='[🎬]' tts='場記板'>場記板</annotation>
+		<annotation cp='[🎬]' tts='場記板' draft='provisional'>場記板</annotation>
 
 		<!-- TELEVISION; entertainment; television; tv; video -->
-		<annotation cp='[📺]' tts='電視'>電視</annotation>
+		<annotation cp='[📺]' tts='電視' draft='provisional'>電視</annotation>
 
 		<!-- CAMERA; camera; video -->
-		<annotation cp='[📷]' tts='相機'>相機</annotation>
+		<annotation cp='[📷]' tts='相機' draft='provisional'>相機</annotation>
 
 		<!-- VIDEO CAMERA; camera; video -->
-		<annotation cp='[📹]' tts='攝影機'>攝影機</annotation>
+		<annotation cp='[📹]' tts='攝影機' draft='provisional'>攝影機</annotation>
 
 		<!-- VIDEOCASSETTE; tape; vhs; video; videocassette -->
-		<annotation cp='[📼]' tts='錄影帶'>錄影帶</annotation>
+		<annotation cp='[📼]' tts='錄影帶' draft='provisional'>錄影帶</annotation>
 
 		<!-- LOW BRIGHTNESS SYMBOL; brightness; dim; low; sign -->
-		<annotation cp='[🔅]' tts='低亮度'>低亮度</annotation>
+		<annotation cp='[🔅]' tts='低亮度' draft='provisional'>低亮度</annotation>
 
 		<!-- HIGH BRIGHTNESS SYMBOL; bright; brightness; sign -->
-		<annotation cp='[🔆]' tts='亮度高'>亮度高</annotation>
+		<annotation cp='[🔆]' tts='亮度高' draft='provisional'>亮度高</annotation>
 
 		<!-- LEFT-POINTING MAGNIFYING GLASS; glass; magnifying; search; tool -->
-		<annotation cp='[🔍]' tts='向左的放大鏡'>向左的放大鏡; 放大鏡</annotation>
+		<annotation cp='[🔍]' tts='向左的放大鏡' draft='provisional'>向左的放大鏡; 放大鏡</annotation>
 
 		<!-- RIGHT-POINTING MAGNIFYING GLASS; glass; magnifying; search; tool -->
-		<annotation cp='[🔎]' tts='放大鏡'>放大鏡</annotation>
+		<annotation cp='[🔎]' tts='放大鏡' draft='provisional'>放大鏡</annotation>
 
 		<!-- MICROSCOPE; microscope; tool -->
-		<annotation cp='[🔬]' tts='顯微鏡'>顯微鏡</annotation>
+		<annotation cp='[🔬]' tts='顯微鏡' draft='provisional'>顯微鏡</annotation>
 
 		<!-- TELESCOPE; telescope; tool -->
-		<annotation cp='[🔭]' tts='望遠鏡'>望遠鏡</annotation>
+		<annotation cp='[🔭]' tts='望遠鏡' draft='provisional'>望遠鏡</annotation>
 
 		<!-- SATELLITE ANTENNA; antenna; communication; dish; office; satellite -->
-		<annotation cp='[📡]' tts='衛星天線'>衛星天線; 天線</annotation>
+		<annotation cp='[📡]' tts='衛星天線' draft='provisional'>衛星天線; 天線</annotation>
 
 		<!-- ELECTRIC LIGHT BULB; bulb; comic; electric; idea; light -->
-		<annotation cp='[💡]' tts='燈泡'>燈泡</annotation>
+		<annotation cp='[💡]' tts='燈泡' draft='provisional'>燈泡</annotation>
 
 		<!-- ELECTRIC TORCH; electric; flashlight; light; tool; torch -->
-		<annotation cp='[🔦]' tts='手電筒'>手電筒</annotation>
+		<annotation cp='[🔦]' tts='手電筒' draft='provisional'>手電筒</annotation>
 
 		<!-- IZAKAYA LANTERN; bar; japanese; lantern; light; red; restaurant -->
-		<annotation cp='[🏮]' tts='燈籠'>燈籠</annotation>
+		<annotation cp='[🏮]' tts='燈籠' draft='provisional'>燈籠</annotation>
 
 		<!-- NOTEBOOK WITH DECORATIVE COVER; book; cover; decorated; education; notebook; office -->
-		<annotation cp='[📔]' tts='彩色封面的筆記本'>彩色封面的筆記本</annotation>
+		<annotation cp='[📔]' tts='彩色封面的筆記本' draft='provisional'>彩色封面的筆記本</annotation>
 
 		<!-- CLOSED BOOK; book; closed; education; office -->
-		<annotation cp='[📕]' tts='合起來的書本'>合起來的書本</annotation>
+		<annotation cp='[📕]' tts='合起來的書本' draft='provisional'>合起來的書本</annotation>
 
 		<!-- OPEN BOOK; book; education; office; open -->
-		<annotation cp='[📖]' tts='打開來的書本'>打開來的書本</annotation>
+		<annotation cp='[📖]' tts='打開來的書本' draft='provisional'>打開來的書本</annotation>
 
 		<!-- GREEN BOOK; book; education; green; office -->
-		<annotation cp='[📗]' tts='綠色的筆記本'>綠色的筆記本</annotation>
+		<annotation cp='[📗]' tts='綠色的筆記本' draft='provisional'>綠色的筆記本</annotation>
 
 		<!-- BLUE BOOK; blue; book; education; office -->
-		<annotation cp='[📘]' tts='藍色的筆記本'>藍色的筆記本</annotation>
+		<annotation cp='[📘]' tts='藍色的筆記本' draft='provisional'>藍色的筆記本</annotation>
 
 		<!-- ORANGE BOOK; book; education; office; orange -->
-		<annotation cp='[📙]' tts='橘色的筆記本'>橘色的筆記本</annotation>
+		<annotation cp='[📙]' tts='橘色的筆記本' draft='provisional'>橘色的筆記本</annotation>
 
 		<!-- BOOKS; book; books; education; office -->
-		<annotation cp='[📚]' tts='書本'>書本; 書籍</annotation>
+		<annotation cp='[📚]' tts='書本' draft='provisional'>書本; 書籍</annotation>
 
 		<!-- NOTEBOOK; notebook; office -->
-		<annotation cp='[📓]' tts='筆記本'>筆記本</annotation>
+		<annotation cp='[📓]' tts='筆記本' draft='provisional'>筆記本</annotation>
 
 		<!-- LEDGER; ledger; notebook; office -->
-		<annotation cp='[📒]' tts='賬本'>賬本</annotation>
+		<annotation cp='[📒]' tts='賬本' draft='provisional'>賬本</annotation>
 
 		<!-- PAGE WITH CURL; curl; document; office; page -->
-		<annotation cp='[📃]' tts='文件檔'>文件檔; 文書</annotation>
+		<annotation cp='[📃]' tts='文件檔' draft='provisional'>文件檔; 文書</annotation>
 
 		<!-- SCROLL; office; paper; scroll -->
-		<annotation cp='[📜]' tts='捲軸'>捲軸</annotation>
+		<annotation cp='[📜]' tts='捲軸' draft='provisional'>捲軸</annotation>
 
 		<!-- PAGE FACING UP; document; office; page -->
-		<annotation cp='[📄]' tts='文件'>文件; 文檔; 文書</annotation>
+		<annotation cp='[📄]' tts='文件' draft='provisional'>文件; 文檔; 文書</annotation>
 
 		<!-- NEWSPAPER; communication; news; newspaper; paper -->
-		<annotation cp='[📰]' tts='報紙'>報紙; 新聞</annotation>
+		<annotation cp='[📰]' tts='報紙' draft='provisional'>報紙; 新聞</annotation>
 
 		<!-- BOOKMARK TABS; bookmark; mark; marker; office; tabs -->
-		<annotation cp='[📑]' tts='書籤'>書籤; 標籤</annotation>
+		<annotation cp='[📑]' tts='書籤' draft='provisional'>書籤; 標籤</annotation>
 
 		<!-- BOOKMARK; bookmark; mark -->
-		<annotation cp='[🔖]' tts='書籤'>書籤</annotation>
+		<annotation cp='[🔖]' tts='書籤' draft='provisional'>書籤</annotation>
 
 		<!-- MONEY BAG; bag; dollar; money; moneybag; office -->
-		<annotation cp='[💰]' tts='錢袋'>錢袋; 錢</annotation>
+		<annotation cp='[💰]' tts='錢袋' draft='provisional'>錢袋; 錢</annotation>
 
 		<!-- BANKNOTE WITH YEN SIGN; bank; banknote; bill; currency; money; note; office; yen -->
-		<annotation cp='[💴]' tts='日元'>日元</annotation>
+		<annotation cp='[💴]' tts='日元' draft='provisional'>日元</annotation>
 
 		<!-- BANKNOTE WITH DOLLAR SIGN; bank; banknote; bill; currency; dollar; money; note; office -->
-		<annotation cp='[💵]' tts='美元'>美元</annotation>
+		<annotation cp='[💵]' tts='美元' draft='provisional'>美元</annotation>
 
 		<!-- BANKNOTE WITH EURO SIGN; bank; banknote; bill; currency; euro; money; note; office -->
-		<annotation cp='[💶]' tts='歐元'>歐元</annotation>
+		<annotation cp='[💶]' tts='歐元' draft='provisional'>歐元</annotation>
 
 		<!-- BANKNOTE WITH POUND SIGN; bank; banknote; bill; currency; money; note; office; pound -->
-		<annotation cp='[💷]' tts='英鎊'>英鎊</annotation>
+		<annotation cp='[💷]' tts='英鎊' draft='provisional'>英鎊</annotation>
 
 		<!-- MONEY WITH WINGS; bank; banknote; bill; dollar; fly; money; note; office; wings -->
-		<annotation cp='[💸]' tts='錢飛了'>錢飛了; 沒錢了</annotation>
+		<annotation cp='[💸]' tts='錢飛了' draft='provisional'>錢飛了; 沒錢了</annotation>
 
 		<!-- CURRENCY EXCHANGE; bank; currency; exchange; money; office -->
-		<annotation cp='[💱]' tts='貨幣兌換'>貨幣兌換</annotation>
+		<annotation cp='[💱]' tts='貨幣兌換' draft='provisional'>貨幣兌換</annotation>
 
 		<!-- HEAVY DOLLAR SIGN; currency; dollar; money; office -->
-		<annotation cp='[💲]' tts='美元'>美元; 美刀</annotation>
+		<annotation cp='[💲]' tts='美元' draft='provisional'>美元; 美刀</annotation>
 
 		<!-- CREDIT CARD; bank; card; credit; money; office -->
-		<annotation cp='[💳]' tts='信用卡'>信用卡; 刷卡</annotation>
+		<annotation cp='[💳]' tts='信用卡' draft='provisional'>信用卡; 刷卡</annotation>
 
 		<!-- CHART WITH UPWARDS TREND AND YEN SIGN; bank; chart; currency; graph; growth; market; money; office; rise; trend; upward; yen -->
-		<annotation cp='[💹]' tts='錢幣升值'>錢幣升值</annotation>
+		<annotation cp='[💹]' tts='錢幣升值' draft='provisional'>錢幣升值</annotation>
 
 		<!-- E-MAIL SYMBOL; communication; e-mail; email; letter; mail; office -->
-		<annotation cp='[📧]' tts='郵件'>郵件</annotation>
+		<annotation cp='[📧]' tts='郵件' draft='provisional'>郵件</annotation>
 
 		<!-- INCOMING ENVELOPE; communication; e-mail; email; envelope; incoming; letter; mail; office; receive -->
-		<annotation cp='[📨]' tts='待收郵件'>待收郵件</annotation>
+		<annotation cp='[📨]' tts='待收郵件' draft='provisional'>待收郵件</annotation>
 
 		<!-- ENVELOPE WITH DOWNWARDS ARROW ABOVE; arrow; communication; down; e-mail; email; envelope; letter; mail; office; outgoing; sent -->
-		<annotation cp='[📩]' tts='有附件的郵件'>有附件的郵件</annotation>
+		<annotation cp='[📩]' tts='有附件的郵件' draft='provisional'>有附件的郵件</annotation>
 
 		<!-- OUTBOX TRAY; box; communication; letter; mail; office; outbox; sent; tray -->
-		<annotation cp='[📤]' tts='發件箱'>發件箱</annotation>
+		<annotation cp='[📤]' tts='發件箱' draft='provisional'>發件箱</annotation>
 
 		<!-- INBOX TRAY; box; communication; inbox; letter; mail; office; receive; tray -->
-		<annotation cp='[📥]' tts='收件箱'>收件箱</annotation>
+		<annotation cp='[📥]' tts='收件箱' draft='provisional'>收件箱</annotation>
 
 		<!-- PACKAGE; box; communication; office; package; parcel -->
-		<annotation cp='[📦]' tts='包裹'>包裹</annotation>
+		<annotation cp='[📦]' tts='包裹' draft='provisional'>包裹</annotation>
 
 		<!-- CLOSED MAILBOX WITH RAISED FLAG; closed; communication; mail; mailbox; office; postbox -->
-		<annotation cp='[📫]' tts='有待收郵件'>有待收郵件</annotation>
+		<annotation cp='[📫]' tts='有待收郵件' draft='provisional'>有待收郵件</annotation>
 
 		<!-- CLOSED MAILBOX WITH LOWERED FLAG; closed; communication; lowered; mail; mailbox; office; postbox -->
-		<annotation cp='[📪]' tts='無待收郵件'>無待收郵件</annotation>
+		<annotation cp='[📪]' tts='無待收郵件' draft='provisional'>無待收郵件</annotation>
 
 		<!-- OPEN MAILBOX WITH RAISED FLAG; communication; mail; mailbox; office; open; postbox -->
-		<annotation cp='[📬]' tts='沒有新郵件'>沒有新郵件</annotation>
+		<annotation cp='[📬]' tts='沒有新郵件' draft='provisional'>沒有新郵件</annotation>
 
 		<!-- OPEN MAILBOX WITH LOWERED FLAG; communication; lowered; mail; mailbox; office; open; postbox -->
-		<annotation cp='[📭]' tts='有新郵件'>有新郵件</annotation>
+		<annotation cp='[📭]' tts='有新郵件' draft='provisional'>有新郵件</annotation>
 
 		<!-- POSTBOX; communication; mail; mailbox; office; postbox -->
-		<annotation cp='[📮]' tts='信箱'>信箱</annotation>
+		<annotation cp='[📮]' tts='信箱' draft='provisional'>信箱</annotation>
 
 		<!-- MEMO; communication; memo; office; pencil -->
-		<annotation cp='[📝]' tts='備忘錄'>備忘錄; 備註</annotation>
+		<annotation cp='[📝]' tts='備忘錄' draft='provisional'>備忘錄; 備註</annotation>
 
 		<!-- BRIEFCASE; briefcase; office -->
-		<annotation cp='[💼]' tts='公事包'>公事包</annotation>
+		<annotation cp='[💼]' tts='公事包' draft='provisional'>公事包</annotation>
 
 		<!-- FILE FOLDER; file; folder; office -->
-		<annotation cp='[📁]' tts='文件夾'>文件夾</annotation>
+		<annotation cp='[📁]' tts='文件夾' draft='provisional'>文件夾</annotation>
 
 		<!-- OPEN FILE FOLDER; file; folder; office; open -->
-		<annotation cp='[📂]' tts='打開文件夾'>打開文件夾</annotation>
+		<annotation cp='[📂]' tts='打開文件夾' draft='provisional'>打開文件夾</annotation>
 
 		<!-- CALENDAR; calendar; date; office -->
-		<annotation cp='[📅]' tts='行事曆'>行事曆</annotation>
+		<annotation cp='[📅]' tts='行事曆' draft='provisional'>行事曆</annotation>
 
 		<!-- TEAR-OFF CALENDAR; calendar; office -->
-		<annotation cp='[📆]' tts='日曆'>日曆</annotation>
+		<annotation cp='[📆]' tts='日曆' draft='provisional'>日曆</annotation>
 
 		<!-- CARD INDEX; card; index; office; rolodex -->
-		<annotation cp='[📇]' tts='索引卡'>索引卡</annotation>
+		<annotation cp='[📇]' tts='索引卡' draft='provisional'>索引卡</annotation>
 
 		<!-- CHART WITH UPWARDS TREND; chart; graph; growth; office; trend; upward -->
-		<annotation cp='[📈]' tts='漲'>漲; 上漲; 上升; 圖表</annotation>
+		<annotation cp='[📈]' tts='漲' draft='provisional'>漲; 上漲; 上升; 圖表</annotation>
 
 		<!-- CHART WITH DOWNWARDS TREND; chart; down; graph; office; trend -->
-		<annotation cp='[📉]' tts='跌'>跌; 下跌; 下降; 圖表</annotation>
+		<annotation cp='[📉]' tts='跌' draft='provisional'>跌; 下跌; 下降; 圖表</annotation>
 
 		<!-- BAR CHART; bar; chart; graph; office -->
-		<annotation cp='[📊]' tts='圖表'>圖表; 直方圖</annotation>
+		<annotation cp='[📊]' tts='圖表' draft='provisional'>圖表; 直方圖</annotation>
 
 		<!-- CLIPBOARD; clipboard; office -->
-		<annotation cp='[📋]' tts='剪切版'>剪切版</annotation>
+		<annotation cp='[📋]' tts='剪切版' draft='provisional'>剪切版</annotation>
 
 		<!-- PUSHPIN; office; pin; pushpin -->
-		<annotation cp='[📌]' tts='圖釘'>圖釘</annotation>
+		<annotation cp='[📌]' tts='圖釘' draft='provisional'>圖釘</annotation>
 
 		<!-- ROUND PUSHPIN; office; pin; pushpin -->
-		<annotation cp='[📍]' tts='圓圖釘'>圓圖釘; 圖釘</annotation>
+		<annotation cp='[📍]' tts='圓圖釘' draft='provisional'>圓圖釘; 圖釘</annotation>
 
 		<!-- PAPERCLIP; office; paperclip -->
-		<annotation cp='[📎]' tts='回紋針'>回紋針</annotation>
+		<annotation cp='[📎]' tts='回紋針' draft='provisional'>回紋針</annotation>
 
 		<!-- STRAIGHT RULER; office; ruler; straight edge -->
-		<annotation cp='[📏]' tts='直尺'>直尺; 尺子</annotation>
+		<annotation cp='[📏]' tts='直尺' draft='provisional'>直尺; 尺子</annotation>
 
 		<!-- TRIANGULAR RULER; office; ruler; set; triangle -->
-		<annotation cp='[📐]' tts='三角尺'>三角尺; 尺子</annotation>
+		<annotation cp='[📐]' tts='三角尺' draft='provisional'>三角尺; 尺子</annotation>
 
 		<!-- NAME BADGE; badge; name; office -->
-		<annotation cp='[📛]' tts='名牌'>名牌; 胸牌</annotation>
+		<annotation cp='[📛]' tts='名牌' draft='provisional'>名牌; 胸牌</annotation>
 
 		<!-- LOCK; closed; lock -->
-		<annotation cp='[🔒]' tts='鎖'>鎖</annotation>
+		<annotation cp='[🔒]' tts='鎖' draft='provisional'>鎖</annotation>
 
 		<!-- OPEN LOCK; lock; open; unlock -->
-		<annotation cp='[🔓]' tts='開鎖'>開鎖</annotation>
+		<annotation cp='[🔓]' tts='開鎖' draft='provisional'>開鎖</annotation>
 
 		<!-- LOCK WITH INK PEN; ink; lock; nib; pen; privacy -->
-		<annotation cp='[🔏]' tts='墨水筆和鎖'>墨水筆和鎖</annotation>
+		<annotation cp='[🔏]' tts='墨水筆和鎖' draft='provisional'>墨水筆和鎖</annotation>
 
 		<!-- CLOSED LOCK WITH KEY; closed; key; lock; secure -->
-		<annotation cp='[🔐]' tts='鑰匙和鎖'>鑰匙和鎖</annotation>
+		<annotation cp='[🔐]' tts='鑰匙和鎖' draft='provisional'>鑰匙和鎖</annotation>
 
 		<!-- KEY; key; lock; password -->
-		<annotation cp='[🔑]' tts='鑰匙'>鑰匙</annotation>
+		<annotation cp='[🔑]' tts='鑰匙' draft='provisional'>鑰匙</annotation>
 
 		<!-- HAMMER; hammer; tool -->
-		<annotation cp='[🔨]' tts='錘子'>錘子</annotation>
+		<annotation cp='[🔨]' tts='錘子' draft='provisional'>錘子</annotation>
 
 		<!-- WRENCH; tool; wrench -->
-		<annotation cp='[🔧]' tts='扳手'>扳手</annotation>
+		<annotation cp='[🔧]' tts='扳手' draft='provisional'>扳手</annotation>
 
 		<!-- NUT AND BOLT; bolt; nut; tool -->
-		<annotation cp='[🔩]' tts='螺絲'>螺絲</annotation>
+		<annotation cp='[🔩]' tts='螺絲' draft='provisional'>螺絲</annotation>
 
 		<!-- LINK SYMBOL; link -->
-		<annotation cp='[🔗]' tts='聯接'>聯接</annotation>
+		<annotation cp='[🔗]' tts='聯接' draft='provisional'>聯接</annotation>
 
 		<!-- SYRINGE; doctor; medicine; needle; shot; sick; syringe; tool -->
-		<annotation cp='[💉]' tts='打針'>打針; 注射器</annotation>
+		<annotation cp='[💉]' tts='打針' draft='provisional'>打針; 注射器</annotation>
 
 		<!-- PILL; doctor; medicine; pill; sick -->
-		<annotation cp='[💊]' tts='吃藥'>吃藥; 藥丸</annotation>
+		<annotation cp='[💊]' tts='吃藥' draft='provisional'>吃藥; 藥丸</annotation>
 
 		<!-- HOCHO; cooking; hocho; knife; tool; weapon -->
-		<annotation cp='[🔪]' tts='刀'>刀</annotation>
+		<annotation cp='[🔪]' tts='刀' draft='provisional'>刀</annotation>
 
 		<!-- PISTOL; gun; pistol; revolver; tool; weapon -->
-		<annotation cp='[🔫]' tts='槍'>槍</annotation>
+		<annotation cp='[🔫]' tts='槍' draft='provisional'>槍</annotation>
 
 		<!-- SMOKING SYMBOL; activity; smoking; travel -->
-		<annotation cp='[🚬]' tts='吸煙'>吸煙</annotation>
+		<annotation cp='[🚬]' tts='吸煙' draft='provisional'>吸煙</annotation>
 
 		<!-- CHEQUERED FLAG; checkered; chequered; racing; sport -->
-		<annotation cp='[🏁]' tts='終點旗'>終點旗; 格子旗</annotation>
+		<annotation cp='[🏁]' tts='終點旗' draft='provisional'>終點旗; 格子旗</annotation>
 
 		<!-- TRIANGULAR FLAG ON POST; post; travel -->
-		<annotation cp='[🚩]' tts='三角旗'>三角旗</annotation>
+		<annotation cp='[🚩]' tts='三角旗' draft='provisional'>三角旗</annotation>
 
 		<!-- Afghanistan; afghanistan -->
-		<annotation cp='[{🇦🇫}]'>阿富汗</annotation>
+		<annotation cp='[{🇦🇫}]' draft='provisional'>阿富汗</annotation>
 
 		<!-- Åland Islands; åland -->
-		<annotation cp='[{🇦🇽}]'>奧蘭群島</annotation>
+		<annotation cp='[{🇦🇽}]' draft='provisional'>奧蘭群島</annotation>
 
 		<!-- Albania; albania -->
-		<annotation cp='[{🇦🇱}]'>阿爾巴尼亞</annotation>
+		<annotation cp='[{🇦🇱}]' draft='provisional'>阿爾巴尼亞</annotation>
 
 		<!-- Algeria; algeria -->
-		<annotation cp='[{🇩🇿}]'>阿爾及利亞</annotation>
+		<annotation cp='[{🇩🇿}]' draft='provisional'>阿爾及利亞</annotation>
 
 		<!-- American Samoa; american; samoa -->
-		<annotation cp='[{🇦🇸}]'>美屬薩摩亞群島</annotation>
+		<annotation cp='[{🇦🇸}]' draft='provisional'>美屬薩摩亞群島</annotation>
 
 		<!-- Andorra; andorra -->
-		<annotation cp='[{🇦🇩}]'>安道爾</annotation>
+		<annotation cp='[{🇦🇩}]' draft='provisional'>安道爾</annotation>
 
 		<!-- Angola; angola -->
-		<annotation cp='[{🇦🇴}]'>安哥拉</annotation>
+		<annotation cp='[{🇦🇴}]' draft='provisional'>安哥拉</annotation>
 
 		<!-- Anguilla; anguilla -->
-		<annotation cp='[{🇦🇮}]'>安圭拉島</annotation>
+		<annotation cp='[{🇦🇮}]' draft='provisional'>安圭拉島</annotation>
 
 		<!-- Antarctica; antarctica -->
-		<annotation cp='[{🇦🇶}]'>南極洲</annotation>
+		<annotation cp='[{🇦🇶}]' draft='provisional'>南極洲</annotation>
 
 		<!-- Antigua &amp; Barbuda; antigua; barbuda -->
-		<annotation cp='[{🇦🇬}]'>安地卡及巴布達</annotation>
+		<annotation cp='[{🇦🇬}]' draft='provisional'>安地卡及巴布達</annotation>
 
 		<!-- Argentina; argentina -->
-		<annotation cp='[{🇦🇷}]'>阿根廷</annotation>
+		<annotation cp='[{🇦🇷}]' draft='provisional'>阿根廷</annotation>
 
 		<!-- Armenia; armenia -->
-		<annotation cp='[{🇦🇲}]'>亞美尼亞</annotation>
+		<annotation cp='[{🇦🇲}]' draft='provisional'>亞美尼亞</annotation>
 
 		<!-- Aruba; aruba -->
-		<annotation cp='[{🇦🇼}]'>阿路巴</annotation>
+		<annotation cp='[{🇦🇼}]' draft='provisional'>阿路巴</annotation>
 
 		<!-- Ascension Island; ascension; island -->
-		<annotation cp='[{🇦🇨}]'>阿森松島</annotation>
+		<annotation cp='[{🇦🇨}]' draft='provisional'>阿森松島</annotation>
 
 		<!-- Australia; australia -->
-		<annotation cp='[{🇦🇺}]'>澳洲</annotation>
+		<annotation cp='[{🇦🇺}]' draft='provisional'>澳洲</annotation>
 
 		<!-- Austria; austria -->
-		<annotation cp='[{🇦🇹}]'>奧地利</annotation>
+		<annotation cp='[{🇦🇹}]' draft='provisional'>奧地利</annotation>
 
 		<!-- Azerbaijan; azerbaijan -->
-		<annotation cp='[{🇦🇿}]'>亞塞拜然</annotation>
+		<annotation cp='[{🇦🇿}]' draft='provisional'>亞塞拜然</annotation>
 
 		<!-- Bahamas; bahamas -->
-		<annotation cp='[{🇧🇸}]'>巴哈馬</annotation>
+		<annotation cp='[{🇧🇸}]' draft='provisional'>巴哈馬</annotation>
 
 		<!-- Bahrain; bahrain -->
-		<annotation cp='[{🇧🇭}]'>巴林</annotation>
+		<annotation cp='[{🇧🇭}]' draft='provisional'>巴林</annotation>
 
 		<!-- Bangladesh; bangladesh -->
-		<annotation cp='[{🇧🇩}]'>孟加拉</annotation>
+		<annotation cp='[{🇧🇩}]' draft='provisional'>孟加拉</annotation>
 
 		<!-- Barbados; barbados -->
-		<annotation cp='[{🇧🇧}]'>巴貝多</annotation>
+		<annotation cp='[{🇧🇧}]' draft='provisional'>巴貝多</annotation>
 
 		<!-- Belarus; belarus -->
-		<annotation cp='[{🇧🇾}]'>白俄羅斯</annotation>
+		<annotation cp='[{🇧🇾}]' draft='provisional'>白俄羅斯</annotation>
 
 		<!-- Belgium; belgium -->
-		<annotation cp='[{🇧🇪}]'>比利時</annotation>
+		<annotation cp='[{🇧🇪}]' draft='provisional'>比利時</annotation>
 
 		<!-- Belize; belize -->
-		<annotation cp='[{🇧🇿}]'>貝里斯</annotation>
+		<annotation cp='[{🇧🇿}]' draft='provisional'>貝里斯</annotation>
 
 		<!-- Benin; benin -->
-		<annotation cp='[{🇧🇯}]'>貝南</annotation>
+		<annotation cp='[{🇧🇯}]' draft='provisional'>貝南</annotation>
 
 		<!-- Bermuda; bermuda -->
-		<annotation cp='[{🇧🇲}]'>百慕達</annotation>
+		<annotation cp='[{🇧🇲}]' draft='provisional'>百慕達</annotation>
 
 		<!-- Bhutan; bhutan -->
-		<annotation cp='[{🇧🇹}]'>不丹</annotation>
+		<annotation cp='[{🇧🇹}]' draft='provisional'>不丹</annotation>
 
 		<!-- Bolivia; bolivia -->
-		<annotation cp='[{🇧🇴}]'>玻利維亞</annotation>
+		<annotation cp='[{🇧🇴}]' draft='provisional'>玻利維亞</annotation>
 
 		<!-- Bosnia &amp; Herzegovina; bosnia; herzegovina -->
-		<annotation cp='[{🇧🇦}]'>波士尼亞與赫塞格維納</annotation>
+		<annotation cp='[{🇧🇦}]' draft='provisional'>波士尼亞與赫塞格維納</annotation>
 
 		<!-- Botswana; botswana -->
-		<annotation cp='[{🇧🇼}]'>波札那</annotation>
+		<annotation cp='[{🇧🇼}]' draft='provisional'>波札那</annotation>
 
 		<!-- Bouvet Island; bouvet; island -->
-		<annotation cp='[{🇧🇻}]'>布威島</annotation>
+		<annotation cp='[{🇧🇻}]' draft='provisional'>布威島</annotation>
 
 		<!-- Brazil; brazil -->
-		<annotation cp='[{🇧🇷}]'>巴西</annotation>
+		<annotation cp='[{🇧🇷}]' draft='provisional'>巴西</annotation>
 
 		<!-- British Indian Ocean Territory; british; chagos; indian ocean; island -->
-		<annotation cp='[{🇮🇴}]'>英屬印度洋領土</annotation>
+		<annotation cp='[{🇮🇴}]' draft='provisional'>英屬印度洋領土</annotation>
 
 		<!-- British Virgin Islands; british; island; virgin -->
-		<annotation cp='[{🇻🇬}]'>英屬維京群島</annotation>
+		<annotation cp='[{🇻🇬}]' draft='provisional'>英屬維京群島</annotation>
 
 		<!-- Brunei; brunei; darussalam -->
-		<annotation cp='[{🇧🇳}]'>汶萊</annotation>
+		<annotation cp='[{🇧🇳}]' draft='provisional'>汶萊</annotation>
 
 		<!-- Bulgaria; bulgaria -->
-		<annotation cp='[{🇧🇬}]'>保加利亞</annotation>
+		<annotation cp='[{🇧🇬}]' draft='provisional'>保加利亞</annotation>
 
 		<!-- Burkina Faso; burkina faso -->
-		<annotation cp='[{🇧🇫}]'>布吉納法索</annotation>
+		<annotation cp='[{🇧🇫}]' draft='provisional'>布吉納法索</annotation>
 
 		<!-- Burundi; burundi -->
-		<annotation cp='[{🇧🇮}]'>蒲隆地</annotation>
+		<annotation cp='[{🇧🇮}]' draft='provisional'>蒲隆地</annotation>
 
 		<!-- Cambodia; cambodia -->
-		<annotation cp='[{🇰🇭}]'>柬埔寨</annotation>
+		<annotation cp='[{🇰🇭}]' draft='provisional'>柬埔寨</annotation>
 
 		<!-- Cameroon; cameroon -->
-		<annotation cp='[{🇨🇲}]'>喀麥隆</annotation>
+		<annotation cp='[{🇨🇲}]' draft='provisional'>喀麥隆</annotation>
 
 		<!-- Canada; canada -->
-		<annotation cp='[{🇨🇦}]'>加拿大</annotation>
+		<annotation cp='[{🇨🇦}]' draft='provisional'>加拿大</annotation>
 
 		<!-- Canary Islands; canary; island -->
-		<annotation cp='[{🇮🇨}]'>加那利群島</annotation>
+		<annotation cp='[{🇮🇨}]' draft='provisional'>加那利群島</annotation>
 
 		<!-- Cape Verde; cabo; cape; verde -->
-		<annotation cp='[{🇨🇻}]'>維德角</annotation>
+		<annotation cp='[{🇨🇻}]' draft='provisional'>維德角</annotation>
 
 		<!-- Caribbean Netherlands; bonaire; caribbean; eustatius; netherlands; saba; sint -->
-		<annotation cp='[{🇧🇶}]'>荷蘭加勒比區</annotation>
+		<annotation cp='[{🇧🇶}]' draft='provisional'>荷蘭加勒比區</annotation>
 
 		<!-- Cayman Islands; cayman; island -->
-		<annotation cp='[{🇰🇾}]'>開曼群島</annotation>
+		<annotation cp='[{🇰🇾}]' draft='provisional'>開曼群島</annotation>
 
 		<!-- Central African Republic; central african republic; republic -->
-		<annotation cp='[{🇨🇫}]'>中非共和國</annotation>
+		<annotation cp='[{🇨🇫}]' draft='provisional'>中非共和國</annotation>
 
 		<!-- Ceuta &amp; Melilla; ceuta; melilla -->
-		<annotation cp='[{🇪🇦}]'>休達與梅利利亞</annotation>
+		<annotation cp='[{🇪🇦}]' draft='provisional'>休達與梅利利亞</annotation>
 
 		<!-- Chad; chad -->
-		<annotation cp='[{🇹🇩}]'>查德</annotation>
+		<annotation cp='[{🇹🇩}]' draft='provisional'>查德</annotation>
 
 		<!-- Chile; chile -->
-		<annotation cp='[{🇨🇱}]'>智利</annotation>
+		<annotation cp='[{🇨🇱}]' draft='provisional'>智利</annotation>
 
 		<!-- China; china -->
-		<annotation cp='[{🇨🇳}]' tts='五星旗'>五星旗</annotation>
+		<annotation cp='[{🇨🇳}]' tts='五星旗' draft='provisional'>五星旗</annotation>
 
 		<!-- Christmas Island; christmas; island -->
-		<annotation cp='[{🇨🇽}]'>聖誕島</annotation>
+		<annotation cp='[{🇨🇽}]' draft='provisional'>聖誕島</annotation>
 
 		<!-- Clipperton Island; clipperton; island -->
-		<annotation cp='[{🇨🇵}]'>克里派頓島</annotation>
+		<annotation cp='[{🇨🇵}]' draft='provisional'>克里派頓島</annotation>
 
 		<!-- Cocos (Keeling) Islands; cocos; island; keeling -->
-		<annotation cp='[{🇨🇨}]'>可可斯群島</annotation>
+		<annotation cp='[{🇨🇨}]' draft='provisional'>可可斯群島</annotation>
 
 		<!-- Colombia; colombia -->
-		<annotation cp='[{🇨🇴}]'>哥倫比亞</annotation>
+		<annotation cp='[{🇨🇴}]' draft='provisional'>哥倫比亞</annotation>
 
 		<!-- Comoros; comoros -->
-		<annotation cp='[{🇰🇲}]'>葛摩</annotation>
+		<annotation cp='[{🇰🇲}]' draft='provisional'>葛摩</annotation>
 
 		<!-- Congo - Brazzaville; brazzaville; congo; congo republic; congo-brazzaville; republic; republic of the congo -->
-		<annotation cp='[{🇨🇬}]'>剛果（布拉薩）</annotation>
+		<annotation cp='[{🇨🇬}]' draft='provisional'>剛果（布拉薩）</annotation>
 
 		<!-- Congo - Kinshasa; congo; congo-kinshasa; democratic republic of congo; drc; kinshasa; republic -->
-		<annotation cp='[{🇨🇩}]'>剛果（金夏沙）</annotation>
+		<annotation cp='[{🇨🇩}]' draft='provisional'>剛果（金夏沙）</annotation>
 
 		<!-- Cook Islands; cook; island -->
-		<annotation cp='[{🇨🇰}]'>庫克群島</annotation>
+		<annotation cp='[{🇨🇰}]' draft='provisional'>庫克群島</annotation>
 
 		<!-- Costa Rica; costa rica -->
-		<annotation cp='[{🇨🇷}]'>哥斯大黎加</annotation>
+		<annotation cp='[{🇨🇷}]' draft='provisional'>哥斯大黎加</annotation>
 
 		<!-- Côte d’Ivoire; cote ivoire; côte ivoire; ivory coast -->
-		<annotation cp='[{🇨🇮}]'>象牙海岸</annotation>
+		<annotation cp='[{🇨🇮}]' draft='provisional'>象牙海岸</annotation>
 
 		<!-- Croatia; croatia -->
-		<annotation cp='[{🇭🇷}]'>克羅埃西亞</annotation>
+		<annotation cp='[{🇭🇷}]' draft='provisional'>克羅埃西亞</annotation>
 
 		<!-- Cuba; cuba -->
-		<annotation cp='[{🇨🇺}]'>古巴</annotation>
+		<annotation cp='[{🇨🇺}]' draft='provisional'>古巴</annotation>
 
 		<!-- Curaçao; antilles; curacao; curaçao -->
-		<annotation cp='[{🇨🇼}]'>庫拉索</annotation>
+		<annotation cp='[{🇨🇼}]' draft='provisional'>庫拉索</annotation>
 
 		<!-- Cyprus; cyprus -->
-		<annotation cp='[{🇨🇾}]'>賽普勒斯</annotation>
+		<annotation cp='[{🇨🇾}]' draft='provisional'>賽普勒斯</annotation>
 
 		<!-- Czech Republic; czech republic -->
-		<annotation cp='[{🇨🇿}]'>捷克共和國</annotation>
+		<annotation cp='[{🇨🇿}]' draft='provisional'>捷克共和國</annotation>
 
 		<!-- Denmark; denmark -->
-		<annotation cp='[{🇩🇰}]'>丹麥</annotation>
+		<annotation cp='[{🇩🇰}]' draft='provisional'>丹麥</annotation>
 
 		<!-- Diego Garcia; diego garcia -->
-		<annotation cp='[{🇩🇬}]'>迪亞哥加西亞島</annotation>
+		<annotation cp='[{🇩🇬}]' draft='provisional'>迪亞哥加西亞島</annotation>
 
 		<!-- Djibouti; djibouti -->
-		<annotation cp='[{🇩🇯}]'>吉布地</annotation>
+		<annotation cp='[{🇩🇯}]' draft='provisional'>吉布地</annotation>
 
 		<!-- Dominica; dominica -->
-		<annotation cp='[{🇩🇲}]'>多米尼克</annotation>
+		<annotation cp='[{🇩🇲}]' draft='provisional'>多米尼克</annotation>
 
 		<!-- Dominican Republic; dominican republic -->
-		<annotation cp='[{🇩🇴}]'>多明尼加共和國</annotation>
+		<annotation cp='[{🇩🇴}]' draft='provisional'>多明尼加共和國</annotation>
 
 		<!-- Ecuador; ecuador -->
-		<annotation cp='[{🇪🇨}]'>厄瓜多</annotation>
+		<annotation cp='[{🇪🇨}]' draft='provisional'>厄瓜多</annotation>
 
 		<!-- Egypt; egypt -->
-		<annotation cp='[{🇪🇬}]'>埃及</annotation>
+		<annotation cp='[{🇪🇬}]' draft='provisional'>埃及</annotation>
 
 		<!-- El Salvador; el salvador -->
-		<annotation cp='[{🇸🇻}]'>薩爾瓦多</annotation>
+		<annotation cp='[{🇸🇻}]' draft='provisional'>薩爾瓦多</annotation>
 
 		<!-- Equatorial Guinea; equatorial guinea; guinea -->
-		<annotation cp='[{🇬🇶}]'>赤道幾內亞</annotation>
+		<annotation cp='[{🇬🇶}]' draft='provisional'>赤道幾內亞</annotation>
 
 		<!-- Eritrea; eritrea -->
-		<annotation cp='[{🇪🇷}]'>厄利垂亞</annotation>
+		<annotation cp='[{🇪🇷}]' draft='provisional'>厄利垂亞</annotation>
 
 		<!-- Estonia; estonia -->
-		<annotation cp='[{🇪🇪}]'>愛沙尼亞</annotation>
+		<annotation cp='[{🇪🇪}]' draft='provisional'>愛沙尼亞</annotation>
 
 		<!-- Ethiopia; ethiopia -->
-		<annotation cp='[{🇪🇹}]'>衣索比亞</annotation>
+		<annotation cp='[{🇪🇹}]' draft='provisional'>衣索比亞</annotation>
 
 		<!-- European Union; european union -->
-		<annotation cp='[{🇪🇺}]'>歐盟</annotation>
+		<annotation cp='[{🇪🇺}]' draft='provisional'>歐盟</annotation>
 
 		<!-- Falkland Islands; falkland; falklands; island; islas; malvinas -->
-		<annotation cp='[{🇫🇰}]'>福克蘭群島</annotation>
+		<annotation cp='[{🇫🇰}]' draft='provisional'>福克蘭群島</annotation>
 
 		<!-- Faroe Islands; faroe; island -->
-		<annotation cp='[{🇫🇴}]'>法羅群島</annotation>
+		<annotation cp='[{🇫🇴}]' draft='provisional'>法羅群島</annotation>
 
 		<!-- Fiji; fiji -->
-		<annotation cp='[{🇫🇯}]'>斐濟</annotation>
+		<annotation cp='[{🇫🇯}]' draft='provisional'>斐濟</annotation>
 
 		<!-- Finland; finland -->
-		<annotation cp='[{🇫🇮}]'>芬蘭</annotation>
+		<annotation cp='[{🇫🇮}]' draft='provisional'>芬蘭</annotation>
 
 		<!-- France; france -->
-		<annotation cp='[{🇫🇷}]' tts='法國國旗'>法國國旗</annotation>
+		<annotation cp='[{🇫🇷}]' tts='法國國旗' draft='provisional'>法國國旗</annotation>
 
 		<!-- French Guiana; french; guiana -->
-		<annotation cp='[{🇬🇫}]'>法屬圭亞那</annotation>
+		<annotation cp='[{🇬🇫}]' draft='provisional'>法屬圭亞那</annotation>
 
 		<!-- French Polynesia; french; polynesia -->
-		<annotation cp='[{🇵🇫}]'>法屬玻里尼西亞</annotation>
+		<annotation cp='[{🇵🇫}]' draft='provisional'>法屬玻里尼西亞</annotation>
 
 		<!-- French Southern Territories; antarctic; french -->
-		<annotation cp='[{🇹🇫}]'>法屬南方屬地</annotation>
+		<annotation cp='[{🇹🇫}]' draft='provisional'>法屬南方屬地</annotation>
 
 		<!-- Gabon; gabon -->
-		<annotation cp='[{🇬🇦}]'>加彭</annotation>
+		<annotation cp='[{🇬🇦}]' draft='provisional'>加彭</annotation>
 
 		<!-- Gambia; gambia -->
-		<annotation cp='[{🇬🇲}]'>甘比亞</annotation>
+		<annotation cp='[{🇬🇲}]' draft='provisional'>甘比亞</annotation>
 
 		<!-- Georgia; georgia -->
-		<annotation cp='[{🇬🇪}]'>喬治亞共和國</annotation>
+		<annotation cp='[{🇬🇪}]' draft='provisional'>喬治亞共和國</annotation>
 
 		<!-- Germany; germany -->
-		<annotation cp='[{🇩🇪}]' tts='德國國旗'>德國國旗</annotation>
+		<annotation cp='[{🇩🇪}]' tts='德國國旗' draft='provisional'>德國國旗</annotation>
 
 		<!-- Ghana; ghana -->
-		<annotation cp='[{🇬🇭}]'>迦納</annotation>
+		<annotation cp='[{🇬🇭}]' draft='provisional'>迦納</annotation>
 
 		<!-- Gibraltar; gibraltar -->
-		<annotation cp='[{🇬🇮}]'>直布羅陀</annotation>
+		<annotation cp='[{🇬🇮}]' draft='provisional'>直布羅陀</annotation>
 
 		<!-- Greece; greece -->
-		<annotation cp='[{🇬🇷}]'>希臘</annotation>
+		<annotation cp='[{🇬🇷}]' draft='provisional'>希臘</annotation>
 
 		<!-- Greenland; greenland -->
-		<annotation cp='[{🇬🇱}]'>格陵蘭</annotation>
+		<annotation cp='[{🇬🇱}]' draft='provisional'>格陵蘭</annotation>
 
 		<!-- Grenada; grenada -->
-		<annotation cp='[{🇬🇩}]'>格瑞那達</annotation>
+		<annotation cp='[{🇬🇩}]' draft='provisional'>格瑞那達</annotation>
 
 		<!-- Guadeloupe; guadeloupe -->
-		<annotation cp='[{🇬🇵}]'>瓜地洛普</annotation>
+		<annotation cp='[{🇬🇵}]' draft='provisional'>瓜地洛普</annotation>
 
 		<!-- Guam; guam -->
-		<annotation cp='[{🇬🇺}]'>關島</annotation>
+		<annotation cp='[{🇬🇺}]' draft='provisional'>關島</annotation>
 
 		<!-- Guatemala; guatemala -->
-		<annotation cp='[{🇬🇹}]'>瓜地馬拉</annotation>
+		<annotation cp='[{🇬🇹}]' draft='provisional'>瓜地馬拉</annotation>
 
 		<!-- Guernsey; guernsey -->
-		<annotation cp='[{🇬🇬}]'>根西島</annotation>
+		<annotation cp='[{🇬🇬}]' draft='provisional'>根西島</annotation>
 
 		<!-- Guinea; guinea -->
-		<annotation cp='[{🇬🇳}]'>幾內亞</annotation>
+		<annotation cp='[{🇬🇳}]' draft='provisional'>幾內亞</annotation>
 
 		<!-- Guinea-Bissau; bissau; guinea -->
-		<annotation cp='[{🇬🇼}]'>幾內亞比紹</annotation>
+		<annotation cp='[{🇬🇼}]' draft='provisional'>幾內亞比紹</annotation>
 
 		<!-- Guyana; guyana -->
-		<annotation cp='[{🇬🇾}]'>蓋亞那</annotation>
+		<annotation cp='[{🇬🇾}]' draft='provisional'>蓋亞那</annotation>
 
 		<!-- Haiti; haiti -->
-		<annotation cp='[{🇭🇹}]'>海地</annotation>
+		<annotation cp='[{🇭🇹}]' draft='provisional'>海地</annotation>
 
 		<!-- Heard &amp; McDonald Islands; heard; island; mcdonald -->
-		<annotation cp='[{🇭🇲}]'>赫德島和麥克唐納群島</annotation>
+		<annotation cp='[{🇭🇲}]' draft='provisional'>赫德島和麥克唐納群島</annotation>
 
 		<!-- Honduras; honduras -->
-		<annotation cp='[{🇭🇳}]'>宏都拉斯</annotation>
+		<annotation cp='[{🇭🇳}]' draft='provisional'>宏都拉斯</annotation>
 
 		<!-- Hong Kong SAR China; china; hong kong -->
-		<annotation cp='[{🇭🇰}]'>中華人民共和國香港特別行政區</annotation>
+		<annotation cp='[{🇭🇰}]' draft='provisional'>中華人民共和國香港特別行政區</annotation>
 
 		<!-- Hungary; hungary -->
-		<annotation cp='[{🇭🇺}]'>匈牙利</annotation>
+		<annotation cp='[{🇭🇺}]' draft='provisional'>匈牙利</annotation>
 
 		<!-- Iceland; iceland -->
-		<annotation cp='[{🇮🇸}]'>冰島</annotation>
+		<annotation cp='[{🇮🇸}]' draft='provisional'>冰島</annotation>
 
 		<!-- India; india -->
-		<annotation cp='[{🇮🇳}]'>印度</annotation>
+		<annotation cp='[{🇮🇳}]' draft='provisional'>印度</annotation>
 
 		<!-- Indonesia; indonesia -->
-		<annotation cp='[{🇮🇩}]'>印尼</annotation>
+		<annotation cp='[{🇮🇩}]' draft='provisional'>印尼</annotation>
 
 		<!-- Iran; iran -->
-		<annotation cp='[{🇮🇷}]'>伊朗</annotation>
+		<annotation cp='[{🇮🇷}]' draft='provisional'>伊朗</annotation>
 
 		<!-- Iraq; iraq -->
-		<annotation cp='[{🇮🇶}]'>伊拉克</annotation>
+		<annotation cp='[{🇮🇶}]' draft='provisional'>伊拉克</annotation>
 
 		<!-- Ireland; ireland -->
-		<annotation cp='[{🇮🇪}]'>愛爾蘭</annotation>
+		<annotation cp='[{🇮🇪}]' draft='provisional'>愛爾蘭</annotation>
 
 		<!-- Isle of Man; isle of man -->
-		<annotation cp='[{🇮🇲}]'>曼島</annotation>
+		<annotation cp='[{🇮🇲}]' draft='provisional'>曼島</annotation>
 
 		<!-- Israel; israel -->
-		<annotation cp='[{🇮🇱}]'>以色列</annotation>
+		<annotation cp='[{🇮🇱}]' draft='provisional'>以色列</annotation>
 
 		<!-- Italy; italy -->
-		<annotation cp='[{🇮🇹}]' tts='義大利國旗'>義大利國旗</annotation>
+		<annotation cp='[{🇮🇹}]' tts='義大利國旗' draft='provisional'>義大利國旗</annotation>
 
 		<!-- Jamaica; jamaica -->
-		<annotation cp='[{🇯🇲}]'>牙買加</annotation>
+		<annotation cp='[{🇯🇲}]' draft='provisional'>牙買加</annotation>
 
 		<!-- Japan; japan -->
-		<annotation cp='[{🇯🇵}]' tts='日本國旗'>日本國旗</annotation>
+		<annotation cp='[{🇯🇵}]' tts='日本國旗' draft='provisional'>日本國旗</annotation>
 
 		<!-- Jersey; jersey -->
-		<annotation cp='[{🇯🇪}]'>澤西島</annotation>
+		<annotation cp='[{🇯🇪}]' draft='provisional'>澤西島</annotation>
 
 		<!-- Jordan; jordan -->
-		<annotation cp='[{🇯🇴}]'>約旦</annotation>
+		<annotation cp='[{🇯🇴}]' draft='provisional'>約旦</annotation>
 
 		<!-- Kazakhstan; kazakhstan -->
-		<annotation cp='[{🇰🇿}]'>哈薩克</annotation>
+		<annotation cp='[{🇰🇿}]' draft='provisional'>哈薩克</annotation>
 
 		<!-- Kenya; kenya -->
-		<annotation cp='[{🇰🇪}]'>肯亞</annotation>
+		<annotation cp='[{🇰🇪}]' draft='provisional'>肯亞</annotation>
 
 		<!-- Kiribati; kiribati -->
-		<annotation cp='[{🇰🇮}]'>吉里巴斯</annotation>
+		<annotation cp='[{🇰🇮}]' draft='provisional'>吉里巴斯</annotation>
 
 		<!-- Kosovo; kosovo -->
-		<annotation cp='[{🇽🇰}]'>科索沃</annotation>
+		<annotation cp='[{🇽🇰}]' draft='provisional'>科索沃</annotation>
 
 		<!-- Kuwait; kuwait -->
-		<annotation cp='[{🇰🇼}]'>科威特</annotation>
+		<annotation cp='[{🇰🇼}]' draft='provisional'>科威特</annotation>
 
 		<!-- Kyrgyzstan; kyrgyzstan -->
-		<annotation cp='[{🇰🇬}]'>吉爾吉斯</annotation>
+		<annotation cp='[{🇰🇬}]' draft='provisional'>吉爾吉斯</annotation>
 
 		<!-- Laos; laos -->
-		<annotation cp='[{🇱🇦}]'>寮國</annotation>
+		<annotation cp='[{🇱🇦}]' draft='provisional'>寮國</annotation>
 
 		<!-- Latvia; latvia -->
-		<annotation cp='[{🇱🇻}]'>拉脫維亞</annotation>
+		<annotation cp='[{🇱🇻}]' draft='provisional'>拉脫維亞</annotation>
 
 		<!-- Lebanon; lebanon -->
-		<annotation cp='[{🇱🇧}]'>黎巴嫩</annotation>
+		<annotation cp='[{🇱🇧}]' draft='provisional'>黎巴嫩</annotation>
 
 		<!-- Lesotho; lesotho -->
-		<annotation cp='[{🇱🇸}]'>賴索托</annotation>
+		<annotation cp='[{🇱🇸}]' draft='provisional'>賴索托</annotation>
 
 		<!-- Liberia; liberia -->
-		<annotation cp='[{🇱🇷}]'>賴比瑞亞</annotation>
+		<annotation cp='[{🇱🇷}]' draft='provisional'>賴比瑞亞</annotation>
 
 		<!-- Libya; libya -->
-		<annotation cp='[{🇱🇾}]'>利比亞</annotation>
+		<annotation cp='[{🇱🇾}]' draft='provisional'>利比亞</annotation>
 
 		<!-- Liechtenstein; liechtenstein -->
-		<annotation cp='[{🇱🇮}]'>列支敦斯登</annotation>
+		<annotation cp='[{🇱🇮}]' draft='provisional'>列支敦斯登</annotation>
 
 		<!-- Lithuania; lithuania -->
-		<annotation cp='[{🇱🇹}]'>立陶宛</annotation>
+		<annotation cp='[{🇱🇹}]' draft='provisional'>立陶宛</annotation>
 
 		<!-- Luxembourg; luxembourg -->
-		<annotation cp='[{🇱🇺}]'>盧森堡</annotation>
+		<annotation cp='[{🇱🇺}]' draft='provisional'>盧森堡</annotation>
 
 		<!-- Macau SAR China; china; macao; macau -->
-		<annotation cp='[{🇲🇴}]'>中華人民共和國澳門特別行政區</annotation>
+		<annotation cp='[{🇲🇴}]' draft='provisional'>中華人民共和國澳門特別行政區</annotation>
 
 		<!-- Macedonia; macedonia -->
-		<annotation cp='[{🇲🇰}]'>馬其頓</annotation>
+		<annotation cp='[{🇲🇰}]' draft='provisional'>馬其頓</annotation>
 
 		<!-- Madagascar; madagascar -->
-		<annotation cp='[{🇲🇬}]'>馬達加斯加</annotation>
+		<annotation cp='[{🇲🇬}]' draft='provisional'>馬達加斯加</annotation>
 
 		<!-- Malawi; malawi -->
-		<annotation cp='[{🇲🇼}]'>馬拉威</annotation>
+		<annotation cp='[{🇲🇼}]' draft='provisional'>馬拉威</annotation>
 
 		<!-- Malaysia; malaysia -->
-		<annotation cp='[{🇲🇾}]'>馬來西亞</annotation>
+		<annotation cp='[{🇲🇾}]' draft='provisional'>馬來西亞</annotation>
 
 		<!-- Maldives; maldives -->
-		<annotation cp='[{🇲🇻}]'>馬爾地夫</annotation>
+		<annotation cp='[{🇲🇻}]' draft='provisional'>馬爾地夫</annotation>
 
 		<!-- Mali; mali -->
-		<annotation cp='[{🇲🇱}]'>馬利</annotation>
+		<annotation cp='[{🇲🇱}]' draft='provisional'>馬利</annotation>
 
 		<!-- Malta; malta -->
-		<annotation cp='[{🇲🇹}]'>馬爾他</annotation>
+		<annotation cp='[{🇲🇹}]' draft='provisional'>馬爾他</annotation>
 
 		<!-- Marshall Islands; island; marshall -->
-		<annotation cp='[{🇲🇭}]'>馬紹爾群島</annotation>
+		<annotation cp='[{🇲🇭}]' draft='provisional'>馬紹爾群島</annotation>
 
 		<!-- Martinique; martinique -->
-		<annotation cp='[{🇲🇶}]'>馬丁尼克島</annotation>
+		<annotation cp='[{🇲🇶}]' draft='provisional'>馬丁尼克島</annotation>
 
 		<!-- Mauritania; mauritania -->
-		<annotation cp='[{🇲🇷}]'>茅利塔尼亞</annotation>
+		<annotation cp='[{🇲🇷}]' draft='provisional'>茅利塔尼亞</annotation>
 
 		<!-- Mauritius; mauritius -->
-		<annotation cp='[{🇲🇺}]'>模里西斯</annotation>
+		<annotation cp='[{🇲🇺}]' draft='provisional'>模里西斯</annotation>
 
 		<!-- Mayotte; mayotte -->
-		<annotation cp='[{🇾🇹}]'>馬約特</annotation>
+		<annotation cp='[{🇾🇹}]' draft='provisional'>馬約特</annotation>
 
 		<!-- Mexico; mexico -->
-		<annotation cp='[{🇲🇽}]'>墨西哥</annotation>
+		<annotation cp='[{🇲🇽}]' draft='provisional'>墨西哥</annotation>
 
 		<!-- Micronesia; micronesia -->
-		<annotation cp='[{🇫🇲}]'>密克羅尼西亞群島</annotation>
+		<annotation cp='[{🇫🇲}]' draft='provisional'>密克羅尼西亞群島</annotation>
 
 		<!-- Moldova; moldova -->
-		<annotation cp='[{🇲🇩}]'>摩爾多瓦</annotation>
+		<annotation cp='[{🇲🇩}]' draft='provisional'>摩爾多瓦</annotation>
 
 		<!-- Monaco; monaco -->
-		<annotation cp='[{🇲🇨}]'>摩納哥</annotation>
+		<annotation cp='[{🇲🇨}]' draft='provisional'>摩納哥</annotation>
 
 		<!-- Mongolia; mongolia -->
-		<annotation cp='[{🇲🇳}]'>蒙古</annotation>
+		<annotation cp='[{🇲🇳}]' draft='provisional'>蒙古</annotation>
 
 		<!-- Montenegro; montenegro -->
-		<annotation cp='[{🇲🇪}]'>蒙特內哥羅</annotation>
+		<annotation cp='[{🇲🇪}]' draft='provisional'>蒙特內哥羅</annotation>
 
 		<!-- Montserrat; montserrat -->
-		<annotation cp='[{🇲🇸}]'>蒙哲臘</annotation>
+		<annotation cp='[{🇲🇸}]' draft='provisional'>蒙哲臘</annotation>
 
 		<!-- Morocco; morocco -->
-		<annotation cp='[{🇲🇦}]'>摩洛哥</annotation>
+		<annotation cp='[{🇲🇦}]' draft='provisional'>摩洛哥</annotation>
 
 		<!-- Mozambique; mozambique -->
-		<annotation cp='[{🇲🇿}]'>莫三比克</annotation>
+		<annotation cp='[{🇲🇿}]' draft='provisional'>莫三比克</annotation>
 
 		<!-- Myanmar (Burma); burma; myanmar -->
-		<annotation cp='[{🇲🇲}]'>緬甸</annotation>
+		<annotation cp='[{🇲🇲}]' draft='provisional'>緬甸</annotation>
 
 		<!-- Namibia; namibia -->
-		<annotation cp='[{🇳🇦}]'>納米比亞</annotation>
+		<annotation cp='[{🇳🇦}]' draft='provisional'>納米比亞</annotation>
 
 		<!-- Nauru; nauru -->
-		<annotation cp='[{🇳🇷}]'>諾魯</annotation>
+		<annotation cp='[{🇳🇷}]' draft='provisional'>諾魯</annotation>
 
 		<!-- Nepal; nepal -->
-		<annotation cp='[{🇳🇵}]'>尼泊爾</annotation>
+		<annotation cp='[{🇳🇵}]' draft='provisional'>尼泊爾</annotation>
 
 		<!-- Netherlands; netherlands -->
-		<annotation cp='[{🇳🇱}]'>荷蘭</annotation>
+		<annotation cp='[{🇳🇱}]' draft='provisional'>荷蘭</annotation>
 
 		<!-- New Caledonia; new; new caledonia -->
-		<annotation cp='[{🇳🇨}]'>新喀里多尼亞群島</annotation>
+		<annotation cp='[{🇳🇨}]' draft='provisional'>新喀里多尼亞群島</annotation>
 
 		<!-- New Zealand; new; new zealand -->
-		<annotation cp='[{🇳🇿}]'>紐西蘭</annotation>
+		<annotation cp='[{🇳🇿}]' draft='provisional'>紐西蘭</annotation>
 
 		<!-- Nicaragua; nicaragua -->
-		<annotation cp='[{🇳🇮}]'>尼加拉瓜</annotation>
+		<annotation cp='[{🇳🇮}]' draft='provisional'>尼加拉瓜</annotation>
 
 		<!-- Niger; niger -->
-		<annotation cp='[{🇳🇪}]'>尼日</annotation>
+		<annotation cp='[{🇳🇪}]' draft='provisional'>尼日</annotation>
 
 		<!-- Nigeria; nigeria -->
-		<annotation cp='[{🇳🇬}]'>奈及利亞</annotation>
+		<annotation cp='[{🇳🇬}]' draft='provisional'>奈及利亞</annotation>
 
 		<!-- Niue; niue -->
-		<annotation cp='[{🇳🇺}]'>紐埃島</annotation>
+		<annotation cp='[{🇳🇺}]' draft='provisional'>紐埃島</annotation>
 
 		<!-- Norfolk Island; island; norfolk -->
-		<annotation cp='[{🇳🇫}]'>諾福克島</annotation>
+		<annotation cp='[{🇳🇫}]' draft='provisional'>諾福克島</annotation>
 
 		<!-- Northern Mariana Islands; island; mariana; north; northern mariana -->
-		<annotation cp='[{🇲🇵}]'>北馬里亞納群島</annotation>
+		<annotation cp='[{🇲🇵}]' draft='provisional'>北馬里亞納群島</annotation>
 
 		<!-- North Korea; korea; north; north korea -->
-		<annotation cp='[{🇰🇵}]'>北韓</annotation>
+		<annotation cp='[{🇰🇵}]' draft='provisional'>北韓</annotation>
 
 		<!-- Norway; norway -->
-		<annotation cp='[{🇳🇴}]'>挪威</annotation>
+		<annotation cp='[{🇳🇴}]' draft='provisional'>挪威</annotation>
 
 		<!-- Oman; oman -->
-		<annotation cp='[{🇴🇲}]'>阿曼王國</annotation>
+		<annotation cp='[{🇴🇲}]' draft='provisional'>阿曼王國</annotation>
 
 		<!-- Pakistan; pakistan -->
-		<annotation cp='[{🇵🇰}]'>巴基斯坦</annotation>
+		<annotation cp='[{🇵🇰}]' draft='provisional'>巴基斯坦</annotation>
 
 		<!-- Palau; palau -->
-		<annotation cp='[{🇵🇼}]'>帛琉</annotation>
+		<annotation cp='[{🇵🇼}]' draft='provisional'>帛琉</annotation>
 
 		<!-- Palestinian Territories; palestine -->
-		<annotation cp='[{🇵🇸}]'>巴勒斯坦自治區</annotation>
+		<annotation cp='[{🇵🇸}]' draft='provisional'>巴勒斯坦自治區</annotation>
 
 		<!-- Panama; panama -->
-		<annotation cp='[{🇵🇦}]'>巴拿馬</annotation>
+		<annotation cp='[{🇵🇦}]' draft='provisional'>巴拿馬</annotation>
 
 		<!-- Papua New Guinea; guinea; new; papua new guinea -->
-		<annotation cp='[{🇵🇬}]'>巴布亞紐幾內亞</annotation>
+		<annotation cp='[{🇵🇬}]' draft='provisional'>巴布亞紐幾內亞</annotation>
 
 		<!-- Paraguay; paraguay -->
-		<annotation cp='[{🇵🇾}]'>巴拉圭</annotation>
+		<annotation cp='[{🇵🇾}]' draft='provisional'>巴拉圭</annotation>
 
 		<!-- Peru; peru -->
-		<annotation cp='[{🇵🇪}]'>秘魯</annotation>
+		<annotation cp='[{🇵🇪}]' draft='provisional'>秘魯</annotation>
 
 		<!-- Philippines; philippines -->
-		<annotation cp='[{🇵🇭}]'>菲律賓</annotation>
+		<annotation cp='[{🇵🇭}]' draft='provisional'>菲律賓</annotation>
 
 		<!-- Pitcairn Islands; island; pitcairn -->
-		<annotation cp='[{🇵🇳}]'>皮特肯群島</annotation>
+		<annotation cp='[{🇵🇳}]' draft='provisional'>皮特肯群島</annotation>
 
 		<!-- Poland; poland -->
-		<annotation cp='[{🇵🇱}]'>波蘭</annotation>
+		<annotation cp='[{🇵🇱}]' draft='provisional'>波蘭</annotation>
 
 		<!-- Portugal; portugal -->
-		<annotation cp='[{🇵🇹}]'>葡萄牙</annotation>
+		<annotation cp='[{🇵🇹}]' draft='provisional'>葡萄牙</annotation>
 
 		<!-- Puerto Rico; puerto rico -->
-		<annotation cp='[{🇵🇷}]'>波多黎各</annotation>
+		<annotation cp='[{🇵🇷}]' draft='provisional'>波多黎各</annotation>
 
 		<!-- Qatar; qatar -->
-		<annotation cp='[{🇶🇦}]'>卡達</annotation>
+		<annotation cp='[{🇶🇦}]' draft='provisional'>卡達</annotation>
 
 		<!-- Réunion; reunion; réunion -->
-		<annotation cp='[{🇷🇪}]'>留尼旺</annotation>
+		<annotation cp='[{🇷🇪}]' draft='provisional'>留尼旺</annotation>
 
 		<!-- Romania; romania -->
-		<annotation cp='[{🇷🇴}]'>羅馬尼亞</annotation>
+		<annotation cp='[{🇷🇴}]' draft='provisional'>羅馬尼亞</annotation>
 
 		<!-- Russia; russia -->
-		<annotation cp='[{🇷🇺}]' tts='俄羅斯國旗'>俄羅斯國旗</annotation>
+		<annotation cp='[{🇷🇺}]' tts='俄羅斯國旗' draft='provisional'>俄羅斯國旗</annotation>
 
 		<!-- Rwanda; rwanda -->
-		<annotation cp='[{🇷🇼}]'>盧安達</annotation>
+		<annotation cp='[{🇷🇼}]' draft='provisional'>盧安達</annotation>
 
 		<!-- Samoa; samoa -->
-		<annotation cp='[{🇼🇸}]'>薩摩亞群島</annotation>
+		<annotation cp='[{🇼🇸}]' draft='provisional'>薩摩亞群島</annotation>
 
 		<!-- San Marino; san marino -->
-		<annotation cp='[{🇸🇲}]'>聖馬利諾</annotation>
+		<annotation cp='[{🇸🇲}]' draft='provisional'>聖馬利諾</annotation>
 
 		<!-- São Tomé &amp; Príncipe; principe; príncipe; sao tome; são tomé -->
-		<annotation cp='[{🇸🇹}]'>聖多美及普林西比</annotation>
+		<annotation cp='[{🇸🇹}]' draft='provisional'>聖多美及普林西比</annotation>
 
 		<!-- Saudi Arabia; saudi arabia -->
-		<annotation cp='[{🇸🇦}]'>沙烏地阿拉伯</annotation>
+		<annotation cp='[{🇸🇦}]' draft='provisional'>沙烏地阿拉伯</annotation>
 
 		<!-- Senegal; senegal -->
-		<annotation cp='[{🇸🇳}]'>塞內加爾</annotation>
+		<annotation cp='[{🇸🇳}]' draft='provisional'>塞內加爾</annotation>
 
 		<!-- Serbia; serbia -->
-		<annotation cp='[{🇷🇸}]'>塞爾維亞</annotation>
+		<annotation cp='[{🇷🇸}]' draft='provisional'>塞爾維亞</annotation>
 
 		<!-- Seychelles; seychelles -->
-		<annotation cp='[{🇸🇨}]'>塞席爾</annotation>
+		<annotation cp='[{🇸🇨}]' draft='provisional'>塞席爾</annotation>
 
 		<!-- Sierra Leone; sierra leone -->
-		<annotation cp='[{🇸🇱}]'>獅子山</annotation>
+		<annotation cp='[{🇸🇱}]' draft='provisional'>獅子山</annotation>
 
 		<!-- Singapore; singapore -->
-		<annotation cp='[{🇸🇬}]'>新加坡</annotation>
+		<annotation cp='[{🇸🇬}]' draft='provisional'>新加坡</annotation>
 
 		<!-- Sint Maarten; maarten; sint -->
-		<annotation cp='[{🇸🇽}]'>荷屬聖馬丁</annotation>
+		<annotation cp='[{🇸🇽}]' draft='provisional'>荷屬聖馬丁</annotation>
 
 		<!-- Slovakia; slovakia -->
-		<annotation cp='[{🇸🇰}]'>斯洛伐克</annotation>
+		<annotation cp='[{🇸🇰}]' draft='provisional'>斯洛伐克</annotation>
 
 		<!-- Slovenia; slovenia -->
-		<annotation cp='[{🇸🇮}]'>斯洛維尼亞</annotation>
+		<annotation cp='[{🇸🇮}]' draft='provisional'>斯洛維尼亞</annotation>
 
 		<!-- Solomon Islands; island; solomon -->
-		<annotation cp='[{🇸🇧}]'>索羅門群島</annotation>
+		<annotation cp='[{🇸🇧}]' draft='provisional'>索羅門群島</annotation>
 
 		<!-- Somalia; somalia -->
-		<annotation cp='[{🇸🇴}]'>索馬利亞</annotation>
+		<annotation cp='[{🇸🇴}]' draft='provisional'>索馬利亞</annotation>
 
 		<!-- South Africa; south; south africa -->
-		<annotation cp='[{🇿🇦}]'>南非</annotation>
+		<annotation cp='[{🇿🇦}]' draft='provisional'>南非</annotation>
 
 		<!-- South Georgia &amp; South Sandwich Islands; georgia; island; south; south georgia; south sandwich -->
-		<annotation cp='[{🇬🇸}]'>南喬治亞與南三明治群島</annotation>
+		<annotation cp='[{🇬🇸}]' draft='provisional'>南喬治亞與南三明治群島</annotation>
 
 		<!-- South Korea; korea; south; south korea -->
-		<annotation cp='[{🇰🇷}]' tts='韓國國旗'>韓國國旗</annotation>
+		<annotation cp='[{🇰🇷}]' tts='韓國國旗' draft='provisional'>韓國國旗</annotation>
 
 		<!-- South Sudan; south; south sudan; sudan -->
-		<annotation cp='[{🇸🇸}]'>南蘇丹</annotation>
+		<annotation cp='[{🇸🇸}]' draft='provisional'>南蘇丹</annotation>
 
 		<!-- Spain; spain -->
-		<annotation cp='[{🇪🇸}]' tts='西班牙國旗'>西班牙國旗</annotation>
+		<annotation cp='[{🇪🇸}]' tts='西班牙國旗' draft='provisional'>西班牙國旗</annotation>
 
 		<!-- Sri Lanka; sri lanka -->
-		<annotation cp='[{🇱🇰}]'>斯里蘭卡</annotation>
+		<annotation cp='[{🇱🇰}]' draft='provisional'>斯里蘭卡</annotation>
 
 		<!-- St. Barthélemy; barthelemy; barthélemy; saint -->
-		<annotation cp='[{🇧🇱}]'>聖巴瑟米</annotation>
+		<annotation cp='[{🇧🇱}]' draft='provisional'>聖巴瑟米</annotation>
 
 		<!-- St. Helena; helena; saint -->
-		<annotation cp='[{🇸🇭}]'>聖赫勒拿島</annotation>
+		<annotation cp='[{🇸🇭}]' draft='provisional'>聖赫勒拿島</annotation>
 
 		<!-- St. Kitts &amp; Nevis; kitts; nevis; saint -->
-		<annotation cp='[{🇰🇳}]'>聖克里斯多福及尼維斯</annotation>
+		<annotation cp='[{🇰🇳}]' draft='provisional'>聖克里斯多福及尼維斯</annotation>
 
 		<!-- St. Lucia; lucia; saint -->
-		<annotation cp='[{🇱🇨}]'>聖露西亞</annotation>
+		<annotation cp='[{🇱🇨}]' draft='provisional'>聖露西亞</annotation>
 
 		<!-- St. Martin; french; martin; saint -->
-		<annotation cp='[{🇲🇫}]'>法屬聖馬丁</annotation>
+		<annotation cp='[{🇲🇫}]' draft='provisional'>法屬聖馬丁</annotation>
 
 		<!-- St. Pierre &amp; Miquelon; miquelon; pierre; saint -->
-		<annotation cp='[{🇵🇲}]'>聖皮埃爾和密克隆群島</annotation>
+		<annotation cp='[{🇵🇲}]' draft='provisional'>聖皮埃爾和密克隆群島</annotation>
 
 		<!-- St. Vincent &amp; Grenadines; grenadines; saint; vincent -->
-		<annotation cp='[{🇻🇨}]'>聖文森及格瑞那丁</annotation>
+		<annotation cp='[{🇻🇨}]' draft='provisional'>聖文森及格瑞那丁</annotation>
 
 		<!-- Sudan; sudan -->
-		<annotation cp='[{🇸🇩}]'>蘇丹</annotation>
+		<annotation cp='[{🇸🇩}]' draft='provisional'>蘇丹</annotation>
 
 		<!-- Suriname; suriname -->
-		<annotation cp='[{🇸🇷}]'>蘇利南</annotation>
+		<annotation cp='[{🇸🇷}]' draft='provisional'>蘇利南</annotation>
 
 		<!-- Svalbard &amp; Jan Mayen; jan mayen; svalbard -->
-		<annotation cp='[{🇸🇯}]'>冷岸及央麥恩群島</annotation>
+		<annotation cp='[{🇸🇯}]' draft='provisional'>冷岸及央麥恩群島</annotation>
 
 		<!-- Swaziland; swaziland -->
-		<annotation cp='[{🇸🇿}]'>史瓦濟蘭</annotation>
+		<annotation cp='[{🇸🇿}]' draft='provisional'>史瓦濟蘭</annotation>
 
 		<!-- Sweden; sweden -->
-		<annotation cp='[{🇸🇪}]'>瑞典</annotation>
+		<annotation cp='[{🇸🇪}]' draft='provisional'>瑞典</annotation>
 
 		<!-- Switzerland; switzerland -->
-		<annotation cp='[{🇨🇭}]'>瑞士</annotation>
+		<annotation cp='[{🇨🇭}]' draft='provisional'>瑞士</annotation>
 
 		<!-- Syria; syria -->
-		<annotation cp='[{🇸🇾}]'>敘利亞</annotation>
+		<annotation cp='[{🇸🇾}]' draft='provisional'>敘利亞</annotation>
 
 		<!-- Taiwan; china; taiwan -->
-		<annotation cp='[{🇹🇼}]'>台灣</annotation>
+		<annotation cp='[{🇹🇼}]' draft='provisional'>台灣</annotation>
 
 		<!-- Tajikistan; tajikistan -->
-		<annotation cp='[{🇹🇯}]'>塔吉克</annotation>
+		<annotation cp='[{🇹🇯}]' draft='provisional'>塔吉克</annotation>
 
 		<!-- Tanzania; tanzania -->
-		<annotation cp='[{🇹🇿}]'>坦尚尼亞</annotation>
+		<annotation cp='[{🇹🇿}]' draft='provisional'>坦尚尼亞</annotation>
 
 		<!-- Thailand; thailand -->
-		<annotation cp='[{🇹🇭}]'>泰國</annotation>
+		<annotation cp='[{🇹🇭}]' draft='provisional'>泰國</annotation>
 
 		<!-- Timor-Leste; east; east timor; timor-leste -->
-		<annotation cp='[{🇹🇱}]'>東帝汶</annotation>
+		<annotation cp='[{🇹🇱}]' draft='provisional'>東帝汶</annotation>
 
 		<!-- Togo; togo -->
-		<annotation cp='[{🇹🇬}]'>多哥共和國</annotation>
+		<annotation cp='[{🇹🇬}]' draft='provisional'>多哥共和國</annotation>
 
 		<!-- Tokelau; tokelau -->
-		<annotation cp='[{🇹🇰}]'>托克勞群島</annotation>
+		<annotation cp='[{🇹🇰}]' draft='provisional'>托克勞群島</annotation>
 
 		<!-- Tonga; tonga -->
-		<annotation cp='[{🇹🇴}]'>東加</annotation>
+		<annotation cp='[{🇹🇴}]' draft='provisional'>東加</annotation>
 
 		<!-- Trinidad &amp; Tobago; tobago; trinidad -->
-		<annotation cp='[{🇹🇹}]'>千里達及托巴哥</annotation>
+		<annotation cp='[{🇹🇹}]' draft='provisional'>千里達及托巴哥</annotation>
 
 		<!-- Tristan da Cunha; tristan da cunha -->
-		<annotation cp='[{🇹🇦}]'>特里斯坦達庫尼亞群島</annotation>
+		<annotation cp='[{🇹🇦}]' draft='provisional'>特里斯坦達庫尼亞群島</annotation>
 
 		<!-- Tunisia; tunisia -->
-		<annotation cp='[{🇹🇳}]'>突尼西亞</annotation>
+		<annotation cp='[{🇹🇳}]' draft='provisional'>突尼西亞</annotation>
 
 		<!-- Turkey; turkey -->
-		<annotation cp='[{🇹🇷}]'>土耳其</annotation>
+		<annotation cp='[{🇹🇷}]' draft='provisional'>土耳其</annotation>
 
 		<!-- Turkmenistan; turkmenistan -->
-		<annotation cp='[{🇹🇲}]'>土庫曼</annotation>
+		<annotation cp='[{🇹🇲}]' draft='provisional'>土庫曼</annotation>
 
 		<!-- Turks &amp; Caicos Islands; caicos; island; turks -->
-		<annotation cp='[{🇹🇨}]'>土克斯及開科斯群島</annotation>
+		<annotation cp='[{🇹🇨}]' draft='provisional'>土克斯及開科斯群島</annotation>
 
 		<!-- Tuvalu; tuvalu -->
-		<annotation cp='[{🇹🇻}]'>吐瓦魯</annotation>
+		<annotation cp='[{🇹🇻}]' draft='provisional'>吐瓦魯</annotation>
 
 		<!-- Uganda; uganda -->
-		<annotation cp='[{🇺🇬}]'>烏干達</annotation>
+		<annotation cp='[{🇺🇬}]' draft='provisional'>烏干達</annotation>
 
 		<!-- Ukraine; ukraine -->
-		<annotation cp='[{🇺🇦}]'>烏克蘭</annotation>
+		<annotation cp='[{🇺🇦}]' draft='provisional'>烏克蘭</annotation>
 
 		<!-- United Arab Emirates; emirates; uae; united -->
-		<annotation cp='[{🇦🇪}]'>阿拉伯聯合大公國</annotation>
+		<annotation cp='[{🇦🇪}]' draft='provisional'>阿拉伯聯合大公國</annotation>
 
 		<!-- United Kingdom; britain; british; cornwall; england; great britain; ireland; northern ireland; scotland; uk; union jack; united; united kingdom; wales -->
-		<annotation cp='[{🇬🇧}]' tts='英國國旗'>英國國旗</annotation>
+		<annotation cp='[{🇬🇧}]' tts='英國國旗' draft='provisional'>英國國旗</annotation>
 
 		<!-- United States; america; stars and stripes; united; united states -->
-		<annotation cp='[{🇺🇸}]' tts='美國國旗'>美國國旗</annotation>
+		<annotation cp='[{🇺🇸}]' tts='美國國旗' draft='provisional'>美國國旗</annotation>
 
 		<!-- Uruguay; uruguay -->
-		<annotation cp='[{🇺🇾}]'>烏拉圭</annotation>
+		<annotation cp='[{🇺🇾}]' draft='provisional'>烏拉圭</annotation>
 
 		<!-- U.S. Outlying Islands; america; island; minor outlying; united; united states; us; usa -->
-		<annotation cp='[{🇺🇲}]'>美國本土外小島嶼</annotation>
+		<annotation cp='[{🇺🇲}]' draft='provisional'>美國本土外小島嶼</annotation>
 
 		<!-- U.S. Virgin Islands; america; american; island; united; united states; us; usa; virgin -->
-		<annotation cp='[{🇻🇮}]'>美屬維京群島</annotation>
+		<annotation cp='[{🇻🇮}]' draft='provisional'>美屬維京群島</annotation>
 
 		<!-- Uzbekistan; uzbekistan -->
-		<annotation cp='[{🇺🇿}]'>烏茲別克</annotation>
+		<annotation cp='[{🇺🇿}]' draft='provisional'>烏茲別克</annotation>
 
 		<!-- Vanuatu; vanuatu -->
-		<annotation cp='[{🇻🇺}]'>萬那杜</annotation>
+		<annotation cp='[{🇻🇺}]' draft='provisional'>萬那杜</annotation>
 
 		<!-- Vatican City; vatican -->
-		<annotation cp='[{🇻🇦}]'>梵蒂岡</annotation>
+		<annotation cp='[{🇻🇦}]' draft='provisional'>梵蒂岡</annotation>
 
 		<!-- Venezuela; venezuela -->
-		<annotation cp='[{🇻🇪}]'>委內瑞拉</annotation>
+		<annotation cp='[{🇻🇪}]' draft='provisional'>委內瑞拉</annotation>
 
 		<!-- Vietnam; viet nam; vietnam -->
-		<annotation cp='[{🇻🇳}]'>越南</annotation>
+		<annotation cp='[{🇻🇳}]' draft='provisional'>越南</annotation>
 
 		<!-- Wallis &amp; Futuna; futuna; wallis -->
-		<annotation cp='[{🇼🇫}]'>瓦利斯和富圖納群島</annotation>
+		<annotation cp='[{🇼🇫}]' draft='provisional'>瓦利斯和富圖納群島</annotation>
 
 		<!-- Western Sahara; sahara; west; western sahara -->
-		<annotation cp='[{🇪🇭}]'>西撒哈拉</annotation>
+		<annotation cp='[{🇪🇭}]' draft='provisional'>西撒哈拉</annotation>
 
 		<!-- Yemen; yemen -->
-		<annotation cp='[{🇾🇪}]'>葉門</annotation>
+		<annotation cp='[{🇾🇪}]' draft='provisional'>葉門</annotation>
 
 		<!-- Zambia; zambia -->
-		<annotation cp='[{🇿🇲}]'>尚比亞</annotation>
+		<annotation cp='[{🇿🇲}]' draft='provisional'>尚比亞</annotation>
 
 		<!-- Zimbabwe; zimbabwe -->
-		<annotation cp='[{🇿🇼}]'>辛巴威</annotation>
+		<annotation cp='[{🇿🇼}]' draft='provisional'>辛巴威</annotation>
 
 		<!-- CLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS; arrow; clockwise; reload -->
-		<annotation cp='[🔃]' tts='順時針方向'>順時針方向; 順時針</annotation>
+		<annotation cp='[🔃]' tts='順時針方向' draft='provisional'>順時針方向; 順時針</annotation>
 
 		<!-- ANTICLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS; anticlockwise; arrow; counterclockwise; withershins -->
-		<annotation cp='[🔄]' tts='逆時針'>逆時針</annotation>
+		<annotation cp='[🔄]' tts='逆時針' draft='provisional'>逆時針</annotation>
 
 		<!-- BACK WITH LEFTWARDS ARROW ABOVE; arrow; back -->
-		<annotation cp='[🔙]' tts='返回'>返回; 回退</annotation>
+		<annotation cp='[🔙]' tts='返回' draft='provisional'>返回; 回退</annotation>
 
 		<!-- END WITH LEFTWARDS ARROW ABOVE; arrow; end -->
-		<annotation cp='[🔚]' tts='結束'>結束</annotation>
+		<annotation cp='[🔚]' tts='結束' draft='provisional'>結束</annotation>
 
 		<!-- ON WITH EXCLAMATION MARK WITH LEFT RIGHT ARROW ABOVE; arrow; mark; on -->
-		<annotation cp='[🔛]' tts='ON'>ON</annotation>
+		<annotation cp='[🔛]' tts='ON' draft='provisional'>ON</annotation>
 
 		<!-- SOON WITH RIGHTWARDS ARROW ABOVE; arrow; soon -->
-		<annotation cp='[🔜]' tts='馬上'>馬上</annotation>
+		<annotation cp='[🔜]' tts='馬上' draft='provisional'>馬上</annotation>
 
 		<!-- TOP WITH UPWARDS ARROW ABOVE; arrow; top; up -->
-		<annotation cp='[🔝]' tts='置頂'>置頂</annotation>
+		<annotation cp='[🔝]' tts='置頂' draft='provisional'>置頂</annotation>
 
 		<!-- JAPANESE SYMBOL FOR BEGINNER; beginner; chevron; green; japanese; leaf; tool; yellow -->
-		<annotation cp='[🔰]' tts='日本初學者符號'>日本初學者符號</annotation>
+		<annotation cp='[🔰]' tts='日本初學者符號' draft='provisional'>日本初學者符號</annotation>
 
 		<!-- CRYSTAL BALL; ball; crystal; fairy tale; fantasy; fortune; tool -->
-		<annotation cp='[🔮]' tts='水晶球'>水晶球</annotation>
+		<annotation cp='[🔮]' tts='水晶球' draft='provisional'>水晶球</annotation>
 
 		<!-- SIX POINTED STAR WITH MIDDLE DOT; fortune; star -->
-		<annotation cp='[🔯]' tts='六角形'>六角形</annotation>
+		<annotation cp='[🔯]' tts='六角形' draft='provisional'>六角形</annotation>
 
 		<!-- BLACK UNIVERSAL RECYCLING SYMBOL; recycle; sign; travel -->
-		<annotation cp='[♻]' tts='回收'>回收; 循環</annotation>
+		<annotation cp='[♻]' tts='回收' draft='provisional'>回收; 循環</annotation>
 
 		<!-- HIGH VOLTAGE SIGN; danger; electric; electricity; lightning; travel; voltage; zap -->
-		<annotation cp='[⚡]' tts='高壓電'>高壓電</annotation>
+		<annotation cp='[⚡]' tts='高壓電' draft='provisional'>高壓電</annotation>
 
 		<!-- WHITE HEAVY CHECK MARK; check; mark; sign -->
-		<annotation cp='[✅]' tts='勾選'>勾選</annotation>
+		<annotation cp='[✅]' tts='勾選' draft='provisional'>勾選</annotation>
 
 		<!-- CROSS MARK; cancel; mark; multiplication; multiply; sign; x -->
-		<annotation cp='[❌]' tts='叉'>叉</annotation>
+		<annotation cp='[❌]' tts='叉' draft='provisional'>叉</annotation>
 
 		<!-- NEGATIVE SQUARED CROSS MARK; mark; sign; square -->
-		<annotation cp='[❎]' tts='叉叉'>叉叉</annotation>
+		<annotation cp='[❎]' tts='叉叉' draft='provisional'>叉叉</annotation>
 
 		<!-- HEAVY PLUS SIGN; math; plus; sign -->
-		<annotation cp='[➕]' tts='加號'>加號; 加</annotation>
+		<annotation cp='[➕]' tts='加號' draft='provisional'>加號; 加</annotation>
 
 		<!-- HEAVY MINUS SIGN; math; minus; sign -->
-		<annotation cp='[➖]' tts='減號'>減號; 減</annotation>
+		<annotation cp='[➖]' tts='減號' draft='provisional'>減號; 減</annotation>
 
 		<!-- HEAVY DIVISION SIGN; division; math; sign -->
-		<annotation cp='[➗]' tts='除號'>除號; 除</annotation>
+		<annotation cp='[➗]' tts='除號' draft='provisional'>除號; 除</annotation>
 
 		<!-- CURLY LOOP; curl; loop; sign -->
-		<annotation cp='[➰]' tts='日本單環標誌'>日本單環標誌</annotation>
+		<annotation cp='[➰]' tts='日本單環標誌' draft='provisional'>日本單環標誌</annotation>
 
 		<!-- DOUBLE CURLY LOOP; curl; double; loop; sign -->
-		<annotation cp='[➿]' tts='日本免費電話標誌'>日本免費電話標誌</annotation>
+		<annotation cp='[➿]' tts='日本免費電話標誌' draft='provisional'>日本免費電話標誌</annotation>
 
 		<!-- BLACK QUESTION MARK ORNAMENT; mark; punctuation; question; word -->
-		<annotation cp='[❓]' tts='黑問號，問號'>黑問號，問號</annotation>
+		<annotation cp='[❓]' tts='黑問號，問號' draft='provisional'>黑問號，問號</annotation>
 
 		<!-- WHITE QUESTION MARK ORNAMENT; mark; outlined; punctuation; question; word -->
-		<annotation cp='[❔]' tts='白問號，問號'>白問號，問號</annotation>
+		<annotation cp='[❔]' tts='白問號，問號' draft='provisional'>白問號，問號</annotation>
 
 		<!-- WHITE EXCLAMATION MARK ORNAMENT; exclamation; mark; outlined; punctuation; word -->
-		<annotation cp='[❕]' tts='驚嘆號'>驚嘆號</annotation>
+		<annotation cp='[❕]' tts='驚嘆號' draft='provisional'>驚嘆號</annotation>
 
 		<!-- WAVY DASH; dash; punctuation; sound; wavy -->
-		<annotation cp='[〰]' tts='波浪'>波浪</annotation>
+		<annotation cp='[〰]' tts='波浪' draft='provisional'>波浪</annotation>
 
 		<!-- COPYRIGHT SIGN; copyright; symbol; word -->
-		<annotation cp='[©]' tts='版權'>版權</annotation>
+		<annotation cp='[©]' tts='版權' draft='provisional'>版權</annotation>
 
 		<!-- REGISTERED SIGN; registered; symbol; word -->
-		<annotation cp='[®]' tts='註冊'>註冊</annotation>
+		<annotation cp='[®]' tts='註冊' draft='provisional'>註冊</annotation>
 
 		<!-- TRADE MARK SIGN; mark; symbol; tm; trademark; word -->
-		<annotation cp='[™]' tts='商標'>商標</annotation>
+		<annotation cp='[™]' tts='商標' draft='provisional'>商標</annotation>
 
 		<!-- HUNDRED POINTS SYMBOL; 100; full; hundred; office; score -->
-		<annotation cp='[💯]' tts='滿分'>滿分; 100分</annotation>
+		<annotation cp='[💯]' tts='滿分' draft='provisional'>滿分; 100分</annotation>
 
 		<!-- NO ONE UNDER EIGHTEEN SYMBOL; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage; word -->
-		<annotation cp='[🔞]' tts='未成年人不宜'>未成年人不宜</annotation>
+		<annotation cp='[🔞]' tts='未成年人不宜' draft='provisional'>未成年人不宜</annotation>
 
 		<!-- INPUT SYMBOL FOR LATIN CAPITAL LETTERS; input; latin; letters; uppercase; word -->
-		<annotation cp='[🔠]' tts='大寫字母鍵'>大寫字母鍵</annotation>
+		<annotation cp='[🔠]' tts='大寫字母鍵' draft='provisional'>大寫字母鍵</annotation>
 
 		<!-- INPUT SYMBOL FOR LATIN SMALL LETTERS; abcd; input; latin; letters; lowercase; word -->
-		<annotation cp='[🔡]' tts='小寫字母鍵'>小寫字母鍵</annotation>
+		<annotation cp='[🔡]' tts='小寫字母鍵' draft='provisional'>小寫字母鍵</annotation>
 
 		<!-- INPUT SYMBOL FOR NUMBERS; 1234; input; numbers; word -->
-		<annotation cp='[🔢]' tts='數字鍵'>數字鍵</annotation>
+		<annotation cp='[🔢]' tts='數字鍵' draft='provisional'>數字鍵</annotation>
 
 		<!-- INPUT SYMBOL FOR SYMBOLS; input; word -->
-		<annotation cp='[🔣]' tts='符號鍵'>符號鍵</annotation>
+		<annotation cp='[🔣]' tts='符號鍵' draft='provisional'>符號鍵</annotation>
 
 		<!-- INPUT SYMBOL FOR LATIN LETTERS; abc; alphabet; input; latin; letters; word -->
-		<annotation cp='[🔤]' tts='拉丁字母鍵'>拉丁字母鍵</annotation>
+		<annotation cp='[🔤]' tts='拉丁字母鍵' draft='provisional'>拉丁字母鍵</annotation>
 
 		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER A; a; blood; word -->
-		<annotation cp='[🅰]' tts='A型'>A型</annotation>
+		<annotation cp='[🅰]' tts='A型' draft='provisional'>A型</annotation>
 
 		<!-- NEGATIVE SQUARED AB; ab; blood; word -->
-		<annotation cp='[🆎]' tts='AB型'>AB型</annotation>
+		<annotation cp='[🆎]' tts='AB型' draft='provisional'>AB型</annotation>
 
 		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER B; b; blood; word -->
-		<annotation cp='[🅱]' tts='B型'>B型</annotation>
+		<annotation cp='[🅱]' tts='B型' draft='provisional'>B型</annotation>
 
 		<!-- SQUARED CL; cl; word -->
-		<annotation cp='[🆑]' tts='CL'>CL</annotation>
+		<annotation cp='[🆑]' tts='CL' draft='provisional'>CL</annotation>
 
 		<!-- SQUARED COOL; cool; word -->
-		<annotation cp='[🆒]' tts='酷'>酷</annotation>
+		<annotation cp='[🆒]' tts='酷' draft='provisional'>酷</annotation>
 
 		<!-- SQUARED FREE; free; word -->
-		<annotation cp='[🆓]' tts='免費'>免費</annotation>
+		<annotation cp='[🆓]' tts='免費' draft='provisional'>免費</annotation>
 
 		<!-- SQUARED ID; id; identity; word -->
-		<annotation cp='[🆔]' tts='身份'>身份</annotation>
+		<annotation cp='[🆔]' tts='身份' draft='provisional'>身份</annotation>
 
 		<!-- SQUARED NEW; new; word -->
-		<annotation cp='[🆕]' tts='新'>新</annotation>
+		<annotation cp='[🆕]' tts='新' draft='provisional'>新</annotation>
 
 		<!-- SQUARED NG; ng; word -->
-		<annotation cp='[🆖]' tts='NG'>NG</annotation>
+		<annotation cp='[🆖]' tts='NG' draft='provisional'>NG</annotation>
 
 		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER O; blood; o; word -->
-		<annotation cp='[🅾]' tts='O型'>O型</annotation>
+		<annotation cp='[🅾]' tts='O型' draft='provisional'>O型</annotation>
 
 		<!-- SQUARED OK; ok; word -->
-		<annotation cp='[🆗]' tts='OK'>OK</annotation>
+		<annotation cp='[🆗]' tts='OK' draft='provisional'>OK</annotation>
 
 		<!-- NEGATIVE SQUARED LATIN CAPITAL LETTER P; parking; sign; word -->
-		<annotation cp='[🅿]' tts='黑底白字P'>黑底白字P; P</annotation>
+		<annotation cp='[🅿]' tts='黑底白字P' draft='provisional'>黑底白字P; P</annotation>
 
 		<!-- SQUARED SOS; help; sos; word -->
-		<annotation cp='[🆘]' tts='救命'>救命</annotation>
+		<annotation cp='[🆘]' tts='救命' draft='provisional'>救命</annotation>
 
 		<!-- SQUARED UP WITH EXCLAMATION MARK; mark; up; word -->
-		<annotation cp='[🆙]' tts='UP'>UP</annotation>
+		<annotation cp='[🆙]' tts='UP' draft='provisional'>UP</annotation>
 
 		<!-- SQUARED VS; versus; vs; word -->
-		<annotation cp='[🆚]' tts='比'>比</annotation>
+		<annotation cp='[🆚]' tts='比' draft='provisional'>比</annotation>
 
 		<!-- SQUARED KATAKANA KOKO; japanese; word -->
-		<annotation cp='[🈁]' tts='日文KOKO'>日文KOKO</annotation>
+		<annotation cp='[🈁]' tts='日文KOKO' draft='provisional'>日文KOKO</annotation>
 
 		<!-- SQUARED KATAKANA SA; japanese; word -->
-		<annotation cp='[🈂]' tts='日文服務區'>日文服務區</annotation>
+		<annotation cp='[🈂]' tts='日文服務區' draft='provisional'>日文服務區</annotation>
 
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-5272; japanese; word -->
-		<annotation cp='[🈹]' tts='折扣'>折扣</annotation>
+		<annotation cp='[🈹]' tts='折扣' draft='provisional'>折扣</annotation>
 
 		<!-- CIRCLED IDEOGRAPH ACCEPT; chinese; word -->
-		<annotation cp='[🉑]' tts='可'>可</annotation>
+		<annotation cp='[🉑]' tts='可' draft='provisional'>可</annotation>
 
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-5408; chinese; word -->
-		<annotation cp='[🈴]' tts='合'>合; 合格</annotation>
+		<annotation cp='[🈴]' tts='合' draft='provisional'>合; 合格</annotation>
 
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-55B6; chinese; word -->
-		<annotation cp='[🈺]' tts='營'>營</annotation>
+		<annotation cp='[🈺]' tts='營' draft='provisional'>營</annotation>
 
 		<!-- CIRCLED IDEOGRAPH ADVANTAGE; japanese; word -->
-		<annotation cp='[🉐]' tts='得'>得</annotation>
+		<annotation cp='[🉐]' tts='得' draft='provisional'>得</annotation>
 
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6307; japanese; word -->
-		<annotation cp='[🈯]' tts='手指，指出'>手指，指出</annotation>
+		<annotation cp='[🈯]' tts='手指，指出' draft='provisional'>手指，指出</annotation>
 
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6708; japanese; word -->
-		<annotation cp='[🈷]' tts='月'>月</annotation>
+		<annotation cp='[🈷]' tts='月' draft='provisional'>月</annotation>
 
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6709; japanese; word -->
-		<annotation cp='[🈶]' tts='有'>有</annotation>
+		<annotation cp='[🈶]' tts='有' draft='provisional'>有</annotation>
 
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-6E80; chinese; word -->
-		<annotation cp='[🈵]' tts='滿'>滿</annotation>
+		<annotation cp='[🈵]' tts='滿' draft='provisional'>滿</annotation>
 
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7121; japanese; word -->
-		<annotation cp='[🈚]' tts='無'>無; 免費</annotation>
+		<annotation cp='[🈚]' tts='無' draft='provisional'>無; 免費</annotation>
 
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7533; chinese; word -->
-		<annotation cp='[🈸]' tts='申'>申</annotation>
+		<annotation cp='[🈸]' tts='申' draft='provisional'>申</annotation>
 
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7981; japanese; word -->
-		<annotation cp='[🈲]' tts='禁止'>禁止</annotation>
+		<annotation cp='[🈲]' tts='禁止' draft='provisional'>禁止</annotation>
 
 		<!-- SQUARED CJK UNIFIED IDEOGRAPH-7A7A; chinese; word -->
-		<annotation cp='[🈳]' tts='空的'>空的</annotation>
+		<annotation cp='[🈳]' tts='空的' draft='provisional'>空的</annotation>
 
 		<!-- LARGE ORANGE DIAMOND; diamond; geometric; orange; sign -->
-		<annotation cp='[🔶]' tts='大橙色菱形'>大橙色菱形</annotation>
+		<annotation cp='[🔶]' tts='大橙色菱形' draft='provisional'>大橙色菱形</annotation>
 
 		<!-- LARGE BLUE DIAMOND; blue; diamond; geometric; sign -->
-		<annotation cp='[🔷]' tts='大藍色菱形'>大藍色菱形</annotation>
+		<annotation cp='[🔷]' tts='大藍色菱形' draft='provisional'>大藍色菱形</annotation>
 
 		<!-- SMALL ORANGE DIAMOND; diamond; geometric; orange; sign -->
-		<annotation cp='[🔸]' tts='小橙色菱形'>小橙色菱形</annotation>
+		<annotation cp='[🔸]' tts='小橙色菱形' draft='provisional'>小橙色菱形</annotation>
 
 		<!-- SMALL BLUE DIAMOND; blue; diamond; geometric; sign -->
-		<annotation cp='[🔹]' tts='小藍色菱形'>小藍色菱形</annotation>
+		<annotation cp='[🔹]' tts='小藍色菱形' draft='provisional'>小藍色菱形</annotation>
 
 		<!-- UP-POINTING RED TRIANGLE; geometric; red; sign -->
-		<annotation cp='[🔺]' tts='向上紅色三角'>向上紅色三角</annotation>
+		<annotation cp='[🔺]' tts='向上紅色三角' draft='provisional'>向上紅色三角</annotation>
 
 		<!-- DOWN-POINTING RED TRIANGLE; down; geometric; red; sign -->
-		<annotation cp='[🔻]' tts='向下紅色三角'>向下紅色三角</annotation>
+		<annotation cp='[🔻]' tts='向下紅色三角' draft='provisional'>向下紅色三角</annotation>
 
 		<!-- DIAMOND SHAPE WITH A DOT INSIDE; comic; diamond; emotion; geometric; inside; sign -->
-		<annotation cp='[💠]' tts='鑽石'>鑽石</annotation>
+		<annotation cp='[💠]' tts='鑽石' draft='provisional'>鑽石</annotation>
 
 		<!-- RADIO BUTTON; button; geometric; radio; sign -->
-		<annotation cp='[🔘]' tts='按鈕'>按鈕</annotation>
+		<annotation cp='[🔘]' tts='按鈕' draft='provisional'>按鈕</annotation>
 
 		<!-- BLACK SQUARE BUTTON; button; geometric; sign; square -->
-		<annotation cp='[🔲]' tts='黑色方按鈕'>黑色方按鈕; 按鈕</annotation>
+		<annotation cp='[🔲]' tts='黑色方按鈕' draft='provisional'>黑色方按鈕; 按鈕</annotation>
 
 		<!-- WHITE SQUARE BUTTON; button; geometric; outlined; sign; square -->
-		<annotation cp='[🔳]' tts='白色方按鈕'>白色方按鈕; 按鈕</annotation>
+		<annotation cp='[🔳]' tts='白色方按鈕' draft='provisional'>白色方按鈕; 按鈕</annotation>
 
 		<!-- LARGE RED CIRCLE; circle; geometric; red; sign -->
-		<annotation cp='[🔴]' tts='大紅色圓形'>大紅色圓形</annotation>
+		<annotation cp='[🔴]' tts='大紅色圓形' draft='provisional'>大紅色圓形</annotation>
 
 		<!-- LARGE BLUE CIRCLE; blue; circle; geometric; sign -->
-		<annotation cp='[🔵]' tts='大藍色圓形'>大藍色圓形</annotation>
+		<annotation cp='[🔵]' tts='大藍色圓形' draft='provisional'>大藍色圓形</annotation>
 	</annotations>
 </ldml>

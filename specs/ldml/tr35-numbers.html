@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">27</span></td>
+				<td>27</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -130,7 +130,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -140,8 +140,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -149,7 +149,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -380,11 +380,11 @@ h2, h3, h4, table {
 				defined as a part of the script used to write the language. The
 				native numbering system can only be a numeric positional
 				decimal-digit numbering system, using digits with
-				General_Category=Decimal_Number. <span class="changed">Note:
+				General_Category=Decimal_Number. Note:
 					In locales where the native numbering system is the default, it is
 					assumed that the numbering system "latn" ( Western Digits 0-9 ) is
 					always acceptable, and can be selected using the -nu keyword as
-					part of a Unicode locale identifier.</span>
+					part of a Unicode locale identifier.
 			</dd>
 			<dt>
 				<b>traditional</b>
@@ -415,8 +415,8 @@ h2, h3, h4, table {
 				numerals, use locale ID: "zh-u-nu-finance".</li>
 			<li>To select Tamil language using the traditional Tamil
 				numerals, use locale ID: "ta-u-nu-traditio".</li>
-			<li><span class="changed">To select Arabic language using
-					western digits 0-9, use locale ID: "ar-u-nu-latn".</span></li>
+			<li>To select Arabic language using
+					western digits 0-9, use locale ID: "ar-u-nu-latn".</li>
 		</ul>
 		<p>
 			For more information on numbering systems and their definitions, see
@@ -952,14 +952,13 @@ h2, h3, h4, table {
 					<td>¤ (U+00A4)</td>
 					<td>Prefix or suffix</td>
 					<td>No</td>
-					<td>Currency sign, replaced by currency symbol <span
-						class="changed"> for the currency being formatted. If
+					<td>Currency sign, replaced by currency symbol for the currency being formatted. If
 							doubled, replaced by the international currency symbol (U+00A4).
 							If tripled, replaced by the appropriate currency display name for
 							the currency, based on the plural rules in effect for the locale.
 							(For example, "5.00 US Dollars"). Refer to the formatting in for
 							long display names, steps 2 and 4 in <a href="#Currencies">Currencies.</a>
-					</span> If present in a pattern, the monetary decimal separator and
+					If present in a pattern, the monetary decimal separator and
 						grouping separators (if available) are used instead of the numeric
 						ones.
 					</td>
@@ -1472,8 +1471,8 @@ h2, h3, h4, table {
 &lt;/currency&gt;</pre>
 		<p>
 			To format a particular currency value &quot;ZWD&quot; for a
-			particular numeric value <em>n</em><span class="changed">
-				using the (long) display name</span>:
+			particular numeric value <em>n</em>
+				using the (long) display name:
 		</p>
 		<ol>
 			<li>First see if there is a count with an explicit number (0 or
@@ -1516,20 +1515,20 @@ h2, h3, h4, table {
 						itself (for example, &quot;ZWD&quot;).</li>
 				</ol>
 			</li>
-			<li style="margin-top: 0.5em; margin-bottom: 0.5em">Format the
-				numeric value according to the locale. <span class="changed">Use
+			<li>Format the
+				numeric value according to the locale. Use
 					the locale’s &lt;decimalFormats ...&gt; pattern, not the
 					&lt;currencyFormats&gt; pattern that is used with the symbol (eg,
 					Z$). As when formatting symbol currency values, reset the number of
 					decimals according to the supplemental &lt;currencyData&gt; and use
-					the currencyDecimal symbol if different from the decimal symbol.</span>
+					the currencyDecimal symbol if different from the decimal symbol.
 				<ol>
-					<li class="changed">The number of decimals should be
+					<li>The number of decimals should be
 						overridable in an API, so that clients can choose between “2 US
 						dollars” and “2.00 US dollars”.</li>
 				</ol>
 			</li>
-			<li class="changed">Substitute the formatted numeric value for
+			<li>Substitute the formatted numeric value for
 				the {0} in the unitPattern, and the currency display name for the
 				{1}.</li>
 		</ol>
@@ -1699,11 +1698,11 @@ h2, h3, h4, table {
 				question. If a particular currency does not occur in the fractions
 				list, then it is given the defaults listed for the next two
 				attributes.</li>
-			<li><b>digits: </b>the <span class="changed">minimum and
-					maximum </span> number of decimal digits normally formatted. The default
-				is 2. <span class="changed">For example, in the en_US locale
+			<li><b>digits: </b>the minimum and
+					maximum number of decimal digits normally formatted. The default
+				is 2. For example, in the en_US locale
 					with the default value of 2 digits, the value 1 USD would format as
-					"$1.00", and the value 1.123 USD would format as => "$1.12". </span></li>
+					"$1.00", and the value 1.123 USD would format as → "$1.12". </li>
 			<li><b>rounding: </b>the rounding increment, in units of 10<sup>-digits</sup>.
 				The default is 0, which means no rounding is to be done. Therefore,
 				rounding=0 and rounding=1 have identical behavior. Thus with
@@ -1980,8 +1979,7 @@ samples       = ('@integer' sampleList)?<br>                ('@d
 and_condition = relation ('and' relation)*<br>relation      = is_relation | in_relation | within_relation <br>is_relation   = expr 'is' ('not')? value<br>in_relation   = expr (('not')? 'in' | '=' | '!=') range_list<br>within_relation = expr ('not')? 'within' range_list<br>expr          = operand (('mod' | '%') value)?
 operand       = 'n' | 'i' | 'f' | 't' | 'v' | 'w'<br>range_list    = (range | value) (',' range_list)*<br>range         = value'..'value
 sampleList    = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
-sampleRange   = decimalValue <span class="changed">(</span>'~' decimalValue<span
-				class="changed">)?</span>
+sampleRange   = decimalValue ('~' decimalValue)?
 value         = digit+
 decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9<br>
 		</pre>
@@ -2502,7 +2500,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All
+			Copyright © 2001–2015 Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied
 			warranty of any kind, and assumes no liability for errors or
 			omissions. No liability is assumed for incidental and consequential

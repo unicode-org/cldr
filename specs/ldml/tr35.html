@@ -88,7 +88,7 @@ h5 {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">Unicode Locale Data Markup
@@ -98,7 +98,7 @@ h5 {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">27</span></td>
+				<td>27</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -110,14 +110,12 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2015-03-13</span></td>
+				<td>2015-03-16</td>
 			</tr>
-			<tr class="changed">
-				<td><span class="changed">This Version</span></td>
-				<td><a
-					ignoreme="http://www.unicode.org/reports/tr35/tr35-37/tr35.html"
-					class="changed">http://www.unicode.org/reports/tr35/tr35-38/tr35.html</a>
-					<span class="reviewnote">(see the proposed update below)</span></td>
+			<tr>
+				<td>This Version</td>
+				<td>
+				<a href="http://www.unicode.org/reports/tr35/tr35-39/tr35.html">http://www.unicode.org/reports/tr35/tr35-39/tr35.html</a></td>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
 			</tr>
 			<tr>
@@ -135,8 +133,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Latest Proposed Update</td>
-				<td><a href="http://www.unicode.org/reports/tr35/proposed.html"
-					class="changed">http://www.unicode.org/reports/tr35/proposed.html</a></td>
+				<td><a href="http://www.unicode.org/reports/tr35/proposed.html">http://www.unicode.org/reports/tr35/proposed.html</a></td>
 			</tr>
 			<tr>
 				<td>Namespace</td>
@@ -144,11 +141,11 @@ h5 {
 			</tr>
 			<tr>
 				<td>DTDs</td>
-				<td><a href="http://unicode.org/cldr/dtd/26/" class="changed">http://unicode.org/cldr/dtd/27/</a></td>
+				<td><a href="http://unicode.org/cldr/dtd/26/">http://unicode.org/cldr/dtd/27/</a></td>
 			</tr>
 			<tr>
 				<td>Revision</td>
-				<td><a href="tr35.html#Modifications" class="changed">38</a></td>
+				<td><a href="#Modifications">39</a></td>
 			</tr>
 		</table>
 		<h3>
@@ -165,7 +162,7 @@ h5 {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -175,8 +172,8 @@ h5 {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -184,7 +181,7 @@ h5 {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -829,12 +826,10 @@ h5 {
 | unicode_locale_extensions?
   transformed_extensions?) ;</pre></td>
 				<td><pre>= unicode_language_id
-<span class="removed">  [transformed_extensions]
-  [unicode_locale_extensions]</span>
-<span class="changed">  ([trasformed_extensions
+  ([trasformed_extensions
      [unicode_locale_extensions]]
   /[unicode_locale_extensions
-     [transformed_extensions]])</span>
+     [transformed_extensions]])
 					</pre></td>
 			</tr>
 			<tr>
@@ -1312,10 +1307,10 @@ h5 {
 						</tr>
 					</table>
 					<p>
-						The private use subtags from XA..XZ will <span class="changed">normally</span>
+						The private use subtags from XA..XZ will normally
 						never be given specific semantics in Unicode identifiers, and are
 						thus safe for use for other purposes by other applications.
-						However, LDML may follow <span class="changed">widespread</span>
+						However, LDML may follow widespread
 						industry practice in the use of some of these codes, such as for
 						XK.
 					</p>
@@ -1343,12 +1338,10 @@ h5 {
 				<td>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						variant</b>
 					<p>
-						CLDR provides data for normalizing variant codes. <span
-							class="changed">About handling of the "POSIX" variant see
+						CLDR provides data for normalizing variant codes. About handling of the "POSIX" variant see
 							<i>Section 3.8.2, <a href="#Legacy_Variants">Legacy
 									Variants</a></i>.
-						</span>
-					</p></td>
+						</p></td>
 			</tr>
 		</table>
 		<p>
@@ -1490,11 +1483,10 @@ zh-Hant-HK
 			<li><strong>reserved:</strong> those that may be given
 				particular semantics in future versions of CLDR</li>
 			<li><strong>excluded:</strong> those that will never be given
-				particular CLDR semantics in the future, and thus can <span
-				class="changed">normally</span> be used by applications without
-				worrying about collisions. <span class="changed">However,
+				particular CLDR semantics in the future, and thus can normally be used by applications without
+				worrying about collisions. However,
 					CLDR may follow widespread industry practice in the use of some of
-					these codes, such as for XK.</span></li>
+					these codes, such as for XK.</li>
 		</ul>
 		<table>
 			<caption>
@@ -1535,7 +1527,7 @@ zh-Hant-HK
 			<tr>
 				<td rowspan="3">region</td>
 				<td>defined</td>
-				<td>QO, QU, UK, <span class="changed">XK, </span>ZZ
+				<td>QO, QU, UK, XK, ZZ
 				</td>
 			</tr>
 			<tr>
@@ -1544,7 +1536,7 @@ zh-Hant-HK
 			</tr>
 			<tr>
 				<td>excluded</td>
-				<td>XA..<span class="changed">XJ, XL..</span>XZ
+				<td>XA..XJ, XL..XZ
 				</td>
 			</tr>
 			<tr>
@@ -1659,18 +1651,14 @@ zh-Hant-HK
 			Most type values are represented by a single subtag in the current
 			version of CLDR. There are exceptions, such as types used for key
 			"ca" (calendar) and "kr" (collation reordering). If the type is not
-			included, <span class="removed">and one of the possible type
-				values is &quot;true&quot;,</span> then <span class="removed">that
-				value</span><span class="changed">the type value "true"</span> is assumed.
+			included, then the type value "true" is assumed.
 			Note that the default for key with a possible &quot;true&quot; value
-			is often &quot;false&quot;, but may not always be. <span
-				class="changed">Note also that "true"/"True" is not a valid
+			is often &quot;false&quot;, but may not always be. Note also that "true"/"True" is not a valid
 				script code, since <a
 				href="http://www.unicode.org/iso15924/codelists.html">the ISO
 					15924 Registration Authority has exceptionally reserved it</a>, which
 				means that it will not be assigned for any purpose.
-			</span>
-		</p>
+			</p>
 		<p>The BCP47 form for keys and types is the canonical form, and
 			recommended. Other aliases are included for backwards compatibility.
 		</p>
@@ -1683,12 +1671,12 @@ zh-Hant-HK
 				<th>key<br> (old key name)
 				</th>
 				<th>key description</th>
-				<th><span class="changed">example</span> type<br> (old
+				<th>example type<br> (old
 					type name)</th>
 				<th>type description</th>
 			</tr>
 			<tr>
-				<td class="changed" colspan="4"><strong>A <a
+				<td colspan="4"><strong>A <a
 						href="#UnicodeCalendarIdentifier" name="UnicodeCalendarIdentifier">Unicode
 							Calendar Identifier</a> defines a type of calendar. The valid values
 						are those <em>name</em> attribute values in the <em>type</em>
@@ -1749,7 +1737,7 @@ zh-Hant-HK
 						"islamic-civil" and "islamic-umalqura".</i></td>
 			</tr>
 			<tr>
-				<td class="changed" colspan="4"><strong>A <a
+				<td colspan="4"><strong>A <a
 						href="#UnicodeCollationIdentifier"
 						name="UnicodeCollationIdentifier">Unicode Collation Identifier</a>
 						defines a type of collation (sort order). The valid values are
@@ -1852,7 +1840,7 @@ zh-Hant-HK
 			</tr>
 
 			<tr>
-				<td class="changed" colspan="4"><strong>A <a
+				<td colspan="4"><strong>A <a
 						href="#UnicodeCurrencyIdentifier" name="UnicodeCurrencyIdentifier">Unicode
 							Currency Identifier</a> defines a type of currency. The valid values
 						are those <em>name</em> attribute values in the <em>type</em>
@@ -1869,13 +1857,13 @@ zh-Hant-HK
 						<i>plus others in common use</i>
 					</p></td>
 				<td><p>
-						<span class="changed">Codes consisting of 3 ASCII letters </span>that
+						Codes consisting of 3 ASCII letters that
 						are or have been valid in ISO 4217, plus certain additional codes
 						that are or have been in common use. The list of countries and
 						time periods associated with each currency value is available in <a
 							href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental
-							Currency Data</a><span class="changed">, plus the default
-							number of decimals</span>.
+							Currency Data</a>, plus the default
+							number of decimals.
 					</p>
 					<p>
 						The XXX code is given a broader interpretation as <em>Unknown
@@ -1883,7 +1871,7 @@ zh-Hant-HK
 					</p></td>
 			</tr>
 			<tr>
-				<td class="changed" colspan="4"><strong>A <a
+				<td colspan="4"><strong>A <a
 						href="#UnicodeNumberSystemIdentifier"
 						name="UnicodeNumberSystemIdentifier">Unicode Number System
 							Identifier</a> defines a type of number system. The valid values are
@@ -1936,7 +1924,7 @@ zh-Hant-HK
 				<td>Modern Tamil decimal digits</td>
 			</tr>
 			<tr>
-				<td class="changed" colspan="4"><strong>A <a
+				<td colspan="4"><strong>A <a
 						href="#UnicodeTimezoneIdentifier" name="UnicodeTimezoneIdentifier">Unicode
 							Timezone Identifier</a> defines a timezone. The valid values are
 						those name attribute values in the <em>type</em> elements of
@@ -1961,7 +1949,7 @@ zh-Hant-HK
 					<p>CLDR provides data for normalizing timezone codes.</p></td>
 			</tr>
 			<tr>
-				<td class="changed" colspan="4"><strong>A <a
+				<td colspan="4"><strong>A <a
 						href="#UnicodeVariantIdentifier" name="UnicodeVariantIdentifier">Unicode
 							Variant Identifier</a> defines a special variant used for locales.
 						The valid values are those name attribute values in the <em>type</em>
@@ -1973,10 +1961,10 @@ zh-Hant-HK
 				<td>"va"</td>
 				<td>Common variant type</td>
 				<td>"posix"</td>
-				<td>POSIX style locale variant. <span class="changed">About
+				<td>POSIX style locale variant. About
 						handling of the "POSIX" variant see <i>Section 3.8.2, <a
 							href="#Legacy_Variants">Legacy Variants</a></i>.
-				</span></td>
+				</td>
 			</tr>
 		</table>
 		<p>
@@ -2573,15 +2561,15 @@ zh-Hant-HK
 					"ssy" to indicated this.</td>
 			</tr>
 		</table>
-		<p class="changed">
+		<p>
 			When converting to old syntax, the Unicode locale extension
 			"-u-va-posix" should be converted to the "POSIX" variant, <i>not</i>
 			to old extension syntax like "@va=posix". This is an exception: The
 			other mappings above should not be reversed.
 		</p>
 
-		<p class="changed">Examples:</p>
-		<ul class="changed">
+		<p>Examples:</p>
+		<ul>
 			<li>en_US_POSIX ↔ en-US-u-va-posix</li>
 			<li>en_US_POSIX@colNumeric=yes ↔ en-US-u-kn-va-posix</li>
 			<li>en-US-POSIX-u-kn-true → en-US-u-kn-va-posix</li>
@@ -2879,15 +2867,15 @@ zh-Hant-HK
 				href="tr35-collation.html#Root_Collation">Root Collation</a></em>). Since
 			English language collation has the same ordering as the root locale,
 			the &#39;en&#39; locale data does not need to supply any collation
-			data, nor do the &#39;en_US&#39;<span class="changed">,
+			data, nor do the &#39;en_US&#39;,
 				&#39;en_GB&#39; or the any of the various other locales that use
-				English.</span>
+				English.
 		</p>
-		<p class="changed">Given a particular locale id
+		<p>Given a particular locale id
 			&quot;en_US_someVariant&quot;, the search chain for a particular
 			resource is the following.</p>
 		<blockquote>
-			<pre class="changed">en_US_someVariant
+			<pre>en_US_someVariant
 en_US
 en
 root</pre>
@@ -2977,12 +2965,11 @@ root</pre>
 			illustrated in the table <a href="#Lookup-Differences">Lookup
 				Differences</a>, where &quot;key&quot; stands for zero or more key/type
 			pairs. Logically speaking, when looking up an item for a given
-			locale, you first do a resource bundle lookup <span class="changed">to
-				find the best bundle </span>for the locale, then you do a <span
-				class="changed">inherited</span> item lookup starting with that
+			locale, you first do a resource bundle lookup to
+				find the best bundle for the locale, then you do a inherited item lookup starting with that
 			resource bundle.
 		</p>
-		<p class="changed">
+		<p>
 			The table <a href="#Lookup-Differences">Lookup Differences</a> uses
 			the naïve resource bundle lookup for illustration. More sophisticated
 			systems will get far better results for resource bundle lookup if
@@ -2991,7 +2978,7 @@ root</pre>
 			into account both the user’s desired locale(s) and the application’s
 			supported locales, in order to get the best match.
 		</p>
-		<p class="changed">
+		<p>
 			If the naïve resource bundle lookup is used, the desired locale needs
 			to be canonicalized using 4.3 <a href="#Likely_Subtags">Likely
 				Subtags</a> and the supplemental alias information, so that locales that
@@ -3059,7 +3046,7 @@ root</pre>
 					<tr id="iqaw9">
 						<td id="iqaw10" style="vertical-align: top;" nowrap>
 							<p>
-								<span class="changed"><strong>Inherited</strong></span><strong>
+								<strong>Inherited
 									item</strong> lookup
 							</p>
 						</td>
@@ -3096,7 +3083,7 @@ root</pre>
 			</table>
 		</div>
 		<p>
-			Both the resource bundle inheritance and the <span class="changed">inherited</span>
+			Both the resource bundle inheritance and the inherited
 			item inheritance use the parentLocale data, where available, instead
 			of simple trunctation.
 		</p>
@@ -3106,7 +3093,7 @@ root</pre>
 			locale is not involved in the item lookup. If the default-locale were
 			used in the resource-item lookup, then strange results will occur.
 			For example, suppose that the default locale is Swedish, and there is
-			a Nama locale but no specific <span class="changed">inherited</span>
+			a Nama locale but no specific inherited
 			item for collation. If the default-locale were used in resource-item
 			lookup, it would produce odd and unexpected results for Nama sorting.
 		</p>
@@ -3134,7 +3121,7 @@ root</pre>
 				collation.</em>
 		</p>
 		<p>
-			The <span class="changed">inherited</span> item lookup must remain
+			The inherited item lookup must remain
 			stable, because the resources are built with a certain fallback in
 			mind; changing the core fallback order can render the bundle
 			structure incoherent.
@@ -3382,26 +3369,26 @@ root</pre>
 			but for collation data, the parent locale would still be
 			&quot;zh&quot;, even though the parentLocale element is present for
 			that locale.</p>
-		<p class="changed">
+		<p>
 			Since parentLocale information is not localizable on a per locale
 			basis, the parentLocale information is contained in CLDR’s <a
 				href="tr35-info.html">supplemental data.</a>
 		</p>
-		<p class="changed">
+		<p>
 			When a <span class="element">parentLocale</span> element is used to
 			override normal inheritance, the following invariants must always be
 			true:
 		</p>
 		<ol>
-			<li class="changed">If X is the parentLocale of Y, then either X
+			<li>If X is the parentLocale of Y, then either X
 				is the root locale, or X has the same base language code as Y. For
 				example, the parent of &quot;en&quot; cannot be &quot;fr&quot;, and
 				the parent of &quot;en_YY&quot; cannot be &quot;fr&quot; or
 				&quot;fr_XX&quot;.</li>
-			<li class="changed">If X is the parentLocale of Y, Y must not be
+			<li>If X is the parentLocale of Y, Y must not be
 				a base language locale. For example, the parent of &quot;en&quot;
 				cannot be &quot;en_XX&quot;.</li>
-			<li class="changed">There can never be cycles, such as: X parent
+			<li>There can never be cycles, such as: X parent
 				of Y ... parent of X.</li>
 		</ol>
 		<h3>
@@ -3663,8 +3650,7 @@ root</pre>
 					<li>Otherwise, walk again through the elements in E&#39;, from
 						back to front.
 						<ol>
-							<li>If you encounter a validSubLocales attribute<span
-								class="changed"> (deprecated)</span>:
+							<li>If you encounter a validSubLocales attribute (deprecated):
 								<ol>
 									<li>If L is in the attribute value, return <i>false</i></li>
 									<li>Otherwise return <i>true</i></li>
@@ -4170,9 +4156,8 @@ root</pre>
 		used to get the closest fallback locales (of those supported) to a
 		given language.
 		<p>
-			When such fallback is used for <span class="changed">inherited</span>
-			item lookup, the normal order of inheritance is used for <span
-				class="changed">inherited</span> item lookup, except that before
+			When such fallback is used for inherited
+			item lookup, the normal order of inheritance is used for inherited item lookup, except that before
 			using any data from <strong>root</strong>, the data for the fallback
 			locales would be used if available. Language matching does not
 			interact with the fallback of resources <em>within the
@@ -4220,16 +4205,16 @@ root</pre>
 			for the above process. Only the original language matters.
 		</p>
 		<p>
-			T<span class="changed">he language matching data is intended
+			The language matching data is intended
 				to be used according to the following algorithm. This is a logical
 				description, and can be optimized for production in many ways. In
-				this algorithm, t</span>he languageMatching data is interpreted as an
+				this algorithm, the languageMatching data is interpreted as an
 			ordered list.
 		</p>
-		<p class="changed">The language matching algorithm takes a list of
+		<p>The language matching algorithm takes a list of
 			a user’s desired languages, and a list of the application’s supported
 			languages.</p>
-		<ul class="changed">
+		<ul>
 			<li>Set the best weighted distance BWD to ∞</li>
 			<li>Set the best desired language BD to null</li>
 			<li>For each desired language D
@@ -4267,52 +4252,50 @@ root</pre>
 				English).</li>
 		</ul>
 		<p>
-			To find the match<span class="changed">ing distance</span> MD between
+			To find the matching distance MD between
 			any two languages, perform the following steps.
 		</p>
 		<ol>
-			<li>Maximize each language<span class="changed"> using
+			<li>Maximize each language using
 					Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a>.
-			</span>
 				<ul>
 					<li>und is a special case: see below.</li>
 				</ul>
 			</li>
-			<li><span class="changed">Set the match-distance MD to 0</span></li>
-			<li><span class="changed">For each subtag in the list,
-					starting from the end: region, script, base-language</span>
+			<li>Set the match-distance MD to 0</li>
+			<li>For each subtag in the list,
+					starting from the end: region, script, base-language
 				<ol>
-					<li class="changed">If respective subtags in each language tag
+					<li>If respective subtags in each language tag
 						are identical, remove the subtag from each (logically) and
 						continue.</li>
-					<li>Traverse the <span class="changed">languageMatching
-							data</span> until a match is found.
+					<li>Traverse the languageMatching
+							data until a match is found.
 						<ul>
-							<li class="changed">* matches any field.</li>
+							<li>* matches any field.</li>
 							<li>If the oneway flag is false, then the match is
 								symmetric.</li>
 						</ul>
 					</li>
-					<li class="changed">Add 100 minus the <strong>percent</strong>
+					<li>Add 100 minus the <strong>percent</strong>
 						attribute value to MD.
 					</li>
-					<li>Remove the <span class="changed">subtag</span> from each<span
-						class="changed"> (logically)</span></li>
+					<li>Remove the subtag from each (logically)</li>
 				</ol></li>
-			<li class="changed">Return MD</li>
+			<li>Return MD</li>
 		</ol>
-		<p class="changed">
+		<p>
 			It is typically useful to set the discount factor between successive
 			elements of the desired languages list to be slightly greater than
 			the default region difference. That avoids the following problem:<br>
 		</p>
-		<p class="changed">
+		<p>
 			<em>Supported languages:</em> "de, fr, ja"<br>
 		</p>
-		<p class="changed">
+		<p>
 			<em>User's desired languages:</em> "de-AT, fr"
 		</p>
-		<p class="changed">This user would expect to get "de", not "fr".
+		<p>This user would expect to get "de", not "fr".
 			In practice, when a user selects a list of preferred languages, they
 			don't include all the regional variants ahead of their second base
 			language. Yet while the user's desired languages really doesn't tell
@@ -4321,8 +4304,8 @@ root</pre>
 			variants. But unless F is greater than the distance between de-AT and
 			de-DE, then the user’s second-choice language would be returned.</p>
 		<p>
-			<span class="changed">The base language subtag &quot;und&quot;
-				is a </span>special case. Suppose we have the following situation:
+			The base language subtag &quot;und&quot;
+				is a special case. Suppose we have the following situation:
 		</p>
 		<ul>
 			<li>desired languages: {und, it}</li>
@@ -4381,15 +4364,15 @@ root</pre>
 			When the language+region is not matched, and there is otherwise no
 			reason to pick among the supported regions for that language, then
 			some measure of geographic &quot;closeness&quot; can be used. The
-			results <span class="changed">may be</span> more understandable by
+			results may be more understandable by
 			users. Looking for en-SK, for example, should fall back to something
 			within Europe (eg en-GB) in preference to something far away and
 			unrelated (eg en-SG). Such a closeness metric does not need to be
 			exact; a small amount of data can be used to give an approximate
-			distance between any two regions. <span class="changed">However,
+			distance between any two regions. However,
 				any such data must be used carefully; although Hong Kong is closer
 				to India than to the UK, it is unlikely that en-IN would be a better
-				match to en-HK than en-GB would.</span>
+				match to en-HK than en-GB would.
 		</p>
 		<h2>
 			<a name="XML_Format" href="#XML_Format">5 XML Format</a>
@@ -4535,7 +4518,6 @@ root</pre>
 			<li>singleCountries</li>
 			<li>preferenceOrdering</li>
 			<li>references</li>
-			<li class="removed">validSubLocales</li>
 		</ul>
 		<h3>
 			<a name="Common_Elements" href="#Common_Elements">5.1 Common
@@ -4924,14 +4906,6 @@ root</pre>
 				style="color: blue">www</span>&quot;, &quot;<span
 				class="attributeValue">short</span>&quot;, and &quot;<span
 				style="color: blue">secondary</span>&quot;.
-		</p>
-		<p class="removed">Attribute validSubLocales</p>
-		<p class="removed">
-			The attribute <i>validSubLocales</i> allows sublocales in a given
-			tree to be treated as though a file for them were present when there
-			is not one. It can be applied to any element. It only has an effect
-			for locales that inherit from the current file where a file is
-			missing, and the elements would not otherwise be draft.
 		</p>
 		<p>
 			For a more complete description of how draft applies to data, see <i><a
@@ -6094,16 +6068,15 @@ decimal?, group?, special*)) &gt;</pre>
 		</table>
 		<p>&nbsp;</p>
 		<h3>
-			<a name="validSubLocales" href="#validSubLocales" class="changed">8.15
-				Attribute validSubLocales</a>
+			<a name="validSubLocales" href="#validSubLocales">8.15 Attribute validSubLocales</a>
 		</h3>
-		<p class="changed">
+		<p>
 			The attribute <i>validSubLocales</i> allowed sublocales in a given
 			tree to be treated as though a file for them were present when there
 			was not one. It only had an effect for locales that inherit from the
 			current file where a file is missing.
 		</p>
-		<p class="changed">
+		<p>
 			<b>Example 1. </b>Suppose that in a particular LDML tree, there are
 			no region locales for German, for example, there is a de.xml file,
 			but no files for de_AT.xml, de_CH.xml, or de_DE.xml. Then no elements
@@ -6111,7 +6084,7 @@ decimal?, group?, special*)) &gt;</pre>
 			those files as having valid elements, then we introduce an empty
 			file, such as the following.
 		</p>
-		<p class="changed">
+		<p>
 			<code>
 				&lt;ldml version=&quot;1.1&quot;&gt;<br> &nbsp;&lt;identity&gt;<br>
 				&nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br> &nbsp;
@@ -6121,13 +6094,13 @@ decimal?, group?, special*)) &gt;</pre>
 				&nbsp;&lt;/identity&gt;<br> &lt;/ldml&gt;
 			</code>
 		</p>
-		<p class="changed">
+		<p>
 			With the <i>validSubLocales</i> attribute, instead of adding the
 			empty files for de_AT.xml, de_CH.xml, and de_DE.xml, in the de file
 			we could add to the parent locale a list of the child locales that
 			should behave as if files were present.
 		</p>
-		<p class="changed">
+		<p>
 			<code>
 				&lt;ldml version=&quot;1.1&quot; validSubLocales=&quot;de_AT de_CH
 				de_DE&quot;&gt;<br> &nbsp;&lt;identity&gt;<br> &nbsp;
@@ -6137,26 +6110,26 @@ decimal?, group?, special*)) &gt;</pre>
 				&nbsp;&lt;/identity&gt;<br> ...<br> &lt;/ldml&gt;
 			</code>
 		</p>
-		<p class="changed">
+		<p>
 			Now that the <i>validSubLocales</i> attribute has been deprecated, it
 			is recommended to simply add empty files to specify which sublocales
 			are valid. This convention is used throughout the CLDR.
 		</p>
-		<h3 class="changed">
+		<h3>
 			<a name="validSubLocales" href="#validSubLocales">8.16 Elements
 				postalCodeData, postCodeRegex</a>
 		</h3>
-		<p class="changed">The postal code validation data has been
+		<p>The postal code validation data has been
 			deprecated. Please see other services that are kept up to date, such
 			as:</p>
 		<ul>
-			<li class="changed"><a
+			<li><a
 				href="http://i18napis.appspot.com/address/data/US">http://i18napis.appspot.com/address/data/US</a></li>
-			<li class="changed"><a
+			<li><a
 				href="http://i18napis.appspot.com/address/data/CH">http://i18napis.appspot.com/address/data/CH</a></li>
-			<li><span class="changed">...</span></li>
+			<li>...</li>
 		</ul>
-		<p class="changed">
+		<p>
 			See <a href="tr35-info.html#Postal_Code_Validation">Postal Code
 				Validation</a>
 		</p>
@@ -7362,10 +7335,10 @@ decimal?, group?, special*)) &gt;</pre>
 				Bug Reports</a>.
 		</p>
 
-		<h3 class="changed">Revision 38</h3>
+		<h3>Revision 39</h3>
 
-		<ul class="changed">
-			<li><b>Proposed update </b>for Version 27.</li>
+		<ul>
+			<li>Updated<b> </b>for Version 27.</li>
 			<li><strong>Part 1: <a href="#Contents">Core</a></strong>
 				<ul>
 					<li><em>Section 3.2 <a href="#Unicode_locale_identifier">Unicode
@@ -7670,6 +7643,9 @@ decimal?, group?, special*)) &gt;</pre>
 						</ul></li>
 				</ul></li>
 		</ul>
+
+		<p>Revision 38 being a proposed update, only changes between
+			revisions 37 and 39 are summarized here.</p>
 
 		<h3>Revision 37</h3>
 		<ul>
@@ -8054,7 +8030,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<br>
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All
+			Copyright © 2001–2015 Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied
 			warranty of any kind, and assumes no liability for errors or
 			omissions. No liability is assumed for incidental and consequential

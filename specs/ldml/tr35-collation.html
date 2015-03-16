@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1>
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">27</span></td>
+				<td>27</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -132,7 +132,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -142,8 +142,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -151,7 +151,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -373,14 +373,11 @@ h2, h3, h4, table {
 		</h4>
 
 		<p>
-			U+FFFE maps to a CE with <span class="removed">special minimal
-				weights on all levels, including case, quaternary and identical
-				levels &mdash; which may require special code for those levels.</span> <span
-				class="changed">a minimal, unique primary weight.</span> Its primary
+			U+FFFE maps to a CE with a minimal, unique primary weight. Its primary
 			weight is not "variable": U+FFFE must not become ignorable in
-			alternate handling. <span class="changed">On the identical
+			alternate handling. On the identical
 				level, a minimal, unique “weight” must be emitted for U+FFFE as
-				well.</span> This allows for <a
+				well. This allows for <a
 				href="http://www.unicode.org/reports/tr10/#Merging_Sort_Keys">Merging
 				Sort Keys</a> within code point space.
 		</p>
@@ -400,7 +397,7 @@ h2, h3, h4, table {
 			with a low separator).
 		</p>
 
-		<p class="note changed">
+		<p class="note">
 			Note: With unique, low weights on <i>all</i> levels it is possible to
 			achieve
 			<code>sortkey(str1 + "\uFFFE" + str2) ==
@@ -545,7 +542,7 @@ h2, h3, h4, table {
 		</h4>
 		<p>
 			CLDR specifies how to do parametric reordering of groups of scripts
-			(e.g., “native script first”) as well <span class="changed">as</span>
+			(e.g., “native script first”) as well as
 			special groups (e.g., “digits after letters”), and provides data for
 			the effective implementation of such reordering.
 		</p>
@@ -671,10 +668,8 @@ h2, h3, h4, table {
 				&quot;sch&quot; or equivalent.
 			</p>
 			<p>
-				<strong>U+FFFE: </strong>This code point produces a CE with <span
-					class="removed">special minimal weights on all levels.</span> <span
-					class="changed">minimal, unique weights on primary and
-					identical levels.</span> For details see the <i><a
+				<strong>U+FFFE: </strong>This code point produces a CE with minimal, unique weights on primary and
+					identical levels. For details see the <i><a
 					href="#Algorithm_FFFE">CLDR Collation Algorithm</a></i> above.
 			</p>
 		</blockquote>
@@ -740,9 +735,8 @@ h2, h3, h4, table {
 				remapping of UCA DUCET weights for use with CLDR. The weight values
 				are modified:
 				<ul>
-					<li>The weights have variable length, with 1..4 bytes each. <span
-						class="changed">Each secondary or tertiary weight currently
-							uses at most 2 bytes.</span></li>
+					<li>The weights have variable length, with 1..4 bytes each. Each secondary or tertiary weight currently
+							uses at most 2 bytes.</li>
 					<li>There are tailoring gaps between adjacent weights, so that
 						a number of characters can be tailored to sort between any two
 						root collation elements.</li>
@@ -750,9 +744,8 @@ h2, h3, h4, table {
 						boundaries between reordering groups and Unicode scripts, so that
 						tailoring around the first or last primary of a group/script
 						results in new collation elements that sort and reorder together
-						with that group or script. <span class="removed">Also,
-							there is data that defines</span> <span class="changed">These
-							boundary weights also define</span> the primary weight ranges for
+						with that group or script. These
+							boundary weights also define the primary weight ranges for
 						parametric group and script reordering.
 					</li>
 				</ul> An implementation may modify the weights further to fit the needs
@@ -946,12 +939,12 @@ h2, h3, h4, table {
 				exact frequency.</p>
 		</blockquote>
 
-		<pre class="changed">
+		<pre>
 3041; [76 06, 05, 03]	# Hira Lo	[3888.0020.000D]	* HIRAGANA LETTER SMALL A
 3042; [76 06, 05, 85]	# Hira Lo	[3888.0020.000E]	* HIRAGANA LETTER A
 30A1; [76 06, 05, 10]	# Kana Lo	[3888.0020.000F]	* KATAKANA LETTER SMALL A
 30A2; [76 06, 05, 9E]	# Kana Lo	[3888.0020.0011]	* KATAKANA LETTER A</pre>
-		<blockquote class="changed">
+		<blockquote>
 			<p>
 				Beginning with CLDR 27, some primary or secondary collation elements
 				may have below-common tertiary weights (e.g.,
@@ -962,11 +955,11 @@ h2, h3, h4, table {
 		</blockquote>
 
 		<pre># SPECIAL MAX/MIN COLLATION ELEMENTS
-FFFE; [02, <span class="changed">05, 05</span>]     # Special LOWEST primary, for merge/interleaving
+FFFE; [02, 05, 05]     # Special LOWEST primary, for merge/interleaving
 FFFF; [EF FE, 05, 05]  # Special HIGHEST primary, for ranges</pre>
 		<blockquote>
 			<p>
-				The two tailored noncharacters have their own <span class="changed">primary</span>
+				The two tailored noncharacters have their own primary
 				weights.
 			</p>
 		</blockquote>
@@ -1002,11 +995,7 @@ F967; [U+4E0D]  # Hani Lo       [FB40.0020.0002][CE0D.0000.0000]        * CJK CO
 				specified in the UCA.</p>
 		</blockquote>
 
-		<pre class="removed">
-FDD1 00A0;      [03 02 02, 05, 05]      # SPACE first primary starts reordering group
-FDD1 03A9;      [5D 04 02, 05, 05]      # GREEK first primary starts reordering group (compressible)
-FDD1 03E2;      [5D 64 02, 05, 05]      # COPTIC first primary</pre>
-		<pre class="changed">
+		<pre>
 FDD1 20AC;	[0D 20 02, 05, 05]	# CURRENCY first primary
 FDD1 0034;	[0E 02 02, 05, 05]	# DIGIT first primary starts new lead byte
 FDD0 FF21;	[26 02 02, 05, 05]	# REORDER_RESERVED_BEFORE_LATIN first primary starts new lead byte
@@ -1027,7 +1016,7 @@ FDD1 03E2;	[5F 60 02, 05, 05]	# COPTIC first primary (compressible)</pre>
 				mapped contractions with U+FDD0 to the last primary weights of each
 				group but not each script.)
 			</p>
-			<p class="changed">Beginning with CLDR 27, these mappings alone
+			<p>Beginning with CLDR 27, these mappings alone
 				define the boundaries for reordering single scripts. (There are no
 				mappings for Hrkt, Hans, or Hant because they are not fully distinct
 				scripts; they share primary weights with other scripts:
@@ -1035,7 +1024,7 @@ FDD1 03E2;	[5F 60 02, 05, 05]	# COPTIC first primary (compressible)</pre>
 				ranges, beginning at boundaries marked with U+FDD0 plus following
 				characters as shown above. The reserved ranges are not used for
 				collation elements and are not available for tailoring.</p>
-			<p class="changed">Some primary lead bytes must be reserved so
+			<p>Some primary lead bytes must be reserved so
 				that reordering of scripts along partial-lead-byte boundaries can
 				“split” the primary lead byte and use up a reserved byte. This is
 				for implementations that write sort keys, which must reorder primary
@@ -1106,10 +1095,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				Most reordering tokens are script values; others are special-purpose
 				values, such as PUNCTUATION. Beginning with CLDR 24, this table
 				precedes the regular mappings, so that parsers can use this
-				information while processing and optimizing mappings. <span
-					class="changed">Beginning with CLDR 27, most of this data is
+				information while processing and optimizing mappings. 
+				Beginning with CLDR 27, most of this data is
 					irrelevant because single scripts can be reordered. Only the
-					"COMPRESS" data is still useful.</span>
+					"COMPRESS" data is still useful.
 			</p>
 		</blockquote>
 		<pre># Reordering Tokens =&gt; Top Bytes
@@ -1186,7 +1175,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			parametric settings, or rules that specify a certain sort order, as a
 			tailoring of the root order, or both.
 		</p>
-		<p class="note changed">
+		<p class="note">
 			Note: CLDR collation tailoring data should follow the <a
 				href="http://cldr.unicode.org/index/cldr-spec/collation-guidelines">CLDR
 				Collation Guidelines</a>.
@@ -1358,11 +1347,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			is to be specified. It is optional, and is specified if the results
 			are to be identical on different systems. If it is not supplied, then
 			the version is assumed to be the same as the Unicode version for the
-			system as a whole. <span class="removed">In general,
-				tailorings should be defined so as to minimize dependence on the
-				underlying UCA version, by explicitly specifying the behavior of all
-				characters used to write the language in question.</span>
-		</p>
+			system as a whole.</p>
 		<blockquote>
 			<p class="note">
 				<b>Note: </b>For version 3.1.1 of the UCA, the version of Unicode
@@ -1434,7 +1419,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</tr>
 			<tr>
 				<td rowspan="5">ks</td>
-				<td rowspan="5"><font color="#000000">strength</font></td>
+				<td rowspan="5">strength</td>
 				<td>level1</td>
 				<td>primary (1)<br></td>
 				<td rowspan="5"><code>
@@ -1600,7 +1585,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					code points in <strong>shifted</strong>. That is, the normal Level
 					4 value for a regular collation element is FFFF, as described in [<a
 					href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], <em>Section
-						3.<span class="removed">7</span><span class="changed">6</span>, <a
+						3.6, <a
 						href="http://www.unicode.org/reports/tr10/#Variable_Weighting">Variable
 							Weighting</a>
 				</em>. This is changed to FFFE for [:script=Hiragana:] characters. The
@@ -2119,9 +2104,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			Some additional operators are provided to save space with large
 			tailorings. The addition of a * to the relation operator indicates
 			that each of the following single characters are to be handled as if
-			they were separate relations with the corresponding strength. <span
-				class="removed">These are expressed by adding a * to the
-				operation.</span> Each of the following single characters must be
+			they were separate relations with the corresponding strength. 
+			Each of the following single characters must be
 			NFD-inert, that is, it does not have a canonical decomposition and it
 			does not reorder (ccc=0). This keeps abbreviated rules unambiguous.
 		</p>
@@ -2665,22 +2649,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<ol>
 			<li><strong>space, punct, symbol, currency, digit</strong> -
 				core groups of characters below 'a'</li>
-			<li><strong>any script code</strong> <span class="removed">from
-					the <a
-					href="http://www.unicode.org/reports/tr31/tr31-15.html#Table_Recommended_Scripts">Recommended</a>
-					Table in UAX 31 except <strong>Katakana</strong>,
-			</span> <span class="changed">except</span> <strong>Common</strong> and <strong>Inherited</strong>.
+			<li><strong>any script code</strong> except <strong>Common</strong> and <strong>Inherited</strong>.
 				<ul>
-					<li><span class="changed">Some pairs of scripts sort
-							primary-equal and always reorder together. For example,</span> Katakana
+					<li>Some pairs of scripts sort
+							primary-equal and always reorder together. For example, Katakana
 						characters are are always reordered with Hiragana.</li>
-					<li class="removed">Characters in any script not in the <a
-						href="http://www.unicode.org/reports/tr31/tr31-15.html#Table_Recommended_Scripts">Recommended</a>
-						Table are treated as being in the preceding <a
-						href="http://www.unicode.org/reports/tr31/tr31-15.html#Table_Recommended_Scripts">Recommended</a>
-						script, in DUCET order. Thus Phoenician characters always reorder
-						with Hebrew characters.
-					</li>
 				</ul></li>
 			<li><strong>others</strong> - where all codes not explicitly
 				mentioned should be ordered. The script code <strong>Zzzz</strong>
@@ -2688,7 +2661,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</ol>
 		<p>It is an error if a code occurs multiple times.</p>
 
-		<p class="changed">
+		<p>
 			It is an error if the sequence of reorder codes is empty in the XML
 			attribute or in the locale identifier. Some implementations may
 			interpret an empty sequence in the
@@ -2734,8 +2707,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			. Any reordering codes specified on top of that (such as with a bcp47
 			locale identifier) completely replace what was there. To specify a
 			version of collation that completely resets any existing reordering
-			to the DUCET ordering, the single code <span class="changed"><strong>Zzzz</strong>
-				or </span> <strong>others</strong> can be used, as below<strong></strong>.
+			to the DUCET ordering, the single code <strong>Zzzz</strong>
+				or <strong>others</strong> can be used, as below<strong></strong>.
 		</p>
 		<p>
 			<em>Examples: </em>
@@ -2770,22 +2743,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<p>
 			The default reordering groups are defined by the FractionalUCA.txt
 			file, based on the primary weights of associated collation elements.
-			<span class="removed">The [top_byte] table contains a mapping
-				from the first (top) byte of primary weights to the associated
-				reordering group. For example:</span> <span class="changed">The file
+			The file
 				contains special mappings for the start of each group, script, and
 				reorder-reserved range, see <i>Section 2.6.2, <a
 					href="#File_Format_FractionalUCA_txt">FractionalUCA.txt</a></i>.
-			</span>
-		</p>
-		<blockquote class="removed">
-			<p>
-				U+02D0 MODIFIER LETTER TRIANGULAR COLON has a fractional UCA
-				collation weight of [<strong>0E</strong> 0B, 05, 05]. In the
-				[top_byte] table, the line [top_byte 0E SYMBOL] indicates that <strong>0E</strong>
-				maps to <strong>SYMBOL</strong>.
 			</p>
-		</blockquote>
+
 		<p>There are some special cases:</p>
 		<ul>
 			<li>The <strong>Hani</strong> group includes implicit weights
@@ -2813,13 +2776,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			sorts Hani, Latin, Cyrillic, ... (all other scripts) ..., unassigned,
 			Greek, TRAILING.
 		</p>
-		<p class="removed">
-			The reordering groups are defined in FractionalUCA.txt, see <i>Section
-				2.6.2, <a href="#File_Format_FractionalUCA_txt">FractionalUCA.txt</a>
-			</i>.
-		</p>
-		<p class="changed">Notes for implementations that write sort keys:</p>
-		<ul class="changed">
+
+		<p>Notes for implementations that write sort keys:</p>
+		<ul>
 			<li>Primaries must always be offset by one or more whole primary
 				lead bytes. (Otherwise the number of bytes in a fractional weight
 				may change, compressible scripts may span multiple lead bytes, or
@@ -2851,12 +2810,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</h4>
 		<p>
 			For allkeys_CLDR.txt, the start of each reordering group can be
-			determined from FractionalUCA.txt, by <span class="removed">looking
-				up the first <code>top_byte</code> of the group (e.g., <code>[top_byte
-					0D SYMBOL ]</code>),
-			</span> finding the first real mapping (after “xyz first primary”) <span
-				class="removed">with that <code>top_byte</code></span> <span
-				class="changed">of that group</span> (e.g.,
+			determined from FractionalUCA.txt, by finding the first real mapping (after “xyz first primary”) of that group (e.g.,
 			<code>0060; [0D 07, 05, 05] # Zyyy Sk [0312.0020.0002] * GRAVE
 				ACCENT</code>
 			), and looking for that mapping's character sequence (
@@ -2901,13 +2855,6 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			found among punctuation, symbols, and digits.</p>
 		<p>Each collation element of an expansion may be in a different
 			reordering group, for example for parenthesized characters.</p>
-		<p class="removed">
-			Some scripts are grouped together by CLDR and cannot be ordered
-			independently, as mentioned above in <i>Section 3.13, <a
-				href="#Script_Reordering">Collation Reordering</a></i>. Implementations
-			that are not based on the primary weights of FractionalUCA.txt may
-			group scripts differently or may not have this limitation.
-		</p>
 
 		<h3>
 			3.14 <a name="Case_Parameters" href="#Case_Parameters">Case
@@ -2952,10 +2899,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			the root collation, the case value for each collation element is
 			computed from the tertiary weight listed in allkeys_CLDR.txt. This is
 			used to modify the collation element.</p>
-		<p class="removed">If the character is U+FFFE (lowest-weight), set
-			case value = LOWEST.</p>
 		<p>
-			<span class="removed">Otherwise,</span> Look up a case value for the
+			Look up a case value for the
 			tertiary weight x of each collation element:
 		</p>
 		<ol>
@@ -2963,7 +2908,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<li>UNCASED otherwise</li>
 			<li>FractionalUCA.txt encodes the case information in bits 6 and
 				7 of the first byte in each tertiary weight. The case bits are set
-				to 00 for UNCASED<span class="removed">, LOWEST</span> and
+				to 00 for UNCASED and
 				LOWERCASE, and 10 for UPPER. There is no MIXED case value (01) in
 				the root collation.
 			</li>
@@ -2978,16 +2923,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			to the following.
 		</p>
 		<ol>
-			<li class="removed">If the value is LOWEST (U+FEFF), set <strong>c</strong>
-				= 1
-			</li>
-			<li><span class="removed">Otherwise,</span> If <strong>CaseFirst=UpperFirst</strong>,
+			<li>If <strong>CaseFirst=UpperFirst</strong>,
 				set <strong>c</strong> = UPPER ? <strong>1</strong> : MIXED ? 2 : <strong>3</strong></li>
 			<li>Otherwise set <strong>c</strong> = UPPER ? <strong>3</strong>
 				: MIXED ? 2 : <strong>1</strong></li>
 		</ol>
-		<p class="reviewnote">All numeric values reduced by 1 but not
-			individually marked.</p>
 		<p>
 			Compute a new collation element according to the following table. The
 			notation <em>xt</em> means that the values are numerically combined
@@ -3050,7 +2990,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					<tr>
 						<td><code>0.0.T</code></td>
 						<td><code>
-								0.0.<span class="changed">3</span>T
+								0.0.3T
 							</code></td>
 					</tr>
 					<tr>
@@ -3077,9 +3017,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<a href="http://www.unicode.org/reports/tr10/#WF2">well-formedness
 				condition 2</a> is fulfilled. Since the tertiary CE’s tertiary weight T
 			is already greater than any t of primary or secondary CEs, it is
-			sufficient to set its case weight to UPPER=<span class="changed">3</span>.
+			sufficient to set its case weight to UPPER=3.
 			It must not be affected by <strong>caseFirst=upper</strong>. (The
-			table uses the constant <span class="changed">3</span> in this case
+			table uses the constant 3 in this case
 			rather than the computed c.)
 		</p>
 		<p>
@@ -3153,8 +3093,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</h4>
 		<p>
 			The main data includes &lt;exemplarCharacters&gt; for collation
-			indexes. See <span class="removed">the main document, Section
-				5.6</span> <i><span class="changed">Part 2 General, Section 3,</span> <a
+			indexes. See <i>Part 2 General, Section 3, <a
 				href="tr35-general.html#Character_Elements">Character Elements</a></i>,
 			for general information about exemplar characters.
 		</p>
@@ -3228,12 +3167,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<p>
 			The … items are special: each is a bucket for everything else, either
 			less or greater. They are inserted at the start and end of the index
-			list, <em>and</em> on script boundaries. <span class="removed">These
-				are really script boundaries, <em>not</em> reordering code
-				boundaries.
-			</span> Each script has its own range, except where scripts sort
-			primary-equal (e.g., Hira &amp; Kana). All characters that sort in <span
-				class="changed">one of</span> the low reordering groups (whitespace,
+			list, <em>and</em> on script boundaries. Each script has its own range, except where scripts sort
+			primary-equal (e.g., Hira &amp; Kana). All characters that sort in one of the low reordering groups (whitespace,
 			punctuation, symbols, currency symbols, digits) are treated as a
 			single script for this purpose.
 		</p>
@@ -3242,12 +3177,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			ones.</p>
 
 		<p>
-			<span class="changed">Even in an implementation that reorders
+			Even in an implementation that reorders
 				groups of scripts rather than single scripts, for example Hebrew
 				together with Phoenician and Samaritan, the index boundaries are
 				really script boundaries, <em>not</em> multi-script-group
 				boundaries.
-			</span> So if you had a collation that reordered Hebrew after Ethiopic, you
+			So if you had a collation that reordered Hebrew after Ethiopic, you
 			would still get index boundaries between the following (and in that
 			order):
 		</p>
@@ -3260,7 +3195,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					group</em></li>
 			<li>Devanagari</li>
 		</ol>
-		<p class="changed">(Beginning with CLDR 27, single scripts can be
+		<p>(Beginning with CLDR 27, single scripts can be
 			reordered.)</p>
 		<p>In the UI, an index character could also be omitted or grayed
 			out if its bucket is empty. For example, if there is nothing in the
@@ -3306,9 +3241,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<pre>&lt;exemplarCharacters type=&quot;index&quot;&gt;[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]&lt;/exemplarCharacters&gt;</pre>
 		<p>
 			The display of the index characters can be modified with the Index
-			labels elements, discussed in the <span class="removed">main
-				document, Section 5.6.4</span> <i><span class="changed">Part 2
-					General, Section 3.3,</span> <a href="tr35-general.html#IndexLabels">Index
+			labels elements, discussed in the <i>Part 2
+					General, Section 3.3, <a href="tr35-general.html#IndexLabels">Index
 					Labels</a> </i>.
 		</p>
 
@@ -3319,7 +3253,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<p>Special index markers have been added to the CJK collations for
 			stroke, pinyin, zhuyin, and unihan. These markers allow for effective
 			and robust use of indexes for these collations.</p>
-		<p class="changed">The per-language index exemplar characters are
+		<p>The per-language index exemplar characters are
 			not useful for collation indexes for CJK because for each such
 			language there are multiple sort orders in use (for example, Chinese
 			pinyin vs. stroke vs. unihan vs. zhuyin), and these sort orders use
@@ -3359,7 +3293,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All
+			Copyright © 2001–2015 Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied
 			warranty of any kind, and assumes no liability for errors or
 			omissions. No liability is assumed for incidental and consequential

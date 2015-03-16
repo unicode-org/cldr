@@ -19,7 +19,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.tool.ShowLanguages.FormattedFileWriter;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -299,7 +298,7 @@ public class ShowLocaleCoverage {
 
     public static void showCoverage(PrintWriter index, Matcher matcher, Set<String> locales, boolean useOrgLevel) throws IOException {
         final String title = "Locale Coverage";
-        final PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null, index == null));
+        final PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, null, title, null, index == null));
         printData(pw, locales, matcher, useOrgLevel);
         new ShowPlurals().appendBlanksForScrolling(pw);
         pw.close();

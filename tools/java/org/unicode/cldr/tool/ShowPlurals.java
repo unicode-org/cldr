@@ -8,7 +8,6 @@ import java.util.Set;
 
 import org.unicode.cldr.tool.GeneratePluralRanges.RangeSample;
 import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
-import org.unicode.cldr.tool.ShowLanguages.FormattedFileWriter;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRURLS;
@@ -50,7 +49,7 @@ public class ShowPlurals {
         String section2 = "Comparison";
 
         final String title = "Language Plural Rules";
-        final PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null, false));
+        final PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, null, title, null, false));
         ShowLanguages.showContents(pw, "rules", "Rules", "comparison", "Comparison");
 
         pw.append("<h2>" + CldrUtility.getDoubleLinkedText("rules", "1. " + section1) + "</h2>" + System.lineSeparator());

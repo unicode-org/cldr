@@ -20,7 +20,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.tool.ShowLanguages.FormattedFileWriter;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -45,7 +44,7 @@ public class ChartDelta extends Chart {
     private static final String SEP = "\u0001";
     private static final boolean DEBUG = false;
     private static final String DEBUG_FILE = "windowsZones.xml";
-    static Pattern fileMatcher = Pattern.compile("^.*");
+    static Pattern fileMatcher = Pattern.compile(".*");
 
     private static final String LAST_ARCHIVE_DIRECTORY = "/Users/markdavis/Google Drive/workspace/cldr-archive/cldr-26.0/";
 
@@ -60,17 +59,19 @@ public class ChartDelta extends Chart {
 
 
     static String DIR =     CLDRPaths.CHART_DIRECTORY + "/delta/";
-    static ShowLanguages.Anchors anchors = new ShowLanguages.Anchors();
+    static FormattedFileWriter.Anchors anchors = new FormattedFileWriter.Anchors();
     static PathHeader.Factory phf = PathHeader.getFactory(ENGLISH);
     static final Set<String> DONT_CARE = new HashSet<>(Arrays.asList("draft", "standard", "reference"));
 
     public static void main(String[] args) {
         try (
-            FormattedFileWriter x = new FormattedFileWriter(null, "index", null, true);
-            PrintWriter pw = new PrintWriter(x)) {
+            FormattedFileWriter x = new FormattedFileWriter(null, "index", "Delta Charts", "<p>Charts showing the differences from the last version. "
+                + "Not all changed data is shown; currently differences in the annotations, segments, and keyboards are not charted.</p>", true);
+            PrintWriter pw = new PrintWriter(x)
+            ) {
             x.setDirectory(DIR);
-            new ChartDelta().writeChart(pw, DIR);
-            pw.println(anchors);
+            new ChartDelta().writeChart(pw, DIR, null);
+            x.write(anchors.toString());
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
         }
@@ -104,8 +105,8 @@ public class ChartDelta extends Chart {
     static final CLDRFile EMPTY_CLDR = new CLDRFile(new SimpleXMLSource("und").freeze());
 
     @Override
-    public void writeChart(PrintWriter index, String directory) {
-        
+    public void writeChart(PrintWriter index, String directory, String title) {
+
         writeNonLdmlPlain(index, directory);
         // set up factories
 
@@ -329,7 +330,7 @@ public class ChartDelta extends Chart {
             Integer pathIndex = phs.get1();
             String attribute = phs.get2();
             String specialCode = ph.getCode();
-            
+
             if (!attribute.isEmpty()) {
                 specialCode += "_" + attribute;
                 if (pathIndex != 0) {
@@ -352,12 +353,13 @@ public class ChartDelta extends Chart {
 
     private void writeTable(PrintWriter index, String file, TablePrinter tablePrinter, String title) {
         try (
-            FormattedFileWriter x = new FormattedFileWriter(index, file, null, false);
+            FormattedFileWriter x = new FormattedFileWriter(index, file, title, "<p>Differences from last version.<p>", false, anchors);
             PrintWriter pw = new PrintWriter(x)) {
             x.setDirectory(DIR)
-            .setTitle(title)
+//            .setTitle("Differences from the last version of " + title)
+            .setIndex("index.html")
             .setAnchors(anchors);
-            pw.println(tablePrinter.toTable());
+            x.write(tablePrinter.toTable());
         } catch (IOException e) {
             throw new IllegalArgumentException();
         }
@@ -375,7 +377,7 @@ public class ChartDelta extends Chart {
     public void writeNonLdmlPlain(PrintWriter index, String directory) {
         Map<String,String> bcp = new TreeMap<>(CLDRFile.getComparator(DtdType.ldmlBCP47));
         Map<String,String> supplemental = new TreeMap<>(CLDRFile.getComparator(DtdType.supplementalData));
-        
+
         for (String dir : new File(CLDRPaths.BASE_DIRECTORY + "common/").list()) {
             if (LDML_DIRECTORIES.contains(dir) 
                 || dir.equals(".DS_Store") 

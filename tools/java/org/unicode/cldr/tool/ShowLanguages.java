@@ -33,7 +33,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
-import org.unicode.cldr.tool.ShowLanguages.Anchors;
+import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
@@ -106,7 +106,7 @@ public class ShowLanguages {
     /**
      * 
      */
-    private static Anchors anchors = new Anchors();
+    static FormattedFileWriter.Anchors anchors = new FormattedFileWriter.Anchors();
 
     static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
         .getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
@@ -179,25 +179,6 @@ public class ShowLanguages {
         pw2.close();
     }
     
-    public static class Anchors {
-        private static List<String> anchors = new ArrayList<String>();
-
-        @Override
-        public String toString() {
-            String contents = "<ul>";
-            for (String item : anchors) {
-                contents += "<li>" + item + "</li>";
-            }
-            contents += "</ul>";
-            return contents;
-        }
-
-        public void add(String title, String fileName) {
-            anchors.add("<a name='" + FileUtilities.anchorize(title) + "' href='" + fileName + "'>"
-                + title + "</a></caption>");
-        }
-    }
-
     private static void printLanguageScript(LanguageInfo linfo, PrintWriter pw) throws IOException {
         PrintWriter pw1;
         TablePrinter tablePrinter = new TablePrinter()
@@ -277,11 +258,11 @@ public class ShowLanguages {
             addLanguageScriptCells(tablePrinter, tablePrinter2, "und", script, "?");
         }
 
-        pw1 = new PrintWriter(new FormattedFileWriter(pw, "Languages and Scripts", null, false));
+        pw1 = new PrintWriter(new FormattedFileWriter(pw, null, "Languages and Scripts", null, false));
         pw1.println(tablePrinter.toTable());
         pw1.close();
 
-        pw1 = new PrintWriter(new FormattedFileWriter(pw, "Scripts and Languages", null, false));
+        pw1 = new PrintWriter(new FormattedFileWriter(pw, null, "Scripts and Languages", null, false));
         pw1.println(tablePrinter2.toTable());
         pw1.close();
 
@@ -435,7 +416,7 @@ public class ShowLanguages {
         // addLanguageScriptCells2( tablePrinter2, "und", "Zzzz", territory);
         // }
 
-        pw1 = new PrintWriter(new FormattedFileWriter(pw, "Scripts, Languages, and Territories", null, false));
+        pw1 = new PrintWriter(new FormattedFileWriter(pw, null, "Scripts, Languages, and Territories", null, false));
         pw1.println(tablePrinter2.toTable());
         pw1.close();
     }
@@ -635,79 +616,6 @@ public class ShowLanguages {
                 .finishRow();
         } catch (RuntimeException e) {
             throw e;
-        }
-    }
-
-    public static class FormattedFileWriter extends java.io.Writer {
-        
-        Anchors localeAnchors = anchors;
-
-        private StringWriter out = new StringWriter();
-
-        private String title;
-
-        private String filename;
-
-        private String dir;
-
-        public FormattedFileWriter(PrintWriter indexFile, String title, String explanation, boolean skipIndex)
-            throws IOException {
-            String anchor = FileUtilities.anchorize(title);
-            this.dir = CHART_TARGET_DIR;
-            filename = anchor + ".html";
-            this.title = title;
-            if (!skipIndex) {
-                localeAnchors.add(getTitle(), getFilename());
-            }
-            String helpText = getHelpHtml(anchor);
-            if (explanation == null) {
-                explanation = helpText;
-            }
-            if (explanation != null) {
-                out.write(explanation);
-            }
-            out.write("<div align='center'>");
-        }
-
-        public FormattedFileWriter setDirectory(String dir) {
-            this.dir = dir;
-            return this;
-        }
-        
-        public String getFilename() {
-            return filename;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public FormattedFileWriter setTitle(String title) {
-            this.title = title;
-            return this;
-        }
-
-        public void close() throws IOException {
-            out.write("</div>");
-            PrintWriter pw2 = BagFormatter.openUTF8Writer(dir, filename);
-            String[] replacements = { "%header%", "", "%title%", title, "%version%", ToolConstants.CHART_DISPLAY_VERSION,
-                "%date%", CldrUtility.isoFormat(new Date()), "%body%", out.toString() };
-            final String templateFileName = "chart-template.html";
-            FileUtilities.appendBufferedReader(ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);
-            pw2.close();
-        }
-
-        public void write(char[] cbuf, int off, int len) throws IOException {
-            out.write(cbuf, off, len);
-        }
-
-        public void flush() throws IOException {
-            out.flush();
-        }
-
-        public FormattedFileWriter setAnchors(Anchors anchors) {
-            localeAnchors = anchors;
-            return this;
         }
     }
 
@@ -1035,7 +943,7 @@ public class ShowLanguages {
 
         public void printLikelySubtags(PrintWriter index) throws IOException {
 
-            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Likely Subtags", null, false));
+            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, null, "Likely Subtags", null, false));
 
             TablePrinter tablePrinter = new TablePrinter()
                 .addColumn("Source Lang", "class='source'", null, "class='source'", true).setSortPriority(1)
@@ -1276,15 +1184,15 @@ public class ShowLanguages {
         }
 
         private void showLanguageCountryInfo(PrintWriter pw) throws IOException {
-            PrintWriter pw21 = new PrintWriter(new FormattedFileWriter(pw, "Language-Territory Information",
-                null
+            PrintWriter pw21 = new PrintWriter(new FormattedFileWriter(pw, null,
+                "Language-Territory Information"
                 // "<div  style='margin:1em'><p>The language data is provided for localization testing, and is under development for CLDR 1.5. "
                 // +
                 // "To add a new territory for a language, see the <i>add new</i> links below. " +
                 // "For more information, see <a href=\"territory_language_information.html\">Territory-Language Information.</a>"
                 // +
                 // "<p></div>"
-                , false
+                , null, false
                 ));
             PrintWriter pw2 = pw21;
             NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
@@ -1407,8 +1315,8 @@ public class ShowLanguages {
         }
 
         private void showCoverageGoals(PrintWriter pw) throws IOException {
-            PrintWriter pw2 = new PrintWriter(new FormattedFileWriter(pw, "Coverage Goals",
-                null
+            PrintWriter pw2 = new PrintWriter(new FormattedFileWriter(pw, null,
+                "Coverage Goals"
                 // "<p>" +
                 // "The following show default coverage goals for larger organizations. " +
                 // "<i>[n/a]</i> shows where there is no specific value for a given organization, " +
@@ -1419,7 +1327,7 @@ public class ShowLanguages {
                 // "<a href='http://www.unicode.org/reports/tr35/#Coverage_Levels'>Appendix M: Coverage Levels</a>. " +
                 // +
                 // "</p>"
-                , true
+                , null, true
                 ));
 
             TablePrinter tablePrinter = new TablePrinter()
@@ -1583,8 +1491,8 @@ public class ShowLanguages {
         }
 
         private void showCountryLanguageInfo(PrintWriter pw) throws IOException {
-            PrintWriter pw21 = new PrintWriter(new FormattedFileWriter(pw, "Territory-Language Information",
-                null
+            PrintWriter pw21 = new PrintWriter(new FormattedFileWriter(pw, null,
+                "Territory-Language Information"
                 // "<div  style='margin:1em'><p>The language data is provided for localization testing, and is under development for CLDR 1.5. "
                 // +
                 // "The main goal is to provide approximate figures for the literate, functional population for each language in each territory: "
@@ -1606,7 +1514,7 @@ public class ShowLanguages {
                 // "<p><b>Defects:</b> If you find errors or omissions in this data, please report the information with the <i>bug</i> or <i>add new</i> link below."
                 // +
                 // "</p></div>"
-                , false
+                , null, false
                 ));
             PrintWriter pw2 = pw21;
             NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
@@ -1854,7 +1762,7 @@ public class ShowLanguages {
         }
 
         public void showCalendarData(PrintWriter pw0) throws IOException {
-            PrintWriter pw = new PrintWriter(new FormattedFileWriter(pw0, "Other Territory Data", null, false));
+            PrintWriter pw = new PrintWriter(new FormattedFileWriter(pw0, null, "Other Territory Data", null, false));
             pw.println("<table>");
             pw.println("<tr><th class='source'>Territory</th>");
             for (Iterator<String> it = territoryTypes.iterator(); it.hasNext();) {
@@ -1965,15 +1873,15 @@ public class ShowLanguages {
          * 
          */
         public void printCurrency(PrintWriter index) throws IOException {
-            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Detailed Territory-Currency Information",
-                null
+            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, null,
+                "Detailed Territory-Currency Information"
                 // "<p>The following table shows when currencies were in use in different countries. " +
                 // "See also <a href='#format_info'>Decimal Digits and Rounding</a>. " +
                 // "To correct any information here, please file a " +
                 // addBug(1274, "bug", "<email>", "Currency Bug",
                 // "<currency, country, and references supporting change>") +
                 // ".</p>"
-                , false
+                , null, false
                 ));
             String section1 = "Territory to Currency";
             String section2 = "Decimal Digits and Rounding";
@@ -2172,7 +2080,7 @@ public class ShowLanguages {
          * 
          */
         public void printAliases(PrintWriter index) throws IOException {
-            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Aliases", null, false));
+            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, null, "Aliases", null, false));
 
             // doTitle(pw, "Aliases");
             pw.println("<table>");
@@ -2212,7 +2120,7 @@ public class ShowLanguages {
         public void printWindows_Tzid(PrintWriter index) throws IOException {
             Map<String, Map<String, Map<String, String>>> zoneMapping = supplementalDataInfo
                 .getTypeToZoneToRegionToZone();
-            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Zone \u2192 Tzid", null, false));
+            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, null, "Zone \u2192 Tzid", null, false));
             for (Entry<String, Map<String, Map<String, String>>> typeAndZoneToRegionToZone : zoneMapping.entrySet()) {
                 String type = typeAndZoneToRegionToZone.getKey();
                 Map<String, Map<String, String>> zoneToRegionToZone = typeAndZoneToRegionToZone.getValue();
@@ -2244,7 +2152,7 @@ public class ShowLanguages {
         public void printCharacters(PrintWriter index) throws IOException {
             String title = "Character Fallback Substitutions";
 
-            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null, false));
+            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, null, title, null, false));
             // doTitle(pw, title);
             pw.println("<table>");
 
@@ -2509,7 +2417,7 @@ public class ShowLanguages {
         public void printContains(PrintWriter index) throws IOException {
             String title = "Territory Containment (UN M.49)";
 
-            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null, false));
+            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, null, title, null, false));
             // doTitle(pw, title);
             List<String[]> rows = new ArrayList<String[]>();
             printContains3("001", rows, new ArrayList<String>());

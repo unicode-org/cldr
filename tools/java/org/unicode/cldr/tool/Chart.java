@@ -3,7 +3,6 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import org.unicode.cldr.tool.ShowLanguages.FormattedFileWriter;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -17,12 +16,12 @@ public abstract class Chart {
     public abstract void writeContents(PrintWriter pw);
 
     public final void writeChart(PrintWriter index) {
-        writeChart(index, null);
+        writeChart(index, null, null);
     }
     
-    public void writeChart(PrintWriter index, String directory) {
+    public void writeChart(PrintWriter index, String directory, String title) {
         try (
-            FormattedFileWriter x = new FormattedFileWriter(index, getName(), null, false);
+            FormattedFileWriter x = new FormattedFileWriter(index, null, getName(), title, false);
             PrintWriter pw = new PrintWriter(x)) {
             if (directory != null) {
                 x.setDirectory(directory);

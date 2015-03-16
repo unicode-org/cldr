@@ -1514,6 +1514,8 @@ $Date$
 <!ELEMENT annotation ( #PCDATA ) >
 <!ATTLIST annotation cp CDATA #REQUIRED >
 <!ATTLIST annotation tts CDATA #IMPLIED >
+<!ATTLIST annotation alt NMTOKENS #IMPLIED >
+<!ATTLIST annotation draft ( approved | contributed | provisional | unconfirmed) #IMPLIED >
 
 <!ELEMENT references ( reference* ) > <!-- deprecated. -->
 <!ELEMENT reference ( #PCDATA ) >

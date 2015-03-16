@@ -413,7 +413,9 @@ public final class XPathParts implements Freezable<XPathParts> {
      * @return
      */
     public Collection<String> getAttributeKeys(int elementIndex) {
-        return elements.get(elementIndex >= 0 ? elementIndex : elementIndex + size()).getAttributes().keySet();
+        return elements.get(elementIndex >= 0 ? elementIndex : elementIndex + size())
+            .getAttributes()
+            .keySet();
     }
 
     /**

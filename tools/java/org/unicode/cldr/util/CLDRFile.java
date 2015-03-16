@@ -1343,6 +1343,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 || attribute.equals("yeartype")
                 || attribute.equals("numberSystem")
                 || attribute.equals("parent")
+                || elementName.equals("annotation") && attribute.equals("cp")
                 || (attribute.equals("type")
                     && !elementName.equals("default")
                     && !elementName.equals("measurementSystem")
@@ -1351,7 +1352,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     && !elementName.equals("preferenceOrdering"));
         case ldmlBCP47:
             return attribute.equals("_q")
-                || attribute.equals("alias")
+                //|| attribute.equals("alias")
                 || attribute.equals("name");
         case supplementalData:
             return attribute.equals("_q")
@@ -1395,7 +1396,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 || elementName.equals("currency") && attribute.equals("to")
                 || elementName.equals("currency") && attribute.equals("iso4217")
                 || elementName.equals("parentLocale") && attribute.equals("parent")
-                || elementName.equals("currencyCodes") && (attribute.equals("numeric") || attribute.equals("type"));
+                || elementName.equals("currencyCodes") && (attribute.equals("numeric") || attribute.equals("type"))
+                || elementName.equals("approvalRequirement") && (attribute.equals("locales") || attribute.equals("paths"))
+                || elementName.equals("coverageVariable") && attribute.equals("key")
+                || elementName.equals("coverageLevel") && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
+                ;
+
         case keyboard:
             return attribute.equals("_q")
                 || elementName.equals("keyboard") && attribute.equals("locale")

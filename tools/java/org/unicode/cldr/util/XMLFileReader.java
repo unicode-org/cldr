@@ -88,7 +88,7 @@ public class XMLFileReader {
     public XMLFileReader read(String fileName, int handlers, boolean validating) {
         try {
             InputStream fis = new FileInputStream(fileName);
-            // fis = new DebuggingInputStream(fis);
+            fis = new FilterBomInputStream(fis);
             return read(fileName, fis, handlers, validating);
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fileName).initCause(e);
@@ -412,6 +412,38 @@ public class XMLFileReader {
         public int read() throws IOException {
             int x = contents.read();
             System.out.println(Integer.toHexString(x) + ",");
+            return x;
+        }
+    }
+
+    static final class FilterBomInputStream extends InputStream {
+        InputStream contents;
+        boolean first = true;
+
+        public void close() throws IOException {
+            contents.close();
+        }
+
+        public FilterBomInputStream(InputStream fis) {
+            contents = fis;
+        }
+
+        public int read() throws IOException {
+            int x = contents.read();
+            if (first) {
+                first = false;
+                // 0xEF,0xBB,0xBF
+                // SKIP bom
+                if (x == 0xEF) {
+                    int y = contents.read();
+                    if (y == 0xBB) {
+                        int z = contents.read();
+                        if (z == 0xBF) {
+                            x = contents.read();
+                        }
+                    }
+                }
+            }
             return x;
         }
     }

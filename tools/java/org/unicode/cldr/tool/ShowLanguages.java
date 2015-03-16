@@ -33,6 +33,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
+import org.unicode.cldr.tool.ShowLanguages.Anchors;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
@@ -105,7 +106,7 @@ public class ShowLanguages {
     /**
      * 
      */
-    private static List<String> anchors = new ArrayList<String>();
+    private static Anchors anchors = new Anchors();
 
     static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
         .getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
@@ -170,17 +171,31 @@ public class ShowLanguages {
 
         pw.close();
 
-        String contents = "<ul>";
-        for (String item : anchors) {
-            contents += "<li>" + item + "</li>";
-        }
-        contents += "</ul>";
-        String[] replacements = { "%date%", CldrUtility.isoFormat(new Date()), "%contents%", contents, "%data%",
+        String[] replacements = { "%date%", CldrUtility.isoFormat(new Date()), "%contents%", anchors.toString(), "%data%",
             sw.toString() };
         PrintWriter pw2 = BagFormatter.openUTF8Writer(CLDRPaths.CHART_DIRECTORY + "/supplemental/", filename);
         FileUtilities.appendFile(CLDRPaths.BASE_DIRECTORY + java.io.File.separatorChar
             + "tools/java/org/unicode/cldr/tool/supplemental.html", "utf-8", pw2, replacements);
         pw2.close();
+    }
+    
+    public static class Anchors {
+        private static List<String> anchors = new ArrayList<String>();
+
+        @Override
+        public String toString() {
+            String contents = "<ul>";
+            for (String item : anchors) {
+                contents += "<li>" + item + "</li>";
+            }
+            contents += "</ul>";
+            return contents;
+        }
+
+        public void add(String title, String fileName) {
+            anchors.add("<a name='" + FileUtilities.anchorize(title) + "' href='" + fileName + "'>"
+                + title + "</a></caption>");
+        }
     }
 
     private static void printLanguageScript(LanguageInfo linfo, PrintWriter pw) throws IOException {
@@ -624,6 +639,8 @@ public class ShowLanguages {
     }
 
     public static class FormattedFileWriter extends java.io.Writer {
+        
+        Anchors localeAnchors = anchors;
 
         private StringWriter out = new StringWriter();
 
@@ -640,8 +657,7 @@ public class ShowLanguages {
             filename = anchor + ".html";
             this.title = title;
             if (!skipIndex) {
-                anchors.add("<a name='" + FileUtilities.anchorize(getTitle()) + "' href='" + getFilename() + "'>"
-                    + getTitle() + "</a></caption>");
+                localeAnchors.add(getTitle(), getFilename());
             }
             String helpText = getHelpHtml(anchor);
             if (explanation == null) {
@@ -653,12 +669,22 @@ public class ShowLanguages {
             out.write("<div align='center'>");
         }
 
+        public FormattedFileWriter setDirectory(String dir) {
+            this.dir = dir;
+            return this;
+        }
+        
         public String getFilename() {
             return filename;
         }
 
         public String getTitle() {
             return title;
+        }
+
+        public FormattedFileWriter setTitle(String title) {
+            this.title = title;
+            return this;
         }
 
         public void close() throws IOException {
@@ -677,6 +703,11 @@ public class ShowLanguages {
 
         public void flush() throws IOException {
             out.flush();
+        }
+
+        public FormattedFileWriter setAnchors(Anchors anchors) {
+            localeAnchors = anchors;
+            return this;
         }
     }
 

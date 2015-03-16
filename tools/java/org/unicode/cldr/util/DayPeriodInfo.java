@@ -5,6 +5,7 @@ package org.unicode.cldr.util;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.TreeMap;
 
 import com.ibm.icu.impl.Row;
@@ -25,7 +26,9 @@ public class DayPeriodInfo {
         public static final DayPeriod pm = afternoon1;
 
         public static DayPeriod fromString(String value) {
-            return value.equals("am") ? morning1 : value.equals("pm") ? afternoon1 : DayPeriod.valueOf(value);
+            return value.equals("am") ? morning1 
+                : value.equals("pm") ? afternoon1
+                    : DayPeriod.valueOf(value.toLowerCase(Locale.ENGLISH));
         }
     };
 

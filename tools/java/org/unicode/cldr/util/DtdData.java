@@ -560,8 +560,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             Element parent = ROOT;
             Element elementA;
             for (int i = 1; i < min; ++i, parent = elementA) {
-                elementA = nameToElement.get(a.getElement(i));
-                Element elementB = nameToElement.get(b.getElement(i));
+                // add extra test for "fake" elements, used in diffing. they always start with _
+                String elementRawA = a.getElement(i);
+                String elementRawB = b.getElement(i);
+                if (elementRawA.startsWith("_")) {
+                    return elementRawB.startsWith("_") ? elementRawA.compareTo(elementRawB) : -1;
+                } else if (elementRawB.startsWith("_")) {
+                    return 1;
+                }
+                //
+                elementA = nameToElement.get(elementRawA);
+                Element elementB = nameToElement.get(elementRawB);
                 if (elementA != elementB) {
                     int aa = parent.children.get(elementA);
                     int bb = parent.children.get(elementB);

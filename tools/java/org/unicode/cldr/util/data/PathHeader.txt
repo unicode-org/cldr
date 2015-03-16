@@ -169,9 +169,9 @@
 //ldml/posix/messages/%Estr                                 ; Misc ; Linguistic Elements ; Yes and No ; posix-$1
 //ldml/localeDisplayNames/transformNames/transformName[@type="%A"]          ; Misc ; Transforms ; null ; $1
 
-
-
-
+#Outside of Main
+//ldml/collations/collation[@type="%A"]/cr	; Misc ; Linguistic Elements ; Collation ; $1 ; HIDE
+//ldml/annotations/annotation[@cp="%A"]/cr	; Misc ; Linguistic Elements ; Annotation ; $1 ; HIDE
 
 # HIDE OTHERS
 //ldml/layout/orientation/(%E)                              ; Special ; Alphabetic Information ; Layout ; $1 ; HIDE

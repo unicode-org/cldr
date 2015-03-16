@@ -17,42 +17,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, MMMM d, U</pattern>
+							<pattern>EEEE, MMMM d, r(U)</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>MMMM d, U</pattern>
+							<pattern>MMMM d, r(U)</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>MMM d, U</pattern>
+							<pattern>MMM d, r</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>y-MM-dd</pattern>
+							<pattern>r-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
-						<dateFormatItem id="GyMMMd">MMM d, U</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E, MMM d, U</dateFormatItem>
+						<dateFormatItem id="GyMMMd">MMM d, r</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, MMM d, r(U)</dateFormatItem>
 						<dateFormatItem id="Md">MM-dd</dateFormatItem>
 						<dateFormatItem id="MEd">E, MM-dd</dateFormatItem>
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
-						<dateFormatItem id="yMd">y-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyy">U</dateFormatItem>
-						<dateFormatItem id="yyyyM">y-MM</dateFormatItem>
-						<dateFormatItem id="yyyyMd">y-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">E, y-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">MMM d, U</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">E, MMM d, U</dateFormatItem>
+                        <dateFormatItem id="UMd">U-MM-dd</dateFormatItem>
+                        <dateFormatItem id="UMMMd">MMM d, U</dateFormatItem>
+						<dateFormatItem id="yMd">r-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyM">r-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMd">r-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, r-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">MMM d, r</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, MMM d, r(U)</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="Md">
@@ -182,6 +183,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</calendar>
 			<calendar type="gregorian">
 				<dateFormats>
+                    <dateFormatLength type="full">
+                        <dateFormat>
+                            <pattern>EEEE, MMMM d, y</pattern>
+                        </dateFormat>
+                    </dateFormatLength>
+                    <dateFormatLength type="long">
+                        <dateFormat>
+                            <pattern>MMMM d, y</pattern>
+                        </dateFormat>
+                    </dateFormatLength>
+                    <dateFormatLength type="medium">
+                        <dateFormat>
+                            <pattern>MMM d, y</pattern>
+                        </dateFormat>
+                    </dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>y-MM-dd</pattern>

@@ -1,12 +1,13 @@
 package org.unicode.cldr.tool;
 
-import java.io.PrintWriter;
+import java.io.IOException;
 
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DayPeriodData;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.DayPeriodInfo.Type;
+import org.unicode.cldr.util.LanguageGroup;
 
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.DateFormat;
@@ -19,12 +20,30 @@ public class ChartDayPeriods extends Chart {
         new ChartDayPeriods().writeChart(null);
     }
 
-    public String getName() {
+    @Override
+    public String getDirectory() {
+        return FormattedFileWriter.CHART_TARGET_DIR;
+    }
+    @Override
+    public String getTitle() {
         return "Day Periods";
     }
+    @Override
+    public String getExplanation() {
+        return "<p>Day Periods indicate roughly how the day is broken up in different languages. "
+            + "The following shows the ones that can be used as selectors in messages. "
+            + "The first column has a language group to collect languages together that are more likely to have similar day periods. "
+            + "For more information, see: "
+            + "<a href='http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-dates.html#Day_Period_Rule_Sets'>Day Period Rules</a>. "
+            + "The latest release data for this chart is in "
+            + "<a href='http://unicode.org/cldr/latest/common/supplemental/dayPeriods.xml'>dayPeriods.xml</a>.<p>";
+    }
 
-    public void writeContents(PrintWriter pw) {
+    @Override
+    public void writeContents(FormattedFileWriter pw) throws IOException {
+        
         TablePrinter tablePrinter = new TablePrinter()
+        .addColumn("Locale Group", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
         .addColumn("Locale Name", "class='source'", null, "class='source'", true)
         .setSortPriority(1)
         .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
@@ -48,6 +67,8 @@ public class ChartDayPeriods extends Chart {
                 if (locale.equals("root")) {
                     continue;
                 }
+                LanguageGroup group = LanguageGroup.get(new ULocale(locale));
+
                 DayPeriodInfo dayPeriodInfo = SDI.getDayPeriods(Type.selection, locale);
                 for (int i = 0; i < dayPeriodInfo.getPeriodCount(); ++i) {
                     R3<Integer, Boolean, DayPeriod> data = dayPeriodInfo.getPeriod(i);
@@ -58,6 +79,7 @@ public class ChartDayPeriods extends Chart {
                         name = "missing";
                     }
                     tablePrinter.addRow()
+                    .addCell(group)
                     .addCell(ENGLISH.getName(locale))
                     .addCell(locale)
                     //.addCell(type)
@@ -68,6 +90,7 @@ public class ChartDayPeriods extends Chart {
                 }
             }
         }
-        pw.println(tablePrinter.toTable());
+        pw.write(tablePrinter.toTable());
     }
+
 }

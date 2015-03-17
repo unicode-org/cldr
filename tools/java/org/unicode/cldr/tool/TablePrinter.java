@@ -91,13 +91,13 @@ public class TablePrinter {
         }
 
         public Column setCellAttributes(String cellAttributes) {
-            this.cellAttributes = new MessageFormat(MessageFormat.autoQuoteApostrophe(cellAttributes));
+            this.cellAttributes = new MessageFormat(MessageFormat.autoQuoteApostrophe(cellAttributes), ULocale.ENGLISH);
             return this;
         }
 
         public Column setCellPattern(String cellPattern) {
             this.cellPattern = cellPattern == null ? null : new MessageFormat(
-                MessageFormat.autoQuoteApostrophe(cellPattern));
+                MessageFormat.autoQuoteApostrophe(cellPattern), ULocale.ENGLISH);
             return this;
         }
 

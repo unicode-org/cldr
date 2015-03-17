@@ -330,7 +330,7 @@ public class GenerateTransformCharts {
         String[] headerAndFooter = new String[2];
         ShowData.getChartTemplate("Transliteration Charts",
             null, "",
-            headerAndFooter);
+            headerAndFooter, "Main Charts Index");
 
         index = BagFormatter.openUTF8Writer(TRANSFORM_DIRECTORY, "index.html");
         index.println(headerAndFooter[0]);
@@ -338,8 +338,14 @@ public class GenerateTransformCharts {
         // index.println("<title>Transliteration Charts</title><style>");
         // index.println("</style></head><body bgcolor='#FFFFFF'>");
         // index.println("<h1>Transliteration Charts</h1>");
-        index.println("<p>The following illustrates some of the transliterations available in CLDR. " +
-            "<b>Note:</b> these charts are preliminary; for more information, see below.</p.>");
+        index.println("<p>The following illustrates some of the CLDR transliterations to/from the Latin script.</p>");
+        index.println("<blockquote>"
+            +"<b>Note:</b> "
+            + "These charts do not show the available script and language transliterations that are not to/from Latin. "
+            + "It also does not show other transforms that are available in CLDR, such as the casing transformations, "
+            + "full-width and half-width transformations, and specialized transformations such as IPA-XSampa. "
+            + "For the latest snapshot of the data files, see <a href='http://unicode.org/repos/cldr/trunk/common/transforms/'>Transform XML Data</a>. "
+            + "For more information, see below.</blockquote>");
         index.flush();
         index.println("<ul>");
         Set<String> nonScripts = new TreeSet<String>(Arrays.asList("ConjoiningJamo", "InterIndic", "Han",
@@ -398,9 +404,11 @@ public class GenerateTransformCharts {
             index.println("<li>The CLDR data currently does not contain many language-specific transliterations. " +
                 "So, for example, the Cyrillic transliteration is not very natural for English speakers.</li>");
             index
-                .println("<li>The unmarked script transliterations to Latin are generally designed to be reversible, thus some of the transliterations use extra accents to provide for a round-trip. "
+                .println("<li>The unmarked script transliterations to Latin are generally designed to be reversible, "
+                    + "thus some of the transliterations use extra accents to provide for a round-trip. "
                     +
-                    "(Implementations like ICU allows those to be easily stripped.)</li>");
+                    "(Implementations like ICU allows those to be easily stripped.). "
+                    + "Variant transliterations (such as BGN) typically only go one direction.</li>");
             index
                 .println("<li>Less common characters may be missing; as may be some characters that don't appear in isolation.</li>");
             index
@@ -575,7 +583,7 @@ public class GenerateTransformCharts {
             // "td.none { background-color: #FFCCCC }" + Utility.LINE_SEPARATOR +
             // "td.main { align: center; vertical-align: top; background-color: #DDDDDD }" + Utility.LINE_SEPARATOR +
             // "</style>",
-            headerAndFooter);
+            headerAndFooter, null);
         pw.println(headerAndFooter[0]);
 
         // pw.println("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");

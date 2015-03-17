@@ -1339,7 +1339,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 || attribute.equals("mzone")
                 || attribute.equals("from")
                 || attribute.equals("to")
-                || attribute.equals("value")
+                || attribute.equals("value") && !elementName.equals("rbnfrule")
                 || attribute.equals("yeartype")
                 || attribute.equals("numberSystem")
                 || attribute.equals("parent")

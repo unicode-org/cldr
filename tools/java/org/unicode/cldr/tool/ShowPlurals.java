@@ -49,7 +49,7 @@ public class ShowPlurals {
         String section2 = "Comparison";
 
         final String title = "Language Plural Rules";
-        final PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, null, title, null, false));
+        final PrintWriter pw = new PrintWriter(new FormattedFileWriter(null, title, null, ShowLanguages.SUPPLEMENTAL_INDEX_ANCHORS));
         ShowLanguages.showContents(pw, "rules", "Rules", "comparison", "Comparison");
 
         pw.append("<h2>" + CldrUtility.getDoubleLinkedText("rules", "1. " + section1) + "</h2>" + System.lineSeparator());

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Pair;
 
@@ -14,9 +15,10 @@ import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.FileUtilities;
 
 public class FormattedFileWriter extends java.io.Writer {
-    
+    public static final String CHART_TARGET_DIR = CLDRPaths.CHART_DIRECTORY + "/supplemental/";
+
     public static class Anchors {
-        private static List<Pair<String,String>> anchors = new ArrayList<Pair<String,String>>();
+        private List<Pair<String,String>> anchors = new ArrayList<Pair<String,String>>();
     
         @Override
         public String toString() {
@@ -38,41 +40,31 @@ public class FormattedFileWriter extends java.io.Writer {
         }
     }
 
-    Anchors localeAnchors;
-
-    private StringWriter out = new StringWriter();
-
-    private String title;
-
-    private String filename;
+    private Anchors localeAnchors;
 
     private String dir;
-    
-    private String index = "../index.html";
 
-    public FormattedFileWriter(PrintWriter indexFile, String fileName, String title, String explanation, boolean skipIndex)
-        throws IOException {
-        this(indexFile, fileName, title, explanation, skipIndex, ShowLanguages.anchors);
-    }
+    private String title;
+    private String filename;
+
+    private String indexLink = "index.html";
+    private String indexTitle = "Index";
+
+    private String explanation;
+
+    private StringWriter out = new StringWriter();
     
-    public FormattedFileWriter(PrintWriter indexFile, String baseFileName, String title, String explanation, boolean skipIndex, Anchors anchors)
+    public FormattedFileWriter(String baseFileName, String title, String explanation, Anchors anchors)
         throws IOException {
+        // we set up a bunch of variables, but we won't actually use them unless there is generate content. See close()
         if (baseFileName == null) {
             baseFileName = FileUtilities.anchorize(title);
         }
-        localeAnchors = anchors;
-        this.dir = ShowLanguages.CHART_TARGET_DIR;
-        filename = baseFileName + ".html";
+        this.dir = FormattedFileWriter.CHART_TARGET_DIR;
+        this.filename = baseFileName;
         this.title = title;
-        if (!skipIndex) {
-            localeAnchors.add(getTitle(), getFilename(), null);
-        }
-        if (explanation == null) {
-            explanation = ShowLanguages.getHelpHtml(filename);
-        }
-        if (explanation != null) {
-            out.write(explanation);
-        }
+        this.explanation = explanation;
+        this.localeAnchors = anchors;
     }
 
     public FormattedFileWriter setDirectory(String dir) {
@@ -80,27 +72,28 @@ public class FormattedFileWriter extends java.io.Writer {
         return this;
     }
     
-    public String getFilename() {
-        return filename;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public FormattedFileWriter setTitle(String title) {
-        this.title = title;
-        return this;
-    }
-
     public void close() throws IOException {
-        PrintWriter pw2 = BagFormatter.openUTF8Writer(dir, filename);
+        String contents = out.toString();
+        if (contents.isEmpty()) {
+            return; // skip writing if there are no contents
+        }
+        if (explanation == null) {
+            explanation = ShowLanguages.getHelpHtml(filename);
+        }
+        if (explanation != null) {
+            contents = explanation + contents;
+        }
+        if (localeAnchors != null) {
+            localeAnchors.add(title, filename + ".html", null);
+        }
+        PrintWriter pw2 = BagFormatter.openUTF8Writer(dir, filename + ".html");
         String[] replacements = { "%header%", "", 
             "%title%", title, 
             "%version%", ToolConstants.CHART_DISPLAY_VERSION,
-            "%index%", index, 
+            "%index%", indexLink, 
+            "%index-title%", indexTitle, 
             "%date%", CldrUtility.isoFormat(new Date()), 
-            "%body%", out.toString() };
+            "%body%", contents };
         final String templateFileName = "chart-template.html";
         FileUtilities.appendBufferedReader(ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);
         pw2.close();
@@ -114,13 +107,9 @@ public class FormattedFileWriter extends java.io.Writer {
         out.flush();
     }
 
-    public FormattedFileWriter setAnchors(FormattedFileWriter.Anchors anchors) {
-        localeAnchors = anchors;
-        return this;
-    }
-
-    public FormattedFileWriter setIndex(String indexString) {
-        index = indexString;
+    public FormattedFileWriter setIndex(String indexTitle_, String indexLink_) {
+        indexLink = indexLink_;
+        indexTitle = indexTitle_;
         return this;
     }
 }

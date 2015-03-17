@@ -298,7 +298,7 @@ public class ShowLocaleCoverage {
 
     public static void showCoverage(PrintWriter index, Matcher matcher, Set<String> locales, boolean useOrgLevel) throws IOException {
         final String title = "Locale Coverage";
-        final PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, null, title, null, index == null));
+        final PrintWriter pw = new PrintWriter(new FormattedFileWriter(null, title, null, null));
         printData(pw, locales, matcher, useOrgLevel);
         new ShowPlurals().appendBlanksForScrolling(pw);
         pw.close();

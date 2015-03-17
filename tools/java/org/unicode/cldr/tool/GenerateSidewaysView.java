@@ -789,7 +789,7 @@ public class GenerateSidewaysView {
             // "<style type='text/css'>" + Utility.LINE_SEPARATOR +
             // "h1 {margin-bottom:1em}" + Utility.LINE_SEPARATOR +
             // "</style>" + Utility.LINE_SEPARATOR,
-            headerAndFooter);
+            headerAndFooter, null);
         out.println(headerAndFooter[0]);
         return out;
     }

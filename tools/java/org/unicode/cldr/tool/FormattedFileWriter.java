@@ -28,7 +28,7 @@ public class FormattedFileWriter extends java.io.Writer {
                 if (item.getSecond() != null) {
                     contents.append("<td class='plain'>" + item.getSecond() + "</td>");
                 }
-                contents.append("<tr>");
+                contents.append("</tr>");
             }
             contents.append("</table>");
             return contents.toString();

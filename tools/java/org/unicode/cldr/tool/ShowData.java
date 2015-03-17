@@ -230,7 +230,7 @@ public class ShowData {
                 getChartTemplate(
                     "Locale Data Summary for " + getLocaleNameAndCode(locale),
                     ToolConstants.CHART_DISPLAY_VERSION,
-                    "<script>" + System.lineSeparator()
+                    "<script type='text/javascript'>" + System.lineSeparator()
                         + "if (location.href.split('?')[1].split(',')[0]=='hide') {" + System.lineSeparator()
                         + "document.write('<style>');" + System.lineSeparator()
                         + "document.write('.xx {display:none}');" + System.lineSeparator()
@@ -255,7 +255,7 @@ public class ShowData {
                     + (showEnglish ? "<th>English</th>" : "")
                     + "<th>Native</th>"
                     + "<th>Sublocales…</th>"
-                    + "<tr>");
+                    + "</tr>");
 
                 int count = 0;
                 PathHeader oldParts = null;
@@ -422,7 +422,7 @@ public class ShowData {
     public static void showValue(PrintWriter pw, String value, Set<String> locales, boolean isExemplar) {
         final boolean noLocales = locales == null || locales.isEmpty();
         pw.println("<td"
-            + (isExemplar ? " max-width='20%'" : "")
+            + (isExemplar ? " style='max-width:20%'" : "")
             + (noLocales ? "" : " title='" + CollectionUtilities.join(locales, ", ") + "'")
             + (value == null ? "></i>n/a</i>" : " class='v'" + DataShower.getBidiStyle(value) + ">" + DataShower.getPrettyValue(value))
             + "</td>");

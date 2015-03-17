@@ -597,7 +597,7 @@ public class GenerateTransformCharts {
         // pw.println("td.main { align: center; vertical-align: top; background-color: #DDDDDD }");
         // pw.println("</style></head><body bgcolor='#FFFFFF'>");
         // pw.println("<h1>Latin-" + scriptChoice + " Transliteration Chart</h1>");
-        pw.println("<p1>This chart illustrates one or more of the transliterations in CLDR. It is not complete; in particular, it does not show examples where transliterations differ according to context.</p>"
+        pw.println("<p>This chart illustrates one or more of the transliterations in CLDR. It is not complete; in particular, it does not show examples where transliterations differ according to context.</p>"
             +
             "<p><b>Note:</b> This chart is preliminary; for known issues and more information (such as how to see character names), see the <a href='index.html'>index</a>.</p>");
 

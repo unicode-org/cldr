@@ -224,7 +224,7 @@ public class GenerateSidewaysView {
             out.println("<tr>" +
                 "<th class='path'>" + CldrUtility.getDoubleLinkedText(anchorId, anchor) + "</th>" +
                 "<th class='path'>" + toHTML.transliterate(englishValue) + "</th>" +
-                "<tr>");
+                "</tr>");
             Map<String, Set<String>> value_locales = path_value_locales.get(path);
             for (String value : value_locales.keySet()) {
                 // String outValue = toHTML.transliterate(value);
@@ -267,7 +267,7 @@ public class GenerateSidewaysView {
                 if (containsRoot) {
                     out.print("<b>\u00B7all\u00B7others\u00B7</b>");
                 }
-                out.println("</td><tr>");
+                out.println("</td></tr>");
             }
         }
         for (String[] pair : EXEMPLARS) {

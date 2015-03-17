@@ -562,11 +562,30 @@ public class Ldml2JsonConverter {
         writeBasicInfo(obj,packageName);
         
         JsonArray licenses = new JsonArray();
+        JsonArray maintainers = new JsonArray();
         JsonObject UnicodeLicense = new JsonObject();
+        JsonObject primaryMaintainer = new JsonObject();
+
+        obj.addProperty("homepage", "http://cldr.unicode.org");
+        obj.addProperty("author", "The Unicode Consortium");
+        
+        primaryMaintainer.addProperty("name", "John Emmons");
+        primaryMaintainer.addProperty("email","emmo@us.ibm.com");
+        primaryMaintainer.addProperty("url","https://github.com/JCEmmons");        
+        maintainers.add(primaryMaintainer);
+        obj.add("maintainers", maintainers);
+
+        JsonObject repository = new JsonObject();
+        repository.addProperty("type", "git");
+        repository.addProperty("url", "git://github.com/unicode-cldr/cldr-json.git/"+packageName);
+        obj.add("repository",repository);
+        
         UnicodeLicense.addProperty("type", "Unicode-TOU");
         UnicodeLicense.addProperty("url","http://www.unicode.org/copyright.html");
         licenses.add(UnicodeLicense);
         obj.add("licenses", licenses);
+        
+        obj.addProperty("bugs","http://unicode.org/cldr/trac/newticket");
         
         outf.println(gson.toJson(obj));
         outf.close();

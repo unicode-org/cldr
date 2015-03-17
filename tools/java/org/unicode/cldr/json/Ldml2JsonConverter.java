@@ -605,6 +605,12 @@ public class Ldml2JsonConverter {
         } else {
             obj.addProperty("main", options.get("type").getValue() + "/**/*.json");
         }
+
+        JsonArray ignorePaths = new JsonArray();
+        ignorePaths.add(new JsonPrimitive(".gitattributes"));
+        ignorePaths.add(new JsonPrimitive("README.md"));
+        obj.add("ignore", ignorePaths);
+
         outf.println(gson.toJson(obj));
         outf.close();
     }

@@ -38,6 +38,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
 
@@ -596,6 +597,14 @@ public class Ldml2JsonConverter {
         System.out.println("Creating packaging file => "+outputDir+packageName+File.separator+"bower.json");
         JsonObject obj = new JsonObject();
         writeBasicInfo(obj,packageName);
+        if (options.get("type").getValue().equals(SUPPLEMENTAL)) {
+            JsonArray mainPaths = new JsonArray();
+            mainPaths.add(new JsonPrimitive("availableLocales.json"));
+            mainPaths.add(new JsonPrimitive(options.get("type").getValue() + "/*.json"));
+            obj.add("main", mainPaths);
+        } else {
+            obj.addProperty("main", options.get("type").getValue() + "/**/*.json");
+        }
         outf.println(gson.toJson(obj));
         outf.close();
     }

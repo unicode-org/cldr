@@ -578,7 +578,7 @@ public class Ldml2JsonConverter {
 
         JsonObject repository = new JsonObject();
         repository.addProperty("type", "git");
-        repository.addProperty("url", "git://github.com/unicode-cldr/cldr-json.git/"+packageName);
+        repository.addProperty("url", "git://github.com/unicode-cldr/"+packageName+".git");
         obj.add("repository",repository);
         
         UnicodeLicense.addProperty("type", "Unicode-TOU");
@@ -613,7 +613,7 @@ public class Ldml2JsonConverter {
         PrintWriter outf = BagFormatter.openUTF8Writer(outputDir+"/"+packageName, ".bowerrc");
         System.out.println("Creating packaging file => "+outputDir+packageName+File.separator+".bowerrc");
         JsonObject obj = new JsonObject();
-        obj.addProperty("directory","../cldr");
+        obj.addProperty("directory","../cldr-json");
         outf.println(gson.toJson(obj));
         outf.close();
     }

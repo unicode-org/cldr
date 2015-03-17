@@ -120,6 +120,9 @@ public class ShowLanguages {
 
         new ShowPlurals().printPlurals(english, null, pw, cldrFactory);
 
+        new ChartDayPeriods().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+        new ChartLanguageMatching().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+        
         linfo.showCoverageGoals(pw);
 
         linfo.printLikelySubtags(pw);
@@ -130,8 +133,6 @@ public class ShowLanguages {
         linfo.showLanguageCountryInfo(pw);
 
         // linfo.printDeprecatedItems(pw);
-        linfo.showCountryInfo(pw);
-        linfo.printCurrency(pw);
 
         // PrintWriter pw1 = new PrintWriter(new FormattedFileWriter(pw, "Languages and Territories", null));
         // pw1.println("<tr><th>Language \u2192 Territories");
@@ -159,15 +160,14 @@ public class ShowLanguages {
 
         // linfo.showCalendarData(pw);
 
+        linfo.showCountryInfo(pw);
+        linfo.printCurrency(pw);
         linfo.printContains(pw);
 
         linfo.printWindows_Tzid(pw);
-
-        linfo.printCharacters(pw);
-
         linfo.printAliases(pw);
 
-        new ChartDayPeriods().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+        linfo.printCharacters(pw);
 
         pw.close();
 
@@ -1173,10 +1173,10 @@ public class ShowLanguages {
             // parameters += "&from=" + urlEncode(from);
             // }
             if (body != null && body.length() != 0) {
-                parameters += "&description=" + urlEncode(body);
+                parameters += "&amp;description=" + urlEncode(body);
             }
             if (subject != null && subject.length() != 0) {
-                parameters += "&summary=" + urlEncode(subject);
+                parameters += "&amp;summary=" + urlEncode(subject);
             }
             if (parameters.length() != 0) parameters = "?" + parameters;
             return "<a target='_blank' href='" + CLDRURLS.CLDR_NEWTICKET_URL

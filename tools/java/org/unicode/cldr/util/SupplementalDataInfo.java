@@ -3738,6 +3738,10 @@ public class SupplementalDataInfo {
         return languageMatch.get(string);
     }
 
+    public Set<String> getLanguageMatcherKeys() {
+        return languageMatch.keySet();
+    }
+
     /**
      * Return mapping from type to territory to data. 001 is the default.
      */

@@ -167,6 +167,7 @@ public class ShowLanguages {
         linfo.printWindows_Tzid(pw);
         linfo.printAliases(pw);
 
+        new ChartAnnotations().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         linfo.printCharacters(pw);
 
         pw.close();

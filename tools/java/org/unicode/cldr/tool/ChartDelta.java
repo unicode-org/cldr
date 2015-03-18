@@ -427,6 +427,7 @@ public class ChartDelta extends Chart {
             pw.write(tablePrinter.toTable());
         }
     }
+    
     private void writeTable(Anchors anchors, String file, TablePrinter tablePrinter, String title) {
         new ChartDeltaSub(title, file, tablePrinter).writeChart(anchors);
     }

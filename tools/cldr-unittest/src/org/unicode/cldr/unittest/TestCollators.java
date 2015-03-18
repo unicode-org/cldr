@@ -58,7 +58,7 @@ public class TestCollators extends TestFmwk {
             return cldrFactory.getAvailable();
         }
 
-        static final Pattern TYPE = Pattern.compile("//ldml/collations/collation\\[@type=\"([^\"]+)\"\\].*");
+        static final Pattern TYPE = Pattern.compile("//ldml/collations/collation\\[@type=\"([^\"]+)\"\\].*/cr");
         
         static public Set<String> getAvailableTypes(String locale) {
             CLDRFile cldrFile = cldrFactory.make(locale, false); // don't need resolved

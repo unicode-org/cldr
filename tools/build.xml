@@ -5,12 +5,12 @@
     <property name="dist.dir" value="dist"/>
     <property name="dist.conf.dir" value="dist.conf"/>
     <property name="excludes.file" value="${dist.conf.dir}/distExcludes.txt"/>
-    <property name="includes.core.file" value="${dist.conf.dir}/includes-core.txt"/>
+    <property name="includes.common.file" value="${dist.conf.dir}/includes-common.txt"/>
     <property name="includes.tools.file" value="${dist.conf.dir}/includes-tools.txt"/>
     <property name="includes.keyboards.file" value="${dist.conf.dir}/includes-keyboards.txt"/>
   </target>
 
-  <target name="all" depends="dist-core,dist-tools,dist-keyboards"/>
+  <target name="all" depends="dist-common,dist-tools,dist-keyboards"/>
 
   <target name="clean" depends="init" description="Clean out the distribution directory">
     <delete dir="${dist.dir}"/>
@@ -26,13 +26,13 @@
     <mkdir dir="${dist.dir}"/>
   </target>
 
-  <target name="dist-core" depends="init,dist-dir,dist-excludes">
-    <zip destfile="${dist.dir}/cldr-core-${version}.zip"
+  <target name="dist-common" depends="init,dist-dir,dist-excludes">
+    <zip destfile="${dist.dir}/cldr-common-${version}.zip"
          compress="yes">
          <fileset
              excludesfile="${excludes.file}"
              dir=".."
-             includesfile="${includes.core.file}"
+             includesfile="${includes.common.file}"
          />
     </zip>
   </target>

@@ -783,8 +783,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<collation type="searchjl" >
 			<settings normalization="on"/>
 			<!-- root search, suppress contractions for Thai, Lao, Tai Viet -->
-			<suppress_contractions>[เ-ไ ເ-ໄ ꪵ ꪶ ꪹ ꪻ ꪼ]</suppress_contractions>
 			<cr><![CDATA[
+				[suppressContractions [เ-ไ ເ-ໄ ꪵ ꪶ ꪹ ꪻ ꪼ]]
 				# root search rules for Arabic, Hebrew
 				&ا	# 0627 ARABIC LETTER ALEF
 						<<<ﺎ<<<ﺍ	# FE8E, FE8D: FINAL FORM, ISOLATED FORM

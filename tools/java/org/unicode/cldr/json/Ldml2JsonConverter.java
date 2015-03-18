@@ -467,13 +467,13 @@ public class Ldml2JsonConverter {
             closeNodes(out, nodesForLastItem.size() - 2, 0);
             String outFilename;
             outFilename = js.section + ".json";
+            String tier = "";
             boolean writeOther = Boolean.parseBoolean(options.get("other").getValue());
             if (js.section.equals("other") && !writeOther) {
                 continue;
             } else {
                 StringBuilder outputDirname = new StringBuilder(outputDir);
                 if (writePackages) {
-                    String tier = "";
                     if (!dirName.equals(SUPPLEMENTAL)) {
                         LocaleIDParser lp = new LocaleIDParser();
                         lp.set(filename);
@@ -503,6 +503,9 @@ public class Ldml2JsonConverter {
                     dir.mkdirs();
                 }
                 writeToFile(outputDirname.toString(), outFilename, out);
+                if (writePackages && tier.equals("-modern")) {
+                    writeToFile(outputDirname.toString().replaceFirst("-modern", "-full"), outFilename, out );
+                }
             }
             System.out.println(String.format("  %s = %d values", outFilename, valueCount));
         }
@@ -516,7 +519,6 @@ public class Ldml2JsonConverter {
     public void writePackagingFiles(String outputDir, String packageName) throws IOException {
         writePackageJson(outputDir, packageName);
         writeBowerJson(outputDir, packageName);
-        writeBowerRC(outputDir, packageName);
     }
 
     public void writeBasicInfo(JsonObject obj, String packageName) {
@@ -531,19 +533,12 @@ public class Ldml2JsonConverter {
         String [] packageNameParts = packageName.split("-");
         String dependency = dependencies.get(packageNameParts[1]);
         if (dependency != null) {
-            String[] dependentPackageNames = new String[2];
+            String[] dependentPackageNames = new String[1];
             String tier = packageNameParts[packageNameParts.length-1];
-            if (tier.equals("full")) {
-                dependentPackageNames[0] = packageName.replaceFirst("full", "modern");
-                if (!dependency.equals("core")) {
-                    dependentPackageNames[1] = "cldr-"+dependency+"-"+tier;
-                }
+            if (dependency.equals("core")) {
+                dependentPackageNames[0] = "cldr-core";                
             } else {
-                if (dependency.equals("core")) {
-                    dependentPackageNames[0] = "cldr-core";                
-                } else {
-                    dependentPackageNames[0] = "cldr-"+dependency+"-"+tier;
-                }
+                dependentPackageNames[0] = "cldr-"+dependency+"-"+tier;
             }
             
             JsonObject dependencies = new JsonObject();
@@ -611,15 +606,6 @@ public class Ldml2JsonConverter {
         ignorePaths.add(new JsonPrimitive("README.md"));
         obj.add("ignore", ignorePaths);
 
-        outf.println(gson.toJson(obj));
-        outf.close();
-    }
-
-    public void writeBowerRC(String outputDir, String packageName) throws IOException {
-        PrintWriter outf = BagFormatter.openUTF8Writer(outputDir+"/"+packageName, ".bowerrc");
-        System.out.println("Creating packaging file => "+outputDir+packageName+File.separator+".bowerrc");
-        JsonObject obj = new JsonObject();
-        obj.addProperty("directory","../cldr-json");
         outf.println(gson.toJson(obj));
         outf.close();
     }

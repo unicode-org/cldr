@@ -56,7 +56,11 @@ public class ChartAnnotations extends Chart {
     public String getExplanation() {
         return "<p>Annotations provide labels for Unicode characters, currently focusing on emoji. "
             + "The current data is provisional, and we are looking for feedback."
-            + "The charts are presented in groups of related languages, for easier comparison.</p>";
+            + "The charts are presented in groups of related languages, for easier comparison."
+            + "For more information, see: "
+            + "<a href='http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations'>Annotations</a>. "
+            + "The latest release data for this chart is in "
+            + "<a href='http://unicode.org/repos/cldr/tags/latest/common/annotations/'>annotations/</a>.</p>";
     }
 
     public void writeContents(FormattedFileWriter pw) throws IOException{

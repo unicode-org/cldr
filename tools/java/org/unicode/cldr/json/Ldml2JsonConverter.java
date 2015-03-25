@@ -521,7 +521,7 @@ public class Ldml2JsonConverter {
         writeBowerJson(outputDir, packageName);
     }
 
-    public void writeBasicInfo(JsonObject obj, String packageName) {
+    public void writeBasicInfo(JsonObject obj, String packageName, boolean isNPM) {
 
         obj.addProperty("name", packageName);
         String versionString = CLDRFile.GEN_VERSION;
@@ -547,7 +547,7 @@ public class Ldml2JsonConverter {
                     dependencies.addProperty(dependentPackageName, versionString);
                 }
             }
-            obj.add("dependencies",dependencies);
+            obj.add(isNPM ? "peerDependencies" : "dependencies", dependencies);
         }      
     }
    
@@ -555,7 +555,7 @@ public class Ldml2JsonConverter {
         PrintWriter outf = BagFormatter.openUTF8Writer(outputDir+"/"+packageName, "package.json");
         System.out.println("Creating packaging file => "+outputDir+packageName+File.separator+"package.json");
         JsonObject obj = new JsonObject();
-        writeBasicInfo(obj,packageName);
+        writeBasicInfo(obj,packageName,true);
         
         JsonArray licenses = new JsonArray();
         JsonArray maintainers = new JsonArray();
@@ -591,7 +591,7 @@ public class Ldml2JsonConverter {
         PrintWriter outf = BagFormatter.openUTF8Writer(outputDir+"/"+packageName, "bower.json");
         System.out.println("Creating packaging file => "+outputDir+packageName+File.separator+"bower.json");
         JsonObject obj = new JsonObject();
-        writeBasicInfo(obj,packageName);
+        writeBasicInfo(obj,packageName,false);
         if (options.get("type").getValue().equals(SUPPLEMENTAL)) {
             JsonArray mainPaths = new JsonArray();
             mainPaths.add(new JsonPrimitive("availableLocales.json"));

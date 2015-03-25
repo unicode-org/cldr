@@ -122,7 +122,8 @@
 //supplementalData/telephoneCodeData/codesByTerritory[@territory="(%W)"]/telephoneCountryCode[@code="(%N)"] ; /telephoneCodeData/$1/<$2>/code ; values=$2
 
 # languageInfo.xml
-//supplementalData/languageMatching/languageMatches[@type="(%A)"]/languageMatch[@desired="(%A)"](?:[@oneway="true"])?[@percent="(%N)"][@supported="(%A)"] ; /languageMatching/$1/<$2$4> ; values=$2 $4 $3
+//supplementalData/languageMatching/languageMatches[@type="(%A)"]/languageMatch[@desired="(%A)"][@oneway="true"][@percent="(%N)"][@supported="(%A)"] ; /languageMatching/$1/<$2$4> ; values=$2 $4 $3 1
+//supplementalData/languageMatching/languageMatches[@type="(%A)"]/languageMatch[@desired="(%A)"][@percent="(%N)"][@supported="(%A)"] ; /languageMatching/$1/<$2$4> ; values=$2 $4 $3 0
 
 # likelySubtags.xml
 //supplementalData/likelySubtags/likelySubtag[@from="(%A)"][@to="(%A)"] ; /$1 ; values=$2

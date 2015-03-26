@@ -11,15 +11,12 @@
 			<!-- Base Language Matches -->
 			<languageMatch desired="no" supported="nb" percent="99" />  <!-- The language no is normally taken as nb in content. -->
 			<languageMatch desired="ku" supported="ckb" percent="96" />  <!-- These are like regional variants -->
-			<languageMatch desired="nn" supported="nb" percent="96" />
-			<languageMatch desired="nn" supported="no" percent="96" />
 			<languageMatch desired="hr" supported="bs" percent="96" />   <!-- Serbo-croatian variants are all very close. -->
 			<languageMatch desired="sh" supported="bs" percent="96" />
 			<languageMatch desired="sr" supported="bs" percent="96" />
 			<languageMatch desired="sh" supported="hr" percent="96" />
 			<languageMatch desired="sr" supported="hr" percent="96" />
 			<languageMatch desired="sh" supported="sr" percent="96" />
-			<languageMatch desired="ms" supported="id" percent="92" />
 			<languageMatch desired="ssy" supported="aa" percent="96" />  <!-- Saho is closely related to Afar -->
 			<languageMatch desired="gsw" supported="de" percent="96" oneway="true" /> <!-- All Swiss speakers can read High German -->
 			<languageMatch desired="lb" supported="de" percent="96" oneway="true" /> <!-- All Luxemburgisch speakers can read High German -->
@@ -30,7 +27,7 @@
 			<languageMatch desired="ach" supported="en" percent="90" oneway="true" />
 			<languageMatch desired="af" supported="nl" percent="90" oneway="true" />
 			<languageMatch desired="ak" supported="en" percent="90" oneway="true" />
-			<languageMatch desired="am_*_*" supported="en_GB" percent="90" oneway="true" /> <!-- fix ICU for en_GB -->
+			<languageMatch desired="am_*_*" supported="en_*_GB" percent="90" oneway="true" /> <!-- fix ICU for en_GB -->
 			<languageMatch desired="ay" supported="es" percent="90" oneway="true" /> <!-- fix ICU for es_419 -->
 			<languageMatch desired="az" supported="ru" percent="90" oneway="true" />
 			<languageMatch desired="be" supported="ru" percent="90" oneway="true" />
@@ -90,6 +87,7 @@
 			<languageMatch desired="my" supported="en" percent="90" oneway="true" /> <!-- fix ICU for en_GB -->
 			<languageMatch desired="ne" supported="en" percent="90" oneway="true" /> <!-- fix ICU for en_GB -->
 			<languageMatch desired="nn" supported="nb" percent="90" oneway="true" />
+			<languageMatch desired="nn" supported="no" percent="90" oneway="true" />
 			<languageMatch desired="nso" supported="en" percent="90" oneway="true" />
 			<languageMatch desired="ny" supported="en" percent="90" oneway="true" />
 			<languageMatch desired="nyn" supported="en" percent="90" oneway="true" />

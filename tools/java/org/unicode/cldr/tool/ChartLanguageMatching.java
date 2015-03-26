@@ -28,13 +28,17 @@ public class ChartLanguageMatching extends Chart {
             + "For more information, see "
             + "<a href='http://unicode.org/reports/tr35/#LanguageMatching'>Language Matching</a>. "
             + "The latest release data for this chart is in "
-            + "<a href='http://unicode.org/cldr/latest/common/supplemental/languageInfo.xml'>languageInfo.xml</a>.<p>"
+            + "<a href='http://unicode.org/cldr/latest/common/supplemental/languageInfo.xml'>languageInfo.xml</a>. "
+            + "The matching process is approximately:<p>"
             + "<ul>"
-            + "<li>The rules are tested in order for matches, with the first one winning.</li>"
-            + "<li>The <i>Unknown</i> Language/Script/Region (*) matches any other code (of that type).</li>"
+            + "<li>The rules are tested—in order—for matches, with the first one winning.</li>"
+            + "<li>Any exact match between fields has zero distance.</li>"
+            + "<li>The placeholder (*) matches any code (of that type). "
+            + "For the last field in Supported, it must be different than Desired.</li>"
             + "<li>The <i>Distance</i> indicates how close the match is, where identical fields have distance = 0. </li>"
-            + "<li>The <i>Sym?</i> column indicates whether the distance is symmetric "
-            + "(thus the distance is used also for Supported→Desired as well as for Desired→Supported).</li>"
+            + "<li>A ⬌︎ in the <i>Sym?</i> column indicates that the distance is symmetric, "
+            + "and is thus used for both directions: Supported→Desired and Desired→Supported. "
+            + "A → indicates that the distance is <i>not</i> symmetric: this is usually a <i>fallback</i> match.</li>"
             + "</ul>"
             ;
     }
@@ -60,12 +64,12 @@ public class ChartLanguageMatching extends Chart {
 
                 tablePrinter.addRow()
                 //.addCell(ENGLISH.getName(locale))
-                .addCell(getName(row.get0()))
-                .addCell(getName(row.get1()))
+                .addCell(getName(row.get0(), true))
+                .addCell(getName(row.get1(), false))
                 .addCell(row.get0())
                 .addCell(row.get1())
                 .addCell((100-row.get2()))
-                .addCell(row.get3() ? "" : "✓")
+                .addCell(row.get3() ? "→" : "⬌")
                 .finishRow();
             }
             pw.write(tablePrinter.toTable());
@@ -73,20 +77,38 @@ public class ChartLanguageMatching extends Chart {
         }
     }
 
-    private String getName(String codeWithStars) {
+    private String getName(String codeWithStars, boolean user) {
         if (!codeWithStars.contains("*")) {
-            return ENGLISH.getName(codeWithStars);
+            return ENGLISH.getName(codeWithStars, true, CLDRFile.SHORT_ALTS);
         }
         String[] parts = codeWithStars.split("_");
         if (parts[0].equals("*")) {
-            parts[0] = "und";
+            parts[0] = "xxx";
         }
         if (parts.length > 1 && parts[1].equals("*")) {
-            parts[1] = "Zzzz";
+            parts[1] = "Xxxx";
         }
         if (parts.length > 2 && parts[2].equals("*")) {
-            parts[2] = "ZZ";
+            parts[2] = "XX";
         }
-        return ENGLISH.getName(CollectionUtilities.join(parts, "_"), true, CLDRFile.SHORT_ALTS);
+        String result = ENGLISH.getName(CollectionUtilities.join(parts, "_"), true, CLDRFile.SHORT_ALTS);
+        if (user) {
+            result = result
+                .replace("Xxxx", "any-script")
+                .replace("xxx", "any-language")
+                .replace("XX", "any-region")
+                ;
+        } else {
+            result = replaceStar(result)
+                ;        
+        }
+        return result;
+    }
+
+    private String replaceStar(String result) {
+        String temp = result.replace("XX", "any-other-region");
+        temp = temp.equals(result) ? temp.replace("Xxxx", "any-other-script") : temp.replace("Xxxx", "any-script");
+        temp = temp.equals(result) ? temp.replace("xxx", "any-other-language") : temp.replace("xxx", "any-language");
+        return temp;
     }
 }

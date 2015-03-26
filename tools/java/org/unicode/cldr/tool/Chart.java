@@ -11,6 +11,7 @@ public abstract class Chart {
     public static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     public static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
     public static final CLDRFile ENGLISH = CONFIG.getEnglish();
+    public static final String LS = System.lineSeparator();
 
     /**
      * null means a string will be constructed from the title. Otherwise a real file name (no html extension).

@@ -857,6 +857,26 @@ public class CldrUtility {
     // }
     // }
 
+    public static final class PairComparator<K extends Comparable<K>, V extends Comparable<V>> implements java.util.Comparator<Pair<K,V>> {
+        
+        private Comparator<K> comp1;
+        private Comparator<V> comp2;
+        
+        public PairComparator(Comparator<K> comp1, Comparator<V> comp2) {
+            this.comp1 = comp1;
+            this.comp2 = comp2;
+        }
+        @Override
+        public int compare(Pair<K,V> o1, Pair<K,V> o2) {
+            int diff = comp1 == null ? o1.getFirst().compareTo(o2.getFirst()) : comp1.compare(o1.getFirst(), o2.getFirst());
+            if (diff != 0) {
+                return diff;
+            }
+            return comp2 == null ? o1.getSecond().compareTo(o2.getSecond()) : comp2.compare(o1.getSecond(), o2.getSecond());
+        }
+        
+    }
+
     /**
      * Fetch data from jar
      * 

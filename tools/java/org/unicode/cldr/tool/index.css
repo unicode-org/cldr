@@ -20,9 +20,13 @@ td.source-image {
     font-size: 200%; 
 }
 
-td.target, th.target, span.target, td.targetRight, td.target2, td.target3, td.target4 { 
+td.target, th.target, span.target, td.targetRight, td.target2, td.target3, td.target4, td.target_nofont{ 
     border: 1px solid #666666; 
     background-color: #F0FFF0 
+}
+td.target_nofont {
+	/* font-family: sans-serif; */
+	line-height: 150%;
 }
 th.source      {
     background-color: #DDDDDD 
@@ -83,3 +87,7 @@ td.c01 {text-decoration:underline}
 td.sample {font-size:200%; text-align:center}
 
 .nowrap {white-space: nowrap}
+
+.context {
+    color: #888888;
+}

@@ -2259,7 +2259,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     .get("region")
                     .get(code);
                 if (info != null) {
-                    return info.get("Description");
+                    String temp = info.get("Description");
+                    if (!temp.equalsIgnoreCase("Private use")) {
+                        return temp;
+                    }
                 }
             }
         }

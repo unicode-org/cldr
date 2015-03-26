@@ -6,22 +6,32 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CldrUtility.PairComparator;
 import org.unicode.cldr.util.Pair;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.FileUtilities;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.util.ULocale;
 
 public class FormattedFileWriter extends java.io.Writer {
     public static final String CHART_TARGET_DIR = CLDRPaths.CHART_DIRECTORY + "/supplemental/";
+    public static final Collator COL = Collator.getInstance(ULocale.ROOT).setStrength2(Collator.IDENTICAL);
+    public static final PairComparator<String,String> PC = new PairComparator(COL, COL);
+
+    ///Comparator<Pair<>>
 
     public static class Anchors {
-        private List<Pair<String,String>> anchors = new ArrayList<Pair<String,String>>();
+        private Set<Pair<String,String>> anchors = new TreeSet<Pair<String,String>>(PC);
     
         @Override
         public String toString() {
+            
             StringBuffer contents = new StringBuffer("<table>");
             for (Pair<String, String> item : anchors) {
                 contents.append("<tr><td class='plain'>" + item.getFirst() + "</td>");

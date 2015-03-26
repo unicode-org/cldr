@@ -1,10 +1,10 @@
 package org.unicode.cldr.unittest;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
@@ -15,7 +15,6 @@ import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.util.LocaleMatcher;
 import com.ibm.icu.util.LocaleMatcher.LanguageMatcherData;
 import com.ibm.icu.util.LocalePriorityList;
-import com.ibm.icu.util.LocalePriorityList.Builder;
 import com.ibm.icu.util.ULocale;
 
 public class LanguageInfoTest extends TestFmwk {
@@ -47,13 +46,13 @@ public class LanguageInfoTest extends TestFmwk {
         Set<Pair<String,String>> alreadySeen = new HashSet<>();
         for (R4<String, String, Integer, Boolean> foo : testInfo.getSupplementalDataInfo().getLanguageMatcherData("written")) {
             //            assertTrue("check bounds", foo.get2() >= 0 && foo.get2() <= 100);
-            
+
             String desired = foo.get0();
             String supported = foo.get1();
             Integer score = foo.get2();
             Boolean oneway = foo.get3();
             assertEquals("Same number of fields", count('_', desired), count('_', supported));
-            
+
             Pair<String,String> source = Pair.of(desired, supported);
             if (alreadySeen.contains(source)) {
                 errln("Duplicate entry for " + source);
@@ -128,23 +127,36 @@ public class LanguageInfoTest extends TestFmwk {
             matcher.getBestMatch("zh"));
     }
 
+    static final ULocale MUL = new ULocale("mul");
+
     public void testFallbacks() {
-        //		if (logKnownIssue("Cldrbug:7133",
-        //				"Problems with LocaleMatcher fallback test.")) {
-        //			return;
-        //		}
-        Builder priorities = LocalePriorityList.add(new ULocale("mul")); // the
-        // default
-        for (ULocale supported : new LinkedHashSet<>(FALLBACKS.values())) {
-            priorities.add(supported);
-        }
-        final LocaleMatcher matcher = new LocaleMatcher(priorities.build(),
-            data);
-        logln(matcher.toString());
-        for (Entry<ULocale, ULocale> entry : FALLBACKS.entrySet()) {
-            ULocale bestMatch = matcher.getBestMatch(entry.getKey());
-            assertEquals(entry.getKey() + " => " + entry.getValue(),
-                entry.getValue(), bestMatch);
+        Set<String> skip =  !logKnownIssue("11595", "These are languages that would change script and region; need ICU fix for them.") 
+            ? (Set<String>) Collections.EMPTY_SET
+            : new HashSet<String>(Arrays.asList("az", "bn", "hy", "ka", "km", "kn", "lo", "ml", "my", "ne", "or", "pa", "ps", "sd", "si", "ta", "te", "ti", 
+                "tk", "tlh", "ur", "uz", "yi"));
+            
+        for (R4<String, String, Integer, Boolean> foo : testInfo.getSupplementalDataInfo().getLanguageMatcherData("written")) {
+            String rawDesired = foo.get0();
+            if (rawDesired.contains("*") || skip.contains(rawDesired)) {
+                continue;
+            }
+            ULocale desired = new ULocale(rawDesired);
+            ULocale supported = new ULocale(foo.get1());
+            Integer score = foo.get2();
+            Boolean oneway = foo.get3();
+            if (!oneway) {
+                continue;
+            }
+
+            // we put "mul" first in the list, to verify that the fallback works enough to be better than the default.
+            
+            final LocaleMatcher matcher = new LocaleMatcher(
+                LocalePriorityList
+                .add(MUL).add(supported)
+                .build(), data);
+
+            ULocale bestMatch = matcher.getBestMatch(desired);
+            assertEquals("fallback for " + desired + ", " + score, supported, bestMatch);
         }
     }
 }

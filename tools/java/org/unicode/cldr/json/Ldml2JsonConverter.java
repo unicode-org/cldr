@@ -51,10 +51,15 @@ import com.ibm.icu.impl.Utility;
 @CLDRTool(alias = "ldml2json", description = "Convert CLDR data to JSON")
 public class Ldml2JsonConverter {
     private static boolean DEBUG = false;
-    private static final String MAIN = "main";
-    private static final String SUPPLEMENTAL = "supplemental";
+    private enum RunType { main, supplemental, segments };
     private static final StandardCodes sc = StandardCodes.make();
     private Set<String> defaultContentLocales = SupplementalDataInfo.getInstance().getDefaultContentLocales();
+    private Set<String> skippedDefaultContentLocales = new TreeSet<String>();
+    private class availableLocales   {
+        Set<String> modern = new TreeSet<String>();
+        Set<String> full = new TreeSet<String>();
+    }
+    private availableLocales avl = new availableLocales();
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private static final Options options = new Options(
         "Usage: LDML2JsonConverter [OPTIONS] [FILES]\n" +
@@ -91,6 +96,7 @@ public class Ldml2JsonConverter {
         Ldml2JsonConverter l2jc = new Ldml2JsonConverter(
             options.get("commondir").getValue(),
             options.get("destdir").getValue(),
+            options.get("type").getValue(),
             Boolean.parseBoolean(options.get("fullnumbers").getValue()),
             Boolean.parseBoolean(options.get("resolved").getValue()),
             options.get("coverage").getValue(),
@@ -119,7 +125,9 @@ public class Ldml2JsonConverter {
     private int coverageValue;
     // Whether we should write output files into installable packages
     private boolean writePackages;
-
+    // Type of run for this converter: main, supplemental, or segments
+    private RunType type;
+    
     private class JSONSection implements Comparable<JSONSection> {
         public String section;
         public Matcher matcher;
@@ -137,10 +145,11 @@ public class Ldml2JsonConverter {
     private List<JSONSection> sections;
     private Set<String> packages;
 
-    public Ldml2JsonConverter(String cldrDir, String outputDir, boolean fullNumbers, boolean resolve, String coverage, String match,
+    public Ldml2JsonConverter(String cldrDir, String outputDir, String runType, boolean fullNumbers, boolean resolve, String coverage, String match,
         boolean writePackages, String configFile) {
         this.cldrCommonDir = cldrDir;
         this.outputDir = outputDir;
+        this.type = RunType.valueOf(runType);
         this.fullNumbers = fullNumbers;
         this.resolve = resolve;
         this.match = match;
@@ -474,18 +483,27 @@ public class Ldml2JsonConverter {
             } else {
                 StringBuilder outputDirname = new StringBuilder(outputDir);
                 if (writePackages) {
-                    if (!dirName.equals(SUPPLEMENTAL)) {
+                    if (type != RunType.supplemental) {
                         LocaleIDParser lp = new LocaleIDParser();
                         lp.set(filename);
                         if (defaultContentLocales.contains(filename) &&
                             lp.getRegion().length() > 0) {
+                            if (type == RunType.main) {
+                              skippedDefaultContentLocales.add(filename);
+                            }
                             continue;
                         }
                         Level localeCoverageLevel = sc.getLocaleCoverageLevel("Cldr", filename);
                         if (localeCoverageLevel == Level.MODERN || filename.equals("root")) {
                             tier = "-modern";
+                            if (type == RunType.main) {
+                                avl.modern.add(filename);
+                            }
                         } else {
                             tier = "-full";
+                        }
+                        if (type == RunType.main) {
+                            avl.full.add(filename);
                         }
                     }
                     if (js.packageName != null) {
@@ -494,7 +512,7 @@ public class Ldml2JsonConverter {
                         packages.add(packageName);
                     }
                     outputDirname.append("/"+dirName+"/");
-                    if (!dirName.equals(SUPPLEMENTAL)) {
+                    if (type != RunType.supplemental) {
                         outputDirname.append(filename.replaceAll("_", "-"));
                     }
                }
@@ -503,7 +521,7 @@ public class Ldml2JsonConverter {
                     dir.mkdirs();
                 }
                 writeToFile(outputDirname.toString(), outFilename, out);
-                if (writePackages && tier.equals("-modern")) {
+                if (writePackages && type == RunType.main && tier.equals("-modern")) {
                     writeToFile(outputDirname.toString().replaceFirst("-modern", "-full"), outFilename, out );
                 }
             }
@@ -592,13 +610,14 @@ public class Ldml2JsonConverter {
         System.out.println("Creating packaging file => "+outputDir+packageName+File.separator+"bower.json");
         JsonObject obj = new JsonObject();
         writeBasicInfo(obj,packageName,false);
-        if (options.get("type").getValue().equals(SUPPLEMENTAL)) {
+        if (type == RunType.supplemental) {
             JsonArray mainPaths = new JsonArray();
             mainPaths.add(new JsonPrimitive("availableLocales.json"));
-            mainPaths.add(new JsonPrimitive(options.get("type").getValue() + "/*.json"));
+            mainPaths.add(new JsonPrimitive("defaultContent.json"));
+            mainPaths.add(new JsonPrimitive(type.toString() + "/*.json"));
             obj.add("main", mainPaths);
         } else {
-            obj.addProperty("main", options.get("type").getValue() + "/**/*.json");
+            obj.addProperty("main", type.toString() + "/**/*.json");
         }
 
         JsonArray ignorePaths = new JsonArray();
@@ -606,6 +625,24 @@ public class Ldml2JsonConverter {
         ignorePaths.add(new JsonPrimitive("README.md"));
         obj.add("ignore", ignorePaths);
 
+        outf.println(gson.toJson(obj));
+        outf.close();
+    }
+
+    public void writeDefaultContent(String outputDir) throws IOException {
+        PrintWriter outf = BagFormatter.openUTF8Writer(outputDir+"/cldr-core", "defaultContent.json");
+        System.out.println("Creating packaging file => "+outputDir+"cldr-core"+File.separator+"defaultContent.json");
+        JsonObject obj = new JsonObject();
+        obj.add("defaultContent", gson.toJsonTree(skippedDefaultContentLocales));
+        outf.println(gson.toJson(obj));        
+        outf.close();
+    }
+
+    public void writeAvailableLocales(String outputDir) throws IOException {
+        PrintWriter outf = BagFormatter.openUTF8Writer(outputDir+"/cldr-core", "availableLocales.json");
+        System.out.println("Creating packaging file => "+outputDir+"cldr-core"+File.separator+"availableLocales.json");
+        JsonObject obj = new JsonObject();
+        obj.add("availableLocales", gson.toJsonTree(avl));
         outf.println(gson.toJson(obj));
         outf.close();
     }
@@ -1042,10 +1079,10 @@ public class Ldml2JsonConverter {
 
             System.out.println("Processing file " + dirName + "/" + filename);
             String pathPrefix;
-            CLDRFile file = cldrFactory.make(filename, resolve && dirName.equals(MAIN), minimalDraftStatus);
+            CLDRFile file = cldrFactory.make(filename, resolve && type == RunType.main, minimalDraftStatus);
 
             sectionItems.clear();
-            if (dirName.equals(MAIN)) {
+            if (type == RunType.main) {
                 pathPrefix = "/cldr/" + dirName + "/" + filename.replaceAll("_", "-") + "/";
             } else {
                 pathPrefix = "/cldr/" + dirName + "/";
@@ -1059,6 +1096,10 @@ public class Ldml2JsonConverter {
         if (writePackages) {
             for (String currentPackage : packages) {
                 writePackagingFiles(outputDir,currentPackage);
+            }
+            if (type == RunType.main) {
+                writeDefaultContent(outputDir);
+                writeAvailableLocales(outputDir);
             }
         }
     }

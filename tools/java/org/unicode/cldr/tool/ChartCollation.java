@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
@@ -34,15 +35,31 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class ChartCollation extends Chart {
 
+    static final String NOT_TAILORED = "notTailored";
+    static final String NOT_EXEMPLARS = "notExemplars";
+
     private static final String KNOWN_PROBLEMS = "<p>Known issues:</p>"
         + "<ul>" + LS
-        + "<li>The ordering is illustrated with a basic list, and doesn't show the strength differences.</li>" + LS
-        + "<li>The characters used in the illustration are (a) those tailored explicitly by the order, "
-        + "plus (b) the locale’s other main exemplars (in grey) for context.</li>" + LS
-        + "<li>The tailored characters may include some longer strings (contractions) from the rules, "
-        + "and generated Unicode characters (for <i>canonical closure</i>).</li>" + LS
-        + "<li>The illustrated ordering does not yet take the settings or imports into account.</li>" + LS
-        + "</ul>";
+        + "<li>The ordering is illustrated with a basic list:"
+        + "<ol>" + LS
+        + "<li>it doesn't show the strength differences</li>" + LS
+        + "<li>it does not yet take the settings or imports into account, so those are listed separately</li>" + LS
+        + "<li>consult the XML file for the exact details</li>" + LS
+        + "</ol>" + LS
+        + "<li>The characters used in the illustration are:" + LS
+        + "<ol>" + LS
+        + "<li>those <span class='" + NOT_TAILORED + "'>not tailored</span> (added from standard exemplars for context)</li>" + LS
+        + "<li>those <span class='" + NOT_EXEMPLARS + "'>tailored</span>, but not in any exemplars (standard, aux, punctuation)</li>" + LS
+        + "<li>those both tailored and in exemplars</li>" + LS
+        + "</ol>" + LS
+        + "<li>The tailored characters may include:" + LS
+        + "<ol>" + LS
+        + "<li>some longer strings (contractions) from the rules</li>" + LS
+        + "<li>generated Unicode characters (for <i>canonical closure</i>)</li>" + LS
+        + "</ol>" + LS
+        + "</li>" + LS
+        + "</ul>" + LS;
+
     private static final Factory CLDR_FACTORY = CLDRConfig.getInstance().getCldrFactory();
     private static final boolean DEBUG = false;
     private static final String DIR = CLDRPaths.CHART_DIRECTORY + "collation/";
@@ -69,11 +86,12 @@ public class ChartCollation extends Chart {
     public String getExplanation() {
         return "<p>This is a <i>preliminary</i> set of charts for CLDR collation tailorings. "
             + "Collation tailorings provide language or locale-specific modifications of the standard Unicode CLDR collation order, "
-            + "which is based on <a target='_blank' href='http://unicode.org/charts/collation/'>Collation Charts</a>."
+            + "which is based on <a target='_blank' href='http://unicode.org/charts/collation/'>Unicode default collation charts</a>. "
+            + "Locales that just use the standard CLDR order are not listed. "
             + "For more information, see the "
             + "<a target='_blank' href='http://unicode.org/reports/tr35/tr35-collation.html'>LDML Collation spec</a>. "
             + "The complete data for these charts is in "
-            + "<a target='_blank' href='" + ToolConstants.CHART_SOURCE + "common/collation/'>collation/</a>.</p>";
+            + "<a target='_blank' href='" + ToolConstants.CHART_SOURCE + "common/collation/'>collation/</a>.</p>" + LS;
     }
 
     public void writeContents(FormattedFileWriter pw) throws IOException{
@@ -92,11 +110,11 @@ public class ChartCollation extends Chart {
     public void writeSubcharts(Anchors anchors) throws IOException {
         Matcher settingsMatcher = Pattern.compile(
             "//ldml/collations/collation"
-            + "\\[@type=\"([^\"]+)\"]"
-            + "(.*)?"
-            + "\\[@visibility=\"external\"]"
-            + "/(settings|import|cr)"
-            + "(.*)").matcher("");
+                + "\\[@type=\"([^\"]+)\"]"
+                + "(.*)?"
+                + "\\[@visibility=\"external\"]"
+                + "/(settings|import|cr)"
+                + "(.*)").matcher("");
         Splitter settingSplitter = Splitter.onPattern("[\\[\\]@]").omitEmptyStrings().trimResults();
         File baseDir = new File(CLDRPaths.COMMON_DIRECTORY + "collation/");
         Transliterator fromUnicode = Transliterator.getInstance("Hex-Any");
@@ -128,7 +146,7 @@ public class ChartCollation extends Chart {
                 if (path.startsWith("//ldml/identity/")) {
                     continue;
                 }
-                
+
                 if (path.equals("//ldml/collations/defaultCollation")) {
                     addCollator(data, value, "defaultCollation", Arrays.asList("true"));
                     continue;
@@ -169,6 +187,9 @@ public class ChartCollation extends Chart {
                     System.out.println("*** Skipping " + locale + ":" + type + ", " + e);
                 }
             }
+            if (data.isEmpty()) { // remove completely empty
+                continue;
+            }
             if (!data.containsKey("standard")) {
                 addCollator(data, "standard", (RuleBasedCollator) null);
             }
@@ -177,6 +198,9 @@ public class ChartCollation extends Chart {
     }
 
     private void addCollator(Map<String, Data> data, String type, String leaf, List<String> settings) {
+        if (type.startsWith("private-")) {
+            type = "\uFFFF" + type;
+        }
         Data dataItem = data.get(type);
         if (dataItem == null) {
             data.put(type, dataItem = new Data());
@@ -185,6 +209,9 @@ public class ChartCollation extends Chart {
     }
 
     private void addCollator(Map<String, Data> data, String type, RuleBasedCollator col) {
+        if (type.startsWith("private-")) {
+            type = "\uFFFF" + type;
+        }
         Data dataItem = data.get(type);
         if (dataItem == null) {
             data.put(type, dataItem = new Data());
@@ -196,6 +223,7 @@ public class ChartCollation extends Chart {
 
 
     private class Subchart extends Chart {
+        private static final String HIGH_COLLATION_PRIMARY = "\uFFFF";
         String title;
         String file;
         private Map<String, Data> data;
@@ -229,7 +257,22 @@ public class ChartCollation extends Chart {
         public void writeContents(FormattedFileWriter pw) throws IOException {
 
             CLDRFile cldrFile = CLDR_FACTORY.make(file, true);
-            UnicodeSet exemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+            UnicodeSet exemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING).freeze();
+
+            UnicodeSet exemplars_all = new UnicodeSet(exemplars);
+            UnicodeSet exemplars_auxiliary = cldrFile.getExemplarSet("auxiliary", WinningChoice.WINNING);
+            UnicodeSet exemplars_punctuation = cldrFile.getExemplarSet("punctuation", WinningChoice.WINNING);
+            exemplars_all.addAll(exemplars_auxiliary)
+            .addAll(exemplars_punctuation);
+
+            for (NumberingSystem system : NumberingSystem.values()) {
+                UnicodeSet exemplars_numeric = cldrFile.getExemplarsNumeric(system);
+                if (exemplars_numeric != null) {
+                    exemplars_all.addAll(exemplars_numeric);
+                    //System.out.println(file + "\t" + system + "\t" + exemplars_numeric.toPattern(false));
+                }
+            }
+            exemplars_all.freeze();
 
             TablePrinter tablePrinter = new TablePrinter()
             .addColumn("Type", "class='source'", null, "class='source'", true)
@@ -238,17 +281,20 @@ public class ChartCollation extends Chart {
             for (Entry<String, Data> entry : data.entrySet()) {
                 // sort the characters
                 String type = entry.getKey();
+                if (type.startsWith(HIGH_COLLATION_PRIMARY)) {
+                    type = type.substring(1);
+                }
                 RuleBasedCollator col = entry.getValue().collator;
                 Set<String> settings = entry.getValue().settings;
                 StringBuilder list = new StringBuilder();
                 if (!settings.isEmpty()) {
                     list.append(CollectionUtilities.join(settings, "<br>"));
-                    list.append("<br>");
+                    list.append("<br><b><i>plus</i></b><br>");
                 }
                 if (col == null) {
-                    list.append("<i>default CLDR order.</i>");
+                    list.append("<i>CLDR default character order</i>");
                 } else {
-                    UnicodeSet tailored = col.getTailoredSet();
+                    UnicodeSet tailored = new UnicodeSet(col.getTailoredSet());                    
                     Set<String> sorted = new TreeSet<>(col);
                     exemplars.addAllTo(sorted);
                     tailored.addAllTo(sorted);
@@ -270,10 +316,12 @@ public class ChartCollation extends Chart {
                             }
                             continue;
                         }
-                        if (tailored.contains(s)) {
-                            list.append(s);
+                        if (!tailored.contains(s)) {
+                            list.append("<span class='" + NOT_TAILORED + "'>").append(s).append("</span>");
+                        } else if (!exemplars_all.containsAll(s)) {
+                            list.append("<span class='" + NOT_EXEMPLARS + "'>").append(s).append("</span>");
                         } else {
-                            list.append("<span class='context'>").append(s).append("</span>");
+                            list.append(s);
                         }
                     }
                 }
@@ -286,7 +334,4 @@ public class ChartCollation extends Chart {
             pw.write(tablePrinter.toTable());
         }
     }
-
-
-
 }

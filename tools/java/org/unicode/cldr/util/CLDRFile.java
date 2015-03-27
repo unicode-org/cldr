@@ -694,10 +694,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     // TODO Change into enum, update docs
     static final public int
-        MERGE_KEEP_MINE = 0,
-        MERGE_REPLACE_MINE = 1,
-        MERGE_ADD_ALTERNATE = 2,
-        MERGE_REPLACE_MY_DRAFT = 3;
+    MERGE_KEEP_MINE = 0,
+    MERGE_REPLACE_MINE = 1,
+    MERGE_ADD_ALTERNATE = 2,
+    MERGE_REPLACE_MY_DRAFT = 3;
 
     /**
      * Merges elements from another CLDR file. Note: when both have the same xpath key,
@@ -872,7 +872,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             "|numbers/symbols/(decimal/group)" +
             "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
             "|pattern" +
-            ")");
+        ")");
 
     static public final Pattern specialsToPushFromRoot = Pattern.compile(
         "/(" +
@@ -883,7 +883,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             "(?!.*\\[@type=\"stand-alone\"].*\\[@type=\"(abbreviated|wide)\"])" +
             "|numbers/symbols/(decimal/group)" +
             "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
-            ")");
+        ")");
 
     private static final boolean MINIMIZE_ALT_PROPOSED = false;
 
@@ -1123,7 +1123,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
         dataSource.getXpathComments().setFinalComment(
             CldrUtility
-                .joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE, comment));
+            .joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE, comment));
         return this;
     }
 
@@ -1187,11 +1187,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public Iterator<String> iterator(String prefix, Comparator<String> comparator) {
         Iterator<String> it = (prefix == null || prefix.length() == 0)
             ? dataSource.iterator()
-            : dataSource.iterator(prefix);
-        if (comparator == null) return it;
-        Set<String> orderedSet = new TreeSet<String>(comparator);
-        CollectionUtilities.addAll(it, orderedSet);
-        return orderedSet.iterator();
+                : dataSource.iterator(prefix);
+            if (comparator == null) return it;
+            Set<String> orderedSet = new TreeSet<String>(comparator);
+            CollectionUtilities.addAll(it, orderedSet);
+            return orderedSet.iterator();
     }
 
     public Iterable<String> fullIterable() {
@@ -1445,9 +1445,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             try {
                 result = (testList[i].length() != 0)
                     ? XMLReaderFactory.createXMLReader(testList[i])
-                    : XMLReaderFactory.createXMLReader();
-                result.setFeature("http://xml.org/sax/features/validation", validating);
-                break;
+                        : XMLReaderFactory.createXMLReader();
+                    result.setFeature("http://xml.org/sax/features/validation", validating);
+                    break;
             } catch (SAXException e1) {
             }
         }
@@ -1457,8 +1457,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             result.setEntityResolver(new CachingEntityResolver());
         } catch (Throwable e) {
             System.err
-                .println("WARNING: Can't set caching entity resolver  -  error "
-                    + e.toString());
+            .println("WARNING: Can't set caching entity resolver  -  error "
+                + e.toString());
             e.printStackTrace();
         }
         return result;
@@ -1521,34 +1521,34 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     // "gb2312han"};
 
     /*    *//**
-                * Value that contains a node. WARNING: this is not done yet, and may change.
-                * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
-                */
+     * Value that contains a node. WARNING: this is not done yet, and may change.
+     * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
+     */
     /*
      * static public class NodeValue extends Value {
      * private Node nodeValue;
      *//**
-       * Creation. WARNING, may change.
-       * 
-       * @param value
-       * @param currentFullXPath
-       */
+     * Creation. WARNING, may change.
+     * 
+     * @param value
+     * @param currentFullXPath
+     */
     /*
      * public NodeValue(Node value, String currentFullXPath) {
      * super(currentFullXPath);
      * this.nodeValue = value;
      * }
      *//**
-       * boilerplate
-       */
+     * boilerplate
+     */
     /*
      * public boolean hasSameValue(Object other) {
      * if (super.hasSameValue(other)) return false;
      * return nodeValue.equals(((NodeValue)other).nodeValue);
      * }
      *//**
-       * boilerplate
-       */
+     * boilerplate
+     */
     /*
      * public String getStringValue() {
      * return nodeValue.toString();
@@ -1863,7 +1863,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             String localName,
             String qName,
             Attributes attributes)
-            throws SAXException {
+                throws SAXException {
             Log.logln(LOG_PROGRESS || SHOW_START_END, "startElement uri\t" + uri
                 + "\tlocalName " + localName
                 + "\tqName " + qName
@@ -1874,7 +1874,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     attributeOrder = new TreeMap<String, String>(
                         // HACK for ldmlIcu
                         dtdData.dtdType == DtdType.ldml
-                            ? CLDRFile.getAttributeOrdering() :
+                        ? CLDRFile.getAttributeOrdering() :
                             dtdData.getAttributeComparator()
                         );
                     isSupplemental = target.dtdType == DtdType.ldml ? 0 : 1;
@@ -2691,7 +2691,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             "exception", // needed for new segmentations
             "coverageLevel", // needed for supplemental/coverageLevel.xml
             "coverageVariable" // needed for supplemental/coverageLevel.xml
-        )));
+            )));
 
     public static boolean isOrdered(String element, DtdType type) {
         return orderedElements.contains(element);
@@ -2894,7 +2894,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     static final UnicodeSet HACK_CASE_CLOSURE_SET = new UnicodeSet(
         "[ſẛﬀẞ{i̇}\u1F71\u1F73\u1F75\u1F77\u1F79\u1F7B\u1F7D\u1FBB\u1FBE\u1FC9\u1FCB\u1FD3\u1FDB\u1FE3\u1FEB\u1FF9\u1FFB\u2126\u212A\u212B]")
-        .freeze();
+    .freeze();
 
     public UnicodeSet getExemplarSet(String type, WinningChoice winningChoice, int option) {
         if (type.length() != 0) type = "[@type=\"" + type + "\"]";
@@ -2909,6 +2909,51 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         result.closeOver(UnicodeSet.CASE);
         result.removeAll(toNuke);
         result.remove(0x20);
+        return result;
+    }
+
+    public enum NumberingSystem {
+        latin(null), 
+        defaultSystem("//ldml/numbers/defaultNumberingSystem"),
+        nativeSystem("//ldml/numbers/otherNumberingSystems/native"),
+        traditional("//ldml/numbers/otherNumberingSystems/traditional"),
+        finance("//ldml/numbers/otherNumberingSystems/finance");
+        public final String path;
+        private NumberingSystem(String path) {
+            this.path=path;
+        }
+    };
+
+    public UnicodeSet getExemplarsNumeric(NumberingSystem system) {
+        String numberingSystem = system.path == null ? "latn" : getStringValue(system.path);
+        if (numberingSystem == null) {
+            return null;
+        }
+
+        UnicodeSet result = new UnicodeSet();
+        SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+        String[] symbolPaths = {
+            "decimal",
+            "group",
+            "percentSign",
+            "perMille",
+            "plusSign",
+            "minusSign",
+            //"infinity"
+        };
+
+        String digits = sdi.getDigits(numberingSystem);
+        if (digits != null) { // TODO, get other characters, see ticket:8316
+            result.addAll(digits);
+        }
+        for (String path : symbolPaths) {
+            String fullPath = "//ldml/numbers/symbols[@numberSystem=\"" + numberingSystem + "\"]/" + path;
+            String value = getStringValue(fullPath);
+            if (value != null) {
+                result.add(value);
+            }
+        }
+
         return result;
     }
 

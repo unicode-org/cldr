@@ -31,7 +31,7 @@
 
         <property name="ICU4J_JAR" value="${CLDR_TOOLS}/libs/icu4j.jar"/>
         <property name="UTILITIES_JAR" value="${CLDR_TOOLS}/libs/utilities.jar"/>
-        <property name="GUAVA_JAR" value="${CLDR_TOOLS}/libs/guava-16.0.1.jar" />
+        <property name="GUAVA_JAR" value="${CLDR_TOOLS}/libs/guava-18.0.jar" />
     	
         <property name="env.JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -Dorg.unicode.cldr.unittest.web.dir=cldr_db_test -DDEBUG=true"/>
         <property name="jvm_options" value="${env.JVM_OPTIONS}"/>

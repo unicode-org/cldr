@@ -53,7 +53,7 @@ public class Segmenter {
     private static final String DEBUG_AT_STRING = "\u0009\u0308\u00A0"; // null to turn off
     private static final String DEBUG_AT_RULE_CONTAINING = "$Spec3_"; // null to turn off
 
-    private UnicodeMap<Object> samples = new UnicodeMap<Object>();
+    private UnicodeMap<String> samples = new UnicodeMap<String>();
 
     static public interface CodePointShower {
         String show(int codePoint);
@@ -308,7 +308,7 @@ public class Segmenter {
         private Map<Double, String> xmlRules = new TreeMap<Double, String>();
         private Map<Double, String> htmlRules = new TreeMap<Double, String>();
         private List<String> lastComments = new ArrayList<String>();
-        private UnicodeMap<Object> samples = new UnicodeMap<Object>();
+        private UnicodeMap<String> samples = new UnicodeMap<String>();
 
         public Builder(UnicodeProperty.Factory factory) {
             propFactory = factory;
@@ -414,8 +414,8 @@ public class Segmenter {
          * @return
          */
 
-        static class MyComposer extends UnicodeMap.Composer<Object> {
-            public Object compose(int codePoint, String string, Object a, Object b) {
+        static class MyComposer extends UnicodeMap.Composer<String> {
+            public String compose(int codePoint, String string, String a, String b) {
                 if (a == null) return b;
                 if (b == null) return a;
                 if (a.equals(b)) return a;
@@ -477,12 +477,12 @@ public class Segmenter {
             return this;
         }
 
-        public static UnicodeMap<Object> composeWith(UnicodeMap<Object> target, UnicodeSet set, Object value,
-            Composer<Object> composer) {
+        public static UnicodeMap<String> composeWith(UnicodeMap<String> target, UnicodeSet set, String value,
+            Composer<String> composer) {
             for (UnicodeSetIterator it = new UnicodeSetIterator(set); it.next();) {
                 int i = it.codepoint;
-                Object v1 = target.getValue(i);
-                Object v3 = composer.compose(i, null, v1, value);
+                String v1 = target.getValue(i);
+                String v3 = composer.compose(i, null, v1, value);
                 if (v1 != v3 && (v1 == null || !v1.equals(v3))) target.put(i, v3);
             }
             return target;
@@ -680,7 +680,7 @@ public class Segmenter {
     private List<Double> orders = new ArrayList<Double>(1);
     private double breakRule;
 
-    public UnicodeMap<Object> getSamples() {
+    public UnicodeMap<String> getSamples() {
         return samples;
     }
 

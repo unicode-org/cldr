@@ -358,7 +358,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     @Override
     public void handleElementDecl(String name, String model) {
         if (SHOW_ALL) {
-            System.out.println("element: " + name + ", model: " + model);
+            // <!ELEMENT ldml (identity, (alias | (fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, annotations?, metadata?, references?, special*))) >
+            System.out.println(System.lineSeparator() + "<!ELEMENT " + name + " " + model + " >");
         }
         addElement(name, model);
     }
@@ -381,11 +382,16 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     @Override
     public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {
         if (SHOW_ALL) {
-            System.out.println("eName: " + eName
-                + ", attribute: " + aName
-                + ", type: " + type
-                + ", mode: " + mode
-                + ", value: " + value
+            // <!ATTLIST ldml draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED >
+            // <!ATTLIST version number CDATA #REQUIRED >
+            // <!ATTLIST version cldrVersion CDATA #FIXED "27" >
+
+            System.out.println("<!ATTLIST " + eName
+                + " " + aName
+                + " " + type
+                + " " + mode
+                + (value == null ? "" : " \"" + value + "\"")
+                + " >"
                 );
         }
         // HACK for 1.1.1
@@ -400,6 +406,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
      */
     @Override
     public void handleComment(String path, String comment) {
+        if (SHOW_ALL) {
+            // <!-- true and false are deprecated. -->
+            System.out.println("<!-- " + comment.trim() + " -->");
+        }
         addComment(comment);
     }
 

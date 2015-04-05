@@ -22,6 +22,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -507,9 +508,13 @@ public class TestMisc {
         XPathParts parts = new XPathParts();
         for (Iterator<String> it = cldrFiles.iterator(); it.hasNext();) {
             CLDRFile cldrFile = cldrFactory.make(it.next(), false);
+            DtdType dtdType = null;
             if (cldrFile.isNonInheriting()) continue;
             for (Iterator<String> it2 = cldrFile.iterator(); it2.hasNext();) {
                 String path = it2.next();
+                if (dtdType == null) {
+                    dtdType = DtdType.fromPath(path);
+                }
                 String fullPath = cldrFile.getFullXPath(path);
                 if (path.equals(fullPath)) continue;
                 parts.set(fullPath);
@@ -519,7 +524,7 @@ public class TestMisc {
                     String element = parts.getElement(i);
                     for (Iterator<String> mit = m.keySet().iterator(); mit.hasNext();) {
                         String attribute = mit.next();
-                        if (CLDRFile.isDistinguishing(element, attribute)) {
+                        if (CLDRFile.isDistinguishing(dtdType, element, attribute)) {
                             distinguishing.add(attribute + "\tD\t" + element);
                         } else {
                             nondistinguishing.add(attribute + "\tN\t" + element);

@@ -133,7 +133,7 @@ public class TestDTDAttributes extends TestFmwk {
                 if (isOrdered) {
                     orderedAttributeToElements.put(attribute, element);
                 }
-                if (CLDRFile.isDistinguishing(element, attribute)) {
+                if (CLDRFile.isDistinguishing(dtdType, element, attribute)) {
                     distinguishingAttributeToElements.put(attribute, element);
                 } else {
                     nondistinguishingAttributeToElements
@@ -633,7 +633,7 @@ public class TestDTDAttributes extends TestFmwk {
         }
         logln(Utility.repeat("\t", indent)
             + elementName
-            + checkAttributeStructure(element,
+            + checkAttributeStructure(dtdType, element,
                 toAttributes.getAll(element), toAttributeData) + values);
         if (myChildren == null || skipChildren)
             return;
@@ -644,7 +644,7 @@ public class TestDTDAttributes extends TestFmwk {
     }
 
     private String checkAttributeStructure(
-        String element,
+        DtdType dtdType, String element,
         Set<String> attributes,
         Map<R2<String, String>, R3<Set<String>, String, String>> toAttributeData) {
         if (attributes == null)
@@ -659,7 +659,7 @@ public class TestDTDAttributes extends TestFmwk {
                 result += "\t";
             R3<Set<String>, String, String> data = toAttributeData.get(Row.of(
                 element, attribute));
-            if (CLDRFile.isDistinguishing(element, attribute)) {
+            if (CLDRFile.isDistinguishing(dtdType, element, attribute)) {
                 attribute += "*";
             }
             attribute += "="

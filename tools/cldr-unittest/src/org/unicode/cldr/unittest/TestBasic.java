@@ -547,6 +547,7 @@ public class TestBasic extends TestFmwkPlus {
             // if (locale.equals("root") && !localeRegex.equals("root"))
             // continue;
             CLDRFile file = cldrFactory.make(locale, resolved);
+            DtdType dtdType = null;
             if (file.isNonInheriting())
                 continue;
             DisplayAndInputProcessor displayAndInputProcessor = new DisplayAndInputProcessor(
@@ -556,6 +557,10 @@ public class TestBasic extends TestFmwkPlus {
 
             for (Iterator<String> it = file.iterator(); it.hasNext();) {
                 String path = it.next();
+                if (dtdType == null) {
+                    dtdType = DtdType.fromPath(path);
+                }
+
                 if (path.endsWith("/alias")) {
                     continue;
                 }
@@ -607,7 +612,7 @@ public class TestBasic extends TestFmwkPlus {
                     for (String attribute : parts.getAttributeKeys(i)) {
                         if (skipAttributes.contains(attribute))
                             continue;
-                        if (CLDRFile.isDistinguishing(element, attribute)) {
+                        if (CLDRFile.isDistinguishing(dtdType, element, attribute)) {
                             distinguishing.put(element, attribute);
                         } else {
                             nonDistinguishing.put(element, attribute);

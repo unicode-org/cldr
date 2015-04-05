@@ -1421,12 +1421,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         throw new IllegalArgumentException("Type is wrong: " + type);
     }
 
-    public static boolean isDistinguishing(String elementName, String attribute) {
-        if (isDistinguishing(DtdType.ldml, elementName, attribute)) return true;
-        if (isDistinguishing(DtdType.supplementalData, elementName, attribute)) return true;
-        if (isDistinguishing(DtdType.ldmlBCP47, elementName, attribute)) return true;
-        return false;
-    }
+//    public static boolean isDistinguishing(String elementName, String attribute) {
+//        if (isDistinguishing(DtdType.ldml, elementName, attribute)) return true;
+//        if (isDistinguishing(DtdType.supplementalData, elementName, attribute)) return true;
+//        if (isDistinguishing(DtdType.ldmlBCP47, elementName, attribute)) return true;
+//        return false;
+//    }
 
     /**
      * Utility to create a validating XML reader.

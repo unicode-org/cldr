@@ -1,4 +1,4 @@
-"For help, see the Sheet ""Info"".",,,,,,,(BCP47 Desc.),,(BCP47 Desc.),,,,,,
+,,,,,,,(BCP47 Desc.),,(BCP47 Desc.),,,,,,
 WR,Name,Code,Age,Size,Sample,Code,Origin Country,~Density,Likely Language,ID Usage (UAX31),RTL?,LB letters?,Shaping Req?,IME?,Has Case?
 1,Common,Zyyy,1.1,"6,968",@,40,n/a,n/a,n/a,Recommended,n/a,n/a,n/a,n/a,n/a
 2,Latin,Latn,1.1,"1,340",L,4C,Italy,1,English,Recommended,no,no,min,no,Yes
@@ -35,7 +35,7 @@ WR,Name,Code,Age,Size,Sample,Code,Origin Country,~Density,Likely Language,ID Usa
 34,Syriac,Syrc,3,77,ܐ,710,Syria,1,Syriac,Limited_Use,Yes,no,Yes,no,no
 35,Bopomofo,Bopo,1.1,70,ㄅ,3105,China,2,Chinese,Recommended,no,Yes,no,no,no
 36,Nko,Nkoo,5,59,ߘ,7D8,Guinea,1,Eastern Maninkakan,Limited_Use,Yes,no,Yes,no,no
-37,Cherokee,Cher,3,85,Ꮔ,13C4,United States,2,Cherokee,Limited_Use,no,no,no,no,no
+37,Cherokee,Cher,3,85,Ꮔ,13C4,United States,2,Cherokee,Limited_Use,no,no,no,no,Yes
 38,Yi,Yiii,3,"1,220",ꊈ,A288,China,3,Sichuan Yi,Aspirational,no,Yes,no,Yes,no
 39,Samaritan,Samr,5.2,61,ࠀ,800,Israel,1,Samaritan Hebrew,Exclusion,Yes,no,min,no,no
 40,Coptic,Copt,1.1,165,Ϣ,3E2,Egypt,1,Coptic,Exclusion,no,no,min,no,Yes
@@ -126,3 +126,9 @@ WR,Name,Code,Age,Size,Sample,Code,Origin Country,~Density,Likely Language,ID Usa
 125,Khudawadi,Sind,7,69,𑊾,112BE,India,1,Sindhi,Exclusion,no,no,no,no,no
 126,Tirhuta,Tirh,7,82,𑒄,11484,India,1,Maithili,Exclusion,no,no,no,no,no
 127,Warang_Citi,Wara,7,84,𑢴,118B4,India,1,Ho,Exclusion,no,no,no,no,Yes
+128,Ahom,Ahom,8,0,𑜗,11717,India,1,Ahom,Exclusion,no,Yes,Yes,no,no
+129,Anatolian_Hieroglyphs,Hluw,8,0,𔐀,14400,Turkey,1,Hieroglyphic Luwian,Exclusion,no,no,no,Yes,no
+130,Hatran,Hatr,8,0,𐣴,108F4,Iraq,1,Uncoded Languages,Exclusion,Yes,no,no,no,no
+131,Multani,Mult,8,0,𑊏,1128F,Pakistan,1,Seraiki,Exclusion,no,no,no,no,no
+132,Old_Hungarian,Hung,8,0,𐲡,10CA1,Hungary,1,Hungarian,Exclusion,Yes,no,no,no,Yes
+133,Sign_Writing,Sgnw,8,0,𝡐,1D850,USA,1,American Sign Language,Exclusion,no,no,no,Yes,no

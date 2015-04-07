@@ -302,7 +302,9 @@ public class LikelySubtagsTest extends TestFmwk {
                                                                        // "combo"
                                                                        // scripts
         if (!metadataScripts.isEmpty()) {
-            errln("Script Metadata for characters not in Unicode: "
+            // Warning, not error, so that we can add scripts to the script metadata
+            // and later update to the Unicode version that has characters for those scripts.
+            warnln("Script Metadata for characters not in Unicode: "
                 + metadataScripts);
         }
     }

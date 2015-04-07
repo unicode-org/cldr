@@ -80,7 +80,8 @@ public class LanguageCodeConverter {
             .freeze();
 
     static {
-
+        // Reads the CLDR copy of
+        // http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
         Map<String, Map<String, Map<String, String>>> lstreg = StandardCodes.getLStreg();
         Map<String, Map<String, String>> languages = lstreg.get("language");
         Set<String> validCodes = new HashSet<String>();

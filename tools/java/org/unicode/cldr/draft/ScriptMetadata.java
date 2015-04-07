@@ -238,7 +238,7 @@ public class ScriptMetadata {
 
         @Override
         protected boolean handleLine(int lineCount, int start, int end, String[] items) {
-            if (items[0].startsWith("For help")) {
+            if (items[0].startsWith("For help") || items[0].isEmpty()) {
                 return true; // header lines
             }
             if (items[0].equals("WR")) {

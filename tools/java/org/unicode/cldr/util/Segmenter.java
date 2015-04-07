@@ -116,13 +116,13 @@ public class Segmenter {
             return false;
         }
         for (int i = 0; i < rules.size(); ++i) {
-            Rule rule = (Rule) rules.get(i);
+            Rule rule = rules.get(i);
             if (DEBUG_AT_RULE_CONTAINING != null && rule.toString().contains(DEBUG_AT_RULE_CONTAINING)) {
                 System.out.println(" !#$@543 Debug");
             }
             Breaks result = rule.matches(text, position);
             if (result != Rule.Breaks.UNKNOWN_BREAK) {
-                breakRule = ((Double) orders.get(i)).doubleValue();
+                breakRule = orders.get(i).doubleValue();
                 return result == Rule.Breaks.BREAK;
             }
         }
@@ -149,7 +149,7 @@ public class Segmenter {
     public Rule get(double order) {
         int loc = orders.indexOf(new Double(order));
         if (loc < 0) return null;
-        return (Rule) rules.get(loc);
+        return rules.get(loc);
     }
 
     /**
@@ -172,7 +172,7 @@ public class Segmenter {
         String result = "";
         for (int i = 0; i < rules.size(); ++i) {
             if (i != 0) result += Utility.LINE_SEPARATOR;
-            result += orders.get(i) + ")\t" + ((Rule) rules.get(i)).toString(showResolved);
+            result += orders.get(i) + ")\t" + rules.get(i).toString(showResolved);
         }
         return result;
     }
@@ -542,7 +542,7 @@ public class Segmenter {
         public Segmenter make() {
             Segmenter result = new Segmenter();
             for (Double key : rules.keySet()) {
-                result.add(key.doubleValue(), (Segmenter.Rule) rules.get(key));
+                result.add(key.doubleValue(), rules.get(key));
             }
             result.samples = samples;
             return result;

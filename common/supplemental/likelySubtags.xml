@@ -2324,5 +2324,17 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; Sumero-Akkadian Cuneiform; ? } => { Akkadian; Sumero-Akkadian Cuneiform; Iraq }-->
 		<likelySubtag from="und_Yiii" to="ii_Yiii_CN"/>
 		<!--{ ?; Yi; ? } => { Sichuan Yi; Yi; China }-->
+<!-- patched to fix test failures from script metadata for Unicode 8 scripts, will be overwritten soon -->
+<likelySubtag from="und_Ahom" to="aho_Ahom_IN"/>
+<likelySubtag from="und_Hatr" to="mis_Hatr_IQ"/>
+<likelySubtag from="und_Hluw" to="hlu_Hluw_TR"/>
+<likelySubtag from="und_Hung" to="hu_Hung_HU"/>
+<likelySubtag from="und_Mult" to="skr_Mult_PK"/>
+<likelySubtag from="und_Sgnw" to="ase_Sgnw_US"/>
+
+<likelySubtag from="aho" to="aho_Ahom_IN"/>
+<likelySubtag from="ase" to="ase_Sgnw_US"/>
+<likelySubtag from="hlu" to="hlu_Hluw_TR"/>
+<likelySubtag from="mis" to="mis_Hatr_IQ"/>
     </likelySubtags>
 </supplementalData>

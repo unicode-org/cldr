@@ -262,6 +262,7 @@ public class TestInheritance extends TestFmwk {
         Relation<String, String> base2locales = Relation.of(
             new TreeMap<String, Set<String>>(), TreeSet.class);
 
+        Set<String> knownMultiScriptLanguages = new HashSet<String>(Arrays.asList("bm","ha"));
         // get multiscript locales
         for (String localeID : availableLocales) {
             String script = ltp.set(localeID).getScript();
@@ -272,6 +273,9 @@ public class TestInheritance extends TestFmwk {
             base2locales.put(base, localeID);
             if (!script.isEmpty() && !base.equals("en")) { // HACK for en
                 base2scripts.put(base, script);
+            }
+            if (script.isEmpty() && knownMultiScriptLanguages.contains(base)) {
+                base2scripts.put(base, dataInfo.getDefaultScript(base));
             }
         }
 
@@ -396,9 +400,9 @@ public class TestInheritance extends TestFmwk {
         Map<String, String> parent2default,
         Relation<String, String> base2locales) {
         Set<String> skip = Builder.with(new HashSet<String>())
-            .addAll("in", "iw", "mo", "no", "root", "sh", "tl", "und")
+            .addAll("root", "und")
             .freeze();
-
+        Set<String> languagesWithOneOrLessLocaleScriptInCommon = new HashSet<String>(Arrays.asList("bm","ha","ms","iu","mn"));
         // for each base we have to have,
         // if multiscript, we have default contents for base+script,
         // base+script+region;
@@ -422,22 +426,22 @@ public class TestInheritance extends TestFmwk {
             ltp.set(defaultContent);
             String script = ltp.getScript();
             String region = ltp.getRegion();
-            if (scripts == null) {
+            if (scripts == null || languagesWithOneOrLessLocaleScriptInCommon.contains(base)) {
                 if (!script.isEmpty()) {
                     errln("Script should be empty in default content for: "
                         + base + "," + defaultContent);
                 }
                 if (region.isEmpty()) {
-                    errln("Region must be empty in default content for: "
+                    errln("Region must not be empty in default content for: "
                         + base + "," + defaultContent);
                 }
             } else {
                 if (script.isEmpty()) {
-                    errln("Script should be empty in default content for: "
+                    errln("Script should not be empty in default content for: "
                         + base + "," + defaultContent);
                 }
                 if (!region.isEmpty()) {
-                    errln("Region should not be empty in default content for: "
+                    errln("Region should be empty in default content for: "
                         + base + "," + defaultContent);
                 }
                 String defaultContent2 = parent2default.get(defaultContent);
@@ -448,7 +452,7 @@ public class TestInheritance extends TestFmwk {
                 ltp.set(defaultContent2);
                 region = ltp.getRegion();
                 if (region.isEmpty()) {
-                    errln("Region must be empty in default content for: "
+                    errln("Region must not be empty in default content for: "
                         + base + "," + defaultContent);
                 }
             }

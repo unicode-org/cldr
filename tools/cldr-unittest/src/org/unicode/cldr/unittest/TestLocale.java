@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -51,18 +52,12 @@ public class TestLocale extends TestFmwkPlus {
     static String XPATH_ALIAS_STRING = "//alias";
 
     public void TestLanguageRegions() {
-        if (logKnownIssue("Cldrbug:7834",
-            "Language tags need to be canonicalized")) {
-            return;
-        }
-        LikelySubtags ls = new LikelySubtags();
-        Set<String> missingLanguageRegion = new LinkedHashSet();
-        Set<String> extraLanguageScript = new LinkedHashSet();
+        Set<String> missingLanguageRegion = new LinkedHashSet<String>();
+        Set<String> knownMultiScriptLanguages = new HashSet<String>(Arrays.asList("az","bs","pa","shi","sr","vai","uz","zh"));
         Set<String> available = testInfo.getCldrFactory().getAvailable();
         LanguageTagParser ltp = new LanguageTagParser();
         Set<String> defaultContents = testInfo.getSupplementalDataInfo()
             .getDefaultContentLocales();
-        SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
         for (String locale : available) {
             String base = ltp.set(locale).getLanguage();
             String script = ltp.getScript();
@@ -72,15 +67,19 @@ public class TestLocale extends TestFmwkPlus {
             }
             ltp.setRegion("");
             String baseScript = ltp.toString();
-            assertFalse("Should NOT have " + locale,
-                defaultContents.contains(baseScript));
-
+            if (!knownMultiScriptLanguages.contains(base)) {
+                assertFalse("Should NOT have " + locale,
+                    defaultContents.contains(baseScript));
+            }           
             if (region.isEmpty()) {
                 continue;
             }
             ltp.setScript("");
             ltp.setRegion(region);
             String baseRegion = ltp.toString();
+            if (knownMultiScriptLanguages.contains(base)) {
+                continue;
+            }
             if (!missingLanguageRegion.contains(baseRegion)
                 && !assertTrue("Should have " + baseRegion,
                     available.contains(baseRegion))) {

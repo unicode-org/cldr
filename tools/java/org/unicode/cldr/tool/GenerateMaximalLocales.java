@@ -468,13 +468,16 @@ public class GenerateMaximalLocales {
             toChildren.put(parent, locale);
         }
 
-        // if any have a script, then throw out any that don't have a script (they're aliases)
+        // Suppress script for locales for which we only have one locale in common/main. See ticket #7834.
+        Set<String> suppressScriptLocales = new HashSet<String>(Arrays.asList("bm_ML", "en_US", "ha_NG", "iu_CA", "ms_MY", "mn_MN"));
+
+        // if any have a script, then throw out any that don't have a script (unless they're specifically included.)
         Set<String> toRemove = new TreeSet<String>();
         for (String locale : hasScript) {
             toRemove.clear();
             Set<String> children = toChildren.getAll(locale);
             for (String child : children) {
-                if (ltp.set(child).getScript().length() == 0) {
+                if (ltp.set(child).getScript().length() == 0 && !suppressScriptLocales.contains(child)) {
                     toRemove.add(child);
                 }
             }
@@ -483,14 +486,10 @@ public class GenerateMaximalLocales {
                 toChildren.removeAll(locale, toRemove);
             }
         }
+        
 
         // we add a child as a default locale if it has the same maximization
         main: for (String locale : toChildren.keySet()) {
-            if (locale.equals("en")) {
-                // special case English (because of Deseret)
-                defaultLocaleContent.add("en_US");
-                continue;
-            }
             String maximized = maximize(locale, toMaximized);
             if (maximized == null) {
                 if (SHOW_ADD) System.out.println("Missing maximized:\t" + locale);
@@ -1908,6 +1907,7 @@ public class GenerateMaximalLocales {
             String newValue = newContent.get(parent);
             String overrideValue = allowedOverrideValuesTest.get(parent);
             if (overrideValue != null) {
+                newContent.put(parent, overrideValue);
                 newValue = overrideValue;
             }
             if (CldrUtility.equals(oldValue, newValue)) {

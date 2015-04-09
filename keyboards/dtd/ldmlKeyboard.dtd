@@ -11,7 +11,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     $Date$
 -->
 
-<!ELEMENT keyboard ( version, generation, names, settings?, keyMap+, transforms?) >
+<!ELEMENT keyboard ( version, generation, names, settings?, keyMap+, transforms? ) >
 <!ATTLIST keyboard locale CDATA #REQUIRED >
 
 <!ELEMENT version EMPTY >
@@ -28,9 +28,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST name value CDATA #REQUIRED >
 
 <!ELEMENT settings EMPTY >
-<!ATTLIST settings fallback ( omit ) #IMPLIED >
-<!ATTLIST settings transformFailure ( omit ) #IMPLIED >
-<!ATTLIST settings transformPartial ( hide ) #IMPLIED >
+<!ATTLIST settings fallback (omit) #IMPLIED >
+<!ATTLIST settings transformFailure (omit) #IMPLIED >
+<!ATTLIST settings transformPartial (hide) #IMPLIED >
 
 <!ELEMENT keyMap ( map+ ) >
 <!ATTLIST keyMap modifiers CDATA #IMPLIED >
@@ -39,7 +39,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST map iso CDATA #REQUIRED >
 <!ATTLIST map to CDATA #REQUIRED >
 <!ATTLIST map longPress CDATA #IMPLIED >
-<!ATTLIST map transform ( no ) #IMPLIED >
+<!ATTLIST map transform (no) #IMPLIED >
 
 <!ELEMENT transforms ( transform+ ) >
 <!ATTLIST transforms type CDATA #REQUIRED >

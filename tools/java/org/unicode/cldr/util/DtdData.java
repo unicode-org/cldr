@@ -33,9 +33,9 @@ import com.ibm.icu.text.Transform;
  */
 public class DtdData extends XMLFileReader.SimpleHandler {
     private static final boolean SHOW_ALL = CldrUtility.getProperty("show_all", false);
-    private static final boolean SHOW_STR = true; // add extra structure to DTD
+    private static final boolean SHOW_STR = false; // add extra structure to DTD
     private static final boolean USE_SYNTHESIZED = false;
-    
+
     private static final boolean DEBUG = false;
     private static final Pattern FILLER = Pattern.compile("[^-a-zA-Z0-9#_:]");
 
@@ -459,50 +459,58 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     //        DTD_TYPE_TO_FILE = Collections.unmodifiableMap(temp);
     //    }
 
-    static final EnumMap<CLDRFile.DtdType, DtdData> CACHE = new EnumMap<CLDRFile.DtdType, DtdData>(CLDRFile.DtdType.class);
-
-    public static synchronized DtdData getInstance(CLDRFile.DtdType type) {
-        return getInstance(type, null);
+    private static final Map<CLDRFile.DtdType, DtdData> CACHE;
+    static {
+        EnumMap<DtdType, DtdData> temp = new EnumMap<CLDRFile.DtdType, DtdData>(CLDRFile.DtdType.class);
+        for (DtdType type : DtdType.values()) {
+            temp.put(type, getInstance(type, null));
+        }
+        CACHE = Collections.unmodifiableMap(temp);
     }
 
-    public static synchronized DtdData getInstance(CLDRFile.DtdType type, String version) {
-        DtdData simpleHandler = version == null ? CACHE.get(type) : null; // don't bother caching old versions
-        if (simpleHandler == null) {
-            simpleHandler = new DtdData(type, version);
-            XMLFileReader xfr = new XMLFileReader().setHandler(simpleHandler);
-            File directory = version == null ? CLDRConfig.getInstance().getCldrBaseDirectory()
-                : new File(CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version);
+    /** 
+     * Normal version of DtdData
+     * Note that it always gets the trunk version
+     */
+    public static DtdData getInstance(CLDRFile.DtdType type) {
+        return CACHE.get(type);
+    }
 
-            if (type != type.rootType) {
-                // read the real first, then add onto it.
-                readFile(type.rootType, xfr, directory);
-            }
-            readFile(type, xfr, directory);
-            // HACK
-            if (type == DtdType.ldmlICU) {
-                Element special = simpleHandler.nameToElement.get("special");
-                for (String extraElementName : Arrays.asList(
-                    "icu:breakIteratorData",
-                    "icu:UCARules",
-                    "icu:scripts",
-                    "icu:transforms",
-                    "icu:ruleBasedNumberFormats",
-                    "icu:isLeapMonth",
-                    "icu:version",
-                    "icu:breakDictionaryData",
-                    "icu:depends")) {
-                    Element extraElement = simpleHandler.nameToElement.get(extraElementName);
-                    special.children.put(extraElement, special.children.size());
-                }
-            }
-            if (simpleHandler.ROOT.children.size() == 0) {
-                throw new IllegalArgumentException(); // should never happen
-            }
-            simpleHandler.freeze();
-            if (version == null) {
-                CACHE.put(type, simpleHandler);
+    /** 
+     * Special form using version, used only by tests, etc.
+     */
+    public static DtdData getInstance(CLDRFile.DtdType type, String version) {
+        DtdData simpleHandler = new DtdData(type, version);
+        XMLFileReader xfr = new XMLFileReader().setHandler(simpleHandler);
+        File directory = version == null ? CLDRConfig.getInstance().getCldrBaseDirectory()
+            : new File(CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version);
+
+        if (type != type.rootType) {
+            // read the real first, then add onto it.
+            readFile(type.rootType, xfr, directory);
+        }
+        readFile(type, xfr, directory);
+        // HACK
+        if (type == DtdType.ldmlICU) {
+            Element special = simpleHandler.nameToElement.get("special");
+            for (String extraElementName : Arrays.asList(
+                "icu:breakIteratorData",
+                "icu:UCARules",
+                "icu:scripts",
+                "icu:transforms",
+                "icu:ruleBasedNumberFormats",
+                "icu:isLeapMonth",
+                "icu:version",
+                "icu:breakDictionaryData",
+                "icu:depends")) {
+                Element extraElement = simpleHandler.nameToElement.get(extraElementName);
+                special.children.put(extraElement, special.children.size());
             }
         }
+        if (simpleHandler.ROOT.children.size() == 0) {
+            throw new IllegalArgumentException(); // should never happen
+        }
+        simpleHandler.freeze();
         return simpleHandler;
     }
 

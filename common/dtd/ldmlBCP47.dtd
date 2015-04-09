@@ -19,7 +19,8 @@ $Date$
 <!ELEMENT generation EMPTY >
 <!ATTLIST generation date CDATA #REQUIRED >
 
-<!ELEMENT cldrVersion EMPTY > <!-- deprecated -->
+<!ELEMENT cldrVersion EMPTY >
+    <!-- deprecated -->
 <!ATTLIST cldrVersion version CDATA #REQUIRED >
 
 <!ELEMENT keyword ( key* ) >

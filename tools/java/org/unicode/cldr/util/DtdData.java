@@ -32,6 +32,7 @@ import com.ibm.icu.text.Transform;
  * @author markdavis
  */
 public class DtdData extends XMLFileReader.SimpleHandler {
+    private static final String COMMENT_PREFIX = System.lineSeparator() + "    ";
     private static final boolean SHOW_ALL = CldrUtility.getProperty("show_all", false);
     private static final boolean SHOW_STR = false; // add extra structure to DTD
     private static final boolean USE_SYNTHESIZED = false;
@@ -774,7 +775,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             toString(e, b, seen);
         }
         if (currentEnd != b.length()) {
-            b.insert(currentEnd, "\n\n\n<!-- Elements not reachable from root! -->\n");
+            b.insert(currentEnd, 
+                System.lineSeparator() + System.lineSeparator() 
+                + "<!-- Elements not reachable from root! -->" 
+                + System.lineSeparator());
         }
         return b.toString();
     }
@@ -859,7 +863,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
         showComments(b,  current.commentsPost, false);
         if (SHOW_STR && elementDeprecated) {
-            b.append(" <!--@DEPRECATED-->");
+            b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
         }
 
         LinkedHashSet<String> deprecatedValues = new LinkedHashSet<>();
@@ -906,17 +910,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 //            }
             if (SHOW_STR) {
                 if (attributeDeprecated) {
-                    b.append(" <!--@DEPRECATED-->");
+                    b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
                 } else {
                     if (!isDistinguishing(current.name, a.name)) {
                         if (METADATA.contains(a.name)) {
-                            b.append(" <!--@METADATA-->");
+                            b.append(COMMENT_PREFIX + "<!--@METADATA-->");
                         } else {
-                            b.append(" <!--@VALUE-->");
+                            b.append(COMMENT_PREFIX + "<!--@VALUE-->");
                         }
                     }
                     if (!deprecatedValues.isEmpty()) {
-                        b.append(" <!--@DEPRECATED:" + CollectionUtilities.join(deprecatedValues, ", ")+ "-->");
+                        b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + CollectionUtilities.join(deprecatedValues, ", ")+ "-->");
                     }
                 }
             }
@@ -950,7 +954,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     }
                     b.append(System.lineSeparator());
                 } else {
-                    b.append(' ');
+                    b.append(COMMENT_PREFIX);
                 }
                 b.append("<!-- ").append(c).append(" -->");
             }

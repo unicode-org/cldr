@@ -27,12 +27,14 @@ import org.unicode.cldr.tool.PluralRulesFactory;
 import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.IsoCurrencyParser;
@@ -166,8 +168,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     && !counts.contains(count)) {
                     assertTrue(
                         locale
-                            + "\t pluralRanges categories must be valid for locale:\t"
-                            + count + " must be in " + counts,
+                        + "\t pluralRanges categories must be valid for locale:\t"
+                        + count + " must be in " + counts,
                         !pluralRanges.isExplicitlySet(count));
                 }
                 for (Count end : Count.values()) {
@@ -214,7 +216,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                             + "\tNeeds value, but has none: "
                             + PluralRanges.showRange(start, end,
                                 Count.other) + ", eg: " + minSample
-                            + "–" + maxSample);
+                                + "–" + maxSample);
                     } else if (!needsValue && explicitValue != null) {
                         ignoreErrln(locale
                             + "\tDoesn't need value, but has one: "
@@ -322,7 +324,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     }
                     assertFalse(
                         "Rule '" + rule + "' for " + Arrays.asList(locales)
-                            + " doesn't contain 'within'",
+                        + " doesn't contain 'within'",
                         rule.contains("within"));
                 }
             }
@@ -341,25 +343,25 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             { "en", "other", "4", "1000-9999, 1000.0, 1000.1, 1000.2, …" },
             { "hr", "one", "1", "1, 0.1, 2.10, 1.1, …" },
             { "hr", "one", "2",
-                "21, 31, 41, 51, 61, 71, …, 10.1, 12.10, 11.1, …" },
+            "21, 31, 41, 51, 61, 71, …, 10.1, 12.10, 11.1, …" },
             { "hr", "one", "3",
-                "101, 121, 131, 141, 151, 161, …, 100.1, 102.10, 101.1, …" },
+            "101, 121, 131, 141, 151, 161, …, 100.1, 102.10, 101.1, …" },
             { "hr", "one", "4",
-                "1001, 1021, 1031, 1041, 1051, 1061, …, 1000.1, 1002.10, 1001.1, …" },
+            "1001, 1021, 1031, 1041, 1051, 1061, …, 1000.1, 1002.10, 1001.1, …" },
             { "hr", "few", "1", "2-4, 0.2, 0.3, 0.4, …" },
             { "hr", "few", "2",
-                "22-24, 32-34, 42-44, …, 10.2, 10.3, 10.4, …" },
+            "22-24, 32-34, 42-44, …, 10.2, 10.3, 10.4, …" },
             { "hr", "few", "3",
-                "102-104, 122-124, 132-134, …, 100.2, 100.3, 100.4, …" },
+            "102-104, 122-124, 132-134, …, 100.2, 100.3, 100.4, …" },
             { "hr", "few", "4",
-                "1002-1004, 1022-1024, 1032-1034, …, 1000.2, 1000.3, 1000.4, …" },
+            "1002-1004, 1022-1024, 1032-1034, …, 1000.2, 1000.3, 1000.4, …" },
             { "hr", "other", "1", "0, 5-9, 0.0, 0.5, 0.6, …" },
             { "hr", "other", "2",
-                "10-20, 25-30, 35-40, …, 10.0, 10.5, 10.6, …" },
+            "10-20, 25-30, 35-40, …, 10.0, 10.5, 10.6, …" },
             { "hr", "other", "3",
-                "100, 105-120, 125-130, 135-140, …, 100.0, 100.5, 100.6, …" },
+            "100, 105-120, 125-130, 135-140, …, 100.0, 100.5, 100.6, …" },
             { "hr", "other", "4",
-                "1000, 1005-1020, 1025-1030, 1035-1040, …, 1000.0, 1000.5, 1000.6, …" }, };
+            "1000, 1005-1020, 1025-1030, 1035-1040, …, 1000.0, 1000.5, 1000.6, …" }, };
         for (String[] row : tests) {
             PluralInfo plurals = SUPPLEMENTAL.getPlurals(row[0]);
             SampleList uset = plurals.getSamples9999(Count.valueOf(row[1]),
@@ -387,27 +389,27 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             { "sv", "one", "0" }, // j is 1
             { "he", "two", "0" }, // j is 2
             { "ru", "one", "0,00,000,0000" }, // j mod 10 is 1 and j mod 100
-                                              // is not 11
+            // is not 11
             { "uk", "one", "0,00,000,0000" }, // j mod 10 is 1 and j mod 100
-                                              // is not 11
+            // is not 11
             { "bs", "one", "0,00,000,0000" }, // j mod 10 is 1 and j mod 100
-                                              // is not 11 or f mod 10 is
-                                              // 1 and f mod 100 is not 11
+            // is not 11 or f mod 10 is
+            // 1 and f mod 100 is not 11
             { "hr", "one", "0,00,000,0000" }, // j mod 10 is 1 and j mod 100
-                                              // is not 11 or f mod 10 is
-                                              // 1 and f mod 100 is not 11
+            // is not 11 or f mod 10 is
+            // 1 and f mod 100 is not 11
             { "sh", "one", "0,00,000,0000" }, // j mod 10 is 1 and j mod 100
-                                              // is not 11 or f mod 10 is
-                                              // 1 and f mod 100 is not 11
+            // is not 11 or f mod 10 is
+            // 1 and f mod 100 is not 11
             { "sr", "one", "0,00,000,0000" }, // j mod 10 is 1 and j mod 100
-                                              // is not 11 or f mod 10 is
-                                              // 1 and f mod 100 is not 11
+            // is not 11 or f mod 10 is
+            // 1 and f mod 100 is not 11
             { "mk", "one", "0,00,000,0000" }, // j mod 10 is 1 or f mod 10
-                                              // is 1
+            // is 1
             { "sl", "one", "0,000,0000" }, // j mod 100 is 1
             { "sl", "two", "0,000,0000" }, // j mod 100 is 2
             { "he", "many", "00,000,0000" }, // j not in 0..10 and j mod 10
-                                             // is 0
+            // is 0
             { "tzm", "one", "0,00" }, // n in 0..1 or n in 11..99
             { "gd", "one", "0,00" }, // n in 1,11
             { "gd", "two", "0,00" }, // n in 2,12
@@ -438,26 +440,26 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             { "br", "many", "" }, // n is not 0 and n mod 1000000 is 0
             { "gv", "one", "0,00,000,0000" }, // n mod 10 is 1
             { "be", "one", "0,00,000,0000" }, // n mod 10 is 1 and n mod 100
-                                              // is not 11
+            // is not 11
             { "lv", "one", "0,00,000,0000" }, // n mod 10 is 1 and n mod 100
-                                              // is not 11 or v is 2 and f
-                                              // mod 10 is 1 and f mod 100
-                                              // is not 11 or v is not 2
-                                              // and f mod 10 is 1
+            // is not 11 or v is 2 and f
+            // mod 10 is 1 and f mod 100
+            // is not 11 or v is not 2
+            // and f mod 10 is 1
             { "br", "one", "0,00,000,0000" }, // n mod 10 is 1 and n mod 100
-                                              // not in 11,71,91
+            // not in 11,71,91
             { "lt", "one", "0,00,000,0000" }, // n mod 10 is 1 and n mod 100
-                                              // not in 11..19
+            // not in 11..19
             { "fil", "one", "0,00,000,0000" }, // v = 0 and i = 1,2,3 or v =
-                                               // 0 and i % 10 != 4,6,9 or
-                                               // v != 0 and f % 10 !=
-                                               // 4,6,9
+            // 0 and i % 10 != 4,6,9 or
+            // v != 0 and f % 10 !=
+            // 4,6,9
             { "tl", "one", "0,00,000,0000" }, // v = 0 and i = 1,2,3 or v =
-                                              // 0 and i % 10 != 4,6,9 or
-                                              // v != 0 and f % 10 !=
-                                              // 4,6,9
+            // 0 and i % 10 != 4,6,9 or
+            // v != 0 and f % 10 !=
+            // 4,6,9
             { "dsb", "one", "0,00,000,0000" }, // v = 0 and i % 100 = 1 or f
-                                               // % 100 = 1
+            // % 100 = 1
         };
         // parse out the exceptions
         Map<PluralInfo, Relation<Count, Integer>> exceptions = new HashMap<PluralInfo, Relation<Count, Integer>>();
@@ -529,7 +531,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
         if (!ruleToExceptions.isEmpty()) {
             System.out
-                .println("To fix the above, review the following, then replace in TestDigitPluralCompleteness");
+            .println("To fix the above, review the following, then replace in TestDigitPluralCompleteness");
             for (Entry<String, String> entry : ruleToExceptions.entrySet()) {
                 System.out.println(entry.getValue() + "\t// " + entry.getKey());
             }
@@ -604,24 +606,24 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     .toString();
                 switch (s.size()) {
                 case 1: // ok if already maximized and strange script/country,
-                        // eg it_Arab_JA
+                    // eg it_Arab_JA
                     continue main;
                 case 2: // ok if adds default country/script, eg {en_Cyrl,
-                        // en_Cyrl_US} or {en_GB, en_Latn_GB}
+                    // en_Cyrl_US} or {en_GB, en_Latn_GB}
                     String first = ss.get(0);
                     if (first.equals(noScript) || first.equals(noRegion)) {
                         continue main;
                     }
                     break;
                 case 3: // ok if different script in different country, eg
-                        // {az_IR, az_Arab, az_Arab_IR}
+                    // {az_IR, az_Arab, az_Arab_IR}
                     if (noScript.equals(ss.get(0))
                         && noRegion.equals(ss.get(1))) {
                         continue main;
                     }
                     break;
                 case 4: // ok if all combinations, eg {en, en_US, en_Latn,
-                        // en_Latn_US}
+                    // en_Latn_US}
                     if (language.equals(ss.get(0))
                         && noScript.equals(ss.get(1))
                         && noRegion.equals(ss.get(2))) {
@@ -689,6 +691,67 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     + entry.getValue());
             }
         }
+    }
+
+    public void TestFormatsAgainstTimeData() {
+        if (logKnownIssue("cldrbug:8349", "Skip for now, but should fix in 28dsub")) {
+            return;
+        }
+        Factory factory = CLDRConfig.getInstance().getCldrFactory();
+        LikelySubtags ls = new LikelySubtags(SUPPLEMENTAL);
+        LanguageTagParser ltp = new LanguageTagParser();
+        Map<String, PreferredAndAllowedHour> timeData = SUPPLEMENTAL.getTimeData();
+        
+        Set<String> seenFull = new HashSet<>();
+        for (String locale : factory.getAvailable()) {
+            CLDRFile cldrFile = factory.make(locale, true);
+            String fullLocale;
+            String region;
+            if (locale.equals("root")) {
+                fullLocale = locale;
+                region = "001";
+            } else {
+                fullLocale = ls.maximize(locale);
+                region = ltp.set(fullLocale).getRegion();
+            }
+            if (seenFull.contains(fullLocale)) {
+                continue;
+            }
+            seenFull.add(fullLocale); // don't repeat
+            
+            PreferredAndAllowedHour localeTimeData = timeData.get(region);
+            if (localeTimeData == null) {
+                localeTimeData = timeData.get("001");
+            }
+            for (DateTimeLength len : DateTimeLength.values()) {
+                String timePattern = getStockPattern(cldrFile, "gregorian", DateTimeType.time, len);
+                // TODO use the parser. For now, just test for h/H/k/K
+                if (!assertTrue("\t" + locale + "\t → " + region + ":\tshould find «" + localeTimeData.preferred + "» in «" + timePattern + "»\t", 
+                    timePattern.contains(localeTimeData.preferred.toString()))) {
+                    break; // we only need to notify once
+                }
+            }
+        }
+    }
+
+    enum DateTimeType {
+        date, time
+    }
+    enum DateTimeLength {
+        full, _long, medium, _short;
+        public String toString() {
+            return name().startsWith("_") ? name().substring(1) : name();
+        }
+    }
+
+    private String getStockPattern(CLDRFile cldrFile, String calendar, DateTimeType type, DateTimeLength length) {
+        return cldrFile.getStringValue("//ldml/dates/calendars/calendar[@type=\""
+            + calendar
+            + "\"]/"
+            + type
+            + "Formats/" + type + "FormatLength[@type=\""
+            + length
+            + "\"]/" + type + "Format[@type=\"standard\"]/pattern[@type=\"standard\"]");
     }
 
     public void TestTimeData() {
@@ -918,7 +981,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Set<String> bcp47Regions = new LinkedHashSet<String>(
             bcp47RegionData.keySet());
         bcp47Regions.remove("ZZ"); // We don't care about ZZ since it is the
-                                   // unknown region...
+        // unknown region...
         for (Iterator<String> it = bcp47Regions.iterator(); it.hasNext();) {
             String region = it.next();
             Map<String, String> data = bcp47RegionData.get(region);
@@ -1235,8 +1298,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     currencyLastValid.put(currency, end);
                 }
                 if (start.compareTo(NOW) < 0 && end.compareTo(NOW) >= 0) { // Non-tender
-                                                                           // is
-                                                                           // OK...
+                    // is
+                    // OK...
                     modernCurrencyCodes.put(currency,
                         new Pair<String, CurrencyDateInfo>(territory,
                             dateInfo));
@@ -1305,12 +1368,12 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     errln("Has 'new' in name but used since "
                         + CurrencyDateInfo.formatDate(currencyFirstValid
                             .get(currency)) + "\t" + currency + "\t"
-                        + name + "\t" + data);
+                            + name + "\t" + data);
                 } else {
                     logln("Has 'new' in name but used since "
                         + CurrencyDateInfo.formatDate(currencyFirstValid
                             .get(currency)) + "\t" + currency + "\t"
-                        + name + "\t" + data);
+                            + name + "\t" + data);
                 }
             }
         }
@@ -1324,17 +1387,17 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 logln("Has 'new' in name but NOT used since "
                     + CurrencyDateInfo.formatDate(currencyLastValid
                         .get(currency)) + "\t" + currency + "\t" + name
-                    + "\t" + nonModernCurrencyCodes.getAll(currency));
+                        + "\t" + nonModernCurrencyCodes.getAll(currency));
             } else if (!oldMatcher.reset(name).find()
                 && !OK_TO_NOT_HAVE_OLD.contains(currency)) {
                 logln("Doesn't have 'old' or date range in name but NOT used since "
                     + CurrencyDateInfo.formatDate(currencyLastValid
                         .get(currency))
-                    + "\t"
-                    + currency
-                    + "\t"
-                    + name
-                    + "\t" + nonModernCurrencyCodes.getAll(currency));
+                        + "\t"
+                        + currency
+                        + "\t"
+                        + name
+                        + "\t" + nonModernCurrencyCodes.getAll(currency));
                 for (Pair<String, CurrencyDateInfo> pair : nonModernCurrencyCodes
                     .getAll(currency)) {
                     final String territory = pair.getFirst();

@@ -150,16 +150,16 @@ public class LocaleMatcherTest extends TestFmwk {
     public void testOverrideData() {
         double threshold = 0.05;
         LanguageMatcherData localeMatcherData = new LanguageMatcherData()
-            .addDistance("br", "fr", 10, true)
-            .addDistance("es", "cy", 10, true);
+        .addDistance("br", "fr", 10, true)
+        .addDistance("es", "cy", 10, true);
         logln(localeMatcherData.toString());
 
         final LocaleMatcher matcher = newLocaleMatcher(
             LocalePriorityList
-                .add(ULocale.ENGLISH)
-                .add(ULocale.FRENCH)
-                .add(ULocale.UK)
-                .build(), localeMatcherData, threshold);
+            .add(ULocale.ENGLISH)
+            .add(ULocale.FRENCH)
+            .add(ULocale.UK)
+            .build(), localeMatcherData, threshold);
         logln(matcher.toString());
 
         assertEquals(ULocale.FRENCH, matcher.getBestMatch(new ULocale("br")));
@@ -405,11 +405,27 @@ public class LocaleMatcherTest extends TestFmwk {
         LocaleMatcher matcher = newLocaleMatcher("es_AR, es");
         assertEquals("es_AR", matcher.getBestMatch("es_MX").toString());
 
-        matcher = newLocaleMatcher("fr, en, en_CA");
-        assertEquals("en_CA", matcher.getBestMatch("en_GB").toString());
+        matcher = newLocaleMatcher("fr, en, en_GB");
+        assertEquals("en_GB", matcher.getBestMatch("en_CA").toString());
 
         matcher = newLocaleMatcher("de_AT, de_DE, de_CH");
         assertEquals("de_DE", matcher.getBestMatch("de").toString());
+
+        showDistance(matcher, "en", "en_CA");
+        showDistance(matcher, "en_CA", "en");
+        showDistance(matcher, "en_US", "en_CA");
+        showDistance(matcher, "en_CA", "en_US");
+        showDistance(matcher, "en_GB", "en_CA");
+        showDistance(matcher, "en_CA", "en_GB");
+        showDistance(matcher, "en", "en_UM");
+        showDistance(matcher, "en_UM", "en");
+    }
+
+    private void showDistance(LocaleMatcher matcher, String desired, String supported) {
+        ULocale desired2 = new ULocale(desired);
+        ULocale supported2 = new ULocale(supported);
+        double distance = matcher.match(desired2, ULocale.addLikelySubtags(desired2), supported2, ULocale.addLikelySubtags(supported2));
+        logln(desired + " to " + supported + " :\t" + distance);
     }
 
     /**

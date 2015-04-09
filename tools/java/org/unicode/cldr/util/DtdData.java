@@ -34,7 +34,7 @@ import com.ibm.icu.text.Transform;
 public class DtdData extends XMLFileReader.SimpleHandler {
     private static final String COMMENT_PREFIX = System.lineSeparator() + "    ";
     private static final boolean SHOW_ALL = CldrUtility.getProperty("show_all", false);
-    private static final boolean SHOW_STR = false; // add extra structure to DTD
+    private static final boolean SHOW_STR = true; // add extra structure to DTD
     private static final boolean USE_SYNTHESIZED = false;
 
     private static final boolean DEBUG = false;
@@ -912,12 +912,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 if (attributeDeprecated) {
                     b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
                 } else {
-                    if (!isDistinguishing(current.name, a.name)) {
-                        if (METADATA.contains(a.name)) {
-                            b.append(COMMENT_PREFIX + "<!--@METADATA-->");
-                        } else {
-                            b.append(COMMENT_PREFIX + "<!--@VALUE-->");
-                        }
+                    if (METADATA.contains(a.name)) {
+                        b.append(COMMENT_PREFIX + "<!--@METADATA-->");
+                    } else if (!isDistinguishing(current.name, a.name)) {
+                        b.append(COMMENT_PREFIX + "<!--@VALUE-->");
                     }
                     if (!deprecatedValues.isEmpty()) {
                         b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + CollectionUtilities.join(deprecatedValues, ", ")+ "-->");

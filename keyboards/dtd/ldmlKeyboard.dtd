@@ -16,21 +16,29 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT version EMPTY >
 <!ATTLIST version platform CDATA #REQUIRED >
+    <!--@VALUE-->
 <!ATTLIST version number CDATA #REQUIRED >
+    <!--@VALUE-->
 <!ATTLIST version cldrVersion CDATA #FIXED "28" >
+    <!--@VALUE-->
 
 <!ELEMENT generation EMPTY >
 <!ATTLIST generation date CDATA #REQUIRED >
+    <!--@VALUE-->
 
 <!ELEMENT names ( name+ ) >
 
 <!ELEMENT name EMPTY >
 <!ATTLIST name value CDATA #REQUIRED >
+    <!--@VALUE-->
 
 <!ELEMENT settings EMPTY >
 <!ATTLIST settings fallback (omit) #IMPLIED >
+    <!--@VALUE-->
 <!ATTLIST settings transformFailure (omit) #IMPLIED >
+    <!--@VALUE-->
 <!ATTLIST settings transformPartial (hide) #IMPLIED >
+    <!--@VALUE-->
 
 <!ELEMENT keyMap ( map+ ) >
 <!ATTLIST keyMap modifiers CDATA #IMPLIED >
@@ -38,8 +46,11 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT map EMPTY >
 <!ATTLIST map iso CDATA #REQUIRED >
 <!ATTLIST map to CDATA #REQUIRED >
+    <!--@VALUE-->
 <!ATTLIST map longPress CDATA #IMPLIED >
+    <!--@VALUE-->
 <!ATTLIST map transform (no) #IMPLIED >
+    <!--@VALUE-->
 
 <!ELEMENT transforms ( transform+ ) >
 <!ATTLIST transforms type CDATA #REQUIRED >
@@ -47,3 +58,4 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT transform EMPTY >
 <!ATTLIST transform from CDATA #REQUIRED >
 <!ATTLIST transform to CDATA #REQUIRED >
+    <!--@VALUE-->

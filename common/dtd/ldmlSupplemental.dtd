@@ -44,7 +44,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST region draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT currency ( alternate* ) >
-<!ATTLIST currency before NMTOKEN #IMPLIED > <!-- This usage is deprecated. Use from and to. -->
+<!ATTLIST currency before NMTOKEN #IMPLIED > <!-- This usage is deprecated--> <!-- use from and to instead. -->
 <!ATTLIST currency from NMTOKEN #IMPLIED >
 <!ATTLIST currency to NMTOKEN #IMPLIED >
 <!ATTLIST currency iso4217 NMTOKEN #REQUIRED >
@@ -55,7 +55,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST currency draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST currency references CDATA #IMPLIED >
 
-<!ELEMENT alternate EMPTY > <!-- This usage is deprecated. Use from and to. -->
+<!ELEMENT alternate EMPTY > <!-- This usage is deprecated --> <!-- use from and to instead. -->
 <!ATTLIST alternate iso4217 NMTOKEN #REQUIRED >
 
 <!ELEMENT territoryContainment ( group* ) >
@@ -109,7 +109,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT calendar ( calendarSystem?, eras? ) >
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
-<!ATTLIST calendar territories NMTOKENS #IMPLIED > <!-- territories are deprecated.  use ordering attribute in calendarPreference element instead. -->
+<!ATTLIST calendar territories NMTOKENS #IMPLIED > <!-- territories are deprecated --> <!-- use ordering attribute in calendarPreference element instead. -->
 <!ATTLIST calendar draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendar references CDATA #IMPLIED >
 <!ATTLIST calendar alt NMTOKENS #IMPLIED >
@@ -451,7 +451,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST languageMatch percent NMTOKEN #REQUIRED >
 <!ATTLIST languageMatch supported CDATA #REQUIRED >
 
-<!-- Day Periods -->
+<!-- # Day Periods -->
 <!ELEMENT dayPeriodRuleSet ( dayPeriodRules* ) >
 <!ATTLIST dayPeriodRuleSet type NMTOKEN #IMPLIED >
 <!ATTLIST dayPeriodRuleSet draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
@@ -472,7 +472,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST dayPeriodRule draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST dayPeriodRule references CDATA #IMPLIED > 
 
-<!-- Time Zones -->
+<!-- # Time Zones -->
 
 <!ELEMENT windowsZones (mapTimezones?) >
 <!ELEMENT metaZones (metazoneInfo?, mapTimezones?) >
@@ -517,7 +517,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT primaryZone ( #PCDATA ) >
 <!ATTLIST primaryZone iso3166 NMTOKEN #REQUIRED >
 
-<!-- Coverage levels -->
+<!-- # Coverage levels -->
 <!ELEMENT coverageLevels ( approvalRequirements, coverageVariable*, coverageLevel* ) >
 
 <!ELEMENT approvalRequirements ( approvalRequirement* ) >
@@ -538,14 +538,14 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST coverageLevel value CDATA #REQUIRED >
 <!ATTLIST coverageLevel match CDATA #REQUIRED >
 
-<!-- Parent locales -->
+<!-- # Parent locales -->
 <!ELEMENT parentLocales ( parentLocale* ) >
 
 <!ELEMENT parentLocale EMPTY >
 <!ATTLIST parentLocale parent CDATA #REQUIRED >
 <!ATTLIST parentLocale locales CDATA #REQUIRED >
 
-<!-- Gender List support -->
+<!-- # Gender List support -->
 <!ELEMENT gender ( personList+ ) >
 <!ELEMENT personList EMPTY >
 <!ATTLIST personList type ( neutral | mixedNeutral | maleTaints ) #REQUIRED >

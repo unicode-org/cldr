@@ -105,7 +105,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     public static final Pattern ALT_PROPOSED_PATTERN = Pattern.compile(".*\\[@alt=\"[^\"]*proposed[^\"]*\"].*");
 
-    static Pattern FIRST_ELEMENT = Pattern.compile("//([^/\\[]*)");
 
     public enum DtdType {
         ldml("common/dtd/ldml.dtd"),
@@ -115,6 +114,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         keyboard("keyboards/dtd/ldmlKeyboard.dtd"),
         platform("keyboards/dtd/ldmlPlatform.dtd");
 
+        static Pattern FIRST_ELEMENT = Pattern.compile("//([^/\\[]*)");
+    
         public final String dtdPath;
         public final DtdType rootType;
 
@@ -1326,99 +1327,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @return
      */
     public static boolean isDistinguishing(DtdType type, String elementName, String attribute) {
-        switch (type) {
-        case ldml:
-            return attribute.equals("_q")
-                || attribute.equals("key")
-                || attribute.equals("indexSource")
-                || attribute.equals("request")
-                || attribute.equals("count")
-                || attribute.equals("id")
-                || attribute.equals("registry")
-                || attribute.equals("alt")
-                || attribute.equals("mzone")
-                || attribute.equals("from")
-                || attribute.equals("to")
-                || attribute.equals("value") && !elementName.equals("rbnfrule")
-                || attribute.equals("yeartype")
-                || attribute.equals("numberSystem")
-                || attribute.equals("parent")
-                || elementName.equals("annotation") && attribute.equals("cp")
-                || (attribute.equals("type")
-                    && !elementName.equals("default")
-                    && !elementName.equals("measurementSystem")
-                    && !elementName.equals("mapping")
-                    && !elementName.equals("abbreviationFallback")
-                    && !elementName.equals("preferenceOrdering"));
-        case ldmlBCP47:
-            return attribute.equals("_q")
-                //|| attribute.equals("alias")
-                || attribute.equals("name");
-        case supplementalData:
-            return attribute.equals("_q")
-                || attribute.equals("iso4217")
-                || attribute.equals("iso3166")
-                || attribute.equals("code")
-                || attribute.equals("type")
-                || attribute.equals("alt")
-                || elementName.equals("deprecatedItems")
-                && (attribute.equals("type") || attribute.equals("elements") || attribute.equals("attributes") || attribute.equals("values"))
-                || elementName.equals("character") && attribute.equals("value")
-                || elementName.equals("dayPeriodRules") && attribute.equals("locales")
-                || elementName.equals("dayPeriodRule") && attribute.equals("type")
-                || elementName.equals("metazones") && attribute.equals("type")
-                || elementName.equals("mapZone") && (attribute.equals("other") || attribute.equals("territory"))
-                || elementName.equals("postCodeRegex") && attribute.equals("territoryId")
-                || elementName.equals("calendarPreference") && attribute.equals("territories")
-                || elementName.equals("minDays") && attribute.equals("territories")
-                || elementName.equals("firstDay") && attribute.equals("territories")
-                || elementName.equals("weekendStart") && attribute.equals("territories")
-                || elementName.equals("weekendEnd") && attribute.equals("territories")
-                || elementName.equals("measurementSystem") && attribute.equals("territories")
-                || elementName.equals("distinguishingItems") && attribute.equals("attributes")
-                || elementName.equals("codesByTerritory") && attribute.equals("territory")
-                || elementName.equals("currency") && (attribute.equals("iso4217") || attribute.equals("tender"))
-                || elementName.equals("territoryAlias") && attribute.equals("type")
-                || elementName.equals("territoryCodes") && (attribute.equals("alpha3") || attribute.equals("numeric") || attribute.equals("type"))
-                || elementName.equals("group") && attribute.equals("status")
-                || elementName.equals("plurals") && attribute.equals("type")
-                || elementName.equals("pluralRules") && attribute.equals("locales")
-                || elementName.equals("pluralRule") && attribute.equals("count")
-                || elementName.equals("hours") && attribute.equals("regions")
-                || elementName.equals("personList") && attribute.equals("type")
-                || elementName.equals("likelySubtag") && attribute.equals("from")
-                || elementName.equals("timezone") && attribute.equals("type")
-                || elementName.equals("usesMetazone") && attribute.equals("mzone")
-                || elementName.equals("usesMetazone") && attribute.equals("to")
-                || elementName.equals("numberingSystem") && attribute.equals("id")
-                || elementName.equals("group") && attribute.equals("type")
-                || elementName.equals("currency") && attribute.equals("from")
-                || elementName.equals("currency") && attribute.equals("to")
-                || elementName.equals("currency") && attribute.equals("iso4217")
-                || elementName.equals("parentLocale") && attribute.equals("parent")
-                || elementName.equals("currencyCodes") && (attribute.equals("numeric") || attribute.equals("type"))
-                || elementName.equals("approvalRequirement") && (attribute.equals("locales") || attribute.equals("paths"))
-                || elementName.equals("coverageVariable") && attribute.equals("key")
-                || elementName.equals("coverageLevel") && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
-                ;
-
-        case keyboard:
-            return attribute.equals("_q")
-                || elementName.equals("keyboard") && attribute.equals("locale")
-                || elementName.equals("keyMap") && attribute.equals("modifiers")
-                || elementName.equals("map") && attribute.equals("iso")
-                || elementName.equals("transforms") && attribute.equals("type")
-                || elementName.equals("transform") && attribute.equals("from");
-        case platform:
-            return attribute.equals("_q")
-                || elementName.equals("platform") && attribute.equals("id")
-                || elementName.equals("map") && attribute.equals("keycode");
-        }
-        // if (result != matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true)) {
-        // matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true);
-        // throw new IllegalArgumentException("Failed: " + elementName + ", " + attribute);
-        // }
-        throw new IllegalArgumentException("Type is wrong: " + type);
+        return DtdData.getInstance(type).isDistinguishing(elementName, attribute);
     }
 
 //    public static boolean isDistinguishing(String elementName, String attribute) {

@@ -54,7 +54,7 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!-- These elements are common to almost all elements defined  -->
+<!-- # These elements are common to almost all elements defined  -->
 <!-- ######################################################### -->
 
 <!ELEMENT alias  (special*) >
@@ -72,7 +72,7 @@ $Date$
 
 <!ELEMENT special ANY >
 
-<!-- This element can occur anywhere there may be localizable data -->
+<!-- # This element can occur anywhere there may be localizable data -->
 <!ELEMENT cp (special*) >
 <!ATTLIST cp hex NMTOKEN #REQUIRED >
 
@@ -86,35 +86,35 @@ $Date$
 <!ELEMENT localeDisplayNames (alias | (localeDisplayPattern?, languages?, scripts?, territories?, variants?, keys?, types?, transformNames?, measurementSystemNames?, codePatterns?, special*)) >
 <!ATTLIST localeDisplayNames draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
-<!-- Either 1 alias OR any specials, any order, zero or more language -->
+<!-- # Either 1 alias OR any specials, any order, zero or more language -->
 <!ELEMENT languages ( alias | (language | special)* ) >
 <!ATTLIST languages draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED  > <!-- true and false are deprecated. -->
 <!ATTLIST languages standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
 <!ATTLIST languages references CDATA #IMPLIED >
 <!ATTLIST languages validSubLocales CDATA #IMPLIED > <!-- validSubLocales is deprecated -->
 
-<!-- Either 1 alias OR any specials, any order, zero or more script -->
+<!-- # Either 1 alias OR any specials, any order, zero or more script -->
 <!ELEMENT scripts (alias |(script | special)* ) >
 <!ATTLIST scripts draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST scripts standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
 <!ATTLIST scripts references CDATA #IMPLIED >
 <!ATTLIST scripts validSubLocales CDATA #IMPLIED > <!-- validSubLocales is deprecated -->
 
-<!-- Either 1 alias OR any specials, any order, zero or more territory -->
+<!-- # Either 1 alias OR any specials, any order, zero or more territory -->
 <!ELEMENT territories ( alias | (territory | special)*) >
 <!ATTLIST territories draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST territories standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
 <!ATTLIST territories references CDATA #IMPLIED >
 <!ATTLIST territories validSubLocales CDATA #IMPLIED > <!-- validSubLocales is deprecated -->
 
-<!-- Either 1 alias OR any specials, any order, zero or more variant -->
+<!-- # Either 1 alias OR any specials, any order, zero or more variant -->
 <!ELEMENT variants ( alias |(variant | special)*  ) >
 <!ATTLIST variants draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST variants standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
 <!ATTLIST variants references CDATA #IMPLIED >
 <!ATTLIST variants validSubLocales CDATA #IMPLIED > <!-- validSubLocales is deprecated -->
 
-<!-- Either 1 alias OR any specials, any order, zero or more key -->
+<!-- # Either 1 alias OR any specials, any order, zero or more key -->
 <!ELEMENT keys ( alias | (key | special)*) >
 <!ATTLIST keys draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST keys standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
@@ -128,7 +128,7 @@ $Date$
 <!ATTLIST key references CDATA #IMPLIED >
 
 
-<!-- Either 1 alias OR any specials, any order, zero or more type -->
+<!-- # Either 1 alias OR any specials, any order, zero or more type -->
 <!ELEMENT types ( alias | (type | special)* ) >
 <!ATTLIST types draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST types standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
@@ -160,7 +160,7 @@ $Date$
 <!ATTLIST codePattern draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST codePattern references CDATA #IMPLIED >
 
-<!-- Either 1 alias OR any specials, any order, zero or more measurementSystemName -->
+<!-- # Either 1 alias OR any specials, any order, zero or more measurementSystemName -->
 <!ELEMENT measurementSystemNames ( alias | (measurementSystemName | special)* ) >
 <!ATTLIST measurementSystemNames draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST measurementSystemNames references CDATA #IMPLIED >
@@ -196,7 +196,7 @@ $Date$
 
 
 <!-- ######################################################### -->
-<!-- layout and orientation are script specific, so validSublocales attribute is not required -->
+<!-- # layout and orientation are script specific, so validSublocales attribute is not required -->
 <!ELEMENT layout ( alias | (orientation*, inList*, inText*, special*) ) >
 <!ATTLIST layout draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST layout references CDATA #IMPLIED >
@@ -358,14 +358,14 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!ELEMENT measurement (alias | (measurementSystem*, paperSize*, special*)) > <!-- deprecated, use measurementData in supplemental instead -->
+<!ELEMENT measurement (alias | (measurementSystem*, paperSize*, special*)) > <!-- deprecated--> <!-- use measurementData in supplemental instead -->
 <!ATTLIST measurement alt NMTOKENS #IMPLIED >
 <!ATTLIST measurement draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST measurement standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
 <!ATTLIST measurement references CDATA #IMPLIED >
 <!ATTLIST measurement validSubLocales CDATA #IMPLIED > <!-- validSubLocales is deprecated -->
 
-<!ELEMENT paperSize (alias | (height*, width*, special*)) > <!-- deprecated, use paperSize in supplemental instead -->
+<!ELEMENT paperSize (alias | (height*, width*, special*)) > <!-- deprecated--> <!-- use paperSize in supplemental instead -->
 <!ATTLIST paperSize alt NMTOKENS #IMPLIED >
 <!ATTLIST paperSize draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST paperSize standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
@@ -382,7 +382,7 @@ $Date$
 <!ATTLIST width draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST width references CDATA #IMPLIED >
 
-<!ELEMENT measurementSystem (special*) > <!-- deprecated, use measurementSystem in supplemental instead -->
+<!ELEMENT measurementSystem (special*) > <!-- deprecated--> <!-- use measurementSystem in supplemental instead -->
 <!ATTLIST measurementSystem type ( metric | US | UK ) #REQUIRED > <!-- deprecated in favor of choice -->
 <!ATTLIST measurementSystem choice ( metric | US | UK ) #IMPLIED > <!-- really required, but needs to be optional to support type also -->
 <!ATTLIST measurementSystem alt NMTOKENS #IMPLIED >
@@ -410,14 +410,14 @@ $Date$
 <!ATTLIST localizedPatternChars references CDATA #IMPLIED >
 <!ATTLIST localizedPatternChars validSubLocales CDATA #IMPLIED > <!-- validSubLocales is deprecated -->
 
-<!ELEMENT dateRangePattern ( #PCDATA ) > <!-- deprecated, use intervalFormats. -->
+<!ELEMENT dateRangePattern ( #PCDATA ) > <!-- deprecated--> <!-- use intervalFormats. -->
 <!ATTLIST dateRangePattern alt NMTOKENS #IMPLIED >
 <!ATTLIST dateRangePattern draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST dateRangePattern standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
 <!ATTLIST dateRangePattern references CDATA #IMPLIED >
 <!ATTLIST dateRangePattern validSubLocales CDATA #IMPLIED > <!-- validSubLocales is deprecated -->
 
-<!ELEMENT calendars (alias | (default*, calendar*, special*)) > <!-- use of a default element for calendars is deprecated, use calendarPreferenceData instead -->
+<!ELEMENT calendars (alias | (default*, calendar*, special*)) > <!-- use of a default element for calendars is deprecated--> <!-- use calendarPreferenceData instead -->
 <!ATTLIST calendars draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendars validSubLocales CDATA #IMPLIED > <!-- validSubLocales is deprecated -->
 
@@ -486,13 +486,13 @@ $Date$
 <!ATTLIST monthPattern references CDATA #IMPLIED >
 
 
-<!-- START_DEPRECATED -->
+<!-- # START_DEPRECATED -->
 <!ELEMENT monthNames ( alias | (month*, special*)) > <!-- deprecated -->
 <!ATTLIST monthNames draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT monthAbbr ( alias | (month*, special*)) > <!-- deprecated -->
 <!ATTLIST monthAbbr draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
-<!-- END_DEPRECATED-->
+<!-- # END_DEPRECATED-->
 
 <!ELEMENT days ( alias | (default*, dayContext*, special*)) > <!-- default element is deprecated -->
 <!ATTLIST days alt NMTOKENS #IMPLIED >
@@ -551,7 +551,7 @@ $Date$
 <!ATTLIST quarter references CDATA #IMPLIED >
 
 
-<!-- START_DEPRECATED-->
+<!-- # START_DEPRECATED-->
 
 <!ELEMENT dayAbbr ( alias | (day*, special*)) > <!-- deprecated -->
 <!ATTLIST dayAbbr draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -560,7 +560,7 @@ $Date$
 <!ATTLIST dayNames draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 
-<!ELEMENT week (alias | (minDays*, firstDay*, weekendStart*, weekendEnd*, special*)) > <!-- deprecated, use supplemental weekData -->
+<!ELEMENT week (alias | (minDays*, firstDay*, weekendStart*, weekendEnd*, special*)) > <!-- deprecated--> <!-- use supplemental weekData -->
 <!ATTLIST week alt NMTOKENS #IMPLIED >
 <!ATTLIST week draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST week standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
@@ -573,7 +573,7 @@ $Date$
 <!ATTLIST minDays draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST minDays references CDATA #IMPLIED >
 
-<!ELEMENT firstDay (special*) > <!-- deprecated in ldml, use supplemental -->
+<!ELEMENT firstDay (special*) > <!-- deprecated in ldml--> <!-- use supplemental data -->
 <!ATTLIST firstDay day ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
 <!ATTLIST firstDay alt NMTOKENS #IMPLIED >
 <!ATTLIST firstDay draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -586,14 +586,14 @@ $Date$
 <!ATTLIST weekendStart draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST weekendStart references CDATA #IMPLIED >
 
-<!ELEMENT weekendEnd (special*) > <!-- deprecated in ldml, use supplemental -->
+<!ELEMENT weekendEnd (special*) > <!-- deprecated in ldml--> <!-- use supplemental data -->
 <!ATTLIST weekendEnd day ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
 <!ATTLIST weekendEnd time CDATA "24:00" > <!-- the "time" attribute is deprecated everywhere. -->
 <!ATTLIST weekendEnd alt NMTOKENS #IMPLIED >
 <!ATTLIST weekendEnd draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST weekendEnd references CDATA #IMPLIED >
 
-<!-- END_DEPRECATED-->
+<!-- # END_DEPRECATED-->
 
 <!ELEMENT dayPeriods ( alias | (dayPeriodContext*) ) >
 <!ATTLIST dayPeriods draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
@@ -615,13 +615,13 @@ $Date$
 <!ATTLIST dayPeriod draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST dayPeriod references CDATA #IMPLIED > 
 
-<!ELEMENT am ( #PCDATA ) > <!-- deprecated, use dayPeriods -->
+<!ELEMENT am ( #PCDATA ) > <!-- deprecated--> <!-- use dayPeriods -->
 <!ATTLIST am alt NMTOKENS #IMPLIED >
 <!ATTLIST am draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST am references CDATA #IMPLIED >
 <!ATTLIST am validSubLocales CDATA #IMPLIED > <!-- validSubLocales is deprecated -->
 
-<!ELEMENT pm ( #PCDATA ) > <!-- deprecated, use dayPeriods -->
+<!ELEMENT pm ( #PCDATA ) > <!-- deprecated--> <!-- use dayPeriods -->
 <!ATTLIST pm alt NMTOKENS #IMPLIED >
 <!ATTLIST pm draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST pm references CDATA #IMPLIED >
@@ -855,7 +855,7 @@ $Date$
 <!ATTLIST abbreviationFallback draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST abbreviationFallback references CDATA #IMPLIED >
 
-<!ELEMENT preferenceOrdering EMPTY > <!-- deprecated, use metazones instead -->
+<!ELEMENT preferenceOrdering EMPTY > <!-- deprecated--> <!-- use metazones instead -->
 <!ATTLIST preferenceOrdering type CDATA #IMPLIED > <!-- deprecated in favor of choice -->
 <!ATTLIST preferenceOrdering choice CDATA #IMPLIED > <!-- really required, but needs to be optional to support type also -->
 <!ATTLIST preferenceOrdering alt NMTOKENS #IMPLIED >
@@ -1228,7 +1228,7 @@ $Date$
 <!ATTLIST currencies validSubLocales CDATA #IMPLIED > <!-- validSubLocales is deprecated -->
 
 <!ELEMENT currency (alias | (((pattern+, displayName*, symbol*) | (displayName+, symbol*, pattern*) | (symbol+, pattern*))?, decimal*, group*, special*)) >
-<!-- warning: pattern appears twice in the above. The first is for consistency with all other cases of
+<!-- # warning: pattern appears twice in the above. The first is for consistency with all other cases of
     pattern + displayName; the second is for backwards compatibility -->
 <!ATTLIST currency type NMTOKEN "standard" >
 <!ATTLIST currency alt NMTOKENS #IMPLIED >
@@ -1370,7 +1370,7 @@ $Date$
 
 <!ELEMENT cr ( #PCDATA )>
 
-<!-- The rules element and all of its sub-elements are deprecated. Use the cr element instead, with ICU syntax. -->
+<!-- # The rules element and all of its sub-elements are deprecated--> <!-- Use the cr element instead, with ICU syntax. -->
 
 <!ELEMENT rules (alias | ( ( reset | import ), ( reset | import | p | pc |  s | sc | t | tc | q | qc | i | ic | x)* )) > <!-- deprecated -->
 
@@ -1439,7 +1439,7 @@ $Date$
 <!ATTLIST nostr draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST nostr references CDATA #IMPLIED >
 
-<!-- START_DEPRECATED -->
+<!-- # START_DEPRECATED -->
 <!ELEMENT yesexpr ( #PCDATA ) > <!-- deprecated. -->
 <!ATTLIST yesexpr alt NMTOKENS #IMPLIED >
 <!ATTLIST yesexpr draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -1449,7 +1449,7 @@ $Date$
 <!ATTLIST noexpr alt NMTOKENS #IMPLIED >
 <!ATTLIST noexpr draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST noexpr references CDATA #IMPLIED >
-<!-- END_DEPRECATED -->
+<!-- # END_DEPRECATED -->
 
 <!ELEMENT segmentations ( alias | segmentation*) >
 <!ATTLIST segmentations alt NMTOKENS #IMPLIED >
@@ -1480,7 +1480,7 @@ $Date$
 <!ATTLIST rule draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED ><!-- true and false are deprecated. -->
 <!ATTLIST rule references CDATA #IMPLIED >
 
-<!ELEMENT exceptions ( exception* ) > <!-- deprecated, use suppressions instead -->
+<!ELEMENT exceptions ( exception* ) > <!-- deprecated--> <!-- use suppressions instead -->
 
 <!ELEMENT exception ( #PCDATA ) > <!-- deprecated -->
 <!ATTLIST exception draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > <!-- deprecated -->
@@ -1527,7 +1527,7 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!-- This element contains metadata for Survey Tool internal use (optimization, etc). -->
+<!-- # This element contains metadata for Survey Tool internal use (optimization, etc). -->
 
 <!ELEMENT metadata (casingData?)>
 

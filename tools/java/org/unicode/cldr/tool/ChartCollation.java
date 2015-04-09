@@ -318,7 +318,7 @@ public class ChartCollation extends Chart {
                         }
                         if (!tailored.contains(s)) {
                             list.append("<span class='" + NOT_TAILORED + "'>").append(s).append("</span>");
-                        } else if (!exemplars_all.containsAll(s)) {
+                        } else if (!exemplars_all.containsAll(s) && !file.equals("root")) {
                             list.append("<span class='" + NOT_EXEMPLARS + "'>").append(s).append("</span>");
                         } else {
                             list.append(s);

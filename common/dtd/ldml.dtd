@@ -2409,23 +2409,4 @@ $Date$
 <!ATTLIST reference draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST reference standard (true | false) #IMPLIED >
-    <!-- Elements not reachable from root! -->
-    <!--@DEPRECATED-->
-
-<!-- Elements not reachable from root! -->
-
-
-<!ELEMENT usesMetazone EMPTY >
-    <!--@DEPRECATED-->
-<!ATTLIST usesMetazone mzone NMTOKEN #REQUIRED >
-    <!--@DEPRECATED-->
-<!ATTLIST usesMetazone from CDATA #IMPLIED >
-    <!--@DEPRECATED-->
-<!ATTLIST usesMetazone to CDATA #IMPLIED >
-    <!--@DEPRECATED-->
-<!ATTLIST usesMetazone alt NMTOKENS #IMPLIED >
-    <!--@DEPRECATED-->
-<!ATTLIST usesMetazone draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
-    <!--@DEPRECATED-->
-<!ATTLIST usesMetazone references CDATA #IMPLIED >
     <!--@DEPRECATED-->

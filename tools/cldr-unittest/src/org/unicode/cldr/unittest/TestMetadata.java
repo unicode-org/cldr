@@ -9,6 +9,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.FindDTDOrder;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -42,7 +43,7 @@ public class TestMetadata extends TestFmwk {
 
         // Then Serial Order
         Set<String> cldrFileSerialElements = new TreeSet<String>(
-            CLDRFile.getSerialElements());
+            DtdData.getSerialElements());
         Set<String> metadataSerialElements = new TreeSet<String>(testInfo
             .getSupplementalDataInfo().getSerialElements());
         checkEquals("Serial Order", "CLDRFile.orderedElements",

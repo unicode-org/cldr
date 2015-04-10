@@ -367,6 +367,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     private void addComment(String comment) {
         comment = comment.trim();
+        if (comment.startsWith("@")) {
+            return; // discard for now the extra data
+        }
         if (preCommentCache != null || comment.startsWith("#")) { // the precomments are "sticky"
             preCommentCache = addUnmodifiable(preCommentCache, comment);
         } else if (lastElement != null) {
@@ -460,6 +463,89 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     //        DTD_TYPE_TO_FILE = Collections.unmodifiableMap(temp);
     //    }
 
+    static final Set<String> orderedElements = Collections.unmodifiableSet(new HashSet<String>(Arrays
+        .asList(
+            // can prettyprint with TestAttributes
+
+            // DTD: ldml
+            // <collation> children
+            "base", "optimize", "rules", "settings", "suppress_contractions",
+
+            // <rules> children
+            "i", "ic", "p", "pc", "reset", "s", "sc", "t", "tc", "x",
+
+            // <x> children
+            "context", "extend", "i", "ic", "p", "pc", "s", "sc", "t", "tc",
+            "last_non_ignorable", "last_secondary_ignorable", "last_tertiary_ignorable",
+
+            // <variables> children
+            "variable",
+
+            // <rulesetGrouping> children
+            "ruleset",
+
+            // <ruleset> children
+            "rbnfrule",
+
+            // <exceptions> children (deprecated, use 'suppressions')
+            "exception",
+
+            // <suppressions> children
+            "suppression",
+
+            // DTD: supplementalData
+            // <territory> children
+            // "languagePopulation",
+
+            // <postalCodeData> children
+            // "postCodeRegex",
+
+            // <characters> children
+            // "character-fallback",
+
+            // <character-fallback> children
+            // "character",
+
+            // <character> children
+            "substitute", // may occur multiple times
+
+            // <transform> children
+            "comment", "tRule",
+
+            // <validity> children
+            // both of these don't need to be ordered, but must delay changes until after isDistinguished always uses
+            // the dtd type
+            "attributeValues", // attribute values shouldn't need ordering, as long as these are distinguishing:
+            // elements="zoneItem" attributes="type"
+            "variable", // doesn't need to be ordered
+
+            // <pluralRules> children
+            "pluralRule",
+
+            // <codesByTerritory> children
+            // "telephoneCountryCode", // doesn't need ordering, as long as code is distinguishing, telephoneCountryCode
+            // code="376"
+
+            // <numberingSystems> children
+            // "numberingSystem", // doesn't need ordering, since id is distinguishing
+
+            // <metazoneInfo> children
+            // "timezone", // doesn't need ordering, since type is distinguishing
+
+            "attributes", // shouldn't need this in //supplementalData/metadata/suppress/attributes, except that the
+            // element is badly designed
+
+            "languageMatch",
+
+            "exception", // needed for new segmentations
+            "coverageLevel", // needed for supplemental/coverageLevel.xml
+            "coverageVariable", // needed for supplemental/coverageLevel.xml
+            "substitute" // needed for characters.xml
+            )));
+
+    public static boolean isOrdered(String element, DtdType type) {
+        return orderedElements.contains(element);
+    }
     private static final Map<CLDRFile.DtdType, DtdData> CACHE;
     static {
         EnumMap<DtdType, DtdData> temp = new EnumMap<CLDRFile.DtdType, DtdData>(CLDRFile.DtdType.class);
@@ -511,8 +597,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         if (simpleHandler.ROOT.children.size() == 0) {
             throw new IllegalArgumentException(); // should never happen
         }
+        simpleHandler.finish();
         simpleHandler.freeze();
         return simpleHandler;
+    }
+
+    private void finish() {
     }
 
     public static void readFile(CLDRFile.DtdType type, XMLFileReader xfr, File directory) {
@@ -862,6 +952,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             b.append(">");
         }
         showComments(b,  current.commentsPost, false);
+        if (isOrdered(current.name, null)) {
+            b.append(COMMENT_PREFIX + "<!--@ORDERED-->");
+        }
         if (SHOW_STR && elementDeprecated) {
             b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
         }
@@ -909,17 +1002,15 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 //                System.out.println("*** BAD DEPRECATION ***" + a);
 //            }
             if (SHOW_STR) {
+                if (METADATA.contains(a.name)) {
+                    b.append(COMMENT_PREFIX + "<!--@METADATA-->");
+                } else if (!isDistinguishing(current.name, a.name)) {
+                    b.append(COMMENT_PREFIX + "<!--@VALUE-->");
+                }
                 if (attributeDeprecated) {
                     b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
-                } else {
-                    if (METADATA.contains(a.name)) {
-                        b.append(COMMENT_PREFIX + "<!--@METADATA-->");
-                    } else if (!isDistinguishing(current.name, a.name)) {
-                        b.append(COMMENT_PREFIX + "<!--@VALUE-->");
-                    }
-                    if (!deprecatedValues.isEmpty()) {
-                        b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + CollectionUtilities.join(deprecatedValues, ", ")+ "-->");
-                    }
+                } else if (!deprecatedValues.isEmpty()) {
+                    b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + CollectionUtilities.join(deprecatedValues, ", ")+ "-->");
                 }
             }
         }
@@ -1012,47 +1103,53 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 || attribute.equals("iso4217")
                 || attribute.equals("iso3166")
                 || attribute.equals("code")
-                || attribute.equals("type")
+                || (attribute.equals("type") && !elementName.equals("mapZone") && !elementName.equals("numberingSystem"))
                 || attribute.equals("alt")
                 || elementName.equals("deprecatedItems")
                 && (attribute.equals("type") || attribute.equals("elements") || attribute.equals("attributes") || attribute.equals("values"))
                 || elementName.equals("character") && attribute.equals("value")
                 || elementName.equals("dayPeriodRules") && attribute.equals("locales")
-                || elementName.equals("dayPeriodRule") && attribute.equals("type")
+                || elementName.equals("dayPeriodRule") 
+                && (attribute.equals("type") || attribute.equals("at") || attribute.equals("after") || attribute.equals("before") || attribute.equals("from") || attribute.equals("to"))
                 || elementName.equals("metazones") && attribute.equals("type")
                 || elementName.equals("mapZone") && (attribute.equals("other") || attribute.equals("territory"))
                 || elementName.equals("postCodeRegex") && attribute.equals("territoryId")
                 || elementName.equals("calendarPreference") && attribute.equals("territories")
-                || elementName.equals("minDays") && attribute.equals("territories")
-                || elementName.equals("firstDay") && attribute.equals("territories")
-                || elementName.equals("weekendStart") && attribute.equals("territories")
-                || elementName.equals("weekendEnd") && attribute.equals("territories")
-                || elementName.equals("measurementSystem") && attribute.equals("territories")
+                || elementName.equals("minDays") && attribute.equals("count")
+                || elementName.equals("firstDay") && attribute.equals("day")
+                || elementName.equals("weekendStart") && attribute.equals("day")
+                || elementName.equals("weekendEnd") && attribute.equals("day")
+                || elementName.equals("measurementSystem") && attribute.equals("category")
                 || elementName.equals("distinguishingItems") && attribute.equals("attributes")
                 || elementName.equals("codesByTerritory") && attribute.equals("territory")
-                || elementName.equals("currency") && (attribute.equals("iso4217") || attribute.equals("tender"))
+                || elementName.equals("currency") && attribute.equals("iso4217")
                 || elementName.equals("territoryAlias") && attribute.equals("type")
-                || elementName.equals("territoryCodes") && (attribute.equals("alpha3") || attribute.equals("numeric") || attribute.equals("type"))
-                || elementName.equals("group") && attribute.equals("status")
+                || elementName.equals("territoryCodes") && attribute.equals("type")
+                || elementName.equals("group") && (attribute.equals("status") || attribute.equals("grouping"))
                 || elementName.equals("plurals") && attribute.equals("type")
                 || elementName.equals("pluralRules") && attribute.equals("locales")
                 || elementName.equals("pluralRule") && attribute.equals("count")
+                || elementName.equals("pluralRanges") && attribute.equals("locales")
+                || elementName.equals("pluralRange") && (attribute.equals("start") || attribute.equals("end"))
                 || elementName.equals("hours") && attribute.equals("regions")
-                || elementName.equals("personList") && attribute.equals("type")
+                //|| elementName.equals("personList") && attribute.equals("type")
                 || elementName.equals("likelySubtag") && attribute.equals("from")
                 || elementName.equals("timezone") && attribute.equals("type")
-                || elementName.equals("usesMetazone") && attribute.equals("mzone")
-                || elementName.equals("usesMetazone") && attribute.equals("to")
+                || elementName.equals("usesMetazone") && (attribute.equals("to") || attribute.equals("from")) // attribute.equals("mzone") || 
                 || elementName.equals("numberingSystem") && attribute.equals("id")
                 || elementName.equals("group") && attribute.equals("type")
                 || elementName.equals("currency") && attribute.equals("from")
                 || elementName.equals("currency") && attribute.equals("to")
                 || elementName.equals("currency") && attribute.equals("iso4217")
                 || elementName.equals("parentLocale") && attribute.equals("parent")
-                || elementName.equals("currencyCodes") && (attribute.equals("numeric") || attribute.equals("type"))
+                || elementName.equals("currencyCodes") && attribute.equals("type")
                 || elementName.equals("approvalRequirement") && (attribute.equals("locales") || attribute.equals("paths"))
                 || elementName.equals("coverageVariable") && attribute.equals("key")
-                || elementName.equals("coverageLevel") && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
+                || elementName.equals("coverageLevel") 
+                && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
+                || elementName.equals("languageMatch") 
+                && (attribute.equals("desired") || attribute.equals("supported") || attribute.equals("oneway"))
+                || elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute.equals("variant"))
                 ;
 
         case keyboard:
@@ -1076,7 +1173,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         // throw new IllegalArgumentException("Failed: " + elementName + ", " + attribute);
         // }
     }
-    static final Set<String> METADATA = new HashSet<>(Arrays.asList("references", "draft"));
+    static final Set<String> METADATA = new HashSet<>(Arrays.asList("references", "standard", "draft"));
 
     static final Set<String> addUnmodifiable(Set<String> comment, String addition) {
         if (comment == null) {
@@ -1086,5 +1183,14 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             comment.add(addition);
             return Collections.unmodifiableSet(comment);
         }
+    }
+
+    /**
+     * @deprecated
+     * @return
+     */
+    @Deprecated
+    public static Set<String> getSerialElements() {
+        return orderedElements;
     }
 }

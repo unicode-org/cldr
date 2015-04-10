@@ -25,6 +25,7 @@ $Date$
 <!ELEMENT cldrVersion EMPTY >
     <!--@DEPRECATED-->
 <!ATTLIST cldrVersion version CDATA #REQUIRED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT keyword ( key* ) >

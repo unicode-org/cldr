@@ -1528,7 +1528,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             // currentXPath += "/" + qName;
             currentFullXPath += "/" + qName;
             // if (!isSupplemental) ldmlComparator.addElement(qName);
-            if (orderedElements.contains(qName)) {
+            if (isOrdered(qName, null)) {
                 currentFullXPath += orderingAttribute();
             }
             if (attributes.getLength() > 0) {
@@ -2523,87 +2523,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         "standard", "accounting").freeze();
     static Comparator<String> zoneOrder = StandardCodes.make().getTZIDComparator();
 
-    static Set<String> orderedElements = Collections.unmodifiableSet(new HashSet<String>(Arrays
-        .asList(
-            // can prettyprint with TestAttributes
-
-            // DTD: ldml
-            // <collation> children
-            "base", "optimize", "rules", "settings", "suppress_contractions",
-
-            // <rules> children
-            "i", "ic", "p", "pc", "reset", "s", "sc", "t", "tc", "x",
-
-            // <x> children
-            "context", "extend", "i", "ic", "p", "pc", "s", "sc", "t", "tc",
-            "last_non_ignorable", "last_secondary_ignorable", "last_tertiary_ignorable",
-
-            // <variables> children
-            "variable",
-
-            // <rulesetGrouping> children
-            "ruleset",
-
-            // <ruleset> children
-            "rbnfrule",
-
-            // <exceptions> children (deprecated, use 'suppressions')
-            "exception",
-
-            // <suppressions> children
-            "suppression",
-
-            // DTD: supplementalData
-            // <territory> children
-            // "languagePopulation",
-
-            // <postalCodeData> children
-            // "postCodeRegex",
-
-            // <characters> children
-            // "character-fallback",
-
-            // <character-fallback> children
-            // "character",
-
-            // <character> children
-            "substitute", // may occur multiple times
-
-            // <transform> children
-            "comment", "tRule",
-
-            // <validity> children
-            // both of these don't need to be ordered, but must delay changes until after isDistinguished always uses
-            // the dtd type
-            "attributeValues", // attribute values shouldn't need ordering, as long as these are distinguishing:
-            // elements="zoneItem" attributes="type"
-            "variable", // doesn't need to be ordered
-
-            // <pluralRules> children
-            "pluralRule",
-
-            // <codesByTerritory> children
-            // "telephoneCountryCode", // doesn't need ordering, as long as code is distinguishing, telephoneCountryCode
-            // code="376"
-
-            // <numberingSystems> children
-            // "numberingSystem", // doesn't need ordering, since id is distinguishing
-
-            // <metazoneInfo> children
-            // "timezone", // doesn't need ordering, since type is distinguishing
-
-            "attributes", // shouldn't need this in //supplementalData/metadata/suppress/attributes, except that the
-            // element is badly designed
-
-            "languageMatch",
-
-            "exception", // needed for new segmentations
-            "coverageLevel", // needed for supplemental/coverageLevel.xml
-            "coverageVariable" // needed for supplemental/coverageLevel.xml
-            )));
-
     public static boolean isOrdered(String element, DtdType type) {
-        return orderedElements.contains(element);
+        return DtdData.isOrdered(element, type);
     }
 
     /**
@@ -2961,7 +2882,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     int placementIndex = distinguishingParts.size() - 1;
                     while (true) {
                         String element = distinguishingParts.getElement(placementIndex);
-                        if (!orderedElements.contains(element)) break;
+                        if (!DtdData.isOrdered(element, type)) break;
                         --placementIndex;
                     }
                     if (draft != null) {
@@ -3671,10 +3592,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public boolean isNotRoot(String distinguishedPath) {
         String source = getSourceLocaleID(distinguishedPath, null);
         return source != null && !source.equals("root") && !source.equals(XMLSource.CODE_FALLBACK_ID);
-    }
-
-    public static List<String> getSerialElements() {
-        return new ArrayList<String>(orderedElements);
     }
 
     public boolean isAliasedAtTopLevel() {

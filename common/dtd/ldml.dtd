@@ -87,8 +87,10 @@ $Date$
 <!ATTLIST fallback alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST fallback draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST fallback references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT localeDisplayNames ( alias | ( localeDisplayPattern?, languages?, scripts?, territories?, variants?, keys?, types?, transformNames?, measurementSystemNames?, codePatterns?, special* ) ) >
@@ -131,10 +133,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST languages standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST languages references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST languages validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!-- # Either 1 alias OR any specials, any order, zero or more script -->
@@ -144,10 +148,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST scripts standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST scripts references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST scripts validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!-- # Either 1 alias OR any specials, any order, zero or more territory -->
@@ -157,10 +163,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST territories standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST territories references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST territories validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!-- # Either 1 alias OR any specials, any order, zero or more variant -->
@@ -170,10 +178,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST variants standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST variants references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST variants validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!-- # Either 1 alias OR any specials, any order, zero or more key -->
@@ -183,10 +193,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST keys standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST keys references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST keys validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT key ( #PCDATA ) >
@@ -205,10 +217,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST types standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST types references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST types validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT type ( #PCDATA ) >
@@ -244,6 +258,7 @@ $Date$
 <!ATTLIST measurementSystemNames references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST measurementSystemNames validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT measurementSystemName ( #PCDATA ) >
@@ -277,14 +292,17 @@ $Date$
 
 <!ELEMENT orientation ( characterOrder*, lineOrder*, special* ) >
 <!ATTLIST orientation characters (left-to-right | right-to-left | top-to-bottom | bottom-to-top) #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST orientation lines (left-to-right | right-to-left | top-to-bottom | bottom-to-top) #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST orientation alt NMTOKENS #IMPLIED >
 <!ATTLIST orientation draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST orientation standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST orientation references CDATA #IMPLIED >
     <!--@METADATA-->
@@ -296,12 +314,15 @@ $Date$
 <!ELEMENT inList ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST inList casing (titlecase-words | titlecase-firstword | lowercase-words | mixed) #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST inList alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST inList draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST inList references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT inText ( #PCDATA ) >
@@ -311,8 +332,10 @@ $Date$
 <!ATTLIST inText alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST inText draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST inText references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!-- ######################################################### -->
@@ -324,6 +347,7 @@ $Date$
 <!ATTLIST contextTransforms references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST contextTransforms validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT contextTransformUsage ( alias | ( contextTransform*, special* ) ) >
@@ -334,6 +358,7 @@ $Date$
 <!ATTLIST contextTransformUsage references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST contextTransformUsage validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT contextTransform ( #PCDATA ) >
@@ -359,10 +384,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST exemplarCharacters standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST exemplarCharacters references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST exemplarCharacters validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!-- # This element can occur anywhere there may be localizable data -->
@@ -370,6 +397,7 @@ $Date$
 <!ELEMENT cp ( special* ) >
     <!--@DEPRECATED-->
 <!ATTLIST cp hex NMTOKEN #REQUIRED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT ellipsis ( #PCDATA ) >
@@ -397,8 +425,10 @@ $Date$
 <!ATTLIST stopwordList alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST stopwordList draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST stopwordList references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT indexLabels ( indexSeparator*, compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*, indexLabelAfter*, indexLabel* ) >
@@ -409,8 +439,10 @@ $Date$
 <!ATTLIST indexSeparator alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST indexSeparator draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST indexSeparator references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT compressedIndexSeparator ( #PCDATA ) >
@@ -418,8 +450,10 @@ $Date$
 <!ATTLIST compressedIndexSeparator alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST compressedIndexSeparator draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST compressedIndexSeparator references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT indexRangePattern ( #PCDATA ) >
@@ -427,8 +461,10 @@ $Date$
 <!ATTLIST indexRangePattern alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST indexRangePattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST indexRangePattern references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT indexLabelBefore ( #PCDATA ) >
@@ -436,8 +472,10 @@ $Date$
 <!ATTLIST indexLabelBefore alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST indexLabelBefore draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST indexLabelBefore references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT indexLabelAfter ( #PCDATA ) >
@@ -445,8 +483,10 @@ $Date$
 <!ATTLIST indexLabelAfter alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST indexLabelAfter draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST indexLabelAfter references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT indexLabel ( #PCDATA ) >
@@ -454,12 +494,15 @@ $Date$
 <!ATTLIST indexLabel indexSource CDATA #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST indexLabel priority (1 | 2 | 3) #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST indexLabel alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST indexLabel draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST indexLabel references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT mapping ( special* ) >
@@ -468,18 +511,24 @@ $Date$
     <!--@DEPRECATED-->
 <!ATTLIST mapping type NMTOKEN #IMPLIED >
     <!-- use choice instead -->
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST mapping choice NMTOKEN #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST mapping alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST mapping draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST mapping standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST mapping references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST mapping validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!-- ######################################################### -->
@@ -490,10 +539,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST delimiters standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST delimiters references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST delimiters validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT quotationStart ( #PCDATA | cp )* >
@@ -536,12 +587,16 @@ $Date$
 <!ATTLIST measurement alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST measurement draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST measurement standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST measurement references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST measurement validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT measurementSystem ( special* ) >
@@ -549,19 +604,25 @@ $Date$
     <!--@DEPRECATED-->
 <!ATTLIST measurementSystem type (metric | US | UK) #REQUIRED >
     <!-- use choice instead -->
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST measurementSystem choice (metric | US | UK) #IMPLIED >
     <!-- really required, but needs to be optional to support type also -->
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST measurementSystem alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST measurementSystem draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST measurementSystem standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST measurementSystem references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST measurementSystem validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT paperSize ( alias | ( height*, width*, special* ) ) >
@@ -570,12 +631,16 @@ $Date$
 <!ATTLIST paperSize alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST paperSize draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST paperSize standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST paperSize references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST paperSize validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT height ( #PCDATA ) >
@@ -583,8 +648,10 @@ $Date$
 <!ATTLIST height alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST height draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST height references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT width ( #PCDATA ) >
@@ -592,8 +659,10 @@ $Date$
 <!ATTLIST width alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST width draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST width references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!-- ######################################################### -->
@@ -604,10 +673,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST dates standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST dates references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST dates validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT localizedPatternChars ( #PCDATA | cp )* >
@@ -615,12 +686,16 @@ $Date$
 <!ATTLIST localizedPatternChars alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST localizedPatternChars draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST localizedPatternChars standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST localizedPatternChars references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST localizedPatternChars validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT dateRangePattern ( #PCDATA ) >
@@ -629,12 +704,16 @@ $Date$
 <!ATTLIST dateRangePattern alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST dateRangePattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST dateRangePattern standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST dateRangePattern references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST dateRangePattern validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT calendars ( alias | ( default*, calendar*, special* ) ) >
@@ -643,19 +722,24 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST calendars validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT default ( special* ) >
     <!--@DEPRECATED-->
 <!ATTLIST default type NMTOKEN #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST default choice NMTOKEN #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST default alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST default draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST default references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT calendar ( alias | ( months?, monthNames?, monthAbbr?, monthPatterns?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*, dayPeriods?, eras?, cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special* ) ) >
@@ -665,10 +749,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST calendar standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST calendar references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST calendar validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT months ( alias | ( default*, monthContext*, special* ) ) >
@@ -677,10 +763,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST months standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST months references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST months validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT monthContext ( alias | ( default*, monthWidth*, special* ) ) >
@@ -690,10 +778,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST monthContext standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST monthContext references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST monthContext validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT monthWidth ( alias | ( month*, special* ) ) >
@@ -703,10 +793,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST monthWidth standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST monthWidth references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST monthWidth validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT month ( #PCDATA | cp )* >
@@ -719,15 +811,16 @@ $Date$
 <!ATTLIST month references CDATA #IMPLIED >
     <!--@METADATA-->
 
-
 <!ELEMENT monthNames ( alias | ( month*, special* ) ) >
     <!--@DEPRECATED-->
 <!ATTLIST monthNames draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT monthAbbr ( alias | ( month*, special* ) ) >
     <!--@DEPRECATED-->
 <!ATTLIST monthAbbr draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT monthPatterns ( alias | ( monthPatternContext*, special* ) ) >
@@ -737,6 +830,7 @@ $Date$
 <!ATTLIST monthPatterns references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST monthPatterns validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT monthPatternContext ( alias | ( monthPatternWidth*, special* ) ) >
@@ -747,6 +841,7 @@ $Date$
 <!ATTLIST monthPatternContext references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST monthPatternContext validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT monthPatternWidth ( alias | ( monthPattern*, special* ) ) >
@@ -757,6 +852,7 @@ $Date$
 <!ATTLIST monthPatternWidth references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST monthPatternWidth validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT monthPattern ( #PCDATA ) >
@@ -767,17 +863,18 @@ $Date$
 <!ATTLIST monthPattern references CDATA #IMPLIED >
     <!--@METADATA-->
 
-
 <!ELEMENT days ( alias | ( default*, dayContext*, special* ) ) >
 <!ATTLIST days alt NMTOKENS #IMPLIED >
 <!ATTLIST days draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST days standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST days references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST days validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT dayContext ( alias | ( default*, dayWidth*, special* ) ) >
@@ -787,10 +884,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST dayContext standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST dayContext references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST dayContext validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT dayWidth ( alias | ( day*, special* ) ) >
@@ -800,10 +899,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST dayWidth standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST dayWidth references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST dayWidth validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT day ( #PCDATA ) >
@@ -818,12 +919,13 @@ $Date$
 <!ELEMENT dayNames ( alias | ( day*, special* ) ) >
     <!--@DEPRECATED-->
 <!ATTLIST dayNames draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
-
 
 <!ELEMENT dayAbbr ( alias | ( day*, special* ) ) >
     <!--@DEPRECATED-->
 <!ATTLIST dayAbbr draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT quarters ( alias | ( default*, quarterContext*, special* ) ) >
@@ -834,6 +936,7 @@ $Date$
 <!ATTLIST quarters references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST quarters validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT quarterContext ( alias | ( default*, quarterWidth*, special* ) ) >
@@ -845,6 +948,7 @@ $Date$
 <!ATTLIST quarterContext references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST quarterContext validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT quarterWidth ( alias | ( quarter*, special* ) ) >
@@ -856,6 +960,7 @@ $Date$
 <!ATTLIST quarterWidth references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST quarterWidth validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT quarter ( #PCDATA ) >
@@ -873,12 +978,16 @@ $Date$
 <!ATTLIST week alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST week draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST week standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST week references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST week validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT minDays ( special* ) >
@@ -888,47 +997,60 @@ $Date$
 <!ATTLIST minDays alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST minDays draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST minDays references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT firstDay ( special* ) >
     <!-- use supplemental data -->
     <!--@DEPRECATED-->
 <!ATTLIST firstDay day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST firstDay alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST firstDay draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST firstDay references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT weekendStart ( special* ) >
     <!--@DEPRECATED-->
 <!ATTLIST weekendStart day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST weekendStart time CDATA "00:00" >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST weekendStart alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST weekendStart draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST weekendStart references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT weekendEnd ( special* ) >
     <!-- use supplemental data -->
     <!--@DEPRECATED-->
 <!ATTLIST weekendEnd day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST weekendEnd time CDATA "24:00" >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST weekendEnd alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST weekendEnd draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST weekendEnd references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT am ( #PCDATA ) >
@@ -937,10 +1059,13 @@ $Date$
 <!ATTLIST am alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST am draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST am references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST am validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT pm ( #PCDATA ) >
@@ -949,12 +1074,14 @@ $Date$
 <!ATTLIST pm alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST pm draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST pm references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST pm validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
-
 
 <!ELEMENT dayPeriods ( alias | ( dayPeriodContext* ) ) >
 <!ATTLIST dayPeriods draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
@@ -990,10 +1117,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST eras standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST eras references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST eras validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT eraNames ( alias | ( era*, special* ) ) >
@@ -1004,6 +1133,7 @@ $Date$
 <!ATTLIST eraNames references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST eraNames validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT era ( #PCDATA ) >
@@ -1023,6 +1153,7 @@ $Date$
 <!ATTLIST eraAbbr references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST eraAbbr validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT eraNarrow ( alias | ( era*, special* ) ) >
@@ -1033,6 +1164,7 @@ $Date$
 <!ATTLIST eraNarrow references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST eraNarrow validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT cyclicNameSets ( alias | ( cyclicNameSet*, special* ) ) >
@@ -1042,6 +1174,7 @@ $Date$
 <!ATTLIST cyclicNameSets references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST cyclicNameSets validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT cyclicNameSet ( alias | ( cyclicNameContext*, special* ) ) >
@@ -1052,6 +1185,7 @@ $Date$
 <!ATTLIST cyclicNameSet references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST cyclicNameSet validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT cyclicNameContext ( alias | ( cyclicNameWidth*, special* ) ) >
@@ -1062,6 +1196,7 @@ $Date$
 <!ATTLIST cyclicNameContext references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST cyclicNameContext validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT cyclicNameWidth ( alias | ( cyclicName*, special* ) ) >
@@ -1072,6 +1207,7 @@ $Date$
 <!ATTLIST cyclicNameWidth references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST cyclicNameWidth validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT cyclicName ( #PCDATA ) >
@@ -1087,6 +1223,7 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST dateFormats validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT dateFormatLength ( alias | ( default*, dateFormat*, special* ) ) >
@@ -1096,10 +1233,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST dateFormatLength standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST dateFormatLength references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST dateFormatLength validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT dateFormat ( alias | ( pattern*, displayName*, special* ) ) >
@@ -1109,10 +1248,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST dateFormat standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST dateFormat references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST dateFormat validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT pattern ( #PCDATA ) >
@@ -1143,6 +1284,7 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST timeFormats validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT timeFormatLength ( alias | ( default*, timeFormat*, special* ) ) >
@@ -1152,10 +1294,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST timeFormatLength standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST timeFormatLength references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST timeFormatLength validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT timeFormat ( alias | ( pattern*, displayName*, special* ) ) >
@@ -1165,10 +1309,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST timeFormat standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST timeFormat references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST timeFormat validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT dateTimeFormats ( alias | ( default*, dateTimeFormatLength*, availableFormats*, appendItems*, intervalFormats*, special* ) ) >
@@ -1176,6 +1322,7 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST dateTimeFormats validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT dateTimeFormatLength ( alias | ( default*, dateTimeFormat*, special* ) ) >
@@ -1185,10 +1332,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST dateTimeFormatLength standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST dateTimeFormatLength references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST dateTimeFormatLength validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT dateTimeFormat ( alias | ( pattern*, displayName*, special* ) ) >
@@ -1198,10 +1347,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST dateTimeFormat standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST dateTimeFormat references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST dateTimeFormat validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT availableFormats ( alias | ( dateFormatItem*, special* ) ) >
@@ -1212,6 +1363,7 @@ $Date$
 <!ATTLIST availableFormats references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST availableFormats validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT dateFormatItem ( #PCDATA ) >
@@ -1231,6 +1383,7 @@ $Date$
 <!ATTLIST appendItems references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST appendItems validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT appendItem ( #PCDATA ) >
@@ -1249,6 +1402,7 @@ $Date$
 <!ATTLIST intervalFormats references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST intervalFormats validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT intervalFormatFallback ( #PCDATA ) >
@@ -1258,6 +1412,7 @@ $Date$
 <!ATTLIST intervalFormatFallback references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST intervalFormatFallback validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT intervalFormatItem ( alias | ( greatestDifference*, special* ) ) >
@@ -1268,6 +1423,7 @@ $Date$
 <!ATTLIST intervalFormatItem references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST intervalFormatItem validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT greatestDifference ( #PCDATA ) >
@@ -1278,6 +1434,7 @@ $Date$
 <!ATTLIST greatestDifference references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST greatestDifference validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT fields ( alias | ( field*, special* ) ) >
@@ -1286,10 +1443,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST fields standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST fields references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST fields validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT field ( alias | ( displayName*, relative*, relativeTime*, special* ) ) >
@@ -1299,10 +1458,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST field standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST field references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST field validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT relative ( #PCDATA ) >
@@ -1314,6 +1475,7 @@ $Date$
 <!ATTLIST relative references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST relative validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT relativeTime ( alias | ( relativeTimePattern*, special* ) ) >
@@ -1325,6 +1487,7 @@ $Date$
 <!ATTLIST relativeTime references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST relativeTime validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT relativeTimePattern ( #PCDATA ) >
@@ -1335,6 +1498,7 @@ $Date$
 <!ATTLIST relativeTimePattern references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST relativeTimePattern validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT timeZoneNames ( alias | ( hourFormat*, hoursFormat*, gmtFormat*, gmtZeroFormat*, regionFormat*, fallbackFormat*, fallbackRegionFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, metazone*, special* ) ) >
@@ -1342,6 +1506,7 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST timeZoneNames validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT hourFormat ( #PCDATA ) >
@@ -1357,8 +1522,10 @@ $Date$
 <!ATTLIST hoursFormat alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST hoursFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST hoursFormat references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT gmtFormat ( #PCDATA ) >
@@ -1399,23 +1566,29 @@ $Date$
 <!ATTLIST fallbackRegionFormat alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST fallbackRegionFormat draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST fallbackRegionFormat references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT abbreviationFallback EMPTY >
     <!--@DEPRECATED-->
 <!ATTLIST abbreviationFallback type (GMT | standard) #IMPLIED >
     <!-- use choice instead -->
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST abbreviationFallback choice (GMT | standard) #IMPLIED >
     <!-- really required, but needs to be optional to support type also -->
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST abbreviationFallback alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST abbreviationFallback draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST abbreviationFallback references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT preferenceOrdering EMPTY >
@@ -1423,26 +1596,33 @@ $Date$
     <!--@DEPRECATED-->
 <!ATTLIST preferenceOrdering type CDATA #IMPLIED >
     <!-- use choice instead -->
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST preferenceOrdering choice CDATA #IMPLIED >
     <!-- really required, but needs to be optional to support type also -->
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST preferenceOrdering alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST preferenceOrdering draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST preferenceOrdering references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT singleCountries EMPTY >
     <!--@DEPRECATED-->
 <!ATTLIST singleCountries list CDATA #REQUIRED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST singleCountries alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST singleCountries draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST singleCountries references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT zone ( alias | ( long*, short*, commonlyUsed*, exemplarCity*, special* ) ) >
@@ -1452,10 +1632,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST zone standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST zone references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST zone validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT long ( alias | ( generic*, standard*, daylight*, special* ) ) >
@@ -1466,6 +1648,7 @@ $Date$
 <!ATTLIST long references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST long validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT generic ( #PCDATA ) >
@@ -1500,17 +1683,21 @@ $Date$
 <!ATTLIST short references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST short validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT commonlyUsed ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST commonlyUsed used (true | false) #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST commonlyUsed alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST commonlyUsed draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST commonlyUsed references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT exemplarCity ( #PCDATA ) >
@@ -1528,10 +1715,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST metazone standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST metazone references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST metazone validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!-- ######################################################### -->
@@ -1542,10 +1731,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST numbers standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST numbers references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST numbers validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT defaultNumberingSystem ( #PCDATA ) >
@@ -1593,10 +1784,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST symbols standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST symbols references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST symbols validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST symbols numberSystem CDATA #IMPLIED >
 
@@ -1645,8 +1838,10 @@ $Date$
 <!ATTLIST nativeZeroDigit alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST nativeZeroDigit draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST nativeZeroDigit references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST nativeZeroDigit numberSystem CDATA #IMPLIED >
     <!--@DEPRECATED-->
@@ -1656,8 +1851,10 @@ $Date$
 <!ATTLIST patternDigit alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST patternDigit draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST patternDigit references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST patternDigit numberSystem CDATA #IMPLIED >
     <!--@DEPRECATED-->
@@ -1744,8 +1941,10 @@ $Date$
 <!ATTLIST currencyGroup alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST currencyGroup draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST currencyGroup references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST currencyGroup numberSystem CDATA #IMPLIED >
     <!--@DEPRECATED-->
@@ -1762,6 +1961,7 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST decimalFormats validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST decimalFormats numberSystem CDATA #IMPLIED >
 
@@ -1772,10 +1972,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST decimalFormatLength standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST decimalFormatLength references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST decimalFormatLength validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT decimalFormat ( alias | ( pattern*, special* ) ) >
@@ -1785,10 +1987,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST decimalFormat standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST decimalFormat references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST decimalFormat validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT scientificFormats ( alias | ( default*, scientificFormatLength*, special* ) ) >
@@ -1796,6 +2000,7 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST scientificFormats validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST scientificFormats numberSystem CDATA #IMPLIED >
 
@@ -1806,10 +2011,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST scientificFormatLength standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST scientificFormatLength references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST scientificFormatLength validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT scientificFormat ( alias | ( pattern*, special* ) ) >
@@ -1819,10 +2026,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST scientificFormat standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST scientificFormat references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST scientificFormat validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT percentFormats ( alias | ( default*, percentFormatLength*, special* ) ) >
@@ -1830,6 +2039,7 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST percentFormats validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST percentFormats numberSystem CDATA #IMPLIED >
 
@@ -1840,10 +2050,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST percentFormatLength standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST percentFormatLength references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST percentFormatLength validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT percentFormat ( alias | ( pattern*, special* ) ) >
@@ -1853,10 +2065,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST percentFormat standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST percentFormat references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST percentFormat validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT currencyFormats ( alias | ( default*, currencySpacing*, currencyFormatLength*, unitPattern*, special* ) ) >
@@ -1864,6 +2078,7 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST currencyFormats validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST currencyFormats numberSystem CDATA #IMPLIED >
 
@@ -1904,10 +2119,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST currencyFormatLength standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST currencyFormatLength references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST currencyFormatLength validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT currencyFormat ( alias | ( pattern*, special* ) ) >
@@ -1917,10 +2134,12 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST currencyFormat standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST currencyFormat references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST currencyFormat validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT unitPattern ( #PCDATA ) >
@@ -1931,6 +2150,7 @@ $Date$
 <!ATTLIST unitPattern references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST unitPattern validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT currencies ( alias | ( default?, currency*, special* ) ) >
@@ -1938,6 +2158,7 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST currencies validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT currency ( alias | ( ( ( pattern+, displayName*, symbol* ) | ( displayName+, symbol*, pattern* ) | ( symbol+, pattern* ) )?, decimal*, group*, special* ) ) >
@@ -1952,10 +2173,12 @@ $Date$
 <!ATTLIST currency references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST currency validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT symbol ( #PCDATA ) >
 <!ATTLIST symbol choice (true | false) #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST symbol alt NMTOKENS #IMPLIED >
 <!ATTLIST symbol draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
@@ -1978,6 +2201,7 @@ $Date$
 <!ATTLIST units references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST units validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT unit ( alias | ( displayName*, unitPattern*, perUnitPattern*, special* ) ) >
@@ -1988,6 +2212,7 @@ $Date$
 <!ATTLIST unit references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST unit validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT perUnitPattern ( #PCDATA ) >
@@ -2005,6 +2230,7 @@ $Date$
 <!ATTLIST unitLength references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST unitLength validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT compoundUnit ( alias | ( compoundUnitPattern*, special* ) ) >
@@ -2015,6 +2241,7 @@ $Date$
 <!ATTLIST compoundUnit references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST compoundUnit validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT compoundUnitPattern ( #PCDATA ) >
@@ -2024,6 +2251,7 @@ $Date$
 <!ATTLIST compoundUnitPattern references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST compoundUnitPattern validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT durationUnit ( alias | ( durationUnitPattern*, special* ) ) >
@@ -2041,6 +2269,7 @@ $Date$
 <!ATTLIST durationUnitPattern references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST durationUnitPattern validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT listPatterns ( alias | ( listPattern*, special* ) ) >
@@ -2050,6 +2279,7 @@ $Date$
 <!ATTLIST listPatterns references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST listPatterns validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT listPattern ( alias | ( listPatternPart*, special* ) ) >
@@ -2060,6 +2290,7 @@ $Date$
 <!ATTLIST listPattern references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST listPattern validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT listPatternPart ( #PCDATA ) >
@@ -2070,6 +2301,7 @@ $Date$
 <!ATTLIST listPatternPart references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST listPatternPart validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!-- ######################################################### -->
@@ -2081,6 +2313,7 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST collations validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT defaultCollation ( #PCDATA ) >
@@ -2095,13 +2328,16 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST collation standard CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST collation references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST collation validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT base ( alias | special ) >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!ELEMENT import EMPTY >
@@ -2110,6 +2346,7 @@ $Date$
 <!ATTLIST import type CDATA #IMPLIED >
 
 <!ELEMENT settings ( special* ) >
+    <!--@ORDERED-->
 <!ATTLIST settings strength (primary | secondary | tertiary | quaternary | identical) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST settings alternate (non-ignorable | shifted) #IMPLIED >
@@ -2123,34 +2360,42 @@ $Date$
 <!ATTLIST settings caseFirst (upper | lower | off) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST settings hiraganaQuarternary (on | off) #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST settings hiraganaQuaternary (on | off) #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST settings maxVariable (space | punct | symbol | currency) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST settings numeric (on | off) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST settings private (true | false) #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST settings variableTop CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST settings reorder NMTOKENS #IMPLIED >
     <!--@VALUE-->
 
 <!ELEMENT suppress_contractions ( #PCDATA | cp )* >
+    <!--@ORDERED-->
 
 <!ELEMENT optimize ( #PCDATA | cp )* >
+    <!--@ORDERED-->
 
 <!ELEMENT cr ( #PCDATA ) >
-
-<!-- Use the cr element instead, with ICU syntax. -->
+    <!-- Use the cr element instead, with ICU syntax. -->
 
 <!ELEMENT rules ( alias | ( ( reset | import ), ( reset | import | p | pc | s | sc | t | tc | q | qc | i | ic | x )* ) ) >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!ELEMENT reset ( #PCDATA | cp | first_variable | last_variable | first_tertiary_ignorable | last_tertiary_ignorable | first_secondary_ignorable | last_secondary_ignorable | first_primary_ignorable | last_primary_ignorable | first_non_ignorable | last_non_ignorable | first_trailing | last_trailing )* >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 <!ATTLIST reset before NMTOKEN #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT first_variable EMPTY >
@@ -2163,12 +2408,14 @@ $Date$
     <!--@DEPRECATED-->
 
 <!ELEMENT last_tertiary_ignorable EMPTY >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!ELEMENT first_secondary_ignorable EMPTY >
     <!--@DEPRECATED-->
 
 <!ELEMENT last_secondary_ignorable EMPTY >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!ELEMENT first_primary_ignorable EMPTY >
@@ -2181,6 +2428,7 @@ $Date$
     <!--@DEPRECATED-->
 
 <!ELEMENT last_non_ignorable EMPTY >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!ELEMENT first_trailing EMPTY >
@@ -2190,21 +2438,27 @@ $Date$
     <!--@DEPRECATED-->
 
 <!ELEMENT p ( #PCDATA | cp | last_variable )* >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!ELEMENT pc ( #PCDATA | cp | last_variable )* >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!ELEMENT s ( #PCDATA | cp | last_variable )* >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!ELEMENT sc ( #PCDATA | cp | last_variable )* >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!ELEMENT t ( #PCDATA | cp | last_variable )* >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!ELEMENT tc ( #PCDATA | cp | last_variable )* >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!ELEMENT q ( #PCDATA | cp | last_variable )* >
@@ -2214,18 +2468,23 @@ $Date$
     <!--@DEPRECATED-->
 
 <!ELEMENT i ( #PCDATA | cp | last_variable )* >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!ELEMENT ic ( #PCDATA | cp | last_variable )* >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!ELEMENT x ( context?, ( p | pc | s | sc | t | tc | q | qc | i | ic )*, extend? ) >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!ELEMENT context ( #PCDATA | cp )* >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!ELEMENT extend ( #PCDATA | cp )* >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!-- ######################################################### -->
@@ -2237,6 +2496,7 @@ $Date$
 <!ATTLIST posix references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST posix validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT messages ( alias | ( yesstr*, nostr*, yesexpr*, noexpr* ) ) >
@@ -2247,6 +2507,7 @@ $Date$
 <!ATTLIST messages references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST messages validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT yesstr ( #PCDATA ) >
@@ -2265,14 +2526,15 @@ $Date$
 <!ATTLIST nostr references CDATA #IMPLIED >
     <!--@METADATA-->
 
-
 <!ELEMENT yesexpr ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST yesexpr alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST yesexpr draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST yesexpr references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT noexpr ( #PCDATA ) >
@@ -2280,10 +2542,11 @@ $Date$
 <!ATTLIST noexpr alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST noexpr draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST noexpr references CDATA #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
-
 
 <!ELEMENT segmentations ( alias | segmentation* ) >
 <!ATTLIST segmentations alt NMTOKENS #IMPLIED >
@@ -2293,6 +2556,7 @@ $Date$
 <!ATTLIST segmentations references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST segmentations validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT segmentation ( alias | ( variables?, segmentRules?, exceptions?, suppressions? ) | special* ) >
@@ -2304,11 +2568,13 @@ $Date$
 <!ATTLIST segmentation references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST segmentation validSubLocales CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 
 <!ELEMENT variables ( alias | variable* ) >
 
 <!ELEMENT variable ( #PCDATA ) >
+    <!--@ORDERED-->
 <!ATTLIST variable id CDATA #REQUIRED >
 <!ATTLIST variable alt NMTOKENS #IMPLIED >
 <!ATTLIST variable draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
@@ -2333,8 +2599,10 @@ $Date$
     <!--@DEPRECATED-->
 
 <!ELEMENT exception ( #PCDATA ) >
+    <!--@ORDERED-->
     <!--@DEPRECATED-->
 <!ATTLIST exception draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT suppressions ( suppression* ) >
@@ -2343,6 +2611,7 @@ $Date$
     <!--@METADATA-->
 
 <!ELEMENT suppression ( #PCDATA ) >
+    <!--@ORDERED-->
 
 <!ELEMENT rbnf ( alias | rulesetGrouping* ) >
 
@@ -2353,6 +2622,7 @@ $Date$
     <!--@DEPRECATED:true, false-->
 
 <!ELEMENT ruleset ( alias | rbnfrule* ) >
+    <!--@ORDERED-->
 <!ATTLIST ruleset type NMTOKEN #REQUIRED >
 <!ATTLIST ruleset access (public | private) #IMPLIED >
     <!--@VALUE-->
@@ -2363,6 +2633,7 @@ $Date$
     <!--@DEPRECATED:true, false-->
 
 <!ELEMENT rbnfrule ( #PCDATA ) >
+    <!--@ORDERED-->
 <!ATTLIST rbnfrule value CDATA #REQUIRED >
     <!--@VALUE-->
 <!ATTLIST rbnfrule radix CDATA #IMPLIED >
@@ -2403,10 +2674,13 @@ $Date$
 <!ATTLIST reference type NMTOKEN #REQUIRED >
     <!--@DEPRECATED-->
 <!ATTLIST reference uri CDATA #IMPLIED >
+    <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST reference alt NMTOKENS #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST reference draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST reference standard (true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->

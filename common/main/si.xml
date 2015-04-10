@@ -1112,28 +1112,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>a h.mm.ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>a h.mm.ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>a h.mm.ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>a h.mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
+                		<timeFormats>
+                   			<timeFormatLength type="full">
+                        			<timeFormat>
+                            				<pattern>HH.mm.ss zzzz</pattern>
+                        			</timeFormat>
+                    			</timeFormatLength>
+                    			<timeFormatLength type="long">
+                        			<timeFormat>
+                            				<pattern>HH.mm.ss z</pattern>
+                        			</timeFormat>
+                    			</timeFormatLength>
+                    			<timeFormatLength type="medium">
+                        			<timeFormat>
+                            				<pattern>HH.mm.ss</pattern>
+                        			</timeFormat>
+                    			</timeFormatLength>
+                    			<timeFormatLength type="short">
+                        			<timeFormat>
+                            				<pattern>HH.mm</pattern>
+                        			</timeFormat>
+                    			</timeFormatLength>
+                		</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>

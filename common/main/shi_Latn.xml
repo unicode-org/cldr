@@ -473,28 +473,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
+                		<timeFormats>
+                    			<timeFormatLength type="full">
+                        			<timeFormat>
+                            				<pattern>h:mm:ss a zzzz</pattern>
+                        			</timeFormat>
+                    			</timeFormatLength>
+                    			<timeFormatLength type="long">
+                        			<timeFormat>
+                            				<pattern>h:mm:ss a z</pattern>
+                        			</timeFormat>
+                    			</timeFormatLength>
+                    			<timeFormatLength type="medium">
+                        			<timeFormat>
+                            				<pattern>h:mm:ss a</pattern>
+                        			</timeFormat>
+                    			</timeFormatLength>
+                    			<timeFormatLength type="short">
+                        			<timeFormat>
+                            				<pattern>h:mm a</pattern>
+                        			</timeFormat>
+                    			</timeFormatLength>
+                		</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="M">M</dateFormatItem>

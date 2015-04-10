@@ -694,9 +694,6 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     }
 
     public void TestFormatsAgainstTimeData() {
-        if (logKnownIssue("cldrbug:8349", "Skip for now, but should fix in 28dsub")) {
-            return;
-        }
         Factory factory = CLDRConfig.getInstance().getCldrFactory();
         LikelySubtags ls = new LikelySubtags(SUPPLEMENTAL);
         LanguageTagParser ltp = new LanguageTagParser();
@@ -719,6 +716,11 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
             seenFull.add(fullLocale); // don't repeat
             
+            // don't worry about numeric regions - The real regions will get handled in the various locales
+            // fr_CA is an exception, since fr_CA uses 24 hr clock, but en_CA uses 12 hr.  Go figure....
+            if (region.matches("[0-9]{3}") || locale.equals("fr_CA")) {
+                continue;
+            }
             PreferredAndAllowedHour localeTimeData = timeData.get(region);
             if (localeTimeData == null) {
                 localeTimeData = timeData.get("001");

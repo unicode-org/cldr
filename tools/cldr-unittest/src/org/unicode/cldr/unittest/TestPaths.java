@@ -4,10 +4,13 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -15,9 +18,13 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.ChainedMap.M3;
+import org.unicode.cldr.util.ChainedMap.M4;
+import org.unicode.cldr.util.ChainedMap.M5;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
+import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
@@ -29,6 +36,7 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.impl.Row;
 
 public class TestPaths extends TestFmwkPlus {
     static TestInfo testInfo = TestInfo.getInstance();
@@ -166,7 +174,126 @@ public class TestPaths extends TestFmwkPlus {
                 .getAvailable();
     }
 
+    /**
+     * find all the items that are deprecated, but appear in paths
+     * and the items that aren't deprecated, but don't appear in paths
+     */
+
+    static final class CheckDeprecated {
+        M5<DtdType, String, String, String, Boolean> data = ChainedMap.of(
+            new HashMap<DtdType,Object>(), 
+            new HashMap<String,Object>(), 
+            new HashMap<String,Object>(),
+            new HashMap<String,Object>(),
+            Boolean.class);
+        private TestPaths testPaths;
+
+        public CheckDeprecated(TestPaths testPaths) {
+            this.testPaths = testPaths;
+        }
+
+        static final Set<String> ALLOWED = new HashSet<>(Arrays.asList("postalCodeData", "postCodeRegex"));
+        static final Set<String> OK_IF_MISSING = new HashSet<>(Arrays.asList("alt", "draft", "references"));
+
+        public void check(DtdData dtdData, XPathParts parts) {
+            for (int i = 0; i < parts.size(); ++i) {
+                String elementName = parts.getElement(i);
+                if (dtdData.isDeprecated(elementName, "*", "*")) {
+                    if (ALLOWED.contains(elementName)) {
+                        return;
+                    }
+                    testPaths.errln("Deprecated item in data: " 
+                        + dtdData.dtdType 
+                        + ":" + elementName);
+                    return;
+                }
+                data.put(dtdData.dtdType, elementName, "*", "*", true);
+                for (Entry<String, String> attributeNValue : parts.getAttributes(i).entrySet()) {
+                    String attributeName = attributeNValue.getKey();
+                    if (dtdData.isDeprecated(elementName, attributeName, "*")) {
+                        testPaths.errln("Deprecated item in data: " 
+                            + dtdData.dtdType 
+                            + ":" + elementName
+                            + ":" + attributeName
+                            );
+                        return;
+                    }
+                    String attributeValue = attributeNValue.getValue();
+                    if (dtdData.isDeprecated(elementName, attributeName, attributeValue)) {
+                        testPaths.errln("Deprecated item in data: " 
+                            + dtdData.dtdType 
+                            + ":" + elementName
+                            + ":" + attributeName
+                            + ":" + attributeValue
+                            );
+                        return;
+                    }
+                    data.put(dtdData.dtdType, elementName, attributeName, "*", true);
+                    data.put(dtdData.dtdType, elementName, attributeName, attributeValue, true);
+                }
+            }
+        }
+
+        public void show() {
+            for (DtdType dtdType : DtdType.values()) {
+                if (dtdType == DtdType.ldmlICU) {
+                    continue;
+                }
+                M4<String, String, String, Boolean> infoEAV = data.get(dtdType);
+                if (infoEAV == null) {
+                    testPaths.warnln("Data doesn't contain: " 
+                        + dtdType 
+                        );
+                    continue; 
+                }
+                DtdData dtdData = DtdData.getInstance(dtdType);
+                for (Element element : dtdData.getElements()) {
+                    if (element.isDeprecated() || element == dtdData.ANY || element == dtdData.PCDATA) {
+                        continue;
+                    }
+                    M3<String, String, Boolean> infoAV = infoEAV.get(element.name);
+                    if (infoAV == null) {
+                        testPaths.warnln("Data doesn't contain: " 
+                            + dtdType 
+                            + ":" + element.name
+                            );
+                        continue;
+                    }
+
+                    for (Attribute attribute : element.getAttributes().keySet()) {
+                        if (attribute.isDeprecated() || OK_IF_MISSING.contains(attribute.name)) {
+                            continue;
+                        }
+                        Map<String, Boolean> infoV = infoAV.get(attribute.name);
+                        if (infoV == null) {
+                            testPaths.warnln("Data doesn't contain: " 
+                                + dtdType 
+                                + ":" + element.name
+                                + ":" + attribute.name
+                                );
+                            continue;
+                        }
+                        for (String value : attribute.values.keySet()) {
+                            if (attribute.isDeprecatedValue(value)) {
+                                continue;
+                            }
+                            if (!infoV.containsKey(value)) {
+                                testPaths.warnln("Data doesn't contain: " 
+                                    + dtdType 
+                                    + ":" + element.name
+                                    + ":" + attribute.name
+                                    + ":" + value
+                                    );
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     public void TestNonLdml () {
+        CheckDeprecated checkDeprecated = new CheckDeprecated(this);
         XPathParts parts = new XPathParts();
         PathStarrer starrer = new PathStarrer();
         StringBuilder removed = new StringBuilder();
@@ -174,73 +301,81 @@ public class TestPaths extends TestFmwkPlus {
         Set<String> skipLast = new HashSet(Arrays.asList("version", "generation"));
         String[] normalizedPath = {""};
 
-        int counter = 0;
-        for (String dir : new File(CLDRPaths.BASE_DIRECTORY + "common/").list()) {
-            if (dir.equals(".DS_Store") 
-                //|| ChartDelta.LDML_DIRECTORIES.contains(dir) 
-                || dir.equals("dtd")  // TODO as flat files
-                || dir.equals("properties") // TODO as flat files
-                //|| dir.equals("uca") // TODO as flat files
-                ) {
-                continue;
-            }
-            File dir2 = new File(CLDRPaths.BASE_DIRECTORY + "common/" + dir);
-
-            Set<Pair<String,String>> seen = new HashSet<>();
-            Set<String> seenStarred = new HashSet<>();
-            DtdData dtdData = null;
-            DtdType type = null;
-            for (String file : dir2.list()) {
-                if (!file.endsWith(".xml")) {
+        int counter = 0;        
+        for (String directory : Arrays.asList("keyboards/", "common/")) {
+            String dirPath = CLDRPaths.BASE_DIRECTORY + directory;
+            for (String fileName : new File(dirPath).list()) {
+                File dir2 = new File(dirPath + fileName);
+                if (!dir2.isDirectory()
+                    || fileName.equals("properties") // TODO as flat files
+//                    || fileName.equals(".DS_Store") 
+//                    || ChartDelta.LDML_DIRECTORIES.contains(dir) 
+//                    || fileName.equals("dtd")  // TODO as flat files
+//                    || fileName.equals(".project")  // TODO as flat files
+//                    //|| dir.equals("uca") // TODO as flat files
+                    ) {
                     continue;
                 }
-                String fullName = dir2 + "/" + file;
-                //logln(fullName);
-                for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(fullName, new ArrayList<Pair<String, String>>(), true)) {
-                    String path = pathValue.getFirst();
-                    parts.set(path);
-                    if (dtdData == null) {
-                        type = DtdType.valueOf(parts.getElement(0));
-                        dtdData = DtdData.getInstance(type);
-                    }
-                    String last = parts.getElement(-1);
-                    if (skipLast.contains(last)) {
+
+                Set<Pair<String,String>> seen = new HashSet<>();
+                Set<String> seenStarred = new HashSet<>();
+                for (String file : dir2.list()) {
+                    if (!file.endsWith(".xml")) {
                         continue;
                     }
-                    String dpath = CLDRFile.getDistinguishingXPath(path, normalizedPath, true);
-                    if (!dpath.equals(path)) {
-                        checkParts(dpath, dtdData);
-                    }
-                    if (!normalizedPath.equals(path) && !normalizedPath[0].equals(dpath)) {
-                        checkParts(normalizedPath[0], dtdData);
-                    }
-                    counter = removeNonDistinguishing(parts, dtdData, counter, removed, nonFinalValues);
-                    String cleaned = parts.toString();
-                    Pair<String, String> pair = Pair.of(type == DtdType.ldml ? file : type.toString(), cleaned);
-                    if (seen.contains(pair)) {
+                    DtdType type = null;
+                    DtdData dtdData = null;
+                    String fullName = dir2 + "/" + file;
+                    //logln(fullName);
+                    for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(fullName, new ArrayList<Pair<String, String>>(), true)) {
+                        String path = pathValue.getFirst();
+                        parts.set(path);
+                        if (dtdData == null) {
+                            type = DtdType.valueOf(parts.getElement(0));
+                            dtdData = DtdData.getInstance(type);
+                        }
+                        checkDeprecated.check(dtdData, parts);
+
+                        String last = parts.getElement(-1);
+                        if (skipLast.contains(last)) {
+                            continue;
+                        }
+                        String dpath = CLDRFile.getDistinguishingXPath(path, normalizedPath, true);
+                        if (!dpath.equals(path)) {
+                            checkParts(dpath, dtdData);
+                        }
+                        if (!normalizedPath.equals(path) && !normalizedPath[0].equals(dpath)) {
+                            checkParts(normalizedPath[0], dtdData);
+                        }
+                        counter = removeNonDistinguishing(parts, dtdData, counter, removed, nonFinalValues);
+                        String cleaned = parts.toString();
+                        Pair<String, String> pair = Pair.of(type == DtdType.ldml ? file : type.toString(), cleaned);
+                        if (seen.contains(pair)) {
 //                        parts.set(path);
 //                        removeNonDistinguishing(parts, dtdData, counter, removed, nonFinalValues);
-                        errln("Duplicate: " + file + ", " + path + ", " + cleaned + ", " + pathValue.getSecond());
-                    } else {
-                        seen.add(pair);
-                        if (!nonFinalValues.isEmpty()) {
-                            String starredPath = starrer.set(path);
-                            if (!seenStarred.contains(starredPath)) {
-                                seenStarred.add(starredPath);
-                                warnln("Non-node values: " + nonFinalValues + "\t" + path);
+                            errln("Duplicate: " + file + ", " + path + ", " + cleaned + ", " + pathValue.getSecond());
+                        } else {
+                            seen.add(pair);
+                            if (!nonFinalValues.isEmpty()) {
+                                String starredPath = starrer.set(path);
+                                if (!seenStarred.contains(starredPath)) {
+                                    seenStarred.add(starredPath);
+                                    warnln("Non-node values: " + nonFinalValues + "\t" + path);
+                                }
                             }
-                        }
-                        if (isVerbose()) {
-                            String starredPath = starrer.set(path);
-                            if (!seenStarred.contains(starredPath)) {
-                                seenStarred.add(starredPath);
-                                logln("@" + "\t" + cleaned + "\t" + removed);
+                            if (isVerbose()) {
+                                String starredPath = starrer.set(path);
+                                if (!seenStarred.contains(starredPath)) {
+                                    seenStarred.add(starredPath);
+                                    logln("@" + "\t" + cleaned + "\t" + removed);
+                                }
                             }
                         }
                     }
                 }
             }
         }
+        checkDeprecated.show();
     }
 
     private void checkParts(String path, DtdData dtdData) {

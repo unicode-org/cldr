@@ -205,6 +205,14 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 ;
         }
 
+        public boolean isDeprecated() {
+            return isDeprecatedAttribute;
+        }
+
+        public boolean isDeprecatedValue(String value) {
+            return deprecatedValues.contains(value);
+        }
+
     }
 
     private DtdData(DtdType type, String version) {
@@ -389,6 +397,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 //                ) * 37 + attributes.hashCode()
                 //                ) * 37 + children.hashCode()
                 ;
+        }
+
+        public boolean isDeprecated() {
+            return isDeprecatedElement;
         }
     }
 

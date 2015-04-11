@@ -11,16 +11,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$"/>
 		<language type="da"/> 
 	</identity>
-		<collations>
-			<collation type="search" >
-				<import source="und" type="search"/>
-				<import source="da" type="standard"/>
-				<!-- Don't need caseFirst="upper" for search. -->
-				<settings caseFirst="off"/>
-			</collation>
-			<collation type="standard" >
-				<settings caseFirst="upper"/>
+	<collations>
+		<collation type="search">
+			<cr><![CDATA[
+				[import und-u-co-search]
+				[import da-u-co-standard]
+				# Don't need caseFirst="upper" for search.
+				[caseFirst off]
+			]]></cr>
+		</collation>
+			<collation type="standard">
 				<cr><![CDATA[
+					[caseFirst upper]
 					&D<<đ<<<Đ<<ð<<<Ð
 					&t<<<þ/h
 					&T<<<Þ/H
@@ -29,8 +31,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				]]></cr>
 			</collation>
 			<collation draft="unconfirmed" alt="proposed" type="standard" >
-				<settings caseFirst="upper"/>
 				<cr><![CDATA[
+					[caseFirst upper]
 					&D<<đ<<<Đ<<ð<<<Ð
 					&t<<<þ/h
 					&T<<<Þ/H

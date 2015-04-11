@@ -12,9 +12,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="bs"/> 
 		<script type="Cyrl" /> 
 	</identity>
-	<collations  >
+	<collations>
 		<collation type="standard">
-			<import source="sr"/>
+			<cr><![CDATA[
+				[import sr]
+			]]></cr>
 		</collation>
     </collations>
 </ldml>

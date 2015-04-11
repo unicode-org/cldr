@@ -13,15 +13,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 		<collations>
 			<collation type="compat">
-				<settings reorder="Arab"/>
 				<cr><![CDATA[
+					[reorder Arab]
 					&ت<<ة<<<ﺔ<<<ﺓ
 					&ي<<ى<<<ﯨ<<<ﯩ<<<ﻰ<<<ﻯ<<<ﲐ<<<ﱝ
 				]]></cr>
 			</collation>
                         <collation type="standard">
-				<settings reorder="Arab"/>
 				<cr><![CDATA[
+[reorder Arab]
+
 # Updated Arabic Ordering Specification
 # -------------------------------------
 #

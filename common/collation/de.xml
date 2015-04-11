@@ -11,14 +11,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$" />
 		<language type="de" />
 	</identity>
-	<collations >
-		<collation type="search" >
-			<import source="und" type="search"/>
-			<!--
-			Below are the rules specific to de.
-			Per Apple language group, these rules match phonebook collation below.
-			-->
-			<import source="de" type="phonebk"/>
+	<collations>
+		<collation type="search">
+			<cr><![CDATA[
+				[import und-u-co-search]
+				# Below are the rules specific to de.
+				# Per Apple language group, these rules match phonebook collation below.
+				[import de-u-co-phonebk]
+			]]></cr>
 		</collation>
 		<!-- "standard" is the same as in root -->
 		<collation type="phonebook">
@@ -45,9 +45,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			    in combination with the base letters a, o, and u.  The sequence of the other
 			    diacritics is compatible with the EOR delta.
 		 -->
-        		<import source="und" type="eor"/>
-			<settings reorder="others digit"/>
 			<cr><![CDATA[
+				[import und-u-co-eor]
+				[reorder others digit]
 				&th<<<þ
 				&TH<<<Þ
 				&Y<<ƿ<<<Ƿ<<ʒ<<<Ʒ<<<ᶾ

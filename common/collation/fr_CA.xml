@@ -14,7 +14,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<collations>
 		<collation type="standard">
-			<settings backwards="on"/>
+			<cr><![CDATA[
+				[backwards 2]
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

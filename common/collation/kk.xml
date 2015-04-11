@@ -11,11 +11,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$" />
 		<language type="kk"/>
 	</identity>
-	<collations >
+	<collations>
 		<collation type="standard">
-			<settings reorder="Cyrl"/>
-			<!-- The root collation already sorts й/Й as a base letter. -->
 			<cr><![CDATA[
+				[reorder Cyrl]
+				# The root collation already sorts й/Й as a base letter.
 				&Е<ё<<<Ё
 				&Ұ<ү<<<Ү
 				&[before 1]ь<і<<<І

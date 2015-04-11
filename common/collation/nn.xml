@@ -11,12 +11,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$"/>
 		<language type="nn" /> 
 	</identity>
-		<collations  >
-			<collation type="search" >
-				<import source="nb" type="search"/>
-			</collation>
-			<collation type="standard" >
-				<import source="nb" type="standard"/>
-			</collation>
-		</collations>
+	<collations>
+		<collation type="search">
+			<cr><![CDATA[
+				[import nb-u-co-search]
+			]]></cr>
+		</collation>
+		<collation type="standard">
+			<cr><![CDATA[
+				[import nb-u-co-standard]
+			]]></cr>
+		</collation>
+	</collations>
 </ldml>

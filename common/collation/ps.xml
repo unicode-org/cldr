@@ -11,10 +11,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$"/>
 		<language type="ps" /> 
 	</identity>
-		<collations  >
-			<collation type="standard" >
-				<settings normalization="on" reorder="Arab"/>
+	<collations>
+		<collation type="standard">
 				<cr><![CDATA[
+					[normalization on]
+					[reorder Arab]
 					&َ<<ِ<<ُ<<ً<<ٍ<<ٌ
 					&[before 1]ا<آ
 					&ا<<أ<<ٲ<<ٱ<<إ<<ٳ<ء
@@ -32,6 +33,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					&ی<<*ىےيېۍ<<یٔ<<<ىٔ<<<ئ
 					&\u00A0<<\u200C<<\u200D
 				]]></cr>
-			</collation  >
-		</collations>
+		</collation>
+	</collations>
 </ldml>

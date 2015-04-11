@@ -13,10 +13,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<collations>
 		<collation type="search">
-			<import source="und" type="search"/>
-			<import source="smn" type="standard"/>
+			<cr><![CDATA[
+				[import und-u-co-search]
+				[import smn-u-co-standard]
+			]]></cr>
 		</collation>
-		<collation type="standard" >
+		<collation type="standard">
 			<cr><![CDATA[
 				&A<â<<<Â<<à<<<À
 				&C<č<<<Č

@@ -11,10 +11,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$"/>
 		<language type="te" /> 
 	</identity>
-	<collations  >
+	<collations>
 		<collation type="standard" references="Brown: Telugu-English Dictionary ISBN:8120600371">
-			<settings normalization="on" reorder="Telu Deva Beng Guru Gujr Orya Taml Knda Mlym Sinh"/>
 			<cr><![CDATA[
+			[normalization on]
+			[reorder Telu Deva Beng Guru Gujr Orya Taml Knda Mlym Sinh]
 			#
 			# The following tailoring is an adjustment of the
 			# DUCET collation order for CANDRABINDU, ANUSVARA,

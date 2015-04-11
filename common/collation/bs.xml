@@ -13,10 +13,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<collations >
 		<collation type="search">
-			<import source="hr" type="search"/>
+			<cr><![CDATA[
+				[import hr-u-co-search]
+			]]></cr>
 		</collation>
 		<collation type="standard">
-			<import source="hr"/>
+			<cr><![CDATA[
+				[import hr]
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

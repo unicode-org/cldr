@@ -11,10 +11,12 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <generation date="$Date$"/>
                 <language type="th" /> 
         </identity>
-        <collations >
+        <collations>
                 <collation type="standard" references="ISO/IEC 14651, Annex C, C.2.1 Thai ordering principles">
-                        <settings normalization="on" alternate="shifted" reorder="Thai"/>
                         <cr><![CDATA[
+				[normalization on]
+				[alternate shifted]
+				[reorder Thai]
                                 #
                                 #        The following tailoring is an adjustment of the
                                 #        DUCET collation order for PAIYANNOI, MAIYAMOK,

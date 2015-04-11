@@ -11,12 +11,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$"/>
 		<language type="is"/> 
 	</identity>
-		<collations  >
-			<collation type="search" >
-				<import source="und" type="search"/>
-				<import source="is" type="standard"/>
-			</collation>
-			<collation type="standard" >
+	<collations>
+		<collation type="search">
+			<cr><![CDATA[
+				[import und-u-co-search]
+				[import is-u-co-standard]
+			]]></cr>
+		</collation>
+		<collation type="standard">
 				<cr><![CDATA[
 					&[before 1]b<á<<<Á
 					&d<<đ<<<Đ<ð<<<Ð
@@ -27,6 +29,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					&[before 1]z<ý<<<Ý
 					&[before 1]ǀ<æ<<<Æ<<ä<<<Ä<ö<<<Ö<<ø<<<Ø<å<<<Å
 				]]></cr>
-			</collation>
-		</collations>
+		</collation>
+	</collations>
 </ldml>

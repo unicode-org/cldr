@@ -11,15 +11,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$" />
 		<language type="hr" />
 	</identity>
-	<collations >
-		<collation type="search" >
-			<import source="und" type="search"/>
-			<import source="hr" type="standard"/>
-			<settings reorder="others"/>  <!-- reset to no reordering -->
+	<collations>
+		<collation type="search">
+			<cr><![CDATA[
+				[import und-u-co-search]
+				[import hr-u-co-standard]
+				[reorder others]  # reset to no reordering
+			]]></cr>
 		</collation>
 		<collation type="standard">
-			<settings reorder="Latn Cyrl"/>
 			<cr><![CDATA[
+				[reorder Latn Cyrl]
 				&C<č<<<Č<ć<<<Ć
 				&D<dž<<<ǆ<<<Dž<<<ǅ<<<DŽ<<<Ǆ<đ<<<Đ
 				&L<lj<<<ǉ<<<Lj<<<ǈ<<<LJ<<<Ǉ

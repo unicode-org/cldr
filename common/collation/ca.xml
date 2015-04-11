@@ -11,10 +11,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$" />
 		<language type="ca" />
 	</identity>
-	<collations >
-		<collation type="search" >
-			<import source="und" type="search"/>
+	<collations>
+		<collation type="search">
 			<cr><![CDATA[
+				[import und-u-co-search]
 				# Below are the rules specific to ca.
 				# Per Apple language group, these are modified from standard rules below
 				# to make L primary-different from L-dot for search.

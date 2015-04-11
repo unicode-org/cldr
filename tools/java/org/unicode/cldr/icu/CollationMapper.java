@@ -30,6 +30,12 @@ public class CollationMapper extends Mapper {
     private Factory specialFactory;
     private Set<String> validSubLocales = new HashSet<String>();
 
+    // TODO: CLDR 28 ticket #8289 "Move collator CLDR settings into ICU format"
+    // deprecated the collation sub-elements
+    // import, settings, suppress_contractions, and optimize
+    // and changed the data from XML syntax to ICU syntax.
+    // Remove conversion of these elements when we do not need to handle old data any more.
+
     // Some settings have to be converted to numbers.
     private Map<String, String> settingsMap = Builder.with(new HashMap<String, String>())
         .put("primary", "1")

@@ -11,15 +11,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$"/>
 		<language type="root" /> 
 	</identity>
-		<collations >
+		<collations>
 			<defaultCollation>standard</defaultCollation>
 			<collation type="standard">
+				<!-- The root/standard collation tailoring must exist and must be empty. -->
+				<!-- For the CLDR root collation order see
+				     http://www.unicode.org/reports/tr35/tr35-collation.html#Root_Collation -->
 			</collation>
-			<collation type="search" >
-				<settings normalization="on"/>
-				<!-- root search, suppress contractions for Thai, Lao, Tai Viet -->
-				<suppress_contractions>[เ-ไ ເ-ໄ ꪵ ꪶ ꪹ ꪻ ꪼ]</suppress_contractions>
+			<collation type="search">
 				<cr><![CDATA[
+					[normalization on]
+					# root search, suppress contractions for Thai, Lao, Tai Viet
+					[suppressContractions [เ-ไ ເ-ໄ ꪵ ꪶ ꪹ ꪻ ꪼ]]
 					# root search rules for Symbols
 					&'='<'≠'
 					# root search rules for Arabic, Hebrew
@@ -1032,7 +1035,5 @@ For terms of use, see http://www.unicode.org/copyright.html
 ]]></cr>
 			</collation>
 		</collations>
-    <!-- for UCA rules please see: http://www.unicode.org/reports/tr10/ -->
 </ldml>
-
 

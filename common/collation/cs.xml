@@ -11,10 +11,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$"/>
 		<language type="cs" /> 
 	</identity>
-		<collations  >
-			<collation type="search" >
-				<import source="und" type="search"/>
+		<collations>
+			<collation type="search">
 				<cr><![CDATA[
+					[import und-u-co-search]
 					# Below are the rules specific to cs.
 					# These rules have more primary differences than the standard collation below.
 					&A<á<<<Á
@@ -41,15 +41,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 					&Z<ž<<<Ž
 				]]></cr>
 			</collation>
-			<collation type="digits-after" draft="unconfirmed" >
+			<collation type="digits-after" draft="unconfirmed">
 				<cr><![CDATA[
+					[reorder others digit]
 					&C<č<<<Č
 					&H<ch<<<cH<<<Ch<<<CH
 					&R<ř<<<Ř
 					&S<š<<<Š
 					&Z<ž<<<Ž
-					&[last regular]<*0123456789
 				]]></cr>
-			</collation  >
+			</collation>
 		</collations>
 </ldml>

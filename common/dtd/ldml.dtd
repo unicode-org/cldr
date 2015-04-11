@@ -2340,13 +2340,15 @@ $Date$
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
-<!ELEMENT import EMPTY >
+<!ELEMENT import EMPTY > <!-- deprecated, see CLDR ticket #8289 -->
+    <!--@DEPRECATED-->
 <!ATTLIST import source CDATA #REQUIRED >
     <!--@VALUE-->
 <!ATTLIST import type CDATA #IMPLIED >
 
-<!ELEMENT settings ( special* ) >
+<!ELEMENT settings ( special* ) > <!-- deprecated, see CLDR ticket #8289 -->
     <!--@ORDERED-->
+    <!--@DEPRECATED-->
 <!ATTLIST settings strength (primary | secondary | tertiary | quaternary | identical) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST settings alternate (non-ignorable | shifted) #IMPLIED >
@@ -2361,28 +2363,26 @@ $Date$
     <!--@VALUE-->
 <!ATTLIST settings hiraganaQuarternary (on | off) #IMPLIED >
     <!--@VALUE-->
-    <!--@DEPRECATED-->
 <!ATTLIST settings hiraganaQuaternary (on | off) #IMPLIED >
     <!--@VALUE-->
-    <!--@DEPRECATED-->
 <!ATTLIST settings maxVariable (space | punct | symbol | currency) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST settings numeric (on | off) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST settings private (true | false) #IMPLIED >
     <!--@VALUE-->
-    <!--@DEPRECATED-->
 <!ATTLIST settings variableTop CDATA #IMPLIED >
     <!--@VALUE-->
-    <!--@DEPRECATED-->
 <!ATTLIST settings reorder NMTOKENS #IMPLIED >
     <!--@VALUE-->
 
-<!ELEMENT suppress_contractions ( #PCDATA | cp )* >
+<!ELEMENT suppress_contractions ( #PCDATA | cp )* > <!-- deprecated, see CLDR ticket #8289 -->
     <!--@ORDERED-->
+    <!--@DEPRECATED-->
 
-<!ELEMENT optimize ( #PCDATA | cp )* >
+<!ELEMENT optimize ( #PCDATA | cp )* > <!-- deprecated, see CLDR ticket #8289 -->
     <!--@ORDERED-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT cr ( #PCDATA ) >
     <!-- Use the cr element instead, with ICU syntax. -->

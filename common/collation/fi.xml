@@ -13,12 +13,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 		<collations>
 			<collation type="search">
-				<import source="und" type="search"/>
-				<!--
-				Below are the rules specific to fi.
-				Per Apple language group, V and W should match for search.
-				-->
-				<import source="fi" type="trad"/>
+				<cr><![CDATA[
+					[import und-u-co-search]
+					# Below are the rules specific to fi.
+					# Per Apple language group, V and W should match for search.
+					[import fi-u-co-trad]
+				]]></cr>
 			</collation>
 			<collation type="traditional">
 				<!-- v and w used to be only secondary-different. -->

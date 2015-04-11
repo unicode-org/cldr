@@ -11,11 +11,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$" />
 		<language type="hi" />
 	</identity>
-	<collations >
+	<collations>
 		<collation type="standard"
 			references="McGregor: Oxford Hindi-English Dictionary ISBN:019864339X Gatzlaff-Hälsig: Handwörterbuch Hindi-Deutsch ISBN:3875481771 http://www.eki.ee/wgrs/rom1_hi.pdf">
-			<settings normalization="on" reorder="Deva Beng Guru Gujr Orya Taml Telu Knda Mlym Sinh"/>
 			<cr><![CDATA[
+				[normalization on]
+				[reorder Deva Beng Guru Gujr Orya Taml Telu Knda Mlym Sinh]
 				#
 				#	The following tailoring is an adjustment of the DUCET collation
 				#	order for ANUSVARA, CANDRABINDU, and VISARGA. Instead of being

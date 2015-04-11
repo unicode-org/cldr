@@ -11,13 +11,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$"/>
 		<language type="uk" /> 
 	</identity>
-	<collations >
+	<collations>
 		<collation type="standard">
-			<settings reorder="Cyrl"/>
-			<!-- The root collation already sorts й/Й as a base letter. -->
 			<cr><![CDATA[
-			    &Г<ґ<<<Ґ
-			    &ꙇ<ї<<<\uA676<<<Ї  # U+A676=COMBINING CYRILLIC LETTER YI
+[reorder Cyrl]
+# The root collation already sorts й/Й as a base letter.
+&Г<ґ<<<Ґ
+&ꙇ<ї<<<\uA676<<<Ї  # U+A676=COMBINING CYRILLIC LETTER YI
 			]]></cr>
 		</collation>
 	</collations>

@@ -11,9 +11,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$"/>
 		<language type="el" /> 
 	</identity>
-		<collations  >
-			<collation type="standard" >
-				<settings normalization="on" reorder="Grek"/>
-			</collation  >
-		</collations>
+	<collations>
+		<collation type="standard">
+			<cr><![CDATA[
+				[normalization on]
+				[reorder Grek]
+			]]></cr>
+		</collation>
+	</collations>
 </ldml>

@@ -2376,7 +2376,8 @@ $Date$
 <!ATTLIST settings reorder NMTOKENS #IMPLIED >
     <!--@VALUE-->
 
-<!ELEMENT suppress_contractions ( #PCDATA | cp )* > <!-- deprecated, see CLDR ticket #8289 -->
+<!ELEMENT suppress_contractions ( #PCDATA | cp )* >
+    <!-- deprecated, see CLDR ticket #8289 -->
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
@@ -2385,7 +2386,13 @@ $Date$
     <!--@DEPRECATED-->
 
 <!ELEMENT cr ( #PCDATA ) >
-    <!-- Use the cr element instead, with ICU syntax. -->
+<!ATTLIST cr alt NMTOKENS #IMPLIED >
+<!ATTLIST cr draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST cr references CDATA #IMPLIED >
+    <!--@METADATA-->
+
+<!-- # Use the cr element instead, with ICU syntax. -->
 
 <!ELEMENT rules ( alias | ( ( reset | import ), ( reset | import | p | pc | s | sc | t | tc | q | qc | i | ic | x )* ) ) >
     <!--@ORDERED-->

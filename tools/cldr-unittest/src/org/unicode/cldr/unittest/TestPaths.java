@@ -7,15 +7,18 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdData.Attribute;
+import org.unicode.cldr.util.DtdData.Element;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
@@ -169,6 +172,8 @@ public class TestPaths extends TestFmwkPlus {
         StringBuilder removed = new StringBuilder();
         Set<String> nonFinalValues = new LinkedHashSet<>();
         Set<String> skipLast = new HashSet(Arrays.asList("version", "generation"));
+        String[] normalizedPath = {""};
+
         int counter = 0;
         for (String dir : new File(CLDRPaths.BASE_DIRECTORY + "common/").list()) {
             if (dir.equals(".DS_Store") 
@@ -202,10 +207,19 @@ public class TestPaths extends TestFmwkPlus {
                     if (skipLast.contains(last)) {
                         continue;
                     }
+                    String dpath = CLDRFile.getDistinguishingXPath(path, normalizedPath, true);
+                    if (!dpath.equals(path)) {
+                        checkParts(dpath, dtdData);
+                    }
+                    if (!normalizedPath.equals(path) && !normalizedPath[0].equals(dpath)) {
+                        checkParts(normalizedPath[0], dtdData);
+                    }
                     counter = removeNonDistinguishing(parts, dtdData, counter, removed, nonFinalValues);
                     String cleaned = parts.toString();
                     Pair<String, String> pair = Pair.of(type == DtdType.ldml ? file : type.toString(), cleaned);
                     if (seen.contains(pair)) {
+//                        parts.set(path);
+//                        removeNonDistinguishing(parts, dtdData, counter, removed, nonFinalValues);
                         errln("Duplicate: " + file + ", " + path + ", " + cleaned + ", " + pathValue.getSecond());
                     } else {
                         seen.add(pair);
@@ -229,8 +243,31 @@ public class TestPaths extends TestFmwkPlus {
         }
     }
 
+    private void checkParts(String path, DtdData dtdData) {
+        XPathParts parts = new XPathParts().set(path);
+        Element current = dtdData.ROOT;
+        for (int i = 0; i < parts.size(); ++i) {
+            String elementName = parts.getElement(i);
+            if (i == 0) {
+                assertEquals("root", current.name, elementName);
+            } else {
+                current = current.getChildNamed(elementName);
+                if (!assertNotNull("element", current)) {
+                    return; // failed
+                }
+            }
+            for (String attributeName : parts.getAttributeKeys(i)) {
+                Attribute attribute = current.getAttributeNamed(attributeName);
+                if (!assertNotNull("attribute", attribute)) {
+                    return; // failed
+                }
+                // later, check values
+            }
+        }
+    }
+
     static final Set<String> SKIP_NON_NODE = new HashSet<>(Arrays.asList("references", "visibility", "access"));
-    
+
     private int removeNonDistinguishing(XPathParts parts, DtdData data, int counter, StringBuilder removed, Set<String> nonFinalValues) {
         removed.setLength(0);
         nonFinalValues.clear();
@@ -238,11 +275,14 @@ public class TestPaths extends TestFmwkPlus {
         nonFinalValues.clear();
         int size = parts.size();
         int last = size-1;
+//        if (parts.getElement(-1).equals("rbnfrule")) {
+//            int x = 0;
+//        }
         for (int i = 0; i < size; ++i) {
             removed.append("/");
             String element = parts.getElement(i);
-            if (DtdData.isOrdered(element, null)) {
-                parts.addAttribute("_q", String.valueOf(counter));
+            if (data.isOrdered(element)) {
+                parts.putAttributeValue(i, "_q", String.valueOf(counter));
                 counter++;
             }
             for (String attribute : parts.getAttributeKeys(i)) {

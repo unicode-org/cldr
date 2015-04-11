@@ -21,8 +21,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.util.CLDRFile.DtdType;
-
+import com.google.common.base.Splitter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.Transform;
@@ -53,6 +52,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private Element lastElement;
     private Attribute lastAttribute;
     private Set<String> preCommentCache;
+
+    public enum AttributeStatus {distinguished, value, metadata}
 
     public enum Mode {
         REQUIRED("#REQUIRED"),
@@ -92,6 +93,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public final Map<String, Integer> values;
         private final Set<String> commentsPre;
         private Set<String> commentsPost;
+        private boolean isDeprecatedAttribute;
+        private AttributeStatus attributeStatus = AttributeStatus.distinguished; // default unless reset by annotations
+        private Set<String> deprecatedValues = Collections.emptySet();
 
         private Attribute(Element element2, String aName, Mode mode2, String[] split, String value2, Set<String> firstComment) {
             commentsPre = firstComment;
@@ -138,7 +142,30 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return name;
         }
 
+        private static Splitter COMMA = Splitter.on(',').trimResults();
+        
         public void addComment(String commentIn) {
+            if (commentIn.startsWith("@")) {
+                // there are exactly 2 cases: deprecated and ordered
+                switch(commentIn) {
+                case "@METADATA": 
+                    attributeStatus = AttributeStatus.metadata;
+                    break;
+                case "@VALUE": 
+                    attributeStatus = AttributeStatus.value;
+                    break;
+                case "@DEPRECATED": 
+                    isDeprecatedAttribute = true;
+                    break;
+                default:
+                    if (commentIn.startsWith("@DEPRECATED:")) {
+                        deprecatedValues = Collections.unmodifiableSet(new HashSet<>(COMMA.splitToList(commentIn.substring("@DEPRECATED:".length()))));
+                        break;
+                    }
+                    throw new IllegalArgumentException("Unrecognized annotation: " + commentIn);
+                }
+                return;
+            }
             commentsPost = addUnmodifiable(commentsPost, commentIn.trim());
         }
 
@@ -220,6 +247,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private Set<String> commentsPre;
         private Set<String> commentsPost;
         private String model;
+        private boolean isOrderedElement;
+        private boolean isDeprecatedElement;
 
         private Element(String name2) {
             name = name2.intern();
@@ -313,6 +342,20 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
 
         public void addComment(String addition) {
+            if (addition.startsWith("@")) {
+                // there are exactly 2 cases: deprecated and ordered
+                switch(addition) {
+                case "@ORDERED": 
+                    isOrderedElement = true;
+                    break;
+                case "@DEPRECATED": 
+                    isDeprecatedElement = true;
+                    break;
+                default:
+                    throw new IllegalArgumentException("Unrecognized annotation: " + addition);
+                }
+                return;
+            }
             commentsPost = addUnmodifiable(commentsPost, addition.trim());
         }
 
@@ -367,16 +410,19 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     private void addComment(String comment) {
         comment = comment.trim();
-        if (comment.startsWith("@")) {
-            return; // discard for now the extra data
-        }
         if (preCommentCache != null || comment.startsWith("#")) { // the precomments are "sticky"
+            if (comment.startsWith("@")) {
+                throw new IllegalArgumentException("@ annotation comment must follow element or attribute, without intervening # comment");
+            }
             preCommentCache = addUnmodifiable(preCommentCache, comment);
         } else if (lastElement != null) {
             lastElement.addComment(comment);
         } else if (lastAttribute != null) {
             lastAttribute.addComment(comment);
         } else {
+            if (comment.startsWith("@")) {
+                throw new IllegalArgumentException("@ annotation comment must follow element or attribute, without intervening # comment");
+            }
             preCommentCache = addUnmodifiable(preCommentCache, comment);
         }
     }
@@ -543,12 +589,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             "substitute" // needed for characters.xml
             )));
 
-    public static boolean isOrdered(String element, DtdType type) {
+    public static boolean isOrderedOld(String element, DtdType type) {
         return orderedElements.contains(element);
     }
-    private static final Map<CLDRFile.DtdType, DtdData> CACHE;
+
+    private static final Map<DtdType, DtdData> CACHE;
     static {
-        EnumMap<DtdType, DtdData> temp = new EnumMap<CLDRFile.DtdType, DtdData>(CLDRFile.DtdType.class);
+        EnumMap<DtdType, DtdData> temp = new EnumMap<DtdType, DtdData>(DtdType.class);
         for (DtdType type : DtdType.values()) {
             temp.put(type, getInstance(type, null));
         }
@@ -559,14 +606,14 @@ public class DtdData extends XMLFileReader.SimpleHandler {
      * Normal version of DtdData
      * Note that it always gets the trunk version
      */
-    public static DtdData getInstance(CLDRFile.DtdType type) {
+    public static DtdData getInstance(DtdType type) {
         return CACHE.get(type);
     }
 
     /** 
      * Special form using version, used only by tests, etc.
      */
-    public static DtdData getInstance(CLDRFile.DtdType type, String version) {
+    public static DtdData getInstance(DtdType type, String version) {
         DtdData simpleHandler = new DtdData(type, version);
         XMLFileReader xfr = new XMLFileReader().setHandler(simpleHandler);
         File directory = version == null ? CLDRConfig.getInstance().getCldrBaseDirectory()
@@ -605,7 +652,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private void finish() {
     }
 
-    public static void readFile(CLDRFile.DtdType type, XMLFileReader xfr, File directory) {
+    public static void readFile(DtdType type, XMLFileReader xfr, File directory) {
         File file = new File(directory, type.dtdPath);
         StringReader s = new StringReader("<?xml version='1.0' encoding='UTF-8' ?>"
             + "<!DOCTYPE " + type
@@ -905,7 +952,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return toAddTo;
     }
 
-    static final SupplementalDataInfo supplementalDataInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
+    //static final SupplementalDataInfo supplementalDataInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     private void toString(Element current, StringBuilder b, Seen seen) {
         boolean first = true;
@@ -913,7 +960,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return;
         }
         seen.seenElements.add(current);
-        boolean elementDeprecated = supplementalDataInfo.isDeprecated(dtdType, current.name, "*", "*");
+        boolean elementDeprecated = isDeprecated(current.name, "*", "*");
 
         showComments(b, current.commentsPre, true);
         b.append("\n\n<!ELEMENT " + current.name + " " + current.model + " >");
@@ -952,7 +999,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             b.append(">");
         }
         showComments(b,  current.commentsPost, false);
-        if (isOrdered(current.name, null)) {
+        if (isOrdered(current.name)) {
             b.append(COMMENT_PREFIX + "<!--@ORDERED-->");
         }
         if (SHOW_STR && elementDeprecated) {
@@ -966,7 +1013,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 continue;
             }
             seen.seenAttributes.add(a);
-            boolean attributeDeprecated = elementDeprecated || supplementalDataInfo.isDeprecated(dtdType, current.name, a.name, "*");
+            boolean attributeDeprecated = elementDeprecated || isDeprecated(current.name, a.name, "*");
 
             deprecatedValues.clear();
 
@@ -982,7 +1029,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                         b.append(" | ");
                     }
                     b.append(s);
-                    if (!attributeDeprecated && supplementalDataInfo.isDeprecated(dtdType, current.name, a.name, s)) {
+                    if (!attributeDeprecated && isDeprecated(current.name, a.name, s)) {
                         deprecatedValues.add(s);
                     }
                 }
@@ -1070,6 +1117,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     public boolean isDistinguishing(String elementName, String attribute) {
+        return getAttributeStatus(elementName, attribute) == AttributeStatus.distinguished;
+    }
+    
+    public boolean isDistinguishingOld(String elementName, String attribute) {
         switch (dtdType) {
         case ldml:
             return attribute.equals("_q")
@@ -1183,6 +1234,53 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             comment.add(addition);
             return Collections.unmodifiableSet(comment);
         }
+    }
+    
+    static final boolean THROW_IF_BOGUS = true;  // Question: should we just allow the exception to flow out?
+    
+    @SuppressWarnings("unused")
+    public boolean isDeprecated(String elementName, String attributeName, String attributeValue) {
+        Element element = nameToElement.get(elementName);
+        if (element == null && !THROW_IF_BOGUS) {
+            return false;
+        } else if (element.isDeprecatedElement) {
+            return true;
+        }
+        if ("*".equals(attributeName)) {
+            return false;
+        }
+        Attribute attribute = element.getAttributeNamed(attributeName);
+        if (attribute == null && !THROW_IF_BOGUS) {
+            return false;
+        } else if (attribute.isDeprecatedAttribute) {
+            return true;
+        }
+        return attribute.deprecatedValues.contains(attributeValue); // don't need special test for "*"
+    }
+
+    @SuppressWarnings("unused")
+    public boolean isOrdered(String elementName) {
+        Element element = nameToElement.get(elementName);
+        if (element == null && !THROW_IF_BOGUS) {
+            return false;
+        }
+        return element.isOrderedElement;
+    }
+
+    @SuppressWarnings("unused")
+    public AttributeStatus getAttributeStatus(String elementName, String attributeName) {
+        if ("_q".equals(attributeName)) {
+            return AttributeStatus.distinguished; // special case
+        }
+        Element element = nameToElement.get(elementName);
+        if (element == null && !THROW_IF_BOGUS) {
+            return null;
+        }
+        Attribute attribute = element.getAttributeNamed(attributeName);
+        if (attribute == null && !THROW_IF_BOGUS) {
+            return null;
+        }
+        return attribute.attributeStatus;
     }
 
     /**

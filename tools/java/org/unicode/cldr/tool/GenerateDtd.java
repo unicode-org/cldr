@@ -3,9 +3,9 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdType;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.lang.UCharacter;

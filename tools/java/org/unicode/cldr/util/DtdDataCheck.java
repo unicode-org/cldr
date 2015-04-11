@@ -13,7 +13,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.tool.ToolConfig;
-import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.AttributeType;
 import org.unicode.cldr.util.DtdData.AttributeValueComparator;
@@ -173,7 +172,7 @@ public class DtdDataCheck {
         for (String arg : args) {
 
             timer.start();
-            DtdType type = CLDRFile.DtdType.valueOf(arg);
+            DtdType type = DtdType.valueOf(arg);
             DtdData dtdData = DtdData.getInstance(type);
             PrintWriter br = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "dataproj/src/temp/", type
                 + "-gen.dtd");
@@ -235,7 +234,7 @@ public class DtdDataCheck {
 
         for (String arg : args) {
             timer.start();
-            DtdType type = CLDRFile.DtdType.valueOf(arg);
+            DtdType type = DtdType.valueOf(arg);
             DtdData dtdData = DtdData.getInstance(type);
             timer.stop();
             System.out.println("Time: " + timer);
@@ -285,7 +284,7 @@ public class DtdDataCheck {
             System.out.println(++i + "\tDEPRECATED\t" + x);
         }
         for (String arg : args) {
-            DtdType type = CLDRFile.DtdType.valueOf(arg);
+            DtdType type = DtdType.valueOf(arg);
             DtdData dtdData = DtdData.getInstance(type);
             System.out.println("\n" + arg);
             new Walker(dtdData).showSuppressed();

@@ -13,8 +13,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.ElementAttributeInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
@@ -127,7 +127,7 @@ public class TestDTDAttributes extends TestFmwk {
             .getInstance(dtdType).getElementAttribute2Data();
 
         for (String element : elementToAttributes.keySet()) {
-            boolean isOrdered = CLDRFile.isOrdered(element, null);
+            boolean isOrdered = CLDRFile.isOrdered(element, dtdType);
             Set<String> attributes = elementToAttributes.getAll(element);
             for (String attribute : attributes) {
                 if (isOrdered) {

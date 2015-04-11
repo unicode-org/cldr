@@ -8,12 +8,12 @@ import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.DiscreteComparator;
 import org.unicode.cldr.util.DiscreteComparator.Builder;
 import org.unicode.cldr.util.DiscreteComparator.CycleException;
 import org.unicode.cldr.util.DiscreteComparator.MissingItemException;
 import org.unicode.cldr.util.DiscreteComparator.Ordering;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.ElementAttributeInfo;
 
 import com.ibm.icu.dev.test.TestFmwk;

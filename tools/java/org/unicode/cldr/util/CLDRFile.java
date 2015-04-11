@@ -106,36 +106,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public static final Pattern ALT_PROPOSED_PATTERN = Pattern.compile(".*\\[@alt=\"[^\"]*proposed[^\"]*\"].*");
 
 
-    public enum DtdType {
-        ldml("common/dtd/ldml.dtd"),
-        ldmlICU("common/dtd/ldmlICU.dtd", ldml),
-        supplementalData("common/dtd/ldmlSupplemental.dtd"),
-        ldmlBCP47("common/dtd/ldmlBCP47.dtd"),
-        keyboard("keyboards/dtd/ldmlKeyboard.dtd"),
-        platform("keyboards/dtd/ldmlPlatform.dtd");
-
-        static Pattern FIRST_ELEMENT = Pattern.compile("//([^/\\[]*)");
-    
-        public final String dtdPath;
-        public final DtdType rootType;
-
-        private DtdType(String dtdPath) {
-            this.dtdPath = dtdPath;
-            this.rootType = this;
-        }
-
-        private DtdType(String dtdPath, DtdType realType) {
-            this.dtdPath = dtdPath;
-            this.rootType = realType;
-        }
-
-        public static DtdType fromPath(String elementOrPath) {
-            Matcher m = FIRST_ELEMENT.matcher(elementOrPath);
-            m.lookingAt();
-            return DtdType.valueOf(m.group(1));
-        }
-    }
-
     private static boolean LOG_PROGRESS = false;
 
     public static boolean HACK_ORDER = false;
@@ -1528,7 +1498,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             // currentXPath += "/" + qName;
             currentFullXPath += "/" + qName;
             // if (!isSupplemental) ldmlComparator.addElement(qName);
-            if (isOrdered(qName, null)) {
+            if (dtdData.isOrdered(qName)) {
                 currentFullXPath += orderingAttribute();
             }
             if (attributes.getLength() > 0) {
@@ -1712,6 +1682,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         private void warnOnOverride(String former, String formerPath) {
             String distinguishing = CLDRFile.getDistinguishingXPath(formerPath, null, true);
+            String distinguishing2 = CLDRFile.getDistinguishingXPath(currentFullXPath, null, true);
             System.out.println("\tERROR in " + target.getLocaleID()
                 + ";\toverriding old value <" + former + "> at path " + distinguishing +
                 "\twith\t<" + lastChars + ">" +
@@ -2524,7 +2495,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     static Comparator<String> zoneOrder = StandardCodes.make().getTZIDComparator();
 
     public static boolean isOrdered(String element, DtdType type) {
-        return DtdData.isOrdered(element, type);
+        return DtdData.getInstance(type).isOrdered(element);
     }
 
     /**
@@ -2834,6 +2805,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             //     synchronized (distinguishingMap) {
             String result = (String) distinguishingMap.get(xpath);
             if (result == null) {
+                if (xpath.equals("//ldml/collations/collation[@type=\"standard\"][@visibility=\"external\"][@alt=\"proposed\"][@draft=\"unconfirmed\"]/cr")) {
+                    int debug = 0;
+                }
                 XPathParts distinguishingParts = new XPathParts(getAttributeOrdering(), null);
                 distinguishingParts.set(xpath);
                 if (distinguishingParts.getDtdData() == null) {
@@ -2882,7 +2856,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     int placementIndex = distinguishingParts.size() - 1;
                     while (true) {
                         String element = distinguishingParts.getElement(placementIndex);
-                        if (!DtdData.isOrdered(element, type)) break;
+                        if (!DtdData.getInstance(type).isOrdered(element)) break;
                         --placementIndex;
                     }
                     if (draft != null) {

@@ -32,7 +32,6 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.Builder.CBuilder;
-import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
@@ -3851,6 +3850,10 @@ public class SupplementalDataInfo {
     }
 
     public boolean isDeprecated(DtdType type, String element, String attribute, String value) {
+        return DtdData.getInstance(type).isDeprecated(element, attribute, value);
+    }
+
+    public boolean isDeprecatedOld(DtdType type, String element, String attribute, String value) {
         return isDeprecated(deprecated.get(STAR), element, attribute, value)
             || isDeprecated(deprecated.get(type.toString()), element, attribute, value);
     }

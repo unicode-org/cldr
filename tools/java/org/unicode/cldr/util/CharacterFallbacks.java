@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import org.unicode.cldr.util.CLDRFile.DtdType;
-
 public class CharacterFallbacks {
     private static CharacterFallbacks SINGLETON = new CharacterFallbacks();
     private HashMap<Integer, List<String>> data = new HashMap<Integer, List<String>>();

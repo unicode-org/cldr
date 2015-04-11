@@ -28,7 +28,6 @@ import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
@@ -39,8 +38,10 @@ import org.unicode.cldr.util.DiscreteComparator;
 import org.unicode.cldr.util.DiscreteComparator.Ordering;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
+import org.unicode.cldr.util.DtdData.AttributeStatus;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.ElementAttributeInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InputStreamFactory;
@@ -51,6 +52,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.ErrorHandler;
@@ -157,9 +159,9 @@ public class TestBasic extends TestFmwkPlus {
             } else if (name.endsWith(".xml")) {
                 data.add(check(fileName));
                 if (deepCheck // takes too long to do all the time
-                // fileName.getCanonicalPath().compareTo("/Users/markdavis/workspace/cldr/common/supplemental")
-                // >= 0
-                ) {
+                    // fileName.getCanonicalPath().compareTo("/Users/markdavis/workspace/cldr/common/supplemental")
+                    // >= 0
+                    ) {
                     CLDRFile cldrfile = CLDRFile.loadFromFile(fileName, "temp",
                         DraftStatus.unconfirmed);
                     for (String xpath : cldrfile) {
@@ -245,9 +247,9 @@ public class TestBasic extends TestFmwkPlus {
             System.out.println(header
                 + siftDeprecated(type, element, usedAttributes,
                     attributesToTypeElementUsed, true)
-                + "\t"
-                + siftDeprecated(type, element, unusedAttributes,
-                    attributesToTypeElementUsed, false));
+                    + "\t"
+                    + siftDeprecated(type, element, unusedAttributes,
+                        attributesToTypeElementUsed, false));
         }
 
         System.out.println("Undeprecated Attributes\t");
@@ -428,7 +430,7 @@ public class TestBasic extends TestFmwkPlus {
                                             + it2.getString()
                                             + "\t"
                                             + UCharacter
-                                                .getName(fishyCodepoint));
+                                            .getName(fishyCodepoint));
                                     }
                                     if (fallback == null) {
                                         fallback = fb;
@@ -513,7 +515,7 @@ public class TestBasic extends TestFmwkPlus {
                 result.append(' ');
             }
             result.append("L").append(level.ordinal()).append("=")
-                .append(counter.get(level));
+            .append(counter.get(level));
         }
         return result;
     }
@@ -1023,7 +1025,7 @@ public class TestBasic extends TestFmwkPlus {
             Arrays.asList(new String[] { "version", "languageCoverage",
                 "scriptCoverage", "territoryCoverage",
                 "currencyCoverage", "timezoneCoverage",
-                "skipDefaultLocale" }));
+            "skipDefaultLocale" }));
         Set<String> PCDATA = new HashSet<String>();
         PCDATA.add("PCDATA");
         Set<String> EMPTY = new HashSet<String>();
@@ -1193,7 +1195,7 @@ public class TestBasic extends TestFmwkPlus {
                 Collections.EMPTY_SET, elementsWithoutAlias);
             assertEquals(
                 type
-                    + " DTD elements with children must have 'special' elements",
+                + " DTD elements with children must have 'special' elements",
                 Collections.EMPTY_SET, elementsWithoutSpecial);
 
             for (Versions version : Versions.values()) {
@@ -1246,7 +1248,7 @@ public class TestBasic extends TestFmwkPlus {
                                     + "» must be superset of v"
                                     + version + ", and must contain «"
                                     + oldChild.getName() + "»",
-                                newChild);
+                                    newChild);
                         }
                         for (Attribute oldAttribute : oldElement
                             .getAttributes().keySet()) {
@@ -1258,7 +1260,7 @@ public class TestBasic extends TestFmwkPlus {
                                     + "» must be superset of v"
                                     + version + ", and must contain «"
                                     + oldAttribute.getName() + "»",
-                                newAttribute);
+                                    newAttribute);
 
                         }
                     }
@@ -1281,7 +1283,7 @@ public class TestBasic extends TestFmwkPlus {
         sortPaths(
             DtdData.getInstance(DtdType.supplementalData).getDtdComparator(
                 null),
-            "//supplementalData/territoryContainment/group[@type=\"419\"][@contains=\"013 029 005\"][@grouping=\"true\"]",
+                "//supplementalData/territoryContainment/group[@type=\"419\"][@contains=\"013 029 005\"][@grouping=\"true\"]",
             "//supplementalData/territoryContainment/group[@type=\"003\"][@contains=\"021 013 029\"][@grouping=\"true\"]");
 
         checkDtdComparatorForResource("TestBasic_ja.xml", DtdType.ldmlICU);
@@ -1370,5 +1372,89 @@ public class TestBasic extends TestFmwkPlus {
 
     public void sortPaths(Comparator<String> dc, String... array) {
         Arrays.sort(array, 0, array.length, dc);
+    }
+
+    public void TestNewDtdData() {
+        for (DtdType type : DtdType.values()) {
+            if (type == DtdType.ldmlICU) {
+                continue;
+            }
+            DtdData dtdData = DtdData.getInstance(type);
+            for (Element element : dtdData.getElements()) {
+                boolean orderedNew = dtdData.isOrdered(element.name);
+                boolean orderedOld = DtdData.isOrderedOld(element.name, type);
+                assertEquals("isOrdered " + type + ":" + element, orderedOld, orderedNew);
+                boolean deprecatedNew = dtdData.isDeprecated(element.name, "*", "*");
+                boolean deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, "*", "*");
+                assertEquals("isDeprecated " + type + ":" + element, deprecatedOld, deprecatedNew);
+
+                for (Attribute attribute : element.getAttributes().keySet()) {
+                    boolean distinguishedNew = dtdData.isDistinguishing(element.name, attribute.name);
+                    boolean distinguishedOld = dtdData.isDistinguishingOld(element.name, attribute.name);
+                    assertEquals("isDistinguished " + type + ":" + attribute, distinguishedOld, distinguishedNew);
+                    deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, "*");
+                    deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, attribute.name, "*");
+                    assertEquals("isDeprecated " + type + ":" + attribute, deprecatedOld, deprecatedNew);
+                    for (String value : attribute.values.keySet()) {
+                        deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, value);
+                        deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, attribute.name, value);
+                        assertEquals("isDeprecated " + type + ":" + attribute + ":" + value, deprecatedOld, deprecatedNew);
+                    }
+                }
+            }
+        }
+        if (isVerbose()) {
+            checkTime();
+        }
+    }
+
+    private void checkTime() {
+        final int ITERATIONS = 200;
+        Timer t = new Timer();
+        for (int i = ITERATIONS; i > 0; --i) {
+            // check old
+            for (DtdType type : DtdType.values()) {
+                if (type == DtdType.ldmlICU) {
+                    continue;
+                }
+                DtdData dtdData = DtdData.getInstance(type);
+                for (Element element : dtdData.getElements()) {
+                    boolean orderedOld = DtdData.isOrderedOld(element.name, type);
+                    boolean deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecatedOld(type, element.name, "*", "*");
+                    for (Attribute attribute : element.getAttributes().keySet()) {
+                        boolean distinguishedOld = dtdData.isDistinguishingOld(element.name, attribute.name);
+                        deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecatedOld(type, element.name, attribute.name, "*");
+                        for (String value : attribute.values.keySet()) {
+                            deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecatedOld(type, element.name, attribute.name, value);
+                        }
+                    }
+                }
+            }
+        }
+        long time1 = t.stop();
+        logln("old: " + t.toString(ITERATIONS));
+        Timer t2 = new Timer();
+        // now new
+        for (int i = ITERATIONS; i > 0; --i) {
+            for (DtdType type : DtdType.values()) {
+                if (type == DtdType.ldmlICU) {
+                    continue;
+                }
+                DtdData dtdData = DtdData.getInstance(type);
+                for (Element element : dtdData.getElements()) {
+                    boolean orderedNew = dtdData.isOrdered(element.name);
+                    boolean deprecatedNew = dtdData.isDeprecated(element.name, "*", "*");
+
+                    for (Attribute attribute : element.getAttributes().keySet()) {
+                        boolean distinguishedNew = dtdData.isDistinguishing(element.name, attribute.name);
+                        deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, "*");
+                        for (String value : attribute.values.keySet()) {
+                            deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, value);
+                        }
+                    }
+                }
+            }
+        }
+        logln("new: " + t2.toString(ITERATIONS, time1));
     }
 }

@@ -23,13 +23,13 @@ import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -318,7 +318,7 @@ public class GenerateItemCounts {
                 }
                 String path = entry.getKey();
                 String[] elements = path.split("/");
-                DtdType type = CLDRFile.DtdType.valueOf(elements[1]);
+                DtdType type = DtdType.valueOf(elements[1]);
                 String finalElement = elements[elements.length - 1];
                 starred.print(path);
                 for (String attribute : attributes) {

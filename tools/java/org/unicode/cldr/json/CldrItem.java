@@ -4,8 +4,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 
 import org.unicode.cldr.json.LdmlConvertRules.SplittableAttributeSpec;
-import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.ZoneParser;
 

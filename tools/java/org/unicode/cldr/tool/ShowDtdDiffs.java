@@ -15,9 +15,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.DtdData;
-import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.dev.util.CollectionUtilities;

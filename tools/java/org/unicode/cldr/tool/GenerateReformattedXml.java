@@ -1,7 +1,7 @@
 package org.unicode.cldr.tool;
 
-import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdType;
 
 public class GenerateReformattedXml {
     public static void main(String[] args) {

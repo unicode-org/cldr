@@ -1160,7 +1160,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         case ldmlBCP47:
             return attribute.equals("_q")
                 //|| attribute.equals("alias")
-                || attribute.equals("name");
+                || attribute.equals("name")
+                || attribute.equals("extension");
         case supplementalData:
             return attribute.equals("_q")
                 || attribute.equals("iso4217")

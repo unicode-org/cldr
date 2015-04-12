@@ -15,11 +15,11 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT version EMPTY >
 <!ATTLIST version number CDATA #REQUIRED >
-    <!--@VALUE-->
+    <!--@METADATA-->
 <!ATTLIST version cldrVersion CDATA #FIXED "28" >
-    <!--@VALUE-->
+    <!--@METADATA-->
 <!ATTLIST version unicodeVersion CDATA #FIXED "7.0.0" >
-    <!--@VALUE-->
+    <!--@METADATA-->
 
 <!ELEMENT generation EMPTY >
 <!ATTLIST generation date CDATA #REQUIRED >
@@ -28,7 +28,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT cldrVersion EMPTY >
     <!--@DEPRECATED-->
 <!ATTLIST cldrVersion version CDATA #REQUIRED >
-    <!--@VALUE-->
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT currencyData ( fractions*, region+ ) >
@@ -299,9 +299,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT mapTimezones ( mapZone* ) >
 <!ATTLIST mapTimezones type NMTOKEN #IMPLIED >
 <!ATTLIST mapTimezones otherVersion CDATA #IMPLIED >
-    <!--@VALUE-->
+    <!--@METADATA-->
 <!ATTLIST mapTimezones typeVersion CDATA #IMPLIED >
-    <!--@VALUE-->
+    <!--@METADATA-->
 <!ATTLIST mapTimezones references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -319,7 +319,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST zoneFormatting tzidVersion CDATA #IMPLIED >
-    <!--@VALUE-->
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST zoneFormatting references CDATA #IMPLIED >
     <!--@METADATA-->

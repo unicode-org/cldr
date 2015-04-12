@@ -18,9 +18,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST version platform CDATA #REQUIRED >
     <!--@VALUE-->
 <!ATTLIST version number CDATA #REQUIRED >
-    <!--@VALUE-->
+    <!--@METADATA-->
 <!ATTLIST version cldrVersion CDATA #FIXED "28" >
-    <!--@VALUE-->
+    <!--@METADATA-->
 
 <!ELEMENT generation EMPTY >
 <!ATTLIST generation date CDATA #REQUIRED >

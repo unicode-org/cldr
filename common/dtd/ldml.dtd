@@ -36,9 +36,9 @@ $Date$
 
 <!ELEMENT version EMPTY >
 <!ATTLIST version number CDATA #REQUIRED >
-    <!--@VALUE-->
+    <!--@METADATA-->
 <!ATTLIST version cldrVersion CDATA #FIXED "28" >
-    <!--@VALUE-->
+    <!--@METADATA-->
 
 <!ELEMENT generation EMPTY >
 <!ATTLIST generation date CDATA #REQUIRED >
@@ -2308,7 +2308,7 @@ $Date$
 
 <!ELEMENT collations ( alias | ( defaultCollation?, default*, collation*, special* ) ) >
 <!ATTLIST collations version NMTOKEN #IMPLIED >
-    <!--@VALUE-->
+    <!--@METADATA-->
 <!ATTLIST collations draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->

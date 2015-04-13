@@ -200,9 +200,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         // get the paths with the same value. If there aren't duplicates, continue;
 
         Matcher matcher = null;
-        String message = getPhase() == Phase.SUBMISSION
-            ? "WARNING: Can't have same translation as {0}. This will become an error during the Vetting phase."
-            : "Can't have same translation as {0}";
+        String message = "Can't have same translation as {0}";
         Matcher currentAttributesToIgnore = attributesToIgnore;
         Set<String> paths;
         if (myType == Type.DECIMAL_FORMAT) {
@@ -351,10 +349,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
         log("CollidingTypes has a size of " + collidingTypes.size());
         CheckStatus.Type thisErrorType;
-        // Specifically allow display collisions during the submission phase only, so that
-        // we don't prevent people from entering stuff properly.
         // Also only do warnings during the build phase, so that SmokeTest will build.
-        if (getPhase() == Phase.SUBMISSION || getPhase() == Phase.BUILD) {
+        if (getPhase() == Phase.BUILD) {
             thisErrorType = CheckStatus.warningType;
         } else {
             thisErrorType = CheckStatus.errorType;

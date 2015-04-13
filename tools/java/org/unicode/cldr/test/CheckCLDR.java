@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -309,11 +310,10 @@ abstract public class CheckCLDR {
             for (CheckStatus item : value.getCheckStatusList()) {
                 CheckStatus.Type type = item.getType();
                 if (type.equals(CheckStatus.Type.Error)) {
-                    if (item.getSubtype() != Subtype.dateSymbolCollision
-                        && item.getSubtype() != Subtype.displayCollision) {
-                        return ValueStatus.ERROR;
-                    } else {
+                    if (CheckStatus.crossCheckSubtypes.contains(item.getSubtype())) {
                         return ValueStatus.WARNING;
+                    } else {
+                        return ValueStatus.ERROR;
                     }
                 } else if (type.equals(CheckStatus.Type.Warning)) {
                     previous = ValueStatus.WARNING;
@@ -716,9 +716,11 @@ abstract public class CheckCLDR {
      * Status value returned from check
      */
     public static class CheckStatus {
-        public static final Type alertType = Type.Comment,
+        public static final Type
+            alertType = Type.Comment,
             warningType = Type.Warning,
             errorType = Type.Error,
+            fatalErrorType = Type.Error,
             exampleType = Type.Example,
             demoType = Type.Demo;
 
@@ -765,6 +767,14 @@ abstract public class CheckCLDR {
 
             static Pattern TO_STRING = Pattern.compile("([A-Z])");
         };
+ 
+        public static EnumSet<Subtype> crossCheckSubtypes = 
+            EnumSet.of(
+                Subtype.dateSymbolCollision,
+                Subtype.displayCollision,
+                Subtype.inconsistentDraftStatus,
+                Subtype.incompleteLogicalGroup);
+
 
         private Type type;
         private Subtype subtype = Subtype.none;

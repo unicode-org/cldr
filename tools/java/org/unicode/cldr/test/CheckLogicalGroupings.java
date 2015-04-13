@@ -41,11 +41,9 @@ public class CheckLogicalGroupings extends CheckCLDR {
         }
         if (logicalGroupingIsEmpty) return this; // skip if the logical grouping is empty
         if (!getCldrFileToCheck().isHere(path)) {
-            CheckStatus.Type showError = CheckStatus.warningType;
-            if (this.getPhase() != null && !this.getPhase().equals(Phase.FINAL_TESTING)) {
+            CheckStatus.Type showError = CheckStatus.errorType;
+            if (this.getPhase().equals(Phase.BUILD)) {
                 showError = CheckStatus.warningType;
-            } else {
-                showError = CheckStatus.errorType;
             }
             result.add(new CheckStatus().setCause(this).setMainType(showError)
                 .setSubtype(Subtype.incompleteLogicalGroup)
@@ -55,32 +53,36 @@ public class CheckLogicalGroupings extends CheckCLDR {
         // Special test during vetting phase to allow changes in a logical group when another item in the group
         // contains an error or warning.  See http://unicode.org/cldr/trac/ticket/4943.
         // I added the option lgWarningCheck so that we don't loop back on ourselves forever.
-        if (Phase.VETTING.equals(this.getPhase()) && options.get(Options.Option.lgWarningCheck) != "true") {
-            Options checkOptions = options.clone();
-            checkOptions.set("lgWarningCheck", "true");
-            List<CheckStatus> statuses = new ArrayList<CheckStatus>();
-            CompoundCheckCLDR secondaryChecker = CheckCLDR.getCheckAll(CLDRConfig.getInstance().getFullCldrFactory(), ".*");
-            secondaryChecker.setCldrFileToCheck(getCldrFileToCheck(), checkOptions, statuses);
+        // JCE: 2015-04-13: I don't think we need this any more, since we implemented 
+        // http://unicode.org/cldr/trac/ticket/6480, and it really slows things down.
+        // I'll just comment it out until we get through a whole release without it.
+        // TODO: Remove it completely if we really don't need it.
+        //if (Phase.VETTING.equals(this.getPhase()) && options.get(Options.Option.lgWarningCheck) != "true") {
+        //    Options checkOptions = options.clone();
+        //    checkOptions.set("lgWarningCheck", "true");
+        //    List<CheckStatus> statuses = new ArrayList<CheckStatus>();
+        //    CompoundCheckCLDR secondaryChecker = CheckCLDR.getCheckAll(CLDRConfig.getInstance().getFullCldrFactory(), ".*");
+        //    secondaryChecker.setCldrFileToCheck(getCldrFileToCheck(), checkOptions, statuses);
 
-            for (String apath : paths) {
-                if (apath == path) {
-                    continue;
-                }
-                String fPath = getCldrFileToCheck().getFullXPath(apath);
-                if (fPath == null) {
-                    continue;
-                }
-                secondaryChecker.check(apath, fPath, getCldrFileToCheck().getWinningValue(apath), checkOptions, statuses);
-                if (CheckStatus.hasType(statuses, Type.Error) || CheckStatus.hasType(statuses, Type.Warning)) {
-                    result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
-                        .setSubtype(Subtype.errorOrWarningInLogicalGroup)
-                        .setMessage("Error or warning within this logical group.  May require a change on this item to make the group correct."));
-                    break;
-                }
-            }
-        }
+        //    for (String apath : paths) {
+        //        if (apath == path) {
+        //            continue;
+        //        }
+        //        String fPath = getCldrFileToCheck().getFullXPath(apath);
+        //        if (fPath == null) {
+        //            continue;
+        //        }
+        //        secondaryChecker.check(apath, fPath, getCldrFileToCheck().getWinningValue(apath), checkOptions, statuses);
+        //        if (CheckStatus.hasType(statuses, Type.Error) || CheckStatus.hasType(statuses, Type.Warning)) {
+        //            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
+        //                .setSubtype(Subtype.errorOrWarningInLogicalGroup)
+        //                .setMessage("Error or warning within this logical group.  May require a change on this item to make the group correct."));
+        //            break;
+        //        }
+        //    }
+        //}
 
-        if (Phase.FINAL_TESTING.equals(this.getPhase())) {
+        //if (Phase.FINAL_TESTING.equals(this.getPhase())) {
             Factory factory = PathHeader.getFactory(CheckCLDR.getDisplayInformation());
             DraftStatus myStatus = null;
             EnumMap<DraftStatus, PathHeader> draftStatuses = new EnumMap<DraftStatus, PathHeader>(DraftStatus.class);
@@ -120,7 +122,7 @@ public class CheckLogicalGroupings extends CheckCLDR {
                                                                                                                    // with
                                                                                                                    // arguments
             }
-        }
+        // }
         return this;
     }
 }

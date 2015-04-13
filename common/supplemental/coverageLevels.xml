@@ -146,7 +146,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%unitsOther" value="(length-(picometer|light-year)|pressure-(hectopascal|inch-hg|millibar)|acceleration-g-force|angle-(degree|minute|second)|area-(acre|hectare|square-(foot|kilometer|meter|mile))|power-(horsepower|kilowatt|watt)|speed-meter-per-second|volume-cubic-(mile|kilometer))"/>
 		<coverageVariable key="%variantTypes" value="([A-Z0-9]++)"/>
 		<coverageVariable key="%wideAbbr" value="(wide|abbreviated)"/>
-		<coverageVariable key="%wideNarrow" value="(wide|narrow)"/>
 		<coverageVariable key="%yesNo" value="(yes|no)"/>		
 		<!-- -->
 		<!-- Coverage levels begin here -->
@@ -502,7 +501,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="en" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/perUnitPattern"/>
 				
 		<coverageLevel value="modern" match="listPatterns/listPattern[@type='(duration|unit)(-(short|narrow))?']/listPatternPart[@type='(2|start|middle|end)']"/>
-		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/dayPeriods/dayPeriodContext[@type='format']/dayPeriodWidth[@type='%wideNarrow']/dayPeriod[@type='%ampmTypes']"/>
+		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/dayPeriods/dayPeriodContext[@type='format']/dayPeriodWidth[@type='%allWidths']/dayPeriod[@type='%ampmTypes']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@type='%calendarType80'][@key='calendar']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/eras/eraNames/era[@type='(0|1)']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/eras/eraNames/era[@type='(0|1)'][@alt='variant']"/>

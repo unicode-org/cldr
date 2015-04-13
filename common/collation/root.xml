@@ -21,8 +21,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<collation type="search">
 				<cr><![CDATA[
 					[normalization on]
-					# root search, suppress contractions for Thai, Lao, Tai Viet
-					[suppressContractions [เ-ไ ເ-ໄ ꪵ ꪶ ꪹ ꪻ ꪼ]]
+					# root search, suppress contractions for Thai, Lao, Tai Viet, New Tai Lue
+					# same as UCD property Logical_Order_Exception
+					[suppressContractions [เ-ไ ເ-ໄ ꪵ ꪶ ꪹ ꪻ ꪼ\u19B5-\u19B7\u19BA]]
 					# root search rules for Symbols
 					&'='<'≠'
 					# root search rules for Arabic, Hebrew

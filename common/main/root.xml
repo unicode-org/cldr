@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2014 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-For terms of use, see http://www.unicode.org/copyright.html
--->
+<!-- Copyright © 1991-2014 Unicode, Inc. CLDR data files are interpreted according to the LDML specification 
+	(http://unicode.org/reports/tr35/) For terms of use, see http://www.unicode.org/copyright.html -->
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="root"/>
+		<version number="$Revision$" />
+		<generation date="$Date$" />
+		<language type="root" />
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
@@ -55,47 +53,47 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<calendars>
 			<calendar type="buddhist">
 				<months>
-					<alias source="locale" path="../../calendar[@type='gregorian']/months"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/months" />
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods" />
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNames>
 					<eraAbbr>
 						<era type="0">BE</era>
 						<!-- = 544 BC gregorian. -->
 					</eraAbbr>
 					<eraNarrow>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNarrow>
 				</eras>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateFormats" />
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats" />
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']" />
 						</monthWidth>
 						<monthWidth type="narrow">
-							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']" />
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">M01</month>
@@ -114,7 +112,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']" />
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
@@ -131,17 +129,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="12">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']" />
 						</monthWidth>
 					</monthContext>
 				</months>
 				<monthPatterns>
 					<monthPatternContext type="format">
 						<monthPatternWidth type="abbreviated">
-							<alias source="locale" path="../monthPatternWidth[@type='wide']"/>
+							<alias source="locale" path="../monthPatternWidth[@type='wide']" />
 						</monthPatternWidth>
 						<monthPatternWidth type="narrow">
-							<alias source="locale" path="../../monthPatternContext[@type='stand-alone']/monthPatternWidth[@type='narrow']"/>
+							<alias source="locale"
+								path="../../monthPatternContext[@type='stand-alone']/monthPatternWidth[@type='narrow']" />
 						</monthPatternWidth>
 						<monthPatternWidth type="wide">
 							<monthPattern type="leap">{0}bis</monthPattern>
@@ -154,24 +153,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</monthPatternContext>
 					<monthPatternContext type="stand-alone">
 						<monthPatternWidth type="abbreviated">
-							<alias source="locale" path="../../monthPatternContext[@type='format']/monthPatternWidth[@type='abbreviated']"/>
+							<alias source="locale"
+								path="../../monthPatternContext[@type='format']/monthPatternWidth[@type='abbreviated']" />
 						</monthPatternWidth>
 						<monthPatternWidth type="narrow">
 							<monthPattern type="leap">{0}b</monthPattern>
 						</monthPatternWidth>
 						<monthPatternWidth type="wide">
-							<alias source="locale" path="../../monthPatternContext[@type='format']/monthPatternWidth[@type='wide']"/>
+							<alias source="locale"
+								path="../../monthPatternContext[@type='format']/monthPatternWidth[@type='wide']" />
 						</monthPatternWidth>
 					</monthPatternContext>
 				</monthPatterns>
 				<days>
-					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods" />
 				</dayPeriods>
 				<!-- chinese eras are computed, and don't fall back to gregorian -->
 				<cyclicNameSets>
@@ -192,18 +193,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 								<cyclicName type="12">hai</cyclicName>
 							</cyclicNameWidth>
 							<cyclicNameWidth type="narrow">
-								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']" />
 							</cyclicNameWidth>
 							<cyclicNameWidth type="wide">
-								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']" />
 							</cyclicNameWidth>
 						</cyclicNameContext>
 					</cyclicNameSet>
 					<cyclicNameSet type="days">
-						<alias source="locale" path="../cyclicNameSet[@type='years']"/>
+						<alias source="locale" path="../cyclicNameSet[@type='years']" />
 					</cyclicNameSet>
 					<cyclicNameSet type="months">
-						<alias source="locale" path="../cyclicNameSet[@type='years']"/>
+						<alias source="locale" path="../cyclicNameSet[@type='years']" />
 					</cyclicNameSet>
 					<cyclicNameSet type="solarTerms">
 						<cyclicNameContext type="format">
@@ -234,10 +235,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 								<cyclicName type="24">major cold</cyclicName>
 							</cyclicNameWidth>
 							<cyclicNameWidth type="narrow">
-								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']" />
 							</cyclicNameWidth>
 							<cyclicNameWidth type="wide">
-								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']" />
 							</cyclicNameWidth>
 						</cyclicNameContext>
 					</cyclicNameSet>
@@ -306,23 +307,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 								<cyclicName type="60">gui-hai</cyclicName>
 							</cyclicNameWidth>
 							<cyclicNameWidth type="narrow">
-								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']" />
 							</cyclicNameWidth>
 							<cyclicNameWidth type="wide">
-								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']" />
 							</cyclicNameWidth>
 						</cyclicNameContext>
 					</cyclicNameSet>
 					<cyclicNameSet type="zodiacs">
 						<cyclicNameContext type="format">
 							<cyclicNameWidth type="abbreviated">
-								<alias source="locale" path="../../../cyclicNameSet[@type='dayParts']/cyclicNameContext[@type='format']/cyclicNameWidth[@type='abbreviated']"/>
+								<alias source="locale"
+									path="../../../cyclicNameSet[@type='dayParts']/cyclicNameContext[@type='format']/cyclicNameWidth[@type='abbreviated']" />
 							</cyclicNameWidth>
 							<cyclicNameWidth type="narrow">
-								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']" />
 							</cyclicNameWidth>
 							<cyclicNameWidth type="wide">
-								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']" />
 							</cyclicNameWidth>
 						</cyclicNameContext>
 					</cyclicNameSet>
@@ -351,7 +353,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
@@ -525,10 +527,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']" />
 						</monthWidth>
 						<monthWidth type="narrow">
-							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']" />
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tout</month>
@@ -548,7 +550,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']" />
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
@@ -566,78 +568,78 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="13">13</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']" />
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods" />
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ERA0</era>
 						<era type="1">ERA1</era>
 					</eraAbbr>
 					<eraNarrow>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNarrow>
 				</eras>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateFormats" />
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats" />
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="dangi">
 				<months>
-					<alias source="locale" path="../../calendar[@type='chinese']/months"/>
+					<alias source="locale" path="../../calendar[@type='chinese']/months" />
 				</months>
 				<monthPatterns>
-					<alias source="locale" path="../../calendar[@type='chinese']/monthPatterns"/>
+					<alias source="locale" path="../../calendar[@type='chinese']/monthPatterns" />
 				</monthPatterns>
 				<days>
-					<alias source="locale" path="../../calendar[@type='chinese']/days"/>
+					<alias source="locale" path="../../calendar[@type='chinese']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='chinese']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='chinese']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='chinese']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='chinese']/dayPeriods" />
 				</dayPeriods>
 				<cyclicNameSets>
-					<alias source="locale" path="../../calendar[@type='chinese']/cyclicNameSets"/>
+					<alias source="locale" path="../../calendar[@type='chinese']/cyclicNameSets" />
 				</cyclicNameSets>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='chinese']/dateFormats"/>
+					<alias source="locale" path="../../calendar[@type='chinese']/dateFormats" />
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='chinese']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='chinese']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='chinese']/dateTimeFormats"/>
+					<alias source="locale" path="../../calendar[@type='chinese']/dateTimeFormats" />
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="ethiopic">
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']" />
 						</monthWidth>
 						<monthWidth type="narrow">
-							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']" />
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Meskerem</month>
@@ -657,7 +659,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']" />
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
@@ -675,83 +677,83 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="13">13</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']" />
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods" />
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ERA0</era>
 						<era type="1">ERA1</era>
 					</eraAbbr>
 					<eraNarrow>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNarrow>
 				</eras>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateFormats" />
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats" />
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="ethiopic-amete-alem">
 				<months>
-					<alias source="locale" path="../../calendar[@type='ethiopic']/months"/>
+					<alias source="locale" path="../../calendar[@type='ethiopic']/months" />
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='ethiopic']/days"/>
+					<alias source="locale" path="../../calendar[@type='ethiopic']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='ethiopic']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='ethiopic']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='ethiopic']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='ethiopic']/dayPeriods" />
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ERA0</era>
 					</eraAbbr>
 					<eraNarrow>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNarrow>
 				</eras>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='ethiopic']/dateFormats"/>
+					<alias source="locale" path="../../calendar[@type='ethiopic']/dateFormats" />
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='ethiopic']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='ethiopic']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='ethiopic']/dateTimeFormats"/>
+					<alias source="locale" path="../../calendar[@type='ethiopic']/dateTimeFormats" />
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="generic">
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']" />
 						</monthWidth>
 						<monthWidth type="narrow">
-							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']" />
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">M01</month>
@@ -770,7 +772,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']" />
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
@@ -787,29 +789,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="12">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']" />
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods" />
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ERA0</era>
 						<era type="1">ERA1</era>
 					</eraAbbr>
 					<eraNarrow>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNarrow>
 				</eras>
 				<dateFormats>
@@ -835,7 +837,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
@@ -1008,10 +1010,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']" />
 						</monthWidth>
 						<monthWidth type="narrow">
-							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']" />
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">M01</month>
@@ -1030,7 +1032,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']" />
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
@@ -1047,20 +1049,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="12">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']" />
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<alias source="locale" path="../dayWidth[@type='wide']"/>
+							<alias source="locale" path="../dayWidth[@type='wide']" />
 						</dayWidth>
 						<dayWidth type="narrow">
-							<alias source="locale" path="../../dayContext[@type='stand-alone']/dayWidth[@type='narrow']"/>
+							<alias source="locale" path="../../dayContext[@type='stand-alone']/dayWidth[@type='narrow']" />
 						</dayWidth>
 						<dayWidth type="short">
-							<alias source="locale" path="../dayWidth[@type='abbreviated']"/>
+							<alias source="locale" path="../dayWidth[@type='abbreviated']" />
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Sun</day>
@@ -1074,7 +1076,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<alias source="locale" path="../../dayContext[@type='format']/dayWidth[@type='abbreviated']"/>
+							<alias source="locale" path="../../dayContext[@type='format']/dayWidth[@type='abbreviated']" />
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">S</day>
@@ -1086,20 +1088,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="sat">S</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<alias source="locale" path="../../dayContext[@type='format']/dayWidth[@type='short']"/>
+							<alias source="locale" path="../../dayContext[@type='format']/dayWidth[@type='short']" />
 						</dayWidth>
 						<dayWidth type="wide">
-							<alias source="locale" path="../../dayContext[@type='format']/dayWidth[@type='wide']"/>
+							<alias source="locale" path="../../dayContext[@type='format']/dayWidth[@type='wide']" />
 						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<alias source="locale" path="../quarterWidth[@type='wide']"/>
+							<alias source="locale" path="../quarterWidth[@type='wide']" />
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<alias source="locale" path="../../quarterContext[@type='stand-alone']/quarterWidth[@type='narrow']"/>
+							<alias source="locale" path="../../quarterContext[@type='stand-alone']/quarterWidth[@type='narrow']" />
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">Q1</quarter>
@@ -1110,7 +1112,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<alias source="locale" path="../../quarterContext[@type='format']/quarterWidth[@type='abbreviated']"/>
+							<alias source="locale" path="../../quarterContext[@type='format']/quarterWidth[@type='abbreviated']" />
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1</quarter>
@@ -1119,14 +1121,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<alias source="locale" path="../../quarterContext[@type='format']/quarterWidth[@type='wide']"/>
+							<alias source="locale" path="../../quarterContext[@type='format']/quarterWidth[@type='wide']" />
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<alias source="locale" path="../dayPeriodWidth[@type='wide']"/>
+							<alias source="locale" path="../dayPeriodWidth[@type='wide']" />
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">a</dayPeriod>
@@ -1140,19 +1142,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
-						<alias source="locale" path="../dayPeriodContext[@type='format']"/>
+						<alias source="locale" path="../dayPeriodContext[@type='format']" />
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNames>
 					<eraAbbr>
 						<era type="0">BCE</era>
 						<era type="1">CE</era>
 					</eraAbbr>
 					<eraNarrow>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNarrow>
 				</eras>
 				<dateFormats>
@@ -1373,10 +1375,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']" />
 						</monthWidth>
 						<monthWidth type="narrow">
-							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']" />
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tishri</month>
@@ -1397,7 +1399,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']" />
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
@@ -1416,51 +1418,49 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="13">13</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']" />
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods" />
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNames>
 					<eraAbbr>
 						<era type="0">AM</era>
-						<!-- HY = Anno Mundi
-							 = -180799862400000 milliseconds since 1/1/1970 AD
-						-->
+						<!-- HY = Anno Mundi = -180799862400000 milliseconds since 1/1/1970 AD -->
 					</eraAbbr>
 					<eraNarrow>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNarrow>
 				</eras>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateFormats" />
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats" />
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="indian">
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']" />
 						</monthWidth>
 						<monthWidth type="narrow">
-							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']" />
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Chaitra</month>
@@ -1479,7 +1479,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']" />
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
@@ -1496,38 +1496,38 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="12">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']" />
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods" />
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNames>
 					<eraAbbr>
 						<era type="0">Saka</era>
 					</eraAbbr>
 					<eraNarrow>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNarrow>
 				</eras>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateFormats" />
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats" />
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic">
@@ -1548,7 +1548,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="12">Dhuʻl-H.</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']" />
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Muharram</month>
@@ -1567,7 +1567,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']" />
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
@@ -1584,169 +1584,165 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="12">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']" />
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods" />
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNames>
 					<eraAbbr>
 						<era type="0">AH</era>
-						<!-- Anno Hijri, = 7/16/622 AD
-							 = -42521587200000.0 millis since 1/1/1970
-						-->
+						<!-- Anno Hijri, = 7/16/622 AD = -42521587200000.0 millis since 1/1/1970 -->
 					</eraAbbr>
 					<eraNarrow>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNarrow>
 				</eras>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateFormats" />
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats" />
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic-civil">
 				<months>
-					<alias source="locale" path="../../calendar[@type='islamic']/months"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/months" />
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='islamic']/days"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='islamic']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='islamic']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/dayPeriods" />
 				</dayPeriods>
 				<eras>
-					<alias source="locale" path="../../calendar[@type='islamic']/eras"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/eras" />
 				</eras>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='islamic']/dateFormats"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/dateFormats" />
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='islamic']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='islamic']/dateTimeFormats"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/dateTimeFormats" />
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic-rgsa">
 				<months>
-					<alias source="locale" path="../../calendar[@type='islamic']/months"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/months" />
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='islamic']/days"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='islamic']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='islamic']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/dayPeriods" />
 				</dayPeriods>
 				<eras>
-					<alias source="locale" path="../../calendar[@type='islamic']/eras"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/eras" />
 				</eras>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='islamic']/dateFormats"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/dateFormats" />
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='islamic']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='islamic']/dateTimeFormats"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/dateTimeFormats" />
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic-tbla">
 				<months>
-					<alias source="locale" path="../../calendar[@type='islamic']/months"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/months" />
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='islamic']/days"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='islamic']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='islamic']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/dayPeriods" />
 				</dayPeriods>
 				<eras>
-					<alias source="locale" path="../../calendar[@type='islamic']/eras"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/eras" />
 				</eras>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='islamic']/dateFormats"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/dateFormats" />
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='islamic']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='islamic']/dateTimeFormats"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/dateTimeFormats" />
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic-umalqura">
 				<months>
-					<alias source="locale" path="../../calendar[@type='islamic']/months"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/months" />
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='islamic']/days"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='islamic']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='islamic']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/dayPeriods" />
 				</dayPeriods>
 				<eras>
-					<alias source="locale" path="../../calendar[@type='islamic']/eras"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/eras" />
 				</eras>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='islamic']/dateFormats"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/dateFormats" />
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='islamic']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='islamic']/dateTimeFormats"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/dateTimeFormats" />
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
 				<months>
-					<alias source="locale" path="../../calendar[@type='gregorian']/months"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/months" />
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods" />
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNames>
 					<eraAbbr>
-						<!-- These eras are numbered according to the data used
-							 by the ICU Japanese Calendar.
-							 search for 'ERAS ='
-						-->
+						<!-- These eras are numbered according to the data used by the ICU Japanese Calendar. search for 
+							'ERAS =' -->
 						<era type="0">Taika (645-650)</era>
 						<era type="1">Hakuchi (650-671)</era>
 						<era type="2">Hakuhō (672-686)</era>
@@ -2224,23 +2220,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</eraNarrow>
 				</eras>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateFormats" />
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats" />
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="persian">
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']" />
 						</monthWidth>
 						<monthWidth type="narrow">
-							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']" />
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Farvardin</month>
@@ -2259,7 +2255,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']" />
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
@@ -2276,56 +2272,56 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="12">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']" />
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods" />
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNames>
 					<eraAbbr>
 						<era type="0">AP</era>
 					</eraAbbr>
 					<eraNarrow>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNarrow>
 				</eras>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateFormats" />
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats" />
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="roc">
 				<months>
-					<alias source="locale" path="../../calendar[@type='gregorian']/months"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/months" />
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days" />
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters" />
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods" />
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNames>
 					<!-- = 1912 AD gregorian. See: http://en.wikipedia.org/wiki/Minguo_calendar -->
 					<eraAbbr>
@@ -2333,17 +2329,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<era type="1">R.O.C.</era>
 					</eraAbbr>
 					<eraNarrow>
-						<alias source="locale" path="../eraAbbr"/>
+						<alias source="locale" path="../eraAbbr" />
 					</eraNarrow>
 				</eras>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateFormats" />
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats" />
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
+					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats" />
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -2364,10 +2360,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="year-short">
-				<alias source="locale" path="../field[@type='year']"/>
+				<alias source="locale" path="../field[@type='year']" />
 			</field>
 			<field type="year-narrow">
-				<alias source="locale" path="../field[@type='year-short']"/>
+				<alias source="locale" path="../field[@type='year-short']" />
 			</field>
 			<field type="quarter">
 				<displayName>Quarter</displayName>
@@ -2382,10 +2378,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="quarter-short">
-				<alias source="locale" path="../field[@type='quarter']"/>
+				<alias source="locale" path="../field[@type='quarter']" />
 			</field>
 			<field type="quarter-narrow">
-				<alias source="locale" path="../field[@type='quarter-short']"/>
+				<alias source="locale" path="../field[@type='quarter-short']" />
 			</field>
 			<field type="month">
 				<displayName>Month</displayName>
@@ -2400,10 +2396,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="month-short">
-				<alias source="locale" path="../field[@type='month']"/>
+				<alias source="locale" path="../field[@type='month']" />
 			</field>
 			<field type="month-narrow">
-				<alias source="locale" path="../field[@type='month-short']"/>
+				<alias source="locale" path="../field[@type='month-short']" />
 			</field>
 			<field type="week">
 				<displayName>Week</displayName>
@@ -2418,10 +2414,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="week-short">
-				<alias source="locale" path="../field[@type='week']"/>
+				<alias source="locale" path="../field[@type='week']" />
 			</field>
 			<field type="week-narrow">
-				<alias source="locale" path="../field[@type='week-short']"/>
+				<alias source="locale" path="../field[@type='week-short']" />
 			</field>
 			<field type="day">
 				<displayName>Day</displayName>
@@ -2436,10 +2432,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="day-short">
-				<alias source="locale" path="../field[@type='day']"/>
+				<alias source="locale" path="../field[@type='day']" />
 			</field>
 			<field type="day-narrow">
-				<alias source="locale" path="../field[@type='day-short']"/>
+				<alias source="locale" path="../field[@type='day-short']" />
 			</field>
 			<field type="weekday">
 				<displayName>Day of the Week</displayName>
@@ -2450,10 +2446,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="1">next Sunday</relative>
 			</field>
 			<field type="sun-short">
-				<alias source="locale" path="../field[@type='sun']"/>
+				<alias source="locale" path="../field[@type='sun']" />
 			</field>
 			<field type="sun-narrow">
-				<alias source="locale" path="../field[@type='sun-short']"/>
+				<alias source="locale" path="../field[@type='sun-short']" />
 			</field>
 			<field type="mon">
 				<relative type="-1">last Monday</relative>
@@ -2461,10 +2457,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="1">next Monday</relative>
 			</field>
 			<field type="mon-short">
-				<alias source="locale" path="../field[@type='mon']"/>
+				<alias source="locale" path="../field[@type='mon']" />
 			</field>
 			<field type="mon-narrow">
-				<alias source="locale" path="../field[@type='mon-short']"/>
+				<alias source="locale" path="../field[@type='mon-short']" />
 			</field>
 			<field type="tue">
 				<relative type="-1">last Tuesday</relative>
@@ -2472,10 +2468,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="1">next Tuesday</relative>
 			</field>
 			<field type="tue-short">
-				<alias source="locale" path="../field[@type='tue']"/>
+				<alias source="locale" path="../field[@type='tue']" />
 			</field>
 			<field type="tue-narrow">
-				<alias source="locale" path="../field[@type='tue-short']"/>
+				<alias source="locale" path="../field[@type='tue-short']" />
 			</field>
 			<field type="wed">
 				<relative type="-1">last Wednesday</relative>
@@ -2483,10 +2479,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="1">next Wednesday</relative>
 			</field>
 			<field type="wed-short">
-				<alias source="locale" path="../field[@type='wed']"/>
+				<alias source="locale" path="../field[@type='wed']" />
 			</field>
 			<field type="wed-narrow">
-				<alias source="locale" path="../field[@type='wed-short']"/>
+				<alias source="locale" path="../field[@type='wed-short']" />
 			</field>
 			<field type="thu">
 				<relative type="-1">last Thursday</relative>
@@ -2494,10 +2490,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="1">next Thursday</relative>
 			</field>
 			<field type="thu-short">
-				<alias source="locale" path="../field[@type='thu']"/>
+				<alias source="locale" path="../field[@type='thu']" />
 			</field>
 			<field type="thu-narrow">
-				<alias source="locale" path="../field[@type='thu-short']"/>
+				<alias source="locale" path="../field[@type='thu-short']" />
 			</field>
 			<field type="fri">
 				<relative type="-1">last Friday</relative>
@@ -2505,10 +2501,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="1">next Friday</relative>
 			</field>
 			<field type="fri-short">
-				<alias source="locale" path="../field[@type='fri']"/>
+				<alias source="locale" path="../field[@type='fri']" />
 			</field>
 			<field type="fri-narrow">
-				<alias source="locale" path="../field[@type='fri-short']"/>
+				<alias source="locale" path="../field[@type='fri-short']" />
 			</field>
 			<field type="sat">
 				<relative type="-1">last Saturday</relative>
@@ -2516,10 +2512,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="1">next Saturday</relative>
 			</field>
 			<field type="sat-short">
-				<alias source="locale" path="../field[@type='sat']"/>
+				<alias source="locale" path="../field[@type='sat']" />
 			</field>
 			<field type="sat-narrow">
-				<alias source="locale" path="../field[@type='sat-short']"/>
+				<alias source="locale" path="../field[@type='sat-short']" />
 			</field>
 			<field type="dayperiod">
 				<displayName>Dayperiod</displayName>
@@ -2534,10 +2530,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="hour-short">
-				<alias source="locale" path="../field[@type='hour']"/>
+				<alias source="locale" path="../field[@type='hour']" />
 			</field>
 			<field type="hour-narrow">
-				<alias source="locale" path="../field[@type='hour-short']"/>
+				<alias source="locale" path="../field[@type='hour-short']" />
 			</field>
 			<field type="minute">
 				<displayName>Minute</displayName>
@@ -2549,10 +2545,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="minute-short">
-				<alias source="locale" path="../field[@type='minute']"/>
+				<alias source="locale" path="../field[@type='minute']" />
 			</field>
 			<field type="minute-narrow">
-				<alias source="locale" path="../field[@type='minute-short']"/>
+				<alias source="locale" path="../field[@type='minute-short']" />
 			</field>
 			<field type="second">
 				<displayName>Second</displayName>
@@ -2565,10 +2561,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="second-short">
-				<alias source="locale" path="../field[@type='second']"/>
+				<alias source="locale" path="../field[@type='second']" />
 			</field>
 			<field type="second-narrow">
-				<alias source="locale" path="../field[@type='second-short']"/>
+				<alias source="locale" path="../field[@type='second-short']" />
 			</field>
 			<field type="zone">
 				<displayName>Zone</displayName>
@@ -2684,7 +2680,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</otherNumberingSystems>
 		<minimumGroupingDigits>1</minimumGroupingDigits>
 		<symbols>
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="arab">
 			<decimal>٫</decimal>
@@ -2715,55 +2711,55 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timeSeparator>٫</timeSeparator>
 		</symbols>
 		<symbols numberSystem="bali">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="beng">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="brah">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="cakm">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="cham">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="deva">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="fullwide">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="gujr">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="guru">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="hanidec">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="java">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="kali">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="khmr">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="knda">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="lana">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="lanatham">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="laoo">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
@@ -2780,130 +2776,130 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timeSeparator>:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="lepc">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="limb">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="mlym">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="mong">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="mtei">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="mymr">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="mymrshan">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="nkoo">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="olck">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="orya">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="osma">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="saur">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="shrd">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="sora">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="sund">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="takr">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="talu">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="tamldec">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="telu">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="thai">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="tibt">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<symbols numberSystem="vaii">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']" />
 		</symbols>
 		<decimalFormats>
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="arab">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="arabext">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="bali">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="beng">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="brah">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="cakm">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="cham">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="deva">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="fullwide">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="gujr">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="guru">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="hanidec">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="java">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="kali">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="khmr">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="knda">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="lana">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="lanatham">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="laoo">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
@@ -2912,7 +2908,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
-				<alias source="locale" path="../decimalFormatLength[@type='short']"/>
+				<alias source="locale" path="../decimalFormatLength[@type='short']" />
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
@@ -2932,130 +2928,130 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="lepc">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="limb">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="mlym">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="mong">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="mtei">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="mymr">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="mymrshan">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="nkoo">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="olck">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="orya">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="osma">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="saur">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="shrd">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="sora">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="sund">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="takr">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="talu">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="tamldec">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="telu">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="thai">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="tibt">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<decimalFormats numberSystem="vaii">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']" />
 		</decimalFormats>
 		<scientificFormats>
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="arab">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="arabext">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="bali">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="beng">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="brah">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="cakm">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="cham">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="deva">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="fullwide">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="gujr">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="guru">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="hanidec">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="java">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="kali">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="khmr">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="knda">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="lana">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="lanatham">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="laoo">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
@@ -3065,130 +3061,130 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</scientificFormatLength>
 		</scientificFormats>
 		<scientificFormats numberSystem="lepc">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="limb">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="mlym">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="mong">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="mtei">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="mymr">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="mymrshan">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="nkoo">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="olck">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="orya">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="osma">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="saur">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="shrd">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="sora">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="sund">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="takr">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="talu">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="tamldec">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="telu">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="thai">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="tibt">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<scientificFormats numberSystem="vaii">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']" />
 		</scientificFormats>
 		<percentFormats>
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="arab">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="arabext">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="bali">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="beng">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="brah">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="cakm">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="cham">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="deva">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="fullwide">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="gujr">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="guru">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="hanidec">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="java">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="kali">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="khmr">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="knda">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="lana">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="lanatham">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="laoo">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
@@ -3198,130 +3194,130 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</percentFormatLength>
 		</percentFormats>
 		<percentFormats numberSystem="lepc">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="limb">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="mlym">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="mong">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="mtei">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="mymr">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="mymrshan">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="nkoo">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="olck">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="orya">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="osma">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="saur">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="shrd">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="sora">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="sund">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="takr">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="talu">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="tamldec">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="telu">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="thai">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="tibt">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<percentFormats numberSystem="vaii">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']" />
 		</percentFormats>
 		<currencyFormats>
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="arab">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="arabext">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="bali">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="beng">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="brah">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="cakm">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="cham">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="deva">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="fullwide">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="gujr">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="guru">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="hanidec">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="java">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="kali">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="khmr">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="knda">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="lana">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="lanatham">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="laoo">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencySpacing>
@@ -3341,76 +3337,76 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern>¤ #,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
-					<alias source="locale" path="../currencyFormat[@type='standard']"/>
+					<alias source="locale" path="../currencyFormat[@type='standard']" />
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="lepc">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="limb">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="mlym">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="mong">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="mtei">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="mymr">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="mymrshan">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="nkoo">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="olck">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="orya">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="osma">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="saur">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="shrd">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="sora">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="sund">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="takr">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="talu">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="tamldec">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="telu">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="thai">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="tibt">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencyFormats numberSystem="vaii">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']" />
 		</currencyFormats>
 		<currencies>
 			<currency type="AOA">
@@ -3730,136 +3726,136 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="arab">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="arabext">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="bali">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="beng">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="brah">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="cakm">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="cham">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="deva">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="fullwide">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="gujr">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="guru">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="hanidec">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="java">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="kali">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="khmr">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="knda">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="lana">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="lanatham">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="laoo">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="latn">
 			<pattern type="atLeast">⩾{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<miscPatterns numberSystem="lepc">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="limb">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="mlym">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="mong">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="mtei">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="mymr">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="mymrshan">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="nkoo">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="olck">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="orya">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="osma">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="saur">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="shrd">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="sora">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="sund">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="takr">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="talu">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="tamldec">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="telu">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="thai">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="tibt">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 		<miscPatterns numberSystem="vaii">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']" />
 		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">
-			<alias source="locale" path="../unitLength[@type='short']"/>
+			<alias source="locale" path="../unitLength[@type='short']" />
 		</unitLength>
 		<unitLength type="short">
 			<compoundUnit type="per">
@@ -4014,6 +4010,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-year">
 				<displayName>yr</displayName>
 				<unitPattern count="other">{0} y</unitPattern>
+			</unit>
+			<unit type="duration-person-day">
+				<alias source="locale" path="../unit[@type='duration-day']" />
+			</unit>
+			<unit type="duration-person-week">
+				<alias source="locale" path="../unit[@type='duration-week']" />
+			</unit>
+			<unit type="duration-person-month">
+				<alias source="locale" path="../unit[@type='duration-month']" />
+			</unit>
+			<unit type="duration-person-year">
+				<alias source="locale" path="../unit[@type='duration-year']" />
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>amp</displayName>
@@ -4357,7 +4365,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
-			<alias source="locale" path="../unitLength[@type='short']"/>
+			<alias source="locale" path="../unitLength[@type='short']" />
 		</unitLength>
 		<durationUnit type="hm">
 			<durationUnitPattern>h:mm</durationUnitPattern> <!-- 33:59 -->
@@ -4377,13 +4385,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
-			<alias source="locale" path="../listPattern[@type='unit-short']"/>
+			<alias source="locale" path="../listPattern[@type='unit-short']" />
 		</listPattern>
 		<listPattern type="unit-narrow">
-			<alias source="locale" path="../listPattern[@type='unit-short']"/>
+			<alias source="locale" path="../listPattern[@type='unit-short']" />
 		</listPattern>
 		<listPattern type="unit-short">
-			<alias source="locale" path="../listPattern"/>
+			<alias source="locale" path="../listPattern" />
 		</listPattern>
 	</listPatterns>
 	<posix>

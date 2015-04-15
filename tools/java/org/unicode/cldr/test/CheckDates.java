@@ -410,7 +410,7 @@ public class CheckDates extends FactoryCheckCLDR {
             // }
             // }
 
-            DateTimePatternType dateTypePatternType = DateTimePatternType.fromPath(path);
+             DateTimePatternType dateTypePatternType = DateTimePatternType.fromPath(path);
             if (DateTimePatternType.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(dateTypePatternType)) {
                 boolean patternBasicallyOk = false;
                 try {
@@ -709,7 +709,8 @@ public class CheckDates extends FactoryCheckCLDR {
                 style += 4;
                 len = pathParts.findAttributeValue("dateFormatLength", "type");
                 if (len == null) {
-                    throw new IllegalArgumentException();
+                    len = pathParts.findAttributeValue("dateTimeFormatLength", "type");
+                    dateOrTime = DateOrTime.dateTime;
                 }
             }
 
@@ -718,7 +719,9 @@ public class CheckDates extends FactoryCheckCLDR {
             if (calendar.equals("gregorian") && !"root".equals(getCldrFileToCheck().getLocaleID())) {
                 checkValue(dateTimeLength, dateOrTime, value, result);
             }
-
+            if (dateOrTime == DateOrTime.dateTime) {
+                return; // We don't need to do the rest for date/time combo patterns.
+            }
             style += dateTimeLength.ordinal();
             // do regex match with skeletonCanonical but report errors using skeleton; they have corresponding field lengths
             if (!dateTimePatterns[style].matcher(skeletonCanonical).matches()
@@ -750,7 +753,7 @@ public class CheckDates extends FactoryCheckCLDR {
     }
 
     enum DateOrTime {
-        date, time
+        date, time, dateTime
     }
 
     static final Map<DateOrTime, Relation<DateTimeLengths, String>> STOCK_PATTERNS = new EnumMap<DateOrTime, Relation<DateTimeLengths, String>>(
@@ -788,63 +791,78 @@ public class CheckDates extends FactoryCheckCLDR {
     static final String APPEND_TIMEZONE = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/appendItems/appendItem[@request=\"Timezone\"]";
 
     private void checkValue(DateTimeLengths dateTimeLength, DateOrTime dateOrTime, String value, List<CheckStatus> result) {
-        Set<String> keys = STOCK_PATTERNS.get(dateOrTime).get(dateTimeLength);
-        StringBuilder b = new StringBuilder();
-        boolean onlyNulls = true;
-        int countMismatches = 0;
-        boolean errorOnMissing = false;
-        String timezonePattern = null;
-        Set<String> bases = new LinkedHashSet<String>();
-        for (String key : keys) {
-            int star = key.indexOf('*');
-            boolean hasStar = star >= 0;
-            String base = !hasStar ? key : key.substring(0, star);
-            bases.add(base);
-            String xpath = AVAILABLE_PREFIX + base + AVAILABLE_SUFFIX;
-            String value1 = getCldrFileToCheck().getStringValue(xpath);
-            // String localeFound = getCldrFileToCheck().getSourceLocaleID(xpath, null);  && !localeFound.equals("root") && !localeFound.equals("code-fallback")
-            if (value1 != null) {
-                onlyNulls = false;
-                if (hasStar) {
-                    String zone = key.substring(star + 1);
-                    timezonePattern = getResolvedCldrFileToCheck().getStringValue(APPEND_TIMEZONE);
-                    value1 = MessageFormat.format(timezonePattern, value1, zone);
+        if (dateOrTime == DateOrTime.dateTime) {
+            boolean inQuotes = false;
+            for (int i = 0 ; i < value.length(); i++ ) {
+                char ch = value.charAt(i);
+                if ( ch == '\'') {
+                    inQuotes = !inQuotes;
                 }
-                if (equalsExceptWidth(value, value1)) {
-                    return;
-                }
-            } else {
-                // Example, if the requiredLevel for the locale is moderate, 
-                // and the level for the path is modern, then we'll skip the error,
-                // but if the level for the path is basic, then we won't
-                Level pathLevel = coverageLevel.getLevel(xpath);
-                if (requiredLevel.compareTo(pathLevel) >= 0) {
-                    errorOnMissing = true;
+                if (!inQuotes && (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+                    result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.patternContainsInvalidCharacters)
+                        .setMessage("Unquoted letter \"{0}\" in dateTime format.",ch));                   
                 }
             }
-            add(b, base, value1);
-            countMismatches++;
-        }
-        if (!onlyNulls) {
-            if (timezonePattern != null) {
-                b.append(" (with appendZonePattern: “" + timezonePattern + "”)");
-            }
-            String msg = countMismatches != 1
-                ? "{1}-{0} → “{2}” didn't match any of the corresponding flexible skeletons: [{3}]. This or the flexible patterns needs to be changed."
-                : "{1}-{0} → “{2}” didn't match the corresponding flexible skeleton: {3}. This or the flexible pattern needs to be changed.";
-            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
-                .setSubtype(Subtype.inconsistentDatePattern)
-                .setMessage(msg,
-                    dateTimeLength, dateOrTime, value, b));
         } else {
-            if (errorOnMissing) {
+            Set<String> keys = STOCK_PATTERNS.get(dateOrTime).get(dateTimeLength);
+            StringBuilder b = new StringBuilder();
+            boolean onlyNulls = true;
+            int countMismatches = 0;
+            boolean errorOnMissing = false;
+            String timezonePattern = null;
+            Set<String> bases = new LinkedHashSet<String>();
+            for (String key : keys) {
+                int star = key.indexOf('*');
+                boolean hasStar = star >= 0;
+                String base = !hasStar ? key : key.substring(0, star);
+                bases.add(base);
+                String xpath = AVAILABLE_PREFIX + base + AVAILABLE_SUFFIX;
+                String value1 = getCldrFileToCheck().getStringValue(xpath);
+                // String localeFound = getCldrFileToCheck().getSourceLocaleID(xpath, null);  && !localeFound.equals("root") && !localeFound.equals("code-fallback")
+                if (value1 != null) {
+                    onlyNulls = false;
+                    if (hasStar) {
+                        String zone = key.substring(star + 1);
+                        timezonePattern = getResolvedCldrFileToCheck().getStringValue(APPEND_TIMEZONE);
+                        value1 = MessageFormat.format(timezonePattern, value1, zone);
+                    }
+                    if (equalsExceptWidth(value, value1)) {
+                        return;
+                    }
+                } else {
+                    // Example, if the requiredLevel for the locale is moderate, 
+                    // and the level for the path is modern, then we'll skip the error,
+                    // but if the level for the path is basic, then we won't
+                    Level pathLevel = coverageLevel.getLevel(xpath);
+                    if (requiredLevel.compareTo(pathLevel) >= 0) {
+                        errorOnMissing = true;
+                    }
+                }
+                add(b, base, value1);
+                countMismatches++;
+            }
+            if (!onlyNulls) {
+                if (timezonePattern != null) {
+                    b.append(" (with appendZonePattern: “" + timezonePattern + "”)");
+                }
                 String msg = countMismatches != 1
-                    ? "{1}-{0} → “{2}” doesn't have at least one value for a corresponding flexible skeleton {3}, which needs to be added."
-                    : "{1}-{0} → “{2}” doesn't have a value for the corresponding flexible skeleton {3}, which needs to be added.";
+                    ? "{1}-{0} → “{2}” didn't match any of the corresponding flexible skeletons: [{3}]. This or the flexible patterns needs to be changed."
+                    : "{1}-{0} → “{2}” didn't match the corresponding flexible skeleton: {3}. This or the flexible pattern needs to be changed.";
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
-                    .setSubtype(Subtype.missingDatePattern)
+                    .setSubtype(Subtype.inconsistentDatePattern)
                     .setMessage(msg,
-                        dateTimeLength, dateOrTime, value, CollectionUtilities.join(bases, ", ")));
+                        dateTimeLength, dateOrTime, value, b));
+            } else {
+                if (errorOnMissing) {
+                    String msg = countMismatches != 1
+                        ? "{1}-{0} → “{2}” doesn't have at least one value for a corresponding flexible skeleton {3}, which needs to be added."
+                        : "{1}-{0} → “{2}” doesn't have a value for the corresponding flexible skeleton {3}, which needs to be added.";
+                    result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
+                        .setSubtype(Subtype.missingDatePattern)
+                        .setMessage(msg,
+                            dateTimeLength, dateOrTime, value, CollectionUtilities.join(bases, ", ")));
+                }
             }
         }
     }
@@ -940,6 +958,10 @@ public class CheckDates extends FactoryCheckCLDR {
         Pattern.compile("G*y(yyy)?M{1,3}(d|dd)"), // date-medium
         Pattern.compile("G*y(yyy)?M{1,4}(d|dd)"), // date-long
         Pattern.compile("G*y(yyy)?M{1,4}E*(d|dd)"), // date-full
+        Pattern.compile(".*"), // datetime-short
+        Pattern.compile(".*"), // datetime-medium
+        Pattern.compile(".*"), // datetime-long
+        Pattern.compile(".*"), // datetime-full
     };
 
     static final String[] dateTimeMessage = {

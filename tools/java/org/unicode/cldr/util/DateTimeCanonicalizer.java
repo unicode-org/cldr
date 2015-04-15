@@ -19,7 +19,7 @@ public class DateTimeCanonicalizer {
 
         public static DateTimePatternType fromPath(String path) {
             return !path.contains("/dates") ? DateTimePatternType.NA
-                : path.contains("/pattern") && (path.contains("/dateFormats") || path.contains("/timeFormats")) ? DateTimePatternType.STOCK
+                : path.contains("/pattern") && (path.contains("/dateFormats") || path.contains("/timeFormats")|| path.contains("/dateTimeFormatLength")) ? DateTimePatternType.STOCK
                     : path.contains("/dateFormatItem") ? DateTimePatternType.AVAILABLE
                         : path.contains("/intervalFormatItem") ? DateTimePatternType.INTERVAL
                             : path.contains("/timeZoneNames/hourFormat") ? DateTimePatternType.GMT

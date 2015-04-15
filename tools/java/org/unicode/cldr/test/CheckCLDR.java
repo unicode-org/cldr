@@ -720,7 +720,6 @@ abstract public class CheckCLDR {
             alertType = Type.Comment,
             warningType = Type.Warning,
             errorType = Type.Error,
-            fatalErrorType = Type.Error,
             exampleType = Type.Example,
             demoType = Type.Demo;
 

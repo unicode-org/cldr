@@ -75,7 +75,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%intervalFormatGDiff" value="([yMdaHhm])"/>
 		<coverageVariable key="%islamicCalendarTerritories" value="(AE|AF|BH|DJ|DZ|EG|EH|ER|IL|IQ|IR|JO|KM|KW|LB|LY|MA|MR|OM|PS|QA|SA|SD|SY|TN|YE)"/>
 		<coverageVariable key="%japaneseEras" value="([0-9]{1,3})"/>
-		<coverageVariable key="%keys80" value="(calendar|collation|currency|numbers)"/>
+		<coverageVariable key="%keys80" value="(calendar|collation|currency|lb|numbers)"/>
 		<coverageVariable key="%keys100" value="(col(Alternate|Backwards|CaseFirst|CaseLevel|HiraganaQuaternary|Normalization|Numeric|Reorder|Strength)|timezone|va|variableTop|x)"/>
 		<coverageVariable key="%language30" value="und"/>
 		<coverageVariable key="%language40" value="(de(_(AT|CH))?|en(_(AU|CA|GB|US))?|es(_(ES|419|MX))?|fr(_(CA|CH))?|it|ja|pt(_(BR|PT))?|ru|zh(_(Hans|Hant))?)"/>
@@ -88,6 +88,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%language80" value="(a[bfkmsz]|a(gq|rn|sa)|b[aegmors]|b(em|ez|rx)|c[aeosy]|c(gg|hr|kb)|d[az]|d(av|je|sb|ua|yo)|e[elotu]|ebu|f[aijoy]|fil|g[alnuv]|g(ag|sw|uz)|haw?|h[ertuy]|hsb|i[gisu]|jv|j(go|mc)|k[aiklmnsuwy]|k(ab|am|de|ea|hq|ln|oi|ok|pv|s[bf])|l[abgnotuv]|l(ag|be|kt|u[oy])|m[gkilnrsty]|m(as|dh|er|fe|g[ho]|oh|ua)|n[bden]|n(aq|mg|qo|us|yn)|o[mr]|p[as]|quc?|r[mnw]|ro(_MD)?|r(of|wk)|s[adegiklnoqruvw]|s(aq|bp|e[hs]|hi|m[ajns]|wc)|t[aegikot]|t(eo|sg|wq|zm)|u[gkrz]|uli|vi|v(ai|un)|wo|xh|xog|yo|zu|z(dj|gh|xx))"/>
 		<coverageVariable key="%language100_a_m" value="(aa|ac[eh]|ad[ay]|aeb?|af[ah]|ain|ak[kz]|al[egnt]|an[gp]?|apa|ar[copqtwyz]|as[et]|ath|aus|avk?|awa|ay|ba[dilnstx]|azb|bar|bb[cj]|be[jrw]|bf[dq]|bho?|bkm|bi[kn]?|bjn|bla|bnt|bpy|bqi|br[ah]|bss|btk|bu[amg]|bxr|by[nv]|ca[diruy]|cch|ce[bl]|ch[bgkmnopy]?|cmc|cop|cp[efps]|cr[hp]?|csb|cus?|cv|da[kry]|de[ln]|dgr|din|doi|dra|dtp|dum|dv|dyu|dzg|efi|eg[ly]|eka|elx|enm|esu|ewo|ext|fa[nt]|ff|fi[tu]|fon|fr[cmoprs]|fur|ga[agny]|gb[az]|gd|ge[mz]|gil|glk|gmh|go[hmnrt]|gr[bc]|gu[cr]|gwi|ha[ik]|hi[flmt]|hmn|ho|hsn|hup|hz|ia|ib[ab]|ie|ijo|ik|ilo|in[ceh]|io|ir[ao]|izh|jam|jbo|jpr|jrb|jut|ka[acjrw]|kb[dl]|kc[bg]|ken|kfo|kgp?|kh[aiow]|kiu|kkj|kj|kmb|ko[is]|kpe|kr[cijlou]?|ksh|ku[mt]|kv|la[dhm]|lez|lfn|li[jv]?|lmo|lo[lz]|ltg|lu[ains]|lz[hz]|ma[dfgiknp]|md[efr]|men|mga|mh|mi[cns]|mkh|mn[cio]|mos|mrj|mu[lns]|mw[lrv]|my[env]|mzn)"/>
 		<coverageVariable key="%language100_n_z" value="(na[hinp]?|nds|new|ng|ni[acu]|njo|nnh|no[gnv]?|nr|nso|nub|nv|nwc|ny[mo]?|nzi|o[cj]|osa?|ot[ao]|pa[aglmpu]|pcd|pd[ct]|peo|pfl|ph[in]|pi|pms|pnt|pon|pr[ago]|qug|ra[jpr]|rgn|rif|ro[am]|root|rtm|ru[egp]|sa[dhilmstz]|sba|sc[no]?|sdc|se[eilm]|sg[ans]|sh[nu]?|si[dot]|sl[aiy]|sm|snk|so[gn]|sr[nr]|ss[ay]?|stq?|su[ksx]|swb|sy[cr]|szl|tai|tcy|te[mrt]|ti[gv]|tk[lr]|tl[hiy]?|tmh|tn|tog|tpi|tr[uv]|ts[di]?|ttt|tu[mpt]|tvl|tw|tyv?|udm|uga|umb|ve[cp]?|vls|vmf||vot?|vro|wa[eklrs]?|wen|wuu|xal|xmf|ya[opv]|ybb|yi|ypk|yrl|yue|zap?|zbl|ze[an]|znd|zun|zza)"/>
+		<coverageVariable key="%lbTypes80" value="(strict|normal|loose)"/>
 		<coverageVariable key="%medLong" value="(medium|long)"/>
 		<coverageVariable key="%metazone30_AR" value="Argentina(_Western)?"/>
 		<coverageVariable key="%metazone30_AU" value="(Australia_(Central(Western)?|(East|West)ern)|Lord_Howe)"/>
@@ -431,6 +432,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@type='%collationType80'][@key='collation']"/>
 		<coverageLevel inLanguage="%collationType80TopLangs" value="modern" match="localeDisplayNames/types/type[@type='%collationType80ForTopLangs'][@key='collation']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@type='%numberingSystem80'][@key='numbers']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@type='%lbTypes80'][@key='lb']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='%contextTypes']/dayWidth[@type='short']/day[@type='%dayTypes']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItemsAll']"/>
 		<coverageLevel inLanguage="(ja|ko|vi|zh)" value="modern" match="dates/calendars/calendar[@type='chinese']/monthPatterns/monthPatternContext[@type='format']/monthPatternWidth[@type='wide']/monthPattern[@type='leap']"/>

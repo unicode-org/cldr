@@ -1186,6 +1186,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="va">Locale Variant</key>
 			<key type="variableTop">Sort As Symbols</key>
 			<key type="x">Private-Use</key>
+			<key type="ms">Measurement System</key>
+			<key type="hc">Hour Cycle (12 vs 24)</key>
+			<key type="fw">First day of week</key>
 		</keys>
 		<types>
 			<type type="arab" key="numbers">Arabic-Indic Digits</type>
@@ -1311,6 +1314,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="yes" key="colNormalization">Sort Unicode Normalized</type>
 			<type type="yes" key="colNumeric">Sort Digits Numerically</type>
 			<type type="zhuyin" key="collation">Zhuyin Sort Order</type>
+			<type type="metric" key="ms">Metric System</type>
+			<type type="ussystem" key="ms">US Measurement System</type>
+			<type type="uksystem" key="ms">Imperial Measurement System</type>
+			<type type="h12" key="hc">12 Hour System (1-12)</type>
+			<type type="h23" key="hc">24 Hour System (0-23)</type>
+			<type type="h11" key="hc">12 Hour System (0-11)</type>
+			<type type="h24" key="hc">24 Hour System (1-24)</type>
 		</types>
 		<transformNames>
 			<transformName type="BGN">BGN</transformName>

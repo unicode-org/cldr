@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2015 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="bgn"/>
+	</identity>
+    	<localeDisplayNames>
+        	<languages>
+            		<language type="bgn">بلوچی رخشانی</language>
+        	</languages>
+    	</localeDisplayNames>
+	<layout>
+		<orientation>
+			<characterOrder>right-to-left</characterOrder>
+			<lineOrder>top-to-bottom</lineOrder>
+		</orientation>
+	</layout>
+	<characters>
+		<exemplarCharacters>[ا آ ب پ ت ٹ ث ج چ ح خ د ڈ ر ڑ ز ژ س ش ص ض ط ظ غ ف ق ک گ ل م ن و ۆ ھ ئ ی ێ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u200C ؤ]</exemplarCharacters>
+		<exemplarCharacters type="index">[ا آ ب پ ت ٹ ث ج چ ح خ د ڈ ر ڑ ز ژ س ش ص ض ط ظ غ ف ق ک گ ل م ن و ۆ ھ ئ ی ێ]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[‐ – — ، ؛ : ! ؟ . … ‘ &quot; ’ ′ ″ “ " ” ( ) \[ \] \\ @ \&amp; # § † ‡ * « »]</exemplarCharacters>
+	</characters>
+</ldml>

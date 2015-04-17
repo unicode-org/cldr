@@ -65,10 +65,12 @@
 
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(?![^"]*[hHms])%A"]            ; DateTime ; &calendar($1); &calField(Formats:Flexible:date) ; $2 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &calField(Formats:Standard:$2) ; $4 ; LTR_ALWAYS
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"]                           ; DateTime ; &calendar($1); &calField(Formats:Flexible:time) ; $2 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(?![^"]*H)%A"]                 ; DateTime ; &calendar($1); &calField(Formats:Flexible:time12) ; $2 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"]                           ; DateTime ; &calendar($1); &calField(Formats:Flexible:time24) ; $2 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="(Timezone)"]    ; DateTime ; &calendar($1) ; &calField(Formats:Flexible:Append) ; $2  ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatFallback                              ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:Fallback) ; Fallback ; LTR_ALWAYS
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="%H%A"]/greatestDifference[@id="%A"] ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:time) ; $2$3/$4 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h%A"]/greatestDifference[@id="%A"] ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:time12) ; h$2/$3 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="H%A"]/greatestDifference[@id="%A"] ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:time24) ; H$2/$3 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="%A"]/greatestDifference[@id="%A"] ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:date) ; $2/$3 ; LTR_ALWAYS
 
 //ldml/dates/calendars/calendar[@type="%A"]/cyclicNameSets/cyclicNameSet[@type="%A"]/cyclicNameContext[@type="%A"]/cyclicNameWidth[@type="%A"]/cyclicName[@type="%A"]   ; DateTime ; &calendar($1) ; $2 ; cyclic-$3-$4-$5

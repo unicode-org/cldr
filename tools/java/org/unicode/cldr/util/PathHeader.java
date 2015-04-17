@@ -1080,6 +1080,8 @@ public class PathHeader implements Comparable<PathHeader> {
                     final List<String> calendarFormatSubtypes = Arrays.asList(
                         "date",
                         "time",
+                        "time12",
+                        "time24",
                         "dateTime",
                         "fallback");
 
@@ -1090,6 +1092,8 @@ public class PathHeader implements Comparable<PathHeader> {
                         .put("none", "")
                         .put("date", "Date Formats")
                         .put("time", "Time Formats")
+                        .put("time12", "12 Hour Time Formats")
+                        .put("time24", "24 Hour Time Formats")
                         .put("dateTime", "Date & Time Combination Formats")
                         .freeze();
 

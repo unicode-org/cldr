@@ -46,6 +46,7 @@ import org.unicode.cldr.util.XPathParts;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DateFormatSymbols;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.DecimalFormatSymbols;
@@ -1134,6 +1135,11 @@ public class ExampleGenerator {
                 String numbersOverride = parts.findAttributeValue("pattern", "numbers");
                 SimpleDateFormat sdf = icuServiceBuilder.getDateFormat(calendar, value, numbersOverride);
                 sdf.setTimeZone(ZONE_SAMPLE);
+                String defaultNumberingSystem = cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+                String timeSeparator = cldrFile.getWinningValue("//ldml/numbers/symbols[@numberSystem='"+defaultNumberingSystem+"']/timeSeparator");
+                DateFormatSymbols dfs = sdf.getDateFormatSymbols();
+                dfs.setTimeSeparatorString(timeSeparator);
+                sdf.setDateFormatSymbols(dfs);
                 return sdf.format(DATE_SAMPLE);
             }
         }

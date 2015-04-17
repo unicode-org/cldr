@@ -1175,6 +1175,11 @@ public class PathHeader implements Comparable<PathHeader> {
                     return getEnglishFirstLetter(source0);
                 }
             });
+            functionMap.put("categoryFromKey", new Transform<String, String>() {
+                public String transform(String source0) {
+                    return (source0.equals("lb"))? "Line Break": source0;
+                }
+            });
             functionMap.put("languageSort", new Transform<String, String>() {
                 public String transform(String source0) {
                     String languageOnlyPart;

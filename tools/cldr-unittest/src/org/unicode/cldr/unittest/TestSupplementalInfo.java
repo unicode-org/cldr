@@ -698,7 +698,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         LikelySubtags ls = new LikelySubtags(SUPPLEMENTAL);
         LanguageTagParser ltp = new LanguageTagParser();
         Map<String, PreferredAndAllowedHour> timeData = SUPPLEMENTAL.getTimeData();
-        
+
         Set<String> seenFull = new HashSet<>();
         for (String locale : factory.getAvailable()) {
             CLDRFile cldrFile = factory.make(locale, true);
@@ -715,7 +715,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 continue;
             }
             seenFull.add(fullLocale); // don't repeat
-            
+
             // don't worry about numeric regions - The real regions will get handled in the various locales
             // fr_CA is an exception, since fr_CA uses 24 hr clock, but en_CA uses 12 hr.  Go figure....
             if (region.matches("[0-9]{3}") || locale.equals("fr_CA")) {
@@ -1465,41 +1465,6 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
     }
 
-    public void TestDayPeriods() {
-        int count = 0;
-        for (String locale : SUPPLEMENTAL.getDayPeriodLocales()) {
-            DayPeriodInfo dayPeriod = SUPPLEMENTAL.getDayPeriods(locale);
-            logln(locale + "\t" + testInfo.getEnglish().getName(locale) + "\t"
-                + dayPeriod);
-            count += dayPeriod.getPeriodCount();
-        }
-        assertTrue("At least some day periods exist", count > 5);
-        CLDRFile file = testInfo.getCldrFactory().make("pl", true);
-
-        SupplementalDataInfo supplementalData = SupplementalDataInfo
-            .getInstance(file.getSupplementalDirectory());
-        DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(file
-            .getLocaleID());
-        LinkedHashSet<DayPeriodInfo.DayPeriod> items = new LinkedHashSet<DayPeriod>(
-            dayPeriods.getPeriods());
-        String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"";
-
-        for (DayPeriodInfo.DayPeriod dayPeriod : items) {
-            logln(prefix + dayPeriod + "\"]");
-        }
-
-        // Check that day periods are recognized.
-        assertEquals("night1", DayPeriodInfo.DayPeriod.night1,
-            dayPeriods.getDayPeriod(0));
-        assertEquals("night2", DayPeriodInfo.DayPeriod.night2,
-            dayPeriods.getDayPeriod(3 * 60 * 60 * 1000));
-        assertEquals("noon", DayPeriodInfo.DayPeriod.noon,
-            dayPeriods.getDayPeriod(12 * 60 * 60 * 1000));
-        assertEquals("evening1", DayPeriodInfo.DayPeriod.evening1,
-            dayPeriods.getDayPeriod((16 * 60 + 5) * 60 * 1000));
-        assertEquals("11pm = night1 ", DayPeriodInfo.DayPeriod.night1,
-            dayPeriods.getDayPeriod(23 * 60 * 60 * 1000));
-    }
 
     /**
      * Verify that we have a default script for every CLDR base language

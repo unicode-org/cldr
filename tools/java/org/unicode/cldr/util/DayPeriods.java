@@ -12,7 +12,7 @@ import com.ibm.icu.util.ULocale;
  * This is a first-cut version just to get going. The data is hard coded until we switch over to real data in ICU.
  */
 public class DayPeriods {
-    private static final int HOUR = 60 * 60 * 1000;
+    public static final int HOUR = 60 * 60 * 1000;
 
     public enum DayPeriod {
         MORNING1("EARLY_MORNING"),

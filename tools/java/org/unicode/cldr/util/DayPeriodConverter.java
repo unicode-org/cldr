@@ -1,14 +1,21 @@
 package org.unicode.cldr.util;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
+import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.DayPeriods.DayPeriod;
 
+import com.google.common.base.Splitter;
+import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.util.ULocale;
 
 public class DayPeriodConverter {
@@ -112,6 +119,194 @@ public class DayPeriodConverter {
     }
 
     public static void main(String[] args) {
+        // generateFormat();
+        generateFieldNames();
+    }
+
+    private static void generateFieldNames() {
+        SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+        Factory factory = CLDRConfig.getInstance().getFullCldrFactory();
+        EnumSet<DayPeriodInfo.DayPeriod> dayPeriodSet = EnumSet.noneOf(DayPeriodInfo.DayPeriod.class);
+
+        for (String locale : sdi.getDayPeriodLocales(DayPeriodInfo.Type.format)) {
+            ULocale uLocale = new ULocale(locale);
+            DayPeriodInfo dayPeriodInfo = sdi.getDayPeriods(DayPeriodInfo.Type.format, locale);
+            System.out.println(locale);
+            dayPeriodSet.clear();
+            dayPeriodSet.addAll(dayPeriodInfo.getPeriods());
+            boolean fieldType = false;
+            if (!fieldType) {
+                System.out.println("\t<dayPeriodContext type=\"stand-alone\">");
+                System.out.println("\t\t<dayPeriodWidth type=\"wide\">");
+                CLDRFile cldrFile = factory.make(locale, true);
+                addOldDayPeriod(cldrFile, "am");
+                addOldDayPeriod(cldrFile, "pm");
+            }
+            for (DayPeriodInfo.DayPeriod dayPeriod : dayPeriodSet) {
+                if (fieldType) {
+                    System.out.println("\t<field type=\"dayPeriod-" + dayPeriod + "\">");
+                    String name = getNativeName(uLocale, dayPeriod);
+                    System.out.println("\t\t<displayName>" + name + "</displayName>");
+                    System.out.println("\t</field>");
+                } else {
+                    String name = getNativeName(uLocale, dayPeriod);
+                    System.out.println("\t\t\t<dayPeriod type=\"" + dayPeriod + "\">" + name + "</dayPeriod>");
+                }
+            }
+            if (!fieldType) {
+                System.out.println("\t\t</dayPeriodWidth>");
+                System.out.println("\t</dayPeriodContext>");
+            }
+            System.out.println();
+        }
+    }
+
+    private static void addOldDayPeriod(CLDRFile cldrFile, String period) {
+        String amString = cldrFile.getStringValue(getPath("format", "wide", period));
+        if (amString != null) {
+            System.out.println("\t\t\t<dayPeriod type=\"" + period + "\">" + amString + "</dayPeriod>");
+        }
+    }
+    
+    static String getPath(String context, String width, String dayPeriod) {
+        return "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/" +
+            "dayPeriodContext[@type=\"" + context
+            + "\"]/dayPeriodWidth[@type=\"" + width
+            + "\"]/dayPeriod[@type=\"" + dayPeriod + "\"]";
+    }
+
+    static void generateFormat() {
+        SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+        M3<ULocale,Integer,DayPeriodInfo.DayPeriod> allData = ChainedMap.of(new TreeMap(LanguageGroup.COMPARATOR), new TreeMap(), DayPeriodInfo.DayPeriod.class);
+        for (String locale : sdi.getDayPeriodLocales(DayPeriodInfo.Type.selection)) {
+            ULocale ulocale = new ULocale(locale);
+            NoonMidnight nm = NoonMidnight.get(locale);
+            boolean hasNoon = nm != null && nm.noon != null;
+            boolean hasMidnight = nm != null && nm.midnight != null;
+            DayPeriodInfo data = sdi.getDayPeriods(DayPeriodInfo.Type.selection, locale);
+            if (hasMidnight) {
+                allData.put(ulocale, 0, DayPeriodInfo.DayPeriod.midnight);
+            }
+            if (hasNoon) {
+                allData.put(ulocale, 12*DayPeriodInfo.HOUR, DayPeriodInfo.DayPeriod.noon);
+            }
+            int lastTime = -1;
+            DayPeriodInfo.DayPeriod lastPeriod = null;
+            for (int index = 0; index < data.getPeriodCount(); ++index) {
+                R3<Integer, Boolean, DayPeriodInfo.DayPeriod> row = data.getPeriod(index);
+                DayPeriodInfo.DayPeriod period = row.get2();
+                int time = row.get0();
+                if (!row.get1()) {
+                    time+=1;
+                } else if (hasMidnight && time == 0) {
+                    time+=1;
+                } else if (hasNoon) {
+                    if (time == 12*DayPeriodInfo.HOUR) {
+                        time+=1;
+                    } else if (lastTime < 12*DayPeriodInfo.HOUR && time > 12*DayPeriodInfo.HOUR) {
+                        System.out.println(locale + ": Splitting " + lastTime + ", " + lastPeriod + ", " + time + ", " + period);
+                        allData.put(ulocale, 12*DayPeriodInfo.HOUR + 1, lastPeriod);
+                    }
+                }
+                allData.put(ulocale, time, period);
+                lastTime = time;
+                lastPeriod = period;
+            }
+        }
+        for (Entry<ULocale, Map<Integer, org.unicode.cldr.util.DayPeriodInfo.DayPeriod>> entry : allData) {
+            ULocale locale = entry.getKey();
+            System.out.println("\t\t<dayPeriodRules locales=\"" + locale + "\">");
+            ArrayList<Entry<Integer, DayPeriodInfo.DayPeriod>> list = new ArrayList<>(entry.getValue().entrySet());
+            for (int i = 0; i < list.size(); ++i) {
+                Entry<Integer, org.unicode.cldr.util.DayPeriodInfo.DayPeriod> item = list.get(i);
+                //System.out.println(item.getKey() + " = " + item.getValue());
+                DayPeriodInfo.DayPeriod dayPeriod = item.getValue();
+                int start = item.getKey();
+                int end = i+1 == list.size() ? 24*DayPeriodInfo.HOUR : list.get(i+1).getKey();
+                String startType = "from";
+                if ((start & 1) != 0) {
+                    startType = "after";
+                }
+                start /= DayPeriodInfo.HOUR;
+                end /= DayPeriodInfo.HOUR;
+                System.out.println("\t\t\t<dayPeriodRule type=\""
+                    + dayPeriod.toString().toLowerCase(Locale.ENGLISH)
+                    + "\" "
+                    + (start == end ? "at=\"" + start
+                        : startType + "=\"" + start + ":00\" before=\"" + end)  + ":00\"/>" +
+                        " <!-- " + getNativeName(locale, dayPeriod)
+                        + " -->");
+            }
+            System.out.println("\t\t</dayPeriodRules>");
+        }
+    }
+    void oldMain() {
+//        SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+//
+//        for (String locale : sdi.getDayPeriodLocales(DayPeriodInfo.Type.selection)) {
+//
+//            StringBuilder result = new StringBuilder("\t\t<dayPeriodRules locales=\"" + locale + "\">\n";
+//            for (int index = 0; index < data.getPeriodCount(); ++index) {
+//                R3<Integer, Boolean, DayPeriodInfo.DayPeriod> periodData = data.getPeriod(index);
+//                public String toCldr() {
+//                    DayPeriod lastDayPeriod = data[0];
+//                    int start = 0;
+//                    for (int i = 1; i < 24; ++i) {
+//                        DayPeriod dayPeriod = data[i];
+//                        if (dayPeriod != lastDayPeriod) {
+//                            result = addPeriod(result, lastDayPeriod, start, i);
+//                            lastDayPeriod = dayPeriod;
+//                            start = i;
+//                        }
+//                    }
+//                    result = addPeriod(result, lastDayPeriod, start, 24);
+//                    result += "\t\t</dayPeriodRules>";
+//                    return result;
+//                }
+//
+//                private String addPeriod(String result, DayPeriod dayPeriod, int start, int i) {
+//                    result += "\t\t\t<dayPeriodRule type=\""
+//                        + dayPeriod.toString().toLowerCase(Locale.ENGLISH)
+//                        + "\" from=\""
+//                        + start + ":00"
+//                        + "\" before=\""
+//                        + i + ":00"
+//                        + "\"/> <!-- " + toNativeName.get(dayPeriod)
+//                        + " -->\n";
+//                    return result;
+//                }
+//
+//            }
+//            NoonMidnight nm = NoonMidnight.get(locale);
+//
+//            System.out.println(locale + "\t" + nm);
+//        }
+    }
+
+    static final ULocale ROOT2 = new ULocale("root");
+    private static String getNativeName(ULocale locale, DayPeriodInfo.DayPeriod dayPeriod) {
+        NoonMidnight nm = NoonMidnight.get(locale.toString());
+        if (dayPeriod == DayPeriodInfo.DayPeriod.noon) {
+            return CldrUtility.ifNull(nm.noon, "missing-" + dayPeriod);
+        } else if (dayPeriod == DayPeriodInfo.DayPeriod.midnight) {
+            return CldrUtility.ifNull(nm.midnight, "missing-" + dayPeriod);
+        }
+        if (locale.equals(ROOT2)) {
+            if (dayPeriod == DayPeriodInfo.DayPeriod.morning1) {
+                return "am";
+            } else if (dayPeriod == DayPeriodInfo.DayPeriod.afternoon1) {
+                return "pm";
+            }
+        }
+        DayInfo data = DATA.get(locale);
+        if (data == null) {
+            return "missing-" + dayPeriod;
+        }
+        DayPeriod otherDayPeriod = DayPeriod.valueOf(dayPeriod.toString().toUpperCase(Locale.ENGLISH));
+        return data.toNativeName.get(otherDayPeriod);
+    }
+
+    static void writeOld() {
         System.out.println("\t<dayPeriodRuleSet type=\"selection\">");
         for (Entry<ULocale, DayInfo> foo : DATA.entrySet()) {
             check(foo.getKey(), foo.getValue());
@@ -140,6 +335,112 @@ public class DayPeriodConverter {
     private static void check(ULocale locale, DayPeriod morning1, DayPeriod morning2, DayInfo value) {
         if (value.toNativeName.containsKey(morning2) && !value.toNativeName.containsKey(morning1)) {
             throw new IllegalArgumentException(locale + " Contains " + morning2 + ", but not " + morning1);
+        }
+    }
+
+
+    static class NoonMidnight {
+        public NoonMidnight(List<String> items) {
+            locale = items.get(0);
+            midnight = CldrUtility.ifEqual(items.get(1), "N/A", null);
+            noon = CldrUtility.ifEqual(items.get(2), "N/A", null);
+        }
+        final String locale;
+        final String noon;
+        final String midnight;
+        static NoonMidnight get(String locale) {
+            return NOON_MIDNIGHT_MAP.get(locale);
+        }
+        @Override
+        public String toString() {
+            return locale + ", " + noon + ", " + midnight;
+        }
+        static Map<String,NoonMidnight> NOON_MIDNIGHT_MAP = new HashMap<>();
+        static final String[] NOON_MIDNIGHT = {
+            "en|midnight|noon",
+            "af|middernag|N/A",
+            "nl|middernacht|N/A",
+            "de|Mitternacht|N/A",
+            "da|midnat|N/A",
+            "nb|midnatt|N/A",
+            "sv|midnatt|N/A",
+            "is|miðnætti|hádegi",
+            "pt|meia-noite|meio-dia",
+            "pt_PT|meia-noite|meio-dia",
+            "gl|medianoite|mediodía",
+            "es|medianoche|mediodía",
+            "es_419|medianoche|mediodía",
+            "ca|mitjanit|migdia",
+            "it|mezzanotte|mezzogiorno",
+            "ro|miezul nopții|amiază",
+            "fr|minuit|midi",
+            "fr-CA|minuit|midi",
+            "hr|ponoć|podne",
+            "bs|u ponoć|u podne",
+            "sr|поноћ|подне",
+            "sl|polnoč|poldne",
+            "cs|půlnoc|poledne",
+            "sk|polnoc|poludnie",
+            "pl|północ|południe",
+            "bg|полунощ|N/A",
+            "mk|на полноќ|напладне",
+            "ru|полночь|полдень",
+            "uk|північ|полудень",
+            "lt|vidurnaktis|vidurdienis",
+            "lv|pusnakts|pusdienlaiks",
+            "el|N/A|μεσημέρι",
+            "fa|نیمه‌شب|ظهر",
+            "hy|կեսգիշեր|կեսօր",
+            "ka|შუაღამე|შუადღე",
+            "sq|mesnatë|mesditë",
+            "ur|آدھی رات|N/A",
+            "hi|आधी रात|दोपहर",
+            "bn|N/A|N/A",
+            "gu|અડધી રાત|બપોર",
+            "mr|मध्यरात्री|मध्यान्ह",
+            "ne|मध्यरात|मध्यान्ह",
+            "pa|ਅੱਧੀ ਰਾਤ|ਦੁਪਹਿਰ",
+            "si|මැදියම|දවල්",
+            "ta|நள்ளிரவு|நன்பகல்",
+            "te|అర్థరాత్రి|మధ్యాహ్నం",
+            "ml|അർദ്ധരാത്രി|ഉച്ചയ്ക്ക്",
+            "kn|ಮಧ್ಯರಾತ್ರಿ|ಮಧ್ಯಾಹ್ನ",
+            "zh|半夜|中午",
+            "zh-TW|子夜|正午",
+            "zh-HK|深夜|中午",
+            "ja|真夜中|正午",
+            "ko|자정|정오",
+            "tr|gece yarısı|öğlen",
+            "az|gecəyarı|günorta",
+            "kk|түн жарымы|талтүс",
+            "ky|түн ортосу|чак түш",
+            "uz|yarim tun|tush",
+            "et|kesköö|keskpäev",
+            "fi|keskiyö|keskipäivä",
+            "hu|éjfél|dél",
+            "th|เที่ยงคืน|เที่ยง",
+            "lo|ທ່ຽງ​ຄືນ|​ທ່ຽງ",
+            "ar| منتصف الليل|ظهرا",
+            "he|חצות|N/A",
+            "id|tengah malam|tengah hari",
+            "ms|Tengah malam|Tengah hari",
+            "fil|hating-gabi|tangaling-tapat",
+            "vi|nửa đêm|trưa",
+            "km|អាធ្រាត្រ|ថ្ងៃ​ត្រង់",
+            "sw|saa sita za usiku|saa sita za mchana",
+            "zu|N/A|N/A",
+            "am|እኩለ ሌሊት|ቀትር",
+            "eu|gauerdia|eguerdia",
+            "mn|шөнө дунд|үд дунд",
+            "my|သန်းခေါင်ယံ|မွန်းတည့်",
+        };
+        static {
+            Splitter BAR = Splitter.on('|').trimResults();
+            for (String s : NOON_MIDNIGHT) {
+                List<String> items = BAR.splitToList(s);
+                NoonMidnight nm = new NoonMidnight(items);
+                NOON_MIDNIGHT_MAP.put(items.get(0), nm);
+            }
         }
     }
 }

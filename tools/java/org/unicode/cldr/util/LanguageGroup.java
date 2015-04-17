@@ -1,16 +1,21 @@
 package org.unicode.cldr.util;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
+
+import org.unicode.cldr.util.ChainedMap.M3;
 
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.util.ULocale;
 
 public enum LanguageGroup {
+    root("root"),
     germanic("gem"), celtic("cel"), romance("roa"), slavic("sla"), baltic("bat"), indic("inc"), other_indo("ine"), dravidian("dra"),
     uralic("urj"), cjk("und_Hani"), sino_tibetan("sit"), tai("tai"), austronesian("map"), turkic("trk"),
     afroasiatic("afa"), austroasiatic("aav"), niger_congo("nic"), east_sudanic("sdv"),
@@ -23,23 +28,25 @@ public enum LanguageGroup {
     }
 
     static final Map<ULocale, LanguageGroup> LANGUAGE_GROUP;
-    static final Relation<LanguageGroup, ULocale> GROUP_LANGUAGE = Relation.of(new EnumMap<LanguageGroup, Set<ULocale>>(LanguageGroup.class),
-        LinkedHashSet.class);
+    static final M3<LanguageGroup, ULocale, Integer> GROUP_LANGUAGE = ChainedMap.of(new TreeMap<LanguageGroup, Object>(), new LinkedHashMap<ULocale, Object>(), Integer.class);
 
     private static void add(Map<ULocale, LanguageGroup> map, LanguageGroup group, String... baseLanguages) {
+        int count = 0;
         for (String s : baseLanguages) {
             ULocale loc = new ULocale(s);
             if (map.put(loc, group) != null) {
                 throw new IllegalArgumentException("duplicate: " + s + ", " + group);
             }
             ;
-            GROUP_LANGUAGE.put(group, loc);
+            GROUP_LANGUAGE.put(group, loc, count);
+            ++count;
         }
     }
 
     static {
         LinkedHashMap<ULocale, LanguageGroup> temp = new LinkedHashMap<>();
         LANGUAGE_GROUP = Collections.unmodifiableMap(temp);
+        add(temp, root, "root");
         add(temp, germanic, "en", "fy", "af", "nl", "de", "gsw", "wae", "ksh", "lb", "fo", "da", "nb", "nn", "sv", "is", "yi");
         add(temp, celtic, "gd", "ga", "cy", "gv", "kw", "br");
         add(temp, romance, "pt", "gl", "ast", "es", "ca", "it", "rm", "ro", "fr");
@@ -72,19 +79,45 @@ public enum LanguageGroup {
         add(temp, slavic, "dsb", "hsb");
         add(temp, songhay, "dje", "khq", "ses", "twq");
         add(temp, turkic, "sah");
-        GROUP_LANGUAGE.freeze();
+        //GROUP_LANGUAGE.freeze();
     }
 
     public static LanguageGroup get(ULocale locale) {
-        LanguageGroup result = LANGUAGE_GROUP.get(locale);
-        return result == null ? LanguageGroup.other : result;
+        return CldrUtility.ifNull(LANGUAGE_GROUP.get(locale), LanguageGroup.other);
     }
 
     public static Set<ULocale> getExplicit() {
-        return LANGUAGE_GROUP.keySet();
+        return Collections.unmodifiableSet(LANGUAGE_GROUP.keySet());
     }
 
     public static Set<ULocale> getLocales(LanguageGroup group) {
-        return GROUP_LANGUAGE.get(group);
+        return Collections.unmodifiableSet(GROUP_LANGUAGE.get(group).keySet());
     }
+    
+    /**
+     * return position in group, or -1 if in no group
+     * @param locale
+     * @return
+     */
+    public static int rankInGroup(ULocale locale) {
+        LanguageGroup group = LANGUAGE_GROUP.get(locale);
+        if (group == null) {
+            return Integer.MAX_VALUE;
+        }
+        return GROUP_LANGUAGE.get(group).get(locale);
+    }
+
+    public static Comparator<ULocale> COMPARATOR = new Comparator<ULocale>() {
+        @Override
+        public int compare(ULocale o1, ULocale o2) {
+            LanguageGroup group1 = get(o1);
+            LanguageGroup group2 = get(o2);
+            int diff = group1.ordinal() - group2.ordinal();
+            if (diff != 0) return diff;
+            int r1 = rankInGroup(o1);
+            int r2 = rankInGroup(o2);
+            diff = r1 - r2;
+            return diff != 0 ? diff : o1.compareTo(o2);
+        }
+    };
 }

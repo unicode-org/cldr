@@ -30,6 +30,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
@@ -1360,6 +1361,10 @@ public class CldrUtility {
         return source == replaceIfSame ? replacement : source;
     }
 
+    public static <T> T ifEqual(T source, T replaceIfSame, T replacement) {
+        return Objects.equals(source, replaceIfSame) ? replacement : source;
+    }
+
     public static <T> Set<T> intersect(Set<T> a, Collection<T> b) {
         Set<T> result = new LinkedHashSet<>(a);
         result.retainAll(b);
@@ -1383,4 +1388,5 @@ public class CldrUtility {
             testFramework.logln(s);
         }
     }
+
 }

@@ -148,7 +148,9 @@ public class TestCLDRFile extends TestFmwk {
                 // &&
                 // !path.startsWith("//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]")
                 || path.contains("[@count=")
-                && !path.contains("[@count=\"other\"]")) {
+                && !path.contains("[@count=\"other\"]")
+                || path.contains("dayPeriod[@type=\"noon\"]")
+                ) {
                 continue;
             }
             for (LocaleInfo localeInfo : localeInfos.values()) {
@@ -215,7 +217,7 @@ public class TestCLDRFile extends TestFmwk {
             String path = entry.getKey();
             Set<String> locales = entry.getValue();
             Status status = new Status();
-            Object originalLocale = englishInfo.cldrFile.getSourceLocaleID(
+            String originalLocale = englishInfo.cldrFile.getSourceLocaleID(
                 path, status);
             String engName = "en"
                 + (englishInfo.cldrFile.isHere(path) ? "" : "*"

@@ -1790,28 +1790,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">vm.</dayPeriod>
-							<dayPeriod type="noon">m.</dayPeriod>
 							<dayPeriod type="pm">nm.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="afternoon">nachmittags</dayPeriod>
+							<dayPeriod type="afternoon2">nachmittags</dayPeriod>
 							<dayPeriod type="am">vorm.</dayPeriod>
-							<dayPeriod type="earlyMorning">morgens</dayPeriod>
-							<dayPeriod type="evening">abends</dayPeriod>
-							<dayPeriod type="morning">vormittags</dayPeriod>
-							<dayPeriod type="night">nachts</dayPeriod>
-							<dayPeriod type="noon">mittags</dayPeriod>
+							<dayPeriod type="morning1">morgens</dayPeriod>
+							<dayPeriod type="evening1">abends</dayPeriod>
+							<dayPeriod type="morning2">vormittags</dayPeriod>
+							<dayPeriod type="night1">nachts</dayPeriod>
+							<dayPeriod type="afternoon1">mittags</dayPeriod>
 							<dayPeriod type="pm">nachm.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="afternoon" draft="unconfirmed">Nachmittag</dayPeriod>
-							<dayPeriod type="earlyMorning" draft="unconfirmed">Morgen</dayPeriod>
-							<dayPeriod type="evening" draft="unconfirmed">Abend</dayPeriod>
-							<dayPeriod type="morning" draft="unconfirmed">Vormittag</dayPeriod>
-							<dayPeriod type="night" draft="unconfirmed">Nacht</dayPeriod>
-							<dayPeriod type="noon" draft="unconfirmed">Mittag</dayPeriod>
+							<dayPeriod type="afternoon2" draft="unconfirmed">Nachmittag</dayPeriod>
+							<dayPeriod type="morning1" draft="unconfirmed">Morgen</dayPeriod>
+							<dayPeriod type="evening1" draft="unconfirmed">Abend</dayPeriod>
+							<dayPeriod type="morning2" draft="unconfirmed">Vormittag</dayPeriod>
+							<dayPeriod type="night1" draft="unconfirmed">Nacht</dayPeriod>
+							<dayPeriod type="afternoon1" draft="unconfirmed">Mittag</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>

@@ -13,22 +13,28 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 
 public class DayPeriodInfo {
-    public static int DAY_LIMIT = 24 * 60 * 60 * 1000;
+    public static final int HOUR = 60 * 60 * 1000;
+    public static final int DAY_LIMIT = 24 * HOUR;
 
     public enum Type {
         format, selection
     }
 
     public enum DayPeriod {
-        midnight, noon,
+        midnight, am, noon, pm,
         morning1, morning2, afternoon1, afternoon2, evening1, evening2, night1, night2;
-        public static final DayPeriod am = morning1;
-        public static final DayPeriod pm = afternoon1;
+
+//        public static final DayPeriod am = morning1;
+//        public static final DayPeriod pm = afternoon1;
 
         public static DayPeriod fromString(String value) {
-            return value.equals("am") ? morning1 
-                : value.equals("pm") ? afternoon1
-                    : DayPeriod.valueOf(value.toLowerCase(Locale.ENGLISH));
+
+            return valueOf(value);
+//            return 
+//                value.equals("am") ? morning1 
+//                : value.equals("pm") ? afternoon1
+//                    : 
+//                        DayPeriod.valueOf(value.toLowerCase(Locale.ENGLISH));
         }
     };
 
@@ -57,9 +63,9 @@ public class DayPeriodInfo {
         public DayPeriodInfo finish(String[] locales) {
             DayPeriodInfo result = new DayPeriodInfo();
             int len = info.size();
-            if (len == 0) {
-                return result;
-            }
+//            if (len == 0) {
+//                return result;
+//            }
             result.starts = new int[len];
             result.includesStart = new boolean[len];
             result.periods = new DayPeriodInfo.DayPeriod[len];
@@ -80,9 +86,11 @@ public class DayPeriodInfo {
                 lastFinishIncluded = row.get1();
                 result.periods[i++] = row.get2();
             }
-            if (result.starts[0] != 0 || result.includesStart[0] != true || lastFinish != DAY_LIMIT
-                || lastFinishIncluded != false) {
-                throw new IllegalArgumentException("Doesn't cover 0:00).");
+            if (len != 0) {
+                if (result.starts[0] != 0 || result.includesStart[0] != true || lastFinish != DAY_LIMIT
+                    || lastFinishIncluded != false) {
+                    throw new IllegalArgumentException("Doesn't cover 0:00).");
+                }
             }
             info.clear();
             return result;
@@ -164,8 +172,8 @@ public class DayPeriodInfo {
                 result.append('\n').append(included ? " < " : " \u2264 ");
             }
             result.append(formatTime(time))
-                .append(!included ? " < " : " \u2264 ")
-                .append(period.get2());
+            .append(!included ? " < " : " \u2264 ")
+            .append(period.get2());
         }
         result.append("\n< 24:00");
         return result.toString();

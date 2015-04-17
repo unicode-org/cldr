@@ -37,6 +37,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.DayPeriodInfo.Type;
 import org.unicode.cldr.util.DtdData.AttributeValueComparator;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -3282,12 +3283,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
         // dayPeriods
         String locale = getLocaleID();
-        DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(locale);
-
-        for (String context : new String[] { "format", "stand-alone" }) {
-            for (String width : new String[] { "narrow", "abbreviated", "wide" }) {
-                if (dayPeriods != null) {
-                    LinkedHashSet<DayPeriod> items = new LinkedHashSet<DayPeriod>(dayPeriods.getPeriods());
+        DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(DayPeriodInfo.Type.format, locale);
+        if (dayPeriods != null) {
+            LinkedHashSet<DayPeriod> items = new LinkedHashSet<DayPeriod>(dayPeriods.getPeriods());
+            items.add(DayPeriod.am);
+            items.add(DayPeriod.pm);
+            for (String context : new String[] { "format", "stand-alone" }) {
+                for (String width : new String[] { "narrow", "abbreviated", "wide" }) {
                     for (DayPeriod dayPeriod : items) {
                         // ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]
                         toAddTo.add("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/" +

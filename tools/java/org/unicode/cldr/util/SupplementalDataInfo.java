@@ -2868,6 +2868,10 @@ public class SupplementalDataInfo {
             lastDayPeriodType = type;
             // System.out.println(type + ", " + locales + ", " + path);
         }
+        if (path.size() != 4) {
+            if (locales.equals("root")) return; // we allow root to be empty
+            throw new IllegalArgumentException(locales + " must have dayPeriodRule elements");
+        }
         DayPeriod dayPeriod = DayPeriod.fromString(path.getAttributeValue(-1, "type"));
         String at = path.getAttributeValue(-1, "at");
         String from = path.getAttributeValue(-1, "from");
@@ -3620,14 +3624,6 @@ public class SupplementalDataInfo {
             locale = LocaleIDParser.getSimpleParent(locale);
         }
         return null;
-    }
-
-    public DayPeriodInfo getDayPeriods(String locale) {
-        return getDayPeriods(DayPeriodInfo.Type.format, locale);
-    }
-
-    public Set<String> getDayPeriodLocales() {
-        return getDayPeriodLocales(DayPeriodInfo.Type.format);
     }
 
     public DayPeriodInfo getDayPeriods(DayPeriodInfo.Type type, String locale) {

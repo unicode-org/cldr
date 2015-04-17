@@ -44,9 +44,7 @@
 //ldml/localeDisplayNames/scripts/script[@type="%A"]           ; Locale Display Names ; Scripts ; &categoryFromScript($1) ; $1
 //ldml/localeDisplayNames/territories/territory[@type="%A"]    ; Locale Display Names ; &territorySection($1) ; &categoryFromTerritory($1) ; $1
 //ldml/localeDisplayNames/variants/variant[@type="%A"]         ; Locale Display Names ; Locale Variants ; null ; $1
-//ldml/localeDisplayNames/keys/key[@type="lb"]                 ; Locale Display Names ; Keys ; Line Break ; lb
 //ldml/localeDisplayNames/keys/key[@type="%A"]                 ; Locale Display Names ; Keys ; $1 ; $1
-//ldml/localeDisplayNames/types/type[@type="%A"][@key="lb"]    ; Locale Display Names ; Keys ; *Line Break ; lb-$1
 //ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]    ; Locale Display Names ; Keys ; *$2 ; $2-$1
 
 ### Date & Time Formatting

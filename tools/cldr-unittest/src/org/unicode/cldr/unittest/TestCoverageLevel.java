@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -14,6 +15,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M4;
@@ -21,6 +23,12 @@ import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StandardCodes.CodeType;
+import org.unicode.cldr.util.StandardCodes.LstrField;
+import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
@@ -44,11 +52,14 @@ import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
 
-public class TestCoverageLevel extends TestFmwk {
+public class TestCoverageLevel extends TestFmwkPlus {
 
     private static TestInfo testInfo = TestInfo.getInstance();
+    private static final StandardCodes STANDARD_CODES = testInfo.getStandardCodes();
+    private static final CLDRFile ENGLISH = testInfo.getEnglish();
+    private static final SupplementalDataInfo SDI = testInfo.getSupplementalDataInfo();
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         // TestCoverageLevel.getStarred(true, "en", "de");
         // new TestCoverageLevel().getOrgs();
         new TestCoverageLevel().run(args);
@@ -111,7 +122,7 @@ public class TestCoverageLevel extends TestFmwk {
                 + "\t"
                 + (maxLevelCount == 1 ? "all" : localesWithUniqueLevels
                     .size() == 0 ? "none" : CollectionUtilities.join(
-                    localesWithUniqueLevels, ", ")));
+                        localesWithUniqueLevels, ", ")));
         }
     }
 
@@ -161,18 +172,18 @@ public class TestCoverageLevel extends TestFmwk {
                 }
                 starredToAttributes.put(starredPath,
                     pathStarrer.getAttributesString("|") + "=‹" + value
-                        + "›");
+                    + "›");
             }
         }
         RegexLookup<Transform<String, String>> longTransLookup = new RegexLookup<Transform<String, String>>()
             .add("^//ldml/localeDisplayNames/languages/language",
                 new TypeName(CLDRFile.LANGUAGE_NAME))
-            .add("^//ldml/localeDisplayNames/scripts/script",
-                new TypeName(CLDRFile.SCRIPT_NAME))
-            .add("^//ldml/localeDisplayNames/territories/territory",
-                new TypeName(CLDRFile.TERRITORY_NAME))
-            .add("^//ldml/numbers/currencies/currency",
-                new TypeName(CLDRFile.CURRENCY_NAME));
+                .add("^//ldml/localeDisplayNames/scripts/script",
+                    new TypeName(CLDRFile.SCRIPT_NAME))
+                    .add("^//ldml/localeDisplayNames/territories/territory",
+                        new TypeName(CLDRFile.TERRITORY_NAME))
+                        .add("^//ldml/numbers/currencies/currency",
+                            new TypeName(CLDRFile.CURRENCY_NAME));
 
         for (Entry<Level, Relation<String, String>> entry : data.entrySet()) {
             final Level level = entry.getKey();
@@ -221,14 +232,14 @@ public class TestCoverageLevel extends TestFmwk {
         LanguageTagParser parser = new LanguageTagParser();
         // cf
         // http://cldr.unicode.org/development/development-process/design-proposals/languages-to-show-for-translation
-        for (String language : testInfo.getSupplementalDataInfo()
+        for (String language : SDI
             .getLanguagesForTerritoriesPopulationData()) {
             String base = parser.set(language).getLanguage();
             boolean isOfficial = false;
             double languageLiterate = 0;
-            for (String territory : testInfo.getSupplementalDataInfo()
+            for (String territory : SDI
                 .getTerritoriesForPopulationData(language)) {
-                PopulationData pop = testInfo.getSupplementalDataInfo()
+                PopulationData pop = SDI
                     .getLanguageAndTerritoryPopulationData(language,
                         territory);
                 OfficialStatus officialStatus = pop.getOfficialStatus();
@@ -251,15 +262,15 @@ public class TestCoverageLevel extends TestFmwk {
                 languageStatus.put(base, LanguageStatus.Lit10MandOfficial);
             }
         }
-        for (String language : testInfo.getSupplementalDataInfo()
+        for (String language : SDI
             .getLanguagesForTerritoriesPopulationData()) {
             if (languageLiteratePopulation.getCount(language) < 1000000) {
                 continue;
             }
             String base = parser.set(language).getLanguage();
-            for (String territory : testInfo.getSupplementalDataInfo()
+            for (String territory : SDI
                 .getTerritoriesForPopulationData(language)) {
-                PopulationData pop = testInfo.getSupplementalDataInfo()
+                PopulationData pop = SDI
                     .getLanguageAndTerritoryPopulationData(language,
                         territory);
                 double litPop = pop.getLiteratePopulation();
@@ -269,10 +280,9 @@ public class TestCoverageLevel extends TestFmwk {
                 }
             }
         }
-        for (String territory : testInfo.getStandardCodes().getAvailableCodes(
+        for (String territory : STANDARD_CODES.getAvailableCodes(
             "territory")) {
-            Set<CurrencyDateInfo> cdateInfo = testInfo
-                .getSupplementalDataInfo().getCurrencyDateInfo(territory);
+            Set<CurrencyDateInfo> cdateInfo = SDI.getCurrencyDateInfo(territory);
             if (cdateInfo == null) {
                 continue;
             }
@@ -311,16 +321,16 @@ public class TestCoverageLevel extends TestFmwk {
             this.field = field;
             switch (field) {
             case CLDRFile.LANGUAGE_NAME:
-                dep = testInfo.getSupplementalDataInfo().getLocaleAliasInfo()
-                    .get("language");
+                dep = SDI.getLocaleAliasInfo()
+                .get("language");
                 break;
             case CLDRFile.TERRITORY_NAME:
-                dep = testInfo.getSupplementalDataInfo().getLocaleAliasInfo()
-                    .get("territory");
+                dep = SDI.getLocaleAliasInfo()
+                .get("territory");
                 break;
             case CLDRFile.SCRIPT_NAME:
-                dep = testInfo.getSupplementalDataInfo().getLocaleAliasInfo()
-                    .get("script");
+                dep = SDI.getLocaleAliasInfo()
+                .get("script");
                 break;
             default:
                 dep = null;
@@ -329,7 +339,7 @@ public class TestCoverageLevel extends TestFmwk {
         }
 
         public String transform(String source) {
-            String result = testInfo.getEnglish().getName(field, source);
+            String result = ENGLISH.getName(field, source);
             String extra = "";
             if (field == CLDRFile.LANGUAGE_NAME) {
                 String lang = isBigLanguage(source);
@@ -351,10 +361,10 @@ public class TestCoverageLevel extends TestFmwk {
 
     RegexLookup<Level> exceptions = RegexLookup.of(null,
         new Transform<String, Level>() {
-            public Level transform(String source) {
-                return Level.fromLevel(Integer.parseInt(source));
-            }
-        }, null).loadFromFile(TestCoverageLevel.class,
+        public Level transform(String source) {
+            return Level.fromLevel(Integer.parseInt(source));
+        }
+    }, null).loadFromFile(TestCoverageLevel.class,
         "TestCoverageLevel.txt");
 
     public void TestExceptions() {
@@ -365,7 +375,7 @@ public class TestCoverageLevel extends TestFmwk {
 
     public void TestNarrowCurrencies() {
         String path = "//ldml/numbers/currencies/currency[@type=\"USD\"]/symbol[@alt=\"narrow\"]";
-        String value = testInfo.getEnglish().getStringValue(path);
+        String value = ENGLISH.getStringValue(path);
         assertEquals("Narrow $", "$", value);
         SupplementalDataInfo sdi = SupplementalDataInfo
             .getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
@@ -386,15 +396,15 @@ public class TestCoverageLevel extends TestFmwk {
             "Problems with TestCoverageLevel test")) {
             return;
         }
-        SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
-        Factory phf = PathHeader.getFactory(testInfo.getEnglish());
+        SupplementalDataInfo sdi = SDI;
+        Factory phf = PathHeader.getFactory(ENGLISH);
         Relation<Row.R3, String> bad = Relation.of(
             new TreeMap<Row.R3, Set<String>>(), TreeSet.class);
         Relation<Row.R3, String> all = Relation.of(
             new TreeMap<Row.R3, Set<String>>(), TreeSet.class);
         XPathParts parts = new XPathParts();
 
-        main: for (String path : testInfo.getEnglish().fullIterable()) {
+        main: for (String path : ENGLISH.fullIterable()) {
             PathHeader ph = phf.fromPath(path);
             SectionId section = ph.getSectionId();
             PageId page = ph.getPageId();
@@ -432,7 +442,7 @@ public class TestCoverageLevel extends TestFmwk {
                 if ((header.startsWith("Currency Spacing when")
                     || header.startsWith("Standard Patterns when using")
                     || header.startsWith("Miscellaneous Patterns when") || header
-                        .startsWith("Currency Unit Patterns when"))
+                    .startsWith("Currency Unit Patterns when"))
                     && !header.contains("Latin")) {
                     continue main;
                 }
@@ -445,7 +455,7 @@ public class TestCoverageLevel extends TestFmwk {
                 break;
             }
 
-            if (testInfo.getSupplementalDataInfo().hasDeprecatedItem("ldml",
+            if (SDI.hasDeprecatedItem("ldml",
                 parts.set(path))) {
                 continue;
             }
@@ -458,6 +468,63 @@ public class TestCoverageLevel extends TestFmwk {
         }
         for (Entry<R3, Set<String>> item : all.keyValuesSet()) {
             logln(item.getKey() + "\t" + item.getValue());
+        }
+    }
+
+    /**
+     * Check that English paths are, except for known cases, at least modern coverage.
+     * We filter out:
+     * <pre>
+     *  * deprecated languages/scripts/territories
+     *  * old currencies
+     *  * anything from CODE_FALLBACK_ID
+     *  * anything with a lateral inheritance (path changes)
+     * </pre>
+     */
+    @SuppressWarnings("unchecked")
+    public void TestEnglish() {
+        if (logKnownIssue("cldrbug:8397", "English Paths without modern coverage")) {
+            return;
+        }
+        Status status = new Status();
+        String localeDisplayNames = "//ldml/localeDisplayNames/";
+        Map<String, Map<String, R2<List<String>, String>>> aliasInfo = SDI.getLocaleAliasInfo();
+        
+        Date nowMinus5 = new Date(NOW.getYear()-1,NOW.getMonth(), NOW.getDate());
+        Set<String> modernCurrencies = SDI.getCurrentCurrencies(SDI.getCurrencyTerritories(), nowMinus5, NOW);
+
+        for (String path : ENGLISH.fullIterable()) {
+            if (path.startsWith(localeDisplayNames)) {
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                String element = parts.getElement(-1);
+                if (element.equals("currency")) {
+                    String type = parts.getAttributeValue(-1, "type");
+                    if (!modernCurrencies.contains(type)) {
+                        continue; // old currency or not tender, so we don't care
+                    }
+                } else {
+                    Map<String, R2<List<String>, String>> typeToInfo = aliasInfo.get(element);
+                    if (typeToInfo != null) {
+                        String type = parts.getAttributeValue(-1, "type");
+                        R2<List<String>, String> info = typeToInfo.get(type);
+                        if (info != null) {
+                            // deprecated element, so we don't care
+                            continue;
+                        }
+                    }
+                }
+            }
+//            if (!path.contains("@alt")) {
+//                continue;
+//            }
+            String locale = ENGLISH.getSourceLocaleID(path, status);
+            if (locale.equals(XMLSource.CODE_FALLBACK_ID) // don't worry about Code Fallback
+                || !path.equals(status.pathWhereFound)) { // don't worry about lateral inheritance
+                continue;
+            }
+            Level level = SDI.getCoverageLevel(path, "en");
+            String value = ENGLISH.getStringValue(path);
+            assertRelation(locale + ":" + path + "=" + value, true, Level.MODERN, GEQ, level);
         }
     }
 }

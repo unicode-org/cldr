@@ -2536,9 +2536,13 @@ public class SupplementalDataInfo {
     }
 
     private Set<String> getCurrentCurrencies(Set<String> territories) {
+        Date now = new Date();
+        return getCurrentCurrencies(territories, now, now);
+    }
+
+    public Set<String> getCurrentCurrencies(Set<String> territories, Date startsBefore, Date endsAfter) {
         Set<String> targetCurrencies = new HashSet<String>();
         Iterator<String> it = territories.iterator();
-        Date now = new Date();
         while (it.hasNext()) {
             Set<CurrencyDateInfo> targetCurrencyInfo = getCurrencyDateInfo(it.next());
             if (targetCurrencyInfo == null) {
@@ -2547,7 +2551,7 @@ public class SupplementalDataInfo {
             Iterator<CurrencyDateInfo> it2 = targetCurrencyInfo.iterator();
             while (it2.hasNext()) {
                 CurrencyDateInfo cdi = it2.next();
-                if (cdi.getStart().before(now) && cdi.getEnd().after(now) && cdi.isLegalTender()) {
+                if (cdi.getStart().before(startsBefore) && cdi.getEnd().after(endsAfter) && cdi.isLegalTender()) {
                     targetCurrencies.add(cdi.getCurrency());
                 }
             }
@@ -3660,6 +3664,16 @@ public class SupplementalDataInfo {
      */
     public Set<CurrencyDateInfo> getCurrencyDateInfo(String territory) {
         return territoryToCurrencyDateInfo.getAll(territory);
+    }
+
+    /**
+     * Returns ordered set of currency data information
+     * 
+     * @param territory
+     * @return
+     */
+    public Set<String> getCurrencyTerritories() {
+        return territoryToCurrencyDateInfo.keySet();
     }
 
     /**

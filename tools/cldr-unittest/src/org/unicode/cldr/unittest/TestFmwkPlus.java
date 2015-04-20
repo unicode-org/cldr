@@ -244,8 +244,8 @@ public class TestFmwkPlus extends TestFmwk {
         }
     };
 
-    // @SuppressWarnings("rawtypes")
-    static TestRelation LEQ = new TestRelation<Comparable, Comparable>() {
+    @SuppressWarnings("rawtypes")
+    public static TestRelation LEQ = new TestRelation<Comparable, Comparable>() {
         @SuppressWarnings("unchecked")
         @Override
         public boolean isTrue(Comparable a, Comparable... bs) {
@@ -261,8 +261,8 @@ public class TestFmwkPlus extends TestFmwk {
         }
     };
 
-    // @SuppressWarnings("rawtypes")
-    static TestRelation GEQ = new TestRelation<Comparable, Comparable>() {
+    @SuppressWarnings("rawtypes")
+    public static TestRelation GEQ = new TestRelation<Comparable, Comparable>() {
         @SuppressWarnings("unchecked")
         @Override
         public boolean isTrue(Comparable a, Comparable... bs) {

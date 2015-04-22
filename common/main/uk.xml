@@ -1001,113 +1001,113 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<variant type="WADEGILE">Романізація Вейда-Джайлза</variant>
 		</variants>
 		<keys>
-			<key type="calendar">Календар</key>
-			<key type="colAlternate" draft="contributed">Ігнорувати сортування за символами</key>
-			<key type="colBackwards" draft="contributed">Зворотне сортування за діактричними знаками</key>
-			<key type="colCaseFirst" draft="contributed">Упорядкування за великими/малими символами</key>
-			<key type="colCaseLevel" draft="contributed">Сортування з урахуванням регістру</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Сортування кана</key>
-			<key type="collation">Порядок сортування</key>
-			<key type="colNormalization" draft="contributed">Уніфіковане сортування</key>
-			<key type="colNumeric" draft="contributed">Цифрове сортування</key>
-			<key type="colStrength" draft="contributed">Інтенсивність сортування</key>
-			<key type="currency">Валюта</key>
-			<key type="numbers">Цифри</key>
-			<key type="timezone" draft="contributed">Часовий пояс</key>
-			<key type="va" draft="contributed">Варіант мовного коду</key>
-			<key type="variableTop" draft="contributed">Сортувати як символи</key>
-			<key type="x" draft="contributed">Особисте використання</key>
+			<key type="calendar">календар</key>
+			<key type="colAlternate" draft="contributed">ігнорувати сортування за символами</key>
+			<key type="colBackwards" draft="contributed">зворотне сортування за діактричними знаками</key>
+			<key type="colCaseFirst" draft="contributed">упорядкування за великими/малими символами</key>
+			<key type="colCaseLevel" draft="contributed">сортування з урахуванням регістру</key>
+			<key type="colHiraganaQuaternary" draft="contributed">сортування кана</key>
+			<key type="collation">порядок сортування</key>
+			<key type="colNormalization" draft="contributed">уніфіковане сортування</key>
+			<key type="colNumeric" draft="contributed">цифрове сортування</key>
+			<key type="colStrength" draft="contributed">інтенсивність сортування</key>
+			<key type="currency">валюта</key>
+			<key type="numbers">цифри</key>
+			<key type="timezone" draft="contributed">часовий пояс</key>
+			<key type="va" draft="contributed">варіант мовного коду</key>
+			<key type="variableTop" draft="contributed">сортувати як символи</key>
+			<key type="x" draft="contributed">особисте використання</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers">Арабсько-індійські цифри</type>
-			<type type="arabext" key="numbers">Арабсько-індійські розширені цифри</type>
-			<type type="armn" key="numbers">Вірменські цифри</type>
-			<type type="armnlow" key="numbers">Вірменські малі цифри</type>
-			<type type="beng" key="numbers">Бенгальські цифри</type>
-			<type type="big5han" key="collation">Китайський традиційний</type>
-			<type type="buddhist" key="calendar">Буддійський календар</type>
-			<type type="chinese" key="calendar">Китайський календар</type>
-			<type type="coptic" key="calendar" draft="contributed">Коптський календар</type>
-			<type type="dangi" key="calendar">Календар Дангі</type>
-			<type type="deva" key="numbers">Цифри деванагарі</type>
-			<type type="dictionary" key="collation" draft="contributed">Порядок сортування: за словником</type>
-			<type type="ducet" key="collation" draft="contributed">Порядок сортування: Unicode за умовчанням</type>
-			<type type="ethi" key="numbers">Ефіопські цифри</type>
-			<type type="ethiopic" key="calendar">Ефіопський календар</type>
-			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">Ефіопський Амете Алем календар</type>
-			<type type="finance" key="numbers" draft="contributed">Фінансові символи чисел</type>
-			<type type="fullwide" key="numbers">Цифри повної ширини</type>
-			<type type="gb2312han" key="collation">Китайський спрощений</type>
-			<type type="geor" key="numbers">Грузинські цифри</type>
-			<type type="gregorian" key="calendar">Григоріанський календар</type>
-			<type type="grek" key="numbers">Грецькі цифри</type>
-			<type type="greklow" key="numbers">Грецькі малі цифри</type>
-			<type type="gujr" key="numbers">Цифри гуджараті</type>
-			<type type="guru" key="numbers">Цифри гурмукхі</type>
-			<type type="hanidec" key="numbers">Китайські десяткові цифри</type>
-			<type type="hans" key="numbers">Китайські символи чисел (спрощене письмо)</type>
-			<type type="hansfin" key="numbers">Китайські фінансові символи чисел (спрощене письмо)</type>
-			<type type="hant" key="numbers">Китайські символи чисел (традиційне письмо)</type>
-			<type type="hantfin" key="numbers">Китайські фінансові символи чисел (традиційне письмо)</type>
-			<type type="hebr" key="numbers">Цифри івриту</type>
-			<type type="hebrew" key="calendar">Єврейський календар</type>
-			<type type="identical" key="colStrength" draft="contributed">Сортувати всі</type>
-			<type type="indian" key="calendar">Індійський світський календар</type>
-			<type type="islamic" key="calendar">Мусульманський календар</type>
-			<type type="islamic-civil" key="calendar">Мусульманський світський календар</type>
-			<type type="iso8601" key="calendar">Календар ISO-8601</type>
-			<type type="japanese" key="calendar">Японський календар</type>
-			<type type="jpan" key="numbers">Японські цифри</type>
-			<type type="jpanfin" key="numbers">Японські фінансові цифри</type>
-			<type type="khmr" key="numbers">Кхмерські цифри</type>
-			<type type="knda" key="numbers">Цифри каннада</type>
-			<type type="laoo" key="numbers">Лаоські цифри</type>
-			<type type="latn" key="numbers">Західні цифри</type>
-			<type type="lower" key="colCaseFirst" draft="contributed">Сортувати спершу за малими символами</type>
-			<type type="mlym" key="numbers">Малаяламські цифри</type>
-			<type type="mong" key="numbers" draft="contributed">Монгольські цифри</type>
-			<type type="mymr" key="numbers">М’янмські цифри</type>
-			<type type="native" key="numbers" draft="contributed">Місцеві цифри</type>
-			<type type="no" key="colBackwards" draft="contributed">Сортувати за діактричними знаками уніфіковано</type>
-			<type type="no" key="colCaseFirst" draft="contributed">Сортувати в порядку звичайного регістру</type>
-			<type type="no" key="colCaseLevel" draft="contributed">Сортувати без урахування регістру</type>
-			<type type="no" key="colHiraganaQuaternary" draft="contributed">Сортувати за кана окремо</type>
-			<type type="no" key="colNormalization" draft="contributed">Сортувати без уніфікації</type>
-			<type type="no" key="colNumeric" draft="contributed">Сортувати за цифрами окремо</type>
-			<type type="non-ignorable" key="colAlternate" draft="contributed">Сортувати за символами</type>
-			<type type="orya" key="numbers">Цифри орія</type>
-			<type type="persian" key="calendar">Перський календар</type>
-			<type type="phonebook" key="collation">Телефонна книга</type>
-			<type type="phonetic" key="collation" draft="contributed">Фонетичний порядок сортування</type>
-			<type type="pinyin" key="collation">Порядок піньїн</type>
-			<type type="primary" key="colStrength" draft="contributed">Сортувати лише за основними літерами</type>
-			<type type="quaternary" key="colStrength" draft="contributed">Сортувати за діактричними знаками/регістром/шириною/кана</type>
-			<type type="reformed" key="collation" draft="contributed">Порядок сортування: за виправленнями</type>
-			<type type="roc" key="calendar">Китайський григоріанський календар</type>
-			<type type="roman" key="numbers">Римські цифри</type>
-			<type type="romanlow" key="numbers">Римські малі цифри</type>
-			<type type="search" key="collation">Універсальний пошук</type>
-			<type type="searchjl" key="collation" draft="contributed">Пошук за початковою приголосною хангул</type>
-			<type type="secondary" key="colStrength" draft="contributed">Сортувати за діактричними знаками</type>
-			<type type="shifted" key="colAlternate" draft="contributed">Сортувати, ігноруючи символи</type>
-			<type type="standard" key="collation">Стандартний порядок сортування</type>
-			<type type="stroke" key="collation">Порядок натискання клавіш</type>
-			<type type="taml" key="numbers">Тамільські традиційні цифри</type>
-			<type type="tamldec" key="numbers">Тамільські цифри</type>
-			<type type="telu" key="numbers">Цифри телугу</type>
-			<type type="tertiary" key="colStrength" draft="contributed">Сортувати за діактричними знаками/регістром/шириною</type>
-			<type type="thai" key="numbers">Тайські цифри</type>
-			<type type="tibt" key="numbers">Тибетські цифри</type>
-			<type type="traditional" key="collation">Традиційний</type>
-			<type type="traditional" key="numbers" draft="contributed">Традиційні символи чисел</type>
-			<type type="unihan" key="collation" draft="contributed">Порядок сортування: за штрихами в корені</type>
-			<type type="upper" key="colCaseFirst" draft="contributed">Сортувати спершу за великими символами</type>
-			<type type="vaii" key="numbers" draft="contributed">Цифри ваї</type>
-			<type type="yes" key="colBackwards" draft="contributed">Сортувати за діактричними знаками у зворотньому порядку</type>
-			<type type="yes" key="colCaseLevel" draft="contributed">Сортувати з урахуванням регістру</type>
-			<type type="yes" key="colHiraganaQuaternary" draft="contributed">Сортувати за кана інакше</type>
-			<type type="yes" key="colNormalization" draft="contributed">Сортувати за Unicode уніфіковано</type>
-			<type type="yes" key="colNumeric" draft="contributed">Сортувати за цифрами чисельно</type>
+			<type type="arab" key="numbers">арабсько-індійські цифри</type>
+			<type type="arabext" key="numbers">арабсько-індійські розширені цифри</type>
+			<type type="armn" key="numbers">вірменські цифри</type>
+			<type type="armnlow" key="numbers">вірменські малі цифри</type>
+			<type type="beng" key="numbers">бенгальські цифри</type>
+			<type type="big5han" key="collation">китайський традиційний</type>
+			<type type="buddhist" key="calendar">буддійський календар</type>
+			<type type="chinese" key="calendar">китайський календар</type>
+			<type type="coptic" key="calendar" draft="contributed">коптський календар</type>
+			<type type="dangi" key="calendar">календар дангі</type>
+			<type type="deva" key="numbers">цифри деванагарі</type>
+			<type type="dictionary" key="collation" draft="contributed">порядок сортування: за словником</type>
+			<type type="ducet" key="collation" draft="contributed">порядок сортування: Unicode за умовчанням</type>
+			<type type="ethi" key="numbers">ефіопські цифри</type>
+			<type type="ethiopic" key="calendar">ефіопський календар</type>
+			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">ефіопський амете алем календар</type>
+			<type type="finance" key="numbers" draft="contributed">фінансові символи чисел</type>
+			<type type="fullwide" key="numbers">цифри повної ширини</type>
+			<type type="gb2312han" key="collation">китайський спрощений</type>
+			<type type="geor" key="numbers">грузинські цифри</type>
+			<type type="gregorian" key="calendar">григоріанський календар</type>
+			<type type="grek" key="numbers">грецькі цифри</type>
+			<type type="greklow" key="numbers">грецькі малі цифри</type>
+			<type type="gujr" key="numbers">цифри гуджараті</type>
+			<type type="guru" key="numbers">цифри гурмукхі</type>
+			<type type="hanidec" key="numbers">китайські десяткові цифри</type>
+			<type type="hans" key="numbers">китайські символи чисел (спрощене письмо)</type>
+			<type type="hansfin" key="numbers">китайські фінансові символи чисел (спрощене письмо)</type>
+			<type type="hant" key="numbers">китайські символи чисел (традиційне письмо)</type>
+			<type type="hantfin" key="numbers">китайські фінансові символи чисел (традиційне письмо)</type>
+			<type type="hebr" key="numbers">цифри івриту</type>
+			<type type="hebrew" key="calendar">єврейський календар</type>
+			<type type="identical" key="colStrength" draft="contributed">сортувати всі</type>
+			<type type="indian" key="calendar">індійський світський календар</type>
+			<type type="islamic" key="calendar">мусульманський календар</type>
+			<type type="islamic-civil" key="calendar">мусульманський світський календар</type>
+			<type type="iso8601" key="calendar">календар ISO-8601</type>
+			<type type="japanese" key="calendar">японський календар</type>
+			<type type="jpan" key="numbers">японські цифри</type>
+			<type type="jpanfin" key="numbers">японські фінансові цифри</type>
+			<type type="khmr" key="numbers">кхмерські цифри</type>
+			<type type="knda" key="numbers">цифри каннада</type>
+			<type type="laoo" key="numbers">лаоські цифри</type>
+			<type type="latn" key="numbers">західні цифри</type>
+			<type type="lower" key="colCaseFirst" draft="contributed">сортувати спершу за малими символами</type>
+			<type type="mlym" key="numbers">малаяламські цифри</type>
+			<type type="mong" key="numbers" draft="contributed">монгольські цифри</type>
+			<type type="mymr" key="numbers">м’янмські цифри</type>
+			<type type="native" key="numbers" draft="contributed">місцеві цифри</type>
+			<type type="no" key="colBackwards" draft="contributed">сортувати за діактричними знаками уніфіковано</type>
+			<type type="no" key="colCaseFirst" draft="contributed">сортувати в порядку звичайного регістру</type>
+			<type type="no" key="colCaseLevel" draft="contributed">сортувати без урахування регістру</type>
+			<type type="no" key="colHiraganaQuaternary" draft="contributed">сортувати за кана окремо</type>
+			<type type="no" key="colNormalization" draft="contributed">сортувати без уніфікації</type>
+			<type type="no" key="colNumeric" draft="contributed">сортувати за цифрами окремо</type>
+			<type type="non-ignorable" key="colAlternate" draft="contributed">сортувати за символами</type>
+			<type type="orya" key="numbers">цифри орія</type>
+			<type type="persian" key="calendar">перський календар</type>
+			<type type="phonebook" key="collation">телефонна книга</type>
+			<type type="phonetic" key="collation" draft="contributed">фонетичний порядок сортування</type>
+			<type type="pinyin" key="collation">порядок піньїн</type>
+			<type type="primary" key="colStrength" draft="contributed">сортувати лише за основними літерами</type>
+			<type type="quaternary" key="colStrength" draft="contributed">сортувати за діактричними знаками/регістром/шириною/кана</type>
+			<type type="reformed" key="collation" draft="contributed">порядок сортування: за виправленнями</type>
+			<type type="roc" key="calendar">китайський григоріанський календар</type>
+			<type type="roman" key="numbers">римські цифри</type>
+			<type type="romanlow" key="numbers">римські малі цифри</type>
+			<type type="search" key="collation">універсальний пошук</type>
+			<type type="searchjl" key="collation" draft="contributed">пошук за початковою приголосною хангул</type>
+			<type type="secondary" key="colStrength" draft="contributed">сортувати за діактричними знаками</type>
+			<type type="shifted" key="colAlternate" draft="contributed">сортувати, ігноруючи символи</type>
+			<type type="standard" key="collation">стандартний порядок сортування</type>
+			<type type="stroke" key="collation">порядок натискання клавіш</type>
+			<type type="taml" key="numbers">тамільські традиційні цифри</type>
+			<type type="tamldec" key="numbers">тамільські цифри</type>
+			<type type="telu" key="numbers">цифри телугу</type>
+			<type type="tertiary" key="colStrength" draft="contributed">сортувати за діактричними знаками/регістром/шириною</type>
+			<type type="thai" key="numbers">тайські цифри</type>
+			<type type="tibt" key="numbers">тибетські цифри</type>
+			<type type="traditional" key="collation">традиційний</type>
+			<type type="traditional" key="numbers" draft="contributed">традиційні символи чисел</type>
+			<type type="unihan" key="collation" draft="contributed">порядок сортування: за штрихами в корені</type>
+			<type type="upper" key="colCaseFirst" draft="contributed">сортувати спершу за великими символами</type>
+			<type type="vaii" key="numbers" draft="contributed">цифри ваї</type>
+			<type type="yes" key="colBackwards" draft="contributed">сортувати за діактричними знаками у зворотньому порядку</type>
+			<type type="yes" key="colCaseLevel" draft="contributed">сортувати з урахуванням регістру</type>
+			<type type="yes" key="colHiraganaQuaternary" draft="contributed">сортувати за кана інакше</type>
+			<type type="yes" key="colNormalization" draft="contributed">сортувати за Unicode уніфіковано</type>
+			<type type="yes" key="colNumeric" draft="contributed">сортувати за цифрами чисельно</type>
 		</types>
 		<transformNames>
 			<transformName type="BGN" draft="contributed">BGN</transformName>

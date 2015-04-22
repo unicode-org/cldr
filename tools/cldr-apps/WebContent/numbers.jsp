@@ -39,7 +39,6 @@ div.expander > span {
 
 </style>
 <%!
-static final String DURATION_RULES = "DurationRules";
 static final String ORDINAL_RULES = "OrdinalRules";
 static final String SPELLOUT_RULES = "SpelloutRules";
 static final String NUMBERING_SYSTEM_RULES = "NumberingSystemRules";
@@ -359,7 +358,6 @@ for (ULocale currULoc : LOCALES) {
 
 <tr><th style="text-align: right; width: 1%; white-space:nowrap; border-width: 0;"><label for="type">Type</label></th>
 <td style="text-align: left; width: 1%; white-space:nowrap;"><select id="type" name="type">
-<option<%=(type.equals(DURATION_RULES) ?" selected=\"selected\"":"")%> value="<%=DURATION_RULES%>">Duration</option>
 <option<%=(type.equals(NUMBERING_SYSTEM_RULES) ?" selected=\"selected\"":"")%> value="<%=NUMBERING_SYSTEM_RULES%>">Numbering System</option>
 <option<%=(type.equals(ORDINAL_RULES) ?" selected=\"selected\"":"")%> value="<%=ORDINAL_RULES%>">Ordinal</option>
 <option<%=(type.equals(SPELLOUT_RULES) ?" selected=\"selected\"":"")%> value="<%=SPELLOUT_RULES%>">Spellout</option>

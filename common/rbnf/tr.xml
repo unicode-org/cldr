@@ -79,7 +79,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1">birinci;</rbnfrule>
                 <rbnfrule value="2">ikinci;</rbnfrule>
                 <rbnfrule value="3">üçüncü;</rbnfrule>
-                <rbnfrule value="4">dörtüncü;</rbnfrule>
+                <rbnfrule value="4">dördüncü;</rbnfrule>
                 <rbnfrule value="5">beşinci;</rbnfrule>
                 <rbnfrule value="6">altıncı;</rbnfrule>
                 <rbnfrule value="7">yedinci;</rbnfrule>
@@ -103,15 +103,6 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000000">←%spellout-numbering← trilyon→%%uncu→;</rbnfrule>
                 <rbnfrule value="1000000000000000">←%spellout-numbering← katrilyon→%%uncu→;</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0='inci;</rbnfrule>
-            </ruleset>
-        </rulesetGrouping>
-        <rulesetGrouping type="OrdinalRules">
-            <ruleset type="digits-ordinal-indicator" access="private">
-                <rbnfrule value="0">''inci;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%digits-ordinal-indicator=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

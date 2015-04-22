@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+    <identity>
+        <version number="$Revision: 8786 $"/>
+        <generation date="$Date: 2013-05-28 06:16:59 -0700 (Tue, 28 May 2013) $"/>
+        <language type="my"/>
+    </identity>
+    <rbnf>
+        <rulesetGrouping type="SpelloutRules">
+            <ruleset type="spellout-numbering-year">
+                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering">
+                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal">
+                <rbnfrule value="-x">အနုတ် →→;</rbnfrule>
+                <rbnfrule value="x.x">←← အမှတ် →→;</rbnfrule>
+                <rbnfrule value="0">သုည;</rbnfrule>
+                <rbnfrule value="1">တစ်;</rbnfrule>
+                <rbnfrule value="2">နှစ်;</rbnfrule>
+                <rbnfrule value="3">သုံ;</rbnfrule>
+                <rbnfrule value="4">လေ;</rbnfrule>
+                <rbnfrule value="5">ငါ;</rbnfrule>
+                <rbnfrule value="6">ခွေကျ;</rbnfrule>
+                <rbnfrule value="7">ခုနှစ်;</rbnfrule>
+                <rbnfrule value="8">ရှစ်;</rbnfrule>
+                <rbnfrule value="9">ကို;</rbnfrule>
+                <rbnfrule value="10">ဆယ်;</rbnfrule>
+                <rbnfrule value="11">ဆယ့်[ →→];</rbnfrule>
+                <rbnfrule value="20">←←ဆယ့်[ →→];</rbnfrule>
+                <rbnfrule value="100">←←ရာ[့ →→];</rbnfrule>
+                <rbnfrule value="1000">←←ထောင့်[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←← သန်း[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←← ဘီလျံ[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←← ထရီလျံ[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←← ဖိုလျံ[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
+    </rbnf>
+</ldml>

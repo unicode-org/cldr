@@ -198,12 +198,11 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="greek-lower">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
-                <rbnfrule value="0">00;</rbnfrule>
-                <rbnfrule value="1">=%%greek-numeral-minuscules=´;</rbnfrule>
-                <rbnfrule value="1000000">=#,##0=;</rbnfrule>
+                <rbnfrule value="x.x">←←.→→→;</rbnfrule>
+                <rbnfrule value="0">=%%greek-numeral-minuscules=´;</rbnfrule>
             </ruleset>
             <ruleset type="greek-numeral-minuscules" access="private">
+                <rbnfrule value="0">𐆊;</rbnfrule>
                 <rbnfrule value="1">α;</rbnfrule>
                 <rbnfrule value="2">β;</rbnfrule>
                 <rbnfrule value="3">γ;</rbnfrule>
@@ -231,42 +230,20 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="700">ψ[→→];</rbnfrule>
                 <rbnfrule value="800">ω[→→];</rbnfrule>
                 <rbnfrule value="900">ϡ[→→];</rbnfrule>
-                <rbnfrule value="1000">͵α[→→];</rbnfrule>
-                <rbnfrule value="2000">͵β[→→];</rbnfrule>
-                <rbnfrule value="3000">͵γ[→→];</rbnfrule>
-                <rbnfrule value="4000">͵δ[→→];</rbnfrule>
-                <rbnfrule value="5000">͵ε[→→];</rbnfrule>
-                <rbnfrule value="6000">͵ϝ[→→];</rbnfrule>
-                <rbnfrule value="7000">͵ζ[→→];</rbnfrule>
-                <rbnfrule value="8000">͵η[→→];</rbnfrule>
-                <rbnfrule value="9000">͵θ[→→];</rbnfrule>
-                <rbnfrule value="10000">͵ι[→→];</rbnfrule>
-                <rbnfrule value="20000">͵κ[→→];</rbnfrule>
-                <rbnfrule value="30000">͵λ[→→];</rbnfrule>
-                <rbnfrule value="40000">͵μ[→→];</rbnfrule>
-                <rbnfrule value="50000">͵ν[→→];</rbnfrule>
-                <rbnfrule value="60000">͵ξ[→→];</rbnfrule>
-                <rbnfrule value="70000">͵ο[→→];</rbnfrule>
-                <rbnfrule value="80000">͵π[→→];</rbnfrule>
-                <rbnfrule value="90000">͵ϟ[→→];</rbnfrule>
-                <rbnfrule value="100000">͵ρ[→→];</rbnfrule>
-                <rbnfrule value="200000">͵σ[→→];</rbnfrule>
-                <rbnfrule value="300000">͵τ[→→];</rbnfrule>
-                <rbnfrule value="400000">͵υ[→→];</rbnfrule>
-                <rbnfrule value="500000">͵φ[→→];</rbnfrule>
-                <rbnfrule value="600000">͵χ[→→];</rbnfrule>
-                <rbnfrule value="700000">͵ψ[→→];</rbnfrule>
-                <rbnfrule value="800000">͵ω[→→];</rbnfrule>
-                <rbnfrule value="900000">͵ϡ[→→];</rbnfrule>
+                <rbnfrule value="1000">͵←←[→→];</rbnfrule>
+                <rbnfrule value="10000">←←μ[ →→];</rbnfrule>
+                <rbnfrule value="100000000">←←μμ[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←←μμμ[ →→];</rbnfrule>
+                <rbnfrule value="10000000000000000">←←μμμμ[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="greek-upper">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
-                <rbnfrule value="0">00;</rbnfrule>
-                <rbnfrule value="1">=%%greek-numeral-majuscules=´;</rbnfrule>
-                <rbnfrule value="1000000">=#,##0=;</rbnfrule>
+                <rbnfrule value="x.x">←←.→→→;</rbnfrule>
+                <rbnfrule value="0">=%%greek-numeral-majuscules=´;</rbnfrule>
             </ruleset>
             <ruleset type="greek-numeral-majuscules" access="private">
+                <rbnfrule value="0">𐆊;</rbnfrule>
                 <rbnfrule value="1">Α;</rbnfrule>
                 <rbnfrule value="2">Β;</rbnfrule>
                 <rbnfrule value="3">Γ;</rbnfrule>
@@ -294,33 +271,12 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="700">Ψ[→→];</rbnfrule>
                 <rbnfrule value="800">Ω[→→];</rbnfrule>
                 <rbnfrule value="900">Ϡ[→→];</rbnfrule>
-                <rbnfrule value="1000">͵Α[→→];</rbnfrule>
-                <rbnfrule value="2000">͵Β[→→];</rbnfrule>
-                <rbnfrule value="3000">͵Γ[→→];</rbnfrule>
-                <rbnfrule value="4000">͵Δ[→→];</rbnfrule>
-                <rbnfrule value="5000">͵Ε[→→];</rbnfrule>
-                <rbnfrule value="6000">͵Ϝ[→→];</rbnfrule>
-                <rbnfrule value="7000">͵Ζ[→→];</rbnfrule>
-                <rbnfrule value="8000">͵Η[→→];</rbnfrule>
-                <rbnfrule value="9000">͵Θ[→→];</rbnfrule>
-                <rbnfrule value="10000">͵Ι[→→];</rbnfrule>
-                <rbnfrule value="20000">͵Κ[→→];</rbnfrule>
-                <rbnfrule value="30000">͵Λ[→→];</rbnfrule>
-                <rbnfrule value="40000">͵Μ[→→];</rbnfrule>
-                <rbnfrule value="50000">͵Ν[→→];</rbnfrule>
-                <rbnfrule value="60000">͵Ξ[→→];</rbnfrule>
-                <rbnfrule value="70000">͵Ο[→→];</rbnfrule>
-                <rbnfrule value="80000">͵Π[→→];</rbnfrule>
-                <rbnfrule value="90000">͵Ϟ[→→];</rbnfrule>
-                <rbnfrule value="100000">͵Ρ[→→];</rbnfrule>
-                <rbnfrule value="200000">͵Σ[→→];</rbnfrule>
-                <rbnfrule value="300000">͵Τ[→→];</rbnfrule>
-                <rbnfrule value="400000">͵Υ[→→];</rbnfrule>
-                <rbnfrule value="500000">͵Φ[→→];</rbnfrule>
-                <rbnfrule value="600000">͵Χ[→→];</rbnfrule>
-                <rbnfrule value="700000">͵Ψ[→→];</rbnfrule>
-                <rbnfrule value="800000">͵Ω[→→];</rbnfrule>
-                <rbnfrule value="900000">͵Ϡ[→→];</rbnfrule>
+                <rbnfrule value="1000">͵←←[→→];</rbnfrule>
+                <rbnfrule value="10000">←←Μ[ →→];</rbnfrule>
+                <rbnfrule value="100000000">←←ΜΜ[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←←ΜΜΜ[ →→];</rbnfrule>
+                <rbnfrule value="10000000000000000">←←ΜΜΜΜ[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="hebrew">
                 <rbnfrule value="-x">−→→;</rbnfrule>

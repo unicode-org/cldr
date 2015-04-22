@@ -140,6 +140,7 @@ public class CheckWidths extends CheckCLDR {
         "|acceleration-g-force" +
         "|speed-kilometer-per-hour" +
         "|speed-meter-per-second" +
+        "|consumption-liter-per-100kilometers" +
         ")";
 
     static RegexLookup<Limit[]> lookup = new RegexLookup<Limit[]>()

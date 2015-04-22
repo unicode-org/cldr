@@ -75,8 +75,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="bez">Bena</language>
 			<language type="bfd">Bafut</language>
 			<language type="bfq">Badaga</language>
-            <language type="bg">Bulgarian</language>
-            <language type="bgn">Western Balochi</language>
+			<language type="bg">Bulgarian</language>
+			<language type="bgn">Western Balochi</language>
 			<language type="bho">Bhojpuri</language>
 			<language type="bi">Bislama</language>
 			<language type="bik">Bikol</language>
@@ -1181,16 +1181,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colReorder">Script/Block Reordering</key>
 			<key type="colStrength">Sorting Strength</key>
 			<key type="currency">Currency</key>
+			<key type="fw">First day of week</key>
+			<key type="hc">Hour Cycle (12 vs 24)</key>
 			<key type="kv">Highest Ignored</key>
 			<key type="lb">Line Break Style</key>
+			<key type="ms">Measurement System</key>
 			<key type="numbers">Numbers</key>
 			<key type="timezone">Time Zone</key>
 			<key type="va">Locale Variant</key>
 			<key type="variableTop">Sort As Symbols</key>
 			<key type="x">Private-Use</key>
-			<key type="ms">Measurement System</key>
-			<key type="hc">Hour Cycle (12 vs 24)</key>
-			<key type="fw">First day of week</key>
 		</keys>
 		<types>
 			<type type="arab" key="numbers">Arabic-Indic Digits</type>
@@ -1226,6 +1226,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="greklow" key="numbers">Greek Lowercase Numerals</type>
 			<type type="gujr" key="numbers">Gujarati Digits</type>
 			<type type="guru" key="numbers">Gurmukhi Digits</type>
+			<type type="h11" key="hc">12 Hour System (0-11)</type>
+			<type type="h12" key="hc">12 Hour System (1-12)</type>
+			<type type="h23" key="hc">24 Hour System (0-23)</type>
+			<type type="h24" key="hc">24 Hour System (1-24)</type>
 			<type type="hanidays" key="numbers">Chinese Calendar Day-of-Month Numerals</type>
 			<type type="hanidec" key="numbers">Chinese Decimal Numerals</type>
 			<type type="hans" key="numbers">Simplified Chinese Numerals</type>
@@ -1257,6 +1261,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="limb" key="numbers">Limbu Digits</type>
 			<type type="loose" key="lb">Loose Line Break Style</type>
 			<type type="lower" key="colCaseFirst">Sort Lowercase First</type>
+			<type type="metric" key="ms">Metric System</type>
 			<type type="mlym" key="numbers">Malayalam Digits</type>
 			<type type="mong" key="numbers">Mongolian Digits</type>
 			<type type="mtei" key="numbers">Meetei Mayek Digits</type>
@@ -1307,8 +1312,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="tibt" key="numbers">Tibetan Digits</type>
 			<type type="traditional" key="collation">Traditional Sort Order</type>
 			<type type="traditional" key="numbers">Traditional Numerals</type>
+			<type type="uksystem" key="ms">Imperial Measurement System</type>
 			<type type="unihan" key="collation">Radical-Stroke Sort Order</type>
 			<type type="upper" key="colCaseFirst">Sort Uppercase First</type>
+			<type type="ussystem" key="ms">US Measurement System</type>
 			<type type="vaii" key="numbers">Vai Digits</type>
 			<type type="yes" key="colBackwards">Sort Accents Reversed</type>
 			<type type="yes" key="colCaseLevel">Sort Case Sensitive</type>
@@ -1316,13 +1323,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="yes" key="colNormalization">Sort Unicode Normalized</type>
 			<type type="yes" key="colNumeric">Sort Digits Numerically</type>
 			<type type="zhuyin" key="collation">Zhuyin Sort Order</type>
-			<type type="metric" key="ms">Metric System</type>
-			<type type="ussystem" key="ms">US Measurement System</type>
-			<type type="uksystem" key="ms">Imperial Measurement System</type>
-			<type type="h12" key="hc">12 Hour System (1-12)</type>
-			<type type="h23" key="hc">24 Hour System (0-23)</type>
-			<type type="h11" key="hc">12 Hour System (0-11)</type>
-			<type type="h24" key="hc">24 Hour System (1-24)</type>
 		</types>
 		<transformNames>
 			<transformName type="BGN">BGN</transformName>
@@ -5323,6 +5323,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} radian</unitPattern>
 				<unitPattern count="other">{0} radians</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>revolution</displayName>
+				<unitPattern count="one">{0} revolution</unitPattern>
+				<unitPattern count="other">{0} revolutions</unitPattern>
+			</unit>
 			<unit type="area-acre">
 				<displayName>acres</displayName>
 				<unitPattern count="one">{0} acre</unitPattern>
@@ -5337,6 +5342,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>square centimeters</displayName>
 				<unitPattern count="one">{0} square centimeter</unitPattern>
 				<unitPattern count="other">{0} square centimeters</unitPattern>
+				<perUnitPattern>{0} per square centimeter</perUnitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>square feet</displayName>
@@ -5347,6 +5353,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>square inches</displayName>
 				<unitPattern count="one">{0} square inch</unitPattern>
 				<unitPattern count="other">{0} square inches</unitPattern>
+				<perUnitPattern>{0} per square inch</perUnitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>square kilometers</displayName>
@@ -5357,6 +5364,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>square meters</displayName>
 				<unitPattern count="one">{0} square meter</unitPattern>
 				<unitPattern count="other">{0} square meters</unitPattern>
+				<perUnitPattern>{0} per square meter</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>square miles</displayName>
@@ -5367,6 +5375,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>square yards</displayName>
 				<unitPattern count="one">{0} square yard</unitPattern>
 				<unitPattern count="other">{0} square yards</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>liters per 100 kilometers</displayName>
+				<unitPattern count="one">{0} liter per 100 kilometers</unitPattern>
+				<unitPattern count="other">{0} liters per 100 kilometers</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liters per kilometer</displayName>
@@ -5432,6 +5445,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>days</displayName>
 				<unitPattern count="one">{0} day</unitPattern>
 				<unitPattern count="other">{0} days</unitPattern>
+				<perUnitPattern>{0} per day</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>hours</displayName>
@@ -5453,11 +5467,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>minutes</displayName>
 				<unitPattern count="one">{0} minute</unitPattern>
 				<unitPattern count="other">{0} minutes</unitPattern>
+				<perUnitPattern>{0} per minute</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>months</displayName>
 				<unitPattern count="one">{0} month</unitPattern>
 				<unitPattern count="other">{0} months</unitPattern>
+				<perUnitPattern>{0} per month</perUnitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>nanoseconds</displayName>
@@ -5474,11 +5490,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>weeks</displayName>
 				<unitPattern count="one">{0} week</unitPattern>
 				<unitPattern count="other">{0} weeks</unitPattern>
+				<perUnitPattern>{0} per week</perUnitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>years</displayName>
 				<unitPattern count="one">{0} year</unitPattern>
 				<unitPattern count="other">{0} years</unitPattern>
+				<perUnitPattern>{0} per year</perUnitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>amperes</displayName>
@@ -5559,6 +5577,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>centimeters</displayName>
 				<unitPattern count="one">{0} centimeter</unitPattern>
 				<unitPattern count="other">{0} centimeters</unitPattern>
+				<perUnitPattern>{0} per centimeter</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName>decimeters</displayName>
@@ -5574,6 +5593,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>feet</displayName>
 				<unitPattern count="one">{0} foot</unitPattern>
 				<unitPattern count="other">{0} feet</unitPattern>
+				<perUnitPattern>{0} per foot</perUnitPattern>
 			</unit>
 			<unit type="length-furlong">
 				<displayName>furlongs</displayName>
@@ -5584,11 +5604,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>inches</displayName>
 				<unitPattern count="one">{0} inch</unitPattern>
 				<unitPattern count="other">{0} inches</unitPattern>
+				<perUnitPattern>{0} per inch</perUnitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>kilometers</displayName>
 				<unitPattern count="one">{0} kilometer</unitPattern>
 				<unitPattern count="other">{0} kilometers</unitPattern>
+				<perUnitPattern>{0} per kilometer</perUnitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>light years</displayName>
@@ -5599,6 +5621,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>meters</displayName>
 				<unitPattern count="one">{0} meter</unitPattern>
 				<unitPattern count="other">{0} meters</unitPattern>
+				<perUnitPattern>{0} per meter</perUnitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>micrometers</displayName>
@@ -5609,6 +5632,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>miles</displayName>
 				<unitPattern count="one">{0} mile</unitPattern>
 				<unitPattern count="other">{0} miles</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>mile-scandinavian</displayName>
+				<unitPattern count="one">{0} mile-scandinavian</unitPattern>
+				<unitPattern count="other">{0} miles-scandinavian</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>millimeters</displayName>
@@ -5654,11 +5682,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>grams</displayName>
 				<unitPattern count="one">{0} gram</unitPattern>
 				<unitPattern count="other">{0} grams</unitPattern>
+				<perUnitPattern>{0} per gram</perUnitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kilograms</displayName>
 				<unitPattern count="one">{0} kilogram</unitPattern>
 				<unitPattern count="other">{0} kilograms</unitPattern>
+				<perUnitPattern>{0} per kilogram</perUnitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>metric tons</displayName>
@@ -5679,6 +5709,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ounces</displayName>
 				<unitPattern count="one">{0} ounce</unitPattern>
 				<unitPattern count="other">{0} ounces</unitPattern>
+				<perUnitPattern>{0} per ounce</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>troy ounces</displayName>
@@ -5689,6 +5720,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>pounds</displayName>
 				<unitPattern count="one">{0} pound</unitPattern>
 				<unitPattern count="other">{0} pounds</unitPattern>
+				<perUnitPattern>{0} per pound</perUnitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName>stones</displayName>
@@ -5809,6 +5841,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>cubic centimeters</displayName>
 				<unitPattern count="one">{0} cubic centimeter</unitPattern>
 				<unitPattern count="other">{0} cubic centimeters</unitPattern>
+				<perUnitPattern>{0} per cubic centimeter</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>cubic feet</displayName>
@@ -5829,6 +5862,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>cubic meters</displayName>
 				<unitPattern count="one">{0} cubic meter</unitPattern>
 				<unitPattern count="other">{0} cubic meters</unitPattern>
+				<perUnitPattern>{0} per cubic meter</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>cubic miles</displayName>
@@ -5845,6 +5879,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} cup</unitPattern>
 				<unitPattern count="other">{0} cups</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>metric cups</displayName>
+				<unitPattern count="one">{0} metric cup</unitPattern>
+				<unitPattern count="other">{0} metric cups</unitPattern>
+			</unit>
 			<unit type="volume-deciliter">
 				<displayName>deciliters</displayName>
 				<unitPattern count="one">{0} deciliter</unitPattern>
@@ -5859,6 +5898,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>gallons</displayName>
 				<unitPattern count="one">{0} gallon</unitPattern>
 				<unitPattern count="other">{0} gallons</unitPattern>
+				<perUnitPattern>{0} per gallon</perUnitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hectoliters</displayName>
@@ -5869,6 +5909,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>liters</displayName>
 				<unitPattern count="one">{0} liter</unitPattern>
 				<unitPattern count="other">{0} liters</unitPattern>
+				<perUnitPattern>{0} per liter</perUnitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>megaliters</displayName>
@@ -5885,6 +5926,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} pint</unitPattern>
 				<unitPattern count="other">{0} pints</unitPattern>
 			</unit>
+			<unit type="volume-pint-metric">
+				<displayName>metric pints</displayName>
+				<unitPattern count="one">{0} metric pint</unitPattern>
+				<unitPattern count="other">{0} metric pints</unitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>quarts</displayName>
 				<unitPattern count="one">{0} quart</unitPattern>
@@ -5899,6 +5945,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>teaspoons</displayName>
 				<unitPattern count="one">{0} teaspoon</unitPattern>
 				<unitPattern count="other">{0} teaspoons</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon-au">
+				<displayName>teaspoons-Australian-</displayName>
+				<unitPattern count="one">{0} teaspoon-Australian</unitPattern>
+				<unitPattern count="other">{0} teaspoons-Australian</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
@@ -5935,6 +5986,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} rad</unitPattern>
 				<unitPattern count="other">{0} rad</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>rev</displayName>
+				<unitPattern count="one">{0} rev</unitPattern>
+				<unitPattern count="other">{0} rev</unitPattern>
+			</unit>
 			<unit type="area-acre">
 				<displayName>acres</displayName>
 				<unitPattern count="one">{0} ac</unitPattern>
@@ -5949,6 +6005,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>cm²</displayName>
 				<unitPattern count="one">{0} cm²</unitPattern>
 				<unitPattern count="other">{0} cm²</unitPattern>
+				<perUnitPattern>{0} per cm²</perUnitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>sq feet</displayName>
@@ -5959,6 +6016,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>inches²</displayName>
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
+				<perUnitPattern>{0} per in²</perUnitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>km²</displayName>
@@ -5969,6 +6027,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>meters²</displayName>
 				<unitPattern count="one">{0} m²</unitPattern>
 				<unitPattern count="other">{0} m²</unitPattern>
+				<perUnitPattern>{0} per m²</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>sq miles</displayName>
@@ -6544,6 +6603,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}rad</unitPattern>
 				<unitPattern count="other">{0}rad</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>rev</displayName>
+				<unitPattern count="one">{0}rev</unitPattern>
+				<unitPattern count="other">{0}rev</unitPattern>
+			</unit>
 			<unit type="area-acre">
 				<displayName>acre</displayName>
 				<unitPattern count="one">{0}ac</unitPattern>
@@ -6558,6 +6622,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>cm²</displayName>
 				<unitPattern count="one">{0}cm²</unitPattern>
 				<unitPattern count="other">{0}cm²</unitPattern>
+				<perUnitPattern>{0}/cm²</perUnitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>ft²</displayName>
@@ -6578,6 +6643,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>yd²</displayName>
 				<unitPattern count="one">{0}yd²</unitPattern>
 				<unitPattern count="other">{0}yd²</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>L/100km</displayName>
+				<unitPattern count="one">{0}L/100km</unitPattern>
+				<unitPattern count="other">{0}L/100km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
@@ -6821,6 +6891,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}mi</unitPattern>
 				<unitPattern count="other">{0}mi</unitPattern>
 			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>smi</displayName>
+				<unitPattern count="one">{0}smi</unitPattern>
+				<unitPattern count="other">{0}smi</unitPattern>
+			</unit>
 			<unit type="length-millimeter">
 				<displayName>mm</displayName>
 				<unitPattern count="one">{0}mm</unitPattern>
@@ -7056,6 +7131,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}c</unitPattern>
 				<unitPattern count="other">{0}c</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>mcup</displayName>
+				<unitPattern count="one">{0}mc</unitPattern>
+				<unitPattern count="other">{0}mc</unitPattern>
+			</unit>
 			<unit type="volume-deciliter">
 				<displayName>dL</displayName>
 				<unitPattern count="one">{0}dL</unitPattern>
@@ -7096,6 +7176,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}pt</unitPattern>
 				<unitPattern count="other">{0}pt</unitPattern>
 			</unit>
+			<unit type="volume-pint-metric">
+				<displayName>pt</displayName>
+				<unitPattern count="one">{0}mpt</unitPattern>
+				<unitPattern count="other">{0}mpt</unitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>qt</displayName>
 				<unitPattern count="one">{0}qt</unitPattern>
@@ -7110,6 +7195,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>tsp</displayName>
 				<unitPattern count="one">{0}tsp</unitPattern>
 				<unitPattern count="other">{0}tsp</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon-au">
+				<displayName>atsp</displayName>
+				<unitPattern count="one">{0}atsp</unitPattern>
+				<unitPattern count="other">{0}atsp</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

@@ -161,7 +161,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
         }
 
         // Make sure currency patterns contain a currency symbol
-        if (type == NumericType.CURRENCY) {
+        if (type == NumericType.CURRENCY || type == NumericType.CURRENCY_ABBREVIATED) {
             String[] currencyPatterns = value.split(";", 2);
             for (int i = 0; i < currencyPatterns.length; i++) {
                 if (currencyPatterns[i].indexOf("\u00a4") < 0)
@@ -222,7 +222,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
         // Notice that we pick up any exceptions, so that we can
         // give a reasonable error message.
         try {
-            if (type == NumericType.DECIMAL_ABBREVIATED) {
+            if (type == NumericType.DECIMAL_ABBREVIATED || type == NumericType.CURRENCY_ABBREVIATED) {
                 // Check for consistency in short/long decimal formats.
                 checkDecimalFormatConsistency(parts, path, value, result, type);
             } else {
@@ -479,6 +479,9 @@ public class CheckNumbers extends FactoryCheckCLDR {
             df.setMaximumFractionDigits(digits[2]);
             pattern = df.toPattern();
         } else { // of form 1000. Result must be 0+(.0+)?
+            if (type == NumericType.CURRENCY_ABBREVIATED && !inpattern.contains(".")) {
+                df.setMinimumFractionDigits(0); // correct the current rewrite
+            }
             df.setMaximumFractionDigits(df.getMinimumFractionDigits());
             int minimumIntegerDigits = df.getMinimumIntegerDigits();
             if (minimumIntegerDigits < 1) minimumIntegerDigits = 1;

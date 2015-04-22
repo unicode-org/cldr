@@ -49,14 +49,14 @@ public class DisplayAndInputProcessor {
     public static final boolean DEBUG_DAIP = CldrUtility.getProperty("DEBUG_DAIP", false);
 
     public static final UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]")
-        .freeze();
+    .freeze();
 
     public static final UnicodeSet TO_QUOTE = (UnicodeSet) new UnicodeSet(
         "[[:Cn:]" +
             "[:Default_Ignorable_Code_Point:]" +
             "[:patternwhitespace:]" +
             "[:Me:][:Mn:]]" // add non-spacing marks
-    ).freeze();
+        ).freeze();
 
     public static final Pattern NUMBER_FORMAT_XPATH = Pattern
         .compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
@@ -242,7 +242,7 @@ public class DisplayAndInputProcessor {
                 } catch (IllegalArgumentException e) {
                     if (DEBUG_DAIP) System.err.println("Illegal pattern: " + value);
                 }
-                if (numericType != NumericType.CURRENCY) {
+                if (numericType != NumericType.CURRENCY && numericType != NumericType.CURRENCY_ABBREVIATED) {
                     value = value.replace("'", "");
                 }
             }
@@ -336,6 +336,9 @@ public class DisplayAndInputProcessor {
             if (numericType != NumericType.NOT_NUMERIC) {
                 if (numericType == NumericType.CURRENCY) {
                     value = value.replaceAll(" ", "\u00A0");
+                    if (numericType == NumericType.CURRENCY_ABBREVIATED) {
+                        value = value.replaceAll("0\\.0+", "0");
+                    }
                 } else {
                     value = value.replaceAll("([%\u00A4]) ", "$1\u00A0")
                         .replaceAll(" ([%\u00A4])", "\u00A0$1");
@@ -558,7 +561,7 @@ public class DisplayAndInputProcessor {
             }
             if (convertedSaltillo &&
                 ((i > 0 && i < charArray.length - 1 && Character.isUpperCase(charArray[i - 1]) && Character.isUpperCase(charArray[i + 1])) ||
-                (i > 1 && Character.isUpperCase(charArray[i - 1]) && Character.isUpperCase(charArray[i - 2])))) {
+                    (i > 1 && Character.isUpperCase(charArray[i - 1]) && Character.isUpperCase(charArray[i - 2])))) {
                 c = '\uA78B'; // UPPER CASE SALTILLO
             }
             builder.append(c);
@@ -616,9 +619,9 @@ public class DisplayAndInputProcessor {
 
     private static Map<Character, Character> NORMALIZING_MAP =
         Builder.with(new HashMap<Character, Character>())
-            .put('\u0D23', '\u0D7A').put('\u0D28', '\u0D7B')
-            .put('\u0D30', '\u0D7C').put('\u0D32', '\u0D7D')
-            .put('\u0D33', '\u0D7E').put('\u0D15', '\u0D7F').get();
+        .put('\u0D23', '\u0D7A').put('\u0D28', '\u0D7B')
+        .put('\u0D30', '\u0D7C').put('\u0D32', '\u0D7D')
+        .put('\u0D33', '\u0D7E').put('\u0D15', '\u0D7F').get();
 
     /**
      * Normalizes the Malayalam characters in the specified input.
@@ -722,7 +725,7 @@ public class DisplayAndInputProcessor {
     public static String getCanonicalPattern(String inpattern, NumericType type, boolean isPOSIX) {
         // TODO fix later to properly handle quoted ;
         DecimalFormat df = new DecimalFormat(inpattern);
-        if (type == NumericType.DECIMAL_ABBREVIATED) {
+        if (type == NumericType.DECIMAL_ABBREVIATED || type == NumericType.CURRENCY_ABBREVIATED) {
             return inpattern; // TODO fix when ICU bug is fixed
             // df.setMaximumFractionDigits(df.getMinimumFractionDigits());
             // df.setMaximumIntegerDigits(Math.max(1, df.getMinimumIntegerDigits()));
@@ -745,6 +748,7 @@ public class DisplayAndInputProcessor {
      */
     public enum NumericType {
         CURRENCY(new int[] { 1, 2, 2 }, new int[] { 1, 2, 2 }),
+        CURRENCY_ABBREVIATED(),
         DECIMAL(new int[] { 1, 0, 3 }, new int[] { 1, 0, 6 }),
         DECIMAL_ABBREVIATED(),
         PERCENT(new int[] { 1, 0, 0 }, new int[] { 1, 0, 0 }),
@@ -776,8 +780,14 @@ public class DisplayAndInputProcessor {
                     return CURRENCY;
                 } else {
                     NumericType type = NumericType.valueOf(matcher.group(2).toUpperCase());
-                    if (type == DECIMAL && xpath.contains("=\"1000")) {
-                        type = DECIMAL_ABBREVIATED;
+                    if (xpath.contains("=\"1000")) {
+                        if (type == DECIMAL) {
+                            type = DECIMAL_ABBREVIATED;
+                        } else if (type == CURRENCY) {
+                            type = CURRENCY_ABBREVIATED;
+                        } else {
+                            throw new IllegalArgumentException("Internal Error");
+                        }
                     }
                     return type;
                 }

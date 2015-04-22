@@ -73,7 +73,6 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="4">i­=%spellout-numbering=;</rbnfrule>
                 <rbnfrule value="8">­otto;</rbnfrule>
                 <rbnfrule value="9">i­nove;</rbnfrule>
-                <rbnfrule value="10">ERROR;</rbnfrule>
             </ruleset>
             <ruleset type="msco-with-a" access="private">
                 <rbnfrule value="0">a;</rbnfrule>
@@ -83,7 +82,6 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="4">a­=%spellout-numbering=;</rbnfrule>
                 <rbnfrule value="8">­otto;</rbnfrule>
                 <rbnfrule value="9">a­nove;</rbnfrule>
-                <rbnfrule value="10">ERROR;</rbnfrule>
             </ruleset>
             <ruleset type="msco-with-o" access="private">
                 <rbnfrule value="0">o;</rbnfrule>
@@ -146,8 +144,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="90">o­=%spellout-numbering=;</rbnfrule>
             </ruleset>
             <ruleset type="msc-no-final" access="private">
-                <rbnfrule value="0">ERROR;</rbnfrule>
-                <rbnfrule value="2">=%spellout-cardinal-masculine=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-cardinal-masculine=;</rbnfrule>
                 <rbnfrule value="20">vent→%%msc-with-i-nofinal→;</rbnfrule>
                 <rbnfrule value="30">trent→%%msc-with-a-nofinal→;</rbnfrule>
                 <rbnfrule value="40">quarant→%%msc-with-a-nofinal→;</rbnfrule>
@@ -158,7 +155,6 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="90">novant→%%msc-with-a-nofinal→;</rbnfrule>
                 <rbnfrule value="100">cent→%%msc-with-o-nofinal→;</rbnfrule>
                 <rbnfrule value="200">←←­cent→%%msc-with-o-nofinal→;</rbnfrule>
-                <rbnfrule value="1000">ERROR;</rbnfrule>
             </ruleset>
             <ruleset type="msc-with-i-nofinal" access="private">
                 <rbnfrule value="0">=%%msc-with-i=;</rbnfrule>
@@ -255,7 +251,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000">←%spellout-cardinal-masculine←­mille­→%%ordinal-esimo→;</rbnfrule>
                 <rbnfrule value="2001">←%spellout-cardinal-masculine←­mila­→%%ordinal-esimo→;</rbnfrule>
                 <rbnfrule value="1000000">milione­→%%ordinal-esimo→;</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine←milion­→%%ordinal-esimo→;</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-masculine←milione­→%%ordinal-esimo→;</rbnfrule>
                 <rbnfrule value="1000000000">miliard­→%%ordinal-esimo-with-o→;</rbnfrule>
                 <rbnfrule value="2000000000">←%spellout-cardinal-masculine←miliard­→%%ordinal-esimo-with-o→;</rbnfrule>
                 <rbnfrule value="1000000000000">bilione­→%%ordinal-esimo→;</rbnfrule>
@@ -353,7 +349,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000">←%spellout-cardinal-feminine←­mille­→%%ordinal-esima→;</rbnfrule>
                 <rbnfrule value="2001">←%spellout-cardinal-feminine←­mila­→%%ordinal-esima→;</rbnfrule>
                 <rbnfrule value="1000000">milione­→%%ordinal-esima→;</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-feminine←milion­→%%ordinal-esima→;</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-feminine←milione­→%%ordinal-esima→;</rbnfrule>
                 <rbnfrule value="1000000000">miliard­→%%ordinal-esima-with-o→;</rbnfrule>
                 <rbnfrule value="2000000000">←%spellout-cardinal-feminine←miliard­→%%ordinal-esima-with-o→;</rbnfrule>
                 <rbnfrule value="1000000000000">bilione­→%%ordinal-esima→;</rbnfrule>

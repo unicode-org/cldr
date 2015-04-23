@@ -1690,6 +1690,46 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern draft="contributed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="zero" draft="provisional">0 tsd ¤</pattern>
+					<pattern type="1000" count="one" draft="provisional">0 tsd ¤</pattern>
+					<pattern type="1000" count="other" draft="provisional">0 tsd ¤</pattern>
+					<pattern type="10000" count="zero" draft="provisional">00 tsd ¤</pattern>
+					<pattern type="10000" count="one" draft="provisional">00 tsd ¤</pattern>
+					<pattern type="10000" count="other" draft="provisional">00 tsd ¤</pattern>
+					<pattern type="100000" count="zero" draft="provisional">000 tsd ¤</pattern>
+					<pattern type="100000" count="one" draft="provisional">000 tsd ¤</pattern>
+					<pattern type="100000" count="other" draft="provisional">000 tsd ¤</pattern>
+					<pattern type="1000000" count="zero" draft="provisional">0 Mio ¤</pattern>
+					<pattern type="1000000" count="one" draft="provisional">0 Mio ¤</pattern>
+					<pattern type="1000000" count="other" draft="provisional">0 Mio ¤</pattern>
+					<pattern type="10000000" count="zero" draft="provisional">00 Mio ¤</pattern>
+					<pattern type="10000000" count="one" draft="provisional">00 Mio ¤</pattern>
+					<pattern type="10000000" count="other" draft="provisional">00 Mio ¤</pattern>
+					<pattern type="100000000" count="zero" draft="provisional">000 Mio ¤</pattern>
+					<pattern type="100000000" count="one" draft="provisional">000 Mio ¤</pattern>
+					<pattern type="100000000" count="other" draft="provisional">000 Mio ¤</pattern>
+					<pattern type="1000000000" count="zero" draft="provisional">0 Mrd ¤</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">0 Mrd ¤</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">0 Mrd ¤</pattern>
+					<pattern type="10000000000" count="zero" draft="provisional">00 Mrd ¤</pattern>
+					<pattern type="10000000000" count="one" draft="provisional">00 Mrd ¤</pattern>
+					<pattern type="10000000000" count="other" draft="provisional">00 Mrd ¤</pattern>
+					<pattern type="100000000000" count="zero" draft="provisional">000 Mrd ¤</pattern>
+					<pattern type="100000000000" count="one" draft="provisional">000 Mrd ¤</pattern>
+					<pattern type="100000000000" count="other" draft="provisional">000 Mrd ¤</pattern>
+					<pattern type="1000000000000" count="zero" draft="provisional">0 Bio ¤</pattern>
+					<pattern type="1000000000000" count="one" draft="provisional">0 Bio ¤</pattern>
+					<pattern type="1000000000000" count="other" draft="provisional">0 Bio ¤</pattern>
+					<pattern type="10000000000000" count="zero" draft="provisional">00 Bio ¤</pattern>
+					<pattern type="10000000000000" count="one" draft="provisional">00 Bio ¤</pattern>
+					<pattern type="10000000000000" count="other" draft="provisional">00 Bio ¤</pattern>
+					<pattern type="100000000000000" count="zero" draft="provisional">000 Bio ¤</pattern>
+					<pattern type="100000000000000" count="one" draft="provisional">000 Bio ¤</pattern>
+					<pattern type="100000000000000" count="other" draft="provisional">000 Bio ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
 			<unitPattern count="zero" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>

@@ -3868,6 +3868,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="other" draft="provisional">¤0ពាន់</pattern>
+					<pattern type="10000" count="other" draft="provisional">¤0​មឺុន</pattern>
+					<pattern type="100000" count="other" draft="provisional">¤0សែន</pattern>
+					<pattern type="1000000" count="other" draft="provisional">¤0លាន</pattern>
+					<pattern type="10000000" count="other" draft="provisional">¤0​ដប់​លាន</pattern>
+					<pattern type="100000000" count="other" draft="provisional">¤0​រយលាន</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">¤0​កោដិ</pattern>
+					<pattern type="10000000000" count="other" draft="provisional">¤0​ដប់​កោដិ</pattern>
+					<pattern type="100000000000" count="other" draft="provisional">¤0​រយ​កោដិ</pattern>
+					<pattern type="1000000000000" count="other" draft="provisional">¤0​ពាន់​កោដិ</pattern>
+					<pattern type="10000000000000" count="other" draft="provisional">¤0​មឺុន​កោដិ</pattern>
+					<pattern type="100000000000000" count="other" draft="provisional">¤0​សែន​កោដិ</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>

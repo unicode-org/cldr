@@ -4491,6 +4491,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern>¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="one" draft="provisional">¤ 0 илј'.'</pattern>
+					<pattern type="1000" count="other" draft="provisional">¤ 0 илј'.'</pattern>
+					<pattern type="10000" count="one" draft="provisional">¤ 00 илј'.'</pattern>
+					<pattern type="10000" count="other" draft="provisional">¤ 00 илј'.'</pattern>
+					<pattern type="100000" count="one" draft="provisional">¤ 000 илј'.'</pattern>
+					<pattern type="100000" count="other" draft="provisional">¤ 000 илј'.'</pattern>
+					<pattern type="1000000" count="one" draft="provisional">¤ 0 мил'.'</pattern>
+					<pattern type="1000000" count="other" draft="provisional">¤ 0 мил'.'</pattern>
+					<pattern type="10000000" count="one" draft="provisional">¤ 00 мил'.'</pattern>
+					<pattern type="10000000" count="other" draft="provisional">¤ 00 мил'.'</pattern>
+					<pattern type="100000000" count="one" draft="provisional">¤ 000 М</pattern>
+					<pattern type="100000000" count="other" draft="provisional">¤ 000 М</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">¤ 0 милј'.'</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">¤ 0 милј'.'</pattern>
+					<pattern type="10000000000" count="one" draft="provisional">¤ 00 милј'.'</pattern>
+					<pattern type="10000000000" count="other" draft="provisional">¤ 00 милј'.'</pattern>
+					<pattern type="100000000000" count="one" draft="provisional">¤ 000 мј'.'</pattern>
+					<pattern type="100000000000" count="other" draft="provisional">¤ 000 милј'.'</pattern>
+					<pattern type="1000000000000" count="one" draft="provisional">¤ 0 трил'.'</pattern>
+					<pattern type="1000000000000" count="other" draft="provisional">¤ 0 трил'.'</pattern>
+					<pattern type="10000000000000" count="one" draft="provisional">¤ 00 трил'.'</pattern>
+					<pattern type="10000000000000" count="other" draft="provisional">¤ 00 трил'.'</pattern>
+					<pattern type="100000000000000" count="one" draft="provisional">¤ 000 трил'.'</pattern>
+					<pattern type="100000000000000" count="other" draft="provisional">¤ 000 трил'.'</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>

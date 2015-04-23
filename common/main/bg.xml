@@ -4514,6 +4514,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern>#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="one" draft="provisional">0 хил'.' ¤</pattern>
+					<pattern type="1000" count="other" draft="provisional">0 хил'.' ¤</pattern>
+					<pattern type="10000" count="one" draft="provisional">00 хил'.' ¤</pattern>
+					<pattern type="10000" count="other" draft="provisional">00 хил'.' ¤</pattern>
+					<pattern type="100000" count="one" draft="provisional">000 хил'.' ¤</pattern>
+					<pattern type="100000" count="other" draft="provisional">000 хил'.' ¤</pattern>
+					<pattern type="1000000" count="one" draft="provisional">0 млн'.' ¤</pattern>
+					<pattern type="1000000" count="other" draft="provisional">0 млн'.' ¤</pattern>
+					<pattern type="10000000" count="one" draft="provisional">00 млн'.' ¤</pattern>
+					<pattern type="10000000" count="other" draft="provisional">00 млн'.' ¤</pattern>
+					<pattern type="100000000" count="one" draft="provisional">000 млн'.' ¤</pattern>
+					<pattern type="100000000" count="other" draft="provisional">000 млн'.' ¤</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">0 млрд'.' ¤</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">0 млрд'.' ¤</pattern>
+					<pattern type="10000000000" count="one" draft="provisional">00 млрд'.' ¤</pattern>
+					<pattern type="10000000000" count="other" draft="provisional">00 млрд'.' ¤</pattern>
+					<pattern type="100000000000" count="one" draft="provisional">000 млрд'.' ¤</pattern>
+					<pattern type="100000000000" count="other" draft="provisional">000 млрд'.' ¤</pattern>
+					<pattern type="1000000000000" count="one" draft="provisional">0 трлн'.' ¤</pattern>
+					<pattern type="1000000000000" count="other" draft="provisional">0 трлн'.' ¤</pattern>
+					<pattern type="10000000000000" count="one" draft="provisional">00 трлн'.' ¤</pattern>
+					<pattern type="10000000000000" count="other" draft="provisional">00 трлн'.' ¤</pattern>
+					<pattern type="100000000000000" count="one" draft="provisional">000 трлн'.' ¤</pattern>
+					<pattern type="100000000000000" count="other" draft="provisional">000 трлн'.' ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -5556,7 +5584,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Руска рубла</displayName>
 				<displayName count="one">руска рубла</displayName>
 				<displayName count="other">руски рубли</displayName>
-                		<symbol>₽</symbol>
+				<symbol>₽</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Руска рубла (1991–1998)</displayName>

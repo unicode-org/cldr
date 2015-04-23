@@ -5003,6 +5003,46 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern>#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="one" draft="provisional">0 хиљ'.' ¤</pattern>
+					<pattern type="1000" count="few" draft="provisional">0 хиљ'.' ¤</pattern>
+					<pattern type="1000" count="other" draft="provisional">0 хиљ'.' ¤</pattern>
+					<pattern type="10000" count="one" draft="provisional">00 хиљ'.' ¤</pattern>
+					<pattern type="10000" count="few" draft="provisional">00 хиљ'.' ¤</pattern>
+					<pattern type="10000" count="other" draft="provisional">00 хиљ'.' ¤</pattern>
+					<pattern type="100000" count="one" draft="provisional">000 хиљ'.' ¤</pattern>
+					<pattern type="100000" count="few" draft="provisional">000 хиљ'.' ¤</pattern>
+					<pattern type="100000" count="other" draft="provisional">000 хиљ'.' ¤</pattern>
+					<pattern type="1000000" count="one" draft="provisional">0 мил'.' ¤</pattern>
+					<pattern type="1000000" count="few" draft="provisional">0 мил'.' ¤</pattern>
+					<pattern type="1000000" count="other" draft="provisional">0 мил'.' ¤</pattern>
+					<pattern type="10000000" count="one" draft="provisional">00 мил'.' ¤</pattern>
+					<pattern type="10000000" count="few" draft="provisional">00 мил'.' ¤</pattern>
+					<pattern type="10000000" count="other" draft="provisional">00 мил'.' ¤</pattern>
+					<pattern type="100000000" count="one" draft="provisional">000 мил'.' ¤</pattern>
+					<pattern type="100000000" count="few" draft="provisional">000 мил'.' ¤</pattern>
+					<pattern type="100000000" count="other" draft="provisional">000 мил'.' ¤</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">0 млрд'.' ¤</pattern>
+					<pattern type="1000000000" count="few" draft="provisional">0 млрд'.' ¤</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">0 млрд'.' ¤</pattern>
+					<pattern type="10000000000" count="one" draft="provisional">00 млрд'.' ¤</pattern>
+					<pattern type="10000000000" count="few" draft="provisional">00 млрд'.' ¤</pattern>
+					<pattern type="10000000000" count="other" draft="provisional">00 млрд'.' ¤</pattern>
+					<pattern type="100000000000" count="one" draft="provisional">000 млрд'.' ¤</pattern>
+					<pattern type="100000000000" count="few" draft="provisional">000 млрд'.' ¤</pattern>
+					<pattern type="100000000000" count="other" draft="provisional">000 млрд'.' ¤</pattern>
+					<pattern type="1000000000000" count="one" draft="provisional">0 бил'.' ¤</pattern>
+					<pattern type="1000000000000" count="few" draft="provisional">0 бил'.' ¤</pattern>
+					<pattern type="1000000000000" count="other" draft="provisional">0 бил'.' ¤</pattern>
+					<pattern type="10000000000000" count="one" draft="provisional">00 бил'.' ¤</pattern>
+					<pattern type="10000000000000" count="few" draft="provisional">00 бил'.' ¤</pattern>
+					<pattern type="10000000000000" count="other" draft="provisional">00 бил'.' ¤</pattern>
+					<pattern type="100000000000000" count="one" draft="provisional">000 бил'.' ¤</pattern>
+					<pattern type="100000000000000" count="few" draft="provisional">000 бил'.' ¤</pattern>
+					<pattern type="100000000000000" count="other" draft="provisional">000 бил'.' ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>
 			<unitPattern count="few">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>

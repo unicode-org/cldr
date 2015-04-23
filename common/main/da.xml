@@ -4661,6 +4661,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="one" draft="provisional">0 td ¤</pattern>
+					<pattern type="1000" count="other" draft="provisional">0 td ¤</pattern>
+					<pattern type="10000" count="one" draft="provisional">00 td ¤</pattern>
+					<pattern type="10000" count="other" draft="provisional">00 td ¤</pattern>
+					<pattern type="100000" count="one" draft="provisional">000 td ¤</pattern>
+					<pattern type="100000" count="other" draft="provisional">000 td ¤</pattern>
+					<pattern type="1000000" count="one" draft="provisional">0 mio ¤</pattern>
+					<pattern type="1000000" count="other" draft="provisional">0 mio ¤</pattern>
+					<pattern type="10000000" count="one" draft="provisional">00 mio ¤</pattern>
+					<pattern type="10000000" count="other" draft="provisional">00 mio ¤</pattern>
+					<pattern type="100000000" count="one" draft="provisional">000 mio ¤</pattern>
+					<pattern type="100000000" count="other" draft="provisional">000 mio ¤</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">0 mia ¤</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">0 mia ¤</pattern>
+					<pattern type="10000000000" count="one" draft="provisional">00 mia ¤</pattern>
+					<pattern type="10000000000" count="other" draft="provisional">00 mia ¤</pattern>
+					<pattern type="100000000000" count="one" draft="provisional">000 mia ¤</pattern>
+					<pattern type="100000000000" count="other" draft="provisional">000 mia ¤</pattern>
+					<pattern type="1000000000000" count="one" draft="provisional">0 bill ¤</pattern>
+					<pattern type="1000000000000" count="other" draft="provisional">0 bill ¤</pattern>
+					<pattern type="10000000000000" count="one" draft="provisional">00 bill ¤</pattern>
+					<pattern type="10000000000000" count="other" draft="provisional">00 bill ¤</pattern>
+					<pattern type="100000000000000" count="one" draft="provisional">000 bill ¤</pattern>
+					<pattern type="100000000000000" count="other" draft="provisional">000 bill ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>

@@ -1257,28 +1257,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-                		<timeFormats>
-                   			<timeFormatLength type="full">
-                        			<timeFormat>
-                            				<pattern>HH:mm:ss zzzz</pattern>
-                        			</timeFormat>
-                    			</timeFormatLength>
-                    			<timeFormatLength type="long">
-                        			<timeFormat>
-                            				<pattern>HH:mm:ss z</pattern>
-                        			</timeFormat>
-                    			</timeFormatLength>
-                    			<timeFormatLength type="medium">
-                        			<timeFormat>
-                            				<pattern>HH:mm:ss</pattern>
-                        			</timeFormat>
-                    			</timeFormatLength>
-                    			<timeFormatLength type="short">
-                        			<timeFormat>
-                            				<pattern>HH:mm</pattern>
-                        			</timeFormat>
-                    			</timeFormatLength>
-                		</timeFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>HH:mm:ss zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -4094,6 +4094,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="one" draft="provisional">¤elfu 0</pattern>
+					<pattern type="1000" count="other" draft="provisional">¤elfu 0</pattern>
+					<pattern type="10000" count="one" draft="provisional">¤elfu 00</pattern>
+					<pattern type="10000" count="other" draft="provisional">¤elfu 00</pattern>
+					<pattern type="100000" count="one" draft="provisional">¤elfu 000</pattern>
+					<pattern type="100000" count="other" draft="provisional">¤elfu 000</pattern>
+					<pattern type="1000000" count="one" draft="provisional">¤M0</pattern>
+					<pattern type="1000000" count="other" draft="provisional">¤M0</pattern>
+					<pattern type="10000000" count="one" draft="provisional">¤M00</pattern>
+					<pattern type="10000000" count="other" draft="provisional">¤M00</pattern>
+					<pattern type="100000000" count="one" draft="provisional">¤M000</pattern>
+					<pattern type="100000000" count="other" draft="provisional">¤M000</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">¤B0</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">¤B0</pattern>
+					<pattern type="10000000000" count="one" draft="provisional">¤B00</pattern>
+					<pattern type="10000000000" count="other" draft="provisional">¤B00</pattern>
+					<pattern type="100000000000" count="one" draft="provisional">¤B000</pattern>
+					<pattern type="100000000000" count="other" draft="provisional">¤B000</pattern>
+					<pattern type="1000000000000" count="one" draft="provisional">¤T0</pattern>
+					<pattern type="1000000000000" count="other" draft="provisional">¤T0</pattern>
+					<pattern type="10000000000000" count="one" draft="provisional">¤T00</pattern>
+					<pattern type="10000000000000" count="other" draft="provisional">¤T00</pattern>
+					<pattern type="100000000000000" count="one" draft="provisional">¤T000</pattern>
+					<pattern type="100000000000000" count="other" draft="provisional">¤T000</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{1} {0}</unitPattern>

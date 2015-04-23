@@ -5584,6 +5584,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern>¤#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="other" draft="provisional">¤0</pattern>
+					<pattern type="10000" count="other" draft="provisional">¤00 rb</pattern>
+					<pattern type="100000" count="other" draft="provisional">¤000 rb</pattern>
+					<pattern type="1000000" count="other" draft="provisional">¤0 jt</pattern>
+					<pattern type="10000000" count="other" draft="provisional">¤00 jt</pattern>
+					<pattern type="100000000" count="other" draft="provisional">¤000 jt</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">¤0 M</pattern>
+					<pattern type="10000000000" count="other" draft="provisional">¤00 M</pattern>
+					<pattern type="100000000000" count="other" draft="provisional">¤000 M</pattern>
+					<pattern type="1000000000000" count="other" draft="provisional">¤0 T</pattern>
+					<pattern type="10000000000000" count="other" draft="provisional">¤00 T</pattern>
+					<pattern type="100000000000000" count="other" draft="provisional">¤000 T</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>

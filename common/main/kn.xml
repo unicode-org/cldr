@@ -4449,6 +4449,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="one" draft="provisional">¤0ಸಾ</pattern>
+					<pattern type="1000" count="other" draft="provisional">¤0ಸಾ</pattern>
+					<pattern type="10000" count="one" draft="provisional">¤00ಸಾ</pattern>
+					<pattern type="10000" count="other" draft="provisional">¤00ಸಾ</pattern>
+					<pattern type="100000" count="one" draft="provisional">¤000ಸಾ</pattern>
+					<pattern type="100000" count="other" draft="provisional">¤000ಸಾ</pattern>
+					<pattern type="1000000" count="one" draft="provisional">¤0ಮಿ</pattern>
+					<pattern type="1000000" count="other" draft="provisional">¤0ಮಿ</pattern>
+					<pattern type="10000000" count="one" draft="provisional">¤00ಮಿ</pattern>
+					<pattern type="10000000" count="other" draft="provisional">¤00ಮಿ</pattern>
+					<pattern type="100000000" count="one" draft="provisional">¤000ಮಿ</pattern>
+					<pattern type="100000000" count="other" draft="provisional">¤000ಮಿ</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">¤0ಬಿ</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">¤0ಬಿ</pattern>
+					<pattern type="10000000000" count="one" draft="provisional">¤00ಬಿ</pattern>
+					<pattern type="10000000000" count="other" draft="provisional">¤00ಬಿ</pattern>
+					<pattern type="100000000000" count="one" draft="provisional">¤000ಬಿ</pattern>
+					<pattern type="100000000000" count="other" draft="provisional">¤000ಬಿ</pattern>
+					<pattern type="1000000000000" count="one" draft="provisional">¤0ಟ್ರಿ</pattern>
+					<pattern type="1000000000000" count="other" draft="provisional">¤0ಟ್ರಿ</pattern>
+					<pattern type="10000000000000" count="one" draft="provisional">¤00ಟ್ರಿ</pattern>
+					<pattern type="10000000000000" count="other" draft="provisional">¤00ಟ್ರಿ</pattern>
+					<pattern type="100000000000000" count="one" draft="provisional">¤000ಟ್ರಿ</pattern>
+					<pattern type="100000000000000" count="other" draft="provisional">¤000ಟ್ರಿ</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>

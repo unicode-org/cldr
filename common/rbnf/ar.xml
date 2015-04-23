@@ -183,6 +183,116 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000000000000000">←%%spellout-numbering-m← بليار[ و →%%spellout-numbering-m→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
+            <ruleset type="ordinal-ones-feminine" access="private">
+                <rbnfrule value="1">الحادية ;</rbnfrule>
+                <rbnfrule value="2">=%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="11">الحادية عشرة;</rbnfrule>
+                <rbnfrule value="12">=%spellout-ordinal-feminine=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine">
+                <rbnfrule value="-x">ناقص →→;</rbnfrule>
+                <rbnfrule value="x.x">←← فاصل →→;</rbnfrule>
+                <rbnfrule value="0">صفر;</rbnfrule>
+                <rbnfrule value="1">الأولى;</rbnfrule>
+                <rbnfrule value="2">الثانية;</rbnfrule>
+                <rbnfrule value="3">الثالثة;</rbnfrule>
+                <rbnfrule value="4">الرابعة;</rbnfrule>
+                <rbnfrule value="5">الخامسة;</rbnfrule>
+                <rbnfrule value="6">السادسة;</rbnfrule>
+                <rbnfrule value="7">السابعة;</rbnfrule>
+                <rbnfrule value="8">الثامنة;</rbnfrule>
+                <rbnfrule value="9">التاسعة;</rbnfrule>
+                <rbnfrule value="10">العاشرة;</rbnfrule>
+                <rbnfrule value="11">الحادية عشرة;</rbnfrule>
+                <rbnfrule value="12">→→ عشرة;</rbnfrule>
+                <rbnfrule value="20">العشرون;</rbnfrule>
+                <rbnfrule value="21">→%%ordinal-ones-feminine→ و العشرون;</rbnfrule>
+                <rbnfrule value="30">الثلاثون;</rbnfrule>
+                <rbnfrule value="31">→%%ordinal-ones-feminine→ و الثلاثون;</rbnfrule>
+                <rbnfrule value="40">الأربعون;</rbnfrule>
+                <rbnfrule value="41">→%%ordinal-ones-feminine→ و الأربعون;</rbnfrule>
+                <rbnfrule value="50">الخمسون;</rbnfrule>
+                <rbnfrule value="51">→%%ordinal-ones-feminine→ و الخمسون;</rbnfrule>
+                <rbnfrule value="60">الستون;</rbnfrule>
+                <rbnfrule value="61">→%%ordinal-ones-feminine→ و الستون;</rbnfrule>
+                <rbnfrule value="70">السبعون;</rbnfrule>
+                <rbnfrule value="71">→%%ordinal-ones-feminine→ و السبعون;</rbnfrule>
+                <rbnfrule value="80">الثمانون;</rbnfrule>
+                <rbnfrule value="81">→%%ordinal-ones-feminine→ و الثمانون;</rbnfrule>
+                <rbnfrule value="90">التسعون;</rbnfrule>
+                <rbnfrule value="91">→%%ordinal-ones-feminine→ و التسعون;</rbnfrule>
+                <rbnfrule value="100">المائة[ و →%spellout-cardinal-feminine→];</rbnfrule>
+                <rbnfrule value="200">المائتان[ و →%spellout-cardinal-feminine→];</rbnfrule>
+                <rbnfrule value="300">←%spellout-numbering← مائة[ و →%spellout-cardinal-feminine→];</rbnfrule>
+                <rbnfrule value="1000">الألف[ و →%spellout-cardinal-feminine→];</rbnfrule>
+                <rbnfrule value="2000">الألفي[ و →%spellout-cardinal-feminine→];</rbnfrule>
+                <rbnfrule value="3000">←%spellout-cardinal-feminine← آلاف[ و →%spellout-cardinal-feminine→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-feminine← ألف[ و →%spellout-cardinal-feminine→];</rbnfrule>
+                <rbnfrule value="1000000">المليون[ و →%spellout-cardinal-feminine→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-feminine← الألف[ و →%spellout-cardinal-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000">المليار[ و →%spellout-cardinal-feminine→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-cardinal-feminine← مليار[ و →%spellout-cardinal-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000000">بليون[ و →%spellout-cardinal-feminine→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-cardinal-feminine← بليون[ و →%spellout-cardinal-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000000000">بليار[ و →%spellout-cardinal-feminine→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-cardinal-feminine← بليار[ و →%spellout-cardinal-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="ordinal-ones-masculine" access="private">
+                <rbnfrule value="1">الحادي ;</rbnfrule>
+                <rbnfrule value="2">=%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="11">الحادي عشر;</rbnfrule>
+                <rbnfrule value="12">=%spellout-ordinal-masculine=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine">
+                <rbnfrule value="-x">ناقص →→;</rbnfrule>
+                <rbnfrule value="x.x">←← فاصل →→;</rbnfrule>
+                <rbnfrule value="0">صفر;</rbnfrule>
+                <rbnfrule value="1">الأول;</rbnfrule>
+                <rbnfrule value="2">الثاني;</rbnfrule>
+                <rbnfrule value="3">الثالث;</rbnfrule>
+                <rbnfrule value="4">الرابع;</rbnfrule>
+                <rbnfrule value="5">الخامس;</rbnfrule>
+                <rbnfrule value="6">السادس;</rbnfrule>
+                <rbnfrule value="7">السابع;</rbnfrule>
+                <rbnfrule value="8">الثامن;</rbnfrule>
+                <rbnfrule value="9">التاسع;</rbnfrule>
+                <rbnfrule value="10">العاشر;</rbnfrule>
+                <rbnfrule value="11">الحادي عشر;</rbnfrule>
+                <rbnfrule value="12">→→ عشر;</rbnfrule>
+                <rbnfrule value="20">العشرون;</rbnfrule>
+                <rbnfrule value="21">→%%ordinal-ones-masculine→ و العشرون;</rbnfrule>
+                <rbnfrule value="30">الثلاثون;</rbnfrule>
+                <rbnfrule value="31">→%%ordinal-ones-masculine→ و الثلاثون;</rbnfrule>
+                <rbnfrule value="40">الأربعون;</rbnfrule>
+                <rbnfrule value="41">→%%ordinal-ones-masculine→ و الأربعون;</rbnfrule>
+                <rbnfrule value="50">الخمسون;</rbnfrule>
+                <rbnfrule value="51">→%%ordinal-ones-masculine→ و الخمسون;</rbnfrule>
+                <rbnfrule value="60">الستون;</rbnfrule>
+                <rbnfrule value="61">→%%ordinal-ones-masculine→ و الستون;</rbnfrule>
+                <rbnfrule value="70">السبعون;</rbnfrule>
+                <rbnfrule value="71">→%%ordinal-ones-masculine→ و السبعون;</rbnfrule>
+                <rbnfrule value="80">الثمانون;</rbnfrule>
+                <rbnfrule value="81">→%%ordinal-ones-masculine→ و الثمانون;</rbnfrule>
+                <rbnfrule value="90">التسعون;</rbnfrule>
+                <rbnfrule value="91">→%%ordinal-ones-masculine→ و التسعون;</rbnfrule>
+                <rbnfrule value="100">المائة[ و →%%spellout-numbering-m→];</rbnfrule>
+                <rbnfrule value="200">المائتان[ و →%%spellout-numbering-m→];</rbnfrule>
+                <rbnfrule value="300">←%spellout-numbering← مائة[ و →%%spellout-numbering-m→];</rbnfrule>
+                <rbnfrule value="1000">الألف[ و →%%spellout-numbering-m→];</rbnfrule>
+                <rbnfrule value="2000">الألفي[ و →%%spellout-numbering-m→];</rbnfrule>
+                <rbnfrule value="3000">←%spellout-numbering← آلاف[ و →%%spellout-numbering-m→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←%%spellout-numbering-m← ألف[ و →%%spellout-numbering-m→];</rbnfrule>
+                <rbnfrule value="1000000">المليون[ و →%%spellout-numbering-m→];</rbnfrule>
+                <rbnfrule value="2000000">←%%spellout-numbering-m← الألف[ و →%%spellout-numbering-m→];</rbnfrule>
+                <rbnfrule value="1000000000">المليار[ و →%%spellout-numbering-m→];</rbnfrule>
+                <rbnfrule value="2000000000">←%%spellout-numbering-m← مليار[ و →%%spellout-numbering-m→];</rbnfrule>
+                <rbnfrule value="1000000000000">بليون[ و →%%spellout-numbering-m→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%%spellout-numbering-m← بليون[ و →%%spellout-numbering-m→];</rbnfrule>
+                <rbnfrule value="1000000000000000">بليار[ و →%%spellout-numbering-m→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%%spellout-numbering-m← بليار[ و →%%spellout-numbering-m→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <ruleset type="digits-ordinal">

@@ -1805,12 +1805,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="afternoon1" draft="unconfirmed">Mittag</dayPeriod>
-							<dayPeriod type="afternoon2" draft="unconfirmed">Nachmittag</dayPeriod>
-							<dayPeriod type="evening1" draft="unconfirmed">Abend</dayPeriod>
-							<dayPeriod type="morning1" draft="unconfirmed">Morgen</dayPeriod>
-							<dayPeriod type="morning2" draft="unconfirmed">Vormittag</dayPeriod>
-							<dayPeriod type="night1" draft="unconfirmed">Nacht</dayPeriod>
+							<dayPeriod type="afternoon1">Mittag</dayPeriod>
+							<dayPeriod type="afternoon2">Nachmittag</dayPeriod>
+							<dayPeriod type="am" draft="provisional">vorm.</dayPeriod>
+							<dayPeriod type="evening1">Abend</dayPeriod>
+							<dayPeriod type="midnight">Mitternacht</dayPeriod>
+							<dayPeriod type="morning1">Morgen</dayPeriod>
+							<dayPeriod type="morning2">Vormittag</dayPeriod>
+							<dayPeriod type="night1">Nacht</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">nachm.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>

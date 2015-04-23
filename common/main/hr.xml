@@ -1786,12 +1786,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="afternoon1" draft="provisional">popodne</dayPeriod>
-							<dayPeriod type="evening1" draft="provisional">navečer</dayPeriod>
-							<dayPeriod type="morning1" draft="provisional">ujutro</dayPeriod>
-							<dayPeriod type="night1" draft="provisional">noću</dayPeriod>
-							<dayPeriod type="noon" draft="provisional">podne</dayPeriod>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="afternoon1">popodne</dayPeriod>
+							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
+							<dayPeriod type="evening1">večer</dayPeriod>
+							<dayPeriod type="midnight">ponoć</dayPeriod>
+							<dayPeriod type="morning1">jutro</dayPeriod>
+							<dayPeriod type="night1">noć</dayPeriod>
+							<dayPeriod type="noon">podne</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">PM</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>

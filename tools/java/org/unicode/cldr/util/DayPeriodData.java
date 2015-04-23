@@ -2,11 +2,14 @@ package org.unicode.cldr.util;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
 
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+
+import com.ibm.icu.util.ULocale;
 
 public class DayPeriodData {
 
@@ -390,10 +393,15 @@ public class DayPeriodData {
         {"my", "19", "NIGHT1", "ည"},
     };
     static final M3<String, DayPeriod, String> localeToDayPeriodToName = 
-        ChainedMap.of(new HashMap<String,Object>(), new TreeMap<DayPeriod,Object>(), String.class);
+        ChainedMap.of(new HashMap<String,Object>(), 
+            new TreeMap<DayPeriod,Object>(), 
+            String.class);
     static {
         for (String[] data : RAW_DATA) {
-            localeToDayPeriodToName.put(data[0], DayPeriod.fromString(data[2]), data[3]);
+            String locale = data[0];
+            String dayPeriodString = data[2];
+            String localName = data[3];
+            localeToDayPeriodToName.put(locale, DayPeriod.fromString(dayPeriodString.toLowerCase(Locale.ENGLISH)), localName);
         }
     }
     public static String getName(String locale, DayPeriod dayPeriod) {

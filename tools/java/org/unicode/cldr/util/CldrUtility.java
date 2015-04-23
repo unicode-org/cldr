@@ -1382,7 +1382,7 @@ public class CldrUtility {
         Output<Finder> matcherFound = new Output<>();
         List<String> failures = new ArrayList<String>();
         lookup.get(toLookup, null, arguments, matcherFound, failures);
-        testFramework.logln("lookup arguments: " + Arrays.asList(arguments.value));
+        testFramework.logln("lookup arguments: " + (arguments.value == null ? "null" : Arrays.asList(arguments.value)));
         testFramework.logln("lookup matcherFound: " + matcherFound);
         for (String s : failures) {
             testFramework.logln(s);

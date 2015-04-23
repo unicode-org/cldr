@@ -128,51 +128,102 @@ public class DayPeriodConverter {
         Factory factory = CLDRConfig.getInstance().getFullCldrFactory();
         EnumSet<DayPeriodInfo.DayPeriod> dayPeriodSet = EnumSet.noneOf(DayPeriodInfo.DayPeriod.class);
 
+        String prefix = getPrefix("stand-alone");
+
         for (String locale : sdi.getDayPeriodLocales(DayPeriodInfo.Type.format)) {
             ULocale uLocale = new ULocale(locale);
             DayPeriodInfo dayPeriodInfo = sdi.getDayPeriods(DayPeriodInfo.Type.format, locale);
-            System.out.println(locale);
+            System.out.println("# " + locale);
             dayPeriodSet.clear();
             dayPeriodSet.addAll(dayPeriodInfo.getPeriods());
-            boolean fieldType = false;
+            final boolean fieldType = false;
             if (!fieldType) {
-                System.out.println("\t<dayPeriodContext type=\"stand-alone\">");
-                System.out.println("\t\t<dayPeriodWidth type=\"wide\">");
-                CLDRFile cldrFile = factory.make(locale, true);
-                addOldDayPeriod(cldrFile, "am");
-                addOldDayPeriod(cldrFile, "pm");
+                //System.out.println("\t<dayPeriodContext type=\"stand-alone\">");
+                //System.out.println("\t\t<dayPeriodWidth type=\"wide\">");
+                CLDRFile cldrFile = factory.make(locale, false);
+                for (String path : cldrFile) {
+                    if (path.endsWith("/alias")) {
+                        continue;
+                    }
+                    if (path.startsWith(prefix)) {
+                        XPathParts parts = XPathParts.getFrozenInstance(path);
+                        String width = parts.getAttributeValue(-2, "type");
+                        DayPeriodInfo.DayPeriod period = DayPeriodInfo.DayPeriod.fromString(parts.getAttributeValue(-1, "type"));
+                        String draft = parts.getAttributeValue(-1, "draft");
+                        //if (period != DayPeriodInfo.DayPeriod.am || period != DayPeriodInfo.DayPeriod.pm || width.equals("wide")) {
+                            System.out.println("#old: «" + cldrFile.getStringValue(path) + "»"
+                                + ", width: " + width 
+                                + ", period: " + period
+                                + (draft == null ? "" : ", draft: " + draft));
+                            System.out.println("locale=" + locale 
+                                + " ; action=delete" 
+                                + " ; path=" + path);
+                        //}
+                    }
+                }
+
+//                CLDRFile cldrFile = factory.make(locale, true);
+                addOldDayPeriod(cldrFile, DayPeriodInfo.DayPeriod.am);
+                addOldDayPeriod(cldrFile, DayPeriodInfo.DayPeriod.pm);
             }
             for (DayPeriodInfo.DayPeriod dayPeriod : dayPeriodSet) {
                 if (fieldType) {
-                    System.out.println("\t<field type=\"dayPeriod-" + dayPeriod + "\">");
                     String name = getNativeName(uLocale, dayPeriod);
+                    System.out.println("\t<field type=\"dayPeriod-" + dayPeriod + "\">");
                     System.out.println("\t\t<displayName>" + name + "</displayName>");
                     System.out.println("\t</field>");
                 } else {
                     String name = getNativeName(uLocale, dayPeriod);
-                    System.out.println("\t\t\t<dayPeriod type=\"" + dayPeriod + "\">" + name + "</dayPeriod>");
+                    //System.out.println("\t\t\t<dayPeriod type=\"" + dayPeriod + "\">" + name + "</dayPeriod>");
+                    //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="am"]
+//                    String path = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods"
+//                        + "/dayPeriodContext[@type=\"stand-alone\"]"
+//                        + "/dayPeriodWidth[@type=\"wide\"]"
+//                        + "/dayPeriod[@type=\"" + dayPeriod + "\"]";
+                    if (name != null) {
+                        showModLine(locale, dayPeriod, name, false);
+                    }
                 }
             }
-            if (!fieldType) {
-                System.out.println("\t\t</dayPeriodWidth>");
-                System.out.println("\t</dayPeriodContext>");
-            }
+//            if (!fieldType) {
+//                System.out.println("\t\t</dayPeriodWidth>");
+//                System.out.println("\t</dayPeriodContext>");
+//            }
             System.out.println();
         }
     }
 
-    private static void addOldDayPeriod(CLDRFile cldrFile, String period) {
+    private static void showModLine(String locale, DayPeriodInfo.DayPeriod dayPeriod, String name, boolean draft) {
+        String path = getPath("stand-alone", "wide", dayPeriod);
+        if (draft) {
+            path += "[@draft=\"provisional\"]";
+        }
+        System.out.println("locale=" + locale 
+            + " ; action=add" 
+            + " ; new_value=" + name
+            + " ; new_path=" + path);
+    }
+
+    private static void addOldDayPeriod(CLDRFile cldrFile, DayPeriodInfo.DayPeriod period) {
         String amString = cldrFile.getStringValue(getPath("format", "wide", period));
         if (amString != null) {
-            System.out.println("\t\t\t<dayPeriod type=\"" + period + "\">" + amString + "</dayPeriod>");
+            String locale = cldrFile.getLocaleID();
+            showModLine(locale, period, amString, !locale.equals("root") && !locale.equals("en"));
+            //System.out.println("\t\t\t<dayPeriod type=\"" + period + "\">" + amString + "</dayPeriod>");
         }
     }
-    
-    static String getPath(String context, String width, String dayPeriod) {
-        return "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/" +
-            "dayPeriodContext[@type=\"" + context
-            + "\"]/dayPeriodWidth[@type=\"" + width
-            + "\"]/dayPeriod[@type=\"" + dayPeriod + "\"]";
+
+    static String getPath(String context, String width, DayPeriodInfo.DayPeriod dayPeriod) {
+        return getPrefix(context)
+            + "/dayPeriodWidth[@type=\"" + width + "\"]"
+            + "/dayPeriod[@type=\"" + dayPeriod + "\"]";
+    }
+
+    private static String getPrefix(String context) {
+        return "//ldml/dates/calendars"
+            + "/calendar[@type=\"gregorian\"]"
+            + "/dayPeriods"
+            + "/dayPeriodContext[@type=\"" + context + "\"]";
     }
 
     static void generateFormat() {
@@ -286,6 +337,9 @@ public class DayPeriodConverter {
     static final ULocale ROOT2 = new ULocale("root");
     private static String getNativeName(ULocale locale, DayPeriodInfo.DayPeriod dayPeriod) {
         NoonMidnight nm = NoonMidnight.get(locale.toString());
+        if (nm == null) {
+            return null;
+        }
         if (dayPeriod == DayPeriodInfo.DayPeriod.noon) {
             return CldrUtility.ifNull(nm.noon, "missing-" + dayPeriod);
         } else if (dayPeriod == DayPeriodInfo.DayPeriod.midnight) {

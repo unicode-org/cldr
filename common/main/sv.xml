@@ -1950,17 +1950,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">fm</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">em</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">f.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">e.m.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">förmiddag</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">eftermiddag</dayPeriod>
+							<dayPeriod type="afternoon1">eftermiddag</dayPeriod>
+							<dayPeriod type="am" draft="provisional">fm</dayPeriod>
+							<dayPeriod type="evening1">kväll</dayPeriod>
+							<dayPeriod type="midnight">midnatt</dayPeriod>
+							<dayPeriod type="morning1">morgon</dayPeriod>
+							<dayPeriod type="morning2">förmiddag</dayPeriod>
+							<dayPeriod type="night1">natt</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">em</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>

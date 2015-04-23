@@ -2795,12 +2795,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="provisional">a.m.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">p.m.</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">voormiddag</dayPeriod>
+							<dayPeriod type="afternoon1">middag</dayPeriod>
+							<dayPeriod type="am" draft="provisional">a.m.</dayPeriod>
+							<dayPeriod type="evening1">avond</dayPeriod>
+							<dayPeriod type="midnight">middernacht</dayPeriod>
+							<dayPeriod type="morning1">ochtend</dayPeriod>
+							<dayPeriod type="night1">nacht</dayPeriod>
 							<dayPeriod type="pm" draft="provisional">p.m.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>

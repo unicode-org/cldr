@@ -1155,6 +1155,17 @@ public class PathHeader implements Comparable<PathHeader> {
                     return info.idUsage.name;
                 }
             });
+            functionMap.put("categoryFromKey", new Transform<String, String>() {
+                Map<String, String> fixNames = Builder.with(new HashMap<String, String>())
+                    .put("lb", "Line Break")
+                    .put("hc", "Hour Cycle")
+                    .put("ms", "Measurement System")
+                    .freeze();
+                public String transform(String source) {
+                    String fixedName = fixNames.get(source);
+                    return fixedName != null ? fixedName : source;
+                }
+            });
             functionMap.put("languageSection", new Transform<String, String>() {
                 char[] languageRangeStartPoints = { 'A', 'E', 'K', 'O', 'T' };
                 char[] languageRangeEndPoints = { 'D', 'J', 'N', 'S', 'Z' };

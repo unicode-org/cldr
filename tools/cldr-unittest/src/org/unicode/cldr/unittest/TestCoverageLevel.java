@@ -20,8 +20,10 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.Counter2;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.CodeType;
@@ -468,6 +470,126 @@ public class TestCoverageLevel extends TestFmwkPlus {
         }
         for (Entry<R3, Set<String>> item : all.keyValuesSet()) {
             logln(item.getKey() + "\t" + item.getValue());
+        }
+    }
+
+    public void TestCoverageCompleteness() {
+        final Set<String> inactiveMetazones = new HashSet<String>(Arrays.asList("Bering", "Dominican", "Shevchenko", "Alaska_Hawaii", "Yerevan",
+            "Africa_FarWestern", "British", "Sverdlovsk", "Karachi", "Malaya", "Oral", "Frunze", "Dutch_Guiana", "Irish", "Uralsk", "Tashkent", "Kwajalein",
+            "Yukon", "Ashkhabad", "Kizilorda", "Kuybyshev", "Baku", "Dushanbe", "Goose_Bay", "Liberia", "Samarkand", "Tbilisi", "Borneo", "Greenland_Central",
+            "Dacca", "Aktyubinsk", "Turkey", "Urumqi"));
+        final Set<String> calendarsWithoutUniqueMonthNames = new HashSet<String>(Arrays.asList("buddhist", "ethiopic-amete-alem", "generic", "islamic-civil", "islamic-rgsa", "islamic-tbla", "islamic-umalqura", "japanese", "roc"));
+        final Set<String> calendarType100ForDateFormats = new HashSet<String>(Arrays.asList("buddhist", "chinese", "coptic", "dangi", "ethiopic", "gregorian", "generic", "hebrew", "indian", "islamic", "japanese", "persian", "roc"));
+        SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
+        CLDRFile english = testInfo.getEnglish();
+        XPathParts xpp = new XPathParts();
+        for (String path : english.fullIterable()) {
+            xpp.set(path);
+            if (path.endsWith("/alias") || path.matches("//ldml/(identity|contextTransforms|layout)/.*")) {
+                continue;
+            }
+            if (sdi.isDeprecated(DtdType.ldml, path)) {
+                continue;
+            }
+            if (path.startsWith("//ldml/numbers")) {
+                // Paths in numbering systems outside "latn" are specifically excluded.
+                String numberingSystem = xpp.findFirstAttributeValue("numberSystem");
+                if (!"latn".equals(numberingSystem)) {
+                    continue;
+                }
+                if (path.contains("/currencySpacing/")) {
+                    continue;
+                }
+            }
+            else if (path.startsWith("//ldml/dates/timeZoneNames/zone")) {
+                String zoneType = xpp.findAttributeValue("zone", "type");
+                if (zoneType.startsWith("Etc/GMT") && path.endsWith("exemplarCity")) {
+                    continue;
+                }
+                // We don't survey for short timezone names
+                if (path.contains("/short/")) {
+                    continue;
+                }
+            } else if (path.startsWith("//ldml/dates/timeZoneNames/metazone")) {
+                // We don't survey for short metazone names
+                if (path.contains("/short/")) {
+                    continue;
+                }
+                String mzName = xpp.findAttributeValue("metazone", "type");
+                // Skip inactive metazones.
+                if (inactiveMetazones.contains(mzName)) {
+                    continue;
+                }
+                // Skip paths for daylight or generic mz strings where
+                // the mz doesn't use DST.
+                if ((path.endsWith("daylight") || path.endsWith("generic")) &&
+                    !LogicalGrouping.metazonesDSTSet.contains(mzName)) {
+                    continue;
+                }
+            } else if (path.startsWith("//ldml/dates/fields") &&
+                "variant".equals(xpp.findAttributeValue("displayName", "alt"))) {
+                    continue;
+            } else if (path.startsWith("//ldml/localeDisplayNames/scripts")) {
+                // Skip user defined script codes and alt=short
+                String scriptType = xpp.findAttributeValue("script", "type");
+                if (scriptType.startsWith("Q") || "short".equals(xpp.findAttributeValue("script", "alt"))) {
+                    continue;
+                }
+            } else if (path.startsWith("//ldml/localeDisplayNames/types") &&
+                "short".equals(xpp.findAttributeValue("type", "alt"))) {
+                    continue;
+            } else if (path.startsWith("//ldml/dates/calendars")) {
+                String calType = xpp.findAttributeValue("calendar", "type");
+                // Skip paths for months in calendars that don't have unique month names.
+                if (calendarsWithoutUniqueMonthNames.contains(calType) && path.contains("/months/")) {
+                    continue;
+                }
+                // Skip cyclicNameSet stuff in Chinese and Dangi calendars
+                if (path.contains("/cyclicNameSets/")) {
+                    continue;
+                }
+                // Skip paths for dateFormats and dateTimeFormats in calendars that don't have unique ones
+                if (!calendarType100ForDateFormats.contains(calType) && 
+                    (path.contains("/dateTimeFormats/") ||
+                     path.contains("/dateFormats/"))) {
+                    continue;
+                }
+
+                // Skip paths for things that aren't unique outside Gregorian calendar
+                if (calType != "gregorian" &&
+                    (path.contains("/dayPeriods/") ||
+                        path.contains("/days/") ||
+                        path.contains("/timeFormats/") ||
+                        path.contains("/quarters/") ||
+                        path.contains("appendItems"))) {
+                    continue;
+                }
+                // Skip paths for time format availableFormats outside Gregorian or generic calendar
+                if (calType != "gregorian" && calType != "generic" &&
+                    path.contains("/dateFormatItem")) {
+                    String id = xpp.findAttributeValue("dateFormatItem", "id");
+                    if (id.matches(".*[Hhm].*")) {
+                        continue;                        
+                    }
+                }
+                // Skip all eras for calendars that don't have their own
+                if ( calType.matches("generic|islamic-(rgsa|civil|tbla|umalqura)") &&
+                    path.contains("/eras/")) {
+                        continue;                        
+                }
+                // Skip paths for time format intervalFormats outside Gregorian or generic calendar
+                if (calType != "gregorian" && calType != "generic" &&
+                    path.contains("/intervalFormatItem")) {
+                    String id = xpp.findAttributeValue("intervalFormatItem", "id");
+                    if (id.matches(".*[Hhm].*")) {
+                        continue;                        
+                    }
+                }
+            }
+            Level lvl = sdi.getCoverageLevel(path, "en");
+            if (lvl == Level.OPTIONAL || lvl == Level.UNDETERMINED) {
+                errln("Missing coverage value for path => " + path);
+            }
         }
     }
 

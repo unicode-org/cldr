@@ -1193,7 +1193,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             "calendar",
             "collation",
             "currency",
+            "hc",
             "lb",
+            "ms",
             "numbers"
         };
         private static final String[][] typeDisplayNames = {
@@ -1209,11 +1211,13 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             { "cakm", "numbers" },
             { "cham", "numbers" },
             { "chinese", "calendar" },
+            { "compat", "collation" },
             { "coptic", "calendar" },
             { "dangi", "calendar" },
             { "deva", "numbers" },
             { "dictionary", "collation" },
             { "ducet", "collation" },
+            { "emoji", "collation" },
             { "eor", "collation" },
             { "ethi", "numbers" },
             { "ethiopic", "calendar" },
@@ -1226,6 +1230,10 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             { "greklow", "numbers" },
             { "gujr", "numbers" },
             { "guru", "numbers" },
+            { "h11", "hc" },
+            { "h12", "hc" },
+            { "h23", "hc" },
+            { "h24", "hc" },
             { "hanidec", "numbers" },
             { "hans", "numbers" },
             { "hansfin", "numbers" },
@@ -1254,6 +1262,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             { "lepc", "numbers" },
             { "limb", "numbers" },
             { "loose", "lb" },
+            { "metric", "ms" },
             { "mlym", "numbers" },
             { "mong", "numbers" },
             { "mtei", "numbers" },
@@ -1289,6 +1298,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             { "tibt", "numbers" },
             { "traditional", "collation" },
             { "unihan", "collation" },
+            { "uksystem", "ms" },
+            { "ussystem", "ms" },
             { "vaii", "numbers" },
             { "zhuyin", "collation" } };
 

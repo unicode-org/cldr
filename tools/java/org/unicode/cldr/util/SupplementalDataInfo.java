@@ -1300,7 +1300,7 @@ public class SupplementalDataInfo {
                 }
                 // System.out.println("Skipped Element: " + path);
             } catch (Exception e) {
-                throw (IllegalArgumentException) new IllegalArgumentException("path: "
+                throw (IllegalArgumentException) new IllegalArgumentException("Exception while processing path: "
                     + path + ",\tvalue: " + value).initCause(e);
             }
         }

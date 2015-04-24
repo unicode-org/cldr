@@ -13,7 +13,7 @@ subCtx.openTable();
 CLDRFile file = subCtx.cldrFile();
 
 SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(file.getSupplementalDirectory());
-DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(file.getLocaleID());
+DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(DayPeriodInfo.Type.selection,file.getLocaleID());
 LinkedHashSet<DayPeriodInfo.DayPeriod> items = new LinkedHashSet(dayPeriods.getPeriods());
 String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"";
 

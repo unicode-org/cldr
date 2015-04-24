@@ -2426,7 +2426,7 @@ public class UserRegistry {
                             String name = attrs.get("name");
                             String org = attrs.get("org");
                             String email = normalizeEmail(attrs.get("email"));
-                            Level level = Level.valueOf(attrs.get("level"));
+                            Level level = Level.fromString(attrs.get("level"));
                             String locales = attrs.get("locales");
 
                             if (name == null) {

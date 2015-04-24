@@ -176,8 +176,13 @@ public class TestCLDRFile extends TestFmwk {
                         || path.contains("[@type=\"islamic-umalqura\"]")
                         || path.contains("/relative[@type=\"-2\"]")
                         || path.contains("/relative[@type=\"2\"]")
-                        || path.startsWith("//ldml/characters/exemplarCharacters[@type=\"index\"]")
-                        && localeInfo.locale.equals("root")
+                        || path.startsWith("//ldml/contextTransforms/contextTransformUsage")
+                        || path.contains("[@alt=\"variant\"]")
+                        || (path.contains("dayPeriod[@type=") 
+                            && (path.endsWith("1\"]") || path.endsWith("\"am\"]") || path.endsWith("\"pm\"]") || path.endsWith("\"midnight\"]")
+                            )) // morning1, afternoon1, ...
+                        || (path.startsWith("//ldml/characters/exemplarCharacters[@type=\"index\"]")
+                        && localeInfo.locale.equals("root"))
                     // //ldml/characters/exemplarCharacters[@type="index"][root]
                     ) {
                         continue;
@@ -185,6 +190,8 @@ public class TestCLDRFile extends TestFmwk {
                     String localeAndStatus = localeInfo.locale
                         + (englishInfo.cldrFile.isHere(path) ? "" : "*");
                     missingPathsToLocales.put(path, localeAndStatus);
+                    // English contains the path, and the target locale doesn't.
+                    // The * means that the value is inherited (eg from root).
                 }
             }
         }
@@ -208,6 +215,8 @@ public class TestCLDRFile extends TestFmwk {
                     String localeAndStatus = localeInfo.locale
                         + (localeInfo.cldrFile.isHere(path) ? "" : "*");
                     extraPathsToLocales.put(path, localeAndStatus);
+                    // English doesn't contains the path, and the target locale does.
+                    // The * means that the value is inherited (eg from root).
                 }
             }
         }
@@ -220,10 +229,10 @@ public class TestCLDRFile extends TestFmwk {
             String originalLocale = englishInfo.cldrFile.getSourceLocaleID(
                 path, status);
             String engName = "en"
-                + (englishInfo.cldrFile.isHere(path) ? "" : "*"
+                + (englishInfo.cldrFile.isHere(path) ? "" : " (source_locale:"
                     + originalLocale
-                    + (path.equals(status.pathWhereFound) ? "" : ","
-                        + status) + ";");
+                    + (path.equals(status.pathWhereFound) ? "" : ", source_path: "
+                        + status) + ")");
             if (path.startsWith("//ldml/localeDisplayNames/")
                 || path.contains("[@alt=\"accounting\"]")) {
                 logln("+" + engName + ", -" + locales + "\t" + path);

@@ -109,7 +109,7 @@ public class ShowData {
             english = (CLDRFile) cldrFactory.make("en", true);
             String lastSourceDir = options[LAST_DIR].value; // Utility.COMMON_DIRECTORY
 
-            Level requiredCoverage = Level.valueOf(options[COVERAGE].value.toUpperCase(Locale.ENGLISH)); // Utility.COMMON_DIRECTORY
+            Level requiredCoverage = Level.fromString(options[COVERAGE].toString()); // Utility.COMMON_DIRECTORY
 
             if (options[GET_SCRIPTS].doesOccur) {
                 getScripts();

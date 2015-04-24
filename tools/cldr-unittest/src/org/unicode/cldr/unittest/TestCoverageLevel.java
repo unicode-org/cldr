@@ -587,7 +587,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 }
             }
             Level lvl = sdi.getCoverageLevel(path, "en");
-            if (lvl == Level.OPTIONAL || lvl == Level.UNDETERMINED) {
+            if (lvl == Level.UNDETERMINED) {
                 errln("Missing coverage value for path => " + path);
             }
         }

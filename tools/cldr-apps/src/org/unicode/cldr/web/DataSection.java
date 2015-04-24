@@ -2561,7 +2561,7 @@ public class DataSection implements JSONString {
         SectionId sectionId = (pageId != null) ? pageId.getSectionId() : null;
 
         //SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
-        int workingCoverageValue = Level.valueOf(workingCoverageLevel.toUpperCase()).getLevel();
+        int workingCoverageValue = Level.fromString(workingCoverageLevel).getLevel();
         if (sectionId == SectionId.Timezones || pageId == PageId.Timezone_Display_Patterns
             || (pageId == null && xpathPrefix.startsWith("//ldml/" + "dates/timeZoneNames"))) {
             // work on zones
@@ -2824,7 +2824,7 @@ public class DataSection implements JSONString {
             lastTime = countStart = System.currentTimeMillis();
         }
 
-        int workingCoverageValue = Level.valueOf(workingCoverageLevel.toUpperCase()).getLevel();
+        int workingCoverageValue = Level.fromString(workingCoverageLevel).getLevel();
 
         //        CLDRFile vettedParent = null;
         //        CLDRLocale parentLoc = locale.getParent();

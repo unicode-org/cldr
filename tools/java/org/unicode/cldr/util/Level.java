@@ -2,6 +2,8 @@ package org.unicode.cldr.util;
 
 import java.util.Locale;
 
+import com.ibm.icu.util.ULocale;
+
 /**
  * A simple class representing an enumeration of possible CLDR coverage levels. Levels may change in the future.
  * 
@@ -11,17 +13,23 @@ import java.util.Locale;
 public enum Level {
     UNDETERMINED(0, "none", 0),
     CORE(10, "G4", 100),
-    POSIX(20, "G4", 100),
-    MINIMAL(30, "G3.5", 90),
+    // POSIX(20, "G4", 100),
+    // MINIMAL(30, "G3.5", 90),
     BASIC(40, "G3", 80),
     MODERATE(60, "G2", 70),
     MODERN(80, "G1", 50),
-    COMPREHENSIVE(100, "G0", 2),
-    OPTIONAL(101, "optional", 1);
+    COMPREHENSIVE(100, "G0", 2);
+    //OPTIONAL(101, "optional", 1);
+    
+    public static final Level POSIX = BASIC;
+    public static final Level MINIMAL = BASIC;
+    public static final Level OPTIONAL = COMPREHENSIVE;
 
     private final byte level;
     private final String altName;
     private final int value;
+    
+    private static final Level[] VALUES = values();
 
     /**
      * returns value ranging from 100 (core) to 1 (optional). Most clients want getLevel instead.
@@ -42,10 +50,17 @@ public enum Level {
         try {
             return Level.valueOf(name.toUpperCase(Locale.ENGLISH));
         } catch (RuntimeException e) {
-            for (Level level : Level.values()) {
+            for (Level level : VALUES) {
                 if (name.equalsIgnoreCase(level.altName)) {
                     return level;
                 }
+            }
+            if (name.equalsIgnoreCase("POSIX")) {
+                return POSIX;
+            } else if (name.equalsIgnoreCase("MINIMAL")) {
+                return MINIMAL;
+            } else if (name.equalsIgnoreCase("OPTIONAL")) {
+                return OPTIONAL;
             }
             return UNDETERMINED;
         }
@@ -85,6 +100,18 @@ public enum Level {
                 return result;
             }
         }
+
+        if (level == 20) {
+            return Level.POSIX;
+        } else if (level == 30) {
+            return Level.MINIMAL;
+        } else if (level == 101) {
+            return Level.OPTIONAL;
+        }
         throw new IllegalArgumentException(String.valueOf(level));
+    }
+    
+    public static Level fromString(String source) {
+        return Level.get(source);
     }
 }

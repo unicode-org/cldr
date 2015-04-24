@@ -174,7 +174,11 @@
 
 #Outside of Main
 //ldml/collations/collation[@type="%A"]/cr	; Misc ; Linguistic Elements ; Collation ; $1 ; HIDE
-//ldml/annotations/annotation[@cp="%A"]/cr	; Misc ; Linguistic Elements ; Annotation ; $1 ; HIDE
+//ldml/collations/collation[@type="%A"]/(%E)	; Misc ; Linguistic Elements ; Collation ; $1-$2 ; HIDE
+//ldml/collations/collation[@type="%A"]/(%E)(.*)	; Misc ; Linguistic Elements ; Collation ; $1-$2-$3 ; HIDE
+
+//ldml/annotations/annotation[@cp="%A"]/(%E)	; Misc ; Linguistic Elements ; Annotation ; $1-$2 ; HIDE
+//ldml/annotations/annotation[@cp="%A"]/(%E)(.*)	; Misc ; Linguistic Elements ; Annotation ; $1-$2-$3 ; HIDE
 
 # HIDE OTHERS
 //ldml/layout/orientation/(%E)                              ; Special ; Alphabetic Information ; Layout ; $1 ; HIDE

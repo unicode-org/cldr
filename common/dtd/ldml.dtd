@@ -2345,6 +2345,10 @@ $Date$
 <!ATTLIST import source CDATA #REQUIRED >
     <!--@VALUE-->
 <!ATTLIST import type CDATA #IMPLIED >
+<!ATTLIST import draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST import references CDATA #IMPLIED >
+    <!--@METADATA-->
 
 <!ELEMENT settings ( special* ) > <!-- deprecated, see CLDR ticket #8289 -->
     <!--@ORDERED-->

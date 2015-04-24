@@ -143,7 +143,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
 
         private static Splitter COMMA = Splitter.on(',').trimResults();
-        
+
         public void addComment(String commentIn) {
             if (commentIn.startsWith("@")) {
                 // there are exactly 2 cases: deprecated and ordered
@@ -1131,7 +1131,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     public boolean isDistinguishing(String elementName, String attribute) {
         return getAttributeStatus(elementName, attribute) == AttributeStatus.distinguished;
     }
-    
+
     public boolean isDistinguishingOld(String elementName, String attribute) {
         switch (dtdType) {
         case ldml:
@@ -1248,14 +1248,30 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return Collections.unmodifiableSet(comment);
         }
     }
-    
-    static final boolean THROW_IF_BOGUS = true;  // Question: should we just allow the exception to flow out?
-    
+
+    public static class IllegalByDtdException extends RuntimeException {
+        public final String elementName;
+        public final String attributeName;
+        public final String attributeValue;
+        public IllegalByDtdException(String elementName, String attributeName, String attributeValue) {
+            this.elementName = elementName;
+            this.attributeName = attributeName;
+            this.attributeValue = attributeValue;
+        }
+        @Override
+        public String getMessage() {
+            return "Dtd doesn’t allow "
+                + "element=" + elementName 
+                + (attributeName == null ? "" : ", attribute: " + attributeName)
+                + (attributeValue == null ? "" : ", attributeValue: " + attributeValue);
+        }
+    }
+
     @SuppressWarnings("unused")
     public boolean isDeprecated(String elementName, String attributeName, String attributeValue) {
         Element element = nameToElement.get(elementName);
-        if (element == null && !THROW_IF_BOGUS) {
-            return false;
+        if (element == null) {
+            throw new IllegalByDtdException(elementName, attributeName, attributeValue);
         } else if (element.isDeprecatedElement) {
             return true;
         }
@@ -1263,8 +1279,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return false;
         }
         Attribute attribute = element.getAttributeNamed(attributeName);
-        if (attribute == null && !THROW_IF_BOGUS) {
-            return false;
+        if (attribute == null) {
+            throw new IllegalByDtdException(elementName, attributeName, attributeValue);
         } else if (attribute.isDeprecatedAttribute) {
             return true;
         }
@@ -1274,8 +1290,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     @SuppressWarnings("unused")
     public boolean isOrdered(String elementName) {
         Element element = nameToElement.get(elementName);
-        if (element == null && !THROW_IF_BOGUS) {
-            return false;
+        if (element == null) {
+            throw new IllegalByDtdException(elementName, null, null);
         }
         return element.isOrderedElement;
     }
@@ -1286,12 +1302,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return AttributeStatus.distinguished; // special case
         }
         Element element = nameToElement.get(elementName);
-        if (element == null && !THROW_IF_BOGUS) {
-            return null;
+        if (element == null) {
+            throw new IllegalByDtdException(elementName, attributeName, null);
         }
         Attribute attribute = element.getAttributeNamed(attributeName);
-        if (attribute == null && !THROW_IF_BOGUS) {
-            return null;
+        if (attribute == null) {
+            throw new IllegalByDtdException(elementName, attributeName, null);
         }
         return attribute.attributeStatus;
     }

@@ -20,6 +20,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
+import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
@@ -28,21 +30,50 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Row.R4;
 
 public class ChartDelta extends Chart {
+    private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = CLDRConfig.getInstance().getSupplementalDataInfo();
+
+    final static Options myOptions = new Options();
+
+    enum MyOptions {
+        fileFilter(".*", ".*", "filter by dir/locale, eg: ^main/en$ or .*/en"),
+        verbose(null, null, "verbose debugging messages");
+        // boilerplate
+        final Option option;
+
+        MyOptions(String argumentPattern, String defaultArgument, String helpText) {
+            option = myOptions.add(this, argumentPattern, defaultArgument, helpText);
+        }
+    }
+
+    private Matcher fileFilter;
+    private boolean verbose;
+
+    public ChartDelta(Matcher fileFilter, boolean verbose) {
+        this.fileFilter = fileFilter;
+        this.verbose = verbose;
+    }
+
     public static void main(String[] args) {
-        new ChartDelta().writeChart(null);
+        myOptions.parse(MyOptions.fileFilter, args, true);
+        Matcher fileFilter = !MyOptions.fileFilter.option.doesOccur() ? null : Pattern.compile(MyOptions.fileFilter.option.getValue()).matcher("");
+        boolean verbose = MyOptions.verbose.option.doesOccur();
+        new ChartDelta(fileFilter, verbose).writeChart(null);
     }
 
     private static final String SEP = "\u0001";
@@ -53,10 +84,10 @@ public class ChartDelta extends Chart {
     private static final String LAST_ARCHIVE_DIRECTORY = "/Users/markdavis/Google Drive/workspace/cldr-archive/cldr-26.0/";
 
     public static final Set<String> LDML_DIRECTORIES = Collections.unmodifiableSet(new LinkedHashSet<>(Arrays.asList(
+        "main", 
         "annotations",
         "casing", 
         "collation",
-        "main", 
         "rbnf", 
         "segments"
         )));
@@ -118,25 +149,23 @@ public class ChartDelta extends Chart {
     static final CLDRFile EMPTY_CLDR = new CLDRFile(new SimpleXMLSource("und").freeze());
 
     public void writeSubcharts(Anchors anchors) {
-        writeNonLdmlPlain(anchors, getDirectory());
         writeLdml(anchors);  
+        writeNonLdmlPlain(anchors, getDirectory());
     }
-    
+
     private void writeLdml(Anchors anchors) {
         // set up factories
         List<Factory> factories = new ArrayList<>();
         List<Factory> oldFactories = new ArrayList<>();
-        factories.add(Factory.make(CLDRPaths.BASE_DIRECTORY + "common/" + "main", ".*"));
-        oldFactories.add(Factory.make(LAST_ARCHIVE_DIRECTORY + "common/" + "main", ".*"));
+//        factories.add(Factory.make(CLDRPaths.BASE_DIRECTORY + "common/" + "main", ".*"));
+//        oldFactories.add(Factory.make(LAST_ARCHIVE_DIRECTORY + "common/" + "main", ".*"));
 
         for (String dir : LDML_DIRECTORIES) {
-            if (!dir.equals("main")) {
-                factories.add(Factory.make(CLDRPaths.BASE_DIRECTORY + "common/" + dir, ".*"));
-                try {
-                    oldFactories.add(Factory.make(LAST_ARCHIVE_DIRECTORY + "common/" + dir, ".*"));
-                } catch (Exception e) {
-                    oldFactories.add(null);
-                }
+            factories.add(Factory.make(CLDRPaths.BASE_DIRECTORY + "common/" + dir, ".*"));
+            try {
+                oldFactories.add(Factory.make(LAST_ARCHIVE_DIRECTORY + "common/" + dir, ".*"));
+            } catch (Exception e) {
+                oldFactories.add(null);
             }
         }
 
@@ -174,10 +203,23 @@ public class ChartDelta extends Chart {
             for (int i = 0; i < factories.size(); ++i) {
                 Factory factory = factories.get(i);
                 Factory oldFactory = oldFactories.get(i);
-                System.out.println(Arrays.asList(factory.getSourceDirectories()));
+                List<File> sourceDirs = Arrays.asList(factory.getSourceDirectories());
+                if (sourceDirs.size() != 1) {
+                    throw new IllegalArgumentException("Internal error: expect single source dir");
+                }
+                File sourceDir = sourceDirs.get(0);
+                String sourceDirLeaf = sourceDir.getName();
+                //System.out.println(sourceDirLeaf);
 
                 for (String locale : baseNLocale.getValue()) {
-                    System.out.println(locale);
+                    String nameAndLocale = sourceDirLeaf + "/" + locale;
+                    if (fileFilter != null && !fileFilter.reset(nameAndLocale).find()) {
+                        continue;
+                    }
+                    boolean isBase = locale.equals(base);
+                    if (verbose) {
+                        System.out.println(nameAndLocale);
+                    }
                     CLDRFile current = makeWithFallback(factory, locale);
                     CLDRFile old = makeWithFallback(oldFactory, locale);
                     if (old == EMPTY_CLDR && current == EMPTY_CLDR) {
@@ -192,24 +234,34 @@ public class ChartDelta extends Chart {
                     }
                     for (String path : paths) {
                         if (path.startsWith("//ldml/identity")
+                            || path.endsWith("/alias")
                             || path.startsWith("//ldml/segmentations") // do later
                             || path.startsWith("//ldml/annotations") // do later
                             || path.startsWith("//ldml/rbnf") // do later
                             ) {
                             continue;
                         }
+
+//                        if (path.startsWith("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"stand-alone\"]")) {
+//                            System.out.println(path);
+//                        }
                         String sourceLocaleCurrent = current.getSourceLocaleID(path, currentStatus);
                         String sourceLocaleOld = old.getSourceLocaleID(path, oldStatus);
 
-                        // filter out stuff that differs at a higher level
-                        if (!sourceLocaleCurrent.equals(locale) 
+                        // filter out stuff that differs at a higher level, except allow root when we are in base
+                        if (!sourceLocaleCurrent.equals(locale)
                             && !sourceLocaleOld.equals(locale)) {
-                            continue;
+                            if (!isBase) {
+                                continue;
+                            } else if (!sourceLocaleCurrent.equals("root") && !sourceLocaleOld.equals("root")) {
+                                continue;
+                            }
                         }
                         if (!path.equals(currentStatus.pathWhereFound)
-                            || !path.equals(oldStatus.pathWhereFound)) {
+                            && !path.equals(oldStatus.pathWhereFound)) {
                             continue;
                         }
+
                         // fix some incorrect cases
 
                         PathHeader ph;
@@ -359,8 +411,9 @@ public class ChartDelta extends Chart {
         .addColumn("Header", "class='source'", null, "class='source'", true)
         .addColumn("Code", "class='source'", null, "class='source'", true)
         .addColumn("Locale", "class='source'", null, "class='source'", true)
-        .addColumn("Old", "class='target'", null, "class='target'", true)
-        .addColumn("New", "class='target'", null, "class='target'", true)
+        .addColumn("Old", "class='target' width='20%'", null, "class='target'", true)
+        .addColumn("New", "class='target' width='20%'", null, "class='target'", true)
+        .addColumn("Level", "class='target'", null, "class='target'", true)
         ;
 
         for (PathDiff row : diff) {
@@ -380,14 +433,19 @@ public class ChartDelta extends Chart {
                     specialCode += "|" + pathIndex;
                 }
             }
+            Level coverageLevel = SUPPLEMENTAL_DATA_INFO.getCoverageLevel(ph.getOriginalPath(), locale);
+            String fixedOldValue = oldValue == null ? "▷missing◁" : TransliteratorUtilities.toHTML.transform(oldValue);
+            String fixedNewValue = currentValue == null ? "▷removed◁" : TransliteratorUtilities.toHTML.transform(currentValue);
+            
             tablePrinter.addRow()
             .addCell(ph.getSectionId())
             .addCell(ph.getPageId())
             .addCell(ph.getHeader())
             .addCell(specialCode)
             .addCell(locale)
-            .addCell(CldrUtility.ifNull(oldValue, "▷missing◁"))
-            .addCell(CldrUtility.ifNull(currentValue, "▷removed◁"))
+            .addCell(fixedOldValue)
+            .addCell(fixedNewValue)
+            .addCell(coverageLevel)
             .finishRow();
         }
         writeTable(anchors, file, tablePrinter, ENGLISH.getName(file) + " Delta");
@@ -420,6 +478,7 @@ public class ChartDelta extends Chart {
         @Override
         public String getExplanation() {
             return "<p>Summary fields with changed values, listing locales where different."
+                + " Inherited differences in regional locales are suppressed."
                 + " The collations, metadata, and rbnf still have a raw format.<p>";
         }
         @Override
@@ -427,7 +486,7 @@ public class ChartDelta extends Chart {
             pw.write(tablePrinter.toTable());
         }
     }
-    
+
     private void writeTable(Anchors anchors, String file, TablePrinter tablePrinter, String title) {
         new ChartDeltaSub(title, file, tablePrinter).writeChart(anchors);
     }
@@ -452,7 +511,14 @@ public class ChartDelta extends Chart {
                 if (!file.endsWith(".xml")) {
                     continue;
                 }
-                System.out.println(file);
+                String base = file.substring(0,file.length()-4);
+                if (fileFilter != null && !fileFilter.reset(dir + "/" + base).find()) {
+                    continue;
+                }
+
+                if (verbose) {
+                    System.out.println(file);
+                }
                 Map<String, String> contents1;
                 try {
                     contents1 = fillData(dir1.toString() + "/", file);

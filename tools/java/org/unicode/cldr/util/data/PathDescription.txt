@@ -48,7 +48,7 @@
 ^//ldml/layout/orientation/lineOrder   ;        Specifies the vertical direction of text in the language. Valid values are "top-to-bottom" or "bottom-to-top". For more information, see http://cldr.org/translation/misc.
 
 ^//ldml/numbers/symbols/(\w++)    ;   The {1} symbol used in the localized form of numbers. Note: before translating, be sure to read http://cldr.org/translation/number-symbols.
-^//ldml/numbers/symbols\[@numberSystem="([a-z]*)"]/(\w++)    ;   The {2} symbol used in the {1} numbering system.. Note: before translating, be sure to read http://cldr.org/translation/number-symbols.
+^//ldml/numbers/symbols\[@numberSystem="([a-z]*)"]/(\w++)    ;   The {2} symbol used in the {1} numbering system. Note: before translating, be sure to read http://cldr.org/translation/number-symbols.
 ^//ldml/numbers/defaultNumberingSystem  ;   The default numbering system used in this locale. For more information, please see http://cldr.org/translation/numbering-systems.
 ^//ldml/numbers/minimumGroupingDigits  ;   The default minimum number of digits before a grouping separator used in this locale. For more information, please see http://cldr.org/translation/numbering-systems.
 ^//ldml/numbers/otherNumberingSystems/(\w++)  ;   The {1} numbering system used in this locale. For more information, please see http://cldr.org/translation/numbering-systems.
@@ -97,7 +97,7 @@
 ^//ldml/listPatterns/listPattern\[@type="unit-narrow"]/listPatternPart\[@type="2"]  ;   Special pattern used to make a list out of two narrow duration elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
 ^//ldml/listPatterns/listPattern\[@type="unit-narrow"]/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a list out of more than two narrow duration elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
 
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dayPeriods/dayPeriodContext\[@type="([^"]*)"]/dayPeriodWidth\[@type="([^"]*)"]/dayPeriod\[@type="([^"]*)"]   ;   Provide the {2} and {3} version of the name for the day period {4}. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dayPeriods/dayPeriodContext\[@type="([^"]*)"]/dayPeriodWidth\[@type="([^"]*)"]/dayPeriod\[@type="([^"]*)"]   ;   Provide the {2} and {3} version of the name for the day period {4}. For more information, please see http://cldr.org/translation/date-time-names#TOC-Day-Periods-AM-and-PM-.
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/days/dayContext\[@type="([^"]*)"]/dayWidth\[@type="([^"]*)"]/day\[@type="([^"]*)"]   ;   Provide the {2} and {3} version of the name for day-of-the-week {4}. For more information, please see http://cldr.org/translation/date-time-names.
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraAbbr/era\[@type="([^"]*)"]   ;   Provide the format-abbreviated version of the name for era {4}. For more information, please see http://cldr.org/translation/date-time-names.
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraNames/era\[@type="([^"]*)"]  ;   Provide the format-wide version of the name for era {4}. For more information, please see http://cldr.org/translation/date-time-names.

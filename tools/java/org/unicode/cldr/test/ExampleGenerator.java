@@ -613,7 +613,7 @@ public class ExampleGenerator {
         String valuePatternType, String value) {
         return valuePatternType.equals(pathPatternType) ?
             setBackground(value) :
-            getValueFromFormat(pathFormat, pathPatternType);
+                getValueFromFormat(pathFormat, pathPatternType);
     }
 
     private String getValueFromFormat(String format, Object... arguments) {
@@ -798,54 +798,54 @@ public class ExampleGenerator {
         Set<FixedDecimal> examplesSeen = new HashSet<FixedDecimal>();
         int maxCount = 2;
         main:
-        // If we are a currency, we will try to see if we can set the decimals to match.
-        // but if nothing works, we will just use a plain sample.
-        for (int phase = 0; phase < 2; ++phase) {
-            int check = 0;
-            for (FixedDecimal example : exampleCount) {
-                // we have to first see whether we have a currency. If so, we have to see if the count works.
+            // If we are a currency, we will try to see if we can set the decimals to match.
+            // but if nothing works, we will just use a plain sample.
+            for (int phase = 0; phase < 2; ++phase) {
+                int check = 0;
+                for (FixedDecimal example : exampleCount) {
+                    // we have to first see whether we have a currency. If so, we have to see if the count works.
 
-                if (isCurrency && phase == 0) {
-                    example = new FixedDecimal(example.source, decimalCount);
-                }
-                // skip if we've done before (can happen because of the currency reset)
-                if (examplesSeen.contains(example)) {
-                    continue;
-                }
-                examplesSeen.add(example);
-                // skip if the count isn't appropriate
-                if (!pluralRules.select(example).equals(count.toString())) {
-                    continue;
-                }
-
-                if (value == null) {
-                    String fallbackPath = cldrFile.getCountPathWithFallback(xpath, count, true);
-                    value = cldrFile.getStringValue(fallbackPath);
-                }
-                String resultItem;
-
-                resultItem = formatCurrency(value, type, unitType, isPattern, isCurrency, count, example);
-                // now add to list
-                result = addExampleResult(resultItem, result);
-                if (isPattern) {
-                    String territory = getDefaultTerritory(type);
-                    String currency = supplementalDataInfo.getDefaultCurrency(territory);
-                    if (currency.equals(unitType)) {
-                        currency = "EUR";
-                        if (currency.equals(unitType)) {
-                            currency = "JAY";
-                        }
+                    if (isCurrency && phase == 0) {
+                        example = new FixedDecimal(example.source, decimalCount);
                     }
-                    resultItem = formatCurrency(value, type, currency, isPattern, isCurrency, count, example);
+                    // skip if we've done before (can happen because of the currency reset)
+                    if (examplesSeen.contains(example)) {
+                        continue;
+                    }
+                    examplesSeen.add(example);
+                    // skip if the count isn't appropriate
+                    if (!pluralRules.select(example).equals(count.toString())) {
+                        continue;
+                    }
+
+                    if (value == null) {
+                        String fallbackPath = cldrFile.getCountPathWithFallback(xpath, count, true);
+                        value = cldrFile.getStringValue(fallbackPath);
+                    }
+                    String resultItem;
+
+                    resultItem = formatCurrency(value, type, unitType, isPattern, isCurrency, count, example);
                     // now add to list
                     result = addExampleResult(resultItem, result);
+                    if (isPattern) {
+                        String territory = getDefaultTerritory(type);
+                        String currency = supplementalDataInfo.getDefaultCurrency(territory);
+                        if (currency.equals(unitType)) {
+                            currency = "EUR";
+                            if (currency.equals(unitType)) {
+                                currency = "JAY";
+                            }
+                        }
+                        resultItem = formatCurrency(value, type, currency, isPattern, isCurrency, count, example);
+                        // now add to list
+                        result = addExampleResult(resultItem, result);
 
-                }
-                if (--maxCount < 1) {
-                    break main;
+                    }
+                    if (--maxCount < 1) {
+                        break main;
+                    }
                 }
             }
-        }
         return result.isEmpty() ? null : result;
     }
 
@@ -914,8 +914,8 @@ public class ExampleGenerator {
         String unitPattern;
         String unitPatternPath = cldrFile.getCountPathWithFallback(isCurrency
             ? "//ldml/numbers/currencyFormats/unitPattern"
-            : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
-            count, true);
+                : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
+                count, true);
         unitPattern = cldrFile.getWinningValue(unitPatternPath);
         return unitPattern;
     }
@@ -923,8 +923,8 @@ public class ExampleGenerator {
     private String getUnitName(String unitType, final boolean isCurrency, Count count) {
         String unitNamePath = cldrFile.getCountPathWithFallback(isCurrency
             ? "//ldml/numbers/currencies/currency[@type=\"" + unitType + "\"]/displayName"
-            : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
-            count, true);
+                : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
+                count, true);
         return cldrFile.getWinningValue(unitNamePath);
     }
 
@@ -1162,6 +1162,11 @@ public class ExampleGenerator {
 
         DecimalFormat df = icuServiceBuilder.getCurrencyFormat(currency, currencySymbol, numberSystem);
         df.applyPattern(value);
+        
+        String countValue = parts.getAttributeValue(-1, "count");
+        if (countValue != null) {
+            return formatCountDecimal(df, countValue);
+        }
 
         double sampleAmount = 1295.00;
         String example = formatNumber(df, sampleAmount);
@@ -1198,25 +1203,7 @@ public class ExampleGenerator {
         DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value, numberSystem);
         String countValue = parts.getAttributeValue(-1, "count");
         if (countValue != null) {
-            Count count = Count.valueOf(countValue);
-            Double numberSample = getExampleForPattern(numberFormat, count);
-            if (numberSample == null) {
-//                if (type == ExampleType.ENGLISH) {
-                int digits = numberFormat.getMinimumIntegerDigits();
-                return formatNumber(numberFormat, 1.2345678 * Math.pow(10, digits - 1));
-//                } else {
-//                    return startItalicSymbol + "Superfluous Plural Form" + endItalicSymbol;
-//                }
-            } else {
-                String temp = String.valueOf(numberSample);
-                int fractionLength = temp.endsWith(".0") ? 0 : temp.length() - temp.indexOf('.') - 1;
-                if (fractionLength > 0) {
-                    numberFormat = (DecimalFormat) numberFormat.clone(); // for safety
-                    numberFormat.setMinimumFractionDigits(fractionLength);
-                    numberFormat.setMaximumFractionDigits(fractionLength);
-                }
-                return formatNumber(numberFormat, numberSample);
-            }
+            return formatCountDecimal(numberFormat, countValue);
         }
 
         double sampleNum1 = 5.43;
@@ -1229,6 +1216,24 @@ public class ExampleGenerator {
         // have positive and negative
         example = addExampleResult(formatNumber(numberFormat, -sampleNum2), example);
         return example;
+    }
+
+    private String formatCountDecimal(DecimalFormat numberFormat, String countValue) {
+        Count count = Count.valueOf(countValue);
+        Double numberSample = getExampleForPattern(numberFormat, count);
+        if (numberSample == null) {
+            int digits = numberFormat.getMinimumIntegerDigits();
+            return formatNumber(numberFormat, 1.2345678 * Math.pow(10, digits - 1));
+        } else {
+            String temp = String.valueOf(numberSample);
+            int fractionLength = temp.endsWith(".0") ? 0 : temp.length() - temp.indexOf('.') - 1;
+            if (fractionLength != numberFormat.getMaximumFractionDigits()) {
+                numberFormat = (DecimalFormat) numberFormat.clone(); // for safety
+                numberFormat.setMinimumFractionDigits(fractionLength);
+                numberFormat.setMaximumFractionDigits(fractionLength);
+            }
+            return formatNumber(numberFormat, numberSample);
+        }
     }
 
     private String formatNumber(DecimalFormat format, double value) {
@@ -1530,19 +1535,19 @@ public class ExampleGenerator {
     private String finalizeBackground(String input) {
         return input == null
             ? input
-            : exampleStart +
+                : exampleStart +
                 TransliteratorUtilities.toHTML.transliterate(input)
-                    .replace(backgroundStartSymbol + backgroundEndSymbol, "")
-                    // remove null runs
-                    .replace(backgroundEndSymbol + backgroundStartSymbol, "")
-                    // remove null runs
-                    .replace(backgroundStartSymbol, backgroundStart)
-                    .replace(backgroundEndSymbol, backgroundEnd)
-                    .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
-                    .replace(startItalicSymbol, startItalic)
-                    .replace(endItalicSymbol, endItalic)
-                    .replace(startSupSymbol, startSup)
-                    .replace(endSupSymbol, endSup)
+                .replace(backgroundStartSymbol + backgroundEndSymbol, "")
+                // remove null runs
+                .replace(backgroundEndSymbol + backgroundStartSymbol, "")
+                // remove null runs
+                .replace(backgroundStartSymbol, backgroundStart)
+                .replace(backgroundEndSymbol, backgroundEnd)
+                .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
+                .replace(startItalicSymbol, startItalic)
+                .replace(endItalicSymbol, endItalic)
+                .replace(startSupSymbol, startSup)
+                .replace(endSupSymbol, endSup)
                 + exampleEnd;
     }
 
@@ -1657,12 +1662,12 @@ public class ExampleGenerator {
         while (URLMatcher.reset(description).find(start)) {
             final String url = URLMatcher.group();
             buffer
-                .append(TransliteratorUtilities.toHTML.transliterate(description.substring(start, URLMatcher.start())))
-                .append("<a target='CLDR-ST-DOCS' href='")
-                .append(url)
-                .append("'>")
-                .append(url)
-                .append("</a>");
+            .append(TransliteratorUtilities.toHTML.transliterate(description.substring(start, URLMatcher.start())))
+            .append("<a target='CLDR-ST-DOCS' href='")
+            .append(url)
+            .append("'>")
+            .append(url)
+            .append("</a>");
             start = URLMatcher.end();
         }
         buffer.append(TransliteratorUtilities.toHTML.transliterate(description.substring(start)));
@@ -1695,10 +1700,10 @@ public class ExampleGenerator {
                 .replace("", "❬")
                 .replace("", "❭") + "〗"
                 : exampleHtml
-                    .replace("<div class='cldr_example'>", "〖")
-                    .replace("</div>", "〗")
-                    .replace("<span class='cldr_substituted'>", "❬")
-                    .replace("</span>", "❭");
+                .replace("<div class='cldr_example'>", "〖")
+                .replace("</div>", "〗")
+                .replace("<span class='cldr_substituted'>", "❬")
+                .replace("</span>", "❭");
     }
 
     HelpMessages helpMessages;

@@ -1158,6 +1158,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 || attribute.equals("code")
                 || (attribute.equals("type") && !elementName.equals("mapZone") && !elementName.equals("numberingSystem"))
                 || attribute.equals("alt")
+                || attribute.equals("dtds")
                 || elementName.equals("deprecatedItems")
                 && (attribute.equals("type") || attribute.equals("elements") || attribute.equals("attributes") || attribute.equals("values"))
                 || elementName.equals("character") && attribute.equals("value")
@@ -1202,7 +1203,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
                 || elementName.equals("languageMatch") 
                 && (attribute.equals("desired") || attribute.equals("supported") || attribute.equals("oneway"))
-                || elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute.equals("variant"))
+                || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute.equals("variant")))
                 ;
 
         case keyboard:

@@ -1162,7 +1162,7 @@ public class ExampleGenerator {
 
         DecimalFormat df = icuServiceBuilder.getCurrencyFormat(currency, currencySymbol, numberSystem);
         df.applyPattern(value);
-        
+
         String countValue = parts.getAttributeValue(-1, "count");
         if (countValue != null) {
             return formatCountDecimal(df, countValue);
@@ -1222,18 +1222,20 @@ public class ExampleGenerator {
         Count count = Count.valueOf(countValue);
         Double numberSample = getExampleForPattern(numberFormat, count);
         if (numberSample == null) {
+            // Ideally, we would suppress the value in the survey tool.
+            // However, until we switch over to the ICU samples, we are not guaranteed
+            // that "no samples" means "can't occur". So we manufacture something.
             int digits = numberFormat.getMinimumIntegerDigits();
-            return formatNumber(numberFormat, 1.2345678 * Math.pow(10, digits - 1));
-        } else {
-            String temp = String.valueOf(numberSample);
-            int fractionLength = temp.endsWith(".0") ? 0 : temp.length() - temp.indexOf('.') - 1;
-            if (fractionLength != numberFormat.getMaximumFractionDigits()) {
-                numberFormat = (DecimalFormat) numberFormat.clone(); // for safety
-                numberFormat.setMinimumFractionDigits(fractionLength);
-                numberFormat.setMaximumFractionDigits(fractionLength);
-            }
-            return formatNumber(numberFormat, numberSample);
+            numberSample = (double) Math.round(1.2345678901234 * Math.pow(10, digits - 1));
         }
+        String temp = String.valueOf(numberSample);
+        int fractionLength = temp.endsWith(".0") ? 0 : temp.length() - temp.indexOf('.') - 1;
+        if (fractionLength != numberFormat.getMaximumFractionDigits()) {
+            numberFormat = (DecimalFormat) numberFormat.clone(); // for safety
+            numberFormat.setMinimumFractionDigits(fractionLength);
+            numberFormat.setMaximumFractionDigits(fractionLength);
+        }
+        return formatNumber(numberFormat, numberSample);
     }
 
     private String formatNumber(DecimalFormat format, double value) {

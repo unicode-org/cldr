@@ -523,14 +523,16 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     public void TestCompactPlurals() {
-        checkCompactExampleFor("de", Count.one, "〖❬1❭ Mio. €〗", "short", "currency");
-        checkCompactExampleFor("de", Count.other, "〖❬2❭ Mio. €〗", "short", "currency");
-        checkCompactExampleFor("cs", Count.many, "〖❬1,1❭ milionu〗", "long", "decimal");
-        checkCompactExampleFor("pl", Count.other, "〖❬1,1❭ miliona〗", "long", "decimal");
+        checkCompactExampleFor("de", Count.one, "〖❬1❭ Mio. €〗", "short", "currency", "000000");
+        checkCompactExampleFor("de", Count.other, "〖❬2❭ Mio. €〗", "short", "currency", "000000");
+        checkCompactExampleFor("de", Count.one, "〖❬12❭ Mio. €〗", "short", "currency", "0000000");
+        checkCompactExampleFor("de", Count.other, "〖❬10❭ Mio. €〗", "short", "currency", "0000000");
+        checkCompactExampleFor("cs", Count.many, "〖❬1,1❭ milionu〗", "long", "decimal", "000000");
+        checkCompactExampleFor("pl", Count.other, "〖❬1,1❭ miliona〗", "long", "decimal", "000000");
     }
 
     private void checkCompactExampleFor(String localeID, Count many,
-        String expected, String longVsShort, String decimalVsCurrency) {
+        String expected, String longVsShort, String decimalVsCurrency, String zeros) {
         CLDRFile cldrFile = info.getCldrFactory().make(localeID, true);
         ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile,
             info.getEnglish(), CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
@@ -538,7 +540,7 @@ public class TestExampleGenerator extends TestFmwk {
             + decimalVsCurrency + "Formats[@numberSystem=\"latn\"]"
             + "/" + decimalVsCurrency + "FormatLength[@type=\"" + longVsShort + "\"]"
             + "/" + decimalVsCurrency + "Format[@type=\"standard\"]"
-            + "/pattern[@type=\"1000000\"][@count=\"" + many + "\"]";
+            + "/pattern[@type=\"1" + zeros + "\"][@count=\"" + many + "\"]";
         checkPathValue(exampleGenerator, path, cldrFile.getStringValue(path),
             expected);
     }

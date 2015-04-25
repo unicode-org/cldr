@@ -22,13 +22,16 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
@@ -54,9 +57,11 @@ public class CheckDates extends FactoryCheckCLDR {
     DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
     DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.getEmptyInstance();
     private CoverageLevel2 coverageLevel;
+    private SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
 
     private Level requiredLevel;
-
+    private String language;
+    private String territory;
     static String[] samples = {
         // "AD 1970-01-01T00:00:00Z",
         // "BC 4004-10-23T07:00:00Z", // try a BC date: creation according to Ussher & Lightfoot. Assuming garden of
@@ -166,8 +171,24 @@ public class CheckDates extends FactoryCheckCLDR {
             flexInfo.checkFlexibles(DECIMAL_XPATH, decimal, DECIMAL_XPATH);
         }
 
-        String localeID = getCldrFileToCheck().getLocaleID();
-        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
+        String localeID = cldrFileToCheck.getLocaleID();
+        LocaleIDParser lp = new LocaleIDParser();
+        territory = lp.set(localeID).getRegion();
+        language = lp.getLanguage();
+        if (territory == null || territory.length() == 0) {
+            if ( language.equals("root")) {
+                territory = "001";
+            } else {
+                CLDRLocale loc = CLDRLocale.getInstance(localeID);
+                CLDRLocale defContent = sdi.getDefaultContentFromBase(loc);
+                territory = defContent.getCountry();
+                // Set territory for 12/24 hour clock to Egypt (12 hr) for ar_001
+                // instead of 24 hour (exception).
+                if (territory.equals("001") && language.equals("ar")) {
+                    territory = "EG";
+                }
+            }
+        }
         coverageLevel = CoverageLevel2.getInstance(sdi, localeID);
         requiredLevel = options.getRequiredLevel(localeID);
 
@@ -791,6 +812,33 @@ public class CheckDates extends FactoryCheckCLDR {
     static final String APPEND_TIMEZONE = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/appendItems/appendItem[@request=\"Timezone\"]";
 
     private void checkValue(DateTimeLengths dateTimeLength, DateOrTime dateOrTime, String value, List<CheckStatus> result) {
+        // Check consistency of the pattern vs. supplemental wrt 12 vs. 24 hour clock.
+        if (dateOrTime == DateOrTime.time) {
+            PreferredAndAllowedHour pref = sdi.getTimeData().get(territory);
+            if (pref == null) {
+                pref = sdi.getTimeData().get("001");
+            }
+            String checkForHour, clockType;
+            if (pref.preferred.equals(PreferredAndAllowedHour.HourStyle.h)) {
+                checkForHour = "h";
+                clockType = "12";
+            } else {
+                checkForHour = "H";
+                clockType = "24";
+            }
+            if (!value.contains(checkForHour)) {
+                CheckStatus.Type errType = CheckStatus.errorType;
+                // French/Canada is strange, they use 24 hr clock while en_CA uses 12.
+                if ( language.equals("fr") && territory.equals("CA")) {
+                    errType = CheckStatus.warningType;
+                }
+
+            result.add(new CheckStatus().setCause(this).setMainType(errType)
+                .setSubtype(Subtype.inconsistentTimePattern)
+                .setMessage("Time format inconsistent with supplemental time data for territory \""+territory+"\"."
+                    + " Use '"+checkForHour+"' for "+clockType+" hour clock."));
+            }
+        }
         if (dateOrTime == DateOrTime.dateTime) {
             boolean inQuotes = false;
             for (int i = 0 ; i < value.length(); i++ ) {
@@ -864,7 +912,7 @@ public class CheckDates extends FactoryCheckCLDR {
                             dateTimeLength, dateOrTime, value, CollectionUtilities.join(bases, ", ")));
                 }
             }
-        }
+        }       
     }
 
     private void add(StringBuilder b, String key, String value1) {

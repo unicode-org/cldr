@@ -59,7 +59,7 @@
 //ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"][@yeartype="%A"]  ; DateTime ; &calendar($1) ; &calField(Months:$3:$2) ; &month($4) (leap)
 //ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"]            ; DateTime ; &calendar($1) ; &calField(Months:$3:$2) ; &month($4)
 //ldml/dates/calendars/calendar[@type="%A"]/days/dayContext[@type="%A"]/dayWidth[@type="%A"]/day[@type="%A"]                    ; DateTime ; &calendar($1) ; &calField(Days:$3:$2) ; &day($4)
-//ldml/dates/calendars/calendar[@type="%A"]/dayPeriods/dayPeriodContext[@type="%A"]/dayPeriodWidth[@type="%A"]/dayPeriod[@type="%A"]  ; DateTime ; &calendar($1) ; &calField(DayPeriods:$3:$2) ; &day($4)
+//ldml/dates/calendars/calendar[@type="%A"]/dayPeriods/dayPeriodContext[@type="%A"]/dayPeriodWidth[@type="%A"]/dayPeriod[@type="%A"]  ; DateTime ; &calendar($1) ; &calField(DayPeriods:$3:$2) ; &dayPeriod($4)
 
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(?![^"]*[hHms])%A"]            ; DateTime ; &calendar($1); &calField(Formats:Flexible:date) ; $2 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &calField(Formats:Standard:$2) ; $4 ; LTR_ALWAYS

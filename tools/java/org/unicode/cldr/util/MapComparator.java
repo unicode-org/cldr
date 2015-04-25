@@ -77,6 +77,10 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
         }
         return this;
     }
+    
+    public Integer getNumericOrder(K object) {
+        return ordering.get(object);
+    }
 
     public MapComparator<K> add(Collection<K> c) {
         for (Iterator<K> it = c.iterator(); it.hasNext();) {

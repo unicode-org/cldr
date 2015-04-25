@@ -975,6 +975,9 @@ public class PathHeader implements Comparable<PathHeader> {
         static List<String> days = Arrays.asList("sun", "mon",
             "tue", "wed", "thu",
             "fri", "sat");
+        static final MapComparator<String> dayPeriods = new MapComparator<String>().add(
+            "midnight", "am", "noon", "pm", 
+            "morning1", "morning2", "afternoon1", "afternoon2", "evening1", "evening2", "night1", "night2").freeze();
         // static Map<String, String> likelySubtags =
         // supplementalDataInfo.getLikelySubtags();
         static LikelySubtags likelySubtags = new LikelySubtags();
@@ -1038,6 +1041,12 @@ public class PathHeader implements Comparable<PathHeader> {
                 public String transform(String source) {
                     int m = days.indexOf(source);
                     order = m;
+                    return source;
+                }
+            });
+            functionMap.put("dayPeriod", new Transform<String, String>() {
+                public String transform(String source) {
+                    order = dayPeriods.getNumericOrder(source);
                     return source;
                 }
             });

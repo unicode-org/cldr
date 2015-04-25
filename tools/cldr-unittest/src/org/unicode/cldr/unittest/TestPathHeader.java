@@ -943,4 +943,19 @@ public class TestPathHeader extends TestFmwkPlus {
         }
     }
 
+    public void TestOrder() {
+        String[] paths = {
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"narrow\"]/dayPeriod[@type=\"noon\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"narrow\"]/dayPeriod[@type=\"afternoon1\"]",
+        };
+        PathHeader pathHeaderLast = null;
+        for (String path : paths) {
+            PathHeader pathHeader = pathHeaderFactory.fromPath(path);
+            if (pathHeaderLast != null) {
+                assertRelation("ordering", true, pathHeaderLast, LEQ, pathHeader);
+            }
+            pathHeaderLast = pathHeader;
+        }
+
+    }
 }

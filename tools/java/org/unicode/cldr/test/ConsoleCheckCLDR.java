@@ -763,6 +763,7 @@ public class ConsoleCheckCLDR {
             System.out.println();
             System.out.println("<< SUCCESS - No errors found. >>");
         }
+        checkCldr.handleFinish();
     }
 
     static class LocaleVotingData {

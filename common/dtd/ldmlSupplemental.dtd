@@ -445,6 +445,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT attributeValues ( #PCDATA ) >
     <!--@ORDERED-->
+<!ATTLIST attributeValues dtds NMTOKEN #IMPLIED >
 <!ATTLIST attributeValues type NMTOKEN #IMPLIED >
 <!ATTLIST attributeValues elements NMTOKENS #IMPLIED >
     <!--@VALUE-->

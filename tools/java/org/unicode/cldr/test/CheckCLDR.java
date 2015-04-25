@@ -565,7 +565,7 @@ abstract public class CheckCLDR {
     public static CompoundCheckCLDR getCheckAll(Factory factory, String nameMatcher) {
         return new CompoundCheckCLDR()
             .setFilter(Pattern.compile(nameMatcher, Pattern.CASE_INSENSITIVE).matcher(""))
-            //.add(new CheckAttributeValues(factory))
+            .add(new CheckAttributeValues(factory))
             .add(new CheckChildren(factory))
             .add(new CheckCoverage(factory))
             .add(new CheckDates(factory))
@@ -1191,6 +1191,11 @@ abstract public class CheckCLDR {
         Options options, List<CheckStatus> result);
 
     /**
+     * Only for use in ConsoleCheck, for debugging
+     */
+    public void handleFinish() {}
+
+    /**
      * Internal class used to bundle up a number of Checks.
      * 
      * @author davis
@@ -1235,6 +1240,14 @@ abstract public class CheckCLDR {
                 }
             }
             return this;
+        }
+
+        @Override
+        public void handleFinish() {
+            for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext();) {
+                CheckCLDR item = it.next();
+                item.handleFinish();
+            }
         }
 
         protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Options options,

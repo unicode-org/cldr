@@ -94,7 +94,7 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
                 057 061
                 142 143 145 150 151 154 155
                 419
-                AC AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ
+                AC AD AE AF AG AI AL AN AM AO AQ AR AS AT AU AW AX AZ
                 BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ
                 CA CC CD CF CG CH CI CK CL CM CN CO CP CR CU CV CW CX CY CZ
                 DE DG DJ DK DM DO DZ
@@ -751,17 +751,17 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <attributeValues elements="alias" attributes="path" type="path">notDoneYet</attributeValues>
             <attributeValues elements="alias" attributes="source" type="locale"/>
             <attributeValues elements="alias" attributes="source" type="choice">locale</attributeValues>
-            <attributeValues elements="alternate" attributes="iso4217" type="bcp47">cu</attributeValues>
+            <!-- <attributeValues elements="alternate" attributes="iso4217" type="bcp47">cu</attributeValues> -->
             <attributeValues elements="appendItem" attributes="request">$append</attributeValues>
             <attributeValues elements="calendar" attributes="type" type="bcp47">ca</attributeValues>
-            <attributeValues elements="character" attributes="value" type="regex">.</attributeValues>
+            <attributeValues dtds="supplementalData" elements="character" attributes="value" type="regex">.</attributeValues>
             <attributeValues elements="collation" attributes="type" type="bcp47">co</attributeValues>
             <attributeValues elements="collations" attributes="version">$version</attributeValues>
             <attributeValues elements="contextTransform" attributes="type" type="choice">uiListOrMenu stand-alone</attributeValues>
             <attributeValues elements="contextTransformUsage" attributes="type" type="regex">[a-zA-Z-]+</attributeValues>
             <attributeValues elements="cp" attributes="hex" type="regex">[0-9A-Fa-f]{4,6}</attributeValues>
-            <attributeValues elements="currency" attributes="before from to">$currencyDate</attributeValues>
-            <attributeValues elements="currency" attributes="iso4217" type="bcp47">cu</attributeValues>
+            <attributeValues dtds="supplementalData" elements="currency" attributes="before from to">$currencyDate</attributeValues>
+            <attributeValues dtds="supplementalData" elements="currency" attributes="iso4217" type="bcp47">cu</attributeValues>
             <attributeValues elements="currency" attributes="type" type="bcp47">cu</attributeValues>
             <attributeValues elements="currencyFormat" attributes="type" type="choice">standard accounting</attributeValues>
             <attributeValues elements="currencyFormats decimalFormats percentFormats scientificFormats" attributes="numberSystem" type="bcp47">nu</attributeValues>
@@ -777,26 +777,26 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <attributeValues elements="field" attributes="type" order="given">era year year-short year-narrow quarter quarter-short quarter-narrow month month-short month-narrow week week-short week-narrow day day-short day-narrow weekday dayperiod hour hour-short hour-narrow minute minute-short minute-narrow second second-short second-narrow zone sun sun-short sun-narrow mon mon-short mon-narrow tue tue-short tue-narrow wed wed-short wed-narrow thu thu-short thu-narrow fri fri-short fri-narrow sat sat-short sat-narrow</attributeValues>
             <attributeValues elements="firstDay weekendEnd weekendStart" attributes="day" order="given">sun mon tue wed thu fri sat</attributeValues>
             <attributeValues elements="generation" attributes="date">$genDate</attributeValues>
-            <attributeValues elements="group" attributes="contains type">$territory</attributeValues>
-            <attributeValues elements="hours" attributes="allowed" type="regex">[HKhk]( [HKhk])*</attributeValues>
-            <attributeValues elements="hours" attributes="preferred" type="choice">H K h k</attributeValues>
-            <attributeValues elements="hours" attributes="regions" type="list">$territory</attributeValues>
-            <attributeValues elements="info" attributes="digits" type="regex">[0-9]+</attributeValues>
-            <attributeValues elements="info" attributes="iso4217" type="bcp47">cu</attributeValues>
-            <attributeValues elements="info" attributes="rounding" type="regex">[0-9]+</attributeValues>
-            <attributeValues elements="key" attributes="type" type="choice">calendar collation colAlternate colBackwards colCaseFirst colCaseLevel colHiraganaQuaternary colNormalization colNumeric colReorder colStrength currency kv numbers timezone va variableTop x</attributeValues>
-            <attributeValues elements="language" attributes="scripts">$script</attributeValues>
-            <attributeValues elements="language" attributes="territories">$territory</attributeValues>
+            <attributeValues dtds="supplementalData" elements="group" attributes="contains type">$territory</attributeValues>
+            <attributeValues dtds="supplementalData" elements="hours" attributes="allowed" type="regex">[HKhk]( [HKhk])*</attributeValues>
+            <attributeValues dtds="supplementalData" elements="hours" attributes="preferred" type="choice">H K h k</attributeValues>
+            <attributeValues dtds="supplementalData" elements="hours" attributes="regions" type="list">$territory</attributeValues>
+            <attributeValues dtds="supplementalData" elements="info" attributes="digits" type="regex">[0-9]+</attributeValues>
+            <attributeValues dtds="supplementalData" elements="info" attributes="iso4217" type="bcp47">cu</attributeValues>
+            <attributeValues dtds="supplementalData" elements="info" attributes="rounding" type="regex">[0-9]+</attributeValues>
+            <attributeValues elements="key" attributes="type" type="bcp47">key</attributeValues>
+            <attributeValues dtds="supplementalData" elements="language" attributes="scripts">$script</attributeValues>
+            <attributeValues dtds="supplementalData" elements="language" attributes="territories">$territory</attributeValues>
             <attributeValues elements="language" attributes="type">$locale</attributeValues>
-            <attributeValues elements="language" attributes="variants">$variant</attributeValues>
-            <attributeValues elements="languageAlias" attributes="replacement type" type="locale"/>
-            <attributeValues elements="ldml" attributes="version">$version</attributeValues>
-            <attributeValues elements="mapTimezones" attributes="type" type="regex">.+</attributeValues>
-            <attributeValues elements="mapZone" attributes="type">$tzid</attributeValues>
+            <attributeValues dtds="supplementalData" elements="language" attributes="variants">$variant</attributeValues>
+            <attributeValues dtds="supplementalData" elements="languageAlias" attributes="replacement type" type="locale"/>
+            <!--  <attributeValues elements="ldml" attributes="version">$version</attributeValues> -->
+            <attributeValues dtds="supplementalData" elements="mapTimezones" attributes="type" type="regex">.+</attributeValues>
+            <attributeValues dtds="supplementalData" elements="mapZone" attributes="type">$tzid</attributeValues>
             <attributeValues elements="mapping" attributes="registry" type="choice">iana</attributeValues>
             <attributeValues elements="mapping" attributes="type" type="choice">utf-8</attributeValues>
-            <attributeValues elements="numberingSystem" attributes="id" type="bcp47">nu</attributeValues>
-            <attributeValues elements="numberingSystem" attributes="type" type="choice">algorithmic numeric</attributeValues>
+            <attributeValues dtds="supplementalData" elements="numberingSystem" attributes="id" type="bcp47">nu</attributeValues>
+            <attributeValues dtds="supplementalData" elements="numberingSystem" attributes="type" type="choice">algorithmic numeric</attributeValues>
             <attributeValues elements="minDays" attributes="count" type="regex">[0-7]</attributeValues>
             <attributeValues elements="month" attributes="type" type="choice">1 2 3 4 5 6 7 8 9 10 11 12 13</attributeValues>
             <attributeValues elements="monthPattern" attributes="type" type="choice">leap standardAfterLeap combined</attributeValues>
@@ -808,32 +808,32 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <attributeValues elements="quarter" attributes="type" type="choice">1 2 3 4</attributeValues> <!-- move to DTD? -->
             <attributeValues elements="reference" attributes="type">$reference</attributeValues>
             <attributeValues elements="reference" attributes="uri">notDoneYet</attributeValues>
-            <attributeValues elements="region" attributes="iso3166">$territory</attributeValues>
+            <attributeValues dtds="supplementalData" elements="region" attributes="iso3166">$territory</attributeValues>
             <attributeValues elements="relative" attributes="type" type="regex">-?[0-9]+</attributeValues>
             <attributeValues elements="relativeTime" attributes="type" type="choice">future past</attributeValues>
             <attributeValues elements="reset" attributes="before" type="choice">primary secondary tertiary</attributeValues> <!-- move to DTD? -->
             <attributeValues elements="rule" attributes="id">$double</attributeValues>
             <attributeValues elements="script" attributes="type">$script</attributeValues>
-            <attributeValues elements="scriptAlias" attributes="replacement">$script</attributeValues>
-            <attributeValues elements="scriptAlias" attributes="type">$script</attributeValues>
+            <attributeValues dtds="supplementalData" elements="scriptAlias" attributes="replacement">$script</attributeValues>
+            <attributeValues dtds="supplementalData" elements="scriptAlias" attributes="type">$script</attributeValues>
             <attributeValues elements="segmentation" attributes="type" type="choice">GraphemeClusterBreak LineBreak SentenceBreak WordBreak</attributeValues>
-            <attributeValues elements="supplementalData" attributes="version">$version</attributeValues>
+            <attributeValues dtds="supplementalData" elements="supplementalData" attributes="version">$version</attributeValues>
             <attributeValues elements="symbols" attributes="numberSystem" type="bcp47">nu</attributeValues>
             <attributeValues elements="territory" attributes="type">$territory</attributeValues>
-            <attributeValues elements="territoryAlias" attributes="replacement type">$territory</attributeValues>
-            <attributeValues elements="type" attributes="key" type="choice">calendar collation colAlternate colBackwards colCaseFirst colCaseLevel colHiraganaQuaternary colNormalization colNumeric colStrength numbers va</attributeValues> <!-- Exluded: colReorder curerncy timezone x -->
-            <attributeValues elements="type" attributes="type" type="choice">arab arabext armn armnlow bali beng big5han brah buddhist cakm cham chinese coptic dangi deva dictionary ducet eor ethi ethiopic ethiopic-amete-alem finance fullwide gb2312han geor gregorian grek greklow gujr guru hanidays hanidec hans hansfin hant hantfin hebr hebrew identical indian islamic islamic-civil islamic-rgsa islamic-tbla islamic-umalqura iso8601 japanese java jpan jpanfin kali khmr knda lana lanatham laoo latn lepc limb lower mlym mong mtei mymr mymrshan native nkoo no non-ignorable olck orya osma persian phonebook phonetic pinyin posix primary quaternary reformed roc roman romanlow saur search searchjl secondary shifted shrd sora standard stroke sund takr talu taml tamldec telu tertiary thai tibt traditional unihan upper vaii yes zhuyin</attributeValues>
-            <attributeValues elements="unit" attributes="type" type="regex">(acceleration-(g-force|meter-per-second-squared)|angle-(degree|arc-minute|arc-second|radian)|area-(acre|square-(centimeter|inch|foot|kilometer|meter|mile|yard)|hectare)|consumption-(liter-per-kilometer|mile-per-gallon)|digital-(kilo|mega|giga|tera)?(bit|byte)|duration-(nanosecond|microsecond|millisecond|(day|hour|minute|month|second|week|year))|electric-(milli)?(ampere|ohm|volt)|energy-(kilocalorie|calorie|foodcalorie|joule|kilojoule|kilowatt-hour)|frequency-(kilo|mega|giga)?hertz|length-(astronomical-unit|(pico|nano|micro|milli|centi|deci|kilo)?meter|fathom|foot|furlong|inch|light-year|mile|nautical-mile|parsec|yard)|light-lux|mass-(carat|(kilo|milli|micro)?gram|ounce|ounce-troy|pound|metric-ton|stone|ton)|power-(horsepower|(kilo|milli|mega|giga)?watt)|pressure-(hectopascal|inch-hg|millibar|millimeter-of-mercury|pound-per-square-inch)|proportion-karat|speed-((mile|kilometer)-per-hour|meter-per-second)|temperature-(celsius|fahrenheit|kelvin)|volume-(acre-foot|bushel|cup|fluid-ounce|(milli|deci|centi|hecto|mega)?liter|gallon|pint|quart|cubic-(centimeter|kilometer|meter|mile|inch|foot|yard)|tablespoon|teaspoon))</attributeValues>
+            <attributeValues dtds="supplementalData" elements="territoryAlias" attributes="replacement type">$territory</attributeValues>
+            <attributeValues elements="type" attributes="key" type="bcp47">key</attributeValues>
+            <!-- there is special code for this case <attributeValues elements="type" attributes="type" type="bcp47">use-key</attributeValues>  -->
+            <attributeValues elements="unit" attributes="type" type="regex">temperature-generic|duration-day-person|duration-month-person|duration-week-person|duration-year-person|length-mile-scandinavian|volume-cup-metric|volume-pint-metric|volume-teaspoon-au|angle-revolution|consumption-liter-per-100kilometers|(acceleration-(g-force|meter-per-second-squared)|angle-(degree|arc-minute|arc-second|radian)|area-(acre|square-(centimeter|inch|foot|kilometer|meter|mile|yard)|hectare)|consumption-(liter-per-kilometer|mile-per-gallon)|digital-(kilo|mega|giga|tera)?(bit|byte)|duration-(nanosecond|microsecond|millisecond|(day|hour|minute|month|second|week|year))|electric-(milli)?(ampere|ohm|volt)|energy-(kilocalorie|calorie|foodcalorie|joule|kilojoule|kilowatt-hour)|frequency-(kilo|mega|giga)?hertz|length-(astronomical-unit|(pico|nano|micro|milli|centi|deci|kilo)?meter|fathom|foot|furlong|inch|light-year|mile|nautical-mile|parsec|yard)|light-lux|mass-(carat|(kilo|milli|micro)?gram|ounce|ounce-troy|pound|metric-ton|stone|ton)|power-(horsepower|(kilo|milli|mega|giga)?watt)|pressure-(hectopascal|inch-hg|millibar|millimeter-of-mercury|pound-per-square-inch)|proportion-karat|speed-((mile|kilometer)-per-hour|meter-per-second)|temperature-(celsius|fahrenheit|kelvin)|volume-(acre-foot|bushel|cup|fluid-ounce|(milli|deci|centi|hecto|mega)?liter|gallon|pint|quart|cubic-(centimeter|kilometer|meter|mile|inch|foot|yard)|tablespoon|teaspoon))</attributeValues>
             <attributeValues elements="variable" attributes="id">$variableID</attributeValues>
             <attributeValues elements="variant" attributes="type">$variant</attributeValues>
-            <attributeValues elements="variantAlias" attributes="replacement type">$variant</attributeValues>
+            <attributeValues dtds="supplementalData" elements="variantAlias" attributes="replacement type">$variant</attributeValues>
             <attributeValues elements="version" attributes="number" type="choice">$version</attributeValues>
             <attributeValues elements="weekendEnd weekendStart" attributes="time">$time</attributeValues>
             <attributeValues elements="zone" attributes="type">$tzid</attributeValues>
-            <attributeValues elements="zoneFormatting" attributes="multizone">$territory</attributeValues>
-            <attributeValues elements="zoneItem" attributes="aliases">$tzidList</attributeValues>
-            <attributeValues elements="zoneItem" attributes="territory">$territory</attributeValues>
-            <attributeValues elements="zoneItem" attributes="type">$tzid</attributeValues>
+            <attributeValues dtds="supplementalData" elements="zoneFormatting" attributes="multizone">$territory</attributeValues>
+            <attributeValues dtds="supplementalData" elements="zoneItem" attributes="aliases">$tzidList</attributeValues>
+            <attributeValues dtds="supplementalData" elements="zoneItem" attributes="territory">$territory</attributeValues>
+            <attributeValues dtds="supplementalData" elements="zoneItem" attributes="type">$tzid</attributeValues>
         </validity>
         <alias>
             <!-- grandfathered BCP47 codes -->

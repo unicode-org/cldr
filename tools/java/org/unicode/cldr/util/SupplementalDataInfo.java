@@ -872,8 +872,8 @@ public class SupplementalDataInfo {
     public Map<Row.R2<String, String>, String> bcp47Preferred = new TreeMap<Row.R2<String, String>, String>();
     public Map<Row.R2<String, String>, String> bcp47Deprecated = new TreeMap<Row.R2<String, String>, String>();
 
-    public Map<String, Row.R2<String, String>> validityInfo = new HashMap<String, Row.R2<String, String>>();
-    public Set<AttributeValidityInfo> attributeValidityInfo = new HashSet<>();
+    public Map<String, Row.R2<String, String>> validityInfo = new LinkedHashMap<String, Row.R2<String, String>>();
+    public Set<AttributeValidityInfo> attributeValidityInfo = new LinkedHashSet<>();
 
     public enum MeasurementType {
         measurementSystem, paperSize
@@ -3968,6 +3968,10 @@ public class SupplementalDataInfo {
         return false;
     }
 
+    /**
+     * Returns map of ID/Type/Value, such as id="$integer" type="regex" value=[0-9]+
+     * @return
+     */
     public Map<String, R2<String, String>> getValidityInfo() {
         return validityInfo;
     }
@@ -4203,13 +4207,24 @@ public class SupplementalDataInfo {
         //<attributeValues elements="alias" attributes="path" type="path">notDoneYet</attributeValues>
 
         final String type;
+        final Set<DtdType> dtds;
         final Set<String> elements;
         final Set<String> attributes;
-        final List<String> order;
+        final String order;
         final String value;
+        
+        @Override
+        public String toString() {
+            return "type:" + type
+                + ", elements:" + elements
+                + ", attributes:" + attributes
+                + ", order:" + order
+                + ", value:" + value;
+        }
 
         static void add(Map<String, String> inputAttibutes, String inputValue, Set<AttributeValidityInfo> data) {
             data.add(new AttributeValidityInfo(
+                inputAttibutes.get("dtds"),
                 inputAttibutes.get("type"),
                 inputAttibutes.get("attributes"),
                 inputAttibutes.get("elements"),
@@ -4217,12 +4232,21 @@ public class SupplementalDataInfo {
                 inputValue));
         }
 
-        public AttributeValidityInfo(String type, String attributes, String elements, String order, String value) {
-            this.type = type;
+        public AttributeValidityInfo(String dtds, String type, String attributes, String elements, String order, String value) {
+            if (dtds == null) {
+                this.dtds = Collections.singleton(DtdType.ldml);
+            } else {
+                Set<DtdType> temp = EnumSet.noneOf(DtdType.class);
+                for (String s : WHITESPACE_SPLTTER.split(dtds)) {
+                    temp.add(DtdType.valueOf(s));
+                }
+                this.dtds = Collections.unmodifiableSet(temp);
+            }
+            this.type = type != null ? type : order != null ? "choice" : null;
             this.elements = elements == null ? Collections.EMPTY_SET
                 : With.in(WHITESPACE_SPLTTER.split(elements)).toUnmodifiableCollection(new HashSet<String>());
             this.attributes = With.in(WHITESPACE_SPLTTER.split(attributes)).toUnmodifiableCollection(new HashSet<String>());
-            this.order = With.in(WHITESPACE_SPLTTER.split(attributes)).toUnmodifiableCollection(new ArrayList<String>());
+            this.order = order;
             this.value = value;
         }
 
@@ -4230,12 +4254,20 @@ public class SupplementalDataInfo {
             return type;
         }
 
+        public Set<DtdType> getDtds() {
+            return dtds;
+        }
+
         public Set<String> getElements() {
             return elements;
         }
 
         public Set<String> getAttributes() {
-            return elements;
+            return attributes;
+        }
+
+        public String getOrder() {
+            return order;
         }
 
         public String getValue() {

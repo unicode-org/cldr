@@ -976,7 +976,7 @@ public class PathHeader implements Comparable<PathHeader> {
             "tue", "wed", "thu",
             "fri", "sat");
         static final MapComparator<String> dayPeriods = new MapComparator<String>().add(
-            "am", "pm", "midnight", "noon", 
+            "am", "pm", "midnight", "noon",
             "morning1", "morning2", "afternoon1", "afternoon2", "evening1", "evening2", "night1", "night2").freeze();
         // static Map<String, String> likelySubtags =
         // supplementalDataInfo.getLikelySubtags();

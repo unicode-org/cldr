@@ -192,14 +192,14 @@ public class DtdDataCheck {
                 //                }
                 //                errors.clear();
                 dtdData = DtdData.getInstance(DtdType.ldml);
-                AttributeValueComparator avc = new AttributeValueComparator() {
-                    @Override
-                    public int compare(String element, String attribute, String value1, String value2) {
-                        Comparator<String> comp = CLDRFile.getAttributeValueComparator(element, attribute);
-                        return comp.compare(value1, value2);
-                    }
-                };
-                Comparator<String> comp = dtdData.getDtdComparator(avc);
+//                AttributeValueComparator avc = new AttributeValueComparator() {
+//                    @Override
+//                    public int compare(String element, String attribute, String value1, String value2) {
+//                        Comparator<String> comp = CLDRFile.getAttributeValueComparator(element, attribute);
+//                        return comp.compare(value1, value2);
+//                    }
+//                };
+                Comparator<String> comp = dtdData.getDtdComparator(null);
                 CLDRFile test = ToolConfig.getToolInstance().getEnglish();
                 Set<String> sorted = new TreeSet(test.getComparator());
                 CollectionUtilities.addAll(test.iterator(), sorted);

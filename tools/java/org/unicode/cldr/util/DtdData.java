@@ -41,8 +41,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     private final Relation<String, Attribute> nameToAttributes = Relation.of(new TreeMap<String, Set<Attribute>>(), LinkedHashSet.class);
     private Map<String, Element> nameToElement = new HashMap<String, Element>();
-    private MapComparator<String> attributeComparator;
     private MapComparator<String> elementComparator;
+    private MapComparator<String> attributeComparator;
 
     public final Element ROOT;
     public final Element PCDATA = elementFrom("#PCDATA");
@@ -52,6 +52,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private Element lastElement;
     private Attribute lastAttribute;
     private Set<String> preCommentCache;
+    private DtdComparator dtdComparator;
 
     public enum AttributeStatus {distinguished, value, metadata}
 
@@ -96,8 +97,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private boolean isDeprecatedAttribute;
         private AttributeStatus attributeStatus = AttributeStatus.distinguished; // default unless reset by annotations
         private Set<String> deprecatedValues = Collections.emptySet();
+        private final Comparator<String> attributeValueComparator;
 
-        private Attribute(Element element2, String aName, Mode mode2, String[] split, String value2, Set<String> firstComment) {
+        private Attribute(DtdType dtdType, Element element2, String aName, Mode mode2, String[] split, String value2, Set<String> firstComment) {
             commentsPre = firstComment;
             element = element2;
             name = aName.intern();
@@ -124,6 +126,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 _values = Collections.unmodifiableMap(temp);
             }
             values = _values;
+            attributeValueComparator = getAttributeValueComparator(dtdType, element.name, name);
         }
 
         @Override
@@ -222,7 +225,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     private void addAttribute(String eName, String aName, String type, String mode, String value) {
-        Attribute a = new Attribute(nameToElement.get(eName), aName, Mode.forString(mode), FILLER.split(type), value, preCommentCache);
+        Attribute a = new Attribute(dtdType, nameToElement.get(eName), aName, Mode.forString(mode), FILLER.split(type), value, preCommentCache);
         preCommentCache = null;
         getAttributesFromName().put(aName, a);
         CldrUtility.putNew(a.element.attributes, a, a.element.attributes.size());
@@ -605,15 +608,6 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return orderedElements.contains(element);
     }
 
-    private static final Map<DtdType, DtdData> CACHE;
-    static {
-        EnumMap<DtdType, DtdData> temp = new EnumMap<DtdType, DtdData>(DtdType.class);
-        for (DtdType type : DtdType.values()) {
-            temp.put(type, getInstance(type, null));
-        }
-        CACHE = Collections.unmodifiableMap(temp);
-    }
-
     /** 
      * Normal version of DtdData
      * Note that it always gets the trunk version
@@ -662,6 +656,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     private void finish() {
+        dtdComparator = new DtdComparator();
     }
 
     public static void readFile(DtdType type, XMLFileReader xfr, File directory) {
@@ -734,16 +729,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     public Comparator<String> getDtdComparator(AttributeValueComparator avc) {
-        return new DtdComparator(avc);
+        return dtdComparator;
     }
-
+    
     private class DtdComparator implements Comparator<String> {
-        private final AttributeValueComparator avc;
-
-        public DtdComparator(AttributeValueComparator avc) {
-            this.avc = avc;
-        }
-
         @Override
         public int compare(String path1, String path2) {
             XPathParts a = XPathParts.getFrozenInstance(path1);
@@ -815,8 +804,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                             break attributes;
                         }
                         continue; // TODO
-                    } else if (avc != null) {
-                        return avc.compare(elementA.name, main.name, valueA, valueB);
+                    } else if (main.attributeValueComparator != null) {
+                        return main.attributeValueComparator.compare(valueA, valueB);
                     } else if (main.values.size() != 0) {
                         int aa = main.values.get(valueA);
                         int bb = main.values.get(valueB);
@@ -1319,5 +1308,103 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     @Deprecated
     public static Set<String> getSerialElements() {
         return orderedElements;
+    }
+    
+    // The default is a map comparator, which compares numbers as numbers, and strings with UCA
+    private static MapComparator<String> valueOrdering = new MapComparator<String>().setErrorOnMissing(false).freeze();
+
+    static MapComparator<String> dayValueOrder = new MapComparator<String>().add(
+        "sun", "mon", "tue", "wed", "thu", "fri", "sat").freeze();
+    static MapComparator<String> dayPeriodOrder = new MapComparator<String>().add(
+        "midnight", "am", "noon", "pm", 
+        "morning1", "morning2", "afternoon1", "afternoon2", "evening1", "evening2", "night1", "night2").freeze();
+    static MapComparator<String> listPatternOrder = new MapComparator<String>().add(
+        "start", "middle", "end", "2", "3").freeze();
+    static MapComparator<String> widthOrder = new MapComparator<String>().add(
+        "abbreviated", "narrow", "short", "wide", "all").freeze();
+    static MapComparator<String> lengthOrder = new MapComparator<String>().add(
+        "full", "long", "medium", "short").freeze();
+    static MapComparator<String> dateFieldOrder = new MapComparator<String>().add(
+        "era",
+        "year", "year-short", "year-narrow",
+        "quarter", "quarter-short", "quarter-narrow",
+        "month", "month-short", "month-narrow",
+        "week", "week-short", "week-narrow",
+        "day", "day-short", "day-narrow",
+        "weekday",
+        "sun", "sun-short", "sun-narrow", "mon", "mon-short", "mon-narrow",
+        "tue", "tue-short", "tue-narrow", "wed", "wed-short", "wed-narrow",
+        "thu", "thu-short", "thu-narrow", "fri", "fri-short", "fri-narrow",
+        "sat", "sat-short", "sat-narrow",
+        "dayperiod",
+        "hour", "hour-short", "hour-narrow",
+        "minute", "minute-short", "minute-narrow",
+        "second", "second-short", "second-narrow",
+        "zone").freeze();
+    static MapComparator<String> countValueOrder = new MapComparator<String>().add(
+        "0", "1", "zero", "one", "two", "few", "many", "other").freeze();
+    static MapComparator<String> unitLengthOrder = new MapComparator<String>().add(
+        "long", "short", "narrow").freeze();
+    static MapComparator<String> currencyFormatOrder = new MapComparator<String>().add(
+        "standard", "accounting").freeze();
+    static Comparator<String> zoneOrder = StandardCodes.make().getTZIDComparator();
+
+    public static Comparator<String> getAttributeValueComparator(String element, String attribute) {
+        return getAttributeValueComparator(DtdType.ldml, element, attribute);
+    }
+
+    static Comparator<String> getAttributeValueComparator(DtdType type, String element, String attribute) {
+        // The default is a map comparator, which compares numbers as numbers, and strings with UCA
+        Comparator<String> comp = valueOrdering;
+        if (type != type.ldml && type != type.ldmlICU) {
+            return comp;
+        }
+        if (attribute.equals("day")) { // && (element.startsWith("weekend")
+            comp = dayValueOrder;
+        } else if (attribute.equals("type")) {
+            if (element.endsWith("FormatLength")) {
+                comp = lengthOrder;
+            } else if (element.endsWith("Width")) {
+                comp = widthOrder;
+            } else if (element.equals("day")) {
+                comp = dayValueOrder;
+            } else if (element.equals("field")) {
+                comp = dateFieldOrder;
+            } else if (element.equals("zone")) {
+                comp = zoneOrder;
+            } else if (element.equals("listPatternPart")) {
+                comp = listPatternOrder;
+            } else if (element.equals("currencyFormat")) {
+                comp = currencyFormatOrder;
+            } else if (element.equals("unitLength")) {
+                comp = unitLengthOrder;
+            } else if (element.equals("dayPeriod")) {
+                comp = dayPeriodOrder;
+            }
+        } else if (attribute.equals("count") && !element.equals("minDays")) {
+            comp = countValueOrder;
+        }
+        return comp;
+    }
+
+    /**
+     * Comparator for attributes in CLDR files
+     */
+    private static AttributeValueComparator ldmlAvc = new AttributeValueComparator() {
+        @Override
+        public int compare(String element, String attribute, String value1, String value2) {
+            Comparator<String> comp = getAttributeValueComparator(element, attribute);
+            return comp.compare(value1, value2);
+        }
+    };
+    
+    // ALWAYS KEEP AT END, FOR STATIC INIT ORDER
+    private static final Map<DtdType, DtdData> CACHE;
+    static {
+        EnumMap<DtdType, DtdData> temp = new EnumMap<DtdType, DtdData>(DtdType.class);
+        for (DtdType type : DtdType.values()) {
+            temp.put(type, getInstance(type, null));
+        }
+        CACHE = Collections.unmodifiableMap(temp);
     }
 }

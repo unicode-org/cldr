@@ -2425,37 +2425,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="afternoon1" draft="unconfirmed">ap.m.</dayPeriod>
 							<dayPeriod type="am" draft="contributed">AM</dayPeriod>
 							<dayPeriod type="pm" draft="contributed">PM</dayPeriod>
+							<dayPeriod type="afternoon1" draft="unconfirmed">ap.m.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="afternoon1" draft="unconfirmed">ap.-m.</dayPeriod>
 							<dayPeriod type="am" draft="contributed">a</dayPeriod>
-							<dayPeriod type="evening1">soir</dayPeriod>
-							<dayPeriod type="morning1">matin</dayPeriod>
 							<dayPeriod type="noon">midi</dayPeriod>
 							<dayPeriod type="pm" draft="contributed">p</dayPeriod>
+							<dayPeriod type="morning1">matin</dayPeriod>
+							<dayPeriod type="afternoon1" draft="unconfirmed">ap.-m.</dayPeriod>
+							<dayPeriod type="evening1">soir</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="afternoon1">après-midi</dayPeriod>
 							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="evening1">soir</dayPeriod>
-							<dayPeriod type="morning1">matin</dayPeriod>
 							<dayPeriod type="noon">midi</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="morning1">matin</dayPeriod>
+							<dayPeriod type="afternoon1">après-midi</dayPeriod>
+							<dayPeriod type="evening1">soir</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="afternoon1">après-midi</dayPeriod>
-							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
-							<dayPeriod type="evening1">soir</dayPeriod>
 							<dayPeriod type="midnight">minuit</dayPeriod>
-							<dayPeriod type="morning1">matin</dayPeriod>
-							<dayPeriod type="night1">nuit</dayPeriod>
+							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
 							<dayPeriod type="noon">midi</dayPeriod>
 							<dayPeriod type="pm" draft="provisional">PM</dayPeriod>
+							<dayPeriod type="morning1">matin</dayPeriod>
+							<dayPeriod type="afternoon1">après-midi</dayPeriod>
+							<dayPeriod type="evening1">soir</dayPeriod>
+							<dayPeriod type="night1">nuit</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>

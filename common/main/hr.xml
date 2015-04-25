@@ -1764,20 +1764,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="noon" draft="contributed">podne</dayPeriod>
+							<dayPeriod type="morning1" draft="provisional">ujutro</dayPeriod>
 							<dayPeriod type="afternoon1" draft="provisional">popodne</dayPeriod>
 							<dayPeriod type="evening1" draft="provisional">navečer</dayPeriod>
-							<dayPeriod type="morning1" draft="provisional">ujutro</dayPeriod>
 							<dayPeriod type="night1" draft="provisional">noću</dayPeriod>
-							<dayPeriod type="noon" draft="contributed">podne</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="afternoon1" draft="contributed">popodne</dayPeriod>
 							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="evening1" draft="contributed">navečer</dayPeriod>
-							<dayPeriod type="morning1" draft="contributed">ujutro</dayPeriod>
-							<dayPeriod type="night1" draft="contributed">noću</dayPeriod>
 							<dayPeriod type="noon">P</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="morning1" draft="contributed">ujutro</dayPeriod>
+							<dayPeriod type="afternoon1" draft="contributed">popodne</dayPeriod>
+							<dayPeriod type="evening1" draft="contributed">navečer</dayPeriod>
+							<dayPeriod type="night1" draft="contributed">noću</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">AM</dayPeriod>
@@ -1787,14 +1787,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="afternoon1">popodne</dayPeriod>
-							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
-							<dayPeriod type="evening1">večer</dayPeriod>
 							<dayPeriod type="midnight">ponoć</dayPeriod>
-							<dayPeriod type="morning1">jutro</dayPeriod>
-							<dayPeriod type="night1">noć</dayPeriod>
+							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
 							<dayPeriod type="noon">podne</dayPeriod>
 							<dayPeriod type="pm" draft="provisional">PM</dayPeriod>
+							<dayPeriod type="morning1">jutro</dayPeriod>
+							<dayPeriod type="afternoon1">popodne</dayPeriod>
+							<dayPeriod type="evening1">večer</dayPeriod>
+							<dayPeriod type="night1">noć</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>

@@ -2384,15 +2384,15 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return getAttributeOrdering().getOrder(); // already unmodifiable
     }
 
-    /**
-     * Get standard ordering for attribute values.
-     * 
-     * @return ordered collection with items.
-     */
-    public static Collection<String> getValueOrder() {
-        return valueOrdering.getOrder(); // already unmodifiable
-    }
-
+//    /**
+//     * Get standard ordering for attribute values.
+//     * 
+//     * @return ordered collection with items.
+//     */
+//    public static Collection<String> getValueOrder() {
+//        return valueOrdering.getOrder(); // already unmodifiable
+//    }
+//
     // note: run FindDTDOrder to get this list
     // TODO, convert to use SupplementalInfo
 
@@ -2417,131 +2417,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     //            .setErrorOnMissing(false)
     //            .freeze();
 
-    private static MapComparator<String> valueOrdering = new MapComparator<String>().setErrorOnMissing(false).freeze();
-    /*
-     * 
-     * //RuleBasedCollator valueOrdering = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
-     * static {
-     * 
-     * 
-     * // others are alphabetical
-     * String[] valueOrder = {
-     * "full", "long", "medium", "short",
-     * "abbreviated", "narrow", "wide",
-     * //"collation", "calendar", "currency",
-     * "buddhist", "chinese", "gregorian", "hebrew", "islamic", "islamic-civil", "japanese", "direct",
-     * //"japanese", "buddhist", "islamic", "islamic-civil", "hebrew", "chinese", "gregorian", "phonebook",
-     * "traditional", "direct",
-     * 
-     * "sun", "mon", "tue", "wed", "thu", "fri", "sat", // removed, since it is a language tag
-     * "America/Vancouver",
-     * "America/Los_Angeles",
-     * "America/Edmonton",
-     * "America/Denver",
-     * "America/Phoenix",
-     * "America/Winnipeg",
-     * "America/Chicago",
-     * "America/Montreal",
-     * "America/New_York",
-     * "America/Indianapolis",
-     * "Pacific/Honolulu",
-     * "America/Anchorage",
-     * "America/Halifax",
-     * "America/St_Johns",
-     * "Europe/Paris",
-     * "Europe/Belfast",
-     * "Europe/Dublin",
-     * "Etc/GMT",
-     * "Africa/Casablanca",
-     * "Asia/Jerusalem",
-     * "Asia/Tokyo",
-     * "Europe/Bucharest",
-     * "Asia/Shanghai",
-     * };
-     * valueOrdering.add(valueOrder).lock();
-     * //StandardCodes sc = StandardCodes.make();
-     * }
-     */
-    static MapComparator<String> dayValueOrder = new MapComparator<String>().add(
-        "sun", "mon", "tue", "wed", "thu", "fri", "sat").freeze();
-    static MapComparator<String> listPatternOrder = new MapComparator<String>().add(
-        "start", "middle", "end", "2", "3").freeze();
-    static MapComparator<String> widthOrder = new MapComparator<String>().add(
-        "abbreviated", "narrow", "short", "wide", "all").freeze();
-    static MapComparator<String> lengthOrder = new MapComparator<String>().add(
-        "full", "long", "medium", "short").freeze();
-    static MapComparator<String> dateFieldOrder = new MapComparator<String>().add(
-        "era",
-        "year", "year-short", "year-narrow",
-        "quarter", "quarter-short", "quarter-narrow",
-        "month", "month-short", "month-narrow",
-        "week", "week-short", "week-narrow",
-        "day", "day-short", "day-narrow",
-        "weekday",
-        "sun", "sun-short", "sun-narrow", "mon", "mon-short", "mon-narrow",
-        "tue", "tue-short", "tue-narrow", "wed", "wed-short", "wed-narrow",
-        "thu", "thu-short", "thu-narrow", "fri", "fri-short", "fri-narrow",
-        "sat", "sat-short", "sat-narrow",
-        "dayperiod",
-        "hour", "hour-short", "hour-narrow",
-        "minute", "minute-short", "minute-narrow",
-        "second", "second-short", "second-narrow",
-        "zone").freeze();
-    static MapComparator<String> countValueOrder = new MapComparator<String>().add(
-        "0", "1", "zero", "one", "two", "few", "many", "other").freeze();
-    static MapComparator<String> unitLengthOrder = new MapComparator<String>().add(
-        "long", "short", "narrow").freeze();
-    static MapComparator<String> currencyFormatOrder = new MapComparator<String>().add(
-        "standard", "accounting").freeze();
-    static Comparator<String> zoneOrder = StandardCodes.make().getTZIDComparator();
+
 
     public static boolean isOrdered(String element, DtdType type) {
         return DtdData.getInstance(type).isOrdered(element);
     }
 
-    /**
-     * 
-     */
-    public static Comparator<String> getAttributeValueComparator(String element, String attribute) {
-        Comparator<String> comp = valueOrdering;
-        if (attribute.equals("day")) { // && (element.startsWith("weekend")
-            comp = dayValueOrder;
-        } else if (attribute.equals("type")) {
-            if (element.endsWith("FormatLength")) {
-                comp = lengthOrder;
-            } else if (element.endsWith("Width")) {
-                comp = widthOrder;
-            } else if (element.equals("day")) {
-                comp = dayValueOrder;
-            } else if (element.equals("field")) {
-                comp = dateFieldOrder;
-            } else if (element.equals("zone")) {
-                comp = zoneOrder;
-            } else if (element.equals("listPatternPart")) {
-                comp = listPatternOrder;
-            } else if (element.equals("currencyFormat")) {
-                comp = currencyFormatOrder;
-            } else if (element.equals("unitLength")) {
-                comp = unitLengthOrder;
-            }
-        } else if (attribute.equals("count") && !element.equals("minDays")) {
-            comp = countValueOrder;
-        }
-        return comp;
-    }
-
-    /**
-     * Comparator for attributes in CLDR files
-     */
-    private static AttributeValueComparator avc = new AttributeValueComparator() {
-        @Override
-        public int compare(String element, String attribute, String value1, String value2) {
-            Comparator<String> comp = CLDRFile.getAttributeValueComparator(element, attribute);
-            return comp.compare(value1, value2);
-        }
-    };
-
-    private static Comparator<String> ldmlComparator = DtdData.getInstance(DtdType.ldmlICU).getDtdComparator(avc);
+    private static Comparator<String> ldmlComparator = DtdData.getInstance(DtdType.ldmlICU).getDtdComparator(null);
     // new LDMLComparator();
 
     //    private static class LDMLComparator implements Comparator<String> {
@@ -3607,5 +3489,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
         XMLSource source = dataSource.getUnresolving();
         return new CLDRFile(source);
+    }
+
+    public static Comparator<String> getAttributeValueComparator(String element, String attribute) {
+        return DtdData.getAttributeValueComparator(DtdType.ldml, element, attribute);
     }
 }

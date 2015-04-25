@@ -1138,13 +1138,13 @@
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<alias source="locale" path="../dayPeriodWidth[@type='wide']" />
+							<alias source="locale" path="../dayPeriodWidth[@type='wide']"/>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<alias source="locale" path="../dayPeriodWidth[@type='abbreviated']" />
+							<alias source="locale" path="../dayPeriodWidth[@type='abbreviated']"/>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<alias source="locale" path="../../dayPeriodContext[@type='format']/dayPeriod[@type='wide']" />
+							<alias source="locale" path="../../dayPeriodContext[@type='format']/dayPeriod[@type='wide']"/>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>

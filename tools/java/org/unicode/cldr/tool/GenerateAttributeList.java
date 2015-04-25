@@ -24,6 +24,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
@@ -186,7 +187,7 @@ public class GenerateAttributeList {
         if (attribute_valueSet == null) element_attribute_valueSet.put(element, attribute_valueSet = new TreeMap<String, Set<String>[]>());
         Set<String>[] valueSets = attribute_valueSet.get(attribute);
         if (valueSets == null) {
-            Comparator<String> c = CLDRFile.getAttributeValueComparator(element, attribute);
+            Comparator<String> c = DtdData.getAttributeValueComparator(element, attribute);
             valueSets = new Set[2];
             valueSets[0] = new TreeSet<String>(c);
             valueSets[1] = new TreeSet<String>();

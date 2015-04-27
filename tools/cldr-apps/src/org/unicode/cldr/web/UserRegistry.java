@@ -1717,28 +1717,11 @@ public class UserRegistry {
     }
 
     // TODO: move to CLDRLocale
-    static final boolean localeMatchesLocale(CLDRLocale smallLocale, CLDRLocale bigLocale) {
-        if (bigLocale.toString().startsWith(smallLocale.toString())) {
-            int blen = bigLocale.toString().length();
-            int slen = smallLocale.toString().length();
-
-            if (blen == slen) {
-                return true; // exact match. 'ro' matches 'ro'
-            } else if (!java.lang.Character.isLetter(bigLocale.toString().charAt(slen))) {
-                return true; // next char is NOT a letter. 'ro' matches 'ro_...'
-            } else {
-                return false; // next char IS a letter. 'ro' DOES NOT MATCH
-                              // 'root'
-            }
-        } else {
-            return false; // no substring (common case)
-        }
-    }
 
     static final boolean userCanModifyLocale(CLDRLocale uLocale, CLDRLocale aliasTarget) {
         if (SurveyMain.isPhaseReadonly())
             return false;
-        return localeMatchesLocale(uLocale, aliasTarget);
+        return (uLocale.equals(aliasTarget));
     }
 
     static boolean localeMatchesLocaleList(String localeArray[], CLDRLocale locale) {
@@ -1746,8 +1729,8 @@ public class UserRegistry {
     }
 
     static boolean localeMatchesLocaleList(CLDRLocale localeArray[], CLDRLocale locale) {
-        for (int i = 0; i < localeArray.length; i++) {
-            if (localeMatchesLocale(localeArray[i], locale)) {
+        for (CLDRLocale entry : localeArray) {
+            if (entry.equals(locale)) {
                 return true;
             }
         }

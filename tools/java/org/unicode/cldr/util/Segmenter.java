@@ -523,6 +523,12 @@ public class Segmenter {
                 }
                 lastComments.clear();
             }
+            if (htmlRules.containsKey(order)
+                || xmlRules.containsKey(order)
+                || rules.containsKey(order)
+                ) {
+                throw new IllegalArgumentException("Duplicate numbers for rules: " + order);
+            }
             htmlRules.put(order, TransliteratorUtilities.toHTML.transliterate(line));
             xmlRules.put(order, "<rule id=\"" + Segmenter.nf.format(order) + "\""
                 // + (flagItems.reset(line).find() ? " normative=\"true\"" : "")
@@ -869,7 +875,7 @@ public class Segmenter {
             "# LB 21a  Don't break after Hebrew + Hyphen.",
             "21.1) $HL ($HY | $BA) \u00D7",
             "# LB 21b Don’t break between Solidus and Hebrew letters.",
-            "21.1) $SY × $HL",
+            "21.2) $SY × $HL",
             "# LB 22  Do not break between two ellipses, or between letters, numbers or exclamations and ellipsis.",
             // "show $AL",
             "22.01) ($AL | $HL) \u00D7 $IN",

@@ -788,6 +788,7 @@ public class Segmenter {
             "$CP=($CP $X)",
             "$CM=($CM $X)",
             "$CM=($CM $X)",
+            "$EX=($EX $X)",
             "$GL=($GL $X)",
             "$H2=($H2 $X)",
             "$H3=($H3 $X)",

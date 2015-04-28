@@ -2304,10 +2304,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
     }
 
+    
     /**
      * Return the table for old votes 
      */
-    public static final String getOldVoteTable() {
-        return DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getOldVersion(), false).toString();
+    public static final String getLastVoteTable() {
+        final String dbName =  DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getLastVoteVersion(), false).toString();
+        return dbName;
     }
 }

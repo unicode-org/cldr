@@ -102,7 +102,7 @@ public class StatisticsUtils {
     }
 
     public static String getExcludeOldVotesSql() {
-        return " not exists ( select * from " + DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getOldVersion(), false) + " as old_votes "
+        return " not exists ( select * from " + DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getLastVoteVersion(), false) + " as old_votes "
             + "where new_votes.locale=old_votes.locale and new_votes.xpath=old_votes.xpath and "
             + "new_votes.submitter=old_votes.submitter and new_votes.value=old_votes.value) ";
     }

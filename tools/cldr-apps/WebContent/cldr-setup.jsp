@@ -287,6 +287,11 @@ if(request.getParameter("remove_maint")!=null) {
 							+ (VersionInfo
 									.getInstance(CLDRFile.GEN_VERSION)
 									.getMajor() - 1),
+					"CLDR_LASTVOTEVERSION",
+					"Required: What is the previous SurveyTool version of CLDR? (One possible value: "
+							+ (VersionInfo
+									.getInstance(CLDRFile.GEN_VERSION)
+									.getMajor() - 1),
 					"CLDR_NEWVERSION",
 					"Required: What is the version of CLDR being surveyed for? (One possible value:  "
 							+ CLDRFile.GEN_VERSION,

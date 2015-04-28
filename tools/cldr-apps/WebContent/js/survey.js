@@ -5500,7 +5500,7 @@ function showV() {
 									
 									theDiv.appendChild(ul);
 									
-									theDiv.appendChild(createChunk(stui.sub("v_oldvotes_locale_list_help_msg", {version: surveyOldVersion}),"p", "helpContent")); 
+									theDiv.appendChild(createChunk(stui.sub("v_oldvotes_locale_list_help_msg", {version: surveyLastVoteVersion}),"p", "helpContent")); 
 								} else {
 									theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_old"),"i")); // TODO fix
 								}
@@ -5517,7 +5517,7 @@ function showV() {
 								});
 								//loclink.href='#';
 								theDiv.appendChild(createChunk(json.oldvotes.localeDisplayName,"h3","v-title2"));
-								theDiv.appendChild(createChunk(stui.sub("v_oldvotes_locale_msg", {version: surveyOldVersion, locale: json.oldvotes.localeDisplayName}), "p", "helpContent"));
+								theDiv.appendChild(createChunk(stui.sub("v_oldvotes_locale_msg", {version: surveyLastVoteVersion, locale: json.oldvotes.localeDisplayName}), "p", "helpContent"));
 								if(json.oldvotes.contested.length > 0 || json.oldvotes.uncontested.length > 0) {
 
 									function showVoteTable(voteList, type) {
@@ -5529,7 +5529,7 @@ function showV() {
 											var tr = document.createElement("tr");
 											tr.appendChild(createChunk(stui.str("v_oldvotes_path"),"th","code"));
 											tr.appendChild(createChunk(json.BASELINE_LANGUAGE_NAME,"th","v-comp"));
-											tr.appendChild(createChunk(stui.sub("v_oldvotes_winning_msg", {version: surveyOldVersion}),"th","v-win"));
+											tr.appendChild(createChunk(stui.sub("v_oldvotes_winning_msg", {version: surveyLastVoteVersion}),"th","v-win"));
 											tr.appendChild(createChunk(stui.str("v_oldvotes_mine"),"th","v-mine"));
 											var accept;
 											tr.appendChild(accept=createChunk(stui.str("v_oldvotes_accept"),"th","v-accept"));
@@ -5672,7 +5672,7 @@ function showV() {
 										
 										content.appendChild(createChunk(title,"h2","v-oldvotes-sub"));
 										
-										var descr = stui.sub("v_oldvotes_desc_"+type+"_msg", {version: surveyOldVersion});
+										var descr = stui.sub("v_oldvotes_desc_"+type+"_msg", {version: surveyLastVoteVersion});
 										content.appendChild(createChunk(descr, "p", "helpContent"));
 										
 										

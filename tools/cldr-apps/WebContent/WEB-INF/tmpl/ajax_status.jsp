@@ -55,6 +55,7 @@ var surveyCurrentLocaleStamp = 0;
 var surveyCurrentLocaleStampId = '';
 var surveyVersion = '<%=SurveyMain.getNewVersion() %>';
 var surveyOldVersion = '<%= SurveyMain.getOldVersion() %>';
+var surveyLastVoteVersion = '<%= SurveyMain.getLastVoteVersion() %>';
 var surveyOfficial = <%= !SurveyMain.isUnofficial() %>;
 var surveyCurrev = '<%= SurveyMain.getCurrevStr() %>';
 var BUG_URL_BASE = '<%= SurveyMain.BUG_URL_BASE %>';

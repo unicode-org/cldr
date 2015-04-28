@@ -356,6 +356,7 @@ define({
 		E_SESSION_DISCONNECTED: "Your session has timed out or the SurveyTool has restarted. To continue from where you were, hit Reload.",
 		E_DISCONNECTED: "You were disconnected from the SurveyTool. To reconnect, hit Reload.",
 		E_NO_PERMISSION: "You do not have permission to do that operation.",
+		E_NO_OLD_VOTES: "Error: Old votes submitted in the former version are not available.",
 		E_NOT_LOGGED_IN: "That operation cannot be done without being logged in.",
 		E_BAD_VALUE: "The vote was not accepted: ${err_data.message}",
 		E_BAD_XPATH: "This item does not exist in this locale.",

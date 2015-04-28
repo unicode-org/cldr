@@ -30,7 +30,7 @@ public class SurveyException extends Exception {
         E_SESSION_DISCONNECTED,
         E_DISCONNECTED,
         E_NO_PERMISSION,
-        E_NOT_LOGGED_IN, E_BAD_VALUE, E_BAD_XPATH;
+        E_NOT_LOGGED_IN, E_BAD_VALUE, E_BAD_XPATH, E_NO_OLD_VOTES;
     }
 
     private final ErrorCode err_code;

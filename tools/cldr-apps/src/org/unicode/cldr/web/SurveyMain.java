@@ -126,6 +126,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static final String VURL_LOCALES = "v#locales///";
     public static final String CLDR_OLDVERSION = "CLDR_OLDVERSION";
     public static final String CLDR_NEWVERSION = "CLDR_NEWVERSION";
+    public static final String CLDR_LASTVOTEVERSION = "CLDR_LASTVOTEVERSION";
     public static final String CLDR_DIR = "CLDR_DIR";
     public static final String CLDR_DIR_REPOS = "http://unicode.org/repos/cldr";
 
@@ -258,6 +259,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static Phase currentPhase = Phase.VETTING;
     /** set by CLDR_PHASE property. **/
     private static String oldVersion = "OLDVERSION";
+    private static String lastVoteVersion = "LASTVOTEVERSION";
     private static String newVersion = "NEWVERSION";
 
     public static boolean isConfigSetup = false;
@@ -5895,6 +5897,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             progress.update("Setup props..");
             newVersion = survprops.getProperty(CLDR_NEWVERSION, CLDR_NEWVERSION);
             oldVersion = survprops.getProperty(CLDR_OLDVERSION, CLDR_OLDVERSION);
+            lastVoteVersion = survprops.getProperty(CLDR_LASTVOTEVERSION, oldVersion);
             progress.update("Setup dirs..");
 
             getVetdir();
@@ -7171,6 +7174,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public static String getOldVersion() {
         return oldVersion;
+    }
+    
+    /**
+     * The last version where there was voting. CLDR_LASTVOTEVERSION
+     * @return
+     */
+    public static String getLastVoteVersion() {
+        return lastVoteVersion;
     }
 
     public static String getNewVersion() {

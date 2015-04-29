@@ -2617,7 +2617,7 @@ public class SupplementalDataInfo {
                             String[] coverageLocaleParts = el[i].split(":", 2);
                             String org = coverageLocaleParts[0];
                             String level = coverageLocaleParts[1].toUpperCase();
-                            Set<String> coverageLocales = sc.getLocaleCoverageLocales(org, EnumSet.of(Level.fromString(level)));
+                            Set<String> coverageLocales = sc.getLocaleCoverageLocales(Organization.fromString(org), EnumSet.of(Level.fromString(level)));
                             for (String cl : coverageLocales) {
                                 localeList.add(CLDRLocale.getInstance(cl));
                             }

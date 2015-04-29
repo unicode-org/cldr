@@ -40,6 +40,7 @@ import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.IsoCurrencyParser;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PluralRanges;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
@@ -60,7 +61,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
-import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
@@ -145,7 +145,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             localesToTest.add(locale);
         }
         Set<String> modernLocales = testInfo.getStandardCodes()
-            .getLocaleCoverageLocales(Organization.cldr.toString(),
+            .getLocaleCoverageLocales(Organization.cldr,
                 EnumSet.of(Level.MODERN));
 
         for (String locale : localesToTest) {
@@ -1544,7 +1544,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         // HashSet<ULocale>(overrideCardinals.keySet());
 
         Set<String> testLocales = STANDARD_CODES.getLocaleCoverageLocales(
-            "google", EnumSet.of(Level.MODERN, Level.MODERATE));
+            Organization.google, EnumSet.of(Level.MODERN, Level.MODERATE));
         Set<String> allLocales = testInfo.getCldrFactory().getAvailable();
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : allLocales) {

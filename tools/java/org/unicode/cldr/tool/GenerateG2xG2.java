@@ -17,6 +17,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
@@ -45,7 +46,7 @@ public class GenerateG2xG2 {
         english = cldrFactory.make("en", true);
         root = cldrFactory.make("root", true);
         StandardCodes sc = StandardCodes.make();
-        Map<String, Map<String, Level>> type_code_value = sc.getLocaleTypes();
+        Map<Organization, Map<String, Level>> type_code_value = sc.getLocaleTypes();
         Set<String> sourceSet = new TreeSet<String>();
         Set<String> targetLanguageSet = new TreeSet<String>();
         targetLanguageSet.add("no");
@@ -56,9 +57,9 @@ public class GenerateG2xG2 {
         Set<String> targetRegionSet = new TreeSet<String>();
         Set<String> targetTZSet = new TreeSet<String>();
         Set<String> targetCurrencySet = new TreeSet<String>();
-        for (String type : type_code_value.keySet()) {
+        for (Organization type : type_code_value.keySet()) {
             Map<String, Level> code_value = type_code_value.get(type);
-            if (!type.equals("IBM")) continue;
+            if (!type.equals(Organization.ibm)) continue;
             for (String locale : code_value.keySet()) {
                 if (locale.equals("no")) continue;
                 String priority = code_value.get(locale).toString();

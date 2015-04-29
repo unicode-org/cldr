@@ -48,6 +48,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.CodeType;
@@ -58,7 +59,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
-import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.ArrayComparator;
@@ -1338,21 +1338,21 @@ public class ShowLanguages {
             .setBreakSpans(true)
             .addColumn("Code", "class='source'",
                 "<a href=\"http://www.unicode.org/cldr/data/common/main/{0}.xml\">{0}</a>", "class='source'", false);
-            Map<String, Map<String, Level>> vendordata = sc.getLocaleTypes();
+            Map<Organization, Map<String, Level>> vendordata = sc.getLocaleTypes();
             Set<String> locales = new TreeSet<String>();
-            Set<String> vendors = new LinkedHashSet<String>();
-            Set<String> smallVendors = new LinkedHashSet<String>();
+            Set<Organization> vendors = new LinkedHashSet<>();
+            Set<Organization> smallVendors = new LinkedHashSet<>();
 
-            for (Entry<String, Map<String, Level>> vendorData : vendordata.entrySet()) {
-                String vendor = vendorData.getKey();
-                if (vendor.equals("Java")) continue;
+            for (Entry<Organization, Map<String, Level>> vendorData : vendordata.entrySet()) {
+                Organization vendor = vendorData.getKey();
+                //if (vendor.equals(Organization.java)) continue;
                 Map<String, Level> data = vendorData.getValue();
                 if (data.size() < MINIMAL_BIG_VENDOR) {
                     smallVendors.add(vendor);
                     continue;
                 }
                 vendors.add(vendor);
-                tablePrinter.addColumn(Organization.fromString(vendor).getDisplayName(), "class='target'", null, "class='target'", false)
+                tablePrinter.addColumn(vendor.getDisplayName(), "class='target'", null, "class='target'", false)
                 .setSpanRows(true);
                 locales.addAll(data.keySet());
             }
@@ -1373,7 +1373,7 @@ public class ShowLanguages {
                 String baseLangName = getLanguageName(baseLang);
                 list.add("und".equals(localeCode) ? "other" : baseLangName);
                 list.add(locale);
-                for (String vendor : vendors) {
+                for (Organization vendor : vendors) {
                     String status = getVendorStatus(locale, vendor, vendordata);
                     if (!baseLang.equals(locale) && !status.startsWith("<")) {
                         String langStatus = getVendorStatus(baseLang, vendor, vendordata);
@@ -1389,10 +1389,10 @@ public class ShowLanguages {
             String value = tablePrinter.addRows(flattened).toTable();
             pw2.println(value);
             pw2.append("<h2>Others</h2><div align='left'><ul>");
-            for (String vendor2 : smallVendors) {
+            for (Organization vendor2 : smallVendors) {
                 pw2.append("<li><b>");
                 pw2.append(TransliteratorUtilities.toHTML.transform(
-                    Organization.fromString(vendor2).getDisplayName())).append(": </b>");
+                    vendor2.getDisplayName())).append(": </b>");
                 boolean first1 = true;
                 for (Level level : Level.values()) {
                     boolean first2 = true;
@@ -1473,7 +1473,7 @@ public class ShowLanguages {
             return lpt2.toString();
         }
 
-        private String getVendorStatus(String locale, String vendor, Map<String, Map<String, Level>> vendordata) {
+        private String getVendorStatus(String locale, Organization vendor, Map<Organization, Map<String, Level>> vendordata) {
             Level statusLevel = vendordata.get(vendor).get(locale);
             String status = statusLevel == null ? null : statusLevel.toString();
             String curLocale = locale;

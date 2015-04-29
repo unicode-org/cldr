@@ -8,8 +8,8 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.ibm.icu.dev.test.TestFmwk;
 
@@ -24,18 +24,18 @@ public class StandardCodesTest extends TestFmwk {
 
     public void TestCoverage() {
         EnumSet<Organization> missing = EnumSet.noneOf(Organization.class);
-        Set<String> extraOrgs = new TreeSet<String>();
-        for (String org : sc.getLocaleCoverageOrganizations()) {
-            extraOrgs.add(org.toLowerCase());
+        Set<Organization> extraOrgs = new TreeSet<>();
+        for (Organization org : sc.getLocaleCoverageOrganizations()) {
+            extraOrgs.add(org);
         }
         for (Organization org : Organization.values()) {
             // Sun ; ar ; modern
-            extraOrgs.remove(org.toString().toLowerCase());
-            if (!sc.getLocaleCoverageOrganizations().contains(org.toString())) {
+            extraOrgs.remove(org);
+            if (!sc.getLocaleCoverageOrganizations().contains(org)) {
                 missing.add(org);
                 continue;
             }
-            for (String locale : sc.getLocaleCoverageLocales(org.toString())) {
+            for (String locale : sc.getLocaleCoverageLocales(org)) {
                 String name = locale.equals("*") ? "ALL" : testInfo
                     .getEnglish().getName(locale);
                 logln(org + "\t;\t" + locale + "\t;\t"
@@ -46,7 +46,7 @@ public class StandardCodesTest extends TestFmwk {
         for (Organization org : missing) {
             errln("Organization missing Locales.txt information " + org);
         }
-        for (String org : extraOrgs) {
+        for (Organization org : extraOrgs) {
             errln("Organization in Locales.txt but not in Organization enum: "
                 + org);
         }
@@ -58,7 +58,7 @@ public class StandardCodesTest extends TestFmwk {
         for (Organization org : Organization.values()) {
             Set<String> locs;
             try {
-                locs = sc.getLocaleCoverageLocales(org.toString(),
+                locs = sc.getLocaleCoverageLocales(org,
                     EnumSet.of(Level.MODERATE, Level.MODERN));
                 for (String loc : locs) {
                     if (loc.equals("*"))

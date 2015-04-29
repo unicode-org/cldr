@@ -38,7 +38,6 @@ import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.StandardCodes.LocaleCoverageType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -990,11 +989,11 @@ public class VettingViewer<T> {
     }
 
     public static final class LocalesWithExplicitLevel implements Predicate<String> {
-        private final String org;
+        private final Organization org;
         private final Level desiredLevel;
 
         public LocalesWithExplicitLevel(Organization org, Level level) {
-            this.org = org.toString();
+            this.org = org;
             this.desiredLevel = level;
         }
 
@@ -1003,9 +1002,9 @@ public class VettingViewer<T> {
             Output<LocaleCoverageType> output = new Output<LocaleCoverageType>();
             // For admin - return true if SOME organization has explicit coverage for the locale
             // TODO: Make admin pick up any locale that has a vote
-            if (org.equals(Organization.surveytool.toString())) {
+            if (org.equals(Organization.surveytool)) {
                 for (Organization checkorg : Organization.values()) {
-                    StandardCodes.make().getLocaleCoverageLevel(checkorg.toString(), localeId, output);
+                    StandardCodes.make().getLocaleCoverageLevel(checkorg, localeId, output);
                     if (output.value == StandardCodes.LocaleCoverageType.explicit) {
                         return true;
                     }

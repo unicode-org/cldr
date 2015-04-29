@@ -84,6 +84,7 @@ import org.unicode.cldr.util.Factory.DirectoryType;
 import org.unicode.cldr.util.Factory.SourceTreeType;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
@@ -1832,7 +1833,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         boolean newOrgOk = false;
         try {
-            VoteResolver.Organization newOrgEnum = VoteResolver.Organization.fromString(new_org);
+            Organization newOrgEnum = Organization.fromString(new_org);
             newOrgOk = true;
         } catch (IllegalArgumentException iae) {
             newOrgOk = false;

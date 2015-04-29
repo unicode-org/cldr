@@ -25,6 +25,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LruMap;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
@@ -37,8 +38,6 @@ import org.unicode.cldr.util.VettingViewer.LocalesWithExplicitLevel;
 import org.unicode.cldr.util.VettingViewer.UsersChoice;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VettingViewer.WritingInfo;
-import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
@@ -171,7 +170,7 @@ public class VettingViewerQueue {
         public CLDRLocale locale;
         private QueueEntry entry;
         SurveyMain sm;
-        VettingViewer<VoteResolver.Organization> vv;
+        VettingViewer<Organization> vv;
         public int maxn;
         public int n = 0;
         final public boolean isSummary;
@@ -199,7 +198,7 @@ public class VettingViewerQueue {
         final private String baseUrl;
 
         public Task(QueueEntry entry, CLDRLocale locale, SurveyMain sm, String baseUrl, Level usersLevel,
-            VoteResolver.Organization usersOrg, final String st_org) {
+            Organization usersOrg, final String st_org) {
             super("VettingTask:" + locale.toString());
             isSummary = isSummary(locale);
             if (DEBUG)
@@ -247,7 +246,7 @@ public class VettingViewerQueue {
             statusCode = Status.WAITING;
             final CLDRProgressTask progress = openProgress("vv:" + locale, maxn + 100);
 
-            VettingViewer<VoteResolver.Organization> vv = null;
+            VettingViewer<Organization> vv = null;
 
             if (DEBUG)
                 System.err.println("Starting up vv task:" + locale);
@@ -263,7 +262,7 @@ public class VettingViewerQueue {
                     }
                     status = "Beginning Process, Calculating";
 
-                    vv = new VettingViewer<VoteResolver.Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
+                    vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
                         sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
                     progress.update("Got VettingViewer");
                     statusCode = Status.PROCESSING;
@@ -327,7 +326,7 @@ public class VettingViewerQueue {
                     });
 
                     EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
-                    if (usersOrg.equals(VoteResolver.Organization.surveytool)) {
+                    if (usersOrg.equals(Organization.surveytool)) {
                         choiceSet = EnumSet.of(
                             VettingViewer.Choice.error,
                             VettingViewer.Choice.warning,
@@ -387,12 +386,12 @@ public class VettingViewerQueue {
          * organization c. Any locale with at least one vote by a user in that
          * organization
          */
-        final VoteResolver.Organization vr_org = UserRegistry.computeVROrganization(st_org); /*
+        final Organization vr_org = UserRegistry.computeVROrganization(st_org); /*
                                                                                                       * VoteResolver
                                                                                                       * organization
                                                                                                       * name
                                                                                                       */
-        final Set<String> covOrgs = StandardCodes.make().getLocaleCoverageOrganizations();
+        final Set<Organization> covOrgs = StandardCodes.make().getLocaleCoverageOrganizations();
 
         final Set<String> aLocs = new HashSet<String>();
         if (covOrgs.contains(vr_org.name())) {
@@ -483,7 +482,7 @@ public class VettingViewerQueue {
             usersLevel = Level.get(levelString);
         }
 
-        usersOrg = VoteResolver.Organization.fromString(sess.user.voterOrg());
+        usersOrg = Organization.fromString(sess.user.voterOrg());
 
         final String st_org = sess.user.org;
         SurveyMain sm = CookieSession.sm;
@@ -491,7 +490,7 @@ public class VettingViewerQueue {
             sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
 
         EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
-        if (usersOrg.equals(VoteResolver.Organization.surveytool)) {
+        if (usersOrg.equals(Organization.surveytool)) {
             choiceSet = EnumSet.of(
                 VettingViewer.Choice.error,
                 VettingViewer.Choice.warning,
@@ -690,13 +689,13 @@ public class VettingViewerQueue {
             ;
             usersLevel = Level.get(levelString);
         }
-        usersOrg = VoteResolver.Organization.fromString(sess.user.voterOrg());
+        usersOrg = Organization.fromString(sess.user.voterOrg());
 
         writeVettingViewerOutput(locale, baseUrl, aBuffer, usersOrg, usersLevel, sess.user, ctx.hasField("quick"), ctx, rJson);
     }
 
     public void writeVettingViewerOutput(CLDRLocale locale, String baseUrl, StringBuffer aBuffer,
-        VoteResolver.Organization usersOrg, Level usersLevel, UserRegistry.User user, boolean quick, WebContext ctx, boolean rJson) {
+        Organization usersOrg, Level usersLevel, UserRegistry.User user, boolean quick, WebContext ctx, boolean rJson) {
         final String st_org = user.org;
         SurveyMain sm = CookieSession.sm;
         VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
@@ -705,7 +704,7 @@ public class VettingViewerQueue {
         // statusCode = Status.PROCESSING;
 
         EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
-        if (usersOrg.equals(VoteResolver.Organization.surveytool)) {
+        if (usersOrg.equals(Organization.surveytool)) {
             choiceSet = EnumSet.of(
                 VettingViewer.Choice.error,
                 VettingViewer.Choice.warning,
@@ -908,11 +907,11 @@ public class VettingViewerQueue {
         return box;
     }
 
-    private UsersChoice<VoteResolver.Organization> getUsersChoice(final SurveyMain sm) {
+    private UsersChoice<Organization> getUsersChoice(final SurveyMain sm) {
         return new STUsersChoice(sm);
     }
 
-    private class STUsersChoice implements UsersChoice<VoteResolver.Organization> {
+    private class STUsersChoice implements UsersChoice<Organization> {
         private final SurveyMain sm;
 
         STUsersChoice(final SurveyMain msm) {
@@ -932,14 +931,14 @@ public class VettingViewerQueue {
         }
 
         @Override
-        public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, VoteResolver.Organization user) {
+        public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, Organization user) {
             CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
             BallotBox<User> ballotBox = getBox(sm, loc);
             return ballotBox.getResolver(path).getOrgVote(user);
         }
 
         @Override
-        public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, VoteResolver.Organization orgOfUser) {
+        public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, Organization orgOfUser) {
             CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
             BallotBox<User> ballotBox = getBox(sm, loc);
             return ballotBox.getResolver(path).getStatusForOrganization(orgOfUser);

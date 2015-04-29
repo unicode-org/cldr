@@ -26,9 +26,9 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InputStreamFactory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.ErrorHandler;
@@ -339,7 +339,7 @@ public class QuickCheck {
         int total = 0;
         int mismatch = 0;
         LanguageTagParser ltp = new LanguageTagParser();
-        Iterable<String> locales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr.name(), EnumSet.of(Level.MODERN));
+        Iterable<String> locales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, EnumSet.of(Level.MODERN));
         for (String locale : locales) {
             if (!ltp.set(locale).getRegion().isEmpty()) {
                 continue;

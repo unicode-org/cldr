@@ -22,6 +22,7 @@ import com.google.common.base.Splitter;
 
 public class ListUnits {
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
+    private static final boolean SHOW_DECIMALS = false;
 
     enum Type {
         root, 
@@ -72,7 +73,7 @@ public class ListUnits {
 //            DecimalFormat format = builder.getCurrencyFormat("XXX");
 //            String prefix = format.getPositivePrefix().replace("XXX", "\u00a4");
 //            String suffix = format.getPositiveSuffix().replace("XXX", "\u00a4");
-            if (true) {
+            if (SHOW_DECIMALS) {
                 System.out.println("\n#" + locale + "\t«" + prefix + "»\t«" + suffix + "»\t«" + currencyPattern + "»");
                 TreeMap<String,String> data = new TreeMap<>();
                 for (String path : cldrFile.fullIterable()) {

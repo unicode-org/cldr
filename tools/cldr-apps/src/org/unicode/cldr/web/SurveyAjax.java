@@ -39,6 +39,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.SpecialLocales;
@@ -155,12 +156,12 @@ public class SurveyAjax extends HttpServlet {
                 .put("requiredVotes", r.getRequiredVotes())
                 .put("winningStatus", r.getWinningStatus());
 
-            EnumSet<VoteResolver.Organization> conflictedOrgs = r.getConflictedOrganizations();
+            EnumSet<Organization> conflictedOrgs = r.getConflictedOrganizations();
 
             Map<String, Long> valueToVote = r.getResolvedVoteCounts();
 
             JSONObject orgs = new JSONObject();
-            for (VoteResolver.Organization o : VoteResolver.Organization.values()) {
+            for (Organization o : Organization.values()) {
                 String orgVote = r.getOrgVote(o);
                 if (orgVote == null)
                     continue;

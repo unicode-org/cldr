@@ -39,9 +39,9 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Level;
-import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
@@ -380,7 +380,7 @@ public class UserRegistry {
         private VoterInfo createVoterInfo() {
             // VoterInfo(Organization.google, Level.vetter, &quot;J.
             // Smith&quot;) },
-            VoteResolver.Organization o = this.getOrganization();
+            Organization o = this.getOrganization();
             VoteResolver.Level l = this.getLevel();
             Set<String> localesSet = new HashSet<String>();
             if (!isAllLocales(locales)) {
@@ -416,14 +416,14 @@ public class UserRegistry {
 
         private VoteResolver.Level vr_level = null;
 
-        public synchronized VoteResolver.Organization getOrganization() {
+        public synchronized Organization getOrganization() {
             if (vr_org == null) {
                 vr_org = UserRegistry.computeVROrganization(this.org);
             }
             return vr_org;
         }
 
-        private VoteResolver.Organization vr_org = null;
+        private Organization vr_org = null;
 
         private String voterOrg = null;
 
@@ -477,8 +477,8 @@ public class UserRegistry {
             }
         }
 
-        VoteResolver.Organization vrOrg() {
-            return VoteResolver.Organization.fromString(voterOrg());
+        Organization vrOrg() {
+            return Organization.fromString(voterOrg());
         }
 
         /**
@@ -509,10 +509,10 @@ public class UserRegistry {
         ctx.println("<a href='" + ctx.base() + "?email=" + email + "&amp;uid=" + password + "'>Login for " + email + "</a>");
     }
 
-    private static Map<String, VoteResolver.Organization> orgToVrOrg = new HashMap<String, VoteResolver.Organization>();
+    private static Map<String, Organization> orgToVrOrg = new HashMap<String, Organization>();
 
     public static synchronized Organization computeVROrganization(String org) {
-        VoteResolver.Organization o = Organization.fromString(org);
+        Organization o = Organization.fromString(org);
         if (o == null) {
             o = orgToVrOrg.get(org);
         } else {
@@ -523,9 +523,9 @@ public class UserRegistry {
                 String arg = org.replaceAll("Utilika Foundation", "utilika")
                     .replaceAll("Government of Pakistan - National Language Authority", "pakistan")
                     .replaceAll("ICT Agency of Sri Lanka", "srilanka").toLowerCase().replaceAll("[.-]", "_");
-                o = VoteResolver.Organization.valueOf(arg);
+                o = Organization.valueOf(arg);
             } catch (IllegalArgumentException iae) {
-                o = VoteResolver.Organization.guest;
+                o = Organization.guest;
                 SurveyLog.warnOnce("** Unknown organization (treating as Guest): " + org);
             }
             orgToVrOrg.put(org, o);
@@ -2304,8 +2304,8 @@ public class UserRegistry {
         } // end try
 
         // get all possible VR orgs..
-        Set<VoteResolver.Organization> allvr = new HashSet<VoteResolver.Organization>();
-        for (VoteResolver.Organization org : VoteResolver.Organization.values()) {
+        Set<Organization> allvr = new HashSet<Organization>();
+        for (Organization org : Organization.values()) {
             allvr.add(org);
         }
         // Subtract out ones already in use
@@ -2313,7 +2313,7 @@ public class UserRegistry {
             allvr.remove(UserRegistry.computeVROrganization(org));
         }
         // Add back any ones not yet in use
-        for (VoteResolver.Organization org : allvr) {
+        for (Organization org : allvr) {
             String orgName = org.name();
             orgName = UCharacter.toTitleCase(orgName, null);
             orgs.add(orgName);
@@ -2504,7 +2504,7 @@ public class UserRegistry {
                     out.println("\t<!-- No results -->");
                     return 0;
                 }
-                VoteResolver.Organization lastOrg = null;
+                Organization lastOrg = null;
                 while (rs.next()) {
                     int theirId = rs.getInt(1);
                     int theirLevel = rs.getInt(2);
@@ -2513,7 +2513,7 @@ public class UserRegistry {
                     String theirOrg = rs.getString(5);
                     String theirLocales = rs.getString(6);
 
-                    VoteResolver.Organization theOrg = computeVROrganization(theirOrg);
+                    Organization theOrg = computeVROrganization(theirOrg);
                     if (theOrg == null) {
                         SurveyLog.warnOnce("UserRegistry: Writing Illegal/unknown org: " + theirOrg);
                     }

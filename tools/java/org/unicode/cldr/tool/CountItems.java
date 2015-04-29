@@ -38,6 +38,7 @@ import org.unicode.cldr.util.IsoCurrencyParser.Data;
 import org.unicode.cldr.util.IsoRegionData;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -979,8 +980,8 @@ public class CountItems {
             return;
 
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-        Map<String, Map<String, Level>> platform_locale_status = StandardCodes.make().getLocaleTypes();
-        Map<String, Level> onlyLocales = platform_locale_status.get("IBM");
+        Map<Organization, Map<String, Level>> platform_locale_status = StandardCodes.make().getLocaleTypes();
+        Map<String, Level> onlyLocales = platform_locale_status.get(Organization.ibm);
         Set<String> locales = onlyLocales.keySet();
         CLDRFile english = cldrFactory.make("en", true);
         for (Iterator<String> it = locales.iterator(); it.hasNext();) {

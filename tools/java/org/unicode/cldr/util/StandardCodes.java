@@ -331,8 +331,8 @@ public class StandardCodes {
         return country_modernCurrency.get(countryCode);
     }
 
-    private Map<String, Map<String, Level>> platform_locale_level = null;
-    private Map<String, Relation<Level, String>> platform_level_locale = null;
+    private EnumMap<Organization, Map<String, Level>> platform_locale_level = null;
+    private EnumMap<Organization, Relation<Level, String>> platform_level_locale = null;
     private Map<String, Map<String, String>> platform_locale_levelString = null;
 
     /**
@@ -367,7 +367,7 @@ public class StandardCodes {
      * 
      * @deprecated
      */
-    public Map<String, Map<String, Level>> getLocaleTypes() {
+    public Map<Organization, Map<String, Level>> getLocaleTypes() {
         synchronized (StandardCodes.class) {
             if (platform_locale_level == null) {
                 loadPlatformLocaleStatus();
@@ -377,6 +377,9 @@ public class StandardCodes {
     }
 
     public Level getLocaleCoverageLevel(String organization, String desiredLocale) {
+        return getLocaleCoverageLevel(Organization.fromString(organization), desiredLocale);
+    }
+    public Level getLocaleCoverageLevel(Organization organization, String desiredLocale) {
         return getLocaleCoverageLevel(organization, desiredLocale, new Output<LocaleCoverageType>());
     }
 
@@ -388,7 +391,7 @@ public class StandardCodes {
      * Returns coverage level of locale according to organization. Returns Level.UNDETERMINED if information is missing.
      * A locale of "*" in the data means "everything else".
      */
-    public Level getLocaleCoverageLevel(String organization, String desiredLocale, Output<LocaleCoverageType> coverageType) {
+    public Level getLocaleCoverageLevel(Organization organization, String desiredLocale, Output<LocaleCoverageType> coverageType) {
         synchronized (StandardCodes.class) {
             if (platform_locale_level == null) {
                 loadPlatformLocaleStatus();
@@ -423,11 +426,11 @@ public class StandardCodes {
     /**
      * Returns coverage level of locale according to organization. Returns Level.UNDETERMINED if information is missing.
      */
-    public Level getDefaultLocaleCoverageLevel(String organization) {
+    public Level getDefaultLocaleCoverageLevel(Organization organization) {
         return getLocaleCoverageLevel(organization, "*");
     }
 
-    public Set<String> getLocaleCoverageOrganizations() {
+    public Set<Organization> getLocaleCoverageOrganizations() {
         synchronized (StandardCodes.class) {
             if (platform_locale_level == null) {
                 loadPlatformLocaleStatus();
@@ -435,8 +438,21 @@ public class StandardCodes {
         }
         return platform_locale_level.keySet();
     }
+    
+    public Set<String> getLocaleCoverageOrganizationStrings() {
+        synchronized (StandardCodes.class) {
+            if (platform_locale_level == null) {
+                loadPlatformLocaleStatus();
+            }
+        }
+        return platform_locale_levelString.keySet();
+    }
 
     public Set<String> getLocaleCoverageLocales(String organization) {
+        return getLocaleCoverageLocales(Organization.fromString(organization));
+    }
+    
+    public Set<String> getLocaleCoverageLocales(Organization organization) {
         synchronized (StandardCodes.class) {
             if (platform_locale_level == null) {
                 loadPlatformLocaleStatus();
@@ -445,7 +461,7 @@ public class StandardCodes {
         return platform_locale_level.get(organization).keySet();
     }
 
-    public Relation<Level, String> getLevelsToLocalesFor(String organization) {
+    public Relation<Level, String> getLevelsToLocalesFor(Organization organization) {
         synchronized (StandardCodes.class) {
             if (platform_level_locale == null) {
                 loadPlatformLocaleStatus();
@@ -454,7 +470,7 @@ public class StandardCodes {
         return platform_level_locale.get(organization);
     }
 
-    public Set<String> getLocaleCoverageLocales(String organization, Set<Level> choice) {
+    public Set<String> getLocaleCoverageLocales(Organization organization, Set<Level> choice) {
         Set<String> result = new LinkedHashSet<String>();
         for (String locale : getLocaleCoverageLocales(organization)) {
             if (choice.contains(getLocaleCoverageLevel(organization, locale))) {
@@ -466,7 +482,7 @@ public class StandardCodes {
 
     private void loadPlatformLocaleStatus() {
         LocaleIDParser parser = new LocaleIDParser();
-        platform_locale_level = new TreeMap<String, Map<String, Level>>(caseless);
+        platform_locale_level = new EnumMap<Organization, Map<String, Level>>(Organization.class);
         SupplementalDataInfo sd = SupplementalDataInfo.getInstance();
         Set<String> defaultContentLocales = sd.getDefaultContentLocales();
         String line;
@@ -484,11 +500,11 @@ public class StandardCodes {
                 if (line.length() == 0)
                     continue;
                 List<String> stuff = CldrUtility.splitList(line, ';', true);
-                String organization = (String) stuff.get(0);
+                Organization organization;
 
                 // verify that the organization is valid
                 try {
-                    VoteResolver.Organization.valueOf(organization.toLowerCase(Locale.ENGLISH));
+                    organization = Organization.fromString(stuff.get(0));
                 } catch (Exception e) {
                     throw new IllegalArgumentException("Invalid organization in Locales.txt: " + line);
                 }
@@ -532,7 +548,7 @@ public class StandardCodes {
         }
 
         // now reset the parent to be the max of the children
-        for (String platform : platform_locale_level.keySet()) {
+        for (Organization platform : platform_locale_level.keySet()) {
             Map<String, Level> locale_level = platform_locale_level.get(platform);
             for (String locale : locale_level.keySet()) {
                 parser.set(locale);
@@ -556,11 +572,11 @@ public class StandardCodes {
             }
         }
         // backwards compat hack
-        platform_locale_levelString = new TreeMap<String, Map<String, String>>(caseless);
-        platform_level_locale = new TreeMap<>();
-        for (String platform : platform_locale_level.keySet()) {
+        platform_locale_levelString = new TreeMap<String, Map<String, String>>();
+        platform_level_locale = new EnumMap<>(Organization.class);
+        for (Organization platform : platform_locale_level.keySet()) {
             Map<String, String> locale_levelString = new TreeMap<String, String>();
-            platform_locale_levelString.put(platform, locale_levelString);
+            platform_locale_levelString.put(platform.toString(), locale_levelString);
             Map<String, Level> locale_level = platform_locale_level.get(platform);
             for (String locale : locale_level.keySet()) {
                 locale_levelString.put(locale, locale_level.get(locale).toString());
@@ -602,10 +618,18 @@ public class StandardCodes {
      * @param org
      * @return boolean
      */
-    public boolean isLocaleInGroup(String locale, String group, String org) {
+    public boolean isLocaleInGroup(String locale, String group, Organization org) {
         return group.equals(getGroup(locale, org));
     }
 
+    public boolean isLocaleInGroup(String locale, String group, String org) {
+        return isLocaleInGroup(locale,group,Organization.fromString(org));
+    }
+
+    public String getGroup(String locale, String org) {
+        return getGroup(locale, Organization.fromString(org));
+    }
+    
     /**
      * Gets the coverage group given a locale and org
      * 
@@ -613,7 +637,7 @@ public class StandardCodes {
      * @param org
      * @return group if availble, null if not
      */
-    public String getGroup(String locale, String org) {
+    public String getGroup(String locale, Organization org) {
         Level l = getLocaleCoverageLevel(org, locale);
         if (l.equals(Level.UNDETERMINED)) {
             return null;

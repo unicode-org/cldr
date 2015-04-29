@@ -34,6 +34,7 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.RegexLookup;
@@ -42,7 +43,6 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
-import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.google.common.collect.Ordering;
 import com.ibm.icu.dev.util.BagFormatter;
@@ -322,7 +322,7 @@ public class ShowLocaleCoverage {
 
     static void printData(PrintWriter pw, Set<String> locales, Matcher matcher, boolean useOrgLevel) {
 //        Set<String> checkModernLocales = STANDARD_CODES.getLocaleCoverageLocales("google", EnumSet.of(Level.MODERN));
-        Set<String> checkModernLocales = STANDARD_CODES.getLocaleCoverageLocales(Organization.cldr.name(), EnumSet.of(Level.MODERN));
+        Set<String> checkModernLocales = STANDARD_CODES.getLocaleCoverageLocales(Organization.cldr, EnumSet.of(Level.MODERN));
         Set<String> availableLanguages = new TreeSet<>(factory.getAvailableLanguages());
         availableLanguages.addAll(checkModernLocales);
         Relation<String, String> languageToRegion = Relation.of(new TreeMap(), TreeSet.class);

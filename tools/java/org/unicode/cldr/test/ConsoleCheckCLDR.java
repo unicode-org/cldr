@@ -43,6 +43,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PathHeader;
@@ -52,7 +53,6 @@ import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.CandidateInfo;
-import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.util.VoteResolver.UnknownVoterException;
 import org.unicode.cldr.util.XMLSource;
 
@@ -244,9 +244,9 @@ public class ConsoleCheckCLDR {
             }
         }
 
-        String organization = options[ORGANIZATION].value;
+        Organization organization = options[ORGANIZATION].value == null ? null : Organization.fromString(options[ORGANIZATION].value);
         if (organization != null) {
-            Set<String> organizations = StandardCodes.make().getLocaleCoverageOrganizations();
+            Set<Organization> organizations = StandardCodes.make().getLocaleCoverageOrganizations();
             if (!organizations.contains(organization)) {
                 throw new IllegalArgumentException("-o" + organization + "\t is invalid: must be one of: "
                     + organizations);
@@ -433,7 +433,7 @@ public class ConsoleCheckCLDR {
             }
 
             // if (coverageLevel != null) options.put("CoverageLevel.requiredLevel", coverageLevel.toString());
-            if (organization != null) options.put(Options.Option.CoverageLevel_localeType.getKey(), organization);
+            if (organization != null) options.put(Options.Option.CoverageLevel_localeType.getKey(), organization.toString());
             options.put(Options.Option.phase.getKey(), phase.toString());
             //options.put(Options.Option.SHOW_TIMES.getKey(), "true");
 
@@ -1099,7 +1099,7 @@ public class ConsoleCheckCLDR {
         static void showErrorFileIndex(PrintWriter generated_html_index) {
 
             // get organizations
-            Relation<String, String> orgToLocales = getOrgToLocales();
+            Relation<Organization, String> orgToLocales = getOrgToLocales();
 
             TablePrinter indexTablePrinter = new TablePrinter().setCaption("Problem Summary")
                 .setTableAttributes("border='1' style='border-collapse: collapse' bordercolor='blue'")
@@ -1111,8 +1111,8 @@ public class ConsoleCheckCLDR {
                 indexTablePrinter.addColumn("Summary")
                     .addColumn("Missing");
             }
-            for (String org : orgToLocales.keySet()) {
-                indexTablePrinter.addColumn(org.substring(0, 2));
+            for (Organization org : orgToLocales.keySet()) {
+                indexTablePrinter.addColumn(org.toString().substring(0, 2));
             }
             indexTablePrinter
                 .addColumn("Disputed").setHeaderAttributes("class='disputed'").setCellAttributes("class='disputed'")
@@ -1150,8 +1150,8 @@ public class ConsoleCheckCLDR {
                     indexTablePrinter.addCell(votingData == null ? "" : votingData.winningStatusCounter.toString())
                         .addCell(votingData == null ? "" : votingData.missingOrganizationCounter.toString());
                 }
-                for (String org : orgToLocales.keySet()) {
-                    indexTablePrinter.addCell(orgToLocales.getAll(org).contains(htmlOpenedFileLanguage) ? org
+                for (Organization org : orgToLocales.keySet()) {
+                    indexTablePrinter.addCell(orgToLocales.getAll(org).contains(htmlOpenedFileLanguage) ? org.toString()
                         .substring(0, 2) : "");
                 }
                 indexTablePrinter
@@ -1168,13 +1168,13 @@ public class ConsoleCheckCLDR {
             generated_html_index.println("</body></html>");
         }
 
-        static Relation<String, String> orgToLocales;
+        static Relation<Organization, String> orgToLocales;
 
-        private static Relation<String, String> getOrgToLocales() {
+        private static Relation<Organization, String> getOrgToLocales() {
             if (orgToLocales == null) {
-                orgToLocales = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+                orgToLocales = Relation.of(new TreeMap<Organization, Set<String>>(), TreeSet.class);
                 StandardCodes sc = StandardCodes.make();
-                for (String org : sc.getLocaleCoverageOrganizations()) {
+                for (Organization org : sc.getLocaleCoverageOrganizations()) {
                     for (String locale : sc.getLocaleCoverageLocales(org)) {
                         Level x = sc.getLocaleCoverageLevel(org, locale);
                         if (x.compareTo(Level.BASIC) > 0) {
@@ -1187,7 +1187,7 @@ public class ConsoleCheckCLDR {
         }
 
         static void showSections() throws IOException {
-            Relation<String, String> orgToLocales = getOrgToLocales();
+            Relation<Organization, String> orgToLocales = getOrgToLocales();
             TablePrinter indexTablePrinter = new TablePrinter().setCaption("Problem Summary")
                 .setTableAttributes("border='1' style='border-collapse: collapse' bordercolor='blue'")
                 .addColumn("Section").setSpanRows(true).setBreakSpans(true).setRepeatDivider(true)
@@ -1197,8 +1197,8 @@ public class ConsoleCheckCLDR {
                 .addColumn("Code").setCellAttributes("class=\"{2}\"")
                 .setCellPattern("<a href=\"http://unicode.org/cldr/apps/survey?_={0}&x={1}\">{0}</a>") // TODO: use CLDRConfig.urls()
                 .addColumn("Count").setCellAttributes("class=\"{2}\"");
-            for (String org : orgToLocales.keySet()) {
-                indexTablePrinter.addColumn(org.substring(0, 2));
+            for (Organization org : orgToLocales.keySet()) {
+                indexTablePrinter.addColumn(org.toString().substring(0, 2));
             }
 
             for (Row.R4<String, ErrorType, Subtype, String> sectionAndProblemsAndLocale : ErrorFile.sectionToProblemsToLocaleToCount
@@ -1221,8 +1221,8 @@ public class ConsoleCheckCLDR {
                     .addCell(ConsoleCheckCLDR.getLocaleName(locale))
                     .addCell(locale)
                     .addCell(count);
-                for (String org : orgToLocales.keySet()) {
-                    indexTablePrinter.addCell(orgToLocales.getAll(org).contains(locale) ? org.substring(0, 2) : "");
+                for (Organization org : orgToLocales.keySet()) {
+                    indexTablePrinter.addCell(orgToLocales.getAll(org).contains(locale) ? org.toString().substring(0, 2) : "");
                 }
                 indexTablePrinter.finishRow();
             }

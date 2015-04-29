@@ -23,12 +23,14 @@ import java.util.TreeSet;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+
 //import org.unicode.cldr.test.TestCLDRTests.Handler;
 //import org.unicode.cldr.test.TestCLDRTests.MutableInteger;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -78,8 +80,8 @@ public class TestCLDRTests extends TestFmwk {
     Set<String> languagesToTest;
 
     public void TestAll() throws Exception {
-        Map<String, Map<String, Level>> platform_locale_status = StandardCodes.make().getLocaleTypes();
-        Map<String, Level> onlyLocales = (Map<String, Level>) platform_locale_status.get("IBM");
+        Map<Organization, Map<String, Level>> platform_locale_status = StandardCodes.make().getLocaleTypes();
+        Map<String, Level> onlyLocales = (Map<String, Level>) platform_locale_status.get(Organization.ibm);
         Set<String> locales = onlyLocales.keySet();
         languagesToTest = (Set<String>) new CldrUtility.CollectionTransform() {
             LocaleIDParser lip = new LocaleIDParser();

@@ -19,12 +19,12 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PluralRanges;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
@@ -56,7 +56,7 @@ public class GeneratePluralRanges {
         Set<String> sorted = new TreeSet<String>(SUPPLEMENTAL.getPluralRangesLocales());
         // add the core locales
 //        sorted.addAll(StandardCodes.make().getLocaleCoverageLocales("google", EnumSet.of(Level.MODERN)));
-        sorted.addAll(StandardCodes.make().getLocaleCoverageLocales(Organization.cldr.name(), EnumSet.of(Level.MODERN)));
+        sorted.addAll(StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, EnumSet.of(Level.MODERN)));
         // add any variant plural forms
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : SUPPLEMENTAL.getPluralLocales()) {

@@ -4,9 +4,9 @@ package org.unicode.cldr.web;
 
 import java.util.Map;
 
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.web.UserRegistry.User;
 
 /**
@@ -96,14 +96,14 @@ public class Race {
     }
 
     public String getOrgVote(String organization) {
-        return getOrgVote(VoteResolver.Organization.valueOf(organization));
+        return getOrgVote(Organization.valueOf(organization));
     }
 
-    public String getOrgVote(VoteResolver.Organization org) {
+    public String getOrgVote(Organization org) {
         return resolver.getOrgVote(org);
     }
 
-    public boolean isOrgDispute(VoteResolver.Organization org) {
+    public boolean isOrgDispute(Organization org) {
         return resolver.getConflictedOrganizations().contains(org);
     }
 

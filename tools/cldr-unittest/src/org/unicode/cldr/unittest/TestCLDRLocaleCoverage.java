@@ -4,8 +4,8 @@ import java.util.EnumSet;
 import java.util.Set;
 
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.google.common.collect.Sets;
 
@@ -21,7 +21,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
      */
     public void TestCLDROrganizationPresence() {
         Set<String> cldrLocales = sc.getLocaleCoverageLocales(
-            Organization.cldr.name(), EnumSet.of(Level.MODERN));
+            Organization.cldr, EnumSet.of(Level.MODERN));
         assertNotNull("Expected CLDR modern locales not to be null",
             cldrLocales);
         assertTrue("Expected locales for CLDR, but found none.",
@@ -34,9 +34,9 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
      */
     public void TestGoogleSubset() {
         Set<String> googleLocales = sc.getLocaleCoverageLocales(
-            Organization.google.name(), EnumSet.of(Level.MODERN));
+            Organization.google, EnumSet.of(Level.MODERN));
         Set<String> cldrLocales = sc.getLocaleCoverageLocales(
-            Organization.cldr.name(), EnumSet.of(Level.MODERN));
+            Organization.cldr, EnumSet.of(Level.MODERN));
         assertNotNull("Expected CLDR modern locales not to be null",
             cldrLocales);
         if (!cldrLocales.equals(googleLocales)) {
@@ -49,9 +49,9 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
 
     public void TestAppleSubset() {
         Set<String> appleLocales = sc.getLocaleCoverageLocales(
-            Organization.apple.name(), EnumSet.of(Level.MODERN));
+            Organization.apple, EnumSet.of(Level.MODERN));
         Set<String> cldrLocales = sc.getLocaleCoverageLocales(
-            Organization.cldr.name(), EnumSet.of(Level.MODERN));
+            Organization.cldr, EnumSet.of(Level.MODERN));
         assertNotNull("Expected CLDR modern locales not to be null",
             cldrLocales);
         if (!cldrLocales.equals(appleLocales)) {

@@ -27,7 +27,7 @@ if(!SurveyMain.vap.equals(request.getParameter("vap"))) {
 <h1>users with old votes</h1>
 
 <%
-String oldVoteTable = STFactory.getOldVoteTable();
+String oldVoteTable = STFactory.getLastVoteTable();
 %>
 
 

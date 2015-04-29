@@ -552,6 +552,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
+			<unit type="duration-minute">
+				<unitPattern count="one">{0}min</unitPattern>
+				<unitPattern count="other">{0}min</unitPattern>
+			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="one">{0}lb</unitPattern>
 				<unitPattern count="other">{0}lb</unitPattern>

@@ -194,6 +194,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}d [translation hint: &quot;day&quot; here means a time duration of 24 hours, not a calendar day]</unitPattern>
 				<unitPattern count="other">{0}d [translation hint: &quot;day&quot; here means a time duration of 24 hours, not a calendar day]</unitPattern>
 			</unit>
+			<unit type="duration-minute">
+				<displayName>min</displayName>
+				<unitPattern count="one">{0}m [translation hint: if in your locale &quot;m&quot; is always understood as meters, use something else here - e.g. &quot;min&quot;, &quot;mn.&quot;]</unitPattern>
+				<unitPattern count="other">{0}m [translation hint: if in your locale &quot;m&quot; is always understood as meters, use something else here - e.g. &quot;min&quot;, &quot;mn.&quot;]</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>cal [translation hint: calories as used in chemistry, not the same as food calorie]</displayName>
 				<unitPattern count="one">{0}cal [translation hint: calories as used in chemistry, not the same as food calorie]</unitPattern>

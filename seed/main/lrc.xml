@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2015 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision: 11516 $"/>
+		<generation date="$Date: 2015-04-16 08:59:26 -0700 (Thu, 16 Apr 2015) $"/>
+		<language type="lrc"/>
+	</identity>
+    	<localeDisplayNames>
+        	<languages>
+            		<language type="lrc">لری شمالی</language>
+        	</languages>
+    	</localeDisplayNames>
+	<layout>
+		<orientation>
+			<characterOrder>right-to-left</characterOrder>
+			<lineOrder>top-to-bottom</lineOrder>
+		</orientation>
+	</layout>
+	<characters>
+		<exemplarCharacters>[\u064B \u064D \u064C \u0651 \u0654 ا آ ب پ ت ج چ خ د ڎ ر ز ژ س ش ف ق ک گ ل م ن و ۆ ۉ ۈ ھ ئ ی ي ێ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u200C \u200D \u200E \u200F \u064E \u0650 \u064F \u0652 \u0656 \u0670 أ إ ك ؤ ى ي]</exemplarCharacters>
+		<exemplarCharacters type="index">[ا آ ب پ ت ج چ خ د ڎ ر ڑ ز ژ س ش ط ف ق ک گ ل م ن و ۆ ۉ ۈ ھ ئ ي ێ]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐ ، ٫ ٬ ؛ \: ! ؟ . … ‹ › « » ( ) \[ \] * / \\]</exemplarCharacters>
+	</characters>
+</ldml>

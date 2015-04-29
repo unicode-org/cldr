@@ -92,6 +92,9 @@ public class LogicalGrouping {
             if (month > 0 && month <= calendarMonthMax) { // This is just a quick check to make sure the path is good.
                 for (Integer i = 1; i <= calendarMonthMax; i++) {
                     parts.setAttribute("month", "type", i.toString());
+                    if ("hebrew".equals(calType)) {
+                        parts.removeAttribute("month", "yeartype");
+                    }
                     result.add(parts.toString());
                 }
                 if ("hebrew".equals(calType)) { // Add extra hebrew calendar leap month

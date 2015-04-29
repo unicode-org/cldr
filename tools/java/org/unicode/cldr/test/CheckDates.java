@@ -29,6 +29,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
@@ -304,7 +305,7 @@ public class CheckDates extends FactoryCheckCLDR {
 
             if (path.indexOf("[@type=\"abbreviated\"]") >= 0 && value.length() > 0) {
                 String pathToWide = path.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
-                String wideValue = getCldrFileToCheck().getStringValue(pathToWide);
+                String wideValue = getCldrFileToCheck().getWinningValue(pathToWide);
                 if (wideValue != null && value.length() > wideValue.length()) {
                     CheckStatus item = new CheckStatus()
                         .setCause(this)
@@ -313,6 +314,30 @@ public class CheckDates extends FactoryCheckCLDR {
                         .setMessage("Illegal abbreviated value {0}, can't be longer than wide value {1}", value,
                             wideValue);
                     result.add(item);
+                }
+                boolean thisPathHasPeriod = value.contains(".");
+                for (String lgPath : LogicalGrouping.getPaths(getCldrFileToCheck(), path)) {
+                    String lgPathValue = getCldrFileToCheck().getWinningValue(lgPath);
+                    String lgPathToWide = lgPath.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
+                    String lgPathWideValue = getCldrFileToCheck().getWinningValue(lgPathToWide);
+                    // This helps us get around things like "de març" vs. "març" in Catalan
+                    if (wideValue != null && wideValue.lastIndexOf(" ") < 3) {
+                        wideValue = wideValue.substring(wideValue.lastIndexOf(" ")+1);
+                    }
+                    if (lgPathWideValue != null && lgPathWideValue.lastIndexOf(" ") < 3) {
+                        lgPathWideValue = lgPathWideValue.substring(lgPathWideValue.lastIndexOf(" ")+1);
+                    }
+                    boolean lgPathHasPeriod = lgPathValue.contains(".");
+                    if (!value.equalsIgnoreCase(wideValue) && !lgPathValue.equalsIgnoreCase(lgPathWideValue) &&
+                        thisPathHasPeriod != lgPathHasPeriod) {
+                        CheckStatus item = new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.inconsistentPeriods)
+                            .setMessage("Inconsistent use of periods in abbreviations for this section.");
+                        result.add(item);
+                        break;
+                    }
                 }
             }
 

@@ -758,7 +758,8 @@ abstract public class CheckCLDR {
             unexpectedOrderOfEraYear,
             invalidPlaceHolder,
             asciiQuotesNotAllowed,
-            badMinimumGroupingDigits;
+            badMinimumGroupingDigits,
+            inconsistentPeriods;
 
             public String toString() {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
@@ -772,7 +773,8 @@ abstract public class CheckCLDR {
                 Subtype.dateSymbolCollision,
                 Subtype.displayCollision,
                 Subtype.inconsistentDraftStatus,
-                Subtype.incompleteLogicalGroup);
+                Subtype.incompleteLogicalGroup,
+                Subtype.inconsistentPeriods);
 
 
         private Type type;

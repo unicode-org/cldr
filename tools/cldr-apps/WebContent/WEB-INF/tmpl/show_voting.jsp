@@ -39,8 +39,8 @@ if(lastRelease != null ) {
 <!--  now, per org.. -->
  <%
  
- 	EnumSet<VoteResolver.Organization> conflictedOrgs = r.getConflictedOrganizations();
- 	for(VoteResolver.Organization o:VoteResolver.Organization.values()) {
+ 	EnumSet<Organization> conflictedOrgs = r.getConflictedOrganizations();
+ 	for(Organization o: Organization.values()) {
  		String orgVote = r.getOrgVote(o);
  		if(orgVote==null) continue;
  		

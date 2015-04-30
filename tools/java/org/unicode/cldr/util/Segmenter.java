@@ -1032,8 +1032,12 @@ public class Segmenter {
             "$Hebrew_Letter=($Hebrew_Letter $FE*)",
             "$Double_Quote=($Double_Quote $FE*)",
             "$Single_Quote=($Single_Quote $FE*)",
+            
+            // macros
+            
             "$AHLetter=($ALetter | $Hebrew_Letter)",
             "$MidNumLetQ=($MidLetter | $MidNumLet | $Single_Quote)",
+            
             // "# Do not break within CRLF",
             "3) $CR  	\u00D7  	$LF",
             "3.1) ($Newline | $CR | $LF)	\u00F7",
@@ -1058,8 +1062,8 @@ public class Segmenter {
             "8)$Numeric 	\u00D7 	$Numeric",
             "9)$AHLetter 	\u00D7 	$Numeric",
             "10)$Numeric 	\u00D7 	$AHLetter",
-            "11)$Numeric $MidNumLetQ 	\u00D7 	$Numeric",
-            "12)$Numeric 	\u00D7 	$MidNumLetQ $Numeric",
+            "11)$Numeric ($MidNum | $MidNumLet | $Single_Quote) 	\u00D7 	$Numeric",
+            "12)$Numeric 	\u00D7 	($MidNum | $MidNumLet | $Single_Quote) $Numeric",
             "13)$Katakana 	\u00D7 	$Katakana",
             "13.1)($AHLetter | $Numeric | $Katakana | $ExtendNumLet) 	\u00D7 	$ExtendNumLet",
             "13.2)$ExtendNumLet 	\u00D7 	($AHLetter | $Numeric | $Katakana)",

@@ -43,6 +43,7 @@ public class CLDRPaths {
     public static final String GEN_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_GEN_DIR",
         CldrUtility.getPath(EXTERNAL_DIRECTORY, "Generated/cldr/")));
     public static final String ICU_DATA_DIR = CldrUtility.getPath(CldrUtility.getProperty("ICU_DATA_DIR", null)); // eg
+    public static final String BIRTH_DATA_DIR = CldrUtility.getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/births/");
     /**
      * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()
      * @see DEFAULT_SUPPLEMENTAL_DIRECTORY

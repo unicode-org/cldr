@@ -20,6 +20,7 @@ import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.ApproximateWidth;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRLocale;
@@ -59,6 +60,13 @@ public class CheckDates extends FactoryCheckCLDR {
     DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.getEmptyInstance();
     private CoverageLevel2 coverageLevel;
     private SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
+
+    // Use the width of the character "0" as the basic unit for checking widths
+    // It's not perfect, but I'm not sure that anything can be. This helps us
+    // weed out some false positives in width checking, like 10月 vs. 十月
+    // in Chinese, which although technically longer, shouldn't trigger an
+    // error.
+    private static final int REFCHAR = ApproximateWidth.getWidth("0");
 
     private Level requiredLevel;
     private String language;
@@ -177,7 +185,7 @@ public class CheckDates extends FactoryCheckCLDR {
         territory = lp.set(localeID).getRegion();
         language = lp.getLanguage();
         if (territory == null || territory.length() == 0) {
-            if ( language.equals("root")) {
+            if (language.equals("root")) {
                 territory = "001";
             } else {
                 CLDRLocale loc = CLDRLocale.getInstance(localeID);
@@ -283,12 +291,16 @@ public class CheckDates extends FactoryCheckCLDR {
             return this;
         }
 
-        getCldrFileToCheck().getSourceLocaleID(path, status);
+        String sourceLocale = getCldrFileToCheck().getSourceLocaleID(path, status);
 
-        if (!path.equals(status.pathWhereFound)) {
+        if (!path.equals(status.pathWhereFound) ||  !sourceLocale.equals(getCldrFileToCheck().getLocaleID())) {
             return this;
         }
 
+        if (value == null) {
+            return this;
+        }
+        
         if (pathsWithConflictingOrder2sample != null) {
             Map<DateOrder, String> problem = pathsWithConflictingOrder2sample.get(path);
             if (problem != null) {
@@ -301,17 +313,17 @@ public class CheckDates extends FactoryCheckCLDR {
                 result.add(item);
             }
         }
-        try {
 
-            if (path.indexOf("[@type=\"abbreviated\"]") >= 0 && value.length() > 0) {
+        try {
+            if (path.indexOf("[@type=\"abbreviated\"]") >= 0) {
                 String pathToWide = path.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
                 String wideValue = getCldrFileToCheck().getWinningValue(pathToWide);
-                if (wideValue != null && value.length() > wideValue.length()) {
+                if (wideValue != null && isTooMuchWiderThan(value,wideValue)) {
                     CheckStatus item = new CheckStatus()
                         .setCause(this)
-                        .setMainType(CheckStatus.warningType)
+                        .setMainType(CheckStatus.errorType)
                         .setSubtype(Subtype.abbreviatedDateFieldTooWide)
-                        .setMessage("Illegal abbreviated value {0}, can't be longer than wide value {1}", value,
+                        .setMessage("Abbreviated value \"{0}\" can't be longer than the corresponding wide value \"{1}\"", value,
                             wideValue);
                     result.add(item);
                 }
@@ -322,10 +334,10 @@ public class CheckDates extends FactoryCheckCLDR {
                     String lgPathWideValue = getCldrFileToCheck().getWinningValue(lgPathToWide);
                     // This helps us get around things like "de març" vs. "març" in Catalan
                     if (wideValue != null && wideValue.lastIndexOf(" ") < 3) {
-                        wideValue = wideValue.substring(wideValue.lastIndexOf(" ")+1);
+                        wideValue = wideValue.substring(wideValue.lastIndexOf(" ") + 1);
                     }
                     if (lgPathWideValue != null && lgPathWideValue.lastIndexOf(" ") < 3) {
-                        lgPathWideValue = lgPathWideValue.substring(lgPathWideValue.lastIndexOf(" ")+1);
+                        lgPathWideValue = lgPathWideValue.substring(lgPathWideValue.lastIndexOf(" ") + 1);
                     }
                     boolean lgPathHasPeriod = lgPathValue.contains(".");
                     if (!value.equalsIgnoreCase(wideValue) && !lgPathValue.equalsIgnoreCase(lgPathWideValue) &&
@@ -339,6 +351,43 @@ public class CheckDates extends FactoryCheckCLDR {
                         break;
                     }
                 }
+            } else if (path.indexOf("[@type=\"narrow\"]") >= 0) {
+                String pathToAbbr = path.replace("[@type=\"narrow\"]", "[@type=\"abbreviated\"]");
+                String abbrValue = getCldrFileToCheck().getWinningValue(pathToAbbr);
+                if (abbrValue != null && isTooMuchWiderThan(value,abbrValue)) {
+                    CheckStatus item = new CheckStatus()
+                        .setCause(this)
+                        .setMainType(CheckStatus.warningType) // Making this just a warning, because there are some oddball cases.
+                        .setSubtype(Subtype.narrowDateFieldTooWide)
+                        .setMessage("Narrow value \"{0}\" shouldn't be longer than the corresponding abbreviated value \"{1}\"", value,
+                            abbrValue);
+                    result.add(item);
+                }
+            } else if (path.indexOf("/eraNarrow") >= 0) {
+                String pathToAbbr = path.replace("/eraNarrow", "/eraAbbr");
+                String abbrValue = getCldrFileToCheck().getWinningValue(pathToAbbr);
+                if (abbrValue != null && isTooMuchWiderThan(value,abbrValue)) {
+                    CheckStatus item = new CheckStatus()
+                        .setCause(this)
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.narrowDateFieldTooWide)
+                        .setMessage("Narrow value \"{0}\" can't be longer than the corresponding abbreviated value \"{1}\"", value,
+                            abbrValue);
+                    result.add(item);
+                }
+            } else if (path.indexOf("/eraAbbr") >= 0) {
+                String pathToWide = path.replace("/eraAbbr", "/eraNames");
+                String wideValue = getCldrFileToCheck().getWinningValue(pathToWide);
+                if (wideValue != null && isTooMuchWiderThan(value,wideValue)) {
+                    CheckStatus item = new CheckStatus()
+                        .setCause(this)
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.abbreviatedDateFieldTooWide)
+                        .setMessage("Abbreviated value \"{0}\" can't be longer than the corresponding wide value \"{1}\"", value,
+                            wideValue);
+                    result.add(item);
+                }
+
             }
 
             String failure = flexInfo.checkValueAgainstSkeleton(path, value);
@@ -456,7 +505,7 @@ public class CheckDates extends FactoryCheckCLDR {
             // }
             // }
 
-             DateTimePatternType dateTypePatternType = DateTimePatternType.fromPath(path);
+            DateTimePatternType dateTypePatternType = DateTimePatternType.fromPath(path);
             if (DateTimePatternType.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(dateTypePatternType)) {
                 boolean patternBasicallyOk = false;
                 try {
@@ -522,6 +571,10 @@ public class CheckDates extends FactoryCheckCLDR {
             }
         }
         return this;
+    }
+    private boolean isTooMuchWiderThan(String shortString, String longString) {
+        // We all 1/3 the width of the reference character as a "fudge factor" in determining the allowable width
+        return ApproximateWidth.getWidth(shortString) > ApproximateWidth.getWidth(longString) + REFCHAR / 3;
     }
 
     /**
@@ -854,27 +907,27 @@ public class CheckDates extends FactoryCheckCLDR {
             if (!value.contains(checkForHour)) {
                 CheckStatus.Type errType = CheckStatus.errorType;
                 // French/Canada is strange, they use 24 hr clock while en_CA uses 12.
-                if ( language.equals("fr") && territory.equals("CA")) {
+                if (language.equals("fr") && territory.equals("CA")) {
                     errType = CheckStatus.warningType;
                 }
 
-            result.add(new CheckStatus().setCause(this).setMainType(errType)
-                .setSubtype(Subtype.inconsistentTimePattern)
-                .setMessage("Time format inconsistent with supplemental time data for territory \""+territory+"\"."
-                    + " Use '"+checkForHour+"' for "+clockType+" hour clock."));
+                result.add(new CheckStatus().setCause(this).setMainType(errType)
+                    .setSubtype(Subtype.inconsistentTimePattern)
+                    .setMessage("Time format inconsistent with supplemental time data for territory \"" + territory + "\"."
+                        + " Use '" + checkForHour + "' for " + clockType + " hour clock."));
             }
         }
         if (dateOrTime == DateOrTime.dateTime) {
             boolean inQuotes = false;
-            for (int i = 0 ; i < value.length(); i++ ) {
+            for (int i = 0; i < value.length(); i++) {
                 char ch = value.charAt(i);
-                if ( ch == '\'') {
+                if (ch == '\'') {
                     inQuotes = !inQuotes;
                 }
                 if (!inQuotes && (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
                     result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                         .setSubtype(Subtype.patternContainsInvalidCharacters)
-                        .setMessage("Unquoted letter \"{0}\" in dateTime format.",ch));                   
+                        .setMessage("Unquoted letter \"{0}\" in dateTime format.", ch));
                 }
             }
         } else {
@@ -937,7 +990,7 @@ public class CheckDates extends FactoryCheckCLDR {
                             dateTimeLength, dateOrTime, value, CollectionUtilities.join(bases, ", ")));
                 }
             }
-        }       
+        }
     }
 
     private void add(StringBuilder b, String key, String value1) {

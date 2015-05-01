@@ -1474,6 +1474,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<calendar type="coptic">
 				<months>
 					<monthContext type="format">
+                        <monthWidth type="wide">
+                            <month type="1" draft="contributed">투트</month>
+                            <month type="2" draft="contributed">바바흐</month>
+                            <month type="3" draft="contributed">하투르</month>
+                            <month type="4" draft="contributed">키야흐크</month>
+                            <month type="5" draft="contributed">투바흐</month>
+                            <month type="6" draft="contributed">암쉬르</month>
+                            <month type="7" draft="contributed">바라마트</month>
+                            <month type="8" draft="contributed">바라문다흐</month>
+                            <month type="9" draft="contributed">바샨스</month>
+                            <month type="10" draft="contributed">바우나흐</month>
+                            <month type="11" draft="contributed">아비브</month>
+                            <month type="12" draft="contributed">미스라</month>
+                            <month type="13" draft="contributed">나시</month>
+                        </monthWidth>
 						<monthWidth type="abbreviated">
 							<month type="1" draft="contributed">투트</month>
 							<month type="2" draft="contributed">바바흐</month>
@@ -1635,20 +1650,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<cyclicNameSets>
 					<cyclicNameSet type="dayParts">
 						<cyclicNameContext type="format">
-							<cyclicNameWidth type="abbreviated">
-								<cyclicName type="1" draft="contributed">자</cyclicName>
-								<cyclicName type="2" draft="contributed">축</cyclicName>
-								<cyclicName type="3" draft="contributed">인</cyclicName>
-								<cyclicName type="4" draft="contributed">묘</cyclicName>
-								<cyclicName type="5" draft="contributed">진</cyclicName>
-								<cyclicName type="6" draft="contributed">사</cyclicName>
-								<cyclicName type="7" draft="contributed">오</cyclicName>
-								<cyclicName type="8" draft="contributed">미</cyclicName>
-								<cyclicName type="9" draft="contributed">신</cyclicName>
-								<cyclicName type="10" draft="contributed">유</cyclicName>
-								<cyclicName type="11" draft="contributed">술</cyclicName>
-								<cyclicName type="12" draft="contributed">해</cyclicName>
-							</cyclicNameWidth>
+                            <cyclicNameWidth type="abbreviated">
+                                <cyclicName type="1" draft="contributed">자</cyclicName>
+                                <cyclicName type="2" draft="contributed">축</cyclicName>
+                                <cyclicName type="3" draft="contributed">인</cyclicName>
+                                <cyclicName type="4" draft="contributed">묘</cyclicName>
+                                <cyclicName type="5" draft="contributed">진</cyclicName>
+                                <cyclicName type="6" draft="contributed">사</cyclicName>
+                                <cyclicName type="7" draft="contributed">오</cyclicName>
+                                <cyclicName type="8" draft="contributed">미</cyclicName>
+                                <cyclicName type="9" draft="contributed">신</cyclicName>
+                                <cyclicName type="10" draft="contributed">유</cyclicName>
+                                <cyclicName type="11" draft="contributed">술</cyclicName>
+                                <cyclicName type="12" draft="contributed">해</cyclicName>
+                            </cyclicNameWidth>
+                            <cyclicNameWidth type="wide">
+                                <cyclicName type="1" draft="contributed">자</cyclicName>
+                                <cyclicName type="2" draft="contributed">축</cyclicName>
+                                <cyclicName type="3" draft="contributed">인</cyclicName>
+                                <cyclicName type="4" draft="contributed">묘</cyclicName>
+                                <cyclicName type="5" draft="contributed">진</cyclicName>
+                                <cyclicName type="6" draft="contributed">사</cyclicName>
+                                <cyclicName type="7" draft="contributed">오</cyclicName>
+                                <cyclicName type="8" draft="contributed">미</cyclicName>
+                                <cyclicName type="9" draft="contributed">신</cyclicName>
+                                <cyclicName type="10" draft="contributed">유</cyclicName>
+                                <cyclicName type="11" draft="contributed">술</cyclicName>
+                                <cyclicName type="12" draft="contributed">해</cyclicName>
+                            </cyclicNameWidth>
 						</cyclicNameContext>
 					</cyclicNameSet>
 					<cyclicNameSet type="solarTerms">
@@ -1749,20 +1778,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</cyclicNameSet>
 					<cyclicNameSet type="zodiacs">
 						<cyclicNameContext type="format">
-							<cyclicNameWidth type="abbreviated">
-								<cyclicName type="1" draft="contributed">자</cyclicName>
-								<cyclicName type="2" draft="contributed">축</cyclicName>
-								<cyclicName type="3" draft="contributed">인</cyclicName>
-								<cyclicName type="4" draft="contributed">묘</cyclicName>
-								<cyclicName type="5" draft="contributed">진</cyclicName>
-								<cyclicName type="6" draft="contributed">사</cyclicName>
-								<cyclicName type="7" draft="contributed">오</cyclicName>
-								<cyclicName type="8" draft="contributed">미</cyclicName>
-								<cyclicName type="9" draft="contributed">신</cyclicName>
-								<cyclicName type="10" draft="contributed">유</cyclicName>
-								<cyclicName type="11" draft="contributed">술</cyclicName>
-								<cyclicName type="12" draft="contributed">해</cyclicName>
-							</cyclicNameWidth>
+                            <cyclicNameWidth type="abbreviated">
+                                <cyclicName type="1" draft="contributed">자</cyclicName>
+                                <cyclicName type="2" draft="contributed">축</cyclicName>
+                                <cyclicName type="3" draft="contributed">인</cyclicName>
+                                <cyclicName type="4" draft="contributed">묘</cyclicName>
+                                <cyclicName type="5" draft="contributed">진</cyclicName>
+                                <cyclicName type="6" draft="contributed">사</cyclicName>
+                                <cyclicName type="7" draft="contributed">오</cyclicName>
+                                <cyclicName type="8" draft="contributed">미</cyclicName>
+                                <cyclicName type="9" draft="contributed">신</cyclicName>
+                                <cyclicName type="10" draft="contributed">유</cyclicName>
+                                <cyclicName type="11" draft="contributed">술</cyclicName>
+                                <cyclicName type="12" draft="contributed">해</cyclicName>
+                            </cyclicNameWidth>
+                            <cyclicNameWidth type="wide">
+                                <cyclicName type="1" draft="contributed">자</cyclicName>
+                                <cyclicName type="2" draft="contributed">축</cyclicName>
+                                <cyclicName type="3" draft="contributed">인</cyclicName>
+                                <cyclicName type="4" draft="contributed">묘</cyclicName>
+                                <cyclicName type="5" draft="contributed">진</cyclicName>
+                                <cyclicName type="6" draft="contributed">사</cyclicName>
+                                <cyclicName type="7" draft="contributed">오</cyclicName>
+                                <cyclicName type="8" draft="contributed">미</cyclicName>
+                                <cyclicName type="9" draft="contributed">신</cyclicName>
+                                <cyclicName type="10" draft="contributed">유</cyclicName>
+                                <cyclicName type="11" draft="contributed">술</cyclicName>
+                                <cyclicName type="12" draft="contributed">해</cyclicName>
+                            </cyclicNameWidth>
 						</cyclicNameContext>
 					</cyclicNameSet>
 				</cyclicNameSets>
@@ -1807,6 +1850,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="12" draft="contributed">내하세</month>
 							<month type="13" draft="contributed">파구맨</month>
 						</monthWidth>
+                        <monthWidth type="wide">
+                            <month type="1" draft="contributed">매스캐램</month>
+                            <month type="2" draft="contributed">테켐트</month>
+                            <month type="3" draft="contributed">헤다르</month>
+                            <month type="4" draft="contributed">타흐사스</month>
+                            <month type="5" draft="contributed">테르</month>
+                            <month type="6" draft="contributed">얘카티트</month>
+                            <month type="7" draft="contributed">매가비트</month>
+                            <month type="8" draft="contributed">미야지야</month>
+                            <month type="9" draft="contributed">겐보트</month>
+                            <month type="10" draft="contributed">새네</month>
+                            <month type="11" draft="contributed">함레</month>
+                            <month type="12" draft="contributed">내하세</month>
+                            <month type="13" draft="contributed">파구맨</month>
+                        </monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
@@ -2523,6 +2581,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="12" draft="contributed">압월</month>
 							<month type="13" draft="contributed">엘룰월</month>
 						</monthWidth>
+                        <monthWidth type="wide">
+                            <month type="1" draft="contributed">디스리월</month>
+                            <month type="2" draft="contributed">말케스월</month>
+                            <month type="3" draft="contributed">기슬르월</month>
+                            <month type="4" draft="contributed">데벳월</month>
+                            <month type="5" draft="contributed">스밧월</month>
+                            <month type="6" draft="contributed">아달월 1</month>
+                            <month type="7" draft="contributed">아달월</month>
+                            <month type="7" yeartype="leap" draft="contributed">아달월 2</month>
+                            <month type="8" draft="contributed">닛산월</month>
+                            <month type="9" draft="contributed">이야르월</month>
+                            <month type="10" draft="contributed">시완월</month>
+                            <month type="11" draft="contributed">담무르월</month>
+                            <month type="12" draft="contributed">압월</month>
+                            <month type="13" draft="contributed">엘룰월</month>
+                        </monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">

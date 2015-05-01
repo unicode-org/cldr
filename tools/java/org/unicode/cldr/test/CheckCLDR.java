@@ -774,7 +774,9 @@ abstract public class CheckCLDR {
                 Subtype.displayCollision,
                 Subtype.inconsistentDraftStatus,
                 Subtype.incompleteLogicalGroup,
-                Subtype.inconsistentPeriods);
+                Subtype.inconsistentPeriods,
+                Subtype.abbreviatedDateFieldTooWide,
+                Subtype.narrowDateFieldTooWide);
 
 
         private Type type;

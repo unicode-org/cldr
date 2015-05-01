@@ -1183,7 +1183,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1" draft="provisional">тот.</month>
+							<month type="1" draft="provisional">тот</month>
 							<month type="2" draft="provisional">баб.</month>
 							<month type="3" draft="provisional">хат.</month>
 							<month type="4" draft="provisional">кіх.</month>
@@ -1728,14 +1728,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</eraNames>
 					<eraAbbr>
 						<era type="0">до н.е.</era>
+                        <era type="0" alt="variant">до н.е.</era>
 						<era type="1">н.е.</era>
-						<era type="1" alt="variant" draft="provisional">н. е.</era>
+						<era type="1" alt="variant">н.е.</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0">до н.е.</era>
-						<era type="0" alt="variant" draft="contributed">до н. е.</era>
+						<era type="0" alt="variant">до н.е.</era>
 						<era type="1">н.е.</era>
-						<era type="1" alt="variant" draft="contributed">н. е.</era>
+						<era type="1" alt="variant">н.е.</era>
 					</eraNarrow>
 				</eras>
 				<dateFormats>

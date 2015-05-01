@@ -2343,10 +2343,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</calendars>
 		<fields>
 			<field type="era">
-				<displayName>Era</displayName>
+				<displayName>era</displayName>
 			</field>
 			<field type="year">
-				<displayName>Year</displayName>
+				<displayName>year</displayName>
 				<relative type="-1">last year</relative>
 				<relative type="0">this year</relative>
 				<relative type="1">next year</relative>
@@ -2374,7 +2374,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="quarter">
-				<displayName>Quarter</displayName>
+				<displayName>quarter</displayName>
 				<relative type="-1">last quarter</relative>
 				<relative type="0">this quarter</relative>
 				<relative type="1">next quarter</relative>
@@ -2402,7 +2402,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="month">
-				<displayName>Month</displayName>
+				<displayName>month</displayName>
 				<relative type="-1">last month</relative>
 				<relative type="0">this month</relative>
 				<relative type="1">next month</relative>
@@ -2430,7 +2430,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="week">
-				<displayName>Week</displayName>
+				<displayName>week</displayName>
 				<relative type="-1">last week</relative>
 				<relative type="0">this week</relative>
 				<relative type="1">next week</relative>
@@ -2458,7 +2458,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="day">
-				<displayName>Day</displayName>
+				<displayName>day</displayName>
 				<relative type="-1">yesterday</relative>
 				<relative type="0">today</relative>
 				<relative type="1">tomorrow</relative>
@@ -2475,7 +2475,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>day</displayName>
 			</field>
 			<field type="weekday">
-				<displayName>Day of the Week</displayName>
+				<displayName>day of the week</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">last Sunday</relative>
@@ -2587,7 +2587,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName alt="variant">am/pm</displayName>
 			</field>
 			<field type="hour">
-				<displayName>Hour</displayName>
+				<displayName>hour</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} hour</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} hours</relativeTimePattern>
@@ -2609,7 +2609,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="minute">
-				<displayName>Minute</displayName>
+				<displayName>minute</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} minute</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} minutes</relativeTimePattern>
@@ -2631,7 +2631,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="second">
-				<displayName>Second</displayName>
+				<displayName>second</displayName>
 				<relative type="0">now</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} second</relativeTimePattern>
@@ -2655,7 +2655,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="zone">
-				<displayName>Time Zone</displayName>
+				<displayName>time zone</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>

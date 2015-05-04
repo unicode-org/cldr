@@ -1056,7 +1056,7 @@ public class UserRegistry {
             }
             Set<String> s = new TreeSet<String>();
             for (String l : UserRegistry.tokenizeLocale(list)) {
-                String forum = new ULocale(l).getLanguage();
+                String forum = new ULocale(l).getBaseName();
                 s.add(forum);
             }
             list = null;
@@ -2020,10 +2020,11 @@ public class UserRegistry {
         Set<CLDRLocale> s = new TreeSet<CLDRLocale>();
         if (localeList == null || isAllLocales(localeList))
             return s; // empty
-        Set<CLDRLocale> topLocs = SurveyMain.getTopLocalesSet();
+//        Set<CLDRLocale> topLocs = SurveyMain.getTopLocalesSet();
+        Set<CLDRLocale> allLocs = SurveyMain.getLocalesSet();
         CLDRLocale locs[] = tokenizeCLDRLocale(localeList);
         for (CLDRLocale l : locs) {
-            if (!topLocs.contains(l)) {
+            if (!allLocs.contains(l)) {
                 continue;
             }
             s.add(l);

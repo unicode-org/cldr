@@ -73,7 +73,7 @@
 	<tr>
 		<th><label for="new_locales">Languages responsible:</label></th>
 		<td><input id="new_locales" name="new_locales" value="und" /> <button onclick='{document.getElementById("new_locales").value="*"; return false;}' >All Locales</button><br>
-		(Space separated. Examples: "en de fr"  but not <strike>"zh_Hant"</strike> or <strike>"de_CH"</strike>.  Use the All Locales button to grant access to all locales.  )
+		(Space separated. Examples: "en de de_CH fr zh_Hant".  Use the All Locales button to grant access to all locales.  )
 		</td>
 	</tr>
 	<tr class="submit">

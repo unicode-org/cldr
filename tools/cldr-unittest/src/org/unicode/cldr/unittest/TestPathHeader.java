@@ -546,10 +546,6 @@ public class TestPathHeader extends TestFmwkPlus {
             // check against old
             SurveyToolStatus oldStatus = SurveyToolStatus.READ_WRITE;
 
-            if (CheckCLDR.skipShowingInSurvey.matcher(path).matches()) {
-                oldStatus = SurveyToolStatus.HIDE;
-            }
-
             if (tempSTS != oldStatus
                 && oldStatus != SurveyToolStatus.READ_WRITE
                 && !path.endsWith(APPEND_TIMEZONE_END)) {

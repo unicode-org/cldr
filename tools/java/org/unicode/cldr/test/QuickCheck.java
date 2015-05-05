@@ -271,22 +271,6 @@ public class QuickCheck {
         System.out.format("Nondistinguishing Elements: %s" + CldrUtility.LINE_SEPARATOR, nonDistinguishing);
         System.out.format("Skipped %s" + CldrUtility.LINE_SEPARATOR, skipAttributes);
 
-        if (verbose) {
-            System.out.println(CldrUtility.LINE_SEPARATOR + "Paths to skip in Survey Tool");
-            for (String path : pathToLocale.keySet()) {
-                if (CheckCLDR.skipShowingInSurvey.matcher(path).matches()) {
-                    System.out.println("Skipping: " + path);
-                }
-            }
-
-            System.out.println(CldrUtility.LINE_SEPARATOR + "Paths to force zoom in Survey Tool");
-            for (String path : pathToLocale.keySet()) {
-                if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(path).matches()) {
-                    System.out.println("Forced Zoom Edit: " + path);
-                }
-            }
-        }
-
         if (pretty) {
             if (showInfo) {
                 System.out.println(CldrUtility.LINE_SEPARATOR + "Showing Path to PrettyPath mapping"

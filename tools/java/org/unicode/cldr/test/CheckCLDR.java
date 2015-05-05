@@ -620,43 +620,6 @@ abstract public class CheckCLDR {
      * [refs][hide] Ref: [Zoom...]
      */
 
-    public static final Pattern skipShowingInSurvey = Pattern.compile(
-        ".*/(" +
-            "beforeCurrency" + // hard to explain, use bug
-            "|afterCurrency" + // hard to explain, use bug
-            "|orientation" + // hard to explain, use bug
-            "|appendItems" + // hard to explain, use bug
-            "|singleCountries" + // hard to explain, use bug
-            // from deprecatedItems in supplemental metadata
-            "|hoursFormat" + // deprecated
-            "|localizedPatternChars" + // deprecated
-            "|abbreviationFallback" + // deprecated
-            "|default" + // deprecated
-            "|inText" + // internal use only
-            "|inList" + // internal use only
-            "|mapping" + // deprecated
-            "|zone/long" +
-            "|zone/short" +
-            "|zone/commonlyUsed" +
-            "|measurementSystem" + // deprecated
-            "|preferenceOrdering" + // deprecated
-            ")((\\[|/).*)?", Pattern.COMMENTS); // the last bit is to ensure whole element
-
-    /**
-     * These are paths for items that are complicated, and we need to force a zoom on.
-     */
-    public static final Pattern FORCE_ZOOMED_EDIT = Pattern.compile(
-        ".*/(" +
-            "nothingAtTheMoment" + // Remove forced zooming since we have inline pre-edit in ST
-            // "exemplarCharacters" +
-            /* "|metazone" + */
-            // "|pattern" +
-            // "|dateFormatItem" +
-            // "|relative" +
-            // "|hourFormat" +
-            // "|gmtFormat" +
-            // "|regionFormat" +
-            ")((\\[|/).*)?", Pattern.COMMENTS); // the last bit is to ensure whole element
 
     /**
      * Get the CLDRFile.

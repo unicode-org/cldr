@@ -625,28 +625,12 @@ public class TestBasic extends TestFmwkPlus {
         }
 
         if (isVerbose()) {
-
             System.out.format("Distinguishing Elements: %s"
                 + CldrUtility.LINE_SEPARATOR, distinguishing);
             System.out.format("Nondistinguishing Elements: %s"
                 + CldrUtility.LINE_SEPARATOR, nonDistinguishing);
             System.out.format("Skipped %s" + CldrUtility.LINE_SEPARATOR,
                 skipAttributes);
-
-            logln(CldrUtility.LINE_SEPARATOR + "Paths to skip in Survey Tool");
-            for (String path : pathToLocale.keySet()) {
-                if (CheckCLDR.skipShowingInSurvey.matcher(path).matches()) {
-                    logln("Skipping: " + path);
-                }
-            }
-
-            logln(CldrUtility.LINE_SEPARATOR
-                + "Paths to force zoom in Survey Tool");
-            for (String path : pathToLocale.keySet()) {
-                if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(path).matches()) {
-                    logln("Forced Zoom Edit: " + path);
-                }
-            }
         }
     }
 

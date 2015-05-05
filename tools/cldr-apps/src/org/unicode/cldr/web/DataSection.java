@@ -2714,16 +2714,8 @@ public class DataSection implements JSONString {
                     // set it up..
                     int base_xpath = sm.xpt.getByXpath(base_xpath_string);
 
-                    if (true) {
-
-                        // set up the row
-                        if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(base_xpath_string).matches()) {
-                            myp.zoomOnly = true;
-                        }
-
-                        // set up tests
-                        myp.setShimTests(base_xpath, base_xpath_string, checkCldr, options);
-                    }
+                    // set up tests
+                    myp.setShimTests(base_xpath, base_xpath_string, checkCldr, options);
                 }
             }
         } // tz

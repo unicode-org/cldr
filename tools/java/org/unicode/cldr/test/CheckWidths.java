@@ -184,6 +184,12 @@ public class CheckWidths extends CheckCLDR {
             new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
         })
 
+        // Era Abbreviations
+
+        .add("//ldml/dates/calendars/calendar.*/eraAbbr/era[@type=%A]", new Limit[] {
+            new Limit(3 * EM, 6 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
+        })
+
         // Narrow items
 
         .add("//ldml/dates/calendars/calendar.*[@type=\"narrow\"](?!/cyclic|/dayPeriod|/monthPattern)", new Limit[] {

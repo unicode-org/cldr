@@ -291,14 +291,15 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         // Collisions between 'narrow' forms are allowed (the current is filtered by UNITS_IGNORE)
         //ldml/units/unitLength[@type="narrow"]/unit[@type="duration-day-future"]/unitPattern[@count="one"]
         if (myType == Type.UNITS) {
-            XPathParts parts = new XPathParts().set(path);
-            String myUnit = parts.getAttributeValue(3, "type");
+            XPathParts parts = XPathParts.getInstance(path);
+            int typeLocation = parts.getElement(-1).equals("coordinateUnitPattern") ? -1 : 3;
+            String myUnit = parts.getAttributeValue(typeLocation, "type");
             boolean isDuration = myUnit.startsWith("duration");
             Iterator<String> iterator = paths.iterator();
             while (iterator.hasNext()) {
                 String curVal = iterator.next();
                 parts.set(curVal);
-                String unit = parts.getAttributeValue(3, "type");
+                String unit = parts.getAttributeValue(typeLocation, "type");
                 // we also break the units into two groups: durations and others. Also never collide with a compoundUnitPattern.
                 if (myUnit.equals(unit) || unit != null && isDuration != unit.startsWith("duration") ||
                     compoundUnitPatterns.reset(curVal).find()) {

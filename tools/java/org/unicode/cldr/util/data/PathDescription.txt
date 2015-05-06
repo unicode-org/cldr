@@ -59,6 +59,7 @@
 ^//ldml/dates/timeZoneNames/(fallback|fallbackRegion|gmtZero|gmt|hour|region)Format  ;   The {1} pattern used to compose time zone names. Note: before translating, be sure to read http://cldr.org/translation/timezones.
 
 ^//ldml/units/unitLength\[@type="([^"]*)"]/compoundUnit\[@type="([^"]*)"]/compoundUnitPattern ; Special pattern used to compose forms of two units, such as meters per second. Note: before translating, be sure to read http://cldr.org/translation/units.
+^//ldml/units/unitLength\[@type="([^"]*)"]/coordinateUnit/coordinateUnitPattern\[@type="([^"]*)"] ; Special pattern used in latitude and longitude, such as 12°N. Note: before translating, be sure to read http://cldr.org/translation/units.
 
 ^//ldml/units/unitLength\[@type="([^"]*)"]/unit\[@type="area-acre"]/displayName ; Display name ({1} form) for “area-acre”, referring specifically to an English acre. Note: before translating, be sure to read http://cldr.org/translation/plurals.
 ^//ldml/units/unitLength\[@type="([^"]*)"]/unit\[@type="duration-day"]/displayName ; Display name ({1} form) for “duration-day”, meaning a time duration of 24 hours (not a calendar day). Note: before translating, be sure to read http://cldr.org/translation/plurals.

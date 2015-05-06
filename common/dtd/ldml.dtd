@@ -2222,7 +2222,7 @@ $Date$
 <!ATTLIST perUnitPattern references CDATA #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT unitLength ( alias | ( compoundUnit*, unit*, special* ) ) >
+<!ELEMENT unitLength ( alias | ( compoundUnit*, unit*, coordinateUnit*, special* ) ) >
 <!ATTLIST unitLength type (long | short | narrow) #REQUIRED >
 <!ATTLIST unitLength alt NMTOKENS #IMPLIED >
 <!ATTLIST unitLength draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
@@ -2253,6 +2253,17 @@ $Date$
 <!ATTLIST compoundUnitPattern validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
+    
+<!ELEMENT coordinateUnit ( alias | ( coordinateUnitPattern*, special* ) ) >
+<!ATTLIST coordinateUnit alt NMTOKENS #IMPLIED >
+<!ATTLIST coordinateUnit draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+
+<!ELEMENT coordinateUnitPattern ( #PCDATA ) >
+<!ATTLIST coordinateUnitPattern type (north | east | south | west) #REQUIRED >
+<!ATTLIST coordinateUnitPattern alt NMTOKENS #IMPLIED >
+<!ATTLIST coordinateUnitPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
 
 <!ELEMENT durationUnit ( alias | ( durationUnitPattern*, special* ) ) >
 <!ATTLIST durationUnit type NMTOKEN #REQUIRED >

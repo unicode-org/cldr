@@ -4428,6 +4428,12 @@
 				<displayName>atsp</displayName>
 				<unitPattern count="other">{0} atsp</unitPattern>
 			</unit>
+			<coordinateUnit>
+			    <coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
+			    <coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
+			    <coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
+			    <coordinateUnitPattern type="west">{0}W</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<alias source="locale" path="../unitLength[@type='short']"/>

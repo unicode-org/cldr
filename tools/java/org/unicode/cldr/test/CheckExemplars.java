@@ -4,8 +4,11 @@ import java.util.BitSet;
 import java.util.List;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.PrettyPrinter;
@@ -25,7 +28,8 @@ public class CheckExemplars extends FactoryCheckCLDR {
     private static final String[] QUOTE_ELEMENTS = {
         "quotationStart", "quotationEnd",
         "alternateQuotationStart", "alternateQuotationEnd" };
-
+    static final SupplementalDataInfo SUP = CLDRConfig.getInstance().getSupplementalDataInfo();
+    
     Collator col;
     Collator spaceCol;
     boolean isRoot;
@@ -138,6 +142,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         }
         return this;
     }
+
 
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {

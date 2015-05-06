@@ -720,6 +720,39 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <variable id="$altList" type="choice">
                 stand-alone variant list secondary email www short narrow accounting arab arabext armn armnlow bali beng cham deva ethi fullwide geor grek greklow gujr guru hans hansfin hant hantfin hebr java jpan jpanfin kali knda khmr lana lanatham laoo latn lepc limb mlym mong mtei mymr mymrshan new nkoo olck orya roman romanlow saur sund talu taml telu thai tibt vaii
             </variable>
+			<variable id="$unit" type="choice">
+				acceleration-g-force acceleration-meter-per-second-squared
+				angle-arc-minute angle-arc-second angle-degree angle-radian angle-revolution
+				area-acre area-hectare area-square-centimeter area-square-foot area-square-inch area-square-kilometer
+				area-square-meter area-square-mile area-square-yard
+				consumption-liter-per-100kilometers consumption-liter-per-kilometer consumption-mile-per-gallon
+				digital-bit digital-byte digital-gigabit digital-gigabyte digital-kilobit digital-kilobyte digital-megabit
+				digital-megabyte digital-terabit digital-terabyte
+				duration-century duration-day duration-day-person duration-hour duration-microsecond duration-millisecond
+				duration-minute duration-month duration-month-person duration-nanosecond duration-second
+				duration-week duration-week-person duration-year duration-year-person
+				electric-ampere electric-milliampere electric-ohm electric-volt
+				energy-calorie energy-foodcalorie energy-joule energy-kilocalorie energy-kilojoule energy-kilowatt-hour
+				frequency-gigahertz frequency-hertz frequency-kilohertz frequency-megahertz
+				length-astronomical-unit length-centimeter length-decimeter length-fathom length-foot
+				length-furlong length-inch length-kilometer length-light-year length-meter length-micrometer
+				length-mile length-mile-nautical length-mile-scandinavian length-millimeter length-nanometer
+				length-nautical-mile length-parsec length-picometer length-yard
+				light-lux
+				mass-carat mass-gram mass-kilogram mass-metric-ton mass-microgram mass-milligram mass-ounce
+				mass-ounce-troy mass-pound mass-stone mass-ton
+				power-gigawatt power-horsepower power-kilowatt power-megawatt power-milliwatt power-watt
+				pressure-hectopascal pressure-inch-hg pressure-millibar pressure-millimeter-of-mercury
+				pressure-pound-per-square-inch
+				proportion-karat
+				speed-kilometer-per-hour speed-knot speed-meter-per-second speed-mile-per-hour
+				temperature-celsius temperature-fahrenheit temperature-generic temperature-kelvin
+				volume-acre-foot volume-bushel volume-centiliter volume-cubic-centimeter volume-cubic-foot volume-cubic-inch
+				volume-cubic-kilometer volume-cubic-meter volume-cubic-mile volume-cubic-yard volume-cup
+				volume-cup-metric volume-deciliter volume-fluid-ounce volume-gallon volume-hectoliter
+				volume-liter volume-megaliter volume-milliliter volume-pint volume-pint-metric volume-quart
+				volume-tablespoon volume-teaspoon volume-teaspoon-au
+			</variable>
             <!-- specialized lists and types -->
             <variable id="$tzidList" type="list">$tzid</variable>
             <variable id="$casing" type="choice">titlecase-words titlecase-firstword lowercase-words mixed</variable>
@@ -823,7 +856,7 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <attributeValues dtds="supplementalData" elements="territoryAlias" attributes="replacement type">$territory</attributeValues>
             <attributeValues elements="type" attributes="key" type="bcp47">key</attributeValues>
             <!-- there is special code for this case <attributeValues elements="type" attributes="type" type="bcp47">use-key</attributeValues>  -->
-            <attributeValues elements="unit" attributes="type" type="regex">duration-century|speed-knot|length-mile-nautical|temperature-generic|duration-day-person|duration-month-person|duration-week-person|duration-year-person|length-mile-scandinavian|volume-cup-metric|volume-pint-metric|volume-teaspoon-au|angle-revolution|consumption-liter-per-100kilometers|(acceleration-(g-force|meter-per-second-squared)|angle-(degree|arc-minute|arc-second|radian)|area-(acre|square-(centimeter|inch|foot|kilometer|meter|mile|yard)|hectare)|consumption-(liter-per-kilometer|mile-per-gallon)|digital-(kilo|mega|giga|tera)?(bit|byte)|duration-(nanosecond|microsecond|millisecond|(day|hour|minute|month|second|week|year))|electric-(milli)?(ampere|ohm|volt)|energy-(kilocalorie|calorie|foodcalorie|joule|kilojoule|kilowatt-hour)|frequency-(kilo|mega|giga)?hertz|length-(astronomical-unit|(pico|nano|micro|milli|centi|deci|kilo)?meter|fathom|foot|furlong|inch|light-year|mile|nautical-mile|parsec|yard)|light-lux|mass-(carat|(kilo|milli|micro)?gram|ounce|ounce-troy|pound|metric-ton|stone|ton)|power-(horsepower|(kilo|milli|mega|giga)?watt)|pressure-(hectopascal|inch-hg|millibar|millimeter-of-mercury|pound-per-square-inch)|proportion-karat|speed-((mile|kilometer)-per-hour|meter-per-second)|temperature-(celsius|fahrenheit|kelvin)|volume-(acre-foot|bushel|cup|fluid-ounce|(milli|deci|centi|hecto|mega)?liter|gallon|pint|quart|cubic-(centimeter|kilometer|meter|mile|inch|foot|yard)|tablespoon|teaspoon))</attributeValues>
+            <attributeValues elements="unit" attributes="type" type="choice">$unit</attributeValues>
             <attributeValues elements="variable" attributes="id">$variableID</attributeValues>
             <attributeValues elements="variant" attributes="type">$variant</attributeValues>
             <attributeValues dtds="supplementalData" elements="variantAlias" attributes="replacement type">$variant</attributeValues>

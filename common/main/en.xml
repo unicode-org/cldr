@@ -5484,6 +5484,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} terabyte</unitPattern>
 				<unitPattern count="other">{0} terabytes</unitPattern>
 			</unit>
+			<unit type="duration-century">
+				<displayName>centuries</displayName>
+				<unitPattern count="one">{0} century</unitPattern>
+				<unitPattern count="other">{0} centuries</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>days</displayName>
 				<unitPattern count="one">{0} day</unitPattern>
@@ -5676,6 +5681,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mile</unitPattern>
 				<unitPattern count="other">{0} miles</unitPattern>
 			</unit>
+			<unit type="length-mile-nautical">
+				<displayName>nautical mile</displayName>
+				<unitPattern count="one">{0} nautical mile</unitPattern>
+				<unitPattern count="other">{0} nautical miles</unitPattern>
+			</unit>
 			<unit type="length-mile-scandinavian">
 				<displayName>mile-scandinavian</displayName>
 				<unitPattern count="one">{0} mile-scandinavian</unitPattern>
@@ -5839,6 +5849,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kilometers per hour</displayName>
 				<unitPattern count="one">{0} kilometer per hour</unitPattern>
 				<unitPattern count="other">{0} kilometers per hour</unitPattern>
+			</unit>
+			<unit type="speed-knot">
+				<displayName>knot</displayName>
+				<unitPattern count="one">{0} knot</unitPattern>
+				<unitPattern count="other">{0} knots</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>meters per second</displayName>

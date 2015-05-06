@@ -659,7 +659,7 @@ public class PathHeader implements Comparable<PathHeader> {
                         fix(data.header, data.headerOrder),
                         order, // only valid after call to fix. TODO, make
                         // this cleaner
-                        fix(data.code + (alt == null ? "" : "-" + alt), data.codeOrder),
+                        fix(data.code + (alt == null ? "" : ("-" + alt)), data.codeOrder),
                         order, // only valid after call to fix
                         suborder,
                         data.status,

@@ -15,6 +15,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Level;
@@ -292,6 +293,11 @@ public class TestSTFactory extends TestFmwk {
         String originalValue2 = null;
         String changedTo2 = null;
         CLDRLocale locale2 = CLDRLocale.getInstance("de_CH");
+        // Can't (and shouldn't) try to do this test if de_CH is configured as read-only.
+        if (SpecialLocales.getType(locale2).equals(SpecialLocales.Type.readonly)) {
+            return;
+        }
+
         // test sparsity
         {
             CLDRFile mt_MT = fac.make(locale2, false);

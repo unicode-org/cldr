@@ -274,20 +274,30 @@ Google	;	uz	;	modern		;	T4.1	Uzbek	(Latin)
 #Google	Tier	generated					
 Google	;	sr_Latn	;	modern		;	Tx	Serbian (auto-generated)														
 				
-#Google	Tier	ext
-Google	;	eu	;	modern	;	ext	Basque
-Google	;	gl	;	modern	;	ext	Galician
-Google	;	zu	;	modern	;	ext	Zulu										
-Google	;	bs	;	modern	;	ext	Bosnian
+#Google	Tier	T5
+Google	;	eu	;	modern	;	T5	Basque
+Google	;	gl	;	modern	;	T5	Galician
+Google	;	zu	;	modern	;	T5	Zulu										
+Google	;	ga	;	modern	;	T5	Irish
+Google	;	bs	;	modern	;	T5	Bosnian
+Google	;	be	;	modern	;	T5	Belarusian
+Google	;	cy	;	modern	;	T5	Welsh
 
-Google	;	cy	;	moderate	;	T5	Welsh
-Google	;	uz_Cyrl	;	moderate	;	T5	Uzbek	(Cyrillic)														
-#Google	;	fr_CA	;	modern	;	T4	Canadian French
-#Google	;	zh_Hant_HK	;	modern	;	T4	Hong Kong Chinese (T)
+#Google Tier T6
+Cherokee	;	chr	;	basic	;	T5 Cherokee
+
+#Google Tier TR
+#Google	;	es_US	;	modern	; TR Spanish (United States)
+#Google	;	es_MX	;	modern	; TR Spanish (Mexico)
+#Google	;	en_CA	;	modern	; TR English (Canada)
+#Google	;	en_AU	;	modern	; TR English (Australia)
+#Google	;	en_IN	;	modern	; TR English (English)
+#Google	;	fr_CA	;	modern	; TR French (Canada)
+#Google	;	de_CH	;	modern	; TR High German (Switzerland)
+#Google	;	zh_Hant_HK	;	modern	;	TR	Mandarin Chinese (Traditional, Hong Kong)
 										
-Google	;	be	;	basic	;	Belarusian
+Google	;	uz_Cyrl	;	basic	;	Uzbek	(Cyrillic)														
 Google	;	ht	;	basic	;	Haitian
-Google	;	ga	;	basic	;	Irish
 Google	;	mt	;	basic	;	Maltese
 Google	;	so	;	basic	;	Somali
 Google	;	ig	;	basic	;	Igbo
@@ -548,19 +558,23 @@ Cldr	;	my	;	modern	;	T3.1	Burmese (Myanmar)
 Cldr	;	am	;	modern	;	T4	Amharic
 Cldr	;	gu	;	modern	;	T4	Gujarati
 Cldr	;	kn	;	modern	;	T4	Kannada
-Cldr	;	ky	;	modern	;	T4.1	Kirghiz																
+Cldr	;	ky	;	modern	;	T4	Kirghiz																
 Cldr	;	ml	;	modern	;	T4	Malayalam
-Cldr	;	pa	;	modern	;	T4.1	Punjabi
+Cldr	;	pa	;	modern	;	T4	Punjabi
 Cldr	;	te	;	modern	;	T4	Telugu
 Cldr	;	ur	;	modern	;	T4	Urdu
-Cldr	;	uz	;	modern		;	T4.1	Uzbek	(Latin)		
+Cldr	;	uz	;	modern		;	T4	Uzbek	(Latin)		
 
 # ext													
-Cldr	;	bs	;	modern	;	ext	Bosnian		
-Cldr	;	eu	;	modern	;	ext	Basque
-Cldr	;	gl	;	modern	;	ext	Galician
-Cldr	;	zu	;	modern	;	ext	Zulu										
-													
+Cldr	;	bs	;	modern	;	T5	Bosnian		
+Cldr	;	eu	;	modern	;	T5	Basque
+Cldr	;	gl	;	modern	;	T5	Galician
+Cldr	;	zu	;	modern	;	T5	Zulu
+	
+Cldr	;	ga	;	modern	;	T5	Irish
+Cldr	;	be	;	modern	;	T5	Belarusian
+Cldr	;	cy	;	modern	;	T5	Welsh
+
 
 #Cldr	Tier	generated					
 Cldr	;	sr_Latn	;	modern		;	Tx	Serbian (auto-generated)		

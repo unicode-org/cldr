@@ -1528,6 +1528,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
     }
 
+    enum CoverageIssue {log, warn, error}
+
     public void TestPluralCompleteness() {
         // Set<String> cardinalLocales = new
         // TreeSet<String>(SUPPLEMENTAL.getPluralLocales(PluralType.cardinal));
@@ -1557,7 +1559,14 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             if (!ltp.getRegion().isEmpty() || !ltp.getScript().isEmpty()) {
                 continue;
             }
-            boolean needsCoverage = testLocales.contains(locale);
+            CoverageIssue needsCoverage = testLocales.contains(locale) 
+                ? CoverageIssue.error 
+                    : CoverageIssue.log;
+            if (logKnownIssue("cldrbug 8483", "disable be and ga for now")) {
+                if (locale.equals("be") || locale.equals("ga")) {
+                    needsCoverage = CoverageIssue.warn;
+                }
+            }
             ULocale ulocale = new ULocale(locale);
             PluralRulesFactory prf = PluralRulesFactory
                 .getInstance(TestAll.TestInfo.getInstance()
@@ -1613,11 +1622,11 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
     }
 
-    public void errOrLog(boolean causeError, String message) {
-        if (causeError) {
-            errln(message);
-        } else {
-            logln(message);
+    public void errOrLog(CoverageIssue causeError, String message) {
+        switch(causeError) {
+        case error: errln(message); break;
+        case warn: warnln(message); break;
+        case log: logln(message); break;
         }
     }
 

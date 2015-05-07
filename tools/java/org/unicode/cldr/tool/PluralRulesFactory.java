@@ -596,6 +596,12 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         { "en", "other", "{0} days" }, // added from spreadsheet   
         { "zu", "one", "{0} usuku" }, // added from spreadsheet
         { "zu", "other", "{0} izinsuku" }, // added from spreadsheet
+        
+        { "ga", "one", "{0} ci, {0} gath" },
+        { "ga", "two", "{0} gi, {0} gath" },
+        { "ga", "few", "{0} chi, {0} cath" },
+        { "ga", "many", "{0} chi, {0} chath" },
+        { "ga", "other", "{0} ci, {0} cath" },
     };
 
     static String[][] EXTRA_SAMPLE_SOURCE = {

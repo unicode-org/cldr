@@ -1318,7 +1318,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "sun", "mon", "tue", "wed", "thu", "fri", "sat").freeze();
     static MapComparator<String> dayPeriodOrder = new MapComparator<String>().add(
         "midnight", "am", "noon", "pm", 
-        "morning1", "morning2", "afternoon1", "afternoon2", "evening1", "evening2", "night1", "night2").freeze();
+        "morning1", "morning2", "afternoon1", "afternoon2", "evening1", "evening2", "night1", "night2",
+        // The ones on the following line are no longer used actively. Can be removed later?
+        "earlyMorning", "morning", "midDay", "afternoon", "evening", "night", "weeHours").freeze();
     static MapComparator<String> listPatternOrder = new MapComparator<String>().add(
         "start", "middle", "end", "2", "3").freeze();
     static MapComparator<String> widthOrder = new MapComparator<String>().add(

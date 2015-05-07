@@ -57,10 +57,11 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         DECIMAL_FORMAT("//ldml/numbers/decimalFormats", MatchType.PREFIX,7),
         UNITS_COMPOUND_LONG("//ldml/units/unitLength[@type=\"long\"]/compoundUnit", MatchType.PREFIX,8),
         UNITS_COMPOUND_SHORT("//ldml/units/unitLength[@type=\"short\"]/compoundUnit", MatchType.PREFIX,9),
-        UNITS_IGNORE("//ldml/units/unitLength[@type=\"narrow\"]", MatchType.PREFIX,10),
-        UNITS("//ldml/units/unitLength", MatchType.PREFIX,11),
-        FIELDS_NARROW("//ldml/dates/fields/field\\[@type=\"(sun|mon|tue|wed|thu|fri|sat)-narrow\"\\]/relative", MatchType.REGEX, 12),
-        FIELDS_RELATIVE("//ldml/dates/fields/field\\[@type=\".*\"\\]/relative\\[@type=\"(-1|0|1)\"\\]", MatchType.REGEX, 13);
+        UNITS_COORDINATE("//ldml/units/unitLength\\[@type=\".*\"\\]/coordinateUnit/", MatchType.REGEX,10),
+        UNITS_IGNORE("//ldml/units/unitLength[@type=\"narrow\"]", MatchType.PREFIX,11),
+        UNITS("//ldml/units/unitLength", MatchType.PREFIX,12),
+        FIELDS_NARROW("//ldml/dates/fields/field\\[@type=\"(sun|mon|tue|wed|thu|fri|sat)-narrow\"\\]/relative", MatchType.REGEX, 13),
+        FIELDS_RELATIVE("//ldml/dates/fields/field\\[@type=\".*\"\\]/relative\\[@type=\"(-1|0|1)\"\\]", MatchType.REGEX, 14);
 
         private MatchType matchType;
         private String basePrefix;
@@ -208,9 +209,6 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         if (value.equals(CldrUtility.NO_INHERITANCE_MARKER)) {
             return this;
         }
-        if (exclusions.reset(path).find()) {
-            return this;
-        }
 
         // find my type; bail if I don't have one.
         Type myType = Type.getType(path);
@@ -218,6 +216,10 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             return this;
         }
         String myPrefix = myType.getPrefix();
+
+        if (exclusions.reset(path).find() && myType != Type.UNITS_COORDINATE) {
+            return this;
+        }
 
         // get the paths with the same value. If there aren't duplicates, continue;
 
@@ -292,7 +294,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         //ldml/units/unitLength[@type="narrow"]/unit[@type="duration-day-future"]/unitPattern[@count="one"]
         if (myType == Type.UNITS) {
             XPathParts parts = XPathParts.getInstance(path);
-            int typeLocation = parts.getElement(-1).equals("coordinateUnitPattern") ? -1 : 3;
+            int typeLocation = 3;
             String myUnit = parts.getAttributeValue(typeLocation, "type");
             boolean isDuration = myUnit.startsWith("duration");
             Iterator<String> iterator = paths.iterator();
@@ -332,6 +334,21 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 String curVal = iterator.next();
                 parts.set(curVal);
                 String fieldType = parts.getAttributeValue(3, "type").split("-")[0];
+                if (myFieldType.equals(fieldType)) {
+                    iterator.remove();
+                    log("Removed '" + curVal + "': COLLISON WITH FIELD  " + fieldType);
+                }
+            }
+        }
+        // Collisions between different lengths of the same field are allowed
+        if (myType == Type.UNITS_COORDINATE ) {
+            XPathParts parts = new XPathParts().set(path);
+            String myFieldType = parts.findAttributeValue("coordinateUnitPattern", "type");
+            Iterator<String> iterator = paths.iterator();
+            while (iterator.hasNext()) {
+                String curVal = iterator.next();
+                parts.set(curVal);
+                String fieldType = parts.findAttributeValue("coordinateUnitPattern", "type");
                 if (myFieldType.equals(fieldType)) {
                     iterator.remove();
                     log("Removed '" + curVal + "': COLLISON WITH FIELD  " + fieldType);
@@ -477,7 +494,13 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         // remove paths with "alt/count"; they can be duplicates
         Set<String> paths = new HashSet<String>();
         for (String pathName : retrievedPaths) {
-            if (exclusions.reset(pathName).find()) {
+            Type thisPathType = Type.getType(pathName);
+            // If the colliding path is of a different type than the original,
+            // then it can't be a collision we care about.
+            if (myType != thisPathType) {
+                continue;
+            };            
+            if (exclusions.reset(pathName).find() && thisPathType != Type.UNITS_COORDINATE) {
                 continue;
             }
             // we only care about winning paths

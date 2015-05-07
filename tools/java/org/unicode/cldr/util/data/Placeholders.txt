@@ -159,7 +159,7 @@
 ^//ldml/numbers/miscPatterns\[@numberSystem="%A"]/pattern\[@type=\"%A\"] ; {0}=NUMBER 3
 
 ^//ldml/units/unitLength\[@type="%L"]/compoundUnit\[@type="%A"]/compoundUnitPattern ; locale ; {0}=DIVIDEND UNIT meters ; {1}=DIVIDEND UNIT second
-^//ldml/units/unitLength\[@type="%L"]/coordinateUnit/coordinateUnitPattern\[@type="%A"] ; locale ; {0}=DEGREES 12°
+^//ldml/units/unitLength\[@type="%L"]/coordinateUnit/coordinateUnitPattern\[@type="%A"] ; {0}=DEGREES 12°
 
 ^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-day%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_DAYS 3
 ^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-hour%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_HOURS 3

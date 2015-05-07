@@ -211,6 +211,7 @@ public class PathHeader implements Comparable<PathHeader> {
         ElectricalFrequency(SectionId.Units, "Electrical and Frequency"),
         Weather(SectionId.Units),
         Digital(SectionId.Units),
+        Coordinates(SectionId.Units),
         OtherUnits(SectionId.Units, "Other Units"),
         CompoundUnits(SectionId.Units, "Compound Units"),
         Displaying_Lists(SectionId.Misc, "Displaying Lists"),

@@ -52,6 +52,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
             "|otherNumberingSystems" +
             "|exemplarCharacters" +
             "|durationUnitPattern" +
+            "|coordinateUnitPattern" +
             "|unitLength\\[@type=\"(short|narrow)\"\\]/unit\\[@type=\"[^\"]++\"\\]/unitPattern\\[@count=\"[^\"]++\"\\]" +
             "|unitLength\\[@type=\"(short|narrow)\"\\]/unit\\[@type=\"[^\"]++\"\\]/perUnitPattern" +
             ")", true)

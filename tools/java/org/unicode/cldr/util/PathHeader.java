@@ -1502,10 +1502,11 @@ public class PathHeader implements Comparable<PathHeader> {
                     return "using " + (displayName == null ? source0 : displayName + " (" + source0 + ")");
                 }
             });
-            // //ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]
+
             functionMap.put("datefield", new Transform<String, String>() {
                 private final String[] datefield = {
                     "era",
+                    "century", "century-short", "century-narrow",
                     "year", "year-short", "year-narrow",
                     "quarter", "quarter-short", "quarter-narrow",
                     "month", "month-short", "month-narrow",
@@ -1515,6 +1516,9 @@ public class PathHeader implements Comparable<PathHeader> {
                     "hour", "hour-short", "hour-narrow",
                     "minute", "minute-short", "minute-narrow",
                     "second", "second-short", "second-narrow",
+                    "millisecond", "millisecond-short", "millisecond-narrow",
+                    "microsecond", "microsecond-short", "microsecond-narrow",
+                    "nanosecond", "nanosecond-short", "nanosecond-narrow",
 
                 };
 

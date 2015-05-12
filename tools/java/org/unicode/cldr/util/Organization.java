@@ -10,6 +10,7 @@ import java.util.Map;
 public enum Organization {
     // Please update Locales.txt for default coverage when adding an organization here.
 
+    adlam("Winden Jangen Adlam"),
     adobe("Adobe"),
     afghan_csa("Afghan CSA"),
     afghan_mcit("Afghan MCIT"),

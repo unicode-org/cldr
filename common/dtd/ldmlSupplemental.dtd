@@ -11,7 +11,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     $Date$
 -->
 
-<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels? ) >
+<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels? ) >
 
 <!ELEMENT version EMPTY >
 <!ATTLIST version number CDATA #REQUIRED >
@@ -104,6 +104,14 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@DEPRECATED:true, false-->
 <!ATTLIST group references CDATA #IMPLIED >
     <!--@METADATA-->
+
+<!ELEMENT subdivisionContainment ( subgroup* ) >
+
+<!ELEMENT subgroup EMPTY >
+<!ATTLIST subgroup type NMTOKEN #REQUIRED >
+<!ATTLIST subgroup subtype NMTOKEN #IMPLIED >
+<!ATTLIST subgroup contains NMTOKENS #IMPLIED >
+    <!--@VALUE-->
 
 <!ELEMENT languageData ( language* ) >
 
@@ -457,7 +465,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 
-<!ELEMENT alias ( languageAlias*, scriptAlias*, territoryAlias*, variantAlias*, zoneAlias* ) >
+<!ELEMENT alias ( languageAlias*, scriptAlias*, territoryAlias*, subdivisionAlias*, variantAlias*, zoneAlias* ) >
 <!ATTLIST alias draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -481,6 +489,13 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST territoryAlias replacement NMTOKENS #REQUIRED >
     <!--@VALUE-->
 <!ATTLIST territoryAlias reason (deprecated | overlong) #IMPLIED >
+    <!--@VALUE-->
+
+<!ELEMENT subdivisionAlias EMPTY >
+<!ATTLIST subdivisionAlias type NMTOKEN #REQUIRED >
+<!ATTLIST subdivisionAlias replacement NMTOKEN #REQUIRED >
+    <!--@VALUE-->
+<!ATTLIST subdivisionAlias reason (deprecated | overlong) #IMPLIED >
     <!--@VALUE-->
 
 <!ELEMENT variantAlias EMPTY >

@@ -69,6 +69,9 @@
 //supplementalData/territoryContainment/group[@type="(%W)"][@contains="(%A)"][@grouping="true"] ; /territoryContainment/grouping ; values=$1
 //supplementalData/territoryContainment/group[@type="(%W)"][@contains="(%A)"]; /territoryContainment/$1 ; values=$2
 
+//supplementalData/subdivisionContainment/subgroup[@type="(%W)"][@contains="(%A)"]; /subdivisionContainment/$1 ; values=$2
+//supplementalData/subdivisionContainment/subgroup[@type="(%W)"][@subtype="(%W)"][@contains="(%A)"]; /subdivisionContainment/$1-$2 ; values=$2
+
 //supplementalData/weekData/firstDay[@day="(%W)"][@territories="(%W)"]([@references="(%A)"])?[@alt="(%A)"] ; /weekData%$5/$2:intvector     ; values=$1 ; fallback=/weekData/001:intvector[0]
 
 //supplementalData/weekData/firstDay[@day="(%W)"][@territories="(%W)"] ; /weekData/$2:intvector     ; values=$1 ; fallback=/weekData/001:intvector[0]
@@ -162,7 +165,7 @@
 //supplementalData/metadata/defaultContent[@locales="(%A)"] ; /defaultContent ; values=$1
 
 # supplementalMetadata.xml (metadata.txt)
-//supplementalData/metadata/alias/(language|script|territory|variant)Alias[@type="(%A)"][@replacement="(%A)"][@reason="(%A)"]
+//supplementalData/metadata/alias/(language|script|territory|subdivision|variant)Alias[@type="(%A)"][@replacement="(%A)"][@reason="(%A)"]
      ; /alias/$1/$2/reason ; values="$4"
      ; /alias/$1/$2/replacement ; values="$3"
 

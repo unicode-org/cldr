@@ -1,0 +1,441 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE supplementalData SYSTEM '../../common/dtd/ldmlSupplemental.dtd'>
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+
+<supplementalData>
+    <version number='$Revision: 8268 $'/>
+    <generation date='$Date: 2013-03-01 15:26:02 +0100 (Fri, 01 Mar 2013) $'/>
+	<subdivisionContainment>
+		<subgroup type="001" contains="AD AE AF AG AL AM AO AR AT AU AZ BA BB BD BE BF BG BH BI BJ BN BO BQ BR BS BT BW BY BZ CA CD CF CG CH CI CL CM CN CO CR CU CV CY CZ DE DJ DK DM DO DZ EC EE EG ER ES ET FI FJ FM FR GA GB GD GE GH GL GM GN GQ GR GT GW GY HN HR HT HU ID IE IL IN IQ IR IS IT JM JO JP KE KG KH KI KM KN KP KR KW KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MG MH MK ML MM MN MR MT MU MV MW MX MY MZ NA NE NG NI NL NO NP NR NZ OM PA PE PG PH PK PL PS PT PW PY QA RO RS RU RW SA SB SC SD SE SG SH SI SK SL SM SN SO SR SS ST SV SY SZ TD TG TH TJ TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VC VE VN VU WS YE ZA ZM ZW"/>
+		<subgroup type="AD" contains="02 06 08 03 07 04 05"/>
+		<subgroup type="AE" contains="RK SH FU DU AZ UQ AJ"/>
+		<subgroup type="AF" contains="BAM KAB KAP KHO KNR KAN LOG PIA SAM URU BDS FYB JOW KDZ LAG NIM BGL FRA HEL PKA SAR BDG GHA PAN TAK WAR BAL GHO DAY HER NAN NUR PAR ZAB"/>
+		<subgroup type="AG" contains="04 11 03 06 10 07 08 05"/>
+		<subgroup type="AL" contains="04 11 12 03 09 01 02 08 10 05 06 07"/>
+		<subgroup type="AL" subtype="04" contains="FR MK LU"/>
+		<subgroup type="AL" subtype="11" contains="TR KA"/>
+		<subgroup type="AL" subtype="12" contains="DL SR VL"/>
+		<subgroup type="AL" subtype="03" contains="LB GR EL PQ"/>
+		<subgroup type="AL" subtype="09" contains="DI BU MT"/>
+		<subgroup type="AL" subtype="01" contains="BR KC SK"/>
+		<subgroup type="AL" subtype="02" contains="KR DR"/>
+		<subgroup type="AL" subtype="08" contains="LE MR KB"/>
+		<subgroup type="AL" subtype="10" contains="PU MM SH"/>
+		<subgroup type="AL" subtype="05" contains="TE GJ PR"/>
+		<subgroup type="AL" subtype="06" contains="DV ER KO PG"/>
+		<subgroup type="AL" subtype="07" contains="TP HA KU"/>
+		<subgroup type="AM" contains="AR AG AV KT GR SH SU TV LO ER VD"/>
+		<subgroup type="AO" contains="BIE CAB CCU ZAI LNO LSU MOX NAM UIG CNO HUI LUA MAL BGO BGU CNN CUS HUA"/>
+		<subgroup type="AR" contains="D L M Q R Y N S Z A C F B G H P X J T E K V W U"/>
+		<subgroup type="AT" contains="9 3 4 5 8 1 7 2 6"/>
+		<subgroup type="AU" contains="VIC NT QLD TAS ACT NSW SA WA"/>
+		<subgroup type="AZ" contains="GOR NA QBI SA SMI TOV YE ABS BA BAL BAR GOY MAS SKR SR XA XIZ AGC AGU BIL GA QAB SMX XAC YAR ZAN AGA FUZ GAD LAC QAX AGM DAS GYG LA LAN OGU QBA QUS SAB CAB KUR SAL SBN SM UCA XCI YEV AGS AST BEY HAC IMI ISM LER MI NEF NX QAZ SAK SAT TAR XVD ZAR CAL KAL QOB SIY SUS ZAQ"/>
+		<subgroup type="AZ" subtype="NX" contains="KAN CUL ORD SAD SAH BAB SAR NV"/>
+		<subgroup type="BA" contains="BRC BIH SRP"/>
+		<subgroup type="BA" subtype="BIH" contains="02 03 07 01 05 08 10 04 06 09"/>
+		<subgroup type="BB" contains="07 03 05 02 10 11 08 04 09 01 06"/>
+		<subgroup type="BD" contains="B C A D E G F"/>
+		<subgroup type="BD" subtype="B" contains="04 47 10 11 56 16 31 09 08 29 01"/>
+		<subgroup type="BD" subtype="C" contains="36 62 63 34 57 26 21 41 42 13 15 17 53 18 33 35 40"/>
+		<subgroup type="BD" subtype="A" contains="02 25 50 06 07 51"/>
+		<subgroup type="BD" subtype="D" contains="43 30 39 12 22 58 37 05 23 27"/>
+		<subgroup type="BD" subtype="E" contains="44 45 48 55 49 54 24 59 03"/>
+		<subgroup type="BD" subtype="G" contains="20 38 60 61"/>
+		<subgroup type="BD" subtype="F" contains="19 64 28 52 14 32 46"/>
+		<subgroup type="BE" contains="WAL WBR WLG BRU VLG VBR VWV WLX VAN VLI VOV WNA WHT"/>
+		<subgroup type="BF" contains="05 01 10 02 03 04 06 07 08 09 11 12 13"/>
+		<subgroup type="BF" subtype="05" contains="BAM SMT NAM"/>
+		<subgroup type="BF" subtype="01" contains="BAN MOU NAY SOR BAL KOS"/>
+		<subgroup type="BF" subtype="10" contains="YAT LOR PAS ZON"/>
+		<subgroup type="BF" subtype="02" contains="COM LER"/>
+		<subgroup type="BF" subtype="03" contains="KAD"/>
+		<subgroup type="BF" subtype="04" contains="BLG KOT KOP"/>
+		<subgroup type="BF" subtype="06" contains="SNG SIS ZIR BLK"/>
+		<subgroup type="BF" subtype="07" contains="ZOU NAO BAZ"/>
+		<subgroup type="BF" subtype="08" contains="GOU GNA KMD KMP TAP"/>
+		<subgroup type="BF" subtype="09" contains="HOU TUI KEN"/>
+		<subgroup type="BF" subtype="11" contains="GAN KOW OUB"/>
+		<subgroup type="BF" subtype="12" contains="SEN OUD SOM YAG"/>
+		<subgroup type="BF" subtype="13" contains="PON BGR NOU IOB"/>
+		<subgroup type="BG" contains="05 06 07 08 26 04 09 15 16 28 13 18 21 22 27 02 14 19 25 03 24 01 10 12 20 23 11 17"/>
+		<subgroup type="BH" contains="15 17 14 16 13"/>
+		<subgroup type="BI" contains="BB BM KR MY KI BR CI GI MA MU NG RY KY MW CA BL RT"/>
+		<subgroup type="BJ" contains="AL DO KO PL ZO AK CO BO OU LI AQ MO"/>
+		<subgroup type="BN" contains="TU BM BE TE"/>
+		<subgroup type="BO" contains="C L B O S P T H N"/>
+		<subgroup type="BQ" contains="BO SA SE"/>
+		<subgroup type="BR" contains="AC AM CE RR GO MG TO ES AP BA MS PR RN MT PB PE RJ RO SC SP AL DF MA PA PI RS SE"/>
+		<subgroup type="BS" contains="CK HT RI CO EG HI MI SS SW AK LI BY FP NS RC SO CE CI CS EX IN MC SA GC MG WG BI BP NE NO SE"/>
+		<subgroup type="BT" contains="11 42 45 12 23 24 21 33 34 31 14 15 44 TY 13 41 GA 22 32 43"/>
+		<subgroup type="BW" contains="NE KL GH NW SO KW CH LO SP JW ST FR GA KG CE SE"/>
+		<subgroup type="BY" contains="MA VI BR HM HO HR MI"/>
+		<subgroup type="BZ" contains="BZ CY OW CZL SC TOL"/>
+		<subgroup type="CA" contains="BC MB NB SK AB ON YT NT NU NL PE NS QC"/>
+		<subgroup type="CD" contains="MA EQ BC OR SK BN KW KA NK KE KN"/>
+		<subgroup type="CF" contains="BK HM HS LB AC KB BB MP HK KG MB NM SE VK BGF OP UK"/>
+		<subgroup type="CG" contains="14 2 8 9 16 15 5 11 BZV 12 13 7"/>
+		<subgroup type="CH" contains="BL UR JU LU SO TG BS SZ ZG AG BE FR NE OW TI VD AR GE GL SG GR NW SH ZH AI VS"/>
+		<subgroup type="CI" contains="18 08 14 01 06 10 15 11 12 16 19 03 04 05 07 09 13 17 02"/>
+		<subgroup type="CL" contains="MA AN RM TA BI AP AT LL LR ML AR LI AI VS CO"/>
+		<subgroup type="CM" contains="SU SW NW OU AD LT NO CE EN ES"/>
+		<subgroup type="CN" contains="36 43 53 31 32 37 12 15 23 41 92 50 62 63 11 14 22 42 44 71 91 51 64 65 13 21 34 46 61 33 35 45 52 54"/>
+		<subgroup type="CO" contains="BOY CAQ CUN NAR BOL MAG MET PUT VID AMA CAL CAU CES DC LAG ARA NSA TOL VAC GUV HUI SUC CAS CHO GUA QUI RIS SAN VAU ANT ATL COR SAP"/>
+		<subgroup type="CR" contains="H L G P A C SJ"/>
+		<subgroup type="CU" contains="04 06 03 07 12 05 11 08 09 10 13 15 16 01 14 99"/>
+		<subgroup type="CV" contains="B S"/>
+		<subgroup type="CV" subtype="B" contains="PN RG SV BV SL TS PA RB"/>
+		<subgroup type="CV" subtype="S" contains="CF BR MA PR RS SS TA CR SD SF CA MO SM SO"/>
+		<subgroup type="CY" contains="03 06 01 04 05 02"/>
+		<subgroup type="CZ" contains="ST VY PA MO JC OL JM ZL US KA KR LI PL PR"/>
+		<subgroup type="CZ" subtype="ST" contains="208 205 20C 203 207 206 20A 20B 201 202 204 209"/>
+		<subgroup type="CZ" subtype="VY" contains="611 612 614 613 615"/>
+		<subgroup type="CZ" subtype="PA" contains="531 532 534 533"/>
+		<subgroup type="CZ" subtype="MO" contains="801 802 803 806 804 805"/>
+		<subgroup type="CZ" subtype="JC" contains="311 314 315 312 316 317 313"/>
+		<subgroup type="CZ" subtype="OL" contains="713 714 712 711 715"/>
+		<subgroup type="CZ" subtype="JM" contains="627 623 624 626 621 622 625"/>
+		<subgroup type="CZ" subtype="ZL" contains="724 721 722 723"/>
+		<subgroup type="CZ" subtype="US" contains="425 423 421 422 424 426 427"/>
+		<subgroup type="CZ" subtype="KA" contains="411 412 413"/>
+		<subgroup type="CZ" subtype="KR" contains="523 521 524 522 525"/>
+		<subgroup type="CZ" subtype="LI" contains="511 514 512 513"/>
+		<subgroup type="CZ" subtype="PL" contains="322 321 327 325 324 323 326"/>
+		<subgroup type="CZ" subtype="PR" contains="101 104 108 109 10F 103 106 10E 10B 105 107 10A 10C 102 10D"/>
+		<subgroup type="DE" contains="RP SN BW MV NW SL TH ST HH BB BE BY HB HE NI SH"/>
+		<subgroup type="DJ" contains="TA OB AR DI DJ AS"/>
+		<subgroup type="DK" contains="83 82 85 81 84"/>
+		<subgroup type="DM" contains="05 07 06 08 09 03 02 11 04 10"/>
+		<subgroup type="DO" contains="33 34 35 36 37 38 39 40 41 42"/>
+		<subgroup type="DO" subtype="33" contains="19 20 14 06"/>
+		<subgroup type="DO" subtype="34" contains="26 27 05 15"/>
+		<subgroup type="DO" subtype="35" contains="09 18 25"/>
+		<subgroup type="DO" subtype="36" contains="24 13 28"/>
+		<subgroup type="DO" subtype="37" contains="07 22"/>
+		<subgroup type="DO" subtype="38" contains="03 16 04 10"/>
+		<subgroup type="DO" subtype="39" contains="23 30 29"/>
+		<subgroup type="DO" subtype="40" contains="32 01"/>
+		<subgroup type="DO" subtype="41" contains="17 21 31 02"/>
+		<subgroup type="DO" subtype="42" contains="11 08 12"/>
+		<subgroup type="DZ" contains="12 26 29 34 37 06 11 13 27 40 03 09 14 15 19 20 35 41 42 44 02 04 05 23 39 01 08 16 28 31 07 24 33 36 38 45 10 21 25 32 43 46 48 17 18 22 30 47"/>
+		<subgroup type="EC" contains="B R E G X Y A D L O SE Z H SD I M P W C F S U N T"/>
+		<subgroup type="EE" contains="65 39 78 49 51 70 84 37 44 57 59 67 74 82 86"/>
+		<subgroup type="EG" contains="ALX ASN JS KFS MN AST BNS C FYM PTS DT GZ IS SHG BA KB SHR DK LX SIN WAD GH KN MNF SUZ BH MT"/>
+		<subgroup type="ER" contains="GB MA SK DK DU AN"/>
+		<subgroup type="ES" contains="AN PV CB MC AR AS CE GA RI VC CT IB CM EX MD ML CL CN NC"/>
+		<subgroup type="ES" subtype="AN" contains="AL J SE CA GR H MA CO"/>
+		<subgroup type="ES" subtype="PV" contains="BI SS VI"/>
+		<subgroup type="ES" subtype="CB" contains="S"/>
+		<subgroup type="ES" subtype="MC" contains="MU"/>
+		<subgroup type="ES" subtype="AR" contains="Z HU TE"/>
+		<subgroup type="ES" subtype="AS" contains="O"/>
+		<subgroup type="ES" subtype="GA" contains="PO C LU OR"/>
+		<subgroup type="ES" subtype="RI" contains="LO"/>
+		<subgroup type="ES" subtype="VC" contains="V CS A"/>
+		<subgroup type="ES" subtype="CT" contains="T GI B L"/>
+		<subgroup type="ES" subtype="IB" contains="PM"/>
+		<subgroup type="ES" subtype="CM" contains="CR GU AB CU TO"/>
+		<subgroup type="ES" subtype="EX" contains="CC BA"/>
+		<subgroup type="ES" subtype="MD" contains="M"/>
+		<subgroup type="ES" subtype="CL" contains="SA AV SO P VA BU SG ZA LE"/>
+		<subgroup type="ES" subtype="CN" contains="TF GC"/>
+		<subgroup type="ES" subtype="NC" contains="NA"/>
+		<subgroup type="ET" contains="BE HA SO DD GA AM AA AF OR TI SN"/>
+		<subgroup type="FI" contains="02 16 06 08 13 18 01 15 14 04 07 09 11 12 19 17 03 05 10"/>
+		<subgroup type="FJ" contains="C R W N 02 01 03 04 05 06 07 08 11 09 10 12 13 14 E"/>
+		<subgroup type="FM" contains="TRK PNI KSA YAP"/>
+		<subgroup type="FR" contains="BL G PF RE A CP H M MF N Q R U F GP J O L MQ V C GF NC PM S T TF WF B P D E I K YT"/>
+		<subgroup type="FR" subtype="G" contains="08 51 10 52"/>
+		<subgroup type="FR" subtype="A" contains="67 68"/>
+		<subgroup type="FR" subtype="H" contains="2A 2B"/>
+		<subgroup type="FR" subtype="M" contains="88 55 57 54"/>
+		<subgroup type="FR" subtype="N" contains="12 31 32 09 65 46 82 81"/>
+		<subgroup type="FR" subtype="Q" contains="76 27"/>
+		<subgroup type="FR" subtype="R" contains="44 85 53 49 72"/>
+		<subgroup type="FR" subtype="U" contains="13 04 05 83 06 84"/>
+		<subgroup type="FR" subtype="F" contains="18 41 45 37 36 28"/>
+		<subgroup type="FR" subtype="J" contains="93 77 78 95 92 75 91 94"/>
+		<subgroup type="FR" subtype="O" contains="59 62"/>
+		<subgroup type="FR" subtype="L" contains="23 19 87"/>
+		<subgroup type="FR" subtype="V" contains="42 26 07 01 38 74 69 73"/>
+		<subgroup type="FR" subtype="C" contains="63 03 15 43"/>
+		<subgroup type="FR" subtype="S" contains="60 02 80"/>
+		<subgroup type="FR" subtype="T" contains="16 79 17 86"/>
+		<subgroup type="FR" subtype="B" contains="64 40 24 47 33"/>
+		<subgroup type="FR" subtype="P" contains="61 14 50"/>
+		<subgroup type="FR" subtype="D" contains="71 21 89 58"/>
+		<subgroup type="FR" subtype="E" contains="22 29 56 35"/>
+		<subgroup type="FR" subtype="I" contains="25 70 90 39"/>
+		<subgroup type="FR" subtype="K" contains="30 11 48 34 66"/>
+		<subgroup type="GA" contains="3 5 1 6 7 8 2 4 9"/>
+		<subgroup type="GB" contains="UKM GBN SCT EAW ENG WLS NIR"/>
+		<subgroup type="GB" subtype="SCT" contains="NLK RFW PKN ANS FAL GLG MRY DGY ELN SAY ABD ELS NAY WLN AGB CLK EDU FIF MLN ORK SCB SLK STG ZET WDU ABE DND EAY ERW HLD IVC EDH"/>
+		<subgroup type="GB" subtype="ENG" contains="GRE HAL HRY KHL NEL NFK POR SGC WBK WND WRT IOS BDF BDG BKM BST CAM DNC KIR LND LUT MAN MIK NLN NSM NTY PLY RDG SHR SND STY SWK WRL WSM BAS BIR BPL CHW HNS HRT KTT LEC RCH ROT SFK SRY STH STT SWD TFW WNM WOR WSX BEX BMH BRD BUR CHE CON HAM LIV NYK OXF RIC RUT SAW SHF SLG THR TOB WFT WIL WKF YOR CLD COV DER DEV DUD GLS HCK HRW IOW ISL KEC LBH LDS NET NGM SLF SOL STE WLV WOK BNE BNH BNS DAL ERY ESS HAV HIL HPL KEN LCE MDB MRT RDB SFT SHN TRF TWH WAR WLL DBY DOR ENF GAT HMF KWL LAN LEW LIN NBL POL RCC STS TAM WGN BBD BEN BOL BRC CBF CMA CMD CRY DUR ESX HEF MDW NTH NTT NWM OLD PTE SKP SOM SOS STN BRY EAL"/>
+		<subgroup type="GB" subtype="WLS" contains="NTL RCT BGE NWP BGW CMN DEN FLN MTY POW VGL AGY CAY GWN WRX CGN MON PEM TOF CRF SWA CWY"/>
+		<subgroup type="GB" subtype="NIR" contains="NDN NYM ANT DOW DRY FER NTA ARD CGV LSB BNB CSR MYL OMH CKF MFT ARM BLA LMV STB CKT DGN LRN BFS BLY CLR"/>
+		<subgroup type="GD" contains="04 10 02 05 01 03 06"/>
+		<subgroup type="GE" contains="AB AJ MM SZ SJ SK IM GU RL TB KA KK"/>
+		<subgroup type="GH" contains="WP EP BA TV UW CP NP AH AA UE"/>
+		<subgroup type="GL" contains="QE QA KU SM"/>
+		<subgroup type="GM" contains="M U W L B N"/>
+		<subgroup type="GN" contains="M B F C K L D N"/>
+		<subgroup type="GN" subtype="M" contains="DL PI MM"/>
+		<subgroup type="GN" subtype="B" contains="BK BF GA FR KN"/>
+		<subgroup type="GN" subtype="F" contains="FA DB KS DI"/>
+		<subgroup type="GN" subtype="K" contains="SI MD KA KE KO"/>
+		<subgroup type="GN" subtype="L" contains="KB LA ML TO LE"/>
+		<subgroup type="GN" subtype="D" contains="KD DU CO FO TE"/>
+		<subgroup type="GN" subtype="N" contains="MC LO YO BE GU NZ"/>
+		<subgroup type="GQ" contains="C I"/>
+		<subgroup type="GQ" subtype="C" contains="KN CS LI WN"/>
+		<subgroup type="GQ" subtype="I" contains="BS AN BN"/>
+		<subgroup type="GR" contains="C H I L A B F 69 E K D G J M"/>
+		<subgroup type="GR" subtype="C" contains="56 58 51 63"/>
+		<subgroup type="GR" subtype="H" contains="07 03 05 06 04"/>
+		<subgroup type="GR" subtype="I" contains="A1"/>
+		<subgroup type="GR" subtype="L" contains="82 81"/>
+		<subgroup type="GR" subtype="A" contains="71 55 72 73 52"/>
+		<subgroup type="GR" subtype="B" contains="53 59 61 64 54 62 57"/>
+		<subgroup type="GR" subtype="F" contains="24 22 23 21"/>
+		<subgroup type="GR" subtype="E" contains="41 43 44 42"/>
+		<subgroup type="GR" subtype="K" contains="84 83 85"/>
+		<subgroup type="GR" subtype="D" contains="34 32 33 31"/>
+		<subgroup type="GR" subtype="G" contains="13 01 14"/>
+		<subgroup type="GR" subtype="J" contains="16 17 11 15 12"/>
+		<subgroup type="GR" subtype="M" contains="92 93 94 91"/>
+		<subgroup type="GT" contains="CM ES IZ PE TO GU ZA JA JU SA SM QZ RE HU SO SR SU PR CQ QC AV BV"/>
+		<subgroup type="GW" contains="L BS N S"/>
+		<subgroup type="GW" subtype="L" contains="GA BA"/>
+		<subgroup type="GW" subtype="N" contains="BM OI CA"/>
+		<subgroup type="GW" subtype="S" contains="TO BL QU"/>
+		<subgroup type="GY" contains="EB UD BA CU DE PT PM UT ES MA"/>
+		<subgroup type="HN" contains="CP LP SB CL YO CH GD IB OL VA CM LE EP AT CR FM IN OC"/>
+		<subgroup type="HR" contains="13 01 06 17 21 03 05 08 15 04 19 10 14 16 02 09 12 18 07 20 11"/>
+		<subgroup type="HT" contains="NO NI NE OU GA ND SD SE AR CE"/>
+		<subgroup type="HU" contains="NY TB FE GS MI PS ST VA BZ ER NK NO BA BC CS DE HB PE SN SO BE JN SD VE ZA ZE DU KE SF SS BK EG GY HE KM SZ TO BU HV KV SH SK VM"/>
+		<subgroup type="ID" contains="KA JW NU SM PP ML SL"/>
+		<subgroup type="ID" subtype="KA" contains="KU KT KB KS KI"/>
+		<subgroup type="ID" subtype="JW" contains="JB JT JK JI BT YO"/>
+		<subgroup type="ID" subtype="NU" contains="BA NT NB"/>
+		<subgroup type="ID" subtype="SM" contains="BB JA AC RI SS BE SB SU LA KR"/>
+		<subgroup type="ID" subtype="PP" contains="PA PB"/>
+		<subgroup type="ID" subtype="ML" contains="MA MU"/>
+		<subgroup type="ID" subtype="SL" contains="GO SA SR ST SG SN"/>
+		<subgroup type="IE" contains="C L U M"/>
+		<subgroup type="IE" subtype="C" contains="G RN SO LM MO"/>
+		<subgroup type="IE" subtype="L" contains="D OY KE LD CW KK LS MH WW WX LH WH"/>
+		<subgroup type="IE" subtype="U" contains="MN CN DL"/>
+		<subgroup type="IE" subtype="M" contains="CE CO TA WD LK KY"/>
+		<subgroup type="IL" contains="M Z D HA JM TA"/>
+		<subgroup type="IN" contains="AN AP AR KA KL LD MH OR BR TR WB GJ ML MP CT HR UP DD HP JH JK NL CH GA MZ PY SK UT TG DL AS DN MN PB RJ TN"/>
+		<subgroup type="IQ" contains="BB MU WA AR BA DA QA SU SD DI AN DQ KA NA KI NI BG MA"/>
+		<subgroup type="IR" contains="10 16 19 25 01 13 20 21 26 02 04 07 11 15 05 17 18 28 12 14 22 24 06 27 30 32 23 29 31 03 08"/>
+		<subgroup type="IS" contains="4 3 2 7 0 1 5 6 8"/>
+		<subgroup type="IT" contains="67 23 25 36 32 62 34 42 45 77 82 88 55 72 52 75 78 21 57 65"/>
+		<subgroup type="IT" subtype="67" contains="IS CB"/>
+		<subgroup type="IT" subtype="23" contains="AO"/>
+		<subgroup type="IT" subtype="25" contains="CR LC PV MB BS SO MN BG VA CO LO MI"/>
+		<subgroup type="IT" subtype="36" contains="TS UD PN GO"/>
+		<subgroup type="IT" subtype="32" contains="TN BZ"/>
+		<subgroup type="IT" subtype="62" contains="FR RM VT LT RI"/>
+		<subgroup type="IT" subtype="34" contains="VE VI PD RO BL TV VR"/>
+		<subgroup type="IT" subtype="42" contains="IM SP SV GE"/>
+		<subgroup type="IT" subtype="45" contains="FC FE PC RA RN PR RE BO MO"/>
+		<subgroup type="IT" subtype="77" contains="MT PZ"/>
+		<subgroup type="IT" subtype="82" contains="AG PA TP CL RG SR EN ME CT"/>
+		<subgroup type="IT" subtype="88" contains="CA CI OG OR OT VS SS NU"/>
+		<subgroup type="IT" subtype="55" contains="PG TR"/>
+		<subgroup type="IT" subtype="72" contains="NA AV BN SA CE"/>
+		<subgroup type="IT" subtype="52" contains="GR PO PT LU SI MS PI FI AR LI"/>
+		<subgroup type="IT" subtype="75" contains="BT FG TA LE BA BR"/>
+		<subgroup type="IT" subtype="78" contains="KR RC VV CS CZ"/>
+		<subgroup type="IT" subtype="21" contains="VC BI NO VB TO AL AT CN"/>
+		<subgroup type="IT" subtype="57" contains="FM AP AN MC PU"/>
+		<subgroup type="IT" subtype="65" contains="PE AQ CH TE"/>
+		<subgroup type="JM" contains="06 13 02 03 08 01 12 14 10 11 07 09 04 05"/>
+		<subgroup type="JO" contains="AQ AZ IR MN AT JA KA AJ MA AM BA MD"/>
+		<subgroup type="JP" contains="11 16 17 19 22 24 26 32 36 44 03 25 28 41 01 05 13 23 29 30 33 37 10 12 14 39 45 20 31 38 40 42 02 07 09 18 21 34 35 43 46 47 04 06 08 15 27"/>
+		<subgroup type="KE" contains="01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47"/>
+		<subgroup type="KG" contains="N GB J Y O T B GO C"/>
+		<subgroup type="KH" contains="1 21 16 17 18 20 15 3 8 11 23 4 6 2 5 9 24 19 22 7 10 12 13 14"/>
+		<subgroup type="KI" contains="L P G"/>
+		<subgroup type="KM" contains="G M A"/>
+		<subgroup type="KN" contains="N K"/>
+		<subgroup type="KN" subtype="N" contains="05 07 12 10 04"/>
+		<subgroup type="KN" subtype="K" contains="08 02 11 01 15 06 09 13 03"/>
+		<subgroup type="KP" contains="05 06 10 02 01 03 04 09 13 07 08"/>
+		<subgroup type="KR" contains="45 48 11 26 27 29 44 28 30 42 43 47 49 50 31 46 41"/>
+		<subgroup type="KW" contains="JA KU MU FA HA AH"/>
+		<subgroup type="KZ" contains="AKM KZY VOS ALM SEV YUZ ZAP KAR PAV ALA KUS AST AKT ATY MAN ZHA"/>
+		<subgroup type="LA" contains="BL XE BK CH SV XI AT PH HO KH SL VI XA XN LM LP OU VT"/>
+		<subgroup type="LB" contains="NA AS BH JA JL BA BI AK"/>
+		<subgroup type="LC" contains="01 06 07 03 02 05 08 12 10 11"/>
+		<subgroup type="LI" contains="02 08 11 04 07 03 05 06 01 09 10"/>
+		<subgroup type="LK" contains="2 3 8 1 4 9 6 7 5"/>
+		<subgroup type="LK" subtype="2" contains="31 11 51"/>
+		<subgroup type="LK" subtype="3" contains="33 41 12"/>
+		<subgroup type="LK" subtype="8" contains="62 91"/>
+		<subgroup type="LK" subtype="1" contains="52 81 71"/>
+		<subgroup type="LK" subtype="4" contains="61 42 92 13 21"/>
+		<subgroup type="LK" subtype="9" contains="53 44"/>
+		<subgroup type="LK" subtype="6" contains="45 82"/>
+		<subgroup type="LK" subtype="7" contains="23 72"/>
+		<subgroup type="LK" subtype="5" contains="22 43 32"/>
+		<subgroup type="LR" contains="BM GB GG LO RI CM GP MG MO BG MY NI SI RG GK"/>
+		<subgroup type="LS" contains="G D E J K A F C H B"/>
+		<subgroup type="LT" contains="MR PN SA 45 46 47 48 49 50 51 52 53 54 55 56 58 60 05 07 08 14 17 28 29 39 59 TE AL KU UT 02 15 20 31 43 03 57 32 01 04 06 09 10 11 12 13 16 18 19 21 22 23 24 25 26 27 30 33 34 35 36 37 38 40 41 42 44 KL TA VL"/>
+		<subgroup type="LU" contains="D L G"/>
+		<subgroup type="LV" contains="001 032 033 046 049 053 061 071 073 081 090 098 JKB VEN 010 017 035 068 075 076 088 097 107 JEL VMR 012 014 019 020 022 031 051 058 063 066 067 070 093 095 096 099 102 006 030 037 039 043 050 055 065 072 077 079 087 089 091 094 100 104 REZ 013 023 025 026 029 045 059 069 082 085 092 103 JUR 004 011 018 028 064 101 105 108 DGV LPX RIX 002 005 007 008 015 024 027 036 047 048 054 056 060 078 080 083 086 110 003 009 016 021 034 038 040 041 042 044 052 057 062 074 084 106 109"/>
+		<subgroup type="LY" contains="BA BU DR JA KF MQ JI MI NL NQ SR ZA JU MB WD GT TB JG WS MJ SB WA"/>
+		<subgroup type="MA" contains="16 05 03 08 12 13 11 15 01 09 02 06 10 14 04 07"/>
+		<subgroup type="MA" subtype="16" contains="AOU OUD"/>
+		<subgroup type="MA" subtype="05" contains="MOU FES SEF BOM"/>
+		<subgroup type="MA" subtype="03" contains="HOC TAO TAZ"/>
+		<subgroup type="MA" subtype="08" contains="CAS MED MOH NOU"/>
+		<subgroup type="MA" subtype="12" contains="BEM AZI"/>
+		<subgroup type="MA" subtype="13" contains="INE OUA AGD ZAG TAR TIZ CHT"/>
+		<subgroup type="MA" subtype="11" contains="CHI KES MMD HAO ESI SYB MMN"/>
+		<subgroup type="MA" subtype="15" contains="LAA BOD"/>
+		<subgroup type="MA" subtype="01" contains="CHE FAH TNG TET LAR"/>
+		<subgroup type="MA" subtype="09" contains="BES KHO SET"/>
+		<subgroup type="MA" subtype="02" contains="SIK KEN"/>
+		<subgroup type="MA" subtype="06" contains="ERR KHN IFR HAJ MEK"/>
+		<subgroup type="MA" subtype="10" contains="SAF JDI"/>
+		<subgroup type="MA" subtype="14" contains="ESM ASZ TNT GUE TAT"/>
+		<subgroup type="MA" subtype="04" contains="NAD TAI BER OUJ JRA FIG"/>
+		<subgroup type="MA" subtype="07" contains="RAB SKH SAL KHE"/>
+		<subgroup type="MC" contains="MO PH SR VR LA SD SO CL GA JE MA SP MC MG CO FO MU"/>
+		<subgroup type="MD" contains="ED HI NI RE SN SV BR FA BA BS CA SD SI CM FL LE OR AN CR CT GL RI ST CL DR GA OC SO TA TE BD CS CU DO DU IA UN"/>
+		<subgroup type="ME" contains="01 07 10 17 22 23 05 15 19 06 09 14 18 21 02 04 08 11 03 16 20 13 12"/>
+		<subgroup type="MG" contains="U T A F M D"/>
+		<subgroup type="MH" contains="T L"/>
+		<subgroup type="MH" subtype="T" contains="UTI LIK MAJ ARN AUR MAL MEJ MIL WTJ ALK"/>
+		<subgroup type="MH" subtype="L" contains="NMK RON EBO ENI WTH KWA ALL KIL LAE NMU JAB JAL LIB UJA"/>
+		<subgroup type="MK" contains="05 08 14 21 23 27 32 37 55 64 71 77 01 02 04 07 19 28 30 40 51 53 66 67 75 84 03 10 11 26 44 54 56 60 78 80 81 06 16 25 31 35 38 41 58 62 68 73 79 18 22 24 36 39 43 50 57 61 69 34 42 45 46 48 63 74 76 12 17 20 47 65 72 83 09 13 15 29 33 49 52 59 70 82"/>
+		<subgroup type="ML" contains="4 2 5 BKO 6 3 8 1 7"/>
+		<subgroup type="MM" contains="16 18 02 12 05 11 13 15 01 04 06 17 03 14 07"/>
+		<subgroup type="MN" contains="046 065 043 071 041 053 061 067 055 069 039 047 049 057 059 035 037 064 051 063 073 1"/>
+		<subgroup type="MR" contains="01 05 12 02 08 03 07 NKC 04 10 06 09 11"/>
+		<subgroup type="MT" contains="32 33 43 48 08 34 35 37 46 04 14 16 18 22 26 13 15 20 27 36 40 44 49 50 51 61 63 67 05 06 12 64 02 03 19 24 25 39 52 55 56 66 68 38 41 54 58 60 07 11 21 31 47 59 62 65 09 30 42 45 53 57 01 10 17 23 28 29"/>
+		<subgroup type="MU" contains="AG BR RO SA PW CC GP CU PA PL BL FL QB MO PU RR VP"/>
+		<subgroup type="MV" contains="CE NC SU SC MLE NO UN US"/>
+		<subgroup type="MV" subtype="CE" contains="14 12 17"/>
+		<subgroup type="MV" subtype="NC" contains="04 26 00 02"/>
+		<subgroup type="MV" subtype="SU" contains="29 01"/>
+		<subgroup type="MV" subtype="SC" contains="27 28"/>
+		<subgroup type="MV" subtype="NO" contains="13 03 20 25"/>
+		<subgroup type="MV" subtype="UN" contains="23 24 07"/>
+		<subgroup type="MV" subtype="US" contains="05 08"/>
+		<subgroup type="MW" contains="C N S"/>
+		<subgroup type="MW" subtype="C" contains="LI KS NK MC NI SA DE DO NU"/>
+		<subgroup type="MW" subtype="N" contains="RU CT KR LK NB MZ"/>
+		<subgroup type="MW" subtype="S" contains="CR MU NS PH ZO BA CK MG MW TH BL MH NE"/>
+		<subgroup type="MX" contains="AGU BCN CAM DIF GUA MOR BCS GRO HID SON ZAC COA COL DUR QUE SIN VER CHP JAL PUE ROO TLA MEX NAY OAX SLP TAB CHH NLE TAM YUC MIC"/>
+		<subgroup type="MY" contains="12 13 05 09 07 01 08 10 14 16 03 04 02 11 06 15"/>
+		<subgroup type="MZ" contains="I MPM A L Q S B T P N G"/>
+		<subgroup type="NA" contains="ON KE KW HA KH CA ER KU OS OW OD KA OH OT"/>
+		<subgroup type="NE" contains="1 6 5 2 7 3 4 8"/>
+		<subgroup type="NG" contains="BY KN KT BO EB FC KE NA NI ON OS OY DE EK KO LA TA KD OG SO YO ZA AK EN IM BE CR JI AD AN AB BA ED GO KW PL RI"/>
+		<subgroup type="NI" contains="CA ES MN MS AN RI SJ AS GR MD LE NS CI JI CO BO MT"/>
+		<subgroup type="NL" contains="NB NH ZH CW GR LI OV AW DR BQ3 GE UT FL FR BQ1 ZE SX BQ2"/>
+		<subgroup type="NO" contains="04 12 14 22 02 03 05 07 20 01 10 19 08 06 09 16 17 21 18 11 15"/>
+		<subgroup type="NP" contains="2 3 4 5 1"/>
+		<subgroup type="NP" subtype="2" contains="RA BH KA"/>
+		<subgroup type="NP" subtype="3" contains="DH GA LU"/>
+		<subgroup type="NP" subtype="4" contains="ME KO SA"/>
+		<subgroup type="NP" subtype="5" contains="SE MA"/>
+		<subgroup type="NP" subtype="1" contains="JA BA NA"/>
+		<subgroup type="NR" contains="02 04 01 03 08 10 09 12 14 07 13 05 06 11"/>
+		<subgroup type="NZ" contains="S N CIT"/>
+		<subgroup type="NZ" subtype="S" contains="TAS MBH STL OTA CAN NSN WTC"/>
+		<subgroup type="NZ" subtype="N" contains="AUK WKO NTL TKI HKB GIS MWT BOP WGN"/>
+		<subgroup type="OM" contains="SH ZA DA MA ZU BA BU MU WU"/>
+		<subgroup type="PA" contains="10 1 2 5 NB 4 7 8 6 3 KY EM 9"/>
+		<subgroup type="PE" contains="ICA LIM MDD CAL AYA HUC ANC HUV LAM TAC APU LAL PAS PIU CUS MOQ PUN SAM AMA ARE TUM CAJ JUN LMA LOR UCA"/>
+		<subgroup type="PG" contains="WHM HLA JWK NCD WPD ESW GPK NSB EBR NIK SAN EHG EPW MRL NPP WBK MBA MPL SHM CPK CPM MPM"/>
+		<subgroup type="PH" contains="06 11 13 01 03 08 10 00 02 07 05 09 12 14 15 40 41"/>
+		<subgroup type="PH" subtype="06" contains="AKL ANT CAP GUI ILI NEC"/>
+		<subgroup type="PH" subtype="11" contains="COM DAV SCO SAR DAO DAS"/>
+		<subgroup type="PH" subtype="13" contains="SUN DIN SUR AGS AGN"/>
+		<subgroup type="PH" subtype="01" contains="ILS ILN LUN PAN"/>
+		<subgroup type="PH" subtype="03" contains="BAN AUR PAM BUL NUE TAR ZMB"/>
+		<subgroup type="PH" subtype="08" contains="LEY SLE BIL EAS NSA WSA"/>
+		<subgroup type="PH" subtype="10" contains="MSR MSC CAM BUK"/>
+		<subgroup type="PH" subtype="02" contains="BTN CAG NUV QUI ISA"/>
+		<subgroup type="PH" subtype="07" contains="BOH NER SIG CEB"/>
+		<subgroup type="PH" subtype="05" contains="CAT MAS CAN SOR ALB CAS"/>
+		<subgroup type="PH" subtype="09" contains="BAS ZAS ZAN ZSI"/>
+		<subgroup type="PH" subtype="12" contains="LAN SUK NCO"/>
+		<subgroup type="PH" subtype="14" contains="LAS MAG SLU TAW"/>
+		<subgroup type="PH" subtype="15" contains="ABR IFU KAL BEN MOU APA"/>
+		<subgroup type="PH" subtype="40" contains="LAG QUE RIZ BTG CAV"/>
+		<subgroup type="PH" subtype="41" contains="ROM MAD MDC MDR PLW"/>
+		<subgroup type="PK" contains="GB SD KP TA PB JK BA IS"/>
+		<subgroup type="PL" contains="DS PD SK SL WN ZP LU MA MZ LB PK PM KP OP WP LD"/>
+		<subgroup type="PS" contains="DEB QQA RFH HBN JEN NGZ RBH TBS GZA JRH NBS BTH JEM SLT TKM KYS"/>
+		<subgroup type="PT" contains="01 02 05 09 12 04 06 10 11 15 16 30 03 17 07 13 14 08 18 20"/>
+		<subgroup type="PW" contains="212 214 224 228 218 004 227 350 002 010 150 222 226 370 050 100"/>
+		<subgroup type="PY" contains="12 15 3 8 9 19 6 7 ASU 4 1 5 13 16 2 10 11 14"/>
+		<subgroup type="QA" contains="US WA ZA RA DA KH MS"/>
+		<subgroup type="RO" contains="BH IF IS VS B GL SM SV TR VL VN BR CT IL MH MM OT PH BZ DJ HD HR TM AG BC GJ SJ BV GR NT TL BN CL CS CV DB MS AB AR BT CJ SB"/>
+		<subgroup type="RS" contains="11 13 16 KM VO 20 21 22 24 09 10 19 00 12 14 15 23 08 18 17"/>
+		<subgroup type="RS" subtype="KM" contains="27 25 26 28 29"/>
+		<subgroup type="RS" subtype="VO" contains="01 05 03 04 02 07 06"/>
+		<subgroup type="RU" contains="UD CU DA IRK KAM KHA MAG NGR NIZ ORE ORL PSK SVE YAR ZAB TYU ALT IVA KDA KEM KHM KK LIP ME MO PNZ SA SMO VLG AST BU CHU STA YAN YEV BEL IN KR KRS MOW RYA SAK TA TOM TUL ULY VLA VOR BRY CHE KGN KIR MOS SAM TAM AMU KL KOS MUR OMS TY AD BA KC KLU LEN NVS PER TVE VGG AL ARK CE KB KGD KO KYA NEN PRI ROS SAR SE SPE"/>
+		<subgroup type="RW" contains="03 04 01 02 05"/>
+		<subgroup type="SA" contains="02 11 12 14 08 03 04 10 07 01 05 06 09"/>
+		<subgroup type="SB" contains="WE IS CE CT ML MK RB GU TE CH"/>
+		<subgroup type="SC" contains="24 05 07 10 11 16 18 25 08 19 12 13 04 17 15 20 21 23 01 02 09 14 22 03 06"/>
+		<subgroup type="SD" contains="GD RS DE KH NO DS SI DN DW GZ NW DC KA KN KS NB NR"/>
+		<subgroup type="SE" contains="I N S T O X K U W Y E AB D G Z BD F AC C H M"/>
+		<subgroup type="SG" contains="02 03 04 01 05"/>
+		<subgroup type="SH" contains="HL TA AC"/>
+		<subgroup type="SI" contains="003 005 008 018 024 033 037 042 044 057 070 075 081 094 095 111 113 114 134 143 147 151 160 168 175 187 195 210 212 007 016 022 028 045 051 065 067 068 074 079 080 082 085 088 109 116 125 126 142 148 153 159 162 166 174 180 199 036 047 061 086 092 093 102 107 129 137 149 150 152 154 163 172 178 201 001 019 025 027 032 034 039 040 053 058 060 084 091 099 104 121 135 157 170 171 177 179 181 184 186 198 200 203 211 004 006 009 015 031 041 046 048 066 069 071 072 076 078 090 097 100 103 120 136 156 161 173 182 190 192 010 011 013 020 021 023 029 038 049 052 063 073 077 083 089 096 110 115 118 123 124 130 131 132 133 146 165 176 185 188 189 191 194 196 204 205 208 012 014 017 030 059 087 098 101 106 108 117 119 127 138 139 140 155 158 164 183 197 206 207 209 002 026 035 043 050 054 055 056 062 064 105 112 122 128 141 144 167 169 193 202"/>
+		<subgroup type="SK" contains="ZI PV TA KI BC NI BL TC"/>
+		<subgroup type="SL" contains="S N E W"/>
+		<subgroup type="SM" contains="01 05 03 06 08 02 04 09 07"/>
+		<subgroup type="SN" contains="TH KL SE DK KD SL FK KA ZG KE LG DB MT TC"/>
+		<subgroup type="SO" contains="GA HI SH BY JD MU SA SD SO WO BK BR BN AW GE JH NU TO"/>
+		<subgroup type="SR" contains="WA CM MA SA CR PM BR NI PR SI"/>
+		<subgroup type="SS" contains="EE BW NU UY BN WR EC EW JG LK"/>
+		<subgroup type="ST" contains="S P"/>
+		<subgroup type="SV" contains="CU SS CH AH SA SO PA SM CA UN LI SV MO US"/>
+		<subgroup type="SY" contains="DI ID RD TA DY LA RA QU SU DR HI HA HL HM"/>
+		<subgroup type="SZ" contains="SH MA LU HH"/>
+		<subgroup type="TD" contains="LC ME WF EE EO KA LR SI BO GR TA TI BG CB LO MA BA HL MO MC ND OD SA"/>
+		<subgroup type="TG" contains="K C P S M"/>
+		<subgroup type="TH" contains="10 43 51 57 63 70 77 82 92 93 21 22 55 56 60 65 67 94 95 16 24 35 39 46 48 54 66 80 S 14 20 47 49 52 58 61 85 23 27 37 42 45 72 74 84 13 15 18 30 32 71 73 83 86 91 38 11 17 19 34 36 41 44 75 90 96 12 25 26 31 33 40 50 53 62 64 76 81"/>
+		<subgroup type="TJ" contains="DU KT SU GB"/>
+		<subgroup type="TL" contains="AL OE VI ER BO CO MF AN BA LA DI LI MT"/>
+		<subgroup type="TM" contains="B A S D L M"/>
+		<subgroup type="TN" contains="13 42 43 53 73 12 21 72 34 41 52 83 23 51 71 33 11 14 31 61 81 82 22 32"/>
+		<subgroup type="TO" contains="02 03 04 01 05"/>
+		<subgroup type="TR" contains="14 38 41 44 58 68 71 73 01 16 19 20 34 47 49 57 66 69 75 77 78 03 08 15 22 25 27 29 40 45 56 67 70 02 05 11 13 17 43 52 60 61 62 80 10 18 30 31 32 35 37 74 21 24 28 33 46 54 65 72 39 50 53 55 63 64 76 81 04 06 07 09 12 23 26 36 42 48 51 59 79"/>
+		<subgroup type="TT" contains="PED SIP ARI DMN PTF RCM TUP CTT PRT SJL CHA ETO SGE POS SFO WTO"/>
+		<subgroup type="TV" contains="NKF NMG FUN NMA NUI NIT VAI NKL"/>
+		<subgroup type="TW" contains="KHH TTT CYI CYQ HUA HSZ PEN PIF TPE TPQ CHA ILA TNN TXQ YUN NAN TAO TNQ TXG HSQ MIA KEE KHQ"/>
+		<subgroup type="TZ" contains="02 04 05 07 27 28 29 30 01 12 15 23 19 25 10 17 11 21 24 03 08 09 16 18 13 22 06 14 20 26"/>
+		<subgroup type="UA" contains="09 21 23 32 35 59 05 63 74 12 48 56 71 26 51 77 40 53 14 43 46 18 30 68 07 61 65"/>
+		<subgroup type="UG" contains="W C E N"/>
+		<subgroup type="UG" subtype="W" contains="420 421 422 423 424 425 401 403 415 419 404 411 413 416 414 417 418 405 407 409 412 402 406 408 410"/>
+		<subgroup type="UG" subtype="C" contains="117 118 119 120 121 122 102 123 124 104 107 116 103 101 106 109 110 112 113 105 115 108 111 114"/>
+		<subgroup type="UG" subtype="E" contains="225 226 227 228 229 230 231 232 210 201 211 217 224 204 209 212 223 202 207 205 208 222 203 206 213 214 215 218 219 221 216 220"/>
+		<subgroup type="UG" subtype="N" contains="322 323 324 325 326 327 328 329 330 331 306 309 310 313 318 302 303 311 304 312 319 301 308 314 315 317 316 320 305 307 321"/>
+		<subgroup type="UM" contains="71 84 86 79 89 76 67 81 95"/>
+		<subgroup type="US" contains="AS GA KS MN TX UM AK AL CO KY MP NY RI SC SD WA DC GU IA OH OR CA DE HI MA MT NC NE NJ VI CT FL IN OK UT WI WV ID IL MD ME MO MS NM PA VT WY AZ LA ND NH NV VA AR MI PR TN"/>
+		<subgroup type="UY" contains="CO LA RN SA DU FD FS RV CL MA RO TA SJ AR PA SO CA MO TT"/>
+		<subgroup type="UZ" contains="JI NG FA QA AN QR SA SI SU XO TK TO BU NW"/>
+		<subgroup type="VC" contains="01 06 02 05 03 04"/>
+		<subgroup type="VE" contains="D P S F H I Z J K O U C Y A B L N R T W X E M G V"/>
+		<subgroup type="VN" contains="06 18 22 51 63 69 32 36 52 54 56 58 73 02 13 20 29 66 68 23 26 33 34 44 45 05 14 25 47 61 67 HP SG 09 21 24 40 43 46 50 55 59 70 07 30 35 37 39 57 72 CT HN 01 03 04 27 28 31 41 49 53 71 DN"/>
+		<subgroup type="VU" contains="SEE MAP PAM SAM TOB TAE"/>
+		<subgroup type="WS" contains="SA AA FA GE AT PA TU VF GI AL VS"/>
+		<subgroup type="YE" contains="HD HJ SN IB MR AD DH SA MA DA SH AM BA AB JA SD HU LA MW RA TA"/>
+		<subgroup type="ZA" contains="NL WC NC GT EC MP FS LP NW"/>
+		<subgroup type="ZM" contains="05 01 10 02 06 07 04 03 08 09"/>
+		<subgroup type="ZW" contains="MA MC MS BU HA MI MW ME MN MV"/>
+	</subdivisionContainment>
+</supplementalData>

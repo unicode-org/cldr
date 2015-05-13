@@ -170,7 +170,7 @@ public class GenerateSubdivisions {
                 String subregion = child.substring(child.indexOf('-')+1);
                 System.out.print(subregion);
             }
-            System.out.println("</subgroup>");
+            System.out.println("\"/>");
             for (SubdivisionNode child : base2.children.values()) {
                 printXml(child,indent);
             }

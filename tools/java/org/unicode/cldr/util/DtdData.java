@@ -1166,6 +1166,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 || elementName.equals("dayPeriodRule") 
                 && (attribute.equals("type") || attribute.equals("at") || attribute.equals("after") || attribute.equals("before") || attribute.equals("from") || attribute.equals("to"))
                 || elementName.equals("metazones") && attribute.equals("type")
+                || elementName.equals("subgroup") && attribute.equals("subtype")
                 || elementName.equals("mapZone") && (attribute.equals("other") || attribute.equals("territory"))
                 || elementName.equals("postCodeRegex") && attribute.equals("territoryId")
                 || elementName.equals("calendarPreference") && attribute.equals("territories")

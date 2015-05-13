@@ -36,6 +36,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
@@ -559,8 +560,6 @@ public class SurveyAjax extends HttpServlet {
                                     }
                                 }
 
-                                final String origValue2 = val;
-
                                 if (val != null) {
                                     if (DEBUG)
                                         System.err.println("val WAS " + escapeString(val));
@@ -571,12 +570,14 @@ public class SurveyAjax extends HttpServlet {
                                     if (val.isEmpty()) {
                                         otherErr = ("DAIP returned a 0 length string");
                                     }
-                                }
 
-                                if (val != null && !foundVhash) {
                                     uf = sm.getUserFile(mySession, locale);
                                     CLDRFile file = uf.cldrfile;
-                                    cc.check(xp, result, val);
+                                    String checkval = val;
+                                    if (CldrUtility.INHERITANCE_MARKER.equals(val)) {
+                                        checkval = file.getConstructedBaileyValue(xp, null, null);
+                                    }
+                                    cc.check(xp, result, checkval);
                                     dataEmpty = file.isEmpty();
                                 }
 

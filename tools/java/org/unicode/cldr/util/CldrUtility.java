@@ -70,6 +70,9 @@ public class CldrUtility {
     // path even though a parent does.
     public static final String NO_INHERITANCE_MARKER = new String(new char[] { 0x2205, 0x2205, 0x2205 });
 
+    // Constant for "↑↑↑". Indicates a "passthru" vote to the parent locale. If CLDRFifile ever
+    // finds this value in a data field, writing of the field should be suppressed.
+    public static final String INHERITANCE_MARKER = new String(new char[] { 0x2191, 0x2191, 0x2191 });
     /**
      * Very simple class, used to replace variables in a string. For example
      * <p>

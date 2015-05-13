@@ -2593,7 +2593,9 @@ function appendItem(div,value, pClass, tr) {
 	var text = document.createTextNode(value?value:stui.str("no value"));
 	var span = document.createElement("span");
 	span.appendChild(text);
-	if(!value) { span.className = "selected"; } else if(pClass) {
+	if(!value) {
+		span.className = "selected";
+	} else if(pClass) {
 		span.className = pClass;
 	} else {
 		span.className = "value";
@@ -2781,7 +2783,11 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 		//div.className = 'd-item-selected';
 
 		var h3 = document.createElement("div");
-		var span = appendItem(h3, item.value, item.pClass); /* no need to pass in 'tr' - clicking this span would have no effect. */
+		var displayValue = item.value;
+		if (item.value == '\u2191\u2191\u2191') {
+			displayValue = theRow.inheritedValue;
+		}
+		var span = appendItem(h3, displayValue, item.pClass); /* no need to pass in 'tr' - clicking this span would have no effect. */
 		setLang(span);
 		h3.className="span";
 		if(false) { // click to copy
@@ -2837,11 +2843,10 @@ function appendExample(parent, text, loc) {
  * @param {DOM} tr which row owns the items
  * @param {JSON} theRow JSON content of this row's data
  * @param {JSON} item JSON of the specific item we are adding
- * @param {String} vHash     stringid of the item
  * @param {DOM} newButton     button prototype object
  * @param {DOM} cancelButton     cancel button object
  */
-function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
+function addVitem(td, tr, theRow, item, newButton, cancelButton) {
 //	var canModify = tr.theTable.json.canModify;
 	var div = document.createElement("div");
 	var isWinner = (td==tr.proposedcell);
@@ -2852,18 +2857,29 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 //		div.innerHTML = "<i>null: "+theRow.winningVhash+" </i>";
 		return;
 	}
+	var displayValue = item.value;
+	if (item.value == "\u2191\u2191\u2191") {
+		item.pClass = "fallback";
+		displayValue = theRow.inheritedValue;
+//		for (var i in theRow.items) {
+//			if (i.isFallback) {
+//				item = i;
+//				break;
+//			}
+//		}
+	}
 	var choiceField = document.createElement("div");
 	var wrap;
 	choiceField.className = "choice-field";
 	if(newButton) {
 		newButton.value=item.value;
-		wireUpButton(newButton,tr,theRow,vHash);
+		wireUpButton(newButton,tr,theRow,item.valueHash);
 		wrap = wrapRadio(newButton);
 		choiceField.appendChild(wrap);
 	}
     var subSpan = document.createElement("span");
     subSpan.className = "subSpan";
-	var span = appendItem(subSpan,item.value,item.pClass,tr);
+	var span = appendItem(subSpan,displayValue,item.pClass,tr);
 	choiceField.appendChild(subSpan);
 	
 	setLang(span);
@@ -2875,7 +2891,7 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 	if(item.votes && !isWinner) {
 		addIcon(choiceField,"i-vote");
 
-		if(vHash == theRow.voteVhash && theRow.canFlagOnLosing && !theRow.rowFlagged){
+		if(item.valueHash == theRow.voteVhash && theRow.canFlagOnLosing && !theRow.rowFlagged){
 			var newIcon = addIcon(choiceField,"i-stop"); // DEBUG
 			/*
 			listenFor(newIcon, "click", function(e) {
@@ -2889,8 +2905,9 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 		}
 	}
 	if(newButton && 
-			theRow.voteVhash == vHash &&
-			vHash !== '' &&  // not 'no opinion'
+			theRow.voteVhash == item.valueHash &&
+			// vHash !== '' &&  // not 'no opinion'
+			theRow.items[theRow.voteVhash].votes &&
 			theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes) {
 		var overrideTag = createChunk(theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes,"span","i-override");		
 		choiceField.appendChild(overrideTag);
@@ -2905,13 +2922,13 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 	   item.pClass.substring(0, inheritedClassName.length)!=inheritedClassName && 
 	   item.pClass.substring(0, defaultClassName.length)!=defaultClassName) {
 		cancelButton.value=item.value;
-		wireUpCancelButton(cancelButton,tr,theRow,vHash);
+		wireUpCancelButton(cancelButton,tr,theRow,item.valueHash);
 		choiceField.appendChild(cancelButton);
 		$(cancelButton).tooltip();
 	}
 
     // wire up the onclick
-	td.showFn = item.showFn = showItemInfoFn(theRow,item,vHash,newButton,div);
+	td.showFn = item.showFn = showItemInfoFn(theRow,item,item.valueHash,newButton,div);
 	div.popParent = tr;
 	listenToPop(null, tr, div, td.showFn);
 	td.appendChild(div);
@@ -3083,7 +3100,11 @@ function updateRow(tr, theRow) {
 					}
 					
 					setLang(valdiv);
-					appendItem(valdiv, value, calcPClass(value, vr.winningValue), tr);
+					if (value == '\u2191\u2191\u2191') {
+						appendItem(valdiv, stui.str("voteInfo_acceptInherited"), "fallback", tr);
+					} else {
+					    appendItem(valdiv, value, calcPClass(value, vr.winningValue), tr);
+					}
 					valdiv.appendChild(isection);
 					vrow.appendChild(vvalue);
 					
@@ -3414,20 +3435,19 @@ function updateRow(tr, theRow) {
 	setLang(children[config.proposedcell]);
 	tr.proposedcell = children[config.proposedcell];
 	if(theRow.items && theRow.winningVhash == "") {
-		// find the bailey value
-		var theBaileyValue = null;
+		// find the fallback value
+		var theFallbackValue = null;
 		for(var k in theRow.items) {
-			if(theRow.items[k].isBailey) {
-				theBaileyValue = k;
+			if(theRow.items[k].isFallback) {
+				theFallbackValue = k;
 			}
 		}
-		if(theBaileyValue !== null) {
-			theRow.winningVhash = theBaileyValue;
-			theRow.items[theBaileyValue].pClass = "fallback";
+		if(theFallbackValue !== null) {
+			theRow.winningVhash = theFallbackValue;
 		}
 	}
 	if(theRow.items&&theRow.winningVhash) {
-		addVitem(children[config.proposedcell],tr,theRow,theRow.items[theRow.winningVhash],theRow.winningVhash,cloneAnon(protoButton), null);
+		addVitem(children[config.proposedcell],tr,theRow,theRow.items[theRow.winningVhash],cloneAnon(protoButton), null);
 	} else {
 		children[config.proposedcell].showFn = function(){};  // nothing else to show
 	}
@@ -3500,7 +3520,7 @@ function updateRow(tr, theRow) {
 				else {
 					toAddVoteButton(btn);
 				}
-				stStopPropagation(event);
+				stStopPropagation(e);
 				return false;
 			}
 			stStopPropagation(e);
@@ -3518,9 +3538,9 @@ function updateRow(tr, theRow) {
 		}
 		hadOtherItems=true;
 		if(theRow.items[k].pClass == 'fallback' || theRow.items[k].pClass == 'fallback_code' || theRow.items[k].pClass == 'alias')
-			addVitem(children[config.othercell],tr,theRow,theRow.items[k],k,cloneAnon(protoButton), cloneAnon(null));
+			addVitem(children[config.othercell],tr,theRow,theRow.items[k],cloneAnon(protoButton), cloneAnon(null));
 		else
-			addVitem(children[config.othercell],tr,theRow,theRow.items[k],k,cloneAnon(protoButton), cloneAnon(cancelButton));
+			addVitem(children[config.othercell],tr,theRow,theRow.items[k],cloneAnon(protoButton), cloneAnon(cancelButton));
 		children[config.othercell].appendChild(document.createElement("hr"));
 	}
 	

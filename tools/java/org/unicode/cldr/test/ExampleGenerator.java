@@ -272,6 +272,16 @@ public class ExampleGenerator {
                     return result;
                 }
             }
+            // If generating examples for an inheritance marker, then we need to find the
+            // "real" value to generate from.
+            if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                if (type.equals(ExampleType.ENGLISH)) {
+                    value = englishFile.getConstructedBaileyValue(xpath, null, null);                  
+                } else {
+                    value = cldrFile.getConstructedBaileyValue(xpath, null, null);
+                }
+            }
+            
             // result is null at this point. Get the real value if we can.
             parts.set(xpath);
             if (parts.contains("dateRangePattern")) { // {0} - {1}

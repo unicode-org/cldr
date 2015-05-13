@@ -1089,6 +1089,11 @@ abstract public class CheckCLDR {
         if (value == cldrFileToCheck.getBaileyValue(path, null, null) && value != cldrFileToCheck.getWinningValue(path)) {
             return this;
         }
+        // If we're being asked to run tests for an inheritance marker, then we need to change it
+        // to the "real" value first before running tests. Testing the value "↑↑↑" doesn't make sense.
+        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+            value = cldrFileToCheck.getConstructedBaileyValue(path, null, null);
+        }
         CheckCLDR instance = handleCheck(path, fullPath, value, options, result);
         Iterator<CheckStatus> iterator = result.iterator();
         // Filter out any errors/warnings that match the filter list in CheckCLDR-exceptions.txt.
@@ -1189,6 +1194,11 @@ abstract public class CheckCLDR {
         public CheckCLDR handleCheck(String path, String fullPath, String value,
             Options options, List<CheckStatus> result) {
             result.clear();
+            // If we're being asked to run tests for an inheritance marker, then we need to change it
+            // to the "real" value first before running tests. Testing the value "↑↑↑" doesn't make sense.
+            if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                value = getCldrFileToCheck().getConstructedBaileyValue(path, null, null);
+            }
             for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext();) {
                 CheckCLDR item = it.next();
                 // skip proposed items in final testing.

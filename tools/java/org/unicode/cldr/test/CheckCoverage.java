@@ -78,7 +78,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
         }
 
         // check to see if the level is good enough
-        Level level = coverageLevel.getLevel(path);
+        Level level = coverageLevel != null ? coverageLevel.getLevel(path) : Level.UNDETERMINED;
 
         if (level == Level.UNDETERMINED) return this; // continue if we don't know what the status is
         if (requiredLevel.compareTo(level) >= 0) {

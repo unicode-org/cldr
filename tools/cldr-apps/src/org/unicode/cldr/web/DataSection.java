@@ -142,7 +142,11 @@ public class DataSection implements JSONString {
 
             public String getValueHash() {
                 if (valueHash == null) {
-                    valueHash = DataSection.getValueHash(value);
+                    if (isFallback) {
+                        valueHash = DataSection.getValueHash(CldrUtility.INHERITANCE_MARKER);
+                    } else {
+                        valueHash = DataSection.getValueHash(value);
+                    }
                 }
                 return valueHash;
             }
@@ -173,9 +177,7 @@ public class DataSection implements JSONString {
 
             public Set<UserRegistry.User> getVotes() {
                 if (!checkedVotes) {
-                    if (!isFallback) {
-                        votes = ballotBox.getVotesForValue(xpath, value);
-                    }
+                    votes = ballotBox.getVotesForValue(xpath, value);
                     checkedVotes = true;
                 }
                 return votes;
@@ -578,7 +580,7 @@ public class DataSection implements JSONString {
                     .put("isBailey", isBailey)
                     //                        .put("inheritFrom", inheritFrom)
                     //                        .put("inheritFromDisplay", ((inheritFrom != null) ? inheritFrom.getDisplayName() : null))
-                    //                        .put("isFallback", isFallback)
+                    .put("isFallback", isFallback)
                     .put("pClass", getPClass())
                     .put("tests", SurveyAjax.JSONWriter.wrap(this.tests));
                 Set<User> theVotes = getVotes();
@@ -905,6 +907,14 @@ public class DataSection implements JSONString {
         }
 
         public CandidateItem getItem(String value) {
+            if (value.equals(CldrUtility.INHERITANCE_MARKER)) {
+                for (CandidateItem item : items.values()) {
+                    if (item.isFallback) {
+                        return item;
+                    }
+                }
+                return null;
+            }
             return items.get(value);
         }
 
@@ -969,6 +979,13 @@ public class DataSection implements JSONString {
         CandidateItem getWinningItem() {
             if (winningValue == null)
                 return null;
+            if (winningValue.equals(CldrUtility.INHERITANCE_MARKER)) {
+                for (CandidateItem ci : items.values()) {
+                    if (ci.isFallback) {
+                        return ci;
+                    }
+                }
+            }
             CandidateItem ci = items.get(winningValue);
             //            if (DEBUG)
             //                System.err.println("WV = '" + winningValue + "' and return is " + ci);
@@ -1628,7 +1645,9 @@ public class DataSection implements JSONString {
                 } else { // item already contained
                     CandidateItem otherItem = items.get(value);
                     otherItem.isBailey = true;
-                    // throw new InternalError("could not get inherited value: "
+                    otherItem.isFallback = true;
+                    inheritedValue = otherItem;
+                   // throw new InternalError("could not get inherited value: "
                     // + xpath);
                 }
             }
@@ -1730,6 +1749,7 @@ public class DataSection implements JSONString {
                 jo.put("voteVhash", voteVhash);
                 jo.put("voteResolver", SurveyAjax.JSONWriter.wrap(resolver));
                 jo.put("items", itemsJson);
+                jo.put("inheritedValue", inheritedValue != null ? inheritedValue.value : null);
                 jo.put("canFlagOnLosing", resolver.getRequiredVotes() == VoteResolver.HIGH_BAR);
                 if (ph.getSurveyToolStatus() == SurveyToolStatus.LTR_ALWAYS) {
                     jo.put("dir", "ltr");

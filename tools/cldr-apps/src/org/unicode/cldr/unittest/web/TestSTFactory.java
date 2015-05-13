@@ -294,7 +294,7 @@ public class TestSTFactory extends TestFmwk {
         String changedTo2 = null;
         CLDRLocale locale2 = CLDRLocale.getInstance("de_CH");
         // Can't (and shouldn't) try to do this test if de_CH is configured as read-only.
-        if (SpecialLocales.getType(locale2).equals(SpecialLocales.Type.readonly)) {
+        if (SpecialLocales.Type.readonly.equals(SpecialLocales.getType(locale2))) {
             return;
         }
 

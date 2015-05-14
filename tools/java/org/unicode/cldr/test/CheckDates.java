@@ -317,7 +317,7 @@ public class CheckDates extends FactoryCheckCLDR {
         try {
             if (path.indexOf("[@type=\"abbreviated\"]") >= 0) {
                 String pathToWide = path.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
-                String wideValue = getCldrFileToCheck().getWinningValue(pathToWide);
+                String wideValue = getCldrFileToCheck().getWinningValueWithBailey(pathToWide);
                 if (wideValue != null && isTooMuchWiderThan(value,wideValue)) {
                     CheckStatus item = new CheckStatus()
                         .setCause(this)
@@ -329,9 +329,9 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
                 boolean thisPathHasPeriod = value.contains(".");
                 for (String lgPath : LogicalGrouping.getPaths(getCldrFileToCheck(), path)) {
-                    String lgPathValue = getCldrFileToCheck().getWinningValue(lgPath);
+                    String lgPathValue = getCldrFileToCheck().getWinningValueWithBailey(lgPath);
                     String lgPathToWide = lgPath.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
-                    String lgPathWideValue = getCldrFileToCheck().getWinningValue(lgPathToWide);
+                    String lgPathWideValue = getCldrFileToCheck().getWinningValueWithBailey(lgPathToWide);
                     // This helps us get around things like "de març" vs. "març" in Catalan
                     if (wideValue != null && wideValue.lastIndexOf(" ") < 3) {
                         wideValue = wideValue.substring(wideValue.lastIndexOf(" ") + 1);
@@ -353,7 +353,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
             } else if (path.indexOf("[@type=\"narrow\"]") >= 0) {
                 String pathToAbbr = path.replace("[@type=\"narrow\"]", "[@type=\"abbreviated\"]");
-                String abbrValue = getCldrFileToCheck().getWinningValue(pathToAbbr);
+                String abbrValue = getCldrFileToCheck().getWinningValueWithBailey(pathToAbbr);
                 if (abbrValue != null && isTooMuchWiderThan(value,abbrValue)) {
                     CheckStatus item = new CheckStatus()
                         .setCause(this)
@@ -365,7 +365,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
             } else if (path.indexOf("/eraNarrow") >= 0) {
                 String pathToAbbr = path.replace("/eraNarrow", "/eraAbbr");
-                String abbrValue = getCldrFileToCheck().getWinningValue(pathToAbbr);
+                String abbrValue = getCldrFileToCheck().getWinningValueWithBailey(pathToAbbr);
                 if (abbrValue != null && isTooMuchWiderThan(value,abbrValue)) {
                     CheckStatus item = new CheckStatus()
                         .setCause(this)
@@ -377,7 +377,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
             } else if (path.indexOf("/eraAbbr") >= 0) {
                 String pathToWide = path.replace("/eraAbbr", "/eraNames");
-                String wideValue = getCldrFileToCheck().getWinningValue(pathToWide);
+                String wideValue = getCldrFileToCheck().getWinningValueWithBailey(pathToWide);
                 if (wideValue != null && isTooMuchWiderThan(value,wideValue)) {
                     CheckStatus item = new CheckStatus()
                         .setCause(this)

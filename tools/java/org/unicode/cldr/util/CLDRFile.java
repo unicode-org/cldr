@@ -2947,6 +2947,21 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         final String winningPath = getWinningPath(path);
         return winningPath == null ? null : getStringValue(winningPath);
     }
+    /**
+     * Shortcut for getting the string value for the winning path.
+     * If the winning value is an INHERITANCE_MARKER (used in survey
+     * tool), then the Bailey value is returned.
+     * 
+     * @param path
+     * @return
+     */
+    public String getWinningValueWithBailey(String path) {
+        String winningValue = getWinningValue(path);
+        if (CldrUtility.INHERITANCE_MARKER.equals(winningValue)) {
+            winningValue = getBaileyValue(path,null,null);
+        }
+        return winningValue;
+    }
 
     /**
      * Return the distinguished paths that have the specified value. The pathPrefix and pathMatcher

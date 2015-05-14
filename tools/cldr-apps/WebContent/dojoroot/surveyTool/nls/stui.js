@@ -260,6 +260,7 @@ define({
 		special_search:  "Search",
 		special_mail: "Notifications (SMOKETEST ONLY)",
 		special_statistics: "Statistics",
+		special_users: "Users",
 		special_r_compact: "Numbers",
 		special_r_datetime: "Datetime",
 		special_r_zones: "Zones",

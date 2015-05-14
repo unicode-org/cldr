@@ -167,7 +167,7 @@ public class MailSender implements Runnable {
                 SurveyLog.warnOnce("************* mail processing disabled for derby. Sorry. **************");
             } else {
                 int firstTime = SurveyMain.isUnofficial() ? 5 : 60; // for official use, give some time for ST to settle before starting on mail s ending.
-                int eachTime = 6; /* Check for outbound mail every 6 seconds */// SurveyMain.isUnofficial()?6:45; // 63;
+                int eachTime = 60; /* Check for outbound mail every minute */// SurveyMain.isUnofficial()?6:45; // 63;
                 periodicThis = SurveyMain.getTimer().scheduleWithFixedDelay(this, firstTime, eachTime, TimeUnit.SECONDS);
                 System.out.println("Set up mail thread every " + eachTime + "s starting in " + firstTime + "s - waiting count = "
                     + DBUtils.sqlCount(COUNTLEFTSQL));

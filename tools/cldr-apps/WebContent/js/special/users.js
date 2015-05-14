@@ -18,7 +18,7 @@ define("js/special/users.js", ["js/special/SpecialPage.js"], function(SpecialPag
 		var ourDiv = createChunk("","div","");
 
 		// set up the 'right sidebar'
-		showInPop2("This Is A users Page", null, null, null, true); /* show the box the first time */					
+		showInPop2(stui.str("users_guidance"), null, null, null, true); /* show the box the first time */					
 		
 		// No longer loading
 		hideLoader(null);
@@ -90,7 +90,7 @@ define("js/special/users.js", ["js/special/SpecialPage.js"], function(SpecialPag
 				u.infoSpan = $('<span />');
 				u.infoSpan.appendTo(u.obj);
 
-				u.infoButton = $('<button />', {text: 'Info'});
+				u.infoButton = $('<button />', {text: stui.str('users_infoVotesButton')});
 				u.infoButton.appendTo(u.obj);
 				
 				u.infoButton.on('click',  {
@@ -106,7 +106,11 @@ define("js/special/users.js", ["js/special/SpecialPage.js"], function(SpecialPag
 							url: xurl2
 						})
 						.done(function(data2) {
-							$(u.infoSpan).text(JSON.stringify(data2.user_oldvotes.data));
+							if(data2.user_oldvotes.data.length == 0) {
+								$(u.infoSpan).text('no old votes.');
+							} else {
+								$(u.infoSpan).text('old votes: ' + 	JSON.stringify(data2.user_oldvotes.data));
+							}
 						})
 						.fail(function(err) {
 							$(u.infoSpan).addClass('ferrbox');
@@ -114,7 +118,7 @@ define("js/special/users.js", ["js/special/SpecialPage.js"], function(SpecialPag
 						});
 				});
 
-				u.loadOldVotes = $('<button />', {text: 'loadOldVotes'});
+				u.loadOldVotes = $('<button />', {text: stui.str('users_loadVotesButton')});
 				u.loadOldVotes.appendTo(u.obj);
 				
 				u.loadOldVotes.on('click', {

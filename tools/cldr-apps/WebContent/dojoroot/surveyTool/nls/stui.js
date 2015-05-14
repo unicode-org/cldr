@@ -293,6 +293,9 @@ define({
 		forumNewPostFlagButton_desc: "Clicking this will bring up a form to reply to this particular item.",
 		
 		user_me: "Me",
+		users_guidance: "[BETA] This is a Users page. <p>Uncheck 'Hide Locked' to include locked users. <p>To 'View Old Vote Stats', click the so-named button. <p>To transfer votes, click 'Transfer Old Votes' on the user you want to transfer votes TO, and give the email address of the user to transfer old votes FROM, the locale to transfer FROM, and the locale to transfer TO. This button will also reset the 'Do you want import old votes?' button for that user. After import, look for the 'result_count': value under the TO user indicating how many votes actually transferred. ",
+		users_infoVotesButton: "View Old Vote Stats",
+		users_loadVotesButton: "Transfer Old Votes...",
 		
 		special_general: "Please hover over the sidebar to choose a section to begin entering data. If you have not already done so, please read the <a target='_blank' href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Dashboard to see all the errors, warnings, and missing items in one place.",
 		special_forum: "Forum Posts",

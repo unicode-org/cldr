@@ -3067,6 +3067,10 @@ public class DataSection implements JSONString {
                 CandidateItem oldItem = p.addItem(p.oldValue);
                 oldItem.isOldValue = true;
             }
+            if (p.oldValue != null && p.oldValue.equals(value) && (v == null || !v.contains(CldrUtility.INHERITANCE_MARKER))) {
+                // if "vote for inherited" isn't already represented as an item, add it.
+                p.addItem(CldrUtility.INHERITANCE_MARKER);
+            }
 
             p.coverageValue = coverageValue;
 

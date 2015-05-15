@@ -7,39 +7,48 @@ var os = require('os');
 var ping = require("ping");
 var    url = require("url");
 var    request = require("request");
-var    orm = require("orm");
-var    CONFIG = require("config").SurveyWatcher;
-var VERBOSE = CONFIG.watcher.verbose || false;
+var Cloudant = require('cloudant');
+var gaas = require('gaas');
+var VERBOSE = process.env.STWATCHER_VERBOSE || false;
 // local data
 var hosts = {};
 var uhosts = {};
 var servers = {};
 var hostname = os.hostname();
+var appEnv = require('cfenv').getAppEnv();
+var cloudantCred = appEnv.getServiceCreds(/.*[Cc]loudant.*/);
+if(cloudantCred == {}) throw "mising cloudant creds";
+var appsToWatch = appEnv.getServices();
 
 console.log("Setup stwatcher.. verbose="+VERBOSE);
 
-for ( var k in CONFIG.servers ) {
-    if(CONFIG.servers[k].skip) {
+var matchInstances = /SurveyTool.*/;
+
+for ( var k in appsToWatch ) {
+    if( ! matchInstances.test(k)) {
         continue;
     }
-    if(CONFIG.servers[k].url.substr(CONFIG.servers[k].url.length-1)!='/') {
-        CONFIG.servers[k].url = CONFIG.servers[k].url + '/'; // always end with /
+    var serviceInstance = appsToWatch[k];
+    if (!serviceInstance.credentials.url) throw "Service " + k + " didn't have credentials.url";
+    if (!serviceInstance.credentials.hostname) throw "Service " + k + " didn't have credentials.hostname";
+
+    var theUrl  = serviceInstance.credentials.url;
+    console.log("Considering " + k + " URL " + theUrl);
+    if(!hosts[serviceInstance.credentials.hostname]) {
+        hosts[serviceInstance.credentials.hostname] = { stealth: false, servers: {} };
     }
-    var theurl  = url.parse(CONFIG.servers[k].url);
-    console.log("Considering " + k + " URL " + CONFIG.servers[k].url);
-    if(!hosts[theurl.hostname]) {
-        hosts[theurl.hostname] = { stealth: false, servers: {} };
-    }
-    servers[k] = { host: theurl.hostname };
-    hosts[theurl.hostname].servers[k] = { url: CONFIG.servers[k].url }; // only URL. no other leak.
-    if(CONFIG.servers[k].stealth) {
-        hosts[theurl.hostname].stealth = true;
+    servers[k] = { host: serviceInstance.credentials.hostname };
+    hosts[serviceInstance.credentials.hostname].servers[k] = { url: theUrl }; // only URL. no other leak.
+    
+    if(serviceInstance.credentials.stealth) {
+        hosts[serviceInstance.credentials.hostname].stealth = true;
     }
 }
 
 function st_notify(opts) {
-    if(VERBOSE) console.log("Event: " + JSON.stringify(opts));
-
+    if(VERBOSE || true) console.log("Event: " + JSON.stringify(opts));
+    return; // ------------------------------------------------------------------------
+    
     var notifyList = null;
 
     if(opts.event == 'boot') {
@@ -194,10 +203,6 @@ st_notify({ event: "boot",
           });
 
 
-if(!CONFIG.watcher.dbpath) {
-    throw("No config/SurveyWatcher.watcher.dbpath - needs to be of the form mysql://username:password@host/database");
-}
-
 exports.latest = function(req,res) {
     exports._latest(req,res);
 }
@@ -215,60 +220,35 @@ exports._history = function(req,res) {
     res.send("Not setup yet");
 }
 
-orm.connect(CONFIG.watcher.dbpath, function (orm_err, db) {
-    if(orm_err) {
-        console.log("Error with database: " + orm_err.toString());
-        throw orm_err;
+// patch this
+if ( ! cloudantCred.account ) {
+    cloudantCred.account = cloudantCred.username;
+}
+
+    var db;
+    
+Cloudant(cloudantCred, function(err, cloudant) {
+    if(err) {
+        console.log("Error with database: " + err.toString());
+        throw err;
     }
 
-    // setup DB stuff
-    var HostStatus = db.define("hoststatus", {
-        host      : String,
-        when      : Date,
-        alive     : Boolean,
-        ns        : Number
-    }, {
-        methods: {
-        },
-        validations: {
-        }
-    });
-
-    var FetchStatus = db.define("fetchstatus", {
-        server    : String,
-        when      : Date,
-        ns        : Number,
-        probation : Boolean,
-        isSetup   : Boolean,
-        isBusted  : Boolean,
-        users     : Number,
-        guests    : Number,
-        pages     : Number,
-        dbused    : Number,
-        mem       : String,
-        load      : String,
-        info      : String,
-        busted    : String,
-        uptime    : String,
-        stamp     : Date, // boot time, relatively
-        statusCode : Number 
-    }, {
-        methods: {
-        },
-        validations: {
-        }
-    });
-    
-    db.sync(function (err) {
-        !err && console.log("db synced!");
+    cloudant.db.create('st-watcher', function() {
+    db = cloudant.db.use('st-watcher', true);
     
     
-    function postHostStatus(anUpdate) {
+    function postHostStatus(anUpdate, cb) {
         hosts[anUpdate.host].latestPing = anUpdate;
-        HostStatus.create( [anUpdate], 
-                           function (err, items) {
-                               if(err) throw(err);
-                           });
+        db.insert(anUpdate, function(err, body, header){
+            if(!err) {
+                //cb(null);
+                //reply({ok: true, _rev: body.rev, _id: body.id});
+            } else {
+                server.log('error', err);
+                //reply({err: true});
+                //cb(err);
+            }
+        });
     }
  
     function postFetchStatus(anUpdate, json) {
@@ -306,13 +286,13 @@ orm.connect(CONFIG.watcher.dbpath, function (orm_err, db) {
                           });
             }
         }
-        FetchStatus.create( [anUpdate], 
-            function (err, items) {
+        db.insert(anUpdate, function(err,body,header) {
                 if(err) throw(err);
-                newStatus.id = items[0].id;
+                //newStatus.id = items[0].id; TODO: get _rev
                 servers[anUpdate.server].lastKnownStatus = newStatus;
-            });
+        });
     }
+
     
 
 exports.poll = function() {
@@ -350,7 +330,7 @@ exports.poll = function() {
         for(var j in hosts[k].servers) {
             var server = hosts[k].servers[j];
 
-            var theurl  = url.parse(server.url);
+            var theurl  = url.parse(server.url+'/');
             var statusurl = url.format(url.resolve(theurl, 'SurveyAjax?what=status'));
 
             if(VERBOSE) console.log("* " + statusurl);
@@ -418,37 +398,35 @@ exports.poll = function() {
             })(server,j));
         }
     }
-    db.sync(function (err) {
-        if(err) throw(err);
-        //!err && console.log("db synced on update!");
-    });
+
     return latestUpdate;
 };
 
-    exports._pollsec =  (CONFIG.watcher.polltime || 3600);
-    exports._probsec =  (CONFIG.watcher.probation_time || 500);
+    exports._pollsec =  (3600);
+    exports._probsec =  (500);
     
     exports._interval = setInterval(exports.poll,exports._pollsec*1000);
     
     // get the last time for each server
-    for(var k in servers) {
-        (function(k){return function(){FetchStatus.find({server: k}, 1, ["when","Z"], function(err, stat) {
-            if(err) throw (err);
-            
-            if(stat && stat.length >0) {
-                var res = stat[0];
-                var up = (res.isBusted==false && res.statusCode == 200);
-                servers[k].lastKnownStatus={ when: res.when, up: up,
-                                             probation: res.probation,
-                                             id: res.id };
-                if(VERBOSE) console.log("SERVER " + k + " : up="+up);
-            } else {
-                if(VERBOSE) console.log("Not found: " + k);
-            }
-        });};})(k)();
-    }
+    //TODOTODO
+//    for(var k in servers) {
+//        (function(k){return function(){FetchStatus.find({server: k}, 1, ["when","Z"], function(err, stat) {
+//            if(err) throw (err);
+//            
+//            if(stat && stat.length >0) {
+//                var res = stat[0];
+//                var up = (res.isBusted==false && res.statusCode == 200);
+//                servers[k].lastKnownStatus={ when: res.when, up: up,
+//                                             probation: res.probation,
+//                                             id: res.id };
+//                if(VERBOSE) console.log("SERVER " + k + " : up="+up);
+//            } else {
+//                if(VERBOSE) console.log("Not found: " + k);
+//            }
+//        });};})(k)();
+//    }
 
-    console.log("Polling every " + CONFIG.watcher.polltime + "s");
+    //console.log("Polling every " + CONFIG.watcher.polltime + "s");
     exports.poll(); // first time
 
     // DB based now ready
@@ -469,23 +447,21 @@ exports.poll = function() {
         //if(req.query.limit) {
         //limit = Integer.parse(req.query.limit);
         //}
-
-        FetchStatus.find({server: server}, limit, ["when","Z"], function(err, stat) {
-            if(err) throw (err);
-            
-            if(stat && stat.length >0) {
-                res.send({ now: new Date().getTime(), server: server, data: stat });
-            } else {
-                res.send({ now: new Date().getTime(), server: server, err: 'not found' });
-            }
-        });
+    
+       // TODO: IMP
+       if(false) {
+//            FetchStatus.find({server: server}, limit, ["when","Z"], function(err, stat) {
+//                if(err) throw (err);
+//                
+//                if(stat && stat.length >0) {
+//                    res.send({ now: new Date().getTime(), server: server, data: stat });
+//                } else {
+//                    res.send({ now: new Date().getTime(), server: server, err: 'not found' });
+//                }
+//            });
+       }
     };
 
 });
 
-// set up DB versions
-
-}); // orm.connect
-
-
-
+});

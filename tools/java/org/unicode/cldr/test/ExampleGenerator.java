@@ -1404,20 +1404,20 @@ public class ExampleGenerator {
                         territoryName = value;
                     }
                     if (languageName == null) {
-                        languageName = cldrFile.getStringValue(CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, ltp.getLanguage()));
+                        languageName = cldrFile.getStringValueWithBailey(CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, ltp.getLanguage()));
                     }
                     if (scriptName == null) {
-                        scriptName = cldrFile.getStringValue(CLDRFile.getKey(CLDRFile.SCRIPT_NAME, ltp.getScript()));
+                        scriptName = cldrFile.getStringValueWithBailey(CLDRFile.getKey(CLDRFile.SCRIPT_NAME, ltp.getScript()));
                     }
                     if (territoryName == null) {
-                        territoryName = cldrFile.getStringValue(CLDRFile.getKey(CLDRFile.TERRITORY_NAME, ltp.getRegion()));
+                        territoryName = cldrFile.getStringValueWithBailey(CLDRFile.getKey(CLDRFile.TERRITORY_NAME, ltp.getRegion()));
                     }
                     languageName = languageName.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
                     scriptName = scriptName.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
                     territoryName = territoryName.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
 
-                    String localePattern = cldrFile.getStringValue("//ldml/localeDisplayNames/localeDisplayPattern/localePattern");
-                    String localeSeparator = cldrFile.getStringValue("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator");
+                    String localePattern = cldrFile.getStringValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localePattern");
+                    String localeSeparator = cldrFile.getStringValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator");
                     String scriptTerritory = format(localeSeparator, scriptName, territoryName);
                     if (!nameType.equals("script")) {
                         examples.add(invertBackground(format(localePattern, languageName, territoryName)));
@@ -1429,10 +1429,10 @@ public class ExampleGenerator {
                 } else {
                     int x = 0; // debugging
                 }
-                if (isStandAloneValue || cldrFile.getStringValue(xpath + ALT_STAND_ALONE) == null) {
+                if (isStandAloneValue || cldrFile.getStringValueWithBailey(xpath + ALT_STAND_ALONE) == null) {
                     // only do this if either it is a stand-alone form,
                     // or it isn't and there is no separate stand-alone form
-                    String codePattern = cldrFile.getStringValue("//ldml/localeDisplayNames/codePatterns/codePattern[@type=\"" + nameType + "\"]");
+                    String codePattern = cldrFile.getStringValueWithBailey("//ldml/localeDisplayNames/codePatterns/codePattern[@type=\"" + nameType + "\"]");
                     examples.add(invertBackground(format(codePattern, value)));
                 } else {
                     int x = 0; // debugging

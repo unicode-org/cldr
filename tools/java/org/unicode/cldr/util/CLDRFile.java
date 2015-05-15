@@ -2118,11 +2118,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (codeToAlt != null) {
             String alt = codeToAlt.transform(code);
             if (alt != null) {
-                result = getStringValue(path + "[@alt=\"" + alt + "\"]");
+                result = getStringValueWithBailey(path + "[@alt=\"" + alt + "\"]");
             }
         }
         if (result == null) {
-            result = getStringValue(path);
+            result = getStringValueWithBailey(path);
         }
         if (result == null && getLocaleID().equals("en")) {
             if (type == LANGUAGE_NAME) {
@@ -2271,7 +2271,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             String value = null;
             // Ignore any values from code-fallback.
             if (!getSourceLocaleID(valuePath, null).equals(XMLSource.CODE_FALLBACK_ID)) {
-                value = getStringValue(valuePath);
+                value = getStringValueWithBailey(valuePath);
             }
             if (value == null) {
                 // Get name of key instead and pair it with the type as-is.
@@ -2324,9 +2324,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         boolean onlyConstructCompound,
         Transform<String, String> altPicker) {
         return getName(localeOrTZID, onlyConstructCompound,
-            getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"),
-            getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localePattern"),
-            getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator"),
+            getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"),
+            getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localePattern"),
+            getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator"),
             altPicker);
     }
 
@@ -2961,6 +2961,21 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             winningValue = getBaileyValue(path,null,null);
         }
         return winningValue;
+    }
+    /**
+     * Shortcut for getting the string value for a path.
+     * If the string value is an INHERITANCE_MARKER (used in survey
+     * tool), then the Bailey value is returned.
+     * 
+     * @param path
+     * @return
+     */
+    public String getStringValueWithBailey(String path) {
+        String value = getStringValue(path);
+        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+            value = getBaileyValue(path,null,null);
+        }
+        return value;
     }
 
     /**

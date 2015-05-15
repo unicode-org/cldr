@@ -60,6 +60,7 @@ import org.unicode.cldr.web.WebContext.HTMLDirection;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Output;
 
 /**
  * Servlet implementation class SurveyAjax
@@ -581,7 +582,8 @@ public class SurveyAjax extends HttpServlet {
                                     CLDRFile file = uf.cldrfile;
                                     String checkval = val;
                                     if (CldrUtility.INHERITANCE_MARKER.equals(val)) {
-                                        checkval = file.getConstructedBaileyValue(xp, null, null);
+                                        Output<String> localeWhereFound = new Output<String>();
+                                        checkval = file.getBaileyValue(xp, null, localeWhereFound);
                                     }
                                     cc.check(xp, result, checkval);
                                     dataEmpty = file.isEmpty();

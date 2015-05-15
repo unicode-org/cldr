@@ -133,7 +133,12 @@ public class DataSection implements JSONString {
             public String getProcessedValue() {
                 if (value == null)
                     return null;
-                return getProcessor().processForDisplay(xpath, value);
+                try {
+                    return getProcessor().processForDisplay(xpath, value);
+                } catch(Throwable t) {
+                    if(SurveyLog.DEBUG) SurveyLog.logException(t, "While processing " + xpath + ":"+value);
+                    return value;
+                }
             }
 
             private CandidateItem(String value) {

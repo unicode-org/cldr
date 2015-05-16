@@ -127,8 +127,17 @@ var surveyUserURL = {
         RSS: "survey/feed?email=" + userEmail + "&pw=" + userPWD+ "&&feed=rss_2.0",
                 
         about: "about.jsp",
-        browse: "browse.jsp",
+        browse: "browse.jsp"
 };
+<%
+if(UserRegistry.userIsAdmin(myUser)) {
+%>
+	surveyUserURL.adminPanel = 'survey?dump=<%= SurveyMain.vap %>';
+<%
+}
+%>
+
+
 var surveyImgInfo = {
         flag: { 
             src: "flag.png",
@@ -145,6 +154,7 @@ var surveyImgInfo = {
 };
 <% } else { %>
 var surveyUser=null;
+var surveyUserURL = {};
 <% }%>
 var warnIcon = "<%= WebContext.iconHtml(request,"warn","Test Warning") %>";
 var stopIcon = "<%= WebContext.iconHtml(request,"stop","Test Error") %>";

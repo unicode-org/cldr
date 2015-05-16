@@ -4759,8 +4759,12 @@ function showV() {
 				specialItems = [
 //				    {divider: true}, // li class=nav-divider
 //				    {title: 'Manage', url:'survey?do=options' }, 
-				    
+
 				    {divider: true},
+
+					{title: 'Admin Panel', url: surveyUserURL.adminPanel, display: (surveyUser && surveyUser.userlevelName === 'ADMIN')},
+					{divider: true, display: (surveyUser && surveyUser.userlevelName === 'ADMIN')},
+				    
 				    {title: 'My Account'}, // My Account section 
 				  
 				    {title: 'Settings', level: 2, url: surveyUserURL.myAccountSetting, display: surveyUserPerms.userExist },

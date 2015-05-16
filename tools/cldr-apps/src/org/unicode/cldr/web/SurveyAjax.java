@@ -1032,8 +1032,8 @@ public class SurveyAjax extends HttpServlet {
                                         " and value is not null " +
                                         " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable + ".locale "
                                         +
-                                        " and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath and " + newVotesTable + ".locale=" + oldVotesTable
-                                        + ".locale )" +
+                                        " and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath and " + newVotesTable + ".submitter=" + oldVotesTable
+                                        + ".submitter )" +
                                         "group by locale order by locale", mySession.user.id));
                             } else {
                                 CLDRLocale locale = CLDRLocale.getInstance(loc);
@@ -1049,10 +1049,6 @@ public class SurveyAjax extends HttpServlet {
                                     if (SurveyMain.isUnofficial())
                                         System.out.println("User " + mySession.user.toString() + "  is migrating old votes in " + locale.getDisplayName());
                                     JSONObject list = new JSONObject(val);
-//                                    if (list.getString("locale").equals(locale + "snork")) {
-//                                        throw new IllegalArgumentException("Sanity error- locales " + locale + " and " + list.getString("locale")
-//                                            + " do not match");
-//                                    }
 
                                     BallotBox<User> box = fac.ballotBoxForLocale(locale);
 
@@ -1088,7 +1084,8 @@ public class SurveyAjax extends HttpServlet {
                                     {
                                         String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
                                             " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
-                                            + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath and " + newVotesTable
+                                            + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath "
+                                                + "and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter and " + newVotesTable
                                             + ".value is not null)";
                                         Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
                                         //                                        System.out.println("Running >> " + sqlStr + " -> " + rows.length);
@@ -1137,7 +1134,9 @@ public class SurveyAjax extends HttpServlet {
                                     // view old votes
                                     String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
                                         " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
-                                        + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath  and " + newVotesTable + ".value is not null)";
+                                        + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath  "
+                                            + " and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter "
+                                                + " and " + newVotesTable + ".value is not null)";
                                     Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
                                     //                                    System.out.println("Running >> " + sqlStr + " -> " + rows.length);
 

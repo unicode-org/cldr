@@ -3479,6 +3479,31 @@ function updateRow(tr, theRow) {
 		var popup;
 		input.className = "form-control input-add";
 		input.placeholder = 'Add a translation';
+		var copyWinning = document.createElement("button");
+		copyWinning.className = "copyWinning btn btn-info btn-xs";
+		copyWinning.title = "Copy Winning";
+		copyWinning.type = "submit";
+		copyWinning.innerHTML = '<span class="glyphicon glyphicon-arrow-right"></span> Winning';
+		copyWinning.onclick = function(e) {
+			var theValue = null;
+			if (theRow.items[theRow.winningVhash]) {
+				theValue = theRow.items[theRow.winningVhash].value;
+			}
+			if (theValue === '\u2191\u2191\u2191' || theValue === null) {
+				theValue = theRow.inheritedValue;
+			}
+			input.value = theValue || null;
+			input.focus();
+		}
+		var copyEnglish = document.createElement("button");
+		copyEnglish.className = "copyEnglish btn btn-info btn-xs";
+		copyEnglish.title = "Copy English";
+		copyEnglish.type = "submit";
+		copyEnglish.innerHTML = '<span class="glyphicon glyphicon-arrow-right"></span> English';
+		copyEnglish.onclick = function(e) {
+		    input.value = theRow.displayName || null;
+		    input.focus();
+		}
 		btn.onclick = function(e) {
 			//if no input, add one
 			if($(buttonAdd).parent().find('input').length == 0) {
@@ -3493,6 +3518,13 @@ function updateRow(tr, theRow) {
 				$(buttonAdd).popover({content:' '}).popover('show');
 				popup = $(buttonAdd).parent().find('.popover-content');
 				popup.append(input);
+				if (theRow.displayName) {
+					popup.append(copyEnglish);
+				}
+				if ((theRow.items[theRow.winningVhash] && theRow.items[theRow.winningVhash].value) ||
+						theRow.inheritedValue) {
+					popup.append(copyWinning);
+				}
 				popup.closest('.popover').css('top', popup.closest('.popover').position().top - 19);
 				input.focus();
 				
@@ -3507,6 +3539,8 @@ function updateRow(tr, theRow) {
 						else {
 							toAddVoteButton(btn);
 						}
+					} else if (e.keyCode === 27) {
+						toAddVoteButton(btn);
 					}
 				});
 				

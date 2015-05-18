@@ -811,6 +811,7 @@ public class TestUtilities extends TestFmwk {
 
         resolver.setLocale("de");
         resolver.setLastRelease("foo", oldStatus);
+        resolver.setTrunk("foo", oldStatus);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("apple", toVoterId("appleV"));
 
@@ -822,6 +823,7 @@ public class TestUtilities extends TestFmwk {
         resolver.clear();
         resolver.setLocale("de");
         resolver.setLastRelease("foo", Status.approved);
+        resolver.setTrunk("foo", Status.approved);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("apple", toVoterId("appleV"));
         counts = resolver.getResolvedVoteCounts();
@@ -831,6 +833,7 @@ public class TestUtilities extends TestFmwk {
         resolver.clear();
         resolver.setLocale("de");
         resolver.setLastRelease("foo", Status.approved);
+        resolver.setTrunk("foo", Status.approved);
         resolver.add("zebra", toVoterId("googleS"));
         counts = resolver.getResolvedVoteCounts();
         logln(counts.toString());

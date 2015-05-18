@@ -693,11 +693,11 @@ public class VoteResolver<T> {
         oValue = winningValue;
         nValue = value2; // save this
         // here is the meat.
-        winningStatus = computeStatus(weight1, weight2, lastReleaseStatus);
-        // if we are not as good as the last release, use the last release
-        if (winningStatus.compareTo(lastReleaseStatus) < 0) {
-            winningStatus = lastReleaseStatus;
-            winningValue = lastReleaseValue;
+        winningStatus = computeStatus(weight1, weight2, trunkStatus);
+        // if we are not as good as the trunk, use the trunk
+        if (trunkStatus != null && winningStatus.compareTo(trunkStatus) < 0) {
+            winningStatus = trunkStatus;
+            winningValue = trunkValue;
             valuesWithSameVotes.clear();
             valuesWithSameVotes.add(winningValue);
         }
@@ -718,7 +718,7 @@ public class VoteResolver<T> {
         if (!resolved) {
             resolveVotes();
         }
-        Status possibleStatus = computeStatus(organizationToValueAndVote.getBestPossibleVote(), 0, lastReleaseStatus);
+        Status possibleStatus = computeStatus(organizationToValueAndVote.getBestPossibleVote(), 0, trunkStatus);
         return possibleStatus.compareTo(winningStatus) > 0 ? possibleStatus : winningStatus;
     }
 

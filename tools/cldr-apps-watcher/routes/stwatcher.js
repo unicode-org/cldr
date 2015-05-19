@@ -444,12 +444,25 @@ exports.poll = function() {
 
         var server = req.query.server;
         var limit = 1024;
-        //if(req.query.limit) {
-        //limit = Integer.parse(req.query.limit);
-        //}
+        if(req.query.limit) {
+        	limit = (req.query.limit);
+        	if(limit > 1024) {
+        		limit = 1024;
+        	}
+        }
     
        // TODO: IMP
-       if(false) {
+	     db.view('myview', 'serverWhen', {
+	     	startkey: [ server, {} ],
+	     	endkey: [server ],
+	     	inclusive_end: true,
+	     	descending: true,
+	     	limit: limit
+	     },function(err, body) {
+	     	if(err) { res.send({now: new Date().getTime(), server: server, err: 'DB error'}); return; }
+	     	res.send({now: new Date().getTime(), server: server, data: body.rows});
+	     });
+
 //            FetchStatus.find({server: server}, limit, ["when","Z"], function(err, stat) {
 //                if(err) throw (err);
 //                
@@ -459,7 +472,7 @@ exports.poll = function() {
 //                    res.send({ now: new Date().getTime(), server: server, err: 'not found' });
 //                }
 //            });
-       }
+
     };
 
 });

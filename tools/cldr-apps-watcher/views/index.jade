@@ -3,8 +3,7 @@ extends layout
 
 block content
   h1= SurveyWatcher
-  p Note - Charts are currently not working. Pardon the dust as we move to the new host.
-  p Welcome to the SurveyWatcher
+  p Welcome to the SurveyWatcher. Charts are back!
   hr
   div(id='statusdiv')
         i(id='status') Initializing
@@ -19,8 +18,6 @@ block content
       p (no chart loaded) 
   p blue is load, black is user count. vertical red is outage. scroll wheel or Ctrl-"+" / Ctrl-"-" to zoom. dbl click to reset.
   p chart does not reload unless you click the history button again.
-  hr
-  p Note - Charts are currently not working. Pardon the dust as we move to the new host.
   hr
   i(id='powered') Powered by node.js #{process.version}, Express.js.  Running on 
     a(href='http://bluemix.net') IBM Bluemix

@@ -91,7 +91,7 @@ require(["dojo/query", "dojo/request", "dojo/dom", "dojo/dom-construct", "dojo/m
                     var outages = [];
                     
                     for(var k in json.data ) {
-                        var row = json.data[k];
+                        var row = json.data[k].value;
                         var when = new Date(row.when).getTime();
                         var usersn = -3.0;
                         if(row.users) {

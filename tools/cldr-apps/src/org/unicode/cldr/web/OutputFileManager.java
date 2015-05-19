@@ -912,6 +912,7 @@ public class OutputFileManager {
     }
 
     boolean haveVbv = false;
+    public boolean outputDisabled = false;
 
     public Timestamp getLocaleTime(Connection conn, CLDRLocale loc) throws SQLException {
         Timestamp theDate = null;
@@ -1019,7 +1020,7 @@ public class OutputFileManager {
 
             @Override
             public void run() {
-                if (SurveyMain.isBusted() || !SurveyMain.isSetup) {
+                if (outputDisabled || SurveyMain.isBusted() || !SurveyMain.isSetup) {
                     return;
                 }
                 // System.err.println("spinner hot...ac="+SurveyThread.activeCount());
@@ -1138,18 +1139,17 @@ public class OutputFileManager {
                     // SurveyLog.logger.warning("Finished writing " + loc);
                 } catch (InterruptedException ie) {
                     SurveyLog.logger.warning("Interrupted while running Updater - goodbye: " + ie);
-                } catch (SQLException e) {
-                    SurveyLog.logException(e);
-                    SurveyLog.logger.warning("While running Updater: " + DBUtils.unchainSqlException(e));
-                    SurveyMain.busted("while running updater", e);
-                } catch (IOException e) {
-                    SurveyLog.logException(e);
-                    e.printStackTrace();
-                    SurveyMain.busted("while running updater", e);
+//                } catch (SQLException e) {
+//                    SurveyLog.logException(e, "while running updater");
+//                    outputDisabled = true; // SurveyMain.busted("while running updater", e);
+//                } catch (IOException e) {
+//                    SurveyLog.logException(e);
+//                    e.printStackTrace();
+//                    SurveyMain.busted("while running updater", e);
                 } catch (Throwable e) {
-                    SurveyLog.logException(e);
+                    SurveyLog.logException(e, "while running updater");
                     e.printStackTrace();
-                    SurveyMain.busted("while running updater", e);
+                    outputDisabled = true; // SurveyMain.busted("while running updater", e);
                 } finally {
                     // SurveyLog.logger.warning("(exitting updater");
                     if (progress != null)

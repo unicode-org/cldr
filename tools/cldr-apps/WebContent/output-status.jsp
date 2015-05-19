@@ -51,6 +51,14 @@ if(sm==null || !sm.isSetup) {
 int totals[] = new int[OutputFileManager.Kind.values().length];
 %>
 
+<%
+if(sm.outputFileManager.outputDisabled) {
+%>
+<h1>Note: Output is temporarily disabled! Check the log for exceptions. </h1>
+<%
+}
+%>
+
 <div style='display: table-row;'>
 <table class='sqlbox' style='display: table-cell; font-size: 140%;'>
 <%

@@ -3612,8 +3612,11 @@ public class DataSection implements JSONString {
     public String toJSONString() throws JSONException {
         JSONObject itemList = new JSONObject();
         try {
-            for (Map.Entry<String, DataRow> e : rowsHash.entrySet()) {
-                itemList.put(e.getValue().fieldHash(), e.getValue());
+//            for (Map.Entry<String, DataRow> e : rowsHash.entrySet()) {
+//                itemList.put(e.getValue().fieldHash(), e.getValue());
+//            }
+            for (DataRow d : rowsHash.values()) {
+                itemList.put(d.fieldHash(), d);
             }
             // String x = itemList.toString();
             // System.out.println("rows: " + x);
@@ -3622,9 +3625,13 @@ public class DataSection implements JSONString {
         }
         JSONObject result = new JSONObject();
         result.put("rows", itemList);
+        result.toString();
         result.put("hasExamples", hasExamples);
+        result.toString();
         result.put("xpathPrefix", xpathPrefix);
+        result.toString();
         result.put("skippedDueToCoverage", getSkippedDueToCoverage());
+        result.toString();
         result.put("coverage", getPtype());
         return result.toString(); 
     }

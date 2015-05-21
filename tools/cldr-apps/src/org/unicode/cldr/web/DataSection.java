@@ -3617,7 +3617,14 @@ public class DataSection implements JSONString {
 //                itemList.put(e.getValue().fieldHash(), e.getValue());
 //            }
             for (DataRow d : rowsHash.values()) {
-                itemList.put(d.fieldHash(), d);
+                try {
+                    String str = d.toJSONString();
+                    JSONObject obj = new JSONObject(str);
+                    itemList.put(d.fieldHash(), obj);
+                } catch (JSONException ex) {
+                    SurveyLog.logException(ex, "JSON serialization error for row: " + d.xpath + " : Full row is: " + d.toString());
+                    throw new JSONException(ex);
+              }
             }
             // String x = itemList.toString();
             // System.out.println("rows: " + x);
@@ -3629,7 +3636,8 @@ public class DataSection implements JSONString {
             return result.toString();
         } catch (Throwable t) {
             SurveyLog.logException(t, "Trying to load rows for " + this.toString());
-            throw new JSONException(t);        }
+            throw new JSONException(t);
+        }
     }
 
     /**

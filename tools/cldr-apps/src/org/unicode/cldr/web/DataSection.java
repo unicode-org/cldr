@@ -3611,6 +3611,7 @@ public class DataSection implements JSONString {
     @Override
     public String toJSONString() throws JSONException {
         JSONObject itemList = new JSONObject();
+        JSONObject result = new JSONObject();
         try {
 //            for (Map.Entry<String, DataRow> e : rowsHash.entrySet()) {
 //                itemList.put(e.getValue().fieldHash(), e.getValue());
@@ -3620,20 +3621,15 @@ public class DataSection implements JSONString {
             }
             // String x = itemList.toString();
             // System.out.println("rows: " + x);
+            result.put("rows", itemList);
+            result.put("hasExamples", hasExamples);
+            result.put("xpathPrefix", xpathPrefix);
+            result.put("skippedDueToCoverage", getSkippedDueToCoverage());
+            result.put("coverage", getPtype());
+            return result.toString();
         } catch (Throwable t) {
             SurveyLog.logException(t, "Trying to load rows for " + this.toString());
-        }
-        JSONObject result = new JSONObject();
-        result.put("rows", itemList);
-        result.toString();
-        result.put("hasExamples", hasExamples);
-        result.toString();
-        result.put("xpathPrefix", xpathPrefix);
-        result.toString();
-        result.put("skippedDueToCoverage", getSkippedDueToCoverage());
-        result.toString();
-        result.put("coverage", getPtype());
-        return result.toString(); 
+            throw new JSONException(t);        }
     }
 
     /**

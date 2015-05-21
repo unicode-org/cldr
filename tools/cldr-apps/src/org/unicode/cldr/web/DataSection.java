@@ -3620,8 +3620,13 @@ public class DataSection implements JSONString {
         } catch (Throwable t) {
             SurveyLog.logException(t, "Trying to load rows for " + this.toString());
         }
-        return new JSONObject().put("rows", itemList).put("hasExamples", hasExamples).put("xpathPrefix", xpathPrefix)
-            .put("skippedDueToCoverage", getSkippedDueToCoverage()).put("coverage", getPtype()).toString();
+        JSONObject result = new JSONObject();
+        result.put("rows", itemList);
+        result.put("hasExamples", hasExamples);
+        result.put("xpathPrefix", xpathPrefix);
+        result.put("skippedDueToCoverage", getSkippedDueToCoverage());
+        result.put("coverage", getPtype());
+        return result.toString(); 
     }
 
     /**

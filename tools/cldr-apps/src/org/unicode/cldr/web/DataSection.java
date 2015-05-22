@@ -1733,9 +1733,9 @@ public class DataSection implements JSONString {
                 JSONObject jo = new JSONObject();
                 jo.put("xpath", xpath);
                 jo.put("xpid", xpathId);
-                jo.put("rowFlagged", sm.getSTFactory().getFlag(locale, xpathId) ? true : null);
+                jo.put("rowFlagged", sm.getSTFactory().getFlag(locale, xpathId));
                 jo.put("xpstrid", XPathTable.getStringIDString(xpath));
-                jo.put("winningValue", winningValue);
+                jo.put("winningValue", winningValue != null ? winningValue : "");
                 jo.put("displayName", displayName);
                 jo.put("displayExample", displayExample);
                 // .put("showstatus",

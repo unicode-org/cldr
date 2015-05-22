@@ -1224,7 +1224,7 @@ public class VoteResolver<T> {
         int itemsWithVotes = organizationToValueAndVote.countValuesWithVotes();
         T singleVotedItem = organizationToValueAndVote.getSingleVotedItem();
 
-        if (orgVote != null && !win.equals(orgVote)) {
+        if (orgVote != null && !orgVote.equals(win)) {
             // We voted and lost
             return VoteStatus.losing;
         } else if (itemsWithVotes > 1) {

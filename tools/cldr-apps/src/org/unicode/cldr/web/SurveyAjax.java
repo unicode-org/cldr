@@ -172,8 +172,10 @@ public class SurveyAjax extends HttpServlet {
                     continue;
                 Map<String, Long> votes = r.getOrgToVotes(o);
 
-                JSONObject org = new JSONObject().put("status", r.getStatusForOrganization(o)).put("orgVote", orgVote)
-                    .put("votes", votes);
+                JSONObject org = new JSONObject();
+                org.put("status", r.getStatusForOrganization(o));
+                org.put("orgVote", orgVote);
+                org.put("votes", votes);
                 if (conflictedOrgs.contains(org)) {
                     org.put("conflicted", true);
                 }

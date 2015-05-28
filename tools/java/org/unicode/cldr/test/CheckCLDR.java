@@ -664,7 +664,7 @@ abstract public class CheckCLDR {
         String locale = cldrFileToCheck.getLocaleID();
         filtersForLocale.clear();
         for (R3<Pattern, Subtype, Pattern> filter : allFilters) {
-            if (!filter.get0().matcher(locale).matches()) continue;
+            if (filter.get0() == null || !filter.get0().matcher(locale).matches()) continue;
             Subtype subtype = filter.get1();
             List<Pattern> xpaths = filtersForLocale.get(subtype);
             if (xpaths == null) {

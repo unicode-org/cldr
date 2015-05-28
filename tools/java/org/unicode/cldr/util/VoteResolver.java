@@ -1230,7 +1230,7 @@ public class VoteResolver<T> {
         } else if (itemsWithVotes > 1) {
             // If there are votes for two items, we should look at them.
             return VoteStatus.disputed;
-        } else if (singleVotedItem != null && !win.equals(singleVotedItem)) {
+        } else if (singleVotedItem != null && !singleVotedItem.equals(win)) {
             // If someone voted but didn't win
             return VoteStatus.disputed;
         } else if (provisionalOrWorse) {

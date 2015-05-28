@@ -724,8 +724,10 @@ public class DisplayAndInputProcessor {
      */
     public static String getCanonicalPattern(String inpattern, NumericType type, boolean isPOSIX) {
         // TODO fix later to properly handle quoted ;
+        
         DecimalFormat df = new DecimalFormat(inpattern);
-        if (type == NumericType.DECIMAL_ABBREVIATED || type == NumericType.CURRENCY_ABBREVIATED) {
+        if (type == NumericType.DECIMAL_ABBREVIATED || type == NumericType.CURRENCY_ABBREVIATED
+            || CldrUtility.INHERITANCE_MARKER.equals(inpattern)) {
             return inpattern; // TODO fix when ICU bug is fixed
             // df.setMaximumFractionDigits(df.getMinimumFractionDigits());
             // df.setMaximumIntegerDigits(Math.max(1, df.getMinimumIntegerDigits()));

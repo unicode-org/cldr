@@ -476,6 +476,9 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         return parts == null ? null : parts.getScript();
     }
 
+    public boolean isLanguageLocale() {
+        return this.equals(getLanguageLocale());
+    }
     /**
      * Return the region
      * 

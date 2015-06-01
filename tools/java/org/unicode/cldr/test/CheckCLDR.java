@@ -1093,6 +1093,10 @@ abstract public class CheckCLDR {
         // to the "real" value first before running tests. Testing the value "↑↑↑" doesn't make sense.
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
             value = cldrFileToCheck.getConstructedBaileyValue(path, null, null);
+            // If it hasn't changed, then don't run any tests.
+            if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                return this;
+            }
         }
         CheckCLDR instance = handleCheck(path, fullPath, value, options, result);
         Iterator<CheckStatus> iterator = result.iterator();

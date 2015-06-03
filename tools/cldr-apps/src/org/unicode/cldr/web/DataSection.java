@@ -147,7 +147,7 @@ public class DataSection implements JSONString {
 
             public String getValueHash() {
                 if (valueHash == null) {
-                    if (isFallback) {
+                    if (isFallback && !locale.isLanguageLocale()) {
                         valueHash = DataSection.getValueHash(CldrUtility.INHERITANCE_MARKER);
                     } else {
                         valueHash = DataSection.getValueHash(value);
@@ -3072,8 +3072,8 @@ public class DataSection implements JSONString {
                 CandidateItem oldItem = p.addItem(p.oldValue);
                 oldItem.isOldValue = true;
             }
-            if (p.oldValue != null && p.oldValue.equals(value) && (v == null || !v.contains(CldrUtility.INHERITANCE_MARKER))) {
-                // if "vote for inherited" isn't already represented as an item, add it.
+            if (!locale.isLanguageLocale() && p.oldValue != null && p.oldValue.equals(value) && (v == null || !v.contains(CldrUtility.INHERITANCE_MARKER))) {
+                // if "vote for inherited" isn't already represented as an item, add it (child locales only)
                 p.addItem(CldrUtility.INHERITANCE_MARKER);
             }
 

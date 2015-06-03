@@ -96,9 +96,12 @@
 //ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"]                             ; Numbers ; Number Formatting Patterns ; Currency Unit Patterns &numberingSystem($1) ; &count(currencies-$2) ; LTR_ALWAYS
 //ldml/numbers/miscPatterns[@numberSystem="%A"]/pattern[@type=\"%A\"]                                   ; Numbers ; Number Formatting Patterns ; Miscellaneous Patterns &numberingSystem($1) ; $2 ; LTR_ALWAYS
 
-//ldml/numbers/(currency)Formats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting ; Short Currency &numberingSystem($2) ; &count2($7-digits-$4-$8)
-//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(long)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"]  ; Numbers ; Compact Decimal Formatting ; Long Formats &numberingSystem($2) ; &count2($7-digits-$4-$8)
-//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting ; Short Formats &numberingSystem($2) ; &count2($7-digits-$4-$8)
+//ldml/numbers/(currency)Formats[@numberSystem="latn"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting ; Short Currency &numberingSystem(latn); &count2($6-digits-$3-$7)
+//ldml/numbers/(currency)Formats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting (Other Numbering Systems) ; Short Currency &numberingSystem($2) ; &count2($7-digits-$4-$8) ; HIDE
+//ldml/numbers/%EFormats[@numberSystem="latn"]/%EFormatLength[@type="(long)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"]  ; Numbers ; Compact Decimal Formatting ; Long Formats &numberingSystem(latn) ; &count2($6-digits-$3-$7)
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(long)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"]  ; Numbers ; Compact Decimal Formatting (Other Numbering Systems) ; Long Formats &numberingSystem($2) ; &count2($7-digits-$4-$8) ; HIDE
+//ldml/numbers/%EFormats[@numberSystem="latn"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting ; Short Formats &numberingSystem(latn) ; &count2($6-digits-$3-$7)
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting (Other Numbering Systems) ; Short Formats &numberingSystem($2) ; &count2($7-digits-$4-$8) ; HIDE
 
 ### Currencies
 

@@ -1519,6 +1519,9 @@ public class ExampleGenerator {
      * @return string with attached transliteration if there is one.
      */
     private String addTransliteration(String input, String value) {
+        if (value == null) {
+            return input;
+        }
         for (LocaleTransform localeTransform : LocaleTransform.values()) {
 
             String locale = cldrFile.getLocaleID();

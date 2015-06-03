@@ -200,6 +200,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Symbols(SectionId.Numbers),
         Number_Formatting_Patterns(SectionId.Numbers, "Number Formatting Patterns"),
         Compact_Decimal_Formatting(SectionId.Numbers, "Compact Decimal Formatting"),
+        Compact_Decimal_Formatting_Other(SectionId.Numbers, "Compact Decimal Formatting (Other Numbering Systems)"),
         Measurement_Systems(SectionId.Units, "Measurement Systems"),
         Duration(SectionId.Units),
         Length(SectionId.Units),

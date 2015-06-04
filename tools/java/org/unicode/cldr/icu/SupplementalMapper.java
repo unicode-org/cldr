@@ -206,7 +206,6 @@ public class SupplementalMapper {
 //                "plurals", done in processSupplemental
 //                "postalCodeData", deprecated
                 "supplementalData",
-                "supplementalMetadata",
                 "telephoneCodeData",
 //                "windowsZones", done elsewhere??
             };

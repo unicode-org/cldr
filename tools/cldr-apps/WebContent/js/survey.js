@@ -2859,7 +2859,7 @@ function addVitem(td, tr, theRow, item, newButton, cancelButton) {
 	}
 	var displayValue = item.value;
 	if (item.value == "\u2191\u2191\u2191") {
-		item.pClass = "fallback";
+		item.pClass = theRow.inheritedPClass;
 		displayValue = theRow.inheritedValue;
 //		for (var i in theRow.items) {
 //			if (i.isFallback) {

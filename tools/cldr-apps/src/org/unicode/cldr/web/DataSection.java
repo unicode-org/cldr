@@ -1755,6 +1755,7 @@ public class DataSection implements JSONString {
                 jo.put("voteResolver", SurveyAjax.JSONWriter.wrap(resolver));
                 jo.put("items", itemsJson);
                 jo.put("inheritedValue", inheritedValue != null ? inheritedValue.value : null);
+                jo.put("inheritedPClass", inheritedValue != null ? inheritedValue.getPClass() : "fallback");
                 jo.put("canFlagOnLosing", resolver.getRequiredVotes() == VoteResolver.HIGH_BAR);
                 if (ph.getSurveyToolStatus() == SurveyToolStatus.LTR_ALWAYS) {
                     jo.put("dir", "ltr");

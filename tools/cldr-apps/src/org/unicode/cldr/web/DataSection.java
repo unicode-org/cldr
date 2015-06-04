@@ -3179,63 +3179,65 @@ public class DataSection implements JSONString {
                     System.err.println("n07.2  (check) " + (System.currentTimeMillis() - nextTime));
                 checkCldr.getExamples(xpath, isExtraPath ? null : value, examplesResult);
             }
-            DataSection.DataRow.CandidateItem myItem = null;
+            
+            if (value != null && value.length() > 0) {
+                DataSection.DataRow.CandidateItem myItem = null;
 
-            if (TRACE_TIME)
-                System.err.println("n08  (check) " + (System.currentTimeMillis() - nextTime));
-            myItem = p.addItem(value);
+                if (TRACE_TIME)
+                    System.err.println("n08  (check) " + (System.currentTimeMillis() - nextTime));
+                myItem = p.addItem(value);
 
-            if (DEBUG) {
-                System.err.println("Added item " + value + " - now items=" + p.items.size());
-            }
-            // if("gsw".equals(type)) System.err.println(myItem + " - # " +
-            // p.items.size());
-
-            if (!checkCldrResult.isEmpty()) {
-                myItem.setTests(checkCldrResult);
-                // set the parent
-                checkCldrResult = new ArrayList<CheckStatus>(); // can't
-                // reuse it
-                // if
-                // nonempty
-            }
-
-            if (sourceLocaleStatus != null && sourceLocaleStatus.pathWhereFound != null
-                && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
-                // System.err.println("PWF diff: " + xpath + " vs " +
-                // sourceLocaleStatus.pathWhereFound);
-                myItem.pathWhereFound = sourceLocaleStatus.pathWhereFound;
-                // set up Pod alias-ness
-                p.aliasFromLocale = sourceLocale;
-                p.aliasFromXpath = sm.xpt.xpathToBaseXpathId(sourceLocaleStatus.pathWhereFound);
-            }
-            myItem.inheritFrom = setInheritFrom;
-            if (setInheritFrom == null) {
-                myItem.isFallback = false;
-                myItem.isParentFallback = false;
-            }
-            // store who voted for what. [ this could be loaded at
-            // displaytime..]
-            // myItem.votes = sm.vet.gatherVotes(locale, xpath);
-
-            if (!examplesResult.isEmpty()) {
-                // reuse the same ArrayList unless it contains something
-                if (myItem.examples == null) {
-                    myItem.examples = new Vector<ExampleEntry>();
+                if (DEBUG) {
+                    System.err.println("Added item " + value + " - now items=" + p.items.size());
                 }
-                for (Iterator<CheckStatus> it3 = examplesResult.iterator(); it3.hasNext();) {
-                    CheckCLDR.CheckStatus status = it3.next();
-                    myItem.examples.add(addExampleEntry(new ExampleEntry(this, p, myItem, status)));
+                // if("gsw".equals(type)) System.err.println(myItem + " - # " +
+                // p.items.size());
+
+                if (!checkCldrResult.isEmpty()) {
+                    myItem.setTests(checkCldrResult);
+                    // set the parent
+                    checkCldrResult = new ArrayList<CheckStatus>(); // can't
+                    // reuse it
+                    // if
+                    // nonempty
                 }
-                // myItem.examplesList = examplesResult;
-                // examplesResult = new ArrayList(); // getExamples will
-                // clear it.
+
+                if (sourceLocaleStatus != null && sourceLocaleStatus.pathWhereFound != null
+                    && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
+                    // System.err.println("PWF diff: " + xpath + " vs " +
+                    // sourceLocaleStatus.pathWhereFound);
+                    myItem.pathWhereFound = sourceLocaleStatus.pathWhereFound;
+                    // set up Pod alias-ness
+                    p.aliasFromLocale = sourceLocale;
+                    p.aliasFromXpath = sm.xpt.xpathToBaseXpathId(sourceLocaleStatus.pathWhereFound);
+                }
+                myItem.inheritFrom = setInheritFrom;
+                if (setInheritFrom == null) {
+                    myItem.isFallback = false;
+                    myItem.isParentFallback = false;
+                }
+                // store who voted for what. [ this could be loaded at
+                // displaytime..]
+                // myItem.votes = sm.vet.gatherVotes(locale, xpath);
+
+                if (!examplesResult.isEmpty()) {
+                    // reuse the same ArrayList unless it contains something
+                    if (myItem.examples == null) {
+                        myItem.examples = new Vector<ExampleEntry>();
+                    }
+                    for (Iterator<CheckStatus> it3 = examplesResult.iterator(); it3.hasNext();) {
+                        CheckCLDR.CheckStatus status = it3.next();
+                        myItem.examples.add(addExampleEntry(new ExampleEntry(this, p, myItem, status)));
+                    }
+                    // myItem.examplesList = examplesResult;
+                    // examplesResult = new ArrayList(); // getExamples will
+                    // clear it.
+                }
+
+                // if ((eRefs != null) && (!isInherited)) {
+                // myItem.references = eRefs;
+                // }
             }
-
-            // if ((eRefs != null) && (!isInherited)) {
-            // myItem.references = eRefs;
-            // }
-
         }
         // aFile.close();
     }

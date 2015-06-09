@@ -1278,26 +1278,33 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return attribute.deprecatedValues.contains(attributeValue); // don't need special test for "*"
     }
 
-    @SuppressWarnings("unused")
     public boolean isOrdered(String elementName) {
         Element element = nameToElement.get(elementName);
         if (element == null) {
+            if (elementName.startsWith("icu:")) {
+                return false;
+            }
             throw new IllegalByDtdException(elementName, null, null);
         }
         return element.isOrderedElement;
     }
 
-    @SuppressWarnings("unused")
     public AttributeStatus getAttributeStatus(String elementName, String attributeName) {
         if ("_q".equals(attributeName)) {
             return AttributeStatus.distinguished; // special case
         }
         Element element = nameToElement.get(elementName);
         if (element == null) {
+            if (elementName.startsWith("icu:")) {
+                return AttributeStatus.distinguished;
+            }
             throw new IllegalByDtdException(elementName, attributeName, null);
         }
         Attribute attribute = element.getAttributeNamed(attributeName);
         if (attribute == null) {
+            if (elementName.startsWith("icu:")) {
+                return AttributeStatus.distinguished;
+            }
             throw new IllegalByDtdException(elementName, attributeName, null);
         }
         return attribute.attributeStatus;

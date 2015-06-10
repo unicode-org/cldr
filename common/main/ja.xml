@@ -1397,6 +1397,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
 						<dateFormatItem id="MMMEEEEd">M月d日EEEE</dateFormatItem>
+						<dateFormatItem id="MMMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">GGGGy年</dateFormatItem>
 						<dateFormatItem id="yyyy">GGGGy年</dateFormatItem>
@@ -1409,6 +1410,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yyyyMMMd">GGGGy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd" draft="contributed">GGGGy年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEEEEd" draft="contributed">GGGGy年M月d日EEEE</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="contributed">GGGGy年M月</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1699,6 +1701,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">MMMd日</dateFormatItem>
 						<dateFormatItem id="MMMEd">MMMd日(E)</dateFormatItem>
 						<dateFormatItem id="MMMEEEEd">MMMd日EEEE</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMMd日</dateFormatItem>
 						<dateFormatItem id="y">U年</dateFormatItem>
 						<dateFormatItem id="yMd">U年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyy">U年</dateFormatItem>
@@ -1710,6 +1713,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yyyyMMMd">U年MMMd日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">U年MMMd日(E)</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEEEEd">U年MMMd日EEEE</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">U年MMMM</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">U年QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">U年QQQQ</dateFormatItem>
 					</availableFormats>
@@ -2294,6 +2298,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
 						<dateFormatItem id="MMMEEEEd">M月d日EEEE</dateFormatItem>
+						<dateFormatItem id="MMMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
@@ -2305,6 +2310,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEEEEd">Gy年M月d日EEEE</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">Gy/QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">GyQQQQ</dateFormatItem>
 					</availableFormats>
@@ -2763,6 +2769,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
 						<dateFormatItem id="MMMEEEEd">M月d日EEEE</dateFormatItem>
+						<dateFormatItem id="MMMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y年</dateFormatItem>
 						<dateFormatItem id="yM">y/M</dateFormatItem>
@@ -2774,6 +2781,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yMMMEEEEd">y年M月d日EEEE</dateFormatItem>
+						<dateFormatItem id="yMMMM">y年M月</dateFormatItem>
 						<dateFormatItem id="yQQQ">y/QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">yQQQQ</dateFormatItem>
 					</availableFormats>
@@ -3235,6 +3243,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMM">M月</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
+						<dateFormatItem id="MMMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -3784,6 +3793,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
 						<dateFormatItem id="MMMEEEEd">M月d日EEEE</dateFormatItem>
+						<dateFormatItem id="MMMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
@@ -3796,6 +3806,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEEEEd">Gy年M月d日EEEE</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">Gy/QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">GyQQQQ</dateFormatItem>
 					</availableFormats>
@@ -3936,6 +3947,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMM">M月</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
+						<dateFormatItem id="MMMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>

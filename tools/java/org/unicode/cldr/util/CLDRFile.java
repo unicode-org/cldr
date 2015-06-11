@@ -500,7 +500,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      */
     public String getBaileyValue(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
         String result = dataSource.getBaileyValue(xpath, pathWhereFound, localeWhereFound);
-        if (result == null && dataSource.isResolving()) {
+        if ((result == null || result.equals(CldrUtility.INHERITANCE_MARKER)) && dataSource.isResolving()) {
             final String fallbackPath = getFallbackPath(xpath, false);
             if (fallbackPath != null) {
                 result = dataSource.getBaileyValue(fallbackPath, pathWhereFound, localeWhereFound);
@@ -2956,9 +2956,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @return
      */
     public String getWinningValueWithBailey(String path) {
+        Output<String> localeWhereFound = new Output<String>();
+        Output<String> pathWhereFound = new Output<String>();
         String winningValue = getWinningValue(path);
         if (CldrUtility.INHERITANCE_MARKER.equals(winningValue)) {
-            winningValue = getBaileyValue(path,null,null);
+            winningValue = getBaileyValue(path,pathWhereFound,localeWhereFound);
         }
         return winningValue;
     }
@@ -2971,9 +2973,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @return
      */
     public String getStringValueWithBailey(String path) {
+        Output<String> localeWhereFound = new Output<String>();
+        Output<String> pathWhereFound = new Output<String>();
         String value = getStringValue(path);
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-            value = getBaileyValue(path,null,null);
+            value = getBaileyValue(path,pathWhereFound,localeWhereFound);
         }
         return value;
     }

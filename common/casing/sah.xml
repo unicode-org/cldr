@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc.
+<!-- Copyright © 1991-2015 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -24,9 +24,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<casingItem type="month_narrow">titlecase</casingItem>
 			<casingItem type="month_standalone_except_narrow">titlecase</casingItem>
 			<casingItem type="script">titlecase</casingItem>
-			<casingItem type="relative">titlecase</casingItem>
-			<casingItem type="symbol">lowercase</casingItem>
 			<casingItem type="territory">titlecase</casingItem>
+			<casingItem type="zone_exemplarCity">titlecase</casingItem>
 		</casingData>
 	</metadata>
 </ldml>

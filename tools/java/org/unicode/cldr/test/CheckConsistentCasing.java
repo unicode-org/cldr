@@ -316,7 +316,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
                 result.add(new CheckStatus().setCause(this)
                     .setMainType(typeAndFlagFromCat.flag()? CheckStatus.errorType: CheckStatus.warningType)
                     .setSubtype(Subtype.incorrectCasing) // typically warningType or errorType
-                    .setMessage("The first letter of 〈{0}〉 is {1}, which differs from the expected {2} for this category: {3}",
+                    .setMessage("The first letter of 〈{0}〉 is {1}, which differs from the expected {2} for this category: {3} (if that is wrong file a ticket at http://unicode.org/cldr/trac/)",
                         value, ft, typeAndFlagFromCat.type(), category)); // the message; can be MessageFormat with arguments
             }
         }

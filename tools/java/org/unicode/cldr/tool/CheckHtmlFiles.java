@@ -55,6 +55,7 @@ public class CheckHtmlFiles {
             "|D\\d+\\.\\s.*" +
             "|References" +
             "|Acknowledge?ments" +
+            "|Rights to .*Images" +
             "|Modifications" +
         "|(Revision \\d+\\.?)");
     static Pattern SUPPRESS_REVISION = Pattern.compile("Revision \\d+\\.?");

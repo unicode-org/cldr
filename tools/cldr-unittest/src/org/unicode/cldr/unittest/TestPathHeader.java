@@ -954,4 +954,21 @@ public class TestPathHeader extends TestFmwkPlus {
         }
 
     }
+    
+    public void Test8414() {
+        PathDescription pathDescription = new PathDescription(supplemental,
+            english, null, null, PathDescription.ErrorHandling.CONTINUE);
+        
+        String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"";
+        String suffix = "\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"morning1\"]";
+
+        final String path0 = prefix + "format" + suffix;
+        final String path1 = prefix + "stand-alone" + suffix;
+        String v0 = english.getStringValue(path0);
+        String v1 = english.getStringValue(path1);
+        String p0 = pathDescription.getDescription(path0, v0, null, null);
+        String p1 = pathDescription.getDescription(path1, v1, null, null);
+        assertTrue("Check pd for format", p0.contains("in the morning"));
+        assertTrue("Check pd for stand-alone", !p1.contains("in the morning"));
+    }
 }

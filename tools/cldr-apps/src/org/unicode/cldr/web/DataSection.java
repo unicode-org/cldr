@@ -3041,7 +3041,7 @@ public class DataSection implements JSONString {
             DataRow p = getDataRow(xpath);
 
             if (oldFile != null) {
-                p.oldValue = oldFile.getStringValue(xpath);
+                p.oldValue = oldFile.getStringValueWithBailey(xpath);
             } else {
                 p.oldValue = null;
             }
@@ -3073,7 +3073,7 @@ public class DataSection implements JSONString {
                 CandidateItem oldItem = p.addItem(p.oldValue);
                 oldItem.isOldValue = true;
             }
-            if (!locale.isLanguageLocale() && p.oldValue != null && p.oldValue.equals(value) && (v == null || !v.contains(CldrUtility.INHERITANCE_MARKER))) {
+            if ((locale.getCountry() != null && locale.getCountry().length() > 0) && (v == null || !v.contains(CldrUtility.INHERITANCE_MARKER))) {
                 // if "vote for inherited" isn't already represented as an item, add it (child locales only)
                 p.addItem(CldrUtility.INHERITANCE_MARKER);
             }

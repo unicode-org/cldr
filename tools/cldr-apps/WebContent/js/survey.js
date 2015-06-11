@@ -1891,26 +1891,6 @@ function wireUpButton(button, tr, theRow, vHash,box) {
 }
 
 /**
- * wire up the button to perform a cancel
- * @method wireUpButton
- * @param button
- * @param tr
- * @param theRow
- * @param vHash
- * @param box
- */
-function wireUpCancelButton(button, tr, theRow, vHash) {
-	if(vHash==null) {
-		button.id="C_NO_" + tr.rowHash;
-		vHash="";
-	} else {
-		button.id = "c"+vHash+"_"+tr.rowHash;
-	}
-	listenFor(button,"click",
-			function(e){ handleCancelWiredClick(tr,theRow,vHash,button); stStopPropagation(e); return false; });
-}
-
-/**
  * Append an icon to the div
  * @method addIcon
  * @param {Node} td
@@ -2844,29 +2824,20 @@ function appendExample(parent, text, loc) {
  * @param {JSON} theRow JSON content of this row's data
  * @param {JSON} item JSON of the specific item we are adding
  * @param {DOM} newButton     button prototype object
- * @param {DOM} cancelButton     cancel button object
  */
-function addVitem(td, tr, theRow, item, newButton, cancelButton) {
-//	var canModify = tr.theTable.json.canModify;
+function addVitem(td, tr, theRow, item, newButton) {
 	var div = document.createElement("div");
 	var isWinner = (td==tr.proposedcell);
 	var testKind = getTestKind(item.tests);
 	setDivClass(div,testKind);
 	item.div = div; // back link
 	if(item==null)  {
-//		div.innerHTML = "<i>null: "+theRow.winningVhash+" </i>";
 		return;
 	}
 	var displayValue = item.value;
 	if (item.value == "\u2191\u2191\u2191") {
-		item.pClass = theRow.inheritedPClass;
+		item.pClass = theRow.inheritedPClass == "winner" ? "fallback" : theRow.inheritedPClass;
 		displayValue = theRow.inheritedValue;
-//		for (var i in theRow.items) {
-//			if (i.isFallback) {
-//				item = i;
-//				break;
-//			}
-//		}
 	}
 	var choiceField = document.createElement("div");
 	var wrap;
@@ -2893,15 +2864,6 @@ function addVitem(td, tr, theRow, item, newButton, cancelButton) {
 
 		if(item.valueHash == theRow.voteVhash && theRow.canFlagOnLosing && !theRow.rowFlagged){
 			var newIcon = addIcon(choiceField,"i-stop"); // DEBUG
-			/*
-			listenFor(newIcon, "click", function(e) {
-				//window.blur(); // submit anything unsubmitted
-				// TODO!
-				window.open(tr.forumDiv.postUrl);
-				stStopPropagation(e);
-				return true;
-			});
-			 */
 		}
 	}
 	if(newButton && 
@@ -2918,15 +2880,6 @@ function addVitem(td, tr, theRow, item, newButton, cancelButton) {
 	var inheritedClassName = "fallback";
 	var defaultClassName = "fallback_code";
 	
-	if(cancelButton && !item.votes && item.isOldValue==false && 
-	   item.pClass.substring(0, inheritedClassName.length)!=inheritedClassName && 
-	   item.pClass.substring(0, defaultClassName.length)!=defaultClassName) {
-		cancelButton.value=item.value;
-		wireUpCancelButton(cancelButton,tr,theRow,item.valueHash);
-		choiceField.appendChild(cancelButton);
-		$(cancelButton).tooltip();
-	}
-
     // wire up the onclick
 	td.showFn = item.showFn = showItemInfoFn(theRow,item,item.valueHash,newButton,div);
 	div.popParent = tr;
@@ -2935,58 +2888,8 @@ function addVitem(td, tr, theRow, item, newButton, cancelButton) {
 	
     if(item.example && item.value != item.examples ) {
 		appendExample(div,item.example);
-//		example.popParent = tr;
-//		listenToPop(null,tr,example,td.showFn);
 	}
 	
-	/*if(tr.canChange) {
-	    var oldClassName = span.className = span.className + " editableHere";
-	    ///span.title = span.title  + " " + stui_str("clickToChange");
-	    var ieb = null;
-	    var editInPlace = function(e) {
-	        require(["dojo/ready", "dijit/InlineEditBox", "dijit/form/TextBox", "dijit/registry"],
-	        function(ready, InlineEditBox, TextBox, registry) {
-	    	    var spanId = span.id = dijit.registry.getUniqueId(); // bump the #, probably leaks something in dojo?
-	    	    stdebug("Ready for " + spanId);
-	            ready(function(){
-	            if(!ieb) {
-	                ieb = new InlineEditBox({
-	                	dir: locInfo().dir,
-	                	lang: locInfo().bcp47,
-	                	editor: TextBox, 
-	                	editorParams:  { dir: locInfo().dir, lang: locInfo().bcp47 },
-	                	autoSave: true, 
-	                    onChange: function (newValue) {
-	                                  //  console.log("Destroyed -> "+ newValue);
-	                                   // remove dojo stuff..
-	                                   //removeAllChildNodes(subSpan);
-	                                   // reattach the span
-	                                   //subSpan.appendChild(span);
-	                                   //span.className = oldClassName;
-	                               tr.inputTd = td; // cause the proposed item to show up in the right box
-                       				handleWiredClick(tr,theRow,"",{value: newValue},newButton); 
-	                                   //ieb.destroy();
-	                               },
-                               onShow: function() {
-                            	   setDefer(true);
-                               },
-                               onHide: function() {
-                            	   setDefer(false);
-                               }
-	                   }, spanId);
-	                		tr.iebs.push(ieb);
-	                       stdebug("Minted  " + spanId);
-	                   } else {
-//	                       console.log("Leaving alone " + spanId);
-	                   }
-	            });
-	        });
-	    	stStopPropagation(e);
-	    	return false;
-	    };
-	    
-	    listenFor(span, "mouseover", editInPlace);
-	}*/
 }
 
 function calcPClass(value, winner) {
@@ -3271,10 +3174,8 @@ function updateRow(tr, theRow) {
 	
 	var config = surveyConfig;
 	var protoButton = dojo.byId('proto-button');
-	var cancelButton = dojo.byId('cancel-button');
 	if(!canModify) {
 		protoButton = null; // no voting at all.
-		cancelButton = null;
 	}
 	
 	
@@ -3447,7 +3348,7 @@ function updateRow(tr, theRow) {
 		}
 	}
 	if(theRow.items&&theRow.winningVhash) {
-		addVitem(children[config.proposedcell],tr,theRow,theRow.items[theRow.winningVhash],cloneAnon(protoButton), null);
+		addVitem(children[config.proposedcell],tr,theRow,theRow.items[theRow.winningVhash],cloneAnon(protoButton));
 	} else {
 		children[config.proposedcell].showFn = function(){};  // nothing else to show
 	}
@@ -3571,10 +3472,7 @@ function updateRow(tr, theRow) {
 			continue; // skip the winner
 		}
 		hadOtherItems=true;
-		if(theRow.items[k].pClass == 'fallback' || theRow.items[k].pClass == 'fallback_code' || theRow.items[k].pClass == 'alias')
-			addVitem(children[config.othercell],tr,theRow,theRow.items[k],cloneAnon(protoButton), cloneAnon(null));
-		else
-			addVitem(children[config.othercell],tr,theRow,theRow.items[k],cloneAnon(protoButton), cloneAnon(cancelButton));
+		addVitem(children[config.othercell],tr,theRow,theRow.items[k],cloneAnon(protoButton));
 		children[config.othercell].appendChild(document.createElement("hr"));
 	}
 	

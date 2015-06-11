@@ -151,6 +151,28 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         }
     }
 
+    public enum CasingTypeAndErrFlag {
+        titlecase_mismatchWarn(CasingType.titlecase, false),
+        titlecase_mismatchErr(CasingType.titlecase, true),
+        lowercase_mismatchWarn(CasingType.lowercase, false),
+        lowercase_mismatchErr(CasingType.lowercase, true),
+        other_mismatchWarn(CasingType.other, false),
+        other_mismatchErr(CasingType.other, true);
+
+        private final CasingType type;
+        private final boolean flag; // force error instead of warning for mismatch
+        private CasingTypeAndErrFlag(CasingType type, boolean flag) {
+            this.type = type;
+            this.flag = flag;
+        }
+        public CasingType type() {
+            return type;
+        }
+        public boolean flag() {
+            return flag;
+        }
+    }
+
     static final RegexLookup<Category> pathToBucket = new RegexLookup<Category>()
         .add("//ldml/localeDisplayNames/languages/language", Category.language)
         .add("//ldml/localeDisplayNames/scripts/script", Category.script)
@@ -189,7 +211,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     // ldml/localeDisplayNames/transformNames/transformName[@type=".*"]
     ;
 
-    Map<Category, CasingType> types = new EnumMap<Category, CasingType>(Category.class);
+    Map<Category, CasingTypeAndErrFlag> types = new EnumMap<Category, CasingTypeAndErrFlag>(Category.class);
 
     public enum Category {
         language, script, territory, variant, keyValue,
@@ -286,12 +308,16 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         // Avoid NPE
         if (types != null) {
             CasingType ft = CasingType.from(value);
-            if (!ft.worksWith(types.get(category))) {
+            CasingTypeAndErrFlag typeAndFlagFromCat = types.get(category);
+            if (typeAndFlagFromCat == null) {
+                typeAndFlagFromCat = CasingTypeAndErrFlag.other_mismatchWarn;
+            }
+            if (!ft.worksWith(typeAndFlagFromCat.type())) {
                 result.add(new CheckStatus().setCause(this)
-                    .setMainType(CheckStatus.warningType)
+                    .setMainType(typeAndFlagFromCat.flag()? CheckStatus.errorType: CheckStatus.warningType)
                     .setSubtype(Subtype.incorrectCasing) // typically warningType or errorType
-                    .setMessage("The first letter of 〈{0}〉 is {1}, which differs from the majority of this type: {2}",
-                        value, ft, types.get(category))); // the message; can be MessageFormat with arguments
+                    .setMessage("The first letter of 〈{0}〉 is {1}, which differs from the expected {2} for this category: {3}",
+                        value, ft, typeAndFlagFromCat.type(), category)); // the message; can be MessageFormat with arguments
             }
         }
     }

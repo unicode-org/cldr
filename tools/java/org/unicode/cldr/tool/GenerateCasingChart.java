@@ -11,6 +11,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.test.CasingInfo;
 import org.unicode.cldr.test.CheckConsistentCasing.CasingType;
+import org.unicode.cldr.test.CheckConsistentCasing.CasingTypeAndErrFlag;
 import org.unicode.cldr.test.CheckConsistentCasing.Category;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -101,7 +102,7 @@ public class GenerateCasingChart {
         XPathParts parts = new XPathParts();
         for (String localeFile : new File(dir).list()) {
             String locale = period.split(localeFile).iterator().next();
-            Map<Category, CasingType> info;
+            Map<Category, CasingTypeAndErrFlag> info;
             try {
                 info = casingInfo.getLocaleCasing(locale);
             } catch (Exception e) {
@@ -129,7 +130,7 @@ public class GenerateCasingChart {
             System.out.print(locale);
             System.out.print("\t" + level);
             System.out.print("\t" + items.size());
-            System.out.print("\t" + info.get(Category.language));
+            System.out.print("\t" + info.get(Category.language).type());
             if (items.size() == 0) {
                 System.out.println("\tNo Context Items");
                 continue;
@@ -137,7 +138,7 @@ public class GenerateCasingChart {
             //System.out.print(hasCasedLetters ? "\tCased" : "\tUncased");
             if (showCasing) {
                 for (Category x : Category.values()) {
-                    CasingType value = info.get(x);
+                    CasingType value = info.get(x).type();
                     System.out.print("\t" + (value == null ? "n/a"
                         : value.toString().toUpperCase(Locale.ENGLISH).charAt(0)));
 

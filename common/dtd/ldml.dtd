@@ -2686,6 +2686,7 @@ $Date$
 <!ELEMENT casingItem ( #PCDATA ) >
 <!ATTLIST casingItem type CDATA #REQUIRED >
 <!ATTLIST casingItem override (true | false) #IMPLIED >
+<!ATTLIST casingItem forceError (true | false) #IMPLIED >
     <!--@VALUE-->
 
 <!ELEMENT references ( reference* ) >

@@ -120,6 +120,10 @@ public class DayPeriodInfo {
      * @return start,end,includesStart,period
      */
     public R3<Integer, Integer, Boolean> getFirstDayPeriodInfo(DayPeriodInfo.DayPeriod dayPeriod) {
+        switch (dayPeriod) {
+        case am: return Row.of(0, DAY_LIMIT/2, true);
+        case pm: return Row.of(DAY_LIMIT/2, DAY_LIMIT, true);
+        }
         for (int i = 0; i < periods.length; ++i) {
             if (periods[i] == dayPeriod) {
                 return Row.of(starts[i], i+1 < periods.length ? starts[i+1] : DAY_LIMIT, includesStart[i]);
@@ -196,6 +200,12 @@ public class DayPeriodInfo {
     }
 
     public String toString(DayPeriod dayPeriod) {
+        switch (dayPeriod) {
+        case midnight: return "00:00";
+        case noon: return "12:00";
+        case am: return "00:00 – 12:00";
+        case pm: return "12:00 – 24:00";
+        }
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < starts.length; ++i) {
             R3<Integer, Boolean, DayPeriod> periodInfo = getPeriod(i);

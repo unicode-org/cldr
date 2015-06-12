@@ -14,6 +14,7 @@
 %F = (electric|frequency)
 %H = ([hH])
 %L = (long|short|narrow)
+%M = (Alaska_Hawaii|Bering|Dominican|Goose_Bay|Greenland_Central|Yukon|Dutch_Guiana|Africa_FarWestern|Liberia|British|Irish|Kuybyshev|Sverdlovsk|Baku|Tbilisi|Turkey|Yerevan|Aktyubinsk|Ashkhabad|Dushanbe|Frunze|Kizilorda|Oral|Samarkand|Shevchenko|Tashkent|Uralsk|Urumqi|Dacca|Karachi|Borneo|Malaya|Kwajalein)
 %P = (future|past)
 %S = ([^/]*+)
 %T = (nanosecond|microsecond|millisecond|second|minute|hour|day|week|month|year|century)
@@ -80,6 +81,7 @@
 //ldml/dates/timeZoneNames/zone[@type="Etc/GMT.*"]/exemplarCity ; Special  ; Suppress ; GMT ; GMT ; HIDE
 //ldml/dates/timeZoneNames/zone[@type="%B/%A"]/exemplarCity     ; Timezones ; &timeZonePage($1/$2) ; Cities and Regions ; $2
 
+//ldml/dates/timeZoneNames/metazone[@type="%M"]/%E/%E       ; Timezones ; &metazone($1) ; $1 ; &timezoneSorting($3-$2) ; HIDE
 //ldml/dates/timeZoneNames/metazone[@type="%A"]/%E/%E       ; Timezones ; &metazone($1) ; $1 ; &timezoneSorting($3-$2)
 //ldml/dates/timeZoneNames/zone[@type="%A"]/%E/%E           ; Timezones ; Overrides ; $1 ; &timezoneSorting($3-$2)
 

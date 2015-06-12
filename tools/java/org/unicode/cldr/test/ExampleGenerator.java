@@ -387,7 +387,7 @@ public class ExampleGenerator {
             String calendar = parts.getAttributeValue(3, "type");
             SimpleDateFormat timeFormat = icuServiceBuilder.getDateFormat(calendar, 0, 1);    
             String timeSeparator = timeFormat.getDateFormatSymbols().getTimeSeparatorString();
-            timeFormat = icuServiceBuilder.getDateFormat(calendar, "hh" + timeSeparator + "mm");
+            timeFormat = icuServiceBuilder.getDateFormat(calendar, "h" + timeSeparator + "mm");
             examples.add( backgroundStartSymbol + timeFormat.format(time) + backgroundEndSymbol + " " + value);
         }
         return formatExampleList(examples.toArray(new String[examples.size()]));

@@ -28,6 +28,8 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DayPeriodInfo;
+import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -44,6 +46,7 @@ import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.TransliteratorUtilities;
+import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateFormatSymbols;
@@ -292,6 +295,8 @@ public class ExampleGenerator {
                 result = handleDisplayNames(xpath, parts, value);
             } else if (parts.contains("currency")) {
                 result = handleCurrency(xpath, value, context, type);
+            } else if (parts.contains("dayPeriods")) {
+                result = handleDayPeriod(xpath, value, context, type);
             } else if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
                 if (parts.contains("calendar")) {
                     result = handleDateFormatItem(xpath, value);
@@ -362,6 +367,28 @@ public class ExampleGenerator {
             }
         }
         return result;
+    }
+
+    private String handleDayPeriod(String xpath, String value, ExampleContext context, ExampleType type) {
+      //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]
+      //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]
+        List<String> examples = new ArrayList<>();
+        final String dayPeriodType = parts.getAttributeValue(5, "type");
+        org.unicode.cldr.util.DayPeriodInfo.Type aType = dayPeriodType.equals("format") ? DayPeriodInfo.Type.format : DayPeriodInfo.Type.selection;
+        DayPeriodInfo dayPeriodInfo = supplementalDataInfo.getDayPeriods(aType , cldrFile.getLocaleID());
+        String periodString = parts.getAttributeValue(-1, "type");
+
+        DayPeriod dayPeriod = DayPeriod.valueOf(periodString);
+        String periods = dayPeriodInfo.toString(dayPeriod);
+        examples.add(periods);
+        if ("format".equals(dayPeriodType)) {
+            R3<Integer, Integer, Boolean> info = dayPeriodInfo.getFirstDayPeriodInfo(dayPeriod);
+            int time = (info.get0() + info.get1()) / 2;
+            String calendar = parts.getAttributeValue(3, "type");
+            SimpleDateFormat timeFormat = icuServiceBuilder.getDateFormat(calendar, 0, 1);
+            examples.add( backgroundStartSymbol + timeFormat.format(time) + backgroundEndSymbol + " " + value);
+        }
+        return formatExampleList(examples.toArray(new String[examples.size()]));
     }
 
     private UnitLength getUnitLength() {

@@ -491,8 +491,7 @@ public class TestExampleGenerator extends TestFmwk {
                         // redo for debugging
                         text = exampleGenerator.getExampleHtml(xpath, value,
                             null, type);
-                        skipLog = !assertEquals("Example text", expected,
-                            simplified);
+                        skipLog = !assertEquals("Example text for «" + value + "»", expected, simplified);
                     }
                     if (!skipLog) {
                         logln("getExampleHtml\t" + type + "\t" + text + "\t"
@@ -527,7 +526,7 @@ public class TestExampleGenerator extends TestFmwk {
         checkCompactExampleFor("de", Count.other, "〖❬2❭ Mio. €〗", "short", "currency", "000000");
         checkCompactExampleFor("de", Count.one, "〖❬12❭ Mio. €〗", "short", "currency", "0000000");
         checkCompactExampleFor("de", Count.other, "〖❬10❭ Mio. €〗", "short", "currency", "0000000");
-        
+
         checkCompactExampleFor("cs", Count.many, "〖❬1,1❭ milionu〗", "long", "decimal", "000000");
         checkCompactExampleFor("pl", Count.other, "〖❬1,1❭ miliona〗", "long", "decimal", "000000");
     }
@@ -547,4 +546,24 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     //ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
+
+    public void TestDayPeriods() {
+        checkDayPeriod("de", "format", "morning1", "〖05:00 – 10:00〗〖❬07:30❭ morgens〗");
+        checkDayPeriod("de", "stand-alone", "morning1", "〖05:00 – 10:00〗");
+        checkDayPeriod("de", "format", "morning2", "〖10:00 – 12:00〗〖❬11:00❭ vormittags〗");
+        checkDayPeriod("de", "stand-alone", "morning2", "〖10:00 – 12:00〗");
+        checkDayPeriod("pl", "format", "morning1", "〖06:00 – 10:00〗〖❬08:00❭ rano〗");
+        checkDayPeriod("pl", "stand-alone", "morning1", "〖06:00 – 10:00〗");
+    }
+
+    private void checkDayPeriod(String localeId, String type, String dayPeriodCode, String expected) {
+        CLDRFile cldrFile = info.getCldrFactory().make(localeId, true);
+        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish(), CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"";
+        String suffix = "\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\""
+            + dayPeriodCode
+            + "\"]";
+        String path = prefix + type + suffix;
+        checkPathValue(exampleGenerator, path, cldrFile.getStringValue(path), expected);
+    }
 }

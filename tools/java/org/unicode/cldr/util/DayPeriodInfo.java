@@ -11,6 +11,7 @@ import java.util.TreeMap;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.impl.Row.R4;
 
 public class DayPeriodInfo {
     public static final int HOUR = 60 * 60 * 1000;
@@ -113,6 +114,21 @@ public class DayPeriodInfo {
     }
 
     /**
+     * Return the start (in millis) of the first matching day period, or -1 if no match,
+     * 
+     * @param dayPeriod
+     * @return start,end,includesStart,period
+     */
+    public R3<Integer, Integer, Boolean> getFirstDayPeriodInfo(DayPeriodInfo.DayPeriod dayPeriod) {
+        for (int i = 0; i < periods.length; ++i) {
+            if (periods[i] == dayPeriod) {
+                return Row.of(starts[i], i+1 < periods.length ? starts[i+1] : DAY_LIMIT, includesStart[i]);
+            }
+        }
+        return null;
+    }
+
+    /**
      * Returns the day period for the time.
      * 
      * @param millisInDay
@@ -176,6 +192,30 @@ public class DayPeriodInfo {
             .append(period.get2());
         }
         result.append("\n< 24:00");
+        return result.toString();
+    }
+
+    public String toString(DayPeriod dayPeriod) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < starts.length; ++i) {
+            R3<Integer, Boolean, DayPeriod> periodInfo = getPeriod(i);
+            DayPeriod period = periodInfo.get2();
+            if (period != dayPeriod) {
+                continue;
+            }
+            Integer time = periodInfo.get0();
+            if (result.length() != 0) {
+                result.append("; ");
+            }
+            result.append(formatTime(time)).append(" – ");
+            if (i+1 < starts.length) {
+                periodInfo = getPeriod(i+1);
+                time = periodInfo.get0();
+                result.append(formatTime(time));
+            } else {
+                result.append("24:00");
+            }
+        }
         return result.toString();
     }
 

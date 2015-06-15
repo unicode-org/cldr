@@ -837,7 +837,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          */
         @Override
         public String getBaileyValue(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
-            AliasLocation fullStatus = getPathLocation(xpath, true, true);
+            AliasLocation fullStatus = getPathLocation(xpath, true);
             if (localeWhereFound != null) {
                 localeWhereFound.value = fullStatus.localeWhereFound;
             }
@@ -851,7 +851,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             synchronized (getSourceLocaleIDCache) {
                 AliasLocation fullStatus = getSourceLocaleIDCache.get(xpath);
                 if (fullStatus == null) {
-                    fullStatus = getPathLocation(xpath, false, false);
+                    fullStatus = getPathLocation(xpath, false);
                     getSourceLocaleIDCache.put(xpath, fullStatus); // cache copy
                 }
                 return fullStatus;
@@ -930,7 +930,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
         static final Pattern COUNT_EQUALS = Pattern.compile("\\[@count=\"[^\"]*\"]");
 
-        private AliasLocation getPathLocation(String xpath, boolean skipFirst, boolean skipInheritanceMarkers) {
+        private AliasLocation getPathLocation(String xpath, boolean skipFirst) {
             for (XMLSource source : sources.values()) {
                 // allow the first source to be skipped, for george bailey value
                 if (skipFirst) {
@@ -938,11 +938,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                     continue;
                 }
                 if (source.hasValueAtDPath(xpath)) {
-                    if (skipInheritanceMarkers) {
-                        String value = source.getValueAtDPath(xpath);
-                        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-                            continue;
-                        }
+                    String value = source.getValueAtDPath(xpath);
+                    if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                        continue;
                     }
                     return new AliasLocation(xpath, source.getLocaleID());
                 }

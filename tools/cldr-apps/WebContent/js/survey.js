@@ -2932,7 +2932,8 @@ function updateRow(tr, theRow) {
 		if(theRow.voteVhash && 
 				theRow.voteVhash!=='') {
 			var voteForItem = theRow.items[theRow.voteVhash];
-			if(voteForItem.votes && voteForItem.votes[surveyUser.id].overridedVotes) {
+			if(voteForItem && voteForItem.votes && voteForItem.votes[surveyUser.id] && 
+					voteForItem.votes[surveyUser.id].overridedVotes) {
 				tr.voteDiv.appendChild(createChunk(stui.sub("override_explain_msg", 
 						{overrideVotes:voteForItem.votes[surveyUser.id].overridedVotes, votes: surveyUser.votecount}
 					),"p","helpContent"));

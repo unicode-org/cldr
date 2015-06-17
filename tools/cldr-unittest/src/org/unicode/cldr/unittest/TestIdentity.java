@@ -1,6 +1,8 @@
 package org.unicode.cldr.unittest;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
@@ -23,10 +25,13 @@ public class TestIdentity extends TestFmwk {
         LanguageTagParser ltp = new LanguageTagParser();
         LanguageTagCanonicalizer ltc = new LanguageTagCanonicalizer();
 
-        Factory[] factories = { testInfo.getFullCldrFactory(),
-            testInfo.getExemplarsFactory(), testInfo.getCollationFactory(),
-            testInfo.getRBNFFactory() };
-
+        List<Factory> factories = new ArrayList<Factory>();
+        factories.add(testInfo.getFullCldrFactory());
+        if (getInclusion() > 5 ) { // Only do these in exhaustive move
+            factories.add(testInfo.getExemplarsFactory());
+            factories.add(testInfo.getCollationFactory());
+            factories.add(testInfo.getRBNFFactory());
+        }
         for (Factory factory : factories) {
             for (String locale : factory.getAvailable()) {
                 String canonicalLocaleID = ltc.transform(locale);

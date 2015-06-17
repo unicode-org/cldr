@@ -168,7 +168,7 @@ public class TestPaths extends TestFmwkPlus {
     }
 
     private Collection<String> getLocalesToTest() {
-        return params.inclusion < 5 ? Arrays.asList("root", "en", "ja", "ar")
+        return params.inclusion <= 5 ? Arrays.asList("root", "en", "ja", "ar")
             : params.inclusion < 10 ? testInfo.getCldrFactory()
                 .getAvailableLanguages() : testInfo.getCldrFactory()
                 .getAvailable();
@@ -293,6 +293,9 @@ public class TestPaths extends TestFmwkPlus {
     }
 
     public void TestNonLdml () {
+        if (getInclusion() <= 5) { // Only run this test in exhaustive mode.
+            return;
+        }
         CheckDeprecated checkDeprecated = new CheckDeprecated(this);
         XPathParts parts = new XPathParts();
         PathStarrer starrer = new PathStarrer();
@@ -360,7 +363,7 @@ public class TestPaths extends TestFmwkPlus {
                                 String starredPath = starrer.set(path);
                                 if (!seenStarred.contains(starredPath)) {
                                     seenStarred.add(starredPath);
-                                    warnln("Non-node values: " + nonFinalValues + "\t" + path);
+                                    logln("Non-node values: " + nonFinalValues + "\t" + path);
                                 }
                             }
                             if (isVerbose()) {

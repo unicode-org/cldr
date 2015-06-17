@@ -35,6 +35,7 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class TestCheckCLDR extends TestFmwk {
     static TestInfo testInfo = TestInfo.getInstance();
+    private final Set<String> eightPointLocales = new TreeSet<String>(Arrays.asList("ar ca cs da de el es fi fr he hi hr hu id it ja ko lt lv nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant".split(" ")));
 
     public static void main(String[] args) {
         new TestCheckCLDR().run(args);
@@ -208,7 +209,7 @@ public class TestCheckCLDR extends TestFmwk {
 
         LanguageTagParser ltp = new LanguageTagParser();
         int count = 0;
-        for (String locale : factory.getAvailable()) {
+        for (String locale : getInclusion() <= 5 ? eightPointLocales : factory.getAvailable()) {
             if (!ltp.set(locale).getRegion().isEmpty()) {
                 continue;
             }

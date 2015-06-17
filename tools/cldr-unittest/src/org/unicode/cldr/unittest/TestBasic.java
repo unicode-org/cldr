@@ -48,6 +48,7 @@ import org.unicode.cldr.util.InputStreamFactory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -85,7 +86,7 @@ public class TestBasic extends TestFmwkPlus {
 
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo
         .getSupplementalDataInfo();
-
+    
     /**
      * Simple test that loads each file in the cldr directory, thus verifying
      * that the DTD works, and also checks that the PrettyPaths work.
@@ -101,6 +102,7 @@ public class TestBasic extends TestFmwkPlus {
         Arrays.asList("alt", "draft", "references"));
 
     private final String localeRegex = CldrUtility.getProperty("locale", ".*");
+    private final Set<String> eightPointLocales = new TreeSet<String>(Arrays.asList("ar ca cs da de el es fi fr he hi hr hu id it ja ko lt lv nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant".split(" ")));
 
     private final String mainDirectory = CLDRPaths.MAIN_DIRECTORY;
 
@@ -469,7 +471,7 @@ public class TestBasic extends TestFmwkPlus {
             .add("([^]])\\[", "$1\t[").add("([^]])/", "$1\t/")
             .add("/", "\t");
 
-        for (String locale : cldrFactory.getAvailable()) {
+        for (String locale : getInclusion() <= 5 ? eightPointLocales : cldrFactory.getAvailable()) {
             // if (locale.equals("root") && !localeRegex.equals("root"))
             // continue;
             CLDRFile file = cldrFactory.make(locale, resolved);
@@ -544,10 +546,8 @@ public class TestBasic extends TestFmwkPlus {
         Relation<String, String> pathToLocale = Relation.of(
             new TreeMap<String, Set<String>>(CLDRFile
                 .getComparator(DtdType.ldml)), TreeSet.class, null);
-
-        for (String locale : cldrFactory.getAvailable()) {
-            // if (locale.equals("root") && !localeRegex.equals("root"))
-            // continue;
+        Set<String> localesToTest = getInclusion() <= 5 ? eightPointLocales : cldrFactory.getAvailable();
+        for (String locale : localesToTest ) {
             CLDRFile file = cldrFactory.make(locale, resolved);
             DtdType dtdType = null;
             if (file.isNonInheriting())
@@ -1274,10 +1274,12 @@ public class TestBasic extends TestFmwkPlus {
     }
 
     public void TestDtdComparisonsAll() {
-//        for (File file : CLDRConfig.getInstance().getAllCLDRFilesEndingWith(
-//            ".xml")) {
-//            checkDtdComparatorFor(file, null);
-//        }
+        if (getInclusion() <= 5) { // Only run this test in exhaustive mode.
+            return;
+        }
+        for (File file : CLDRConfig.getInstance().getAllCLDRFilesEndingWith(".xml")) {
+            checkDtdComparatorFor(file, null);
+        }
     }
 
     public void checkDtdComparatorForResource(String fileToRead,

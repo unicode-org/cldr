@@ -117,6 +117,13 @@
         </antcall>
     </target>
 
+    <target name="unittestExhaustive" description="Run the standard CLDR test suite in exhaustive mode" depends="init,build">
+        <antcall target="_runUnitTests">
+            <param name="rununittest.arg" value="-n -e10"/>
+            <param name="rununittest.jvmarg" value="${jvm_options}"/>
+        </antcall>
+    </target>
+
    <target name="_runUnitTests" depends="init,build">
         <echo message="JVM argument:   ${rununittest.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST  -Djava.awt.headless=true"/>
         <echo message="Test argument:   ${rununittest.arg}"/>

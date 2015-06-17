@@ -739,7 +739,8 @@ abstract public class CheckCLDR {
                 Subtype.incompleteLogicalGroup,
                 Subtype.inconsistentPeriods,
                 Subtype.abbreviatedDateFieldTooWide,
-                Subtype.narrowDateFieldTooWide);
+                Subtype.narrowDateFieldTooWide,
+                Subtype.coverageLevel);
 
 
         private Type type;

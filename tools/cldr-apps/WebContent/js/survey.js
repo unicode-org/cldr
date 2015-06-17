@@ -2870,6 +2870,7 @@ function addVitem(td, tr, theRow, item, newButton) {
 			theRow.voteVhash == item.valueHash &&
 			// vHash !== '' &&  // not 'no opinion'
 			theRow.items[theRow.voteVhash].votes &&
+			theRow.items[theRow.voteVhash].votes[surveyUser.id] &&
 			theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes) {
 		var overrideTag = createChunk(theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes,"span","i-override");		
 		choiceField.appendChild(overrideTag);

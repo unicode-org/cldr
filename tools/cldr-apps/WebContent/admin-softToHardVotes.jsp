@@ -1,3 +1,4 @@
+
 <%@page import="com.ibm.icu.dev.util.ElapsedTimer"%>
 <%@page import="org.unicode.cldr.web.*"%>
 <%@page import="org.unicode.cldr.util.*,java.util.*"%>
@@ -35,12 +36,19 @@
 
 	<%
 		if ((request.getParameter("vap") == null)
-				|| !request.getParameter("vap").equals(sm.vap)) {
+				|| !request.getParameter("vap").equals(SurveyMain.vap)) {
 	%>
 	Not authorized.
 	<%
 		return;
 		}
+		if (request.getParameter("startLetter") == null) {
+	%>
+	No start letter.
+	<%
+		return;
+		}
+	final String startLetter = request.getParameter("startLetter");
 	final boolean reallyVote = request.getParameter("reallyVote") != null;
 	%>
 
@@ -50,26 +58,23 @@
 		final STFactory stf = sm.getSTFactory();
 		Set<CLDRLocale> sortSet = new TreeSet<CLDRLocale>();
 		sortSet.addAll(SurveyMain.getLocalesSet());
-		Connection conn = null;
-		synchronized (OutputFileManager.class) {
 			try {
-				conn = sm.dbUtils.getDBConnection();
-				for (CLDRLocale loc : sortSet) {
-					if (!loc.isLanguageLocale())
+			    for (CLDRLocale loc : sortSet) {
+					if (!loc.getLanguage().startsWith(startLetter) || loc.getCountry() != "")
 						continue; // skip non language locales
 	%>
 	<h4 title='<%=loc.getBaseName()%>'><%=loc.getDisplayName()%></h4>
-	
 	<%
 				final BallotBox<UserRegistry.User> bb = stf.ballotBoxForLocale(loc);
 				final CLDRFile  file = stf.make(loc, true);
-				
+				int pathCount = 0;
 				// now, for each xpath..
 				for(final String xpath : file.fullIterable()) {
 					// for each value
 					final String value = "↑↑↑"; // 
 					final Set<UserRegistry.User> votes = bb.getVotesForValue(xpath, value);
 					if(votes != null && !votes.isEmpty()) { // did anyone vote for it?
+                                                pathCount++;
 						final String rightValue = file.getBaileyValue(xpath, null, null);
 						%>
 						<h5><%= xpath %> : <%= value %>  to <%= rightValue %> : </h5>
@@ -87,20 +92,14 @@
 					}
 				}
 	%>
-
-
-
+	<h4><%= pathCount %> paths</h4>
 	<%
 		}
 	%>
-	</li>
 	<%
 		} finally {
-				DBUtils.close(conn);
 			}
-		}
 	%>
-	</ol>
 	<hr>
 	Total upd:
 	<%=numupd + "/" + (sortSet.size() + 2)%>

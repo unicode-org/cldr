@@ -393,7 +393,8 @@ public class VerifyZones {
             .setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
             .addColumn("Region: TZID").setHeaderCell(true).setSpanRows(true)
             .setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
-            .setCellPattern(CldrUtility.getDoubleLinkMsg())
+            //.setCellPattern(CldrUtility.getDoubleLinkMsg())
+            // HACK because anchors don't work any more
         // .addColumn("Region: City").setHeaderCell(true).setSpanRows(true)
         // .addColumn("Region/City").setSpanRows(true)
         ;

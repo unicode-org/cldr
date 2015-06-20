@@ -16,4 +16,5 @@ DateTimeFormats formats = new DateTimeFormats().set(ctx.sm.getSTFactory().make(c
 DateTimeFormats english = new DateTimeFormats().set(englishFile,type);
 formats.addTable(english, out);
 formats.addDateTable(englishFile, out);
+formats.addDayPeriods(englishFile, out);
 %>

@@ -918,7 +918,8 @@ public class DateTimeFormats {
         index.close();
     }
 
-    private void addDayPeriods(CLDRFile englishFile, PrintWriter output) {
+    public void addDayPeriods(CLDRFile englishFile, Appendable output) {
+        try {
         output.append("<h2>" + hackDoubleLinked("Day Periods") + "</h2>\n");
         output
         .append("<table class='dtf-table'>\n"
@@ -990,6 +991,9 @@ public class DateTimeFormats {
             output.append("</tr>\n");
         }
         output.append("</table>\n");
+        } catch (IOException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 
     private String getCleanValue(String evalue, Width width, String fallback) {

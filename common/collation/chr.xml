@@ -11,5 +11,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$"/>
 		<language type="chr"/>
 	</identity>
-	<!-- The root collation order is valid for this language. -->
+	<!-- The root collation order is valid for this language. Just move the native script first. -->
+	<collations>
+		<collation type="standard"><cr><![CDATA[
+[reorder Cher]
+		]]></cr></collation>
+	</collations>
 </ldml>

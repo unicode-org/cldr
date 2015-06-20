@@ -382,13 +382,14 @@ public class ExampleGenerator {
         String periods = dayPeriodInfo.toString(dayPeriod);
         examples.add(periods);
         if ("format".equals(dayPeriodType)) {
+            if (value == null) {
+                value = "�";
+            }
             R3<Integer, Integer, Boolean> info = dayPeriodInfo.getFirstDayPeriodInfo(dayPeriod);
             int time = (((info.get0() + info.get1()) % DayPeriodInfo.DAY_LIMIT) / 2);
-            String calendar = parts.getAttributeValue(3, "type");
-            SimpleDateFormat timeFormat = icuServiceBuilder.getDateFormat(calendar, 0, 1);    
-            String timeSeparator = timeFormat.getDateFormatSymbols().getTimeSeparatorString();
-            timeFormat = icuServiceBuilder.getDateFormat(calendar, "h" + timeSeparator + "mm");
-            examples.add( backgroundStartSymbol + timeFormat.format(time) + backgroundEndSymbol + " " + value);
+            //String calendar = parts.getAttributeValue(3, "type");
+            String timeFormatString = icuServiceBuilder.formatDayPeriod(time, backgroundStartSymbol + value + backgroundEndSymbol);
+            examples.add(invertBackground(timeFormatString));
         }
         return formatExampleList(examples.toArray(new String[examples.size()]));
     }

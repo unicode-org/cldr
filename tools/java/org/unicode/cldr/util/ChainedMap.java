@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -188,9 +189,9 @@ public class ChainedMap {
 
     @SuppressWarnings("unchecked")
     private static Constructor<Map<Object, Object>>[] constructorList(Map<? extends Object, ? extends Object>... maps) {
-        Constructor<Map<Object, Object>>[] tempMapConstructors = new Constructor[maps.length];
-        items: for (int i = 0; i < maps.length; ++i) {
-            for (Constructor<?> constructor : maps[i].getClass().getConstructors()) {
+        Constructor<Map<Object, Object>>[] tempMapConstructors = new Constructor[maps.length-1];
+        items: for (int i = 0; i < maps.length - 1; ++i) {
+            for (Constructor<?> constructor : maps[i+1].getClass().getConstructors()) {
                 if (constructor.getParameterTypes().length == 0) {
                     tempMapConstructors[i] = (Constructor<Map<Object, Object>>) constructor;
                     continue items;
@@ -267,7 +268,7 @@ public class ChainedMap {
     public static void main(String[] args) {
         M5<Boolean, Byte, String, Integer, Double> foo = ChainedMap.of(
             new TreeMap<Boolean, Object>(), 
-            new TreeMap<Byte, Object>(), 
+            new HashMap<Byte, Object>(), 
             new TreeMap<String, Object>(), 
             new TreeMap<Integer, Object>(), 
             Double.class);

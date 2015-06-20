@@ -1132,8 +1132,7 @@
 							<alias source="locale" path="../dayPeriodWidth[@type='wide']"/>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">a</dayPeriod>
-							<dayPeriod type="pm">p</dayPeriod>
+							<alias source="locale" path="../dayPeriodWidth[@type='abbreviated']"/>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">AM</dayPeriod>
@@ -1148,7 +1147,7 @@
 							<alias source="locale" path="../dayPeriodWidth[@type='abbreviated']"/>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<alias source="locale" path="../../dayPeriodContext[@type='format']/dayPeriod[@type='wide']"/>
+							<alias source="locale" path="../../dayPeriodContext[@type='format']/dayPeriodWidth[@type='wide']"/>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>

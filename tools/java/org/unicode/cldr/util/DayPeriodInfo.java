@@ -114,7 +114,7 @@ public class DayPeriodInfo {
     }
 
     /**
-     * Return the start (in millis) of the first matching day period, or -1 if no match,
+     * Return the start, end, and whether the start is included.
      * 
      * @param dayPeriod
      * @return start,end,includesStart,period

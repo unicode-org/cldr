@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 
 import com.ibm.icu.text.DateFormat;
@@ -23,6 +25,7 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.Currency;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
@@ -488,19 +491,19 @@ public class ICUServiceBuilder {
                 : nameStyle == 1 ? getCurrencyCode()
                     : nameStyle == 2 ? displayName
                         : null;
-            if (result == null) throw new IllegalArgumentException();
-            // snagged from currency
-            isChoiceFormat[0] = false;
-            int i = 0;
-            while (i < result.length() && result.charAt(i) == '=' && i < 2) {
-                ++i;
-            }
-            isChoiceFormat[0] = (i == 1);
-            if (i != 0) {
-                // Skip over first mark
-                result = result.substring(1);
-            }
-            return result;
+                if (result == null) throw new IllegalArgumentException();
+                // snagged from currency
+                isChoiceFormat[0] = false;
+                int i = 0;
+                while (i < result.length() && result.charAt(i) == '=' && i < 2) {
+                    ++i;
+                }
+                isChoiceFormat[0] = (i == 1);
+                if (i != 0) {
+                    // Skip over first mark
+                    result = result.substring(1);
+                }
+                return result;
         }
 
         /**
@@ -815,4 +818,66 @@ public class ICUServiceBuilder {
         return pattern;
     }
 
+    public enum Width {
+        wide, 
+        abbreviated, 
+        narrow}
+
+    public enum Context {
+        format, 
+        stand_alone;
+        public String toString() { 
+            return name().replace('_', '-');
+        }
+    }
+
+    /**
+     * Format a dayPeriod string. The dayPeriodOverride, if null, will be fetched from the file.
+     * @param timeInDay
+     * @param dayPeriodString
+     * @return
+     */
+    public String formatDayPeriod(int timeInDay, Context context, Width width) {
+        DayPeriodInfo dayPeriodInfo = supplementalData.getDayPeriods(DayPeriodInfo.Type.format, cldrFile.getLocaleID());
+        DayPeriod period = dayPeriodInfo.getDayPeriod(timeInDay);
+        String dayPeriodFormatString = getDayPeriodString(period, context, width, null, "�");
+        String result = formatDayPeriod(timeInDay, dayPeriodFormatString);
+        return result;
+    }
+
+    public String getDayPeriodString(DayPeriod period, Context context, Width width, Output<Boolean> real, String fallback) {
+        String path = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\""
+            + context
+            + "\"]/dayPeriodWidth[@type=\""
+            + width
+            + "\"]/dayPeriod[@type=\""
+            + period
+            + "\"]";
+        String dayPeriodFormatString = cldrFile.getStringValue(path);
+        if (dayPeriodFormatString == null) {
+            dayPeriodFormatString = fallback;
+        }
+        if (real != null) {
+            Status status = new Status();
+            String locale = cldrFile.getSourceLocaleID(path, status);
+            real.value = status.pathWhereFound.equals(path) && cldrFile.getLocaleID().equals(locale);
+        }
+        return dayPeriodFormatString;
+    }
+
+    static final String SHORT_PATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+    static final String HM_PATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hm\"]";
+
+    public String formatDayPeriod(int timeInDay, String dayPeriodFormatString) {
+        String pattern = cldrFile.getStringValue(HM_PATH);
+        if (pattern == null) {
+            pattern = "h:mm \uE000";
+        } else {
+            pattern = pattern.replace('a', '\uE000');
+        }
+        SimpleDateFormat df = getDateFormat("gregorian", pattern);
+        String formatted = df.format(timeInDay);
+        String result = formatted.replace("\uE000", dayPeriodFormatString);
+        return result;
+    }
 }

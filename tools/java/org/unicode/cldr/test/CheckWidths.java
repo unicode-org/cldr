@@ -134,14 +134,16 @@ public class CheckWidths extends CheckCLDR {
         "|mass-pound" +
         "|power-horsepower" +
         "|pressure-inch-hg" +
+        "|pressure-millimeter-of-mercury" +
         "|speed-mile-per-hour" +
         "|temperature-fahrenheit" +
         "|volume-cubic-mile" +
         "|acceleration-g-force" +
         "|speed-kilometer-per-hour" +
         "|speed-meter-per-second" +
-        "|consumption-liter-per-100kilometers" +
         ")";
+    
+    static final String ALLOW_LONGEST = "consumption-liter-per-100kilometers";
 
     static RegexLookup<Limit[]> lookup = new RegexLookup<Limit[]>()
         .setPatternTransform(RegexLookup.RegexFinderTransformPath)
@@ -206,6 +208,10 @@ public class CheckWidths extends CheckCLDR {
         // Catch -future/past Narrow units  and allow much wider values
         .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"[^\"]+-(future|past)\"]/unitPattern", new Limit[] {
             new Limit(10 * EM, 15 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+        })
+        // Catch widest units and allow a bit wider
+        .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"" + ALLOW_LONGEST + "\"]/unitPattern", new Limit[] {
+            new Limit(5 * EM, 6 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
         })
         // Catch special units and allow a bit wider
         .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"" + ALLOW_LONGER + "\"]/unitPattern", new Limit[] {

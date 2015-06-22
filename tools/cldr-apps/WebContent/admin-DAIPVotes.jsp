@@ -63,9 +63,12 @@
                 DisplayAndInputProcessor daip = new DisplayAndInputProcessor(loc, false);
 				// now, for each xpath..
 				for(final String xpath : file.fullIterable()) {
-				    Set<String> values = bb.getValues(xpath);
-				    for (String value : values) {
-		                String daipValue = daip.processInput(xpath, value, exceptionList);
+                    Set<String> values = bb.getValues(xpath);
+                    if (values == null) {
+                        continue;
+                    }
+                    for (String value : values) {
+                        String daipValue = daip.processInput(xpath, value, exceptionList);
 				        if(!value.equals(daipValue)) {
 		                    // for each value
 		                    final Set<UserRegistry.User> votes = bb.getVotesForValue(xpath, value);
@@ -85,7 +88,6 @@
 		                            }
 		                        }
 		                    }
-				            
 				        }
 				    }
 				}

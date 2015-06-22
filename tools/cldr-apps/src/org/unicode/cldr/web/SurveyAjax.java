@@ -1093,19 +1093,21 @@ public class SurveyAjax extends HttpServlet {
                                         //                                        System.out.println("Running >> " + sqlStr + " -> " + rows.length);
 
                                         //JSONArray contested = new JSONArray();
-
+                                        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
+                                        Exception[] exceptionList = new Exception[1];
                                         for (Map m : rows) {
                                             String value = m.get("value").toString();
                                             if (value == null) continue; // ignore unvotes.
                                             int xp = (Integer) m.get("xpath");
                                             String xpathString = sm.xpt.getById(xp);
+                                            value = daip.processInput(xpathString, value, exceptionList);
                                             // String xpathStringHash = sm.xpt.getStringIDString(xp);
                                             try {
-                                                String curValue = file.getStringValue(xpathString);
-                                                if (false && value.equals(curValue)) {
-                                                    box.voteForValue(mySession.user, xpathString, value); // auto vote for uncontested
-                                                    uncontested++;
-                                                } else {
+//                                                String curValue = file.getStringValue(xpathString);
+//                                                if (false && value.equals(curValue)) {
+//                                                    box.voteForValue(mySession.user, xpathString, value); // auto vote for uncontested
+//                                                    uncontested++;
+//                                                } else {
                                                     String strid = sm.xpt.getStringIDString(xp);
                                                     if (deleteSet.contains(strid)) {
                                                         box.unvoteFor(mySession.user, xpathString);
@@ -1116,7 +1118,7 @@ public class SurveyAjax extends HttpServlet {
                                                     } else {
                                                         //System.err.println("SAJ: Ignoring non mentioned strid " + xpathString + " for loc " + locale + " in user "  +mySession.user);
                                                     }
-                                                }
+//                                                }
                                             } catch (InvalidXPathException ix) {
                                                 SurveyLog.logException(ix, "Bad XPath: Trying to vote for " + xpathString);
                                             } catch (VoteNotAcceptedException ix) {

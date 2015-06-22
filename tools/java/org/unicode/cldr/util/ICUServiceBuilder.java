@@ -840,19 +840,12 @@ public class ICUServiceBuilder {
     public String formatDayPeriod(int timeInDay, Context context, Width width) {
         DayPeriodInfo dayPeriodInfo = supplementalData.getDayPeriods(DayPeriodInfo.Type.format, cldrFile.getLocaleID());
         DayPeriod period = dayPeriodInfo.getDayPeriod(timeInDay);
-        String dayPeriodFormatString = getDayPeriodString(period, context, width, null, "�");
+        String dayPeriodFormatString = getDayPeriodValue(getDayPeriodPath(period, context, width), "�", null);
         String result = formatDayPeriod(timeInDay, dayPeriodFormatString);
         return result;
     }
 
-    public String getDayPeriodString(DayPeriod period, Context context, Width width, Output<Boolean> real, String fallback) {
-        String path = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\""
-            + context
-            + "\"]/dayPeriodWidth[@type=\""
-            + width
-            + "\"]/dayPeriod[@type=\""
-            + period
-            + "\"]";
+    public String getDayPeriodValue(String path, String fallback, Output<Boolean> real) {
         String dayPeriodFormatString = cldrFile.getStringValue(path);
         if (dayPeriodFormatString == null) {
             dayPeriodFormatString = fallback;
@@ -863,6 +856,17 @@ public class ICUServiceBuilder {
             real.value = status.pathWhereFound.equals(path) && cldrFile.getLocaleID().equals(locale);
         }
         return dayPeriodFormatString;
+    }
+
+    public static String getDayPeriodPath(DayPeriod period, Context context, Width width) {
+        String path = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\""
+            + context
+            + "\"]/dayPeriodWidth[@type=\""
+            + width
+            + "\"]/dayPeriod[@type=\""
+            + period
+            + "\"]";
+        return path;
     }
 
     static final String SHORT_PATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";

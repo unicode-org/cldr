@@ -696,7 +696,8 @@ public class DateTimeFormats {
     }
 
     public String getFixFromPath(String path) {
-        return PathHeader.getLinkedView(surveyUrl, file, path);
+        String result = PathHeader.getLinkedView(surveyUrl, file, path);
+        return result == null ? "" : result;
     }
 
     /**
@@ -921,6 +922,11 @@ public class DateTimeFormats {
     public void addDayPeriods(CLDRFile englishFile, Appendable output) {
         try {
         output.append("<h2>" + hackDoubleLinked("Day Periods") + "</h2>\n");
+        output.append("<p>Please review these and correct if needed. The Wide fields are the most important. "
+            + "To correct them, go to "
+            + getFixFromPath(ICUServiceBuilder.getDayPeriodPath(DayPeriodInfo.DayPeriod.am, Context.format, Width.wide)) + " and following. "
+            + "<b>Note: </b>Day Periods can be a bit tricky; "
+            + "for more information, see <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/date-time-names#TOC-Day-Periods-AM-and-PM-'>Day Periods</a>.</p>\n");        
         output
         .append("<table class='dtf-table'>\n"
             +"<tr>"
@@ -967,19 +973,20 @@ public class DateTimeFormats {
             .append("</th>\n");
             for (Context context : Context.values()) {
                 for (Width width : Width.values()) {
+                    final String dayPeriodPath = ICUServiceBuilder.getDayPeriodPath(period, context, width);
                     if (width == Width.wide) {
                         String englishValue;
                         if (context == Context.format) {
                             englishValue = icuServiceBuilderEnglish.formatDayPeriod(midPoint, context, width);
                             realEnglish.value = true;
                         } else {
-                            englishValue = icuServiceBuilderEnglish.getDayPeriodString(period, context, width, realEnglish, null);
+                            englishValue = icuServiceBuilderEnglish.getDayPeriodValue(dayPeriodPath, null, realEnglish);
                         }
                         output.append("<th class='dtf-left" + (realEnglish.value ? "" : " dtf-gray") + "'" + ">")
                         .append(getCleanValue(englishValue, width, "<i>unused</i>"))
                         .append("</th>\n");
                     }
-                    String nativeValue = icuServiceBuilder.getDayPeriodString(period, context, width, real, "�");
+                    String nativeValue = icuServiceBuilder.getDayPeriodValue(dayPeriodPath, "�", real);
                     if (context == Context.format) {
                         nativeValue = icuServiceBuilder.formatDayPeriod(midPoint, nativeValue);
                     }

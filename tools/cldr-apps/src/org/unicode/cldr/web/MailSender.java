@@ -18,6 +18,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Properties;
 import java.util.Set;
@@ -167,7 +168,7 @@ public class MailSender implements Runnable {
                 SurveyLog.warnOnce("************* mail processing disabled for derby. Sorry. **************");
             } else {
                 int firstTime = SurveyMain.isUnofficial() ? 5 : 60; // for official use, give some time for ST to settle before starting on mail s ending.
-                int eachTime = 6; /* Check for outbound mail every 6 seconds */// SurveyMain.isUnofficial()?6:45; // 63;
+                int eachTime = 60; /* Check for outbound mail every 60 seconds */
                 periodicThis = SurveyMain.getTimer().scheduleWithFixedDelay(this, firstTime, eachTime, TimeUnit.SECONDS);
                 System.out.println("Set up mail thread every " + eachTime + "s starting in " + firstTime + "s - waiting count = "
                     + DBUtils.sqlCount(COUNTLEFTSQL));
@@ -334,21 +335,23 @@ public class MailSender implements Runnable {
             return;
         }
 
-        if (System.currentTimeMillis() < waitTill) {
-            SurveyLog.warnOnce("************* delaying mail processing due to previous errors. **************");
-            return; // wait a bit
-        }
+//        if (System.currentTimeMillis() < waitTill) {
+//            SurveyLog.warnOnce("************* delaying mail processing due to previous errors. **************");
+//            return; // wait a bit
+//        }
 
-        SurveyLog.warnOnce("MailSender: processing mail queue");
+        System.out.println("MailSender: processing mail queue");
         String oldName = Thread.currentThread().getName();
         try {
             int countLeft = DBUtils.sqlCount(COUNTLEFTSQL);
             Thread.currentThread().setName("SurveyTool MailSender: waiting count=" + countLeft);
-            if (SurveyMain.isUnofficial()) {
+//            if (SurveyMain.isUnofficial()) {
                 if (countLeft > 0) {
                     if (DEBUG) System.err.println("MailSender: waiting mails: " + countLeft);
+                } else {
+                    //if(DEBUG) System.err.println("Countleft: 0");
                 }
-            }
+//            }
 
             Connection conn = null;
             PreparedStatement s = null, s2 = null;
@@ -371,6 +374,9 @@ public class MailSender implements Runnable {
                         }
                         lastIdProcessed = -1;
                     }
+                    if (DEBUG) {
+                        System.out.println("No mail to check.");
+                    }
                     return; // nothing to do
                 }
 
@@ -392,17 +398,38 @@ public class MailSender implements Runnable {
                     UserRegistry.User fromUser = getUser(from);
 
                     String all_from = env.getProperty("CLDR_FROM", "set_CLDR_FROM_in_cldr.properties@example.com");
-
+                    
                     if (false && from > 1) { // ticket:6334 - don't use individualized From: messages
                         ourMessage.setFrom(new InternetAddress(fromUser.email, fromUser.name + " (SurveyTool)"));
                     } else {
                         ourMessage.setFrom(new InternetAddress(all_from, "CLDR SurveyTool"));
                     }
 
+                    // date
+                    final Timestamp queue_date = rs.getTimestamp("queue_date");
+                    ourMessage.setSentDate(queue_date); // slices
+                    
                     // to
                     Integer to = rs.getInt("user");
                     UserRegistry.User toUser = getUser(to);
-                    if (to > 1) {
+                    if(toUser == null) {
+                        String why;
+                        int badCount;
+                        UserRegistry.User u = CookieSession.sm.reg.getInfo(to);
+                        if(u != null && UserRegistry.userIsLocked(u)) {
+                            why = "user "+ u +" is locked";
+                        } else {
+                            why = "user (#"+to+") does not exist";
+                        }
+                        rs.updateInt("try_count", (badCount = (rs.getInt("try_count") + 999))); // Don't retry.
+                        rs.updateString("audit", why);
+                        rs.updateTimestamp("try_date", sqlnow);
+                        rs.updateRow();
+                        conn.commit();
+                        System.out.println("Abandoning mail id # " + lastIdProcessed + " because: " + why);
+                        processMail();
+                        return;
+                    } else if (to > 1) {
                         ourMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(toUser.email, toUser.name));
                     } else {
                         ourMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(all_from, "CLDR SurveyTool"));
@@ -444,7 +471,13 @@ public class MailSender implements Runnable {
                     }
                     if (DEBUG) System.out.println("Mail: do updated: #id " + lastIdProcessed + " to " + toUser);
                     conn.commit();
-                    if (DEBUG) System.out.println("Mail: comitted: #id " + lastIdProcessed + " to " + toUser);
+                    if (DEBUG) System.out.println("Mail: committed: #id " + lastIdProcessed + " to " + toUser);
+                    
+                    // do more?
+                    countLeft = DBUtils.sqlCount(COUNTLEFTSQL);
+                    if(countLeft > 0) {
+                        processMail();
+                    }
                 } catch (MessagingException mx) {
                     if (SurveyMain.isUnofficial()) {
                         SurveyLog.logException(mx, "Trying to process mail id#" + lastIdProcessed);
@@ -475,5 +508,9 @@ public class MailSender implements Runnable {
         } finally {
             Thread.currentThread().setName(oldName);
         }
+    }
+
+    private void processMail() {
+        CookieSession.sm.getTimer().submit(this); // Cause a quick retry.
     }
 }

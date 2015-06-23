@@ -43,7 +43,7 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <!-- and is maintained manually by the CLDR TC --> 
             <variable id="$language" type="choice">
                 aa ab ace ach ada ady ae aeb af afh agq ain ak akk akz ale aln alt am an ang anp ar
-                arc arn aro arp arq arw ary arz as asa ase ast av avk awa ay az
+                arc arn aro arp arq arw ary arz as asa ase ast av avk awa ay az azb
                 ba bal ban bar bas bax bbc bbj bfd be bej bem bew bez bfq bg bgn bho bi bik bin bjn bkm bla bm bn
                 bo bpy bqi br bra brh brx bs bss bua bug bum byn byv
                 ca cad car cay cch ce ceb cgg ch chb chg chk chm chn cho chp chr chy ckb
@@ -1044,7 +1044,6 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <languageAlias type="est" replacement="et" reason="overlong"/> <!-- [Estonian] -->
             <languageAlias type="eus" replacement="eu" reason="overlong"/> <!-- [Basque] -->
             <languageAlias type="fas" replacement="fa" reason="overlong"/> <!-- [Persian] -->
-	    <!--<languageAlias type="prs" replacement="fa_AF" reason="overlong"/>  [Dari] -->
             <languageAlias type="ful" replacement="ff" reason="overlong"/> <!-- [Fulah] -->
             <languageAlias type="fin" replacement="fi" reason="overlong"/> <!-- [Finnish] -->
             <languageAlias type="fij" replacement="fj" reason="overlong"/> <!-- [Fijian] -->
@@ -1984,7 +1983,7 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
         <skipDefaultLocale services="segmentation collation"/>
 		<defaultContent locales="
 			aa_ET af_ZA agq_CM ak_GH am_ET ar_001 arn_CL as_IN asa_TZ ast_ES az_Cyrl_AZ
-			az_Latn az_Latn_AZ az_Arab_IR
+			az_Latn az_Latn_AZ azb_IR
 			ba_RU bas_CM be_BY bem_ZM bez_TZ bg_BG bgn_PK bm_ML bm_Nkoo_ML bn_BD bo_CN br_FR
 			brx_IN bs_Cyrl_BA bs_Latn bs_Latn_BA bss_CM byn_ER
 			ca_ES cch_NG ce_RU cgg_UG chr_US ckb_IQ co_FR cs_CZ cu_RU cv_RU cy_GB

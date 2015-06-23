@@ -399,6 +399,18 @@ public class CldrUtility {
     }
 
     public static List<String> splitList(String source, char separator, boolean trim, List<String> output) {
+        return splitList(source, Character.toString(separator), trim, output);
+    }
+
+    public static List<String> splitList(String source, String separator) {
+        return splitList(source, separator, false, null);
+    }
+
+    public static List<String> splitList(String source, String separator, boolean trim) {
+        return splitList(source, separator, trim, null);
+    }
+
+    public static List<String> splitList(String source, String separator, boolean trim, List<String> output) {
         if (output == null) output = new ArrayList<String>();
         if (source.length() == 0) return output;
         int pos = 0;

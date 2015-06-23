@@ -674,7 +674,7 @@ public final class XPathParts implements Freezable<XPathParts> {
     }
 
     public static final int XPATH_STYLE = 0, XML_OPEN = 1, XML_CLOSE = 2, XML_NO_VALUE = 3;
-    public static final String NEWLINE = "\n";
+    public static final String NEWLINE = System.lineSeparator();
 
     private final class Element implements Cloneable, Freezable<Element> {
         private volatile boolean frozen;

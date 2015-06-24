@@ -145,15 +145,16 @@ if(UserRegistry.userIsAdmin(myUser)) {
 }
 %>
 
-<% } else { %>
+<% } else { 
+	// User session not present. Set a few things so that we don't fail.
+%>
 var surveyUser=null;
 var surveyUserURL = {};
 var organizationName =null ; 
 var org = null;
 var surveyUserPerms = {
         userExist: false,
-        hasFlag: <%= curSurveyMain.getSTFactory().haveFlags()%>,
-        hasDataSource: <%= curSurveyMain.dbUtils.hasDataSource() %>
+        hasFlag: <%= haveFlags %>
 };
 <% }%>
 

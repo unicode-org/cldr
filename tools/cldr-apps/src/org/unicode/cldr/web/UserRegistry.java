@@ -1805,7 +1805,7 @@ public class UserRegistry {
             return null; // all
         }
         String localeArray[] = tokenizeLocale(u.locales);
-        if (localeMatchesLocaleList(localeArray, locale)) {
+        if (localeMatchesLocaleList(localeArray, locale.getLanguageLocale())) { // Match langauge locale for forum access
             return null;
         } else {
             return ModifyDenial.DENY_LOCALE_LIST;

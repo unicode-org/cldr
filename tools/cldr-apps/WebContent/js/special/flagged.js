@@ -108,6 +108,7 @@ define("js/special/flagged.js", ["js/special/SpecialPage.js", "dojo/request", "j
 					var asLink = $('<a></a>', {text: row[header.LOCALE_NAME], href: ("#/"+row[header.LOCALE])});
 					asLink.appendTo(h4);
 					h4.appendTo(ourDiv);
+					lastLocale = row[header.LOCALE]; // don't show the header next time
 				}
 				
 				var theRow = $('<div></div>', {class: 'flaggedItem'});

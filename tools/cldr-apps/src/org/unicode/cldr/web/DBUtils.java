@@ -1284,17 +1284,18 @@ public class DBUtils {
 
         ret.put("header", header);
         //ret.put("types", rsm2);
+        final STFactory stFactory = CookieSession.sm.getSTFactory();
 
         while (rs.next()) {
             JSONArray item = new JSONArray();
-            String xpath = null;
+            Integer xpath = null;
             String locale_name = null;
             for (int i = 1; i <= cc; i++) {
                 String v;
                 try {
                     v = rs.getString(i);
                     if (i == hasxpath && v != null) {
-                        xpath = v;
+                        xpath = rs.getInt(i);
                     }
                     if (i == haslocale && v != null) {
                         locale_name = CLDRLocale.getInstance(v).getDisplayName();
@@ -1318,6 +1319,9 @@ public class DBUtils {
                     case java.sql.Types.BIGINT:
                         item.put(rs.getInt(i));
                         break;
+                    case java.sql.Types.TIMESTAMP:
+                        item.put(rs.getTimestamp(i).getTime()); // truncates
+                        break;
                     default:
                         item.put(v);
                     }
@@ -1326,14 +1330,19 @@ public class DBUtils {
                 }
             }
             if (hasxpath >= 0 && xpath != null) {
-                item.put(XPathTable.getStringIDString(xpath)); // add
+                final String xpathString = CookieSession.sm.xpt.getById(xpath);
+                item.put(xpathString!=null? (XPathTable.getStringIDString(xpathString)) : ""); // add
                                                                // XPATH_STRHASH
                                                                // column
-                PathHeader ph = CookieSession.sm.getSTFactory().getPathHeader(xpath);
-                if (ph != null) {
-                    item.put(ph.toString()); // add XPATH_CODE
-                } else {
+                if(xpathString == null || xpathString.isEmpty()) {
                     item.put("");
+                } else {
+                    final PathHeader ph = stFactory.getPathHeader(xpathString);
+                    if (ph != null) {
+                        item.put(ph.toString()); // add XPATH_CODE
+                    } else {
+                        item.put("");
+                    }
                 }
             }
             if (haslocale >= 0 && locale_name != null) {

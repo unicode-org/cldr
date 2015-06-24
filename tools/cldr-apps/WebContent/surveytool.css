@@ -3552,3 +3552,45 @@ table.flaggedItems .flaggedPath {
 .flaggedItemsBox {
     margin:  1em;
 }
+
+.special_flagged {
+	display:  table;
+}
+
+.special_flagged h4 {
+	display:  table-row;
+}
+.special_flagged div {
+	display:  table-row;
+}
+.special_flagged div span {
+	padding-right:  .5em;
+}
+.special_flagged div span,
+.special_flagged div .thinUser {
+	display:  table-cell;
+}
+
+.special_flagged .thinUser {
+	margin-left:  20px;
+}
+.special_flagged div .thinUser img {
+	float:  left;
+}
+
+
+.special_flagged .thinUser .adminUserName {
+	font-size:  small;
+}
+
+div.thinUser {
+	border:  1px solid gray;
+	border-radius: .5em;
+	padding: 0.1em;
+}
+
+.special_flagged .pathHeaderInfo {
+	font-size:  smaller;
+	white-space: nowrap;
+}
+

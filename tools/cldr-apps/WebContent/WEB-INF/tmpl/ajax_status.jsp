@@ -111,7 +111,7 @@ var surveyUserPerms = {
         userIsVetter: <%= !UserRegistry.userIsTC(myUser) && UserRegistry.userIsVetter(myUser)%>,
         userIsLocked: <%= !UserRegistry.userIsTC(myUser) && !UserRegistry.userIsVetter(myUser) && !UserRegistry.userIsLocked(myUser)%>,
         
-        hasFlag: <%= (mySession != null) && (myUser != null) && UserRegistry.userIsTC(myUser) && curSurveyMain.getSTFactory().haveFlags()%>,
+        hasFlag: <%= curSurveyMain.getSTFactory().haveFlags()%>,
         hasDataSource: <%= curSurveyMain.dbUtils.hasDataSource() %>,
 };
 var surveyUserURL = {
@@ -137,6 +137,17 @@ if(UserRegistry.userIsAdmin(myUser)) {
 }
 %>
 
+<% } else { %>
+var surveyUser=null;
+var surveyUserURL = {};
+var organizationName =null ; 
+var org = null;
+var surveyUserPerms = {
+        userExist: false,
+        hasFlag: <%= curSurveyMain.getSTFactory().haveFlags()%>,
+        hasDataSource: <%= curSurveyMain.dbUtils.hasDataSource() %>
+};
+<% }%>
 
 var surveyImgInfo = {
         flag: { 
@@ -152,10 +163,6 @@ var surveyImgInfo = {
             border: 0,
         }
 };
-<% } else { %>
-var surveyUser=null;
-var surveyUserURL = {};
-<% }%>
 var warnIcon = "<%= WebContext.iconHtml(request,"warn","Test Warning") %>";
 var stopIcon = "<%= WebContext.iconHtml(request,"stop","Test Error") %>";
 var WHAT_GETROW = "<%= SurveyAjax.WHAT_GETROW %>";

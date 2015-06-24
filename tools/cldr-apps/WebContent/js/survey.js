@@ -4721,8 +4721,7 @@ function showV() {
 				    {divider: true},
 				    {title: 'Forum'}, // Forum section
 				  
-				    {title: 'View Flagged Entries', level: 2, url: surveyUserURL.flag, display: surveyUserPerms.hasFlag, img: surveyImgInfo.flag},
-				    {title: '(no flagged items)', level: 2, display: !surveyUserPerms.hasFlag, italic: true },
+				    {special: 'flagged', level: 2, img: surveyImgInfo.flag},
 				    {title: 'RSS 2.0', level: 2, url: surveyUserURL.RSS, img: surveyImgInfo.RSS},
 				    {special: 'mail', level: 2, display: !surveyOfficial },
 				    

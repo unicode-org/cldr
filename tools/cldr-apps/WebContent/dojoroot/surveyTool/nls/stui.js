@@ -339,6 +339,8 @@ define({
 		section_mail: 'Messages',
 
 		special_vsummary: "Priority Items Summary (slow)",
+		special_flagged: "Flagged Items",
+		flaggedGuidance: "This shows a list of items which are flagged for TC review. Items are sorted by locale and then date. ",
 		vsummaryGuidance: "This is the vetting summary. Click Recalculate to start and be patient, this may take a while.",
 		vsReload: "Recalculate",
 		vsStop: "Stop",
@@ -350,7 +352,7 @@ define({
 		err_what_menus: "load the Survey Tool menus",
 		err_what_status: "get the latest status from the server",
 		err_what_unknown: "process your request",
-		err_what_oldvotes: "fetch or import your old votes",
+		err_what_oldvotes: "fetch or import your old votes", 
 		err_what_vote: "vote for a value",
 		E_UNKNOWN: "An error occurred while trying to '${what}', and the error code is '${code}'.\n Reloading may resume your progress.",
 		E_INTERNAL: "An internal error occurred trying to '${what}'. This is probably a bug in the SurveyTool.",

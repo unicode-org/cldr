@@ -243,9 +243,11 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_REVIEW_ADD_POST = "add_post";
     public static final String WHAT_REVIEW_GET_POST = "get_post";
     public static final String WHAT_PARTICIPATING_USERS = "participating_users";
+    public static final String WHAT_USER_INFO = "user_info";
     public static final String WHAT_USER_LIST = "user_list";
     public static final String WHAT_USER_OLDVOTES = "user_oldvotes";
     public static final String WHAT_USER_XFEROLDVOTES = "user_xferoldvotes";
+    public static final String WHAT_FLAGGED = "flagged";
 
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
         "oldVoteRemind", "dummy" }; // list
@@ -344,6 +346,11 @@ public class SurveyAjax extends HttpServlet {
                 JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 60 * 1000, StatisticsUtils.QUERY_ALL_VOTES);
                 r.put(what, query);
                 addGeneralStats(r);
+                send(r, out);
+            } else if (what.equals(WHAT_FLAGGED)) {
+                JSONWriter r = newJSONStatus(sm);
+                JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 1000, "select * from "+ DBUtils.Table.VOTE_FLAGGED +"  order by locale asc, last_mod desc");
+                r.put(what, query);
                 send(r, out);
             } else if (what.equals(WHAT_STATS_BYDAYUSERLOC)) {
                 String votesAfterString = SurveyMain.getVotesAfterString();
@@ -1285,6 +1292,31 @@ public class SurveyAjax extends HttpServlet {
                     } else if(mySession.user != null) {
                         mySession.userDidAction();
                         switch(what) {
+                        case WHAT_USER_INFO:
+                        {
+                            String u = request.getParameter("u");
+                            if(u == null)    throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter 'u'");
+                            Integer userid = Integer.parseInt(u);
+                            
+                            final JSONWriter r = newJSONStatusQuick(sm);
+                            r.put("what", what);
+                            r.put("id", userid);
+                            JSONObject userPerms = new JSONObject();
+
+                            UserRegistry.User them = sm.reg.getInfo(userid);
+                            if( (them.id == mySession.user.id) || // it's me
+                                UserRegistry.userIsTC(mySession.user)  ||
+                                (UserRegistry.userIsExactlyManager(mySession.user) && 
+                                    (them.getOrganization() == mySession.user.getOrganization()))
+                             ) {
+                                r.put("user", JSONWriter.wrap(them));
+                            } else {
+                                r.put("err", "No permission to view this user's info");
+                                r.put("err_code", ErrorCode.E_NO_PERMISSION);
+                            }
+                            send(r, out);
+                        }
+                        break;
                         case WHAT_USER_LIST:
                         {
                             if(mySession.user.isAdminForOrg(mySession.user.org)) { // for now- only admin can do these

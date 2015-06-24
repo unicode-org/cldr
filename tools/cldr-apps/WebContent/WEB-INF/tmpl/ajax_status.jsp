@@ -94,6 +94,14 @@ var surveySessionId=null;
 <% } 
 SurveyMain curSurveyMain = null;
 curSurveyMain = SurveyMain.getInstance(request);
+STFactory stf = null;
+if(curSurveyMain!=null) {
+	stf = curSurveyMain.getSTFactory();
+}
+boolean haveFlags = false;
+if(stf!=null) {
+	haveFlags = stf.haveFlags();
+}
 if(myUser!=null) {
 %>
 var surveyUser= '<%= myUser.toJSONString() %>';
@@ -111,7 +119,7 @@ var surveyUserPerms = {
         userIsVetter: <%= !UserRegistry.userIsTC(myUser) && UserRegistry.userIsVetter(myUser)%>,
         userIsLocked: <%= !UserRegistry.userIsTC(myUser) && !UserRegistry.userIsVetter(myUser) && !UserRegistry.userIsLocked(myUser)%>,
         
-        hasFlag: <%= curSurveyMain.getSTFactory().haveFlags()%>,
+        hasFlag: <%= haveFlags %>,
         hasDataSource: <%= curSurveyMain.dbUtils.hasDataSource() %>,
 };
 var surveyUserURL = {

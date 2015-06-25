@@ -1805,11 +1805,13 @@ public class UserRegistry {
             return null; // all
         }
         String localeArray[] = tokenizeLocale(u.locales);
-        if (localeMatchesLocaleList(localeArray, locale.getLanguageLocale())) { // Match langauge locale for forum access
-            return null;
-        } else {
-            return ModifyDenial.DENY_LOCALE_LIST;
+        final CLDRLocale languageLocale = locale.getLanguageLocale();
+        for(final CLDRLocale l : stringArrayToLocaleArray(localeArray)) {
+            if(l.getLanguageLocale() == languageLocale) {
+                return null;
+            }
         }
+        return ModifyDenial.DENY_LOCALE_LIST;
     }
 
     public static boolean countUserVoteForLocale(User theSubmitter, CLDRLocale locale) {

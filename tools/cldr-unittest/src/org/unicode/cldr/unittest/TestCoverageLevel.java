@@ -386,8 +386,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
     }
 
     static final EnumSet<PageId> SKIP_PAGE_OK = EnumSet.of(PageId.Dangi,
-        PageId.Islamic, PageId.Islamic_Civil, PageId.Islamic_Rgsa,
-        PageId.Islamic_Tbla, PageId.Islamic_Umalqura, PageId.Buddhist,
+        PageId.Islamic, PageId.Buddhist,
         PageId.Chinese, PageId.Coptic, PageId.Ethiopic,
         PageId.Ethiopic_Amete_Alem, PageId.Hebrew, PageId.Indian,
         PageId.Japanese, PageId.Persian, PageId.ROC, PageId.Transforms,

@@ -871,8 +871,8 @@ h5 {
 			</tr>
 			<tr class='changed'>
 			  <td><code> <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a></code></td>
-			  <td><code> = (alphanum{1,3} ; </code></td>
-			  <td><pre>1*3alphanum</pre></td>
+			  <td><code> = (alphanum{1,4} ; </code></td>
+			  <td><pre>1*4alphanum</pre></td>
 		  </tr>
 			<tr>
 				<td><pre>tlang</pre></td>
@@ -1993,6 +1993,9 @@ zh-Hant-HK
 1.		      <strong>type</strong> value is that unicode_region_subtag, and<br>
 2.		      <strong>contains</strong> value  contains the <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>.<br>
 (The <strong>contains</strong> value is a space-delimited set, and compared case-insensitively.) <br>
+		      <br>
+		      The subdivision codes are based on ISO codes, which have 1..3 ASCII letters or digits. The 4 character versions are reserved for use 
+		      by CLDR.<br>
 		      <br>
 		      For example, &quot;ca&quot; is valid for &quot;US&quot; because of the following element:<br>
 		      <br>

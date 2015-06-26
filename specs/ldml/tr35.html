@@ -869,6 +869,11 @@ h5 {
 				<td><pre>= alphanum{3,8} ;</pre></td>
 				<td><pre>= 3*8alphanum</pre></td>
 			</tr>
+			<tr class='changed'>
+			  <td><code> <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a></code></td>
+			  <td><code> = (alphanum{1,3} ; </code></td>
+			  <td><pre>1*3alphanum</pre></td>
+		  </tr>
 			<tr>
 				<td><pre>tlang</pre></td>
 				<td><pre>= unicode_language_subtag
@@ -1964,6 +1969,34 @@ zh-Hant-HK
 						handling of the "POSIX" variant see <i>Section 3.8.2, <a
 							href="#Legacy_Variants">Legacy Variants</a></i>.
 				</td>
+			</tr>
+            <tr>
+				<td colspan="4"><strong>A <a
+						href="#UnicodeSubdivisionIdentifier" name="UnicodeSubdivisionIdentifier">Unicode
+							Subdivision Identifier</a> defines a regional subdivision used for locales.
+						</strong></td>
+			</tr>
+		  <tr class='changed'>
+				<td>"sd"</td>
+				<td>Regional Subdivision</td>
+				<td><a href="#unicode_subdivision_subtag">unicode_&#x200b;subdivision_&#x200b;subtag</a>s with an "00" prefix.<br>
+			    <br>
+			    For example, <br>
+			    “en-US-sd-00ca”<br>
+			    represents <br>
+			    “English as used in California”.</td>
+				<td>The <a
+						href="#UnicodeSubdivisionIdentifier" name="UnicodeSubdivisionIdentifier">Unicode
+							Subdivision Identifier</a> in  a unicode_language_id if the latter has no <a href="#unicode_region_subtag">unicode_region_subtag</a>, or   the <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is not valid for it.<br>
+				  <br>				  
+				  A <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>  is valid for a <a href="#unicode_region_subtag">unicode_region_subtag</a> only when the <strong>subdivisionContainment</strong> element contains a <strong>subgroup</strong> element whose:<br>
+1.		      <strong>type</strong> value is that unicode_region_subtag, and<br>
+2.		      <strong>contains</strong> value  contains the <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>.<br>
+(The <strong>contains</strong> value is a space-delimited set, and compared case-insensitively.) <br>
+		      <br>
+		      For example, &quot;ca&quot; is valid for &quot;US&quot; because of the following element:<br>
+		      <br>
+            <code>&lt;subgroup type=&quot;US&quot; contains=&quot;… CA …&quot;/&gt;</code></td>
 			</tr>
 		</table>
 		<p>
@@ -7338,6 +7371,22 @@ decimal?, group?, special*)) &gt;</pre>
 
 		<ul class="changed">
 			<li>Proposed update for Version 28.</li>
+			<li><strong>Part 1: <a href="#Contents">Core</a></strong>
+			  <ul>
+			    <li><em>Section 3.2 <a href="#Unicode_locale_identifier">Unicode
+				Locale Identifier</a></em>
+			      <ul>
+			        <li>Added unicode_subdivision_subtag</li>
+		          </ul>
+			    </li>
+			    <li>Section <a href="#Key_And_Type_Definitions_" >3.6.1
+				Key And Type Definitions</a> 
+			      <ul>
+			        <li>Added new key and types for subdivsions, including validity criteria.</li>
+		          </ul>
+			    </li>
+		      </ul>
+			</li>
 			<li><strong>Part 5: <a
 					href="tr35-collation.html#Contents">Collation</a></strong>
 				<ul>

@@ -341,6 +341,7 @@ define({
 		special_vsummary: "Priority Items Summary (slow)",
 		special_flagged: "Flagged Items",
 		flaggedGuidance: "This shows a list of items which are flagged for TC review. Items are sorted by locale and then date. ",
+		flaggedTotalCount: "Total: ",
 		vsummaryGuidance: "This is the vetting summary. Click Recalculate to start and be patient, this may take a while.",
 		vsReload: "Recalculate",
 		vsStop: "Stop",

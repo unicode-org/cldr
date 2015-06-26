@@ -98,18 +98,34 @@ define("js/special/flagged.js", ["js/special/SpecialPage.js", "dojo/request", "j
 //					$('<pre></pre>', { text: JSON.stringify(o.entry) }).appendTo(args.theRow);
 				}
 			}
-
+			
+			var totalCount = 0;
+			var totalCountChunk = $('<span></span>', 
+				{text: Number(0).toLocaleString()});
+			var totalCountHeader = $('<h3></h3>',
+				{text:stui.str('flaggedTotalCount')});
+			totalCountChunk.appendTo(totalCountHeader);
+			totalCountHeader.appendTo(ourDiv);
+			var lastCount = 0;
+			var lastCountChunk = null;
 			for(var r=0;r<rows.length;r++) {
 				var row = rows[r];
 				
 				if(row[header.LOCALE] !== lastLocale) {
+					lastCount = 0;
 					// emit a header
 					var h4 = $('<h4></h4>', {class: 'flaggedLocaleHeader'});
 					var asLink = $('<a></a>', {text: row[header.LOCALE_NAME], href: ("#/"+row[header.LOCALE])});
 					asLink.appendTo(h4);
+					lastCountChunk = $('<span></span>', 
+						{text: ''});
+					lastCountChunk.appendTo(h4);
 					h4.appendTo(ourDiv);
 					lastLocale = row[header.LOCALE]; // don't show the header next time
+				} else {
 				}
+				lastCountChunk.text(Number(++lastCount).toLocaleString());
+				totalCountChunk.text(Number(++totalCount).toLocaleString());
 				
 				var theRow = $('<div></div>', {class: 'flaggedItem'});
 				var theDateChunk = $('<span></span>', { class: 'dateChunk', text: new Date(row[header.LAST_MOD]).toLocaleDateString()} );

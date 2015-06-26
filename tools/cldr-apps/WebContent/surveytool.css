@@ -3557,18 +3557,35 @@ table.flaggedItems .flaggedPath {
 	display:  table;
 }
 
-.special_flagged h4 {
+.special_flagged .flaggedLocaleHeader {
 	display:  table-row;
+	background-color:  #fee;
+	padding-top:  4em;
 }
-.special_flagged div {
+
+.special_flagged h3 {
+	padding-left: 32px;
+	background: url(flag.png) left center no-repeat;
+}
+
+.special_flagged div.flaggedItem {
 	display:  table-row;
 }
 .special_flagged div span {
 	padding-right:  .5em;
 }
+
+.special_flagged .flaggedLocaleHeader span {
+	padding-left:  1em;
+}
+
 .special_flagged div span,
 .special_flagged div .thinUser {
 	display:  table-cell;
+}
+
+.special_flagged .dateChunk {
+	padding-left:  1em;
 }
 
 .special_flagged .thinUser {

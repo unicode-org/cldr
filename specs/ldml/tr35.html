@@ -233,6 +233,7 @@ h5 {
 		<h2>
 			<a name="Contents" href="#Contents">Contents of Part 1, Core</a>
 		</h2>
+        <p class="reviewnote">Review Note: the contents have not yet been updated.</p>
 		<ul class="toc">
 			<li>1 <a href="#Introduction">Introduction</a>
 				<ul class="toc">
@@ -1992,36 +1993,28 @@ zh-Hant-HK
 				<td>"posix"</td>
 				<td>POSIX style locale variant. About
 						handling of the "POSIX" variant see <i>Section 3.8.2, <a
-							href="#Legacy_Variants">Legacy Variants</a></i>.
-				</td>
+							href="#Legacy_Variants">Legacy Variants</a></i>.</td>
 			</tr>
-            <tr>
+            <tr class='changed'>
 				<td colspan="4"><strong>A <a
 						href="#UnicodeSubdivisionIdentifier" name="UnicodeSubdivisionIdentifier">Unicode
-							Subdivision Identifier</a> <a
-						 name="unicode_subdivision_subtag_validity"></a>defines a regional subdivision used for locales.
-						</strong></td>
+							Subdivision Identifier</a><a
+						 name="unicode_subdivision_subtag_validity"></a> defines a regional subdivision used for locales. The valid values are based on the <em>subdivisionContainment</em> element as described in <em>Section <a href="#Unicode_Subdivision_Codes"
+				>3.6.5 Subdivision Codes</a></em>.</strong></td>
 			</tr>
 		  <tr class='changed'>
-				<td>"sd"</td>
-				<td>Regional Subdivision</td>
-				<td><a href="#unicode_subdivision_subtag">unicode_&#x200b;subdivision_&#x200b;subtag</a> with an "00" prefix.<br>
-			    <br>
-			    For example, <br>
-			    “en-US-sd-00ca”<br>
-			    represents <br>
-			    “English as used in California”.</td>
-				<td>A <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is only valid in a unicode_locale_id if there is a valid <a href="#unicode_region_subtag">unicode_region_subtag</a>, or   and the <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is  valid for it.<br><br>A <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>  is valid for a <a href="#unicode_region_subtag">unicode_region_subtag</a> only when the <strong>subdivisionContainment</strong> element contains a <strong>subgroup</strong> element whose:<br>
-1.		      <strong>type</strong> value is that unicode_region_subtag, and<br>
-2.		      <strong>contains</strong> value  contains the <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>.<br>
-(The <strong>contains</strong> value is a space-delimited set, and compared case-insensitively.) <br>
-		      <br>For example, &quot;ca&quot; is valid for &quot;US&quot; because of the following element:<br>
-		      <br>
-            <code>&lt;subgroup type=&quot;US&quot; contains=&quot;… CA …&quot;/&gt;</code><br>
-            <br>
-The subdivision codes are based on ISO 3166-2 codes, which have 1..3 ASCII letters or digits. The 4 character versions are reserved for use 
-	        by CLDR.</td>
+				<td rowspan="2">"sd"</td>
+				<td rowspan="2">Regional Subdivision</td>
+				<td>&quot;00ca&quot;<br>
+			    <br></td>
+				<td rowspan="2">A <a href="#unicode_subdivision_subtag">unicode_&#x200b;subdivision_&#x200b;subtag</a> prefixed by "00".<br>
+				  <br>
+				  For example, “en-US-u-sd-00ca”<br>
+represents “English as used in California”.</td>
 			</tr>
+		  <tr class='changed'>
+		    <td>…</td>
+	      </tr>
 		</table>
 		<p>
 			For more information on the allowed keys and types, see the specific
@@ -2358,7 +2351,26 @@ The subdivision codes are based on ISO 3166-2 codes, which have 1..3 ASCII lette
 			be output. The one exception is where an alias would only be
 			well-formed with the old syntax, such as &quot;gregorian&quot; (for
 			&quot;gregory&quot;).</p>
-		<h3>
+		<h4 class='changed'><a href="#Unicode_Subdivision_Codes"
+				name="Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></h4>
+	  <p class='changed'>
+The subdivision codes are based on ISO 3166-2 codes, which have 1..3 ASCII letters or digits. Like BCP47, CLDR needs stable codes, which are not guaranteed for ISO 3166-2 (nor have they been stable in the past).</p>
+	  <p class='changed'>CLDR thus adds 4-character sequences, also ASCII letters or digits, which can be used for stability. If an ISO 3166-2 code is removed, it remains valid (though marked as deprecated) in CLDR. If an ICU 3166-2 code is reused (for the same region), then CLDR will define a new equivalent code using these a 4-character sequence.</p>
+	  <p class='changed'>For use in a <a href='#unicode_locale_id'>unicode_locale_id</a>, the subdivision code must be extended to be more than 2 characters. This is done syntactically by always prefixing the code by “00”. For example, “en-US-u-sd-00ca” represents “English as used in California, USA”.</p>
+	  <p class='changed'>&nbsp;</p>
+	  <p class='changed'>A <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is valid for a <a href="#unicode_region_subtag">unicode_region_subtag</a> only when the <strong>subdivisionContainment</strong> element contains a <strong>subgroup</strong> element where:</p>
+	  <ol class='changed'>
+	    <li>the <strong>type</strong> attribute value is that <a href="#unicode_region_subtag">unicode_region_subtag</a>, and</li>
+	    <li>the <strong>contains</strong> attribute value  contains the <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>.
+	      <ul>
+	        <li>The <strong>contains</strong> attribute value is a space-delimited set, and compared case-insensitively.</li>
+          </ul>
+	    </li>
+      </ol>
+	  <p class='changed'>For example, the subdivision “ca” (and “CA”) is valid for the region “US” because of the following element:</p>
+	  <p align="center" class='changed'> <code>&lt;subgroup type=&quot;US&quot; contains=&quot;… CA …&quot;/&gt;</code></p>
+      <p class="changed">A <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is only valid in a <a href='#unicode_locale_id'>unicode_locale_id</a> if there is a valid <a href="#unicode_region_subtag">unicode_region_subtag</a>, and    the <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is  valid for that <a href="#unicode_region_subtag">unicode_region_subtag</a>.</p>
+	  <h3>
 			<a name="BCP47_T_Extension" href="#BCP47_T_Extension">3.7 Unicode
 				BCP 47 T Extension</a><a name="t_Extension"></a>
 		</h3>
@@ -7400,15 +7412,18 @@ decimal?, group?, special*)) &gt;</pre>
 			    <li><em>Section 3.2 <a href="#Unicode_locale_identifier">Unicode
 				Locale Identifier</a></em>
 			      <ul>
-			        <li>Added unicode_subdivision_subtag</li>
+			        <li>Added unicode_subdivision_subtag.</li>
 		          </ul>
 			    </li>
-			    <li>Section <a href="#Key_And_Type_Definitions_" >3.6.1
-				Key And Type Definitions</a> 
-			      <ul>
-			        <li>Added new key and types for subdivsions, including validity criteria.</li>
+			    <li><em>Section <a href="#Key_And_Type_Definitions_" >3.6.1
+				Key And Type Definitions</a> </em>
+<ul>
+	        <li>Added new key and types for subdivsions, and pointed to the validity criteria in <em>Section <a href="#Unicode_Subdivision_Codes"
+				name="Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></em></li>
 		          </ul>
 			    </li>
+			    <li>Added <em>Section <a href="#Unicode_Subdivision_Codes"
+				name="Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></em> </li>
 		      </ul>
 			</li>
 			<li><strong>Part 5: <a

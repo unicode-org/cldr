@@ -716,7 +716,7 @@ h5 {
 				<th><div align="center">ABNF</div></th>
 			</tr>
 			<tr>
-				<td><pre>unicode_language_id</pre></td>
+				<td><pre><a href="#unicode_language_id" name="#unicode_language_id">unicode_language_id</a></pre></td>
 				<td><pre>="root"
 | unicode_language_subtag 
   (sep unicode_script_subtag)? 
@@ -730,40 +730,35 @@ h5 {
 </pre></td>
 			</tr>
 			<tr>
-				<td><pre>sep</pre></td>
-				<td><pre>= [-_] ;</pre></td>
-				<td><pre>= "-" / "_"</pre></td>
+				<td><pre><a href="#unicode_language_subtag">unicode_language_subtag</a></pre></td>
+				<td><pre>= alpha{2,8} ;</pre></td>
+				<td><pre>= 2*8ALPHA</pre></td>
+                <td class='changed'><pre><a href='#unicode_language_subtag_validity'>validity</a></pre></td>
 			</tr>
 			<tr>
-				<td><code>
-						<a href="#unicode_language_subtag">unicode_language_subtag</a>
-					</code></td>
-				<td><code>= alpha{2,8} ;</code></td>
-				<td><code>2*8ALPHA</code></td>
+				<td><pre><a href="#unicode_script_subtag">unicode_script_subtag</a></pre></td>
+				<td><pre>= alpha{4} ;</pre></td>
+				<td><pre>= 4ALPHA</pre></td>
+                <td class='changed'><pre><a href='#unicode_script_subtag_validity'>validity</a></pre></td>
 			</tr>
 			<tr>
-				<td><code>
-						<a href="#unicode_script_subtag">unicode_script_subtag</a>
-					</code></td>
-				<td><code> = alpha{4} ;</code></td>
-				<td><code>4ALPHA</code></td>
+				<td><pre><a href="#unicode_region_subtag">unicode_region_subtag</a></pre></td>
+				<td><pre>= (alpha{2} | digit{3}) ;</pre></td>
+				<td><pre>= 2ALPHA / 3DIGIT</pre></td>
+                <td class='changed'><pre><a href='#unicode_language_subtag_validity'>validity</a></pre></td>
 			</tr>
 			<tr>
-				<td><code>
-						<a href="#unicode_region_subtag">unicode_region_subtag</a>
-					</code></td>
-				<td><code> = (alpha{2} | digit{3}) ;</code></td>
-				<td><code>2ALPHA / 3DIGIT</code></td>
+				<td><pre><a href="#unicode_variant_subtag">unicode_variant_subtag</a></pre></td>
+				<td><pre>= (alphanum{5,8}
+| digit alphanum{3}) ;</pre></td>
+				<td><pre>= 5*8alphanum<br>/ (DIGIT 3alphanum)</pre></td>
+                <td class='changed'><pre><a href='#unicode_language_subtag_validity'>validity</a></pre></td>
 			</tr>
 			<tr>
-				<td><code>
-						<a href="#unicode_variant_subtag">unicode_variant_subtag</a>
-					</code></td>
-				<td><code>
-						= (alphanum{5,8} <br> | digit alphanum{3}) ;
-					</code></td>
-				<td><pre>5*8alphanum<br>/ (DIGIT 3alphanum)</pre></td>
-			</tr>
+			  <td><pre>sep</pre></td>
+			  <td><pre>= [-_] ;</pre></td>
+			  <td><pre>= "-" / "_"</pre></td>
+		  </tr>
 			<tr>
 				<td><pre>digit</pre></td>
 				<td><pre>= [0-9] ;</pre></td>
@@ -818,7 +813,7 @@ h5 {
 				<th><div align="center">ABNF</div></th>
 			</tr>
 			<tr>
-				<td><pre>unicode_locale_id</pre></td>
+				<td><pre><a href="#unicode_locale_id" name="unicode_locale_id">unicode_locale_id</a></pre></td>
 				<td><pre>= unicode_language_id
   (transformed_extensions
   unicode_locale_extensions?
@@ -832,7 +827,7 @@ h5 {
 					</pre></td>
 			</tr>
 			<tr>
-				<td><pre>unicode_locale_extensions</pre></td>
+				<td><pre><a href="#unicode_locale_extensions" name="unicode_locale_extensions">unicode_locale_extensions</a></pre></td>
 				<td><pre>= sep "u"
   ((sep keyword)+
   |(sep attribute)+ (sep keyword)*) ;</pre></td>
@@ -841,7 +836,7 @@ h5 {
  / 1*(sep attribute) *(sep keyword))</pre></td>
 			</tr>
 			<tr>
-				<td><pre>transformed_extensions</pre></td>
+				<td><pre><a href="#transformed_extensions" name="transformed_extensions">transformed_extensions</a></pre></td>
 				<td><pre>= sep &quot;t&quot;
   (("-" tlang ("-" tfield)*)
   | ("-" tfield)+) ;</pre></td>
@@ -849,6 +844,12 @@ h5 {
   ((&quot;-&quot; tlang *(&quot;-&quot; tfield))
   / 1*(&quot;-&quot; tfield))</pre></td>
 			</tr>
+			<tr class='changed'>
+			  <td><pre><a name="unicode_subdivision_subtag" href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a></pre></td>
+			  <td><pre> = (alphanum{1,4} ;</pre></td>
+			  <td><pre>= 1*4alphanum</pre></td>
+              <td class='changed'><pre><a href='#unicode_subdivision_subtag_validity'>validity</a></pre></td>
+		  </tr>
 			<tr>
 				<td><pre>keyword</pre></td>
 				<td><pre>= key (sep type)? ;</pre></td>
@@ -869,11 +870,6 @@ h5 {
 				<td><pre>= alphanum{3,8} ;</pre></td>
 				<td><pre>= 3*8alphanum</pre></td>
 			</tr>
-			<tr class='changed'>
-			  <td><code> <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a></code></td>
-			  <td><code> = (alphanum{1,4} ; </code></td>
-			  <td><pre>1*4alphanum</pre></td>
-		  </tr>
 			<tr>
 				<td><pre>tlang</pre></td>
 				<td><pre>= unicode_language_subtag
@@ -1119,8 +1115,8 @@ h5 {
 				<th>Sample values</th>
 			</tr>
 			<tr>
-				<td><a href="#unicode_language_subtag"
-					name="unicode_language_subtag">unicode_language_subtag</a>
+				<td><a href="#unicode_language_subtag_validity"
+					name="unicode_language_subtag_validity">unicode_language_subtag</a>
 					<p>
 						(also known as a <i>Unicode base language code)</i>
 					</p></td>
@@ -1192,8 +1188,8 @@ h5 {
 						or &quot;eng-USA&quot; to the correct code &quot;en-US&quot;.</p></td>
 			</tr>
 			<tr>
-				<td><a href="#unicode_script_subtag"
-					name="unicode_script_subtag">unicode_script_subtag</a>
+				<td><a href="#unicode_script_subtag_validity"
+					name="unicode_script_subtag_validity">unicode_script_subtag</a>
 					<p>
 						(also known as a <i>Unicode script code)</i>
 					</p></td>
@@ -1257,8 +1253,8 @@ h5 {
 				</td>
 			</tr>
 			<tr>
-				<td><a href="#unicode_region_subtag"
-					name="unicode_region_subtag">unicode_region_subtag</a>
+				<td><a href="#unicode_region_subtag_validity"
+					name="unicode_region_subtag_validity">unicode_region_subtag</a>
 					<p>
 						(also known as a <i>Unicode region code, </i>or<i> a Unicode
 							territory code)</i>
@@ -1333,8 +1329,8 @@ h5 {
 				</td>
 			</tr>
 			<tr>
-				<td><a href="#unicode_variant_subtag"
-					name="unicode_variant_subtag">unicode_variant_subtag</a>
+				<td><a href="#unicode_variant_subtag_validity"
+					name="unicode_variant_subtag_validity">unicode_variant_subtag</a>
 					<p>
 						(also known as a <i>Unicode language variant code)</i>
 					</p></td>
@@ -1973,33 +1969,29 @@ zh-Hant-HK
             <tr>
 				<td colspan="4"><strong>A <a
 						href="#UnicodeSubdivisionIdentifier" name="UnicodeSubdivisionIdentifier">Unicode
-							Subdivision Identifier</a> defines a regional subdivision used for locales.
+							Subdivision Identifier</a> <a
+						 name="unicode_subdivision_subtag_validity"></a>defines a regional subdivision used for locales.
 						</strong></td>
 			</tr>
 		  <tr class='changed'>
 				<td>"sd"</td>
 				<td>Regional Subdivision</td>
-				<td><a href="#unicode_subdivision_subtag">unicode_&#x200b;subdivision_&#x200b;subtag</a>s with an "00" prefix.<br>
+				<td><a href="#unicode_subdivision_subtag">unicode_&#x200b;subdivision_&#x200b;subtag</a> with an "00" prefix.<br>
 			    <br>
 			    For example, <br>
 			    “en-US-sd-00ca”<br>
 			    represents <br>
 			    “English as used in California”.</td>
-				<td>The <a
-						href="#UnicodeSubdivisionIdentifier" name="UnicodeSubdivisionIdentifier">Unicode
-							Subdivision Identifier</a> in  a unicode_language_id if the latter has no <a href="#unicode_region_subtag">unicode_region_subtag</a>, or   the <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is not valid for it.<br>
-				  <br>				  
-				  A <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>  is valid for a <a href="#unicode_region_subtag">unicode_region_subtag</a> only when the <strong>subdivisionContainment</strong> element contains a <strong>subgroup</strong> element whose:<br>
+				<td>A <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is only valid in a unicode_locale_id if there is a valid <a href="#unicode_region_subtag">unicode_region_subtag</a>, or   and the <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is  valid for it.<br><br>A <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>  is valid for a <a href="#unicode_region_subtag">unicode_region_subtag</a> only when the <strong>subdivisionContainment</strong> element contains a <strong>subgroup</strong> element whose:<br>
 1.		      <strong>type</strong> value is that unicode_region_subtag, and<br>
 2.		      <strong>contains</strong> value  contains the <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>.<br>
 (The <strong>contains</strong> value is a space-delimited set, and compared case-insensitively.) <br>
+		      <br>For example, &quot;ca&quot; is valid for &quot;US&quot; because of the following element:<br>
 		      <br>
-		      The subdivision codes are based on ISO codes, which have 1..3 ASCII letters or digits. The 4 character versions are reserved for use 
-		      by CLDR.<br>
-		      <br>
-		      For example, &quot;ca&quot; is valid for &quot;US&quot; because of the following element:<br>
-		      <br>
-            <code>&lt;subgroup type=&quot;US&quot; contains=&quot;… CA …&quot;/&gt;</code></td>
+            <code>&lt;subgroup type=&quot;US&quot; contains=&quot;… CA …&quot;/&gt;</code><br>
+            <br>
+The subdivision codes are based on ISO 3166-2 codes, which have 1..3 ASCII letters or digits. The 4 character versions are reserved for use 
+	        by CLDR.</td>
 			</tr>
 		</table>
 		<p>

@@ -307,9 +307,10 @@ abstract public class CheckCLDR {
         }
 
         private ValueStatus getValueStatus(CandidateInfo value, ValueStatus previous) {
-            if (previous == ValueStatus.ERROR) {
+            if (previous == ValueStatus.ERROR || value == null) {
                 return previous;
             }
+            
             for (CheckStatus item : value.getCheckStatusList()) {
                 CheckStatus.Type type = item.getType();
                 if (type.equals(CheckStatus.Type.Error)) {

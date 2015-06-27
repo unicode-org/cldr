@@ -716,63 +716,71 @@ h5 {
 				<th><div align="center">ABNF</div></th>
 			</tr>
 			<tr>
-				<td><pre><a href="#unicode_language_id" name="#unicode_language_id">unicode_language_id</a></pre></td>
-				<td><pre>="root"
-| unicode_language_subtag 
-  (sep unicode_script_subtag)? 
-  (sep unicode_region_subtag)?
-  (sep unicode_variant_subtag)* ;</pre></td>
-				<td><pre>="root" 
-/ unicode_language_subtag 
-  [sep unicode_script_subtag] 
-  [sep unicode_region_subtag]
-  *(sep unicode_variant_subtag)
-</pre></td>
+				<td><code><a href="#unicode_language_id" name="#unicode_language_id">unicode_language_id</a></code></td>
+				<td><code>="root"
+                <br>
+                | unicode_language_subtag 
+                <br>
+                (sep unicode_script_subtag)? 
+                <br>
+                (sep unicode_region_subtag)?
+                <br>
+                (sep unicode_variant_subtag)* ;</code></td>
+				<td><code>="root" 
+                <br>
+                / unicode_language_subtag 
+                <br>
+                [sep unicode_script_subtag] 
+                <br>
+                [sep unicode_region_subtag]
+                <br>
+                *(sep unicode_variant_subtag) </code></td>
 			</tr>
 			<tr>
-				<td><pre><a href="#unicode_language_subtag">unicode_language_subtag</a></pre></td>
-				<td><pre>= alpha{2,8} ;</pre></td>
-				<td><pre>= 2*8ALPHA</pre></td>
-                <td class='changed'><pre><a href='#unicode_language_subtag_validity'>validity</a></pre></td>
+				<td><code><a href="#unicode_language_subtag">unicode_language_subtag</a></code></td>
+				<td><code>= alpha{2,8} ;</code></td>
+				<td><code>= 2*8ALPHA</code></td>
+                <td class='changed'><code><a href='#unicode_language_subtag_validity'>validity</a></code></td>
 			</tr>
 			<tr>
-				<td><pre><a href="#unicode_script_subtag">unicode_script_subtag</a></pre></td>
-				<td><pre>= alpha{4} ;</pre></td>
-				<td><pre>= 4ALPHA</pre></td>
-                <td class='changed'><pre><a href='#unicode_script_subtag_validity'>validity</a></pre></td>
+				<td><code><a href="#unicode_script_subtag">unicode_script_subtag</a></code></td>
+				<td><code>= alpha{4} ;</code></td>
+				<td><code>= 4ALPHA</code></td>
+                <td class='changed'><code><a href='#unicode_script_subtag_validity'>validity</a></code></td>
 			</tr>
 			<tr>
-				<td><pre><a href="#unicode_region_subtag">unicode_region_subtag</a></pre></td>
-				<td><pre>= (alpha{2} | digit{3}) ;</pre></td>
-				<td><pre>= 2ALPHA / 3DIGIT</pre></td>
-                <td class='changed'><pre><a href='#unicode_language_subtag_validity'>validity</a></pre></td>
+				<td><code><a href="#unicode_region_subtag">unicode_region_subtag</a></code></td>
+				<td><code>= (alpha{2} | digit{3}) ;</code></td>
+				<td><code>= 2ALPHA / 3DIGIT</code></td>
+                <td class='changed'><code><a href='#unicode_language_subtag_validity'>validity</a></code></td>
 			</tr>
 			<tr>
-				<td><pre><a href="#unicode_variant_subtag">unicode_variant_subtag</a></pre></td>
-				<td><pre>= (alphanum{5,8}
-| digit alphanum{3}) ;</pre></td>
-				<td><pre>= 5*8alphanum<br>/ (DIGIT 3alphanum)</pre></td>
-                <td class='changed'><pre><a href='#unicode_language_subtag_validity'>validity</a></pre></td>
+				<td><code><a href="#unicode_variant_subtag">unicode_variant_subtag</a></code></td>
+				<td><code>= (alphanum{5,8}
+                    <br>
+              | digit alphanum{3}) ;</code></td>
+				<td><code>= 5*8alphanum<br>/ (DIGIT 3alphanum)</code></td>
+                <td class='changed'><code><a href='#unicode_language_subtag_validity'>validity</a></code></td>
 			</tr>
 			<tr>
-			  <td><pre>sep</pre></td>
-			  <td><pre>= [-_] ;</pre></td>
-			  <td><pre>= "-" / "_"</pre></td>
+			  <td><code>sep</code></td>
+			  <td><code>= [-_] ;</code></td>
+			  <td><code>= "-" / "_"</code></td>
 		  </tr>
 			<tr>
-				<td><pre>digit</pre></td>
-				<td><pre>= [0-9] ;</pre></td>
-				<td><pre>&nbsp;</pre></td>
+				<td><code>digit</code></td>
+				<td><code>= [0-9] ;</code></td>
+				<td><code>&nbsp;</code></td>
 			</tr>
 			<tr>
-				<td><pre>alpha</pre></td>
-				<td><pre>= [A-Z a-z] ;</pre></td>
-				<td><pre>&nbsp;</pre></td>
+				<td><code>alpha</code></td>
+				<td><code>= [A-Z a-z] ;</code></td>
+				<td><code>&nbsp;</code></td>
 			</tr>
 			<tr>
-				<td><pre>alphanum</pre></td>
-				<td><pre>= [0-9 A-Z a-z] ;</pre></td>
-				<td><pre>= ALPHA / DIGIT</pre></td>
+				<td><code>alphanum</code></td>
+				<td><code>= [0-9 A-Z a-z] ;</code></td>
+				<td><code>= ALPHA / DIGIT</code></td>
 			</tr>
 		</table>
 		<p>
@@ -813,83 +821,104 @@ h5 {
 				<th><div align="center">ABNF</div></th>
 			</tr>
 			<tr>
-				<td><pre><a href="#unicode_locale_id" name="unicode_locale_id">unicode_locale_id</a></pre></td>
-				<td><pre>= unicode_language_id
-  (transformed_extensions
-  unicode_locale_extensions?
-| unicode_locale_extensions?
-  transformed_extensions?) ;</pre></td>
-				<td><pre>= unicode_language_id
-  ([trasformed_extensions
-     [unicode_locale_extensions]]
-  /[unicode_locale_extensions
-     [transformed_extensions]])
-					</pre></td>
+				<td><code><a href="#unicode_locale_id" name="unicode_locale_id">unicode_locale_id</a></code></td>
+				<td><code>= unicode_language_id<br>
+				    
+			    (transformed_extensions
+ <br>
+  
+unicode_locale_extensions?
+<br>
+| unicode_locale_extensions?<br>
+  
+transformed_extensions?) ;</code></td>
+				<td><code>= unicode_language_id<br>
+			      ([trasformed_extensions
+                    <br>
+                  [unicode_locale_extensions]]<br>
+                / [unicode_locale_extensions
+                <br>
+                  [transformed_extensions]]) </code></td>
 			</tr>
 			<tr>
-				<td><pre><a href="#unicode_locale_extensions" name="unicode_locale_extensions">unicode_locale_extensions</a></pre></td>
-				<td><pre>= sep "u"
-  ((sep keyword)+
-  |(sep attribute)+ (sep keyword)*) ;</pre></td>
-				<td><pre>= sep "u" 
-  (1*(sep keyword)
- / 1*(sep attribute) *(sep keyword))</pre></td>
+				<td><code><a href="#unicode_locale_extensions" name="unicode_locale_extensions">unicode_locale_extensions</a></code></td>
+				<td><code>= sep "u"<br>
+			      ((sep keyword)+
+                    <br>
+                  |(sep attribute)+ (sep keyword)*) ;</code></td>
+				<td><code>= sep "u" 
+                <br>
+                  
+                (1*(sep keyword)
+                <br>
+                  
+                / 1*(sep attribute) *(sep keyword))</code></td>
 			</tr>
 			<tr>
-				<td><pre><a href="#transformed_extensions" name="transformed_extensions">transformed_extensions</a></pre></td>
-				<td><pre>= sep &quot;t&quot;
-  (("-" tlang ("-" tfield)*)
-  | ("-" tfield)+) ;</pre></td>
-				<td><pre>= sep &quot;t&quot;
-  ((&quot;-&quot; tlang *(&quot;-&quot; tfield))
-  / 1*(&quot;-&quot; tfield))</pre></td>
+				<td><code><a href="#transformed_extensions" name="transformed_extensions">transformed_extensions</a></code></td>
+				<td><code>= sep &quot;t&quot;
+                <br>
+                  (("-" tlang ("-" tfield)*)
+                <br>
+                  | ("-" tfield)+) ;</code></td>
+				<td><code>= sep &quot;t&quot;
+                <br>
+                  ((&quot;-&quot; tlang *(&quot;-&quot; tfield))
+                <br>
+                  / 1*(&quot;-&quot; tfield))</code></td>
 			</tr>
 			<tr class='changed'>
-			  <td><pre><a name="unicode_subdivision_subtag" href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a></pre></td>
-			  <td><pre> = (alphanum{1,4} ;</pre></td>
-			  <td><pre>= 1*4alphanum</pre></td>
-              <td class='changed'><pre><a href='#unicode_subdivision_subtag_validity'>validity</a></pre></td>
+			  <td><code><a name="unicode_subdivision_subtag" href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a></code></td>
+			  <td><code> = (alphanum{1,4} ;</code></td>
+			  <td><code>= 1*4alphanum</code></td>
+              <td class='changed'><code><a href='#unicode_subdivision_subtag_validity'>validity</a></code></td>
 		  </tr>
 			<tr>
-				<td><pre>keyword</pre></td>
-				<td><pre>= key (sep type)? ;</pre></td>
-				<td><pre>= key [sep type]</pre></td>
+				<td><code>keyword</code></td>
+				<td><code>= key (sep type)? ;</code></td>
+				<td><code>= key [sep type]</code></td>
 			</tr>
 			<tr>
-				<td><pre>key</pre></td>
-				<td><pre>= alphanum{2} ;</pre></td>
-				<td><pre>= 2alphanum</pre></td>
+				<td><code>key</code></td>
+				<td><code>= alphanum{2} ;</code></td>
+				<td><code>= 2alphanum</code></td>
 			</tr>
 			<tr>
-				<td><pre>type</pre></td>
-				<td><pre>= alphanum{3,8} (sep alphanum{3,8})* ;</pre></td>
-				<td><pre>= 3*8alphanum *(sep 3*8alphanum)</pre></td>
+				<td><code>type</code></td>
+				<td><code>= alphanum{3,8} (sep alphanum{3,8})* ;</code></td>
+				<td><code>= 3*8alphanum *(sep 3*8alphanum)</code></td>
 			</tr>
 			<tr>
-				<td><pre>attribute</pre></td>
-				<td><pre>= alphanum{3,8} ;</pre></td>
-				<td><pre>= 3*8alphanum</pre></td>
+				<td><code>attribute</code></td>
+				<td><code>= alphanum{3,8} ;</code></td>
+				<td><code>= 3*8alphanum</code></td>
 			</tr>
 			<tr>
-				<td><pre>tlang</pre></td>
-				<td><pre>= unicode_language_subtag
-  (&quot;-&quot; unicode_script_subtag)?
-  (&quot;-&quot; unicode_region_subtag)?
-  (&quot;-&quot; unicode_variant_subtag)* ;</pre></td>
-				<td><pre>= unicode_language_subtag
-  [&quot;-&quot; unicode_script_subtag]
-  [&quot;-&quot; unicode_region_subtag]
-  *(&quot;-&quot;unicode_variant_subtag)</pre></td>
+				<td><code>tlang</code></td>
+				<td><code>= unicode_language_subtag
+                    <br>
+                  (&quot;-&quot; unicode_script_subtag)?
+                <br>
+                  (&quot;-&quot; unicode_region_subtag)?
+                <br>
+                  (&quot;-&quot; unicode_variant_subtag)* ;</code></td>
+				<td><code>= unicode_language_subtag
+                    <br>
+                  [&quot;-&quot; unicode_script_subtag]
+                <br>
+                  [&quot;-&quot; unicode_region_subtag]
+                <br>
+                  *(&quot;-&quot;unicode_variant_subtag)</code></td>
 			</tr>
 			<tr>
-				<td><pre>tfield</pre></td>
-				<td><pre>= fsep (&quot;-&quot; alphanum{3,8})+ ;</pre></td>
-				<td><pre>= fsep 1*(&quot;-&quot; 3*8alphanum)</pre></td>
+				<td><code>tfield</code></td>
+				<td><code>= fsep (&quot;-&quot; alphanum{3,8})+ ;</code></td>
+				<td><code>= fsep 1*(&quot;-&quot; 3*8alphanum)</code></td>
 			</tr>
 			<tr>
-				<td><pre>fsep</pre></td>
-				<td><pre>= [A-Z a-z] [0-9] ;</pre></td>
-				<td><pre>= ALPHA DIGIT</pre></td>
+				<td><code>fsep</code></td>
+				<td><code>= [A-Z a-z] [0-9] ;</code></td>
+				<td><code>= ALPHA DIGIT</code></td>
 			</tr>
 		</table>
 

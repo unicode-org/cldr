@@ -17,6 +17,8 @@ public class CLDRInfo {
     public interface PathValueInfo { // DataSection.DataRow will implement
         Collection<? extends CandidateInfo> getValues();
 
+        CandidateInfo getCurrentItem();
+        
         String getLastReleaseValue();
 
         Level getCoverageLevel(); // OK

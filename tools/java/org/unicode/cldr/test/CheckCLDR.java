@@ -216,14 +216,17 @@ abstract public class CheckCLDR {
             // We are not in submission.
             // Only allow ADD if we have an error or warning
             ValueStatus valueStatus = ValueStatus.NONE;
-            for (CandidateInfo value : pathValueInfo.getValues()) {
-                valueStatus = getValueStatus(value, valueStatus);
-                if (valueStatus != ValueStatus.NONE) {
-                    return (status == SurveyToolStatus.READ_WRITE || status == SurveyToolStatus.LTR_ALWAYS)
-                        ? StatusAction.ALLOW
-                        : StatusAction.ALLOW_VOTING_AND_TICKET;
-                }
+            CandidateInfo winner = pathValueInfo.getCurrentItem();
+            // Only check winning value for errors/warnings per ticket #8677
+            // We used to check all candidates.
+//            for (CandidateInfo value : pathValueInfo.getValues()) {
+            valueStatus = getValueStatus(winner, valueStatus);
+            if (valueStatus != ValueStatus.NONE) {
+                return (status == SurveyToolStatus.READ_WRITE || status == SurveyToolStatus.LTR_ALWAYS)
+                    ? StatusAction.ALLOW
+                    : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
+//            }
 
             // No warnings, so allow just voting.
             return StatusAction.ALLOW_VOTING_BUT_NO_ADD;

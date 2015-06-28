@@ -289,6 +289,7 @@ h5 {
 									Identifiers</a></li>
 							<li>3.6.4 <a href="#Unicode_Locale_Extension_Data_Files">U
 									Extension Data Files</a></li>
+							<li class='changed'>3.6.5 <a href="#Unicode_Subdivision_Codes">Subdivision Codes</a></li>
 						</ul>
 					</li>
 					<li>3.7 <a href="#BCP47_T_Extension">Unicode BCP 47 T
@@ -738,25 +739,25 @@ h5 {
                 *(sep unicode_variant_subtag) </code></td>
 			</tr>
 			<tr>
-				<td><code><a href="#unicode_language_subtag">unicode_language_subtag</a></code></td>
+				<td><code><a href="#unicode_language_subtag" name="#unicode_language_subtag">unicode_language_subtag</a></code></td>
 				<td><code>= alpha{2,8} ;</code></td>
 				<td><code>= 2*8ALPHA</code></td>
                 <td class='changed'><code><a href='#unicode_language_subtag_validity'>validity</a></code></td>
 			</tr>
 			<tr>
-				<td><code><a href="#unicode_script_subtag">unicode_script_subtag</a></code></td>
+				<td><code><a href="#unicode_script_subtag" name="unicode_script_subtag">unicode_script_subtag</a></code></td>
 				<td><code>= alpha{4} ;</code></td>
 				<td><code>= 4ALPHA</code></td>
                 <td class='changed'><code><a href='#unicode_script_subtag_validity'>validity</a></code></td>
 			</tr>
 			<tr>
-				<td><code><a href="#unicode_region_subtag">unicode_region_subtag</a></code></td>
+				<td><code><a href="#unicode_region_subtag" name="unicode_region_subtag">unicode_region_subtag</a></code></td>
 				<td><code>= (alpha{2} | digit{3}) ;</code></td>
 				<td><code>= 2ALPHA / 3DIGIT</code></td>
                 <td class='changed'><code><a href='#unicode_language_subtag_validity'>validity</a></code></td>
 			</tr>
 			<tr>
-				<td><code><a href="#unicode_variant_subtag">unicode_variant_subtag</a></code></td>
+				<td><code><a href="#unicode_variant_subtag" name="unicode_variant_subtag">unicode_variant_subtag</a></code></td>
 				<td><code>= (alphanum{5,8}
                     <br>
               | digit alphanum{3}) ;</code></td>
@@ -883,11 +884,13 @@ transformed_extensions?) ;</code></td>
 				<td><code>key</code></td>
 				<td><code>= alphanum{2} ;</code></td>
 				<td><code>= 2alphanum</code></td>
+              <td class='changed'><code><a href="#Key_Type_Definitions">validity</a></code></td>
 			</tr>
 			<tr>
 				<td><code>type</code></td>
 				<td><code>= alphanum{3,8} (sep alphanum{3,8})* ;</code></td>
 				<td><code>= 3*8alphanum *(sep 3*8alphanum)</code></td>
+              <td class='changed'><code><a href="#Key_Type_Definitions">validity</a></code></td>
 			</tr>
 			<tr>
 				<td><code>attribute</code></td>

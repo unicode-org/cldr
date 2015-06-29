@@ -685,7 +685,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      * @author davis
      * 
      */
-    protected static class ResolvingSource extends XMLSource implements Listener {
+    public static class ResolvingSource extends XMLSource implements Listener {
         private XMLSource currentSource;
         private LinkedHashMap<String, XMLSource> sources;
 

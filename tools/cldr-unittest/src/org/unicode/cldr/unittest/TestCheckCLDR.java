@@ -17,18 +17,25 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckConsistentCasing;
+import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.CheckForExemplars;
 import org.unicode.cldr.test.CheckNames;
 import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.DayPeriodInfo;
+import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.DayPeriodInfo.Type;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternPlaceholders;
+import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.util.StringId;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XMLSource.ResolvingSource;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.UnicodeSet;
@@ -47,11 +54,11 @@ public class TestCheckCLDR extends TestFmwk {
                 throw new IllegalArgumentException("hi");
             } catch (Exception e) {
                 return new CheckStatus()
-                    .setCause(this)
-                    .setMainType(CheckStatus.warningType)
-                    .setSubtype(Subtype.abbreviatedDateFieldTooWide)
-                    .setMessage("An exception {0}, and a number {1}", e,
-                        1.5);
+                .setCause(this)
+                .setMainType(CheckStatus.warningType)
+                .setSubtype(Subtype.abbreviatedDateFieldTooWide)
+                .setMessage("An exception {0}, and a number {1}", e,
+                    1.5);
             }
         }
 
@@ -260,27 +267,27 @@ public class TestCheckCLDR extends TestFmwk {
             // override.overridePath = path;
             final String resolvedValue = dummyValue == null ? patched
                 .getStringValue(path) : dummyValue;
-            test.handleCheck(path, patched.getFullXPath(path), resolvedValue,
-                options, result);
-            if (result.size() != 0) {
-                for (CheckStatus item : result) {
-                    addExemplars(item, missingCurrencyExemplars,
-                        missingExemplars);
-                    final String mainMessage = StringId.getId(path) + "\t"
-                        + pathHeader + "\t" + english.getStringValue(path)
-                        + "\t" + item.getType() + "\t" + item.getSubtype();
-                    if (unique != null) {
-                        if (unique.contains(mainMessage)) {
-                            continue;
-                        } else {
-                            unique.add(mainMessage);
+                test.handleCheck(path, patched.getFullXPath(path), resolvedValue,
+                    options, result);
+                if (result.size() != 0) {
+                    for (CheckStatus item : result) {
+                        addExemplars(item, missingCurrencyExemplars,
+                            missingExemplars);
+                        final String mainMessage = StringId.getId(path) + "\t"
+                            + pathHeader + "\t" + english.getStringValue(path)
+                            + "\t" + item.getType() + "\t" + item.getSubtype();
+                        if (unique != null) {
+                            if (unique.contains(mainMessage)) {
+                                continue;
+                            } else {
+                                unique.add(mainMessage);
+                            }
                         }
+                        logln(localeID + "\t" + mainMessage + "\t" + resolvedValue
+                            + "\t" + item.getMessage() + "\t"
+                            + pathHeader.getOriginalPath());
                     }
-                    logln(localeID + "\t" + mainMessage + "\t" + resolvedValue
-                        + "\t" + item.getMessage() + "\t"
-                        + pathHeader.getOriginalPath());
                 }
-            }
         }
         if (missingCurrencyExemplars.size() != 0) {
             logln(localeID + "\tMissing Exemplars (Currency):\t"
@@ -349,5 +356,77 @@ public class TestCheckCLDR extends TestFmwk {
             return;
         }
         errln("No failure message.");
+    }
+
+    public void TestCheckDates() {
+        CheckCLDR.setDisplayInformation(testInfo.getEnglish()); // just in case
+        String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"";
+        String infix = "\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"";
+        String suffix = "\"]";
+        
+        TestFactory testFactory = new TestFactory();
+        CLDRFile testFile = new CLDRFile(new SimpleXMLSource("en"));
+        testFactory.addFile(testFile);
+
+        List<CheckStatus> result = new ArrayList<CheckStatus>();
+        Options options = new Options();
+        final String collidingValue = "foobar";
+
+        // Selection has stricter collision rules, because is is used to select different messages. 
+        // So two types with the same localization do collide unless they have exactly the same rules.
+        
+        Object[][] tests = {
+            // same DayPeriod never collides
+            {Type.format, DayPeriod.am, Type.selection, DayPeriod.am, Subtype.none},
+            {Type.format, DayPeriod.am, Type.format, DayPeriod.am, Subtype.none},
+            
+            // fixed classes always collide
+            {Type.format, DayPeriod.am, Type.format, DayPeriod.pm, Subtype.dateSymbolCollision},
+            
+            // Formatting has looser collision rules, because it is always paired with a time. 
+            // That is, it is not a problem if two items collide,
+            // if it doesn't cause a collision when paired with a time. 
+            // But if 11:00 has the same format (eg 11 X) as 23:00, there IS a collision.
+            // So we see if there is an overlap mod 12.
+            {Type.format, DayPeriod.morning1, Type.format, DayPeriod.night1, Subtype.none}, // true for English
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.afternoon1, Subtype.dateSymbolCollision}, // true for English
+
+            // Selection has stricter collision rules, because is is used to select different messages. 
+            // So two types with the same localization do collide unless they have exactly the same rules.
+            
+            // TODO The "unless they have exactly the same rules" is hard to really test right now,
+            // since we need to have plural rules that match, so we'd have to stub out SupplementalDataInfo. 
+            // Not impossible, but too much for right now.
+            {Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.night1, Subtype.dateSymbolCollision}, // true for English
+            {Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.afternoon1, Subtype.dateSymbolCollision}, // true for English
+        };
+        for (Object[] test : tests) {
+            final DayPeriodInfo.Type type1 = (Type) test[0];
+            final DayPeriodInfo.DayPeriod period1 = (DayPeriod) test[1];
+            final DayPeriodInfo.Type type2 = (Type) test[2];
+            final DayPeriodInfo.DayPeriod period2 = (DayPeriod) test[3];
+            final Subtype expectedSubtype = (Subtype) test[4];
+
+            final String path1 = prefix + type1.pathValue + infix + period1 + suffix;
+            final String path2 = prefix + type2.pathValue + infix + period2 + suffix;
+            
+            testFile.add(path1, collidingValue);
+            testFile.add(path2, collidingValue);
+
+            CheckCLDR c = new CheckDates(testFactory);
+            c.setCldrFileToCheck(testFile, options, result);
+
+            result.clear();
+            c.check(path1, path1, collidingValue, options, result);
+            Subtype actualSubtype = Subtype.none;
+            for (CheckStatus status : result) {
+                actualSubtype = status.getSubtype();
+                break;
+            }
+            assertEquals(type1 + "/" + period1 + " vs " + type2 + "/" + period2, expectedSubtype, actualSubtype);
+
+            testFile.remove(path1);
+            testFile.remove(path2);
+        }
     }
 }

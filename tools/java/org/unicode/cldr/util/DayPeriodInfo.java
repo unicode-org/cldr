@@ -5,37 +5,85 @@ package org.unicode.cldr.util;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 import java.util.TreeMap;
 
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.impl.Row.R4;
 
 public class DayPeriodInfo {
     public static final int HOUR = 60 * 60 * 1000;
+    public static final int MIDNIGHT = 0;
+    public static final int NOON = 12 * HOUR;
     public static final int DAY_LIMIT = 24 * HOUR;
 
     public enum Type {
-        format, selection
+        format("format"), 
+        selection("stand-alone");
+        public final String pathValue;
+        private Type(String _pathValue) {
+            pathValue = _pathValue;
+        }
+        public static Type fromString(String source) {
+            return source.equals(selection.pathValue) ? selection : Type.valueOf(source);
+        }
+    }
+
+    public static class Span implements Comparable<Span> {
+        public final int start;
+        public final int end;
+        public final boolean includesEnd;
+
+        public Span(int start, int end) {
+            this.start = start;
+            this.end = end;
+            this.includesEnd = start == end;
+        }
+        @Override
+        public int compareTo(Span o) {
+            int diff = start - o.start;
+            if (diff != 0) {
+                return diff;
+            }
+            diff = end - o.end;
+            if (diff != 0) {
+                return diff;
+            }
+            // because includesEnd is determined by the above, we're done
+            return 0;
+        }
+        @Override
+        public boolean equals(Object obj) {
+            Span other = (Span) obj;
+            return start == other.start && end == other.end;
+            // because includesEnd is determined by the above, we're done
+        }
+        @Override
+        public int hashCode() {
+            return start * 37 + end;
+        }
     }
 
     public enum DayPeriod {
-        midnight, am, noon, pm,
+        midnight(MIDNIGHT, MIDNIGHT), am(MIDNIGHT, NOON), noon(NOON, NOON), pm(NOON, DAY_LIMIT),
         morning1, morning2, afternoon1, afternoon2, evening1, evening2, night1, night2;
 
-//        public static final DayPeriod am = morning1;
-//        public static final DayPeriod pm = afternoon1;
+        public final Span span;
+
+        private DayPeriod(int start, int end) {
+            span = new Span(start,end);
+        }
+
+        private DayPeriod() {
+            span = null;
+        }
 
         public static DayPeriod fromString(String value) {
-
             return valueOf(value);
-//            return 
-//                value.equals("am") ? morning1 
-//                : value.equals("pm") ? afternoon1
-//                    : 
-//                        DayPeriod.valueOf(value.toLowerCase(Locale.ENGLISH));
+        }
+
+        public boolean isFixed() {
+            return span != null;
         }
     };
 
@@ -47,6 +95,7 @@ public class DayPeriodInfo {
 
     public static class Builder {
         TreeMap<Row.R2<Integer, Integer>, Row.R3<Integer, Boolean, DayPeriodInfo.DayPeriod>> info = new TreeMap<Row.R2<Integer, Integer>, Row.R3<Integer, Boolean, DayPeriodInfo.DayPeriod>>();
+        // TODO add rule test that they can't span same 12 hour time.
 
         public DayPeriodInfo.Builder add(DayPeriodInfo.DayPeriod dayPeriod, int start, boolean includesStart, int end,
             boolean includesEnd) {
@@ -64,9 +113,6 @@ public class DayPeriodInfo {
         public DayPeriodInfo finish(String[] locales) {
             DayPeriodInfo result = new DayPeriodInfo();
             int len = info.size();
-//            if (len == 0) {
-//                return result;
-//            }
             result.starts = new int[len];
             result.includesStart = new boolean[len];
             result.periods = new DayPeriodInfo.DayPeriod[len];
@@ -123,6 +169,8 @@ public class DayPeriodInfo {
         switch (dayPeriod) {
         case am: return Row.of(0, DAY_LIMIT/2, true);
         case pm: return Row.of(DAY_LIMIT/2, DAY_LIMIT, true);
+        default:
+            break;
         }
         for (int i = 0; i < periods.length; ++i) {
             if (periods[i] == dayPeriod) {
@@ -234,5 +282,121 @@ public class DayPeriodInfo {
         int hours = minutes / 60;
         minutes -= hours * 60;
         return String.format("%02d:%02d", hours, minutes);
+    }
+
+    /**
+     * Test if there is a problem with dayPeriod1 and dayPeriod2 having the same localization.
+     * @param type1
+     * @param dayPeriod1
+     * @param type2 TODO
+     * @param dayPeriod2
+     * @return
+     */
+    public boolean collisionIsError(DayPeriodInfo.Type type1, DayPeriod dayPeriod1, Type type2, DayPeriod dayPeriod2) {
+        if (dayPeriod1 == dayPeriod2) {
+            return false;
+        }
+        // we use the more lenient if they are mixed types
+        if (type2 == Type.format) {
+            type1 = Type.format;
+        }
+
+        // At this point, they are unequal
+        // The fixed cannot overlap among themselves, and for regularity, we disallow the flexible to overlap.
+        final boolean fixed1 = dayPeriod1.isFixed();
+        final boolean fixed2 = dayPeriod2.isFixed();
+        if (fixed1 && fixed2) {
+            return true;
+        }
+        // at this point, at least one is flexible.
+        // make sure the second is not flexible.
+        DayPeriod fixedOrFlexible;
+        DayPeriod flexible;
+        if (fixed1) {
+            fixedOrFlexible = dayPeriod1;
+            flexible = dayPeriod2;
+        } else {
+            fixedOrFlexible = dayPeriod2;
+            flexible = dayPeriod1;
+        }
+
+        // TODO since periods are sorted, could optimize further
+
+        switch (type1) {
+        case format: {
+            if (fixedOrFlexible.span != null) {
+                if (collisionIsErrorFormat(flexible, fixedOrFlexible.span.start, fixedOrFlexible.span.end, fixedOrFlexible.span.includesEnd)) {
+                    return true;
+                }
+            } else { // flexible
+                for (int i = 1; i < starts.length; ++i) {
+                    if (periods[i-1] != fixedOrFlexible) {
+                        continue;
+                    }
+                    if (collisionIsErrorFormat(flexible, starts[i-1], starts[i] - 1, false)) { // we know flexibles are always !includesEnd
+                        return true;
+                    }
+                }
+            }
+            break;
+        }
+        case selection: {
+            if (fixedOrFlexible.span != null) {
+                if (collisionIsErrorSelection(flexible, fixedOrFlexible.span.start, fixedOrFlexible.span.end, fixedOrFlexible.span.includesEnd)) {
+                    return true;
+                }
+            } else { // flexible
+                for (int i = 1; i < starts.length; ++i) {
+                    if (periods[i-1] != fixedOrFlexible) {
+                        continue;
+                    }
+                    if (collisionIsErrorSelection(flexible, starts[i-1], starts[i] - 1, false)) { // we know flexibles are always !includesEnd
+                        return true;
+                    }
+                }
+            }
+            break;
+        }}
+        return false; // no bad collision
+    }
+
+    // Formatting has looser collision rules, because it is always paired with a time. 
+    // That is, it is not a problem if two items collide,
+    // if it doesn't cause a collision when paired with a time. 
+    // But if 11:00 has the same format (eg 11 X) as 23:00, there IS a collision.
+    // So we see if there is an overlap mod 12.
+    private boolean collisionIsErrorFormat(DayPeriod dayPeriod, int fixedStart, int fixedEnd, boolean includesEnd) {
+        fixedStart = fixedStart % NOON;
+        fixedEnd = (fixedEnd - (includesEnd ? 0 : 1)) % NOON;
+        for (int i = 1; i < starts.length; ++i) {
+            if (periods[i-1] != dayPeriod) {
+                // TODO since periods are sorted, could optimize further
+                continue;
+            }
+            int flexStart = starts[i-1] % NOON;
+            int flexEnd = (starts[i] - 1) % NOON; // we know flexibles are always !includesEnd
+            if (fixedStart <= flexEnd && fixedEnd >= flexStart) { // overlap?
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    // Selection has stricter collision rules, because is is used to select different messages. 
+    // So two types with the same localization do collide unless they have exactly the same rules.
+    private boolean collisionIsErrorSelection(DayPeriod dayPeriod, int fixedStart, int fixedEnd, boolean includesEnd) {
+        fixedEnd = (fixedEnd - (includesEnd ? 0 : 1));
+        for (int i = 1; i < starts.length; ++i) {
+            if (periods[i-1] != dayPeriod) {
+                // TODO since periods are sorted, could optimize further
+                continue;
+            }
+            int flexStart = starts[i-1];
+            int flexEnd = (starts[i] - 1); // we know flexibles are always !includesEnd
+            if (fixedStart != flexStart || fixedEnd != flexEnd) { // not same??
+                return true;
+            }
+        }
+        return false;
     }
 }

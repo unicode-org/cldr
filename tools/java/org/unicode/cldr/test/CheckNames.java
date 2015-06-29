@@ -15,6 +15,9 @@ public class CheckNames extends CheckCLDR {
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
+        if (value == null) {
+            return this;
+        }
         if (!YEARS_NOT_ALLOWED.matcher(path).matches() ||
             !getCldrFileToCheck().isNotRoot(path)) {
             return this;

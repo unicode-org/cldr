@@ -549,21 +549,22 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestDayPeriods() {
         //checkDayPeriod("da", "format", "morning1", "〖05:00 – 10:00〗〖❬7:30❭ morgens〗");
-        checkDayPeriod("zh", "format", "morning1", "〖05:00 – 08:00〗〖清晨❬6:30❭〗");
+        checkDayPeriod("zh", "format", "morning1", "〖05:00 – 08:00⁻〗〖清晨❬6:30❭〗");
         
-        checkDayPeriod("de", "format", "morning1", "〖05:00 – 10:00〗〖❬7:30 ❭morgens〗");
-        checkDayPeriod("de", "stand-alone", "morning1", "〖05:00 – 10:00〗");
-        checkDayPeriod("de", "format", "morning2", "〖10:00 – 12:00〗〖❬11:00 ❭vormittags〗");
-        checkDayPeriod("de", "stand-alone", "morning2", "〖10:00 – 12:00〗");
-        checkDayPeriod("pl", "format", "morning1", "〖06:00 – 10:00〗〖❬8:00 ❭rano〗");
-        checkDayPeriod("pl", "stand-alone", "morning1", "〖06:00 – 10:00〗");
-        checkDayPeriod("en", "format", "night1", "〖00:00 – 06:00; 21:00 – 24:00〗〖❬3:00 ❭at night〗");
-        checkDayPeriod("en", "stand-alone", "night1", "〖00:00 – 06:00; 21:00 – 24:00〗");
+        checkDayPeriod("de", "format", "morning1", "〖05:00 – 10:00⁻〗〖❬7:30 ❭morgens〗");
+        checkDayPeriod("de", "stand-alone", "morning1", "〖05:00 – 10:00⁻〗");
+        checkDayPeriod("de", "format", "morning2", "〖10:00 – 12:00⁻〗〖❬11:00 ❭vormittags〗");
+        checkDayPeriod("de", "stand-alone", "morning2", "〖10:00 – 12:00⁻〗");
+        checkDayPeriod("pl", "format", "morning1", "〖06:00 – 10:00⁻〗〖❬8:00 ❭rano〗");
+        checkDayPeriod("pl", "stand-alone", "morning1", "〖06:00 – 10:00⁻〗");
+        
+        checkDayPeriod("en", "format", "night1", "〖00:00 – 06:00⁻; 21:00 – 24:00⁻〗〖❬3:00 ❭at night〗");
+        checkDayPeriod("en", "stand-alone", "night1", "〖00:00 – 06:00⁻; 21:00 – 24:00⁻〗");
         
         checkDayPeriod("en", "format", "noon", "〖12:00〗〖❬12:00 ❭noon〗");
         checkDayPeriod("en", "format", "midnight", "〖00:00〗〖❬12:00 ❭midnight〗");
-        checkDayPeriod("en", "format", "am", "〖00:00 – 12:00〗〖❬6:00 ❭AM〗");
-        checkDayPeriod("en", "format", "pm", "〖12:00 – 24:00〗〖❬6:00 ❭PM〗");
+        checkDayPeriod("en", "format", "am", "〖00:00 – 12:00⁻〗〖❬6:00 ❭AM〗");
+        checkDayPeriod("en", "format", "pm", "〖12:00 – 24:00⁻〗〖❬6:00 ❭PM〗");
     }
 
     private void checkDayPeriod(String localeId, String type, String dayPeriodCode, String expected) {

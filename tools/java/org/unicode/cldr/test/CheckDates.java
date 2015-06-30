@@ -51,6 +51,7 @@ import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 public class CheckDates extends FactoryCheckCLDR {
@@ -441,8 +442,10 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
 
                 // TODO redo above and below in terms of parts instead of searching strings
-                
+
                 Set<String> filteredPaths = new HashSet<String>();
+                Output<Integer> sampleError = new Output<>();
+
                 for (String item : retrievedPaths) {
                     if (item.equals(path)
                         || skipPath(item)
@@ -463,7 +466,7 @@ public class CheckDates extends FactoryCheckCLDR {
                         Type itemType = Type.fromString(itemParts.getAttributeValue(5, "type"));
                         DayPeriod itemDayPeriod = DayPeriod.valueOf(itemParts.getAttributeValue(-1, "type"));
 
-                        if (!dateFormatInfoFormat.collisionIsError(type, dayPeriod, itemType, itemDayPeriod)) {
+                        if (!dateFormatInfoFormat.collisionIsError(type, dayPeriod, itemType, itemDayPeriod, sampleError)) {
                             continue;
                         }
                     }
@@ -480,13 +483,18 @@ public class CheckDates extends FactoryCheckCLDR {
                 CheckStatus.Type statusType = getPhase() == Phase.SUBMISSION || getPhase() == Phase.BUILD
                     ? CheckStatus.warningType
                         : CheckStatus.errorType;
-                result.add(new CheckStatus()
+                final CheckStatus checkStatus = new CheckStatus()
                 .setCause(this)
                 .setMainType(statusType)
-                .setSubtype(Subtype.dateSymbolCollision)
-                .setMessage("The date value “{0}” is the same as what is used for a different item: {1}", value,
-                    others.toString()));
-
+                .setSubtype(Subtype.dateSymbolCollision);
+                if (sampleError.value == null) {
+                    checkStatus.setMessage("The date value “{0}” is the same as what is used for a different item: {1}",
+                        value, others.toString());
+                } else {
+                    checkStatus.setMessage("The date value “{0}” is the same as what is used for a different item: {1}. Sample problem: {2}",
+                        value, others.toString(), sampleError.value / DayPeriodInfo.HOUR);
+                }
+                result.add(checkStatus);
             }
 
             // result.add(new CheckStatus()

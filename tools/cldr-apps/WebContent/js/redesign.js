@@ -44,7 +44,7 @@ $(function() {
     
     //example on hover
     $('body').on('mouseenter','.vetting-page .infos-code, .vetting-page .subSpan',function(){
-    	var example = $(this).closest('.d-item').find('.d-example');
+    	var example = $(this).closest('.d-disp,.d-item,.d-item-err,.d-item-warn').find('.d-example');
     	if(example)
     		$(this).popover({html:true, placement:"top",content:example.html()}).popover('show');
     });

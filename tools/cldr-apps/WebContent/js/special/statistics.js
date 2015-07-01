@@ -57,11 +57,11 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 				var labels = [];
 				var count_new = [];
 				for(var i in data_new) {
-					var newLabel = (data_new[i][header_new.LAST_MOD]).split(' ')[0];
+					var newLabel = new Date(data_new[i][header_new.LAST_MOD]).toLocaleDateString();
 					var newCount = Number(data_new[i][header_new.COUNT]);
 					labels.push({value: Number(i)+1, text: newLabel}); // labels come from new data
 					count_new.push(newCount);
-					var oldLabel = (data[i][header.LAST_MOD]).split(' ')[0];
+					var oldLabel = new Date(data[i][header.LAST_MOD]).toLocaleDateString();
 					if(newLabel == oldLabel) {
 						// have old data
 						var oldCount = Number(data[i][header.COUNT]);

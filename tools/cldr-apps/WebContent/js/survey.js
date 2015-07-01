@@ -7132,11 +7132,12 @@ function showstats(hname) {
 					var labels = [];
 					var count_new = [];
 					for(var i in data_new) {
-						var newLabel = (data_new[i][header_new.LAST_MOD]).split(' ')[0];
+						
+						var newLabel = new Date(data_new[i][header_new.LAST_MOD]).toLocaleDateString();
 						var newCount = data_new[i][header_new.COUNT];
 						labels.push(newLabel); // labels come from new data
 						count_new.push(newCount);
-						var oldLabel = (data[i][header.LAST_MOD]).split(' ')[0];
+						var oldLabel = new Date(data[i][header.LAST_MOD]).toLocaleDateString();
 						if(newLabel == oldLabel) {
 							// have old data
 							var oldCount = data[i][header.COUNT];
@@ -7520,8 +7521,7 @@ function showRecent(divName, locale, user) {
 							
 							var rowDiv = document.createElement("div");
 							frag.appendChild(rowDiv);
-							
-                                                        rowDiv.appendChild(createLocLink(loc,locname, "recentLoc"));
+							rowDiv.appendChild(createLocLink(loc,locname, "recentLoc"));
 							var xpathItem;
 							xpath_code = xpath_code.replace(/\t/g," / ");
 							rowDiv.appendChild(xpathItem = createChunk(xpath_code,"a","recentXpath"));

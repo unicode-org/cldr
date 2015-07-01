@@ -21,7 +21,7 @@
 <title>SurveyTool My Votes | <%=title%></title>
 <link rel='stylesheet' type='text/css' href='./surveytool.css' />
 </head>
-<body>
+<body style='padding: 1em;'>
 <%@ include file="/WEB-INF/tmpl/stnotices.jspf" %>
 <span id="visitors"></span>
 <hr>

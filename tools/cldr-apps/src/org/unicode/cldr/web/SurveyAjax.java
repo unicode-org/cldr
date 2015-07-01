@@ -445,9 +445,9 @@ public class SurveyAjax extends HttpServlet {
                 } catch (Throwable t) {
                     limit = 15;
                 }
-                String q1 = "select " + DBUtils.Table.VOTE_VALUE + ".locale,cldr_xpaths.xpath,cldr_users.org, " + DBUtils.Table.VOTE_VALUE + ".value, "
-                    + DBUtils.Table.VOTE_VALUE + ".last_mod  from cldr_xpaths," + DBUtils.Table.VOTE_VALUE + ",cldr_users  where ";
-                String q2 = "cldr_xpaths.id=" + DBUtils.Table.VOTE_VALUE + ".xpath and cldr_users.id=" + DBUtils.Table.VOTE_VALUE + ".submitter"
+                String q1 = "select " + DBUtils.Table.VOTE_VALUE + ".locale,"+DBUtils.Table.VOTE_VALUE + ".xpath,cldr_users.org, " + DBUtils.Table.VOTE_VALUE + ".value, "
+                    + DBUtils.Table.VOTE_VALUE + ".last_mod  from " + DBUtils.Table.VOTE_VALUE + ",cldr_users  where ";
+                String q2 = " cldr_users.id=" + DBUtils.Table.VOTE_VALUE + ".submitter"
                     + "  order by " + DBUtils.Table.VOTE_VALUE + ".last_mod desc ";
                 String user = request.getParameter("user");
                 UserRegistry.User u = null;

@@ -1266,8 +1266,11 @@ public class DBUtils {
 
         for (int i = 1; i <= cc; i++) {
             String colname = rsm.getColumnName(i).toUpperCase();
-            if (colname.equals("XPATH"))
+            final int columnType = rsm.getColumnType(i);
+            if (colname.equals("XPATH") &&
+                    (columnType == java.sql.Types.INTEGER)  ) {
                 hasxpath = i;
+            }
             if (colname.equals("LOCALE"))
                 haslocale = i;
             header.put(colname, i - 1);
@@ -1275,6 +1278,7 @@ public class DBUtils {
         }
         int cn = cc;
         if (hasxpath >= 0) {
+            header.put("XPATH_STRING", cn++);
             header.put("XPATH_STRHASH", cn++);
             header.put("XPATH_CODE", cn++);
         }
@@ -1331,6 +1335,7 @@ public class DBUtils {
             }
             if (hasxpath >= 0 && xpath != null) {
                 final String xpathString = CookieSession.sm.xpt.getById(xpath);
+                item.put(xpathString!=null? xpathString : ""); // XPATH_STRING
                 item.put(xpathString!=null? (XPathTable.getStringIDString(xpathString)) : ""); // add
                                                                // XPATH_STRHASH
                                                                // column
@@ -1346,7 +1351,7 @@ public class DBUtils {
                 }
             }
             if (haslocale >= 0 && locale_name != null) {
-                item.put(locale_name); // add XPATH_STRHASH column
+                item.put(locale_name); // add LOCALE_NAME column
             }
             data.put(item);
         }

@@ -188,6 +188,14 @@ public class CheckWidths extends CheckCLDR {
 
         // Era Abbreviations
 
+        // Allow longer for Japanese calendar eras
+        .add("//ldml/dates/calendars/calendar[@type=\"japanese\"]/.*/eraAbbr/era[@type=%A]", new Limit[] {
+            new Limit(12 * EM, 12 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
+        })
+        // Allow longer for ROC calendar eras
+        .add("//ldml/dates/calendars/calendar[@type=\"roc\"]/.*/eraAbbr/era[@type=%A]", new Limit[] {
+            new Limit(4 * EM, 8 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
+        })
         .add("//ldml/dates/calendars/calendar.*/eraAbbr/era[@type=%A]", new Limit[] {
             new Limit(3 * EM, 6 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
         })

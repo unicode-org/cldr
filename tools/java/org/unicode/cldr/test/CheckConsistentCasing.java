@@ -302,6 +302,12 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         }
         return info;
     }
+    
+    private static final String CASE_WARNING =
+        "The first letter of 〈{0}〉 is {1}, which differs from what is expected " +
+        "for the {2} category: that almost all values be {3}.\n\n" +
+        "For guidance, see ​http://cldr.org/translation/capitalization. " +
+        "If this warning is wrong, please file a ticket at http://unicode.org/cldr/trac/.";
 
     private void checkConsistentCasing(Category category, String path, String fullPath, String value,
         Options options, List<CheckStatus> result) {
@@ -316,8 +322,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
                 result.add(new CheckStatus().setCause(this)
                     .setMainType(typeAndFlagFromCat.flag()? CheckStatus.errorType: CheckStatus.warningType)
                     .setSubtype(Subtype.incorrectCasing) // typically warningType or errorType
-                    .setMessage("The first letter of 〈{0}〉 is {1}, which differs from the expected {2} for this category: {3} (if that is wrong file a ticket at http://unicode.org/cldr/trac/)",
-                        value, ft, typeAndFlagFromCat.type(), category)); // the message; can be MessageFormat with arguments
+                    .setMessage(CASE_WARNING, value, ft, category, typeAndFlagFromCat.type())); // the message; can be MessageFormat with arguments
             }
         }
     }

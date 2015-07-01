@@ -7527,7 +7527,7 @@ function showRecent(divName, locale, user) {
 							rowDiv.appendChild(xpathItem = createChunk(xpath_code,"a","recentXpath"));
 							xpathItem.href = "survey?_="+loc+"&strid="+xpath_hash;
 							rowDiv.appendChild(createChunk(value,"span","value recentValue"));
-							rowDiv.appendChild(createChunk(last_mod,"span","recentWhen"));
+							rowDiv.appendChild(createChunk(new Date(last_mod).toLocaleString(),"span","recentWhen"));
 						}
 					}
 					

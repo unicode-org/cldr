@@ -101,7 +101,7 @@ public class Containment {
         }
         String container = containers != null
             ? containers.iterator().next()
-            : territory.equals("001") || territory.equals("EU") ? "001" : "ZZ";
+            : territory.equals("001") ? "001" : "ZZ";
         return container;
     }
 
@@ -126,9 +126,6 @@ public class Containment {
                 || territory.equals("ZZ")
                 || continents.contains(territory)) {
                 return territory;
-            }
-            if (territory == "EU") {
-                return "150";  // While not entirely true because of regions like Cyprus, it's the best approximation for internal usage
             }
             String newTerritory = getContainer(territory);
             if (newTerritory == null) {

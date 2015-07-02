@@ -1377,7 +1377,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 { "CSD", "RS" },
                 { "CSK", "CZ" },
                 { "DDM", "DE" },
-                { "EUR", "DE" },
+                { "EUR", "ZZ" },
                 { "RHD", "ZW" },
                 { "SUR", "RU" },
                 { "TPE", "TL" },

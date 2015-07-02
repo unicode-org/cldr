@@ -674,6 +674,7 @@ public class TestPathHeader extends TestFmwkPlus {
             .getStandardCodes().getGoodAvailableCodes("territory");
         Set<String> results = showContained("001", 0, new HashSet<String>(
             goodAvailableCodes));
+        results.remove("EU");
         results.remove("ZZ");
         for (String territory : results) {
             String sub = Containment.getSubcontinent(territory);

@@ -1234,7 +1234,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     }
                 });
             functionMap.put("territorySection", new Transform<String, String>() {
-                final Set<String> specialRegions = new HashSet<String>(Arrays.asList("QO", "ZZ"));
+                final Set<String> specialRegions = new HashSet<String>(Arrays.asList("EU", "QO", "ZZ"));
 
                 public String transform(String source0) {
                     String theTerritory = source0;
@@ -1377,7 +1377,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 { "CSD", "RS" },
                 { "CSK", "CZ" },
                 { "DDM", "DE" },
-                { "EUR", "EU" },
+                { "EUR", "DE" },
                 { "RHD", "ZW" },
                 { "SUR", "RU" },
                 { "TPE", "TL" },
@@ -1388,7 +1388,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 { "XBC", "ZZ" },
                 { "XBD", "ZZ" },
                 { "XDR", "ZZ" },
-                { "XEU", "EU" },
+                { "XEU", "ZZ" },
                 { "XFO", "ZZ" },
                 { "XFU", "ZZ" },
                 { "XPD", "ZZ" },

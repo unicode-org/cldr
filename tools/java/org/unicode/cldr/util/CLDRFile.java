@@ -345,6 +345,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         String firstFullPath = null;
         XPathParts parts = new XPathParts(null, null);
         DtdType dtdType = DtdType.ldml; // default
+        boolean suppressInheritanceMarkers = false;
 
         if (orderedSet.size() > 0) { // May not have any elements.
             firstPath = (String) orderedSet.iterator().next();
@@ -365,6 +366,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         if (options.containsKey("COMMENT")) {
             pw.println("<!-- " + options.get("COMMENT") + " -->");
+        }
+        if (options.containsKey("SUPPRESS_IM")) {
+            suppressInheritanceMarkers = true;
         }
         /*
          * <identity>
@@ -449,11 +453,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             if (isResolved && xpath.contains("/alias")) {
                 continue;
             }
-            // Value v = (Value) getXpath_value().get(xpath);
+            String v = getStringValue(xpath);
+            if (CldrUtility.INHERITANCE_MARKER.equals(v) && suppressInheritanceMarkers) {
+                continue;
+            }
             currentFiltered.set(xpath);
             if (currentFiltered.getElement(1).equals("identity")) continue;
             current.set(getFullXPath(xpath));
-            current.writeDifference(pw, currentFiltered, last, lastFiltered, getStringValue(xpath), tempComments);
+            current.writeDifference(pw, currentFiltered, last, lastFiltered, v, tempComments);
             // exchange pairs of parts
             XPathParts temp = current;
             current = last;

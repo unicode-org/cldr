@@ -322,7 +322,7 @@ public class OutputFileManager {
         try {
             File outFile = sm.getDataFile(kind, loc);
 
-            doWriteFile(loc, file, isFlat, outFile);
+            doWriteFile(loc, file, kind, isFlat, outFile);
             SurveyLog.debug("Updater: Wrote: " + kind + "/" + loc + " - " + ElapsedTimer.elapsedTime(st));
 
             if (tryCommit && (kind.equals("vxml") || kind.equals("pxml"))) {
@@ -339,7 +339,7 @@ public class OutputFileManager {
                         tryCommit = false;
                     } else if (e.getMessage().contains("E155015")) {
                         svnRemoveAndResolved(outFile);
-                        doWriteFile(loc, file, isFlat, outFile);
+                        doWriteFile(loc, file, kind, isFlat, outFile);
                         SurveyLog
                             .debug("Updater: Resolved, Re-Wrote: " + kind + "/" + loc + " - " + ElapsedTimer.elapsedTime(st));
                     } else if (!e.getMessage().contains("E150002")) {
@@ -370,7 +370,7 @@ public class OutputFileManager {
                                 SurveyLog.logException(e1, "While trying to update " + outFile.getAbsolutePath());
                             } finally {
                                 outFile.delete(); //
-                    doWriteFile(loc, file, isFlat, outFile);
+                    doWriteFile(loc, file, kind, isFlat, outFile);
                     SurveyLog.debug("Updater: Updated, Re-Wrote: " + kind + "/" + loc + " - "
                         + ElapsedTimer.elapsedTime(st));
                 }
@@ -404,11 +404,19 @@ public class OutputFileManager {
      * @throws UnsupportedEncodingException
      * @throws FileNotFoundException
      */
-    private void doWriteFile(CLDRLocale loc, CLDRFile file, boolean isFlat, File outFile) throws UnsupportedEncodingException,
+    private void doWriteFile(CLDRLocale loc, CLDRFile file, String kind, boolean isFlat, File outFile) throws UnsupportedEncodingException,
         FileNotFoundException {
         PrintWriter u8out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF8"));
+
+        Map<String,Object> options = CldrUtility.asMap(new Object[][] {
+            { "SUPPRESS_IM" , true }});
+        
         if (!isFlat) {
-            file.write(u8out);
+            if (kind.equals("vxml") || kind.equals("rxml")) {
+                file.write(u8out,options);                
+            } else {
+                file.write(u8out);
+            }
         } else {
             Set<String> keys = new TreeSet<String>();
             for (String k : file) {

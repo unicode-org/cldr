@@ -162,7 +162,7 @@ public class GenerateSubdivisions {
             }
             return null;
         }
-        
+
         static final String[] CRUFT = {
             "Emirate", 
             "Parish", 
@@ -203,8 +203,8 @@ public class GenerateSubdivisions {
             "prefecture",
             "Prefecture",
             "municipality"
-            };
-        
+        };
+
         static final Pattern CRUFT_PATTERN = Pattern.compile("(?i)\\b" + CollectionUtilities.join(CRUFT, "|") + "\\b");
         static final Pattern BRACKETED = Pattern.compile("\\[.*\\]");
         static String clean(String input) {
@@ -382,30 +382,32 @@ public class GenerateSubdivisions {
                 return;
             }
             String type = base2.code;
-            int hyphenPos = type.indexOf('-');
-            if (hyphenPos >= 0) {
-                String subtype = type.substring(hyphenPos+1);
-                type = type.substring(0,hyphenPos);
-                output.append("\t\t" + "<subgroup"
-                    + " type=\"" + type + "\""
-                    + " subtype=\"" + subtype + "\""
-                    + " contains=\"");
-            } else {
-                output.append("\t\t" + "<subgroup"
-                    + " type=\"" + type + "\""
-                    + " contains=\"");
-            }
-            boolean first = true;
-            for (String child : base2.children.keySet()) {
-                if (first) {
-                    first = false;
+            if (base2 != BASE) {
+                int hyphenPos = type.indexOf('-');
+                if (hyphenPos >= 0) {
+                    String subtype = type.substring(hyphenPos+1);
+                    type = type.substring(0,hyphenPos);
+                    output.append("\t\t" + "<subgroup"
+                        + " type=\"" + type + "\""
+                        + " subtype=\"" + subtype + "\""
+                        + " contains=\"");
                 } else {
-                    output.append(' ');
+                    output.append("\t\t" + "<subgroup"
+                        + " type=\"" + type + "\""
+                        + " contains=\"");
                 }
-                String subregion = child.substring(child.indexOf('-')+1);
-                output.append(subregion);
+                boolean first = true;
+                for (String child : base2.children.keySet()) {
+                    if (first) {
+                        first = false;
+                    } else {
+                        output.append(' ');
+                    }
+                    String subregion = child.substring(child.indexOf('-')+1);
+                    output.append(subregion);
+                }
+                output.append("\"/>\n");
             }
-            output.append("\"/>\n");
             for (SubdivisionNode child : base2.children.values()) {
                 printXml(output, child, indent);
             }

@@ -3,6 +3,7 @@ package org.unicode.cldr.tool;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -43,18 +44,30 @@ public class ShowDtdDiffs {
         "24.0",
         "25.0",
         "26.0",
-        "27.0"
+        "27.0",
+        null
         );
     static Set<DtdType> TYPES = EnumSet.allOf(DtdType.class);
     static {
         TYPES.remove(DtdType.ldmlICU);
     }
+    
+    static final Map<DtdType,String> FIRST_VERSION = new EnumMap<>(DtdType.class);
+    static {
+        FIRST_VERSION.put(DtdType.ldmlBCP47, "1.7.2");
+        FIRST_VERSION.put(DtdType.keyboard, "22.1");
+        FIRST_VERSION.put(DtdType.platform, "22.1");
+    }
 
     public static void main(String[] args) {
         String last = null;
         for (String current : CLDR_VERSIONS) {
-            System.out.println(current);
+            String currentName = current == null ? "trunk" : current;
             for (DtdType type : TYPES) {
+                String firstVersion = FIRST_VERSION.get(type);
+                if (firstVersion != null && current != null && current.compareTo(firstVersion) < 0) {
+                    continue;
+                }
                 DtdData dtdCurrent = null;
                 try {
                     dtdCurrent = DtdData.getInstance(type, current);
@@ -62,6 +75,7 @@ public class ShowDtdDiffs {
                     if (!(e.getCause() instanceof FileNotFoundException)) {
                         throw e;
                     }
+                    System.out.println(e.getMessage() + ", " + e.getCause().getMessage());
                     continue;
                 }
                 DtdData dtdLast = null;
@@ -74,19 +88,18 @@ public class ShowDtdDiffs {
                         }
                     }
                 }
-                System.out.println("\t" + type);
-                diff(dtdLast, dtdCurrent);
+                diff(currentName + "\t" + type, dtdLast, dtdCurrent);
             }
             last = current;
         }
     }
     
-    private static void diff(DtdData dtdLast, DtdData dtdCurrent) {
+    private static void diff(String prefix, DtdData dtdLast, DtdData dtdCurrent) {
         Map<String, Element> oldNameToElement = dtdLast == null ? Collections.EMPTY_MAP : dtdLast.getElementFromName();
-        checkNames(dtdCurrent, oldNameToElement, "/", dtdCurrent.ROOT, new HashSet<Element>());
+        checkNames(prefix, dtdCurrent, oldNameToElement, "/", dtdCurrent.ROOT, new HashSet<Element>());
     }
 
-    private static void checkNames(DtdData dtdCurrent, Map<String, Element> oldNameToElement, String path, Element element, HashSet<Element> seen) {
+    private static void checkNames(String prefix, DtdData dtdCurrent, Map<String, Element> oldNameToElement, String path, Element element, HashSet<Element> seen) {
         if (seen.contains(element)) {
             return;
         }
@@ -95,24 +108,23 @@ public class ShowDtdDiffs {
         if (SKIP_ELEMENTS.contains(name)) {
             return;
         }
-        if (SDI.isDeprecated(dtdCurrent.dtdType, name, "*", "*")) {
+        
+        if (isDeprecated(dtdCurrent.dtdType, name, "*")) { // SDI.isDeprecated(dtdCurrent.dtdType, name, "*", "*")) {
             return;
         }
         String newPath = path + "/" + element.name;
         if (!oldNameToElement.containsKey(name)) {
-            String attributeNames = getAttributeNames(dtdCurrent.dtdType, name, Collections.EMPTY_MAP, element.getAttributes());
-            System.out.println("\t\tAdded element «" + newPath + "»"
-                + attributeNames);
+            String attributeNames = getAttributeNames(dtdCurrent, name, Collections.EMPTY_MAP, element.getAttributes());
+            System.out.println(prefix + "\tElement\t" + newPath + "\t" + attributeNames);
         } else {
             Element oldElement = oldNameToElement.get(name);
-            String attributeNames = getAttributeNames(dtdCurrent.dtdType, name, oldElement.getAttributes(), element.getAttributes());
+            String attributeNames = getAttributeNames(dtdCurrent, name, oldElement.getAttributes(), element.getAttributes());
             if (!attributeNames.isEmpty()) {
-                System.out.println("\t\tTo element «" + newPath + "», added: "
-                    + attributeNames);
+                System.out.println(prefix + "\tAttribute\t" + newPath + "\t" + attributeNames);
             }
         }
         for (Element child : element.getChildren().keySet()) {
-            checkNames(dtdCurrent, oldNameToElement, newPath, child, seen);
+            checkNames(prefix, dtdCurrent, oldNameToElement, newPath, child, seen);
         }
     }
     
@@ -148,7 +160,7 @@ public class ShowDtdDiffs {
     static final Set<String> SKIP_ELEMENTS = new HashSet<>(Arrays.asList("generation", "identity", "alias", "special", "telephoneCodeData"));
     static final Set<String> SKIP_ATTRIBUTES = new HashSet<>(Arrays.asList("references", "standard", "draft", "alt"));
     
-    private static String getAttributeNames(DtdType dtdType, String elementName, Map<Attribute, Integer> attributesOld, Map<Attribute, Integer> attributes) {
+    private static String getAttributeNames(DtdData dtdCurrent, String elementName, Map<Attribute, Integer> attributesOld, Map<Attribute, Integer> attributes) {
         Set<String> names = new LinkedHashSet<>();
         main:
             for (Attribute attribute : attributes.keySet()) {
@@ -156,7 +168,7 @@ public class ShowDtdDiffs {
                 if (SKIP_ATTRIBUTES.contains(name)) {
                     continue;
                 }
-                if (SDI.isDeprecated(dtdType, elementName, name, "*")) {
+                if (isDeprecated(dtdCurrent.dtdType, elementName, name)) { // SDI.isDeprecated(dtdCurrent, elementName, name, "*")) {
                     continue;
                 }
                 for (Attribute attributeOld : attributesOld.keySet()) {
@@ -166,6 +178,14 @@ public class ShowDtdDiffs {
                 }
                 names.add(name);
             }
-        return names.isEmpty() ? "" : "\tattributes: ‹" + CollectionUtilities.join(names, "›, ‹") + "›";
+        return names.isEmpty() ? "" : CollectionUtilities.join(names, ", ");
+    }
+
+    private static boolean isDeprecated(DtdType dtdType, String elementName, String attributeName) {
+        try {
+            return DtdData.getInstance(dtdType).isDeprecated(elementName, attributeName, "*");
+        } catch (DtdData.IllegalByDtdException e) {
+            return true;
+        }
     }
 }

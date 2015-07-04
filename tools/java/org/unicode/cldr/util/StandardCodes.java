@@ -1016,6 +1016,7 @@ public class StandardCodes {
 
     static Map<String, Map<String, Map<String, String>>> LSTREG;
     static Map<LstrType, Map<String, Map<LstrField, String>>> LSTREG_ENUM;
+    static Map<LstrType, Map<String, Map<LstrField, String>>> LSTREG_RAW;
 
     /**
      * Returns a map like {extlang={aao={Added=2009-07-29, Description=Algerian Saharan Arabic, ...<br>
@@ -1043,6 +1044,13 @@ public class StandardCodes {
             initLstr();
         }
         return LSTREG_ENUM;
+    }
+
+    public static Map<LstrType, Map<String, Map<LstrField, String>>> getLstregEnumRaw() {
+        if (LSTREG_ENUM == null) {
+            initLstr();
+        }
+        return LSTREG_RAW;
     }
 
     private static void initLstr() {
@@ -1168,6 +1176,22 @@ public class StandardCodes {
                     System.out.println("Funny tags: " + funnyTags);
             }
         }
+        // copy raw
+        Map<LstrType, Map<String, Map<LstrField, String>>> rawLstreg = new TreeMap<LstrType, Map<String, Map<LstrField, String>>>();
+        for (Entry<LstrType, Map<String, Map<LstrField, String>>> entry1 : result2.entrySet()) {
+            LstrType key1 = entry1.getKey();
+            TreeMap<String, Map<LstrField, String>> raw1 = new TreeMap<String, Map<LstrField, String>>();
+            rawLstreg.put(key1, raw1);
+            for (Entry<String, Map<LstrField, String>> entry2 : entry1.getValue().entrySet()) {
+                String key2 = entry2.getKey();
+                final Map<LstrField, String> value2 = entry2.getValue();
+                TreeMap<LstrField, String> raw2 = new TreeMap<LstrField, String>();
+                raw2.putAll(value2);
+                raw1.put(key2, raw2);
+            }
+        }
+        LSTREG_RAW = CldrUtility.protectCollection(rawLstreg);
+
         // add extras
         for (int i = 0; i < extras.length; ++i) {
             Map<String, Map<LstrField, String>> subtagData = CldrUtility.get(result2, LstrType.valueOf(extras[i][0]));

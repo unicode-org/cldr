@@ -3,8 +3,10 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -18,19 +20,40 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.ChainedMap.M3;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.LocaleDisplayNames;
+import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.util.ULocale;
 
 public class GenerateSubdivisions {
+
+    static Map<String,String> NAME_CORRECTIONS = new HashMap<>();
+    static {
+        Splitter semi = Splitter.on(';').trimResults();
+        for (String s : FileUtilities.in(CLDRPaths.DATA_DIRECTORY + "iso/","en-subdivisions-corrections.txt")) {
+            if (s.startsWith("#")) {
+                continue;
+            }
+            List<String> parts = semi.splitToList(s);
+            NAME_CORRECTIONS.put(parts.get(0), parts.get(1));
+        }
+    }
+
+    static final Normalizer2 nfc = Normalizer2.getNFCInstance();
 
     public static void main(String[] args) throws IOException {
         loadIso();
@@ -41,12 +64,12 @@ public class GenerateSubdivisions {
         try (PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/subdivisionAliases.txt")) {
             SubdivisionNode.printAliases(pw);
         }
+        try (PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/en.xml")) {
+            SubdivisionNode.printEnglish(pw);
+        }
         try (PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/categories.txt")) {
             SubdivisionNode.printSamples(pw);
         }
-//        try (PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/en.xml")) {
-//            SubdivisionNode.printEnglish(pw);
-//        }
         try (PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/en.txt")) {
             SubdivisionNode.printEnglishComp(pw);
         }
@@ -55,7 +78,10 @@ public class GenerateSubdivisions {
         }
     }
 
+    static final Map<String,SubdivisionNode> ID_TO_NODE = new HashMap<>();
+
     static class SubdivisionNode {
+        private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
         static LocaleDisplayNames ENGLISH = LocaleDisplayNames.getInstance(ULocale.ENGLISH);
         static final M3<String, String, String> NAMES = ChainedMap.of(
             new TreeMap<String,Object>(),
@@ -65,7 +91,7 @@ public class GenerateSubdivisions {
         static final Map<String,String> TO_COUNTRY_CODE = new TreeMap<String,String>();
         static final Relation<String,String> ID_SAMPLE = Relation.of(new TreeMap(), TreeSet.class);
         static final Map<String,String> SUB_TO_CAT = new TreeMap<>();
-        static final SubdivisionNode BASE = new SubdivisionNode("001").addName("en", "World");
+        static final SubdivisionNode BASE = new SubdivisionNode("001", null).addName("en", "World");
         static final Relation<String,String> REGION_CONTAINS = Relation.of(new TreeMap(), TreeSet.class);
 
         static public void addName(String code, String lang, String value) {
@@ -107,6 +133,7 @@ public class GenerateSubdivisions {
             }
         }
 
+
         public static void printEnglishComp(Appendable output) throws IOException {
             Set<String> countEqual = new TreeSet<>();
             String lastCC = null;
@@ -121,6 +148,7 @@ public class GenerateSubdivisions {
                     lastCC = countryCode;
                 }
                 for (String value : entry.getValue()) {
+                    NAME_CORRECTIONS.get(value);
                     String wiki = clean(getWikiName(value));
                     final String iso = clean(getIsoName(value));
                     if (iso.equals(wiki)) {
@@ -224,7 +252,7 @@ public class GenerateSubdivisions {
             if (input.endsWith(",")) {
                 input = input.substring(0,input.length()-1);
             }
-            return input.trim();
+            return fixName(input);
         }
 
         public static void printEnglish(Appendable output) throws IOException {
@@ -234,31 +262,122 @@ public class GenerateSubdivisions {
                 header(DtdType.ldml)
                 + "<ldml>\n"
                 + "\t<identity>\n"
-                + "\t<version number=\"$Revision: 11611 $\"/>\n"
-                + "\t<generation date=\"$Date: 2015-05-06 07:02:59 -0700 (Wed, 06 May 2015) $\"/>\n"
-                + "\t<language type=\"en\"/>\n"
+                + "\t\t<version number=\"$Revision: 11611 $\"/>\n"
+                + "\t\t<generation date=\"$Date: 2015-05-06 07:02:59 -0700 (Wed, 06 May 2015) $\"/>\n"
+                + "\t\t<language type=\"en\"/>\n"
                 + "\t</identity>\n"
                 + "\t<localeDisplayNames>\n"
                 + "\t\t<subdivisions>\n");
-            for (Entry<String, Set<String>> entry : SubdivisionNode.REGION_CONTAINS.keyValuesSet()) {
-                output.append("<!-- ").append(ENGLISH.regionDisplayName(entry.getKey())).append(" -->\n");
-                for (String value : entry.getValue()) {
-                    output.append("\t\t\t<subdivision type=\"").append(value).append("\">")
-                    .append(getIsoName(value))
-                    .append("</subdivision>\n");
+            Set<String> missing = new LinkedHashSet<>();
+            Set<String> skipped = new LinkedHashSet<>();
+
+            for (String regionCode : codeToData.keySet()) {
+                if (!isKosher(regionCode)) {
+                    if (regionCode.length() != 3) {
+                        skipped.add(regionCode);
+                    }
+                    continue;
+                }
+                SubdivisionNode regionNode = ID_TO_NODE.get(regionCode);
+                if (regionNode == null) {
+                    output.append("\t\t<!-- ")
+                    .append(regionCode).append(" : ")
+                    .append(ENGLISH.regionDisplayName(regionCode))
+                    .append(" : NO SUBDIVISIONS -->\n");
+                    continue;
+                }
+                output.append("\t\t<!-- ")
+                .append(regionCode).append(" : ")
+                .append(ENGLISH.regionDisplayName(regionCode))
+                .append(" -->\n");
+
+                Set<SubdivisionNode> ordered = new LinkedHashSet<>();
+                addChildren(ordered, regionNode.children);
+
+                for (SubdivisionNode node : ordered) {
+                    String name = getBestName(node.code);
+                    if (name == null) {
+                        missing.add(node.code + ": " + getIsoName(node.code));
+                        continue;
+                    }
+                    String upper = UCharacter.toUpperCase(name);
+                    String title = UCharacter.toTitleFirst(ULocale.ROOT, name);
+                    if (name.equals(upper) || !name.equals(title)) {
+                        System.out.println("Suspicious name: " + name);
+                    }
+
+                    SubdivisionNode sd = ID_TO_NODE.get(node.code);
+
+                    String level = sd.level == 1 ? "" : "\t<!-- in " + sd.parent.code + " : " + getBestName(sd.parent.code) + " -->";
+                    output.append("\t\t\t<subdivision type=\"").append(node.code).append("\">")
+                    .append(name)
+                    .append("</subdivision>")
+                    .append(level)
+                    .append('\n');
                 }
             }
             output.append(
-                "\t\t</subdivisions>"
+                "\t\t</subdivisions>\n"
                     + "\t</localeDisplayNames>\n"
-                    + "\n</ldml>/n");
+                    + "</ldml>");
+            System.out.println("Skipping: " + skipped);
+            if (!missing.isEmpty()) {
+                throw new IllegalArgumentException("No name for: " + missing.size() + ", " + missing);
+            }
+        }
+
+        static Map<String, R2<List<String>, String>> territoryAliases = SDI.getLocaleAliasInfo().get("territory");
+        static Set<String> containment = SDI.getContainers();
+        static Map<String, Map<LstrField, String>> codeToData = StandardCodes.getEnumLstreg().get(LstrType.region);
+
+        private static boolean isKosher(String regionCode) {
+            if (regionCode.equals("001")) {
+                return false;
+            }
+            if (territoryAliases.containsKey(regionCode) 
+                || containment.contains(regionCode)
+                || codeToData.get(regionCode).get(LstrField.Description).contains("Private use")) {
+                Set<String> rc = REGION_CONTAINS.get(regionCode);
+                if (rc != null) {
+                    throw new IllegalArgumentException("? " + regionCode + ": " + rc);
+                }
+                return false;
+            }
+            return true;
+        }
+
+        private static void addChildren(Set<SubdivisionNode> ordered, Map<String, SubdivisionNode> children2) {
+            TreeMap<String, SubdivisionNode> temp = new TreeMap<>(children2);
+            ordered.addAll(temp.values());
+            for (SubdivisionNode n : temp.values()) {
+                if (!n.children.isEmpty()) {
+                    addChildren(ordered, n.children);
+                }
+            }
+        }
+
+        private static String getBestName(String value) {
+            String name = NAME_CORRECTIONS.get(value);
+            if (name == null) {
+                name = clean(getWikiName(value));
+            }
+            return fixName(name);
+        }
+
+        private static String fixName(String name) {
+            return nfc.normalize(name.replace('\'', '’').replace("  ", " ").trim());
         }
 
         final String code;
+        final int level;
+        final SubdivisionNode parent;
         final Map<String, SubdivisionNode> children = new LinkedHashMap<>();
 
-        public SubdivisionNode(String code) {
+        public SubdivisionNode(String code, SubdivisionNode parent) {
             this.code = code;
+            this.level = parent == null ? -1 : parent.level+1;
+            this.parent = parent;
+            ID_TO_NODE.put(code,this);
         }
         public SubdivisionNode addName(String lang, String value) {
             NAMES.put(code, lang, value);
@@ -271,7 +390,7 @@ public class GenerateSubdivisions {
             if (lastSubdivision == null) {
                 lastSubdivision = BASE.children.get(region);
                 if (lastSubdivision == null) {
-                    lastSubdivision = new SubdivisionNode(region).addName("en", ENGLISH.regionDisplayName(region));
+                    lastSubdivision = new SubdivisionNode(region, BASE).addName("en", ENGLISH.regionDisplayName(region));
                     BASE.children.put(region, lastSubdivision);
                 }
                 return add(lastSubdivision, subdivision);
@@ -283,7 +402,7 @@ public class GenerateSubdivisions {
         private static SubdivisionNode add(SubdivisionNode subdivisionNode1, String subdivision2) {
             SubdivisionNode subdivisionNode2 = subdivisionNode1.children.get(subdivision2);
             if (subdivisionNode2 == null) {
-                subdivisionNode2 = new SubdivisionNode(subdivision2);
+                subdivisionNode2 = new SubdivisionNode(subdivision2, subdivisionNode1);
             }
             subdivisionNode1.children.put(subdivision2, subdivisionNode2);
             return subdivisionNode2;

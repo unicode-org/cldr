@@ -71,6 +71,12 @@ $Date$
 <!ATTLIST territory references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!ELEMENT subdivision ( #PCDATA ) >
+<!ATTLIST subdivision type NMTOKEN #REQUIRED >
+<!ATTLIST subdivision alt NMTOKENS #IMPLIED >
+<!ATTLIST subdivision draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+
 <!ELEMENT variant ( #PCDATA ) >
 <!ATTLIST variant type NMTOKEN #REQUIRED >
 <!ATTLIST variant alt NMTOKENS #IMPLIED >
@@ -93,7 +99,7 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
-<!ELEMENT localeDisplayNames ( alias | ( localeDisplayPattern?, languages?, scripts?, territories?, variants?, keys?, types?, transformNames?, measurementSystemNames?, codePatterns?, special* ) ) >
+<!ELEMENT localeDisplayNames ( alias | ( localeDisplayPattern?, languages?, scripts?, territories?, subdivisions?, variants?, keys?, types?, transformNames?, measurementSystemNames?, codePatterns?, special* ) ) >
 <!ATTLIST localeDisplayNames draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -170,6 +176,14 @@ $Date$
 <!ATTLIST territories validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
+    
+<!ELEMENT subdivisions ( alias | ( subdivision | special )* ) >
+<!ATTLIST subdivisions draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST territories references CDATA #IMPLIED >
+    <!--@METADATA-->
+
+    
 
 <!-- # Either 1 alias OR any specials, any order, zero or more variant -->
 

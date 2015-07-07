@@ -16,6 +16,8 @@ import java.util.regex.Pattern;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.DtdType;
@@ -32,14 +34,24 @@ import com.google.common.base.Splitter;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.impl.coll.Collation;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.LocaleDisplayNames;
 import com.ibm.icu.text.Normalizer2;
+import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.util.ULocale;
 
 public class GenerateSubdivisions {
+
+    static final RuleBasedCollator ROOT_COL = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+    static {
+        ROOT_COL.setNumericCollation(true);
+        ROOT_COL.freeze();
+    }
 
     static Map<String,String> NAME_CORRECTIONS = new HashMap<>();
     static {
@@ -82,6 +94,7 @@ public class GenerateSubdivisions {
 
     static class SubdivisionNode {
         private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
+        
         static LocaleDisplayNames ENGLISH = LocaleDisplayNames.getInstance(ULocale.ENGLISH);
         static final M3<String, String, String> NAMES = ChainedMap.of(
             new TreeMap<String,Object>(),
@@ -89,20 +102,29 @@ public class GenerateSubdivisions {
             String.class
             );
         static final Map<String,String> TO_COUNTRY_CODE = new TreeMap<String,String>();
-        static final Relation<String,String> ID_SAMPLE = Relation.of(new TreeMap(), TreeSet.class);
+        static final Relation<String,String> ID_SAMPLE = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
         static final Map<String,String> SUB_TO_CAT = new TreeMap<>();
         static final SubdivisionNode BASE = new SubdivisionNode("001", null).addName("en", "World");
-        static final Relation<String,String> REGION_CONTAINS = Relation.of(new TreeMap(), TreeSet.class);
+        static final Relation<String,String> REGION_CONTAINS = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
 
         static public void addName(String code, String lang, String value) {
             int parenPos = value.indexOf("(see also separate country");
             if (parenPos >= 0) {
+                /*
+    Error: (TestSubdivisions.java:66) : country BQ = subdivisionNL-BQ1: expected "Caribbean Netherlands", got "Bonaire"
+    Error: (TestSubdivisions.java:66) : country BQ = subdivisionNL-BQ2: expected "Caribbean Netherlands", got "Saba"
+    Error: (TestSubdivisions.java:66) : country BQ = subdivisionNL-BQ3: expected "Caribbean Netherlands", got "Sint Eustatius"
+    Error: (TestSubdivisions.java:66) : country SJ = subdivisionNO-21: expected "Svalbard & Jan Mayen", got "Svalbard"
+    Error: (TestSubdivisions.java:66) : country SJ = subdivisionNO-22: expected "Svalbard & Jan Mayen", got "Jan Mayen"
+                 */
                 String paren = value.substring(value.length()-3,value.length()-1);
-                String old = TO_COUNTRY_CODE.get(code);
-                if (old != null) {
-                    System.err.println("Duplicate: " + code + "\t" + old + "\t" + paren);
+                if (!paren.equals("BQ") && !paren.equals("SJ")) {
+                    String old = TO_COUNTRY_CODE.get(code);
+                    if (old != null) {
+                        System.err.println("Duplicate: " + code + "\t" + old + "\t" + paren);
+                    }
+                    TO_COUNTRY_CODE.put(code, paren);   
                 }
-                TO_COUNTRY_CODE.put(code, paren);
                 value = value.substring(0,parenPos).trim();
             }
             value = value.replace("*", "");
@@ -279,18 +301,15 @@ public class GenerateSubdivisions {
                     continue;
                 }
                 SubdivisionNode regionNode = ID_TO_NODE.get(regionCode);
-                if (regionNode == null) {
-                    output.append("\t\t<!-- ")
-                    .append(regionCode).append(" : ")
-                    .append(ENGLISH.regionDisplayName(regionCode))
-                    .append(" : NO SUBDIVISIONS -->\n");
-                    continue;
-                }
                 output.append("\t\t<!-- ")
                 .append(regionCode).append(" : ")
-                .append(ENGLISH.regionDisplayName(regionCode))
-                .append(" -->\n");
-
+                .append(TransliteratorUtilities.toXML.transform(ENGLISH.regionDisplayName(regionCode)));
+                if (regionNode == null) {
+                    output.append(" : NO SUBDIVISIONS -->\n");
+                    continue;
+                }
+                output.append(" -->\n");
+                
                 Set<SubdivisionNode> ordered = new LinkedHashSet<>();
                 addChildren(ordered, regionNode.children);
 
@@ -301,6 +320,7 @@ public class GenerateSubdivisions {
                         continue;
                     }
                     String upper = UCharacter.toUpperCase(name);
+                    @SuppressWarnings("deprecation")
                     String title = UCharacter.toTitleFirst(ULocale.ROOT, name);
                     if (name.equals(upper) || !name.equals(title)) {
                         System.out.println("Suspicious name: " + name);
@@ -308,9 +328,10 @@ public class GenerateSubdivisions {
 
                     SubdivisionNode sd = ID_TO_NODE.get(node.code);
 
-                    String level = sd.level == 1 ? "" : "\t<!-- in " + sd.parent.code + " : " + getBestName(sd.parent.code) + " -->";
+                    String level = sd.level == 1 ? "" : "\t<!-- in " + sd.parent.code 
+                        + " : " + TransliteratorUtilities.toXML.transform(getBestName(sd.parent.code)) + " -->";
                     output.append("\t\t\t<subdivision type=\"").append(node.code).append("\">")
-                    .append(name)
+                    .append(TransliteratorUtilities.toXML.transform(name))
                     .append("</subdivision>")
                     .append(level)
                     .append('\n');
@@ -347,7 +368,8 @@ public class GenerateSubdivisions {
         }
 
         private static void addChildren(Set<SubdivisionNode> ordered, Map<String, SubdivisionNode> children2) {
-            TreeMap<String, SubdivisionNode> temp = new TreeMap<>(children2);
+            TreeMap<String, SubdivisionNode> temp = new TreeMap<>(ROOT_COL);
+            temp.putAll(children2);
             ordered.addAll(temp.values());
             for (SubdivisionNode n : temp.values()) {
                 if (!n.children.isEmpty()) {
@@ -356,7 +378,15 @@ public class GenerateSubdivisions {
             }
         }
 
+        static  final Map<String, R2<List<String>, String>> subdivisionAliases = SDI.getLocaleAliasInfo().get("subdivision");
+
         private static String getBestName(String value) {
+            R2<List<String>, String> subdivisionAlias = subdivisionAliases.get(value);
+            if (subdivisionAlias != null) {
+                String country = subdivisionAlias.get0().get(0);
+                String countryName = CLDRConfig.getInstance().getEnglish().getName(CLDRFile.TERRITORY_NAME, country);
+                return fixName(countryName);
+            }
             String name = NAME_CORRECTIONS.get(value);
             if (name == null) {
                 name = clean(getWikiName(value));
@@ -540,7 +570,7 @@ public class GenerateSubdivisions {
             Set<String> seen = new HashSet<>();
             for (Entry<String, Set<String>> entry : ID_SAMPLE.keyValuesSet()) {
                 pw.append(entry.getKey());
-                int max = 10;
+                //int max = 10;
                 seen.clear();
                 for (String sample : entry.getValue()) {
                     String region = sample.substring(0,2);

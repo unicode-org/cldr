@@ -820,6 +820,8 @@ public class SupplementalDataInfo {
         LinkedHashSet.class);
     private Relation<String, String> containmentDeprecated = Relation.of(new LinkedHashMap<String, Set<String>>(),
         LinkedHashSet.class);
+    private Relation<String, String> containerToSubdivision = Relation.of(new LinkedHashMap<String, Set<String>>(),
+        LinkedHashSet.class);
 
     private Map<String, CurrencyNumberInfo> currencyToCurrencyNumberInfo = new TreeMap<String, CurrencyNumberInfo>();
 
@@ -1060,6 +1062,8 @@ public class SupplementalDataInfo {
         containmentGrouping.freeze();
         containmentDeprecated.freeze();
 
+        containerToSubdivision.freeze();
+
         CldrUtility.protectCollection(languageToBasicLanguageData);
         for (String language : languageToTerritories2.keySet()) {
             for (Pair<Boolean, Pair<Double, String>> pair : languageToTerritories2.getAll(language)) {
@@ -1226,6 +1230,9 @@ public class SupplementalDataInfo {
                 } else if (level1.equals("territoryContainment")) {
                     handleTerritoryContainment();
                     return;
+                } else if (level1.equals("subdivisionContainment")) {
+                    handleSubdivisionContainment();
+                    return;  
                 } else if (level1.equals("currencyData")) {
                     if (handleCurrencyData(level2)) {
                         return;
@@ -1595,7 +1602,7 @@ public class SupplementalDataInfo {
                 final String reason = parts.getAttributeValue(3, "reason");
                 List<String> replacementList = replacement == null ? null : Arrays.asList(replacement.replace("-", "_")
                     .split("\\s+"));
-                String cleanTag = parts.getAttributeValue(3, "type").replace("-", "_");
+                String cleanTag = parts.getAttributeValue(3, "type");
                 tagToReplacement.put(cleanTag, (R2<List<String>, String>) Row.of(replacementList, reason).freeze());
                 return true;
             } else if (level2.equals("validity")) {
@@ -1840,6 +1847,16 @@ public class SupplementalDataInfo {
             }
         }
 
+        private void handleSubdivisionContainment() {
+            //      <subgroup type="AL" subtype="04" contains="FR MK LU"/>
+            final String country = parts.getAttributeValue(-1, "type");
+            final String subtype = parts.getAttributeValue(-1, "subtype");
+            final String container = subtype == null ? country : country + "-" + subtype;
+            for (String contained : parts.getAttributeValue(-1, "contains").split("\\s+")) {
+                containerToSubdivision.put(container, country + "-" + contained);
+            }
+        }
+
         private void handleLanguageData() {
             // <languageData>
             // <language type="aa" scripts="Latn" territories="DJ ER ET"/> <!--
@@ -2001,6 +2018,14 @@ public class SupplementalDataInfo {
 
     public Set<String> getContainers() {
         return containment.keySet();
+    }
+    
+    public Set<String> getContainedSubdivisions(String territoryOrSubdivisionCode) {
+        return containerToSubdivision.getAll(territoryOrSubdivisionCode);
+    }
+
+    public Set<String> getContainersForSubdivisions() {
+        return containerToSubdivision.keySet();
     }
 
     public Relation<String, String> getTerritoryToContained() {

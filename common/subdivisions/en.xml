@@ -700,17 +700,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivision type="CF-UK">Ouaka</subdivision>
 			<subdivision type="CF-VK">Vakaga</subdivision>
 		<!-- CG : Congo - Brazzaville -->
+			<subdivision type="CG-2">Lékoumou</subdivision>
+			<subdivision type="CG-5">Kouilou</subdivision>
+			<subdivision type="CG-7">Likouala</subdivision>
+			<subdivision type="CG-8">Cuvette</subdivision>
+			<subdivision type="CG-9">Niari</subdivision>
 			<subdivision type="CG-11">Bouenza</subdivision>
 			<subdivision type="CG-12">Pool</subdivision>
 			<subdivision type="CG-13">Sangha</subdivision>
 			<subdivision type="CG-14">Plateaux</subdivision>
 			<subdivision type="CG-15">Cuvette-Ouest</subdivision>
 			<subdivision type="CG-16">Pointe-Noire</subdivision>
-			<subdivision type="CG-2">Lékoumou</subdivision>
-			<subdivision type="CG-5">Kouilou</subdivision>
-			<subdivision type="CG-7">Likouala</subdivision>
-			<subdivision type="CG-8">Cuvette</subdivision>
-			<subdivision type="CG-9">Niari</subdivision>
 			<subdivision type="CG-BZV">Brazzaville</subdivision>
 		<!-- CH : Switzerland -->
 			<subdivision type="CH-AG">Aargau</subdivision>
@@ -820,8 +820,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivision type="CN-64">Ningxia</subdivision>
 			<subdivision type="CN-65">Xinjiang</subdivision>
 			<subdivision type="CN-71">Taiwan</subdivision>
-			<subdivision type="CN-91">Hong Kong</subdivision>
-			<subdivision type="CN-92">Macau</subdivision>
+			<subdivision type="CN-91">Hong Kong SAR China</subdivision>
+			<subdivision type="CN-92">Macau SAR China</subdivision>
 		<!-- CO : Colombia -->
 			<subdivision type="CO-AMA">Amazonas</subdivision>
 			<subdivision type="CO-ANT">Antioquia</subdivision>
@@ -979,6 +979,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivision type="CZ-325">Plzeň-North</subdivision>	<!-- in CZ-PL : Plzeň -->
 			<subdivision type="CZ-326">Rokycany</subdivision>	<!-- in CZ-PL : Plzeň -->
 			<subdivision type="CZ-327">Tachov</subdivision>	<!-- in CZ-PL : Plzeň -->
+			<subdivision type="CZ-10A">Prague 10</subdivision>	<!-- in CZ-PR : Prague -->
+			<subdivision type="CZ-10B">Prague 11</subdivision>	<!-- in CZ-PR : Prague -->
+			<subdivision type="CZ-10C">Prague 12</subdivision>	<!-- in CZ-PR : Prague -->
+			<subdivision type="CZ-10D">Prague 13</subdivision>	<!-- in CZ-PR : Prague -->
+			<subdivision type="CZ-10E">Prague 14</subdivision>	<!-- in CZ-PR : Prague -->
+			<subdivision type="CZ-10F">Prague 15</subdivision>	<!-- in CZ-PR : Prague -->
 			<subdivision type="CZ-101">Prague 1</subdivision>	<!-- in CZ-PR : Prague -->
 			<subdivision type="CZ-102">Prague 2</subdivision>	<!-- in CZ-PR : Prague -->
 			<subdivision type="CZ-103">Prague 3</subdivision>	<!-- in CZ-PR : Prague -->
@@ -988,12 +994,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivision type="CZ-107">Prague 7</subdivision>	<!-- in CZ-PR : Prague -->
 			<subdivision type="CZ-108">Prague 8</subdivision>	<!-- in CZ-PR : Prague -->
 			<subdivision type="CZ-109">Prague 9</subdivision>	<!-- in CZ-PR : Prague -->
-			<subdivision type="CZ-10A">Prague 10</subdivision>	<!-- in CZ-PR : Prague -->
-			<subdivision type="CZ-10B">Prague 11</subdivision>	<!-- in CZ-PR : Prague -->
-			<subdivision type="CZ-10C">Prague 12</subdivision>	<!-- in CZ-PR : Prague -->
-			<subdivision type="CZ-10D">Prague 13</subdivision>	<!-- in CZ-PR : Prague -->
-			<subdivision type="CZ-10E">Prague 14</subdivision>	<!-- in CZ-PR : Prague -->
-			<subdivision type="CZ-10F">Prague 15</subdivision>	<!-- in CZ-PR : Prague -->
+			<subdivision type="CZ-20A">Prague-West</subdivision>	<!-- in CZ-ST : Central Bohemia -->
+			<subdivision type="CZ-20B">Příbram</subdivision>	<!-- in CZ-ST : Central Bohemia -->
+			<subdivision type="CZ-20C">Rakovník</subdivision>	<!-- in CZ-ST : Central Bohemia -->
 			<subdivision type="CZ-201">Benešov</subdivision>	<!-- in CZ-ST : Central Bohemia -->
 			<subdivision type="CZ-202">Beroun</subdivision>	<!-- in CZ-ST : Central Bohemia -->
 			<subdivision type="CZ-203">Kladno</subdivision>	<!-- in CZ-ST : Central Bohemia -->
@@ -1003,9 +1006,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivision type="CZ-207">Mladá Boleslav</subdivision>	<!-- in CZ-ST : Central Bohemia -->
 			<subdivision type="CZ-208">Nymburk</subdivision>	<!-- in CZ-ST : Central Bohemia -->
 			<subdivision type="CZ-209">Prague-East</subdivision>	<!-- in CZ-ST : Central Bohemia -->
-			<subdivision type="CZ-20A">Prague-West</subdivision>	<!-- in CZ-ST : Central Bohemia -->
-			<subdivision type="CZ-20B">Příbram</subdivision>	<!-- in CZ-ST : Central Bohemia -->
-			<subdivision type="CZ-20C">Rakovník</subdivision>	<!-- in CZ-ST : Central Bohemia -->
 			<subdivision type="CZ-421">Děčín</subdivision>	<!-- in CZ-US : Ústí nad Labem -->
 			<subdivision type="CZ-422">Chomutov</subdivision>	<!-- in CZ-US : Ústí nad Labem -->
 			<subdivision type="CZ-423">Litoměřice</subdivision>	<!-- in CZ-US : Ústí nad Labem -->
@@ -1366,7 +1366,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!-- FR : France -->
 			<subdivision type="FR-A">Alsace</subdivision>
 			<subdivision type="FR-B">Aquitaine</subdivision>
-			<subdivision type="FR-BL">Saint-Barthélemy</subdivision>
+			<subdivision type="FR-BL">St. Barthélemy</subdivision>
 			<subdivision type="FR-C">Auvergne</subdivision>
 			<subdivision type="FR-CP">Clipperton Island</subdivision>
 			<subdivision type="FR-D">Burgundy</subdivision>
@@ -1381,23 +1381,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivision type="FR-K">Languedoc-Roussillon</subdivision>
 			<subdivision type="FR-L">Limousin</subdivision>
 			<subdivision type="FR-M">Lorraine</subdivision>
-			<subdivision type="FR-MF">Saint Martin</subdivision>
+			<subdivision type="FR-MF">St. Martin</subdivision>
 			<subdivision type="FR-MQ">Martinique</subdivision>
 			<subdivision type="FR-N">Midi-Pyrénées</subdivision>
 			<subdivision type="FR-NC">New Caledonia</subdivision>
 			<subdivision type="FR-O">Nord-Pas-de-Calais</subdivision>
 			<subdivision type="FR-P">Lower Normandy</subdivision>
 			<subdivision type="FR-PF">French Polynesia</subdivision>
-			<subdivision type="FR-PM">Saint Pierre and Miquelon</subdivision>
+			<subdivision type="FR-PM">St. Pierre &amp; Miquelon</subdivision>
 			<subdivision type="FR-Q">Upper Normandy</subdivision>
 			<subdivision type="FR-R">Pays de la Loire</subdivision>
 			<subdivision type="FR-RE">Réunion</subdivision>
 			<subdivision type="FR-S">Picardy</subdivision>
 			<subdivision type="FR-T">Poitou-Charentes</subdivision>
-			<subdivision type="FR-TF">French Southern and Antarctic Lands</subdivision>
+			<subdivision type="FR-TF">French Southern Territories</subdivision>
 			<subdivision type="FR-U">Provence-Alpes-Côte d’Azur</subdivision>
 			<subdivision type="FR-V">Rhône-Alpes</subdivision>
-			<subdivision type="FR-WF">Wallis and Futuna</subdivision>
+			<subdivision type="FR-WF">Wallis &amp; Futuna</subdivision>
 			<subdivision type="FR-YT">Mayotte</subdivision>
 			<subdivision type="FR-67">Bas-Rhin</subdivision>	<!-- in FR-A : Alsace -->
 			<subdivision type="FR-68">Haut-Rhin</subdivision>	<!-- in FR-A : Alsace -->
@@ -2507,6 +2507,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivision type="KG-Y">Issyk-Kul</subdivision>
 		<!-- KH : Cambodia -->
 			<subdivision type="KH-1">Banteay Meanchey</subdivision>
+			<subdivision type="KH-2">Battambang</subdivision>
+			<subdivision type="KH-3">Kampong Cham</subdivision>
+			<subdivision type="KH-4">Kampong Chhnang</subdivision>
+			<subdivision type="KH-5">Kampong Speu</subdivision>
+			<subdivision type="KH-6">Kampong Thom</subdivision>
+			<subdivision type="KH-7">Kampot</subdivision>
+			<subdivision type="KH-8">Kandal</subdivision>
+			<subdivision type="KH-9">Koh Kong</subdivision>
 			<subdivision type="KH-10">Kratié</subdivision>
 			<subdivision type="KH-11">Mondulkiri</subdivision>
 			<subdivision type="KH-12">Phnom Penh</subdivision>
@@ -2517,19 +2525,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivision type="KH-17">Siem Reap</subdivision>
 			<subdivision type="KH-18">Sihanoukville</subdivision>
 			<subdivision type="KH-19">Stung Treng</subdivision>
-			<subdivision type="KH-2">Battambang</subdivision>
 			<subdivision type="KH-20">Svay Rieng</subdivision>
 			<subdivision type="KH-21">Takéo</subdivision>
 			<subdivision type="KH-22">Oddar Meanchey</subdivision>
 			<subdivision type="KH-23">Kep</subdivision>
 			<subdivision type="KH-24">Pailin</subdivision>
-			<subdivision type="KH-3">Kampong Cham</subdivision>
-			<subdivision type="KH-4">Kampong Chhnang</subdivision>
-			<subdivision type="KH-5">Kampong Speu</subdivision>
-			<subdivision type="KH-6">Kampong Thom</subdivision>
-			<subdivision type="KH-7">Kampot</subdivision>
-			<subdivision type="KH-8">Kandal</subdivision>
-			<subdivision type="KH-9">Koh Kong</subdivision>
 		<!-- KI : Kiribati -->
 			<subdivision type="KI-G">Gilbert Islands</subdivision>
 			<subdivision type="KI-L">Line Islands</subdivision>
@@ -3248,6 +3248,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivision type="MM-17">Shan</subdivision>
 			<subdivision type="MM-18">Naypyidaw</subdivision>
 		<!-- MN : Mongolia -->
+			<subdivision type="MN-1">Ulaanbaatar</subdivision>
 			<subdivision type="MN-035">Orkhon</subdivision>
 			<subdivision type="MN-037">Darkhan-Uul</subdivision>
 			<subdivision type="MN-039">Khentii</subdivision>
@@ -3269,7 +3270,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivision type="MN-069">Bayankhongor</subdivision>
 			<subdivision type="MN-071">Bayan-Ölgii</subdivision>
 			<subdivision type="MN-073">Arkhangai</subdivision>
-			<subdivision type="MN-1">Ulaanbaatar</subdivision>
 		<!-- MO : Macau SAR China : NO SUBDIVISIONS -->
 		<!-- MP : Northern Mariana Islands : NO SUBDIVISIONS -->
 		<!-- MQ : Martinique : NO SUBDIVISIONS -->
@@ -3689,7 +3689,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivision type="OM-ZU">Dhofar</subdivision>
 		<!-- PA : Panama -->
 			<subdivision type="PA-1">Bocas del Toro</subdivision>
-			<subdivision type="PA-10">West Panamá</subdivision>
 			<subdivision type="PA-2">Coclé</subdivision>
 			<subdivision type="PA-3">Colón</subdivision>
 			<subdivision type="PA-4">Chiriquí</subdivision>
@@ -3698,6 +3697,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivision type="PA-7">Los Santos</subdivision>
 			<subdivision type="PA-8">Panamá</subdivision>
 			<subdivision type="PA-9">Veraguas</subdivision>
+			<subdivision type="PA-10">West Panamá</subdivision>
 			<subdivision type="PA-EM">Emberá</subdivision>
 			<subdivision type="PA-KY">Guna Yala</subdivision>
 			<subdivision type="PA-NB">Ngöbe-Buglé</subdivision>
@@ -3936,14 +3936,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivision type="PW-370">Sonsorol</subdivision>
 		<!-- PY : Paraguay -->
 			<subdivision type="PY-1">Concepción</subdivision>
-			<subdivision type="PY-10">Alto Paraná</subdivision>
-			<subdivision type="PY-11">Central</subdivision>
-			<subdivision type="PY-12">Ñeembucú</subdivision>
-			<subdivision type="PY-13">Amambay</subdivision>
-			<subdivision type="PY-14">Canindeyú</subdivision>
-			<subdivision type="PY-15">Presidente Hayes</subdivision>
-			<subdivision type="PY-16">Alto Paraguay</subdivision>
-			<subdivision type="PY-19">Boquerón</subdivision>
 			<subdivision type="PY-2">San Pedro</subdivision>
 			<subdivision type="PY-3">Cordillera</subdivision>
 			<subdivision type="PY-4">Guairá</subdivision>
@@ -3952,6 +3944,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivision type="PY-7">Itapúa</subdivision>
 			<subdivision type="PY-8">Misiones</subdivision>
 			<subdivision type="PY-9">Paraguarí</subdivision>
+			<subdivision type="PY-10">Alto Paraná</subdivision>
+			<subdivision type="PY-11">Central</subdivision>
+			<subdivision type="PY-12">Ñeembucú</subdivision>
+			<subdivision type="PY-13">Amambay</subdivision>
+			<subdivision type="PY-14">Canindeyú</subdivision>
+			<subdivision type="PY-15">Presidente Hayes</subdivision>
+			<subdivision type="PY-16">Alto Paraguay</subdivision>
+			<subdivision type="PY-19">Boquerón</subdivision>
 			<subdivision type="PY-ASU">Asunción</subdivision>
 		<!-- QA : Qatar -->
 			<subdivision type="QA-DA">Doha</subdivision>
@@ -5098,10 +5098,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivision type="US-SD">South Dakota</subdivision>
 			<subdivision type="US-TN">Tennessee</subdivision>
 			<subdivision type="US-TX">Texas</subdivision>
-			<subdivision type="US-UM">United s Minor Outlying Islands</subdivision>
+			<subdivision type="US-UM">U.S. Outlying Islands</subdivision>
 			<subdivision type="US-UT">Utah</subdivision>
 			<subdivision type="US-VA">Virginia</subdivision>
-			<subdivision type="US-VI">US Virgin Islands</subdivision>
+			<subdivision type="US-VI">U.S. Virgin Islands</subdivision>
 			<subdivision type="US-VT">Vermont</subdivision>
 			<subdivision type="US-WA">Washington</subdivision>
 			<subdivision type="US-WI">Wisconsin</subdivision>

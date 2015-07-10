@@ -1003,7 +1003,25 @@ public class StandardCodes {
     static final String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
 
     public enum LstrType {
-        language, script, region, extlang, variant, grandfathered, redundant
+        language("und"), 
+        script("Zzzz"),
+        region("ZZ"),
+        variant(null), 
+        extlang(), 
+        grandfathered(), 
+        redundant();
+        
+        public final String unknown;
+        public final boolean inCldr;
+        
+        private LstrType(String unknownValue) {
+            unknown = unknownValue;
+            inCldr = true;
+        }
+        private LstrType() {
+            unknown = null;
+            inCldr = false;
+        }
     }
 
     public enum LstrField {

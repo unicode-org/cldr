@@ -12,18 +12,52 @@ public class StringRangeTest extends TestFmwk {
         new StringRangeTest().run(args);
     }
 
+    static String show(Set<String> output) {
+        StringBuilder b = new StringBuilder();
+        for (String s : output) {
+            append(b, s);
+        }
+        return b.toString();
+    }
+
+    static void append(StringBuilder b, String start) {
+        if (start.codePointCount(0, start.length()) == 1) {
+            b.append(start);
+        } else {
+            b.append('{').append(start).append('}');
+        }
+    }
+
     public void TestSimple() {
         String[][] tests = {
-            {"a", "cd", "Must have start-length ≥ end-length", 
-                "", ""},
-            {"a", "", "Must have end-length > 0", 
-                "", ""},
-            {"ab", "cd", "[ab, ac, ad, bb, bc, bd, cb, cc, cd]", 
-                "ab-ad bb-bd cb-cd", "ab-d bb-d cb-d"},
-            {"👦🏻", "👦🏿", "[👦🏻, 👦🏼, 👦🏽, 👦🏾, 👦🏿]", 
-                    "👦🏻-👦🏿", "👦🏻-🏿"},
-            {"qax👦🏻", "cx👦🏿", "[qax👦🏻, qax👦🏼, qax👦🏽, qax👦🏾, qax👦🏿, qbx👦🏻, qbx👦🏼, qbx👦🏽, qbx👦🏾, qbx👦🏿, qcx👦🏻, qcx👦🏼, qcx👦🏽, qcx👦🏾, qcx👦🏿]", 
-                "qax👦🏻-qax👦🏿 qbx👦🏻-qbx👦🏿 qcx👦🏻-qcx👦🏿", "qax👦🏻-🏿 qbx👦🏻-🏿 qcx👦🏻-🏿"},
+            {"a", "cd", 
+                "Must have start-length ≥ end-length", 
+                "", ""
+            },
+            {"a", "", 
+                "Must have end-length > 0", 
+                "", ""
+            },
+            {"ab", "ad", 
+                "{ab}{ac}{ad}", 
+                "{ab}-{ad}", 
+                "{ab}-d"
+            },
+            {"ab", "cd", 
+                "{ab}{ac}{ad}{bb}{bc}{bd}{cb}{cc}{cd}", 
+                "{ab}-{ad} {bb}-{bd} {cb}-{cd}", 
+                "{ab}-d {bb}-d {cb}-d"
+            },
+            {"👦🏻", "👦🏿", 
+                "{👦🏻}{👦🏼}{👦🏽}{👦🏾}{👦🏿}", 
+                "{👦🏻}-{👦🏿}", 
+                "{👦🏻}-🏿"
+            },
+            {"qax👦🏻", "cx👦🏿", 
+                "{qax👦🏻}{qax👦🏼}{qax👦🏽}{qax👦🏾}{qax👦🏿}{qbx👦🏻}{qbx👦🏼}{qbx👦🏽}{qbx👦🏾}{qbx👦🏿}{qcx👦🏻}{qcx👦🏼}{qcx👦🏽}{qcx👦🏾}{qcx👦🏿}", 
+                "{qax👦🏻}-{qax👦🏿} {qbx👦🏻}-{qbx👦🏿} {qcx👦🏻}-{qcx👦🏿}",
+                "{qax👦🏻}-🏿 {qbx👦🏻}-🏿 {qcx👦🏻}-🏿"
+            },
         };
         final StringBuilder b = new StringBuilder();
         Adder myAdder = new Adder() { // for testing: doesn't do quoting, etc
@@ -32,9 +66,10 @@ public class StringRangeTest extends TestFmwk {
                 if (b.length() != 0) {
                     b.append(' ');
                 }
-                b.append(start);
+                append(b, start);
                 if (end != null) {
-                    b.append('-').append(end);
+                    b.append('-');
+                    append(b, end);
                 }
             }
         };
@@ -48,7 +83,7 @@ public class StringRangeTest extends TestFmwk {
             String expectedMostCompact = test[4];
             try {
                 StringRange.expand(start, end, output);
-                assertEquals("Expand " + start + "-" + end, expectedExpand, output.toString());
+                assertEquals("Expand " + start + "-" + end, expectedExpand, show(output));
             } catch (Exception e) {
                 assertEquals("Expand " + start + "-" + end, expectedExpand, e.getMessage());
                 continue;
@@ -56,17 +91,18 @@ public class StringRangeTest extends TestFmwk {
             b.setLength(0);
             try {
                 StringRange.compact(output, myAdder, false);
-                assertEquals("Compact " + output.toString(), expectedCompact, b.toString());
+                assertEquals("Compact " + output.toString() + "\n\t", expectedCompact, b.toString());
             } catch (Exception e) {
-                assertEquals("Compact " + output.toString(), expectedCompact, e.getMessage());
+                assertEquals("Compact " + output.toString() + "\n\t", expectedCompact, e.getMessage());
             }
             b.setLength(0);
             try {
                 StringRange.compact(output, myAdder, true);
-                assertEquals("Compact+ " + output.toString(), expectedMostCompact, b.toString());
+                assertEquals("Compact+ " + output.toString() + "\n\t", expectedMostCompact, b.toString());
             } catch (Exception e) {
-                assertEquals("Compact+ " + output.toString(), expectedCompact, e.getMessage());
+                assertEquals("Compact+ " + output.toString() + "\n\t", expectedCompact, e.getMessage());
             }
         }
     }
+
 }

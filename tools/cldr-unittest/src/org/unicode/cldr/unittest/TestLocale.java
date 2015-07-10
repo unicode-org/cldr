@@ -162,8 +162,11 @@ public class TestLocale extends TestFmwkPlus {
         for (File file : CLDRConfig.getInstance().getAllCLDRFilesEndingWith(
             ".xml")) {
             String parent = file.getParent();
-            if (parent.contains("transform") || parent.contains("bcp47")
-                || parent.contains("supplemental")) {
+            if (parent.contains("transform") 
+                || parent.contains("bcp47")
+                || parent.contains("supplemental")
+                || parent.contains("validity")
+                ) {
                 continue;
             }
             String localeName = file.getName();

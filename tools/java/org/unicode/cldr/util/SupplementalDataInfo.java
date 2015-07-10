@@ -1123,7 +1123,7 @@ public class SupplementalDataInfo {
         CoverageLevelInfo.fixEU(coverageLevels, this);
         coverageLevels = Collections.unmodifiableSortedSet(coverageLevels);
 
-        deprecated = CldrUtility.protectCollection(deprecated);
+        deprecated = CldrUtility.protectCollectionX(deprecated);
         measurementData = CldrUtility.protectCollection(measurementData);
         timeData = CldrUtility.protectCollection(timeData);
 

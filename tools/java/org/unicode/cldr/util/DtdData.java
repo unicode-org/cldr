@@ -1159,6 +1159,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 || (attribute.equals("type") && !elementName.equals("mapZone") && !elementName.equals("numberingSystem"))
                 || attribute.equals("alt")
                 || attribute.equals("dtds")
+                || attribute.equals("idStatus")
                 || elementName.equals("deprecatedItems")
                 && (attribute.equals("type") || attribute.equals("elements") || attribute.equals("attributes") || attribute.equals("values"))
                 || elementName.equals("character") && attribute.equals("value")

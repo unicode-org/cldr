@@ -85,6 +85,9 @@ public class GenerateSubdivisions {
         try (PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/en.txt")) {
             SubdivisionNode.printEnglishComp(pw);
         }
+        try (PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/en-full.txt")) {
+            SubdivisionNode.printEnglishCompFull(pw);
+        }
         try (PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/missing-mid.txt")) {
             SubdivisionNode.printMissingMIDs(pw);
         }
@@ -189,6 +192,27 @@ public class GenerateSubdivisions {
             }
             if (countEqual.size() != 0) {
                 output.append(ENGLISH.regionDisplayName(lastCC) + "\t\t\tEquals:\t" + countEqual.size() + "\t" + countEqual + "\n");
+            }
+        }
+
+        public static void printEnglishCompFull(Appendable output) throws IOException {
+            output.append("Country\tMID\tSubdivision\tCLDR\tISO\tWikidata\n");
+            for (Entry<String, Set<String>> entry : SubdivisionNode.REGION_CONTAINS.keyValuesSet()) {
+                final String countryCode = entry.getKey();
+                for (String value : entry.getValue()) {
+                    String cldrName = getBestName(value);
+                    String wiki = clean(getWikiName(value));
+                    final String iso = clean(getIsoName(value));
+                    output.append(
+                        ENGLISH.regionDisplayName(countryCode)
+                        + "\t" + WIKIDATA_TO_MID.get(value)
+                        + "\t" + value
+                        + "\t" + cldrName
+                        + "\t" + iso
+                        + "\t" + wiki
+                        + "\n"
+                        );
+                }    
             }
         }
 
@@ -505,6 +529,7 @@ public class GenerateSubdivisions {
             printXml(output, BASE, 0);
             output.append("\t</subdivisionContainment>\n</supplementalData>\n");
         }
+        
         private static String header(DtdType type) {
             return "<?xml version='1.0' encoding='UTF-8' ?>\n"
                 +"<!DOCTYPE " + type // supplementalData

@@ -14,6 +14,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -25,7 +26,9 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -467,6 +470,60 @@ public class CldrUtility {
     }
 
     /**
+     * Protect a collections where we don't need to clone.
+     * @param source
+     * @return
+     */
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    public static <T> T protectCollectionX(T source) {
+        // TODO - exclude UnmodifiableMap, Set, ...
+        if (isImmutable(source)) {
+            return source;
+        } if (source instanceof Map) {
+            Map sourceMap = (Map) source;
+            // recurse
+            LinkedHashMap tempMap = new LinkedHashMap<>(sourceMap); // copy contents
+            sourceMap.clear();
+            for (Object key : tempMap.keySet()) {
+                sourceMap.put(protectCollection(key), protectCollectionX(tempMap.get(key)));
+            }
+            return sourceMap instanceof SortedMap ? (T) Collections.unmodifiableSortedMap((SortedMap) sourceMap)
+                : (T) Collections.unmodifiableMap(sourceMap);
+        } else if (source instanceof Collection) {
+            Collection sourceCollection = (Collection) source;
+            LinkedHashSet tempSet = new LinkedHashSet<>(sourceCollection); // copy contents
+
+            sourceCollection.clear();
+            for (Object item : tempSet) {
+                sourceCollection.add(protectCollectionX(item));
+            }
+
+            return sourceCollection instanceof List ? (T) Collections.unmodifiableList((List) sourceCollection)
+                : sourceCollection instanceof SortedSet ? (T) Collections
+                    .unmodifiableSortedSet((SortedSet) sourceCollection)
+                    : sourceCollection instanceof Set ? (T) Collections.unmodifiableSet((Set) sourceCollection)
+                        : (T) Collections.unmodifiableCollection(sourceCollection);
+        } else if (source instanceof Freezable) {
+            Freezable freezableSource = (Freezable) source;
+            return (T) freezableSource.freeze();
+        } else {
+            throw new IllegalArgumentException("Can’t protect: " + source.getClass().toString());
+        }
+    }
+
+    private static final Set<Object> KNOWN_IMMUTABLES = new HashSet<Object>(Arrays.asList(
+        String.class
+        ));
+    
+    public static boolean isImmutable(Object source) {
+        return source == null 
+            || source instanceof Enum
+            || source instanceof Number
+            || KNOWN_IMMUTABLES.contains(source.getClass())
+            ;
+    }
+
+    /**
      * Clones T if we can; otherwise returns null.
      * 
      * @param <T>
@@ -474,14 +531,17 @@ public class CldrUtility {
      * @return
      */
     @SuppressWarnings("unchecked")
-    public static <T> T clone(T source) {
+    private static <T> T clone(T source) {
+        final Class<? extends Object> class1 = source.getClass();
         try {
-            final Class<? extends Object> class1 = source.getClass();
             final Method declaredMethod = class1.getDeclaredMethod("clone", (Class<?>) null);
             return (T) declaredMethod.invoke(source, (Object) null);
-        } catch (Exception e) {
-            return null; // uncloneable
-        }
+        } catch (Exception e) {}
+        try {
+            final Constructor<? extends Object> declaredMethod = class1.getConstructor(null);
+            return (T) declaredMethod.newInstance(null);
+        } catch (Exception e) {}
+        return null; // uncloneable
     }
 
     /**

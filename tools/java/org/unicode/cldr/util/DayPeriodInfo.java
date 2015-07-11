@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumMap;
+import java.util.EnumSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map.Entry;
@@ -312,6 +313,14 @@ public class DayPeriodInfo {
         return String.format("%02d:%02d", hours, minutes);
     }
 
+    // Day periods that are allowed to collide
+    private static final EnumMap<DayPeriod,EnumSet<DayPeriod>> allowableCollisions = 
+        new EnumMap<DayPeriod,EnumSet<DayPeriod>>(DayPeriod.class);   
+    static {
+        allowableCollisions.put(DayPeriod.am, EnumSet.of(DayPeriod.morning1, DayPeriod.morning2));
+        allowableCollisions.put(DayPeriod.pm, EnumSet.of(DayPeriod.afternoon1, DayPeriod.afternoon2, DayPeriod.evening1, DayPeriod.evening2));
+    }
+
     /**
      * Test if there is a problem with dayPeriod1 and dayPeriod2 having the same localization.
      * @param type1
@@ -326,6 +335,11 @@ public class DayPeriodInfo {
         if (dayPeriod1 == dayPeriod2) {
             return false;
         }
+        if ( (allowableCollisions.containsKey(dayPeriod1) && allowableCollisions.get(dayPeriod1).contains(dayPeriod2)) || 
+             (allowableCollisions.containsKey(dayPeriod2) && allowableCollisions.get(dayPeriod2).contains(dayPeriod1))) {
+            return false;
+        }
+ 
         // we use the more lenient if they are mixed types
         if (type2 == Type.format) {
             type1 = Type.format;

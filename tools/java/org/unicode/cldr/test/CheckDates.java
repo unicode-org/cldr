@@ -144,15 +144,30 @@ public class CheckDates extends FactoryCheckCLDR {
     // "[@type=\"1\"]",
     // "[@type=\"12\"]",
 
-    // Day periods that are allowed to have duplicate names with only a warning
-    private static final Map<String, String> dayPeriodsEquivMap = new HashMap<String, String>();
+    // Day periods that are allowed to collide
+    private static final Relation<String, String> allowableDayPeriodCollisions = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
+
     static {
-        dayPeriodsEquivMap.put("[@type=\"am\"]", "[@type=\"morning\"]");
-        dayPeriodsEquivMap.put("[@type=\"morning\"]", "[@type=\"am\"]");
-        dayPeriodsEquivMap.put("[@type=\"noon\"]", "[@type=\"midDay\"]");
-        dayPeriodsEquivMap.put("[@type=\"midDay\"]", "[@type=\"noon\"]");
-        dayPeriodsEquivMap.put("[@type=\"pm\"]", "[@type=\"afternoon\"]");
-        dayPeriodsEquivMap.put("[@type=\"afternoon\"]", "[@type=\"pm\"]");
+        // Colliding with the same type in a different context is always OK.
+        for (DayPeriod d : DayPeriod.values()) {
+            allowableDayPeriodCollisions.put(d.toString(), d.toString());
+        }
+        allowableDayPeriodCollisions.put("am", "morning1");
+        allowableDayPeriodCollisions.put("am", "morning2");
+        allowableDayPeriodCollisions.put("midnight", "night1");
+        allowableDayPeriodCollisions.put("morning1", "am");
+        allowableDayPeriodCollisions.put("morning2", "am");
+        allowableDayPeriodCollisions.put("noon", "afternoon1");
+        allowableDayPeriodCollisions.put("pm", "afternoon1");
+        allowableDayPeriodCollisions.put("pm", "afternoon2");
+        allowableDayPeriodCollisions.put("pm", "evening1");
+        allowableDayPeriodCollisions.put("pm", "evening2");
+        allowableDayPeriodCollisions.put("afternoon1", "noon");
+        allowableDayPeriodCollisions.put("afternoon1", "pm");
+        allowableDayPeriodCollisions.put("afternoon2", "pm");
+        allowableDayPeriodCollisions.put("evening1", "pm");
+        allowableDayPeriodCollisions.put("evening2", "pm");
+        allowableDayPeriodCollisions.put("night1", "midnight");
     }
 
     // Map<String, Set<String>> calPathsToSymbolSets;
@@ -466,6 +481,11 @@ public class CheckDates extends FactoryCheckCLDR {
                         Type itemType = Type.fromString(itemParts.getAttributeValue(5, "type"));
                         DayPeriod itemDayPeriod = DayPeriod.valueOf(itemParts.getAttributeValue(-1, "type"));
 
+                        Set<String> allowableCollisions = allowableDayPeriodCollisions.getAll(dayPeriod.toString());
+                        if ( allowableCollisions.contains(itemDayPeriod.toString()) ) {
+                            continue;
+                        }
+                        
                         if (!dateFormatInfoFormat.collisionIsError(type, dayPeriod, itemType, itemDayPeriod, sampleError)) {
                             continue;
                         }

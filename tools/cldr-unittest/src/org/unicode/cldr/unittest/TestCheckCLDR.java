@@ -446,7 +446,7 @@ public class TestCheckCLDR extends TestFmwk {
             {Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.night1, Subtype.dateSymbolCollision},
             {Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.afternoon1, Subtype.dateSymbolCollision},
 
-            {Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.am, Subtype.dateSymbolCollision},
+            {Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.am, Subtype.none}, // morning1 and am is allowable
             {Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.pm, Subtype.dateSymbolCollision},
 
             {"fr"},

@@ -332,6 +332,8 @@ h5 {
 							<li>3.10.1 <a href="#Written_Language">Written Language</a></li>
 						</ul>
 					</li>
+							<li class='changed'>3.11
+                  <a href="#Validity_Data">Validity Data</a></li>
 				</ul>
 			</li>
 			<li>4 <a href="#Locale_Inheritance">Locale Inheritance and
@@ -421,6 +423,7 @@ h5 {
 											Examples</a></li>
 								</ul>
 							</li>
+							<li class='changed'>5.3.4 <a href="#String_Range">String Range</a></li>
 						</ul>
 					</li>
 					<li>5.4 <a href="#Identity_Elements">Identity Elements</a></li>
@@ -709,8 +712,7 @@ h5 {
 		</h3>
 		<p>
 			A <i>Unicode language identifier</i> has the following structure
-			(provided in either EBNF (Perl-based) or ABNF [<a href="#RFC5234">RFC5234</a>]):
-		</p>
+		(provided in either EBNF (Perl-based) or ABNF [<a href="#RFC5234">RFC5234</a>]).<span class="changed"> The following table defines syntactically well-formed identifiers: they are not necessarily valid identifiers. For the validity criteria, see the links on the left. </span></p>
 		<table>
 			<tr>
 				<th>&nbsp;</th>
@@ -815,7 +817,7 @@ h5 {
 					Extension</a>
 			</em> and <em>Section 3.7 <a href="#BCP47_T_Extension">Unicode
 					BCP 47 T Extension</a></em>.
-		</p>
+        <span class="changed"> The following table defines syntactically well-formed identifiers: they are not necessarily valid identifiers. For the validity criteria, see the links on the left. </span></p>
 		<table border="0">
 			<tr>
 				<th>&nbsp;</th>
@@ -925,7 +927,9 @@ transformed_extensions?) ;</code></td>
 				<td><code>tfield</code></td>
 				<td><code>= fsep (&quot;-&quot; alphanum{3,8})+ ;</code></td>
 				<td><code>= fsep 1*(&quot;-&quot; 3*8alphanum)</code></td>
-			</tr>
+                              <td class='changed'><code><a href="#BCP47_T_Extension">validity</a></code></td>
+
+		  </tr>
 			<tr>
 				<td><code>fsep</code></td>
 				<td><code>= [A-Z a-z] [0-9] ;</code></td>
@@ -1142,7 +1146,9 @@ transformed_extensions?) ;</code></td>
 		</h3>
 		<p>Unicode language and locale identifier field values are
 			provided in the following table. Note that some private-use BCP 47
-			field values are given specific meanings in CLDR.</p>
+			field values are given specific meanings in CLDR.<span class="changed"> While field values are based on [<a href="#BCP47">BCP47</a>] subtag values, their validity status in CLDR is specified by means of machine-readable files as described in <em>Section XX, Validity Files</em>.</span></p>
+		<p><span class="changed">in the <a href='http://www.unicode.org/repos/cldr/trunk/common/validity/'>common/validity/ subdirectory</a>, such as language.xml. For the format of those files and more information, see</span></p>
+		<p class="reviewnote">Review Note: change the link to point to the proper version once the data is final.</p>
 		<table>
 			<caption>
 				<a name="Language_Locale_Field_Definitions"
@@ -1151,8 +1157,8 @@ transformed_extensions?) ;</code></td>
 			</caption>
 			<tr>
 				<th>Field</th>
-				<th>Allowable Characters</th>
-				<th>Sample values</th>
+				<th class="removed">Allowable Characters</th>
+				<th><span class="changed">Valid</span> values</th>
 			</tr>
 			<tr>
 				<td><a href="#unicode_language_subtag_validity"
@@ -1160,8 +1166,8 @@ transformed_extensions?) ;</code></td>
 					<p>
 						(also known as a <i>Unicode base language code)</i>
 					</p></td>
-				<td>ASCII letters</td>
-				<td>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
+				<td class="removed">ASCII letters</td>
+				<td><span class="changed">Subtags in the language.xml file (see <em>Section XX, Validity Files</em>). These are based on </span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						language</b>
 					<p>ISO 639-3 introduces the notion of
 						&quot;macrolanguages&quot;, where certain ISO 639-1 or ISO 639-2
@@ -1233,8 +1239,8 @@ transformed_extensions?) ;</code></td>
 					<p>
 						(also known as a <i>Unicode script code)</i>
 					</p></td>
-				<td>ASCII letters</td>
-				<td>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
+				<td class="removed">ASCII letters</td>
+				<td><span class="changed">Subtags in the script.xml file (see <em>Section XX, Validity Files</em>). These are based on </span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						script</b>
 					<p>In most cases the script is not necessary, since the
 						language is only customarily written in a single script. Examples
@@ -1299,8 +1305,8 @@ transformed_extensions?) ;</code></td>
 						(also known as a <i>Unicode region code, </i>or<i> a Unicode
 							territory code)</i>
 					</p></td>
-				<td>ASCII letters and digits</td>
-				<td>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
+				<td class="removed">ASCII letters and digits</td>
+				<td><span class="changed">Subtags in the region.xml file (see <em>Section XX, Validity Files</em>). These are based on </span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						region</b>
 					<p>Unicode identifiers give specific semantics to the following
 						subtags:</p>
@@ -1374,8 +1380,8 @@ transformed_extensions?) ;</code></td>
 					<p>
 						(also known as a <i>Unicode language variant code)</i>
 					</p></td>
-				<td>ASCII letters</td>
-				<td>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
+				<td class="removed">ASCII letters</td>
+				<td><span class="changed">Subtags in the variant.xml file (see <em>Section XX, Validity Files</em>). These are based on </span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						variant</b>
 					<p>
 						CLDR provides data for normalizing variant codes. About handling of the "POSIX" variant see
@@ -1390,8 +1396,7 @@ transformed_extensions?) ;</code></td>
 		<blockquote>
 			<pre>en
 fr_BE
-zh-Hant-HK
-			</pre>
+zh-Hant-HK</pre>
 		</blockquote>
 		<p>
 			<em>Deprecated</em> codes—such as QU above—are valid, but strongly
@@ -2926,6 +2931,25 @@ The subdivision codes are based on ISO 3166-2 codes, which have 1..3 ASCII lette
 			the kind of incongruous juxtapositions described above may well
 			appear, but this situation is usually preferable to forcing
 			unfamiliar date or number formats on the user as well.</p>
+	  <h3 class='changed'>
+			<a name="Validity_Data" href="#Validity_Data">3.11
+				Validity Data</a>
+		</h3>
+		<p class='changed'>The directory <a href='http://www.unicode.org/repos/cldr/trunk/common/validity/'>common/validity</a> contains machine-readable data for validating the language, region, script, and variant subtags. Each file contains a number of subtags with the following idStatus values:</p>
+		<ul class='changed'>
+		  <li><strong>regular</strong> — the standard codes used for the specific type of subtag</li>
+		  <li><strong>unknown</strong> — the code used to indicate the &quot;unknown&quot;, &quot;undetermined&quot; or &quot;invalid&quot; values. For more information, see <em>Section 3.5.1 <a href="#Unknown_or_Invalid_Identifiers">Unknown
+          or Invalid Identifiers</a></em>.</li>
+		  <li><strong>macroregion</strong> — the standard codes that are macroregions (for regions only). 
+		    <ul>
+		      <li>Note that some two-letter region codes are macroregions, and (in the future) some three-digit codes may be regular codes.</li>
+		      <li>For details as to which regions are contained within which macroregions, see the &lt;containment&gt; element of the supplemental data.</li>
+	        </ul>
+		  </li>
+		  <li><strong>deprecated</strong> — codes that should not be used. The &lt;alias&gt; element in the supplementalMeta  file contains more information about these codes, and which codes should be used instead.</li>
+		  <li><strong>private_use</strong> — codes that, for CLDR, are considered private use. Note that some BCP47 private-use codes have defined CLDR semantics, and are considered regular codes. For more information, see <em>Section 3.5.3 <a href="#Private_Use">Private Use Codes</a>.</em></li>
+	  </ul>
+	  <p class='changed'>The list of subtags for each idStatus use a compact format as a space-delimited list of StringRanges, as defined in <em>Section <a href="#String_Range">5.3.4 String Range</a>.</em></p>
 		<h2>
 			<a name="Locale_Inheritance" href="#Locale_Inheritance">4 Locale
 				Inheritance and Matching</a>
@@ -5377,8 +5401,66 @@ root</pre>
 					The long form for this is <b>[:General_Category=Letter:]</b>.
 				</td>
 			</tr>
-		</table>
-		<h3>
+		</table><br>
+        		<h4 class='changed'>
+		<a name="String_Range" href="#String_Range">5.3.4 String Range</a></h4>
+        		<p class='changed'>A String Range is a compact format for specifying a list of	strings.        		</p>
+        		<p class='changed'><strong>Syntax:<br>
+        		</strong></p>
+        		<blockquote class='changed'>
+        		  <p>X-Y<br>
+       		      </p>
+      		  </blockquote>
+        		<p class='changed'><strong>Validity: <br>
+              </strong></p>
+                <blockquote class='changed'>
+                  <p>A string range X-Y is valid iff len(X) ≥ len(Y) &gt; 0, where len(X) is the length of X in code points.</p>
+                </blockquote>
+                <p class='changed'><strong>Interpretation:<br>
+                </strong></p>
+      <ol class='changed'>
+                  <li>Break X into P and S, where len(S) = len(Y)
+                    <ul>
+                      <li>Note that P will be an empty string if the lengths of X and Y are equal.</li>
+                    </ul>
+                  </li>
+                  <li>Form the combinations of all P+(s₀..y₀)+(s₁..y₁)+...(sₙ..yₙ)
+                    <ul>
+                      <li>s₀ is the first code point in S, etc.</li>
+                    </ul>
+                  </li>
+                </ol>
+                <p class='changed'><strong>Examples:</strong></p>
+        		<table class='changed'>
+        		  <tbody>
+        		    <tr>
+        		      <td>ab-ad</td>
+        		      <td>→</td>
+        		      <td>ab  ac  ad </td>
+      		      </tr>
+        		    <tr>
+        		      <td>ab-d</td>
+        		      <td>→</td>
+        		      <td>ab  ac  ad </td>
+      		      </tr>
+        		    <tr>
+        		      <td>ab-cd</td>
+        		      <td>→</td>
+        		      <td> ab  ac  ad  bb  bc  bd  cb  cc  cd </td>
+      		      </tr>
+        		    <tr>
+        		      <td>👦🏻-👦🏿</td>
+        		      <td>→</td>
+        		      <td>👦🏻  👦🏼  👦🏽  👦🏾  👦🏿</td>
+      		      </tr>
+        		    <tr>
+        		      <td>👦🏻-🏿</td>
+        		      <td>→</td>
+        		      <td> 👦🏻  👦🏼  👦🏽  👦🏾  👦🏿 </td>
+      		      </tr>
+      		    </tbody>
+	  </table><br>
+        		<h3>
 			<a name="Identity_Elements" href="#Identity_Elements">5.4
 				Identity Elements</a>
 		</h3>
@@ -7424,6 +7506,14 @@ decimal?, group?, special*)) &gt;</pre>
 			        <li>Added unicode_subdivision_subtag.</li>
 		          </ul>
 			    </li>
+			    <li><em>Section <a href="#Field_Definitions">3.4
+				Language Identifier Field Definitions </a></em>
+			      <ul>
+			        <li>Removed the column of &quot;Allowed Characters&quot;, since that is covered by the syntax definitions.</li>
+			        <li>Changed the last column to be &quot;Valid Values&quot;, and to point to the new <em>Section <a href="#Validity_Data">3.11
+				Validity Data</a></em>.</li>
+		          </ul>
+			    </li>
 			    <li><em>Section <a href="#Key_And_Type_Definitions_" >3.6.1
 				Key And Type Definitions</a> </em>
 <ul>
@@ -7431,7 +7521,10 @@ decimal?, group?, special*)) &gt;</pre>
 	        	<a href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></em></li>
 		          </ul>
 			    </li>
-			    <li>Added <em>Section <a href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></em> </li>
+			    <li>Added <em>Section <a href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes.</a></em></li>
+			    <li>Added <em>Section <a href="#Validity_Data">3.11
+				Validity Data</a></em>.</li>
+			    <li>Added <em>Section <a href="#String_Range">5.3.4 String Range</a>.</em></li>
 		      </ul>
 			</li>
 			<li><strong>Part 5: <a

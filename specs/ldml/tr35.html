@@ -88,7 +88,8 @@ h5 {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical Standard #35
+			<span class="changed">Proposed Update </span>Unicode Technical
+			Standard #35
 		</h2>
 		<h1 style="text-align: center">Unicode Locale Data Markup
 			Language (LDML)</h1>
@@ -113,14 +114,17 @@ h5 {
 			</tr>
 			<tr>
 				<td>This Version</td>
-				<td>
-				<a ignoreme="http://www.unicode.org/reports/tr35/tr35-40/tr35.html" class="changed">http://www.unicode.org/reports/tr35/tr35-40/tr35.html</a></td>
+				<td><a
+					ignoreme="http://www.unicode.org/reports/tr35/tr35-40/tr35.html"
+					class="changed">http://www.unicode.org/reports/tr35/tr35-40/tr35.html</a>
+				</td>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
 			</tr>
 			<tr>
 				<td>Previous Version</td>
-				<td>
-				<a href="http://www.unicode.org/reports/tr35/tr35-39/tr35.html" class="changed">http://www.unicode.org/reports/tr35/tr35-39/tr35.html</a></td>
+				<td><a
+					href="http://www.unicode.org/reports/tr35/tr35-39/tr35.html"
+					class="changed">http://www.unicode.org/reports/tr35/tr35-39/tr35.html</a></td>
 			</tr>
 			<tr>
 				<td>Latest Version</td>
@@ -191,12 +195,14 @@ h5 {
 		</blockquote>
 		<p>
 			<i>Please submit corrigenda and other comments with the CLDR bug
-				reporting form [<a href="http://cldr.unicode.org/index/bug-reports">Bugs</a>]. Related information that
-				is useful in understanding this document is found in the <a
-				href="#References">References</a>. For the latest version of the
-				Unicode Standard see [<a href="http://www.unicode.org/versions/latest/">Unicode</a>]. For a list of
-				current Unicode Technical Reports see [<a href="http://www.unicode.org/reports/">Reports</a>].
-				For more information about versions of the Unicode Standard, see [<a
+				reporting form [<a href="http://cldr.unicode.org/index/bug-reports">Bugs</a>].
+				Related information that is useful in understanding this document is
+				found in the <a href="#References">References</a>. For the latest
+				version of the Unicode Standard see [<a
+				href="http://www.unicode.org/versions/latest/">Unicode</a>]. For a
+				list of current Unicode Technical Reports see [<a
+				href="http://www.unicode.org/reports/">Reports</a>]. For more
+				information about versions of the Unicode Standard, see [<a
 				href="http://www.unicode.org/versions/">Versions</a>].
 			</i>
 		</p>
@@ -233,7 +239,8 @@ h5 {
 		<h2>
 			<a name="Contents" href="#Contents">Contents of Part 1, Core</a>
 		</h2>
-        <p class="reviewnote">Review Note: the contents have not yet been updated.</p>
+		<p class="reviewnote">Review Note: the contents have not yet been
+			updated.</p>
 		<ul class="toc">
 			<li>1 <a href="#Introduction">Introduction</a>
 				<ul class="toc">
@@ -289,7 +296,8 @@ h5 {
 									Identifiers</a></li>
 							<li>3.6.4 <a href="#Unicode_Locale_Extension_Data_Files">U
 									Extension Data Files</a></li>
-							<li class='changed'>3.6.5 <a href="#Unicode_Subdivision_Codes">Subdivision Codes</a></li>
+							<li class='changed'>3.6.5 <a
+								href="#Unicode_Subdivision_Codes">Subdivision Codes</a></li>
 						</ul>
 					</li>
 					<li>3.7 <a href="#BCP47_T_Extension">Unicode BCP 47 T
@@ -332,8 +340,8 @@ h5 {
 							<li>3.10.1 <a href="#Written_Language">Written Language</a></li>
 						</ul>
 					</li>
-							<li class='changed'>3.11
-                  <a href="#Validity_Data">Validity Data</a></li>
+					<li class='changed'>3.11 <a href="#Validity_Data">Validity
+							Data</a></li>
 				</ul>
 			</li>
 			<li>4 <a href="#Locale_Inheritance">Locale Inheritance and
@@ -423,7 +431,8 @@ h5 {
 											Examples</a></li>
 								</ul>
 							</li>
-							<li class='changed'>5.3.4 <a href="#String_Range">String Range</a></li>
+							<li class='changed'>5.3.4 <a href="#String_Range">String
+									Range</a></li>
 						</ul>
 					</li>
 					<li>5.4 <a href="#Identity_Elements">Identity Elements</a></li>
@@ -712,7 +721,11 @@ h5 {
 		</h3>
 		<p>
 			A <i>Unicode language identifier</i> has the following structure
-		(provided in either EBNF (Perl-based) or ABNF [<a href="#RFC5234">RFC5234</a>]).<span class="changed"> The following table defines syntactically well-formed identifiers: they are not necessarily valid identifiers. For the validity criteria, see the links on the left. </span></p>
+			(provided in either EBNF (Perl-based) or ABNF [<a href="#RFC5234">RFC5234</a>]).<span
+				class="changed"> The following table defines syntactically
+				well-formed identifiers: they are not necessarily valid identifiers.
+				For additional validity criteria, see the links on the right. </span>
+		</p>
 		<table>
 			<tr>
 				<th>&nbsp;</th>
@@ -720,57 +733,69 @@ h5 {
 				<th><div align="center">ABNF</div></th>
 			</tr>
 			<tr>
-				<td><code><a href="#unicode_language_id" name="unicode_language_id">unicode_language_id</a></code></td>
-				<td><code>="root"
-                <br>
-                | unicode_language_subtag 
-                <br>
-                (sep unicode_script_subtag)? 
-                <br>
-                (sep unicode_region_subtag)?
-                <br>
-                (sep unicode_variant_subtag)* ;</code></td>
-				<td><code>="root" 
-                <br>
-                / unicode_language_subtag 
-                <br>
-                [sep unicode_script_subtag] 
-                <br>
-                [sep unicode_region_subtag]
-                <br>
-                *(sep unicode_variant_subtag) </code></td>
+				<td><code>
+						<a href="#unicode_language_id" name="unicode_language_id">unicode_language_id</a>
+					</code></td>
+				<td><code>
+						="root" <br> | unicode_language_subtag <br> (sep
+						unicode_script_subtag)? <br> (sep unicode_region_subtag)? <br>
+						(sep unicode_variant_subtag)* ;
+					</code></td>
+				<td><code>
+						="root" <br> / unicode_language_subtag <br> [sep
+						unicode_script_subtag] <br> [sep unicode_region_subtag] <br>
+						*(sep unicode_variant_subtag)
+					</code></td>
 			</tr>
 			<tr>
-				<td><code><a href="#unicode_language_subtag" name="unicode_language_subtag">unicode_language_subtag</a></code></td>
+				<td><code>
+						<a href="#unicode_language_subtag" name="unicode_language_subtag">unicode_language_subtag</a>
+					</code></td>
 				<td><code>= alpha{2,8} ;</code></td>
 				<td><code>= 2*8ALPHA</code></td>
-                <td class='changed'><code><a href='#unicode_language_subtag_validity'>validity</a></code></td>
+				<td class='changed'><code>
+						<a href='#unicode_language_subtag_validity'>validity</a>
+					</code></td>
 			</tr>
 			<tr>
-				<td><code><a href="#unicode_script_subtag" name="unicode_script_subtag">unicode_script_subtag</a></code></td>
+				<td><code>
+						<a href="#unicode_script_subtag" name="unicode_script_subtag">unicode_script_subtag</a>
+					</code></td>
 				<td><code>= alpha{4} ;</code></td>
 				<td><code>= 4ALPHA</code></td>
-                <td class='changed'><code><a href='#unicode_script_subtag_validity'>validity</a></code></td>
+				<td class='changed'><code>
+						<a href='#unicode_script_subtag_validity'>validity</a>
+					</code></td>
 			</tr>
 			<tr>
-				<td><code><a href="#unicode_region_subtag" name="unicode_region_subtag">unicode_region_subtag</a></code></td>
+				<td><code>
+						<a href="#unicode_region_subtag" name="unicode_region_subtag">unicode_region_subtag</a>
+					</code></td>
 				<td><code>= (alpha{2} | digit{3}) ;</code></td>
 				<td><code>= 2ALPHA / 3DIGIT</code></td>
-                <td class='changed'><code><a href='#unicode_language_subtag_validity'>validity</a></code></td>
+				<td class='changed'><code>
+						<a href='#unicode_language_subtag_validity'>validity</a>
+					</code></td>
 			</tr>
 			<tr>
-				<td><code><a href="#unicode_variant_subtag" name="unicode_variant_subtag">unicode_variant_subtag</a></code></td>
-				<td><code>= (alphanum{5,8}
-                    <br>
-              | digit alphanum{3}) ;</code></td>
-				<td><code>= 5*8alphanum<br>/ (DIGIT 3alphanum)</code></td>
-                <td class='changed'><code><a href='#unicode_language_subtag_validity'>validity</a></code></td>
+				<td><code>
+						<a href="#unicode_variant_subtag" name="unicode_variant_subtag">unicode_variant_subtag</a>
+					</code></td>
+				<td><code>
+						= (alphanum{5,8} <br> | digit alphanum{3}) ;
+					</code></td>
+				<td><code>
+						= 5*8alphanum<br>/ (DIGIT 3alphanum)
+					</code></td>
+				<td class='changed'><code>
+						<a href='#unicode_language_subtag_validity'>validity</a>
+					</code></td>
 			</tr>
 			<tr>
-			  <td><code>sep</code></td>
-			  <td><code>= [-_] ;</code></td>
-			  <td><code>= "-" / "_"</code></td>
-		  </tr>
+				<td><code>sep</code></td>
+				<td><code>= [-_] ;</code></td>
+				<td><code>= "-" / "_"</code></td>
+			</tr>
 			<tr>
 				<td><code>digit</code></td>
 				<td><code>= [0-9] ;</code></td>
@@ -816,8 +841,11 @@ h5 {
 				href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 U
 					Extension</a>
 			</em> and <em>Section 3.7 <a href="#BCP47_T_Extension">Unicode
-					BCP 47 T Extension</a></em>.
-        <span class="changed"> The following table defines syntactically well-formed identifiers: they are not necessarily valid identifiers. For the validity criteria, see the links on the left. </span></p>
+					BCP 47 T Extension</a></em>. <span class="changed"> The following
+				table defines syntactically well-formed identifiers: they are not
+				necessarily valid identifiers. For additional validity criteria, see
+				the links on the right. </span>
+		</p>
 		<table border="0">
 			<tr>
 				<th>&nbsp;</th>
@@ -825,58 +853,59 @@ h5 {
 				<th><div align="center">ABNF</div></th>
 			</tr>
 			<tr>
-				<td><code><a href="#unicode_locale_id" name="unicode_locale_id">unicode_locale_id</a></code></td>
-				<td><code>= unicode_language_id<br>
-				    
-			    (transformed_extensions
- <br>
-  
-unicode_locale_extensions?
-<br>
-| unicode_locale_extensions?<br>
-  
-transformed_extensions?) ;</code></td>
-				<td><code>= unicode_language_id<br>
-			      ([trasformed_extensions
-                    <br>
-                  [unicode_locale_extensions]]<br>
-                / [unicode_locale_extensions
-                <br>
-                  [transformed_extensions]]) </code></td>
+				<td><code>
+						<a href="#unicode_locale_id" name="unicode_locale_id">unicode_locale_id</a>
+					</code></td>
+				<td><code>
+						= unicode_language_id<br>   (transformed_extensions  <br>
+						  unicode_locale_extensions? <br> |
+						unicode_locale_extensions?<br>   transformed_extensions?) ;
+					</code></td>
+				<td><code>
+						= unicode_language_id<br>   ([trasformed_extensions <br>
+						  [unicode_locale_extensions]]<br>
+						/ [unicode_locale_extensions <br>  
+						[transformed_extensions]])
+					</code></td>
 			</tr>
 			<tr>
-				<td><code><a href="#unicode_locale_extensions" name="unicode_locale_extensions">unicode_locale_extensions</a></code></td>
-				<td><code>= sep "u"<br>
-			      ((sep keyword)+
-                    <br>
-                  |(sep attribute)+ (sep keyword)*) ;</code></td>
-				<td><code>= sep "u" 
-                <br>
-                  
-                (1*(sep keyword)
-                <br>
-                  
-                / 1*(sep attribute) *(sep keyword))</code></td>
+				<td><code>
+						<a href="#unicode_locale_extensions"
+							name="unicode_locale_extensions">unicode_locale_extensions</a>
+					</code></td>
+				<td><code>
+						= sep "u"<br>   ((sep keyword)+ <br>   |(sep attribute)+
+						(sep keyword)*) ;
+					</code></td>
+				<td><code>
+						= sep "u" <br>   (1*(sep keyword) <br>   / 1*(sep
+						attribute) *(sep keyword))
+					</code></td>
 			</tr>
 			<tr>
-				<td><code><a href="#transformed_extensions" name="transformed_extensions">transformed_extensions</a></code></td>
-				<td><code>= sep &quot;t&quot;
-                <br>
-                  (("-" tlang ("-" tfield)*)
-                <br>
-                  | ("-" tfield)+) ;</code></td>
-				<td><code>= sep &quot;t&quot;
-                <br>
-                  ((&quot;-&quot; tlang *(&quot;-&quot; tfield))
-                <br>
-                  / 1*(&quot;-&quot; tfield))</code></td>
+				<td><code>
+						<a href="#transformed_extensions" name="transformed_extensions">transformed_extensions</a>
+					</code></td>
+				<td><code>
+						= sep &quot;t&quot; <br>   (("-" tlang ("-" tfield)*) <br>
+						  | ("-" tfield)+) ;
+					</code></td>
+				<td><code>
+						= sep &quot;t&quot; <br>   ((&quot;-&quot; tlang
+						*(&quot;-&quot; tfield)) <br>   / 1*(&quot;-&quot; tfield))
+					</code></td>
 			</tr>
 			<tr class='changed'>
-			  <td><code><a name="unicode_subdivision_subtag" href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a></code></td>
-			  <td><code> = (alphanum{1,4} ;</code></td>
-			  <td><code>= 1*4alphanum</code></td>
-              <td class='changed'><code><a href='#unicode_subdivision_subtag_validity'>validity</a></code></td>
-		  </tr>
+				<td><code>
+						<a name="unicode_subdivision_subtag"
+							href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>
+					</code></td>
+				<td><code> = (alphanum{1,4} ;</code></td>
+				<td><code>= 1*4alphanum</code></td>
+				<td class='changed'><code>
+						<a href='#unicode_subdivision_subtag_validity'>validity</a>
+					</code></td>
+			</tr>
 			<tr>
 				<td><code>keyword</code></td>
 				<td><code>= key (sep type)? ;</code></td>
@@ -886,13 +915,17 @@ transformed_extensions?) ;</code></td>
 				<td><code>key</code></td>
 				<td><code>= alphanum{2} ;</code></td>
 				<td><code>= 2alphanum</code></td>
-              <td class='changed'><code><a href="#Key_Type_Definitions">validity</a></code></td>
+				<td class='changed'><code>
+						<a href="#Key_Type_Definitions">validity</a>
+					</code></td>
 			</tr>
 			<tr>
 				<td><code>type</code></td>
 				<td><code>= alphanum{3,8} (sep alphanum{3,8})* ;</code></td>
 				<td><code>= 3*8alphanum *(sep 3*8alphanum)</code></td>
-              <td class='changed'><code><a href="#Key_Type_Definitions">validity</a></code></td>
+				<td class='changed'><code>
+						<a href="#Key_Type_Definitions">validity</a>
+					</code></td>
 			</tr>
 			<tr>
 				<td><code>attribute</code></td>
@@ -900,36 +933,42 @@ transformed_extensions?) ;</code></td>
 				<td><code>= 3*8alphanum</code></td>
 			</tr>
 			<tr>
-			  <td class="changed"><code><a name="subdivision_attribute" href="#subdivision_attribute">subdivision_attribute</a></code></td>
-			  <td class="changed"><code> = &quot;00&quot; unicode_subdivision_subtag ;</code></td>
-			  <td class="changed"><code>= &quot;00&quot; unicode_subdivision_subtag</code></td>
-              <td class='changed'><code><a href='#unicode_subdivision_subtag_validity'>validity</a></code></td>
+				<td class="changed"><code>
+						<a name="subdivision_attribute" href="#subdivision_attribute">subdivision_attribute</a>
+					</code></td>
+				<td class="changed"><code> = &quot;00&quot;
+						unicode_subdivision_subtag ;</code></td>
+				<td class="changed"><code>= &quot;00&quot;
+						unicode_subdivision_subtag</code></td>
+				<td class='changed'><code>
+						<a href='#unicode_subdivision_subtag_validity'>validity</a>
+					</code></td>
 
-		  </tr>
+			</tr>
 			<tr>
 				<td><code>tlang</code></td>
-				<td><code>= unicode_language_subtag
-                    <br>
-                  (&quot;-&quot; unicode_script_subtag)?
-                <br>
-                  (&quot;-&quot; unicode_region_subtag)?
-                <br>
-                  (&quot;-&quot; unicode_variant_subtag)* ;</code></td>
-				<td><code>= unicode_language_subtag
-                    <br>
-                  [&quot;-&quot; unicode_script_subtag]
-                <br>
-                  [&quot;-&quot; unicode_region_subtag]
-                <br>
-                  *(&quot;-&quot;unicode_variant_subtag)</code></td>
+				<td><code>
+						= unicode_language_subtag <br>   (&quot;-&quot;
+						unicode_script_subtag)? <br>   (&quot;-&quot;
+						unicode_region_subtag)? <br>   (&quot;-&quot;
+						unicode_variant_subtag)* ;
+					</code></td>
+				<td><code>
+						= unicode_language_subtag <br>   [&quot;-&quot;
+						unicode_script_subtag] <br>   [&quot;-&quot;
+						unicode_region_subtag] <br>  
+						*(&quot;-&quot;unicode_variant_subtag)
+					</code></td>
 			</tr>
 			<tr>
 				<td><code>tfield</code></td>
 				<td><code>= fsep (&quot;-&quot; alphanum{3,8})+ ;</code></td>
 				<td><code>= fsep 1*(&quot;-&quot; 3*8alphanum)</code></td>
-                              <td class='changed'><code><a href="#BCP47_T_Extension">validity</a></code></td>
+				<td class='changed'><code>
+						<a href="#BCP47_T_Extension">validity</a>
+					</code></td>
 
-		  </tr>
+			</tr>
 			<tr>
 				<td><code>fsep</code></td>
 				<td><code>= [A-Z a-z] [0-9] ;</code></td>
@@ -1144,11 +1183,25 @@ transformed_extensions?) ;</code></td>
 			<a name="Field_Definitions" href="#Field_Definitions">3.4
 				Language Identifier Field Definitions </a>
 		</h3>
-		<p>Unicode language and locale identifier field values are
-			provided in the following table. Note that some private-use BCP 47
-			field values are given specific meanings in CLDR.<span class="changed"> While field values are based on [<a href="#BCP47">BCP47</a>] subtag values, their validity status in CLDR is specified by means of machine-readable files as described in <em>Section XX, Validity Files</em>.</span></p>
-		<p><span class="changed">in the <a href='http://www.unicode.org/repos/cldr/trunk/common/validity/'>common/validity/ subdirectory</a>, such as language.xml. For the format of those files and more information, see</span></p>
-		<p class="reviewnote">Review Note: change the link to point to the proper version once the data is final.</p>
+		<p>
+			Unicode language and locale identifier field values are provided in
+			the following table. Note that some private-use BCP 47 field values
+			are given specific meanings in CLDR.<span class="changed">
+				While field values are based on [<a href="#BCP47">BCP47</a>] subtag
+				values, their validity status in CLDR is specified by means of
+				machine-readable files as described in <em><a
+					href='#Validity_Data'>Section 3.11 Validity Data</a></em>.
+			</span>
+		</p>
+		<p>
+			<span class="changed">in the <a
+				href='http://www.unicode.org/repos/cldr/trunk/common/validity/'>common/validity/
+					subdirectory</a>, such as language.xml. For the format of those files
+				and more information, see
+			</span>
+		</p>
+		<p class="reviewnote">Review Note: change the link to point to the
+			proper version once the data is final.</p>
 		<table>
 			<caption>
 				<a name="Language_Locale_Field_Definitions"
@@ -1167,7 +1220,9 @@ transformed_extensions?) ;</code></td>
 						(also known as a <i>Unicode base language code)</i>
 					</p></td>
 				<td class="removed">ASCII letters</td>
-				<td><span class="changed">Subtags in the language.xml file (see <em>Section XX, Validity Files</em>). These are based on </span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
+				<td><span class="changed">Subtags in the language.xml
+						file (see <em>Section XX, Validity Files</em>). These are based on
+				</span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						language</b>
 					<p>ISO 639-3 introduces the notion of
 						&quot;macrolanguages&quot;, where certain ISO 639-1 or ISO 639-2
@@ -1240,7 +1295,9 @@ transformed_extensions?) ;</code></td>
 						(also known as a <i>Unicode script code)</i>
 					</p></td>
 				<td class="removed">ASCII letters</td>
-				<td><span class="changed">Subtags in the script.xml file (see <em>Section XX, Validity Files</em>). These are based on </span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
+				<td><span class="changed">Subtags in the script.xml file
+						(see <em>Section XX, Validity Files</em>). These are based on
+				</span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						script</b>
 					<p>In most cases the script is not necessary, since the
 						language is only customarily written in a single script. Examples
@@ -1295,8 +1352,7 @@ transformed_extensions?) ;</code></td>
 					</table>
 					<p>The private use subtags from Qaaq..Qabx will never be given
 						specific semantics in Unicode identifiers, and are thus safe for
-						use for other purposes by other applications.</p>
-				</td>
+						use for other purposes by other applications.</p></td>
 			</tr>
 			<tr>
 				<td><a href="#unicode_region_subtag_validity"
@@ -1306,7 +1362,9 @@ transformed_extensions?) ;</code></td>
 							territory code)</i>
 					</p></td>
 				<td class="removed">ASCII letters and digits</td>
-				<td><span class="changed">Subtags in the region.xml file (see <em>Section XX, Validity Files</em>). These are based on </span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
+				<td><span class="changed">Subtags in the region.xml file
+						(see <em>Section XX, Validity Files</em>). These are based on
+				</span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						region</b>
 					<p>Unicode identifiers give specific semantics to the following
 						subtags:</p>
@@ -1352,14 +1410,11 @@ transformed_extensions?) ;</code></td>
 							<td>private use</td>
 						</tr>
 					</table>
-					<p>
-						The private use subtags from XA..XZ will normally
-						never be given specific semantics in Unicode identifiers, and are
-						thus safe for use for other purposes by other applications.
-						However, LDML may follow widespread
-						industry practice in the use of some of these codes, such as for
-						XK.
-					</p>
+					<p>The private use subtags from XA..XZ will normally never be
+						given specific semantics in Unicode identifiers, and are thus safe
+						for use for other purposes by other applications. However, LDML
+						may follow widespread industry practice in the use of some of
+						these codes, such as for XK.</p>
 					<p>The CLDR provides data for normalizing territory/region
 						codes, including mapping overlong codes like &quot;eng-840&quot;
 						or &quot;eng-USA&quot; to the correct code &quot;en-US&quot;.</p>
@@ -1371,8 +1426,7 @@ transformed_extensions?) ;</code></td>
 						<li>The territory code '001' (the World) is used to indicate
 							a standardized form, such as &quot;ar-001&quot; for Modern
 							Standard Arabic.</li>
-					</ul>
-				</td>
+					</ul></td>
 			</tr>
 			<tr>
 				<td><a href="#unicode_variant_subtag_validity"
@@ -1381,13 +1435,15 @@ transformed_extensions?) ;</code></td>
 						(also known as a <i>Unicode language variant code)</i>
 					</p></td>
 				<td class="removed">ASCII letters</td>
-				<td><span class="changed">Subtags in the variant.xml file (see <em>Section XX, Validity Files</em>). These are based on </span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
+				<td><span class="changed">Subtags in the variant.xml
+						file (see <em>Section XX, Validity Files</em>). These are based on
+				</span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						variant</b>
 					<p>
-						CLDR provides data for normalizing variant codes. About handling of the "POSIX" variant see
-							<i>Section 3.8.2, <a href="#Legacy_Variants">Legacy
-									Variants</a></i>.
-						</p></td>
+						CLDR provides data for normalizing variant codes. About handling
+						of the "POSIX" variant see <i>Section 3.8.2, <a
+							href="#Legacy_Variants">Legacy Variants</a></i>.
+					</p></td>
 			</tr>
 		</table>
 		<p>
@@ -1528,10 +1584,10 @@ zh-Hant-HK</pre>
 			<li><strong>reserved:</strong> those that may be given
 				particular semantics in future versions of CLDR</li>
 			<li><strong>excluded:</strong> those that will never be given
-				particular CLDR semantics in the future, and thus can normally be used by applications without
-				worrying about collisions. However,
-					CLDR may follow widespread industry practice in the use of some of
-					these codes, such as for XK.</li>
+				particular CLDR semantics in the future, and thus can normally be
+				used by applications without worrying about collisions. However,
+				CLDR may follow widespread industry practice in the use of some of
+				these codes, such as for XK.</li>
 		</ul>
 		<table>
 			<caption>
@@ -1572,8 +1628,7 @@ zh-Hant-HK</pre>
 			<tr>
 				<td rowspan="3">region</td>
 				<td>defined</td>
-				<td>QO, QU, UK, XK, ZZ
-				</td>
+				<td>QO, QU, UK, XK, ZZ</td>
 			</tr>
 			<tr>
 				<td>reserved</td>
@@ -1581,8 +1636,7 @@ zh-Hant-HK</pre>
 			</tr>
 			<tr>
 				<td>excluded</td>
-				<td>XA..XJ, XL..XZ
-				</td>
+				<td>XA..XJ, XL..XZ</td>
 			</tr>
 			<tr>
 				<td rowspan="3">timezone</td>
@@ -1696,14 +1750,14 @@ zh-Hant-HK</pre>
 			Most type values are represented by a single subtag in the current
 			version of CLDR. There are exceptions, such as types used for key
 			"ca" (calendar) and "kr" (collation reordering). If the type is not
-			included, then the type value "true" is assumed.
-			Note that the default for key with a possible &quot;true&quot; value
-			is often &quot;false&quot;, but may not always be. Note also that "true"/"True" is not a valid
-				script code, since <a
+			included, then the type value "true" is assumed. Note that the
+			default for key with a possible &quot;true&quot; value is often
+			&quot;false&quot;, but may not always be. Note also that
+			"true"/"True" is not a valid script code, since <a
 				href="http://www.unicode.org/iso15924/codelists.html">the ISO
-					15924 Registration Authority has exceptionally reserved it</a>, which
-				means that it will not be assigned for any purpose.
-			</p>
+				15924 Registration Authority has exceptionally reserved it</a>, which
+			means that it will not be assigned for any purpose.
+		</p>
 		<p>The BCP47 form for keys and types is the canonical form, and
 			recommended. Other aliases are included for backwards compatibility.
 		</p>
@@ -1716,8 +1770,8 @@ zh-Hant-HK</pre>
 				<th>key<br> (old key name)
 				</th>
 				<th>key description</th>
-				<th>example type<br> (old
-					type name)</th>
+				<th>example type<br> (old type name)
+				</th>
 				<th>type description</th>
 			</tr>
 			<tr>
@@ -1902,13 +1956,12 @@ zh-Hant-HK</pre>
 						<i>plus others in common use</i>
 					</p></td>
 				<td><p>
-						Codes consisting of 3 ASCII letters that
-						are or have been valid in ISO 4217, plus certain additional codes
-						that are or have been in common use. The list of countries and
-						time periods associated with each currency value is available in <a
+						Codes consisting of 3 ASCII letters that are or have been valid in
+						ISO 4217, plus certain additional codes that are or have been in
+						common use. The list of countries and time periods associated with
+						each currency value is available in <a
 							href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental
-							Currency Data</a>, plus the default
-							number of decimals.
+							Currency Data</a>, plus the default number of decimals.
 					</p>
 					<p>
 						The XXX code is given a broader interpretation as <em>Unknown
@@ -2006,29 +2059,35 @@ zh-Hant-HK</pre>
 				<td>"va"</td>
 				<td>Common variant type</td>
 				<td>"posix"</td>
-				<td>POSIX style locale variant. About
-						handling of the "POSIX" variant see <i>Section 3.8.2, <a
-							href="#Legacy_Variants">Legacy Variants</a></i>.</td>
+				<td>POSIX style locale variant. About handling of the "POSIX"
+					variant see <i>Section 3.8.2, <a href="#Legacy_Variants">Legacy
+							Variants</a></i>.
+				</td>
 			</tr>
-            <tr class='changed'>
+			<tr class='changed'>
 				<td colspan="4"><strong>A <a
-						href="#UnicodeSubdivisionIdentifier" name="UnicodeSubdivisionIdentifier">Unicode
-							Subdivision Identifier</a><a
-						 name="unicode_subdivision_subtag_validity"></a> defines a regional subdivision used for locales. The valid values are based on the <em>subdivisionContainment</em> element as described in <em>Section <a href="#Unicode_Subdivision_Codes"
-				>3.6.5 Subdivision Codes</a></em>.</strong></td>
+						href="#UnicodeSubdivisionIdentifier"
+						name="UnicodeSubdivisionIdentifier">Unicode Subdivision
+							Identifier</a><a name="unicode_subdivision_subtag_validity"></a>
+						defines a regional subdivision used for locales. The valid values
+						are based on the <em>subdivisionContainment</em> element as
+						described in <em>Section <a href="#Unicode_Subdivision_Codes">3.6.5
+								Subdivision Codes</a></em>.
+				</strong></td>
 			</tr>
-		  <tr class='changed'>
+			<tr class='changed'>
 				<td rowspan="2">"sd"</td>
 				<td rowspan="2">Regional Subdivision</td>
-				<td>&quot;00ca&quot;<br>
-			    <br></td>
-				<td rowspan="2">A subdivision_attribute, which is a <a href="#unicode_subdivision_subtag">unicode_&#x200b;subdivision_&#x200b;subtag</a> prefixed by "00".<br>
-				  <br>
-				  For example, “en-US-u-sd-00ca” represents “English as used in California”.</td>
+				<td>&quot;00ca&quot;<br> <br></td>
+				<td rowspan="2">A subdivision_attribute, which is a <a
+					href="#unicode_subdivision_subtag">unicode_&#x200b;subdivision_&#x200b;subtag</a>
+					prefixed by "00".<br> <br> For example, “en-US-u-sd-00ca”
+					represents “English as used in California”.
+				</td>
 			</tr>
-		  <tr class='changed'>
-		    <td>…</td>
-	      </tr>
+			<tr class='changed'>
+				<td>…</td>
+			</tr>
 		</table>
 		<p>
 			For more information on the allowed keys and types, see the specific
@@ -2365,26 +2424,61 @@ zh-Hant-HK</pre>
 			be output. The one exception is where an alias would only be
 			well-formed with the old syntax, such as &quot;gregorian&quot; (for
 			&quot;gregory&quot;).</p>
-		<h4 class='changed'><a href="#Unicode_Subdivision_Codes"
-				name="Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></h4>
-	  <p class='changed'>
-The subdivision codes are based on ISO 3166-2 codes, which have 1..3 ASCII letters or digits. Like BCP47, CLDR needs stable codes, which are not guaranteed for ISO 3166-2 (nor have they been stable in the past).</p>
-	  <p class='changed'>CLDR thus adds 4-character sequences, also ASCII letters or digits, which can be used for stability. If an ISO 3166-2 code is removed, it remains valid (though marked as deprecated) in CLDR. If an ICU 3166-2 code is reused (for the same region), then CLDR will define a new equivalent code using these a 4-character sequence.</p>
-	  <p class='changed'>For use in a <a href='#unicode_locale_id'>unicode_locale_id</a>, the subdivision code must be extended to be more than 2 characters. This is done syntactically by always prefixing the code by “00”. For example, “en-US-u-sd-00ca” represents “English as used in California, USA”.</p>
-	  <p class='changed'>&nbsp;</p>
-	  <p class='changed'>A <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is valid for a <a href="#unicode_region_subtag">unicode_region_subtag</a> only when the <strong>subdivisionContainment</strong> element contains a <strong>subgroup</strong> element where:</p>
-	  <ol class='changed'>
-	    <li>the <strong>type</strong> attribute value is that <a href="#unicode_region_subtag">unicode_region_subtag</a>, and</li>
-	    <li>the <strong>contains</strong> attribute value  contains the <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>.
-	      <ul>
-	        <li>The <strong>contains</strong> attribute value is a space-delimited set, and compared case-insensitively.</li>
-          </ul>
-	    </li>
-      </ol>
-	  <p class='changed'>For example, the subdivision “ca” (and “CA”) is valid for the region “US” because of the following element:</p>
-	  <p align="center" class='changed'> <code>&lt;subgroup type=&quot;US&quot; contains=&quot;… CA …&quot;/&gt;</code></p>
-      <p class="changed">A <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is only valid in a <a href='#unicode_locale_id'>unicode_locale_id</a> if there is a valid <a href="#unicode_region_subtag">unicode_region_subtag</a>, and    the <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is  valid for that <a href="#unicode_region_subtag">unicode_region_subtag</a>.</p>
-	  <h3>
+		<h4 class='changed'>
+			<a href="#Unicode_Subdivision_Codes" name="Unicode_Subdivision_Codes">3.6.5
+				Subdivision Codes</a>
+		</h4>
+		<p class='changed'>The subdivision codes are based on ISO 3166-2
+			codes, which have 1..3 ASCII letters or digits. Like BCP47, CLDR
+			needs stable codes, which are not guaranteed for ISO 3166-2 (nor have
+			they been stable in the past).</p>
+		<p class='changed'>CLDR thus adds 4-character sequences, also
+			ASCII letters or digits, which can be used for stability. If an ISO
+			3166-2 code is removed, it remains valid (though marked as
+			deprecated) in CLDR. If an ICU 3166-2 code is reused (for the same
+			region), then CLDR will define a new equivalent code using these a
+			4-character sequence.</p>
+		<p class='changed'>
+			For use in a <a href='#unicode_locale_id'>unicode_locale_id</a>, the
+			subdivision code must be extended to be more than 2 characters. This
+			is done syntactically by always prefixing the code by “00”. For
+			example, “en-US-u-sd-00ca” represents “English as used in California,
+			USA”.
+		</p>
+		<p class='changed'>&nbsp;</p>
+		<p class='changed'>
+			A <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>
+			is valid for a <a href="#unicode_region_subtag">unicode_region_subtag</a>
+			only when the <strong>subdivisionContainment</strong> element
+			contains a <strong>subgroup</strong> element where:
+		</p>
+		<ol class='changed'>
+			<li>the <strong>type</strong> attribute value is that <a
+				href="#unicode_region_subtag">unicode_region_subtag</a>, and
+			</li>
+			<li>the <strong>contains</strong> attribute value contains the <a
+				href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>.
+				<ul>
+					<li>The <strong>contains</strong> attribute value is a
+						space-delimited set, and compared case-insensitively.
+					</li>
+				</ul>
+			</li>
+		</ol>
+		<p class='changed'>For example, the subdivision “ca” (and “CA”) is
+			valid for the region “US” because of the following element:</p>
+		<p align="center" class='changed'>
+			<code>&lt;subgroup type=&quot;US&quot; contains=&quot;… CA
+				…&quot;/&gt;</code>
+		</p>
+		<p class="changed">
+			A <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>
+			is only valid in a <a href='#unicode_locale_id'>unicode_locale_id</a>
+			if there is a valid <a href="#unicode_region_subtag">unicode_region_subtag</a>,
+			and the <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>
+			is valid for that <a href="#unicode_region_subtag">unicode_region_subtag</a>.
+		</p>
+		<h3>
 			<a name="BCP47_T_Extension" href="#BCP47_T_Extension">3.7 Unicode
 				BCP 47 T Extension</a><a name="t_Extension"></a>
 		</h3>
@@ -2931,25 +3025,50 @@ The subdivision codes are based on ISO 3166-2 codes, which have 1..3 ASCII lette
 			the kind of incongruous juxtapositions described above may well
 			appear, but this situation is usually preferable to forcing
 			unfamiliar date or number formats on the user as well.</p>
-	  <h3 class='changed'>
-			<a name="Validity_Data" href="#Validity_Data">3.11
-				Validity Data</a>
+		<h3 class='changed'>
+			<a name="Validity_Data" href="#Validity_Data">3.11 Validity Data</a>
 		</h3>
-		<p class='changed'>The directory <a href='http://www.unicode.org/repos/cldr/trunk/common/validity/'>common/validity</a> contains machine-readable data for validating the language, region, script, and variant subtags. Each file contains a number of subtags with the following idStatus values:</p>
+		<p class='changed'>
+			The directory <a
+				href='http://www.unicode.org/repos/cldr/trunk/common/validity/'>common/validity</a>
+			contains machine-readable data for validating the language, region,
+			script, and variant subtags. Each file contains a number of subtags
+			with the following idStatus values:
+		</p>
 		<ul class='changed'>
-		  <li><strong>regular</strong> — the standard codes used for the specific type of subtag</li>
-		  <li><strong>unknown</strong> — the code used to indicate the &quot;unknown&quot;, &quot;undetermined&quot; or &quot;invalid&quot; values. For more information, see <em>Section 3.5.1 <a href="#Unknown_or_Invalid_Identifiers">Unknown
-          or Invalid Identifiers</a></em>.</li>
-		  <li><strong>macroregion</strong> — the standard codes that are macroregions (for regions only). 
-		    <ul>
-		      <li>Note that some two-letter region codes are macroregions, and (in the future) some three-digit codes may be regular codes.</li>
-		      <li>For details as to which regions are contained within which macroregions, see the &lt;containment&gt; element of the supplemental data.</li>
-	        </ul>
-		  </li>
-		  <li><strong>deprecated</strong> — codes that should not be used. The &lt;alias&gt; element in the supplementalMeta  file contains more information about these codes, and which codes should be used instead.</li>
-		  <li><strong>private_use</strong> — codes that, for CLDR, are considered private use. Note that some BCP47 private-use codes have defined CLDR semantics, and are considered regular codes. For more information, see <em>Section 3.5.3 <a href="#Private_Use">Private Use Codes</a>.</em></li>
-	  </ul>
-	  <p class='changed'>The list of subtags for each idStatus use a compact format as a space-delimited list of StringRanges, as defined in <em>Section <a href="#String_Range">5.3.4 String Range</a>.</em></p>
+			<li><strong>regular</strong> — the standard codes used for the
+				specific type of subtag</li>
+			<li><strong>unknown</strong> — the code used to indicate the
+				&quot;unknown&quot;, &quot;undetermined&quot; or &quot;invalid&quot;
+				values. For more information, see <em>Section 3.5.1 <a
+					href="#Unknown_or_Invalid_Identifiers">Unknown or Invalid
+						Identifiers</a></em>.</li>
+			<li><strong>macroregion</strong> — the standard codes that are
+				macroregions (for regions only).
+				<ul>
+					<li>Note that some two-letter region codes are macroregions,
+						and (in the future) some three-digit codes may be regular codes.</li>
+					<li>For details as to which regions are contained within which
+						macroregions, see the &lt;containment&gt; element of the
+						supplemental data.</li>
+				</ul></li>
+			<li><strong>deprecated</strong> — codes that should not be used.
+				The &lt;alias&gt; element in the supplementalMeta file contains more
+				information about these codes, and which codes should be used
+				instead.</li>
+			<li><strong>private_use</strong> — codes that, for CLDR, are
+				considered private use. Note that some BCP47 private-use codes have
+				defined CLDR semantics, and are considered regular codes. For more
+				information, see <em>Section 3.5.3 <a href="#Private_Use">Private
+						Use Codes</a>.
+			</em></li>
+		</ul>
+		<p class='changed'>
+			The list of subtags for each idStatus use a compact format as a
+			space-delimited list of StringRanges, as defined in <em>Section
+				<a href="#String_Range">5.3.4 String Range</a>.
+			</em>
+		</p>
 		<h2>
 			<a name="Locale_Inheritance" href="#Locale_Inheritance">4 Locale
 				Inheritance and Matching</a>
@@ -2968,13 +3087,11 @@ The subdivision codes are based on ISO 3166-2 codes, which have 1..3 ASCII lette
 				href="tr35-collation.html#Root_Collation">Root Collation</a></em>). Since
 			English language collation has the same ordering as the root locale,
 			the &#39;en&#39; locale data does not need to supply any collation
-			data, nor do the &#39;en_US&#39;,
-				&#39;en_GB&#39; or the any of the various other locales that use
-				English.
+			data, nor do the &#39;en_US&#39;, &#39;en_GB&#39; or the any of the
+			various other locales that use English.
 		</p>
-		<p>Given a particular locale id
-			&quot;en_US_someVariant&quot;, the search chain for a particular
-			resource is the following.</p>
+		<p>Given a particular locale id &quot;en_US_someVariant&quot;, the
+			search chain for a particular resource is the following.</p>
 		<blockquote>
 			<pre>en_US_someVariant
 en_US
@@ -3066,9 +3183,9 @@ root</pre>
 			illustrated in the table <a href="#Lookup-Differences">Lookup
 				Differences</a>, where &quot;key&quot; stands for zero or more key/type
 			pairs. Logically speaking, when looking up an item for a given
-			locale, you first do a resource bundle lookup to
-				find the best bundle for the locale, then you do a inherited item lookup starting with that
-			resource bundle.
+			locale, you first do a resource bundle lookup to find the best bundle
+			for the locale, then you do a inherited item lookup starting with
+			that resource bundle.
 		</p>
 		<p>
 			The table <a href="#Lookup-Differences">Lookup Differences</a> uses
@@ -3147,8 +3264,7 @@ root</pre>
 					<tr id="iqaw9">
 						<td id="iqaw10" style="vertical-align: top;" nowrap>
 							<p>
-								<strong>Inherited
-									item</strong> lookup
+								<strong>Inherited item</strong> lookup
 							</p>
 						</td>
 						<td id="iqaw12" style="vertical-align: top;" nowrap>
@@ -3183,19 +3299,16 @@ root</pre>
 				</tbody>
 			</table>
 		</div>
-		<p>
-			Both the resource bundle inheritance and the inherited
-			item inheritance use the parentLocale data, where available, instead
-			of simple trunctation.
-		</p>
-		<p>
-			The fallback is a bit different for these two cases; internal aliases
-			and keys are are not involved in the bundle lookup, and the default
-			locale is not involved in the item lookup. If the default-locale were
-			used in the resource-item lookup, then strange results will occur.
-			For example, suppose that the default locale is Swedish, and there is
-			a Nama locale but no specific inherited
-			item for collation. If the default-locale were used in resource-item
+		<p>Both the resource bundle inheritance and the inherited item
+			inheritance use the parentLocale data, where available, instead of
+			simple trunctation.</p>
+		<p>The fallback is a bit different for these two cases; internal
+			aliases and keys are are not involved in the bundle lookup, and the
+			default locale is not involved in the item lookup. If the
+			default-locale were used in the resource-item lookup, then strange
+			results will occur. For example, suppose that the default locale is
+			Swedish, and there is a Nama locale but no specific inherited item
+			for collation. If the default-locale were used in resource-item
 			lookup, it would produce odd and unexpected results for Nama sorting.
 		</p>
 		<p>The default locale is not even always used in resource bundle
@@ -3221,12 +3334,9 @@ root</pre>
 			for Akan should produce the root collation, <em>not the Swedish
 				collation.</em>
 		</p>
-		<p>
-			The inherited item lookup must remain
-			stable, because the resources are built with a certain fallback in
-			mind; changing the core fallback order can render the bundle
-			structure incoherent.
-		</p>
+		<p>The inherited item lookup must remain stable, because the
+			resources are built with a certain fallback in mind; changing the
+			core fallback order can render the bundle structure incoherent.</p>
 		<p>
 			Resource bundle lookup, on the other hand, is more flexible; changes
 			in the view of the &quot;best&quot; match between the input request
@@ -3481,16 +3591,15 @@ root</pre>
 			true:
 		</p>
 		<ol>
-			<li>If X is the parentLocale of Y, then either X
-				is the root locale, or X has the same base language code as Y. For
-				example, the parent of &quot;en&quot; cannot be &quot;fr&quot;, and
-				the parent of &quot;en_YY&quot; cannot be &quot;fr&quot; or
-				&quot;fr_XX&quot;.</li>
-			<li>If X is the parentLocale of Y, Y must not be
-				a base language locale. For example, the parent of &quot;en&quot;
-				cannot be &quot;en_XX&quot;.</li>
-			<li>There can never be cycles, such as: X parent
-				of Y ... parent of X.</li>
+			<li>If X is the parentLocale of Y, then either X is the root
+				locale, or X has the same base language code as Y. For example, the
+				parent of &quot;en&quot; cannot be &quot;fr&quot;, and the parent of
+				&quot;en_YY&quot; cannot be &quot;fr&quot; or &quot;fr_XX&quot;.</li>
+			<li>If X is the parentLocale of Y, Y must not be a base language
+				locale. For example, the parent of &quot;en&quot; cannot be
+				&quot;en_XX&quot;.</li>
+			<li>There can never be cycles, such as: X parent of Y ... parent
+				of X.</li>
 		</ol>
 		<h3>
 			<a name="Inheritance_and_Validity" href="#Inheritance_and_Validity">4.2
@@ -3751,7 +3860,8 @@ root</pre>
 					<li>Otherwise, walk again through the elements in E&#39;, from
 						back to front.
 						<ol>
-							<li>If you encounter a validSubLocales attribute (deprecated):
+							<li>If you encounter a validSubLocales attribute
+								(deprecated):
 								<ol>
 									<li>If L is in the attribute value, return <i>false</i></li>
 									<li>Otherwise return <i>true</i></li>
@@ -4257,11 +4367,11 @@ root</pre>
 		used to get the closest fallback locales (of those supported) to a
 		given language.
 		<p>
-			When such fallback is used for inherited
-			item lookup, the normal order of inheritance is used for inherited item lookup, except that before
-			using any data from <strong>root</strong>, the data for the fallback
-			locales would be used if available. Language matching does not
-			interact with the fallback of resources <em>within the
+			When such fallback is used for inherited item lookup, the normal
+			order of inheritance is used for inherited item lookup, except that
+			before using any data from <strong>root</strong>, the data for the
+			fallback locales would be used if available. Language matching does
+			not interact with the fallback of resources <em>within the
 				locale-parent chain</em>. For example, suppose that we are looking for
 			the value for a particular path <strong>P</strong> in <strong>nb-NO</strong>.
 			In the absence of aliases, normally the following lookup is used.
@@ -4305,15 +4415,12 @@ root</pre>
 			were a fallback value for <strong>da</strong>, it would not matter
 			for the above process. Only the original language matters.
 		</p>
-		<p>
-			The language matching data is intended
-				to be used according to the following algorithm. This is a logical
-				description, and can be optimized for production in many ways. In
-				this algorithm, the languageMatching data is interpreted as an
-			ordered list.
-		</p>
-		<p>The language matching algorithm takes a list of
-			a user’s desired languages, and a list of the application’s supported
+		<p>The language matching data is intended to be used according to
+			the following algorithm. This is a logical description, and can be
+			optimized for production in many ways. In this algorithm, the
+			languageMatching data is interpreted as an ordered list.</p>
+		<p>The language matching algorithm takes a list of a user’s
+			desired languages, and a list of the application’s supported
 			languages.</p>
 		<ul>
 			<li>Set the best weighted distance BWD to ∞</li>
@@ -4352,37 +4459,34 @@ root</pre>
 			<li>Otherwise return a default supported language (like
 				English).</li>
 		</ul>
-		<p>
-			To find the matching distance MD between
-			any two languages, perform the following steps.
-		</p>
+		<p>To find the matching distance MD between any two languages,
+			perform the following steps.</p>
 		<ol>
-			<li>Maximize each language using
-					Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a>.
+			<li>Maximize each language using Section 4.3 <a
+				href="#Likely_Subtags">Likely Subtags</a>.
 				<ul>
 					<li>und is a special case: see below.</li>
 				</ul>
 			</li>
 			<li>Set the match-distance MD to 0</li>
-			<li>For each subtag in the list,
-					starting from the end: region, script, base-language
+			<li>For each subtag in the list, starting from the end: region,
+				script, base-language
 				<ol>
-					<li>If respective subtags in each language tag
-						are identical, remove the subtag from each (logically) and
-						continue.</li>
-					<li>Traverse the languageMatching
-							data until a match is found.
+					<li>If respective subtags in each language tag are identical,
+						remove the subtag from each (logically) and continue.</li>
+					<li>Traverse the languageMatching data until a match is found.
 						<ul>
 							<li>* matches any field.</li>
 							<li>If the oneway flag is false, then the match is
 								symmetric.</li>
 						</ul>
 					</li>
-					<li>Add 100 minus the <strong>percent</strong>
-						attribute value to MD.
+					<li>Add 100 minus the <strong>percent</strong> attribute value
+						to MD.
 					</li>
 					<li>Remove the subtag from each (logically)</li>
-				</ol></li>
+				</ol>
+			</li>
 			<li>Return MD</li>
 		</ol>
 		<p>
@@ -4396,18 +4500,16 @@ root</pre>
 		<p>
 			<em>User's desired languages:</em> "de-AT, fr"
 		</p>
-		<p>This user would expect to get "de", not "fr".
-			In practice, when a user selects a list of preferred languages, they
-			don't include all the regional variants ahead of their second base
-			language. Yet while the user's desired languages really doesn't tell
-			us the priority ranking among their languages, normally the fall-off
-			between the user's languages is substantially greater than regional
-			variants. But unless F is greater than the distance between de-AT and
-			de-DE, then the user’s second-choice language would be returned.</p>
-		<p>
-			The base language subtag &quot;und&quot;
-				is a special case. Suppose we have the following situation:
-		</p>
+		<p>This user would expect to get "de", not "fr". In practice, when
+			a user selects a list of preferred languages, they don't include all
+			the regional variants ahead of their second base language. Yet while
+			the user's desired languages really doesn't tell us the priority
+			ranking among their languages, normally the fall-off between the
+			user's languages is substantially greater than regional variants. But
+			unless F is greater than the distance between de-AT and de-DE, then
+			the user’s second-choice language would be returned.</p>
+		<p>The base language subtag &quot;und&quot; is a special case.
+			Suppose we have the following situation:</p>
 		<ul>
 			<li>desired languages: {und, it}</li>
 			<li>supported languages: {en, it}</li>
@@ -4461,20 +4563,17 @@ root</pre>
 			&lt;!-- [Default value - must be at end!] Normally there are small
 			differences across regions.--&gt;
 		</p>
-		<p>
-			When the language+region is not matched, and there is otherwise no
-			reason to pick among the supported regions for that language, then
+		<p>When the language+region is not matched, and there is otherwise
+			no reason to pick among the supported regions for that language, then
 			some measure of geographic &quot;closeness&quot; can be used. The
-			results may be more understandable by
-			users. Looking for en-SK, for example, should fall back to something
-			within Europe (eg en-GB) in preference to something far away and
-			unrelated (eg en-SG). Such a closeness metric does not need to be
-			exact; a small amount of data can be used to give an approximate
-			distance between any two regions. However,
-				any such data must be used carefully; although Hong Kong is closer
-				to India than to the UK, it is unlikely that en-IN would be a better
-				match to en-HK than en-GB would.
-		</p>
+			results may be more understandable by users. Looking for en-SK, for
+			example, should fall back to something within Europe (eg en-GB) in
+			preference to something far away and unrelated (eg en-SG). Such a
+			closeness metric does not need to be exact; a small amount of data
+			can be used to give an approximate distance between any two regions.
+			However, any such data must be used carefully; although Hong Kong is
+			closer to India than to the UK, it is unlikely that en-IN would be a
+			better match to en-HK than en-GB would.</p>
 		<h2>
 			<a name="XML_Format" href="#XML_Format">5 XML Format</a>
 		</h2>
@@ -5401,66 +5500,81 @@ root</pre>
 					The long form for this is <b>[:General_Category=Letter:]</b>.
 				</td>
 			</tr>
-		</table><br>
-        		<h4 class='changed'>
-		<a name="String_Range" href="#String_Range">5.3.4 String Range</a></h4>
-        		<p class='changed'>A String Range is a compact format for specifying a list of	strings.        		</p>
-        		<p class='changed'><strong>Syntax:<br>
-        		</strong></p>
-        		<blockquote class='changed'>
-        		  <p>X-Y<br>
-       		      </p>
-      		  </blockquote>
-        		<p class='changed'><strong>Validity: <br>
-              </strong></p>
-                <blockquote class='changed'>
-                  <p>A string range X-Y is valid iff len(X) ≥ len(Y) &gt; 0, where len(X) is the length of X in code points.</p>
-                </blockquote>
-                <p class='changed'><strong>Interpretation:<br>
-                </strong></p>
-      <ol class='changed'>
-                  <li>Break X into P and S, where len(S) = len(Y)
-                    <ul>
-                      <li>Note that P will be an empty string if the lengths of X and Y are equal.</li>
-                    </ul>
-                  </li>
-                  <li>Form the combinations of all P+(s₀..y₀)+(s₁..y₁)+...(sₙ..yₙ)
-                    <ul>
-                      <li>s₀ is the first code point in S, etc.</li>
-                    </ul>
-                  </li>
-                </ol>
-                <p class='changed'><strong>Examples:</strong></p>
-        		<table class='changed'>
-        		  <tbody>
-        		    <tr>
-        		      <td>ab-ad</td>
-        		      <td>→</td>
-        		      <td>ab  ac  ad </td>
-      		      </tr>
-        		    <tr>
-        		      <td>ab-d</td>
-        		      <td>→</td>
-        		      <td>ab  ac  ad </td>
-      		      </tr>
-        		    <tr>
-        		      <td>ab-cd</td>
-        		      <td>→</td>
-        		      <td> ab  ac  ad  bb  bc  bd  cb  cc  cd </td>
-      		      </tr>
-        		    <tr>
-        		      <td>👦🏻-👦🏿</td>
-        		      <td>→</td>
-        		      <td>👦🏻  👦🏼  👦🏽  👦🏾  👦🏿</td>
-      		      </tr>
-        		    <tr>
-        		      <td>👦🏻-🏿</td>
-        		      <td>→</td>
-        		      <td> 👦🏻  👦🏼  👦🏽  👦🏾  👦🏿 </td>
-      		      </tr>
-      		    </tbody>
-	  </table><br>
-        		<h3>
+		</table>
+		<br>
+		<h4 class='changed'>
+			<a name="String_Range" href="#String_Range">5.3.4 String Range</a>
+		</h4>
+		<p class='changed'>A String Range is a compact format for
+			specifying a list of strings.</p>
+		<p class='changed'>
+			<strong>Syntax:<br>
+			</strong>
+		</p>
+		<blockquote class='changed'>
+			<p>
+				X-Y<br>
+			</p>
+		</blockquote>
+		<p class='changed'>
+			<strong>Validity: <br>
+			</strong>
+		</p>
+		<blockquote class='changed'>
+			<p>A string range X-Y is valid iff len(X) ≥ len(Y) &gt; 0, where
+				len(X) is the length of X in code points.</p>
+		</blockquote>
+		<p class='changed'>
+			<strong>Interpretation:<br>
+			</strong>
+		</p>
+		<ol class='changed'>
+			<li>Break X into P and S, where len(S) = len(Y)
+				<ul>
+					<li>Note that P will be an empty string if the lengths of X
+						and Y are equal.</li>
+				</ul>
+			</li>
+			<li>Form the combinations of all P+(s₀..y₀)+(s₁..y₁)+...(sₙ..yₙ)
+				<ul>
+					<li>s₀ is the first code point in S, etc.</li>
+				</ul>
+			</li>
+		</ol>
+		<p class='changed'>
+			<strong>Examples:</strong>
+		</p>
+		<table class='changed'>
+			<tbody>
+				<tr>
+					<td>ab-ad</td>
+					<td>→</td>
+					<td>ab ac ad</td>
+				</tr>
+				<tr>
+					<td>ab-d</td>
+					<td>→</td>
+					<td>ab ac ad</td>
+				</tr>
+				<tr>
+					<td>ab-cd</td>
+					<td>→</td>
+					<td>ab ac ad bb bc bd cb cc cd</td>
+				</tr>
+				<tr>
+					<td>👦🏻-👦🏿</td>
+					<td>→</td>
+					<td>👦🏻 👦🏼 👦🏽 👦🏾 👦🏿</td>
+				</tr>
+				<tr>
+					<td>👦🏻-🏿</td>
+					<td>→</td>
+					<td>👦🏻 👦🏼 👦🏽 👦🏾 👦🏿</td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<h3>
 			<a name="Identity_Elements" href="#Identity_Elements">5.4
 				Identity Elements</a>
 		</h3>
@@ -6227,7 +6341,8 @@ decimal?, group?, special*)) &gt;</pre>
 		</table>
 		<p>&nbsp;</p>
 		<h3>
-			<a name="validSubLocales" href="#validSubLocales">8.15 Attribute validSubLocales</a>
+			<a name="validSubLocales" href="#validSubLocales">8.15 Attribute
+				validSubLocales</a>
 		</h3>
 		<p>
 			The attribute <i>validSubLocales</i> allowed sublocales in a given
@@ -6278,14 +6393,11 @@ decimal?, group?, special*)) &gt;</pre>
 			<a name="postCodeElements" href="#postCodeElements">8.16 Elements
 				postalCodeData, postCodeRegex</a>
 		</h3>
-		<p>The postal code validation data has been
-			deprecated. Please see other services that are kept up to date, such
-			as:</p>
+		<p>The postal code validation data has been deprecated. Please see
+			other services that are kept up to date, such as:</p>
 		<ul>
-			<li><a
-				href="http://i18napis.appspot.com/address/data/US">http://i18napis.appspot.com/address/data/US</a></li>
-			<li><a
-				href="http://i18napis.appspot.com/address/data/CH">http://i18napis.appspot.com/address/data/CH</a></li>
+			<li><a href="http://i18napis.appspot.com/address/data/US">http://i18napis.appspot.com/address/data/US</a></li>
+			<li><a href="http://i18napis.appspot.com/address/data/CH">http://i18napis.appspot.com/address/data/CH</a></li>
 			<li>...</li>
 		</ul>
 		<p>
@@ -7494,48 +7606,58 @@ decimal?, group?, special*)) &gt;</pre>
 				Bug Reports</a>.
 		</p>
 
-		<h3><span class="changed">Revision 40</span></h3>
+		<h3>
+			<span class="changed">Revision 40</span>
+		</h3>
 
 		<ul class="changed">
 			<li>Proposed update for Version 28.</li>
 			<li><strong>Part 1: <a href="#Contents">Core</a></strong>
-			  <ul>
-			    <li><em>Section 3.2 <a href="#Unicode_locale_identifier">Unicode
-				Locale Identifier</a></em>
-			      <ul>
-			        <li>Added unicode_subdivision_subtag.</li>
-		          </ul>
-			    </li>
-			    <li><em>Section <a href="#Field_Definitions">3.4
-				Language Identifier Field Definitions </a></em>
-			      <ul>
-			        <li>Removed the column of &quot;Allowed Characters&quot;, since that is covered by the syntax definitions.</li>
-			        <li>Changed the last column to be &quot;Valid Values&quot;, and to point to the new <em>Section <a href="#Validity_Data">3.11
-				Validity Data</a></em>.</li>
-		          </ul>
-			    </li>
-			    <li><em>Section <a href="#Key_And_Type_Definitions_" >3.6.1
-				Key And Type Definitions</a> </em>
-<ul>
-	        <li>Added new key and types for subdivsions, and pointed to the validity criteria in <em>Section
-	        	<a href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></em></li>
-		          </ul>
-			    </li>
-			    <li>Added <em>Section <a href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes.</a></em></li>
-			    <li>Added <em>Section <a href="#Validity_Data">3.11
-				Validity Data</a></em>.</li>
-			    <li>Added <em>Section <a href="#String_Range">5.3.4 String Range</a>.</em></li>
-		      </ul>
-			</li>
+				<ul>
+					<li><em>Section 3.2 <a href="#Unicode_locale_identifier">Unicode
+								Locale Identifier</a></em>
+						<ul>
+							<li>Added unicode_subdivision_subtag.</li>
+						</ul></li>
+					<li><em>Section <a href="#Field_Definitions">3.4
+								Language Identifier Field Definitions </a></em>
+						<ul>
+							<li>Removed the column of &quot;Allowed Characters&quot;,
+								since that is covered by the syntax definitions.</li>
+							<li>Changed the last column to be &quot;Valid Values&quot;,
+								and to point to the new <em>Section <a
+									href="#Validity_Data">3.11 Validity Data</a></em>.
+							</li>
+						</ul></li>
+					<li><em>Section <a href="#Key_And_Type_Definitions_">3.6.1
+								Key And Type Definitions</a>
+					</em>
+						<ul>
+							<li>Added new key and types for subdivsions, and pointed to
+								the validity criteria in <em>Section <a
+									href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></em>
+							</li>
+						</ul></li>
+					<li>Added <em>Section <a
+							href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes.</a></em></li>
+					<li>Added <em>Section <a href="#Validity_Data">3.11
+								Validity Data</a></em>.
+					</li>
+					<li>Added <em>Section <a href="#String_Range">5.3.4
+								String Range</a>.
+					</em></li>
+				</ul></li>
 			<li><strong>Part 5: <a
 					href="tr35-collation.html#Contents">Collation</a></strong>
 				<ul>
 					<li><em>Section 3.3 <a
-							href="tr35-collation.html#Collation_Element">Collation Element</a></em>
+							href="tr35-collation.html#Collation_Element">Collation
+								Element</a></em>
 						<ul>
-							<li>The sub-elements import, settings, suppress_contractions, and optimize
-								are deprecated. Use equivalent ICU syntax inside &lt;cr&gt; elements instead.
-								[<a href="http://unicode.org/cldr/trac/ticket/8289">#8289</a>]
+							<li>The sub-elements import, settings,
+								suppress_contractions, and optimize are deprecated. Use
+								equivalent ICU syntax inside &lt;cr&gt; elements instead. [<a
+								href="http://unicode.org/cldr/trac/ticket/8289">#8289</a>]
 							</li>
 						</ul></li>
 				</ul></li>
@@ -7544,7 +7666,8 @@ decimal?, group?, special*)) &gt;</pre>
 		<h3>Revision 39</h3>
 
 		<ul>
-			<li>Updated<b> </b>for Version 27.</li>
+			<li>Updated<b> </b>for Version 27.
+			</li>
 			<li><strong>Part 1: <a href="#Contents">Core</a></strong>
 				<ul>
 					<li><em>Section 3.2 <a href="#Unicode_locale_identifier">Unicode
@@ -7610,8 +7733,7 @@ decimal?, group?, special*)) &gt;</pre>
 								Matching</a></em>
 						<ul>
 							<li>Extensive clarifications to the intended use of the
-								data. [<a
-								href="http://unicode.org/cldr/trac/ticket/8215">#8215</a>]
+								data. [<a href="http://unicode.org/cldr/trac/ticket/8215">#8215</a>]
 							</li>
 						</ul></li>
 					<li><em>Section 8.17 <a href="#validSubLocales">Attribute
@@ -7845,8 +7967,9 @@ decimal?, group?, special*)) &gt;</pre>
 					</em>
 						<ul>
 							<li>Added reference to Parent Locales, so that people can
-								find it in the spec (It is in Part 1, <i>Section 4.1.3
-							<a href="#Parent_Locales">Parent Locales</a></i>)</li>
+								find it in the spec (It is in Part 1, <i>Section 4.1.3 <a
+									href="#Parent_Locales">Parent Locales</a></i>)
+							</li>
 						</ul></li>
 				</ul></li>
 		</ul>
@@ -8237,14 +8360,13 @@ decimal?, group?, special*)) &gt;</pre>
 		<br>
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–2015 Unicode, Inc. All
-			Rights Reserved. The Unicode Consortium makes no expressed or implied
-			warranty of any kind, and assumes no liability for errors or
-			omissions. No liability is assumed for incidental and consequential
-			damages in connection with or arising out of the use of the
-			information or programs contained or accompanying this technical
-			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
-				of Use</a> apply.
+			Copyright © 2001–2015 Unicode, Inc. All Rights Reserved. The Unicode
+			Consortium makes no expressed or implied warranty of any kind, and
+			assumes no liability for errors or omissions. No liability is assumed
+			for incidental and consequential damages in connection with or
+			arising out of the use of the information or programs contained or
+			accompanying this technical report. The Unicode <a
+				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
 		</p>
 		<p class="copyright">Unicode and the Unicode logo are trademarks
 			of Unicode, Inc., and are registered in some jurisdictions.</p>

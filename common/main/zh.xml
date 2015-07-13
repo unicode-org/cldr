@@ -50,6 +50,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ay">艾马拉文</language>
 			<language type="az">阿塞拜疆文</language>
 			<language type="az" alt="short">阿塞拜疆文</language>
+			<language type="azb" draft="contributed">南阿塞拜疆文</language>
 			<language type="ba">巴什客尔文</language>
 			<language type="bal">俾路支文</language>
 			<language type="ban">巴里文</language>
@@ -62,6 +63,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="bez">贝纳文</language>
 			<language type="bfd">巴非特文</language>
 			<language type="bg">保加利亚文</language>
+			<language type="bgn">西俾路支文</language>
 			<language type="bho">博杰普尔文</language>
 			<language type="bi">比斯拉马文</language>
 			<language type="bik">毕库尔文</language>
@@ -289,6 +291,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="lo">老挝文</language>
 			<language type="lol">芒戈文</language>
 			<language type="loz">洛兹文</language>
+			<language type="lrc">北卢尔文</language>
 			<language type="lt">立陶宛文</language>
 			<language type="lu">鲁巴加丹加文</language>
 			<language type="lua">鲁巴鲁瓦文</language>
@@ -337,12 +340,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="my">缅甸文</language>
 			<language type="mye">姆耶内文</language>
 			<language type="myv">俄日亚文</language>
+			<language type="mzn">马赞德兰文</language>
 			<language type="na">瑙鲁文</language>
 			<language type="nap">拿波里文</language>
 			<language type="naq">纳马文</language>
 			<language type="nb">挪威博克马尔文</language>
 			<language type="nd">北恩德贝勒文</language>
 			<language type="nds">低地德文</language>
+			<language type="nds_NL" draft="contributed">低地德文（荷兰）</language>
 			<language type="ne">尼泊尔文</language>
 			<language type="new">尼瓦尔文</language>
 			<language type="ng">恩东加文</language>
@@ -419,6 +424,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="scn">西西里文</language>
 			<language type="sco">苏格兰文</language>
 			<language type="sd">信德文</language>
+			<language type="sdh" draft="contributed">南库尔德文</language>
 			<language type="se">北萨米文</language>
 			<language type="see">塞内卡文</language>
 			<language type="seh">塞纳文</language>
@@ -503,6 +509,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="uz">乌兹别克文</language>
 			<language type="vai">瓦伊文</language>
 			<language type="ve">文达文</language>
+			<language type="vep" draft="contributed">维普森文</language>
 			<language type="vi">越南文</language>
 			<language type="vo">沃拉普克文</language>
 			<language type="vot">沃提克文</language>
@@ -512,6 +519,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="wal">瓦拉莫文</language>
 			<language type="war">瓦赖文</language>
 			<language type="was">瓦绍文</language>
+			<language type="wbp">瓦尔皮瑞文</language>
 			<language type="wo">沃洛夫文</language>
 			<language type="xal">卡尔梅克文</language>
 			<language type="xh">科萨文</language>
@@ -969,6 +977,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="TJ">塔吉克斯坦</territory>
 			<territory type="TK">托克劳</territory>
 			<territory type="TL">东帝汶</territory>
+			<territory type="TL" alt="variant">东帝汶</territory>
 			<territory type="TM">土库曼斯坦</territory>
 			<territory type="TN">突尼斯</territory>
 			<territory type="TO">汤加</territory>
@@ -1071,6 +1080,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colNumeric" draft="contributed">数字排序</key>
 			<key type="colStrength" draft="contributed">排序强度</key>
 			<key type="currency">货币</key>
+			<key type="hc" draft="contributed">小时制（12或24）</key>
+			<key type="lb" draft="contributed">换行符样式</key>
+			<key type="ms" draft="contributed">度量系统</key>
 			<key type="numbers">数字</key>
 			<key type="timezone" draft="contributed">时区</key>
 			<key type="va" draft="contributed">语言区域别名</key>
@@ -1105,6 +1117,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="greklow" key="numbers">希腊文小写数字</type>
 			<type type="gujr" key="numbers">古吉拉特文数字</type>
 			<type type="guru" key="numbers">果鲁穆奇文数字</type>
+			<type type="h11" key="hc">12小时制（0-11）</type>
+			<type type="h12" key="hc">12小时制（1-12）</type>
+			<type type="h23" key="hc">24小时制（0-23）</type>
+			<type type="h24" key="hc">24小时制（1-24）</type>
 			<type type="hanidec" key="numbers">中文十进制数字</type>
 			<type type="hans" key="numbers">简体中文数字</type>
 			<type type="hansfin" key="numbers">简体中文大写数字</type>
@@ -1130,7 +1146,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="latn" key="numbers">西方数字</type>
 			<type type="lepc" key="numbers">雷布查文数字</type>
 			<type type="limb" key="numbers">林布文数字</type>
+			<type type="loose" key="lb" draft="contributed">宽</type>
 			<type type="lower" key="colCaseFirst" draft="contributed">先对小写字母进行排序</type>
+			<type type="metric" key="ms">公制</type>
 			<type type="mlym" key="numbers">马拉雅拉姆文数字</type>
 			<type type="mong" key="numbers">蒙古文数字</type>
 			<type type="mtei" key="numbers">曼尼普尔数字</type>
@@ -1145,6 +1163,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="no" key="colNormalization" draft="contributed">非规范化排序</type>
 			<type type="no" key="colNumeric" draft="contributed">对数字进行单独排序</type>
 			<type type="non-ignorable" key="colAlternate" draft="contributed">对符号进行排序</type>
+			<type type="normal" key="lb" draft="contributed">默认</type>
 			<type type="olck" key="numbers">桑塔利文数字</type>
 			<type type="orya" key="numbers">奥里亚文数字</type>
 			<type type="persian" key="calendar">波斯日历</type>
@@ -1163,6 +1182,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="secondary" key="colStrength" draft="contributed">对重音进行排序</type>
 			<type type="shifted" key="colAlternate" draft="contributed">忽略符号进行排序</type>
 			<type type="standard" key="collation">标准排序</type>
+			<type type="strict" key="lb" draft="contributed">窄</type>
 			<type type="stroke" key="collation">笔画排序</type>
 			<type type="sund" key="numbers">苏丹文数字</type>
 			<type type="talu" key="numbers">新傣仂文数字</type>
@@ -1174,8 +1194,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="tibt" key="numbers">藏文数字</type>
 			<type type="traditional" key="collation">传统排序顺序</type>
 			<type type="traditional" key="numbers" draft="contributed">传统数字</type>
+			<type type="uksystem" key="ms">英制</type>
 			<type type="unihan" key="collation">部首笔画排序</type>
 			<type type="upper" key="colCaseFirst" draft="contributed">先对大写字母进行排序</type>
+			<type type="ussystem" key="ms">美制</type>
 			<type type="vaii" key="numbers">瓦伊文数字</type>
 			<type type="yes" key="colBackwards" draft="contributed">对重音进行逆向排序</type>
 			<type type="yes" key="colCaseLevel" draft="contributed">区分大小写进行排序</type>
@@ -1904,6 +1926,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
+						<dateFormatItem id="E" draft="contributed">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
 						<dateFormatItem id="Gy">Gy年</dateFormatItem>
 						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
@@ -2245,7 +2268,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight" draft="contributed">午夜</dayPeriod>
+							<dayPeriod type="am">上午</dayPeriod>
+							<dayPeriod type="noon">中午</dayPeriod>
+							<dayPeriod type="pm">下午</dayPeriod>
+							<dayPeriod type="evening1">晚上</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight" draft="contributed">午夜</dayPeriod>
 							<dayPeriod type="am">上午</dayPeriod>
 							<dayPeriod type="noon">中午</dayPeriod>
 							<dayPeriod type="pm">下午</dayPeriod>
@@ -2257,23 +2288,38 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<dayPeriod type="night1">凌晨</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight" draft="contributed">午夜</dayPeriod>
 							<dayPeriod type="am">上午</dayPeriod>
 							<dayPeriod type="noon">中午</dayPeriod>
 							<dayPeriod type="pm">下午</dayPeriod>
 							<dayPeriod type="morning1">清晨</dayPeriod>
 							<dayPeriod type="morning2">上午</dayPeriod>
-							<dayPeriod type="afternoon1">中午</dayPeriod>
+							<dayPeriod type="afternoon1">下午</dayPeriod>
 							<dayPeriod type="afternoon2">下午</dayPeriod>
 							<dayPeriod type="evening1">晚上</dayPeriod>
 							<dayPeriod type="night1">凌晨</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="midnight">半夜</dayPeriod>
-							<dayPeriod type="am" draft="provisional">上午</dayPeriod>
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">上午</dayPeriod>
 							<dayPeriod type="noon">中午</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">下午</dayPeriod>
+							<dayPeriod type="pm">下午</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">午夜</dayPeriod>
+							<dayPeriod type="am" draft="contributed">上午</dayPeriod>
+							<dayPeriod type="noon">中午</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">下午</dayPeriod>
+							<dayPeriod type="afternoon2">下午</dayPeriod>
+							<dayPeriod type="evening1">晚上</dayPeriod>
+							<dayPeriod type="night1">凌晨</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight">午夜</dayPeriod>
+							<dayPeriod type="am">上午</dayPeriod>
+							<dayPeriod type="noon">中午</dayPeriod>
+							<dayPeriod type="pm">下午</dayPeriod>
 							<dayPeriod type="morning1">早上</dayPeriod>
 							<dayPeriod type="morning2">上午</dayPeriod>
 							<dayPeriod type="afternoon1">中午</dayPeriod>
@@ -2286,11 +2332,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<eras>
 					<eraNames>
 						<era type="0">公元前</era>
+						<era type="0" alt="variant" draft="contributed">西元前</era>
 						<era type="1">公元</era>
+						<era type="1" alt="variant" draft="contributed">西元</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">公元前</era>
+						<era type="0" alt="variant" draft="contributed">西元前</era>
 						<era type="1">公元</era>
+						<era type="1" alt="variant" draft="contributed">西元</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0">公元前</era>
@@ -2315,7 +2365,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>yy/M/d</pattern>
+							<pattern>y/M/d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -2391,6 +2441,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日E</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="contributed">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMMdd">M月dd日</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y年</dateFormatItem>
@@ -3278,6 +3329,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
+						<dateFormatItem id="E" draft="contributed">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
 						<dateFormatItem id="Gy">Gy年</dateFormatItem>
 						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
@@ -4530,6 +4582,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Pacific/Port_Moresby">
 				<exemplarCity>莫尔兹比港</exemplarCity>
 			</zone>
+			<zone type="Pacific/Bougainville">
+				<exemplarCity>布干维尔</exemplarCity>
+			</zone>
 			<zone type="Asia/Manila">
 				<exemplarCity>马尼拉</exemplarCity>
 			</zone>
@@ -4614,6 +4669,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Irkutsk">
 				<exemplarCity>伊尔库茨克</exemplarCity>
 			</zone>
+			<zone type="Asia/Chita">
+				<exemplarCity>赤塔</exemplarCity>
+			</zone>
 			<zone type="Asia/Yakutsk">
 				<exemplarCity>雅库茨克</exemplarCity>
 			</zone>
@@ -4631,6 +4689,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Asia/Magadan">
 				<exemplarCity>马加丹</exemplarCity>
+			</zone>
+			<zone type="Asia/Srednekolymsk">
+				<exemplarCity>中科雷姆斯克</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>堪察加</exemplarCity>
@@ -5948,7 +6009,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern>¤ #,##0.00</pattern>
+					<pattern>¤#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
@@ -5956,18 +6017,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="other" draft="provisional">¤ 0千</pattern>
-					<pattern type="10000" count="other" draft="provisional">¤ 0万</pattern>
-					<pattern type="100000" count="other" draft="provisional">¤ 00万</pattern>
-					<pattern type="1000000" count="other" draft="provisional">¤ 000万</pattern>
-					<pattern type="10000000" count="other" draft="provisional">¤ 0000万</pattern>
-					<pattern type="100000000" count="other" draft="provisional">¤ 0亿</pattern>
-					<pattern type="1000000000" count="other" draft="provisional">¤ 00亿</pattern>
-					<pattern type="10000000000" count="other" draft="provisional">¤ 000亿</pattern>
-					<pattern type="100000000000" count="other" draft="provisional">¤ 0000亿</pattern>
-					<pattern type="1000000000000" count="other" draft="provisional">¤ 0兆</pattern>
-					<pattern type="10000000000000" count="other" draft="provisional">¤ 00兆</pattern>
-					<pattern type="100000000000000" count="other" draft="provisional">¤ 000兆</pattern>
+					<pattern type="1000" count="other" draft="contributed">¤0千</pattern>
+					<pattern type="10000" count="other" draft="contributed">¤0万</pattern>
+					<pattern type="100000" count="other" draft="contributed">¤00万</pattern>
+					<pattern type="1000000" count="other" draft="contributed">¤000万</pattern>
+					<pattern type="10000000" count="other" draft="contributed">¤0000万</pattern>
+					<pattern type="100000000" count="other" draft="contributed">¤0亿</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">¤00亿</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">¤000亿</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">¤0000亿</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">¤0兆</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">¤00兆</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">¤000兆</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other">{0}{1}</unitPattern>
@@ -6015,6 +6076,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>安哥拉宽扎</displayName>
 				<displayName count="other">安哥拉宽扎</displayName>
 				<symbol>AOA</symbol>
+				<symbol alt="narrow" draft="contributed">Kz</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>安哥拉宽扎 (1977–1990)</displayName>
@@ -6092,6 +6154,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>波斯尼亚-黑塞哥维那可兑换马克</displayName>
 				<displayName count="other">波斯尼亚-黑塞哥维那可兑换马克</displayName>
 				<symbol>BAM</symbol>
+				<symbol alt="narrow" draft="contributed">KM</symbol>
 			</currency>
 			<currency type="BAN">
 				<displayName>波士尼亚-赫塞哥维纳新第纳尔 (1994–1997)</displayName>
@@ -6171,6 +6234,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>玻利维亚诺</displayName>
 				<displayName count="other">玻利维亚诺</displayName>
 				<symbol>BOB</symbol>
+				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="BOL">
 				<displayName>玻利维亚诺 (1863–1963)</displayName>
@@ -6241,6 +6305,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>博茨瓦纳普拉</displayName>
 				<displayName count="other">博茨瓦纳普拉</displayName>
 				<symbol>BWP</symbol>
+				<symbol alt="narrow" draft="contributed">P</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>白俄罗斯新卢布 (1994–1999)</displayName>
@@ -6338,6 +6403,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>古巴可兑换比索</displayName>
 				<displayName count="other">古巴可兑换比索</displayName>
 				<symbol>CUC</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>古巴比索</displayName>
@@ -6359,6 +6425,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>捷克克郎</displayName>
 				<displayName count="other">捷克克郎</displayName>
 				<symbol>CZK</symbol>
+				<symbol alt="narrow" draft="contributed">Kč</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>东德奥斯特马克</displayName>
@@ -6379,6 +6446,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>丹麦克朗</displayName>
 				<displayName count="other">丹麦克朗</displayName>
 				<symbol>DKK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>多米尼加比索</displayName>
@@ -6410,6 +6478,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>埃及镑</displayName>
 				<displayName count="other">埃及镑</displayName>
 				<symbol>EGP</symbol>
+				<symbol alt="narrow" draft="contributed">E£</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>厄立特里亚纳克法</displayName>
@@ -6458,6 +6527,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>福克兰群岛镑</displayName>
 				<displayName count="other">福克兰群岛镑</displayName>
 				<symbol>FKP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>法国法郎</displayName>
@@ -6479,6 +6549,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>格鲁吉亚拉里</displayName>
 				<displayName count="other">格鲁吉亚拉里</displayName>
 				<symbol>GEL</symbol>
+				<symbol alt="variant" draft="contributed">₾</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>加纳塞第</displayName>
@@ -6505,6 +6576,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>几内亚法郎</displayName>
 				<displayName count="other">几内亚法郎</displayName>
 				<symbol>GNF</symbol>
+				<symbol alt="narrow" draft="contributed">FG</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>几内亚西里</displayName>
@@ -6525,6 +6597,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>危地马拉格查尔</displayName>
 				<displayName count="other">危地马拉格查尔</displayName>
 				<symbol>GTQ</symbol>
+				<symbol alt="narrow" draft="contributed">Q</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>葡萄牙几内亚埃斯库多</displayName>
@@ -6552,6 +6625,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>洪都拉斯伦皮拉</displayName>
 				<displayName count="other">洪都拉斯伦皮拉</displayName>
 				<symbol>HNL</symbol>
+				<symbol alt="narrow" draft="contributed">L</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>克罗地亚第纳尔</displayName>
@@ -6562,6 +6636,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>克罗地亚库纳</displayName>
 				<displayName count="other">克罗地亚库纳</displayName>
 				<symbol>HRK</symbol>
+				<symbol alt="narrow" draft="contributed">kn</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>海地古德</displayName>
@@ -6572,11 +6647,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>匈牙利福林</displayName>
 				<displayName count="other">匈牙利福林</displayName>
 				<symbol>HUF</symbol>
+				<symbol alt="narrow" draft="contributed">Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>印度尼西亚盾</displayName>
 				<displayName count="other">印度尼西亚盾</displayName>
 				<symbol draft="contributed">IDR</symbol>
+				<symbol alt="narrow" draft="contributed">Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>爱尔兰镑</displayName>
@@ -6624,6 +6701,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>冰岛克朗</displayName>
 				<displayName count="other">冰岛克朗</displayName>
 				<symbol>ISK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>意大利里拉</displayName>
@@ -6667,11 +6745,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>科摩罗法郎</displayName>
 				<displayName count="other">科摩罗法郎</displayName>
 				<symbol>KMF</symbol>
+				<symbol alt="narrow" draft="contributed">CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>朝鲜元</displayName>
 				<displayName count="other">朝鲜元</displayName>
 				<symbol>KPW</symbol>
+				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KRH">
 				<displayName>韩元 (1953–1962)</displayName>
@@ -6712,11 +6792,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>黎巴嫩镑</displayName>
 				<displayName count="other">黎巴嫩镑</displayName>
 				<symbol>LBP</symbol>
+				<symbol alt="narrow" draft="contributed">L£</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>斯里兰卡卢比</displayName>
 				<displayName count="other">斯里兰卡卢比</displayName>
 				<symbol>LKR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>利比里亚元</displayName>
@@ -6798,6 +6880,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>马达加斯加阿里亚里</displayName>
 				<displayName count="other">马达加斯加阿里亚里</displayName>
 				<symbol>MGA</symbol>
+				<symbol alt="narrow" draft="contributed">Ar</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>马达加斯加法郎</displayName>
@@ -6823,6 +6906,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>缅甸元</displayName>
 				<displayName count="other">缅甸元</displayName>
 				<symbol>MMK</symbol>
+				<symbol alt="narrow" draft="contributed">K</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>蒙古图格里克</displayName>
@@ -6854,6 +6938,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>毛里求斯卢比</displayName>
 				<displayName count="other">毛里求斯卢比</displayName>
 				<symbol>MUR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>马尔代夫卢菲亚</displayName>
@@ -6885,6 +6970,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>马来西亚林吉特</displayName>
 				<displayName count="other">马来西亚林吉特</displayName>
 				<symbol>MYR</symbol>
+				<symbol alt="narrow" draft="contributed">RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>莫桑比克埃斯库多</displayName>
@@ -6922,6 +7008,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>尼加拉瓜金科多巴</displayName>
 				<displayName count="other">尼加拉瓜金科多巴</displayName>
 				<symbol>NIO</symbol>
+				<symbol alt="narrow" draft="contributed">C$</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>荷兰盾</displayName>
@@ -6932,11 +7019,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>挪威克朗</displayName>
 				<displayName count="other">挪威克朗</displayName>
 				<symbol>NOK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>尼泊尔卢比</displayName>
 				<displayName count="other">尼泊尔卢比</displayName>
 				<symbol>NPR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>新西兰元</displayName>
@@ -6984,11 +7073,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>巴基斯坦卢比</displayName>
 				<displayName count="other">巴基斯坦卢比</displayName>
 				<symbol>PKR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>波兰兹罗提</displayName>
 				<displayName count="other">波兰兹罗提</displayName>
 				<symbol>PLN</symbol>
+				<symbol alt="narrow" draft="contributed">zł</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>波兰兹罗提 (1950–1995)</displayName>
@@ -7035,6 +7126,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>俄罗斯卢布</displayName>
 				<displayName count="other">俄罗斯卢布</displayName>
 				<symbol>RUB</symbol>
+				<symbol alt="narrow" draft="contributed">₽</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>俄国卢布 (1991–1998)</displayName>
@@ -7046,6 +7138,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>卢旺达法郎</displayName>
 				<displayName count="other">卢旺达法郎</displayName>
 				<symbol>RWF</symbol>
+				<symbol alt="narrow" draft="contributed">RF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>沙特里亚尔</displayName>
@@ -7082,6 +7175,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>瑞典克朗</displayName>
 				<displayName count="other">瑞典克朗</displayName>
 				<symbol>SEK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>新加坡元</displayName>
@@ -7093,6 +7187,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>圣赫勒拿群岛磅</displayName>
 				<displayName count="other">圣赫勒拿群岛磅</displayName>
 				<symbol>SHP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>斯洛文尼亚托拉尔</displayName>
@@ -7135,6 +7230,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>圣多美和普林西比多布拉</displayName>
 				<displayName count="other">圣多美和普林西比多布拉</displayName>
 				<symbol>STD</symbol>
+				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>苏联卢布</displayName>
@@ -7150,6 +7246,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>叙利亚镑</displayName>
 				<displayName count="other">叙利亚镑</displayName>
 				<symbol>SYP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>斯威士兰里兰吉尼</displayName>
@@ -7159,7 +7256,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="THB">
 				<displayName>泰铢</displayName>
 				<displayName count="other">泰铢</displayName>
-				<symbol>฿</symbol>
+				<symbol>THB</symbol>
+				<symbol alt="narrow" draft="contributed">฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>塔吉克斯坦卢布</displayName>
@@ -7190,6 +7288,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>汤加潘加</displayName>
 				<displayName count="other">汤加潘加</displayName>
 				<symbol>TOP</symbol>
+				<symbol alt="narrow" draft="contributed">T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>帝汶埃斯库多</displayName>
@@ -7204,6 +7303,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">土耳其里拉</displayName>
 				<symbol>TRY</symbol>
 				<symbol alt="narrow" draft="contributed">₺</symbol>
+				<symbol alt="variant" draft="contributed">TL</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>特立尼达和多巴哥元</displayName>
@@ -7289,6 +7389,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>委内瑞拉玻利瓦尔</displayName>
 				<displayName count="other">委内瑞拉玻利瓦尔</displayName>
 				<symbol>VEF</symbol>
+				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>越南盾</displayName>
@@ -7336,6 +7437,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>东加勒比元</displayName>
 				<displayName count="other">东加勒比元</displayName>
 				<symbol>EC$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>特别提款权</displayName>
@@ -7416,6 +7518,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>南非兰特</displayName>
 				<displayName count="other">南非兰特</displayName>
 				<symbol>ZAR</symbol>
+				<symbol alt="narrow" draft="contributed">R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>赞比亚克瓦查 (1968–2012)</displayName>
@@ -7426,6 +7529,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>赞比亚克瓦查</displayName>
 				<displayName count="other">赞比亚克瓦查</displayName>
 				<symbol>ZMW</symbol>
+				<symbol alt="narrow" draft="contributed">ZK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>新扎伊尔 (1993–1998)</displayName>
@@ -7487,6 +7591,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>弧度</displayName>
 				<unitPattern count="other">{0}弧度</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName draft="contributed">转</displayName>
+				<unitPattern count="other" draft="contributed">{0}转</unitPattern>
+			</unit>
 			<unit type="area-acre">
 				<displayName>英亩</displayName>
 				<unitPattern count="other">{0}英亩</unitPattern>
@@ -7498,6 +7606,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-centimeter">
 				<displayName>平方厘米</displayName>
 				<unitPattern count="other">{0}平方厘米</unitPattern>
+				<perUnitPattern draft="contributed">每平方厘米{0}</perUnitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>平方英尺</displayName>
@@ -7506,6 +7615,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-inch">
 				<displayName>平方英寸</displayName>
 				<unitPattern count="other">{0}平方英寸</unitPattern>
+				<perUnitPattern draft="contributed">每平方英寸{0}</perUnitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>平方公里</displayName>
@@ -7514,6 +7624,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-meter">
 				<displayName>平方米</displayName>
 				<unitPattern count="other">{0}平方米</unitPattern>
+				<perUnitPattern draft="contributed">每平方米{0}</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>平方英里</displayName>
@@ -7522,6 +7633,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-yard">
 				<displayName>平方码</displayName>
 				<unitPattern count="other">{0}平方码</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName draft="contributed">升/100千米</displayName>
+				<unitPattern count="other" draft="contributed">{0}升/100千米</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>升每公里</displayName>
@@ -7571,9 +7686,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>太字节</displayName>
 				<unitPattern count="other">{0}太字节</unitPattern>
 			</unit>
+			<unit type="duration-century">
+				<displayName draft="contributed">世纪</displayName>
+				<unitPattern count="other" draft="contributed">{0}世纪</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>天</displayName>
 				<unitPattern count="other">{0}天</unitPattern>
+				<perUnitPattern draft="contributed">每天{0}</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>小时</displayName>
@@ -7591,10 +7711,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<displayName>分钟</displayName>
 				<unitPattern count="other">{0}分钟</unitPattern>
+				<perUnitPattern draft="contributed">每分钟{0}</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>个月</displayName>
 				<unitPattern count="other">{0}个月</unitPattern>
+				<perUnitPattern draft="contributed">每月{0}</perUnitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>纳秒</displayName>
@@ -7608,10 +7730,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-week">
 				<displayName>周</displayName>
 				<unitPattern count="other">{0}周</unitPattern>
+				<perUnitPattern draft="contributed">每周{0}</perUnitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>年</displayName>
 				<unitPattern count="other">{0}年</unitPattern>
+				<perUnitPattern draft="contributed">每年{0}</perUnitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>安培</displayName>
@@ -7676,6 +7800,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="length-centimeter">
 				<displayName draft="contributed">厘米</displayName>
 				<unitPattern count="other">{0}厘米</unitPattern>
+				<perUnitPattern draft="contributed">每厘米{0}</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName draft="contributed">分米</displayName>
@@ -7684,14 +7809,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="length-foot">
 				<displayName draft="contributed">英尺</displayName>
 				<unitPattern count="other">{0}英尺</unitPattern>
+				<perUnitPattern draft="contributed">每英尺{0}</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName draft="contributed">英寸</displayName>
 				<unitPattern count="other">{0}英寸</unitPattern>
+				<perUnitPattern draft="contributed">每英寸{0}</perUnitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="contributed">公里</displayName>
 				<unitPattern count="other">{0}公里</unitPattern>
+				<perUnitPattern draft="contributed">每公里{0}</perUnitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName draft="contributed">光年</displayName>
@@ -7700,6 +7828,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="length-meter">
 				<displayName draft="contributed">米</displayName>
 				<unitPattern count="other">{0}米</unitPattern>
+				<perUnitPattern draft="contributed">每米{0}</perUnitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName draft="contributed">微米</displayName>
@@ -7708,6 +7837,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="length-mile">
 				<displayName draft="contributed">英里</displayName>
 				<unitPattern count="other">{0}英里</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName draft="contributed">斯堪的纳维亚英里</displayName>
+				<unitPattern count="other" draft="contributed">{0}斯堪的纳维亚英里</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>毫米</displayName>
@@ -7744,10 +7877,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="mass-gram">
 				<displayName>克</displayName>
 				<unitPattern count="other">{0}克</unitPattern>
+				<perUnitPattern draft="contributed">每克{0}</perUnitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>千克</displayName>
 				<unitPattern count="other">{0}千克</unitPattern>
+				<perUnitPattern draft="contributed">每千克{0}</perUnitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>公吨</displayName>
@@ -7764,6 +7899,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="mass-ounce">
 				<displayName>盎司</displayName>
 				<unitPattern count="other">{0}盎司</unitPattern>
+				<perUnitPattern draft="contributed">每盎司{0}</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>金衡制盎司</displayName>
@@ -7772,6 +7908,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="mass-pound">
 				<displayName>磅</displayName>
 				<unitPattern count="other">{0}磅</unitPattern>
+				<perUnitPattern draft="contributed">每磅{0}</perUnitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>吨</displayName>
@@ -7829,6 +7966,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>千米每小时</displayName>
 				<unitPattern count="other">{0}千米每小时</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName draft="contributed">海里/小时</displayName>
+				<unitPattern count="other" draft="contributed">{0}海里/小时</unitPattern>
+			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>米每秒</displayName>
 				<unitPattern count="other">{0}米每秒</unitPattern>
@@ -7845,6 +7986,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>华氏度</displayName>
 				<unitPattern count="other">{0}华氏度</unitPattern>
 			</unit>
+			<unit type="temperature-generic">
+				<displayName draft="provisional">°</displayName>
+				<unitPattern count="other" draft="provisional">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>开尔文</displayName>
 				<unitPattern count="other">{0}开尔文</unitPattern>
@@ -7860,6 +8005,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-cubic-centimeter">
 				<displayName>立方厘米</displayName>
 				<unitPattern count="other">{0}立方厘米</unitPattern>
+				<perUnitPattern draft="contributed">每立方厘米{0}</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>立方英尺</displayName>
@@ -7876,6 +8022,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-cubic-meter">
 				<displayName>立方米</displayName>
 				<unitPattern count="other">{0}立方米</unitPattern>
+				<perUnitPattern draft="contributed">每立方米{0}</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>立方英里</displayName>
@@ -7889,6 +8036,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>杯</displayName>
 				<unitPattern count="other">{0}杯</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName draft="contributed">公制杯</displayName>
+				<unitPattern count="other" draft="contributed">{0}公制杯</unitPattern>
+			</unit>
 			<unit type="volume-deciliter">
 				<displayName>分升</displayName>
 				<unitPattern count="other">{0}分升</unitPattern>
@@ -7900,6 +8051,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-gallon">
 				<displayName>加仑</displayName>
 				<unitPattern count="other">{0}加仑</unitPattern>
+				<perUnitPattern draft="contributed">每加仑{0}</perUnitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>公石</displayName>
@@ -7908,6 +8060,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-liter">
 				<displayName>公升</displayName>
 				<unitPattern count="other">{0}公升</unitPattern>
+				<perUnitPattern draft="contributed">每公升{0}</perUnitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>兆升</displayName>
@@ -7921,6 +8074,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>品脱</displayName>
 				<unitPattern count="other">{0}品脱</unitPattern>
 			</unit>
+			<unit type="volume-pint-metric">
+				<displayName draft="contributed">公制品脱</displayName>
+				<unitPattern count="other" draft="contributed">{0}公制品脱</unitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>夸脱</displayName>
 				<unitPattern count="other">{0}夸脱</unitPattern>
@@ -7933,6 +8090,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>茶匙</displayName>
 				<unitPattern count="other">{0}茶匙</unitPattern>
 			</unit>
+			<unit type="volume-teaspoon-au">
+				<displayName draft="contributed">澳大利亚茶匙</displayName>
+				<unitPattern count="other" draft="contributed">{0}澳大利亚茶匙</unitPattern>
+			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east" draft="contributed">东经{0}</coordinateUnitPattern>
+				<coordinateUnitPattern type="north" draft="contributed">北纬{0}</coordinateUnitPattern>
+				<coordinateUnitPattern type="south" draft="contributed">南纬{0}</coordinateUnitPattern>
+				<coordinateUnitPattern type="west" draft="contributed">西经{0}</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
 			<compoundUnit type="per">
@@ -7962,25 +8129,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>弧度</displayName>
 				<unitPattern count="other">{0}弧度</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName draft="contributed">转</displayName>
+				<unitPattern count="other" draft="contributed">{0}转</unitPattern>
+			</unit>
 			<unit type="area-acre">
 				<displayName>英亩</displayName>
 				<unitPattern count="other">{0}英亩</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>公顷</displayName>
-				<unitPattern count="other">{0} ha</unitPattern>
+				<unitPattern count="other">{0}公顷</unitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>平方厘米</displayName>
 				<unitPattern count="other">{0}平方厘米</unitPattern>
+				<perUnitPattern draft="contributed">{0}/平方厘米</perUnitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>平方英尺</displayName>
-				<unitPattern count="other">{0} ft²</unitPattern>
+				<unitPattern count="other">{0}平方英尺</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
 				<displayName>平方英寸</displayName>
 				<unitPattern count="other">{0}平方英寸</unitPattern>
+				<perUnitPattern draft="contributed">{0}/平方英寸</perUnitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>平方公里</displayName>
@@ -7989,6 +8162,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-meter">
 				<displayName>平方米</displayName>
 				<unitPattern count="other">{0}平方米</unitPattern>
+				<perUnitPattern draft="contributed">{0}/平方米</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>平方英里</displayName>
@@ -7997,6 +8171,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-yard">
 				<displayName>平方码</displayName>
 				<unitPattern count="other">{0}平方码</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName draft="contributed">升/100千米</displayName>
+				<unitPattern count="other">{0}升/100千米</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>升/公里</displayName>
@@ -8046,9 +8224,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>太字节</displayName>
 				<unitPattern count="other">{0}太字节</unitPattern>
 			</unit>
+			<unit type="duration-century">
+				<displayName draft="contributed">世纪</displayName>
+				<unitPattern count="other" draft="contributed">{0}世纪</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>天</displayName>
 				<unitPattern count="other">{0}天</unitPattern>
+				<perUnitPattern draft="contributed">{0}/天</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>小时</displayName>
@@ -8066,10 +8249,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<displayName>分钟</displayName>
 				<unitPattern count="other">{0}分钟</unitPattern>
+				<perUnitPattern draft="contributed">{0}/分钟</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>个月</displayName>
 				<unitPattern count="other">{0}个月</unitPattern>
+				<perUnitPattern draft="contributed">{0}/月</perUnitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>纳秒</displayName>
@@ -8083,10 +8268,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-week">
 				<displayName>周</displayName>
 				<unitPattern count="other">{0}周</unitPattern>
+				<perUnitPattern draft="contributed">{0}/周</perUnitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>年</displayName>
 				<unitPattern count="other">{0}年</unitPattern>
+				<perUnitPattern draft="contributed">{0}/年</perUnitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>安培</displayName>
@@ -8151,6 +8338,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="length-centimeter">
 				<displayName draft="contributed">厘米</displayName>
 				<unitPattern count="other">{0}厘米</unitPattern>
+				<perUnitPattern draft="contributed">{0}/厘米</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName draft="contributed">分米</displayName>
@@ -8159,22 +8347,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="length-foot">
 				<displayName draft="contributed">英尺</displayName>
 				<unitPattern count="other">{0}英尺</unitPattern>
+				<perUnitPattern draft="contributed">{0}/英尺</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName draft="contributed">英寸</displayName>
 				<unitPattern count="other">{0}英寸</unitPattern>
+				<perUnitPattern draft="contributed">{0}/英寸</perUnitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="contributed">公里</displayName>
 				<unitPattern count="other">{0}公里</unitPattern>
+				<perUnitPattern draft="contributed">{0}/公里</perUnitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName draft="contributed">光年</displayName>
-				<unitPattern count="other" draft="contributed">{0} ly</unitPattern>
+				<unitPattern count="other">{0}光年</unitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName draft="contributed">米</displayName>
-				<unitPattern count="other" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="other">{0}米</unitPattern>
+				<perUnitPattern draft="contributed">{0}/米</perUnitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName draft="contributed">微米</displayName>
@@ -8183,6 +8375,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="length-mile">
 				<displayName draft="contributed">英里</displayName>
 				<unitPattern count="other">{0}英里</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName draft="contributed">斯堪的纳维亚英里</displayName>
+				<unitPattern count="other" draft="contributed">{0}斯堪的纳维亚英里</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>毫米</displayName>
@@ -8202,11 +8398,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="length-picometer">
 				<displayName>皮米</displayName>
-				<unitPattern count="other" draft="contributed">{0} pm</unitPattern>
+				<unitPattern count="other">{0} 皮米</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<displayName>码</displayName>
-				<unitPattern count="other" draft="contributed">{0} yd</unitPattern>
+				<unitPattern count="other">{0} 码</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>勒克斯</displayName>
@@ -8219,10 +8415,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="mass-gram">
 				<displayName>克</displayName>
 				<unitPattern count="other">{0}克</unitPattern>
+				<perUnitPattern draft="contributed">{0}/克</perUnitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>千克</displayName>
 				<unitPattern count="other">{0}千克</unitPattern>
+				<perUnitPattern draft="contributed">{0}/千克</perUnitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>公吨</displayName>
@@ -8239,6 +8437,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="mass-ounce">
 				<displayName>盎司</displayName>
 				<unitPattern count="other">{0}盎司</unitPattern>
+				<perUnitPattern draft="contributed">{0}/盎司</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>金衡制盎司</displayName>
@@ -8247,6 +8446,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="mass-pound">
 				<displayName>磅</displayName>
 				<unitPattern count="other">{0}磅</unitPattern>
+				<perUnitPattern draft="contributed">{0}/磅</perUnitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>吨</displayName>
@@ -8304,6 +8504,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>千米/小时</displayName>
 				<unitPattern count="other">{0}千米/小时</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName draft="contributed">海里/小时</displayName>
+				<unitPattern count="other" draft="contributed">{0}海里/小时</unitPattern>
+			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>米/秒</displayName>
 				<unitPattern count="other">{0}米/秒</unitPattern>
@@ -8320,6 +8524,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>华氏度</displayName>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
+			<unit type="temperature-generic">
+				<displayName draft="contributed">°</displayName>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>开</displayName>
 				<unitPattern count="other">{0}K</unitPattern>
@@ -8335,6 +8543,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-cubic-centimeter">
 				<displayName>立方厘米</displayName>
 				<unitPattern count="other">{0}立方厘米</unitPattern>
+				<perUnitPattern draft="contributed">{0}/cm³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>立方英尺</displayName>
@@ -8351,6 +8560,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-cubic-meter">
 				<displayName>立方米</displayName>
 				<unitPattern count="other">{0}立方米</unitPattern>
+				<perUnitPattern draft="contributed">{0}/立方米</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>立方英里</displayName>
@@ -8364,6 +8574,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>杯</displayName>
 				<unitPattern count="other">{0}杯</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName draft="contributed">公制杯</displayName>
+				<unitPattern count="other" draft="contributed">{0}公制杯</unitPattern>
+			</unit>
 			<unit type="volume-deciliter">
 				<displayName>分升</displayName>
 				<unitPattern count="other">{0}分升</unitPattern>
@@ -8375,6 +8589,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-gallon">
 				<displayName>加仑</displayName>
 				<unitPattern count="other">{0}加仑</unitPattern>
+				<perUnitPattern draft="contributed">{0}/加仑</perUnitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>公石</displayName>
@@ -8383,6 +8598,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-liter">
 				<displayName>公升</displayName>
 				<unitPattern count="other">{0}升</unitPattern>
+				<perUnitPattern draft="contributed">{0}/公升</perUnitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>兆升</displayName>
@@ -8396,6 +8612,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>品脱</displayName>
 				<unitPattern count="other">{0}品脱</unitPattern>
 			</unit>
+			<unit type="volume-pint-metric">
+				<displayName draft="contributed">公制品脱</displayName>
+				<unitPattern count="other" draft="contributed">{0}公制品脱</unitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>夸脱</displayName>
 				<unitPattern count="other">{0}夸脱</unitPattern>
@@ -8408,6 +8628,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>茶匙</displayName>
 				<unitPattern count="other">{0}茶匙</unitPattern>
 			</unit>
+			<unit type="volume-teaspoon-au">
+				<displayName draft="contributed">澳大利亚茶匙</displayName>
+				<unitPattern count="other" draft="contributed">{0}澳大利亚茶匙</unitPattern>
+			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east" draft="contributed">东经{0}</coordinateUnitPattern>
+				<coordinateUnitPattern type="north" draft="contributed">北纬{0}</coordinateUnitPattern>
+				<coordinateUnitPattern type="south" draft="contributed">南纬{0}</coordinateUnitPattern>
+				<coordinateUnitPattern type="west" draft="contributed">西经{0}</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -8442,6 +8672,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="area-square-mile">
 				<unitPattern count="other">{0}mi²</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName draft="contributed">L/100km</displayName>
+				<unitPattern count="other" draft="contributed">{0}L/100km</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>天</displayName>
@@ -8552,7 +8786,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}mi/h</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName>摄氏度</displayName>
+				<displayName>°C</displayName>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
@@ -8568,6 +8802,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>升</displayName>
 				<unitPattern count="other">{0}升</unitPattern>
 			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east" draft="contributed">{0}E</coordinateUnitPattern>
+				<coordinateUnitPattern type="north" draft="contributed">{0}N</coordinateUnitPattern>
+				<coordinateUnitPattern type="south" draft="contributed">{0}S</coordinateUnitPattern>
+				<coordinateUnitPattern type="west" draft="contributed">{0}W</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<durationUnit type="hm">
 			<durationUnitPattern>h:mm</durationUnitPattern>
@@ -8612,4 +8852,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

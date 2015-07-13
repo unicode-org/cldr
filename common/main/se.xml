@@ -1269,6 +1269,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} lihtara</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} lihtara</unitPattern>
 			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east" draft="unconfirmed">{0} nuorti</coordinateUnitPattern>
+				<coordinateUnitPattern type="north" draft="unconfirmed">{0} davvi</coordinateUnitPattern>
+				<coordinateUnitPattern type="south" draft="unconfirmed">{0} lulli</coordinateUnitPattern>
+				<coordinateUnitPattern type="west" draft="unconfirmed">{0} oarji</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
 			<compoundUnit type="per">
@@ -1550,6 +1556,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} l</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} l</unitPattern>
 			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east" draft="unconfirmed">{0} N</coordinateUnitPattern>
+				<coordinateUnitPattern type="north" draft="unconfirmed">{0} D</coordinateUnitPattern>
+				<coordinateUnitPattern type="south" draft="unconfirmed">{0} L</coordinateUnitPattern>
+				<coordinateUnitPattern type="west" draft="unconfirmed">{0} O</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -1785,6 +1797,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0}L</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}L</unitPattern>
 			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east" draft="unconfirmed">{0}N</coordinateUnitPattern>
+				<coordinateUnitPattern type="north" draft="unconfirmed">{0}D</coordinateUnitPattern>
+				<coordinateUnitPattern type="south" draft="unconfirmed">{0}L</coordinateUnitPattern>
+				<coordinateUnitPattern type="west" draft="unconfirmed">{0}O</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<durationUnit type="hm">
 			<durationUnitPattern>h:mm</durationUnitPattern>
@@ -1829,4 +1847,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

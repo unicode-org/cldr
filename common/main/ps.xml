@@ -13,32 +13,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<localeDisplayNames>
 		<languages>
 			<language type="af" draft="unconfirmed">افريکاني</language>
-			<language type="am" draft="unconfirmed">امهاري</language>
+			<language type="am">امهاري</language>
 			<language type="ar">عربي</language>
-			<language type="as" draft="unconfirmed">اسمائى ژبه</language>
+			<language type="as">آسامي</language>
 			<language type="az" draft="unconfirmed">أذربائجاني</language>
 			<language type="bal">بلوڅي</language>
-			<language type="be" draft="unconfirmed">بېلاروسي</language>
-			<language type="bg" draft="unconfirmed">بلغاري</language>
+			<language type="be">بېلاروسي</language>
+			<language type="bg">بلغاري</language>
 			<language type="bn" draft="unconfirmed">بنګالي</language>
 			<language type="br" draft="unconfirmed">برېتون</language>
-			<language type="bs" draft="unconfirmed">بوسني</language>
+			<language type="bs">بوسني</language>
 			<language type="ca" draft="unconfirmed">کټلاني</language>
 			<language type="cs" draft="unconfirmed">چېک</language>
 			<language type="cy" draft="unconfirmed">ويلشي</language>
 			<language type="da" draft="unconfirmed">ډېنش</language>
 			<language type="de">الماني</language>
+			<language type="de_AT">الماني (اتریش)</language>
+			<language type="de_CH">الماني (سویس)</language>
 			<language type="el">یوناني</language>
 			<language type="en">انګلیسي</language>
 			<language type="eo" draft="unconfirmed">اسپرانتو</language>
 			<language type="es" draft="unconfirmed">هسپانوي</language>
 			<language type="et">حبشي</language>
-			<language type="eu" draft="unconfirmed">باسکي</language>
+			<language type="eu">باسکي</language>
 			<language type="fa">فارسي</language>
 			<language type="fi">فینلنډي</language>
 			<language type="fil" draft="unconfirmed">تګالوګ</language>
 			<language type="fo" draft="unconfirmed">فاروئې</language>
 			<language type="fr">فرانسوي</language>
+			<language type="fr_CA">فرانسوي (کاناډا)</language>
+			<language type="fr_CH">فرانسوي (سویس)</language>
 			<language type="fy" draft="unconfirmed">فريزي</language>
 			<language type="ga" draft="unconfirmed">ائيرلېنډي</language>
 			<language type="gd" draft="unconfirmed">سکاټلېنډي ګېلک</language>
@@ -75,7 +79,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ms">ملایا</language>
 			<language type="mt" draft="unconfirmed">مالټايي</language>
 			<language type="ne" draft="unconfirmed">نېپالي</language>
-			<language type="nl" draft="unconfirmed">هالېنډي</language>
+			<language type="nl">هالېنډي</language>
 			<language type="nn" draft="unconfirmed">ناروېئي (نائنورسک)</language>
 			<language type="no" draft="unconfirmed">ناروېئې</language>
 			<language type="oc" draft="unconfirmed">اوکسيټاني</language>
@@ -95,7 +99,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="sk" draft="unconfirmed">سلوواکي</language>
 			<language type="sl" draft="unconfirmed">سلوواني</language>
 			<language type="so" draft="unconfirmed">سومالي</language>
-			<language type="sq" draft="unconfirmed">الباني</language>
+			<language type="sq">الباني</language>
 			<language type="sr" draft="unconfirmed">سربيائي</language>
 			<language type="st" draft="unconfirmed">سيسوتو</language>
 			<language type="su" draft="unconfirmed">سوډاني</language>
@@ -404,8 +408,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<decimal>,</decimal>
 			<group>.</group>
 			<percentSign>%</percentSign>
-			<plusSign>‎+</plusSign> <!-- includes LRM before sign -->
-			<minusSign>‎−</minusSign> <!-- includes LRM before sign (2212) -->
+			<plusSign>‎+</plusSign>
+			<minusSign>‎−</minusSign>
 			<exponential>E</exponential>
 		</symbols>
 		<currencyFormats numberSystem="latn">
@@ -461,4 +465,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</unitLength>
 	</units>
 </ldml>
-

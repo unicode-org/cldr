@@ -528,7 +528,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="CL">Ċili</territory>
 			<territory type="CM">Kamerun</territory>
 			<territory type="CN">Iċ-Ċina</territory>
-			<territory type="CO">Kolumbja</territory>
+			<territory type="CO">Kolombja</territory>
 			<territory type="CR">Kosta Rika</territory>
 			<territory type="CU">Kuba</territory>
 			<territory type="CV">Kape Verde</territory>
@@ -545,7 +545,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="EE">Estonja</territory>
 			<territory type="EG">Eġittu</territory>
 			<territory type="EH">Sahara tal-Punent</territory>
-			<territory type="ER">Eritreja</territory>
+			<territory type="ER">Eritrea</territory>
 			<territory type="ES">Spanja</territory>
 			<territory type="ET">Etijopja</territory>
 			<territory type="EU">Unjoni Ewropea</territory>
@@ -558,13 +558,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="GA">Gabon</territory>
 			<territory type="GB">L-Ingilterra</territory>
 			<territory type="GD">Grenada</territory>
-			<territory type="GE">Ġorġja</territory>
+			<territory type="GE">Ġeorġja</territory>
 			<territory type="GF">Gujana Franċiża</territory>
 			<territory type="GH">Gana</territory>
 			<territory type="GI">Gibraltar</territory>
 			<territory type="GL">Grinlandja</territory>
 			<territory type="GM">Gambja</territory>
-			<territory type="GN">Gineja</territory>
+			<territory type="GN">Ginea</territory>
 			<territory type="GP">Gwadelupe</territory>
 			<territory type="GQ">Ginea Ekwatorjali</territory>
 			<territory type="GR">Greċja</territory>
@@ -617,7 +617,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="LY">Libja</territory>
 			<territory type="MA">Marokk</territory>
 			<territory type="MC">Monako</territory>
-			<territory type="MD">Maldova</territory>
+			<territory type="MD">Moldova</territory>
 			<territory type="MG">Madagaskar</territory>
 			<territory type="MH">Gżejjer ta’ Marshall</territory>
 			<territory type="MK">Maċedonja</territory>
@@ -1268,7 +1268,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="year">
 				<displayName>Sena</displayName>
 				<relative type="-1">Is-sena li għaddiet</relative>
-				<relative type="0" draft="unconfirmed">Din is-sena</relative>
+				<relative type="0" draft="unconfirmed">din is-sena</relative>
 				<relative type="1">Is-sena d-dieħla</relative>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} sena ilu</relativeTimePattern>
@@ -1404,6 +1404,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<nan>NaN</nan>
 			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="unconfirmed">#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern draft="unconfirmed">#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern draft="unconfirmed">#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
@@ -1643,4 +1664,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

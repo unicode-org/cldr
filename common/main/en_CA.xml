@@ -46,8 +46,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
-                        			<dateFormatItem id="UMd">U-MM-dd</dateFormatItem>
-                        			<dateFormatItem id="UMMMd">MMM d, U</dateFormatItem>
+						<dateFormatItem id="UMd">U-MM-dd</dateFormatItem>
+						<dateFormatItem id="UMMMd">MMM d, U</dateFormatItem>
 						<dateFormatItem id="yMd">r-MM-dd</dateFormatItem>
 						<dateFormatItem id="yyyyM">r-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMd">r-MM-dd</dateFormatItem>
@@ -183,21 +183,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</calendar>
 			<calendar type="gregorian">
 				<dateFormats>
-                    			<dateFormatLength type="full">
-                        			<dateFormat>
-                            				<pattern>EEEE, MMMM d, y</pattern>
-                        			</dateFormat>
-                    			</dateFormatLength>
-                    			<dateFormatLength type="long">
-                        			<dateFormat>
-                            				<pattern>MMMM d, y</pattern>
-                        			</dateFormat>
-                    			</dateFormatLength>
-                    			<dateFormatLength type="medium">
-                        			<dateFormat>
-                            				<pattern>MMM d, y</pattern>
-                        			</dateFormat>
-                    			</dateFormatLength>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, MMMM d, y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>MMMM d, y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>MMM d, y</pattern>
+						</dateFormat>
+					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>y-MM-dd</pattern>
@@ -403,4 +403,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</unitLength>
 	</units>
 </ldml>
-

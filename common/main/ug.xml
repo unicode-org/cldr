@@ -1167,9 +1167,15 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 		<calendars>
 			<calendar type="buddhist">
 				<eras>
+					<eraNames>
+						<era type="0">بۇددا يىلنامەسى</era>
+					</eraNames>
 					<eraAbbr>
-						<era type="0" draft="contributed">بۇددا يىلنامەسى</era>
+						<era type="0">BE</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0">BE</era>
+					</eraNarrow>
 				</eras>
 			</calendar>
 			<calendar type="chinese">
@@ -1514,11 +1520,11 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 						<era type="1" draft="contributed">مىلادىيە</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0" draft="contributed">مىلادىيەدىن بۇرۇن</era>
+						<era type="0">BCE</era>
 						<era type="1" draft="contributed">مىلادىيە</era>
 					</eraAbbr>
 					<eraNarrow>
-						<era type="0" draft="contributed">مىلادىيەدىن بۇرۇن</era>
+						<era type="0">BCE</era>
 						<era type="1" draft="contributed">مىلادىيە</era>
 					</eraNarrow>
 				</eras>
@@ -1826,9 +1832,13 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 			</calendar>
 			<calendar type="roc">
 				<eras>
+					<eraNames>
+						<era type="0">جۇڭخۇا مىنگودىن بۇرۇن</era>
+						<era type="1">مىنگو</era>
+					</eraNames>
 					<eraAbbr>
-						<era type="0" draft="contributed">جۇڭخۇا مىنگودىن بۇرۇن</era>
-						<era type="1" draft="contributed">مىنگو</era>
+						<era type="0">Before R.O.C.</era>
+						<era type="1">مىنگو</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -5222,4 +5232,3 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 		</messages>
 	</posix>
 </ldml>
-

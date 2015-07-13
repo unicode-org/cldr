@@ -12,13 +12,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<territory type="ZZ"/>
 	</identity>
 	<localeDisplayNames>
-		<localeDisplayPattern>
-			<localePattern>{0} ({1})</localePattern>
-			<localeSeparator>{0}, {1}</localeSeparator>
-			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
-		</localeDisplayPattern>
+		<languages>
+			<language type="ab">Tiếng Abkhazia</language>
+			<language type="af">Tiếng châu Phi</language>
+			<language type="agq">Tiếng Aghem</language>
+			<language type="ak">Tiếng Akan</language>
+			<language type="am">Tiếng Amharic</language>
+			<language type="ar">Tiếng Ả rập</language>
+			<language type="ar_001">Tiếng Ả rập chuẩn hiện đại</language>
+			<language type="as">Tiếng Assam</language>
+			<language type="asa">Tiếng Asu</language>
+			<language type="az">Tiếng Azerbaijan</language>
+			<language type="az" alt="short">Tiếng Azeri</language>
+			<language type="hy">Tiếng Armenia</language>
+			<language type="sq">Tiếng Albania</language>
+		</languages>
 		<territories>
 			<territory type="001">Thế giới</territory>
+			<territory type="DZ">Algeria</territory>
 		</territories>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrikus</measurementSystemName>
@@ -26,9 +37,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<measurementSystemName type="US">US</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
-			<codePattern type="language">{0}</codePattern>
-			<codePattern type="script">{0}</codePattern>
-			<codePattern type="territory">{0}</codePattern>
+			<codePattern type="language">Ngôn ngữ: {0}</codePattern>
+			<codePattern type="script">Chữ viết: {0}</codePattern>
+			<codePattern type="territory">Vùng: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>

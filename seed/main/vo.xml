@@ -90,6 +90,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11" draft="unconfirmed">nov</month>
 							<month type="12" draft="unconfirmed">dek</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="unconfirmed">Y</month>
+							<month type="2" draft="unconfirmed">F</month>
+							<month type="3" draft="unconfirmed">M</month>
+							<month type="4" draft="unconfirmed">P</month>
+							<month type="5" draft="unconfirmed">M</month>
+							<month type="6" draft="unconfirmed">Y</month>
+							<month type="7" draft="unconfirmed">Y</month>
+							<month type="8" draft="unconfirmed">G</month>
+							<month type="9" draft="unconfirmed">S</month>
+							<month type="10" draft="unconfirmed">T</month>
+							<month type="11" draft="unconfirmed">N</month>
+							<month type="12" draft="unconfirmed">D</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="unconfirmed">yanul</month>
 							<month type="2" draft="unconfirmed">febul</month>
@@ -118,7 +132,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="9" draft="unconfirmed">set</month>
 							<month type="10" draft="unconfirmed">tob</month>
 							<month type="11" draft="unconfirmed">nov</month>
-							<month type="12" draft="unconfirmed">Dek</month>
+							<month type="12" draft="unconfirmed">dek</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1" draft="unconfirmed">Y</month>
@@ -133,6 +147,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="10" draft="unconfirmed">T</month>
 							<month type="11" draft="unconfirmed">N</month>
 							<month type="12" draft="unconfirmed">D</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">yanul</month>
+							<month type="2" draft="unconfirmed">febul</month>
+							<month type="3" draft="unconfirmed">mäzul</month>
+							<month type="4" draft="unconfirmed">prilul</month>
+							<month type="5" draft="unconfirmed">mayul</month>
+							<month type="6" draft="unconfirmed">yunul</month>
+							<month type="7" draft="unconfirmed">yulul</month>
+							<month type="8" draft="unconfirmed">gustul</month>
+							<month type="9" draft="unconfirmed">setul</month>
+							<month type="10" draft="unconfirmed">tobul</month>
+							<month type="11" draft="unconfirmed">novul</month>
+							<month type="12" draft="unconfirmed">dekul</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -176,6 +204,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="fri" draft="unconfirmed">F</day>
 							<day type="sat" draft="unconfirmed">Z</day>
 						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">sudel</day>
+							<day type="mon" draft="unconfirmed">mudel</day>
+							<day type="tue" draft="unconfirmed">tudel</day>
+							<day type="wed" draft="unconfirmed">vedel</day>
+							<day type="thu" draft="unconfirmed">dödel</day>
+							<day type="fri" draft="unconfirmed">fridel</day>
+							<day type="sat" draft="unconfirmed">zädel</day>
+						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
@@ -203,14 +240,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="afternoon" draft="unconfirmed">poszedelo</dayPeriod>
 							<dayPeriod type="am" draft="unconfirmed">posz.</dayPeriod>
-							<dayPeriod type="earlyMorning" draft="unconfirmed">gödo</dayPeriod>
-							<dayPeriod type="evening" draft="unconfirmed">soaro</dayPeriod>
-							<dayPeriod type="morning" draft="unconfirmed">büzedelo</dayPeriod>
-							<dayPeriod type="night" draft="unconfirmed">neito</dayPeriod>
 							<dayPeriod type="noon" draft="unconfirmed">zedelo</dayPeriod>
 							<dayPeriod type="pm" draft="unconfirmed">büz.</dayPeriod>
+							<dayPeriod type="earlyMorning" draft="unconfirmed">gödo</dayPeriod>
+							<dayPeriod type="morning" draft="unconfirmed">büzedelo</dayPeriod>
+							<dayPeriod type="afternoon" draft="unconfirmed">poszedelo</dayPeriod>
+							<dayPeriod type="evening" draft="unconfirmed">soaro</dayPeriod>
+							<dayPeriod type="night" draft="unconfirmed">neito</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -320,6 +357,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 		</fields>
 	</dates>
+	<units>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<displayName draft="unconfirmed">dels</displayName>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="unconfirmed">muls</displayName>
+				<unitPattern count="one" draft="unconfirmed">mul {0}</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">muls {0}</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="unconfirmed">vigs</displayName>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="unconfirmed">yels</displayName>
+				<unitPattern count="one" draft="unconfirmed">yel {0}</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">yels {0}</unitPattern>
+			</unit>
+		</unitLength>
+	</units>
 	<posix>
 		<messages>
 			<yesstr draft="unconfirmed">si:s</yesstr>

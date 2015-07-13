@@ -3523,16 +3523,16 @@
 			<currency type="FJD">
 				<symbol alt="narrow">$</symbol>
 			</currency>
-            		<currency type="FKP">
-                		<symbol alt="narrow">£</symbol>
-            		</currency>
+			<currency type="FKP">
+				<symbol alt="narrow">£</symbol>
+			</currency>
 			<currency type="GBP">
 				<symbol>£</symbol>
 				<symbol alt="narrow">£</symbol>
 			</currency>
-            		<currency type="GEL">
-                		<symbol alt="variant">₾</symbol>
-            		</currency>
+			<currency type="GEL">
+				<symbol alt="variant">₾</symbol>
+			</currency>
 			<currency type="GIP">
 				<symbol alt="narrow">£</symbol>
 			</currency>
@@ -4445,10 +4445,10 @@
 				<unitPattern count="other">{0} atsp</unitPattern>
 			</unit>
 			<coordinateUnit>
-			    <coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
-			    <coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
-			    <coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
-			    <coordinateUnitPattern type="west">{0}W</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0}W</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -4488,4 +4488,3 @@
 		</messages>
 	</posix>
 </ldml>
-

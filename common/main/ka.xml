@@ -48,6 +48,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="awa">ავადი</language>
 			<language type="ay">აიმარა</language>
 			<language type="az">აზერბაიჯანული</language>
+			<language type="az" alt="short">აზერბაიჯანული</language>
+			<language type="azb">სამხრეთ აზერბაიჯანული</language>
 			<language type="ba">ბაშკირული</language>
 			<language type="bal">ბელუჯი</language>
 			<language type="ban">ბალინური</language>
@@ -58,6 +60,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="bem">ბემბა</language>
 			<language type="bez">ბენა</language>
 			<language type="bg">ბულგარული</language>
+			<language type="bgn">დასავლეთ ბელუჯი</language>
 			<language type="bho">ბოჯპური</language>
 			<language type="bm">ბამბარა</language>
 			<language type="bn">ბენგალური</language>
@@ -239,6 +242,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="lo">ლაოსური</language>
 			<language type="lol">მონგო</language>
 			<language type="loz">ლოზი</language>
+			<language type="lrc">ჩრდილოეთ ლური</language>
 			<language type="lt">ლიტვური</language>
 			<language type="lu">ლუბა-კატანგა</language>
 			<language type="lua" draft="unconfirmed">ლუბა-კასაი</language>
@@ -281,12 +285,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="my">ბირმული</language>
 			<language type="mye">მიენე</language>
 			<language type="myv">ერზია</language>
+			<language type="mzn">მაზანდერანული</language>
 			<language type="na">ნაურუ</language>
 			<language type="nap">ნეაპოლიტანური</language>
 			<language type="naq">ნამა</language>
 			<language type="nb">ნორვეგიული ბუკმოლი</language>
 			<language type="nd">ჩრდილოეთ ნდებელე</language>
-			<language type="nds" draft="unconfirmed">ქვემოგერმანული</language>
+			<language type="nds">ქვემოგერმანული</language>
+			<language type="nds_NL">ქვემოსაქსონური</language>
 			<language type="ne">ნეპალური</language>
 			<language type="new">ნევარი</language>
 			<language type="nl">ნიდერლანდური</language>
@@ -343,6 +349,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="sc">სარდინიული</language>
 			<language type="scn">სიცილიური</language>
 			<language type="sd">სინდჰური</language>
+			<language type="sdh">სამხრეთ ქურთული</language>
 			<language type="se">ჩრდილოეთ საამური</language>
 			<language type="see">სენეკა</language>
 			<language type="seh">სენა</language>
@@ -403,6 +410,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="vi">ვიეტნამური</language>
 			<language type="vun">ვუნჯო</language>
 			<language type="wal">ველაითა</language>
+			<language type="wbp">ვალპირი</language>
 			<language type="wo">ვოლოფური</language>
 			<language type="xal">ყალმუხური</language>
 			<language type="xh">ქჰოსა</language>
@@ -852,6 +860,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="TJ">ტაჯიკეთი</territory>
 			<territory type="TK">ტოკელაუ</territory>
 			<territory type="TL">აღმოსავლეთი ტიმორი</territory>
+			<territory type="TL" alt="variant">აღმოსავლეთი ტიმორი</territory>
 			<territory type="TM">თურქმენეთი</territory>
 			<territory type="TN">ტუნისი</territory>
 			<territory type="TO">ტონგა</territory>
@@ -951,6 +960,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="calendar">კალენდარი</key>
 			<key type="collation">დახარისხების თანმიმდევრობა</key>
 			<key type="currency">ვალუტა</key>
+			<key type="hc">დროის სისტემა (12 ან 24)</key>
+			<key type="lb">სტრიქონის წყვეტის სტილი</key>
+			<key type="ms">საზომი სისტემა</key>
 			<key type="numbers">რიცხვები</key>
 		</keys>
 		<types>
@@ -980,6 +992,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="greklow" key="numbers">ბერძნული ქვედა რეგისტრის რიცხვები</type>
 			<type type="gujr" key="numbers">გუჯარათული ციფრები</type>
 			<type type="guru" key="numbers">გურმუხული ციფრები</type>
+			<type type="h11" key="hc">12-საათიანი სისტემა (0-11)</type>
+			<type type="h12" key="hc">12-საათიანი სისტემა (1-12)</type>
+			<type type="h23" key="hc">24-საათიანი სისტემა (0-23)</type>
+			<type type="h24" key="hc">24-საათიანი სისტემა (1-24)</type>
 			<type type="hanidec" key="numbers">ჩინური ათობითი რიცხვები</type>
 			<type type="hans" key="numbers">გამარტივებული ჩინური რიცხვები</type>
 			<type type="hansfin" key="numbers">გამარტივებული ჩინური ფინანსური რიცხვები</type>
@@ -1004,12 +1020,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="latn" key="numbers">დასავლური ციფრები</type>
 			<type type="lepc" key="numbers" draft="unconfirmed">რონგ-რინგის ციფრები</type>
 			<type type="limb" key="numbers">ლიმბური ციფრები</type>
+			<type type="loose" key="lb">სტრიქონის რბილი წყვეტის სტილი</type>
+			<type type="metric" key="ms">მეტრული სისტემა</type>
 			<type type="mlym" key="numbers">მალაიალამური ციფრები</type>
 			<type type="mong" key="numbers">მონღოლური ციფრები</type>
 			<type type="mtei" key="numbers" draft="unconfirmed">მანიპური ციფრები</type>
 			<type type="mymr" key="numbers">მიანმური ციფრები</type>
 			<type type="mymrshan" key="numbers" draft="unconfirmed">მიანმური შანი ციფრები</type>
 			<type type="nkoo" key="numbers" draft="unconfirmed">ნკოური ციფრები</type>
+			<type type="normal" key="lb">სტრიქონის ჩვეულებრივი წყვეტის სტილი</type>
 			<type type="olck" key="numbers" draft="unconfirmed">ოლ-ჩიკის ციფრები</type>
 			<type type="orya" key="numbers">ორიული ციფრები</type>
 			<type type="persian" key="calendar">სპარსული კალენდარი</type>
@@ -1023,6 +1042,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="search" key="collation">ზოგადი დანიშნულების ძიება</type>
 			<type type="searchjl" key="collation" draft="unconfirmed">ჰანგულის პირველი თანხმოვნით</type>
 			<type type="standard" key="collation">სტანდარტული დახარისხების თანმიმდევრობა</type>
+			<type type="strict" key="lb">სტრიქონის ზედმიწევნითი წყვეტის სტილი</type>
 			<type type="stroke" key="collation" draft="unconfirmed">შტრიხით</type>
 			<type type="sund" key="numbers">სუნდანური ციფრები</type>
 			<type type="talu" key="numbers">ახალი ტაი ლიუსი ციფრები</type>
@@ -1032,7 +1052,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="thai" key="numbers">ტაილანდური ციფრები</type>
 			<type type="tibt" key="numbers">ტიბეტური ციფრები</type>
 			<type type="traditional" key="collation">ტრადიციული</type>
+			<type type="uksystem" key="ms">ბრიტანული საზომი სისტემა</type>
 			<type type="unihan" key="collation" draft="unconfirmed">ძირითადი შტრიხით</type>
+			<type type="ussystem" key="ms">ამერიკული საზომი სისტემა</type>
 			<type type="vaii" key="numbers" draft="unconfirmed">ვაიური ციფრები</type>
 			<type type="zhuyin" key="collation" draft="unconfirmed">ჟუინი</type>
 		</types>
@@ -1114,6 +1136,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM, y G</dateFormatItem>
@@ -1131,6 +1154,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
@@ -1140,6 +1164,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yyyyMMM">MMM, y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM, y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, d MMM, y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ, y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ, y G</dateFormatItem>
 					</availableFormats>
@@ -1454,27 +1479,62 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">შუაღამეს</dayPeriod>
 							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="noon" draft="unconfirmed">შუადღე</dayPeriod>
+							<dayPeriod type="noon">შუადღ.</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="morning1">დილ.</dayPeriod>
+							<dayPeriod type="afternoon1">ნაშუადღ.</dayPeriod>
+							<dayPeriod type="evening1">საღ.</dayPeriod>
+							<dayPeriod type="night1">ღამ.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">შუაღამეს</dayPeriod>
 							<dayPeriod type="am">a</dayPeriod>
-							<dayPeriod type="noon">შუადღე</dayPeriod>
+							<dayPeriod type="noon">შუადღ.</dayPeriod>
 							<dayPeriod type="pm">p</dayPeriod>
+							<dayPeriod type="morning1">დილას</dayPeriod>
+							<dayPeriod type="afternoon1">ნაშუადღევს</dayPeriod>
+							<dayPeriod type="evening1">საღამოს</dayPeriod>
+							<dayPeriod type="night1">ღამით</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight">შუაღამეს</dayPeriod>
 							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="noon">შუადღე</dayPeriod>
+							<dayPeriod type="noon">შუადღეს</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="morning1">დილით</dayPeriod>
+							<dayPeriod type="afternoon1">ნაშუადღევს</dayPeriod>
+							<dayPeriod type="evening1">საღამოს</dayPeriod>
+							<dayPeriod type="night1">ღამით</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">შუაღამე</dayPeriod>
+							<dayPeriod type="am">შუადღემდე</dayPeriod>
+							<dayPeriod type="noon">შუადღე</dayPeriod>
+							<dayPeriod type="pm">შუადღ. შემდეგ</dayPeriod>
+							<dayPeriod type="morning1">დილა</dayPeriod>
+							<dayPeriod type="afternoon1">ნაშუადღევი</dayPeriod>
+							<dayPeriod type="evening1">საღამო</dayPeriod>
+							<dayPeriod type="night1">ღამე</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">შუაღამე</dayPeriod>
+							<dayPeriod type="am">შუადღემდე</dayPeriod>
+							<dayPeriod type="noon">შუადღე</dayPeriod>
+							<dayPeriod type="pm">შუადღ. შემდეგ</dayPeriod>
+							<dayPeriod type="morning1">დილა</dayPeriod>
+							<dayPeriod type="afternoon1">ნაშუადღევი</dayPeriod>
+							<dayPeriod type="evening1">საღამო</dayPeriod>
+							<dayPeriod type="night1">ღამე</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">შუაღამე</dayPeriod>
-							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
+							<dayPeriod type="am">შუადღემდე</dayPeriod>
 							<dayPeriod type="noon">შუადღე</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">PM</dayPeriod>
+							<dayPeriod type="pm">შუადღ. შემდეგ</dayPeriod>
 							<dayPeriod type="morning1">დილა</dayPeriod>
 							<dayPeriod type="afternoon1">ნაშუადღევი</dayPeriod>
 							<dayPeriod type="evening1">საღამო</dayPeriod>
@@ -1491,7 +1551,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ძვ. წ.</era>
+						<era type="0" alt="variant">ჩვ. ერამდე</era>
 						<era type="1">ახ. წ.</era>
+						<era type="1" alt="variant">ჩვ. ერა</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1507,7 +1569,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d MMM, y</pattern>
+							<pattern>d MMM. y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1541,7 +1603,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -1551,7 +1613,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -1563,34 +1625,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
-						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
-						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
-						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E, h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E, HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMMM">MMM, y G</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d MMM, y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E, d MMM, y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM. y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM. y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, d MMM. y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hmsv">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv">HH:mm:ss v</dateFormatItem>
+						<dateFormatItem id="hmv">h:mm a v</dateFormatItem>
+						<dateFormatItem id="Hmv">HH:mm v</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d.M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d.M</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M.y</dateFormatItem>
 						<dateFormatItem id="yMd">d.M.y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, d.M.y</dateFormatItem>
-						<dateFormatItem id="yMMM">MMM, y</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM, y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, d MMM, y</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM. y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM. y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E, d MMM. y</dateFormatItem>
+						<dateFormatItem id="yMMMM">MMMM, y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ, y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ, y</dateFormatItem>
 					</availableFormats>
@@ -1679,17 +1747,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
 							<greatestDifference id="d">d–d MMM, y</greatestDifference>
-							<greatestDifference id="M">dd MM – dd MM, y</greatestDifference>
-							<greatestDifference id="y">dd MMM, y – d MMM, y</greatestDifference>
+							<greatestDifference id="M">dd MMM. – dd MMM. y</greatestDifference>
+							<greatestDifference id="y">dd MMM. y – d MMM. y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d MMM – E, d MMM, y</greatestDifference>
-							<greatestDifference id="M">E, d MMM – E, d MMM, y</greatestDifference>
-							<greatestDifference id="y">E, d MMM, y – E, d MMM, y</greatestDifference>
+							<greatestDifference id="d">E, d MMM. – E, d MMM. y</greatestDifference>
+							<greatestDifference id="M">E, d MMM. – E, d MMM. y</greatestDifference>
+							<greatestDifference id="y">E, d MMM. y – E, d MMM. y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MM – MM.y</greatestDifference>
-							<greatestDifference id="y">MM.y – MM.y</greatestDifference>
+							<greatestDifference id="M">MMMM – MMMM, y</greatestDifference>
+							<greatestDifference id="y">MMMM y – MMMM y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1986,6 +2054,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year-short">
 				<displayName>წ.</displayName>
+				<relative type="0">ამ წელს</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} წელში</relativeTimePattern>
 					<relativeTimePattern count="other">{0} წელში</relativeTimePattern>
@@ -1997,6 +2066,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year-narrow">
 				<displayName>წ.</displayName>
+				<relative type="0">ამ წელს</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} წელში</relativeTimePattern>
 					<relativeTimePattern count="other">{0} წელში</relativeTimePattern>
@@ -2055,6 +2125,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="month-short">
 				<displayName>თვე</displayName>
+				<relative type="-1">გასულ თვეს</relative>
+				<relative type="0">ამ თვეში</relative>
+				<relative type="1">მომავალ თვეს</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} თვეში</relativeTimePattern>
 					<relativeTimePattern count="other">{0} თვეში</relativeTimePattern>
@@ -2066,6 +2139,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="month-narrow">
 				<displayName>თვე</displayName>
+				<relative type="-1">გასულ თვეს</relative>
+				<relative type="0">ამ თვეში</relative>
+				<relative type="1">მომავალ თვეს</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} თვეში</relativeTimePattern>
 					<relativeTimePattern count="other">{0} თვეში</relativeTimePattern>
@@ -2091,6 +2167,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="week-short">
 				<displayName>კვ.</displayName>
+				<relative type="0">ამ კვირაში</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} კვირაში</relativeTimePattern>
 					<relativeTimePattern count="other">{0} კვირაში</relativeTimePattern>
@@ -2102,6 +2179,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="week-narrow">
 				<displayName>კვ.</displayName>
+				<relative type="0">ამ კვირაში</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} კვირაში</relativeTimePattern>
 					<relativeTimePattern count="other">{0} კვირაში</relativeTimePattern>
@@ -2129,6 +2207,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-short">
 				<displayName>დღე</displayName>
+				<relative type="-2">გუშინწინ</relative>
+				<relative type="-1">გუშინ</relative>
+				<relative type="1">ხვალ</relative>
+				<relative type="2">ზეგ</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} დღეში</relativeTimePattern>
 					<relativeTimePattern count="other">{0} დღეში</relativeTimePattern>
@@ -2140,6 +2222,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-narrow">
 				<displayName>დღე</displayName>
+				<relative type="-2">გუშინწინ</relative>
+				<relative type="-1">გუშინ</relative>
+				<relative type="1">ხვალ</relative>
+				<relative type="2">ზეგ</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} დღეში</relativeTimePattern>
 					<relativeTimePattern count="other">{0} დღეში</relativeTimePattern>
@@ -3239,6 +3325,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Pacific/Port_Moresby">
 				<exemplarCity>პორტ მორსბი</exemplarCity>
 			</zone>
+			<zone type="Pacific/Bougainville">
+				<exemplarCity>ბუგენვილი</exemplarCity>
+			</zone>
 			<zone type="Asia/Manila">
 				<exemplarCity>მანილა</exemplarCity>
 			</zone>
@@ -3323,6 +3412,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Irkutsk">
 				<exemplarCity>ირკუტსკი</exemplarCity>
 			</zone>
+			<zone type="Asia/Chita">
+				<exemplarCity>ჩიტა</exemplarCity>
+			</zone>
 			<zone type="Asia/Yakutsk">
 				<exemplarCity>იაკუტსკი</exemplarCity>
 			</zone>
@@ -3340,6 +3432,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Asia/Magadan">
 				<exemplarCity>მაგადანი</exemplarCity>
+			</zone>
+			<zone type="Asia/Srednekolymsk">
+				<exemplarCity>სრედნეკოლიმსკი</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>კამჩატკა</exemplarCity>
@@ -4605,30 +4700,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one" draft="provisional">0 ათ'.' ¤</pattern>
-					<pattern type="1000" count="other" draft="provisional">0 ათ'.' ¤</pattern>
-					<pattern type="10000" count="one" draft="provisional">00 ათ'.' ¤</pattern>
-					<pattern type="10000" count="other" draft="provisional">00 ათ'.' ¤</pattern>
-					<pattern type="100000" count="one" draft="provisional">000 ათ'.' ¤</pattern>
-					<pattern type="100000" count="other" draft="provisional">000 ათ'.' ¤</pattern>
-					<pattern type="1000000" count="one" draft="provisional">0 მლნ'.' ¤</pattern>
-					<pattern type="1000000" count="other" draft="provisional">0 მლნ'.' ¤</pattern>
-					<pattern type="10000000" count="one" draft="provisional">00 მლნ'.' ¤</pattern>
-					<pattern type="10000000" count="other" draft="provisional">00 მლნ'.' ¤</pattern>
-					<pattern type="100000000" count="one" draft="provisional">000 მლნ'.' ¤</pattern>
-					<pattern type="100000000" count="other" draft="provisional">000 მლნ'.' ¤</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">0 მლრდ'.' ¤</pattern>
-					<pattern type="1000000000" count="other" draft="provisional">0 მლრდ'.' ¤</pattern>
-					<pattern type="10000000000" count="one" draft="provisional">00 მლრდ'.' ¤</pattern>
-					<pattern type="10000000000" count="other" draft="provisional">00 მლრდ'.' ¤</pattern>
-					<pattern type="100000000000" count="one" draft="provisional">000 მლრ'.' ¤</pattern>
-					<pattern type="100000000000" count="other" draft="provisional">000 მლრ'.' ¤</pattern>
-					<pattern type="1000000000000" count="one" draft="provisional">0 ტრლ'.' ¤</pattern>
-					<pattern type="1000000000000" count="other" draft="provisional">0 ტრლ'.' ¤</pattern>
-					<pattern type="10000000000000" count="one" draft="provisional">00 ტრლ'.' ¤</pattern>
-					<pattern type="10000000000000" count="other" draft="provisional">00 ტრლ'.' ¤</pattern>
-					<pattern type="100000000000000" count="one" draft="provisional">000 ტრლ'.' ¤</pattern>
-					<pattern type="100000000000000" count="other" draft="provisional">000 ტრლ'.' ¤</pattern>
+					<pattern type="1000" count="one">0 ათ'.' ¤</pattern>
+					<pattern type="1000" count="other">0 ათ'.' ¤</pattern>
+					<pattern type="10000" count="one">00 ათ'.' ¤</pattern>
+					<pattern type="10000" count="other">00 ათ'.' ¤</pattern>
+					<pattern type="100000" count="one">000 ათ'.' ¤</pattern>
+					<pattern type="100000" count="other">000 ათ'.' ¤</pattern>
+					<pattern type="1000000" count="one">0 მლნ'.' ¤</pattern>
+					<pattern type="1000000" count="other">0 მლნ'.' ¤</pattern>
+					<pattern type="10000000" count="one">00 მლნ'.' ¤</pattern>
+					<pattern type="10000000" count="other">00 მლნ'.' ¤</pattern>
+					<pattern type="100000000" count="one">000 მლნ'.' ¤</pattern>
+					<pattern type="100000000" count="other">000 მლნ'.' ¤</pattern>
+					<pattern type="1000000000" count="one">0 მლრდ'.' ¤</pattern>
+					<pattern type="1000000000" count="other">0 მლრდ'.' ¤</pattern>
+					<pattern type="10000000000" count="one">00 მლრდ'.' ¤</pattern>
+					<pattern type="10000000000" count="other">00 მლრდ'.' ¤</pattern>
+					<pattern type="100000000000" count="one">000 მლრ'.' ¤</pattern>
+					<pattern type="100000000000" count="other">000 მლრ'.' ¤</pattern>
+					<pattern type="1000000000000" count="one">0 ტრლ'.' ¤</pattern>
+					<pattern type="1000000000000" count="other">0 ტრლ'.' ¤</pattern>
+					<pattern type="10000000000000" count="one">00 ტრლ'.' ¤</pattern>
+					<pattern type="10000000000000" count="other">00 ტრლ'.' ¤</pattern>
+					<pattern type="100000000000000" count="one">000 ტრლ'.' ¤</pattern>
+					<pattern type="100000000000000" count="other">000 ტრლ'.' ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>
@@ -5034,6 +5129,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">ქართული ლარი</displayName>
 				<displayName count="other">ქართული ლარი</displayName>
 				<symbol>GEL</symbol>
+				<symbol alt="variant" draft="contributed">₾</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>განური სედი</displayName>
@@ -5657,6 +5753,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">ტაილანდური ბატი</displayName>
 				<displayName count="other">ტაილანდური ბატი</displayName>
 				<symbol>THB</symbol>
+				<symbol alt="narrow" draft="contributed">฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName draft="contributed">ტაჯიკური რუბლი</displayName>
@@ -5795,9 +5892,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
-				<displayName>CFA ფრანკი (BEAC)</displayName>
-				<displayName count="one">CFA ფრანკი (BEAC)</displayName>
-				<displayName count="other">CFA ფრანკი (BEAC)</displayName>
+				<displayName>ცენტრალურ აფრიკული CFA ფრანკი</displayName>
+				<displayName count="one">ცენტრალურ აფრიკული CFA ფრანკი</displayName>
+				<displayName count="other">ცენტრალურ აფრიკული CFA ფრანკი</displayName>
 				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XAG">
@@ -5823,8 +5920,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="XOF">
 				<displayName>(CFA) ფრანკი (BCEAO)</displayName>
-				<displayName count="one">CFA ფრანკი (BCEAO)</displayName>
-				<displayName count="other">CFA ფრანკი (BCEAO)</displayName>
+				<displayName count="one">დასავლეთ აფრიკული CFA ფრანკი</displayName>
+				<displayName count="other">დასავლეთ აფრიკული CFA ფრანკი</displayName>
 				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPF">
@@ -5924,6 +6021,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} რადიანი</unitPattern>
 				<unitPattern count="other">{0} რადიანი</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>ბრუნვა</displayName>
+				<unitPattern count="one">{0} ბრუნვა</unitPattern>
+				<unitPattern count="other">{0} ბრუნვა</unitPattern>
+			</unit>
 			<unit type="area-acre">
 				<displayName>აკრი</displayName>
 				<unitPattern count="one">{0} აკრი</unitPattern>
@@ -5938,6 +6040,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>კვადრატული სანტიმეტრი</displayName>
 				<unitPattern count="one">{0} კვადრატული სანტიმეტრი</unitPattern>
 				<unitPattern count="other">{0} კვადრატული სანტიმეტრი</unitPattern>
+				<perUnitPattern>{0} კვადრატულ სანტიმეტრში</perUnitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>კვადრატული ფუტი</displayName>
@@ -5948,6 +6051,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>კვადრატული დუიმი</displayName>
 				<unitPattern count="one">{0} კვადრატული დუიმი</unitPattern>
 				<unitPattern count="other">{0} კვადრატული დუიმი</unitPattern>
+				<perUnitPattern>{0} კვადრატულ დუიმში</perUnitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>კვადრატული კილომეტრი</displayName>
@@ -5958,6 +6062,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>კვადრატული მეტრი</displayName>
 				<unitPattern count="one">{0} კვადრატული მეტრი</unitPattern>
 				<unitPattern count="other">{0} კვადრატული მეტრი</unitPattern>
+				<perUnitPattern>{0} კვადრატულ მეტრში</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>კვადრატული მილი</displayName>
@@ -5968,6 +6073,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>კვადრატული იარდი</displayName>
 				<unitPattern count="one">{0} კვადრატული იარდი</unitPattern>
 				<unitPattern count="other">{0} კვადრატული იარდი</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>ლიტრი 100 კილომეტრში</displayName>
+				<unitPattern count="one">{0} ლიტრი 100 კილომეტრში</unitPattern>
+				<unitPattern count="other">{0} ლიტრი 100 კილომეტრში</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ლიტრი კილომეტრზე</displayName>
@@ -6029,10 +6139,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ტერაბაიტი</unitPattern>
 				<unitPattern count="other">{0} ტერაბაიტი</unitPattern>
 			</unit>
+			<unit type="duration-century">
+				<displayName>საუკუნე</displayName>
+				<unitPattern count="one">{0} საუკუნე</unitPattern>
+				<unitPattern count="other">{0} საუკუნე</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>დღე</displayName>
 				<unitPattern count="one">{0} დღე</unitPattern>
 				<unitPattern count="other">{0} დღე</unitPattern>
+				<perUnitPattern>{0} დღეში</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>საათი</displayName>
@@ -6054,11 +6170,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>წუთი</displayName>
 				<unitPattern count="one">{0} წუთი</unitPattern>
 				<unitPattern count="other">{0} წუთი</unitPattern>
+				<perUnitPattern>{0} წუთში</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>თვე</displayName>
 				<unitPattern count="one">{0} თვე</unitPattern>
 				<unitPattern count="other">{0} თვე</unitPattern>
+				<perUnitPattern>{0} თვეში</perUnitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>ნანოწამი</displayName>
@@ -6075,11 +6193,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>კვირა</displayName>
 				<unitPattern count="one">{0} კვირა</unitPattern>
 				<unitPattern count="other">{0} კვირა</unitPattern>
+				<perUnitPattern>{0} კვირაში</perUnitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>წელი</displayName>
 				<unitPattern count="one">{0} წელი</unitPattern>
 				<unitPattern count="other">{0} წელი</unitPattern>
+				<perUnitPattern>{0} წელში</perUnitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>ამპერი</displayName>
@@ -6160,6 +6280,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>სანტიმეტრი</displayName>
 				<unitPattern count="one">{0} სანტიმეტრი</unitPattern>
 				<unitPattern count="other">{0} სანტიმეტრი</unitPattern>
+				<perUnitPattern>{0} სანტიმეტრში</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName>დეციმეტრი</displayName>
@@ -6170,16 +6291,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ფუტი</displayName>
 				<unitPattern count="one">{0} ფუტი</unitPattern>
 				<unitPattern count="other">{0} ფუტი</unitPattern>
+				<perUnitPattern>{0} ფუტში</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName>დუიმი</displayName>
 				<unitPattern count="one">{0} დუიმი</unitPattern>
 				<unitPattern count="other">{0} დუიმი</unitPattern>
+				<perUnitPattern>{0} დუიმში</perUnitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>კილომეტრი</displayName>
 				<unitPattern count="one">{0} კილომეტრი</unitPattern>
 				<unitPattern count="other">{0} კილომეტრი</unitPattern>
+				<perUnitPattern>{0} კილომეტრში</perUnitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>სინათლის წელი</displayName>
@@ -6188,8 +6312,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="length-meter">
 				<displayName>მეტრი</displayName>
-				<unitPattern count="one">{0}მეტრი</unitPattern>
-				<unitPattern count="other">{0}მეტრი</unitPattern>
+				<unitPattern count="one">{0} მეტრი</unitPattern>
+				<unitPattern count="other">{0} მეტრი</unitPattern>
+				<perUnitPattern>{0} მეტრში</perUnitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>მიკრომეტრი</displayName>
@@ -6200,6 +6325,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>მილი</displayName>
 				<unitPattern count="one">{0} მილი</unitPattern>
 				<unitPattern count="other">{0} მილი</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>სკანდინავიური მილი</displayName>
+				<unitPattern count="one">{0} სკანდინავიური მილი</unitPattern>
+				<unitPattern count="other">{0} სკანდინავიური მილი</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>მილიმეტრი</displayName>
@@ -6245,11 +6375,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>გრამი</displayName>
 				<unitPattern count="one">{0} გრამი</unitPattern>
 				<unitPattern count="other">{0} გრამი</unitPattern>
+				<perUnitPattern>{0} გრამში</perUnitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>კილოგრამი</displayName>
 				<unitPattern count="one">{0} კილოგრამი</unitPattern>
 				<unitPattern count="other">{0} კილოგრამი</unitPattern>
+				<perUnitPattern>{0} კილოგრამში</perUnitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>მეტრული ტონა</displayName>
@@ -6270,6 +6402,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>უნცია</displayName>
 				<unitPattern count="one">{0} უნცია</unitPattern>
 				<unitPattern count="other">{0} უნცია</unitPattern>
+				<perUnitPattern>{0} უნციაში</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>ტრუას უნცია</displayName>
@@ -6280,6 +6413,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ფუნტი</displayName>
 				<unitPattern count="one">{0} ფუნტი</unitPattern>
 				<unitPattern count="other">{0} ფუნტი</unitPattern>
+				<perUnitPattern>{0} ფუნტში</perUnitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>ტონა</displayName>
@@ -6351,6 +6485,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} კილომეტრი საათში</unitPattern>
 				<unitPattern count="other">{0} კილომეტრი საათში</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>კვანძი</displayName>
+				<unitPattern count="one">{0} კვანძი</unitPattern>
+				<unitPattern count="other">{0} კვანძი</unitPattern>
+			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>მეტრი წამში</displayName>
 				<unitPattern count="one">{0} მეტრი წამში</unitPattern>
@@ -6371,6 +6510,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} გრადუსი ფარენჰეიტით</unitPattern>
 				<unitPattern count="other">{0} გრადუსი ფარენჰეიტით</unitPattern>
 			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>კელვინის გრადუსი</displayName>
 				<unitPattern count="one">{0} კელვინი</unitPattern>
@@ -6390,6 +6534,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>კუბური სანტიმენტრი</displayName>
 				<unitPattern count="one">{0} კუბური სანტიმენტრი</unitPattern>
 				<unitPattern count="other">{0} კუბური სანტიმენტრი</unitPattern>
+				<perUnitPattern>{0} კუბურ სანტიმეტრში</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>კუბური ფუტი</displayName>
@@ -6410,6 +6555,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>კუბური მეტრი</displayName>
 				<unitPattern count="one">{0} კუბური მეტრი</unitPattern>
 				<unitPattern count="other">{0} კუბური მეტრი</unitPattern>
+				<perUnitPattern>{0} კუბურ მეტრში</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>კუბური მილი</displayName>
@@ -6426,6 +6572,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ჭიქა</unitPattern>
 				<unitPattern count="other">{0} ჭიქა</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>მეტრული ჭიქა</displayName>
+				<unitPattern count="one">{0} მეტრული ჭიქა</unitPattern>
+				<unitPattern count="other">{0} მეტრული ჭიქა</unitPattern>
+			</unit>
 			<unit type="volume-deciliter">
 				<displayName>დეცილიტრი</displayName>
 				<unitPattern count="one">{0} დეცილიტრი</unitPattern>
@@ -6440,6 +6591,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>გალონი</displayName>
 				<unitPattern count="one">{0} გალონი</unitPattern>
 				<unitPattern count="other">{0} გალონი</unitPattern>
+				<perUnitPattern>{0} გალონში</perUnitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>ჰექტოლიტრი</displayName>
@@ -6450,6 +6602,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ლიტრი</displayName>
 				<unitPattern count="one">{0} ლიტრი</unitPattern>
 				<unitPattern count="other">{0} ლიტრი</unitPattern>
+				<perUnitPattern>{0} ლიტრში</perUnitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>მეგალიტრი</displayName>
@@ -6466,6 +6619,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} პინტა</unitPattern>
 				<unitPattern count="other">{0} პინტა</unitPattern>
 			</unit>
+			<unit type="volume-pint-metric">
+				<displayName>მეტრული პინტა</displayName>
+				<unitPattern count="one">{0} მეტრული პინტა</unitPattern>
+				<unitPattern count="other">{0} მეტრული პინტა</unitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>კვარტა</displayName>
 				<unitPattern count="one">{0} კვარტა</unitPattern>
@@ -6481,6 +6639,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ჩაის კოვზი</unitPattern>
 				<unitPattern count="other">{0} ჩაის კოვზი</unitPattern>
 			</unit>
+			<unit type="volume-teaspoon-au">
+				<displayName>ავსტრალიური ჩაის კოვზი</displayName>
+				<unitPattern count="one">{0} ავსტრალიური ჩაის კოვზი</unitPattern>
+				<unitPattern count="other">{0} ავსტრალიური ჩაის კოვზი</unitPattern>
+			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east">{0} აღმოსავლეთით</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} ჩრდილოეთით</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} სამხრეთით</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} დასავლეთით</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
 			<compoundUnit type="per">
@@ -6516,6 +6685,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} რად.</unitPattern>
 				<unitPattern count="other">{0} რად.</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>ბრნ.</displayName>
+				<unitPattern count="one">{0} ბრნ.</unitPattern>
+				<unitPattern count="other">{0} ბრნ.</unitPattern>
+			</unit>
 			<unit type="area-acre">
 				<displayName>აკრი</displayName>
 				<unitPattern count="one">{0} აკრი</unitPattern>
@@ -6530,6 +6704,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>სმ²</displayName>
 				<unitPattern count="one">{0} სმ²</unitPattern>
 				<unitPattern count="other">{0} სმ²</unitPattern>
+				<perUnitPattern>{0}/სმ²</perUnitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>ფუტი²</displayName>
@@ -6540,6 +6715,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>დუიმი²</displayName>
 				<unitPattern count="one">{0} დუიმი²</unitPattern>
 				<unitPattern count="other">{0} დუიმი²</unitPattern>
+				<perUnitPattern>{0}/დუიმი²</perUnitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>კმ²</displayName>
@@ -6550,6 +6726,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>მ²</displayName>
 				<unitPattern count="one">{0} მ²</unitPattern>
 				<unitPattern count="other">{0} მ²</unitPattern>
+				<perUnitPattern>{0}/მ²</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>მილი²</displayName>
@@ -6560,6 +6737,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>იარდი²</displayName>
 				<unitPattern count="one">{0} იარდი²</unitPattern>
 				<unitPattern count="other">{0} იარდი²</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>ლ/100კმ</displayName>
+				<unitPattern count="one">{0} ლ/100კმ</unitPattern>
+				<unitPattern count="other">{0} ლ/100კმ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ლიტრი/კმ</displayName>
@@ -6621,10 +6803,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ტბაიტი</unitPattern>
 				<unitPattern count="other">{0} ტბაიტი</unitPattern>
 			</unit>
+			<unit type="duration-century">
+				<displayName>ს.</displayName>
+				<unitPattern count="one">{0} ს.</unitPattern>
+				<unitPattern count="other">{0} ს.</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>დღე</displayName>
 				<unitPattern count="one">{0} დღე</unitPattern>
 				<unitPattern count="other">{0} დღე</unitPattern>
+				<perUnitPattern>{0}/დღე</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>სთ</displayName>
@@ -6646,11 +6834,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>წთ</displayName>
 				<unitPattern count="one">{0} წთ</unitPattern>
 				<unitPattern count="other">{0} წთ</unitPattern>
+				<perUnitPattern>{0}/წთ</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>თვე</displayName>
 				<unitPattern count="one">{0} თვე</unitPattern>
 				<unitPattern count="other">{0} თვე</unitPattern>
+				<perUnitPattern>{0}/თვე</perUnitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>ნწმ</displayName>
@@ -6667,11 +6857,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>კვრ</displayName>
 				<unitPattern count="one">{0} კვრ</unitPattern>
 				<unitPattern count="other">{0} კვრ</unitPattern>
+				<perUnitPattern>{0}/კვრ</perUnitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>წ</displayName>
 				<unitPattern count="one">{0} წ</unitPattern>
 				<unitPattern count="other">{0} წ</unitPattern>
+				<perUnitPattern>{0}/წ</perUnitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>ამპ</displayName>
@@ -6752,6 +6944,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>სმ</displayName>
 				<unitPattern count="one">{0} სმ</unitPattern>
 				<unitPattern count="other">{0} სმ</unitPattern>
+				<perUnitPattern>{0}/სმ</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName>დმ</displayName>
@@ -6762,16 +6955,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ფტ</displayName>
 				<unitPattern count="one">{0} ფტ</unitPattern>
 				<unitPattern count="other">{0} ფტ</unitPattern>
+				<perUnitPattern>{0}/ფტ</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName>დუიმი</displayName>
 				<unitPattern count="one">{0} დუიმი</unitPattern>
 				<unitPattern count="other">{0} დუიმი</unitPattern>
+				<perUnitPattern>{0}/დუიმი</perUnitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>კმ</displayName>
 				<unitPattern count="one">{0} კმ</unitPattern>
 				<unitPattern count="other">{0} კმ</unitPattern>
+				<perUnitPattern>{0}/კმ</perUnitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>სწ</displayName>
@@ -6782,6 +6978,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>მ</displayName>
 				<unitPattern count="one">{0} მ</unitPattern>
 				<unitPattern count="other">{0} მ</unitPattern>
+				<perUnitPattern>{0}/მ</perUnitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>მკმ</displayName>
@@ -6792,6 +6989,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>მილი</displayName>
 				<unitPattern count="one">{0} მილი</unitPattern>
 				<unitPattern count="other">{0} მილი</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>სკანდ. მილი</displayName>
+				<unitPattern count="one">{0} სკანდ. მილი</unitPattern>
+				<unitPattern count="other">{0} სკანდ. მილი</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>მმ</displayName>
@@ -6837,11 +7039,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>გრამი</displayName>
 				<unitPattern count="one">{0} გ</unitPattern>
 				<unitPattern count="other">{0} გ</unitPattern>
+				<perUnitPattern>{0}/გ</perUnitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>კილოგრამი</displayName>
 				<unitPattern count="one">{0} კგ</unitPattern>
 				<unitPattern count="other">{0} კგ</unitPattern>
+				<perUnitPattern>{0}/კგ</perUnitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>მტ</displayName>
@@ -6862,6 +7066,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>უნცია</displayName>
 				<unitPattern count="one">{0} უნც</unitPattern>
 				<unitPattern count="other">{0} უნც</unitPattern>
+				<perUnitPattern>{0}/უნც</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>ტრუას უნცია</displayName>
@@ -6872,6 +7077,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ფუნტი</displayName>
 				<unitPattern count="one">{0} ფნტ</unitPattern>
 				<unitPattern count="other">{0} ფნტ</unitPattern>
+				<perUnitPattern>{0}/ფნტ</perUnitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>ტონა</displayName>
@@ -6943,6 +7149,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} კმ/სთ</unitPattern>
 				<unitPattern count="other">{0} კმ/სთ</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>კვძ.</displayName>
+				<unitPattern count="one">{0} კვძ.</unitPattern>
+				<unitPattern count="other">{0} კვძ.</unitPattern>
+			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>მ/წმ</displayName>
 				<unitPattern count="one">{0} მ/წმ</unitPattern>
@@ -6963,6 +7174,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
 				<unitPattern count="one">{0} K</unitPattern>
@@ -6982,6 +7198,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>სმ³</displayName>
 				<unitPattern count="one">{0} სმ³</unitPattern>
 				<unitPattern count="other">{0} სმ³</unitPattern>
+				<perUnitPattern>{0}/სმ³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>ფუტი³</displayName>
@@ -7002,6 +7219,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>მ³</displayName>
 				<unitPattern count="one">{0} მ³</unitPattern>
 				<unitPattern count="other">{0} მ³</unitPattern>
+				<perUnitPattern>{0}/მ³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>კუბური მილი</displayName>
@@ -7018,6 +7236,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ჭიქა</unitPattern>
 				<unitPattern count="other">{0} ჭიქა</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>მეტრ. ჭიქა</displayName>
+				<unitPattern count="one">{0} მეტრ. ჭიქა</unitPattern>
+				<unitPattern count="other">{0} მეტრ. ჭიქა</unitPattern>
+			</unit>
 			<unit type="volume-deciliter">
 				<displayName>დლ</displayName>
 				<unitPattern count="one">{0} დლ</unitPattern>
@@ -7032,6 +7255,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>გალონი</displayName>
 				<unitPattern count="one">{0} გალონი</unitPattern>
 				<unitPattern count="other">{0} გალონი</unitPattern>
+				<perUnitPattern>{0}/გალონი</perUnitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>ჰლ</displayName>
@@ -7042,6 +7266,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ლიტრი</displayName>
 				<unitPattern count="one">{0} ლ</unitPattern>
 				<unitPattern count="other">{0} ლ</unitPattern>
+				<perUnitPattern>{0}/ლ</perUnitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>მეგალ.</displayName>
@@ -7058,6 +7283,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} პინტა</unitPattern>
 				<unitPattern count="other">{0} პინტა</unitPattern>
 			</unit>
+			<unit type="volume-pint-metric">
+				<displayName>მეტრ. პინტა</displayName>
+				<unitPattern count="one">{0} მეტრ. პინტა</unitPattern>
+				<unitPattern count="other">{0} მეტრ. პინტა</unitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>კვარტა</displayName>
 				<unitPattern count="one">{0} კვარტა</unitPattern>
@@ -7073,6 +7303,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ჩ. კოვზი</unitPattern>
 				<unitPattern count="other">{0} ჩ. კოვზი</unitPattern>
 			</unit>
+			<unit type="volume-teaspoon-au">
+				<displayName>ავსტრ. ჩ.კ.</displayName>
+				<unitPattern count="one">{0} ავსტრ. ჩ.კ.</unitPattern>
+				<unitPattern count="other">{0} ავსტრ. ჩ.კ.</unitPattern>
+			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east">{0}აღმ.</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0}ჩრდ.</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} სამხრ.</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} დას.</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -7117,6 +7358,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-mile">
 				<unitPattern count="one">{0} მილი²</unitPattern>
 				<unitPattern count="other">{0} მილი²</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>ლ/100კმ</displayName>
+				<unitPattern count="one">{0}ლ/100კმ</unitPattern>
+				<unitPattern count="other">{0}ლ/100კმ</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>დღე</displayName>
@@ -7279,6 +7525,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}ლ</unitPattern>
 				<unitPattern count="other">{0}ლ</unitPattern>
 			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east">{0}აღმ.</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0}ჩრდ.</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} სამხრ.</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} დას.</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<durationUnit type="hm">
 			<durationUnitPattern>h:mm</durationUnitPattern>
@@ -7323,4 +7575,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

@@ -10,11 +10,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$"/>
 		<language type="bgn"/>
 	</identity>
-    	<localeDisplayNames>
-        	<languages>
-            		<language type="bgn">بلوچی رخشانی</language>
-        	</languages>
-    	</localeDisplayNames>
+	<localeDisplayNames>
+		<languages>
+			<language type="bgn">بلوچی رخشانی</language>
+		</languages>
+	</localeDisplayNames>
 	<layout>
 		<orientation>
 			<characterOrder>right-to-left</characterOrder>
@@ -25,6 +25,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<exemplarCharacters>[ا آ ب پ ت ٹ ث ج چ ح خ د ڈ ر ڑ ز ژ س ش ص ض ط ظ غ ف ق ک گ ل م ن و ۆ ھ ئ ی ێ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200C ؤ]</exemplarCharacters>
 		<exemplarCharacters type="index">[ا آ ب پ ت ٹ ث ج چ ح خ د ڈ ر ڑ ز ژ س ش ص ض ط ظ غ ف ق ک گ ل م ن و ۆ ھ ئ ی ێ]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[‐ – — ، ؛ : ! ؟ . … ‘ &quot; ’ ′ ″ “ " ” ( ) \[ \] \\ @ \&amp; # § † ‡ * « »]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[‐ – — ، ؛ : ! ؟ . … ‘ &quot; ’ ′ ″ “ &quot; ” ( ) \[ \] \\ @ \&amp; # § † ‡ * « »]</exemplarCharacters>
 	</characters>
+	<numbers>
+		<defaultNumberingSystem draft="contributed">arabext</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">arabext</native>
+		</otherNumberingSystems>
+	</numbers>
 </ldml>

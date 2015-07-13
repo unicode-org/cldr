@@ -50,6 +50,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ay">aymara</language>
 			<language type="az">azerbajdžanski</language>
 			<language type="az" alt="short">azerski</language>
+			<language type="azb" draft="contributed">južnoazerbajdžanski</language>
 			<language type="ba">baškirski</language>
 			<language type="bal">baluchi</language>
 			<language type="ban">balinezijski</language>
@@ -62,6 +63,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="bez">bena</language>
 			<language type="bfd" draft="contributed">bafut</language>
 			<language type="bg">bugarski</language>
+			<language type="bgn" draft="contributed">zapadnobaludžijski</language>
 			<language type="bho">bhojpuri</language>
 			<language type="bi">bislama</language>
 			<language type="bik">bikol</language>
@@ -289,6 +291,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="lo">laoski</language>
 			<language type="lol">mongo</language>
 			<language type="loz">lozi</language>
+			<language type="lrc" draft="contributed">sjevernolurski</language>
 			<language type="lt">litavski</language>
 			<language type="lu">luba-katanga</language>
 			<language type="lua">luba-lulua</language>
@@ -337,12 +340,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="my">burmanski</language>
 			<language type="mye" draft="contributed">myene</language>
 			<language type="myv">mordvinski</language>
+			<language type="mzn" draft="contributed">mazanderanski</language>
 			<language type="na">nauru</language>
 			<language type="nap">napolitanski</language>
 			<language type="naq">nama</language>
 			<language type="nb">književni norveški</language>
 			<language type="nd">sjeverni ndebele</language>
 			<language type="nds">donjonjemački</language>
+			<language type="nds_NL" draft="contributed">donjosaksonski</language>
 			<language type="ne">nepalski</language>
 			<language type="new">newari</language>
 			<language type="ng">ndonga</language>
@@ -420,6 +425,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="scn">sicilijski</language>
 			<language type="sco">škotski</language>
 			<language type="sd">sindhi</language>
+			<language type="sdh" draft="contributed">južnokurdski</language>
 			<language type="se">južni sami</language>
 			<language type="see" draft="contributed">seneca</language>
 			<language type="seh">sena</language>
@@ -513,6 +519,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="wal">walamo</language>
 			<language type="war">waray</language>
 			<language type="was">washo</language>
+			<language type="wbp" draft="contributed">warlpiri</language>
 			<language type="wo">wolof</language>
 			<language type="xal">kalmyk</language>
 			<language type="xh">xhosa</language>
@@ -761,7 +768,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="BM">Bermuda</territory>
 			<territory type="BN">Brunej</territory>
 			<territory type="BO">Bolivija</territory>
-			<territory type="BQ" draft="contributed">Karipski otoci Nizozemske</territory>
+			<territory type="BQ">Karipski otoci Nizozemske</territory>
 			<territory type="BR">Brazil</territory>
 			<territory type="BS">Bahami</territory>
 			<territory type="BT">Butan</territory>
@@ -957,7 +964,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="SS">Južni Sudan</territory>
 			<territory type="ST">Sveti Toma i Princip</territory>
 			<territory type="SV">Salvador</territory>
-			<territory type="SX" draft="contributed">Sint Maarten</territory>
+			<territory type="SX">Sint Maarten</territory>
 			<territory type="SY">Sirija</territory>
 			<territory type="SZ">Svazi</territory>
 			<territory type="TA">Tristan da Cunha</territory>
@@ -969,6 +976,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="TJ">Tadžikistan</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Istočni Timor</territory>
+			<territory type="TL" alt="variant">Istočni Timor</territory>
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunis</territory>
 			<territory type="TO">Tonga</territory>
@@ -1054,6 +1062,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colNumeric" draft="contributed">Numeričko poredavanje</key>
 			<key type="colStrength" draft="contributed">Jačina poredavanja</key>
 			<key type="currency">valuta</key>
+			<key type="hc" draft="contributed">format vremena (12 ili 24)</key>
+			<key type="lb" draft="contributed">stil prijeloma retka</key>
+			<key type="ms" draft="contributed">sustav mjernih jedinica</key>
 			<key type="numbers">brojevi</key>
 			<key type="timezone" draft="contributed">Vremenska zona</key>
 			<key type="va" draft="contributed">Varijanta zemlje/jezika</key>
@@ -1086,6 +1097,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="greklow" key="numbers">mali grčki brojevi</type>
 			<type type="gujr" key="numbers">gudžaratske znamenke</type>
 			<type type="guru" key="numbers">znamenke pisma gurmukhi</type>
+			<type type="h11" key="hc" draft="contributed">12-satni format (0-11)</type>
+			<type type="h12" key="hc" draft="contributed">12-satni format (1-12)</type>
+			<type type="h23" key="hc" draft="contributed">24-satni format (0-23)</type>
+			<type type="h24" key="hc" draft="contributed">24-satni format (1-24)</type>
 			<type type="hanidec" key="numbers">kineski decimalni brojevi</type>
 			<type type="hans" key="numbers">pojednostavljeni kineski brojevi</type>
 			<type type="hansfin" key="numbers">pojednostavljeni kineski financijski brojevi</type>
@@ -1105,7 +1120,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="knda" key="numbers">znamenke pisma kannada</type>
 			<type type="laoo" key="numbers">laoske znamenke</type>
 			<type type="latn" key="numbers">arapski brojevi</type>
+			<type type="loose" key="lb" draft="contributed">slobodni stil prijeloma retka</type>
 			<type type="lower" key="colCaseFirst" draft="contributed">Prvo poredaj mala slova</type>
+			<type type="metric" key="ms" draft="contributed">metrički sustav</type>
 			<type type="mlym" key="numbers">malajalamske znamenke</type>
 			<type type="mong" key="numbers">Mongolske znamenke</type>
 			<type type="mymr" key="numbers">mijanmarske znamenke</type>
@@ -1117,6 +1134,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="no" key="colNormalization" draft="contributed">Poredaj bez normalizacije</type>
 			<type type="no" key="colNumeric" draft="contributed">Poredaj znamenke pojedinačno</type>
 			<type type="non-ignorable" key="colAlternate" draft="contributed">Poredaj simbole</type>
+			<type type="normal" key="lb" draft="contributed">normalni stil prijeloma retka</type>
 			<type type="orya" key="numbers">orijske znamenke</type>
 			<type type="persian" key="calendar">perzijski kalendar</type>
 			<type type="phonebook" key="collation">razvrstavanje po abecedi</type>
@@ -1132,7 +1150,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="searchjl" key="collation" draft="contributed">Pretraživanje po početnom suglasniku hangula</type>
 			<type type="secondary" key="colStrength" draft="contributed">Poredaj po naglasku</type>
 			<type type="shifted" key="colAlternate" draft="contributed">Poredaj zanemarujući simbole</type>
-			<type type="standard" key="collation">Standardno razvrstavanje</type>
+			<type type="standard" key="collation">standardno razvrstavanje</type>
+			<type type="strict" key="lb" draft="contributed">strogi stil prijeloma retka</type>
 			<type type="stroke" key="collation">razvrstavanje po redoslijedu poteza za kineski</type>
 			<type type="taml" key="numbers">tamilski brojevi</type>
 			<type type="tamldec" key="numbers">tamilske znamenke</type>
@@ -1142,8 +1161,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="tibt" key="numbers">tibetske znamenke</type>
 			<type type="traditional" key="collation">tradicionalno razvrstavanje</type>
 			<type type="traditional" key="numbers" draft="contributed">Tradicionalni brojevi</type>
+			<type type="uksystem" key="ms" draft="contributed">imperijalni sustav mjera</type>
 			<type type="unihan" key="collation">razvrstavanje prema korijenu i potezu</type>
 			<type type="upper" key="colCaseFirst" draft="contributed">Poredaj prvo velika slova</type>
+			<type type="ussystem" key="ms" draft="contributed">američki sustav mjera</type>
 			<type type="vaii" key="numbers" draft="contributed">Vai znamenke</type>
 			<type type="yes" key="colBackwards" draft="contributed">Poredaj naglaske obrnuto</type>
 			<type type="yes" key="colCaseLevel" draft="contributed">Poredaj u skladu s veličinom slova</type>
@@ -1389,7 +1410,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d. M. y. G</pattern>
+							<pattern>d. MMM y. G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1401,12 +1422,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern draft="contributed">{1} {0}</pattern>
+							<pattern>{1} 'u' {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern draft="contributed">{1} {0}</pattern>
+							<pattern>{1} 'u' {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1421,6 +1442,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d.</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
 						<dateFormatItem id="Gy">y. G</dateFormatItem>
 						<dateFormatItem id="GyMMM">LLL y. G</dateFormatItem>
@@ -1502,7 +1524,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">E, dd.MM. – E, dd.MM.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
-							<greatestDifference id="M">LLL–LLL</greatestDifference>
+							<greatestDifference id="M">LLL – LLL</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
 							<greatestDifference id="d">d. – d. MMM</greatestDifference>
@@ -1530,7 +1552,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y">E, dd.MM.y. – E, dd.MM.y. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">LLL–LLL y. G</greatestDifference>
+							<greatestDifference id="M">LLL – LLL y. G</greatestDifference>
 							<greatestDifference id="y">LLL y. – LLL y. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
@@ -1764,13 +1786,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight" draft="contributed">ponoć</dayPeriod>
 							<dayPeriod type="noon" draft="contributed">podne</dayPeriod>
-							<dayPeriod type="morning1" draft="provisional">ujutro</dayPeriod>
-							<dayPeriod type="afternoon1" draft="provisional">popodne</dayPeriod>
-							<dayPeriod type="evening1" draft="provisional">navečer</dayPeriod>
-							<dayPeriod type="night1" draft="provisional">noću</dayPeriod>
+							<dayPeriod type="morning1" draft="contributed">ujutro</dayPeriod>
+							<dayPeriod type="afternoon1" draft="contributed">popodne</dayPeriod>
+							<dayPeriod type="evening1" draft="contributed">navečer</dayPeriod>
+							<dayPeriod type="night1" draft="contributed">noću</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight" draft="contributed">ponoć</dayPeriod>
 							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="noon">P</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
@@ -1780,17 +1804,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<dayPeriod type="night1" draft="contributed">noću</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight" draft="contributed">ponoć</dayPeriod>
 							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="noon">podne</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="morning1" draft="contributed">ujutro</dayPeriod>
+							<dayPeriod type="afternoon1" draft="contributed">poslije podne</dayPeriod>
+							<dayPeriod type="evening1" draft="contributed">navečer</dayPeriod>
+							<dayPeriod type="night1" draft="contributed">noću</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="contributed">AM</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">PM</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="contributed">AM</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">PM</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">ponoć</dayPeriod>
-							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
+							<dayPeriod type="am" draft="contributed">AM</dayPeriod>
 							<dayPeriod type="noon">podne</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">PM</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">PM</dayPeriod>
 							<dayPeriod type="morning1">jutro</dayPeriod>
 							<dayPeriod type="afternoon1">popodne</dayPeriod>
 							<dayPeriod type="evening1">večer</dayPeriod>
@@ -1800,9 +1837,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<era type="0">Prije Krista</era>
+						<era type="0">prije Krista</era>
 						<era type="0" alt="variant">pr. n. e.</era>
-						<era type="1">Poslije Krista</era>
+						<era type="1">poslije Krista</era>
 						<era type="1" alt="variant">n.e.</era>
 					</eraNames>
 					<eraAbbr>
@@ -1899,6 +1936,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="contributed">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="contributed">HH:mm:ss v</dateFormatItem>
+						<dateFormatItem id="hmv" draft="contributed">h:mm a v</dateFormatItem>
+						<dateFormatItem id="Hmv" draft="contributed">HH:mm v</dateFormatItem>
 						<dateFormatItem id="M">L.</dateFormatItem>
 						<dateFormatItem id="Md">dd.MM.</dateFormatItem>
 						<dateFormatItem id="MEd">E, dd.MM.</dateFormatItem>
@@ -1925,7 +1966,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<appendItem request="Timezone">{0} {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">dd. – dd.</greatestDifference>
 						</intervalFormatItem>
@@ -1934,7 +1975,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="h">h – h'h' a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H">HH–HH'h'</greatestDifference>
+							<greatestDifference id="H">HH – HH 'h'</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
@@ -2698,10 +2739,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</calendars>
 		<fields>
 			<field type="era">
-				<displayName>Era</displayName>
+				<displayName>era</displayName>
 			</field>
 			<field type="year">
-				<displayName>Godina</displayName>
+				<displayName>godina</displayName>
 				<relative type="-1">prošle godine</relative>
 				<relative type="0">ove godine</relative>
 				<relative type="1">sljedeće godine</relative>
@@ -2718,6 +2759,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year-short">
 				<displayName>g.</displayName>
+				<relative type="-1">prošle god.</relative>
+				<relative type="0">ove god.</relative>
+				<relative type="1">sljedeće god.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} g.</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} g.</relativeTimePattern>
@@ -2731,6 +2775,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year-narrow">
 				<displayName>g.</displayName>
+				<relative type="-1">prošle g.</relative>
+				<relative type="0">ove g.</relative>
+				<relative type="1">sljedeće g.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} g.</relativeTimePattern>
 					<relativeTimePattern count="few">+{0} g.</relativeTimePattern>
@@ -2743,7 +2790,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="quarter">
-				<displayName>Kvartal</displayName>
+				<displayName>kvartal</displayName>
+				<relative type="-1">prošli kvartal</relative>
+				<relative type="0">ovaj kvartal</relative>
+				<relative type="1">sljedeći kvartal</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} kvartal</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} kvartala</relativeTimePattern>
@@ -2757,6 +2807,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="quarter-short">
 				<displayName>kv.</displayName>
+				<relative type="-1">prošli kv.</relative>
+				<relative type="0">ovaj kv.</relative>
+				<relative type="1">sljedeći kv.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} kv.</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} kv.</relativeTimePattern>
@@ -2770,6 +2823,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="quarter-narrow">
 				<displayName>kv.</displayName>
+				<relative type="-1">prošli kv.</relative>
+				<relative type="0">ovaj kv.</relative>
+				<relative type="1">sljedeći kv.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} kv.</relativeTimePattern>
 					<relativeTimePattern count="few">+{0} kv.</relativeTimePattern>
@@ -2782,7 +2838,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="month">
-				<displayName>Mjesec</displayName>
+				<displayName>mjesec</displayName>
 				<relative type="-1">prošli mjesec</relative>
 				<relative type="0">ovaj mjesec</relative>
 				<relative type="1">sljedeći mjesec</relative>
@@ -2799,6 +2855,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="month-short">
 				<displayName>mj.</displayName>
+				<relative type="-1">prošli mj.</relative>
+				<relative type="0">ovaj mj.</relative>
+				<relative type="1">sljedeći mj.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} mj.</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} mj.</relativeTimePattern>
@@ -2812,6 +2871,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="month-narrow">
 				<displayName>m.</displayName>
+				<relative type="-1">prošli mj.</relative>
+				<relative type="0">ovaj mj.</relative>
+				<relative type="1">sljedeći mj.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} mj.</relativeTimePattern>
 					<relativeTimePattern count="few">+{0} mj.</relativeTimePattern>
@@ -2824,7 +2886,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="week">
-				<displayName>Tjedan</displayName>
+				<displayName>tjedan</displayName>
 				<relative type="-1">prošli tjedan</relative>
 				<relative type="0">ovaj tjedan</relative>
 				<relative type="1">sljedeći tjedan</relative>
@@ -2841,6 +2903,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="week-short">
 				<displayName>tj.</displayName>
+				<relative type="-1">prošli tj.</relative>
+				<relative type="0">ovaj tj.</relative>
+				<relative type="1">sljedeći tj.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} tj.</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} tj.</relativeTimePattern>
@@ -2854,6 +2919,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="week-narrow">
 				<displayName>tj.</displayName>
+				<relative type="-1">prošli tj.</relative>
+				<relative type="0">ovaj tj.</relative>
+				<relative type="1">sljedeći tj.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} tj.</relativeTimePattern>
 					<relativeTimePattern count="few">+{0} tj.</relativeTimePattern>
@@ -2866,7 +2934,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="day">
-				<displayName>Dan</displayName>
+				<displayName>dan</displayName>
 				<relative type="-2">prekjučer</relative>
 				<relative type="-1">jučer</relative>
 				<relative type="0">danas</relative>
@@ -2885,6 +2953,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-short">
 				<displayName>d.</displayName>
+				<relative type="-2">prekjučer</relative>
+				<relative type="2">prekosutra</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} dan</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} dana</relativeTimePattern>
@@ -2898,6 +2968,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-narrow">
 				<displayName>d.</displayName>
+				<relative type="-2">prekjučer</relative>
+				<relative type="2">prekosutra</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} d</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} d</relativeTimePattern>
@@ -2910,7 +2982,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="weekday">
-				<displayName>Dan u tjednu</displayName>
+				<displayName>dan u tjednu</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">prošla nedjelja</relative>
@@ -3021,7 +3093,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>AM/PM</displayName>
 			</field>
 			<field type="hour">
-				<displayName>Sat</displayName>
+				<displayName>sat</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} sat</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} sata</relativeTimePattern>
@@ -3060,7 +3132,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="minute">
-				<displayName>Minuta</displayName>
+				<displayName>minuta</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} minutu</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} minute</relativeTimePattern>
@@ -3099,7 +3171,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="second">
-				<displayName>Sekunda</displayName>
+				<displayName>sekunda</displayName>
 				<relative type="0">sada</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} sekundu</relativeTimePattern>
@@ -3139,7 +3211,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="zone">
-				<displayName>Vremenska zona</displayName>
+				<displayName>vremenska zona</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
@@ -4017,6 +4089,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Pacific/Port_Moresby">
 				<exemplarCity>Port Moresby</exemplarCity>
 			</zone>
+			<zone type="Pacific/Bougainville">
+				<exemplarCity draft="contributed">Bougainville</exemplarCity>
+			</zone>
 			<zone type="Asia/Manila">
 				<exemplarCity>Manila</exemplarCity>
 			</zone>
@@ -4101,6 +4176,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Irkutsk">
 				<exemplarCity>Irkutsk</exemplarCity>
 			</zone>
+			<zone type="Asia/Chita">
+				<exemplarCity draft="contributed">Chita</exemplarCity>
+			</zone>
 			<zone type="Asia/Yakutsk">
 				<exemplarCity>Jakutsk</exemplarCity>
 			</zone>
@@ -4118,6 +4196,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Asia/Magadan">
 				<exemplarCity>Magadan</exemplarCity>
+			</zone>
+			<zone type="Asia/Srednekolymsk">
+				<exemplarCity draft="contributed">Srednekolimsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>Kamčatka</exemplarCity>
@@ -5507,42 +5588,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one" draft="provisional">0 tis'.' ¤</pattern>
-					<pattern type="1000" count="few" draft="provisional">0 tis'.' ¤</pattern>
-					<pattern type="1000" count="other" draft="provisional">0 tis'.' ¤</pattern>
-					<pattern type="10000" count="one" draft="provisional">00 tis'.' ¤</pattern>
-					<pattern type="10000" count="few" draft="provisional">00 tis'.' ¤</pattern>
-					<pattern type="10000" count="other" draft="provisional">00 tis'.' ¤</pattern>
-					<pattern type="100000" count="one" draft="provisional">000 tis'.' ¤</pattern>
-					<pattern type="100000" count="few" draft="provisional">000 tis'.' ¤</pattern>
-					<pattern type="100000" count="other" draft="provisional">000 tis'.' ¤</pattern>
-					<pattern type="1000000" count="one" draft="provisional">0 mil'.' ¤</pattern>
-					<pattern type="1000000" count="few" draft="provisional">0 mil'.' ¤</pattern>
-					<pattern type="1000000" count="other" draft="provisional">0 mil'.' ¤</pattern>
-					<pattern type="10000000" count="one" draft="provisional">00 mil'.' ¤</pattern>
-					<pattern type="10000000" count="few" draft="provisional">00 mil'.' ¤</pattern>
-					<pattern type="10000000" count="other" draft="provisional">00 mil'.' ¤</pattern>
-					<pattern type="100000000" count="one" draft="provisional">000 mil'.' ¤</pattern>
-					<pattern type="100000000" count="few" draft="provisional">000 mil'.' ¤</pattern>
-					<pattern type="100000000" count="other" draft="provisional">000 mil'.' ¤</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">0 mlr'.' ¤</pattern>
-					<pattern type="1000000000" count="few" draft="provisional">0 mlr'.' ¤</pattern>
-					<pattern type="1000000000" count="other" draft="provisional">0 mlr'.' ¤</pattern>
-					<pattern type="10000000000" count="one" draft="provisional">00 mlr'.' ¤</pattern>
-					<pattern type="10000000000" count="few" draft="provisional">00 mlr'.' ¤</pattern>
-					<pattern type="10000000000" count="other" draft="provisional">00 mlr'.' ¤</pattern>
-					<pattern type="100000000000" count="one" draft="provisional">000 mlr'.' ¤</pattern>
-					<pattern type="100000000000" count="few" draft="provisional">000 mlr'.' ¤</pattern>
-					<pattern type="100000000000" count="other" draft="provisional">000 mlr'.' ¤</pattern>
-					<pattern type="1000000000000" count="one" draft="provisional">0 bil'.' ¤</pattern>
-					<pattern type="1000000000000" count="few" draft="provisional">0 bil'.' ¤</pattern>
-					<pattern type="1000000000000" count="other" draft="provisional">0 bil'.' ¤</pattern>
-					<pattern type="10000000000000" count="one" draft="provisional">00 bil'.' ¤</pattern>
-					<pattern type="10000000000000" count="few" draft="provisional">00 bil'.' ¤</pattern>
-					<pattern type="10000000000000" count="other" draft="provisional">00 bil'.' ¤</pattern>
-					<pattern type="100000000000000" count="one" draft="provisional">000 bil'.' ¤</pattern>
-					<pattern type="100000000000000" count="few" draft="provisional">000 bil'.' ¤</pattern>
-					<pattern type="100000000000000" count="other" draft="provisional">000 bil'.' ¤</pattern>
+					<pattern type="1000" count="one" draft="contributed">0000¤</pattern>
+					<pattern type="1000" count="few" draft="contributed">0000¤</pattern>
+					<pattern type="1000" count="other" draft="contributed">0000¤</pattern>
+					<pattern type="10000" count="one" draft="contributed">00 tis'.' ¤</pattern>
+					<pattern type="10000" count="few" draft="contributed">00 tis'.' ¤</pattern>
+					<pattern type="10000" count="other" draft="contributed">00 tis'.' ¤</pattern>
+					<pattern type="100000" count="one" draft="contributed">000 tis'.' ¤</pattern>
+					<pattern type="100000" count="few" draft="contributed">000 tis'.' ¤</pattern>
+					<pattern type="100000" count="other" draft="contributed">000 tis'.' ¤</pattern>
+					<pattern type="1000000" count="one" draft="contributed">0 mil'.' ¤</pattern>
+					<pattern type="1000000" count="few" draft="contributed">0 mil'.' ¤</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0 mil'.' ¤</pattern>
+					<pattern type="10000000" count="one" draft="contributed">00 mil'.' ¤</pattern>
+					<pattern type="10000000" count="few" draft="contributed">00 mil'.' ¤</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00 mil'.' ¤</pattern>
+					<pattern type="100000000" count="one" draft="contributed">000 mil'.' ¤</pattern>
+					<pattern type="100000000" count="few" draft="contributed">000 mil'.' ¤</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000 mil'.' ¤</pattern>
+					<pattern type="1000000000" count="one" draft="contributed">0 mlr'.' ¤</pattern>
+					<pattern type="1000000000" count="few" draft="contributed">0 mlr'.' ¤</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0 mlr'.' ¤</pattern>
+					<pattern type="10000000000" count="one" draft="contributed">00 mlr'.' ¤</pattern>
+					<pattern type="10000000000" count="few" draft="contributed">00 mlr'.' ¤</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00 mlr'.' ¤</pattern>
+					<pattern type="100000000000" count="one" draft="contributed">000 mlr'.' ¤</pattern>
+					<pattern type="100000000000" count="few" draft="contributed">000 mlr'.' ¤</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000 mlr'.' ¤</pattern>
+					<pattern type="1000000000000" count="one" draft="contributed">0 bil'.' ¤</pattern>
+					<pattern type="1000000000000" count="few" draft="contributed">0 bil'.' ¤</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0 bil'.' ¤</pattern>
+					<pattern type="10000000000000" count="one" draft="contributed">00 bil'.' ¤</pattern>
+					<pattern type="10000000000000" count="few" draft="contributed">00 bil'.' ¤</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00 bil'.' ¤</pattern>
+					<pattern type="100000000000000" count="one" draft="contributed">000 bil'.' ¤</pattern>
+					<pattern type="100000000000000" count="few" draft="contributed">000 bil'.' ¤</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000 bil'.' ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>
@@ -5612,6 +5693,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">angolske kvanze</displayName>
 				<displayName count="other">angolskih kvanzi</displayName>
 				<symbol>AOA</symbol>
+				<symbol alt="narrow" draft="contributed">Kz</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>angolska kvanza (1977.–1990.)</displayName>
@@ -5719,6 +5801,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">konvertibilne marke</displayName>
 				<displayName count="other">konvertibilnih maraka</displayName>
 				<symbol>BAM</symbol>
+				<symbol alt="narrow" draft="contributed">KM</symbol>
 			</currency>
 			<currency type="BAN">
 				<displayName draft="contributed">bosansko-hercegovački novi dinar</displayName>
@@ -5828,6 +5911,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">bolivijska bolivijana</displayName>
 				<displayName count="other">bolivijskih bolivijana</displayName>
 				<symbol>BOB</symbol>
+				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="BOL">
 				<displayName draft="contributed">stari bolivijski bolivijano</displayName>
@@ -5928,6 +6012,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">bocvanske pule</displayName>
 				<displayName count="other">bocvanskih pula</displayName>
 				<symbol>BWP</symbol>
+				<symbol alt="narrow" draft="contributed">P</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>bjeloruska nova rublja (1994–1999)</displayName>
@@ -6068,6 +6153,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">kubanska konvertibilna peza</displayName>
 				<displayName count="other">kubanskih konvertibilnih peza</displayName>
 				<symbol>CUC</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>kubanski pezo</displayName>
@@ -6097,6 +6183,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">češke krune</displayName>
 				<displayName count="other">čeških kruna</displayName>
 				<symbol>CZK</symbol>
+				<symbol alt="narrow" draft="contributed">Kč</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>istočnonjemačka marka</displayName>
@@ -6125,6 +6212,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">danske krune</displayName>
 				<displayName count="other">danskih kruna</displayName>
 				<symbol>DKK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>dominikanski pezo</displayName>
@@ -6168,6 +6256,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">egipatske funte</displayName>
 				<displayName count="other">egipatskih funti</displayName>
 				<symbol>EGP</symbol>
+				<symbol alt="narrow" draft="contributed">E£</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>eritrejska nakfa</displayName>
@@ -6234,6 +6323,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">falklandske funte</displayName>
 				<displayName count="other">falklandskih funti</displayName>
 				<symbol>FKP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>francuski franak</displayName>
@@ -6263,6 +6353,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">gruzijska lara</displayName>
 				<displayName count="other">gruzijskih lara</displayName>
 				<symbol>GEL</symbol>
+				<symbol alt="variant" draft="contributed">₾</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>ganski cedi (1979.–2007.)</displayName>
@@ -6299,6 +6390,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">gvinejska franka</displayName>
 				<displayName count="other">gvinejskih franaka</displayName>
 				<symbol>GNF</symbol>
+				<symbol alt="narrow" draft="contributed">FG</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>gvinejski syli</displayName>
@@ -6327,6 +6419,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">gvatemalska kvecala</displayName>
 				<displayName count="other">gvatemalskih kvecala</displayName>
 				<symbol>GTQ</symbol>
+				<symbol alt="narrow" draft="contributed">Q</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>portugalski gvinejski eskudo</displayName>
@@ -6364,6 +6457,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">honduraške lempire</displayName>
 				<displayName count="other">honduraških lempira</displayName>
 				<symbol>HNL</symbol>
+				<symbol alt="narrow" draft="contributed">L</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>hrvatski dinar</displayName>
@@ -6378,6 +6472,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">hrvatske kune</displayName>
 				<displayName count="other">hrvatskih kuna</displayName>
 				<symbol>HRK</symbol>
+				<symbol alt="narrow" draft="contributed">kn</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>haićanski gourd</displayName>
@@ -6392,6 +6487,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">mađarske forinte</displayName>
 				<displayName count="other">mađarskih forinti</displayName>
 				<symbol>HUF</symbol>
+				<symbol alt="narrow" draft="contributed">Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>indonezijska rupija</displayName>
@@ -6399,6 +6495,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">indonezijske rupije</displayName>
 				<displayName count="other">indonezijskih rupija</displayName>
 				<symbol>IDR</symbol>
+				<symbol alt="narrow" draft="contributed">Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>irska funta</displayName>
@@ -6464,6 +6561,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">islandske krune</displayName>
 				<displayName count="other">islandskih kruna</displayName>
 				<symbol>ISK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>talijanska lira</displayName>
@@ -6523,6 +6621,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">komorska franka</displayName>
 				<displayName count="other">komorskih franaka</displayName>
 				<symbol>KMF</symbol>
+				<symbol alt="narrow" draft="contributed">CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>sjevernokorejski won</displayName>
@@ -6530,6 +6629,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">sjevernokorejska wona</displayName>
 				<displayName count="other">sjevernokorejskih wona</displayName>
 				<symbol>KPW</symbol>
+				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KRH">
 				<displayName draft="contributed">južnokorejski hvan</displayName>
@@ -6590,6 +6690,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">libanonske funte</displayName>
 				<displayName count="other">libanonskih funti</displayName>
 				<symbol>LBP</symbol>
+				<symbol alt="narrow" draft="contributed">L£</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>šrilankanska rupija</displayName>
@@ -6597,6 +6698,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">šrilankanske rupije</displayName>
 				<displayName count="other">šrilankanskih rupija</displayName>
 				<symbol>LKR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>liberijski dolar</displayName>
@@ -6710,6 +6812,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">madagaskarska ariarija</displayName>
 				<displayName count="other">madagaskarskih ariarija</displayName>
 				<symbol>MGA</symbol>
+				<symbol alt="narrow" draft="contributed">Ar</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>madagaskarski franak</displayName>
@@ -6745,6 +6848,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">mjanmarska kjata</displayName>
 				<displayName count="other">mjanmarskih kjata</displayName>
 				<symbol>MMK</symbol>
+				<symbol alt="narrow" draft="contributed">K</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>mongolski tugrik</displayName>
@@ -6788,6 +6892,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">mauricijske rupije</displayName>
 				<displayName count="other">mauricijskih rupija</displayName>
 				<symbol>MUR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="MVP">
 				<displayName draft="contributed">maldivijska rupija</displayName>
@@ -6838,6 +6943,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">malezijska ringita</displayName>
 				<displayName count="other">malezijskih ringita</displayName>
 				<symbol>MYR</symbol>
+				<symbol alt="narrow" draft="contributed">RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>mozambijski eskudo</displayName>
@@ -6889,6 +6995,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">nikaragvanske zlatne kordobe</displayName>
 				<displayName count="other">nikaragvanskih zlatnih kordoba</displayName>
 				<symbol>NIO</symbol>
+				<symbol alt="narrow" draft="contributed">C$</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>nizozemski gulden</displayName>
@@ -6903,6 +7010,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">norveške krune</displayName>
 				<displayName count="other">norveških kruna</displayName>
 				<symbol>NOK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>nepalska rupija</displayName>
@@ -6910,6 +7018,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">nepalske rupije</displayName>
 				<displayName count="other">nepalskih rupija</displayName>
 				<symbol>NPR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>novozelandski dolar</displayName>
@@ -6975,6 +7084,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">pakistanske rupije</displayName>
 				<displayName count="other">pakistanskih rupija</displayName>
 				<symbol>PKR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>poljska zlota</displayName>
@@ -6982,6 +7092,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">poljske zlote</displayName>
 				<displayName count="other">poljskih zlota</displayName>
 				<symbol>PLN</symbol>
+				<symbol alt="narrow" draft="contributed">zł</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>poljska zlota (1950.–1995.)</displayName>
@@ -7046,6 +7157,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">ruske rublje</displayName>
 				<displayName count="other">ruskih rublji</displayName>
 				<symbol>RUB</symbol>
+				<symbol alt="narrow" draft="contributed">₽</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>ruska rublja (1991.–1998.)</displayName>
@@ -7061,6 +7173,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">ruandska franka</displayName>
 				<displayName count="other">ruandskih franaka</displayName>
 				<symbol>RWF</symbol>
+				<symbol alt="narrow" draft="contributed">RF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>saudijski rial</displayName>
@@ -7111,6 +7224,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">švedske krune</displayName>
 				<displayName count="other">švedskih kruna</displayName>
 				<symbol>SEK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>singapurski dolar</displayName>
@@ -7126,6 +7240,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">svetohelenske funte</displayName>
 				<displayName count="other">svetohelenskih funti</displayName>
 				<symbol>SHP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>slovenski tolar</displayName>
@@ -7184,6 +7299,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">dobre Svetog Tome i Principa</displayName>
 				<displayName count="other">dobri Svetog Tome i Principa</displayName>
 				<symbol>STD</symbol>
+				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>sovjetska rublja</displayName>
@@ -7205,6 +7321,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">sirijske funte</displayName>
 				<displayName count="other">sirijskih funti</displayName>
 				<symbol>SYP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>svazi lilangeni</displayName>
@@ -7219,6 +7336,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">tajlandska bahta</displayName>
 				<displayName count="other">tajlandskih bahta</displayName>
 				<symbol>THB</symbol>
+				<symbol alt="narrow" draft="contributed">฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>tajikistanska rublja</displayName>
@@ -7261,6 +7379,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">tongaške pa’ange</displayName>
 				<displayName count="other">tongaških pa’angi</displayName>
 				<symbol>TOP</symbol>
+				<symbol alt="narrow" draft="contributed">T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>timorski eskudo</displayName>
@@ -7283,6 +7402,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">turskih lira</displayName>
 				<symbol>TRY</symbol>
 				<symbol alt="narrow" draft="contributed">₺</symbol>
+				<symbol alt="variant" draft="contributed">TL</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>trininadtobaški dolar</displayName>
@@ -7400,6 +7520,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">venezuelanska bolivara</displayName>
 				<displayName count="other">venezuelanskih bolivara</displayName>
 				<symbol>VEF</symbol>
+				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>vijetnamski dong</displayName>
@@ -7485,6 +7606,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">istočnokaripska dolara</displayName>
 				<displayName count="other">istočnokaripskih dolara</displayName>
 				<symbol>XCD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>posebna crtaća prava</displayName>
@@ -7632,6 +7754,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">južnoafrička randa</displayName>
 				<displayName count="other">južnoafričkih randa</displayName>
 				<symbol>ZAR</symbol>
+				<symbol alt="narrow" draft="contributed">R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>zambijska kvača (1968–2012)</displayName>
@@ -7646,6 +7769,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">zambijske kvače</displayName>
 				<displayName count="other">zambijskih kvača</displayName>
 				<symbol>ZMW</symbol>
+				<symbol alt="narrow" draft="contributed">ZK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>zairski novi zair</displayName>
@@ -7729,6 +7853,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} radijana</unitPattern>
 				<unitPattern count="other">{0} radijana</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName draft="contributed">okretaj</displayName>
+				<unitPattern count="one" draft="contributed">{0} okretaj</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} okretaja</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} okretaja</unitPattern>
+			</unit>
 			<unit type="area-acre">
 				<displayName>katastarska jutra</displayName>
 				<unitPattern count="one">{0} katastarsko jutro</unitPattern>
@@ -7738,7 +7868,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-hectare">
 				<displayName>hektari</displayName>
 				<unitPattern count="one">{0} hektar</unitPattern>
-				<unitPattern count="few">{0} hektara</unitPattern>
+				<unitPattern count="few">{0} hektra</unitPattern>
 				<unitPattern count="other">{0} hektara</unitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
@@ -7746,6 +7876,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} kvadratni centimetar</unitPattern>
 				<unitPattern count="few">{0} kvadratna centimetra</unitPattern>
 				<unitPattern count="other">{0} kvadratnih centimetara</unitPattern>
+				<perUnitPattern draft="contributed">{0}/cm²</perUnitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>kvadratne stope</displayName>
@@ -7758,6 +7889,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} kvadratni inč</unitPattern>
 				<unitPattern count="few">{0} kvadratna inča</unitPattern>
 				<unitPattern count="other">{0} kvadratnih inča</unitPattern>
+				<perUnitPattern draft="contributed">{0}/in²</perUnitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>kvadratni kilometri</displayName>
@@ -7770,6 +7902,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} kvadratni metar</unitPattern>
 				<unitPattern count="few">{0} kvadratna metra</unitPattern>
 				<unitPattern count="other">{0} kvadratnih metara</unitPattern>
+				<perUnitPattern draft="contributed">{0}/m²</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>kvadratne milje</displayName>
@@ -7782,6 +7915,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} kvadratni jard</unitPattern>
 				<unitPattern count="few">{0} kvadratna jarda</unitPattern>
 				<unitPattern count="other">{0} kvadratnih jardi</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>litre na 100 kilometara</displayName>
+				<unitPattern count="one">{0} litra na 100 kilometara</unitPattern>
+				<unitPattern count="few">{0} litre na 100 kilometara</unitPattern>
+				<unitPattern count="other">{0} litara na 100 kilometara</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litre po kilometru</displayName>
@@ -7855,11 +7994,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} terabajta</unitPattern>
 				<unitPattern count="other">{0} terabajta</unitPattern>
 			</unit>
+			<unit type="duration-century">
+				<displayName draft="contributed">stoljeća</displayName>
+				<unitPattern count="one" draft="contributed">{0} stoljeće</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} stoljeća</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} stoljeća</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>dani</displayName>
 				<unitPattern count="one">{0} dan</unitPattern>
 				<unitPattern count="few">{0} dana</unitPattern>
 				<unitPattern count="other">{0} dana</unitPattern>
+				<perUnitPattern draft="contributed">{0} dnevno</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>sati</displayName>
@@ -7885,12 +8031,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} minuta</unitPattern>
 				<unitPattern count="few">{0} minute</unitPattern>
 				<unitPattern count="other">{0} minuta</unitPattern>
+				<perUnitPattern draft="contributed">{0}/min</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>mjeseci</displayName>
 				<unitPattern count="one">{0} mjesec</unitPattern>
 				<unitPattern count="few">{0} mjeseca</unitPattern>
 				<unitPattern count="other">{0} mjeseci</unitPattern>
+				<perUnitPattern draft="contributed">{0} mjesečno</perUnitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>nanosekunde</displayName>
@@ -7910,12 +8058,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} tjedan</unitPattern>
 				<unitPattern count="few">{0} tjedna</unitPattern>
 				<unitPattern count="other">{0} tjedana</unitPattern>
+				<perUnitPattern draft="contributed">{0} tjedno</perUnitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>godine</displayName>
 				<unitPattern count="one">{0} godina</unitPattern>
 				<unitPattern count="few">{0} godine</unitPattern>
 				<unitPattern count="other">{0} godina</unitPattern>
+				<perUnitPattern draft="contributed">{0} godišnje</perUnitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>amperi</displayName>
@@ -8012,6 +8162,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} centimetar</unitPattern>
 				<unitPattern count="few">{0} centimetra</unitPattern>
 				<unitPattern count="other">{0} centimetara</unitPattern>
+				<perUnitPattern draft="contributed">{0}/cm</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName>decimetri</displayName>
@@ -8030,6 +8181,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} stopa</unitPattern>
 				<unitPattern count="few">{0} stope</unitPattern>
 				<unitPattern count="other">{0} stopa</unitPattern>
+				<perUnitPattern draft="contributed">{0}/ft</perUnitPattern>
 			</unit>
 			<unit type="length-furlong">
 				<displayName draft="contributed">furlonzi</displayName>
@@ -8042,12 +8194,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} inč</unitPattern>
 				<unitPattern count="few">{0} inča</unitPattern>
 				<unitPattern count="other">{0} inča</unitPattern>
+				<perUnitPattern draft="contributed">{0}/in</perUnitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>kilometri</displayName>
 				<unitPattern count="one">{0} kilometar</unitPattern>
 				<unitPattern count="few">{0} kilometra</unitPattern>
 				<unitPattern count="other">{0} kilometara</unitPattern>
+				<perUnitPattern draft="contributed">{0}/km</perUnitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>svjetlosne godine</displayName>
@@ -8060,6 +8214,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} metar</unitPattern>
 				<unitPattern count="few">{0} metra</unitPattern>
 				<unitPattern count="other">{0} metara</unitPattern>
+				<perUnitPattern draft="contributed">{0}/m</perUnitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>mikrometri</displayName>
@@ -8072,6 +8227,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} milja</unitPattern>
 				<unitPattern count="few">{0} milje</unitPattern>
 				<unitPattern count="other">{0} milja</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName draft="contributed">skandinavska milja</displayName>
+				<unitPattern count="one" draft="contributed">{0} skandinavska milja</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} skandinavske milje</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} skandinavskih milja</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>milimetri</displayName>
@@ -8126,12 +8287,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} gram</unitPattern>
 				<unitPattern count="few">{0} grama</unitPattern>
 				<unitPattern count="other">{0} grama</unitPattern>
+				<perUnitPattern draft="contributed">{0}/g</perUnitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kilogrami</displayName>
 				<unitPattern count="one">{0} kilogram</unitPattern>
 				<unitPattern count="few">{0} kilograma</unitPattern>
 				<unitPattern count="other">{0} kilograma</unitPattern>
+				<perUnitPattern draft="contributed">{0}/kg</perUnitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>tone</displayName>
@@ -8156,6 +8319,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} unca</unitPattern>
 				<unitPattern count="few">{0} unce</unitPattern>
 				<unitPattern count="other">{0} unci</unitPattern>
+				<perUnitPattern draft="contributed">{0}/oz</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>troy unce</displayName>
@@ -8168,6 +8332,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} funta</unitPattern>
 				<unitPattern count="few">{0} funte</unitPattern>
 				<unitPattern count="other">{0} funti</unitPattern>
+				<perUnitPattern draft="contributed">{0}/lb</perUnitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName draft="contributed">kameni</displayName>
@@ -8259,6 +8424,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} kilometra na sat</unitPattern>
 				<unitPattern count="other">{0} kilometara na sat</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName draft="contributed">čvor</displayName>
+				<unitPattern count="one" draft="contributed">{0} čvor</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} čvora</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} čvorova</unitPattern>
+			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>metri u sekundi</displayName>
 				<unitPattern count="one">{0} metar u sekundi</unitPattern>
@@ -8282,6 +8453,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} Fahrenheitov stupanj</unitPattern>
 				<unitPattern count="few">{0} Fahrenheitova stupnja</unitPattern>
 				<unitPattern count="other">{0} Fahrenheitovih stupnjeva</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName draft="contributed">°</displayName>
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="few" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>kelvini</displayName>
@@ -8312,6 +8489,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} kubni centimetar</unitPattern>
 				<unitPattern count="few">{0} kubna centimetra</unitPattern>
 				<unitPattern count="other">{0} kubnih centimetara</unitPattern>
+				<perUnitPattern draft="contributed">{0}/cm³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>kubne stope</displayName>
@@ -8336,6 +8514,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} kubni metar</unitPattern>
 				<unitPattern count="few">{0} kubna metra</unitPattern>
 				<unitPattern count="other">{0} kubnih metara</unitPattern>
+				<perUnitPattern draft="contributed">{0}/m³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>kubne milje</displayName>
@@ -8355,6 +8534,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} šalice</unitPattern>
 				<unitPattern count="other">{0} šalica</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName draft="contributed">metričke šalice</displayName>
+				<unitPattern count="one" draft="contributed">{0} metrička šalica</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} metričke šalice</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} metričkih šalica</unitPattern>
+			</unit>
 			<unit type="volume-deciliter">
 				<displayName>decilitri</displayName>
 				<unitPattern count="one">{0} decilitar</unitPattern>
@@ -8372,6 +8557,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} galon</unitPattern>
 				<unitPattern count="few">{0} galona</unitPattern>
 				<unitPattern count="other">{0} galona</unitPattern>
+				<perUnitPattern draft="contributed">{0}/gal</perUnitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hektolitri</displayName>
@@ -8384,6 +8570,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} litra</unitPattern>
 				<unitPattern count="few">{0} litre</unitPattern>
 				<unitPattern count="other">{0} litara</unitPattern>
+				<perUnitPattern draft="contributed">{0}/l</perUnitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>megalitri</displayName>
@@ -8403,6 +8590,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} pinte</unitPattern>
 				<unitPattern count="other">{0} pinti</unitPattern>
 			</unit>
+			<unit type="volume-pint-metric">
+				<displayName draft="contributed">metričke pinte</displayName>
+				<unitPattern count="one" draft="contributed">{0} metrička pinta</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} metričke pinte</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} metričkih pinti</unitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>četvrtine</displayName>
 				<unitPattern count="one">{0} četvrtina</unitPattern>
@@ -8421,6 +8614,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} žličice</unitPattern>
 				<unitPattern count="other">{0} žličica</unitPattern>
 			</unit>
+			<unit type="volume-teaspoon-au">
+				<displayName draft="contributed">australske žličice</displayName>
+				<unitPattern count="one" draft="contributed">{0} australska žličica</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} australske žličice</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} australskih žličica</unitPattern>
+			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east" draft="contributed">{0}I</coordinateUnitPattern>
+				<coordinateUnitPattern type="north" draft="contributed">{0}S</coordinateUnitPattern>
+				<coordinateUnitPattern type="south" draft="contributed">{0}J</coordinateUnitPattern>
+				<coordinateUnitPattern type="west" draft="contributed">{0}Z</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
 			<compoundUnit type="per">
@@ -8462,6 +8667,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} rad</unitPattern>
 				<unitPattern count="other">{0} rad</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName draft="contributed">okr.</displayName>
+				<unitPattern count="one" draft="contributed">{0} okr.</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} okr.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} okr.</unitPattern>
+			</unit>
 			<unit type="area-acre">
 				<displayName>kj</displayName>
 				<unitPattern count="one">{0} kj</unitPattern>
@@ -8479,6 +8690,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} cm²</unitPattern>
 				<unitPattern count="few">{0} cm²</unitPattern>
 				<unitPattern count="other">{0} cm²</unitPattern>
+				<perUnitPattern draft="contributed">{0}/cm²</perUnitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>ft²</displayName>
@@ -8491,6 +8703,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="few">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
+				<perUnitPattern draft="contributed">{0}/in²</perUnitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>km²</displayName>
@@ -8503,6 +8716,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} m²</unitPattern>
 				<unitPattern count="few">{0} m²</unitPattern>
 				<unitPattern count="other">{0} m²</unitPattern>
+				<perUnitPattern draft="contributed">{0}/m²</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>mi²</displayName>
@@ -8515,6 +8729,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} yd²</unitPattern>
 				<unitPattern count="few">{0} yd²</unitPattern>
 				<unitPattern count="other">{0} yd²</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>l/100 km</displayName>
+				<unitPattern count="one">{0} l/100 km</unitPattern>
+				<unitPattern count="few">{0} l/100 km</unitPattern>
+				<unitPattern count="other">{0} l/100 km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -8588,11 +8808,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} TB</unitPattern>
 				<unitPattern count="other">{0} TB</unitPattern>
 			</unit>
+			<unit type="duration-century">
+				<displayName draft="contributed">st.</displayName>
+				<unitPattern count="one" draft="contributed">{0} st.</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} st.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} st.</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>dani</displayName>
 				<unitPattern count="one">{0} dan</unitPattern>
 				<unitPattern count="few">{0} dana</unitPattern>
 				<unitPattern count="other">{0} dana</unitPattern>
+				<perUnitPattern draft="contributed">{0}/d.</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>h</displayName>
@@ -8618,12 +8845,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="few">{0} min</unitPattern>
 				<unitPattern count="other">{0} min</unitPattern>
+				<perUnitPattern draft="contributed">{0}/min</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>mj.</displayName>
 				<unitPattern count="one">{0} mj.</unitPattern>
 				<unitPattern count="few">{0} mj.</unitPattern>
 				<unitPattern count="other">{0} mj.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/mj.</perUnitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>ns</displayName>
@@ -8643,12 +8872,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} tj.</unitPattern>
 				<unitPattern count="few">{0} tj.</unitPattern>
 				<unitPattern count="other">{0} tj.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/tj.</perUnitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>g.</displayName>
 				<unitPattern count="one">{0} g.</unitPattern>
 				<unitPattern count="few">{0} g.</unitPattern>
 				<unitPattern count="other">{0} g.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/g.</perUnitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>A</displayName>
@@ -8745,6 +8976,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} cm</unitPattern>
 				<unitPattern count="few">{0} cm</unitPattern>
 				<unitPattern count="other">{0} cm</unitPattern>
+				<perUnitPattern draft="contributed">{0}/cm</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName>dm</displayName>
@@ -8763,6 +8995,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ft</unitPattern>
 				<unitPattern count="few">{0} ft</unitPattern>
 				<unitPattern count="other">{0} ft</unitPattern>
+				<perUnitPattern draft="contributed">{0}/ft</perUnitPattern>
 			</unit>
 			<unit type="length-furlong">
 				<displayName draft="contributed">furlonzi</displayName>
@@ -8775,12 +9008,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in</unitPattern>
 				<unitPattern count="few">{0} in</unitPattern>
 				<unitPattern count="other">{0} in</unitPattern>
+				<perUnitPattern draft="contributed">{0}/in</perUnitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
 				<unitPattern count="one">{0} km</unitPattern>
 				<unitPattern count="few">{0} km</unitPattern>
 				<unitPattern count="other">{0} km</unitPattern>
+				<perUnitPattern draft="contributed">{0}/km</perUnitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>svjetlosne g.</displayName>
@@ -8793,6 +9028,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} m</unitPattern>
 				<unitPattern count="few">{0} m</unitPattern>
 				<unitPattern count="other">{0} m</unitPattern>
+				<perUnitPattern draft="contributed">{0}/m</perUnitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>µm</displayName>
@@ -8805,6 +9041,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mi</unitPattern>
 				<unitPattern count="few">{0} mi</unitPattern>
 				<unitPattern count="other">{0} mi</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName draft="contributed">smi</displayName>
+				<unitPattern count="one" draft="contributed">{0} smi</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} smi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} smi</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>mm</displayName>
@@ -8859,12 +9101,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} g</unitPattern>
 				<unitPattern count="few">{0} g</unitPattern>
 				<unitPattern count="other">{0} g</unitPattern>
+				<perUnitPattern draft="contributed">{0}/g</perUnitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kg</displayName>
 				<unitPattern count="one">{0} kg</unitPattern>
 				<unitPattern count="few">{0} kg</unitPattern>
 				<unitPattern count="other">{0} kg</unitPattern>
+				<perUnitPattern draft="contributed">{0}/kg</perUnitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>t</displayName>
@@ -8889,6 +9133,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} oz</unitPattern>
 				<unitPattern count="few">{0} oz</unitPattern>
 				<unitPattern count="other">{0} oz</unitPattern>
+				<perUnitPattern draft="contributed">{0}/oz</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>oz t</displayName>
@@ -8901,6 +9146,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} lb</unitPattern>
 				<unitPattern count="few">{0} lb</unitPattern>
 				<unitPattern count="other">{0} lb</unitPattern>
+				<perUnitPattern draft="contributed">{0}/lb</perUnitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName draft="contributed">st</displayName>
@@ -8992,6 +9238,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} km/h</unitPattern>
 				<unitPattern count="other">{0} km/h</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName draft="contributed">čv</displayName>
+				<unitPattern count="one" draft="contributed">{0} čv</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} čv</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} čv</unitPattern>
+			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>m/s</displayName>
 				<unitPattern count="one">{0} m/s</unitPattern>
@@ -9015,6 +9267,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="few">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName draft="contributed">°</displayName>
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="few" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
@@ -9045,6 +9303,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} cm³</unitPattern>
 				<unitPattern count="few">{0} cm³</unitPattern>
 				<unitPattern count="other">{0} cm³</unitPattern>
+				<perUnitPattern draft="contributed">{0}/cm³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>ft³</displayName>
@@ -9069,6 +9328,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} m³</unitPattern>
 				<unitPattern count="few">{0} m³</unitPattern>
 				<unitPattern count="other">{0} m³</unitPattern>
+				<perUnitPattern draft="contributed">{0}/m³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>mi³</displayName>
@@ -9088,6 +9348,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} c</unitPattern>
 				<unitPattern count="other">{0} c</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName draft="contributed">m. šalica</displayName>
+				<unitPattern count="one" draft="contributed">{0} mc</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mc</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mc</unitPattern>
+			</unit>
 			<unit type="volume-deciliter">
 				<displayName>dl</displayName>
 				<unitPattern count="one">{0} dl</unitPattern>
@@ -9105,6 +9371,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} gal</unitPattern>
 				<unitPattern count="few">{0} gal</unitPattern>
 				<unitPattern count="other">{0} gal</unitPattern>
+				<perUnitPattern draft="contributed">{0}/gal</perUnitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hl</displayName>
@@ -9117,6 +9384,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="few">{0} l</unitPattern>
 				<unitPattern count="other">{0} l</unitPattern>
+				<perUnitPattern draft="contributed">{0}/l</perUnitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>Ml</displayName>
@@ -9136,6 +9404,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} pt</unitPattern>
 				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
+			<unit type="volume-pint-metric">
+				<displayName draft="contributed">mpt</displayName>
+				<unitPattern count="one" draft="contributed">{0} mpt</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mpt</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mpt</unitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>qt</displayName>
 				<unitPattern count="one">{0} qt</unitPattern>
@@ -9154,6 +9428,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} tsp</unitPattern>
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
+			<unit type="volume-teaspoon-au">
+				<displayName draft="contributed">atsp</displayName>
+				<unitPattern count="one" draft="contributed">{0} atsp</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} atsp</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} atsp</unitPattern>
+			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east" draft="contributed">{0}I</coordinateUnitPattern>
+				<coordinateUnitPattern type="north" draft="contributed">{0}S</coordinateUnitPattern>
+				<coordinateUnitPattern type="south" draft="contributed">{0}J</coordinateUnitPattern>
+				<coordinateUnitPattern type="west" draft="contributed">{0}Z</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -9233,6 +9519,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} yd²</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} yd²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} yd²</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>l/100 km</displayName>
+				<unitPattern count="one">{0}l/100km</unitPattern>
+				<unitPattern count="few">{0}l/100km</unitPattern>
+				<unitPattern count="other">{0}l/100km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<unitPattern count="one" draft="contributed">{0} l/km</unitPattern>
@@ -9786,6 +10078,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} tsp</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} tsp</unitPattern>
 			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east" draft="contributed">{0}I</coordinateUnitPattern>
+				<coordinateUnitPattern type="north" draft="contributed">{0}S</coordinateUnitPattern>
+				<coordinateUnitPattern type="south" draft="contributed">{0}J</coordinateUnitPattern>
+				<coordinateUnitPattern type="west" draft="contributed">{0}Z</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<durationUnit type="hm">
 			<durationUnitPattern>h:mm</durationUnitPattern>
@@ -9830,4 +10128,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

@@ -1444,6 +1444,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year-short">
 				<displayName>urtea</displayName>
+				<relative type="-1">aurreko urtea</relative>
+				<relative type="0">aurten</relative>
+				<relative type="1">hurrengo urtea</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} urte barru</relativeTimePattern>
 					<relativeTimePattern count="other">{0} urte barru</relativeTimePattern>
@@ -1455,6 +1458,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year-narrow">
 				<displayName>urtea</displayName>
+				<relative type="-1">aurreko urtea</relative>
+				<relative type="0">aurten</relative>
+				<relative type="1">hurrengo urtea</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} urte barru</relativeTimePattern>
 					<relativeTimePattern count="other">{0} urte barru</relativeTimePattern>
@@ -4975,6 +4981,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Thailandiako baht</displayName>
 				<displayName count="other">Thailandiako baht</displayName>
 				<symbol>฿</symbol>
+				<symbol alt="narrow" draft="contributed">฿</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>Tajikistango somonia</displayName>
@@ -6575,4 +6582,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

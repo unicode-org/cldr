@@ -135,7 +135,7 @@
 
     <target name="datacheck" description="Run the standard data tests" depends="init,build">
         <antcall target="_dataCheck">
-            <param name="datacheck.arg" value="-e -z build"/>
+            <param name="datacheck.arg" value="-e -z final_testing"/>
             <param name="datacheck.jvmarg" value="${jvm_options}"/>
         </antcall>
     </target>

@@ -36,6 +36,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="av">Aváiris</language>
 			<language type="ay">Aidhmiris</language>
 			<language type="az">Asarbaiseáinis</language>
+			<language type="az" alt="short">Asairis</language>
 			<language type="ba">Baiscíris</language>
 			<language type="ban">Bailís</language>
 			<language type="bar">Baváiris</language>
@@ -50,7 +51,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="bua">Buiriáitis</language>
 			<language type="bug">Buiginis</language>
 			<language type="ca">Catalóinis</language>
-			<language type="ce">Sisinis</language>
+			<language type="ce">Seisnis</language>
 			<language type="ceb">Seabúáinis</language>
 			<language type="ch">Seamóiris</language>
 			<language type="chm">Mairis</language>
@@ -199,6 +200,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="nb">Ioruais Bokmål</language>
 			<language type="nd">Ndeibéilis an Tuaiscirt</language>
 			<language type="nds">Gearmáinis Íochtarach</language>
+			<language type="nds_NL">Sacsainis Íochtarach</language>
 			<language type="ne">Neipeailis</language>
 			<language type="ng">Ndongais</language>
 			<language type="niu">Níobhais</language>
@@ -470,6 +472,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="CG" alt="variant">An Congó (Poblacht)</territory>
 			<territory type="CH">An Eilvéis</territory>
 			<territory type="CI">An Cósta Eabhair</territory>
+			<territory type="CI" alt="variant">An Cósta Eabhair</territory>
 			<territory type="CK">Oileáin Cook</territory>
 			<territory type="CL">An tSile</territory>
 			<territory type="CM">Camarún</territory>
@@ -660,6 +663,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="TJ">An Táidsíceastáin</territory>
 			<territory type="TK">Tócalá</territory>
 			<territory type="TL">Tíomór Thoir</territory>
+			<territory type="TL" alt="variant">Tíomór Thoir</territory>
 			<territory type="TM">An Tuircméanastáin</territory>
 			<territory type="TN">An Túinéis</territory>
 			<territory type="TO">Tonga</territory>
@@ -706,6 +710,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="calendar">Féilire</key>
 			<key type="collation">Ord Sórtála</key>
 			<key type="currency">Airgeadra</key>
+			<key type="hc">Timthriall Uaire (12 vs 24)</key>
+			<key type="lb">Stíl Briseadh Líne</key>
+			<key type="ms">Córas Tomhais</key>
 			<key type="numbers">Uimhreacha</key>
 		</keys>
 		<types>
@@ -718,6 +725,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="buddhist" key="calendar">Féilire Búdaíoch</type>
 			<type type="chinese" key="calendar">Féilire Síneach</type>
 			<type type="coptic" key="calendar">Féilire Coptach</type>
+			<type type="dangi" key="calendar">Féilire Dangi</type>
 			<type type="deva" key="numbers">Digití Déiveanágracha</type>
 			<type type="ducet" key="collation">Ord Réamhshocraithe Sórtála Unicode</type>
 			<type type="ethi" key="numbers">Uimhreacha Aetóipice</type>
@@ -729,6 +737,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="grek" key="numbers">Uimhreacha Gréagacha</type>
 			<type type="gujr" key="numbers">Digití Gúisearátacha</type>
 			<type type="guru" key="numbers">Digití Gurmúcacha</type>
+			<type type="h11" key="hc">Córas 12 Uair (0-11)</type>
+			<type type="h12" key="hc">Córas 12 Uair (1-12)</type>
+			<type type="h23" key="hc">Córas 24 Uair (0-23)</type>
+			<type type="h24" key="hc">Córas 24 Uair (1-24)</type>
 			<type type="hanidec" key="numbers">Uimhreacha Deachúlacha Síneacha</type>
 			<type type="hebr" key="numbers">Uimhreacha Eabhracha</type>
 			<type type="hebrew" key="calendar">Féilire na nEabhrach</type>
@@ -742,8 +754,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="knda" key="numbers">Digití Cannadacha</type>
 			<type type="laoo" key="numbers">Digití Laosacha</type>
 			<type type="latn" key="numbers">Digití Iartharacha</type>
+			<type type="loose" key="lb">Stíl Briseadh Líne Scaoilte</type>
+			<type type="metric" key="ms">Córas Méadrach</type>
 			<type type="mlym" key="numbers">Digití Mailéalamacha</type>
 			<type type="mymr" key="numbers">Digití Maenmaracha</type>
+			<type type="normal" key="lb">Stíl Gnáthbhriseadh Líne</type>
 			<type type="orya" key="numbers">Digití Oiríseacha</type>
 			<type type="persian" key="calendar">Féilire Peirseach</type>
 			<type type="phonebook" key="collation" draft="unconfirmed">Ord sórtála an eolaire teileafóin</type>
@@ -752,6 +767,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="roman" key="numbers">Uimhreacha Rómhánacha</type>
 			<type type="search" key="collation">Cuardach Ilfhóinteach</type>
 			<type type="standard" key="collation">Ord Caighdeánach Sórtála</type>
+			<type type="strict" key="lb">Stíl Briseadh Líne Docht</type>
 			<type type="stroke" key="collation" draft="unconfirmed">Ord sórtála stríce</type>
 			<type type="taml" key="numbers">Uimhreacha Traidisiúnta Tamalacha</type>
 			<type type="tamldec" key="numbers">Digití Tamalacha</type>
@@ -759,6 +775,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="thai" key="numbers">Digití Téalannacha</type>
 			<type type="tibt" key="numbers">Digití Tibéadacha</type>
 			<type type="traditional" key="collation" draft="unconfirmed">Ord sórtála traidisiúnta</type>
+			<type type="uksystem" key="ms">Córas Impiriúil Tomhais</type>
+			<type type="ussystem" key="ms">Córas SAM Tomhais</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Méadrach</measurementSystemName>
@@ -837,6 +855,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
@@ -1137,6 +1156,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">a.m.</dayPeriod>
+							<dayPeriod type="pm">p.m.</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am">a</dayPeriod>
+							<dayPeriod type="pm">p</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">a.m.</dayPeriod>
+							<dayPeriod type="pm">p.m.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">a.m.</dayPeriod>
+							<dayPeriod type="pm">p.m.</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">a</dayPeriod>
 							<dayPeriod type="pm">p</dayPeriod>
@@ -1250,12 +1287,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hmsv">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv">HH:mm:ss v</dateFormatItem>
+						<dateFormatItem id="hmv">h:mm a v</dateFormatItem>
+						<dateFormatItem id="Hmv">HH:mm v</dateFormatItem>
 						<dateFormatItem id="M">LL</dateFormatItem>
 						<dateFormatItem id="Md">dd/MM</dateFormatItem>
 						<dateFormatItem id="MEd">E dd/MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">MM/y</dateFormatItem>
@@ -1264,6 +1306,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
@@ -1394,6 +1437,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year-short">
 				<displayName>bl.</displayName>
+				<relative type="-1">anuraidh</relative>
+				<relative type="0">an bhl. seo</relative>
+				<relative type="1">an bhl. seo chugainn</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">i gceann {0} bl.</relativeTimePattern>
 					<relativeTimePattern count="two">i gceann {0} bhl.</relativeTimePattern>
@@ -1411,6 +1457,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year-narrow">
 				<displayName>bl.</displayName>
+				<relative type="-1">anuraidh</relative>
+				<relative type="0">an bhl. seo</relative>
+				<relative type="1">an bhl. seo chugainn</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} bhl.</relativeTimePattern>
 					<relativeTimePattern count="two">+{0} bhl.</relativeTimePattern>
@@ -1428,6 +1477,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="quarter">
 				<displayName>Ráithe</displayName>
+				<relative type="-1">an ráithe seo caite</relative>
+				<relative type="0">an ráithe seo</relative>
+				<relative type="1">an ráithe seo chugainn</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">i gceann {0} ráithe</relativeTimePattern>
 					<relativeTimePattern count="two">i gceann {0} ráithe</relativeTimePattern>
@@ -1445,6 +1497,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="quarter-short">
 				<displayName>ráithe</displayName>
+				<relative type="-1">an ráithe seo caite</relative>
+				<relative type="0">an ráithe seo</relative>
+				<relative type="1">an ráithe seo chugainn</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">i gceann {0} ráithe</relativeTimePattern>
 					<relativeTimePattern count="two">i gceann {0} ráithe</relativeTimePattern>
@@ -1462,6 +1517,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="quarter-narrow">
 				<displayName>ráithe</displayName>
+				<relative type="-1">an ráithe seo caite</relative>
+				<relative type="0">an ráithe seo</relative>
+				<relative type="1">an ráithe seo chugainn</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} R</relativeTimePattern>
 					<relativeTimePattern count="two">+{0} R</relativeTimePattern>
@@ -1499,6 +1557,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="month-short">
 				<displayName>mí</displayName>
+				<relative type="-1">an mhí seo caite</relative>
+				<relative type="0">an mhí seo</relative>
+				<relative type="1">an mhí seo chugainn</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">i gceann {0} mhí</relativeTimePattern>
 					<relativeTimePattern count="two">i gceann {0} mhí</relativeTimePattern>
@@ -1516,6 +1577,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="month-narrow">
 				<displayName>mí</displayName>
+				<relative type="-1">an mhí seo caite</relative>
+				<relative type="0">an mhí seo</relative>
+				<relative type="1">an mhí seo chugainn</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} mhí</relativeTimePattern>
 					<relativeTimePattern count="two">+{0} mhí</relativeTimePattern>
@@ -1553,6 +1617,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="week-short">
 				<displayName>scht.</displayName>
+				<relative type="-1">an tscht. seo caite</relative>
+				<relative type="0">an tscht. seo</relative>
+				<relative type="1">an tscht. seo chugainn</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">i gceann {0} scht.</relativeTimePattern>
 					<relativeTimePattern count="two">i gceann {0} shcht.</relativeTimePattern>
@@ -1570,6 +1637,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="week-narrow">
 				<displayName>scht.</displayName>
+				<relative type="-1">an tscht. seo caite</relative>
+				<relative type="0">an tscht. seo</relative>
+				<relative type="1">an tscht. seo chugainn</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} scht.</relativeTimePattern>
 					<relativeTimePattern count="two">+{0} scht.</relativeTimePattern>
@@ -1609,6 +1679,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-short">
 				<displayName>Lá</displayName>
+				<relative type="-2">arú inné</relative>
+				<relative type="2">arú amárach</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">i gceann {0} lá</relativeTimePattern>
 					<relativeTimePattern count="two">i gceann {0} lá</relativeTimePattern>
@@ -1626,6 +1698,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-narrow">
 				<displayName>Lá</displayName>
+				<relative type="-2">arú inné</relative>
+				<relative type="2">arú amárach</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} lá</relativeTimePattern>
 					<relativeTimePattern count="two">+{0} lá</relativeTimePattern>
@@ -1646,108 +1720,108 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="sun">
 				<relative type="-1">an Domhnach seo caite</relative>
-				<relative type="0">an Domhnach seo chugainn</relative>
+				<relative type="0">an Domhnach seo</relative>
 				<relative type="1">an Domhnach seo chugainn</relative>
 			</field>
 			<field type="sun-short">
 				<relative type="-1">an Domh. seo caite</relative>
-				<relative type="0">an Domh. seo chugainn</relative>
+				<relative type="0">an Domh. seo</relative>
 				<relative type="1">an Domh. seo chugainn</relative>
 			</field>
 			<field type="sun-narrow">
 				<relative type="-1">an Domh seo caite</relative>
-				<relative type="0">an Domh seo chugainn</relative>
-				<relative type="1">an Domh seo chugainn</relative>
+				<relative type="0">an Domh seo</relative>
+				<relative type="1">an Domh seo chug.</relative>
 			</field>
 			<field type="mon">
 				<relative type="-1">an Luan seo caite</relative>
-				<relative type="0">an Luan seo chugainn</relative>
+				<relative type="0">an Luan seo</relative>
 				<relative type="1">an Luan seo chugainn</relative>
 			</field>
 			<field type="mon-short">
 				<relative type="-1">an Luan seo caite</relative>
-				<relative type="0">an Luan seo chugainn</relative>
+				<relative type="0">an Luan seo</relative>
 				<relative type="1">an Luan seo chugainn</relative>
 			</field>
 			<field type="mon-narrow">
 				<relative type="-1">an Luan seo caite</relative>
-				<relative type="0">an Luan seo chugainn</relative>
-				<relative type="1">an Luan seo chugainn</relative>
+				<relative type="0">an Luan seo</relative>
+				<relative type="1">an Luan seo chug.</relative>
 			</field>
 			<field type="tue">
 				<relative type="-1">an Mháirt seo caite</relative>
-				<relative type="0">an Mháirt seo chugainn</relative>
+				<relative type="0">an Mháirt seo</relative>
 				<relative type="1">an Mháirt seo chugainn</relative>
 			</field>
 			<field type="tue-short">
 				<relative type="-1">an Mháirt seo caite</relative>
-				<relative type="0">an Mháirt seo chugainn</relative>
+				<relative type="0">an Mháirt seo</relative>
 				<relative type="1">an Mháirt seo chugainn</relative>
 			</field>
 			<field type="tue-narrow">
 				<relative type="-1">an Mháirt seo caite</relative>
-				<relative type="0">an Mháirt seo chugainn</relative>
-				<relative type="1">an Mháirt seo chugainn</relative>
+				<relative type="0">an Mháirt seo</relative>
+				<relative type="1">an Mháirt seo chug.</relative>
 			</field>
 			<field type="wed">
 				<relative type="-1">an Chéadaoin seo caite</relative>
-				<relative type="0">an Chéadaoin seo chugainn</relative>
+				<relative type="0">an Chéadaoin seo</relative>
 				<relative type="1">an Chéadaoin seo chugainn</relative>
 			</field>
 			<field type="wed-short">
 				<relative type="-1">an Chéad. seo caite</relative>
-				<relative type="0">an Chéad. seo chugainn</relative>
+				<relative type="0">an Chéad. seo</relative>
 				<relative type="1">an Chéad. seo chugainn</relative>
 			</field>
 			<field type="wed-narrow">
 				<relative type="-1">an Chéad. seo caite</relative>
-				<relative type="0">an Chéad. seo chugainn</relative>
-				<relative type="1">an Chéad. seo chugainn</relative>
+				<relative type="0">an Chéad. seo</relative>
+				<relative type="1">an Chéad seo chug.</relative>
 			</field>
 			<field type="thu">
 				<relative type="-1">an Déardaoin seo caite</relative>
-				<relative type="0">an Déardaoin seo chugainn</relative>
+				<relative type="0">an Déardaoin seo</relative>
 				<relative type="1">an Déardaoin seo chugainn</relative>
 			</field>
 			<field type="thu-short">
 				<relative type="-1">an Déar. seo caite</relative>
-				<relative type="0">an Déar. seo chugainn</relative>
+				<relative type="0">an Déar. seo</relative>
 				<relative type="1">an Déar. seo chugainn</relative>
 			</field>
 			<field type="thu-narrow">
 				<relative type="-1">an Déar. seo caite</relative>
-				<relative type="0">an Déar. seo chugainn</relative>
-				<relative type="1">an Déar. seo chugainn</relative>
+				<relative type="0">an Déar. seo</relative>
+				<relative type="1">an Déar. seo chug.</relative>
 			</field>
 			<field type="fri">
 				<relative type="-1">an Aoine seo caite</relative>
-				<relative type="0">an Aoine seo chugainn</relative>
+				<relative type="0">an Aoine seo</relative>
 				<relative type="1">an Aoine seo chugainn</relative>
 			</field>
 			<field type="fri-short">
 				<relative type="-1">an Aoine seo caite</relative>
-				<relative type="0">an Aoine seo chugainn</relative>
+				<relative type="0">an Aoine seo</relative>
 				<relative type="1">an Aoine seo chugainn</relative>
 			</field>
 			<field type="fri-narrow">
 				<relative type="-1">an Aoine seo caite</relative>
-				<relative type="0">an Aoine seo chugainn</relative>
-				<relative type="1">an Aoine seo chugainn</relative>
+				<relative type="0">an Aoine seo</relative>
+				<relative type="1">an Aoine seo chug.</relative>
 			</field>
 			<field type="sat">
 				<relative type="-1">an Satharn seo caite</relative>
-				<relative type="0">an Satharn seo chugainn</relative>
+				<relative type="0">an Satharn seo</relative>
 				<relative type="1">an Satharn seo chugainn</relative>
 			</field>
 			<field type="sat-short">
 				<relative type="-1">an Sath. seo caite</relative>
-				<relative type="0">an Sath. seo chugainn</relative>
+				<relative type="0">an Sath. seo</relative>
 				<relative type="1">an Sath. seo chugainn</relative>
 			</field>
 			<field type="sat-narrow">
 				<relative type="-1">an Sath seo caite</relative>
-				<relative type="0">an Sath seo chugainn</relative>
-				<relative type="1">an Sath seo chugainn</relative>
+				<relative type="0">an Sath seo</relative>
+				<relative type="1">an Sath seo chug.</relative>
 			</field>
 			<field type="dayperiod">
 				<displayName>a.m./p.m.</displayName>
@@ -1856,6 +1930,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="second">
 				<displayName>Soicind</displayName>
+				<relative type="0">anois</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">i gceann {0} soicind</relativeTimePattern>
 					<relativeTimePattern count="two">i gceann {0} shoicind</relativeTimePattern>
@@ -1873,6 +1948,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="second-short">
 				<displayName>soic.</displayName>
+				<relative type="0">anois</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">i gceann {0} soic.</relativeTimePattern>
 					<relativeTimePattern count="two">i gceann {0} shoic.</relativeTimePattern>
@@ -1890,6 +1966,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="second-narrow">
 				<displayName>s</displayName>
+				<relative type="0">anois</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} s</relativeTimePattern>
 					<relativeTimePattern count="two">+{0} s</relativeTimePattern>
@@ -2790,6 +2867,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Pacific/Port_Moresby">
 				<exemplarCity>Port Moresby</exemplarCity>
 			</zone>
+			<zone type="Pacific/Bougainville">
+				<exemplarCity>Bougainville</exemplarCity>
+			</zone>
 			<zone type="Asia/Manila">
 				<exemplarCity>Mainile</exemplarCity>
 			</zone>
@@ -2874,6 +2954,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Irkutsk">
 				<exemplarCity>Irkutsk</exemplarCity>
 			</zone>
+			<zone type="Asia/Chita">
+				<exemplarCity>Chita</exemplarCity>
+			</zone>
 			<zone type="Asia/Yakutsk">
 				<exemplarCity>Iacútsc</exemplarCity>
 			</zone>
@@ -2891,6 +2974,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Asia/Magadan">
 				<exemplarCity>Magadan</exemplarCity>
+			</zone>
+			<zone type="Asia/Srednekolymsk">
+				<exemplarCity>Srednekolymsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>Kamchatka</exemplarCity>
@@ -3261,6 +3347,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<daylight>Am Samhraidh Anadyr</daylight>
 				</long>
 			</metazone>
+			<metazone type="Apia">
+				<long>
+					<generic>Am Apia</generic>
+					<standard>Am Caighdeánach Apia</standard>
+					<daylight>Am Samhraidh Apia</daylight>
+				</long>
+			</metazone>
 			<metazone type="Aqtau">
 				<long>
 					<generic>Am Aqtau</generic>
@@ -3507,6 +3600,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<standard>EET</standard>
 					<daylight>EEST</daylight>
 				</short>
+			</metazone>
+			<metazone type="Europe_Further_Eastern">
+				<long>
+					<standard>Am Chianoirthear na hEorpa</standard>
+				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
@@ -4315,66 +4413,66 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one" draft="provisional">¤0k</pattern>
-					<pattern type="1000" count="two" draft="provisional">¤0k</pattern>
-					<pattern type="1000" count="few" draft="provisional">¤0k</pattern>
-					<pattern type="1000" count="many" draft="provisional">¤0k</pattern>
-					<pattern type="1000" count="other" draft="provisional">¤0k</pattern>
-					<pattern type="10000" count="one" draft="provisional">¤00k</pattern>
-					<pattern type="10000" count="two" draft="provisional">¤00k</pattern>
-					<pattern type="10000" count="few" draft="provisional">¤00k</pattern>
-					<pattern type="10000" count="many" draft="provisional">¤00k</pattern>
-					<pattern type="10000" count="other" draft="provisional">¤00k</pattern>
-					<pattern type="100000" count="one" draft="provisional">¤000k</pattern>
-					<pattern type="100000" count="two" draft="provisional">¤000k</pattern>
-					<pattern type="100000" count="few" draft="provisional">¤000k</pattern>
-					<pattern type="100000" count="many" draft="provisional">¤000k</pattern>
-					<pattern type="100000" count="other" draft="provisional">¤000k</pattern>
-					<pattern type="1000000" count="one" draft="provisional">¤0M</pattern>
-					<pattern type="1000000" count="two" draft="provisional">¤0M</pattern>
-					<pattern type="1000000" count="few" draft="provisional">¤0M</pattern>
-					<pattern type="1000000" count="many" draft="provisional">¤0M</pattern>
-					<pattern type="1000000" count="other" draft="provisional">¤0M</pattern>
-					<pattern type="10000000" count="one" draft="provisional">¤00M</pattern>
-					<pattern type="10000000" count="two" draft="provisional">¤00M</pattern>
-					<pattern type="10000000" count="few" draft="provisional">¤00M</pattern>
-					<pattern type="10000000" count="many" draft="provisional">¤00M</pattern>
-					<pattern type="10000000" count="other" draft="provisional">¤00M</pattern>
-					<pattern type="100000000" count="one" draft="provisional">¤000M</pattern>
-					<pattern type="100000000" count="two" draft="provisional">¤000M</pattern>
-					<pattern type="100000000" count="few" draft="provisional">¤000M</pattern>
-					<pattern type="100000000" count="many" draft="provisional">¤000M</pattern>
-					<pattern type="100000000" count="other" draft="provisional">¤000M</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">¤0B</pattern>
-					<pattern type="1000000000" count="two" draft="provisional">¤0B</pattern>
-					<pattern type="1000000000" count="few" draft="provisional">¤0B</pattern>
-					<pattern type="1000000000" count="many" draft="provisional">¤0B</pattern>
-					<pattern type="1000000000" count="other" draft="provisional">¤0B</pattern>
-					<pattern type="10000000000" count="one" draft="provisional">¤00B</pattern>
-					<pattern type="10000000000" count="two" draft="provisional">¤00B</pattern>
-					<pattern type="10000000000" count="few" draft="provisional">¤00B</pattern>
-					<pattern type="10000000000" count="many" draft="provisional">¤00B</pattern>
-					<pattern type="10000000000" count="other" draft="provisional">¤00B</pattern>
-					<pattern type="100000000000" count="one" draft="provisional">¤000B</pattern>
-					<pattern type="100000000000" count="two" draft="provisional">¤000B</pattern>
-					<pattern type="100000000000" count="few" draft="provisional">¤000B</pattern>
-					<pattern type="100000000000" count="many" draft="provisional">¤000B</pattern>
-					<pattern type="100000000000" count="other" draft="provisional">¤000B</pattern>
-					<pattern type="1000000000000" count="one" draft="provisional">¤0T</pattern>
-					<pattern type="1000000000000" count="two" draft="provisional">¤0T</pattern>
-					<pattern type="1000000000000" count="few" draft="provisional">¤0T</pattern>
-					<pattern type="1000000000000" count="many" draft="provisional">¤0T</pattern>
-					<pattern type="1000000000000" count="other" draft="provisional">¤0T</pattern>
-					<pattern type="10000000000000" count="one" draft="provisional">¤00T</pattern>
-					<pattern type="10000000000000" count="two" draft="provisional">¤00T</pattern>
-					<pattern type="10000000000000" count="few" draft="provisional">¤00T</pattern>
-					<pattern type="10000000000000" count="many" draft="provisional">¤00T</pattern>
-					<pattern type="10000000000000" count="other" draft="provisional">¤00T</pattern>
-					<pattern type="100000000000000" count="one" draft="provisional">¤000T</pattern>
-					<pattern type="100000000000000" count="two" draft="provisional">¤000T</pattern>
-					<pattern type="100000000000000" count="few" draft="provisional">¤000T</pattern>
-					<pattern type="100000000000000" count="many" draft="provisional">¤000T</pattern>
-					<pattern type="100000000000000" count="other" draft="provisional">¤000T</pattern>
+					<pattern type="1000" count="one">¤0k</pattern>
+					<pattern type="1000" count="two">¤0k</pattern>
+					<pattern type="1000" count="few">¤0k</pattern>
+					<pattern type="1000" count="many">¤0k</pattern>
+					<pattern type="1000" count="other">¤0k</pattern>
+					<pattern type="10000" count="one">¤00k</pattern>
+					<pattern type="10000" count="two">¤00k</pattern>
+					<pattern type="10000" count="few">¤00k</pattern>
+					<pattern type="10000" count="many">¤00k</pattern>
+					<pattern type="10000" count="other">¤00k</pattern>
+					<pattern type="100000" count="one">¤000k</pattern>
+					<pattern type="100000" count="two">¤000k</pattern>
+					<pattern type="100000" count="few">¤000k</pattern>
+					<pattern type="100000" count="many">¤000k</pattern>
+					<pattern type="100000" count="other">¤000k</pattern>
+					<pattern type="1000000" count="one">¤0M</pattern>
+					<pattern type="1000000" count="two">¤0M</pattern>
+					<pattern type="1000000" count="few">¤0M</pattern>
+					<pattern type="1000000" count="many">¤0M</pattern>
+					<pattern type="1000000" count="other">¤0M</pattern>
+					<pattern type="10000000" count="one">¤00M</pattern>
+					<pattern type="10000000" count="two">¤00M</pattern>
+					<pattern type="10000000" count="few">¤00M</pattern>
+					<pattern type="10000000" count="many">¤00M</pattern>
+					<pattern type="10000000" count="other">¤00M</pattern>
+					<pattern type="100000000" count="one">¤000M</pattern>
+					<pattern type="100000000" count="two">¤000M</pattern>
+					<pattern type="100000000" count="few">¤000M</pattern>
+					<pattern type="100000000" count="many">¤000M</pattern>
+					<pattern type="100000000" count="other">¤000M</pattern>
+					<pattern type="1000000000" count="one">¤0B</pattern>
+					<pattern type="1000000000" count="two">¤0B</pattern>
+					<pattern type="1000000000" count="few">¤0B</pattern>
+					<pattern type="1000000000" count="many">¤0B</pattern>
+					<pattern type="1000000000" count="other">¤0B</pattern>
+					<pattern type="10000000000" count="one">¤00B</pattern>
+					<pattern type="10000000000" count="two">¤00B</pattern>
+					<pattern type="10000000000" count="few">¤00B</pattern>
+					<pattern type="10000000000" count="many">¤00B</pattern>
+					<pattern type="10000000000" count="other">¤00B</pattern>
+					<pattern type="100000000000" count="one">¤000B</pattern>
+					<pattern type="100000000000" count="two">¤000B</pattern>
+					<pattern type="100000000000" count="few">¤000B</pattern>
+					<pattern type="100000000000" count="many">¤000B</pattern>
+					<pattern type="100000000000" count="other">¤000B</pattern>
+					<pattern type="1000000000000" count="one">¤0T</pattern>
+					<pattern type="1000000000000" count="two">¤0T</pattern>
+					<pattern type="1000000000000" count="few">¤0T</pattern>
+					<pattern type="1000000000000" count="many">¤0T</pattern>
+					<pattern type="1000000000000" count="other">¤0T</pattern>
+					<pattern type="10000000000000" count="one">¤00T</pattern>
+					<pattern type="10000000000000" count="two">¤00T</pattern>
+					<pattern type="10000000000000" count="few">¤00T</pattern>
+					<pattern type="10000000000000" count="many">¤00T</pattern>
+					<pattern type="10000000000000" count="other">¤00T</pattern>
+					<pattern type="100000000000000" count="one">¤000T</pattern>
+					<pattern type="100000000000000" count="two">¤000T</pattern>
+					<pattern type="100000000000000" count="few">¤000T</pattern>
+					<pattern type="100000000000000" count="many">¤000T</pattern>
+					<pattern type="100000000000000" count="other">¤000T</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>
@@ -4457,6 +4555,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">kwanza Angóla</displayName>
 				<displayName count="other">kwanza Angóla</displayName>
 				<symbol>AOA</symbol>
+				<symbol alt="narrow" draft="contributed">Kz</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Kwanza Angólach (1977–1990)</displayName>
@@ -4554,6 +4653,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">marg inmhalartaithe na Boisnia-Heirseagaivéine</displayName>
 				<displayName count="other">marg inmhalartaithe na Boisnia-Heirseagaivéine</displayName>
 				<symbol>BAM</symbol>
+				<symbol alt="narrow" draft="contributed">KM</symbol>
 			</currency>
 			<currency type="BAN">
 				<symbol>BAN</symbol>
@@ -4660,6 +4760,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">mboliviano</displayName>
 				<displayName count="other">boliviano</displayName>
 				<symbol>BOB</symbol>
+				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="BOL">
 				<symbol>BOL</symbol>
@@ -4782,6 +4883,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">bpula na Botsuáine</displayName>
 				<displayName count="other">pula na Botsuáine</displayName>
 				<symbol>BWP</symbol>
+				<symbol alt="narrow" draft="contributed">P</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Rúbal Nua na Bealarúise (1994–1999)</displayName>
@@ -4922,6 +5024,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">bpeso inmhalartaithe Chúba</displayName>
 				<displayName count="other">peso inmhalartaithe Chúba</displayName>
 				<symbol>CUC</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Peso Chúba</displayName>
@@ -4959,6 +5062,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">koruna Phoblacht na Seice</displayName>
 				<displayName count="other">koruna Phoblacht na Seice</displayName>
 				<symbol>CZK</symbol>
+				<symbol alt="narrow" draft="contributed">Kč</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Ostmark na hOirGhearmáine</displayName>
@@ -4983,6 +5087,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">gcoróin na Danmhairge</displayName>
 				<displayName count="other">coróin na Danmhairge</displayName>
 				<symbol>DKK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Peso na Poblachta Doiminicí</displayName>
@@ -5022,6 +5127,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">bpunt na hÉigipte</displayName>
 				<displayName count="other">punt na hÉigipte</displayName>
 				<symbol>EGP</symbol>
+				<symbol alt="narrow" draft="contributed">E£</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Nakfa na hEiritré</displayName>
@@ -5088,6 +5194,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">bpunt Oileáin Fháclainne</displayName>
 				<displayName count="other">punt Oileáin Fháclainne</displayName>
 				<symbol>FKP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Franc Francach</displayName>
@@ -5159,6 +5266,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">bhfranc na Guine</displayName>
 				<displayName count="other">franc na Guine</displayName>
 				<symbol>GNF</symbol>
+				<symbol alt="narrow" draft="contributed">FG</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>Syli Guine</displayName>
@@ -5179,6 +5287,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">quetzal Ghuatamala</displayName>
 				<displayName count="other">quetzal Ghuatamala</displayName>
 				<symbol>GTQ</symbol>
+				<symbol alt="narrow" draft="contributed">Q</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>Escudo na Guine Portaingéalaí</displayName>
@@ -5214,6 +5323,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">lempira Hondúras</displayName>
 				<displayName count="other">lempira Hondúras</displayName>
 				<symbol>HNL</symbol>
+				<symbol alt="narrow" draft="contributed">L</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>Dínear na Cróite</displayName>
@@ -5226,6 +5336,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">kuna na Cróite</displayName>
 				<displayName count="other">kuna na Cróite</displayName>
 				<symbol>HRK</symbol>
+				<symbol alt="narrow" draft="contributed">kn</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Gourde Háítí</displayName>
@@ -5244,6 +5355,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">bhforint na hUngáire</displayName>
 				<displayName count="other">forint na hUngáire</displayName>
 				<symbol>HUF</symbol>
+				<symbol alt="narrow" draft="contributed">Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Rupiah na hIndinéise</displayName>
@@ -5253,6 +5365,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">rupiah na hIndinéise</displayName>
 				<displayName count="other">rupiah na hIndinéise</displayName>
 				<symbol>IDR</symbol>
+				<symbol alt="narrow" draft="contributed">Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>Punt Éireannach</displayName>
@@ -5306,6 +5419,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">króna na hÍoslainne</displayName>
 				<displayName count="other">króna na hÍoslainne</displayName>
 				<symbol>ISK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Lira na hIodáile</displayName>
@@ -5381,6 +5495,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">bhfranc Oileáin Chomóra</displayName>
 				<displayName count="other">franc Oileáin Chomóra</displayName>
 				<symbol>KMF</symbol>
+				<symbol alt="narrow" draft="contributed">CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Won na Cóiré Thuaidh</displayName>
@@ -5390,6 +5505,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">won na Cóiré Thuaidh</displayName>
 				<displayName count="other">won na Cóiré Thuaidh</displayName>
 				<symbol>KPW</symbol>
+				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KRH">
 				<symbol>KRH</symbol>
@@ -5454,6 +5570,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">bpunt na Liobáine</displayName>
 				<displayName count="other">punt na Liobáine</displayName>
 				<symbol>LBP</symbol>
+				<symbol alt="narrow" draft="contributed">L£</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>Rúipí Shrí Lanca</displayName>
@@ -5463,6 +5580,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">rúipí Shrí Lanca</displayName>
 				<displayName count="other">rúipí Shrí Lanca</displayName>
 				<symbol>LKR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>Dollar na Libéire</displayName>
@@ -5548,6 +5666,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">n-ariary Mhadagascar</displayName>
 				<displayName count="other">ariary Mhadagascar</displayName>
 				<symbol>MGA</symbol>
+				<symbol alt="narrow" draft="contributed">Ar</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Franc Madagascar</displayName>
@@ -5575,6 +5694,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">kyat Mhaenmar</displayName>
 				<displayName count="other">kyat Mhaenmar</displayName>
 				<symbol>MMK</symbol>
+				<symbol alt="narrow" draft="contributed">K</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Tugrik na Mongóile</displayName>
@@ -5630,6 +5750,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">rúipí Oileán Mhuirís</displayName>
 				<displayName count="other">rúipí Oileán Mhuirís</displayName>
 				<symbol>MUR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="MVP">
 				<displayName>Rúipí Oileáin Mhaildíve</displayName>
@@ -5688,6 +5809,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">ringgit na Malaeisia</displayName>
 				<displayName count="other">ringgit na Malaeisia</displayName>
 				<symbol>MYR</symbol>
+				<symbol alt="narrow" draft="contributed">RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Escudo Mósaimbíce</displayName>
@@ -5741,6 +5863,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">gcórdoba Nicearagua</displayName>
 				<displayName count="other">córdoba Nicearagua</displayName>
 				<symbol>NIO</symbol>
+				<symbol alt="narrow" draft="contributed">C$</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Guilder Ísiltíreach</displayName>
@@ -5753,6 +5876,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">gcoróin na hIorua</displayName>
 				<displayName count="other">coróin na hIorua</displayName>
 				<symbol>NOK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>Rúipí Neipeal</displayName>
@@ -5762,6 +5886,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">rúipí Neipeal</displayName>
 				<displayName count="other">rúipí Neipeal</displayName>
 				<symbol>NPR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>Dollar na Nua-Shéalainne</displayName>
@@ -5840,6 +5965,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">rúipí na Pacastáine</displayName>
 				<displayName count="other">rúipí na Pacastáine</displayName>
 				<symbol>PKR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>Zloty na Polainne</displayName>
@@ -5849,6 +5975,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">zloty na Polainne</displayName>
 				<displayName count="other">zloty na Polainne</displayName>
 				<symbol>PLN</symbol>
+				<symbol alt="narrow" draft="contributed">zł</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>Zloty Polannach (1950–1995)</displayName>
@@ -5916,6 +6043,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">rúbal na Rúise</displayName>
 				<displayName count="other">rúbal na Rúise</displayName>
 				<symbol>RUB</symbol>
+				<symbol alt="narrow" draft="contributed">₽</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Rúbal na Rúise (1991–1998)</displayName>
@@ -5935,6 +6063,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">bhfranc Ruanda</displayName>
 				<displayName count="other">franc Ruanda</displayName>
 				<symbol>RWF</symbol>
+				<symbol alt="narrow" draft="contributed">RF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Riyal na hAraibe Sádaí</displayName>
@@ -5999,6 +6128,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">gcoróin na Sualainne</displayName>
 				<displayName count="other">coróin na Sualainne</displayName>
 				<symbol>SEK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Dollar Shingeapór</displayName>
@@ -6018,6 +6148,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">bpunt San Héilin</displayName>
 				<displayName count="other">punt San Héilin</displayName>
 				<symbol>SHP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Tolar na Slóivéine</displayName>
@@ -6092,6 +6223,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">ndobra São Tomé agus Príncipe</displayName>
 				<displayName count="other">dobra São Tomé agus Príncipe</displayName>
 				<symbol>STD</symbol>
+				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Rúbal an Aontais Shóivéadaigh</displayName>
@@ -6119,6 +6251,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">bpunt na Siria</displayName>
 				<displayName count="other">punt na Siria</displayName>
 				<symbol>SYP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>Lilangeni na Suasalainne</displayName>
@@ -6137,6 +6270,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">mbaht na Téalainne</displayName>
 				<displayName count="other">baht na Téalainne</displayName>
 				<symbol>฿</symbol>
+				<symbol alt="narrow" draft="contributed">฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Rúbal na Táidsíceastáine</displayName>
@@ -6179,6 +6313,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">bpaʻanga Thonga</displayName>
 				<displayName count="other">paʻanga Thonga</displayName>
 				<symbol>TOP</symbol>
+				<symbol alt="narrow" draft="contributed">T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>Escudo Tíomóir</displayName>
@@ -6201,6 +6336,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">lira na Tuirce</displayName>
 				<symbol>TRY</symbol>
 				<symbol alt="narrow" draft="contributed">₺</symbol>
+				<symbol alt="variant" draft="contributed">TL</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Dollar Oileán na Tríonóide agus Tobága</displayName>
@@ -6329,6 +6465,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">mbolívar Veiniséala</displayName>
 				<displayName count="other">bolívar Veiniséala</displayName>
 				<symbol>VEF</symbol>
+				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Dong Vítneam</displayName>
@@ -6406,6 +6543,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">ndollar na Cairibe Thoir</displayName>
 				<displayName count="other">dollar na Cairibe Thoir</displayName>
 				<symbol>EC$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>Cearta Speisialta Tarraingthe</displayName>
@@ -6501,6 +6639,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">rand na hAfraice Theas</displayName>
 				<displayName count="other">rand na hAfraice Theas</displayName>
 				<symbol>ZAR</symbol>
+				<symbol alt="narrow" draft="contributed">R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Kwacha Saimbiach (1968–2012)</displayName>
@@ -6513,6 +6652,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="many">kwacha na Saimbia</displayName>
 				<displayName count="other">kwacha na Saimbia</displayName>
 				<symbol>ZMW</symbol>
+				<symbol alt="narrow" draft="contributed">ZK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Zaire Nua Sáíreach</displayName>
@@ -6532,6 +6672,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0} sa {1}</compoundUnitPattern>
+			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>g-fhórsa</displayName>
 				<unitPattern count="one">{0} g-fhórsa</unitPattern>
@@ -6580,6 +6723,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} raidian</unitPattern>
 				<unitPattern count="other">{0} raidian</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>imrothlú</displayName>
+				<unitPattern count="one">{0} imrothlú</unitPattern>
+				<unitPattern count="two">{0} imrothlú</unitPattern>
+				<unitPattern count="few">{0} imrothlú</unitPattern>
+				<unitPattern count="many">{0} n-imrothlú</unitPattern>
+				<unitPattern count="other">{0} imrothlú</unitPattern>
+			</unit>
 			<unit type="area-acre">
 				<displayName>acraí</displayName>
 				<unitPattern count="one">{0} acra</unitPattern>
@@ -6603,6 +6754,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} cheintiméadar chearnacha</unitPattern>
 				<unitPattern count="many">{0} gceintiméadar chearnacha</unitPattern>
 				<unitPattern count="other">{0} ceintiméadar cearnach</unitPattern>
+				<perUnitPattern>{0} sa cheintiméadar cearnach</perUnitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>troithe cearnacha</displayName>
@@ -6619,6 +6771,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} orlach chearnacha</unitPattern>
 				<unitPattern count="many">{0} orlach chearnacha</unitPattern>
 				<unitPattern count="other">{0} orlach cearnach</unitPattern>
+				<perUnitPattern>{0} san orlach cearnach</perUnitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>ciliméadair chearnacha</displayName>
@@ -6635,6 +6788,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} mhéadar chearnacha</unitPattern>
 				<unitPattern count="many">{0} méadar chearnacha</unitPattern>
 				<unitPattern count="other">{0} méadar cearnach</unitPattern>
+				<perUnitPattern>{0} sa mhéadar cearnach</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>mílte cearnacha</displayName>
@@ -6651,6 +6805,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} shlat chearnacha</unitPattern>
 				<unitPattern count="many">{0} slat chearnacha</unitPattern>
 				<unitPattern count="other">{0} slat chearnach</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>lítir sa 100 ciliméadar</displayName>
+				<unitPattern count="one">{0} lítear sa 100 ciliméadar</unitPattern>
+				<unitPattern count="two">{0} lítear sa 100 ciliméadar</unitPattern>
+				<unitPattern count="few">{0} lítear sa 100 ciliméadar</unitPattern>
+				<unitPattern count="many">{0} lítear sa 100 ciliméadar</unitPattern>
+				<unitPattern count="other">{0} lítear sa 100 ciliméadar</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>lítir sa chiliméadar</displayName>
@@ -6748,6 +6910,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} dteiribheart</unitPattern>
 				<unitPattern count="other">{0} teiribheart</unitPattern>
 			</unit>
+			<unit type="duration-century">
+				<displayName>céadta bliain</displayName>
+				<unitPattern count="one">{0} chéad bliain</unitPattern>
+				<unitPattern count="two">{0} chéad bliain</unitPattern>
+				<unitPattern count="few">{0} chéad bliain</unitPattern>
+				<unitPattern count="many">{0} gcéad bliain</unitPattern>
+				<unitPattern count="other">{0} céad bliain</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>laethanta</displayName>
 				<unitPattern count="one">{0} lá</unitPattern>
@@ -6755,6 +6925,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} lá</unitPattern>
 				<unitPattern count="many">{0} lá</unitPattern>
 				<unitPattern count="other">{0} lá</unitPattern>
+				<perUnitPattern>{0} sa lá</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>uaireanta</displayName>
@@ -6788,6 +6959,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} nóiméad</unitPattern>
 				<unitPattern count="many">{0} nóiméad</unitPattern>
 				<unitPattern count="other">{0} nóiméad</unitPattern>
+				<perUnitPattern>{0} sa nóiméad</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>míonna</displayName>
@@ -6796,6 +6968,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} mhí</unitPattern>
 				<unitPattern count="many">{0} mí</unitPattern>
 				<unitPattern count="other">{0} mí</unitPattern>
+				<perUnitPattern>{0} sa mhí</perUnitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>nanashoicindí</displayName>
@@ -6821,6 +6994,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} seachtaine</unitPattern>
 				<unitPattern count="many">{0} seachtaine</unitPattern>
 				<unitPattern count="other">{0} seachtain</unitPattern>
+				<perUnitPattern>{0} sa tseachtain</perUnitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>blianta</displayName>
@@ -6829,6 +7003,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} bliana</unitPattern>
 				<unitPattern count="many">{0} mbliana</unitPattern>
 				<unitPattern count="other">{0} bliain</unitPattern>
+				<perUnitPattern>{0} sa bhliain</perUnitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>aimpéir</displayName>
@@ -6957,6 +7132,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} cheintiméadar</unitPattern>
 				<unitPattern count="many">{0} gceintiméadar</unitPattern>
 				<unitPattern count="other">{0} ceintiméadar</unitPattern>
+				<perUnitPattern>{0} sa cheintiméadar</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName>deiciméadair</displayName>
@@ -6981,6 +7157,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} throigh</unitPattern>
 				<unitPattern count="many">{0} dtroigh</unitPattern>
 				<unitPattern count="other">{0} troigh</unitPattern>
+				<perUnitPattern>{0} sa troigh</perUnitPattern>
 			</unit>
 			<unit type="length-furlong">
 				<displayName>staideanna</displayName>
@@ -6997,6 +7174,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} orlach</unitPattern>
 				<unitPattern count="many">{0} n-orlach</unitPattern>
 				<unitPattern count="other">{0} orlach</unitPattern>
+				<perUnitPattern>{0} san orlach</perUnitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>ciliméadair</displayName>
@@ -7005,6 +7183,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} chiliméadar</unitPattern>
 				<unitPattern count="many">{0} gciliméadar</unitPattern>
 				<unitPattern count="other">{0} ciliméadar</unitPattern>
+				<perUnitPattern>{0} sa chiliméadar</perUnitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>solasbhlianta</displayName>
@@ -7021,6 +7200,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} mhéadar</unitPattern>
 				<unitPattern count="many">{0} méadar</unitPattern>
 				<unitPattern count="other">{0} méadar</unitPattern>
+				<perUnitPattern>{0} sa mhéadar</perUnitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>micriméadair</displayName>
@@ -7037,6 +7217,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} mhíle</unitPattern>
 				<unitPattern count="many">{0} míle</unitPattern>
 				<unitPattern count="other">{0} míle</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>míle Lochlannach</displayName>
+				<unitPattern count="one">{0} mhíle Lochlannach</unitPattern>
+				<unitPattern count="two">{0} mhíle Lochlannacha</unitPattern>
+				<unitPattern count="few">{0} mhíle Lochlannacha</unitPattern>
+				<unitPattern count="many">{0} míle Lochlannacha</unitPattern>
+				<unitPattern count="other">{0} míle Lochlannach</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>milliméadair</displayName>
@@ -7109,6 +7297,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} ghram</unitPattern>
 				<unitPattern count="many">{0} ngram</unitPattern>
 				<unitPattern count="other">{0} gram</unitPattern>
+				<perUnitPattern>{0} sa ghram</perUnitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>cileagraim</displayName>
@@ -7117,6 +7306,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} chileagram</unitPattern>
 				<unitPattern count="many">{0} gcileagram</unitPattern>
 				<unitPattern count="other">{0} cileagram</unitPattern>
+				<perUnitPattern>{0} sa chileagram</perUnitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>tonnaí méadracha</displayName>
@@ -7149,6 +7339,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} unsa</unitPattern>
 				<unitPattern count="many">{0} n-unsa</unitPattern>
 				<unitPattern count="other">{0} unsa</unitPattern>
+				<perUnitPattern>{0} san unsa</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>unsaí troí</displayName>
@@ -7165,6 +7356,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} phunt</unitPattern>
 				<unitPattern count="many">{0} bpunt</unitPattern>
 				<unitPattern count="other">{0} punt</unitPattern>
+				<perUnitPattern>{0} sa phunt</perUnitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName>clocha</displayName>
@@ -7286,6 +7478,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} gciliméadar san uair</unitPattern>
 				<unitPattern count="other">{0} ciliméadar san uair</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>muirmhíle san uair</displayName>
+				<unitPattern count="one">{0} mhuirmhíle san uair</unitPattern>
+				<unitPattern count="two">{0} mhuirmhíle san uair</unitPattern>
+				<unitPattern count="few">{0} mhuirmhíle san uair</unitPattern>
+				<unitPattern count="many">{0} muirmhíle san uair</unitPattern>
+				<unitPattern count="other">{0} muirmhíle san uair</unitPattern>
+			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>méadair sa soicind</displayName>
 				<unitPattern count="one">{0} mhéadar sa soicind</unitPattern>
@@ -7317,6 +7517,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} chéim Fahrenheit</unitPattern>
 				<unitPattern count="many">{0} gcéim Fahrenheit</unitPattern>
 				<unitPattern count="other">{0} céim Fahrenheit</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="two">{0}°</unitPattern>
+				<unitPattern count="few">{0}°</unitPattern>
+				<unitPattern count="many">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>céimeanna ceilvin</displayName>
@@ -7357,6 +7565,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} cheintiméadar chiúbacha</unitPattern>
 				<unitPattern count="many">{0} gceintiméadar chiúbacha</unitPattern>
 				<unitPattern count="other">{0} ceintiméadar ciúbach</unitPattern>
+				<perUnitPattern>{0} sa cheintiméadar ciúbach</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>troithe ciúbacha</displayName>
@@ -7389,6 +7598,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} mhéadar chiúbacha</unitPattern>
 				<unitPattern count="many">{0} méadar chiúbacha</unitPattern>
 				<unitPattern count="other">{0} méadar ciúbach</unitPattern>
+				<perUnitPattern>{0} sa mhéadar ciúbach</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>mílte ciúbacha</displayName>
@@ -7414,6 +7624,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} gcupán</unitPattern>
 				<unitPattern count="other">{0} cupán</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>cupáin mhéadracha</displayName>
+				<unitPattern count="one">{0} chupán méadrach</unitPattern>
+				<unitPattern count="two">{0} chupán mhéadracha</unitPattern>
+				<unitPattern count="few">{0} chupán mhéadracha</unitPattern>
+				<unitPattern count="many">{0} gcupán mhéadracha</unitPattern>
+				<unitPattern count="other">{0} cupán méadrach</unitPattern>
+			</unit>
 			<unit type="volume-deciliter">
 				<displayName>deicilítir</displayName>
 				<unitPattern count="one">{0} deicilítear</unitPattern>
@@ -7437,6 +7655,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} ghalún</unitPattern>
 				<unitPattern count="many">{0} ngalún</unitPattern>
 				<unitPattern count="other">{0} galún</unitPattern>
+				<perUnitPattern>{0} sa ghalún</perUnitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>heictilítir</displayName>
@@ -7453,6 +7672,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} lítear</unitPattern>
 				<unitPattern count="many">{0} lítear</unitPattern>
 				<unitPattern count="other">{0} lítear</unitPattern>
+				<perUnitPattern>{0} sa lítear</perUnitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>meigilítir</displayName>
@@ -7478,6 +7698,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} bpionta</unitPattern>
 				<unitPattern count="other">{0} pionta</unitPattern>
 			</unit>
+			<unit type="volume-pint-metric">
+				<displayName>piontaí méadracha</displayName>
+				<unitPattern count="one">{0} phionta méadrach</unitPattern>
+				<unitPattern count="two">{0} phionta mhéadracha</unitPattern>
+				<unitPattern count="few">{0} phionta mhéadracha</unitPattern>
+				<unitPattern count="many">{0} bpionta mhéadracha</unitPattern>
+				<unitPattern count="other">{0} pionta méadrach</unitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>cáirt</displayName>
 				<unitPattern count="one">{0} chárt</unitPattern>
@@ -7502,8 +7730,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} dtaespúnóg</unitPattern>
 				<unitPattern count="other">{0} taespúnóg</unitPattern>
 			</unit>
+			<unit type="volume-teaspoon-au">
+				<displayName>taespúnóga Astrálacha</displayName>
+				<unitPattern count="one">{0} taespúnóg Astrálach</unitPattern>
+				<unitPattern count="two">{0} thaespúnóg Astrálacha</unitPattern>
+				<unitPattern count="few">{0} thaespúnóg Astrálacha</unitPattern>
+				<unitPattern count="many">{0} dtaespúnóg Astrálacha</unitPattern>
+				<unitPattern count="other">{0} taespúnóg Astrálach</unitPattern>
+			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east">{0}O</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0}T</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0}D</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0}I</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>g-fhórsa</displayName>
 				<unitPattern count="one">{0} G</unitPattern>
@@ -7552,6 +7797,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} raid</unitPattern>
 				<unitPattern count="other">{0} raid</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>imr</displayName>
+				<unitPattern count="one">{0} imr</unitPattern>
+				<unitPattern count="two">{0} imr</unitPattern>
+				<unitPattern count="few">{0} imr</unitPattern>
+				<unitPattern count="many">{0} imr</unitPattern>
+				<unitPattern count="other">{0} imr</unitPattern>
+			</unit>
 			<unit type="area-acre">
 				<displayName>acraí</displayName>
 				<unitPattern count="one">{0} ac</unitPattern>
@@ -7575,6 +7828,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} cm²</unitPattern>
 				<unitPattern count="many">{0} cm²</unitPattern>
 				<unitPattern count="other">{0} cm²</unitPattern>
+				<perUnitPattern>{0}/cm²</perUnitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>tr²</displayName>
@@ -7591,6 +7845,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} or²</unitPattern>
 				<unitPattern count="many">{0} or²</unitPattern>
 				<unitPattern count="other">{0} or²</unitPattern>
+				<perUnitPattern>{0}/or²</perUnitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>km²</displayName>
@@ -7607,6 +7862,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} m²</unitPattern>
 				<unitPattern count="many">{0} m²</unitPattern>
 				<unitPattern count="other">{0} m²</unitPattern>
+				<perUnitPattern>{0}/m²</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>mílte²</displayName>
@@ -7623,6 +7879,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} sl²</unitPattern>
 				<unitPattern count="many">{0} sl²</unitPattern>
 				<unitPattern count="other">{0} sl²</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>l/100km</displayName>
+				<unitPattern count="one">{0} l/100km</unitPattern>
+				<unitPattern count="two">{0} l/100km</unitPattern>
+				<unitPattern count="few">{0} l/100km</unitPattern>
+				<unitPattern count="many">{0} l/100km</unitPattern>
+				<unitPattern count="other">{0} l/100km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>lítir/km</displayName>
@@ -7720,6 +7984,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} TB</unitPattern>
 				<unitPattern count="other">{0} TB</unitPattern>
 			</unit>
+			<unit type="duration-century">
+				<displayName>c</displayName>
+				<unitPattern count="one">{0} c</unitPattern>
+				<unitPattern count="two">{0} c</unitPattern>
+				<unitPattern count="few">{0} c</unitPattern>
+				<unitPattern count="many">{0} c</unitPattern>
+				<unitPattern count="other">{0} c</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>lá</displayName>
 				<unitPattern count="one">{0} lá</unitPattern>
@@ -7727,6 +7999,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} lá</unitPattern>
 				<unitPattern count="many">{0} lá</unitPattern>
 				<unitPattern count="other">{0} lá</unitPattern>
+				<perUnitPattern>{0}/lá</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>uair</displayName>
@@ -7760,6 +8033,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} nóim</unitPattern>
 				<unitPattern count="many">{0} nóim</unitPattern>
 				<unitPattern count="other">{0} nóim</unitPattern>
+				<perUnitPattern>{0}/nóim</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>míonna</displayName>
@@ -7768,6 +8042,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} mhí</unitPattern>
 				<unitPattern count="many">{0} mí</unitPattern>
 				<unitPattern count="other">{0} mí</unitPattern>
+				<perUnitPattern>{0}/mí</perUnitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>ns</displayName>
@@ -7793,6 +8068,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} scht</unitPattern>
 				<unitPattern count="many">{0} scht</unitPattern>
 				<unitPattern count="other">{0} scht</unitPattern>
+				<perUnitPattern>{0}/scht</perUnitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>blianta</displayName>
@@ -7801,6 +8077,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} bl</unitPattern>
 				<unitPattern count="many">{0} mbl</unitPattern>
 				<unitPattern count="other">{0} bl</unitPattern>
+				<perUnitPattern>{0}/bl</perUnitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>aimpéir</displayName>
@@ -7929,6 +8206,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} cm</unitPattern>
 				<unitPattern count="many">{0} cm</unitPattern>
 				<unitPattern count="other">{0} cm</unitPattern>
+				<perUnitPattern>{0}/cm</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName>dm</displayName>
@@ -7948,6 +8226,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} thr.</unitPattern>
 				<unitPattern count="many">{0} dtr.</unitPattern>
 				<unitPattern count="other">{0} tr.</unitPattern>
+				<perUnitPattern>{0}/tr.</perUnitPattern>
 			</unit>
 			<unit type="length-furlong">
 				<displayName>staideanna</displayName>
@@ -7964,6 +8243,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} or.</unitPattern>
 				<unitPattern count="many">{0} n-or.</unitPattern>
 				<unitPattern count="other">{0} or.</unitPattern>
+				<perUnitPattern>{0}/or.</perUnitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
@@ -7972,6 +8252,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} km</unitPattern>
 				<unitPattern count="many">{0} km</unitPattern>
 				<unitPattern count="other">{0} km</unitPattern>
+				<perUnitPattern>{0}/km</perUnitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>solasbhl.</displayName>
@@ -7988,6 +8269,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} m</unitPattern>
 				<unitPattern count="many">{0} m</unitPattern>
 				<unitPattern count="other">{0} m</unitPattern>
+				<perUnitPattern>{0}/m</perUnitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>µméadair</displayName>
@@ -8004,6 +8286,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} mhíle</unitPattern>
 				<unitPattern count="many">{0} míle</unitPattern>
 				<unitPattern count="other">{0} míle</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>míle Lochl.</displayName>
+				<unitPattern count="one">{0} míle Lch</unitPattern>
+				<unitPattern count="two">{0} mhíle Lch</unitPattern>
+				<unitPattern count="few">{0} mhíle Lch</unitPattern>
+				<unitPattern count="many">{0} míle Lch</unitPattern>
+				<unitPattern count="other">{0} míle Lch</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>mm</displayName>
@@ -8076,6 +8366,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} g</unitPattern>
 				<unitPattern count="many">{0} g</unitPattern>
 				<unitPattern count="other">{0} g</unitPattern>
+				<perUnitPattern>{0}/g</perUnitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kg</displayName>
@@ -8084,6 +8375,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} kg</unitPattern>
 				<unitPattern count="many">{0} kg</unitPattern>
 				<unitPattern count="other">{0} kg</unitPattern>
+				<perUnitPattern>{0}/kg</perUnitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>t</displayName>
@@ -8116,6 +8408,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} unsa</unitPattern>
 				<unitPattern count="many">{0} n-unsa</unitPattern>
 				<unitPattern count="other">{0} unsa</unitPattern>
+				<perUnitPattern>{0}/unsa</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>unsa t</displayName>
@@ -8132,6 +8425,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} phunt</unitPattern>
 				<unitPattern count="many">{0} bpunt</unitPattern>
 				<unitPattern count="other">{0} punt</unitPattern>
+				<perUnitPattern>{0}/punt</perUnitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName>clocha</displayName>
@@ -8139,7 +8433,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two">{0} chl.</unitPattern>
 				<unitPattern count="few">{0} chl.</unitPattern>
 				<unitPattern count="many">{0} gcl.</unitPattern>
-				<unitPattern count="other">{0} cloch</unitPattern>
+				<unitPattern count="other">{0} cl.</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>tonnaí gearra</displayName>
@@ -8253,6 +8547,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} km/u</unitPattern>
 				<unitPattern count="other">{0} km/u</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>muirmh/u</displayName>
+				<unitPattern count="one">{0} mhuirmh/u</unitPattern>
+				<unitPattern count="two">{0} mhuirmh/u</unitPattern>
+				<unitPattern count="few">{0} mhuirmh/u</unitPattern>
+				<unitPattern count="many">{0} muirmh/u</unitPattern>
+				<unitPattern count="other">{0} muirmh/u</unitPattern>
+			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>m/s</displayName>
 				<unitPattern count="one">{0} m/s</unitPattern>
@@ -8285,6 +8587,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="two">{0}°</unitPattern>
+				<unitPattern count="few">{0}°</unitPattern>
+				<unitPattern count="many">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
 				<unitPattern count="one">{0} K</unitPattern>
@@ -8305,12 +8615,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>buiséil</displayName>
 			</unit>
 			<unit type="volume-centiliter">
-				<displayName>cl</displayName>
-				<unitPattern count="one">{0} cl</unitPattern>
-				<unitPattern count="two">{0} cl</unitPattern>
-				<unitPattern count="few">{0} cl</unitPattern>
-				<unitPattern count="many">{0} cl</unitPattern>
-				<unitPattern count="other">{0} cl</unitPattern>
+				<displayName>cL</displayName>
+				<unitPattern count="one">{0} cL</unitPattern>
+				<unitPattern count="two">{0} cL</unitPattern>
+				<unitPattern count="few">{0} cL</unitPattern>
+				<unitPattern count="many">{0} cL</unitPattern>
+				<unitPattern count="other">{0} cL</unitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<displayName>cm³</displayName>
@@ -8319,6 +8629,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} cm³</unitPattern>
 				<unitPattern count="many">{0} cm³</unitPattern>
 				<unitPattern count="other">{0} cm³</unitPattern>
+				<perUnitPattern>{0}/cm³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>tr³</displayName>
@@ -8351,6 +8662,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} m³</unitPattern>
 				<unitPattern count="many">{0} m³</unitPattern>
 				<unitPattern count="other">{0} m³</unitPattern>
+				<perUnitPattern>{0}/m³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>míle³</displayName>
@@ -8376,6 +8688,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} c</unitPattern>
 				<unitPattern count="other">{0} c</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>cupán méadr.</displayName>
+				<unitPattern count="one">{0} mc</unitPattern>
+				<unitPattern count="two">{0} mc</unitPattern>
+				<unitPattern count="few">{0} mc</unitPattern>
+				<unitPattern count="many">{0} mc</unitPattern>
+				<unitPattern count="other">{0} mc</unitPattern>
+			</unit>
 			<unit type="volume-deciliter">
 				<displayName>dl</displayName>
 				<unitPattern count="one">{0} dl</unitPattern>
@@ -8399,6 +8719,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} ghal.</unitPattern>
 				<unitPattern count="many">{0} ngal.</unitPattern>
 				<unitPattern count="other">{0} gal.</unitPattern>
+				<perUnitPattern>{0}/gal.</perUnitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hl</displayName>
@@ -8415,6 +8736,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} l</unitPattern>
 				<unitPattern count="many">{0} l</unitPattern>
 				<unitPattern count="other">{0} l</unitPattern>
+				<perUnitPattern>{0}/l</perUnitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>Ml</displayName>
@@ -8440,6 +8762,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} pt</unitPattern>
 				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
+			<unit type="volume-pint-metric">
+				<displayName>mpt</displayName>
+				<unitPattern count="one">{0} mpt</unitPattern>
+				<unitPattern count="two">{0} mpt</unitPattern>
+				<unitPattern count="few">{0} mpt</unitPattern>
+				<unitPattern count="many">{0} mpt</unitPattern>
+				<unitPattern count="other">{0} mpt</unitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>cáirt</displayName>
 				<unitPattern count="one">{0} chárt</unitPattern>
@@ -8464,8 +8794,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} tsp</unitPattern>
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
+			<unit type="volume-teaspoon-au">
+				<displayName>atsp</displayName>
+				<unitPattern count="one">{0} atsp</unitPattern>
+				<unitPattern count="two">{0} atsp</unitPattern>
+				<unitPattern count="few">{0} atsp</unitPattern>
+				<unitPattern count="many">{0} atsp</unitPattern>
+				<unitPattern count="other">{0} atsp</unitPattern>
+			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east">{0}O</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0}T</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0}D</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0}I</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>g-fhórsa</displayName>
 				<unitPattern count="one">{0}G</unitPattern>
@@ -8520,6 +8867,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} m²</unitPattern>
 				<unitPattern count="many">{0} m²</unitPattern>
 				<unitPattern count="other">{0} m²</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>l/100km</displayName>
+				<unitPattern count="one">{0}l/100km</unitPattern>
+				<unitPattern count="two">{0}l/100km</unitPattern>
+				<unitPattern count="few">{0}l/100km</unitPattern>
+				<unitPattern count="many">{0}l/100km</unitPattern>
+				<unitPattern count="other">{0}l/100km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -9218,6 +9573,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0}l</unitPattern>
 				<unitPattern count="other">{0}l</unitPattern>
 			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east">{0}O</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0}T</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0}D</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0}I</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<durationUnit type="hm">
 			<durationUnitPattern>h:mm</durationUnitPattern>
@@ -9262,4 +9623,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

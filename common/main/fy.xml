@@ -1345,6 +1345,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 							</cyclicNameWidth>
 						</cyclicNameContext>
 					</cyclicNameSet>
+					<cyclicNameSet type="solarTerms">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="wide">
+								<cyclicName type="1" draft="unconfirmed">begjin fan de maitiid</cyclicName>
+								<cyclicName type="2" draft="unconfirmed">reinwetter</cyclicName>
+								<cyclicName type="3" draft="unconfirmed">ynsekten ûntweitsje</cyclicName>
+								<cyclicName type="4" draft="unconfirmed">maitiidpunt</cyclicName>
+								<cyclicName type="5" draft="unconfirmed">ljocht en helder</cyclicName>
+								<cyclicName type="7" draft="unconfirmed">begjien fan de simmer</cyclicName>
+								<cyclicName type="10" draft="unconfirmed">simmerpunt</cyclicName>
+								<cyclicName type="11" draft="unconfirmed">waarm</cyclicName>
+								<cyclicName type="12" draft="unconfirmed">hjit</cyclicName>
+								<cyclicName type="13" draft="unconfirmed">begjin fan de hjerst</cyclicName>
+								<cyclicName type="14" draft="unconfirmed">ein fan de hjittens</cyclicName>
+								<cyclicName type="15" draft="unconfirmed">wite dauwe</cyclicName>
+								<cyclicName type="16" draft="unconfirmed">hjerstpunt</cyclicName>
+								<cyclicName type="17" draft="unconfirmed">kâlde dauwe</cyclicName>
+								<cyclicName type="18" draft="unconfirmed">earste froast</cyclicName>
+								<cyclicName type="19" draft="unconfirmed">begjin fan de winter</cyclicName>
+								<cyclicName type="20" draft="unconfirmed">lichte snie</cyclicName>
+								<cyclicName type="21" draft="unconfirmed">swiere snie</cyclicName>
+								<cyclicName type="22" draft="unconfirmed">winterpunt</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
 					<cyclicNameSet type="years">
 						<cyclicNameContext type="format">
 							<cyclicNameWidth type="abbreviated">
@@ -1847,6 +1872,46 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</months>
 			</calendar>
 			<calendar type="generic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">M01</month>
+							<month type="2" draft="unconfirmed">M02</month>
+							<month type="3" draft="unconfirmed">M03</month>
+							<month type="4" draft="unconfirmed">M04</month>
+							<month type="5" draft="unconfirmed">M05</month>
+							<month type="6" draft="unconfirmed">M06</month>
+							<month type="7" draft="unconfirmed">M07</month>
+							<month type="8" draft="unconfirmed">M08</month>
+							<month type="9" draft="unconfirmed">M09</month>
+							<month type="10" draft="unconfirmed">M10</month>
+							<month type="11" draft="unconfirmed">M11</month>
+							<month type="12" draft="unconfirmed">M12</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1" draft="unconfirmed">1</month>
+							<month type="2" draft="unconfirmed">2</month>
+							<month type="3" draft="unconfirmed">3</month>
+							<month type="4" draft="unconfirmed">4</month>
+							<month type="5" draft="unconfirmed">5</month>
+							<month type="6" draft="unconfirmed">6</month>
+							<month type="7" draft="unconfirmed">7</month>
+							<month type="8" draft="unconfirmed">8</month>
+							<month type="9" draft="unconfirmed">9</month>
+							<month type="10" draft="unconfirmed">10</month>
+							<month type="11" draft="unconfirmed">11</month>
+							<month type="12" draft="unconfirmed">12</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraAbbr>
+						<era type="0" draft="unconfirmed">ERA0</era>
+						<era type="1" draft="unconfirmed">ERA1</era>
+					</eraAbbr>
+				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -2343,6 +2408,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
+						<dateFormatItem id="E" draft="unconfirmed">ccc</dateFormatItem>
 						<dateFormatItem id="Ed" draft="contributed">E d</dateFormatItem>
 						<dateFormatItem id="Ehm" draft="contributed">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm" draft="contributed">E HH:mm</dateFormatItem>
@@ -2358,6 +2424,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms" draft="contributed">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="unconfirmed">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="unconfirmed">HH:mm:ss v</dateFormatItem>
+						<dateFormatItem id="hmv" draft="unconfirmed">h:mm a v</dateFormatItem>
+						<dateFormatItem id="Hmv" draft="unconfirmed">HH:mm v</dateFormatItem>
 						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
 						<dateFormatItem id="Md" draft="contributed">d-M</dateFormatItem>
 						<dateFormatItem id="MEd" draft="contributed">E d-M</dateFormatItem>
@@ -3072,6 +3142,48 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other" draft="contributed">{0} jier lyn</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="quarter">
+				<displayName draft="unconfirmed">Fearnsjier</displayName>
+				<relative type="-1" draft="unconfirmed">foarich fearnsjier</relative>
+				<relative type="0" draft="unconfirmed">dit fearnsjier</relative>
+				<relative type="1" draft="unconfirmed">folgjend fearnsjier</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one" draft="unconfirmed">oer {0} fearnsjier</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">oer {0} fearnsjier</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one" draft="unconfirmed">{0} fearnsjier lyn</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} fearnsjier lyn</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter-short">
+				<displayName draft="unconfirmed">fearnsjier</displayName>
+				<relative type="-1" draft="unconfirmed">foarich fearnsjier</relative>
+				<relative type="0" draft="unconfirmed">dit fearnsjier</relative>
+				<relative type="1" draft="unconfirmed">folgjend fearnsjier</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one" draft="unconfirmed">oer {0} fearnsjier</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">oer {0} fearnsjier</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one" draft="unconfirmed">{0} fearnsjier lyn</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} fearnsjier lyn</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter-narrow">
+				<displayName draft="unconfirmed">fearnsjier</displayName>
+				<relative type="-1" draft="unconfirmed">foarich fearnsjier</relative>
+				<relative type="0" draft="unconfirmed">dit fearnsjier</relative>
+				<relative type="1" draft="unconfirmed">folgjend fearnsjier</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one" draft="unconfirmed">oer {0} fearnsjier</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">oer {0} fearnsjier</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one" draft="unconfirmed">{0} fearnsjier lyn</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} fearnsjier lyn</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="month">
 				<displayName draft="contributed">Moanne</displayName>
 				<relative type="-1" draft="contributed">foarige moanne</relative>
@@ -3308,6 +3420,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Africa/Addis_Ababa">
 				<exemplarCity draft="contributed">Addis Abeba</exemplarCity>
 			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity draft="unconfirmed">Helsinky</exemplarCity>
+			</zone>
 			<zone type="Pacific/Truk">
 				<exemplarCity draft="contributed">Chuuk</exemplarCity>
 			</zone>
@@ -3397,6 +3512,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Luxembourg">
 				<exemplarCity draft="contributed">Luxemburg</exemplarCity>
 			</zone>
+			<zone type="Europe/Monaco">
+				<exemplarCity draft="unconfirmed">Monako</exemplarCity>
+			</zone>
 			<zone type="Indian/Maldives">
 				<exemplarCity draft="contributed">Maldiven</exemplarCity>
 			</zone>
@@ -3414,6 +3532,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Pacific/Noumea">
 				<exemplarCity draft="contributed">Nouméa</exemplarCity>
+			</zone>
+			<zone type="Europe/Amsterdam">
+				<exemplarCity draft="unconfirmed">Amsterdam</exemplarCity>
 			</zone>
 			<zone type="Asia/Katmandu">
 				<exemplarCity draft="contributed">Kathmandu</exemplarCity>
@@ -4503,6 +4624,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="unconfirmed">latn</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="unconfirmed">latn</native>
+		</otherNumberingSystems>
+		<minimumGroupingDigits draft="unconfirmed">1</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal draft="contributed">,</decimal>
 			<group draft="contributed">.</group>
@@ -4515,6 +4641,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<perMille draft="contributed">‰</perMille>
 			<infinity draft="contributed">∞</infinity>
 			<nan draft="contributed">NaN</nan>
+			<timeSeparator draft="unconfirmed">:</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
@@ -5115,6 +5242,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one" draft="contributed">Brits pûn</displayName>
 				<displayName count="other" draft="contributed">Brits pûn</displayName>
 				<symbol draft="contributed">£</symbol>
+				<symbol alt="narrow" draft="unconfirmed">£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName draft="contributed">Georgyske kupon larit</displayName>
@@ -5226,6 +5354,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="contributed">Ierske pûn</displayName>
 				<displayName count="one" draft="contributed">Ierske pûn</displayName>
 				<displayName count="other" draft="contributed">Ierske pûn</displayName>
+				<symbol draft="unconfirmed">IEP</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName draft="contributed">Israëlysk pûn</displayName>
@@ -5953,21 +6082,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="contributed">Europeeske gearfoege ienheid</displayName>
 				<displayName count="one" draft="contributed">Europeeske gearfoege ienheid</displayName>
 				<displayName count="other" draft="contributed">Europeeske gearfoege ienheid</displayName>
+				<symbol draft="unconfirmed">XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName draft="contributed">Europeeske monetaire ienheid</displayName>
 				<displayName count="one" draft="contributed">Europeeske monetaire ienheid</displayName>
 				<displayName count="other" draft="contributed">Europeeske monetaire ienheid</displayName>
+				<symbol draft="unconfirmed">XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName draft="contributed">Europeeske rekkenienheid (XBC)</displayName>
 				<displayName count="one" draft="contributed">Europeeske rekkenienheid (XBC)</displayName>
 				<displayName count="other" draft="contributed">Europeeske rekkenienheid (XBC)</displayName>
+				<symbol draft="unconfirmed">XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName draft="contributed">Europeeske rekkenienheid (XBD)</displayName>
 				<displayName count="one" draft="contributed">Europeeske rekkenienheid (XBD)</displayName>
 				<displayName count="other" draft="contributed">Europeeske rekkenienheid (XBD)</displayName>
+				<symbol draft="unconfirmed">XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName draft="contributed">East-Karibyske dollar</displayName>
@@ -5989,11 +6122,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="contributed">Franse gouden franc</displayName>
 				<displayName count="one" draft="contributed">Franse gouden franc</displayName>
 				<displayName count="other" draft="contributed">Franse gouden franc</displayName>
+				<symbol draft="unconfirmed">XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName draft="contributed">Franse UIC-franc</displayName>
 				<displayName count="one" draft="contributed">Franse UIC-franc</displayName>
 				<displayName count="other" draft="contributed">Franse UIC-franc</displayName>
+				<symbol draft="unconfirmed">XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName draft="contributed">CFA-franc BCEAO</displayName>
@@ -6021,6 +6156,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="contributed">RINET-fondsen</displayName>
 				<displayName count="one" draft="contributed">RINET-fondsen</displayName>
 				<displayName count="other" draft="contributed">RINET-fondsen</displayName>
+				<symbol draft="unconfirmed">XRE</symbol>
 			</currency>
 			<currency type="XSU">
 				<displayName draft="contributed">Sucre</displayName>
@@ -6031,16 +6167,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="contributed">Valutacode voor testdoeleinden</displayName>
 				<displayName count="one" draft="contributed">Valutacode voor testdoeleinden</displayName>
 				<displayName count="other" draft="contributed">Valutacode voor testdoeleinden</displayName>
+				<symbol draft="unconfirmed">XTS</symbol>
 			</currency>
 			<currency type="XUA">
 				<displayName draft="contributed">ADB-rekkenienheid</displayName>
 				<displayName count="one" draft="contributed">ADB-rekkenienheid</displayName>
 				<displayName count="other" draft="contributed">ADB-rekkenienheid</displayName>
+				<symbol draft="unconfirmed">XUA</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName draft="contributed">Unbekende muntienheid</displayName>
 				<displayName count="one" draft="contributed">Unbekende muntienheid</displayName>
 				<displayName count="other" draft="contributed">Unbekende muntienheid</displayName>
+				<symbol draft="unconfirmed">XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName draft="contributed">Jemenityske dinar</displayName>
@@ -6826,4 +6965,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

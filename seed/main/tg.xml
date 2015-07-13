@@ -11,6 +11,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="tg"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>{0}, {1}</localeSeparator>
+			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
 			<language type="be" draft="unconfirmed">Белорусӣ</language>
 			<language type="bg" draft="unconfirmed">Булғорӣ</language>
@@ -78,6 +83,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="TJ">Тоҷикистон</territory>
 			<territory type="TO" draft="unconfirmed">Тонга</territory>
 		</territories>
+		<codePatterns>
+			<codePattern type="language">{0}</codePattern>
+			<codePattern type="script">{0}</codePattern>
+			<codePattern type="territory">{0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[а б в г ғ д е ё ж з и ӣ й к қ л м н о п р с т у ӯ ф х ҳ ч ҷ ш ъ э ю я]</exemplarCharacters>
@@ -235,8 +245,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</timeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="sat-narrow">
+				<relative type="-1">last Saturday</relative>
+			</field>
+		</fields>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">latn</native>
+		</otherNumberingSystems>
 		<currencies>
 			<currency type="TJS">
 				<displayName draft="unconfirmed">Сомонӣ</displayName>

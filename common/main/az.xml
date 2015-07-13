@@ -48,8 +48,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="av">avarikcə</language>
 			<language type="awa">avadicə</language>
 			<language type="ay">aymarca</language>
-			<language type="az">azərbaycanca</language>
+			<language type="az">azərbaycan dili</language>
 			<language type="az" alt="short">azəri</language>
+			<language type="azb">cənubi azərbaycan</language>
 			<language type="ba">başqırd</language>
 			<language type="bal">baluc dili</language>
 			<language type="ban">balincə</language>
@@ -59,6 +60,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="bem">bemba</language>
 			<language type="bez">bena</language>
 			<language type="bg">bolqar</language>
+			<language type="bgn">qərbi bəluc</language>
 			<language type="bho">bxoçpuri dili</language>
 			<language type="bi">bislama dili</language>
 			<language type="bik">bikolca</language>
@@ -214,7 +216,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="iu">inuktitut</language>
 			<language type="ja">yapon</language>
 			<language type="jbo" draft="contributed">loğban dili</language>
-			<language type="jgo">nqomba</language>
+			<language type="jgo">nqomba dili</language>
 			<language type="jmc">maçam</language>
 			<language type="jpr" draft="contributed">judo-farsca</language>
 			<language type="jrb" draft="contributed">jude-ərəbcə</language>
@@ -275,6 +277,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="lo">laos</language>
 			<language type="lol" draft="contributed">monqo dili</language>
 			<language type="loz" draft="contributed">lozi dili</language>
+			<language type="lrc">şimali luri</language>
 			<language type="lt">litva</language>
 			<language type="lu">luba-katanqa</language>
 			<language type="lua" draft="contributed">luba-lulua dili</language>
@@ -320,12 +323,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="mwr" draft="contributed">maruari dili</language>
 			<language type="my">birma</language>
 			<language type="myv">erzya dili</language>
+			<language type="mzn">mazandaran</language>
 			<language type="na" draft="contributed">nauru dili</language>
 			<language type="nap" draft="contributed">neapolital dili</language>
 			<language type="naq">nama</language>
 			<language type="nb">bokmal norveç</language>
 			<language type="nd">şimali ndebele</language>
 			<language type="nds" draft="contributed">aşağı almanca</language>
+			<language type="nds_NL">aşağı sakson</language>
 			<language type="ne">nepal</language>
 			<language type="new" draft="contributed">nevari dili</language>
 			<language type="ng" draft="contributed">nqonka dili</language>
@@ -399,6 +404,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="scn" draft="contributed">sisili dili</language>
 			<language type="sco" draft="contributed">skots dili</language>
 			<language type="sd">sindhi</language>
+			<language type="sdh">cənubi kürd</language>
 			<language type="se">şimali sami</language>
 			<language type="seh">sena</language>
 			<language type="sel" draft="contributed">selkup dili</language>
@@ -485,6 +491,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="wal" draft="contributed">valamo dili</language>
 			<language type="war" draft="contributed">varay dili</language>
 			<language type="was" draft="contributed">vaşo dili</language>
+			<language type="wbp">Valpiri</language>
 			<language type="wo">volof</language>
 			<language type="xal" draft="contributed">kalmıqca</language>
 			<language type="xh">xosa</language>
@@ -546,11 +553,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hang">hanqıl</script>
 			<script type="Hani">han</script>
 			<script type="Hano" draft="contributed">hanunu</script>
-			<script type="Hans">sadələşmiş han</script>
+			<script type="Hans">sadələşmiş</script>
 			<script type="Hans" alt="stand-alone">Sadələşdirilmiş Han</script>
-			<script type="Hant">ənənəvi han</script>
+			<script type="Hant">ənənəvi</script>
 			<script type="Hant" alt="stand-alone">Ənənəvi Han</script>
-			<script type="Hebr">yəhudi</script>
+			<script type="Hebr">ibrani</script>
 			<script type="Hira">iraqana</script>
 			<script type="Hmng" draft="contributed">pahav monq</script>
 			<script type="Hrkt" draft="contributed">katakana vəya hiraqana</script>
@@ -714,6 +721,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="CG" alt="variant">Konqo (Respublika)</territory>
 			<territory type="CH">İsveçrə</territory>
 			<territory type="CI">Fil Dişi Sahili</territory>
+			<territory type="CI" alt="variant">Fil Dişi Sahili</territory>
 			<territory type="CK">Kuk Adaları</territory>
 			<territory type="CL">Çili</territory>
 			<territory type="CM">Kamerun</territory>
@@ -941,6 +949,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="calendar">Təqvim</key>
 			<key type="collation">Çeşidləmə</key>
 			<key type="currency">Valyuta</key>
+			<key type="hc">Saat Sikli (12 / 24)</key>
+			<key type="lb">Sətirdən sətrə keçirmə üslubu</key>
+			<key type="ms">Ölçü Sistemi</key>
 			<key type="numbers">Rəqəmlər</key>
 		</keys>
 		<types>
@@ -963,6 +974,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="greklow" key="numbers">Kiçik Yunan Rəqəmləri</type>
 			<type type="gujr" key="numbers">Qucarat Rəqəmləri</type>
 			<type type="guru" key="numbers">Qurmuxi Rəqəmləri</type>
+			<type type="h11" key="hc">12 Saatlıq Sistem (0-11)</type>
+			<type type="h12" key="hc">12 Saatlıq Sistem (0-12)</type>
+			<type type="h23" key="hc">24 Saatlıq Sistem (0-23)</type>
+			<type type="h24" key="hc">24 Saatlıq Sistem (0-23)</type>
 			<type type="hanidec" key="numbers">Onluq Çin Rəqəmləri</type>
 			<type type="hans" key="numbers">Sadələşmiş Çin Rəqəmləri</type>
 			<type type="hansfin" key="numbers">Sadələşmiş Çin Maliyyə Rəqəmləri</type>
@@ -981,8 +996,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="knda" key="numbers">Kannada Rəqəmləri</type>
 			<type type="laoo" key="numbers">Lao Rəqəmləri</type>
 			<type type="latn" key="numbers">Qərb Rəqəmləri</type>
+			<type type="loose" key="lb">Sərbəst sətirdən sətrə keçirmə üslubu</type>
+			<type type="metric" key="ms">Metrik Sistem</type>
 			<type type="mlym" key="numbers">Malayalam Rəqəmləri</type>
 			<type type="mymr" key="numbers">Myanma Rəqəmləri</type>
+			<type type="normal" key="lb">Normal sətirdən sətrə keçirmə üslubu</type>
 			<type type="orya" key="numbers">Oriya Rəqəmləri</type>
 			<type type="persian" key="calendar">İran Təqvimi</type>
 			<type type="pinyin" key="collation" draft="contributed">Pinyin təqvimi</type>
@@ -991,11 +1009,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="romanlow" key="numbers">Kiçik Rum Rəqəmləri</type>
 			<type type="search" key="collation">Ümumi Məqsədli Axtarış</type>
 			<type type="standard" key="collation">Standart Çeşidləmə</type>
+			<type type="strict" key="lb">Sərt sətirdən sətrə keçirmə üslubu</type>
 			<type type="taml" key="numbers">Ənənəvi Tamil Rəqəmləri</type>
 			<type type="tamldec" key="numbers">Tamil Rəqəmləri</type>
 			<type type="telu" key="numbers">Teluqu Rəqəmləri</type>
 			<type type="thai" key="numbers">Tay Rəqəmləri</type>
 			<type type="tibt" key="numbers">Tibet Rəqəmləri</type>
+			<type type="uksystem" key="ms">İmperial Ölçü Sistemi</type>
+			<type type="ussystem" key="ms">ABŞ Ölçü Sistemi</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrik</measurementSystemName>
@@ -1075,6 +1096,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">d, E</dateFormatItem>
 						<dateFormatItem id="Gy">G y</dateFormatItem>
 						<dateFormatItem id="GyMMM">G MMM y</dateFormatItem>
@@ -1086,6 +1108,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">d MMM, E</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="y">G y</dateFormatItem>
 						<dateFormatItem id="yyyy">G y</dateFormatItem>
 						<dateFormatItem id="yyyyM">GGGGG MM y</dateFormatItem>
@@ -1094,6 +1117,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yyyyMMM">G MMM y</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">G d MMM y</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">G d MMM y, E</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">G y MMMM</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">G y QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">G y QQQQ</dateFormatItem>
 					</availableFormats>
@@ -1381,17 +1405,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<dayPeriod type="pm">p</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight">gecəyarı</dayPeriod>
 							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="noon">günorta</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">gecəyarı</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="noon">günorta</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="morning1">sübh</dayPeriod>
+							<dayPeriod type="morning2">səhər</dayPeriod>
+							<dayPeriod type="afternoon1">gündüz</dayPeriod>
+							<dayPeriod type="evening1">axşamüstü</dayPeriod>
+							<dayPeriod type="night1">axşam</dayPeriod>
+							<dayPeriod type="night2">gecə</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">gecəyarı</dayPeriod>
-							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="noon">günorta</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">PM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 							<dayPeriod type="morning1">sübh</dayPeriod>
 							<dayPeriod type="morning2">səhər</dayPeriod>
 							<dayPeriod type="afternoon1">gündüz</dayPeriod>
@@ -1405,8 +1442,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<eraNames>
 						<era type="0">eramızdan əvvəl</era>
 						<era type="0" alt="variant">ümumi eradan öncə</era>
-						<era type="1">bizim eramızın</era>
-						<era type="1" alt="variant">ümumi eranın</era>
+						<era type="1">eramız</era>
+						<era type="1" alt="variant">ümumi era</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">e.ə.</era>
@@ -1498,12 +1535,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hmsv">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv">HH:mm:ss v</dateFormatItem>
+						<dateFormatItem id="hmv">h:mm a v</dateFormatItem>
+						<dateFormatItem id="Hmv">HH:mm v</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">dd.MM</dateFormatItem>
 						<dateFormatItem id="MEd">dd.MM, E</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">d MMM, E</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">MM.y</dateFormatItem>
@@ -1512,6 +1554,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">d MMM y, E</dateFormatItem>
+						<dateFormatItem id="yMMMM">y MMMM</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
 					</availableFormats>
@@ -2887,6 +2930,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Pacific/Port_Moresby">
 				<exemplarCity>Port Moresbi</exemplarCity>
 			</zone>
+			<zone type="Pacific/Bougainville">
+				<exemplarCity>Buqanvil</exemplarCity>
+			</zone>
 			<zone type="Asia/Manila">
 				<exemplarCity>Manila</exemplarCity>
 			</zone>
@@ -2971,6 +3017,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Irkutsk">
 				<exemplarCity>İrkutsk</exemplarCity>
 			</zone>
+			<zone type="Asia/Chita">
+				<exemplarCity>Çita</exemplarCity>
+			</zone>
 			<zone type="Asia/Yakutsk">
 				<exemplarCity>Yakutsk</exemplarCity>
 			</zone>
@@ -2988,6 +3037,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Asia/Magadan">
 				<exemplarCity>Maqadan</exemplarCity>
+			</zone>
+			<zone type="Asia/Srednekolymsk">
+				<exemplarCity>Srednekolımsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>Kamçatka</exemplarCity>
@@ -4259,30 +4311,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one" draft="provisional">¤ 0K</pattern>
-					<pattern type="1000" count="other" draft="provisional">¤ 0K</pattern>
-					<pattern type="10000" count="one" draft="provisional">¤ 00K</pattern>
-					<pattern type="10000" count="other" draft="provisional">¤ 00K</pattern>
-					<pattern type="100000" count="one" draft="provisional">¤ 000K</pattern>
-					<pattern type="100000" count="other" draft="provisional">¤ 000K</pattern>
-					<pattern type="1000000" count="one" draft="provisional">¤ 0M</pattern>
-					<pattern type="1000000" count="other" draft="provisional">¤ 0M</pattern>
-					<pattern type="10000000" count="one" draft="provisional">¤ 00M</pattern>
-					<pattern type="10000000" count="other" draft="provisional">¤ 00M</pattern>
-					<pattern type="100000000" count="one" draft="provisional">¤ 000M</pattern>
-					<pattern type="100000000" count="other" draft="provisional">¤ 000M</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">¤ 0G</pattern>
-					<pattern type="1000000000" count="other" draft="provisional">¤ 0G</pattern>
-					<pattern type="10000000000" count="one" draft="provisional">¤ 00G</pattern>
-					<pattern type="10000000000" count="other" draft="provisional">¤ 00G</pattern>
-					<pattern type="100000000000" count="one" draft="provisional">¤ 000G</pattern>
-					<pattern type="100000000000" count="other" draft="provisional">¤ 000G</pattern>
-					<pattern type="1000000000000" count="one" draft="provisional">¤ 0T</pattern>
-					<pattern type="1000000000000" count="other" draft="provisional">¤ 0T</pattern>
-					<pattern type="10000000000000" count="one" draft="provisional">¤ 00T</pattern>
-					<pattern type="10000000000000" count="other" draft="provisional">¤ 00T</pattern>
-					<pattern type="100000000000000" count="one" draft="provisional">¤ 000T</pattern>
-					<pattern type="100000000000000" count="other" draft="provisional">¤ 000T</pattern>
+					<pattern type="1000" count="one">¤ 0K</pattern>
+					<pattern type="1000" count="other">¤ 0K</pattern>
+					<pattern type="10000" count="one">¤ 00K</pattern>
+					<pattern type="10000" count="other">¤ 00K</pattern>
+					<pattern type="100000" count="one">¤ 000K</pattern>
+					<pattern type="100000" count="other">¤ 000K</pattern>
+					<pattern type="1000000" count="one">¤ 0M</pattern>
+					<pattern type="1000000" count="other">¤ 0M</pattern>
+					<pattern type="10000000" count="one">¤ 00M</pattern>
+					<pattern type="10000000" count="other">¤ 00M</pattern>
+					<pattern type="100000000" count="one">¤ 000M</pattern>
+					<pattern type="100000000" count="other">¤ 000M</pattern>
+					<pattern type="1000000000" count="one">¤ 0G</pattern>
+					<pattern type="1000000000" count="other">¤ 0G</pattern>
+					<pattern type="10000000000" count="one">¤ 00G</pattern>
+					<pattern type="10000000000" count="other">¤ 00G</pattern>
+					<pattern type="100000000000" count="one">¤ 000G</pattern>
+					<pattern type="100000000000" count="other">¤ 000G</pattern>
+					<pattern type="1000000000000" count="one">¤ 0T</pattern>
+					<pattern type="1000000000000" count="other">¤ 0T</pattern>
+					<pattern type="10000000000000" count="one">¤ 00T</pattern>
+					<pattern type="10000000000000" count="other">¤ 00T</pattern>
+					<pattern type="100000000000000" count="one">¤ 000T</pattern>
+					<pattern type="100000000000000" count="other">¤ 000T</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>
@@ -4412,6 +4464,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Bosniya-Herseqovina markası</displayName>
 				<displayName count="other">Bosniya-Herseqovina markası</displayName>
 				<symbol>BAM</symbol>
+				<symbol alt="narrow" draft="contributed">KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbados Dolları</displayName>
@@ -4666,6 +4719,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Çexiya korunası</displayName>
 				<displayName count="other">Çexiya korunası</displayName>
 				<symbol>CZK</symbol>
+				<symbol alt="narrow" draft="contributed">Kč</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Şərq Almaniya Ostmarkı</displayName>
@@ -4688,6 +4742,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Danimarka kronu</displayName>
 				<displayName count="other">Danimarka kronu</displayName>
 				<symbol>DKK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Dominika Pesosu</displayName>
@@ -4717,6 +4772,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Misir funtu</displayName>
 				<displayName count="other">Misir funtu</displayName>
 				<symbol>EGP</symbol>
+				<symbol alt="narrow" draft="contributed">E£</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Eritreya Nakfası</displayName>
@@ -4792,6 +4848,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Gürcüstan larisi</displayName>
 				<displayName count="other">Gürcüstan larisi</displayName>
 				<symbol>GEL</symbol>
+				<symbol alt="variant" draft="contributed">₾</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>Qana Sedisi (1979–2007)</displayName>
@@ -4884,6 +4941,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Xorvatiya kunası</displayName>
 				<displayName count="other">Xorvatiya kunası</displayName>
 				<symbol>HRK</symbol>
+				<symbol alt="narrow" draft="contributed">kn</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Haiti Qourdu</displayName>
@@ -4896,6 +4954,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Macarıstan forinti</displayName>
 				<displayName count="other">Macarıstan forinti</displayName>
 				<symbol>HUF</symbol>
+				<symbol alt="narrow" draft="contributed">Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>İndoneziya Rupisi</displayName>
@@ -5050,6 +5109,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Livan funtu</displayName>
 				<displayName count="other">Livan funtu</displayName>
 				<symbol>LBP</symbol>
+				<symbol alt="narrow" draft="contributed">L£</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>Şri Lanka Rupisi</displayName>
@@ -5339,6 +5399,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Polşa zlotısı</displayName>
 				<displayName count="other">Polşa zlotısı</displayName>
 				<symbol>PLN</symbol>
+				<symbol alt="narrow" draft="contributed">zł</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>Polşa Zlotısı (1950–1995)</displayName>
@@ -5390,6 +5451,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Rusiya rublu</displayName>
 				<displayName count="other">Rusiya rublu</displayName>
 				<symbol>RUB</symbol>
+				<symbol alt="narrow" draft="contributed">₽</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Rusiya Rublu (1991–1998)</displayName>
@@ -5445,6 +5507,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Müqəddəs Yelena funtu</displayName>
 				<displayName count="other">Müqəddəs Yelena funtu</displayName>
 				<symbol>SHP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Sloveniya Toları</displayName>
@@ -5503,6 +5566,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Suriya funtu</displayName>
 				<displayName count="other">Suriya funtu</displayName>
 				<symbol>SYP</symbol>
+				<symbol alt="narrow" draft="contributed">S£</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>Svazilend Lilangenini</displayName>
@@ -5566,6 +5630,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">Türkiyə lirəsi</displayName>
 				<symbol>TRY</symbol>
 				<symbol alt="narrow" draft="contributed">₺</symbol>
+				<symbol alt="variant" draft="contributed">TL</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad və Tobaqo Dolları</displayName>
@@ -5858,6 +5923,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} radian</unitPattern>
 				<unitPattern count="other">{0} radian</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>dövrə</displayName>
+				<unitPattern count="one">{0} dövrə</unitPattern>
+				<unitPattern count="other">{0} dövrə</unitPattern>
+			</unit>
 			<unit type="area-acre">
 				<displayName>akr</displayName>
 				<unitPattern count="one">{0} akr</unitPattern>
@@ -5872,6 +5942,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kvadrat santimetr</displayName>
 				<unitPattern count="one">{0} kvadrat santimetr</unitPattern>
 				<unitPattern count="other">{0} kvadrat santimetr</unitPattern>
+				<perUnitPattern>{0}/sm²</perUnitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>kvadrat fut</displayName>
@@ -5882,6 +5953,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kvadrat düym</displayName>
 				<unitPattern count="one">{0} kvadrat düym</unitPattern>
 				<unitPattern count="other">{0} kvadrat düym</unitPattern>
+				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>kvadrat kilometr</displayName>
@@ -5892,6 +5964,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kvadrat metr</displayName>
 				<unitPattern count="one">{0} kvadrat metr</unitPattern>
 				<unitPattern count="other">{0} kvadrat metr</unitPattern>
+				<perUnitPattern>{0}/m²</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>kvadrat mil</displayName>
@@ -5902,6 +5975,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>yd²</displayName>
 				<unitPattern count="one">{0} yd²</unitPattern>
 				<unitPattern count="other">{0} yd²</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>L/100km</displayName>
+				<unitPattern count="one">{0} L/100km</unitPattern>
+				<unitPattern count="other">{0} L/100km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litr/kilometr</displayName>
@@ -5963,10 +6041,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} terabayt</unitPattern>
 				<unitPattern count="other">{0} terabayt</unitPattern>
 			</unit>
+			<unit type="duration-century">
+				<displayName>əsr</displayName>
+				<unitPattern count="one">{0} əsr</unitPattern>
+				<unitPattern count="other">{0} əsr</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>gün</displayName>
 				<unitPattern count="one">{0} gün</unitPattern>
 				<unitPattern count="other">{0} gün</unitPattern>
+				<perUnitPattern>{0}/gün</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>saat</displayName>
@@ -5988,11 +6072,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>dəqiqə</displayName>
 				<unitPattern count="one">{0} dəqiqə</unitPattern>
 				<unitPattern count="other">{0} dəqiqə</unitPattern>
+				<perUnitPattern>{0}/dəqiqə</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>ay</displayName>
 				<unitPattern count="one">{0} ay</unitPattern>
 				<unitPattern count="other">{0} ay</unitPattern>
+				<perUnitPattern>{0}/ay</perUnitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>nanosaniyə</displayName>
@@ -6003,17 +6089,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>saniyə</displayName>
 				<unitPattern count="one">{0} saniyə</unitPattern>
 				<unitPattern count="other">{0} saniyə</unitPattern>
-				<perUnitPattern>{0}/san</perUnitPattern>
+				<perUnitPattern>{0}/saniyə</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>həftə</displayName>
 				<unitPattern count="one">{0} həftə</unitPattern>
 				<unitPattern count="other">{0} həftə</unitPattern>
+				<perUnitPattern>{0}/həftə</perUnitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>il</displayName>
 				<unitPattern count="one">{0} il</unitPattern>
 				<unitPattern count="other">{0} il</unitPattern>
+				<perUnitPattern>{0}/il</perUnitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>amper</displayName>
@@ -6094,6 +6182,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>santimetr</displayName>
 				<unitPattern count="one">{0} santimetr</unitPattern>
 				<unitPattern count="other">{0} santimetr</unitPattern>
+				<perUnitPattern>{0}/sm</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName>dm</displayName>
@@ -6104,16 +6193,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>fut</displayName>
 				<unitPattern count="one">{0} fut</unitPattern>
 				<unitPattern count="other">{0} fut</unitPattern>
+				<perUnitPattern>{0}/ft</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName>düym</displayName>
 				<unitPattern count="one">{0} düym</unitPattern>
 				<unitPattern count="other">{0} düym</unitPattern>
+				<perUnitPattern>{0}/in</perUnitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>kilometr</displayName>
 				<unitPattern count="one">{0} kilometr</unitPattern>
 				<unitPattern count="other">{0} kilometr</unitPattern>
+				<perUnitPattern>{0}/km</perUnitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>işıq ili</displayName>
@@ -6124,6 +6216,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>metr</displayName>
 				<unitPattern count="one">{0} metr</unitPattern>
 				<unitPattern count="other">{0} metr</unitPattern>
+				<perUnitPattern>{0}/m</perUnitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>µm</displayName>
@@ -6134,6 +6227,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mil</displayName>
 				<unitPattern count="one">{0} mil</unitPattern>
 				<unitPattern count="other">{0} mil</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>smi</displayName>
+				<unitPattern count="one">{0} smi</unitPattern>
+				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>millimetr</displayName>
@@ -6179,11 +6277,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>qram</displayName>
 				<unitPattern count="one">{0} qram</unitPattern>
 				<unitPattern count="other">{0} qram</unitPattern>
+				<perUnitPattern>{0}/q</perUnitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kiloqram</displayName>
 				<unitPattern count="one">{0} kiloqram</unitPattern>
 				<unitPattern count="other">{0} kiloqram</unitPattern>
+				<perUnitPattern>{0}/kq</perUnitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>metrik ton</displayName>
@@ -6204,6 +6304,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>unsiya</displayName>
 				<unitPattern count="one">{0} unsiya</unitPattern>
 				<unitPattern count="other">{0} unsiya</unitPattern>
+				<perUnitPattern>{0}/oz</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>troy unsiyası</displayName>
@@ -6214,6 +6315,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>funt</displayName>
 				<unitPattern count="one">{0} funt</unitPattern>
 				<unitPattern count="other">{0} funt</unitPattern>
+				<perUnitPattern>{0}/lb</perUnitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName>stone</displayName>
@@ -6290,6 +6392,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} kilometr/saat</unitPattern>
 				<unitPattern count="other">{0} kilometr/saat</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>kn</displayName>
+				<unitPattern count="one">{0} kn</unitPattern>
+				<unitPattern count="other">{0} kn</unitPattern>
+			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>metr/saniyə</displayName>
 				<unitPattern count="one">{0} metr/saniyə</unitPattern>
@@ -6310,6 +6417,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} dərəcə Farengeyt</unitPattern>
 				<unitPattern count="other">{0} dərəcə Farengeyt</unitPattern>
 			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>dərəcə Kelvin</displayName>
 				<unitPattern count="one">{0} dərəcə Kelvin</unitPattern>
@@ -6329,6 +6441,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kub santimetr</displayName>
 				<unitPattern count="one">{0} kub santimetr</unitPattern>
 				<unitPattern count="other">{0} kub santimetr</unitPattern>
+				<perUnitPattern>{0}/sm³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>kub fut</displayName>
@@ -6349,6 +6462,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kub metr</displayName>
 				<unitPattern count="one">{0} kub metr</unitPattern>
 				<unitPattern count="other">{0} kub metr</unitPattern>
+				<perUnitPattern>{0}/m³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>kub mil</displayName>
@@ -6365,6 +6479,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} stəkan</unitPattern>
 				<unitPattern count="other">{0} stəkan</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>mcup</displayName>
+				<unitPattern count="one">{0} mc</unitPattern>
+				<unitPattern count="other">{0} mc</unitPattern>
+			</unit>
 			<unit type="volume-deciliter">
 				<displayName>desilitr</displayName>
 				<unitPattern count="one">{0} desilitr</unitPattern>
@@ -6379,6 +6498,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>qallon</displayName>
 				<unitPattern count="one">{0} qallon</unitPattern>
 				<unitPattern count="other">{0} qallon</unitPattern>
+				<perUnitPattern>{0}/qal</perUnitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hektolitr</displayName>
@@ -6389,6 +6509,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>litr</displayName>
 				<unitPattern count="one">{0} litr</unitPattern>
 				<unitPattern count="other">{0} litr</unitPattern>
+				<perUnitPattern>{0}/l</perUnitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>meqalitr</displayName>
@@ -6405,6 +6526,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} pint</unitPattern>
 				<unitPattern count="other">{0} pint</unitPattern>
 			</unit>
+			<unit type="volume-pint-metric">
+				<displayName>mpt</displayName>
+				<unitPattern count="one">{0} mpt</unitPattern>
+				<unitPattern count="other">{0} mpt</unitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>kvart</displayName>
 				<unitPattern count="one">{0} kvart</unitPattern>
@@ -6420,6 +6546,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} çay qaşığı</unitPattern>
 				<unitPattern count="other">{0} çay qaşığı</unitPattern>
 			</unit>
+			<unit type="volume-teaspoon-au">
+				<displayName>atsp</displayName>
+				<unitPattern count="one">{0} atsp</unitPattern>
+				<unitPattern count="other">{0} atsp</unitPattern>
+			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0}W</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
 			<compoundUnit type="per">
@@ -6455,6 +6592,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} rad</unitPattern>
 				<unitPattern count="other">{0} rad</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>döv</displayName>
+				<unitPattern count="one">{0} döv</unitPattern>
+				<unitPattern count="other">{0} döv</unitPattern>
+			</unit>
 			<unit type="area-acre">
 				<displayName>akr</displayName>
 				<unitPattern count="one">{0} ak</unitPattern>
@@ -6469,6 +6611,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>sm²</displayName>
 				<unitPattern count="one">{0} sm²</unitPattern>
 				<unitPattern count="other">{0} sm²</unitPattern>
+				<perUnitPattern>{0}/sm²</perUnitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>kvadrat fut</displayName>
@@ -6479,6 +6622,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>in²</displayName>
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
+				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>kvadrat kilometr</displayName>
@@ -6489,6 +6633,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kvadrat metr</displayName>
 				<unitPattern count="one">{0} kv m</unitPattern>
 				<unitPattern count="other">{0} kv m</unitPattern>
+				<perUnitPattern>{0}/m²</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>kvadrat mil</displayName>
@@ -6499,6 +6644,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>yd²</displayName>
 				<unitPattern count="one">{0} yd²</unitPattern>
 				<unitPattern count="other">{0} yd²</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>L/100km</displayName>
+				<unitPattern count="one">{0} L/100km</unitPattern>
+				<unitPattern count="other">{0} L/100km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
@@ -6560,10 +6710,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} TB</unitPattern>
 				<unitPattern count="other">{0} TB</unitPattern>
 			</unit>
+			<unit type="duration-century">
+				<displayName>əsr</displayName>
+				<unitPattern count="one">{0} əsr</unitPattern>
+				<unitPattern count="other">{0} əsr</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>gün</displayName>
 				<unitPattern count="one">{0} gün</unitPattern>
 				<unitPattern count="other">{0} gün</unitPattern>
+				<perUnitPattern>{0}/gün</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>saat</displayName>
@@ -6585,11 +6741,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>dəqiqə</displayName>
 				<unitPattern count="one">{0} dəq</unitPattern>
 				<unitPattern count="other">{0} dəq</unitPattern>
+				<perUnitPattern>{0}/dəq</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>ay</displayName>
 				<unitPattern count="one">{0} ay</unitPattern>
 				<unitPattern count="other">{0} ay</unitPattern>
+				<perUnitPattern>{0}/ay</perUnitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>nsan</displayName>
@@ -6606,11 +6764,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>həftə</displayName>
 				<unitPattern count="one">{0} hft</unitPattern>
 				<unitPattern count="other">{0} hft</unitPattern>
+				<perUnitPattern>{0}/hft</perUnitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>il</displayName>
 				<unitPattern count="one">{0} il</unitPattern>
 				<unitPattern count="other">{0} il</unitPattern>
+				<perUnitPattern>{0}/il</perUnitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>amp</displayName>
@@ -6691,6 +6851,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>sm</displayName>
 				<unitPattern count="one">{0} sm</unitPattern>
 				<unitPattern count="other">{0} sm</unitPattern>
+				<perUnitPattern>{0}/sm</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName>dm</displayName>
@@ -6701,16 +6862,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>fut</displayName>
 				<unitPattern count="one">{0} ft</unitPattern>
 				<unitPattern count="other">{0} ft</unitPattern>
+				<perUnitPattern>{0}/ft</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName>düym</displayName>
 				<unitPattern count="one">{0} in</unitPattern>
 				<unitPattern count="other">{0} in</unitPattern>
+				<perUnitPattern>{0}/in</perUnitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>kilometr</displayName>
 				<unitPattern count="one">{0} km</unitPattern>
 				<unitPattern count="other">{0} km</unitPattern>
+				<perUnitPattern>{0}/km</perUnitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>işıq ili</displayName>
@@ -6721,6 +6885,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>metr</displayName>
 				<unitPattern count="one">{0} m</unitPattern>
 				<unitPattern count="other">{0} m</unitPattern>
+				<perUnitPattern>{0}/m</perUnitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>µm</displayName>
@@ -6731,6 +6896,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mil</displayName>
 				<unitPattern count="one">{0} mil</unitPattern>
 				<unitPattern count="other">{0} mil</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>smi</displayName>
+				<unitPattern count="one">{0} smi</unitPattern>
+				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>millimetr</displayName>
@@ -6776,11 +6946,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>qram</displayName>
 				<unitPattern count="one">{0} q</unitPattern>
 				<unitPattern count="other">{0} q</unitPattern>
+				<perUnitPattern>{0}/q</perUnitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kiloqram</displayName>
 				<unitPattern count="one">{0} kq</unitPattern>
 				<unitPattern count="other">{0} kq</unitPattern>
+				<perUnitPattern>{0}/kq</perUnitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>t</displayName>
@@ -6801,6 +6973,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>unsiya</displayName>
 				<unitPattern count="one">{0} oz</unitPattern>
 				<unitPattern count="other">{0} oz</unitPattern>
+				<perUnitPattern>{0}/oz</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>oz t</displayName>
@@ -6811,6 +6984,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>funt</displayName>
 				<unitPattern count="one">{0} lb</unitPattern>
 				<unitPattern count="other">{0} lb</unitPattern>
+				<perUnitPattern>{0}/lb</perUnitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName>stone</displayName>
@@ -6887,6 +7061,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} km/saat</unitPattern>
 				<unitPattern count="other">{0} km/saat</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>kn</displayName>
+				<unitPattern count="one">{0} kn</unitPattern>
+				<unitPattern count="other">{0} kn</unitPattern>
+			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>metr/saniyə</displayName>
 				<unitPattern count="one">{0} m/s</unitPattern>
@@ -6907,6 +7086,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
 				<unitPattern count="one">{0} K</unitPattern>
@@ -6926,6 +7110,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>sm³</displayName>
 				<unitPattern count="one">{0} sm³</unitPattern>
 				<unitPattern count="other">{0} sm³</unitPattern>
+				<perUnitPattern>{0}/sm³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>ft³</displayName>
@@ -6946,6 +7131,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>m³</displayName>
 				<unitPattern count="one">{0} m³</unitPattern>
 				<unitPattern count="other">{0} m³</unitPattern>
+				<perUnitPattern>{0}/m³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>kub mil</displayName>
@@ -6962,6 +7148,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} st</unitPattern>
 				<unitPattern count="other">{0} st</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>mcup</displayName>
+				<unitPattern count="one">{0} mc</unitPattern>
+				<unitPattern count="other">{0} mc</unitPattern>
+			</unit>
 			<unit type="volume-deciliter">
 				<displayName>dL</displayName>
 				<unitPattern count="one">{0} dL</unitPattern>
@@ -6973,9 +7164,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} fl oz</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>gal</displayName>
-				<unitPattern count="one">{0} gal</unitPattern>
-				<unitPattern count="other">{0} gal</unitPattern>
+				<displayName>qal</displayName>
+				<unitPattern count="one">{0} qal</unitPattern>
+				<unitPattern count="other">{0} qal</unitPattern>
+				<perUnitPattern>{0}/qal</perUnitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hL</displayName>
@@ -6986,6 +7178,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>litr</displayName>
 				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="other">{0} l</unitPattern>
+				<perUnitPattern>{0}/l</perUnitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>ML</displayName>
@@ -7002,6 +7195,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} pt</unitPattern>
 				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
+			<unit type="volume-pint-metric">
+				<displayName>mpt</displayName>
+				<unitPattern count="one">{0} mpt</unitPattern>
+				<unitPattern count="other">{0} mpt</unitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>qt</displayName>
 				<unitPattern count="one">{0} qt</unitPattern>
@@ -7017,6 +7215,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} çyqş</unitPattern>
 				<unitPattern count="other">{0} çyqş</unitPattern>
 			</unit>
+			<unit type="volume-teaspoon-au">
+				<displayName>atsp</displayName>
+				<unitPattern count="one">{0} atsp</unitPattern>
+				<unitPattern count="other">{0} atsp</unitPattern>
+			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0}W</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -7061,6 +7270,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-mile">
 				<unitPattern count="one">{0} mil²</unitPattern>
 				<unitPattern count="other">{0} mil²</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>L/100km</displayName>
+				<unitPattern count="one">{0} L/100km</unitPattern>
+				<unitPattern count="other">{0} L/100km</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>gün</displayName>
@@ -7205,7 +7419,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} mil/saat</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName>dərəcə Selsi</displayName>
+				<displayName>°C</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
@@ -7226,15 +7440,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0}W</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<durationUnit type="hm">
-			<durationUnitPattern>h:mm</durationUnitPattern>
+			<durationUnitPattern>st:dqdq</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="hms">
-			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+			<durationUnitPattern>st:dqdq:snsn</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="ms">
-			<durationUnitPattern>m:ss</durationUnitPattern>
+			<durationUnitPattern>dq:snsn</durationUnitPattern>
 		</durationUnit>
 	</units>
 	<listPatterns>
@@ -7270,4 +7490,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

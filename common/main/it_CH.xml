@@ -94,6 +94,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
+				<months>
+					<monthContext type="stand-alone">
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">gennaio</month>
+							<month type="2" draft="contributed">febbraio</month>
+							<month type="3" draft="contributed">marzo</month>
+							<month type="4" draft="contributed">aprile</month>
+							<month type="5" draft="contributed">maggio</month>
+							<month type="6" draft="contributed">giugno</month>
+							<month type="7" draft="contributed">luglio</month>
+							<month type="8" draft="contributed">agosto</month>
+							<month type="9" draft="contributed">settembre</month>
+							<month type="10" draft="contributed">ottobre</month>
+							<month type="11" draft="contributed">novembre</month>
+							<month type="12" draft="contributed">dicembre</month>
+						</monthWidth>
+					</monthContext>
+				</months>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -180,4 +198,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencyFormats>
 	</numbers>
 </ldml>
-

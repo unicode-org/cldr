@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE supplementalData SYSTEM '../../common/dtd/ldmlSupplemental.dtd'>
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number='$Revision$'/>
+	<generation date='$Date$'/>
+		<idValidity>
+		<id type='currency' idStatus='regular'>
+			AED AFN ALL AMD ANG AOA ARS AUD AWG AZN
+			BAM BBD BDT BGN BHD BIF BMD BND BOB BRL BSD BTN BWP BYR BZD
+			CAD CDF CHF CLP CNY COP CRC CUC CUP CVE CZK
+			DJF DKK DOP DZD
+			EGP ERN ETB EUR
+			FJD FKP
+			GBP GEL GHS GIP GMD GNF GTQ GYD
+			HKD HNL HRK HTG HUF
+			IDR ILS INR IQD IRR ISK
+			JMD JOD JPY
+			KES KGS KHR KMF KPW KRW KWD KYD KZT
+			LAK LBP LKR LRD LSL LYD
+			MAD MDL MGA MKD MMK MNT MOP MRO MUR MVR MWK MXN MYR MZN
+			NAD NGN NIO NOK NPR NZD
+			OMR
+			PAB PEN PGK PHP PKR PLN PYG
+			QAR
+			RON RSD RUB RWF
+			SAR SBD SCR SDG SEK SGD SHP SLL SOS SRD SSP STD SYP SZL
+			THB TJS TMT TND TOP TRY TTD TWD TZS
+			UAH UGX USD UYU UZS
+			VEF VND VUV
+			WST
+			XAF XCD XOF XPF
+			YER
+			ZAR ZMW
+		</id>
+		<id type='currency' idStatus='unknown'>
+			XXX
+		</id>
+		<!-- Deprecated values are those that are not legal tender in some country after 2015.
+			 More detailed usage information needed for some implementations is in supplemental data. -->
+		<id type='currency' idStatus='deprecated'>
+			ADP AFA ALK AOK AON AOR ARA ARL~M ARP ATS AZM
+			BAD BAN BEC BEF BEL BGL~M BGO BOL BOP BOV BRB~C BRE BRN BRR BRZ BUK BYB
+			CHE CHW CLE~F CNX COU CSD CSK CYP
+			DDM DEM
+			ECS ECV EEK ESA~B ESP
+			FIM FRF
+			GEK GHC GNS GQE GRD GWE GWP
+			HRD
+			IEP ILP ILR ISJ ITL
+			KRH KRO
+			LTL LTT LUC LUF LUL LVL LVR
+			MAF MCF MDC MGF MKN MLF MTL MTP MXP MXV MZE MZM
+			NIC NLG
+			PEI PES PLZ PTE
+			RHD ROL RUR
+			SDD SDP SIT SKK SRG SUR SVC
+			TJR TMM TPE TRL
+			UAK UGS USN USS UYI UYP
+			VEB VNN
+			XAG XAU XBA~D XDR XEU XFO XFU XPD XPT XRE XSU XTS XUA
+			YDD YUD YUM~N YUR
+			ZAL ZMK ZRN ZRZ ZWD ZWL ZWR
+		</id>
+	</idValidity>
+</supplementalData>

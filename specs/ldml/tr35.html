@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2015-05-27</span></td>
+				<td><span class="changed">2015-07-14</span></td>
 			</tr>
 			<tr>
 				<td>This Version</td>
@@ -1516,6 +1516,11 @@ zh-Hant-HK</pre>
 				<td><code>unk</code></td>
 				<td>Unknown or Invalid Time Zone</td>
 			</tr>
+			<tr class='changed'>
+			  <td>Subdivision</td>
+			  <td>ZZZZ</td>
+			  <td>Unknown or Invalid Subdivision</td>
+		  </tr>
 		</table>
 		<p>When only the script or region are known, then a locale ID will
 			use &quot;und&quot; as the language subtag portion. Thus the locale
@@ -3068,7 +3073,7 @@ zh-Hant-HK</pre>
 			space-delimited list of StringRanges, as defined in <em>Section
 				<a href="#String_Range">5.3.4 String Range</a>.
 			</em>
-		</p>
+		The separator for each StringRange  is a &quot;~&quot;.</p>
 		<h2>
 			<a name="Locale_Inheritance" href="#Locale_Inheritance">4 Locale
 				Inheritance and Matching</a>
@@ -5513,15 +5518,16 @@ root</pre>
 		</p>
 		<blockquote class='changed'>
 			<p>
-				X-Y<br>
+				X <em>sep</em> Y<br>
 			</p>
 		</blockquote>
 		<p class='changed'>
-			<strong>Validity: <br>
-			</strong>
-		</p>
+		The separator and the format of strings X, Y may vary depending on the domain. For example, for the validity files the separator is ~, while for UnicodeString the separator is -, but any multi-codepoint string is enclosed in {…}.</p>
+		<p class='changed'><strong>Validity: <br>
+	    </strong>
+	  </p>
 		<blockquote class='changed'>
-			<p>A string range X-Y is valid iff len(X) ≥ len(Y) &gt; 0, where
+			<p>A string range X <em>sep</em> Y is valid iff len(X) ≥ len(Y) &gt; 0, where
 				len(X) is the length of X in code points.</p>
 		</blockquote>
 		<p class='changed'>
@@ -7614,7 +7620,7 @@ decimal?, group?, special*)) &gt;</pre>
 			<li>Proposed update for Version 28.</li>
 			<li><strong>Part 1: <a href="#Contents">Core</a></strong>
 				<ul>
-					<li><em>Section 3.2 <a href="#Unicode_locale_identifier">Unicode
+					<li><em>Section <a href="#Unicode_locale_identifier">3.2 Unicode
 								Locale Identifier</a></em>
 						<ul>
 							<li>Added unicode_subdivision_subtag.</li>
@@ -7628,7 +7634,15 @@ decimal?, group?, special*)) &gt;</pre>
 								and to point to the new <em>Section <a
 									href="#Validity_Data">3.11 Validity Data</a></em>.
 							</li>
-						</ul></li>
+						</ul>
+					</li>
+					<li><em>Section <a 
+				href="#Unknown_or_Invalid_Identifiers">3.5.1 Unknown or Invalid
+				Identifiers</a> </em>
+					  <ul>
+					    <li>Added ZZZZ for unknown/invalid subdivision</li>
+				      </ul>
+				  </li>
 					<li><em>Section <a href="#Key_And_Type_Definitions_">3.6.1
 								Key And Type Definitions</a>
 					</em>
@@ -7641,11 +7655,9 @@ decimal?, group?, special*)) &gt;</pre>
 					<li>Added <em>Section <a
 							href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes.</a></em></li>
 					<li>Added <em>Section <a href="#Validity_Data">3.11
-								Validity Data</a></em>.
-					</li>
+								Validity Data</a></em></li>
 					<li>Added <em>Section <a href="#String_Range">5.3.4
-								String Range</a>.
-					</em></li>
+					String Range</a></em></li>
 				</ul></li>
 			<li><strong>Part 5: <a
 					href="tr35-collation.html#Contents">Collation</a></strong>

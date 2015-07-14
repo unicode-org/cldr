@@ -5,6 +5,5 @@
 
 %A=[^"]++
 
-asciiCharactersNotInMainOrAuxiliaryExemplars ; ka ; //ldml/numbers/scientificFormats[@numberSystem="%A"]/scientificFormatLength/scientificFormat[@type="standard"]/pattern[@type="standard"]
-asciiCharactersNotInMainOrAuxiliaryExemplars ; ka ; //ldml/dates/calendars/calendar[@type="%A"]/dayPeriods/dayPeriodContext[@type="%A"]/dayPeriodWidth[@type="%A"]/dayPeriod[@type="%A"]
-asciiCharactersNotInMainOrAuxiliaryExemplars ; ka ; //ldml/dates/calendars/calendar[@type="%A"]/quarters/quarterContext[@type="%A"]/quarterWidth[@type="%A"]/quarter[@type="%A"]
+displayCollision ; (fil|sr(_Latn)?) ; //ldml/dates/fields/field[@type="week(-(short|narrow))?"]/relative[@type="(-)?1"]
+displayCollision ; (fil|sr(_Latn)?) ; //ldml/dates/fields/field[@type="sun"]/relative[@type="(-)?1"]

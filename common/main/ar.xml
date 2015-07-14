@@ -1683,7 +1683,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="midnight">منتصف الليل</dayPeriod>
 							<dayPeriod type="am">ص</dayPeriod>
 							<dayPeriod type="pm">م</dayPeriod>
 							<dayPeriod type="morning1" draft="provisional">صباحًا</dayPeriod>
@@ -1695,9 +1694,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<dayPeriod type="night2" draft="provisional">ل</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="midnight">منتصف الليل</dayPeriod>
 							<dayPeriod type="am">ص</dayPeriod>
-							<dayPeriod type="noon">ظ</dayPeriod>
 							<dayPeriod type="pm">م</dayPeriod>
 							<dayPeriod type="morning1" draft="provisional">صباحًا</dayPeriod>
 							<dayPeriod type="morning2" draft="provisional">ص</dayPeriod>
@@ -1708,9 +1705,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<dayPeriod type="night2" draft="provisional">ل</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="midnight">منتصف الليل</dayPeriod>
 							<dayPeriod type="am">ص</dayPeriod>
-							<dayPeriod type="noon">ظ</dayPeriod>
 							<dayPeriod type="pm">م</dayPeriod>
 							<dayPeriod type="morning1">صباحًا</dayPeriod>
 							<dayPeriod type="morning2">ص</dayPeriod>
@@ -1723,24 +1718,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="midnight">منتصف الليل</dayPeriod>
 							<dayPeriod type="am">ص</dayPeriod>
 							<dayPeriod type="pm">م</dayPeriod>
 							<dayPeriod type="morning2">ص</dayPeriod>
 							<dayPeriod type="afternoon2">بعد الظهر</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="midnight">منتصف الليل</dayPeriod>
 							<dayPeriod type="am">ص</dayPeriod>
 							<dayPeriod type="pm">م</dayPeriod>
 							<dayPeriod type="afternoon2">بعد الظهر</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="midnight">منتصف الليل</dayPeriod>
 							<dayPeriod type="am">صباحًا</dayPeriod>
-							<dayPeriod type="noon">ظهرًا</dayPeriod>
 							<dayPeriod type="pm">مساءً</dayPeriod>
-							<dayPeriod type="morning1">صباحًا</dayPeriod>
+							<dayPeriod type="morning1">فجرا</dayPeriod>
 							<dayPeriod type="morning2">صباحًا</dayPeriod>
 							<dayPeriod type="afternoon1">ظهرًا</dayPeriod>
 							<dayPeriod type="afternoon2">بعد الظهر</dayPeriod>

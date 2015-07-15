@@ -20,9 +20,10 @@ public class TestCasingInfo extends TestFmwk {
         assertEquals("regional casing should default to country",
             casingInfo.getLocaleCasing("en"),
             casingInfo.getLocaleCasing("en_AU"));
-        assertNotEquals("pt_PT is a special case and should not default to pt",
-            casingInfo.getLocaleCasing("pt"),
-            casingInfo.getLocaleCasing("pt_PT"));
+        // The following test is no longer valid with cldrbug 8757
+        //assertNotEquals("pt_PT is a special case and should not default to pt",
+        //    casingInfo.getLocaleCasing("pt"),
+        //    casingInfo.getLocaleCasing("pt_PT"));
         assertNotEquals("Script variants should have their own casing",
             casingInfo.getLocaleCasing("uz"),
             casingInfo.getLocaleCasing("uz_Cyrl"));

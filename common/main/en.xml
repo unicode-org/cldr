@@ -1191,6 +1191,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="lb">Line Break Style</key>
 			<key type="ms">Measurement System</key>
 			<key type="numbers">Numbers</key>
+			<key type="ss">Sentence Break Suppressions Type</key>
 			<key type="timezone">Time Zone</key>
 			<key type="va">Locale Variant</key>
 			<key type="variableTop">Sort As Symbols</key>
@@ -1280,6 +1281,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="no" key="colNormalization">Sort Without Normalization</type>
 			<type type="no" key="colNumeric">Sort Digits Individually</type>
 			<type type="non-ignorable" key="colAlternate">Sort Symbols</type>
+			<type type="none" key="ss">Sentence breaks without abbreviation handling</type>
 			<type type="normal" key="lb">Normal Line Break Style</type>
 			<type type="olck" key="numbers">Ol Chiki Digits</type>
 			<type type="orya" key="numbers">Oriya Digits</type>
@@ -1303,6 +1305,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="shrd" key="numbers">Sharada Digits</type>
 			<type type="sora" key="numbers">Sora Sompeng Digits</type>
 			<type type="standard" key="collation">Standard Sort Order</type>
+			<type type="standard" key="ss">Suppress sentence breaks after standard abbreviations</type>
 			<type type="strict" key="lb">Strict Line Break Style</type>
 			<type type="stroke" key="collation">Stroke Sort Order</type>
 			<type type="sund" key="numbers">Sundanese Digits</type>

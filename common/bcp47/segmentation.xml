@@ -16,5 +16,10 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="loose" description="CSS lev 3 line-break=loose"/>
         </key>
 
+        <key name="ss" description="Sentence break parameter key to control use of suppressions data" since="28">
+            <type name="none" description="Don't use segmentation suppressions data"/>
+            <type name="standard" description="Use segmentation suppressions data of type standard"/>
+        </key>
+
     </keyword>
 </ldmlBCP47>

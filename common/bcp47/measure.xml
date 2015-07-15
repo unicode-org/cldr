@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldmlBCP47 SYSTEM "../../common/dtd/ldmlBCP47.dtd">
-<!-- Copyright © 1991-2014 Unicode, Inc. CLDR data files are interpreted according to the LDML specification 
+<!-- Copyright © 1991-2015 Unicode, Inc. CLDR data files are interpreted according to the LDML specification 
 	(http://unicode.org/reports/tr35/) For terms of use, see http://www.unicode.org/copyright.html -->
 
 <ldmlBCP47>
@@ -13,21 +13,6 @@
 				since="28" />
 			<type name="uksystem" description="UK System of measurement: feet, pints, etc.; pints are 20oz"
 				alias="imperial" since="28" />
-		</key>
-		<key name="hc" description="Hour cycle (12 vs 24)" alias="hours" since="28">
-			<type name="h12" description="Hour system using 1–12; 'h' in patterns" since="28" />
-			<type name="h23" description="Hour system using 0–23; 'H' in patterns" since="28" />
-			<type name="h11" description="Hour system using 0–11; 'K' in patterns" since="28" />
-			<type name="h24" description="Hour system using 1–24; 'k' in patterns" since="28" />
-		</key>
-		<key name="fw" description="First day of week" since="28">
-			<type name="sun" description="Sunday" since="28" />
-			<type name="mon" description="Monday" since="28" />
-			<type name="tue" description="Tuesday" since="28" />
-			<type name="wed" description="Wednesday" since="28" />
-			<type name="thu" description="Thursday" since="28" />
-			<type name="fri" description="Friday" since="28" />
-			<type name="sat" description="Saturday" since="28" />
 		</key>
 	</keyword>
 </ldmlBCP47>

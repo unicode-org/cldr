@@ -1189,6 +1189,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="hc">Hour Cycle (12 vs 24)</key>
 			<key type="kv">Highest Ignored</key>
 			<key type="lb">Line Break Style</key>
+			<key type="lw">Line Breaks In Words Setting</key>
 			<key type="ms">Measurement System</key>
 			<key type="numbers">Numbers</key>
 			<key type="ss">Sentence Break Suppressions Type</key>
@@ -1207,6 +1208,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="beng" key="numbers">Bengali Digits</type>
 			<type type="big5han" key="collation">Traditional Chinese Sort Order - Big5</type>
 			<type type="brah" key="numbers">Brahmi Digits</type>
+			<type type="breakall" key="lw">Allow Line Breaks In All Words</type>
 			<type type="buddhist" key="calendar">Buddhist Calendar</type>
 			<type type="cakm" key="numbers">Chakma Digits</type>
 			<type type="cham" key="numbers">Cham Digits</type>
@@ -1256,6 +1258,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="jpan" key="numbers">Japanese Numerals</type>
 			<type type="jpanfin" key="numbers">Japanese Financial Numerals</type>
 			<type type="kali" key="numbers">Kayah Li Digits</type>
+			<type type="keepall" key="lw">Prevent Line Breaks In All Words</type>
 			<type type="khmr" key="numbers">Khmer Digits</type>
 			<type type="knda" key="numbers">Kannada Digits</type>
 			<type type="lana" key="numbers">Tai Tham Hora Digits</type>
@@ -1281,8 +1284,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="no" key="colNormalization">Sort Without Normalization</type>
 			<type type="no" key="colNumeric">Sort Digits Individually</type>
 			<type type="non-ignorable" key="colAlternate">Sort Symbols</type>
-			<type type="none" key="ss">Sentence breaks without abbreviation handling</type>
+			<type type="none" key="ss">SentEnce Breaks Without Abbreviation Handling</type>
 			<type type="normal" key="lb">Normal Line Break Style</type>
+			<type type="normal" key="lw">Normal Line Breaks For Words</type>
 			<type type="olck" key="numbers">Ol Chiki Digits</type>
 			<type type="orya" key="numbers">Oriya Digits</type>
 			<type type="osma" key="numbers">Osmanya Digits</type>
@@ -1305,7 +1309,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="shrd" key="numbers">Sharada Digits</type>
 			<type type="sora" key="numbers">Sora Sompeng Digits</type>
 			<type type="standard" key="collation">Standard Sort Order</type>
-			<type type="standard" key="ss">Suppress sentence breaks after standard abbreviations</type>
+			<type type="standard" key="ss">Suppress Sentence Breaks After Standard Abbreviations</type>
 			<type type="strict" key="lb">Strict Line Break Style</type>
 			<type type="stroke" key="collation">Stroke Sort Order</type>
 			<type type="sund" key="numbers">Sundanese Digits</type>

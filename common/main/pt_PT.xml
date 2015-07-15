@@ -1042,16 +1042,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">MMM–MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">E, d 'de' MMM – E, d 'de' MMM</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E, d 'de' MMM – E, d 'de' MMM</greatestDifference>
+							<greatestDifference id="d">ccc, dd/MM – ccc, dd/MM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">ccc, dd/MM – ccc, dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMMEd">
+							<greatestDifference id="d">ccc, d 'de' MMMM – ccc, d 'de' MMMM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">ccc, d 'de' MMMM – ccc, d 'de' MMMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">y–y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d 'de' MMM – E, d 'de' MMM 'de' y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E, d 'de' MMM – E, d 'de' MMM 'de' y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E, d 'de' MMM – E, d 'de' MMM 'de' y G</greatestDifference>
+							<greatestDifference id="d">E, dd/MM – E, dd/MM/y G</greatestDifference>
+							<greatestDifference id="M">E, dd/MM – E, dd/MM/y G</greatestDifference>
+							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMMEd">
+							<greatestDifference id="d">E, d 'de' MMMM – E, d 'de' MMMM 'de' y G</greatestDifference>
+							<greatestDifference id="M" draft="contributed">E, d 'de' MMMM – E, d 'de' MMMM 'de' y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">E, d 'de' MMMM 'de' y – E, d 'de' MMMM 'de' y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M">MMMM – MMMM 'de' y G</greatestDifference>
@@ -1403,6 +1412,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="d">ccc, dd/MM – ccc, dd/MM</greatestDifference>
 							<greatestDifference id="M" draft="contributed">ccc, dd/MM – ccc, dd/MM</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="MMMMEd">
+							<greatestDifference id="d">ccc, d 'de' MMMM – ccc, d 'de' MMMM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">ccc, d 'de' MMMM – ccc, d 'de' MMMM</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">y–y</greatestDifference>
 						</intervalFormatItem>
@@ -1418,7 +1431,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="d">d–d 'de' MMM 'de' y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d 'de' MMM – E, d 'de' MMM 'de' y</greatestDifference>
+							<greatestDifference id="d">E, dd/MM – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="M">E, dd/MM – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMMEd">
+							<greatestDifference id="d">E, d 'de' MMMM – E, d 'de' MMMM 'de' y</greatestDifference>
+							<greatestDifference id="M">E, d 'de' MMMM – E, d 'de' MMMM 'de' y</greatestDifference>
+							<greatestDifference id="y">E, d 'de' MMMM 'de' y – E, d 'de' MMMM 'de' y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>

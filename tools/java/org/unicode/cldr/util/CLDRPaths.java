@@ -1,5 +1,10 @@
 package org.unicode.cldr.util;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 import org.unicode.cldr.tool.ToolConstants;
 
 /**
@@ -68,5 +73,15 @@ public class CLDRPaths {
      */
     public static final String UTIL_DATA_DIR = FileReaders.getRelativeFileName(
         CldrUtility.class, "data/");
+
+    public static final Set<String> LDML_DIRECTORIES = Collections.unmodifiableSet(new LinkedHashSet<>(Arrays.asList(
+        "main", 
+        "annotations",
+        "casing", 
+        "collation",
+        "rbnf", 
+        "segments",
+        "subdivisions"
+        )));
 
 }

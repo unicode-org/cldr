@@ -83,15 +83,6 @@ public class ChartDelta extends Chart {
 
     private static final String LAST_ARCHIVE_DIRECTORY = "/Users/markdavis/Google Drive/workspace/cldr-archive/cldr-26.0/";
 
-    public static final Set<String> LDML_DIRECTORIES = Collections.unmodifiableSet(new LinkedHashSet<>(Arrays.asList(
-        "main", 
-        "annotations",
-        "casing", 
-        "collation",
-        "rbnf", 
-        "segments"
-        )));
-
     static String DIR =     CLDRPaths.CHART_DIRECTORY + "/delta/";
     static PathHeader.Factory phf = PathHeader.getFactory(ENGLISH);
     static final Set<String> DONT_CARE = new HashSet<>(Arrays.asList("draft", "standard", "reference"));
@@ -133,19 +124,6 @@ public class ChartDelta extends Chart {
         }
     }
 
-//    static void CheckLocales() {
-//        //File[] directories = new File(CLDRPaths.BASE_DIRECTORY + "common/").listFiles();
-//        TreeSet<String> mainList = new TreeSet<>(Arrays.asList(new File(CLDRPaths.BASE_DIRECTORY + "common/" + "main/").list()));
-//
-//        for (String dir : LDML_DIRECTORIES) {
-//            Set<String> dirFiles = new TreeSet(Arrays.asList(new File(CLDRPaths.BASE_DIRECTORY + "common/" + dir).list()));
-//            if (!mainList.containsAll(dirFiles)) {
-//                dirFiles.removeAll(mainList);
-//                System.out.println(dir + " has extra files" + dirFiles);
-//            }
-//        }
-//    }
-
     static final CLDRFile EMPTY_CLDR = new CLDRFile(new SimpleXMLSource("und").freeze());
 
     public void writeSubcharts(Anchors anchors) {
@@ -160,7 +138,7 @@ public class ChartDelta extends Chart {
 //        factories.add(Factory.make(CLDRPaths.BASE_DIRECTORY + "common/" + "main", ".*"));
 //        oldFactories.add(Factory.make(LAST_ARCHIVE_DIRECTORY + "common/" + "main", ".*"));
 
-        for (String dir : LDML_DIRECTORIES) {
+        for (String dir : CLDRPaths.LDML_DIRECTORIES) {
             factories.add(Factory.make(CLDRPaths.BASE_DIRECTORY + "common/" + dir, ".*"));
             try {
                 oldFactories.add(Factory.make(LAST_ARCHIVE_DIRECTORY + "common/" + dir, ".*"));
@@ -496,7 +474,7 @@ public class ChartDelta extends Chart {
         Map<String,String> supplemental = new TreeMap<>(CLDRFile.getComparator(DtdType.supplementalData));
 
         for (String dir : new File(CLDRPaths.BASE_DIRECTORY + "common/").list()) {
-            if (LDML_DIRECTORIES.contains(dir) 
+            if (CLDRPaths.LDML_DIRECTORIES.contains(dir) 
                 || dir.equals(".DS_Store") 
                 || dir.equals("dtd")  // TODO as flat files
                 || dir.equals("properties") // TODO as flat files

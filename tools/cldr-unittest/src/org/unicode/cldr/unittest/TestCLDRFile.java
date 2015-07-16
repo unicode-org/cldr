@@ -551,4 +551,21 @@ public class TestCLDRFile extends TestFmwk {
                 + mainLocales.toString());
         }
     }
+
+    public void TestForStrayFiles() {
+        TreeSet<String> mainList = new TreeSet<>(Arrays.asList(new File(CLDRPaths.MAIN_DIRECTORY).list()));
+
+        for (String dir : CLDRPaths.LDML_DIRECTORIES) {
+            Set<String> dirFiles = new TreeSet<String>(Arrays.asList(new File(CLDRPaths.BASE_DIRECTORY + "common/" + dir).list()));
+            if (dir.equals("rbnf")) { // Remove known exceptions.
+                dirFiles.remove("es_003.xml");
+                dirFiles.remove("nci.xml"); // Checking on this one - seems odd.
+            }
+            if (!mainList.containsAll(dirFiles)) {
+                dirFiles.removeAll(mainList);
+                errln(dir + " has extra files" + dirFiles);
+            }
+        }
+    }
+
 }

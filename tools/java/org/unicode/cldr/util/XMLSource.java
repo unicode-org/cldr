@@ -1195,6 +1195,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
         private static final String[] keyDisplayNames = {
             "calendar",
+            "cf",
             "collation",
             "currency",
             "hc",
@@ -1203,6 +1204,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             "numbers"
         };
         private static final String[][] typeDisplayNames = {
+            { "account", "cf" },
             { "arab", "numbers" },
             { "arabext", "numbers" },
             { "armn", "numbers" },
@@ -1289,6 +1291,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             { "searchjl", "collation" },
             { "shrd", "numbers" },
             { "sora", "numbers" },
+            { "standard", "cf" },
             { "standard", "collation" },
             { "strict", "lb" },
             { "stroke", "collation" },

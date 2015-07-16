@@ -1167,6 +1167,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     .put("lb", "Line Break")
                     .put("hc", "Hour Cycle")
                     .put("ms", "Measurement System")
+                    .put("cf", "Currency Format")
                     .freeze();
                 public String transform(String source) {
                     String fixedName = fixNames.get(source);
@@ -1191,11 +1192,6 @@ public class PathHeader implements Comparable<PathHeader> {
             functionMap.put("firstLetter", new Transform<String, String>() {
                 public String transform(String source0) {
                     return getEnglishFirstLetter(source0);
-                }
-            });
-            functionMap.put("categoryFromKey", new Transform<String, String>() {
-                public String transform(String source0) {
-                    return (source0.equals("lb"))? "Line Break": source0;
                 }
             });
             functionMap.put("languageSort", new Transform<String, String>() {

@@ -1174,6 +1174,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</variants>
 		<keys>
 			<key type="calendar">Calendar</key>
+			<key type="cf">Currency Format</key>
 			<key type="colAlternate">Ignore Symbols Sorting</key>
 			<key type="colBackwards">Reversed Accent Sorting</key>
 			<key type="colCaseFirst">Uppercase/Lowercase Ordering</key>
@@ -1199,6 +1200,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="x">Private-Use</key>
 		</keys>
 		<types>
+			<type type="account" key="cf">Accounting Currency Format</type>
 			<type type="arab" key="numbers">Arabic-Indic Digits</type>
 			<type type="arabext" key="numbers">Extended Arabic-Indic Digits</type>
 			<type type="arabext" key="numbers" alt="short">X Arabic-Indic Digits</type>
@@ -1308,6 +1310,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="shifted" key="colAlternate">Sort Ignoring Symbols</type>
 			<type type="shrd" key="numbers">Sharada Digits</type>
 			<type type="sora" key="numbers">Sora Sompeng Digits</type>
+			<type type="standard" key="cf">Standard Currency Format</type>
 			<type type="standard" key="collation">Standard Sort Order</type>
 			<type type="standard" key="ss">Suppress Sentence Breaks After Standard Abbreviations</type>
 			<type type="strict" key="lb">Strict Line Break Style</type>

@@ -11,7 +11,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     $Date$
 -->
 
-<!ELEMENT keyboard ( version, generation, names, settings?, keyMap+, transforms? ) >
+<!ELEMENT keyboard ( version, generation?, names, settings?, keyMap+, transforms? ) >
 <!ATTLIST keyboard locale CDATA #REQUIRED >
 
 <!ELEMENT version EMPTY >
@@ -23,8 +23,10 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@METADATA-->
 
 <!ELEMENT generation EMPTY >
+    <!--@DEPRECATED-->
 <!ATTLIST generation date CDATA #REQUIRED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT names ( name+ ) >
 

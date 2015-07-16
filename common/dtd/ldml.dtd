@@ -41,8 +41,10 @@ $Date$
     <!--@METADATA-->
 
 <!ELEMENT generation EMPTY >
+    <!--@DEPRECATED-->
 <!ATTLIST generation date CDATA #REQUIRED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT language ( #PCDATA ) >
 <!ATTLIST language type NMTOKEN #REQUIRED >

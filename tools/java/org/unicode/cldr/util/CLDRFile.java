@@ -320,7 +320,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Write the corresponding XML file out, with the normal formatting and indentation.
-     * Will update the identity element, including generation, version, and other items.
+     * Will update the identity element, including version, and other items.
      * If the CLDRFile is empty, the DTD type will be //ldml.
      */
     public CLDRFile write(PrintWriter pw) {
@@ -329,7 +329,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Write the corresponding XML file out, with the normal formatting and indentation.
-     * Will update the identity element, including generation, version, and other items.
+     * Will update the identity element, including version, and other items.
      * If the CLDRFile is empty, the DTD type will be //ldml.
      * 
      * @param pw
@@ -373,7 +373,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         /*
          * <identity>
          * <version number="1.2"/>
-         * <generation date="2004-08-27"/>
          * <language type="en"/>
          */
         // if ldml has any attributes, get them.
@@ -381,7 +380,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (isNonInheriting()) {
             // identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/version[@number=\"$" +
             // "Revision: $\"]");
-            // identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/generation[@date=\"$" +
             // "Date: $\"]");
         } else {
             String ldml_identity = "//ldml/identity";
@@ -394,7 +392,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
 
             identitySet.add(ldml_identity + "/version[@number=\"$" + "Revision: $\"]");
-            identitySet.add(ldml_identity + "/generation[@date=\"$" + "Date: $\"]");
             LocaleIDParser lip = new LocaleIDParser();
             lip.set(dataSource.getLocaleID());
             identitySet.add(ldml_identity + "/language[@type=\"" + lip.getLanguage() + "\"]");

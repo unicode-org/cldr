@@ -21,11 +21,13 @@ public class CLDRPaths {
     // <CLDR>
     public static final String COMMON_DIRECTORY = CldrUtility.getPath(BASE_DIRECTORY, "common/");
     public static final String COLLATION_DIRECTORY = CldrUtility.getPath(COMMON_DIRECTORY, "collation/");
+    public static final String CASING_DIRECTORY = CldrUtility.getPath(COMMON_DIRECTORY, "casing/");
     public static final String MAIN_DIRECTORY = CldrUtility.getProperty("CLDR_MAIN",
         CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "main"));
     public static final String SEED_DIRECTORY = CldrUtility.getProperty("CLDR_SEED",
         CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "../seed/main"));
     public static final String SEED_COLLATION_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../collation/");
+    public static final String SEED_CASING_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../casing/");
     public static final String EXEMPLARS_DIRECTORY = CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "exemplars/main/");
     public static final String RBNF_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "rbnf/");
     public static final String TMP_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",

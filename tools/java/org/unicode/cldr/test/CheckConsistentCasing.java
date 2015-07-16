@@ -44,7 +44,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
 
     public CheckConsistentCasing(Factory factory) {
         super(factory);
-        casingInfo = new CasingInfo(factory.getSupplementalDirectory().getAbsolutePath() + "/../casing"); // TODO: fix.
+        casingInfo = new CasingInfo(factory);
     }
 
     @Override

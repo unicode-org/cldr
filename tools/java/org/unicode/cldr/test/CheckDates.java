@@ -187,7 +187,11 @@ public class CheckDates extends FactoryCheckCLDR {
             } else {
                 CLDRLocale loc = CLDRLocale.getInstance(localeID);
                 CLDRLocale defContent = sdi.getDefaultContentFromBase(loc);
-                territory = defContent.getCountry();
+                if (defContent == null) {
+                    territory = "001";
+                } else {
+                    territory = defContent.getCountry();
+                }
                 // Set territory for 12/24 hour clock to Egypt (12 hr) for ar_001
                 // instead of 24 hour (exception).
                 if (territory.equals("001") && language.equals("ar")) {

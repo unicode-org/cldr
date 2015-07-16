@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -383,7 +384,7 @@ public class ConsoleCheckCLDR {
         PathShower pathShower = new PathShower();
 
         // call on the files
-        Set locales = new TreeSet(baseFirstCollator);
+        Set<String> locales = new TreeSet<String>(baseFirstCollator);
         locales.addAll(cldrFactory.getAvailable());
 
         List<CheckStatus> result = new ArrayList<CheckStatus>();
@@ -404,8 +405,8 @@ public class ConsoleCheckCLDR {
         String lastBaseLanguage = "";
         PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
 
-        for (Iterator it = locales.iterator(); it.hasNext();) {
-            String localeID = (String) it.next();
+        final List<String> specialPurposeLocales = new ArrayList<String>(Arrays.asList("en_US_POSIX", "en_ZZ", "und", "und_ZZ"));
+        for (String localeID : locales) {
             if (CLDRFile.isSupplementalName(localeID)) continue;
             if (supplementalDataInfo.getDefaultContentLocales().contains(localeID)) {
                 System.out.println("# Skipping default content locale: " + localeID);
@@ -413,8 +414,8 @@ public class ConsoleCheckCLDR {
             }
 
             // We don't really need to check the POSIX locale, as it is a special purpose locale
-            if (localeID.indexOf("POSIX") >= 0) {
-                System.out.println("# Skipping POSIX locale: " + localeID);
+            if (specialPurposeLocales.contains(localeID)) {
+                System.out.println("# Skipping special purpose locale: " + localeID);
                 continue;
             }
 
@@ -1037,7 +1038,7 @@ public class ConsoleCheckCLDR {
         }
 
         private static void closeErrorFile() {
-            Set<String> locales = new TreeSet();
+            Set<String> locales = new TreeSet<String>();
             for (Row.R4<String, String, ErrorType, Subtype> item : errorFileCounter.keySet()) {
                 String localeID = item.get0();
                 locales.add(localeID);

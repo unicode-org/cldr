@@ -14,7 +14,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<localeDisplayNames>
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
-			<localeSeparator>،</localeSeparator>
+			<localeSeparator>{0}، {1}</localeSeparator>
 			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
@@ -783,18 +783,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1" draft="unconfirmed">تاهون لڤس</relative>
 				<relative type="0" draft="unconfirmed">تاهون ني</relative>
 				<relative type="1" draft="unconfirmed">تاهون هدڤن</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">دالم {0} تاهون</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} تاهون لالو</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName draft="unconfirmed">بولن</displayName>
 				<relative type="-1" draft="unconfirmed">بولن لالو</relative>
 				<relative type="0" draft="unconfirmed">بولن ني</relative>
 				<relative type="1" draft="unconfirmed">بولن ستروسڽ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">دالم {0} بولن</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} بولن لالو</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName draft="unconfirmed">ميڠݢو</displayName>
 				<relative type="-1" draft="unconfirmed">ميڠݢو لڤس</relative>
 				<relative type="0" draft="unconfirmed">ميڠݢو ني</relative>
 				<relative type="1" draft="unconfirmed">ميڠݢو ستروسڽ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">دالم {0} ميڠݢو</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ميڠݢو لالو</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName draft="unconfirmed">هاري</displayName>
@@ -803,18 +821,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0" draft="unconfirmed">هاري ني</relative>
 				<relative type="1" draft="unconfirmed">ايسوق</relative>
 				<relative type="2" draft="unconfirmed">هاري سلڤس ايسوق</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">دالم {0} هاري</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} هاري لالو</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName draft="unconfirmed">هاري دالم ميڠݢو</displayName>
 			</field>
 			<field type="hour">
 				<displayName draft="unconfirmed">جم</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">دالم {0} جم</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} جم لالو</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName draft="unconfirmed">مينيت</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">دالم {0} مينيت</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} مينيت لالو</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName draft="unconfirmed">کدوا</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">دالم {0} ساعت</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ساعت لالو</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName draft="unconfirmed">زون وقتو</displayName>
@@ -953,65 +995,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other">{0} هاري</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other">دالم {0} هاري</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other">{0} هاري لالو</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">{0} جم</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other">دالم {0} جم</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other">{0} جم لالو</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="other">{0} مينيت</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other">دالم {0} مينيت</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other">{0} مينيت لالو</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other">{0} بولن</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other">دالم {0} بولن</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other">{0} بولن لالو</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0} ساعت</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other">دالم {0} ساعت</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other">{0} ساعت لالو</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">{0} ميڠݢو</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other">دالم {0} ميڠݢو</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other">{0} ميڠݢو لالو</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0} تاهون</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other">دالم {0} تاهون</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other">{0} تاهون لالو</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">

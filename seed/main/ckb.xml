@@ -731,7 +731,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<era type="1" draft="unconfirmed">زایینی</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0" draft="unconfirmed">پێش زاییین</era>
+						<era type="0" draft="unconfirmed">پ.ن</era>
 						<era type="1" draft="unconfirmed">ز</era>
 					</eraAbbr>
 					<eraNarrow>
@@ -898,8 +898,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<plusSign>‎+</plusSign> <!-- includes LRM before sign -->
 			<minusSign>‎-</minusSign> <!-- includes LRM before sign (002D) -->
 		</symbols>
-		<currencyFormats>
+		<currencyFormats numberSystem="latn">
 			<unitPattern count="one" draft="unconfirmed">{0} {1}</unitPattern>
+			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AFN">

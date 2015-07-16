@@ -17,28 +17,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="unconfirmed">Yok</day>
-							<day type="mon" draft="unconfirmed">Tung</day>
-							<day type="tue" draft="unconfirmed">T. Tung</day>
-							<day type="wed" draft="unconfirmed">Tsan</day>
-							<day type="thu" draft="unconfirmed">Nas</day>
-							<day type="fri" draft="unconfirmed">Nat</day>
-							<day type="sat" draft="unconfirmed">Chir</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">Wai Yoka Bawai</day>
-							<day type="mon" draft="unconfirmed">Wai Tunga</day>
-							<day type="tue" draft="unconfirmed">Toki Gitung</day>
-							<day type="wed" draft="unconfirmed">Tsam Kasuwa</day>
-							<day type="thu" draft="unconfirmed">Wai Na Nas</day>
-							<day type="fri" draft="unconfirmed">Wai Na Tiyon</day>
-							<day type="sat" draft="unconfirmed">Wai Na Chirim</day>
-						</dayWidth>
-					</dayContext>
-				</days>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -61,28 +39,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -122,7 +78,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dayWidth type="abbreviated">
 							<day type="sun" draft="unconfirmed">Yok</day>
 							<day type="mon" draft="unconfirmed">Tung</day>
-							<day type="tue" draft="unconfirmed">T. Tung</day>
+							<day type="tue" draft="unconfirmed">Gitung</day>
 							<day type="wed" draft="unconfirmed">Tsan</day>
 							<day type="thu" draft="unconfirmed">Nas</day>
 							<day type="fri" draft="unconfirmed">Nat</day>
@@ -174,22 +130,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss zzzz</pattern>
+							<pattern draft="unconfirmed">h:mm:ss a zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
+							<pattern draft="unconfirmed">h:mm:ss a z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss</pattern>
+							<pattern draft="unconfirmed">h:mm:ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm</pattern>
+							<pattern draft="unconfirmed">h:mm a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>

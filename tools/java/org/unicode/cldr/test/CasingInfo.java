@@ -3,9 +3,11 @@ package org.unicode.cldr.test;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -44,10 +46,12 @@ public class CasingInfo {
         .add("summary", null,
             "generates a summary of the casing for all locales that had casing generated for this run");
     private Map<String, Map<Category, CasingTypeAndErrFlag>> casing;
-    private File casingDir;
-
-    public CasingInfo(String dir) {
-        this.casingDir = new File(dir);
+    private List<File> casingDirs;
+    public CasingInfo(Factory factory) {
+        casingDirs = new ArrayList<File>();
+        for (File f : factory.getSourceDirectories()) {
+            this.casingDirs.add(new File(f.getAbsolutePath() + "/../casing"));
+        }
         casing = CldrUtility.newConcurrentHashMap();
     }
 
@@ -55,7 +59,9 @@ public class CasingInfo {
      * ONLY usable in command line tests.
      */
     public CasingInfo() {
-        this(CLDRPaths.COMMON_DIRECTORY + "/casing");
+        casingDirs = new ArrayList<File>();
+        this.casingDirs.add(new File(CLDRPaths.CASING_DIRECTORY));
+        casing = CldrUtility.newConcurrentHashMap();
     }
 
     /**
@@ -94,13 +100,15 @@ public class CasingInfo {
      * @param localeID
      */
     private CasingHandler loadFromXml(String localeID) {
-        File casingFile = new File(casingDir, localeID + ".xml");
-        if (casingFile.isFile()) {
-            CasingHandler handler = new CasingHandler();
-            XMLFileReader xfr = new XMLFileReader().setHandler(handler);
-            xfr.read(casingFile.toString(), -1, true);
-            return handler;
-        } // Fail silently if file not found.
+        for (File casingDir : casingDirs) {
+            File casingFile = new File(casingDir, localeID + ".xml");
+            if (casingFile.isFile()) {
+                CasingHandler handler = new CasingHandler();
+                XMLFileReader xfr = new XMLFileReader().setHandler(handler);
+                xfr.read(casingFile.toString(), -1, true);
+                return handler;
+            }
+        }// Fail silently if file not found.
         return null;
     }
 

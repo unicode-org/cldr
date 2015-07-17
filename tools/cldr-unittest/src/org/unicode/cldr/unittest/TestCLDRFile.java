@@ -559,7 +559,6 @@ public class TestCLDRFile extends TestFmwk {
             Set<String> dirFiles = new TreeSet<String>(Arrays.asList(new File(CLDRPaths.BASE_DIRECTORY + "common/" + dir).list()));
             if (dir.equals("rbnf")) { // Remove known exceptions.
                 dirFiles.remove("es_003.xml");
-                dirFiles.remove("nci.xml"); // Checking on this one - seems odd.
             }
             if (!mainList.containsAll(dirFiles)) {
                 dirFiles.removeAll(mainList);

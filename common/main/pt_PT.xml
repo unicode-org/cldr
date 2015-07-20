@@ -2,8 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2015 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-For terms of use, see http://www.unicode.org/copyright.html
--->
+For terms of use, see http://www.unicode.org/copyright.html -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -1056,13 +1055,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">E, dd/MM – E, dd/MM/y G</greatestDifference>
 							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y G</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">MMMM – MMMM 'de' y G</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="yMMMMEd">
 							<greatestDifference id="d">E, d 'de' MMMM – E, d 'de' MMMM 'de' y G</greatestDifference>
 							<greatestDifference id="M" draft="contributed">E, d 'de' MMMM – E, d 'de' MMMM 'de' y G</greatestDifference>
 							<greatestDifference id="y" draft="contributed">E, d 'de' MMMM 'de' y – E, d 'de' MMMM 'de' y G</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MMMM – MMMM 'de' y G</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -6856,3 +6855,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

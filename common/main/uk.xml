@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2014 Unicode, Inc.
+<!-- Copyright © 1991-2015 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-For terms of use, see http://www.unicode.org/copyright.html
--->
+For terms of use, see http://www.unicode.org/copyright.html -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -1788,30 +1787,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">північ</dayPeriod>
 							<dayPeriod type="am">дп</dayPeriod>
 							<dayPeriod type="noon">пополудні</dayPeriod>
 							<dayPeriod type="pm">пп</dayPeriod>
-							<dayPeriod type="midnight">північ</dayPeriod>
 							<dayPeriod type="morning1">ранку</dayPeriod>
 							<dayPeriod type="afternoon1">дня</dayPeriod>
 							<dayPeriod type="evening1">вечора</dayPeriod>
 							<dayPeriod type="night1">ночі</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">північ</dayPeriod>
 							<dayPeriod type="am">дп</dayPeriod>
 							<dayPeriod type="noon">п</dayPeriod>
 							<dayPeriod type="pm">пп</dayPeriod>
-							<dayPeriod type="midnight">північ</dayPeriod>
 							<dayPeriod type="morning1">ранку</dayPeriod>
 							<dayPeriod type="afternoon1">дня</dayPeriod>
 							<dayPeriod type="evening1">вечора</dayPeriod>
 							<dayPeriod type="night1">ночі</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight">північ</dayPeriod>
 							<dayPeriod type="am">дп</dayPeriod>
 							<dayPeriod type="noon">пополудні</dayPeriod>
 							<dayPeriod type="pm">пп</dayPeriod>
-							<dayPeriod type="midnight">північ</dayPeriod>
 							<dayPeriod type="morning1">ранку</dayPeriod>
 							<dayPeriod type="afternoon1">дня</dayPeriod>
 							<dayPeriod type="evening1">вечора</dayPeriod>
@@ -9430,3 +9429,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

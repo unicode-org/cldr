@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2014 Unicode, Inc.
+<!-- Copyright © 1991-2015 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-For terms of use, see http://www.unicode.org/copyright.html
--->
+For terms of use, see http://www.unicode.org/copyright.html -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -17,9 +16,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</localeDisplayPattern>
 		<languages>
 			<!-- This had confirmed data for bo,de,en,es,fr,it,ja,pt,ru,tk,tr,und,zh (all lowercase).
-				 Copy missing data from sr_Latn, converting to lowercase. Data that was unconfirmed here, does
-				 not match sr_Latn, and was not just the English name is now alt="proposed" draft="unconfirmed".
-			-->
+Copy missing data from sr_Latn, converting to lowercase. Data that was unconfirmed here, does
+not match sr_Latn, and was not just the English name is now alt="proposed" draft="unconfirmed". -->
 			<language type="aa">afarski</language>
 			<language type="ab">abhazijski</language>
 			<language type="ace">ačineski</language>
@@ -551,9 +549,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<scripts>
 			<script type="Afak" draft="provisional">afaka pismo</script>
 			<!-- This just had data for Zxxx and Zzzz; Those were the same as in sr_Latn
-				 (but here they were lowercase); fill in the missing data from sr_Latn, but
-				 match lettercase conventions here (inconsistent lettercase in sr_Latn).
-			-->
+(but here they were lowercase); fill in the missing data from sr_Latn, but
+match lettercase conventions here (inconsistent lettercase in sr_Latn). -->
 			<script type="Arab">arapsko pismo</script>
 			<script type="Arab" alt="variant">perzijsko-arapsko pismo</script>
 			<script type="Armi">imperijsko aramejsko pismo</script>
@@ -716,8 +713,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</scripts>
 		<territories>
 			<!-- This just had data for BA, ZZ, and unconfirmed for ME, RS, TO (??). All
-				 but ZZ were the same as in sr_Latn; fill in the missing data from sr_Latn.
-			-->
+but ZZ were the same as in sr_Latn; fill in the missing data from sr_Latn. -->
 			<territory type="001">Svijet</territory>
 			<territory type="002">Afrika</territory>
 			<territory type="003">Sjevernoamerički kontinent</territory>
@@ -2539,8 +2535,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="standard">{0}, standardno vrijeme</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<!-- This just had confirmed data for "Etc/Unknown" (different from the translation
-				 in sr_Latn). Fill in the other translations from data in sr_Latn.
-			-->
+in sr_Latn). Fill in the other translations from data in sr_Latn. -->
 			<zone type="Etc/Unknown">
 				<exemplarCity>Nepoznati grad</exemplarCity>
 			</zone>
@@ -4936,8 +4931,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencyFormats>
 		<currencies>
 			<!-- This just had confirmed data for "XXX".
-				 Fill in the other translations from data in sr_Latn.
-			-->
+Fill in the other translations from data in sr_Latn. -->
 			<currency type="ADP">
 				<displayName>Andorska pezeta</displayName>
 				<displayName count="one">Andorijska pezeta</displayName>
@@ -8799,3 +8793,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

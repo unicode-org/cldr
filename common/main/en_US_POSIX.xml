@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2014 Unicode, Inc.
+<!-- Copyright © 1991-2015 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-For terms of use, see http://www.unicode.org/copyright.html
--->
+For terms of use, see http://www.unicode.org/copyright.html -->
 <ldml>
 	<!-- This is a special purpose locale so that a user can request the C or POSIX
-		 style formatting. This does not include grouping separators in numbers, nor
-		 unusual characters for infinity or NaN. Some people have known this to be the
-		 invariant locale, which is different from the root locale.
-		 This locale should not be modified to create some sort of custom collation to
-		 represent a specific codepage. Many users complained when the C locale was
-		 being used, and multi-level UCA collation was expected.
-	-->
+style formatting. This does not include grouping separators in numbers, nor
+unusual characters for infinity or NaN. Some people have known this to be the
+invariant locale, which is different from the root locale.
+This locale should not be modified to create some sort of custom collation to
+represent a specific codepage. Many users complained when the C locale was
+being used, and multi-level UCA collation was expected. -->
 	<identity>
 		<version number="$Revision$"/>
 		<language type="en"/>
@@ -54,3 +52,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencyFormats>
 	</numbers>
 </ldml>
+

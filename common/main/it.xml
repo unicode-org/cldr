@@ -2,7 +2,8 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2015 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-For terms of use, see http://www.unicode.org/copyright.html -->
+For terms of use, see http://www.unicode.org/copyright.html
+-->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -2079,7 +2080,8 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 			</calendar>
 			<calendar type="japanese">
 				<!-- need some non-empty element here to make inheritance work,
-this copy of generic dateFormats above is smaller than root japanese eras -->
+					 this copy of generic dateFormats above is smaller than root japanese eras
+				-->
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>

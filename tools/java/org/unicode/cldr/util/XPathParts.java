@@ -674,7 +674,7 @@ public final class XPathParts implements Freezable<XPathParts> {
     }
 
     public static final int XPATH_STYLE = 0, XML_OPEN = 1, XML_CLOSE = 2, XML_NO_VALUE = 3;
-    public static final String NEWLINE = System.lineSeparator();
+    public static final String NEWLINE = "\n";
 
     private final class Element implements Cloneable, Freezable<Element> {
         private volatile boolean frozen;
@@ -1032,7 +1032,7 @@ public final class XPathParts implements Freezable<XPathParts> {
             boolean first = true;
             int countEmptyLines = 0;
             // trim the line iff the indent != 0.
-            for (Iterator<String> it = CldrUtility.splitList(comment, '\n', indent != 0, null).iterator(); it.hasNext();) {
+            for (Iterator<String> it = CldrUtility.splitList(comment, NEWLINE, indent != 0, null).iterator(); it.hasNext();) {
                 String line = it.next();
                 if (line.length() == 0) {
                     ++countEmptyLines;

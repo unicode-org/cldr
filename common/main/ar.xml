@@ -2,7 +2,8 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2015 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-For terms of use, see http://www.unicode.org/copyright.html -->
+For terms of use, see http://www.unicode.org/copyright.html
+-->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -5604,8 +5605,9 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<!-- Please note that the Arabic translated currency symbols include the Right to
-Left Marker <RLM> to position the dot properly on the boundary between
-Arabic and English XML tags. -->
+			 Left Marker <RLM> to position the dot properly on the boundary between
+			 Arabic and English XML tags.
+		-->
 		<currencies>
 			<currency type="ADP">
 				<displayName>بيستا أندوري</displayName>

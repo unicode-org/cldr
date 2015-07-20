@@ -2,7 +2,8 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2015 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-For terms of use, see http://www.unicode.org/copyright.html -->
+For terms of use, see http://www.unicode.org/copyright.html
+-->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -398,7 +399,6 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 			<language type="nb">Noors - Bokmål</language>
 			<language type="nd">Noord-Ndebele</language>
 			<language type="nds">Nedersaksisch</language>
-			<language type="nds_NL">Nedersaksisch (Nederland)</language>
 			<language type="ne">Nepalees</language>
 			<language type="new">Newari</language>
 			<language type="ng">Ndonga</language>
@@ -467,7 +467,6 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 			<language type="rm">Reto-Romaans</language>
 			<language type="rn">Kirundi</language>
 			<language type="ro">Roemeens</language>
-			<language type="ro_MD">Roemeens (Moldavië)</language>
 			<language type="rof">Rombo</language>
 			<language type="rom">Romani</language>
 			<language type="root">Root</language>
@@ -3862,7 +3861,8 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 					</eraAbbr>
 				</eras>
 				<!-- need some non-empty element here to make inheritance work,
-this copy of generic dateFormats above is smaller than root japanese eras -->
+					 this copy of generic dateFormats above is smaller than root japanese eras
+				-->
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>

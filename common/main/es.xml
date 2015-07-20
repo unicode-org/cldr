@@ -2,7 +2,8 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2015 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-For terms of use, see http://www.unicode.org/copyright.html -->
+For terms of use, see http://www.unicode.org/copyright.html
+-->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -345,7 +346,6 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 			<language type="nb">noruego bokmal</language>
 			<language type="nd">ndebele septentrional</language>
 			<language type="nds">bajo alemán</language>
-			<language type="nds_NL">bajo alemán (Países Bajos)</language>
 			<language type="ne">nepalí</language>
 			<language type="new">newari</language>
 			<language type="ng">ndonga</language>
@@ -1981,7 +1981,8 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 			</calendar>
 			<calendar type="japanese">
 				<!-- need some non-empty element here to make inheritance work,
-this copy of generic dateFormats above is smaller than root japanese eras -->
+					 this copy of generic dateFormats above is smaller than root japanese eras
+				-->
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>

@@ -230,11 +230,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</decimalFormatLength>
 		</decimalFormats>
 		<currencyFormats numberSystem="latn">
-			<currencyFormatLength>
-				<currencyFormat type="standard">
-					<pattern draft="contributed">¤#,##0.00</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
@@ -278,12 +273,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<unitLength type="short">
 			<unit type="acceleration-g-force">
 				<unitPattern count="other" draft="unconfirmed">{0}G力</unitPattern>
-			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="other" draft="unconfirmed">{0}光年</unitPattern>
-			</unit>
-			<unit type="length-meter">
-				<unitPattern count="other" draft="unconfirmed">{0}米</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<unitPattern count="other" draft="unconfirmed">{0}皮米</unitPattern>

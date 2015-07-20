@@ -81,16 +81,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
-				<quarters>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">T1</quarter>
-							<quarter type="2" draft="contributed">T2</quarter>
-							<quarter type="3" draft="contributed">T3</quarter>
-							<quarter type="4" draft="contributed">T4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
@@ -111,14 +101,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="midnight" draft="contributed">medianoche</dayPeriod>
-							<dayPeriod type="noon" draft="contributed">mediodía</dayPeriod>
-							<dayPeriod type="morning1" draft="contributed">madrugada</dayPeriod>
-							<dayPeriod type="morning2" draft="contributed">mañana</dayPeriod>
-							<dayPeriod type="evening1" draft="contributed">tarde</dayPeriod>
-							<dayPeriod type="night1" draft="contributed">noche</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="noon">m.</dayPeriod>
 							<dayPeriod type="evening1">tarde</dayPeriod>
@@ -128,15 +110,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
-				<eras>
-					<eraAbbr>
-						<era type="0" draft="contributed">a. C.</era>
-						<era type="1" draft="contributed">d. C.</era>
-					</eraAbbr>
-				</eras>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="EHm" draft="contributed">E, HH:mm</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="contributed">E, d 'de' MMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="hms" draft="contributed">hh:mm:ss</dateFormatItem>
 						<dateFormatItem id="Hmsv" draft="contributed">HH:mm:ss v</dateFormatItem>
@@ -214,21 +189,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</calendar>
 		</calendars>
 		<fields>
-			<field type="year">
-				<displayName draft="contributed">año</displayName>
-			</field>
-			<field type="quarter">
-				<displayName draft="contributed">trimestre</displayName>
-			</field>
-			<field type="month">
-				<displayName draft="contributed">mes</displayName>
-			</field>
-			<field type="week">
-				<displayName draft="contributed">semana</displayName>
-			</field>
-			<field type="day">
-				<displayName draft="contributed">día</displayName>
-			</field>
 			<field type="day-short">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">dentro de {0} días</relativeTimePattern>
@@ -248,18 +208,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="one">hace {0} días</relativeTimePattern>
 					<relativeTimePattern count="other">hace {0} días</relativeTimePattern>
 				</relativeTime>
-			</field>
-			<field type="weekday">
-				<displayName draft="contributed">día de la semana</displayName>
-			</field>
-			<field type="hour">
-				<displayName draft="contributed">hora</displayName>
-			</field>
-			<field type="minute">
-				<displayName draft="contributed">minuto</displayName>
-			</field>
-			<field type="second">
-				<displayName draft="contributed">segundo</displayName>
 			</field>
 			<field type="second-short">
 				<displayName draft="contributed">seg.</displayName>
@@ -309,27 +257,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<decimal>,</decimal>
 			<group>.</group>
 		</symbols>
-		<decimalFormats numberSystem="latn">
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern draft="contributed">#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<scientificFormats numberSystem="latn">
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern draft="contributed">#E0</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
-		<percentFormats numberSystem="latn">
-			<percentFormatLength>
-				<percentFormat>
-					<pattern draft="contributed">#,##0 %</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
@@ -354,23 +281,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
-			<unit type="duration-century">
-				<displayName draft="contributed">siglos</displayName>
-				<unitPattern count="one" draft="contributed">{0} siglo</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} siglos</unitPattern>
-			</unit>
-			<unit type="duration-day">
-				<perUnitPattern draft="contributed">{0} por día</perUnitPattern>
-			</unit>
-			<unit type="duration-minute">
-				<perUnitPattern draft="contributed">{0} por minuto</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<perUnitPattern draft="contributed">{0} por mes</perUnitPattern>
-			</unit>
-			<unit type="duration-week">
-				<perUnitPattern draft="contributed">{0} por semana</perUnitPattern>
-			</unit>
 			<unit type="duration-year">
 				<perUnitPattern draft="contributed">{0}/año</perUnitPattern>
 			</unit>
@@ -418,22 +328,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="contributed">{0} seg.</unitPattern>
 				<perUnitPattern draft="contributed">{0}/seg.</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<perUnitPattern draft="contributed">{0}/sem.</perUnitPattern>
-			</unit>
 			<unit type="duration-year">
 				<displayName draft="contributed">años</displayName>
 				<unitPattern count="one" draft="contributed">{0} año</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} años</unitPattern>
-				<perUnitPattern draft="contributed">{0}/a</perUnitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<displayName draft="contributed">voltios</displayName>
-			</unit>
-			<unit type="mass-ton">
-				<displayName draft="contributed">ton</displayName>
-				<unitPattern count="one" draft="contributed">{0} ton</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ton</unitPattern>
 			</unit>
 			<unit type="power-watt">
 				<displayName draft="contributed">vatios</displayName>

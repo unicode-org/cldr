@@ -147,33 +147,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11" draft="contributed">nov.</month>
 							<month type="12" draft="contributed">dic.</month>
 						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="contributed">enero</month>
-							<month type="2" draft="contributed">febrero</month>
-							<month type="3" draft="contributed">marzo</month>
-							<month type="4" draft="contributed">abril</month>
-							<month type="5" draft="contributed">mayo</month>
-							<month type="6" draft="contributed">junio</month>
-							<month type="7" draft="contributed">julio</month>
-							<month type="8" draft="contributed">agosto</month>
-							<month type="9" draft="contributed">septiembre</month>
-							<month type="10" draft="contributed">octubre</month>
-							<month type="11" draft="contributed">noviembre</month>
-							<month type="12" draft="contributed">diciembre</month>
-						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="contributed">dom.</day>
-							<day type="mon" draft="contributed">lun.</day>
-							<day type="tue" draft="contributed">mar.</day>
-							<day type="wed" draft="contributed">mié.</day>
-							<day type="thu" draft="contributed">jue.</day>
-							<day type="fri" draft="contributed">vie.</day>
-							<day type="sat" draft="contributed">sáb.</day>
-						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun" draft="contributed">d</day>
 							<day type="mon" draft="contributed">l</day>
@@ -183,33 +160,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="fri" draft="contributed">v</day>
 							<day type="sat" draft="contributed">s</day>
 						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="contributed">domingo</day>
-							<day type="mon" draft="contributed">lunes</day>
-							<day type="tue" draft="contributed">martes</day>
-							<day type="wed" draft="contributed">miércoles</day>
-							<day type="thu" draft="contributed">jueves</day>
-							<day type="fri" draft="contributed">viernes</day>
-							<day type="sat" draft="contributed">sábado</day>
-						</dayWidth>
 					</dayContext>
 				</days>
-				<quarters>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">T1</quarter>
-							<quarter type="2" draft="contributed">T2</quarter>
-							<quarter type="3" draft="contributed">T3</quarter>
-							<quarter type="4" draft="contributed">T4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight" draft="contributed">a. m.</dayPeriod>
-							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
 							<dayPeriod type="morning1" draft="contributed">a. m.</dayPeriod>
 							<dayPeriod type="morning2" draft="contributed">a. m.</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">p. m.</dayPeriod>
@@ -415,14 +371,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
-			<pattern type="range" draft="contributed">‘de’ {0} ‘a’ {1}</pattern>
+			<pattern type="range" draft="contributed">'de' {0} 'a' {1}</pattern>
 		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">
-			<unit type="duration-day">
-				<perUnitPattern draft="contributed">{0} por día</perUnitPattern>
-			</unit>
 			<unit type="duration-month">
 				<perUnitPattern draft="contributed">{0}/mes</perUnitPattern>
 			</unit>
@@ -442,9 +395,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} mes</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} meses</unitPattern>
 				<perUnitPattern draft="contributed">{0}/mes</perUnitPattern>
-			</unit>
-			<unit type="duration-week">
-				<perUnitPattern draft="contributed">{0}/sem.</perUnitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName draft="contributed">a.</displayName>

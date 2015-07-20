@@ -29,20 +29,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11" draft="contributed">nov.</month>
 							<month type="12" draft="contributed">déc.</month>
 						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="contributed">janvier</month>
-							<month type="2" draft="contributed">février</month>
-							<month type="3" draft="contributed">mars</month>
-							<month type="4" draft="contributed">avril</month>
-							<month type="5" draft="contributed">mai</month>
-							<month type="6" draft="contributed">juin</month>
-							<month type="7" draft="contributed">juillet</month>
-							<month type="8" draft="contributed">août</month>
-							<month type="9" draft="contributed">septembre</month>
-							<month type="10" draft="contributed">octobre</month>
-							<month type="11" draft="contributed">novembre</month>
-							<month type="12" draft="contributed">décembre</month>
-						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
@@ -59,53 +45,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11" draft="contributed">nov.</month>
 							<month type="12" draft="contributed">déc.</month>
 						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="contributed">janvier</month>
-							<month type="2" draft="contributed">février</month>
-							<month type="3" draft="contributed">mars</month>
-							<month type="4" draft="contributed">avril</month>
-							<month type="5" draft="contributed">mai</month>
-							<month type="6" draft="contributed">juin</month>
-							<month type="7" draft="contributed">juillet</month>
-							<month type="8" draft="contributed">août</month>
-							<month type="9" draft="contributed">septembre</month>
-							<month type="10" draft="contributed">octobre</month>
-							<month type="11" draft="contributed">novembre</month>
-							<month type="12" draft="contributed">décembre</month>
-						</monthWidth>
 					</monthContext>
 				</months>
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="contributed">dim.</day>
-							<day type="mon" draft="contributed">lun.</day>
-							<day type="tue" draft="contributed">mar.</day>
-							<day type="wed" draft="contributed">mer.</day>
-							<day type="thu" draft="contributed">jeu.</day>
-							<day type="fri" draft="contributed">ven.</day>
-							<day type="sat" draft="contributed">sam.</day>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="contributed">D</day>
-							<day type="mon" draft="contributed">L</day>
-							<day type="tue" draft="contributed">M</day>
-							<day type="wed" draft="contributed">M</day>
-							<day type="thu" draft="contributed">J</day>
-							<day type="fri" draft="contributed">V</day>
-							<day type="sat" draft="contributed">S</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="contributed">dimanche</day>
-							<day type="mon" draft="contributed">lundi</day>
-							<day type="tue" draft="contributed">mardi</day>
-							<day type="wed" draft="contributed">mercredi</day>
-							<day type="thu" draft="contributed">jeudi</day>
-							<day type="fri" draft="contributed">vendredi</day>
-							<day type="sat" draft="contributed">samedi</day>
-						</dayWidth>
-					</dayContext>
-				</days>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
@@ -114,28 +55,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern draft="contributed">EEEE d MMMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern draft="contributed">d MMMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern draft="contributed">d MMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="contributed">dd/MM/y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
@@ -158,68 +77,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="hms" draft="contributed">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="contributed">d MMM</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="contributed">MMMM y</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
 	<numbers>
 		<symbols numberSystem="latn">
-			<decimal draft="contributed">,</decimal>
 			<group draft="contributed">.</group>
 		</symbols>
-		<decimalFormats numberSystem="latn">
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern draft="contributed">#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<percentFormats numberSystem="latn">
-			<percentFormatLength>
-				<percentFormat>
-					<pattern draft="contributed">#,##0 %</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
-		<currencyFormats numberSystem="latn">
-			<currencyFormatLength>
-				<currencyFormat type="standard">
-					<pattern draft="contributed">#,##0.00 ¤</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
-		</currencyFormats>
 	</numbers>
-	<units>
-		<durationUnit type="hms">
-			<durationUnitPattern draft="contributed">hh:mm:ss</durationUnitPattern>
-		</durationUnit>
-	</units>
-	<listPatterns>
-		<listPattern>
-			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
-			<listPatternPart type="end" draft="contributed">{0} et {1}</listPatternPart>
-			<listPatternPart type="2" draft="contributed">{0} et {1}</listPatternPart>
-		</listPattern>
-		<listPattern type="unit">
-			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
-		</listPattern>
-		<listPattern type="unit-narrow">
-			<listPatternPart type="start" draft="contributed">{0} {1}</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">{0} {1}</listPatternPart>
-		</listPattern>
-		<listPattern type="unit-short">
-			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
-		</listPattern>
-	</listPatterns>
 </ldml>
 

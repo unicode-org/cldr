@@ -19,7 +19,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Telu" draft="contributed">telugú</script>
 		</scripts>
 		<territories>
-			<territory type="005" draft="contributed">Sudamérica</territory>
 			<territory type="011" draft="contributed">África Occidental</territory>
 			<territory type="014" draft="contributed">África Oriental</territory>
 			<territory type="015" draft="contributed">África del Norte</territory>
@@ -37,14 +36,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="155" draft="contributed">Europa Occidental</territory>
 			<territory type="BD" draft="contributed">Bangladesh</territory>
 			<territory type="CC" draft="contributed">Islas Cocos (Keeling)</territory>
-			<territory type="CX" draft="contributed">Isla de Navidad</territory>
 			<territory type="GB" alt="short" draft="contributed">RU</territory>
 			<territory type="GG" draft="contributed">Guernsey</territory>
 			<territory type="HK" draft="contributed">Región Administrativa Especial de Hong Kong de la República Popular China</territory>
 			<territory type="IC" draft="contributed">Islas Canarias</territory>
 			<territory type="MO" draft="contributed">Región Administrativa Especial de Macao de la República Popular China</territory>
 			<territory type="PW" draft="contributed">Palaos</territory>
-			<territory type="QO" draft="contributed">Islas Ultramarinas</territory>
 			<territory type="TA" draft="contributed">Tristán de Acuña</territory>
 			<territory type="UM" draft="contributed">Islas Ultramarinas Menores de Estados Unidos</territory>
 			<territory type="VI" draft="contributed">Islas Vírgenes de los Estados Unidos</territory>
@@ -210,14 +207,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="contributed">a.m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">p.m.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="medium">
 						<dateFormat>
@@ -317,9 +306,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</calendar>
 		</calendars>
 		<fields>
-			<field type="era">
-				<displayName draft="contributed">era</displayName>
-			</field>
 			<field type="year">
 				<relative type="1" draft="contributed">el año próximo</relative>
 			</field>
@@ -453,9 +439,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="sat">
 				<relative type="1" draft="contributed">el sábado próximo</relative>
 			</field>
-			<field type="dayperiod">
-				<displayName draft="contributed">a.m./p.m.</displayName>
-			</field>
 			<field type="hour-short">
 				<relativeTime type="future">
 					<relativeTimePattern count="one" draft="contributed">en {0} h</relativeTimePattern>
@@ -518,9 +501,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Belem">
 				<exemplarCity draft="contributed">Belém</exemplarCity>
 			</zone>
-			<zone type="America/St_Johns">
-				<exemplarCity draft="contributed">San Juan de Terranova</exemplarCity>
-			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity draft="contributed">Navidad</exemplarCity>
 			</zone>
@@ -542,9 +522,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<daylight draft="contributed">Hora de verano irlandesa</daylight>
 				</long>
-			</zone>
-			<zone type="America/St_Kitts">
-				<exemplarCity draft="contributed">San Cristóbal</exemplarCity>
 			</zone>
 			<zone type="Asia/Pyongyang">
 				<exemplarCity draft="contributed">Piongyang</exemplarCity>
@@ -1868,12 +1845,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} segundo</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} segundos</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName draft="contributed">joules</displayName>
-			</unit>
-			<unit type="energy-kilojoule">
-				<displayName draft="contributed">kilojoules</displayName>
-			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName draft="contributed">kilowatt-hora</displayName>
 				<unitPattern count="one" draft="contributed">kilowatt-hora</unitPattern>
@@ -2019,10 +1990,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="volume-pint">
 				<displayName draft="contributed">pt</displayName>
-			</unit>
-			<unit type="volume-tablespoon">
-				<unitPattern count="one" draft="contributed">{0} cda.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} cdas.</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">

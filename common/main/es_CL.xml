@@ -15,7 +15,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="arn" draft="unconfirmed">mapudungun</language>
 		</languages>
 		<territories>
-			<territory type="005">Sudamérica</territory>
 			<territory type="AN" draft="unconfirmed">Antillas Holandesas</territory>
 			<territory type="AZ" draft="unconfirmed">Azerbayán</territory>
 			<territory type="BD" draft="unconfirmed">Bangladesh</territory>
@@ -180,7 +179,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="Md">dd-MM</dateFormatItem>
 						<dateFormatItem id="MEd">E, dd-MM</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="contributed">d 'de' MMMM</dateFormatItem>
 						<dateFormatItem id="yM">MM-y</dateFormatItem>
 						<dateFormatItem id="yMd">dd-MM-y</dateFormatItem>
 						<dateFormatItem id="yMEd">E dd-MM-y</dateFormatItem>
@@ -256,13 +254,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<decimal>,</decimal>
 			<group>.</group>
 		</symbols>
-		<decimalFormats numberSystem="latn">
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern draft="contributed">#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
@@ -274,9 +265,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="CLP">
 				<displayName draft="contributed">Peso chileno</displayName>
 				<symbol>$</symbol>
-			</currency>
-			<currency type="GEL">
-				<symbol alt="variant" draft="contributed">₾</symbol>
 			</currency>
 			<currency type="USD">
 				<symbol>US$</symbol>

@@ -12,26 +12,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="ar_001">Modern Standard Arabic</language>
 			<language type="bax">Bamum</language>
-			<language type="de_AT">Austrian German</language>
-			<language type="de_CH">Swiss High German</language>
-			<language type="en_AU">Australian English</language>
-			<language type="en_CA">Canadian English</language>
-			<language type="en_GB">British English</language>
-			<language type="en_GB" alt="short">UK English</language>
 			<language type="en_US">United States English</language>
-			<language type="en_US" alt="short">US English</language>
-			<language type="es_419">Latin American Spanish</language>
-			<language type="es_ES">European Spanish</language>
-			<language type="es_MX">Mexican Spanish</language>
-			<language type="fr_CA">Canadian French</language>
-			<language type="fr_CH">Swiss French</language>
-			<language type="pt_BR">Brazilian Portuguese</language>
-			<language type="pt_PT">European Portuguese</language>
 			<language type="ro_MD">Moldovan</language>
-			<language type="zh_Hans">Simplified Chinese</language>
-			<language type="zh_Hant">Traditional Chinese</language>
 		</languages>
 		<types>
 			<type type="dangi" key="calendar">Korean Calendar</type>
@@ -125,20 +108,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11">Nov.</month>
 							<month type="12">Dec.</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">J</month>
-							<month type="2">F</month>
-							<month type="3">M</month>
-							<month type="4">A</month>
-							<month type="5">M</month>
-							<month type="6">J</month>
-							<month type="7">J</month>
-							<month type="8">A</month>
-							<month type="9">S</month>
-							<month type="10">O</month>
-							<month type="11">N</month>
-							<month type="12">D</month>
-						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
@@ -158,20 +127,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11">Nov.</month>
 							<month type="12">Dec.</month>
 						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">January</month>
-							<month type="2">February</month>
-							<month type="3">March</month>
-							<month type="4">April</month>
-							<month type="5">May</month>
-							<month type="6">June</month>
-							<month type="7">July</month>
-							<month type="8">August</month>
-							<month type="9">September</month>
-							<month type="10">October</month>
-							<month type="11">November</month>
-							<month type="12">December</month>
-						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -184,15 +139,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="thu">Thu.</day>
 							<day type="fri">Fri.</day>
 							<day type="sat">Sat.</day>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">M</day>
-							<day type="tue">T</day>
-							<day type="wed">W</day>
-							<day type="thu">T</day>
-							<day type="fri">F</day>
-							<day type="sat">S</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun">Su.</day>
@@ -214,41 +160,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="fri">F.</day>
 							<day type="sat">Sa.</day>
 						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Sunday</day>
-							<day type="mon">Monday</day>
-							<day type="tue">Tuesday</day>
-							<day type="wed">Wednesday</day>
-							<day type="thu">Thursday</day>
-							<day type="fri">Friday</day>
-							<day type="sat">Saturday</day>
-						</dayWidth>
 					</dayContext>
 				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">1st quarter</quarter>
-							<quarter type="2">2nd quarter</quarter>
-							<quarter type="3">3rd quarter</quarter>
-							<quarter type="4">4th quarter</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
@@ -282,13 +195,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="midnight">midnight</dayPeriod>
-							<dayPeriod type="morning1">morning</dayPeriod>
-							<dayPeriod type="afternoon1">afternoon</dayPeriod>
-							<dayPeriod type="evening1">evening</dayPeriod>
-							<dayPeriod type="night1">night</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">am</dayPeriod>
 							<dayPeriod type="noon">midday</dayPeriod>
@@ -302,11 +208,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dayPeriodContext>
 				</dayPeriods>
 				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE, d MMMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>dMMMM,y</pattern>
@@ -323,28 +224,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
@@ -470,56 +349,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE, d MMMM y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>d MMMM y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>d MMM y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>dd/MM/y GGGGG</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="E">ccc</dateFormatItem>
-						<dateFormatItem id="Ed">E d</dateFormatItem>
-						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
-						<dateFormatItem id="M">LL</dateFormatItem>
-						<dateFormatItem id="Md">dd/MM</dateFormatItem>
-						<dateFormatItem id="MEd">E, dd/MM</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="y">y G</dateFormatItem>
-						<dateFormatItem id="yyyy">y G</dateFormatItem>
-						<dateFormatItem id="yyyyM">MM/y GGGGG</dateFormatItem>
-						<dateFormatItem id="yyyyMd">dd/MM/y GGGGG</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">E, dd/MM/y GGGGG</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">E, d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
 				<dateTimeFormats>
@@ -543,10 +372,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relativeTime type="future">
 					<relativeTimePattern count="other">in {0} qtrs.</relativeTimePattern>
 				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} qtrs. ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} qtrs. ago</relativeTimePattern>
-				</relativeTime>
 			</field>
 			<field type="month-narrow">
 				<relativeTime type="future">
@@ -554,26 +379,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="other">{0} mo. ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="week-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} wk.</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} wk.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} wk. ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} wk. ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="day-short">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} days</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} days</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} days ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-narrow">
@@ -594,28 +399,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="other">{0} hr. ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="minute-narrow">
-				<displayName>min.</displayName>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} min.</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} min.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} min. ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} min. ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="second-narrow">
-				<displayName>sec.</displayName>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} sec.</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} sec.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} sec. ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} sec. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 		</fields>
@@ -886,20 +669,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<units>
 		<unitLength type="long">
 			<unit type="area-square-centimeter">
-				<displayName>square centimetres</displayName>
-				<unitPattern count="one">{0} square centimetre</unitPattern>
-				<unitPattern count="other">{0} square centimetres</unitPattern>
 				<perUnitPattern>{0} per square centimetre</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>square kilometres</displayName>
-				<unitPattern count="one">{0} square kilometre</unitPattern>
-				<unitPattern count="other">{0} square kilometres</unitPattern>
-			</unit>
 			<unit type="area-square-meter">
-				<displayName>square metres</displayName>
-				<unitPattern count="one">{0} square metre</unitPattern>
-				<unitPattern count="other">{0} square metres</unitPattern>
 				<perUnitPattern>{0} per square metre</perUnitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
@@ -923,47 +695,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} kilowatt hours</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
-				<displayName>centimetres</displayName>
 				<unitPattern count="one">centimetre</unitPattern>
 				<unitPattern count="other">{0} centimetres</unitPattern>
 				<perUnitPattern>{0} centimetre</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
-				<displayName>decimetre</displayName>
 				<unitPattern count="one">decimetre</unitPattern>
 				<unitPattern count="other">{0} decimetres</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>kilometre</displayName>
-				<unitPattern count="one">{0} kilometre</unitPattern>
-				<unitPattern count="other">{0} kilometres</unitPattern>
 				<perUnitPattern>{0} per kilometre</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName>metres</displayName>
-				<unitPattern count="one">{0} metre</unitPattern>
-				<unitPattern count="other">{0} metres</unitPattern>
 				<perUnitPattern>{0} per metre</perUnitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>micrometres</displayName>
-				<unitPattern count="one">{0} micrometre</unitPattern>
-				<unitPattern count="other">{0} micrometres</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>millimetres</displayName>
-				<unitPattern count="one">{0} millimetre</unitPattern>
-				<unitPattern count="other">{0} millimetres</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>nanometres</displayName>
-				<unitPattern count="one">{0} nanometre</unitPattern>
-				<unitPattern count="other">{0} nanometres</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>picometres</displayName>
-				<unitPattern count="one">{0} picometre</unitPattern>
-				<unitPattern count="other">{0} picometres</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>tonnes</displayName>
@@ -974,11 +722,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>degrees</displayName>
 				<unitPattern count="one">{0} degree</unitPattern>
 				<unitPattern count="other">{0} degrees</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>centilitres</displayName>
-				<unitPattern count="one">{0} centilitre</unitPattern>
-				<unitPattern count="other">{0} centilitres</unitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<perUnitPattern>{0} per cubic centimetre</perUnitPattern>
@@ -1066,8 +809,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kWh</displayName>
-				<unitPattern count="one">{0} kWh</unitPattern>
-				<unitPattern count="other">{0} kWh</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
 				<displayName>AU</displayName>
@@ -1082,24 +823,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} l.y.</unitPattern>
 				<unitPattern count="other">{0} l.y.</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>metres</displayName>
-			</unit>
 			<unit type="length-micrometer">
 				<displayName>µmetres</displayName>
 			</unit>
 			<unit type="mass-carat">
 				<unitPattern count="one">{0} CM</unitPattern>
 				<unitPattern count="other">{0} CM</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<perUnitPattern>{0}/g</perUnitPattern>
-			</unit>
-			<unit type="mass-kilogram">
-				<perUnitPattern>{0}/kg</perUnitPattern>
-			</unit>
-			<unit type="mass-ounce">
-				<perUnitPattern>{0}/oz</perUnitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="other">{0} lb</unitPattern>
@@ -1133,13 +862,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
-			<compoundUnit type="per">
-				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
-			</compoundUnit>
-			<unit type="consumption-liter-per-100kilometers">
-				<unitPattern count="one">{0}L/100km</unitPattern>
-				<unitPattern count="other">{0}L/100km</unitPattern>
-			</unit>
 			<unit type="duration-millisecond">
 				<displayName>msec.</displayName>
 				<unitPattern count="one">{0} ms</unitPattern>

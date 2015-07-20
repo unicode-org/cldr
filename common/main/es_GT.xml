@@ -91,16 +91,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
-				<dayPeriods>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="midnight" draft="contributed">medianoche</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="noon" draft="contributed">mediodía</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="medium">
 						<dateFormat>
@@ -215,36 +205,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
-			<pattern type="range" draft="contributed">{0} ‘al’ {1}</pattern>
+			<pattern type="range" draft="contributed">{0} 'al' {1}</pattern>
 		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">
-			<unit type="area-square-centimeter">
-				<perUnitPattern draft="contributed">{0} por centímetro cuadrado</perUnitPattern>
-			</unit>
-			<unit type="area-square-inch">
-				<perUnitPattern draft="contributed">{0} por pulgada cuadrada</perUnitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<perUnitPattern draft="contributed">{0} por metro cuadrado</perUnitPattern>
-			</unit>
-			<unit type="duration-century">
-				<displayName draft="contributed">siglos</displayName>
-				<unitPattern count="one" draft="contributed">{0} siglo</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} siglos</unitPattern>
-			</unit>
 			<unit type="duration-day">
 				<perUnitPattern draft="contributed">{0} al día</perUnitPattern>
 			</unit>
-			<unit type="duration-minute">
-				<perUnitPattern draft="contributed">{0} por minuto</perUnitPattern>
-			</unit>
 			<unit type="duration-month">
 				<perUnitPattern draft="contributed">{0} al mes</perUnitPattern>
-			</unit>
-			<unit type="duration-week">
-				<perUnitPattern draft="contributed">{0} por semana</perUnitPattern>
 			</unit>
 			<unit type="duration-year">
 				<perUnitPattern draft="contributed">{0} al año</perUnitPattern>
@@ -277,42 +247,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} kilojulio</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilojulios</unitPattern>
 			</unit>
-			<unit type="length-centimeter">
-				<perUnitPattern draft="contributed">{0} por centímetro</perUnitPattern>
-			</unit>
-			<unit type="length-foot">
-				<perUnitPattern draft="contributed">{0} por pie</perUnitPattern>
-			</unit>
-			<unit type="length-inch">
-				<perUnitPattern draft="contributed">{0} por pulgada</perUnitPattern>
-			</unit>
-			<unit type="length-kilometer">
-				<perUnitPattern draft="contributed">{0} por kilómetro</perUnitPattern>
-			</unit>
-			<unit type="length-meter">
-				<perUnitPattern draft="contributed">{0} por metro</perUnitPattern>
-			</unit>
 			<unit type="length-mile-scandinavian">
 				<displayName draft="contributed">milla escandinava</displayName>
-				<unitPattern count="one" draft="contributed">{0} milla escandinava</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} millas escandinavas</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
-				<displayName>caballos de fuerza</displayName>
 				<unitPattern count="one">{0} caballos de fuerza</unitPattern>
 				<unitPattern count="other">{0} caballos de fuerza</unitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<perUnitPattern draft="contributed">{0} por pie cúbico</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-meter">
-				<perUnitPattern draft="contributed">{0} por metro cúbico</perUnitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<perUnitPattern draft="contributed">{0} por galón</perUnitPattern>
-			</unit>
-			<unit type="volume-liter">
-				<perUnitPattern draft="contributed">{0} por litro</perUnitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
@@ -321,11 +264,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="length-foot">
 				<displayName draft="contributed">pie</displayName>
-			</unit>
-			<unit type="mass-ton">
-				<displayName draft="contributed">ton</displayName>
-				<unitPattern count="one" draft="contributed">{0} ton</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ton</unitPattern>
 			</unit>
 			<unit type="power-watt">
 				<displayName draft="contributed">vatios</displayName>

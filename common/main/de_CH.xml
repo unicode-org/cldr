@@ -44,20 +44,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<exemplarCharacters>[a ä b c d e f g h i j k l m n o ö p q r s t u ü v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á à ă â å ã ā æ ç é è ĕ ê ë ē ğ í ì ĭ î ï İ ī ı ñ ó ò ŏ ô ø ō œ ş ß ú ù ŭ û ū ÿ]</exemplarCharacters>
 	</characters>
-	<dates>
-		<calendars>
-			<calendar type="gregorian">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="contributed">vorm.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">nachm.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
-			</calendar>
-		</calendars>
-	</dates>
 	<numbers>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
@@ -89,9 +75,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Weissrussischer Rubel</displayName>
 				<displayName count="one">Weissrussischer Rubel</displayName>
 				<displayName count="other">Weissrussische Rubel</displayName>
-			</currency>
-			<currency type="CHF">
-				<symbol>CHF</symbol>
 			</currency>
 			<currency type="EUR">
 				<symbol draft="contributed">EUR</symbol>

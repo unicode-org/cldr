@@ -22,13 +22,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</characters>
 	<dates>
 		<calendars>
-			<calendar type="generic">
-				<dateTimeFormats>
-					<intervalFormats>
-						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
-					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -103,9 +96,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤ #,##0.00</pattern>
-				</currencyFormat>
-				<currencyFormat type="accounting">
-					<pattern draft="contributed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

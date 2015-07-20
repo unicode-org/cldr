@@ -1,11 +1,13 @@
 package org.unicode.cldr.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.PluralRulesUtil.KeywordStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -71,6 +73,35 @@ public class LogicalGrouping {
                 for (String str : days) {
                     parts.setAttribute("day", "type", str);
                     result.add(parts.toString());
+                }
+            }
+        } else if (path.indexOf("/dayPeriods") > 0) {
+            if (path.endsWith("alias")) {
+                result.add(path);
+            } else {
+                parts.set(path);
+
+                List<String> ampm = new ArrayList<String>(Arrays.asList("am", "pm"));
+                String dayPeriodType = parts.findAttributeValue("dayPeriod", "type");
+
+                if (ampm.contains(dayPeriodType)) {
+                    for (String s : ampm) {
+                        parts.setAttribute("dayPeriod", "type", s);
+                        result.add(parts.toString());
+                    }
+                } else {
+                    SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(
+                        cldrFile.getSupplementalDirectory());
+                    DayPeriodInfo.Type dayPeriodContext = DayPeriodInfo.Type.fromString(parts.findAttributeValue("dayPeriodContext", "type"));
+                    DayPeriodInfo dpi = supplementalData.getDayPeriods(dayPeriodContext, cldrFile.getLocaleID());
+                    List<DayPeriod> dayPeriods = dpi.getPeriods();
+                    DayPeriod thisDayPeriod = DayPeriod.fromString(dayPeriodType);
+                    if (dayPeriods.contains(thisDayPeriod)) {
+                        for (DayPeriod d : dayPeriods) {
+                            parts.setAttribute("dayPeriod", "type", d.name());
+                            result.add(parts.toString());
+                        }
+                    }
                 }
             }
         } else if (path.indexOf("/quarters") > 0) {

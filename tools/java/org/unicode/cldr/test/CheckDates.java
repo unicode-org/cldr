@@ -281,8 +281,17 @@ public class CheckDates extends FactoryCheckCLDR {
     PathStarrer pathStarrer = new PathStarrer();
     PathHeader.Factory pathHeaderFactory;
 
+    private String stripPrefix(String s) {
+        if (s != null && s.lastIndexOf(" ") < 3) {
+            return s.substring(s.lastIndexOf(" ") + 1);
+        }
+        return s;
+    }
+
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
+
+
         if (fullPath == null) {
             return this; // skip paths that we don't have
         }
@@ -329,24 +338,26 @@ public class CheckDates extends FactoryCheckCLDR {
                         wideValue);
                     result.add(item);
                 }
-                boolean thisPathHasPeriod = value.contains(".");
                 for (String lgPath : LogicalGrouping.getPaths(getCldrFileToCheck(), path)) {
                     String lgPathValue = getCldrFileToCheck().getWinningValueWithBailey(lgPath);
                     String lgPathToWide = lgPath.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
                     String lgPathWideValue = getCldrFileToCheck().getWinningValueWithBailey(lgPathToWide);
                     // This helps us get around things like "de març" vs. "març" in Catalan
-                    if (wideValue != null && wideValue.lastIndexOf(" ") < 3) {
-                        wideValue = wideValue.substring(wideValue.lastIndexOf(" ") + 1);
-                    }
-                    if (lgPathWideValue != null && lgPathWideValue.lastIndexOf(" ") < 3) {
-                        lgPathWideValue = lgPathWideValue.substring(lgPathWideValue.lastIndexOf(" ") + 1);
-                    }
+                    String thisValue = stripPrefix(value);
+                    wideValue = stripPrefix(wideValue);
+                    lgPathValue = stripPrefix(lgPathValue);
+                    lgPathWideValue = stripPrefix(lgPathWideValue);
+                    boolean thisPathHasPeriod = thisValue.contains(".");
                     boolean lgPathHasPeriod = lgPathValue.contains(".");
-                    if (!value.equalsIgnoreCase(wideValue) && !lgPathValue.equalsIgnoreCase(lgPathWideValue) &&
+                    if (!thisValue.equalsIgnoreCase(wideValue) && !lgPathValue.equalsIgnoreCase(lgPathWideValue) &&
                         thisPathHasPeriod != lgPathHasPeriod) {
+                        CheckStatus.Type et = CheckStatus.errorType;
+                        if (path.contains("dayPeriod")) {
+                            et = CheckStatus.warningType;
+                        }
                         CheckStatus item = new CheckStatus()
                         .setCause(this)
-                        .setMainType(CheckStatus.errorType)
+                        .setMainType(et)
                         .setSubtype(Subtype.inconsistentPeriods)
                         .setMessage("Inconsistent use of periods in abbreviations for this section.");
                         result.add(item);

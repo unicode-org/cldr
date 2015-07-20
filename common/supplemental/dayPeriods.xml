@@ -311,8 +311,7 @@
 			<dayPeriodRule type="midnight" at="0:00"/> <!-- ਅੱਧੀ ਰਾਤ -->
 			<dayPeriodRule type="night1" after="0:00" before="4:00"/> <!-- ਰਾਤ -->
 			<dayPeriodRule type="morning1" from="4:00" before="12:00"/> <!-- ਸਵੇਰ -->
-			<dayPeriodRule type="noon" at="12:00"/> <!-- ਦੁਪਹਿਰ -->
-			<dayPeriodRule type="afternoon1" after="12:00" before="16:00"/> <!-- ਦੁਪਹਿਰ -->
+			<dayPeriodRule type="afternoon1" from="12:00" before="16:00"/> <!-- ਦੁਪਹਿਰ -->
 			<dayPeriodRule type="evening1" from="16:00" before="21:00"/> <!-- ਸ਼ਾਮ -->
 			<dayPeriodRule type="night1" from="21:00" before="24:00"/> <!-- ਰਾਤ -->
 		</dayPeriodRules>
@@ -329,8 +328,7 @@
 		<dayPeriodRules locales="el">
 			<dayPeriodRule type="night1" from="0:00" before="4:00"/> <!-- βράδυ -->
 			<dayPeriodRule type="morning1" from="4:00" before="12:00"/> <!-- πρωί -->
-			<dayPeriodRule type="noon" at="12:00"/> <!-- μεσημέρι -->
-			<dayPeriodRule type="afternoon1" after="12:00" before="17:00"/> <!-- μεσημέρι -->
+			<dayPeriodRule type="afternoon1" from="12:00" before="17:00"/> <!-- μεσημέρι -->
 			<dayPeriodRule type="evening1" from="17:00" before="20:00"/> <!-- απόγευμα -->
 			<dayPeriodRule type="night1" from="20:00" before="24:00"/> <!-- βράδυ -->
 		</dayPeriodRules>
@@ -376,8 +374,7 @@
 			<dayPeriodRule type="midnight" at="0:00"/> <!-- అర్థరాత్రి -->
 			<dayPeriodRule type="night1" after="0:00" before="6:00"/> <!-- రాత్రి -->
 			<dayPeriodRule type="morning1" from="6:00" before="12:00"/> <!-- ఉదయం -->
-			<dayPeriodRule type="noon" at="12:00"/> <!-- మధ్యాహ్నం -->
-			<dayPeriodRule type="afternoon1" after="12:00" before="18:00"/> <!-- మధ్యాహ్నం -->
+			<dayPeriodRule type="afternoon1" from="12:00" before="18:00"/> <!-- మధ్యాహ్నం -->
 			<dayPeriodRule type="evening1" from="18:00" before="21:00"/> <!-- సాయంత్రం -->
 			<dayPeriodRule type="night1" from="21:00" before="24:00"/> <!-- రాత్రి -->
 		</dayPeriodRules>
@@ -498,11 +495,9 @@
 			<dayPeriodRule type="night1" from="18:00" before="24:00"/> <!-- malam -->
 		</dayPeriodRules>
 		<dayPeriodRules locales="ms">
-			<dayPeriodRule type="midnight" at="0:00"/> <!-- Tengah malam -->
-			<dayPeriodRule type="morning1" after="0:00" before="1:00"/> <!-- tengah malam -->
+			<dayPeriodRule type="morning1" from="0:00" before="1:00"/> <!-- tengah malam -->
 			<dayPeriodRule type="morning2" from="1:00" before="12:00"/> <!-- pagi -->
-			<dayPeriodRule type="noon" at="12:00"/> <!-- Tengah hari -->
-			<dayPeriodRule type="afternoon1" after="12:00" before="14:00"/> <!-- tengah hari -->
+			<dayPeriodRule type="afternoon1" from="12:00" before="14:00"/> <!-- tengah hari -->
 			<dayPeriodRule type="evening1" from="14:00" before="19:00"/> <!-- petang -->
 			<dayPeriodRule type="night1" from="19:00" before="24:00"/> <!-- malam -->
 		</dayPeriodRules>

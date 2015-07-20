@@ -1789,23 +1789,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="am">дп</dayPeriod>
+							<dayPeriod type="noon">пополудні</dayPeriod>
 							<dayPeriod type="pm">пп</dayPeriod>
-							<dayPeriod type="morning1" draft="contributed">ранку</dayPeriod>
-							<dayPeriod type="evening1" draft="contributed">вечора</dayPeriod>
-							<dayPeriod type="night1" draft="contributed">ночі</dayPeriod>
+							<dayPeriod type="midnight">північ</dayPeriod>
+							<dayPeriod type="morning1">ранку</dayPeriod>
+							<dayPeriod type="afternoon1">дня</dayPeriod>
+							<dayPeriod type="evening1">вечора</dayPeriod>
+							<dayPeriod type="night1">ночі</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">дп</dayPeriod>
 							<dayPeriod type="noon">п</dayPeriod>
 							<dayPeriod type="pm">пп</dayPeriod>
-							<dayPeriod type="morning1" draft="contributed">ранку</dayPeriod>
-							<dayPeriod type="afternoon1" draft="contributed">дня</dayPeriod>
-							<dayPeriod type="evening1" draft="contributed">вечора</dayPeriod>
+							<dayPeriod type="midnight">північ</dayPeriod>
+							<dayPeriod type="morning1">ранку</dayPeriod>
+							<dayPeriod type="afternoon1">дня</dayPeriod>
+							<dayPeriod type="evening1">вечора</dayPeriod>
+							<dayPeriod type="night1">ночі</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">дп</dayPeriod>
 							<dayPeriod type="noon">пополудні</dayPeriod>
 							<dayPeriod type="pm">пп</dayPeriod>
+							<dayPeriod type="midnight">північ</dayPeriod>
 							<dayPeriod type="morning1">ранку</dayPeriod>
 							<dayPeriod type="afternoon1">дня</dayPeriod>
 							<dayPeriod type="evening1">вечора</dayPeriod>
@@ -1818,6 +1824,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<dayPeriod type="noon">полудень</dayPeriod>
 							<dayPeriod type="pm">пп</dayPeriod>
 							<dayPeriod type="morning1">ранок</dayPeriod>
+							<dayPeriod type="afternoon1">день</dayPeriod>
+							<dayPeriod type="evening1">вечір</dayPeriod>
 							<dayPeriod type="night1">ніч</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">

@@ -1490,51 +1490,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="midnight">חצות</dayPeriod>
-							<dayPeriod type="morning1" draft="provisional">בבוקר</dayPeriod>
-							<dayPeriod type="afternoon1" draft="provisional">אחה״צ</dayPeriod>
-							<dayPeriod type="afternoon2" draft="provisional">אחה״צ</dayPeriod>
-							<dayPeriod type="evening1" draft="provisional">בערב</dayPeriod>
-							<dayPeriod type="night1" draft="provisional">בלילה</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="midnight" draft="provisional">חצות</dayPeriod>
-							<dayPeriod type="am">לפנה״צ</dayPeriod>
-							<dayPeriod type="pm">אחה״צ</dayPeriod>
-							<dayPeriod type="morning1" draft="provisional">בבוקר</dayPeriod>
-							<dayPeriod type="afternoon1" draft="provisional">אחה״צ</dayPeriod>
-							<dayPeriod type="afternoon2">אחה״צ2</dayPeriod>
-							<dayPeriod type="evening1" draft="provisional">בערב</dayPeriod>
-							<dayPeriod type="night1" draft="provisional">בלילה</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">חצות</dayPeriod>
 							<dayPeriod type="am">לפנה״צ</dayPeriod>
 							<dayPeriod type="pm">אחה״צ</dayPeriod>
-							<dayPeriod type="morning1" draft="provisional">בבוקר</dayPeriod>
-							<dayPeriod type="afternoon1" draft="provisional">אחר הצהריים</dayPeriod>
-							<dayPeriod type="afternoon2" draft="provisional">אחר הצהריים</dayPeriod>
-							<dayPeriod type="evening1" draft="provisional">בערב</dayPeriod>
-							<dayPeriod type="night1" draft="provisional">בלילה</dayPeriod>
+							<dayPeriod type="morning1">בוקר</dayPeriod>
+							<dayPeriod type="afternoon1">צהריים</dayPeriod>
+							<dayPeriod type="afternoon2">אחר הצהריים</dayPeriod>
+							<dayPeriod type="evening1">ערב</dayPeriod>
+							<dayPeriod type="night1">לילה</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="midnight">חצות</dayPeriod>
-							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">PM</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="midnight">חצות</dayPeriod>
-							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">PM</dayPeriod>
-							<dayPeriod type="afternoon2">אחה״צ2</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">חצות</dayPeriod>
-							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">PM</dayPeriod>
 							<dayPeriod type="morning1">בוקר</dayPeriod>
 							<dayPeriod type="afternoon1">צהריים</dayPeriod>
 							<dayPeriod type="afternoon2">אחר הצהריים</dayPeriod>

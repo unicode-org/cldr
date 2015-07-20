@@ -29,7 +29,7 @@ public class DayPeriodInfo {
             pathValue = _pathValue;
         }
         public static Type fromString(String source) {
-            return source.equals(selection.pathValue) ? selection : Type.valueOf(source);
+            return selection.pathValue.equals(source) ? selection : Type.valueOf(source);
         }
     }
 

@@ -92,13 +92,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="pm" draft="contributed">nachm.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 			</calendar>
 		</calendars>
 	</dates>
@@ -106,27 +99,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<symbols numberSystem="latn">
 			<group draft="contributed"> </group>
 		</symbols>
-		<decimalFormats numberSystem="latn">
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern draft="contributed">↑↑↑#0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<scientificFormats numberSystem="latn">
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern draft="contributed">↑↑↑#</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
-		<percentFormats numberSystem="latn">
-			<percentFormatLength>
-				<percentFormat>
-					<pattern draft="contributed">↑↑↑#0%</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">

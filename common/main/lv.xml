@@ -1504,14 +1504,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight" draft="contributed">pusnaktī</dayPeriod>
 							<dayPeriod type="morning1" draft="contributed">no rīta</dayPeriod>
-							<dayPeriod type="afternoon1" draft="provisional">pēcpusd.</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">pusd.</dayPeriod>
+							<dayPeriod type="afternoon1" draft="contributed">pēcpusd.</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">vakarā</dayPeriod>
 							<dayPeriod type="night1" draft="contributed">naktī</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight" draft="contributed">pusnaktī</dayPeriod>
 							<dayPeriod type="am">priekšp.</dayPeriod>
-							<dayPeriod type="noon">pusd.</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">pusd.</dayPeriod>
 							<dayPeriod type="pm">pēcp.</dayPeriod>
 							<dayPeriod type="morning1" draft="contributed">no rīta</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">pēcpusdienā</dayPeriod>
@@ -1519,9 +1520,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<dayPeriod type="night1" draft="contributed">naktī</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="midnight">pusnaktī</dayPeriod>
+							<dayPeriod type="midnight" draft="contributed">pusnaktī</dayPeriod>
 							<dayPeriod type="am">priekšpusdienā</dayPeriod>
-							<dayPeriod type="noon">pusdienlaikā</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">pusdienlaikā</dayPeriod>
 							<dayPeriod type="pm">pēcpusdienā</dayPeriod>
 							<dayPeriod type="morning1" draft="contributed">no rīta</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">pēcpusdienā</dayPeriod>
@@ -1533,8 +1534,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight">pusnakts</dayPeriod>
 							<dayPeriod type="am" draft="contributed">priekšpusdienā</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">pēcpusd.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">pēcpusd.</dayPeriod>
 							<dayPeriod type="morning1">rīts</dayPeriod>
+							<dayPeriod type="afternoon1">pēcpusdiena</dayPeriod>
 							<dayPeriod type="evening1">vakars</dayPeriod>
 							<dayPeriod type="night1">nakts</dayPeriod>
 						</dayPeriodWidth>
@@ -1544,6 +1546,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<dayPeriod type="noon">pusd.</dayPeriod>
 							<dayPeriod type="pm">pēcp.</dayPeriod>
 							<dayPeriod type="morning1">rīts</dayPeriod>
+							<dayPeriod type="afternoon1">pēcpusdiena</dayPeriod>
 							<dayPeriod type="evening1">vakars</dayPeriod>
 							<dayPeriod type="night1">nakts</dayPeriod>
 						</dayPeriodWidth>
@@ -1551,7 +1554,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<dayPeriod type="midnight">pusnakts</dayPeriod>
 							<dayPeriod type="am" draft="contributed">priekšpusdienā</dayPeriod>
 							<dayPeriod type="noon">pusdienlaiks</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">pēcpusdiena</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">pēcpusdiena</dayPeriod>
 							<dayPeriod type="morning1">rīts</dayPeriod>
 							<dayPeriod type="afternoon1">pēcpusdiena</dayPeriod>
 							<dayPeriod type="evening1">vakars</dayPeriod>

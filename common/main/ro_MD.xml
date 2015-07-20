@@ -226,23 +226,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight" draft="contributed">miezul nopții</dayPeriod>
+							<dayPeriod type="am">a.m.</dayPeriod>
 							<dayPeriod type="noon" draft="contributed">amiază</dayPeriod>
+							<dayPeriod type="pm">p.m.</dayPeriod>
+							<dayPeriod type="morning1" draft="contributed">dimineață</dayPeriod>
+							<dayPeriod type="afternoon1" draft="contributed">după-amiază</dayPeriod>
+							<dayPeriod type="evening1" draft="contributed">seară</dayPeriod>
+							<dayPeriod type="night1" draft="contributed">noapte</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight" draft="contributed">miezul nopții</dayPeriod>
+							<dayPeriod type="am">a.m.</dayPeriod>
 							<dayPeriod type="noon" draft="contributed">amiază</dayPeriod>
+							<dayPeriod type="pm">p.m.</dayPeriod>
+							<dayPeriod type="morning1" draft="contributed">dimineața</dayPeriod>
+							<dayPeriod type="afternoon1" draft="contributed">după-amiaza</dayPeriod>
+							<dayPeriod type="evening1" draft="contributed">seara</dayPeriod>
+							<dayPeriod type="night1" draft="contributed">noaptea</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="noon" draft="contributed">amiază</dayPeriod>
 							<dayPeriod type="morning1" draft="contributed">dimineață</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">după-amiază</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">seară</dayPeriod>
 							<dayPeriod type="night1" draft="contributed">noapte</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="midnight" draft="contributed">miezul nopții</dayPeriod>
 							<dayPeriod type="am" draft="contributed">a.m.</dayPeriod>
 							<dayPeriod type="pm" draft="contributed">p.m.</dayPeriod>
 						</dayPeriodWidth>

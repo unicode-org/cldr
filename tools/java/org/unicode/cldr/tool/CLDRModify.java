@@ -31,6 +31,7 @@ import org.unicode.cldr.test.QuickCheck;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CldrUtility;
@@ -587,10 +588,12 @@ public class CLDRModify {
 
     static class RetainWhenMinimizing implements CLDRFile.RetentionTest {
         private CLDRFile file;
+        private CLDRLocale c;
         Status status = new Status();
 
         public RetainWhenMinimizing setParentFile(CLDRFile file) {
             this.file = file;
+            this.c = CLDRLocale.getInstance(file.getLocaleIDFromIdentity());
             return this;
         }
 
@@ -600,10 +603,7 @@ public class CLDRModify {
                 return Retention.RETAIN;
             }
             String localeId = file.getSourceLocaleID(path, status);
-            // if (!path.equals(status.pathWhereFound)) { // remove items just there for aliases
-            // return Retention.REMOVE;
-            // }
-            if (XMLSource.ROOT_ID.equals(localeId) || XMLSource.CODE_FALLBACK_ID.equals(localeId)) {
+            if ((c.isLanguageLocale() || c.equals(CLDRLocale.getInstance("pt_PT"))) && (XMLSource.ROOT_ID.equals(localeId) || XMLSource.CODE_FALLBACK_ID.equals(localeId))) {
                 return Retention.RETAIN;
             }
             return Retention.RETAIN_IF_DIFFERENT;

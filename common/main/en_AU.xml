@@ -40,20 +40,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11">Nov.</month>
 							<month type="12">Dec.</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">January</month>
 							<month type="2">February</month>
@@ -249,20 +235,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11">Nov.</month>
 							<month type="12">Dec.</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">January</month>
 							<month type="2">February</month>
@@ -313,20 +285,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="10">Oct.</month>
 							<month type="11">Nov.</month>
 							<month type="12">Dec.</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">January</month>
@@ -403,7 +361,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 		</fields>
 		<timeZoneNames>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard>Eastern Africa Time</standard>
@@ -510,7 +467,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<currencies>
 			<currency type="AUD">
 				<symbol>$</symbol>
-				<symbol alt="narrow">$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>Aruba Guilder</displayName>
@@ -853,8 +809,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="temperature-generic">
 				<displayName>deg.</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
 				<unitPattern count="one">{0} bus.</unitPattern>
@@ -923,12 +877,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}mL</unitPattern>
 				<unitPattern count="other">{0}mL</unitPattern>
 			</unit>
-			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0}W</coordinateUnitPattern>
-			</coordinateUnit>
 		</unitLength>
 	</units>
 </ldml>

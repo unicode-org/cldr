@@ -215,7 +215,17 @@ public class Ldml2JsonConverter {
         if (configFile != null) {
             myReader.process(configFile);
         } else {
-            myReader.process(Ldml2JsonConverter.class, "JSON_config.txt");
+            switch (type) {
+            case main:
+                myReader.process(Ldml2JsonConverter.class, "JSON_config.txt");
+                break;
+            case supplemental:
+                myReader.process(Ldml2JsonConverter.class, "JSON_config_supplemental.txt");
+                break;
+            case segments:
+                myReader.process(Ldml2JsonConverter.class, "JSON_config_segments.txt");
+                break;
+            }
         }
 
         // Add a section at the end of the list that will match anything not already matched.
@@ -348,7 +358,7 @@ public class Ldml2JsonConverter {
             }
         }
 
-        Matcher versionInfoMatcher = Pattern.compile(".*/(identity|version|generation).*").matcher("");
+        Matcher versionInfoMatcher = Pattern.compile(".*/(identity|version).*").matcher("");
         // Automatically copy the version info to any sections that had real data in them.
         JSONSection otherSection = sections.get(sections.size() - 1);
         List<CldrItem> others = sectionItems.get(otherSection);
@@ -437,7 +447,7 @@ public class Ldml2JsonConverter {
                         outputDirname.append(filename.replaceAll("_", "-"));
                     }
                 }
-                
+
                 File dir = new File(outputDirname.toString());
                 if (!dir.exists()) {
                     dir.mkdirs();

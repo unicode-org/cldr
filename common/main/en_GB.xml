@@ -13,14 +13,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<localeDisplayNames>
 		<languages>
 			<language type="nds_NL">West Low German</language>
-			<language type="nqo">N’Ko</language>
 		</languages>
-		<scripts>
-			<script type="Thai">Thai</script>
-		</scripts>
-		<territories>
-			<territory type="US" alt="short">US</territory>
-		</territories>
 		<keys>
 			<key type="colNormalization">Normalised Sorting</key>
 		</keys>
@@ -82,11 +75,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Ed">E d</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<fields>
@@ -170,24 +158,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} wk ago</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="day-short">
-				<relativeTime type="future">
-					<relativeTimePattern count="other">in {0} days</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="day-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} day</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} days</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} day ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
-				</relativeTime>
-			</field>
 			<field type="dayperiod">
 				<displayName>am/pm</displayName>
 			</field>
@@ -205,9 +175,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="hour-narrow">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} hr</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} hr</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} hr ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} hr ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute-short">
@@ -259,12 +231,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<daylight>BST</daylight>
 				</short>
 			</zone>
-			<metazone type="Australia_Central">
-				<long>
-					<generic>Central Australia Time</generic>
-					<standard>Australian Central Standard Time</standard>
-				</long>
-			</metazone>
 			<metazone type="Europe_Central">
 				<short>
 					<generic>CET</generic>
@@ -300,105 +266,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Israeli new shekel</displayName>
 				<displayName count="other">Israeli new shekels</displayName>
 			</currency>
-			<currency type="MKD">
-				<displayName count="other">Macedonian denari</displayName>
-			</currency>
-			<currency type="TWD">
-				<symbol alt="narrow" draft="contributed">NT$</symbol>
-			</currency>
-			<currency type="XOF">
-				<displayName count="other">West African CFA francs</displayName>
-			</currency>
 		</currencies>
 	</numbers>
 	<units>
 		<unitLength type="long">
-			<unit type="area-square-centimeter">
-				<perUnitPattern>{0} per square centimetre</perUnitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<perUnitPattern>{0} per square metre</perUnitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<perUnitPattern>{0} per centimetre</perUnitPattern>
-			</unit>
-			<unit type="length-kilometer">
-				<perUnitPattern>{0} per kilometre</perUnitPattern>
-			</unit>
-			<unit type="length-meter">
-				<perUnitPattern>{0} per metre</perUnitPattern>
-			</unit>
 			<unit type="mass-stone">
 				<displayName>stone</displayName>
 				<unitPattern count="one">{0} stone</unitPattern>
 				<unitPattern count="other">{0} stone</unitPattern>
 			</unit>
-			<unit type="speed-kilometer-per-hour">
-				<unitPattern count="one">{0} kilometre per hour</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>kelvin</displayName>
+				<unitPattern count="one">{0} kelvin</unitPattern>
 				<unitPattern count="other">{0} kelvin</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<perUnitPattern>{0} per cubic centimetre</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-meter">
-				<perUnitPattern>{0} per cubic metre</perUnitPattern>
-			</unit>
-			<unit type="volume-liter">
-				<perUnitPattern>{0} per litre</perUnitPattern>
-			</unit>
-			<unit type="volume-teaspoon-au">
-				<displayName>teaspoons-Australian</displayName>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
-			<unit type="consumption-liter-per-100kilometers">
-				<displayName>l/100 km</displayName>
-				<unitPattern count="one">{0} l/100 km</unitPattern>
-				<unitPattern count="other">{0} l/100 km</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<perUnitPattern>{0}ph</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<perUnitPattern>{0}ps</perUnitPattern>
 			</unit>
-			<unit type="length-micrometer">
-				<displayName>µmetres</displayName>
-			</unit>
-			<unit type="mass-pound">
-				<unitPattern count="one">{0} lb</unitPattern>
-				<unitPattern count="other">{0} lb</unitPattern>
-			</unit>
 			<unit type="mass-stone">
 				<displayName>stone</displayName>
+				<unitPattern count="one">{0} st</unitPattern>
 				<unitPattern count="other">{0} st</unitPattern>
-			</unit>
-			<unit type="volume-deciliter">
-				<displayName>dL</displayName>
-			</unit>
-			<unit type="volume-hectoliter">
-				<displayName>hL</displayName>
-				<unitPattern count="one">{0} hL</unitPattern>
-				<unitPattern count="other">{0} hL</unitPattern>
-			</unit>
-			<unit type="volume-megaliter">
-				<displayName>ML</displayName>
-				<unitPattern count="one">{0} ML</unitPattern>
-				<unitPattern count="other">{0} ML</unitPattern>
-			</unit>
-			<unit type="volume-milliliter">
-				<displayName>mL</displayName>
-				<unitPattern count="one">{0} mL</unitPattern>
-				<unitPattern count="other">{0} mL</unitPattern>
-			</unit>
-		</unitLength>
-		<unitLength type="narrow">
-			<unit type="duration-minute">
-				<unitPattern count="one">{0}m</unitPattern>
-				<unitPattern count="other">{0}m</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

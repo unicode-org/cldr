@@ -569,7 +569,7 @@ abstract public class CheckCLDR {
     public static CompoundCheckCLDR getCheckAll(Factory factory, String nameMatcher) {
         return new CompoundCheckCLDR()
             .setFilter(Pattern.compile(nameMatcher, Pattern.CASE_INSENSITIVE).matcher(""))
-            .add(new CheckAttributeValues(factory))
+            //.add(new CheckAttributeValues(factory))
             .add(new CheckChildren(factory))
             .add(new CheckCoverage(factory))
             .add(new CheckDates(factory))

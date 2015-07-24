@@ -10,8 +10,10 @@
 	</identity>
 	<collations>
 		<collation type="standard">
-			<settings caseLevel="on" caseFirst="upper" backwards="on"/>
                 	<cr><![CDATA[
+                [caseLevel on]
+                [caseFirst upper]
+                [backwards 2]
 				& Е <<< Є
 				& е <<< є
 				& Ж < Ѕ

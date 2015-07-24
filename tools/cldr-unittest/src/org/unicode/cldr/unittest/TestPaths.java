@@ -253,7 +253,7 @@ public class TestPaths extends TestFmwkPlus {
                     }
                     M3<String, String, Boolean> infoAV = infoEAV.get(element.name);
                     if (infoAV == null) {
-                        testPaths.warnln("Data doesn't contain: " 
+                        testPaths.logln("Data doesn't contain: " 
                             + dtdType 
                             + ":" + element.name
                             );
@@ -266,7 +266,7 @@ public class TestPaths extends TestFmwkPlus {
                         }
                         Map<String, Boolean> infoV = infoAV.get(attribute.name);
                         if (infoV == null) {
-                            testPaths.warnln("Data doesn't contain: " 
+                            testPaths.logln("Data doesn't contain: " 
                                 + dtdType 
                                 + ":" + element.name
                                 + ":" + attribute.name
@@ -278,7 +278,7 @@ public class TestPaths extends TestFmwkPlus {
                                 continue;
                             }
                             if (!infoV.containsKey(value)) {
-                                testPaths.warnln("Data doesn't contain: " 
+                                testPaths.logln("Data doesn't contain: " 
                                     + dtdType 
                                     + ":" + element.name
                                     + ":" + attribute.name

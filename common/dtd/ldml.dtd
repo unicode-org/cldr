@@ -306,7 +306,7 @@ $Date$
 <!ATTLIST layout references CDATA #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT orientation ( characterOrder*, lineOrder*, special* ) >
+<!ELEMENT orientation ( alias | ( characterOrder*, lineOrder*, special* ) ) >
 <!ATTLIST orientation characters (left-to-right | right-to-left | top-to-bottom | bottom-to-top) #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -324,8 +324,16 @@ $Date$
     <!--@METADATA-->
 
 <!ELEMENT characterOrder ( #PCDATA ) >
+<!ATTLIST characterOrder alt NMTOKENS #IMPLIED >
+<!ATTLIST characterOrder draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
+    <!--@DEPRECATED:true, false-->
 
 <!ELEMENT lineOrder ( #PCDATA ) >
+<!ATTLIST lineOrder alt NMTOKENS #IMPLIED >
+<!ATTLIST lineOrder draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
+    <!--@DEPRECATED:true, false-->
 
 <!ELEMENT inList ( #PCDATA ) >
     <!--@DEPRECATED-->
@@ -1099,20 +1107,20 @@ $Date$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
-<!ELEMENT dayPeriods ( alias | ( dayPeriodContext* ) ) >
+<!ELEMENT dayPeriods ( alias | ( dayPeriodContext*, special* ) ) >
 <!ATTLIST dayPeriods draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST dayPeriods references CDATA #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT dayPeriodContext ( alias | dayPeriodWidth* ) >
+<!ELEMENT dayPeriodContext ( alias | ( dayPeriodWidth*, special* ) ) >
 <!ATTLIST dayPeriodContext type NMTOKEN #REQUIRED >
 <!ATTLIST dayPeriodContext draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST dayPeriodContext references CDATA #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT dayPeriodWidth ( alias | dayPeriod* ) >
+<!ELEMENT dayPeriodWidth ( alias | ( dayPeriod*, special* ) ) >
 <!ATTLIST dayPeriodWidth type (abbreviated | narrow | wide) #REQUIRED >
 <!ATTLIST dayPeriodWidth draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -1763,7 +1771,7 @@ $Date$
 <!ATTLIST defaultNumberingSystem references CDATA #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT otherNumberingSystems ( alias | ( native*, traditional*, finance* ) ) >
+<!ELEMENT otherNumberingSystems ( alias | ( native*, traditional*, finance*, special* ) ) >
 <!ATTLIST otherNumberingSystems alt NMTOKENS #IMPLIED >
 <!ATTLIST otherNumberingSystems draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -2100,7 +2108,7 @@ $Date$
 
 <!ELEMENT currencySpacing ( alias | ( beforeCurrency*, afterCurrency*, special* ) ) >
 
-<!ELEMENT beforeCurrency ( alias | ( currencyMatch*, surroundingMatch*, insertBetween* ) ) >
+<!ELEMENT beforeCurrency ( alias | ( currencyMatch*, surroundingMatch*, insertBetween*, special* ) ) >
 
 <!ELEMENT currencyMatch ( #PCDATA ) >
 <!ATTLIST currencyMatch alt NMTOKENS #IMPLIED >
@@ -2126,7 +2134,7 @@ $Date$
 <!ATTLIST insertBetween references CDATA #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT afterCurrency ( alias | ( currencyMatch*, surroundingMatch*, insertBetween* ) ) >
+<!ELEMENT afterCurrency ( alias | ( currencyMatch*, surroundingMatch*, insertBetween*, special* ) ) >
 
 <!ELEMENT currencyFormatLength ( alias | ( default*, currencyFormat*, special* ) ) >
 <!ATTLIST currencyFormatLength type (full | long | medium | short) #IMPLIED >
@@ -2344,6 +2352,10 @@ $Date$
     <!--@DEPRECATED-->
 
 <!ELEMENT defaultCollation ( #PCDATA ) >
+<!ATTLIST defaultCollation alt NMTOKENS #IMPLIED >
+<!ATTLIST defaultCollation draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
+    <!--@DEPRECATED:true, false-->
 
 <!ELEMENT collation ( alias | ( base?, import*, settings?, suppress_contractions?, optimize?, ( cr* | rules? ), special* ) ) >
 <!ATTLIST collation type NMTOKEN "standard" >
@@ -2537,7 +2549,7 @@ $Date$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
-<!ELEMENT messages ( alias | ( yesstr*, nostr*, yesexpr*, noexpr* ) ) >
+<!ELEMENT messages ( alias | ( yesstr*, nostr*, yesexpr*, noexpr*, special* ) ) >
 <!ATTLIST messages alt NMTOKENS #IMPLIED >
 <!ATTLIST messages draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -2586,7 +2598,7 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
-<!ELEMENT segmentations ( alias | segmentation* ) >
+<!ELEMENT segmentations ( alias | ( segmentation*, special* ) ) >
 <!ATTLIST segmentations alt NMTOKENS #IMPLIED >
 <!ATTLIST segmentations draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -2609,7 +2621,7 @@ $Date$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
-<!ELEMENT variables ( alias | variable* ) >
+<!ELEMENT variables ( alias | ( variable*, special* ) ) >
 
 <!ELEMENT variable ( #PCDATA ) >
     <!--@ORDERED-->
@@ -2621,7 +2633,7 @@ $Date$
 <!ATTLIST variable references CDATA #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT segmentRules ( alias | rule* ) >
+<!ELEMENT segmentRules ( alias | ( rule*, special* ) ) >
 
 <!ELEMENT rule ( #PCDATA ) >
 <!ATTLIST rule id NMTOKEN #REQUIRED >
@@ -2643,23 +2655,27 @@ $Date$
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
-<!ELEMENT suppressions ( suppression* ) >
+<!ELEMENT suppressions ( alias | ( suppression*, special* ) ) >
 <!ATTLIST suppressions type NMTOKEN "standard" >
 <!ATTLIST suppressions draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
 <!ELEMENT suppression ( #PCDATA ) >
     <!--@ORDERED-->
+<!ATTLIST suppression alt NMTOKENS #IMPLIED >
+<!ATTLIST suppression draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
+    <!--@DEPRECATED:true, false-->
 
-<!ELEMENT rbnf ( alias | rulesetGrouping* ) >
+<!ELEMENT rbnf ( alias | ( rulesetGrouping*, special* ) ) >
 
-<!ELEMENT rulesetGrouping ( alias | ruleset* ) >
+<!ELEMENT rulesetGrouping ( alias | ( ruleset*, special* ) ) >
 <!ATTLIST rulesetGrouping type NMTOKEN #REQUIRED >
 <!ATTLIST rulesetGrouping draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 
-<!ELEMENT ruleset ( alias | rbnfrule* ) >
+<!ELEMENT ruleset ( alias | ( rbnfrule*, special* ) ) >
     <!--@ORDERED-->
 <!ATTLIST ruleset type NMTOKEN #REQUIRED >
 <!ATTLIST ruleset access (public | private) #IMPLIED >
@@ -2678,11 +2694,12 @@ $Date$
     <!--@VALUE-->
 <!ATTLIST rbnfrule decexp CDATA #IMPLIED >
     <!--@VALUE-->
+<!ATTLIST rbnfrule alt NMTOKENS #IMPLIED >
 <!ATTLIST rbnfrule draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 
-<!ELEMENT annotations ( annotation* ) >
+<!ELEMENT annotations ( alias | ( annotation*, special* ) ) >
 
 <!ELEMENT annotation ( #PCDATA ) >
 <!ATTLIST annotation cp CDATA #REQUIRED >
@@ -2695,9 +2712,9 @@ $Date$
 <!-- ######################################################### -->
 <!-- # This element contains metadata for Survey Tool internal use (optimization, etc). -->
 
-<!ELEMENT metadata ( casingData? ) >
+<!ELEMENT metadata ( alias | ( casingData?, special* ) ) >
 
-<!ELEMENT casingData ( casingItem* ) >
+<!ELEMENT casingData ( alias | ( casingItem*, special* ) ) >
 
 <!ELEMENT casingItem ( #PCDATA ) >
 <!ATTLIST casingItem type CDATA #REQUIRED >
@@ -2705,6 +2722,10 @@ $Date$
     <!--@VALUE-->
 <!ATTLIST casingItem forceError (true | false) #IMPLIED >
     <!--@VALUE-->
+<!ATTLIST casingItem alt NMTOKENS #IMPLIED >
+<!ATTLIST casingItem draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
+    <!--@DEPRECATED:true, false-->
 
 <!ELEMENT references ( reference* ) >
     <!--@DEPRECATED-->

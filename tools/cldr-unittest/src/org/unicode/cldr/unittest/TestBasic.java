@@ -62,6 +62,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 
+import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -86,6 +87,11 @@ public class TestBasic extends TestFmwkPlus {
 
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo
         .getSupplementalDataInfo();
+
+    String [][] knownElementExceptions = {
+        { "ldml", "usesMetazone" },
+        { "ldmlICU", "usesMetazone" }
+    };
     
     /**
      * Simple test that loads each file in the cldr directory, thus verifying
@@ -228,7 +234,7 @@ public class TestBasic extends TestFmwkPlus {
             Set<String> theoryAttributeSet = s.getValue();
             DtdType type = typeElement.get0();
             String element = typeElement.get1();
-            if (element.equals("ANY") || element.equals("PCDATA")) {
+            if (element.equals("ANY") || element.equals("#PCDATA")) {
                 continue;
             }
             boolean deprecatedElement = SUPPLEMENTAL_DATA_INFO.isDeprecated(
@@ -239,14 +245,14 @@ public class TestBasic extends TestFmwkPlus {
             Set<String> unusedAttributes = new LinkedHashSet<String>(
                 theoryAttributeSet);
             if (usedAttributes == null) {
-                System.out.println(header
+                logln(header
                     + "<NOT-FOUND>\t\t"
                     + siftDeprecated(type, element, unusedAttributes,
                         attributesToTypeElementUsed, false));
                 continue;
             }
             unusedAttributes.removeAll(usedAttributes);
-            System.out.println(header
+            logln(header
                 + siftDeprecated(type, element, usedAttributes,
                     attributesToTypeElementUsed, true)
                     + "\t"
@@ -254,11 +260,11 @@ public class TestBasic extends TestFmwkPlus {
                         attributesToTypeElementUsed, false));
         }
 
-        System.out.println("Undeprecated Attributes\t");
+        logln("Undeprecated Attributes\t");
         for (Entry<String, R3<Boolean, DtdType, String>> s : attributesToTypeElementUsed
             .keyValueSet()) {
             R3<Boolean, DtdType, String> typeElementUsed = s.getValue();
-            System.out.println(s.getKey() + "\t" + typeElementUsed.get0()
+            logln(s.getKey() + "\t" + typeElementUsed.get0()
                 + "\t" + typeElementUsed.get1() + "\t"
                 + typeElementUsed.get2());
         }
@@ -275,9 +281,9 @@ public class TestBasic extends TestFmwkPlus {
         for (String attribute : attributeSet) {
             String attributeName = "«"
                 + attribute
-                + (CLDRFile.isDistinguishing(type, element, attribute) ? "*"
+                + (!"NONE".equals(attribute) && CLDRFile.isDistinguishing(type, element, attribute) ? "*"
                     : "") + "»";
-            if (SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element, attribute,
+            if (!"NONE".equals(attribute) && SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element, attribute,
                 "*")) {
                 if (bdep.length() != 0) {
                     bdep.append(" ");
@@ -960,20 +966,15 @@ public class TestBasic extends TestFmwkPlus {
     public void TestDtdCompleteness() {
         for (DtdType type : DtdType.values()) {
             DtdData dtdData = DtdData.getInstance(type);
-            Set<Element> descendents = new LinkedHashSet();
+            Set<Element> descendents = new LinkedHashSet<Element>();
             dtdData.getDescendents(dtdData.ROOT, descendents);
             Set<Element> elements = dtdData.getElements();
             if (!elements.equals(descendents)) {
                 for (Element e : elements) {
                     if (!descendents.contains(e) && !e.equals(dtdData.PCDATA)
                         && !e.equals(dtdData.ANY)) {
-                        if (e.name.equals("usesMetazone")) {
-                            logKnownIssue("cldrbug:6768",
-                                "catch orphan usesMetazone");
-                        } else {
                             errln(type + ": Element " + e
                                 + " not contained in descendents of ROOT.");
-                        }
                     }
                 }
                 for (Element e : descendents) {
@@ -995,14 +996,13 @@ public class TestBasic extends TestFmwkPlus {
     }
 
     public void TestBasicDTDCompatibility() {
-        if (logKnownIssue("Cldrbug:6903",
-            "Need the directory before enabling this test")) {
+
+        // Only run the rest in exhaustive mode, since it requires CLDR_ARCHIVE_DIRECTORY
+        if (getInclusion() <= 5) { 
             return;
         }
 
-        final String oldCommon = CldrUtility
-            .getProperty("oldCommon",
-                "/Users/markdavis/Documents/workspace/cldr-archive/cldr-22.1/common");
+        final String oldCommon = CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + Versions.v22_1.toString() + "/common";
 
         // set up exceptions
         Set<String> changedToEmpty = new HashSet<String>(
@@ -1044,8 +1044,18 @@ public class TestBasic extends TestFmwkPlus {
                     Set<String> newChildren = newElement2Children
                         .getAll(element);
                     if (newChildren == null) {
-                        errln("Old " + dtd + " contains element not in new: <"
-                            + element + ">");
+                        boolean isKnownElementException = false;
+                        for (String[] knownException : knownElementExceptions) {
+                            if (dtd.toString().equals(knownException[0]) &&
+                                element.equals(knownException[1])) {
+                                isKnownElementException = true;
+                                continue;
+                            }
+                        }
+                        if (!isKnownElementException) {
+                            errln("Old " + dtd + " contains element not in new: <"
+                                + element + ">");
+                        }
                         continue;
                     }
                     Set<String> funny = containsInOrder(newChildren,
@@ -1123,9 +1133,7 @@ public class TestBasic extends TestFmwkPlus {
     }
 
     public void TestDtdCompatibility() {
-        if (logKnownIssue("Cldrbug:6768", "catch orphan usesMetazone")) {
-            return;
-        }
+        
         for (DtdType type : DtdType.values()) {
             DtdData dtdData = DtdData.getInstance(type);
             Map<String, Element> currentElementFromName = dtdData
@@ -1155,13 +1163,14 @@ public class TestBasic extends TestFmwkPlus {
                         if (element.getAttributeNamed("draft") == null) {
                             elementsWithoutDraft.add(element.name);
                         }
-                    }
-                    if (children.size() != 0 && !"alias".equals(element.name)) {
-                        if (element.getChildNamed("alias") == null) {
-                            elementsWithoutAlias.add(element.name);
-                        }
-                        if (element.getChildNamed("special") == null) {
-                            elementsWithoutSpecial.add(element.name);
+                    } else {
+                        if (children.size() != 0 && !"alias".equals(element.name)) {
+                            if (element.getChildNamed("alias") == null) {
+                                elementsWithoutAlias.add(element.name);
+                            }
+                            if (element.getChildNamed("special") == null) {
+                                elementsWithoutSpecial.add(element.name);
+                            }
                         }
                     }
                 }
@@ -1182,6 +1191,11 @@ public class TestBasic extends TestFmwkPlus {
                 + " DTD elements with children must have 'special' elements",
                 Collections.EMPTY_SET, elementsWithoutSpecial);
 
+            // Only run the rest in exhaustive mode, since it requires CLDR_ARCHIVE_DIRECTORY
+            if (getInclusion() <= 5) { 
+                return;
+            }
+            
             for (Versions version : Versions.values()) {
                 if (version == Versions.trunk) {
                     continue;
@@ -1201,6 +1215,9 @@ public class TestBasic extends TestFmwkPlus {
                     case platform:
                         tooOld = version.compareTo(Versions.v22_1) >= 0;
                         break;
+                    case ldmlICU:
+                        tooOld = version.compareTo(Versions.v1_2_0) >= 0;
+                        break;
                     default:
                         break;
                     }
@@ -1210,6 +1227,21 @@ public class TestBasic extends TestFmwkPlus {
                         throw e;
                     }
                 }
+                String [][] knownElementExceptions = {
+                    { "ldml", "usesMetazone" },
+                    { "ldmlICU", "usesMetazone" }
+                };
+                String [][] knownAttributeExceptions = {
+                    { "ldml", "version" },
+                    { "supplementalData", "version" },
+                    { "ldmlICU", "version" },
+                    { "layout", "standard" }
+                };
+                String [][] knownChildExceptions = {
+                    { "abbreviationFallback", "special" },
+                    { "inList", "special" },
+                    { "preferenceOrdering", "special" }
+                };
                 // verify that if E is in dtdDataOld, then it is in dtdData, and
                 // has at least the same children and attributes
                 for (Entry<String, Element> entry : dtdDataOld
@@ -1217,6 +1249,17 @@ public class TestBasic extends TestFmwkPlus {
                     Element oldElement = entry.getValue();
                     Element newElement = currentElementFromName.get(entry
                         .getKey());
+                    boolean isKnownElementException = false;
+                    for ( String[] knownException : knownElementExceptions ) {
+                        if ( type.toString().equals(knownException[0]) &&
+                            oldElement.getName().equals(knownException[1])) {
+                            isKnownElementException = true;
+                            continue;
+                        }
+                    }
+                    if ( isKnownElementException ) {
+                        continue;
+                    }
                     if (assertNotNull(type
                         + " DTD for trunk must be superset of v" + version
                         + ", and must contain «" + oldElement.getName()
@@ -1224,8 +1267,22 @@ public class TestBasic extends TestFmwkPlus {
                         // TODO Check order also
                         for (Element oldChild : oldElement.getChildren()
                             .keySet()) {
+                            if (oldChild == null) {
+                                continue;
+                            }
                             Element newChild = newElement
                                 .getChildNamed(oldChild.getName());
+                            boolean isKnownChildException = false;
+                            for ( String[] knownException : knownChildExceptions ) {
+                                if ( newElement.getName().equals(knownException[0]) &&
+                                    oldChild.getName().equals(knownException[1])) {
+                                    isKnownChildException = true;
+                                    continue;
+                                }
+                            }
+                            if ( isKnownChildException ) {
+                                continue;
+                            }
                             assertNotNull(
                                 type + " DTD - Children of «"
                                     + newElement.getName()
@@ -1238,7 +1295,18 @@ public class TestBasic extends TestFmwkPlus {
                             .getAttributes().keySet()) {
                             Attribute newAttribute = newElement
                                 .getAttributeNamed(oldAttribute.getName());
-                            assertNotNull(
+                            boolean isKnownAttributeException = false;
+                            for ( String[] knownException : knownAttributeExceptions ) {
+                                if ( newElement.getName().equals(knownException[0]) &&
+                                    oldAttribute.getName().equals(knownException[1])) {
+                                    isKnownAttributeException = true;
+                                    continue;
+                                }
+                            }
+                            if ( isKnownAttributeException ) {
+                                continue;
+                            }
+                           assertNotNull(
                                 type + " DTD - Attributes of «"
                                     + newElement.getName()
                                     + "» must be superset of v"

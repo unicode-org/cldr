@@ -295,7 +295,7 @@ public class TestTransforms extends TestFmwkPlus {
             turkishSource, true);
 
         String lithuanianSource = "I \u00CF J J\u0308 \u012E \u012E\u0308 \u00CC \u00CD \u0128 xi\u0307\u0308 xj\u0307\u0308 x\u012F\u0307\u0308 xi\u0307\u0300 xi\u0307\u0301 xi\u0307\u0303 XI X\u00CF XJ XJ\u0308 X\u012E X\u012E\u0308";
-        if (!logKnownIssue("ICU #11094",
+        if (!logKnownIssue("11094",
             "Fix ICU4J UCharacter.toTitleCase/toLowerCase for lt")) {
             Transliterator ltTitle = checkString(
                 "lt",

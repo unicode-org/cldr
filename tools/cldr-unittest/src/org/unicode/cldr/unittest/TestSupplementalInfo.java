@@ -1562,7 +1562,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             CoverageIssue needsCoverage = testLocales.contains(locale) 
                 ? CoverageIssue.error 
                     : CoverageIssue.log;
-            if (logKnownIssue("cldrbug 8483", "disable be and ga for now")) {
+            if (logKnownIssue("Cldrbug:8809", "Missing plural rules/samples be and ga locales")) {
                 if (locale.equals("be") || locale.equals("ga")) {
                     needsCoverage = CoverageIssue.warn;
                 }

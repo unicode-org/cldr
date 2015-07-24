@@ -1267,7 +1267,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         } else if (element.isDeprecatedElement) {
             return true;
         }
-        if ("*".equals(attributeName)) {
+        if ("*".equals(attributeName) || "_q".equals(attributeName)) {
             return false;
         }
         Attribute attribute = element.getAttributeNamed(attributeName);
@@ -1293,6 +1293,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     public AttributeStatus getAttributeStatus(String elementName, String attributeName) {
         if ("_q".equals(attributeName)) {
             return AttributeStatus.distinguished; // special case
+        }
+        if ("#PCDATA".equals(elementName)) {
+            int debug=1;
         }
         Element element = nameToElement.get(elementName);
         if (element == null) {

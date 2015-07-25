@@ -538,8 +538,8 @@ public class CldrUtility {
             return (T) declaredMethod.invoke(source, (Object) null);
         } catch (Exception e) {}
         try {
-            final Constructor<? extends Object> declaredMethod = class1.getConstructor(null);
-            return (T) declaredMethod.newInstance(null);
+            final Constructor<? extends Object> declaredMethod = class1.getConstructor((Class<?>)null);
+            return (T) declaredMethod.newInstance((Object)null);
         } catch (Exception e) {}
         return null; // uncloneable
     }
@@ -996,6 +996,7 @@ public class CldrUtility {
         return getInputStream(CldrUtility.class, "data/" + name);
     }
 
+    @SuppressWarnings("resource")
     public static InputStream getInputStream(Class<?> callingClass, String relativePath) {
         InputStream is = callingClass.getResourceAsStream(relativePath);
         // add buffering

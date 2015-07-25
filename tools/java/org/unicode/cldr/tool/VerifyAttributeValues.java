@@ -261,7 +261,7 @@ public class VerifyAttributeValues extends SimpleHandler {
 
 
     public static void main(String[] args) {
-        checkScripts();
+        //checkScripts();
         quickTest();
         Errors errors = new Errors();
         VerifyAttributeValues.findAttributeValues(BASE_DIR, 15, errors);

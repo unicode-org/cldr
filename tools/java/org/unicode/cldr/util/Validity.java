@@ -25,10 +25,14 @@ public class Validity {
         invalid, //  (anything else)
     }
 
-    static final ConcurrentHashMap<String, Validity> cache = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String, Validity> cache = new ConcurrentHashMap<>();
 
     private final Map<LstrType, Map<Validity.Status, Set<String>>> mappedData;
 
+    public static Validity getInstance() {
+        return getInstance(CLDRPaths.COMMON_DIRECTORY);
+    }
+    
     public static Validity getInstance(String commonDirectory) {
         Validity result = cache.get(commonDirectory);
         if (result == null) {
@@ -70,7 +74,7 @@ public class Validity {
                     submap.put(subtypeAttr, set = new LinkedHashSet<>());
                 }
                 for (String value : space.split(item.getSecond())) {
-                    int dashPos = value.indexOf('-');
+                    int dashPos = value.indexOf('~');
                     if (dashPos < 0) {
                         set.add(value);
                     } else {

@@ -34,6 +34,7 @@ import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.NumberingSystemInfo.NumberingSystemType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -1130,6 +1131,16 @@ public class SupplementalDataInfo {
         validityInfo = CldrUtility.protectCollection(validityInfo);
         attributeValidityInfo = CldrUtility.protectCollection(attributeValidityInfo);
         parentLocales = Collections.unmodifiableMap(parentLocales);
+        
+        Set<String> newScripts = new LinkedHashSet<String>();
+        Map<Validity.Status, Set<String>> scripts = Validity.getInstance().getData().get(LstrType.script);
+        for (Entry<Validity.Status, Set<String>> e : scripts.entrySet()) {
+            if (e.getKey() != Validity.Status.deprecated) {
+                newScripts.addAll(e.getValue());
+            }
+        }
+        // TODO The above duplicates the old construction, but do we need the Private Use codes for whatever CLDRScriptCodes is used for?
+        CLDRScriptCodes = Collections.unmodifiableSet(newScripts);
     }
 
     // private Map<String, Map<String, String>> makeUnmodifiable(Map<String, Map<String, String>>
@@ -1616,11 +1627,11 @@ public class SupplementalDataInfo {
                         CLDRLanguageCodes = Collections.unmodifiableSet(new TreeSet<String>(Arrays
                             .asList(validCodeArray)));
                     }
-                    if ("$script".equals(attributes.get("id")) && "choice".equals(attributes.get("type"))) {
-                        String[] validCodeArray = value.trim().split("\\s+");
-                        CLDRScriptCodes = Collections
-                            .unmodifiableSet(new TreeSet<String>(Arrays.asList(validCodeArray)));
-                    }
+//                    if ("$script".equals(attributes.get("id")) && "choice".equals(attributes.get("type"))) {
+//                        String[] validCodeArray = value.trim().split("\\s+");
+//                        CLDRScriptCodes = Collections
+//                            .unmodifiableSet(new TreeSet<String>(Arrays.asList(validCodeArray)));
+//                    }
                     return true;
                 } else if (level3.equals("attributeValues")) {
                     AttributeValidityInfo.add(parts.getAttributes(-1), value, attributeValidityInfo);

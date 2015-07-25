@@ -126,44 +126,6 @@
 				YE YT
 				ZA ZM ZW ZZ
 			</variable>
-			<variable id='$script' type='choice'>
-				Afak Ahom Aghb Arab Armi Armn Avst
-				Bali Bamu Bass Batk Beng
-				Blis Bopo Brah Brai Bugi Buhd
-				Cakm Cans Cari Cham Cher Cirt Copt Cprt Cyrl Cyrs
-				Deva Dsrt Dupl
-				Egyd Egyh Egyp Elba Ethi
-				Geok Geor Glag Goth Gran Grek Gujr Guru
-				Hang Hani Hano Hans Hant Hatr
-				Hebr Hira Hluw Hmng Hrkt Hung
-				Inds Ital
-				Java Jpan Jurc
-				Kali Kana Khar Khmr Khoj Knda Kore Kpel Kthi
-				Lana Laoo Latf Latg Latn Lepc Limb Lina Linb Lisu Loma Lyci Lydi
-				Mahj Mand Mani Maya Mend Merc
-				Mero Mlym Modi Mong Moon Mroo Mtei Mult Mymr
-				Narb Nbat Nkgb Nkoo Nshu
-				Ogam Olck Orkh Orya Osma
-				Palm Pauc Perm Phag Phli Phlp Phlv Phnx Plrd Prti
-				Qaaa Qaab Qaac Qaad Qaae Qaaf Qaag Qaah Qaaj
-				Qaak Qaal Qaam Qaan Qaao Qaap Qaaq
-				Qaar Qaas Qaat Qaau Qaav Qaaw Qaax Qaay Qaaz Qaba Qabb Qabc
-				Qabd Qabe Qabf Qabg
-				Qabh Qabi Qabj Qabk Qabl Qabm Qabn Qabo Qabp Qabq Qabr Qabs Qabt Qabu Qabv
-				Qabw
-				Qabx
-				Rjng Roro Runr
-				Samr Sara Sarb Saur Sgnw Shaw Shrd Sidd Sind Sinh Sora Sund Sylo Syrc Syre
-				Syrj
-				Syrn
-				Tagb Takr Tale Talu Taml Tang Tavt Telu Teng Tfng Tglg Thaa Thai Tibt Tirh
-				Ugar
-				Vaii Visp
-				Wara Wole
-				Xpeo Xsux
-				Yiii
-				Zinh Zmth Zsym Zxxx Zyyy Zzzz
-			</variable>
 			<variable id='$variant' type='choice'>
 				1606NICT 1694ACAD 1901 1959ACAD 1994 1996
 				ALALC97 ALUKU
@@ -976,6 +938,7 @@
 			<variable id='$fullTzid' type='TODO' />
 			<variable id='$genDate' type='regex'>\$.*\$</variable>
 			<variable id='$locale' type='locale' />
+			<variable id='$localeAll' type='locale'>all</variable>
 			<variable id='$reference' type='regex'>([R|S]|RP)[0-9]+</variable>
 			<variable id='$uri' type='TODO' />
 			<!-- Certain segmentation files need underscores in variable names -->
@@ -996,9 +959,11 @@
 			<variable id='$percent' type='regex'>0|[1-9][0-9]?|100</variable>
 			<variable id='$percentFraction' type='regex'>(0|[1-9][0-9]?)(\.[0-9]+)?|100</variable>
 			<variable id='$subdivisionSuffix' type='regex'>[0-9A-Z]{0,3}</variable>
-			<variable id='$digit' type='regex'>\p{Nd}+|[〇一二三四五六七八九]</variable>
+			<variable id='$digit' type='regex'>(\p{Nd}|[〇一二三四五六七八九])+</variable>
 			<variable id='$hourStyle' type='regex'>[HKhk]</variable>
-
+			<variable id='$internet' type='regex'>[A-Z]+|XN--[A-Z0-9]+</variable>
+			<variable id='$coverageSpecial' type='choice'>* Cldr:modern</variable>
+			<variable id='$collationPrivate' type='choice'>digits-after private-unihan</variable>
 
 			<attributeValues attributes='alt' type='choice'>$alt</attributeValues>
 			<attributeValues attributes='_q' type='choice'>$integer</attributeValues>
@@ -1012,7 +977,7 @@
 			<attributeValues dtds='ldml' elements='calendar' attributes='type' type='bcp47'>ca</attributeValues>
 			<attributeValues dtds='supplementalData' elements='character' attributes='value'
 				type='regex'>.</attributeValues>
-			<attributeValues dtds='ldml' elements='collation' attributes='type' type='bcp47'>co</attributeValues>
+			<attributeValues dtds='ldml' elements='collation' attributes='type'>$_bcp47_co|$collationPrivate</attributeValues>
 			<attributeValues dtds='ldml' elements='collations' attributes='version'>$version</attributeValues>
 			<attributeValues dtds='ldml' elements='contextTransform' attributes='type' type='choice'>uiListOrMenu
 				stand-alone</attributeValues>
@@ -1065,7 +1030,8 @@
 			<attributeValues dtds='ldml' elements='firstDay weekendEnd weekendStart'
 				attributes='day' order='given'>sun mon tue wed thu fri sat</attributeValues>
 			<attributeValues dtds='ldml' elements='generation' attributes='date'>$genDate</attributeValues>
-			<attributeValues dtds='supplementalData' elements='group' attributes='list'>$territory</attributeValues>
+			<attributeValues dtds='supplementalData' elements='group' attributes='contains'
+				type='list'>$_region</attributeValues>
 			<attributeValues dtds='supplementalData' elements='hours' attributes='allowed'
 				type='list'>$hourStyle</attributeValues>
 			<attributeValues dtds='supplementalData' elements='hours' attributes='preferred'
@@ -1079,8 +1045,10 @@
 			<attributeValues dtds='supplementalData' elements='info' attributes='rounding'
 				type='regex'>[0-9]+</attributeValues>
 			<attributeValues dtds='ldml' elements='key' attributes='type' type='bcp47'>key</attributeValues>
-			<attributeValues dtds='supplementalData' elements='language' attributes='scripts' type='list'>$script</attributeValues>
-			<attributeValues dtds='supplementalData' elements='language' attributes='territories' type='list'>$territory</attributeValues>
+			<attributeValues dtds='supplementalData' elements='language' attributes='scripts'
+				type='list'>$_script</attributeValues>
+			<attributeValues dtds='supplementalData' elements='language' attributes='territories'
+				type='list'>$territory</attributeValues>
 			<attributeValues dtds='ldml' elements='language' attributes='type'>$locale</attributeValues>
 			<attributeValues dtds='supplementalData' elements='language' attributes='variants'>$variant</attributeValues>
 			<attributeValues dtds='supplementalData' elements='languageAlias' attributes='replacement type'
@@ -1116,7 +1084,7 @@
 			<attributeValues dtds='ldml' elements='preferenceOrdering' attributes='type'>$tzidList</attributeValues>
 			<attributeValues dtds='ldml' elements='quarter' attributes='type' type='choice'>1 2 3 4</attributeValues> <!-- move to DTD? -->
 			<attributeValues dtds='ldml' elements='reference' attributes='type'>$reference</attributeValues>
-			<attributeValues dtds='supplementalData' elements='region' attributes='iso3166'>$territory</attributeValues>
+			<attributeValues dtds='supplementalData' elements='region' attributes='iso3166'>$_region</attributeValues>
 			<attributeValues dtds='ldml' elements='relative' attributes='type' type='regex'>-?[0-9]+</attributeValues>
 			<attributeValues dtds='ldml' elements='relativeTime' attributes='type' type='choice'>future
 				past</attributeValues>
@@ -1124,12 +1092,11 @@
 				secondary
 				tertiary</attributeValues> <!-- move to DTD? -->
 			<attributeValues dtds='ldml' elements='rule' attributes='id'>$double</attributeValues>
-			<attributeValues dtds='ldml' elements='script' attributes='type'>$script</attributeValues>
-			<attributeValues dtds='supplementalData' elements='scriptAlias' attributes='replacement'>$script</attributeValues>
-			<attributeValues dtds='supplementalData' elements='scriptAlias' attributes='type'>$script</attributeValues>
+			<attributeValues dtds='ldml' elements='script' attributes='type'>$_script</attributeValues>
+			<attributeValues dtds='supplementalData' elements='scriptAlias' attributes='replacement'>$_script</attributeValues>
+			<attributeValues dtds='supplementalData' elements='scriptAlias' attributes='type'>$_script</attributeValues>
 			<attributeValues dtds='ldml' elements='segmentation' attributes='type' type='choice'>GraphemeClusterBreak
 				LineBreak SentenceBreak WordBreak</attributeValues>
-			<attributeValues dtds='supplementalData' elements='supplementalData' attributes='version'>$version</attributeValues>
 			<attributeValues dtds='ldml' elements='symbols' attributes='numberSystem' type='bcp47'>nu</attributeValues>
 			<attributeValues dtds='ldml' elements='territory' attributes='type'>$territory</attributeValues>
 			<attributeValues dtds='supplementalData' elements='territoryAlias' attributes='replacement type'>$territory</attributeValues>
@@ -1205,11 +1172,9 @@
 				phonebook phonetic pinyin posix primary quaternary reformed roc roman romanlow saur search
 				searchjl secondary shifted shrd sora standard strict stroke sund takr talu taml tamldec telu
 				tertiary thai tibt traditional uksystem unihan upper ussystem vaii yes zhuyin</attributeValues>
-			<attributeValues dtds='ldml' elements='version' attributes='cldrVersion' type='choice'>28</attributeValues>
+			<attributeValues dtds='ldml' elements='version' attributes='cldrVersion' type='choice'>$double</attributeValues>
 			<attributeValues dtds='supplementalData' elements='approvalRequirement'
-				attributes='locales' type='choice'>* Cldr:modern ar ca cs da de el es fi fr he hi hr hu id it ja ko lt lv
-				nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant ar ca cs da de el es fi fr he hi hr
-				hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant sk</attributeValues>
+				attributes='locales' type='list'>$locale|$coverageSpecial</attributeValues>
 			<attributeValues dtds='supplementalData' elements='approvalRequirement'
 				attributes='paths' type='TODO' />
 			<attributeValues dtds='supplementalData' elements='approvalRequirement'
@@ -1251,8 +1216,7 @@
 			<attributeValues dtds='supplementalData' elements='calendarPreference'
 				attributes='ordering' type='list'>$calendar_XXX</attributeValues>
 			<attributeValues dtds='supplementalData' elements='calendarPreference'
-				attributes='territories' type='choice'>001 AE BH KW QA AF IR CN CX HK MO SG DJ DZ EH ER IQ JO KM LB LY MA
-				MR OM PS SD SY TD TN YE EG ET IL IN JP KR SA TH TW</attributeValues>
+				attributes='territories' type='list'>$territory</attributeValues>
 			<attributeValues dtds='supplementalData' elements='codesByTerritory' attributes='territory'
 				type='choice'>001 AC AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN
 				BO BQ BR BS BT BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO
@@ -1346,9 +1310,9 @@
 			<attributeValues dtds='supplementalData' elements='languagePopulation'
 				attributes='writingPercent' type='regex'>$percent</attributeValues>
 			<attributeValues dtds='supplementalData' elements='likelySubtag' attributes='from'
-				type='regex'>$locale</attributeValues>
+				type='regex'>$localeAll</attributeValues>
 			<attributeValues dtds='supplementalData' elements='likelySubtag' attributes='to'
-				type='choice'>$locale</attributeValues>
+				type='choice'>$localeAll</attributeValues>
 			<attributeValues dtds='supplementalData' elements='mapTimezones' attributes='otherVersion'
 				type='TODO'>7df0004</attributeValues>
 			<attributeValues dtds='supplementalData' elements='mapTimezones' attributes='typeVersion'
@@ -1408,7 +1372,7 @@
 			<attributeValues dtds='supplementalData' elements='territoryCodes' attributes='fips10'
 				type='regex'>[A-Z]{2}</attributeValues>
 			<attributeValues dtds='supplementalData' elements='territoryCodes' attributes='internet'
-				type='regex'>[A-Z]+|XN--[A-Z0-9]+</attributeValues>
+				type='list'>$internet</attributeValues>
 			<attributeValues dtds='supplementalData' elements='territoryCodes' attributes='numeric'
 				type='regex'>[0-9]{3}</attributeValues>
 			<attributeValues dtds='supplementalData' elements='territoryCodes' attributes='type'
@@ -1437,9 +1401,8 @@
 			<attributeValues dtds='supplementalData' elements='usesMetazone' attributes='to'
 				type='choice'>$datetime</attributeValues>
 			<attributeValues dtds='supplementalData' elements='variable' attributes='id'
-				type='regex'>\$[a-zA-Z]+([-_][a-zA-Z]+)?</attributeValues>
-			<attributeValues dtds='supplementalData' elements='version' attributes='cldrVersion'
-				type='regex'>$decimal</attributeValues>
+				type='regex'>\$[a-zA-Z0-9]+([-_][a-zA-Z0-9]+)?</attributeValues>
+			<attributeValues dtds='supplementalData' elements='version' attributes='cldrVersion' type='regex'>$double</attributeValues>
 			<attributeValues dtds='supplementalData' elements='version' attributes='number'
 				type='regex'>\$Revision.*\$</attributeValues>
 			<attributeValues dtds='supplementalData' elements='version' attributes='unicodeVersion'
@@ -1470,8 +1433,16 @@
 			<attributeValues dtds='ldmlBCP47' elements='type' attributes='since' type='choice'>1.8
 				1.8.1 1.9 1.9.1 2.0 2.0.1 21 21.0.1 21.0.2 22 22.1 23 24 25 26 27 28</attributeValues>
 			<attributeValues dtds='ldmlBCP47' elements='version' attributes='cldrVersion'
-				type='choice'>28</attributeValues>
+				type='choice'>$double</attributeValues>
 			<attributeValues dtds='ldmlBCP47' elements='version' attributes='number' type='regex'>\$Revision.*\$</attributeValues>
+			<attributeValues dtds='ldml' elements='subdivision' attributes='type' type='TODO'></attributeValues>
+			<attributeValues dtds='supplementalData' elements='group' attributes='type' type='list'>$territory</attributeValues>
+			<attributeValues dtds='supplementalData' elements='personList' attributes='locales'
+				type='list'>$locale</attributeValues>
+			<attributeValues dtds='supplementalData' elements='subgroup' attributes='subtype'
+				type='TODO'></attributeValues>
+			<attributeValues dtds='supplementalData' elements='variable' attributes='type'
+				type='choice'>TODO choice list locale regex unicodeSet</attributeValues>
 		</validity>
 	</metadata>
 </supplementalData>

@@ -15,6 +15,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DayPeriodInfo;
+import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.AttributeValueValidity.Status;
 import org.unicode.cldr.util.DayPeriodInfo.Type;
 import org.unicode.cldr.util.DtdData;
@@ -22,6 +23,8 @@ import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -30,19 +33,23 @@ import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
 import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.impl.Row.R5;
+import com.ibm.icu.util.Output;
 
 public class VerifyAttributeValues extends SimpleHandler {
     private static final File BASE_DIR = new File(CLDRPaths.BASE_DIRECTORY);
 
-    private static final Joiner SPACE_JOINER = Joiner.on(' ');
+    public static final Joiner SPACE_JOINER = Joiner.on(' ');
+    public static final Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults().omitEmptyStrings();
 
     public final static class Errors {
 
-        final ChainedMap.M5<String, String, String, String, Status> file_element_attribute
-        = ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), new TreeMap(), Status.class);
+        final ChainedMap.M5<String, String, String, String, String> file_element_attribute
+        = ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), new TreeMap(), String.class);
 
         /**
          * @param file
@@ -52,8 +59,8 @@ public class VerifyAttributeValues extends SimpleHandler {
          * @return
          * @see org.unicode.cldr.util.ChainedMap.M4#put(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)
          */
-        public Status put(String file, String element, String attribute, String attributeValue, Status value) {
-            return file_element_attribute.put(file, element, attribute, attributeValue, value);
+        public void put(String file, String element, String attribute, String attributeValue, String value) {
+            file_element_attribute.put(file, element, attribute, attributeValue, value);
         }
 
     }
@@ -144,7 +151,7 @@ public class VerifyAttributeValues extends SimpleHandler {
                     if (isEnglish) {
                         continue; // don't flag English
                     }
-                    file_element_attribute.put(file, element, attribute, attributeValue, Status.deprecated);
+                    file_element_attribute.put(file, element, attribute, attributeValue, "deprecated");
                     continue;
                 }
 
@@ -161,13 +168,14 @@ public class VerifyAttributeValues extends SimpleHandler {
 //                }
                 // check the common attributes first
 
-                Status haveTest = AttributeValueValidity.check(dtdData, element, attribute, attributeValue);
+                Output<String> reason = new Output<>();
+                Status haveTest = AttributeValueValidity.check(dtdData, element, attribute, attributeValue, reason );
                 switch(haveTest) {
                 case ok:
                     break;
                 case deprecated: 
                 case illegal:
-                    file_element_attribute.put(file, element, attribute, attributeValue, haveTest);
+                    file_element_attribute.put(file, element, attribute, attributeValue, reason.value);
                     break;
                 case noTest:
                     missing_dtd_element_attribute_values.put(dtdData.dtdType, element, attribute, attributeValue, Boolean.TRUE);
@@ -253,17 +261,18 @@ public class VerifyAttributeValues extends SimpleHandler {
 
 
     public static void main(String[] args) {
+        checkScripts();
         quickTest();
         Errors errors = new Errors();
         VerifyAttributeValues.findAttributeValues(BASE_DIR, 15, errors);
 
-        System.out.println("\n* ERRORS *\n");
+        System.out.println("\n* READ ERRORS *\n");
         int count = 0;
-        for (R5<String, String, String, String, Status> item : errors.file_element_attribute.rows()) {
+        for (AttributeValidityInfo item : AttributeValueValidity.getReadFailures()) {
             System.out.println(++count + "\t" + item);
         }
 
-        System.out.println("\n* NO TESTS *\n");
+        System.out.println("\n* MISSING TESTS *\n");
         count = 0;
         for (Entry<DtdType, Map<String, Map<String, Map<String, Boolean>>>> entry1 : missing_dtd_element_attribute_values) {
             DtdType dtdType = entry1.getKey();
@@ -272,9 +281,41 @@ public class VerifyAttributeValues extends SimpleHandler {
                 for (Entry<String, Map<String, Boolean>> entry3 : entry2.getValue().entrySet()) {
                     String attribute = entry3.getKey();
                     Set<String> attributeValues = entry3.getValue().keySet();
-                    System.out.println(++count + "\t" + AttributeValueValidity.getElementLine(dtdType, element, attribute, SPACE_JOINER.join(attributeValues)));
+                    System.out.println(AttributeValueValidity.getElementLine(dtdType, element, attribute, SPACE_JOINER.join(attributeValues)));
                 }
             }
+        }
+
+        System.out.println("\n* TODO TESTS *\n");
+        count = 0;
+        for (R3<DtdType, String, String> entry1 : AttributeValueValidity.getTodoTests()) {
+            System.out.println(++count + "\t" + AttributeValueValidity.getElementLine(entry1.get0(), entry1.get1(), entry1.get2(), ""));
+        }
+
+        System.out.println("\n* DEPRECATED *\n");
+        count = 0;
+        for (R5<String, String, String, String, String> item : errors.file_element_attribute.rows()) {
+            if (item.get4().equals("deprecated"))
+                System.out.println(++count 
+                    + "; \t" + item.get0()
+                    + "; \t" + item.get1()
+                    + "; \t" + item.get2()
+                    + "; \t" + item.get3()
+                    + " — \t" + item.get4()
+                    );
+        }
+
+        System.out.println("\n* ERRORS *\n");
+        count = 0;
+        for (R5<String, String, String, String, String> item : errors.file_element_attribute.rows()) {
+            if (!item.get4().equals("deprecated"))
+                System.out.println(++count 
+                    + "; \t" + item.get0()
+                    + "; \t" + item.get1()
+                    + "; \t" + item.get2()
+                    + "; \t" + item.get3()
+                    + " — \t" + item.get4()
+                    );
         }
     }
 
@@ -295,7 +336,67 @@ public class VerifyAttributeValues extends SimpleHandler {
     private static Status quickTest(String test) {
         test = test.substring(1,test.length()-1);
         String[] parts = test.split(", ");
-        Status value = AttributeValueValidity.check(DtdData.getInstance(DtdType.supplementalData), parts[1], parts[2], parts[3]);
+        Output<String> reason = new Output<>();
+        Status value = AttributeValueValidity.check(DtdData.getInstance(DtdType.supplementalData), parts[1], parts[2], parts[3], reason);
+        if (value != value.ok) {
+            System.out.println(test + "\t" + value + "\t" + reason);
+        }
         return value;
     }
+    
+//    private static void checkScripts() {
+//        Set<String> oldScripts = new HashSet<String>(SPACE_SPLITTER.splitToList(
+//            "Afak Ahom Aghb Arab Armi Armn Avst " +
+//            "Bali Bamu Bass Batk Beng " +
+//            "Blis Bopo Brah Brai Bugi Buhd " +
+//            "Cakm Cans Cari Cham Cher Cirt Copt Cprt Cyrl Cyrs " +
+//            "Deva Dsrt Dupl " +
+//            "Egyd Egyh Egyp Elba Ethi " +
+//            "Geok Geor Glag Goth Gran Grek Gujr Guru " +
+//            "Hang Hani Hano Hans Hant Hatr " +
+//            "Hebr Hira Hluw Hmng Hrkt Hung " +
+//            "Inds Ital " +
+//            "Java Jpan Jurc " +
+//            "Kali Kana Khar Khmr Khoj Knda Kore Kpel Kthi " +
+//            "Lana Laoo Latf Latg Latn Lepc Limb Lina Linb Lisu Loma Lyci Lydi " +
+//            "Mahj Mand Mani Maya Mend Merc " +
+//            "Mero Mlym Modi Mong Moon Mroo Mtei Mult Mymr " +
+//            "Narb Nbat Nkgb Nkoo Nshu " +
+//            "Ogam Olck Orkh Orya Osma " +
+//            "Palm Pauc Perm Phag Phli Phlp Phlv Phnx Plrd Prti " +
+//            "Qaaa Qaab Qaac Qaad Qaae Qaaf Qaag Qaah Qaaj " +
+//            "Qaak Qaal Qaam Qaan Qaao Qaap Qaaq " +
+//            "Qaar Qaas Qaat Qaau Qaav Qaaw Qaax Qaay Qaaz Qaba Qabb Qabc " +
+//            "Qabd Qabe Qabf Qabg " +
+//            "Qabh Qabi Qabj Qabk Qabl Qabm Qabn Qabo Qabp Qabq Qabr Qabs Qabt Qabu Qabv " +
+//            "Qabw " +
+//            "Qabx " +
+//            "Rjng Roro Runr " +
+//            "Samr Sara Sarb Saur Sgnw Shaw Shrd Sidd Sind Sinh Sora Sund Sylo Syrc Syre " +
+//            "Syrj " +
+//            "Syrn " +
+//            "Tagb Takr Tale Talu Taml Tang Tavt Telu Teng Tfng Tglg Thaa Thai Tibt Tirh " +
+//            "Ugar " +
+//            "Vaii Visp " +
+//            "Wara Wole " +
+//            "Xpeo Xsux " +
+//            "Yiii " +
+//            "Zinh Zmth Zsym Zxxx Zyyy Zzzz"));
+//        Validity validity = Validity.getInstance();
+//        Map<Validity.Status, Set<String>> scripts = validity.getData().get(LstrType.script);
+//        HashSet<String> newScripts = new HashSet<String>();
+//        for (Entry<Validity.Status, Set<String>> e : scripts.entrySet()) {
+//            if (e.getKey() != Validity.Status.deprecated) {
+//                newScripts.addAll(e.getValue());
+//            }
+//        }
+//        if (!oldScripts.equals(newScripts)) {
+//            HashSet<String> oldMinusNew = new HashSet<>(oldScripts);
+//            oldMinusNew.removeAll(newScripts);
+//            HashSet<String> newMinusOld = new HashSet<>(newScripts);
+//            newMinusOld.removeAll(oldScripts);
+//
+//            throw new IllegalArgumentException("oldMinusNew: " + oldMinusNew + ", newMinusOld: " + newMinusOld);
+//        }
+//    }
 }

@@ -5,24 +5,24 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.EnumSet;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
 
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.CollectionUtilities.ObjectMatcher;
+import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
@@ -33,7 +33,8 @@ import com.ibm.icu.util.Output;
 public class AttributeValueValidity {
 
     public enum Status {ok, deprecated, illegal, noTest}
-    
+    public enum LocaleSpecific {pluralCardinal, pluralOrdinal, dayPeriodFormat, dayPeriodSelection}
+
     static final Splitter BAR = Splitter.on('|').trimResults().omitEmptyStrings();
 
     private static final Set<DtdType> ALL_DTDs = Collections.unmodifiableSet(EnumSet.allOf(DtdType.class));
@@ -83,13 +84,14 @@ public class AttributeValueValidity {
             if (aliases != null) {
                 for (String aliasKey : aliases) {
                     temp.put(aliasKey, fullValues);
+                    addCollectionVariable("$_bcp47_" + aliasKey, fullValues);
                 }
             }
             temp.put("x", Collections.<String>emptySet()); // Hack for 'x', private use.
             addCollectionVariable("$_bcp47_x", Collections.<String>emptySet());
         }
         BCP47_KEY_VALUES = Collections.unmodifiableMap(temp);
-        
+
         Validity validity = Validity.getInstance();
         for (Entry<LstrType, Map<Validity.Status, Set<String>>> item1 : validity.getData().entrySet()) {
             LstrType key = item1.getKey();
@@ -99,6 +101,13 @@ public class AttributeValueValidity {
             for (Entry<Validity.Status, Set<String>> item2 : item1.getValue().entrySet()) {
                 Validity.Status status = item2.getKey();
                 Set<String> validItems = item2.getValue();
+                if (key == LstrType.variant) { // uppercased in CLDR
+                    Set<String> temp2 = new LinkedHashSet<>(validItems);
+                    for (String item : validItems) {
+                        temp2.add(item.toUpperCase(Locale.ROOT));
+                    }
+                    validItems = temp2;
+                }
                 all.addAll(validItems);
                 if (status == Validity.Status.regular || status == Validity.Status.unknown) {
                     regularAndUnknown.addAll(validItems);
@@ -244,7 +253,7 @@ public class AttributeValueValidity {
 //            return this;
 //        }
     }
-    
+
     private static void addCollectionVariable(String name, Set<String> validItems) {
         MatcherPattern m = new MatcherPattern(name, validItems.toString(), new CollectionMatcher().set(validItems));
         variables.put(name, m);
@@ -331,16 +340,14 @@ public class AttributeValueValidity {
         regex,
         locale,
         bcp47,
-        dayperiod,
-        ordinal,
-        plural,
         subdivision,
+        localeSpecific,
         TODO;
     }
 
     private static MatcherPattern getMatcherPattern2(String type, String value) {
         final MatcherTypes matcherType = type == null ? MatcherTypes.single : MatcherTypes.valueOf(type);
-        
+
         if (matcherType != MatcherTypes.TODO && value.startsWith("$")) {
             MatcherPattern result = getVariable(matcherType, value);
             if (result != null) {
@@ -369,10 +376,10 @@ public class AttributeValueValidity {
         case locale:
             matcher = value.equals("all") ? LocaleMatcher.ALL_LANGUAGES : LocaleMatcher.REGULAR;
             break;
+        case localeSpecific:
+            matcher = LocaleSpecificMatcher.getInstance(value);
+            break;
         case TODO:
-        case plural:
-        case dayperiod:
-        case ordinal:
             matcher = NOT_DONE_YET;
             break;
         case list:
@@ -385,7 +392,7 @@ public class AttributeValueValidity {
         return result;
     }
 
-    
+
     private static MatcherPattern getVariable(final MatcherTypes matcherType, String value) {
         List<String> values = BAR.splitToList(value); //value.trim().split("|");
         MatcherPattern[] reasons = new MatcherPattern[values.size()];
@@ -444,6 +451,40 @@ public class AttributeValueValidity {
             boolean result = matcher.matches();
             if (!result && reason != null) {
                 reason.value = RegexUtilities.showMismatch(matcher, value.toString());
+            }
+            return result;
+        }
+    }
+
+    private static EnumMap<LocaleSpecific, Set<String>> LOCALE_SPECIFIC = null;
+
+    /** WARNING, not thread-safe. Needs cleanup **/
+    public static void setLocaleSpecifics(EnumMap<LocaleSpecific, Set<String>> newValues) {
+        LOCALE_SPECIFIC = newValues;
+    }
+
+    public static class LocaleSpecificMatcher extends ObjectMatcherReason {
+        final LocaleSpecific ls;
+
+        public LocaleSpecificMatcher(LocaleSpecific ls) {
+            this.ls = ls;
+        }
+
+        public static ObjectMatcherReason getInstance(String value) {
+            return new LocaleSpecificMatcher(LocaleSpecific.valueOf(value));
+        }
+
+        public boolean matches(String value) {
+            return LOCALE_SPECIFIC.get(ls).contains(value);
+        }
+
+        static final int MAX_STRING = 64;
+
+        public boolean matches(String value, Output<String> reason) {
+            boolean result = LOCALE_SPECIFIC.get(ls).contains(value);
+            if (!result && reason != null) {
+                String collectionString = LOCALE_SPECIFIC.get(ls).toString();
+                reason.value = "No " + value + " in collection " + (collectionString.length() <= MAX_STRING ? collectionString : collectionString.substring(0,MAX_STRING) + "…");
             }
             return result;
         }
@@ -544,7 +585,7 @@ public class AttributeValueValidity {
         final ObjectMatcherReason territory = variables.get("$_region").matcher;
         final ObjectMatcherReason variant = variables.get("$_variant").matcher;
         final LocaleIDParser lip = new LocaleIDParser();
-        
+
         public static LocaleMatcher REGULAR = new LocaleMatcher(false);
         public static LocaleMatcher ALL_LANGUAGES = new LocaleMatcher(true);
 

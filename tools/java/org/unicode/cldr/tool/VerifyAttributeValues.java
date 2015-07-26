@@ -3,30 +3,30 @@ package org.unicode.cldr.tool;
 import java.io.File;
 import java.util.Arrays;
 import java.util.EnumMap;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.unicode.cldr.util.AttributeValueValidity;
+import org.unicode.cldr.util.AttributeValueValidity.LocaleSpecific;
+import org.unicode.cldr.util.AttributeValueValidity.Status;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DayPeriodInfo;
-import org.unicode.cldr.util.Validity;
-import org.unicode.cldr.util.AttributeValueValidity.Status;
+import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.DayPeriodInfo.Type;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
@@ -34,14 +34,13 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.impl.Row.R5;
 import com.ibm.icu.util.Output;
 
 public class VerifyAttributeValues extends SimpleHandler {
     private static final File BASE_DIR = new File(CLDRPaths.BASE_DIRECTORY);
+    private static final SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     public static final Joiner SPACE_JOINER = Joiner.on(' ');
     public static final Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults().omitEmptyStrings();
@@ -62,7 +61,6 @@ public class VerifyAttributeValues extends SimpleHandler {
         public void put(String file, String element, String attribute, String attributeValue, String value) {
             file_element_attribute.put(file, element, attribute, attributeValue, value);
         }
-
     }
 
     @SuppressWarnings("unchecked")
@@ -75,13 +73,9 @@ public class VerifyAttributeValues extends SimpleHandler {
     final String file;
     DtdData dtdData;
     boolean isEnglish;
-    PluralInfo cardinalPluralInfo;
-    PluralInfo ordinalPluralInfo;
-    DayPeriodInfo dayPeriodsFormat;
-    DayPeriodInfo dayPeriodsSelection;
+    EnumMap<LocaleSpecific,Set<String>> localeSpecific = new EnumMap<>(LocaleSpecific.class);
 
 //    private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
-    private static final SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
 
 
 
@@ -113,19 +107,22 @@ public class VerifyAttributeValues extends SimpleHandler {
             throw new IllegalArgumentException(fileName, e);
         }
     }
-
+    
     public void handlePathValue(String path, String value) {
         XPathParts parts = XPathParts.getFrozenInstance(path);
         if (dtdData == null) {
             dtdData = DtdData.getInstance(DtdType.valueOf(parts.getElement(0)));
             if (dtdData.dtdType == DtdType.ldml) {
                 String name = file;
-                String locale = name.substring(0,name.length()-4);
-                cardinalPluralInfo = supplementalData.getPlurals(PluralType.cardinal, locale);
-                ordinalPluralInfo = supplementalData.getPlurals(PluralType.ordinal, locale);
-                dayPeriodsFormat = supplementalData.getDayPeriods(Type.format, locale);
-                dayPeriodsSelection = supplementalData.getDayPeriods(Type.selection, locale);
+                String locale = name.substring(name.lastIndexOf('/')+1, name.lastIndexOf('.'));
+                localeSpecific.put(LocaleSpecific.pluralCardinal, supplementalData.getPlurals(PluralType.cardinal, locale).getPluralRules().getKeywords());
+                localeSpecific.put(LocaleSpecific.pluralOrdinal, supplementalData.getPlurals(PluralType.ordinal, locale).getPluralRules().getKeywords());
+                localeSpecific.put(LocaleSpecific.dayPeriodFormat, getPeriods(Type.format, locale));
+                localeSpecific.put(LocaleSpecific.dayPeriodSelection, getPeriods(Type.selection, locale));
+            } else {
+                localeSpecific.clear();
             }
+            AttributeValueValidity.setLocaleSpecifics(localeSpecific);
         }
         // TODO validate count=, dayperiod=,...
         // TODO validate ldml file name, ids
@@ -169,7 +166,7 @@ public class VerifyAttributeValues extends SimpleHandler {
                 // check the common attributes first
 
                 Output<String> reason = new Output<>();
-                Status haveTest = AttributeValueValidity.check(dtdData, element, attribute, attributeValue, reason );
+                Status haveTest = AttributeValueValidity.check(dtdData, element, attribute, attributeValue, reason);
                 switch(haveTest) {
                 case ok:
                     break;
@@ -181,67 +178,31 @@ public class VerifyAttributeValues extends SimpleHandler {
                     missing_dtd_element_attribute_values.put(dtdData.dtdType, element, attribute, attributeValue, Boolean.TRUE);
                     break;
                 }
-
-                // now for plurals
-
-//                if (attribute.equals("count")) {
-//                    if (DIGITS.containsAll(attributeValue)) {
-//                        // ok, keep going
-//                    } else {
-//                        final Count countValue = PluralInfo.Count.valueOf(attributeValue);
-//                        if (!pluralInfo.getCounts().contains(countValue)
-//                            && !isPluralException(countValue, locale)) {
-//                            result.add(new CheckStatus()
-//                            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalPlural)
-//                            .setMessage("Illegal plural value {0}; must be one of: {1}",
-//                                new Object[] { countValue, pluralInfo.getCounts() }));
-//                        }
-//                    }
-//                }
-
-                // TODO check other variable elements, like dayPeriods
             }
         }
     }
 
-    static final Relation<PluralInfo.Count, String> PLURAL_EXCEPTIONS = Relation.of(
-        new EnumMap<PluralInfo.Count, Set<String>>(PluralInfo.Count.class), HashSet.class);
-
-    static {
-        PLURAL_EXCEPTIONS.put(PluralInfo.Count.many, "hr");
-        PLURAL_EXCEPTIONS.put(PluralInfo.Count.many, "sr");
-        PLURAL_EXCEPTIONS.put(PluralInfo.Count.many, "sh");
-        PLURAL_EXCEPTIONS.put(PluralInfo.Count.many, "bs");
-        PLURAL_EXCEPTIONS.put(PluralInfo.Count.few, "ru");
-    }
-
-    static boolean isPluralException(Count countValue, String locale) {
-        Set<String> exceptions = PLURAL_EXCEPTIONS.get(countValue);
-        if (exceptions == null) {
-            return false;
-        }
-        if (exceptions.contains(locale)) {
-            return true;
-        }
-        int bar = locale.indexOf('_'); // catch bs_Cyrl, etc.
-        if (bar > 0) {
-            String base = locale.substring(0, bar);
-            if (exceptions.contains(base)) {
-                return true;
-            }
-        }
-        return false;
+    private Set<String> getPeriods(Type selection, String locale) {
+        Set<String> result = new TreeSet<>();
+        final DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(Type.format, locale);
+        for (DayPeriod period : dayPeriods.getPeriods()) {
+            result.add(period.toString());
+        };
+        result.add("am");
+        result.add("pm");
+        return new LinkedHashSet<>(result);
     }
 
 
-
-    static void findAttributeValues(File file, int max, Errors errors) {
+    static int findAttributeValues(File file, int max, Errors errors) {
         final String name = file.getName();
         if (file.isDirectory() 
             && !name.equals("specs") 
             && !name.equals("tools")
-            && !name.equals("keyboards") // TODO reenable keyboards
+            && !file.toString().contains(".svn")
+           // && !name.equals("keyboards") // TODO reenable keyboards
             ) {
+            int processed = 0;
             int count = max;
             for (File subfile : file.listFiles()) {
                 final String subname = subfile.getName();
@@ -251,20 +212,24 @@ public class VerifyAttributeValues extends SimpleHandler {
                     ) {
                     continue;
                 }
-                findAttributeValues(subfile, max, errors);
+                processed += findAttributeValues(subfile, max, errors);
             }
+            System.out.println("Processed files: " + processed + " \tin " + file);
+            return processed;
         } else if (name.endsWith(".xml")){
-            System.out.println(file);
-            VerifyAttributeValues.check(file.toString(), errors);
+            check(file.toString(), errors);
+            return 1;
         }
+        return 0;
     }
 
 
     public static void main(String[] args) {
+        int maxPerDirectory = args.length > 0 ? Integer.parseInt(args[0]) : Integer.MAX_VALUE;
         //checkScripts();
         quickTest();
         Errors errors = new Errors();
-        VerifyAttributeValues.findAttributeValues(BASE_DIR, 15, errors);
+        VerifyAttributeValues.findAttributeValues(BASE_DIR, maxPerDirectory, errors);
 
         System.out.println("\n* READ ERRORS *\n");
         int count = 0;
@@ -295,7 +260,7 @@ public class VerifyAttributeValues extends SimpleHandler {
         System.out.println("\n* DEPRECATED *\n");
         count = 0;
         for (R5<String, String, String, String, String> item : errors.file_element_attribute.rows()) {
-            if (item.get4().equals("deprecated"))
+            if ("deprecated".equals(item.get4()))
                 System.out.println(++count 
                     + "; \t" + item.get0()
                     + "; \t" + item.get1()
@@ -308,7 +273,7 @@ public class VerifyAttributeValues extends SimpleHandler {
         System.out.println("\n* ERRORS *\n");
         count = 0;
         for (R5<String, String, String, String, String> item : errors.file_element_attribute.rows()) {
-            if (!item.get4().equals("deprecated"))
+            if (!"deprecated".equals(item.get4()))
                 System.out.println(++count 
                     + "; \t" + item.get0()
                     + "; \t" + item.get1()
@@ -321,23 +286,18 @@ public class VerifyAttributeValues extends SimpleHandler {
 
     private static void quickTest() {
         for (String test : Arrays.asList(
-            "[/common/supplemental/metaZones.xml, usesMetazone, to, 1983-03-31 16:00, illegal]"
-//            "[/common/supplemental/metaZones.xml, mapZone, other, Africa_Central, illegal]",
-//            "[/common/supplemental/numberingSystems.xml, numberingSystem, digits, 0123456789, illegal]",
-//            "[/common/supplemental/ordinals.xml, pluralRules, locales, as bn, illegal]",
-//            "[/common/supplemental/pluralRanges.xml, pluralRanges, locales, af bg ca en es et eu fi nb sv ur, illegal]",
-//            "[/common/supplemental/supplementalData.xml, calendarPreference, ordering, buddhist gregorian, illegal]",
-//            "[/common/supplemental/likelySubtags.xml, likelySubtag, from, abr, illegal]"
+            "/common/supplemental/supplementalMetadata.xml;     territoryAlias;     replacement;    AA"
             )) {
             quickTest(test);
         }
     }
 
+    static final Splitter SEMI_SPACE = Splitter.on(';').trimResults().omitEmptyStrings();
+    
     private static Status quickTest(String test) {
-        test = test.substring(1,test.length()-1);
-        String[] parts = test.split(", ");
+        List<String> parts = SEMI_SPACE.splitToList(test);
         Output<String> reason = new Output<>();
-        Status value = AttributeValueValidity.check(DtdData.getInstance(DtdType.supplementalData), parts[1], parts[2], parts[3], reason);
+        Status value = AttributeValueValidity.check(DtdData.getInstance(DtdType.supplementalData), parts.get(1), parts.get(2), parts.get(3), reason);
         if (value != value.ok) {
             System.out.println(test + "\t" + value + "\t" + reason);
         }

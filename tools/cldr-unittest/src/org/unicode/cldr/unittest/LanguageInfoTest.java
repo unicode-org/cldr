@@ -130,7 +130,7 @@ public class LanguageInfoTest extends TestFmwk {
     static final ULocale MUL = new ULocale("mul");
 
     public void testFallbacks() {
-        Set<String> skip =  !logKnownIssue("11595", "These are languages that would change script and region; need ICU fix for them.") 
+        Set<String> skip =  !logKnownIssue("Cldrbug:8812", "Problems with LanguageInfoTest") 
             ? (Set<String>) Collections.EMPTY_SET
             : new HashSet<String>(Arrays.asList("az", "bn", "hy", "ka", "km", "kn", "lo", "ml", "my", "ne", "or", "pa", "ps", "sd", "si", "ta", "te", "ti", 
                 "tk", "tlh", "ur", "uz", "yi"));

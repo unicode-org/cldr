@@ -19,7 +19,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.tool.GenerateBirth.Versions;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -38,7 +37,6 @@ import org.unicode.cldr.util.DiscreteComparator;
 import org.unicode.cldr.util.DiscreteComparator.Ordering;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
-import org.unicode.cldr.util.DtdData.AttributeStatus;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
 import org.unicode.cldr.util.DtdType;
@@ -48,7 +46,7 @@ import org.unicode.cldr.util.InputStreamFactory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -62,7 +60,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 
-import com.ibm.icu.dev.test.TestFmwk;
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -81,18 +79,30 @@ import com.ibm.icu.util.ULocale;
 
 public class TestBasic extends TestFmwkPlus {
 
-    private static final boolean TEST_VERSIONS = false;
-
     static TestInfo testInfo = TestInfo.getInstance();
 
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo
         .getSupplementalDataInfo();
-
-    String [][] knownElementExceptions = {
-        { "ldml", "usesMetazone" },
-        { "ldmlICU", "usesMetazone" }
-    };
     
+    private static final ImmutableSet<Pair<String,String>> knownElementExceptions = 
+        ImmutableSet.of(
+            Pair.of("ldml","usesMetazone"),
+            Pair.of("ldmlICU","usesMetazone"));
+
+    private static final ImmutableSet<Pair<String,String>> knownAttributeExceptions = 
+        ImmutableSet.of(
+            Pair.of( "ldml", "version" ),
+            Pair.of( "supplementalData", "version" ),
+            Pair.of( "ldmlICU", "version" ),
+            Pair.of( "layout", "standard" ));
+
+    private static final ImmutableSet<Pair<String,String>> knownChildExceptions = 
+        ImmutableSet.of(
+            Pair.of( "abbreviationFallback", "special" ),
+            Pair.of( "inList", "special" ),
+            Pair.of( "preferenceOrdering", "special" ));
+   
+
     /**
      * Simple test that loads each file in the cldr directory, thus verifying
      * that the DTD works, and also checks that the PrettyPaths work.
@@ -184,9 +194,6 @@ public class TestBasic extends TestFmwkPlus {
                         DtdType type = parts.getDtdData().dtdType;
                         for (int i = 0; i < parts.size(); ++i) {
                             String element = parts.getElement(i);
-                            if (element.equals("reset")) {
-                                int debug = 1;
-                            }
                             R2<DtdType, String> typeElement = Row.of(type,
                                 element);
                             if (parts.getAttributeCount(i) == 0) {
@@ -854,7 +861,6 @@ public class TestBasic extends TestFmwkPlus {
             MissingType.index_exemplars, MissingType.punct_exemplars);
 
         Set<String> collations = new HashSet<String>();
-        XPathParts parts = new XPathParts();
 
         // collect collation info
         Factory collationFactory = Factory.make(CLDRPaths.COLLATION_DIRECTORY,
@@ -1044,15 +1050,7 @@ public class TestBasic extends TestFmwkPlus {
                     Set<String> newChildren = newElement2Children
                         .getAll(element);
                     if (newChildren == null) {
-                        boolean isKnownElementException = false;
-                        for (String[] knownException : knownElementExceptions) {
-                            if (dtd.toString().equals(knownException[0]) &&
-                                element.equals(knownException[1])) {
-                                isKnownElementException = true;
-                                continue;
-                            }
-                        }
-                        if (!isKnownElementException) {
+                        if (!knownElementExceptions.contains(Pair.of(dtd.toString(), element))) {
                             errln("Old " + dtd + " contains element not in new: <"
                                 + element + ">");
                         }
@@ -1227,21 +1225,6 @@ public class TestBasic extends TestFmwkPlus {
                         throw e;
                     }
                 }
-                String [][] knownElementExceptions = {
-                    { "ldml", "usesMetazone" },
-                    { "ldmlICU", "usesMetazone" }
-                };
-                String [][] knownAttributeExceptions = {
-                    { "ldml", "version" },
-                    { "supplementalData", "version" },
-                    { "ldmlICU", "version" },
-                    { "layout", "standard" }
-                };
-                String [][] knownChildExceptions = {
-                    { "abbreviationFallback", "special" },
-                    { "inList", "special" },
-                    { "preferenceOrdering", "special" }
-                };
                 // verify that if E is in dtdDataOld, then it is in dtdData, and
                 // has at least the same children and attributes
                 for (Entry<String, Element> entry : dtdDataOld
@@ -1249,15 +1232,7 @@ public class TestBasic extends TestFmwkPlus {
                     Element oldElement = entry.getValue();
                     Element newElement = currentElementFromName.get(entry
                         .getKey());
-                    boolean isKnownElementException = false;
-                    for ( String[] knownException : knownElementExceptions ) {
-                        if ( type.toString().equals(knownException[0]) &&
-                            oldElement.getName().equals(knownException[1])) {
-                            isKnownElementException = true;
-                            continue;
-                        }
-                    }
-                    if ( isKnownElementException ) {
+                    if ( knownElementExceptions.contains(Pair.of(type.toString(),oldElement.getName()))) {
                         continue;
                     }
                     if (assertNotNull(type
@@ -1272,15 +1247,8 @@ public class TestBasic extends TestFmwkPlus {
                             }
                             Element newChild = newElement
                                 .getChildNamed(oldChild.getName());
-                            boolean isKnownChildException = false;
-                            for ( String[] knownException : knownChildExceptions ) {
-                                if ( newElement.getName().equals(knownException[0]) &&
-                                    oldChild.getName().equals(knownException[1])) {
-                                    isKnownChildException = true;
-                                    continue;
-                                }
-                            }
-                            if ( isKnownChildException ) {
+
+                            if ( knownChildExceptions.contains(Pair.of(newElement.getName(), oldChild.getName()))) {
                                 continue;
                             }
                             assertNotNull(
@@ -1295,15 +1263,8 @@ public class TestBasic extends TestFmwkPlus {
                             .getAttributes().keySet()) {
                             Attribute newAttribute = newElement
                                 .getAttributeNamed(oldAttribute.getName());
-                            boolean isKnownAttributeException = false;
-                            for ( String[] knownException : knownAttributeExceptions ) {
-                                if ( newElement.getName().equals(knownException[0]) &&
-                                    oldAttribute.getName().equals(knownException[1])) {
-                                    isKnownAttributeException = true;
-                                    continue;
-                                }
-                            }
-                            if ( isKnownAttributeException ) {
+
+                            if ( knownAttributeExceptions.contains(Pair.of(newElement.getName(),oldAttribute.getName()))) {
                                 continue;
                             }
                            assertNotNull(

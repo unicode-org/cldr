@@ -325,15 +325,13 @@ $Date$
 
 <!ELEMENT characterOrder ( #PCDATA ) >
 <!ATTLIST characterOrder alt NMTOKENS #IMPLIED >
-<!ATTLIST characterOrder draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+<!ATTLIST characterOrder draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
 
 <!ELEMENT lineOrder ( #PCDATA ) >
 <!ATTLIST lineOrder alt NMTOKENS #IMPLIED >
-<!ATTLIST lineOrder draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+<!ATTLIST lineOrder draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
 
 <!ELEMENT inList ( #PCDATA ) >
     <!--@DEPRECATED-->
@@ -2353,9 +2351,8 @@ $Date$
 
 <!ELEMENT defaultCollation ( #PCDATA ) >
 <!ATTLIST defaultCollation alt NMTOKENS #IMPLIED >
-<!ATTLIST defaultCollation draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+<!ATTLIST defaultCollation draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
 
 <!ELEMENT collation ( alias | ( base?, import*, settings?, suppress_contractions?, optimize?, ( cr* | rules? ), special* ) ) >
 <!ATTLIST collation type NMTOKEN "standard" >
@@ -2663,9 +2660,8 @@ $Date$
 <!ELEMENT suppression ( #PCDATA ) >
     <!--@ORDERED-->
 <!ATTLIST suppression alt NMTOKENS #IMPLIED >
-<!ATTLIST suppression draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+<!ATTLIST suppression draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
 
 <!ELEMENT rbnf ( alias | ( rulesetGrouping*, special* ) ) >
 
@@ -2723,9 +2719,8 @@ $Date$
 <!ATTLIST casingItem forceError (true | false) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST casingItem alt NMTOKENS #IMPLIED >
-<!ATTLIST casingItem draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+<!ATTLIST casingItem draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
 
 <!ELEMENT references ( reference* ) >
     <!--@DEPRECATED-->

@@ -181,7 +181,8 @@
 			<variable id='$hourStyle' type='regex'>[HKhk]</variable>
 			<variable id='$internet' type='regex'>[A-Z]+|XN--[A-Z0-9]+([-][A-Z0-9]+)*</variable>
 			<variable id='$coverageSpecial' type='choice'>* Cldr:modern</variable>
-			<variable id='$collationPrivate' type='choice'>digits-after private-unihan private-kana private-pinyin</variable>
+			<variable id='$collationPrivate' type='choice'>digits-after private-unihan private-kana
+				private-pinyin</variable>
 			<variable id='$languageDeprecated' type='choice'>no sh tw tl fat in mo ji iw jw</variable>
 			<variable id='$localeOrDeprecated'>$locale|$languageDeprecated</variable>
 			<variable id='$name' type='regex'>[a-zA-Z]+([-_][a-zA-Z]+)*[.]?|\d+|\([A-Z][a-z]+\)</variable>
@@ -199,7 +200,7 @@
 			<attributeValues dtds='ldml' elements='alias' attributes='source' type='choice'>locale</attributeValues>
 			<!-- <attributeValues dtds='ldml' elements='alternate' attributes='iso4217' type='bcp47'>cu</attributeValues> -->
 			<attributeValues dtds='ldml' elements='appendItem' attributes='request'>$append</attributeValues>
-			<attributeValues dtds='ldml' elements='calendar' attributes='type' type='bcp47'>ca</attributeValues>
+			<attributeValues dtds='ldml' elements='calendar' attributes='type'>$_bcp47_ca</attributeValues>
 			<attributeValues dtds='supplementalData' elements='character' attributes='value'
 				type='regex'>.</attributeValues>
 			<attributeValues dtds='ldml' elements='collation' attributes='type'>$_bcp47_collation|$collationPrivate</attributeValues>
@@ -210,14 +211,12 @@
 				type='regex'>[a-zA-Z-]+</attributeValues>
 			<attributeValues dtds='ldml' elements='cp' attributes='hex' type='regex'>[0-9A-Fa-f]{4,6}</attributeValues>
 			<attributeValues dtds='supplementalData' elements='currency' attributes='before from to'>$currencyDate</attributeValues>
-			<attributeValues dtds='supplementalData' elements='currency' attributes='iso4217'
-				type='bcp47'>cu</attributeValues>
-			<attributeValues dtds='ldml' elements='currency' attributes='type' type='bcp47'>cu</attributeValues>
+			<attributeValues dtds='supplementalData' elements='currency' attributes='iso4217'>$_bcp47_cu</attributeValues>
+			<attributeValues dtds='ldml' elements='currency' attributes='type'>$_bcp47_cu</attributeValues>
 			<attributeValues dtds='ldml' elements='currencyFormat' attributes='type' type='choice'>standard
 				accounting</attributeValues>
 			<attributeValues dtds='ldml'
-				elements='currencyFormats decimalFormats percentFormats scientificFormats' attributes='numberSystem'
-				type='bcp47'>nu</attributeValues>
+				elements='currencyFormats decimalFormats percentFormats scientificFormats' attributes='numberSystem'>$_bcp47_nu</attributeValues>
 			<attributeValues dtds='ldml' elements='cyclicName' attributes='type' type='regex'>[0-9]+</attributeValues>
 			<attributeValues dtds='ldml' elements='cyclicNameContext' attributes='type'
 				order='given'>format
@@ -268,7 +267,7 @@
 			<attributeValues dtds='supplementalData' elements='info' attributes='iso4217'>$_bcp47_currency|$defaultCurrencyInfo</attributeValues>
 			<attributeValues dtds='supplementalData' elements='info' attributes='rounding'
 				type='regex'>[0-9]+</attributeValues>
-			<attributeValues dtds='ldml' elements='key' attributes='type' type='bcp47'>key</attributeValues>
+			<attributeValues dtds='ldml' elements='key' attributes='type'>$_bcp47_keys</attributeValues>
 			<attributeValues dtds='supplementalData' elements='language' attributes='scripts'
 				type='list'>$_script</attributeValues>
 			<attributeValues dtds='supplementalData' elements='language' attributes='territories'
@@ -324,15 +323,15 @@
 			<attributeValues dtds='supplementalData' elements='scriptAlias' attributes='type'>$_script</attributeValues>
 			<attributeValues dtds='ldml' elements='segmentation' attributes='type' type='choice'>GraphemeClusterBreak
 				LineBreak SentenceBreak WordBreak</attributeValues>
-			<attributeValues dtds='ldml' elements='symbols' attributes='numberSystem' type='bcp47'>nu</attributeValues>
+			<attributeValues dtds='ldml' elements='symbols' attributes='numberSystem'>$_bcp47_nu</attributeValues>
 			<attributeValues dtds='ldml' elements='territory' attributes='type'>$_region</attributeValues>
 			<attributeValues dtds='supplementalData' elements='territoryAlias' attributes='type'
 				type='regex'>[A-Z]{2,3}|[0-9]{3}</attributeValues>
 			<attributeValues dtds='supplementalData' elements='territoryAlias' attributes='replacement'
 				type='list'>$_region</attributeValues>
-			<attributeValues dtds='ldml' elements='type' attributes='key' type='bcp47'>key</attributeValues>
+			<attributeValues dtds='ldml' elements='type' attributes='key'>$_bcp47_keys</attributeValues>
 			<!-- there is special code for this case <attributeValues dtds='ldml' elements='type' attributes='type' 
-				type='bcp47'>use-key</attributeValues> -->
+				>$_bcp47_use-key</attributeValues> -->
 			<attributeValues dtds='ldml' elements='unit' attributes='type' type='choice'>$unit</attributeValues>
 			<attributeValues dtds='ldml' elements='variable' attributes='id'>$variableID</attributeValues>
 			<attributeValues dtds='ldml' elements='variant' attributes='type'>$_variant</attributeValues>
@@ -380,8 +379,7 @@
 			<attributeValues dtds='ldml' elements='listPattern' attributes='type' type='choice'>unit
 				unit-narrow unit-short</attributeValues>
 			<attributeValues dtds='ldml' elements='metazone' attributes='type' type='TODO'>$metazone</attributeValues>
-			<attributeValues dtds='ldml' elements='miscPatterns' attributes='numberSystem'
-				type='bcp47'>nu</attributeValues>
+			<attributeValues dtds='ldml' elements='miscPatterns' attributes='numberSystem'>$_bcp47_nu</attributeValues>
 			<attributeValues dtds='ldml' elements='pattern' attributes='numbers' type='choice'>M=romanlow
 				d=hanidays hanidec hebr</attributeValues>
 			<attributeValues dtds='ldml' elements='rbnfrule' attributes='radix' type='choice'>1,000
@@ -478,8 +476,7 @@
 				type='TODO' />
 			<attributeValues dtds='supplementalData' elements='currencyCodes' attributes='numeric'
 				type='regex'>0|[1-9][0-9]*</attributeValues>
-			<attributeValues dtds='supplementalData' elements='currencyCodes' attributes='type'
-				type='bcp47'>cu</attributeValues>
+			<attributeValues dtds='supplementalData' elements='currencyCodes' attributes='type'>$_bcp47_cu</attributeValues>
 			<attributeValues dtds='supplementalData' elements='dayPeriodRule' attributes='after'
 				type='list'>$timeHour</attributeValues>
 			<attributeValues dtds='supplementalData' elements='dayPeriodRule' attributes='at'
@@ -578,7 +575,7 @@
 			<attributeValues dtds='supplementalData' elements='reference' attributes='uri'
 				type='regex'>$uri</attributeValues>
 			<attributeValues dtds='supplementalData' elements='skipDefaultLocale' attributes='services'
-				type='regex'>$skipDefaultLocale</attributeValues>
+				type='list'>$skipDefaultLocale</attributeValues>
 			<attributeValues dtds='supplementalData' elements='subdivisionAlias' attributes='replacement'
 				type='choice'>AS AW BL BQ CW GF GP GU HK MF MO MP MQ NC PF PM PR RE SJ SX TF TW UM VI WF YT</attributeValues>
 			<attributeValues dtds='supplementalData' elements='subdivisionAlias' attributes='type'
@@ -609,8 +606,7 @@
 				type='regex'>[0-9]{3}</attributeValues>
 			<attributeValues dtds='supplementalData' elements='territoryCodes' attributes='type'
 				type='TODO'>$_region</attributeValues>
-			<attributeValues dtds='supplementalData' elements='timezone' attributes='type'
-				type='bcp47'>tz</attributeValues>
+			<attributeValues dtds='supplementalData' elements='timezone' attributes='type'>$_bcp47_tz</attributeValues>
 			<attributeValues dtds='supplementalData' elements='transform' attributes='source'
 				type='choice'>Amharic Any Arabic Armenian Azerbaijani Belarusian Bengali Bulgarian Cyrillic Devanagari
 				Fullwidth Georgian Greek Gujarati Gurmukhi Han Hangul Hebrew Hiragana IPA InterIndic Jamo
@@ -646,16 +642,14 @@
 				type='list'>$_region</attributeValues>
 			<attributeValues dtds='supplementalData' elements='zoneAlias' attributes='type'
 				type='regex'>[a-zA-Z0-9]+([/_][a-zA-Z0-9]+)*</attributeValues>
-			<attributeValues dtds='supplementalData' elements='zoneAlias' attributes='replacement'
-				type='bcp47'>tz</attributeValues>
+			<attributeValues dtds='supplementalData' elements='zoneAlias' attributes='replacement'>$_bcp47_tz</attributeValues>
 			<attributeValues dtds='ldmlBCP47' elements='generation' attributes='date' type='regex'>\$Date.*\$</attributeValues>
 			<attributeValues dtds='ldmlBCP47' elements='key' attributes='alias' type='choice'>calendar
 				colAlternate colBackwards colCaseFirst colCaseLevel colHiraganaQuaternary colNormalization
 				colNumeric colReorder colStrength collation currency hours measure numbers timezone variableTop</attributeValues>
 			<attributeValues dtds='ldmlBCP47' elements='key' attributes='description' type='TODO' />
 			<attributeValues dtds='ldmlBCP47' elements='key' attributes='extension' type='choice'>t</attributeValues>
-			<attributeValues dtds='ldmlBCP47' elements='key' attributes='name' type='choice'>ca co cu
-				fw hc i0 k0 ka kb kc kf kh kk kn kr ks kv lb m0 ms nu sd t0 tz va vt x0</attributeValues>
+			<attributeValues dtds='ldmlBCP47' elements='key' attributes='name' type='choice'>$_bcp47_keys</attributeValues>
 			<attributeValues dtds='ldmlBCP47' elements='key' attributes='since' type='choice'>21
 				21.0.2 25 27 28</attributeValues>
 			<attributeValues dtds='ldmlBCP47' elements='type' attributes='alias' type='TODO' />
@@ -676,14 +670,41 @@
 				type='TODO'></attributeValues>
 			<attributeValues dtds='supplementalData' elements='variable' attributes='type'
 				type='choice'>TODO choice list locale regex unicodeSet</attributeValues>
-				
+
 			<attributeValues dtds='ldml' elements='dayPeriod' attributes='type' type='localeSpecific'>dayPeriodFormat</attributeValues>
-			
+
 			<attributeValues dtds='ldml' elements='pattern' attributes='count' type='localeSpecific'>pluralOrdinal</attributeValues>
 			<attributeValues dtds='ldml' elements='displayName' attributes='count' type='localeSpecific'>pluralOrdinal</attributeValues>
 			<attributeValues dtds='ldml' elements='relativeTimePattern' attributes='count'
 				type='localeSpecific'>pluralOrdinal</attributeValues>
 			<attributeValues dtds='ldml' elements='unitPattern' attributes='count' type='localeSpecific'>pluralOrdinal</attributeValues>
+
+			<attributeValues dtds='keyboard' elements='keyMap' attributes='modifiers' type='TODO'></attributeValues>
+			<attributeValues dtds='keyboard' elements='keyboard' attributes='locale' type='TODO'></attributeValues>
+			<attributeValues dtds='keyboard' elements='map' attributes='iso' type='list'>A00 A01 A02
+				A03 A04 A05 B00 B01 B02 B03 B04 B05 B06 B07 B08 B09 B10 B11 B12 C01 C02 C03 C04 C05 C06 C07 C08
+				C09 C10 C11 C12 D01 D02 D03 D04 D05 D06 D07 D08 D09 D10 D11 D12 D13 E00 E01 E02 E03 E04 E05 E06
+				E07 E08 E09 E10 E11 E12 E13</attributeValues>
+			<attributeValues dtds='keyboard' elements='map' attributes='longPress' type='TODO'></attributeValues>
+			<attributeValues dtds='keyboard' elements='map' attributes='to' type='TODO'></attributeValues>
+			<attributeValues dtds='keyboard' elements='name' attributes='value' type='TODO'></attributeValues>
+			<attributeValues dtds='keyboard' elements='transform' attributes='from' type='TODO'></attributeValues>
+			<attributeValues dtds='keyboard' elements='transform' attributes='to' type='TODO'></attributeValues>
+			<attributeValues dtds='keyboard' elements='transforms' attributes='type' type='choice'>simple</attributeValues>
+			<attributeValues dtds='keyboard' elements='version' attributes='cldrVersion'
+				type='list'>28</attributeValues>
+			<attributeValues dtds='keyboard' elements='version' attributes='number' type='TODO'></attributeValues>
+			<attributeValues dtds='keyboard' elements='version' attributes='platform' type='TODO'></attributeValues>
+			<attributeValues dtds='platform' elements='map' attributes='iso' type='list'>A03 B00 B01
+				B02 B03 B04 B05 B06 B07 B08 B09 B10 B11 C01 C02 C03 C04 C05 C06 C07 C08 C09 C10 C11 C12 D01 D02
+				D03 D04 D05 D06 D07 D08 D09 D10 D11 D12 D13 E00 E01 E02 E03 E04 E05 E06 E07 E08 E09 E10 E11 E12
+				E13</attributeValues>
+			<attributeValues dtds='platform' elements='map' attributes='keycode' type='list'>0 1 10
+				11 115 12 13 132 14 15 16 17 18 19 2 20 21 22 23 24 25 26 27 28 29 3 30 31 32 33 34 35 36 37 38
+				39 4 40 41 42 43 44 45 46 47 48 49 5 50 51 52 53 54 55 56 57 58 59 6 60 61 65 7 8 86 9 93 94 97</attributeValues>
+			<attributeValues dtds='platform' elements='platform' attributes='id' type='list'>android
+				chromeos osx windows</attributeValues>
+
 		</validity>
 	</metadata>
 </supplementalData>

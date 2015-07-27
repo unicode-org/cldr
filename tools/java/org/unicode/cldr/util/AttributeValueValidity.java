@@ -36,6 +36,7 @@ public class AttributeValueValidity {
     public enum LocaleSpecific {pluralCardinal, pluralOrdinal, dayPeriodFormat, dayPeriodSelection}
 
     static final Splitter BAR = Splitter.on('|').trimResults().omitEmptyStrings();
+    static final Splitter SPACE = Splitter.on(Pattern.compile("\\s+")).trimResults().omitEmptyStrings();
 
     private static final Set<DtdType> ALL_DTDs = Collections.unmodifiableSet(EnumSet.allOf(DtdType.class));
 
@@ -46,7 +47,7 @@ public class AttributeValueValidity {
     private static Map<String, MatcherPattern> variables = new LinkedHashMap<String, MatcherPattern>();
     //private static Map<String, Map<String, String>> code_type_replacement = new TreeMap<String, Map<String, String>>();
     private static Map<String, Set<String>> BCP47_KEY_VALUES;
-    private static final RegexMatcher NOT_DONE_YET = new RegexMatcher().set(".*", Pattern.COMMENTS);
+    private static final RegexMatcher NOT_DONE_YET = new RegexMatcher(".*", Pattern.COMMENTS);
     private static final Set<AttributeValidityInfo> failures = new LinkedHashSet<>();
     private static final boolean DEBUG = false;
 
@@ -87,10 +88,11 @@ public class AttributeValueValidity {
                     addCollectionVariable("$_bcp47_" + aliasKey, fullValues);
                 }
             }
-            temp.put("x", Collections.<String>emptySet()); // Hack for 'x', private use.
-            addCollectionVariable("$_bcp47_x", Collections.<String>emptySet());
         }
+        temp.put("x", Collections.<String>emptySet()); // Hack for 'x', private use.
+        //addCollectionVariable("$_bcp47_x", Collections.<String>emptySet());
         BCP47_KEY_VALUES = Collections.unmodifiableMap(temp);
+        addCollectionVariable("$_bcp47_keys", BCP47_KEY_VALUES.keySet());
 
         Validity validity = Validity.getInstance();
         for (Entry<LstrType, Map<Validity.Status, Set<String>>> item1 : validity.getData().entrySet()) {
@@ -113,19 +115,17 @@ public class AttributeValueValidity {
                     regularAndUnknown.addAll(validItems);
                 }
                 addCollectionVariable(keyName+"_"+status, validItems);
-//                MatcherPattern m = new MatcherPattern(key.toString(), validItems.toString(), new CollectionMatcher().set(validItems));
+//                MatcherPattern m = new MatcherPattern(key.toString(), validItems.toString(), new CollectionMatcher(validItems));
 //                variables.put(keyName+"_"+status, m);
             }
             addCollectionVariable(keyName, all);
             addCollectionVariable(keyName+"_plus", regularAndUnknown);
 
-//            MatcherPattern m = new MatcherPattern(key.toString(), all.toString(), new CollectionMatcher().set(all));
+//            MatcherPattern m = new MatcherPattern(key.toString(), all.toString(), new CollectionMatcher(all));
 //            variables.put(keyName, m);
-//            MatcherPattern m2 = new MatcherPattern(key.toString(), regularAndUnknown.toString(), new CollectionMatcher().set(regularAndUnknown));
+//            MatcherPattern m2 = new MatcherPattern(key.toString(), regularAndUnknown.toString(), new CollectionMatcher(regularAndUnknown));
 //            variables.put(keyName + "_plus", m2);
         }
-
-        // sorting is expensive, but we need it here.
 
         Map<String, R2<String, String>> rawVariables = supplementalData.getValidityInfo();
         for (Entry<String, R2<String, String>> item : rawVariables.entrySet()) {
@@ -137,7 +137,7 @@ public class AttributeValueValidity {
                 variables.put(id, mp);
                 // variableReplacer.add(id, value);
             } else {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Duplicate element " + mp);
             }
         }
         //System.out.println("Variables: " + variables.keySet());
@@ -255,8 +255,7 @@ public class AttributeValueValidity {
     }
 
     private static void addCollectionVariable(String name, Set<String> validItems) {
-        MatcherPattern m = new MatcherPattern(name, validItems.toString(), new CollectionMatcher().set(validItems));
-        variables.put(name, m);
+        variables.put(name, new CollectionMatcher(validItems));
     }
 
     public static Relation<String, String> getAllPossibleMissing(DtdType dtdType) {
@@ -298,19 +297,17 @@ public class AttributeValueValidity {
         return missing;
     }
 
-    private static class MatcherPattern {
-        public String value;
-        ObjectMatcherReason matcher;
-        String pattern;
+    private static abstract class MatcherPattern {
 
-        public MatcherPattern(String value, String pattern, ObjectMatcherReason matcher) {
-            this.value = value;
-            this.matcher = matcher;
-            this.pattern = pattern;
+        public abstract boolean matches(String value, Output<String> reason);
+        public String getPattern() {
+            String temp = _getPattern();
+            return temp.length() <= MAX_STRING ? temp : temp.substring(0,MAX_STRING) + "…";
         }
+        public abstract String _getPattern();
 
         public String toString() {
-            return matcher.getClass().getName() + "\t" + pattern;
+            return getClass().getName() + "\t" + getPattern();
         }
     }
 
@@ -328,8 +325,7 @@ public class AttributeValueValidity {
         } else {
             values = BCP47_KEY_VALUES.get(key);
         }
-        MatcherPattern m = new MatcherPattern(key, values.toString(), new CollectionMatcher().set(values));
-        return m;
+        return new CollectionMatcher(values);
     }
 
     enum MatcherTypes {
@@ -356,38 +352,37 @@ public class AttributeValueValidity {
             throw new IllegalArgumentException("Unknown variable: " + value);
         }
 
-        ObjectMatcherReason matcher;
+        MatcherPattern result;
 
         switch(matcherType) {
         case single:
-            matcher = new CollectionMatcher().set(Collections.singleton(value.trim()));
+            result = new CollectionMatcher(Collections.singleton(value.trim()));
             break;
         case choice:
-            matcher = new CollectionMatcher().set(new HashSet<String>(Arrays.asList(value.trim().split("\\s+"))));
+            result = new CollectionMatcher(SPACE.splitToList(value));
             break;
         case unicodeSet:
-            matcher = new UnicodeSetMatcher().set(new UnicodeSet(value));
+            result = new UnicodeSetMatcher(new UnicodeSet(value));
             break;
         case bcp47:
             return getBcp47MatcherPattern(value);
         case regex:
-            matcher = new RegexMatcher().set(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace
+            result = new RegexMatcher(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace
             break;
         case locale:
-            matcher = value.equals("all") ? LocaleMatcher.ALL_LANGUAGES : LocaleMatcher.REGULAR;
+            result = value.equals("all") ? LocaleMatcher.ALL_LANGUAGES : LocaleMatcher.REGULAR;
             break;
         case localeSpecific:
-            matcher = LocaleSpecificMatcher.getInstance(value);
+            result = LocaleSpecificMatcher.getInstance(value);
             break;
         case TODO:
-            matcher = NOT_DONE_YET;
+            result = NOT_DONE_YET;
             break;
         case list:
-            // only use with variables
+            result = new ListMatcher(new CollectionMatcher(SPACE.splitToList(value)));
         default:
             return null;
         }
-        MatcherPattern result = new MatcherPattern(value, value, matcher);
 
         return result;
     }
@@ -404,12 +399,10 @@ public class AttributeValueValidity {
         if (reasons.length == 1) {
             result = reasons[0];
         } else {
-            ObjectMatcherReason matcher = new OrMatcher().set(reasons);
-            result = new MatcherPattern(value, value, matcher);
+            result = new OrMatcher(reasons);
         }
         if (matcherType == MatcherTypes.list) {
-            ListMatcher matcher = new ListMatcher().set(result.matcher);
-            result = new MatcherPattern(value, value, matcher);
+            result = new ListMatcher(result);
         }
         return result;
     }
@@ -418,32 +411,18 @@ public class AttributeValueValidity {
         for (String attribute : attributes) {
             MatcherPattern old = attribute_validity.get(attribute);
             if (old != null) {
-                mp.matcher = new OrMatcher().set(old.matcher, mp.matcher);
-                mp.pattern = old.pattern + " OR " + mp.pattern;
+                mp = new OrMatcher(old, mp);
             }
             attribute_validity.put(attribute, mp);
         }
     }
 
-    public static abstract class ObjectMatcherReason implements ObjectMatcher<String> {
-        public abstract boolean matches(String value, Output<String> reason);
-        public boolean matches(String value) {
-            return matches(value, null);
-        }
-    }
-
-    public static class RegexMatcher extends ObjectMatcherReason {
+    public static class RegexMatcher extends MatcherPattern {
 
         private java.util.regex.Matcher matcher;
 
-        public RegexMatcher set(String pattern) {
-            matcher = Pattern.compile(pattern).matcher("");
-            return this;
-        }
-
-        public RegexMatcher set(String pattern, int flags) {
+        public RegexMatcher(String pattern, int flags) {
             matcher = Pattern.compile(pattern, flags).matcher("");
-            return this;
         }
 
         public boolean matches(String value, Output<String> reason) {
@@ -454,6 +433,11 @@ public class AttributeValueValidity {
             }
             return result;
         }
+
+        @Override
+        public String _getPattern() {
+            return matcher.toString();
+        }
     }
 
     private static EnumMap<LocaleSpecific, Set<String>> LOCALE_SPECIFIC = null;
@@ -463,14 +447,14 @@ public class AttributeValueValidity {
         LOCALE_SPECIFIC = newValues;
     }
 
-    public static class LocaleSpecificMatcher extends ObjectMatcherReason {
+    public static class LocaleSpecificMatcher extends MatcherPattern {
         final LocaleSpecific ls;
 
         public LocaleSpecificMatcher(LocaleSpecific ls) {
             this.ls = ls;
         }
 
-        public static ObjectMatcherReason getInstance(String value) {
+        public static LocaleSpecificMatcher getInstance(String value) {
             return new LocaleSpecificMatcher(LocaleSpecific.valueOf(value));
         }
 
@@ -483,107 +467,122 @@ public class AttributeValueValidity {
         public boolean matches(String value, Output<String> reason) {
             boolean result = LOCALE_SPECIFIC.get(ls).contains(value);
             if (!result && reason != null) {
-                String collectionString = LOCALE_SPECIFIC.get(ls).toString();
-                reason.value = "No " + value + " in collection " + (collectionString.length() <= MAX_STRING ? collectionString : collectionString.substring(0,MAX_STRING) + "…");
+                reason.value = "∉ " + getPattern();
             }
             return result;
         }
+
+        @Override
+        public String _getPattern() {
+            return LOCALE_SPECIFIC.get(ls).toString();
+        }
     }
 
-    public static class CollectionMatcher extends ObjectMatcherReason {
-        private Collection<String> collection;
+    static final int MAX_STRING = 64;
 
-        public CollectionMatcher set(Collection<String> collection) {
-            this.collection = Collections.unmodifiableCollection(collection);
-            return this;
+    public static class CollectionMatcher extends MatcherPattern {
+        private final Collection<String> collection;
+
+        public CollectionMatcher(Collection<String> collection) {
+            this.collection = Collections.unmodifiableCollection(new LinkedHashSet<>(collection));
         }
-
-        public boolean matches(String value) {
-            return collection.contains(value);
-        }
-
-        static final int MAX_STRING = 64;
-
+        @Override
         public boolean matches(String value, Output<String> reason) {
             boolean result = collection.contains(value);
             if (!result && reason != null) {
-                String collectionString = collection.toString();
-                reason.value = "No " + value + " in collection " + (collectionString.length() <= MAX_STRING ? collectionString : collectionString.substring(0,MAX_STRING) + "…");
+                reason.value = "∉ " + getPattern();
             }
             return result;
         }
+        @Override
+        public String _getPattern() {
+            return collection.toString();
+        }
     }
 
-    public static class UnicodeSetMatcher extends ObjectMatcherReason {
-        private UnicodeSet collection;
+    public static class UnicodeSetMatcher extends MatcherPattern {
+        private final UnicodeSet collection;
 
-        public UnicodeSetMatcher set(UnicodeSet collection) {
+        public UnicodeSetMatcher(UnicodeSet collection) {
             this.collection = collection.freeze();
-            return this;
         }
-
+        @Override
         public boolean matches(String value, Output<String> reason) {
             final UnicodeSet valueSet = new UnicodeSet(value);
             boolean result = collection.containsAll(valueSet);
             if (!result && reason != null) {
-                reason.value = "No " + valueSet.removeAll(collection).toPattern(false) + " allowed.";
+                reason.value = "∉ " + getPattern();
             }
             return result;
         }
+        @Override
+        public String _getPattern() {
+            return collection.toPattern(false);
+        }
     }
 
-    public static class OrMatcher extends ObjectMatcherReason {
-        private ObjectMatcherReason[] operands;
+    public static class OrMatcher extends MatcherPattern {
+        private final MatcherPattern[] operands;
 
-        public OrMatcher set(ObjectMatcherReason... operands) {
+        public OrMatcher(MatcherPattern... operands) {
             this.operands = operands;
-            return this;
-        }
-
-        public OrMatcher set(MatcherPattern... operands) {
-            this.operands = new ObjectMatcherReason[operands.length];
-            for (int i = 0; i < operands.length; ++i) {
-                this.operands[i] = operands[i].matcher;
-            }
-            return this;
         }
 
         public boolean matches(String value, Output<String> reason) {
-            for (ObjectMatcherReason operand : operands) {
+            for (MatcherPattern operand : operands) {
                 if (operand.matches(value, reason)) {
                     return true;
                 }
             }
             return false;
         }
+
+        @Override
+        public String _getPattern() {
+            StringBuffer result = new StringBuffer();
+            for (MatcherPattern operand : operands) {
+                if (result.length() != 0) {
+                    result.append('|');
+                }
+                result.append(operand._getPattern());
+            }
+            return result.toString();
+        }
     }
 
-    public static class ListMatcher extends ObjectMatcherReason {
-        private ObjectMatcherReason other;
+    public static class ListMatcher extends MatcherPattern {
+        private MatcherPattern other;
 
-        public ListMatcher set(ObjectMatcherReason other) {
+        public ListMatcher(MatcherPattern other) {
             this.other = other;
-            return this;
         }
 
         public boolean matches(String value, Output<String> reason) {
-            String[] values = value.trim().split("\\s+");
-            if (values.length == 1 && values[0].length() == 0) return true;
-            for (int i = 0; i < values.length; ++i) {
-                if (!other.matches(values[i], reason)) {
+            List<String> values = SPACE.splitToList(value);
+            if (values.isEmpty()) return true;
+            for (String valueItem : values) {
+                if (!other.matches(valueItem, reason)) {
+                    if (reason != null) {
+                        reason.value = "«" +valueItem + "» ∉ " + other.getPattern();
+                    }
                     return false;
                 }
             }
             return true;
         }
+
+        @Override
+        public String _getPattern() {
+            return "List of " + other._getPattern();
+        }
     }
 
-    public static class LocaleMatcher extends ObjectMatcherReason {
+    public static class LocaleMatcher extends MatcherPattern {
         //final ObjectMatcherReason grandfathered = variables.get("$grandfathered").matcher;
-        final ObjectMatcherReason language;
-        final ObjectMatcherReason script = variables.get("$_script").matcher;
-        final ObjectMatcherReason territory = variables.get("$_region").matcher;
-        final ObjectMatcherReason variant = variables.get("$_variant").matcher;
+        final MatcherPattern language;
+        final MatcherPattern script = variables.get("$_script");
+        final MatcherPattern territory = variables.get("$_region");
+        final MatcherPattern variant = variables.get("$_variant");
         final LocaleIDParser lip = new LocaleIDParser();
 
         public static LocaleMatcher REGULAR = new LocaleMatcher(false);
@@ -591,8 +590,8 @@ public class AttributeValueValidity {
 
         private LocaleMatcher(boolean allowAll) {
             language = allowAll 
-                ? variables.get("$_language").matcher 
-                    : variables.get("$_language_plus").matcher;
+                ? variables.get("$_language") 
+                    : variables.get("$_language_plus");
         }
 
         public boolean matches(String value, Output<String> reason) {
@@ -602,23 +601,40 @@ public class AttributeValueValidity {
             lip.set((String) value);
             String field = lip.getLanguage();
             if (!language.matches(field, reason)) {
+                if (reason != null) {
+                    reason.value = "invalid base language";
+                }
                 return false;
             }
             field = lip.getScript();
             if (field.length() != 0 && !script.matches(field, reason))  {
+                if (reason != null) {
+                    reason.value = "invalid script";
+                }
                 return false;
             }
             field = lip.getRegion();
             if (field.length() != 0 && !territory.matches(field, reason))  {
+                if (reason != null) {
+                    reason.value = "invalid region";
+                }
                 return false;
             }
             String[] fields = lip.getVariants();
             for (int i = 0; i < fields.length; ++i) {
-                if (!variant.matches(fields[i]))  {
+                if (!variant.matches(fields[i], reason))  {
+                    if (reason != null) {
+                        reason.value = "invalid variant";
+                    }
                     return false;
                 }
             }
             return true;
+        }
+
+        @Override
+        public String _getPattern() {
+            return "Unicode_Language_Subtag";
         }
     } 
 
@@ -641,7 +657,7 @@ public class AttributeValueValidity {
         if (matcherPattern == null) {
             return Status.noTest; // no test
         }
-        if (matcherPattern.matcher.matches(attributeValue, reason)) {
+        if (matcherPattern.matches(attributeValue, reason)) {
             return Status.ok;
         }
         return Status.illegal;
@@ -684,7 +700,7 @@ public class AttributeValueValidity {
         for (Entry<DtdType, Map<String, Map<String, MatcherPattern>>> entry1 : dtd_element_attribute_validity.entrySet()) {
             for (Entry<String, Map<String, MatcherPattern>> entry2 : entry1.getValue().entrySet()) {
                 for (Entry<String, MatcherPattern> entry3 : entry2.getValue().entrySet()) {
-                    if (entry3.getValue().matcher == NOT_DONE_YET) {
+                    if (entry3.getValue() == NOT_DONE_YET) {
                         result.add(Row.of(entry1.getKey(), entry2.getKey(), entry3.getKey()));
                     }
                 }

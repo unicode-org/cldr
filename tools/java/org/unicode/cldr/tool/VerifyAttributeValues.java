@@ -17,7 +17,6 @@ import org.unicode.cldr.util.AttributeValueValidity.Status;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.DayPeriodInfo.Type;
@@ -47,6 +46,7 @@ public class VerifyAttributeValues extends SimpleHandler {
 
     public final static class Errors {
 
+        @SuppressWarnings({ "unchecked", "rawtypes" })
         final ChainedMap.M5<String, String, String, String, String> file_element_attribute
         = ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), new TreeMap(), String.class);
 
@@ -63,11 +63,10 @@ public class VerifyAttributeValues extends SimpleHandler {
         }
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private static ChainedMap.M5<DtdType, String, String, String, Boolean> missing_dtd_element_attribute_values 
     = ChainedMap.of(new EnumMap(DtdType.class), new TreeMap(), new TreeMap(), new TreeMap(), Boolean.class);
 
-    @SuppressWarnings("unchecked")
     final Errors file_element_attribute;
 
     final String file;
@@ -75,27 +74,10 @@ public class VerifyAttributeValues extends SimpleHandler {
     boolean isEnglish;
     EnumMap<LocaleSpecific,Set<String>> localeSpecific = new EnumMap<>(LocaleSpecific.class);
 
-//    private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
-
-
-
-    private static final boolean FIND_MISSING = CldrUtility.getProperty("FIND_MISSING_ATTRIBUTE_TESTS", false);        // turn on to show <attributeValues> that are missing.
-
-
     private VerifyAttributeValues(String fileName, Errors file_element_attribute) {
         this.file_element_attribute = file_element_attribute;
         this.file = fileName.startsWith(BASE_DIR.toString()) ? fileName.substring(BASE_DIR.toString().length()) : fileName;
     }
-
-//    private static final boolean SHOW_UNNECESSARY = false;      // turn on to show <attributeValues> we should delete.
-
-//    private static LinkedHashSet<String> elementOrder = new LinkedHashSet<String>();
-//    private static LinkedHashSet<String> attributeOrder = new LinkedHashSet<String>();
-//    private static LinkedHashSet<String> serialElements = new LinkedHashSet<String>();
-    // static VariableReplacer variableReplacer = new VariableReplacer(); // note: this can be coalesced with the above
-    // -- to do later.
-//    private static boolean initialized = false;
-//    private static LocaleMatcher localeMatcher;
 
     public static void check(String fileName, Errors errors) {
         try {
@@ -266,7 +248,7 @@ public class VerifyAttributeValues extends SimpleHandler {
                     + "; \t" + item.get1()
                     + "; \t" + item.get2()
                     + "; \t" + item.get3()
-                    + " — \t" + item.get4()
+                    + "; \t" + item.get4()
                     );
         }
 
@@ -279,7 +261,7 @@ public class VerifyAttributeValues extends SimpleHandler {
                     + "; \t" + item.get1()
                     + "; \t" + item.get2()
                     + "; \t" + item.get3()
-                    + " — \t" + item.get4()
+                    + "; \t" + item.get4()
                     );
         }
     }

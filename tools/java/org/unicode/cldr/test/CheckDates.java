@@ -7,7 +7,6 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -17,6 +16,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -93,6 +93,7 @@ public class CheckDates extends FactoryCheckCLDR {
     private static final String DECIMAL_XPATH = "//ldml/numbers/symbols[@numberSystem='latn']/decimal";
     private static final Pattern HOUR_SYMBOL = Pattern.compile("H{1,2}");
     private static final Pattern MINUTE_SYMBOL = Pattern.compile("mm");
+    private static final Pattern YEAR_FIELDS = Pattern.compile("(y|Y|u|U|r){1,5}");
 
     static String[] calTypePathsToCheck = {
         "//ldml/dates/calendars/calendar[@type=\"buddhist\"]",
@@ -876,6 +877,27 @@ public class CheckDates extends FactoryCheckCLDR {
                 .setSubtype(Subtype.missingOrExtraDateField)
                 .setMessage("Field is missing, extra, or the wrong length. Expected {0} [Internal: {1} / {2}]",
                     new Object[] { dateTimeMessage[style], skeletonPosition, dateTimePatterns[style].pattern() }));
+            }
+        } else if (dateTypePatternType == DateTimePatternType.INTERVAL) {
+            if (id.contains("y")) {
+                String greatestDifference = pathParts.findAttributeValue("greatestDifference", "id");
+                int requiredYearFieldCount = 1;
+                if ("y".equals(greatestDifference)) {
+                    requiredYearFieldCount = 2;
+                }
+                int yearFieldCount = 0;
+                Matcher yearFieldMatcher = YEAR_FIELDS.matcher(value);
+                while (yearFieldMatcher.find()) {
+                    yearFieldCount++;
+                }
+                if (yearFieldCount < requiredYearFieldCount) {
+                    result.add(new CheckStatus()
+                    .setCause(this)
+                    .setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.missingOrExtraDateField)
+                    .setMessage("Not enough year fields in interval pattern. Must have {0} but only found {1}",
+                        new Object[] { requiredYearFieldCount, yearFieldCount }));                    
+                }
             }
         }
 

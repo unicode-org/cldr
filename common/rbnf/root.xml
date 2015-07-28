@@ -96,6 +96,131 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="9000">Ք[→→];</rbnfrule>
                 <rbnfrule value="10000">=#,##0=;</rbnfrule>
             </ruleset>
+            <ruleset type="cyrillic-lower-1-10" access="private">
+                <rbnfrule value="1">а;</rbnfrule>
+                <rbnfrule value="2">в;</rbnfrule>
+                <rbnfrule value="3">г;</rbnfrule>
+                <rbnfrule value="4">д;</rbnfrule>
+                <rbnfrule value="5">є;</rbnfrule>
+                <rbnfrule value="6">ѕ;</rbnfrule>
+                <rbnfrule value="7">з;</rbnfrule>
+                <rbnfrule value="8">и;</rbnfrule>
+                <rbnfrule value="9">ѳ;</rbnfrule>
+                <rbnfrule value="10">і;</rbnfrule>
+            </ruleset>
+            <ruleset type="cyrillic-lower-final" access="private">
+                <rbnfrule value="0">҃;</rbnfrule>
+                <rbnfrule value="1">҃=%%cyrillic-lower-1-10=;</rbnfrule>
+                <rbnfrule value="11">а҃і;</rbnfrule>
+                <rbnfrule value="12">в҃і;</rbnfrule>
+                <rbnfrule value="13">г҃і;</rbnfrule>
+                <rbnfrule value="14">д҃і;</rbnfrule>
+                <rbnfrule value="15">є҃і;</rbnfrule>
+                <rbnfrule value="16">ѕ҃і;</rbnfrule>
+                <rbnfrule value="17">з҃і;</rbnfrule>
+                <rbnfrule value="18">и҃і;</rbnfrule>
+                <rbnfrule value="19">ѳ҃і;</rbnfrule>
+                <rbnfrule value="20">҃к;</rbnfrule>
+                <rbnfrule value="21">к→→;</rbnfrule>
+                <rbnfrule value="30">҃л;</rbnfrule>
+                <rbnfrule value="31">л→→;</rbnfrule>
+                <rbnfrule value="40">҃м;</rbnfrule>
+                <rbnfrule value="41">м→→;</rbnfrule>
+                <rbnfrule value="50">҃н;</rbnfrule>
+                <rbnfrule value="51">н→→;</rbnfrule>
+                <rbnfrule value="60">҃ѯ;</rbnfrule>
+                <rbnfrule value="61">ѯ→→;</rbnfrule>
+                <rbnfrule value="70">҃ѻ;</rbnfrule>
+                <rbnfrule value="71">ѻ→→;</rbnfrule>
+                <rbnfrule value="80">҃п;</rbnfrule>
+                <rbnfrule value="81">п→→;</rbnfrule>
+                <rbnfrule value="90">҃ч;</rbnfrule>
+                <rbnfrule value="91">ч→→;</rbnfrule>
+            </ruleset>
+            <ruleset type="cyrillic-lower-post" access="private">
+                <rbnfrule value="0">҃;</rbnfrule>
+                <rbnfrule value="1">=%cyrillic-lower=;</rbnfrule>
+            </ruleset>
+            <ruleset type="cyrillic-lower-thousands" access="private">
+                <rbnfrule value="0">҃;</rbnfrule>
+                <rbnfrule value="1">҃҂а;</rbnfrule>
+                <rbnfrule value="2">҃҂в;</rbnfrule>
+                <rbnfrule value="3">҃҂г;</rbnfrule>
+                <rbnfrule value="4">҃҂д;</rbnfrule>
+                <rbnfrule value="5">҃҂є;</rbnfrule>
+                <rbnfrule value="6">҃҂ѕ;</rbnfrule>
+                <rbnfrule value="7">҃҂з;</rbnfrule>
+                <rbnfrule value="8">҃҂и;</rbnfrule>
+                <rbnfrule value="9">҃҂ѳ;</rbnfrule>
+                <rbnfrule value="10">҃҂і;</rbnfrule>
+                <rbnfrule value="11">҂а҃҂і;</rbnfrule>
+                <rbnfrule value="12">҂в҃҂і;</rbnfrule>
+                <rbnfrule value="13">҂г҃҂і;</rbnfrule>
+                <rbnfrule value="14">҂д҃҂і;</rbnfrule>
+                <rbnfrule value="15">҂є҃҂і;</rbnfrule>
+                <rbnfrule value="16">҂ѕ҃҂і;</rbnfrule>
+                <rbnfrule value="17">҂з҃҂і;</rbnfrule>
+                <rbnfrule value="18">҂и҃҂і;</rbnfrule>
+                <rbnfrule value="19">҂ѳ҃҂і;</rbnfrule>
+                <rbnfrule value="20">҂к→→;</rbnfrule>
+                <rbnfrule value="30">҂л→→;</rbnfrule>
+                <rbnfrule value="40">҂м→→;</rbnfrule>
+                <rbnfrule value="50">҂н→→;</rbnfrule>
+                <rbnfrule value="60">҂ѯ→→;</rbnfrule>
+                <rbnfrule value="70">҂ѻ→→;</rbnfrule>
+                <rbnfrule value="80">҂п→→;</rbnfrule>
+                <rbnfrule value="90">҂ч→→;</rbnfrule>
+                <rbnfrule value="100">҂р→→;</rbnfrule>
+                <rbnfrule value="200">҂с→→;</rbnfrule>
+                <rbnfrule value="300">҂т→→;</rbnfrule>
+                <rbnfrule value="400">҂у→→;</rbnfrule>
+                <rbnfrule value="500">҂ф→→;</rbnfrule>
+                <rbnfrule value="600">҂х→→;</rbnfrule>
+                <rbnfrule value="700">҂ѱ→→;</rbnfrule>
+                <rbnfrule value="800">҂ѿ→→;</rbnfrule>
+                <rbnfrule value="900">҂ц→→;</rbnfrule>
+            </ruleset>
+            <ruleset type="cyrillic-lower">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">←←.→→→;</rbnfrule>
+                <rbnfrule value="0">0҃;</rbnfrule>
+                <rbnfrule value="1">=%%cyrillic-lower-1-10=҃;</rbnfrule>
+                <rbnfrule value="11">а҃і;</rbnfrule>
+                <rbnfrule value="12">в҃і;</rbnfrule>
+                <rbnfrule value="13">г҃і;</rbnfrule>
+                <rbnfrule value="14">д҃і;</rbnfrule>
+                <rbnfrule value="15">є҃і;</rbnfrule>
+                <rbnfrule value="16">ѕ҃і;</rbnfrule>
+                <rbnfrule value="17">з҃і;</rbnfrule>
+                <rbnfrule value="18">и҃і;</rbnfrule>
+                <rbnfrule value="19">ѳ҃і;</rbnfrule>
+                <rbnfrule value="20">к→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="30">л→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="40">м→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="50">н→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="60">ѯ→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="70">ѻ→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="80">п→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="90">ч→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="100">р→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="200">с→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="300">т→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="400">у→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="500">ф→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="600">х→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="700">ѱ→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="800">ѿ҃;</rbnfrule>
+                <rbnfrule value="801">ѿ→→;</rbnfrule>
+                <rbnfrule value="900">ц→%%cyrillic-lower-final→;</rbnfrule>
+                <rbnfrule value="1000">҂←%%cyrillic-lower-1-10←→%%cyrillic-lower-post→;</rbnfrule>
+                <rbnfrule value="10000" radix="1000">҂←←[ →→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←%%cyrillic-lower-thousands←[ →→];</rbnfrule>
+                <rbnfrule value="1000000">҂҂←←[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">҂҂҂←←[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">҂҂҂҂←←[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">҂҂҂҂҂←←[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
             <ruleset type="ethiopic-p" access="private">
                 <rbnfrule value="1">=%ethiopic=;</rbnfrule>
                 <rbnfrule value="10000">←←፼[→→];</rbnfrule>

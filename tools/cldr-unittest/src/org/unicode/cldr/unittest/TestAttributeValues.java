@@ -635,14 +635,15 @@ public class TestAttributeValues extends TestFmwk {
                 variables.put(varName, mp);
             }
         }
-        Set<AttributeValidityInfo> attributeValidityMap = sdi
+        Map<AttributeValidityInfo, String> attributeValidityMap = sdi
             .getAttributeValidity();
-        for (AttributeValidityInfo info : attributeValidityMap) {
+        for (Entry<AttributeValidityInfo, String> infoEntry : attributeValidityMap.entrySet()) {
+            AttributeValidityInfo info = infoEntry.getKey();
             // String attribute = entry.getKey();
             // AttributeValidityInfo info=entry.getValue();
             int jj = 0;
             MatcherPattern mp = getMatcherPattern(
-                info.getValue(),
+                infoEntry.getValue(),
                 (Map<String, String>) (info.getType() == null ? Collections
                     .emptyMap() : ImmutableMap.<String, String> of(
                     "type", info.getType())), null,

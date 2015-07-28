@@ -57,11 +57,11 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="0">nci;</rbnfrule>
                 <rbnfrule value="1">' =%spellout-ordinal=;</rbnfrule>
             </ruleset>
-            <ruleset type="ıncı" access="private">
+            <ruleset type="inci2" access="private">
                 <rbnfrule value="0">ıncı;</rbnfrule>
                 <rbnfrule value="1">' =%spellout-ordinal=;</rbnfrule>
             </ruleset>
-            <ruleset type="üncü" access="private">
+            <ruleset type="uncu2" access="private">
                 <rbnfrule value="0">üncü;</rbnfrule>
                 <rbnfrule value="1">' =%spellout-ordinal=;</rbnfrule>
             </ruleset>
@@ -85,16 +85,16 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="10">on→%%uncu→;</rbnfrule>
                 <rbnfrule value="20">iyirmi→%%nci→;</rbnfrule>
                 <rbnfrule value="30">otuz→%%uncu→;</rbnfrule>
-                <rbnfrule value="40">qırx→%%ıncı→;</rbnfrule>
+                <rbnfrule value="40">qırx→%%inci2→;</rbnfrule>
                 <rbnfrule value="50">əlli→%%nci→;</rbnfrule>
-                <rbnfrule value="60">altmış→%%ıncı→;</rbnfrule>
-                <rbnfrule value="70">yetmiş→%%inci→;</rbnfrule>
-                <rbnfrule value="80">səqsən→%%inci→;</rbnfrule>
-                <rbnfrule value="90">doxsan→%%ıncı→;</rbnfrule>
-                <rbnfrule value="100">←%spellout-numbering← yüz→%%üncü→;</rbnfrule>
+                <rbnfrule value="60">altmış→%%inci2→;</rbnfrule>
+                <rbnfrule value="70">yetmiş→%%inci2→;</rbnfrule>
+                <rbnfrule value="80">səqsən→%%inci2→;</rbnfrule>
+                <rbnfrule value="90">doxsan→%%inci2→;</rbnfrule>
+                <rbnfrule value="100">←%spellout-numbering← yüz→%%uncu2→;</rbnfrule>
                 <rbnfrule value="1000">←%spellout-numbering← bin→%%inci→;</rbnfrule>
                 <rbnfrule value="1000000">←%spellout-numbering← milyon→%%uncu→;</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-numbering← milyar→%%ıncı→;</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-numbering← milyar→%%inci2→;</rbnfrule>
                 <rbnfrule value="1000000000000">←%spellout-numbering← trilyon→%%uncu→;</rbnfrule>
                 <rbnfrule value="1000000000000000">←%spellout-numbering← katrilyon→%%uncu→;</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0='inci;</rbnfrule>

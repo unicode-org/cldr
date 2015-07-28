@@ -230,7 +230,7 @@
 				top-to-bottom</attributeValues>
 			<attributeValues dtds='supplementalData' elements='attributes' attributes='element' type='choice'>collation currency dateFormat
 				dateTimeFormat decimalFormat ldml orientation pattern percentFormat scientificFormat timeFormat weekendEnd weekendStart</attributeValues>
-			<attributeValues dtds='supplementalData' elements='blockingItems' attributes='elements' type='choice'>identity supplementalData cldrTest
+			<attributeValues dtds='supplementalData' elements='blockingItems' attributes='elements' type='list'>identity supplementalData cldrTest
 				collation transform identity supplementalData cldrTest collation transform</attributeValues>
 			<attributeValues dtds='supplementalData' elements='calendar' attributes='type' type='regex'>$_bcp47_calendar</attributeValues>
 			<attributeValues dtds='supplementalData' elements='calendarPreference' attributes='ordering' type='list'>$_bcp47_calendar</attributeValues>

@@ -15,8 +15,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<collation type="standard" draft="contributed"
 				references="​http://en.wikipedia.org/wiki/Kurdish_alphabets 2013-aug-20">
 			<!-- Initial request and data see cldrbug 6527. -->
-			<settings reorder="Latn Arab"/>
 			<cr><![CDATA[
+				[reorder Latn Arab]
+			
 				# Primary differences for Kurmanji letters.
 				&c<ç<<<Ç
 				&e<ê<<<Ê

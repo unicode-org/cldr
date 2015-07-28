@@ -96,31 +96,31 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000000000000000">←← квадриллион[→%%commas→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="инчи" access="private">
+            <ruleset type="inci" access="private">
                 <rbnfrule value="0">инчи;</rbnfrule>
                 <rbnfrule value="1">' =%spellout-ordinal=;</rbnfrule>
             </ruleset>
-            <ruleset type="иңчи" access="private">
+            <ruleset type="ingci" access="private">
                 <rbnfrule value="0">иңчи;</rbnfrule>
                 <rbnfrule value="1">' =%spellout-ordinal=;</rbnfrule>
             </ruleset>
-            <ruleset type="ынчы" access="private">
+            <ruleset type="uncu" access="private">
                 <rbnfrule value="0">ынчы;</rbnfrule>
                 <rbnfrule value="1">' =%spellout-ordinal=;</rbnfrule>
             </ruleset>
-            <ruleset type="нчы" access="private">
+            <ruleset type="ncu" access="private">
                 <rbnfrule value="0">нчы;</rbnfrule>
                 <rbnfrule value="1">' =%spellout-ordinal=;</rbnfrule>
             </ruleset>
-            <ruleset type="үнчү" access="private">
+            <ruleset type="yncy2" access="private">
                 <rbnfrule value="0">үнчү;</rbnfrule>
                 <rbnfrule value="1">' =%spellout-ordinal=;</rbnfrule>
             </ruleset>
-            <ruleset type="нчү" access="private">
+            <ruleset type="ncy" access="private">
                 <rbnfrule value="0">нчү;</rbnfrule>
                 <rbnfrule value="1">' =%spellout-ordinal=;</rbnfrule>
             </ruleset>
-            <ruleset type="унчу" access="private">
+            <ruleset type="yncy" access="private">
                 <rbnfrule value="0">унчу;</rbnfrule>
                 <rbnfrule value="1">' =%spellout-ordinal=;</rbnfrule>
             </ruleset>
@@ -137,34 +137,34 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="7">жетинчи;</rbnfrule>
                 <rbnfrule value="8">сегизинчи;</rbnfrule>
                 <rbnfrule value="9">тогузунчу;</rbnfrule>
-                <rbnfrule value="10">он→%%унчу→;</rbnfrule>
-                <rbnfrule value="20">жыйырма→%%нчы→;</rbnfrule>
-                <rbnfrule value="30">отуз→%%унчу→;</rbnfrule>
-                <rbnfrule value="40">кырк→%%ынчы→;</rbnfrule>
-                <rbnfrule value="50">элүү→%%нчү→;</rbnfrule>
-                <rbnfrule value="60">алтымыш→%%ынчы→;</rbnfrule>
-                <rbnfrule value="70">жетимиш→%%инчи→;</rbnfrule>
-                <rbnfrule value="80">сексен→%%инчи→;</rbnfrule>
-                <rbnfrule value="90">токсон→%%унчу→;</rbnfrule>
+                <rbnfrule value="10">он→%%yncy→;</rbnfrule>
+                <rbnfrule value="20">жыйырма→%%ncu→;</rbnfrule>
+                <rbnfrule value="30">отуз→%%yncy→;</rbnfrule>
+                <rbnfrule value="40">кырк→%%uncu→;</rbnfrule>
+                <rbnfrule value="50">элүү→%%ncy→;</rbnfrule>
+                <rbnfrule value="60">алтымыш→%%uncu→;</rbnfrule>
+                <rbnfrule value="70">жетимиш→%%inci→;</rbnfrule>
+                <rbnfrule value="80">сексен→%%inci→;</rbnfrule>
+                <rbnfrule value="90">токсон→%%yncy→;</rbnfrule>
                 <rbnfrule value="100">жүзүнчү;</rbnfrule>
-                <rbnfrule value="101">←%spellout-numbering← жүз→%%үнчү→;</rbnfrule>
-                <rbnfrule value="200">←%spellout-numbering← жүз→%%үнчү→;</rbnfrule>
+                <rbnfrule value="101">←%spellout-numbering← жүз→%%yncy2→;</rbnfrule>
+                <rbnfrule value="200">←%spellout-numbering← жүз→%%yncy2→;</rbnfrule>
                 <rbnfrule value="1000">миңиңчи;</rbnfrule>
-                <rbnfrule value="1001">←%spellout-numbering← миң→%%иңчи→;</rbnfrule>
-                <rbnfrule value="2000">←%spellout-numbering← миң→%%иңчи→;</rbnfrule>
+                <rbnfrule value="1001">←%spellout-numbering← миң→%%ingci→;</rbnfrule>
+                <rbnfrule value="2000">←%spellout-numbering← миң→%%ingci→;</rbnfrule>
                 <rbnfrule value="1000000">миллионунчу;</rbnfrule>
-                <rbnfrule value="1000001">←%spellout-numbering← миллион→%%унчу→;</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-numbering← миллион→%%унчу→;</rbnfrule>
+                <rbnfrule value="1000001">←%spellout-numbering← миллион→%%yncy→;</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-numbering← миллион→%%yncy→;</rbnfrule>
                 <rbnfrule value="1000000000">миллиардынчы;</rbnfrule>
-                <rbnfrule value="1000000001">←%spellout-numbering← миллиард→%%ынчы→;</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-numbering← миллиард→%%ынчы→;</rbnfrule>
+                <rbnfrule value="1000000001">←%spellout-numbering← миллиард→%%uncu→;</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-numbering← миллиард→%%uncu→;</rbnfrule>
                 <rbnfrule value="1000000000000">триллионунчу;</rbnfrule>
-                <rbnfrule value="1000000000001">←%spellout-numbering← триллион→%%унчу→;</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-numbering← триллион→%%унчу→;</rbnfrule>
+                <rbnfrule value="1000000000001">←%spellout-numbering← триллион→%%yncy→;</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-numbering← триллион→%%yncy→;</rbnfrule>
                 <rbnfrule value="1000000000000000">квадриллионунчу;</rbnfrule>
-                <rbnfrule value="1000000000000001">←%spellout-numbering← квадриллион→%%унчу→;</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-numbering← квадриллион→%%унчу→;</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0='инчи;</rbnfrule>
+                <rbnfrule value="1000000000000001">←%spellout-numbering← квадриллион→%%yncy→;</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-numbering← квадриллион→%%yncy→;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0='inci;</rbnfrule>
             </ruleset>
             <ruleset type="z-spellout-fraction" access="private">
                 <rbnfrule value="10">ондон ←%spellout-numbering←;</rbnfrule>

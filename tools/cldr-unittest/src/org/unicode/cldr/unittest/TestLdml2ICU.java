@@ -127,9 +127,9 @@ public class TestLdml2ICU extends TestFmwk {
         checkSupplementalRegexes("genderList");
     }
 
-    public void TestPostalCodeData() {
-        checkSupplementalRegexes("postalCodeData");
-    }
+//    public void TestPostalCodeData() {
+//        checkSupplementalRegexes("postalCodeData");
+//    }
 
     /**
      * Loads the regex files used to convert XPaths to ICU paths.

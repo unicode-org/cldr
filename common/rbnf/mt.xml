@@ -20,9 +20,9 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%%spellout-cardinal-typeB-masculine=;</rbnfrule>
+                <rbnfrule value="0">=%%spellout-cardinal-type-b-masculine=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-typeB-masculine" access="private">
+            <ruleset type="spellout-cardinal-type-b-masculine" access="private">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">←← punt →→;</rbnfrule>
                 <rbnfrule value="0">żero;</rbnfrule>
@@ -56,29 +56,29 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="100">mija[ u →→];</rbnfrule>
                 <rbnfrule value="200">mitejn[ u →→];</rbnfrule>
                 <rbnfrule value="300">←%spellout-cardinal-masculine← mija[ u →→];</rbnfrule>
-                <rbnfrule value="1000">elf[→%%and-typeB-masculine→];</rbnfrule>
-                <rbnfrule value="2000">elfejn[→%%and-typeB-masculine→];</rbnfrule>
-                <rbnfrule value="3000">←%%thousands← elef[→%%and-typeB-masculine→];</rbnfrule>
-                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-masculine← elf[→%%and-typeB-masculine→];</rbnfrule>
-                <rbnfrule value="1000000">miljun[→%%and-typeB-masculine→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← miljuni[→%%and-typeB-masculine→];</rbnfrule>
-                <rbnfrule value="11000000" radix="1,000">←%spellout-cardinal-masculine← miljun[→%%and-typeB-masculine→];</rbnfrule>
-                <rbnfrule value="1000000000">biljun[→%%and-typeB-masculine→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← biljuni[→%%and-typeB-masculine→];</rbnfrule>
-                <rbnfrule value="11000000000" radix="1,000">←%spellout-cardinal-masculine← biljun[→%%and-typeB-masculine→];</rbnfrule>
-                <rbnfrule value="1000000000000">triljun[→%%and-typeB-masculine→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← triljuni[→%%and-typeB-masculine→];</rbnfrule>
-                <rbnfrule value="11000000000000" radix="1,000">←%spellout-cardinal-masculine← triljun[→%%and-typeB-masculine→];</rbnfrule>
-                <rbnfrule value="1000000000000000">kvadriljun[→%%and-typeB-masculine→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← kvadriljuni[→%%and-typeB-masculine→];</rbnfrule>
-                <rbnfrule value="11000000000000000" radix="1,000">←%spellout-cardinal-masculine← kvadriljun[→%%and-typeB-masculine→];</rbnfrule>
+                <rbnfrule value="1000">elf[→%%and-type-b-masculine→];</rbnfrule>
+                <rbnfrule value="2000">elfejn[→%%and-type-b-masculine→];</rbnfrule>
+                <rbnfrule value="3000">←%%thousands← elef[→%%and-type-b-masculine→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-masculine← elf[→%%and-type-b-masculine→];</rbnfrule>
+                <rbnfrule value="1000000">miljun[→%%and-type-b-masculine→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-masculine← miljuni[→%%and-type-b-masculine→];</rbnfrule>
+                <rbnfrule value="11000000" radix="1,000">←%spellout-cardinal-masculine← miljun[→%%and-type-b-masculine→];</rbnfrule>
+                <rbnfrule value="1000000000">biljun[→%%and-type-b-masculine→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← biljuni[→%%and-type-b-masculine→];</rbnfrule>
+                <rbnfrule value="11000000000" radix="1,000">←%spellout-cardinal-masculine← biljun[→%%and-type-b-masculine→];</rbnfrule>
+                <rbnfrule value="1000000000000">triljun[→%%and-type-b-masculine→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← triljuni[→%%and-type-b-masculine→];</rbnfrule>
+                <rbnfrule value="11000000000000" radix="1,000">←%spellout-cardinal-masculine← triljun[→%%and-type-b-masculine→];</rbnfrule>
+                <rbnfrule value="1000000000000000">kvadriljun[→%%and-type-b-masculine→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← kvadriljuni[→%%and-type-b-masculine→];</rbnfrule>
+                <rbnfrule value="11000000000000000" radix="1,000">←%spellout-cardinal-masculine← kvadriljun[→%%and-type-b-masculine→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="and-typeB-masculine" access="private">
+            <ruleset type="and-type-b-masculine" access="private">
                 <rbnfrule value="0">;</rbnfrule>
-                <rbnfrule value="1">' u =%%spellout-cardinal-typeB-masculine=;</rbnfrule>
+                <rbnfrule value="1">' u =%%spellout-cardinal-type-b-masculine=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-typeB-feminine" access="private">
+            <ruleset type="spellout-cardinal-type-b-feminine" access="private">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">←← punt →→;</rbnfrule>
                 <rbnfrule value="0">żero;</rbnfrule>
@@ -112,27 +112,27 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="100">mija[ u →→];</rbnfrule>
                 <rbnfrule value="200">mitejn[ u →→];</rbnfrule>
                 <rbnfrule value="300">←%spellout-cardinal-masculine← mija[ u →→];</rbnfrule>
-                <rbnfrule value="1000">elf[→%%and-typeB-feminine→];</rbnfrule>
-                <rbnfrule value="2000">elfejn[→%%and-typeB-feminine→];</rbnfrule>
-                <rbnfrule value="3000">←%%thousands← elef[→%%and-typeB-feminine→];</rbnfrule>
-                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-masculine← elf[→%%and-typeB-feminine→];</rbnfrule>
-                <rbnfrule value="1000000">miljun[→%%and-typeB-feminine→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← miljuni[→%%and-typeB-feminine→];</rbnfrule>
-                <rbnfrule value="11000000" radix="1,000">←%spellout-cardinal-masculine← miljun[→%%and-typeB-feminine→];</rbnfrule>
-                <rbnfrule value="1000000000">biljun[→%%and-typeB-feminine→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← biljuni[→%%and-typeB-feminine→];</rbnfrule>
-                <rbnfrule value="11000000000" radix="1,000">←%spellout-cardinal-masculine← biljun[→%%and-typeB-feminine→];</rbnfrule>
-                <rbnfrule value="1000000000000">triljun[→%%and-typeB-feminine→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← triljuni[→%%and-typeB-feminine→];</rbnfrule>
-                <rbnfrule value="11000000000000" radix="1,000">←%spellout-cardinal-masculine← triljun[→%%and-typeB-feminine→];</rbnfrule>
-                <rbnfrule value="1000000000000000">kvadriljun[→%%and-typeB-feminine→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← kvadriljuni[→%%and-typeB-feminine→];</rbnfrule>
-                <rbnfrule value="11000000000000000" radix="1,000">←%spellout-cardinal-masculine← kvadriljun[→%%and-typeB-feminine→];</rbnfrule>
+                <rbnfrule value="1000">elf[→%%and-type-b-feminine→];</rbnfrule>
+                <rbnfrule value="2000">elfejn[→%%and-type-b-feminine→];</rbnfrule>
+                <rbnfrule value="3000">←%%thousands← elef[→%%and-type-b-feminine→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-masculine← elf[→%%and-type-b-feminine→];</rbnfrule>
+                <rbnfrule value="1000000">miljun[→%%and-type-b-feminine→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-masculine← miljuni[→%%and-type-b-feminine→];</rbnfrule>
+                <rbnfrule value="11000000" radix="1,000">←%spellout-cardinal-masculine← miljun[→%%and-type-b-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000">biljun[→%%and-type-b-feminine→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← biljuni[→%%and-type-b-feminine→];</rbnfrule>
+                <rbnfrule value="11000000000" radix="1,000">←%spellout-cardinal-masculine← biljun[→%%and-type-b-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000000">triljun[→%%and-type-b-feminine→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← triljuni[→%%and-type-b-feminine→];</rbnfrule>
+                <rbnfrule value="11000000000000" radix="1,000">←%spellout-cardinal-masculine← triljun[→%%and-type-b-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000000000">kvadriljun[→%%and-type-b-feminine→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← kvadriljuni[→%%and-type-b-feminine→];</rbnfrule>
+                <rbnfrule value="11000000000000000" radix="1,000">←%spellout-cardinal-masculine← kvadriljun[→%%and-type-b-feminine→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="and-typeB-feminine" access="private">
+            <ruleset type="and-type-b-feminine" access="private">
                 <rbnfrule value="0">;</rbnfrule>
-                <rbnfrule value="1">' u =%%spellout-cardinal-typeB-feminine=;</rbnfrule>
+                <rbnfrule value="1">' u =%%spellout-cardinal-type-b-feminine=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-masculine">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
@@ -168,26 +168,26 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="100">mitt;</rbnfrule>
                 <rbnfrule value="101">mija u →%spellout-cardinal-masculine→;</rbnfrule>
                 <rbnfrule value="200">mitejn[ u →%spellout-cardinal-masculine→];</rbnfrule>
-                <rbnfrule value="300">←%spellout-cardinal-masculine← mija[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="1000">elf[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="2000">elfejn[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="3000">←%%thousands← elef[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-masculine← elf[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="1000000">miljun[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← miljuni[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="11000000" radix="1,000">←%spellout-cardinal-masculine← miljun[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="1000000000">biljun[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← biljuni[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="11000000000" radix="1,000">←%spellout-cardinal-masculine← biljun[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="1000000000000">triljun[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← triljuni[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="11000000000000" radix="1,000">←%spellout-cardinal-masculine← triljun[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="1000000000000000">kvadriljun[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← kvadriljuni[→%%and-typeA-masculine→];</rbnfrule>
-                <rbnfrule value="11000000000000000" radix="1,000">←%spellout-cardinal-masculine← kvadriljun[→%%and-typeA-masculine→];</rbnfrule>
+                <rbnfrule value="300">←%spellout-cardinal-masculine← mija[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="1000">elf[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="2000">elfejn[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="3000">←%%thousands← elef[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-masculine← elf[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="1000000">miljun[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-masculine← miljuni[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="11000000" radix="1,000">←%spellout-cardinal-masculine← miljun[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="1000000000">biljun[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← biljuni[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="11000000000" radix="1,000">←%spellout-cardinal-masculine← biljun[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="1000000000000">triljun[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← triljuni[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="11000000000000" radix="1,000">←%spellout-cardinal-masculine← triljun[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="1000000000000000">kvadriljun[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← kvadriljuni[→%%and-type-a-masculine→];</rbnfrule>
+                <rbnfrule value="11000000000000000" radix="1,000">←%spellout-cardinal-masculine← kvadriljun[→%%and-type-a-masculine→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="and-typeA-masculine" access="private">
+            <ruleset type="and-type-a-masculine" access="private">
                 <rbnfrule value="0">;</rbnfrule>
                 <rbnfrule value="1">' u =%spellout-cardinal-masculine=;</rbnfrule>
             </ruleset>
@@ -226,25 +226,25 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="101">mija u →%spellout-cardinal-feminine→;</rbnfrule>
                 <rbnfrule value="200">mitejn[ u →%spellout-cardinal-feminine→];</rbnfrule>
                 <rbnfrule value="300">←%spellout-cardinal-masculine← mija[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="1000">elf[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="2000">elfejn[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="3000">←%%thousands← elef[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-masculine← elf[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="1000000">miljun[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← miljuni[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="11000000" radix="1,000">←%spellout-cardinal-masculine← miljun[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="1000000000">biljun[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← biljuni[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="11000000000" radix="1,000">←%spellout-cardinal-masculine← biljun[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="1000000000000">triljun[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← triljuni[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="11000000000000" radix="1,000">←%spellout-cardinal-masculine← triljun[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="1000000000000000">kvadriljun[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← kvadriljuni[→%%and-typeA-feminine→];</rbnfrule>
-                <rbnfrule value="11000000000000000" radix="1,000">←%spellout-cardinal-masculine← kvadriljun[→%%and-typeA-feminine→];</rbnfrule>
+                <rbnfrule value="1000">elf[→%%and-type-a-feminine→];</rbnfrule>
+                <rbnfrule value="2000">elfejn[→%%and-type-a-feminine→];</rbnfrule>
+                <rbnfrule value="3000">←%%thousands← elef[→%%and-type-a-feminine→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-masculine← elf[→%%and-type-a-feminine→];</rbnfrule>
+                <rbnfrule value="1000000">miljun[→%%and-type-a-feminine→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-masculine← miljuni[→%%and-type-a-feminine→];</rbnfrule>
+                <rbnfrule value="11000000" radix="1,000">←%spellout-cardinal-masculine← miljun[→%%and-type-a-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000">biljun[→%%and-type-a-feminine→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← biljuni[→%%and-type-a-feminine→];</rbnfrule>
+                <rbnfrule value="11000000000" radix="1,000">←%spellout-cardinal-masculine← biljun[→%%and-type-a-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000000">triljun[→%%and-type-a-feminine→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← triljuni[→%%and-type-a-feminine→];</rbnfrule>
+                <rbnfrule value="11000000000000" radix="1,000">←%spellout-cardinal-masculine← triljun[→%%and-type-a-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000000000">kvadriljun[→%%and-type-a-feminine→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← kvadriljuni[→%%and-type-a-feminine→];</rbnfrule>
+                <rbnfrule value="11000000000000000" radix="1,000">←%spellout-cardinal-masculine← kvadriljun[→%%and-type-a-feminine→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="and-typeA-feminine" access="private">
+            <ruleset type="and-type-a-feminine" access="private">
                 <rbnfrule value="0">;</rbnfrule>
                 <rbnfrule value="1">' u =%spellout-cardinal-feminine=;</rbnfrule>
             </ruleset>

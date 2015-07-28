@@ -10,6 +10,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.AttributeValueValidity;
 import org.unicode.cldr.util.AttributeValueValidity.LocaleSpecific;
@@ -176,7 +178,7 @@ public class VerifyAttributeValues extends SimpleHandler {
     }
 
 
-    static int findAttributeValues(File file, int max, Errors errors) {
+    static int findAttributeValues(File file, int max, Matcher fileMatcher, Errors errors) {
         final String name = file.getName();
         if (file.isDirectory() 
             && !name.equals("specs") 
@@ -194,13 +196,15 @@ public class VerifyAttributeValues extends SimpleHandler {
                     ) {
                     continue;
                 }
-                processed += findAttributeValues(subfile, max, errors);
+                processed += findAttributeValues(subfile, max, fileMatcher, errors);
             }
             System.out.println("Processed files: " + processed + " \tin " + file);
             return processed;
-        } else if (name.endsWith(".xml")){
-            check(file.toString(), errors);
-            return 1;
+        } else if (name.endsWith(".xml")) {
+            if (fileMatcher == null || fileMatcher.reset(name.substring(0, name.length()-4)).matches()) {
+                check(file.toString(), errors);
+                return 1;
+            }
         }
         return 0;
     }
@@ -208,15 +212,16 @@ public class VerifyAttributeValues extends SimpleHandler {
 
     public static void main(String[] args) {
         int maxPerDirectory = args.length > 0 ? Integer.parseInt(args[0]) : Integer.MAX_VALUE;
+        Matcher fileMatcher = args.length > 1 ? Pattern.compile(args[1]).matcher("") : null;
         //checkScripts();
         quickTest();
         Errors errors = new Errors();
-        VerifyAttributeValues.findAttributeValues(BASE_DIR, maxPerDirectory, errors);
+        VerifyAttributeValues.findAttributeValues(BASE_DIR, maxPerDirectory, fileMatcher, errors);
 
         System.out.println("\n* READ ERRORS *\n");
         int count = 0;
-        for (AttributeValidityInfo item : AttributeValueValidity.getReadFailures()) {
-            System.out.println(++count + "\t" + item);
+        for (Entry<AttributeValidityInfo, String> entry : AttributeValueValidity.getReadFailures().entrySet()) {
+            System.out.println(++count + "\t" + entry.getKey() + " => " + entry.getValue());
         }
 
         System.out.println("\n* MISSING TESTS *\n");

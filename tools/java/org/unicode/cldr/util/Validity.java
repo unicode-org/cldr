@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.LinkedHashSet;
@@ -48,8 +49,15 @@ public class Validity {
     private Validity(String commonDirectory) {
         Splitter space = Splitter.on(Pattern.compile("\\s+")).trimResults().omitEmptyStrings();
         Map<LstrType, Map<Validity.Status, Set<String>>> data = new EnumMap<>(LstrType.class);
-        for (LstrType type : LstrType.values()) {
-            if (!type.inCldr) {
+        final String basePath = commonDirectory + "validity/";
+        for (String file : new File(basePath).list()) {
+            if (!file.endsWith(".xml")) {
+                continue;
+            }
+            LstrType type = null;
+            try {
+                type = LstrType.valueOf(file.substring(0,file.length()-4));
+            } catch (Exception e) {
                 continue;
             }
             List<Pair<String,String>> lineData = new ArrayList<>();
@@ -58,7 +66,7 @@ public class Validity {
                 data.put(type, submap = new EnumMap<>(Validity.Status.class));
             }
 
-            XMLFileReader.loadPathValues(commonDirectory + "validity/" + type + ".xml", lineData, true);
+            XMLFileReader.loadPathValues(basePath + file, lineData, true);
             for (Pair<String, String> item : lineData) {
                 XPathParts parts = XPathParts.getFrozenInstance(item.getFirst());
                 if (!"id".equals(parts.getElement(-1))) {

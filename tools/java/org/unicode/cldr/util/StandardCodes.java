@@ -1009,7 +1009,11 @@ public class StandardCodes {
         variant(null), 
         extlang(), 
         grandfathered(), 
-        redundant();
+        redundant(),
+        /** specialized codes for validity; TODO: rename LstrType **/
+        currency(null),
+        subdivision(null),
+        unit(null);
         
         public final String unknown;
         public final boolean inCldr;

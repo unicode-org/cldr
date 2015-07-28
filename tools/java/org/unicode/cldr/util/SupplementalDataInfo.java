@@ -20,6 +20,7 @@ import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedSet;
@@ -876,7 +877,7 @@ public class SupplementalDataInfo {
     public Map<Row.R2<String, String>, String> bcp47Deprecated = new TreeMap<Row.R2<String, String>, String>();
 
     public Map<String, Row.R2<String, String>> validityInfo = new LinkedHashMap<String, Row.R2<String, String>>();
-    public Set<AttributeValidityInfo> attributeValidityInfo = new LinkedHashSet<>();
+    public Map<AttributeValidityInfo, String> attributeValidityInfo = new LinkedHashMap<>();
 
     public enum MeasurementType {
         measurementSystem, paperSize
@@ -1376,13 +1377,14 @@ public class SupplementalDataInfo {
 
             bcp47Extension2Keys.put(extension, key);
 
+            final R2<String, String> key_empty = (R2<String, String>) Row.of(key, "").freeze();
+            
             if (keyAlias != null) {
-                bcp47Aliases.putAll((R2<String, String>) Row.of(key, "").freeze(),
-                    Arrays.asList(keyAlias.trim().split("\\s+")));
+                bcp47Aliases.putAll(key_empty, Arrays.asList(keyAlias.trim().split("\\s+")));
             }
 
             if (keyDescription != null) {
-                bcp47Descriptions.put((R2<String, String>) Row.of(key, "").freeze(), keyDescription);
+                bcp47Descriptions.put(key_empty, keyDescription);
             }
 
             if (parts.size() > 3) { // for parts with no subtype: //ldmlBCP47/keyword/key[@extension="t"][@name="x0"]
@@ -1395,22 +1397,23 @@ public class SupplementalDataInfo {
                 String subtypePreferred = parts.getAttributeValue(3, "preferred");
                 String subtypeDeprecated = parts.getAttributeValue(3, "deprecated");
                 bcp47Key2Subtypes.put(key, subtype);
+                
+                final R2<String, String> key_subtype = (R2<String, String>) Row.of(key, subtype).freeze();
+                
                 if (subtypeAlias != null) {
-                    bcp47Aliases.putAll((R2<String, String>) Row.of(key, subtype).freeze(),
-                        Arrays.asList(subtypeAlias.trim().split("\\s+")));
-                }
-
-                if (subtypeDescription != null) {
-                    bcp47Descriptions.put((R2<String, String>) Row.of(key, subtype).freeze(), subtypeDescription);
+                    bcp47Aliases.putAll(key_subtype, Arrays.asList(subtypeAlias.trim().split("\\s+")));
                 }
                 if (subtypeDescription != null) {
-                    bcp47Since.put((R2<String, String>) Row.of(key, subtype).freeze(), subtypeSince);
+                    bcp47Descriptions.put(key_subtype, subtypeDescription);
+                }
+                if (subtypeDescription != null) {
+                    bcp47Since.put(key_subtype, subtypeSince);
                 }
                 if (subtypePreferred != null) {
-                    bcp47Preferred.put((R2<String, String>) Row.of(key, subtype).freeze(), subtypePreferred);
+                    bcp47Preferred.put(key_subtype, subtypePreferred);
                 }
                 if (subtypeDeprecated != null) {
-                    bcp47Deprecated.put((R2<String, String>) Row.of(key, subtype).freeze(), subtypeDeprecated);
+                    bcp47Deprecated.put(key_subtype, subtypeDeprecated);
                 }
             }
 
@@ -4239,7 +4242,7 @@ public class SupplementalDataInfo {
 
     public final static Splitter WHITESPACE_SPLTTER = Splitter.on(PatternCache.get("\\s+")).omitEmptyStrings();
 
-    public static class AttributeValidityInfo {
+    public static final class AttributeValidityInfo {
         //<attributeValues elements="alias" attributes="path" type="path">notDoneYet</attributeValues>
 
         final String type;
@@ -4247,28 +4250,29 @@ public class SupplementalDataInfo {
         final Set<String> elements;
         final Set<String> attributes;
         final String order;
-        final String value;
         
         @Override
         public String toString() {
             return "type:" + type
                 + ", elements:" + elements
                 + ", attributes:" + attributes
-                + ", order:" + order
-                + ", value:" + value;
+                + ", order:" + order;
         }
 
-        static void add(Map<String, String> inputAttibutes, String inputValue, Set<AttributeValidityInfo> data) {
-            data.add(new AttributeValidityInfo(
+        static void add(Map<String, String> inputAttibutes, String inputValue, Map<AttributeValidityInfo, String> data) {
+            final AttributeValidityInfo key = new AttributeValidityInfo(
                 inputAttibutes.get("dtds"),
                 inputAttibutes.get("type"),
                 inputAttibutes.get("attributes"),
                 inputAttibutes.get("elements"),
-                inputAttibutes.get("order"),
-                inputValue));
+                inputAttibutes.get("order"));
+            if (data.containsKey(key)) {
+                throw new IllegalArgumentException(key + " declared twice");
+            }
+            data.put(key, inputValue);
         }
 
-        public AttributeValidityInfo(String dtds, String type, String attributes, String elements, String order, String value) {
+        public AttributeValidityInfo(String dtds, String type, String attributes, String elements, String order) {
             if (dtds == null) {
                 this.dtds = Collections.singleton(DtdType.ldml);
             } else {
@@ -4283,7 +4287,6 @@ public class SupplementalDataInfo {
                 : With.in(WHITESPACE_SPLTTER.split(elements)).toUnmodifiableCollection(new HashSet<String>());
             this.attributes = With.in(WHITESPACE_SPLTTER.split(attributes)).toUnmodifiableCollection(new HashSet<String>());
             this.order = order;
-            this.value = value;
         }
 
         public String getType() {
@@ -4306,12 +4309,32 @@ public class SupplementalDataInfo {
             return order;
         }
 
-        public String getValue() {
-            return value;
+        @Override
+        public boolean equals(Object obj) {
+            AttributeValidityInfo other = (AttributeValidityInfo) obj;
+            return deepEquals(
+                type, other.type, 
+                dtds, other.dtds, 
+                elements, other.elements, 
+                attributes, other.attributes,
+                order, other.order);
+        }
+        @Override
+        public int hashCode() {
+            return Objects.hash(type, dtds, elements, attributes, order);
         }
     }
 
-    public Set<AttributeValidityInfo> getAttributeValidity() {
+    public Map<AttributeValidityInfo, String> getAttributeValidity() {
         return attributeValidityInfo;
+    }
+    
+    public static boolean deepEquals(Object... pairs) {
+        for (int item = 0; item < pairs.length;) {
+            if (!Objects.deepEquals(pairs[item++], pairs[item++])) {
+                return false;
+            }  
+        }
+        return true;
     }
 }

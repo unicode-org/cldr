@@ -285,10 +285,12 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         }
         //System.out.println("Variables: " + variables.keySet());
 
-        Set<AttributeValidityInfo> rawAttributeValueInfo = supplementalData.getAttributeValidity();
+        Map<AttributeValidityInfo, String> rawAttributeValueInfo = supplementalData.getAttributeValidity();
 
-        for (AttributeValidityInfo item : rawAttributeValueInfo) {
-            MatcherPattern mp = getMatcherPattern2(item.getType(), item.getValue());
+        for (Entry<AttributeValidityInfo, String> entry : rawAttributeValueInfo.entrySet()) {
+            AttributeValidityInfo item = entry.getKey();
+            String value = entry.getValue();
+            MatcherPattern mp = getMatcherPattern2(item.getType(), value);
             if (mp == null) {
                 System.out.println("Failed to make matcher for: " + item);
                 continue;

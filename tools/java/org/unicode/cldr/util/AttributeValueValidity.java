@@ -45,20 +45,22 @@ public class AttributeValueValidity {
     private static Map<DtdType,Map<String, Map<String, MatcherPattern>>> dtd_element_attribute_validity = new EnumMap<>(DtdType.class);
     private static Map<String, MatcherPattern> common_attribute_validity = new LinkedHashMap<String, MatcherPattern>();
     private static Map<String, MatcherPattern> variables = new LinkedHashMap<String, MatcherPattern>();
-    //private static Map<String, Map<String, String>> code_type_replacement = new TreeMap<String, Map<String, String>>();
-    private static Map<String, Set<String>> BCP47_KEY_VALUES;
     private static final RegexMatcher NOT_DONE_YET = new RegexMatcher(".*", Pattern.COMMENTS);
-    private static final Set<AttributeValidityInfo> failures = new LinkedHashSet<>();
+    private static final Map<AttributeValidityInfo, String> failures = new LinkedHashMap<>();
     private static final boolean DEBUG = false;
 
     static {
 
-        Map<String, Set<String>> temp = new LinkedHashMap<>();
         Relation<R2<String, String>, String> bcp47Aliases = supplementalData.getBcp47Aliases();
+        Set<String> bcp47Keys = new LinkedHashSet<>();
+        Set<String> bcp47Values = new LinkedHashSet<>();
         for (Entry<String, Set<String>> keyValues : supplementalData.getBcp47Keys().keyValuesSet()) {
             Set<String> fullValues = new TreeSet<>();
             String key = keyValues.getKey();
+            bcp47Keys.add(key);
+
             Set<String> rawValues = keyValues.getValue();
+
             for (String value : rawValues) {
                 if (key.equals("cu")) { // Currency codes are in upper case.
                     fullValues.add(value.toUpperCase());
@@ -76,29 +78,30 @@ public class AttributeValueValidity {
                 fullValues.add("generic");
             }
             fullValues = Collections.unmodifiableSet(fullValues);
-            temp.put(key, fullValues);
             addCollectionVariable("$_bcp47_" + key, fullValues);
 
-            //variables.put(keyName+"_"+key, m);
             // add aliased keys
             Set<String> aliases = supplementalData.getBcp47Aliases().getAll(Row.of(key, ""));
             if (aliases != null) {
                 for (String aliasKey : aliases) {
-                    temp.put(aliasKey, fullValues);
+                    bcp47Keys.add(aliasKey);
                     addCollectionVariable("$_bcp47_" + aliasKey, fullValues);
                 }
             }
+            bcp47Values.addAll(fullValues);
         }
-        temp.put("x", Collections.<String>emptySet()); // Hack for 'x', private use.
-        //addCollectionVariable("$_bcp47_x", Collections.<String>emptySet());
-        BCP47_KEY_VALUES = Collections.unmodifiableMap(temp);
-        addCollectionVariable("$_bcp47_keys", BCP47_KEY_VALUES.keySet());
+        bcp47Keys.add("x"); // special-case private use
+        bcp47Keys.add("x0"); // special-case, has no subtypes
+        addCollectionVariable("$_bcp47_keys", bcp47Keys);
+        addCollectionVariable("$_bcp47_value", bcp47Values);
 
         Validity validity = Validity.getInstance();
         for (Entry<LstrType, Map<Validity.Status, Set<String>>> item1 : validity.getData().entrySet()) {
             LstrType key = item1.getKey();
             String keyName = "$_"+key;
             Set<String> all = new LinkedHashSet<>();
+            Set<String> prefix = new LinkedHashSet<>();
+            Set<String> suffix = new LinkedHashSet<>();
             Set<String> regularAndUnknown = new LinkedHashSet<>();
             for (Entry<Validity.Status, Set<String>> item2 : item1.getValue().entrySet()) {
                 Validity.Status status = item2.getKey();
@@ -109,6 +112,12 @@ public class AttributeValueValidity {
                         temp2.add(item.toUpperCase(Locale.ROOT));
                     }
                     validItems = temp2;
+                } else if (key == LstrType.subdivision) {
+                    for (String item : validItems) {
+                        List<String> parts = Splitter.on('-').splitToList(item);
+                        prefix.add(parts.get(0));
+                        suffix.add(parts.get(1));
+                    }
                 }
                 all.addAll(validItems);
                 if (status == Validity.Status.regular || status == Validity.Status.unknown) {
@@ -117,6 +126,10 @@ public class AttributeValueValidity {
                 addCollectionVariable(keyName+"_"+status, validItems);
 //                MatcherPattern m = new MatcherPattern(key.toString(), validItems.toString(), new CollectionMatcher(validItems));
 //                variables.put(keyName+"_"+status, m);
+            }
+            if (key == LstrType.subdivision) {
+                addCollectionVariable(keyName+"_prefix", prefix);
+                addCollectionVariable(keyName+"_suffix", suffix);
             }
             addCollectionVariable(keyName, all);
             addCollectionVariable(keyName+"_plus", regularAndUnknown);
@@ -142,13 +155,16 @@ public class AttributeValueValidity {
         }
         //System.out.println("Variables: " + variables.keySet());
 
-        Set<AttributeValidityInfo> rawAttributeValueInfo = supplementalData.getAttributeValidity();
+        Map<AttributeValidityInfo, String> rawAttributeValueInfo = supplementalData.getAttributeValidity();
         int x = 0;
-        for (AttributeValidityInfo item : rawAttributeValueInfo) {
+        for (Entry<AttributeValidityInfo, String> entry : rawAttributeValueInfo.entrySet()) {
+            AttributeValidityInfo item = entry.getKey();
+            String value = entry.getValue();
             //System.out.println(item);
-            MatcherPattern mp = getMatcherPattern2(item.getType(), item.getValue());
+            MatcherPattern mp = getMatcherPattern2(item.getType(), value);
             if (mp == null) {
-                failures.add(item);
+                getMatcherPattern2(item.getType(), value); // for debugging
+                failures.put(item, value);
                 continue;
             }
             Set<DtdType> dtds = item.getDtds();
@@ -311,22 +327,22 @@ public class AttributeValueValidity {
         }
     }
 
-    private static MatcherPattern getBcp47MatcherPattern(String key) {
-        // <key type="calendar">Calendar</key>
-        // <type key="calendar" type="chinese">Chinese Calendar</type>
-
-        //<attributeValues elements="key" attributes="type" type="bcp47">key</attributeValues>
-        //<attributeValues elements="type" attributes="key" type="bcp47">key</attributeValues>
-        //<attributeValues elements="type" attributes="type" type="bcp47">use-key</attributeValues>
-
-        Set<String> values;
-        if (key.equals("key")) {
-            values = BCP47_KEY_VALUES.keySet();
-        } else {
-            values = BCP47_KEY_VALUES.get(key);
-        }
-        return new CollectionMatcher(values);
-    }
+//    private static MatcherPattern getBcp47MatcherPattern(String key) {
+//        // <key type="calendar">Calendar</key>
+//        // <type key="calendar" type="chinese">Chinese Calendar</type>
+//
+//        //<attributeValues elements="key" attributes="type" type="bcp47">key</attributeValues>
+//        //<attributeValues elements="type" attributes="key" type="bcp47">key</attributeValues>
+//        //<attributeValues elements="type" attributes="type" type="bcp47">use-key</attributeValues>
+//
+//        Set<String> values;
+//        if (key.equals("key")) {
+//            values = BCP47_KEY_VALUES.keySet();
+//        } else {
+//            values = BCP47_KEY_VALUES.get(key);
+//        }
+//        return new CollectionMatcher(values);
+//    }
 
     enum MatcherTypes {
         single,
@@ -364,8 +380,8 @@ public class AttributeValueValidity {
         case unicodeSet:
             result = new UnicodeSetMatcher(new UnicodeSet(value));
             break;
-        case bcp47:
-            return getBcp47MatcherPattern(value);
+//        case bcp47:
+//            return getBcp47MatcherPattern(value);
         case regex:
             result = new RegexMatcher(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace
             break;
@@ -380,6 +396,7 @@ public class AttributeValueValidity {
             break;
         case list:
             result = new ListMatcher(new CollectionMatcher(SPACE.splitToList(value)));
+            break;
         default:
             return null;
         }
@@ -529,10 +546,20 @@ public class AttributeValueValidity {
         }
 
         public boolean matches(String value, Output<String> reason) {
+            StringBuilder fullReason = reason == null ? null : new StringBuilder();
             for (MatcherPattern operand : operands) {
                 if (operand.matches(value, reason)) {
                     return true;
                 }
+                if (fullReason != null) {
+                    if (fullReason.length() != 0) {
+                        fullReason.append("&");
+                    }
+                    fullReason.append(reason.value);
+                }
+            }
+            if (fullReason != null) {
+                reason.value = fullReason.toString();
             }
             return false;
         }
@@ -709,8 +736,8 @@ public class AttributeValueValidity {
         return result;
     }
 
-    public static Set<AttributeValidityInfo> getReadFailures() {
-        return Collections.unmodifiableSet(failures);
+    public static Map<AttributeValidityInfo, String> getReadFailures() {
+        return Collections.unmodifiableMap(failures);
     }
 
 }

@@ -6,6 +6,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 
 import org.unicode.cldr.tool.VerifyAttributeValues;
@@ -33,7 +34,7 @@ public class TestAttributeValues extends TestFmwk {
     public static void main(String[] args) {
         new TestAttributeValues().run(args);
     }
-    
+
     public void TestAttributeValueValidity() {
         for (String test : Arrays.asList(
             "supplementalData;     territoryAlias;     replacement;    AA"
@@ -51,17 +52,16 @@ public class TestAttributeValues extends TestFmwk {
         }
         return value;
     }
-    
+
     public void TestSingleFile() {
         Errors errors = new Errors();
-        Set<AttributeValueSpec> missing = new LinkedHashSet<>();
+        Set<AttributeValueSpec> missing = new TreeSet<>();
         VerifyAttributeValues.check(CLDRPaths.MAIN_DIRECTORY + "en.xml", errors, missing);
         for (AttributeValueSpec entry1 : missing) {
-            errln("Missing Tests: " + new AttributeValueSpec(entry1.type, entry1.element, entry1.attribute, entry1.attributeValue).toString());
+            errln("Missing Tests: " + entry1);
         }
         for (R3<String, AttributeValueSpec, String> item : errors.getRows()) {
-            if ("deprecated".equals(item.get4()))
-                errln(item.get0()+ "; \t" + item.get2() + "; \t" + item.get1());
+            errln(item.get0()+ "; \t" + item.get2() + "; \t" + item.get1());
         }
     }
 
@@ -84,12 +84,12 @@ public class TestAttributeValues extends TestFmwk {
 
         count = 0;
         for (AttributeValueSpec entry1 : missing) {
-            errln("Missing Tests: " + new AttributeValueSpec(entry1.type, entry1.element, entry1.attribute, entry1.attributeValue).toString());
+            errln("Missing Tests: " + entry1);
         }
 
         count = 0;
         for (R3<String, AttributeValueSpec, String> item : errors.getRows()) {
-            if ("deprecated".equals(item.get4()))
+            if ("deprecated".equals(item.get2()))
                 errln("Deprecated: " + ++count 
                     + "; \t" + item.get0()
                     + "; \t" + item.get1().type
@@ -102,7 +102,7 @@ public class TestAttributeValues extends TestFmwk {
 
         count = 0;
         for (R3<String, AttributeValueSpec, String> item : errors.getRows()) {
-            if (!"deprecated".equals(item.get4()))
+            if (!"deprecated".equals(item.get2()))
                 errln("Invalid: " + ++count 
                     + "; \t" + item.get0()
                     + "; \t" + item.get1().type

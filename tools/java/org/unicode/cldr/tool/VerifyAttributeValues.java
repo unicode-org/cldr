@@ -220,7 +220,7 @@ public class VerifyAttributeValues extends SimpleHandler {
             System.out.println("\n* DEPRECATED *\n");
             count = 0;
             for (R3<String, AttributeValueSpec, String> item : errors.getRows()) {
-                if ("deprecated".equals(item.get4()))
+                if ("deprecated".equals(item.get2()))
                     System.out.println(++count 
                         + "; \t" + item.get0()
                         + "; \t" + item.get1().type
@@ -234,7 +234,7 @@ public class VerifyAttributeValues extends SimpleHandler {
             System.out.println("\n* ERRORS *\n");
             count = 0;
             for (R3<String, AttributeValueSpec, String> item : errors.getRows()) {
-                if (!"deprecated".equals(item.get4()))
+                if (!"deprecated".equals(item.get2()))
                     System.out.println(++count 
                         + "; \t" + item.get0()
                         + "; \t" + item.get1().type

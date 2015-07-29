@@ -23,6 +23,7 @@ import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.ComparisonChain;
 import com.ibm.icu.dev.util.CollectionUtilities.ObjectMatcher;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
@@ -667,7 +668,7 @@ public class AttributeValueValidity {
         }
     } 
 
-    public static final class AttributeValueSpec {
+    public static final class AttributeValueSpec implements Comparable<AttributeValueSpec>{
         public AttributeValueSpec(DtdType type, String element, String attribute, String attributeValue) {
             this.type = type;
             this.element = element;
@@ -691,6 +692,15 @@ public class AttributeValueValidity {
                 attribute, other.attribute,
                 attributeValue, other.attributeValue
                 );
+        }
+        @Override
+        public int compareTo(AttributeValueSpec other) {
+            return ComparisonChain.start()
+                .compare(type, other.type)
+                .compare(element, other.element)
+                .compare(attribute, other.attribute)
+                .compare(attributeValue, other.attributeValue)
+                .result();
         }
         @Override
         public String toString() {

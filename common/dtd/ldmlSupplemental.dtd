@@ -408,11 +408,13 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@DEPRECATED:true, false-->
 
 <!ELEMENT attributeOrder ( #PCDATA ) >
+    <!--@DEPRECATED-->
 <!ATTLIST attributeOrder draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 
 <!ELEMENT elementOrder ( #PCDATA ) >
+    <!--@DEPRECATED-->
 <!ATTLIST elementOrder draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->

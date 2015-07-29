@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2015-07-16</span></td>
+				<td><span class="changed">2015-07-28</span></td>
 			</tr>
 			<tr>
 				<td>This Version</td>
@@ -5645,14 +5645,9 @@ root</pre>
 			information is contained in the supplementalMetadata.xml file. (Some,
 			but not all, of this information could have been represented in XML
 			Schema or a DTD.) Most of this is primarily for internal tool use.</p>
-		<p>
-			<i>The following specify the ordering of elements / attributes in
-				the file:</i>
-		</p>
-		<blockquote>
-			<pre>&lt;elementOrder&gt;ldml alternate attributeOrder attributes blockingItems calendarPreference ...&lt;/elementOrder&gt;
-&lt;attributeOrder&gt;_q access after aliases allowsParsing alpha3 alternate at attribute ...&lt;/attributeOrder&gt;</pre>
-		</blockquote>
+
+		<p><span class="changed">The &lt;elementOrder&gt and &lt;attributeOrder&gt elements are now deprecated, since the information
+			regarding element and attribute ordering is now contained in the DTD.</span></p>
 		<p>
 			<i>The suppress elements are those that are suppressed in
 				canonicalization.</i>
@@ -7657,6 +7652,12 @@ decimal?, group?, special*)) &gt;</pre>
 							<li>Deprecated the generation element.[<a
 								href="http://unicode.org/cldr/trac/ticket/8242"
 								title="View ticket">#8242</a>]</li>
+						</ul></li>
+					<li><em>Section <a href="#Valid_Attribute_Values">5.5 Valid Attribute Values</a></em>								
+						<ul>
+							<li>Deprecated the elementOrder and attributeOrder elements.[<a
+								href="http://unicode.org/cldr/trac/ticket/8218"
+								title="View ticket">#8218</a>]</li>
 						</ul></li>
 				</ul></li>
 			<li><strong>Part 5: <a

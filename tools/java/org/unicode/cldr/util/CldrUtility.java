@@ -1465,4 +1465,13 @@ public class CldrUtility {
         }
     }
 
+    public static boolean deepEquals(Object... pairs) {
+        for (int item = 0; item < pairs.length;) {
+            if (!Objects.deepEquals(pairs[item++], pairs[item++])) {
+                return false;
+            }  
+        }
+        return true;
+    }
+
 }

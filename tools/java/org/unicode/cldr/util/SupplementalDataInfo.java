@@ -4312,7 +4312,7 @@ public class SupplementalDataInfo {
         @Override
         public boolean equals(Object obj) {
             AttributeValidityInfo other = (AttributeValidityInfo) obj;
-            return deepEquals(
+            return CldrUtility.deepEquals(
                 type, other.type, 
                 dtds, other.dtds, 
                 elements, other.elements, 
@@ -4327,14 +4327,5 @@ public class SupplementalDataInfo {
 
     public Map<AttributeValidityInfo, String> getAttributeValidity() {
         return attributeValidityInfo;
-    }
-    
-    public static boolean deepEquals(Object... pairs) {
-        for (int item = 0; item < pairs.length;) {
-            if (!Objects.deepEquals(pairs[item++], pairs[item++])) {
-                return false;
-            }  
-        }
-        return true;
     }
 }

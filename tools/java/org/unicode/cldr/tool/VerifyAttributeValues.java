@@ -1,10 +1,10 @@
 package org.unicode.cldr.tool;
 
 import java.io.File;
-import java.util.Arrays;
+import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.EnumMap;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -14,6 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.AttributeValueValidity;
+import org.unicode.cldr.util.AttributeValueValidity.AttributeValueSpec;
 import org.unicode.cldr.util.AttributeValueValidity.LocaleSpecific;
 import org.unicode.cldr.util.AttributeValueValidity.Status;
 import org.unicode.cldr.util.CLDRConfig;
@@ -36,7 +37,6 @@ import org.unicode.cldr.util.XPathParts;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.impl.Row.R5;
 import com.ibm.icu.util.Output;
 
 public class VerifyAttributeValues extends SimpleHandler {
@@ -49,41 +49,39 @@ public class VerifyAttributeValues extends SimpleHandler {
     public final static class Errors {
 
         @SuppressWarnings({ "unchecked", "rawtypes" })
-        final ChainedMap.M5<String, String, String, String, String> file_element_attribute
-        = ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), new TreeMap(), String.class);
+        final ChainedMap.M3<String, AttributeValueSpec, String> file_element_attribute
+        = ChainedMap.of(new TreeMap(), new TreeMap(), String.class);
 
-        /**
-         * @param file
-         * @param element
-         * @param attribute
-         * @param value
-         * @return
-         * @see org.unicode.cldr.util.ChainedMap.M4#put(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)
-         */
-        public void put(String file, String element, String attribute, String attributeValue, String value) {
-            file_element_attribute.put(file, element, attribute, attributeValue, value);
+        public void put(String file, DtdType dtdType, String element, String attribute, String attributeValue, String problem) {
+            file_element_attribute.put(file, new AttributeValueSpec(dtdType, element, attribute, attributeValue), problem);
+        }
+
+        public Iterable<R3<String, AttributeValueSpec, String>> getRows() {
+            return file_element_attribute.rows();
         }
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-    private static ChainedMap.M5<DtdType, String, String, String, Boolean> missing_dtd_element_attribute_values 
-    = ChainedMap.of(new EnumMap(DtdType.class), new TreeMap(), new TreeMap(), new TreeMap(), Boolean.class);
+    private DtdData dtdData; // set from first element read
+    private final Errors file_element_attribute;
+    private final String file;
+    private final EnumMap<LocaleSpecific,Set<String>> localeSpecific = new EnumMap<>(LocaleSpecific.class);
+    private final Set<AttributeValueSpec> missing;
 
-    final Errors file_element_attribute;
-
-    final String file;
-    DtdData dtdData;
-    boolean isEnglish;
-    EnumMap<LocaleSpecific,Set<String>> localeSpecific = new EnumMap<>(LocaleSpecific.class);
-
-    private VerifyAttributeValues(String fileName, Errors file_element_attribute) {
+    private VerifyAttributeValues(String fileName, Errors file_element_attribute, Set<AttributeValueSpec> missing) {
         this.file_element_attribute = file_element_attribute;
         this.file = fileName.startsWith(BASE_DIR.toString()) ? fileName.substring(BASE_DIR.toString().length()) : fileName;
+        this.missing = missing;
     }
 
-    public static void check(String fileName, Errors errors) {
+    /**
+     * Check the filename—note that the errors and missing are <b>added to<b>, so clear if you want a fresh start!
+     * @param fileName
+     * @param errors
+     * @param missing
+     */
+    public static void check(String fileName, Errors errors, Set<AttributeValueSpec> missing) {
         try {
-            final VerifyAttributeValues platformHandler = new VerifyAttributeValues(fileName, errors);
+            final VerifyAttributeValues platformHandler = new VerifyAttributeValues(fileName, errors, missing);
             new XMLFileReader()
             .setHandler(platformHandler)
             .read(fileName, -1, true);
@@ -91,7 +89,7 @@ public class VerifyAttributeValues extends SimpleHandler {
             throw new IllegalArgumentException(fileName, e);
         }
     }
-    
+
     public void handlePathValue(String path, String value) {
         XPathParts parts = XPathParts.getFrozenInstance(path);
         if (dtdData == null) {
@@ -108,9 +106,6 @@ public class VerifyAttributeValues extends SimpleHandler {
             }
             AttributeValueValidity.setLocaleSpecifics(localeSpecific);
         }
-        // TODO validate count=, dayperiod=,...
-        // TODO validate ldml file name, ids
-        // <identity><language type="en"/>
 
         for (int i = 0; i < parts.size(); ++i) {
             if (parts.getAttributeCount(i) == 0) continue;
@@ -129,25 +124,9 @@ public class VerifyAttributeValues extends SimpleHandler {
                 }
                 String attributeValue = attributes.get(attribute);
                 if (dtdData.isDeprecated(element, attribute, attributeValue)) {
-                    if (isEnglish) {
-                        continue; // don't flag English
-                    }
-                    file_element_attribute.put(file, element, attribute, attributeValue, "deprecated");
+                    file_element_attribute.put(file, dtdData.dtdType, element, attribute, attributeValue, "deprecated");
                     continue;
                 }
-
-                //                // special hack for         // <type key="calendar" type="chinese">Chinese Calendar</type>
-//                if (element.equals("type") && attribute.equals("type")) {
-//                    Set<String> typeValues = BCP47_KEY_VALUES.get(attributes.get("key"));
-//                    if (!typeValues.contains(attributeValue)) {
-//                        result.add(new CheckStatus()
-//                        .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.unexpectedAttributeValue)
-//                        .setMessage("Unexpected Attribute Value {0}={1}: expected: {2}",
-//                            new Object[] { attribute, attributeValue, typeValues }));
-//                    }
-//                    continue;
-//                }
-                // check the common attributes first
 
                 Output<String> reason = new Output<>();
                 Status haveTest = AttributeValueValidity.check(dtdData, element, attribute, attributeValue, reason);
@@ -156,10 +135,10 @@ public class VerifyAttributeValues extends SimpleHandler {
                     break;
                 case deprecated: 
                 case illegal:
-                    file_element_attribute.put(file, element, attribute, attributeValue, reason.value);
+                    file_element_attribute.put(file, dtdData.dtdType, element, attribute, attributeValue, reason.value);
                     break;
                 case noTest:
-                    missing_dtd_element_attribute_values.put(dtdData.dtdType, element, attribute, attributeValue, Boolean.TRUE);
+                    missing.add(new AttributeValueSpec(dtdData.dtdType, element, attribute, attributeValue));
                     break;
                 }
             }
@@ -177,14 +156,13 @@ public class VerifyAttributeValues extends SimpleHandler {
         return new LinkedHashSet<>(result);
     }
 
-
-    static int findAttributeValues(File file, int max, Matcher fileMatcher, Errors errors) {
+    public static int findAttributeValues(File file, int max, Matcher fileMatcher, Errors errors, Set<AttributeValueSpec> allMissing, PrintWriter out) {
         final String name = file.getName();
         if (file.isDirectory() 
             && !name.equals("specs") 
             && !name.equals("tools")
             && !file.toString().contains(".svn")
-           // && !name.equals("keyboards") // TODO reenable keyboards
+            // && !name.equals("keyboards") // TODO reenable keyboards
             ) {
             int processed = 0;
             int count = max;
@@ -196,13 +174,16 @@ public class VerifyAttributeValues extends SimpleHandler {
                     ) {
                     continue;
                 }
-                processed += findAttributeValues(subfile, max, fileMatcher, errors);
+                processed += findAttributeValues(subfile, max, fileMatcher, errors, allMissing, out);
             }
-            System.out.println("Processed files: " + processed + " \tin " + file);
+            if (out != null) {
+                out.println("Processed files: " + processed + " \tin " + file);
+                out.flush();
+            }
             return processed;
         } else if (name.endsWith(".xml")) {
             if (fileMatcher == null || fileMatcher.reset(name.substring(0, name.length()-4)).matches()) {
-                check(file.toString(), errors);
+                check(file.toString(), errors, allMissing);
                 return 1;
             }
         }
@@ -213,137 +194,56 @@ public class VerifyAttributeValues extends SimpleHandler {
     public static void main(String[] args) {
         int maxPerDirectory = args.length > 0 ? Integer.parseInt(args[0]) : Integer.MAX_VALUE;
         Matcher fileMatcher = args.length > 1 ? Pattern.compile(args[1]).matcher("") : null;
-        //checkScripts();
-        quickTest();
+        Set<AttributeValueSpec> allMissing = new LinkedHashSet<>();
         Errors errors = new Errors();
-        VerifyAttributeValues.findAttributeValues(BASE_DIR, maxPerDirectory, fileMatcher, errors);
+        try (final PrintWriter out = new PrintWriter(System.out)) {
+            VerifyAttributeValues.findAttributeValues(BASE_DIR, maxPerDirectory, fileMatcher, errors, allMissing, out);
 
-        System.out.println("\n* READ ERRORS *\n");
-        int count = 0;
-        for (Entry<AttributeValidityInfo, String> entry : AttributeValueValidity.getReadFailures().entrySet()) {
-            System.out.println(++count + "\t" + entry.getKey() + " => " + entry.getValue());
-        }
+            System.out.println("\n* READ ERRORS *\n");
+            int count = 0;
+            for (Entry<AttributeValidityInfo, String> entry : AttributeValueValidity.getReadFailures().entrySet()) {
+                System.out.println(++count + "\t" + entry.getKey() + " => " + entry.getValue());
+            }
 
-        System.out.println("\n* MISSING TESTS *\n");
-        count = 0;
-        for (Entry<DtdType, Map<String, Map<String, Map<String, Boolean>>>> entry1 : missing_dtd_element_attribute_values) {
-            DtdType dtdType = entry1.getKey();
-            for (Entry<String, Map<String, Map<String, Boolean>>> entry2 : entry1.getValue().entrySet()) {
-                String element = entry2.getKey();
-                for (Entry<String, Map<String, Boolean>> entry3 : entry2.getValue().entrySet()) {
-                    String attribute = entry3.getKey();
-                    Set<String> attributeValues = entry3.getValue().keySet();
-                    System.out.println(AttributeValueValidity.getElementLine(dtdType, element, attribute, SPACE_JOINER.join(attributeValues)));
-                }
+            System.out.println("\n* TODO TESTS *\n");
+            count = 0;
+            for (R3<DtdType, String, String> entry1 : AttributeValueValidity.getTodoTests()) {
+                System.out.println(++count + "\t" + new AttributeValueSpec(entry1.get0(), entry1.get1(), entry1.get2(), "").toString());
+            }
+
+            System.out.println("\n* MISSING TESTS *\n");
+            count = 0;
+            for (AttributeValueSpec entry1 : allMissing) {
+                System.out.println(new AttributeValueSpec(entry1.type, entry1.element, entry1.attribute, entry1.attributeValue).toString());
+            }
+
+            System.out.println("\n* DEPRECATED *\n");
+            count = 0;
+            for (R3<String, AttributeValueSpec, String> item : errors.getRows()) {
+                if ("deprecated".equals(item.get4()))
+                    System.out.println(++count 
+                        + "; \t" + item.get0()
+                        + "; \t" + item.get1().type
+                        + "; \t" + item.get1().element
+                        + "; \t" + item.get1().attribute
+                        + "; \t" + item.get1().attributeValue
+                        + "; \t" + item.get2()
+                        );
+            }
+
+            System.out.println("\n* ERRORS *\n");
+            count = 0;
+            for (R3<String, AttributeValueSpec, String> item : errors.getRows()) {
+                if (!"deprecated".equals(item.get4()))
+                    System.out.println(++count 
+                        + "; \t" + item.get0()
+                        + "; \t" + item.get1().type
+                        + "; \t" + item.get1().element
+                        + "; \t" + item.get1().attribute
+                        + "; \t" + item.get1().attributeValue
+                        + "; \t" + item.get2()
+                        );
             }
         }
-
-        System.out.println("\n* TODO TESTS *\n");
-        count = 0;
-        for (R3<DtdType, String, String> entry1 : AttributeValueValidity.getTodoTests()) {
-            System.out.println(++count + "\t" + AttributeValueValidity.getElementLine(entry1.get0(), entry1.get1(), entry1.get2(), ""));
-        }
-
-        System.out.println("\n* DEPRECATED *\n");
-        count = 0;
-        for (R5<String, String, String, String, String> item : errors.file_element_attribute.rows()) {
-            if ("deprecated".equals(item.get4()))
-                System.out.println(++count 
-                    + "; \t" + item.get0()
-                    + "; \t" + item.get1()
-                    + "; \t" + item.get2()
-                    + "; \t" + item.get3()
-                    + "; \t" + item.get4()
-                    );
-        }
-
-        System.out.println("\n* ERRORS *\n");
-        count = 0;
-        for (R5<String, String, String, String, String> item : errors.file_element_attribute.rows()) {
-            if (!"deprecated".equals(item.get4()))
-                System.out.println(++count 
-                    + "; \t" + item.get0()
-                    + "; \t" + item.get1()
-                    + "; \t" + item.get2()
-                    + "; \t" + item.get3()
-                    + "; \t" + item.get4()
-                    );
-        }
     }
-
-    private static void quickTest() {
-        for (String test : Arrays.asList(
-            "/common/supplemental/supplementalMetadata.xml;     territoryAlias;     replacement;    AA"
-            )) {
-            quickTest(test);
-        }
-    }
-
-    static final Splitter SEMI_SPACE = Splitter.on(';').trimResults().omitEmptyStrings();
-    
-    private static Status quickTest(String test) {
-        List<String> parts = SEMI_SPACE.splitToList(test);
-        Output<String> reason = new Output<>();
-        Status value = AttributeValueValidity.check(DtdData.getInstance(DtdType.supplementalData), parts.get(1), parts.get(2), parts.get(3), reason);
-        if (value != value.ok) {
-            System.out.println(test + "\t" + value + "\t" + reason);
-        }
-        return value;
-    }
-    
-//    private static void checkScripts() {
-//        Set<String> oldScripts = new HashSet<String>(SPACE_SPLITTER.splitToList(
-//            "Afak Ahom Aghb Arab Armi Armn Avst " +
-//            "Bali Bamu Bass Batk Beng " +
-//            "Blis Bopo Brah Brai Bugi Buhd " +
-//            "Cakm Cans Cari Cham Cher Cirt Copt Cprt Cyrl Cyrs " +
-//            "Deva Dsrt Dupl " +
-//            "Egyd Egyh Egyp Elba Ethi " +
-//            "Geok Geor Glag Goth Gran Grek Gujr Guru " +
-//            "Hang Hani Hano Hans Hant Hatr " +
-//            "Hebr Hira Hluw Hmng Hrkt Hung " +
-//            "Inds Ital " +
-//            "Java Jpan Jurc " +
-//            "Kali Kana Khar Khmr Khoj Knda Kore Kpel Kthi " +
-//            "Lana Laoo Latf Latg Latn Lepc Limb Lina Linb Lisu Loma Lyci Lydi " +
-//            "Mahj Mand Mani Maya Mend Merc " +
-//            "Mero Mlym Modi Mong Moon Mroo Mtei Mult Mymr " +
-//            "Narb Nbat Nkgb Nkoo Nshu " +
-//            "Ogam Olck Orkh Orya Osma " +
-//            "Palm Pauc Perm Phag Phli Phlp Phlv Phnx Plrd Prti " +
-//            "Qaaa Qaab Qaac Qaad Qaae Qaaf Qaag Qaah Qaaj " +
-//            "Qaak Qaal Qaam Qaan Qaao Qaap Qaaq " +
-//            "Qaar Qaas Qaat Qaau Qaav Qaaw Qaax Qaay Qaaz Qaba Qabb Qabc " +
-//            "Qabd Qabe Qabf Qabg " +
-//            "Qabh Qabi Qabj Qabk Qabl Qabm Qabn Qabo Qabp Qabq Qabr Qabs Qabt Qabu Qabv " +
-//            "Qabw " +
-//            "Qabx " +
-//            "Rjng Roro Runr " +
-//            "Samr Sara Sarb Saur Sgnw Shaw Shrd Sidd Sind Sinh Sora Sund Sylo Syrc Syre " +
-//            "Syrj " +
-//            "Syrn " +
-//            "Tagb Takr Tale Talu Taml Tang Tavt Telu Teng Tfng Tglg Thaa Thai Tibt Tirh " +
-//            "Ugar " +
-//            "Vaii Visp " +
-//            "Wara Wole " +
-//            "Xpeo Xsux " +
-//            "Yiii " +
-//            "Zinh Zmth Zsym Zxxx Zyyy Zzzz"));
-//        Validity validity = Validity.getInstance();
-//        Map<Validity.Status, Set<String>> scripts = validity.getData().get(LstrType.script);
-//        HashSet<String> newScripts = new HashSet<String>();
-//        for (Entry<Validity.Status, Set<String>> e : scripts.entrySet()) {
-//            if (e.getKey() != Validity.Status.deprecated) {
-//                newScripts.addAll(e.getValue());
-//            }
-//        }
-//        if (!oldScripts.equals(newScripts)) {
-//            HashSet<String> oldMinusNew = new HashSet<>(oldScripts);
-//            oldMinusNew.removeAll(newScripts);
-//            HashSet<String> newMinusOld = new HashSet<>(newScripts);
-//            newMinusOld.removeAll(oldScripts);
-//
-//            throw new IllegalArgumentException("oldMinusNew: " + oldMinusNew + ", newMinusOld: " + newMinusOld);
-//        }
-//    }
 }

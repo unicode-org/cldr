@@ -12,11 +12,13 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.AttributeValueValidity.AttributeValueSpec;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
 
@@ -307,7 +309,7 @@ public class AttributeValueValidity {
                 //            <attributeValues attributes="alt" type="choice">$alt</attributeValues>
                 //             <attributeValues dtds="supplementalData" elements="character" attributes="value" type="regex">.</attributeValues>
                 missing.put(attribute.name, 
-                    getElementLine(dtdType, element.name, attribute.name, "$xxx"));
+                    new AttributeValueSpec(dtdType, element.name, attribute.name, "$xxx").toString());
             }
         }
         return missing;
@@ -665,6 +667,43 @@ public class AttributeValueValidity {
         }
     } 
 
+    public static final class AttributeValueSpec {
+        public AttributeValueSpec(DtdType type, String element, String attribute, String attributeValue) {
+            this.type = type;
+            this.element = element;
+            this.attribute = attribute;
+            this.attributeValue = attributeValue;
+        }
+        public final DtdType type;
+        public final String element;
+        public final String attribute;
+        public final String attributeValue;
+        @Override
+        public int hashCode() {
+            return Objects.hash(type, element, attribute, attributeValue);
+        }
+        @Override
+        public boolean equals(Object obj) {
+            AttributeValueSpec other = (AttributeValueSpec) obj;
+            return CldrUtility.deepEquals(
+                type, other.type, 
+                element, other.element, 
+                attribute, other.attribute,
+                attributeValue, other.attributeValue
+                );
+        }
+        @Override
+        public String toString() {
+            return "<attributeValues"
+                + " dtds='" + type + "\'" 
+                + " elements='" + element + "\'" 
+                + " attributes='" + attribute + "\'" 
+                + " type='TODO\'>"
+                + attributeValue
+                + "</attributeValues>";
+        }
+    }
+
     /**
      * return Status
      * @param attribute_validity
@@ -688,16 +727,6 @@ public class AttributeValueValidity {
             return Status.ok;
         }
         return Status.illegal;
-    }
-
-    public static String getElementLine(DtdType dtdType, String element, String attribute, String attributeValues) {
-        return "<attributeValues"
-            + " dtds='" + dtdType + "\'" 
-            + " elements='" + element + "\'" 
-            + " attributes='" + attribute + "\'" 
-            + " type='TODO\'>"
-            + attributeValues
-            + "</attributeValues>";
     }
 
     public static Status check(DtdData dtdData, String element, String attribute, String attributeValue, Output<String> reason) {

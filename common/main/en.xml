@@ -6036,11 +6036,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} teaspoon</unitPattern>
 				<unitPattern count="other">{0} teaspoons</unitPattern>
 			</unit>
-			<unit type="volume-teaspoon-au">
-				<displayName>teaspoons-Australian</displayName>
-				<unitPattern count="one">{0} teaspoon-Australian</unitPattern>
-				<unitPattern count="other">{0} teaspoons-Australian</unitPattern>
-			</unit>
 		</unitLength>
 		<unitLength type="short">
 			<compoundUnit type="per">
@@ -6129,15 +6124,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} yd²</unitPattern>
 				<unitPattern count="other">{0} yd²</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>liters/km</displayName>
-				<unitPattern count="one">{0} L/km</unitPattern>
-				<unitPattern count="other">{0} L/km</unitPattern>
-			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100 km</displayName>
 				<unitPattern count="one">{0} L/100 km</unitPattern>
 				<unitPattern count="other">{0} L/100 km</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>liters/km</displayName>
+				<unitPattern count="one">{0} L/km</unitPattern>
+				<unitPattern count="other">{0} L/km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>miles/gal</displayName>
@@ -6704,11 +6699,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>tsp</displayName>
 				<unitPattern count="one">{0} tsp</unitPattern>
 				<unitPattern count="other">{0} tsp</unitPattern>
-			</unit>
-			<unit type="volume-teaspoon-au">
-				<displayName>atsp</displayName>
-				<unitPattern count="one">{0} atsp</unitPattern>
-				<unitPattern count="other">{0} atsp</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -7340,11 +7330,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>tsp</displayName>
 				<unitPattern count="one">{0}tsp</unitPattern>
 				<unitPattern count="other">{0}tsp</unitPattern>
-			</unit>
-			<unit type="volume-teaspoon-au">
-				<displayName>atsp</displayName>
-				<unitPattern count="one">{0}atsp</unitPattern>
-				<unitPattern count="other">{0}atsp</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

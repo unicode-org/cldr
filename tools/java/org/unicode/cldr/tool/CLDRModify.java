@@ -219,7 +219,7 @@ public class CLDRModify {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
         UOption.SOURCEDIR().setDefault(CLDRPaths.MAIN_DIRECTORY),
-        UOption.DESTDIR().setDefault(CLDRPaths.GEN_DIRECTORY + "main/"),
+        UOption.DESTDIR().setDefault(CLDRPaths.GEN_DIRECTORY + "common/main/"),
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("join", 'j', UOption.OPTIONAL_ARG),
         UOption.create("minimize", 'r', UOption.NO_ARG),
@@ -282,7 +282,9 @@ public class CLDRModify {
         + XPathParts.NEWLINE
         + "-c\t check that resulting xml files are valid. Requires that a dtd directory be copied to the output directory, in the appropriate location."
         + XPathParts.NEWLINE
-        + "-k\t config_file\twith -fk perform modifications according to what is in the config file. For format details, see XXX."
+        + "-k\t config_file\twith -fk perform modifications according to what is in the config file. For format details, see:"
+        + XPathParts.NEWLINE
+        + "\t\thttp://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config."
         + XPathParts.NEWLINE;
 
     static final String HELP_TEXT2 = "Note: A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results."

@@ -688,9 +688,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-liter">
 				<perUnitPattern>{0} per litre</perUnitPattern>
 			</unit>
-			<unit type="volume-teaspoon-au">
-				<displayName>teaspoons-Australian</displayName>
-			</unit>
 			<coordinateUnit>
 				<coordinateUnitPattern type="east">{0} east</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} north</coordinateUnitPattern>
@@ -716,15 +713,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-meter">
 				<displayName>metres²</displayName>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>litres/km</displayName>
-				<unitPattern count="one">{0} L/km</unitPattern>
-				<unitPattern count="other">{0} L/km</unitPattern>
-			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100 km</displayName>
 				<unitPattern count="one">{0} L/100 km</unitPattern>
 				<unitPattern count="other">{0} L/100 km</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>litres/km</displayName>
+				<unitPattern count="one">{0} L/km</unitPattern>
+				<unitPattern count="other">{0} L/km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>miles/gal.</displayName>

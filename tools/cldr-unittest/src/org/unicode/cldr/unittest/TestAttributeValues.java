@@ -79,12 +79,12 @@ public class TestAttributeValues extends TestFmwk {
 
         count = 0;
         for (R3<DtdType, String, String> entry1 : AttributeValueValidity.getTodoTests()) {
-            warnln("Unfinished Tests: " + ++count + "\t" + new AttributeValueSpec(entry1.get0(), entry1.get1(), entry1.get2(), "").toString());
+            warnln("Unfinished Test: " + ++count + "\t" + new AttributeValueSpec(entry1.get0(), entry1.get1(), entry1.get2(), "").toString());
         }
 
         count = 0;
         for (AttributeValueSpec entry1 : missing) {
-            errln("Missing Tests: " + entry1);
+            errln("Missing Test: " + entry1);
         }
 
         count = 0;

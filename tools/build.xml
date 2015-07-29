@@ -1,7 +1,7 @@
 <project name="CLDR Distribution" default="all" basedir=".">
   <target name="init">
     <tstamp/>
-    <property name="version" value="27.0"/>
+    <property name="version" value="28.0"/>
     <property name="dist.dir" value="dist"/>
     <property name="dist.conf.dir" value="dist.conf"/>
     <property name="excludes.file" value="${dist.conf.dir}/distExcludes.txt"/>
@@ -27,7 +27,7 @@
   </target>
 
   <target name="dist-common" depends="init,dist-dir,dist-excludes">
-    <zip destfile="${dist.dir}/cldr-common-${version}.zip"
+    <zip destfile="${dist.dir}/core.zip"
          compress="yes">
          <fileset
              excludesfile="${excludes.file}"
@@ -35,10 +35,11 @@
              includesfile="${includes.common.file}"
          />
     </zip>
+    <symlink link="${dist.dir}/cldr-common-${version}.zip" resource="core.zip"/>
   </target>
 
   <target name="dist-tools" depends="init,dist-dir,dist-excludes">
-    <zip destfile="${dist.dir}/cldr-tools-${version}.zip"
+    <zip destfile="${dist.dir}/tools.zip"
          compress="yes">
          <fileset
              excludesfile="${excludes.file}"
@@ -46,9 +47,10 @@
              includesfile="${includes.tools.file}"
          />
     </zip>
+    <symlink link="${dist.dir}/cldr-tools-${version}.zip" resource="tools.zip"/>
   </target>
   <target name="dist-keyboards" depends="init,dist-dir,dist-excludes">
-    <zip destfile="${dist.dir}/cldr-keyboards-${version}.zip"
+    <zip destfile="${dist.dir}/keyboards.zip"
          compress="yes">
          <fileset
              excludesfile="${excludes.file}"
@@ -56,5 +58,6 @@
              includesfile="${includes.keyboards.file}"
          />
     </zip>
+    <symlink link="${dist.dir}/cldr-keyboards-${version}.zip" resource="keyboards.zip"/>
   </target>
 </project>

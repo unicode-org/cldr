@@ -3766,10 +3766,16 @@ public class SupplementalDataInfo {
     private List<String> serialElements;
     private Collection<String> distinguishingAttributes;
 
+    /**
+     * @deprecated
+     */
     public List<String> getAttributeOrder() {
         return attributeOrder;
     }
 
+    /**
+     * @deprecated
+     */
     public List<String> getElementOrder() {
         return elementOrder;
     }

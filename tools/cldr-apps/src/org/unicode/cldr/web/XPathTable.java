@@ -25,6 +25,8 @@ import java.util.TreeMap;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
+import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StringId;
@@ -476,10 +478,15 @@ public class XPathTable {
 
     public synchronized Set<String> getUndistinguishingElements() {
         if (undistinguishingAttributes == null) {
-            Set<String> s = new HashSet<String>(sm.getSupplementalDataInfo().getElementOrder()); // all
+            Set<String> s = new HashSet<String>();
+            // sm.getSupplementalDataInfo().getElementOrder()); // all
                                                                                                  // elements.
                                                                                                  // We
                                                                                                  // assume.
+            DtdData d = DtdData.getInstance(DtdType.ldml);
+            for ( DtdData.Attribute a : d.getAttributes()) {
+                s.add(a.name);
+            }
             Collection<String> distinguishing = sm.getSupplementalDataInfo().getDistinguishingAttributes();
             if (distinguishing != null) {
                 s.removeAll(distinguishing);

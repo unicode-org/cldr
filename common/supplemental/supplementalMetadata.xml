@@ -1078,63 +1078,6 @@ For terms of use, see http://www.unicode.org/copyright.html
             <zoneAlias type="Asia/Harbin" replacement="Asia/Shanghai" reason="deprecated"/>
             <zoneAlias type="Asia/Kashgar" replacement="Asia/Urumqi" reason="deprecated"/>
         </alias>
-        <deprecated>
-            <!-- items deprecated in ldml.dtd, ldmlSupplemental.dtd -->
-            <deprecatedItems attributes="draft" values="true false"/>
-            <deprecatedItems elements="monthNames monthAbbr dayNames dayAbbr localizedPatternChars week yesexpr noexpr measurement hoursFormat abbreviationFallback preferenceOrdering dateRangePattern"/>
-            <!-- default type="pinyin" (replaced by defaultCollation), see CLDR ticket #5679 -->
-            <deprecatedItems elements="default"/>
-            <deprecatedItems type="ldml" elements="minDays firstDay weekendStart weekendEnd"/>
-            <deprecatedItems attributes="standard time"/> <!-- 'count' was probably in a different dtd -->
-            <deprecatedItems elements="variant" attributes="type" values="BOKMAL NYNORSK AALAND POLYTONI"/>
-            <deprecatedItems elements="abbreviationFallback hoursFormat localizedPatternChars mapping preferenceOrdering" attributes="type"/>
-            <deprecatedItems elements="inList" attributes="casing"/>
-            <deprecatedItems elements="symbol" attributes="choice"/>
-            <deprecatedItems type="supplementalData" elements="alternate"/>
-            <deprecatedItems type="supplementalData" elements="calendar" attributes="territories"/>
-            <deprecatedItems type="supplementalData" elements="currency" attributes="before"/>
-            <deprecatedItems type="supplementalData" elements="bcp47KeywordMappings mapKeys mapTypes keyMap typeMap"/>
-            <deprecatedItems elements="cldrVersion"/>
-            <deprecatedItems elements="calendar" attributes="type" values="civil-arabic thai-buddhist"/>
-            <deprecatedItems elements="exemplarCharacters" attributes="type" values="currencySymbol"/>
-            <deprecatedItems elements="decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan currencyDecimal currencyGroup" attributes="numberSystem"/>
-            <deprecatedItems elements="collation" attributes="visibility" values="internal"/> <!-- collations/collation@visibility, see CLDR ticket #7662, 7910 -->
-            <deprecatedItems elements="import settings suppress_contractions optimize"/> <!-- collations/collation/..., see CLDR ticket #8289, use ICU syntax in <cr> -->
-            <deprecatedItems elements="base"/> <!-- collations/collation/base, see CLDR ticket #6332 -->
-            <!-- collation rules element (replaced by cr) and its sub-elements, see CLDR ticket #5551 -->
-            <deprecatedItems elements="rules reset p pc s sc t tc q qc i ic x extend context first_variable last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing"/>
-            <deprecatedItems attributes="hiraganaQuarternary hiraganaQuaternary"/> <!-- collations/collation/settings@hiraganaQuaternary, see CLDR ticket #5015 -->
-            <deprecatedItems attributes="variableTop"/> <!-- collations/collation/settings@variableTop, see CLDR ticket #5016 -->
-            <deprecatedItems elements="fallback"/>
-            <deprecatedItems type="ldml" elements="references"/>
-            <deprecatedItems elements="commonlyUsed"/>
-            <deprecatedItems elements="inList inText"/>
-            <deprecatedItems elements="collation" attributes="type" values="direct"/>
-            <deprecatedItems type="ldml" elements="paperSize measurementSystem"/>
-            <deprecatedItems elements="height width"/>
-            <deprecatedItems elements="am pm"/>
-            <deprecatedItems elements="stopwords stopwordList"/>
-            <deprecatedItems type="supplementalData" elements="deprecatedItems" attributes="type" values="standard supplemental"/>
-            <deprecatedItems type="supplementalData" elements="timezoneData zoneFormatting zoneItem"/>
-            <deprecatedItems type="ldml" elements="settings" attributes="private"/>
-            <deprecatedItems type="ldml" elements="orientation" attributes="characters lines"/>
-            <deprecatedItems elements="singleCountries"/>
-            <deprecatedItems type="supplementalData" elements="coverageAdditions languageCoverage scriptCoverage territoryCoverage currencyCoverage timezoneCoverage"/>
-            <deprecatedItems elements="fallbackRegionFormat"/>
-            <deprecatedItems elements="unit" attributes="type" values="day hour minute month second week year day-future day-past hour-future hour-past minute-future minute-past month-future month-past second-future second-past week-future week-past year-future year-past"/>
-            <deprecatedItems type="ldml" elements="compressedIndexSeparator cp currencyGroup indexLabel indexLabelAfter indexLabelBefore indexLabels indexRangePattern indexSeparator mapping nativeZeroDigit patternDigit reference usesMetazone"/>
-            <deprecatedItems type="supplementalData" elements="languageCodes"/>
-            <deprecatedItems type="ldml" attributes="validSubLocales"/>
-            <!-- segments -->
-            <deprecatedItems type="ldml" elements="exceptions exception"/>
-    		<!-- Deprecated in v27.  Please see other services that are kept up to date, such as:
-    ​			http://i18napis.appspot.com/address/data/US
-​				http://i18napis.appspot.com/address/data/GB
-				...
-			-->
-            <deprecatedItems type="supplementalData" elements="postalCodeData postCodeRegex"/>
-            <deprecatedItems type="supplementalData" elements="attributeOrder elementOrder"/>
-        </deprecated>
         <distinguishing>
              <distinguishingItems attributes="key request id _q registry alt iso4217 iso3166 mzone from to type numberSystem count"/>
              <distinguishingItems exclude="true" elements="default measurementSystem mapping abbreviationFallback preferenceOrdering" attributes="type"/>

@@ -844,7 +844,7 @@ public class SupplementalDataInfo {
     private Map<String, Map<String, Map<String, String>>> typeToZoneToRegionToZone = new TreeMap<String, Map<String, Map<String, String>>>();
     private Relation<String, MetaZoneRange> zoneToMetaZoneRanges = Relation.of(
         new TreeMap<String, Set<MetaZoneRange>>(), TreeSet.class);
-    private Map<String, Map<String, Relation<String, String>>> deprecated = new HashMap<String, Map<String, Relation<String, String>>>();
+//    private Map<String, Map<String, Relation<String, String>>> deprecated = new HashMap<String, Map<String, Relation<String, String>>>();
 
     private Map<String, String> metazoneContinentMap = new HashMap<String, String>();
     private Set<String> allMetazones = new TreeSet<String>();
@@ -1125,7 +1125,6 @@ public class SupplementalDataInfo {
         CoverageLevelInfo.fixEU(coverageLevels, this);
         coverageLevels = Collections.unmodifiableSortedSet(coverageLevels);
 
-        deprecated = CldrUtility.protectCollectionX(deprecated);
         measurementData = CldrUtility.protectCollection(measurementData);
         timeData = CldrUtility.protectCollection(timeData);
 
@@ -1640,44 +1639,9 @@ public class SupplementalDataInfo {
                     AttributeValidityInfo.add(parts.getAttributes(-1), value, attributeValidityInfo);
                     return true;
                 }
-            } else if (level2.equals("attributeOrder")) {
-                attributeOrder = Arrays.asList(value.trim().split("\\s+"));
-                return true;
-            } else if (level2.equals("elementOrder")) {
-                elementOrder = Arrays.asList(value.trim().split("\\s+"));
-                return true;
             } else if (level2.equals("serialElements")) {
                 serialElements = Arrays.asList(value.trim().split("\\s+"));
                 return true;
-            } else if (level2.equals("deprecated")) {
-                // <deprecated>
-                // <deprecatedItems
-                // elements="monthNames monthAbbr localizedPatternChars week minDays firstDay weekendStart weekendEnd yesexpr noexpr measurement hoursFormat abbreviationFallback preferenceOrdering dateRangePattern"/>
-                // <deprecatedItems type="supplemental" elements="calendar" attributes="territories"/>
-
-                // Map<String, String> attributeSet = parts.getAttributes(-1);
-                Collection<String> types = getSpaceDelimited(-1, "type", STAR_SET);
-                Collection<String> elements = getSpaceDelimited(-1, "elements", STAR_SET);
-                Collection<String> attributes = getSpaceDelimited(-1, "attributes", STAR_SET);
-                Collection<String> values = getSpaceDelimited(-1, "values", STAR_SET);
-                for (String type : types) {
-                    Map<String, Relation<String, String>> dep = deprecated.get(type);
-                    if (dep == null) {
-                        deprecated.put(type, dep = new HashMap<String, Relation<String, String>>());
-                    }
-                    for (String element : elements) {
-                        Relation<String, String> attribute2Values = dep.get(element);
-                        if (attribute2Values == null) {
-                            dep.put(element,
-                                attribute2Values = Relation.of(new HashMap<String, Set<String>>(), TreeSet.class));
-                        }
-                        for (String attribute : attributes) {
-                            for (String value0 : values) {
-                                attribute2Values.put(attribute, value0);
-                            }
-                        }
-                    }
-                }
             } else if (level2.equals("distinguishing")) {
                 String level3 = parts.getElement(3);
                 if (level3.equals("distinguishingItems")) {
@@ -3761,24 +3725,9 @@ public class SupplementalDataInfo {
         return territoryToTelephoneCodeInfo.keySet();
     }
 
-    private List<String> attributeOrder;
-    private List<String> elementOrder;
     private List<String> serialElements;
     private Collection<String> distinguishingAttributes;
 
-    /**
-     * @deprecated
-     */
-    public List<String> getAttributeOrder() {
-        return attributeOrder;
-    }
-
-    /**
-     * @deprecated
-     */
-    public List<String> getElementOrder() {
-        return elementOrder;
-    }
 
     public List<String> getSerialElements() {
         return serialElements;
@@ -3900,23 +3849,18 @@ public class SupplementalDataInfo {
         return null;
     }
 
-    public Map<String, Map<String, Relation<String, String>>> getDeprecationInfo() {
-        return deprecated;
-    }
-
     public boolean isDeprecated(DtdType type, String element, String attribute, String value) {
         return DtdData.getInstance(type).isDeprecated(element, attribute, value);
     }
 
-    public boolean isDeprecatedOld(DtdType type, String element, String attribute, String value) {
-        return isDeprecated(deprecated.get(STAR), element, attribute, value)
-            || isDeprecated(deprecated.get(type.toString()), element, attribute, value);
-    }
-
     public boolean isDeprecated(DtdType type, String path) {
+        
         XPathParts parts = XPathParts.getInstance(path);
         for (int i = 0; i < parts.size(); ++i) {
             String element = parts.getElement(i);
+            if (isDeprecated(type, element, "*", "*")) {
+                return true;
+            }
             for (Entry<String, String> entry : parts.getAttributes(i).entrySet()) {
                 String attribute = entry.getKey();
                 String value = entry.getValue();
@@ -3924,91 +3868,6 @@ public class SupplementalDataInfo {
                     return true;
                 }
             }
-        }
-        return false;
-    }
-
-    private boolean isDeprecated(Map<String, Relation<String, String>> map,
-        String element, String attribute, String value) {
-        return map == null ? false
-            : isDeprecated(map.get(STAR), attribute, value)
-                || isDeprecated(map.get(element), attribute, value);
-    }
-
-    private boolean isDeprecated(Relation<String, String> relation,
-        String attribute, String value) {
-        return relation == null ? false
-            : isDeprecated(relation.get(STAR), value)
-                || isDeprecated(relation.get(attribute), value);
-    }
-
-    private boolean isDeprecated(Set<String> set, String value) {
-        return set == null ? false
-            : set.contains(STAR)
-                || value != null && set.contains(value);
-    }
-
-    /**
-     * returns true if the path contains a deprecated combination of element or attribute or attribute value
-     * 
-     * @param type
-     * @param parts
-     * @return
-     */
-    public boolean hasDeprecatedItem(String type, XPathParts parts) {
-        Map<String, Relation<String, String>> badStarElements2Attributes2Values = deprecated.get(STAR);
-        if (matchesBad(parts, badStarElements2Attributes2Values)) {
-            return true;
-        }
-        Map<String, Relation<String, String>> badElements2Attributes2Values = deprecated.get(type);
-        if (matchesBad(parts, badElements2Attributes2Values)) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean matchesBad(XPathParts parts, Map<String, Relation<String, String>> badElements2Attributes2Values) {
-        if (badElements2Attributes2Values == null) {
-            return false;
-        }
-        Relation<String, String> badStarAttributes2Values = badElements2Attributes2Values.get(STAR);
-        for (int i = 0; i < parts.size(); ++i) {
-            Map<String, String> attributeToValue = parts.getAttributes(i);
-            if (matchesBad(badStarAttributes2Values, attributeToValue)) {
-                return true;
-            }
-            String element = parts.getElement(i);
-            Relation<String, String> badAttributes2Values = badElements2Attributes2Values.get(element);
-            if (matchesBad(badAttributes2Values, attributeToValue)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean matchesBad(Relation<String, String> badStarAttributes2Values, Map<String, String> attributeToValue) {
-        if (badStarAttributes2Values == null) {
-            return false;
-        }
-        Set<String> badStarValues = badStarAttributes2Values.get(STAR);
-        if (badStarValues != null && badStarValues.contains(STAR)) {
-            return true;
-        }
-        // at this point, we know that badStarValues doesn't contain STAR
-        for (Entry<String, String> attributeValue : attributeToValue.entrySet()) {
-            String value = attributeValue.getValue();
-            if (badStarValues != null && badStarValues.contains(value)) {
-                return true;
-            }
-            String attribute = attributeValue.getKey();
-            Set<String> badValues = badStarAttributes2Values.get(attribute);
-            if (badValues == null) {
-                continue;
-            }
-            if (badValues.contains(STAR) || badValues.contains(value)) {
-                return true;
-            }
-
         }
         return false;
     }

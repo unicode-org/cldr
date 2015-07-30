@@ -456,11 +456,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 break;
             }
 
-            if (SDI.hasDeprecatedItem("ldml",
-                parts.set(path))) {
+            if (SDI.isDeprecated(DtdType.ldml,path)) {
                 continue;
             }
-
             bad.put(row, code);
         }
         all.removeAll(bad);

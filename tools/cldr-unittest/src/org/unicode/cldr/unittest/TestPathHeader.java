@@ -26,6 +26,7 @@ import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -211,9 +212,7 @@ public class TestPathHeader extends TestFmwkPlus {
                 // continue;
                 // }
                 Level level = coverageLevel.getLevel(path);
-                boolean isDeprecated = supplemental.hasDeprecatedItem("ldml",
-                    parts.set(path));
-                if (isDeprecated) {
+                if (supplemental.isDeprecated(DtdType.ldml, path)) {
                     continue;
                 }
 
@@ -316,11 +315,8 @@ public class TestPathHeader extends TestFmwkPlus {
     public void TestCoverage() {
         Map<Row.R2<SectionId, PageId>, Counter<Level>> data = new TreeMap<Row.R2<SectionId, PageId>, Counter<Level>>();
         CLDRFile cldrFile = english;
-        XPathParts parts = new XPathParts();
         for (String path : cldrFile.fullIterable()) {
-            boolean deprecated = supplemental.hasDeprecatedItem("ldml",
-                parts.set(path));
-            if (deprecated) {
+            if (supplemental.isDeprecated(DtdType.ldml, path)) {
                 errln("Deprecated path in English: " + path);
                 continue;
             }
@@ -557,11 +553,10 @@ public class TestPathHeader extends TestFmwkPlus {
             }
 
             // check against deprecated
-            boolean isDeprecated = supplemental.hasDeprecatedItem("ldml",
-                parts.set(path));
+            boolean isDeprecated = supplemental.isDeprecated(DtdType.ldml,path);
             if (isDeprecated != (surveyToolStatus == SurveyToolStatus.DEPRECATED)) {
                 if (!deprecatedStar.contains(starred)) {
-                    errln("Different from supplementalMetadata deprecated:\t"
+                    errln("Different from DtdData deprecated:\t"
                         + isDeprecated + "\t" + surveyToolStatus + "\t"
                         + path);
                     deprecatedStar.add(starred);

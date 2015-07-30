@@ -1418,58 +1418,5 @@ public class TestBasic extends TestFmwkPlus {
                 }
             }
         }
-        if (isVerbose()) {
-            checkTime();
-        }
-    }
-
-    private void checkTime() {
-        final int ITERATIONS = 200;
-        Timer t = new Timer();
-        for (int i = ITERATIONS; i > 0; --i) {
-            // check old
-            for (DtdType type : DtdType.values()) {
-                if (type == DtdType.ldmlICU) {
-                    continue;
-                }
-                DtdData dtdData = DtdData.getInstance(type);
-                for (Element element : dtdData.getElements()) {
-                    boolean orderedOld = DtdData.isOrderedOld(element.name, type);
-                    boolean deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecatedOld(type, element.name, "*", "*");
-                    for (Attribute attribute : element.getAttributes().keySet()) {
-                        boolean distinguishedOld = dtdData.isDistinguishingOld(element.name, attribute.name);
-                        deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecatedOld(type, element.name, attribute.name, "*");
-                        for (String value : attribute.values.keySet()) {
-                            deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecatedOld(type, element.name, attribute.name, value);
-                        }
-                    }
-                }
-            }
-        }
-        long time1 = t.stop();
-        logln("old: " + t.toString(ITERATIONS));
-        Timer t2 = new Timer();
-        // now new
-        for (int i = ITERATIONS; i > 0; --i) {
-            for (DtdType type : DtdType.values()) {
-                if (type == DtdType.ldmlICU) {
-                    continue;
-                }
-                DtdData dtdData = DtdData.getInstance(type);
-                for (Element element : dtdData.getElements()) {
-                    boolean orderedNew = dtdData.isOrdered(element.name);
-                    boolean deprecatedNew = dtdData.isDeprecated(element.name, "*", "*");
-
-                    for (Attribute attribute : element.getAttributes().keySet()) {
-                        boolean distinguishedNew = dtdData.isDistinguishing(element.name, attribute.name);
-                        deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, "*");
-                        for (String value : attribute.values.keySet()) {
-                            deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, value);
-                        }
-                    }
-                }
-            }
-        }
-        logln("new: " + t2.toString(ITERATIONS, time1));
     }
 }

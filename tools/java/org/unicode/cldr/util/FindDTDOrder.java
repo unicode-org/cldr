@@ -107,12 +107,10 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
                     fis.close();
                     // Then Attributes
                     List<String> rawDtdAttributeOrder = Collections.unmodifiableList(new ArrayList<String>(me.attributeSet));
-                    List<String> metadataAttributeOrder = SupplementalDataInfo.getInstance().getAttributeOrder();
                     List<String> cldrFileAttributeOrder = CLDRFile.getAttributeOrder();
 
                     LinkedHashSet<String> modifiedDtdOrder = new LinkedHashSet<String>(cldrFileAttributeOrder);
                     // add items, keeping the ordering stable
-                    modifiedDtdOrder.addAll(metadataAttributeOrder);
                     modifiedDtdOrder.retainAll(rawDtdAttributeOrder); // remove any superfluous stuff
                     modifiedDtdOrder.addAll(rawDtdAttributeOrder);
 

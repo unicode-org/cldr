@@ -577,6 +577,7 @@ abstract public class CheckCLDR {
             .add(new CheckDisplayCollisions(factory))
             .add(new CheckExemplars(factory))
             .add(new CheckForExemplars(factory))
+            .add(new CheckForInheritanceMarkers())
             .add(new CheckNames())
             .add(new CheckNumbers(factory))
             // .add(new CheckZones()) // this doesn't work; many spurious errors that user can't correct
@@ -726,7 +727,8 @@ abstract public class CheckCLDR {
             invalidPlaceHolder,
             asciiQuotesNotAllowed,
             badMinimumGroupingDigits,
-            inconsistentPeriods;
+            inconsistentPeriods,
+            inheritanceMarkerNotAllowed;
 
             public String toString() {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();

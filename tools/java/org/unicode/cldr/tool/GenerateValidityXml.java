@@ -5,28 +5,27 @@ import java.io.PrintWriter;
 import java.util.Date;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.tool.GenerateValidityXml.Info;
-import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StandardCodes.LstrField;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.StringRange;
 import org.unicode.cldr.util.StringRange.Adder;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.StandardCodes.LstrField;
-import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
+import com.google.common.base.Joiner;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row.R2;
@@ -104,8 +103,6 @@ public class GenerateValidityXml {
                 output.append(DtdType.supplementalData.header()
                     + "\t<version number='$"
                     + "Revision$'/>\n"
-                    + "\t<generation date='$"
-                    + "Date$'/>\n"
                     + "\t\t<idValidity>\n");
                 for (Entry<Validity.Status, Set<String>> entry2 : subtypeMap.keyValuesSet()) {
                     Validity.Status subtype = entry2.getKey();
@@ -137,7 +134,7 @@ public class GenerateValidityXml {
                 info.statusMap.put(end.after(eoy) && legalTender ? Status.regular : Status.deprecated, currency);
             }
         }
-        info.statusMap.put(Status.unknown, "XXX");
+        info.statusMap.put(Status.unknown, LstrType.currency.unknown);
         // make sure we don't overlap.
         // we want to keep any code that is valid in any territory, so 
         info.statusMap.removeAll(Status.deprecated, info.statusMap.get(Status.regular));
@@ -164,12 +161,11 @@ public class GenerateValidityXml {
             "Unknown/Undetermined subdivision codes (ZZZZ) are defined for all regular region codes.");
     }
 
-
     private static void doLstr(Map<String,Info> types) throws IOException {
-
+        Set<String> skippedScripts = new TreeSet<>();
         for (Entry<LstrType, Map<String, Map<LstrField, String>>> entry : LSTREG.entrySet()) {
             LstrType type = entry.getKey();
-            if (!type.inCldr) {
+            if (!type.isLstr) {
                 continue;
             }
             Info info = Info.getInfo(type.toString());
@@ -185,6 +181,8 @@ public class GenerateValidityXml {
                 Validity.Status subtype = Validity.Status.regular;
                 if (code.equals(type.unknown)) {
                     subtype = Validity.Status.unknown;
+                } else if (type.specials.contains(code)) {
+                    subtype = Validity.Status.special;
                 } else if (aliases != null && aliases.containsKey(code)) {
                     subtype = Validity.Status.deprecated;
                 } else if (data.get(LstrField.Description).startsWith("Private use")) {
@@ -197,12 +195,23 @@ public class GenerateValidityXml {
                     }
                     if (subtype == Status.regular){
                         Info subInfo = Info.getInfo("subdivision");
-                        subInfo.statusMap.put(Status.unknown, code + "-" + "ZZZZ");
+                        subInfo.statusMap.put(Status.special, code + "-" + "ZZZZ");
                     }
+                    break;
+                case script:
+                    if (type == LstrType.script && subtype == Validity.Status.regular) {
+                        ScriptMetadata.Info scriptInfo = ScriptMetadata.getInfo(code);
+                        if (scriptInfo == null && !code.equals("Hrkt")) {
+                            skippedScripts.add(code);
+                            continue;
+                        }
+                    }
+                    break;
                 }
                 info.statusMap.put(subtype, code);
             }
 
         }
+        System.out.println("Skipping non-Unicode scripts: " + Joiner.on(' ').join(skippedScripts));
     }
 }

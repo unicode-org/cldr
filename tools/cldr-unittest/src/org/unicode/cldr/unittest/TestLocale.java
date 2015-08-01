@@ -15,6 +15,8 @@ import javax.xml.xpath.XPathException;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.AttributeValueValidity;
+import org.unicode.cldr.util.AttributeValueValidity.MatcherPattern;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -38,9 +40,9 @@ public class TestLocale extends TestFmwkPlus {
     }
 
     static Set<Type> ALLOWED_LANGUAGE_TYPES = EnumSet.of(Type.Ancient,
-        Type.Living, Type.Constructed, Type.Historical, Type.Extinct);
+        Type.Living, Type.Constructed, Type.Historical, Type.Extinct, Type.Special);
     static Set<Scope> ALLOWED_LANGUAGE_SCOPES = EnumSet.of(Scope.Individual,
-        Scope.Macrolanguage); // , Special, Collection, PrivateUse, Unknown
+        Scope.Macrolanguage, Scope.Special); // , Special, Collection, PrivateUse, Unknown
     static Set<String> ALLOWED_SCRIPTS = testInfo.getStandardCodes()
         .getGoodAvailableCodes(CodeType.script);
     static Set<String> ALLOWED_REGIONS = testInfo.getStandardCodes()
@@ -229,16 +231,20 @@ public class TestLocale extends TestFmwkPlus {
         }
     }
 
+    final MatcherPattern SCRIPT_NON_UNICODE = AttributeValueValidity.getMatcherPattern("$scriptNonUnicode");
     public void checkScript(String file, String script) {
         if (!script.isEmpty()) {
+            if (!ALLOWED_SCRIPTS.contains(script) && SCRIPT_NON_UNICODE.matches(script, null)) {
+                logKnownIssue("NEED TICKET", "contains non-Unicode script");
+                return;
+            }
             assertRelation("Script ok? " + script + " in " + file, true,
                 ALLOWED_SCRIPTS, TestFmwkPlus.CONTAINS, script);
         }
     }
 
     public void checkLanguage(String file, String language) {
-        if (!language.equals("und") && !language.equals("root")
-            && !language.equals("zxx") && !language.equals("mul")) {
+        if (!language.equals("root")) {
             Scope scope = Iso639Data.getScope(language);
             if (assertRelation("Language ok? " + language + " in " + file,
                 true, ALLOWED_LANGUAGE_SCOPES, TestFmwkPlus.CONTAINS, scope)) {

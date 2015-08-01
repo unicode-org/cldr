@@ -13,10 +13,16 @@ import org.unicode.cldr.tool.VerifyAttributeValues;
 import org.unicode.cldr.tool.VerifyAttributeValues.Errors;
 import org.unicode.cldr.util.AttributeValueValidity;
 import org.unicode.cldr.util.AttributeValueValidity.AttributeValueSpec;
+import org.unicode.cldr.util.AttributeValueValidity.MatcherPattern;
 import org.unicode.cldr.util.AttributeValueValidity.Status;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.LanguageInfo;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
 
 import com.google.common.base.Joiner;
@@ -30,9 +36,27 @@ public class TestAttributeValues extends TestFmwk {
     public static final Joiner SPACE_JOINER = Joiner.on(' ');
     public static final Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults().omitEmptyStrings();
     static final Splitter SEMI_SPACE = Splitter.on(';').trimResults().omitEmptyStrings();
+    private static final CLDRConfig config = CLDRConfig.getInstance();
 
     public static void main(String[] args) {
         new TestAttributeValues().run(args);
+    }
+
+    public void TestA() {
+        MatcherPattern mp = AttributeValueValidity.getMatcherPattern("$language");
+        for (String language : LanguageInfo.getAvailable()) {
+            if (mp.matches(language, null) ) {
+                LanguageInfo languageInfo = LanguageInfo.get(language);
+                show(language, languageInfo);
+            }
+        }
+    }
+
+    private void show(String language, LanguageInfo languageInfo) {
+        logln(language 
+            + "\t" + config.getEnglish().getName(CLDRFile.LANGUAGE_NAME, language)
+            + "\t" + languageInfo
+            );
     }
 
     public void TestAttributeValueValidity() {

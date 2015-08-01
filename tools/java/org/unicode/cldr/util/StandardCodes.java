@@ -1003,28 +1003,33 @@ public class StandardCodes {
     static final String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
 
     public enum LstrType {
-        language("und"), 
-        script("Zzzz"),
+        language("und", "zxx", "mul", "mis", "root"), 
+        script("Zzzz", "Zsym", "Zxxx", "Zmth"),
         region("ZZ"),
-        variant(null), 
+        variant(), 
         extlang(), 
         grandfathered(), 
         redundant(),
         /** specialized codes for validity; TODO: rename LstrType **/
-        currency(null),
-        subdivision(null),
-        unit(null);
+        currency(false,"XXX"),
+        subdivision(false),
+        unit(false);
         
+        public final Set<String> specials;
         public final String unknown;
-        public final boolean inCldr;
+        public final boolean isLstr;
         
-        private LstrType(String unknownValue) {
-            unknown = unknownValue;
-            inCldr = true;
+        private LstrType(String... unknownValue) {
+            this(true,unknownValue);
         }
-        private LstrType() {
-            unknown = null;
-            inCldr = false;
+        private LstrType(boolean b, String... unknownValue) {
+            unknown = unknownValue.length == 0 ? null : unknownValue[0];
+            LinkedHashSet<String> set = new LinkedHashSet<>(Arrays.asList(unknownValue));
+            if (unknown != null) {
+                set.remove(unknown);
+            }
+            specials = Collections.unmodifiableSet(set);
+            isLstr = b;
         }
     }
 

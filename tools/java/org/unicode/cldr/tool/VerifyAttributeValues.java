@@ -1,7 +1,6 @@
 package org.unicode.cldr.tool;
 
 import java.io.File;
-import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.EnumMap;
 import java.util.LinkedHashSet;
@@ -190,60 +189,4 @@ public class VerifyAttributeValues extends SimpleHandler {
         return 0;
     }
 
-
-    public static void main(String[] args) {
-        int maxPerDirectory = args.length > 0 ? Integer.parseInt(args[0]) : Integer.MAX_VALUE;
-        Matcher fileMatcher = args.length > 1 ? Pattern.compile(args[1]).matcher("") : null;
-        Set<AttributeValueSpec> allMissing = new LinkedHashSet<>();
-        Errors errors = new Errors();
-        try (final PrintWriter out = new PrintWriter(System.out)) {
-            VerifyAttributeValues.findAttributeValues(BASE_DIR, maxPerDirectory, fileMatcher, errors, allMissing, out);
-
-            System.out.println("\n* READ ERRORS *\n");
-            int count = 0;
-            for (Entry<AttributeValidityInfo, String> entry : AttributeValueValidity.getReadFailures().entrySet()) {
-                System.out.println(++count + "\t" + entry.getKey() + " => " + entry.getValue());
-            }
-
-            System.out.println("\n* TODO TESTS *\n");
-            count = 0;
-            for (R3<DtdType, String, String> entry1 : AttributeValueValidity.getTodoTests()) {
-                System.out.println(++count + "\t" + new AttributeValueSpec(entry1.get0(), entry1.get1(), entry1.get2(), "").toString());
-            }
-
-            System.out.println("\n* MISSING TESTS *\n");
-            count = 0;
-            for (AttributeValueSpec entry1 : allMissing) {
-                System.out.println(new AttributeValueSpec(entry1.type, entry1.element, entry1.attribute, entry1.attributeValue).toString());
-            }
-
-            System.out.println("\n* DEPRECATED *\n");
-            count = 0;
-            for (R3<String, AttributeValueSpec, String> item : errors.getRows()) {
-                if ("deprecated".equals(item.get2()))
-                    System.out.println(++count 
-                        + "; \t" + item.get0()
-                        + "; \t" + item.get1().type
-                        + "; \t" + item.get1().element
-                        + "; \t" + item.get1().attribute
-                        + "; \t" + item.get1().attributeValue
-                        + "; \t" + item.get2()
-                        );
-            }
-
-            System.out.println("\n* ERRORS *\n");
-            count = 0;
-            for (R3<String, AttributeValueSpec, String> item : errors.getRows()) {
-                if (!"deprecated".equals(item.get2()))
-                    System.out.println(++count 
-                        + "; \t" + item.get0()
-                        + "; \t" + item.get1().type
-                        + "; \t" + item.get1().element
-                        + "; \t" + item.get1().attribute
-                        + "; \t" + item.get1().attributeValue
-                        + "; \t" + item.get2()
-                        );
-            }
-        }
-    }
 }

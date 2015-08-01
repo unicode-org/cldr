@@ -19,11 +19,12 @@ public class Validity {
     
     public enum Status {
         regular,
+        special,
         unknown,
         macroregion, // regions only (from M.49)
         deprecated,
         private_use, // (for clients of cldr)
-        invalid, //  (anything else)
+        invalid; //  (anything else)
     }
 
     private static final ConcurrentHashMap<String, Validity> cache = new ConcurrentHashMap<>();

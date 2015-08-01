@@ -8,24 +8,25 @@
 		<validity>
 			<!-- BCP 47 contains many more language codes than we are interested in maintaining as a part of the CLDR -->
 			<!-- This list contains ONLY those languages considered to be 'of interest' as part of CLDR, -->
-			<!-- and is maintained manually by the CLDR TC -->
-			<variable id='$language' type='choice'> aa ab ace ach ada ady ae aeb af afh agq ain ak akk akz ale aln alt am an ang anp ar arc arn aro arp arq arw
-				ary arz as asa ase ast av avk awa ay az ba bal ban bar bas bax bbc bbj bfd be bej bem bew bez bfq bg bgn bho bi bik bin bjn bkm bla bm bn bo
-				bpy bqi br bra brh brx bs bss bua bug bum byn byv ca cad car cay cch ce ceb cgg ch chb chg chk chm chn cho chp chr chy ckb co cop cps cr crh cs
-				csb cu cv cy da dak dar dav de del den dgr din dje doi dsb dtp dua dum dv dyo dyu dz dzg ebu ee efi egl egy eka el elx en enm eo es esu et eu ewo
-				ext fa fan fat ff fi fil fit fj fo fon fr frc frm fro frp frr frs fur fy ga gaa gag gan gay gba gbz gd gez gil gl glk gmh gn goh gom gon gor got
-				grb grc gsw gu guc gur guz gv gwi ha hai hak haw he hi hif hil hit hmn ho hr hsb hsn ht hu hup hy hz ia iba ibb id ie ig ii ik ilo inh io is it iu
-				izh ja jam jbo jgo jmc jpr jrb jut jv ka kaa kab kac kaj kam kaw kbd kbl kcg kde kea ken kfo kg kgp kha kho khq khw ki kiu kj kk kkj kl kln km kmb
-				kn ko koi kok kos kpe kr krc kri krj krl kru ks ksb ksf ksh ku kum kut kv kw ky la lad lag lah lam lb lez lfn lg li lij liv lkt lmo ln lo lol loz
-				lrc lt ltg lu lua lui lun luo lus luy lv lzh lzz mad maf mag mai mak man mas mde mdf mdr men mer mfe mg mga mgh mgo mh mi mic min mk ml mn mnc mni
-				moh mos mr mrj ms mt mua mul mus mwl mwr mwv my mye myv mzn na nan nap naq nb nd nds ne new ng nia niu njo nl nmg nn nnh no nog non nov nqo nr nso
-				nus nv nwc ny nym nyn nyo nzi oc oj om or os osa ota pa pag pal pam pap pau pcd pdc pdt peo pfl phn pi pl pms pnt pon prg pro ps pt qu quc qug raj
-				rap rar rgn rif rm rn ro rof rom root rtm ru rue rug rup rw rwk sa sad sah sam saq sas sat saz sba sbp sc scn sco sd sdc sdh se see seh sei sel
-				ses sg sga sgs sh shi shn shu si sid sk sl sli sly sm sma smj smn sms sn snk so sog sq sr srn srr ss ssy st stq su suk sus sux sv sw swb swc syc
-				syr szl ta tcy te tem teo ter tet tg th ti tig tiv tk tkl tkr tl tlh tli tly tmh tn to tog tpi tr tru trv ts tsd tsi tt ttt tum tvl tw twq ty tyv
-				tzm udm ug uga uk umb und ur uz vai ve vec vep vi vls vmf vo vot vro vun wa wae wal war was wbp wo wuu xal xh xmf xog yao yap yav ybb yi yo yrl
-				yue za zap zbl zea zen zgh zh zu zun zxx zza 
-			</variable>
+					<!-- and is maintained manually by the CLDR TC -->
+			<variable id='$language' type='choice'>af agq ak am ar as asa ast ay az ba bal bas be bem bez bg bm bn bo br brx bs ca ce ceb cgg chr ckb
+				cs cu cy da dav de dje dsb dua dyo dz ebu ee el en eo es et eu ewo fa ff fi fil fo fr fur fy ga gd gl gn gsw gu guz gv ha haw he hi hr hsb ht hu hy
+				id ig ii ilo is it ja jgo jmc ka kab kam kbd kde kea khq ki kk kkj kl kln km kn ko kok ks ksb ksf ksh kw ky lag lb lg lkt ln lo lrc lt lu lua luo
+				luy lv mai mas mdh mer mfe mg mgh mgo mis mk ml mn mr ms mt mua mul my mzn naq nb nd ne nl nmg nn nnh nso nus ny nyn om or os pa pag pl prg ps pt qu
+				rm rn ro rof root ru rw rwk sah saq sat sbp sd se seh ses sg shi si sk sl smn sn so sq sr ss st sv sw ta te teo tg th ti tk tn to tpi tr ts tsg tt
+				twq tzm ug uk und ur uz vai vi vo vun wae war wo xh xog yav yi yo za zgh zh zu zxx </variable>
+			<variable id='$languageExceptions' type='choice'>wuu lah arz hsn hak su nan arq gan ary mai bho mwr jv aeb bar mad ku bal lua bew vmf swc mag sat za ht umb shn
+				ceb ace glk bik war suk gom jam ay kri pam sas bbc mos tpi gon cv mak dyu awa efi ibb doi kru pag brh man sid aln tcy nym tum fon zza sc vls ilo kbd
+				ach gor bqi tly aa kac mni qug vec tig raj kg bin min bum srr hil pcd tiv iba cps men kj wal gur new av ada xmf udm loz rue kpe chm lij sus szl nds
+				kmb kaa ban myv bug ady tmh tet ng krj pnt bjn dar rif fan hif yao fj snk lol bua mdf srn kha kum gay arn kv lez sm nqo zea ext kaj inh krc saz mdr
+				bi bax pap ltg tyv nzi bfq njo hz khw ssy nv swb dtp kiu syr tog sly pdc maf gag guc krl ab sdc kcg oc lad tem sco ty pdt bbj vro koi frp byn mwv
+				gil fit bpy csb mh li ch bfd byv cr bss lmo bra egl wa nap kfo mrj chk frc scn cch pon lzz ttt alt esu co dak kgp tkr bkm pau sli cho frr yrl tvl
+				rug ybb kos ho na gbz pms yap trv mus vep moh tru dgr wbp rtm den frs smj niu stq la sei chp sms gwi ik sma tsd izh ia aro tkl bgn gez jut ken lzh
+				pfl rgn sdh sgs vot</variable>
+			<variable id='$scriptNonUnicode' type='choice'> Adlm Afak Aran Blis Cirt Cyrs Egyd Egyh Geok Inds Jurc Kitl Kits Kpel Latf Latg Loma Marc Maya Moon
+				Nkgb Nshu Osge Phlv Roro Sara Syre Syrj Syrn Tang Teng Visp Wole 
+			</variable>				
+			<!--  <variable id='$language' type='choice'>$languageExceptions|$_language_cldr</variable> -->
 			<variable id='$casing' type='choice'>titlecase-words titlecase-firstword lowercase-words mixed</variable>
 			<!-- allow may expand in future to a space separated list i.e. ((newitem)?( )?)?(verbatim)? -->
 			<variable id='$allow' type='regex'>(verbatim)</variable>
@@ -153,7 +154,7 @@
 			<attributeValues dtds='ldml' elements='relativeTime' attributes='type' type='choice'>future past</attributeValues>
 			<attributeValues dtds='ldml' elements='reset' attributes='before' type='choice'>primary secondary tertiary</attributeValues> <!-- move to DTD? -->
 			<attributeValues dtds='ldml' elements='rule' attributes='id'>$double</attributeValues>
-			<attributeValues dtds='ldml' elements='script' attributes='type'>$_script</attributeValues>
+			<attributeValues dtds='ldml' elements='script' attributes='type'>$_script|$scriptNonUnicode</attributeValues>
 			<attributeValues dtds='supplementalData' elements='scriptAlias' attributes='replacement'>$_script</attributeValues>
 			<attributeValues dtds='supplementalData' elements='scriptAlias' attributes='type'>$_script</attributeValues>
 			<attributeValues dtds='ldml' elements='segmentation' attributes='type' type='choice'>GraphemeClusterBreak LineBreak SentenceBreak WordBreak</attributeValues>
@@ -274,7 +275,7 @@
 			<attributeValues dtds='supplementalData' elements='firstDay' attributes='territories' type='list'>$_region</attributeValues>
 			<attributeValues dtds='supplementalData' elements='generation' attributes='date' type='TODO'/>
 			<attributeValues dtds='supplementalData' elements='id' attributes='idStatus' type='choice'>deprecated macroregion private_use regular
-				unknown</attributeValues>
+				special</attributeValues>
 			<attributeValues dtds='supplementalData' elements='id' attributes='type' type='choice'>currency language region script subdivision unit variant</attributeValues>
 			<attributeValues dtds='supplementalData' elements='info' attributes='cashDigits' type='choice'>0</attributeValues>
 			<attributeValues dtds='supplementalData' elements='info' attributes='cashRounding' type='choice'>0 5</attributeValues>

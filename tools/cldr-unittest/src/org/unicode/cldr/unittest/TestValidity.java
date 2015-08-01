@@ -23,6 +23,7 @@ public class TestValidity extends TestFmwkPlus {
         Object[][] tests = {
             {LstrType.language, Validity.Status.regular, true, "aa", "en"},
             {LstrType.language, Validity.Status.regular, false, "eng"},
+            {LstrType.language, Validity.Status.special, false, "root"},
             {LstrType.region, Validity.Status.unknown, false, "ZZ"},
         };
         for (Object[] test : tests) {

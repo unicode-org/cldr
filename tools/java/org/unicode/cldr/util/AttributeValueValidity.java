@@ -19,9 +19,11 @@ import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.AttributeValueValidity.AttributeValueSpec;
+import org.unicode.cldr.util.LanguageInfo.CldrDir;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ComparisonChain;
 import com.ibm.icu.dev.util.CollectionUtilities.ObjectMatcher;
@@ -123,7 +125,7 @@ public class AttributeValueValidity {
                     }
                 }
                 all.addAll(validItems);
-                if (status == Validity.Status.regular || status == Validity.Status.unknown) {
+                if (status == Validity.Status.regular || status == Validity.Status.special || status == Validity.Status.unknown) {
                     regularAndUnknown.addAll(validItems);
                 }
                 addCollectionVariable(keyName+"_"+status, validItems);
@@ -143,6 +145,35 @@ public class AttributeValueValidity {
 //            variables.put(keyName + "_plus", m2);
         }
 
+        Set<String> main = new LinkedHashSet<>();
+        main.addAll(StandardCodes.LstrType.language.specials);
+        Set<String> coverage = new LinkedHashSet<>();
+        Set<String> large_official = new LinkedHashSet<>();
+        final LocaleIDParser lip = new LocaleIDParser();
+
+        for (String language : LanguageInfo.getAvailable()) {
+            LanguageInfo info =  LanguageInfo.get(language);
+            CldrDir cldrDir = info.getCldrDir();
+            String base = lip.set(language).getLanguage();
+            if (cldrDir == CldrDir.main || cldrDir == CldrDir.base) {
+                main.add(base);
+            }
+            if (info.getCldrLevel() == Level.MODERN) {
+                coverage.add(base);
+            }
+            if (info.getLiteratePopulation() > 1000000 && !info.getStatusToRegions().isEmpty()) {
+                large_official.add(base);
+            }
+        }
+        addCollectionVariable("$_language_main", main);
+        addCollectionVariable("$_language_coverage", coverage);
+        addCollectionVariable("$_language_large_official", large_official);
+        Set<String> cldrLang = new TreeSet<>(main);
+        cldrLang.addAll(coverage);
+        cldrLang.addAll(large_official);
+        addCollectionVariable("$_language_cldr", large_official);
+        // System.out.println("\ncldrLang:\n" + Joiner.on(' ').join(cldrLang));
+        
         Map<String, R2<String, String>> rawVariables = supplementalData.getValidityInfo();
         for (Entry<String, R2<String, String>> item : rawVariables.entrySet()) {
             String id = item.getKey();
@@ -316,7 +347,7 @@ public class AttributeValueValidity {
         return missing;
     }
 
-    private static abstract class MatcherPattern {
+    public static abstract class MatcherPattern {
 
         public abstract boolean matches(String value, Output<String> reason);
         public String getPattern() {
@@ -412,7 +443,7 @@ public class AttributeValueValidity {
         List<String> values = BAR.splitToList(value); //value.trim().split("|");
         MatcherPattern[] reasons = new MatcherPattern[values.size()];
         for (int i = 0; i < values.size(); ++i) {
-            reasons[i] = variables.get(values.get(i));
+            reasons[i] = getNonNullVariable(values.get(i));
         }
         MatcherPattern result;
 
@@ -545,6 +576,11 @@ public class AttributeValueValidity {
         private final MatcherPattern[] operands;
 
         public OrMatcher(MatcherPattern... operands) {
+            for (MatcherPattern operand : operands) {
+                if (operand == null) {
+                    throw new NullPointerException();
+                }
+            }
             this.operands = operands;
         }
 
@@ -608,20 +644,18 @@ public class AttributeValueValidity {
     }
 
     public static class LocaleMatcher extends MatcherPattern {
-        //final ObjectMatcherReason grandfathered = variables.get("$grandfathered").matcher;
+        //final ObjectMatcherReason grandfathered = getNonNullVariable("$grandfathered").matcher;
         final MatcherPattern language;
-        final MatcherPattern script = variables.get("$_script");
-        final MatcherPattern territory = variables.get("$_region");
-        final MatcherPattern variant = variables.get("$_variant");
+        final MatcherPattern script = getNonNullVariable("$_script");
+        final MatcherPattern territory = getNonNullVariable("$_region");
+        final MatcherPattern variant = getNonNullVariable("$_variant");
         final LocaleIDParser lip = new LocaleIDParser();
 
-        public static LocaleMatcher REGULAR = new LocaleMatcher(false);
-        public static LocaleMatcher ALL_LANGUAGES = new LocaleMatcher(true);
+        public static LocaleMatcher REGULAR = new LocaleMatcher("$_language_plus");
+        public static LocaleMatcher ALL_LANGUAGES = new LocaleMatcher("$_language");
 
-        private LocaleMatcher(boolean allowAll) {
-            language = allowAll 
-                ? variables.get("$_language") 
-                    : variables.get("$_language_plus");
+        private LocaleMatcher(String variable) {
+            language = getNonNullVariable(variable);
         }
 
         public boolean matches(String value, Output<String> reason) {
@@ -779,4 +813,19 @@ public class AttributeValueValidity {
         return Collections.unmodifiableMap(failures);
     }
 
+    public static MatcherPattern getMatcherPattern(String variable) {
+        return variables.get(variable);        
+    }
+
+    private static MatcherPattern getNonNullVariable(String variable) {
+        MatcherPattern result = variables.get(variable);
+        if (result == null) {
+            throw new NullPointerException();
+        }
+        return result;
+    }
+
+    public static Set<String> getMatcherPatternIds() {
+        return Collections.unmodifiableSet(variables.keySet());        
+    }
 }

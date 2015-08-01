@@ -1,7 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -12,10 +10,10 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M4;
@@ -24,16 +22,7 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LogicalGrouping;
-import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.StandardCodes.CodeType;
-import org.unicode.cldr.util.StandardCodes.LstrField;
-import org.unicode.cldr.util.StandardCodes.LstrType;
-import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
-import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.PathHeader.Factory;
-import org.unicode.cldr.util.PathHeader.PageId;
-import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
@@ -43,15 +32,14 @@ import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.TestFmwk;
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
-import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
 import com.ibm.icu.text.Transform;
+import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.ULocale;
 
 public class TestCoverageLevel extends TestFmwkPlus {
@@ -62,8 +50,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
     private static final SupplementalDataInfo SDI = testInfo.getSupplementalDataInfo();
 
     public static void main(String[] args) {
-        // TestCoverageLevel.getStarred(true, "en", "de");
-        // new TestCoverageLevel().getOrgs();
         new TestCoverageLevel().run(args);
     }
 
@@ -124,93 +110,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 + "\t"
                 + (maxLevelCount == 1 ? "all" : localesWithUniqueLevels
                     .size() == 0 ? "none" : CollectionUtilities.join(
-                        localesWithUniqueLevels, ", ")));
-        }
-    }
-
-    private static void getStarred(boolean longForm, String... locales) {
-        Map<Level, Relation<String, String>> data = new TreeMap<Level, Relation<String, String>>(); // Relation.of(new
-        SupplementalDataInfo sdi = SupplementalDataInfo
-            .getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
-        for (String locale : locales) {
-            CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale,
-                true);
-
-            // HashMap<Row.R2<Level,
-            // Integer>,
-            // Set<Relation<String,String>>>(),
-            // HashSet.class);
-
-            PathStarrer pathStarrer = new PathStarrer();
-
-            for (String path : cldrFileToCheck) {
-                if (path.contains("/alias")) {
-                    continue;
-                }
-                String value = cldrFileToCheck.getStringValue(path);
-                // cldrFileToCheck.getSourceLocaleID(path, status);
-                // if (status.pathWhereFound != path) {
-                // continue;
-                // }
-
-                String fullPath = cldrFileToCheck.getFullXPath(path);
-                if (fullPath == null) {
-                    continue;
-                }
-                // if (path.contains("ethiopic")) {
-                // System.out.println("?");
-                // }
-                Level level = sdi.getCoverageLevel(path, locale);
-
-                // R2<Level, Level> key = Row.of(level, newLevel);
-                String starredPath = pathStarrer.set(path);
-                Relation<String, String> starredToAttributes = data.get(level);
-                if (starredToAttributes == null) {
-                    data.put(
-                        level,
-                        starredToAttributes = Relation.of(
-                            new TreeMap<String, Set<String>>(),
-                            TreeSet.class));
-                }
-                starredToAttributes.put(starredPath,
-                    pathStarrer.getAttributesString("|") + "=‹" + value
-                    + "›");
-            }
-        }
-        RegexLookup<Transform<String, String>> longTransLookup = new RegexLookup<Transform<String, String>>()
-            .add("^//ldml/localeDisplayNames/languages/language",
-                new TypeName(CLDRFile.LANGUAGE_NAME))
-                .add("^//ldml/localeDisplayNames/scripts/script",
-                    new TypeName(CLDRFile.SCRIPT_NAME))
-                    .add("^//ldml/localeDisplayNames/territories/territory",
-                        new TypeName(CLDRFile.TERRITORY_NAME))
-                        .add("^//ldml/numbers/currencies/currency",
-                            new TypeName(CLDRFile.CURRENCY_NAME));
-
-        for (Entry<Level, Relation<String, String>> entry : data.entrySet()) {
-            final Level level = entry.getKey();
-            for (Entry<String, Set<String>> entry2 : entry.getValue()
-                .keyValuesSet()) {
-                final String key = entry2.getKey();
-                final Set<String> value = entry2.getValue();
-                Transform<String, String> longTrans = null;
-                if (longForm && level.compareTo(Level.MODERN) <= 0) {
-                    longTrans = longTransLookup.get(key);
-                }
-                if (longTrans != null) {
-                    for (String s : value) {
-                        int barPos = s.indexOf('|');
-                        String codePart = barPos < 0 ? s : s.substring(0,
-                            barPos);
-                        System.out.println(level.getLevel() + "\t" + level
-                            + "\t" + key + "\t" + s + "\t"
-                            + longTrans.transform(codePart));
-                    }
-                } else {
-                    System.out.println(level.getLevel() + "\t" + level + "\t"
-                        + key + "\t" + value);
-                }
-            }
+                    localesWithUniqueLevels, ", ")));
         }
     }
 
@@ -324,15 +224,15 @@ public class TestCoverageLevel extends TestFmwkPlus {
             switch (field) {
             case CLDRFile.LANGUAGE_NAME:
                 dep = SDI.getLocaleAliasInfo()
-                .get("language");
+                    .get("language");
                 break;
             case CLDRFile.TERRITORY_NAME:
                 dep = SDI.getLocaleAliasInfo()
-                .get("territory");
+                    .get("territory");
                 break;
             case CLDRFile.SCRIPT_NAME:
                 dep = SDI.getLocaleAliasInfo()
-                .get("script");
+                    .get("script");
                 break;
             default:
                 dep = null;
@@ -363,10 +263,10 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     RegexLookup<Level> exceptions = RegexLookup.of(null,
         new Transform<String, Level>() {
-        public Level transform(String source) {
-            return Level.fromLevel(Integer.parseInt(source));
-        }
-    }, null).loadFromFile(TestCoverageLevel.class,
+            public Level transform(String source) {
+                return Level.fromLevel(Integer.parseInt(source));
+            }
+        }, null).loadFromFile(TestCoverageLevel.class,
         "TestCoverageLevel.txt");
 
     public void TestExceptions() {
@@ -385,120 +285,120 @@ public class TestCoverageLevel extends TestFmwkPlus {
         assertEquals("Narrow $", Level.BASIC, level);
     }
 
-    static final EnumSet<PageId> SKIP_PAGE_OK = EnumSet.of(PageId.Dangi,
-        PageId.Islamic, PageId.Buddhist,
-        PageId.Chinese, PageId.Coptic, PageId.Ethiopic,
-        PageId.Ethiopic_Amete_Alem, PageId.Hebrew, PageId.Indian,
-        PageId.Japanese, PageId.Persian, PageId.ROC, PageId.Transforms,
-        PageId.Identity, PageId.Version);
-
-    public void TestEnglishModern() {
-        if (logKnownIssue("Cldrbug:7135",
-            "Problems with TestCoverageLevel test")) {
-            return;
-        }
-        SupplementalDataInfo sdi = SDI;
-        Factory phf = PathHeader.getFactory(ENGLISH);
-        Relation<Row.R3, String> bad = Relation.of(
-            new TreeMap<Row.R3, Set<String>>(), TreeSet.class);
-        Relation<Row.R3, String> all = Relation.of(
-            new TreeMap<Row.R3, Set<String>>(), TreeSet.class);
-        XPathParts parts = new XPathParts();
-
-        main: for (String path : ENGLISH.fullIterable()) {
-            PathHeader ph = phf.fromPath(path);
-            SectionId section = ph.getSectionId();
-            PageId page = ph.getPageId();
-            String header = ph.getHeader();
-            String code = ph.getCode();
-            R3<SectionId, PageId, String> row = Row.of(section, page, header);
-            all.put(row, code);
-            Level coverageLevel = sdi.getCoverageLevel(path, "en");
-
-            if (coverageLevel.compareTo(Level.COMPREHENSIVE) <= 0) {
-                continue;
-            }
-
-            if (SKIP_PAGE_OK.contains(page)) {
-                continue;
-            }
-            if (header.equals("Alias")) {
-                continue;
-            }
-            switch (page) {
-            case Numbering_Systems:
-                if (header.startsWith("Standard Patterns when")
-                    && !header.contains("Latin")) {
-                    continue main;
-                }
-                break;
-            case Compact_Decimal_Formatting:
-                if ((header.startsWith("Short Formats when") || header
-                    .startsWith("Long Formats when"))
-                    && !header.contains("Latin")) {
-                    continue main;
-                }
-                break;
-            case Number_Formatting_Patterns:
-                if ((header.startsWith("Currency Spacing when")
-                    || header.startsWith("Standard Patterns when using")
-                    || header.startsWith("Miscellaneous Patterns when") || header
-                    .startsWith("Currency Unit Patterns when"))
-                    && !header.contains("Latin")) {
-                    continue main;
-                }
-                break;
-            case Symbols:
-                if ((header.startsWith("Symbols when using"))
-                    && !header.contains("Latin")) {
-                    continue main;
-                }
-                break;
-            }
-
-            if (SDI.isDeprecated(DtdType.ldml,path)) {
-                continue;
-            }
-            bad.put(row, code);
-        }
-        all.removeAll(bad);
-        for (Entry<R3, Set<String>> item : bad.keyValuesSet()) {
-            errln(item.getKey() + "\t" + item.getValue());
-        }
-        for (Entry<R3, Set<String>> item : all.keyValuesSet()) {
-            logln(item.getKey() + "\t" + item.getValue());
-        }
-    }
-
     public void TestCoverageCompleteness() {
-        final Set<String> inactiveMetazones = new HashSet<String>(Arrays.asList("Bering", "Dominican", "Shevchenko", "Alaska_Hawaii", "Yerevan",
+        /**
+         * Check that English paths are, except for known cases, at least modern coverage.
+         * We filter out the things we know about and have determined are OK to be in comprehensive.
+         * If we add a path that doesn't get its coverage set, this test should complain about it.
+         */
+        final ImmutableSet<String> inactiveMetazones = ImmutableSet.of("Bering", "Dominican", "Shevchenko", "Alaska_Hawaii", "Yerevan",
             "Africa_FarWestern", "British", "Sverdlovsk", "Karachi", "Malaya", "Oral", "Frunze", "Dutch_Guiana", "Irish", "Uralsk", "Tashkent", "Kwajalein",
             "Yukon", "Ashkhabad", "Kizilorda", "Kuybyshev", "Baku", "Dushanbe", "Goose_Bay", "Liberia", "Samarkand", "Tbilisi", "Borneo", "Greenland_Central",
-            "Dacca", "Aktyubinsk", "Turkey", "Urumqi"));
-        final Set<String> calendarsWithoutUniqueMonthNames = new HashSet<String>(Arrays.asList("buddhist", "ethiopic-amete-alem", "generic", "islamic-civil", "islamic-rgsa", "islamic-tbla", "islamic-umalqura", "japanese", "roc"));
-        final Set<String> calendarType100ForDateFormats = new HashSet<String>(Arrays.asList("buddhist", "chinese", "coptic", "dangi", "ethiopic", "gregorian", "generic", "hebrew", "indian", "islamic", "japanese", "persian", "roc"));
+            "Dacca", "Aktyubinsk", "Turkey", "Urumqi", "Acre", "Almaty", "Anadyr", "Aqtau", "Aqtobe", "Kamchatka", "Macau", "Qyzylorda", "Samara",
+            "Casey", "Guam", "Lanka", "North_Mariana");
+
+        final Pattern calendar100 = Pattern.compile("(coptic|ethiopic-amete-alem|islamic-(rgsa|tbla|umalqura))");
+
+        final Pattern language100 = Pattern.compile("("
+            + "aa|ac[eh]|ad[ay]|aeb?|af[ah]|ain|ak[kz]|al[egnt]|an[gp]?|apa|ar[copqtwyz]|as[et]|ath|aus|avk?|awa|ay|"
+            + "ba[dilnstx]|bar|bb[cj]|be[jrw]|bf[dq]|bho?|bkm|bi[kn]?|bjn|bla|bnt|bpy|bqi|br[ah]|bss|btk|bu[amg]|bxr|by[nv]|"
+            + "ca[diruy]|cch|ce[bl]|ch[bgkmnopy]?|cmc|cop|cp[efps]|cr[hp]?|csb|cus?|"
+            + "da[kry]|de[ln]|dgr|din|doi|dra|dtp|dum|dv|dyu|dzg|"
+            + "efi|eg[ly]|eka|elx|enm|esu|ewo|ext|"
+            + "fa[nt]|ff|fi[tu]|fon|fr[cmoprs]|fur|"
+            + "ga[agny]|gb[az]|gd|ge[mz]|gil|glk|gmh|go[hmnrt]|gr[bc]|gu[cr]|gwi|"
+            + "ha[ik]|hi[flmt]|hmn|ho|hsn|hup|hz|"
+            + "ia|ib[ab]|ie|ijo|ik|ilo|in[ceh]|io|ir[ao]|izh|"
+            + "jam|jbo|jpr|jrb|jut|"
+            + "ka[acjrw]|kb[dl]|kc[bg]|ken|kfo|kgp?|kh[aiow]|kiu|kkj|kj|kmb|ko[is]|kpe|kr[cijlou]?|ksh|ku[mt]|kv|"
+            + "la[dhm]|lez|lfn|li[jv]?|lmo|lo[lz]|ltg|lu[ains]|lz[hz]|"
+            + "ma[dfgiknp]|md[efr]|men|mga|mh|mi[cns]|mkh|mn[cio]|mos|mrj|mu[lns]|mw[lrv]|my[env]|mzn|"
+            + "na[hinp]?|new|ng|ni[acu]|njo|nnh|no[gnv]?|nr|nso|nub|nv|nwc|ny[mo]?|nzi|"
+            + "o[cj]|osa?|ot[ao]|"
+            + "pa[aglmpu]|pcd|pd[ct]|peo|pfl|ph[in]|pi|pms|pnt|pon|pr[ago]|"
+            + "qug|"
+            + "ra[jpr]|rgn|rif|ro[am]|root|rtm|ru[egp]|"
+            + "sa[dhilmstz]|sba|sc[no]?|sdc|se[eilm]|sg[ans]|sh[nu]?|si[dot]|sl[aiy]|sm|snk|so[gn]|sr[nr]|ss[ay]?|stq?|su[ksx]|swb|sy[cr]|szl|"
+            + "tai|tcy|te[mrt]|ti[gv]|tk[lr]|tl[hiy]?|tmh|tn|tog|tpi|tr[uv]|ts[di]?|ttt|tu[mpt]|tvl|tw|tyv?|"
+            + "udm|uga|umb|"
+            + "ve[cp]?|vls|vmf||vot?|vro|"
+            + "wa[eklrs]?|wen|wuu|"
+            + "xal|xmf|"
+            + "ya[opv]|ybb|yi|ypk|yrl|yue|"
+            + "zap?|zbl|ze[an]|znd|zun|zza)");
+
+        final Pattern script100 = Pattern.compile("("
+            + "Afak|Aghb|Ahom|Armi|Avst|Bali|Bamu|Bass|Batk|Blis|Brah|Bugi|Buhd|Cakm|Cans|Cari|Cham|Cher|Cirt|Copt|Cprt|Cyrs|"
+            + "Dsrt|Dupl|Egy[dhp]|Elba|Geok|Glag|Goth|Gran|Hatr|Hano|Hluw|Hmng|Hrkt|Hung|Inds|Ital|Java|Jurc|"
+            + "Kali|Khar|Khoj|Kpel|Kthi|Kits|Lana|Lat[fg]|Lepc|Limb|Lin[ab]|Lisu|Loma|Ly[cd]i|Mahj|Man[di]|Maya|Mend|Mer[co]|Modi|Moon|Mroo|Mtei|Mult|"
+            + "Narb|Nbat|Nkgb|Nkoo|Nshu|Ogam|Olck|Orkh|Osma|Palm|Pauc|Perm|Phag|Phl[ipv]|Phnx|Plrd|Prti|"
+            + "Rjng|Roro|Runr|Samr|Sar[ab]|Saur|Sgnw|Shaw|Shrd|Sidd|Sind|Sora|Sund|Sylo|Syr[cejn]|"
+            + "Tagb|Takr|Tal[eu]|Tang|Tavt|Teng|Tfng|Tglg|Tirh|Ugar|Vaii|Visp|Wara|Wole|Xpeo|Xsux|Yiii|Zinh|Zmth)");
+
+        final ImmutableSet<String> scriptsNotInUnicode = ImmutableSet.of("Adlm","Aran","Kitl","Marc","Osge");
+
+        final Pattern keys100 = Pattern.compile("(col(Alternate|Backwards|CaseFirst|CaseLevel|HiraganaQuaternary|"
+            + "Normalization|Numeric|Reorder|Strength)|kv|timezone|va|variableTop|x)");
+
+        final Pattern numberingSystem100 = Pattern.compile("("
+            + "finance|native|traditional|bali|brah|cakm|cham|cyrl|hanidays|java|kali|lana(tham)?|lepc|limb|mong|mtei|mymrshan|"
+            + "nkoo|olck|osma|saur|shrd|sora|sund|takr|talu|vaii)");
+
+        final Pattern collation100 = Pattern.compile("("
+            + "big5han|compat|dictionary|emoji|eor|gb2312han|phonebook|phonetic|pinyin|reformed|searchjl|stroke|traditional|unihan|zhuyin)");
+
         SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
         CLDRFile english = testInfo.getEnglish();
         XPathParts xpp = new XPathParts();
+
+        // Calculate date of the upcoming CLDR release, minus 5 years (deprecation policy)
+        final int versionNumber = Integer.valueOf(CLDRFile.GEN_VERSION);
+        Calendar cal = Calendar.getInstance();
+        cal.set(versionNumber / 2 + versionNumber % 2 + 2001, 8 - (versionNumber % 2) * 6, 15);
+        Date cldrReleaseMinus5Years = cal.getTime();
+        Set<String> modernCurrencies = SDI.getCurrentCurrencies(SDI.getCurrencyTerritories(), cldrReleaseMinus5Years, NOW);
+
         for (String path : english.fullIterable()) {
+            logln("Testing path => " + path);
             xpp.set(path);
-            if (path.endsWith("/alias") || path.matches("//ldml/(identity|contextTransforms|layout)/.*")) {
+            if (path.endsWith("/alias") || path.matches("//ldml/(identity|contextTransforms|layout|localeDisplayNames/transformNames)/.*")) {
                 continue;
             }
             if (sdi.isDeprecated(DtdType.ldml, path)) {
                 continue;
             }
+            Level lvl = sdi.getCoverageLevel(path, "en");
+            if (lvl == Level.UNDETERMINED) {
+                errln("Undetermined coverage value for path => " + path);
+                continue;
+            }
+            if (lvl.compareTo(Level.MODERN) <= 0) {
+                logln("Level OK [" + lvl.toString() + "] for path => " + path);
+                continue;
+            }
+
             if (path.startsWith("//ldml/numbers")) {
                 // Paths in numbering systems outside "latn" are specifically excluded.
                 String numberingSystem = xpp.findFirstAttributeValue("numberSystem");
-                if (!"latn".equals(numberingSystem)) {
+                if (numberingSystem != null && !numberingSystem.equals("latn")) {
                     continue;
                 }
-                if (path.contains("/currencySpacing/")) {
+                if (xpp.containsElement("currencySpacing") ||
+                    xpp.containsElement("list")) {
+                    continue;
+                }
+                if (xpp.containsElement("currency")) {
+                    String currencyType = xpp.findAttributeValue("currency", "type");
+                    if (!modernCurrencies.contains(currencyType)) {
+                        continue; // old currency or not tender, so we don't care
+                    }
+                }
+                // Other paths in numbers without a numbering system are deprecated.
+                if (numberingSystem == null) {
                     continue;
                 }
             }
-            else if (path.startsWith("//ldml/dates/timeZoneNames/zone")) {
+            else if (xpp.containsElement("zone")) {
                 String zoneType = xpp.findAttributeValue("zone", "type");
                 if (zoneType.startsWith("Etc/GMT") && path.endsWith("exemplarCity")) {
                     continue;
@@ -507,7 +407,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 if (path.contains("/short/")) {
                     continue;
                 }
-            } else if (path.startsWith("//ldml/dates/timeZoneNames/metazone")) {
+            } else if (xpp.containsElement("metazone")) {
                 // We don't survey for short metazone names
                 if (path.contains("/short/")) {
                     continue;
@@ -523,127 +423,138 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     !LogicalGrouping.metazonesDSTSet.contains(mzName)) {
                     continue;
                 }
-            } else if (path.startsWith("//ldml/dates/fields") &&
-                "variant".equals(xpp.findAttributeValue("displayName", "alt"))) {
+            } else if (path.startsWith("//ldml/dates/fields")) {
+                if ("variant".equals(xpp.findAttributeValue("displayName", "alt"))) {
                     continue;
-            } else if (path.startsWith("//ldml/localeDisplayNames/scripts")) {
+                }
+                // relative day/week/month, etc. short or narrow
+                if (xpp.getElement(-1).equals("relative")) {
+                    String fieldType = xpp.findAttributeValue("field", "type");
+                    if (fieldType.matches(".*-(short|narrow)|quarter")) {
+                        continue;
+                    }
+                    // "now" - [JCE] not sure on this so I opened ticket #8833
+                    if (fieldType.equals("second") && xpp.findAttributeValue("relative", "type").equals("0")) {
+                        continue;
+                    }
+                }
+            } else if (xpp.containsElement("language")) {
+                // Comprehensive coverage is OK for some languages.
+                String languageType = xpp.findAttributeValue("language", "type");
+                if (language100.matcher(languageType).matches()) {
+                    continue;
+                }
+            } else if (xpp.containsElement("script")) {
                 // Skip user defined script codes and alt=short
                 String scriptType = xpp.findAttributeValue("script", "type");
                 if (scriptType.startsWith("Q") || "short".equals(xpp.findAttributeValue("script", "alt"))) {
                     continue;
                 }
-            } else if (path.startsWith("//ldml/localeDisplayNames/types") &&
-                "short".equals(xpp.findAttributeValue("type", "alt"))) {
+                if (script100.matcher(scriptType).matches()) {
                     continue;
+                }
+                // TODO: Remove this check once the validity info is fixed. Validity should not have
+                // scripts that aren't in Unicode.
+                if (scriptsNotInUnicode.contains(scriptType)) {
+                    continue;
+                }
+            } else if (xpp.containsElement("territory")) {
+                // All territories are usually modern, unless the territory code is deprecated.  The only
+                // such one right now is "AN" (Netherlands Antilles), which should go outside the 5-year
+                // deprecation window in 2016.
+                String territoryType = xpp.findAttributeValue("territory", "type");
+                if (territoryType.equals("AN")) {
+                    continue;
+                }
+            } else if (xpp.containsElement("key")) {
+                // Comprehensive coverage is OK for some key/types.
+                String keyType = xpp.findAttributeValue("key", "type");
+                if (keys100.matcher(keyType).matches()) {
+                    continue;
+                }
+            } else if (xpp.containsElement("type")) {
+                if ("short".equals(xpp.findAttributeValue("type", "alt"))) {
+                    continue;
+                }
+                // Comprehensive coverage is OK for some key/types.
+                String keyType = xpp.findAttributeValue("type", "key");
+                if (keys100.matcher(keyType).matches()) {
+                    continue;
+                }
+                if (keyType.equals("numbers")) {
+                    String ns = xpp.findAttributeValue("type", "type");
+                    if (numberingSystem100.matcher(ns).matches()) {
+                        continue;
+                    }
+                }
+                if (keyType.equals("collation")) {
+                    String ct = xpp.findAttributeValue("type", "type");
+                    if (collation100.matcher(ct).matches()) {
+                        continue;
+                    }
+                }
+                if (keyType.equals("calendar")) {
+                    String ct = xpp.findAttributeValue("type", "type");
+                    if (calendar100.matcher(ct).matches()) {
+                        continue;
+                    }
+                }
+            } else if (xpp.containsElement("variant")) {
+                // All variant names are comprehensive coverage
+                continue;
             } else if (path.startsWith("//ldml/dates/calendars")) {
                 String calType = xpp.findAttributeValue("calendar", "type");
-                // Skip paths for months in calendars that don't have unique month names.
-                if (calendarsWithoutUniqueMonthNames.contains(calType) && path.contains("/months/")) {
+                if (!calType.matches("(gregorian|generic)")) {
                     continue;
                 }
-                // Skip cyclicNameSet stuff in Chinese and Dangi calendars
-                if (path.contains("/cyclicNameSets/")) {
-                    continue;
-                }
-                // Skip paths for dateFormats and dateTimeFormats in calendars that don't have unique ones
-                if (!calendarType100ForDateFormats.contains(calType) && 
-                    (path.contains("/dateTimeFormats/") ||
-                     path.contains("/dateFormats/"))) {
-                    continue;
-                }
-
-                // Skip paths for things that aren't unique outside Gregorian calendar
-                if (calType != "gregorian" &&
-                    (path.contains("/dayPeriods/") ||
-                        path.contains("/days/") ||
-                        path.contains("/timeFormats/") ||
-                        path.contains("/quarters/") ||
-                        path.contains("appendItems"))) {
-                    continue;
-                }
-                // Skip paths for time format availableFormats outside Gregorian or generic calendar
-                if (calType != "gregorian" && calType != "generic" &&
-                    path.contains("/dateFormatItem")) {
-                    String id = xpp.findAttributeValue("dateFormatItem", "id");
-                    if (id.matches(".*[Hhm].*")) {
-                        continue;                        
+                String element = xpp.getElement(-1);
+                // Skip things that shouldn't normally exist in the generic calendar
+                // days, dayPeriods, quarters, and months
+                if (calType.equals("generic")) {
+                    if (element.matches("(day(Period)?|month|quarter|era|appendItem)")) {
+                        continue;
                     }
-                }
-                // Skip all eras for calendars that don't have their own
-                if ( calType.matches("generic|islamic-(rgsa|civil|tbla|umalqura)") &&
-                    path.contains("/eras/")) {
-                        continue;                        
-                }
-                // Skip paths for time format intervalFormats outside Gregorian or generic calendar
-                if (calType != "gregorian" && calType != "generic" &&
-                    path.contains("/intervalFormatItem")) {
-                    String id = xpp.findAttributeValue("intervalFormatItem", "id");
-                    if (id.matches(".*[Hhm].*")) {
-                        continue;                        
+                    if (xpp.containsElement("intervalFormatItem")) {
+                        String intervalFormatID = xpp.findAttributeValue("intervalFormatItem", "id");
+                        // "Time" related, so shouldn't be in generic calendar.
+                        if (intervalFormatID.matches("(h|H).*")) {
+                            continue;
+                        }
                     }
-                }
-            }
-            Level lvl = sdi.getCoverageLevel(path, "en");
-            if (lvl == Level.UNDETERMINED) {
-                errln("Missing coverage value for path => " + path);
-            }
-        }
-    }
-
-    /**
-     * Check that English paths are, except for known cases, at least modern coverage.
-     * We filter out:
-     * <pre>
-     *  * deprecated languages/scripts/territories
-     *  * old currencies
-     *  * anything from CODE_FALLBACK_ID
-     *  * anything with a lateral inheritance (path changes)
-     * </pre>
-     */
-    @SuppressWarnings("unchecked")
-    public void TestEnglish() {
-        if (logKnownIssue("cldrbug:8397", "English Paths without modern coverage")) {
-            return;
-        }
-        Status status = new Status();
-        String localeDisplayNames = "//ldml/localeDisplayNames/";
-        Map<String, Map<String, R2<List<String>, String>>> aliasInfo = SDI.getLocaleAliasInfo();
-        
-        Date nowMinus5 = new Date(NOW.getYear()-1,NOW.getMonth(), NOW.getDate());
-        Set<String> modernCurrencies = SDI.getCurrentCurrencies(SDI.getCurrencyTerritories(), nowMinus5, NOW);
-
-        for (String path : ENGLISH.fullIterable()) {
-            if (path.startsWith(localeDisplayNames)) {
-                XPathParts parts = XPathParts.getFrozenInstance(path);
-                String element = parts.getElement(-1);
-                if (element.equals("currency")) {
-                    String type = parts.getAttributeValue(-1, "type");
-                    if (!modernCurrencies.contains(type)) {
-                        continue; // old currency or not tender, so we don't care
+                    if (xpp.containsElement("dateFormatItem")) {
+                        String dateFormatID = xpp.findAttributeValue("dateFormatItem", "id");
+                        // "Time" related, so shouldn't be in generic calendar.
+                        if (dateFormatID.matches("E?(h|H|m).*")) {
+                            continue;
+                        }
                     }
-                } else {
-                    Map<String, R2<List<String>, String>> typeToInfo = aliasInfo.get(element);
-                    if (typeToInfo != null) {
-                        String type = parts.getAttributeValue(-1, "type");
-                        R2<List<String>, String> info = typeToInfo.get(type);
-                        if (info != null) {
-                            // deprecated element, so we don't care
+                    if (xpp.containsElement("timeFormat")) {
+                        continue;
+                    }
+                } else { // Gregorian calendar
+                    if (xpp.containsElement("eraNarrow")) {
+                        continue;
+                    }
+                    if (element.equals("appendItem")) {
+                        String request = xpp.findAttributeValue("appendItem", "request");
+                        if (!request.equals("Timezone")) {
+                            continue;
+                        }
+                    }
+                    if (element.equals("dayPeriod")) {
+                        if ("variant".equals(xpp.findAttributeValue("dayPeriod", "alt"))) {
                             continue;
                         }
                     }
                 }
+            } else if (path.startsWith("//ldml/units")) {
+                // Skip paths for narrow unit fields.
+                if ("narrow".equals(xpp.findAttributeValue("unitLength", "type"))) {
+                    continue;
+                }
             }
-//            if (!path.contains("@alt")) {
-//                continue;
-//            }
-            String locale = ENGLISH.getSourceLocaleID(path, status);
-            if (locale.equals(XMLSource.CODE_FALLBACK_ID) // don't worry about Code Fallback
-                || !path.equals(status.pathWhereFound)) { // don't worry about lateral inheritance
-                continue;
-            }
-            Level level = SDI.getCoverageLevel(path, "en");
-            String value = ENGLISH.getStringValue(path);
-            assertRelation(locale + ":" + path + "=" + value, true, Level.MODERN, GEQ, level);
+
+            errln("Comprehensive & no exception for path => " + path);
         }
     }
 }

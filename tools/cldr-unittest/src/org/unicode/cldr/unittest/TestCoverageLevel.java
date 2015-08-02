@@ -335,8 +335,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
             + "Rjng|Roro|Runr|Samr|Sar[ab]|Saur|Sgnw|Shaw|Shrd|Sidd|Sind|Sora|Sund|Sylo|Syr[cejn]|"
             + "Tagb|Takr|Tal[eu]|Tang|Tavt|Teng|Tfng|Tglg|Tirh|Ugar|Vaii|Visp|Wara|Wole|Xpeo|Xsux|Yiii|Zinh|Zmth)");
 
-        final ImmutableSet<String> scriptsNotInUnicode = ImmutableSet.of("Adlm","Aran","Kitl","Marc","Osge");
-
         final Pattern keys100 = Pattern.compile("(col(Alternate|Backwards|CaseFirst|CaseLevel|HiraganaQuaternary|"
             + "Normalization|Numeric|Reorder|Strength)|kv|timezone|va|variableTop|x)");
 
@@ -451,11 +449,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     continue;
                 }
                 if (script100.matcher(scriptType).matches()) {
-                    continue;
-                }
-                // TODO: Remove this check once the validity info is fixed. Validity should not have
-                // scripts that aren't in Unicode.
-                if (scriptsNotInUnicode.contains(scriptType)) {
                     continue;
                 }
             } else if (xpp.containsElement("territory")) {

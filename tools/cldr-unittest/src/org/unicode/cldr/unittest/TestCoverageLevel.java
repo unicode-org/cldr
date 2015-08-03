@@ -339,8 +339,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
             + "Normalization|Numeric|Reorder|Strength)|kv|timezone|va|variableTop|x)");
 
         final Pattern numberingSystem100 = Pattern.compile("("
-            + "finance|native|traditional|bali|brah|cakm|cham|cyrl|hanidays|java|kali|lana(tham)?|lepc|limb|mong|mtei|mymrshan|"
-            + "nkoo|olck|osma|saur|shrd|sora|sund|takr|talu|vaii)");
+            + "finance|native|traditional|bali|brah|cakm|cham|cyrl|hanidays|java|kali|lana(tham)?|lepc|limb|"
+            + "math(bold|dbl|mono|san[bs])|mong|mtei|mymrshan|nkoo|olck|osma|saur|shrd|sora|sund|takr|talu|vaii)");
 
         final Pattern collation100 = Pattern.compile("("
             + "big5han|compat|dictionary|emoji|eor|gb2312han|phonebook|phonetic|pinyin|reformed|searchjl|stroke|traditional|unihan|zhuyin)");

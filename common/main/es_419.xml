@@ -488,15 +488,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="provisional">{0} volt</unitPattern>
 				<unitPattern count="other" draft="provisional">{0} voltios</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName draft="provisional">joules</displayName>
-				<unitPattern count="one" draft="provisional">{0} joule</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} joules</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName draft="provisional">kilojoules</displayName>
 				<unitPattern count="one" draft="provisional">{0} kilojule</unitPattern>
 				<unitPattern count="other" draft="provisional">{0} kilojules</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName draft="provisional">joules</displayName>
+				<unitPattern count="one" draft="provisional">{0} joule</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} joules</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName draft="provisional">kilovatios hora</displayName>
@@ -514,10 +514,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="short">
-			<unit type="duration-day">
-				<displayName>dd.</displayName>
-				<unitPattern count="one">{0} d.</unitPattern>
-				<unitPattern count="other">{0} dd.</unitPattern>
+			<unit type="duration-year">
+				<displayName>aa.</displayName>
+				<unitPattern count="one">{0} a.</unitPattern>
+				<unitPattern count="other">{0} aa.</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>mm.</displayName>
@@ -529,13 +529,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} sem.</unitPattern>
 				<unitPattern count="other">{0} sems.</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>aa.</displayName>
-				<unitPattern count="one">{0} a.</unitPattern>
-				<unitPattern count="other">{0} aa.</unitPattern>
+			<unit type="duration-day">
+				<displayName>dd.</displayName>
+				<unitPattern count="one">{0} d.</unitPattern>
+				<unitPattern count="other">{0} dd.</unitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<displayName draft="contributed">volts</displayName>
+			</unit>
+			<unit type="length-yard">
+				<displayName>yardas</displayName>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>parsecs</displayName>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>aa. l.</displayName>
@@ -546,12 +552,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>nmi</displayName>
 				<unitPattern count="one">{0} nmi</unitPattern>
 				<unitPattern count="other">{0} nmi</unitPattern>
-			</unit>
-			<unit type="length-parsec">
-				<displayName>parsecs</displayName>
-			</unit>
-			<unit type="length-yard">
-				<displayName>yardas</displayName>
 			</unit>
 			<unit type="power-watt">
 				<displayName draft="contributed">watts</displayName>
@@ -571,10 +571,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
-			<unit type="duration-day">
-				<displayName>d.</displayName>
-				<unitPattern count="one" draft="contributed">{0}d.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}dd.</unitPattern>
+			<unit type="duration-year">
+				<displayName>a.</displayName>
+				<unitPattern count="one" draft="contributed">{0}a.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}aa.</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>m.</displayName>
@@ -586,10 +586,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0}sem.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}sems.</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>a.</displayName>
-				<unitPattern count="one" draft="contributed">{0}a.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}aa.</unitPattern>
+			<unit type="duration-day">
+				<displayName>d.</displayName>
+				<unitPattern count="one" draft="contributed">{0}d.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}dd.</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

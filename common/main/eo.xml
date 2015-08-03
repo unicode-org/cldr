@@ -1495,20 +1495,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
-			<unit type="area-acre">
-				<displayName draft="unconfirmed">akreoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} akreo</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} akreoj</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName draft="unconfirmed">kvadrataj kilometroj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} kvadrata kilometro</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} kvadrataj kilometroj</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName draft="unconfirmed">hektaroj</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} hektaro</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} hektaroj</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName draft="unconfirmed">kvadrataj metroj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} kvadrata metro</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} kvadrataj metroj</unitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName draft="unconfirmed">kvadrataj centimetroj</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} kvadrata centimetro</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kvadrataj centimetroj</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName draft="unconfirmed">kvadrataj mejloj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} kvadrata mejlo</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} kvadrataj mejloj</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName draft="unconfirmed">akreoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} akreo</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} akreoj</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName draft="unconfirmed">kvadrataj jardoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} kvadrata jardo</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} kvadrataj jardoj</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName draft="unconfirmed">kvadrataj futoj</displayName>
@@ -1520,75 +1540,70 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0} kvadrata colo</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kvadrataj coloj</unitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName draft="unconfirmed">kvadrataj kilometroj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} kvadrata kilometro</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} kvadrataj kilometroj</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName draft="unconfirmed">kvadrataj metroj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} kvadrata metro</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} kvadrataj metroj</unitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName draft="unconfirmed">kvadrataj mejloj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} kvadrata mejlo</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} kvadrataj mejloj</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName draft="unconfirmed">kvadrataj jardoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} kvadrata jardo</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} kvadrataj jardoj</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName draft="unconfirmed">bitoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} bito</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} bitoj</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName draft="unconfirmed">bajtoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} bajto</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} bajtoj</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName draft="unconfirmed">gigabitoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} gigabito</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} gigabitoj</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName draft="unconfirmed">gigabajtoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} gigabajto</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} gigabajtoj</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName draft="unconfirmed">kilobitoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} kilobito</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} kilobitoj</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName draft="unconfirmed">kilobajtoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} kilobajto</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} kilobajtoj</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName draft="unconfirmed">megabitoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} megabito</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} megabitoj</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName draft="unconfirmed">megabajtoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} megabajto</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} megabajtoj</unitPattern>
+			<unit type="digital-terabyte">
+				<displayName draft="unconfirmed">terabajtoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} terabajto</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} terabajtoj</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
 				<displayName draft="unconfirmed">terabitoj</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} terabito</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} terabitoj</unitPattern>
 			</unit>
-			<unit type="digital-terabyte">
-				<displayName draft="unconfirmed">terabajtoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} terabajto</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} terabajtoj</unitPattern>
+			<unit type="digital-gigabyte">
+				<displayName draft="unconfirmed">gigabajtoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} gigabajto</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} gigabajtoj</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName draft="unconfirmed">gigabitoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} gigabito</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} gigabitoj</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName draft="unconfirmed">megabajtoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} megabajto</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} megabajtoj</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName draft="unconfirmed">megabitoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} megabito</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} megabitoj</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName draft="unconfirmed">kilobajtoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} kilobajto</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} kilobajtoj</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName draft="unconfirmed">kilobitoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} kilobito</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} kilobitoj</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName draft="unconfirmed">bajtoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} bajto</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} bajtoj</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName draft="unconfirmed">bitoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} bito</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} bitoj</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="unconfirmed">jaroj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} jaro</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} jaroj</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="unconfirmed">monatoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} monato</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} monatoj</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="unconfirmed">semajnoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} semajno</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} semajnoj</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName draft="unconfirmed">tagoj</displayName>
@@ -1601,20 +1616,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="unconfirmed">{0} horoj</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} por horo</perUnitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName draft="unconfirmed">milisekundoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} milisekundo</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} milisekundoj</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName draft="unconfirmed">minutoj</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} minuto</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} minutoj</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="unconfirmed">monatoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} monato</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} monatoj</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="unconfirmed">sekundoj</displayName>
@@ -1622,115 +1627,110 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="unconfirmed">{0} sekundoj</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} por sekundo</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="unconfirmed">semajnoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} semajno</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} semajnoj</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="unconfirmed">jaroj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} jaro</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} jaroj</unitPattern>
-			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName draft="unconfirmed">astronomiaj unuoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} astronomia unuo</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} astronomiaj unuoj</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="unconfirmed">centimetroj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} centimetro</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} centimetroj</unitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName draft="unconfirmed">decimetroj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} decimetro</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} decimetroj</unitPattern>
-			</unit>
-			<unit type="length-fathom">
-				<displayName draft="unconfirmed">klaftoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} klafto</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} klaftoj</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName draft="unconfirmed">futoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} futo</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} futoj</unitPattern>
-			</unit>
-			<unit type="length-furlong">
-				<displayName draft="unconfirmed">stadioj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} stadio</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} stadioj</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName draft="unconfirmed">coloj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} colo</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} coloj</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName draft="unconfirmed">milisekundoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} milisekundo</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} milisekundoj</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="unconfirmed">kilometroj</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} kilometro</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kilometroj</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName draft="unconfirmed">lumjaroj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} lumjaro</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} lumjaroj</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName draft="unconfirmed">metroj</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} metro</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} metroj</unitPattern>
 			</unit>
-			<unit type="length-micrometer">
-				<displayName draft="unconfirmed">mikrometroj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} mikrometro</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} mikrometroj</unitPattern>
+			<unit type="length-decimeter">
+				<displayName draft="unconfirmed">decimetroj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} decimetro</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} decimetroj</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName draft="unconfirmed">mejloj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} mejlo</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} mejloj</unitPattern>
+			<unit type="length-centimeter">
+				<displayName draft="unconfirmed">centimetroj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} centimetro</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} centimetroj</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="unconfirmed">milimetroj</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} milimetro</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} milimetroj</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName draft="unconfirmed">mikrometroj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} mikrometro</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} mikrometroj</unitPattern>
+			</unit>
 			<unit type="length-nanometer">
 				<displayName draft="unconfirmed">nanometroj</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} nanometro</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} nanometroj</unitPattern>
-			</unit>
-			<unit type="length-nautical-mile">
-				<displayName draft="unconfirmed">marmejloj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} marmejlo</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} marmejloj</unitPattern>
-			</unit>
-			<unit type="length-parsec">
-				<displayName draft="unconfirmed">parsekoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} parseko</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} parsekoj</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName draft="unconfirmed">pikometroj</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} pikometro</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} pikometroj</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<displayName draft="unconfirmed">mejloj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} mejlo</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} mejloj</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<displayName draft="unconfirmed">jardoj</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} jardo</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} jardoj</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName draft="unconfirmed">gramoj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} gramo</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} gramoj</unitPattern>
+			<unit type="length-foot">
+				<displayName draft="unconfirmed">futoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} futo</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} futoj</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName draft="unconfirmed">coloj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} colo</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} coloj</unitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName draft="unconfirmed">parsekoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} parseko</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} parsekoj</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName draft="unconfirmed">lumjaroj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} lumjaro</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} lumjaroj</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName draft="unconfirmed">astronomiaj unuoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} astronomia unuo</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} astronomiaj unuoj</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName draft="unconfirmed">stadioj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} stadio</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} stadioj</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName draft="unconfirmed">klaftoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} klafto</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} klaftoj</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName draft="unconfirmed">marmejloj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} marmejlo</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} marmejloj</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="unconfirmed">kilogramoj</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} kilogramo</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kilogramoj</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName draft="unconfirmed">gramoj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} gramo</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} gramoj</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="unconfirmed">kilometroj en horo</displayName>
@@ -1749,25 +1749,38 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="area-square-kilometer">
+				<displayName draft="unconfirmed">km²</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} km²</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} km²</unitPattern>
+			</unit>
 			<unit type="area-hectare">
 				<displayName draft="unconfirmed">ha</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} ha</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} ha</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<displayName draft="unconfirmed">m²</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} m²</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} m²</unitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
 				<displayName draft="unconfirmed">cm²</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} cm²</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} cm²</unitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName draft="unconfirmed">km²</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} km²</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} km²</unitPattern>
+			<unit type="duration-year">
+				<displayName draft="unconfirmed">jaro</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} j.</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} j.</unitPattern>
 			</unit>
-			<unit type="area-square-meter">
-				<displayName draft="unconfirmed">m²</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} m²</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} m²</unitPattern>
+			<unit type="duration-month">
+				<displayName draft="unconfirmed">monato</displayName>
+				<unitPattern count="one">{0} mon.</unitPattern>
+				<unitPattern count="other">{0} mon.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="unconfirmed">semajno</displayName>
 			</unit>
 			<unit type="duration-day">
 				<displayName draft="unconfirmed">tago</displayName>
@@ -1780,20 +1793,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="unconfirmed">{0} h.</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/h.</perUnitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName draft="unconfirmed">milisekundo</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ms.</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ms.</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName draft="unconfirmed">minuto</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} m.</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} m.</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="unconfirmed">monato</displayName>
-				<unitPattern count="one">{0} mon.</unitPattern>
-				<unitPattern count="other">{0} mon.</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="unconfirmed">sekundo</displayName>
@@ -1801,78 +1804,75 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="unconfirmed">{0} s.</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/s.</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="unconfirmed">semajno</displayName>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="unconfirmed">jaro</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} j.</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} j.</unitPattern>
-			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName draft="unconfirmed">au</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} au</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} au</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="unconfirmed">cm</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} cm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} cm</unitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName draft="unconfirmed">dm</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} dm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} dm</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName draft="unconfirmed">milisekundo</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} ms.</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} ms.</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="unconfirmed">km</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} km</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} km</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName draft="unconfirmed">lj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} lj</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} lj</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName draft="unconfirmed">m</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} m</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} m</unitPattern>
 			</unit>
-			<unit type="length-micrometer">
-				<displayName draft="unconfirmed">µm</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} µm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} µm</unitPattern>
+			<unit type="length-decimeter">
+				<displayName draft="unconfirmed">dm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} dm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} dm</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<displayName draft="unconfirmed">cm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} cm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} cm</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="unconfirmed">mm</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} mm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} mm</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName draft="unconfirmed">µm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} µm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} µm</unitPattern>
+			</unit>
 			<unit type="length-nanometer">
 				<displayName draft="unconfirmed">nm</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} nm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} nm</unitPattern>
-			</unit>
-			<unit type="length-parsec">
-				<displayName draft="unconfirmed">pc</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} pc</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} pc</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName draft="unconfirmed">pm</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} pm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} pm</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName draft="unconfirmed">g</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} g</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} g</unitPattern>
+			<unit type="length-parsec">
+				<displayName draft="unconfirmed">pc</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} pc</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} pc</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName draft="unconfirmed">lj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} lj</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} lj</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName draft="unconfirmed">au</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} au</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} au</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="unconfirmed">kg</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} kg</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kg</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName draft="unconfirmed">g</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} g</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} g</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="unconfirmed">km/h</displayName>
@@ -1895,25 +1895,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0}°</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
 			</unit>
+			<unit type="area-square-kilometer">
+				<displayName draft="unconfirmed">km²</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}km²</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}km²</unitPattern>
+			</unit>
 			<unit type="area-hectare">
 				<displayName draft="unconfirmed">ha</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}ha</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}ha</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<displayName draft="unconfirmed">m²</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}m²</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}m²</unitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
 				<displayName draft="unconfirmed">cm²</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}cm²</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}cm²</unitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName draft="unconfirmed">km²</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}km²</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}km²</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName draft="unconfirmed">m²</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}m²</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}m²</unitPattern>
+			<unit type="duration-year">
+				<displayName draft="unconfirmed">j.</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}j.</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}j.</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName draft="unconfirmed">t.</displayName>
@@ -1926,11 +1931,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="unconfirmed">{0}h.</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/h.</perUnitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName draft="unconfirmed">ms.</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}ms.</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}ms.</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName draft="unconfirmed">m.</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}m.</unitPattern>
@@ -1942,75 +1942,75 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="unconfirmed">{0}s.</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/s.</perUnitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName draft="unconfirmed">j.</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}j.</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}j.</unitPattern>
-			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName draft="unconfirmed">au</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}au</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}au</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="unconfirmed">cm</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}cm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}cm</unitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName draft="unconfirmed">dm</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}dm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}dm</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName draft="unconfirmed">ms.</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}ms.</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}ms.</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="unconfirmed">km</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}km</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}km</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName draft="unconfirmed">lj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}lj</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}lj</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName draft="unconfirmed">m</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}m</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}m</unitPattern>
 			</unit>
-			<unit type="length-micrometer">
-				<displayName draft="unconfirmed">µm</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}µm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}µm</unitPattern>
+			<unit type="length-decimeter">
+				<displayName draft="unconfirmed">dm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}dm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}dm</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<displayName draft="unconfirmed">cm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}cm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}cm</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="unconfirmed">mm</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}mm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}mm</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName draft="unconfirmed">µm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}µm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}µm</unitPattern>
+			</unit>
 			<unit type="length-nanometer">
 				<displayName draft="unconfirmed">nm</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}nm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}nm</unitPattern>
-			</unit>
-			<unit type="length-parsec">
-				<displayName draft="unconfirmed">pc</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}pc</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}pc</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName draft="unconfirmed">pm</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}pm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}pm</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName draft="unconfirmed">g</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}g</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}g</unitPattern>
+			<unit type="length-parsec">
+				<displayName draft="unconfirmed">pc</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}pc</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}pc</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName draft="unconfirmed">lj</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}lj</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}lj</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName draft="unconfirmed">au</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}au</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}au</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="unconfirmed">kg</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}kg</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}kg</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName draft="unconfirmed">g</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}g</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}g</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="unconfirmed">km/h</displayName>

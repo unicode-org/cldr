@@ -4113,6 +4113,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<displayName draft="provisional">ؤری</displayName>
+				<unitPattern count="one">{0} ؤری</unitPattern>
+				<unitPattern count="other">{0} ؤری</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">ریٚتھ</displayName>
+				<unitPattern count="one">{0} ریٚتھ</unitPattern>
+				<unitPattern count="other">{0} ریٚتھ</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">ہَفتہٕ</displayName>
+				<unitPattern count="one">{0} ہَفتہٕ</unitPattern>
+				<unitPattern count="other">{0} ہَفتہٕ</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">دۄہ</displayName>
 				<unitPattern count="one">{0} دۄہ</unitPattern>
@@ -4128,28 +4143,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} مِنَٹ</unitPattern>
 				<unitPattern count="other">{0} مِنَٹ</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">ریٚتھ</displayName>
-				<unitPattern count="one">{0} ریٚتھ</unitPattern>
-				<unitPattern count="other">{0} ریٚتھ</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">سیٚکَنٛڈ</displayName>
 				<unitPattern count="one">{0} سیٚکَنٛڈ</unitPattern>
 				<unitPattern count="other">{0} سیٚکَنٛڈ</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="provisional">ہَفتہٕ</displayName>
-				<unitPattern count="one">{0} ہَفتہٕ</unitPattern>
-				<unitPattern count="other">{0} ہَفتہٕ</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">ؤری</displayName>
-				<unitPattern count="one">{0} ؤری</unitPattern>
-				<unitPattern count="other">{0} ؤری</unitPattern>
-			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="duration-year">
+				<displayName draft="provisional">ؤری</displayName>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">ریٚتھ</displayName>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">ہَفتہٕ</displayName>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">دۄہ</displayName>
 			</unit>
@@ -4159,17 +4168,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<displayName draft="provisional">مِنَٹ</displayName>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">ریٚتھ</displayName>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">سیٚکَنٛڈ</displayName>
-			</unit>
-			<unit type="duration-week">
-				<displayName draft="provisional">ہَفتہٕ</displayName>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">ؤری</displayName>
 			</unit>
 		</unitLength>
 	</units>

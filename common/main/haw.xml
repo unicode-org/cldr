@@ -298,6 +298,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<displayName draft="provisional">makahiki</displayName>
+				<unitPattern count="one">{0} makahiki</unitPattern>
+				<unitPattern count="other">{0} makahiki</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">mahina</displayName>
+				<unitPattern count="one">{0} mahina</unitPattern>
+				<unitPattern count="other">{0} mahina</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">pule</displayName>
+				<unitPattern count="one">{0} pule</unitPattern>
+				<unitPattern count="other">{0} pule</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">lā</displayName>
 				<unitPattern count="one">{0} lā</unitPattern>
@@ -313,28 +328,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} minuke</unitPattern>
 				<unitPattern count="other">{0} minuke</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">mahina</displayName>
-				<unitPattern count="one">{0} mahina</unitPattern>
-				<unitPattern count="other">{0} mahina</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">kekona</displayName>
 				<unitPattern count="one">{0} kekona</unitPattern>
 				<unitPattern count="other">{0} kekona</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="provisional">pule</displayName>
-				<unitPattern count="one">{0} pule</unitPattern>
-				<unitPattern count="other">{0} pule</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">makahiki</displayName>
-				<unitPattern count="one">{0} makahiki</unitPattern>
-				<unitPattern count="other">{0} makahiki</unitPattern>
-			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="duration-year">
+				<displayName draft="provisional">makahiki</displayName>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">mahina</displayName>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">pule</displayName>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">lā</displayName>
 			</unit>
@@ -344,17 +353,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<displayName draft="provisional">minuke</displayName>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">mahina</displayName>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">kekona</displayName>
-			</unit>
-			<unit type="duration-week">
-				<displayName draft="provisional">pule</displayName>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">makahiki</displayName>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">

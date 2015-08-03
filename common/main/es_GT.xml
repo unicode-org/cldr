@@ -210,14 +210,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
-			<unit type="duration-day">
-				<perUnitPattern draft="contributed">{0} al día</perUnitPattern>
+			<unit type="duration-year">
+				<perUnitPattern draft="contributed">{0} al año</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<perUnitPattern draft="contributed">{0} al mes</perUnitPattern>
 			</unit>
-			<unit type="duration-year">
-				<perUnitPattern draft="contributed">{0} al año</perUnitPattern>
+			<unit type="duration-day">
+				<perUnitPattern draft="contributed">{0} al día</perUnitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName draft="contributed">amperios</displayName>
@@ -237,15 +237,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} voltio</unitPattern>
 				<unitPattern count="other">{0} voltios</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName draft="contributed">julios</displayName>
-				<unitPattern count="one" draft="contributed">{0} julio</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} julios</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName draft="contributed">kilojulios</displayName>
 				<unitPattern count="one" draft="contributed">{0} kilojulio</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilojulios</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName draft="contributed">julios</displayName>
+				<unitPattern count="one" draft="contributed">{0} julio</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} julios</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
 				<displayName draft="contributed">milla escandinava</displayName>

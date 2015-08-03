@@ -7581,6 +7581,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>米/秒²</displayName>
 				<unitPattern count="other">{0}米/秒²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName draft="contributed">转</displayName>
+				<unitPattern count="other" draft="contributed">{0}转</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>弧度</displayName>
+				<unitPattern count="other">{0}弧度</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>度</displayName>
+				<unitPattern count="other">{0}度</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>弧分</displayName>
 				<unitPattern count="other">{0}弧分</unitPattern>
@@ -7589,30 +7601,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>弧秒</displayName>
 				<unitPattern count="other">{0}弧秒</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>度</displayName>
-				<unitPattern count="other">{0}度</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>弧度</displayName>
-				<unitPattern count="other">{0}弧度</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName draft="contributed">转</displayName>
-				<unitPattern count="other" draft="contributed">{0}转</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>英亩</displayName>
-				<unitPattern count="other">{0}英亩</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>平方公里</displayName>
+				<unitPattern count="other">{0}平方公里</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>公顷</displayName>
 				<unitPattern count="other">{0}公顷</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>平方米</displayName>
+				<unitPattern count="other">{0}平方米</unitPattern>
+				<perUnitPattern draft="contributed">每平方米{0}</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>平方厘米</displayName>
 				<unitPattern count="other">{0}平方厘米</unitPattern>
 				<perUnitPattern draft="contributed">每平方厘米{0}</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>平方英里</displayName>
+				<unitPattern count="other">{0}平方英里</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>英亩</displayName>
+				<unitPattern count="other">{0}英亩</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>平方码</displayName>
+				<unitPattern count="other">{0}平方码</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>平方英尺</displayName>
@@ -7623,78 +7640,76 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}平方英寸</unitPattern>
 				<perUnitPattern draft="contributed">每平方英寸{0}</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>平方公里</displayName>
-				<unitPattern count="other">{0}平方公里</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>平方米</displayName>
-				<unitPattern count="other">{0}平方米</unitPattern>
-				<perUnitPattern draft="contributed">每平方米{0}</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>平方英里</displayName>
-				<unitPattern count="other">{0}平方英里</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>平方码</displayName>
-				<unitPattern count="other">{0}平方码</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>升每公里</displayName>
+				<unitPattern count="other">{0}升每公里</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName draft="contributed">升/100千米</displayName>
 				<unitPattern count="other" draft="contributed">{0}升/100千米</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>升每公里</displayName>
-				<unitPattern count="other">{0}升每公里</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>英里每加仑</displayName>
 				<unitPattern count="other">{0}英里每加仑</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>比特</displayName>
-				<unitPattern count="other">{0}比特</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>字节</displayName>
-				<unitPattern count="other">{0}字节</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>吉比特</displayName>
-				<unitPattern count="other">{0}吉比特</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>吉字节</displayName>
-				<unitPattern count="other">{0}吉字节</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>千比特</displayName>
-				<unitPattern count="other">{0}千比特</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>千字节</displayName>
-				<unitPattern count="other">{0}千字节</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>兆比特</displayName>
-				<unitPattern count="other">{0}兆比特</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>兆字节</displayName>
-				<unitPattern count="other">{0}兆字节</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>太比特</displayName>
-				<unitPattern count="other">{0}太比特</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>太字节</displayName>
 				<unitPattern count="other">{0}太字节</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>太比特</displayName>
+				<unitPattern count="other">{0}太比特</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>吉字节</displayName>
+				<unitPattern count="other">{0}吉字节</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>吉比特</displayName>
+				<unitPattern count="other">{0}吉比特</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>兆字节</displayName>
+				<unitPattern count="other">{0}兆字节</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>兆比特</displayName>
+				<unitPattern count="other">{0}兆比特</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>千字节</displayName>
+				<unitPattern count="other">{0}千字节</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>千比特</displayName>
+				<unitPattern count="other">{0}千比特</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>字节</displayName>
+				<unitPattern count="other">{0}字节</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>比特</displayName>
+				<unitPattern count="other">{0}比特</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName draft="contributed">世纪</displayName>
 				<unitPattern count="other" draft="contributed">{0}世纪</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>年</displayName>
+				<unitPattern count="other">{0}年</unitPattern>
+				<perUnitPattern draft="contributed">每年{0}</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>个月</displayName>
+				<unitPattern count="other">{0}个月</unitPattern>
+				<perUnitPattern draft="contributed">每月{0}</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>周</displayName>
+				<unitPattern count="other">{0}周</unitPattern>
+				<perUnitPattern draft="contributed">每周{0}</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>天</displayName>
@@ -7706,42 +7721,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}小时</unitPattern>
 				<perUnitPattern>{0}/小时</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>微秒</displayName>
-				<unitPattern count="other">{0}微秒</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>毫秒</displayName>
-				<unitPattern count="other">{0}毫秒</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>分钟</displayName>
 				<unitPattern count="other">{0}分钟</unitPattern>
 				<perUnitPattern draft="contributed">每分钟{0}</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>个月</displayName>
-				<unitPattern count="other">{0}个月</unitPattern>
-				<perUnitPattern draft="contributed">每月{0}</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>纳秒</displayName>
-				<unitPattern count="other">{0}纳秒</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>秒钟</displayName>
 				<unitPattern count="other">{0}秒钟</unitPattern>
 				<perUnitPattern>{0}/秒</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>周</displayName>
-				<unitPattern count="other">{0}周</unitPattern>
-				<perUnitPattern draft="contributed">每周{0}</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>毫秒</displayName>
+				<unitPattern count="other">{0}毫秒</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>年</displayName>
-				<unitPattern count="other">{0}年</unitPattern>
-				<perUnitPattern draft="contributed">每年{0}</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>微秒</displayName>
+				<unitPattern count="other">{0}微秒</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>纳秒</displayName>
+				<unitPattern count="other">{0}纳秒</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>安培</displayName>
@@ -7759,6 +7759,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>伏特</displayName>
 				<unitPattern count="other">{0}伏特</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>千卡</displayName>
+				<unitPattern count="other">{0}千卡</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>卡路里</displayName>
 				<unitPattern count="other">{0}卡路里</unitPattern>
@@ -7767,17 +7771,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>卡路里</displayName>
 				<unitPattern count="other">{0}卡路里</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>焦耳</displayName>
-				<unitPattern count="other">{0}焦耳</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>千卡</displayName>
-				<unitPattern count="other">{0}千卡</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>千焦</displayName>
 				<unitPattern count="other">{0}千焦</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>焦耳</displayName>
+				<unitPattern count="other">{0}焦耳</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>千瓦时</displayName>
@@ -7787,30 +7787,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>吉赫</displayName>
 				<unitPattern count="other">{0}吉赫</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>赫兹</displayName>
-				<unitPattern count="other">{0}赫兹</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>兆赫</displayName>
+				<unitPattern count="other">{0}兆赫</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>千赫</displayName>
 				<unitPattern count="other">{0}千赫</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>兆赫</displayName>
-				<unitPattern count="other">{0}兆赫</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>赫兹</displayName>
+				<unitPattern count="other">{0}赫兹</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName draft="contributed">天文单位</displayName>
-				<unitPattern count="other" draft="contributed">{0}天文单位</unitPattern>
+			<unit type="length-kilometer">
+				<displayName draft="contributed">公里</displayName>
+				<unitPattern count="other">{0}公里</unitPattern>
+				<perUnitPattern draft="contributed">每公里{0}</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName draft="contributed">米</displayName>
+				<unitPattern count="other">{0}米</unitPattern>
+				<perUnitPattern draft="contributed">每米{0}</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName draft="contributed">分米</displayName>
+				<unitPattern count="other" draft="contributed">{0}分米</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName draft="contributed">厘米</displayName>
 				<unitPattern count="other">{0}厘米</unitPattern>
 				<perUnitPattern draft="contributed">每厘米{0}</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName draft="contributed">分米</displayName>
-				<unitPattern count="other" draft="contributed">{0}分米</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>毫米</displayName>
+				<unitPattern count="other">{0}毫米</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName draft="contributed">微米</displayName>
+				<unitPattern count="other" draft="contributed">{0}微米</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>纳米</displayName>
+				<unitPattern count="other">{0}纳米</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>皮米</displayName>
+				<unitPattern count="other">{0}皮米</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName draft="contributed">英里</displayName>
+				<unitPattern count="other">{0}英里</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>码</displayName>
+				<unitPattern count="other">{0}码</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName draft="contributed">英尺</displayName>
@@ -7822,85 +7852,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}英寸</unitPattern>
 				<perUnitPattern draft="contributed">每英寸{0}</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName draft="contributed">公里</displayName>
-				<unitPattern count="other">{0}公里</unitPattern>
-				<perUnitPattern draft="contributed">每公里{0}</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>秒差距</displayName>
+				<unitPattern count="other">{0}秒差距</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName draft="contributed">光年</displayName>
 				<unitPattern count="other">{0}光年</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName draft="contributed">米</displayName>
-				<unitPattern count="other">{0}米</unitPattern>
-				<perUnitPattern draft="contributed">每米{0}</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName draft="contributed">微米</displayName>
-				<unitPattern count="other" draft="contributed">{0}微米</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName draft="contributed">英里</displayName>
-				<unitPattern count="other">{0}英里</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName draft="contributed">斯堪的纳维亚英里</displayName>
-				<unitPattern count="other" draft="contributed">{0}斯堪的纳维亚英里</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>毫米</displayName>
-				<unitPattern count="other">{0}毫米</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>纳米</displayName>
-				<unitPattern count="other">{0}纳米</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName draft="contributed">天文单位</displayName>
+				<unitPattern count="other" draft="contributed">{0}天文单位</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>海里</displayName>
 				<unitPattern count="other">{0}海里</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>秒差距</displayName>
-				<unitPattern count="other">{0}秒差距</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>皮米</displayName>
-				<unitPattern count="other">{0}皮米</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>码</displayName>
-				<unitPattern count="other">{0}码</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName draft="contributed">斯堪的纳维亚英里</displayName>
+				<unitPattern count="other" draft="contributed">{0}斯堪的纳维亚英里</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>勒克斯</displayName>
 				<unitPattern count="other">{0}勒克斯</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>克拉</displayName>
-				<unitPattern count="other">{0}克拉</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>克</displayName>
-				<unitPattern count="other">{0}克</unitPattern>
-				<perUnitPattern draft="contributed">每克{0}</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>公吨</displayName>
+				<unitPattern count="other">{0}公吨</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>千克</displayName>
 				<unitPattern count="other">{0}千克</unitPattern>
 				<perUnitPattern draft="contributed">每千克{0}</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>公吨</displayName>
-				<unitPattern count="other">{0}公吨</unitPattern>
+			<unit type="mass-gram">
+				<displayName>克</displayName>
+				<unitPattern count="other">{0}克</unitPattern>
+				<perUnitPattern draft="contributed">每克{0}</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>毫克</displayName>
+				<unitPattern count="other">{0}毫克</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>微克</displayName>
 				<unitPattern count="other">{0}微克</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>毫克</displayName>
-				<unitPattern count="other">{0}毫克</unitPattern>
+			<unit type="mass-ton">
+				<displayName>吨</displayName>
+				<unitPattern count="other">{0}吨</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>磅</displayName>
+				<unitPattern count="other">{0}磅</unitPattern>
+				<perUnitPattern draft="contributed">每磅{0}</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>盎司</displayName>
@@ -7911,50 +7916,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>金衡制盎司</displayName>
 				<unitPattern count="other">{0}金衡制盎司</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>磅</displayName>
-				<unitPattern count="other">{0}磅</unitPattern>
-				<perUnitPattern draft="contributed">每磅{0}</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>吨</displayName>
-				<unitPattern count="other">{0}吨</unitPattern>
+			<unit type="mass-carat">
+				<displayName>克拉</displayName>
+				<unitPattern count="other">{0}克拉</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>吉瓦</displayName>
 				<unitPattern count="other">{0}吉瓦</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>马力</displayName>
-				<unitPattern count="other">{0}马力</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>兆瓦</displayName>
+				<unitPattern count="other">{0}兆瓦</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>千瓦</displayName>
 				<unitPattern count="other">{0}千瓦</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>兆瓦</displayName>
-				<unitPattern count="other">{0}兆瓦</unitPattern>
+			<unit type="power-watt">
+				<displayName>瓦特</displayName>
+				<unitPattern count="other">{0}瓦特</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>毫瓦</displayName>
 				<unitPattern count="other">{0}毫瓦</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>瓦特</displayName>
-				<unitPattern count="other">{0}瓦特</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>马力</displayName>
+				<unitPattern count="other">{0}马力</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>百帕斯卡</displayName>
 				<unitPattern count="other">{0}百帕斯卡</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>英寸汞柱</displayName>
-				<unitPattern count="other">{0}英寸汞柱</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>毫巴</displayName>
-				<unitPattern count="other">{0}毫巴</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>毫米汞柱</displayName>
@@ -7964,6 +7956,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>磅/平方英寸</displayName>
 				<unitPattern count="other">{0}磅每平方英寸</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>英寸汞柱</displayName>
+				<unitPattern count="other">{0}英寸汞柱</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>毫巴</displayName>
+				<unitPattern count="other">{0}毫巴</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>克拉</displayName>
 				<unitPattern count="other">{0}克拉</unitPattern>
@@ -7971,10 +7971,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="speed-kilometer-per-hour">
 				<displayName>千米每小时</displayName>
 				<unitPattern count="other">{0}千米每小时</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName draft="contributed">海里/小时</displayName>
-				<unitPattern count="other" draft="contributed">{0}海里/小时</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>米每秒</displayName>
@@ -7984,6 +7980,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>英里每小时</displayName>
 				<unitPattern count="other">{0}英里每小时</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName draft="contributed">海里/小时</displayName>
+				<unitPattern count="other" draft="contributed">{0}海里/小时</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName draft="provisional">°</displayName>
+				<unitPattern count="other" draft="provisional">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>摄氏度</displayName>
 				<unitPattern count="other">{0}摄氏度</unitPattern>
@@ -7992,34 +7996,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>华氏度</displayName>
 				<unitPattern count="other">{0}华氏度</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName draft="provisional">°</displayName>
-				<unitPattern count="other" draft="provisional">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>开尔文</displayName>
 				<unitPattern count="other">{0}开尔文</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>英亩英尺</displayName>
-				<unitPattern count="other">{0}英亩英尺</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>厘升</displayName>
-				<unitPattern count="other">{0}厘升</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>立方厘米</displayName>
-				<unitPattern count="other">{0}立方厘米</unitPattern>
-				<perUnitPattern draft="contributed">每立方厘米{0}</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>立方英尺</displayName>
-				<unitPattern count="other">{0}立方英尺</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>立方英寸</displayName>
-				<unitPattern count="other">{0}立方英寸</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>立方公里</displayName>
@@ -8030,6 +8009,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}立方米</unitPattern>
 				<perUnitPattern draft="contributed">每立方米{0}</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>立方厘米</displayName>
+				<unitPattern count="other">{0}立方厘米</unitPattern>
+				<perUnitPattern draft="contributed">每立方厘米{0}</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>立方英里</displayName>
 				<unitPattern count="other">{0}立方英里</unitPattern>
@@ -8038,26 +8022,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>立方码</displayName>
 				<unitPattern count="other">{0}立方码</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>杯</displayName>
-				<unitPattern count="other">{0}杯</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>立方英尺</displayName>
+				<unitPattern count="other">{0}立方英尺</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName draft="contributed">公制杯</displayName>
-				<unitPattern count="other" draft="contributed">{0}公制杯</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>立方英寸</displayName>
+				<unitPattern count="other">{0}立方英寸</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>分升</displayName>
-				<unitPattern count="other">{0}分升</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>液盎司</displayName>
-				<unitPattern count="other">{0}液盎司</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>加仑</displayName>
-				<unitPattern count="other">{0}加仑</unitPattern>
-				<perUnitPattern draft="contributed">每加仑{0}</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>兆升</displayName>
+				<unitPattern count="other">{0}兆升</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>公石</displayName>
@@ -8068,25 +8043,50 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}公升</unitPattern>
 				<perUnitPattern draft="contributed">每公升{0}</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>兆升</displayName>
-				<unitPattern count="other">{0}兆升</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>分升</displayName>
+				<unitPattern count="other">{0}分升</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>厘升</displayName>
+				<unitPattern count="other">{0}厘升</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>毫升</displayName>
 				<unitPattern count="other">{0}毫升</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>品脱</displayName>
-				<unitPattern count="other">{0}品脱</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName draft="contributed">公制品脱</displayName>
 				<unitPattern count="other" draft="contributed">{0}公制品脱</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName draft="contributed">公制杯</displayName>
+				<unitPattern count="other" draft="contributed">{0}公制杯</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>英亩英尺</displayName>
+				<unitPattern count="other">{0}英亩英尺</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>加仑</displayName>
+				<unitPattern count="other">{0}加仑</unitPattern>
+				<perUnitPattern draft="contributed">每加仑{0}</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>夸脱</displayName>
 				<unitPattern count="other">{0}夸脱</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>品脱</displayName>
+				<unitPattern count="other">{0}品脱</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>杯</displayName>
+				<unitPattern count="other">{0}杯</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>液盎司</displayName>
+				<unitPattern count="other">{0}液盎司</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>汤匙</displayName>
@@ -8115,6 +8115,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>米/秒²</displayName>
 				<unitPattern count="other">{0}米/秒²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName draft="contributed">转</displayName>
+				<unitPattern count="other" draft="contributed">{0}转</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>弧度</displayName>
+				<unitPattern count="other">{0}弧度</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>度</displayName>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>弧分</displayName>
 				<unitPattern count="other">{0}弧分</unitPattern>
@@ -8123,30 +8135,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>弧秒</displayName>
 				<unitPattern count="other">{0}弧秒</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>度</displayName>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>弧度</displayName>
-				<unitPattern count="other">{0}弧度</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName draft="contributed">转</displayName>
-				<unitPattern count="other" draft="contributed">{0}转</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>英亩</displayName>
-				<unitPattern count="other">{0}英亩</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>平方公里</displayName>
+				<unitPattern count="other">{0}平方公里</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>公顷</displayName>
 				<unitPattern count="other">{0}公顷</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>平方米</displayName>
+				<unitPattern count="other">{0}平方米</unitPattern>
+				<perUnitPattern draft="contributed">{0}/平方米</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>平方厘米</displayName>
 				<unitPattern count="other">{0}平方厘米</unitPattern>
 				<perUnitPattern draft="contributed">{0}/平方厘米</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>平方英里</displayName>
+				<unitPattern count="other">{0}平方英里</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>英亩</displayName>
+				<unitPattern count="other">{0}英亩</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>平方码</displayName>
+				<unitPattern count="other">{0}平方码</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>平方英尺</displayName>
@@ -8157,78 +8174,76 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}平方英寸</unitPattern>
 				<perUnitPattern draft="contributed">{0}/平方英寸</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>平方公里</displayName>
-				<unitPattern count="other">{0}平方公里</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>平方米</displayName>
-				<unitPattern count="other">{0}平方米</unitPattern>
-				<perUnitPattern draft="contributed">{0}/平方米</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>平方英里</displayName>
-				<unitPattern count="other">{0}平方英里</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>平方码</displayName>
-				<unitPattern count="other">{0}平方码</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>升/公里</displayName>
+				<unitPattern count="other">{0}升/公里</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName draft="contributed">升/100千米</displayName>
 				<unitPattern count="other">{0}升/100千米</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>升/公里</displayName>
-				<unitPattern count="other">{0}升/公里</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>英里/加仑</displayName>
 				<unitPattern count="other">{0}英里/加仑</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>比特</displayName>
-				<unitPattern count="other">{0}比特</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>字节</displayName>
-				<unitPattern count="other">{0}字节</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>吉比特</displayName>
-				<unitPattern count="other">{0}吉比特</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>吉字节</displayName>
-				<unitPattern count="other">{0}吉字节</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>千比特</displayName>
-				<unitPattern count="other">{0}千比特</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>千字节</displayName>
-				<unitPattern count="other">{0}千字节</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>兆比特</displayName>
-				<unitPattern count="other">{0}兆比特</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>兆字节</displayName>
-				<unitPattern count="other">{0}兆字节</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>太比特</displayName>
-				<unitPattern count="other">{0}太比特</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>太字节</displayName>
 				<unitPattern count="other">{0}太字节</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>太比特</displayName>
+				<unitPattern count="other">{0}太比特</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>吉字节</displayName>
+				<unitPattern count="other">{0}吉字节</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>吉比特</displayName>
+				<unitPattern count="other">{0}吉比特</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>兆字节</displayName>
+				<unitPattern count="other">{0}兆字节</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>兆比特</displayName>
+				<unitPattern count="other">{0}兆比特</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>千字节</displayName>
+				<unitPattern count="other">{0}千字节</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>千比特</displayName>
+				<unitPattern count="other">{0}千比特</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>字节</displayName>
+				<unitPattern count="other">{0}字节</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>比特</displayName>
+				<unitPattern count="other">{0}比特</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName draft="contributed">世纪</displayName>
 				<unitPattern count="other" draft="contributed">{0}世纪</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>年</displayName>
+				<unitPattern count="other">{0}年</unitPattern>
+				<perUnitPattern draft="contributed">{0}/年</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>个月</displayName>
+				<unitPattern count="other">{0}个月</unitPattern>
+				<perUnitPattern draft="contributed">{0}/月</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>周</displayName>
+				<unitPattern count="other">{0}周</unitPattern>
+				<perUnitPattern draft="contributed">{0}/周</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>天</displayName>
@@ -8240,42 +8255,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}小时</unitPattern>
 				<perUnitPattern>{0}/小时</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>微秒</displayName>
-				<unitPattern count="other">{0}微秒</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>毫秒</displayName>
-				<unitPattern count="other">{0}毫秒</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>分钟</displayName>
 				<unitPattern count="other">{0}分钟</unitPattern>
 				<perUnitPattern draft="contributed">{0}/分钟</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>个月</displayName>
-				<unitPattern count="other">{0}个月</unitPattern>
-				<perUnitPattern draft="contributed">{0}/月</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>纳秒</displayName>
-				<unitPattern count="other">{0}纳秒</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>秒</displayName>
 				<unitPattern count="other">{0}秒</unitPattern>
 				<perUnitPattern>{0}/秒</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>周</displayName>
-				<unitPattern count="other">{0}周</unitPattern>
-				<perUnitPattern draft="contributed">{0}/周</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>毫秒</displayName>
+				<unitPattern count="other">{0}毫秒</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>年</displayName>
-				<unitPattern count="other">{0}年</unitPattern>
-				<perUnitPattern draft="contributed">{0}/年</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>微秒</displayName>
+				<unitPattern count="other">{0}微秒</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>纳秒</displayName>
+				<unitPattern count="other">{0}纳秒</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>安培</displayName>
@@ -8293,6 +8293,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>伏特</displayName>
 				<unitPattern count="other">{0}伏</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>千卡</displayName>
+				<unitPattern count="other">{0}千卡</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>卡</displayName>
 				<unitPattern count="other">{0}卡</unitPattern>
@@ -8301,17 +8305,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>卡</displayName>
 				<unitPattern count="other">{0}卡</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>焦耳</displayName>
-				<unitPattern count="other">{0}焦耳</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>千卡</displayName>
-				<unitPattern count="other">{0}千卡</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>千焦</displayName>
 				<unitPattern count="other">{0}千焦</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>焦耳</displayName>
+				<unitPattern count="other">{0}焦耳</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>千瓦时</displayName>
@@ -8321,30 +8321,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>吉赫</displayName>
 				<unitPattern count="other">{0}吉赫</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>赫兹</displayName>
-				<unitPattern count="other">{0}赫</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>兆赫</displayName>
+				<unitPattern count="other">{0}兆赫</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>千赫</displayName>
 				<unitPattern count="other">{0}千赫</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>兆赫</displayName>
-				<unitPattern count="other">{0}兆赫</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>赫兹</displayName>
+				<unitPattern count="other">{0}赫</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName draft="contributed">天文单位</displayName>
-				<unitPattern count="other" draft="contributed">{0}天文单位</unitPattern>
+			<unit type="length-kilometer">
+				<displayName draft="contributed">公里</displayName>
+				<unitPattern count="other">{0}公里</unitPattern>
+				<perUnitPattern draft="contributed">{0}/公里</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName draft="contributed">米</displayName>
+				<unitPattern count="other">{0}米</unitPattern>
+				<perUnitPattern draft="contributed">{0}/米</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName draft="contributed">分米</displayName>
+				<unitPattern count="other" draft="contributed">{0}分米</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName draft="contributed">厘米</displayName>
 				<unitPattern count="other">{0}厘米</unitPattern>
 				<perUnitPattern draft="contributed">{0}/厘米</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName draft="contributed">分米</displayName>
-				<unitPattern count="other" draft="contributed">{0}分米</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>毫米</displayName>
+				<unitPattern count="other">{0}毫米</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName draft="contributed">微米</displayName>
+				<unitPattern count="other" draft="contributed">{0}微米</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>纳米</displayName>
+				<unitPattern count="other">{0}纳米</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>皮米</displayName>
+				<unitPattern count="other">{0} 皮米</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName draft="contributed">英里</displayName>
+				<unitPattern count="other">{0}英里</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>码</displayName>
+				<unitPattern count="other">{0} 码</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName draft="contributed">英尺</displayName>
@@ -8356,85 +8386,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}英寸</unitPattern>
 				<perUnitPattern draft="contributed">{0}/英寸</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName draft="contributed">公里</displayName>
-				<unitPattern count="other">{0}公里</unitPattern>
-				<perUnitPattern draft="contributed">{0}/公里</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>秒差距</displayName>
+				<unitPattern count="other">{0}秒差距</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName draft="contributed">光年</displayName>
 				<unitPattern count="other">{0}光年</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName draft="contributed">米</displayName>
-				<unitPattern count="other">{0}米</unitPattern>
-				<perUnitPattern draft="contributed">{0}/米</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName draft="contributed">微米</displayName>
-				<unitPattern count="other" draft="contributed">{0}微米</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName draft="contributed">英里</displayName>
-				<unitPattern count="other">{0}英里</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName draft="contributed">斯堪的纳维亚英里</displayName>
-				<unitPattern count="other" draft="contributed">{0}斯堪的纳维亚英里</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>毫米</displayName>
-				<unitPattern count="other">{0}毫米</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>纳米</displayName>
-				<unitPattern count="other">{0}纳米</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName draft="contributed">天文单位</displayName>
+				<unitPattern count="other" draft="contributed">{0}天文单位</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>海里</displayName>
 				<unitPattern count="other">{0}海里</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>秒差距</displayName>
-				<unitPattern count="other">{0}秒差距</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>皮米</displayName>
-				<unitPattern count="other">{0} 皮米</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>码</displayName>
-				<unitPattern count="other">{0} 码</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName draft="contributed">斯堪的纳维亚英里</displayName>
+				<unitPattern count="other" draft="contributed">{0}斯堪的纳维亚英里</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>勒克斯</displayName>
 				<unitPattern count="other">{0}勒克斯</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>克拉</displayName>
-				<unitPattern count="other">{0}克拉</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>克</displayName>
-				<unitPattern count="other">{0}克</unitPattern>
-				<perUnitPattern draft="contributed">{0}/克</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>公吨</displayName>
+				<unitPattern count="other">{0}公吨</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>千克</displayName>
 				<unitPattern count="other">{0}千克</unitPattern>
 				<perUnitPattern draft="contributed">{0}/千克</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>公吨</displayName>
-				<unitPattern count="other">{0}公吨</unitPattern>
+			<unit type="mass-gram">
+				<displayName>克</displayName>
+				<unitPattern count="other">{0}克</unitPattern>
+				<perUnitPattern draft="contributed">{0}/克</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>毫克</displayName>
+				<unitPattern count="other">{0}毫克</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>微克</displayName>
 				<unitPattern count="other">{0}微克</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>毫克</displayName>
-				<unitPattern count="other">{0}毫克</unitPattern>
+			<unit type="mass-ton">
+				<displayName>吨</displayName>
+				<unitPattern count="other">{0}吨</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>磅</displayName>
+				<unitPattern count="other">{0}磅</unitPattern>
+				<perUnitPattern draft="contributed">{0}/磅</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>盎司</displayName>
@@ -8445,50 +8450,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>金衡制盎司</displayName>
 				<unitPattern count="other">{0}金衡制盎司</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>磅</displayName>
-				<unitPattern count="other">{0}磅</unitPattern>
-				<perUnitPattern draft="contributed">{0}/磅</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>吨</displayName>
-				<unitPattern count="other">{0}吨</unitPattern>
+			<unit type="mass-carat">
+				<displayName>克拉</displayName>
+				<unitPattern count="other">{0}克拉</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>吉瓦</displayName>
 				<unitPattern count="other">{0}吉瓦</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>马力</displayName>
-				<unitPattern count="other">{0}马力</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>兆瓦</displayName>
+				<unitPattern count="other">{0}兆瓦</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>千瓦</displayName>
 				<unitPattern count="other">{0}千瓦</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>兆瓦</displayName>
-				<unitPattern count="other">{0}兆瓦</unitPattern>
+			<unit type="power-watt">
+				<displayName>瓦特</displayName>
+				<unitPattern count="other">{0}瓦</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>毫瓦</displayName>
 				<unitPattern count="other">{0}毫瓦</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>瓦特</displayName>
-				<unitPattern count="other">{0}瓦</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>马力</displayName>
+				<unitPattern count="other">{0}马力</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>百帕斯卡</displayName>
 				<unitPattern count="other">{0}百帕</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>英寸汞柱</displayName>
-				<unitPattern count="other">{0}英寸汞柱</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>毫巴</displayName>
-				<unitPattern count="other">{0}毫巴</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>毫米汞柱</displayName>
@@ -8498,6 +8490,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>磅/平方英寸</displayName>
 				<unitPattern count="other">{0}磅/平方英寸</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>英寸汞柱</displayName>
+				<unitPattern count="other">{0}英寸汞柱</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>毫巴</displayName>
+				<unitPattern count="other">{0}毫巴</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>克拉</displayName>
 				<unitPattern count="other">{0}克拉</unitPattern>
@@ -8505,10 +8505,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="speed-kilometer-per-hour">
 				<displayName>千米/小时</displayName>
 				<unitPattern count="other">{0}千米/小时</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName draft="contributed">海里/小时</displayName>
-				<unitPattern count="other" draft="contributed">{0}海里/小时</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>米/秒</displayName>
@@ -8518,6 +8514,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>英里/小时</displayName>
 				<unitPattern count="other">{0}英里/小时</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName draft="contributed">海里/小时</displayName>
+				<unitPattern count="other" draft="contributed">{0}海里/小时</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName draft="contributed">°</displayName>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>摄氏度</displayName>
 				<unitPattern count="other">{0}°C</unitPattern>
@@ -8526,34 +8530,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>华氏度</displayName>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName draft="contributed">°</displayName>
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>开</displayName>
 				<unitPattern count="other">{0}K</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>英亩英尺</displayName>
-				<unitPattern count="other">{0}英亩英尺</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>厘升</displayName>
-				<unitPattern count="other">{0}厘升</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>立方厘米</displayName>
-				<unitPattern count="other">{0}立方厘米</unitPattern>
-				<perUnitPattern draft="contributed">{0}/cm³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>立方英尺</displayName>
-				<unitPattern count="other">{0}立方英尺</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>立方英寸</displayName>
-				<unitPattern count="other">{0}立方英寸</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>立方公里</displayName>
@@ -8564,6 +8543,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}立方米</unitPattern>
 				<perUnitPattern draft="contributed">{0}/立方米</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>立方厘米</displayName>
+				<unitPattern count="other">{0}立方厘米</unitPattern>
+				<perUnitPattern draft="contributed">{0}/cm³</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>立方英里</displayName>
 				<unitPattern count="other">{0}立方英里</unitPattern>
@@ -8572,26 +8556,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>立方码</displayName>
 				<unitPattern count="other">{0}立方码</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>杯</displayName>
-				<unitPattern count="other">{0}杯</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>立方英尺</displayName>
+				<unitPattern count="other">{0}立方英尺</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName draft="contributed">公制杯</displayName>
-				<unitPattern count="other" draft="contributed">{0}公制杯</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>立方英寸</displayName>
+				<unitPattern count="other">{0}立方英寸</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>分升</displayName>
-				<unitPattern count="other">{0}分升</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>液盎司</displayName>
-				<unitPattern count="other">{0}液盎司</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>加仑</displayName>
-				<unitPattern count="other">{0}加仑</unitPattern>
-				<perUnitPattern draft="contributed">{0}/加仑</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>兆升</displayName>
+				<unitPattern count="other">{0}兆升</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>公石</displayName>
@@ -8602,25 +8577,50 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}升</unitPattern>
 				<perUnitPattern draft="contributed">{0}/公升</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>兆升</displayName>
-				<unitPattern count="other">{0}兆升</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>分升</displayName>
+				<unitPattern count="other">{0}分升</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>厘升</displayName>
+				<unitPattern count="other">{0}厘升</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>毫升</displayName>
 				<unitPattern count="other">{0}毫升</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>品脱</displayName>
-				<unitPattern count="other">{0}品脱</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName draft="contributed">公制品脱</displayName>
 				<unitPattern count="other" draft="contributed">{0}公制品脱</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName draft="contributed">公制杯</displayName>
+				<unitPattern count="other" draft="contributed">{0}公制杯</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>英亩英尺</displayName>
+				<unitPattern count="other">{0}英亩英尺</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>加仑</displayName>
+				<unitPattern count="other">{0}加仑</unitPattern>
+				<perUnitPattern draft="contributed">{0}/加仑</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>夸脱</displayName>
 				<unitPattern count="other">{0}夸脱</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>品脱</displayName>
+				<unitPattern count="other">{0}品脱</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>杯</displayName>
+				<unitPattern count="other">{0}杯</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>液盎司</displayName>
+				<unitPattern count="other">{0}液盎司</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>汤匙</displayName>
@@ -8644,26 +8644,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="acceleration-g-force">
 				<unitPattern count="other">{0}G</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="other">{0}ac</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="other">{0}km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="other">{0}ha</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="other">{0}ft²</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="other">{0}km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="other">{0}m²</unitPattern>
@@ -8671,9 +8665,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-mile">
 				<unitPattern count="other">{0}mi²</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other">{0}ac</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other">{0}ft²</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName draft="contributed">L/100km</displayName>
 				<unitPattern count="other" draft="contributed">{0}L/100km</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>年</displayName>
+				<unitPattern count="other">{0}年</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>个月</displayName>
+				<unitPattern count="other">{0}个月</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>周</displayName>
+				<unitPattern count="other">{0}周</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>天</displayName>
@@ -8683,53 +8695,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>小时</displayName>
 				<unitPattern count="other">{0}小时</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>毫秒</displayName>
-				<unitPattern count="other">{0}毫秒</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>分钟</displayName>
 				<unitPattern count="other">{0}分钟</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>个月</displayName>
-				<unitPattern count="other">{0}个月</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>秒</displayName>
 				<unitPattern count="other">{0}秒</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>周</displayName>
-				<unitPattern count="other">{0}周</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName>年</displayName>
-				<unitPattern count="other">{0}年</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="contributed">厘米</displayName>
-				<unitPattern count="other">{0}厘米</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>毫秒</displayName>
+				<unitPattern count="other">{0}毫秒</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="contributed">公里</displayName>
 				<unitPattern count="other">{0}公里</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="other" draft="contributed">{0}ly</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName draft="contributed">米</displayName>
 				<unitPattern count="other">{0}米</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="other" draft="contributed">{0}mi</unitPattern>
+			<unit type="length-centimeter">
+				<displayName draft="contributed">厘米</displayName>
+				<unitPattern count="other">{0}厘米</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>毫米</displayName>
@@ -8738,31 +8726,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="length-picometer">
 				<unitPattern count="other" draft="contributed">{0}pm</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<unitPattern count="other" draft="contributed">{0}mi</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<unitPattern count="other" draft="contributed">{0}yd</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName>克</displayName>
-				<unitPattern count="other">{0}克</unitPattern>
+			<unit type="length-foot">
+				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="other" draft="contributed">{0}ly</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>千克</displayName>
 				<unitPattern count="other">{0}千克</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="other">{0}盎司</unitPattern>
+			<unit type="mass-gram">
+				<displayName>克</displayName>
+				<unitPattern count="other">{0}克</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="other">{0}磅</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="other">{0}hp</unitPattern>
+			<unit type="mass-ounce">
+				<unitPattern count="other">{0}盎司</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="other">{0}kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
 				<unitPattern count="other">{0}W</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="other">{0}hp</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="other">{0}hPa</unitPattern>

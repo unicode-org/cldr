@@ -5701,6 +5701,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} మీటరు/స్క్వేర్ సెకను</unitPattern>
 				<unitPattern count="other">{0} మీటర్లు/స్క్వేర్ సెకన్లు</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>విప్లవం</displayName>
+				<unitPattern count="one">{0} విప్లవం</unitPattern>
+				<unitPattern count="other">{0} విప్లవంలు</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>రేడియన్లు</displayName>
+				<unitPattern count="one">{0} రేడియన్</unitPattern>
+				<unitPattern count="other">{0} రేడియన్లు</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>డిగ్రీలు</displayName>
+				<unitPattern count="one">{0} డిగ్రీ</unitPattern>
+				<unitPattern count="other">{0} డిగ్రీలు</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>ఆర్క్ నిమిషాలు</displayName>
 				<unitPattern count="one">{0} ఆర్క్ నిమిషం</unitPattern>
@@ -5711,36 +5726,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ఆర్క్ సెకను</unitPattern>
 				<unitPattern count="other">{0} ఆర్క్ సెకన్లు</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>డిగ్రీలు</displayName>
-				<unitPattern count="one">{0} డిగ్రీ</unitPattern>
-				<unitPattern count="other">{0} డిగ్రీలు</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>రేడియన్లు</displayName>
-				<unitPattern count="one">{0} రేడియన్</unitPattern>
-				<unitPattern count="other">{0} రేడియన్లు</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>విప్లవం</displayName>
-				<unitPattern count="one">{0} విప్లవం</unitPattern>
-				<unitPattern count="other">{0} విప్లవంలు</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ఎకరాలు</displayName>
-				<unitPattern count="one">{0} ఎకరం</unitPattern>
-				<unitPattern count="other">{0} ఎకరాలు</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>చదరపు కిలోమీటర్లు</displayName>
+				<unitPattern count="one">{0} చదరపు కిలోమీటరు</unitPattern>
+				<unitPattern count="other">{0} చదరపు కిలోమీటర్లు</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>హెక్టార్లు</displayName>
 				<unitPattern count="one">{0} హెక్టారు</unitPattern>
 				<unitPattern count="other">{0} హెక్టార్లు</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>చదరపు మీటర్లు</displayName>
+				<unitPattern count="one">{0} చదరపు మీటరు</unitPattern>
+				<unitPattern count="other">{0} చదరపు మీటర్లు</unitPattern>
+				<perUnitPattern>{0}/చదరపు మీటర్లు</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>చదరపు సెంటీమీటర్లు</displayName>
 				<unitPattern count="one">{0} చదరపు సెంటీమీటరు</unitPattern>
 				<unitPattern count="other">{0} చదరపు సెంటీమీటర్లు</unitPattern>
 				<perUnitPattern>{0}/చదరపు సెంటీమీటర్లు</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>చదరపు మైళ్లు</displayName>
+				<unitPattern count="one">{0} చదరపు మైలు</unitPattern>
+				<unitPattern count="other">{0} చదరపు మైళ్లు</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ఎకరాలు</displayName>
+				<unitPattern count="one">{0} ఎకరం</unitPattern>
+				<unitPattern count="other">{0} ఎకరాలు</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>చదరపు గజాలు</displayName>
+				<unitPattern count="one">{0} చదరపు గజం</unitPattern>
+				<unitPattern count="other">{0} చదరపు గజాలు</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>చదరపు అడుగులు</displayName>
@@ -5753,96 +5774,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} చదరపు అంగుళాలు</unitPattern>
 				<perUnitPattern>{0}/చదరపు అంగుళాలు</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>చదరపు కిలోమీటర్లు</displayName>
-				<unitPattern count="one">{0} చదరపు కిలోమీటరు</unitPattern>
-				<unitPattern count="other">{0} చదరపు కిలోమీటర్లు</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>చదరపు మీటర్లు</displayName>
-				<unitPattern count="one">{0} చదరపు మీటరు</unitPattern>
-				<unitPattern count="other">{0} చదరపు మీటర్లు</unitPattern>
-				<perUnitPattern>{0}/చదరపు మీటర్లు</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>చదరపు మైళ్లు</displayName>
-				<unitPattern count="one">{0} చదరపు మైలు</unitPattern>
-				<unitPattern count="other">{0} చదరపు మైళ్లు</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>చదరపు గజాలు</displayName>
-				<unitPattern count="one">{0} చదరపు గజం</unitPattern>
-				<unitPattern count="other">{0} చదరపు గజాలు</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>లీటర్లు/కిలోమీటరు</displayName>
+				<unitPattern count="one">{0} లీటరు/కిలోమీటరు</unitPattern>
+				<unitPattern count="other">{0} లీటర్లు/కిలోమీటరు</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>లీటర్లు/100 కిలోమీటర్లకు</displayName>
 				<unitPattern count="one">{0} లీటరు/100 కిలోమీటర్లకు</unitPattern>
 				<unitPattern count="other">{0} లీటర్లు/100 కిలోమీటర్లకు</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>లీటర్లు/కిలోమీటరు</displayName>
-				<unitPattern count="one">{0} లీటరు/కిలోమీటరు</unitPattern>
-				<unitPattern count="other">{0} లీటర్లు/కిలోమీటరు</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>మైళ్లు/గ్యాలన్</displayName>
 				<unitPattern count="one">{0} మైలు/గ్యాలన్</unitPattern>
 				<unitPattern count="other">{0} మైళ్లు/గ్యాలన్</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>బిట్లు</displayName>
-				<unitPattern count="one">{0} బిట్</unitPattern>
-				<unitPattern count="other">{0} బిట్లు</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>బైట్లు</displayName>
-				<unitPattern count="one">{0} బైట్</unitPattern>
-				<unitPattern count="other">{0} బైట్‌లు</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>గిగాబిట్లు</displayName>
-				<unitPattern count="one">{0} గిగాబిట్</unitPattern>
-				<unitPattern count="other">{0} గిగాబిట్లు</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>గిగాబైట్లు</displayName>
-				<unitPattern count="one">{0} గిగాబైట్</unitPattern>
-				<unitPattern count="other">{0} గిగాబైట్లు</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>కిలోబిట్లు</displayName>
-				<unitPattern count="one">{0} కిలోబిట్</unitPattern>
-				<unitPattern count="other">{0} కిలోబిట్లు</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>కిలోబైట్లు</displayName>
-				<unitPattern count="one">{0} కిలోబైట్</unitPattern>
-				<unitPattern count="other">{0} కిలోబైట్లు</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>మెగాబిట్లు</displayName>
-				<unitPattern count="one">{0} మెగాబిట్</unitPattern>
-				<unitPattern count="other">{0} మెగాబిట్లు</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>మెగాబైట్లు</displayName>
-				<unitPattern count="one">{0} మెగాబైట్</unitPattern>
-				<unitPattern count="other">{0} మెగాబైట్లు</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>టెరాబిట్లు</displayName>
-				<unitPattern count="one">{0} టెరాబిట్</unitPattern>
-				<unitPattern count="other">{0} టెరాబిట్లు</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>టెరాబైట్లు</displayName>
 				<unitPattern count="one">{0} టెరాబైట్</unitPattern>
 				<unitPattern count="other">{0} టెరాబైట్లు</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>టెరాబిట్లు</displayName>
+				<unitPattern count="one">{0} టెరాబిట్</unitPattern>
+				<unitPattern count="other">{0} టెరాబిట్లు</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>గిగాబైట్లు</displayName>
+				<unitPattern count="one">{0} గిగాబైట్</unitPattern>
+				<unitPattern count="other">{0} గిగాబైట్లు</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>గిగాబిట్లు</displayName>
+				<unitPattern count="one">{0} గిగాబిట్</unitPattern>
+				<unitPattern count="other">{0} గిగాబిట్లు</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>మెగాబైట్లు</displayName>
+				<unitPattern count="one">{0} మెగాబైట్</unitPattern>
+				<unitPattern count="other">{0} మెగాబైట్లు</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>మెగాబిట్లు</displayName>
+				<unitPattern count="one">{0} మెగాబిట్</unitPattern>
+				<unitPattern count="other">{0} మెగాబిట్లు</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>కిలోబైట్లు</displayName>
+				<unitPattern count="one">{0} కిలోబైట్</unitPattern>
+				<unitPattern count="other">{0} కిలోబైట్లు</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>కిలోబిట్లు</displayName>
+				<unitPattern count="one">{0} కిలోబిట్</unitPattern>
+				<unitPattern count="other">{0} కిలోబిట్లు</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>బైట్లు</displayName>
+				<unitPattern count="one">{0} బైట్</unitPattern>
+				<unitPattern count="other">{0} బైట్‌లు</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>బిట్లు</displayName>
+				<unitPattern count="one">{0} బిట్</unitPattern>
+				<unitPattern count="other">{0} బిట్లు</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>శతాబ్దాలు</displayName>
 				<unitPattern count="one">{0} శతాబ్దం</unitPattern>
 				<unitPattern count="other">{0} శతాబ్దాలు</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>సంవత్సరాలు</displayName>
+				<unitPattern count="one">{0} సంవత్సరం</unitPattern>
+				<unitPattern count="other">{0} సంవత్సరాలు</unitPattern>
+				<perUnitPattern>సంవత్సరానికి {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>నెలలు</displayName>
+				<unitPattern count="one">{0} నెల</unitPattern>
+				<unitPattern count="other">{0} నెలలు</unitPattern>
+				<perUnitPattern>నెలకు {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>వారాలు</displayName>
+				<unitPattern count="one">{0} వారం</unitPattern>
+				<unitPattern count="other">{0} వారాలు</unitPattern>
+				<perUnitPattern>వారానికి {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>రోజులు</displayName>
@@ -5856,32 +5874,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} గంటలు</unitPattern>
 				<perUnitPattern>{0}/గంట</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>మైక్రోసెకన్లు</displayName>
-				<unitPattern count="one">{0} మైక్రోసెకను</unitPattern>
-				<unitPattern count="other">{0} మైక్రోసెకన్లు</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>మిల్లీసెకన్లు</displayName>
-				<unitPattern count="one">{0} మిల్లీసెకను</unitPattern>
-				<unitPattern count="other">{0} మిల్లీసెకన్లు</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>నిమిషాలు</displayName>
 				<unitPattern count="one">{0} నిమిషం</unitPattern>
 				<unitPattern count="other">{0} నిమిషాలు</unitPattern>
 				<perUnitPattern>నిమిషానికి {0}</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>నెలలు</displayName>
-				<unitPattern count="one">{0} నెల</unitPattern>
-				<unitPattern count="other">{0} నెలలు</unitPattern>
-				<perUnitPattern>నెలకు {0}</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>నానోసెకన్లు</displayName>
-				<unitPattern count="one">{0} నానోసెకను</unitPattern>
-				<unitPattern count="other">{0} నానోసెకన్లు</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>సెకన్లు</displayName>
@@ -5889,17 +5886,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} సెకన్లు</unitPattern>
 				<perUnitPattern>{0}/సెకను</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>వారాలు</displayName>
-				<unitPattern count="one">{0} వారం</unitPattern>
-				<unitPattern count="other">{0} వారాలు</unitPattern>
-				<perUnitPattern>వారానికి {0}</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>మిల్లీసెకన్లు</displayName>
+				<unitPattern count="one">{0} మిల్లీసెకను</unitPattern>
+				<unitPattern count="other">{0} మిల్లీసెకన్లు</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>సంవత్సరాలు</displayName>
-				<unitPattern count="one">{0} సంవత్సరం</unitPattern>
-				<unitPattern count="other">{0} సంవత్సరాలు</unitPattern>
-				<perUnitPattern>సంవత్సరానికి {0}</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>మైక్రోసెకన్లు</displayName>
+				<unitPattern count="one">{0} మైక్రోసెకను</unitPattern>
+				<unitPattern count="other">{0} మైక్రోసెకన్లు</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>నానోసెకన్లు</displayName>
+				<unitPattern count="one">{0} నానోసెకను</unitPattern>
+				<unitPattern count="other">{0} నానోసెకన్లు</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>ఆంపియర్స్</displayName>
@@ -5921,6 +5921,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} వోల్ట్</unitPattern>
 				<unitPattern count="other">{0} వోల్ట్స్</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>కిలోకేలరీలు</displayName>
+				<unitPattern count="one">{0} కిలోకేలరీ</unitPattern>
+				<unitPattern count="other">{0} కిలోకేలరీలు</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>కేలరీలు</displayName>
 				<unitPattern count="one">{0} కేలరీ</unitPattern>
@@ -5931,20 +5936,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} కేలరీ</unitPattern>
 				<unitPattern count="other">{0} కేలరీలు</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>జౌల్స్</displayName>
-				<unitPattern count="one">{0} జౌల్</unitPattern>
-				<unitPattern count="other">{0} జౌల్స్</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>కిలోకేలరీలు</displayName>
-				<unitPattern count="one">{0} కిలోకేలరీ</unitPattern>
-				<unitPattern count="other">{0} కిలోకేలరీలు</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>కిలోజౌల్స్</displayName>
 				<unitPattern count="one">{0} కిలోజౌల్</unitPattern>
 				<unitPattern count="other">{0} కిలోజౌల్స్</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>జౌల్స్</displayName>
+				<unitPattern count="one">{0} జౌల్</unitPattern>
+				<unitPattern count="other">{0} జౌల్స్</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>కిలోవాట్-గంటలు</displayName>
@@ -5956,53 +5956,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} గిగాహెర్ట్‌జ్</unitPattern>
 				<unitPattern count="other">{0} గిగాహెర్ట్‌జ్</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>హెర్ట్‌జ్</displayName>
-				<unitPattern count="one">{0} హెర్ట్‌జ్</unitPattern>
-				<unitPattern count="other">{0} హెర్ట్‌జ్</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>మెగాహెర్ట్‌జ్</displayName>
+				<unitPattern count="one">{0} మెగాహెర్ట్‌జ్</unitPattern>
+				<unitPattern count="other">{0} మెగాహెర్ట్‌జ్</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>కిలోహెర్ట్‌జ్</displayName>
 				<unitPattern count="one">{0} కిలోహెర్ట్‌జ్</unitPattern>
 				<unitPattern count="other">{0} కిలోహెర్ట్‌జ్</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>మెగాహెర్ట్‌జ్</displayName>
-				<unitPattern count="one">{0} మెగాహెర్ట్‌జ్</unitPattern>
-				<unitPattern count="other">{0} మెగాహెర్ట్‌జ్</unitPattern>
-			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>ఖగోళ ప్రమాణాలు</displayName>
-				<unitPattern count="one">{0} ఖగోళ ప్రమాణం</unitPattern>
-				<unitPattern count="other">{0} ఖగోళ ప్రమాణాలు</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>సెంటీమీటర్లు</displayName>
-				<unitPattern count="one">{0} సెంటీమీటరు</unitPattern>
-				<unitPattern count="other">{0} సెంటీమీటర్లు</unitPattern>
-				<perUnitPattern>సెంటీమీటరుకు {0}</perUnitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName>డెసిమీటర్లు</displayName>
-				<unitPattern count="one">{0} డెసిమీటరు</unitPattern>
-				<unitPattern count="other">{0} డెసిమీటర్లు</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName>అడుగులు</displayName>
-				<unitPattern count="one">{0} అడుగు</unitPattern>
-				<unitPattern count="other">{0} అడుగులు</unitPattern>
-				<perUnitPattern>అడుగుకి {0}</perUnitPattern>
-			</unit>
-			<unit type="length-furlong">
-				<displayName draft="unconfirmed">ఫర్లాంగులు</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ఫర్లాంగు</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ఫర్లాంగులు</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName>అంగుళాలు</displayName>
-				<unitPattern count="one">{0} అంగుళం</unitPattern>
-				<unitPattern count="other">{0} అంగుళాలు</unitPattern>
-				<perUnitPattern>అంగుళానికి {0}</perUnitPattern>
+			<unit type="frequency-hertz">
+				<displayName>హెర్ట్‌జ్</displayName>
+				<unitPattern count="one">{0} హెర్ట్‌జ్</unitPattern>
+				<unitPattern count="other">{0} హెర్ట్‌జ్</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>కిలోమీటర్లు</displayName>
@@ -6010,77 +5977,104 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} కిలోమీటర్లు</unitPattern>
 				<perUnitPattern>కిలోమీటరుకు {0}</perUnitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName>కాంతి సంవత్సరాలు</displayName>
-				<unitPattern count="one">{0} కాంతి సంవత్సరం</unitPattern>
-				<unitPattern count="other">{0} కాంతి సంవత్సరాలు</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>మీటర్లు</displayName>
 				<unitPattern count="one">{0} మీటరు</unitPattern>
 				<unitPattern count="other">{0} మీటర్లు</unitPattern>
 				<perUnitPattern>మీటరుకు {0}</perUnitPattern>
 			</unit>
-			<unit type="length-micrometer">
-				<displayName>మైక్రోమీటర్లు</displayName>
-				<unitPattern count="one">{0} మైక్రోమీటరు</unitPattern>
-				<unitPattern count="other">{0} మైక్రోమీటర్లు</unitPattern>
+			<unit type="length-decimeter">
+				<displayName>డెసిమీటర్లు</displayName>
+				<unitPattern count="one">{0} డెసిమీటరు</unitPattern>
+				<unitPattern count="other">{0} డెసిమీటర్లు</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName>మైళ్లు</displayName>
-				<unitPattern count="one">{0} మైలు</unitPattern>
-				<unitPattern count="other">{0} మైళ్లు</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>స్కాండినేవియన్ మైలు</displayName>
-				<unitPattern count="one">{0} స్కాండినేవియన్ మైలు</unitPattern>
-				<unitPattern count="other">{0} స్కాండినేవియన్ మైళ్లు</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>సెంటీమీటర్లు</displayName>
+				<unitPattern count="one">{0} సెంటీమీటరు</unitPattern>
+				<unitPattern count="other">{0} సెంటీమీటర్లు</unitPattern>
+				<perUnitPattern>సెంటీమీటరుకు {0}</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>మిల్లీమీటర్లు</displayName>
 				<unitPattern count="one">{0} మిల్లీమీటరు</unitPattern>
 				<unitPattern count="other">{0} మిల్లీమీటర్లు</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName>మైక్రోమీటర్లు</displayName>
+				<unitPattern count="one">{0} మైక్రోమీటరు</unitPattern>
+				<unitPattern count="other">{0} మైక్రోమీటర్లు</unitPattern>
+			</unit>
 			<unit type="length-nanometer">
 				<displayName>నానోమీటర్లు</displayName>
 				<unitPattern count="one">{0} నానోమీటరు</unitPattern>
 				<unitPattern count="other">{0} నానోమీటర్లు</unitPattern>
-			</unit>
-			<unit type="length-nautical-mile">
-				<displayName>నాటికల్ మైళ్లు</displayName>
-				<unitPattern count="one">{0} నాటికల్ మైలు</unitPattern>
-				<unitPattern count="other">{0} నాటికల్ మైళ్లు</unitPattern>
-			</unit>
-			<unit type="length-parsec">
-				<displayName>పార్సెక్‌లు</displayName>
-				<unitPattern count="one">{0} పార్సెక్</unitPattern>
-				<unitPattern count="other">{0} పార్సెక్‌లు</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName>పికోమీటర్లు</displayName>
 				<unitPattern count="one">{0} పికోమీటరు</unitPattern>
 				<unitPattern count="other">{0} పికోమీటర్లు</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<displayName>మైళ్లు</displayName>
+				<unitPattern count="one">{0} మైలు</unitPattern>
+				<unitPattern count="other">{0} మైళ్లు</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<displayName>గజాలు</displayName>
 				<unitPattern count="one">{0} గజం</unitPattern>
 				<unitPattern count="other">{0} గజాలు</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<displayName>అడుగులు</displayName>
+				<unitPattern count="one">{0} అడుగు</unitPattern>
+				<unitPattern count="other">{0} అడుగులు</unitPattern>
+				<perUnitPattern>అడుగుకి {0}</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName>అంగుళాలు</displayName>
+				<unitPattern count="one">{0} అంగుళం</unitPattern>
+				<unitPattern count="other">{0} అంగుళాలు</unitPattern>
+				<perUnitPattern>అంగుళానికి {0}</perUnitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>పార్సెక్‌లు</displayName>
+				<unitPattern count="one">{0} పార్సెక్</unitPattern>
+				<unitPattern count="other">{0} పార్సెక్‌లు</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>కాంతి సంవత్సరాలు</displayName>
+				<unitPattern count="one">{0} కాంతి సంవత్సరం</unitPattern>
+				<unitPattern count="other">{0} కాంతి సంవత్సరాలు</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>ఖగోళ ప్రమాణాలు</displayName>
+				<unitPattern count="one">{0} ఖగోళ ప్రమాణం</unitPattern>
+				<unitPattern count="other">{0} ఖగోళ ప్రమాణాలు</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName draft="unconfirmed">ఫర్లాంగులు</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} ఫర్లాంగు</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} ఫర్లాంగులు</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>నాటికల్ మైళ్లు</displayName>
+				<unitPattern count="one">{0} నాటికల్ మైలు</unitPattern>
+				<unitPattern count="other">{0} నాటికల్ మైళ్లు</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>స్కాండినేవియన్ మైలు</displayName>
+				<unitPattern count="one">{0} స్కాండినేవియన్ మైలు</unitPattern>
+				<unitPattern count="other">{0} స్కాండినేవియన్ మైళ్లు</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>లక్స్</displayName>
 				<unitPattern count="one">{0} లక్స్</unitPattern>
 				<unitPattern count="other">{0} లక్స్</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>క్యారెట్లు</displayName>
-				<unitPattern count="one">{0} క్యారెట్</unitPattern>
-				<unitPattern count="other">{0} క్యారెట్లు</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>గ్రాములు</displayName>
-				<unitPattern count="one">{0} గ్రాము</unitPattern>
-				<unitPattern count="other">{0} గ్రాములు</unitPattern>
-				<perUnitPattern>గ్రాముకు {0}</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>మెట్రిక్ టన్నులు</displayName>
+				<unitPattern count="one">{0} మెట్రిక్ టన్ను</unitPattern>
+				<unitPattern count="other">{0} మెట్రిక్ టన్నులు</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>కిలోగ్రాములు</displayName>
@@ -6088,20 +6082,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} కిలోగ్రాములు</unitPattern>
 				<perUnitPattern>కిలోగ్రాముకు {0}</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>మెట్రిక్ టన్నులు</displayName>
-				<unitPattern count="one">{0} మెట్రిక్ టన్ను</unitPattern>
-				<unitPattern count="other">{0} మెట్రిక్ టన్నులు</unitPattern>
+			<unit type="mass-gram">
+				<displayName>గ్రాములు</displayName>
+				<unitPattern count="one">{0} గ్రాము</unitPattern>
+				<unitPattern count="other">{0} గ్రాములు</unitPattern>
+				<perUnitPattern>గ్రాముకు {0}</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>మిల్లీగ్రాములు</displayName>
+				<unitPattern count="one">{0} మిల్లీగ్రాము</unitPattern>
+				<unitPattern count="other">{0} మిల్లీగ్రాములు</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>మైక్రోగ్రాములు</displayName>
 				<unitPattern count="one">{0} మైక్రోగ్రాము</unitPattern>
 				<unitPattern count="other">{0} మైక్రోగ్రాములు</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>మిల్లీగ్రాములు</displayName>
-				<unitPattern count="one">{0} మిల్లీగ్రాము</unitPattern>
-				<unitPattern count="other">{0} మిల్లీగ్రాములు</unitPattern>
+			<unit type="mass-ton">
+				<displayName>టన్నులు</displayName>
+				<unitPattern count="one">{0} టన్ను</unitPattern>
+				<unitPattern count="other">{0} టన్నులు</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>పౌండ్లు</displayName>
+				<unitPattern count="one">{0} పౌండు</unitPattern>
+				<unitPattern count="other">{0} పౌండ్లు</unitPattern>
+				<perUnitPattern>పౌండుకు {0}</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>ఔన్సులు</displayName>
@@ -6114,61 +6120,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ట్రాయ్ ఔన్సు</unitPattern>
 				<unitPattern count="other">{0} ట్రాయ్ ఔన్సులు</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>పౌండ్లు</displayName>
-				<unitPattern count="one">{0} పౌండు</unitPattern>
-				<unitPattern count="other">{0} పౌండ్లు</unitPattern>
-				<perUnitPattern>పౌండుకు {0}</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>టన్నులు</displayName>
-				<unitPattern count="one">{0} టన్ను</unitPattern>
-				<unitPattern count="other">{0} టన్నులు</unitPattern>
+			<unit type="mass-carat">
+				<displayName>క్యారెట్లు</displayName>
+				<unitPattern count="one">{0} క్యారెట్</unitPattern>
+				<unitPattern count="other">{0} క్యారెట్లు</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>గిగావాట్లు</displayName>
 				<unitPattern count="one">{0} గిగావాట్</unitPattern>
 				<unitPattern count="other">{0} గిగావాట్లు</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>హార్స్‌పవర్</displayName>
-				<unitPattern count="one">{0} హార్స్‌పవర్</unitPattern>
-				<unitPattern count="other">{0} హార్స్‌పవర్</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>మెగావాట్లు</displayName>
+				<unitPattern count="one">{0} మెగావాట్</unitPattern>
+				<unitPattern count="other">{0} మెగావాట్లు</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>కిలోవాట్లు</displayName>
 				<unitPattern count="one">{0} కిలోవాట్</unitPattern>
 				<unitPattern count="other">{0} కిలోవాట్లు</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>మెగావాట్లు</displayName>
-				<unitPattern count="one">{0} మెగావాట్</unitPattern>
-				<unitPattern count="other">{0} మెగావాట్లు</unitPattern>
+			<unit type="power-watt">
+				<displayName>వాట్లు</displayName>
+				<unitPattern count="one">{0} వాట్</unitPattern>
+				<unitPattern count="other">{0} వాట్లు</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>మిల్లీవాట్లు</displayName>
 				<unitPattern count="one">{0} మిల్లీవాట్</unitPattern>
 				<unitPattern count="other">{0} మిల్లీవాట్లు</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>వాట్లు</displayName>
-				<unitPattern count="one">{0} వాట్</unitPattern>
-				<unitPattern count="other">{0} వాట్లు</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>హార్స్‌పవర్</displayName>
+				<unitPattern count="one">{0} హార్స్‌పవర్</unitPattern>
+				<unitPattern count="other">{0} హార్స్‌పవర్</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>హెక్టోపాస్కల్‌లు</displayName>
 				<unitPattern count="one">{0} హెక్టోపాస్కల్</unitPattern>
 				<unitPattern count="other">{0} హెక్టోపాస్కల్‌లు</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>అంగుళాల పాదరసం</displayName>
-				<unitPattern count="one">{0} అంగుళం పాదరసం</unitPattern>
-				<unitPattern count="other">{0} అంగుళాల పాదరసం</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>మిల్లీబార్‌లు</displayName>
-				<unitPattern count="one">{0} మిల్లీబార్</unitPattern>
-				<unitPattern count="other">{0} మిల్లీబార్‌లు</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>మిల్లీమీటర్ల పాదరసం</displayName>
@@ -6180,6 +6170,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} పౌండు/చదరపు అంగుళం</unitPattern>
 				<unitPattern count="other">{0} పౌండ్లు/చదరపు అంగుళం</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>అంగుళాల పాదరసం</displayName>
+				<unitPattern count="one">{0} అంగుళం పాదరసం</unitPattern>
+				<unitPattern count="other">{0} అంగుళాల పాదరసం</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>మిల్లీబార్‌లు</displayName>
+				<unitPattern count="one">{0} మిల్లీబార్</unitPattern>
+				<unitPattern count="other">{0} మిల్లీబార్‌లు</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>కేరట్లు</displayName>
 				<unitPattern count="one">{0} కేరట్</unitPattern>
@@ -6189,11 +6189,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>కిలోమీటర్లు/గంట</displayName>
 				<unitPattern count="one">{0} కిలోమీటరు/గంట</unitPattern>
 				<unitPattern count="other">{0} కిలోమీటర్లు/గంట</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>నాట్</displayName>
-				<unitPattern count="one">{0} నాట్</unitPattern>
-				<unitPattern count="other">{0} నాటులు</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>మీటర్లు/సెకను</displayName>
@@ -6205,6 +6200,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} మైలు/గంట</unitPattern>
 				<unitPattern count="other">{0} మైళ్లు/గంట</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>నాట్</displayName>
+				<unitPattern count="one">{0} నాట్</unitPattern>
+				<unitPattern count="other">{0} నాటులు</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>డిగ్రీల సెల్సియస్</displayName>
 				<unitPattern count="one">{0} డిగ్రీ సెల్సియస్</unitPattern>
@@ -6215,41 +6220,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} డిగ్రీ ఫారన్హీట్</unitPattern>
 				<unitPattern count="other">{0} డిగ్రీల ఫారన్హీట్</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>కెల్విన్స్</displayName>
 				<unitPattern count="one">{0} కెల్విన్</unitPattern>
 				<unitPattern count="other">{0} కెల్విన్స్</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ఎకరా-అడుగులు</displayName>
-				<unitPattern count="one">{0} ఎకరా-అడుగు</unitPattern>
-				<unitPattern count="other">{0} ఎకరా-అడుగులు</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>సెంటీలీటర్లు</displayName>
-				<unitPattern count="one">{0} సెంటీలీటరు</unitPattern>
-				<unitPattern count="other">{0} సెంటీలీటర్లు</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>క్యూబిక్ సెంటీమీటర్లు</displayName>
-				<unitPattern count="one">{0} క్యూబిక్ సెంటీమీటరు</unitPattern>
-				<unitPattern count="other">{0} క్యూబిక్ సెంటీమీటర్లు</unitPattern>
-				<perUnitPattern>క్యూబిక్ సెంటీమీటరుకు {0}</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>ఘనపు అడుగులు</displayName>
-				<unitPattern count="one">{0} ఘనపు అడుగు</unitPattern>
-				<unitPattern count="other">{0} ఘనపు అడుగులు</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>ఘనపు అంగుళాలు</displayName>
-				<unitPattern count="one">{0} ఘనపు అంగుళం</unitPattern>
-				<unitPattern count="other">{0} ఘనపు అంగుళాలు</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>క్యూబిక్ కిలోమీటర్లు</displayName>
@@ -6262,6 +6236,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} క్యూబిక్ మీటర్లు</unitPattern>
 				<perUnitPattern>క్యూబిక్ మీటరుకు {0}</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>క్యూబిక్ సెంటీమీటర్లు</displayName>
+				<unitPattern count="one">{0} క్యూబిక్ సెంటీమీటరు</unitPattern>
+				<unitPattern count="other">{0} క్యూబిక్ సెంటీమీటర్లు</unitPattern>
+				<perUnitPattern>క్యూబిక్ సెంటీమీటరుకు {0}</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>క్యూబిక్ మైళ్లు</displayName>
 				<unitPattern count="one">{0} క్యూబిక్ మైలు</unitPattern>
@@ -6272,31 +6252,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} క్యూబిక్ గజం</unitPattern>
 				<unitPattern count="other">{0} క్యూబిక్ గజాలు</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>కప్పులు</displayName>
-				<unitPattern count="one">{0} కప్పు</unitPattern>
-				<unitPattern count="other">{0} కప్పులు</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>ఘనపు అడుగులు</displayName>
+				<unitPattern count="one">{0} ఘనపు అడుగు</unitPattern>
+				<unitPattern count="other">{0} ఘనపు అడుగులు</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>మెట్రిక్ కప్పులు</displayName>
-				<unitPattern count="one">{0} మెట్రిక్ కప్పు</unitPattern>
-				<unitPattern count="other">{0} మెట్రిక్ కప్పులు</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>ఘనపు అంగుళాలు</displayName>
+				<unitPattern count="one">{0} ఘనపు అంగుళం</unitPattern>
+				<unitPattern count="other">{0} ఘనపు అంగుళాలు</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>డెసిలీటర్లు</displayName>
-				<unitPattern count="one">{0} డెసిలీటరు</unitPattern>
-				<unitPattern count="other">{0} డెసిలీటర్లు</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>ద్రవరూప ఔన్సులు</displayName>
-				<unitPattern count="one">{0} ద్రవరూప ఔన్సు</unitPattern>
-				<unitPattern count="other">{0} ద్రవరూప ఔన్సులు</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>గ్యాలన్లు</displayName>
-				<unitPattern count="one">{0} గ్యాలన్</unitPattern>
-				<unitPattern count="other">{0} గ్యాలన్లు</unitPattern>
-				<perUnitPattern>గ్యాలనుకు {0}</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>మెగాలీటర్లు</displayName>
+				<unitPattern count="one">{0} మెగాలీటరు</unitPattern>
+				<unitPattern count="other">{0} మెగాలీటర్లు</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>హెక్టాలీటర్లు</displayName>
@@ -6309,30 +6278,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} లీటర్లు</unitPattern>
 				<perUnitPattern>లీటరుకు {0}</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>మెగాలీటర్లు</displayName>
-				<unitPattern count="one">{0} మెగాలీటరు</unitPattern>
-				<unitPattern count="other">{0} మెగాలీటర్లు</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>డెసిలీటర్లు</displayName>
+				<unitPattern count="one">{0} డెసిలీటరు</unitPattern>
+				<unitPattern count="other">{0} డెసిలీటర్లు</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>సెంటీలీటర్లు</displayName>
+				<unitPattern count="one">{0} సెంటీలీటరు</unitPattern>
+				<unitPattern count="other">{0} సెంటీలీటర్లు</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>మిల్లీలీటర్లు</displayName>
 				<unitPattern count="one">{0} మిల్లీలీటరు</unitPattern>
 				<unitPattern count="other">{0} మిల్లీలీటర్లు</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>పింట్లు</displayName>
-				<unitPattern count="one">{0} పింట్</unitPattern>
-				<unitPattern count="other">{0} పింట్లు</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>మెట్రిక్ పింట్లు</displayName>
 				<unitPattern count="one">{0} మెట్రిక్ పింటు</unitPattern>
 				<unitPattern count="other">{0} మెట్రిక్ పింట్లు</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>మెట్రిక్ కప్పులు</displayName>
+				<unitPattern count="one">{0} మెట్రిక్ కప్పు</unitPattern>
+				<unitPattern count="other">{0} మెట్రిక్ కప్పులు</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ఎకరా-అడుగులు</displayName>
+				<unitPattern count="one">{0} ఎకరా-అడుగు</unitPattern>
+				<unitPattern count="other">{0} ఎకరా-అడుగులు</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>గ్యాలన్లు</displayName>
+				<unitPattern count="one">{0} గ్యాలన్</unitPattern>
+				<unitPattern count="other">{0} గ్యాలన్లు</unitPattern>
+				<perUnitPattern>గ్యాలనుకు {0}</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>పావు వంతులు</displayName>
 				<unitPattern count="one">{0} పావు వంతు</unitPattern>
 				<unitPattern count="other">{0} పావు వంతులు</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>పింట్లు</displayName>
+				<unitPattern count="one">{0} పింట్</unitPattern>
+				<unitPattern count="other">{0} పింట్లు</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>కప్పులు</displayName>
+				<unitPattern count="one">{0} కప్పు</unitPattern>
+				<unitPattern count="other">{0} కప్పులు</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>ద్రవరూప ఔన్సులు</displayName>
+				<unitPattern count="one">{0} ద్రవరూప ఔన్సు</unitPattern>
+				<unitPattern count="other">{0} ద్రవరూప ఔన్సులు</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>టేబుల్ స్పూన్లు</displayName>
@@ -6365,6 +6365,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} మీ/సె²</unitPattern>
 				<unitPattern count="other">{0} మీ/సె²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>వి.</displayName>
+				<unitPattern count="one">{0} వి.</unitPattern>
+				<unitPattern count="other">{0} వి.</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>రేడియన్లు</displayName>
+				<unitPattern count="one">{0} రే.</unitPattern>
+				<unitPattern count="other">{0} రే.</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>డిగ్రీలు</displayName>
+				<unitPattern count="one">{0} డి.</unitPattern>
+				<unitPattern count="other">{0} డి.</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>ఆర్క్ నిమి.</displayName>
 				<unitPattern count="one">{0} ఆర్క్ నిమి.</unitPattern>
@@ -6375,36 +6390,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ఆర్క్ సెక.</unitPattern>
 				<unitPattern count="other">{0} ఆర్క్ సెక.</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>డిగ్రీలు</displayName>
-				<unitPattern count="one">{0} డి.</unitPattern>
-				<unitPattern count="other">{0} డి.</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>రేడియన్లు</displayName>
-				<unitPattern count="one">{0} రే.</unitPattern>
-				<unitPattern count="other">{0} రే.</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>వి.</displayName>
-				<unitPattern count="one">{0} వి.</unitPattern>
-				<unitPattern count="other">{0} వి.</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ఎకరాలు</displayName>
-				<unitPattern count="one">{0} ఎక.</unitPattern>
-				<unitPattern count="other">{0} ఎక.</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>కి.మీ²</displayName>
+				<unitPattern count="one">{0} కి.మీ²</unitPattern>
+				<unitPattern count="other">{0} కి.మీ²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>హెక్టార్లు</displayName>
 				<unitPattern count="one">{0} హె.</unitPattern>
 				<unitPattern count="other">{0} హె.</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>మీటర్లు²</displayName>
+				<unitPattern count="one">{0} మీ²</unitPattern>
+				<unitPattern count="other">{0} మీ²</unitPattern>
+				<perUnitPattern>{0}/మీ²</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>సెం.మీ²</displayName>
 				<unitPattern count="one">{0} సెం.మీ²</unitPattern>
 				<unitPattern count="other">{0} సెం.మీ²</unitPattern>
 				<perUnitPattern>{0}/సెం.మీ²</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>చద. మైళ్లు</displayName>
+				<unitPattern count="one">{0} చద. మై.</unitPattern>
+				<unitPattern count="other">{0} చద. మై.</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ఎకరాలు</displayName>
+				<unitPattern count="one">{0} ఎక.</unitPattern>
+				<unitPattern count="other">{0} ఎక.</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>గజాలు²</displayName>
+				<unitPattern count="one">{0} గ²</unitPattern>
+				<unitPattern count="other">{0} గ²</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>చద. అడుగులు</displayName>
@@ -6417,96 +6438,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} అం²</unitPattern>
 				<perUnitPattern>{0}/అం²</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>కి.మీ²</displayName>
-				<unitPattern count="one">{0} కి.మీ²</unitPattern>
-				<unitPattern count="other">{0} కి.మీ²</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>మీటర్లు²</displayName>
-				<unitPattern count="one">{0} మీ²</unitPattern>
-				<unitPattern count="other">{0} మీ²</unitPattern>
-				<perUnitPattern>{0}/మీ²</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>చద. మైళ్లు</displayName>
-				<unitPattern count="one">{0} చద. మై.</unitPattern>
-				<unitPattern count="other">{0} చద. మై.</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>గజాలు²</displayName>
-				<unitPattern count="one">{0} గ²</unitPattern>
-				<unitPattern count="other">{0} గ²</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>లీటర్లు/కి.మీ</displayName>
+				<unitPattern count="one">{0} లీ./కి.మీ</unitPattern>
+				<unitPattern count="other">{0} లీ./కి.మీ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>లీ/100 కి.మీ.</displayName>
 				<unitPattern count="one">{0} లీ/100 కి.మీ.</unitPattern>
 				<unitPattern count="other">{0} లీ/100 కి.మీ.</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>లీటర్లు/కి.మీ</displayName>
-				<unitPattern count="one">{0} లీ./కి.మీ</unitPattern>
-				<unitPattern count="other">{0} లీ./కి.మీ</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>మైళ్లు/గ్యా.</displayName>
 				<unitPattern count="one">{0} మై./గ్యా.</unitPattern>
 				<unitPattern count="other">{0} మై./గ్యా.</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>బిట్</displayName>
-				<unitPattern count="one">{0} బి</unitPattern>
-				<unitPattern count="other">{0} బి</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>బైట్</displayName>
-				<unitPattern count="one">{0} బై</unitPattern>
-				<unitPattern count="other">{0} బై</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>గి.బిట్</displayName>
-				<unitPattern count="one">{0} గి.బిట్</unitPattern>
-				<unitPattern count="other">{0} గి.బిట్లు</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>గి.బైట్</displayName>
-				<unitPattern count="one">{0} జీబీ</unitPattern>
-				<unitPattern count="other">{0} జీబీ</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>కి.బిట్</displayName>
-				<unitPattern count="one">{0} కి.బిట్</unitPattern>
-				<unitPattern count="other">{0} కి.బిట్లు</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>కి.బైట్</displayName>
-				<unitPattern count="one">{0} కేబీ</unitPattern>
-				<unitPattern count="other">{0} కేబీ</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>మె.బిట్</displayName>
-				<unitPattern count="one">{0} మె.బిట్</unitPattern>
-				<unitPattern count="other">{0} మె.బిట్లు</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>మె.బైట్</displayName>
-				<unitPattern count="one">{0} ఎమ్‌బి</unitPattern>
-				<unitPattern count="other">{0} ఎమ్‌బి</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>టె.బిట్</displayName>
-				<unitPattern count="one">{0} టె.బిట్</unitPattern>
-				<unitPattern count="other">{0} టె.బిట్లు</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>టె.బైట్</displayName>
 				<unitPattern count="one">{0} టీబీ</unitPattern>
 				<unitPattern count="other">{0} టీబీ</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>టె.బిట్</displayName>
+				<unitPattern count="one">{0} టె.బిట్</unitPattern>
+				<unitPattern count="other">{0} టె.బిట్లు</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>గి.బైట్</displayName>
+				<unitPattern count="one">{0} జీబీ</unitPattern>
+				<unitPattern count="other">{0} జీబీ</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>గి.బిట్</displayName>
+				<unitPattern count="one">{0} గి.బిట్</unitPattern>
+				<unitPattern count="other">{0} గి.బిట్లు</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>మె.బైట్</displayName>
+				<unitPattern count="one">{0} ఎమ్‌బి</unitPattern>
+				<unitPattern count="other">{0} ఎమ్‌బి</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>మె.బిట్</displayName>
+				<unitPattern count="one">{0} మె.బిట్</unitPattern>
+				<unitPattern count="other">{0} మె.బిట్లు</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>కి.బైట్</displayName>
+				<unitPattern count="one">{0} కేబీ</unitPattern>
+				<unitPattern count="other">{0} కేబీ</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>కి.బిట్</displayName>
+				<unitPattern count="one">{0} కి.బిట్</unitPattern>
+				<unitPattern count="other">{0} కి.బిట్లు</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>బైట్</displayName>
+				<unitPattern count="one">{0} బై</unitPattern>
+				<unitPattern count="other">{0} బై</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>బిట్</displayName>
+				<unitPattern count="one">{0} బి</unitPattern>
+				<unitPattern count="other">{0} బి</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>శ</displayName>
 				<unitPattern count="one">{0} శ</unitPattern>
 				<unitPattern count="other">{0} శ</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>సంవత్సరాలు</displayName>
+				<unitPattern count="one">{0} సం.</unitPattern>
+				<unitPattern count="other">{0} సం.</unitPattern>
+				<perUnitPattern>{0}/సం.</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>నెలలు</displayName>
+				<unitPattern count="one">{0} నె.</unitPattern>
+				<unitPattern count="other">{0} నె.</unitPattern>
+				<perUnitPattern>{0}/నె.</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>వారాలు</displayName>
+				<unitPattern count="one">{0} వా.</unitPattern>
+				<unitPattern count="other">{0} వా.</unitPattern>
+				<perUnitPattern>{0}/వా.</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>రోజులు</displayName>
@@ -6520,32 +6538,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} గం.</unitPattern>
 				<perUnitPattern>{0}/గం</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>మై.సె.</displayName>
-				<unitPattern count="one">{0} మై.సె</unitPattern>
-				<unitPattern count="other">{0} మై.సె</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>మిల్లీసె.</displayName>
-				<unitPattern count="one">{0} మి.సె</unitPattern>
-				<unitPattern count="other">{0} మి.సె</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>నిమి.</displayName>
 				<unitPattern count="one">{0} నిమి.</unitPattern>
 				<unitPattern count="other">{0} నిమి.</unitPattern>
 				<perUnitPattern>{0}/నిమి.</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>నెలలు</displayName>
-				<unitPattern count="one">{0} నె.</unitPattern>
-				<unitPattern count="other">{0} నె.</unitPattern>
-				<perUnitPattern>{0}/నె.</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>నా.సె.</displayName>
-				<unitPattern count="one">{0} నా.సె</unitPattern>
-				<unitPattern count="other">{0} నా.సె</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>సె.</displayName>
@@ -6553,17 +6550,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} సెక.</unitPattern>
 				<perUnitPattern>{0}/సె</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>వారాలు</displayName>
-				<unitPattern count="one">{0} వా.</unitPattern>
-				<unitPattern count="other">{0} వా.</unitPattern>
-				<perUnitPattern>{0}/వా.</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>మిల్లీసె.</displayName>
+				<unitPattern count="one">{0} మి.సె</unitPattern>
+				<unitPattern count="other">{0} మి.సె</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>సంవత్సరాలు</displayName>
-				<unitPattern count="one">{0} సం.</unitPattern>
-				<unitPattern count="other">{0} సం.</unitPattern>
-				<perUnitPattern>{0}/సం.</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>మై.సె.</displayName>
+				<unitPattern count="one">{0} మై.సె</unitPattern>
+				<unitPattern count="other">{0} మై.సె</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>నా.సె.</displayName>
+				<unitPattern count="one">{0} నా.సె</unitPattern>
+				<unitPattern count="other">{0} నా.సె</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>ఆంప్స్</displayName>
@@ -6585,6 +6585,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} వో</unitPattern>
 				<unitPattern count="other">{0} వో</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>కి.కే</displayName>
+				<unitPattern count="one">{0} కి.కే</unitPattern>
+				<unitPattern count="other">{0} కి.కే</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>కే</displayName>
 				<unitPattern count="one">{0} కే.</unitPattern>
@@ -6595,20 +6600,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} కే.</unitPattern>
 				<unitPattern count="other">{0} కే.</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>జౌల్స్</displayName>
-				<unitPattern count="one">{0} జౌ.</unitPattern>
-				<unitPattern count="other">{0} జౌ.</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>కి.కే</displayName>
-				<unitPattern count="one">{0} కి.కే</unitPattern>
-				<unitPattern count="other">{0} కి.కే</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>కిలోజౌల్</displayName>
 				<unitPattern count="one">{0} కి.జౌ</unitPattern>
 				<unitPattern count="other">{0} కి.జౌ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>జౌల్స్</displayName>
+				<unitPattern count="one">{0} జౌ.</unitPattern>
+				<unitPattern count="other">{0} జౌ.</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>కి.వా. గంట</displayName>
@@ -6620,51 +6620,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} గిగా హె</unitPattern>
 				<unitPattern count="other">{0} గిగా హె</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>హెర్ట్‌జ్</displayName>
-				<unitPattern count="one">{0} హెర్ట్‌జ్</unitPattern>
-				<unitPattern count="other">{0} హెర్ట్‌జ్</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>మె.హె</displayName>
+				<unitPattern count="one">{0} మె.హె</unitPattern>
+				<unitPattern count="other">{0} మె.హె</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>కి.హె</displayName>
 				<unitPattern count="one">{0} కి.హె</unitPattern>
 				<unitPattern count="other">{0} కి.హె</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>మె.హె</displayName>
-				<unitPattern count="one">{0} మె.హె</unitPattern>
-				<unitPattern count="other">{0} మె.హె</unitPattern>
-			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>au</displayName>
-				<unitPattern count="one">au</unitPattern>
-				<unitPattern count="other">{0} au</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>సెం.మీ.</displayName>
-				<unitPattern count="one">{0} సెం.మీ.</unitPattern>
-				<unitPattern count="other">{0} సెం.మీ.</unitPattern>
-				<perUnitPattern>{0}/సెం.మీ.</perUnitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName>డె.మీ.</displayName>
-				<unitPattern count="one">{0} డె.మీ.</unitPattern>
-				<unitPattern count="other">{0} డె.మీ.</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName>అడుగులు</displayName>
-				<unitPattern count="one">{0} అ.</unitPattern>
-				<unitPattern count="other">{0} అ.</unitPattern>
-				<perUnitPattern>{0}/అ.</perUnitPattern>
-			</unit>
-			<unit type="length-furlong">
-				<displayName draft="unconfirmed">ఫర్లాంగులు</displayName>
-			</unit>
-			<unit type="length-inch">
-				<displayName>అంగుళాలు</displayName>
-				<unitPattern count="one">{0} అం.</unitPattern>
-				<unitPattern count="other">{0} అం.</unitPattern>
-				<perUnitPattern>{0}/అం.</perUnitPattern>
+			<unit type="frequency-hertz">
+				<displayName>హెర్ట్‌జ్</displayName>
+				<unitPattern count="one">{0} హెర్ట్‌జ్</unitPattern>
+				<unitPattern count="other">{0} హెర్ట్‌జ్</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>కి.మీ.</displayName>
@@ -6672,77 +6641,102 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} కి.మీ.</unitPattern>
 				<perUnitPattern>{0}/కి.మీ.</perUnitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName>కాంతి సం.</displayName>
-				<unitPattern count="one">{0} కాం. సం</unitPattern>
-				<unitPattern count="other">{0} కాం. సం</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>మీటర్లు</displayName>
 				<unitPattern count="one">{0} మీ.</unitPattern>
 				<unitPattern count="other">{0} మీ.</unitPattern>
 				<perUnitPattern>{0}/మీ.</perUnitPattern>
 			</unit>
-			<unit type="length-micrometer">
-				<displayName>మై.మీటర్లు</displayName>
-				<unitPattern count="one">{0} మై.మీ.</unitPattern>
-				<unitPattern count="other">{0} మై.మీ.</unitPattern>
+			<unit type="length-decimeter">
+				<displayName>డె.మీ.</displayName>
+				<unitPattern count="one">{0} డె.మీ.</unitPattern>
+				<unitPattern count="other">{0} డె.మీ.</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName>మైళ్లు</displayName>
-				<unitPattern count="one">{0} మై.</unitPattern>
-				<unitPattern count="other">{0} మై.</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>స్కాం.మై.</displayName>
-				<unitPattern count="one">{0} స్కాం.మై.</unitPattern>
-				<unitPattern count="other">{0} స్కాం.మై.</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>సెం.మీ.</displayName>
+				<unitPattern count="one">{0} సెం.మీ.</unitPattern>
+				<unitPattern count="other">{0} సెం.మీ.</unitPattern>
+				<perUnitPattern>{0}/సెం.మీ.</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>మి.మీ.</displayName>
 				<unitPattern count="one">{0} మి.మీ.</unitPattern>
 				<unitPattern count="other">{0} మి.మీ.</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName>మై.మీటర్లు</displayName>
+				<unitPattern count="one">{0} మై.మీ.</unitPattern>
+				<unitPattern count="other">{0} మై.మీ.</unitPattern>
+			</unit>
 			<unit type="length-nanometer">
 				<displayName>నా.మీ.</displayName>
 				<unitPattern count="one">{0} నా.మీ.</unitPattern>
 				<unitPattern count="other">{0} నా.మీ.</unitPattern>
-			</unit>
-			<unit type="length-nautical-mile">
-				<displayName>నా.మై.</displayName>
-				<unitPattern count="one">{0} నా.మై.</unitPattern>
-				<unitPattern count="other">{0} నా.మై.</unitPattern>
-			</unit>
-			<unit type="length-parsec">
-				<displayName>పార్సెక్‌లు</displayName>
-				<unitPattern count="one">{0} పా.</unitPattern>
-				<unitPattern count="other">{0} పా.</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName>పి.మీ.</displayName>
 				<unitPattern count="one">{0} పి.మీ.</unitPattern>
 				<unitPattern count="other">{0} పి.మీ.</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<displayName>మైళ్లు</displayName>
+				<unitPattern count="one">{0} మై.</unitPattern>
+				<unitPattern count="other">{0} మై.</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<displayName>గజాలు</displayName>
 				<unitPattern count="one">{0} గ.</unitPattern>
 				<unitPattern count="other">{0} గ.</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<displayName>అడుగులు</displayName>
+				<unitPattern count="one">{0} అ.</unitPattern>
+				<unitPattern count="other">{0} అ.</unitPattern>
+				<perUnitPattern>{0}/అ.</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName>అంగుళాలు</displayName>
+				<unitPattern count="one">{0} అం.</unitPattern>
+				<unitPattern count="other">{0} అం.</unitPattern>
+				<perUnitPattern>{0}/అం.</perUnitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>పార్సెక్‌లు</displayName>
+				<unitPattern count="one">{0} పా.</unitPattern>
+				<unitPattern count="other">{0} పా.</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>కాంతి సం.</displayName>
+				<unitPattern count="one">{0} కాం. సం</unitPattern>
+				<unitPattern count="other">{0} కాం. సం</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>au</displayName>
+				<unitPattern count="one">au</unitPattern>
+				<unitPattern count="other">{0} au</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName draft="unconfirmed">ఫర్లాంగులు</displayName>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>నా.మై.</displayName>
+				<unitPattern count="one">{0} నా.మై.</unitPattern>
+				<unitPattern count="other">{0} నా.మై.</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>స్కాం.మై.</displayName>
+				<unitPattern count="one">{0} స్కాం.మై.</unitPattern>
+				<unitPattern count="other">{0} స్కాం.మై.</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>లక్స్</displayName>
 				<unitPattern count="one">{0} ల.</unitPattern>
 				<unitPattern count="other">{0} ల.</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>క్యారెట్లు</displayName>
-				<unitPattern count="one">{0} క్యారె.</unitPattern>
-				<unitPattern count="other">{0} క్యారె.</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>గ్రాములు</displayName>
-				<unitPattern count="one">{0} గ్రా.</unitPattern>
-				<unitPattern count="other">{0} గ్రా.</unitPattern>
-				<perUnitPattern>{0}/గ్రా.</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>ట</displayName>
+				<unitPattern count="one">{0} ట</unitPattern>
+				<unitPattern count="other">{0} ట</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>కి.గ్రా.</displayName>
@@ -6750,20 +6744,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} కి.గ్రా.</unitPattern>
 				<perUnitPattern>{0}/కి.గ్రా.</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>ట</displayName>
-				<unitPattern count="one">{0} ట</unitPattern>
-				<unitPattern count="other">{0} ట</unitPattern>
+			<unit type="mass-gram">
+				<displayName>గ్రాములు</displayName>
+				<unitPattern count="one">{0} గ్రా.</unitPattern>
+				<unitPattern count="other">{0} గ్రా.</unitPattern>
+				<perUnitPattern>{0}/గ్రా.</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>మి.గ్రా.</displayName>
+				<unitPattern count="one">{0} మి.గ్రా.</unitPattern>
+				<unitPattern count="other">{0} మి.గ్రా.</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>మై.గ్రా.</displayName>
 				<unitPattern count="one">{0} మై.గ్రా.</unitPattern>
 				<unitPattern count="other">{0} మై.గ్రా.</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>మి.గ్రా.</displayName>
-				<unitPattern count="one">{0} మి.గ్రా.</unitPattern>
-				<unitPattern count="other">{0} మి.గ్రా.</unitPattern>
+			<unit type="mass-ton">
+				<displayName>టన్నులు</displayName>
+				<unitPattern count="one">{0} టన్ను</unitPattern>
+				<unitPattern count="other">{0} టన్ను</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>పౌండ్లు</displayName>
+				<unitPattern count="one">{0} పౌ.</unitPattern>
+				<unitPattern count="other">{0} పౌ.</unitPattern>
+				<perUnitPattern>{0}/పౌ.</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>ఔ.</displayName>
@@ -6776,61 +6782,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ట్రా.ఔ.</unitPattern>
 				<unitPattern count="other">{0} ట్రా.ఔ.</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>పౌండ్లు</displayName>
-				<unitPattern count="one">{0} పౌ.</unitPattern>
-				<unitPattern count="other">{0} పౌ.</unitPattern>
-				<perUnitPattern>{0}/పౌ.</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>టన్నులు</displayName>
-				<unitPattern count="one">{0} టన్ను</unitPattern>
-				<unitPattern count="other">{0} టన్ను</unitPattern>
+			<unit type="mass-carat">
+				<displayName>క్యారెట్లు</displayName>
+				<unitPattern count="one">{0} క్యారె.</unitPattern>
+				<unitPattern count="other">{0} క్యారె.</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>గి.వా</displayName>
 				<unitPattern count="one">{0} గి.వా</unitPattern>
 				<unitPattern count="other">{0} గి.వా</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>హా.ప</displayName>
-				<unitPattern count="one">{0} హా.ప</unitPattern>
-				<unitPattern count="other">{0} హా.ప</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>మె.వా</displayName>
+				<unitPattern count="one">{0} మె.వా</unitPattern>
+				<unitPattern count="other">{0} మె.వా</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>కి.వా</displayName>
 				<unitPattern count="one">{0} కి.వా</unitPattern>
 				<unitPattern count="other">{0} కి.వా</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>మె.వా</displayName>
-				<unitPattern count="one">{0} మె.వా</unitPattern>
-				<unitPattern count="other">{0} మె.వా</unitPattern>
+			<unit type="power-watt">
+				<displayName>వాట్లు</displayName>
+				<unitPattern count="one">{0} వా.</unitPattern>
+				<unitPattern count="other">{0} వా.</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>మి.వా</displayName>
 				<unitPattern count="one">{0} మి.వా</unitPattern>
 				<unitPattern count="other">{0} మి.వా</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>వాట్లు</displayName>
-				<unitPattern count="one">{0} వా.</unitPattern>
-				<unitPattern count="other">{0} వా.</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>హా.ప</displayName>
+				<unitPattern count="one">{0} హా.ప</unitPattern>
+				<unitPattern count="other">{0} హా.ప</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>హె.పా</displayName>
 				<unitPattern count="one">{0} హె.పా</unitPattern>
 				<unitPattern count="other">{0} హె.పా</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>అం.పాద</displayName>
-				<unitPattern count="one">{0} అం.పాద</unitPattern>
-				<unitPattern count="other">{0} అం.పాద</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>మి.బార్</displayName>
-				<unitPattern count="one">{0} మి.బార్</unitPattern>
-				<unitPattern count="other">{0} మి.బార్</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>మిమీ. పాద</displayName>
@@ -6842,6 +6832,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} పౌ/చ.అం</unitPattern>
 				<unitPattern count="other">{0} పౌ/చ.అం</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>అం.పాద</displayName>
+				<unitPattern count="one">{0} అం.పాద</unitPattern>
+				<unitPattern count="other">{0} అం.పాద</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>మి.బార్</displayName>
+				<unitPattern count="one">{0} మి.బార్</unitPattern>
+				<unitPattern count="other">{0} మి.బార్</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>కేరట్లు</displayName>
 				<unitPattern count="one">{0} కేర.</unitPattern>
@@ -6851,11 +6851,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>కి.మీ/గంట</displayName>
 				<unitPattern count="one">{0} కి.మీ/గం</unitPattern>
 				<unitPattern count="other">{0} కి.మీ/గం</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>నా.</displayName>
-				<unitPattern count="one">{0} నా.</unitPattern>
-				<unitPattern count="other">{0} నా.</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>మీటర్లు/సెక.</displayName>
@@ -6867,6 +6862,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} మై/గం</unitPattern>
 				<unitPattern count="other">{0} మై/గం</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>నా.</displayName>
+				<unitPattern count="one">{0} నా.</unitPattern>
+				<unitPattern count="other">{0} నా.</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>డి.సెల్సి</displayName>
 				<unitPattern count="one">{0}°సెల్సి</unitPattern>
@@ -6877,41 +6882,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}°ఫా</unitPattern>
 				<unitPattern count="other">{0}°ఫా</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>కె</displayName>
 				<unitPattern count="one">{0} కె</unitPattern>
 				<unitPattern count="other">{0} కె</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ఎ.అ.</displayName>
-				<unitPattern count="one">{0} ఎ.అ.</unitPattern>
-				<unitPattern count="other">{0} ఎ.అ.</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>సె.లీ.</displayName>
-				<unitPattern count="one">{0} సె.లీ.</unitPattern>
-				<unitPattern count="other">{0} సె.లీ.</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>సెం.మీ³</displayName>
-				<unitPattern count="one">{0} సెం.మీ³</unitPattern>
-				<unitPattern count="other">{0} సెం.మీ³</unitPattern>
-				<perUnitPattern>{0}/సెం.మీ³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>అ³</displayName>
-				<unitPattern count="one">{0} అ³</unitPattern>
-				<unitPattern count="other">{0} అ³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>అం³</displayName>
-				<unitPattern count="one">{0} అం³</unitPattern>
-				<unitPattern count="other">{0} అం³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>కి.మీ³</displayName>
@@ -6924,6 +6898,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} మీ³</unitPattern>
 				<perUnitPattern>{0}/మీ³</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>సెం.మీ³</displayName>
+				<unitPattern count="one">{0} సెం.మీ³</unitPattern>
+				<unitPattern count="other">{0} సెం.మీ³</unitPattern>
+				<perUnitPattern>{0}/సెం.మీ³</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>మై³</displayName>
 				<unitPattern count="one">{0} మై³</unitPattern>
@@ -6934,31 +6914,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} గ³</unitPattern>
 				<unitPattern count="other">{0} గ³</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>కప్పులు</displayName>
-				<unitPattern count="one">{0} క.</unitPattern>
-				<unitPattern count="other">{0} క.</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>అ³</displayName>
+				<unitPattern count="one">{0} అ³</unitPattern>
+				<unitPattern count="other">{0} అ³</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>మె.కప్పు</displayName>
-				<unitPattern count="one">{0}/మె.క.</unitPattern>
-				<unitPattern count="other">{0}/మె.క.</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>అం³</displayName>
+				<unitPattern count="one">{0} అం³</unitPattern>
+				<unitPattern count="other">{0} అం³</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>డె.లీ.</displayName>
-				<unitPattern count="one">{0} డె.లీ.</unitPattern>
-				<unitPattern count="other">{0} డె.లీ.</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>ద్ర.ఔ.</displayName>
-				<unitPattern count="one">{0} ద్ర.ఔ.</unitPattern>
-				<unitPattern count="other">{0} ద్ర.ఔ.</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>గ్యా.</displayName>
-				<unitPattern count="one">{0} గ్యా.</unitPattern>
-				<unitPattern count="other">{0} గ్యా.</unitPattern>
-				<perUnitPattern>{0}/గ్యా.</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>మె.లీ.</displayName>
+				<unitPattern count="one">{0} మె.లీ.</unitPattern>
+				<unitPattern count="other">{0} మె.లీ.</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>హె.లీ.</displayName>
@@ -6971,30 +6940,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} లీ.</unitPattern>
 				<perUnitPattern>{0}/లీ.</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>మె.లీ.</displayName>
-				<unitPattern count="one">{0} మె.లీ.</unitPattern>
-				<unitPattern count="other">{0} మె.లీ.</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>డె.లీ.</displayName>
+				<unitPattern count="one">{0} డె.లీ.</unitPattern>
+				<unitPattern count="other">{0} డె.లీ.</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>సె.లీ.</displayName>
+				<unitPattern count="one">{0} సె.లీ.</unitPattern>
+				<unitPattern count="other">{0} సె.లీ.</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>మి.లీ.</displayName>
 				<unitPattern count="one">{0} మి.లీ.</unitPattern>
 				<unitPattern count="other">{0} మి.లీ.</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>పింట్లు</displayName>
-				<unitPattern count="one">{0} పిం.</unitPattern>
-				<unitPattern count="other">{0} పిం.</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>మె.పిం.</displayName>
 				<unitPattern count="one">{0} మె.పిం.</unitPattern>
 				<unitPattern count="other">{0} మె.పిం.</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>మె.కప్పు</displayName>
+				<unitPattern count="one">{0}/మె.క.</unitPattern>
+				<unitPattern count="other">{0}/మె.క.</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ఎ.అ.</displayName>
+				<unitPattern count="one">{0} ఎ.అ.</unitPattern>
+				<unitPattern count="other">{0} ఎ.అ.</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>గ్యా.</displayName>
+				<unitPattern count="one">{0} గ్యా.</unitPattern>
+				<unitPattern count="other">{0} గ్యా.</unitPattern>
+				<perUnitPattern>{0}/గ్యా.</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>పావు వం.</displayName>
 				<unitPattern count="one">{0} పావు వం.</unitPattern>
 				<unitPattern count="other">{0} పావు వం.</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>పింట్లు</displayName>
+				<unitPattern count="one">{0} పిం.</unitPattern>
+				<unitPattern count="other">{0} పిం.</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>కప్పులు</displayName>
+				<unitPattern count="one">{0} క.</unitPattern>
+				<unitPattern count="other">{0} క.</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>ద్ర.ఔ.</displayName>
+				<unitPattern count="one">{0} ద్ర.ఔ.</unitPattern>
+				<unitPattern count="other">{0} ద్ర.ఔ.</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>టే.స్పూ.</displayName>
@@ -7021,6 +7021,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} గు</unitPattern>
 				<unitPattern count="other">{0} గు</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -7029,25 +7033,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="one">{0} ఎక.</unitPattern>
-				<unitPattern count="other">{0} ఎక.</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} కి.మీ²</unitPattern>
+				<unitPattern count="other">{0} కి.మీ²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="one">{0} హె.</unitPattern>
 				<unitPattern count="other">{0} హె.</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="one">{0} అ²</unitPattern>
-				<unitPattern count="other">{0} అ²</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="one">{0} కి.మీ²</unitPattern>
-				<unitPattern count="other">{0} కి.మీ²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="one">{0} మీ²</unitPattern>
@@ -7057,10 +7049,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} మై²</unitPattern>
 				<unitPattern count="other">{0} మై²</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0} ఎక.</unitPattern>
+				<unitPattern count="other">{0} ఎక.</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0} అ²</unitPattern>
+				<unitPattern count="other">{0} అ²</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>లీ/100 కి.మీ.</displayName>
 				<unitPattern count="one">{0}లీ/100 కి.మీ.</unitPattern>
 				<unitPattern count="other">{0}లీ/100 కి.మీ.</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>సం</displayName>
+				<unitPattern count="one">{0}సం</unitPattern>
+				<unitPattern count="other">{0}సం</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>నెల</displayName>
+				<unitPattern count="one">{0}నె</unitPattern>
+				<unitPattern count="other">{0}నె</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>వా</displayName>
+				<unitPattern count="one">{0}వా</unitPattern>
+				<unitPattern count="other">{0}వా</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>రోజు</displayName>
@@ -7072,66 +7087,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}గం</unitPattern>
 				<unitPattern count="other">{0}గం</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>మి.సె.</displayName>
-				<unitPattern count="one">{0}మి.సె</unitPattern>
-				<unitPattern count="other">{0}మి.సె</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>నిమి</displayName>
 				<unitPattern count="one">{0}ని</unitPattern>
 				<unitPattern count="other">{0}ని</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>నెల</displayName>
-				<unitPattern count="one">{0}నె</unitPattern>
-				<unitPattern count="other">{0}నె</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>సె</displayName>
 				<unitPattern count="one">{0}సె</unitPattern>
 				<unitPattern count="other">{0}సె</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>వా</displayName>
-				<unitPattern count="one">{0}వా</unitPattern>
-				<unitPattern count="other">{0}వా</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName>సం</displayName>
-				<unitPattern count="one">{0}సం</unitPattern>
-				<unitPattern count="other">{0}సం</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>సెం.మీ</displayName>
-				<unitPattern count="one">{0}సెం.మీ</unitPattern>
-				<unitPattern count="other">{0}సెం.మీ</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="one">{0}′</unitPattern>
-				<unitPattern count="other">{0}′</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="one">{0}″</unitPattern>
-				<unitPattern count="other">{0}″</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>మి.సె.</displayName>
+				<unitPattern count="one">{0}మి.సె</unitPattern>
+				<unitPattern count="other">{0}మి.సె</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>కి.మీ</displayName>
 				<unitPattern count="one">{0}కి.మీ</unitPattern>
 				<unitPattern count="other">{0}కి.మీ</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="one">{0} కాం. సం</unitPattern>
-				<unitPattern count="other">{0} కాం. సం</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>మీటరు</displayName>
 				<unitPattern count="one">{0}మీ</unitPattern>
 				<unitPattern count="other">{0}మీ</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="one">{0} మై</unitPattern>
-				<unitPattern count="other">{0} మై</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>సెం.మీ</displayName>
+				<unitPattern count="one">{0}సెం.మీ</unitPattern>
+				<unitPattern count="other">{0}సెం.మీ</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>మి.మీ</displayName>
@@ -7142,35 +7126,47 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} పి.మీ</unitPattern>
 				<unitPattern count="other">{0} పి.మీ</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} మై</unitPattern>
+				<unitPattern count="other">{0} మై</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<unitPattern count="one">{0} గ.</unitPattern>
 				<unitPattern count="other">{0} గ.</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName>గ్రాము</displayName>
-				<unitPattern count="one">{0}గ్రా</unitPattern>
-				<unitPattern count="other">{0}గ్రా</unitPattern>
+			<unit type="length-foot">
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0} కాం. సం</unitPattern>
+				<unitPattern count="other">{0} కాం. సం</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>కి.గ్రా</displayName>
 				<unitPattern count="one">{0}కి.గ్రా</unitPattern>
 				<unitPattern count="other">{0}కి.గ్రా</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="one">{0} ఔ.</unitPattern>
-				<unitPattern count="other">{0} ఔ.</unitPattern>
-			</unit>
-			<unit type="mass-pound">
-				<unitPattern count="one">{0} పౌ.</unitPattern>
-				<unitPattern count="other">{0} పౌ.</unitPattern>
+			<unit type="mass-gram">
+				<displayName>గ్రాము</displayName>
+				<unitPattern count="one">{0}గ్రా</unitPattern>
+				<unitPattern count="other">{0}గ్రా</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<unitPattern count="one" draft="unconfirmed">{0} ట</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} ట</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="one">{0} హా.ప</unitPattern>
-				<unitPattern count="other">{0} హా.ప</unitPattern>
+			<unit type="mass-pound">
+				<unitPattern count="one">{0} పౌ.</unitPattern>
+				<unitPattern count="other">{0} పౌ.</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0} ఔ.</unitPattern>
+				<unitPattern count="other">{0} ఔ.</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one">{0} కి.వా</unitPattern>
@@ -7179,6 +7175,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="power-watt">
 				<unitPattern count="one">{0} వా.</unitPattern>
 				<unitPattern count="other">{0} వా.</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0} హా.ప</unitPattern>
+				<unitPattern count="other">{0} హా.ప</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="one">{0} హె.పా</unitPattern>

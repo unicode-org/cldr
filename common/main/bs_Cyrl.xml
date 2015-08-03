@@ -6136,6 +6136,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<displayName draft="provisional">година</displayName>
+				<unitPattern count="one">{0} година</unitPattern>
+				<unitPattern count="few">{0} године</unitPattern>
+				<unitPattern count="other">{0} година</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">месец</displayName>
+				<unitPattern count="one">{0} месец</unitPattern>
+				<unitPattern count="few">{0} месеца</unitPattern>
+				<unitPattern count="other">{0} месец</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">недеља</displayName>
+				<unitPattern count="one">{0} недеља</unitPattern>
+				<unitPattern count="few">{0} недеље</unitPattern>
+				<unitPattern count="other">{0} недеља</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">дан</displayName>
 				<unitPattern count="one">{0} дан</unitPattern>
@@ -6154,32 +6172,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} минута</unitPattern>
 				<unitPattern count="other">{0} минут</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">месец</displayName>
-				<unitPattern count="one">{0} месец</unitPattern>
-				<unitPattern count="few">{0} месеца</unitPattern>
-				<unitPattern count="other">{0} месец</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">секунда</displayName>
 				<unitPattern count="one">{0} секунда</unitPattern>
 				<unitPattern count="few">{0} секунде</unitPattern>
 				<unitPattern count="other">{0} секунда</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="provisional">недеља</displayName>
-				<unitPattern count="one">{0} недеља</unitPattern>
-				<unitPattern count="few">{0} недеље</unitPattern>
-				<unitPattern count="other">{0} недеља</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">година</displayName>
-				<unitPattern count="one">{0} година</unitPattern>
-				<unitPattern count="few">{0} године</unitPattern>
-				<unitPattern count="other">{0} година</unitPattern>
-			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="duration-year">
+				<displayName draft="provisional">година</displayName>
+				<unitPattern count="one">{0} год</unitPattern>
+				<unitPattern count="few">{0} год</unitPattern>
+				<unitPattern count="other">{0} год</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">месец</displayName>
+				<unitPattern count="one">{0} мес</unitPattern>
+				<unitPattern count="few">{0} мес</unitPattern>
+				<unitPattern count="other">{0} мес</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">недеља</displayName>
+				<unitPattern count="one">{0} нед</unitPattern>
+				<unitPattern count="few">{0} нед</unitPattern>
+				<unitPattern count="other">{0} нед</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">дан</displayName>
 				<unitPattern count="one">{0} дан</unitPattern>
@@ -6198,29 +6216,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} мин</unitPattern>
 				<unitPattern count="other">{0} мин</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">месец</displayName>
-				<unitPattern count="one">{0} мес</unitPattern>
-				<unitPattern count="few">{0} мес</unitPattern>
-				<unitPattern count="other">{0} мес</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">секунда</displayName>
 				<unitPattern count="one">{0} сек</unitPattern>
 				<unitPattern count="few">{0} сек</unitPattern>
 				<unitPattern count="other">{0} сек</unitPattern>
-			</unit>
-			<unit type="duration-week">
-				<displayName draft="provisional">недеља</displayName>
-				<unitPattern count="one">{0} нед</unitPattern>
-				<unitPattern count="few">{0} нед</unitPattern>
-				<unitPattern count="other">{0} нед</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">година</displayName>
-				<unitPattern count="one">{0} год</unitPattern>
-				<unitPattern count="few">{0} год</unitPattern>
-				<unitPattern count="other">{0} год</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

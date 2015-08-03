@@ -4714,6 +4714,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mita he sekoni sikuea</displayName>
 				<unitPattern count="other">mita he sekoni sikuea ʻe {0}</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>takai</displayName>
+				<unitPattern count="other">takai ʻe {0}</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>lētiani</displayName>
+				<unitPattern count="other">lētiani ʻe {0}</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>tikili seakale</displayName>
+				<unitPattern count="other">tikili seakale ʻe {0}</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>miniti seakale</displayName>
 				<unitPattern count="other">miniti seakale ʻe {0}</unitPattern>
@@ -4722,30 +4734,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>sekoni seakale</displayName>
 				<unitPattern count="other">sekoni seakale ʻe {0}</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>tikili seakale</displayName>
-				<unitPattern count="other">tikili seakale ʻe {0}</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>lētiani</displayName>
-				<unitPattern count="other">lētiani ʻe {0}</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>takai</displayName>
-				<unitPattern count="other">takai ʻe {0}</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ʻeka ʻe</displayName>
-				<unitPattern count="other">ʻeka ʻe {0}</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>kilomita sikuea</displayName>
+				<unitPattern count="other">kilomita sikuea ʻe {0}</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>hekitale</displayName>
 				<unitPattern count="other">hekitale ʻe {0}</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>mita sikuea ʻe</displayName>
+				<unitPattern count="other">mita sikuea ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} ki he mita sikuea</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>senitimita sikuea</displayName>
 				<unitPattern count="other">senitimita sikuea ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} ki he senitimita sikuea</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>maile sikuea</displayName>
+				<unitPattern count="other">maile sikuea ʻe {0}</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ʻeka ʻe</displayName>
+				<unitPattern count="other">ʻeka ʻe {0}</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>iate sikuea</displayName>
+				<unitPattern count="other">iate sikuea ʻe {0}</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>fute sikuea</displayName>
@@ -4756,78 +4773,76 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">ʻinisi sikuea ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} ki he ʻinisi sikuea</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>kilomita sikuea</displayName>
-				<unitPattern count="other">kilomita sikuea ʻe {0}</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>mita sikuea ʻe</displayName>
-				<unitPattern count="other">mita sikuea ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} ki he mita sikuea</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>maile sikuea</displayName>
-				<unitPattern count="other">maile sikuea ʻe {0}</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>iate sikuea</displayName>
-				<unitPattern count="other">iate sikuea ʻe {0}</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>lita he kilomita</displayName>
+				<unitPattern count="other">lita ʻe {0} he kilomita</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>lita he kilomita ʻe 100</displayName>
 				<unitPattern count="other">lita ʻe {0} he kilomita ʻe 100</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>lita he kilomita</displayName>
-				<unitPattern count="other">lita ʻe {0} he kilomita</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>maile he kālani</displayName>
 				<unitPattern count="other">maile ʻe {0} he kālani</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>ʻū piti</displayName>
-				<unitPattern count="other">piti ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>paiti</displayName>
-				<unitPattern count="other">paiti ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>kikapiti</displayName>
-				<unitPattern count="other">kikapiti ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>kikapaiti</displayName>
-				<unitPattern count="other">kikapaiti ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>kilopiti</displayName>
-				<unitPattern count="other">kilopiti ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>kilopaiti</displayName>
-				<unitPattern count="other">kilopaiti ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>mekapiti</displayName>
-				<unitPattern count="other">mekapiti ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>mekapaiti</displayName>
-				<unitPattern count="other">mekapaiti ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>telapiti</displayName>
-				<unitPattern count="other">telapiti ʻe {0}</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>telapaiti</displayName>
 				<unitPattern count="other">telapaiti ʻe {0}</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>telapiti</displayName>
+				<unitPattern count="other">telapiti ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>kikapaiti</displayName>
+				<unitPattern count="other">kikapaiti ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>kikapiti</displayName>
+				<unitPattern count="other">kikapiti ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>mekapaiti</displayName>
+				<unitPattern count="other">mekapaiti ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>mekapiti</displayName>
+				<unitPattern count="other">mekapiti ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kilopaiti</displayName>
+				<unitPattern count="other">kilopaiti ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kilopiti</displayName>
+				<unitPattern count="other">kilopiti ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>paiti</displayName>
+				<unitPattern count="other">paiti ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>ʻū piti</displayName>
+				<unitPattern count="other">piti ʻe {0}</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName draft="unconfirmed">teautaʻu</displayName>
 				<unitPattern count="other" draft="unconfirmed">teautaʻu ʻe {0}</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>taʻu</displayName>
+				<unitPattern count="other">taʻu ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} ki he taʻu</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>māhina</displayName>
+				<unitPattern count="other">māhina ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} ki he māhina</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>uike</displayName>
+				<unitPattern count="other">uike ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} ki he uike</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>ʻaho</displayName>
@@ -4839,42 +4854,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">houa ʻe {0}</unitPattern>
 				<perUnitPattern>{0} ki he houa</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>mikolosekoni</displayName>
-				<unitPattern count="other">mikolosekoni ʻe {0}</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>milisekoni</displayName>
-				<unitPattern count="other">milisekoni ʻe {0}</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>miniti</displayName>
 				<unitPattern count="other">miniti ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} ki he miniti</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>māhina</displayName>
-				<unitPattern count="other">māhina ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} ki he māhina</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>nanosekoni</displayName>
-				<unitPattern count="other">nanosekoni ʻe {0}</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>sekoni</displayName>
 				<unitPattern count="other">sekoni ʻe {0}</unitPattern>
 				<perUnitPattern>{0} ki he sekoni</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>uike</displayName>
-				<unitPattern count="other">uike ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} ki he uike</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>milisekoni</displayName>
+				<unitPattern count="other">milisekoni ʻe {0}</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>taʻu</displayName>
-				<unitPattern count="other">taʻu ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} ki he taʻu</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>mikolosekoni</displayName>
+				<unitPattern count="other">mikolosekoni ʻe {0}</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>nanosekoni</displayName>
+				<unitPattern count="other">nanosekoni ʻe {0}</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>ʻamipele</displayName>
@@ -4892,6 +4892,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>volotā</displayName>
 				<unitPattern count="other">volotā ʻe {0}</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kilokaloli</displayName>
+				<unitPattern count="other">kilokaloli ʻe {0}</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>ʻū kaloli</displayName>
 				<unitPattern count="other">kaloli ʻe {0}</unitPattern>
@@ -4900,17 +4904,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ʻū kaloli-kai</displayName>
 				<unitPattern count="other">kaloli-kai ʻe {0}</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>siule</displayName>
-				<unitPattern count="other">siule ʻe {0}</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>kilokaloli</displayName>
-				<unitPattern count="other">kilokaloli ʻe {0}</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kilosiule</displayName>
 				<unitPattern count="other">kilosiule ʻe {0}</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>siule</displayName>
+				<unitPattern count="other">siule ʻe {0}</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kilouate-houa</displayName>
@@ -4920,124 +4920,133 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kikahēti</displayName>
 				<unitPattern count="other">kikahēti ʻe {0}</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>hēti</displayName>
-				<unitPattern count="other">hēti ʻe {0}</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>megahēti</displayName>
+				<unitPattern count="other">megahēti ʻe {0}</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>kilohēti</displayName>
 				<unitPattern count="other">kilohēti ʻe {0}</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>megahēti</displayName>
-				<unitPattern count="other">megahēti ʻe {0}</unitPattern>
-			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>ʻiuniti fakaʻasitalōnoma</displayName>
-				<unitPattern count="other">ʻiuniti fakaʻasitalōnoma ʻe {0}</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>senitimita</displayName>
-				<unitPattern count="other">senitimita ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} ki he senitimita</perUnitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName>tesimita</displayName>
-				<unitPattern count="other">tesimita ʻe {0}</unitPattern>
-			</unit>
-			<unit type="length-fathom">
-				<displayName>ofa</displayName>
-				<unitPattern count="other">ofa ʻe {0}</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName>fute</displayName>
-				<unitPattern count="other">fute ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} ki he fute</perUnitPattern>
-			</unit>
-			<unit type="length-furlong">
-				<displayName>fālongo</displayName>
-				<unitPattern count="other">fālongo ʻe {0}</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName>ʻinisi</displayName>
-				<unitPattern count="other">ʻinisi ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} ki he ʻinise</perUnitPattern>
+			<unit type="frequency-hertz">
+				<displayName>hēti</displayName>
+				<unitPattern count="other">hēti ʻe {0}</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>kilomita</displayName>
 				<unitPattern count="other">kilomita ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} ki he kilomita</perUnitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName>taʻumaama</displayName>
-				<unitPattern count="other">taʻumaama ʻe {0}</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>mita</displayName>
 				<unitPattern count="other">mita ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} ki he mita</perUnitPattern>
 			</unit>
-			<unit type="length-micrometer">
-				<displayName>maikolomita</displayName>
-				<unitPattern count="other">maikolomita ʻe {0}</unitPattern>
+			<unit type="length-decimeter">
+				<displayName>tesimita</displayName>
+				<unitPattern count="other">tesimita ʻe {0}</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName>maile</displayName>
-				<unitPattern count="other">maile ʻe {0}</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>senitimita</displayName>
+				<unitPattern count="other">senitimita ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} ki he senitimita</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>milimita</displayName>
 				<unitPattern count="other">milimita ʻe {0}</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName>maikolomita</displayName>
+				<unitPattern count="other">maikolomita ʻe {0}</unitPattern>
+			</unit>
 			<unit type="length-nanometer">
 				<displayName>nanomita</displayName>
 				<unitPattern count="other">nanomita ʻe {0}</unitPattern>
-			</unit>
-			<unit type="length-nautical-mile">
-				<displayName>maile ʻi tahi</displayName>
-				<unitPattern count="other">maile ʻi tahi ʻe {0}</unitPattern>
-			</unit>
-			<unit type="length-parsec">
-				<displayName>ngaofesekoni</displayName>
-				<unitPattern count="other">ngaofesekoni ʻe {0}</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName>pikomita</displayName>
 				<unitPattern count="other">pikomita ʻe {0}</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<displayName>maile</displayName>
+				<unitPattern count="other">maile ʻe {0}</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<displayName>iate</displayName>
 				<unitPattern count="other">iate ʻe {0}</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<displayName>fute</displayName>
+				<unitPattern count="other">fute ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} ki he fute</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName>ʻinisi</displayName>
+				<unitPattern count="other">ʻinisi ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} ki he ʻinise</perUnitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>ngaofesekoni</displayName>
+				<unitPattern count="other">ngaofesekoni ʻe {0}</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>taʻumaama</displayName>
+				<unitPattern count="other">taʻumaama ʻe {0}</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>ʻiuniti fakaʻasitalōnoma</displayName>
+				<unitPattern count="other">ʻiuniti fakaʻasitalōnoma ʻe {0}</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName>fālongo</displayName>
+				<unitPattern count="other">fālongo ʻe {0}</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName>ofa</displayName>
+				<unitPattern count="other">ofa ʻe {0}</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>maile ʻi tahi</displayName>
+				<unitPattern count="other">maile ʻi tahi ʻe {0}</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lukisi</displayName>
 				<unitPattern count="other">lukisi ʻe {0}</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>kalati</displayName>
-				<unitPattern count="other">kalati ʻe {0}</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>kalami</displayName>
-				<unitPattern count="other">kalami ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} ki he kalami</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>toni</displayName>
+				<unitPattern count="other">toni ʻe {0}</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kilokalami</displayName>
 				<unitPattern count="other">kilokalami ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} ki he kilokalami</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>toni</displayName>
-				<unitPattern count="other">toni ʻe {0}</unitPattern>
+			<unit type="mass-gram">
+				<displayName>kalami</displayName>
+				<unitPattern count="other">kalami ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} ki he kalami</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>milikalami</displayName>
+				<unitPattern count="other">milikalami ʻe {0}</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>maikolokalami</displayName>
 				<unitPattern count="other">maikolokalami ʻe {0}</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>milikalami</displayName>
-				<unitPattern count="other">milikalami ʻe {0}</unitPattern>
+			<unit type="mass-ton">
+				<displayName>toni nounou</displayName>
+				<unitPattern count="other">toni nounou ʻe {0}</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName>sitoni</displayName>
+				<unitPattern count="other">sitoni ʻe {0}</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>pāuni</displayName>
+				<unitPattern count="other">pāuni ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} ki he pāuni</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>ʻaunise</displayName>
@@ -5048,54 +5057,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ʻaunisi koula</displayName>
 				<unitPattern count="other">ʻaunisi koula ʻe {0}</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>pāuni</displayName>
-				<unitPattern count="other">pāuni ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} ki he pāuni</perUnitPattern>
-			</unit>
-			<unit type="mass-stone">
-				<displayName>sitoni</displayName>
-				<unitPattern count="other">sitoni ʻe {0}</unitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>toni nounou</displayName>
-				<unitPattern count="other">toni nounou ʻe {0}</unitPattern>
+			<unit type="mass-carat">
+				<displayName>kalati</displayName>
+				<unitPattern count="other">kalati ʻe {0}</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>kikauate</displayName>
 				<unitPattern count="other">kikauate ʻe {0}</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>hoosipaoa</displayName>
-				<unitPattern count="other">hoosipaoa ʻe {0}</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>mekauate</displayName>
+				<unitPattern count="other">mekauate ʻe {0}</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>kilouate</displayName>
 				<unitPattern count="other">kilouate ʻe {0}</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>mekauate</displayName>
-				<unitPattern count="other">mekauate ʻe {0}</unitPattern>
+			<unit type="power-watt">
+				<displayName>uate</displayName>
+				<unitPattern count="other">uate ʻe {0}</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>miliuate</displayName>
 				<unitPattern count="other">miliuate ʻe {0}</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>uate</displayName>
-				<unitPattern count="other">uate ʻe {0}</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>hoosipaoa</displayName>
+				<unitPattern count="other">hoosipaoa ʻe {0}</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hēkitopasikale</displayName>
 				<unitPattern count="other">hēkitopasikale ʻe {0}</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>ʻinisi mēkuli</displayName>
-				<unitPattern count="other">ʻinisi mēkuli ʻe {0}</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>milipā</displayName>
-				<unitPattern count="other">milipā ʻe {0}</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>milimita mēkuli</displayName>
@@ -5105,6 +5097,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>pāuni he ʻinisi sikuea</displayName>
 				<unitPattern count="other">pāuni he ʻinisi sikuea ʻe {0}</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>ʻinisi mēkuli</displayName>
+				<unitPattern count="other">ʻinisi mēkuli ʻe {0}</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>milipā</displayName>
+				<unitPattern count="other">milipā ʻe {0}</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>kalati</displayName>
 				<unitPattern count="other">kalati ʻe {0}</unitPattern>
@@ -5112,10 +5112,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilomita he houa</displayName>
 				<unitPattern count="other">kilomita he houa ʻe {0}</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName draft="unconfirmed">fakapona</displayName>
-				<unitPattern count="other" draft="unconfirmed">fakapona ʻe {0}</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>mita he sekoni</displayName>
@@ -5125,6 +5121,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>maile he houa</displayName>
 				<unitPattern count="other">maile he houa ʻe {0}</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName draft="unconfirmed">fakapona</displayName>
+				<unitPattern count="other" draft="unconfirmed">fakapona ʻe {0}</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName draft="unconfirmed">°</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>tikili selisiasi</displayName>
 				<unitPattern count="other">tikili selisiasi ʻe {0}</unitPattern>
@@ -5133,38 +5137,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>tikili felenihaiti</displayName>
 				<unitPattern count="other">tikili felenihaiti ʻe {0}</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName draft="unconfirmed">°</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>kelevini</displayName>
 				<unitPattern count="other">kelevini ʻe {0}</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ʻeka-fute</displayName>
-				<unitPattern count="other">ʻeka-fute ʻe {0}</unitPattern>
-			</unit>
-			<unit type="volume-bushel">
-				<displayName>pūseli</displayName>
-				<unitPattern count="other">pūseli ʻe {0}</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>senitilita</displayName>
-				<unitPattern count="other">senitilita ʻe {0}</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>senitimita kiupiki</displayName>
-				<unitPattern count="other">senitimita kiupiki ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} ki he senitimita kiupiki</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>fute kiupiki</displayName>
-				<unitPattern count="other">fute kiupiki ʻe {0}</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>ʻinisi kiupiki</displayName>
-				<unitPattern count="other">ʻinisi kiupiki ʻe {0}</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>kilomita kiupiki</displayName>
@@ -5175,6 +5150,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">mita kiupiki ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} ki he mita kiupiki</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>senitimita kiupiki</displayName>
+				<unitPattern count="other">senitimita kiupiki ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} ki he senitimita kiupiki</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>maile kiupiki</displayName>
 				<unitPattern count="other">maile kiupiki ʻe {0}</unitPattern>
@@ -5183,26 +5163,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>iate kiupiki</displayName>
 				<unitPattern count="other">iate kiupiki ʻe {0}</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>ipu</displayName>
-				<unitPattern count="other">ipu ʻe {0}</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>fute kiupiki</displayName>
+				<unitPattern count="other">fute kiupiki ʻe {0}</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName draft="unconfirmed">ipu fakamita</displayName>
-				<unitPattern count="other" draft="unconfirmed">ipu fakamita ʻe {0}</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>ʻinisi kiupiki</displayName>
+				<unitPattern count="other">ʻinisi kiupiki ʻe {0}</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>tesilita</displayName>
-				<unitPattern count="other">tesilita ʻe {0}</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>ʻaunise tafe</displayName>
-				<unitPattern count="other">ʻaunise tafe ʻe {0}</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>kālani</displayName>
-				<unitPattern count="other">kālani ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} ki he kālani</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>mekalita</displayName>
+				<unitPattern count="other">mekalita ʻe {0}</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hēkitolita</displayName>
@@ -5213,25 +5184,54 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">lita ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} ki he lita</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>mekalita</displayName>
-				<unitPattern count="other">mekalita ʻe {0}</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>tesilita</displayName>
+				<unitPattern count="other">tesilita ʻe {0}</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>senitilita</displayName>
+				<unitPattern count="other">senitilita ʻe {0}</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>mililita</displayName>
 				<unitPattern count="other">mililita ʻe {0}</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>painite</displayName>
-				<unitPattern count="other">painite ʻe {0}</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName draft="unconfirmed">painite fakamita</displayName>
 				<unitPattern count="other" draft="unconfirmed">painite fakamita ʻe {0}</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName draft="unconfirmed">ipu fakamita</displayName>
+				<unitPattern count="other" draft="unconfirmed">ipu fakamita ʻe {0}</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ʻeka-fute</displayName>
+				<unitPattern count="other">ʻeka-fute ʻe {0}</unitPattern>
+			</unit>
+			<unit type="volume-bushel">
+				<displayName>pūseli</displayName>
+				<unitPattern count="other">pūseli ʻe {0}</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>kālani</displayName>
+				<unitPattern count="other">kālani ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} ki he kālani</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>kuata</displayName>
 				<unitPattern count="other">kuata ʻe {0}</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>painite</displayName>
+				<unitPattern count="other">painite ʻe {0}</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>ipu</displayName>
+				<unitPattern count="other">ipu ʻe {0}</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>ʻaunise tafe</displayName>
+				<unitPattern count="other">ʻaunise tafe ʻe {0}</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>sēpuni tēpile</displayName>
@@ -5260,6 +5260,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>m/s²</displayName>
 				<unitPattern count="other">m/s² ʻe {0}</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>tak</displayName>
+				<unitPattern count="other">tak ʻe {0}</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>lēt</displayName>
+				<unitPattern count="other">lēt ʻe {0}</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>tsk</displayName>
+				<unitPattern count="other">tsk ʻe {0}</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>msk</displayName>
 				<unitPattern count="other">msk ʻe {0}</unitPattern>
@@ -5268,30 +5280,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ssk</displayName>
 				<unitPattern count="other">ssk ʻe {0}</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>tsk</displayName>
-				<unitPattern count="other">tsk ʻe {0}</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>lēt</displayName>
-				<unitPattern count="other">lēt ʻe {0}</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>tak</displayName>
-				<unitPattern count="other">tak ʻe {0}</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ʻeka ʻe</displayName>
-				<unitPattern count="other">ʻek ʻe {0}</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>km²</displayName>
+				<unitPattern count="other">km² ʻe {0}</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ha</displayName>
 				<unitPattern count="other">ha ʻe {0}</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>mita sikuea ʻe</displayName>
+				<unitPattern count="other">m² ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /m²</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>sm²</displayName>
 				<unitPattern count="other">sm² ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /sm²</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>maile sikuea ʻe</displayName>
+				<unitPattern count="other">mi² ʻe {0}</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ʻeka ʻe</displayName>
+				<unitPattern count="other">ʻek ʻe {0}</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>it²</displayName>
+				<unitPattern count="other">it² ʻe {0}</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>ft²</displayName>
@@ -5302,78 +5319,76 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">in² ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /in²</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>km²</displayName>
-				<unitPattern count="other">km² ʻe {0}</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>mita sikuea ʻe</displayName>
-				<unitPattern count="other">m² ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /m²</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>maile sikuea ʻe</displayName>
-				<unitPattern count="other">mi² ʻe {0}</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>it²</displayName>
-				<unitPattern count="other">it² ʻe {0}</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>l/km</displayName>
+				<unitPattern count="other">l ʻe {0}/km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>l/100km</displayName>
 				<unitPattern count="other">l ʻe {0}/100km</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>l/km</displayName>
-				<unitPattern count="other">l ʻe {0}/km</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>mi/kā</displayName>
 				<unitPattern count="other">mi ʻe {0}/kā</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>piti</displayName>
-				<unitPattern count="other">piti ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>ʻū paiti</displayName>
-				<unitPattern count="other">paiti ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>kikapiti</displayName>
-				<unitPattern count="other">Gb ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>kikapaiti</displayName>
-				<unitPattern count="other">GB ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>kilopiti</displayName>
-				<unitPattern count="other">kb ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>kilopaiti</displayName>
-				<unitPattern count="other">kB ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>mekapiti</displayName>
-				<unitPattern count="other">Mb ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>mekapaiti</displayName>
-				<unitPattern count="other">MB ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>telapiti</displayName>
-				<unitPattern count="other">Tb ʻe {0}</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>telapaiti</displayName>
 				<unitPattern count="other">TB ʻe {0}</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>telapiti</displayName>
+				<unitPattern count="other">Tb ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>kikapaiti</displayName>
+				<unitPattern count="other">GB ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>kikapiti</displayName>
+				<unitPattern count="other">Gb ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>mekapaiti</displayName>
+				<unitPattern count="other">MB ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>mekapiti</displayName>
+				<unitPattern count="other">Mb ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kilopaiti</displayName>
+				<unitPattern count="other">kB ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kilopiti</displayName>
+				<unitPattern count="other">kb ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>ʻū paiti</displayName>
+				<unitPattern count="other">paiti ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>piti</displayName>
+				<unitPattern count="other">piti ʻe {0}</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName draft="unconfirmed">tt</displayName>
 				<unitPattern count="other" draft="unconfirmed">tt ʻe {0}</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>taʻu</displayName>
+				<unitPattern count="other">taʻu ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /t</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>mā</displayName>
+				<unitPattern count="other">mā ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /mā</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>u</displayName>
+				<unitPattern count="other">u ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /u</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>ʻa</displayName>
@@ -5385,42 +5400,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">h ʻe {0}</unitPattern>
 				<perUnitPattern>{0} /h</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>μs</displayName>
-				<unitPattern count="other">μs ʻe {0}</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>ms</displayName>
-				<unitPattern count="other">ms ʻe {0}</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>m</displayName>
 				<unitPattern count="other">m ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /m</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>mā</displayName>
-				<unitPattern count="other">mā ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /mā</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>ns</displayName>
-				<unitPattern count="other">ns ʻe {0}</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>s</displayName>
 				<unitPattern count="other">s ʻe {0}</unitPattern>
 				<perUnitPattern>{0} /s</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>u</displayName>
-				<unitPattern count="other">u ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /u</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>ms</displayName>
+				<unitPattern count="other">ms ʻe {0}</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>taʻu</displayName>
-				<unitPattern count="other">taʻu ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /t</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>μs</displayName>
+				<unitPattern count="other">μs ʻe {0}</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ns</displayName>
+				<unitPattern count="other">ns ʻe {0}</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>A</displayName>
@@ -5438,6 +5438,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>volotā</displayName>
 				<unitPattern count="other">V ʻe {0}</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kkal</displayName>
+				<unitPattern count="other">kkal ʻe {0}</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>kal</displayName>
 				<unitPattern count="other">kal ʻe {0}</unitPattern>
@@ -5446,17 +5450,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kal-k</displayName>
 				<unitPattern count="other">kal-k ʻe {0}</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>J</displayName>
-				<unitPattern count="other">J ʻe {0}</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>kkal</displayName>
-				<unitPattern count="other">kkal ʻe {0}</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kJ</displayName>
 				<unitPattern count="other">kJ ʻe {0}</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>J</displayName>
+				<unitPattern count="other">J ʻe {0}</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kWh</displayName>
@@ -5466,124 +5466,133 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>GHz</displayName>
 				<unitPattern count="other">GHz ʻe {0}</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>Hz</displayName>
-				<unitPattern count="other">Hz ʻe {0}</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>MHz</displayName>
+				<unitPattern count="other">MHz ʻe {0}</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>kHz</displayName>
 				<unitPattern count="other">kHz ʻe {0}</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>MHz</displayName>
-				<unitPattern count="other">MHz ʻe {0}</unitPattern>
-			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>ʻiʻa</displayName>
-				<unitPattern count="other">ʻiʻa ʻe {0}</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>sm</displayName>
-				<unitPattern count="other">sm ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /sm</perUnitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName>tm</displayName>
-				<unitPattern count="other">tm ʻe {0}</unitPattern>
-			</unit>
-			<unit type="length-fathom">
-				<displayName>ofa</displayName>
-				<unitPattern count="other">ofa ʻe {0}</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName>ft</displayName>
-				<unitPattern count="other">ft ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /ft</perUnitPattern>
-			</unit>
-			<unit type="length-furlong">
-				<displayName>fāl</displayName>
-				<unitPattern count="other">fāl ʻe {0}</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName>in</displayName>
-				<unitPattern count="other">in ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /in</perUnitPattern>
+			<unit type="frequency-hertz">
+				<displayName>Hz</displayName>
+				<unitPattern count="other">Hz ʻe {0}</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
 				<unitPattern count="other">km ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /km</perUnitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName>tma</displayName>
-				<unitPattern count="other">tma ʻe {0}</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>m</displayName>
 				<unitPattern count="other">m ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /m</perUnitPattern>
 			</unit>
-			<unit type="length-micrometer">
-				<displayName>µm</displayName>
-				<unitPattern count="other">µm ʻe {0}</unitPattern>
+			<unit type="length-decimeter">
+				<displayName>tm</displayName>
+				<unitPattern count="other">tm ʻe {0}</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName>mi</displayName>
-				<unitPattern count="other">mi ʻe {0}</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>sm</displayName>
+				<unitPattern count="other">sm ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /sm</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>mm</displayName>
 				<unitPattern count="other">mm ʻe {0}</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName>µm</displayName>
+				<unitPattern count="other">µm ʻe {0}</unitPattern>
+			</unit>
 			<unit type="length-nanometer">
 				<displayName>nm</displayName>
 				<unitPattern count="other">nm ʻe {0}</unitPattern>
-			</unit>
-			<unit type="length-nautical-mile">
-				<displayName>mt</displayName>
-				<unitPattern count="other">mt ʻe {0}</unitPattern>
-			</unit>
-			<unit type="length-parsec">
-				<displayName>ngs</displayName>
-				<unitPattern count="other">ngs ʻe {0}</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName>pm</displayName>
 				<unitPattern count="other">pm ʻe {0}</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<displayName>mi</displayName>
+				<unitPattern count="other">mi ʻe {0}</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<displayName>it</displayName>
 				<unitPattern count="other">it ʻe {0}</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<displayName>ft</displayName>
+				<unitPattern count="other">ft ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /ft</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName>in</displayName>
+				<unitPattern count="other">in ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /in</perUnitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>ngs</displayName>
+				<unitPattern count="other">ngs ʻe {0}</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>tma</displayName>
+				<unitPattern count="other">tma ʻe {0}</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>ʻiʻa</displayName>
+				<unitPattern count="other">ʻiʻa ʻe {0}</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName>fāl</displayName>
+				<unitPattern count="other">fāl ʻe {0}</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName>ofa</displayName>
+				<unitPattern count="other">ofa ʻe {0}</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>mt</displayName>
+				<unitPattern count="other">mt ʻe {0}</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lx</displayName>
 				<unitPattern count="other">lx ʻe {0}</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>kt</displayName>
-				<unitPattern count="other">kt ʻe {0}</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>k</displayName>
-				<unitPattern count="other">k ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /k</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>to</displayName>
+				<unitPattern count="other">to ʻe {0}</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kk</displayName>
 				<unitPattern count="other">kk ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /kk</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>to</displayName>
-				<unitPattern count="other">to ʻe {0}</unitPattern>
+			<unit type="mass-gram">
+				<displayName>k</displayName>
+				<unitPattern count="other">k ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /k</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>mk</displayName>
+				<unitPattern count="other">mk ʻe {0}</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>μk</displayName>
 				<unitPattern count="other">μk ʻe {0}</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>mk</displayName>
-				<unitPattern count="other">mk ʻe {0}</unitPattern>
+			<unit type="mass-ton">
+				<displayName>tn</displayName>
+				<unitPattern count="other">tn ʻe {0}</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName>st</displayName>
+				<unitPattern count="other">st ʻe {0}</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>pā</displayName>
+				<unitPattern count="other">pā ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /pā</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>ʻau</displayName>
@@ -5594,54 +5603,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ʻau-k</displayName>
 				<unitPattern count="other">ʻau-k ʻe {0}</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>pā</displayName>
-				<unitPattern count="other">pā ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /pā</perUnitPattern>
-			</unit>
-			<unit type="mass-stone">
-				<displayName>st</displayName>
-				<unitPattern count="other">st ʻe {0}</unitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>tn</displayName>
-				<unitPattern count="other">tn ʻe {0}</unitPattern>
+			<unit type="mass-carat">
+				<displayName>kt</displayName>
+				<unitPattern count="other">kt ʻe {0}</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>GW</displayName>
 				<unitPattern count="other">GW ʻe {0}</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>hp</displayName>
-				<unitPattern count="other">hp ʻe {0}</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>MW</displayName>
+				<unitPattern count="other">MW ʻe {0}</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>kW</displayName>
 				<unitPattern count="other">kW ʻe {0}</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>MW</displayName>
-				<unitPattern count="other">MW ʻe {0}</unitPattern>
+			<unit type="power-watt">
+				<displayName>uate</displayName>
+				<unitPattern count="other">W ʻe {0}</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>mW</displayName>
 				<unitPattern count="other">mW ʻe {0}</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>uate</displayName>
-				<unitPattern count="other">W ʻe {0}</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>hp</displayName>
+				<unitPattern count="other">hp ʻe {0}</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hPa</displayName>
 				<unitPattern count="other">hPa ʻe {0}</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>in-Hg</displayName>
-				<unitPattern count="other">in-Hg ʻe {0}</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>mpā</displayName>
-				<unitPattern count="other">mpā ʻe {0}</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm-Hg</displayName>
@@ -5651,6 +5643,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>pā/in²</displayName>
 				<unitPattern count="other">pā/in² ʻe {0}</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>in-Hg</displayName>
+				<unitPattern count="other">in-Hg ʻe {0}</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>mpā</displayName>
+				<unitPattern count="other">mpā ʻe {0}</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>kt</displayName>
 				<unitPattern count="other">kt ʻe {0}</unitPattern>
@@ -5658,10 +5658,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="other">km/h ʻe {0}</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName draft="unconfirmed">fp</displayName>
-				<unitPattern count="other" draft="unconfirmed">fp ʻe {0}</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>m/s</displayName>
@@ -5671,6 +5667,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mi/h</displayName>
 				<unitPattern count="other">mi/h ʻe {0}</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName draft="unconfirmed">fp</displayName>
+				<unitPattern count="other" draft="unconfirmed">fp ʻe {0}</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName draft="unconfirmed">°</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°S</displayName>
 				<unitPattern count="other">°S ʻe {0}</unitPattern>
@@ -5679,38 +5683,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>°F</displayName>
 				<unitPattern count="other">°F ʻe {0}</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName draft="unconfirmed">°</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
 				<unitPattern count="other">K ʻe {0}</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ʻe-ft</displayName>
-				<unitPattern count="other">ʻe-ft ʻe {0}</unitPattern>
-			</unit>
-			<unit type="volume-bushel">
-				<displayName>pū</displayName>
-				<unitPattern count="other">pū ʻe {0}</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>sl</displayName>
-				<unitPattern count="other">sl ʻe {0}</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>sm³</displayName>
-				<unitPattern count="other">sm³ ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /sm³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>ft³</displayName>
-				<unitPattern count="other">ft³ ʻe {0}</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>in³</displayName>
-				<unitPattern count="other">in³ ʻe {0}</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>km³</displayName>
@@ -5721,6 +5696,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">m³ ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /m³</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>sm³</displayName>
+				<unitPattern count="other">sm³ ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /sm³</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>mi³</displayName>
 				<unitPattern count="other">mi³ ʻe {0}</unitPattern>
@@ -5729,26 +5709,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>it³</displayName>
 				<unitPattern count="other">it³ ʻe {0}</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>ip</displayName>
-				<unitPattern count="other">ip ʻe {0}</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>ft³</displayName>
+				<unitPattern count="other">ft³ ʻe {0}</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName draft="unconfirmed">ipm</displayName>
-				<unitPattern count="other" draft="unconfirmed">ipm ʻe {0}</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>in³</displayName>
+				<unitPattern count="other">in³ ʻe {0}</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>tl</displayName>
-				<unitPattern count="other">tl ʻe {0}</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>ʻau-tf</displayName>
-				<unitPattern count="other">ʻau-tf ʻe {0}</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>kā</displayName>
-				<unitPattern count="other">kā ʻe {0}</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /kā</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>Ml</displayName>
+				<unitPattern count="other">Ml ʻe {0}</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hl</displayName>
@@ -5759,25 +5730,54 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">l ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /l</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>Ml</displayName>
-				<unitPattern count="other">Ml ʻe {0}</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>tl</displayName>
+				<unitPattern count="other">tl ʻe {0}</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>sl</displayName>
+				<unitPattern count="other">sl ʻe {0}</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>ml</displayName>
 				<unitPattern count="other">ml ʻe {0}</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>pt</displayName>
-				<unitPattern count="other">pt ʻe {0}</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName draft="unconfirmed">ptm</displayName>
 				<unitPattern count="other" draft="unconfirmed">ptm ʻe {0}</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName draft="unconfirmed">ipm</displayName>
+				<unitPattern count="other" draft="unconfirmed">ipm ʻe {0}</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ʻe-ft</displayName>
+				<unitPattern count="other">ʻe-ft ʻe {0}</unitPattern>
+			</unit>
+			<unit type="volume-bushel">
+				<displayName>pū</displayName>
+				<unitPattern count="other">pū ʻe {0}</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>kā</displayName>
+				<unitPattern count="other">kā ʻe {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /kā</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>ku</displayName>
 				<unitPattern count="other">ku ʻe {0}</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>pt</displayName>
+				<unitPattern count="other">pt ʻe {0}</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>ip</displayName>
+				<unitPattern count="other">ip ʻe {0}</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>ʻau-tf</displayName>
+				<unitPattern count="other">ʻau-tf ʻe {0}</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>sētē</displayName>
@@ -5806,6 +5806,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>m/s²</displayName>
 				<unitPattern count="other">{0} m/s²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>tak</displayName>
+				<unitPattern count="other">{0} tak</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>lēt</displayName>
+				<unitPattern count="other">{0} lēt</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>°</displayName>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>′</displayName>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -5814,30 +5826,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>″</displayName>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>°</displayName>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>lēt</displayName>
-				<unitPattern count="other">{0} lēt</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>tak</displayName>
-				<unitPattern count="other">{0} tak</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ʻek</displayName>
-				<unitPattern count="other">{0} ʻek</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>km²</displayName>
+				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ha</displayName>
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>m²</displayName>
+				<unitPattern count="other">{0} m²</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /m²</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>sm²</displayName>
 				<unitPattern count="other">{0} sm²</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /sm²</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>mi²</displayName>
+				<unitPattern count="other">{0} mi²</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ʻek</displayName>
+				<unitPattern count="other">{0} ʻek</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>it²</displayName>
+				<unitPattern count="other">{0} it²</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>ft²</displayName>
@@ -5848,78 +5865,76 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /in²</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>km²</displayName>
-				<unitPattern count="other">{0} km²</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>m²</displayName>
-				<unitPattern count="other">{0} m²</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /m²</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>mi²</displayName>
-				<unitPattern count="other">{0} mi²</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>it²</displayName>
-				<unitPattern count="other">{0} it²</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>l/km</displayName>
+				<unitPattern count="other">{0} l/km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>l/100km</displayName>
 				<unitPattern count="other">{0} l/100km</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>l/km</displayName>
-				<unitPattern count="other">{0} l/km</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>mi/kā</displayName>
 				<unitPattern count="other">{0} mi/kā</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>b</displayName>
-				<unitPattern count="other">{0} b</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>B</displayName>
-				<unitPattern count="other">{0} B</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>Gb</displayName>
-				<unitPattern count="other">{0} Gb</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>kikapaiti</displayName>
-				<unitPattern count="other">KP ʻe {0}</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>kb</displayName>
-				<unitPattern count="other">{0} kb</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>kB</displayName>
-				<unitPattern count="other">{0} kB</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>Mb</displayName>
-				<unitPattern count="other">{0} Mb</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>MB</displayName>
-				<unitPattern count="other">{0} MB</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>Tb</displayName>
-				<unitPattern count="other">{0} Tb</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
 				<unitPattern count="other">{0} TB</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>Tb</displayName>
+				<unitPattern count="other">{0} Tb</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>kikapaiti</displayName>
+				<unitPattern count="other">KP ʻe {0}</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>Gb</displayName>
+				<unitPattern count="other">{0} Gb</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+				<unitPattern count="other">{0} MB</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Mb</displayName>
+				<unitPattern count="other">{0} Mb</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kB</displayName>
+				<unitPattern count="other">{0} kB</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kb</displayName>
+				<unitPattern count="other">{0} kb</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>B</displayName>
+				<unitPattern count="other">{0} B</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>b</displayName>
+				<unitPattern count="other">{0} b</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName draft="unconfirmed">tt</displayName>
 				<unitPattern count="other" draft="unconfirmed">tt ʻe {0}</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>t</displayName>
+				<unitPattern count="other">{0} t</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /t</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>m</displayName>
+				<unitPattern count="other">{0} m</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /m</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>u</displayName>
+				<unitPattern count="other">{0} u</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /u</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>ʻa</displayName>
@@ -5931,42 +5946,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} h</unitPattern>
 				<perUnitPattern>{0} /h</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>μs</displayName>
-				<unitPattern count="other">{0} μs</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>ms</displayName>
-				<unitPattern count="other">{0} ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>m</displayName>
 				<unitPattern count="other">{0} m</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /m</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>m</displayName>
-				<unitPattern count="other">{0} m</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /m</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>ns</displayName>
-				<unitPattern count="other">{0} ns</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>s</displayName>
 				<unitPattern count="other">{0} s</unitPattern>
 				<perUnitPattern>{0} /s</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>u</displayName>
-				<unitPattern count="other">{0} u</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /u</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>ms</displayName>
+				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>t</displayName>
-				<unitPattern count="other">{0} t</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /t</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>μs</displayName>
+				<unitPattern count="other">{0} μs</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ns</displayName>
+				<unitPattern count="other">{0} ns</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>A</displayName>
@@ -5984,6 +5984,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>V</displayName>
 				<unitPattern count="other">{0} V</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kkal</displayName>
+				<unitPattern count="other">{0} kkal</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>kal</displayName>
 				<unitPattern count="other">{0} kal</unitPattern>
@@ -5992,17 +5996,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kal-k</displayName>
 				<unitPattern count="other">{0} kal-k</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>J</displayName>
-				<unitPattern count="other">{0} J</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>kkal</displayName>
-				<unitPattern count="other">{0} kkal</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kJ</displayName>
 				<unitPattern count="other">{0} kJ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>J</displayName>
+				<unitPattern count="other">{0} J</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kWh</displayName>
@@ -6012,123 +6012,132 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>GHz</displayName>
 				<unitPattern count="other">{0} GHz</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>Hz</displayName>
-				<unitPattern count="other">{0} Hz</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>MHz</displayName>
+				<unitPattern count="other">{0} MHz</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>kHz</displayName>
 				<unitPattern count="other">{0} kHz</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>MHz</displayName>
-				<unitPattern count="other">{0} MHz</unitPattern>
-			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>ʻiʻa</displayName>
-				<unitPattern count="other">{0} ʻiʻa</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>sm</displayName>
-				<unitPattern count="other">{0} sm</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /sm</perUnitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName>tm</displayName>
-				<unitPattern count="other">{0} tm</unitPattern>
-			</unit>
-			<unit type="length-fathom">
-				<displayName>o</displayName>
-				<unitPattern count="other">{0} o</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName>ft</displayName>
-				<unitPattern count="other">{0} ft</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /ft</perUnitPattern>
-			</unit>
-			<unit type="length-furlong">
-				<displayName>fāl</displayName>
-				<unitPattern count="other">{0} fāl</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName>in</displayName>
-				<unitPattern count="other">{0} in</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /in</perUnitPattern>
+			<unit type="frequency-hertz">
+				<displayName>Hz</displayName>
+				<unitPattern count="other">{0} Hz</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
 				<unitPattern count="other">{0} km</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /km</perUnitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName>tma</displayName>
-				<unitPattern count="other">{0} tma</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>m</displayName>
 				<unitPattern count="other">{0} m</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /m</perUnitPattern>
 			</unit>
-			<unit type="length-micrometer">
-				<displayName>µm</displayName>
-				<unitPattern count="other">{0} µm</unitPattern>
+			<unit type="length-decimeter">
+				<displayName>tm</displayName>
+				<unitPattern count="other">{0} tm</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName>mi</displayName>
-				<unitPattern count="other">{0} mi</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>sm</displayName>
+				<unitPattern count="other">{0} sm</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /sm</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>mm</displayName>
 				<unitPattern count="other">{0} mm</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName>µm</displayName>
+				<unitPattern count="other">{0} µm</unitPattern>
+			</unit>
 			<unit type="length-nanometer">
 				<displayName>nm</displayName>
 				<unitPattern count="other">{0} nm</unitPattern>
-			</unit>
-			<unit type="length-nautical-mile">
-				<displayName>mt</displayName>
-				<unitPattern count="other">{0} mt</unitPattern>
-			</unit>
-			<unit type="length-parsec">
-				<displayName>ngs</displayName>
-				<unitPattern count="other">{0} ngs</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName>pm</displayName>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<displayName>mi</displayName>
+				<unitPattern count="other">{0} mi</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<displayName>it</displayName>
 				<unitPattern count="other">{0} it</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<displayName>ft</displayName>
+				<unitPattern count="other">{0} ft</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /ft</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName>in</displayName>
+				<unitPattern count="other">{0} in</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /in</perUnitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>ngs</displayName>
+				<unitPattern count="other">{0} ngs</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>tma</displayName>
+				<unitPattern count="other">{0} tma</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>ʻiʻa</displayName>
+				<unitPattern count="other">{0} ʻiʻa</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName>fāl</displayName>
+				<unitPattern count="other">{0} fāl</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName>o</displayName>
+				<unitPattern count="other">{0} o</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>mt</displayName>
+				<unitPattern count="other">{0} mt</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lx</displayName>
 				<unitPattern count="other">{0} lx</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>kt</displayName>
-				<unitPattern count="other">{0} kt</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>k</displayName>
-				<unitPattern count="other">{0} k</unitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>to</displayName>
+				<unitPattern count="other">{0} to</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kk</displayName>
 				<unitPattern count="other">{0} kk</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /kk</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>to</displayName>
-				<unitPattern count="other">{0} to</unitPattern>
+			<unit type="mass-gram">
+				<displayName>k</displayName>
+				<unitPattern count="other">{0} k</unitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>mk</displayName>
+				<unitPattern count="other">{0} mk</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>μk</displayName>
 				<unitPattern count="other">{0} μk</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>mk</displayName>
-				<unitPattern count="other">{0} mk</unitPattern>
+			<unit type="mass-ton">
+				<displayName>tn</displayName>
+				<unitPattern count="other">{0} tn</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName>st</displayName>
+				<unitPattern count="other">{0} st</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>pā</displayName>
+				<unitPattern count="other">{0} pā</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /pā</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>ʻau</displayName>
@@ -6139,54 +6148,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ʻau-k</displayName>
 				<unitPattern count="other">{0} ʻau-k</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>pā</displayName>
-				<unitPattern count="other">{0} pā</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /pā</perUnitPattern>
-			</unit>
-			<unit type="mass-stone">
-				<displayName>st</displayName>
-				<unitPattern count="other">{0} st</unitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>tn</displayName>
-				<unitPattern count="other">{0} tn</unitPattern>
+			<unit type="mass-carat">
+				<displayName>kt</displayName>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>GW</displayName>
 				<unitPattern count="other">{0} GW</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>hp</displayName>
-				<unitPattern count="other">{0} hp</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>MW</displayName>
+				<unitPattern count="other">{0} MW</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>kW</displayName>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>MW</displayName>
-				<unitPattern count="other">{0} MW</unitPattern>
+			<unit type="power-watt">
+				<displayName>W</displayName>
+				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>mW</displayName>
 				<unitPattern count="other">{0} mW</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>W</displayName>
-				<unitPattern count="other">{0} W</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>hp</displayName>
+				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hPa</displayName>
 				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>in-Hg</displayName>
-				<unitPattern count="other">{0} in-Hg</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>mpā</displayName>
-				<unitPattern count="other">{0} mpā</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm-Hg</displayName>
@@ -6196,6 +6188,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>pā/in²</displayName>
 				<unitPattern count="other">{0} pā/in²</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>in-Hg</displayName>
+				<unitPattern count="other">{0} in-Hg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>mpā</displayName>
+				<unitPattern count="other">{0} mpā</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>kt</displayName>
 				<unitPattern count="other">{0} kt</unitPattern>
@@ -6203,10 +6203,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="other">{0} km/h</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName draft="unconfirmed">fp</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} fp</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>m/s</displayName>
@@ -6216,6 +6212,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mi/h</displayName>
 				<unitPattern count="other">{0} mi/h</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName draft="unconfirmed">fp</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} fp</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName draft="unconfirmed">°</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°S</displayName>
 				<unitPattern count="other">{0}°S</unitPattern>
@@ -6224,38 +6228,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>°F</displayName>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName draft="unconfirmed">°</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
 				<unitPattern count="other">{0} K</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ʻe-ft</displayName>
-				<unitPattern count="other">{0} ʻe-ft</unitPattern>
-			</unit>
-			<unit type="volume-bushel">
-				<displayName>pū</displayName>
-				<unitPattern count="other">{0} pū</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>sl</displayName>
-				<unitPattern count="other">{0} sl</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>sm³</displayName>
-				<unitPattern count="other">{0} sm³</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /sm³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>ft³</displayName>
-				<unitPattern count="other">{0} ft³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>in³</displayName>
-				<unitPattern count="other">{0} in³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>km³</displayName>
@@ -6266,6 +6241,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} m³</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /m³</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>sm³</displayName>
+				<unitPattern count="other">{0} sm³</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /sm³</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>mi³</displayName>
 				<unitPattern count="other">{0} mi³</unitPattern>
@@ -6274,26 +6254,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>it³</displayName>
 				<unitPattern count="other">{0} it³</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>ip</displayName>
-				<unitPattern count="other">{0} ip</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>ft³</displayName>
+				<unitPattern count="other">{0} ft³</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName draft="unconfirmed">ipm</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} ipm</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>in³</displayName>
+				<unitPattern count="other">{0} in³</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>tl</displayName>
-				<unitPattern count="other">{0} tl</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>ʻau-tf</displayName>
-				<unitPattern count="other">{0} ʻau-tf</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>kā</displayName>
-				<unitPattern count="other">{0} kā</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} /kā</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>Ml</displayName>
+				<unitPattern count="other">{0} Ml</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hl</displayName>
@@ -6304,25 +6275,54 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} l</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /l</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>Ml</displayName>
-				<unitPattern count="other">{0} Ml</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>tl</displayName>
+				<unitPattern count="other">{0} tl</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>sl</displayName>
+				<unitPattern count="other">{0} sl</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>ml</displayName>
 				<unitPattern count="other">{0} ml</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>pt</displayName>
-				<unitPattern count="other">{0} pt</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName draft="unconfirmed">ptm</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} ptm</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName draft="unconfirmed">ipm</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} ipm</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ʻe-ft</displayName>
+				<unitPattern count="other">{0} ʻe-ft</unitPattern>
+			</unit>
+			<unit type="volume-bushel">
+				<displayName>pū</displayName>
+				<unitPattern count="other">{0} pū</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>kā</displayName>
+				<unitPattern count="other">{0} kā</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} /kā</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>ku</displayName>
 				<unitPattern count="other">{0} ku</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>pt</displayName>
+				<unitPattern count="other">{0} pt</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>ip</displayName>
+				<unitPattern count="other">{0} ip</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>ʻau-tf</displayName>
+				<unitPattern count="other">{0} ʻau-tf</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>sētē</displayName>

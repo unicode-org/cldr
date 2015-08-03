@@ -209,11 +209,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="short">
-			<unit type="duration-day">
-				<displayName draft="contributed">días</displayName>
-				<unitPattern count="one" draft="contributed">{0} día</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} días</unitPattern>
-				<perUnitPattern draft="contributed">{0}/día</perUnitPattern>
+			<unit type="duration-year">
+				<displayName draft="contributed">años</displayName>
+				<unitPattern count="one" draft="contributed">{0} año</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} años</unitPattern>
+				<perUnitPattern draft="contributed">{0}/año</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName draft="contributed">meses</displayName>
@@ -221,17 +221,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="contributed">{0} meses</unitPattern>
 				<perUnitPattern draft="contributed">{0}/mes</perUnitPattern>
 			</unit>
+			<unit type="duration-day">
+				<displayName draft="contributed">días</displayName>
+				<unitPattern count="one" draft="contributed">{0} día</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} días</unitPattern>
+				<perUnitPattern draft="contributed">{0}/día</perUnitPattern>
+			</unit>
 			<unit type="duration-second">
 				<displayName draft="contributed">seg.</displayName>
 				<unitPattern count="one" draft="contributed">{0} seg.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} seg.</unitPattern>
 				<perUnitPattern draft="contributed">{0}/seg.</perUnitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">años</displayName>
-				<unitPattern count="one" draft="contributed">{0} año</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} años</unitPattern>
-				<perUnitPattern draft="contributed">{0}/año</perUnitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<displayName draft="contributed">voltios</displayName>
@@ -241,14 +241,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
-			<unit type="duration-day">
-				<displayName draft="contributed">día</displayName>
+			<unit type="duration-year">
+				<displayName draft="contributed">año</displayName>
 			</unit>
 			<unit type="duration-month">
 				<displayName draft="contributed">mes</displayName>
 			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">año</displayName>
+			<unit type="duration-day">
+				<displayName draft="contributed">día</displayName>
 			</unit>
 		</unitLength>
 	</units>

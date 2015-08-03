@@ -447,6 +447,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<displayName draft="provisional">ómakȟa</displayName>
+				<unitPattern count="other">ómakȟa {0}</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">Wíyawapi</displayName>
+				<unitPattern count="other">Wíyawapi {0}</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">okó</displayName>
+				<unitPattern count="other">okó {0}</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">-čháŋ</displayName>
 				<unitPattern count="other">{0}-čháŋ</unitPattern>
@@ -455,29 +467,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="provisional">Owápȟe</displayName>
 				<unitPattern count="other">Owápȟe {0}</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">Wíyawapi</displayName>
-				<unitPattern count="other">Wíyawapi {0}</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">Okpí</displayName>
 				<unitPattern count="other">Okpí {0}</unitPattern>
-			</unit>
-			<unit type="duration-week">
-				<displayName draft="provisional">okó</displayName>
-				<unitPattern count="other">okó {0}</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">ómakȟa</displayName>
-				<unitPattern count="other">ómakȟa {0}</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName draft="provisional">siíyutȟapi</displayName>
-				<unitPattern count="other">siíyutȟapi {0}</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName draft="provisional">oíyutȟe čísčila</displayName>
-				<unitPattern count="other">oíyutȟe čísčila {0}</unitPattern>
 			</unit>
 			<unit type="length-mile">
 				<displayName draft="provisional">makhíyutȟapi</displayName>
@@ -486,6 +478,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="length-yard">
 				<displayName draft="provisional">čhaéglepi</displayName>
 				<unitPattern count="other">čhaéglepi {0}</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<displayName draft="provisional">siíyutȟapi</displayName>
+				<unitPattern count="other">siíyutȟapi {0}</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName draft="provisional">oíyutȟe čísčila</displayName>
+				<unitPattern count="other">oíyutȟe čísčila {0}</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName draft="provisional">tkeíyutȟapi</displayName>
@@ -493,6 +493,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="duration-year">
+				<displayName draft="provisional">ómakȟa</displayName>
+				<unitPattern count="other">ómakȟa {0}</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">Wíyawapi</displayName>
+				<unitPattern count="other">Wíyawapi {0}</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">okó</displayName>
+				<unitPattern count="other">okó {0}</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">-čháŋ</displayName>
 				<unitPattern count="other">{0}-čháŋ</unitPattern>
@@ -501,29 +513,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="provisional">Owápȟe</displayName>
 				<unitPattern count="other">Owápȟe {0}</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">Wíyawapi</displayName>
-				<unitPattern count="other">Wíyawapi {0}</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">Okpí</displayName>
 				<unitPattern count="other">Okpí {0}</unitPattern>
-			</unit>
-			<unit type="duration-week">
-				<displayName draft="provisional">okó</displayName>
-				<unitPattern count="other">okó {0}</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">ómakȟa</displayName>
-				<unitPattern count="other">ómakȟa {0}</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName draft="provisional">siíyutȟapi</displayName>
-				<unitPattern count="other">siíyutȟapi {0}</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName draft="provisional">oíyutȟe čísčila</displayName>
-				<unitPattern count="other">oíyutȟe čísčila {0}</unitPattern>
 			</unit>
 			<unit type="length-mile">
 				<displayName draft="provisional">makhíyutȟapi</displayName>
@@ -533,41 +525,49 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="provisional">čhaéglepi</displayName>
 				<unitPattern count="other">čhaéglepi {0}</unitPattern>
 			</unit>
+			<unit type="length-foot">
+				<displayName draft="provisional">siíyutȟapi</displayName>
+				<unitPattern count="other">siíyutȟapi {0}</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName draft="provisional">oíyutȟe čísčila</displayName>
+				<unitPattern count="other">oíyutȟe čísčila {0}</unitPattern>
+			</unit>
 			<unit type="mass-pound">
 				<displayName draft="provisional">tkeíyutȟapi</displayName>
 				<unitPattern count="other">tkeíyutȟapi {0}</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
+			<unit type="duration-year">
+				<unitPattern count="other">ómakȟa {0}</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">Wí {0}</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">okó {0}</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="other">{0}-čháŋ</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">Owápȟe {0}</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<unitPattern count="other">Wí {0}</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">Okpí {0}</unitPattern>
-			</unit>
-			<unit type="duration-week">
-				<unitPattern count="other">okó {0}</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<unitPattern count="other">ómakȟa {0}</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="other">siíyutȟapi {0}</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
 			<unit type="length-mile">
 				<unitPattern count="other">{0} makh</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<unitPattern count="other">čhaéglepi {0}</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="other">siíyutȟapi {0}</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="other">{0}#</unitPattern>

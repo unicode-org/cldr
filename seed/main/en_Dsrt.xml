@@ -891,6 +891,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<unitPattern count="one">{0} 𐐷𐐮𐑉</unitPattern>
+				<unitPattern count="other">{0} 𐐷𐐮𐑉𐑆</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} 𐑋𐐲𐑌𐑃𐑅</unitPattern>
+				<unitPattern count="other">{0} 𐑋𐐲𐑌𐑃</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} 𐐶𐐨𐐿</unitPattern>
+				<unitPattern count="other">{0} 𐐶𐐨𐐿𐑅</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="one">{0} 𐐼𐐩</unitPattern>
 				<unitPattern count="other">{0} 𐐼𐐩𐑆</unitPattern>
@@ -903,21 +915,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} 𐑋𐐮𐑌𐐲𐐻</unitPattern>
 				<unitPattern count="other">{0} 𐑋𐐮𐑌𐐲𐐻𐑅</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<unitPattern count="one">{0} 𐑋𐐲𐑌𐑃𐑅</unitPattern>
-				<unitPattern count="other">{0} 𐑋𐐲𐑌𐑃</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} 𐑅𐐯𐐿𐐲𐑌𐐼</unitPattern>
 				<unitPattern count="other">{0} 𐑅𐐯𐐿𐐲𐑌𐐼𐑆</unitPattern>
-			</unit>
-			<unit type="duration-week">
-				<unitPattern count="one">{0} 𐐶𐐨𐐿</unitPattern>
-				<unitPattern count="other">{0} 𐐶𐐨𐐿𐑅</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<unitPattern count="one">{0} 𐐷𐐮𐑉</unitPattern>
-				<unitPattern count="other">{0} 𐐷𐐮𐑉𐑆</unitPattern>
 			</unit>
 		</unitLength>
 	</units>
@@ -928,3 +928,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

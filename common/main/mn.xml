@@ -5012,6 +5012,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} метр сек кв</unitPattern>
 				<unitPattern count="other">{0} метр сек кв</unitPattern>
 			</unit>
+			<unit type="angle-radian">
+				<displayName>радиан</displayName>
+				<unitPattern count="one">{0} радиан</unitPattern>
+				<unitPattern count="other">{0} радиан</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>хэм</displayName>
+				<unitPattern count="one">{0} хэм</unitPattern>
+				<unitPattern count="other">{0} хэм</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>аркминут</displayName>
 				<unitPattern count="one">{0} аркминут</unitPattern>
@@ -5022,30 +5032,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} арксекунд</unitPattern>
 				<unitPattern count="other">{0} арксекунд</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>хэм</displayName>
-				<unitPattern count="one">{0} хэм</unitPattern>
-				<unitPattern count="other">{0} хэм</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>радиан</displayName>
-				<unitPattern count="one">{0} радиан</unitPattern>
-				<unitPattern count="other">{0} радиан</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>акр</displayName>
-				<unitPattern count="one">{0} акр</unitPattern>
-				<unitPattern count="other">{0} акр</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>километр квадрат</displayName>
+				<unitPattern count="one">{0} километр квадрат</unitPattern>
+				<unitPattern count="other">{0} километр квадрат</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>гектар</displayName>
 				<unitPattern count="one">{0} гектар</unitPattern>
 				<unitPattern count="other">{0} гектар</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>метр квадрат</displayName>
+				<unitPattern count="one">{0} метр квадрат</unitPattern>
+				<unitPattern count="other">{0} метр квадрат</unitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>сантиметр квадрат</displayName>
 				<unitPattern count="one">{0} сантиметр квадрат</unitPattern>
 				<unitPattern count="other">{0} сантиметр квадрат</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>миль квадрат</displayName>
+				<unitPattern count="one">{0} миль квадрат</unitPattern>
+				<unitPattern count="other">{0} миль квадрат</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>акр</displayName>
+				<unitPattern count="one">{0} акр</unitPattern>
+				<unitPattern count="other">{0} акр</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>ярд квадрат</displayName>
+				<unitPattern count="one">{0} ярд квадрат</unitPattern>
+				<unitPattern count="other">{0} ярд квадрат</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>фүүт квадрат</displayName>
@@ -5057,26 +5077,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} инч квадрат</unitPattern>
 				<unitPattern count="other">{0} инч квадрат</unitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>километр квадрат</displayName>
-				<unitPattern count="one">{0} километр квадрат</unitPattern>
-				<unitPattern count="other">{0} километр квадрат</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>метр квадрат</displayName>
-				<unitPattern count="one">{0} метр квадрат</unitPattern>
-				<unitPattern count="other">{0} метр квадрат</unitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>миль квадрат</displayName>
-				<unitPattern count="one">{0} миль квадрат</unitPattern>
-				<unitPattern count="other">{0} миль квадрат</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>ярд квадрат</displayName>
-				<unitPattern count="one">{0} ярд квадрат</unitPattern>
-				<unitPattern count="other">{0} ярд квадрат</unitPattern>
-			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>литр/километр</displayName>
 				<unitPattern count="one">{0} литр/километр</unitPattern>
@@ -5087,55 +5087,70 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} миль/галлон</unitPattern>
 				<unitPattern count="other">{0} миль/галлон</unitPattern>
 			</unit>
-			<unit type="digital-bit">
-				<displayName>бит</displayName>
-				<unitPattern count="one">{0} бит</unitPattern>
-				<unitPattern count="other">{0} бит</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>байт</displayName>
-				<unitPattern count="one">{0} байт</unitPattern>
-				<unitPattern count="other">{0} байт</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>гигабит</displayName>
-				<unitPattern count="one">{0} гигабит</unitPattern>
-				<unitPattern count="other">{0} гигабит</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>гигабайт</displayName>
-				<unitPattern count="one">{0} гигабайт</unitPattern>
-				<unitPattern count="other">{0} гигабайт</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>килобит</displayName>
-				<unitPattern count="one">{0} килобит</unitPattern>
-				<unitPattern count="other">{0} килобит</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>килобайт</displayName>
-				<unitPattern count="one">{0} килобайт</unitPattern>
-				<unitPattern count="other">{0} килобайт</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>мегабит</displayName>
-				<unitPattern count="one">{0} мегабит</unitPattern>
-				<unitPattern count="other">{0} мегабит</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>мегабайт</displayName>
-				<unitPattern count="one">{0} мегабайт</unitPattern>
-				<unitPattern count="other">{0} мегабайт</unitPattern>
+			<unit type="digital-terabyte">
+				<displayName>терабайт</displayName>
+				<unitPattern count="one">{0} терабайт</unitPattern>
+				<unitPattern count="other">{0} терабайт</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
 				<displayName>терабит</displayName>
 				<unitPattern count="one">{0} терабит</unitPattern>
 				<unitPattern count="other">{0} терабит</unitPattern>
 			</unit>
-			<unit type="digital-terabyte">
-				<displayName>терабайт</displayName>
-				<unitPattern count="one">{0} терабайт</unitPattern>
-				<unitPattern count="other">{0} терабайт</unitPattern>
+			<unit type="digital-gigabyte">
+				<displayName>гигабайт</displayName>
+				<unitPattern count="one">{0} гигабайт</unitPattern>
+				<unitPattern count="other">{0} гигабайт</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>гигабит</displayName>
+				<unitPattern count="one">{0} гигабит</unitPattern>
+				<unitPattern count="other">{0} гигабит</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>мегабайт</displayName>
+				<unitPattern count="one">{0} мегабайт</unitPattern>
+				<unitPattern count="other">{0} мегабайт</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>мегабит</displayName>
+				<unitPattern count="one">{0} мегабит</unitPattern>
+				<unitPattern count="other">{0} мегабит</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>килобайт</displayName>
+				<unitPattern count="one">{0} килобайт</unitPattern>
+				<unitPattern count="other">{0} килобайт</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>килобит</displayName>
+				<unitPattern count="one">{0} килобит</unitPattern>
+				<unitPattern count="other">{0} килобит</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>байт</displayName>
+				<unitPattern count="one">{0} байт</unitPattern>
+				<unitPattern count="other">{0} байт</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>бит</displayName>
+				<unitPattern count="one">{0} бит</unitPattern>
+				<unitPattern count="other">{0} бит</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>жил</displayName>
+				<unitPattern count="one">{0} жил</unitPattern>
+				<unitPattern count="other">{0} жил</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>сар</displayName>
+				<unitPattern count="one">{0} сар</unitPattern>
+				<unitPattern count="other">{0} сар</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>долоо хоног</displayName>
+				<unitPattern count="one">{0} долоо хоног</unitPattern>
+				<unitPattern count="other">{0} долоо хоног</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>өдөр</displayName>
@@ -5148,30 +5163,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} цаг</unitPattern>
 				<perUnitPattern>{0} цагт</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>микросекунд</displayName>
-				<unitPattern count="one">{0} микросекунд</unitPattern>
-				<unitPattern count="other">{0} микросекунд</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>милисекунд</displayName>
-				<unitPattern count="one">{0} милисекунд</unitPattern>
-				<unitPattern count="other">{0} милисекунд</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>минут</displayName>
 				<unitPattern count="one">{0} минут</unitPattern>
 				<unitPattern count="other">{0} минут</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>сар</displayName>
-				<unitPattern count="one">{0} сар</unitPattern>
-				<unitPattern count="other">{0} сар</unitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>наносекунд</displayName>
-				<unitPattern count="one">{0} наносекунд</unitPattern>
-				<unitPattern count="other">{0} наносекунд</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>секунд</displayName>
@@ -5179,15 +5174,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} секунд</unitPattern>
 				<perUnitPattern>{0} секундэд</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>долоо хоног</displayName>
-				<unitPattern count="one">{0} долоо хоног</unitPattern>
-				<unitPattern count="other">{0} долоо хоног</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>милисекунд</displayName>
+				<unitPattern count="one">{0} милисекунд</unitPattern>
+				<unitPattern count="other">{0} милисекунд</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>жил</displayName>
-				<unitPattern count="one">{0} жил</unitPattern>
-				<unitPattern count="other">{0} жил</unitPattern>
+			<unit type="duration-microsecond">
+				<displayName>микросекунд</displayName>
+				<unitPattern count="one">{0} микросекунд</unitPattern>
+				<unitPattern count="other">{0} микросекунд</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>наносекунд</displayName>
+				<unitPattern count="one">{0} наносекунд</unitPattern>
+				<unitPattern count="other">{0} наносекунд</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>ампер</displayName>
@@ -5209,6 +5209,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} вольт</unitPattern>
 				<unitPattern count="other">{0} вольт</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>килокалори</displayName>
+				<unitPattern count="one">{0} килокалори</unitPattern>
+				<unitPattern count="other">{0} килокалори</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>калори</displayName>
 				<unitPattern count="one">{0} калори</unitPattern>
@@ -5219,20 +5224,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} Калори</unitPattern>
 				<unitPattern count="other">{0} Калори</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>жоуль</displayName>
-				<unitPattern count="one">{0} жоуль</unitPattern>
-				<unitPattern count="other">{0} жоуль</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>килокалори</displayName>
-				<unitPattern count="one">{0} килокалори</unitPattern>
-				<unitPattern count="other">{0} килокалори</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>киложоуль</displayName>
 				<unitPattern count="one">{0} киложоуль</unitPattern>
 				<unitPattern count="other">{0} киложоуль</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>жоуль</displayName>
+				<unitPattern count="one">{0} жоуль</unitPattern>
+				<unitPattern count="other">{0} жоуль</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>киловатт цаг</displayName>
@@ -5244,35 +5244,70 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} гигагерц</unitPattern>
 				<unitPattern count="other">{0} гигагерц</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>герц</displayName>
-				<unitPattern count="one">{0} герц</unitPattern>
-				<unitPattern count="other">{0} герц</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>мегагерц</displayName>
+				<unitPattern count="one">{0} мегагерц</unitPattern>
+				<unitPattern count="other">{0} мегагерц</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>килогерц</displayName>
 				<unitPattern count="one">{0} килогерц</unitPattern>
 				<unitPattern count="other">{0} килогерц</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>мегагерц</displayName>
-				<unitPattern count="one">{0} мегагерц</unitPattern>
-				<unitPattern count="other">{0} мегагерц</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>герц</displayName>
+				<unitPattern count="one">{0} герц</unitPattern>
+				<unitPattern count="other">{0} герц</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>сансрын нэгж</displayName>
-				<unitPattern count="one">{0} сансрын нэгж</unitPattern>
-				<unitPattern count="other">{0} сансрын нэгж</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>километр</displayName>
+				<unitPattern count="one">{0} километр</unitPattern>
+				<unitPattern count="other">{0} километр</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>метр</displayName>
+				<unitPattern count="one">{0} метр</unitPattern>
+				<unitPattern count="other">{0} метр</unitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>дециметр</displayName>
+				<unitPattern count="one">{0} дециметр</unitPattern>
+				<unitPattern count="other">{0} дециметр</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>сантиметр</displayName>
 				<unitPattern count="one">{0} сантиметр</unitPattern>
 				<unitPattern count="other">{0} сантиметр</unitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>дециметр</displayName>
-				<unitPattern count="one">{0} дециметр</unitPattern>
-				<unitPattern count="other">{0} дециметр</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>милиметр</displayName>
+				<unitPattern count="one">{0} милиметр</unitPattern>
+				<unitPattern count="other">{0} милиметр</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>микрометр</displayName>
+				<unitPattern count="one">{0} микрометр</unitPattern>
+				<unitPattern count="other">{0} микрометр</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>нанометр</displayName>
+				<unitPattern count="one">{0} нанометр</unitPattern>
+				<unitPattern count="other">{0} нанометр</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>пикометр</displayName>
+				<unitPattern count="one">{0} пикометр</unitPattern>
+				<unitPattern count="other">{0} пикометр</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>миль</displayName>
+				<unitPattern count="one">{0} миль</unitPattern>
+				<unitPattern count="other">{0} миль</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>ярд</displayName>
+				<unitPattern count="one">{0} ярд</unitPattern>
+				<unitPattern count="other">{0} ярд</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>фүүт</displayName>
@@ -5284,95 +5319,65 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} инч</unitPattern>
 				<unitPattern count="other">{0} инч</unitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>километр</displayName>
-				<unitPattern count="one">{0} километр</unitPattern>
-				<unitPattern count="other">{0} километр</unitPattern>
+			<unit type="length-parsec">
+				<displayName>парсек</displayName>
+				<unitPattern count="one">{0} парсек</unitPattern>
+				<unitPattern count="other">{0} парсек</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>гэрлийн жил</displayName>
 				<unitPattern count="one">{0} гэрлийн жил</unitPattern>
 				<unitPattern count="other">{0} гэрлийн жил</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>метр</displayName>
-				<unitPattern count="one">{0} метр</unitPattern>
-				<unitPattern count="other">{0} метр</unitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>микрометр</displayName>
-				<unitPattern count="one">{0} микрометр</unitPattern>
-				<unitPattern count="other">{0} микрометр</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>миль</displayName>
-				<unitPattern count="one">{0} миль</unitPattern>
-				<unitPattern count="other">{0} миль</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>милиметр</displayName>
-				<unitPattern count="one">{0} милиметр</unitPattern>
-				<unitPattern count="other">{0} милиметр</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>нанометр</displayName>
-				<unitPattern count="one">{0} нанометр</unitPattern>
-				<unitPattern count="other">{0} нанометр</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>сансрын нэгж</displayName>
+				<unitPattern count="one">{0} сансрын нэгж</unitPattern>
+				<unitPattern count="other">{0} сансрын нэгж</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>далайн миль</displayName>
 				<unitPattern count="one">{0} далайн миль</unitPattern>
 				<unitPattern count="other">{0} далайн миль</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>парсек</displayName>
-				<unitPattern count="one">{0} парсек</unitPattern>
-				<unitPattern count="other">{0} парсек</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>пикометр</displayName>
-				<unitPattern count="one">{0} пикометр</unitPattern>
-				<unitPattern count="other">{0} пикометр</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>ярд</displayName>
-				<unitPattern count="one">{0} ярд</unitPattern>
-				<unitPattern count="other">{0} ярд</unitPattern>
-			</unit>
 			<unit type="light-lux">
 				<displayName>люкс</displayName>
 				<unitPattern count="one">{0} люкс</unitPattern>
 				<unitPattern count="other">{0} люкс</unitPattern>
-			</unit>
-			<unit type="mass-carat">
-				<displayName>карат</displayName>
-				<unitPattern count="one">{0} карат</unitPattern>
-				<unitPattern count="other">{0} карат</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>грам</displayName>
-				<unitPattern count="one">{0} грам</unitPattern>
-				<unitPattern count="other">{0} грам</unitPattern>
-			</unit>
-			<unit type="mass-kilogram">
-				<displayName>килограм</displayName>
-				<unitPattern count="one">{0} килограм</unitPattern>
-				<unitPattern count="other">{0} килограм</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>метрийн тонн</displayName>
 				<unitPattern count="one">{0} метрийн тонн</unitPattern>
 				<unitPattern count="other">{0} метрийн тонн</unitPattern>
 			</unit>
-			<unit type="mass-microgram">
-				<displayName>микрограм</displayName>
-				<unitPattern count="one">{0} микрограм</unitPattern>
-				<unitPattern count="other">{0} микрограм</unitPattern>
+			<unit type="mass-kilogram">
+				<displayName>килограм</displayName>
+				<unitPattern count="one">{0} килограм</unitPattern>
+				<unitPattern count="other">{0} килограм</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName>грам</displayName>
+				<unitPattern count="one">{0} грам</unitPattern>
+				<unitPattern count="other">{0} грам</unitPattern>
 			</unit>
 			<unit type="mass-milligram">
 				<displayName>милиграм</displayName>
 				<unitPattern count="one">{0} милиграм</unitPattern>
 				<unitPattern count="other">{0} милиграм</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>микрограм</displayName>
+				<unitPattern count="one">{0} микрограм</unitPattern>
+				<unitPattern count="other">{0} микрограм</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName>тонн</displayName>
+				<unitPattern count="one">{0} тонн</unitPattern>
+				<unitPattern count="other">{0} тонн</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>фунт</displayName>
+				<unitPattern count="one">{0} фунт</unitPattern>
+				<unitPattern count="other">{0} фунт</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>унц</displayName>
@@ -5384,60 +5389,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} трой унц</unitPattern>
 				<unitPattern count="other">{0} трой унц</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>фунт</displayName>
-				<unitPattern count="one">{0} фунт</unitPattern>
-				<unitPattern count="other">{0} фунт</unitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>тонн</displayName>
-				<unitPattern count="one">{0} тонн</unitPattern>
-				<unitPattern count="other">{0} тонн</unitPattern>
+			<unit type="mass-carat">
+				<displayName>карат</displayName>
+				<unitPattern count="one">{0} карат</unitPattern>
+				<unitPattern count="other">{0} карат</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>гигаватт</displayName>
 				<unitPattern count="one">{0} гигаватт</unitPattern>
 				<unitPattern count="other">{0} гигаватт</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>морины хүч</displayName>
-				<unitPattern count="one">{0} морины хүч</unitPattern>
-				<unitPattern count="other">{0} морины хүч</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>мегаватт</displayName>
+				<unitPattern count="one">{0} мегаватт</unitPattern>
+				<unitPattern count="other">{0} мегаватт</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>киловатт</displayName>
 				<unitPattern count="one">{0} киловатт</unitPattern>
 				<unitPattern count="other">{0} киловатт</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>мегаватт</displayName>
-				<unitPattern count="one">{0} мегаватт</unitPattern>
-				<unitPattern count="other">{0} мегаватт</unitPattern>
+			<unit type="power-watt">
+				<displayName>ватт</displayName>
+				<unitPattern count="one">{0} ватт</unitPattern>
+				<unitPattern count="other">{0} ватт</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>миливатт</displayName>
 				<unitPattern count="one">{0} миливатт</unitPattern>
 				<unitPattern count="other">{0} миливатт</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>ватт</displayName>
-				<unitPattern count="one">{0} ватт</unitPattern>
-				<unitPattern count="other">{0} ватт</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>морины хүч</displayName>
+				<unitPattern count="one">{0} морины хүч</unitPattern>
+				<unitPattern count="other">{0} морины хүч</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>гектопаскал</displayName>
 				<unitPattern count="one">{0} гектопаскал</unitPattern>
 				<unitPattern count="other">{0} гектопаскал</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>мөнгөн усны инч</displayName>
-				<unitPattern count="one">{0} мөнгөн усны инч</unitPattern>
-				<unitPattern count="other">{0} мөнгөн усны инч</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>милибар</displayName>
-				<unitPattern count="one">{0} милибар</unitPattern>
-				<unitPattern count="other">{0} милибар</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>мөнгөн усны милиметр</displayName>
@@ -5448,6 +5438,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>фунт инч квадрат</displayName>
 				<unitPattern count="one">{0} фунт инч квадрат</unitPattern>
 				<unitPattern count="other">{0} фунт инч квадрат</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>мөнгөн усны инч</displayName>
+				<unitPattern count="one">{0} мөнгөн усны инч</unitPattern>
+				<unitPattern count="other">{0} мөнгөн усны инч</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>милибар</displayName>
+				<unitPattern count="one">{0} милибар</unitPattern>
+				<unitPattern count="other">{0} милибар</unitPattern>
 			</unit>
 			<unit type="proportion-karat">
 				<displayName>карат</displayName>
@@ -5484,31 +5484,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} келвиний хэм</unitPattern>
 				<unitPattern count="other">{0} келвиний хэм</unitPattern>
 			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>акр-фүүт</displayName>
-				<unitPattern count="one">{0} акр-фүүт</unitPattern>
-				<unitPattern count="other">{0} акр-фүүт</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>центилитр</displayName>
-				<unitPattern count="one">{0} центилитр</unitPattern>
-				<unitPattern count="other">{0} центилитр</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>сантиметр куб</displayName>
-				<unitPattern count="one">{0} сантиметр куб</unitPattern>
-				<unitPattern count="other">{0} сантиметр куб</unitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>фүүт куб</displayName>
-				<unitPattern count="one">{0} фүүт куб</unitPattern>
-				<unitPattern count="other">{0} фүүт куб</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>инч куб</displayName>
-				<unitPattern count="one">{0} инч куб</unitPattern>
-				<unitPattern count="other">{0} инч куб</unitPattern>
-			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>километр куб</displayName>
 				<unitPattern count="one">{0} километр куб</unitPattern>
@@ -5518,6 +5493,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>метр куб</displayName>
 				<unitPattern count="one">{0} метр куб</unitPattern>
 				<unitPattern count="other">{0} метр куб</unitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>сантиметр куб</displayName>
+				<unitPattern count="one">{0} сантиметр куб</unitPattern>
+				<unitPattern count="other">{0} сантиметр куб</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>миль куб</displayName>
@@ -5529,25 +5509,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ярд куб</unitPattern>
 				<unitPattern count="other">{0} ярд куб</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>аяга</displayName>
-				<unitPattern count="one">{0} аяга</unitPattern>
-				<unitPattern count="other">{0} аяга</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>фүүт куб</displayName>
+				<unitPattern count="one">{0} фүүт куб</unitPattern>
+				<unitPattern count="other">{0} фүүт куб</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>децилитр</displayName>
-				<unitPattern count="one">{0} децилитр</unitPattern>
-				<unitPattern count="other">{0} децилитр</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>инч куб</displayName>
+				<unitPattern count="one">{0} инч куб</unitPattern>
+				<unitPattern count="other">{0} инч куб</unitPattern>
 			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>шингэн унц</displayName>
-				<unitPattern count="one">{0} ш унц</unitPattern>
-				<unitPattern count="other">{0} ш унц</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>галлон</displayName>
-				<unitPattern count="one">{0} галлон</unitPattern>
-				<unitPattern count="other">{0} галлон</unitPattern>
+			<unit type="volume-megaliter">
+				<displayName>мегалитр</displayName>
+				<unitPattern count="one">{0} мегалитр</unitPattern>
+				<unitPattern count="other">{0} мегалитр</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>хектолитр</displayName>
@@ -5559,25 +5534,50 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} литр</unitPattern>
 				<unitPattern count="other">{0} литр</unitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>мегалитр</displayName>
-				<unitPattern count="one">{0} мегалитр</unitPattern>
-				<unitPattern count="other">{0} мегалитр</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>децилитр</displayName>
+				<unitPattern count="one">{0} децилитр</unitPattern>
+				<unitPattern count="other">{0} децилитр</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>центилитр</displayName>
+				<unitPattern count="one">{0} центилитр</unitPattern>
+				<unitPattern count="other">{0} центилитр</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>милилитр</displayName>
 				<unitPattern count="one">{0} милилитр</unitPattern>
 				<unitPattern count="other">{0} милилитр</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>пайнт</displayName>
-				<unitPattern count="one">{0} пайнт</unitPattern>
-				<unitPattern count="other">{0} пайнт</unitPattern>
+			<unit type="volume-acre-foot">
+				<displayName>акр-фүүт</displayName>
+				<unitPattern count="one">{0} акр-фүүт</unitPattern>
+				<unitPattern count="other">{0} акр-фүүт</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>галлон</displayName>
+				<unitPattern count="one">{0} галлон</unitPattern>
+				<unitPattern count="other">{0} галлон</unitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>кварц</displayName>
 				<unitPattern count="one">{0} кварц</unitPattern>
 				<unitPattern count="other">{0} кварц</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>пайнт</displayName>
+				<unitPattern count="one">{0} пайнт</unitPattern>
+				<unitPattern count="other">{0} пайнт</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>аяга</displayName>
+				<unitPattern count="one">{0} аяга</unitPattern>
+				<unitPattern count="other">{0} аяга</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>шингэн унц</displayName>
+				<unitPattern count="one">{0} ш унц</unitPattern>
+				<unitPattern count="other">{0} ш унц</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>хоолны халбага</displayName>
@@ -5604,6 +5604,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} м/с²</unitPattern>
 				<unitPattern count="other">{0} м/с²</unitPattern>
 			</unit>
+			<unit type="angle-radian">
+				<displayName>радиан</displayName>
+				<unitPattern count="one">{0} рад</unitPattern>
+				<unitPattern count="other">{0} рад</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>хэм</displayName>
+				<unitPattern count="one">{0} хэм</unitPattern>
+				<unitPattern count="other">{0} хэм</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>аркмин</displayName>
 				<unitPattern count="one">{0} аркмин</unitPattern>
@@ -5614,30 +5624,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} арксек</unitPattern>
 				<unitPattern count="other">{0} арксек</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>хэм</displayName>
-				<unitPattern count="one">{0} хэм</unitPattern>
-				<unitPattern count="other">{0} хэм</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>радиан</displayName>
-				<unitPattern count="one">{0} рад</unitPattern>
-				<unitPattern count="other">{0} рад</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>акр</displayName>
-				<unitPattern count="one">{0} акр</unitPattern>
-				<unitPattern count="other">{0} акр</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>км²</displayName>
+				<unitPattern count="one">{0} км²</unitPattern>
+				<unitPattern count="other">{0} км²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>гектар</displayName>
 				<unitPattern count="one">{0} га</unitPattern>
 				<unitPattern count="other">{0} га</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>метр²</displayName>
+				<unitPattern count="one">{0} м²</unitPattern>
+				<unitPattern count="other">{0} м²</unitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>см²</displayName>
 				<unitPattern count="one">{0} см²</unitPattern>
 				<unitPattern count="other">{0} см²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>миль кв</displayName>
+				<unitPattern count="one">{0} миль кв</unitPattern>
+				<unitPattern count="other">{0} миль кв</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>акр</displayName>
+				<unitPattern count="one">{0} акр</unitPattern>
+				<unitPattern count="other">{0} акр</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>ярд²</displayName>
+				<unitPattern count="one">{0} ярд²</unitPattern>
+				<unitPattern count="other">{0} ярд²</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>фүүт кв</displayName>
@@ -5649,26 +5669,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ин²</unitPattern>
 				<unitPattern count="other">{0} ин²</unitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>км²</displayName>
-				<unitPattern count="one">{0} км²</unitPattern>
-				<unitPattern count="other">{0} км²</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>метр²</displayName>
-				<unitPattern count="one">{0} м²</unitPattern>
-				<unitPattern count="other">{0} м²</unitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>миль кв</displayName>
-				<unitPattern count="one">{0} миль кв</unitPattern>
-				<unitPattern count="other">{0} миль кв</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>ярд²</displayName>
-				<unitPattern count="one">{0} ярд²</unitPattern>
-				<unitPattern count="other">{0} ярд²</unitPattern>
-			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>литр/км</displayName>
 				<unitPattern count="one">{0} л/км</unitPattern>
@@ -5679,55 +5679,70 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">ми/гал</unitPattern>
 				<unitPattern count="other">{0} ми/гал</unitPattern>
 			</unit>
-			<unit type="digital-bit">
-				<displayName>бит</displayName>
-				<unitPattern count="one">{0} бит</unitPattern>
-				<unitPattern count="other">{0} бит</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>байт</displayName>
-				<unitPattern count="one">{0} байт</unitPattern>
-				<unitPattern count="other">{0} байт</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>Гбит</displayName>
-				<unitPattern count="one">{0} Гб</unitPattern>
-				<unitPattern count="other">{0} Гб</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>Гбайт</displayName>
-				<unitPattern count="one">{0} ГБ</unitPattern>
-				<unitPattern count="other">{0} ГБ</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>кбит</displayName>
-				<unitPattern count="one">{0} кб</unitPattern>
-				<unitPattern count="other">{0} кб</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>кбайт</displayName>
-				<unitPattern count="one">{0} кБ</unitPattern>
-				<unitPattern count="other">{0} кБ</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>Мбит</displayName>
-				<unitPattern count="one">{0} Мб</unitPattern>
-				<unitPattern count="other">{0} Мб</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>Мбайт</displayName>
-				<unitPattern count="one">{0} МБ</unitPattern>
-				<unitPattern count="other">{0} МБ</unitPattern>
+			<unit type="digital-terabyte">
+				<displayName>Тбайт</displayName>
+				<unitPattern count="one">{0} ТБ</unitPattern>
+				<unitPattern count="other">{0} ТБ</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
 				<displayName>Тбит</displayName>
 				<unitPattern count="one">{0} Тб</unitPattern>
 				<unitPattern count="other">{0} Тб</unitPattern>
 			</unit>
-			<unit type="digital-terabyte">
-				<displayName>Тбайт</displayName>
-				<unitPattern count="one">{0} ТБ</unitPattern>
-				<unitPattern count="other">{0} ТБ</unitPattern>
+			<unit type="digital-gigabyte">
+				<displayName>Гбайт</displayName>
+				<unitPattern count="one">{0} ГБ</unitPattern>
+				<unitPattern count="other">{0} ГБ</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>Гбит</displayName>
+				<unitPattern count="one">{0} Гб</unitPattern>
+				<unitPattern count="other">{0} Гб</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>Мбайт</displayName>
+				<unitPattern count="one">{0} МБ</unitPattern>
+				<unitPattern count="other">{0} МБ</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Мбит</displayName>
+				<unitPattern count="one">{0} Мб</unitPattern>
+				<unitPattern count="other">{0} Мб</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>кбайт</displayName>
+				<unitPattern count="one">{0} кБ</unitPattern>
+				<unitPattern count="other">{0} кБ</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>кбит</displayName>
+				<unitPattern count="one">{0} кб</unitPattern>
+				<unitPattern count="other">{0} кб</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>байт</displayName>
+				<unitPattern count="one">{0} байт</unitPattern>
+				<unitPattern count="other">{0} байт</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>бит</displayName>
+				<unitPattern count="one">{0} бит</unitPattern>
+				<unitPattern count="other">{0} бит</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>жил</displayName>
+				<unitPattern count="one">{0} жил</unitPattern>
+				<unitPattern count="other">{0} жил</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>сар</displayName>
+				<unitPattern count="one">{0} сар</unitPattern>
+				<unitPattern count="other">{0} сар</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>дол/хон</displayName>
+				<unitPattern count="one">{0} дол/хон</unitPattern>
+				<unitPattern count="other">{0} дол/хон</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>өдөр</displayName>
@@ -5740,30 +5755,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} цаг</unitPattern>
 				<perUnitPattern>{0} цгт</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>μs</displayName>
-				<unitPattern count="one">{0} μs</unitPattern>
-				<unitPattern count="other">{0} μs</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>милисек</displayName>
-				<unitPattern count="one">{0} мс</unitPattern>
-				<unitPattern count="other">{0} мс</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>мин</displayName>
 				<unitPattern count="one">{0} мин</unitPattern>
 				<unitPattern count="other">{0} мин</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>сар</displayName>
-				<unitPattern count="one">{0} сар</unitPattern>
-				<unitPattern count="other">{0} сар</unitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>наносек</displayName>
-				<unitPattern count="one">{0} нс</unitPattern>
-				<unitPattern count="other">{0} нс</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>сек</displayName>
@@ -5771,15 +5766,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} сек</unitPattern>
 				<perUnitPattern>{0} секд</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>дол/хон</displayName>
-				<unitPattern count="one">{0} дол/хон</unitPattern>
-				<unitPattern count="other">{0} дол/хон</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>милисек</displayName>
+				<unitPattern count="one">{0} мс</unitPattern>
+				<unitPattern count="other">{0} мс</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>жил</displayName>
-				<unitPattern count="one">{0} жил</unitPattern>
-				<unitPattern count="other">{0} жил</unitPattern>
+			<unit type="duration-microsecond">
+				<displayName>μs</displayName>
+				<unitPattern count="one">{0} μs</unitPattern>
+				<unitPattern count="other">{0} μs</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>наносек</displayName>
+				<unitPattern count="one">{0} нс</unitPattern>
+				<unitPattern count="other">{0} нс</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>амп</displayName>
@@ -5801,6 +5801,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} В</unitPattern>
 				<unitPattern count="other">{0} В</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>ккал</displayName>
+				<unitPattern count="one">{0} ккал</unitPattern>
+				<unitPattern count="other">{0} ккал</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>кал</displayName>
 				<unitPattern count="one">{0} кал</unitPattern>
@@ -5811,20 +5816,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} Кал</unitPattern>
 				<unitPattern count="other">{0} Кал</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>жоуль</displayName>
-				<unitPattern count="one">{0} жо</unitPattern>
-				<unitPattern count="other">{0} жо</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>ккал</displayName>
-				<unitPattern count="one">{0} ккал</unitPattern>
-				<unitPattern count="other">{0} ккал</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>киложоуль</displayName>
 				<unitPattern count="one">{0} кж</unitPattern>
 				<unitPattern count="other">{0} кж</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>жоуль</displayName>
+				<unitPattern count="one">{0} жо</unitPattern>
+				<unitPattern count="other">{0} жо</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>кВ-цаг</displayName>
@@ -5836,35 +5836,70 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ГГц</unitPattern>
 				<unitPattern count="other">{0} ГГц</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>Гц</displayName>
-				<unitPattern count="one">{0} Гц</unitPattern>
-				<unitPattern count="other">{0} Гц</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>МГц</displayName>
+				<unitPattern count="one">{0} МГц</unitPattern>
+				<unitPattern count="other">{0} МГц</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>кГц</displayName>
 				<unitPattern count="one">{0} кГц</unitPattern>
 				<unitPattern count="other">{0} кГц</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>МГц</displayName>
-				<unitPattern count="one">{0} МГц</unitPattern>
-				<unitPattern count="other">{0} МГц</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>Гц</displayName>
+				<unitPattern count="one">{0} Гц</unitPattern>
+				<unitPattern count="other">{0} Гц</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>сн</displayName>
-				<unitPattern count="one">{0} сн</unitPattern>
-				<unitPattern count="other">{0} сн</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>км</displayName>
+				<unitPattern count="one">{0} км</unitPattern>
+				<unitPattern count="other">{0} км</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>метр</displayName>
+				<unitPattern count="one">{0} м</unitPattern>
+				<unitPattern count="other">{0} м</unitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>дм</displayName>
+				<unitPattern count="one">{0} дм</unitPattern>
+				<unitPattern count="other">{0} дм</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>см</displayName>
 				<unitPattern count="one">{0} см</unitPattern>
 				<unitPattern count="other">{0} см</unitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>дм</displayName>
-				<unitPattern count="one">{0} дм</unitPattern>
-				<unitPattern count="other">{0} дм</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>мм</displayName>
+				<unitPattern count="one">{0} мм</unitPattern>
+				<unitPattern count="other">{0} мм</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>µметр</displayName>
+				<unitPattern count="one">{0} µм</unitPattern>
+				<unitPattern count="other">{0} µм</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>нм</displayName>
+				<unitPattern count="one">{0} нм</unitPattern>
+				<unitPattern count="other">{0} нм</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>пм</displayName>
+				<unitPattern count="one">{0} пм</unitPattern>
+				<unitPattern count="other">{0} пм</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>миль</displayName>
+				<unitPattern count="one">{0} ми</unitPattern>
+				<unitPattern count="other">{0} ми</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>ярд</displayName>
+				<unitPattern count="one">{0} ярд</unitPattern>
+				<unitPattern count="other">{0} ярд</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>фүүт</displayName>
@@ -5876,95 +5911,65 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ин</unitPattern>
 				<unitPattern count="other">{0} ин</unitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>км</displayName>
-				<unitPattern count="one">{0} км</unitPattern>
-				<unitPattern count="other">{0} км</unitPattern>
+			<unit type="length-parsec">
+				<displayName>парсек</displayName>
+				<unitPattern count="one">{0} пк</unitPattern>
+				<unitPattern count="other">{0} пк</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>гэр жил</displayName>
 				<unitPattern count="one">{0} гж</unitPattern>
 				<unitPattern count="other">{0} гж</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>метр</displayName>
-				<unitPattern count="one">{0} м</unitPattern>
-				<unitPattern count="other">{0} м</unitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>µметр</displayName>
-				<unitPattern count="one">{0} µм</unitPattern>
-				<unitPattern count="other">{0} µм</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>миль</displayName>
-				<unitPattern count="one">{0} ми</unitPattern>
-				<unitPattern count="other">{0} ми</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>мм</displayName>
-				<unitPattern count="one">{0} мм</unitPattern>
-				<unitPattern count="other">{0} мм</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>нм</displayName>
-				<unitPattern count="one">{0} нм</unitPattern>
-				<unitPattern count="other">{0} нм</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>сн</displayName>
+				<unitPattern count="one">{0} сн</unitPattern>
+				<unitPattern count="other">{0} сн</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>дмиль</displayName>
 				<unitPattern count="one">{0} дмиль</unitPattern>
 				<unitPattern count="other">{0} дмиль</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>парсек</displayName>
-				<unitPattern count="one">{0} пк</unitPattern>
-				<unitPattern count="other">{0} пк</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>пм</displayName>
-				<unitPattern count="one">{0} пм</unitPattern>
-				<unitPattern count="other">{0} пм</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>ярд</displayName>
-				<unitPattern count="one">{0} ярд</unitPattern>
-				<unitPattern count="other">{0} ярд</unitPattern>
-			</unit>
 			<unit type="light-lux">
 				<displayName>люкс</displayName>
 				<unitPattern count="one">{0} люкс</unitPattern>
 				<unitPattern count="other">{0} люкс</unitPattern>
-			</unit>
-			<unit type="mass-carat">
-				<displayName>карат</displayName>
-				<unitPattern count="one">{0} крт</unitPattern>
-				<unitPattern count="other">{0} крт</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>грам</displayName>
-				<unitPattern count="one">{0} г</unitPattern>
-				<unitPattern count="other">{0} г</unitPattern>
-			</unit>
-			<unit type="mass-kilogram">
-				<displayName>кг</displayName>
-				<unitPattern count="one">{0} кг</unitPattern>
-				<unitPattern count="other">{0} кг</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>т</displayName>
 				<unitPattern count="one">{0} т</unitPattern>
 				<unitPattern count="other">{0} т</unitPattern>
 			</unit>
-			<unit type="mass-microgram">
-				<displayName>µг</displayName>
-				<unitPattern count="one">{0} µг</unitPattern>
-				<unitPattern count="other">{0} µг</unitPattern>
+			<unit type="mass-kilogram">
+				<displayName>кг</displayName>
+				<unitPattern count="one">{0} кг</unitPattern>
+				<unitPattern count="other">{0} кг</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName>грам</displayName>
+				<unitPattern count="one">{0} г</unitPattern>
+				<unitPattern count="other">{0} г</unitPattern>
 			</unit>
 			<unit type="mass-milligram">
 				<displayName>мг</displayName>
 				<unitPattern count="one">{0} мг</unitPattern>
 				<unitPattern count="other">{0} мг</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>µг</displayName>
+				<unitPattern count="one">{0} µг</unitPattern>
+				<unitPattern count="other">{0} µг</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName>тонн</displayName>
+				<unitPattern count="one">{0} тн</unitPattern>
+				<unitPattern count="other">{0} тн</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>фунт</displayName>
+				<unitPattern count="one">{0} фнт</unitPattern>
+				<unitPattern count="other">{0} фнт</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>унц</displayName>
@@ -5976,60 +5981,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} т унц</unitPattern>
 				<unitPattern count="other">{0} т унц</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>фунт</displayName>
-				<unitPattern count="one">{0} фнт</unitPattern>
-				<unitPattern count="other">{0} фнт</unitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>тонн</displayName>
-				<unitPattern count="one">{0} тн</unitPattern>
-				<unitPattern count="other">{0} тн</unitPattern>
+			<unit type="mass-carat">
+				<displayName>карат</displayName>
+				<unitPattern count="one">{0} крт</unitPattern>
+				<unitPattern count="other">{0} крт</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ГВ</displayName>
 				<unitPattern count="one">{0} ГВ</unitPattern>
 				<unitPattern count="other">{0} ГВ</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>мх</displayName>
-				<unitPattern count="one">{0} мх</unitPattern>
-				<unitPattern count="other">{0} мх</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>МВт</displayName>
+				<unitPattern count="one">{0} МВт</unitPattern>
+				<unitPattern count="other">{0} МВт</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>кВт</displayName>
 				<unitPattern count="one">{0} кВт</unitPattern>
 				<unitPattern count="other">{0} кВт</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>МВт</displayName>
-				<unitPattern count="one">{0} МВт</unitPattern>
-				<unitPattern count="other">{0} МВт</unitPattern>
+			<unit type="power-watt">
+				<displayName>ватт</displayName>
+				<unitPattern count="one">{0} Вт</unitPattern>
+				<unitPattern count="other">{0} Вт</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>мВт</displayName>
 				<unitPattern count="one">{0} мВт</unitPattern>
 				<unitPattern count="other">{0} мВт</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>ватт</displayName>
-				<unitPattern count="one">{0} Вт</unitPattern>
-				<unitPattern count="other">{0} Вт</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>мх</displayName>
+				<unitPattern count="one">{0} мх</unitPattern>
+				<unitPattern count="other">{0} мх</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>гПа</displayName>
 				<unitPattern count="one">{0} гПа</unitPattern>
 				<unitPattern count="other">{0} гПа</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>МөУсИн</displayName>
-				<unitPattern count="one">{0} МөУсИн</unitPattern>
-				<unitPattern count="other">{0} МөУсИн</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>мбар</displayName>
-				<unitPattern count="one">{0} мбар</unitPattern>
-				<unitPattern count="other">{0} мбар</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>МөУс мм</displayName>
@@ -6040,6 +6030,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ф ин кв</displayName>
 				<unitPattern count="one">{0} ф ин кв</unitPattern>
 				<unitPattern count="other">{0} ф ин кв</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>МөУсИн</displayName>
+				<unitPattern count="one">{0} МөУсИн</unitPattern>
+				<unitPattern count="other">{0} МөУсИн</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>мбар</displayName>
+				<unitPattern count="one">{0} мбар</unitPattern>
+				<unitPattern count="other">{0} мбар</unitPattern>
 			</unit>
 			<unit type="proportion-karat">
 				<displayName>карат</displayName>
@@ -6076,31 +6076,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}°К</unitPattern>
 				<unitPattern count="other">{0}°К</unitPattern>
 			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>акр фүүт</displayName>
-				<unitPattern count="one">{0} ак фт</unitPattern>
-				<unitPattern count="other">{0} ак фт</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>цЛ</displayName>
-				<unitPattern count="one">{0} цЛ</unitPattern>
-				<unitPattern count="other">{0} цЛ</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>см³</displayName>
-				<unitPattern count="one">{0} cм³</unitPattern>
-				<unitPattern count="other">{0} cм³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>фүүт³</displayName>
-				<unitPattern count="one">{0} фт³</unitPattern>
-				<unitPattern count="other">{0} фт³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>инч³</displayName>
-				<unitPattern count="one">{0} ин³</unitPattern>
-				<unitPattern count="other">{0} ин³</unitPattern>
-			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>км³</displayName>
 				<unitPattern count="one">{0} км³</unitPattern>
@@ -6110,6 +6085,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>м³</displayName>
 				<unitPattern count="one">{0} м³</unitPattern>
 				<unitPattern count="other">{0} м³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>см³</displayName>
+				<unitPattern count="one">{0} cм³</unitPattern>
+				<unitPattern count="other">{0} cм³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>ми³</displayName>
@@ -6121,25 +6101,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ярд³</unitPattern>
 				<unitPattern count="other">{0} ярд³</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>аяга</displayName>
-				<unitPattern count="one">{0} а</unitPattern>
-				<unitPattern count="other">{0} а</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>фүүт³</displayName>
+				<unitPattern count="one">{0} фт³</unitPattern>
+				<unitPattern count="other">{0} фт³</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>дЛ</displayName>
-				<unitPattern count="one">{0} дЛ</unitPattern>
-				<unitPattern count="other">{0} дЛ</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>инч³</displayName>
+				<unitPattern count="one">{0} ин³</unitPattern>
+				<unitPattern count="other">{0} ин³</unitPattern>
 			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>ш унц</displayName>
-				<unitPattern count="one">{0} ш унц</unitPattern>
-				<unitPattern count="other">{0} ш унц</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>гал</displayName>
-				<unitPattern count="one">{0} гал</unitPattern>
-				<unitPattern count="other">{0} гал</unitPattern>
+			<unit type="volume-megaliter">
+				<displayName>МЛ</displayName>
+				<unitPattern count="one">{0} МЛ</unitPattern>
+				<unitPattern count="other">{0} МЛ</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>хЛ</displayName>
@@ -6151,25 +6126,50 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} л</unitPattern>
 				<unitPattern count="other">{0} л</unitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>МЛ</displayName>
-				<unitPattern count="one">{0} МЛ</unitPattern>
-				<unitPattern count="other">{0} МЛ</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>дЛ</displayName>
+				<unitPattern count="one">{0} дЛ</unitPattern>
+				<unitPattern count="other">{0} дЛ</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>цЛ</displayName>
+				<unitPattern count="one">{0} цЛ</unitPattern>
+				<unitPattern count="other">{0} цЛ</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>мЛ</displayName>
 				<unitPattern count="one">{0} мЛ</unitPattern>
 				<unitPattern count="other">{0} мЛ</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>пайнт</displayName>
-				<unitPattern count="one">{0} пнт</unitPattern>
-				<unitPattern count="other">{0} пнт</unitPattern>
+			<unit type="volume-acre-foot">
+				<displayName>акр фүүт</displayName>
+				<unitPattern count="one">{0} ак фт</unitPattern>
+				<unitPattern count="other">{0} ак фт</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>гал</displayName>
+				<unitPattern count="one">{0} гал</unitPattern>
+				<unitPattern count="other">{0} гал</unitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>крц</displayName>
 				<unitPattern count="one">{0} крц</unitPattern>
 				<unitPattern count="other">{0} крц</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>пайнт</displayName>
+				<unitPattern count="one">{0} пнт</unitPattern>
+				<unitPattern count="other">{0} пнт</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>аяга</displayName>
+				<unitPattern count="one">{0} а</unitPattern>
+				<unitPattern count="other">{0} а</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>ш унц</displayName>
+				<unitPattern count="one">{0} ш унц</unitPattern>
+				<unitPattern count="other">{0} ш унц</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>ххалбага</displayName>
@@ -6190,6 +6190,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -6198,25 +6202,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="one">{0} акр</unitPattern>
-				<unitPattern count="other">{0} акр</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} км²</unitPattern>
+				<unitPattern count="other">{0} км²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="one">{0} га</unitPattern>
 				<unitPattern count="other">{0} га</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="one">{0} фт²</unitPattern>
-				<unitPattern count="other">{0} фт²</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="one">{0} км²</unitPattern>
-				<unitPattern count="other">{0} км²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="one">{0} м²</unitPattern>
@@ -6225,6 +6217,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-mile">
 				<unitPattern count="one">{0} миль²</unitPattern>
 				<unitPattern count="other">{0} миль²</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0} акр</unitPattern>
+				<unitPattern count="other">{0} акр</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0} фт²</unitPattern>
+				<unitPattern count="other">{0} фт²</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>ж</displayName>
+				<unitPattern count="one">{0} ж</unitPattern>
+				<unitPattern count="other">{0} ж</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>сар</displayName>
+				<unitPattern count="one">{0} ср</unitPattern>
+				<unitPattern count="other">{0} ср</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>д/х</displayName>
+				<unitPattern count="one">{0} д/х</unitPattern>
+				<unitPattern count="other">{0} д/х</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>өдөр</displayName>
@@ -6236,66 +6251,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ц</unitPattern>
 				<unitPattern count="other">{0} ц</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>мсек</displayName>
-				<unitPattern count="one">{0} мс</unitPattern>
-				<unitPattern count="other">{0} мс</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>мин</displayName>
 				<unitPattern count="one">{0} м</unitPattern>
 				<unitPattern count="other">{0} м</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>сар</displayName>
-				<unitPattern count="one">{0} ср</unitPattern>
-				<unitPattern count="other">{0} ср</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>сек</displayName>
 				<unitPattern count="one">{0} с</unitPattern>
 				<unitPattern count="other">{0} с</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>д/х</displayName>
-				<unitPattern count="one">{0} д/х</unitPattern>
-				<unitPattern count="other">{0} д/х</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName>ж</displayName>
-				<unitPattern count="one">{0} ж</unitPattern>
-				<unitPattern count="other">{0} ж</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>см</displayName>
-				<unitPattern count="one">{0} см</unitPattern>
-				<unitPattern count="other">{0} см</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="one">{0} фт</unitPattern>
-				<unitPattern count="other">{0} фт</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="one">{0} инч</unitPattern>
-				<unitPattern count="other">{0} инч</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>мсек</displayName>
+				<unitPattern count="one">{0} мс</unitPattern>
+				<unitPattern count="other">{0} мс</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>км</displayName>
 				<unitPattern count="one">{0} км</unitPattern>
 				<unitPattern count="other">{0} км</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="one">{0} гэр/жил</unitPattern>
-				<unitPattern count="other">{0} гэр/жил</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>метр</displayName>
 				<unitPattern count="one">{0} м</unitPattern>
 				<unitPattern count="other">{0} м</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="one">{0} миль</unitPattern>
-				<unitPattern count="other">{0} миль</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>см</displayName>
+				<unitPattern count="one">{0} см</unitPattern>
+				<unitPattern count="other">{0} см</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>мм</displayName>
@@ -6306,31 +6290,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} пм</unitPattern>
 				<unitPattern count="other">{0} пм</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} миль</unitPattern>
+				<unitPattern count="other">{0} миль</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<unitPattern count="one">{0} ярд</unitPattern>
 				<unitPattern count="other">{0} ярд</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName>грам</displayName>
-				<unitPattern count="one">{0} г</unitPattern>
-				<unitPattern count="other">{0} г</unitPattern>
+			<unit type="length-foot">
+				<unitPattern count="one">{0} фт</unitPattern>
+				<unitPattern count="other">{0} фт</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0} инч</unitPattern>
+				<unitPattern count="other">{0} инч</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0} гэр/жил</unitPattern>
+				<unitPattern count="other">{0} гэр/жил</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>кг</displayName>
 				<unitPattern count="one">{0} кг</unitPattern>
 				<unitPattern count="other">{0} кг</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="one">{0} унц</unitPattern>
-				<unitPattern count="other">{0} унц</unitPattern>
+			<unit type="mass-gram">
+				<displayName>грам</displayName>
+				<unitPattern count="one">{0} г</unitPattern>
+				<unitPattern count="other">{0} г</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="one">{0} фунт</unitPattern>
 				<unitPattern count="other">{0} фунт</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="one">{0} м.х.</unitPattern>
-				<unitPattern count="other">{0} м.х.</unitPattern>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0} унц</unitPattern>
+				<unitPattern count="other">{0} унц</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one">{0} кватт</unitPattern>
@@ -6339,6 +6335,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="power-watt">
 				<unitPattern count="one">{0} ватт</unitPattern>
 				<unitPattern count="other">{0} ватт</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0} м.х.</unitPattern>
+				<unitPattern count="other">{0} м.х.</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="one">{0} гПа</unitPattern>

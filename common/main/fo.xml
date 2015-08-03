@@ -5108,6 +5108,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} metur um sekundi²</unitPattern>
 				<unitPattern count="other">{0} metrar um sekundi²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>snúningar</displayName>
+				<unitPattern count="one">{0} snúningur</unitPattern>
+				<unitPattern count="other">{0} snúningar</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>radian</displayName>
+				<unitPattern count="one">{0} radian</unitPattern>
+				<unitPattern count="other">{0} radianir</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>stig</displayName>
+				<unitPattern count="one">{0} stig</unitPattern>
+				<unitPattern count="other">{0} stig</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>bogaminuttir</displayName>
 				<unitPattern count="one">{0} bogaminuttur</unitPattern>
@@ -5118,36 +5133,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} bogasekund</unitPattern>
 				<unitPattern count="other">{0} bogasekundir</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>stig</displayName>
-				<unitPattern count="one">{0} stig</unitPattern>
-				<unitPattern count="other">{0} stig</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>radian</displayName>
-				<unitPattern count="one">{0} radian</unitPattern>
-				<unitPattern count="other">{0} radianir</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>snúningar</displayName>
-				<unitPattern count="one">{0} snúningur</unitPattern>
-				<unitPattern count="other">{0} snúningar</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ekrur</displayName>
-				<unitPattern count="one">{0} ekra</unitPattern>
-				<unitPattern count="other">{0} ekrur</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>ferkilometrar</displayName>
+				<unitPattern count="one">{0} ferkilometur</unitPattern>
+				<unitPattern count="other">{0} ferkilometrar</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>hektarar</displayName>
 				<unitPattern count="one">{0} hektari</unitPattern>
 				<unitPattern count="other">{0} hektarar</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>fermetrar</displayName>
+				<unitPattern count="one">{0} fermetur</unitPattern>
+				<unitPattern count="other">{0} fermetrar</unitPattern>
+				<perUnitPattern>{0} fyri hvønn fermetur</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>fersentimetrar</displayName>
 				<unitPattern count="one">{0} fersentimetur</unitPattern>
 				<unitPattern count="other">{0} fersentimetrar</unitPattern>
 				<perUnitPattern>{0} fyri hvønn fersentimetur</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>fermíl</displayName>
+				<unitPattern count="one">{0} fermíl</unitPattern>
+				<unitPattern count="other">{0} fermíl</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ekrur</displayName>
+				<unitPattern count="one">{0} ekra</unitPattern>
+				<unitPattern count="other">{0} ekrur</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>feryards</displayName>
+				<unitPattern count="one">{0} feryard</unitPattern>
+				<unitPattern count="other">{0} feryards</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>ferføtur</displayName>
@@ -5160,96 +5181,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} fertummar</unitPattern>
 				<perUnitPattern>{0} fyri hvønn fertumma</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>ferkilometrar</displayName>
-				<unitPattern count="one">{0} ferkilometur</unitPattern>
-				<unitPattern count="other">{0} ferkilometrar</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>fermetrar</displayName>
-				<unitPattern count="one">{0} fermetur</unitPattern>
-				<unitPattern count="other">{0} fermetrar</unitPattern>
-				<perUnitPattern>{0} fyri hvønn fermetur</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>fermíl</displayName>
-				<unitPattern count="one">{0} fermíl</unitPattern>
-				<unitPattern count="other">{0} fermíl</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>feryards</displayName>
-				<unitPattern count="one">{0} feryard</unitPattern>
-				<unitPattern count="other">{0} feryards</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>litrar fyri hvønn kilometrar</displayName>
+				<unitPattern count="one">{0} litur fyri hvønn kilometrar</unitPattern>
+				<unitPattern count="other">{0} litrar fyri hvønn kilometrar</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>litrar fyri hvørjar 100 kilometrar</displayName>
 				<unitPattern count="one">{0} litur fyri hvørjar 100 kilometrar</unitPattern>
 				<unitPattern count="other">{0} litrar fyri hvørjar 100 kilometrar</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>litrar fyri hvønn kilometrar</displayName>
-				<unitPattern count="one">{0} litur fyri hvønn kilometrar</unitPattern>
-				<unitPattern count="other">{0} litrar fyri hvønn kilometrar</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>míl fyri hvønn gallon</displayName>
 				<unitPattern count="one">{0} míl fyri hvønn gallon</unitPattern>
 				<unitPattern count="other">{0} míl fyri hvønn gallon</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>bit</displayName>
-				<unitPattern count="one">{0} bit</unitPattern>
-				<unitPattern count="other">{0} bit</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>být</displayName>
-				<unitPattern count="one">{0} být</unitPattern>
-				<unitPattern count="other">{0} být</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>gigabit</displayName>
-				<unitPattern count="one">{0} gigabit</unitPattern>
-				<unitPattern count="other">{0} gigabit</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>gigabýt</displayName>
-				<unitPattern count="one">{0} gigabýt</unitPattern>
-				<unitPattern count="other">{0} gigabýt</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>kilobit</displayName>
-				<unitPattern count="one">{0} kilobit</unitPattern>
-				<unitPattern count="other">{0} kilobit</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>kilobýt</displayName>
-				<unitPattern count="one">{0} kilobýt</unitPattern>
-				<unitPattern count="other">{0} kilobýt</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>megabit</displayName>
-				<unitPattern count="one">{0} megabit</unitPattern>
-				<unitPattern count="other">{0} megabit</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>megabýt</displayName>
-				<unitPattern count="one">{0} megabýt</unitPattern>
-				<unitPattern count="other">{0} megabýt</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>terabit</displayName>
-				<unitPattern count="one">{0} terabit</unitPattern>
-				<unitPattern count="other">{0} terabit</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabýt</displayName>
 				<unitPattern count="one">{0} terabýt</unitPattern>
 				<unitPattern count="other">{0} terabýt</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>terabit</displayName>
+				<unitPattern count="one">{0} terabit</unitPattern>
+				<unitPattern count="other">{0} terabit</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>gigabýt</displayName>
+				<unitPattern count="one">{0} gigabýt</unitPattern>
+				<unitPattern count="other">{0} gigabýt</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>gigabit</displayName>
+				<unitPattern count="one">{0} gigabit</unitPattern>
+				<unitPattern count="other">{0} gigabit</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>megabýt</displayName>
+				<unitPattern count="one">{0} megabýt</unitPattern>
+				<unitPattern count="other">{0} megabýt</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>megabit</displayName>
+				<unitPattern count="one">{0} megabit</unitPattern>
+				<unitPattern count="other">{0} megabit</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kilobýt</displayName>
+				<unitPattern count="one">{0} kilobýt</unitPattern>
+				<unitPattern count="other">{0} kilobýt</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kilobit</displayName>
+				<unitPattern count="one">{0} kilobit</unitPattern>
+				<unitPattern count="other">{0} kilobit</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>být</displayName>
+				<unitPattern count="one">{0} být</unitPattern>
+				<unitPattern count="other">{0} být</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>bit</displayName>
+				<unitPattern count="one">{0} bit</unitPattern>
+				<unitPattern count="other">{0} bit</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>øldir</displayName>
 				<unitPattern count="one">{0} øld</unitPattern>
 				<unitPattern count="other">{0} øldir</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>ár</displayName>
+				<unitPattern count="one">{0} ár</unitPattern>
+				<unitPattern count="other">{0} ár</unitPattern>
+				<perUnitPattern>{0} um ári</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>mánaðir</displayName>
+				<unitPattern count="one">{0} mánaður</unitPattern>
+				<unitPattern count="other">{0} mánaðir</unitPattern>
+				<perUnitPattern>{0} um mánan</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>vikur</displayName>
+				<unitPattern count="one">{0} vika</unitPattern>
+				<unitPattern count="other">{0} vikur</unitPattern>
+				<perUnitPattern>{0} um vikuna</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>dagar</displayName>
@@ -5263,32 +5281,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} tímar</unitPattern>
 				<perUnitPattern>{0} um tíman</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>mikrosekundir</displayName>
-				<unitPattern count="one">{0} mikrosekund</unitPattern>
-				<unitPattern count="other">{0} mikrosekundir</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>millisekundir</displayName>
-				<unitPattern count="one">{0} millisekund</unitPattern>
-				<unitPattern count="other">{0} millisekundir</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>minuttir</displayName>
 				<unitPattern count="one">{0} minuttur</unitPattern>
 				<unitPattern count="other">{0} minuttir</unitPattern>
 				<perUnitPattern>{0} um minuttin</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>mánaðir</displayName>
-				<unitPattern count="one">{0} mánaður</unitPattern>
-				<unitPattern count="other">{0} mánaðir</unitPattern>
-				<perUnitPattern>{0} um mánan</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>nanosekundir</displayName>
-				<unitPattern count="one">{0} nanosekund</unitPattern>
-				<unitPattern count="other">{0} nanosekundir</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>sekundir</displayName>
@@ -5296,17 +5293,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} sekundir</unitPattern>
 				<perUnitPattern>{0} um sekundi</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>vikur</displayName>
-				<unitPattern count="one">{0} vika</unitPattern>
-				<unitPattern count="other">{0} vikur</unitPattern>
-				<perUnitPattern>{0} um vikuna</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>millisekundir</displayName>
+				<unitPattern count="one">{0} millisekund</unitPattern>
+				<unitPattern count="other">{0} millisekundir</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>ár</displayName>
-				<unitPattern count="one">{0} ár</unitPattern>
-				<unitPattern count="other">{0} ár</unitPattern>
-				<perUnitPattern>{0} um ári</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>mikrosekundir</displayName>
+				<unitPattern count="one">{0} mikrosekund</unitPattern>
+				<unitPattern count="other">{0} mikrosekundir</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>nanosekundir</displayName>
+				<unitPattern count="one">{0} nanosekund</unitPattern>
+				<unitPattern count="other">{0} nanosekundir</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>amperur</displayName>
@@ -5328,6 +5328,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} volt</unitPattern>
 				<unitPattern count="other">{0} volt</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kilokaloriur</displayName>
+				<unitPattern count="one">{0} kilokaloria</unitPattern>
+				<unitPattern count="other">{0} kilokaloriur</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>kaloriur</displayName>
 				<unitPattern count="one">{0} kaloria</unitPattern>
@@ -5338,20 +5343,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} kostkaloria</unitPattern>
 				<unitPattern count="other">{0} kostkaloriur</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>joule</displayName>
-				<unitPattern count="one">{0} joule</unitPattern>
-				<unitPattern count="other">{0} joule</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>kilokaloriur</displayName>
-				<unitPattern count="one">{0} kilokaloria</unitPattern>
-				<unitPattern count="other">{0} kilokaloriur</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kilojoule</displayName>
 				<unitPattern count="one">{0} kilojoule</unitPattern>
 				<unitPattern count="other">{0} kilojoule</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>joule</displayName>
+				<unitPattern count="one">{0} joule</unitPattern>
+				<unitPattern count="other">{0} joule</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kilowatttímar</displayName>
@@ -5363,25 +5363,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} gigahertz</unitPattern>
 				<unitPattern count="other">{0} gigahertz</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>hertz</displayName>
-				<unitPattern count="one">{0} hertz</unitPattern>
-				<unitPattern count="other">{0} hertz</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>megahertz</displayName>
+				<unitPattern count="one">{0} megahertz</unitPattern>
+				<unitPattern count="other">{0} megahertz</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>kilohertz</displayName>
 				<unitPattern count="one">{0} kilohertz</unitPattern>
 				<unitPattern count="other">{0} kilohertz</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>megahertz</displayName>
-				<unitPattern count="one">{0} megahertz</unitPattern>
-				<unitPattern count="other">{0} megahertz</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>hertz</displayName>
+				<unitPattern count="one">{0} hertz</unitPattern>
+				<unitPattern count="other">{0} hertz</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>stjørnufrøðilig eindir</displayName>
-				<unitPattern count="one">{0} stjørnufrøðilig eind</unitPattern>
-				<unitPattern count="other">{0} stjørnufrøðiligar eindir</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>kilometrar</displayName>
+				<unitPattern count="one">{0} kilometur</unitPattern>
+				<unitPattern count="other">{0} kilometrar</unitPattern>
+				<perUnitPattern>{0} fyri hvønn kilometur</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>metrar</displayName>
+				<unitPattern count="one">{0} metur</unitPattern>
+				<unitPattern count="other">{0} metrar</unitPattern>
+				<perUnitPattern>{0} fyri hvønn metur</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>desimetrar</displayName>
+				<unitPattern count="one">{0} desimetur</unitPattern>
+				<unitPattern count="other">{0} desimetrar</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>sentimetrar</displayName>
@@ -5389,10 +5401,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} sentimetrar</unitPattern>
 				<perUnitPattern>{0} fyri hvønn sentimetur</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>desimetrar</displayName>
-				<unitPattern count="one">{0} desimetur</unitPattern>
-				<unitPattern count="other">{0} desimetrar</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>millimetrar</displayName>
+				<unitPattern count="one">{0} millimetur</unitPattern>
+				<unitPattern count="other">{0} millimetrar</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>mikrometrar</displayName>
+				<unitPattern count="one">{0} mikrometur</unitPattern>
+				<unitPattern count="other">{0} mikrometrar</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>nanometrar</displayName>
+				<unitPattern count="one">{0} nanometur</unitPattern>
+				<unitPattern count="other">{0} nanometrar</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>picometrar</displayName>
+				<unitPattern count="one">{0} picometur</unitPattern>
+				<unitPattern count="other">{0} picometrar</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>míl</displayName>
+				<unitPattern count="one">{0} míl</unitPattern>
+				<unitPattern count="other">{0} míl</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>yards</displayName>
+				<unitPattern count="one">{0} yard</unitPattern>
+				<unitPattern count="other">{0} yards</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>føtur</displayName>
@@ -5406,83 +5443,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} tummar</unitPattern>
 				<perUnitPattern>{0} fyri hvønn tumma</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>kilometrar</displayName>
-				<unitPattern count="one">{0} kilometur</unitPattern>
-				<unitPattern count="other">{0} kilometrar</unitPattern>
-				<perUnitPattern>{0} fyri hvønn kilometur</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>parsecs</displayName>
+				<unitPattern count="one">{0} parsec</unitPattern>
+				<unitPattern count="other">{0} parsecs</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>ljósár</displayName>
 				<unitPattern count="one">{0} ljósár</unitPattern>
 				<unitPattern count="other">{0} ljósár</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>metrar</displayName>
-				<unitPattern count="one">{0} metur</unitPattern>
-				<unitPattern count="other">{0} metrar</unitPattern>
-				<perUnitPattern>{0} fyri hvønn metur</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>mikrometrar</displayName>
-				<unitPattern count="one">{0} mikrometur</unitPattern>
-				<unitPattern count="other">{0} mikrometrar</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>míl</displayName>
-				<unitPattern count="one">{0} míl</unitPattern>
-				<unitPattern count="other">{0} míl</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>skandinaviskt míl</displayName>
-				<unitPattern count="one">{0} skandinaviskt míl</unitPattern>
-				<unitPattern count="other">{0} skandinaviskt míl</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>millimetrar</displayName>
-				<unitPattern count="one">{0} millimetur</unitPattern>
-				<unitPattern count="other">{0} millimetrar</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>nanometrar</displayName>
-				<unitPattern count="one">{0} nanometur</unitPattern>
-				<unitPattern count="other">{0} nanometrar</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>stjørnufrøðilig eindir</displayName>
+				<unitPattern count="one">{0} stjørnufrøðilig eind</unitPattern>
+				<unitPattern count="other">{0} stjørnufrøðiligar eindir</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>sjómíl</displayName>
 				<unitPattern count="one">{0} sjómíl</unitPattern>
 				<unitPattern count="other">{0} sjómíl</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>parsecs</displayName>
-				<unitPattern count="one">{0} parsec</unitPattern>
-				<unitPattern count="other">{0} parsecs</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>picometrar</displayName>
-				<unitPattern count="one">{0} picometur</unitPattern>
-				<unitPattern count="other">{0} picometrar</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>yards</displayName>
-				<unitPattern count="one">{0} yard</unitPattern>
-				<unitPattern count="other">{0} yards</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>skandinaviskt míl</displayName>
+				<unitPattern count="one">{0} skandinaviskt míl</unitPattern>
+				<unitPattern count="other">{0} skandinaviskt míl</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>luks</displayName>
 				<unitPattern count="one">{0} luks</unitPattern>
 				<unitPattern count="other">{0} luks</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>karat</displayName>
-				<unitPattern count="one">{0} karat</unitPattern>
-				<unitPattern count="other">{0} karat</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>gramm</displayName>
-				<unitPattern count="one">{0} gramm</unitPattern>
-				<unitPattern count="other">{0} gramm</unitPattern>
-				<perUnitPattern>{0} fyri hvørt gramm</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>tons</displayName>
+				<unitPattern count="one">{0} tons</unitPattern>
+				<unitPattern count="other">{0} tons</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kilogramm</displayName>
@@ -5490,20 +5484,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} kilogramm</unitPattern>
 				<perUnitPattern>{0} fyri hvørt kilogramm</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>tons</displayName>
-				<unitPattern count="one">{0} tons</unitPattern>
-				<unitPattern count="other">{0} tons</unitPattern>
+			<unit type="mass-gram">
+				<displayName>gramm</displayName>
+				<unitPattern count="one">{0} gramm</unitPattern>
+				<unitPattern count="other">{0} gramm</unitPattern>
+				<perUnitPattern>{0} fyri hvørt gramm</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>milligramm</displayName>
+				<unitPattern count="one">{0} milligramm</unitPattern>
+				<unitPattern count="other">{0} milligramm</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>mikrogramm</displayName>
 				<unitPattern count="one">{0} mikrogramm</unitPattern>
 				<unitPattern count="other">{0} mikrogramm</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>milligramm</displayName>
-				<unitPattern count="one">{0} milligramm</unitPattern>
-				<unitPattern count="other">{0} milligramm</unitPattern>
+			<unit type="mass-ton">
+				<displayName>stutt tons</displayName>
+				<unitPattern count="one">{0} stutt tons</unitPattern>
+				<unitPattern count="other">{0} stutt tons</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>pund</displayName>
+				<unitPattern count="one">{0} pund</unitPattern>
+				<unitPattern count="other">{0} pund</unitPattern>
+				<perUnitPattern>{0} fyri hvørt pund</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>unsur</displayName>
@@ -5516,61 +5522,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} troy unsa</unitPattern>
 				<unitPattern count="other">{0} troy unsur</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>pund</displayName>
-				<unitPattern count="one">{0} pund</unitPattern>
-				<unitPattern count="other">{0} pund</unitPattern>
-				<perUnitPattern>{0} fyri hvørt pund</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>stutt tons</displayName>
-				<unitPattern count="one">{0} stutt tons</unitPattern>
-				<unitPattern count="other">{0} stutt tons</unitPattern>
+			<unit type="mass-carat">
+				<displayName>karat</displayName>
+				<unitPattern count="one">{0} karat</unitPattern>
+				<unitPattern count="other">{0} karat</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>gigawatt</displayName>
 				<unitPattern count="one">{0} gigawatt</unitPattern>
 				<unitPattern count="other">{0} gigawatt</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>hestakreftur</displayName>
-				<unitPattern count="one">{0} hestakraft</unitPattern>
-				<unitPattern count="other">{0} hestakreftur</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>megawatt</displayName>
+				<unitPattern count="one">{0} megawatt</unitPattern>
+				<unitPattern count="other">{0} megawatt</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>kilowatt</displayName>
 				<unitPattern count="one">{0} kilowatt</unitPattern>
 				<unitPattern count="other">{0} kilowatt</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>megawatt</displayName>
-				<unitPattern count="one">{0} megawatt</unitPattern>
-				<unitPattern count="other">{0} megawatt</unitPattern>
+			<unit type="power-watt">
+				<displayName>watt</displayName>
+				<unitPattern count="one">{0} watt</unitPattern>
+				<unitPattern count="other">{0} watt</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>milliwatt</displayName>
 				<unitPattern count="one">{0} milliwatt</unitPattern>
 				<unitPattern count="other">{0} milliwatt</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>watt</displayName>
-				<unitPattern count="one">{0} watt</unitPattern>
-				<unitPattern count="other">{0} watt</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>hestakreftur</displayName>
+				<unitPattern count="one">{0} hestakraft</unitPattern>
+				<unitPattern count="other">{0} hestakreftur</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hektopascal</displayName>
 				<unitPattern count="one">{0} hektopascal</unitPattern>
 				<unitPattern count="other">{0} hektopascal</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>tummar av kviksilvur</displayName>
-				<unitPattern count="one">{0} tummi av kviksilvur</unitPattern>
-				<unitPattern count="other">{0} tummar av kviksilvur</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>millibar</displayName>
-				<unitPattern count="one">{0} millibar</unitPattern>
-				<unitPattern count="other">{0} millibar</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>millimetrar av kviksilvur</displayName>
@@ -5582,6 +5572,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} psi</unitPattern>
 				<unitPattern count="other">{0} psi</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>tummar av kviksilvur</displayName>
+				<unitPattern count="one">{0} tummi av kviksilvur</unitPattern>
+				<unitPattern count="other">{0} tummar av kviksilvur</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>millibar</displayName>
+				<unitPattern count="one">{0} millibar</unitPattern>
+				<unitPattern count="other">{0} millibar</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>karat</displayName>
 				<unitPattern count="one">{0} karat</unitPattern>
@@ -5591,11 +5591,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kilometrar um tíman</displayName>
 				<unitPattern count="one">{0} kilometur um tíman</unitPattern>
 				<unitPattern count="other">{0} kilometrar um tíman</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>sjómíl um tíman</displayName>
-				<unitPattern count="one">{0} sjómíl um tíman</unitPattern>
-				<unitPattern count="other">{0} sjómíl um tíman</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>metrar um sekundi</displayName>
@@ -5607,6 +5602,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} míl/t</unitPattern>
 				<unitPattern count="other">{0} míl/t</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>sjómíl um tíman</displayName>
+				<unitPattern count="one">{0} sjómíl um tíman</unitPattern>
+				<unitPattern count="other">{0} sjómíl um tíman</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>stig Celsius</displayName>
 				<unitPattern count="one">{0} stig Celsius</unitPattern>
@@ -5617,41 +5622,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} stig Fahrenheit</unitPattern>
 				<unitPattern count="other">{0} stig Fahrenheit</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>Kelvin</displayName>
 				<unitPattern count="one">{0} Kelvin</unitPattern>
 				<unitPattern count="other">{0} Kelvin</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ekraføtur</displayName>
-				<unitPattern count="one">{0} ekrafótur</unitPattern>
-				<unitPattern count="other">{0} ekraføtur</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>sentilitrar</displayName>
-				<unitPattern count="one">{0} sentilitur</unitPattern>
-				<unitPattern count="other">{0} sentilitrar</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>kubikksentimetrar</displayName>
-				<unitPattern count="one">{0} kubikksentimetur</unitPattern>
-				<unitPattern count="other">{0} kubikksentimetrar</unitPattern>
-				<perUnitPattern>{0} fyri hvønn kubikksentimetur</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>kubikkføtur</displayName>
-				<unitPattern count="one">{0} kubikkfótur</unitPattern>
-				<unitPattern count="other">{0} kubikkføtur</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>kubikktummar</displayName>
-				<unitPattern count="one">{0} kubikktummi</unitPattern>
-				<unitPattern count="other">{0} kubikktummar</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>kubikkkilometrar</displayName>
@@ -5664,6 +5638,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} kubikkmetrar</unitPattern>
 				<perUnitPattern>{0} fyri hvønn kubikkmetur</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>kubikksentimetrar</displayName>
+				<unitPattern count="one">{0} kubikksentimetur</unitPattern>
+				<unitPattern count="other">{0} kubikksentimetrar</unitPattern>
+				<perUnitPattern>{0} fyri hvønn kubikksentimetur</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>kubikkmíl</displayName>
 				<unitPattern count="one">{0} kubikkmíl</unitPattern>
@@ -5674,31 +5654,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} kubikkyard</unitPattern>
 				<unitPattern count="other">{0} kubikkyards</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>koppar</displayName>
-				<unitPattern count="one">{0} koppur</unitPattern>
-				<unitPattern count="other">{0} koppar</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>kubikkføtur</displayName>
+				<unitPattern count="one">{0} kubikkfótur</unitPattern>
+				<unitPattern count="other">{0} kubikkføtur</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>metralag koppar</displayName>
-				<unitPattern count="one">{0} metralag koppur</unitPattern>
-				<unitPattern count="other">{0} metralag koppar</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>kubikktummar</displayName>
+				<unitPattern count="one">{0} kubikktummi</unitPattern>
+				<unitPattern count="other">{0} kubikktummar</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>desilitrar</displayName>
-				<unitPattern count="one">{0} desilitur</unitPattern>
-				<unitPattern count="other">{0} desilitrar</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>flótandi unsur</displayName>
-				<unitPattern count="one">{0} flótandi unsa</unitPattern>
-				<unitPattern count="other">{0} flótandi unsur</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>gallons</displayName>
-				<unitPattern count="one">{0} gallon</unitPattern>
-				<unitPattern count="other">{0} gallons</unitPattern>
-				<perUnitPattern>{0} fyri hvønn gallon</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>megalitrar</displayName>
+				<unitPattern count="one">{0} megalitur</unitPattern>
+				<unitPattern count="other">{0} megalitrar</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hektolitrar</displayName>
@@ -5711,30 +5680,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} litrar</unitPattern>
 				<perUnitPattern>{0} fyri hvønn litur</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>megalitrar</displayName>
-				<unitPattern count="one">{0} megalitur</unitPattern>
-				<unitPattern count="other">{0} megalitrar</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>desilitrar</displayName>
+				<unitPattern count="one">{0} desilitur</unitPattern>
+				<unitPattern count="other">{0} desilitrar</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>sentilitrar</displayName>
+				<unitPattern count="one">{0} sentilitur</unitPattern>
+				<unitPattern count="other">{0} sentilitrar</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>millilitrar</displayName>
 				<unitPattern count="one">{0} millilitur</unitPattern>
 				<unitPattern count="other">{0} millilitrar</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>pints</displayName>
-				<unitPattern count="one">{0} pint</unitPattern>
-				<unitPattern count="other">{0} pints</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>metralag pints</displayName>
 				<unitPattern count="one">{0} metralag pint</unitPattern>
 				<unitPattern count="other">{0} metralag pints</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>metralag koppar</displayName>
+				<unitPattern count="one">{0} metralag koppur</unitPattern>
+				<unitPattern count="other">{0} metralag koppar</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ekraføtur</displayName>
+				<unitPattern count="one">{0} ekrafótur</unitPattern>
+				<unitPattern count="other">{0} ekraføtur</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>gallons</displayName>
+				<unitPattern count="one">{0} gallon</unitPattern>
+				<unitPattern count="other">{0} gallons</unitPattern>
+				<perUnitPattern>{0} fyri hvønn gallon</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>quarts</displayName>
 				<unitPattern count="one">{0} quart</unitPattern>
 				<unitPattern count="other">{0} quarts</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>pints</displayName>
+				<unitPattern count="one">{0} pint</unitPattern>
+				<unitPattern count="other">{0} pints</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>koppar</displayName>
+				<unitPattern count="one">{0} koppur</unitPattern>
+				<unitPattern count="other">{0} koppar</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>flótandi unsur</displayName>
+				<unitPattern count="one">{0} flótandi unsa</unitPattern>
+				<unitPattern count="other">{0} flótandi unsur</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>súpiskeiðir</displayName>
@@ -5767,6 +5767,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} m/s²</unitPattern>
 				<unitPattern count="other">{0} m/s²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>snúningar</displayName>
+				<unitPattern count="one">{0} snú.</unitPattern>
+				<unitPattern count="other">{0} snú.</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>rad</displayName>
+				<unitPattern count="one">{0} rad</unitPattern>
+				<unitPattern count="other">{0} rad</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>stig</displayName>
+				<unitPattern count="one">{0} stig</unitPattern>
+				<unitPattern count="other">{0} stig</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>bogamin.</displayName>
 				<unitPattern count="one">{0} bogamin.</unitPattern>
@@ -5777,36 +5792,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} bogasek.</unitPattern>
 				<unitPattern count="other">{0} bogasek.</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>stig</displayName>
-				<unitPattern count="one">{0} stig</unitPattern>
-				<unitPattern count="other">{0} stig</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>rad</displayName>
-				<unitPattern count="one">{0} rad</unitPattern>
-				<unitPattern count="other">{0} rad</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>snúningar</displayName>
-				<unitPattern count="one">{0} snú.</unitPattern>
-				<unitPattern count="other">{0} snú.</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ekrur</displayName>
-				<unitPattern count="one">{0} ekra</unitPattern>
-				<unitPattern count="other">{0} ekrur</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>km²</displayName>
+				<unitPattern count="one">{0} km²</unitPattern>
+				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ha</displayName>
 				<unitPattern count="one">{0} ha</unitPattern>
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>m²</displayName>
+				<unitPattern count="one">{0} m²</unitPattern>
+				<unitPattern count="other">{0} m²</unitPattern>
+				<perUnitPattern>{0}/m²</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>cm²</displayName>
 				<unitPattern count="one">{0} cm²</unitPattern>
 				<unitPattern count="other">{0} cm²</unitPattern>
 				<perUnitPattern>{0}/cm²</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>míl²</displayName>
+				<unitPattern count="one">{0} míl²</unitPattern>
+				<unitPattern count="other">{0} míl²</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ekrur</displayName>
+				<unitPattern count="one">{0} ekra</unitPattern>
+				<unitPattern count="other">{0} ekrur</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>yards²</displayName>
+				<unitPattern count="one">{0} yard²</unitPattern>
+				<unitPattern count="other">{0} yards²</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>føtur²</displayName>
@@ -5819,96 +5840,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} tum.²</unitPattern>
 				<perUnitPattern>{0}/tum.²</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>km²</displayName>
-				<unitPattern count="one">{0} km²</unitPattern>
-				<unitPattern count="other">{0} km²</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>m²</displayName>
-				<unitPattern count="one">{0} m²</unitPattern>
-				<unitPattern count="other">{0} m²</unitPattern>
-				<perUnitPattern>{0}/m²</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>míl²</displayName>
-				<unitPattern count="one">{0} míl²</unitPattern>
-				<unitPattern count="other">{0} míl²</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>yards²</displayName>
-				<unitPattern count="one">{0} yard²</unitPattern>
-				<unitPattern count="other">{0} yards²</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>l/km</displayName>
+				<unitPattern count="one">{0} l/km</unitPattern>
+				<unitPattern count="other">{0} l/km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>l/100 km</displayName>
 				<unitPattern count="one">{0} l/100 km</unitPattern>
 				<unitPattern count="other">{0} l/100 km</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>l/km</displayName>
-				<unitPattern count="one">{0} l/km</unitPattern>
-				<unitPattern count="other">{0} l/km</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>míl/gallon</displayName>
 				<unitPattern count="one">{0} míl/gallon</unitPattern>
 				<unitPattern count="other">{0} míl/gallon</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>bit</displayName>
-				<unitPattern count="one">{0} bit</unitPattern>
-				<unitPattern count="other">{0} bit</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>být</displayName>
-				<unitPattern count="one">{0} být</unitPattern>
-				<unitPattern count="other">{0} být</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>Gb</displayName>
-				<unitPattern count="one">{0} Gb</unitPattern>
-				<unitPattern count="other">{0} Gb</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>GB</displayName>
-				<unitPattern count="one">{0} GB</unitPattern>
-				<unitPattern count="other">{0} GB</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>kb</displayName>
-				<unitPattern count="one">{0} kb</unitPattern>
-				<unitPattern count="other">{0} kb</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>KB</displayName>
-				<unitPattern count="one">{0} KB</unitPattern>
-				<unitPattern count="other">{0} KB</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>Mb</displayName>
-				<unitPattern count="one">{0} Mb</unitPattern>
-				<unitPattern count="other">{0} Mb</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>MB</displayName>
-				<unitPattern count="one">{0} MB</unitPattern>
-				<unitPattern count="other">{0} MB</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>Tb</displayName>
-				<unitPattern count="one">{0} Tb</unitPattern>
-				<unitPattern count="other">{0} Tb</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
 				<unitPattern count="one">{0} TB</unitPattern>
 				<unitPattern count="other">{0} TB</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>Tb</displayName>
+				<unitPattern count="one">{0} Tb</unitPattern>
+				<unitPattern count="other">{0} Tb</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>GB</displayName>
+				<unitPattern count="one">{0} GB</unitPattern>
+				<unitPattern count="other">{0} GB</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>Gb</displayName>
+				<unitPattern count="one">{0} Gb</unitPattern>
+				<unitPattern count="other">{0} Gb</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+				<unitPattern count="one">{0} MB</unitPattern>
+				<unitPattern count="other">{0} MB</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Mb</displayName>
+				<unitPattern count="one">{0} Mb</unitPattern>
+				<unitPattern count="other">{0} Mb</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>KB</displayName>
+				<unitPattern count="one">{0} KB</unitPattern>
+				<unitPattern count="other">{0} KB</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kb</displayName>
+				<unitPattern count="one">{0} kb</unitPattern>
+				<unitPattern count="other">{0} kb</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>být</displayName>
+				<unitPattern count="one">{0} být</unitPattern>
+				<unitPattern count="other">{0} být</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>bit</displayName>
+				<unitPattern count="one">{0} bit</unitPattern>
+				<unitPattern count="other">{0} bit</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>ø.</displayName>
 				<unitPattern count="one">{0} ø.</unitPattern>
 				<unitPattern count="other">{0} ø.</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>ár</displayName>
+				<unitPattern count="one">{0} ár</unitPattern>
+				<unitPattern count="other">{0} ár</unitPattern>
+				<perUnitPattern>{0}/ár</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>mán.</displayName>
+				<unitPattern count="one">{0} mán.</unitPattern>
+				<unitPattern count="other">{0} mán.</unitPattern>
+				<perUnitPattern>{0}/m.</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>vikur</displayName>
+				<unitPattern count="one">{0} vi.</unitPattern>
+				<unitPattern count="other">{0} vi.</unitPattern>
+				<perUnitPattern>{0}/vi.</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>dagar</displayName>
@@ -5922,32 +5940,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} t.</unitPattern>
 				<perUnitPattern>{0}/t.</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>mikrosek.</displayName>
-				<unitPattern count="one">{0} μs.</unitPattern>
-				<unitPattern count="other">{0} μs.</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>millisek.</displayName>
-				<unitPattern count="one">{0} ms.</unitPattern>
-				<unitPattern count="other">{0} ms.</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>min.</displayName>
 				<unitPattern count="one">{0} min.</unitPattern>
 				<unitPattern count="other">{0} min.</unitPattern>
 				<perUnitPattern>{0}/min.</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>mán.</displayName>
-				<unitPattern count="one">{0} mán.</unitPattern>
-				<unitPattern count="other">{0} mán.</unitPattern>
-				<perUnitPattern>{0}/m.</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>ns</displayName>
-				<unitPattern count="one">{0} ns</unitPattern>
-				<unitPattern count="other">{0} ns</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>sek.</displayName>
@@ -5955,17 +5952,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} sek.</unitPattern>
 				<perUnitPattern>{0}/sek.</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>vikur</displayName>
-				<unitPattern count="one">{0} vi.</unitPattern>
-				<unitPattern count="other">{0} vi.</unitPattern>
-				<perUnitPattern>{0}/vi.</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>millisek.</displayName>
+				<unitPattern count="one">{0} ms.</unitPattern>
+				<unitPattern count="other">{0} ms.</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>ár</displayName>
-				<unitPattern count="one">{0} ár</unitPattern>
-				<unitPattern count="other">{0} ár</unitPattern>
-				<perUnitPattern>{0}/ár</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>mikrosek.</displayName>
+				<unitPattern count="one">{0} μs.</unitPattern>
+				<unitPattern count="other">{0} μs.</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ns</displayName>
+				<unitPattern count="one">{0} ns</unitPattern>
+				<unitPattern count="other">{0} ns</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>amperur</displayName>
@@ -5987,6 +5987,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} V</unitPattern>
 				<unitPattern count="other">{0} V</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kcal</displayName>
+				<unitPattern count="one">{0} kcal</unitPattern>
+				<unitPattern count="other">{0} kcal</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>kal.</displayName>
 				<unitPattern count="one">{0} kal.</unitPattern>
@@ -5997,20 +6002,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} kostkaloria</unitPattern>
 				<unitPattern count="other">{0} kostkaloriur</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>joule</displayName>
-				<unitPattern count="one">{0} J</unitPattern>
-				<unitPattern count="other">{0} J</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="one">{0} kcal</unitPattern>
-				<unitPattern count="other">{0} kcal</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kilojoule</displayName>
 				<unitPattern count="one">{0} kJ</unitPattern>
 				<unitPattern count="other">{0} kJ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>joule</displayName>
+				<unitPattern count="one">{0} J</unitPattern>
+				<unitPattern count="other">{0} J</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kWh</displayName>
@@ -6022,25 +6022,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} GHz</unitPattern>
 				<unitPattern count="other">{0} GHz</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>Hz</displayName>
-				<unitPattern count="one">{0} Hz</unitPattern>
-				<unitPattern count="other">{0} Hz</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>MHz</displayName>
+				<unitPattern count="one">{0} MHz</unitPattern>
+				<unitPattern count="other">{0} MHz</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>kHz</displayName>
 				<unitPattern count="one">{0} kHz</unitPattern>
 				<unitPattern count="other">{0} kHz</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>MHz</displayName>
-				<unitPattern count="one">{0} MHz</unitPattern>
-				<unitPattern count="other">{0} MHz</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>Hz</displayName>
+				<unitPattern count="one">{0} Hz</unitPattern>
+				<unitPattern count="other">{0} Hz</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>au</displayName>
-				<unitPattern count="one">{0} au</unitPattern>
-				<unitPattern count="other">{0} au</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>km</displayName>
+				<unitPattern count="one">{0} km</unitPattern>
+				<unitPattern count="other">{0} km</unitPattern>
+				<perUnitPattern>{0}/km</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>m</displayName>
+				<unitPattern count="one">{0} m</unitPattern>
+				<unitPattern count="other">{0} m</unitPattern>
+				<perUnitPattern>{0}/m</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>dm</displayName>
+				<unitPattern count="one">{0} dm</unitPattern>
+				<unitPattern count="other">{0} dm</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>cm</displayName>
@@ -6048,10 +6060,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} cm</unitPattern>
 				<perUnitPattern>{0}/cm</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>dm</displayName>
-				<unitPattern count="one">{0} dm</unitPattern>
-				<unitPattern count="other">{0} dm</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>mm</displayName>
+				<unitPattern count="one">{0} mm</unitPattern>
+				<unitPattern count="other">{0} mm</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>µm</displayName>
+				<unitPattern count="one">{0} µm</unitPattern>
+				<unitPattern count="other">{0} µm</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>nm</displayName>
+				<unitPattern count="one">{0} nm</unitPattern>
+				<unitPattern count="other">{0} nm</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>pm</displayName>
+				<unitPattern count="one">{0} pm</unitPattern>
+				<unitPattern count="other">{0} pm</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>míl</displayName>
+				<unitPattern count="one">{0} míl</unitPattern>
+				<unitPattern count="other">{0} míl</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>yd</displayName>
+				<unitPattern count="one">{0} yd</unitPattern>
+				<unitPattern count="other">{0} yd</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>føtur</displayName>
@@ -6065,83 +6102,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} tum.</unitPattern>
 				<perUnitPattern>{0}/tum.</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>km</displayName>
-				<unitPattern count="one">{0} km</unitPattern>
-				<unitPattern count="other">{0} km</unitPattern>
-				<perUnitPattern>{0}/km</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>pc</displayName>
+				<unitPattern count="one">{0} pc</unitPattern>
+				<unitPattern count="other">{0} pc</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>ljósár</displayName>
 				<unitPattern count="one">{0} ljósár</unitPattern>
 				<unitPattern count="other">{0} ljósár</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>m</displayName>
-				<unitPattern count="one">{0} m</unitPattern>
-				<unitPattern count="other">{0} m</unitPattern>
-				<perUnitPattern>{0}/m</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>µm</displayName>
-				<unitPattern count="one">{0} µm</unitPattern>
-				<unitPattern count="other">{0} µm</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>míl</displayName>
-				<unitPattern count="one">{0} míl</unitPattern>
-				<unitPattern count="other">{0} míl</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>sk. míl</displayName>
-				<unitPattern count="one">{0} sk. míl</unitPattern>
-				<unitPattern count="other">{0} sk. míl</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>mm</displayName>
-				<unitPattern count="one">{0} mm</unitPattern>
-				<unitPattern count="other">{0} mm</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>nm</displayName>
-				<unitPattern count="one">{0} nm</unitPattern>
-				<unitPattern count="other">{0} nm</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>au</displayName>
+				<unitPattern count="one">{0} au</unitPattern>
+				<unitPattern count="other">{0} au</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>sm</displayName>
 				<unitPattern count="one">{0} sm</unitPattern>
 				<unitPattern count="other">{0} sm</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>pc</displayName>
-				<unitPattern count="one">{0} pc</unitPattern>
-				<unitPattern count="other">{0} pc</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>pm</displayName>
-				<unitPattern count="one">{0} pm</unitPattern>
-				<unitPattern count="other">{0} pm</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>yd</displayName>
-				<unitPattern count="one">{0} yd</unitPattern>
-				<unitPattern count="other">{0} yd</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>sk. míl</displayName>
+				<unitPattern count="one">{0} sk. míl</unitPattern>
+				<unitPattern count="other">{0} sk. míl</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>luks</displayName>
 				<unitPattern count="one">{0} lx</unitPattern>
 				<unitPattern count="other">{0} lx</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>karat</displayName>
-				<unitPattern count="one">{0} CD</unitPattern>
-				<unitPattern count="other">{0} CD</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>gramm</displayName>
-				<unitPattern count="one">{0} g</unitPattern>
-				<unitPattern count="other">{0} g</unitPattern>
-				<perUnitPattern>{0}/g</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>t</displayName>
+				<unitPattern count="one">{0} t</unitPattern>
+				<unitPattern count="other">{0} t</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kg</displayName>
@@ -6149,20 +6143,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} kg</unitPattern>
 				<perUnitPattern>{0}/kg</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>t</displayName>
-				<unitPattern count="one">{0} t</unitPattern>
-				<unitPattern count="other">{0} t</unitPattern>
+			<unit type="mass-gram">
+				<displayName>gramm</displayName>
+				<unitPattern count="one">{0} g</unitPattern>
+				<unitPattern count="other">{0} g</unitPattern>
+				<perUnitPattern>{0}/g</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>mg</displayName>
+				<unitPattern count="one">{0} mg</unitPattern>
+				<unitPattern count="other">{0} mg</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>µg</displayName>
 				<unitPattern count="one">{0} µg</unitPattern>
 				<unitPattern count="other">{0} µg</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>mg</displayName>
-				<unitPattern count="one">{0} mg</unitPattern>
-				<unitPattern count="other">{0} mg</unitPattern>
+			<unit type="mass-ton">
+				<displayName>stutt t</displayName>
+				<unitPattern count="one">{0} stutt t</unitPattern>
+				<unitPattern count="other">{0} stutt t</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>pund</displayName>
+				<unitPattern count="one">{0} pund</unitPattern>
+				<unitPattern count="other">{0} pund</unitPattern>
+				<perUnitPattern>{0}/pund</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>unsur</displayName>
@@ -6175,61 +6181,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} troy unsa</unitPattern>
 				<unitPattern count="other">{0} troy unsur</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>pund</displayName>
-				<unitPattern count="one">{0} pund</unitPattern>
-				<unitPattern count="other">{0} pund</unitPattern>
-				<perUnitPattern>{0}/pund</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>stutt t</displayName>
-				<unitPattern count="one">{0} stutt t</unitPattern>
-				<unitPattern count="other">{0} stutt t</unitPattern>
+			<unit type="mass-carat">
+				<displayName>karat</displayName>
+				<unitPattern count="one">{0} CD</unitPattern>
+				<unitPattern count="other">{0} CD</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>gigawatt</displayName>
 				<unitPattern count="one">{0} GW</unitPattern>
 				<unitPattern count="other">{0} GW</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>hestakreftur</displayName>
-				<unitPattern count="one">{0} hk</unitPattern>
-				<unitPattern count="other">{0} hk</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>MW</displayName>
+				<unitPattern count="one">{0} MW</unitPattern>
+				<unitPattern count="other">{0} MW</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>kW</displayName>
 				<unitPattern count="one">{0} kW</unitPattern>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>MW</displayName>
-				<unitPattern count="one">{0} MW</unitPattern>
-				<unitPattern count="other">{0} MW</unitPattern>
+			<unit type="power-watt">
+				<displayName>watt</displayName>
+				<unitPattern count="one">{0} W</unitPattern>
+				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>mW</displayName>
 				<unitPattern count="one">{0} mW</unitPattern>
 				<unitPattern count="other">{0} mW</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>watt</displayName>
-				<unitPattern count="one">{0} W</unitPattern>
-				<unitPattern count="other">{0} W</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>hestakreftur</displayName>
+				<unitPattern count="one">{0} hk</unitPattern>
+				<unitPattern count="other">{0} hk</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hPa</displayName>
 				<unitPattern count="one">{0} hPa</unitPattern>
 				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>inHg</displayName>
-				<unitPattern count="one">{0} inHg</unitPattern>
-				<unitPattern count="other">{0} inHg</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>mb</displayName>
-				<unitPattern count="one">{0} mb</unitPattern>
-				<unitPattern count="other">{0} mb</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mmHg</displayName>
@@ -6241,6 +6231,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} psi</unitPattern>
 				<unitPattern count="other">{0} psi</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>inHg</displayName>
+				<unitPattern count="one">{0} inHg</unitPattern>
+				<unitPattern count="other">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>mb</displayName>
+				<unitPattern count="one">{0} mb</unitPattern>
+				<unitPattern count="other">{0} mb</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>karat</displayName>
 				<unitPattern count="one">{0} karat</unitPattern>
@@ -6250,11 +6250,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>km/t</displayName>
 				<unitPattern count="one">{0} km/t</unitPattern>
 				<unitPattern count="other">{0} km/t</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>smíl/t</displayName>
-				<unitPattern count="one">{0} smíl/t</unitPattern>
-				<unitPattern count="other">{0} smíl/t</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>m/s</displayName>
@@ -6266,6 +6261,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} míl/t</unitPattern>
 				<unitPattern count="other">{0} míl/t</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>smíl/t</displayName>
+				<unitPattern count="one">{0} smíl/t</unitPattern>
+				<unitPattern count="other">{0} smíl/t</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
 				<unitPattern count="one">{0}°C</unitPattern>
@@ -6276,41 +6281,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
 				<unitPattern count="one">{0} K</unitPattern>
 				<unitPattern count="other">{0} K</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ekraføtur</displayName>
-				<unitPattern count="one">{0} ekrafótur</unitPattern>
-				<unitPattern count="other">{0} ekraføtur</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>cl</displayName>
-				<unitPattern count="one">{0} cl</unitPattern>
-				<unitPattern count="other">{0} cl</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>cm³</displayName>
-				<unitPattern count="one">{0} cm³</unitPattern>
-				<unitPattern count="other">{0} cm³</unitPattern>
-				<perUnitPattern>{0}/cm³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>føtur³</displayName>
-				<unitPattern count="one">{0} fótur³</unitPattern>
-				<unitPattern count="other">{0} føtur³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>tum.³</displayName>
-				<unitPattern count="one">{0} tum.³</unitPattern>
-				<unitPattern count="other">{0} tum.³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>km³</displayName>
@@ -6323,6 +6297,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} m³</unitPattern>
 				<perUnitPattern>{0}/m³</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>cm³</displayName>
+				<unitPattern count="one">{0} cm³</unitPattern>
+				<unitPattern count="other">{0} cm³</unitPattern>
+				<perUnitPattern>{0}/cm³</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>míl³</displayName>
 				<unitPattern count="one">{0} míl³</unitPattern>
@@ -6333,31 +6313,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} yard³</unitPattern>
 				<unitPattern count="other">{0} yards³</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>koppar</displayName>
-				<unitPattern count="one">{0} koppur</unitPattern>
-				<unitPattern count="other">{0} koppar</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>føtur³</displayName>
+				<unitPattern count="one">{0} fótur³</unitPattern>
+				<unitPattern count="other">{0} føtur³</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>metralag koppar</displayName>
-				<unitPattern count="one">{0} metralag koppur</unitPattern>
-				<unitPattern count="other">{0} metralag koppar</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>tum.³</displayName>
+				<unitPattern count="one">{0} tum.³</unitPattern>
+				<unitPattern count="other">{0} tum.³</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>dl</displayName>
-				<unitPattern count="one">{0} dl</unitPattern>
-				<unitPattern count="other">{0} dl</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>flótandi unsur</displayName>
-				<unitPattern count="one">{0} flótandi unsa</unitPattern>
-				<unitPattern count="other">{0} flótandi unsur</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>gallons</displayName>
-				<unitPattern count="one">{0} gallon</unitPattern>
-				<unitPattern count="other">{0} gallons</unitPattern>
-				<perUnitPattern>{0}/gallon</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>Ml</displayName>
+				<unitPattern count="one">{0} Ml</unitPattern>
+				<unitPattern count="other">{0} Ml</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hl</displayName>
@@ -6370,30 +6339,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} l</unitPattern>
 				<perUnitPattern>{0}/l</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>Ml</displayName>
-				<unitPattern count="one">{0} Ml</unitPattern>
-				<unitPattern count="other">{0} Ml</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>dl</displayName>
+				<unitPattern count="one">{0} dl</unitPattern>
+				<unitPattern count="other">{0} dl</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>cl</displayName>
+				<unitPattern count="one">{0} cl</unitPattern>
+				<unitPattern count="other">{0} cl</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>ml</displayName>
 				<unitPattern count="one">{0} ml</unitPattern>
 				<unitPattern count="other">{0} ml</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>pints</displayName>
-				<unitPattern count="one">{0} pint</unitPattern>
-				<unitPattern count="other">{0} pints</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>metralag pints</displayName>
 				<unitPattern count="one">{0} metralag pint</unitPattern>
 				<unitPattern count="other">{0} metralag pints</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>metralag koppar</displayName>
+				<unitPattern count="one">{0} metralag koppur</unitPattern>
+				<unitPattern count="other">{0} metralag koppar</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ekraføtur</displayName>
+				<unitPattern count="one">{0} ekrafótur</unitPattern>
+				<unitPattern count="other">{0} ekraføtur</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>gallons</displayName>
+				<unitPattern count="one">{0} gallon</unitPattern>
+				<unitPattern count="other">{0} gallons</unitPattern>
+				<perUnitPattern>{0}/gallon</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>quarts</displayName>
 				<unitPattern count="one">{0} quart</unitPattern>
 				<unitPattern count="other">{0} quarts</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>pints</displayName>
+				<unitPattern count="one">{0} pint</unitPattern>
+				<unitPattern count="other">{0} pints</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>koppar</displayName>
+				<unitPattern count="one">{0} koppur</unitPattern>
+				<unitPattern count="other">{0} koppar</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>flótandi unsur</displayName>
+				<unitPattern count="one">{0} flótandi unsa</unitPattern>
+				<unitPattern count="other">{0} flótandi unsur</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>súpisk.</displayName>
@@ -6420,6 +6420,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0}G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}G</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="contributed">{0}′</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
@@ -6428,17 +6432,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0}″</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one" draft="contributed">{0}km²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="one" draft="contributed">{0}ha</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}ha</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="one" draft="contributed">{0}km²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="one" draft="contributed">{0}m²</unitPattern>
@@ -6448,6 +6448,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>l/100km</displayName>
 				<unitPattern count="one">{0}l/100km</unitPattern>
 				<unitPattern count="other">{0}l/100km</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>ár</displayName>
+				<unitPattern count="one">{0}ár</unitPattern>
+				<unitPattern count="other">{0}ár</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>m.</displayName>
+				<unitPattern count="one">{0}m.</unitPattern>
+				<unitPattern count="other">{0}m.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>v.</displayName>
+				<unitPattern count="one">{0}v.</unitPattern>
+				<unitPattern count="other">{0}v.</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>d.</displayName>
@@ -6461,24 +6476,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}t.</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/t.</perUnitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>ms.</displayName>
-				<unitPattern count="one">{0}ms.</unitPattern>
-				<unitPattern count="other">{0}ms.</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>m.</displayName>
 				<unitPattern count="one">{0}m.</unitPattern>
 				<unitPattern count="other">{0}m.</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/min</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>m.</displayName>
-				<unitPattern count="one">{0}m.</unitPattern>
-				<unitPattern count="other">{0}m.</unitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName draft="unconfirmed">ns</displayName>
 			</unit>
 			<unit type="duration-second">
 				<displayName>s.</displayName>
@@ -6486,20 +6488,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}s.</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/s</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>v.</displayName>
-				<unitPattern count="one">{0}v.</unitPattern>
-				<unitPattern count="other">{0}v.</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>ms.</displayName>
+				<unitPattern count="one">{0}ms.</unitPattern>
+				<unitPattern count="other">{0}ms.</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>ár</displayName>
-				<unitPattern count="one">{0}ár</unitPattern>
-				<unitPattern count="other">{0}ár</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>cm</displayName>
-				<unitPattern count="one">{0}cm</unitPattern>
-				<unitPattern count="other">{0}cm</unitPattern>
+			<unit type="duration-nanosecond">
+				<displayName draft="unconfirmed">ns</displayName>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
@@ -6511,6 +6506,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}m</unitPattern>
 				<unitPattern count="other">{0}m</unitPattern>
 			</unit>
+			<unit type="length-centimeter">
+				<displayName>cm</displayName>
+				<unitPattern count="one">{0}cm</unitPattern>
+				<unitPattern count="other">{0}cm</unitPattern>
+			</unit>
 			<unit type="length-millimeter">
 				<displayName>mm</displayName>
 				<unitPattern count="one">{0}mm</unitPattern>
@@ -6520,15 +6520,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0}pm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}pm</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName>g</displayName>
-				<unitPattern count="one">{0}g</unitPattern>
-				<unitPattern count="other">{0}g</unitPattern>
-			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kg</displayName>
 				<unitPattern count="one">{0}kg</unitPattern>
 				<unitPattern count="other">{0}kg</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName>g</displayName>
+				<unitPattern count="one">{0}g</unitPattern>
+				<unitPattern count="other">{0}g</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one" draft="contributed">{0}kW</unitPattern>

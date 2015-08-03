@@ -4120,6 +4120,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<displayName draft="provisional">साल</displayName>
+				<unitPattern count="one">{0} साल</unitPattern>
+				<unitPattern count="other">{0} साल</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">महीने</displayName>
+				<unitPattern count="one">{0} महीना</unitPattern>
+				<unitPattern count="other">{0} महीने</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">सप्ताह</displayName>
+				<unitPattern count="one">{0} सप्ताह</unitPattern>
+				<unitPattern count="other">{0} सप्ताह</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">सान</displayName>
 				<unitPattern count="one">{0} सान</unitPattern>
@@ -4135,28 +4150,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} मिन.</unitPattern>
 				<unitPattern count="other">{0} मिन.</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">महीने</displayName>
-				<unitPattern count="one">{0} महीना</unitPattern>
-				<unitPattern count="other">{0} महीने</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">सेकं.</displayName>
 				<unitPattern count="one">{0} सेकं.</unitPattern>
 				<unitPattern count="other">{0} सेकं.</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="provisional">सप्ताह</displayName>
-				<unitPattern count="one">{0} सप्ताह</unitPattern>
-				<unitPattern count="other">{0} सप्ताह</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">साल</displayName>
-				<unitPattern count="one">{0} साल</unitPattern>
-				<unitPattern count="other">{0} साल</unitPattern>
-			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="duration-year">
+				<displayName draft="provisional">साल</displayName>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">महीने</displayName>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">सप्ताह</displayName>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">सान</displayName>
 			</unit>
@@ -4166,17 +4175,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<displayName draft="provisional">मिन.</displayName>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">महीने</displayName>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">सेकं.</displayName>
-			</unit>
-			<unit type="duration-week">
-				<displayName draft="provisional">सप्ताह</displayName>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">साल</displayName>
 			</unit>
 		</unitLength>
 	</units>

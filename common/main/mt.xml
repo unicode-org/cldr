@@ -1520,12 +1520,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} litri kull kilometru</unitPattern>
 				<unitPattern count="other">{0} litri kull kilometru</unitPattern>
 			</unit>
-			<unit type="digital-megabyte">
-				<displayName>megabytes</displayName>
-				<unitPattern count="one">{0} megabyte</unitPattern>
-				<unitPattern count="few">{0} megabytes</unitPattern>
-				<unitPattern count="many">{0} megabytes</unitPattern>
-				<unitPattern count="other">{0} megabytes</unitPattern>
+			<unit type="digital-terabyte">
+				<displayName>terabytes</displayName>
+				<unitPattern count="one">{0} terabyte</unitPattern>
+				<unitPattern count="few">{0} terabytes</unitPattern>
+				<unitPattern count="many">{0} terabytes</unitPattern>
+				<unitPattern count="other">{0} terabytes</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
 				<displayName>terabits</displayName>
@@ -1534,12 +1534,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} terabits</unitPattern>
 				<unitPattern count="other">{0} terabits</unitPattern>
 			</unit>
-			<unit type="digital-terabyte">
-				<displayName>terabytes</displayName>
-				<unitPattern count="one">{0} terabyte</unitPattern>
-				<unitPattern count="few">{0} terabytes</unitPattern>
-				<unitPattern count="many">{0} terabytes</unitPattern>
-				<unitPattern count="other">{0} terabytes</unitPattern>
+			<unit type="digital-megabyte">
+				<displayName>megabytes</displayName>
+				<unitPattern count="one">{0} megabyte</unitPattern>
+				<unitPattern count="few">{0} megabytes</unitPattern>
+				<unitPattern count="many">{0} megabytes</unitPattern>
+				<unitPattern count="other">{0} megabytes</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>millisekondi</displayName>
@@ -1571,18 +1571,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} L/km</unitPattern>
 				<unitPattern count="other">{0} L/km</unitPattern>
 			</unit>
-			<unit type="digital-megabit">
-				<unitPattern count="one">{0} Mb</unitPattern>
-				<unitPattern count="few">{0} Mb</unitPattern>
-				<unitPattern count="many">{0} Mb</unitPattern>
-				<unitPattern count="other">{0} Mb</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>MB</displayName>
-				<unitPattern count="one">{0} MB</unitPattern>
-				<unitPattern count="few">{0} MB</unitPattern>
-				<unitPattern count="many">{0} MB</unitPattern>
-				<unitPattern count="other">{0} MB</unitPattern>
+			<unit type="digital-terabyte">
+				<displayName>TB</displayName>
+				<unitPattern count="one">{0} TB</unitPattern>
+				<unitPattern count="few">{0} TB</unitPattern>
+				<unitPattern count="many">{0} TB</unitPattern>
+				<unitPattern count="other">{0} TB</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
 				<displayName>Tb</displayName>
@@ -1591,12 +1585,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} Tb</unitPattern>
 				<unitPattern count="other">{0} Tb</unitPattern>
 			</unit>
-			<unit type="digital-terabyte">
-				<displayName>TB</displayName>
-				<unitPattern count="one">{0} TB</unitPattern>
-				<unitPattern count="few">{0} TB</unitPattern>
-				<unitPattern count="many">{0} TB</unitPattern>
-				<unitPattern count="other">{0} TB</unitPattern>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+				<unitPattern count="one">{0} MB</unitPattern>
+				<unitPattern count="few">{0} MB</unitPattern>
+				<unitPattern count="many">{0} MB</unitPattern>
+				<unitPattern count="other">{0} MB</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<unitPattern count="one">{0} Mb</unitPattern>
+				<unitPattern count="few">{0} Mb</unitPattern>
+				<unitPattern count="many">{0} Mb</unitPattern>
+				<unitPattern count="other">{0} Mb</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>millisek</displayName>

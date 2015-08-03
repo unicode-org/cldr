@@ -1356,6 +1356,51 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "minute", "minute-short", "minute-narrow",
         "second", "second-short", "second-narrow",
         "zone").freeze();
+    static MapComparator<String> unitOrder = new MapComparator<String>().add(
+        "acceleration-g-force", "acceleration-meter-per-second-squared",
+        "angle-revolution", "angle-radian", "angle-degree", "angle-arc-minute", "angle-arc-second",  
+        "area-square-kilometer", "area-hectare", "area-square-meter", "area-square-centimeter",
+        "area-square-mile", "area-acre", "area-square-yard", "area-square-foot", "area-square-inch",
+        "consumption-liter-per-kilometer", "consumption-liter-per-100kilometers", 
+        "consumption-mile-per-gallon",
+        "digital-terabyte", "digital-terabit", "digital-gigabyte", "digital-gigabit",
+        "digital-megabyte", "digital-megabit", "digital-kilobyte", "digital-kilobit",
+        "digital-byte", "digital-bit",          
+        "duration-century",
+        "duration-year", "duration-year-person",
+        "duration-month", "duration-month-person",
+        "duration-week", "duration-week-person",
+        "duration-day", "duration-day-person",
+        "duration-hour", "duration-minute", "duration-second",
+        "duration-millisecond", "duration-microsecond", "duration-nanosecond",
+        "electric-ampere", "electric-milliampere", "electric-ohm", "electric-volt",
+        "energy-kilocalorie", "energy-calorie", "energy-foodcalorie", "energy-kilojoule", "energy-joule", "energy-kilowatt-hour",         
+        "frequency-gigahertz", "frequency-megahertz", "frequency-kilohertz", "frequency-hertz",         
+        "length-kilometer", "length-meter", "length-decimeter", "length-centimeter",
+        "length-millimeter", "length-micrometer", "length-nanometer", "length-picometer",
+        "length-mile", "length-yard", "length-foot", "length-inch",
+        "length-parsec", "length-light-year", "length-astronomical-unit",
+        "length-furlong", "length-fathom",
+        "length-nautical-mile", "length-mile-scandinavian",           
+        "light-lux",
+        "mass-metric-ton", "mass-kilogram", "mass-gram", "mass-milligram", "mass-microgram",  
+        "mass-ton", "mass-stone", "mass-pound", "mass-ounce",
+        "mass-ounce-troy", "mass-carat",   
+        "power-gigawatt", "power-megawatt", "power-kilowatt", "power-watt", "power-milliwatt",
+        "power-horsepower",
+        "pressure-hectopascal", "pressure-millimeter-of-mercury", 
+        "pressure-pound-per-square-inch", "pressure-inch-hg", "pressure-millibar",       
+        "proportion-karat",
+        "speed-kilometer-per-hour", "speed-meter-per-second", "speed-mile-per-hour", "speed-knot",
+        "temperature-generic", "temperature-celsius", "temperature-fahrenheit", "temperature-kelvin",
+        "volume-cubic-kilometer", "volume-cubic-meter", "volume-cubic-centimeter",
+        "volume-cubic-mile", "volume-cubic-yard", "volume-cubic-foot", "volume-cubic-inch",
+        "volume-megaliter", "volume-hectoliter", "volume-liter", "volume-deciliter", "volume-centiliter", "volume-milliliter",
+        "volume-pint-metric", "volume-cup-metric",
+        "volume-acre-foot",
+        "volume-bushel", "volume-gallon", "volume-quart", "volume-pint", "volume-cup", 
+        "volume-fluid-ounce", "volume-tablespoon", "volume-teaspoon").freeze();
+    
     static MapComparator<String> countValueOrder = new MapComparator<String>().add(
         "0", "1", "zero", "one", "two", "few", "many", "other").freeze();
     static MapComparator<String> unitLengthOrder = new MapComparator<String>().add(
@@ -1393,6 +1438,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 comp = currencyFormatOrder;
             } else if (element.equals("unitLength")) {
                 comp = unitLengthOrder;
+            } else if (element.equals("unit")) {
+                comp = unitOrder;
             } else if (element.equals("dayPeriod")) {
                 comp = dayPeriodOrder;
             }

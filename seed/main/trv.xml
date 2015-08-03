@@ -642,6 +642,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<unitPattern count="other">{0} Hnkawas</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0} Idas</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">{0} Jiyax iyax sngayan</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="other">{0} Jiyax</unitPattern>
 			</unit>
@@ -651,17 +660,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other">{0} spngan</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<unitPattern count="other">{0} Idas</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0} Seykn</unitPattern>
-			</unit>
-			<unit type="duration-week">
-				<unitPattern count="other">{0} Jiyax iyax sngayan</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<unitPattern count="other">{0} Hnkawas</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

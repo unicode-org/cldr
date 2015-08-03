@@ -7859,6 +7859,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} متر في الثانية المربعة</unitPattern>
 				<unitPattern count="other">{0} متر في الثانية المربعة</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>دورة</displayName>
+				<unitPattern count="zero">{0} دورة</unitPattern>
+				<unitPattern count="one">دورة ({0})</unitPattern>
+				<unitPattern count="two">دورتان ({0})</unitPattern>
+				<unitPattern count="few">{0} دورات</unitPattern>
+				<unitPattern count="many">{0} دورة</unitPattern>
+				<unitPattern count="other">{0} دورة</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>راديان</displayName>
+				<unitPattern count="zero">{0} راديان</unitPattern>
+				<unitPattern count="one">{0} راديان</unitPattern>
+				<unitPattern count="two">{0} راديان</unitPattern>
+				<unitPattern count="few">{0} راديان</unitPattern>
+				<unitPattern count="many">{0} راديان</unitPattern>
+				<unitPattern count="other">{0} راديان</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>درجة</displayName>
+				<unitPattern count="zero">{0} درجة</unitPattern>
+				<unitPattern count="one">{0} درجة</unitPattern>
+				<unitPattern count="two">درجتان ({0})</unitPattern>
+				<unitPattern count="few">{0} درجات</unitPattern>
+				<unitPattern count="many">{0} درجة</unitPattern>
+				<unitPattern count="other">{0} درجة</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>دقيقة قوسية</displayName>
 				<unitPattern count="zero">{0} دقيقة قوسية</unitPattern>
@@ -7877,41 +7904,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} ثانية قوسية</unitPattern>
 				<unitPattern count="other">{0} ثانية قوسية</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>درجة</displayName>
-				<unitPattern count="zero">{0} درجة</unitPattern>
-				<unitPattern count="one">{0} درجة</unitPattern>
-				<unitPattern count="two">درجتان ({0})</unitPattern>
-				<unitPattern count="few">{0} درجات</unitPattern>
-				<unitPattern count="many">{0} درجة</unitPattern>
-				<unitPattern count="other">{0} درجة</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>راديان</displayName>
-				<unitPattern count="zero">{0} راديان</unitPattern>
-				<unitPattern count="one">{0} راديان</unitPattern>
-				<unitPattern count="two">{0} راديان</unitPattern>
-				<unitPattern count="few">{0} راديان</unitPattern>
-				<unitPattern count="many">{0} راديان</unitPattern>
-				<unitPattern count="other">{0} راديان</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>دورة</displayName>
-				<unitPattern count="zero">{0} دورة</unitPattern>
-				<unitPattern count="one">دورة ({0})</unitPattern>
-				<unitPattern count="two">دورتان ({0})</unitPattern>
-				<unitPattern count="few">{0} دورات</unitPattern>
-				<unitPattern count="many">{0} دورة</unitPattern>
-				<unitPattern count="other">{0} دورة</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>فدان</displayName>
-				<unitPattern count="zero">{0} فدان</unitPattern>
-				<unitPattern count="one">فدان</unitPattern>
-				<unitPattern count="two">فدانان</unitPattern>
-				<unitPattern count="few">{0} فدادين</unitPattern>
-				<unitPattern count="many">{0} فدانًا</unitPattern>
-				<unitPattern count="other">{0} فدان</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>كيلومتر مربع</displayName>
+				<unitPattern count="zero">{0} كيلومتر مربع</unitPattern>
+				<unitPattern count="one">{0} كيلومتر مربع</unitPattern>
+				<unitPattern count="two">{0} كيلومتر مربع</unitPattern>
+				<unitPattern count="few">{0} كيلومتر مربع</unitPattern>
+				<unitPattern count="many">{0} كيلومتر مربع</unitPattern>
+				<unitPattern count="other">{0} كيلومتر مربع</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>هكتار</displayName>
@@ -7922,6 +7922,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} هكتار</unitPattern>
 				<unitPattern count="other">{0} هكتار</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>متر مربع</displayName>
+				<unitPattern count="zero">{0} متر مربع</unitPattern>
+				<unitPattern count="one">{0} متر مربع</unitPattern>
+				<unitPattern count="two">{0} متر مربع</unitPattern>
+				<unitPattern count="few">{0} متر مربع</unitPattern>
+				<unitPattern count="many">{0} متر مربع</unitPattern>
+				<unitPattern count="other">{0} متر مربع</unitPattern>
+				<perUnitPattern>{0} لكل متر مربع</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>سنتيمتر مربع</displayName>
 				<unitPattern count="zero">{0} سنتيمتر مربع</unitPattern>
@@ -7931,6 +7941,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} سنتيمتر مربع</unitPattern>
 				<unitPattern count="other">{0} سنتيمتر مربع</unitPattern>
 				<perUnitPattern>{0}/سنتيمتر مربع</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>ميل مربع</displayName>
+				<unitPattern count="zero">{0} ميل مربع</unitPattern>
+				<unitPattern count="one">{0} ميل مربع</unitPattern>
+				<unitPattern count="two">{0} ميل مربع</unitPattern>
+				<unitPattern count="few">{0} ميل مربع</unitPattern>
+				<unitPattern count="many">{0} ميل مربع</unitPattern>
+				<unitPattern count="other">{0} ميل مربع</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>فدان</displayName>
+				<unitPattern count="zero">{0} فدان</unitPattern>
+				<unitPattern count="one">فدان</unitPattern>
+				<unitPattern count="two">فدانان</unitPattern>
+				<unitPattern count="few">{0} فدادين</unitPattern>
+				<unitPattern count="many">{0} فدانًا</unitPattern>
+				<unitPattern count="other">{0} فدان</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>ياردة مربعة</displayName>
+				<unitPattern count="zero">{0} ياردة مربعة</unitPattern>
+				<unitPattern count="one">{0} ياردة مربعة</unitPattern>
+				<unitPattern count="two">{0} ياردة مربعة</unitPattern>
+				<unitPattern count="few">{0} ياردة مربعة</unitPattern>
+				<unitPattern count="many">{0} ياردة مربعة</unitPattern>
+				<unitPattern count="other">{0} ياردة مربعة</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>قدم مربعة</displayName>
@@ -7951,42 +7988,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} بوصة مربعة</unitPattern>
 				<perUnitPattern>{0} لكل بوصة مربعة</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>كيلومتر مربع</displayName>
-				<unitPattern count="zero">{0} كيلومتر مربع</unitPattern>
-				<unitPattern count="one">{0} كيلومتر مربع</unitPattern>
-				<unitPattern count="two">{0} كيلومتر مربع</unitPattern>
-				<unitPattern count="few">{0} كيلومتر مربع</unitPattern>
-				<unitPattern count="many">{0} كيلومتر مربع</unitPattern>
-				<unitPattern count="other">{0} كيلومتر مربع</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>متر مربع</displayName>
-				<unitPattern count="zero">{0} متر مربع</unitPattern>
-				<unitPattern count="one">{0} متر مربع</unitPattern>
-				<unitPattern count="two">{0} متر مربع</unitPattern>
-				<unitPattern count="few">{0} متر مربع</unitPattern>
-				<unitPattern count="many">{0} متر مربع</unitPattern>
-				<unitPattern count="other">{0} متر مربع</unitPattern>
-				<perUnitPattern>{0} لكل متر مربع</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>ميل مربع</displayName>
-				<unitPattern count="zero">{0} ميل مربع</unitPattern>
-				<unitPattern count="one">{0} ميل مربع</unitPattern>
-				<unitPattern count="two">{0} ميل مربع</unitPattern>
-				<unitPattern count="few">{0} ميل مربع</unitPattern>
-				<unitPattern count="many">{0} ميل مربع</unitPattern>
-				<unitPattern count="other">{0} ميل مربع</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>ياردة مربعة</displayName>
-				<unitPattern count="zero">{0} ياردة مربعة</unitPattern>
-				<unitPattern count="one">{0} ياردة مربعة</unitPattern>
-				<unitPattern count="two">{0} ياردة مربعة</unitPattern>
-				<unitPattern count="few">{0} ياردة مربعة</unitPattern>
-				<unitPattern count="many">{0} ياردة مربعة</unitPattern>
-				<unitPattern count="other">{0} ياردة مربعة</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>لتر لكل كيلومتر</displayName>
+				<unitPattern count="zero">{0} لتر لكل كيلومتر</unitPattern>
+				<unitPattern count="one">{0} لتر لكل كيلومتر</unitPattern>
+				<unitPattern count="two">{0} لتر لكل كيلومتر</unitPattern>
+				<unitPattern count="few">{0} لتر لكل كيلومتر</unitPattern>
+				<unitPattern count="many">{0} لتر لكل كيلومتر</unitPattern>
+				<unitPattern count="other">{0} لتر لكل كيلومتر</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>لتر لكل ١٠٠ كيلومتر</displayName>
@@ -7997,15 +8006,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} لتر لكل ١٠٠ كيلومتر</unitPattern>
 				<unitPattern count="other">{0} لتر لكل ١٠٠ كيلومتر</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>لتر لكل كيلومتر</displayName>
-				<unitPattern count="zero">{0} لتر لكل كيلومتر</unitPattern>
-				<unitPattern count="one">{0} لتر لكل كيلومتر</unitPattern>
-				<unitPattern count="two">{0} لتر لكل كيلومتر</unitPattern>
-				<unitPattern count="few">{0} لتر لكل كيلومتر</unitPattern>
-				<unitPattern count="many">{0} لتر لكل كيلومتر</unitPattern>
-				<unitPattern count="other">{0} لتر لكل كيلومتر</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>ميل لكل غالون</displayName>
 				<unitPattern count="zero">{0} ميل لكل غالون</unitPattern>
@@ -8014,87 +8014,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} ميل لكل غالون</unitPattern>
 				<unitPattern count="many">{0} ميل لكل غالون</unitPattern>
 				<unitPattern count="other">{0} ميل لكل غالون</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>بت</displayName>
-				<unitPattern count="zero">{0} بت</unitPattern>
-				<unitPattern count="one">{0} بت</unitPattern>
-				<unitPattern count="two">{0} بت</unitPattern>
-				<unitPattern count="few">{0} بت</unitPattern>
-				<unitPattern count="many">{0} بت</unitPattern>
-				<unitPattern count="other">{0} بت</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>بايت</displayName>
-				<unitPattern count="zero">{0} بايت</unitPattern>
-				<unitPattern count="one">{0} بايت</unitPattern>
-				<unitPattern count="two">{0} بايت</unitPattern>
-				<unitPattern count="few">{0} بايت</unitPattern>
-				<unitPattern count="many">{0} بايت</unitPattern>
-				<unitPattern count="other">{0} بايت</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>غيغابت</displayName>
-				<unitPattern count="zero">{0} غيغابت</unitPattern>
-				<unitPattern count="one">{0} غيغابت</unitPattern>
-				<unitPattern count="two">{0} غيغابت</unitPattern>
-				<unitPattern count="few">{0} غيغابت</unitPattern>
-				<unitPattern count="many">{0} غيغابت</unitPattern>
-				<unitPattern count="other">{0} غيغابت</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>غيغابايت</displayName>
-				<unitPattern count="zero">{0} غيغابايت</unitPattern>
-				<unitPattern count="one">{0} غيغابايت</unitPattern>
-				<unitPattern count="two">{0} غيغابايت</unitPattern>
-				<unitPattern count="few">{0} غيغابايت</unitPattern>
-				<unitPattern count="many">{0} غيغابايت</unitPattern>
-				<unitPattern count="other">{0} غيغابايت</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>كيلوبت</displayName>
-				<unitPattern count="zero">{0} كيلوبت</unitPattern>
-				<unitPattern count="one">{0} كيلوبت</unitPattern>
-				<unitPattern count="two">{0} كيلوبت</unitPattern>
-				<unitPattern count="few">{0} كيلوبت</unitPattern>
-				<unitPattern count="many">{0} كيلوبت</unitPattern>
-				<unitPattern count="other">{0} كيلوبت</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>كيلوبايت</displayName>
-				<unitPattern count="zero">{0} كيلوبايت</unitPattern>
-				<unitPattern count="one">{0} كيلوبايت</unitPattern>
-				<unitPattern count="two">{0} كيلوبايت</unitPattern>
-				<unitPattern count="few">{0} كيلوبايت</unitPattern>
-				<unitPattern count="many">{0} كيلوبايت</unitPattern>
-				<unitPattern count="other">{0} كيلوبايت</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>ميغابت</displayName>
-				<unitPattern count="zero">{0} ميغابت</unitPattern>
-				<unitPattern count="one">{0} ميغابت</unitPattern>
-				<unitPattern count="two">{0} ميغابت</unitPattern>
-				<unitPattern count="few">{0} ميغابت</unitPattern>
-				<unitPattern count="many">{0} ميغابت</unitPattern>
-				<unitPattern count="other">{0} ميغابت</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>ميغابايت</displayName>
-				<unitPattern count="zero">{0} ميغابايت</unitPattern>
-				<unitPattern count="one">{0} ميغابايت</unitPattern>
-				<unitPattern count="two">{0} ميغابايت</unitPattern>
-				<unitPattern count="few">{0} ميغابايت</unitPattern>
-				<unitPattern count="many">{0} ميغابايت</unitPattern>
-				<unitPattern count="other">{0} ميغابايت</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>تيرابت</displayName>
-				<unitPattern count="zero">{0} تيرابت</unitPattern>
-				<unitPattern count="one">{0} تيرابت</unitPattern>
-				<unitPattern count="two">{0} تيرابت</unitPattern>
-				<unitPattern count="few">{0} تيرابت</unitPattern>
-				<unitPattern count="many">{0} تيرابت</unitPattern>
-				<unitPattern count="other">{0} تيرابت</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>تيرابايت</displayName>
@@ -8105,6 +8024,87 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} تيرابايت</unitPattern>
 				<unitPattern count="other">{0} تيرابايت</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>تيرابت</displayName>
+				<unitPattern count="zero">{0} تيرابت</unitPattern>
+				<unitPattern count="one">{0} تيرابت</unitPattern>
+				<unitPattern count="two">{0} تيرابت</unitPattern>
+				<unitPattern count="few">{0} تيرابت</unitPattern>
+				<unitPattern count="many">{0} تيرابت</unitPattern>
+				<unitPattern count="other">{0} تيرابت</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>غيغابايت</displayName>
+				<unitPattern count="zero">{0} غيغابايت</unitPattern>
+				<unitPattern count="one">{0} غيغابايت</unitPattern>
+				<unitPattern count="two">{0} غيغابايت</unitPattern>
+				<unitPattern count="few">{0} غيغابايت</unitPattern>
+				<unitPattern count="many">{0} غيغابايت</unitPattern>
+				<unitPattern count="other">{0} غيغابايت</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>غيغابت</displayName>
+				<unitPattern count="zero">{0} غيغابت</unitPattern>
+				<unitPattern count="one">{0} غيغابت</unitPattern>
+				<unitPattern count="two">{0} غيغابت</unitPattern>
+				<unitPattern count="few">{0} غيغابت</unitPattern>
+				<unitPattern count="many">{0} غيغابت</unitPattern>
+				<unitPattern count="other">{0} غيغابت</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>ميغابايت</displayName>
+				<unitPattern count="zero">{0} ميغابايت</unitPattern>
+				<unitPattern count="one">{0} ميغابايت</unitPattern>
+				<unitPattern count="two">{0} ميغابايت</unitPattern>
+				<unitPattern count="few">{0} ميغابايت</unitPattern>
+				<unitPattern count="many">{0} ميغابايت</unitPattern>
+				<unitPattern count="other">{0} ميغابايت</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>ميغابت</displayName>
+				<unitPattern count="zero">{0} ميغابت</unitPattern>
+				<unitPattern count="one">{0} ميغابت</unitPattern>
+				<unitPattern count="two">{0} ميغابت</unitPattern>
+				<unitPattern count="few">{0} ميغابت</unitPattern>
+				<unitPattern count="many">{0} ميغابت</unitPattern>
+				<unitPattern count="other">{0} ميغابت</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>كيلوبايت</displayName>
+				<unitPattern count="zero">{0} كيلوبايت</unitPattern>
+				<unitPattern count="one">{0} كيلوبايت</unitPattern>
+				<unitPattern count="two">{0} كيلوبايت</unitPattern>
+				<unitPattern count="few">{0} كيلوبايت</unitPattern>
+				<unitPattern count="many">{0} كيلوبايت</unitPattern>
+				<unitPattern count="other">{0} كيلوبايت</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>كيلوبت</displayName>
+				<unitPattern count="zero">{0} كيلوبت</unitPattern>
+				<unitPattern count="one">{0} كيلوبت</unitPattern>
+				<unitPattern count="two">{0} كيلوبت</unitPattern>
+				<unitPattern count="few">{0} كيلوبت</unitPattern>
+				<unitPattern count="many">{0} كيلوبت</unitPattern>
+				<unitPattern count="other">{0} كيلوبت</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>بايت</displayName>
+				<unitPattern count="zero">{0} بايت</unitPattern>
+				<unitPattern count="one">{0} بايت</unitPattern>
+				<unitPattern count="two">{0} بايت</unitPattern>
+				<unitPattern count="few">{0} بايت</unitPattern>
+				<unitPattern count="many">{0} بايت</unitPattern>
+				<unitPattern count="other">{0} بايت</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>بت</displayName>
+				<unitPattern count="zero">{0} بت</unitPattern>
+				<unitPattern count="one">{0} بت</unitPattern>
+				<unitPattern count="two">{0} بت</unitPattern>
+				<unitPattern count="few">{0} بت</unitPattern>
+				<unitPattern count="many">{0} بت</unitPattern>
+				<unitPattern count="other">{0} بت</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>قرون</displayName>
 				<unitPattern count="zero">{0} قرن</unitPattern>
@@ -8113,6 +8113,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} قرون</unitPattern>
 				<unitPattern count="many">{0} قرنًا</unitPattern>
 				<unitPattern count="other">{0} قرن</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>سنوات</displayName>
+				<unitPattern count="zero">{0} سنة</unitPattern>
+				<unitPattern count="one">سنة</unitPattern>
+				<unitPattern count="two">سنتان</unitPattern>
+				<unitPattern count="few">{0} سنوات</unitPattern>
+				<unitPattern count="many">{0} سنة</unitPattern>
+				<unitPattern count="other">{0} سنة</unitPattern>
+				<perUnitPattern>في السنة</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>شهور</displayName>
+				<unitPattern count="zero">{0} شهر</unitPattern>
+				<unitPattern count="one">شهر</unitPattern>
+				<unitPattern count="two">شهران</unitPattern>
+				<unitPattern count="few">{0} أشهر</unitPattern>
+				<unitPattern count="many">{0} شهرًا</unitPattern>
+				<unitPattern count="other">{0} شهر</unitPattern>
+				<perUnitPattern>{0}/ش</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>أسابيع</displayName>
+				<unitPattern count="zero">{0} أسبوع</unitPattern>
+				<unitPattern count="one">أسبوع</unitPattern>
+				<unitPattern count="two">أسبوعان</unitPattern>
+				<unitPattern count="few">{0} أسابيع</unitPattern>
+				<unitPattern count="many">{0} أسبوعًا</unitPattern>
+				<unitPattern count="other">{0} أسبوع</unitPattern>
+				<perUnitPattern>{0} كل أسبوع</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>أيام</displayName>
@@ -8134,24 +8164,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ساعة</unitPattern>
 				<perUnitPattern>{0} كل ساعة</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>ميكروثانية</displayName>
-				<unitPattern count="zero">{0} ميكروثانية</unitPattern>
-				<unitPattern count="one">{0} ميكروثانية</unitPattern>
-				<unitPattern count="two">{0} ميكروثانية</unitPattern>
-				<unitPattern count="few">{0} ميكروثانية</unitPattern>
-				<unitPattern count="many">{0} ميكروثانية</unitPattern>
-				<unitPattern count="other">{0} ميكروثانية</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>مللي ثانية</displayName>
-				<unitPattern count="zero">{0} مللي ثانية</unitPattern>
-				<unitPattern count="one">{0} مللي ثانية</unitPattern>
-				<unitPattern count="two">{0} مللي ثانية</unitPattern>
-				<unitPattern count="few">{0} مللي ثانية</unitPattern>
-				<unitPattern count="many">{0} مللي ثانية</unitPattern>
-				<unitPattern count="other">{0} مللي ثانية</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>دقيقة</displayName>
 				<unitPattern count="zero">{0} دقيقة</unitPattern>
@@ -8161,25 +8173,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} دقيقة</unitPattern>
 				<unitPattern count="other">{0} دقيقة</unitPattern>
 				<perUnitPattern>{0} كل دقيقة</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>شهور</displayName>
-				<unitPattern count="zero">{0} شهر</unitPattern>
-				<unitPattern count="one">شهر</unitPattern>
-				<unitPattern count="two">شهران</unitPattern>
-				<unitPattern count="few">{0} أشهر</unitPattern>
-				<unitPattern count="many">{0} شهرًا</unitPattern>
-				<unitPattern count="other">{0} شهر</unitPattern>
-				<perUnitPattern>{0}/ش</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>نانو ثانية</displayName>
-				<unitPattern count="zero">{0} نانو ثانية</unitPattern>
-				<unitPattern count="one">{0} نانو ثانية</unitPattern>
-				<unitPattern count="two">{0} نانو ثانية</unitPattern>
-				<unitPattern count="few">{0} نانو ثانية</unitPattern>
-				<unitPattern count="many">{0} نانو ثانية</unitPattern>
-				<unitPattern count="other">{0} نانو ثانية</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>ثانية</displayName>
@@ -8191,25 +8184,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ثانية</unitPattern>
 				<perUnitPattern>{0}/ثانية</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>أسابيع</displayName>
-				<unitPattern count="zero">{0} أسبوع</unitPattern>
-				<unitPattern count="one">أسبوع</unitPattern>
-				<unitPattern count="two">أسبوعان</unitPattern>
-				<unitPattern count="few">{0} أسابيع</unitPattern>
-				<unitPattern count="many">{0} أسبوعًا</unitPattern>
-				<unitPattern count="other">{0} أسبوع</unitPattern>
-				<perUnitPattern>{0} كل أسبوع</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>مللي ثانية</displayName>
+				<unitPattern count="zero">{0} مللي ثانية</unitPattern>
+				<unitPattern count="one">{0} مللي ثانية</unitPattern>
+				<unitPattern count="two">{0} مللي ثانية</unitPattern>
+				<unitPattern count="few">{0} مللي ثانية</unitPattern>
+				<unitPattern count="many">{0} مللي ثانية</unitPattern>
+				<unitPattern count="other">{0} مللي ثانية</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>سنوات</displayName>
-				<unitPattern count="zero">{0} سنة</unitPattern>
-				<unitPattern count="one">سنة</unitPattern>
-				<unitPattern count="two">سنتان</unitPattern>
-				<unitPattern count="few">{0} سنوات</unitPattern>
-				<unitPattern count="many">{0} سنة</unitPattern>
-				<unitPattern count="other">{0} سنة</unitPattern>
-				<perUnitPattern>في السنة</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>ميكروثانية</displayName>
+				<unitPattern count="zero">{0} ميكروثانية</unitPattern>
+				<unitPattern count="one">{0} ميكروثانية</unitPattern>
+				<unitPattern count="two">{0} ميكروثانية</unitPattern>
+				<unitPattern count="few">{0} ميكروثانية</unitPattern>
+				<unitPattern count="many">{0} ميكروثانية</unitPattern>
+				<unitPattern count="other">{0} ميكروثانية</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>نانو ثانية</displayName>
+				<unitPattern count="zero">{0} نانو ثانية</unitPattern>
+				<unitPattern count="one">{0} نانو ثانية</unitPattern>
+				<unitPattern count="two">{0} نانو ثانية</unitPattern>
+				<unitPattern count="few">{0} نانو ثانية</unitPattern>
+				<unitPattern count="many">{0} نانو ثانية</unitPattern>
+				<unitPattern count="other">{0} نانو ثانية</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>أمبير</displayName>
@@ -8247,6 +8247,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} فولت</unitPattern>
 				<unitPattern count="other">{0} فولت</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>كيلو كالوري</displayName>
+				<unitPattern count="zero">{0} كيلو كالوري</unitPattern>
+				<unitPattern count="one">{0} كيلو كالوري</unitPattern>
+				<unitPattern count="two">{0} كيلو كالوري</unitPattern>
+				<unitPattern count="few">{0} كيلو كالوري</unitPattern>
+				<unitPattern count="many">{0} كيلو كالوري</unitPattern>
+				<unitPattern count="other">{0} كيلو كالوري</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>كالوري</displayName>
 				<unitPattern count="zero">{0} كالوري</unitPattern>
@@ -8265,24 +8274,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} كالوري</unitPattern>
 				<unitPattern count="other">{0} كالوري</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>جول</displayName>
-				<unitPattern count="zero">{0} جول</unitPattern>
-				<unitPattern count="one">{0} جول</unitPattern>
-				<unitPattern count="two">{0} جول</unitPattern>
-				<unitPattern count="few">{0} جول</unitPattern>
-				<unitPattern count="many">{0} جول</unitPattern>
-				<unitPattern count="other">{0} جول</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>كيلو كالوري</displayName>
-				<unitPattern count="zero">{0} كيلو كالوري</unitPattern>
-				<unitPattern count="one">{0} كيلو كالوري</unitPattern>
-				<unitPattern count="two">{0} كيلو كالوري</unitPattern>
-				<unitPattern count="few">{0} كيلو كالوري</unitPattern>
-				<unitPattern count="many">{0} كيلو كالوري</unitPattern>
-				<unitPattern count="other">{0} كيلو كالوري</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>كيلو جول</displayName>
 				<unitPattern count="zero">{0} كيلو جول</unitPattern>
@@ -8291,6 +8282,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} كيلو جول</unitPattern>
 				<unitPattern count="many">{0} كيلو جول</unitPattern>
 				<unitPattern count="other">{0} كيلو جول</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>جول</displayName>
+				<unitPattern count="zero">{0} جول</unitPattern>
+				<unitPattern count="one">{0} جول</unitPattern>
+				<unitPattern count="two">{0} جول</unitPattern>
+				<unitPattern count="few">{0} جول</unitPattern>
+				<unitPattern count="many">{0} جول</unitPattern>
+				<unitPattern count="other">{0} جول</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>كيلو واط/ساعة</displayName>
@@ -8310,14 +8310,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} غيغا هرتز</unitPattern>
 				<unitPattern count="other">{0} غيغا هرتز</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>هرتز</displayName>
-				<unitPattern count="zero">{0} هرتز</unitPattern>
-				<unitPattern count="one">{0} هرتز</unitPattern>
-				<unitPattern count="two">{0} هرتز</unitPattern>
-				<unitPattern count="few">{0} هرتز</unitPattern>
-				<unitPattern count="many">{0} هرتز</unitPattern>
-				<unitPattern count="other">{0} هرتز</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>ميغا هرتز</displayName>
+				<unitPattern count="zero">{0} ميغا هرتز</unitPattern>
+				<unitPattern count="one">{0} ميغا هرتز</unitPattern>
+				<unitPattern count="two">{0} ميغا هرتز</unitPattern>
+				<unitPattern count="few">{0} ميغا هرتز</unitPattern>
+				<unitPattern count="many">{0} ميغا هرتز</unitPattern>
+				<unitPattern count="other">{0} ميغا هرتز</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>كيلو هرتز</displayName>
@@ -8328,23 +8328,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} كيلو هرتز</unitPattern>
 				<unitPattern count="other">{0} كيلو هرتز</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>ميغا هرتز</displayName>
-				<unitPattern count="zero">{0} ميغا هرتز</unitPattern>
-				<unitPattern count="one">{0} ميغا هرتز</unitPattern>
-				<unitPattern count="two">{0} ميغا هرتز</unitPattern>
-				<unitPattern count="few">{0} ميغا هرتز</unitPattern>
-				<unitPattern count="many">{0} ميغا هرتز</unitPattern>
-				<unitPattern count="other">{0} ميغا هرتز</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>هرتز</displayName>
+				<unitPattern count="zero">{0} هرتز</unitPattern>
+				<unitPattern count="one">{0} هرتز</unitPattern>
+				<unitPattern count="two">{0} هرتز</unitPattern>
+				<unitPattern count="few">{0} هرتز</unitPattern>
+				<unitPattern count="many">{0} هرتز</unitPattern>
+				<unitPattern count="other">{0} هرتز</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>وحدة فلكية</displayName>
-				<unitPattern count="zero">{0} وحدة فلكية</unitPattern>
-				<unitPattern count="one">وحدة فلكية</unitPattern>
-				<unitPattern count="two">وحدتان فلكيتان</unitPattern>
-				<unitPattern count="few">{0} وحدات فلكية</unitPattern>
-				<unitPattern count="many">{0} وحدة فلكية</unitPattern>
-				<unitPattern count="other">{0} من الوحدات الفلكية</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>كيلومتر</displayName>
+				<unitPattern count="zero">{0} كيلومتر</unitPattern>
+				<unitPattern count="one">{0} كيلومتر</unitPattern>
+				<unitPattern count="two">{0} كيلومتر</unitPattern>
+				<unitPattern count="few">{0} كيلومتر</unitPattern>
+				<unitPattern count="many">{0} كيلومتر</unitPattern>
+				<unitPattern count="other">{0} كيلومتر</unitPattern>
+				<perUnitPattern>{0}/كيلومتر</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>متر</displayName>
+				<unitPattern count="zero">{0} متر</unitPattern>
+				<unitPattern count="one">متر</unitPattern>
+				<unitPattern count="two">متران</unitPattern>
+				<unitPattern count="few">{0} أمتار</unitPattern>
+				<unitPattern count="many">{0} مترًا</unitPattern>
+				<unitPattern count="other">{0} متر</unitPattern>
+				<perUnitPattern>{0} لكل متر</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>ديسيمتر</displayName>
+				<unitPattern count="zero">{0} ديسيمتر</unitPattern>
+				<unitPattern count="one">{0} ديسيمتر</unitPattern>
+				<unitPattern count="two">{0} ديسيمتر</unitPattern>
+				<unitPattern count="few">{0} ديسيمتر</unitPattern>
+				<unitPattern count="many">{0} ديسيمتر</unitPattern>
+				<unitPattern count="other">{0} ديسيمتر</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>سنتيمتر</displayName>
@@ -8356,14 +8376,59 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} سنتيمتر</unitPattern>
 				<perUnitPattern>{0}/سنتيمتر</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>ديسيمتر</displayName>
-				<unitPattern count="zero">{0} ديسيمتر</unitPattern>
-				<unitPattern count="one">{0} ديسيمتر</unitPattern>
-				<unitPattern count="two">{0} ديسيمتر</unitPattern>
-				<unitPattern count="few">{0} ديسيمتر</unitPattern>
-				<unitPattern count="many">{0} ديسيمتر</unitPattern>
-				<unitPattern count="other">{0} ديسيمتر</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>ملليمتر</displayName>
+				<unitPattern count="zero">{0} ملليمتر</unitPattern>
+				<unitPattern count="one">{0} ملليمتر</unitPattern>
+				<unitPattern count="two">{0} ملليمتر</unitPattern>
+				<unitPattern count="few">{0} ملليمتر</unitPattern>
+				<unitPattern count="many">{0} ملليمتر</unitPattern>
+				<unitPattern count="other">{0} ملليمتر</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>ميكرومتر</displayName>
+				<unitPattern count="zero">{0} ميكرومتر</unitPattern>
+				<unitPattern count="one">{0} ميكرومتر</unitPattern>
+				<unitPattern count="two">{0} ميكرومتر</unitPattern>
+				<unitPattern count="few">{0} ميكرومتر</unitPattern>
+				<unitPattern count="many">{0} ميكرومتر</unitPattern>
+				<unitPattern count="other">{0} ميكرومتر</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>نانو متر</displayName>
+				<unitPattern count="zero">{0} نانو متر</unitPattern>
+				<unitPattern count="one">{0} نانو متر</unitPattern>
+				<unitPattern count="two">{0} نانو متر</unitPattern>
+				<unitPattern count="few">{0} نانو متر</unitPattern>
+				<unitPattern count="many">{0} نانو متر</unitPattern>
+				<unitPattern count="other">{0} نانو متر</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>بيكومتر</displayName>
+				<unitPattern count="zero">{0} بيكومتر</unitPattern>
+				<unitPattern count="one">{0} بيكومتر</unitPattern>
+				<unitPattern count="two">{0} بيكومتر</unitPattern>
+				<unitPattern count="few">{0} بيكومتر</unitPattern>
+				<unitPattern count="many">{0} بيكومتر</unitPattern>
+				<unitPattern count="other">{0} بيكومتر</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>ميل</displayName>
+				<unitPattern count="zero">{0} ميل</unitPattern>
+				<unitPattern count="one">ميل</unitPattern>
+				<unitPattern count="two">ميلان</unitPattern>
+				<unitPattern count="few">{0} أميال</unitPattern>
+				<unitPattern count="many">{0} ميلاً</unitPattern>
+				<unitPattern count="other">{0} ميل</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>ياردة</displayName>
+				<unitPattern count="zero">ياردة</unitPattern>
+				<unitPattern count="one">ياردة</unitPattern>
+				<unitPattern count="two">ياردتان</unitPattern>
+				<unitPattern count="few">{0} ياردات</unitPattern>
+				<unitPattern count="many">{0} ياردة</unitPattern>
+				<unitPattern count="other">{0} ياردة</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>قدم</displayName>
@@ -8385,15 +8450,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} بوصة</unitPattern>
 				<perUnitPattern>{0}/بوصة</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>كيلومتر</displayName>
-				<unitPattern count="zero">{0} كيلومتر</unitPattern>
-				<unitPattern count="one">{0} كيلومتر</unitPattern>
-				<unitPattern count="two">{0} كيلومتر</unitPattern>
-				<unitPattern count="few">{0} كيلومتر</unitPattern>
-				<unitPattern count="many">{0} كيلومتر</unitPattern>
-				<unitPattern count="other">{0} كيلومتر</unitPattern>
-				<perUnitPattern>{0}/كيلومتر</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>فرسخ فلكي</displayName>
+				<unitPattern count="zero">{0} فرسخ فلكي</unitPattern>
+				<unitPattern count="one">فرسخ فلكي</unitPattern>
+				<unitPattern count="two">فرسخان فلكيان</unitPattern>
+				<unitPattern count="few">{0} فراسخ فلكية</unitPattern>
+				<unitPattern count="many">{0} فرسخًا فلكيًا</unitPattern>
+				<unitPattern count="other">{0} فرسخ فلكي</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>سنة ضوئية</displayName>
@@ -8404,60 +8468,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} سنة ضوئية</unitPattern>
 				<unitPattern count="other">{0} سنة ضوئية</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>متر</displayName>
-				<unitPattern count="zero">{0} متر</unitPattern>
-				<unitPattern count="one">متر</unitPattern>
-				<unitPattern count="two">متران</unitPattern>
-				<unitPattern count="few">{0} أمتار</unitPattern>
-				<unitPattern count="many">{0} مترًا</unitPattern>
-				<unitPattern count="other">{0} متر</unitPattern>
-				<perUnitPattern>{0} لكل متر</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>ميكرومتر</displayName>
-				<unitPattern count="zero">{0} ميكرومتر</unitPattern>
-				<unitPattern count="one">{0} ميكرومتر</unitPattern>
-				<unitPattern count="two">{0} ميكرومتر</unitPattern>
-				<unitPattern count="few">{0} ميكرومتر</unitPattern>
-				<unitPattern count="many">{0} ميكرومتر</unitPattern>
-				<unitPattern count="other">{0} ميكرومتر</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>ميل</displayName>
-				<unitPattern count="zero">{0} ميل</unitPattern>
-				<unitPattern count="one">ميل</unitPattern>
-				<unitPattern count="two">ميلان</unitPattern>
-				<unitPattern count="few">{0} أميال</unitPattern>
-				<unitPattern count="many">{0} ميلاً</unitPattern>
-				<unitPattern count="other">{0} ميل</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>ميل اسكندنافي</displayName>
-				<unitPattern count="zero">{0} ميل اسكندنافي</unitPattern>
-				<unitPattern count="one">{0} ميل اسكندنافي</unitPattern>
-				<unitPattern count="two">{0} ميل اسكندنافي</unitPattern>
-				<unitPattern count="few">{0} ميل اسكندنافي</unitPattern>
-				<unitPattern count="many">{0} ميل اسكندنافي</unitPattern>
-				<unitPattern count="other">{0} ميل اسكندنافي</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>ملليمتر</displayName>
-				<unitPattern count="zero">{0} ملليمتر</unitPattern>
-				<unitPattern count="one">{0} ملليمتر</unitPattern>
-				<unitPattern count="two">{0} ملليمتر</unitPattern>
-				<unitPattern count="few">{0} ملليمتر</unitPattern>
-				<unitPattern count="many">{0} ملليمتر</unitPattern>
-				<unitPattern count="other">{0} ملليمتر</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>نانو متر</displayName>
-				<unitPattern count="zero">{0} نانو متر</unitPattern>
-				<unitPattern count="one">{0} نانو متر</unitPattern>
-				<unitPattern count="two">{0} نانو متر</unitPattern>
-				<unitPattern count="few">{0} نانو متر</unitPattern>
-				<unitPattern count="many">{0} نانو متر</unitPattern>
-				<unitPattern count="other">{0} نانو متر</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>وحدة فلكية</displayName>
+				<unitPattern count="zero">{0} وحدة فلكية</unitPattern>
+				<unitPattern count="one">وحدة فلكية</unitPattern>
+				<unitPattern count="two">وحدتان فلكيتان</unitPattern>
+				<unitPattern count="few">{0} وحدات فلكية</unitPattern>
+				<unitPattern count="many">{0} وحدة فلكية</unitPattern>
+				<unitPattern count="other">{0} من الوحدات الفلكية</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>ميل بحري</displayName>
@@ -8468,32 +8486,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} ميلاً بحريًا</unitPattern>
 				<unitPattern count="other">{0} ميل بحري</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>فرسخ فلكي</displayName>
-				<unitPattern count="zero">{0} فرسخ فلكي</unitPattern>
-				<unitPattern count="one">فرسخ فلكي</unitPattern>
-				<unitPattern count="two">فرسخان فلكيان</unitPattern>
-				<unitPattern count="few">{0} فراسخ فلكية</unitPattern>
-				<unitPattern count="many">{0} فرسخًا فلكيًا</unitPattern>
-				<unitPattern count="other">{0} فرسخ فلكي</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>بيكومتر</displayName>
-				<unitPattern count="zero">{0} بيكومتر</unitPattern>
-				<unitPattern count="one">{0} بيكومتر</unitPattern>
-				<unitPattern count="two">{0} بيكومتر</unitPattern>
-				<unitPattern count="few">{0} بيكومتر</unitPattern>
-				<unitPattern count="many">{0} بيكومتر</unitPattern>
-				<unitPattern count="other">{0} بيكومتر</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>ياردة</displayName>
-				<unitPattern count="zero">ياردة</unitPattern>
-				<unitPattern count="one">ياردة</unitPattern>
-				<unitPattern count="two">ياردتان</unitPattern>
-				<unitPattern count="few">{0} ياردات</unitPattern>
-				<unitPattern count="many">{0} ياردة</unitPattern>
-				<unitPattern count="other">{0} ياردة</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>ميل اسكندنافي</displayName>
+				<unitPattern count="zero">{0} ميل اسكندنافي</unitPattern>
+				<unitPattern count="one">{0} ميل اسكندنافي</unitPattern>
+				<unitPattern count="two">{0} ميل اسكندنافي</unitPattern>
+				<unitPattern count="few">{0} ميل اسكندنافي</unitPattern>
+				<unitPattern count="many">{0} ميل اسكندنافي</unitPattern>
+				<unitPattern count="other">{0} ميل اسكندنافي</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>لكس</displayName>
@@ -8504,24 +8504,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} لكس</unitPattern>
 				<unitPattern count="other">{0} لكس</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>قيراط</displayName>
-				<unitPattern count="zero">{0} قيراط</unitPattern>
-				<unitPattern count="one">{0} قيراط</unitPattern>
-				<unitPattern count="two">قيراطان</unitPattern>
-				<unitPattern count="few">{0} قراريط</unitPattern>
-				<unitPattern count="many">{0} قيراط</unitPattern>
-				<unitPattern count="other">{0} قيراط</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>غرام</displayName>
-				<unitPattern count="zero">{0} غرام</unitPattern>
-				<unitPattern count="one">غرام ({0})</unitPattern>
-				<unitPattern count="two">غرامان ({0})</unitPattern>
-				<unitPattern count="few">{0} غرامات</unitPattern>
-				<unitPattern count="many">{0} غرامًا</unitPattern>
-				<unitPattern count="other">{0} غرام</unitPattern>
-				<perUnitPattern>{0}/غرام</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>طن متري</displayName>
+				<unitPattern count="zero">{0} طن متري</unitPattern>
+				<unitPattern count="one">{0} طن متري</unitPattern>
+				<unitPattern count="two">{0} طن متري</unitPattern>
+				<unitPattern count="few">{0} طن متري</unitPattern>
+				<unitPattern count="many">{0} طن متري</unitPattern>
+				<unitPattern count="other">{0} طن متري</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>كيلوغرام</displayName>
@@ -8533,14 +8523,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} كيلوغرام</unitPattern>
 				<perUnitPattern>{0}/كيلوغرام</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>طن متري</displayName>
-				<unitPattern count="zero">{0} طن متري</unitPattern>
-				<unitPattern count="one">{0} طن متري</unitPattern>
-				<unitPattern count="two">{0} طن متري</unitPattern>
-				<unitPattern count="few">{0} طن متري</unitPattern>
-				<unitPattern count="many">{0} طن متري</unitPattern>
-				<unitPattern count="other">{0} طن متري</unitPattern>
+			<unit type="mass-gram">
+				<displayName>غرام</displayName>
+				<unitPattern count="zero">{0} غرام</unitPattern>
+				<unitPattern count="one">غرام ({0})</unitPattern>
+				<unitPattern count="two">غرامان ({0})</unitPattern>
+				<unitPattern count="few">{0} غرامات</unitPattern>
+				<unitPattern count="many">{0} غرامًا</unitPattern>
+				<unitPattern count="other">{0} غرام</unitPattern>
+				<perUnitPattern>{0}/غرام</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>ملليغرام</displayName>
+				<unitPattern count="zero">{0} ملليغرام</unitPattern>
+				<unitPattern count="one">{0} ملليغرام</unitPattern>
+				<unitPattern count="two">{0} ملليغرام</unitPattern>
+				<unitPattern count="few">{0} ملليغرام</unitPattern>
+				<unitPattern count="many">{0} ملليغرام</unitPattern>
+				<unitPattern count="other">{0} ملليغرام</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>ميكروغرام</displayName>
@@ -8551,14 +8551,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} ميكروغرام</unitPattern>
 				<unitPattern count="other">{0} ميكروغرام</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>ملليغرام</displayName>
-				<unitPattern count="zero">{0} ملليغرام</unitPattern>
-				<unitPattern count="one">{0} ملليغرام</unitPattern>
-				<unitPattern count="two">{0} ملليغرام</unitPattern>
-				<unitPattern count="few">{0} ملليغرام</unitPattern>
-				<unitPattern count="many">{0} ملليغرام</unitPattern>
-				<unitPattern count="other">{0} ملليغرام</unitPattern>
+			<unit type="mass-ton">
+				<displayName>طن</displayName>
+				<unitPattern count="zero">{0} طن</unitPattern>
+				<unitPattern count="one">{0} طن</unitPattern>
+				<unitPattern count="two">{0} طن</unitPattern>
+				<unitPattern count="few">{0} طن</unitPattern>
+				<unitPattern count="many">{0} طن</unitPattern>
+				<unitPattern count="other">{0} طن</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>رطل</displayName>
+				<unitPattern count="zero">{0} رطل</unitPattern>
+				<unitPattern count="one">{0} رطل</unitPattern>
+				<unitPattern count="two">{0} رطل</unitPattern>
+				<unitPattern count="few">{0} رطل</unitPattern>
+				<unitPattern count="many">{0} رطل</unitPattern>
+				<unitPattern count="other">{0} رطل</unitPattern>
+				<perUnitPattern>{0}/رطل</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>أونصة</displayName>
@@ -8579,24 +8589,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} أونصة ترويسية</unitPattern>
 				<unitPattern count="other">{0} أونصة ترويسية</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>رطل</displayName>
-				<unitPattern count="zero">{0} رطل</unitPattern>
-				<unitPattern count="one">{0} رطل</unitPattern>
-				<unitPattern count="two">{0} رطل</unitPattern>
-				<unitPattern count="few">{0} رطل</unitPattern>
-				<unitPattern count="many">{0} رطل</unitPattern>
-				<unitPattern count="other">{0} رطل</unitPattern>
-				<perUnitPattern>{0}/رطل</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>طن</displayName>
-				<unitPattern count="zero">{0} طن</unitPattern>
-				<unitPattern count="one">{0} طن</unitPattern>
-				<unitPattern count="two">{0} طن</unitPattern>
-				<unitPattern count="few">{0} طن</unitPattern>
-				<unitPattern count="many">{0} طن</unitPattern>
-				<unitPattern count="other">{0} طن</unitPattern>
+			<unit type="mass-carat">
+				<displayName>قيراط</displayName>
+				<unitPattern count="zero">{0} قيراط</unitPattern>
+				<unitPattern count="one">{0} قيراط</unitPattern>
+				<unitPattern count="two">قيراطان</unitPattern>
+				<unitPattern count="few">{0} قراريط</unitPattern>
+				<unitPattern count="many">{0} قيراط</unitPattern>
+				<unitPattern count="other">{0} قيراط</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>غيغا واط</displayName>
@@ -8607,14 +8607,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} غيغا واط</unitPattern>
 				<unitPattern count="other">{0} غيغا واط</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>قوة حصان</displayName>
-				<unitPattern count="zero">{0} قوة حصان</unitPattern>
-				<unitPattern count="one">{0} قوة حصان</unitPattern>
-				<unitPattern count="two">{0} قوة حصان</unitPattern>
-				<unitPattern count="few">{0} قوة حصان</unitPattern>
-				<unitPattern count="many">{0} قوة حصان</unitPattern>
-				<unitPattern count="other">{0} قوة حصان</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>ميغا واط</displayName>
+				<unitPattern count="zero">{0} ميغا واط</unitPattern>
+				<unitPattern count="one">{0} ميغا واط</unitPattern>
+				<unitPattern count="two">{0} ميغا واط</unitPattern>
+				<unitPattern count="few">{0} ميغا واط</unitPattern>
+				<unitPattern count="many">{0} ميغا واط</unitPattern>
+				<unitPattern count="other">{0} ميغا واط</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>كيلوواط</displayName>
@@ -8625,14 +8625,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} كيلوواط</unitPattern>
 				<unitPattern count="other">{0} كيلوواط</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>ميغا واط</displayName>
-				<unitPattern count="zero">{0} ميغا واط</unitPattern>
-				<unitPattern count="one">{0} ميغا واط</unitPattern>
-				<unitPattern count="two">{0} ميغا واط</unitPattern>
-				<unitPattern count="few">{0} ميغا واط</unitPattern>
-				<unitPattern count="many">{0} ميغا واط</unitPattern>
-				<unitPattern count="other">{0} ميغا واط</unitPattern>
+			<unit type="power-watt">
+				<displayName>واط</displayName>
+				<unitPattern count="zero">{0} واط</unitPattern>
+				<unitPattern count="one">{0} واط</unitPattern>
+				<unitPattern count="two">{0} واط</unitPattern>
+				<unitPattern count="few">{0} واط</unitPattern>
+				<unitPattern count="many">{0} واط</unitPattern>
+				<unitPattern count="other">{0} واط</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>مللي واط</displayName>
@@ -8643,14 +8643,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} مللي واط</unitPattern>
 				<unitPattern count="other">{0} مللي واط</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>واط</displayName>
-				<unitPattern count="zero">{0} واط</unitPattern>
-				<unitPattern count="one">{0} واط</unitPattern>
-				<unitPattern count="two">{0} واط</unitPattern>
-				<unitPattern count="few">{0} واط</unitPattern>
-				<unitPattern count="many">{0} واط</unitPattern>
-				<unitPattern count="other">{0} واط</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>قوة حصان</displayName>
+				<unitPattern count="zero">{0} قوة حصان</unitPattern>
+				<unitPattern count="one">{0} قوة حصان</unitPattern>
+				<unitPattern count="two">{0} قوة حصان</unitPattern>
+				<unitPattern count="few">{0} قوة حصان</unitPattern>
+				<unitPattern count="many">{0} قوة حصان</unitPattern>
+				<unitPattern count="other">{0} قوة حصان</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>هكتوباسكال</displayName>
@@ -8660,24 +8660,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} هكتوباسكال</unitPattern>
 				<unitPattern count="many">{0} هكتوباسكال</unitPattern>
 				<unitPattern count="other">{0} هكتوباسكال</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>بوصة زئبقية</displayName>
-				<unitPattern count="zero">{0} بوصة زئبقية</unitPattern>
-				<unitPattern count="one">{0} بوصة زئبقية</unitPattern>
-				<unitPattern count="two">{0} بوصة زئبقية</unitPattern>
-				<unitPattern count="few">{0} بوصة زئبقية</unitPattern>
-				<unitPattern count="many">{0} بوصة زئبقية</unitPattern>
-				<unitPattern count="other">{0} بوصة زئبقية</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>مللي بار</displayName>
-				<unitPattern count="zero">{0} مللي بار</unitPattern>
-				<unitPattern count="one">{0} مللي بار</unitPattern>
-				<unitPattern count="two">{0} مللي بار</unitPattern>
-				<unitPattern count="few">{0} مللي بار</unitPattern>
-				<unitPattern count="many">{0} مللي بار</unitPattern>
-				<unitPattern count="other">{0} مللي بار</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>ملليمتر زئبقي</displayName>
@@ -8697,6 +8679,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} رطل لكل بوصة مربعة</unitPattern>
 				<unitPattern count="other">{0} رطل لكل بوصة مربعة</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>بوصة زئبقية</displayName>
+				<unitPattern count="zero">{0} بوصة زئبقية</unitPattern>
+				<unitPattern count="one">{0} بوصة زئبقية</unitPattern>
+				<unitPattern count="two">{0} بوصة زئبقية</unitPattern>
+				<unitPattern count="few">{0} بوصة زئبقية</unitPattern>
+				<unitPattern count="many">{0} بوصة زئبقية</unitPattern>
+				<unitPattern count="other">{0} بوصة زئبقية</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>مللي بار</displayName>
+				<unitPattern count="zero">{0} مللي بار</unitPattern>
+				<unitPattern count="one">{0} مللي بار</unitPattern>
+				<unitPattern count="two">{0} مللي بار</unitPattern>
+				<unitPattern count="few">{0} مللي بار</unitPattern>
+				<unitPattern count="many">{0} مللي بار</unitPattern>
+				<unitPattern count="other">{0} مللي بار</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>قيراط</displayName>
 				<unitPattern count="zero">{0} قيراط</unitPattern>
@@ -8714,15 +8714,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} كيلومتر في الساعة</unitPattern>
 				<unitPattern count="many">{0} كيلومتر في الساعة</unitPattern>
 				<unitPattern count="other">{0} كيلومتر في الساعة</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>عقدة</displayName>
-				<unitPattern count="zero">{0} عقدة</unitPattern>
-				<unitPattern count="one">{0} عقدة</unitPattern>
-				<unitPattern count="two">{0} عقدة</unitPattern>
-				<unitPattern count="few">{0} عقدة</unitPattern>
-				<unitPattern count="many">{0} عقدة</unitPattern>
-				<unitPattern count="other">{0} عقدة</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>متر في الثانية</displayName>
@@ -8742,6 +8733,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} ميل في الساعة</unitPattern>
 				<unitPattern count="other">{0} ميل في الساعة</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>عقدة</displayName>
+				<unitPattern count="zero">{0} عقدة</unitPattern>
+				<unitPattern count="one">{0} عقدة</unitPattern>
+				<unitPattern count="two">{0} عقدة</unitPattern>
+				<unitPattern count="few">{0} عقدة</unitPattern>
+				<unitPattern count="many">{0} عقدة</unitPattern>
+				<unitPattern count="other">{0} عقدة</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="zero">{0}°</unitPattern>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="two">{0}°</unitPattern>
+				<unitPattern count="few">{0}°</unitPattern>
+				<unitPattern count="many">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>درجة مئوية</displayName>
 				<unitPattern count="zero">{0} درجة مئوية</unitPattern>
@@ -8760,15 +8769,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} درجة فهرنهايت</unitPattern>
 				<unitPattern count="other">{0} درجة فهرنهايت</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="zero">{0}°</unitPattern>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="two">{0}°</unitPattern>
-				<unitPattern count="few">{0}°</unitPattern>
-				<unitPattern count="many">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>درجة كلفن</displayName>
 				<unitPattern count="zero">{0} درجة كلفن</unitPattern>
@@ -8777,52 +8777,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} درجة كلفن</unitPattern>
 				<unitPattern count="many">{0} درجة كلفن</unitPattern>
 				<unitPattern count="other">{0} درجة كلفن</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>فدان قدم</displayName>
-				<unitPattern count="zero">{0} فدان قدم</unitPattern>
-				<unitPattern count="one">{0} فدان قدم</unitPattern>
-				<unitPattern count="two">{0} فدان قدم</unitPattern>
-				<unitPattern count="few">{0} فدان قدم</unitPattern>
-				<unitPattern count="many">{0} فدان قدم</unitPattern>
-				<unitPattern count="other">{0} فدان قدم</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>سنتيلتر</displayName>
-				<unitPattern count="zero">{0} سنتيلتر</unitPattern>
-				<unitPattern count="one">{0} سنتيلتر</unitPattern>
-				<unitPattern count="two">{0} سنتيلتر</unitPattern>
-				<unitPattern count="few">{0} سنتيلتر</unitPattern>
-				<unitPattern count="many">{0} سنتيلتر</unitPattern>
-				<unitPattern count="other">{0} سنتيلتر</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>سنتيمتر مكعب</displayName>
-				<unitPattern count="zero">{0} سنتيمتر مكعب</unitPattern>
-				<unitPattern count="one">{0} سنتيمتر مكعب</unitPattern>
-				<unitPattern count="two">{0} سنتيمتر مكعب</unitPattern>
-				<unitPattern count="few">{0} سنتيمتر مكعب</unitPattern>
-				<unitPattern count="many">{0} سنتيمتر مكعب</unitPattern>
-				<unitPattern count="other">{0} سنتيمتر مكعب</unitPattern>
-				<perUnitPattern>{0}/سنتيمتر مكعب</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>قدم مكعبة</displayName>
-				<unitPattern count="zero">{0} قدم مكعبة</unitPattern>
-				<unitPattern count="one">قدم مكعبة</unitPattern>
-				<unitPattern count="two">قدمان مكعبان</unitPattern>
-				<unitPattern count="few">{0} أقدام مكعبة</unitPattern>
-				<unitPattern count="many">{0} قدمًا مكعبًا</unitPattern>
-				<unitPattern count="other">{0} قدم مكعبة</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>بوصة مكعبة</displayName>
-				<unitPattern count="zero">{0} بوصة مكعبة</unitPattern>
-				<unitPattern count="one">{0} بوصة مكعبة</unitPattern>
-				<unitPattern count="two">{0} بوصة مكعبة</unitPattern>
-				<unitPattern count="few">{0} بوصة مكعبة</unitPattern>
-				<unitPattern count="many">{0} بوصة مكعبة</unitPattern>
-				<unitPattern count="other">{0} بوصة مكعبة</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>كيلومتر مكعب</displayName>
@@ -8843,6 +8797,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} متر مكعب</unitPattern>
 				<perUnitPattern>{0}/m³</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>سنتيمتر مكعب</displayName>
+				<unitPattern count="zero">{0} سنتيمتر مكعب</unitPattern>
+				<unitPattern count="one">{0} سنتيمتر مكعب</unitPattern>
+				<unitPattern count="two">{0} سنتيمتر مكعب</unitPattern>
+				<unitPattern count="few">{0} سنتيمتر مكعب</unitPattern>
+				<unitPattern count="many">{0} سنتيمتر مكعب</unitPattern>
+				<unitPattern count="other">{0} سنتيمتر مكعب</unitPattern>
+				<perUnitPattern>{0}/سنتيمتر مكعب</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>ميل مكعب</displayName>
 				<unitPattern count="zero">{0} ميل مكعب</unitPattern>
@@ -8861,51 +8825,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} ياردة مكعبة</unitPattern>
 				<unitPattern count="other">{0} ياردة مكعبة</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>كوب</displayName>
-				<unitPattern count="zero">{0} كوب</unitPattern>
-				<unitPattern count="one">كوب</unitPattern>
-				<unitPattern count="two">كوبان</unitPattern>
-				<unitPattern count="few">{0} أكواب</unitPattern>
-				<unitPattern count="many">{0} كوبًا</unitPattern>
-				<unitPattern count="other">{0} كوب</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>قدم مكعبة</displayName>
+				<unitPattern count="zero">{0} قدم مكعبة</unitPattern>
+				<unitPattern count="one">قدم مكعبة</unitPattern>
+				<unitPattern count="two">قدمان مكعبان</unitPattern>
+				<unitPattern count="few">{0} أقدام مكعبة</unitPattern>
+				<unitPattern count="many">{0} قدمًا مكعبًا</unitPattern>
+				<unitPattern count="other">{0} قدم مكعبة</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>كوب متري</displayName>
-				<unitPattern count="zero">{0} كوب متري</unitPattern>
-				<unitPattern count="one">{0} كوب متري</unitPattern>
-				<unitPattern count="two">{0} كوب متري</unitPattern>
-				<unitPattern count="few">{0} كوب متري</unitPattern>
-				<unitPattern count="many">{0} كوب متري</unitPattern>
-				<unitPattern count="other">{0} كوب متري</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>بوصة مكعبة</displayName>
+				<unitPattern count="zero">{0} بوصة مكعبة</unitPattern>
+				<unitPattern count="one">{0} بوصة مكعبة</unitPattern>
+				<unitPattern count="two">{0} بوصة مكعبة</unitPattern>
+				<unitPattern count="few">{0} بوصة مكعبة</unitPattern>
+				<unitPattern count="many">{0} بوصة مكعبة</unitPattern>
+				<unitPattern count="other">{0} بوصة مكعبة</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>ديسيلتر</displayName>
-				<unitPattern count="zero">{0} ديسيلتر</unitPattern>
-				<unitPattern count="one">{0} ديسيلتر</unitPattern>
-				<unitPattern count="two">{0} ديسيلتر</unitPattern>
-				<unitPattern count="few">{0} ديسيلتر</unitPattern>
-				<unitPattern count="many">{0} ديسيلتر</unitPattern>
-				<unitPattern count="other">{0} ديسيلتر</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>أونصة سائلة</displayName>
-				<unitPattern count="zero">{0} أونصة سائلة</unitPattern>
-				<unitPattern count="one">أونصة سائلة</unitPattern>
-				<unitPattern count="two">أونصتان سائلتان</unitPattern>
-				<unitPattern count="few">{0} أونصات سائلة</unitPattern>
-				<unitPattern count="many">{0} أونصة سائلة</unitPattern>
-				<unitPattern count="other">{0} أونصة سائلة</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>غالون</displayName>
-				<unitPattern count="zero">{0} غالون</unitPattern>
-				<unitPattern count="one">غالون</unitPattern>
-				<unitPattern count="two">غالونان</unitPattern>
-				<unitPattern count="few">{0} غالونات</unitPattern>
-				<unitPattern count="many">{0} غالونًا</unitPattern>
-				<unitPattern count="other">{0} غالون</unitPattern>
-				<perUnitPattern>{0} لكل غالون</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>ميغالتر</displayName>
+				<unitPattern count="zero">{0} ميغالتر</unitPattern>
+				<unitPattern count="one">{0} ميغالتر</unitPattern>
+				<unitPattern count="two">{0} ميغالتر</unitPattern>
+				<unitPattern count="few">{0} ميغالتر</unitPattern>
+				<unitPattern count="many">{0} ميغالتر</unitPattern>
+				<unitPattern count="other">{0} ميغالتر</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>هكتولتر</displayName>
@@ -8926,14 +8871,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} لتر</unitPattern>
 				<perUnitPattern>{0} لكل لتر</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>ميغالتر</displayName>
-				<unitPattern count="zero">{0} ميغالتر</unitPattern>
-				<unitPattern count="one">{0} ميغالتر</unitPattern>
-				<unitPattern count="two">{0} ميغالتر</unitPattern>
-				<unitPattern count="few">{0} ميغالتر</unitPattern>
-				<unitPattern count="many">{0} ميغالتر</unitPattern>
-				<unitPattern count="other">{0} ميغالتر</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>ديسيلتر</displayName>
+				<unitPattern count="zero">{0} ديسيلتر</unitPattern>
+				<unitPattern count="one">{0} ديسيلتر</unitPattern>
+				<unitPattern count="two">{0} ديسيلتر</unitPattern>
+				<unitPattern count="few">{0} ديسيلتر</unitPattern>
+				<unitPattern count="many">{0} ديسيلتر</unitPattern>
+				<unitPattern count="other">{0} ديسيلتر</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>سنتيلتر</displayName>
+				<unitPattern count="zero">{0} سنتيلتر</unitPattern>
+				<unitPattern count="one">{0} سنتيلتر</unitPattern>
+				<unitPattern count="two">{0} سنتيلتر</unitPattern>
+				<unitPattern count="few">{0} سنتيلتر</unitPattern>
+				<unitPattern count="many">{0} سنتيلتر</unitPattern>
+				<unitPattern count="other">{0} سنتيلتر</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>ملليلتر</displayName>
@@ -8944,15 +8898,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} ملليلتر</unitPattern>
 				<unitPattern count="other">{0} ملليلتر</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>مكيال</displayName>
-				<unitPattern count="zero">{0} مكيال</unitPattern>
-				<unitPattern count="one">مكيال</unitPattern>
-				<unitPattern count="two">مكيالان</unitPattern>
-				<unitPattern count="few">{0} مكاييل</unitPattern>
-				<unitPattern count="many">{0} مكيالاً</unitPattern>
-				<unitPattern count="other">{0} مكيال</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>مكيال متري</displayName>
 				<unitPattern count="zero">{0} مكيال متري</unitPattern>
@@ -8962,6 +8907,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} مكيال متري</unitPattern>
 				<unitPattern count="other">{0} مكيال متري</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>كوب متري</displayName>
+				<unitPattern count="zero">{0} كوب متري</unitPattern>
+				<unitPattern count="one">{0} كوب متري</unitPattern>
+				<unitPattern count="two">{0} كوب متري</unitPattern>
+				<unitPattern count="few">{0} كوب متري</unitPattern>
+				<unitPattern count="many">{0} كوب متري</unitPattern>
+				<unitPattern count="other">{0} كوب متري</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>فدان قدم</displayName>
+				<unitPattern count="zero">{0} فدان قدم</unitPattern>
+				<unitPattern count="one">{0} فدان قدم</unitPattern>
+				<unitPattern count="two">{0} فدان قدم</unitPattern>
+				<unitPattern count="few">{0} فدان قدم</unitPattern>
+				<unitPattern count="many">{0} فدان قدم</unitPattern>
+				<unitPattern count="other">{0} فدان قدم</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>غالون</displayName>
+				<unitPattern count="zero">{0} غالون</unitPattern>
+				<unitPattern count="one">غالون</unitPattern>
+				<unitPattern count="two">غالونان</unitPattern>
+				<unitPattern count="few">{0} غالونات</unitPattern>
+				<unitPattern count="many">{0} غالونًا</unitPattern>
+				<unitPattern count="other">{0} غالون</unitPattern>
+				<perUnitPattern>{0} لكل غالون</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>ربع غالون</displayName>
 				<unitPattern count="zero">{0} ربع غالون</unitPattern>
@@ -8970,6 +8943,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} أرباع غالون</unitPattern>
 				<unitPattern count="many">{0} ربع غالون</unitPattern>
 				<unitPattern count="other">{0} ربع غالون</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>مكيال</displayName>
+				<unitPattern count="zero">{0} مكيال</unitPattern>
+				<unitPattern count="one">مكيال</unitPattern>
+				<unitPattern count="two">مكيالان</unitPattern>
+				<unitPattern count="few">{0} مكاييل</unitPattern>
+				<unitPattern count="many">{0} مكيالاً</unitPattern>
+				<unitPattern count="other">{0} مكيال</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>كوب</displayName>
+				<unitPattern count="zero">{0} كوب</unitPattern>
+				<unitPattern count="one">كوب</unitPattern>
+				<unitPattern count="two">كوبان</unitPattern>
+				<unitPattern count="few">{0} أكواب</unitPattern>
+				<unitPattern count="many">{0} كوبًا</unitPattern>
+				<unitPattern count="other">{0} كوب</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>أونصة سائلة</displayName>
+				<unitPattern count="zero">{0} أونصة سائلة</unitPattern>
+				<unitPattern count="one">أونصة سائلة</unitPattern>
+				<unitPattern count="two">أونصتان سائلتان</unitPattern>
+				<unitPattern count="few">{0} أونصات سائلة</unitPattern>
+				<unitPattern count="many">{0} أونصة سائلة</unitPattern>
+				<unitPattern count="other">{0} أونصة سائلة</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>ملعقة المائدة</displayName>
@@ -9018,6 +9018,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} م/ث²</unitPattern>
 				<unitPattern count="other">{0} م/ث²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>دورة</displayName>
+				<unitPattern count="zero">{0} دورة</unitPattern>
+				<unitPattern count="one">دورة ({0})</unitPattern>
+				<unitPattern count="two">دورتان ({0})</unitPattern>
+				<unitPattern count="few">{0} دورات</unitPattern>
+				<unitPattern count="many">{0} دورة</unitPattern>
+				<unitPattern count="other">{0} دورة</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>راديان</displayName>
+				<unitPattern count="zero">{0} راديان</unitPattern>
+				<unitPattern count="one">{0} راديان</unitPattern>
+				<unitPattern count="two">{0} راديان</unitPattern>
+				<unitPattern count="few">{0} راديان</unitPattern>
+				<unitPattern count="many">{0} راديان</unitPattern>
+				<unitPattern count="other">{0} راديان</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>درجة</displayName>
+				<unitPattern count="zero">{0} درجة</unitPattern>
+				<unitPattern count="one">{0} درجة</unitPattern>
+				<unitPattern count="two">درجتان ({0})</unitPattern>
+				<unitPattern count="few">{0} درجات</unitPattern>
+				<unitPattern count="many">{0} درجة</unitPattern>
+				<unitPattern count="other">{0} درجة</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>دقيقة قوسية</displayName>
 				<unitPattern count="zero">{0} دقيقة قوسية</unitPattern>
@@ -9036,41 +9063,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} ثانية قوسية</unitPattern>
 				<unitPattern count="other">{0} ثانية قوسية</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>درجة</displayName>
-				<unitPattern count="zero">{0} درجة</unitPattern>
-				<unitPattern count="one">{0} درجة</unitPattern>
-				<unitPattern count="two">درجتان ({0})</unitPattern>
-				<unitPattern count="few">{0} درجات</unitPattern>
-				<unitPattern count="many">{0} درجة</unitPattern>
-				<unitPattern count="other">{0} درجة</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>راديان</displayName>
-				<unitPattern count="zero">{0} راديان</unitPattern>
-				<unitPattern count="one">{0} راديان</unitPattern>
-				<unitPattern count="two">{0} راديان</unitPattern>
-				<unitPattern count="few">{0} راديان</unitPattern>
-				<unitPattern count="many">{0} راديان</unitPattern>
-				<unitPattern count="other">{0} راديان</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>دورة</displayName>
-				<unitPattern count="zero">{0} دورة</unitPattern>
-				<unitPattern count="one">دورة ({0})</unitPattern>
-				<unitPattern count="two">دورتان ({0})</unitPattern>
-				<unitPattern count="few">{0} دورات</unitPattern>
-				<unitPattern count="many">{0} دورة</unitPattern>
-				<unitPattern count="other">{0} دورة</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>فدان</displayName>
-				<unitPattern count="zero">{0} فدان</unitPattern>
-				<unitPattern count="one">فدان</unitPattern>
-				<unitPattern count="two">فدانان</unitPattern>
-				<unitPattern count="few">{0} فدادين</unitPattern>
-				<unitPattern count="many">{0} فدانًا</unitPattern>
-				<unitPattern count="other">{0} فدان</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>كم²</displayName>
+				<unitPattern count="zero">{0} كم²</unitPattern>
+				<unitPattern count="one">{0} كم²</unitPattern>
+				<unitPattern count="two">{0} كم²</unitPattern>
+				<unitPattern count="few">{0} كم²</unitPattern>
+				<unitPattern count="many">{0} كم²</unitPattern>
+				<unitPattern count="other">{0} كم²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>هكتار</displayName>
@@ -9081,6 +9081,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} هكتار</unitPattern>
 				<unitPattern count="other">{0} هكتار</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>م²</displayName>
+				<unitPattern count="zero">{0} م²</unitPattern>
+				<unitPattern count="one">{0} م²</unitPattern>
+				<unitPattern count="two">{0} م²</unitPattern>
+				<unitPattern count="few">{0} م²</unitPattern>
+				<unitPattern count="many">{0} م²</unitPattern>
+				<unitPattern count="other">{0} م²</unitPattern>
+				<perUnitPattern>{0}/م²</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>سم ²</displayName>
 				<unitPattern count="zero">{0} سم²</unitPattern>
@@ -9090,6 +9100,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} سم²</unitPattern>
 				<unitPattern count="other">{0} سم²</unitPattern>
 				<perUnitPattern>{0}/سم²</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>ميل مربع</displayName>
+				<unitPattern count="zero">{0} ميل مربع</unitPattern>
+				<unitPattern count="one">{0} ميل مربع</unitPattern>
+				<unitPattern count="two">{0} ميل مربع</unitPattern>
+				<unitPattern count="few">{0} ميل مربع</unitPattern>
+				<unitPattern count="many">{0} ميل مربع</unitPattern>
+				<unitPattern count="other">{0} ميل مربع</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>فدان</displayName>
+				<unitPattern count="zero">{0} فدان</unitPattern>
+				<unitPattern count="one">فدان</unitPattern>
+				<unitPattern count="two">فدانان</unitPattern>
+				<unitPattern count="few">{0} فدادين</unitPattern>
+				<unitPattern count="many">{0} فدانًا</unitPattern>
+				<unitPattern count="other">{0} فدان</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>ياردة مربعة</displayName>
+				<unitPattern count="zero">{0} ياردة مربعة</unitPattern>
+				<unitPattern count="one">{0} ياردة مربعة</unitPattern>
+				<unitPattern count="two">{0} ياردة مربعة</unitPattern>
+				<unitPattern count="few">{0} ياردة مربعة</unitPattern>
+				<unitPattern count="many">{0} ياردة مربعة</unitPattern>
+				<unitPattern count="other">{0} ياردة مربعة</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>قدم مربعة</displayName>
@@ -9110,42 +9147,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} بوصة مربعة</unitPattern>
 				<perUnitPattern>{0}/بوصة مربعة</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>كم²</displayName>
-				<unitPattern count="zero">{0} كم²</unitPattern>
-				<unitPattern count="one">{0} كم²</unitPattern>
-				<unitPattern count="two">{0} كم²</unitPattern>
-				<unitPattern count="few">{0} كم²</unitPattern>
-				<unitPattern count="many">{0} كم²</unitPattern>
-				<unitPattern count="other">{0} كم²</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>م²</displayName>
-				<unitPattern count="zero">{0} م²</unitPattern>
-				<unitPattern count="one">{0} م²</unitPattern>
-				<unitPattern count="two">{0} م²</unitPattern>
-				<unitPattern count="few">{0} م²</unitPattern>
-				<unitPattern count="many">{0} م²</unitPattern>
-				<unitPattern count="other">{0} م²</unitPattern>
-				<perUnitPattern>{0}/م²</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>ميل مربع</displayName>
-				<unitPattern count="zero">{0} ميل مربع</unitPattern>
-				<unitPattern count="one">{0} ميل مربع</unitPattern>
-				<unitPattern count="two">{0} ميل مربع</unitPattern>
-				<unitPattern count="few">{0} ميل مربع</unitPattern>
-				<unitPattern count="many">{0} ميل مربع</unitPattern>
-				<unitPattern count="other">{0} ميل مربع</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>ياردة مربعة</displayName>
-				<unitPattern count="zero">{0} ياردة مربعة</unitPattern>
-				<unitPattern count="one">{0} ياردة مربعة</unitPattern>
-				<unitPattern count="two">{0} ياردة مربعة</unitPattern>
-				<unitPattern count="few">{0} ياردة مربعة</unitPattern>
-				<unitPattern count="many">{0} ياردة مربعة</unitPattern>
-				<unitPattern count="other">{0} ياردة مربعة</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>لتر/كم</displayName>
+				<unitPattern count="zero">{0} لتر/كم</unitPattern>
+				<unitPattern count="one">{0} لتر/كم</unitPattern>
+				<unitPattern count="two">{0} لتر/كم</unitPattern>
+				<unitPattern count="few">{0} لتر/كم</unitPattern>
+				<unitPattern count="many">{0} لتر/كم</unitPattern>
+				<unitPattern count="other">{0} لتر/كم</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName draft="contributed">لتر/‏١٠٠ كم</displayName>
@@ -9156,15 +9165,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0} لتر/١٠٠ كم</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} لتر/١٠٠ كم</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>لتر/كم</displayName>
-				<unitPattern count="zero">{0} لتر/كم</unitPattern>
-				<unitPattern count="one">{0} لتر/كم</unitPattern>
-				<unitPattern count="two">{0} لتر/كم</unitPattern>
-				<unitPattern count="few">{0} لتر/كم</unitPattern>
-				<unitPattern count="many">{0} لتر/كم</unitPattern>
-				<unitPattern count="other">{0} لتر/كم</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>ميل/غالون</displayName>
 				<unitPattern count="zero">{0} ميل/غالون</unitPattern>
@@ -9173,87 +9173,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} ميل/غالون</unitPattern>
 				<unitPattern count="many">{0} ميل/غالون</unitPattern>
 				<unitPattern count="other">{0} ميل/غالون</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>بت</displayName>
-				<unitPattern count="zero">{0} بت</unitPattern>
-				<unitPattern count="one">{0} بت</unitPattern>
-				<unitPattern count="two">{0} بت</unitPattern>
-				<unitPattern count="few">{0} بت</unitPattern>
-				<unitPattern count="many">{0} بت</unitPattern>
-				<unitPattern count="other">{0} بت</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>بايت</displayName>
-				<unitPattern count="zero">{0} بايت</unitPattern>
-				<unitPattern count="one">{0} بايت</unitPattern>
-				<unitPattern count="two">{0} بايت</unitPattern>
-				<unitPattern count="few">{0} بايت</unitPattern>
-				<unitPattern count="many">{0} بايت</unitPattern>
-				<unitPattern count="other">{0} بايت</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>غيغابت</displayName>
-				<unitPattern count="zero">{0} غيغابت</unitPattern>
-				<unitPattern count="one">{0} غيغابت</unitPattern>
-				<unitPattern count="two">{0} غيغابت</unitPattern>
-				<unitPattern count="few">{0} غيغابت</unitPattern>
-				<unitPattern count="many">{0} غيغابت</unitPattern>
-				<unitPattern count="other">{0} غيغابت</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>غيغابايت</displayName>
-				<unitPattern count="zero">{0} غيغابايت</unitPattern>
-				<unitPattern count="one">{0} غيغابايت</unitPattern>
-				<unitPattern count="two">{0} غيغابايت</unitPattern>
-				<unitPattern count="few">{0} غيغابايت</unitPattern>
-				<unitPattern count="many">{0} غيغابايت</unitPattern>
-				<unitPattern count="other">{0} غيغابايت</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>كيلوبت</displayName>
-				<unitPattern count="zero">{0} كيلوبت</unitPattern>
-				<unitPattern count="one">{0} كيلوبت</unitPattern>
-				<unitPattern count="two">{0} كيلوبت</unitPattern>
-				<unitPattern count="few">{0} كيلوبت</unitPattern>
-				<unitPattern count="many">{0} كيلوبت</unitPattern>
-				<unitPattern count="other">{0} كيلوبت</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>كيلوبايت</displayName>
-				<unitPattern count="zero">{0} كيلوبايت</unitPattern>
-				<unitPattern count="one">{0} كيلوبايت</unitPattern>
-				<unitPattern count="two">{0} كيلوبايت</unitPattern>
-				<unitPattern count="few">{0} كيلوبايت</unitPattern>
-				<unitPattern count="many">{0} كيلوبايت</unitPattern>
-				<unitPattern count="other">{0} كيلوبايت</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>ميغابت</displayName>
-				<unitPattern count="zero">{0} ميغابت</unitPattern>
-				<unitPattern count="one">{0} ميغابت</unitPattern>
-				<unitPattern count="two">{0} ميغابت</unitPattern>
-				<unitPattern count="few">{0} ميغابت</unitPattern>
-				<unitPattern count="many">{0} ميغابت</unitPattern>
-				<unitPattern count="other">{0} ميغابت</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>ميغابايت</displayName>
-				<unitPattern count="zero">{0} ميغابايت</unitPattern>
-				<unitPattern count="one">{0} ميغابايت</unitPattern>
-				<unitPattern count="two">{0} ميغابايت</unitPattern>
-				<unitPattern count="few">{0} ميغابايت</unitPattern>
-				<unitPattern count="many">{0} ميغابايت</unitPattern>
-				<unitPattern count="other">{0} ميغابايت</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>تيرابت</displayName>
-				<unitPattern count="zero">{0} تيرابت</unitPattern>
-				<unitPattern count="one">{0} تيرابت</unitPattern>
-				<unitPattern count="two">{0} تيرابت</unitPattern>
-				<unitPattern count="few">{0} تيرابت</unitPattern>
-				<unitPattern count="many">{0} تيرابت</unitPattern>
-				<unitPattern count="other">{0} تيرابت</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>تيرابايت</displayName>
@@ -9264,6 +9183,87 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} تيرابايت</unitPattern>
 				<unitPattern count="other">{0} تيرابايت</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>تيرابت</displayName>
+				<unitPattern count="zero">{0} تيرابت</unitPattern>
+				<unitPattern count="one">{0} تيرابت</unitPattern>
+				<unitPattern count="two">{0} تيرابت</unitPattern>
+				<unitPattern count="few">{0} تيرابت</unitPattern>
+				<unitPattern count="many">{0} تيرابت</unitPattern>
+				<unitPattern count="other">{0} تيرابت</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>غيغابايت</displayName>
+				<unitPattern count="zero">{0} غيغابايت</unitPattern>
+				<unitPattern count="one">{0} غيغابايت</unitPattern>
+				<unitPattern count="two">{0} غيغابايت</unitPattern>
+				<unitPattern count="few">{0} غيغابايت</unitPattern>
+				<unitPattern count="many">{0} غيغابايت</unitPattern>
+				<unitPattern count="other">{0} غيغابايت</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>غيغابت</displayName>
+				<unitPattern count="zero">{0} غيغابت</unitPattern>
+				<unitPattern count="one">{0} غيغابت</unitPattern>
+				<unitPattern count="two">{0} غيغابت</unitPattern>
+				<unitPattern count="few">{0} غيغابت</unitPattern>
+				<unitPattern count="many">{0} غيغابت</unitPattern>
+				<unitPattern count="other">{0} غيغابت</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>ميغابايت</displayName>
+				<unitPattern count="zero">{0} ميغابايت</unitPattern>
+				<unitPattern count="one">{0} ميغابايت</unitPattern>
+				<unitPattern count="two">{0} ميغابايت</unitPattern>
+				<unitPattern count="few">{0} ميغابايت</unitPattern>
+				<unitPattern count="many">{0} ميغابايت</unitPattern>
+				<unitPattern count="other">{0} ميغابايت</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>ميغابت</displayName>
+				<unitPattern count="zero">{0} ميغابت</unitPattern>
+				<unitPattern count="one">{0} ميغابت</unitPattern>
+				<unitPattern count="two">{0} ميغابت</unitPattern>
+				<unitPattern count="few">{0} ميغابت</unitPattern>
+				<unitPattern count="many">{0} ميغابت</unitPattern>
+				<unitPattern count="other">{0} ميغابت</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>كيلوبايت</displayName>
+				<unitPattern count="zero">{0} كيلوبايت</unitPattern>
+				<unitPattern count="one">{0} كيلوبايت</unitPattern>
+				<unitPattern count="two">{0} كيلوبايت</unitPattern>
+				<unitPattern count="few">{0} كيلوبايت</unitPattern>
+				<unitPattern count="many">{0} كيلوبايت</unitPattern>
+				<unitPattern count="other">{0} كيلوبايت</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>كيلوبت</displayName>
+				<unitPattern count="zero">{0} كيلوبت</unitPattern>
+				<unitPattern count="one">{0} كيلوبت</unitPattern>
+				<unitPattern count="two">{0} كيلوبت</unitPattern>
+				<unitPattern count="few">{0} كيلوبت</unitPattern>
+				<unitPattern count="many">{0} كيلوبت</unitPattern>
+				<unitPattern count="other">{0} كيلوبت</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>بايت</displayName>
+				<unitPattern count="zero">{0} بايت</unitPattern>
+				<unitPattern count="one">{0} بايت</unitPattern>
+				<unitPattern count="two">{0} بايت</unitPattern>
+				<unitPattern count="few">{0} بايت</unitPattern>
+				<unitPattern count="many">{0} بايت</unitPattern>
+				<unitPattern count="other">{0} بايت</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>بت</displayName>
+				<unitPattern count="zero">{0} بت</unitPattern>
+				<unitPattern count="one">{0} بت</unitPattern>
+				<unitPattern count="two">{0} بت</unitPattern>
+				<unitPattern count="few">{0} بت</unitPattern>
+				<unitPattern count="many">{0} بت</unitPattern>
+				<unitPattern count="other">{0} بت</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>قرن</displayName>
 				<unitPattern count="zero">{0} قرن</unitPattern>
@@ -9272,6 +9272,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} قرون</unitPattern>
 				<unitPattern count="many">{0} قرنًا</unitPattern>
 				<unitPattern count="other">{0} قرن</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>سنة</displayName>
+				<unitPattern count="zero">{0} سنة</unitPattern>
+				<unitPattern count="one">سنة واحدة</unitPattern>
+				<unitPattern count="two">سنتان</unitPattern>
+				<unitPattern count="few">{0} سنة</unitPattern>
+				<unitPattern count="many">{0} سنة</unitPattern>
+				<unitPattern count="other">{0} سنة</unitPattern>
+				<perUnitPattern>{0}/سنة</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>شهور</displayName>
+				<unitPattern count="zero">{0} شهر</unitPattern>
+				<unitPattern count="one">شهر</unitPattern>
+				<unitPattern count="two">شهران</unitPattern>
+				<unitPattern count="few">{0} أشهر</unitPattern>
+				<unitPattern count="many">{0} شهرًا</unitPattern>
+				<unitPattern count="other">{0} شهر</unitPattern>
+				<perUnitPattern>{0}/ش</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>أسبوع</displayName>
+				<unitPattern count="zero">{0} أسبوع</unitPattern>
+				<unitPattern count="one">أسبوع</unitPattern>
+				<unitPattern count="two">أسبوعان</unitPattern>
+				<unitPattern count="few">{0} أسابيع</unitPattern>
+				<unitPattern count="many">{0} أسبوعًا</unitPattern>
+				<unitPattern count="other">{0} أسبوع</unitPattern>
+				<perUnitPattern>{0}/أ</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>أيام</displayName>
@@ -9293,24 +9323,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} س</unitPattern>
 				<perUnitPattern>{0}/س</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>م.ث.</displayName>
-				<unitPattern count="zero">{0} م.ث.</unitPattern>
-				<unitPattern count="one">{0} م.ث.</unitPattern>
-				<unitPattern count="two">{0} م.ث.</unitPattern>
-				<unitPattern count="few">{0} م.ث.</unitPattern>
-				<unitPattern count="many">{0} م.ث.</unitPattern>
-				<unitPattern count="other">{0} م.ث.</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>مللي ثانية</displayName>
-				<unitPattern count="zero">{0} مللي ث.</unitPattern>
-				<unitPattern count="one">{0} مللي ث.</unitPattern>
-				<unitPattern count="two">{0} مللي ث.</unitPattern>
-				<unitPattern count="few">{0} مللي ث.</unitPattern>
-				<unitPattern count="many">{0} مللي ث.</unitPattern>
-				<unitPattern count="other">{0} مللي ث.</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>د</displayName>
 				<unitPattern count="zero">{0} د</unitPattern>
@@ -9320,25 +9332,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} د</unitPattern>
 				<unitPattern count="other">{0} د</unitPattern>
 				<perUnitPattern>{0}/د</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>شهور</displayName>
-				<unitPattern count="zero">{0} شهر</unitPattern>
-				<unitPattern count="one">شهر</unitPattern>
-				<unitPattern count="two">شهران</unitPattern>
-				<unitPattern count="few">{0} أشهر</unitPattern>
-				<unitPattern count="many">{0} شهرًا</unitPattern>
-				<unitPattern count="other">{0} شهر</unitPattern>
-				<perUnitPattern>{0}/ش</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>ن.ث.</displayName>
-				<unitPattern count="zero">{0} ن.ث.</unitPattern>
-				<unitPattern count="one">{0} ن.ث.</unitPattern>
-				<unitPattern count="two">{0} ن.ث.</unitPattern>
-				<unitPattern count="few">{0} ن.ث.</unitPattern>
-				<unitPattern count="many">{0} ن.ث.</unitPattern>
-				<unitPattern count="other">{0} ن.ث.</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>ثانية</displayName>
@@ -9350,25 +9343,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ث</unitPattern>
 				<perUnitPattern>{0}/ث</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>أسبوع</displayName>
-				<unitPattern count="zero">{0} أسبوع</unitPattern>
-				<unitPattern count="one">أسبوع</unitPattern>
-				<unitPattern count="two">أسبوعان</unitPattern>
-				<unitPattern count="few">{0} أسابيع</unitPattern>
-				<unitPattern count="many">{0} أسبوعًا</unitPattern>
-				<unitPattern count="other">{0} أسبوع</unitPattern>
-				<perUnitPattern>{0}/أ</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>مللي ثانية</displayName>
+				<unitPattern count="zero">{0} مللي ث.</unitPattern>
+				<unitPattern count="one">{0} مللي ث.</unitPattern>
+				<unitPattern count="two">{0} مللي ث.</unitPattern>
+				<unitPattern count="few">{0} مللي ث.</unitPattern>
+				<unitPattern count="many">{0} مللي ث.</unitPattern>
+				<unitPattern count="other">{0} مللي ث.</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>سنة</displayName>
-				<unitPattern count="zero">{0} سنة</unitPattern>
-				<unitPattern count="one">سنة واحدة</unitPattern>
-				<unitPattern count="two">سنتان</unitPattern>
-				<unitPattern count="few">{0} سنة</unitPattern>
-				<unitPattern count="many">{0} سنة</unitPattern>
-				<unitPattern count="other">{0} سنة</unitPattern>
-				<perUnitPattern>{0}/سنة</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>م.ث.</displayName>
+				<unitPattern count="zero">{0} م.ث.</unitPattern>
+				<unitPattern count="one">{0} م.ث.</unitPattern>
+				<unitPattern count="two">{0} م.ث.</unitPattern>
+				<unitPattern count="few">{0} م.ث.</unitPattern>
+				<unitPattern count="many">{0} م.ث.</unitPattern>
+				<unitPattern count="other">{0} م.ث.</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ن.ث.</displayName>
+				<unitPattern count="zero">{0} ن.ث.</unitPattern>
+				<unitPattern count="one">{0} ن.ث.</unitPattern>
+				<unitPattern count="two">{0} ن.ث.</unitPattern>
+				<unitPattern count="few">{0} ن.ث.</unitPattern>
+				<unitPattern count="many">{0} ن.ث.</unitPattern>
+				<unitPattern count="other">{0} ن.ث.</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>أمبير</displayName>
@@ -9406,6 +9406,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} فولت</unitPattern>
 				<unitPattern count="other">{0} فولت</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>ك كالوري</displayName>
+				<unitPattern count="zero">{0} ك كالوري</unitPattern>
+				<unitPattern count="one">{0} ك كالوري</unitPattern>
+				<unitPattern count="two">{0} ك كالوري</unitPattern>
+				<unitPattern count="few">{0} ك كالوري</unitPattern>
+				<unitPattern count="many">{0} ك كالوري</unitPattern>
+				<unitPattern count="other">{0} ك كالوري</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>كالوري</displayName>
 				<unitPattern count="zero">{0} كالوري</unitPattern>
@@ -9424,24 +9433,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} كالوري</unitPattern>
 				<unitPattern count="other">{0} كالوري</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>جول</displayName>
-				<unitPattern count="zero">{0} جول</unitPattern>
-				<unitPattern count="one">{0} جول</unitPattern>
-				<unitPattern count="two">{0} جول</unitPattern>
-				<unitPattern count="few">{0} جول</unitPattern>
-				<unitPattern count="many">{0} جول</unitPattern>
-				<unitPattern count="other">{0} جول</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>ك كالوري</displayName>
-				<unitPattern count="zero">{0} ك كالوري</unitPattern>
-				<unitPattern count="one">{0} ك كالوري</unitPattern>
-				<unitPattern count="two">{0} ك كالوري</unitPattern>
-				<unitPattern count="few">{0} ك كالوري</unitPattern>
-				<unitPattern count="many">{0} ك كالوري</unitPattern>
-				<unitPattern count="other">{0} ك كالوري</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>ك جول</displayName>
 				<unitPattern count="zero">{0} ك جول</unitPattern>
@@ -9450,6 +9441,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} ك جول</unitPattern>
 				<unitPattern count="many">{0} ك جول</unitPattern>
 				<unitPattern count="other">{0} ك جول</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>جول</displayName>
+				<unitPattern count="zero">{0} جول</unitPattern>
+				<unitPattern count="one">{0} جول</unitPattern>
+				<unitPattern count="two">{0} جول</unitPattern>
+				<unitPattern count="few">{0} جول</unitPattern>
+				<unitPattern count="many">{0} جول</unitPattern>
+				<unitPattern count="other">{0} جول</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>ك.و.س</displayName>
@@ -9469,14 +9469,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} غ هرتز</unitPattern>
 				<unitPattern count="other">{0} غ هرتز</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>هرتز</displayName>
-				<unitPattern count="zero">{0} هرتز</unitPattern>
-				<unitPattern count="one">{0} هرتز</unitPattern>
-				<unitPattern count="two">{0} هرتز</unitPattern>
-				<unitPattern count="few">{0} هرتز</unitPattern>
-				<unitPattern count="many">{0} هرتز</unitPattern>
-				<unitPattern count="other">{0} هرتز</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>م هرتز</displayName>
+				<unitPattern count="zero">{0} م هرتز</unitPattern>
+				<unitPattern count="one">{0} م هرتز</unitPattern>
+				<unitPattern count="two">{0} م هرتز</unitPattern>
+				<unitPattern count="few">{0} م هرتز</unitPattern>
+				<unitPattern count="many">{0} م هرتز</unitPattern>
+				<unitPattern count="other">{0} م هرتز</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>ك هرتز</displayName>
@@ -9487,23 +9487,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} ك هرتز</unitPattern>
 				<unitPattern count="other">{0} ك هرتز</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>م هرتز</displayName>
-				<unitPattern count="zero">{0} م هرتز</unitPattern>
-				<unitPattern count="one">{0} م هرتز</unitPattern>
-				<unitPattern count="two">{0} م هرتز</unitPattern>
-				<unitPattern count="few">{0} م هرتز</unitPattern>
-				<unitPattern count="many">{0} م هرتز</unitPattern>
-				<unitPattern count="other">{0} م هرتز</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>هرتز</displayName>
+				<unitPattern count="zero">{0} هرتز</unitPattern>
+				<unitPattern count="one">{0} هرتز</unitPattern>
+				<unitPattern count="two">{0} هرتز</unitPattern>
+				<unitPattern count="few">{0} هرتز</unitPattern>
+				<unitPattern count="many">{0} هرتز</unitPattern>
+				<unitPattern count="other">{0} هرتز</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>و.ف.</displayName>
-				<unitPattern count="zero">{0} و.ف.</unitPattern>
-				<unitPattern count="one">{0} و.ف.</unitPattern>
-				<unitPattern count="two">{0} و.ف.</unitPattern>
-				<unitPattern count="few">{0} و.ف.</unitPattern>
-				<unitPattern count="many">{0} و.ف.</unitPattern>
-				<unitPattern count="other">{0} و.ف.</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>كم</displayName>
+				<unitPattern count="zero">{0} كم</unitPattern>
+				<unitPattern count="one">{0} كم</unitPattern>
+				<unitPattern count="two">{0} كم</unitPattern>
+				<unitPattern count="few">{0} كم</unitPattern>
+				<unitPattern count="many">{0} كم</unitPattern>
+				<unitPattern count="other">{0} كم</unitPattern>
+				<perUnitPattern>{0}/كم</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>متر</displayName>
+				<unitPattern count="zero">{0} متر</unitPattern>
+				<unitPattern count="one">متر</unitPattern>
+				<unitPattern count="two">متران</unitPattern>
+				<unitPattern count="few">{0} أمتار</unitPattern>
+				<unitPattern count="many">{0} مترًا</unitPattern>
+				<unitPattern count="other">{0} متر</unitPattern>
+				<perUnitPattern>{0}/م</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>دسم</displayName>
+				<unitPattern count="zero">{0} دسم</unitPattern>
+				<unitPattern count="one">{0} دسم</unitPattern>
+				<unitPattern count="two">{0} دسم</unitPattern>
+				<unitPattern count="few">{0} دسم</unitPattern>
+				<unitPattern count="many">{0} دسم</unitPattern>
+				<unitPattern count="other">{0} دسم</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>سم</displayName>
@@ -9515,14 +9535,59 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} سم</unitPattern>
 				<perUnitPattern>{0}/سم</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>دسم</displayName>
-				<unitPattern count="zero">{0} دسم</unitPattern>
-				<unitPattern count="one">{0} دسم</unitPattern>
-				<unitPattern count="two">{0} دسم</unitPattern>
-				<unitPattern count="few">{0} دسم</unitPattern>
-				<unitPattern count="many">{0} دسم</unitPattern>
-				<unitPattern count="other">{0} دسم</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>ملليمتر</displayName>
+				<unitPattern count="zero">{0} ملليمتر</unitPattern>
+				<unitPattern count="one">{0} ملليمتر</unitPattern>
+				<unitPattern count="two">{0} ملليمتر</unitPattern>
+				<unitPattern count="few">{0} ملليمتر</unitPattern>
+				<unitPattern count="many">{0} ملليمتر</unitPattern>
+				<unitPattern count="other">{0} ملليمتر</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>ميكرومتر</displayName>
+				<unitPattern count="zero">{0} ميكرومتر</unitPattern>
+				<unitPattern count="one">{0} ميكرومتر</unitPattern>
+				<unitPattern count="two">{0} ميكرومتر</unitPattern>
+				<unitPattern count="few">{0} ميكرومتر</unitPattern>
+				<unitPattern count="many">{0} ميكرومتر</unitPattern>
+				<unitPattern count="other">{0} ميكرومتر</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>نانو متر</displayName>
+				<unitPattern count="zero">{0} نانو متر</unitPattern>
+				<unitPattern count="one">{0} نانو متر</unitPattern>
+				<unitPattern count="two">{0} نانو متر</unitPattern>
+				<unitPattern count="few">{0} نانو متر</unitPattern>
+				<unitPattern count="many">{0} نانو متر</unitPattern>
+				<unitPattern count="other">{0} نانو متر</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>بيكومتر</displayName>
+				<unitPattern count="zero">{0} بيكومتر</unitPattern>
+				<unitPattern count="one">{0} بيكومتر</unitPattern>
+				<unitPattern count="two">{0} بيكومتر</unitPattern>
+				<unitPattern count="few">{0} بيكومتر</unitPattern>
+				<unitPattern count="many">{0} بيكومتر</unitPattern>
+				<unitPattern count="other">{0} بيكومتر</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>ميل</displayName>
+				<unitPattern count="zero">{0} ميل</unitPattern>
+				<unitPattern count="one">ميل</unitPattern>
+				<unitPattern count="two">ميلان</unitPattern>
+				<unitPattern count="few">{0} أميال</unitPattern>
+				<unitPattern count="many">{0} ميلاً</unitPattern>
+				<unitPattern count="other">{0} ميل</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>ياردة</displayName>
+				<unitPattern count="zero">{0} ياردة</unitPattern>
+				<unitPattern count="one">ياردة</unitPattern>
+				<unitPattern count="two">ياردتان</unitPattern>
+				<unitPattern count="few">{0} ياردات</unitPattern>
+				<unitPattern count="many">{0} ياردة</unitPattern>
+				<unitPattern count="other">{0} ياردة</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>قدم</displayName>
@@ -9544,15 +9609,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} بوصة</unitPattern>
 				<perUnitPattern>{0}/بوصة</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>كم</displayName>
-				<unitPattern count="zero">{0} كم</unitPattern>
-				<unitPattern count="one">{0} كم</unitPattern>
-				<unitPattern count="two">{0} كم</unitPattern>
-				<unitPattern count="few">{0} كم</unitPattern>
-				<unitPattern count="many">{0} كم</unitPattern>
-				<unitPattern count="other">{0} كم</unitPattern>
-				<perUnitPattern>{0}/كم</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>فرسخ فلكي</displayName>
+				<unitPattern count="zero">{0} فرسخ فلكي</unitPattern>
+				<unitPattern count="one">فرسخ فلكي</unitPattern>
+				<unitPattern count="two">فرسخان فلكيان</unitPattern>
+				<unitPattern count="few">{0} فراسخ فلكية</unitPattern>
+				<unitPattern count="many">{0} فرسخًا فلكيًا</unitPattern>
+				<unitPattern count="other">{0} فرسخ فلكي</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>سنة ضوئية</displayName>
@@ -9563,60 +9627,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} سنة ضوئية</unitPattern>
 				<unitPattern count="other">{0} سنة ضوئية</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>متر</displayName>
-				<unitPattern count="zero">{0} متر</unitPattern>
-				<unitPattern count="one">متر</unitPattern>
-				<unitPattern count="two">متران</unitPattern>
-				<unitPattern count="few">{0} أمتار</unitPattern>
-				<unitPattern count="many">{0} مترًا</unitPattern>
-				<unitPattern count="other">{0} متر</unitPattern>
-				<perUnitPattern>{0}/م</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>ميكرومتر</displayName>
-				<unitPattern count="zero">{0} ميكرومتر</unitPattern>
-				<unitPattern count="one">{0} ميكرومتر</unitPattern>
-				<unitPattern count="two">{0} ميكرومتر</unitPattern>
-				<unitPattern count="few">{0} ميكرومتر</unitPattern>
-				<unitPattern count="many">{0} ميكرومتر</unitPattern>
-				<unitPattern count="other">{0} ميكرومتر</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>ميل</displayName>
-				<unitPattern count="zero">{0} ميل</unitPattern>
-				<unitPattern count="one">ميل</unitPattern>
-				<unitPattern count="two">ميلان</unitPattern>
-				<unitPattern count="few">{0} أميال</unitPattern>
-				<unitPattern count="many">{0} ميلاً</unitPattern>
-				<unitPattern count="other">{0} ميل</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>ميل اسكندنافي</displayName>
-				<unitPattern count="zero">{0} ميل اسكندنافي</unitPattern>
-				<unitPattern count="one">{0} ميل اسكندنافي</unitPattern>
-				<unitPattern count="two">{0} ميل اسكندنافي</unitPattern>
-				<unitPattern count="few">{0} ميل اسكندنافي</unitPattern>
-				<unitPattern count="many">{0} ميل اسكندنافي</unitPattern>
-				<unitPattern count="other">{0} ميل اسكندنافي</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>ملليمتر</displayName>
-				<unitPattern count="zero">{0} ملليمتر</unitPattern>
-				<unitPattern count="one">{0} ملليمتر</unitPattern>
-				<unitPattern count="two">{0} ملليمتر</unitPattern>
-				<unitPattern count="few">{0} ملليمتر</unitPattern>
-				<unitPattern count="many">{0} ملليمتر</unitPattern>
-				<unitPattern count="other">{0} ملليمتر</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>نانو متر</displayName>
-				<unitPattern count="zero">{0} نانو متر</unitPattern>
-				<unitPattern count="one">{0} نانو متر</unitPattern>
-				<unitPattern count="two">{0} نانو متر</unitPattern>
-				<unitPattern count="few">{0} نانو متر</unitPattern>
-				<unitPattern count="many">{0} نانو متر</unitPattern>
-				<unitPattern count="other">{0} نانو متر</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>و.ف.</displayName>
+				<unitPattern count="zero">{0} و.ف.</unitPattern>
+				<unitPattern count="one">{0} و.ف.</unitPattern>
+				<unitPattern count="two">{0} و.ف.</unitPattern>
+				<unitPattern count="few">{0} و.ف.</unitPattern>
+				<unitPattern count="many">{0} و.ف.</unitPattern>
+				<unitPattern count="other">{0} و.ف.</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>ميل بحري</displayName>
@@ -9627,32 +9645,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} ميلاً بحريًا</unitPattern>
 				<unitPattern count="other">{0} ميل بحري</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>فرسخ فلكي</displayName>
-				<unitPattern count="zero">{0} فرسخ فلكي</unitPattern>
-				<unitPattern count="one">فرسخ فلكي</unitPattern>
-				<unitPattern count="two">فرسخان فلكيان</unitPattern>
-				<unitPattern count="few">{0} فراسخ فلكية</unitPattern>
-				<unitPattern count="many">{0} فرسخًا فلكيًا</unitPattern>
-				<unitPattern count="other">{0} فرسخ فلكي</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>بيكومتر</displayName>
-				<unitPattern count="zero">{0} بيكومتر</unitPattern>
-				<unitPattern count="one">{0} بيكومتر</unitPattern>
-				<unitPattern count="two">{0} بيكومتر</unitPattern>
-				<unitPattern count="few">{0} بيكومتر</unitPattern>
-				<unitPattern count="many">{0} بيكومتر</unitPattern>
-				<unitPattern count="other">{0} بيكومتر</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>ياردة</displayName>
-				<unitPattern count="zero">{0} ياردة</unitPattern>
-				<unitPattern count="one">ياردة</unitPattern>
-				<unitPattern count="two">ياردتان</unitPattern>
-				<unitPattern count="few">{0} ياردات</unitPattern>
-				<unitPattern count="many">{0} ياردة</unitPattern>
-				<unitPattern count="other">{0} ياردة</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>ميل اسكندنافي</displayName>
+				<unitPattern count="zero">{0} ميل اسكندنافي</unitPattern>
+				<unitPattern count="one">{0} ميل اسكندنافي</unitPattern>
+				<unitPattern count="two">{0} ميل اسكندنافي</unitPattern>
+				<unitPattern count="few">{0} ميل اسكندنافي</unitPattern>
+				<unitPattern count="many">{0} ميل اسكندنافي</unitPattern>
+				<unitPattern count="other">{0} ميل اسكندنافي</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>لكس</displayName>
@@ -9663,24 +9663,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} لكس</unitPattern>
 				<unitPattern count="other">{0} لكس</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>قيراط</displayName>
-				<unitPattern count="zero">{0} قيراط</unitPattern>
-				<unitPattern count="one">{0} قيراط</unitPattern>
-				<unitPattern count="two">{0} قيراط</unitPattern>
-				<unitPattern count="few">{0} قيراط</unitPattern>
-				<unitPattern count="many">{0} قيراط</unitPattern>
-				<unitPattern count="other">{0} قيراط</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>غرام</displayName>
-				<unitPattern count="zero">{0} غرام</unitPattern>
-				<unitPattern count="one">غرام ({0})</unitPattern>
-				<unitPattern count="two">غرامان ({0})</unitPattern>
-				<unitPattern count="few">{0} غرامات</unitPattern>
-				<unitPattern count="many">{0} غرامًا</unitPattern>
-				<unitPattern count="other">{0} غرام</unitPattern>
-				<perUnitPattern>{0}/غم</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>ط/م</displayName>
+				<unitPattern count="zero">{0} ط/م</unitPattern>
+				<unitPattern count="one">{0} ط/م</unitPattern>
+				<unitPattern count="two">{0} ط/م</unitPattern>
+				<unitPattern count="few">{0} ط/م</unitPattern>
+				<unitPattern count="many">{0} ط/م</unitPattern>
+				<unitPattern count="other">{0} ط/م</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>كغم</displayName>
@@ -9692,14 +9682,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} كغم</unitPattern>
 				<perUnitPattern>{0}/كغم</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>ط/م</displayName>
-				<unitPattern count="zero">{0} ط/م</unitPattern>
-				<unitPattern count="one">{0} ط/م</unitPattern>
-				<unitPattern count="two">{0} ط/م</unitPattern>
-				<unitPattern count="few">{0} ط/م</unitPattern>
-				<unitPattern count="many">{0} ط/م</unitPattern>
-				<unitPattern count="other">{0} ط/م</unitPattern>
+			<unit type="mass-gram">
+				<displayName>غرام</displayName>
+				<unitPattern count="zero">{0} غرام</unitPattern>
+				<unitPattern count="one">غرام ({0})</unitPattern>
+				<unitPattern count="two">غرامان ({0})</unitPattern>
+				<unitPattern count="few">{0} غرامات</unitPattern>
+				<unitPattern count="many">{0} غرامًا</unitPattern>
+				<unitPattern count="other">{0} غرام</unitPattern>
+				<perUnitPattern>{0}/غم</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>مغم</displayName>
+				<unitPattern count="zero">{0} مغم</unitPattern>
+				<unitPattern count="one">{0} مغم</unitPattern>
+				<unitPattern count="two">{0} مغم</unitPattern>
+				<unitPattern count="few">{0} مغم</unitPattern>
+				<unitPattern count="many">{0} مغم</unitPattern>
+				<unitPattern count="other">{0} مغم</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>مكغم</displayName>
@@ -9710,14 +9710,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} مكغم</unitPattern>
 				<unitPattern count="other">{0} مكغم</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>مغم</displayName>
-				<unitPattern count="zero">{0} مغم</unitPattern>
-				<unitPattern count="one">{0} مغم</unitPattern>
-				<unitPattern count="two">{0} مغم</unitPattern>
-				<unitPattern count="few">{0} مغم</unitPattern>
-				<unitPattern count="many">{0} مغم</unitPattern>
-				<unitPattern count="other">{0} مغم</unitPattern>
+			<unit type="mass-ton">
+				<displayName>طن</displayName>
+				<unitPattern count="zero">{0} طن</unitPattern>
+				<unitPattern count="one">{0} طن</unitPattern>
+				<unitPattern count="two">{0} طن</unitPattern>
+				<unitPattern count="few">{0} طن</unitPattern>
+				<unitPattern count="many">{0} طن</unitPattern>
+				<unitPattern count="other">{0} طن</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>رطل</displayName>
+				<unitPattern count="zero">{0} رطل</unitPattern>
+				<unitPattern count="one">{0} رطل</unitPattern>
+				<unitPattern count="two">{0} رطل</unitPattern>
+				<unitPattern count="few">{0} رطل</unitPattern>
+				<unitPattern count="many">{0} رطل</unitPattern>
+				<unitPattern count="other">{0} رطل</unitPattern>
+				<perUnitPattern>{0}/رطل</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>أونصة</displayName>
@@ -9738,24 +9748,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} أونصة ترويسية</unitPattern>
 				<unitPattern count="other">{0} أونصة ترويسية</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>رطل</displayName>
-				<unitPattern count="zero">{0} رطل</unitPattern>
-				<unitPattern count="one">{0} رطل</unitPattern>
-				<unitPattern count="two">{0} رطل</unitPattern>
-				<unitPattern count="few">{0} رطل</unitPattern>
-				<unitPattern count="many">{0} رطل</unitPattern>
-				<unitPattern count="other">{0} رطل</unitPattern>
-				<perUnitPattern>{0}/رطل</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>طن</displayName>
-				<unitPattern count="zero">{0} طن</unitPattern>
-				<unitPattern count="one">{0} طن</unitPattern>
-				<unitPattern count="two">{0} طن</unitPattern>
-				<unitPattern count="few">{0} طن</unitPattern>
-				<unitPattern count="many">{0} طن</unitPattern>
-				<unitPattern count="other">{0} طن</unitPattern>
+			<unit type="mass-carat">
+				<displayName>قيراط</displayName>
+				<unitPattern count="zero">{0} قيراط</unitPattern>
+				<unitPattern count="one">{0} قيراط</unitPattern>
+				<unitPattern count="two">{0} قيراط</unitPattern>
+				<unitPattern count="few">{0} قيراط</unitPattern>
+				<unitPattern count="many">{0} قيراط</unitPattern>
+				<unitPattern count="other">{0} قيراط</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>غ واط</displayName>
@@ -9766,14 +9766,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} غ واط</unitPattern>
 				<unitPattern count="other">{0} غ واط</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>حصان</displayName>
-				<unitPattern count="zero">{0} حصان</unitPattern>
-				<unitPattern count="one">{0} حصان</unitPattern>
-				<unitPattern count="two">{0} حصان</unitPattern>
-				<unitPattern count="few">{0} حصان</unitPattern>
-				<unitPattern count="many">{0} حصان</unitPattern>
-				<unitPattern count="other">{0} حصان</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>م واط</displayName>
+				<unitPattern count="zero">{0} م واط</unitPattern>
+				<unitPattern count="one">{0} م واط</unitPattern>
+				<unitPattern count="two">{0} م واط</unitPattern>
+				<unitPattern count="few">{0} م واط</unitPattern>
+				<unitPattern count="many">{0} م واط</unitPattern>
+				<unitPattern count="other">{0} م واط</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>ك واط</displayName>
@@ -9784,14 +9784,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} كيلوواط</unitPattern>
 				<unitPattern count="other">{0} كيلوواط</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>م واط</displayName>
-				<unitPattern count="zero">{0} م واط</unitPattern>
-				<unitPattern count="one">{0} م واط</unitPattern>
-				<unitPattern count="two">{0} م واط</unitPattern>
-				<unitPattern count="few">{0} م واط</unitPattern>
-				<unitPattern count="many">{0} م واط</unitPattern>
-				<unitPattern count="other">{0} م واط</unitPattern>
+			<unit type="power-watt">
+				<displayName>واط</displayName>
+				<unitPattern count="zero">{0} واط</unitPattern>
+				<unitPattern count="one">{0} واط</unitPattern>
+				<unitPattern count="two">{0} واط</unitPattern>
+				<unitPattern count="few">{0} واط</unitPattern>
+				<unitPattern count="many">{0} واط</unitPattern>
+				<unitPattern count="other">{0} واط</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>مللي واط</displayName>
@@ -9802,14 +9802,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} مللي واط</unitPattern>
 				<unitPattern count="other">{0} مللي واط</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>واط</displayName>
-				<unitPattern count="zero">{0} واط</unitPattern>
-				<unitPattern count="one">{0} واط</unitPattern>
-				<unitPattern count="two">{0} واط</unitPattern>
-				<unitPattern count="few">{0} واط</unitPattern>
-				<unitPattern count="many">{0} واط</unitPattern>
-				<unitPattern count="other">{0} واط</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>حصان</displayName>
+				<unitPattern count="zero">{0} حصان</unitPattern>
+				<unitPattern count="one">{0} حصان</unitPattern>
+				<unitPattern count="two">{0} حصان</unitPattern>
+				<unitPattern count="few">{0} حصان</unitPattern>
+				<unitPattern count="many">{0} حصان</unitPattern>
+				<unitPattern count="other">{0} حصان</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>هكتوباسكال</displayName>
@@ -9819,24 +9819,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} هكتوباسكال</unitPattern>
 				<unitPattern count="many">{0} هكتوباسكال</unitPattern>
 				<unitPattern count="other">{0} هكتوباسكال</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>بوصة زئبقية</displayName>
-				<unitPattern count="zero">{0} بوصة زئبقية</unitPattern>
-				<unitPattern count="one">{0} بوصة زئبقية</unitPattern>
-				<unitPattern count="two">{0} بوصة زئبقية</unitPattern>
-				<unitPattern count="few">{0} بوصة زئبقية</unitPattern>
-				<unitPattern count="many">{0} بوصة زئبقية</unitPattern>
-				<unitPattern count="other">{0} بوصة زئبقية</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>مللي بار</displayName>
-				<unitPattern count="zero">{0} مللي بار</unitPattern>
-				<unitPattern count="one">{0} مللي بار</unitPattern>
-				<unitPattern count="two">{0} مللي بار</unitPattern>
-				<unitPattern count="few">{0} مللي بار</unitPattern>
-				<unitPattern count="many">{0} مللي بار</unitPattern>
-				<unitPattern count="other">{0} مللي بار</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>ملم زئبقي</displayName>
@@ -9856,6 +9838,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} رطل/بوصة مربعة</unitPattern>
 				<unitPattern count="other">{0} رطل/بوصة مربعة</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>بوصة زئبقية</displayName>
+				<unitPattern count="zero">{0} بوصة زئبقية</unitPattern>
+				<unitPattern count="one">{0} بوصة زئبقية</unitPattern>
+				<unitPattern count="two">{0} بوصة زئبقية</unitPattern>
+				<unitPattern count="few">{0} بوصة زئبقية</unitPattern>
+				<unitPattern count="many">{0} بوصة زئبقية</unitPattern>
+				<unitPattern count="other">{0} بوصة زئبقية</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>مللي بار</displayName>
+				<unitPattern count="zero">{0} مللي بار</unitPattern>
+				<unitPattern count="one">{0} مللي بار</unitPattern>
+				<unitPattern count="two">{0} مللي بار</unitPattern>
+				<unitPattern count="few">{0} مللي بار</unitPattern>
+				<unitPattern count="many">{0} مللي بار</unitPattern>
+				<unitPattern count="other">{0} مللي بار</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>قيراط</displayName>
 				<unitPattern count="zero">{0} قيراط</unitPattern>
@@ -9873,15 +9873,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} كم/س</unitPattern>
 				<unitPattern count="many">{0} كم/س</unitPattern>
 				<unitPattern count="other">{0} كم/س</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>عقدة</displayName>
-				<unitPattern count="zero">{0} عقدة</unitPattern>
-				<unitPattern count="one">{0} عقدة</unitPattern>
-				<unitPattern count="two">{0} عقدة</unitPattern>
-				<unitPattern count="few">{0} عقدة</unitPattern>
-				<unitPattern count="many">{0} عقدة</unitPattern>
-				<unitPattern count="other">{0} عقدة</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>م/ث</displayName>
@@ -9901,6 +9892,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} ميل/س</unitPattern>
 				<unitPattern count="other">{0} ميل/س</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>عقدة</displayName>
+				<unitPattern count="zero">{0} عقدة</unitPattern>
+				<unitPattern count="one">{0} عقدة</unitPattern>
+				<unitPattern count="two">{0} عقدة</unitPattern>
+				<unitPattern count="few">{0} عقدة</unitPattern>
+				<unitPattern count="many">{0} عقدة</unitPattern>
+				<unitPattern count="other">{0} عقدة</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="zero">{0}°</unitPattern>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="two">{0}°</unitPattern>
+				<unitPattern count="few">{0}°</unitPattern>
+				<unitPattern count="many">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>درجة مئوية</displayName>
 				<unitPattern count="zero">{0}°م</unitPattern>
@@ -9919,15 +9928,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0}°ف</unitPattern>
 				<unitPattern count="other">{0}°ف</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="zero">{0}°</unitPattern>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="two">{0}°</unitPattern>
-				<unitPattern count="few">{0}°</unitPattern>
-				<unitPattern count="many">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>د كلفن</displayName>
 				<unitPattern count="zero">{0} د كلفن</unitPattern>
@@ -9936,52 +9936,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} د كلفن</unitPattern>
 				<unitPattern count="many">{0} د كلفن</unitPattern>
 				<unitPattern count="other">{0} د كلفن</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>فدان قدم</displayName>
-				<unitPattern count="zero">{0} فدان قدم</unitPattern>
-				<unitPattern count="one">{0} فدان قدم</unitPattern>
-				<unitPattern count="two">{0} فدان قدم</unitPattern>
-				<unitPattern count="few">{0} فدان قدم</unitPattern>
-				<unitPattern count="many">{0} فدان قدم</unitPattern>
-				<unitPattern count="other">{0} فدان قدم</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>سنتيلتر</displayName>
-				<unitPattern count="zero">{0} سنتيلتر</unitPattern>
-				<unitPattern count="one">{0} سنتيلتر</unitPattern>
-				<unitPattern count="two">{0} سنتيلتر</unitPattern>
-				<unitPattern count="few">{0} سنتيلتر</unitPattern>
-				<unitPattern count="many">{0} سنتيلتر</unitPattern>
-				<unitPattern count="other">{0} سنتيلتر</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>سم³</displayName>
-				<unitPattern count="zero">{0} سم³</unitPattern>
-				<unitPattern count="one">{0} سم³</unitPattern>
-				<unitPattern count="two">{0} سم³</unitPattern>
-				<unitPattern count="few">{0} سم³</unitPattern>
-				<unitPattern count="many">{0} سم³</unitPattern>
-				<unitPattern count="other">{0} سم³</unitPattern>
-				<perUnitPattern>{0}/سم³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>قدم مكعبة</displayName>
-				<unitPattern count="zero">{0} قدم مكعبة</unitPattern>
-				<unitPattern count="one">قدم مكعبة</unitPattern>
-				<unitPattern count="two">قدمان مكعبان</unitPattern>
-				<unitPattern count="few">{0} أقدام مكعبة</unitPattern>
-				<unitPattern count="many">{0} قدمًا مكعبًا</unitPattern>
-				<unitPattern count="other">{0} قدم مكعبة</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>بوصة مكعبة</displayName>
-				<unitPattern count="zero">{0} بوصة مكعبة</unitPattern>
-				<unitPattern count="one">{0} بوصة مكعبة</unitPattern>
-				<unitPattern count="two">{0} بوصة مكعبة</unitPattern>
-				<unitPattern count="few">{0} بوصة مكعبة</unitPattern>
-				<unitPattern count="many">{0} بوصة مكعبة</unitPattern>
-				<unitPattern count="other">{0} بوصة مكعبة</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>كم³</displayName>
@@ -10002,6 +9956,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} م³</unitPattern>
 				<perUnitPattern>{0}/م³</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>سم³</displayName>
+				<unitPattern count="zero">{0} سم³</unitPattern>
+				<unitPattern count="one">{0} سم³</unitPattern>
+				<unitPattern count="two">{0} سم³</unitPattern>
+				<unitPattern count="few">{0} سم³</unitPattern>
+				<unitPattern count="many">{0} سم³</unitPattern>
+				<unitPattern count="other">{0} سم³</unitPattern>
+				<perUnitPattern>{0}/سم³</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>ميل مكعب</displayName>
 				<unitPattern count="zero">{0} ميل مكعب</unitPattern>
@@ -10020,51 +9984,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} ياردة مكعبة</unitPattern>
 				<unitPattern count="other">{0} ياردة مكعبة</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>كوب</displayName>
-				<unitPattern count="zero">{0} كوب</unitPattern>
-				<unitPattern count="one">كوب</unitPattern>
-				<unitPattern count="two">كوبان</unitPattern>
-				<unitPattern count="few">{0} أكواب</unitPattern>
-				<unitPattern count="many">{0} كوبًا</unitPattern>
-				<unitPattern count="other">{0} كوب</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>قدم مكعبة</displayName>
+				<unitPattern count="zero">{0} قدم مكعبة</unitPattern>
+				<unitPattern count="one">قدم مكعبة</unitPattern>
+				<unitPattern count="two">قدمان مكعبان</unitPattern>
+				<unitPattern count="few">{0} أقدام مكعبة</unitPattern>
+				<unitPattern count="many">{0} قدمًا مكعبًا</unitPattern>
+				<unitPattern count="other">{0} قدم مكعبة</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>كوب متري</displayName>
-				<unitPattern count="zero">{0} كوب متري</unitPattern>
-				<unitPattern count="one">{0} كوب متري</unitPattern>
-				<unitPattern count="two">{0} كوب متري</unitPattern>
-				<unitPattern count="few">{0} كوب متري</unitPattern>
-				<unitPattern count="many">{0} كوب متري</unitPattern>
-				<unitPattern count="other">{0} كوب متري</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>بوصة مكعبة</displayName>
+				<unitPattern count="zero">{0} بوصة مكعبة</unitPattern>
+				<unitPattern count="one">{0} بوصة مكعبة</unitPattern>
+				<unitPattern count="two">{0} بوصة مكعبة</unitPattern>
+				<unitPattern count="few">{0} بوصة مكعبة</unitPattern>
+				<unitPattern count="many">{0} بوصة مكعبة</unitPattern>
+				<unitPattern count="other">{0} بوصة مكعبة</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>ديسيلتر</displayName>
-				<unitPattern count="zero">{0} ديسيلتر</unitPattern>
-				<unitPattern count="one">{0} ديسيلتر</unitPattern>
-				<unitPattern count="two">{0} ديسيلتر</unitPattern>
-				<unitPattern count="few">{0} ديسيلتر</unitPattern>
-				<unitPattern count="many">{0} ديسيلتر</unitPattern>
-				<unitPattern count="other">{0} ديسيلتر</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>أونصة سائلة</displayName>
-				<unitPattern count="zero">{0} أونصة سائلة</unitPattern>
-				<unitPattern count="one">أونصة سائلة</unitPattern>
-				<unitPattern count="two">أونصتان سائلتان</unitPattern>
-				<unitPattern count="few">{0} أونصات سائلة</unitPattern>
-				<unitPattern count="many">{0} أونصة سائلة</unitPattern>
-				<unitPattern count="other">{0} أونصة سائلة</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>غالون</displayName>
-				<unitPattern count="zero">{0} غالون</unitPattern>
-				<unitPattern count="one">غالون</unitPattern>
-				<unitPattern count="two">غالونان</unitPattern>
-				<unitPattern count="few">{0} غالونات</unitPattern>
-				<unitPattern count="many">{0} غالونًا</unitPattern>
-				<unitPattern count="other">{0} غالون</unitPattern>
-				<perUnitPattern>{0}/غالون</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>ميغالتر</displayName>
+				<unitPattern count="zero">{0} ميغالتر</unitPattern>
+				<unitPattern count="one">{0} ميغالتر</unitPattern>
+				<unitPattern count="two">{0} ميغالتر</unitPattern>
+				<unitPattern count="few">{0} ميغالتر</unitPattern>
+				<unitPattern count="many">{0} ميغالتر</unitPattern>
+				<unitPattern count="other">{0} ميغالتر</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>هكتولتر</displayName>
@@ -10085,14 +10030,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} لتر</unitPattern>
 				<perUnitPattern>{0}/ل</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>ميغالتر</displayName>
-				<unitPattern count="zero">{0} ميغالتر</unitPattern>
-				<unitPattern count="one">{0} ميغالتر</unitPattern>
-				<unitPattern count="two">{0} ميغالتر</unitPattern>
-				<unitPattern count="few">{0} ميغالتر</unitPattern>
-				<unitPattern count="many">{0} ميغالتر</unitPattern>
-				<unitPattern count="other">{0} ميغالتر</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>ديسيلتر</displayName>
+				<unitPattern count="zero">{0} ديسيلتر</unitPattern>
+				<unitPattern count="one">{0} ديسيلتر</unitPattern>
+				<unitPattern count="two">{0} ديسيلتر</unitPattern>
+				<unitPattern count="few">{0} ديسيلتر</unitPattern>
+				<unitPattern count="many">{0} ديسيلتر</unitPattern>
+				<unitPattern count="other">{0} ديسيلتر</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>سنتيلتر</displayName>
+				<unitPattern count="zero">{0} سنتيلتر</unitPattern>
+				<unitPattern count="one">{0} سنتيلتر</unitPattern>
+				<unitPattern count="two">{0} سنتيلتر</unitPattern>
+				<unitPattern count="few">{0} سنتيلتر</unitPattern>
+				<unitPattern count="many">{0} سنتيلتر</unitPattern>
+				<unitPattern count="other">{0} سنتيلتر</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>ملتر</displayName>
@@ -10103,15 +10057,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} ملتر</unitPattern>
 				<unitPattern count="other">{0} ملتر</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>مكيال</displayName>
-				<unitPattern count="zero">{0} مكيال</unitPattern>
-				<unitPattern count="one">مكيال</unitPattern>
-				<unitPattern count="two">مكيالان</unitPattern>
-				<unitPattern count="few">{0} مكاييل</unitPattern>
-				<unitPattern count="many">{0} مكيالاً</unitPattern>
-				<unitPattern count="other">{0} مكيال</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>مكيال متري</displayName>
 				<unitPattern count="zero">{0} مكيال متري</unitPattern>
@@ -10121,6 +10066,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} مكيال متري</unitPattern>
 				<unitPattern count="other">{0} مكيال متري</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>كوب متري</displayName>
+				<unitPattern count="zero">{0} كوب متري</unitPattern>
+				<unitPattern count="one">{0} كوب متري</unitPattern>
+				<unitPattern count="two">{0} كوب متري</unitPattern>
+				<unitPattern count="few">{0} كوب متري</unitPattern>
+				<unitPattern count="many">{0} كوب متري</unitPattern>
+				<unitPattern count="other">{0} كوب متري</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>فدان قدم</displayName>
+				<unitPattern count="zero">{0} فدان قدم</unitPattern>
+				<unitPattern count="one">{0} فدان قدم</unitPattern>
+				<unitPattern count="two">{0} فدان قدم</unitPattern>
+				<unitPattern count="few">{0} فدان قدم</unitPattern>
+				<unitPattern count="many">{0} فدان قدم</unitPattern>
+				<unitPattern count="other">{0} فدان قدم</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>غالون</displayName>
+				<unitPattern count="zero">{0} غالون</unitPattern>
+				<unitPattern count="one">غالون</unitPattern>
+				<unitPattern count="two">غالونان</unitPattern>
+				<unitPattern count="few">{0} غالونات</unitPattern>
+				<unitPattern count="many">{0} غالونًا</unitPattern>
+				<unitPattern count="other">{0} غالون</unitPattern>
+				<perUnitPattern>{0}/غالون</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>ربع غالون</displayName>
 				<unitPattern count="zero">{0} ربع غالون</unitPattern>
@@ -10129,6 +10102,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} أرباع غالون</unitPattern>
 				<unitPattern count="many">{0} ربع غالون</unitPattern>
 				<unitPattern count="other">{0} ربع غالون</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>مكيال</displayName>
+				<unitPattern count="zero">{0} مكيال</unitPattern>
+				<unitPattern count="one">مكيال</unitPattern>
+				<unitPattern count="two">مكيالان</unitPattern>
+				<unitPattern count="few">{0} مكاييل</unitPattern>
+				<unitPattern count="many">{0} مكيالاً</unitPattern>
+				<unitPattern count="other">{0} مكيال</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>كوب</displayName>
+				<unitPattern count="zero">{0} كوب</unitPattern>
+				<unitPattern count="one">كوب</unitPattern>
+				<unitPattern count="two">كوبان</unitPattern>
+				<unitPattern count="few">{0} أكواب</unitPattern>
+				<unitPattern count="many">{0} كوبًا</unitPattern>
+				<unitPattern count="other">{0} كوب</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>أونصة سائلة</displayName>
+				<unitPattern count="zero">{0} أونصة سائلة</unitPattern>
+				<unitPattern count="one">أونصة سائلة</unitPattern>
+				<unitPattern count="two">أونصتان سائلتان</unitPattern>
+				<unitPattern count="few">{0} أونصات سائلة</unitPattern>
+				<unitPattern count="many">{0} أونصة سائلة</unitPattern>
+				<unitPattern count="other">{0} أونصة سائلة</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>ملعقة المائدة</displayName>
@@ -10167,6 +10167,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0} قوة تسارع</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} قوة تسارع</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="zero">{0} درجة</unitPattern>
+				<unitPattern count="one">{0} درجة</unitPattern>
+				<unitPattern count="two">درجتان ({0})</unitPattern>
+				<unitPattern count="few">{0} درجات</unitPattern>
+				<unitPattern count="many">{0} درجة</unitPattern>
+				<unitPattern count="other">{0} درجة</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="zero">{0}′</unitPattern>
 				<unitPattern count="one">{0} دقيقة</unitPattern>
@@ -10183,21 +10191,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="zero">{0} درجة</unitPattern>
-				<unitPattern count="one">{0} درجة</unitPattern>
-				<unitPattern count="two">درجتان ({0})</unitPattern>
-				<unitPattern count="few">{0} درجات</unitPattern>
-				<unitPattern count="many">{0} درجة</unitPattern>
-				<unitPattern count="other">{0} درجة</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="zero" draft="contributed">{0} من الفدادين</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} فدان</unitPattern>
-				<unitPattern count="two" draft="contributed">فدانان ({0})</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} فدادين</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} فدانًا</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} من الفدادين</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="zero" draft="contributed">{0} كم²</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} كم²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} كم²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} كم²</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} كم²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} كم²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="zero">{0} هكت</unitPattern>
@@ -10206,22 +10206,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} هكتارات</unitPattern>
 				<unitPattern count="many">{0} هكتارًا</unitPattern>
 				<unitPattern count="other">{0} هكت</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="zero">{0}ft²</unitPattern>
-				<unitPattern count="one">{0}ft²</unitPattern>
-				<unitPattern count="two">{0}ft²</unitPattern>
-				<unitPattern count="few">{0}ft²</unitPattern>
-				<unitPattern count="many">{0}ft²</unitPattern>
-				<unitPattern count="other">{0}ft²</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="zero" draft="contributed">{0} كم²</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} كم²</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} كم²</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} كم²</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} كم²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} كم²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="zero" draft="contributed">{0} م²</unitPattern>
@@ -10239,6 +10223,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0} ميل مربع</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ميل مربع</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<unitPattern count="zero" draft="contributed">{0} من الفدادين</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} فدان</unitPattern>
+				<unitPattern count="two" draft="contributed">فدانان ({0})</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} فدادين</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} فدانًا</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} من الفدادين</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="zero">{0}ft²</unitPattern>
+				<unitPattern count="one">{0}ft²</unitPattern>
+				<unitPattern count="two">{0}ft²</unitPattern>
+				<unitPattern count="few">{0}ft²</unitPattern>
+				<unitPattern count="many">{0}ft²</unitPattern>
+				<unitPattern count="other">{0}ft²</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>ل/١٠٠كم</displayName>
 				<unitPattern count="zero">{0} ل/١٠٠كم</unitPattern>
@@ -10247,6 +10247,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} ل/١٠٠كم</unitPattern>
 				<unitPattern count="many">{0} ل/١٠٠كم</unitPattern>
 				<unitPattern count="other">{0} ل/١٠٠كم</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>سنة</displayName>
+				<unitPattern count="zero">{0} سنة</unitPattern>
+				<unitPattern count="one">{0} سنة</unitPattern>
+				<unitPattern count="two">{0} سنة</unitPattern>
+				<unitPattern count="few">{0} سنة</unitPattern>
+				<unitPattern count="many">{0} سنة</unitPattern>
+				<unitPattern count="other">{0} سنة</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>شهر</displayName>
+				<unitPattern count="zero">{0} شهر</unitPattern>
+				<unitPattern count="one">{0} شهر</unitPattern>
+				<unitPattern count="two">{0} شهر</unitPattern>
+				<unitPattern count="few">{0} شهر</unitPattern>
+				<unitPattern count="many">{0} شهر</unitPattern>
+				<unitPattern count="other">{0} شهر</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>أسبوع</displayName>
+				<unitPattern count="zero">{0} أسبوع</unitPattern>
+				<unitPattern count="one">أسبوع</unitPattern>
+				<unitPattern count="two">أسبوعان</unitPattern>
+				<unitPattern count="few">{0} أسابيع</unitPattern>
+				<unitPattern count="many">{0} أسبوع</unitPattern>
+				<unitPattern count="other">{0} أسبوع</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>يوم</displayName>
@@ -10266,15 +10293,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} س</unitPattern>
 				<unitPattern count="other">{0} س</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>مللي ثانية</displayName>
-				<unitPattern count="zero">{0} مللي ث.</unitPattern>
-				<unitPattern count="one">{0} مللي ث.</unitPattern>
-				<unitPattern count="two">{0} مللي ث.</unitPattern>
-				<unitPattern count="few">{0} مللي ث.</unitPattern>
-				<unitPattern count="many">{0} مللي ث.</unitPattern>
-				<unitPattern count="other">{0} مللي ث.</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>د</displayName>
 				<unitPattern count="zero">{0} د</unitPattern>
@@ -10283,15 +10301,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} د</unitPattern>
 				<unitPattern count="many">{0} د</unitPattern>
 				<unitPattern count="other">{0} د</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>شهر</displayName>
-				<unitPattern count="zero">{0} شهر</unitPattern>
-				<unitPattern count="one">{0} شهر</unitPattern>
-				<unitPattern count="two">{0} شهر</unitPattern>
-				<unitPattern count="few">{0} شهر</unitPattern>
-				<unitPattern count="many">{0} شهر</unitPattern>
-				<unitPattern count="other">{0} شهر</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>ث</displayName>
@@ -10302,48 +10311,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} ث</unitPattern>
 				<unitPattern count="other">{0} ث</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>أسبوع</displayName>
-				<unitPattern count="zero">{0} أسبوع</unitPattern>
-				<unitPattern count="one">أسبوع</unitPattern>
-				<unitPattern count="two">أسبوعان</unitPattern>
-				<unitPattern count="few">{0} أسابيع</unitPattern>
-				<unitPattern count="many">{0} أسبوع</unitPattern>
-				<unitPattern count="other">{0} أسبوع</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName>سنة</displayName>
-				<unitPattern count="zero">{0} سنة</unitPattern>
-				<unitPattern count="one">{0} سنة</unitPattern>
-				<unitPattern count="two">{0} سنة</unitPattern>
-				<unitPattern count="few">{0} سنة</unitPattern>
-				<unitPattern count="many">{0} سنة</unitPattern>
-				<unitPattern count="other">{0} سنة</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>سم</displayName>
-				<unitPattern count="zero">{0} سم</unitPattern>
-				<unitPattern count="one">{0} سم</unitPattern>
-				<unitPattern count="two">{0} سم</unitPattern>
-				<unitPattern count="few">{0} سم</unitPattern>
-				<unitPattern count="many">{0} سم</unitPattern>
-				<unitPattern count="other">{0} سم</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="zero" draft="contributed">{0} من الأقدام</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} قدم</unitPattern>
-				<unitPattern count="two" draft="contributed">قدمان ({0})</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} أقدام</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} قدمًا</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} من الأقدام</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="zero" draft="contributed">{0} بوصة</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} بوصة</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} بوصة</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} بوصة</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} بوصة</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} بوصة</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>مللي ثانية</displayName>
+				<unitPattern count="zero">{0} مللي ث.</unitPattern>
+				<unitPattern count="one">{0} مللي ث.</unitPattern>
+				<unitPattern count="two">{0} مللي ث.</unitPattern>
+				<unitPattern count="few">{0} مللي ث.</unitPattern>
+				<unitPattern count="many">{0} مللي ث.</unitPattern>
+				<unitPattern count="other">{0} مللي ث.</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>كم</displayName>
@@ -10354,14 +10329,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} كم</unitPattern>
 				<unitPattern count="other">{0} كم</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="zero">{0}س ض</unitPattern>
-				<unitPattern count="one">{0} س ض</unitPattern>
-				<unitPattern count="two">{0} س ض</unitPattern>
-				<unitPattern count="few">{0} س ض</unitPattern>
-				<unitPattern count="many">{0} س ض</unitPattern>
-				<unitPattern count="other">{0} س ض</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>متر</displayName>
 				<unitPattern count="zero">{0} م</unitPattern>
@@ -10371,13 +10338,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} م</unitPattern>
 				<unitPattern count="other">{0} م</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="zero" draft="contributed">{0} من الأميال</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} ميل</unitPattern>
-				<unitPattern count="two" draft="contributed">ميلان ({0})</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} أميال</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} ميلاً</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} من الأميال</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>سم</displayName>
+				<unitPattern count="zero">{0} سم</unitPattern>
+				<unitPattern count="one">{0} سم</unitPattern>
+				<unitPattern count="two">{0} سم</unitPattern>
+				<unitPattern count="few">{0} سم</unitPattern>
+				<unitPattern count="many">{0} سم</unitPattern>
+				<unitPattern count="other">{0} سم</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>مم</displayName>
@@ -10396,6 +10364,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0} بيكومتر</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} بيكومتر</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<unitPattern count="zero" draft="contributed">{0} من الأميال</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ميل</unitPattern>
+				<unitPattern count="two" draft="contributed">ميلان ({0})</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} أميال</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ميلاً</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} من الأميال</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<unitPattern count="zero" draft="contributed">{0} من الياردات</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} ياردة</unitPattern>
@@ -10404,14 +10380,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0} ياردة</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} من الياردات</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName>غ</displayName>
-				<unitPattern count="zero">{0} غ</unitPattern>
-				<unitPattern count="one">{0} غ</unitPattern>
-				<unitPattern count="two">{0} غ</unitPattern>
-				<unitPattern count="few">{0} غ</unitPattern>
-				<unitPattern count="many">{0} غ</unitPattern>
-				<unitPattern count="other">{0}غ</unitPattern>
+			<unit type="length-foot">
+				<unitPattern count="zero" draft="contributed">{0} من الأقدام</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} قدم</unitPattern>
+				<unitPattern count="two" draft="contributed">قدمان ({0})</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} أقدام</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} قدمًا</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} من الأقدام</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="zero" draft="contributed">{0} بوصة</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} بوصة</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} بوصة</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} بوصة</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} بوصة</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} بوصة</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="zero">{0}س ض</unitPattern>
+				<unitPattern count="one">{0} س ض</unitPattern>
+				<unitPattern count="two">{0} س ض</unitPattern>
+				<unitPattern count="few">{0} س ض</unitPattern>
+				<unitPattern count="many">{0} س ض</unitPattern>
+				<unitPattern count="other">{0} س ض</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>كغم</displayName>
@@ -10422,13 +10413,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} كغم</unitPattern>
 				<unitPattern count="other">{0} كغم</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="zero" draft="contributed">{0} أونس</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} أونس</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} أونس</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} أونس</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} أونس</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} أونس</unitPattern>
+			<unit type="mass-gram">
+				<displayName>غ</displayName>
+				<unitPattern count="zero">{0} غ</unitPattern>
+				<unitPattern count="one">{0} غ</unitPattern>
+				<unitPattern count="two">{0} غ</unitPattern>
+				<unitPattern count="few">{0} غ</unitPattern>
+				<unitPattern count="many">{0} غ</unitPattern>
+				<unitPattern count="other">{0}غ</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="zero" draft="contributed">{0}#</unitPattern>
@@ -10438,13 +10430,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0}#</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}#</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="zero" draft="contributed">{0} قوة حصان</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} قوة حصان</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} قوة حصان</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} قوة حصان</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} قوة حصان</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} قوة حصان</unitPattern>
+			<unit type="mass-ounce">
+				<unitPattern count="zero" draft="contributed">{0} أونس</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} أونس</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} أونس</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} أونس</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} أونس</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} أونس</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="zero">{0} كواط</unitPattern>
@@ -10461,6 +10453,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} واط</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} واط</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} واط</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="zero" draft="contributed">{0} قوة حصان</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} قوة حصان</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} قوة حصان</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} قوة حصان</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} قوة حصان</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} قوة حصان</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="zero">{0} هكب</unitPattern>

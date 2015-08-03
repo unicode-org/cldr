@@ -5199,6 +5199,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} մետր /վայրկյան քառակուսի</unitPattern>
 				<unitPattern count="other">{0} մետր /վայրկյան քառակուսի</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>պտույտ</displayName>
+				<unitPattern count="one">{0} պտույտ</unitPattern>
+				<unitPattern count="other">{0} պտույտ</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>ռադիան</displayName>
+				<unitPattern count="one">{0} ռադիան</unitPattern>
+				<unitPattern count="other">{0} ռադիան</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>աստիճան</displayName>
+				<unitPattern count="one">{0} աստիճան</unitPattern>
+				<unitPattern count="other">{0} աստիճան</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>արկրոպե</displayName>
 				<unitPattern count="one">{0} արկրոպե</unitPattern>
@@ -5209,35 +5224,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} արկվայրկյան</unitPattern>
 				<unitPattern count="other">{0} արկվայրկյան</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>աստիճան</displayName>
-				<unitPattern count="one">{0} աստիճան</unitPattern>
-				<unitPattern count="other">{0} աստիճան</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>ռադիան</displayName>
-				<unitPattern count="one">{0} ռադիան</unitPattern>
-				<unitPattern count="other">{0} ռադիան</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>պտույտ</displayName>
-				<unitPattern count="one">{0} պտույտ</unitPattern>
-				<unitPattern count="other">{0} պտույտ</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ակր</displayName>
-				<unitPattern count="one">{0} ակր</unitPattern>
-				<unitPattern count="other">{0} ակր</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>քառակուսի կիլոմետր</displayName>
+				<unitPattern count="one">{0} քառակուսի կիլոմետր</unitPattern>
+				<unitPattern count="other">{0} քառակուսի կիլոմետր</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>հեկտար</displayName>
 				<unitPattern count="one">{0} հեկտար</unitPattern>
 				<unitPattern count="other">{0} հեկտար</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>քառակուսի մետր</displayName>
+				<unitPattern count="one">{0} քառակուսի մետր</unitPattern>
+				<unitPattern count="other">{0} քառակուսի մետր</unitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>քառակուսի սանտիմետր</displayName>
 				<unitPattern count="one">{0} քառակուսի սանտիմետր</unitPattern>
 				<unitPattern count="other">{0} քառակուսի սանտիմետր</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>քառակուսի մղոն</displayName>
+				<unitPattern count="one">{0} քառակուսի մղոն</unitPattern>
+				<unitPattern count="other">{0} քառակուսի մղոն</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ակր</displayName>
+				<unitPattern count="one">{0} ակր</unitPattern>
+				<unitPattern count="other">{0} ակր</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>քառակուսի յարդ</displayName>
+				<unitPattern count="one">{0} քառակուսի յարդ</unitPattern>
+				<unitPattern count="other">{0} քառակուսի յարդ</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>քառակուսի ֆուտ</displayName>
@@ -5249,95 +5269,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} քառակուսի դյույմ</unitPattern>
 				<unitPattern count="other">{0} քառակուսի դյույմ</unitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>քառակուսի կիլոմետր</displayName>
-				<unitPattern count="one">{0} քառակուսի կիլոմետր</unitPattern>
-				<unitPattern count="other">{0} քառակուսի կիլոմետր</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>քառակուսի մետր</displayName>
-				<unitPattern count="one">{0} քառակուսի մետր</unitPattern>
-				<unitPattern count="other">{0} քառակուսի մետր</unitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>քառակուսի մղոն</displayName>
-				<unitPattern count="one">{0} քառակուսի մղոն</unitPattern>
-				<unitPattern count="other">{0} քառակուսի մղոն</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>քառակուսի յարդ</displayName>
-				<unitPattern count="one">{0} քառակուսի յարդ</unitPattern>
-				<unitPattern count="other">{0} քառակուսի յարդ</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>լիտր / կիլոմետր</displayName>
+				<unitPattern count="one">{0} լիտր / կիլոմետր</unitPattern>
+				<unitPattern count="other">{0} լիտր / կիլոմետր</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>լիտրեր 100 կիլոմետրում</displayName>
 				<unitPattern count="one">{0} լիտր 100 կիլոմետրում</unitPattern>
 				<unitPattern count="other">{0} լիտր 100 կիլոմետրում</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>լիտր / կիլոմետր</displayName>
-				<unitPattern count="one">{0} լիտր / կիլոմետր</unitPattern>
-				<unitPattern count="other">{0} լիտր / կիլոմետր</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>մղոն / գալոն</displayName>
 				<unitPattern count="one">{0} մղոն / գալոն</unitPattern>
 				<unitPattern count="other">{0} մղոն / գալոն</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>բիթեր</displayName>
-				<unitPattern count="one">{0} բիթ</unitPattern>
-				<unitPattern count="other">{0} բիթ</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>բայթեր</displayName>
-				<unitPattern count="one">{0} բայթ</unitPattern>
-				<unitPattern count="other">{0} բայթ</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>գիգաբիթեր</displayName>
-				<unitPattern count="one">{0} գիգաբիթ</unitPattern>
-				<unitPattern count="other">{0} գիգաբիթ</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>գիգաբայթեր</displayName>
-				<unitPattern count="one">{0} գիգաբայթ</unitPattern>
-				<unitPattern count="other">{0} գիգաբայթ</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>կիլոբիթեր</displayName>
-				<unitPattern count="one">{0} կիլոբիթ</unitPattern>
-				<unitPattern count="other">{0} կիլոբիթ</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>կիլոբայթեր</displayName>
-				<unitPattern count="one">{0} կիլոբայթ</unitPattern>
-				<unitPattern count="other">{0} կիլոբայթ</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>մեգաբիթեր</displayName>
-				<unitPattern count="one">{0} մեգաբիթ</unitPattern>
-				<unitPattern count="other">{0} մեգաբիթ</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>մեգաբայթեր</displayName>
-				<unitPattern count="one">{0} մեգաբայթ</unitPattern>
-				<unitPattern count="other">{0} մեգաբայթ</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>տերաբիթեր</displayName>
-				<unitPattern count="one">{0} տերաբիթ</unitPattern>
-				<unitPattern count="other">{0} տերաբիթ</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>տերաբայթեր</displayName>
 				<unitPattern count="one">{0} տերաբայթ</unitPattern>
 				<unitPattern count="other">{0} տերաբայթ</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>տերաբիթեր</displayName>
+				<unitPattern count="one">{0} տերաբիթ</unitPattern>
+				<unitPattern count="other">{0} տերաբիթ</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>գիգաբայթեր</displayName>
+				<unitPattern count="one">{0} գիգաբայթ</unitPattern>
+				<unitPattern count="other">{0} գիգաբայթ</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>գիգաբիթեր</displayName>
+				<unitPattern count="one">{0} գիգաբիթ</unitPattern>
+				<unitPattern count="other">{0} գիգաբիթ</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>մեգաբայթեր</displayName>
+				<unitPattern count="one">{0} մեգաբայթ</unitPattern>
+				<unitPattern count="other">{0} մեգաբայթ</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>մեգաբիթեր</displayName>
+				<unitPattern count="one">{0} մեգաբիթ</unitPattern>
+				<unitPattern count="other">{0} մեգաբիթ</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>կիլոբայթեր</displayName>
+				<unitPattern count="one">{0} կիլոբայթ</unitPattern>
+				<unitPattern count="other">{0} կիլոբայթ</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>կիլոբիթեր</displayName>
+				<unitPattern count="one">{0} կիլոբիթ</unitPattern>
+				<unitPattern count="other">{0} կիլոբիթ</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>բայթեր</displayName>
+				<unitPattern count="one">{0} բայթ</unitPattern>
+				<unitPattern count="other">{0} բայթ</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>բիթեր</displayName>
+				<unitPattern count="one">{0} բիթ</unitPattern>
+				<unitPattern count="other">{0} բիթ</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>դարեր</displayName>
 				<unitPattern count="one">{0} դար</unitPattern>
 				<unitPattern count="other">{0} դար</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>տարիներ</displayName>
+				<unitPattern count="one">{0} տարի</unitPattern>
+				<unitPattern count="other">{0} տարի</unitPattern>
+				<perUnitPattern>տարեկան {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>ամիսներ</displayName>
+				<unitPattern count="one">{0} ամիս</unitPattern>
+				<unitPattern count="other">{0} ամիս</unitPattern>
+				<perUnitPattern>ամսական {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>շաբաթներ</displayName>
+				<unitPattern count="one">{0} շաբաթ</unitPattern>
+				<unitPattern count="other">{0} շաբաթ</unitPattern>
+				<perUnitPattern>շաբաթական {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>օրեր</displayName>
@@ -5351,32 +5369,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ժամ</unitPattern>
 				<perUnitPattern>{0} ժամում</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>միկրովայրկյաններ</displayName>
-				<unitPattern count="one">{0} միկրովայրկյան</unitPattern>
-				<unitPattern count="other">{0} միկրովայրկյան</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>միլիվայրկյաններ</displayName>
-				<unitPattern count="one">{0} միլիվայրկյան</unitPattern>
-				<unitPattern count="other">{0} միլիվայրկյան</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>րոպեներ</displayName>
 				<unitPattern count="one">{0} րոպե</unitPattern>
 				<unitPattern count="other">{0} րոպե</unitPattern>
 				<perUnitPattern>{0} րոպեում</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>ամիսներ</displayName>
-				<unitPattern count="one">{0} ամիս</unitPattern>
-				<unitPattern count="other">{0} ամիս</unitPattern>
-				<perUnitPattern>ամսական {0}</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>նանովայրկյաններ</displayName>
-				<unitPattern count="one">{0} նանովայրկյան</unitPattern>
-				<unitPattern count="other">{0} նանովայրկյան</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>վայրկյաններ</displayName>
@@ -5384,17 +5381,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} վայրկյան</unitPattern>
 				<perUnitPattern>{0} վայրկյանում</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>շաբաթներ</displayName>
-				<unitPattern count="one">{0} շաբաթ</unitPattern>
-				<unitPattern count="other">{0} շաբաթ</unitPattern>
-				<perUnitPattern>շաբաթական {0}</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>միլիվայրկյաններ</displayName>
+				<unitPattern count="one">{0} միլիվայրկյան</unitPattern>
+				<unitPattern count="other">{0} միլիվայրկյան</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>տարիներ</displayName>
-				<unitPattern count="one">{0} տարի</unitPattern>
-				<unitPattern count="other">{0} տարի</unitPattern>
-				<perUnitPattern>տարեկան {0}</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>միկրովայրկյաններ</displayName>
+				<unitPattern count="one">{0} միկրովայրկյան</unitPattern>
+				<unitPattern count="other">{0} միկրովայրկյան</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>նանովայրկյաններ</displayName>
+				<unitPattern count="one">{0} նանովայրկյան</unitPattern>
+				<unitPattern count="other">{0} նանովայրկյան</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>ամպերներ</displayName>
@@ -5416,6 +5416,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} վոլտ</unitPattern>
 				<unitPattern count="other">{0} վոլտ</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>կիլոկալորիաներ</displayName>
+				<unitPattern count="one">{0} կիլոկալորիա</unitPattern>
+				<unitPattern count="other">{0} կիլոկալորիա</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>կալորիաներ</displayName>
 				<unitPattern count="one">{0} կալորիա</unitPattern>
@@ -5426,20 +5431,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} Կալորիա</unitPattern>
 				<unitPattern count="other">{0} Կալորիա</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>ջոուլներ</displayName>
-				<unitPattern count="one">{0} ջոուլ</unitPattern>
-				<unitPattern count="other">{0} ջոուլ</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>կիլոկալորիաներ</displayName>
-				<unitPattern count="one">{0} կիլոկալորիա</unitPattern>
-				<unitPattern count="other">{0} կիլոկալորիա</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>կիլոջոուլներ</displayName>
 				<unitPattern count="one">{0} կիլոջոուլ</unitPattern>
 				<unitPattern count="other">{0} կիլոջոուլ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>ջոուլներ</displayName>
+				<unitPattern count="one">{0} ջոուլ</unitPattern>
+				<unitPattern count="other">{0} ջոուլ</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>կիլովատ / ժամ</displayName>
@@ -5451,35 +5451,70 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} գիգահերց</unitPattern>
 				<unitPattern count="other">{0} գիգահերց</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>հերցեր</displayName>
-				<unitPattern count="one">{0} հերց</unitPattern>
-				<unitPattern count="other">{0} հերց</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>մեգահերցեր</displayName>
+				<unitPattern count="one">{0} մեգահերց</unitPattern>
+				<unitPattern count="other">{0} մեգահերց</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>կիլոհերցեր</displayName>
 				<unitPattern count="one">{0} կիլոհերց</unitPattern>
 				<unitPattern count="other">{0} կիլոհերց</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>մեգահերցեր</displayName>
-				<unitPattern count="one">{0} մեգահերց</unitPattern>
-				<unitPattern count="other">{0} մեգահերց</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>հերցեր</displayName>
+				<unitPattern count="one">{0} հերց</unitPattern>
+				<unitPattern count="other">{0} հերց</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>աստղագիտական միավորներ</displayName>
-				<unitPattern count="one">{0} աստղագիտական միավոր</unitPattern>
-				<unitPattern count="other">{0} աստղագիտական միավոր</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>կիլոմետրեր</displayName>
+				<unitPattern count="one">{0} կիլոմետր</unitPattern>
+				<unitPattern count="other">{0} կիլոմետր</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>մետրեր</displayName>
+				<unitPattern count="one">{0} մետր</unitPattern>
+				<unitPattern count="other">{0} մետր</unitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>դեցիմետրեր</displayName>
+				<unitPattern count="one">{0} դեցիմետր</unitPattern>
+				<unitPattern count="other">{0} դեցիմետր</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>սանտիմետրեր</displayName>
 				<unitPattern count="one">{0} սանտիմետր</unitPattern>
 				<unitPattern count="other">{0} սանտիմետր</unitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>դեցիմետրեր</displayName>
-				<unitPattern count="one">{0} դեցիմետր</unitPattern>
-				<unitPattern count="other">{0} դեցիմետր</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>միլիմետրեր</displayName>
+				<unitPattern count="one">{0} միլիմետր</unitPattern>
+				<unitPattern count="other">{0} միլիմետր</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>միկրոմետրեր</displayName>
+				<unitPattern count="one">{0} միկրոմետր</unitPattern>
+				<unitPattern count="other">{0} միկրոմետր</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>նանոմետրեր</displayName>
+				<unitPattern count="one">{0} նանոմետր</unitPattern>
+				<unitPattern count="other">{0} նանոմետր</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>պիկոմետրեր</displayName>
+				<unitPattern count="one">{0} պիկոմետր</unitPattern>
+				<unitPattern count="other">{0} պիկոմետր</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>մղոններ</displayName>
+				<unitPattern count="one">{0} մղոն</unitPattern>
+				<unitPattern count="other">{0} մղոն</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>յարդեր</displayName>
+				<unitPattern count="one">{0} յարդ</unitPattern>
+				<unitPattern count="other">{0} յարդ</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>ֆուտեր</displayName>
@@ -5491,95 +5526,65 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} դյույմ</unitPattern>
 				<unitPattern count="other">{0} դյույմ</unitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>կիլոմետրեր</displayName>
-				<unitPattern count="one">{0} կիլոմետր</unitPattern>
-				<unitPattern count="other">{0} կիլոմետր</unitPattern>
+			<unit type="length-parsec">
+				<displayName>պարսեկներ</displayName>
+				<unitPattern count="one">{0} պարսեկ</unitPattern>
+				<unitPattern count="other">{0} պարսեկ</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>լուսատարիներ</displayName>
 				<unitPattern count="one">{0} լուսատարի</unitPattern>
 				<unitPattern count="other">{0} լուսատարի</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>մետրեր</displayName>
-				<unitPattern count="one">{0} մետր</unitPattern>
-				<unitPattern count="other">{0} մետր</unitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>միկրոմետրեր</displayName>
-				<unitPattern count="one">{0} միկրոմետր</unitPattern>
-				<unitPattern count="other">{0} միկրոմետր</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>մղոններ</displayName>
-				<unitPattern count="one">{0} մղոն</unitPattern>
-				<unitPattern count="other">{0} մղոն</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>միլիմետրեր</displayName>
-				<unitPattern count="one">{0} միլիմետր</unitPattern>
-				<unitPattern count="other">{0} միլիմետր</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>նանոմետրեր</displayName>
-				<unitPattern count="one">{0} նանոմետր</unitPattern>
-				<unitPattern count="other">{0} նանոմետր</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>աստղագիտական միավորներ</displayName>
+				<unitPattern count="one">{0} աստղագիտական միավոր</unitPattern>
+				<unitPattern count="other">{0} աստղագիտական միավոր</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>ծովային մղոններ</displayName>
 				<unitPattern count="one">{0} ծովային մղոն</unitPattern>
 				<unitPattern count="other">{0} ծովային մղոն</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>պարսեկներ</displayName>
-				<unitPattern count="one">{0} պարսեկ</unitPattern>
-				<unitPattern count="other">{0} պարսեկ</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>պիկոմետրեր</displayName>
-				<unitPattern count="one">{0} պիկոմետր</unitPattern>
-				<unitPattern count="other">{0} պիկոմետր</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>յարդեր</displayName>
-				<unitPattern count="one">{0} յարդ</unitPattern>
-				<unitPattern count="other">{0} յարդ</unitPattern>
-			</unit>
 			<unit type="light-lux">
 				<displayName>լյուքս</displayName>
 				<unitPattern count="one">{0} լյուքս</unitPattern>
 				<unitPattern count="other">{0} լյուքս</unitPattern>
-			</unit>
-			<unit type="mass-carat">
-				<displayName>կարատներ</displayName>
-				<unitPattern count="one">{0} կարատ</unitPattern>
-				<unitPattern count="other">{0} կարատ</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>գրամներ</displayName>
-				<unitPattern count="one">{0} գրամ</unitPattern>
-				<unitPattern count="other">{0} գրամ</unitPattern>
-			</unit>
-			<unit type="mass-kilogram">
-				<displayName>կիլոգրամներ</displayName>
-				<unitPattern count="one">{0} կիլոգրամ</unitPattern>
-				<unitPattern count="other">{0} կիլոգրամ</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>մետրիկ տոննաներ</displayName>
 				<unitPattern count="one">{0} մետրիկ տոննա</unitPattern>
 				<unitPattern count="other">{0} մետրիկ տոննա</unitPattern>
 			</unit>
-			<unit type="mass-microgram">
-				<displayName>միկրոգրամներ</displayName>
-				<unitPattern count="one">{0} միկրոգրամ</unitPattern>
-				<unitPattern count="other">{0} միկրոգրամ</unitPattern>
+			<unit type="mass-kilogram">
+				<displayName>կիլոգրամներ</displayName>
+				<unitPattern count="one">{0} կիլոգրամ</unitPattern>
+				<unitPattern count="other">{0} կիլոգրամ</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName>գրամներ</displayName>
+				<unitPattern count="one">{0} գրամ</unitPattern>
+				<unitPattern count="other">{0} գրամ</unitPattern>
 			</unit>
 			<unit type="mass-milligram">
 				<displayName>միլիգրամներ</displayName>
 				<unitPattern count="one">{0} միլիգրամ</unitPattern>
 				<unitPattern count="other">{0} միլիգրամ</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>միկրոգրամներ</displayName>
+				<unitPattern count="one">{0} միկրոգրամ</unitPattern>
+				<unitPattern count="other">{0} միկրոգրամ</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName>տոննաներ</displayName>
+				<unitPattern count="one">{0} տոննա</unitPattern>
+				<unitPattern count="other">{0} տոննա</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>ֆունտեր</displayName>
+				<unitPattern count="one">{0} ֆունտ</unitPattern>
+				<unitPattern count="other">{0} ֆունտ</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>ունցիաներ</displayName>
@@ -5591,60 +5596,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} տրոյական ունցիա</unitPattern>
 				<unitPattern count="other">{0} տրոյական ունցիա</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>ֆունտեր</displayName>
-				<unitPattern count="one">{0} ֆունտ</unitPattern>
-				<unitPattern count="other">{0} ֆունտ</unitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>տոննաներ</displayName>
-				<unitPattern count="one">{0} տոննա</unitPattern>
-				<unitPattern count="other">{0} տոննա</unitPattern>
+			<unit type="mass-carat">
+				<displayName>կարատներ</displayName>
+				<unitPattern count="one">{0} կարատ</unitPattern>
+				<unitPattern count="other">{0} կարատ</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>գեգավատ</displayName>
 				<unitPattern count="one">{0} գեգավատ</unitPattern>
 				<unitPattern count="other">{0} գեգավատ</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>ձիաուժ</displayName>
-				<unitPattern count="one">{0} ձիաուժ</unitPattern>
-				<unitPattern count="other">{0} ձիաուժ</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>մեգավատեր</displayName>
+				<unitPattern count="one">{0} մեգավատ</unitPattern>
+				<unitPattern count="other">{0} մեգավատ</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>կիլովատեր</displayName>
 				<unitPattern count="one">{0} կիլովատ</unitPattern>
 				<unitPattern count="other">{0} կիլովատ</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>մեգավատեր</displayName>
-				<unitPattern count="one">{0} մեգավատ</unitPattern>
-				<unitPattern count="other">{0} մեգավատ</unitPattern>
+			<unit type="power-watt">
+				<displayName>վատեր</displayName>
+				<unitPattern count="one">{0} վատ</unitPattern>
+				<unitPattern count="other">{0} վատ</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>միլիվատեր</displayName>
 				<unitPattern count="one">{0} միլիվատ</unitPattern>
 				<unitPattern count="other">{0} միլիվատ</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>վատեր</displayName>
-				<unitPattern count="one">{0} վատ</unitPattern>
-				<unitPattern count="other">{0} վատ</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>ձիաուժ</displayName>
+				<unitPattern count="one">{0} ձիաուժ</unitPattern>
+				<unitPattern count="other">{0} ձիաուժ</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>հեկտապասկալ</displayName>
 				<unitPattern count="one">{0} հեկտապասկալ</unitPattern>
 				<unitPattern count="other">{0} հեկտապասկալ</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>դյույմ սնդիկի սյուն</displayName>
-				<unitPattern count="one">{0} դյույմ սնդիկի սյուն</unitPattern>
-				<unitPattern count="other">{0} դյույմ սնդիկի սյուն</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>միլիբար</displayName>
-				<unitPattern count="one">{0} միլիբար</unitPattern>
-				<unitPattern count="other">{0} միլիբար</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>միլիմետր սնդիկի սյուն</displayName>
@@ -5656,6 +5646,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ֆունտ ըստ քառակուսի դյույմի</unitPattern>
 				<unitPattern count="other">{0} ֆունտ ըստ քառակուսի դյույմի</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>դյույմ սնդիկի սյուն</displayName>
+				<unitPattern count="one">{0} դյույմ սնդիկի սյուն</unitPattern>
+				<unitPattern count="other">{0} դյույմ սնդիկի սյուն</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>միլիբար</displayName>
+				<unitPattern count="one">{0} միլիբար</unitPattern>
+				<unitPattern count="other">{0} միլիբար</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>կարատ</displayName>
 				<unitPattern count="one">{0} կարատ</unitPattern>
@@ -5665,11 +5665,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>կիլոմետրեր ժամում</displayName>
 				<unitPattern count="one">{0} կիլոմետր ժամում</unitPattern>
 				<unitPattern count="other">{0} կիլոմետր ժամում</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>հանգույցներ</displayName>
-				<unitPattern count="one">{0} հանգույց</unitPattern>
-				<unitPattern count="other">{0} հանգույց</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>մետրեր վայրկյանում</displayName>
@@ -5681,6 +5676,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} մղոն ժամում</unitPattern>
 				<unitPattern count="other">{0} մղոն ժամում</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>հանգույցներ</displayName>
+				<unitPattern count="one">{0} հանգույց</unitPattern>
+				<unitPattern count="other">{0} հանգույց</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>աստիճաններ ըստ Ցելսիուսի</displayName>
 				<unitPattern count="one">{0} աստիճան ըստ Ցելսիուսի</unitPattern>
@@ -5691,40 +5696,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} աստիճան ըստ Ֆարենհայթի</unitPattern>
 				<unitPattern count="other">{0} աստիճան ըստ Ֆարենհայթի</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>աստիճան ըստ Կելվինի</displayName>
 				<unitPattern count="one">{0} աստիճան ըստ Կելվինի</unitPattern>
 				<unitPattern count="other">{0} աստիճան ըստ Կելվինի</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ակր ֆուտ</displayName>
-				<unitPattern count="one">{0} ակր ֆուտ</unitPattern>
-				<unitPattern count="other">{0} ակր ֆուտ</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>սանտիլիտր</displayName>
-				<unitPattern count="one">{0} սանտիլիտր</unitPattern>
-				<unitPattern count="other">{0} սանտիլիտր</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>խորանարդ սանտիմետր</displayName>
-				<unitPattern count="one">{0} խորանարդ սանտիմետր</unitPattern>
-				<unitPattern count="other">{0} խորանարդ սանտիմետր</unitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>խորանարդ ֆուտ</displayName>
-				<unitPattern count="one">{0} խորանարդ ֆուտ</unitPattern>
-				<unitPattern count="other">{0} խորանարդ ֆուտ</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>խորանարդ դյույմ</displayName>
-				<unitPattern count="one">{0} խորանարդ դյույմ</unitPattern>
-				<unitPattern count="other">{0} խորանարդ դյույմ</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>խորանարդ կիլոմետր</displayName>
@@ -5736,6 +5711,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} խորանարդ մետր</unitPattern>
 				<unitPattern count="other">{0} խորանարդ մետր</unitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>խորանարդ սանտիմետր</displayName>
+				<unitPattern count="one">{0} խորանարդ սանտիմետր</unitPattern>
+				<unitPattern count="other">{0} խորանարդ սանտիմետր</unitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>խորանարդ մղոն</displayName>
 				<unitPattern count="one">{0} խորանարդ մղոն</unitPattern>
@@ -5746,25 +5726,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} խորանարդ յարդ</unitPattern>
 				<unitPattern count="other">{0} խորանարդ յարդ</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>բաժակ</displayName>
-				<unitPattern count="one">{0} բաժակ</unitPattern>
-				<unitPattern count="other">{0} բաժակ</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>խորանարդ ֆուտ</displayName>
+				<unitPattern count="one">{0} խորանարդ ֆուտ</unitPattern>
+				<unitPattern count="other">{0} խորանարդ ֆուտ</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>դեցիլիտր</displayName>
-				<unitPattern count="one">{0} դեցիլիտր</unitPattern>
-				<unitPattern count="other">{0} դեցիլիտր</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>խորանարդ դյույմ</displayName>
+				<unitPattern count="one">{0} խորանարդ դյույմ</unitPattern>
+				<unitPattern count="other">{0} խորանարդ դյույմ</unitPattern>
 			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>հեղուկ ունցիաներ</displayName>
-				<unitPattern count="one">{0} հեղուկ ունցիա</unitPattern>
-				<unitPattern count="other">{0} հեղուկ ունցիա</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>գալոն</displayName>
-				<unitPattern count="one">{0} գալոն</unitPattern>
-				<unitPattern count="other">{0} գալոն</unitPattern>
+			<unit type="volume-megaliter">
+				<displayName>մեգալիտրեր</displayName>
+				<unitPattern count="one">{0} մեգալիտր</unitPattern>
+				<unitPattern count="other">{0} մեգալիտր</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>հեկտոլիտրեր</displayName>
@@ -5776,30 +5751,55 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} լիտր</unitPattern>
 				<unitPattern count="other">{0} լիտր</unitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>մեգալիտրեր</displayName>
-				<unitPattern count="one">{0} մեգալիտր</unitPattern>
-				<unitPattern count="other">{0} մեգալիտր</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>դեցիլիտր</displayName>
+				<unitPattern count="one">{0} դեցիլիտր</unitPattern>
+				<unitPattern count="other">{0} դեցիլիտր</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>սանտիլիտր</displayName>
+				<unitPattern count="one">{0} սանտիլիտր</unitPattern>
+				<unitPattern count="other">{0} սանտիլիտր</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>միլիլիտրեր</displayName>
 				<unitPattern count="one">{0} միլիլիտր</unitPattern>
 				<unitPattern count="other">{0} միլիլիտր</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>պինտեր</displayName>
-				<unitPattern count="one">{0} պինտ</unitPattern>
-				<unitPattern count="other">{0} պինտ</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>մետրիկ պինտեր</displayName>
 				<unitPattern count="one">{0} մետրիկ պինտ</unitPattern>
 				<unitPattern count="other">{0} մետրիկ պինտ</unitPattern>
 			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ակր ֆուտ</displayName>
+				<unitPattern count="one">{0} ակր ֆուտ</unitPattern>
+				<unitPattern count="other">{0} ակր ֆուտ</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>գալոն</displayName>
+				<unitPattern count="one">{0} գալոն</unitPattern>
+				<unitPattern count="other">{0} գալոն</unitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>քվարտ</displayName>
 				<unitPattern count="one">{0} քվարտ</unitPattern>
 				<unitPattern count="other">{0} քվարտ</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>պինտեր</displayName>
+				<unitPattern count="one">{0} պինտ</unitPattern>
+				<unitPattern count="other">{0} պինտ</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>բաժակ</displayName>
+				<unitPattern count="one">{0} բաժակ</unitPattern>
+				<unitPattern count="other">{0} բաժակ</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>հեղուկ ունցիաներ</displayName>
+				<unitPattern count="one">{0} հեղուկ ունցիա</unitPattern>
+				<unitPattern count="other">{0} հեղուկ ունցիա</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>ճաշի գդալ</displayName>
@@ -5832,6 +5832,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} մ/վ²</unitPattern>
 				<unitPattern count="other">{0} մ/վ²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>պտ․</displayName>
+				<unitPattern count="one">{0} պտ․</unitPattern>
+				<unitPattern count="other">{0} պտ․</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>ռադիան</displayName>
+				<unitPattern count="one">{0} ռադ</unitPattern>
+				<unitPattern count="other">{0} ռադ</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>աստիճան</displayName>
+				<unitPattern count="one">{0} աստճ.</unitPattern>
+				<unitPattern count="other">{0} աստճ.</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>արկր.</displayName>
 				<unitPattern count="one">{0} արկր.</unitPattern>
@@ -5842,35 +5857,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} արկվրկ.</unitPattern>
 				<unitPattern count="other">{0} արկվրկ.</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>աստիճան</displayName>
-				<unitPattern count="one">{0} աստճ.</unitPattern>
-				<unitPattern count="other">{0} աստճ.</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>ռադիան</displayName>
-				<unitPattern count="one">{0} ռադ</unitPattern>
-				<unitPattern count="other">{0} ռադ</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>պտ․</displayName>
-				<unitPattern count="one">{0} պտ․</unitPattern>
-				<unitPattern count="other">{0} պտ․</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ակր</displayName>
-				<unitPattern count="one">{0} ակր</unitPattern>
-				<unitPattern count="other">{0} ակր</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>կմ²</displayName>
+				<unitPattern count="one">{0} կմ²</unitPattern>
+				<unitPattern count="other">{0} կմ²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>հեկտար</displayName>
 				<unitPattern count="one">{0} հա</unitPattern>
 				<unitPattern count="other">{0} հա</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>մ²</displayName>
+				<unitPattern count="one">{0} մ²</unitPattern>
+				<unitPattern count="other">{0} մ²</unitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>քռ. սմ.</displayName>
 				<unitPattern count="one">{0} քռ. սմ.</unitPattern>
 				<unitPattern count="other">{0} քռ. սմ.</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>քռ. մղ.</displayName>
+				<unitPattern count="one">{0} քռ. մղ.</unitPattern>
+				<unitPattern count="other">{0} քռ. մղ.</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ակր</displayName>
+				<unitPattern count="one">{0} ակր</unitPattern>
+				<unitPattern count="other">{0} ակր</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>քռ. յդ.</displayName>
+				<unitPattern count="one">{0} քռ. յդ.</unitPattern>
+				<unitPattern count="other">{0} քռ. յդ.</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>քռ. ֆտ.</displayName>
@@ -5882,95 +5902,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} քռ. դյմ.</unitPattern>
 				<unitPattern count="other">{0} քռ. դյմ.</unitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>կմ²</displayName>
-				<unitPattern count="one">{0} կմ²</unitPattern>
-				<unitPattern count="other">{0} կմ²</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>մ²</displayName>
-				<unitPattern count="one">{0} մ²</unitPattern>
-				<unitPattern count="other">{0} մ²</unitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>քռ. մղ.</displayName>
-				<unitPattern count="one">{0} քռ. մղ.</unitPattern>
-				<unitPattern count="other">{0} քռ. մղ.</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>քռ. յդ.</displayName>
-				<unitPattern count="one">{0} քռ. յդ.</unitPattern>
-				<unitPattern count="other">{0} քռ. յդ.</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>լ/կմ</displayName>
+				<unitPattern count="one">{0} լ/կմ</unitPattern>
+				<unitPattern count="other">{0} լ/կմ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>լ/100 կմ</displayName>
 				<unitPattern count="one">{0} լ/100 կմ</unitPattern>
 				<unitPattern count="other">{0} լ/100 կմ</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>լ/կմ</displayName>
-				<unitPattern count="one">{0} լ/կմ</unitPattern>
-				<unitPattern count="other">{0} լ/կմ</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>մղ/գալ</displayName>
 				<unitPattern count="one">{0} մղ/գալ</unitPattern>
 				<unitPattern count="other">{0} մղ/գալ</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>բիթ</displayName>
-				<unitPattern count="one">{0} բիթ</unitPattern>
-				<unitPattern count="other">{0} բիթ</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>Բ</displayName>
-				<unitPattern count="one">{0} Բ</unitPattern>
-				<unitPattern count="other">{0} Բ</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>Գբիթ</displayName>
-				<unitPattern count="one">{0} Գբիթ</unitPattern>
-				<unitPattern count="other">{0} Գբիթ</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>ԳԲ</displayName>
-				<unitPattern count="one">{0} ԳԲ</unitPattern>
-				<unitPattern count="other">{0} ԳԲ</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>Կբիթ</displayName>
-				<unitPattern count="one">{0} Կբիթ</unitPattern>
-				<unitPattern count="other">{0} Կբիթ</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>կԲ</displayName>
-				<unitPattern count="one">{0} կԲ</unitPattern>
-				<unitPattern count="other">{0} կԲ</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>Մբիթ</displayName>
-				<unitPattern count="one">{0} Մբիթ</unitPattern>
-				<unitPattern count="other">{0} Մբիթ</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>ՄԲ</displayName>
-				<unitPattern count="one">{0} ՄԲ</unitPattern>
-				<unitPattern count="other">{0} ՄԲ</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>Տբիթ</displayName>
-				<unitPattern count="one">{0} Տբիթ</unitPattern>
-				<unitPattern count="other">{0} Տբիթ</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>ՏԲ</displayName>
 				<unitPattern count="one">{0} ՏԲ</unitPattern>
 				<unitPattern count="other">{0} ՏԲ</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>Տբիթ</displayName>
+				<unitPattern count="one">{0} Տբիթ</unitPattern>
+				<unitPattern count="other">{0} Տբիթ</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>ԳԲ</displayName>
+				<unitPattern count="one">{0} ԳԲ</unitPattern>
+				<unitPattern count="other">{0} ԳԲ</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>Գբիթ</displayName>
+				<unitPattern count="one">{0} Գբիթ</unitPattern>
+				<unitPattern count="other">{0} Գբիթ</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>ՄԲ</displayName>
+				<unitPattern count="one">{0} ՄԲ</unitPattern>
+				<unitPattern count="other">{0} ՄԲ</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Մբիթ</displayName>
+				<unitPattern count="one">{0} Մբիթ</unitPattern>
+				<unitPattern count="other">{0} Մբիթ</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>կԲ</displayName>
+				<unitPattern count="one">{0} կԲ</unitPattern>
+				<unitPattern count="other">{0} կԲ</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>Կբիթ</displayName>
+				<unitPattern count="one">{0} Կբիթ</unitPattern>
+				<unitPattern count="other">{0} Կբիթ</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>Բ</displayName>
+				<unitPattern count="one">{0} Բ</unitPattern>
+				<unitPattern count="other">{0} Բ</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>բիթ</displayName>
+				<unitPattern count="one">{0} բիթ</unitPattern>
+				<unitPattern count="other">{0} բիթ</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>դ․</displayName>
 				<unitPattern count="one">{0} դ․</unitPattern>
 				<unitPattern count="other">{0} դ․</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>տ</displayName>
+				<unitPattern count="one">{0} տ</unitPattern>
+				<unitPattern count="other">{0} տ</unitPattern>
+				<perUnitPattern>{0}/տ</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>ամս</displayName>
+				<unitPattern count="one">{0} ամս</unitPattern>
+				<unitPattern count="other">{0} ամս</unitPattern>
+				<perUnitPattern>{0}/ամս</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>շբթ</displayName>
+				<unitPattern count="one">{0} շբթ</unitPattern>
+				<unitPattern count="other">{0} շբթ</unitPattern>
+				<perUnitPattern>{0}/շբթ</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>օր</displayName>
@@ -5984,32 +6002,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ժ</unitPattern>
 				<perUnitPattern>{0}/ժ</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>մկվ</displayName>
-				<unitPattern count="one">{0} մկվ</unitPattern>
-				<unitPattern count="other">{0} մկվ</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>մվ</displayName>
-				<unitPattern count="one">{0} մվ</unitPattern>
-				<unitPattern count="other">{0} մվ</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>ր</displayName>
 				<unitPattern count="one">{0} ր</unitPattern>
 				<unitPattern count="other">{0} ր</unitPattern>
 				<perUnitPattern>{0}/ր</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>ամս</displayName>
-				<unitPattern count="one">{0} ամս</unitPattern>
-				<unitPattern count="other">{0} ամս</unitPattern>
-				<perUnitPattern>{0}/ամս</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>նվ</displayName>
-				<unitPattern count="one">{0} նվ</unitPattern>
-				<unitPattern count="other">{0} նվ</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>վրկ</displayName>
@@ -6017,17 +6014,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} վրկ</unitPattern>
 				<perUnitPattern>{0}/վրկ</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>շբթ</displayName>
-				<unitPattern count="one">{0} շբթ</unitPattern>
-				<unitPattern count="other">{0} շբթ</unitPattern>
-				<perUnitPattern>{0}/շբթ</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>մվ</displayName>
+				<unitPattern count="one">{0} մվ</unitPattern>
+				<unitPattern count="other">{0} մվ</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>տ</displayName>
-				<unitPattern count="one">{0} տ</unitPattern>
-				<unitPattern count="other">{0} տ</unitPattern>
-				<perUnitPattern>{0}/տ</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>մկվ</displayName>
+				<unitPattern count="one">{0} մկվ</unitPattern>
+				<unitPattern count="other">{0} մկվ</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>նվ</displayName>
+				<unitPattern count="one">{0} նվ</unitPattern>
+				<unitPattern count="other">{0} նվ</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>Ա</displayName>
@@ -6049,6 +6049,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} Վ</unitPattern>
 				<unitPattern count="other">{0} Վ</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>կկալ</displayName>
+				<unitPattern count="one">{0} կկալ</unitPattern>
+				<unitPattern count="other">{0} կկալ</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>կալ</displayName>
 				<unitPattern count="one">{0} կալ</unitPattern>
@@ -6059,20 +6064,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} Կալ</unitPattern>
 				<unitPattern count="other">{0} Կալ</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>Ջ</displayName>
-				<unitPattern count="one">{0} Ջ</unitPattern>
-				<unitPattern count="other">{0} Ջ</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>կկալ</displayName>
-				<unitPattern count="one">{0} կկալ</unitPattern>
-				<unitPattern count="other">{0} կկալ</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>կՋ</displayName>
 				<unitPattern count="one">{0} կՋ</unitPattern>
 				<unitPattern count="other">{0} կՋ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>Ջ</displayName>
+				<unitPattern count="one">{0} Ջ</unitPattern>
+				<unitPattern count="other">{0} Ջ</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>կՎտ/Ժ</displayName>
@@ -6084,25 +6084,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ԳՀց</unitPattern>
 				<unitPattern count="other">{0} ԳՀց</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>Հց</displayName>
-				<unitPattern count="one">{0} Հց</unitPattern>
-				<unitPattern count="other">{0} Հց</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>ՄՀց</displayName>
+				<unitPattern count="one">{0} ՄՀց</unitPattern>
+				<unitPattern count="other">{0} ՄՀց</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>կՀց</displayName>
 				<unitPattern count="one">{0} կՀց</unitPattern>
 				<unitPattern count="other">{0} կՀց</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>ՄՀց</displayName>
-				<unitPattern count="one">{0} ՄՀց</unitPattern>
-				<unitPattern count="other">{0} ՄՀց</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>Հց</displayName>
+				<unitPattern count="one">{0} Հց</unitPattern>
+				<unitPattern count="other">{0} Հց</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>ա.մ.</displayName>
-				<unitPattern count="one">{0} ա.մ.</unitPattern>
-				<unitPattern count="other">{0} ա.մ.</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>կմ</displayName>
+				<unitPattern count="one">{0} կմ</unitPattern>
+				<unitPattern count="other">{0} կմ</unitPattern>
+				<perUnitPattern>{0}/կմ</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>մ</displayName>
+				<unitPattern count="one">{0} մ</unitPattern>
+				<unitPattern count="other">{0} մ</unitPattern>
+				<perUnitPattern>{0}/մ</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>դմ</displayName>
+				<unitPattern count="one">{0} դմ</unitPattern>
+				<unitPattern count="other">{0} դմ</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>սմ</displayName>
@@ -6110,10 +6122,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} սմ</unitPattern>
 				<perUnitPattern>{0}/սմ</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>դմ</displayName>
-				<unitPattern count="one">{0} դմ</unitPattern>
-				<unitPattern count="other">{0} դմ</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>մմ</displayName>
+				<unitPattern count="one">{0} մմ</unitPattern>
+				<unitPattern count="other">{0} մմ</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>մկմ</displayName>
+				<unitPattern count="one">{0} մկմ</unitPattern>
+				<unitPattern count="other">{0} մկմ</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>նմ</displayName>
+				<unitPattern count="one">{0} նմ</unitPattern>
+				<unitPattern count="other">{0} նմ</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>պմ</displayName>
+				<unitPattern count="one">{0} պմ</unitPattern>
+				<unitPattern count="other">{0} պմ</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>մղ</displayName>
+				<unitPattern count="one">{0} մղ</unitPattern>
+				<unitPattern count="other">{0} մղ</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>յդ</displayName>
+				<unitPattern count="one">{0} յդ</unitPattern>
+				<unitPattern count="other">{0} յդ</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>ֆտ</displayName>
@@ -6127,97 +6164,65 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} դյմ</unitPattern>
 				<perUnitPattern>{0}/դյմ</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>կմ</displayName>
-				<unitPattern count="one">{0} կմ</unitPattern>
-				<unitPattern count="other">{0} կմ</unitPattern>
-				<perUnitPattern>{0}/կմ</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>պկ</displayName>
+				<unitPattern count="one">{0} պկ</unitPattern>
+				<unitPattern count="other">{0} պկ</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>լ․տ․</displayName>
 				<unitPattern count="one">{0} լ.տ.</unitPattern>
 				<unitPattern count="other">{0} լ.տ.</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>մ</displayName>
-				<unitPattern count="one">{0} մ</unitPattern>
-				<unitPattern count="other">{0} մ</unitPattern>
-				<perUnitPattern>{0}/մ</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>մկմ</displayName>
-				<unitPattern count="one">{0} մկմ</unitPattern>
-				<unitPattern count="other">{0} մկմ</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>մղ</displayName>
-				<unitPattern count="one">{0} մղ</unitPattern>
-				<unitPattern count="other">{0} մղ</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>մմ</displayName>
-				<unitPattern count="one">{0} մմ</unitPattern>
-				<unitPattern count="other">{0} մմ</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>նմ</displayName>
-				<unitPattern count="one">{0} նմ</unitPattern>
-				<unitPattern count="other">{0} նմ</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>ա.մ.</displayName>
+				<unitPattern count="one">{0} ա.մ.</unitPattern>
+				<unitPattern count="other">{0} ա.մ.</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>ծմղ</displayName>
 				<unitPattern count="one">{0} ծմղ</unitPattern>
 				<unitPattern count="other">{0} ծմղ</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>պկ</displayName>
-				<unitPattern count="one">{0} պկ</unitPattern>
-				<unitPattern count="other">{0} պկ</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>պմ</displayName>
-				<unitPattern count="one">{0} պմ</unitPattern>
-				<unitPattern count="other">{0} պմ</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>յդ</displayName>
-				<unitPattern count="one">{0} յդ</unitPattern>
-				<unitPattern count="other">{0} յդ</unitPattern>
-			</unit>
 			<unit type="light-lux">
 				<displayName>լք</displayName>
 				<unitPattern count="one">{0} լք</unitPattern>
 				<unitPattern count="other">{0} լք</unitPattern>
-			</unit>
-			<unit type="mass-carat">
-				<displayName>կարատ</displayName>
-				<unitPattern count="one">{0} կտ.</unitPattern>
-				<unitPattern count="other">{0} կտ.</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>գ</displayName>
-				<unitPattern count="one">{0} գ</unitPattern>
-				<unitPattern count="other">{0} գ</unitPattern>
-			</unit>
-			<unit type="mass-kilogram">
-				<displayName>կգ</displayName>
-				<unitPattern count="one">{0} կգ</unitPattern>
-				<unitPattern count="other">{0} կգ</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>մ.տ.</displayName>
 				<unitPattern count="one">{0} մ.տ.</unitPattern>
 				<unitPattern count="other">{0} մ.տ.</unitPattern>
 			</unit>
-			<unit type="mass-microgram">
-				<displayName>մկգ</displayName>
-				<unitPattern count="one">{0} մկգ</unitPattern>
-				<unitPattern count="other">{0} մկգ</unitPattern>
+			<unit type="mass-kilogram">
+				<displayName>կգ</displayName>
+				<unitPattern count="one">{0} կգ</unitPattern>
+				<unitPattern count="other">{0} կգ</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName>գ</displayName>
+				<unitPattern count="one">{0} գ</unitPattern>
+				<unitPattern count="other">{0} գ</unitPattern>
 			</unit>
 			<unit type="mass-milligram">
 				<displayName>մգ</displayName>
 				<unitPattern count="one">{0} մգ</unitPattern>
 				<unitPattern count="other">{0} մգ</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>մկգ</displayName>
+				<unitPattern count="one">{0} մկգ</unitPattern>
+				<unitPattern count="other">{0} մկգ</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName>տոննա</displayName>
+				<unitPattern count="one">{0} տ</unitPattern>
+				<unitPattern count="other">{0} տ</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>ֆունտ</displayName>
+				<unitPattern count="one">{0} ֆն.</unitPattern>
+				<unitPattern count="other">{0} ֆն.</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>ունց․</displayName>
@@ -6230,60 +6235,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} տր. ունց․</unitPattern>
 				<unitPattern count="other">{0} տր. ունց․</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>ֆունտ</displayName>
-				<unitPattern count="one">{0} ֆն.</unitPattern>
-				<unitPattern count="other">{0} ֆն.</unitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>տոննա</displayName>
-				<unitPattern count="one">{0} տ</unitPattern>
-				<unitPattern count="other">{0} տ</unitPattern>
+			<unit type="mass-carat">
+				<displayName>կարատ</displayName>
+				<unitPattern count="one">{0} կտ.</unitPattern>
+				<unitPattern count="other">{0} կտ.</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ԳՎտ</displayName>
 				<unitPattern count="one">{0} ԳՎտ</unitPattern>
 				<unitPattern count="other">{0} ԳՎտ</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>ձ/ու</displayName>
-				<unitPattern count="one">{0} ձ/ու</unitPattern>
-				<unitPattern count="other">{0} ձ/ու</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>ՄՎտ</displayName>
+				<unitPattern count="one">{0} ՄՎտ</unitPattern>
+				<unitPattern count="other">{0} ՄՎտ</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>կՎտ</displayName>
 				<unitPattern count="one">{0} կՎտ</unitPattern>
 				<unitPattern count="other">{0} կՎտ</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>ՄՎտ</displayName>
-				<unitPattern count="one">{0} ՄՎտ</unitPattern>
-				<unitPattern count="other">{0} ՄՎտ</unitPattern>
+			<unit type="power-watt">
+				<displayName>Վտ</displayName>
+				<unitPattern count="one">{0} Վտ</unitPattern>
+				<unitPattern count="other">{0} Վտ</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>մՎտ</displayName>
 				<unitPattern count="one">{0} մՎտ</unitPattern>
 				<unitPattern count="other">{0} մՎտ</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>Վտ</displayName>
-				<unitPattern count="one">{0} Վտ</unitPattern>
-				<unitPattern count="other">{0} Վտ</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>ձ/ու</displayName>
+				<unitPattern count="one">{0} ձ/ու</unitPattern>
+				<unitPattern count="other">{0} ձ/ու</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>հՊա</displayName>
 				<unitPattern count="one">{0} հՊա</unitPattern>
 				<unitPattern count="other">{0} հՊա</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>դյույմ ս.ս.</displayName>
-				<unitPattern count="one">{0} դյմ. ս.ս.</unitPattern>
-				<unitPattern count="other">{0} դյմ. ս.ս.</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>միլիբար</displayName>
-				<unitPattern count="one">{0} մբար</unitPattern>
-				<unitPattern count="other">{0} մբար</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>մմ ս.ս.</displayName>
@@ -6295,6 +6285,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ֆ.ք.դյմ</unitPattern>
 				<unitPattern count="other">{0} ֆ.ք.դյմ</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>դյույմ ս.ս.</displayName>
+				<unitPattern count="one">{0} դյմ. ս.ս.</unitPattern>
+				<unitPattern count="other">{0} դյմ. ս.ս.</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>միլիբար</displayName>
+				<unitPattern count="one">{0} մբար</unitPattern>
+				<unitPattern count="other">{0} մբար</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>կար</displayName>
 				<unitPattern count="one">{0} կար</unitPattern>
@@ -6304,11 +6304,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>կմ/ժ</displayName>
 				<unitPattern count="one">{0} կմ/ժ</unitPattern>
 				<unitPattern count="other">{0} կմ/ժ</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>հնգ․</displayName>
-				<unitPattern count="one">{0} հնգ․</unitPattern>
-				<unitPattern count="other">{0} հնգ․</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>մ/վ</displayName>
@@ -6320,6 +6315,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} մղ/ժ</unitPattern>
 				<unitPattern count="other">{0} մղ/ժ</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>հնգ․</displayName>
+				<unitPattern count="one">{0} հնգ․</unitPattern>
+				<unitPattern count="other">{0} հնգ․</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
 				<unitPattern count="one">{0} °C</unitPattern>
@@ -6330,41 +6335,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>աստ. Կելվին</displayName>
 				<unitPattern count="one">{0} K</unitPattern>
 				<unitPattern count="other">{0} K</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ակր ֆտ.</displayName>
-				<unitPattern count="one">{0} ակր ֆտ.</unitPattern>
-				<unitPattern count="other">{0} ակր ֆտ.</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>սլ</displayName>
-				<unitPattern count="one">{0} սլ</unitPattern>
-				<unitPattern count="other">{0} սլ</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>սմ³</displayName>
-				<unitPattern count="one">{0} սմ³</unitPattern>
-				<unitPattern count="other">{0} սմ³</unitPattern>
-				<perUnitPattern>{0}/սմ³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>ֆտ³</displayName>
-				<unitPattern count="one">{0} ֆտ³</unitPattern>
-				<unitPattern count="other">{0} ֆտ³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>դյմ³</displayName>
-				<unitPattern count="one">{0} դյմ³</unitPattern>
-				<unitPattern count="other">{0} դյմ³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>կմ³</displayName>
@@ -6377,6 +6351,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} մ³</unitPattern>
 				<perUnitPattern>{0}/մ³</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>սմ³</displayName>
+				<unitPattern count="one">{0} սմ³</unitPattern>
+				<unitPattern count="other">{0} սմ³</unitPattern>
+				<perUnitPattern>{0}/սմ³</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>մղ³</displayName>
 				<unitPattern count="one">{0} մղ³</unitPattern>
@@ -6387,26 +6367,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} յդ³</unitPattern>
 				<unitPattern count="other">{0} յդ³</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>բաժակ</displayName>
-				<unitPattern count="one">{0} բ.</unitPattern>
-				<unitPattern count="other">{0} բ.</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>ֆտ³</displayName>
+				<unitPattern count="one">{0} ֆտ³</unitPattern>
+				<unitPattern count="other">{0} ֆտ³</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>դլ</displayName>
-				<unitPattern count="one">{0} դլ</unitPattern>
-				<unitPattern count="other">{0} դլ</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>դյմ³</displayName>
+				<unitPattern count="one">{0} դյմ³</unitPattern>
+				<unitPattern count="other">{0} դյմ³</unitPattern>
 			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>հղ․ ունց․</displayName>
-				<unitPattern count="one">{0} հղ. ունց․</unitPattern>
-				<unitPattern count="other">{0} հղ. ունց․</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>գալ.</displayName>
-				<unitPattern count="one">{0} գալ.</unitPattern>
-				<unitPattern count="other">{0} գալ.</unitPattern>
-				<perUnitPattern>{0}/գալ․</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>Մլ</displayName>
+				<unitPattern count="one">{0} Մլ</unitPattern>
+				<unitPattern count="other">{0} Մլ</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>հլ</displayName>
@@ -6419,25 +6393,51 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} լ</unitPattern>
 				<perUnitPattern>{0}/լ</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>Մլ</displayName>
-				<unitPattern count="one">{0} Մլ</unitPattern>
-				<unitPattern count="other">{0} Մլ</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>դլ</displayName>
+				<unitPattern count="one">{0} դլ</unitPattern>
+				<unitPattern count="other">{0} դլ</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>սլ</displayName>
+				<unitPattern count="one">{0} սլ</unitPattern>
+				<unitPattern count="other">{0} սլ</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>մլ</displayName>
 				<unitPattern count="one">{0} մլ</unitPattern>
 				<unitPattern count="other">{0} մլ</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>պնտ․</displayName>
-				<unitPattern count="one">{0} պնտ․</unitPattern>
-				<unitPattern count="other">{0} պնտ․</unitPattern>
+			<unit type="volume-acre-foot">
+				<displayName>ակր ֆտ.</displayName>
+				<unitPattern count="one">{0} ակր ֆտ.</unitPattern>
+				<unitPattern count="other">{0} ակր ֆտ.</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>գալ.</displayName>
+				<unitPattern count="one">{0} գալ.</unitPattern>
+				<unitPattern count="other">{0} գալ.</unitPattern>
+				<perUnitPattern>{0}/գալ․</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>քտ.</displayName>
 				<unitPattern count="one">{0} քտ.</unitPattern>
 				<unitPattern count="other">{0} քտ.</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>պնտ․</displayName>
+				<unitPattern count="one">{0} պնտ․</unitPattern>
+				<unitPattern count="other">{0} պնտ․</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>բաժակ</displayName>
+				<unitPattern count="one">{0} բ.</unitPattern>
+				<unitPattern count="other">{0} բ.</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>հղ․ ունց․</displayName>
+				<unitPattern count="one">{0} հղ. ունց․</unitPattern>
+				<unitPattern count="other">{0} հղ. ունց․</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>ճգ.</displayName>
@@ -6464,6 +6464,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}G</unitPattern>
 				<unitPattern count="other">{0}G</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -6472,25 +6476,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="one">{0}ակր</unitPattern>
-				<unitPattern count="other">{0}ակր</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} կմ²</unitPattern>
+				<unitPattern count="other">{0} կմ²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="one">{0}հա</unitPattern>
 				<unitPattern count="other">{0}հա</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="one">{0}ֆտ²</unitPattern>
-				<unitPattern count="other">{0}ֆտ²</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="one">{0} կմ²</unitPattern>
-				<unitPattern count="other">{0} կմ²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="one">{0} մ²</unitPattern>
@@ -6500,10 +6492,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}մղ²</unitPattern>
 				<unitPattern count="other">{0}մղ²</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0}ակր</unitPattern>
+				<unitPattern count="other">{0}ակր</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0}ֆտ²</unitPattern>
+				<unitPattern count="other">{0}ֆտ²</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>լ/100 կմ</displayName>
 				<unitPattern count="one">{0} լ/100 կմ</unitPattern>
 				<unitPattern count="other">{0} լ/100 կմ</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>տ</displayName>
+				<unitPattern count="one">{0} տ</unitPattern>
+				<unitPattern count="other">{0} տ</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>ա</displayName>
+				<unitPattern count="one">{0} ա</unitPattern>
+				<unitPattern count="other">{0} ա</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>շ</displayName>
+				<unitPattern count="one">{0} շ</unitPattern>
+				<unitPattern count="other">{0} շ</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>օր</displayName>
@@ -6515,66 +6530,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ժ</unitPattern>
 				<unitPattern count="other">{0} ժ</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>մվ</displayName>
-				<unitPattern count="one">{0} մվ</unitPattern>
-				<unitPattern count="other">{0} մվ</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>ր</displayName>
 				<unitPattern count="one">{0} ր</unitPattern>
 				<unitPattern count="other">{0} ր</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>ա</displayName>
-				<unitPattern count="one">{0} ա</unitPattern>
-				<unitPattern count="other">{0} ա</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>վ</displayName>
 				<unitPattern count="one">{0} վ</unitPattern>
 				<unitPattern count="other">{0} վ</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>շ</displayName>
-				<unitPattern count="one">{0} շ</unitPattern>
-				<unitPattern count="other">{0} շ</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName>տ</displayName>
-				<unitPattern count="one">{0} տ</unitPattern>
-				<unitPattern count="other">{0} տ</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>սմ</displayName>
-				<unitPattern count="one">{0} սմ</unitPattern>
-				<unitPattern count="other">{0} սմ</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="one">{0}′</unitPattern>
-				<unitPattern count="other">{0}′</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="one">{0}″</unitPattern>
-				<unitPattern count="other">{0}″</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>մվ</displayName>
+				<unitPattern count="one">{0} մվ</unitPattern>
+				<unitPattern count="other">{0} մվ</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>կմ</displayName>
 				<unitPattern count="one">{0} կմ</unitPattern>
 				<unitPattern count="other">{0} կմ</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="one">{0} լ. տ.</unitPattern>
-				<unitPattern count="other">{0} լ. տ.</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>մ</displayName>
 				<unitPattern count="one">{0} մ</unitPattern>
 				<unitPattern count="other">{0} մ</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="one">{0} մղ</unitPattern>
-				<unitPattern count="other">{0} մղ</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>սմ</displayName>
+				<unitPattern count="one">{0} սմ</unitPattern>
+				<unitPattern count="other">{0} սմ</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>մմ</displayName>
@@ -6585,31 +6569,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} պմ</unitPattern>
 				<unitPattern count="other">{0} պմ</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} մղ</unitPattern>
+				<unitPattern count="other">{0} մղ</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<unitPattern count="one">{0} յդ.</unitPattern>
 				<unitPattern count="other">{0} յդ.</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName>գ</displayName>
-				<unitPattern count="one">{0} գ</unitPattern>
-				<unitPattern count="other">{0} գ</unitPattern>
+			<unit type="length-foot">
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0} լ. տ.</unitPattern>
+				<unitPattern count="other">{0} լ. տ.</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>կգ</displayName>
 				<unitPattern count="one">{0} կգ</unitPattern>
 				<unitPattern count="other">{0} կգ</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="one">{0} ունց</unitPattern>
-				<unitPattern count="other">{0} ունց</unitPattern>
+			<unit type="mass-gram">
+				<displayName>գ</displayName>
+				<unitPattern count="one">{0} գ</unitPattern>
+				<unitPattern count="other">{0} գ</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="one">{0}#</unitPattern>
 				<unitPattern count="other">{0}#</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="one">{0}ձ/ու</unitPattern>
-				<unitPattern count="other">{0}ձ/ու</unitPattern>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0} ունց</unitPattern>
+				<unitPattern count="other">{0} ունց</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one">{0}կՎ</unitPattern>
@@ -6618,6 +6614,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="power-watt">
 				<unitPattern count="one">{0}Վ</unitPattern>
 				<unitPattern count="other">{0}Վ</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0}ձ/ու</unitPattern>
+				<unitPattern count="other">{0}ձ/ու</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="one">{0} հՊա</unitPattern>

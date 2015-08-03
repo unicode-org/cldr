@@ -316,11 +316,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<displayName>iveh</displayName>
+			</unit>
+			<unit type="duration-month">
+				<displayName>mánuppajeh</displayName>
+			</unit>
+			<unit type="duration-week">
+				<displayName>ohoh</displayName>
+			</unit>
 			<unit type="duration-day">
 				<displayName>peeivih</displayName>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>tiijmeh</displayName>
+			</unit>
+			<unit type="duration-minute">
+				<displayName>minutteh</displayName>
+			</unit>
+			<unit type="duration-second">
+				<displayName>sekunteh</displayName>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName>millisekunteh</displayName>
 			</unit>
 			<unit type="duration-microsecond">
 				<displayName>mikrosekunteh</displayName>
@@ -328,26 +346,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two">{0} μs</unitPattern>
 				<unitPattern count="other">{0} μs</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>millisekunteh</displayName>
-			</unit>
-			<unit type="duration-minute">
-				<displayName>minutteh</displayName>
-			</unit>
-			<unit type="duration-month">
-				<displayName>mánuppajeh</displayName>
-			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>nanosekunteh</displayName>
-			</unit>
-			<unit type="duration-second">
-				<displayName>sekunteh</displayName>
-			</unit>
-			<unit type="duration-week">
-				<displayName>ohoh</displayName>
-			</unit>
-			<unit type="duration-year">
-				<displayName>iveh</displayName>
 			</unit>
 		</unitLength>
 	</units>

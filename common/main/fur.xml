@@ -1649,6 +1649,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<displayName draft="contributed">agns</displayName>
+				<unitPattern count="one">{0} an</unitPattern>
+				<unitPattern count="other">{0} agns</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="contributed">mês</displayName>
+				<unitPattern count="one">{0} mês</unitPattern>
+				<unitPattern count="other">{0} mês</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="contributed">setemanis</displayName>
+				<unitPattern count="one">{0} setemane</unitPattern>
+				<unitPattern count="other">{0} setemanis</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">zornadis</displayName>
 				<unitPattern count="one">{0} zornade</unitPattern>
@@ -1664,28 +1679,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} minût</unitPattern>
 				<unitPattern count="other">{0} minûts</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="contributed">mês</displayName>
-				<unitPattern count="one">{0} mês</unitPattern>
-				<unitPattern count="other">{0} mês</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="contributed">seconts</displayName>
 				<unitPattern count="one">{0} secont</unitPattern>
 				<unitPattern count="other">{0} seconts</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="contributed">setemanis</displayName>
-				<unitPattern count="one">{0} setemane</unitPattern>
-				<unitPattern count="other">{0} setemanis</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">agns</displayName>
-				<unitPattern count="one">{0} an</unitPattern>
-				<unitPattern count="other">{0} agns</unitPattern>
-			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="duration-year">
+				<displayName draft="contributed">agns</displayName>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="contributed">mês</displayName>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="contributed">setemanis</displayName>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">zornadis</displayName>
 			</unit>
@@ -1695,17 +1704,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<displayName draft="contributed">minûts</displayName>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="contributed">mês</displayName>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="contributed">seconts</displayName>
-			</unit>
-			<unit type="duration-week">
-				<displayName draft="contributed">setemanis</displayName>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">agns</displayName>
 			</unit>
 		</unitLength>
 	</units>

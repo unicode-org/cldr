@@ -344,8 +344,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</dates>
 	<units>
 		<unitLength type="long">
-			<unit type="duration-day">
-				<displayName draft="unconfirmed">dels</displayName>
+			<unit type="duration-year">
+				<displayName draft="unconfirmed">yels</displayName>
+				<unitPattern count="one" draft="unconfirmed">yel {0}</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">yels {0}</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName draft="unconfirmed">muls</displayName>
@@ -355,10 +357,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-week">
 				<displayName draft="unconfirmed">vigs</displayName>
 			</unit>
-			<unit type="duration-year">
-				<displayName draft="unconfirmed">yels</displayName>
-				<unitPattern count="one" draft="unconfirmed">yel {0}</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">yels {0}</unitPattern>
+			<unit type="duration-day">
+				<displayName draft="unconfirmed">dels</displayName>
 			</unit>
 		</unitLength>
 	</units>
@@ -369,3 +369,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

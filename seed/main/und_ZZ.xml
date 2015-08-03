@@ -64,23 +64,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-millisecond">
+				<displayName>ms</displayName>
+				<unitPattern count="other">{0} ms</unitPattern>
+			</unit>
 			<unit type="duration-microsecond">
 				<displayName>mikroszekundum</displayName>
 				<unitPattern count="other">{0} mikroszekundum</unitPattern>
 			</unit>
+		</unitLength>
+		<unitLength type="short">
 			<unit type="duration-millisecond">
 				<displayName>ms</displayName>
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
-		</unitLength>
-		<unitLength type="short">
 			<unit type="duration-microsecond">
 				<displayName>μs</displayName>
 				<unitPattern count="other">{0} μs</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>ms</displayName>
-				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -123,3 +123,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

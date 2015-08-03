@@ -5304,6 +5304,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">mita {0} kwa kila sekunde mraba</unitPattern>
 				<unitPattern count="other">mita {0} kwa kila sekunde mraba</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>mzunguko</displayName>
+				<unitPattern count="one">mzunguko {0}</unitPattern>
+				<unitPattern count="other">mizunguko {0}</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>radiani</displayName>
+				<unitPattern count="one">radiani {0}</unitPattern>
+				<unitPattern count="other">radiani {0}</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>digrii</displayName>
+				<unitPattern count="one">digrii {0}</unitPattern>
+				<unitPattern count="other">digrii {0}</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>dakika</displayName>
 				<unitPattern count="one">dakika {0}</unitPattern>
@@ -5314,36 +5329,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">sekunde {0}</unitPattern>
 				<unitPattern count="other">sekunde {0}</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>digrii</displayName>
-				<unitPattern count="one">digrii {0}</unitPattern>
-				<unitPattern count="other">digrii {0}</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>radiani</displayName>
-				<unitPattern count="one">radiani {0}</unitPattern>
-				<unitPattern count="other">radiani {0}</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>mzunguko</displayName>
-				<unitPattern count="one">mzunguko {0}</unitPattern>
-				<unitPattern count="other">mizunguko {0}</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ekari</displayName>
-				<unitPattern count="one">ekari {0}</unitPattern>
-				<unitPattern count="other">ekari {0}</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>kilomita za mraba</displayName>
+				<unitPattern count="one">kilomita {0} ya mraba</unitPattern>
+				<unitPattern count="other">kilomita {0} za mraba</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>hekta</displayName>
 				<unitPattern count="one">hekta {0}</unitPattern>
 				<unitPattern count="other">hekta {0}</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>mita za mraba</displayName>
+				<unitPattern count="one">mita {0} ya mraba</unitPattern>
+				<unitPattern count="other">mita {0} za mraba</unitPattern>
+				<perUnitPattern>{0} kwa kila mita ya mraba</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>sentimita mraba</displayName>
 				<unitPattern count="one">sentimita mraba {0}</unitPattern>
 				<unitPattern count="other">sentimita mraba {0}</unitPattern>
 				<perUnitPattern>{0} kwa kila sentimita mraba</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>maili za mraba</displayName>
+				<unitPattern count="one">maili {0} ya mraba</unitPattern>
+				<unitPattern count="other">maili {0} za mraba</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ekari</displayName>
+				<unitPattern count="one">ekari {0}</unitPattern>
+				<unitPattern count="other">ekari {0}</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>yadi za mraba</displayName>
+				<unitPattern count="one">yadi {0} ya mraba</unitPattern>
+				<unitPattern count="other">yadi {0} za mraba</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>futi za mraba</displayName>
@@ -5356,96 +5377,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">inchi {0} za mraba</unitPattern>
 				<perUnitPattern>{0} kwa kila inchi ya mraba</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>kilomita za mraba</displayName>
-				<unitPattern count="one">kilomita {0} ya mraba</unitPattern>
-				<unitPattern count="other">kilomita {0} za mraba</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>mita za mraba</displayName>
-				<unitPattern count="one">mita {0} ya mraba</unitPattern>
-				<unitPattern count="other">mita {0} za mraba</unitPattern>
-				<perUnitPattern>{0} kwa kila mita ya mraba</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>maili za mraba</displayName>
-				<unitPattern count="one">maili {0} ya mraba</unitPattern>
-				<unitPattern count="other">maili {0} za mraba</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>yadi za mraba</displayName>
-				<unitPattern count="one">yadi {0} ya mraba</unitPattern>
-				<unitPattern count="other">yadi {0} za mraba</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>lita kwa kila kilomita</displayName>
+				<unitPattern count="one">lita {0} kwa kilomita</unitPattern>
+				<unitPattern count="other">lita {0} kwa kilomita</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>lita kwa kilomita 100</displayName>
 				<unitPattern count="one">lita {0} kwa kilomita 100</unitPattern>
 				<unitPattern count="other">lita {0} kwa kilomita 100</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>lita kwa kila kilomita</displayName>
-				<unitPattern count="one">lita {0} kwa kilomita</unitPattern>
-				<unitPattern count="other">lita {0} kwa kilomita</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>maili kwa kila galoni</displayName>
 				<unitPattern count="one">maili {0} kwa kila galoni</unitPattern>
 				<unitPattern count="other">maili {0} kwa kila galoni</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>biti</displayName>
-				<unitPattern count="one">biti {0}</unitPattern>
-				<unitPattern count="other">biti {0}</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>baiti</displayName>
-				<unitPattern count="one">baiti {0}</unitPattern>
-				<unitPattern count="other">baiti {0}</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>gigabiti</displayName>
-				<unitPattern count="one">gigabiti {0}</unitPattern>
-				<unitPattern count="other">gigabiti {0}</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>gigabaiti</displayName>
-				<unitPattern count="one">gigabaiti {0}</unitPattern>
-				<unitPattern count="other">gigabaiti {0}</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>kilobiti</displayName>
-				<unitPattern count="one">kilobiti {0}</unitPattern>
-				<unitPattern count="other">kilobiti {0}</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>kilobaiti</displayName>
-				<unitPattern count="one">kilobaiti {0}</unitPattern>
-				<unitPattern count="other">kilobaiti {0}</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>megabiti</displayName>
-				<unitPattern count="one">megabiti {0}</unitPattern>
-				<unitPattern count="other">megabiti {0}</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>megabaiti</displayName>
-				<unitPattern count="one">megabaiti {0}</unitPattern>
-				<unitPattern count="other">megabaiti {0}</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>terabiti</displayName>
-				<unitPattern count="one">terabiti {0}</unitPattern>
-				<unitPattern count="other">terabiti {0}</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabaiti</displayName>
 				<unitPattern count="one">terabaiti {0}</unitPattern>
 				<unitPattern count="other">terabaiti {0}</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>terabiti</displayName>
+				<unitPattern count="one">terabiti {0}</unitPattern>
+				<unitPattern count="other">terabiti {0}</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>gigabaiti</displayName>
+				<unitPattern count="one">gigabaiti {0}</unitPattern>
+				<unitPattern count="other">gigabaiti {0}</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>gigabiti</displayName>
+				<unitPattern count="one">gigabiti {0}</unitPattern>
+				<unitPattern count="other">gigabiti {0}</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>megabaiti</displayName>
+				<unitPattern count="one">megabaiti {0}</unitPattern>
+				<unitPattern count="other">megabaiti {0}</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>megabiti</displayName>
+				<unitPattern count="one">megabiti {0}</unitPattern>
+				<unitPattern count="other">megabiti {0}</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kilobaiti</displayName>
+				<unitPattern count="one">kilobaiti {0}</unitPattern>
+				<unitPattern count="other">kilobaiti {0}</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kilobiti</displayName>
+				<unitPattern count="one">kilobiti {0}</unitPattern>
+				<unitPattern count="other">kilobiti {0}</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>baiti</displayName>
+				<unitPattern count="one">baiti {0}</unitPattern>
+				<unitPattern count="other">baiti {0}</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>biti</displayName>
+				<unitPattern count="one">biti {0}</unitPattern>
+				<unitPattern count="other">biti {0}</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>karne</displayName>
 				<unitPattern count="one">karne ya {0}</unitPattern>
 				<unitPattern count="other">karne za {0}</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>miaka</displayName>
+				<unitPattern count="one">mwaka {0}</unitPattern>
+				<unitPattern count="other">miaka {0}</unitPattern>
+				<perUnitPattern>{0} kwa mwaka</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>miezi</displayName>
+				<unitPattern count="one">mwezi {0}</unitPattern>
+				<unitPattern count="other">miezi {0}</unitPattern>
+				<perUnitPattern>{0} kwa mwezi</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>wiki</displayName>
+				<unitPattern count="one">wiki {0}</unitPattern>
+				<unitPattern count="other">wiki {0}</unitPattern>
+				<perUnitPattern>{0} kwa wiki</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>siku</displayName>
@@ -5459,32 +5477,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">saa {0}</unitPattern>
 				<perUnitPattern>{0} kwa saa</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>mikrosekunde</displayName>
-				<unitPattern count="one">mikrosekunde {0}</unitPattern>
-				<unitPattern count="other">mikrosekunde {0}</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>millisekunde</displayName>
-				<unitPattern count="one">millisekunde {0}</unitPattern>
-				<unitPattern count="other">millisekunde {0}</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>dakika</displayName>
 				<unitPattern count="one">dakika {0}</unitPattern>
 				<unitPattern count="other">dakika {0}</unitPattern>
 				<perUnitPattern>{0} kwa kila dakika</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>miezi</displayName>
-				<unitPattern count="one">mwezi {0}</unitPattern>
-				<unitPattern count="other">miezi {0}</unitPattern>
-				<perUnitPattern>{0} kwa mwezi</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>nanosekunde</displayName>
-				<unitPattern count="one">nanosekunde {0}</unitPattern>
-				<unitPattern count="other">nanosekunde {0}</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>sekunde</displayName>
@@ -5492,17 +5489,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">sekunde {0}</unitPattern>
 				<perUnitPattern>{0} kwa kila sekunde</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>wiki</displayName>
-				<unitPattern count="one">wiki {0}</unitPattern>
-				<unitPattern count="other">wiki {0}</unitPattern>
-				<perUnitPattern>{0} kwa wiki</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>millisekunde</displayName>
+				<unitPattern count="one">millisekunde {0}</unitPattern>
+				<unitPattern count="other">millisekunde {0}</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>miaka</displayName>
-				<unitPattern count="one">mwaka {0}</unitPattern>
-				<unitPattern count="other">miaka {0}</unitPattern>
-				<perUnitPattern>{0} kwa mwaka</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>mikrosekunde</displayName>
+				<unitPattern count="one">mikrosekunde {0}</unitPattern>
+				<unitPattern count="other">mikrosekunde {0}</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>nanosekunde</displayName>
+				<unitPattern count="one">nanosekunde {0}</unitPattern>
+				<unitPattern count="other">nanosekunde {0}</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>ampea</displayName>
@@ -5524,6 +5524,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">volti {0}</unitPattern>
 				<unitPattern count="other">volti {0}</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kilokalori</displayName>
+				<unitPattern count="one">kilokalori {0}</unitPattern>
+				<unitPattern count="other">kilokalori {0}</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>kalori</displayName>
 				<unitPattern count="one">kalori {0}</unitPattern>
@@ -5534,20 +5539,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">kalori {0}</unitPattern>
 				<unitPattern count="other">kalori {0}</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>jouli</displayName>
-				<unitPattern count="one">jouli {0}</unitPattern>
-				<unitPattern count="other">jouli {0}</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>kilokalori</displayName>
-				<unitPattern count="one">kilokalori {0}</unitPattern>
-				<unitPattern count="other">kilokalori {0}</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kilojuli</displayName>
 				<unitPattern count="one">kilojuli {0}</unitPattern>
 				<unitPattern count="other">kilojuli {0}</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>jouli</displayName>
+				<unitPattern count="one">jouli {0}</unitPattern>
+				<unitPattern count="other">jouli {0}</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kilowati kwa saa</displayName>
@@ -5559,25 +5559,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">gigahezi {0}</unitPattern>
 				<unitPattern count="other">gigahezi {0}</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>hezi</displayName>
-				<unitPattern count="one">hezi {0}</unitPattern>
-				<unitPattern count="other">hezi {0}</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>megahezi</displayName>
+				<unitPattern count="one">megahezi {0}</unitPattern>
+				<unitPattern count="other">megahezi {0}</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>kilohezi</displayName>
 				<unitPattern count="one">kilohezi {0}</unitPattern>
 				<unitPattern count="other">kilohezi {0}</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>megahezi</displayName>
-				<unitPattern count="one">megahezi {0}</unitPattern>
-				<unitPattern count="other">megahezi {0}</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>hezi</displayName>
+				<unitPattern count="one">hezi {0}</unitPattern>
+				<unitPattern count="other">hezi {0}</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>vipimo vya astronomia</displayName>
-				<unitPattern count="one">kipimo {0} cha astronomia</unitPattern>
-				<unitPattern count="other">vipimo {0} vya astronomia</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>kilomita</displayName>
+				<unitPattern count="one">kilomita {0}</unitPattern>
+				<unitPattern count="other">kilomita {0}</unitPattern>
+				<perUnitPattern>{0} kwa kila kilomita</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>mita</displayName>
+				<unitPattern count="one">mita {0}</unitPattern>
+				<unitPattern count="other">mita {0}</unitPattern>
+				<perUnitPattern>{0} kwa kila mita</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>desimita</displayName>
+				<unitPattern count="one">desimita {0}</unitPattern>
+				<unitPattern count="other">desimita {0}</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>sentimita</displayName>
@@ -5585,10 +5597,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">sentimita {0}</unitPattern>
 				<perUnitPattern>{0} kwa kila sentimita</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>desimita</displayName>
-				<unitPattern count="one">desimita {0}</unitPattern>
-				<unitPattern count="other">desimita {0}</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>milimita</displayName>
+				<unitPattern count="one">milimita {0}</unitPattern>
+				<unitPattern count="other">milimita {0}</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>mikromita</displayName>
+				<unitPattern count="one">mikromita {0}</unitPattern>
+				<unitPattern count="other">mikromita {0}</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>nanomita</displayName>
+				<unitPattern count="one">nanomita {0}</unitPattern>
+				<unitPattern count="other">nanomita {0}</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>pikomita</displayName>
+				<unitPattern count="one">pikomita {0}</unitPattern>
+				<unitPattern count="other">pikomita {0}</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>maili</displayName>
+				<unitPattern count="one">maili {0}</unitPattern>
+				<unitPattern count="other">maili {0}</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>yadi</displayName>
+				<unitPattern count="one">yadi {0}</unitPattern>
+				<unitPattern count="other">yadi {0}</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>futi</displayName>
@@ -5602,83 +5639,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">inchi {0}</unitPattern>
 				<perUnitPattern>{0} kwa kila inchi</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>kilomita</displayName>
-				<unitPattern count="one">kilomita {0}</unitPattern>
-				<unitPattern count="other">kilomita {0}</unitPattern>
-				<perUnitPattern>{0} kwa kila kilomita</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>parsecs</displayName>
+				<unitPattern count="one">parsec {0}</unitPattern>
+				<unitPattern count="other">parsecs {0}</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>miaka ya mwanga</displayName>
 				<unitPattern count="one">miaka ya mwanga {0}</unitPattern>
 				<unitPattern count="other">miaka ya mwanga {0}</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>mita</displayName>
-				<unitPattern count="one">mita {0}</unitPattern>
-				<unitPattern count="other">mita {0}</unitPattern>
-				<perUnitPattern>{0} kwa kila mita</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>mikromita</displayName>
-				<unitPattern count="one">mikromita {0}</unitPattern>
-				<unitPattern count="other">mikromita {0}</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>maili</displayName>
-				<unitPattern count="one">maili {0}</unitPattern>
-				<unitPattern count="other">maili {0}</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>smi</displayName>
-				<unitPattern count="one">{0} smi</unitPattern>
-				<unitPattern count="other">{0} smi</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>milimita</displayName>
-				<unitPattern count="one">milimita {0}</unitPattern>
-				<unitPattern count="other">milimita {0}</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>nanomita</displayName>
-				<unitPattern count="one">nanomita {0}</unitPattern>
-				<unitPattern count="other">nanomita {0}</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>vipimo vya astronomia</displayName>
+				<unitPattern count="one">kipimo {0} cha astronomia</unitPattern>
+				<unitPattern count="other">vipimo {0} vya astronomia</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>maili za kibaharia</displayName>
 				<unitPattern count="one">maili {0} ya kibaharia</unitPattern>
 				<unitPattern count="other">maili {0} za kibaharia</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>parsecs</displayName>
-				<unitPattern count="one">parsec {0}</unitPattern>
-				<unitPattern count="other">parsecs {0}</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>pikomita</displayName>
-				<unitPattern count="one">pikomita {0}</unitPattern>
-				<unitPattern count="other">pikomita {0}</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>yadi</displayName>
-				<unitPattern count="one">yadi {0}</unitPattern>
-				<unitPattern count="other">yadi {0}</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>smi</displayName>
+				<unitPattern count="one">{0} smi</unitPattern>
+				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
 				<unitPattern count="one">lux {0}</unitPattern>
 				<unitPattern count="other">lux {0}</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>karati</displayName>
-				<unitPattern count="one">karati {0}</unitPattern>
-				<unitPattern count="other">karati {0}</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>gramu</displayName>
-				<unitPattern count="one">gramu {0}</unitPattern>
-				<unitPattern count="other">gramu {0}</unitPattern>
-				<perUnitPattern>{0} kwa kila gramu</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>tani mita</displayName>
+				<unitPattern count="one">tani mita {0}</unitPattern>
+				<unitPattern count="other">tani mita {0}</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kilogramu</displayName>
@@ -5686,20 +5680,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">kilogramu {0}</unitPattern>
 				<perUnitPattern>{0} kwa kila kilogramu</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>tani mita</displayName>
-				<unitPattern count="one">tani mita {0}</unitPattern>
-				<unitPattern count="other">tani mita {0}</unitPattern>
+			<unit type="mass-gram">
+				<displayName>gramu</displayName>
+				<unitPattern count="one">gramu {0}</unitPattern>
+				<unitPattern count="other">gramu {0}</unitPattern>
+				<perUnitPattern>{0} kwa kila gramu</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>miligramu</displayName>
+				<unitPattern count="one">miligramu {0}</unitPattern>
+				<unitPattern count="other">miligramu {0}</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>mikrogramu</displayName>
 				<unitPattern count="one">mikrogramu {0}</unitPattern>
 				<unitPattern count="other">mikrogramu {0}</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>miligramu</displayName>
-				<unitPattern count="one">miligramu {0}</unitPattern>
-				<unitPattern count="other">miligramu {0}</unitPattern>
+			<unit type="mass-ton">
+				<displayName>tani</displayName>
+				<unitPattern count="one">tani {0}</unitPattern>
+				<unitPattern count="other">tani {0}</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>ratili</displayName>
+				<unitPattern count="one">ratili {0}</unitPattern>
+				<unitPattern count="other">ratili {0}</unitPattern>
+				<perUnitPattern>{0} kwa kila ratili</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>aunsi</displayName>
@@ -5712,61 +5718,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">tola aunsi {0}</unitPattern>
 				<unitPattern count="other">tola aunsi {0}</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>ratili</displayName>
-				<unitPattern count="one">ratili {0}</unitPattern>
-				<unitPattern count="other">ratili {0}</unitPattern>
-				<perUnitPattern>{0} kwa kila ratili</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>tani</displayName>
-				<unitPattern count="one">tani {0}</unitPattern>
-				<unitPattern count="other">tani {0}</unitPattern>
+			<unit type="mass-carat">
+				<displayName>karati</displayName>
+				<unitPattern count="one">karati {0}</unitPattern>
+				<unitPattern count="other">karati {0}</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>gigawati</displayName>
 				<unitPattern count="one">gigawati {0}</unitPattern>
 				<unitPattern count="other">gigawati {0}</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>kipimo cha hospawa</displayName>
-				<unitPattern count="one">kipimo cha hospawa {0}</unitPattern>
-				<unitPattern count="other">kipimo cha hospawa {0}</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>megawati</displayName>
+				<unitPattern count="one">megawati {0}</unitPattern>
+				<unitPattern count="other">megawati {0}</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>kilowati</displayName>
 				<unitPattern count="one">kilowati {0}</unitPattern>
 				<unitPattern count="other">kilowati {0}</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>megawati</displayName>
-				<unitPattern count="one">megawati {0}</unitPattern>
-				<unitPattern count="other">megawati {0}</unitPattern>
+			<unit type="power-watt">
+				<displayName>wati</displayName>
+				<unitPattern count="one">wati {0}</unitPattern>
+				<unitPattern count="other">wati {0}</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>miliwati</displayName>
 				<unitPattern count="one">miliwati {0}</unitPattern>
 				<unitPattern count="other">miliwati {0}</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>wati</displayName>
-				<unitPattern count="one">wati {0}</unitPattern>
-				<unitPattern count="other">wati {0}</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>kipimo cha hospawa</displayName>
+				<unitPattern count="one">kipimo cha hospawa {0}</unitPattern>
+				<unitPattern count="other">kipimo cha hospawa {0}</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hektopaskali</displayName>
 				<unitPattern count="one">hektopaskali {0}</unitPattern>
 				<unitPattern count="other">hektopaskali {0}</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>inchi za zebaki</displayName>
-				<unitPattern count="one">inchi {0} ya zebaki</unitPattern>
-				<unitPattern count="other">inchi {0} za zebaki</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>kipimo cha milibari</displayName>
-				<unitPattern count="one">kipimo cha milibari {0}</unitPattern>
-				<unitPattern count="other">kipimo cha milibari {0}</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>milimita za zebaki</displayName>
@@ -5778,6 +5768,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">pauni {0} kwa kila inchi mraba</unitPattern>
 				<unitPattern count="other">pauni {0} kwa kila inchi mraba</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>inchi za zebaki</displayName>
+				<unitPattern count="one">inchi {0} ya zebaki</unitPattern>
+				<unitPattern count="other">inchi {0} za zebaki</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>kipimo cha milibari</displayName>
+				<unitPattern count="one">kipimo cha milibari {0}</unitPattern>
+				<unitPattern count="other">kipimo cha milibari {0}</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>karati</displayName>
 				<unitPattern count="one">karati {0}</unitPattern>
@@ -5787,11 +5787,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kilomita kwa saa</displayName>
 				<unitPattern count="one">kilomita {0} kwa saa</unitPattern>
 				<unitPattern count="other">kilomita {0} kwa saa</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>noti</displayName>
-				<unitPattern count="one">noti {0}</unitPattern>
-				<unitPattern count="other">noti {0}</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>mita kwa kila sekunde</displayName>
@@ -5803,6 +5798,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">maili {0} kwa saa</unitPattern>
 				<unitPattern count="other">maili {0} kwa saa</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>noti</displayName>
+				<unitPattern count="one">noti {0}</unitPattern>
+				<unitPattern count="other">noti {0}</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>nyuzi za selisiasi</displayName>
 				<unitPattern count="one">nyuzi ya selisiasi {0}</unitPattern>
@@ -5813,41 +5818,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">nyuzi za farenheiti {0}</unitPattern>
 				<unitPattern count="other">nyuzi za farenheiti {0}</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>kelvini</displayName>
 				<unitPattern count="one">kelvini {0}</unitPattern>
 				<unitPattern count="other">kelvini {0}</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ekari futi</displayName>
-				<unitPattern count="one">ekari futi {0}</unitPattern>
-				<unitPattern count="other">ekari futi {0}</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>sentilita</displayName>
-				<unitPattern count="one">sentilita {0}</unitPattern>
-				<unitPattern count="other">sentilita {0}</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>sentimita za ujazo</displayName>
-				<unitPattern count="one">sentimita {0} ya ujazo</unitPattern>
-				<unitPattern count="other">sentimita {0} za ujazo</unitPattern>
-				<perUnitPattern>{0} kwa kila sentimita ya ujazo</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>futi za ujazo</displayName>
-				<unitPattern count="one">futi {0} ya ujazo</unitPattern>
-				<unitPattern count="other">futi {0} za ujazo</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>inchi za ujazo</displayName>
-				<unitPattern count="one">inchi {0} ya ujazo</unitPattern>
-				<unitPattern count="other">inchi {0} za ujazo</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>kilomita za ujazo</displayName>
@@ -5860,6 +5834,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">mita {0} za ujazo</unitPattern>
 				<perUnitPattern>{0} kwa kila mita ya ujazo</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>sentimita za ujazo</displayName>
+				<unitPattern count="one">sentimita {0} ya ujazo</unitPattern>
+				<unitPattern count="other">sentimita {0} za ujazo</unitPattern>
+				<perUnitPattern>{0} kwa kila sentimita ya ujazo</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>maili za ujazo</displayName>
 				<unitPattern count="one">maili {0} ya ujazo</unitPattern>
@@ -5870,31 +5850,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">yadi {0} ya ujazo</unitPattern>
 				<unitPattern count="other">yadi {0} za ujazo</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>vikombe</displayName>
-				<unitPattern count="one">kikombe {0}</unitPattern>
-				<unitPattern count="other">vikombe {0}</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>futi za ujazo</displayName>
+				<unitPattern count="one">futi {0} ya ujazo</unitPattern>
+				<unitPattern count="other">futi {0} za ujazo</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>vikombe vya mizani</displayName>
-				<unitPattern count="one">kikombe {0} cha mizani</unitPattern>
-				<unitPattern count="other">vikombe {0} vya mizani</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>inchi za ujazo</displayName>
+				<unitPattern count="one">inchi {0} ya ujazo</unitPattern>
+				<unitPattern count="other">inchi {0} za ujazo</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>desilita</displayName>
-				<unitPattern count="one">desilita {0}</unitPattern>
-				<unitPattern count="other">desilita {0}</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>aunsi za ujazo</displayName>
-				<unitPattern count="one">aunsi {0} ya ujazo</unitPattern>
-				<unitPattern count="other">aunsi {0} za ujazo</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>galoni</displayName>
-				<unitPattern count="one">galoni {0}</unitPattern>
-				<unitPattern count="other">galoni {0}</unitPattern>
-				<perUnitPattern>{0} kwa kila galoni</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>megalita</displayName>
+				<unitPattern count="one">megalita {0}</unitPattern>
+				<unitPattern count="other">megalita {0}</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hektolita</displayName>
@@ -5907,30 +5876,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">lita {0}</unitPattern>
 				<perUnitPattern>{0} kwa kila lita</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>megalita</displayName>
-				<unitPattern count="one">megalita {0}</unitPattern>
-				<unitPattern count="other">megalita {0}</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>desilita</displayName>
+				<unitPattern count="one">desilita {0}</unitPattern>
+				<unitPattern count="other">desilita {0}</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>sentilita</displayName>
+				<unitPattern count="one">sentilita {0}</unitPattern>
+				<unitPattern count="other">sentilita {0}</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>mililita</displayName>
 				<unitPattern count="one">mililita {0}</unitPattern>
 				<unitPattern count="other">mililita {0}</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>painti</displayName>
-				<unitPattern count="one">painti {0}</unitPattern>
-				<unitPattern count="other">painti {0}</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>painti za mizani</displayName>
 				<unitPattern count="one">painti {0} ya mizani</unitPattern>
 				<unitPattern count="other">painti {0} za mizani</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>vikombe vya mizani</displayName>
+				<unitPattern count="one">kikombe {0} cha mizani</unitPattern>
+				<unitPattern count="other">vikombe {0} vya mizani</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ekari futi</displayName>
+				<unitPattern count="one">ekari futi {0}</unitPattern>
+				<unitPattern count="other">ekari futi {0}</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>galoni</displayName>
+				<unitPattern count="one">galoni {0}</unitPattern>
+				<unitPattern count="other">galoni {0}</unitPattern>
+				<perUnitPattern>{0} kwa kila galoni</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>kwati</displayName>
 				<unitPattern count="one">kwati {0}</unitPattern>
 				<unitPattern count="other">kwati {0}</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>painti</displayName>
+				<unitPattern count="one">painti {0}</unitPattern>
+				<unitPattern count="other">painti {0}</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>vikombe</displayName>
+				<unitPattern count="one">kikombe {0}</unitPattern>
+				<unitPattern count="other">vikombe {0}</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>aunsi za ujazo</displayName>
+				<unitPattern count="one">aunsi {0} ya ujazo</unitPattern>
+				<unitPattern count="other">aunsi {0} za ujazo</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>vijiko vikubwa</displayName>
@@ -5963,6 +5963,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">m {0}/s²</unitPattern>
 				<unitPattern count="other">m {0}/s²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>mzunguko</displayName>
+				<unitPattern count="one">mzunguko {0}</unitPattern>
+				<unitPattern count="other">mizunguko {0}</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>radiani</displayName>
+				<unitPattern count="one">radiani {0}</unitPattern>
+				<unitPattern count="other">radiani {0}</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>digrii</displayName>
+				<unitPattern count="one">digrii {0}</unitPattern>
+				<unitPattern count="other">digrii {0}</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>dakika</displayName>
 				<unitPattern count="one">dakika {0}</unitPattern>
@@ -5973,36 +5988,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">sekunde {0}</unitPattern>
 				<unitPattern count="other">sekunde {0}</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>digrii</displayName>
-				<unitPattern count="one">digrii {0}</unitPattern>
-				<unitPattern count="other">digrii {0}</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>radiani</displayName>
-				<unitPattern count="one">radiani {0}</unitPattern>
-				<unitPattern count="other">radiani {0}</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>mzunguko</displayName>
-				<unitPattern count="one">mzunguko {0}</unitPattern>
-				<unitPattern count="other">mizunguko {0}</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ekari</displayName>
-				<unitPattern count="one">ekari {0}</unitPattern>
-				<unitPattern count="other">ekari {0}</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>kilomita za mraba</displayName>
+				<unitPattern count="one">km² {0}</unitPattern>
+				<unitPattern count="other">km² {0}</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>hekta</displayName>
 				<unitPattern count="one">hekta {0}</unitPattern>
 				<unitPattern count="other">hekta {0}</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>mita za mraba</displayName>
+				<unitPattern count="one">mita {0} ya mraba</unitPattern>
+				<unitPattern count="other">m² {0}</unitPattern>
+				<perUnitPattern>{0}/m²</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>sentimita mraba</displayName>
 				<unitPattern count="one">cm² {0}</unitPattern>
 				<unitPattern count="other">cm² {0}</unitPattern>
 				<perUnitPattern>{0}/cm²</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>maili za mraba</displayName>
+				<unitPattern count="one">maili {0} ya mraba</unitPattern>
+				<unitPattern count="other">maili {0} za mraba</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ekari</displayName>
+				<unitPattern count="one">ekari {0}</unitPattern>
+				<unitPattern count="other">ekari {0}</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>yadi za mraba</displayName>
+				<unitPattern count="one">yadi {0} ya mraba</unitPattern>
+				<unitPattern count="other">yadi {0} za mraba</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>futi za mraba</displayName>
@@ -6015,96 +6036,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">in² {0}</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>kilomita za mraba</displayName>
-				<unitPattern count="one">km² {0}</unitPattern>
-				<unitPattern count="other">km² {0}</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>mita za mraba</displayName>
-				<unitPattern count="one">mita {0} ya mraba</unitPattern>
-				<unitPattern count="other">m² {0}</unitPattern>
-				<perUnitPattern>{0}/m²</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>maili za mraba</displayName>
-				<unitPattern count="one">maili {0} ya mraba</unitPattern>
-				<unitPattern count="other">maili {0} za mraba</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>yadi za mraba</displayName>
-				<unitPattern count="one">yadi {0} ya mraba</unitPattern>
-				<unitPattern count="other">yadi {0} za mraba</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>lita kwa kila kilomita</displayName>
+				<unitPattern count="one">lita {0} kwa kilomita</unitPattern>
+				<unitPattern count="other">lita {0} kwa kilomita</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>lita kwa kilomita 100</displayName>
 				<unitPattern count="one">lita {0} kwa kilomita 100</unitPattern>
 				<unitPattern count="other">lita {0} kwa kilomita 100</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>lita kwa kila kilomita</displayName>
-				<unitPattern count="one">lita {0} kwa kilomita</unitPattern>
-				<unitPattern count="other">lita {0} kwa kilomita</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>maili kwa kila galoni</displayName>
 				<unitPattern count="one">maili {0} kwa kila galoni</unitPattern>
 				<unitPattern count="other">maili {0} kwa kila galoni</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>biti</displayName>
-				<unitPattern count="one">biti {0}</unitPattern>
-				<unitPattern count="other">biti {0}</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>baiti</displayName>
-				<unitPattern count="one">baiti {0}</unitPattern>
-				<unitPattern count="other">baiti {0}</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>gigabiti</displayName>
-				<unitPattern count="one">gigabiti {0}</unitPattern>
-				<unitPattern count="other">gigabiti {0}</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>GB</displayName>
-				<unitPattern count="one">GB {0}</unitPattern>
-				<unitPattern count="other">GB {0}</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>kilobiti</displayName>
-				<unitPattern count="one">kilobiti {0}</unitPattern>
-				<unitPattern count="other">kilobiti {0}</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>kilobaiti</displayName>
-				<unitPattern count="one">kilobaiti {0}</unitPattern>
-				<unitPattern count="other">kilobaiti {0}</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>Mb</displayName>
-				<unitPattern count="one">megabiti {0}</unitPattern>
-				<unitPattern count="other">megabiti {0}</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>MB</displayName>
-				<unitPattern count="one">MB {0}</unitPattern>
-				<unitPattern count="other">MB {0}</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>terabiti</displayName>
-				<unitPattern count="one">terabiti {0}</unitPattern>
-				<unitPattern count="other">terabiti {0}</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabaiti</displayName>
 				<unitPattern count="one">terabaiti {0}</unitPattern>
 				<unitPattern count="other">terabaiti {0}</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>terabiti</displayName>
+				<unitPattern count="one">terabiti {0}</unitPattern>
+				<unitPattern count="other">terabiti {0}</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>GB</displayName>
+				<unitPattern count="one">GB {0}</unitPattern>
+				<unitPattern count="other">GB {0}</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>gigabiti</displayName>
+				<unitPattern count="one">gigabiti {0}</unitPattern>
+				<unitPattern count="other">gigabiti {0}</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+				<unitPattern count="one">MB {0}</unitPattern>
+				<unitPattern count="other">MB {0}</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Mb</displayName>
+				<unitPattern count="one">megabiti {0}</unitPattern>
+				<unitPattern count="other">megabiti {0}</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kilobaiti</displayName>
+				<unitPattern count="one">kilobaiti {0}</unitPattern>
+				<unitPattern count="other">kilobaiti {0}</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kilobiti</displayName>
+				<unitPattern count="one">kilobiti {0}</unitPattern>
+				<unitPattern count="other">kilobiti {0}</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>baiti</displayName>
+				<unitPattern count="one">baiti {0}</unitPattern>
+				<unitPattern count="other">baiti {0}</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>biti</displayName>
+				<unitPattern count="one">biti {0}</unitPattern>
+				<unitPattern count="other">biti {0}</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>karne</displayName>
 				<unitPattern count="one">karne ya {0}</unitPattern>
 				<unitPattern count="other">karne za {0}</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>miaka</displayName>
+				<unitPattern count="one">mwaka {0}</unitPattern>
+				<unitPattern count="other">miaka {0}</unitPattern>
+				<perUnitPattern>{0} kwa mwaka</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>miezi</displayName>
+				<unitPattern count="one">mwezi {0}</unitPattern>
+				<unitPattern count="other">miezi {0}</unitPattern>
+				<perUnitPattern>{0} kwa mwezi</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>wiki</displayName>
+				<unitPattern count="one">wiki {0}</unitPattern>
+				<unitPattern count="other">wiki {0}</unitPattern>
+				<perUnitPattern>{0} kwa wiki</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>siku</displayName>
@@ -6118,32 +6136,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">saa {0}</unitPattern>
 				<perUnitPattern>{0} kwa saa</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>mikrosekunde</displayName>
-				<unitPattern count="one">mikrosekunde {0}</unitPattern>
-				<unitPattern count="other">mikrosekunde {0}</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>millisekunde</displayName>
-				<unitPattern count="one">millisekunde {0}</unitPattern>
-				<unitPattern count="other">millisekunde {0}</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>dakika</displayName>
 				<unitPattern count="one">dakika {0}</unitPattern>
 				<unitPattern count="other">dakika {0}</unitPattern>
 				<perUnitPattern>{0} kwa kila dakika</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>miezi</displayName>
-				<unitPattern count="one">mwezi {0}</unitPattern>
-				<unitPattern count="other">miezi {0}</unitPattern>
-				<perUnitPattern>{0} kwa mwezi</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>nanosekunde</displayName>
-				<unitPattern count="one">nanosekunde {0}</unitPattern>
-				<unitPattern count="other">nanosekunde {0}</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>sekunde</displayName>
@@ -6151,17 +6148,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">sekunde {0}</unitPattern>
 				<perUnitPattern>{0} kwa kila sekunde</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>wiki</displayName>
-				<unitPattern count="one">wiki {0}</unitPattern>
-				<unitPattern count="other">wiki {0}</unitPattern>
-				<perUnitPattern>{0} kwa wiki</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>millisekunde</displayName>
+				<unitPattern count="one">millisekunde {0}</unitPattern>
+				<unitPattern count="other">millisekunde {0}</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>miaka</displayName>
-				<unitPattern count="one">mwaka {0}</unitPattern>
-				<unitPattern count="other">miaka {0}</unitPattern>
-				<perUnitPattern>{0} kwa mwaka</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>mikrosekunde</displayName>
+				<unitPattern count="one">mikrosekunde {0}</unitPattern>
+				<unitPattern count="other">mikrosekunde {0}</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>nanosekunde</displayName>
+				<unitPattern count="one">nanosekunde {0}</unitPattern>
+				<unitPattern count="other">nanosekunde {0}</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>ampea</displayName>
@@ -6183,6 +6183,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">volti {0}</unitPattern>
 				<unitPattern count="other">volti {0}</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kilokalori</displayName>
+				<unitPattern count="one">kilokalori {0}</unitPattern>
+				<unitPattern count="other">kilokalori {0}</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>cal</displayName>
 				<unitPattern count="one">kalori {0}</unitPattern>
@@ -6193,20 +6198,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">kalori {0}</unitPattern>
 				<unitPattern count="other">kalori {0}</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>jouli</displayName>
-				<unitPattern count="one">jouli {0}</unitPattern>
-				<unitPattern count="other">jouli {0}</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>kilokalori</displayName>
-				<unitPattern count="one">kilokalori {0}</unitPattern>
-				<unitPattern count="other">kilokalori {0}</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kilojuli</displayName>
 				<unitPattern count="one">kilojuli {0}</unitPattern>
 				<unitPattern count="other">kilojuli {0}</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>jouli</displayName>
+				<unitPattern count="one">jouli {0}</unitPattern>
+				<unitPattern count="other">jouli {0}</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kilowati kwa saa</displayName>
@@ -6218,25 +6218,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">gigahezi {0}</unitPattern>
 				<unitPattern count="other">gigahezi {0}</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>hezi</displayName>
-				<unitPattern count="one">hezi {0}</unitPattern>
-				<unitPattern count="other">hezi {0}</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>megahezi</displayName>
+				<unitPattern count="one">megahezi {0}</unitPattern>
+				<unitPattern count="other">megahezi {0}</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>kilohezi</displayName>
 				<unitPattern count="one">kilohezi {0}</unitPattern>
 				<unitPattern count="other">kilohezi {0}</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>megahezi</displayName>
-				<unitPattern count="one">megahezi {0}</unitPattern>
-				<unitPattern count="other">megahezi {0}</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>hezi</displayName>
+				<unitPattern count="one">hezi {0}</unitPattern>
+				<unitPattern count="other">hezi {0}</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>vipimo vya astronomia</displayName>
-				<unitPattern count="one">au {0}</unitPattern>
-				<unitPattern count="other">au {0}</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>kilomita</displayName>
+				<unitPattern count="one">km {0}</unitPattern>
+				<unitPattern count="other">km {0}</unitPattern>
+				<perUnitPattern>{0} kwa kila kilomita</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>mita</displayName>
+				<unitPattern count="one">mita {0}</unitPattern>
+				<unitPattern count="other">mita {0}</unitPattern>
+				<perUnitPattern>{0} kwa kila mita</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>desimita</displayName>
+				<unitPattern count="one">desimita {0}</unitPattern>
+				<unitPattern count="other">desimita {0}</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>sentimita</displayName>
@@ -6244,10 +6256,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">sentimita {0}</unitPattern>
 				<perUnitPattern>{0} kwa kila sentimita</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>desimita</displayName>
-				<unitPattern count="one">desimita {0}</unitPattern>
-				<unitPattern count="other">desimita {0}</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>milimita</displayName>
+				<unitPattern count="one">milimita {0}</unitPattern>
+				<unitPattern count="other">milimita {0}</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>mikromita</displayName>
+				<unitPattern count="one">mikromita {0}</unitPattern>
+				<unitPattern count="other">mikromita {0}</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>nanomita</displayName>
+				<unitPattern count="one">nanomita {0}</unitPattern>
+				<unitPattern count="other">nanomita {0}</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>pikomita</displayName>
+				<unitPattern count="one">pikomita {0}</unitPattern>
+				<unitPattern count="other">pikomita {0}</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>maili</displayName>
+				<unitPattern count="one">maili {0}</unitPattern>
+				<unitPattern count="other">maili {0}</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>yadi</displayName>
+				<unitPattern count="one">yadi {0}</unitPattern>
+				<unitPattern count="other">yadi {0}</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>futi</displayName>
@@ -6261,83 +6298,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">inchi {0}</unitPattern>
 				<perUnitPattern>{0} kwa kila inchi</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>kilomita</displayName>
-				<unitPattern count="one">km {0}</unitPattern>
-				<unitPattern count="other">km {0}</unitPattern>
-				<perUnitPattern>{0} kwa kila kilomita</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>parsecs</displayName>
+				<unitPattern count="one">{0} pc</unitPattern>
+				<unitPattern count="other">{0} pc</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>miaka ya mwanga</displayName>
 				<unitPattern count="one">ly {0}</unitPattern>
 				<unitPattern count="other">ly {0}</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>mita</displayName>
-				<unitPattern count="one">mita {0}</unitPattern>
-				<unitPattern count="other">mita {0}</unitPattern>
-				<perUnitPattern>{0} kwa kila mita</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>mikromita</displayName>
-				<unitPattern count="one">mikromita {0}</unitPattern>
-				<unitPattern count="other">mikromita {0}</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>maili</displayName>
-				<unitPattern count="one">maili {0}</unitPattern>
-				<unitPattern count="other">maili {0}</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>smi</displayName>
-				<unitPattern count="one">{0} smi</unitPattern>
-				<unitPattern count="other">{0} smi</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>milimita</displayName>
-				<unitPattern count="one">milimita {0}</unitPattern>
-				<unitPattern count="other">milimita {0}</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>nanomita</displayName>
-				<unitPattern count="one">nanomita {0}</unitPattern>
-				<unitPattern count="other">nanomita {0}</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>vipimo vya astronomia</displayName>
+				<unitPattern count="one">au {0}</unitPattern>
+				<unitPattern count="other">au {0}</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>maili za kibaharia</displayName>
 				<unitPattern count="one">maili {0} ya kibaharia</unitPattern>
 				<unitPattern count="other">maili {0} za kibaharia</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>parsecs</displayName>
-				<unitPattern count="one">{0} pc</unitPattern>
-				<unitPattern count="other">{0} pc</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>pikomita</displayName>
-				<unitPattern count="one">pikomita {0}</unitPattern>
-				<unitPattern count="other">pikomita {0}</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>yadi</displayName>
-				<unitPattern count="one">yadi {0}</unitPattern>
-				<unitPattern count="other">yadi {0}</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>smi</displayName>
+				<unitPattern count="one">{0} smi</unitPattern>
+				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
 				<unitPattern count="one">lx {0}</unitPattern>
 				<unitPattern count="other">lx {0}</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>karati</displayName>
-				<unitPattern count="one">karati {0}</unitPattern>
-				<unitPattern count="other">karati {0}</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>gramu</displayName>
-				<unitPattern count="one">gramu {0}</unitPattern>
-				<unitPattern count="other">gramu {0}</unitPattern>
-				<perUnitPattern>{0} kwa kila gramu</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>tani mita</displayName>
+				<unitPattern count="one">tani mita {0}</unitPattern>
+				<unitPattern count="other">tani mita {0}</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kilogramu</displayName>
@@ -6345,20 +6339,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">kg {0}</unitPattern>
 				<perUnitPattern>{0}/kg</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>tani mita</displayName>
-				<unitPattern count="one">tani mita {0}</unitPattern>
-				<unitPattern count="other">tani mita {0}</unitPattern>
+			<unit type="mass-gram">
+				<displayName>gramu</displayName>
+				<unitPattern count="one">gramu {0}</unitPattern>
+				<unitPattern count="other">gramu {0}</unitPattern>
+				<perUnitPattern>{0} kwa kila gramu</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>miligramu</displayName>
+				<unitPattern count="one">mg {0}</unitPattern>
+				<unitPattern count="other">mg {0}</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>mikrogramu</displayName>
 				<unitPattern count="one">mikrogramu {0}</unitPattern>
 				<unitPattern count="other">mikrogramu {0}</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>miligramu</displayName>
-				<unitPattern count="one">mg {0}</unitPattern>
-				<unitPattern count="other">mg {0}</unitPattern>
+			<unit type="mass-ton">
+				<displayName>tani</displayName>
+				<unitPattern count="one">tani {0}</unitPattern>
+				<unitPattern count="other">tani {0}</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>ratili</displayName>
+				<unitPattern count="one">ratili {0}</unitPattern>
+				<unitPattern count="other">ratili {0}</unitPattern>
+				<perUnitPattern>{0}/lb</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>aunsi</displayName>
@@ -6371,61 +6377,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">tola aunsi {0}</unitPattern>
 				<unitPattern count="other">tola aunsi {0}</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>ratili</displayName>
-				<unitPattern count="one">ratili {0}</unitPattern>
-				<unitPattern count="other">ratili {0}</unitPattern>
-				<perUnitPattern>{0}/lb</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>tani</displayName>
-				<unitPattern count="one">tani {0}</unitPattern>
-				<unitPattern count="other">tani {0}</unitPattern>
+			<unit type="mass-carat">
+				<displayName>karati</displayName>
+				<unitPattern count="one">karati {0}</unitPattern>
+				<unitPattern count="other">karati {0}</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>gigawati</displayName>
 				<unitPattern count="one">gigawati {0}</unitPattern>
 				<unitPattern count="other">gigawati {0}</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>kipimo cha hospawa</displayName>
-				<unitPattern count="one">{0} hp</unitPattern>
-				<unitPattern count="other">{0} hp</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>megawati</displayName>
+				<unitPattern count="one">megawati {0}</unitPattern>
+				<unitPattern count="other">megawati {0}</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>kilowati</displayName>
 				<unitPattern count="one">kilowati {0}</unitPattern>
 				<unitPattern count="other">kilowati {0}</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>megawati</displayName>
-				<unitPattern count="one">megawati {0}</unitPattern>
-				<unitPattern count="other">megawati {0}</unitPattern>
+			<unit type="power-watt">
+				<displayName>wati</displayName>
+				<unitPattern count="one">wati {0}</unitPattern>
+				<unitPattern count="other">wati {0}</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>miliwati</displayName>
 				<unitPattern count="one">miliwati {0}</unitPattern>
 				<unitPattern count="other">miliwati {0}</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>wati</displayName>
-				<unitPattern count="one">wati {0}</unitPattern>
-				<unitPattern count="other">wati {0}</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>kipimo cha hospawa</displayName>
+				<unitPattern count="one">{0} hp</unitPattern>
+				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hektopaskali</displayName>
 				<unitPattern count="one">hPa {0}</unitPattern>
 				<unitPattern count="other">hPa {0}</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>inchi za zebaki</displayName>
-				<unitPattern count="one">{0} inHg</unitPattern>
-				<unitPattern count="other">{0} inHg</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>kipimo cha milibari</displayName>
-				<unitPattern count="one">mbar {0}</unitPattern>
-				<unitPattern count="other">mbar {0}</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>milimita za zebaki</displayName>
@@ -6437,6 +6427,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">psi {0}</unitPattern>
 				<unitPattern count="other">psi {0}</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>inchi za zebaki</displayName>
+				<unitPattern count="one">{0} inHg</unitPattern>
+				<unitPattern count="other">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>kipimo cha milibari</displayName>
+				<unitPattern count="one">mbar {0}</unitPattern>
+				<unitPattern count="other">mbar {0}</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>karati</displayName>
 				<unitPattern count="one">karati {0}</unitPattern>
@@ -6446,11 +6446,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kilomita kwa saa</displayName>
 				<unitPattern count="one">km {0}/saa</unitPattern>
 				<unitPattern count="other">km {0}/saa</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>noti</displayName>
-				<unitPattern count="one">noti {0}</unitPattern>
-				<unitPattern count="other">noti {0}</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>mita kwa kila sekunde</displayName>
@@ -6462,6 +6457,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mph</unitPattern>
 				<unitPattern count="other">{0} mph</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>noti</displayName>
+				<unitPattern count="one">noti {0}</unitPattern>
+				<unitPattern count="other">noti {0}</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>nyuzi za selisiasi</displayName>
 				<unitPattern count="one">{0}°C</unitPattern>
@@ -6472,41 +6477,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
 				<unitPattern count="one">{0} K</unitPattern>
 				<unitPattern count="other">{0} K</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ekari futi</displayName>
-				<unitPattern count="one">ekari futi {0}</unitPattern>
-				<unitPattern count="other">ekari futi {0}</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>sentilita</displayName>
-				<unitPattern count="one">sentilita {0}</unitPattern>
-				<unitPattern count="other">sentilita {0}</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>sentimita za ujazo</displayName>
-				<unitPattern count="one">cm³ {0}</unitPattern>
-				<unitPattern count="other">cm³ {0}</unitPattern>
-				<perUnitPattern>{0}/cm³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>futi za ujazo</displayName>
-				<unitPattern count="one">ft³ {0}</unitPattern>
-				<unitPattern count="other">ft³ {0}</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>inchi za ujazo</displayName>
-				<unitPattern count="one">in³ {0}</unitPattern>
-				<unitPattern count="other">in³ {0}</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>kilomita za ujazo</displayName>
@@ -6519,6 +6493,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">mita {0} za ujazo</unitPattern>
 				<perUnitPattern>{0}/m³</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>sentimita za ujazo</displayName>
+				<unitPattern count="one">cm³ {0}</unitPattern>
+				<unitPattern count="other">cm³ {0}</unitPattern>
+				<perUnitPattern>{0}/cm³</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>maili za ujazo</displayName>
 				<unitPattern count="one">mi³ {0}</unitPattern>
@@ -6529,31 +6509,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">yd³ {0}</unitPattern>
 				<unitPattern count="other">yd³ {0}</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>vikombe</displayName>
-				<unitPattern count="one">kikombe {0}</unitPattern>
-				<unitPattern count="other">vikombe {0}</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>futi za ujazo</displayName>
+				<unitPattern count="one">ft³ {0}</unitPattern>
+				<unitPattern count="other">ft³ {0}</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>vikombe vya mizani</displayName>
-				<unitPattern count="one">mc {0}</unitPattern>
-				<unitPattern count="other">vikombe {0} vya mizani</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>inchi za ujazo</displayName>
+				<unitPattern count="one">in³ {0}</unitPattern>
+				<unitPattern count="other">in³ {0}</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>desilita</displayName>
-				<unitPattern count="one">desilita {0}</unitPattern>
-				<unitPattern count="other">desilita {0}</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>aunsi za ujazo</displayName>
-				<unitPattern count="one">fl oz {0}</unitPattern>
-				<unitPattern count="other">fl oz {0}</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>galoni</displayName>
-				<unitPattern count="one">galoni {0}</unitPattern>
-				<unitPattern count="other">galoni {0}</unitPattern>
-				<perUnitPattern>{0}/gal</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>megalita</displayName>
+				<unitPattern count="one">megalita {0}</unitPattern>
+				<unitPattern count="other">megalita {0}</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hektolita</displayName>
@@ -6566,30 +6535,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">lita {0}</unitPattern>
 				<perUnitPattern>{0} kwa kila lita</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>megalita</displayName>
-				<unitPattern count="one">megalita {0}</unitPattern>
-				<unitPattern count="other">megalita {0}</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>desilita</displayName>
+				<unitPattern count="one">desilita {0}</unitPattern>
+				<unitPattern count="other">desilita {0}</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>sentilita</displayName>
+				<unitPattern count="one">sentilita {0}</unitPattern>
+				<unitPattern count="other">sentilita {0}</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>mililita</displayName>
 				<unitPattern count="one">mililita {0}</unitPattern>
 				<unitPattern count="other">mililita {0}</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>painti</displayName>
-				<unitPattern count="one">painti {0}</unitPattern>
-				<unitPattern count="other">painti {0}</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>painti za mizani</displayName>
 				<unitPattern count="one">mpt {0}</unitPattern>
 				<unitPattern count="other">mpt {0}</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>vikombe vya mizani</displayName>
+				<unitPattern count="one">mc {0}</unitPattern>
+				<unitPattern count="other">vikombe {0} vya mizani</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ekari futi</displayName>
+				<unitPattern count="one">ekari futi {0}</unitPattern>
+				<unitPattern count="other">ekari futi {0}</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>galoni</displayName>
+				<unitPattern count="one">galoni {0}</unitPattern>
+				<unitPattern count="other">galoni {0}</unitPattern>
+				<perUnitPattern>{0}/gal</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>kwati</displayName>
 				<unitPattern count="one">kwati {0}</unitPattern>
 				<unitPattern count="other">kwati {0}</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>painti</displayName>
+				<unitPattern count="one">painti {0}</unitPattern>
+				<unitPattern count="other">painti {0}</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>vikombe</displayName>
+				<unitPattern count="one">kikombe {0}</unitPattern>
+				<unitPattern count="other">vikombe {0}</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>aunsi za ujazo</displayName>
+				<unitPattern count="one">fl oz {0}</unitPattern>
+				<unitPattern count="other">fl oz {0}</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>vijiko vikubwa</displayName>
@@ -6616,6 +6616,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">G {0}</unitPattern>
 				<unitPattern count="other">G {0}</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -6624,25 +6628,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="one">Ekari {0}</unitPattern>
-				<unitPattern count="other">Ekari {0}</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">km² {0}</unitPattern>
+				<unitPattern count="other">km² {0}</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="one">ha {0}</unitPattern>
 				<unitPattern count="other">ha {0}</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="one">ft² {0}</unitPattern>
-				<unitPattern count="other">ft² {0}</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="one">km² {0}</unitPattern>
-				<unitPattern count="other">km² {0}</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="one">m² {0}</unitPattern>
@@ -6652,10 +6644,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">mi² {0}</unitPattern>
 				<unitPattern count="other">mi² {0}</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">Ekari {0}</unitPattern>
+				<unitPattern count="other">Ekari {0}</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">ft² {0}</unitPattern>
+				<unitPattern count="other">ft² {0}</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>lita kwa kilomita 100</displayName>
 				<unitPattern count="one">{0}L/100km</unitPattern>
 				<unitPattern count="other">{0}L/100km</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>mwaka</displayName>
+				<unitPattern count="one">mwaka {0}</unitPattern>
+				<unitPattern count="other">miaka {0}</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>mwezi</displayName>
+				<unitPattern count="one">mwezi {0}</unitPattern>
+				<unitPattern count="other">miezi {0}</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>wiki</displayName>
+				<unitPattern count="one">wiki {0}</unitPattern>
+				<unitPattern count="other">wiki {0}</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>siku</displayName>
@@ -6667,70 +6682,38 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">saa {0}</unitPattern>
 				<unitPattern count="other">saa {0}</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>millisekunde</displayName>
-				<unitPattern count="one">ms {0}</unitPattern>
-				<unitPattern count="other">ms {0}</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>dakika</displayName>
 				<unitPattern count="one">dakika {0}</unitPattern>
 				<unitPattern count="other">dakika {0}</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>mwezi</displayName>
-				<unitPattern count="one">mwezi {0}</unitPattern>
-				<unitPattern count="other">miezi {0}</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>sekunde</displayName>
 				<unitPattern count="one">sekunde {0}</unitPattern>
 				<unitPattern count="other">sekunde {0}</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>wiki</displayName>
-				<unitPattern count="one">wiki {0}</unitPattern>
-				<unitPattern count="other">wiki {0}</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName>mwaka</displayName>
-				<unitPattern count="one">mwaka {0}</unitPattern>
-				<unitPattern count="other">miaka {0}</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>millisekunde</displayName>
+				<unitPattern count="one">ms {0}</unitPattern>
+				<unitPattern count="other">ms {0}</unitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<displayName>volti</displayName>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>sentimita</displayName>
-				<unitPattern count="one">{0} cm</unitPattern>
-				<unitPattern count="other">{0} cm</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="one">Futi {0}</unitPattern>
-				<unitPattern count="other">Futi {0}</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName>Inchi</displayName>
-				<unitPattern count="one">Inchi {0}</unitPattern>
-				<unitPattern count="other">Inchi {0}</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
 				<unitPattern count="one">km {0}</unitPattern>
 				<unitPattern count="other">km {0}</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="one">ly {0}</unitPattern>
-				<unitPattern count="other">ly {0}</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>mita</displayName>
 				<unitPattern count="one">mita {0}</unitPattern>
 				<unitPattern count="other">mita {0}</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="one">Maili {0}</unitPattern>
-				<unitPattern count="other">Maili {0}</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>sentimita</displayName>
+				<unitPattern count="one">{0} cm</unitPattern>
+				<unitPattern count="other">{0} cm</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>milimita</displayName>
@@ -6741,31 +6724,44 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">pm {0}</unitPattern>
 				<unitPattern count="other">pm {0}</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">Maili {0}</unitPattern>
+				<unitPattern count="other">Maili {0}</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<unitPattern count="one">Yadi {0}</unitPattern>
 				<unitPattern count="other">Yadi {0}</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName>gramu</displayName>
-				<unitPattern count="one">gramu {0}</unitPattern>
-				<unitPattern count="other">gramu {0}</unitPattern>
+			<unit type="length-foot">
+				<unitPattern count="one">Futi {0}</unitPattern>
+				<unitPattern count="other">Futi {0}</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName>Inchi</displayName>
+				<unitPattern count="one">Inchi {0}</unitPattern>
+				<unitPattern count="other">Inchi {0}</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">ly {0}</unitPattern>
+				<unitPattern count="other">ly {0}</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kilogramu</displayName>
 				<unitPattern count="one">kg {0}</unitPattern>
 				<unitPattern count="other">kg {0}</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="one">Aunsi {0}</unitPattern>
-				<unitPattern count="other">Aunsi {0}</unitPattern>
+			<unit type="mass-gram">
+				<displayName>gramu</displayName>
+				<unitPattern count="one">gramu {0}</unitPattern>
+				<unitPattern count="other">gramu {0}</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="one">Ratili {0}</unitPattern>
 				<unitPattern count="other">Ratili {0}</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="one">hp {0}</unitPattern>
-				<unitPattern count="other">hp {0}</unitPattern>
+			<unit type="mass-ounce">
+				<unitPattern count="one">Aunsi {0}</unitPattern>
+				<unitPattern count="other">Aunsi {0}</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one">kW {0}</unitPattern>
@@ -6775,6 +6771,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>wati</displayName>
 				<unitPattern count="one">Wati {0}</unitPattern>
 				<unitPattern count="other">Wati {0}</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">hp {0}</unitPattern>
+				<unitPattern count="other">hp {0}</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="one">hPa {0}</unitPattern>

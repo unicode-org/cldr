@@ -8318,6 +8318,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>メートル毎秒毎秒</displayName>
 				<unitPattern count="other">{0} メートル毎秒毎秒</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>回転</displayName>
+				<unitPattern count="other">{0} 回転</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>ラジアン</displayName>
+				<unitPattern count="other">{0} ラジアン</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>度</displayName>
+				<unitPattern count="other">{0} 度</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>分</displayName>
 				<unitPattern count="other">{0} 分</unitPattern>
@@ -8326,30 +8338,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>秒</displayName>
 				<unitPattern count="other">{0} 秒</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>度</displayName>
-				<unitPattern count="other">{0} 度</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>ラジアン</displayName>
-				<unitPattern count="other">{0} ラジアン</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>回転</displayName>
-				<unitPattern count="other">{0} 回転</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>エーカー</displayName>
-				<unitPattern count="other">{0} エーカー</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>平方キロメートル</displayName>
+				<unitPattern count="other">{0} 平方キロメートル</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ヘクタール</displayName>
 				<unitPattern count="other">{0} ヘクタール</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>平方メートル</displayName>
+				<unitPattern count="other">{0} 平方メートル</unitPattern>
+				<perUnitPattern>{0}/平方メートル</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>平方センチメートル</displayName>
 				<unitPattern count="other">{0} 平方センチメートル</unitPattern>
 				<perUnitPattern>{0}/平方センチメートル</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>平方マイル</displayName>
+				<unitPattern count="other">{0} 平方マイル</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>エーカー</displayName>
+				<unitPattern count="other">{0} エーカー</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>平方ヤード</displayName>
+				<unitPattern count="other">{0} 平方ヤード</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>平方フィート</displayName>
@@ -8360,78 +8377,76 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} 平方インチ</unitPattern>
 				<perUnitPattern>{0}/平方インチ</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>平方キロメートル</displayName>
-				<unitPattern count="other">{0} 平方キロメートル</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>平方メートル</displayName>
-				<unitPattern count="other">{0} 平方メートル</unitPattern>
-				<perUnitPattern>{0}/平方メートル</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>平方マイル</displayName>
-				<unitPattern count="other">{0} 平方マイル</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>平方ヤード</displayName>
-				<unitPattern count="other">{0} 平方ヤード</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>リットル毎キロメートル</displayName>
+				<unitPattern count="other">{0} リットル毎キロメートル</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>リットル毎100キロメートル</displayName>
 				<unitPattern count="other">{0} リットル毎100キロメートル</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>リットル毎キロメートル</displayName>
-				<unitPattern count="other">{0} リットル毎キロメートル</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>マイル毎ガロン</displayName>
 				<unitPattern count="other">{0} マイル毎ガロン</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>ビット</displayName>
-				<unitPattern count="other">{0} ビット</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>バイト</displayName>
-				<unitPattern count="other">{0} バイト</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>ギガビット</displayName>
-				<unitPattern count="other">{0} ギガビット</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>ギガバイト</displayName>
-				<unitPattern count="other">{0} ギガバイト</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>キロビット</displayName>
-				<unitPattern count="other">{0} キロビット</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>キロバイト</displayName>
-				<unitPattern count="other">{0} キロバイト</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>メガビット</displayName>
-				<unitPattern count="other">{0} メガビット</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>メガバイト</displayName>
-				<unitPattern count="other">{0} メガバイト</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>テラビット</displayName>
-				<unitPattern count="other">{0} テラビット</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>テラバイト</displayName>
 				<unitPattern count="other">{0} テラバイト</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>テラビット</displayName>
+				<unitPattern count="other">{0} テラビット</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>ギガバイト</displayName>
+				<unitPattern count="other">{0} ギガバイト</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>ギガビット</displayName>
+				<unitPattern count="other">{0} ギガビット</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>メガバイト</displayName>
+				<unitPattern count="other">{0} メガバイト</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>メガビット</displayName>
+				<unitPattern count="other">{0} メガビット</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>キロバイト</displayName>
+				<unitPattern count="other">{0} キロバイト</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>キロビット</displayName>
+				<unitPattern count="other">{0} キロビット</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>バイト</displayName>
+				<unitPattern count="other">{0} バイト</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>ビット</displayName>
+				<unitPattern count="other">{0} ビット</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>世紀</displayName>
 				<unitPattern count="other">{0} 世紀</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>年</displayName>
+				<unitPattern count="other">{0} 年</unitPattern>
+				<perUnitPattern>{0}/年</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>か月</displayName>
+				<unitPattern count="other">{0} か月</unitPattern>
+				<perUnitPattern>{0}/月</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>週間</displayName>
+				<unitPattern count="other">{0} 週間</unitPattern>
+				<perUnitPattern>{0}/週</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>日</displayName>
@@ -8443,42 +8458,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} 時間</unitPattern>
 				<perUnitPattern>{0}/時間</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>マイクロ秒</displayName>
-				<unitPattern count="other">{0} マイクロ秒</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>ミリ秒</displayName>
-				<unitPattern count="other">{0} ミリ秒</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>分</displayName>
 				<unitPattern count="other">{0} 分</unitPattern>
 				<perUnitPattern>{0}/分</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>か月</displayName>
-				<unitPattern count="other">{0} か月</unitPattern>
-				<perUnitPattern>{0}/月</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>ナノ秒</displayName>
-				<unitPattern count="other">{0} ナノ秒</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>秒</displayName>
 				<unitPattern count="other">{0} 秒</unitPattern>
 				<perUnitPattern>{0}/秒</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>週間</displayName>
-				<unitPattern count="other">{0} 週間</unitPattern>
-				<perUnitPattern>{0}/週</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>ミリ秒</displayName>
+				<unitPattern count="other">{0} ミリ秒</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>年</displayName>
-				<unitPattern count="other">{0} 年</unitPattern>
-				<perUnitPattern>{0}/年</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>マイクロ秒</displayName>
+				<unitPattern count="other">{0} マイクロ秒</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ナノ秒</displayName>
+				<unitPattern count="other">{0} ナノ秒</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>アンペア</displayName>
@@ -8496,6 +8496,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ボルト</displayName>
 				<unitPattern count="other">{0} ボルト</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>キロカロリー</displayName>
+				<unitPattern count="other">{0} キロカロリー</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>カロリー</displayName>
 				<unitPattern count="other">{0} カロリー</unitPattern>
@@ -8504,17 +8508,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>カロリー</displayName>
 				<unitPattern count="other">{0} カロリー</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>ジュール</displayName>
-				<unitPattern count="other">{0} ジュール</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>キロカロリー</displayName>
-				<unitPattern count="other">{0} キロカロリー</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>キロジュール</displayName>
 				<unitPattern count="other">{0} キロジュール</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>ジュール</displayName>
+				<unitPattern count="other">{0} ジュール</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>キロワット時</displayName>
@@ -8524,128 +8524,137 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ギガヘルツ</displayName>
 				<unitPattern count="other">{0} ギガヘルツ</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>ヘルツ</displayName>
-				<unitPattern count="other">{0} ヘルツ</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>メガヘルツ</displayName>
+				<unitPattern count="other">{0} メガヘルツ</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>キロヘルツ</displayName>
 				<unitPattern count="other">{0} キロヘルツ</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>メガヘルツ</displayName>
-				<unitPattern count="other">{0} メガヘルツ</unitPattern>
-			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>天文単位</displayName>
-				<unitPattern count="other">{0} 天文単位</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>センチメートル</displayName>
-				<unitPattern count="other">{0} センチメートル</unitPattern>
-				<perUnitPattern>{0}/センチメートル</perUnitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName>デシメートル</displayName>
-				<unitPattern count="other">{0} デシメートル</unitPattern>
-			</unit>
-			<unit type="length-fathom">
-				<displayName draft="contributed">ファゾム</displayName>
-				<unitPattern count="other" draft="contributed">{0} ファゾム</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName>フィート</displayName>
-				<unitPattern count="other">{0} フィート</unitPattern>
-				<perUnitPattern>{0}/フィート</perUnitPattern>
-			</unit>
-			<unit type="length-furlong">
-				<displayName draft="contributed">ハロン</displayName>
-				<unitPattern count="other" draft="contributed">{0} ハロン</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName>インチ</displayName>
-				<unitPattern count="other">{0} インチ</unitPattern>
-				<perUnitPattern>{0}/インチ</perUnitPattern>
+			<unit type="frequency-hertz">
+				<displayName>ヘルツ</displayName>
+				<unitPattern count="other">{0} ヘルツ</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>キロメートル</displayName>
 				<unitPattern count="other">{0} キロメートル</unitPattern>
 				<perUnitPattern>{0}/キロメートル</perUnitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName>光年</displayName>
-				<unitPattern count="other">{0} 光年</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>メートル</displayName>
 				<unitPattern count="other">{0} メートル</unitPattern>
 				<perUnitPattern>{0}/メートル</perUnitPattern>
 			</unit>
-			<unit type="length-micrometer">
-				<displayName>マイクロメートル</displayName>
-				<unitPattern count="other">{0} マイクロメートル</unitPattern>
+			<unit type="length-decimeter">
+				<displayName>デシメートル</displayName>
+				<unitPattern count="other">{0} デシメートル</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName>マイル</displayName>
-				<unitPattern count="other">{0} マイル</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>スカンジナビアマイル</displayName>
-				<unitPattern count="other">{0} スカンジナビアマイル</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>センチメートル</displayName>
+				<unitPattern count="other">{0} センチメートル</unitPattern>
+				<perUnitPattern>{0}/センチメートル</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>ミリメートル</displayName>
 				<unitPattern count="other">{0} ミリメートル</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName>マイクロメートル</displayName>
+				<unitPattern count="other">{0} マイクロメートル</unitPattern>
+			</unit>
 			<unit type="length-nanometer">
 				<displayName>ナノメートル</displayName>
 				<unitPattern count="other">{0} ナノメートル</unitPattern>
-			</unit>
-			<unit type="length-nautical-mile">
-				<displayName>海里</displayName>
-				<unitPattern count="other">{0} 海里</unitPattern>
-			</unit>
-			<unit type="length-parsec">
-				<displayName>パーセク</displayName>
-				<unitPattern count="other">{0} パーセク</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName>ピコメートル</displayName>
 				<unitPattern count="other">{0} ピコメートル</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<displayName>マイル</displayName>
+				<unitPattern count="other">{0} マイル</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<displayName>ヤード</displayName>
 				<unitPattern count="other">{0} ヤード</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<displayName>フィート</displayName>
+				<unitPattern count="other">{0} フィート</unitPattern>
+				<perUnitPattern>{0}/フィート</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName>インチ</displayName>
+				<unitPattern count="other">{0} インチ</unitPattern>
+				<perUnitPattern>{0}/インチ</perUnitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>パーセク</displayName>
+				<unitPattern count="other">{0} パーセク</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>光年</displayName>
+				<unitPattern count="other">{0} 光年</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>天文単位</displayName>
+				<unitPattern count="other">{0} 天文単位</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName draft="contributed">ハロン</displayName>
+				<unitPattern count="other" draft="contributed">{0} ハロン</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName draft="contributed">ファゾム</displayName>
+				<unitPattern count="other" draft="contributed">{0} ファゾム</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>海里</displayName>
+				<unitPattern count="other">{0} 海里</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>スカンジナビアマイル</displayName>
+				<unitPattern count="other">{0} スカンジナビアマイル</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>ルクス</displayName>
 				<unitPattern count="other">{0} ルクス</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>カラット</displayName>
-				<unitPattern count="other">{0} カラット</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>グラム</displayName>
-				<unitPattern count="other">{0} グラム</unitPattern>
-				<perUnitPattern>{0}/グラム</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>メトリックトン</displayName>
+				<unitPattern count="other">{0} メトリックトン</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>キログラム</displayName>
 				<unitPattern count="other">{0} キログラム</unitPattern>
 				<perUnitPattern>{0}/キログラム</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>メトリックトン</displayName>
-				<unitPattern count="other">{0} メトリックトン</unitPattern>
+			<unit type="mass-gram">
+				<displayName>グラム</displayName>
+				<unitPattern count="other">{0} グラム</unitPattern>
+				<perUnitPattern>{0}/グラム</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>ミリグラム</displayName>
+				<unitPattern count="other">{0} ミリグラム</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>マイクログラム</displayName>
 				<unitPattern count="other">{0} マイクログラム</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>ミリグラム</displayName>
-				<unitPattern count="other">{0} ミリグラム</unitPattern>
+			<unit type="mass-ton">
+				<displayName>トン</displayName>
+				<unitPattern count="other">{0} トン</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName draft="contributed">ストーン</displayName>
+				<unitPattern count="other" draft="contributed">{0} ストーン</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>ポンド</displayName>
+				<unitPattern count="other">{0} ポンド</unitPattern>
+				<perUnitPattern>{0}/ポンド</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>オンス</displayName>
@@ -8656,54 +8665,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>トロイオンス</displayName>
 				<unitPattern count="other">{0} トロイオンス</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>ポンド</displayName>
-				<unitPattern count="other">{0} ポンド</unitPattern>
-				<perUnitPattern>{0}/ポンド</perUnitPattern>
-			</unit>
-			<unit type="mass-stone">
-				<displayName draft="contributed">ストーン</displayName>
-				<unitPattern count="other" draft="contributed">{0} ストーン</unitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>トン</displayName>
-				<unitPattern count="other">{0} トン</unitPattern>
+			<unit type="mass-carat">
+				<displayName>カラット</displayName>
+				<unitPattern count="other">{0} カラット</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ギガワット</displayName>
 				<unitPattern count="other">{0} ギガワット</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>馬力</displayName>
-				<unitPattern count="other">{0} 馬力</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>メガワット</displayName>
+				<unitPattern count="other">{0} メガワット</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>キロワット</displayName>
 				<unitPattern count="other">{0} キロワット</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>メガワット</displayName>
-				<unitPattern count="other">{0} メガワット</unitPattern>
+			<unit type="power-watt">
+				<displayName>ワット</displayName>
+				<unitPattern count="other">{0} ワット</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>ミリワット</displayName>
 				<unitPattern count="other">{0} ミリワット</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>ワット</displayName>
-				<unitPattern count="other">{0} ワット</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>馬力</displayName>
+				<unitPattern count="other">{0} 馬力</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>ヘクトパスカル</displayName>
 				<unitPattern count="other">{0} ヘクトパスカル</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>水銀柱インチ</displayName>
-				<unitPattern count="other">{0} 水銀柱インチ</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>ミリバール</displayName>
-				<unitPattern count="other">{0} ミリバール</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>水銀柱ミリメートル</displayName>
@@ -8713,6 +8705,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>重量ポンド毎平方インチ</displayName>
 				<unitPattern count="other">{0} 重量ポンド毎平方インチ</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>水銀柱インチ</displayName>
+				<unitPattern count="other">{0} 水銀柱インチ</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>ミリバール</displayName>
+				<unitPattern count="other">{0} ミリバール</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>金</displayName>
 				<unitPattern count="other">{0} 金</unitPattern>
@@ -8720,10 +8720,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="speed-kilometer-per-hour">
 				<displayName>キロメートル毎時</displayName>
 				<unitPattern count="other">時速 {0} キロメートル</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>ノット</displayName>
-				<unitPattern count="other">{0} ノット</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>メートル毎秒</displayName>
@@ -8733,6 +8729,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>マイル毎時</displayName>
 				<unitPattern count="other">時速 {0} マイル</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>ノット</displayName>
+				<unitPattern count="other">{0} ノット</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>度</displayName>
+				<unitPattern count="other">{0}度</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>摂氏</displayName>
 				<unitPattern count="other">摂氏 {0} 度</unitPattern>
@@ -8741,38 +8745,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>華氏</displayName>
 				<unitPattern count="other">華氏 {0} 度</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>度</displayName>
-				<unitPattern count="other">{0}度</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>ケルビン</displayName>
 				<unitPattern count="other">{0} ケルビン</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>エーカーフィート</displayName>
-				<unitPattern count="other">{0} エーカーフィート</unitPattern>
-			</unit>
-			<unit type="volume-bushel">
-				<displayName draft="contributed">ブッシェル</displayName>
-				<unitPattern count="other" draft="contributed">{0} ブッシェル</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>センチリットル</displayName>
-				<unitPattern count="other">{0} センチリットル</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>立方センチメートル</displayName>
-				<unitPattern count="other">{0} 立方センチメートル</unitPattern>
-				<perUnitPattern>{0}/立方センチメートル</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>立方フィート</displayName>
-				<unitPattern count="other">{0} 立方フィート</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>立方インチ</displayName>
-				<unitPattern count="other">{0} 立方インチ</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>立方キロメートル</displayName>
@@ -8783,6 +8758,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} 立方メートル</unitPattern>
 				<perUnitPattern>{0}/立方メートル</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>立方センチメートル</displayName>
+				<unitPattern count="other">{0} 立方センチメートル</unitPattern>
+				<perUnitPattern>{0}/立方センチメートル</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>立方マイル</displayName>
 				<unitPattern count="other">{0} 立方マイル</unitPattern>
@@ -8791,26 +8771,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>立方ヤード</displayName>
 				<unitPattern count="other">{0} 立方ヤード</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>カップ</displayName>
-				<unitPattern count="other">{0} カップ</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>立方フィート</displayName>
+				<unitPattern count="other">{0} 立方フィート</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>メトリックカップ</displayName>
-				<unitPattern count="other">{0} メトリックカップ</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>立方インチ</displayName>
+				<unitPattern count="other">{0} 立方インチ</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>デシリットル</displayName>
-				<unitPattern count="other">{0} デシリットル</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>液量オンス</displayName>
-				<unitPattern count="other">{0} 液量オンス</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>ガロン</displayName>
-				<unitPattern count="other">{0} ガロン</unitPattern>
-				<perUnitPattern>{0}/ガロン</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>メガリットル</displayName>
+				<unitPattern count="other">{0} メガリットル</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>ヘクトリットル</displayName>
@@ -8821,25 +8792,54 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} リットル</unitPattern>
 				<perUnitPattern>{0}/リットル</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>メガリットル</displayName>
-				<unitPattern count="other">{0} メガリットル</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>デシリットル</displayName>
+				<unitPattern count="other">{0} デシリットル</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>センチリットル</displayName>
+				<unitPattern count="other">{0} センチリットル</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>ミリリットル</displayName>
 				<unitPattern count="other">{0} ミリリットル</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>パイント</displayName>
-				<unitPattern count="other">{0} パイント</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>メトリックパイント</displayName>
 				<unitPattern count="other">{0} メトリックパイント</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>メトリックカップ</displayName>
+				<unitPattern count="other">{0} メトリックカップ</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>エーカーフィート</displayName>
+				<unitPattern count="other">{0} エーカーフィート</unitPattern>
+			</unit>
+			<unit type="volume-bushel">
+				<displayName draft="contributed">ブッシェル</displayName>
+				<unitPattern count="other" draft="contributed">{0} ブッシェル</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>ガロン</displayName>
+				<unitPattern count="other">{0} ガロン</unitPattern>
+				<perUnitPattern>{0}/ガロン</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>クォート</displayName>
 				<unitPattern count="other">{0} クォート</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>パイント</displayName>
+				<unitPattern count="other">{0} パイント</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>カップ</displayName>
+				<unitPattern count="other">{0} カップ</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>液量オンス</displayName>
+				<unitPattern count="other">{0} 液量オンス</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>大さじ</displayName>
@@ -8868,6 +8868,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>メートル毎秒毎秒</displayName>
 				<unitPattern count="other">{0} m/s²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName draft="provisional">rev</displayName>
+				<unitPattern count="other">{0} rev</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>ラジアン</displayName>
+				<unitPattern count="other">{0} rad</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>度</displayName>
+				<unitPattern count="other">{0} 度</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>分</displayName>
 				<unitPattern count="other">{0} 分</unitPattern>
@@ -8876,30 +8888,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>秒</displayName>
 				<unitPattern count="other">{0} 秒</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>度</displayName>
-				<unitPattern count="other">{0} 度</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>ラジアン</displayName>
-				<unitPattern count="other">{0} rad</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName draft="provisional">rev</displayName>
-				<unitPattern count="other">{0} rev</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>エーカー</displayName>
-				<unitPattern count="other">{0} ac</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>km²</displayName>
+				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ヘクタール</displayName>
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>m²</displayName>
+				<unitPattern count="other">{0} m²</unitPattern>
+				<perUnitPattern>{0}/m²</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>cm²</displayName>
 				<unitPattern count="other">{0} cm²</unitPattern>
 				<perUnitPattern>{0}/cm²</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>平方マイル</displayName>
+				<unitPattern count="other">{0} mi²</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>エーカー</displayName>
+				<unitPattern count="other">{0} ac</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>平方ヤード</displayName>
+				<unitPattern count="other">{0} yd²</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>平方フィート</displayName>
@@ -8910,78 +8927,76 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>km²</displayName>
-				<unitPattern count="other">{0} km²</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>m²</displayName>
-				<unitPattern count="other">{0} m²</unitPattern>
-				<perUnitPattern>{0}/m²</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>平方マイル</displayName>
-				<unitPattern count="other">{0} mi²</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>平方ヤード</displayName>
-				<unitPattern count="other">{0} yd²</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>L/km</displayName>
+				<unitPattern count="other">{0} L/km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100km</displayName>
 				<unitPattern count="other">{0} L/100km</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>L/km</displayName>
-				<unitPattern count="other">{0} L/km</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>マイル/ガロン</displayName>
 				<unitPattern count="other">{0} mpg</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>ビット</displayName>
-				<unitPattern count="other">{0} bit</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>バイト</displayName>
-				<unitPattern count="other">{0} byte</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>ギガビット</displayName>
-				<unitPattern count="other">{0} Gb</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>GB</displayName>
-				<unitPattern count="other">{0} GB</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>キロビット</displayName>
-				<unitPattern count="other">{0} kb</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>KB</displayName>
-				<unitPattern count="other">{0} KB</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>メガビット</displayName>
-				<unitPattern count="other">{0} Mb</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>MB</displayName>
-				<unitPattern count="other">{0} MB</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>テラビット</displayName>
-				<unitPattern count="other">{0} Tb</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>テラバイト</displayName>
 				<unitPattern count="other">{0} TB</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>テラビット</displayName>
+				<unitPattern count="other">{0} Tb</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>GB</displayName>
+				<unitPattern count="other">{0} GB</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>ギガビット</displayName>
+				<unitPattern count="other">{0} Gb</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+				<unitPattern count="other">{0} MB</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>メガビット</displayName>
+				<unitPattern count="other">{0} Mb</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>KB</displayName>
+				<unitPattern count="other">{0} KB</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>キロビット</displayName>
+				<unitPattern count="other">{0} kb</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>バイト</displayName>
+				<unitPattern count="other">{0} byte</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>ビット</displayName>
+				<unitPattern count="other">{0} bit</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName draft="provisional">c</displayName>
 				<unitPattern count="other" draft="provisional">{0} c</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>年</displayName>
+				<unitPattern count="other">{0} 年</unitPattern>
+				<perUnitPattern>{0}/年</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>か月</displayName>
+				<unitPattern count="other">{0} か月</unitPattern>
+				<perUnitPattern>{0}/月</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>週間</displayName>
+				<unitPattern count="other">{0} 週間</unitPattern>
+				<perUnitPattern>{0}/週</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>日</displayName>
@@ -8993,42 +9008,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} 時間</unitPattern>
 				<perUnitPattern>{0}/時間</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>マイクロ秒</displayName>
-				<unitPattern count="other">{0} μs</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>ミリ秒</displayName>
-				<unitPattern count="other">{0} ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>分</displayName>
 				<unitPattern count="other">{0} 分</unitPattern>
 				<perUnitPattern>{0}/分</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>か月</displayName>
-				<unitPattern count="other">{0} か月</unitPattern>
-				<perUnitPattern>{0}/月</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>ナノ秒</displayName>
-				<unitPattern count="other">{0} ns</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>秒</displayName>
 				<unitPattern count="other">{0} 秒</unitPattern>
 				<perUnitPattern>{0}/秒</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>週間</displayName>
-				<unitPattern count="other">{0} 週間</unitPattern>
-				<perUnitPattern>{0}/週</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>ミリ秒</displayName>
+				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>年</displayName>
-				<unitPattern count="other">{0} 年</unitPattern>
-				<perUnitPattern>{0}/年</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>マイクロ秒</displayName>
+				<unitPattern count="other">{0} μs</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ナノ秒</displayName>
+				<unitPattern count="other">{0} ns</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>アンペア</displayName>
@@ -9046,6 +9046,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ボルト</displayName>
 				<unitPattern count="other">{0} V</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kcal</displayName>
+				<unitPattern count="other">{0} kcal</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>cal</displayName>
 				<unitPattern count="other">{0} cal</unitPattern>
@@ -9054,17 +9058,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>cal</displayName>
 				<unitPattern count="other">{0} cal</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>ジュール</displayName>
-				<unitPattern count="other">{0} J</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="other">{0} kcal</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>キロジュール</displayName>
 				<unitPattern count="other">{0} kJ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>ジュール</displayName>
+				<unitPattern count="other">{0} J</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>キロワット時</displayName>
@@ -9074,128 +9074,137 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ギガヘルツ</displayName>
 				<unitPattern count="other">{0} GHz</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>Hz</displayName>
-				<unitPattern count="other">{0} Hz</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>メガヘルツ</displayName>
+				<unitPattern count="other">{0} MHz</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>kHz</displayName>
 				<unitPattern count="other">{0} kHz</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>メガヘルツ</displayName>
-				<unitPattern count="other">{0} MHz</unitPattern>
-			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>天文単位</displayName>
-				<unitPattern count="other">{0} au</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>cm</displayName>
-				<unitPattern count="other">{0} cm</unitPattern>
-				<perUnitPattern>{0}/cm</perUnitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName>デシメートル</displayName>
-				<unitPattern count="other">{0} dm</unitPattern>
-			</unit>
-			<unit type="length-fathom">
-				<displayName draft="contributed">ファゾム</displayName>
-				<unitPattern count="other" draft="contributed">{0} fm</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName>フィート</displayName>
-				<unitPattern count="other">{0} ft</unitPattern>
-				<perUnitPattern>{0}/ft</perUnitPattern>
-			</unit>
-			<unit type="length-furlong">
-				<displayName draft="contributed">ハロン</displayName>
-				<unitPattern count="other" draft="contributed">{0} fur</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName>インチ</displayName>
-				<unitPattern count="other">{0} in</unitPattern>
-				<perUnitPattern>{0}/in</perUnitPattern>
+			<unit type="frequency-hertz">
+				<displayName>Hz</displayName>
+				<unitPattern count="other">{0} Hz</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
 				<unitPattern count="other">{0} km</unitPattern>
 				<perUnitPattern>{0}/km</perUnitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName>光年</displayName>
-				<unitPattern count="other">{0} 光年</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>m</displayName>
 				<unitPattern count="other">{0} m</unitPattern>
 				<perUnitPattern>{0}/m</perUnitPattern>
 			</unit>
-			<unit type="length-micrometer">
-				<displayName>マイクロメートル</displayName>
-				<unitPattern count="other">{0} µm</unitPattern>
+			<unit type="length-decimeter">
+				<displayName>デシメートル</displayName>
+				<unitPattern count="other">{0} dm</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName>マイル</displayName>
-				<unitPattern count="other">{0} mi</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>スカンジナビアマイル</displayName>
-				<unitPattern count="other">{0} smi</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>cm</displayName>
+				<unitPattern count="other">{0} cm</unitPattern>
+				<perUnitPattern>{0}/cm</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>mm</displayName>
 				<unitPattern count="other">{0} mm</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName>マイクロメートル</displayName>
+				<unitPattern count="other">{0} µm</unitPattern>
+			</unit>
 			<unit type="length-nanometer">
 				<displayName>ナノメートル</displayName>
 				<unitPattern count="other">{0} nm</unitPattern>
-			</unit>
-			<unit type="length-nautical-mile">
-				<displayName>海里</displayName>
-				<unitPattern count="other">{0} 海里</unitPattern>
-			</unit>
-			<unit type="length-parsec">
-				<displayName>パーセク</displayName>
-				<unitPattern count="other">{0} pc</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName>ピコメートル</displayName>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<displayName>マイル</displayName>
+				<unitPattern count="other">{0} mi</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<displayName>ヤード</displayName>
 				<unitPattern count="other">{0} yd</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<displayName>フィート</displayName>
+				<unitPattern count="other">{0} ft</unitPattern>
+				<perUnitPattern>{0}/ft</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName>インチ</displayName>
+				<unitPattern count="other">{0} in</unitPattern>
+				<perUnitPattern>{0}/in</perUnitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>パーセク</displayName>
+				<unitPattern count="other">{0} pc</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>光年</displayName>
+				<unitPattern count="other">{0} 光年</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>天文単位</displayName>
+				<unitPattern count="other">{0} au</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName draft="contributed">ハロン</displayName>
+				<unitPattern count="other" draft="contributed">{0} fur</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName draft="contributed">ファゾム</displayName>
+				<unitPattern count="other" draft="contributed">{0} fm</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>海里</displayName>
+				<unitPattern count="other">{0} 海里</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>スカンジナビアマイル</displayName>
+				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>ルクス</displayName>
 				<unitPattern count="other">{0} lx</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>カラット</displayName>
-				<unitPattern count="other">{0} ct</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>グラム</displayName>
-				<unitPattern count="other">{0} g</unitPattern>
-				<perUnitPattern>{0}/g</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>メトリックトン</displayName>
+				<unitPattern count="other">{0} MT</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kg</displayName>
 				<unitPattern count="other">{0} kg</unitPattern>
 				<perUnitPattern>{0}/kg</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>メトリックトン</displayName>
-				<unitPattern count="other">{0} MT</unitPattern>
+			<unit type="mass-gram">
+				<displayName>グラム</displayName>
+				<unitPattern count="other">{0} g</unitPattern>
+				<perUnitPattern>{0}/g</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>mg</displayName>
+				<unitPattern count="other">{0} mg</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>マイクログラム</displayName>
 				<unitPattern count="other">{0} µg</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>mg</displayName>
-				<unitPattern count="other">{0} mg</unitPattern>
+			<unit type="mass-ton">
+				<displayName>トン</displayName>
+				<unitPattern count="other">{0} t</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName draft="contributed">ストーン</displayName>
+				<unitPattern count="other" draft="contributed">{0} st</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>ポンド</displayName>
+				<unitPattern count="other">{0} lb</unitPattern>
+				<perUnitPattern>{0}/lb</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>オンス</displayName>
@@ -9206,54 +9215,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>トロイオンス</displayName>
 				<unitPattern count="other">{0} oz t</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>ポンド</displayName>
-				<unitPattern count="other">{0} lb</unitPattern>
-				<perUnitPattern>{0}/lb</perUnitPattern>
-			</unit>
-			<unit type="mass-stone">
-				<displayName draft="contributed">ストーン</displayName>
-				<unitPattern count="other" draft="contributed">{0} st</unitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>トン</displayName>
-				<unitPattern count="other">{0} t</unitPattern>
+			<unit type="mass-carat">
+				<displayName>カラット</displayName>
+				<unitPattern count="other">{0} ct</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ギガワット</displayName>
 				<unitPattern count="other">{0} GW</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>馬力</displayName>
-				<unitPattern count="other">{0} 馬力</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>メガワット</displayName>
+				<unitPattern count="other">{0} MW</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>キロワット</displayName>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>メガワット</displayName>
-				<unitPattern count="other">{0} MW</unitPattern>
+			<unit type="power-watt">
+				<displayName>ワット</displayName>
+				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>ミリワット</displayName>
 				<unitPattern count="other">{0} mW</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>ワット</displayName>
-				<unitPattern count="other">{0} W</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>馬力</displayName>
+				<unitPattern count="other">{0} 馬力</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hPa</displayName>
 				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>水銀柱インチ</displayName>
-				<unitPattern count="other">{0} inHg</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>ミリバール</displayName>
-				<unitPattern count="other">{0} mb</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>水銀柱ミリメートル</displayName>
@@ -9263,6 +9255,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>重量ポンド毎平方インチ</displayName>
 				<unitPattern count="other">{0} psi</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>水銀柱インチ</displayName>
+				<unitPattern count="other">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>ミリバール</displayName>
+				<unitPattern count="other">{0} mb</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>金</displayName>
 				<unitPattern count="other">{0} 金</unitPattern>
@@ -9270,10 +9270,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="other">{0} km/h</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName draft="provisional">kn</displayName>
-				<unitPattern count="other">{0} kn</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>m/s</displayName>
@@ -9283,6 +9279,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>マイル毎時</displayName>
 				<unitPattern count="other">{0} mi/h</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName draft="provisional">kn</displayName>
+				<unitPattern count="other">{0} kn</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
 				<unitPattern count="other">{0}°C</unitPattern>
@@ -9291,38 +9295,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>華氏</displayName>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
 				<unitPattern count="other">{0} K</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>エーカーフィート</displayName>
-				<unitPattern count="other">{0} ac ft</unitPattern>
-			</unit>
-			<unit type="volume-bushel">
-				<displayName draft="contributed">ブッシェル</displayName>
-				<unitPattern count="other" draft="contributed">{0} bu</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>センチリットル</displayName>
-				<unitPattern count="other">{0} cL</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>cm³</displayName>
-				<unitPattern count="other">{0} cm³</unitPattern>
-				<perUnitPattern>{0}/cm³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>立方フィート</displayName>
-				<unitPattern count="other">{0} ft³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>立方インチ</displayName>
-				<unitPattern count="other">{0} in³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>km³</displayName>
@@ -9333,6 +9308,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} m³</unitPattern>
 				<perUnitPattern>{0}/m³</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>cm³</displayName>
+				<unitPattern count="other">{0} cm³</unitPattern>
+				<perUnitPattern>{0}/cm³</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>立方マイル</displayName>
 				<unitPattern count="other">{0} mi³</unitPattern>
@@ -9341,26 +9321,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>立方ヤード</displayName>
 				<unitPattern count="other">{0} yd³</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>カップ</displayName>
-				<unitPattern count="other">{0} カップ</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>立方フィート</displayName>
+				<unitPattern count="other">{0} ft³</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName draft="provisional">mcup</displayName>
-				<unitPattern count="other">{0} mc</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>立方インチ</displayName>
+				<unitPattern count="other">{0} in³</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>デシリットル</displayName>
-				<unitPattern count="other">{0} dL</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>液量オンス</displayName>
-				<unitPattern count="other">{0} fl oz</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>ガロン</displayName>
-				<unitPattern count="other">{0} gal</unitPattern>
-				<perUnitPattern>{0}/gal</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>メガリットル</displayName>
+				<unitPattern count="other">{0} ML</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>ヘクトリットル</displayName>
@@ -9371,25 +9342,54 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} l</unitPattern>
 				<perUnitPattern>{0}/l</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>メガリットル</displayName>
-				<unitPattern count="other">{0} ML</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>デシリットル</displayName>
+				<unitPattern count="other">{0} dL</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>センチリットル</displayName>
+				<unitPattern count="other">{0} cL</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>ml</displayName>
 				<unitPattern count="other">{0} ml</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>パイント</displayName>
-				<unitPattern count="other">{0} pt</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName draft="provisional">mpt</displayName>
 				<unitPattern count="other">{0} mpt</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName draft="provisional">mcup</displayName>
+				<unitPattern count="other">{0} mc</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>エーカーフィート</displayName>
+				<unitPattern count="other">{0} ac ft</unitPattern>
+			</unit>
+			<unit type="volume-bushel">
+				<displayName draft="contributed">ブッシェル</displayName>
+				<unitPattern count="other" draft="contributed">{0} bu</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>ガロン</displayName>
+				<unitPattern count="other">{0} gal</unitPattern>
+				<perUnitPattern>{0}/gal</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>クォート</displayName>
 				<unitPattern count="other">{0} qt</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>パイント</displayName>
+				<unitPattern count="other">{0} pt</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>カップ</displayName>
+				<unitPattern count="other">{0} カップ</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>液量オンス</displayName>
+				<unitPattern count="other">{0} fl oz</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>大さじ</displayName>
@@ -9416,26 +9416,38 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="acceleration-meter-per-second-squared">
 				<unitPattern count="other" draft="contributed">{0}m/s²</unitPattern>
 			</unit>
+			<unit type="angle-radian">
+				<unitPattern count="other" draft="contributed">{0}rad</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<unitPattern count="other" draft="contributed">{0}rad</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="other">{0}ac</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="other">{0}km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="other">{0}ha</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="other">{0}m²</unitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<unitPattern count="other" draft="contributed">{0}cm²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="other">{0}mi²</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other">{0}ac</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<unitPattern count="other" draft="contributed">{0}yd²</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<unitPattern count="other">{0}ft²</unitPattern>
@@ -9443,57 +9455,57 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-inch">
 				<unitPattern count="other" draft="contributed">{0}in²</unitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="other">{0}km²</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<unitPattern count="other">{0}m²</unitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<unitPattern count="other">{0}mi²</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<unitPattern count="other" draft="contributed">{0}yd²</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<unitPattern count="other" draft="contributed">{0}L/km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100km</displayName>
 				<unitPattern count="other">{0}L/100km</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<unitPattern count="other" draft="contributed">{0}L/km</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<unitPattern count="other" draft="contributed">{0}mpg</unitPattern>
 			</unit>
-			<unit type="digital-bit">
-				<unitPattern count="other" draft="contributed">{0}b</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<unitPattern count="other" draft="contributed">{0}B</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<unitPattern count="other" draft="contributed">{0}Gb</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<unitPattern count="other" draft="contributed">{0}GB</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<unitPattern count="other" draft="contributed">{0}kb</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<unitPattern count="other" draft="contributed">{0}KB</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<unitPattern count="other" draft="contributed">{0}Mb</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<unitPattern count="other" draft="contributed">{0}MB</unitPattern>
+			<unit type="digital-terabyte">
+				<unitPattern count="other" draft="contributed">{0}TB</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
 				<unitPattern count="other" draft="contributed">{0}Tb</unitPattern>
 			</unit>
-			<unit type="digital-terabyte">
-				<unitPattern count="other" draft="contributed">{0}TB</unitPattern>
+			<unit type="digital-gigabyte">
+				<unitPattern count="other" draft="contributed">{0}GB</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<unitPattern count="other" draft="contributed">{0}Gb</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<unitPattern count="other" draft="contributed">{0}MB</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<unitPattern count="other" draft="contributed">{0}Mb</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<unitPattern count="other" draft="contributed">{0}KB</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<unitPattern count="other" draft="contributed">{0}kb</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<unitPattern count="other" draft="contributed">{0}B</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<unitPattern count="other" draft="contributed">{0}b</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>年</displayName>
+				<unitPattern count="other">{0}年</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>か月</displayName>
+				<unitPattern count="other">{0}か月</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>週間</displayName>
+				<unitPattern count="other">{0}週間</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>日</displayName>
@@ -9503,37 +9515,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>時間</displayName>
 				<unitPattern count="other">{0}時間</unitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName draft="contributed">µs</displayName>
-				<unitPattern count="other" draft="contributed">{0}μs</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>ms</displayName>
-				<unitPattern count="other">{0}ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>分</displayName>
 				<unitPattern count="other">{0}分</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>か月</displayName>
-				<unitPattern count="other">{0}か月</unitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName draft="contributed">ns</displayName>
-				<unitPattern count="other" draft="contributed">{0}ns</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>秒</displayName>
 				<unitPattern count="other">{0}秒</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>週間</displayName>
-				<unitPattern count="other">{0}週間</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>ms</displayName>
+				<unitPattern count="other">{0}ms</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>年</displayName>
-				<unitPattern count="other">{0}年</unitPattern>
+			<unit type="duration-microsecond">
+				<displayName draft="contributed">µs</displayName>
+				<unitPattern count="other" draft="contributed">{0}μs</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName draft="contributed">ns</displayName>
+				<unitPattern count="other" draft="contributed">{0}ns</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<unitPattern count="other" draft="contributed">{0}A</unitPattern>
@@ -9547,20 +9547,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="electric-volt">
 				<unitPattern count="other" draft="contributed">{0}V</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<unitPattern count="other" draft="contributed">{0}kcal</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<unitPattern count="other" draft="contributed">{0}calth</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
 				<unitPattern count="other" draft="contributed">{0}cal</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<unitPattern count="other" draft="contributed">{0}J</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<unitPattern count="other" draft="contributed">{0}kcal</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<unitPattern count="other" draft="contributed">{0}kJ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<unitPattern count="other" draft="contributed">{0}J</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<unitPattern count="other" draft="contributed">{0}kWh</unitPattern>
@@ -9568,97 +9568,104 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="frequency-gigahertz">
 				<unitPattern count="other" draft="contributed">{0}GHz</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<unitPattern count="other" draft="contributed">{0}Hz</unitPattern>
+			<unit type="frequency-megahertz">
+				<unitPattern count="other" draft="contributed">{0}MHz</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<unitPattern count="other" draft="contributed">{0}kHz</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<unitPattern count="other" draft="contributed">{0}MHz</unitPattern>
-			</unit>
-			<unit type="length-astronomical-unit">
-				<unitPattern count="other" draft="contributed">{0}au</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>cm</displayName>
-				<unitPattern count="other">{0}cm</unitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<unitPattern count="other" draft="contributed">{0}dm</unitPattern>
-			</unit>
-			<unit type="length-fathom">
-				<displayName draft="contributed">fm</displayName>
-				<unitPattern count="other" draft="contributed">{0}fm</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="other">{0}′</unitPattern>
-			</unit>
-			<unit type="length-furlong">
-				<displayName draft="contributed">fur</displayName>
-				<unitPattern count="other" draft="contributed">{0}fur</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="other">{0}″</unitPattern>
+			<unit type="frequency-hertz">
+				<unitPattern count="other" draft="contributed">{0}Hz</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
 				<unitPattern count="other">{0}km</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="other">{0}光年</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>m</displayName>
 				<unitPattern count="other">{0}m</unitPattern>
 			</unit>
-			<unit type="length-micrometer">
-				<unitPattern count="other" draft="contributed">{0}µm</unitPattern>
+			<unit type="length-decimeter">
+				<unitPattern count="other" draft="contributed">{0}dm</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="other">{0}マイル</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>cm</displayName>
+				<unitPattern count="other">{0}cm</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>mm</displayName>
 				<unitPattern count="other">{0}mm</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<unitPattern count="other" draft="contributed">{0}µm</unitPattern>
+			</unit>
 			<unit type="length-nanometer">
 				<unitPattern count="other" draft="contributed">{0}nm</unitPattern>
-			</unit>
-			<unit type="length-nautical-mile">
-				<unitPattern count="other" draft="contributed">{0}海里</unitPattern>
-			</unit>
-			<unit type="length-parsec">
-				<unitPattern count="other" draft="contributed">{0}pc</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<unitPattern count="other">{0}pm</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<unitPattern count="other">{0}マイル</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<unitPattern count="other">{0}ヤード</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<unitPattern count="other" draft="contributed">{0}pc</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="other">{0}光年</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<unitPattern count="other" draft="contributed">{0}au</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName draft="contributed">fur</displayName>
+				<unitPattern count="other" draft="contributed">{0}fur</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName draft="contributed">fm</displayName>
+				<unitPattern count="other" draft="contributed">{0}fm</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<unitPattern count="other" draft="contributed">{0}海里</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<unitPattern count="other" draft="contributed">{0}lx</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<unitPattern count="other" draft="contributed">{0}ct</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>g</displayName>
-				<unitPattern count="other">{0}g</unitPattern>
+			<unit type="mass-metric-ton">
+				<unitPattern count="other" draft="contributed">{0}MT</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kg</displayName>
 				<unitPattern count="other">{0}kg</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<unitPattern count="other" draft="contributed">{0}MT</unitPattern>
+			<unit type="mass-gram">
+				<displayName>g</displayName>
+				<unitPattern count="other">{0}g</unitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<unitPattern count="other" draft="contributed">{0}mg</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<unitPattern count="other" draft="contributed">{0}µg</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<unitPattern count="other" draft="contributed">{0}mg</unitPattern>
+			<unit type="mass-ton">
+				<unitPattern count="other" draft="contributed">{0}t</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName draft="contributed">st</displayName>
+				<unitPattern count="other" draft="contributed">{0}st</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="other">{0}lb</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<unitPattern count="other">{0}oz</unitPattern>
@@ -9666,49 +9673,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="mass-ounce-troy">
 				<unitPattern count="other" draft="contributed">{0}oz t</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<unitPattern count="other">{0}lb</unitPattern>
-			</unit>
-			<unit type="mass-stone">
-				<displayName draft="contributed">st</displayName>
-				<unitPattern count="other" draft="contributed">{0}st</unitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<unitPattern count="other" draft="contributed">{0}t</unitPattern>
+			<unit type="mass-carat">
+				<unitPattern count="other" draft="contributed">{0}ct</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<unitPattern count="other" draft="contributed">{0}GW</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="other">{0}hp</unitPattern>
+			<unit type="power-megawatt">
+				<unitPattern count="other" draft="contributed">{0}MW</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="other">{0}kW</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<unitPattern count="other" draft="contributed">{0}MW</unitPattern>
+			<unit type="power-watt">
+				<unitPattern count="other">{0}W</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<unitPattern count="other" draft="contributed">{0}mW</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<unitPattern count="other">{0}W</unitPattern>
+			<unit type="power-horsepower">
+				<unitPattern count="other">{0}hp</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName draft="contributed">hPa</displayName>
 				<unitPattern count="other">{0}hPa</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<unitPattern count="other">{0}&quot; Hg</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<unitPattern count="other">{0}mb</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<unitPattern count="other" draft="contributed">{0}mm Hg</unitPattern>
 			</unit>
 			<unit type="pressure-pound-per-square-inch">
 				<unitPattern count="other" draft="contributed">{0}psi</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="other">{0}&quot; Hg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="other">{0}mb</unitPattern>
 			</unit>
 			<unit type="proportion-karat">
 				<unitPattern count="other" draft="contributed">{0}K</unitPattern>
@@ -9734,30 +9734,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>K</displayName>
 				<unitPattern count="other">{0}K</unitPattern>
 			</unit>
-			<unit type="volume-acre-foot">
-				<unitPattern count="other" draft="contributed">{0}ac ft</unitPattern>
-			</unit>
-			<unit type="volume-bushel">
-				<displayName draft="contributed">bu</displayName>
-				<unitPattern count="other" draft="contributed">{0}bu</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<unitPattern count="other" draft="contributed">{0}cL</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<unitPattern count="other" draft="contributed">{0}cm³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<unitPattern count="other" draft="contributed">{0}ft³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<unitPattern count="other" draft="contributed">{0}in³</unitPattern>
-			</unit>
 			<unit type="volume-cubic-kilometer">
 				<unitPattern count="other">{0}km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
 				<unitPattern count="other" draft="contributed">{0}m³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<unitPattern count="other" draft="contributed">{0}cm³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<unitPattern count="other">{0}mi³</unitPattern>
@@ -9765,17 +9749,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-cubic-yard">
 				<unitPattern count="other" draft="contributed">{0}yd³</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<unitPattern count="other" draft="contributed">{0}カップ</unitPattern>
+			<unit type="volume-cubic-foot">
+				<unitPattern count="other" draft="contributed">{0}ft³</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<unitPattern count="other" draft="contributed">{0}dL</unitPattern>
+			<unit type="volume-cubic-inch">
+				<unitPattern count="other" draft="contributed">{0}in³</unitPattern>
 			</unit>
-			<unit type="volume-fluid-ounce">
-				<unitPattern count="other" draft="contributed">{0}fl oz</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<unitPattern count="other" draft="contributed">{0}gal</unitPattern>
+			<unit type="volume-megaliter">
+				<unitPattern count="other" draft="contributed">{0}ML</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<unitPattern count="other" draft="contributed">{0}hL</unitPattern>
@@ -9784,17 +9765,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>l</displayName>
 				<unitPattern count="other">{0}l</unitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<unitPattern count="other" draft="contributed">{0}ML</unitPattern>
+			<unit type="volume-deciliter">
+				<unitPattern count="other" draft="contributed">{0}dL</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<unitPattern count="other" draft="contributed">{0}cL</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<unitPattern count="other" draft="contributed">{0}ml</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<unitPattern count="other" draft="contributed">{0}pt</unitPattern>
+			<unit type="volume-acre-foot">
+				<unitPattern count="other" draft="contributed">{0}ac ft</unitPattern>
+			</unit>
+			<unit type="volume-bushel">
+				<displayName draft="contributed">bu</displayName>
+				<unitPattern count="other" draft="contributed">{0}bu</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<unitPattern count="other" draft="contributed">{0}gal</unitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<unitPattern count="other" draft="contributed">{0}qt</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<unitPattern count="other" draft="contributed">{0}pt</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<unitPattern count="other" draft="contributed">{0}カップ</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<unitPattern count="other" draft="contributed">{0}fl oz</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<unitPattern count="other" draft="contributed">大さじ{0}</unitPattern>

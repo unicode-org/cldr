@@ -2048,6 +2048,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<displayName draft="unconfirmed">Johr</displayName>
+				<unitPattern count="other">{0} Johren</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="unconfirmed">Maanden</displayName>
+				<unitPattern count="other">{0} Maanden</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="unconfirmed">Weken</displayName>
+				<unitPattern count="other">{0} Weken</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="unconfirmed">Daag</displayName>
 				<unitPattern count="other">{0} Daag</unitPattern>
@@ -2056,33 +2068,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="unconfirmed">Stünnen</displayName>
 				<unitPattern count="other">{0} Stünnen</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName draft="unconfirmed">Millisekunnen</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} Millisekunnen</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName draft="unconfirmed">Minuten</displayName>
 				<unitPattern count="other">{0} Minuten</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="unconfirmed">Maanden</displayName>
-				<unitPattern count="other">{0} Maanden</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="unconfirmed">Sekunnen</displayName>
 				<unitPattern count="other">{0} Sekunnen</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="unconfirmed">Weken</displayName>
-				<unitPattern count="other">{0} Weken</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="unconfirmed">Johr</displayName>
-				<unitPattern count="other">{0} Johren</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="unconfirmed">Zentimeters</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} Zentimeter</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName draft="unconfirmed">Millisekunnen</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} Millisekunnen</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="unconfirmed">Kilometers</displayName>
@@ -2092,17 +2088,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="unconfirmed">Meters</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} Meter</unitPattern>
 			</unit>
+			<unit type="length-centimeter">
+				<displayName draft="unconfirmed">Zentimeters</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} Zentimeter</unitPattern>
+			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="unconfirmed">Millimeters</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} Millimeter</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName draft="unconfirmed">Gramm</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} Gramm</unitPattern>
-			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="unconfirmed">Kilogramm</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} Kilogramm</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName draft="unconfirmed">Gramm</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} Gramm</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="unconfirmed">Kilometers per Stünn</displayName>
@@ -2118,6 +2118,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="duration-year">
+				<displayName draft="unconfirmed">J.</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} J.</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="unconfirmed">Mnd.</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} Mnd.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="unconfirmed">Wk.</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} Wk.</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="unconfirmed">Dg.</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} Dg.</unitPattern>
@@ -2126,33 +2138,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="unconfirmed">Stn.</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} Stn.</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName draft="unconfirmed">ms</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName draft="unconfirmed">Min.</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} Min.</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="unconfirmed">Mnd.</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} Mnd.</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="unconfirmed">Sek.</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} Sek.</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="unconfirmed">Wk.</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} Wk.</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="unconfirmed">J.</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} J.</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="unconfirmed">cm</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} cm</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName draft="unconfirmed">ms</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} ms</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="unconfirmed">km</displayName>
@@ -2162,17 +2158,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="unconfirmed">m</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} m</unitPattern>
 			</unit>
+			<unit type="length-centimeter">
+				<displayName draft="unconfirmed">cm</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} cm</unitPattern>
+			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="unconfirmed">mm</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} mm</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName draft="unconfirmed">Gramm</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} Gramm</unitPattern>
-			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="unconfirmed">kg</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} kg</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName draft="unconfirmed">Gramm</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} Gramm</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="unconfirmed">km/h</displayName>
@@ -2188,6 +2188,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
+			<unit type="duration-year">
+				<displayName draft="unconfirmed">a</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0}a</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="unconfirmed">M.</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0}M.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="unconfirmed">W.</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0}W.</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="unconfirmed">d</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0}d</unitPattern>
@@ -2196,33 +2208,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="unconfirmed">h</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0}h</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName draft="unconfirmed">ms</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0}ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName draft="unconfirmed">min</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0}min</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="unconfirmed">M.</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0}M.</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="unconfirmed">s</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0}s</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="unconfirmed">W.</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0}W.</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="unconfirmed">a</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0}a</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="unconfirmed">cm</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} cm</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName draft="unconfirmed">ms</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0}ms</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="unconfirmed">km</displayName>
@@ -2232,17 +2228,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="unconfirmed">m</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} m</unitPattern>
 			</unit>
+			<unit type="length-centimeter">
+				<displayName draft="unconfirmed">cm</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} cm</unitPattern>
+			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="unconfirmed">mm</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} mm</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName draft="unconfirmed">g</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} g</unitPattern>
-			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="unconfirmed">kg</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} kg</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName draft="unconfirmed">g</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} g</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="unconfirmed">km/h</displayName>

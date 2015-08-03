@@ -5998,6 +5998,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} მ/წმ²</unitPattern>
 				<unitPattern count="other">{0} მ/წმ²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>ბრუნვა</displayName>
+				<unitPattern count="one">{0} ბრუნვა</unitPattern>
+				<unitPattern count="other">{0} ბრუნვა</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>რადიანი</displayName>
+				<unitPattern count="one">{0} რადიანი</unitPattern>
+				<unitPattern count="other">{0} რადიანი</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>გრადუსი</displayName>
+				<unitPattern count="one">{0} გრადუსი</unitPattern>
+				<unitPattern count="other">{0} გრადუსი</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>მინუტი</displayName>
 				<unitPattern count="one">{0} მინუტი</unitPattern>
@@ -6008,36 +6023,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} სეკუნდი</unitPattern>
 				<unitPattern count="other">{0} სეკუნდი</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>გრადუსი</displayName>
-				<unitPattern count="one">{0} გრადუსი</unitPattern>
-				<unitPattern count="other">{0} გრადუსი</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>რადიანი</displayName>
-				<unitPattern count="one">{0} რადიანი</unitPattern>
-				<unitPattern count="other">{0} რადიანი</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>ბრუნვა</displayName>
-				<unitPattern count="one">{0} ბრუნვა</unitPattern>
-				<unitPattern count="other">{0} ბრუნვა</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>აკრი</displayName>
-				<unitPattern count="one">{0} აკრი</unitPattern>
-				<unitPattern count="other">{0} აკრი</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>კვადრატული კილომეტრი</displayName>
+				<unitPattern count="one">{0} კვადრატული კილომეტრი</unitPattern>
+				<unitPattern count="other">{0} კვადრატული კილომეტრი</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ჰექტარი</displayName>
 				<unitPattern count="one">{0} ჰექტარი</unitPattern>
 				<unitPattern count="other">{0} ჰექტარი</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>კვადრატული მეტრი</displayName>
+				<unitPattern count="one">{0} კვადრატული მეტრი</unitPattern>
+				<unitPattern count="other">{0} კვადრატული მეტრი</unitPattern>
+				<perUnitPattern>{0} კვადრატულ მეტრში</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>კვადრატული სანტიმეტრი</displayName>
 				<unitPattern count="one">{0} კვადრატული სანტიმეტრი</unitPattern>
 				<unitPattern count="other">{0} კვადრატული სანტიმეტრი</unitPattern>
 				<perUnitPattern>{0} კვადრატულ სანტიმეტრში</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>კვადრატული მილი</displayName>
+				<unitPattern count="one">{0} კვადრატული მილი</unitPattern>
+				<unitPattern count="other">{0} კვადრატული მილი</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>აკრი</displayName>
+				<unitPattern count="one">{0} აკრი</unitPattern>
+				<unitPattern count="other">{0} აკრი</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>კვადრატული იარდი</displayName>
+				<unitPattern count="one">{0} კვადრატული იარდი</unitPattern>
+				<unitPattern count="other">{0} კვადრატული იარდი</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>კვადრატული ფუტი</displayName>
@@ -6050,96 +6071,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} კვადრატული დუიმი</unitPattern>
 				<perUnitPattern>{0} კვადრატულ დუიმში</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>კვადრატული კილომეტრი</displayName>
-				<unitPattern count="one">{0} კვადრატული კილომეტრი</unitPattern>
-				<unitPattern count="other">{0} კვადრატული კილომეტრი</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>კვადრატული მეტრი</displayName>
-				<unitPattern count="one">{0} კვადრატული მეტრი</unitPattern>
-				<unitPattern count="other">{0} კვადრატული მეტრი</unitPattern>
-				<perUnitPattern>{0} კვადრატულ მეტრში</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>კვადრატული მილი</displayName>
-				<unitPattern count="one">{0} კვადრატული მილი</unitPattern>
-				<unitPattern count="other">{0} კვადრატული მილი</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>კვადრატული იარდი</displayName>
-				<unitPattern count="one">{0} კვადრატული იარდი</unitPattern>
-				<unitPattern count="other">{0} კვადრატული იარდი</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>ლიტრი კილომეტრზე</displayName>
+				<unitPattern count="one">{0} ლიტრი კილომეტრზე</unitPattern>
+				<unitPattern count="other">{0} ლიტრი კილომეტრზე</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>ლიტრი 100 კილომეტრში</displayName>
 				<unitPattern count="one">{0} ლიტრი 100 კილომეტრში</unitPattern>
 				<unitPattern count="other">{0} ლიტრი 100 კილომეტრში</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>ლიტრი კილომეტრზე</displayName>
-				<unitPattern count="one">{0} ლიტრი კილომეტრზე</unitPattern>
-				<unitPattern count="other">{0} ლიტრი კილომეტრზე</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>მილი გალონზე</displayName>
 				<unitPattern count="one">{0} მილი გალონზე</unitPattern>
 				<unitPattern count="other">{0} მილი გალონზე</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>ბიტი</displayName>
-				<unitPattern count="one">{0} ბიტი</unitPattern>
-				<unitPattern count="other">{0} ბიტი</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>ბაიტი</displayName>
-				<unitPattern count="one">{0} ბაიტი</unitPattern>
-				<unitPattern count="other">{0} ბაიტი</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>გიგაბიტი</displayName>
-				<unitPattern count="one">{0} გიგაბიტი</unitPattern>
-				<unitPattern count="other">{0} გიგაბიტი</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>გიგაბაიტი</displayName>
-				<unitPattern count="one">{0} გიგაბაიტი</unitPattern>
-				<unitPattern count="other">{0} გიგაბაიტი</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>კილობიტი</displayName>
-				<unitPattern count="one">{0} კილობიტი</unitPattern>
-				<unitPattern count="other">{0} კილობიტი</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>კილობაიტი</displayName>
-				<unitPattern count="one">{0} კილობაიტი</unitPattern>
-				<unitPattern count="other">{0} კილობაიტი</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>მეგაბიტი</displayName>
-				<unitPattern count="one">{0} მეგაბიტი</unitPattern>
-				<unitPattern count="other">{0} მეგაბიტი</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>მეგაბაიტი</displayName>
-				<unitPattern count="one">{0} მეგაბაიტი</unitPattern>
-				<unitPattern count="other">{0} მეგაბაიტი</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>ტერაბიტი</displayName>
-				<unitPattern count="one">{0} ტერაბიტი</unitPattern>
-				<unitPattern count="other">{0} ტერაბიტი</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>ტერაბაიტი</displayName>
 				<unitPattern count="one">{0} ტერაბაიტი</unitPattern>
 				<unitPattern count="other">{0} ტერაბაიტი</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>ტერაბიტი</displayName>
+				<unitPattern count="one">{0} ტერაბიტი</unitPattern>
+				<unitPattern count="other">{0} ტერაბიტი</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>გიგაბაიტი</displayName>
+				<unitPattern count="one">{0} გიგაბაიტი</unitPattern>
+				<unitPattern count="other">{0} გიგაბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>გიგაბიტი</displayName>
+				<unitPattern count="one">{0} გიგაბიტი</unitPattern>
+				<unitPattern count="other">{0} გიგაბიტი</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>მეგაბაიტი</displayName>
+				<unitPattern count="one">{0} მეგაბაიტი</unitPattern>
+				<unitPattern count="other">{0} მეგაბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>მეგაბიტი</displayName>
+				<unitPattern count="one">{0} მეგაბიტი</unitPattern>
+				<unitPattern count="other">{0} მეგაბიტი</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>კილობაიტი</displayName>
+				<unitPattern count="one">{0} კილობაიტი</unitPattern>
+				<unitPattern count="other">{0} კილობაიტი</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>კილობიტი</displayName>
+				<unitPattern count="one">{0} კილობიტი</unitPattern>
+				<unitPattern count="other">{0} კილობიტი</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>ბაიტი</displayName>
+				<unitPattern count="one">{0} ბაიტი</unitPattern>
+				<unitPattern count="other">{0} ბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>ბიტი</displayName>
+				<unitPattern count="one">{0} ბიტი</unitPattern>
+				<unitPattern count="other">{0} ბიტი</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>საუკუნე</displayName>
 				<unitPattern count="one">{0} საუკუნე</unitPattern>
 				<unitPattern count="other">{0} საუკუნე</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>წელი</displayName>
+				<unitPattern count="one">{0} წელი</unitPattern>
+				<unitPattern count="other">{0} წელი</unitPattern>
+				<perUnitPattern>{0} წელში</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>თვე</displayName>
+				<unitPattern count="one">{0} თვე</unitPattern>
+				<unitPattern count="other">{0} თვე</unitPattern>
+				<perUnitPattern>{0} თვეში</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>კვირა</displayName>
+				<unitPattern count="one">{0} კვირა</unitPattern>
+				<unitPattern count="other">{0} კვირა</unitPattern>
+				<perUnitPattern>{0} კვირაში</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>დღე</displayName>
@@ -6153,32 +6171,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} საათი</unitPattern>
 				<perUnitPattern>{0} საათში</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>მიკროწამი</displayName>
-				<unitPattern count="one">{0} მიკროწამი</unitPattern>
-				<unitPattern count="other">{0} მიკროწამი</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>მილიწამი</displayName>
-				<unitPattern count="one">{0} მილიწამი</unitPattern>
-				<unitPattern count="other">{0} მილიწამი</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>წუთი</displayName>
 				<unitPattern count="one">{0} წუთი</unitPattern>
 				<unitPattern count="other">{0} წუთი</unitPattern>
 				<perUnitPattern>{0} წუთში</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>თვე</displayName>
-				<unitPattern count="one">{0} თვე</unitPattern>
-				<unitPattern count="other">{0} თვე</unitPattern>
-				<perUnitPattern>{0} თვეში</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>ნანოწამი</displayName>
-				<unitPattern count="one">{0} ნანოწამი</unitPattern>
-				<unitPattern count="other">{0} ნანოწამი</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>წამი</displayName>
@@ -6186,17 +6183,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} წამი</unitPattern>
 				<perUnitPattern>{0} წამში</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>კვირა</displayName>
-				<unitPattern count="one">{0} კვირა</unitPattern>
-				<unitPattern count="other">{0} კვირა</unitPattern>
-				<perUnitPattern>{0} კვირაში</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>მილიწამი</displayName>
+				<unitPattern count="one">{0} მილიწამი</unitPattern>
+				<unitPattern count="other">{0} მილიწამი</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>წელი</displayName>
-				<unitPattern count="one">{0} წელი</unitPattern>
-				<unitPattern count="other">{0} წელი</unitPattern>
-				<perUnitPattern>{0} წელში</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>მიკროწამი</displayName>
+				<unitPattern count="one">{0} მიკროწამი</unitPattern>
+				<unitPattern count="other">{0} მიკროწამი</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ნანოწამი</displayName>
+				<unitPattern count="one">{0} ნანოწამი</unitPattern>
+				<unitPattern count="other">{0} ნანოწამი</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>ამპერი</displayName>
@@ -6218,6 +6218,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ვოლტი</unitPattern>
 				<unitPattern count="other">{0} ვოლტი</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>კილოკალორია</displayName>
+				<unitPattern count="one">{0} კილოკალორია</unitPattern>
+				<unitPattern count="other">{0} კილოკალორია</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>კალორია</displayName>
 				<unitPattern count="one">{0} კალორია</unitPattern>
@@ -6228,20 +6233,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} კალორია</unitPattern>
 				<unitPattern count="other">{0} კალორია</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>ჯოული</displayName>
-				<unitPattern count="one">{0} ჯოული</unitPattern>
-				<unitPattern count="other">{0} ჯოული</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>კილოკალორია</displayName>
-				<unitPattern count="one">{0} კილოკალორია</unitPattern>
-				<unitPattern count="other">{0} კილოკალორია</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>კილოჯოული</displayName>
 				<unitPattern count="one">{0} კილოჯოული</unitPattern>
 				<unitPattern count="other">{0} კილოჯოული</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>ჯოული</displayName>
+				<unitPattern count="one">{0} ჯოული</unitPattern>
+				<unitPattern count="other">{0} ჯოული</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>კილოვატ-საათი</displayName>
@@ -6253,25 +6253,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} გიგაჰერცი</unitPattern>
 				<unitPattern count="other">{0} გიგაჰერცი</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>ჰერცი</displayName>
-				<unitPattern count="one">{0} ჰერცი</unitPattern>
-				<unitPattern count="other">{0} ჰერცი</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>მეგაჰერცი</displayName>
+				<unitPattern count="one">{0} მეგაჰერცი</unitPattern>
+				<unitPattern count="other">{0} მეგაჰერცი</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>კილოჰერცი</displayName>
 				<unitPattern count="one">{0} კილოჰერცი</unitPattern>
 				<unitPattern count="other">{0} კილოჰერცი</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>მეგაჰერცი</displayName>
-				<unitPattern count="one">{0} მეგაჰერცი</unitPattern>
-				<unitPattern count="other">{0} მეგაჰერცი</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>ჰერცი</displayName>
+				<unitPattern count="one">{0} ჰერცი</unitPattern>
+				<unitPattern count="other">{0} ჰერცი</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>ასტრონომიული ერთეული</displayName>
-				<unitPattern count="one">{0} ასტრონომიული ერთეული</unitPattern>
-				<unitPattern count="other">{0} ასტრონომიული ერთეული</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>კილომეტრი</displayName>
+				<unitPattern count="one">{0} კილომეტრი</unitPattern>
+				<unitPattern count="other">{0} კილომეტრი</unitPattern>
+				<perUnitPattern>{0} კილომეტრში</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>მეტრი</displayName>
+				<unitPattern count="one">{0} მეტრი</unitPattern>
+				<unitPattern count="other">{0} მეტრი</unitPattern>
+				<perUnitPattern>{0} მეტრში</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>დეციმეტრი</displayName>
+				<unitPattern count="one">{0} დეციმეტრი</unitPattern>
+				<unitPattern count="other">{0} დეციმეტრი</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>სანტიმეტრი</displayName>
@@ -6279,10 +6291,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} სანტიმეტრი</unitPattern>
 				<perUnitPattern>{0} სანტიმეტრში</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>დეციმეტრი</displayName>
-				<unitPattern count="one">{0} დეციმეტრი</unitPattern>
-				<unitPattern count="other">{0} დეციმეტრი</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>მილიმეტრი</displayName>
+				<unitPattern count="one">{0} მილიმეტრი</unitPattern>
+				<unitPattern count="other">{0} მილიმეტრი</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>მიკრომეტრი</displayName>
+				<unitPattern count="one">{0} მიკრომეტრი</unitPattern>
+				<unitPattern count="other">{0} მიკრომეტრი</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>ნანომეტრი</displayName>
+				<unitPattern count="one">{0} ნანომეტრი</unitPattern>
+				<unitPattern count="other">{0} ნანომეტრი</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>პიკომეტრი</displayName>
+				<unitPattern count="one">{0} პიკომეტრი</unitPattern>
+				<unitPattern count="other">{0} პიკომეტრი</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>მილი</displayName>
+				<unitPattern count="one">{0} მილი</unitPattern>
+				<unitPattern count="other">{0} მილი</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>იარდი</displayName>
+				<unitPattern count="one">{0} იარდი</unitPattern>
+				<unitPattern count="other">{0} იარდი</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>ფუტი</displayName>
@@ -6296,83 +6333,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} დუიმი</unitPattern>
 				<perUnitPattern>{0} დუიმში</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>კილომეტრი</displayName>
-				<unitPattern count="one">{0} კილომეტრი</unitPattern>
-				<unitPattern count="other">{0} კილომეტრი</unitPattern>
-				<perUnitPattern>{0} კილომეტრში</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>პარსეკი</displayName>
+				<unitPattern count="one">{0} პარსეკი</unitPattern>
+				<unitPattern count="other">{0} პარსეკი</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>სინათლის წელი</displayName>
 				<unitPattern count="one">{0} სინათლის წელი</unitPattern>
 				<unitPattern count="other">{0} სინათლის წელი</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>მეტრი</displayName>
-				<unitPattern count="one">{0} მეტრი</unitPattern>
-				<unitPattern count="other">{0} მეტრი</unitPattern>
-				<perUnitPattern>{0} მეტრში</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>მიკრომეტრი</displayName>
-				<unitPattern count="one">{0} მიკრომეტრი</unitPattern>
-				<unitPattern count="other">{0} მიკრომეტრი</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>მილი</displayName>
-				<unitPattern count="one">{0} მილი</unitPattern>
-				<unitPattern count="other">{0} მილი</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>სკანდინავიური მილი</displayName>
-				<unitPattern count="one">{0} სკანდინავიური მილი</unitPattern>
-				<unitPattern count="other">{0} სკანდინავიური მილი</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>მილიმეტრი</displayName>
-				<unitPattern count="one">{0} მილიმეტრი</unitPattern>
-				<unitPattern count="other">{0} მილიმეტრი</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>ნანომეტრი</displayName>
-				<unitPattern count="one">{0} ნანომეტრი</unitPattern>
-				<unitPattern count="other">{0} ნანომეტრი</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>ასტრონომიული ერთეული</displayName>
+				<unitPattern count="one">{0} ასტრონომიული ერთეული</unitPattern>
+				<unitPattern count="other">{0} ასტრონომიული ერთეული</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>საზღვაო მილი</displayName>
 				<unitPattern count="one">{0} საზღვაო მილი</unitPattern>
 				<unitPattern count="other">{0} საზღვაო მილი</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>პარსეკი</displayName>
-				<unitPattern count="one">{0} პარსეკი</unitPattern>
-				<unitPattern count="other">{0} პარსეკი</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>პიკომეტრი</displayName>
-				<unitPattern count="one">{0} პიკომეტრი</unitPattern>
-				<unitPattern count="other">{0} პიკომეტრი</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>იარდი</displayName>
-				<unitPattern count="one">{0} იარდი</unitPattern>
-				<unitPattern count="other">{0} იარდი</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>სკანდინავიური მილი</displayName>
+				<unitPattern count="one">{0} სკანდინავიური მილი</unitPattern>
+				<unitPattern count="other">{0} სკანდინავიური მილი</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>ლუქსი</displayName>
 				<unitPattern count="one">{0} ლუქსი</unitPattern>
 				<unitPattern count="other">{0} ლუქსი</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>კარატი</displayName>
-				<unitPattern count="one">{0} კარატი</unitPattern>
-				<unitPattern count="other">{0} კარატი</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>გრამი</displayName>
-				<unitPattern count="one">{0} გრამი</unitPattern>
-				<unitPattern count="other">{0} გრამი</unitPattern>
-				<perUnitPattern>{0} გრამში</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>მეტრული ტონა</displayName>
+				<unitPattern count="one">{0} მეტრული ტონა</unitPattern>
+				<unitPattern count="other">{0} მეტრული ტონა</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>კილოგრამი</displayName>
@@ -6380,20 +6374,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} კილოგრამი</unitPattern>
 				<perUnitPattern>{0} კილოგრამში</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>მეტრული ტონა</displayName>
-				<unitPattern count="one">{0} მეტრული ტონა</unitPattern>
-				<unitPattern count="other">{0} მეტრული ტონა</unitPattern>
+			<unit type="mass-gram">
+				<displayName>გრამი</displayName>
+				<unitPattern count="one">{0} გრამი</unitPattern>
+				<unitPattern count="other">{0} გრამი</unitPattern>
+				<perUnitPattern>{0} გრამში</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>მილიგრამი</displayName>
+				<unitPattern count="one">{0} მილიგრამი</unitPattern>
+				<unitPattern count="other">{0} მილიგრამი</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>მიკროგრამი</displayName>
 				<unitPattern count="one">მიკროგრამი</unitPattern>
 				<unitPattern count="other">{0} მიკროგრამი</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>მილიგრამი</displayName>
-				<unitPattern count="one">{0} მილიგრამი</unitPattern>
-				<unitPattern count="other">{0} მილიგრამი</unitPattern>
+			<unit type="mass-ton">
+				<displayName>ტონა</displayName>
+				<unitPattern count="one">{0} ტონა</unitPattern>
+				<unitPattern count="other">{0} ტ</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>ფუნტი</displayName>
+				<unitPattern count="one">{0} ფუნტი</unitPattern>
+				<unitPattern count="other">{0} ფუნტი</unitPattern>
+				<perUnitPattern>{0} ფუნტში</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>უნცია</displayName>
@@ -6406,61 +6412,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ტრუას უნცია</unitPattern>
 				<unitPattern count="other">{0} ტრუას უნცია</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>ფუნტი</displayName>
-				<unitPattern count="one">{0} ფუნტი</unitPattern>
-				<unitPattern count="other">{0} ფუნტი</unitPattern>
-				<perUnitPattern>{0} ფუნტში</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>ტონა</displayName>
-				<unitPattern count="one">{0} ტონა</unitPattern>
-				<unitPattern count="other">{0} ტ</unitPattern>
+			<unit type="mass-carat">
+				<displayName>კარატი</displayName>
+				<unitPattern count="one">{0} კარატი</unitPattern>
+				<unitPattern count="other">{0} კარატი</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>გიგავატი</displayName>
 				<unitPattern count="one">{0} გიგავატი</unitPattern>
 				<unitPattern count="other">{0} გიგავატი</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>ცხენის ძალა</displayName>
-				<unitPattern count="one">{0} ცხენის ძალა</unitPattern>
-				<unitPattern count="other">{0} ცხენის ძალა</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>მეგავატი</displayName>
+				<unitPattern count="one">{0} მეგავატი</unitPattern>
+				<unitPattern count="other">{0} მეგავატი</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>კილოვატი</displayName>
 				<unitPattern count="one">{0} კილოვატი</unitPattern>
 				<unitPattern count="other">{0} კილოვატი</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>მეგავატი</displayName>
-				<unitPattern count="one">{0} მეგავატი</unitPattern>
-				<unitPattern count="other">{0} მეგავატი</unitPattern>
+			<unit type="power-watt">
+				<displayName>ვატი</displayName>
+				<unitPattern count="one">{0} ვატი</unitPattern>
+				<unitPattern count="other">{0} ვატი</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>მილივატი</displayName>
 				<unitPattern count="one">{0} მილივატი</unitPattern>
 				<unitPattern count="other">{0} მილივატი</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>ვატი</displayName>
-				<unitPattern count="one">{0} ვატი</unitPattern>
-				<unitPattern count="other">{0} ვატი</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>ცხენის ძალა</displayName>
+				<unitPattern count="one">{0} ცხენის ძალა</unitPattern>
+				<unitPattern count="other">{0} ცხენის ძალა</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>ჰექტოპასკალი</displayName>
 				<unitPattern count="one">{0} ჰექტოპასკალი</unitPattern>
 				<unitPattern count="other">{0} ჰექტოპასკალი</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>ვერცხლისწყლის დუიმი</displayName>
-				<unitPattern count="one">{0} ვერცხლისწყლის დუიმი</unitPattern>
-				<unitPattern count="other">{0} ვერცხლისწყლის დუიმი</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>მილიბარი</displayName>
-				<unitPattern count="one">{0} მილიბარი</unitPattern>
-				<unitPattern count="other">{0} მილიბარი</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>მილიმეტრი ვერცხლისწყლის სვეტისა</displayName>
@@ -6472,6 +6462,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ფუნტი კვადრატულ დუიმზე</unitPattern>
 				<unitPattern count="other">{0} ფუნტი კვადრატულ დუიმზე</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>ვერცხლისწყლის დუიმი</displayName>
+				<unitPattern count="one">{0} ვერცხლისწყლის დუიმი</unitPattern>
+				<unitPattern count="other">{0} ვერცხლისწყლის დუიმი</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>მილიბარი</displayName>
+				<unitPattern count="one">{0} მილიბარი</unitPattern>
+				<unitPattern count="other">{0} მილიბარი</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>კარატი</displayName>
 				<unitPattern count="one">{0} კარატი</unitPattern>
@@ -6481,11 +6481,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>კილომეტრი საათში</displayName>
 				<unitPattern count="one">{0} კილომეტრი საათში</unitPattern>
 				<unitPattern count="other">{0} კილომეტრი საათში</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>კვანძი</displayName>
-				<unitPattern count="one">{0} კვანძი</unitPattern>
-				<unitPattern count="other">{0} კვანძი</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>მეტრი წამში</displayName>
@@ -6497,6 +6492,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} მილი საათში</unitPattern>
 				<unitPattern count="other">{0} მილი საათში</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>კვანძი</displayName>
+				<unitPattern count="one">{0} კვანძი</unitPattern>
+				<unitPattern count="other">{0} კვანძი</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>გრადუსი ცელსიუსით</displayName>
 				<unitPattern count="one">{0} გრადუსი ცელსიუსით</unitPattern>
@@ -6507,41 +6512,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} გრადუსი ფარენჰეიტით</unitPattern>
 				<unitPattern count="other">{0} გრადუსი ფარენჰეიტით</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>კელვინის გრადუსი</displayName>
 				<unitPattern count="one">{0} კელვინი</unitPattern>
 				<unitPattern count="other">{0} კელვინის გრადუსი</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>აკრი-ფუტი</displayName>
-				<unitPattern count="one">{0} აკრი-ფუტი</unitPattern>
-				<unitPattern count="other">{0} აკრი-ფუტი</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>სანტილიტრი</displayName>
-				<unitPattern count="one">{0} სანტილიტრი</unitPattern>
-				<unitPattern count="other">{0} სანტილიტრი</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>კუბური სანტიმენტრი</displayName>
-				<unitPattern count="one">{0} კუბური სანტიმენტრი</unitPattern>
-				<unitPattern count="other">{0} კუბური სანტიმენტრი</unitPattern>
-				<perUnitPattern>{0} კუბურ სანტიმეტრში</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>კუბური ფუტი</displayName>
-				<unitPattern count="one">{0} კუბური ფუტი</unitPattern>
-				<unitPattern count="other">{0} კუბური ფუტი</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>კუბური დუიმი</displayName>
-				<unitPattern count="one">{0} კუბური დუიმი</unitPattern>
-				<unitPattern count="other">{0} კუბური დუიმი</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>კუბური კილომეტრი</displayName>
@@ -6554,6 +6528,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} კუბური მეტრი</unitPattern>
 				<perUnitPattern>{0} კუბურ მეტრში</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>კუბური სანტიმენტრი</displayName>
+				<unitPattern count="one">{0} კუბური სანტიმენტრი</unitPattern>
+				<unitPattern count="other">{0} კუბური სანტიმენტრი</unitPattern>
+				<perUnitPattern>{0} კუბურ სანტიმეტრში</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>კუბური მილი</displayName>
 				<unitPattern count="one">{0} კუბური მილი</unitPattern>
@@ -6564,31 +6544,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} კუბური იარდი</unitPattern>
 				<unitPattern count="other">{0} კუბური იარდი</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>ჭიქა</displayName>
-				<unitPattern count="one">{0} ჭიქა</unitPattern>
-				<unitPattern count="other">{0} ჭიქა</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>კუბური ფუტი</displayName>
+				<unitPattern count="one">{0} კუბური ფუტი</unitPattern>
+				<unitPattern count="other">{0} კუბური ფუტი</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>მეტრული ჭიქა</displayName>
-				<unitPattern count="one">{0} მეტრული ჭიქა</unitPattern>
-				<unitPattern count="other">{0} მეტრული ჭიქა</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>კუბური დუიმი</displayName>
+				<unitPattern count="one">{0} კუბური დუიმი</unitPattern>
+				<unitPattern count="other">{0} კუბური დუიმი</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>დეცილიტრი</displayName>
-				<unitPattern count="one">{0} დეცილიტრი</unitPattern>
-				<unitPattern count="other">{0} დეცილიტრი</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>თხევადი უნცია</displayName>
-				<unitPattern count="one">{0} თხევადი უნცია</unitPattern>
-				<unitPattern count="other">{0} თხევადი უნცია</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>გალონი</displayName>
-				<unitPattern count="one">{0} გალონი</unitPattern>
-				<unitPattern count="other">{0} გალონი</unitPattern>
-				<perUnitPattern>{0} გალონში</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>მეგალიტრი</displayName>
+				<unitPattern count="one">{0} მეგალიტრი</unitPattern>
+				<unitPattern count="other">{0} მეგალიტრი</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>ჰექტოლიტრი</displayName>
@@ -6601,30 +6570,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ლიტრი</unitPattern>
 				<perUnitPattern>{0} ლიტრში</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>მეგალიტრი</displayName>
-				<unitPattern count="one">{0} მეგალიტრი</unitPattern>
-				<unitPattern count="other">{0} მეგალიტრი</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>დეცილიტრი</displayName>
+				<unitPattern count="one">{0} დეცილიტრი</unitPattern>
+				<unitPattern count="other">{0} დეცილიტრი</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>სანტილიტრი</displayName>
+				<unitPattern count="one">{0} სანტილიტრი</unitPattern>
+				<unitPattern count="other">{0} სანტილიტრი</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>მილილიტრი</displayName>
 				<unitPattern count="one">{0} მილილიტრი</unitPattern>
 				<unitPattern count="other">{0} მილილიტრი</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>პინტა</displayName>
-				<unitPattern count="one">{0} პინტა</unitPattern>
-				<unitPattern count="other">{0} პინტა</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>მეტრული პინტა</displayName>
 				<unitPattern count="one">{0} მეტრული პინტა</unitPattern>
 				<unitPattern count="other">{0} მეტრული პინტა</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>მეტრული ჭიქა</displayName>
+				<unitPattern count="one">{0} მეტრული ჭიქა</unitPattern>
+				<unitPattern count="other">{0} მეტრული ჭიქა</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>აკრი-ფუტი</displayName>
+				<unitPattern count="one">{0} აკრი-ფუტი</unitPattern>
+				<unitPattern count="other">{0} აკრი-ფუტი</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>გალონი</displayName>
+				<unitPattern count="one">{0} გალონი</unitPattern>
+				<unitPattern count="other">{0} გალონი</unitPattern>
+				<perUnitPattern>{0} გალონში</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>კვარტა</displayName>
 				<unitPattern count="one">{0} კვარტა</unitPattern>
 				<unitPattern count="other">{0} კვარტა</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>პინტა</displayName>
+				<unitPattern count="one">{0} პინტა</unitPattern>
+				<unitPattern count="other">{0} პინტა</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>ჭიქა</displayName>
+				<unitPattern count="one">{0} ჭიქა</unitPattern>
+				<unitPattern count="other">{0} ჭიქა</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>თხევადი უნცია</displayName>
+				<unitPattern count="one">{0} თხევადი უნცია</unitPattern>
+				<unitPattern count="other">{0} თხევადი უნცია</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>სუფრის კოვზი</displayName>
@@ -6657,6 +6657,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} მ/წმ²</unitPattern>
 				<unitPattern count="other">{0} მ/წმ²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>ბრნ.</displayName>
+				<unitPattern count="one">{0} ბრნ.</unitPattern>
+				<unitPattern count="other">{0} ბრნ.</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>რადიანი</displayName>
+				<unitPattern count="one">{0} რად.</unitPattern>
+				<unitPattern count="other">{0} რად.</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>გრადუსი</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>მინუტი</displayName>
 				<unitPattern count="one">{0} მინუტი</unitPattern>
@@ -6667,36 +6682,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} სეკუნდი</unitPattern>
 				<unitPattern count="other">{0} სეკუნდი</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>გრადუსი</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>რადიანი</displayName>
-				<unitPattern count="one">{0} რად.</unitPattern>
-				<unitPattern count="other">{0} რად.</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>ბრნ.</displayName>
-				<unitPattern count="one">{0} ბრნ.</unitPattern>
-				<unitPattern count="other">{0} ბრნ.</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>აკრი</displayName>
-				<unitPattern count="one">{0} აკრი</unitPattern>
-				<unitPattern count="other">{0} აკრი</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>კმ²</displayName>
+				<unitPattern count="one">{0} კმ²</unitPattern>
+				<unitPattern count="other">{0} კმ²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ჰა</displayName>
 				<unitPattern count="one">{0} ჰა</unitPattern>
 				<unitPattern count="other">{0} ჰა</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>მ²</displayName>
+				<unitPattern count="one">{0} მ²</unitPattern>
+				<unitPattern count="other">{0} მ²</unitPattern>
+				<perUnitPattern>{0}/მ²</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>სმ²</displayName>
 				<unitPattern count="one">{0} სმ²</unitPattern>
 				<unitPattern count="other">{0} სმ²</unitPattern>
 				<perUnitPattern>{0}/სმ²</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>მილი²</displayName>
+				<unitPattern count="one">{0} მილი²</unitPattern>
+				<unitPattern count="other">{0} მილი²</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>აკრი</displayName>
+				<unitPattern count="one">{0} აკრი</unitPattern>
+				<unitPattern count="other">{0} აკრი</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>იარდი²</displayName>
+				<unitPattern count="one">{0} იარდი²</unitPattern>
+				<unitPattern count="other">{0} იარდი²</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>ფუტი²</displayName>
@@ -6709,96 +6730,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} დუიმი²</unitPattern>
 				<perUnitPattern>{0}/დუიმი²</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>კმ²</displayName>
-				<unitPattern count="one">{0} კმ²</unitPattern>
-				<unitPattern count="other">{0} კმ²</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>მ²</displayName>
-				<unitPattern count="one">{0} მ²</unitPattern>
-				<unitPattern count="other">{0} მ²</unitPattern>
-				<perUnitPattern>{0}/მ²</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>მილი²</displayName>
-				<unitPattern count="one">{0} მილი²</unitPattern>
-				<unitPattern count="other">{0} მილი²</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>იარდი²</displayName>
-				<unitPattern count="one">{0} იარდი²</unitPattern>
-				<unitPattern count="other">{0} იარდი²</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>ლიტრი/კმ</displayName>
+				<unitPattern count="one">{0} ლ/კმ</unitPattern>
+				<unitPattern count="other">{0} ლ/კმ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>ლ/100კმ</displayName>
 				<unitPattern count="one">{0} ლ/100კმ</unitPattern>
 				<unitPattern count="other">{0} ლ/100კმ</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>ლიტრი/კმ</displayName>
-				<unitPattern count="one">{0} ლ/კმ</unitPattern>
-				<unitPattern count="other">{0} ლ/კმ</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>მილი/გალ.</displayName>
 				<unitPattern count="one">{0} მილი/გალ.</unitPattern>
 				<unitPattern count="other">{0} მილი/გალ.</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>ბიტი</displayName>
-				<unitPattern count="one">{0} ბიტი</unitPattern>
-				<unitPattern count="other">{0} ბიტი</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>ბაიტი</displayName>
-				<unitPattern count="one">{0} ბაიტი</unitPattern>
-				<unitPattern count="other">{0} ბაიტი</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>გბიტი</displayName>
-				<unitPattern count="one">{0} გბიტი</unitPattern>
-				<unitPattern count="other">{0} გბიტი</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>გბაიტი</displayName>
-				<unitPattern count="one">{0} გბაიტი</unitPattern>
-				<unitPattern count="other">{0} გბაიტი</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>კბიტი</displayName>
-				<unitPattern count="one">{0} კბიტი</unitPattern>
-				<unitPattern count="other">{0} კბიტი</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>კილობაიტი</displayName>
-				<unitPattern count="one">{0} კბაიტი</unitPattern>
-				<unitPattern count="other">{0} კბაიტი</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>მბიტი</displayName>
-				<unitPattern count="one">{0} მბიტი</unitPattern>
-				<unitPattern count="other">{0} მბიტი</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>მბაიტი</displayName>
-				<unitPattern count="one">{0} მბაიტი</unitPattern>
-				<unitPattern count="other">{0} მბაიტი</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>ტბიტი</displayName>
-				<unitPattern count="one">{0} ტბიტი</unitPattern>
-				<unitPattern count="other">{0} ტბიტი</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>ტბაიტი</displayName>
 				<unitPattern count="one">{0} ტბაიტი</unitPattern>
 				<unitPattern count="other">{0} ტბაიტი</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>ტბიტი</displayName>
+				<unitPattern count="one">{0} ტბიტი</unitPattern>
+				<unitPattern count="other">{0} ტბიტი</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>გბაიტი</displayName>
+				<unitPattern count="one">{0} გბაიტი</unitPattern>
+				<unitPattern count="other">{0} გბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>გბიტი</displayName>
+				<unitPattern count="one">{0} გბიტი</unitPattern>
+				<unitPattern count="other">{0} გბიტი</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>მბაიტი</displayName>
+				<unitPattern count="one">{0} მბაიტი</unitPattern>
+				<unitPattern count="other">{0} მბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>მბიტი</displayName>
+				<unitPattern count="one">{0} მბიტი</unitPattern>
+				<unitPattern count="other">{0} მბიტი</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>კილობაიტი</displayName>
+				<unitPattern count="one">{0} კბაიტი</unitPattern>
+				<unitPattern count="other">{0} კბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>კბიტი</displayName>
+				<unitPattern count="one">{0} კბიტი</unitPattern>
+				<unitPattern count="other">{0} კბიტი</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>ბაიტი</displayName>
+				<unitPattern count="one">{0} ბაიტი</unitPattern>
+				<unitPattern count="other">{0} ბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>ბიტი</displayName>
+				<unitPattern count="one">{0} ბიტი</unitPattern>
+				<unitPattern count="other">{0} ბიტი</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>ს.</displayName>
 				<unitPattern count="one">{0} ს.</unitPattern>
 				<unitPattern count="other">{0} ს.</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>წ</displayName>
+				<unitPattern count="one">{0} წ</unitPattern>
+				<unitPattern count="other">{0} წ</unitPattern>
+				<perUnitPattern>{0}/წ</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>თვე</displayName>
+				<unitPattern count="one">{0} თვე</unitPattern>
+				<unitPattern count="other">{0} თვე</unitPattern>
+				<perUnitPattern>{0}/თვე</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>კვრ</displayName>
+				<unitPattern count="one">{0} კვრ</unitPattern>
+				<unitPattern count="other">{0} კვრ</unitPattern>
+				<perUnitPattern>{0}/კვრ</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>დღე</displayName>
@@ -6812,32 +6830,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} სთ</unitPattern>
 				<perUnitPattern>{0}/სთ</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>მკწმ</displayName>
-				<unitPattern count="one">{0} მკწმ</unitPattern>
-				<unitPattern count="other">{0} მკწმ</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>მწმ</displayName>
-				<unitPattern count="one">{0} მწმ</unitPattern>
-				<unitPattern count="other">{0} მწმ</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>წთ</displayName>
 				<unitPattern count="one">{0} წთ</unitPattern>
 				<unitPattern count="other">{0} წთ</unitPattern>
 				<perUnitPattern>{0}/წთ</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>თვე</displayName>
-				<unitPattern count="one">{0} თვე</unitPattern>
-				<unitPattern count="other">{0} თვე</unitPattern>
-				<perUnitPattern>{0}/თვე</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>ნწმ</displayName>
-				<unitPattern count="one">{0} ნწმ</unitPattern>
-				<unitPattern count="other">{0} ნწმ</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>წმ</displayName>
@@ -6845,17 +6842,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} წმ</unitPattern>
 				<perUnitPattern>{0}/წმ</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>კვრ</displayName>
-				<unitPattern count="one">{0} კვრ</unitPattern>
-				<unitPattern count="other">{0} კვრ</unitPattern>
-				<perUnitPattern>{0}/კვრ</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>მწმ</displayName>
+				<unitPattern count="one">{0} მწმ</unitPattern>
+				<unitPattern count="other">{0} მწმ</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>წ</displayName>
-				<unitPattern count="one">{0} წ</unitPattern>
-				<unitPattern count="other">{0} წ</unitPattern>
-				<perUnitPattern>{0}/წ</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>მკწმ</displayName>
+				<unitPattern count="one">{0} მკწმ</unitPattern>
+				<unitPattern count="other">{0} მკწმ</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ნწმ</displayName>
+				<unitPattern count="one">{0} ნწმ</unitPattern>
+				<unitPattern count="other">{0} ნწმ</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>ამპ</displayName>
@@ -6877,6 +6877,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ვ</unitPattern>
 				<unitPattern count="other">{0} ვ</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>კკალ</displayName>
+				<unitPattern count="one">{0} კკალ</unitPattern>
+				<unitPattern count="other">{0} კკალ</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>კალ</displayName>
 				<unitPattern count="one">{0} კალ</unitPattern>
@@ -6887,20 +6892,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} კალ</unitPattern>
 				<unitPattern count="other">{0} კალ</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>ჯოული</displayName>
-				<unitPattern count="one">{0} ჯ</unitPattern>
-				<unitPattern count="other">{0} ჯ</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>კკალ</displayName>
-				<unitPattern count="one">{0} კკალ</unitPattern>
-				<unitPattern count="other">{0} კკალ</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>კჯ</displayName>
 				<unitPattern count="one">{0} კჯ</unitPattern>
 				<unitPattern count="other">{0} კჯ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>ჯოული</displayName>
+				<unitPattern count="one">{0} ჯ</unitPattern>
+				<unitPattern count="other">{0} ჯ</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>კვტსთ</displayName>
@@ -6912,25 +6912,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} გჰც.</unitPattern>
 				<unitPattern count="other">{0} გჰც.</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>ჰც.</displayName>
-				<unitPattern count="one">{0} ჰც.</unitPattern>
-				<unitPattern count="other">{0} ჰც.</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>მჰც</displayName>
+				<unitPattern count="one">{0} მჰც</unitPattern>
+				<unitPattern count="other">{0} მჰც</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>კჰც.</displayName>
 				<unitPattern count="one">{0} კჰც.</unitPattern>
 				<unitPattern count="other">{0} კჰც.</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>მჰც</displayName>
-				<unitPattern count="one">{0} მჰც</unitPattern>
-				<unitPattern count="other">{0} მჰც</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>ჰც.</displayName>
+				<unitPattern count="one">{0} ჰც.</unitPattern>
+				<unitPattern count="other">{0} ჰც.</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>ა.ე.</displayName>
-				<unitPattern count="one">{0} ა.ე.</unitPattern>
-				<unitPattern count="other">{0} ა.ე.</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>კმ</displayName>
+				<unitPattern count="one">{0} კმ</unitPattern>
+				<unitPattern count="other">{0} კმ</unitPattern>
+				<perUnitPattern>{0}/კმ</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>მ</displayName>
+				<unitPattern count="one">{0} მ</unitPattern>
+				<unitPattern count="other">{0} მ</unitPattern>
+				<perUnitPattern>{0}/მ</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>დმ</displayName>
+				<unitPattern count="one">{0} დმ</unitPattern>
+				<unitPattern count="other">{0} დმ</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>სმ</displayName>
@@ -6938,10 +6950,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} სმ</unitPattern>
 				<perUnitPattern>{0}/სმ</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>დმ</displayName>
-				<unitPattern count="one">{0} დმ</unitPattern>
-				<unitPattern count="other">{0} დმ</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>მმ</displayName>
+				<unitPattern count="one">{0} მმ</unitPattern>
+				<unitPattern count="other">{0} მმ</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>მკმ</displayName>
+				<unitPattern count="one">{0} მკმ</unitPattern>
+				<unitPattern count="other">{0} მკმ</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>ნმ</displayName>
+				<unitPattern count="one">{0} ნმ</unitPattern>
+				<unitPattern count="other">{0} ნმ</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>პმ</displayName>
+				<unitPattern count="one">{0} პმ</unitPattern>
+				<unitPattern count="other">{0} პმ</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>მილი</displayName>
+				<unitPattern count="one">{0} მილი</unitPattern>
+				<unitPattern count="other">{0} მილი</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>იარდი</displayName>
+				<unitPattern count="one">{0} იარდი</unitPattern>
+				<unitPattern count="other">{0} იარდი</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>ფტ</displayName>
@@ -6955,83 +6992,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} დუიმი</unitPattern>
 				<perUnitPattern>{0}/დუიმი</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>კმ</displayName>
-				<unitPattern count="one">{0} კმ</unitPattern>
-				<unitPattern count="other">{0} კმ</unitPattern>
-				<perUnitPattern>{0}/კმ</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>პს</displayName>
+				<unitPattern count="one">{0} პს</unitPattern>
+				<unitPattern count="other">{0} პს</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>სწ</displayName>
 				<unitPattern count="one">{0} სწ</unitPattern>
 				<unitPattern count="other">{0} სწ</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>მ</displayName>
-				<unitPattern count="one">{0} მ</unitPattern>
-				<unitPattern count="other">{0} მ</unitPattern>
-				<perUnitPattern>{0}/მ</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>მკმ</displayName>
-				<unitPattern count="one">{0} მკმ</unitPattern>
-				<unitPattern count="other">{0} მკმ</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>მილი</displayName>
-				<unitPattern count="one">{0} მილი</unitPattern>
-				<unitPattern count="other">{0} მილი</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>სკანდ. მილი</displayName>
-				<unitPattern count="one">{0} სკანდ. მილი</unitPattern>
-				<unitPattern count="other">{0} სკანდ. მილი</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>მმ</displayName>
-				<unitPattern count="one">{0} მმ</unitPattern>
-				<unitPattern count="other">{0} მმ</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>ნმ</displayName>
-				<unitPattern count="one">{0} ნმ</unitPattern>
-				<unitPattern count="other">{0} ნმ</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>ა.ე.</displayName>
+				<unitPattern count="one">{0} ა.ე.</unitPattern>
+				<unitPattern count="other">{0} ა.ე.</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>საზღვაო მილი</displayName>
 				<unitPattern count="one">{0} საზღვ. მილი</unitPattern>
 				<unitPattern count="other">{0} საზღვ. მილი</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>პს</displayName>
-				<unitPattern count="one">{0} პს</unitPattern>
-				<unitPattern count="other">{0} პს</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>პმ</displayName>
-				<unitPattern count="one">{0} პმ</unitPattern>
-				<unitPattern count="other">{0} პმ</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>იარდი</displayName>
-				<unitPattern count="one">{0} იარდი</unitPattern>
-				<unitPattern count="other">{0} იარდი</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>სკანდ. მილი</displayName>
+				<unitPattern count="one">{0} სკანდ. მილი</unitPattern>
+				<unitPattern count="other">{0} სკანდ. მილი</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>ლუქსი</displayName>
 				<unitPattern count="one">{0} ლუქსი</unitPattern>
 				<unitPattern count="other">{0} ლუქსი</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>კარატი</displayName>
-				<unitPattern count="one">{0} კარ.</unitPattern>
-				<unitPattern count="other">{0} კარ.</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>გრამი</displayName>
-				<unitPattern count="one">{0} გ</unitPattern>
-				<unitPattern count="other">{0} გ</unitPattern>
-				<perUnitPattern>{0}/გ</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>მტ</displayName>
+				<unitPattern count="one">{0} მტ</unitPattern>
+				<unitPattern count="other">{0} მტ</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>კილოგრამი</displayName>
@@ -7039,20 +7033,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} კგ</unitPattern>
 				<perUnitPattern>{0}/კგ</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>მტ</displayName>
-				<unitPattern count="one">{0} მტ</unitPattern>
-				<unitPattern count="other">{0} მტ</unitPattern>
+			<unit type="mass-gram">
+				<displayName>გრამი</displayName>
+				<unitPattern count="one">{0} გ</unitPattern>
+				<unitPattern count="other">{0} გ</unitPattern>
+				<perUnitPattern>{0}/გ</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>მგ</displayName>
+				<unitPattern count="one">{0} მგ</unitPattern>
+				<unitPattern count="other">{0} მგ</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>მკგ</displayName>
 				<unitPattern count="one">{0} მკგ</unitPattern>
 				<unitPattern count="other">{0} მკგ</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>მგ</displayName>
-				<unitPattern count="one">{0} მგ</unitPattern>
-				<unitPattern count="other">{0} მგ</unitPattern>
+			<unit type="mass-ton">
+				<displayName>ტონა</displayName>
+				<unitPattern count="one">{0} ტ</unitPattern>
+				<unitPattern count="other">{0} ტ</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>ფუნტი</displayName>
+				<unitPattern count="one">{0} ფნტ</unitPattern>
+				<unitPattern count="other">{0} ფნტ</unitPattern>
+				<perUnitPattern>{0}/ფნტ</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>უნცია</displayName>
@@ -7065,61 +7071,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ტრ. უნც.</unitPattern>
 				<unitPattern count="other">{0} ტრ. უნც.</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>ფუნტი</displayName>
-				<unitPattern count="one">{0} ფნტ</unitPattern>
-				<unitPattern count="other">{0} ფნტ</unitPattern>
-				<perUnitPattern>{0}/ფნტ</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>ტონა</displayName>
-				<unitPattern count="one">{0} ტ</unitPattern>
-				<unitPattern count="other">{0} ტ</unitPattern>
+			<unit type="mass-carat">
+				<displayName>კარატი</displayName>
+				<unitPattern count="one">{0} კარ.</unitPattern>
+				<unitPattern count="other">{0} კარ.</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>გვტ</displayName>
 				<unitPattern count="one">{0} გვტ</unitPattern>
 				<unitPattern count="other">{0} გვტ</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>ცხ. ძ.</displayName>
-				<unitPattern count="one">{0} ცხ. ძ.</unitPattern>
-				<unitPattern count="other">{0} ცხ. ძ.</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>მგვტ</displayName>
+				<unitPattern count="one">{0} მგვტ</unitPattern>
+				<unitPattern count="other">{0} მგვტ</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>კვტ</displayName>
 				<unitPattern count="one">{0} კვტ</unitPattern>
 				<unitPattern count="other">{0} კვტ</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>მგვტ</displayName>
-				<unitPattern count="one">{0} მგვტ</unitPattern>
-				<unitPattern count="other">{0} მგვტ</unitPattern>
+			<unit type="power-watt">
+				<displayName>ვტ</displayName>
+				<unitPattern count="one">{0} ვტ</unitPattern>
+				<unitPattern count="other">{0} ვტ</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>მლვტ</displayName>
 				<unitPattern count="one">{0} მლვტ</unitPattern>
 				<unitPattern count="other">{0} მლვტ</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>ვტ</displayName>
-				<unitPattern count="one">{0} ვტ</unitPattern>
-				<unitPattern count="other">{0} ვტ</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>ცხ. ძ.</displayName>
+				<unitPattern count="one">{0} ცხ. ძ.</unitPattern>
+				<unitPattern count="other">{0} ცხ. ძ.</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>ჰპა</displayName>
 				<unitPattern count="one">{0} ჰპა</unitPattern>
 				<unitPattern count="other">{0} ჰპა</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>ვრც. დმ.</displayName>
-				<unitPattern count="one">{0} ვრც. დმ.</unitPattern>
-				<unitPattern count="other">{0} ვრც. დმ.</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>მბარი</displayName>
-				<unitPattern count="one">{0} მბარი</unitPattern>
-				<unitPattern count="other">{0} მბარი</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>მმ ვწყ. სვ.</displayName>
@@ -7131,6 +7121,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ფნტ. კვ. დმ.</unitPattern>
 				<unitPattern count="other">{0} ფნტ. კვ. დმ.</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>ვრც. დმ.</displayName>
+				<unitPattern count="one">{0} ვრც. დმ.</unitPattern>
+				<unitPattern count="other">{0} ვრც. დმ.</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>მბარი</displayName>
+				<unitPattern count="one">{0} მბარი</unitPattern>
+				<unitPattern count="other">{0} მბარი</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>კარატი</displayName>
 				<unitPattern count="one">{0} კარ.</unitPattern>
@@ -7140,11 +7140,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>კმ/სთ</displayName>
 				<unitPattern count="one">{0} კმ/სთ</unitPattern>
 				<unitPattern count="other">{0} კმ/სთ</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>კვძ.</displayName>
-				<unitPattern count="one">{0} კვძ.</unitPattern>
-				<unitPattern count="other">{0} კვძ.</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>მ/წმ</displayName>
@@ -7156,6 +7151,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} მილი/სთ</unitPattern>
 				<unitPattern count="other">{0} მილი/სთ</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>კვძ.</displayName>
+				<unitPattern count="one">{0} კვძ.</unitPattern>
+				<unitPattern count="other">{0} კვძ.</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
 				<unitPattern count="one">{0}°C</unitPattern>
@@ -7166,41 +7171,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
 				<unitPattern count="one">{0} K</unitPattern>
 				<unitPattern count="other">{0} K</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>აკრ.ფტ.</displayName>
-				<unitPattern count="one">{0} აკრ.ფტ.</unitPattern>
-				<unitPattern count="other">{0} აკრ.ფტ.</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>სლ</displayName>
-				<unitPattern count="one">{0} სლ</unitPattern>
-				<unitPattern count="other">{0} სლ</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>სმ³</displayName>
-				<unitPattern count="one">{0} სმ³</unitPattern>
-				<unitPattern count="other">{0} სმ³</unitPattern>
-				<perUnitPattern>{0}/სმ³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>ფუტი³</displayName>
-				<unitPattern count="one">{0} ფტ³</unitPattern>
-				<unitPattern count="other">{0} ფტ³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>დუიმი³</displayName>
-				<unitPattern count="one">{0} დუიმი³</unitPattern>
-				<unitPattern count="other">{0} დუიმი³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>კუბური კილომეტრი</displayName>
@@ -7213,6 +7187,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} მ³</unitPattern>
 				<perUnitPattern>{0}/მ³</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>სმ³</displayName>
+				<unitPattern count="one">{0} სმ³</unitPattern>
+				<unitPattern count="other">{0} სმ³</unitPattern>
+				<perUnitPattern>{0}/სმ³</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>კუბური მილი</displayName>
 				<unitPattern count="one">{0} მილი³</unitPattern>
@@ -7223,31 +7203,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} იარდი³</unitPattern>
 				<unitPattern count="other">{0} იარდი³</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>ჭიქა</displayName>
-				<unitPattern count="one">{0} ჭიქა</unitPattern>
-				<unitPattern count="other">{0} ჭიქა</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>ფუტი³</displayName>
+				<unitPattern count="one">{0} ფტ³</unitPattern>
+				<unitPattern count="other">{0} ფტ³</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>მეტრ. ჭიქა</displayName>
-				<unitPattern count="one">{0} მეტრ. ჭიქა</unitPattern>
-				<unitPattern count="other">{0} მეტრ. ჭიქა</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>დუიმი³</displayName>
+				<unitPattern count="one">{0} დუიმი³</unitPattern>
+				<unitPattern count="other">{0} დუიმი³</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>დლ</displayName>
-				<unitPattern count="one">{0} დლ</unitPattern>
-				<unitPattern count="other">{0} დლ</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>თხ. უნცია</displayName>
-				<unitPattern count="one">{0} თხ. უნცია</unitPattern>
-				<unitPattern count="other">{0} თხ. უნცია</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>გალონი</displayName>
-				<unitPattern count="one">{0} გალონი</unitPattern>
-				<unitPattern count="other">{0} გალონი</unitPattern>
-				<perUnitPattern>{0}/გალონი</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>მეგალ.</displayName>
+				<unitPattern count="one">{0} მეგალ.</unitPattern>
+				<unitPattern count="other">{0} მეგალ.</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>ჰლ</displayName>
@@ -7260,30 +7229,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ლ</unitPattern>
 				<perUnitPattern>{0}/ლ</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>მეგალ.</displayName>
-				<unitPattern count="one">{0} მეგალ.</unitPattern>
-				<unitPattern count="other">{0} მეგალ.</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>დლ</displayName>
+				<unitPattern count="one">{0} დლ</unitPattern>
+				<unitPattern count="other">{0} დლ</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>სლ</displayName>
+				<unitPattern count="one">{0} სლ</unitPattern>
+				<unitPattern count="other">{0} სლ</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>მილილ.</displayName>
 				<unitPattern count="one">{0} მილილ.</unitPattern>
 				<unitPattern count="other">{0} მილილ.</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>პინტა</displayName>
-				<unitPattern count="one">{0} პინტა</unitPattern>
-				<unitPattern count="other">{0} პინტა</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>მეტრ. პინტა</displayName>
 				<unitPattern count="one">{0} მეტრ. პინტა</unitPattern>
 				<unitPattern count="other">{0} მეტრ. პინტა</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>მეტრ. ჭიქა</displayName>
+				<unitPattern count="one">{0} მეტრ. ჭიქა</unitPattern>
+				<unitPattern count="other">{0} მეტრ. ჭიქა</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>აკრ.ფტ.</displayName>
+				<unitPattern count="one">{0} აკრ.ფტ.</unitPattern>
+				<unitPattern count="other">{0} აკრ.ფტ.</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>გალონი</displayName>
+				<unitPattern count="one">{0} გალონი</unitPattern>
+				<unitPattern count="other">{0} გალონი</unitPattern>
+				<perUnitPattern>{0}/გალონი</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>კვარტა</displayName>
 				<unitPattern count="one">{0} კვარტა</unitPattern>
 				<unitPattern count="other">{0} კვარტა</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>პინტა</displayName>
+				<unitPattern count="one">{0} პინტა</unitPattern>
+				<unitPattern count="other">{0} პინტა</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>ჭიქა</displayName>
+				<unitPattern count="one">{0} ჭიქა</unitPattern>
+				<unitPattern count="other">{0} ჭიქა</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>თხ. უნცია</displayName>
+				<unitPattern count="one">{0} თხ. უნცია</unitPattern>
+				<unitPattern count="other">{0} თხ. უნცია</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>ს. კოვზი</displayName>
@@ -7310,6 +7310,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ინ. ძ.</unitPattern>
 				<unitPattern count="other">{0} ინ. ძ.</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} წთ</unitPattern>
 				<unitPattern count="other">{0} წთ</unitPattern>
@@ -7318,25 +7322,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} წმ</unitPattern>
 				<unitPattern count="other">{0} წმ</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="one">{0} აკრი</unitPattern>
-				<unitPattern count="other">{0} აკრი</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} კმ²</unitPattern>
+				<unitPattern count="other">{0} კმ²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="one">{0} ჰა</unitPattern>
 				<unitPattern count="other">{0} ჰა</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="one">{0} ფტ²</unitPattern>
-				<unitPattern count="other">{0} ფტ²</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="one">{0} კმ²</unitPattern>
-				<unitPattern count="other">{0} კმ²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="one">{0} მ²</unitPattern>
@@ -7346,10 +7338,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} მილი²</unitPattern>
 				<unitPattern count="other">{0} მილი²</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0} აკრი</unitPattern>
+				<unitPattern count="other">{0} აკრი</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0} ფტ²</unitPattern>
+				<unitPattern count="other">{0} ფტ²</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>ლ/100კმ</displayName>
 				<unitPattern count="one">{0}ლ/100კმ</unitPattern>
 				<unitPattern count="other">{0}ლ/100კმ</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>წ</displayName>
+				<unitPattern count="one">{0} წ</unitPattern>
+				<unitPattern count="other">{0} წ</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>თვე</displayName>
+				<unitPattern count="one">{0} თვე</unitPattern>
+				<unitPattern count="other">{0} თვე</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>კვრ</displayName>
+				<unitPattern count="one">{0} კვრ</unitPattern>
+				<unitPattern count="other">{0} კვრ</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>დღე</displayName>
@@ -7361,66 +7376,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}სთ</unitPattern>
 				<unitPattern count="other">{0}სთ</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>მწმ</displayName>
-				<unitPattern count="one">{0} მწმ</unitPattern>
-				<unitPattern count="other">{0} მწმ</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>წთ</displayName>
 				<unitPattern count="one">{0}წთ</unitPattern>
 				<unitPattern count="other">{0}წთ</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>თვე</displayName>
-				<unitPattern count="one">{0} თვე</unitPattern>
-				<unitPattern count="other">{0} თვე</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>წმ</displayName>
 				<unitPattern count="one">{0}წმ</unitPattern>
 				<unitPattern count="other">{0}წმ</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>კვრ</displayName>
-				<unitPattern count="one">{0} კვრ</unitPattern>
-				<unitPattern count="other">{0} კვრ</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName>წ</displayName>
-				<unitPattern count="one">{0} წ</unitPattern>
-				<unitPattern count="other">{0} წ</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>სმ</displayName>
-				<unitPattern count="one">{0} სმ</unitPattern>
-				<unitPattern count="other">{0} სმ</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="one">{0} ფტ</unitPattern>
-				<unitPattern count="other">{0} ფტ</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="one">{0} დმ</unitPattern>
-				<unitPattern count="other">{0} დმ</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>მწმ</displayName>
+				<unitPattern count="one">{0} მწმ</unitPattern>
+				<unitPattern count="other">{0} მწმ</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>კმ</displayName>
 				<unitPattern count="one">{0} კმ</unitPattern>
 				<unitPattern count="other">{0} კმ</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="one">{0} სწ</unitPattern>
-				<unitPattern count="other">{0} სწ</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>მ</displayName>
 				<unitPattern count="one">{0}მ</unitPattern>
 				<unitPattern count="other">{0}მ</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="one">{0} მილი</unitPattern>
-				<unitPattern count="other">{0} მილი</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>სმ</displayName>
+				<unitPattern count="one">{0} სმ</unitPattern>
+				<unitPattern count="other">{0} სმ</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>მმ</displayName>
@@ -7431,31 +7415,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} პმ</unitPattern>
 				<unitPattern count="other">{0} პმ</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} მილი</unitPattern>
+				<unitPattern count="other">{0} მილი</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<unitPattern count="one">{0} იარდი</unitPattern>
 				<unitPattern count="other">{0} იარდი</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName>გრამი</displayName>
-				<unitPattern count="one">{0}გ</unitPattern>
-				<unitPattern count="other">{0}გ</unitPattern>
+			<unit type="length-foot">
+				<unitPattern count="one">{0} ფტ</unitPattern>
+				<unitPattern count="other">{0} ფტ</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0} დმ</unitPattern>
+				<unitPattern count="other">{0} დმ</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0} სწ</unitPattern>
+				<unitPattern count="other">{0} სწ</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>კგ</displayName>
 				<unitPattern count="one">{0}კგ</unitPattern>
 				<unitPattern count="other">{0}კგ</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="one">{0} უნც</unitPattern>
-				<unitPattern count="other">{0} უნც</unitPattern>
+			<unit type="mass-gram">
+				<displayName>გრამი</displayName>
+				<unitPattern count="one">{0}გ</unitPattern>
+				<unitPattern count="other">{0}გ</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="one">{0} ფნტ</unitPattern>
 				<unitPattern count="other">{0} ფნტ</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="one">{0}ცხ.ძ.</unitPattern>
-				<unitPattern count="other">{0}ცხ.ძ.</unitPattern>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0} უნც</unitPattern>
+				<unitPattern count="other">{0} უნც</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one">{0} კვტ</unitPattern>
@@ -7464,6 +7460,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="power-watt">
 				<unitPattern count="one">{0} ვტ</unitPattern>
 				<unitPattern count="other">{0} ვტ</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0}ცხ.ძ.</unitPattern>
+				<unitPattern count="other">{0}ცხ.ძ.</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="one">{0} ჰპა</unitPattern>

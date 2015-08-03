@@ -500,40 +500,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
-			<unit type="area-square-centimeter">
-				<perUnitPattern>{0} per square centimetre</perUnitPattern>
-			</unit>
 			<unit type="area-square-meter">
 				<perUnitPattern>{0} per square metre</perUnitPattern>
+			</unit>
+			<unit type="area-square-centimeter">
+				<perUnitPattern>{0} per square centimetre</perUnitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>litres per 100 kilometres</displayName>
 				<unitPattern count="one">{0} litre per 100 kilometres</unitPattern>
 				<unitPattern count="other">{0} litres per 100 kilometres</unitPattern>
 			</unit>
-			<unit type="energy-foodcalorie">
-				<displayName>calories</displayName>
-				<unitPattern count="one">{0} calorie</unitPattern>
-				<unitPattern count="other">{0} calories</unitPattern>
-			</unit>
 			<unit type="energy-kilocalorie">
 				<displayName>kilogram calories</displayName>
 				<unitPattern count="one">{0} kilogram calorie</unitPattern>
 				<unitPattern count="other">{0} kilogram calories</unitPattern>
 			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>calories</displayName>
+				<unitPattern count="one">{0} calorie</unitPattern>
+				<unitPattern count="other">{0} calories</unitPattern>
+			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kilowatt hours</displayName>
 				<unitPattern count="one">{0} kilowatt hour</unitPattern>
 				<unitPattern count="other">{0} kilowatt hours</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<unitPattern count="one">{0} centimetre</unitPattern>
-				<unitPattern count="other">{0} centimetres</unitPattern>
-				<perUnitPattern>{0} centimetre</perUnitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<unitPattern count="one">decimetre</unitPattern>
-				<unitPattern count="other">{0} decimetres</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>kilometre</displayName>
@@ -541,6 +532,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="length-meter">
 				<perUnitPattern>{0} per metre</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<unitPattern count="one">decimetre</unitPattern>
+				<unitPattern count="other">{0} decimetres</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one">{0} centimetre</unitPattern>
+				<unitPattern count="other">{0} centimetres</unitPattern>
+				<perUnitPattern>{0} centimetre</perUnitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>micrometres</displayName>
@@ -555,11 +555,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} degree</unitPattern>
 				<unitPattern count="other">{0} degrees</unitPattern>
 			</unit>
-			<unit type="volume-cubic-centimeter">
-				<perUnitPattern>{0} per cubic centimetre</perUnitPattern>
-			</unit>
 			<unit type="volume-cubic-meter">
 				<perUnitPattern>{0} per cubic metre</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<perUnitPattern>{0} per cubic centimetre</perUnitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<perUnitPattern>{0} per litre</perUnitPattern>
@@ -572,6 +572,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} deg.</unitPattern>
+				<unitPattern count="other">{0} deg.</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>arcmin.</displayName>
 				<unitPattern count="one">{0} arcmin.</unitPattern>
@@ -582,22 +586,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} arcsec.</unitPattern>
 				<unitPattern count="other">{0} arcsec.</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} deg.</unitPattern>
-				<unitPattern count="other">{0} deg.</unitPattern>
-			</unit>
 			<unit type="area-square-meter">
 				<displayName>metres²</displayName>
-			</unit>
-			<unit type="consumption-liter-per-100kilometers">
-				<displayName>L/100 km</displayName>
-				<unitPattern count="one">{0} L/100 km</unitPattern>
-				<unitPattern count="other">{0} L/100 km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litres/km</displayName>
 				<unitPattern count="one">{0} L/km</unitPattern>
 				<unitPattern count="other">{0} L/km</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>L/100 km</displayName>
+				<unitPattern count="one">{0} L/100 km</unitPattern>
+				<unitPattern count="other">{0} L/100 km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>miles/gal.</displayName>
@@ -609,14 +609,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} C.</unitPattern>
 				<unitPattern count="other">{0} C.</unitPattern>
 			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} m.</unitPattern>
+				<unitPattern count="other">{0} m.</unitPattern>
+			</unit>
 			<unit type="duration-hour">
 				<perUnitPattern>{0} phr</perUnitPattern>
-			</unit>
-			<unit type="duration-microsecond">
-				<displayName>μsec.</displayName>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>millisec.</displayName>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>min.</displayName>
@@ -624,30 +622,39 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} min.</unitPattern>
 				<perUnitPattern>{0}/min.</perUnitPattern>
 			</unit>
-			<unit type="duration-month">
-				<unitPattern count="one">{0} m.</unitPattern>
-				<unitPattern count="other">{0} m.</unitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>nanosec.</displayName>
-			</unit>
 			<unit type="duration-second">
 				<displayName>sec.</displayName>
 				<unitPattern count="one">{0} sec.</unitPattern>
 				<unitPattern count="other">{0} sec.</unitPattern>
 				<perUnitPattern>{0} ps.</perUnitPattern>
 			</unit>
-			<unit type="energy-foodcalorie">
-				<displayName>cal</displayName>
-				<unitPattern count="one">{0} cal</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>millisec.</displayName>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>μsec.</displayName>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>nanosec.</displayName>
 			</unit>
 			<unit type="energy-kilocalorie">
 				<displayName>Cal</displayName>
 				<unitPattern count="one">{0} Cal</unitPattern>
 				<unitPattern count="other">{0} Cal</unitPattern>
 			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>cal</displayName>
+				<unitPattern count="one">{0} cal</unitPattern>
+			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kWh</displayName>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>µmetres</displayName>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0} l.y.</unitPattern>
+				<unitPattern count="other">{0} l.y.</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
 				<displayName>AU</displayName>
@@ -658,19 +665,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} fm</unitPattern>
 				<unitPattern count="other">{0} fm</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="one">{0} l.y.</unitPattern>
-				<unitPattern count="other">{0} l.y.</unitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>µmetres</displayName>
+			<unit type="mass-pound">
+				<unitPattern count="other">{0} lb</unitPattern>
 			</unit>
 			<unit type="mass-carat">
 				<unitPattern count="one">{0} CM</unitPattern>
 				<unitPattern count="other">{0} CM</unitPattern>
-			</unit>
-			<unit type="mass-pound">
-				<unitPattern count="other">{0} lb</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>mb</displayName>
@@ -693,19 +693,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="temperature-generic">
 				<displayName>deg.</displayName>
 			</unit>
-			<unit type="volume-bushel">
-				<unitPattern count="one">{0} bus.</unitPattern>
-				<unitPattern count="other">{0} bus.</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>cL</displayName>
-				<unitPattern count="one">{0} cL</unitPattern>
-				<unitPattern count="other">{0} cL</unitPattern>
-			</unit>
-			<unit type="volume-deciliter">
-				<displayName>dL</displayName>
-				<unitPattern count="one">{0} dL</unitPattern>
-				<unitPattern count="other">{0} dL</unitPattern>
+			<unit type="volume-megaliter">
+				<displayName>ML</displayName>
+				<unitPattern count="one">{0} ML</unitPattern>
+				<unitPattern count="other">{0} ML</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hL</displayName>
@@ -717,32 +708,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} L</unitPattern>
 				<unitPattern count="other">{0} L</unitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>ML</displayName>
-				<unitPattern count="one">{0} ML</unitPattern>
-				<unitPattern count="other">{0} ML</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>dL</displayName>
+				<unitPattern count="one">{0} dL</unitPattern>
+				<unitPattern count="other">{0} dL</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>cL</displayName>
+				<unitPattern count="one">{0} cL</unitPattern>
+				<unitPattern count="other">{0} cL</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>mL</displayName>
 				<unitPattern count="one">{0} mL</unitPattern>
 				<unitPattern count="other">{0} mL</unitPattern>
 			</unit>
+			<unit type="volume-bushel">
+				<unitPattern count="one">{0} bus.</unitPattern>
+				<unitPattern count="other">{0} bus.</unitPattern>
+			</unit>
 		</unitLength>
 		<unitLength type="narrow">
-			<unit type="consumption-liter-per-100kilometers">
-				<displayName>L/100km</displayName>
-				<unitPattern count="one">{0}L/100km</unitPattern>
-				<unitPattern count="other">{0}L/100km</unitPattern>
-			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
 				<unitPattern count="one">{0}L/km</unitPattern>
 				<unitPattern count="other">{0}L/km</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>msec.</displayName>
-				<unitPattern count="one">{0} ms</unitPattern>
-				<unitPattern count="other">{0} ms</unitPattern>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>L/100km</displayName>
+				<unitPattern count="one">{0}L/100km</unitPattern>
+				<unitPattern count="other">{0}L/100km</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>min.</displayName>
@@ -753,6 +748,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>sec.</displayName>
 				<unitPattern count="one">{0} s.</unitPattern>
 				<unitPattern count="other">{0} s.</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName>msec.</displayName>
+				<unitPattern count="one">{0} ms</unitPattern>
+				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>metre</displayName>
@@ -771,34 +771,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}°C</unitPattern>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
-			<unit type="volume-bushel">
-				<unitPattern count="one">{0} bus.</unitPattern>
-				<unitPattern count="other">{0} bus.</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>cL</displayName>
-				<unitPattern count="one">{0}cL</unitPattern>
-				<unitPattern count="other">{0}cL</unitPattern>
-			</unit>
-			<unit type="volume-deciliter">
-				<displayName>dL</displayName>
-				<unitPattern count="one">{0}dL</unitPattern>
-				<unitPattern count="other">{0}dL</unitPattern>
+			<unit type="volume-megaliter">
+				<displayName>ML</displayName>
+				<unitPattern count="one">{0}ML</unitPattern>
+				<unitPattern count="other">{0}ML</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hL</displayName>
 				<unitPattern count="one">{0}hL</unitPattern>
 				<unitPattern count="other">{0}hL</unitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>ML</displayName>
-				<unitPattern count="one">{0}ML</unitPattern>
-				<unitPattern count="other">{0}ML</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>dL</displayName>
+				<unitPattern count="one">{0}dL</unitPattern>
+				<unitPattern count="other">{0}dL</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>cL</displayName>
+				<unitPattern count="one">{0}cL</unitPattern>
+				<unitPattern count="other">{0}cL</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>mL</displayName>
 				<unitPattern count="one">{0}mL</unitPattern>
 				<unitPattern count="other">{0}mL</unitPattern>
+			</unit>
+			<unit type="volume-bushel">
+				<unitPattern count="one">{0} bus.</unitPattern>
+				<unitPattern count="other">{0} bus.</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

@@ -4609,25 +4609,15 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<unitPattern count="one" draft="contributed">{0} گىرادۇس</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} گىرادۇس</unitPattern>
 			</unit>
-			<unit type="area-acre">
-				<displayName draft="provisional">ئىنگلىز موسى</displayName>
-				<unitPattern count="one" draft="contributed">{0} ئىنگلىز موسى</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ئىنگلىز موسى</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName draft="provisional">كۋادرات كىلومېتىر</displayName>
+				<unitPattern count="one" draft="contributed">{0} كۋادرات كىلومېتىر</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} كۋادرات كىلومېتىر</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName draft="provisional">hectares</displayName>
 				<unitPattern count="one" draft="contributed">{0} گېكتار</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hectares</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<displayName draft="provisional">كۋادرات فۇت</displayName>
-				<unitPattern count="one" draft="contributed">{0} كۋادرات فۇت</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} كۋادرات فۇت</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<displayName draft="provisional">كۋادرات كىلومېتىر</displayName>
-				<unitPattern count="one" draft="contributed">{0} كۋادرات كىلومېتىر</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} كۋادرات كىلومېتىر</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName draft="provisional">كۋادرات مېتىر</displayName>
@@ -4639,6 +4629,31 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<unitPattern count="one" draft="contributed">{0} كۋادرات مىل</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} كۋادرات مىل</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<displayName draft="provisional">ئىنگلىز موسى</displayName>
+				<unitPattern count="one" draft="contributed">{0} ئىنگلىز موسى</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ئىنگلىز موسى</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<displayName draft="provisional">كۋادرات فۇت</displayName>
+				<unitPattern count="one" draft="contributed">{0} كۋادرات فۇت</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} كۋادرات فۇت</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="provisional">يىل</displayName>
+				<unitPattern count="one" draft="contributed">{0} يىل</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} يىل</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">ئاي</displayName>
+				<unitPattern count="one" draft="contributed">{0} ئاي</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ئاي</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">ھەپتە</displayName>
+				<unitPattern count="one" draft="contributed">{0} ھەپتە</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ھەپتە</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">كۈن</displayName>
 				<unitPattern count="one" draft="contributed">{0} كۈن</unitPattern>
@@ -4649,70 +4664,35 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<unitPattern count="one" draft="contributed">{0} سائەت</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} سائەت</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName draft="provisional">مىللى سېكۇنت</displayName>
-				<unitPattern count="one" draft="contributed">{0} مىللى سېكۇنت</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} مىللى سېكۇنت</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName draft="provisional">مىنۇت</displayName>
 				<unitPattern count="one" draft="contributed">{0} مىنۇت</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} مىنۇت</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">ئاي</displayName>
-				<unitPattern count="one" draft="contributed">{0} ئاي</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ئاي</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">سېكۇنت</displayName>
 				<unitPattern count="one" draft="contributed">{0} سېكۇنت</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} سېكۇنت</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="provisional">ھەپتە</displayName>
-				<unitPattern count="one" draft="contributed">{0} ھەپتە</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ھەپتە</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">يىل</displayName>
-				<unitPattern count="one" draft="contributed">{0} يىل</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} يىل</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="provisional">سانتىمېتىر</displayName>
-				<unitPattern count="one" draft="contributed">{0} سانتىمېتىر</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} سانتىمېتىر</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName draft="provisional">فۇت</displayName>
-				<unitPattern count="one" draft="contributed">{0} فۇت</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} فۇت</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName draft="provisional">ديۇيم</displayName>
-				<unitPattern count="one" draft="contributed">{0} ديۇيم</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ديۇيم</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName draft="provisional">مىللى سېكۇنت</displayName>
+				<unitPattern count="one" draft="contributed">{0} مىللى سېكۇنت</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} مىللى سېكۇنت</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="provisional">كىلومېتىر</displayName>
 				<unitPattern count="one" draft="contributed">{0} كىلومېتىر</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} كىلومېتىر</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName draft="provisional">يورۇقلۇق يىلى</displayName>
-				<unitPattern count="one" draft="contributed">{0} يورۇقلۇق يىلى</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} يورۇقلۇق يىلى</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName draft="provisional">مېتىر</displayName>
 				<unitPattern count="one" draft="contributed">{0} مېتىر</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} مېتىر</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName draft="provisional">مىل</displayName>
-				<unitPattern count="one" draft="contributed">{0} مىل</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} مىل</unitPattern>
+			<unit type="length-centimeter">
+				<displayName draft="provisional">سانتىمېتىر</displayName>
+				<unitPattern count="one" draft="contributed">{0} سانتىمېتىر</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} سانتىمېتىر</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="provisional">مىللىمېتىر</displayName>
@@ -4724,35 +4704,50 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<unitPattern count="one" draft="contributed">{0} پىكومېتىر</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} پىكومېتىر</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<displayName draft="provisional">مىل</displayName>
+				<unitPattern count="one" draft="contributed">{0} مىل</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} مىل</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<displayName draft="provisional">يارد</displayName>
 				<unitPattern count="one" draft="contributed">{0} يارد</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} يارد</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName draft="provisional">گرام</displayName>
-				<unitPattern count="one" draft="contributed">{0} گرام</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} گرام</unitPattern>
+			<unit type="length-foot">
+				<displayName draft="provisional">فۇت</displayName>
+				<unitPattern count="one" draft="contributed">{0} فۇت</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} فۇت</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName draft="provisional">ديۇيم</displayName>
+				<unitPattern count="one" draft="contributed">{0} ديۇيم</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ديۇيم</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName draft="provisional">يورۇقلۇق يىلى</displayName>
+				<unitPattern count="one" draft="contributed">{0} يورۇقلۇق يىلى</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} يورۇقلۇق يىلى</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="provisional">كىلوگرام</displayName>
 				<unitPattern count="one" draft="contributed">{0} كىلوگرام</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} كىلوگرام</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<displayName draft="provisional">ئۇنسىيە</displayName>
-				<unitPattern count="one" draft="contributed">{0} ئۇنسىيە</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ئۇنسىيە</unitPattern>
+			<unit type="mass-gram">
+				<displayName draft="provisional">گرام</displayName>
+				<unitPattern count="one" draft="contributed">{0} گرام</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} گرام</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName draft="provisional">قاداق</displayName>
 				<unitPattern count="one" draft="contributed">{0} قاداق</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} قاداق</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName draft="provisional">ئات كۈچى</displayName>
-				<unitPattern count="one" draft="contributed">{0} ئات كۈچى</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ئات كۈچى</unitPattern>
+			<unit type="mass-ounce">
+				<displayName draft="provisional">ئۇنسىيە</displayName>
+				<unitPattern count="one" draft="contributed">{0} ئۇنسىيە</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ئۇنسىيە</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName draft="provisional">كىلوۋات</displayName>
@@ -4763,6 +4758,11 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<displayName draft="provisional">ۋات</displayName>
 				<unitPattern count="one" draft="contributed">{0} ۋات</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ۋات</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName draft="provisional">ئات كۈچى</displayName>
+				<unitPattern count="one" draft="contributed">{0} ئات كۈچى</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ئات كۈچى</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName draft="provisional">يۈز پاسكال</displayName>
@@ -4834,25 +4834,15 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<unitPattern count="one" draft="contributed">{0} گىرادۇس</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} گىرادۇس</unitPattern>
 			</unit>
-			<unit type="area-acre">
-				<displayName draft="provisional">ئىنگلىز موسى</displayName>
-				<unitPattern count="one" draft="contributed">{0} ئىنگلىز موسى</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ئىنگلىز موسى</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName draft="provisional">كۋادرات كىلومېتىر</displayName>
+				<unitPattern count="one" draft="contributed">{0} km²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName draft="provisional">hectares</displayName>
 				<unitPattern count="one" draft="contributed">{0} گېكتار</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} گېكتار</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<displayName draft="provisional">كۋادرات فۇت</displayName>
-				<unitPattern count="one" draft="contributed">{0} كۋادرات فۇت</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} كۋادرات فۇت</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<displayName draft="provisional">كۋادرات كىلومېتىر</displayName>
-				<unitPattern count="one" draft="contributed">{0} km²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName draft="provisional">كۋادرات مېتىر</displayName>
@@ -4864,6 +4854,31 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<unitPattern count="one" draft="contributed">{0} كۋادرات مىل</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} كۋادرات مىل</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<displayName draft="provisional">ئىنگلىز موسى</displayName>
+				<unitPattern count="one" draft="contributed">{0} ئىنگلىز موسى</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ئىنگلىز موسى</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<displayName draft="provisional">كۋادرات فۇت</displayName>
+				<unitPattern count="one" draft="contributed">{0} كۋادرات فۇت</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} كۋادرات فۇت</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="provisional">يىل</displayName>
+				<unitPattern count="one" draft="contributed">{0} يىل</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} يىل</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">ئاي</displayName>
+				<unitPattern count="one" draft="contributed">{0} ئاي</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ئاي</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">ھەپتە</displayName>
+				<unitPattern count="one" draft="contributed">{0} ھەپتە</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ھەپتە</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">كۈن</displayName>
 				<unitPattern count="one" draft="contributed">{0} كۈن</unitPattern>
@@ -4874,70 +4889,35 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<unitPattern count="one" draft="contributed">{0} سائەت</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} سائەت</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName draft="provisional">مىللى سېكۇنت</displayName>
-				<unitPattern count="one" draft="contributed">{0} مىللىسېكۇنت</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} مىللىسېكۇنت</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName draft="provisional">مىنۇت</displayName>
 				<unitPattern count="one" draft="contributed">{0} مىنۇت</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} مىنۇت</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">ئاي</displayName>
-				<unitPattern count="one" draft="contributed">{0} ئاي</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ئاي</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">سېكۇنت</displayName>
 				<unitPattern count="one" draft="contributed">{0} سېكۇنت</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} سېكۇنت</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="provisional">ھەپتە</displayName>
-				<unitPattern count="one" draft="contributed">{0} ھەپتە</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ھەپتە</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">يىل</displayName>
-				<unitPattern count="one" draft="contributed">{0} يىل</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} يىل</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="provisional">سانتىمېتىر</displayName>
-				<unitPattern count="one" draft="contributed">{0} سانتىمېتىر</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} سانتىمېتىر</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName draft="provisional">فۇت</displayName>
-				<unitPattern count="one" draft="contributed">{0} پۇت</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} پۇت</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName draft="provisional">ديۇيم</displayName>
-				<unitPattern count="one" draft="contributed">{0} ئىنگلىز چىسى</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ئىنگلىز چىسى</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName draft="provisional">مىللى سېكۇنت</displayName>
+				<unitPattern count="one" draft="contributed">{0} مىللىسېكۇنت</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} مىللىسېكۇنت</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="provisional">كىلومېتىر</displayName>
 				<unitPattern count="one" draft="contributed">{0} كىلومېتىر</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} كىلومېتىر</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName draft="provisional">يورۇقلۇق يىلى</displayName>
-				<unitPattern count="one" draft="contributed">{0} يورۇقلۇق يىلى</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} يورۇقلۇق يىلى</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName draft="provisional">مېتىر</displayName>
 				<unitPattern count="one" draft="contributed">{0} مېتىر</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} مېتىر</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName draft="provisional">مىل</displayName>
-				<unitPattern count="one" draft="contributed">{0} مىل</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} مىل</unitPattern>
+			<unit type="length-centimeter">
+				<displayName draft="provisional">سانتىمېتىر</displayName>
+				<unitPattern count="one" draft="contributed">{0} سانتىمېتىر</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} سانتىمېتىر</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="provisional">مىللىمېتىر</displayName>
@@ -4949,35 +4929,50 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<unitPattern count="one" draft="contributed">{0} پىكومېتىر</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} پىكومېتىر</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<displayName draft="provisional">مىل</displayName>
+				<unitPattern count="one" draft="contributed">{0} مىل</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} مىل</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<displayName draft="provisional">يارد</displayName>
 				<unitPattern count="one" draft="contributed">{0} يارد</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} يارد</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName draft="provisional">گرام</displayName>
-				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
+			<unit type="length-foot">
+				<displayName draft="provisional">فۇت</displayName>
+				<unitPattern count="one" draft="contributed">{0} پۇت</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} پۇت</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName draft="provisional">ديۇيم</displayName>
+				<unitPattern count="one" draft="contributed">{0} ئىنگلىز چىسى</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ئىنگلىز چىسى</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName draft="provisional">يورۇقلۇق يىلى</displayName>
+				<unitPattern count="one" draft="contributed">{0} يورۇقلۇق يىلى</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} يورۇقلۇق يىلى</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="provisional">كىلوگرام</displayName>
 				<unitPattern count="one" draft="contributed">{0} kg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kg</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<displayName draft="provisional">ئۇنسىيە</displayName>
-				<unitPattern count="one" draft="contributed">{0} ئۇنسىيە</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ئۇنسىيە</unitPattern>
+			<unit type="mass-gram">
+				<displayName draft="provisional">گرام</displayName>
+				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName draft="provisional">قاداق</displayName>
 				<unitPattern count="one" draft="contributed">{0} قاداق</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} قاداق</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName draft="provisional">ئات كۈچى</displayName>
-				<unitPattern count="one" draft="contributed">{0} ئات كۈچى</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ئات كۈچى</unitPattern>
+			<unit type="mass-ounce">
+				<displayName draft="provisional">ئۇنسىيە</displayName>
+				<unitPattern count="one" draft="contributed">{0} ئۇنسىيە</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ئۇنسىيە</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName draft="provisional">كىلوۋات</displayName>
@@ -4988,6 +4983,11 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<displayName draft="provisional">ۋات</displayName>
 				<unitPattern count="one" draft="contributed">{0} W</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} W</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName draft="provisional">ئات كۈچى</displayName>
+				<unitPattern count="one" draft="contributed">{0} ئات كۈچى</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ئات كۈچى</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName draft="provisional">يۈز پاسكال</displayName>
@@ -5054,21 +5054,33 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
-			<unit type="area-acre">
-				<unitPattern count="one">{0}ac</unitPattern>
-				<unitPattern count="other">{0}ac</unitPattern>
-			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="one" draft="contributed">{0}گېكتار</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}گېكتار</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one" draft="contributed">{0}mi²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}mi²</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0}ac</unitPattern>
+				<unitPattern count="other">{0}ac</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<unitPattern count="one" draft="contributed">{0}ft²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}ft²</unitPattern>
 			</unit>
-			<unit type="area-square-mile">
-				<unitPattern count="one" draft="contributed">{0}mi²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}mi²</unitPattern>
+			<unit type="duration-year">
+				<unitPattern count="one" draft="contributed">{0} يىل</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} يىل</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one" draft="contributed">{0} ئاي</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ئاي</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one" draft="contributed">{0} ھەپتە</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ھەپتە</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<unitPattern count="one" draft="contributed">{0} كۈن</unitPattern>
@@ -5078,57 +5090,29 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<unitPattern count="one" draft="contributed">{0}h</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}h</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<unitPattern count="one" draft="contributed">{0}ms</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="one" draft="contributed">{0}m</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}m</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<unitPattern count="one" draft="contributed">{0} ئاي</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ئاي</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one" draft="contributed">{0}s</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}s</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<unitPattern count="one" draft="contributed">{0} ھەپتە</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ھەپتە</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<unitPattern count="one" draft="contributed">{0} يىل</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} يىل</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<unitPattern count="one" draft="contributed">{0}cm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}cm</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="one" draft="contributed">{0}′</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="one" draft="contributed">{0}″</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
+			<unit type="duration-millisecond">
+				<unitPattern count="one" draft="contributed">{0}ms</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}ms</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<unitPattern count="one" draft="contributed">{0}km</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}km</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="one" draft="contributed">{0}ly</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}ly</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<unitPattern count="one" draft="contributed">{0}m</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}m</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="one" draft="contributed">{0}mi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}mi</unitPattern>
+			<unit type="length-centimeter">
+				<unitPattern count="one" draft="contributed">{0}cm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}cm</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<unitPattern count="one" draft="contributed">{0}mm</unitPattern>
@@ -5138,29 +5122,41 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<unitPattern count="one" draft="contributed">{0}pm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}pm</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one" draft="contributed">{0}mi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}mi</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<unitPattern count="one" draft="contributed">{0}yd</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}yd</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<unitPattern count="one" draft="contributed">{0}g</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}g</unitPattern>
+			<unit type="length-foot">
+				<unitPattern count="one" draft="contributed">{0}′</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one" draft="contributed">{0}″</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one" draft="contributed">{0}ly</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}ly</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<unitPattern count="one" draft="contributed">{0}kg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}kg</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="one" draft="contributed">{0}oz</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}oz</unitPattern>
+			<unit type="mass-gram">
+				<unitPattern count="one" draft="contributed">{0}g</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}g</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="one" draft="contributed">{0}#</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}#</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="one" draft="contributed">{0}hp</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}hp</unitPattern>
+			<unit type="mass-ounce">
+				<unitPattern count="one" draft="contributed">{0}oz</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}oz</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one" draft="contributed">{0}kW</unitPattern>
@@ -5169,6 +5165,10 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 			<unit type="power-watt">
 				<unitPattern count="one" draft="contributed">{0}W</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}W</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one" draft="contributed">{0}hp</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}hp</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="one" draft="contributed">{0}hPa</unitPattern>

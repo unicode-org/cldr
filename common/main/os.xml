@@ -844,6 +844,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<displayName draft="contributed">азы</displayName>
+				<unitPattern count="one">{0} аз</unitPattern>
+				<unitPattern count="other">{0} азы</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="contributed">мӕйы</displayName>
+				<unitPattern count="one">{0} мӕй</unitPattern>
+				<unitPattern count="other">{0} мӕйы</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="contributed">къуырийы</displayName>
+				<unitPattern count="one">{0} къуыри</unitPattern>
+				<unitPattern count="other">{0} къуырийы</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">боны</displayName>
 				<unitPattern count="one">{0} бон</unitPattern>
@@ -859,28 +874,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} минут</unitPattern>
 				<unitPattern count="other">{0} минуты</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="contributed">мӕйы</displayName>
-				<unitPattern count="one">{0} мӕй</unitPattern>
-				<unitPattern count="other">{0} мӕйы</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="contributed">секунды</displayName>
 				<unitPattern count="one">{0} секунд</unitPattern>
 				<unitPattern count="other">{0} секунды</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="contributed">къуырийы</displayName>
-				<unitPattern count="one">{0} къуыри</unitPattern>
-				<unitPattern count="other">{0} къуырийы</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">азы</displayName>
-				<unitPattern count="one">{0} аз</unitPattern>
-				<unitPattern count="other">{0} азы</unitPattern>
-			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="duration-year">
+				<displayName draft="contributed">азы</displayName>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="contributed">мӕйы</displayName>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="contributed">къуырийы</displayName>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">боны</displayName>
 				<unitPattern count="one">{0} бон</unitPattern>
@@ -896,17 +905,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} мин.</unitPattern>
 				<unitPattern count="other">{0} мин.</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="contributed">мӕйы</displayName>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="contributed">секунды</displayName>
-			</unit>
-			<unit type="duration-week">
-				<displayName draft="contributed">къуырийы</displayName>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">азы</displayName>
 			</unit>
 		</unitLength>
 	</units>

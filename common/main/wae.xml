@@ -1320,6 +1320,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<displayName draft="contributed">jár</displayName>
+				<unitPattern count="one">{0} jár</unitPattern>
+				<unitPattern count="other">{0} jár</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="contributed">mánet</displayName>
+				<unitPattern count="one">{0} mánet</unitPattern>
+				<unitPattern count="other">{0} mánet</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="contributed">wučä</displayName>
+				<unitPattern count="one">{0} wuča</unitPattern>
+				<unitPattern count="other">{0} wučä</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">täg</displayName>
 				<unitPattern count="one">{0} täg</unitPattern>
@@ -1335,28 +1350,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} minüta</unitPattern>
 				<unitPattern count="other">{0} minüte</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="contributed">mánet</displayName>
-				<unitPattern count="one">{0} mánet</unitPattern>
-				<unitPattern count="other">{0} mánet</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="contributed">sekunde</displayName>
 				<unitPattern count="one">{0} sekund</unitPattern>
 				<unitPattern count="other">{0} sekunde</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="contributed">wučä</displayName>
-				<unitPattern count="one">{0} wuča</unitPattern>
-				<unitPattern count="other">{0} wučä</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">jár</displayName>
-				<unitPattern count="one">{0} jár</unitPattern>
-				<unitPattern count="other">{0} jár</unitPattern>
-			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="duration-year">
+				<displayName draft="contributed">jár</displayName>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="contributed">mánet</displayName>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="contributed">wučä</displayName>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">täg</displayName>
 			</unit>
@@ -1366,17 +1375,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<displayName draft="contributed">minüte</displayName>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="contributed">mánet</displayName>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="contributed">sekunde</displayName>
-			</unit>
-			<unit type="duration-week">
-				<displayName draft="contributed">wučä</displayName>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">jár</displayName>
 			</unit>
 		</unitLength>
 	</units>

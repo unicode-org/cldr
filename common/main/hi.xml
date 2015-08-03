@@ -6037,6 +6037,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} मीटर प्रति सेकंड वर्ग</unitPattern>
 				<unitPattern count="other">{0} मीटर प्रति सेकंड वर्ग</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName draft="contributed">घूर्णन</displayName>
+				<unitPattern count="one" draft="contributed">{0} घूर्णन</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} घूर्णन</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>रेडियन</displayName>
+				<unitPattern count="one">{0} रेडियन</unitPattern>
+				<unitPattern count="other">{0} रेडियन</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>अंश</displayName>
+				<unitPattern count="one">{0} अंश</unitPattern>
+				<unitPattern count="other">{0} अंश</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>आर्क मिनट</displayName>
 				<unitPattern count="one">{0} आर्क मिनट</unitPattern>
@@ -6047,36 +6062,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} आर्क सेकंड</unitPattern>
 				<unitPattern count="other">{0} आर्क सेकंड</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>अंश</displayName>
-				<unitPattern count="one">{0} अंश</unitPattern>
-				<unitPattern count="other">{0} अंश</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>रेडियन</displayName>
-				<unitPattern count="one">{0} रेडियन</unitPattern>
-				<unitPattern count="other">{0} रेडियन</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName draft="contributed">घूर्णन</displayName>
-				<unitPattern count="one" draft="contributed">{0} घूर्णन</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} घूर्णन</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>एकड़</displayName>
-				<unitPattern count="one">{0} एकड़</unitPattern>
-				<unitPattern count="other">{0} एकड़</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>वर्ग किलोमीटर</displayName>
+				<unitPattern count="one">{0} वर्ग किलोमीटर</unitPattern>
+				<unitPattern count="other">{0} वर्ग किलोमीटर</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>हेक्टेयर</displayName>
 				<unitPattern count="one">{0} हेक्टेयर</unitPattern>
 				<unitPattern count="other">{0} हेक्टेयर</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>वर्ग मीटर</displayName>
+				<unitPattern count="one">{0} वर्ग मीटर</unitPattern>
+				<unitPattern count="other">{0} वर्ग मीटर</unitPattern>
+				<perUnitPattern draft="contributed">{0}/वर्ग मीटर</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>वर्ग सेंटीमीटर</displayName>
 				<unitPattern count="one">{0} वर्ग सेंटीमीटर</unitPattern>
 				<unitPattern count="other">{0} वर्ग सेंटीमीटर</unitPattern>
 				<perUnitPattern draft="contributed">{0}/वर्ग सेंटीमीटर</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>वर्ग मील</displayName>
+				<unitPattern count="one">{0} वर्ग मील</unitPattern>
+				<unitPattern count="other">{0} वर्ग मील</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>एकड़</displayName>
+				<unitPattern count="one">{0} एकड़</unitPattern>
+				<unitPattern count="other">{0} एकड़</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>वर्ग यार्ड</displayName>
+				<unitPattern count="one">{0} वर्ग यार्ड</unitPattern>
+				<unitPattern count="other">{0} वर्ग यार्ड</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>वर्गफ़ीट</displayName>
@@ -6089,96 +6110,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} वर्ग इंच</unitPattern>
 				<perUnitPattern draft="contributed">{0}/वर्ग इंच</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>वर्ग किलोमीटर</displayName>
-				<unitPattern count="one">{0} वर्ग किलोमीटर</unitPattern>
-				<unitPattern count="other">{0} वर्ग किलोमीटर</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>वर्ग मीटर</displayName>
-				<unitPattern count="one">{0} वर्ग मीटर</unitPattern>
-				<unitPattern count="other">{0} वर्ग मीटर</unitPattern>
-				<perUnitPattern draft="contributed">{0}/वर्ग मीटर</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>वर्ग मील</displayName>
-				<unitPattern count="one">{0} वर्ग मील</unitPattern>
-				<unitPattern count="other">{0} वर्ग मील</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>वर्ग यार्ड</displayName>
-				<unitPattern count="one">{0} वर्ग यार्ड</unitPattern>
-				<unitPattern count="other">{0} वर्ग यार्ड</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>लीटर प्रति किलोमीटर</displayName>
+				<unitPattern count="one">{0} लीटर प्रति किलोमीटर</unitPattern>
+				<unitPattern count="other">{0} लीटर प्रति किलोमीटर</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName draft="contributed">लीटर प्रति 100 किलोमीटर</displayName>
 				<unitPattern count="one" draft="contributed">{0} लीटर प्रति 100 किलोमीटर</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} लीटर प्रति 100 किलोमीटर</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>लीटर प्रति किलोमीटर</displayName>
-				<unitPattern count="one">{0} लीटर प्रति किलोमीटर</unitPattern>
-				<unitPattern count="other">{0} लीटर प्रति किलोमीटर</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>मील प्रति गैलन</displayName>
 				<unitPattern count="one">{0} मील प्रति गैलन</unitPattern>
 				<unitPattern count="other">{0} मील प्रति गैलन</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>बिट</displayName>
-				<unitPattern count="one">{0} बिट</unitPattern>
-				<unitPattern count="other">{0} बिट</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>बाइट</displayName>
-				<unitPattern count="one">{0} बाइट</unitPattern>
-				<unitPattern count="other">{0} बाइट</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>गीगाबिट</displayName>
-				<unitPattern count="one">{0} गीगाबिट</unitPattern>
-				<unitPattern count="other">{0} गीगाबिट</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>गीगाबाइट</displayName>
-				<unitPattern count="one">{0} गीगाबाइट</unitPattern>
-				<unitPattern count="other">{0} गीगाबाइट</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>किलोबिट</displayName>
-				<unitPattern count="one">{0} किलोबिट</unitPattern>
-				<unitPattern count="other">{0} किलोबिट</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>किलोबाइट</displayName>
-				<unitPattern count="one">{0} किलोबाइट</unitPattern>
-				<unitPattern count="other">{0} किलोबाइट</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>मेगाबिट</displayName>
-				<unitPattern count="one">{0} मेगाबिट</unitPattern>
-				<unitPattern count="other">{0} मेगाबिट</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>मेगाबाइट</displayName>
-				<unitPattern count="one">{0} मेगाबाइट</unitPattern>
-				<unitPattern count="other">{0} मेगाबाइट</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>टेराबिट</displayName>
-				<unitPattern count="one">{0} टेराबिट</unitPattern>
-				<unitPattern count="other">{0} टेराबिट</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>टेराबाइट</displayName>
 				<unitPattern count="one">{0} टेराबाइट</unitPattern>
 				<unitPattern count="other">{0} टेराबाइट</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>टेराबिट</displayName>
+				<unitPattern count="one">{0} टेराबिट</unitPattern>
+				<unitPattern count="other">{0} टेराबिट</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>गीगाबाइट</displayName>
+				<unitPattern count="one">{0} गीगाबाइट</unitPattern>
+				<unitPattern count="other">{0} गीगाबाइट</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>गीगाबिट</displayName>
+				<unitPattern count="one">{0} गीगाबिट</unitPattern>
+				<unitPattern count="other">{0} गीगाबिट</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>मेगाबाइट</displayName>
+				<unitPattern count="one">{0} मेगाबाइट</unitPattern>
+				<unitPattern count="other">{0} मेगाबाइट</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>मेगाबिट</displayName>
+				<unitPattern count="one">{0} मेगाबिट</unitPattern>
+				<unitPattern count="other">{0} मेगाबिट</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>किलोबाइट</displayName>
+				<unitPattern count="one">{0} किलोबाइट</unitPattern>
+				<unitPattern count="other">{0} किलोबाइट</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>किलोबिट</displayName>
+				<unitPattern count="one">{0} किलोबिट</unitPattern>
+				<unitPattern count="other">{0} किलोबिट</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>बाइट</displayName>
+				<unitPattern count="one">{0} बाइट</unitPattern>
+				<unitPattern count="other">{0} बाइट</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>बिट</displayName>
+				<unitPattern count="one">{0} बिट</unitPattern>
+				<unitPattern count="other">{0} बिट</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName draft="contributed">शताब्दियाँ</displayName>
 				<unitPattern count="one" draft="contributed">{0} शताब्दी</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} शताब्दियाँ</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>वर्ष</displayName>
+				<unitPattern count="one">{0} वर्ष</unitPattern>
+				<unitPattern count="other">{0} वर्ष</unitPattern>
+				<perUnitPattern draft="contributed">{0}/वर्ष</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>माह</displayName>
+				<unitPattern count="one">{0} माह</unitPattern>
+				<unitPattern count="other">{0} माह</unitPattern>
+				<perUnitPattern draft="contributed">{0}/माह</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>सप्ताह</displayName>
+				<unitPattern count="one">{0} सप्ताह</unitPattern>
+				<unitPattern count="other">{0} सप्ताह</unitPattern>
+				<perUnitPattern draft="contributed">{0}/सप्ताह</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>दिन</displayName>
@@ -6192,32 +6210,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} घंटे</unitPattern>
 				<perUnitPattern>{0} प्रति घंटा</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>माइक्रोसेकंड</displayName>
-				<unitPattern count="one">{0} माइक्रोसेकंड</unitPattern>
-				<unitPattern count="other">{0} माइक्रोसेकंड</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>मिलीसेकंड</displayName>
-				<unitPattern count="one">{0} मिलीसेकंड</unitPattern>
-				<unitPattern count="other">{0} मिलीसेकंड</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>मिनट</displayName>
 				<unitPattern count="one">{0} मिनट</unitPattern>
 				<unitPattern count="other">{0} मिनट</unitPattern>
 				<perUnitPattern draft="contributed">{0}/मिनट</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>माह</displayName>
-				<unitPattern count="one">{0} माह</unitPattern>
-				<unitPattern count="other">{0} माह</unitPattern>
-				<perUnitPattern draft="contributed">{0}/माह</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>नैनो सेकंड</displayName>
-				<unitPattern count="one">{0} नैनो सेकंड</unitPattern>
-				<unitPattern count="other">{0} नैनो सेकंड</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>सेकंड</displayName>
@@ -6225,17 +6222,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} सेकंड</unitPattern>
 				<perUnitPattern>{0} प्रति सेकंड</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>सप्ताह</displayName>
-				<unitPattern count="one">{0} सप्ताह</unitPattern>
-				<unitPattern count="other">{0} सप्ताह</unitPattern>
-				<perUnitPattern draft="contributed">{0}/सप्ताह</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>मिलीसेकंड</displayName>
+				<unitPattern count="one">{0} मिलीसेकंड</unitPattern>
+				<unitPattern count="other">{0} मिलीसेकंड</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>वर्ष</displayName>
-				<unitPattern count="one">{0} वर्ष</unitPattern>
-				<unitPattern count="other">{0} वर्ष</unitPattern>
-				<perUnitPattern draft="contributed">{0}/वर्ष</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>माइक्रोसेकंड</displayName>
+				<unitPattern count="one">{0} माइक्रोसेकंड</unitPattern>
+				<unitPattern count="other">{0} माइक्रोसेकंड</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>नैनो सेकंड</displayName>
+				<unitPattern count="one">{0} नैनो सेकंड</unitPattern>
+				<unitPattern count="other">{0} नैनो सेकंड</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>एम्पीयर</displayName>
@@ -6257,6 +6257,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} वोल्ट</unitPattern>
 				<unitPattern count="other">{0} वोल्ट्स</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>किलो कैलोरी</displayName>
+				<unitPattern count="one">{0} किलो कैलोरी</unitPattern>
+				<unitPattern count="other">{0} किलो कैलोरी</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>कैलोरी</displayName>
 				<unitPattern count="one">{0} कैलोरी</unitPattern>
@@ -6267,20 +6272,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} कैलोरी</unitPattern>
 				<unitPattern count="other">{0} कैलोरी</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>जूल</displayName>
-				<unitPattern count="one">{0} जूल</unitPattern>
-				<unitPattern count="other">{0} जूल</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>किलो कैलोरी</displayName>
-				<unitPattern count="one">{0} किलो कैलोरी</unitPattern>
-				<unitPattern count="other">{0} किलो कैलोरी</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>किलो जूल</displayName>
 				<unitPattern count="one">{0} किलो जूल</unitPattern>
 				<unitPattern count="other">{0} किलो जूल</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>जूल</displayName>
+				<unitPattern count="one">{0} जूल</unitPattern>
+				<unitPattern count="other">{0} जूल</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>किलोवॉट घंटे</displayName>
@@ -6292,25 +6292,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} गीगाहर्ट्ज़</unitPattern>
 				<unitPattern count="other">{0} गीगाहर्ट्ज़</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>हर्ट्ज़</displayName>
-				<unitPattern count="one">{0} हर्ट्ज़</unitPattern>
-				<unitPattern count="other">{0} हर्ट्ज़</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>मेगाहर्ट्ज़</displayName>
+				<unitPattern count="one">{0} मेगाहर्ट्ज़</unitPattern>
+				<unitPattern count="other">{0} मेगाहर्ट्ज़</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>किलोहर्ट्ज़</displayName>
 				<unitPattern count="one">{0} किलोहर्ट्ज़</unitPattern>
 				<unitPattern count="other">{0} किलोहर्ट्ज़</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>मेगाहर्ट्ज़</displayName>
-				<unitPattern count="one">{0} मेगाहर्ट्ज़</unitPattern>
-				<unitPattern count="other">{0} मेगाहर्ट्ज़</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>हर्ट्ज़</displayName>
+				<unitPattern count="one">{0} हर्ट्ज़</unitPattern>
+				<unitPattern count="other">{0} हर्ट्ज़</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>खगोलीय इकाईयां</displayName>
-				<unitPattern count="one">{0} खगोलीय इकाई</unitPattern>
-				<unitPattern count="other">{0} खगोलीय इकाईयां</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>किलोमीटर</displayName>
+				<unitPattern count="one">{0} किलोमीटर</unitPattern>
+				<unitPattern count="other">{0} किलोमीटर</unitPattern>
+				<perUnitPattern draft="contributed">{0}/किलोमीटर</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>मीटर</displayName>
+				<unitPattern count="one">{0} मीटर</unitPattern>
+				<unitPattern count="other">{0} मीटर</unitPattern>
+				<perUnitPattern draft="contributed">{0}/मीटर</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>डेसीमीटर</displayName>
+				<unitPattern count="one">{0} डेसीमीटर</unitPattern>
+				<unitPattern count="other">{0} डेसीमीटर</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>सेंटीमीटर</displayName>
@@ -6318,10 +6330,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} सेंटीमीटर</unitPattern>
 				<perUnitPattern draft="contributed">{0}/सेंटीमीटर</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>डेसीमीटर</displayName>
-				<unitPattern count="one">{0} डेसीमीटर</unitPattern>
-				<unitPattern count="other">{0} डेसीमीटर</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>मिलीमीटर</displayName>
+				<unitPattern count="one">{0} मिलीमीटर</unitPattern>
+				<unitPattern count="other">{0} मिलीमीटर</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>माइक्रोमीटर</displayName>
+				<unitPattern count="one">{0} माइक्रोमीटर</unitPattern>
+				<unitPattern count="other">{0} माइक्रोमीटर</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>नैनोमीटर</displayName>
+				<unitPattern count="one">{0} नैनोमीटर</unitPattern>
+				<unitPattern count="other">{0} नैनोमीटर</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>पिकोमीटर</displayName>
+				<unitPattern count="one">{0} पिकोमीटर</unitPattern>
+				<unitPattern count="other">{0} पिकोमीटर</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>मील</displayName>
+				<unitPattern count="one">{0} मील</unitPattern>
+				<unitPattern count="other">{0} मील</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>यार्ड</displayName>
+				<unitPattern count="one">{0} यार्ड</unitPattern>
+				<unitPattern count="other">{0} यार्ड</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>फ़ीट</displayName>
@@ -6335,83 +6372,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} इंच</unitPattern>
 				<perUnitPattern draft="contributed">{0}/इंच</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>किलोमीटर</displayName>
-				<unitPattern count="one">{0} किलोमीटर</unitPattern>
-				<unitPattern count="other">{0} किलोमीटर</unitPattern>
-				<perUnitPattern draft="contributed">{0}/किलोमीटर</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>पार्सेक</displayName>
+				<unitPattern count="one">{0} पार्सेक</unitPattern>
+				<unitPattern count="other">{0} पार्सेक</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>प्रकाश वर्ष</displayName>
 				<unitPattern count="one">{0} प्रकाश वर्ष</unitPattern>
 				<unitPattern count="other">{0} प्रकाश वर्ष</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>मीटर</displayName>
-				<unitPattern count="one">{0} मीटर</unitPattern>
-				<unitPattern count="other">{0} मीटर</unitPattern>
-				<perUnitPattern draft="contributed">{0}/मीटर</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>माइक्रोमीटर</displayName>
-				<unitPattern count="one">{0} माइक्रोमीटर</unitPattern>
-				<unitPattern count="other">{0} माइक्रोमीटर</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>मील</displayName>
-				<unitPattern count="one">{0} मील</unitPattern>
-				<unitPattern count="other">{0} मील</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName draft="contributed">मील-स्कैण्डिनेवियन</displayName>
-				<unitPattern count="one" draft="contributed">{0} मील-स्कैण्डिनेवियन</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} मील-स्कैण्डिनेवियन</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>मिलीमीटर</displayName>
-				<unitPattern count="one">{0} मिलीमीटर</unitPattern>
-				<unitPattern count="other">{0} मिलीमीटर</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>नैनोमीटर</displayName>
-				<unitPattern count="one">{0} नैनोमीटर</unitPattern>
-				<unitPattern count="other">{0} नैनोमीटर</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>खगोलीय इकाईयां</displayName>
+				<unitPattern count="one">{0} खगोलीय इकाई</unitPattern>
+				<unitPattern count="other">{0} खगोलीय इकाईयां</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>नॉटिकल मील</displayName>
 				<unitPattern count="one">{0} नॉटिकल मील</unitPattern>
 				<unitPattern count="other">{0} नॉटिकल मील</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>पार्सेक</displayName>
-				<unitPattern count="one">{0} पार्सेक</unitPattern>
-				<unitPattern count="other">{0} पार्सेक</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>पिकोमीटर</displayName>
-				<unitPattern count="one">{0} पिकोमीटर</unitPattern>
-				<unitPattern count="other">{0} पिकोमीटर</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>यार्ड</displayName>
-				<unitPattern count="one">{0} यार्ड</unitPattern>
-				<unitPattern count="other">{0} यार्ड</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName draft="contributed">मील-स्कैण्डिनेवियन</displayName>
+				<unitPattern count="one" draft="contributed">{0} मील-स्कैण्डिनेवियन</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} मील-स्कैण्डिनेवियन</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>लक्स</displayName>
 				<unitPattern count="one">{0} लक्स</unitPattern>
 				<unitPattern count="other">{0} लक्स</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>कैरेट</displayName>
-				<unitPattern count="one">{0} कैरेट</unitPattern>
-				<unitPattern count="other">{0} कैरेट</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>ग्राम</displayName>
-				<unitPattern count="one">{0} ग्राम</unitPattern>
-				<unitPattern count="other">{0} ग्राम</unitPattern>
-				<perUnitPattern>{0}/ग्राम</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>मीट्रिक टन</displayName>
+				<unitPattern count="one">{0} मीट्रिक टन</unitPattern>
+				<unitPattern count="other">{0} मीट्रिक टन</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>किलोग्राम</displayName>
@@ -6419,20 +6413,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} किलोग्राम</unitPattern>
 				<perUnitPattern>{0}/किलोग्राम</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>मीट्रिक टन</displayName>
-				<unitPattern count="one">{0} मीट्रिक टन</unitPattern>
-				<unitPattern count="other">{0} मीट्रिक टन</unitPattern>
+			<unit type="mass-gram">
+				<displayName>ग्राम</displayName>
+				<unitPattern count="one">{0} ग्राम</unitPattern>
+				<unitPattern count="other">{0} ग्राम</unitPattern>
+				<perUnitPattern>{0}/ग्राम</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>मिलीग्राम</displayName>
+				<unitPattern count="one">{0} मिलीग्राम</unitPattern>
+				<unitPattern count="other">{0} मिलीग्राम</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>माइक्रोग्राम</displayName>
 				<unitPattern count="one">{0} माइक्रोग्राम</unitPattern>
 				<unitPattern count="other">{0} माइक्रोग्राम</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>मिलीग्राम</displayName>
-				<unitPattern count="one">{0} मिलीग्राम</unitPattern>
-				<unitPattern count="other">{0} मिलीग्राम</unitPattern>
+			<unit type="mass-ton">
+				<displayName>टन</displayName>
+				<unitPattern count="one">{0} टन</unitPattern>
+				<unitPattern count="other">{0} टन</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>पौंड</displayName>
+				<unitPattern count="one">{0} पौंड</unitPattern>
+				<unitPattern count="other">{0} पौंड</unitPattern>
+				<perUnitPattern>{0}/पौंड</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>औंस</displayName>
@@ -6445,61 +6451,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ट्राई औंस</unitPattern>
 				<unitPattern count="other">{0} ट्राई औंस</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>पौंड</displayName>
-				<unitPattern count="one">{0} पौंड</unitPattern>
-				<unitPattern count="other">{0} पौंड</unitPattern>
-				<perUnitPattern>{0}/पौंड</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>टन</displayName>
-				<unitPattern count="one">{0} टन</unitPattern>
-				<unitPattern count="other">{0} टन</unitPattern>
+			<unit type="mass-carat">
+				<displayName>कैरेट</displayName>
+				<unitPattern count="one">{0} कैरेट</unitPattern>
+				<unitPattern count="other">{0} कैरेट</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>गिगावॉट</displayName>
 				<unitPattern count="one">{0} गिगावॉट</unitPattern>
 				<unitPattern count="other">{0} गिगावॉट</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>अश्वशक्ति</displayName>
-				<unitPattern count="one">{0} अश्वशक्ति</unitPattern>
-				<unitPattern count="other">{0} अश्वशक्ति</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>मेगावॉट</displayName>
+				<unitPattern count="one">{0} मेगावॉट</unitPattern>
+				<unitPattern count="other">{0} मेगावॉट</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>किलोवॉट</displayName>
 				<unitPattern count="one">{0} किलोवॉट</unitPattern>
 				<unitPattern count="other">{0} किलोवॉट</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>मेगावॉट</displayName>
-				<unitPattern count="one">{0} मेगावॉट</unitPattern>
-				<unitPattern count="other">{0} मेगावॉट</unitPattern>
+			<unit type="power-watt">
+				<displayName>वॉट</displayName>
+				<unitPattern count="one">{0} वॉट</unitPattern>
+				<unitPattern count="other">{0} वॉट</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>मिलीवॉट</displayName>
 				<unitPattern count="one">{0} मिलीवॉट</unitPattern>
 				<unitPattern count="other">{0} मिलीवॉट</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>वॉट</displayName>
-				<unitPattern count="one">{0} वॉट</unitPattern>
-				<unitPattern count="other">{0} वॉट</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>अश्वशक्ति</displayName>
+				<unitPattern count="one">{0} अश्वशक्ति</unitPattern>
+				<unitPattern count="other">{0} अश्वशक्ति</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>हैक्टोपास्कल</displayName>
 				<unitPattern count="one">{0} हैक्टोपास्कल</unitPattern>
 				<unitPattern count="other">{0} हैक्टोपास्कल</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>मर्करी इंच</displayName>
-				<unitPattern count="one">{0} मर्करी इंच</unitPattern>
-				<unitPattern count="other">{0} मर्करी इंच</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>मिलीबार</displayName>
-				<unitPattern count="one">{0} मिलीबार</unitPattern>
-				<unitPattern count="other">{0} मिलीबार</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>मर्क्यूरी मिलीमीटर</displayName>
@@ -6511,6 +6501,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} पाउंड प्रति वर्ग इंच</unitPattern>
 				<unitPattern count="other">{0} पाउंड प्रति वर्ग इंच</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>मर्करी इंच</displayName>
+				<unitPattern count="one">{0} मर्करी इंच</unitPattern>
+				<unitPattern count="other">{0} मर्करी इंच</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>मिलीबार</displayName>
+				<unitPattern count="one">{0} मिलीबार</unitPattern>
+				<unitPattern count="other">{0} मिलीबार</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>कैरट</displayName>
 				<unitPattern count="one">{0} कैरट</unitPattern>
@@ -6520,11 +6520,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>किलोमीटर प्रति घंटा</displayName>
 				<unitPattern count="one">{0} किलोमीटर प्रति घंटा</unitPattern>
 				<unitPattern count="other">{0} किलोमीटर प्रति घंटा</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName draft="contributed">नॉट</displayName>
-				<unitPattern count="one" draft="contributed">{0} नॉट</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} नॉट</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>मीटर प्रति सेकंड</displayName>
@@ -6536,6 +6531,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} मील प्रति घंटा</unitPattern>
 				<unitPattern count="other">{0} मील प्रति घंटा</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName draft="contributed">नॉट</displayName>
+				<unitPattern count="one" draft="contributed">{0} नॉट</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} नॉट</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>डिग्री सेल्सियस</displayName>
 				<unitPattern count="one">{0} डिग्री सेल्सियस</unitPattern>
@@ -6546,41 +6551,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} डिग्री फ़ेरनहाइट</unitPattern>
 				<unitPattern count="other">{0} डिग्री फ़ेरनहाइट</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>केल्विन</displayName>
 				<unitPattern count="one">{0} केल्विन</unitPattern>
 				<unitPattern count="other">{0} केल्विन</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>एकड़ फ़ीट</displayName>
-				<unitPattern count="one">{0} एकड़ फ़ूट</unitPattern>
-				<unitPattern count="other">{0} एकड़ फ़ीट</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>सेंटीलीटर</displayName>
-				<unitPattern count="one">{0} सेंटीलीटर</unitPattern>
-				<unitPattern count="other">{0} सेंटीलीटर</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>घन सेंटीमीटर</displayName>
-				<unitPattern count="one">{0} घन सेंटीमीटर</unitPattern>
-				<unitPattern count="other">{0} घन सेंटीमीटर</unitPattern>
-				<perUnitPattern draft="contributed">{0}/घन सेंटीमीटर</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>घन फ़ीट</displayName>
-				<unitPattern count="one">{0} घन फ़ीट</unitPattern>
-				<unitPattern count="other">{0} घन फ़ीट</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>घन इंच</displayName>
-				<unitPattern count="one">{0} घन इंच</unitPattern>
-				<unitPattern count="other">{0} घन इंच</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>घन किलोमीटर</displayName>
@@ -6593,6 +6567,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} घन मीटर</unitPattern>
 				<perUnitPattern draft="contributed">{0}/घन मीटर</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>घन सेंटीमीटर</displayName>
+				<unitPattern count="one">{0} घन सेंटीमीटर</unitPattern>
+				<unitPattern count="other">{0} घन सेंटीमीटर</unitPattern>
+				<perUnitPattern draft="contributed">{0}/घन सेंटीमीटर</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>घन मील</displayName>
 				<unitPattern count="one">{0} घन मील</unitPattern>
@@ -6603,31 +6583,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} घन यार्ड</unitPattern>
 				<unitPattern count="other">{0} घन यार्ड</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>कप</displayName>
-				<unitPattern count="one">{0} कप</unitPattern>
-				<unitPattern count="other">{0} कप</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>घन फ़ीट</displayName>
+				<unitPattern count="one">{0} घन फ़ीट</unitPattern>
+				<unitPattern count="other">{0} घन फ़ीट</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName draft="contributed">मीट्रिक कप</displayName>
-				<unitPattern count="one" draft="contributed">{0} मीट्रिक कप</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} मीट्रिक कप</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>घन इंच</displayName>
+				<unitPattern count="one">{0} घन इंच</unitPattern>
+				<unitPattern count="other">{0} घन इंच</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>डेसीलीटर</displayName>
-				<unitPattern count="one">{0} डेसीलीटर</unitPattern>
-				<unitPattern count="other">{0} डेसीलीटर</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>फ़्लुड आउंस</displayName>
-				<unitPattern count="one">{0} फ़्लुड आउंस</unitPattern>
-				<unitPattern count="other">{0} फ़्लुड आउंस</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>गैलन</displayName>
-				<unitPattern count="one">{0} गैलन</unitPattern>
-				<unitPattern count="other">{0} गैलन</unitPattern>
-				<perUnitPattern draft="contributed">{0}/गैलन</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>मेगालीटर</displayName>
+				<unitPattern count="one">{0} मेगालीटर</unitPattern>
+				<unitPattern count="other">{0} मेगालीटर</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>हैक्टोलीटर</displayName>
@@ -6640,30 +6609,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} लीटर</unitPattern>
 				<perUnitPattern>{0}/लीटर</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>मेगालीटर</displayName>
-				<unitPattern count="one">{0} मेगालीटर</unitPattern>
-				<unitPattern count="other">{0} मेगालीटर</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>डेसीलीटर</displayName>
+				<unitPattern count="one">{0} डेसीलीटर</unitPattern>
+				<unitPattern count="other">{0} डेसीलीटर</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>सेंटीलीटर</displayName>
+				<unitPattern count="one">{0} सेंटीलीटर</unitPattern>
+				<unitPattern count="other">{0} सेंटीलीटर</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>मिलीलीटर</displayName>
 				<unitPattern count="one">{0} मिलीलीटर</unitPattern>
 				<unitPattern count="other">{0} मिलीलीटर</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>पिंट</displayName>
-				<unitPattern count="one">{0} पिंट</unitPattern>
-				<unitPattern count="other">{0} पिंट</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName draft="contributed">मीट्रिक पिंट</displayName>
 				<unitPattern count="one" draft="contributed">{0} मीट्रिक पिंट</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} मीट्रिक पिंट</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName draft="contributed">मीट्रिक कप</displayName>
+				<unitPattern count="one" draft="contributed">{0} मीट्रिक कप</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} मीट्रिक कप</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>एकड़ फ़ीट</displayName>
+				<unitPattern count="one">{0} एकड़ फ़ूट</unitPattern>
+				<unitPattern count="other">{0} एकड़ फ़ीट</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>गैलन</displayName>
+				<unitPattern count="one">{0} गैलन</unitPattern>
+				<unitPattern count="other">{0} गैलन</unitPattern>
+				<perUnitPattern draft="contributed">{0}/गैलन</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>क्वार्ट</displayName>
 				<unitPattern count="one">{0} क्वार्ट</unitPattern>
 				<unitPattern count="other">{0} क्वार्ट</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>पिंट</displayName>
+				<unitPattern count="one">{0} पिंट</unitPattern>
+				<unitPattern count="other">{0} पिंट</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>कप</displayName>
+				<unitPattern count="one">{0} कप</unitPattern>
+				<unitPattern count="other">{0} कप</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>फ़्लुड आउंस</displayName>
+				<unitPattern count="one">{0} फ़्लुड आउंस</unitPattern>
+				<unitPattern count="other">{0} फ़्लुड आउंस</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>टेबलस्पून</displayName>
@@ -6696,6 +6696,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} मीटर/से²</unitPattern>
 				<unitPattern count="other">{0} m/s²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName draft="contributed">घूर्णन</displayName>
+				<unitPattern count="one" draft="contributed">{0} घूर्णन</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} घूर्णन</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>रेडियन</displayName>
+				<unitPattern count="one">{0} रेडियन</unitPattern>
+				<unitPattern count="other">{0} रेडियन</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>अंश</displayName>
+				<unitPattern count="one">{0} अंश</unitPattern>
+				<unitPattern count="other">{0} अंश</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>आर्क मिनट</displayName>
 				<unitPattern count="one">{0} आर्क मिनट</unitPattern>
@@ -6706,36 +6721,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} आर्क से.</unitPattern>
 				<unitPattern count="other">{0} आर्क से.</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>अंश</displayName>
-				<unitPattern count="one">{0} अंश</unitPattern>
-				<unitPattern count="other">{0} अंश</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>रेडियन</displayName>
-				<unitPattern count="one">{0} रेडियन</unitPattern>
-				<unitPattern count="other">{0} रेडियन</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName draft="contributed">घूर्णन</displayName>
-				<unitPattern count="one" draft="contributed">{0} घूर्णन</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} घूर्णन</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>एकड़</displayName>
-				<unitPattern count="one">{0} एकड़</unitPattern>
-				<unitPattern count="other">{0} एकड़</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>वर्ग कि.मी.</displayName>
+				<unitPattern count="one">{0} वर्ग कि.मी.</unitPattern>
+				<unitPattern count="other">{0} वर्ग कि.मी.</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>हेक्टेयर</displayName>
 				<unitPattern count="one">{0} हे.</unitPattern>
 				<unitPattern count="other">{0} हे.</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>वर्ग मीटर</displayName>
+				<unitPattern count="one">{0} वर्ग मी.</unitPattern>
+				<unitPattern count="other">{0} वर्ग मी.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/वर्ग मीटर</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>वर्ग सें.</displayName>
 				<unitPattern count="one">{0} व. सें.</unitPattern>
 				<unitPattern count="other">{0} व. सें.</unitPattern>
 				<perUnitPattern draft="contributed">{0}/वर्ग सें. मी.</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>वर्ग मील</displayName>
+				<unitPattern count="one">{0} वर्ग मील</unitPattern>
+				<unitPattern count="other">{0} वर्ग मील</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>एकड़</displayName>
+				<unitPattern count="one">{0} एकड़</unitPattern>
+				<unitPattern count="other">{0} एकड़</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>व. या.</displayName>
+				<unitPattern count="one">{0} व. या.</unitPattern>
+				<unitPattern count="other">{0} व. या.</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>व.फ़ी.</displayName>
@@ -6748,96 +6769,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} व. इं.</unitPattern>
 				<perUnitPattern draft="contributed">{0}/वर्ग इंच</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>वर्ग कि.मी.</displayName>
-				<unitPattern count="one">{0} वर्ग कि.मी.</unitPattern>
-				<unitPattern count="other">{0} वर्ग कि.मी.</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>वर्ग मीटर</displayName>
-				<unitPattern count="one">{0} वर्ग मी.</unitPattern>
-				<unitPattern count="other">{0} वर्ग मी.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/वर्ग मीटर</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>वर्ग मील</displayName>
-				<unitPattern count="one">{0} वर्ग मील</unitPattern>
-				<unitPattern count="other">{0} वर्ग मील</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>व. या.</displayName>
-				<unitPattern count="one">{0} व. या.</unitPattern>
-				<unitPattern count="other">{0} व. या.</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>लीटर/किमी</displayName>
+				<unitPattern count="one">{0} ली/किमी</unitPattern>
+				<unitPattern count="other">{0} ली/किमी</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName draft="contributed">ली./100 कि.मी.</displayName>
 				<unitPattern count="one" draft="contributed">{0} ली./100 कि.मी.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ली./100 कि.मी.</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>लीटर/किमी</displayName>
-				<unitPattern count="one">{0} ली/किमी</unitPattern>
-				<unitPattern count="other">{0} ली/किमी</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>मील/गैलन</displayName>
 				<unitPattern count="one">{0} mpg</unitPattern>
 				<unitPattern count="other">{0} mpg</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>बिट</displayName>
-				<unitPattern count="one">{0} बिट</unitPattern>
-				<unitPattern count="other">{0} बिट</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>बाइट</displayName>
-				<unitPattern count="one">{0} बाइट</unitPattern>
-				<unitPattern count="other">{0} बाइट</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>Gb</displayName>
-				<unitPattern count="one">{0} Gb</unitPattern>
-				<unitPattern count="other">{0} Gb</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>GB</displayName>
-				<unitPattern count="one">{0} GB</unitPattern>
-				<unitPattern count="other">{0} GB</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>kb</displayName>
-				<unitPattern count="one">{0} kb</unitPattern>
-				<unitPattern count="other">{0} kb</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>kB</displayName>
-				<unitPattern count="one">{0} kB</unitPattern>
-				<unitPattern count="other">{0} kB</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>Mb</displayName>
-				<unitPattern count="one">{0} Mb</unitPattern>
-				<unitPattern count="other">{0} Mb</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>MB</displayName>
-				<unitPattern count="one">{0} MB</unitPattern>
-				<unitPattern count="other">{0} MB</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>Tb</displayName>
-				<unitPattern count="one">{0} Tb</unitPattern>
-				<unitPattern count="other">{0} Tb</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
 				<unitPattern count="one">{0} TB</unitPattern>
 				<unitPattern count="other">{0} TB</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>Tb</displayName>
+				<unitPattern count="one">{0} Tb</unitPattern>
+				<unitPattern count="other">{0} Tb</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>GB</displayName>
+				<unitPattern count="one">{0} GB</unitPattern>
+				<unitPattern count="other">{0} GB</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>Gb</displayName>
+				<unitPattern count="one">{0} Gb</unitPattern>
+				<unitPattern count="other">{0} Gb</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+				<unitPattern count="one">{0} MB</unitPattern>
+				<unitPattern count="other">{0} MB</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Mb</displayName>
+				<unitPattern count="one">{0} Mb</unitPattern>
+				<unitPattern count="other">{0} Mb</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kB</displayName>
+				<unitPattern count="one">{0} kB</unitPattern>
+				<unitPattern count="other">{0} kB</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kb</displayName>
+				<unitPattern count="one">{0} kb</unitPattern>
+				<unitPattern count="other">{0} kb</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>बाइट</displayName>
+				<unitPattern count="one">{0} बाइट</unitPattern>
+				<unitPattern count="other">{0} बाइट</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>बिट</displayName>
+				<unitPattern count="one">{0} बिट</unitPattern>
+				<unitPattern count="other">{0} बिट</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName draft="contributed">शता</displayName>
 				<unitPattern count="one" draft="contributed">{0} शता</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} शता</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>वर्ष</displayName>
+				<unitPattern count="one">{0} वर्ष</unitPattern>
+				<unitPattern count="other">{0} वर्ष</unitPattern>
+				<perUnitPattern draft="contributed">{0}/वर्ष</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>माह</displayName>
+				<unitPattern count="one">{0} माह</unitPattern>
+				<unitPattern count="other">{0} माह</unitPattern>
+				<perUnitPattern draft="contributed">{0}/माह</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>सप्ताह</displayName>
+				<unitPattern count="one">{0} सप्ताह</unitPattern>
+				<unitPattern count="other">{0} सप्ताह</unitPattern>
+				<perUnitPattern draft="contributed">{0}/सप्ताह</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>दिन</displayName>
@@ -6851,32 +6869,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} घं.</unitPattern>
 				<perUnitPattern>{0} प्र. घं.</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>मा॰ सेक॰</displayName>
-				<unitPattern count="one">{0} मा॰ से॰</unitPattern>
-				<unitPattern count="other">{0} मा॰ से॰</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>मिलीसेकंड</displayName>
-				<unitPattern count="one">{0} मि.से.</unitPattern>
-				<unitPattern count="other">{0} मि.से.</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>मिनट</displayName>
 				<unitPattern count="one">{0} मि.</unitPattern>
 				<unitPattern count="other">{0} मि.</unitPattern>
 				<perUnitPattern draft="contributed">{0}/मिनट</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>माह</displayName>
-				<unitPattern count="one">{0} माह</unitPattern>
-				<unitPattern count="other">{0} माह</unitPattern>
-				<perUnitPattern draft="contributed">{0}/माह</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>नैनो से.</displayName>
-				<unitPattern count="one">{0} नैनो से.</unitPattern>
-				<unitPattern count="other">{0} नैनो से.</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>सेकंड</displayName>
@@ -6884,17 +6881,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} सेक.</unitPattern>
 				<perUnitPattern>{0} प्र. से.</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>सप्ताह</displayName>
-				<unitPattern count="one">{0} सप्ताह</unitPattern>
-				<unitPattern count="other">{0} सप्ताह</unitPattern>
-				<perUnitPattern draft="contributed">{0}/सप्ताह</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>मिलीसेकंड</displayName>
+				<unitPattern count="one">{0} मि.से.</unitPattern>
+				<unitPattern count="other">{0} मि.से.</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>वर्ष</displayName>
-				<unitPattern count="one">{0} वर्ष</unitPattern>
-				<unitPattern count="other">{0} वर्ष</unitPattern>
-				<perUnitPattern draft="contributed">{0}/वर्ष</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>मा॰ सेक॰</displayName>
+				<unitPattern count="one">{0} मा॰ से॰</unitPattern>
+				<unitPattern count="other">{0} मा॰ से॰</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>नैनो से.</displayName>
+				<unitPattern count="one">{0} नैनो से.</unitPattern>
+				<unitPattern count="other">{0} नैनो से.</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>एम्पी॰</displayName>
@@ -6916,6 +6916,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} V</unitPattern>
 				<unitPattern count="other">{0} V</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kcal</displayName>
+				<unitPattern count="one">{0} kcal</unitPattern>
+				<unitPattern count="other">{0} kcal</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>cal</displayName>
 				<unitPattern count="one">{0} cal</unitPattern>
@@ -6926,20 +6931,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} Cal</unitPattern>
 				<unitPattern count="other">{0} Cal</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>जूल</displayName>
-				<unitPattern count="one">{0} J</unitPattern>
-				<unitPattern count="other">{0} J</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="one">{0} kcal</unitPattern>
-				<unitPattern count="other">{0} kcal</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>किलो जूल</displayName>
 				<unitPattern count="one">{0} kJ</unitPattern>
 				<unitPattern count="other">{0} kJ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>जूल</displayName>
+				<unitPattern count="one">{0} J</unitPattern>
+				<unitPattern count="other">{0} J</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kWh</displayName>
@@ -6951,25 +6951,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} GHz</unitPattern>
 				<unitPattern count="other">{0} GHz</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>Hz</displayName>
-				<unitPattern count="one">{0} Hz</unitPattern>
-				<unitPattern count="other">{0} Hz</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>MHz</displayName>
+				<unitPattern count="one">{0} MHz</unitPattern>
+				<unitPattern count="other">{0} MHz</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>kHz</displayName>
 				<unitPattern count="one">{0} kHz</unitPattern>
 				<unitPattern count="other">{0} kHz</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>MHz</displayName>
-				<unitPattern count="one">{0} MHz</unitPattern>
-				<unitPattern count="other">{0} MHz</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>Hz</displayName>
+				<unitPattern count="one">{0} Hz</unitPattern>
+				<unitPattern count="other">{0} Hz</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>खगो. इका.</displayName>
-				<unitPattern count="one">{0} खगो. इका.</unitPattern>
-				<unitPattern count="other">{0} खगो. इका.</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>कि.मी.</displayName>
+				<unitPattern count="one">{0} कि.मी.</unitPattern>
+				<unitPattern count="other">{0} कि.मी.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/कि.मी.</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>मीटर</displayName>
+				<unitPattern count="one">{0} मी</unitPattern>
+				<unitPattern count="other">{0} मी</unitPattern>
+				<perUnitPattern draft="contributed">{0}/मी</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>डे.मी.</displayName>
+				<unitPattern count="one">{0} डे.मी.</unitPattern>
+				<unitPattern count="other">{0} डे.मी.</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>सें.मी.</displayName>
@@ -6977,10 +6989,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} सें.मी.</unitPattern>
 				<perUnitPattern draft="contributed">{0}/सें.मी.</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>डे.मी.</displayName>
-				<unitPattern count="one">{0} डे.मी.</unitPattern>
-				<unitPattern count="other">{0} डे.मी.</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>मि.मी.</displayName>
+				<unitPattern count="one">{0} मि.मी.</unitPattern>
+				<unitPattern count="other">{0} मि.मी.</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>µ मा.मी.</displayName>
+				<unitPattern count="one">{0} µ मा.मी.</unitPattern>
+				<unitPattern count="other">{0} µ मा.मी.</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>नै.मी.</displayName>
+				<unitPattern count="one">{0} नै.मी.</unitPattern>
+				<unitPattern count="other">{0} नै.मी.</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>पि.मी.</displayName>
+				<unitPattern count="one">{0} पि.मी.</unitPattern>
+				<unitPattern count="other">{0} पि.मी.</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>मील</displayName>
+				<unitPattern count="one">{0} मील</unitPattern>
+				<unitPattern count="other">{0} मील</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>यार्ड</displayName>
+				<unitPattern count="one">{0} यार्ड</unitPattern>
+				<unitPattern count="other">{0} यार्ड</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>फ़ीट</displayName>
@@ -6994,83 +7031,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} इंच</unitPattern>
 				<perUnitPattern draft="contributed">{0}/इंच</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>कि.मी.</displayName>
-				<unitPattern count="one">{0} कि.मी.</unitPattern>
-				<unitPattern count="other">{0} कि.मी.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/कि.मी.</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>पार्सेक</displayName>
+				<unitPattern count="one">{0} पार्सेक</unitPattern>
+				<unitPattern count="other">{0} पार्सेक</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>प्रकाश वर्ष</displayName>
 				<unitPattern count="one">{0} प्र.व.</unitPattern>
 				<unitPattern count="other">{0} प्र.व.</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>मीटर</displayName>
-				<unitPattern count="one">{0} मी</unitPattern>
-				<unitPattern count="other">{0} मी</unitPattern>
-				<perUnitPattern draft="contributed">{0}/मी</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>µ मा.मी.</displayName>
-				<unitPattern count="one">{0} µ मा.मी.</unitPattern>
-				<unitPattern count="other">{0} µ मा.मी.</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>मील</displayName>
-				<unitPattern count="one">{0} मील</unitPattern>
-				<unitPattern count="other">{0} मील</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName draft="contributed">smi</displayName>
-				<unitPattern count="one" draft="contributed">{0} smi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} smi</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>मि.मी.</displayName>
-				<unitPattern count="one">{0} मि.मी.</unitPattern>
-				<unitPattern count="other">{0} मि.मी.</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>नै.मी.</displayName>
-				<unitPattern count="one">{0} नै.मी.</unitPattern>
-				<unitPattern count="other">{0} नै.मी.</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>खगो. इका.</displayName>
+				<unitPattern count="one">{0} खगो. इका.</unitPattern>
+				<unitPattern count="other">{0} खगो. इका.</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>नॉ. मी.</displayName>
 				<unitPattern count="one">{0} नॉ. मी.</unitPattern>
 				<unitPattern count="other">{0} नॉ. मी.</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>पार्सेक</displayName>
-				<unitPattern count="one">{0} पार्सेक</unitPattern>
-				<unitPattern count="other">{0} पार्सेक</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>पि.मी.</displayName>
-				<unitPattern count="one">{0} पि.मी.</unitPattern>
-				<unitPattern count="other">{0} पि.मी.</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>यार्ड</displayName>
-				<unitPattern count="one">{0} यार्ड</unitPattern>
-				<unitPattern count="other">{0} यार्ड</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName draft="contributed">smi</displayName>
+				<unitPattern count="one" draft="contributed">{0} smi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} smi</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>लक्स</displayName>
 				<unitPattern count="one">{0} lx</unitPattern>
 				<unitPattern count="other">{0} lx</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>कै॰</displayName>
-				<unitPattern count="one">{0} कै.</unitPattern>
-				<unitPattern count="other">{0} कै.</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>ग्राम</displayName>
-				<unitPattern count="one">{0} ग्रा.</unitPattern>
-				<unitPattern count="other">{0} ग्रा.</unitPattern>
-				<perUnitPattern>{0}/ग्रा.</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>मीट्रिक टन</displayName>
+				<unitPattern count="one">{0} मीट्रिक टन</unitPattern>
+				<unitPattern count="other">{0} मीट्रिक टन</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>कि.ग्रा.</displayName>
@@ -7078,20 +7072,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} कि.ग्रा.</unitPattern>
 				<perUnitPattern>{0}/कि.ग्रा.</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>मीट्रिक टन</displayName>
-				<unitPattern count="one">{0} मीट्रिक टन</unitPattern>
-				<unitPattern count="other">{0} मीट्रिक टन</unitPattern>
+			<unit type="mass-gram">
+				<displayName>ग्राम</displayName>
+				<unitPattern count="one">{0} ग्रा.</unitPattern>
+				<unitPattern count="other">{0} ग्रा.</unitPattern>
+				<perUnitPattern>{0}/ग्रा.</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>मि.ग्रा.</displayName>
+				<unitPattern count="one">{0} मि.ग्रा.</unitPattern>
+				<unitPattern count="other">{0} मि.ग्रा.</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>मा॰ग्रा॰</displayName>
 				<unitPattern count="one">{0} मा॰ग्रा॰</unitPattern>
 				<unitPattern count="other">{0} मा॰ग्रा॰</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>मि.ग्रा.</displayName>
-				<unitPattern count="one">{0} मि.ग्रा.</unitPattern>
-				<unitPattern count="other">{0} मि.ग्रा.</unitPattern>
+			<unit type="mass-ton">
+				<displayName>टन</displayName>
+				<unitPattern count="one">{0} टन</unitPattern>
+				<unitPattern count="other">{0} टन</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>पौंड</displayName>
+				<unitPattern count="one">{0} पौंड</unitPattern>
+				<unitPattern count="other">{0} पौंड</unitPattern>
+				<perUnitPattern>{0}/पौंड</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>औंस</displayName>
@@ -7104,61 +7110,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ट्राई औंस</unitPattern>
 				<unitPattern count="other">{0} ट्राई औंस</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>पौंड</displayName>
-				<unitPattern count="one">{0} पौंड</unitPattern>
-				<unitPattern count="other">{0} पौंड</unitPattern>
-				<perUnitPattern>{0}/पौंड</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>टन</displayName>
-				<unitPattern count="one">{0} टन</unitPattern>
-				<unitPattern count="other">{0} टन</unitPattern>
+			<unit type="mass-carat">
+				<displayName>कै॰</displayName>
+				<unitPattern count="one">{0} कै.</unitPattern>
+				<unitPattern count="other">{0} कै.</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>GW</displayName>
 				<unitPattern count="one">{0} GW</unitPattern>
 				<unitPattern count="other">{0} GW</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>hp</displayName>
-				<unitPattern count="one">{0} hp</unitPattern>
-				<unitPattern count="other">{0} hp</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>MW</displayName>
+				<unitPattern count="one">{0} MW</unitPattern>
+				<unitPattern count="other">{0} MW</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>kW</displayName>
 				<unitPattern count="one">{0} kW</unitPattern>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>MW</displayName>
-				<unitPattern count="one">{0} MW</unitPattern>
-				<unitPattern count="other">{0} MW</unitPattern>
+			<unit type="power-watt">
+				<displayName>वॉट</displayName>
+				<unitPattern count="one">{0} W</unitPattern>
+				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>mW</displayName>
 				<unitPattern count="one">{0} mW</unitPattern>
 				<unitPattern count="other">{0} mW</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>वॉट</displayName>
-				<unitPattern count="one">{0} W</unitPattern>
-				<unitPattern count="other">{0} W</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>hp</displayName>
+				<unitPattern count="one">{0} hp</unitPattern>
+				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hPa</displayName>
 				<unitPattern count="one">{0} hPa</unitPattern>
 				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>inHg</displayName>
-				<unitPattern count="one">{0} inHg</unitPattern>
-				<unitPattern count="other">{0} inHg</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>mbar</displayName>
-				<unitPattern count="one">{0} mbar</unitPattern>
-				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
@@ -7170,6 +7160,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} psi</unitPattern>
 				<unitPattern count="other">{0} psi</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>inHg</displayName>
+				<unitPattern count="one">{0} inHg</unitPattern>
+				<unitPattern count="other">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>mbar</displayName>
+				<unitPattern count="one">{0} mbar</unitPattern>
+				<unitPattern count="other">{0} mbar</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>कैरट</displayName>
 				<unitPattern count="one">{0} kt</unitPattern>
@@ -7179,11 +7179,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>कि.मी./घं.</displayName>
 				<unitPattern count="one">{0} कि.मी. प्रति घं.</unitPattern>
 				<unitPattern count="other">{0} कि.मी. प्रति घं.</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName draft="contributed">नॉट</displayName>
-				<unitPattern count="one" draft="contributed">{0} नॉट</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} नॉट</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>मी./से.</displayName>
@@ -7195,6 +7190,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} मी.प्र.घं.</unitPattern>
 				<unitPattern count="other">{0} मी.प्र.घं.</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName draft="contributed">नॉट</displayName>
+				<unitPattern count="one" draft="contributed">{0} नॉट</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} नॉट</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>डिग्री सेल्सियस</displayName>
 				<unitPattern count="one">{0}°से.</unitPattern>
@@ -7205,41 +7210,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}°फेरन.</unitPattern>
 				<unitPattern count="other">{0}°फेरन.</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
 				<unitPattern count="one">{0} K</unitPattern>
 				<unitPattern count="other">{0} K</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>एकड़ फ़ीट</displayName>
-				<unitPattern count="one">{0} ए.फ़ी.</unitPattern>
-				<unitPattern count="other">{0} ए.फ़ी.</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>सें.ली.</displayName>
-				<unitPattern count="one">{0} सें.ली.</unitPattern>
-				<unitPattern count="other">{0} सें.ली.</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>घन सें. मी.</displayName>
-				<unitPattern count="one">{0} घन सें. मी.</unitPattern>
-				<unitPattern count="other">{0} घन सें. मी.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/घन सें. मी.</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>घ. फ़ी.</displayName>
-				<unitPattern count="one">{0} घ. फ़ी.</unitPattern>
-				<unitPattern count="other">{0} घ. फ़ी.</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>घन इंच</displayName>
-				<unitPattern count="one">{0} घन इंच</unitPattern>
-				<unitPattern count="other">{0} घन इंच</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>घन कि.मी.</displayName>
@@ -7252,6 +7226,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} घन मी.</unitPattern>
 				<perUnitPattern draft="contributed">{0}/घन मी.</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>घन सें. मी.</displayName>
+				<unitPattern count="one">{0} घन सें. मी.</unitPattern>
+				<unitPattern count="other">{0} घन सें. मी.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/घन सें. मी.</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>घन मील</displayName>
 				<unitPattern count="one">{0} घन मील</unitPattern>
@@ -7262,31 +7242,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} घन या.</unitPattern>
 				<unitPattern count="other">{0} घन या.</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>कप</displayName>
-				<unitPattern count="one">{0} कप</unitPattern>
-				<unitPattern count="other">{0} कप</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>घ. फ़ी.</displayName>
+				<unitPattern count="one">{0} घ. फ़ी.</unitPattern>
+				<unitPattern count="other">{0} घ. फ़ी.</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName draft="contributed">मीट्रिक कप</displayName>
-				<unitPattern count="one" draft="contributed">{0} मीट्रिक कप</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} मीट्रिक कप</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>घन इंच</displayName>
+				<unitPattern count="one">{0} घन इंच</unitPattern>
+				<unitPattern count="other">{0} घन इंच</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>डे.ली.</displayName>
-				<unitPattern count="one">{0} डे.ली.</unitPattern>
-				<unitPattern count="other">{0} डे.ली.</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>फ़्लुड आउंस</displayName>
-				<unitPattern count="one">{0} फ़्लुड आउंस</unitPattern>
-				<unitPattern count="other">{0} फ़्लुड आउंस</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>गैलन</displayName>
-				<unitPattern count="one">{0} गैलन</unitPattern>
-				<unitPattern count="other">{0} गैलन</unitPattern>
-				<perUnitPattern draft="contributed">{0}/गैलन</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>मे. ली.</displayName>
+				<unitPattern count="one">{0} मे. ली.</unitPattern>
+				<unitPattern count="other">{0} मे. ली.</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>है.ली.</displayName>
@@ -7299,30 +7268,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ली.</unitPattern>
 				<perUnitPattern draft="contributed">{0}/ली.</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>मे. ली.</displayName>
-				<unitPattern count="one">{0} मे. ली.</unitPattern>
-				<unitPattern count="other">{0} मे. ली.</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>डे.ली.</displayName>
+				<unitPattern count="one">{0} डे.ली.</unitPattern>
+				<unitPattern count="other">{0} डे.ली.</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>सें.ली.</displayName>
+				<unitPattern count="one">{0} सें.ली.</unitPattern>
+				<unitPattern count="other">{0} सें.ली.</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>मि. ली.</displayName>
 				<unitPattern count="one">{0} मि. ली.</unitPattern>
 				<unitPattern count="other">{0} मि. ली.</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>पिंट</displayName>
-				<unitPattern count="one">{0} पिंट</unitPattern>
-				<unitPattern count="other">{0} पिंट</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName draft="contributed">मीट्रिक पिंट</displayName>
 				<unitPattern count="one" draft="contributed">{0} मीट्रिक पिंट</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} मीट्रिक पिंट</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName draft="contributed">मीट्रिक कप</displayName>
+				<unitPattern count="one" draft="contributed">{0} मीट्रिक कप</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} मीट्रिक कप</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>एकड़ फ़ीट</displayName>
+				<unitPattern count="one">{0} ए.फ़ी.</unitPattern>
+				<unitPattern count="other">{0} ए.फ़ी.</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>गैलन</displayName>
+				<unitPattern count="one">{0} गैलन</unitPattern>
+				<unitPattern count="other">{0} गैलन</unitPattern>
+				<perUnitPattern draft="contributed">{0}/गैलन</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>क्वार्ट</displayName>
 				<unitPattern count="one">{0} क्वार्ट</unitPattern>
 				<unitPattern count="other">{0} क्वार्ट</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>पिंट</displayName>
+				<unitPattern count="one">{0} पिंट</unitPattern>
+				<unitPattern count="other">{0} पिंट</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>कप</displayName>
+				<unitPattern count="one">{0} कप</unitPattern>
+				<unitPattern count="other">{0} कप</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>फ़्लुड आउंस</displayName>
+				<unitPattern count="one">{0} फ़्लुड आउंस</unitPattern>
+				<unitPattern count="other">{0} फ़्लुड आउंस</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>टे. स्पून</displayName>
@@ -7350,6 +7350,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}गु.</unitPattern>
 				<unitPattern count="other">{0}गु.</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -7358,25 +7362,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="one">{0}एकड़</unitPattern>
-				<unitPattern count="other">{0}एकड़</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} km²</unitPattern>
+				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="one">{0}हे.</unitPattern>
 				<unitPattern count="other">{0}हे.</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="one">{0}ft²</unitPattern>
-				<unitPattern count="other">{0}ft²</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="one">{0} km²</unitPattern>
-				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="one">{0} वर्ग मी.</unitPattern>
@@ -7386,10 +7378,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}वर्ग मील</unitPattern>
 				<unitPattern count="other">{0}वर्ग मील</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0}एकड़</unitPattern>
+				<unitPattern count="other">{0}एकड़</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0}ft²</unitPattern>
+				<unitPattern count="other">{0}ft²</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName draft="contributed">ली./100 कि.मी.</displayName>
 				<unitPattern count="one" draft="contributed">{0}ली/100कि</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}ली/100कि</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>वर्ष</displayName>
+				<unitPattern count="one">{0}वर्ष</unitPattern>
+				<unitPattern count="other">{0}वर्ष</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>माह</displayName>
+				<unitPattern count="one">{0}माह</unitPattern>
+				<unitPattern count="other">{0}माह</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>सप्ताह</displayName>
+				<unitPattern count="one">{0} सप्ताह</unitPattern>
+				<unitPattern count="other">{0} सप्ताह</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>दिन</displayName>
@@ -7401,66 +7416,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}घं.</unitPattern>
 				<unitPattern count="other">{0}घं.</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>मि.से.</displayName>
-				<unitPattern count="one">{0} मि.से.</unitPattern>
-				<unitPattern count="other">{0} मि.से.</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>मिनट</displayName>
 				<unitPattern count="one">{0}मि.</unitPattern>
 				<unitPattern count="other">{0}मि.</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>माह</displayName>
-				<unitPattern count="one">{0}माह</unitPattern>
-				<unitPattern count="other">{0}माह</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>सेकंड</displayName>
 				<unitPattern count="one">{0}से.</unitPattern>
 				<unitPattern count="other">{0}से.</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>सप्ताह</displayName>
-				<unitPattern count="one">{0} सप्ताह</unitPattern>
-				<unitPattern count="other">{0} सप्ताह</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName>वर्ष</displayName>
-				<unitPattern count="one">{0}वर्ष</unitPattern>
-				<unitPattern count="other">{0}वर्ष</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>सें.मी.</displayName>
-				<unitPattern count="one">{0} सें.मी.</unitPattern>
-				<unitPattern count="other">{0} सें.मी.</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="one">{0}′</unitPattern>
-				<unitPattern count="other">{0}′</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="one">{0}″</unitPattern>
-				<unitPattern count="other">{0}″</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>मि.से.</displayName>
+				<unitPattern count="one">{0} मि.से.</unitPattern>
+				<unitPattern count="other">{0} मि.से.</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>कि.मी.</displayName>
 				<unitPattern count="one">{0} कि.मी.</unitPattern>
 				<unitPattern count="other">{0} कि.मी.</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="one">{0}प्र.व.</unitPattern>
-				<unitPattern count="other">{0}प्र.व.</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>मीटर</displayName>
 				<unitPattern count="one">{0}मी</unitPattern>
 				<unitPattern count="other">{0}मी</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="one">{0}मील</unitPattern>
-				<unitPattern count="other">{0}मील</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>सें.मी.</displayName>
+				<unitPattern count="one">{0} सें.मी.</unitPattern>
+				<unitPattern count="other">{0} सें.मी.</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>मि.मी.</displayName>
@@ -7471,31 +7455,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}पि.मी.</unitPattern>
 				<unitPattern count="other">{0}पि.मी.</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0}मील</unitPattern>
+				<unitPattern count="other">{0}मील</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<unitPattern count="one">{0}गज</unitPattern>
 				<unitPattern count="other">{0}गज</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName>ग्राम</displayName>
-				<unitPattern count="one">{0} ग्रा.</unitPattern>
-				<unitPattern count="other">{0} ग्रा.</unitPattern>
+			<unit type="length-foot">
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0}प्र.व.</unitPattern>
+				<unitPattern count="other">{0}प्र.व.</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>कि.ग्रा.</displayName>
 				<unitPattern count="one">{0} कि.ग्रा.</unitPattern>
 				<unitPattern count="other">{0} कि.ग्रा.</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="one">{0}औं.</unitPattern>
-				<unitPattern count="other">{0}औं.</unitPattern>
+			<unit type="mass-gram">
+				<displayName>ग्राम</displayName>
+				<unitPattern count="one">{0} ग्रा.</unitPattern>
+				<unitPattern count="other">{0} ग्रा.</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="one" draft="contributed">{0}#</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}#</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="one">{0}एचपी</unitPattern>
-				<unitPattern count="other">{0}एचपी</unitPattern>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0}औं.</unitPattern>
+				<unitPattern count="other">{0}औं.</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one">{0}कि.वॉ.</unitPattern>
@@ -7504,6 +7500,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="power-watt">
 				<unitPattern count="one">{0}वॉ</unitPattern>
 				<unitPattern count="other">{0}वॉ</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0}एचपी</unitPattern>
+				<unitPattern count="other">{0}एचपी</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="one">{0}hPa</unitPattern>

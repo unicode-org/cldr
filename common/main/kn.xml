@@ -5647,6 +5647,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಮೀಟರ್‌ ಪ್ರತಿ ಸೆಕೆಂಡ್‌ ಸ್ಕ್ವೇರ್‌ಗಳಿಗೆ</unitPattern>
 				<unitPattern count="other">{0} ಮೀಟರ್‌ಗಳು ಪ್ರತಿ ಸೆಕೆಂಡ್‌ ಸ್ಕ್ವೇರ್‌ಗಳಿಗೆ</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>ಕ್ರಾಂತಿ</displayName>
+				<unitPattern count="one">{0} ಕ್ರಾಂತಿ</unitPattern>
+				<unitPattern count="other">{0} ಕ್ರಾಂತಿಗಳು</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>ರೇಡಿಯಾನ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ರೇಡಿಯಾನ್‌</unitPattern>
+				<unitPattern count="other">{0} ರೇಡಿಯಾನ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>ಡಿಗ್ರಿಗಳು</displayName>
+				<unitPattern count="one">{0}ಡಿಗ್ರಿ</unitPattern>
+				<unitPattern count="other">{0}ಡಿಗ್ರಿಗಳು</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>ನಿಮಿಷಗಳು</displayName>
 				<unitPattern count="one">{0} ನಿಮಿಷ</unitPattern>
@@ -5657,36 +5672,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಸೆಕೆಂಡ್</unitPattern>
 				<unitPattern count="other">{0} ಸೆಕೆಂಡುಗಳು</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>ಡಿಗ್ರಿಗಳು</displayName>
-				<unitPattern count="one">{0}ಡಿಗ್ರಿ</unitPattern>
-				<unitPattern count="other">{0}ಡಿಗ್ರಿಗಳು</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>ರೇಡಿಯಾನ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ರೇಡಿಯಾನ್‌</unitPattern>
-				<unitPattern count="other">{0} ರೇಡಿಯಾನ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>ಕ್ರಾಂತಿ</displayName>
-				<unitPattern count="one">{0} ಕ್ರಾಂತಿ</unitPattern>
-				<unitPattern count="other">{0} ಕ್ರಾಂತಿಗಳು</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ಎಕರೆಗಳು</displayName>
-				<unitPattern count="one">{0} ಎಕರೆ</unitPattern>
-				<unitPattern count="other">{0} ಎಕರೆಗಳು</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>ಚದರ ಕಿಲೋಮೀಟರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಚದರ ಕಿಲೋಮೀಟರ್</unitPattern>
+				<unitPattern count="other">{0} ಚದರ ಕಿಲೋಮೀಟರ್‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ಹೆಕ್ಟೇರುಗಳು</displayName>
 				<unitPattern count="one">{0} ಹೆಕ್ಟೇರ್</unitPattern>
 				<unitPattern count="other">{0} ಹೆಕ್ಟೇರುಗಳು</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>ಚದರ ಮೀಟರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಚದರ ಮೀಟರ್</unitPattern>
+				<unitPattern count="other">{0} ಚದರ ಮೀಟರ್‌ಗಳು</unitPattern>
+				<perUnitPattern>{0} ಚದರ ಮೀಟರ್‌ಗೆ</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>ಚದರ ಸೆಂಟಿಮೀಟರ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಚದರ ಸೆಂಟಿಮೀಟರ್</unitPattern>
 				<unitPattern count="other">{0} ಚದರ ಸೆಂಟಿಮೀಟರ್‌ಗಳು</unitPattern>
 				<perUnitPattern>{0} ಪ್ರತಿ ಚದರ ಸೆಂಟಿಮೀಟರ್‌‌ಗೆ</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>ಚದರ ಮೈಲುಗಳು</displayName>
+				<unitPattern count="one">{0} ಚದರ ಮೈಲು</unitPattern>
+				<unitPattern count="other">{0} ಚದರ ಮೈಲುಗಳು</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ಎಕರೆಗಳು</displayName>
+				<unitPattern count="one">{0} ಎಕರೆ</unitPattern>
+				<unitPattern count="other">{0} ಎಕರೆಗಳು</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>ಚದರ ಗಜಗಳು</displayName>
+				<unitPattern count="one">{0} ಚದರ ಗಜ</unitPattern>
+				<unitPattern count="other">{0} ಚದರ ಗಜಗಳು</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>ಚದರಡಿ</displayName>
@@ -5699,96 +5720,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಚದರ ಅಂಗುಲಗಳು</unitPattern>
 				<perUnitPattern>{0} ಚದರ ಅಂಗುಲಕ್ಕೆ</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>ಚದರ ಕಿಲೋಮೀಟರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಚದರ ಕಿಲೋಮೀಟರ್</unitPattern>
-				<unitPattern count="other">{0} ಚದರ ಕಿಲೋಮೀಟರ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>ಚದರ ಮೀಟರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಚದರ ಮೀಟರ್</unitPattern>
-				<unitPattern count="other">{0} ಚದರ ಮೀಟರ್‌ಗಳು</unitPattern>
-				<perUnitPattern>{0} ಚದರ ಮೀಟರ್‌ಗೆ</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>ಚದರ ಮೈಲುಗಳು</displayName>
-				<unitPattern count="one">{0} ಚದರ ಮೈಲು</unitPattern>
-				<unitPattern count="other">{0} ಚದರ ಮೈಲುಗಳು</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>ಚದರ ಗಜಗಳು</displayName>
-				<unitPattern count="one">{0} ಚದರ ಗಜ</unitPattern>
-				<unitPattern count="other">{0} ಚದರ ಗಜಗಳು</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>ಲೀಟರ್ ಪ್ರತಿ ಕಿಲೋಮೀಟರ್‌ಗೆ</displayName>
+				<unitPattern count="one">{0} ಲೀಟರ್ ಪ್ರತಿ ಕಿಲೋಮೀಟರ್‌ಗೆ</unitPattern>
+				<unitPattern count="other">{0} ಪ್ರತಿ ಕಿಲೋಮೀಟರ್‌‌ಗೆ ಲೀಟರ್‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100km</displayName>
 				<unitPattern count="one">{0} ಲೀಟರ್‌ಗಳು ಪ್ರತಿ 100 ಕಿಲೋಮೀಟರ್‌ಗಳಿಗೆ</unitPattern>
 				<unitPattern count="other">{0} ಲೀಟರ್‌ಗಳು ಪ್ರತಿ 100 ಕಿಲೋಮೀಟರ್‌ಗಳಿಗೆ</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>ಲೀಟರ್ ಪ್ರತಿ ಕಿಲೋಮೀಟರ್‌ಗೆ</displayName>
-				<unitPattern count="one">{0} ಲೀಟರ್ ಪ್ರತಿ ಕಿಲೋಮೀಟರ್‌ಗೆ</unitPattern>
-				<unitPattern count="other">{0} ಪ್ರತಿ ಕಿಲೋಮೀಟರ್‌‌ಗೆ ಲೀಟರ್‌ಗಳು</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>ಪ್ರತಿ ಗ್ಯಾಲನ್‌‌ಗೆ ಮೈಲಿಗಳು</displayName>
 				<unitPattern count="one">{0} ಪ್ರತಿ ಗ್ಯಾಲನ್‌‌ಗೆ ಮೈಲಿ</unitPattern>
 				<unitPattern count="other">{0} ಪ್ರತಿ ಗ್ಯಾಲನ್‌ಗೆ ಮೈಲಿಗಳು</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>ಬಿಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಬಿಟ್‌</unitPattern>
-				<unitPattern count="other">{0} ಬಿಟ್‍ಗಳು</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>ಬೈಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಬೈಟ್‌</unitPattern>
-				<unitPattern count="other">{0} ಬೈಟ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>ಗಿಗಾಬಿಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಗಿಗಾಬಿಟ್‌</unitPattern>
-				<unitPattern count="other">{0} ಗಿಗಾಬಿಟ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>ಗಿಗಾಬೈಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಗಿಗಾಬೈಟ್‌</unitPattern>
-				<unitPattern count="other">{0} ಗಿಗಾಬೈಟ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>ಕಿಲೋಬಿಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಕಿಲೋಬಿಟ್‌</unitPattern>
-				<unitPattern count="other">{0} ಕಿಲೋಬಿಟ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>ಕಿಲೋಬೈಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಕಿಲೋಬೈಟ್‌</unitPattern>
-				<unitPattern count="other">{0} ಕಿಲೋಬೈಟ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>ಮೆಗಾಬಿಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಮೆಗಾಬಿಟ್‌</unitPattern>
-				<unitPattern count="other">{0} ಮೆಗಾಬಿಟ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>ಮೆಗಾಬೈಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಮೆಗಾಬೈಟ್‌</unitPattern>
-				<unitPattern count="other">{0} ಮೆಗಾಬೈಟ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>ಟೆರಾಬಿಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಟೆರಾಬಿಟ್‌</unitPattern>
-				<unitPattern count="other">{0} ಟೆರಾಬಿಟ್‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>ಟೆರಾಬೈಟ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಟೆರಾಬೈಟ್‌</unitPattern>
 				<unitPattern count="other">{0} ಟೆರಾಬೈಟ್‌ಗಳು</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>ಟೆರಾಬಿಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಟೆರಾಬಿಟ್‌</unitPattern>
+				<unitPattern count="other">{0} ಟೆರಾಬಿಟ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>ಗಿಗಾಬೈಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಗಿಗಾಬೈಟ್‌</unitPattern>
+				<unitPattern count="other">{0} ಗಿಗಾಬೈಟ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>ಗಿಗಾಬಿಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಗಿಗಾಬಿಟ್‌</unitPattern>
+				<unitPattern count="other">{0} ಗಿಗಾಬಿಟ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>ಮೆಗಾಬೈಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಮೆಗಾಬೈಟ್‌</unitPattern>
+				<unitPattern count="other">{0} ಮೆಗಾಬೈಟ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>ಮೆಗಾಬಿಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಮೆಗಾಬಿಟ್‌</unitPattern>
+				<unitPattern count="other">{0} ಮೆಗಾಬಿಟ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>ಕಿಲೋಬೈಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಕಿಲೋಬೈಟ್‌</unitPattern>
+				<unitPattern count="other">{0} ಕಿಲೋಬೈಟ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>ಕಿಲೋಬಿಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಕಿಲೋಬಿಟ್‌</unitPattern>
+				<unitPattern count="other">{0} ಕಿಲೋಬಿಟ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>ಬೈಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಬೈಟ್‌</unitPattern>
+				<unitPattern count="other">{0} ಬೈಟ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>ಬಿಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಬಿಟ್‌</unitPattern>
+				<unitPattern count="other">{0} ಬಿಟ್‍ಗಳು</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>ಶತಮಾನಗಳು</displayName>
 				<unitPattern count="one">{0} ಶತಮಾನ</unitPattern>
 				<unitPattern count="other">{0}ಶತಮಾನಗಳು</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>ವರ್ಷಗಳು</displayName>
+				<unitPattern count="one">{0} ವರ್ಷ</unitPattern>
+				<unitPattern count="other">{0} ವರ್ಷಗಳು</unitPattern>
+				<perUnitPattern>{0} ಪ್ರತಿ ವರ್ಷಕ್ಕೆ</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>ತಿಂಗಳು</displayName>
+				<unitPattern count="one">{0} ತಿಂಗಳು</unitPattern>
+				<unitPattern count="other">{0} ತಿಂಗಳು</unitPattern>
+				<perUnitPattern>{0} ಪ್ರತಿ ತಿಂಗಳಿಗೆ</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>ವಾರಗಳು</displayName>
+				<unitPattern count="one">{0} ವಾರಗಳು</unitPattern>
+				<unitPattern count="other">{0} ವಾರಗಳು</unitPattern>
+				<perUnitPattern>{0} ಪ್ರತಿ ವಾರಕ್ಕೆ</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>ದಿನಗಳು</displayName>
@@ -5802,32 +5820,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಗಂಟೆಗಳು</unitPattern>
 				<perUnitPattern>{0} ಪ್ರತಿ ಗಂಟೆ</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>ಮೈಕ್ರೊಸೆಕೆಂಡುಗಳು</displayName>
-				<unitPattern count="one">{0} ಮೈಕ್ರೊಸೆಕೆಂಡ್</unitPattern>
-				<unitPattern count="other">{0} ಮೈಕ್ರೊಸೆಕೆಂಡುಗಳು</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>ಮಿಲಿಸೆಕೆಂಡುಗಳು</displayName>
-				<unitPattern count="one">{0} ಮಿಲಿಸೆಕೆಂಡ್</unitPattern>
-				<unitPattern count="other">{0} ಮಿಲಿಸೆಕೆಂಡುಗಳು</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>ನಿಮಿಷಗಳು</displayName>
 				<unitPattern count="one">{0} ನಿಮಿಷ</unitPattern>
 				<unitPattern count="other">{0} ನಿಮಿಷಗಳು</unitPattern>
 				<perUnitPattern>{0} ಪ್ರತಿ ನಿಮಿಷಕ್ಕೆ</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>ತಿಂಗಳು</displayName>
-				<unitPattern count="one">{0} ತಿಂಗಳು</unitPattern>
-				<unitPattern count="other">{0} ತಿಂಗಳು</unitPattern>
-				<perUnitPattern>{0} ಪ್ರತಿ ತಿಂಗಳಿಗೆ</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>ನ್ಯಾನೊಸೆಕೆಂಡುಗಳು</displayName>
-				<unitPattern count="one">{0} ನ್ಯಾನೊಸೆಕೆಂಡ್</unitPattern>
-				<unitPattern count="other">{0} ನ್ಯಾನೊಸೆಕೆಂಡುಗಳು</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>ಸೆಕೆಂಡುಗಳು</displayName>
@@ -5835,17 +5832,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಸೆಕೆಂಡುಗಳು</unitPattern>
 				<perUnitPattern>{0} ಪ್ರತಿ ಸೆಕೆಂಡ್</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>ವಾರಗಳು</displayName>
-				<unitPattern count="one">{0} ವಾರಗಳು</unitPattern>
-				<unitPattern count="other">{0} ವಾರಗಳು</unitPattern>
-				<perUnitPattern>{0} ಪ್ರತಿ ವಾರಕ್ಕೆ</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>ಮಿಲಿಸೆಕೆಂಡುಗಳು</displayName>
+				<unitPattern count="one">{0} ಮಿಲಿಸೆಕೆಂಡ್</unitPattern>
+				<unitPattern count="other">{0} ಮಿಲಿಸೆಕೆಂಡುಗಳು</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>ವರ್ಷಗಳು</displayName>
-				<unitPattern count="one">{0} ವರ್ಷ</unitPattern>
-				<unitPattern count="other">{0} ವರ್ಷಗಳು</unitPattern>
-				<perUnitPattern>{0} ಪ್ರತಿ ವರ್ಷಕ್ಕೆ</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>ಮೈಕ್ರೊಸೆಕೆಂಡುಗಳು</displayName>
+				<unitPattern count="one">{0} ಮೈಕ್ರೊಸೆಕೆಂಡ್</unitPattern>
+				<unitPattern count="other">{0} ಮೈಕ್ರೊಸೆಕೆಂಡುಗಳು</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ನ್ಯಾನೊಸೆಕೆಂಡುಗಳು</displayName>
+				<unitPattern count="one">{0} ನ್ಯಾನೊಸೆಕೆಂಡ್</unitPattern>
+				<unitPattern count="other">{0} ನ್ಯಾನೊಸೆಕೆಂಡುಗಳು</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>ಆಂಪೇರ್‌ಗಳು</displayName>
@@ -5867,6 +5867,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ವೋಲ್ಟ್‌</unitPattern>
 				<unitPattern count="other">{0} ವೋಲ್ಟ್‌ಗಳು</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>ಕಿಲೋಕ್ಯಾಲೋರಿಗಳು</displayName>
+				<unitPattern count="one">{0} ಕಿಲೋಕ್ಯಾಲೋರಿ</unitPattern>
+				<unitPattern count="other">{0} ಕಿಲೋಕ್ಯಾಲೋರಿಗಳು</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>ಕ್ಯಾಲೋರಿಗಳು</displayName>
 				<unitPattern count="one">{0} ಕ್ಯಾಲೋರಿ</unitPattern>
@@ -5877,20 +5882,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಕ್ಯಾಲೋರಿ</unitPattern>
 				<unitPattern count="other">{0} ಕ್ಯಾಲೋರಿಗಳು</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>ಜೌಲ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಜೌಲ್‌</unitPattern>
-				<unitPattern count="other">{0} ಜೌಲ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>ಕಿಲೋಕ್ಯಾಲೋರಿಗಳು</displayName>
-				<unitPattern count="one">{0} ಕಿಲೋಕ್ಯಾಲೋರಿ</unitPattern>
-				<unitPattern count="other">{0} ಕಿಲೋಕ್ಯಾಲೋರಿಗಳು</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>ಕಿಲೋಜೌಲ್‌‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಕಿಲೋಜೌಲ್‌</unitPattern>
 				<unitPattern count="other">{0} ಕಿಲೋಜೌಲ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>ಜೌಲ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಜೌಲ್‌</unitPattern>
+				<unitPattern count="other">{0} ಜೌಲ್‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>ಕಿಲೋವ್ಯಾಟ್‌-ಗಂಟೆಗಳು</displayName>
@@ -5902,25 +5902,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಗಿಗಾಹರ್ಟ್ಸ್‌</unitPattern>
 				<unitPattern count="other">{0} ಗಿಗಾಹರ್ಟ್ಸ್‌</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>ಹರ್ಟ್ಸ್‌</displayName>
-				<unitPattern count="one">{0} ಹರ್ಟ್ಸ್‌</unitPattern>
-				<unitPattern count="other">{0} ಹರ್ಟ್ಸ್‌</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>ಮೆಗಾಹರ್ಟ್ಸ್</displayName>
+				<unitPattern count="one">{0} ಮೆಗಾಹರ್ಟ್ಸ್</unitPattern>
+				<unitPattern count="other">{0} ಮೆಗಾಹರ್ಟ್ಸ್</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>ಕಿಲೋಹರ್ಟ್ಸ್‌</displayName>
 				<unitPattern count="one">{0} ಕಿಲೋಹರ್ಟ್ಸ್‌</unitPattern>
 				<unitPattern count="other">{0} ಕಿಲೋಹರ್ಟ್ಸ್‌</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>ಮೆಗಾಹರ್ಟ್ಸ್</displayName>
-				<unitPattern count="one">{0} ಮೆಗಾಹರ್ಟ್ಸ್</unitPattern>
-				<unitPattern count="other">{0} ಮೆಗಾಹರ್ಟ್ಸ್</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>ಹರ್ಟ್ಸ್‌</displayName>
+				<unitPattern count="one">{0} ಹರ್ಟ್ಸ್‌</unitPattern>
+				<unitPattern count="other">{0} ಹರ್ಟ್ಸ್‌</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>ಅಸ್ಟ್ರಾನಾಮಿಕಲ್ ಯೂನಿಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಅಸ್ಟ್ರಾನಾಮಿಕಲ್ ಯೂನಿಟ್</unitPattern>
-				<unitPattern count="other">{0} ಅಸ್ಟ್ರಾನಾಮಿಕಲ್ ಯೂನಿಟ್‌ಗಳು</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>ಕಿಲೋಮೀಟರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಕಿಲೋಮೀಟರ್</unitPattern>
+				<unitPattern count="other">{0} ಕಿಲೋಮೀಟರ್‌ಗಳು</unitPattern>
+				<perUnitPattern>{0} ಪ್ರತಿ ಕಿಲೋಮೀಟ‍ರ್‌ಗೆ</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>ಮೀಟರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಮೀಟರ್</unitPattern>
+				<unitPattern count="other">{0} ಮೀಟರ್‌ಗಳು</unitPattern>
+				<perUnitPattern>{0} ಪ್ರತಿ ಮೀಟರ್‌ಗೆ</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>ಡೆಸಿಮೀಟರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಡೆಸಿಮೀಟರ್</unitPattern>
+				<unitPattern count="other">{0} ಡೆಸಿಮೀಟರ್‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>ಸೆಂಟಿಮೀಟರ್‌ಗಳು</displayName>
@@ -5928,10 +5940,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಸೆಂಟಿಮೀಟರ್‌ಗಳು</unitPattern>
 				<perUnitPattern>{0} ಪ್ರತಿ ಸೆಂಟಿಮೀಟರ್‌ಗೆ</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>ಡೆಸಿಮೀಟರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಡೆಸಿಮೀಟರ್</unitPattern>
-				<unitPattern count="other">{0} ಡೆಸಿಮೀಟರ್‌ಗಳು</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>ಮಿಲಿಮೀಟರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಮಿಲಿಮೀಟರ್</unitPattern>
+				<unitPattern count="other">{0} ಮಿಲಿಮೀಟರ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>ಮೈಕ್ರೊಮೀಟರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಮೈಕ್ರೊಮೀಟರ್</unitPattern>
+				<unitPattern count="other">{0} ಮೈಕ್ರೊಮೀಟರ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>ನ್ಯಾನೊಮೀಟರ್‌‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ನ್ಯಾನೊಮೀಟರ್‌</unitPattern>
+				<unitPattern count="other">{0} ನ್ಯಾನೊಮೀಟರ್‌‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>ಪಿಕೋಮೀಟರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಪಿಕೋಮೀಟರ್</unitPattern>
+				<unitPattern count="other">{0} ಪಿಕೋಮೀಟರ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>ಮೈಲುಗಳು</displayName>
+				<unitPattern count="one">{0} ಮೈಲು</unitPattern>
+				<unitPattern count="other">{0} ಮೈಲುಗಳು</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>ಗಜಗಳು</displayName>
+				<unitPattern count="one">{0} ಗಜ</unitPattern>
+				<unitPattern count="other">{0} ಗಜಗಳು</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>ಅಡಿ</displayName>
@@ -5945,83 +5982,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಅಂಗುಲಗಳು</unitPattern>
 				<perUnitPattern>{0} ಪ್ರತಿ ಅಂಗುಲಕ್ಕೆ</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>ಕಿಲೋಮೀಟರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಕಿಲೋಮೀಟರ್</unitPattern>
-				<unitPattern count="other">{0} ಕಿಲೋಮೀಟರ್‌ಗಳು</unitPattern>
-				<perUnitPattern>{0} ಪ್ರತಿ ಕಿಲೋಮೀಟ‍ರ್‌ಗೆ</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>ಪಾರ್‌‍ಸೆಕೆಂ</displayName>
+				<unitPattern count="one">{0} ಪಾರ್‌ಸೆಕೆಂ</unitPattern>
+				<unitPattern count="other">{0} ಪಾರ್‌ಸೆಕೆಂ</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>ಬೆಳಕಿನ ವರ್ಷಗಳು</displayName>
 				<unitPattern count="one">{0} ಬೆಳಕಿನ ವರ್ಷ</unitPattern>
 				<unitPattern count="other">{0} ಬೆಳಕಿನ ವರ್ಷಗಳು</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>ಮೀಟರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಮೀಟರ್</unitPattern>
-				<unitPattern count="other">{0} ಮೀಟರ್‌ಗಳು</unitPattern>
-				<perUnitPattern>{0} ಪ್ರತಿ ಮೀಟರ್‌ಗೆ</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>ಮೈಕ್ರೊಮೀಟರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಮೈಕ್ರೊಮೀಟರ್</unitPattern>
-				<unitPattern count="other">{0} ಮೈಕ್ರೊಮೀಟರ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>ಮೈಲುಗಳು</displayName>
-				<unitPattern count="one">{0} ಮೈಲು</unitPattern>
-				<unitPattern count="other">{0} ಮೈಲುಗಳು</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>ಸ್ಕ್ಯಾಂಡಿನೇವಿಯನ್-ಮೈಲು</displayName>
-				<unitPattern count="one">{0} ಸ್ಕ್ಯಾಂಡಿನೇವಿಯನ್-ಮೈಲು</unitPattern>
-				<unitPattern count="other">{0} ಸ್ಕ್ಯಾಂಡಿನೇವಿಯನ್-ಮೈಲುಗಳು</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>ಮಿಲಿಮೀಟರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಮಿಲಿಮೀಟರ್</unitPattern>
-				<unitPattern count="other">{0} ಮಿಲಿಮೀಟರ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>ನ್ಯಾನೊಮೀಟರ್‌‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ನ್ಯಾನೊಮೀಟರ್‌</unitPattern>
-				<unitPattern count="other">{0} ನ್ಯಾನೊಮೀಟರ್‌‌ಗಳು</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>ಅಸ್ಟ್ರಾನಾಮಿಕಲ್ ಯೂನಿಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಅಸ್ಟ್ರಾನಾಮಿಕಲ್ ಯೂನಿಟ್</unitPattern>
+				<unitPattern count="other">{0} ಅಸ್ಟ್ರಾನಾಮಿಕಲ್ ಯೂನಿಟ್‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>ನಾಟಿಕಲ್ ಮೈಲುಗಳು</displayName>
 				<unitPattern count="one">{0} ನಾಟಿಕಲ್ ಮೈಲು</unitPattern>
 				<unitPattern count="other">{0} ನಾಟಿಕಲ್ ಮೈಲುಗಳು</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>ಪಾರ್‌‍ಸೆಕೆಂ</displayName>
-				<unitPattern count="one">{0} ಪಾರ್‌ಸೆಕೆಂ</unitPattern>
-				<unitPattern count="other">{0} ಪಾರ್‌ಸೆಕೆಂ</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>ಪಿಕೋಮೀಟರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಪಿಕೋಮೀಟರ್</unitPattern>
-				<unitPattern count="other">{0} ಪಿಕೋಮೀಟರ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>ಗಜಗಳು</displayName>
-				<unitPattern count="one">{0} ಗಜ</unitPattern>
-				<unitPattern count="other">{0} ಗಜಗಳು</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>ಸ್ಕ್ಯಾಂಡಿನೇವಿಯನ್-ಮೈಲು</displayName>
+				<unitPattern count="one">{0} ಸ್ಕ್ಯಾಂಡಿನೇವಿಯನ್-ಮೈಲು</unitPattern>
+				<unitPattern count="other">{0} ಸ್ಕ್ಯಾಂಡಿನೇವಿಯನ್-ಮೈಲುಗಳು</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>ಲಕ್ಸ್‌‌</displayName>
 				<unitPattern count="one">{0} ಲಕ್ಸ್‌‌</unitPattern>
 				<unitPattern count="other">{0} ಲಕ್ಸ್‌‌</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>ಕ್ಯಾರೆಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಕ್ಯಾರೆಟ್‌</unitPattern>
-				<unitPattern count="other">{0} ಕ್ಯಾರೆಟ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>ಗ್ರಾಂಗಳು</displayName>
-				<unitPattern count="one">{0} ಗ್ರಾಂ</unitPattern>
-				<unitPattern count="other">{0} ಗ್ರಾಂಗಳು</unitPattern>
-				<perUnitPattern>{0} ಪ್ರತಿ ಗ್ರಾಂಗೆ</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>ಮೆಟ್ರಿಕ್‌‌ ಟನ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಮೆಟ್ರಿಕ್‌ ಟನ್‌</unitPattern>
+				<unitPattern count="other">{0} ಮೆಟ್ರಿಕ್‌‌ ಟನ್‌‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>ಕಿಲೋಗ್ರಾಂಗಳು</displayName>
@@ -6029,20 +6023,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಕಿಲೋಗ್ರಾಂಗಳು</unitPattern>
 				<perUnitPattern>{0} ಪ್ರತಿ ಕಿಲೋಗ್ರಾಂಗೆ</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>ಮೆಟ್ರಿಕ್‌‌ ಟನ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಮೆಟ್ರಿಕ್‌ ಟನ್‌</unitPattern>
-				<unitPattern count="other">{0} ಮೆಟ್ರಿಕ್‌‌ ಟನ್‌‌ಗಳು</unitPattern>
+			<unit type="mass-gram">
+				<displayName>ಗ್ರಾಂಗಳು</displayName>
+				<unitPattern count="one">{0} ಗ್ರಾಂ</unitPattern>
+				<unitPattern count="other">{0} ಗ್ರಾಂಗಳು</unitPattern>
+				<perUnitPattern>{0} ಪ್ರತಿ ಗ್ರಾಂಗೆ</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>ಮಿಲಿ ಗ್ರಾಂಗಳು</displayName>
+				<unitPattern count="one">{0} ಮಿಲಿ ಗ್ರಾಂ</unitPattern>
+				<unitPattern count="other">{0} ಮಿಲಿ ಗ್ರಾಂಗಳು</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>ಮೈಕ್ರೋ ಗ್ರಾಂಗಳು</displayName>
 				<unitPattern count="one">{0} ಮೈಕ್ರೋ ಗ್ರಾಂ</unitPattern>
 				<unitPattern count="other">{0} ಮೈಕ್ರೋ ಗ್ರಾಂಗಳು</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>ಮಿಲಿ ಗ್ರಾಂಗಳು</displayName>
-				<unitPattern count="one">{0} ಮಿಲಿ ಗ್ರಾಂ</unitPattern>
-				<unitPattern count="other">{0} ಮಿಲಿ ಗ್ರಾಂಗಳು</unitPattern>
+			<unit type="mass-ton">
+				<displayName>ಟನ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಟನ್‌</unitPattern>
+				<unitPattern count="other">{0} ಟನ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>ಪೌಂಡ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಪೌಂಡ್</unitPattern>
+				<unitPattern count="other">{0} ಪೌಂಡ್‌ಗಳು</unitPattern>
+				<perUnitPattern>{0} ಪ್ರತಿ ಪೌಂಡ್‌ಗೆ</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>ಔನ್ಸ್‌ಗಳು</displayName>
@@ -6055,61 +6061,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಟ್ರಾಯ್ ಔನ್ಸ್</unitPattern>
 				<unitPattern count="other">{0} ಟ್ರಾಯ್ ಔನ್ಸ್‌ಗಳು</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>ಪೌಂಡ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಪೌಂಡ್</unitPattern>
-				<unitPattern count="other">{0} ಪೌಂಡ್‌ಗಳು</unitPattern>
-				<perUnitPattern>{0} ಪ್ರತಿ ಪೌಂಡ್‌ಗೆ</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>ಟನ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಟನ್‌</unitPattern>
-				<unitPattern count="other">{0} ಟನ್‌ಗಳು</unitPattern>
+			<unit type="mass-carat">
+				<displayName>ಕ್ಯಾರೆಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಕ್ಯಾರೆಟ್‌</unitPattern>
+				<unitPattern count="other">{0} ಕ್ಯಾರೆಟ್‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ಗಿಗಾವ್ಯಾಟ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಗಿಗಾವ್ಯಾಟ್‌</unitPattern>
 				<unitPattern count="other">{0} ಗಿಗಾವ್ಯಾಟ್‌ಗಳು</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>ಹಾರ್ಸ್‌ಪವರ್</displayName>
-				<unitPattern count="one">{0} ಹಾರ್ಸ್‌ಪವರ್</unitPattern>
-				<unitPattern count="other">{0} ಹಾರ್ಸ್‌ಪವರ್</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>ಮೆಗಾವ್ಯಾಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಮೆಗಾವ್ಯಾಟ್‌</unitPattern>
+				<unitPattern count="other">{0} ಮೆಗಾವ್ಯಾಟ್‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>ಕಿಲೋವ್ಯಾಟ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಕಿಲೋವ್ಯಾಟ್</unitPattern>
 				<unitPattern count="other">{0} ಕಿಲೋವ್ಯಾಟ್‌ಗಳು</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>ಮೆಗಾವ್ಯಾಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಮೆಗಾವ್ಯಾಟ್‌</unitPattern>
-				<unitPattern count="other">{0} ಮೆಗಾವ್ಯಾಟ್‌ಗಳು</unitPattern>
+			<unit type="power-watt">
+				<displayName>ವ್ಯಾಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ವ್ಯಾಟ್</unitPattern>
+				<unitPattern count="other">{0} ವ್ಯಾಟ್‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>ಮಿಲಿವ್ಯಾಟ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಮಿಲಿವ್ಯಾಟ್‌</unitPattern>
 				<unitPattern count="other">{0} ಮಿಲಿವ್ಯಾಟ್‌ಗಳು</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>ವ್ಯಾಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ವ್ಯಾಟ್</unitPattern>
-				<unitPattern count="other">{0} ವ್ಯಾಟ್‌ಗಳು</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>ಹಾರ್ಸ್‌ಪವರ್</displayName>
+				<unitPattern count="one">{0} ಹಾರ್ಸ್‌ಪವರ್</unitPattern>
+				<unitPattern count="other">{0} ಹಾರ್ಸ್‌ಪವರ್</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>ಹೆಕ್ಟೋಪ್ಯಾಸ್ಕಲ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಹೆಕ್ಟೋಪ್ಯಾಸ್ಕಲ್</unitPattern>
 				<unitPattern count="other">{0} ಹೆಕ್ಟೋಪ್ಯಾಸ್ಕಲ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>ಮರ್ಕ್ಯುರಿ ಅಂಗುಲಗಳು</displayName>
-				<unitPattern count="one">{0} ಮರ್ಕ್ಯುರಿ ಅಂಗುಲ</unitPattern>
-				<unitPattern count="other">{0} ಮರ್ಕ್ಯುರಿ ಅಂಗುಲಗಳು</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>ಮಿಲಿಬಾರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಮಿಲಿಬಾರ್</unitPattern>
-				<unitPattern count="other">{0} ಮಿಲಿಬಾರ್‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>ಮರ್ಕ್ಯುರಿ ಮಿಲಿಮೀಟರ್‌ಗಳು</displayName>
@@ -6121,6 +6111,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಪ್ರತಿ ಚದರ ಇಂಚಿಗೆ ಪೌಂಡ್‌</unitPattern>
 				<unitPattern count="other">{0} ಪ್ರತಿ ಚದರ ಇಂಚಿಗೆ ಪೌಂಡ್‌ಗಳು</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>ಮರ್ಕ್ಯುರಿ ಅಂಗುಲಗಳು</displayName>
+				<unitPattern count="one">{0} ಮರ್ಕ್ಯುರಿ ಅಂಗುಲ</unitPattern>
+				<unitPattern count="other">{0} ಮರ್ಕ್ಯುರಿ ಅಂಗುಲಗಳು</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>ಮಿಲಿಬಾರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಮಿಲಿಬಾರ್</unitPattern>
+				<unitPattern count="other">{0} ಮಿಲಿಬಾರ್‌ಗಳು</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>ಕಾರಟ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಕಾರಟ್‌</unitPattern>
@@ -6130,11 +6130,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ಗಂಟೆಗೆ ಕಿಲೋಮೀಟರ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಕಿಲೋಮಿಟರ್ ಪ್ರತಿ ಗಂಟೆಗೆ</unitPattern>
 				<unitPattern count="other">{0} ಕಿಲೋಮಿಟರ್‌ಗಳು ಪ್ರತಿ ಗಂಟೆಗೆ</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>ನಾಟ್</displayName>
-				<unitPattern count="one">{0} ನಾಟ್</unitPattern>
-				<unitPattern count="other">{0} ನಾಟ್‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>ಮೀಟರ್‌ಗಳು ಪ್ರತಿ ಸೆಕೆಂಡ್‌ಗೆ</displayName>
@@ -6146,6 +6141,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಮೈಲು ಪ್ರತಿ ಗಂಟೆಗೆ</unitPattern>
 				<unitPattern count="other">{0} ಗಂಟೆಗೆ ಮೈಲುಗಳು</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>ನಾಟ್</displayName>
+				<unitPattern count="one">{0} ನಾಟ್</unitPattern>
+				<unitPattern count="other">{0} ನಾಟ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>ಡಿಗ್ರಿ ಸೆಲ್ಶಿಯಸ್</displayName>
 				<unitPattern count="one">{0} ಡಿಗ್ರಿ ಸೆಲ್ಶಿಯಸ್</unitPattern>
@@ -6156,41 +6161,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}ಡಿಗ್ರಿ ಫ್ಯಾರೆನ್‌ಹಿಟ್</unitPattern>
 				<unitPattern count="other">{0}ಡಿಗ್ರಿ ಫ್ಯಾರೆನ್‌ಹಿಟ್</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>ಕೆಲ್ವಿನ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಕೆಲ್ವಿನ್</unitPattern>
 				<unitPattern count="other">{0} ಕೆಲ್ವಿನ್‍ಗಳು</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ಎಕರೆ-ಅಡಿ</displayName>
-				<unitPattern count="one">{0} ಎಕರೆ-ಅಡಿ</unitPattern>
-				<unitPattern count="other">{0} ಎಕರೆ-ಅಡಿ</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>ಸೆಂಟಿಲೀಟರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಸೆಂಟಿಲೀಟರ್</unitPattern>
-				<unitPattern count="other">{0} ಸೆಂಟಿಲೀಟರ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>ಕ್ಯೂಬಿಕ್ ಸೆಂಟಿಮೀಟರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಕ್ಯೂಬಿಕ್ ಸೆಂಟಿಮೀಟರ್</unitPattern>
-				<unitPattern count="other">{0} ಕ್ಯೂಬಿಕ್ ಸೆಂಟಿಮೀಟರ್‌ಗಳು</unitPattern>
-				<perUnitPattern>{0} ಪ್ರತಿ ಕ್ಯೂಬಿಕ್ ಸೆಂಟಿಮೀಟರ್‌ಗಳಿಗೆ</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>ಘನ ಅಡಿ</displayName>
-				<unitPattern count="one">{0} ಘನ ಅಡಿ</unitPattern>
-				<unitPattern count="other">{0} ಘನ ಅಡಿ</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>ಘನ ಅಂಗುಲಗಳು</displayName>
-				<unitPattern count="one">{0} ಘನ ಅಂಗುಲ</unitPattern>
-				<unitPattern count="other">{0} ಘನ ಅಂಗುಲಗಳು</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>ಘನ ಕಿಲೋಮೀಟರ್‌ಗಳು</displayName>
@@ -6203,6 +6177,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಘನ ಮೀಟರುಗಳು</unitPattern>
 				<perUnitPattern>{0} ಪ್ರತಿ ಘನ ಮೀಟರುಗಳಿಗೆ</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>ಕ್ಯೂಬಿಕ್ ಸೆಂಟಿಮೀಟರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಕ್ಯೂಬಿಕ್ ಸೆಂಟಿಮೀಟರ್</unitPattern>
+				<unitPattern count="other">{0} ಕ್ಯೂಬಿಕ್ ಸೆಂಟಿಮೀಟರ್‌ಗಳು</unitPattern>
+				<perUnitPattern>{0} ಪ್ರತಿ ಕ್ಯೂಬಿಕ್ ಸೆಂಟಿಮೀಟರ್‌ಗಳಿಗೆ</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>ಘನ ಮೈಲುಗಳು</displayName>
 				<unitPattern count="one">{0} ಘನ ಮೈಲು</unitPattern>
@@ -6213,31 +6193,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಘನ ಗಜ</unitPattern>
 				<unitPattern count="other">{0} ಘನ ಗಜಗಳು</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>ಕಪ್‍ಗಳು</displayName>
-				<unitPattern count="one">{0} ಕಪ್‍</unitPattern>
-				<unitPattern count="other">{0} ಕಪ್‍ಗಳು</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>ಘನ ಅಡಿ</displayName>
+				<unitPattern count="one">{0} ಘನ ಅಡಿ</unitPattern>
+				<unitPattern count="other">{0} ಘನ ಅಡಿ</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>ಮೆಟ್ರಿಕ್‌ ಕಪ್‌</displayName>
-				<unitPattern count="one">{0} ಮೆಟ್ರಿಕ್‌ ಕಪ್‌</unitPattern>
-				<unitPattern count="other">{0} ಮೆಟ್ರಿಕ್‌ ಕಪ್‌ಗಳು</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>ಘನ ಅಂಗುಲಗಳು</displayName>
+				<unitPattern count="one">{0} ಘನ ಅಂಗುಲ</unitPattern>
+				<unitPattern count="other">{0} ಘನ ಅಂಗುಲಗಳು</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>ಡೆಸಿಲೀಟರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಡೆಸಿಲೀಟರ್‌</unitPattern>
-				<unitPattern count="other">{0} ಡೆಸಿಲೀಟರ್‌‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>ಫ್ಲೂಡ್ ಔನ್ಸ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಫ್ಲೂಡ್ ಔನ್ಸ್‌</unitPattern>
-				<unitPattern count="other">{0} ಫ್ಲೂಡ್ ಔನ್ಸ್‌ಗಳು</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>ಗ್ಯಾಲನ್‌‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಗ್ಯಾಲನ್‌</unitPattern>
-				<unitPattern count="other">{0} ಗ್ಯಾಲನ್‌ಗಳು</unitPattern>
-				<perUnitPattern>{0} ಪ್ರತಿ ಗ್ಯಾಲನ್‍ಗೆ</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>ಮೆಗಾ ಲೀಟರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಮೆಗಾ ಲೀಟರ್‌</unitPattern>
+				<unitPattern count="other">{0} ಮೆಗಾ ಲೀಟರ್‌‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>ಹೆಕ್ಟೋಲೀಟರ್‌ಗಳು</displayName>
@@ -6250,30 +6219,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಲೀಟರ್‌ಗಳು</unitPattern>
 				<perUnitPattern>{0} ಪ್ರತಿ ಲೀಟರ್‌ಗೆ</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>ಮೆಗಾ ಲೀಟರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಮೆಗಾ ಲೀಟರ್‌</unitPattern>
-				<unitPattern count="other">{0} ಮೆಗಾ ಲೀಟರ್‌‌ಗಳು</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>ಡೆಸಿಲೀಟರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಡೆಸಿಲೀಟರ್‌</unitPattern>
+				<unitPattern count="other">{0} ಡೆಸಿಲೀಟರ್‌‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>ಸೆಂಟಿಲೀಟರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಸೆಂಟಿಲೀಟರ್</unitPattern>
+				<unitPattern count="other">{0} ಸೆಂಟಿಲೀಟರ್‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>ಮಿಲಿಲೀಟರ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಮಿಲಿಲೀಟರ್</unitPattern>
 				<unitPattern count="other">{0} ಮಿಲಿಲೀಟರ್‌ಗಳು</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>ಪಿಂಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಪಿಂಟ್‌</unitPattern>
-				<unitPattern count="other">{0} ಪಿಂಟ್‌ಗಳು</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>ಮೆಟ್ರಿಕ್ ಪಿಂಟ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಮೆಟ್ರಿಕ್ ಪಿಂಟ್</unitPattern>
 				<unitPattern count="other">{0} ಮೆಟ್ರಿಕ್ ಪಿಂಟ್‌ಗಳು</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>ಮೆಟ್ರಿಕ್‌ ಕಪ್‌</displayName>
+				<unitPattern count="one">{0} ಮೆಟ್ರಿಕ್‌ ಕಪ್‌</unitPattern>
+				<unitPattern count="other">{0} ಮೆಟ್ರಿಕ್‌ ಕಪ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ಎಕರೆ-ಅಡಿ</displayName>
+				<unitPattern count="one">{0} ಎಕರೆ-ಅಡಿ</unitPattern>
+				<unitPattern count="other">{0} ಎಕರೆ-ಅಡಿ</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>ಗ್ಯಾಲನ್‌‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಗ್ಯಾಲನ್‌</unitPattern>
+				<unitPattern count="other">{0} ಗ್ಯಾಲನ್‌ಗಳು</unitPattern>
+				<perUnitPattern>{0} ಪ್ರತಿ ಗ್ಯಾಲನ್‍ಗೆ</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>ಕಾಲುಭಾಗಗಳು</displayName>
 				<unitPattern count="one">{0} ಕಾಲುಭಾಗ</unitPattern>
 				<unitPattern count="other">{0} ಕಾಲುಭಾಗಗಳು</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>ಪಿಂಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಪಿಂಟ್‌</unitPattern>
+				<unitPattern count="other">{0} ಪಿಂಟ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>ಕಪ್‍ಗಳು</displayName>
+				<unitPattern count="one">{0} ಕಪ್‍</unitPattern>
+				<unitPattern count="other">{0} ಕಪ್‍ಗಳು</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>ಫ್ಲೂಡ್ ಔನ್ಸ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಫ್ಲೂಡ್ ಔನ್ಸ್‌</unitPattern>
+				<unitPattern count="other">{0} ಫ್ಲೂಡ್ ಔನ್ಸ್‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>ಟೇಬಲ್ ಸ್ಪೂನ್‍ಗಳು</displayName>
@@ -6306,6 +6306,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಮೀ/ಸೆ²</unitPattern>
 				<unitPattern count="other">{0} ಮೀ/ಸೆ²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>ಕ್ರಾಂ</displayName>
+				<unitPattern count="one">{0} ಕ್ರಾಂ</unitPattern>
+				<unitPattern count="other">{0} ಕ್ರಾಂ</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>ರೇಡಿ.</displayName>
+				<unitPattern count="one">{0} ರೇಡಿ.</unitPattern>
+				<unitPattern count="other">{0} ರೇಡಿ</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>ಡಿಗ್ರಿಗಳು</displayName>
+				<unitPattern count="one">{0} ಡಿ.</unitPattern>
+				<unitPattern count="other">{0} ಡಿ.</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>ನಿ.</displayName>
 				<unitPattern count="one">{0} ನಿ.</unitPattern>
@@ -6316,36 +6331,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಸೆಕೆಂ</unitPattern>
 				<unitPattern count="other">{0} ಸೆಕೆಂ.ಗಳು</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>ಡಿಗ್ರಿಗಳು</displayName>
-				<unitPattern count="one">{0} ಡಿ.</unitPattern>
-				<unitPattern count="other">{0} ಡಿ.</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>ರೇಡಿ.</displayName>
-				<unitPattern count="one">{0} ರೇಡಿ.</unitPattern>
-				<unitPattern count="other">{0} ರೇಡಿ</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>ಕ್ರಾಂ</displayName>
-				<unitPattern count="one">{0} ಕ್ರಾಂ</unitPattern>
-				<unitPattern count="other">{0} ಕ್ರಾಂ</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ಎಕರೆಗಳು</displayName>
-				<unitPattern count="one">{0} ಎಕ.</unitPattern>
-				<unitPattern count="other">{0} ಎಕ.</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>ಕಿಮೀ²</displayName>
+				<unitPattern count="one">{0} ಕಿಮೀ²</unitPattern>
+				<unitPattern count="other">{0} ಕಿಮೀ²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ಹೆಕ್ಟೇರುಗಳು</displayName>
 				<unitPattern count="one">{0} ಹೆ.</unitPattern>
 				<unitPattern count="other">{0} ಹೆ.</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>ಚದರ ಮೀಟರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಮೀ²</unitPattern>
+				<unitPattern count="other">{0} ಮೀ²</unitPattern>
+				<perUnitPattern>{0}/ಮೀ²ಗೆ</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>ಸೆಂ.ಮೀ²</displayName>
 				<unitPattern count="one">{0} ಸೆಂ.ಮೀ²</unitPattern>
 				<unitPattern count="other">{0} ಸೆಂ.ಮೀ²</unitPattern>
 				<perUnitPattern>{0}/ಸೆಂ.ಮೀ²</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>ಚದರ ಮೈಲುಗಳು</displayName>
+				<unitPattern count="one">{0} ಚ.ಮೀ.</unitPattern>
+				<unitPattern count="other">{0} ಚ.ಮೀ.</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ಎಕರೆಗಳು</displayName>
+				<unitPattern count="one">{0} ಎಕ.</unitPattern>
+				<unitPattern count="other">{0} ಎಕ.</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>ಗಜಗಳು²</displayName>
+				<unitPattern count="one">{0} ಗ²</unitPattern>
+				<unitPattern count="other">{0} ಗ²</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>ಚದರಡಿ</displayName>
@@ -6358,96 +6379,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಅಂ²</unitPattern>
 				<perUnitPattern>{0}/ಅಂ²ಕ್ಕೆ</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>ಕಿಮೀ²</displayName>
-				<unitPattern count="one">{0} ಕಿಮೀ²</unitPattern>
-				<unitPattern count="other">{0} ಕಿಮೀ²</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>ಚದರ ಮೀಟರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಮೀ²</unitPattern>
-				<unitPattern count="other">{0} ಮೀ²</unitPattern>
-				<perUnitPattern>{0}/ಮೀ²ಗೆ</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>ಚದರ ಮೈಲುಗಳು</displayName>
-				<unitPattern count="one">{0} ಚ.ಮೀ.</unitPattern>
-				<unitPattern count="other">{0} ಚ.ಮೀ.</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>ಗಜಗಳು²</displayName>
-				<unitPattern count="one">{0} ಗ²</unitPattern>
-				<unitPattern count="other">{0} ಗ²</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>ಲೀ/ಕಿ.ಮೀ</displayName>
+				<unitPattern count="one">{0} ಲೀ/ಕಿ.ಮೀ</unitPattern>
+				<unitPattern count="other">{0} ಲೀ/ಕಿ.ಮೀ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100km</displayName>
 				<unitPattern count="one">{0} ಲೀ/100ಕಿ.ಮೀ</unitPattern>
 				<unitPattern count="other">{0} ಲೀ/100ಕಿ.ಮೀ</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>ಲೀ/ಕಿ.ಮೀ</displayName>
-				<unitPattern count="one">{0} ಲೀ/ಕಿ.ಮೀ</unitPattern>
-				<unitPattern count="other">{0} ಲೀ/ಕಿ.ಮೀ</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>ಮೈ/ಗ್ಯಾ</displayName>
 				<unitPattern count="one">{0} ಪ್ರ.ಗ್ಯಾ.ಮೈ.</unitPattern>
 				<unitPattern count="other">{0} ಪ್ರ.ಗ್ಯಾ.ಮೈ.</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>ಬಿ.</displayName>
-				<unitPattern count="one">{0} ಬಿ.</unitPattern>
-				<unitPattern count="other">{0} ಬಿ.</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>ಬೈ.</displayName>
-				<unitPattern count="one">{0} ಬೈ.</unitPattern>
-				<unitPattern count="other">{0} ಬೈ.</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>ಗಿ.ಬಿ.</displayName>
-				<unitPattern count="one">{0} ಗಿ.ಬಿ.</unitPattern>
-				<unitPattern count="other">{0} ಗಿ.ಬಿ.</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>ಗಿ.ಬೈ.</displayName>
-				<unitPattern count="one">{0} ಗಿ.ಬೈ.</unitPattern>
-				<unitPattern count="other">{0} ಗಿ.ಬೈ.</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>ಕಿ.ಬಿ.</displayName>
-				<unitPattern count="one">{0} ಕಿ.ಬಿ.</unitPattern>
-				<unitPattern count="other">{0} ಕಿ.ಬಿ.</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>ಕಿ.ಬೈ.</displayName>
-				<unitPattern count="one">{0} ಕಿ.ಬೈ.</unitPattern>
-				<unitPattern count="other">{0} ಕಿ.ಬೈ.</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>ಮೆ.ಬಿ.</displayName>
-				<unitPattern count="one">{0} ಮೆ.ಬಿ.</unitPattern>
-				<unitPattern count="other">{0} ಮೆ.ಬಿ.</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>ಮೆ.ಬೈ.</displayName>
-				<unitPattern count="one">{0} ಮೆ.ಬೈ.</unitPattern>
-				<unitPattern count="other">{0} ಮೆ.ಬೈ.</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>ಟೆ.ಬಿ.</displayName>
-				<unitPattern count="one">{0} ಟೆ.ಬಿ.</unitPattern>
-				<unitPattern count="other">{0} ಟೆ.ಬಿ.</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>ಟೆ.ಬೈ.</displayName>
 				<unitPattern count="one">{0} ಟೆ.ಬೈ.</unitPattern>
 				<unitPattern count="other">{0} ಟೆ.ಬೈ.</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>ಟೆ.ಬಿ.</displayName>
+				<unitPattern count="one">{0} ಟೆ.ಬಿ.</unitPattern>
+				<unitPattern count="other">{0} ಟೆ.ಬಿ.</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>ಗಿ.ಬೈ.</displayName>
+				<unitPattern count="one">{0} ಗಿ.ಬೈ.</unitPattern>
+				<unitPattern count="other">{0} ಗಿ.ಬೈ.</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>ಗಿ.ಬಿ.</displayName>
+				<unitPattern count="one">{0} ಗಿ.ಬಿ.</unitPattern>
+				<unitPattern count="other">{0} ಗಿ.ಬಿ.</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>ಮೆ.ಬೈ.</displayName>
+				<unitPattern count="one">{0} ಮೆ.ಬೈ.</unitPattern>
+				<unitPattern count="other">{0} ಮೆ.ಬೈ.</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>ಮೆ.ಬಿ.</displayName>
+				<unitPattern count="one">{0} ಮೆ.ಬಿ.</unitPattern>
+				<unitPattern count="other">{0} ಮೆ.ಬಿ.</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>ಕಿ.ಬೈ.</displayName>
+				<unitPattern count="one">{0} ಕಿ.ಬೈ.</unitPattern>
+				<unitPattern count="other">{0} ಕಿ.ಬೈ.</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>ಕಿ.ಬಿ.</displayName>
+				<unitPattern count="one">{0} ಕಿ.ಬಿ.</unitPattern>
+				<unitPattern count="other">{0} ಕಿ.ಬಿ.</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>ಬೈ.</displayName>
+				<unitPattern count="one">{0} ಬೈ.</unitPattern>
+				<unitPattern count="other">{0} ಬೈ.</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>ಬಿ.</displayName>
+				<unitPattern count="one">{0} ಬಿ.</unitPattern>
+				<unitPattern count="other">{0} ಬಿ.</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>ಶ</displayName>
 				<unitPattern count="one">{0} ಶ</unitPattern>
 				<unitPattern count="other">{0} ಶ</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>ವರ್ಷಗಳು</displayName>
+				<unitPattern count="one">{0} ವರ್ಷ</unitPattern>
+				<unitPattern count="other">{0} ವರ್ಷಗಳು</unitPattern>
+				<perUnitPattern>{0}/ವ</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>ತಿಂಗಳು</displayName>
+				<unitPattern count="one">{0} ತಿಂ.</unitPattern>
+				<unitPattern count="other">{0} ತಿಂ.</unitPattern>
+				<perUnitPattern>{0}/ತಿ</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>ವಾರಗಳು</displayName>
+				<unitPattern count="one">{0} ವಾರ</unitPattern>
+				<unitPattern count="other">{0} ವಾರಗಳು</unitPattern>
+				<perUnitPattern>{0}/ವಾ</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>ದಿನಗಳು</displayName>
@@ -6461,32 +6479,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಗಂ.</unitPattern>
 				<perUnitPattern>{0}/ಗಂ</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>μsecs</displayName>
-				<unitPattern count="one">{0} μs</unitPattern>
-				<unitPattern count="other">{0} μs</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>ಮಿಲಿಸೆಕೆಂಡುಗಳು</displayName>
-				<unitPattern count="one">{0} ಮಿ.ಸೆ.</unitPattern>
-				<unitPattern count="other">{0} ಮಿ.ಸೆ.</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>ನಿಮಿಷಗಳು</displayName>
 				<unitPattern count="one">{0} ನಿಮಿ</unitPattern>
 				<unitPattern count="other">{0} ನಿಮಿ</unitPattern>
 				<perUnitPattern>{0}/ನಿಮಿ</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>ತಿಂಗಳು</displayName>
-				<unitPattern count="one">{0} ತಿಂ.</unitPattern>
-				<unitPattern count="other">{0} ತಿಂ.</unitPattern>
-				<perUnitPattern>{0}/ತಿ</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>ನ್ಯಾ.ಸೆ</displayName>
-				<unitPattern count="one">{0} ನ್ಯಾ.ಸೆ</unitPattern>
-				<unitPattern count="other">{0} ನ್ಯಾ.ಸೆ</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>ಸೆಕೆಂಡುಗಳು</displayName>
@@ -6494,17 +6491,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಸೆಕೆಂ</unitPattern>
 				<perUnitPattern>{0}/ಸೆ</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>ವಾರಗಳು</displayName>
-				<unitPattern count="one">{0} ವಾರ</unitPattern>
-				<unitPattern count="other">{0} ವಾರಗಳು</unitPattern>
-				<perUnitPattern>{0}/ವಾ</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>ಮಿಲಿಸೆಕೆಂಡುಗಳು</displayName>
+				<unitPattern count="one">{0} ಮಿ.ಸೆ.</unitPattern>
+				<unitPattern count="other">{0} ಮಿ.ಸೆ.</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>ವರ್ಷಗಳು</displayName>
-				<unitPattern count="one">{0} ವರ್ಷ</unitPattern>
-				<unitPattern count="other">{0} ವರ್ಷಗಳು</unitPattern>
-				<perUnitPattern>{0}/ವ</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>μsecs</displayName>
+				<unitPattern count="one">{0} μs</unitPattern>
+				<unitPattern count="other">{0} μs</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ನ್ಯಾ.ಸೆ</displayName>
+				<unitPattern count="one">{0} ನ್ಯಾ.ಸೆ</unitPattern>
+				<unitPattern count="other">{0} ನ್ಯಾ.ಸೆ</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>ಆಂ.</displayName>
@@ -6526,6 +6526,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ವೋ</unitPattern>
 				<unitPattern count="other">{0} ವೋ.</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>ಕಿ.ಕ್ಯಾ</displayName>
+				<unitPattern count="one">{0} ಕಿ.ಕ್ಯಾ</unitPattern>
+				<unitPattern count="other">{0} ಕಿ.ಕ್ಯಾ</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>ಕ್ಯಾಲೊ</displayName>
 				<unitPattern count="one">{0} ಕ್ಯಾಲೊ</unitPattern>
@@ -6536,20 +6541,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಕ್ಯಾ</unitPattern>
 				<unitPattern count="other">{0} ಕ್ಯಾ</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>ಜೌಲ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಜೌ</unitPattern>
-				<unitPattern count="other">{0} ಜೌ</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>ಕಿ.ಕ್ಯಾ</displayName>
-				<unitPattern count="one">{0} ಕಿ.ಕ್ಯಾ</unitPattern>
-				<unitPattern count="other">{0} ಕಿ.ಕ್ಯಾ</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>ಕಿ.ಜೌ</displayName>
 				<unitPattern count="one">{0} ಕಿ.ಜೌ</unitPattern>
 				<unitPattern count="other">{0} ಕಿ.ಜೌ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>ಜೌಲ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಜೌ</unitPattern>
+				<unitPattern count="other">{0} ಜೌ</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>ಕಿ.ವ್ಯಾ-ಗಂ</displayName>
@@ -6561,25 +6561,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಗಿ.ಹ</unitPattern>
 				<unitPattern count="other">{0} ಗಿ.ಹ</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>ಹರ್ಟ್ಸ್‌</displayName>
-				<unitPattern count="one">{0} ಹರ್ಟ್ಸ್‌</unitPattern>
-				<unitPattern count="other">{0} ಹರ್ಟ್ಸ್‌</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>ಮೆ.ಹ</displayName>
+				<unitPattern count="one">{0} ಮೆ.ಹ</unitPattern>
+				<unitPattern count="other">{0} ಮೆ.ಹ</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>ಕಿ.ಹ</displayName>
 				<unitPattern count="one">{0} ಕಿ.ಹ</unitPattern>
 				<unitPattern count="other">{0} ಕಿ.ಹ</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>ಮೆ.ಹ</displayName>
-				<unitPattern count="one">{0} ಮೆ.ಹ</unitPattern>
-				<unitPattern count="other">{0} ಮೆ.ಹ</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>ಹರ್ಟ್ಸ್‌</displayName>
+				<unitPattern count="one">{0} ಹರ್ಟ್ಸ್‌</unitPattern>
+				<unitPattern count="other">{0} ಹರ್ಟ್ಸ್‌</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>ಅ.ಯೂ</displayName>
-				<unitPattern count="one">{0} ಅ.ಯೂ</unitPattern>
-				<unitPattern count="other">{0} ಅ.ಯೂ</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>ಕಿಲೋಮೀಟರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಕಿಮೀ</unitPattern>
+				<unitPattern count="other">{0} ಕಿಮೀ</unitPattern>
+				<perUnitPattern>{0}/ಕಿ.ಮೀ</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>ಮೀಟರ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಮೀ</unitPattern>
+				<unitPattern count="other">{0} ಮೀ</unitPattern>
+				<perUnitPattern>{0}/ಮೀ</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>ಡೆಮೀ</displayName>
+				<unitPattern count="one">{0} ಡೆಮೀ</unitPattern>
+				<unitPattern count="other">{0} ಡೆಮೀ</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>ಸೆಮೀ</displayName>
@@ -6587,10 +6599,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಸೆಮೀ</unitPattern>
 				<perUnitPattern>{0}/ಸೆಂಮೀ</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>ಡೆಮೀ</displayName>
-				<unitPattern count="one">{0} ಡೆಮೀ</unitPattern>
-				<unitPattern count="other">{0} ಡೆಮೀ</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>ಮಿಮೀ</displayName>
+				<unitPattern count="one">{0} ಮಿಮೀ</unitPattern>
+				<unitPattern count="other">{0} ಮಿಮೀ</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>µmeters</displayName>
+				<unitPattern count="one">{0} µm</unitPattern>
+				<unitPattern count="other">{0} µm</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>ನ್ಯಾ.ಮೀ</displayName>
+				<unitPattern count="one">{0} ನ್ಯಾ.ಮೀ</unitPattern>
+				<unitPattern count="other">{0} ನ್ಯಾ.ಮೀ</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>ಪಿ.ಮೀ</displayName>
+				<unitPattern count="one">{0} ಪಿ.ಮೀ</unitPattern>
+				<unitPattern count="other">{0} ಪಿ.ಮೀ</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>ಮೈಲುಗಳು</displayName>
+				<unitPattern count="one">{0} ಮೈ.</unitPattern>
+				<unitPattern count="other">{0} ಮೈ.</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>ಗಜಗಳು</displayName>
+				<unitPattern count="one">{0} ಗ</unitPattern>
+				<unitPattern count="other">{0} ಗ</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>ಅಡಿ</displayName>
@@ -6604,83 +6641,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಅಂ</unitPattern>
 				<perUnitPattern>{0}/ಅಂ</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>ಕಿಲೋಮೀಟರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಕಿಮೀ</unitPattern>
-				<unitPattern count="other">{0} ಕಿಮೀ</unitPattern>
-				<perUnitPattern>{0}/ಕಿ.ಮೀ</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>ಪಾರ್‌ಸೆಕೆಂ.ಗಳು</displayName>
+				<unitPattern count="one">{0} ಪಾ.ಸೆ</unitPattern>
+				<unitPattern count="other">{0} ಪಾ.ಸೆ</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>ಬೆಳಕಿನ ವರ್ಷಗಳು</displayName>
 				<unitPattern count="one">{0} ಬೆ.ವರ್ಷ</unitPattern>
 				<unitPattern count="other">{0} ಬೆ.ವರ್ಷ</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>ಮೀಟರ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಮೀ</unitPattern>
-				<unitPattern count="other">{0} ಮೀ</unitPattern>
-				<perUnitPattern>{0}/ಮೀ</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>µmeters</displayName>
-				<unitPattern count="one">{0} µm</unitPattern>
-				<unitPattern count="other">{0} µm</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>ಮೈಲುಗಳು</displayName>
-				<unitPattern count="one">{0} ಮೈ.</unitPattern>
-				<unitPattern count="other">{0} ಮೈ.</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>ಸ್ಕ್ಯಾಂ.ಮೈ</displayName>
-				<unitPattern count="one">{0} ಸ್ಕ್ಯಾಂ.ಮೈ</unitPattern>
-				<unitPattern count="other">{0} ಸ್ಕ್ಯಾಂ.ಮೈ</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>ಮಿಮೀ</displayName>
-				<unitPattern count="one">{0} ಮಿಮೀ</unitPattern>
-				<unitPattern count="other">{0} ಮಿಮೀ</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>ನ್ಯಾ.ಮೀ</displayName>
-				<unitPattern count="one">{0} ನ್ಯಾ.ಮೀ</unitPattern>
-				<unitPattern count="other">{0} ನ್ಯಾ.ಮೀ</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>ಅ.ಯೂ</displayName>
+				<unitPattern count="one">{0} ಅ.ಯೂ</unitPattern>
+				<unitPattern count="other">{0} ಅ.ಯೂ</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>ನಾ.ಮೈ</displayName>
 				<unitPattern count="one">{0} ನಾ.ಮೈ</unitPattern>
 				<unitPattern count="other">{0} ನಾ.ಮೈ</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>ಪಾರ್‌ಸೆಕೆಂ.ಗಳು</displayName>
-				<unitPattern count="one">{0} ಪಾ.ಸೆ</unitPattern>
-				<unitPattern count="other">{0} ಪಾ.ಸೆ</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>ಪಿ.ಮೀ</displayName>
-				<unitPattern count="one">{0} ಪಿ.ಮೀ</unitPattern>
-				<unitPattern count="other">{0} ಪಿ.ಮೀ</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>ಗಜಗಳು</displayName>
-				<unitPattern count="one">{0} ಗ</unitPattern>
-				<unitPattern count="other">{0} ಗ</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>ಸ್ಕ್ಯಾಂ.ಮೈ</displayName>
+				<unitPattern count="one">{0} ಸ್ಕ್ಯಾಂ.ಮೈ</unitPattern>
+				<unitPattern count="other">{0} ಸ್ಕ್ಯಾಂ.ಮೈ</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>ಲ.</displayName>
 				<unitPattern count="one">{0} ಲ.</unitPattern>
 				<unitPattern count="other">{0} ಲ.</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>ಕ್ಯಾರೆಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಕ್ಯಾರೆ</unitPattern>
-				<unitPattern count="other">{0} ಕ್ಯಾರೆ</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>ಗ್ರಾಂಗಳು</displayName>
-				<unitPattern count="one">{0} ಗ್ರಾ</unitPattern>
-				<unitPattern count="other">{0} ಗ್ರಾ</unitPattern>
-				<perUnitPattern>{0}/ಗ್ರಾ</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>ಟ</displayName>
+				<unitPattern count="one">{0} ಮೆಟ್ರಿಕ್‌ ಟನ್‌</unitPattern>
+				<unitPattern count="other">{0} ಮೆಟ್ರಿಕ್‌‌ ಟನ್‌‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>ಕೆಜಿ</displayName>
@@ -6688,20 +6682,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಕೆಜಿ</unitPattern>
 				<perUnitPattern>{0}/ಕೆಜಿ</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>ಟ</displayName>
-				<unitPattern count="one">{0} ಮೆಟ್ರಿಕ್‌ ಟನ್‌</unitPattern>
-				<unitPattern count="other">{0} ಮೆಟ್ರಿಕ್‌‌ ಟನ್‌‌ಗಳು</unitPattern>
+			<unit type="mass-gram">
+				<displayName>ಗ್ರಾಂಗಳು</displayName>
+				<unitPattern count="one">{0} ಗ್ರಾ</unitPattern>
+				<unitPattern count="other">{0} ಗ್ರಾ</unitPattern>
+				<perUnitPattern>{0}/ಗ್ರಾ</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>ಮಿ.ಗ್ರಾಂ</displayName>
+				<unitPattern count="one">{0} ಮಿ.ಗ್ರಾಂ</unitPattern>
+				<unitPattern count="other">{0} ಮಿ.ಗ್ರಾಂ</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>ಮೈ.ಗ್ರಾಂ</displayName>
 				<unitPattern count="one">{0} ಮೈ.ಗ್ರಾಂ</unitPattern>
 				<unitPattern count="other">{0} ಮೈ.ಗ್ರಾಂ</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>ಮಿ.ಗ್ರಾಂ</displayName>
-				<unitPattern count="one">{0} ಮಿ.ಗ್ರಾಂ</unitPattern>
-				<unitPattern count="other">{0} ಮಿ.ಗ್ರಾಂ</unitPattern>
+			<unit type="mass-ton">
+				<displayName>ಟನ್‍ಗಳು</displayName>
+				<unitPattern count="one">{0} ಟನ್‌</unitPattern>
+				<unitPattern count="other">{0} ಟನ್‌</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>ಪೌಂ</displayName>
+				<unitPattern count="one">{0} ಪೌಂ</unitPattern>
+				<unitPattern count="other">{0} ಪೌಂ</unitPattern>
+				<perUnitPattern>{0}/ಪೌಂ</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>ಔ</displayName>
@@ -6714,61 +6720,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಟ್ರಾ.ಔ</unitPattern>
 				<unitPattern count="other">{0} ಟ್ರಾ.ಔ</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>ಪೌಂ</displayName>
-				<unitPattern count="one">{0} ಪೌಂ</unitPattern>
-				<unitPattern count="other">{0} ಪೌಂ</unitPattern>
-				<perUnitPattern>{0}/ಪೌಂ</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>ಟನ್‍ಗಳು</displayName>
-				<unitPattern count="one">{0} ಟನ್‌</unitPattern>
-				<unitPattern count="other">{0} ಟನ್‌</unitPattern>
+			<unit type="mass-carat">
+				<displayName>ಕ್ಯಾರೆಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಕ್ಯಾರೆ</unitPattern>
+				<unitPattern count="other">{0} ಕ್ಯಾರೆ</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ಗಿ.ವ್ಯಾ</displayName>
 				<unitPattern count="one">{0} ಗಿ.ವ್ಯಾ</unitPattern>
 				<unitPattern count="other">{0} ಗಿ.ವ್ಯಾ</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>ಹೆಚ್‌ಪಿ</displayName>
-				<unitPattern count="one">{0} ಹೆಚ್‌ಪಿ</unitPattern>
-				<unitPattern count="other">{0} ಹೆಚ್‌ಪಿ</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>ಮೆ.ವ್ಯಾ</displayName>
+				<unitPattern count="one">{0} ಮೆ.ವ್ಯಾ</unitPattern>
+				<unitPattern count="other">{0} ಮೆ.ವ್ಯಾ</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>ಕಿ.ವ್ಯಾ</displayName>
 				<unitPattern count="one">{0} ಕಿ.ವ್ಯಾ</unitPattern>
 				<unitPattern count="other">{0} ಕಿ.ವ್ಯಾ</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>ಮೆ.ವ್ಯಾ</displayName>
-				<unitPattern count="one">{0} ಮೆ.ವ್ಯಾ</unitPattern>
-				<unitPattern count="other">{0} ಮೆ.ವ್ಯಾ</unitPattern>
+			<unit type="power-watt">
+				<displayName>ವ್ಯಾಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ವ್ಯಾ.</unitPattern>
+				<unitPattern count="other">{0} ವ್ಯಾ.</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>ಮಿ.ವ್ಯಾ</displayName>
 				<unitPattern count="one">{0} ಮಿ.ವ್ಯಾ</unitPattern>
 				<unitPattern count="other">{0} ಮಿ.ವ್ಯಾ</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>ವ್ಯಾಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ವ್ಯಾ.</unitPattern>
-				<unitPattern count="other">{0} ವ್ಯಾ.</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>ಹೆಚ್‌ಪಿ</displayName>
+				<unitPattern count="one">{0} ಹೆಚ್‌ಪಿ</unitPattern>
+				<unitPattern count="other">{0} ಹೆಚ್‌ಪಿ</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>ಹೆ.ಪ್ಯಾ.</displayName>
 				<unitPattern count="one">{0} ಹೆ.ಪ್ಯಾ</unitPattern>
 				<unitPattern count="other">{0} ಹೆ.ಪ್ಯಾ</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>ಮರ್ಕ್ಯು.ಅಂ.</displayName>
-				<unitPattern count="one">{0} ಮರ್ಕ್ಯು. ಅಂ.</unitPattern>
-				<unitPattern count="other">{0} ಮರ್ಕ್ಯು. ಅಂ.</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>ಮಿ.ಬಾರ್‌</displayName>
-				<unitPattern count="one">{0} ಮಿ.ಬಾರ್</unitPattern>
-				<unitPattern count="other">{0} ಮಿ.ಬಾರ್</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>ಮರ್ಕ್ಯು.ಮಿ.ಮೀ.</displayName>
@@ -6780,6 +6770,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಪ್ರ.ಚ.ಇಂ.ಪೌಂ.</unitPattern>
 				<unitPattern count="other">{0} ಪ್ರ.ಚ.ಇಂ.ಪೌಂ.</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>ಮರ್ಕ್ಯು.ಅಂ.</displayName>
+				<unitPattern count="one">{0} ಮರ್ಕ್ಯು. ಅಂ.</unitPattern>
+				<unitPattern count="other">{0} ಮರ್ಕ್ಯು. ಅಂ.</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>ಮಿ.ಬಾರ್‌</displayName>
+				<unitPattern count="one">{0} ಮಿ.ಬಾರ್</unitPattern>
+				<unitPattern count="other">{0} ಮಿ.ಬಾರ್</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>ಕಾರ.</displayName>
 				<unitPattern count="one">{0} ಕಾರ.</unitPattern>
@@ -6789,11 +6789,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ಕಿ.ಮೀ/ಗಂ</displayName>
 				<unitPattern count="one">{0} ಕಿ.ಮೀ./ಗಂ</unitPattern>
 				<unitPattern count="other">{0} ಕಿ.ಮೀ./ಗಂ</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>ನಾ</displayName>
-				<unitPattern count="one">{0} ನಾ</unitPattern>
-				<unitPattern count="other">{0} ನಾ</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>ಮೀ.ಗಳು/ಸೆ</displayName>
@@ -6805,6 +6800,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಮೈ/ಗಂ</unitPattern>
 				<unitPattern count="other">{0} ಮೈ/ಗಂ</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>ನಾ</displayName>
+				<unitPattern count="one">{0} ನಾ</unitPattern>
+				<unitPattern count="other">{0} ನಾ</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>ಡಿ.ಸೆ.</displayName>
 				<unitPattern count="one">{0}°ಸೆ</unitPattern>
@@ -6815,41 +6820,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}°ಫ್ಯಾ</unitPattern>
 				<unitPattern count="other">{0}°ಫ್ಯಾ</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>ಕೆ</displayName>
 				<unitPattern count="one">{0} ಕೆ</unitPattern>
 				<unitPattern count="other">{0} ಕೆ</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ಎಕರೆ ಅಡಿ</displayName>
-				<unitPattern count="one">{0} ಎ. ಅ</unitPattern>
-				<unitPattern count="other">{0} ಎ. ಅ</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>ಸೆಂ.ಲೀ</displayName>
-				<unitPattern count="one">{0} ಸೆಂ.ಲೀ</unitPattern>
-				<unitPattern count="other">{0} ಸೆಂ.ಲೀ</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>ಸೆಮೀ³</displayName>
-				<unitPattern count="one">{0} ಸೆಮೀ³</unitPattern>
-				<unitPattern count="other">{0} ಸೆಮೀ³</unitPattern>
-				<perUnitPattern>{0}/ಸೆಮೀ³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>ಅಡಿ³</displayName>
-				<unitPattern count="one">{0} ಅಡಿ³</unitPattern>
-				<unitPattern count="other">{0} ಅಡಿ³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>ಅಂಗುಲಗಳು³</displayName>
-				<unitPattern count="one">{0} ಅಂ³</unitPattern>
-				<unitPattern count="other">{0} ಅಂ³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>ಕಿಮೀ³</displayName>
@@ -6862,6 +6836,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಮೀ³</unitPattern>
 				<perUnitPattern>{0}/ಮೀ³</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>ಸೆಮೀ³</displayName>
+				<unitPattern count="one">{0} ಸೆಮೀ³</unitPattern>
+				<unitPattern count="other">{0} ಸೆಮೀ³</unitPattern>
+				<perUnitPattern>{0}/ಸೆಮೀ³</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>ಮೈ³</displayName>
 				<unitPattern count="one">{0} ಮೈ³</unitPattern>
@@ -6872,31 +6852,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಗಜ³</unitPattern>
 				<unitPattern count="other">{0} ಗಜ³</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>ಕಪ್‍ಗಳು</displayName>
-				<unitPattern count="one">{0} ಕ</unitPattern>
-				<unitPattern count="other">{0} ಕ</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>ಅಡಿ³</displayName>
+				<unitPattern count="one">{0} ಅಡಿ³</unitPattern>
+				<unitPattern count="other">{0} ಅಡಿ³</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>ಮೆ.ಕಪ್‌</displayName>
-				<unitPattern count="one">{0} ಮೆ.ಕಪ್‌</unitPattern>
-				<unitPattern count="other">{0} ಮೆ.ಕ</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>ಅಂಗುಲಗಳು³</displayName>
+				<unitPattern count="one">{0} ಅಂ³</unitPattern>
+				<unitPattern count="other">{0} ಅಂ³</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>ಡೆ.ಲೀ</displayName>
-				<unitPattern count="one">{0} ಡೆ.ಲೀ</unitPattern>
-				<unitPattern count="other">{0} ಡೆ.ಲೀ</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>ಫ್ಲೂ.ಔ</displayName>
-				<unitPattern count="one">{0} ಫ್ಲೂ.ಔ</unitPattern>
-				<unitPattern count="other">{0} ಫ್ಲೂ.ಔ</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>ಗ್ಯಾ</displayName>
-				<unitPattern count="one">{0} ಗ್ಯಾ</unitPattern>
-				<unitPattern count="other">{0} ಗ್ಯಾ</unitPattern>
-				<perUnitPattern>{0}/ಗ್ಯಾ</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>ಮೆ.ಲೀ</displayName>
+				<unitPattern count="one">{0} ಮೆ.ಲೀ</unitPattern>
+				<unitPattern count="other">{0} ಮೆ.ಲೀ</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>ಹೆ.ಲೀ</displayName>
@@ -6909,30 +6878,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಲೀ</unitPattern>
 				<perUnitPattern>{0}/ಲೀ</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>ಮೆ.ಲೀ</displayName>
-				<unitPattern count="one">{0} ಮೆ.ಲೀ</unitPattern>
-				<unitPattern count="other">{0} ಮೆ.ಲೀ</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>ಡೆ.ಲೀ</displayName>
+				<unitPattern count="one">{0} ಡೆ.ಲೀ</unitPattern>
+				<unitPattern count="other">{0} ಡೆ.ಲೀ</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>ಸೆಂ.ಲೀ</displayName>
+				<unitPattern count="one">{0} ಸೆಂ.ಲೀ</unitPattern>
+				<unitPattern count="other">{0} ಸೆಂ.ಲೀ</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>ಮಿ.ಲೀ</displayName>
 				<unitPattern count="one">{0} ಮಿ.ಲೀ</unitPattern>
 				<unitPattern count="other">{0} ಮಿ.ಲೀ</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>ಪಿಂಟ್‍ಗಳು</displayName>
-				<unitPattern count="one">{0} ಪಿಂಟ್‌</unitPattern>
-				<unitPattern count="other">{0} ಪಿಂಟ್‌</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>ಮೆ.ಪಿಂ</displayName>
 				<unitPattern count="one">{0} ಮೆ.ಪಿಂ</unitPattern>
 				<unitPattern count="other">{0} ಮೆ.ಪಿಂ</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>ಮೆ.ಕಪ್‌</displayName>
+				<unitPattern count="one">{0} ಮೆ.ಕಪ್‌</unitPattern>
+				<unitPattern count="other">{0} ಮೆ.ಕ</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ಎಕರೆ ಅಡಿ</displayName>
+				<unitPattern count="one">{0} ಎ. ಅ</unitPattern>
+				<unitPattern count="other">{0} ಎ. ಅ</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>ಗ್ಯಾ</displayName>
+				<unitPattern count="one">{0} ಗ್ಯಾ</unitPattern>
+				<unitPattern count="other">{0} ಗ್ಯಾ</unitPattern>
+				<perUnitPattern>{0}/ಗ್ಯಾ</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>ಕಾ.ಭಾ</displayName>
 				<unitPattern count="one">{0} ಕಾ.ಭಾ</unitPattern>
 				<unitPattern count="other">{0} ಕಾ.ಭಾ</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>ಪಿಂಟ್‍ಗಳು</displayName>
+				<unitPattern count="one">{0} ಪಿಂಟ್‌</unitPattern>
+				<unitPattern count="other">{0} ಪಿಂಟ್‌</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>ಕಪ್‍ಗಳು</displayName>
+				<unitPattern count="one">{0} ಕ</unitPattern>
+				<unitPattern count="other">{0} ಕ</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>ಫ್ಲೂ.ಔ</displayName>
+				<unitPattern count="one">{0} ಫ್ಲೂ.ಔ</unitPattern>
+				<unitPattern count="other">{0} ಫ್ಲೂ.ಔ</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>ಟೇ.ಸ್ಪೂ</displayName>
@@ -6959,6 +6959,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}ಜಿ-ಫೋ.</unitPattern>
 				<unitPattern count="other">{0}ಜಿ-ಫೋ.</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}ನಿ.</unitPattern>
 				<unitPattern count="other">{0}ನಿ.</unitPattern>
@@ -6967,25 +6971,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}ಸೆಕೆಂ</unitPattern>
 				<unitPattern count="other">{0}ಸೆಕೆಂ</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="one">{0} ಎಕ.</unitPattern>
-				<unitPattern count="other">{0} ಎಕ.</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} ಚ.ಕಿಮೀ.</unitPattern>
+				<unitPattern count="other">{0} ಚ.ಕಿಮೀ.</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="one">{0} ಹೆ.</unitPattern>
 				<unitPattern count="other">{0} ಹೆ.</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="one">{0}ಚ.ಅ</unitPattern>
-				<unitPattern count="other">{0}ಚ.ಅ</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="one">{0} ಚ.ಕಿಮೀ.</unitPattern>
-				<unitPattern count="other">{0} ಚ.ಕಿಮೀ.</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="one">{0} ಮೀ²</unitPattern>
@@ -6995,10 +6987,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}ಚ.ಮೀ.</unitPattern>
 				<unitPattern count="other">{0}ಚ.ಮೀ.</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0} ಎಕ.</unitPattern>
+				<unitPattern count="other">{0} ಎಕ.</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0}ಚ.ಅ</unitPattern>
+				<unitPattern count="other">{0}ಚ.ಅ</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>ಲೀ/100ಕಿ.ಮೀ</displayName>
 				<unitPattern count="one">{0}L/100km</unitPattern>
 				<unitPattern count="other">{0}L/100km</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>ವರ್ಷಗಳು</displayName>
+				<unitPattern count="one">{0}ವ</unitPattern>
+				<unitPattern count="other">{0}ವ</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>ತಿಂಗಳು</displayName>
+				<unitPattern count="one">{0}ತಿಂ.</unitPattern>
+				<unitPattern count="other">{0}ತಿಂ.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>ವಾರ</displayName>
+				<unitPattern count="one">{0}ವಾರ</unitPattern>
+				<unitPattern count="other">{0}ವಾರ</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>ದಿನ</displayName>
@@ -7010,66 +7025,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}ಗಂ.</unitPattern>
 				<unitPattern count="other">{0}ಗಂ.</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>ಮಿ.ಸೆ.</displayName>
-				<unitPattern count="one">{0}ಮಿ.ಸೆ.</unitPattern>
-				<unitPattern count="other">{0}ಮಿ.ಸೆ.</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>ನಿಮಿಷ</displayName>
 				<unitPattern count="one">{0}ನಿಮಿ</unitPattern>
 				<unitPattern count="other">{0}ನಿಮಿ</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>ತಿಂಗಳು</displayName>
-				<unitPattern count="one">{0}ತಿಂ.</unitPattern>
-				<unitPattern count="other">{0}ತಿಂ.</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>ಸೆಕೆಂ</displayName>
 				<unitPattern count="one">{0}ಸೆಕೆಂ</unitPattern>
 				<unitPattern count="other">{0} ಸೆಕೆಂ</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>ವಾರ</displayName>
-				<unitPattern count="one">{0}ವಾರ</unitPattern>
-				<unitPattern count="other">{0}ವಾರ</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName>ವರ್ಷಗಳು</displayName>
-				<unitPattern count="one">{0}ವ</unitPattern>
-				<unitPattern count="other">{0}ವ</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>ಸೆಮೀ</displayName>
-				<unitPattern count="one">{0} ಸೆಮೀ</unitPattern>
-				<unitPattern count="other">{0} ಸೆಮೀ</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="one">{0} ′</unitPattern>
-				<unitPattern count="other">{0} ′</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="one">{0} ″</unitPattern>
-				<unitPattern count="other">{0} ″</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>ಮಿ.ಸೆ.</displayName>
+				<unitPattern count="one">{0}ಮಿ.ಸೆ.</unitPattern>
+				<unitPattern count="other">{0}ಮಿ.ಸೆ.</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>ಕಿಮೀ</displayName>
 				<unitPattern count="one">{0}ಕಿಮೀ</unitPattern>
 				<unitPattern count="other">{0}ಕಿಮೀ</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="one">{0}ಹಗು. ವ.</unitPattern>
-				<unitPattern count="other">{0}ಹಗು. ವ.</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>ಮೀಟರ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0}ಮೀ</unitPattern>
 				<unitPattern count="other">{0}ಮೀ</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="one">{0}ಮೈ.</unitPattern>
-				<unitPattern count="other">{0}ಮೈ.</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>ಸೆಮೀ</displayName>
+				<unitPattern count="one">{0} ಸೆಮೀ</unitPattern>
+				<unitPattern count="other">{0} ಸೆಮೀ</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>ಮಿಮೀ</displayName>
@@ -7080,31 +7064,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}ಪಿಎಂ</unitPattern>
 				<unitPattern count="other">{0}ಪಿಎಂ</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0}ಮೈ.</unitPattern>
+				<unitPattern count="other">{0}ಮೈ.</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<unitPattern count="one">{0}ಗ</unitPattern>
 				<unitPattern count="other">{0} ಗ</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName>ಗ್ರಾಂ</displayName>
-				<unitPattern count="one">{0}ಗ್ರಾ</unitPattern>
-				<unitPattern count="other">{0}ಗ್ರಾ</unitPattern>
+			<unit type="length-foot">
+				<unitPattern count="one">{0} ′</unitPattern>
+				<unitPattern count="other">{0} ′</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0} ″</unitPattern>
+				<unitPattern count="other">{0} ″</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0}ಹಗು. ವ.</unitPattern>
+				<unitPattern count="other">{0}ಹಗು. ವ.</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>ಕೆಜಿ</displayName>
 				<unitPattern count="one">{0}ಕೆಜಿ</unitPattern>
 				<unitPattern count="other">{0}ಕೆಜಿ</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="one">{0}ಔ</unitPattern>
-				<unitPattern count="other">{0}ಔ</unitPattern>
+			<unit type="mass-gram">
+				<displayName>ಗ್ರಾಂ</displayName>
+				<unitPattern count="one">{0}ಗ್ರಾ</unitPattern>
+				<unitPattern count="other">{0}ಗ್ರಾ</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="one">{0}#</unitPattern>
 				<unitPattern count="other">{0}#</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="one">{0}ಹೆಚ್‌ಪಿ</unitPattern>
-				<unitPattern count="other">{0}ಹೆಚ್‌ಪಿ</unitPattern>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0}ಔ</unitPattern>
+				<unitPattern count="other">{0}ಔ</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one">{0}ಕಿ.ವ್ಯಾ</unitPattern>
@@ -7113,6 +7109,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="power-watt">
 				<unitPattern count="one">{0}ವ್ಯಾ.</unitPattern>
 				<unitPattern count="other">{0}ವ್ಯಾ.</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0}ಹೆಚ್‌ಪಿ</unitPattern>
+				<unitPattern count="other">{0}ಹೆಚ್‌ಪಿ</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="one">{0}ಹೆ.ಪ್ಯಾ</unitPattern>

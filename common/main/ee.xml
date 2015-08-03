@@ -5623,6 +5623,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<displayName>ƒewo</displayName>
+				<unitPattern count="one">ƒe {0}</unitPattern>
+				<unitPattern count="other">ƒe {0}</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>ɣletiwo</displayName>
+				<unitPattern count="one">ɣleti {0}</unitPattern>
+				<unitPattern count="other">ɣleti {0}</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>kɔsiɖawo</displayName>
+				<unitPattern count="one">kɔsiɖa {0}</unitPattern>
+				<unitPattern count="other">kɔsiɖa {0}</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>ŋkekewo</displayName>
 				<unitPattern count="one">ŋkeke {0}</unitPattern>
@@ -5638,25 +5653,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">aɖabaƒoƒo {0}</unitPattern>
 				<unitPattern count="other">aɖabaƒoƒo {0}</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName>ɣletiwo</displayName>
-				<unitPattern count="one">ɣleti {0}</unitPattern>
-				<unitPattern count="other">ɣleti {0}</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="unconfirmed">sekend</displayName>
 				<unitPattern count="one">sekend {0} wo</unitPattern>
 				<unitPattern count="other">sekend {0} wo</unitPattern>
-			</unit>
-			<unit type="duration-week">
-				<displayName>kɔsiɖawo</displayName>
-				<unitPattern count="one">kɔsiɖa {0}</unitPattern>
-				<unitPattern count="other">kɔsiɖa {0}</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName>ƒewo</displayName>
-				<unitPattern count="one">ƒe {0}</unitPattern>
-				<unitPattern count="other">ƒe {0}</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="unconfirmed">agbadroƒe</displayName>
@@ -5670,6 +5670,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="duration-year">
+				<displayName>ƒewo</displayName>
+				<unitPattern count="one">ƒe {0}</unitPattern>
+				<unitPattern count="other">ƒe {0}</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>ɣletiwo</displayName>
+				<unitPattern count="one">ɣleti {0}</unitPattern>
+				<unitPattern count="other">ɣleti {0}</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>kɔsiɖawo</displayName>
+				<unitPattern count="one">kɔsiɖa {0}</unitPattern>
+				<unitPattern count="other">kɔsiɖa {0}</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>ŋkekewo</displayName>
 				<unitPattern count="one">ŋkeke {0}</unitPattern>
@@ -5685,27 +5700,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">aɖabaƒoƒo {0}</unitPattern>
 				<unitPattern count="other">aɖabaƒoƒo {0}</unitPattern>
 			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">sekend {0}</unitPattern>
+				<unitPattern count="other">sekend {0}</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="narrow">
+			<unit type="duration-year">
+				<displayName>ƒe</displayName>
+				<unitPattern count="one">ƒe {0}</unitPattern>
+				<unitPattern count="other">ƒe {0}</unitPattern>
+			</unit>
 			<unit type="duration-month">
 				<displayName>ɣletiwo</displayName>
 				<unitPattern count="one">ɣleti {0}</unitPattern>
 				<unitPattern count="other">ɣleti {0}</unitPattern>
 			</unit>
-			<unit type="duration-second">
-				<unitPattern count="one">sekend {0}</unitPattern>
-				<unitPattern count="other">sekend {0}</unitPattern>
-			</unit>
 			<unit type="duration-week">
-				<displayName>kɔsiɖawo</displayName>
+				<displayName>kɔsiɖa</displayName>
 				<unitPattern count="one">kɔsiɖa {0}</unitPattern>
 				<unitPattern count="other">kɔsiɖa {0}</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>ƒewo</displayName>
-				<unitPattern count="one">ƒe {0}</unitPattern>
-				<unitPattern count="other">ƒe {0}</unitPattern>
-			</unit>
-		</unitLength>
-		<unitLength type="narrow">
 			<unit type="duration-day">
 				<displayName>ŋkeke</displayName>
 				<unitPattern count="one">ŋkeke {0}</unitPattern>
@@ -5721,24 +5736,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">a {0}</unitPattern>
 				<unitPattern count="other">a {0}</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName>ɣletiwo</displayName>
-				<unitPattern count="one">ɣleti {0}</unitPattern>
-				<unitPattern count="other">ɣleti {0}</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">s {0}</unitPattern>
 				<unitPattern count="other">s {0}</unitPattern>
-			</unit>
-			<unit type="duration-week">
-				<displayName>kɔsiɖa</displayName>
-				<unitPattern count="one">kɔsiɖa {0}</unitPattern>
-				<unitPattern count="other">kɔsiɖa {0}</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName>ƒe</displayName>
-				<unitPattern count="one">ƒe {0}</unitPattern>
-				<unitPattern count="other">ƒe {0}</unitPattern>
 			</unit>
 		</unitLength>
 		<durationUnit type="hm">

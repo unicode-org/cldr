@@ -1783,15 +1783,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} micrometro</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} micrometros</unitPattern>
 			</unit>
-			<unit type="length-nautical-mile">
-				<displayName draft="contributed">millas naúticas</displayName>
-				<unitPattern count="one" draft="contributed">{0} milla naútica</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} millas naúticas</unitPattern>
-			</unit>
 			<unit type="length-parsec">
 				<displayName draft="contributed">pársecs</displayName>
 				<unitPattern count="one" draft="contributed">{0} pársec</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pársecs</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName draft="contributed">millas naúticas</displayName>
+				<unitPattern count="one" draft="contributed">{0} milla naútica</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} millas naúticas</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName draft="contributed">lux</displayName>
@@ -1799,11 +1799,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="power-gigawatt">
 				<displayName draft="contributed">gigawatts</displayName>
 			</unit>
-			<unit type="power-kilowatt">
-				<displayName draft="contributed">kilowatts</displayName>
-			</unit>
 			<unit type="power-megawatt">
 				<displayName draft="contributed">megawatts</displayName>
+			</unit>
+			<unit type="power-kilowatt">
+				<displayName draft="contributed">kilowatts</displayName>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName draft="contributed">miliwatts</displayName>
@@ -1832,6 +1832,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<displayName draft="contributed">º</displayName>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="contributed">{0} min</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} min</unitPattern>
@@ -1841,23 +1844,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} s</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} s</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName draft="contributed">º</displayName>
+			<unit type="digital-byte">
+				<displayName draft="contributed">byte</displayName>
+				<unitPattern count="one" draft="contributed">{0} byte</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} byte</unitPattern>
 			</unit>
 			<unit type="digital-bit">
 				<displayName draft="contributed">bit</displayName>
 				<unitPattern count="one" draft="contributed">{0} bit</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} bit</unitPattern>
 			</unit>
-			<unit type="digital-byte">
-				<displayName draft="contributed">byte</displayName>
-				<unitPattern count="one" draft="contributed">{0} byte</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} byte</unitPattern>
-			</unit>
-			<unit type="duration-day">
-				<displayName draft="contributed">días</displayName>
-				<unitPattern count="one" draft="contributed">{0} día</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} días</unitPattern>
+			<unit type="duration-year">
+				<displayName draft="contributed">a</displayName>
+				<unitPattern count="one" draft="contributed">{0} a</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} a</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName draft="contributed">meses</displayName>
@@ -1869,39 +1869,39 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} sem</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} sem</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">a</displayName>
-				<unitPattern count="one" draft="contributed">{0} a</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} a</unitPattern>
-			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName draft="contributed">ua</displayName>
-				<unitPattern count="one" draft="contributed">{0} ua</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ua</unitPattern>
-			</unit>
-			<unit type="length-light-year">
-				<displayName draft="contributed">al</displayName>
-				<unitPattern count="one" draft="contributed">{0} a. l.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} a. l.</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName draft="contributed">millas</displayName>
+			<unit type="duration-day">
+				<displayName draft="contributed">días</displayName>
+				<unitPattern count="one" draft="contributed">{0} día</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} días</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
 				<displayName draft="contributed">Nm</displayName>
 				<unitPattern count="one" draft="contributed">{0} Nm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} Nm</unitPattern>
 			</unit>
-			<unit type="length-nautical-mile">
-				<displayName draft="contributed">M</displayName>
-				<unitPattern count="one" draft="contributed">{0} M</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} M</unitPattern>
+			<unit type="length-mile">
+				<displayName draft="contributed">millas</displayName>
+			</unit>
+			<unit type="length-yard">
+				<displayName draft="contributed">yd</displayName>
 			</unit>
 			<unit type="length-parsec">
 				<displayName draft="contributed">pc</displayName>
 			</unit>
-			<unit type="length-yard">
-				<displayName draft="contributed">yd</displayName>
+			<unit type="length-light-year">
+				<displayName draft="contributed">al</displayName>
+				<unitPattern count="one" draft="contributed">{0} a. l.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} a. l.</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName draft="contributed">ua</displayName>
+				<unitPattern count="one" draft="contributed">{0} ua</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ua</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName draft="contributed">M</displayName>
+				<unitPattern count="one" draft="contributed">{0} M</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} M</unitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName draft="contributed">ozt</displayName>
@@ -1911,20 +1911,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="contributed">km/hora</displayName>
 			</unit>
+			<unit type="volume-pint">
+				<displayName draft="contributed">pt</displayName>
+			</unit>
 			<unit type="volume-cup">
 				<displayName draft="contributed">tza.</displayName>
 				<unitPattern count="one" draft="contributed">{0} tza.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} tzas.</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName draft="contributed">pt</displayName>
-			</unit>
 		</unitLength>
 		<unitLength type="narrow">
-			<unit type="duration-day">
-				<displayName draft="contributed">días</displayName>
-				<unitPattern count="one" draft="contributed">{0}d</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}d</unitPattern>
+			<unit type="duration-year">
+				<displayName draft="contributed">a</displayName>
+				<unitPattern count="one" draft="contributed">{0}a</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}a</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName draft="contributed">m</displayName>
@@ -1936,10 +1936,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}sem</unitPattern>
 				<unitPattern count="other">{0}sem</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">a</displayName>
-				<unitPattern count="one" draft="contributed">{0}a</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}a</unitPattern>
+			<unit type="duration-day">
+				<displayName draft="contributed">días</displayName>
+				<unitPattern count="one" draft="contributed">{0}d</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}d</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

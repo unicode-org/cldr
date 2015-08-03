@@ -998,6 +998,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} Maapallo gravitaatiovoimat</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} Maapallo gravitaatiovoimat</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<displayName draft="contributed">grádat</displayName>
+				<unitPattern count="one" draft="contributed">{0} grádat</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} grádat</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} grádat</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName draft="contributed">jorbbas minuhtta</displayName>
 				<unitPattern count="one" draft="contributed">{0} jorbbas minuhta</unitPattern>
@@ -1010,35 +1016,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} jorbbas sekundda</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} jorbbas sekundda</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName draft="contributed">grádat</displayName>
-				<unitPattern count="one" draft="contributed">{0} grádat</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} grádat</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} grádat</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName draft="contributed">Amerihká tynnyrinala</displayName>
-				<unitPattern count="one" draft="contributed">{0} Amerihká tynnyrinala</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} Amerihká tynnyrinala</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Amerihká tynnyrinala</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName draft="contributed">neliökilomehtera</displayName>
+				<unitPattern count="one" draft="contributed">{0} neliökilomehter</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} neliökilomehtera</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} neliökilomehtera</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName draft="contributed">hehtaaria</displayName>
 				<unitPattern count="one" draft="contributed">{0} hehtaari</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} hehtaaria</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hehtaaria</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<displayName draft="contributed">neliöjuolgi</displayName>
-				<unitPattern count="one" draft="contributed">{0} neliöjuolgi</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} neliöjuolgi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} neliöjuolgi</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<displayName draft="contributed">neliökilomehtera</displayName>
-				<unitPattern count="one" draft="contributed">{0} neliökilomehter</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} neliökilomehtera</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} neliökilomehtera</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName draft="contributed">neliömehtera</displayName>
@@ -1052,6 +1040,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} eangas neliömiila</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} eangas neliömiila</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<displayName draft="contributed">Amerihká tynnyrinala</displayName>
+				<unitPattern count="one" draft="contributed">{0} Amerihká tynnyrinala</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} Amerihká tynnyrinala</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Amerihká tynnyrinala</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<displayName draft="contributed">neliöjuolgi</displayName>
+				<unitPattern count="one" draft="contributed">{0} neliöjuolgi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} neliöjuolgi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} neliöjuolgi</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="contributed">jahkki</displayName>
+				<unitPattern count="one" draft="contributed">{0} jahki</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} jahkki</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} jahkki</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="contributed">mánotbadji</displayName>
+				<unitPattern count="one" draft="contributed">{0} mánotbadji</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mánotbaji</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mánotbadji</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="contributed">váhkku</displayName>
+				<unitPattern count="one" draft="contributed">{0} váhku</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} váhkku</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} váhkku</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">jándora</displayName>
 				<unitPattern count="one" draft="contributed">{0} jándor</unitPattern>
@@ -1064,23 +1082,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} diimmur</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} diibmur</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName draft="contributed">millisekundda</displayName>
-				<unitPattern count="one" draft="contributed">{0} millisekunda</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} millisekundda</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} millisekundda</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName draft="contributed">minuhtta</displayName>
 				<unitPattern count="one" draft="contributed">{0} minuhta</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} minuhtta</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} minuhtta</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="contributed">mánotbadji</displayName>
-				<unitPattern count="one" draft="contributed">{0} mánotbadji</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} mánotbaji</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mánotbadji</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="contributed">sekundda</displayName>
@@ -1088,35 +1094,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} sekundda</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} sekundda</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="contributed">váhkku</displayName>
-				<unitPattern count="one" draft="contributed">{0} váhku</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} váhkku</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} váhkku</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">jahkki</displayName>
-				<unitPattern count="one" draft="contributed">{0} jahki</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} jahkki</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} jahkki</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="contributed">sentimehtera</displayName>
-				<unitPattern count="one" draft="contributed">{0} sentimehter</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} sentimehtera</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} sentimehtera</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName draft="contributed">juolgi</displayName>
-				<unitPattern count="one" draft="contributed">{0} juolgi</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} juolgi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} juolgi</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName draft="contributed">bealgi</displayName>
-				<unitPattern count="one" draft="contributed">{0} bealgi</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} bealgi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} bealgi</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName draft="contributed">millisekundda</displayName>
+				<unitPattern count="one" draft="contributed">{0} millisekunda</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} millisekundda</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} millisekundda</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="contributed">kilomehtera</displayName>
@@ -1124,23 +1106,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} kilomehtera</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilomehtera</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName draft="contributed">chuovgat jagi</displayName>
-				<unitPattern count="one" draft="contributed">{0} chuovgat jagi</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} chuovgat jagi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} chuovgat jagi</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName draft="contributed">mehtera</displayName>
 				<unitPattern count="one" draft="contributed">{0} mehter</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} mehtera</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mehtera</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName draft="contributed">eangas miila</displayName>
-				<unitPattern count="one" draft="contributed">{0} eangas miil</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} eangas miila</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} eangas miila</unitPattern>
+			<unit type="length-centimeter">
+				<displayName draft="contributed">sentimehtera</displayName>
+				<unitPattern count="one" draft="contributed">{0} sentimehter</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} sentimehtera</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} sentimehtera</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="contributed">millimehtera</displayName>
@@ -1154,17 +1130,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} pikomehtera</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pikomehtera</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<displayName draft="contributed">eangas miila</displayName>
+				<unitPattern count="one" draft="contributed">{0} eangas miil</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} eangas miila</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} eangas miila</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<displayName draft="contributed">eangas yard</displayName>
 				<unitPattern count="one" draft="contributed">{0} eangas yard</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} eangas yard</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} eangas yard</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName draft="contributed">gram</displayName>
-				<unitPattern count="one" draft="contributed">{0} gram</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} gram</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} gram</unitPattern>
+			<unit type="length-foot">
+				<displayName draft="contributed">juolgi</displayName>
+				<unitPattern count="one" draft="contributed">{0} juolgi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} juolgi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} juolgi</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName draft="contributed">bealgi</displayName>
+				<unitPattern count="one" draft="contributed">{0} bealgi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} bealgi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} bealgi</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName draft="contributed">chuovgat jagi</displayName>
+				<unitPattern count="one" draft="contributed">{0} chuovgat jagi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} chuovgat jagi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} chuovgat jagi</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="contributed">kilogram</displayName>
@@ -1172,11 +1166,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} kilogram</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilogram</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<displayName draft="contributed">unssi</displayName>
-				<unitPattern count="one" draft="contributed">{0} unssi</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} unssi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} unssi</unitPattern>
+			<unit type="mass-gram">
+				<displayName draft="contributed">gram</displayName>
+				<unitPattern count="one" draft="contributed">{0} gram</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} gram</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} gram</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName draft="contributed">pauna</displayName>
@@ -1184,11 +1178,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} pauna</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pauna</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName draft="contributed">hevosvoima</displayName>
-				<unitPattern count="one" draft="contributed">{0} hevosvoima</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} hevosvoima</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} hevosvoima</unitPattern>
+			<unit type="mass-ounce">
+				<displayName draft="contributed">unssi</displayName>
+				<unitPattern count="one" draft="contributed">{0} unssi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} unssi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} unssi</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName draft="contributed">kilowatt</displayName>
@@ -1201,6 +1195,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} watt</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} watt</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} watt</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName draft="contributed">hevosvoima</displayName>
+				<unitPattern count="one" draft="contributed">{0} hevosvoima</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} hevosvoima</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} hevosvoima</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName draft="contributed">hehtopascal</displayName>
@@ -1285,6 +1285,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<displayName draft="contributed">grádat</displayName>
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName draft="contributed">jorbbas minuhtta</displayName>
 				<unitPattern count="one" draft="contributed">{0}′</unitPattern>
@@ -1297,35 +1303,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0}″</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName draft="contributed">grádat</displayName>
-				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="two" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName draft="contributed">Amerihká tynnyrinala</displayName>
-				<unitPattern count="one">{0} ac</unitPattern>
-				<unitPattern count="two">{0} ac</unitPattern>
-				<unitPattern count="other">{0} ac</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName draft="contributed">neliökilomehtera</displayName>
+				<unitPattern count="one" draft="contributed">{0} km²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} km²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName draft="contributed">hehtaaria</displayName>
 				<unitPattern count="one" draft="contributed">{0} ha</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} ha</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ha</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<displayName draft="contributed">neliöjuolgi</displayName>
-				<unitPattern count="one">{0} ft²</unitPattern>
-				<unitPattern count="two">{0} ft²</unitPattern>
-				<unitPattern count="other">{0} ft²</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<displayName draft="contributed">neliökilomehtera</displayName>
-				<unitPattern count="one" draft="contributed">{0} km²</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} km²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName draft="contributed">neliömehtera</displayName>
@@ -1339,6 +1327,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<displayName draft="contributed">Amerihká tynnyrinala</displayName>
+				<unitPattern count="one">{0} ac</unitPattern>
+				<unitPattern count="two">{0} ac</unitPattern>
+				<unitPattern count="other">{0} ac</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<displayName draft="contributed">neliöjuolgi</displayName>
+				<unitPattern count="one">{0} ft²</unitPattern>
+				<unitPattern count="two">{0} ft²</unitPattern>
+				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="contributed">jahkki</displayName>
+				<unitPattern count="one" draft="contributed">{0} jah</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} jah</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} jah</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="contributed">mánotbadji</displayName>
+				<unitPattern count="one" draft="contributed">{0} mán</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mán</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mán</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="contributed">váhkku</displayName>
+				<unitPattern count="one" draft="contributed">{0} v</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} v</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} v</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">jándora</displayName>
 				<unitPattern count="one" draft="contributed">{0} d</unitPattern>
@@ -1351,23 +1369,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} h</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} h</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName draft="contributed">millisekundda</displayName>
-				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} ms</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName draft="contributed">minuhtta</displayName>
 				<unitPattern count="one" draft="contributed">{0} min</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} min</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} min</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="contributed">mánotbadji</displayName>
-				<unitPattern count="one" draft="contributed">{0} mán</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} mán</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mán</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="contributed">sekundda</displayName>
@@ -1375,35 +1381,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} s</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} s</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="contributed">váhkku</displayName>
-				<unitPattern count="one" draft="contributed">{0} v</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} v</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} v</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">jahkki</displayName>
-				<unitPattern count="one" draft="contributed">{0} jah</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} jah</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} jah</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="contributed">sentimehtera</displayName>
-				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} cm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} cm</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName draft="contributed">juolgi</displayName>
-				<unitPattern count="one" draft="contributed">{0} juolgi</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} juolgi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} juolgi</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName draft="contributed">bealgi</displayName>
-				<unitPattern count="one" draft="contributed">{0} bealgi</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} bealgi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} bealgi</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName draft="contributed">millisekundda</displayName>
+				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ms</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="contributed">kilomehtera</displayName>
@@ -1411,23 +1393,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} km</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} km</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName draft="contributed">chuovgat jagi</displayName>
-				<unitPattern count="one">{0} ly</unitPattern>
-				<unitPattern count="two">{0} ly</unitPattern>
-				<unitPattern count="other">{0} ly</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName draft="contributed">mehtera</displayName>
 				<unitPattern count="one" draft="contributed">{0} m</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} m</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} m</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName draft="contributed">eangas miila</displayName>
-				<unitPattern count="one">{0} mi</unitPattern>
-				<unitPattern count="two">{0} mi</unitPattern>
-				<unitPattern count="other">{0} mi</unitPattern>
+			<unit type="length-centimeter">
+				<displayName draft="contributed">sentimehtera</displayName>
+				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} cm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} cm</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="contributed">millimehtera</displayName>
@@ -1441,17 +1417,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} pm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pm</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<displayName draft="contributed">eangas miila</displayName>
+				<unitPattern count="one">{0} mi</unitPattern>
+				<unitPattern count="two">{0} mi</unitPattern>
+				<unitPattern count="other">{0} mi</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<displayName draft="contributed">eangas yard</displayName>
 				<unitPattern count="one">{0} yd</unitPattern>
 				<unitPattern count="two">{0} yd</unitPattern>
 				<unitPattern count="other">{0} yd</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName draft="contributed">gram</displayName>
-				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} g</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
+			<unit type="length-foot">
+				<displayName draft="contributed">juolgi</displayName>
+				<unitPattern count="one" draft="contributed">{0} juolgi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} juolgi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} juolgi</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName draft="contributed">bealgi</displayName>
+				<unitPattern count="one" draft="contributed">{0} bealgi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} bealgi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} bealgi</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName draft="contributed">chuovgat jagi</displayName>
+				<unitPattern count="one">{0} ly</unitPattern>
+				<unitPattern count="two">{0} ly</unitPattern>
+				<unitPattern count="other">{0} ly</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="contributed">kilogram</displayName>
@@ -1459,11 +1453,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} kg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kg</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<displayName draft="contributed">unssi</displayName>
-				<unitPattern count="one" draft="contributed">{0} unssi</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} unssi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} unssi</unitPattern>
+			<unit type="mass-gram">
+				<displayName draft="contributed">gram</displayName>
+				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName draft="contributed">pauna</displayName>
@@ -1471,11 +1465,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} pauna</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pauna</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName draft="contributed">hevosvoima</displayName>
-				<unitPattern count="one" draft="contributed">{0} hv</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} hv</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} hv</unitPattern>
+			<unit type="mass-ounce">
+				<displayName draft="contributed">unssi</displayName>
+				<unitPattern count="one" draft="contributed">{0} unssi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} unssi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} unssi</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName draft="contributed">kilowatt</displayName>
@@ -1488,6 +1482,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} W</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} W</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} W</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName draft="contributed">hevosvoima</displayName>
+				<unitPattern count="one" draft="contributed">{0} hv</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} hv</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} hv</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName draft="contributed">hehtopascal</displayName>
@@ -1571,6 +1571,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0}G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}G</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="contributed">{0}′</unitPattern>
 				<unitPattern count="two" draft="contributed">{0}′</unitPattern>
@@ -1581,30 +1586,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0}″</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="two" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="one">{0} ac</unitPattern>
-				<unitPattern count="two">{0} ac</unitPattern>
-				<unitPattern count="other">{0} ac</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one" draft="contributed">{0}km²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}km²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="one" draft="contributed">{0}ha</unitPattern>
 				<unitPattern count="two" draft="contributed">{0}ha</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}ha</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="one">{0} ft²</unitPattern>
-				<unitPattern count="two">{0} ft²</unitPattern>
-				<unitPattern count="other">{0} ft²</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="one" draft="contributed">{0}km²</unitPattern>
-				<unitPattern count="two" draft="contributed">{0}km²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="one" draft="contributed">{0}m²</unitPattern>
@@ -1616,6 +1606,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0} ac</unitPattern>
+				<unitPattern count="two">{0} ac</unitPattern>
+				<unitPattern count="other">{0} ac</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0} ft²</unitPattern>
+				<unitPattern count="two">{0} ft²</unitPattern>
+				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one" draft="contributed">{0}j</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}j</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}j</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one" draft="contributed">{0}m</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}m</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}m</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one" draft="contributed">{0}v</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}v</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}v</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="one" draft="contributed">{0}d</unitPattern>
 				<unitPattern count="two" draft="contributed">{0}d</unitPattern>
@@ -1626,17 +1641,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0}h</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}h</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<unitPattern count="one" draft="contributed">{0}ms</unitPattern>
-				<unitPattern count="two" draft="contributed">{0}ms</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="one" draft="contributed">{0}m</unitPattern>
-				<unitPattern count="two" draft="contributed">{0}m</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}m</unitPattern>
-			</unit>
-			<unit type="duration-month">
 				<unitPattern count="one" draft="contributed">{0}m</unitPattern>
 				<unitPattern count="two" draft="contributed">{0}m</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}m</unitPattern>
@@ -1646,50 +1651,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0}s</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}s</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<unitPattern count="one" draft="contributed">{0}v</unitPattern>
-				<unitPattern count="two" draft="contributed">{0}v</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}v</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<unitPattern count="one" draft="contributed">{0}j</unitPattern>
-				<unitPattern count="two" draft="contributed">{0}j</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}j</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<unitPattern count="one" draft="contributed">{0}cm</unitPattern>
-				<unitPattern count="two" draft="contributed">{0}cm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}cm</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="one" draft="contributed">{0} juolgi</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} juolgi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} juolgi</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="one" draft="contributed">{0} bealgi</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} bealgi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} bealgi</unitPattern>
+			<unit type="duration-millisecond">
+				<unitPattern count="one" draft="contributed">{0}ms</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}ms</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}ms</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<unitPattern count="one" draft="contributed">{0}km</unitPattern>
 				<unitPattern count="two" draft="contributed">{0}km</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}km</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="one">{0} ly</unitPattern>
-				<unitPattern count="two">{0} ly</unitPattern>
-				<unitPattern count="other">{0} ly</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<unitPattern count="one" draft="contributed">{0}m</unitPattern>
 				<unitPattern count="two" draft="contributed">{0}m</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}m</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="one">{0} mi</unitPattern>
-				<unitPattern count="two">{0} mi</unitPattern>
-				<unitPattern count="other">{0} mi</unitPattern>
+			<unit type="length-centimeter">
+				<unitPattern count="one" draft="contributed">{0}cm</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}cm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}cm</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<unitPattern count="one" draft="contributed">{0}mm</unitPattern>
@@ -1701,35 +1681,50 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0}pm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}pm</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} mi</unitPattern>
+				<unitPattern count="two">{0} mi</unitPattern>
+				<unitPattern count="other">{0} mi</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<unitPattern count="one">{0} yd</unitPattern>
 				<unitPattern count="two">{0} yd</unitPattern>
 				<unitPattern count="other">{0} yd</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<unitPattern count="one" draft="contributed">{0}g</unitPattern>
-				<unitPattern count="two" draft="contributed">{0}g</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}g</unitPattern>
+			<unit type="length-foot">
+				<unitPattern count="one" draft="contributed">{0} juolgi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} juolgi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} juolgi</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one" draft="contributed">{0} bealgi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} bealgi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} bealgi</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0} ly</unitPattern>
+				<unitPattern count="two">{0} ly</unitPattern>
+				<unitPattern count="other">{0} ly</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<unitPattern count="one" draft="contributed">{0}kg</unitPattern>
 				<unitPattern count="two" draft="contributed">{0}kg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}kg</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="one" draft="contributed">{0} unssi</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} unssi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} unssi</unitPattern>
+			<unit type="mass-gram">
+				<unitPattern count="one" draft="contributed">{0}g</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}g</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}g</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="one" draft="contributed">{0} pauna</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} pauna</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pauna</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="one" draft="contributed">{0}hv</unitPattern>
-				<unitPattern count="two" draft="contributed">{0}hv</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}hv</unitPattern>
+			<unit type="mass-ounce">
+				<unitPattern count="one" draft="contributed">{0} unssi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} unssi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} unssi</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one" draft="contributed">{0}kW</unitPattern>
@@ -1740,6 +1735,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0}W</unitPattern>
 				<unitPattern count="two" draft="contributed">{0}W</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}W</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one" draft="contributed">{0}hv</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}hv</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}hv</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="one" draft="contributed">{0}hPa</unitPattern>

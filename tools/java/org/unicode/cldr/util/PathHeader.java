@@ -973,6 +973,7 @@ public class PathHeader implements Comparable<PathHeader> {
         static List<String> days = Arrays.asList("sun", "mon",
             "tue", "wed", "thu",
             "fri", "sat");
+        static List<String> unitOrder = DtdData.unitOrder.getOrder();
         static final MapComparator<String> dayPeriods = new MapComparator<String>().add(
             "am", "pm", "midnight", "noon",
             "morning1", "morning2", "afternoon1", "afternoon2", "evening1", "evening2", "night1", "night2").freeze();
@@ -1339,6 +1340,13 @@ public class PathHeader implements Comparable<PathHeader> {
 
                     String result = fieldNames.get(source);
                     return result == null ? source : result;
+                }
+            });
+            functionMap.put("unit", new Transform<String, String>() {
+                public String transform(String source) {
+                    int m = unitOrder.indexOf(source);
+                    order = m;
+                    return source.substring(source.indexOf('-')+1);
                 }
             });
 

@@ -1260,6 +1260,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0} nutsuinera nunarsuaq</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} nutsuinera nunarsuaq</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<displayName draft="provisional">gradi</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} gradi</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} gradi</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName draft="provisional">bueminutsi</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} bueminutsi</unitPattern>
@@ -1270,30 +1275,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0} buesekundi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} buesekundi</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName draft="provisional">gradi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} gradi</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} gradi</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName draft="provisional">amerikanske tønde land</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} amerikanskt tønde land</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} amerikanske tønde land</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName draft="provisional">kvadratkilometeri</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} kvadratkilometeri</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} kvadratkilometeri</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName draft="provisional">hektari</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} hektari</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} hektari</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<displayName draft="provisional">kvadratfod</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} kvadratfod</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} kvadratfod</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<displayName draft="provisional">kvadratkilometeri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} kvadratkilometeri</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} kvadratkilometeri</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName draft="provisional">kvadratmeteri</displayName>
@@ -1306,6 +1296,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0} engelsk kvadratmil</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} engelske kvadratmil</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<displayName draft="provisional">amerikanske tønde land</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} amerikanskt tønde land</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} amerikanske tønde land</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<displayName draft="provisional">kvadratfod</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} kvadratfod</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} kvadratfod</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="provisional">ukioq</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} ukioq</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} ukioq</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">qaammat</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} qaammat</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} qaammat</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">sapaatip-akunnera</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} sapaatip-akunnera</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} sapaatip-akunnera</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">ulloq unnuarlu</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} ulloq unnuarlu</unitPattern>
@@ -1316,68 +1331,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0} nalunaaquttap-akunnera</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} nalunaaquttap-akunnera</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName draft="provisional">millisekundi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} millisekundi</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} millisekundi</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName draft="provisional">minutsi</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} minutsi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} minutsi</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">qaammat</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} qaammat</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} qaammat</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">sekundi</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} sekundi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} sekundi</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="provisional">sapaatip-akunnera</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} sapaatip-akunnera</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} sapaatip-akunnera</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">ukioq</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ukioq</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ukioq</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="provisional">centimeteri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} centimeteri</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} centimeteri</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} per centimeteri</perUnitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName draft="unconfirmed">decimeteri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} decimeteri</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} decimeteri</unitPattern>
-			</unit>
-			<unit type="length-fathom">
-				<displayName>fm</displayName>
-				<unitPattern count="one">{0} fm</unitPattern>
-				<unitPattern count="other">{0} fm</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName draft="provisional">fod</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} fod</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} fod</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} per fod</perUnitPattern>
-			</unit>
-			<unit type="length-furlong">
-				<displayName>fur</displayName>
-				<unitPattern count="one">{0} fur</unitPattern>
-				<unitPattern count="other">{0} fur</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName draft="provisional">tommer</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} tomme</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} tommer</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0} per tomme</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName draft="provisional">millisekundi</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} millisekundi</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} millisekundi</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="provisional">kilometeri</displayName>
@@ -1385,66 +1352,94 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="unconfirmed">{0} kilometeri</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per kilometeri</perUnitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName draft="provisional">lysukioq</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} lysåri</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} lysåri</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName draft="provisional">meteri</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} meteri</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} meteri</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per meteri</perUnitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName draft="provisional">engelske mil</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} engelsk mil</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} engelske mil</unitPattern>
+			<unit type="length-decimeter">
+				<displayName draft="unconfirmed">decimeteri</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} decimeteri</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} decimeteri</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<displayName draft="provisional">centimeteri</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} centimeteri</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} centimeteri</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} per centimeteri</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="provisional">millimeteri</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} millimeteri</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} millimeteri</unitPattern>
 			</unit>
-			<unit type="length-nautical-mile">
-				<displayName draft="unconfirmed">sømili</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} sømili</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} sømili</unitPattern>
-			</unit>
 			<unit type="length-picometer">
 				<displayName draft="provisional">pikometeri</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} pikometeri</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} pikometeri</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName draft="provisional">engelske mil</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} engelsk mil</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} engelske mil</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<displayName draft="provisional">engelske yard</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} engelsk yard</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} engelske yard</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName draft="provisional">grammi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} grammi</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} grammi</unitPattern>
+			<unit type="length-foot">
+				<displayName draft="provisional">fod</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} fod</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} fod</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} per fod</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName draft="provisional">tommer</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} tomme</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} tommer</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} per tomme</perUnitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName draft="provisional">lysukioq</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} lysåri</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} lysåri</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName>fur</displayName>
+				<unitPattern count="one">{0} fur</unitPattern>
+				<unitPattern count="other">{0} fur</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName>fm</displayName>
+				<unitPattern count="one">{0} fm</unitPattern>
+				<unitPattern count="other">{0} fm</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName draft="unconfirmed">sømili</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} sømili</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} sømili</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="provisional">kilogrammi</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} kilogrammi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kilogrammi</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<displayName draft="provisional">unser</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} unse</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} unser</unitPattern>
+			<unit type="mass-gram">
+				<displayName draft="provisional">grammi</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} grammi</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} grammi</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName draft="provisional">skålpund</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} skålpund</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} skålpund</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName draft="provisional">hestekrafter</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} hestekraft</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} hestekrafter</unitPattern>
+			<unit type="mass-ounce">
+				<displayName draft="provisional">unser</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} unse</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} unser</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName draft="provisional">kilowatti</displayName>
@@ -1455,6 +1450,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="provisional">watti</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} watti</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} watti</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName draft="provisional">hestekrafter</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} hestekraft</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} hestekrafter</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName draft="provisional">hektopascali</displayName>
@@ -1506,6 +1506,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0} engelsk kubikmil</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} engelske kubikmil</unitPattern>
 			</unit>
+			<unit type="volume-megaliter">
+				<displayName draft="unconfirmed">megaliteri</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} megaliteri</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} megaliteri</unitPattern>
+			</unit>
 			<unit type="volume-hectoliter">
 				<displayName draft="unconfirmed">hectoliteri</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} hectoliteri</unitPattern>
@@ -1516,11 +1521,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0} literi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} literi</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per literi</perUnitPattern>
-			</unit>
-			<unit type="volume-megaliter">
-				<displayName draft="unconfirmed">megaliteri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} megaliteri</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} megaliteri</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName draft="unconfirmed">milliliteri</displayName>
@@ -1558,6 +1558,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0} m/s²</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} m/s²</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<displayName draft="provisional">gradi</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}°</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName draft="provisional">bueminutsi</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}′</unitPattern>
@@ -1568,30 +1573,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0}″</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName draft="provisional">gradi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}°</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName draft="provisional">amerikanske tønde land</displayName>
-				<unitPattern count="one">{0} ac</unitPattern>
-				<unitPattern count="other">{0} ac</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName draft="provisional">kvadratkilometeri</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} km²</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName draft="provisional">hektari</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} ha</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} ha</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<displayName draft="provisional">kvadratfod</displayName>
-				<unitPattern count="one">{0} ft²</unitPattern>
-				<unitPattern count="other">{0} ft²</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<displayName draft="provisional">kvadratkilometeri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} km²</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName draft="provisional">kvadratmeteri</displayName>
@@ -1604,6 +1594,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<displayName draft="provisional">amerikanske tønde land</displayName>
+				<unitPattern count="one">{0} ac</unitPattern>
+				<unitPattern count="other">{0} ac</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<displayName draft="provisional">kvadratfod</displayName>
+				<unitPattern count="one">{0} ft²</unitPattern>
+				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="provisional">ukioq</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} ukioq</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} ukioq</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">qaammat</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} mån</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} mån</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">sapaatip-akunnera</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} u</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} u</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">ulloq unnuarlu</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} d</unitPattern>
@@ -1614,68 +1629,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0} h</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} h</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName draft="provisional">millisekundi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ms</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName draft="provisional">minutsi</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} min</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} min</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">qaammat</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} mån</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} mån</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">sekundi</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} s</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} s</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="provisional">sapaatip-akunnera</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} u</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} u</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">ukioq</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ukioq</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ukioq</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="provisional">centimeteri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} cm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} cm</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/cm</perUnitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName draft="unconfirmed">dm</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} dm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} dm</unitPattern>
-			</unit>
-			<unit type="length-fathom">
-				<displayName>fm</displayName>
-				<unitPattern count="one">{0} fm</unitPattern>
-				<unitPattern count="other">{0} fm</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName draft="provisional">fod</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} fod</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} fod</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/fod</perUnitPattern>
-			</unit>
-			<unit type="length-furlong">
-				<displayName>fur</displayName>
-				<unitPattern count="one">{0} fur</unitPattern>
-				<unitPattern count="other">{0} fur</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName draft="provisional">tommer</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} tomme</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} tommer</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/tomme</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName draft="provisional">millisekundi</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} ms</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} ms</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="provisional">kilometeri</displayName>
@@ -1683,21 +1650,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="unconfirmed">{0} km</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/km</perUnitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName draft="provisional">lysukioq</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} lysåri</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} lysåri</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName draft="provisional">meteri</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} m</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} m</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/m</perUnitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName draft="provisional">engelske mil</displayName>
-				<unitPattern count="one">{0} mi</unitPattern>
-				<unitPattern count="other">{0} mi</unitPattern>
+			<unit type="length-decimeter">
+				<displayName draft="unconfirmed">dm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} dm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} dm</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<displayName draft="provisional">centimeteri</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} cm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} cm</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/cm</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="provisional">millimeteri</displayName>
@@ -1709,45 +1677,72 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0} nm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} nm</unitPattern>
 			</unit>
-			<unit type="length-nautical-mile">
-				<displayName draft="unconfirmed">sømili</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} sømili</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} sømili</unitPattern>
-			</unit>
 			<unit type="length-picometer">
 				<displayName draft="provisional">pikometeri</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} pm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} pm</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName draft="provisional">engelske mil</displayName>
+				<unitPattern count="one">{0} mi</unitPattern>
+				<unitPattern count="other">{0} mi</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<displayName draft="provisional">engelske yard</displayName>
 				<unitPattern count="one">{0} yd</unitPattern>
 				<unitPattern count="other">{0} yd</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName draft="provisional">grammi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} g</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} g</unitPattern>
+			<unit type="length-foot">
+				<displayName draft="provisional">fod</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} fod</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} fod</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/fod</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName draft="provisional">tommer</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} tomme</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} tommer</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/tomme</perUnitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName draft="provisional">lysukioq</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} lysåri</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} lysåri</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName>fur</displayName>
+				<unitPattern count="one">{0} fur</unitPattern>
+				<unitPattern count="other">{0} fur</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName>fm</displayName>
+				<unitPattern count="one">{0} fm</unitPattern>
+				<unitPattern count="other">{0} fm</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName draft="unconfirmed">sømili</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} sømili</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} sømili</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="provisional">kilogrammi</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} kg</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kg</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<displayName draft="provisional">unser</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} unse</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} unser</unitPattern>
+			<unit type="mass-gram">
+				<displayName draft="provisional">grammi</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} g</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} g</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName draft="provisional">skålpund</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} skålpund</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} skålpund</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName draft="provisional">hestekrafter</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} hk</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} hk</unitPattern>
+			<unit type="mass-ounce">
+				<displayName draft="provisional">unser</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} unse</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} unser</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName draft="provisional">kilowatti</displayName>
@@ -1758,6 +1753,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="provisional">watti</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} W</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} W</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName draft="provisional">hestekrafter</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} hk</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} hk</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName draft="provisional">hektopascali</displayName>
@@ -1809,6 +1809,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mi³</unitPattern>
 				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
+			<unit type="volume-megaliter">
+				<displayName draft="unconfirmed">megaliteri</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} ML</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} ML</unitPattern>
+			</unit>
 			<unit type="volume-hectoliter">
 				<displayName draft="unconfirmed">hL</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} hL</unitPattern>
@@ -1819,11 +1824,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0} L</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} L</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/L</perUnitPattern>
-			</unit>
-			<unit type="volume-megaliter">
-				<displayName draft="unconfirmed">megaliteri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ML</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ML</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName draft="unconfirmed">mL</displayName>
@@ -1860,6 +1860,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0} m/s²</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} m/s²</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="unconfirmed">{0}°</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="unconfirmed">{0}′</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}′</unitPattern>
@@ -1868,25 +1872,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0}″</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="unconfirmed">{0}°</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="one">{0} ac</unitPattern>
-				<unitPattern count="other">{0} ac</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one" draft="unconfirmed">{0}km²</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="one" draft="unconfirmed">{0}ha</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}ha</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="one">{0} ft²</unitPattern>
-				<unitPattern count="other">{0} ft²</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="one" draft="unconfirmed">{0}km²</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="one" draft="unconfirmed">{0}m²</unitPattern>
@@ -1897,6 +1889,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0} ac</unitPattern>
+				<unitPattern count="other">{0} ac</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0} ft²</unitPattern>
+				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one" draft="unconfirmed">{0}å</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}å</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one" draft="unconfirmed">{0}m</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}m</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one" draft="unconfirmed">{0}u</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}u</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="one" draft="unconfirmed">{0}d</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}d</unitPattern>
@@ -1905,15 +1917,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0}h</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}h</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<unitPattern count="one" draft="unconfirmed">{0}ms</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="one" draft="unconfirmed">{0}m</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}m</unitPattern>
-			</unit>
-			<unit type="duration-month">
 				<unitPattern count="one" draft="unconfirmed">{0}m</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}m</unitPattern>
 			</unit>
@@ -1921,61 +1925,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0}s</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}s</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<unitPattern count="one" draft="unconfirmed">{0}u</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}u</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<unitPattern count="one" draft="unconfirmed">{0}å</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}å</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<unitPattern count="one" draft="unconfirmed">{0}cm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}cm</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/cm</perUnitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName draft="unconfirmed">dm</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}dm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}dm</unitPattern>
-			</unit>
-			<unit type="length-fathom">
-				<displayName>fm</displayName>
-				<unitPattern count="one">{0} fm</unitPattern>
-				<unitPattern count="other">{0} fm</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="one" draft="unconfirmed">{0} fod</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} fod</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/fod</perUnitPattern>
-			</unit>
-			<unit type="length-furlong">
-				<displayName>fur</displayName>
-				<unitPattern count="one">{0} fur</unitPattern>
-				<unitPattern count="other">{0} fur</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="one" draft="unconfirmed">{0} tomme</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} tommer</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/tomme</perUnitPattern>
+			<unit type="duration-millisecond">
+				<unitPattern count="one" draft="unconfirmed">{0}ms</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}ms</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<unitPattern count="one" draft="unconfirmed">{0}km</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}km</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/km</perUnitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="one" draft="unconfirmed">{0} lå</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} lå</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<unitPattern count="one" draft="unconfirmed">{0}m</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}m</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/m</perUnitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="one">{0} mi</unitPattern>
-				<unitPattern count="other">{0} mi</unitPattern>
+			<unit type="length-decimeter">
+				<displayName draft="unconfirmed">dm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}dm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}dm</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one" draft="unconfirmed">{0}cm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}cm</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/cm</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<unitPattern count="one" draft="unconfirmed">{0}mm</unitPattern>
@@ -1984,38 +1956,62 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="length-nanometer">
 				<displayName draft="unconfirmed">nm</displayName>
 			</unit>
-			<unit type="length-nautical-mile">
-				<displayName draft="unconfirmed">sømili</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} sømili</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} sømili</unitPattern>
-			</unit>
 			<unit type="length-picometer">
 				<unitPattern count="one" draft="unconfirmed">{0}pm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}pm</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} mi</unitPattern>
+				<unitPattern count="other">{0} mi</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<unitPattern count="one">{0} yd</unitPattern>
 				<unitPattern count="other">{0} yd</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<unitPattern count="one" draft="unconfirmed">{0}g</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}g</unitPattern>
+			<unit type="length-foot">
+				<unitPattern count="one" draft="unconfirmed">{0} fod</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} fod</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/fod</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one" draft="unconfirmed">{0} tomme</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} tommer</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/tomme</perUnitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one" draft="unconfirmed">{0} lå</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} lå</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName>fur</displayName>
+				<unitPattern count="one">{0} fur</unitPattern>
+				<unitPattern count="other">{0} fur</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName>fm</displayName>
+				<unitPattern count="one">{0} fm</unitPattern>
+				<unitPattern count="other">{0} fm</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName draft="unconfirmed">sømili</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} sømili</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} sømili</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<unitPattern count="one" draft="unconfirmed">{0}kg</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}kg</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="one" draft="unconfirmed">{0} unse</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} unser</unitPattern>
+			<unit type="mass-gram">
+				<unitPattern count="one" draft="unconfirmed">{0}g</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}g</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="one" draft="unconfirmed">{0} skålpund</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} skålpund</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="one" draft="unconfirmed">{0}hk</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}hk</unitPattern>
+			<unit type="mass-ounce">
+				<unitPattern count="one" draft="unconfirmed">{0} unse</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} unser</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one" draft="unconfirmed">{0}kW</unitPattern>
@@ -2024,6 +2020,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="power-watt">
 				<unitPattern count="one" draft="unconfirmed">{0}W</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}W</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one" draft="unconfirmed">{0}hk</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}hk</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="one" draft="unconfirmed">{0}hPa</unitPattern>
@@ -2065,6 +2065,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mi³</unitPattern>
 				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
+			<unit type="volume-megaliter">
+				<displayName draft="unconfirmed">megaliteri</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} ML</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} ML</unitPattern>
+			</unit>
 			<unit type="volume-hectoliter">
 				<displayName draft="unconfirmed">hL</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} hL</unitPattern>
@@ -2074,11 +2079,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0}L</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}L</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/L</perUnitPattern>
-			</unit>
-			<unit type="volume-megaliter">
-				<displayName draft="unconfirmed">megaliteri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ML</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ML</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName draft="unconfirmed">mL</displayName>

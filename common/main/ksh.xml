@@ -2380,6 +2380,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0}-fache Erdbeschleunigung</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}-fache Erdbeschleunigung</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<displayName draft="contributed">Graad</displayName>
+				<unitPattern count="zero" draft="contributed">{0} Graad</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Graad</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Graad</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName draft="contributed">Winkelmenutte</displayName>
 				<unitPattern count="zero" draft="contributed">{0} Winkelmenutte</unitPattern>
@@ -2392,35 +2398,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} Winkelsekunde</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} Winkelsekunde</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName draft="contributed">Graad</displayName>
-				<unitPattern count="zero" draft="contributed">{0} Graad</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Graad</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Graad</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName draft="contributed">angloamerikanischen Acre</displayName>
-				<unitPattern count="zero" draft="contributed">{0} angloamerikanischen Acre</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} angloamerikanische Acre</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} angloamerikanischen Acre</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName draft="contributed">Quadratkilometer</displayName>
+				<unitPattern count="zero" draft="contributed">{0} Quadratkilometer</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Quadratkilometer</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Quadratkilometer</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName draft="contributed">hektar</displayName>
 				<unitPattern count="zero" draft="contributed">{0} hektar</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} hektar</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hektar</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<displayName draft="contributed">Quadratvoss</displayName>
-				<unitPattern count="zero" draft="contributed">{0} Quadratvoss</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Quadratvoss</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Quadratvoss</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<displayName draft="contributed">Quadratkilometer</displayName>
-				<unitPattern count="zero" draft="contributed">{0} Quadratkilometer</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Quadratkilometer</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Quadratkilometer</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName draft="contributed">Quadratmeter</displayName>
@@ -2434,6 +2422,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} englische Quadratmeile</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} englischen Quadratmeilen</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<displayName draft="contributed">angloamerikanischen Acre</displayName>
+				<unitPattern count="zero" draft="contributed">{0} angloamerikanischen Acre</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} angloamerikanische Acre</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} angloamerikanischen Acre</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<displayName draft="contributed">Quadratvoss</displayName>
+				<unitPattern count="zero" draft="contributed">{0} Quadratvoss</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Quadratvoss</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Quadratvoss</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="contributed">Johre</displayName>
+				<unitPattern count="zero">{0} Johre</unitPattern>
+				<unitPattern count="one">{0} Johre</unitPattern>
+				<unitPattern count="other">{0} Johre</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="contributed">Mohnde</displayName>
+				<unitPattern count="zero">{0} Mohnde</unitPattern>
+				<unitPattern count="one">{0} Mohnde</unitPattern>
+				<unitPattern count="other">{0} Mohnde</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="contributed">Woche</displayName>
+				<unitPattern count="zero">{0} Woche</unitPattern>
+				<unitPattern count="one">{0} Woche</unitPattern>
+				<unitPattern count="other">{0} Woche</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">Dääsch</displayName>
 				<unitPattern count="zero">{0} Dääsch</unitPattern>
@@ -2446,23 +2464,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} Schtunde</unitPattern>
 				<unitPattern count="other">{0} Schtunde</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName draft="contributed">Millisekunde</displayName>
-				<unitPattern count="zero" draft="contributed">{0} Millisekunde</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Millisekunde</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Millisekunde</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName draft="contributed">Menutte</displayName>
 				<unitPattern count="zero">{0} Menutte</unitPattern>
 				<unitPattern count="one">{0} Menutte</unitPattern>
 				<unitPattern count="other">{0} Menutte</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="contributed">Mohnde</displayName>
-				<unitPattern count="zero">{0} Mohnde</unitPattern>
-				<unitPattern count="one">{0} Mohnde</unitPattern>
-				<unitPattern count="other">{0} Mohnde</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="contributed">Sekunde</displayName>
@@ -2470,35 +2476,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} Sekunde</unitPattern>
 				<unitPattern count="other">{0} Sekunde</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="contributed">Woche</displayName>
-				<unitPattern count="zero">{0} Woche</unitPattern>
-				<unitPattern count="one">{0} Woche</unitPattern>
-				<unitPattern count="other">{0} Woche</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">Johre</displayName>
-				<unitPattern count="zero">{0} Johre</unitPattern>
-				<unitPattern count="one">{0} Johre</unitPattern>
-				<unitPattern count="other">{0} Johre</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="contributed">Zentimeter</displayName>
-				<unitPattern count="zero" draft="contributed">{0} Zentimeter</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Zentimeter</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Zentimeter</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName draft="contributed">Voss</displayName>
-				<unitPattern count="zero" draft="contributed">{0} Voss</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Voss</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Voss</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName draft="contributed">Dumm</displayName>
-				<unitPattern count="zero" draft="contributed">{0} Dumm</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Dumm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Dumm</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName draft="contributed">Millisekunde</displayName>
+				<unitPattern count="zero" draft="contributed">{0} Millisekunde</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Millisekunde</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Millisekunde</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="contributed">Kilometer</displayName>
@@ -2512,11 +2494,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} Meter</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} Meter</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName draft="contributed">englischen Meilen</displayName>
-				<unitPattern count="zero" draft="contributed">{0} englischen Meilen</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} englische Meile</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} englischen Meilen</unitPattern>
+			<unit type="length-centimeter">
+				<displayName draft="contributed">Zentimeter</displayName>
+				<unitPattern count="zero" draft="contributed">{0} Zentimeter</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Zentimeter</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Zentimeter</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="contributed">Millimeter</displayName>
@@ -2530,11 +2512,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} Pikometer</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} Pikometer</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName draft="contributed">Gramm</displayName>
-				<unitPattern count="zero" draft="contributed">{0} Gramm</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Gramm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Gramm</unitPattern>
+			<unit type="length-mile">
+				<displayName draft="contributed">englischen Meilen</displayName>
+				<unitPattern count="zero" draft="contributed">{0} englischen Meilen</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} englische Meile</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} englischen Meilen</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<displayName draft="contributed">Voss</displayName>
+				<unitPattern count="zero" draft="contributed">{0} Voss</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Voss</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Voss</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName draft="contributed">Dumm</displayName>
+				<unitPattern count="zero" draft="contributed">{0} Dumm</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Dumm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Dumm</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="contributed">Kilogramm</displayName>
@@ -2542,11 +2536,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} Kilogramm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} Kilogramm</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<displayName draft="contributed">Unzen</displayName>
-				<unitPattern count="zero" draft="contributed">{0} Unzen</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Unze</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Unzen</unitPattern>
+			<unit type="mass-gram">
+				<displayName draft="contributed">Gramm</displayName>
+				<unitPattern count="zero" draft="contributed">{0} Gramm</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Gramm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Gramm</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName draft="contributed">Pfund</displayName>
@@ -2554,11 +2548,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} Pfund</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} Pfund</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName draft="contributed">Pferdestärken</displayName>
-				<unitPattern count="zero" draft="contributed">{0} Pferdestärken</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Pferdestärke</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Pferdestärken</unitPattern>
+			<unit type="mass-ounce">
+				<displayName draft="contributed">Unzen</displayName>
+				<unitPattern count="zero" draft="contributed">{0} Unzen</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Unze</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Unzen</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName draft="contributed">Kilowatt</displayName>
@@ -2571,6 +2565,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="zero" draft="contributed">{0} Watt</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} Watt</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} Watt</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName draft="contributed">Pferdestärken</displayName>
+				<unitPattern count="zero" draft="contributed">{0} Pferdestärken</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Pferdestärke</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Pferdestärken</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName draft="contributed">Hektopascal</displayName>
@@ -2649,6 +2649,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<displayName draft="contributed">Graad</displayName>
+				<unitPattern count="zero" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName draft="contributed">Winkelmenutte</displayName>
 				<unitPattern count="zero" draft="contributed">{0}′</unitPattern>
@@ -2661,35 +2667,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0}″</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName draft="contributed">Graad</displayName>
-				<unitPattern count="zero" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName draft="contributed">angloamerikanischen Acre</displayName>
-				<unitPattern count="zero">{0} ac</unitPattern>
-				<unitPattern count="one">{0} ac</unitPattern>
-				<unitPattern count="other">{0} ac</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName draft="contributed">Quadratkilometer</displayName>
+				<unitPattern count="zero" draft="contributed">{0} km²</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} km²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName draft="contributed">hektar</displayName>
 				<unitPattern count="zero" draft="contributed">{0} ha</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} ha</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ha</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<displayName draft="contributed">Quadratvoss</displayName>
-				<unitPattern count="zero">{0} ft²</unitPattern>
-				<unitPattern count="one">{0} ft²</unitPattern>
-				<unitPattern count="other">{0} ft²</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<displayName draft="contributed">Quadratkilometer</displayName>
-				<unitPattern count="zero" draft="contributed">{0} km²</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} km²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName draft="contributed">Quadratmeter</displayName>
@@ -2703,6 +2691,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<displayName draft="contributed">angloamerikanischen Acre</displayName>
+				<unitPattern count="zero">{0} ac</unitPattern>
+				<unitPattern count="one">{0} ac</unitPattern>
+				<unitPattern count="other">{0} ac</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<displayName draft="contributed">Quadratvoss</displayName>
+				<unitPattern count="zero">{0} ft²</unitPattern>
+				<unitPattern count="one">{0} ft²</unitPattern>
+				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="contributed">Johre</displayName>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="contributed">Mohnde</displayName>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="contributed">Woche</displayName>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">Dääsch</displayName>
 				<unitPattern count="zero">{0} d</unitPattern>
@@ -2715,20 +2724,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} h</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} h</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName draft="contributed">Millisekunde</displayName>
-				<unitPattern count="zero" draft="contributed">{0} ms</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName draft="contributed">Menutte</displayName>
 				<unitPattern count="zero" draft="contributed">{0} min</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} min</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} min</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="contributed">Mohnde</displayName>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="contributed">Sekunde</displayName>
@@ -2736,29 +2736,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} s</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} s</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="contributed">Woche</displayName>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">Johre</displayName>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="contributed">Zentimeter</displayName>
-				<unitPattern count="zero" draft="contributed">{0} cm</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} cm</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName draft="contributed">Voss</displayName>
-				<unitPattern count="zero" draft="contributed">{0} Voss</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Voss</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Voss</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName draft="contributed">Dumm</displayName>
-				<unitPattern count="zero" draft="contributed">{0} Dumm</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Dumm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Dumm</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName draft="contributed">Millisekunde</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ms</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="contributed">Kilometer</displayName>
@@ -2772,11 +2754,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} m</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} m</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName draft="contributed">englischen Meilen</displayName>
-				<unitPattern count="zero">{0} mi</unitPattern>
-				<unitPattern count="one">{0} mi</unitPattern>
-				<unitPattern count="other">{0} mi</unitPattern>
+			<unit type="length-centimeter">
+				<displayName draft="contributed">Zentimeter</displayName>
+				<unitPattern count="zero" draft="contributed">{0} cm</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} cm</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="contributed">Millimeter</displayName>
@@ -2790,11 +2772,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} pm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pm</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName draft="contributed">Gramm</displayName>
-				<unitPattern count="zero" draft="contributed">{0} g</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
+			<unit type="length-mile">
+				<displayName draft="contributed">englischen Meilen</displayName>
+				<unitPattern count="zero">{0} mi</unitPattern>
+				<unitPattern count="one">{0} mi</unitPattern>
+				<unitPattern count="other">{0} mi</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<displayName draft="contributed">Voss</displayName>
+				<unitPattern count="zero" draft="contributed">{0} Voss</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Voss</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Voss</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName draft="contributed">Dumm</displayName>
+				<unitPattern count="zero" draft="contributed">{0} Dumm</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Dumm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Dumm</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="contributed">Kilogramm</displayName>
@@ -2802,11 +2796,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} kg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kg</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<displayName draft="contributed">Unzen</displayName>
-				<unitPattern count="zero" draft="contributed">{0} Unzen</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Unze</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Unzen</unitPattern>
+			<unit type="mass-gram">
+				<displayName draft="contributed">Gramm</displayName>
+				<unitPattern count="zero" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName draft="contributed">Pfund</displayName>
@@ -2814,11 +2808,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} Pfund</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} Pfund</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName draft="contributed">Pferdestärken</displayName>
-				<unitPattern count="zero" draft="contributed">{0} PS</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} PS</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} PS</unitPattern>
+			<unit type="mass-ounce">
+				<displayName draft="contributed">Unzen</displayName>
+				<unitPattern count="zero" draft="contributed">{0} Unzen</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Unze</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Unzen</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName draft="contributed">Kilowatt</displayName>
@@ -2831,6 +2825,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="zero" draft="contributed">{0} W</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} W</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} W</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName draft="contributed">Pferdestärken</displayName>
+				<unitPattern count="zero" draft="contributed">{0} PS</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} PS</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} PS</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName draft="contributed">Hektopascal</displayName>
@@ -2908,6 +2908,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0}G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}G</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="zero" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="zero" draft="contributed">{0}′</unitPattern>
 				<unitPattern count="one" draft="contributed">{0}′</unitPattern>
@@ -2918,30 +2923,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0}″</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="zero" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="zero">{0} ac</unitPattern>
-				<unitPattern count="one">{0} ac</unitPattern>
-				<unitPattern count="other">{0} ac</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="zero" draft="contributed">{0}km²</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}km²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="zero" draft="contributed">{0}ha</unitPattern>
 				<unitPattern count="one" draft="contributed">{0}ha</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}ha</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="zero">{0} ft²</unitPattern>
-				<unitPattern count="one">{0} ft²</unitPattern>
-				<unitPattern count="other">{0} ft²</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="zero" draft="contributed">{0}km²</unitPattern>
-				<unitPattern count="one" draft="contributed">{0}km²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="zero" draft="contributed">{0}m²</unitPattern>
@@ -2953,6 +2943,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<unitPattern count="zero">{0} ac</unitPattern>
+				<unitPattern count="one">{0} ac</unitPattern>
+				<unitPattern count="other">{0} ac</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="zero">{0} ft²</unitPattern>
+				<unitPattern count="one">{0} ft²</unitPattern>
+				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="zero">{0}d</unitPattern>
 				<unitPattern count="one">{0}d</unitPattern>
@@ -2962,11 +2962,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="zero" draft="contributed">{0}h</unitPattern>
 				<unitPattern count="one" draft="contributed">{0}h</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}h</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<unitPattern count="zero" draft="contributed">{0}ms</unitPattern>
-				<unitPattern count="one" draft="contributed">{0}ms</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="zero" draft="contributed">{0}m</unitPattern>
@@ -2978,20 +2973,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0}s</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}s</unitPattern>
 			</unit>
-			<unit type="length-centimeter">
-				<unitPattern count="zero" draft="contributed">{0}cm</unitPattern>
-				<unitPattern count="one" draft="contributed">{0}cm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}cm</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="zero" draft="contributed">{0} Voss</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Voss</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Voss</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="zero" draft="contributed">{0} Dumm</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Dumm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Dumm</unitPattern>
+			<unit type="duration-millisecond">
+				<unitPattern count="zero" draft="contributed">{0}ms</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}ms</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}ms</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<unitPattern count="zero" draft="contributed">{0}km</unitPattern>
@@ -3003,10 +2988,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0}m</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}m</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="zero">{0} mi</unitPattern>
-				<unitPattern count="one">{0} mi</unitPattern>
-				<unitPattern count="other">{0} mi</unitPattern>
+			<unit type="length-centimeter">
+				<unitPattern count="zero" draft="contributed">{0}cm</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}cm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}cm</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<unitPattern count="zero" draft="contributed">{0}mm</unitPattern>
@@ -3018,30 +3003,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0}pm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}pm</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<unitPattern count="zero" draft="contributed">{0}g</unitPattern>
-				<unitPattern count="one" draft="contributed">{0}g</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}g</unitPattern>
+			<unit type="length-mile">
+				<unitPattern count="zero">{0} mi</unitPattern>
+				<unitPattern count="one">{0} mi</unitPattern>
+				<unitPattern count="other">{0} mi</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="zero" draft="contributed">{0} Voss</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Voss</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Voss</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="zero" draft="contributed">{0} Dumm</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Dumm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Dumm</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<unitPattern count="zero" draft="contributed">{0}kg</unitPattern>
 				<unitPattern count="one" draft="contributed">{0}kg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}kg</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="zero" draft="contributed">{0} Unzen</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} Unze</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Unzen</unitPattern>
+			<unit type="mass-gram">
+				<unitPattern count="zero" draft="contributed">{0}g</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}g</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}g</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="zero" draft="contributed">{0} Pfund</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} Pfund</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} Pfund</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="zero" draft="contributed">{0}PS</unitPattern>
-				<unitPattern count="one" draft="contributed">{0}PS</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}PS</unitPattern>
+			<unit type="mass-ounce">
+				<unitPattern count="zero" draft="contributed">{0} Unzen</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Unze</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Unzen</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="zero" draft="contributed">{0}kW</unitPattern>
@@ -3052,6 +3047,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="zero" draft="contributed">{0}W</unitPattern>
 				<unitPattern count="one" draft="contributed">{0}W</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}W</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="zero" draft="contributed">{0}PS</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}PS</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}PS</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="zero" draft="contributed">{0}hPa</unitPattern>

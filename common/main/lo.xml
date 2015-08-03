@@ -6937,6 +6937,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>m/s²</displayName>
 				<unitPattern count="other">{0} m/s²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>rev</displayName>
+				<unitPattern count="other">{0} rev</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>radians</displayName>
+				<unitPattern count="other">{0} radians</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>ອົງສາ</displayName>
+				<unitPattern count="other">{0} ອົງສາ</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>arcminutes</displayName>
 				<unitPattern count="other">{0} ນາທີ</unitPattern>
@@ -6945,30 +6957,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>arcseconds</displayName>
 				<unitPattern count="other">{0} ວິນາທີ</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>ອົງສາ</displayName>
-				<unitPattern count="other">{0} ອົງສາ</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>radians</displayName>
-				<unitPattern count="other">{0} radians</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>rev</displayName>
-				<unitPattern count="other">{0} rev</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ເອເຄີ</displayName>
-				<unitPattern count="other">{0} ເອເຄີ</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>ກິໂລຕາແມັດ</displayName>
+				<unitPattern count="other">{0} ກິໂລຕາແມັດ</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ເຮັກຕາ</displayName>
 				<unitPattern count="other">{0} ເຮັກຕາ</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>ຕາແມັດ</displayName>
+				<unitPattern count="other">{0} ຕາແມັດ</unitPattern>
+				<perUnitPattern>{0} ຕໍ່ຕາແມັດ</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>ຊັງຕີຕາແມັດ</displayName>
 				<unitPattern count="other">{0} ຊັງຕີຕາແມັດ</unitPattern>
 				<perUnitPattern>{0} ຕໍ່ຊັງຕີຕາແມັດ</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>ຕາ​ລາງໄມລ໌</displayName>
+				<unitPattern count="other">{0} ຕາ​ລາງໄມລ໌</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ເອເຄີ</displayName>
+				<unitPattern count="other">{0} ເອເຄີ</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>square yards</displayName>
+				<unitPattern count="other">{0} ຕາລາງຢາດ</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>ຕາ​ຟຸດ</displayName>
@@ -6979,78 +6996,76 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ຕາລາງນິ້ວ</unitPattern>
 				<perUnitPattern>{0} ຕໍ່ຕາລາງນິ້ວ</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>ກິໂລຕາແມັດ</displayName>
-				<unitPattern count="other">{0} ກິໂລຕາແມັດ</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>ຕາແມັດ</displayName>
-				<unitPattern count="other">{0} ຕາແມັດ</unitPattern>
-				<perUnitPattern>{0} ຕໍ່ຕາແມັດ</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>ຕາ​ລາງໄມລ໌</displayName>
-				<unitPattern count="other">{0} ຕາ​ລາງໄມລ໌</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>square yards</displayName>
-				<unitPattern count="other">{0} ຕາລາງຢາດ</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>ລ/ກມ</displayName>
+				<unitPattern count="other">{0} ລິດຕໍ່ກິໂລແມັດ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>ລິດ ຕໍ່ 100 ກິໂລເເມັດ</displayName>
 				<unitPattern count="other">{0} ລິດຕໍ່ 100 ກີໂລແມັດ</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>ລ/ກມ</displayName>
-				<unitPattern count="other">{0} ລິດຕໍ່ກິໂລແມັດ</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>ໄມລ໌ຕໍ່ແກລອນ</displayName>
 				<unitPattern count="other">{0} ໄມລ໌ຕໍ່ແກລອນ</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>bit</displayName>
-				<unitPattern count="other">{0} bit</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>byte</displayName>
-				<unitPattern count="other">{0} byte</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>Gb</displayName>
-				<unitPattern count="other">{0} Gb</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>GB</displayName>
-				<unitPattern count="other">{0} GB</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>kb</displayName>
-				<unitPattern count="other">{0} kb</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>kB</displayName>
-				<unitPattern count="other">{0} kB</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>Mb</displayName>
-				<unitPattern count="other">{0} Mb</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>MB</displayName>
-				<unitPattern count="other">{0} MB</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>Tb</displayName>
-				<unitPattern count="other">{0} Tb</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
 				<unitPattern count="other">{0} TB</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>Tb</displayName>
+				<unitPattern count="other">{0} Tb</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>GB</displayName>
+				<unitPattern count="other">{0} GB</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>Gb</displayName>
+				<unitPattern count="other">{0} Gb</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+				<unitPattern count="other">{0} MB</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Mb</displayName>
+				<unitPattern count="other">{0} Mb</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kB</displayName>
+				<unitPattern count="other">{0} kB</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kb</displayName>
+				<unitPattern count="other">{0} kb</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>byte</displayName>
+				<unitPattern count="other">{0} byte</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>bit</displayName>
+				<unitPattern count="other">{0} bit</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>ສັດຕະວັດ</displayName>
 				<unitPattern count="other">{0} ສັດຕະວັດ</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>ປີ</displayName>
+				<unitPattern count="other">{0} ປີ</unitPattern>
+				<perUnitPattern>{0} /ປີ</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>ເດືອນ</displayName>
+				<unitPattern count="other">{0} ເດືອນ</unitPattern>
+				<perUnitPattern>{0}/ເດືອນ</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>ອາທິດ</displayName>
+				<unitPattern count="other">{0} ອາທິດ</unitPattern>
+				<perUnitPattern>{0} ຕໍ່ອາທິດ</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>ມື້</displayName>
@@ -7062,42 +7077,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ຊົ່ວໂມງ</unitPattern>
 				<perUnitPattern>{0} ຕໍ່ຊົ່ວໂມງ</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>ໄມ​ໂຄຣ​ວິ​ນາ​ທີ</displayName>
-				<unitPattern count="other">{0} ໄມ​ໂຄຣ​ວິ​ນາ​ທີ</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>ມິນລີວິນາທີ</displayName>
-				<unitPattern count="other">{0} ມິນລີວິນາທີ</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>ນາທີ</displayName>
 				<unitPattern count="other">{0} ນາທີ</unitPattern>
 				<perUnitPattern>{0} ຕໍ່ນາທີ</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>ເດືອນ</displayName>
-				<unitPattern count="other">{0} ເດືອນ</unitPattern>
-				<perUnitPattern>{0}/ເດືອນ</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>ນາ​ໂນ​ວິ​ນາ​ທີ</displayName>
-				<unitPattern count="other">{0} ນາ​ໂນ​ວິ​ນາ​ທີ</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>ວິນາທີ</displayName>
 				<unitPattern count="other">{0} ວິນາທີ</unitPattern>
 				<perUnitPattern>{0} ຕໍ່ວິນາທີ</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>ອາທິດ</displayName>
-				<unitPattern count="other">{0} ອາທິດ</unitPattern>
-				<perUnitPattern>{0} ຕໍ່ອາທິດ</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>ມິນລີວິນາທີ</displayName>
+				<unitPattern count="other">{0} ມິນລີວິນາທີ</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>ປີ</displayName>
-				<unitPattern count="other">{0} ປີ</unitPattern>
-				<perUnitPattern>{0} /ປີ</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>ໄມ​ໂຄຣ​ວິ​ນາ​ທີ</displayName>
+				<unitPattern count="other">{0} ໄມ​ໂຄຣ​ວິ​ນາ​ທີ</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ນາ​ໂນ​ວິ​ນາ​ທີ</displayName>
+				<unitPattern count="other">{0} ນາ​ໂນ​ວິ​ນາ​ທີ</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>amp</displayName>
@@ -7115,6 +7115,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>volt</displayName>
 				<unitPattern count="other">{0} V</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kcal</displayName>
+				<unitPattern count="other">{0} kcal</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>cal</displayName>
 				<unitPattern count="other">{0} cal</unitPattern>
@@ -7123,17 +7127,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Cal</displayName>
 				<unitPattern count="other">{0} Cal</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>joule</displayName>
-				<unitPattern count="other">{0} J</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="other">{0} kcal</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kJ</displayName>
 				<unitPattern count="other">{0} kJ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>joule</displayName>
+				<unitPattern count="other">{0} J</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kWh</displayName>
@@ -7143,30 +7143,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>GHz</displayName>
 				<unitPattern count="other">{0} GHz</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>Hz</displayName>
-				<unitPattern count="other">{0} Hz</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>MHz</displayName>
+				<unitPattern count="other">{0} MHz</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>kHz</displayName>
 				<unitPattern count="other">{0} kHz</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>MHz</displayName>
-				<unitPattern count="other">{0} MHz</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>Hz</displayName>
+				<unitPattern count="other">{0} Hz</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>astronomical units</displayName>
-				<unitPattern count="other">{0} astronomical units</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>ກິໂລແມັດ</displayName>
+				<unitPattern count="other">{0} ກິໂລແມັດ</unitPattern>
+				<perUnitPattern>{0} ຕໍ່ກິໂລແມັດ</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>ແມັດ</displayName>
+				<unitPattern count="other">{0} ແມັດ</unitPattern>
+				<perUnitPattern>{0} ຕໍ່ແມັດ</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>ເດຊີແມັດ</displayName>
+				<unitPattern count="other">{0} ເດຊີແມັດ</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>ຊັງຕີແມັດ</displayName>
 				<unitPattern count="other">{0} ຊັງຕີແມັດ</unitPattern>
 				<perUnitPattern>{0} ຕໍ່ຊັງຕີແມັດ</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>ເດຊີແມັດ</displayName>
-				<unitPattern count="other">{0} ເດຊີແມັດ</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>ມິນລິແມັດ</displayName>
+				<unitPattern count="other">{0} ມິນລິແມັດ</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>micrometers</displayName>
+				<unitPattern count="other">{0} micrometers</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>ນາໂນແມັດ</displayName>
+				<unitPattern count="other">{0} ນາໂນແມັດ</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>ປິໂກແມັດ</displayName>
+				<unitPattern count="other">{0} ປິໂກແມັດ</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>ໄມ</displayName>
+				<unitPattern count="other">{0} ໄມ</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>ຫລາ</displayName>
+				<unitPattern count="other">{0} ຫລາ</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>ຟຸດ</displayName>
@@ -7178,85 +7208,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ນິ້ວ</unitPattern>
 				<perUnitPattern>{0} ຕໍ່ນິ້ວ</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>ກິໂລແມັດ</displayName>
-				<unitPattern count="other">{0} ກິໂລແມັດ</unitPattern>
-				<perUnitPattern>{0} ຕໍ່ກິໂລແມັດ</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>parsecs</displayName>
+				<unitPattern count="other">{0} parsecs</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>ປີແສງ</displayName>
 				<unitPattern count="other">{0} ປີແສງ</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>ແມັດ</displayName>
-				<unitPattern count="other">{0} ແມັດ</unitPattern>
-				<perUnitPattern>{0} ຕໍ່ແມັດ</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>micrometers</displayName>
-				<unitPattern count="other">{0} micrometers</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>ໄມ</displayName>
-				<unitPattern count="other">{0} ໄມ</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>ໄມລ໌ສະກັງດີນາວຽນ</displayName>
-				<unitPattern count="other">{0} ໄມລ໌ສະກັງດີນາວຽນ</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>ມິນລິແມັດ</displayName>
-				<unitPattern count="other">{0} ມິນລິແມັດ</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>ນາໂນແມັດ</displayName>
-				<unitPattern count="other">{0} ນາໂນແມັດ</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>astronomical units</displayName>
+				<unitPattern count="other">{0} astronomical units</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>ໄມລ໌ທະເລ</displayName>
 				<unitPattern count="other">{0} ໄມລ໌ທະເລ</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>parsecs</displayName>
-				<unitPattern count="other">{0} parsecs</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>ປິໂກແມັດ</displayName>
-				<unitPattern count="other">{0} ປິໂກແມັດ</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>ຫລາ</displayName>
-				<unitPattern count="other">{0} ຫລາ</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>ໄມລ໌ສະກັງດີນາວຽນ</displayName>
+				<unitPattern count="other">{0} ໄມລ໌ສະກັງດີນາວຽນ</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
 				<unitPattern count="other">{0} lux</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>CD</displayName>
-				<unitPattern count="other">{0} CD</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>ກຣາມ</displayName>
-				<unitPattern count="other">{0} ກຣາມ</unitPattern>
-				<perUnitPattern>{0}/g</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>t</displayName>
+				<unitPattern count="other">{0} t</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>ກິໂລກຣາມ</displayName>
 				<unitPattern count="other">{0} ກິໂລກຣາມ</unitPattern>
 				<perUnitPattern>{0}/kg</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>t</displayName>
-				<unitPattern count="other">{0} t</unitPattern>
+			<unit type="mass-gram">
+				<displayName>ກຣາມ</displayName>
+				<unitPattern count="other">{0} ກຣາມ</unitPattern>
+				<perUnitPattern>{0}/g</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>mg</displayName>
+				<unitPattern count="other">{0} mg</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>µg</displayName>
 				<unitPattern count="other">{0} µg</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>mg</displayName>
-				<unitPattern count="other">{0} mg</unitPattern>
+			<unit type="mass-ton">
+				<displayName>tn</displayName>
+				<unitPattern count="other">{0} tn</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>ປອນ</displayName>
+				<unitPattern count="other">{0} ປອນ</unitPattern>
+				<perUnitPattern>{0}/lb</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>ອອນ</displayName>
@@ -7267,50 +7272,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>oz t</displayName>
 				<unitPattern count="other">{0} oz t</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>ປອນ</displayName>
-				<unitPattern count="other">{0} ປອນ</unitPattern>
-				<perUnitPattern>{0}/lb</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>tn</displayName>
-				<unitPattern count="other">{0} tn</unitPattern>
+			<unit type="mass-carat">
+				<displayName>CD</displayName>
+				<unitPattern count="other">{0} CD</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>GW</displayName>
 				<unitPattern count="other">{0} GW</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>ແຮງມ້າ</displayName>
-				<unitPattern count="other">{0} ແຮງມ້າ</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>MW</displayName>
+				<unitPattern count="other">{0} MW</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>ກິໂລວັດ</displayName>
 				<unitPattern count="other">{0} ກິໂລວັດ</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>MW</displayName>
-				<unitPattern count="other">{0} MW</unitPattern>
+			<unit type="power-watt">
+				<displayName>ວັດ</displayName>
+				<unitPattern count="other">{0} ວັດ</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>mW</displayName>
 				<unitPattern count="other">{0} mW</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>ວັດ</displayName>
-				<unitPattern count="other">{0} ວັດ</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>ແຮງມ້າ</displayName>
+				<unitPattern count="other">{0} ແຮງມ້າ</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hectopascals</displayName>
 				<unitPattern count="other">{0} hectopascals</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>in Hg</displayName>
-				<unitPattern count="other">{0} inches of mercury</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>ມິນລິບາ</displayName>
-				<unitPattern count="other">{0} ມິນລິບາ</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
@@ -7320,6 +7312,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>pounds per square inch</displayName>
 				<unitPattern count="other">{0} pounds per square inch</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>in Hg</displayName>
+				<unitPattern count="other">{0} inches of mercury</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>ມິນລິບາ</displayName>
+				<unitPattern count="other">{0} ມິນລິບາ</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>ກະຣັດ</displayName>
 				<unitPattern count="other">{0} ກະຣັດ</unitPattern>
@@ -7327,10 +7327,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ກິໂລແມັດຕໍ່ຊົ່ວໂມງ</displayName>
 				<unitPattern count="other">{0} ກິໂລແມັດຕໍ່ຊົ່ວໂມງ</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>knot</displayName>
-				<unitPattern count="other">{0} knots</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>ແມັດຕໍ່ນາທີ</displayName>
@@ -7340,6 +7336,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ໄມລ໌ຕໍ່ຊົ່ວໂມງ</displayName>
 				<unitPattern count="other">{0} ໄມລ໌ຕໍ່ຊົ່ວໂມງ</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>knot</displayName>
+				<unitPattern count="other">{0} knots</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>ອົງສາເຊວຊຽສ</displayName>
 				<unitPattern count="other">{0} ອົງສາເຊວຊຽສ</unitPattern>
@@ -7348,34 +7352,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ອົງສາຟາເຣນຮາຍ</displayName>
 				<unitPattern count="other">{0} ອົງສາຟາເຣນຮາຍ</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>ອົງສາເຄວິນ</displayName>
 				<unitPattern count="other">{0} ອົງສາເຄວິນ</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ac ft</displayName>
-				<unitPattern count="other">{0} ac ft</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>cL</displayName>
-				<unitPattern count="other">{0} cL</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>cm³</displayName>
-				<unitPattern count="other">{0} cm³</unitPattern>
-				<perUnitPattern>{0}/cm³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>ft³</displayName>
-				<unitPattern count="other">{0} ft³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>in³</displayName>
-				<unitPattern count="other">{0} in³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>ກິໂລແມັດກ້ອນ</displayName>
@@ -7386,6 +7365,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ແມັດກ້ອນ</unitPattern>
 				<perUnitPattern>{0} ຕໍ່ມ³</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>cm³</displayName>
+				<unitPattern count="other">{0} cm³</unitPattern>
+				<perUnitPattern>{0}/cm³</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>ໄມລ໌ກ້ອນ</displayName>
 				<unitPattern count="other">{0} ໄມລ໌ກ້ອນ</unitPattern>
@@ -7394,26 +7378,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>yd³</displayName>
 				<unitPattern count="other">{0} yd³</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>cup</displayName>
-				<unitPattern count="other">{0} c</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>ft³</displayName>
+				<unitPattern count="other">{0} ft³</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>mcup</displayName>
-				<unitPattern count="other">{0} metric cups</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>in³</displayName>
+				<unitPattern count="other">{0} in³</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>dL</displayName>
-				<unitPattern count="other">{0} dL</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>fl oz</displayName>
-				<unitPattern count="other">{0} fl oz</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>gal</displayName>
-				<unitPattern count="other">{0} gal</unitPattern>
-				<perUnitPattern>{0} per gallon</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>ML</displayName>
+				<unitPattern count="other">{0} ML</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hL</displayName>
@@ -7424,25 +7399,50 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ລິດ</unitPattern>
 				<perUnitPattern>{0} ຕໍ່ລິດ</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>ML</displayName>
-				<unitPattern count="other">{0} ML</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>dL</displayName>
+				<unitPattern count="other">{0} dL</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>cL</displayName>
+				<unitPattern count="other">{0} cL</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>mL</displayName>
 				<unitPattern count="other">{0} mL</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>pt</displayName>
-				<unitPattern count="other">{0} pt</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>metric pints</displayName>
 				<unitPattern count="other">{0} metric pints</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>mcup</displayName>
+				<unitPattern count="other">{0} metric cups</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ac ft</displayName>
+				<unitPattern count="other">{0} ac ft</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>gal</displayName>
+				<unitPattern count="other">{0} gal</unitPattern>
+				<perUnitPattern>{0} per gallon</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>qt</displayName>
 				<unitPattern count="other">{0} qt</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>pt</displayName>
+				<unitPattern count="other">{0} pt</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>cup</displayName>
+				<unitPattern count="other">{0} c</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>fl oz</displayName>
+				<unitPattern count="other">{0} fl oz</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>tbsp</displayName>
@@ -7471,6 +7471,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>m/s²</displayName>
 				<unitPattern count="other">{0} m/s²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>rev</displayName>
+				<unitPattern count="other">{0} rev</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>radians</displayName>
+				<unitPattern count="other">{0} rad</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>ອົງສາ</displayName>
+				<unitPattern count="other">{0} ອົງສາ</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>arcmins</displayName>
 				<unitPattern count="other">{0} arcmins</unitPattern>
@@ -7479,30 +7491,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>arcsecs</displayName>
 				<unitPattern count="other">{0} arcsecs</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>ອົງສາ</displayName>
-				<unitPattern count="other">{0} ອົງສາ</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>radians</displayName>
-				<unitPattern count="other">{0} rad</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>rev</displayName>
-				<unitPattern count="other">{0} rev</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ເອເຄີ</displayName>
-				<unitPattern count="other">{0} ເອເຄີ</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>ກມ²</displayName>
+				<unitPattern count="other">{0} ກມ²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ເຮັກຕາ</displayName>
 				<unitPattern count="other">{0} ຮຕ.</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>ແມັດ²</displayName>
+				<unitPattern count="other">{0} ມ²</unitPattern>
+				<perUnitPattern>{0}/ມ²</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>ຊມ²</displayName>
 				<unitPattern count="other">{0} ຊມ²</unitPattern>
 				<perUnitPattern>{0}/ຊມ²</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>sq miles</displayName>
+				<unitPattern count="other">{0} mi²</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ເອເຄີ</displayName>
+				<unitPattern count="other">{0} ເອເຄີ</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>yards²</displayName>
+				<unitPattern count="other">{0} yd²</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>ຟຸດ²</displayName>
@@ -7513,78 +7530,76 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>ກມ²</displayName>
-				<unitPattern count="other">{0} ກມ²</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>ແມັດ²</displayName>
-				<unitPattern count="other">{0} ມ²</unitPattern>
-				<perUnitPattern>{0}/ມ²</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>sq miles</displayName>
-				<unitPattern count="other">{0} mi²</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>yards²</displayName>
-				<unitPattern count="other">{0} yd²</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>ລ/ກມ</displayName>
+				<unitPattern count="other">{0} ລ/ກມ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>ລ/ 100 ກມ</displayName>
 				<unitPattern count="other">{0} L/100km</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>ລ/ກມ</displayName>
-				<unitPattern count="other">{0} ລ/ກມ</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>ໄມລ໌/ແກລ</displayName>
 				<unitPattern count="other">{0} mpg</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>bit</displayName>
-				<unitPattern count="other">{0} bit</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>byte</displayName>
-				<unitPattern count="other">{0} byte</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>Gb</displayName>
-				<unitPattern count="other">{0} Gb</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>GB</displayName>
-				<unitPattern count="other">{0} GB</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>kb</displayName>
-				<unitPattern count="other">{0} kb</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>kB</displayName>
-				<unitPattern count="other">{0} kB</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>Mb</displayName>
-				<unitPattern count="other">{0} Mb</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>MB</displayName>
-				<unitPattern count="other">{0} MB</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>Tb</displayName>
-				<unitPattern count="other">{0} Tb</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
 				<unitPattern count="other">{0} TB</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>Tb</displayName>
+				<unitPattern count="other">{0} Tb</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>GB</displayName>
+				<unitPattern count="other">{0} GB</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>Gb</displayName>
+				<unitPattern count="other">{0} Gb</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+				<unitPattern count="other">{0} MB</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Mb</displayName>
+				<unitPattern count="other">{0} Mb</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kB</displayName>
+				<unitPattern count="other">{0} kB</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kb</displayName>
+				<unitPattern count="other">{0} kb</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>byte</displayName>
+				<unitPattern count="other">{0} byte</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>bit</displayName>
+				<unitPattern count="other">{0} bit</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>c</displayName>
 				<unitPattern count="other">{0} c</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>ປີ</displayName>
+				<unitPattern count="other">{0} ປີ</unitPattern>
+				<perUnitPattern>{0}/y</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>ເດືອນ</displayName>
+				<unitPattern count="other">{0} ດ.</unitPattern>
+				<perUnitPattern>{0}/ເດືອນ</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>ອາທິດ</displayName>
+				<unitPattern count="other">{0} ອທ.</unitPattern>
+				<perUnitPattern>{0}/ອາທິດ</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>ມື້</displayName>
@@ -7596,42 +7611,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ຊມ.</unitPattern>
 				<perUnitPattern>{0}/ຊມ.</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>μວິ</displayName>
-				<unitPattern count="other">{0} μວິ</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>ມິນລີວິ</displayName>
-				<unitPattern count="other">{0} ມລວ</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>ນທ.</displayName>
 				<unitPattern count="other">{0} ນທ.</unitPattern>
 				<perUnitPattern>{0}/ນາທີ</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>ເດືອນ</displayName>
-				<unitPattern count="other">{0} ດ.</unitPattern>
-				<perUnitPattern>{0}/ເດືອນ</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>ນາ​ໂນ​ວິ​</displayName>
-				<unitPattern count="other">{0} ນນ​ວິ</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>ວິ.</displayName>
 				<unitPattern count="other">{0} ວິ.</unitPattern>
 				<perUnitPattern>{0}/ວິ.</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>ອາທິດ</displayName>
-				<unitPattern count="other">{0} ອທ.</unitPattern>
-				<perUnitPattern>{0}/ອາທິດ</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>ມິນລີວິ</displayName>
+				<unitPattern count="other">{0} ມລວ</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>ປີ</displayName>
-				<unitPattern count="other">{0} ປີ</unitPattern>
-				<perUnitPattern>{0}/y</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>μວິ</displayName>
+				<unitPattern count="other">{0} μວິ</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ນາ​ໂນ​ວິ​</displayName>
+				<unitPattern count="other">{0} ນນ​ວິ</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>amp</displayName>
@@ -7649,6 +7649,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>volt</displayName>
 				<unitPattern count="other">{0} V</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kcal</displayName>
+				<unitPattern count="other">{0} kcal</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>cal</displayName>
 				<unitPattern count="other">{0} cal</unitPattern>
@@ -7657,17 +7661,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Cal</displayName>
 				<unitPattern count="other">{0} Cal</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>joule</displayName>
-				<unitPattern count="other">{0} J</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="other">{0} kcal</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kJ</displayName>
 				<unitPattern count="other">{0} kJ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>joule</displayName>
+				<unitPattern count="other">{0} J</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kWh</displayName>
@@ -7677,30 +7677,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>GHz</displayName>
 				<unitPattern count="other">{0} GHz</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>Hz</displayName>
-				<unitPattern count="other">{0} Hz</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>MHz</displayName>
+				<unitPattern count="other">{0} MHz</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>kHz</displayName>
 				<unitPattern count="other">{0} kHz</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>MHz</displayName>
-				<unitPattern count="other">{0} MHz</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>Hz</displayName>
+				<unitPattern count="other">{0} Hz</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>au</displayName>
-				<unitPattern count="other">{0} au</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>ກມ</displayName>
+				<unitPattern count="other">{0} ກມ</unitPattern>
+				<perUnitPattern>{0}/ກິໂລແມັດ</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>ແມັດ</displayName>
+				<unitPattern count="other">{0} ມ</unitPattern>
+				<perUnitPattern>{0}/ແມັດ</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>dm</displayName>
+				<unitPattern count="other">{0} dm</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>ຊມ</displayName>
 				<unitPattern count="other">{0} ຊມ</unitPattern>
 				<perUnitPattern>{0}/ຊັງຕີແມັດ</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>dm</displayName>
-				<unitPattern count="other">{0} dm</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>ມມ</displayName>
+				<unitPattern count="other">{0} ມມ</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>µm</displayName>
+				<unitPattern count="other">{0} µm</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>nm</displayName>
+				<unitPattern count="other">{0} nm</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>pm</displayName>
+				<unitPattern count="other">{0} pm</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>ໄມ</displayName>
+				<unitPattern count="other">{0} ໄມ</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>ຫລາ</displayName>
+				<unitPattern count="other">{0} ຫລາ</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>ຟຸດ</displayName>
@@ -7712,85 +7742,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ນິ</unitPattern>
 				<perUnitPattern>{0}/ນີວ</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>ກມ</displayName>
-				<unitPattern count="other">{0} ກມ</unitPattern>
-				<perUnitPattern>{0}/ກິໂລແມັດ</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>parsecs</displayName>
+				<unitPattern count="other">{0} pc</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>ປີແສງ</displayName>
 				<unitPattern count="other">{0} ປສ</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>ແມັດ</displayName>
-				<unitPattern count="other">{0} ມ</unitPattern>
-				<perUnitPattern>{0}/ແມັດ</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>µm</displayName>
-				<unitPattern count="other">{0} µm</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>ໄມ</displayName>
-				<unitPattern count="other">{0} ໄມ</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>smi</displayName>
-				<unitPattern count="other">{0} smi</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>ມມ</displayName>
-				<unitPattern count="other">{0} ມມ</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>nm</displayName>
-				<unitPattern count="other">{0} nm</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>au</displayName>
+				<unitPattern count="other">{0} au</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>nmi</displayName>
 				<unitPattern count="other">{0} nmi</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>parsecs</displayName>
-				<unitPattern count="other">{0} pc</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>pm</displayName>
-				<unitPattern count="other">{0} pm</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>ຫລາ</displayName>
-				<unitPattern count="other">{0} ຫລາ</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>smi</displayName>
+				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
 				<unitPattern count="other">{0} lx</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>CD</displayName>
-				<unitPattern count="other">{0} CD</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>ກຣາມ</displayName>
-				<unitPattern count="other">{0} ກຼ</unitPattern>
-				<perUnitPattern>{0}/g</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>t</displayName>
+				<unitPattern count="other">{0} t</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>ກິໂລກຣາມ</displayName>
 				<unitPattern count="other">{0} ກິໂລ</unitPattern>
 				<perUnitPattern>{0}/kg</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>t</displayName>
-				<unitPattern count="other">{0} t</unitPattern>
+			<unit type="mass-gram">
+				<displayName>ກຣາມ</displayName>
+				<unitPattern count="other">{0} ກຼ</unitPattern>
+				<perUnitPattern>{0}/g</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>mg</displayName>
+				<unitPattern count="other">{0} mg</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>µg</displayName>
 				<unitPattern count="other">{0} µg</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>mg</displayName>
-				<unitPattern count="other">{0} mg</unitPattern>
+			<unit type="mass-ton">
+				<displayName>tn</displayName>
+				<unitPattern count="other">{0} tn</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>ປອນ</displayName>
+				<unitPattern count="other">{0} ປ</unitPattern>
+				<perUnitPattern>{0}/lb</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>ອອນ</displayName>
@@ -7801,50 +7806,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>oz t</displayName>
 				<unitPattern count="other">{0} oz t</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>ປອນ</displayName>
-				<unitPattern count="other">{0} ປ</unitPattern>
-				<perUnitPattern>{0}/lb</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>tn</displayName>
-				<unitPattern count="other">{0} tn</unitPattern>
+			<unit type="mass-carat">
+				<displayName>CD</displayName>
+				<unitPattern count="other">{0} CD</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>GW</displayName>
 				<unitPattern count="other">{0} GW</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>ແຮງມ້າ</displayName>
-				<unitPattern count="other">{0} hp</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>MW</displayName>
+				<unitPattern count="other">{0} MW</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>ກິໂລວັດ</displayName>
 				<unitPattern count="other">{0} ກລ. ວັດ</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>MW</displayName>
-				<unitPattern count="other">{0} MW</unitPattern>
+			<unit type="power-watt">
+				<displayName>ວັດ</displayName>
+				<unitPattern count="other">{0} ວັດ</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>mW</displayName>
 				<unitPattern count="other">{0} mW</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>ວັດ</displayName>
-				<unitPattern count="other">{0} ວັດ</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>ແຮງມ້າ</displayName>
+				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hPA</displayName>
 				<unitPattern count="other">{0} hPA</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>in Hg</displayName>
-				<unitPattern count="other">{0} in Hg</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>mbar</displayName>
-				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
@@ -7854,6 +7846,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>psi</displayName>
 				<unitPattern count="other">{0} psi</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>in Hg</displayName>
+				<unitPattern count="other">{0} in Hg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>mbar</displayName>
+				<unitPattern count="other">{0} mbar</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>ກະຣັດ</displayName>
 				<unitPattern count="other">{0} kt</unitPattern>
@@ -7861,10 +7861,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ກມ/ຊມ</displayName>
 				<unitPattern count="other">{0} ກມ/ຊມ</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>kn</displayName>
-				<unitPattern count="other">{0} kn</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>ແມັດ/ນທ.</displayName>
@@ -7874,6 +7870,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ໄມລ໌/ຊົ່ວໂມງ</displayName>
 				<unitPattern count="other">{0} ມ/ຊມ</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>kn</displayName>
+				<unitPattern count="other">{0} kn</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>ອົງ​ສາ ຊ.</displayName>
 				<unitPattern count="other">{0} ອົງສາ ຊີ.</unitPattern>
@@ -7882,34 +7886,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ອົງ​ສາ ຟ.</displayName>
 				<unitPattern count="other">{0} ອົງສາ ຟ.</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>ອົງສາ ເຄ.</displayName>
 				<unitPattern count="other">{0}°K</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ac ft</displayName>
-				<unitPattern count="other">{0} ac ft</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>cL</displayName>
-				<unitPattern count="other">{0} cL</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>cm³</displayName>
-				<unitPattern count="other">{0} cm³</unitPattern>
-				<perUnitPattern>{0}/cm³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>ft³</displayName>
-				<unitPattern count="other">{0} ft³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>in³</displayName>
-				<unitPattern count="other">{0} in³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>km³</displayName>
@@ -7920,6 +7899,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ມ³</unitPattern>
 				<perUnitPattern>{0}/ມ³</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>cm³</displayName>
+				<unitPattern count="other">{0} cm³</unitPattern>
+				<perUnitPattern>{0}/cm³</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>mi³</displayName>
 				<unitPattern count="other">{0} mi³</unitPattern>
@@ -7928,26 +7912,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>yd³</displayName>
 				<unitPattern count="other">{0} yd³</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>cup</displayName>
-				<unitPattern count="other">{0} c</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>ft³</displayName>
+				<unitPattern count="other">{0} ft³</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>mcup</displayName>
-				<unitPattern count="other">{0} mc</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>in³</displayName>
+				<unitPattern count="other">{0} in³</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>dL</displayName>
-				<unitPattern count="other">{0} dL</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>fl oz</displayName>
-				<unitPattern count="other">{0} fl oz</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>gal</displayName>
-				<unitPattern count="other">{0} gal</unitPattern>
-				<perUnitPattern>{0}/gal</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>ML</displayName>
+				<unitPattern count="other">{0} ML</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hL</displayName>
@@ -7958,25 +7933,50 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ລິດ</unitPattern>
 				<perUnitPattern>{0}/l</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>ML</displayName>
-				<unitPattern count="other">{0} ML</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>dL</displayName>
+				<unitPattern count="other">{0} dL</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>cL</displayName>
+				<unitPattern count="other">{0} cL</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>mL</displayName>
 				<unitPattern count="other">{0} mL</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>pt</displayName>
-				<unitPattern count="other">{0} pt</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>mpt</displayName>
 				<unitPattern count="other">{0} mpt</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>mcup</displayName>
+				<unitPattern count="other">{0} mc</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ac ft</displayName>
+				<unitPattern count="other">{0} ac ft</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>gal</displayName>
+				<unitPattern count="other">{0} gal</unitPattern>
+				<perUnitPattern>{0}/gal</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>qt</displayName>
 				<unitPattern count="other">{0} qt</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>pt</displayName>
+				<unitPattern count="other">{0} pt</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>cup</displayName>
+				<unitPattern count="other">{0} c</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>fl oz</displayName>
+				<unitPattern count="other">{0} fl oz</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>tbsp</displayName>
@@ -7997,27 +7997,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="other">{0} ac</unitPattern>
-			</unit>
-			<unit type="area-hectare">
-				<unitPattern count="other">{0} ຮຕ</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="other">{0} ft²</unitPattern>
-			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>ກມ²</displayName>
 				<unitPattern count="other">{0} ກມ²</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="other">{0} ຮຕ</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>ແມັດ²</displayName>
@@ -8026,9 +8020,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-mile">
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other">{0} ac</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>ລ/ 100 ກມ</displayName>
 				<unitPattern count="other">{0} ລ / 100 ກມ</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>ປີ</displayName>
+				<unitPattern count="other">{0} ປ</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>ເດືອນ</displayName>
+				<unitPattern count="other">{0} ດ.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>ອທ.</displayName>
+				<unitPattern count="other">{0} ອທ.</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>ມື້</displayName>
@@ -8038,57 +8050,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ຊົ່ວໂມງ</displayName>
 				<unitPattern count="other">{0} ຊມ</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>ມລວ</displayName>
-				<unitPattern count="other">{0} ມລ. ວິ.</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>ນທ.</displayName>
 				<unitPattern count="other">{0} ນທ</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>ເດືອນ</displayName>
-				<unitPattern count="other">{0} ດ.</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>ວິ.</displayName>
 				<unitPattern count="other">{0} ວິ</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>ອທ.</displayName>
-				<unitPattern count="other">{0} ອທ.</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName>ປີ</displayName>
-				<unitPattern count="other">{0} ປ</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>ຊມ</displayName>
-				<unitPattern count="other">{0} ຊມ</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<displayName>ຟຸດ</displayName>
-				<unitPattern count="other">{0} ຟ</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName>ນິ້ວ</displayName>
-				<unitPattern count="other">{0} ນ</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>ມລວ</displayName>
+				<unitPattern count="other">{0} ມລ. ວິ.</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>ກມ</displayName>
 				<unitPattern count="other">{0} ກມ</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<displayName>ປີແສງ</displayName>
-				<unitPattern count="other">{0} ປສ</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>ແມັດ</displayName>
 				<unitPattern count="other">{0} ມ</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<displayName>ໄມ</displayName>
-				<unitPattern count="other">{0} ໄມ</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>ຊມ</displayName>
+				<unitPattern count="other">{0} ຊມ</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>ມມ</displayName>
@@ -8098,32 +8082,48 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>pm</displayName>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<displayName>ໄມ</displayName>
+				<unitPattern count="other">{0} ໄມ</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<displayName>ຫລາ</displayName>
 				<unitPattern count="other">{0} ຫລາ</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName>ກຣາມ</displayName>
-				<unitPattern count="other">{0} ກຼ</unitPattern>
+			<unit type="length-foot">
+				<displayName>ຟຸດ</displayName>
+				<unitPattern count="other">{0} ຟ</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName>ນິ້ວ</displayName>
+				<unitPattern count="other">{0} ນ</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>ປີແສງ</displayName>
+				<unitPattern count="other">{0} ປສ</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>ກິໂລກຣາມ</displayName>
 				<unitPattern count="other">{0} ກລ</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="other">{0} ອ</unitPattern>
+			<unit type="mass-gram">
+				<displayName>ກຣາມ</displayName>
+				<unitPattern count="other">{0} ກຼ</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="other">{0} ປ</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="other">{0} hp</unitPattern>
+			<unit type="mass-ounce">
+				<unitPattern count="other">{0} ອ</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
 				<unitPattern count="other">{0} W</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hPA</displayName>

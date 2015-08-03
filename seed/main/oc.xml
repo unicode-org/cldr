@@ -270,6 +270,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<unitPattern count="other">{0} annadas</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0} mes</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">{0} setmanas</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="other">{0} jorns</unitPattern>
 			</unit>
@@ -279,17 +288,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other">{0} minutas</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<unitPattern count="other">{0} mes</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0} segondas</unitPattern>
-			</unit>
-			<unit type="duration-week">
-				<unitPattern count="other">{0} setmanas</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<unitPattern count="other">{0} annadas</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

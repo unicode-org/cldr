@@ -77,25 +77,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0}carreau</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}carreaux</unitPattern>
 			</unit>
-			<unit type="volume-cubic-centimeter">
-				<perUnitPattern draft="contributed">{0} pour chaque centimetre cube</perUnitPattern>
-			</unit>
 			<unit type="volume-cubic-meter">
 				<perUnitPattern draft="contributed">{0} pour chaque metre cube</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<perUnitPattern draft="contributed">{0} pour chaque centimetre cube</perUnitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
 			<unit type="duration-century">
 				<displayName draft="contributed">sec</displayName>
 			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one" draft="contributed">{0}gr</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}gr</unitPattern>
+			</unit>
 			<unit type="mass-carat">
 				<displayName draft="contributed">kr</displayName>
 				<unitPattern count="one" draft="contributed">{0}kr</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}kr</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<unitPattern count="one" draft="contributed">{0}gr</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}gr</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">

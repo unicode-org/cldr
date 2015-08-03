@@ -2531,15 +2531,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} quilómetro quadrado</unitPattern>
 				<unitPattern count="other">{0} quilómetros quadrados</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
-				<displayName draft="contributed">litros por 100 quilómetros</displayName>
-				<unitPattern count="one" draft="contributed">{0} litro por 100 quilómetros</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} litros por 100 quilómetros</unitPattern>
-			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litros por quilómetro</displayName>
 				<unitPattern count="one">{0} litro por quilómetro</unitPattern>
 				<unitPattern count="other">{0} litros por quilómetro</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName draft="contributed">litros por 100 quilómetros</displayName>
+				<unitPattern count="one" draft="contributed">{0} litro por 100 quilómetros</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} litros por 100 quilómetros</unitPattern>
 			</unit>
 			<unit type="duration-century">
 				<unitPattern count="other">{0} séculos</unitPattern>
@@ -2555,11 +2555,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} quilocaloria</unitPattern>
 				<unitPattern count="other">{0} quilocalorias</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>unidades astronómicas</displayName>
-				<unitPattern count="one">{0} unidade astronómica</unitPattern>
-				<unitPattern count="other">{0} unidades astronómicas</unitPattern>
-			</unit>
 			<unit type="length-kilometer">
 				<displayName>quilómetros</displayName>
 				<unitPattern count="one">{0} quilómetro</unitPattern>
@@ -2571,9 +2566,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} micrómetro</unitPattern>
 				<unitPattern count="other">{0} micrómetros</unitPattern>
 			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName draft="contributed">milha escandinava</displayName>
-			</unit>
 			<unit type="length-nanometer">
 				<displayName>nanómetros</displayName>
 				<unitPattern count="one">{0} nanómetro</unitPattern>
@@ -2583,6 +2575,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>picómetros</displayName>
 				<unitPattern count="one">{0} picómetro</unitPattern>
 				<unitPattern count="other">{0} picómetros</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>unidades astronómicas</displayName>
+				<unitPattern count="one">{0} unidade astronómica</unitPattern>
+				<unitPattern count="other">{0} unidades astronómicas</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName draft="contributed">milha escandinava</displayName>
 			</unit>
 			<unit type="proportion-karat">
 				<displayName>quilates</displayName>
@@ -2597,13 +2597,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="temperature-generic">
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
-			<unit type="volume-cubic-centimeter">
-				<perUnitPattern draft="contributed">por centímetro cúbico</perUnitPattern>
-			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>quilómetros cúbicos</displayName>
 				<unitPattern count="one">{0} quilómetro cúbico</unitPattern>
 				<unitPattern count="other">{0} quilómetros cúbicos</unitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<perUnitPattern draft="contributed">por centímetro cúbico</perUnitPattern>
 			</unit>
 			<unit type="volume-cup">
 				<displayName>chávenas</displayName>
@@ -2624,12 +2624,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<displayName>segundos de arco</displayName>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>m²</displayName>
+				<perUnitPattern draft="contributed">{0}/m²</perUnitPattern>
+			</unit>
+			<unit type="area-square-centimeter">
+				<perUnitPattern draft="contributed">{0}/cm²</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>mi²</displayName>
+			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} acre</unitPattern>
 				<unitPattern count="other">{0} acres</unitPattern>
 			</unit>
-			<unit type="area-square-centimeter">
-				<perUnitPattern draft="contributed">{0}/cm²</perUnitPattern>
+			<unit type="area-square-yard">
+				<displayName>yd²</displayName>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>pés quadrados</displayName>
@@ -2639,16 +2649,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern draft="contributed">{0}/in²</perUnitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>m²</displayName>
-				<perUnitPattern draft="contributed">{0}/m²</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>mi²</displayName>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>yd²</displayName>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName draft="contributed">l/100km</displayName>
@@ -2671,31 +2671,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} kcal</unitPattern>
 				<unitPattern count="other">{0} kcal</unitPattern>
 			</unit>
-			<unit type="length-inch">
-				<displayName>polegadas</displayName>
-			</unit>
 			<unit type="length-mile">
 				<unitPattern count="one">{0} milha</unitPattern>
 				<unitPattern count="other">{0} milhas</unitPattern>
 			</unit>
-			<unit type="length-mile-scandinavian">
-				<unitPattern count="other">{0} smi</unitPattern>
+			<unit type="length-inch">
+				<displayName>polegadas</displayName>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>pc</displayName>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>nmi</displayName>
 				<unitPattern count="one">{0} nmi</unitPattern>
 				<unitPattern count="other">{0} nmi</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>pc</displayName>
-			</unit>
-			<unit type="mass-carat">
-				<unitPattern count="one">{0} ct</unitPattern>
-				<unitPattern count="other">{0} ct</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<unitPattern count="one">{0} ton</unitPattern>
 				<unitPattern count="other">{0} ton</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<unitPattern count="one">{0} ct</unitPattern>
+				<unitPattern count="other">{0} ct</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
 				<displayName>in Hg</displayName>
@@ -2727,10 +2727,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="temperature-fahrenheit">
 				<displayName>graus Fahrenheit</displayName>
 			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ac ft</displayName>
-				<unitPattern count="one">{0} ac ft</unitPattern>
-				<unitPattern count="other">{0} ac ft</unitPattern>
+			<unit type="volume-cubic-yard">
+				<displayName>yd³</displayName>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>ft³</displayName>
@@ -2740,8 +2738,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in³</unitPattern>
 				<unitPattern count="other">{0} in³</unitPattern>
 			</unit>
-			<unit type="volume-cubic-yard">
-				<displayName>yd³</displayName>
+			<unit type="volume-acre-foot">
+				<displayName>ac ft</displayName>
+				<unitPattern count="one">{0} ac ft</unitPattern>
+				<unitPattern count="other">{0} ac ft</unitPattern>
 			</unit>
 			<unit type="volume-cup">
 				<displayName>chávenas</displayName>

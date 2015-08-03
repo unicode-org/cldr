@@ -534,6 +534,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-month">
+				<displayName draft="provisional">m</displayName>
+				<unitPattern count="one">{0} m</unitPattern>
+				<unitPattern count="other">{0} m</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">d</displayName>
 				<unitPattern count="one">{0} d</unitPattern>
@@ -549,11 +554,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">m</displayName>
-				<unitPattern count="one">{0} m</unitPattern>
-				<unitPattern count="other">{0} m</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">s</displayName>
 				<unitPattern count="one">{0} s</unitPattern>
@@ -561,6 +561,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="duration-month">
+				<displayName draft="provisional">m</displayName>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">d</displayName>
 			</unit>
@@ -569,9 +572,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="duration-minute">
 				<displayName draft="provisional">min</displayName>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">m</displayName>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">s</displayName>

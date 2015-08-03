@@ -389,11 +389,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="short">
-			<unit type="duration-day">
-				<displayName draft="contributed">días</displayName>
-				<unitPattern count="one" draft="contributed">{0} día</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} días</unitPattern>
-				<perUnitPattern draft="contributed">{0}/día</perUnitPattern>
+			<unit type="duration-year">
+				<displayName draft="contributed">a.</displayName>
+				<unitPattern count="one">{0} a.</unitPattern>
+				<unitPattern count="other">{0} a.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/año</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName draft="contributed">mes</displayName>
@@ -401,14 +401,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="contributed">{0} meses</unitPattern>
 				<perUnitPattern draft="contributed">{0}/mes</perUnitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">a.</displayName>
-				<unitPattern count="one">{0} a.</unitPattern>
-				<unitPattern count="other">{0} a.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/año</perUnitPattern>
+			<unit type="duration-day">
+				<displayName draft="contributed">días</displayName>
+				<unitPattern count="one" draft="contributed">{0} día</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} días</unitPattern>
+				<perUnitPattern draft="contributed">{0}/día</perUnitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
+			<unit type="duration-year">
+				<unitPattern count="one" draft="contributed">{0} a.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} a.</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="contributed">mes</displayName>
+				<unitPattern count="one" draft="contributed">{0} mes</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} meses</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one" draft="contributed">{0} sem.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} sems.</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">día</displayName>
 				<unitPattern count="one" draft="contributed">{0} día</unitPattern>
@@ -418,30 +431,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} h</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} h</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="one" draft="contributed">{0} min</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} min</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="contributed">mes</displayName>
-				<unitPattern count="one" draft="contributed">{0} mes</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} meses</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one" draft="contributed">{0} s</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} s</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<unitPattern count="one" draft="contributed">{0} sem.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} sems.</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<unitPattern count="one" draft="contributed">{0} a.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} a.</unitPattern>
+			<unit type="duration-millisecond">
+				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ms</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

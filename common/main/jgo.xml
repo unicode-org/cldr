@@ -599,6 +599,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<displayName draft="provisional">ŋguꞋ</displayName>
+				<unitPattern count="one">ŋguꞋ {0}</unitPattern>
+				<unitPattern count="other">ŋguꞋ {0}</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">pɛsaŋ</displayName>
+				<unitPattern count="one">pɛsaŋ {0}</unitPattern>
+				<unitPattern count="other">pɛsaŋ {0}</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">lɛ́Ꞌ</displayName>
 				<unitPattern count="one">{0} lɛ́Ꞌ</unitPattern>
@@ -614,18 +624,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} minút</unitPattern>
 				<unitPattern count="other">{0} minút</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">pɛsaŋ</displayName>
-				<unitPattern count="one">pɛsaŋ {0}</unitPattern>
-				<unitPattern count="other">pɛsaŋ {0}</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">ŋguꞋ</displayName>
-				<unitPattern count="one">ŋguꞋ {0}</unitPattern>
-				<unitPattern count="other">ŋguꞋ {0}</unitPattern>
-			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="duration-year">
+				<displayName draft="provisional">ŋguꞋ</displayName>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">pɛsaŋ</displayName>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">lɛ́Ꞌ</displayName>
 			</unit>
@@ -634,12 +640,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="duration-minute">
 				<displayName draft="provisional">minút</displayName>
-			</unit>
-			<unit type="duration-month">
-				<displayName draft="provisional">pɛsaŋ</displayName>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="provisional">ŋguꞋ</displayName>
 			</unit>
 		</unitLength>
 	</units>

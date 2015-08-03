@@ -1147,15 +1147,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} seconde d’angle</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} secondes d’angle</unitPattern>
 			</unit>
-			<unit type="area-acre">
-				<displayName draft="contributed">acres</displayName>
-				<unitPattern count="one" draft="contributed">{0} acre</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} acres</unitPattern>
-			</unit>
 			<unit type="area-square-mile">
 				<displayName draft="contributed">milles carrés</displayName>
 				<unitPattern count="one" draft="contributed">{0} mille carré</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} milles carrés</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName draft="contributed">acres</displayName>
+				<unitPattern count="one" draft="contributed">{0} acre</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} acres</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
 				<displayName draft="contributed">verges carrées</displayName>
@@ -1210,15 +1210,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} verge cube</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} verges cubes</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>chopine</displayName>
-				<unitPattern count="one">{0} chopine</unitPattern>
-				<unitPattern count="other">{0} chopines</unitPattern>
-			</unit>
 			<unit type="volume-quart">
 				<displayName draft="contributed">pintes</displayName>
 				<unitPattern count="one" draft="contributed">{0} pinte</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pintes</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>chopine</displayName>
+				<unitPattern count="one">{0} chopine</unitPattern>
+				<unitPattern count="other">{0} chopines</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
 				<displayName draft="contributed">cuillères à thé</displayName>
@@ -1227,32 +1227,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="short">
-			<unit type="area-square-foot">
-				<unitPattern count="one" draft="contributed">{0} pi²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} pi²</unitPattern>
-			</unit>
 			<unit type="area-square-yard">
 				<displayName draft="contributed">vg²</displayName>
 				<unitPattern count="one" draft="contributed">{0} vg²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} vg²</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<unitPattern count="one" draft="contributed">{0} ua</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ua</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="one" draft="contributed">{0} pi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} pi</unitPattern>
-			</unit>
-			<unit type="length-nautical-mile">
-				<displayName draft="contributed">NM</displayName>
-				<unitPattern count="one" draft="contributed">{0} NM</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} NM</unitPattern>
+			<unit type="area-square-foot">
+				<unitPattern count="one" draft="contributed">{0} pi²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pi²</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<displayName draft="contributed">vg</displayName>
 				<unitPattern count="one" draft="contributed">{0} vg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} vg</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one" draft="contributed">{0} pi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pi</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<unitPattern count="one" draft="contributed">{0} ua</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ua</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName draft="contributed">NM</displayName>
+				<unitPattern count="one" draft="contributed">{0} NM</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} NM</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName draft="contributed">tc</displayName>
@@ -1270,29 +1270,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="temperature-generic">
 				<unitPattern count="one">{0}°</unitPattern>
 			</unit>
-			<unit type="volume-centiliter">
-				<displayName draft="contributed">cL</displayName>
-				<unitPattern count="one" draft="contributed">{0} cL</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} cL</unitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<unitPattern count="one" draft="contributed">{0} pi³</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} pi³</unitPattern>
-			</unit>
 			<unit type="volume-cubic-yard">
 				<displayName draft="contributed">vg³</displayName>
 				<unitPattern count="one" draft="contributed">{0} vg³</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} vg³</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName draft="contributed">dL</displayName>
-				<unitPattern count="one" draft="contributed">{0} dL</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} dL</unitPattern>
+			<unit type="volume-cubic-foot">
+				<unitPattern count="one" draft="contributed">{0} pi³</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pi³</unitPattern>
 			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>oz liq.</displayName>
-				<unitPattern count="one">{0} oz liq.</unitPattern>
-				<unitPattern count="other">{0} oz liq.</unitPattern>
+			<unit type="volume-megaliter">
+				<displayName draft="contributed">ML</displayName>
+				<unitPattern count="one" draft="contributed">{0} ML</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ML</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName draft="contributed">hL</displayName>
@@ -1304,25 +1294,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} L</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} L</unitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName draft="contributed">ML</displayName>
-				<unitPattern count="one" draft="contributed">{0} ML</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ML</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName draft="contributed">dL</displayName>
+				<unitPattern count="one" draft="contributed">{0} dL</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} dL</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName draft="contributed">cL</displayName>
+				<unitPattern count="one" draft="contributed">{0} cL</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} cL</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName draft="contributed">mL</displayName>
 				<unitPattern count="one" draft="contributed">{0} mL</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mL</unitPattern>
 			</unit>
+			<unit type="volume-quart">
+				<displayName draft="contributed">pte</displayName>
+				<unitPattern count="one" draft="contributed">{0} pte</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pte</unitPattern>
+			</unit>
 			<unit type="volume-pint">
 				<displayName>chop</displayName>
 				<unitPattern count="one">{0} chop</unitPattern>
 				<unitPattern count="other">{0} chop</unitPattern>
 			</unit>
-			<unit type="volume-quart">
-				<displayName draft="contributed">pte</displayName>
-				<unitPattern count="one" draft="contributed">{0} pte</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} pte</unitPattern>
+			<unit type="volume-fluid-ounce">
+				<displayName>oz liq.</displayName>
+				<unitPattern count="one">{0} oz liq.</unitPattern>
+				<unitPattern count="other">{0} oz liq.</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
 				<displayName draft="contributed">c. à t.</displayName>

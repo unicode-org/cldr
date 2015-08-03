@@ -456,6 +456,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<displayName draft="contributed">сыл</displayName>
+				<unitPattern count="other">{0} сыл</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="contributed">ый</displayName>
+				<unitPattern count="other">{0} ый</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="contributed">нэдиэлэ</displayName>
+				<unitPattern count="other">{0} нэдиэлэ</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">күн</displayName>
 				<unitPattern count="other">{0} күн</unitPattern>
@@ -468,24 +480,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="contributed">мүнүүтэ</displayName>
 				<unitPattern count="other">{0} мүнүүтэ</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="contributed">ый</displayName>
-				<unitPattern count="other">{0} ый</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="contributed">сөкүүндэ</displayName>
 				<unitPattern count="other">{0} сөкүүндэ</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName draft="contributed">нэдиэлэ</displayName>
-				<unitPattern count="other">{0} нэдиэлэ</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">сыл</displayName>
-				<unitPattern count="other">{0} сыл</unitPattern>
-			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="duration-year">
+				<displayName draft="contributed">сыл</displayName>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="contributed">ый</displayName>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="contributed">нэдиэлэ</displayName>
+			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">күн</displayName>
 			</unit>
@@ -495,17 +504,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<displayName draft="contributed">мүнүүтэ</displayName>
 			</unit>
-			<unit type="duration-month">
-				<displayName draft="contributed">ый</displayName>
-			</unit>
 			<unit type="duration-second">
 				<displayName draft="contributed">сөкүүндэ</displayName>
-			</unit>
-			<unit type="duration-week">
-				<displayName draft="contributed">нэдиэлэ</displayName>
-			</unit>
-			<unit type="duration-year">
-				<displayName draft="contributed">сыл</displayName>
 			</unit>
 		</unitLength>
 	</units>

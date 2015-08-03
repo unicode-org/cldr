@@ -4428,6 +4428,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} c</unitPattern>
 				<unitPattern count="other">{0} c</unitPattern>
 			</unit>
+			<unit type="duration-year">
+				<displayName>шераш</displayName>
+				<unitPattern count="one">{0} шо</unitPattern>
+				<unitPattern count="other">{0} шо</unitPattern>
+				<perUnitPattern>{0} шарахь</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>беттанаш</displayName>
+				<unitPattern count="one">{0} бутт</unitPattern>
+				<unitPattern count="other">{0} бутт</unitPattern>
+				<perUnitPattern>{0} баттахь</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>кӀиранаш</displayName>
+				<unitPattern count="one">{0} кӀира</unitPattern>
+				<unitPattern count="other">{0} кӀира</unitPattern>
+				<perUnitPattern>{0} кӀиранахь</perUnitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>денош</displayName>
 				<unitPattern count="one">{0} де</unitPattern>
@@ -4440,32 +4458,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} сахьт</unitPattern>
 				<perUnitPattern>{0} сахьтехь</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>микросекундаш</displayName>
-				<unitPattern count="one">{0} микросекунд</unitPattern>
-				<unitPattern count="other">{0} микросекунд</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>миллисекундаш</displayName>
-				<unitPattern count="one">{0} миллисекунд</unitPattern>
-				<unitPattern count="other">{0} миллисекунд</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>миноташ</displayName>
 				<unitPattern count="one">{0} минот</unitPattern>
 				<unitPattern count="other">{0} минот</unitPattern>
 				<perUnitPattern>{0} минотехь</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>беттанаш</displayName>
-				<unitPattern count="one">{0} бутт</unitPattern>
-				<unitPattern count="other">{0} бутт</unitPattern>
-				<perUnitPattern>{0} баттахь</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>наносекундаш</displayName>
-				<unitPattern count="one">{0} наносекунд</unitPattern>
-				<unitPattern count="other">{0} наносекунд</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>секундаш</displayName>
@@ -4473,33 +4470,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} секунд</unitPattern>
 				<perUnitPattern>{0} секундехь</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>кӀиранаш</displayName>
-				<unitPattern count="one">{0} кӀира</unitPattern>
-				<unitPattern count="other">{0} кӀира</unitPattern>
-				<perUnitPattern>{0} кӀиранахь</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>миллисекундаш</displayName>
+				<unitPattern count="one">{0} миллисекунд</unitPattern>
+				<unitPattern count="other">{0} миллисекунд</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>шераш</displayName>
-				<unitPattern count="one">{0} шо</unitPattern>
-				<unitPattern count="other">{0} шо</unitPattern>
-				<perUnitPattern>{0} шарахь</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>микросекундаш</displayName>
+				<unitPattern count="one">{0} микросекунд</unitPattern>
+				<unitPattern count="other">{0} микросекунд</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>астрономин дакъош</displayName>
-				<unitPattern count="one">{0} астрономин дакъа</unitPattern>
-				<unitPattern count="other">{0} астрономин дакъа</unitPattern>
+			<unit type="duration-nanosecond">
+				<displayName>наносекундаш</displayName>
+				<unitPattern count="one">{0} наносекунд</unitPattern>
+				<unitPattern count="other">{0} наносекунд</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<displayName>километраш</displayName>
+				<unitPattern count="one">{0} километр</unitPattern>
+				<unitPattern count="other">{0} километр</unitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>дециметраш</displayName>
+				<unitPattern count="one">{0} дециметр</unitPattern>
+				<unitPattern count="other">{0} дециметр</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>сантиметраш</displayName>
 				<unitPattern count="one">{0} сантиметр</unitPattern>
 				<unitPattern count="other">{0} сантиметр</unitPattern>
 				<perUnitPattern>{0} сантиметрехь</perUnitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName>дециметраш</displayName>
-				<unitPattern count="one">{0} дециметр</unitPattern>
-				<unitPattern count="other">{0} дециметр</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>футаш</displayName>
@@ -4511,10 +4511,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} дюйм</unitPattern>
 				<unitPattern count="other">{0} дюйм</unitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>километраш</displayName>
-				<unitPattern count="one">{0} километр</unitPattern>
-				<unitPattern count="other">{0} километр</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>астрономин дакъош</displayName>
+				<unitPattern count="one">{0} астрономин дакъа</unitPattern>
+				<unitPattern count="other">{0} астрономин дакъа</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
@@ -4522,6 +4522,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>c</displayName>
 				<unitPattern count="one">{0} c</unitPattern>
 				<unitPattern count="other">{0} c</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>ш.</displayName>
+				<unitPattern count="one">{0} ш.</unitPattern>
+				<unitPattern count="other">{0} ш.</unitPattern>
+				<perUnitPattern>{0} ш.</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>бут</displayName>
+				<unitPattern count="one">{0} бут.</unitPattern>
+				<unitPattern count="other">{0} бут.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>кӀир</displayName>
+				<unitPattern count="one">{0} кӀир.</unitPattern>
+				<unitPattern count="other">{0} кӀир.</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>денош</displayName>
@@ -4534,61 +4550,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} сахь.</unitPattern>
 				<perUnitPattern>{0} сахь.</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>мкс</displayName>
-				<unitPattern count="one">{0} мкс</unitPattern>
-				<unitPattern count="other">{0} мкс</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>мс</displayName>
-				<unitPattern count="one">{0} мс</unitPattern>
-				<unitPattern count="other">{0} мс</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>мин</displayName>
 				<unitPattern count="one">{0} мин</unitPattern>
 				<unitPattern count="other">{0} мин</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>бут</displayName>
-				<unitPattern count="one">{0} бут.</unitPattern>
-				<unitPattern count="other">{0} бут.</unitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>нс</displayName>
-				<unitPattern count="one">{0} нс</unitPattern>
-				<unitPattern count="other">{0} нс</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>сек</displayName>
 				<unitPattern count="one">{0} сек</unitPattern>
 				<unitPattern count="other">{0} сек</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>кӀир</displayName>
-				<unitPattern count="one">{0} кӀир.</unitPattern>
-				<unitPattern count="other">{0} кӀир.</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>мс</displayName>
+				<unitPattern count="one">{0} мс</unitPattern>
+				<unitPattern count="other">{0} мс</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>ш.</displayName>
-				<unitPattern count="one">{0} ш.</unitPattern>
-				<unitPattern count="other">{0} ш.</unitPattern>
-				<perUnitPattern>{0} ш.</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>мкс</displayName>
+				<unitPattern count="one">{0} мкс</unitPattern>
+				<unitPattern count="other">{0} мкс</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>а. д.</displayName>
-				<unitPattern count="one">{0} а. д.</unitPattern>
-				<unitPattern count="other">{0} а. д.</unitPattern>
+			<unit type="duration-nanosecond">
+				<displayName>нс</displayName>
+				<unitPattern count="one">{0} нс</unitPattern>
+				<unitPattern count="other">{0} нс</unitPattern>
 			</unit>
-			<unit type="length-centimeter">
-				<displayName>см</displayName>
-				<unitPattern count="one">{0} см</unitPattern>
-				<unitPattern count="other">{0} см</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>км</displayName>
+				<unitPattern count="one">{0} км</unitPattern>
+				<unitPattern count="other">{0} км</unitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName>дм</displayName>
 				<unitPattern count="one">{0} дм</unitPattern>
 				<unitPattern count="other">{0} дм</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<displayName>см</displayName>
+				<unitPattern count="one">{0} см</unitPattern>
+				<unitPattern count="other">{0} см</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>футаш</displayName>
@@ -4600,13 +4600,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} дюйм.</unitPattern>
 				<unitPattern count="other">{0} дюйм.</unitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>км</displayName>
-				<unitPattern count="one">{0} км</unitPattern>
-				<unitPattern count="other">{0} км</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>а. д.</displayName>
+				<unitPattern count="one">{0} а. д.</unitPattern>
+				<unitPattern count="other">{0} а. д.</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
+			<unit type="duration-year">
+				<displayName>ш.</displayName>
+				<unitPattern count="one">{0} ш.</unitPattern>
+				<unitPattern count="other">{0} ш.</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>бут</displayName>
+				<unitPattern count="one">{0} б.</unitPattern>
+				<unitPattern count="other">{0} б.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>кӀир</displayName>
+				<unitPattern count="one">{0} кӀ.</unitPattern>
+				<unitPattern count="other">{0} кӀ.</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>д.</displayName>
 				<unitPattern count="one">{0} д.</unitPattern>
@@ -4617,45 +4632,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} сахь.</unitPattern>
 				<unitPattern count="other">{0} сахь.</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>мс</displayName>
-				<unitPattern count="one">{0} мс</unitPattern>
-				<unitPattern count="other">{0} мс</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>мин</displayName>
 				<unitPattern count="one">{0} мин</unitPattern>
 				<unitPattern count="other">{0} мин</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>бут</displayName>
-				<unitPattern count="one">{0} б.</unitPattern>
-				<unitPattern count="other">{0} б.</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>с</displayName>
 				<unitPattern count="one">{0} с</unitPattern>
 				<unitPattern count="other">{0} с</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>кӀир</displayName>
-				<unitPattern count="one">{0} кӀ.</unitPattern>
-				<unitPattern count="other">{0} кӀ.</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName>ш.</displayName>
-				<unitPattern count="one">{0} ш.</unitPattern>
-				<unitPattern count="other">{0} ш.</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>см</displayName>
-				<unitPattern count="one">{0} см</unitPattern>
-				<unitPattern count="other">{0} cm</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>мс</displayName>
+				<unitPattern count="one">{0} мс</unitPattern>
+				<unitPattern count="other">{0} мс</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>км</displayName>
 				<unitPattern count="one">{0} км</unitPattern>
 				<unitPattern count="other">{0} км</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<displayName>см</displayName>
+				<unitPattern count="one">{0} см</unitPattern>
+				<unitPattern count="other">{0} cm</unitPattern>
 			</unit>
 		</unitLength>
 		<durationUnit type="hm">

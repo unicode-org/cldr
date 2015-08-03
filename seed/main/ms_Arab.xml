@@ -991,6 +991,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-year">
+				<unitPattern count="other">{0} تاهون</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0} بولن</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">{0} ميڠݢو</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="other">{0} هاري</unitPattern>
 			</unit>
@@ -1000,20 +1009,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other">{0} مينيت</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<unitPattern count="other">{0} بولن</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0} ساعت</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-year">
+				<unitPattern count="other">{0} thn</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0} بولن</unitPattern>
 			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">{0} ميڠݢو</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<unitPattern count="other">{0} تاهون</unitPattern>
-			</unit>
-		</unitLength>
-		<unitLength type="short">
 			<unit type="duration-day">
 				<unitPattern count="other">{0} هاري</unitPattern>
 			</unit>
@@ -1023,17 +1032,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<unitPattern count="other">{0} بولن</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0} ساعت</unitPattern>
-			</unit>
-			<unit type="duration-week">
-				<unitPattern count="other">{0} ميڠݢو</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<unitPattern count="other">{0} thn</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

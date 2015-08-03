@@ -7019,6 +7019,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>제곱 초당 미터</displayName>
 				<unitPattern count="other">{0}제곱 초당 미터</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>회전</displayName>
+				<unitPattern count="other">{0}회전</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>라디안</displayName>
+				<unitPattern count="other">{0}라디안</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>도</displayName>
+				<unitPattern count="other" draft="contributed">{0}도</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>분각</displayName>
 				<unitPattern count="other">{0}분각</unitPattern>
@@ -7027,30 +7039,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>각초</displayName>
 				<unitPattern count="other">{0}각초</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>도</displayName>
-				<unitPattern count="other" draft="contributed">{0}도</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>라디안</displayName>
-				<unitPattern count="other">{0}라디안</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>회전</displayName>
-				<unitPattern count="other">{0}회전</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>에이커</displayName>
-				<unitPattern count="other">{0}에이커</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>제곱킬로미터</displayName>
+				<unitPattern count="other">{0}제곱킬로미터</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>헥타르</displayName>
 				<unitPattern count="other">{0}헥타르</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>제곱미터</displayName>
+				<unitPattern count="other">{0}제곱미터</unitPattern>
+				<perUnitPattern>제곱미터당 {0}</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>제곱센티미터</displayName>
 				<unitPattern count="other">{0}제곱센티미터</unitPattern>
 				<perUnitPattern>제곱센티미터당 {0}</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>제곱마일</displayName>
+				<unitPattern count="other">{0}제곱마일</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>에이커</displayName>
+				<unitPattern count="other">{0}에이커</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>제곱야드</displayName>
+				<unitPattern count="other">{0}제곱야드</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>제곱피트</displayName>
@@ -7061,78 +7078,76 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}제곱인치</unitPattern>
 				<perUnitPattern>제곱인치당 {0}</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>제곱킬로미터</displayName>
-				<unitPattern count="other">{0}제곱킬로미터</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>제곱미터</displayName>
-				<unitPattern count="other">{0}제곱미터</unitPattern>
-				<perUnitPattern>제곱미터당 {0}</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>제곱마일</displayName>
-				<unitPattern count="other">{0}제곱마일</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>제곱야드</displayName>
-				<unitPattern count="other">{0}제곱야드</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>킬로미터당 리터</displayName>
+				<unitPattern count="other">킬로미터당 {0}리터</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>100킬로미터당 리터</displayName>
 				<unitPattern count="other">100킬로미터당 {0}리터</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>킬로미터당 리터</displayName>
-				<unitPattern count="other">킬로미터당 {0}리터</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>갤런당 마일</displayName>
 				<unitPattern count="other">갤런당 {0}마일</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>비트</displayName>
-				<unitPattern count="other">{0}비트</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>바이트</displayName>
-				<unitPattern count="other">{0}바이트</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>기가비트</displayName>
-				<unitPattern count="other">{0}기가비트</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>기가바이트</displayName>
-				<unitPattern count="other" draft="contributed">{0}기가바이트</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>킬로비트</displayName>
-				<unitPattern count="other">{0}킬로비트</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>킬로바이트</displayName>
-				<unitPattern count="other">{0}킬로바이트</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>메가비트</displayName>
-				<unitPattern count="other">{0}메가비트</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>메가바이트</displayName>
-				<unitPattern count="other">{0}메가바이트</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>테라비트</displayName>
-				<unitPattern count="other">{0}테라비트</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>테라바이트</displayName>
 				<unitPattern count="other">{0}테라바이트</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>테라비트</displayName>
+				<unitPattern count="other">{0}테라비트</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>기가바이트</displayName>
+				<unitPattern count="other" draft="contributed">{0}기가바이트</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>기가비트</displayName>
+				<unitPattern count="other">{0}기가비트</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>메가바이트</displayName>
+				<unitPattern count="other">{0}메가바이트</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>메가비트</displayName>
+				<unitPattern count="other">{0}메가비트</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>킬로바이트</displayName>
+				<unitPattern count="other">{0}킬로바이트</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>킬로비트</displayName>
+				<unitPattern count="other">{0}킬로비트</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>바이트</displayName>
+				<unitPattern count="other">{0}바이트</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>비트</displayName>
+				<unitPattern count="other">{0}비트</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>세기</displayName>
 				<unitPattern count="other">{0}세기</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>년</displayName>
+				<unitPattern count="other">{0}년</unitPattern>
+				<perUnitPattern>연당 {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>개월</displayName>
+				<unitPattern count="other">{0}개월</unitPattern>
+				<perUnitPattern>월당 {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>주</displayName>
+				<unitPattern count="other">{0}주</unitPattern>
+				<perUnitPattern>주당 {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>일</displayName>
@@ -7144,42 +7159,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}시간</unitPattern>
 				<perUnitPattern>시간당 {0}</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>마이크로초</displayName>
-				<unitPattern count="other">{0}마이크로초</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>밀리초</displayName>
-				<unitPattern count="other">{0}밀리초</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>분</displayName>
 				<unitPattern count="other">{0}분</unitPattern>
 				<perUnitPattern>분당 {0}</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>개월</displayName>
-				<unitPattern count="other">{0}개월</unitPattern>
-				<perUnitPattern>월당 {0}</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>나노초</displayName>
-				<unitPattern count="other">{0}나노초</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>초</displayName>
 				<unitPattern count="other">{0}초</unitPattern>
 				<perUnitPattern>초당 {0}</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>주</displayName>
-				<unitPattern count="other">{0}주</unitPattern>
-				<perUnitPattern>주당 {0}</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>밀리초</displayName>
+				<unitPattern count="other">{0}밀리초</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>년</displayName>
-				<unitPattern count="other">{0}년</unitPattern>
-				<perUnitPattern>연당 {0}</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>마이크로초</displayName>
+				<unitPattern count="other">{0}마이크로초</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>나노초</displayName>
+				<unitPattern count="other">{0}나노초</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>암페어</displayName>
@@ -7197,6 +7197,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>볼트</displayName>
 				<unitPattern count="other">{0}볼트</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>킬로칼로리</displayName>
+				<unitPattern count="other">{0}킬로칼로리</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>칼로리</displayName>
 				<unitPattern count="other">{0}칼로리</unitPattern>
@@ -7205,17 +7209,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>칼로리</displayName>
 				<unitPattern count="other">{0}칼로리</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>줄</displayName>
-				<unitPattern count="other">{0}줄</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>킬로칼로리</displayName>
-				<unitPattern count="other">{0}킬로칼로리</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>킬로줄</displayName>
 				<unitPattern count="other">{0}킬로줄</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>줄</displayName>
+				<unitPattern count="other">{0}줄</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>킬로와트시</displayName>
@@ -7225,30 +7225,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>기가헤르츠</displayName>
 				<unitPattern count="other">{0}기가헤르츠</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>헤르츠</displayName>
-				<unitPattern count="other">{0}헤르츠</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>메가헤르츠</displayName>
+				<unitPattern count="other">{0}메가헤르츠</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>킬로헤르츠</displayName>
 				<unitPattern count="other">{0}킬로헤르츠</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>메가헤르츠</displayName>
-				<unitPattern count="other">{0}메가헤르츠</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>헤르츠</displayName>
+				<unitPattern count="other">{0}헤르츠</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>천문 단위</displayName>
-				<unitPattern count="other">{0}천문 단위</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>킬로미터</displayName>
+				<unitPattern count="other">{0}킬로미터</unitPattern>
+				<perUnitPattern>킬로미터당 {0}</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>미터</displayName>
+				<unitPattern count="other">{0}미터</unitPattern>
+				<perUnitPattern>미터당 {0}</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>데시미터</displayName>
+				<unitPattern count="other">{0}데시미터</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>센티미터</displayName>
 				<unitPattern count="other">{0}센티미터</unitPattern>
 				<perUnitPattern>센티미터당 {0}</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>데시미터</displayName>
-				<unitPattern count="other">{0}데시미터</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>밀리미터</displayName>
+				<unitPattern count="other">{0}밀리미터</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>마이크로미터</displayName>
+				<unitPattern count="other">{0}마이크로미터</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>나노미터</displayName>
+				<unitPattern count="other">{0}나노미터</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>피코미터</displayName>
+				<unitPattern count="other">{0}피코미터</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>마일</displayName>
+				<unitPattern count="other">{0}마일</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>야드</displayName>
+				<unitPattern count="other">{0}야드</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>피트</displayName>
@@ -7260,85 +7290,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}인치</unitPattern>
 				<perUnitPattern>인치당 {0}</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>킬로미터</displayName>
-				<unitPattern count="other">{0}킬로미터</unitPattern>
-				<perUnitPattern>킬로미터당 {0}</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>파섹</displayName>
+				<unitPattern count="other">{0}파섹</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>광년</displayName>
 				<unitPattern count="other">{0}광년</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>미터</displayName>
-				<unitPattern count="other">{0}미터</unitPattern>
-				<perUnitPattern>미터당 {0}</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>마이크로미터</displayName>
-				<unitPattern count="other">{0}마이크로미터</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>마일</displayName>
-				<unitPattern count="other">{0}마일</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>스칸디나비아 마일</displayName>
-				<unitPattern count="other">{0}스칸디나비아 마일</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>밀리미터</displayName>
-				<unitPattern count="other">{0}밀리미터</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>나노미터</displayName>
-				<unitPattern count="other">{0}나노미터</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>천문 단위</displayName>
+				<unitPattern count="other">{0}천문 단위</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>해리</displayName>
 				<unitPattern count="other">{0}해리</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>파섹</displayName>
-				<unitPattern count="other">{0}파섹</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>피코미터</displayName>
-				<unitPattern count="other">{0}피코미터</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>야드</displayName>
-				<unitPattern count="other">{0}야드</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>스칸디나비아 마일</displayName>
+				<unitPattern count="other">{0}스칸디나비아 마일</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>룩스</displayName>
 				<unitPattern count="other">{0}룩스</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>캐럿</displayName>
-				<unitPattern count="other">{0}캐럿</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>그램</displayName>
-				<unitPattern count="other">{0}그램</unitPattern>
-				<perUnitPattern>그램당 {0}</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>메트릭 톤</displayName>
+				<unitPattern count="other">{0}메트릭 톤</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>킬로그램</displayName>
 				<unitPattern count="other">{0}킬로그램</unitPattern>
 				<perUnitPattern>킬로그램당 {0}</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>메트릭 톤</displayName>
-				<unitPattern count="other">{0}메트릭 톤</unitPattern>
+			<unit type="mass-gram">
+				<displayName>그램</displayName>
+				<unitPattern count="other">{0}그램</unitPattern>
+				<perUnitPattern>그램당 {0}</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>밀리그램</displayName>
+				<unitPattern count="other">{0}밀리그램</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>마이크로그램</displayName>
 				<unitPattern count="other">{0}마이크로그램</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>밀리그램</displayName>
-				<unitPattern count="other">{0}밀리그램</unitPattern>
+			<unit type="mass-ton">
+				<displayName>톤</displayName>
+				<unitPattern count="other">{0}톤</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>파운드</displayName>
+				<unitPattern count="other">{0}파운드</unitPattern>
+				<perUnitPattern>파운드당 {0}</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>온스</displayName>
@@ -7349,50 +7354,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>트로이 온스</displayName>
 				<unitPattern count="other">{0}트로이 온스</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>파운드</displayName>
-				<unitPattern count="other">{0}파운드</unitPattern>
-				<perUnitPattern>파운드당 {0}</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>톤</displayName>
-				<unitPattern count="other">{0}톤</unitPattern>
+			<unit type="mass-carat">
+				<displayName>캐럿</displayName>
+				<unitPattern count="other">{0}캐럿</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>기가와트</displayName>
 				<unitPattern count="other">{0}기가와트</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>마력</displayName>
-				<unitPattern count="other">{0}마력</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>메가와트</displayName>
+				<unitPattern count="other">{0}메가와트</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>킬로와트</displayName>
 				<unitPattern count="other">{0}킬로와트</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>메가와트</displayName>
-				<unitPattern count="other">{0}메가와트</unitPattern>
+			<unit type="power-watt">
+				<displayName>와트</displayName>
+				<unitPattern count="other">{0}와트</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>밀리와트</displayName>
 				<unitPattern count="other">{0}밀리와트</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>와트</displayName>
-				<unitPattern count="other">{0}와트</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>마력</displayName>
+				<unitPattern count="other">{0}마력</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>헥토파스칼</displayName>
 				<unitPattern count="other">{0}헥토파스칼</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>수은주인치</displayName>
-				<unitPattern count="other">{0}수은주인치</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>밀리바</displayName>
-				<unitPattern count="other">{0}밀리바</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>수은주밀리미터</displayName>
@@ -7402,6 +7394,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>제곱인치당 파운드</displayName>
 				<unitPattern count="other">{0}제곱인치당 파운드</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>수은주인치</displayName>
+				<unitPattern count="other">{0}수은주인치</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>밀리바</displayName>
+				<unitPattern count="other">{0}밀리바</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>캐럿</displayName>
 				<unitPattern count="other">{0}캐럿</unitPattern>
@@ -7409,10 +7409,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="speed-kilometer-per-hour">
 				<displayName>시간당 킬로미터</displayName>
 				<unitPattern count="other">시속 {0}킬로미터</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>노트</displayName>
-				<unitPattern count="other">{0}노트</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>m/s</displayName>
@@ -7422,6 +7418,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mi/h</displayName>
 				<unitPattern count="other">시속 {0}마일</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>노트</displayName>
+				<unitPattern count="other">{0}노트</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>도</displayName>
+				<unitPattern count="other">{0}도</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>섭씨</displayName>
 				<unitPattern count="other">섭씨 {0}도</unitPattern>
@@ -7430,34 +7434,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>화씨</displayName>
 				<unitPattern count="other">화씨 {0}도</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>도</displayName>
-				<unitPattern count="other">{0}도</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>켈빈</displayName>
 				<unitPattern count="other">{0}켈빈</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>에이커 피트</displayName>
-				<unitPattern count="other">{0}에이커 피트</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>센티리터</displayName>
-				<unitPattern count="other">{0}센티리터</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>세제곱센티미터</displayName>
-				<unitPattern count="other">{0}세제곱센티미터</unitPattern>
-				<perUnitPattern>세제곱센티미터당 {0}</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>세제곱피트</displayName>
-				<unitPattern count="other">{0}세제곱피트</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>세제곱인치</displayName>
-				<unitPattern count="other">{0}세제곱인치</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>세제곱킬로미터</displayName>
@@ -7468,6 +7447,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}세제곱미터</unitPattern>
 				<perUnitPattern>세제곱미터당 {0}</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>세제곱센티미터</displayName>
+				<unitPattern count="other">{0}세제곱센티미터</unitPattern>
+				<perUnitPattern>세제곱센티미터당 {0}</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>세제곱마일</displayName>
 				<unitPattern count="other">{0}세제곱마일</unitPattern>
@@ -7476,26 +7460,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>세제곱야드</displayName>
 				<unitPattern count="other">{0}세제곱야드</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>컵</displayName>
-				<unitPattern count="other">{0}컵</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>세제곱피트</displayName>
+				<unitPattern count="other">{0}세제곱피트</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>미터식 컵</displayName>
-				<unitPattern count="other">{0}미터식 컵</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>세제곱인치</displayName>
+				<unitPattern count="other">{0}세제곱인치</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>데시리터</displayName>
-				<unitPattern count="other">{0}데시리터</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>액량 온스</displayName>
-				<unitPattern count="other">{0}액량 온스</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>갤런</displayName>
-				<unitPattern count="other">{0}갤런</unitPattern>
-				<perUnitPattern>갤런당 {0}</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>메가리터</displayName>
+				<unitPattern count="other">{0}메가리터</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>헥토리터</displayName>
@@ -7506,25 +7481,50 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}리터</unitPattern>
 				<perUnitPattern>리터당 {0}</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>메가리터</displayName>
-				<unitPattern count="other">{0}메가리터</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>데시리터</displayName>
+				<unitPattern count="other">{0}데시리터</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>센티리터</displayName>
+				<unitPattern count="other">{0}센티리터</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>밀리리터</displayName>
 				<unitPattern count="other">{0}밀리리터</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>파인트</displayName>
-				<unitPattern count="other">{0}파인트</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>미터식 파인트</displayName>
 				<unitPattern count="other">{0}미터식 파인트</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>미터식 컵</displayName>
+				<unitPattern count="other">{0}미터식 컵</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>에이커 피트</displayName>
+				<unitPattern count="other">{0}에이커 피트</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>갤런</displayName>
+				<unitPattern count="other">{0}갤런</unitPattern>
+				<perUnitPattern>갤런당 {0}</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>쿼트</displayName>
 				<unitPattern count="other">{0}쿼트</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>파인트</displayName>
+				<unitPattern count="other">{0}파인트</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>컵</displayName>
+				<unitPattern count="other">{0}컵</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>액량 온스</displayName>
+				<unitPattern count="other">{0}액량 온스</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>테이블스푼</displayName>
@@ -7553,6 +7553,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>m/s²</displayName>
 				<unitPattern count="other">{0}m/s²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>rev</displayName>
+				<unitPattern count="other">{0}rev</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>rad</displayName>
+				<unitPattern count="other">{0}rad</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>°</displayName>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>′</displayName>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -7561,30 +7573,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>″</displayName>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>°</displayName>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>rad</displayName>
-				<unitPattern count="other">{0}rad</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>rev</displayName>
-				<unitPattern count="other">{0}rev</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ac</displayName>
-				<unitPattern count="other">{0}ac</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>km²</displayName>
+				<unitPattern count="other">{0}km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ha</displayName>
 				<unitPattern count="other">{0}ha</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>m²</displayName>
+				<unitPattern count="other">{0}m²</unitPattern>
+				<perUnitPattern>{0}/m²</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>cm²</displayName>
 				<unitPattern count="other">{0}cm²</unitPattern>
 				<perUnitPattern>{0}/cm²</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>mi²</displayName>
+				<unitPattern count="other">{0}mi²</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ac</displayName>
+				<unitPattern count="other">{0}ac</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>yd²</displayName>
+				<unitPattern count="other">{0}yd²</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>ft²</displayName>
@@ -7595,78 +7612,76 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>km²</displayName>
-				<unitPattern count="other">{0}km²</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>m²</displayName>
-				<unitPattern count="other">{0}m²</unitPattern>
-				<perUnitPattern>{0}/m²</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>mi²</displayName>
-				<unitPattern count="other">{0}mi²</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>yd²</displayName>
-				<unitPattern count="other">{0}yd²</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>L/km</displayName>
+				<unitPattern count="other">{0}L/km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100km</displayName>
 				<unitPattern count="other">{0}L/100km</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>L/km</displayName>
-				<unitPattern count="other">{0}L/km</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>mpg</displayName>
 				<unitPattern count="other">{0}mpg</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>bit</displayName>
-				<unitPattern count="other">{0}bit</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>byte</displayName>
-				<unitPattern count="other">{0}byte</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>Gbit</displayName>
-				<unitPattern count="other">{0}Gb</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>GByte</displayName>
-				<unitPattern count="other">{0}GB</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>kbit</displayName>
-				<unitPattern count="other">{0}kb</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>kB</displayName>
-				<unitPattern count="other">{0}kB</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>Mbit</displayName>
-				<unitPattern count="other">{0}Mb</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>MB</displayName>
-				<unitPattern count="other">{0}MB</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>Tbit</displayName>
-				<unitPattern count="other">{0}Tb</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TByte</displayName>
 				<unitPattern count="other">{0}TB</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>Tbit</displayName>
+				<unitPattern count="other">{0}Tb</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>GByte</displayName>
+				<unitPattern count="other">{0}GB</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>Gbit</displayName>
+				<unitPattern count="other">{0}Gb</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+				<unitPattern count="other">{0}MB</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Mbit</displayName>
+				<unitPattern count="other">{0}Mb</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kB</displayName>
+				<unitPattern count="other">{0}kB</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kbit</displayName>
+				<unitPattern count="other">{0}kb</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>byte</displayName>
+				<unitPattern count="other">{0}byte</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>bit</displayName>
+				<unitPattern count="other">{0}bit</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>C</displayName>
 				<unitPattern count="other">{0}C</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>년</displayName>
+				<unitPattern count="other">{0}년</unitPattern>
+				<perUnitPattern>{0}/년</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>개월</displayName>
+				<unitPattern count="other">{0}개월</unitPattern>
+				<perUnitPattern>{0}/월</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>주</displayName>
+				<unitPattern count="other">{0}주</unitPattern>
+				<perUnitPattern>{0}/주</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>일</displayName>
@@ -7678,42 +7693,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}시간</unitPattern>
 				<perUnitPattern>{0}/h</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>μs</displayName>
-				<unitPattern count="other">{0}μs</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>밀리초</displayName>
-				<unitPattern count="other">{0}ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>분</displayName>
 				<unitPattern count="other">{0}분</unitPattern>
 				<perUnitPattern>{0}/min</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>개월</displayName>
-				<unitPattern count="other">{0}개월</unitPattern>
-				<perUnitPattern>{0}/월</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>ns</displayName>
-				<unitPattern count="other">{0}ns</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>초</displayName>
 				<unitPattern count="other">{0}초</unitPattern>
 				<perUnitPattern>{0}/s</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>주</displayName>
-				<unitPattern count="other">{0}주</unitPattern>
-				<perUnitPattern>{0}/주</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>밀리초</displayName>
+				<unitPattern count="other">{0}ms</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>년</displayName>
-				<unitPattern count="other">{0}년</unitPattern>
-				<perUnitPattern>{0}/년</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>μs</displayName>
+				<unitPattern count="other">{0}μs</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ns</displayName>
+				<unitPattern count="other">{0}ns</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>amp</displayName>
@@ -7731,6 +7731,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>volt</displayName>
 				<unitPattern count="other">{0}V</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kcal</displayName>
+				<unitPattern count="other">{0}kcal</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>cal</displayName>
 				<unitPattern count="other">{0}cal</unitPattern>
@@ -7739,17 +7743,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Cal</displayName>
 				<unitPattern count="other">{0}Cal</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>줄</displayName>
-				<unitPattern count="other">{0}줄</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="other">{0}kcal</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kJ</displayName>
 				<unitPattern count="other">{0}kJ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>줄</displayName>
+				<unitPattern count="other">{0}줄</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kWh</displayName>
@@ -7759,30 +7759,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>GHz</displayName>
 				<unitPattern count="other">{0}GHz</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>Hz</displayName>
-				<unitPattern count="other">{0}Hz</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>MHz</displayName>
+				<unitPattern count="other">{0}MHz</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>kHz</displayName>
 				<unitPattern count="other">{0}kHz</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>MHz</displayName>
-				<unitPattern count="other">{0}MHz</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>Hz</displayName>
+				<unitPattern count="other">{0}Hz</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>au</displayName>
-				<unitPattern count="other">{0}au</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>km</displayName>
+				<unitPattern count="other">{0}km</unitPattern>
+				<perUnitPattern>{0}/km</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>m</displayName>
+				<unitPattern count="other">{0}m</unitPattern>
+				<perUnitPattern>{0}/m</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>dm</displayName>
+				<unitPattern count="other">{0}dm</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>cm</displayName>
 				<unitPattern count="other">{0}cm</unitPattern>
 				<perUnitPattern>{0}/cm</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>dm</displayName>
-				<unitPattern count="other">{0}dm</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>mm</displayName>
+				<unitPattern count="other">{0}mm</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>µm</displayName>
+				<unitPattern count="other">{0}µm</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>nm</displayName>
+				<unitPattern count="other">{0}nm</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>pm</displayName>
+				<unitPattern count="other">{0}pm</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>mi</displayName>
+				<unitPattern count="other">{0}mi</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>yd</displayName>
+				<unitPattern count="other">{0}야드</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>ft</displayName>
@@ -7794,85 +7824,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}in</unitPattern>
 				<perUnitPattern>{0}/in</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>km</displayName>
-				<unitPattern count="other">{0}km</unitPattern>
-				<perUnitPattern>{0}/km</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>pc</displayName>
+				<unitPattern count="other">{0}pc</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>ly</displayName>
 				<unitPattern count="other">{0}ly</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>m</displayName>
-				<unitPattern count="other">{0}m</unitPattern>
-				<perUnitPattern>{0}/m</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>µm</displayName>
-				<unitPattern count="other">{0}µm</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>mi</displayName>
-				<unitPattern count="other">{0}mi</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>smi</displayName>
-				<unitPattern count="other">{0}smi</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>mm</displayName>
-				<unitPattern count="other">{0}mm</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>nm</displayName>
-				<unitPattern count="other">{0}nm</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>au</displayName>
+				<unitPattern count="other">{0}au</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>nmi</displayName>
 				<unitPattern count="other">{0}nmi</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>pc</displayName>
-				<unitPattern count="other">{0}pc</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>pm</displayName>
-				<unitPattern count="other">{0}pm</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>yd</displayName>
-				<unitPattern count="other">{0}야드</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>smi</displayName>
+				<unitPattern count="other">{0}smi</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lx</displayName>
 				<unitPattern count="other">{0}lx</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>CD</displayName>
-				<unitPattern count="other">{0}CD</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>그램</displayName>
-				<unitPattern count="other">{0}g</unitPattern>
-				<perUnitPattern>{0}/g</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>t</displayName>
+				<unitPattern count="other">{0}t</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kg</displayName>
 				<unitPattern count="other">{0}kg</unitPattern>
 				<perUnitPattern>{0}/kg</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>t</displayName>
-				<unitPattern count="other">{0}t</unitPattern>
+			<unit type="mass-gram">
+				<displayName>그램</displayName>
+				<unitPattern count="other">{0}g</unitPattern>
+				<perUnitPattern>{0}/g</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>mg</displayName>
+				<unitPattern count="other">{0}mg</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>µg</displayName>
 				<unitPattern count="other">{0}µg</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>mg</displayName>
-				<unitPattern count="other">{0}mg</unitPattern>
+			<unit type="mass-ton">
+				<displayName>tn</displayName>
+				<unitPattern count="other">{0}tn</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>lb</displayName>
+				<unitPattern count="other">{0}lb</unitPattern>
+				<perUnitPattern>{0}/lb</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>oz</displayName>
@@ -7883,50 +7888,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>oz t</displayName>
 				<unitPattern count="other">{0}oz t</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>lb</displayName>
-				<unitPattern count="other">{0}lb</unitPattern>
-				<perUnitPattern>{0}/lb</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>tn</displayName>
-				<unitPattern count="other">{0}tn</unitPattern>
+			<unit type="mass-carat">
+				<displayName>CD</displayName>
+				<unitPattern count="other">{0}CD</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>GW</displayName>
 				<unitPattern count="other">{0}GW</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>hp</displayName>
-				<unitPattern count="other">{0}hp</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>MW</displayName>
+				<unitPattern count="other">{0}MW</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>kW</displayName>
 				<unitPattern count="other">{0}kW</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>MW</displayName>
-				<unitPattern count="other">{0}MW</unitPattern>
+			<unit type="power-watt">
+				<displayName>w</displayName>
+				<unitPattern count="other">{0}W</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>mW</displayName>
 				<unitPattern count="other">{0}mW</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>w</displayName>
-				<unitPattern count="other">{0}W</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>hp</displayName>
+				<unitPattern count="other">{0}hp</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hPa</displayName>
 				<unitPattern count="other">{0}hPa</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>inHg</displayName>
-				<unitPattern count="other">{0}inHg</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>mbar</displayName>
-				<unitPattern count="other" draft="contributed">{0}mb</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
@@ -7936,6 +7928,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>psi</displayName>
 				<unitPattern count="other">{0}psi</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>inHg</displayName>
+				<unitPattern count="other">{0}inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>mbar</displayName>
+				<unitPattern count="other" draft="contributed">{0}mb</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>kt</displayName>
 				<unitPattern count="other">{0}kt</unitPattern>
@@ -7943,10 +7943,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="other">{0}km/h</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>kn</displayName>
-				<unitPattern count="other">{0}kn</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>m/s</displayName>
@@ -7956,6 +7952,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mi/h</displayName>
 				<unitPattern count="other" draft="contributed">시속 {0}mi</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>kn</displayName>
+				<unitPattern count="other">{0}kn</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
 				<unitPattern count="other">{0}°C</unitPattern>
@@ -7964,34 +7968,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>°F</displayName>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
 				<unitPattern count="other">{0}K</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ac ft</displayName>
-				<unitPattern count="other">{0}ac ft</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>cL</displayName>
-				<unitPattern count="other">{0}cL</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>cm³</displayName>
-				<unitPattern count="other">{0}cm³</unitPattern>
-				<perUnitPattern>{0}/cm³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>ft³</displayName>
-				<unitPattern count="other">{0}ft³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>in³</displayName>
-				<unitPattern count="other">{0}in³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>km³</displayName>
@@ -8002,6 +7981,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}m³</unitPattern>
 				<perUnitPattern>{0}/m³</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>cm³</displayName>
+				<unitPattern count="other">{0}cm³</unitPattern>
+				<perUnitPattern>{0}/cm³</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>mi³</displayName>
 				<unitPattern count="other">{0}mi³</unitPattern>
@@ -8010,26 +7994,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>yd³</displayName>
 				<unitPattern count="other">{0}yd³</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>컵</displayName>
-				<unitPattern count="other">{0}컵</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>ft³</displayName>
+				<unitPattern count="other">{0}ft³</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName>mcup</displayName>
-				<unitPattern count="other">{0}mc</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>in³</displayName>
+				<unitPattern count="other">{0}in³</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>dL</displayName>
-				<unitPattern count="other">{0}dL</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>fl oz</displayName>
-				<unitPattern count="other">{0}fl oz</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>gal</displayName>
-				<unitPattern count="other">{0}gal</unitPattern>
-				<perUnitPattern>{0}/gal</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>ML</displayName>
+				<unitPattern count="other">{0}ML</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hL</displayName>
@@ -8040,25 +8015,50 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}L</unitPattern>
 				<perUnitPattern>{0}/L</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>ML</displayName>
-				<unitPattern count="other">{0}ML</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>dL</displayName>
+				<unitPattern count="other">{0}dL</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>cL</displayName>
+				<unitPattern count="other">{0}cL</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>mL</displayName>
 				<unitPattern count="other">{0}mL</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>pt</displayName>
-				<unitPattern count="other">{0}pt</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>mpt</displayName>
 				<unitPattern count="other">{0}mpt</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>mcup</displayName>
+				<unitPattern count="other">{0}mc</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ac ft</displayName>
+				<unitPattern count="other">{0}ac ft</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>gal</displayName>
+				<unitPattern count="other">{0}gal</unitPattern>
+				<perUnitPattern>{0}/gal</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>qt</displayName>
 				<unitPattern count="other">{0}qt</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>pt</displayName>
+				<unitPattern count="other">{0}pt</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>컵</displayName>
+				<unitPattern count="other">{0}컵</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>fl oz</displayName>
+				<unitPattern count="other">{0}fl oz</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>tbsp</displayName>
@@ -8082,26 +8082,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="acceleration-g-force">
 				<unitPattern count="other" draft="contributed">{0}G</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="other" draft="contributed">{0}ac</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="other" draft="contributed">{0}km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="other" draft="contributed">{0}ha</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="other" draft="contributed">{0}ft²</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="other" draft="contributed">{0}km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="other" draft="contributed">{0}m²</unitPattern>
@@ -8109,9 +8103,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-mile">
 				<unitPattern count="other" draft="contributed">{0}mi²</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other" draft="contributed">{0}ac</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other" draft="contributed">{0}ft²</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100km</displayName>
 				<unitPattern count="other">{0}L/100km</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>년</displayName>
+				<unitPattern count="other">{0}년</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>개월</displayName>
+				<unitPattern count="other">{0}개월</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>주</displayName>
+				<unitPattern count="other">{0}주</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>일</displayName>
@@ -8121,53 +8133,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>시간</displayName>
 				<unitPattern count="other">{0}시간</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>ms</displayName>
-				<unitPattern count="other">{0}ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>분</displayName>
 				<unitPattern count="other">{0}분</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>개월</displayName>
-				<unitPattern count="other">{0}개월</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>초</displayName>
 				<unitPattern count="other">{0}초</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>주</displayName>
-				<unitPattern count="other">{0}주</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName>년</displayName>
-				<unitPattern count="other">{0}년</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>cm</displayName>
-				<unitPattern count="other">{0}cm</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>ms</displayName>
+				<unitPattern count="other">{0}ms</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
 				<unitPattern count="other">{0}km</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="other" draft="contributed">{0}ly</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>m</displayName>
 				<unitPattern count="other">{0}m</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="other" draft="contributed">{0}mi</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>cm</displayName>
+				<unitPattern count="other">{0}cm</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>mm</displayName>
@@ -8176,31 +8164,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="length-picometer">
 				<unitPattern count="other" draft="contributed">{0}pm</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<unitPattern count="other" draft="contributed">{0}mi</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<unitPattern count="other" draft="contributed">{0}yd</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName>g</displayName>
-				<unitPattern count="other">{0}g</unitPattern>
+			<unit type="length-foot">
+				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="other" draft="contributed">{0}ly</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kg</displayName>
 				<unitPattern count="other">{0}kg</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="other" draft="contributed">{0}oz</unitPattern>
+			<unit type="mass-gram">
+				<displayName>g</displayName>
+				<unitPattern count="other">{0}g</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="other" draft="contributed">{0}lb</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="other" draft="contributed">{0}HP</unitPattern>
+			<unit type="mass-ounce">
+				<unitPattern count="other" draft="contributed">{0}oz</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="other" draft="contributed">{0}kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
 				<unitPattern count="other" draft="contributed">{0}W</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="other" draft="contributed">{0}HP</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="other" draft="contributed">{0}hPa</unitPattern>

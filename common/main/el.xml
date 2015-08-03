@@ -6331,6 +6331,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} μέτρο ανά τετραγωνικό δευτερόλεπτο</unitPattern>
 				<unitPattern count="other">{0} μέτρα ανά τετραγωνικό δευτερόλεπτο</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>στροφή</displayName>
+				<unitPattern count="one">{0} στροφή</unitPattern>
+				<unitPattern count="other">{0} στροφές</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>ακτίνια</displayName>
+				<unitPattern count="one">{0} ακτίνιο</unitPattern>
+				<unitPattern count="other">{0} ακτίνιο</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>μοίρες</displayName>
+				<unitPattern count="one">{0} μοίρα</unitPattern>
+				<unitPattern count="other">{0} μοίρες</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>λεπτά του τόξου</displayName>
 				<unitPattern count="one">{0} λεπτό του τόξου</unitPattern>
@@ -6341,36 +6356,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} δευτερόλεπτο του τόξου</unitPattern>
 				<unitPattern count="other">{0} δευτερόλεπτα του τόξου</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>μοίρες</displayName>
-				<unitPattern count="one">{0} μοίρα</unitPattern>
-				<unitPattern count="other">{0} μοίρες</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>ακτίνια</displayName>
-				<unitPattern count="one">{0} ακτίνιο</unitPattern>
-				<unitPattern count="other">{0} ακτίνιο</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>στροφή</displayName>
-				<unitPattern count="one">{0} στροφή</unitPattern>
-				<unitPattern count="other">{0} στροφές</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ακρ</displayName>
-				<unitPattern count="one">{0} ακρ</unitPattern>
-				<unitPattern count="other">{0} ακρ</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>τετραγωνικά χιλιόμετρα</displayName>
+				<unitPattern count="one">{0} τετραγωνικό χιλιόμετρο</unitPattern>
+				<unitPattern count="other">{0} τετραγωνικά χιλιόμετρα</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>εκτάρια</displayName>
 				<unitPattern count="one">{0} εκτάριο</unitPattern>
 				<unitPattern count="other">{0} εκτάρια</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>τετραγωνικά μέτρα</displayName>
+				<unitPattern count="one">{0} τετραγωνικό μέτρο</unitPattern>
+				<unitPattern count="other">{0} τετραγωνικά μέτρα</unitPattern>
+				<perUnitPattern>{0}/m²</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>τετραγωνικά εκατοστά</displayName>
 				<unitPattern count="one">{0} τετραγωνικό εκατοστό</unitPattern>
 				<unitPattern count="other">{0} τετραγωνικά εκατοστά</unitPattern>
 				<perUnitPattern>{0}/cm²</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>τετραγωνικά μίλια</displayName>
+				<unitPattern count="one">{0} τετραγωνικό μίλι</unitPattern>
+				<unitPattern count="other">{0} τετραγωνικά μίλια</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ακρ</displayName>
+				<unitPattern count="one">{0} ακρ</unitPattern>
+				<unitPattern count="other">{0} ακρ</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>τετραγωνικές γιάρδες</displayName>
+				<unitPattern count="one">{0} τετραγωνική γιάρδα</unitPattern>
+				<unitPattern count="other">{0} τετραγωνικές γιάρδες</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>τετραγωνικά πόδια</displayName>
@@ -6383,96 +6404,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} τετραγωνικές ίντσες</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>τετραγωνικά χιλιόμετρα</displayName>
-				<unitPattern count="one">{0} τετραγωνικό χιλιόμετρο</unitPattern>
-				<unitPattern count="other">{0} τετραγωνικά χιλιόμετρα</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>τετραγωνικά μέτρα</displayName>
-				<unitPattern count="one">{0} τετραγωνικό μέτρο</unitPattern>
-				<unitPattern count="other">{0} τετραγωνικά μέτρα</unitPattern>
-				<perUnitPattern>{0}/m²</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>τετραγωνικά μίλια</displayName>
-				<unitPattern count="one">{0} τετραγωνικό μίλι</unitPattern>
-				<unitPattern count="other">{0} τετραγωνικά μίλια</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>τετραγωνικές γιάρδες</displayName>
-				<unitPattern count="one">{0} τετραγωνική γιάρδα</unitPattern>
-				<unitPattern count="other">{0} τετραγωνικές γιάρδες</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>λίτρα ανά χιλιόμετρο</displayName>
+				<unitPattern count="one">{0} λίτρο ανά χιλιόμετρο</unitPattern>
+				<unitPattern count="other">{0} λίτρα ανά χιλιόμετρο</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>λίτρα ανά 100 χιλιόμετρα</displayName>
 				<unitPattern count="one">{0} λίτρο ανά 100 χιλιόμετρα</unitPattern>
 				<unitPattern count="other">{0} λίτρα ανά 100 χιλιόμετρα</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>λίτρα ανά χιλιόμετρο</displayName>
-				<unitPattern count="one">{0} λίτρο ανά χιλιόμετρο</unitPattern>
-				<unitPattern count="other">{0} λίτρα ανά χιλιόμετρο</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>μίλια ανά γαλόνι</displayName>
 				<unitPattern count="one">{0} μίλι ανά γαλόνι</unitPattern>
 				<unitPattern count="other">{0} μίλια ανά γαλόνι</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>bit</displayName>
-				<unitPattern count="one">{0} bit</unitPattern>
-				<unitPattern count="other">{0} bit</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>byte</displayName>
-				<unitPattern count="one">{0} byte</unitPattern>
-				<unitPattern count="other">{0} byte</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>gigabit</displayName>
-				<unitPattern count="one">{0} gigabit</unitPattern>
-				<unitPattern count="other">{0} gigabit</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>gigabyte</displayName>
-				<unitPattern count="one">{0} gigabyte</unitPattern>
-				<unitPattern count="other">{0} gigabyte</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>kilobit</displayName>
-				<unitPattern count="one">{0} kilobit</unitPattern>
-				<unitPattern count="other">{0} kilobit</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>kilobyte</displayName>
-				<unitPattern count="one">{0} kilobyte</unitPattern>
-				<unitPattern count="other">{0} kilobyte</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>megabit</displayName>
-				<unitPattern count="one">{0} megabit</unitPattern>
-				<unitPattern count="other">{0} megabit</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>megabyte</displayName>
-				<unitPattern count="one">{0} megabyte</unitPattern>
-				<unitPattern count="other">{0} megabyte</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>terabit</displayName>
-				<unitPattern count="one">{0} terabit</unitPattern>
-				<unitPattern count="other">{0} terabit</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabyte</displayName>
 				<unitPattern count="one">{0} terabyte</unitPattern>
 				<unitPattern count="other">{0} terabyte</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>terabit</displayName>
+				<unitPattern count="one">{0} terabit</unitPattern>
+				<unitPattern count="other">{0} terabit</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>gigabyte</displayName>
+				<unitPattern count="one">{0} gigabyte</unitPattern>
+				<unitPattern count="other">{0} gigabyte</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>gigabit</displayName>
+				<unitPattern count="one">{0} gigabit</unitPattern>
+				<unitPattern count="other">{0} gigabit</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>megabyte</displayName>
+				<unitPattern count="one">{0} megabyte</unitPattern>
+				<unitPattern count="other">{0} megabyte</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>megabit</displayName>
+				<unitPattern count="one">{0} megabit</unitPattern>
+				<unitPattern count="other">{0} megabit</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kilobyte</displayName>
+				<unitPattern count="one">{0} kilobyte</unitPattern>
+				<unitPattern count="other">{0} kilobyte</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kilobit</displayName>
+				<unitPattern count="one">{0} kilobit</unitPattern>
+				<unitPattern count="other">{0} kilobit</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>byte</displayName>
+				<unitPattern count="one">{0} byte</unitPattern>
+				<unitPattern count="other">{0} byte</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>bit</displayName>
+				<unitPattern count="one">{0} bit</unitPattern>
+				<unitPattern count="other">{0} bit</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>αιώνες</displayName>
 				<unitPattern count="one">{0} αιώνας</unitPattern>
 				<unitPattern count="other">{0} αιώνες</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>έτη</displayName>
+				<unitPattern count="one">{0} έτος</unitPattern>
+				<unitPattern count="other">{0} έτη</unitPattern>
+				<perUnitPattern>{0} ανά έτος</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>μήνες</displayName>
+				<unitPattern count="one">{0} μήνας</unitPattern>
+				<unitPattern count="other">{0} μήνες</unitPattern>
+				<perUnitPattern>{0}/μήνα</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>εβδομάδες</displayName>
+				<unitPattern count="one">{0} εβδομάδα</unitPattern>
+				<unitPattern count="other">{0} εβδομάδες</unitPattern>
+				<perUnitPattern>{0} ανά εβδομάδα</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>ημέρες</displayName>
@@ -6486,32 +6504,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ώρες</unitPattern>
 				<perUnitPattern>{0} ανά ώρα</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>μικροδευτερόλεπτα</displayName>
-				<unitPattern count="one">{0} μικροδευτερόλεπτο</unitPattern>
-				<unitPattern count="other">{0} μικροδευτερόλεπτα</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>χιλιοστά του δευτερολέπτου</displayName>
-				<unitPattern count="one">{0} χιλιοστό του δευτερολέπτου</unitPattern>
-				<unitPattern count="other">{0} χιλιοστά του δευτερολέπτου</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>λεπτά</displayName>
 				<unitPattern count="one">{0} λεπτό</unitPattern>
 				<unitPattern count="other">{0} λεπτά</unitPattern>
 				<perUnitPattern>{0} ανά λεπτό</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>μήνες</displayName>
-				<unitPattern count="one">{0} μήνας</unitPattern>
-				<unitPattern count="other">{0} μήνες</unitPattern>
-				<perUnitPattern>{0}/μήνα</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>νανοδευτερόλεπτα</displayName>
-				<unitPattern count="one">{0} νανοδευτερόλεπτο</unitPattern>
-				<unitPattern count="other">{0} νανοδευτερόλεπτα</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>δευτερόλεπτα</displayName>
@@ -6519,17 +6516,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} δευτερόλεπτα</unitPattern>
 				<perUnitPattern>{0} ανά δευτερόλεπτο</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>εβδομάδες</displayName>
-				<unitPattern count="one">{0} εβδομάδα</unitPattern>
-				<unitPattern count="other">{0} εβδομάδες</unitPattern>
-				<perUnitPattern>{0} ανά εβδομάδα</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>χιλιοστά του δευτερολέπτου</displayName>
+				<unitPattern count="one">{0} χιλιοστό του δευτερολέπτου</unitPattern>
+				<unitPattern count="other">{0} χιλιοστά του δευτερολέπτου</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>έτη</displayName>
-				<unitPattern count="one">{0} έτος</unitPattern>
-				<unitPattern count="other">{0} έτη</unitPattern>
-				<perUnitPattern>{0} ανά έτος</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>μικροδευτερόλεπτα</displayName>
+				<unitPattern count="one">{0} μικροδευτερόλεπτο</unitPattern>
+				<unitPattern count="other">{0} μικροδευτερόλεπτα</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>νανοδευτερόλεπτα</displayName>
+				<unitPattern count="one">{0} νανοδευτερόλεπτο</unitPattern>
+				<unitPattern count="other">{0} νανοδευτερόλεπτα</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>αμπέρ</displayName>
@@ -6551,6 +6551,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} βολτ</unitPattern>
 				<unitPattern count="other">{0} βολτ</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>χιλιοθερμίδες</displayName>
+				<unitPattern count="one">{0} χιλιοθερμίδα</unitPattern>
+				<unitPattern count="other">{0} χιλιοθερμίδες</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>θερμίδες</displayName>
 				<unitPattern count="one">{0} θερμίδα</unitPattern>
@@ -6561,20 +6566,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} Θερμίδα</unitPattern>
 				<unitPattern count="other">{0} Θερμίδες</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>τζάουλ</displayName>
-				<unitPattern count="one">{0} τζάουλ</unitPattern>
-				<unitPattern count="other">{0} τζάουλ</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>χιλιοθερμίδες</displayName>
-				<unitPattern count="one">{0} χιλιοθερμίδα</unitPattern>
-				<unitPattern count="other">{0} χιλιοθερμίδες</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>κιλοτζάουλ</displayName>
 				<unitPattern count="one">{0} κιλοτζάουλ</unitPattern>
 				<unitPattern count="other">{0} κιλοτζάουλ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>τζάουλ</displayName>
+				<unitPattern count="one">{0} τζάουλ</unitPattern>
+				<unitPattern count="other">{0} τζάουλ</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>κιλοβατώρες</displayName>
@@ -6586,25 +6586,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} γιγαχέρτζ</unitPattern>
 				<unitPattern count="other">{0} γιγαχέρτζ</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>χερτζ</displayName>
-				<unitPattern count="one">{0} χερτζ</unitPattern>
-				<unitPattern count="other">{0} χερτζ</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>μεγαχέρτζ</displayName>
+				<unitPattern count="one">{0} μεγαχέρτζ</unitPattern>
+				<unitPattern count="other">{0} μεγαχέρτζ</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>κιλοχέρτζ</displayName>
 				<unitPattern count="one">{0} κιλοχέρτζ</unitPattern>
 				<unitPattern count="other">{0} κιλοχέρτζ</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>μεγαχέρτζ</displayName>
-				<unitPattern count="one">{0} μεγαχέρτζ</unitPattern>
-				<unitPattern count="other">{0} μεγαχέρτζ</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>χερτζ</displayName>
+				<unitPattern count="one">{0} χερτζ</unitPattern>
+				<unitPattern count="other">{0} χερτζ</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>αστρονομικές μονάδες</displayName>
-				<unitPattern count="one">{0} αστρονομική μονάδα</unitPattern>
-				<unitPattern count="other">{0} αστρονομικές μονάδες</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>χιλιόμετρα</displayName>
+				<unitPattern count="one">{0} χιλιόμετρο</unitPattern>
+				<unitPattern count="other">{0} χιλιόμετρα</unitPattern>
+				<perUnitPattern>{0}/χλμ.</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>μέτρα</displayName>
+				<unitPattern count="one">{0} μέτρο</unitPattern>
+				<unitPattern count="other">{0} μέτρα</unitPattern>
+				<perUnitPattern>{0}/μ.</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>δεκατόμετρα</displayName>
+				<unitPattern count="one">{0} δεκατόμετρο</unitPattern>
+				<unitPattern count="other">{0} δεκατόμετρα</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>εκατοστά</displayName>
@@ -6612,10 +6624,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} εκατοστά</unitPattern>
 				<perUnitPattern>{0}/εκ.</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>δεκατόμετρα</displayName>
-				<unitPattern count="one">{0} δεκατόμετρο</unitPattern>
-				<unitPattern count="other">{0} δεκατόμετρα</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>χιλιοστόμετρα</displayName>
+				<unitPattern count="one">{0} χιλιοστόμετρο</unitPattern>
+				<unitPattern count="other">{0} χιλιοστόμετρα</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>µm</displayName>
+				<unitPattern count="one">{0} μικρόμετρο</unitPattern>
+				<unitPattern count="other">{0} μικρόμετρα</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>νανόμετρα</displayName>
+				<unitPattern count="one">{0} νανόμετρο</unitPattern>
+				<unitPattern count="other">{0} νανόμετρα</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>πικόμετρα</displayName>
+				<unitPattern count="one">{0} πικόμετρο</unitPattern>
+				<unitPattern count="other">{0} πικόμετρα</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>μίλια</displayName>
+				<unitPattern count="one">{0} μίλι</unitPattern>
+				<unitPattern count="other">{0} μίλια</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>γιάρδες</displayName>
+				<unitPattern count="one">{0} γιάρδα</unitPattern>
+				<unitPattern count="other">{0} γιάρδες</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>πόδια</displayName>
@@ -6629,83 +6666,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ίντσες</unitPattern>
 				<perUnitPattern>{0}/in</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>χιλιόμετρα</displayName>
-				<unitPattern count="one">{0} χιλιόμετρο</unitPattern>
-				<unitPattern count="other">{0} χιλιόμετρα</unitPattern>
-				<perUnitPattern>{0}/χλμ.</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>παρσέκ</displayName>
+				<unitPattern count="one">{0} παρσέκ</unitPattern>
+				<unitPattern count="other">{0} παρσέκ</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>έτη φωτός</displayName>
 				<unitPattern count="one">{0} έτος φωτός</unitPattern>
 				<unitPattern count="other">{0} έτη φωτός</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>μέτρα</displayName>
-				<unitPattern count="one">{0} μέτρο</unitPattern>
-				<unitPattern count="other">{0} μέτρα</unitPattern>
-				<perUnitPattern>{0}/μ.</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>µm</displayName>
-				<unitPattern count="one">{0} μικρόμετρο</unitPattern>
-				<unitPattern count="other">{0} μικρόμετρα</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>μίλια</displayName>
-				<unitPattern count="one">{0} μίλι</unitPattern>
-				<unitPattern count="other">{0} μίλια</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>smi</displayName>
-				<unitPattern count="one">{0} smi</unitPattern>
-				<unitPattern count="other">{0} smi</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>χιλιοστόμετρα</displayName>
-				<unitPattern count="one">{0} χιλιοστόμετρο</unitPattern>
-				<unitPattern count="other">{0} χιλιοστόμετρα</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>νανόμετρα</displayName>
-				<unitPattern count="one">{0} νανόμετρο</unitPattern>
-				<unitPattern count="other">{0} νανόμετρα</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>αστρονομικές μονάδες</displayName>
+				<unitPattern count="one">{0} αστρονομική μονάδα</unitPattern>
+				<unitPattern count="other">{0} αστρονομικές μονάδες</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>ναυτικά μίλια</displayName>
 				<unitPattern count="one">{0} ναυτικό μίλι</unitPattern>
 				<unitPattern count="other">{0} ναυτικά μίλια</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>παρσέκ</displayName>
-				<unitPattern count="one">{0} παρσέκ</unitPattern>
-				<unitPattern count="other">{0} παρσέκ</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>πικόμετρα</displayName>
-				<unitPattern count="one">{0} πικόμετρο</unitPattern>
-				<unitPattern count="other">{0} πικόμετρα</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>γιάρδες</displayName>
-				<unitPattern count="one">{0} γιάρδα</unitPattern>
-				<unitPattern count="other">{0} γιάρδες</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>smi</displayName>
+				<unitPattern count="one">{0} smi</unitPattern>
+				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
 				<unitPattern count="one">{0} lux</unitPattern>
 				<unitPattern count="other">{0} lux</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>καράτια</displayName>
-				<unitPattern count="one">{0} καράτι</unitPattern>
-				<unitPattern count="other">{0} καράτια</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>γραμμάρια</displayName>
-				<unitPattern count="one">{0} γραμμάριο</unitPattern>
-				<unitPattern count="other">{0} γραμμάρια</unitPattern>
-				<perUnitPattern>{0} ανά γραμ.</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>μετρικοί τόνοι</displayName>
+				<unitPattern count="one">{0} μετρικός τόνος</unitPattern>
+				<unitPattern count="other">{0} μετρικοί τόνοι</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>χιλιόγραμμα</displayName>
@@ -6713,20 +6707,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} χιλιόγραμμα</unitPattern>
 				<perUnitPattern>{0}/κιλό</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>μετρικοί τόνοι</displayName>
-				<unitPattern count="one">{0} μετρικός τόνος</unitPattern>
-				<unitPattern count="other">{0} μετρικοί τόνοι</unitPattern>
+			<unit type="mass-gram">
+				<displayName>γραμμάρια</displayName>
+				<unitPattern count="one">{0} γραμμάριο</unitPattern>
+				<unitPattern count="other">{0} γραμμάρια</unitPattern>
+				<perUnitPattern>{0} ανά γραμ.</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>χιλιοστόγραμμα</displayName>
+				<unitPattern count="one">{0} χιλιοστόγραμμο</unitPattern>
+				<unitPattern count="other">{0} χιλιοστόγραμμα</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>μικρογραμμάρια</displayName>
 				<unitPattern count="one">{0} μικρογραμμάριο</unitPattern>
 				<unitPattern count="other">{0} μικρογραμμάρια</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>χιλιοστόγραμμα</displayName>
-				<unitPattern count="one">{0} χιλιοστόγραμμο</unitPattern>
-				<unitPattern count="other">{0} χιλιοστόγραμμα</unitPattern>
+			<unit type="mass-ton">
+				<displayName>τόνοι</displayName>
+				<unitPattern count="one">{0} τόνος</unitPattern>
+				<unitPattern count="other">{0} τόνοι</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>λίβρες</displayName>
+				<unitPattern count="one">{0} λίβρα</unitPattern>
+				<unitPattern count="other">{0} λίβρες</unitPattern>
+				<perUnitPattern>{0} ανά λίβρα</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>ουγγιές</displayName>
@@ -6739,61 +6745,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ευγενής ουγγιά</unitPattern>
 				<unitPattern count="other">{0} ευγενείς ουγγιές</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>λίβρες</displayName>
-				<unitPattern count="one">{0} λίβρα</unitPattern>
-				<unitPattern count="other">{0} λίβρες</unitPattern>
-				<perUnitPattern>{0} ανά λίβρα</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>τόνοι</displayName>
-				<unitPattern count="one">{0} τόνος</unitPattern>
-				<unitPattern count="other">{0} τόνοι</unitPattern>
+			<unit type="mass-carat">
+				<displayName>καράτια</displayName>
+				<unitPattern count="one">{0} καράτι</unitPattern>
+				<unitPattern count="other">{0} καράτια</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>γιγαβάτ</displayName>
 				<unitPattern count="one">{0} γιγαβάτ</unitPattern>
 				<unitPattern count="other">{0} γιγαβάτ</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>ίπποι</displayName>
-				<unitPattern count="one">{0} ίππος</unitPattern>
-				<unitPattern count="other">{0} ίπποι</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>μεγαβάτ</displayName>
+				<unitPattern count="one">{0} μεγαβάτ</unitPattern>
+				<unitPattern count="other">{0} μεγαβάτ</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>κιλοβάτ</displayName>
 				<unitPattern count="one">{0} κιλοβάτ</unitPattern>
 				<unitPattern count="other">{0} κιλοβάτ</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>μεγαβάτ</displayName>
-				<unitPattern count="one">{0} μεγαβάτ</unitPattern>
-				<unitPattern count="other">{0} μεγαβάτ</unitPattern>
+			<unit type="power-watt">
+				<displayName>βατ</displayName>
+				<unitPattern count="one">{0} βατ</unitPattern>
+				<unitPattern count="other">{0} βατ</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>μιλιβάτ</displayName>
 				<unitPattern count="one">{0} μιλιβάτ</unitPattern>
 				<unitPattern count="other">{0} μιλιβάτ</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>βατ</displayName>
-				<unitPattern count="one">{0} βατ</unitPattern>
-				<unitPattern count="other">{0} βατ</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>ίπποι</displayName>
+				<unitPattern count="one">{0} ίππος</unitPattern>
+				<unitPattern count="other">{0} ίπποι</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>εκτοπασκάλ</displayName>
 				<unitPattern count="one">{0} εκτοπασκάλ</unitPattern>
 				<unitPattern count="other">{0} εκτοπασκάλ</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>ίντσες στήλης υδραργύρου</displayName>
-				<unitPattern count="one">{0} ίντσα στήλης υδραργύρου</unitPattern>
-				<unitPattern count="other">{0} ίντσες στήλης υδραργύρου</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>μιλιμπάρ</displayName>
-				<unitPattern count="one">{0} μιλιμπάρ</unitPattern>
-				<unitPattern count="other">{0} μιλιμπάρ</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>χιλιοστόμετρα στήλης υδραργύρου</displayName>
@@ -6805,6 +6795,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} λίβρα ανά τετραγωνική ίντσα</unitPattern>
 				<unitPattern count="other">{0} λίβρες ανά τετραγωνική ίντσα</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>ίντσες στήλης υδραργύρου</displayName>
+				<unitPattern count="one">{0} ίντσα στήλης υδραργύρου</unitPattern>
+				<unitPattern count="other">{0} ίντσες στήλης υδραργύρου</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>μιλιμπάρ</displayName>
+				<unitPattern count="one">{0} μιλιμπάρ</unitPattern>
+				<unitPattern count="other">{0} μιλιμπάρ</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>καράτια</displayName>
 				<unitPattern count="one">{0} καράτι</unitPattern>
@@ -6814,11 +6814,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>χιλιόμετρα ανά ώρα</displayName>
 				<unitPattern count="one">{0} χιλιόμετρο ανά ώρα</unitPattern>
 				<unitPattern count="other">{0} χιλιόμετρα ανά ώρα</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>κόμβος</displayName>
-				<unitPattern count="one">{0} κόμβος</unitPattern>
-				<unitPattern count="other">{0} κόμβοι</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>μέτρα ανά δευτερόλεπτο</displayName>
@@ -6830,6 +6825,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} μίλι ανά ώρα</unitPattern>
 				<unitPattern count="other">{0} μίλια ανά ώρα</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>κόμβος</displayName>
+				<unitPattern count="one">{0} κόμβος</unitPattern>
+				<unitPattern count="other">{0} κόμβοι</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>βαθμοί Κελσίου</displayName>
 				<unitPattern count="one">{0} βαθμός Κελσίου</unitPattern>
@@ -6840,41 +6845,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} βαθμός Φαρενάιτ</unitPattern>
 				<unitPattern count="other">{0} βαθμοί Φαρενάιτ</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>βαθμοί Κέλβιν</displayName>
 				<unitPattern count="one">{0} βαθμός Κέλβιν</unitPattern>
 				<unitPattern count="other">{0} βαθμοί Κέλβιν</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ακρ-πόδια</displayName>
-				<unitPattern count="one">{0} ακρ-πόδι</unitPattern>
-				<unitPattern count="other">{0} ακρ-πόδια</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>εκατοστόλιτρα</displayName>
-				<unitPattern count="one">{0} εκατοστόλιτρο</unitPattern>
-				<unitPattern count="other">{0} εκατοστόλιτρα</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>κυβικά εκατοστά</displayName>
-				<unitPattern count="one">{0} κυβικό εκατοστό</unitPattern>
-				<unitPattern count="other">{0} κυβικά εκατοστά</unitPattern>
-				<perUnitPattern>{0} ανά κυβικό εκατοστό</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>κυβικά πόδια</displayName>
-				<unitPattern count="one">{0} κυβικό πόδι</unitPattern>
-				<unitPattern count="other">{0} κυβικά πόδια</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>κυβικές ίντσες</displayName>
-				<unitPattern count="one">{0} κυβική ίντσα</unitPattern>
-				<unitPattern count="other">{0} κυβικές ίντσες</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>κυβικά χιλιόμετρα</displayName>
@@ -6887,6 +6861,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} κυβικό μέτρο</unitPattern>
 				<perUnitPattern>{0} ανά κυβικό μέτρο</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>κυβικά εκατοστά</displayName>
+				<unitPattern count="one">{0} κυβικό εκατοστό</unitPattern>
+				<unitPattern count="other">{0} κυβικά εκατοστά</unitPattern>
+				<perUnitPattern>{0} ανά κυβικό εκατοστό</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>κυβικά μίλια</displayName>
 				<unitPattern count="one">{0} κυβικό μίλι</unitPattern>
@@ -6897,31 +6877,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} κυβική γιάρδα</unitPattern>
 				<unitPattern count="other">{0} κυβικές γιάρδες</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>κύπελλο</displayName>
-				<unitPattern count="one">{0} κύπελλο</unitPattern>
-				<unitPattern count="other">{0} κύπελλα</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>κυβικά πόδια</displayName>
+				<unitPattern count="one">{0} κυβικό πόδι</unitPattern>
+				<unitPattern count="other">{0} κυβικά πόδια</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName draft="contributed">μετρικό κύπελλο</displayName>
-				<unitPattern count="one" draft="contributed">{0} μετρικό κύπελλο</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} μετρικά κύπελλα</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>κυβικές ίντσες</displayName>
+				<unitPattern count="one">{0} κυβική ίντσα</unitPattern>
+				<unitPattern count="other">{0} κυβικές ίντσες</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>δεκατόλιτρα</displayName>
-				<unitPattern count="one">{0} δεκατόλιτρο</unitPattern>
-				<unitPattern count="other">{0} δεκατόλιτρα</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>ουγγιές υγρού</displayName>
-				<unitPattern count="one">{0} ουγγιά υγρού</unitPattern>
-				<unitPattern count="other">{0} ουγγιές υγρού</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>γαλόνια</displayName>
-				<unitPattern count="one">{0} γαλόνι</unitPattern>
-				<unitPattern count="other">{0} γαλόνια</unitPattern>
-				<perUnitPattern>{0} ανά γαλόνι</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>μεγαλίτρα</displayName>
+				<unitPattern count="one">{0} μεγαλίτρο</unitPattern>
+				<unitPattern count="other">{0} μεγαλίτρα</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>εκτόλιτρα</displayName>
@@ -6934,30 +6903,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} λίτρα</unitPattern>
 				<perUnitPattern>{0}/λ.</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>μεγαλίτρα</displayName>
-				<unitPattern count="one">{0} μεγαλίτρο</unitPattern>
-				<unitPattern count="other">{0} μεγαλίτρα</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>δεκατόλιτρα</displayName>
+				<unitPattern count="one">{0} δεκατόλιτρο</unitPattern>
+				<unitPattern count="other">{0} δεκατόλιτρα</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>εκατοστόλιτρα</displayName>
+				<unitPattern count="one">{0} εκατοστόλιτρο</unitPattern>
+				<unitPattern count="other">{0} εκατοστόλιτρα</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>χιλιοστόλιτρο</displayName>
 				<unitPattern count="one">{0} χιλιοστόλιτρο</unitPattern>
 				<unitPattern count="other">{0} χιλιοστόλιτρα</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>πίντες</displayName>
-				<unitPattern count="one">{0} πίντα</unitPattern>
-				<unitPattern count="other">{0} πίντες</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName draft="contributed">μετρική πίντα</displayName>
 				<unitPattern count="one" draft="contributed">{0} μετρική πίντα</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} μετρικές πίντες</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName draft="contributed">μετρικό κύπελλο</displayName>
+				<unitPattern count="one" draft="contributed">{0} μετρικό κύπελλο</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} μετρικά κύπελλα</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ακρ-πόδια</displayName>
+				<unitPattern count="one">{0} ακρ-πόδι</unitPattern>
+				<unitPattern count="other">{0} ακρ-πόδια</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>γαλόνια</displayName>
+				<unitPattern count="one">{0} γαλόνι</unitPattern>
+				<unitPattern count="other">{0} γαλόνια</unitPattern>
+				<perUnitPattern>{0} ανά γαλόνι</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>τέταρτα του γαλονιού</displayName>
 				<unitPattern count="one">{0} τέταρτο του γαλονιού</unitPattern>
 				<unitPattern count="other">{0} τέταρτα του γαλονιού</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>πίντες</displayName>
+				<unitPattern count="one">{0} πίντα</unitPattern>
+				<unitPattern count="other">{0} πίντες</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>κύπελλο</displayName>
+				<unitPattern count="one">{0} κύπελλο</unitPattern>
+				<unitPattern count="other">{0} κύπελλα</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>ουγγιές υγρού</displayName>
+				<unitPattern count="one">{0} ουγγιά υγρού</unitPattern>
+				<unitPattern count="other">{0} ουγγιές υγρού</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>κουταλιές της σούπας</displayName>
@@ -6990,6 +6990,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} m/s²</unitPattern>
 				<unitPattern count="other">{0} m/s²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>rev</displayName>
+				<unitPattern count="one">{0} rev</unitPattern>
+				<unitPattern count="other">{0} rev</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>ακτίνια</displayName>
+				<unitPattern count="one">{0} rad</unitPattern>
+				<unitPattern count="other">{0} rad</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>μοίρες</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>λεπτά του τόξου</displayName>
 				<unitPattern count="one">{0} λεπ. τόξου</unitPattern>
@@ -7000,36 +7015,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} arcsec</unitPattern>
 				<unitPattern count="other">{0} arcsec</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<displayName>μοίρες</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>ακτίνια</displayName>
-				<unitPattern count="one">{0} rad</unitPattern>
-				<unitPattern count="other">{0} rad</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>rev</displayName>
-				<unitPattern count="one">{0} rev</unitPattern>
-				<unitPattern count="other">{0} rev</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName>ακρ</displayName>
-				<unitPattern count="one">{0} ac</unitPattern>
-				<unitPattern count="other">{0} ac</unitPattern>
+			<unit type="area-square-kilometer">
+				<displayName>τ. χλμ.</displayName>
+				<unitPattern count="one">{0} τ. χλμ.</unitPattern>
+				<unitPattern count="other">{0} τ. χλμ.</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>εκτάρια</displayName>
 				<unitPattern count="one">{0} ha</unitPattern>
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
+			<unit type="area-square-meter">
+				<displayName>τ. μέτρα</displayName>
+				<unitPattern count="one">{0} τ.μ.</unitPattern>
+				<unitPattern count="other">{0} τ.μ.</unitPattern>
+				<perUnitPattern>{0}/m²</perUnitPattern>
+			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>τ. εκ.</displayName>
 				<unitPattern count="one">{0} τ. εκ.</unitPattern>
 				<unitPattern count="other">{0} τ. εκ.</unitPattern>
 				<perUnitPattern>{0}/cm²</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>τ. μίλια</displayName>
+				<unitPattern count="one">{0} mi²</unitPattern>
+				<unitPattern count="other">{0} mi²</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>ακρ</displayName>
+				<unitPattern count="one">{0} ac</unitPattern>
+				<unitPattern count="other">{0} ac</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>τετρ. γιάρδες</displayName>
+				<unitPattern count="one">{0} yd²</unitPattern>
+				<unitPattern count="other">{0} yd²</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>τετρ. πόδια</displayName>
@@ -7042,96 +7063,93 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
-			<unit type="area-square-kilometer">
-				<displayName>τ. χλμ.</displayName>
-				<unitPattern count="one">{0} τ. χλμ.</unitPattern>
-				<unitPattern count="other">{0} τ. χλμ.</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>τ. μέτρα</displayName>
-				<unitPattern count="one">{0} τ.μ.</unitPattern>
-				<unitPattern count="other">{0} τ.μ.</unitPattern>
-				<perUnitPattern>{0}/m²</perUnitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName>τ. μίλια</displayName>
-				<unitPattern count="one">{0} mi²</unitPattern>
-				<unitPattern count="other">{0} mi²</unitPattern>
-			</unit>
-			<unit type="area-square-yard">
-				<displayName>τετρ. γιάρδες</displayName>
-				<unitPattern count="one">{0} yd²</unitPattern>
-				<unitPattern count="other">{0} yd²</unitPattern>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>λίτρα/χλμ.</displayName>
+				<unitPattern count="one">{0} λίτρο/χλμ</unitPattern>
+				<unitPattern count="other">{0} λίτρα/χλμ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>λ./100 χλμ.</displayName>
 				<unitPattern count="one">{0} λ./100 χλμ.</unitPattern>
 				<unitPattern count="other">{0} λ./100 χλμ.</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<displayName>λίτρα/χλμ.</displayName>
-				<unitPattern count="one">{0} λίτρο/χλμ</unitPattern>
-				<unitPattern count="other">{0} λίτρα/χλμ</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>μίλια/γαλόνι</displayName>
 				<unitPattern count="one">{0} mpg</unitPattern>
 				<unitPattern count="other">{0} mpg</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<displayName>bit</displayName>
-				<unitPattern count="one">{0} bit</unitPattern>
-				<unitPattern count="other">{0} bit</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>byte</displayName>
-				<unitPattern count="one">{0} byte</unitPattern>
-				<unitPattern count="other">{0} byte</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>Gb</displayName>
-				<unitPattern count="one">{0} Gb</unitPattern>
-				<unitPattern count="other">{0} Gb</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>GB</displayName>
-				<unitPattern count="one">{0} GB</unitPattern>
-				<unitPattern count="other">{0} GB</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>kb</displayName>
-				<unitPattern count="one">{0} kb</unitPattern>
-				<unitPattern count="other">{0} kb</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>kB</displayName>
-				<unitPattern count="one">{0} kB</unitPattern>
-				<unitPattern count="other">{0} kB</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>Mb</displayName>
-				<unitPattern count="one">{0} Mb</unitPattern>
-				<unitPattern count="other">{0} Mb</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>MB</displayName>
-				<unitPattern count="one">{0} MB</unitPattern>
-				<unitPattern count="other">{0} MB</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<displayName>Tb</displayName>
-				<unitPattern count="one">{0} Tb</unitPattern>
-				<unitPattern count="other">{0} Tb</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
 				<unitPattern count="one">{0} TB</unitPattern>
 				<unitPattern count="other">{0} TB</unitPattern>
 			</unit>
+			<unit type="digital-terabit">
+				<displayName>Tb</displayName>
+				<unitPattern count="one">{0} Tb</unitPattern>
+				<unitPattern count="other">{0} Tb</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>GB</displayName>
+				<unitPattern count="one">{0} GB</unitPattern>
+				<unitPattern count="other">{0} GB</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>Gb</displayName>
+				<unitPattern count="one">{0} Gb</unitPattern>
+				<unitPattern count="other">{0} Gb</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+				<unitPattern count="one">{0} MB</unitPattern>
+				<unitPattern count="other">{0} MB</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Mb</displayName>
+				<unitPattern count="one">{0} Mb</unitPattern>
+				<unitPattern count="other">{0} Mb</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kB</displayName>
+				<unitPattern count="one">{0} kB</unitPattern>
+				<unitPattern count="other">{0} kB</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kb</displayName>
+				<unitPattern count="one">{0} kb</unitPattern>
+				<unitPattern count="other">{0} kb</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>byte</displayName>
+				<unitPattern count="one">{0} byte</unitPattern>
+				<unitPattern count="other">{0} byte</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>bit</displayName>
+				<unitPattern count="one">{0} bit</unitPattern>
+				<unitPattern count="other">{0} bit</unitPattern>
+			</unit>
 			<unit type="duration-century">
 				<displayName>αιών.</displayName>
 				<unitPattern count="one">{0} αιών.</unitPattern>
 				<unitPattern count="other">{0} αιών.</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>έτη</displayName>
+				<unitPattern count="one">{0} έτ.</unitPattern>
+				<unitPattern count="other">{0} έτ.</unitPattern>
+				<perUnitPattern>{0}/έτ.</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>μήνες</displayName>
+				<unitPattern count="one">{0} μήν.</unitPattern>
+				<unitPattern count="other">{0} μήν.</unitPattern>
+				<perUnitPattern>{0}/μ.</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>εβδομάδες</displayName>
+				<unitPattern count="one">{0} εβδ.</unitPattern>
+				<unitPattern count="other">{0} εβδ.</unitPattern>
+				<perUnitPattern>{0}/εβδ.</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>ημέρες</displayName>
@@ -7145,32 +7163,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ώρ.</unitPattern>
 				<perUnitPattern>{0} α.ώ.</perUnitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<displayName>μικροδεύτερα</displayName>
-				<unitPattern count="one">{0} μs</unitPattern>
-				<unitPattern count="other">{0} μs</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<displayName>χιλιοστά δευτ.</displayName>
-				<unitPattern count="one">{0} ms</unitPattern>
-				<unitPattern count="other">{0} ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>λεπ.</displayName>
 				<unitPattern count="one">{0} λεπ.</unitPattern>
 				<unitPattern count="other">{0} λεπ.</unitPattern>
 				<perUnitPattern>{0}/λ.</perUnitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>μήνες</displayName>
-				<unitPattern count="one">{0} μήν.</unitPattern>
-				<unitPattern count="other">{0} μήν.</unitPattern>
-				<perUnitPattern>{0}/μ.</perUnitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName>νανοδεύτερα</displayName>
-				<unitPattern count="one">{0} ns</unitPattern>
-				<unitPattern count="other">{0} ns</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>δευτ.</displayName>
@@ -7178,17 +7175,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} δευτ.</unitPattern>
 				<perUnitPattern>{0} ανα δευτ.</perUnitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>εβδομάδες</displayName>
-				<unitPattern count="one">{0} εβδ.</unitPattern>
-				<unitPattern count="other">{0} εβδ.</unitPattern>
-				<perUnitPattern>{0}/εβδ.</perUnitPattern>
+			<unit type="duration-millisecond">
+				<displayName>χιλιοστά δευτ.</displayName>
+				<unitPattern count="one">{0} ms</unitPattern>
+				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<displayName>έτη</displayName>
-				<unitPattern count="one">{0} έτ.</unitPattern>
-				<unitPattern count="other">{0} έτ.</unitPattern>
-				<perUnitPattern>{0}/έτ.</perUnitPattern>
+			<unit type="duration-microsecond">
+				<displayName>μικροδεύτερα</displayName>
+				<unitPattern count="one">{0} μs</unitPattern>
+				<unitPattern count="other">{0} μs</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>νανοδεύτερα</displayName>
+				<unitPattern count="one">{0} ns</unitPattern>
+				<unitPattern count="other">{0} ns</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>αμπέρ</displayName>
@@ -7210,6 +7210,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} V</unitPattern>
 				<unitPattern count="other">{0} V</unitPattern>
 			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kcal</displayName>
+				<unitPattern count="one">{0} kcal</unitPattern>
+				<unitPattern count="other">{0} kcal</unitPattern>
+			</unit>
 			<unit type="energy-calorie">
 				<displayName>cal</displayName>
 				<unitPattern count="one">{0} cal</unitPattern>
@@ -7220,20 +7225,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} Cal</unitPattern>
 				<unitPattern count="other">{0} Cal</unitPattern>
 			</unit>
-			<unit type="energy-joule">
-				<displayName>τζάουλ</displayName>
-				<unitPattern count="one">{0} J</unitPattern>
-				<unitPattern count="other">{0} J</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="one">{0} kcal</unitPattern>
-				<unitPattern count="other">{0} kcal</unitPattern>
-			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>κιλοτζάουλ</displayName>
 				<unitPattern count="one">{0} kJ</unitPattern>
 				<unitPattern count="other">{0} kJ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>τζάουλ</displayName>
+				<unitPattern count="one">{0} J</unitPattern>
+				<unitPattern count="other">{0} J</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>κιλοβάτ/ώρα</displayName>
@@ -7245,25 +7245,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} GHz</unitPattern>
 				<unitPattern count="other">{0} GHz</unitPattern>
 			</unit>
-			<unit type="frequency-hertz">
-				<displayName>χερτζ</displayName>
-				<unitPattern count="one">{0} Hz</unitPattern>
-				<unitPattern count="other">{0} Hz</unitPattern>
+			<unit type="frequency-megahertz">
+				<displayName>μεγαχέρτζ</displayName>
+				<unitPattern count="one">{0} MHz</unitPattern>
+				<unitPattern count="other">{0} MHz</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>κιλοχέρτζ</displayName>
 				<unitPattern count="one">{0} kHz</unitPattern>
 				<unitPattern count="other">{0} kHz</unitPattern>
 			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>μεγαχέρτζ</displayName>
-				<unitPattern count="one">{0} MHz</unitPattern>
-				<unitPattern count="other">{0} MHz</unitPattern>
+			<unit type="frequency-hertz">
+				<displayName>χερτζ</displayName>
+				<unitPattern count="one">{0} Hz</unitPattern>
+				<unitPattern count="other">{0} Hz</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName>α.μ.</displayName>
-				<unitPattern count="one">{0} α.μ.</unitPattern>
-				<unitPattern count="other">{0} α.μ.</unitPattern>
+			<unit type="length-kilometer">
+				<displayName>χλμ.</displayName>
+				<unitPattern count="one">{0} χλμ.</unitPattern>
+				<unitPattern count="other">{0} χλμ.</unitPattern>
+				<perUnitPattern>{0}/χλμ.</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>μέτρα</displayName>
+				<unitPattern count="one">{0} μ.</unitPattern>
+				<unitPattern count="other">{0} μ.</unitPattern>
+				<perUnitPattern>{0}/μ.</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>δεκ.</displayName>
+				<unitPattern count="one">{0} δεκ.</unitPattern>
+				<unitPattern count="other">{0} δεκ.</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>εκ.</displayName>
@@ -7271,10 +7283,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} εκ.</unitPattern>
 				<perUnitPattern>{0}/εκ.</perUnitPattern>
 			</unit>
-			<unit type="length-decimeter">
-				<displayName>δεκ.</displayName>
-				<unitPattern count="one">{0} δεκ.</unitPattern>
-				<unitPattern count="other">{0} δεκ.</unitPattern>
+			<unit type="length-millimeter">
+				<displayName>χιλιοστόμ.</displayName>
+				<unitPattern count="one">{0} χλστ.</unitPattern>
+				<unitPattern count="other">{0} χλστ.</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>μικρόμετρα</displayName>
+				<unitPattern count="one">{0} µm</unitPattern>
+				<unitPattern count="other">{0} µm</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>nm</displayName>
+				<unitPattern count="one">{0} nm</unitPattern>
+				<unitPattern count="other">{0} nm</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>pm</displayName>
+				<unitPattern count="one">{0} pm</unitPattern>
+				<unitPattern count="other">{0} pm</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>μίλια</displayName>
+				<unitPattern count="one">{0} μίλ.</unitPattern>
+				<unitPattern count="other">{0} μίλ.</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>γιάρδες</displayName>
+				<unitPattern count="one">{0} yd</unitPattern>
+				<unitPattern count="other">{0} yd</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>πόδια</displayName>
@@ -7288,83 +7325,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} in</unitPattern>
 				<perUnitPattern>{0}/in</perUnitPattern>
 			</unit>
-			<unit type="length-kilometer">
-				<displayName>χλμ.</displayName>
-				<unitPattern count="one">{0} χλμ.</unitPattern>
-				<unitPattern count="other">{0} χλμ.</unitPattern>
-				<perUnitPattern>{0}/χλμ.</perUnitPattern>
+			<unit type="length-parsec">
+				<displayName>παρσέκ</displayName>
+				<unitPattern count="one">{0} pc</unitPattern>
+				<unitPattern count="other">{0} pc</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>έτη φωτός</displayName>
 				<unitPattern count="one">{0} ly</unitPattern>
 				<unitPattern count="other">{0} ly</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>μέτρα</displayName>
-				<unitPattern count="one">{0} μ.</unitPattern>
-				<unitPattern count="other">{0} μ.</unitPattern>
-				<perUnitPattern>{0}/μ.</perUnitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>μικρόμετρα</displayName>
-				<unitPattern count="one">{0} µm</unitPattern>
-				<unitPattern count="other">{0} µm</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName>μίλια</displayName>
-				<unitPattern count="one">{0} μίλ.</unitPattern>
-				<unitPattern count="other">{0} μίλ.</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>smi</displayName>
-				<unitPattern count="one">{0} smi</unitPattern>
-				<unitPattern count="other">{0} smi</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>χιλιοστόμ.</displayName>
-				<unitPattern count="one">{0} χλστ.</unitPattern>
-				<unitPattern count="other">{0} χλστ.</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>nm</displayName>
-				<unitPattern count="one">{0} nm</unitPattern>
-				<unitPattern count="other">{0} nm</unitPattern>
+			<unit type="length-astronomical-unit">
+				<displayName>α.μ.</displayName>
+				<unitPattern count="one">{0} α.μ.</unitPattern>
+				<unitPattern count="other">{0} α.μ.</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>ν.μ.</displayName>
 				<unitPattern count="one">{0} ν.μ.</unitPattern>
 				<unitPattern count="other">{0} ν.μ.</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName>παρσέκ</displayName>
-				<unitPattern count="one">{0} pc</unitPattern>
-				<unitPattern count="other">{0} pc</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>pm</displayName>
-				<unitPattern count="one">{0} pm</unitPattern>
-				<unitPattern count="other">{0} pm</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<displayName>γιάρδες</displayName>
-				<unitPattern count="one">{0} yd</unitPattern>
-				<unitPattern count="other">{0} yd</unitPattern>
+			<unit type="length-mile-scandinavian">
+				<displayName>smi</displayName>
+				<unitPattern count="one">{0} smi</unitPattern>
+				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
 				<unitPattern count="one">{0} lux</unitPattern>
 				<unitPattern count="other">{0} lux</unitPattern>
 			</unit>
-			<unit type="mass-carat">
-				<displayName>καράτια</displayName>
-				<unitPattern count="one">{0} ct</unitPattern>
-				<unitPattern count="other">{0} ct</unitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<displayName>γραμμάρια</displayName>
-				<unitPattern count="one">{0} γρ.</unitPattern>
-				<unitPattern count="other">{0} γρ.</unitPattern>
-				<perUnitPattern>{0}/γρ.</perUnitPattern>
+			<unit type="mass-metric-ton">
+				<displayName>mt</displayName>
+				<unitPattern count="one">{0} mt</unitPattern>
+				<unitPattern count="other">{0} mt</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kg</displayName>
@@ -7372,20 +7366,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} κιλά</unitPattern>
 				<perUnitPattern>{0}/κιλό</perUnitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
-				<displayName>mt</displayName>
-				<unitPattern count="one">{0} mt</unitPattern>
-				<unitPattern count="other">{0} mt</unitPattern>
+			<unit type="mass-gram">
+				<displayName>γραμμάρια</displayName>
+				<unitPattern count="one">{0} γρ.</unitPattern>
+				<unitPattern count="other">{0} γρ.</unitPattern>
+				<perUnitPattern>{0}/γρ.</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>mg</displayName>
+				<unitPattern count="one">{0} mg</unitPattern>
+				<unitPattern count="other">{0} mg</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>µg</displayName>
 				<unitPattern count="one">{0} µg</unitPattern>
 				<unitPattern count="other">{0} µg</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<displayName>mg</displayName>
-				<unitPattern count="one">{0} mg</unitPattern>
-				<unitPattern count="other">{0} mg</unitPattern>
+			<unit type="mass-ton">
+				<displayName>τόνοι</displayName>
+				<unitPattern count="one">{0} t</unitPattern>
+				<unitPattern count="other">{0} t</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>λίβρες</displayName>
+				<unitPattern count="one">{0} lb</unitPattern>
+				<unitPattern count="other">{0} lb</unitPattern>
+				<perUnitPattern>{0}/lb</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>oz</displayName>
@@ -7398,61 +7404,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} oz t</unitPattern>
 				<unitPattern count="other">{0} oz t</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<displayName>λίβρες</displayName>
-				<unitPattern count="one">{0} lb</unitPattern>
-				<unitPattern count="other">{0} lb</unitPattern>
-				<perUnitPattern>{0}/lb</perUnitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>τόνοι</displayName>
-				<unitPattern count="one">{0} t</unitPattern>
-				<unitPattern count="other">{0} t</unitPattern>
+			<unit type="mass-carat">
+				<displayName>καράτια</displayName>
+				<unitPattern count="one">{0} ct</unitPattern>
+				<unitPattern count="other">{0} ct</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>γιγαβάτ</displayName>
 				<unitPattern count="one">{0} GW</unitPattern>
 				<unitPattern count="other">{0} GW</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<displayName>ίπποι</displayName>
-				<unitPattern count="one">{0} hp</unitPattern>
-				<unitPattern count="other">{0} hp</unitPattern>
+			<unit type="power-megawatt">
+				<displayName>μεγαβάτ</displayName>
+				<unitPattern count="one">{0} MW</unitPattern>
+				<unitPattern count="other">{0} MW</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>κιλοβάτ</displayName>
 				<unitPattern count="one">{0} kW</unitPattern>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
-			<unit type="power-megawatt">
-				<displayName>μεγαβάτ</displayName>
-				<unitPattern count="one">{0} MW</unitPattern>
-				<unitPattern count="other">{0} MW</unitPattern>
+			<unit type="power-watt">
+				<displayName>βατ</displayName>
+				<unitPattern count="one">{0} W</unitPattern>
+				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>μιλιβάτ</displayName>
 				<unitPattern count="one">{0} mW</unitPattern>
 				<unitPattern count="other">{0} mW</unitPattern>
 			</unit>
-			<unit type="power-watt">
-				<displayName>βατ</displayName>
-				<unitPattern count="one">{0} W</unitPattern>
-				<unitPattern count="other">{0} W</unitPattern>
+			<unit type="power-horsepower">
+				<displayName>ίπποι</displayName>
+				<unitPattern count="one">{0} hp</unitPattern>
+				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>εκτοπασκάλ</displayName>
 				<unitPattern count="one">{0} hPa</unitPattern>
 				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>ίντσες στήλης υδραργύρου</displayName>
-				<unitPattern count="one">{0} inHg</unitPattern>
-				<unitPattern count="other">{0} inHg</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>μιλιμπάρ</displayName>
-				<unitPattern count="one">{0} mbar</unitPattern>
-				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>χιλιοστόμετρα στήλης υδραργύρου</displayName>
@@ -7464,6 +7454,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} psi</unitPattern>
 				<unitPattern count="other">{0} psi</unitPattern>
 			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>ίντσες στήλης υδραργύρου</displayName>
+				<unitPattern count="one">{0} inHg</unitPattern>
+				<unitPattern count="other">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>μιλιμπάρ</displayName>
+				<unitPattern count="one">{0} mbar</unitPattern>
+				<unitPattern count="other">{0} mbar</unitPattern>
+			</unit>
 			<unit type="proportion-karat">
 				<displayName>καράτια</displayName>
 				<unitPattern count="one">{0} kt</unitPattern>
@@ -7473,11 +7473,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>χλμ./ώρα</displayName>
 				<unitPattern count="one">{0} χλμ./ώρα</unitPattern>
 				<unitPattern count="other">{0} χλμ./ώρα</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName>kn</displayName>
-				<unitPattern count="one">{0} kn</unitPattern>
-				<unitPattern count="other">{0} kn</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>μέτρα/δευτερόλεπτο</displayName>
@@ -7489,6 +7484,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} μίλι/ώρα</unitPattern>
 				<unitPattern count="other">{0} μίλια/ώρα</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>kn</displayName>
+				<unitPattern count="one">{0} kn</unitPattern>
+				<unitPattern count="other">{0} kn</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>°</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>βαθμοί Κελσίου</displayName>
 				<unitPattern count="one">{0}°C</unitPattern>
@@ -7499,41 +7504,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
 				<unitPattern count="one">{0} K</unitPattern>
 				<unitPattern count="other">{0} K</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>ακρ πόδια</displayName>
-				<unitPattern count="one">{0} ac ft</unitPattern>
-				<unitPattern count="other">{0} ac ft</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>cL</displayName>
-				<unitPattern count="one">{0} cL</unitPattern>
-				<unitPattern count="other">{0} cL</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName>cm³</displayName>
-				<unitPattern count="one">{0} cm³</unitPattern>
-				<unitPattern count="other">{0} cm³</unitPattern>
-				<perUnitPattern>{0}/cm³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>ft³</displayName>
-				<unitPattern count="one">{0} ft³</unitPattern>
-				<unitPattern count="other">{0} ft³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>in³</displayName>
-				<unitPattern count="one">{0} in³</unitPattern>
-				<unitPattern count="other">{0} in³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>km³</displayName>
@@ -7546,6 +7520,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} m³</unitPattern>
 				<perUnitPattern>{0}/m³</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>cm³</displayName>
+				<unitPattern count="one">{0} cm³</unitPattern>
+				<unitPattern count="other">{0} cm³</unitPattern>
+				<perUnitPattern>{0}/cm³</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>mi³</displayName>
 				<unitPattern count="one">{0} mi³</unitPattern>
@@ -7556,31 +7536,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} yd³</unitPattern>
 				<unitPattern count="other">{0} yd³</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>κύπελλα</displayName>
-				<unitPattern count="one">{0} c</unitPattern>
-				<unitPattern count="other">{0} c</unitPattern>
+			<unit type="volume-cubic-foot">
+				<displayName>ft³</displayName>
+				<unitPattern count="one">{0} ft³</unitPattern>
+				<unitPattern count="other">{0} ft³</unitPattern>
 			</unit>
-			<unit type="volume-cup-metric">
-				<displayName draft="contributed">μετρ. κύπελλο</displayName>
-				<unitPattern count="one">{0} μετρ. κύπελλο</unitPattern>
-				<unitPattern count="other">{0} μετρ. κύπελλα</unitPattern>
+			<unit type="volume-cubic-inch">
+				<displayName>in³</displayName>
+				<unitPattern count="one">{0} in³</unitPattern>
+				<unitPattern count="other">{0} in³</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<displayName>dL</displayName>
-				<unitPattern count="one">{0} dL</unitPattern>
-				<unitPattern count="other">{0} dL</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName>fl oz</displayName>
-				<unitPattern count="one">{0} fl oz</unitPattern>
-				<unitPattern count="other">{0} fl oz</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>gal</displayName>
-				<unitPattern count="one">{0} gal</unitPattern>
-				<unitPattern count="other">{0} gal</unitPattern>
-				<perUnitPattern>{0}/gal</perUnitPattern>
+			<unit type="volume-megaliter">
+				<displayName>ML</displayName>
+				<unitPattern count="one">{0} ML</unitPattern>
+				<unitPattern count="other">{0} ML</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hL</displayName>
@@ -7593,30 +7562,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} λίτ.</unitPattern>
 				<perUnitPattern>{0}/λ.</perUnitPattern>
 			</unit>
-			<unit type="volume-megaliter">
-				<displayName>ML</displayName>
-				<unitPattern count="one">{0} ML</unitPattern>
-				<unitPattern count="other">{0} ML</unitPattern>
+			<unit type="volume-deciliter">
+				<displayName>dL</displayName>
+				<unitPattern count="one">{0} dL</unitPattern>
+				<unitPattern count="other">{0} dL</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>cL</displayName>
+				<unitPattern count="one">{0} cL</unitPattern>
+				<unitPattern count="other">{0} cL</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>mL</displayName>
 				<unitPattern count="one">{0} mL</unitPattern>
 				<unitPattern count="other">{0} mL</unitPattern>
 			</unit>
-			<unit type="volume-pint">
-				<displayName>πίντες</displayName>
-				<unitPattern count="one">{0} pt</unitPattern>
-				<unitPattern count="other">{0} pt</unitPattern>
-			</unit>
 			<unit type="volume-pint-metric">
 				<displayName draft="contributed">μετρικές πίντες</displayName>
 				<unitPattern count="one">{0} μετρική πίντα</unitPattern>
 				<unitPattern count="other">{0} μετρικές πίντες</unitPattern>
 			</unit>
+			<unit type="volume-cup-metric">
+				<displayName draft="contributed">μετρ. κύπελλο</displayName>
+				<unitPattern count="one">{0} μετρ. κύπελλο</unitPattern>
+				<unitPattern count="other">{0} μετρ. κύπελλα</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ακρ πόδια</displayName>
+				<unitPattern count="one">{0} ac ft</unitPattern>
+				<unitPattern count="other">{0} ac ft</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>gal</displayName>
+				<unitPattern count="one">{0} gal</unitPattern>
+				<unitPattern count="other">{0} gal</unitPattern>
+				<perUnitPattern>{0}/gal</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>τέταρτα γαλονιού</displayName>
 				<unitPattern count="one">{0} qt</unitPattern>
 				<unitPattern count="other">{0} qt</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>πίντες</displayName>
+				<unitPattern count="one">{0} pt</unitPattern>
+				<unitPattern count="other">{0} pt</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>κύπελλα</displayName>
+				<unitPattern count="one">{0} c</unitPattern>
+				<unitPattern count="other">{0} c</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>fl oz</displayName>
+				<unitPattern count="one">{0} fl oz</unitPattern>
+				<unitPattern count="other">{0} fl oz</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>κ.σ.</displayName>
@@ -7643,6 +7643,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -7651,25 +7655,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<unitPattern count="one">{0} ac</unitPattern>
-				<unitPattern count="other">{0} ac</unitPattern>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} km²</unitPattern>
+				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="one">{0} ha</unitPattern>
 				<unitPattern count="other">{0} ha</unitPattern>
-			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="one">{0} ft²</unitPattern>
-				<unitPattern count="other">{0} ft²</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<unitPattern count="one">{0} km²</unitPattern>
-				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="one">{0} m²</unitPattern>
@@ -7679,10 +7671,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0} ac</unitPattern>
+				<unitPattern count="other">{0} ac</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0} ft²</unitPattern>
+				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>λ/100 χλμ</displayName>
 				<unitPattern count="one">{0} λ/100 χλμ</unitPattern>
 				<unitPattern count="other">{0} λ/100 χλμ</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>έτ.</displayName>
+				<unitPattern count="one">{0} έ</unitPattern>
+				<unitPattern count="other">{0} έ</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>μήνας</displayName>
+				<unitPattern count="one">{0} μ</unitPattern>
+				<unitPattern count="other">{0} μ</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>εβδ.</displayName>
+				<unitPattern count="one">{0} ε</unitPattern>
+				<unitPattern count="other">{0} ε</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>ημέρα</displayName>
@@ -7694,66 +7709,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ώ</unitPattern>
 				<unitPattern count="other">{0} ώ</unitPattern>
 			</unit>
-			<unit type="duration-millisecond">
-				<displayName>χιλ. δευτ.</displayName>
-				<unitPattern count="one">{0} ms</unitPattern>
-				<unitPattern count="other">{0} ms</unitPattern>
-			</unit>
 			<unit type="duration-minute">
 				<displayName>λεπ.</displayName>
 				<unitPattern count="one">{0} λ</unitPattern>
 				<unitPattern count="other">{0} λ</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<displayName>μήνας</displayName>
-				<unitPattern count="one">{0} μ</unitPattern>
-				<unitPattern count="other">{0} μ</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>δευτ.</displayName>
 				<unitPattern count="one">{0} δ</unitPattern>
 				<unitPattern count="other">{0} δ</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<displayName>εβδ.</displayName>
-				<unitPattern count="one">{0} ε</unitPattern>
-				<unitPattern count="other">{0} ε</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<displayName>έτ.</displayName>
-				<unitPattern count="one">{0} έ</unitPattern>
-				<unitPattern count="other">{0} έ</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>εκ.</displayName>
-				<unitPattern count="one">{0} εκ.</unitPattern>
-				<unitPattern count="other">{0} εκ.</unitPattern>
-			</unit>
-			<unit type="length-foot">
-				<unitPattern count="one">{0} ft</unitPattern>
-				<unitPattern count="other">{0} ft</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<unitPattern count="one">{0} in</unitPattern>
-				<unitPattern count="other">{0} in</unitPattern>
+			<unit type="duration-millisecond">
+				<displayName>χιλ. δευτ.</displayName>
+				<unitPattern count="one">{0} ms</unitPattern>
+				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>χλμ.</displayName>
 				<unitPattern count="one">{0} χλμ.</unitPattern>
 				<unitPattern count="other">{0} χλμ.</unitPattern>
 			</unit>
-			<unit type="length-light-year">
-				<unitPattern count="one">{0} ly</unitPattern>
-				<unitPattern count="other">{0} ly</unitPattern>
-			</unit>
 			<unit type="length-meter">
 				<displayName>μέτρο</displayName>
 				<unitPattern count="one">{0} μ.</unitPattern>
 				<unitPattern count="other">{0} μ.</unitPattern>
 			</unit>
-			<unit type="length-mile">
-				<unitPattern count="one">{0} mi</unitPattern>
-				<unitPattern count="other">{0} mi</unitPattern>
+			<unit type="length-centimeter">
+				<displayName>εκ.</displayName>
+				<unitPattern count="one">{0} εκ.</unitPattern>
+				<unitPattern count="other">{0} εκ.</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>χλστ.</displayName>
@@ -7764,31 +7748,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} pm</unitPattern>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} mi</unitPattern>
+				<unitPattern count="other">{0} mi</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<unitPattern count="one">{0} yd</unitPattern>
 				<unitPattern count="other">{0} yd</unitPattern>
 			</unit>
-			<unit type="mass-gram">
-				<displayName>γρ.</displayName>
-				<unitPattern count="one">{0} γρ.</unitPattern>
-				<unitPattern count="other">{0} γρ.</unitPattern>
+			<unit type="length-foot">
+				<unitPattern count="one">{0} ft</unitPattern>
+				<unitPattern count="other">{0} ft</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0} in</unitPattern>
+				<unitPattern count="other">{0} in</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0} ly</unitPattern>
+				<unitPattern count="other">{0} ly</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kg</displayName>
 				<unitPattern count="one">{0} kg</unitPattern>
 				<unitPattern count="other">{0} kg</unitPattern>
 			</unit>
-			<unit type="mass-ounce">
-				<unitPattern count="one">{0} oz</unitPattern>
-				<unitPattern count="other">{0} oz</unitPattern>
+			<unit type="mass-gram">
+				<displayName>γρ.</displayName>
+				<unitPattern count="one">{0} γρ.</unitPattern>
+				<unitPattern count="other">{0} γρ.</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="one">{0} lb</unitPattern>
 				<unitPattern count="other">{0} lb</unitPattern>
 			</unit>
-			<unit type="power-horsepower">
-				<unitPattern count="one">{0} hp</unitPattern>
-				<unitPattern count="other">{0} hp</unitPattern>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0} oz</unitPattern>
+				<unitPattern count="other">{0} oz</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one">{0} kW</unitPattern>
@@ -7797,6 +7793,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="power-watt">
 				<unitPattern count="one">{0} W</unitPattern>
 				<unitPattern count="other">{0} W</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0} hp</unitPattern>
+				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="one">{0} hPa</unitPattern>

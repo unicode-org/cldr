@@ -736,25 +736,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers" draft="unconfirmed">Numri</key>
 		</keys>
 		<types>
-			<type type="big5han" key="collation">Ordni Ċiniż Tradizzjonali (Big5)</type>
-			<type type="buddhist" key="calendar">Kalendarju Buddist</type>
-			<type type="chinese" key="calendar">Kalendarju Ċiniż</type>
-			<type type="dangi" key="calendar">Kalendarju Dangi</type>
-			<type type="dictionary" key="collation" draft="unconfirmed">Ordni tad-Dizzjunarju</type>
-			<type type="ethiopic" key="calendar">Kalendarju Etjopiku</type>
-			<type type="gb2312han" key="collation">Ordni Ċiniż Sempliċi (GB2312)</type>
-			<type type="gregorian" key="calendar">Kalendarju Gregorjan</type>
-			<type type="hebrew" key="calendar">Kalendarju Ebrajk</type>
-			<type type="islamic" key="calendar">Kalendarju Iżlamiku</type>
-			<type type="islamic-civil" key="calendar">Kalendarju Islamiku-Ċivili</type>
-			<type type="iso8601" key="calendar">Kalendarju ISO-8601</type>
-			<type type="japanese" key="calendar">Kalendarju Ġappuniż</type>
-			<type type="latn" key="numbers">Numri tal-Punent</type>
-			<type type="phonebook" key="collation">Ordni Telefonika</type>
-			<type type="pinyin" key="collation">Ordni tal-Pinjin</type>
-			<type type="standard" key="collation">Ordni Standard</type>
-			<type type="stroke" key="collation">Ordni Maħżuża</type>
-			<type type="traditional" key="collation">Tradizzjonali</type>
+			<type key="calendar" type="buddhist">Kalendarju Buddist</type>
+			<type key="calendar" type="chinese">Kalendarju Ċiniż</type>
+			<type key="calendar" type="dangi">Kalendarju Dangi</type>
+			<type key="calendar" type="ethiopic">Kalendarju Etjopiku</type>
+			<type key="calendar" type="gregorian">Kalendarju Gregorjan</type>
+			<type key="calendar" type="hebrew">Kalendarju Ebrajk</type>
+			<type key="calendar" type="islamic">Kalendarju Iżlamiku</type>
+			<type key="calendar" type="islamic-civil">Kalendarju Islamiku-Ċivili</type>
+			<type key="calendar" type="iso8601">Kalendarju ISO-8601</type>
+			<type key="calendar" type="japanese">Kalendarju Ġappuniż</type>
+			<type key="collation" type="big5han">Ordni Ċiniż Tradizzjonali (Big5)</type>
+			<type key="collation" type="dictionary" draft="unconfirmed">Ordni tad-Dizzjunarju</type>
+			<type key="collation" type="gb2312han">Ordni Ċiniż Sempliċi (GB2312)</type>
+			<type key="collation" type="phonebook">Ordni Telefonika</type>
+			<type key="collation" type="pinyin">Ordni tal-Pinjin</type>
+			<type key="collation" type="standard">Ordni Standard</type>
+			<type key="collation" type="stroke">Ordni Maħżuża</type>
+			<type key="collation" type="traditional">Tradizzjonali</type>
+			<type key="numbers" type="latn">Numri tal-Punent</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metriku</measurementSystemName>

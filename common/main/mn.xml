@@ -604,56 +604,56 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">Тоо</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers">араб-энэтхэг тоо</type>
-			<type type="arabext" key="numbers">өргөтгөсөн араб-энэтхэг тоо</type>
-			<type type="armn" key="numbers">армен тоо</type>
-			<type type="armnlow" key="numbers">жижиг армен тоо</type>
-			<type type="beng" key="numbers">бенгал тоо</type>
-			<type type="buddhist" key="calendar">буддын хуанли</type>
-			<type type="chinese" key="calendar">хятад хуанли</type>
-			<type type="dangi" key="calendar">данги хуанли</type>
-			<type type="deva" key="numbers">деванагари тоо</type>
-			<type type="ducet" key="collation">юникодын үндсэн эрэмбэлэх дараалал</type>
-			<type type="ethi" key="numbers">этиоп тоо</type>
-			<type type="ethiopic" key="calendar">этиоп хуанли</type>
-			<type type="fullwide" key="numbers">бүрэн хэмжээтэй тоо</type>
-			<type type="geor" key="numbers">гүрж тоо</type>
-			<type type="gregorian" key="calendar">грегорийн хуанли</type>
-			<type type="grek" key="numbers">грек тоо</type>
-			<type type="greklow" key="numbers">жижиг грек тоо</type>
-			<type type="gujr" key="numbers">гүжарати тоо</type>
-			<type type="guru" key="numbers">гүрмүкхи тоо</type>
-			<type type="hanidec" key="numbers">хятад аравтын тоо</type>
-			<type type="hans" key="numbers">хялбаршуулсан хятад тоо</type>
-			<type type="hansfin" key="numbers">хялбаршуулсан хятад санхүүгийн тоо</type>
-			<type type="hant" key="numbers">уламжлалт хятад тоо</type>
-			<type type="hantfin" key="numbers">уламжлалт хятад санхүүгийн тоо</type>
-			<type type="hebr" key="numbers">еврей тоо</type>
-			<type type="hebrew" key="calendar">еврей хуанли</type>
-			<type type="islamic" key="calendar">исламын хуанли</type>
-			<type type="iso8601" key="calendar">ISO-8601 хуанли</type>
-			<type type="japanese" key="calendar">япон хуанли</type>
-			<type type="jpan" key="numbers">япон тоо</type>
-			<type type="jpanfin" key="numbers">япон санхүүгийн тоо</type>
-			<type type="khmr" key="numbers">кхмер тоо</type>
-			<type type="knda" key="numbers">каннада тоо</type>
-			<type type="laoo" key="numbers">лаос тоо</type>
-			<type type="latn" key="numbers">араб тоо</type>
-			<type type="mlym" key="numbers">малаялам тоо</type>
-			<type type="mong" key="numbers">монгол тоо</type>
-			<type type="mymr" key="numbers">мьянмар тоо</type>
-			<type type="orya" key="numbers">ория тоо</type>
-			<type type="persian" key="calendar">перс хуанли</type>
-			<type type="roc" key="calendar">минго хуанли</type>
-			<type type="roman" key="numbers">ром тоо</type>
-			<type type="romanlow" key="numbers">жижиг ром тоо</type>
-			<type type="search" key="collation">ерөнхий зорилготой хайлт</type>
-			<type type="standard" key="collation">стандарт эрэмбэлэх дараалал</type>
-			<type type="taml" key="numbers">уламжлалт тамил тоо</type>
-			<type type="tamldec" key="numbers">тамил тоо</type>
-			<type type="telu" key="numbers">телүгү тоо</type>
-			<type type="thai" key="numbers">тай тоо</type>
-			<type type="tibt" key="numbers">тибет тоо</type>
+			<type key="calendar" type="buddhist">буддын хуанли</type>
+			<type key="calendar" type="chinese">хятад хуанли</type>
+			<type key="calendar" type="dangi">данги хуанли</type>
+			<type key="calendar" type="ethiopic">этиоп хуанли</type>
+			<type key="calendar" type="gregorian">грегорийн хуанли</type>
+			<type key="calendar" type="hebrew">еврей хуанли</type>
+			<type key="calendar" type="islamic">исламын хуанли</type>
+			<type key="calendar" type="iso8601">ISO-8601 хуанли</type>
+			<type key="calendar" type="japanese">япон хуанли</type>
+			<type key="calendar" type="persian">перс хуанли</type>
+			<type key="calendar" type="roc">минго хуанли</type>
+			<type key="collation" type="ducet">юникодын үндсэн эрэмбэлэх дараалал</type>
+			<type key="collation" type="search">ерөнхий зорилготой хайлт</type>
+			<type key="collation" type="standard">стандарт эрэмбэлэх дараалал</type>
+			<type key="numbers" type="arab">араб-энэтхэг тоо</type>
+			<type key="numbers" type="arabext">өргөтгөсөн араб-энэтхэг тоо</type>
+			<type key="numbers" type="armn">армен тоо</type>
+			<type key="numbers" type="armnlow">жижиг армен тоо</type>
+			<type key="numbers" type="beng">бенгал тоо</type>
+			<type key="numbers" type="deva">деванагари тоо</type>
+			<type key="numbers" type="ethi">этиоп тоо</type>
+			<type key="numbers" type="fullwide">бүрэн хэмжээтэй тоо</type>
+			<type key="numbers" type="geor">гүрж тоо</type>
+			<type key="numbers" type="grek">грек тоо</type>
+			<type key="numbers" type="greklow">жижиг грек тоо</type>
+			<type key="numbers" type="gujr">гүжарати тоо</type>
+			<type key="numbers" type="guru">гүрмүкхи тоо</type>
+			<type key="numbers" type="hanidec">хятад аравтын тоо</type>
+			<type key="numbers" type="hans">хялбаршуулсан хятад тоо</type>
+			<type key="numbers" type="hansfin">хялбаршуулсан хятад санхүүгийн тоо</type>
+			<type key="numbers" type="hant">уламжлалт хятад тоо</type>
+			<type key="numbers" type="hantfin">уламжлалт хятад санхүүгийн тоо</type>
+			<type key="numbers" type="hebr">еврей тоо</type>
+			<type key="numbers" type="jpan">япон тоо</type>
+			<type key="numbers" type="jpanfin">япон санхүүгийн тоо</type>
+			<type key="numbers" type="khmr">кхмер тоо</type>
+			<type key="numbers" type="knda">каннада тоо</type>
+			<type key="numbers" type="laoo">лаос тоо</type>
+			<type key="numbers" type="latn">араб тоо</type>
+			<type key="numbers" type="mlym">малаялам тоо</type>
+			<type key="numbers" type="mong">монгол тоо</type>
+			<type key="numbers" type="mymr">мьянмар тоо</type>
+			<type key="numbers" type="orya">ория тоо</type>
+			<type key="numbers" type="roman">ром тоо</type>
+			<type key="numbers" type="romanlow">жижиг ром тоо</type>
+			<type key="numbers" type="taml">уламжлалт тамил тоо</type>
+			<type key="numbers" type="tamldec">тамил тоо</type>
+			<type key="numbers" type="telu">телүгү тоо</type>
+			<type key="numbers" type="thai">тай тоо</type>
+			<type key="numbers" type="tibt">тибет тоо</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">метрийн</measurementSystemName>

@@ -734,65 +734,65 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">թվեր</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers">արաբա-հնդկական թվեր</type>
-			<type type="arabext" key="numbers">արաբա-հնդկական թվերի ընդլայնված համակարգ</type>
-			<type type="armn" key="numbers">հայկական թվեր</type>
-			<type type="armnlow" key="numbers">հայկական թվեր (փոքրատառ)</type>
-			<type type="beng" key="numbers">բենգալական թվեր</type>
-			<type type="buddhist" key="calendar">բուդդայական տոմար</type>
-			<type type="chinese" key="calendar">չինական տոմար</type>
-			<type type="dangi" key="calendar">դանգի տոմար</type>
-			<type type="deva" key="numbers">դեվանագարի թվեր</type>
-			<type type="ducet" key="collation">Unicode-ի ստանդարտ տեսակավորում</type>
-			<type type="ethi" key="numbers">եթովպական թվեր</type>
-			<type type="ethiopic" key="calendar">եթովպիական տոմար</type>
-			<type type="fullwide" key="numbers">թվերի լայն ձևաչափ</type>
-			<type type="geor" key="numbers">վրացական թվեր</type>
-			<type type="gregorian" key="calendar">գրիգորյան տոմար</type>
-			<type type="grek" key="numbers">հունական թվեր</type>
-			<type type="greklow" key="numbers">հունական թվեր (փոքրատառ)</type>
-			<type type="gujr" key="numbers">գուջարաթի թվեր</type>
-			<type type="guru" key="numbers">գուրմուխի թվեր</type>
-			<type type="h11" key="hc">12-ժամյա համակարգ (0-11)</type>
-			<type type="h12" key="hc">12-ժամյա համակարգ (1-12)</type>
-			<type type="h23" key="hc">24-ժամյա համակարգ (0-23)</type>
-			<type type="h24" key="hc">24-ժամյա համակարգ (1-24)</type>
-			<type type="hanidec" key="numbers">չինական տասնորդական թվեր</type>
-			<type type="hans" key="numbers">չինական պարզեցված թվեր</type>
-			<type type="hansfin" key="numbers">չինական պարզեցված ֆինանսական թվեր</type>
-			<type type="hant" key="numbers">չինական ավանդական թվեր</type>
-			<type type="hantfin" key="numbers">չինական ավանդական ֆինանսական թվեր</type>
-			<type type="hebr" key="numbers">եբրայերեն թվեր</type>
-			<type type="hebrew" key="calendar">հրեական տոմար</type>
-			<type type="islamic" key="calendar">իսլամական տոմար</type>
-			<type type="iso8601" key="calendar">ISO-8601 տոմար</type>
-			<type type="japanese" key="calendar">ճապոնական տոմար</type>
-			<type type="jpan" key="numbers">ճապոնական թվեր</type>
-			<type type="jpanfin" key="numbers">ճապոնական ֆինանսական թվեր</type>
-			<type type="khmr" key="numbers">քմերական թվեր</type>
-			<type type="knda" key="numbers">կաննադա թվեր</type>
-			<type type="laoo" key="numbers">լաոսական թվեր</type>
-			<type type="latn" key="numbers">արևմտյան թվեր</type>
-			<type type="loose" key="lb">փափուկ տողանցում</type>
-			<type type="metric" key="ms">մետրիկ համակարգ</type>
-			<type type="mlym" key="numbers">մալայալամ թվեր</type>
-			<type type="mymr" key="numbers">բիրմական թվեր</type>
-			<type type="normal" key="lb">սովորական տողանցում</type>
-			<type type="orya" key="numbers">օրիյա թվեր</type>
-			<type type="persian" key="calendar">պարսկական տոմար</type>
-			<type type="roc" key="calendar">մինգուո տոմար</type>
-			<type type="roman" key="numbers">հռոմեական թվեր</type>
-			<type type="romanlow" key="numbers">հռոմեական թվեր (փոքրատառ)</type>
-			<type type="search" key="collation">որոնում</type>
-			<type type="standard" key="collation">տեսակավորման ստանդարտ կարգ</type>
-			<type type="strict" key="lb">կոշտ տողանցում</type>
-			<type type="taml" key="numbers">թամիլական ավանդական թվեր</type>
-			<type type="tamldec" key="numbers">թամիլական թվեր</type>
-			<type type="telu" key="numbers">թելուգու թվեր</type>
-			<type type="thai" key="numbers">թայական թվեր</type>
-			<type type="tibt" key="numbers">տիբեթական թվեր</type>
-			<type type="uksystem" key="ms">չափման բրիտանական համակարգ</type>
-			<type type="ussystem" key="ms">չափման ամերիկյան համակարգ</type>
+			<type key="calendar" type="buddhist">բուդդայական տոմար</type>
+			<type key="calendar" type="chinese">չինական տոմար</type>
+			<type key="calendar" type="dangi">դանգի տոմար</type>
+			<type key="calendar" type="ethiopic">եթովպիական տոմար</type>
+			<type key="calendar" type="gregorian">գրիգորյան տոմար</type>
+			<type key="calendar" type="hebrew">հրեական տոմար</type>
+			<type key="calendar" type="islamic">իսլամական տոմար</type>
+			<type key="calendar" type="iso8601">ISO-8601 տոմար</type>
+			<type key="calendar" type="japanese">ճապոնական տոմար</type>
+			<type key="calendar" type="persian">պարսկական տոմար</type>
+			<type key="calendar" type="roc">մինգուո տոմար</type>
+			<type key="collation" type="ducet">Unicode-ի ստանդարտ տեսակավորում</type>
+			<type key="collation" type="search">որոնում</type>
+			<type key="collation" type="standard">տեսակավորման ստանդարտ կարգ</type>
+			<type key="hc" type="h11">12-ժամյա համակարգ (0-11)</type>
+			<type key="hc" type="h12">12-ժամյա համակարգ (1-12)</type>
+			<type key="hc" type="h23">24-ժամյա համակարգ (0-23)</type>
+			<type key="hc" type="h24">24-ժամյա համակարգ (1-24)</type>
+			<type key="lb" type="loose">փափուկ տողանցում</type>
+			<type key="lb" type="normal">սովորական տողանցում</type>
+			<type key="lb" type="strict">կոշտ տողանցում</type>
+			<type key="ms" type="metric">մետրիկ համակարգ</type>
+			<type key="ms" type="uksystem">չափման բրիտանական համակարգ</type>
+			<type key="ms" type="ussystem">չափման ամերիկյան համակարգ</type>
+			<type key="numbers" type="arab">արաբա-հնդկական թվեր</type>
+			<type key="numbers" type="arabext">արաբա-հնդկական թվերի ընդլայնված համակարգ</type>
+			<type key="numbers" type="armn">հայկական թվեր</type>
+			<type key="numbers" type="armnlow">հայկական թվեր (փոքրատառ)</type>
+			<type key="numbers" type="beng">բենգալական թվեր</type>
+			<type key="numbers" type="deva">դեվանագարի թվեր</type>
+			<type key="numbers" type="ethi">եթովպական թվեր</type>
+			<type key="numbers" type="fullwide">թվերի լայն ձևաչափ</type>
+			<type key="numbers" type="geor">վրացական թվեր</type>
+			<type key="numbers" type="grek">հունական թվեր</type>
+			<type key="numbers" type="greklow">հունական թվեր (փոքրատառ)</type>
+			<type key="numbers" type="gujr">գուջարաթի թվեր</type>
+			<type key="numbers" type="guru">գուրմուխի թվեր</type>
+			<type key="numbers" type="hanidec">չինական տասնորդական թվեր</type>
+			<type key="numbers" type="hans">չինական պարզեցված թվեր</type>
+			<type key="numbers" type="hansfin">չինական պարզեցված ֆինանսական թվեր</type>
+			<type key="numbers" type="hant">չինական ավանդական թվեր</type>
+			<type key="numbers" type="hantfin">չինական ավանդական ֆինանսական թվեր</type>
+			<type key="numbers" type="hebr">եբրայերեն թվեր</type>
+			<type key="numbers" type="jpan">ճապոնական թվեր</type>
+			<type key="numbers" type="jpanfin">ճապոնական ֆինանսական թվեր</type>
+			<type key="numbers" type="khmr">քմերական թվեր</type>
+			<type key="numbers" type="knda">կաննադա թվեր</type>
+			<type key="numbers" type="laoo">լաոսական թվեր</type>
+			<type key="numbers" type="latn">արևմտյան թվեր</type>
+			<type key="numbers" type="mlym">մալայալամ թվեր</type>
+			<type key="numbers" type="mymr">բիրմական թվեր</type>
+			<type key="numbers" type="orya">օրիյա թվեր</type>
+			<type key="numbers" type="roman">հռոմեական թվեր</type>
+			<type key="numbers" type="romanlow">հռոմեական թվեր (փոքրատառ)</type>
+			<type key="numbers" type="taml">թամիլական ավանդական թվեր</type>
+			<type key="numbers" type="tamldec">թամիլական թվեր</type>
+			<type key="numbers" type="telu">թելուգու թվեր</type>
+			<type key="numbers" type="thai">թայական թվեր</type>
+			<type key="numbers" type="tibt">տիբեթական թվեր</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Մետրական</measurementSystemName>

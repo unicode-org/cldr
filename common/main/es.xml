@@ -1024,105 +1024,105 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="x" draft="contributed">Uso privado</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers">dígitos indoarábigos</type>
-			<type type="arabext" key="numbers">dígitos indoarábigos extendidos</type>
-			<type type="armn" key="numbers">números en armenio</type>
-			<type type="armnlow" key="numbers">números en minúscula en armenio</type>
-			<type type="beng" key="numbers">dígitos en bengalí</type>
-			<type type="big5han" key="collation">orden del chino tradicional - Big5</type>
-			<type type="buddhist" key="calendar">calendario budista</type>
-			<type type="chinese" key="calendar">calendario chino</type>
-			<type type="coptic" key="calendar">calendario cóptico</type>
-			<type type="dangi" key="calendar">calendario dangi</type>
-			<type type="deva" key="numbers">dígitos en devanagari</type>
-			<type type="dictionary" key="collation">orden de clasificación del diccionario</type>
-			<type type="ducet" key="collation">orden de clasificación de Unicode predeterminado</type>
-			<type type="ethi" key="numbers">números en etíope</type>
-			<type type="ethiopic" key="calendar">calendario etíope</type>
-			<type type="ethiopic-amete-alem" key="calendar">calendario etíope Amete Alem</type>
-			<type type="finance" key="numbers" draft="contributed">Números financieros</type>
-			<type type="fullwide" key="numbers">dígitos de ancho completo</type>
-			<type type="gb2312han" key="collation">orden del chino simplificado - GB2312</type>
-			<type type="geor" key="numbers">números en georgiano</type>
-			<type type="gregorian" key="calendar">calendario gregoriano</type>
-			<type type="grek" key="numbers">números en griego</type>
-			<type type="greklow" key="numbers">números en griego en minúscula</type>
-			<type type="gujr" key="numbers">dígitos en gujarati</type>
-			<type type="guru" key="numbers">dígitos en gurmuji</type>
-			<type type="h11" key="hc">sistema de 12 horas (0-11)</type>
-			<type type="h12" key="hc">sistema de 12 horas (1-12)</type>
-			<type type="h23" key="hc">sistema de 24 horas (0-23)</type>
-			<type type="h24" key="hc">sistema de 24 horas (1-24)</type>
-			<type type="hanidec" key="numbers">números decimales en chino</type>
-			<type type="hans" key="numbers">números en chino simplificado</type>
-			<type type="hansfin" key="numbers">números financieros en chino simplificado</type>
-			<type type="hant" key="numbers">números en chino tradicional</type>
-			<type type="hantfin" key="numbers">números financieros en chino tradicional</type>
-			<type type="hebr" key="numbers">números en hebreo</type>
-			<type type="hebrew" key="calendar">calendario hebreo</type>
-			<type type="identical" key="colStrength" draft="contributed">Ordenar todo</type>
-			<type type="indian" key="calendar">calendario nacional hindú</type>
-			<type type="islamic" key="calendar">calendario islámico</type>
-			<type type="islamic-civil" key="calendar">calendario civil islámico</type>
-			<type type="iso8601" key="calendar">calendario ISO-8601</type>
-			<type type="japanese" key="calendar">calendario japonés</type>
-			<type type="jpan" key="numbers">números en japonés</type>
-			<type type="jpanfin" key="numbers">números financieros en japonés</type>
-			<type type="khmr" key="numbers">dígitos en jemer</type>
-			<type type="knda" key="numbers">dígitos en kannada</type>
-			<type type="laoo" key="numbers">dígitos en lao</type>
-			<type type="latn" key="numbers">dígitos occidentales</type>
-			<type type="loose" key="lb">salto de línea flexible</type>
-			<type type="lower" key="colCaseFirst" draft="contributed">Ordenar empezando por minúsculas</type>
-			<type type="metric" key="ms">sistema métrico</type>
-			<type type="mlym" key="numbers">dígitos en malayalam</type>
-			<type type="mong" key="numbers">dígitos en mongol</type>
-			<type type="mymr" key="numbers">dígitos en birmano</type>
-			<type type="native" key="numbers" draft="contributed">Dígitos nativos</type>
-			<type type="no" key="colBackwards" draft="contributed">Ordenar acentos normalmente</type>
-			<type type="no" key="colCaseFirst" draft="contributed">Ordenar siguiendo orden normal de mayúsculas y minúsculas</type>
-			<type type="no" key="colCaseLevel" draft="contributed">Ordenar sin distinguir entre mayúsculas y minúsculas</type>
-			<type type="no" key="colHiraganaQuaternary" draft="contributed">Ordenar caracteres kana por separado</type>
-			<type type="no" key="colNormalization" draft="contributed">Ordenar sin normalización</type>
-			<type type="no" key="colNumeric" draft="contributed">Ordenar dígitos individualmente</type>
-			<type type="non-ignorable" key="colAlternate" draft="contributed">Ordenar símbolos</type>
-			<type type="normal" key="lb">salto de línea normal</type>
-			<type type="orya" key="numbers">dígitos en oriya</type>
-			<type type="persian" key="calendar">calendario persa</type>
-			<type type="phonebook" key="collation">orden de listín telefónico</type>
-			<type type="phonetic" key="collation" draft="contributed">Orden de clasificación fonético</type>
-			<type type="pinyin" key="collation">orden pinyin</type>
-			<type type="primary" key="colStrength" draft="contributed">Ordenar solo letras base</type>
-			<type type="quaternary" key="colStrength" draft="contributed">Ordenar acentos/mayúsculas y minúsculas/ancho/kana</type>
-			<type type="reformed" key="collation">orden de clasificación reformado</type>
-			<type type="roc" key="calendar">calendario de la República de China</type>
-			<type type="roman" key="numbers">números romanos</type>
-			<type type="romanlow" key="numbers">números romanos en minúscula</type>
-			<type type="search" key="collation">búsqueda de uso general</type>
-			<type type="searchjl" key="collation" draft="contributed">Buscar por consonante inicial de hangul</type>
-			<type type="secondary" key="colStrength" draft="contributed">Ordenar acentos</type>
-			<type type="shifted" key="colAlternate" draft="contributed">Ordenar ignorando símbolos</type>
-			<type type="standard" key="collation">orden estándar</type>
-			<type type="strict" key="lb">salto de línea estricto</type>
-			<type type="stroke" key="collation">orden de los trazos</type>
-			<type type="taml" key="numbers">números en tamil tradicional</type>
-			<type type="tamldec" key="numbers">dígitos en tamil</type>
-			<type type="telu" key="numbers">dígitos en telugu</type>
-			<type type="tertiary" key="colStrength" draft="contributed">Ordenar acentos/mayúsculas y minúsculas/ancho</type>
-			<type type="thai" key="numbers">dígitos en tailandés</type>
-			<type type="tibt" key="numbers">dígitos en tibetano</type>
-			<type type="traditional" key="collation">orden tradicional</type>
-			<type type="traditional" key="numbers" draft="contributed">Números tradicionales</type>
-			<type type="uksystem" key="ms">sistema imperial</type>
-			<type type="unihan" key="collation">orden de clasificación de trazos radicales</type>
-			<type type="upper" key="colCaseFirst" draft="contributed">Ordenar empezando por mayúsculas</type>
-			<type type="ussystem" key="ms">sistema estadounidense</type>
-			<type type="vaii" key="numbers" draft="contributed">Dígitos vai</type>
-			<type type="yes" key="colBackwards" draft="contributed">Ordenar acentos con inversión</type>
-			<type type="yes" key="colCaseLevel" draft="contributed">Ordenar distinguiendo entre mayúsculas y minúsculas</type>
-			<type type="yes" key="colHiraganaQuaternary" draft="contributed">Ordenar diferenciando caracteres kana</type>
-			<type type="yes" key="colNormalization" draft="contributed">Ordenar con normalización Unicode</type>
-			<type type="yes" key="colNumeric" draft="contributed">Ordenar dígitos numéricamente</type>
+			<type key="calendar" type="buddhist">calendario budista</type>
+			<type key="calendar" type="chinese">calendario chino</type>
+			<type key="calendar" type="coptic">calendario cóptico</type>
+			<type key="calendar" type="dangi">calendario dangi</type>
+			<type key="calendar" type="ethiopic">calendario etíope</type>
+			<type key="calendar" type="ethiopic-amete-alem">calendario etíope Amete Alem</type>
+			<type key="calendar" type="gregorian">calendario gregoriano</type>
+			<type key="calendar" type="hebrew">calendario hebreo</type>
+			<type key="calendar" type="indian">calendario nacional hindú</type>
+			<type key="calendar" type="islamic">calendario islámico</type>
+			<type key="calendar" type="islamic-civil">calendario civil islámico</type>
+			<type key="calendar" type="iso8601">calendario ISO-8601</type>
+			<type key="calendar" type="japanese">calendario japonés</type>
+			<type key="calendar" type="persian">calendario persa</type>
+			<type key="calendar" type="roc">calendario de la República de China</type>
+			<type key="colAlternate" type="non-ignorable" draft="contributed">Ordenar símbolos</type>
+			<type key="colAlternate" type="shifted" draft="contributed">Ordenar ignorando símbolos</type>
+			<type key="colBackwards" type="no" draft="contributed">Ordenar acentos normalmente</type>
+			<type key="colBackwards" type="yes" draft="contributed">Ordenar acentos con inversión</type>
+			<type key="colCaseFirst" type="lower" draft="contributed">Ordenar empezando por minúsculas</type>
+			<type key="colCaseFirst" type="no" draft="contributed">Ordenar siguiendo orden normal de mayúsculas y minúsculas</type>
+			<type key="colCaseFirst" type="upper" draft="contributed">Ordenar empezando por mayúsculas</type>
+			<type key="colCaseLevel" type="no" draft="contributed">Ordenar sin distinguir entre mayúsculas y minúsculas</type>
+			<type key="colCaseLevel" type="yes" draft="contributed">Ordenar distinguiendo entre mayúsculas y minúsculas</type>
+			<type key="colHiraganaQuaternary" type="no" draft="contributed">Ordenar caracteres kana por separado</type>
+			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Ordenar diferenciando caracteres kana</type>
+			<type key="collation" type="big5han">orden del chino tradicional - Big5</type>
+			<type key="collation" type="dictionary">orden de clasificación del diccionario</type>
+			<type key="collation" type="ducet">orden de clasificación de Unicode predeterminado</type>
+			<type key="collation" type="gb2312han">orden del chino simplificado - GB2312</type>
+			<type key="collation" type="phonebook">orden de listín telefónico</type>
+			<type key="collation" type="phonetic" draft="contributed">Orden de clasificación fonético</type>
+			<type key="collation" type="pinyin">orden pinyin</type>
+			<type key="collation" type="reformed">orden de clasificación reformado</type>
+			<type key="collation" type="search">búsqueda de uso general</type>
+			<type key="collation" type="searchjl" draft="contributed">Buscar por consonante inicial de hangul</type>
+			<type key="collation" type="standard">orden estándar</type>
+			<type key="collation" type="stroke">orden de los trazos</type>
+			<type key="collation" type="traditional">orden tradicional</type>
+			<type key="collation" type="unihan">orden de clasificación de trazos radicales</type>
+			<type key="colNormalization" type="no" draft="contributed">Ordenar sin normalización</type>
+			<type key="colNormalization" type="yes" draft="contributed">Ordenar con normalización Unicode</type>
+			<type key="colNumeric" type="no" draft="contributed">Ordenar dígitos individualmente</type>
+			<type key="colNumeric" type="yes" draft="contributed">Ordenar dígitos numéricamente</type>
+			<type key="colStrength" type="identical" draft="contributed">Ordenar todo</type>
+			<type key="colStrength" type="primary" draft="contributed">Ordenar solo letras base</type>
+			<type key="colStrength" type="quaternary" draft="contributed">Ordenar acentos/mayúsculas y minúsculas/ancho/kana</type>
+			<type key="colStrength" type="secondary" draft="contributed">Ordenar acentos</type>
+			<type key="colStrength" type="tertiary" draft="contributed">Ordenar acentos/mayúsculas y minúsculas/ancho</type>
+			<type key="hc" type="h11">sistema de 12 horas (0-11)</type>
+			<type key="hc" type="h12">sistema de 12 horas (1-12)</type>
+			<type key="hc" type="h23">sistema de 24 horas (0-23)</type>
+			<type key="hc" type="h24">sistema de 24 horas (1-24)</type>
+			<type key="lb" type="loose">salto de línea flexible</type>
+			<type key="lb" type="normal">salto de línea normal</type>
+			<type key="lb" type="strict">salto de línea estricto</type>
+			<type key="ms" type="metric">sistema métrico</type>
+			<type key="ms" type="uksystem">sistema imperial</type>
+			<type key="ms" type="ussystem">sistema estadounidense</type>
+			<type key="numbers" type="arab">dígitos indoarábigos</type>
+			<type key="numbers" type="arabext">dígitos indoarábigos extendidos</type>
+			<type key="numbers" type="armn">números en armenio</type>
+			<type key="numbers" type="armnlow">números en minúscula en armenio</type>
+			<type key="numbers" type="beng">dígitos en bengalí</type>
+			<type key="numbers" type="deva">dígitos en devanagari</type>
+			<type key="numbers" type="ethi">números en etíope</type>
+			<type key="numbers" type="finance" draft="contributed">Números financieros</type>
+			<type key="numbers" type="fullwide">dígitos de ancho completo</type>
+			<type key="numbers" type="geor">números en georgiano</type>
+			<type key="numbers" type="grek">números en griego</type>
+			<type key="numbers" type="greklow">números en griego en minúscula</type>
+			<type key="numbers" type="gujr">dígitos en gujarati</type>
+			<type key="numbers" type="guru">dígitos en gurmuji</type>
+			<type key="numbers" type="hanidec">números decimales en chino</type>
+			<type key="numbers" type="hans">números en chino simplificado</type>
+			<type key="numbers" type="hansfin">números financieros en chino simplificado</type>
+			<type key="numbers" type="hant">números en chino tradicional</type>
+			<type key="numbers" type="hantfin">números financieros en chino tradicional</type>
+			<type key="numbers" type="hebr">números en hebreo</type>
+			<type key="numbers" type="jpan">números en japonés</type>
+			<type key="numbers" type="jpanfin">números financieros en japonés</type>
+			<type key="numbers" type="khmr">dígitos en jemer</type>
+			<type key="numbers" type="knda">dígitos en kannada</type>
+			<type key="numbers" type="laoo">dígitos en lao</type>
+			<type key="numbers" type="latn">dígitos occidentales</type>
+			<type key="numbers" type="mlym">dígitos en malayalam</type>
+			<type key="numbers" type="mong">dígitos en mongol</type>
+			<type key="numbers" type="mymr">dígitos en birmano</type>
+			<type key="numbers" type="native" draft="contributed">Dígitos nativos</type>
+			<type key="numbers" type="orya">dígitos en oriya</type>
+			<type key="numbers" type="roman">números romanos</type>
+			<type key="numbers" type="romanlow">números romanos en minúscula</type>
+			<type key="numbers" type="taml">números en tamil tradicional</type>
+			<type key="numbers" type="tamldec">dígitos en tamil</type>
+			<type key="numbers" type="telu">dígitos en telugu</type>
+			<type key="numbers" type="thai">dígitos en tailandés</type>
+			<type key="numbers" type="tibt">dígitos en tibetano</type>
+			<type key="numbers" type="traditional" draft="contributed">Números tradicionales</type>
+			<type key="numbers" type="vaii" draft="contributed">Dígitos vai</type>
 		</types>
 		<transformNames>
 			<transformName type="BGN" draft="contributed">BGN</transformName>

@@ -625,66 +625,66 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">tøl</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers">arabisk tøl</type>
-			<type type="arabext" key="numbers">víðkað arabisk tøl</type>
-			<type type="armn" key="numbers">armensk tøl</type>
-			<type type="armnlow" key="numbers">armensk tøl (smáir bókstavir)</type>
-			<type type="beng" key="numbers">bengalisk tøl</type>
-			<type type="buddhist" key="calendar">buddistiskur kalendari</type>
-			<type type="chinese" key="calendar">kinesiskur kalendari</type>
-			<type type="dangi" key="calendar">dangi kalendari</type>
-			<type type="deva" key="numbers">devanagarik tøl</type>
-			<type type="ducet" key="collation">forsett Unicode raðskipan</type>
-			<type type="eor" key="collation" draft="contributed">röðina fyrir fjöltyngi evrópskum skjölum</type>
-			<type type="ethi" key="numbers">etiopisk tøl</type>
-			<type type="ethiopic" key="calendar">etiopiskur kalendari</type>
-			<type type="fullwide" key="numbers">tøl í fullari longd</type>
-			<type type="geor" key="numbers">gregoriansk tøl</type>
-			<type type="gregorian" key="calendar">Gregorianskur kalendari</type>
-			<type type="grek" key="numbers">grikskt tøl</type>
-			<type type="greklow" key="numbers">grikskt tøl (smáir bókstavir)</type>
-			<type type="gujr" key="numbers">gujaratik tøl</type>
-			<type type="guru" key="numbers">gurmukhik tøl</type>
-			<type type="h11" key="hc">12 tímar klokkuskipan (0-11)</type>
-			<type type="h12" key="hc">12 tímar klokkuskipan (1-12)</type>
-			<type type="h23" key="hc">24 tímar klokkuskipan (0-23)</type>
-			<type type="h24" key="hc">24 tímar klokkuskipan (1-24)</type>
-			<type type="hanidec" key="numbers">kinesisk desimal tøl</type>
-			<type type="hans" key="numbers">einkul kinesisk tøl</type>
-			<type type="hansfin" key="numbers">einkul kinesisk fíggjarlig tøl</type>
-			<type type="hant" key="numbers">vanlig kinesisk tøl</type>
-			<type type="hantfin" key="numbers">vanlig kinesisk fíggjarlig tøl</type>
-			<type type="hebr" key="numbers">hebraisk tøl</type>
-			<type type="hebrew" key="calendar">hebraiskur kalendari</type>
-			<type type="islamic" key="calendar">islamiskur kalendari</type>
-			<type type="iso8601" key="calendar">ISO-8601 kalendari</type>
-			<type type="japanese" key="calendar">japanskur kalendari</type>
-			<type type="jpan" key="numbers">japanskt tøl</type>
-			<type type="jpanfin" key="numbers">japanskt fíggjarlig tøl</type>
-			<type type="khmr" key="numbers">khmer tøl</type>
-			<type type="knda" key="numbers">kannada tøl</type>
-			<type type="laoo" key="numbers">lao tøl</type>
-			<type type="latn" key="numbers">vesturlendsk tøl</type>
-			<type type="loose" key="lb">leysur reglubrot stílur</type>
-			<type type="metric" key="ms">metralag</type>
-			<type type="mlym" key="numbers">malayalam tøl</type>
-			<type type="mymr" key="numbers">myanmarsk tøl</type>
-			<type type="normal" key="lb">vanligur reglubrot stílur</type>
-			<type type="orya" key="numbers">oriya tøl</type>
-			<type type="persian" key="calendar">persiskur kalendari</type>
-			<type type="roc" key="calendar">minguo kalendari</type>
-			<type type="roman" key="numbers">rómartøl</type>
-			<type type="romanlow" key="numbers">rómartøl (smáir bókstavir)</type>
-			<type type="search" key="collation">vanlig leiting</type>
-			<type type="standard" key="collation">vanlig raðskipan</type>
-			<type type="strict" key="lb">strangur reglubrot stílur</type>
-			<type type="taml" key="numbers">vanlig tamilsk tøl</type>
-			<type type="tamldec" key="numbers">tamilsk tøl</type>
-			<type type="telu" key="numbers">telugu tøl</type>
-			<type type="thai" key="numbers">tailendsk tøl</type>
-			<type type="tibt" key="numbers">tibetsk tøl</type>
-			<type type="uksystem" key="ms">mátingareind (Imperial)</type>
-			<type type="ussystem" key="ms">mátingareind (USA)</type>
+			<type key="calendar" type="buddhist">buddistiskur kalendari</type>
+			<type key="calendar" type="chinese">kinesiskur kalendari</type>
+			<type key="calendar" type="dangi">dangi kalendari</type>
+			<type key="calendar" type="ethiopic">etiopiskur kalendari</type>
+			<type key="calendar" type="gregorian">Gregorianskur kalendari</type>
+			<type key="calendar" type="hebrew">hebraiskur kalendari</type>
+			<type key="calendar" type="islamic">islamiskur kalendari</type>
+			<type key="calendar" type="iso8601">ISO-8601 kalendari</type>
+			<type key="calendar" type="japanese">japanskur kalendari</type>
+			<type key="calendar" type="persian">persiskur kalendari</type>
+			<type key="calendar" type="roc">minguo kalendari</type>
+			<type key="collation" type="ducet">forsett Unicode raðskipan</type>
+			<type key="collation" type="eor" draft="contributed">röðina fyrir fjöltyngi evrópskum skjölum</type>
+			<type key="collation" type="search">vanlig leiting</type>
+			<type key="collation" type="standard">vanlig raðskipan</type>
+			<type key="hc" type="h11">12 tímar klokkuskipan (0-11)</type>
+			<type key="hc" type="h12">12 tímar klokkuskipan (1-12)</type>
+			<type key="hc" type="h23">24 tímar klokkuskipan (0-23)</type>
+			<type key="hc" type="h24">24 tímar klokkuskipan (1-24)</type>
+			<type key="lb" type="loose">leysur reglubrot stílur</type>
+			<type key="lb" type="normal">vanligur reglubrot stílur</type>
+			<type key="lb" type="strict">strangur reglubrot stílur</type>
+			<type key="ms" type="metric">metralag</type>
+			<type key="ms" type="uksystem">mátingareind (Imperial)</type>
+			<type key="ms" type="ussystem">mátingareind (USA)</type>
+			<type key="numbers" type="arab">arabisk tøl</type>
+			<type key="numbers" type="arabext">víðkað arabisk tøl</type>
+			<type key="numbers" type="armn">armensk tøl</type>
+			<type key="numbers" type="armnlow">armensk tøl (smáir bókstavir)</type>
+			<type key="numbers" type="beng">bengalisk tøl</type>
+			<type key="numbers" type="deva">devanagarik tøl</type>
+			<type key="numbers" type="ethi">etiopisk tøl</type>
+			<type key="numbers" type="fullwide">tøl í fullari longd</type>
+			<type key="numbers" type="geor">gregoriansk tøl</type>
+			<type key="numbers" type="grek">grikskt tøl</type>
+			<type key="numbers" type="greklow">grikskt tøl (smáir bókstavir)</type>
+			<type key="numbers" type="gujr">gujaratik tøl</type>
+			<type key="numbers" type="guru">gurmukhik tøl</type>
+			<type key="numbers" type="hanidec">kinesisk desimal tøl</type>
+			<type key="numbers" type="hans">einkul kinesisk tøl</type>
+			<type key="numbers" type="hansfin">einkul kinesisk fíggjarlig tøl</type>
+			<type key="numbers" type="hant">vanlig kinesisk tøl</type>
+			<type key="numbers" type="hantfin">vanlig kinesisk fíggjarlig tøl</type>
+			<type key="numbers" type="hebr">hebraisk tøl</type>
+			<type key="numbers" type="jpan">japanskt tøl</type>
+			<type key="numbers" type="jpanfin">japanskt fíggjarlig tøl</type>
+			<type key="numbers" type="khmr">khmer tøl</type>
+			<type key="numbers" type="knda">kannada tøl</type>
+			<type key="numbers" type="laoo">lao tøl</type>
+			<type key="numbers" type="latn">vesturlendsk tøl</type>
+			<type key="numbers" type="mlym">malayalam tøl</type>
+			<type key="numbers" type="mymr">myanmarsk tøl</type>
+			<type key="numbers" type="orya">oriya tøl</type>
+			<type key="numbers" type="roman">rómartøl</type>
+			<type key="numbers" type="romanlow">rómartøl (smáir bókstavir)</type>
+			<type key="numbers" type="taml">vanlig tamilsk tøl</type>
+			<type key="numbers" type="tamldec">tamilsk tøl</type>
+			<type key="numbers" type="telu">telugu tøl</type>
+			<type key="numbers" type="thai">tailendsk tøl</type>
+			<type key="numbers" type="tibt">tibetsk tøl</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metralagið</measurementSystemName>

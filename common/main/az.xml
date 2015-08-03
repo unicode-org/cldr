@@ -952,68 +952,68 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">Rəqəmlər</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers">Ərəb-Hind Rəqəmləri</type>
-			<type type="arabext" key="numbers">Genişlənmiş Ərəb-Hind Rəqəmləri</type>
-			<type type="armn" key="numbers">Erməni Rəqəmləri</type>
-			<type type="armnlow" key="numbers">Kiçik Erməni Rəqəmləri</type>
-			<type type="beng" key="numbers">Benqal Rəqəmləri</type>
-			<type type="buddhist" key="calendar">Buddist Təqvimi</type>
-			<type type="chinese" key="calendar">Çin Təqvimi</type>
-			<type type="dangi" key="calendar">Dangi Təqvimi</type>
-			<type type="deva" key="numbers">Devanaqari Rəqəmləri</type>
-			<type type="ducet" key="collation">Defolt Unicode Çeşidləmə</type>
-			<type type="ethi" key="numbers">Efiop Rəqəmləri</type>
-			<type type="ethiopic" key="calendar">Efiop Təqvimi</type>
-			<type type="fullwide" key="numbers">Tam Geniş Rəqəmlər</type>
-			<type type="geor" key="numbers">Gürcü Rəqəmləri</type>
-			<type type="gregorian" key="calendar">Qreqorian Təqvimi</type>
-			<type type="grek" key="numbers">Yunan Rəqəmləri</type>
-			<type type="greklow" key="numbers">Kiçik Yunan Rəqəmləri</type>
-			<type type="gujr" key="numbers">Qucarat Rəqəmləri</type>
-			<type type="guru" key="numbers">Qurmuxi Rəqəmləri</type>
-			<type type="h11" key="hc">12 Saatlıq Sistem (0-11)</type>
-			<type type="h12" key="hc">12 Saatlıq Sistem (0-12)</type>
-			<type type="h23" key="hc">24 Saatlıq Sistem (0-23)</type>
-			<type type="h24" key="hc">24 Saatlıq Sistem (0-23)</type>
-			<type type="hanidec" key="numbers">Onluq Çin Rəqəmləri</type>
-			<type type="hans" key="numbers">Sadələşmiş Çin Rəqəmləri</type>
-			<type type="hansfin" key="numbers">Sadələşmiş Çin Maliyyə Rəqəmləri</type>
-			<type type="hant" key="numbers">Ənənəvi Çin Rəqəmləri</type>
-			<type type="hantfin" key="numbers">Ənənəvi Çin Maliyyə Rəqəmləri</type>
-			<type type="hebr" key="numbers">İvrit Rəqəmləri</type>
-			<type type="hebrew" key="calendar">Yəhudi Təqvimi</type>
-			<type type="indian" key="calendar" draft="contributed">Hindi təqvimi</type>
-			<type type="islamic" key="calendar">İslam Təqvimi</type>
-			<type type="islamic-civil" key="calendar" draft="contributed">Ivrit təqvimi</type>
-			<type type="iso8601" key="calendar">ISO-8601 Təqvimi</type>
-			<type type="japanese" key="calendar">Yapon Təqvimi</type>
-			<type type="jpan" key="numbers">Yapon Rəqəmləri</type>
-			<type type="jpanfin" key="numbers">Yapon Maliyyə Rəqəmləri</type>
-			<type type="khmr" key="numbers">Kxmer Rəqəmləri</type>
-			<type type="knda" key="numbers">Kannada Rəqəmləri</type>
-			<type type="laoo" key="numbers">Lao Rəqəmləri</type>
-			<type type="latn" key="numbers">Qərb Rəqəmləri</type>
-			<type type="loose" key="lb">Sərbəst sətirdən sətrə keçirmə üslubu</type>
-			<type type="metric" key="ms">Metrik Sistem</type>
-			<type type="mlym" key="numbers">Malayalam Rəqəmləri</type>
-			<type type="mymr" key="numbers">Myanma Rəqəmləri</type>
-			<type type="normal" key="lb">Normal sətirdən sətrə keçirmə üslubu</type>
-			<type type="orya" key="numbers">Oriya Rəqəmləri</type>
-			<type type="persian" key="calendar">İran Təqvimi</type>
-			<type type="pinyin" key="collation" draft="contributed">Pinyin təqvimi</type>
-			<type type="roc" key="calendar">Minquo Təqvimi</type>
-			<type type="roman" key="numbers">Rum Rəqəmləri</type>
-			<type type="romanlow" key="numbers">Kiçik Rum Rəqəmləri</type>
-			<type type="search" key="collation">Ümumi Məqsədli Axtarış</type>
-			<type type="standard" key="collation">Standart Çeşidləmə</type>
-			<type type="strict" key="lb">Sərt sətirdən sətrə keçirmə üslubu</type>
-			<type type="taml" key="numbers">Ənənəvi Tamil Rəqəmləri</type>
-			<type type="tamldec" key="numbers">Tamil Rəqəmləri</type>
-			<type type="telu" key="numbers">Teluqu Rəqəmləri</type>
-			<type type="thai" key="numbers">Tay Rəqəmləri</type>
-			<type type="tibt" key="numbers">Tibet Rəqəmləri</type>
-			<type type="uksystem" key="ms">İmperial Ölçü Sistemi</type>
-			<type type="ussystem" key="ms">ABŞ Ölçü Sistemi</type>
+			<type key="calendar" type="buddhist">Buddist Təqvimi</type>
+			<type key="calendar" type="chinese">Çin Təqvimi</type>
+			<type key="calendar" type="dangi">Dangi Təqvimi</type>
+			<type key="calendar" type="ethiopic">Efiop Təqvimi</type>
+			<type key="calendar" type="gregorian">Qreqorian Təqvimi</type>
+			<type key="calendar" type="hebrew">Yəhudi Təqvimi</type>
+			<type key="calendar" type="indian" draft="contributed">Hindi təqvimi</type>
+			<type key="calendar" type="islamic">İslam Təqvimi</type>
+			<type key="calendar" type="islamic-civil" draft="contributed">Ivrit təqvimi</type>
+			<type key="calendar" type="iso8601">ISO-8601 Təqvimi</type>
+			<type key="calendar" type="japanese">Yapon Təqvimi</type>
+			<type key="calendar" type="persian">İran Təqvimi</type>
+			<type key="calendar" type="roc">Minquo Təqvimi</type>
+			<type key="collation" type="ducet">Defolt Unicode Çeşidləmə</type>
+			<type key="collation" type="pinyin" draft="contributed">Pinyin təqvimi</type>
+			<type key="collation" type="search">Ümumi Məqsədli Axtarış</type>
+			<type key="collation" type="standard">Standart Çeşidləmə</type>
+			<type key="hc" type="h11">12 Saatlıq Sistem (0-11)</type>
+			<type key="hc" type="h12">12 Saatlıq Sistem (0-12)</type>
+			<type key="hc" type="h23">24 Saatlıq Sistem (0-23)</type>
+			<type key="hc" type="h24">24 Saatlıq Sistem (0-23)</type>
+			<type key="lb" type="loose">Sərbəst sətirdən sətrə keçirmə üslubu</type>
+			<type key="lb" type="normal">Normal sətirdən sətrə keçirmə üslubu</type>
+			<type key="lb" type="strict">Sərt sətirdən sətrə keçirmə üslubu</type>
+			<type key="ms" type="metric">Metrik Sistem</type>
+			<type key="ms" type="uksystem">İmperial Ölçü Sistemi</type>
+			<type key="ms" type="ussystem">ABŞ Ölçü Sistemi</type>
+			<type key="numbers" type="arab">Ərəb-Hind Rəqəmləri</type>
+			<type key="numbers" type="arabext">Genişlənmiş Ərəb-Hind Rəqəmləri</type>
+			<type key="numbers" type="armn">Erməni Rəqəmləri</type>
+			<type key="numbers" type="armnlow">Kiçik Erməni Rəqəmləri</type>
+			<type key="numbers" type="beng">Benqal Rəqəmləri</type>
+			<type key="numbers" type="deva">Devanaqari Rəqəmləri</type>
+			<type key="numbers" type="ethi">Efiop Rəqəmləri</type>
+			<type key="numbers" type="fullwide">Tam Geniş Rəqəmlər</type>
+			<type key="numbers" type="geor">Gürcü Rəqəmləri</type>
+			<type key="numbers" type="grek">Yunan Rəqəmləri</type>
+			<type key="numbers" type="greklow">Kiçik Yunan Rəqəmləri</type>
+			<type key="numbers" type="gujr">Qucarat Rəqəmləri</type>
+			<type key="numbers" type="guru">Qurmuxi Rəqəmləri</type>
+			<type key="numbers" type="hanidec">Onluq Çin Rəqəmləri</type>
+			<type key="numbers" type="hans">Sadələşmiş Çin Rəqəmləri</type>
+			<type key="numbers" type="hansfin">Sadələşmiş Çin Maliyyə Rəqəmləri</type>
+			<type key="numbers" type="hant">Ənənəvi Çin Rəqəmləri</type>
+			<type key="numbers" type="hantfin">Ənənəvi Çin Maliyyə Rəqəmləri</type>
+			<type key="numbers" type="hebr">İvrit Rəqəmləri</type>
+			<type key="numbers" type="jpan">Yapon Rəqəmləri</type>
+			<type key="numbers" type="jpanfin">Yapon Maliyyə Rəqəmləri</type>
+			<type key="numbers" type="khmr">Kxmer Rəqəmləri</type>
+			<type key="numbers" type="knda">Kannada Rəqəmləri</type>
+			<type key="numbers" type="laoo">Lao Rəqəmləri</type>
+			<type key="numbers" type="latn">Qərb Rəqəmləri</type>
+			<type key="numbers" type="mlym">Malayalam Rəqəmləri</type>
+			<type key="numbers" type="mymr">Myanma Rəqəmləri</type>
+			<type key="numbers" type="orya">Oriya Rəqəmləri</type>
+			<type key="numbers" type="roman">Rum Rəqəmləri</type>
+			<type key="numbers" type="romanlow">Kiçik Rum Rəqəmləri</type>
+			<type key="numbers" type="taml">Ənənəvi Tamil Rəqəmləri</type>
+			<type key="numbers" type="tamldec">Tamil Rəqəmləri</type>
+			<type key="numbers" type="telu">Teluqu Rəqəmləri</type>
+			<type key="numbers" type="thai">Tay Rəqəmləri</type>
+			<type key="numbers" type="tibt">Tibet Rəqəmləri</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrik</measurementSystemName>

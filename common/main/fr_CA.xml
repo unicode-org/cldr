@@ -33,13 +33,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="VC">Saint-Vincent-et-les Grenadines</territory>
 		</territories>
 		<types>
-			<type type="dictionary" key="collation" draft="contributed">Ordre de tri du dictionnaire</type>
-			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">Calendrier éthiopien de l’An de grâce</type>
-			<type type="gujr" key="numbers" draft="contributed">chiffres gujaratis</type>
-			<type type="mong" key="numbers" draft="contributed">Chiffres mongols</type>
-			<type type="reformed" key="collation" draft="contributed">Ordre de tri réformé</type>
-			<type type="searchjl" key="collation" draft="contributed">Rechercher par consonne initiale en hangeul</type>
-			<type type="taml" key="numbers">chiffres tamouls traditionnels</type>
+			<type key="calendar" type="ethiopic-amete-alem" draft="contributed">Calendrier éthiopien de l’An de grâce</type>
+			<type key="collation" type="dictionary" draft="contributed">Ordre de tri du dictionnaire</type>
+			<type key="collation" type="reformed" draft="contributed">Ordre de tri réformé</type>
+			<type key="collation" type="searchjl" draft="contributed">Rechercher par consonne initiale en hangeul</type>
+			<type key="numbers" type="gujr" draft="contributed">chiffres gujaratis</type>
+			<type key="numbers" type="mong" draft="contributed">Chiffres mongols</type>
+			<type key="numbers" type="taml">chiffres tamouls traditionnels</type>
 		</types>
 		<transformNames>
 			<transformName type="x-Accents" draft="unconfirmed">accents</transformName>

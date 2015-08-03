@@ -195,24 +195,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="x" draft="unconfirmed">專用區</key>
 		</keys>
 		<types>
-			<type type="big5han" key="collation">繁體中文排序 (Big5)</type>
-			<type type="deva" key="numbers" draft="contributed">天城體數字</type>
-			<type type="dictionary" key="collation" draft="contributed">詞典排序</type>
-			<type type="ethi" key="numbers">埃塞俄比亞數字</type>
-			<type type="ethiopic" key="calendar" draft="contributed">埃及曆</type>
-			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">埃塞俄比亞阿美德阿萊姆曆</type>
-			<type type="gb2312han" key="collation">簡體中文排序 (GB2312)</type>
-			<type type="geor" key="numbers" draft="contributed">格魯吉亞數字</type>
-			<type type="knda" key="numbers">卡納達數字</type>
-			<type type="laoo" key="numbers">老撾數字</type>
-			<type type="mlym" key="numbers" draft="contributed">馬拉雅拉姆數字</type>
-			<type type="mong" key="numbers" draft="unconfirmed">蒙古文位數</type>
-			<type type="orya" key="numbers">奧里亞數字</type>
-			<type type="reformed" key="collation" draft="contributed">改革版排序</type>
-			<type type="taml" key="numbers">泰米爾數字</type>
-			<type type="tamldec" key="numbers" draft="contributed">泰米爾數字</type>
-			<type type="uksystem" key="ms" draft="contributed">英制</type>
-			<type type="ussystem" key="ms" draft="contributed">美制</type>
+			<type key="calendar" type="ethiopic" draft="contributed">埃及曆</type>
+			<type key="calendar" type="ethiopic-amete-alem" draft="contributed">埃塞俄比亞阿美德阿萊姆曆</type>
+			<type key="collation" type="big5han">繁體中文排序 (Big5)</type>
+			<type key="collation" type="dictionary" draft="contributed">詞典排序</type>
+			<type key="collation" type="gb2312han">簡體中文排序 (GB2312)</type>
+			<type key="collation" type="reformed" draft="contributed">改革版排序</type>
+			<type key="ms" type="uksystem" draft="contributed">英制</type>
+			<type key="ms" type="ussystem" draft="contributed">美制</type>
+			<type key="numbers" type="deva" draft="contributed">天城體數字</type>
+			<type key="numbers" type="ethi">埃塞俄比亞數字</type>
+			<type key="numbers" type="geor" draft="contributed">格魯吉亞數字</type>
+			<type key="numbers" type="knda">卡納達數字</type>
+			<type key="numbers" type="laoo">老撾數字</type>
+			<type key="numbers" type="mlym" draft="contributed">馬拉雅拉姆數字</type>
+			<type key="numbers" type="mong" draft="unconfirmed">蒙古文位數</type>
+			<type key="numbers" type="orya">奧里亞數字</type>
+			<type key="numbers" type="taml">泰米爾數字</type>
+			<type key="numbers" type="tamldec" draft="contributed">泰米爾數字</type>
 		</types>
 		<transformNames>
 			<transformName type="Numeric" draft="unconfirmed">數值</transformName>

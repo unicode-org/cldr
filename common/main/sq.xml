@@ -614,77 +614,77 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">Numrat</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers">shifra indo-arabe</type>
-			<type type="arabext" key="numbers">shifra indo-arabe të zgjatura</type>
-			<type type="armn" key="numbers">numra armenë</type>
-			<type type="armnlow" key="numbers">numra armenë të vegjël</type>
-			<type type="beng" key="numbers">shifra bengali</type>
-			<type type="big5han" key="collation">Radhitje e kinezishtes tradicionale - Big5</type>
-			<type type="buddhist" key="calendar">kalendar budist</type>
-			<type type="chinese" key="calendar">kalendar kinez</type>
-			<type type="coptic" key="calendar">Kalendari Koptik</type>
-			<type type="dangi" key="calendar">kalendar dangi</type>
-			<type type="deva" key="numbers">shifra devanagari</type>
-			<type type="dictionary" key="collation">Radhitje fjalori</type>
-			<type type="ducet" key="collation">radhitje unikode e parazgjedhur</type>
-			<type type="ethi" key="numbers">numra etiopë</type>
-			<type type="ethiopic" key="calendar">kalendar etiop</type>
-			<type type="ethiopic-amete-alem" key="calendar">Kalendari Etiopas Amete Alem</type>
-			<type type="fullwide" key="numbers">shifra me largësi të brendshme</type>
-			<type type="gb2312han" key="collation">Radhitje e kinezishtes së thjeshtësuar - GB2312</type>
-			<type type="geor" key="numbers">numra gjeorgjianë</type>
-			<type type="gregorian" key="calendar">kalendar gregorian</type>
-			<type type="grek" key="numbers">numra grekë</type>
-			<type type="greklow" key="numbers">numra grekë të vegjël</type>
-			<type type="gujr" key="numbers">shifra guxharati</type>
-			<type type="guru" key="numbers">shifra gurmuki</type>
-			<type type="h11" key="hc">Sistemi 12-orësh (0 - 11)</type>
-			<type type="h12" key="hc">Sistemi 12-orësh (1 - 12)</type>
-			<type type="h23" key="hc">Sistemi 24-orësh (0 - 23)</type>
-			<type type="h24" key="hc">Sistemi 24-orësh (1 - 24)</type>
-			<type type="hanidec" key="numbers">numra dhjetorë kinezë</type>
-			<type type="hans" key="numbers">numra të kinezishtes së thjeshtuar</type>
-			<type type="hansfin" key="numbers">numra financiarë të kinezishtes së thjeshtuar</type>
-			<type type="hant" key="numbers">numra të kinezishtes tradicionale</type>
-			<type type="hantfin" key="numbers">numra financiarë të kinezishtes tradicionale</type>
-			<type type="hebr" key="numbers">numra hebraikë</type>
-			<type type="hebrew" key="calendar">kalendar hebraik</type>
-			<type type="indian" key="calendar">Kalendari Kombëtar Indian</type>
-			<type type="islamic" key="calendar">kalendar islamik</type>
-			<type type="islamic-civil" key="calendar">Kalendari Islamik (tabelor, periudha civile)</type>
-			<type type="islamic-tbla" key="calendar">Kalendari Islamik (tabelor, epoka austromikale)</type>
-			<type type="islamic-umalqura" key="calendar">Kalendari Islamik (Um al-Qura)</type>
-			<type type="iso8601" key="calendar">kalendar ISO-8601</type>
-			<type type="japanese" key="calendar">kalendar japonez</type>
-			<type type="jpan" key="numbers">numra japonezë</type>
-			<type type="jpanfin" key="numbers">numra financiarë japonezë</type>
-			<type type="khmr" key="numbers">shifra kmere</type>
-			<type type="knda" key="numbers">shifra kanade</type>
-			<type type="laoo" key="numbers">shifra lao</type>
-			<type type="latn" key="numbers">shifra latino-perëndimore</type>
-			<type type="loose" key="lb">Stili i gjerësisë së rreshtave - i larguar</type>
-			<type type="metric" key="ms">Sistemi metrik</type>
-			<type type="mlym" key="numbers">shifra malajalame</type>
-			<type type="mymr" key="numbers">shifra mianmari</type>
-			<type type="normal" key="lb">Stili i gjerësisë së rreshtave - normal</type>
-			<type type="orya" key="numbers">shifra orije</type>
-			<type type="persian" key="calendar">kalendar persian</type>
-			<type type="phonebook" key="collation">Radhitje libri telefonik</type>
-			<type type="pinyin" key="collation">Radhitje pinini</type>
-			<type type="reformed" key="collation">Radhitje e reformuar</type>
-			<type type="roc" key="calendar">kalendar minguo (kinez)</type>
-			<type type="roman" key="numbers">numra romakë</type>
-			<type type="romanlow" key="numbers">numra romakë të vegjël</type>
-			<type type="search" key="collation">kërkim i përgjithshëm</type>
-			<type type="standard" key="collation">radhitje standarde</type>
-			<type type="strict" key="lb">Stili i gjerësisë së rreshtave - i ngushtuar</type>
-			<type type="taml" key="numbers">numra tamilë tradicionalë</type>
-			<type type="tamldec" key="numbers">shifra tamile</type>
-			<type type="telu" key="numbers">shifra teluguje</type>
-			<type type="thai" key="numbers">shifra tajlandeze</type>
-			<type type="tibt" key="numbers">shifra tibetiane</type>
-			<type type="uksystem" key="ms">Sistemi imperial (britanik) i njësive matëse</type>
-			<type type="ussystem" key="ms">Sistemi amerikan i njësive matëse</type>
+			<type key="calendar" type="buddhist">kalendar budist</type>
+			<type key="calendar" type="chinese">kalendar kinez</type>
+			<type key="calendar" type="coptic">Kalendari Koptik</type>
+			<type key="calendar" type="dangi">kalendar dangi</type>
+			<type key="calendar" type="ethiopic">kalendar etiop</type>
+			<type key="calendar" type="ethiopic-amete-alem">Kalendari Etiopas Amete Alem</type>
+			<type key="calendar" type="gregorian">kalendar gregorian</type>
+			<type key="calendar" type="hebrew">kalendar hebraik</type>
+			<type key="calendar" type="indian">Kalendari Kombëtar Indian</type>
+			<type key="calendar" type="islamic">kalendar islamik</type>
+			<type key="calendar" type="islamic-civil">Kalendari Islamik (tabelor, periudha civile)</type>
+			<type key="calendar" type="islamic-tbla">Kalendari Islamik (tabelor, epoka austromikale)</type>
+			<type key="calendar" type="islamic-umalqura">Kalendari Islamik (Um al-Qura)</type>
+			<type key="calendar" type="iso8601">kalendar ISO-8601</type>
+			<type key="calendar" type="japanese">kalendar japonez</type>
+			<type key="calendar" type="persian">kalendar persian</type>
+			<type key="calendar" type="roc">kalendar minguo (kinez)</type>
+			<type key="collation" type="big5han">Radhitje e kinezishtes tradicionale - Big5</type>
+			<type key="collation" type="dictionary">Radhitje fjalori</type>
+			<type key="collation" type="ducet">radhitje unikode e parazgjedhur</type>
+			<type key="collation" type="gb2312han">Radhitje e kinezishtes së thjeshtësuar - GB2312</type>
+			<type key="collation" type="phonebook">Radhitje libri telefonik</type>
+			<type key="collation" type="pinyin">Radhitje pinini</type>
+			<type key="collation" type="reformed">Radhitje e reformuar</type>
+			<type key="collation" type="search">kërkim i përgjithshëm</type>
+			<type key="collation" type="standard">radhitje standarde</type>
+			<type key="hc" type="h11">Sistemi 12-orësh (0 - 11)</type>
+			<type key="hc" type="h12">Sistemi 12-orësh (1 - 12)</type>
+			<type key="hc" type="h23">Sistemi 24-orësh (0 - 23)</type>
+			<type key="hc" type="h24">Sistemi 24-orësh (1 - 24)</type>
+			<type key="lb" type="loose">Stili i gjerësisë së rreshtave - i larguar</type>
+			<type key="lb" type="normal">Stili i gjerësisë së rreshtave - normal</type>
+			<type key="lb" type="strict">Stili i gjerësisë së rreshtave - i ngushtuar</type>
+			<type key="ms" type="metric">Sistemi metrik</type>
+			<type key="ms" type="uksystem">Sistemi imperial (britanik) i njësive matëse</type>
+			<type key="ms" type="ussystem">Sistemi amerikan i njësive matëse</type>
+			<type key="numbers" type="arab">shifra indo-arabe</type>
+			<type key="numbers" type="arabext">shifra indo-arabe të zgjatura</type>
+			<type key="numbers" type="armn">numra armenë</type>
+			<type key="numbers" type="armnlow">numra armenë të vegjël</type>
+			<type key="numbers" type="beng">shifra bengali</type>
+			<type key="numbers" type="deva">shifra devanagari</type>
+			<type key="numbers" type="ethi">numra etiopë</type>
+			<type key="numbers" type="fullwide">shifra me largësi të brendshme</type>
+			<type key="numbers" type="geor">numra gjeorgjianë</type>
+			<type key="numbers" type="grek">numra grekë</type>
+			<type key="numbers" type="greklow">numra grekë të vegjël</type>
+			<type key="numbers" type="gujr">shifra guxharati</type>
+			<type key="numbers" type="guru">shifra gurmuki</type>
+			<type key="numbers" type="hanidec">numra dhjetorë kinezë</type>
+			<type key="numbers" type="hans">numra të kinezishtes së thjeshtuar</type>
+			<type key="numbers" type="hansfin">numra financiarë të kinezishtes së thjeshtuar</type>
+			<type key="numbers" type="hant">numra të kinezishtes tradicionale</type>
+			<type key="numbers" type="hantfin">numra financiarë të kinezishtes tradicionale</type>
+			<type key="numbers" type="hebr">numra hebraikë</type>
+			<type key="numbers" type="jpan">numra japonezë</type>
+			<type key="numbers" type="jpanfin">numra financiarë japonezë</type>
+			<type key="numbers" type="khmr">shifra kmere</type>
+			<type key="numbers" type="knda">shifra kanade</type>
+			<type key="numbers" type="laoo">shifra lao</type>
+			<type key="numbers" type="latn">shifra latino-perëndimore</type>
+			<type key="numbers" type="mlym">shifra malajalame</type>
+			<type key="numbers" type="mymr">shifra mianmari</type>
+			<type key="numbers" type="orya">shifra orije</type>
+			<type key="numbers" type="roman">numra romakë</type>
+			<type key="numbers" type="romanlow">numra romakë të vegjël</type>
+			<type key="numbers" type="taml">numra tamilë tradicionalë</type>
+			<type key="numbers" type="tamldec">shifra tamile</type>
+			<type key="numbers" type="telu">shifra teluguje</type>
+			<type key="numbers" type="thai">shifra tajlandeze</type>
+			<type key="numbers" type="tibt">shifra tibetiane</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrik</measurementSystemName>

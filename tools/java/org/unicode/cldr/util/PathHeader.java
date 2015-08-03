@@ -1489,9 +1489,8 @@ public class PathHeader implements Comparable<PathHeader> {
                     if ("latn".equals(source0)) {
                         return "";
                     }
-                    String displayName = englishFile.getStringValue("//ldml/localeDisplayNames/types/type[@type=\""
-                        + source0 +
-                        "\"][@key=\"numbers\"]");
+                    String displayName = englishFile.getStringValue("//ldml/localeDisplayNames/types/type[@key=\"numbers\"][@type=\""
+                        + source0 + "\"]");
                     return "using " + (displayName == null ? source0 : displayName + " (" + source0 + ")");
                 }
             });

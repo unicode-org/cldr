@@ -635,55 +635,55 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">ličby</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers">arabsko-indiske cyfry</type>
-			<type type="arabext" key="numbers">rozšěrjene arabsko-indiske cyfry</type>
-			<type type="armn" key="numbers">armenske cyfry</type>
-			<type type="armnlow" key="numbers">armenske cyfry, małe pisane</type>
-			<type type="beng" key="numbers">bengalske cyfry</type>
-			<type type="buddhist" key="calendar">buddhistiska protyka</type>
-			<type type="chinese" key="calendar">chinska protyka</type>
-			<type type="dangi" key="calendar">dangi-protyka</type>
-			<type type="deva" key="numbers">devanagari-cyfry</type>
-			<type type="ducet" key="collation">rjadowanski slěd po Unicode</type>
-			<type type="ethi" key="numbers">etiopiske cyfry</type>
-			<type type="ethiopic" key="calendar">etiopiska protyka</type>
-			<type type="fullwide" key="numbers">połnošěroke cyfry</type>
-			<type type="geor" key="numbers">georgiske cyfry</type>
-			<type type="gregorian" key="calendar">gregorianska protyka</type>
-			<type type="grek" key="numbers">grjekske cyfry</type>
-			<type type="greklow" key="numbers">grjekske cyfry, małe pisane</type>
-			<type type="gujr" key="numbers">gujarati-cyfry</type>
-			<type type="guru" key="numbers">gurmukhi-cyfry</type>
-			<type type="hanidec" key="numbers">chinske decimalne ličby</type>
-			<type type="hans" key="numbers">zjednorjene chinske cyfry</type>
-			<type type="hansfin" key="numbers">zjednorjene chinske financne cyfry</type>
-			<type type="hant" key="numbers">tradicionalne chinske cyfry</type>
-			<type type="hantfin" key="numbers">tradicionalne chinske financne cyfry</type>
-			<type type="hebr" key="numbers">hebrejske cyfry</type>
-			<type type="hebrew" key="calendar">židowska protyka</type>
-			<type type="islamic" key="calendar">islamska protyka</type>
-			<type type="iso8601" key="calendar">protyka po iso-8601</type>
-			<type type="japanese" key="calendar">japanska protyka</type>
-			<type type="jpan" key="numbers">japanske cyfry</type>
-			<type type="jpanfin" key="numbers">japanske financne cyfry</type>
-			<type type="khmr" key="numbers">khmerske cyfry</type>
-			<type type="knda" key="numbers">kannadske cyfry</type>
-			<type type="laoo" key="numbers">laoske cyfry</type>
-			<type type="latn" key="numbers">arabske cyfry</type>
-			<type type="mlym" key="numbers">malayalamske cyfry</type>
-			<type type="mymr" key="numbers">burmaske cyfry</type>
-			<type type="orya" key="numbers">oriya-cyfry</type>
-			<type type="persian" key="calendar">persiska protyka</type>
-			<type type="roc" key="calendar">protyka republiki China</type>
-			<type type="roman" key="numbers">romske cyfry</type>
-			<type type="romanlow" key="numbers">romske cyfry, małe pisane</type>
-			<type type="search" key="collation">powšitkowne pytanje</type>
-			<type type="standard" key="collation">standardowy rjadowanski slěd</type>
-			<type type="taml" key="numbers">tradicionalne tamilske cyfry</type>
-			<type type="tamldec" key="numbers">tamilske cyfry</type>
-			<type type="telu" key="numbers">telugu-cyfry</type>
-			<type type="thai" key="numbers">thailandske cyfry</type>
-			<type type="tibt" key="numbers">tibetske cyfry</type>
+			<type key="calendar" type="buddhist">buddhistiska protyka</type>
+			<type key="calendar" type="chinese">chinska protyka</type>
+			<type key="calendar" type="dangi">dangi-protyka</type>
+			<type key="calendar" type="ethiopic">etiopiska protyka</type>
+			<type key="calendar" type="gregorian">gregorianska protyka</type>
+			<type key="calendar" type="hebrew">židowska protyka</type>
+			<type key="calendar" type="islamic">islamska protyka</type>
+			<type key="calendar" type="iso8601">protyka po iso-8601</type>
+			<type key="calendar" type="japanese">japanska protyka</type>
+			<type key="calendar" type="persian">persiska protyka</type>
+			<type key="calendar" type="roc">protyka republiki China</type>
+			<type key="collation" type="ducet">rjadowanski slěd po Unicode</type>
+			<type key="collation" type="search">powšitkowne pytanje</type>
+			<type key="collation" type="standard">standardowy rjadowanski slěd</type>
+			<type key="numbers" type="arab">arabsko-indiske cyfry</type>
+			<type key="numbers" type="arabext">rozšěrjene arabsko-indiske cyfry</type>
+			<type key="numbers" type="armn">armenske cyfry</type>
+			<type key="numbers" type="armnlow">armenske cyfry, małe pisane</type>
+			<type key="numbers" type="beng">bengalske cyfry</type>
+			<type key="numbers" type="deva">devanagari-cyfry</type>
+			<type key="numbers" type="ethi">etiopiske cyfry</type>
+			<type key="numbers" type="fullwide">połnošěroke cyfry</type>
+			<type key="numbers" type="geor">georgiske cyfry</type>
+			<type key="numbers" type="grek">grjekske cyfry</type>
+			<type key="numbers" type="greklow">grjekske cyfry, małe pisane</type>
+			<type key="numbers" type="gujr">gujarati-cyfry</type>
+			<type key="numbers" type="guru">gurmukhi-cyfry</type>
+			<type key="numbers" type="hanidec">chinske decimalne ličby</type>
+			<type key="numbers" type="hans">zjednorjene chinske cyfry</type>
+			<type key="numbers" type="hansfin">zjednorjene chinske financne cyfry</type>
+			<type key="numbers" type="hant">tradicionalne chinske cyfry</type>
+			<type key="numbers" type="hantfin">tradicionalne chinske financne cyfry</type>
+			<type key="numbers" type="hebr">hebrejske cyfry</type>
+			<type key="numbers" type="jpan">japanske cyfry</type>
+			<type key="numbers" type="jpanfin">japanske financne cyfry</type>
+			<type key="numbers" type="khmr">khmerske cyfry</type>
+			<type key="numbers" type="knda">kannadske cyfry</type>
+			<type key="numbers" type="laoo">laoske cyfry</type>
+			<type key="numbers" type="latn">arabske cyfry</type>
+			<type key="numbers" type="mlym">malayalamske cyfry</type>
+			<type key="numbers" type="mymr">burmaske cyfry</type>
+			<type key="numbers" type="orya">oriya-cyfry</type>
+			<type key="numbers" type="roman">romske cyfry</type>
+			<type key="numbers" type="romanlow">romske cyfry, małe pisane</type>
+			<type key="numbers" type="taml">tradicionalne tamilske cyfry</type>
+			<type key="numbers" type="tamldec">tamilske cyfry</type>
+			<type key="numbers" type="telu">telugu-cyfry</type>
+			<type key="numbers" type="thai">thailandske cyfry</type>
+			<type key="numbers" type="tibt">tibetske cyfry</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metriski</measurementSystemName>

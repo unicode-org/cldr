@@ -600,65 +600,65 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">сандар</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers">араб-индус сандары</type>
-			<type type="arabext" key="numbers">кеңейтилген араб-индус сандары</type>
-			<type type="armn" key="numbers">армян сандары</type>
-			<type type="armnlow" key="numbers">армян сандары (саптык жазылыш)</type>
-			<type type="beng" key="numbers">бенгали сандары</type>
-			<type type="buddhist" key="calendar">Будда жылнаамасы</type>
-			<type type="chinese" key="calendar">Кытай жылнаамасы</type>
-			<type type="dangi" key="calendar">Данги жылнаамасы</type>
-			<type type="deva" key="numbers">деванагари сандары</type>
-			<type type="ducet" key="collation">Демейки Unicode иргөө тартиби</type>
-			<type type="ethi" key="numbers">эфиоп сандары</type>
-			<type type="ethiopic" key="calendar">Эфиоп жылнаамасы</type>
-			<type type="fullwide" key="numbers">толук эндүү сандар</type>
-			<type type="geor" key="numbers">грузин сандары</type>
-			<type type="gregorian" key="calendar">Григориан жылнаамасы</type>
-			<type type="grek" key="numbers">грек сандары</type>
-			<type type="greklow" key="numbers">грек сандары (саптык жазылыш)</type>
-			<type type="gujr" key="numbers">гужарати сандары</type>
-			<type type="guru" key="numbers">гурмухи сандары</type>
-			<type type="h11" key="hc">12 сааттык тутум (0-11)</type>
-			<type type="h12" key="hc">12 сааттык тутум (1-12)</type>
-			<type type="h23" key="hc">24 сааттык тутум (0-23)</type>
-			<type type="h24" key="hc">24 сааттык тутум (1-24)</type>
-			<type type="hanidec" key="numbers">кытай ондук сандары</type>
-			<type type="hans" key="numbers">жөнөкөйлөштүрүлгөн кытай сандары</type>
-			<type type="hansfin" key="numbers">жөнөкөйлөштүрүлгөн кытай финансы сандары</type>
-			<type type="hant" key="numbers">салттуу кытай сандары</type>
-			<type type="hantfin" key="numbers">салттуу кытай финансы сандары</type>
-			<type type="hebr" key="numbers">иврит сандары</type>
-			<type type="hebrew" key="calendar">Иврит жылнаамасы</type>
-			<type type="islamic" key="calendar">Ислам жылнаамасы</type>
-			<type type="iso8601" key="calendar">ИСО-8601 жылнаамасы</type>
-			<type type="japanese" key="calendar">Жапон жылнаамасы</type>
-			<type type="jpan" key="numbers">япон сандары</type>
-			<type type="jpanfin" key="numbers">япон финансы сандары</type>
-			<type type="khmr" key="numbers">кмер сандары</type>
-			<type type="knda" key="numbers">каннада сандары</type>
-			<type type="laoo" key="numbers">лао сандары</type>
-			<type type="latn" key="numbers">батыш сандары</type>
-			<type type="loose" key="lb">Саптардын арасы кенен</type>
-			<type type="metric" key="ms">Метрикалык тутум</type>
-			<type type="mlym" key="numbers">малайалам сандары</type>
-			<type type="mymr" key="numbers">мйанмар сандары</type>
-			<type type="normal" key="lb">Саптардын арасы орточо</type>
-			<type type="orya" key="numbers">ория сандары</type>
-			<type type="persian" key="calendar">Перс жылнаамасы</type>
-			<type type="roc" key="calendar">Мингуо жылнаамасы</type>
-			<type type="roman" key="numbers">роман сандары</type>
-			<type type="romanlow" key="numbers">роман сандары (саптык жазылыш)</type>
-			<type type="search" key="collation">Жалпы издөө</type>
-			<type type="standard" key="collation">Стандарттуу иргөө тартиби</type>
-			<type type="strict" key="lb">Саптардын арасы тыкыс</type>
-			<type type="taml" key="numbers">салттуу тамил сандары</type>
-			<type type="tamldec" key="numbers">тамил сандары</type>
-			<type type="telu" key="numbers">телугу сандары</type>
-			<type type="thai" key="numbers">тай сандары</type>
-			<type type="tibt" key="numbers">тибет сандары</type>
-			<type type="uksystem" key="ms">Британ империясынын өлчөө тутуму</type>
-			<type type="ussystem" key="ms">АКШнын өлчөө тутуму</type>
+			<type key="calendar" type="buddhist">Будда жылнаамасы</type>
+			<type key="calendar" type="chinese">Кытай жылнаамасы</type>
+			<type key="calendar" type="dangi">Данги жылнаамасы</type>
+			<type key="calendar" type="ethiopic">Эфиоп жылнаамасы</type>
+			<type key="calendar" type="gregorian">Григориан жылнаамасы</type>
+			<type key="calendar" type="hebrew">Иврит жылнаамасы</type>
+			<type key="calendar" type="islamic">Ислам жылнаамасы</type>
+			<type key="calendar" type="iso8601">ИСО-8601 жылнаамасы</type>
+			<type key="calendar" type="japanese">Жапон жылнаамасы</type>
+			<type key="calendar" type="persian">Перс жылнаамасы</type>
+			<type key="calendar" type="roc">Мингуо жылнаамасы</type>
+			<type key="collation" type="ducet">Демейки Unicode иргөө тартиби</type>
+			<type key="collation" type="search">Жалпы издөө</type>
+			<type key="collation" type="standard">Стандарттуу иргөө тартиби</type>
+			<type key="hc" type="h11">12 сааттык тутум (0-11)</type>
+			<type key="hc" type="h12">12 сааттык тутум (1-12)</type>
+			<type key="hc" type="h23">24 сааттык тутум (0-23)</type>
+			<type key="hc" type="h24">24 сааттык тутум (1-24)</type>
+			<type key="lb" type="loose">Саптардын арасы кенен</type>
+			<type key="lb" type="normal">Саптардын арасы орточо</type>
+			<type key="lb" type="strict">Саптардын арасы тыкыс</type>
+			<type key="ms" type="metric">Метрикалык тутум</type>
+			<type key="ms" type="uksystem">Британ империясынын өлчөө тутуму</type>
+			<type key="ms" type="ussystem">АКШнын өлчөө тутуму</type>
+			<type key="numbers" type="arab">араб-индус сандары</type>
+			<type key="numbers" type="arabext">кеңейтилген араб-индус сандары</type>
+			<type key="numbers" type="armn">армян сандары</type>
+			<type key="numbers" type="armnlow">армян сандары (саптык жазылыш)</type>
+			<type key="numbers" type="beng">бенгали сандары</type>
+			<type key="numbers" type="deva">деванагари сандары</type>
+			<type key="numbers" type="ethi">эфиоп сандары</type>
+			<type key="numbers" type="fullwide">толук эндүү сандар</type>
+			<type key="numbers" type="geor">грузин сандары</type>
+			<type key="numbers" type="grek">грек сандары</type>
+			<type key="numbers" type="greklow">грек сандары (саптык жазылыш)</type>
+			<type key="numbers" type="gujr">гужарати сандары</type>
+			<type key="numbers" type="guru">гурмухи сандары</type>
+			<type key="numbers" type="hanidec">кытай ондук сандары</type>
+			<type key="numbers" type="hans">жөнөкөйлөштүрүлгөн кытай сандары</type>
+			<type key="numbers" type="hansfin">жөнөкөйлөштүрүлгөн кытай финансы сандары</type>
+			<type key="numbers" type="hant">салттуу кытай сандары</type>
+			<type key="numbers" type="hantfin">салттуу кытай финансы сандары</type>
+			<type key="numbers" type="hebr">иврит сандары</type>
+			<type key="numbers" type="jpan">япон сандары</type>
+			<type key="numbers" type="jpanfin">япон финансы сандары</type>
+			<type key="numbers" type="khmr">кмер сандары</type>
+			<type key="numbers" type="knda">каннада сандары</type>
+			<type key="numbers" type="laoo">лао сандары</type>
+			<type key="numbers" type="latn">батыш сандары</type>
+			<type key="numbers" type="mlym">малайалам сандары</type>
+			<type key="numbers" type="mymr">мйанмар сандары</type>
+			<type key="numbers" type="orya">ория сандары</type>
+			<type key="numbers" type="roman">роман сандары</type>
+			<type key="numbers" type="romanlow">роман сандары (саптык жазылыш)</type>
+			<type key="numbers" type="taml">салттуу тамил сандары</type>
+			<type key="numbers" type="tamldec">тамил сандары</type>
+			<type key="numbers" type="telu">телугу сандары</type>
+			<type key="numbers" type="thai">тай сандары</type>
+			<type key="numbers" type="tibt">тибет сандары</type>
 		</types>
 		<transformNames>
 			<transformName type="Numeric" draft="unconfirmed">Сандык</transformName>

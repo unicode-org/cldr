@@ -356,7 +356,7 @@ public class TestLocale extends TestFmwkPlus {
                 "Anglish [abc] (foo [jkl])", null },
             { "key", "co", "sort (mno)", "en_foobar@co=FOO",
                 "Anglish [abc] (foo [jkl], sort [mno]=FOO)", null },
-            { "type|key", "FII|co", "sortfii (mno)", "en_foobar@co=FII",
+            { "key|type", "co|FII", "sortfii (mno)", "en_foobar@co=FII",
                 "Anglish [abc] (foo [jkl], sortfii [mno])", null }, };
         // load up a dummy source
         SimpleXMLSource dxs = new SimpleXMLSource("xx");

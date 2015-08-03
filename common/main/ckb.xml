@@ -398,17 +398,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers" draft="unconfirmed">ژمارەکان</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers" draft="unconfirmed">ژمارە عەربی-ھیندییەکان</type>
-			<type type="chinese" key="calendar" draft="unconfirmed">ڕۆژژمێری چینی</type>
-			<type type="gregorian" key="calendar" draft="unconfirmed">ڕۆژژمێری گورجی</type>
-			<type type="gujr" key="numbers" draft="unconfirmed">ژمارە گوجەراتییەکان</type>
-			<type type="hebrew" key="calendar" draft="unconfirmed">ڕۆژژمێری عیبری</type>
-			<type type="indian" key="calendar" draft="unconfirmed">ڕۆژژمێری نەتەوەیی ھیندی</type>
-			<type type="islamic" key="calendar" draft="unconfirmed">ڕۆژژمێری کۆچیی مانگی</type>
-			<type type="khmr" key="numbers" draft="unconfirmed">ژمارە خمێرییەکان</type>
-			<type type="latn" key="numbers" draft="unconfirmed">ژمارە ڕۆژاوایییەکان</type>
-			<type type="mymr" key="numbers" draft="unconfirmed">ژمارە میانمارییەکان</type>
-			<type type="persian" key="calendar" draft="unconfirmed">ڕۆژژمێری کۆچیی ھەتاوی</type>
+			<type key="calendar" type="chinese" draft="unconfirmed">ڕۆژژمێری چینی</type>
+			<type key="calendar" type="gregorian" draft="unconfirmed">ڕۆژژمێری گورجی</type>
+			<type key="calendar" type="hebrew" draft="unconfirmed">ڕۆژژمێری عیبری</type>
+			<type key="calendar" type="indian" draft="unconfirmed">ڕۆژژمێری نەتەوەیی ھیندی</type>
+			<type key="calendar" type="islamic" draft="unconfirmed">ڕۆژژمێری کۆچیی مانگی</type>
+			<type key="calendar" type="persian" draft="unconfirmed">ڕۆژژمێری کۆچیی ھەتاوی</type>
+			<type key="numbers" type="arab" draft="unconfirmed">ژمارە عەربی-ھیندییەکان</type>
+			<type key="numbers" type="gujr" draft="unconfirmed">ژمارە گوجەراتییەکان</type>
+			<type key="numbers" type="khmr" draft="unconfirmed">ژمارە خمێرییەکان</type>
+			<type key="numbers" type="latn" draft="unconfirmed">ژمارە ڕۆژاوایییەکان</type>
+			<type key="numbers" type="mymr" draft="unconfirmed">ژمارە میانمارییەکان</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric" draft="unconfirmed">مەتریک</measurementSystemName>
@@ -975,3 +975,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 </ldml>
+

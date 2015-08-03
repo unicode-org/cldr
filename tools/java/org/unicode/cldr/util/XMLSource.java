@@ -1407,8 +1407,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             for (int i = 0; i < typeDisplayNames.length; ++i) {
                 constructedItems.putValueAtPath(
                     "//ldml/localeDisplayNames/types/type"
-                        + "[@type=\"" + typeDisplayNames[i][0] + "\"]"
-                        + "[@key=\"" + typeDisplayNames[i][1] + "\"]",
+                        + "[@key=\"" + typeDisplayNames[i][1] + "\"]"
+                        + "[@type=\"" + typeDisplayNames[i][0] + "\"]",
                     typeDisplayNames[i][0]);
             }
             //            String[][] relativeValues = {

@@ -607,65 +607,65 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">raqamlar</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers">arab-hind raqamlari</type>
-			<type type="arabext" key="numbers">kengaytirilgan arab-hind raqamlari</type>
-			<type type="armn" key="numbers">arman raqamlari</type>
-			<type type="armnlow" key="numbers">arman kichik raqamlari</type>
-			<type type="beng" key="numbers">bengal raqamlari</type>
-			<type type="buddhist" key="calendar">buddistlar taqvimi</type>
-			<type type="chinese" key="calendar">xitoy taqvimi</type>
-			<type type="dangi" key="calendar">dangi taqvimi</type>
-			<type type="deva" key="numbers">devanagar raqamlari</type>
-			<type type="ducet" key="collation">standart YUNIKOD saralash tartibi</type>
-			<type type="ethi" key="numbers">habash raqamlari</type>
-			<type type="ethiopic" key="calendar">habash taqvimi</type>
-			<type type="fullwide" key="numbers">to‘liq kenglikdagi raqamlar</type>
-			<type type="geor" key="numbers">gruzin raqamlari</type>
-			<type type="gregorian" key="calendar">grigorian taqvimi</type>
-			<type type="grek" key="numbers">grek raqamlari</type>
-			<type type="greklow" key="numbers">kichik grek raqamlari</type>
-			<type type="gujr" key="numbers">gujarot raqamlari</type>
-			<type type="guru" key="numbers">gurmukxi raqamlari</type>
-			<type type="h11" key="hc">12 soatlik tizim (0-11)</type>
-			<type type="h12" key="hc">12 soatlik tizim (1-12)</type>
-			<type type="h23" key="hc">24 soatlik tizim (0-23)</type>
-			<type type="h24" key="hc">24 soatlik tizim (1-24)</type>
-			<type type="hanidec" key="numbers">xitoy o‘nli raqamlari</type>
-			<type type="hans" key="numbers">soddalashgan xitoy raqamlari</type>
-			<type type="hansfin" key="numbers">soddalashgan xitoy raqamlari (moliyaviy)</type>
-			<type type="hant" key="numbers">an’anaviy xitoy raqamlari</type>
-			<type type="hantfin" key="numbers">an’anaviy xitoy raqamlari (moliyaviy)</type>
-			<type type="hebr" key="numbers">ibroniy raqamlar</type>
-			<type type="hebrew" key="calendar">ibroniy taqvim</type>
-			<type type="islamic" key="calendar">islomiy taqvim</type>
-			<type type="iso8601" key="calendar">ISO-8601 taqvimi</type>
-			<type type="japanese" key="calendar">yapon taqvimi</type>
-			<type type="jpan" key="numbers">yapon raqamlari</type>
-			<type type="jpanfin" key="numbers">yapon raqamlari (moliyaviy)</type>
-			<type type="khmr" key="numbers">xmer raqamlari</type>
-			<type type="knda" key="numbers">kannada raqamlari</type>
-			<type type="laoo" key="numbers">laos raqamlari</type>
-			<type type="latn" key="numbers">zamonaviy arab raqamlari</type>
-			<type type="loose" key="lb">qatorni yumshoq uzish</type>
-			<type type="metric" key="ms">metrik tizim</type>
-			<type type="mlym" key="numbers">malayalam raqamlari</type>
-			<type type="mymr" key="numbers">birman raqamlari</type>
-			<type type="normal" key="lb">qatorni odatiy uzish</type>
-			<type type="orya" key="numbers">oriya raqamlari</type>
-			<type type="persian" key="calendar">fors taqvimi</type>
-			<type type="roc" key="calendar">xitoy taqvimi</type>
-			<type type="roman" key="numbers">rim raqamlari</type>
-			<type type="romanlow" key="numbers">kichik rim raqamlari</type>
-			<type type="search" key="collation">qidiruv</type>
-			<type type="standard" key="collation">standart saralash tartibi</type>
-			<type type="strict" key="lb">qatorni qat’iy uzish</type>
-			<type type="taml" key="numbers">an’anaviy tamil raqamlari</type>
-			<type type="tamldec" key="numbers">tamil raqamlari</type>
-			<type type="telu" key="numbers">telugu raqamlari</type>
-			<type type="thai" key="numbers">tay raqamlari</type>
-			<type type="tibt" key="numbers">tibet raqamlari</type>
-			<type type="uksystem" key="ms">Britaniya o‘lchov tizimi</type>
-			<type type="ussystem" key="ms">AQSH o‘lchov tizimi</type>
+			<type key="calendar" type="buddhist">buddistlar taqvimi</type>
+			<type key="calendar" type="chinese">xitoy taqvimi</type>
+			<type key="calendar" type="dangi">dangi taqvimi</type>
+			<type key="calendar" type="ethiopic">habash taqvimi</type>
+			<type key="calendar" type="gregorian">grigorian taqvimi</type>
+			<type key="calendar" type="hebrew">ibroniy taqvim</type>
+			<type key="calendar" type="islamic">islomiy taqvim</type>
+			<type key="calendar" type="iso8601">ISO-8601 taqvimi</type>
+			<type key="calendar" type="japanese">yapon taqvimi</type>
+			<type key="calendar" type="persian">fors taqvimi</type>
+			<type key="calendar" type="roc">xitoy taqvimi</type>
+			<type key="collation" type="ducet">standart YUNIKOD saralash tartibi</type>
+			<type key="collation" type="search">qidiruv</type>
+			<type key="collation" type="standard">standart saralash tartibi</type>
+			<type key="hc" type="h11">12 soatlik tizim (0-11)</type>
+			<type key="hc" type="h12">12 soatlik tizim (1-12)</type>
+			<type key="hc" type="h23">24 soatlik tizim (0-23)</type>
+			<type key="hc" type="h24">24 soatlik tizim (1-24)</type>
+			<type key="lb" type="loose">qatorni yumshoq uzish</type>
+			<type key="lb" type="normal">qatorni odatiy uzish</type>
+			<type key="lb" type="strict">qatorni qat’iy uzish</type>
+			<type key="ms" type="metric">metrik tizim</type>
+			<type key="ms" type="uksystem">Britaniya o‘lchov tizimi</type>
+			<type key="ms" type="ussystem">AQSH o‘lchov tizimi</type>
+			<type key="numbers" type="arab">arab-hind raqamlari</type>
+			<type key="numbers" type="arabext">kengaytirilgan arab-hind raqamlari</type>
+			<type key="numbers" type="armn">arman raqamlari</type>
+			<type key="numbers" type="armnlow">arman kichik raqamlari</type>
+			<type key="numbers" type="beng">bengal raqamlari</type>
+			<type key="numbers" type="deva">devanagar raqamlari</type>
+			<type key="numbers" type="ethi">habash raqamlari</type>
+			<type key="numbers" type="fullwide">to‘liq kenglikdagi raqamlar</type>
+			<type key="numbers" type="geor">gruzin raqamlari</type>
+			<type key="numbers" type="grek">grek raqamlari</type>
+			<type key="numbers" type="greklow">kichik grek raqamlari</type>
+			<type key="numbers" type="gujr">gujarot raqamlari</type>
+			<type key="numbers" type="guru">gurmukxi raqamlari</type>
+			<type key="numbers" type="hanidec">xitoy o‘nli raqamlari</type>
+			<type key="numbers" type="hans">soddalashgan xitoy raqamlari</type>
+			<type key="numbers" type="hansfin">soddalashgan xitoy raqamlari (moliyaviy)</type>
+			<type key="numbers" type="hant">an’anaviy xitoy raqamlari</type>
+			<type key="numbers" type="hantfin">an’anaviy xitoy raqamlari (moliyaviy)</type>
+			<type key="numbers" type="hebr">ibroniy raqamlar</type>
+			<type key="numbers" type="jpan">yapon raqamlari</type>
+			<type key="numbers" type="jpanfin">yapon raqamlari (moliyaviy)</type>
+			<type key="numbers" type="khmr">xmer raqamlari</type>
+			<type key="numbers" type="knda">kannada raqamlari</type>
+			<type key="numbers" type="laoo">laos raqamlari</type>
+			<type key="numbers" type="latn">zamonaviy arab raqamlari</type>
+			<type key="numbers" type="mlym">malayalam raqamlari</type>
+			<type key="numbers" type="mymr">birman raqamlari</type>
+			<type key="numbers" type="orya">oriya raqamlari</type>
+			<type key="numbers" type="roman">rim raqamlari</type>
+			<type key="numbers" type="romanlow">kichik rim raqamlari</type>
+			<type key="numbers" type="taml">an’anaviy tamil raqamlari</type>
+			<type key="numbers" type="tamldec">tamil raqamlari</type>
+			<type key="numbers" type="telu">telugu raqamlari</type>
+			<type key="numbers" type="thai">tay raqamlari</type>
+			<type key="numbers" type="tibt">tibet raqamlari</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrik</measurementSystemName>

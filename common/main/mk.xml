@@ -1107,75 +1107,75 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">Броеви</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers">Арапско-индиски цифри</type>
-			<type type="arabext" key="numbers">Проширени арапско-индиски цифри</type>
-			<type type="armn" key="numbers">Ерменски броеви</type>
-			<type type="armnlow" key="numbers">Ерменски мали броеви</type>
-			<type type="beng" key="numbers">Бенгалски цифри</type>
-			<type type="big5han" key="collation">Традиционално кинеско сортирање</type>
-			<type type="buddhist" key="calendar">Будистички календар</type>
-			<type type="chinese" key="calendar">Кинески календар</type>
-			<type type="coptic" key="calendar">Коптски календар</type>
-			<type type="dangi" key="calendar">Дангиски календар</type>
-			<type type="deva" key="numbers">деванагарски цифри</type>
-			<type type="ducet" key="collation">Стандардно сортирање во уникод</type>
-			<type type="ethi" key="numbers">Етиопски броеви</type>
-			<type type="ethiopic" key="calendar">Етиопски календар</type>
-			<type type="ethiopic-amete-alem" key="calendar">Етиопски Амет Алем календар</type>
-			<type type="fullwide" key="numbers">Цифри со целосна ширина</type>
-			<type type="gb2312han" key="collation">Поедноставено кинеско сортирање</type>
-			<type type="geor" key="numbers">Грузиски броеви</type>
-			<type type="gregorian" key="calendar">Грегоријански календар</type>
-			<type type="grek" key="numbers">Грчки броеви</type>
-			<type type="greklow" key="numbers">Грчки мали броеви</type>
-			<type type="gujr" key="numbers">Гуџарати цифри</type>
-			<type type="guru" key="numbers">Гурмуки цифри</type>
-			<type type="h11" key="hc">12-часовен систем (0-11)</type>
-			<type type="h12" key="hc">12-часовен систем (1-12)</type>
-			<type type="h23" key="hc">24-часовен систем (0-23)</type>
-			<type type="h24" key="hc">24-часовен систем (1-24)</type>
-			<type type="hanidec" key="numbers">Кинески децимални броеви</type>
-			<type type="hans" key="numbers">Поедноставени кинески броеви</type>
-			<type type="hansfin" key="numbers">Поедноставени кинески финансиски броеви</type>
-			<type type="hant" key="numbers">Традиционални кинески броеви</type>
-			<type type="hantfin" key="numbers">Традиционални кинески финансиски броеви</type>
-			<type type="hebr" key="numbers">Хебрејски броеви</type>
-			<type type="hebrew" key="calendar">Еврејски календар</type>
-			<type type="indian" key="calendar">Индиски национален календар</type>
-			<type type="islamic" key="calendar">Исламски календар</type>
-			<type type="islamic-civil" key="calendar">Исламски граѓански календар</type>
-			<type type="iso8601" key="calendar">Календар ISO-8601</type>
-			<type type="japanese" key="calendar">Јапонски календар</type>
-			<type type="jpan" key="numbers">Јапонски броеви</type>
-			<type type="jpanfin" key="numbers">Јапонски финансиски броеви</type>
-			<type type="khmr" key="numbers">Кмерски цифри</type>
-			<type type="knda" key="numbers">Канада цифри</type>
-			<type type="laoo" key="numbers">Лаошки цифри</type>
-			<type type="latn" key="numbers">Арапски броеви</type>
-			<type type="loose" key="lb">Допустлив стил за разделување редови</type>
-			<type type="metric" key="ms">Метрички систем</type>
-			<type type="mlym" key="numbers">Малајаламски цифри</type>
-			<type type="mymr" key="numbers">Мјанмарски цифри</type>
-			<type type="normal" key="lb">Нормален стил за разделување редови</type>
-			<type type="orya" key="numbers">Оријски цифри</type>
-			<type type="persian" key="calendar">Персиски календар</type>
-			<type type="phonebook" key="collation">Азбучен редослед</type>
-			<type type="pinyin" key="collation">Сортирање Pinyin</type>
-			<type type="roc" key="calendar">Мингуо-календар</type>
-			<type type="roman" key="numbers">Римски броеви</type>
-			<type type="romanlow" key="numbers">Римски мали броеви</type>
-			<type type="search" key="collation">Општо пребарување</type>
-			<type type="standard" key="collation">Стандардно сортирање</type>
-			<type type="strict" key="lb">Строг стил за разделување редови</type>
-			<type type="stroke" key="collation">Ритмички редослед</type>
-			<type type="taml" key="numbers">Традиционални тамилски броеви</type>
-			<type type="tamldec" key="numbers">Тамилски цифри</type>
-			<type type="telu" key="numbers">Телугу цифри</type>
-			<type type="thai" key="numbers">Тајландски цифри</type>
-			<type type="tibt" key="numbers">Тибетски цифри</type>
-			<type type="traditional" key="collation">Традиционално сортирање</type>
-			<type type="uksystem" key="ms">Империјален мерен систем</type>
-			<type type="ussystem" key="ms">Американски мерен систем</type>
+			<type key="calendar" type="buddhist">Будистички календар</type>
+			<type key="calendar" type="chinese">Кинески календар</type>
+			<type key="calendar" type="coptic">Коптски календар</type>
+			<type key="calendar" type="dangi">Дангиски календар</type>
+			<type key="calendar" type="ethiopic">Етиопски календар</type>
+			<type key="calendar" type="ethiopic-amete-alem">Етиопски Амет Алем календар</type>
+			<type key="calendar" type="gregorian">Грегоријански календар</type>
+			<type key="calendar" type="hebrew">Еврејски календар</type>
+			<type key="calendar" type="indian">Индиски национален календар</type>
+			<type key="calendar" type="islamic">Исламски календар</type>
+			<type key="calendar" type="islamic-civil">Исламски граѓански календар</type>
+			<type key="calendar" type="iso8601">Календар ISO-8601</type>
+			<type key="calendar" type="japanese">Јапонски календар</type>
+			<type key="calendar" type="persian">Персиски календар</type>
+			<type key="calendar" type="roc">Мингуо-календар</type>
+			<type key="collation" type="big5han">Традиционално кинеско сортирање</type>
+			<type key="collation" type="ducet">Стандардно сортирање во уникод</type>
+			<type key="collation" type="gb2312han">Поедноставено кинеско сортирање</type>
+			<type key="collation" type="phonebook">Азбучен редослед</type>
+			<type key="collation" type="pinyin">Сортирање Pinyin</type>
+			<type key="collation" type="search">Општо пребарување</type>
+			<type key="collation" type="standard">Стандардно сортирање</type>
+			<type key="collation" type="stroke">Ритмички редослед</type>
+			<type key="collation" type="traditional">Традиционално сортирање</type>
+			<type key="hc" type="h11">12-часовен систем (0-11)</type>
+			<type key="hc" type="h12">12-часовен систем (1-12)</type>
+			<type key="hc" type="h23">24-часовен систем (0-23)</type>
+			<type key="hc" type="h24">24-часовен систем (1-24)</type>
+			<type key="lb" type="loose">Допустлив стил за разделување редови</type>
+			<type key="lb" type="normal">Нормален стил за разделување редови</type>
+			<type key="lb" type="strict">Строг стил за разделување редови</type>
+			<type key="ms" type="metric">Метрички систем</type>
+			<type key="ms" type="uksystem">Империјален мерен систем</type>
+			<type key="ms" type="ussystem">Американски мерен систем</type>
+			<type key="numbers" type="arab">Арапско-индиски цифри</type>
+			<type key="numbers" type="arabext">Проширени арапско-индиски цифри</type>
+			<type key="numbers" type="armn">Ерменски броеви</type>
+			<type key="numbers" type="armnlow">Ерменски мали броеви</type>
+			<type key="numbers" type="beng">Бенгалски цифри</type>
+			<type key="numbers" type="deva">деванагарски цифри</type>
+			<type key="numbers" type="ethi">Етиопски броеви</type>
+			<type key="numbers" type="fullwide">Цифри со целосна ширина</type>
+			<type key="numbers" type="geor">Грузиски броеви</type>
+			<type key="numbers" type="grek">Грчки броеви</type>
+			<type key="numbers" type="greklow">Грчки мали броеви</type>
+			<type key="numbers" type="gujr">Гуџарати цифри</type>
+			<type key="numbers" type="guru">Гурмуки цифри</type>
+			<type key="numbers" type="hanidec">Кинески децимални броеви</type>
+			<type key="numbers" type="hans">Поедноставени кинески броеви</type>
+			<type key="numbers" type="hansfin">Поедноставени кинески финансиски броеви</type>
+			<type key="numbers" type="hant">Традиционални кинески броеви</type>
+			<type key="numbers" type="hantfin">Традиционални кинески финансиски броеви</type>
+			<type key="numbers" type="hebr">Хебрејски броеви</type>
+			<type key="numbers" type="jpan">Јапонски броеви</type>
+			<type key="numbers" type="jpanfin">Јапонски финансиски броеви</type>
+			<type key="numbers" type="khmr">Кмерски цифри</type>
+			<type key="numbers" type="knda">Канада цифри</type>
+			<type key="numbers" type="laoo">Лаошки цифри</type>
+			<type key="numbers" type="latn">Арапски броеви</type>
+			<type key="numbers" type="mlym">Малајаламски цифри</type>
+			<type key="numbers" type="mymr">Мјанмарски цифри</type>
+			<type key="numbers" type="orya">Оријски цифри</type>
+			<type key="numbers" type="roman">Римски броеви</type>
+			<type key="numbers" type="romanlow">Римски мали броеви</type>
+			<type key="numbers" type="taml">Традиционални тамилски броеви</type>
+			<type key="numbers" type="tamldec">Тамилски цифри</type>
+			<type key="numbers" type="telu">Телугу цифри</type>
+			<type key="numbers" type="thai">Тајландски цифри</type>
+			<type key="numbers" type="tibt">Тибетски цифри</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">метрички</measurementSystemName>

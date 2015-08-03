@@ -2049,7 +2049,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         { "//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/daylight", "tz-daylight-long" },
         { "//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/daylight", "tz-daylight-short" },
         { "//ldml/localeDisplayNames/keys/key[@type=\"", "\"]", "key" },
-        { "//ldml/localeDisplayNames/types/type[@type=\"", "\"][@key=\"", "\"]", "type|key" },
+        { "//ldml/localeDisplayNames/types/type[@key=\"", "\"][@type=\"", "\"]", "key|type" },
 
         /**
          * <long>
@@ -2271,7 +2271,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             String key = extension.getKey();
             String type = extension.getValue();
             // Check if key/type pairs exist in the CLDRFile first.
-            String valuePath = "//ldml/localeDisplayNames/types/type[@type=\"" + type + "\"][@key=\"" + key + "\"]";
+            String valuePath = "//ldml/localeDisplayNames/types/type[@key=\"" + key + "\"][@type=\"" + type + "\"]";
             String value = null;
             // Ignore any values from code-fallback.
             if (!getSourceLocaleID(valuePath, null).equals(XMLSource.CODE_FALLBACK_ID)) {

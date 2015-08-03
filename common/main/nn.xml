@@ -952,63 +952,63 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">tal</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers" draft="unconfirmed">hindu-arabiske siffer (vestlige)</type>
-			<type type="arabext" key="numbers" draft="unconfirmed">hindu-arabiske siffer (østlige)</type>
-			<type type="armn" key="numbers" draft="unconfirmed">armenske numeraler</type>
-			<type type="armnlow" key="numbers" draft="unconfirmed">armenske numeraler i små bogstaver</type>
-			<type type="beng" key="numbers" draft="unconfirmed">bengalske siffer</type>
-			<type type="big5han" key="collation">tradisjonell kinesisk sortering</type>
-			<type type="buddhist" key="calendar">buddhistisk kalender</type>
-			<type type="chinese" key="calendar">kinesisk kalender</type>
-			<type type="deva" key="numbers" draft="unconfirmed">devanagariske siffer</type>
-			<type type="ducet" key="collation">grunnleggjande Unicode-sorteringsrekkjefølgje</type>
-			<type type="eor" key="collation" draft="unconfirmed">sorteringsrekkefølge for flerspråklige europeiske dokumenter</type>
-			<type type="ethi" key="numbers" draft="unconfirmed">etiopiske numeraler</type>
-			<type type="ethiopic" key="calendar">etiopisk kalender</type>
-			<type type="ethiopic-amete-alem" key="calendar">etiopisk amete-alem-kalender</type>
-			<type type="fullwide" key="numbers" draft="unconfirmed">vesterlandske siffer i fuld bredde</type>
-			<type type="gb2312han" key="collation">forenkla kinesisk sortering</type>
-			<type type="geor" key="numbers" draft="unconfirmed">georgiske numeraler</type>
-			<type type="gregorian" key="calendar">gregoriansk kalender</type>
-			<type type="grek" key="numbers" draft="unconfirmed">græske numeraler</type>
-			<type type="greklow" key="numbers" draft="unconfirmed">græske numeraler i små bogstaver</type>
-			<type type="gujr" key="numbers" draft="unconfirmed">gujaratiske siffer</type>
-			<type type="guru" key="numbers" draft="unconfirmed">gurmukhiske siffer</type>
-			<type type="hanidec" key="numbers" draft="unconfirmed">kinesiskt stavede siffer</type>
-			<type type="hans" key="numbers" draft="unconfirmed">forenklet stavede kinesiske numeraler</type>
-			<type type="hansfin" key="numbers" draft="unconfirmed">forenklet stavede kinesiske financielle numeraler</type>
-			<type type="hant" key="numbers" draft="unconfirmed">traditionelt stavede kinesiske numeraler</type>
-			<type type="hantfin" key="numbers" draft="unconfirmed">traditionelt stavede kinesiske financielle numeraler</type>
-			<type type="hebr" key="numbers" draft="unconfirmed">hebæiske numeraler</type>
-			<type type="hebrew" key="calendar">hebraisk kalender</type>
-			<type type="indian" key="calendar">indisk nasjonalkalender</type>
-			<type type="islamic" key="calendar">islamsk kalender</type>
-			<type type="islamic-civil" key="calendar">islamsk sivil kalender</type>
-			<type type="japanese" key="calendar">japansk kalender</type>
-			<type type="java" key="numbers" draft="unconfirmed">javanesiske siffer</type>
-			<type type="jpan" key="numbers" draft="unconfirmed">japanskt stavede numeraler</type>
-			<type type="jpanfin" key="numbers" draft="unconfirmed">japanskt stavede financielle numeraler</type>
-			<type type="khmr" key="numbers" draft="unconfirmed">kambodiske siffer</type>
-			<type type="knda" key="numbers" draft="unconfirmed">kannadiske siffer</type>
-			<type type="laoo" key="numbers" draft="unconfirmed">laotiske siffer</type>
-			<type type="latn" key="numbers" draft="unconfirmed">vesterlandske siffer</type>
-			<type type="mlym" key="numbers" draft="unconfirmed">malayalamiske siffer</type>
-			<type type="mymr" key="numbers" draft="unconfirmed">burmeske siffer</type>
-			<type type="orya" key="numbers" draft="unconfirmed">oryiske siffer</type>
-			<type type="persian" key="calendar">persisk kalender</type>
-			<type type="phonebook" key="collation">telefonkatalogsortering</type>
-			<type type="pinyin" key="collation">pinyin-sortering</type>
-			<type type="roc" key="calendar">kalender for Republikken Kina</type>
-			<type type="roman" key="numbers" draft="unconfirmed">romernumeraler</type>
-			<type type="romanlow" key="numbers" draft="unconfirmed">romernumeraler i små bogstaver</type>
-			<type type="search" key="collation">søksorteringsrekkjefølgje etter CLDR</type>
-			<type type="stroke" key="collation">streksortering</type>
-			<type type="taml" key="numbers" draft="unconfirmed">traditionelle tamilske numeraler</type>
-			<type type="tamldec" key="numbers" draft="unconfirmed">tamilske siffer</type>
-			<type type="telu" key="numbers" draft="unconfirmed">telugiske siffer</type>
-			<type type="thai" key="numbers" draft="unconfirmed">thailandske siffer</type>
-			<type type="tibt" key="numbers" draft="unconfirmed">tibetanske siffer</type>
-			<type type="traditional" key="collation">tradisjonell sortering</type>
+			<type key="calendar" type="buddhist">buddhistisk kalender</type>
+			<type key="calendar" type="chinese">kinesisk kalender</type>
+			<type key="calendar" type="ethiopic">etiopisk kalender</type>
+			<type key="calendar" type="ethiopic-amete-alem">etiopisk amete-alem-kalender</type>
+			<type key="calendar" type="gregorian">gregoriansk kalender</type>
+			<type key="calendar" type="hebrew">hebraisk kalender</type>
+			<type key="calendar" type="indian">indisk nasjonalkalender</type>
+			<type key="calendar" type="islamic">islamsk kalender</type>
+			<type key="calendar" type="islamic-civil">islamsk sivil kalender</type>
+			<type key="calendar" type="japanese">japansk kalender</type>
+			<type key="calendar" type="persian">persisk kalender</type>
+			<type key="calendar" type="roc">kalender for Republikken Kina</type>
+			<type key="collation" type="big5han">tradisjonell kinesisk sortering</type>
+			<type key="collation" type="ducet">grunnleggjande Unicode-sorteringsrekkjefølgje</type>
+			<type key="collation" type="eor" draft="unconfirmed">sorteringsrekkefølge for flerspråklige europeiske dokumenter</type>
+			<type key="collation" type="gb2312han">forenkla kinesisk sortering</type>
+			<type key="collation" type="phonebook">telefonkatalogsortering</type>
+			<type key="collation" type="pinyin">pinyin-sortering</type>
+			<type key="collation" type="search">søksorteringsrekkjefølgje etter CLDR</type>
+			<type key="collation" type="stroke">streksortering</type>
+			<type key="collation" type="traditional">tradisjonell sortering</type>
+			<type key="numbers" type="arab" draft="unconfirmed">hindu-arabiske siffer (vestlige)</type>
+			<type key="numbers" type="arabext" draft="unconfirmed">hindu-arabiske siffer (østlige)</type>
+			<type key="numbers" type="armn" draft="unconfirmed">armenske numeraler</type>
+			<type key="numbers" type="armnlow" draft="unconfirmed">armenske numeraler i små bogstaver</type>
+			<type key="numbers" type="beng" draft="unconfirmed">bengalske siffer</type>
+			<type key="numbers" type="deva" draft="unconfirmed">devanagariske siffer</type>
+			<type key="numbers" type="ethi" draft="unconfirmed">etiopiske numeraler</type>
+			<type key="numbers" type="fullwide" draft="unconfirmed">vesterlandske siffer i fuld bredde</type>
+			<type key="numbers" type="geor" draft="unconfirmed">georgiske numeraler</type>
+			<type key="numbers" type="grek" draft="unconfirmed">græske numeraler</type>
+			<type key="numbers" type="greklow" draft="unconfirmed">græske numeraler i små bogstaver</type>
+			<type key="numbers" type="gujr" draft="unconfirmed">gujaratiske siffer</type>
+			<type key="numbers" type="guru" draft="unconfirmed">gurmukhiske siffer</type>
+			<type key="numbers" type="hanidec" draft="unconfirmed">kinesiskt stavede siffer</type>
+			<type key="numbers" type="hans" draft="unconfirmed">forenklet stavede kinesiske numeraler</type>
+			<type key="numbers" type="hansfin" draft="unconfirmed">forenklet stavede kinesiske financielle numeraler</type>
+			<type key="numbers" type="hant" draft="unconfirmed">traditionelt stavede kinesiske numeraler</type>
+			<type key="numbers" type="hantfin" draft="unconfirmed">traditionelt stavede kinesiske financielle numeraler</type>
+			<type key="numbers" type="hebr" draft="unconfirmed">hebæiske numeraler</type>
+			<type key="numbers" type="java" draft="unconfirmed">javanesiske siffer</type>
+			<type key="numbers" type="jpan" draft="unconfirmed">japanskt stavede numeraler</type>
+			<type key="numbers" type="jpanfin" draft="unconfirmed">japanskt stavede financielle numeraler</type>
+			<type key="numbers" type="khmr" draft="unconfirmed">kambodiske siffer</type>
+			<type key="numbers" type="knda" draft="unconfirmed">kannadiske siffer</type>
+			<type key="numbers" type="laoo" draft="unconfirmed">laotiske siffer</type>
+			<type key="numbers" type="latn" draft="unconfirmed">vesterlandske siffer</type>
+			<type key="numbers" type="mlym" draft="unconfirmed">malayalamiske siffer</type>
+			<type key="numbers" type="mymr" draft="unconfirmed">burmeske siffer</type>
+			<type key="numbers" type="orya" draft="unconfirmed">oryiske siffer</type>
+			<type key="numbers" type="roman" draft="unconfirmed">romernumeraler</type>
+			<type key="numbers" type="romanlow" draft="unconfirmed">romernumeraler i små bogstaver</type>
+			<type key="numbers" type="taml" draft="unconfirmed">traditionelle tamilske numeraler</type>
+			<type key="numbers" type="tamldec" draft="unconfirmed">tamilske siffer</type>
+			<type key="numbers" type="telu" draft="unconfirmed">telugiske siffer</type>
+			<type key="numbers" type="thai" draft="unconfirmed">thailandske siffer</type>
+			<type key="numbers" type="tibt" draft="unconfirmed">tibetanske siffer</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrisk</measurementSystemName>

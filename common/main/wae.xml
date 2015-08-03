@@ -486,10 +486,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="ZZ" draft="contributed">Unbekannti Regio</territory>
 		</territories>
 		<types>
-			<type type="ducet" key="collation" draft="contributed">Standard Unicode Sortierreiefolg</type>
-			<type type="gregorian" key="calendar" draft="contributed">Gregorianišä Kaländer</type>
-			<type type="latn" key="numbers" draft="contributed">Arabiši Zálä</type>
-			<type type="search" key="collation" draft="contributed">Allgmeini Süeč</type>
+			<type key="calendar" type="gregorian" draft="contributed">Gregorianišä Kaländer</type>
+			<type key="collation" type="ducet" draft="contributed">Standard Unicode Sortierreiefolg</type>
+			<type key="collation" type="search" draft="contributed">Allgmeini Süeč</type>
+			<type key="numbers" type="latn" draft="contributed">Arabiši Zálä</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric" draft="contributed">Metriš</measurementSystemName>

@@ -985,105 +985,105 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="x">Собствена употреба</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers">арабско-индийски цифри</type>
-			<type type="arabext" key="numbers">разширени арабско-индийски цифри</type>
-			<type type="armn" key="numbers">арменски цифри</type>
-			<type type="armnlow" key="numbers">арменски цифри в долен регистър</type>
-			<type type="beng" key="numbers">бенгалски цифри</type>
-			<type type="big5han" key="collation">Традиционен китайски (Big5)</type>
-			<type type="buddhist" key="calendar">будистки календар</type>
-			<type type="chinese" key="calendar">китайски календар</type>
-			<type type="coptic" key="calendar" draft="contributed">Коптски календар</type>
-			<type type="dangi" key="calendar">корейски календар</type>
-			<type type="deva" key="numbers">цифри в деванагари</type>
-			<type type="dictionary" key="collation" draft="contributed">Речников ред на сортиране</type>
-			<type type="ducet" key="collation">стандартен ред на сортиране в Уникод</type>
-			<type type="ethi" key="numbers">етиопски цифри</type>
-			<type type="ethiopic" key="calendar">етиопски календар</type>
-			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">Етиопски календар Амит Алем</type>
-			<type type="finance" key="numbers">Финансови цифри</type>
-			<type type="fullwide" key="numbers">цифри с пълна ширина</type>
-			<type type="gb2312han" key="collation">Опростен китайски (GB2312)</type>
-			<type type="geor" key="numbers">грузински цифри</type>
-			<type type="gregorian" key="calendar">григориански календар</type>
-			<type type="grek" key="numbers">гръцки цифри</type>
-			<type type="greklow" key="numbers">гръцки цифри в долен регистър</type>
-			<type type="gujr" key="numbers">цифри в гуджарати</type>
-			<type type="guru" key="numbers">цифри в гурмукхи</type>
-			<type type="h11" key="hc">12-часова система (0 – 11)</type>
-			<type type="h12" key="hc">12-часова система (1 – 12)</type>
-			<type type="h23" key="hc">24-часова система (0 – 23)</type>
-			<type type="h24" key="hc">24-часова система (1 – 24)</type>
-			<type type="hanidec" key="numbers">китайски десетични цифри</type>
-			<type type="hans" key="numbers">цифри в китайски (опростен)</type>
-			<type type="hansfin" key="numbers">финансови цифри в китайски (опростен)</type>
-			<type type="hant" key="numbers">цифри в китайски (традиционен)</type>
-			<type type="hantfin" key="numbers">финансови цифри в китайски (традиционен)</type>
-			<type type="hebr" key="numbers">цифри в иврит</type>
-			<type type="hebrew" key="calendar">еврейски календар</type>
-			<type type="identical" key="colStrength">Сортиране на всички</type>
-			<type type="indian" key="calendar">Индийски граждански календар</type>
-			<type type="islamic" key="calendar">ислямски календар</type>
-			<type type="islamic-civil" key="calendar">Ислямски цивилен календар</type>
-			<type type="iso8601" key="calendar">календар според ISO 8601</type>
-			<type type="japanese" key="calendar">японски календар</type>
-			<type type="jpan" key="numbers">японски цифри</type>
-			<type type="jpanfin" key="numbers">японски финансови цифри</type>
-			<type type="khmr" key="numbers">кхмерски цифри</type>
-			<type type="knda" key="numbers">цифри в каннада</type>
-			<type type="laoo" key="numbers">лаоски цифри</type>
-			<type type="latn" key="numbers">западни цифри</type>
-			<type type="loose" key="lb">Свободен стил за нов ред</type>
-			<type type="lower" key="colCaseFirst">Сортиране първо по долен регистър</type>
-			<type type="metric" key="ms">Метрична система</type>
-			<type type="mlym" key="numbers">цифри в малаялам</type>
-			<type type="mong" key="numbers" draft="contributed">Монголски цифри</type>
-			<type type="mymr" key="numbers">бирмански цифри</type>
-			<type type="native" key="numbers">Местни цифри</type>
-			<type type="no" key="colBackwards">Нормално сортиране по диакритични знаци</type>
-			<type type="no" key="colCaseFirst">Сортиране с нормален ред за регистъра</type>
-			<type type="no" key="colCaseLevel">Сортиране без различаване на регистъра на буквите</type>
-			<type type="no" key="colHiraganaQuaternary">Сортиране на кана отделно</type>
-			<type type="no" key="colNormalization">Сортиране без нормализиране</type>
-			<type type="no" key="colNumeric">Сортиране на цифрите индивидуално</type>
-			<type type="non-ignorable" key="colAlternate">Сортиране по символи</type>
-			<type type="normal" key="lb">Нормален стил за нов ред</type>
-			<type type="orya" key="numbers">цифри в ория</type>
-			<type type="persian" key="calendar">персийски календар</type>
-			<type type="phonebook" key="collation">Азбучен ред</type>
-			<type type="phonetic" key="collation">Фонетичен ред на сортиране</type>
-			<type type="pinyin" key="collation">Сортиране Пинин</type>
-			<type type="primary" key="colStrength">Сортиране само по основни букви</type>
-			<type type="quaternary" key="colStrength">Сортиране по диакритични знаци/регистър/ширина/кана</type>
-			<type type="reformed" key="collation" draft="contributed">Следреформен ред на сортиране</type>
-			<type type="roc" key="calendar">календар на Република Китай</type>
-			<type type="roman" key="numbers">римски цифри</type>
-			<type type="romanlow" key="numbers">римски цифри в долен регистър</type>
-			<type type="search" key="collation">търсене с общо предназначение</type>
-			<type type="searchjl" key="collation">Търсене по първоначални съгласни в хангул</type>
-			<type type="secondary" key="colStrength">Сортиране по диакритични знаци</type>
-			<type type="shifted" key="colAlternate">Сортиране с пренебрегване на символи</type>
-			<type type="standard" key="collation">стандартен ред на сортиране</type>
-			<type type="strict" key="lb">Строг стил за нов ред</type>
-			<type type="stroke" key="collation">Сортиране по щрих</type>
-			<type type="taml" key="numbers">традиционни тамилски цифри</type>
-			<type type="tamldec" key="numbers">тамилски цифри</type>
-			<type type="telu" key="numbers">цифри в телугу</type>
-			<type type="tertiary" key="colStrength">Сортиране по диакритични знаци/регистър/ширина</type>
-			<type type="thai" key="numbers">тайландски цифри</type>
-			<type type="tibt" key="numbers">тибетски цифри</type>
-			<type type="traditional" key="collation">Традиционно</type>
-			<type type="traditional" key="numbers">Традиционни цифри</type>
-			<type type="uksystem" key="ms">Имперска мерна система</type>
-			<type type="unihan" key="collation" draft="contributed">Ред на сортиране по ключове и черти</type>
-			<type type="upper" key="colCaseFirst">Сортиране първо по горен регистър</type>
-			<type type="ussystem" key="ms">Мерна система на САЩ</type>
-			<type type="vaii" key="numbers">Цифри във ваи</type>
-			<type type="yes" key="colBackwards">Обратно сортиране по диакритични знаци</type>
-			<type type="yes" key="colCaseLevel">Сортиране с различаване на регистъра на буквите</type>
-			<type type="yes" key="colHiraganaQuaternary">Сортиране на кана по различен начин</type>
-			<type type="yes" key="colNormalization">Нормализирано сортиране в Уникод</type>
-			<type type="yes" key="colNumeric">Сортиране на цифрите по числена стойност</type>
+			<type key="calendar" type="buddhist">будистки календар</type>
+			<type key="calendar" type="chinese">китайски календар</type>
+			<type key="calendar" type="coptic" draft="contributed">Коптски календар</type>
+			<type key="calendar" type="dangi">корейски календар</type>
+			<type key="calendar" type="ethiopic">етиопски календар</type>
+			<type key="calendar" type="ethiopic-amete-alem" draft="contributed">Етиопски календар Амит Алем</type>
+			<type key="calendar" type="gregorian">григориански календар</type>
+			<type key="calendar" type="hebrew">еврейски календар</type>
+			<type key="calendar" type="indian">Индийски граждански календар</type>
+			<type key="calendar" type="islamic">ислямски календар</type>
+			<type key="calendar" type="islamic-civil">Ислямски цивилен календар</type>
+			<type key="calendar" type="iso8601">календар според ISO 8601</type>
+			<type key="calendar" type="japanese">японски календар</type>
+			<type key="calendar" type="persian">персийски календар</type>
+			<type key="calendar" type="roc">календар на Република Китай</type>
+			<type key="colAlternate" type="non-ignorable">Сортиране по символи</type>
+			<type key="colAlternate" type="shifted">Сортиране с пренебрегване на символи</type>
+			<type key="colBackwards" type="no">Нормално сортиране по диакритични знаци</type>
+			<type key="colBackwards" type="yes">Обратно сортиране по диакритични знаци</type>
+			<type key="colCaseFirst" type="lower">Сортиране първо по долен регистър</type>
+			<type key="colCaseFirst" type="no">Сортиране с нормален ред за регистъра</type>
+			<type key="colCaseFirst" type="upper">Сортиране първо по горен регистър</type>
+			<type key="colCaseLevel" type="no">Сортиране без различаване на регистъра на буквите</type>
+			<type key="colCaseLevel" type="yes">Сортиране с различаване на регистъра на буквите</type>
+			<type key="colHiraganaQuaternary" type="no">Сортиране на кана отделно</type>
+			<type key="colHiraganaQuaternary" type="yes">Сортиране на кана по различен начин</type>
+			<type key="collation" type="big5han">Традиционен китайски (Big5)</type>
+			<type key="collation" type="dictionary" draft="contributed">Речников ред на сортиране</type>
+			<type key="collation" type="ducet">стандартен ред на сортиране в Уникод</type>
+			<type key="collation" type="gb2312han">Опростен китайски (GB2312)</type>
+			<type key="collation" type="phonebook">Азбучен ред</type>
+			<type key="collation" type="phonetic">Фонетичен ред на сортиране</type>
+			<type key="collation" type="pinyin">Сортиране Пинин</type>
+			<type key="collation" type="reformed" draft="contributed">Следреформен ред на сортиране</type>
+			<type key="collation" type="search">търсене с общо предназначение</type>
+			<type key="collation" type="searchjl">Търсене по първоначални съгласни в хангул</type>
+			<type key="collation" type="standard">стандартен ред на сортиране</type>
+			<type key="collation" type="stroke">Сортиране по щрих</type>
+			<type key="collation" type="traditional">Традиционно</type>
+			<type key="collation" type="unihan" draft="contributed">Ред на сортиране по ключове и черти</type>
+			<type key="colNormalization" type="no">Сортиране без нормализиране</type>
+			<type key="colNormalization" type="yes">Нормализирано сортиране в Уникод</type>
+			<type key="colNumeric" type="no">Сортиране на цифрите индивидуално</type>
+			<type key="colNumeric" type="yes">Сортиране на цифрите по числена стойност</type>
+			<type key="colStrength" type="identical">Сортиране на всички</type>
+			<type key="colStrength" type="primary">Сортиране само по основни букви</type>
+			<type key="colStrength" type="quaternary">Сортиране по диакритични знаци/регистър/ширина/кана</type>
+			<type key="colStrength" type="secondary">Сортиране по диакритични знаци</type>
+			<type key="colStrength" type="tertiary">Сортиране по диакритични знаци/регистър/ширина</type>
+			<type key="hc" type="h11">12-часова система (0 – 11)</type>
+			<type key="hc" type="h12">12-часова система (1 – 12)</type>
+			<type key="hc" type="h23">24-часова система (0 – 23)</type>
+			<type key="hc" type="h24">24-часова система (1 – 24)</type>
+			<type key="lb" type="loose">Свободен стил за нов ред</type>
+			<type key="lb" type="normal">Нормален стил за нов ред</type>
+			<type key="lb" type="strict">Строг стил за нов ред</type>
+			<type key="ms" type="metric">Метрична система</type>
+			<type key="ms" type="uksystem">Имперска мерна система</type>
+			<type key="ms" type="ussystem">Мерна система на САЩ</type>
+			<type key="numbers" type="arab">арабско-индийски цифри</type>
+			<type key="numbers" type="arabext">разширени арабско-индийски цифри</type>
+			<type key="numbers" type="armn">арменски цифри</type>
+			<type key="numbers" type="armnlow">арменски цифри в долен регистър</type>
+			<type key="numbers" type="beng">бенгалски цифри</type>
+			<type key="numbers" type="deva">цифри в деванагари</type>
+			<type key="numbers" type="ethi">етиопски цифри</type>
+			<type key="numbers" type="finance">Финансови цифри</type>
+			<type key="numbers" type="fullwide">цифри с пълна ширина</type>
+			<type key="numbers" type="geor">грузински цифри</type>
+			<type key="numbers" type="grek">гръцки цифри</type>
+			<type key="numbers" type="greklow">гръцки цифри в долен регистър</type>
+			<type key="numbers" type="gujr">цифри в гуджарати</type>
+			<type key="numbers" type="guru">цифри в гурмукхи</type>
+			<type key="numbers" type="hanidec">китайски десетични цифри</type>
+			<type key="numbers" type="hans">цифри в китайски (опростен)</type>
+			<type key="numbers" type="hansfin">финансови цифри в китайски (опростен)</type>
+			<type key="numbers" type="hant">цифри в китайски (традиционен)</type>
+			<type key="numbers" type="hantfin">финансови цифри в китайски (традиционен)</type>
+			<type key="numbers" type="hebr">цифри в иврит</type>
+			<type key="numbers" type="jpan">японски цифри</type>
+			<type key="numbers" type="jpanfin">японски финансови цифри</type>
+			<type key="numbers" type="khmr">кхмерски цифри</type>
+			<type key="numbers" type="knda">цифри в каннада</type>
+			<type key="numbers" type="laoo">лаоски цифри</type>
+			<type key="numbers" type="latn">западни цифри</type>
+			<type key="numbers" type="mlym">цифри в малаялам</type>
+			<type key="numbers" type="mong" draft="contributed">Монголски цифри</type>
+			<type key="numbers" type="mymr">бирмански цифри</type>
+			<type key="numbers" type="native">Местни цифри</type>
+			<type key="numbers" type="orya">цифри в ория</type>
+			<type key="numbers" type="roman">римски цифри</type>
+			<type key="numbers" type="romanlow">римски цифри в долен регистър</type>
+			<type key="numbers" type="taml">традиционни тамилски цифри</type>
+			<type key="numbers" type="tamldec">тамилски цифри</type>
+			<type key="numbers" type="telu">цифри в телугу</type>
+			<type key="numbers" type="thai">тайландски цифри</type>
+			<type key="numbers" type="tibt">тибетски цифри</type>
+			<type key="numbers" type="traditional">Традиционни цифри</type>
+			<type key="numbers" type="vaii">Цифри във ваи</type>
 		</types>
 		<transformNames>
 			<transformName type="BGN" draft="contributed">АКГН (BGN)</transformName>

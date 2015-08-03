@@ -173,8 +173,8 @@
 
 //ldml/localeDisplayNames/transformNames/transformName[@type="(%W)"] ; /transformNames/$1
 
-//ldml/localeDisplayNames/types/type[@type="(%A)"][@key="(%A)"][@alt="(%A)"] ; /Types%$3/$2/$1
-//ldml/localeDisplayNames/types/type[@type="(%A)"][@key="(%A)"] ; /Types/$2/$1
+//ldml/localeDisplayNames/types/type[@key="(%A)"][@type="(%A)"][@alt="(%A)"] ; /Types%$3/$1/$2
+//ldml/localeDisplayNames/types/type[@key="(%A)"][@type="(%A)"] ; /Types/$1/$2
 
 //ldml/localeDisplayNames/variants/variant[@type="(%A)"][@alt="(%A)"] ; /Variants%$2/$1
 //ldml/localeDisplayNames/variants/variant[@type="(%A)"] ; /Variants/$1

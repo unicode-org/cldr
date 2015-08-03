@@ -242,8 +242,8 @@ $Date$
     <!--@DEPRECATED-->
 
 <!ELEMENT type ( #PCDATA ) >
+<!ATTLIST type key NMTOKEN #REQUIRED >
 <!ATTLIST type type NMTOKEN #REQUIRED >
-<!ATTLIST type key NMTOKEN #IMPLIED >
 <!ATTLIST type alt NMTOKENS #IMPLIED >
 <!ATTLIST type draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->

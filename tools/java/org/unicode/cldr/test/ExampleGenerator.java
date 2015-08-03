@@ -527,7 +527,7 @@ public class ExampleGenerator {
             }
         }
         String example = cldrFile
-            .getStringValue("//ldml/localeDisplayNames/types/type[@type=\"gregorian\"][@key=\"calendar\"]");
+            .getStringValue("//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"gregorian\"]");
         // NOTE: the example provided here is partially in English because we don't
         // have a translated conversational example in CLDR.
         return invertBackground(format("{0}They said {1}" + example + "{2}.{3}", (Object[]) quotes));

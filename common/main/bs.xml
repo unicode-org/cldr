@@ -1081,107 +1081,107 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="x" draft="provisional">Privatna upotreba</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers">arapsko-indijske brojke</type>
-			<type type="arabext" key="numbers">proširene arapsko-indijske brojke</type>
-			<type type="armn" key="numbers">jermenski brojevi</type>
-			<type type="armnlow" key="numbers">mali jermenski brojevi</type>
-			<type type="beng" key="numbers">brojke bengalskog pisma</type>
+			<type key="calendar" type="buddhist">Budistički kalendar</type>
+			<type key="calendar" type="chinese">Kineski kalendar</type>
+			<type key="calendar" type="coptic" draft="provisional">Koptski kalendar</type>
+			<type key="calendar" type="dangi">Dangi kalendar</type>
+			<type key="calendar" type="ethiopic">Etiopski kalendar</type>
+			<type key="calendar" type="ethiopic-amete-alem" draft="provisional">Etiopski kalendar &quot;Amete Alem&quot;</type>
+			<type key="calendar" type="gregorian">Gregorijanski kalendar</type>
+			<type key="calendar" type="hebrew">Hebrejski kalendar</type>
+			<type key="calendar" type="indian">Indijski nacionalni kalendar</type>
+			<type key="calendar" type="islamic">Islamski kalendar</type>
+			<type key="calendar" type="islamic-civil">Islamski civilni kalendar</type>
+			<type key="calendar" type="iso8601">ISO-8601 kalendar</type>
+			<type key="calendar" type="japanese">Japanski kalendar</type>
+			<type key="calendar" type="persian">Perzijski kalendar</type>
+			<type key="calendar" type="roc">Kalendar Republike Kine</type>
+			<type key="colAlternate" type="non-ignorable" draft="provisional">Poredaj simbole</type>
+			<type key="colAlternate" type="shifted" draft="provisional">Poredaj zanemarujući simbole</type>
+			<type key="colBackwards" type="no" draft="provisional">Poredaj naglaske normalno</type>
+			<type key="colBackwards" type="yes" draft="provisional">Poredaj naglaske obrnuto</type>
+			<type key="colCaseFirst" type="lower" draft="provisional">Prvo poredaj mala slova</type>
+			<type key="colCaseFirst" type="no" draft="provisional">Poredaj po normalnom poretku veličine slova</type>
+			<type key="colCaseFirst" type="upper" draft="provisional">Poredaj prvo velika slova</type>
+			<type key="colCaseLevel" type="no" draft="provisional">Poredaj zanemarujući veličinu</type>
+			<type key="colCaseLevel" type="yes" draft="provisional">Poredaj u skladu s veličinom slova</type>
+			<type key="colHiraganaQuaternary" type="no" draft="provisional">Poredaj pismo kana zasebno</type>
+			<type key="colHiraganaQuaternary" type="yes" draft="provisional">Poredaj pismo kana drugačije</type>
 			<!-- Copied from sr_Latn -->
-			<type type="big5han" key="collation">Tradicionalno kinesko sortiranje</type>
-			<type type="buddhist" key="calendar">Budistički kalendar</type>
-			<type type="chinese" key="calendar">Kineski kalendar</type>
-			<type type="coptic" key="calendar" draft="provisional">Koptski kalendar</type>
-			<type type="dangi" key="calendar">Dangi kalendar</type>
-			<type type="deva" key="numbers">brojke pisma devanagari</type>
-			<type type="dictionary" key="collation" draft="provisional">rječničko razvrstavanje</type>
-			<type type="ducet" key="collation">Standardno Unicode razvrstavanje</type>
-			<type type="ethi" key="numbers">etiopski brojevi</type>
-			<type type="ethiopic" key="calendar">Etiopski kalendar</type>
-			<type type="ethiopic-amete-alem" key="calendar" draft="provisional">Etiopski kalendar &quot;Amete Alem&quot;</type>
-			<type type="finance" key="numbers" draft="provisional">Financijski brojevi</type>
-			<type type="fullwide" key="numbers">Široki brojevi</type>
-			<type type="gb2312han" key="collation">Pojednostavljeno kinesko sortiranje</type>
-			<type type="geor" key="numbers">gruzijski brojevi</type>
-			<type type="gregorian" key="calendar">Gregorijanski kalendar</type>
-			<type type="grek" key="numbers">grčki brojevi</type>
-			<type type="greklow" key="numbers">mali grčki brojevi</type>
-			<type type="gujr" key="numbers">gudžaratske brojke</type>
-			<type type="guru" key="numbers">brojke pisma gurmuki</type>
-			<type type="h11" key="hc">12-satni sistem (0-11)</type>
-			<type type="h12" key="hc">12-satni sistem (1-12)</type>
-			<type type="h23" key="hc">24- satni sistem (0-23)</type>
-			<type type="h24" key="hc">24-satni sistem (1-24)</type>
-			<type type="hanidec" key="numbers">kineski decimalni brojevi</type>
-			<type type="hans" key="numbers">pojednostavljeni kineski brojevi</type>
-			<type type="hansfin" key="numbers">pojednostavljeni kineski finansijski brojevi</type>
-			<type type="hant" key="numbers">tradicionalni kineski brojevi</type>
-			<type type="hantfin" key="numbers">tradicionalni kineski finansijski brojevi</type>
-			<type type="hebr" key="numbers">hebrejski brojevi</type>
-			<type type="hebrew" key="calendar">Hebrejski kalendar</type>
-			<type type="identical" key="colStrength" draft="provisional">Poredaj sve</type>
-			<type type="indian" key="calendar">Indijski nacionalni kalendar</type>
-			<type type="islamic" key="calendar">Islamski kalendar</type>
-			<type type="islamic-civil" key="calendar">Islamski civilni kalendar</type>
-			<type type="iso8601" key="calendar">ISO-8601 kalendar</type>
-			<type type="japanese" key="calendar">Japanski kalendar</type>
-			<type type="jpan" key="numbers">japanski brojevi</type>
-			<type type="jpanfin" key="numbers">japanski finansijski brojevi</type>
-			<type type="khmr" key="numbers">kmerske brojke</type>
-			<type type="knda" key="numbers">brojke pisma kanada</type>
-			<type type="laoo" key="numbers">laoske brojke</type>
-			<type type="latn" key="numbers">arapski brojevi</type>
-			<type type="loose" key="lb">Opušteni stil završetka reda</type>
-			<type type="lower" key="colCaseFirst" draft="provisional">Prvo poredaj mala slova</type>
-			<type type="metric" key="ms">Metrički sistem</type>
-			<type type="mlym" key="numbers">malajalamske brojke</type>
-			<type type="mong" key="numbers" draft="provisional">Mongolske znamenke</type>
-			<type type="mymr" key="numbers">mijanmarske brojke</type>
-			<type type="native" key="numbers" draft="provisional">Izvorne znamenke</type>
-			<type type="no" key="colBackwards" draft="provisional">Poredaj naglaske normalno</type>
-			<type type="no" key="colCaseFirst" draft="provisional">Poredaj po normalnom poretku veličine slova</type>
-			<type type="no" key="colCaseLevel" draft="provisional">Poredaj zanemarujući veličinu</type>
-			<type type="no" key="colHiraganaQuaternary" draft="provisional">Poredaj pismo kana zasebno</type>
-			<type type="no" key="colNormalization" draft="provisional">Poredaj bez normalizacije</type>
-			<type type="no" key="colNumeric" draft="provisional">Poredaj znamenke pojedinačno</type>
-			<type type="non-ignorable" key="colAlternate" draft="provisional">Poredaj simbole</type>
-			<type type="normal" key="lb">Normalni stil završetka reda</type>
-			<type type="orya" key="numbers">orijske brojke</type>
-			<type type="persian" key="calendar">Perzijski kalendar</type>
-			<type type="phonebook" key="collation">Sortiranje kao telefonski imenik</type>
-			<type type="phonetic" key="collation" draft="provisional">Fonetski poredak</type>
-			<type type="pinyin" key="collation">Pinjin sortiranje</type>
-			<type type="primary" key="colStrength" draft="provisional">Poredaj samo po osnovnim slovima</type>
-			<type type="quaternary" key="colStrength" draft="provisional">Poredaj po naglascima/veličini/širini/pismu kana</type>
-			<type type="reformed" key="collation" draft="provisional">reformirano razvrstavanje</type>
-			<type type="roc" key="calendar">Kalendar Republike Kine</type>
-			<type type="roman" key="numbers">rimski brojevi</type>
-			<type type="romanlow" key="numbers">mali rimski brojevi</type>
-			<type type="search" key="collation">Općenito pretraživanje</type>
-			<type type="searchjl" key="collation" draft="provisional">Pretraživanje po početnom suglasniku hangula</type>
-			<type type="secondary" key="colStrength" draft="provisional">Poredaj po naglasku</type>
-			<type type="shifted" key="colAlternate" draft="provisional">Poredaj zanemarujući simbole</type>
-			<type type="standard" key="collation">Standardno razvrstavanje</type>
-			<type type="strict" key="lb">Strogi stil završetka reda</type>
-			<type type="stroke" key="collation">Sortiranje po broju crta</type>
-			<type type="taml" key="numbers">tamilski brojevi</type>
-			<type type="tamldec" key="numbers">tamilske brojke</type>
-			<type type="telu" key="numbers">brojke teluškog pisma</type>
-			<type type="tertiary" key="colStrength" draft="provisional">Poredaj po naglascima/veličini/širini</type>
-			<type type="thai" key="numbers">tajlandske brojke</type>
-			<type type="tibt" key="numbers">tibetske brojke</type>
-			<type type="traditional" key="collation">Tradicionalno sortiranje</type>
-			<type type="traditional" key="numbers" draft="provisional">Tradicionalni brojevi</type>
-			<type type="uksystem" key="ms">Imperijalni mjerni sistem</type>
-			<type type="unihan" key="collation" draft="provisional">razvrstavanje prema korijenu i potezu</type>
-			<type type="upper" key="colCaseFirst" draft="provisional">Poredaj prvo velika slova</type>
-			<type type="ussystem" key="ms">Američki mjerni sistem</type>
-			<type type="vaii" key="numbers" draft="provisional">Vai znamenke</type>
-			<type type="yes" key="colBackwards" draft="provisional">Poredaj naglaske obrnuto</type>
-			<type type="yes" key="colCaseLevel" draft="provisional">Poredaj u skladu s veličinom slova</type>
-			<type type="yes" key="colHiraganaQuaternary" draft="provisional">Poredaj pismo kana drugačije</type>
-			<type type="yes" key="colNormalization" draft="provisional">Poredaj unikod normalizirano</type>
-			<type type="yes" key="colNumeric" draft="provisional">Poredaj znamenke numerički</type>
-			<type type="zhuyin" key="collation" draft="provisional">zhuyin razvrstavanje</type>
+			<type key="collation" type="big5han">Tradicionalno kinesko sortiranje</type>
+			<type key="collation" type="dictionary" draft="provisional">rječničko razvrstavanje</type>
+			<type key="collation" type="ducet">Standardno Unicode razvrstavanje</type>
+			<type key="collation" type="gb2312han">Pojednostavljeno kinesko sortiranje</type>
+			<type key="collation" type="phonebook">Sortiranje kao telefonski imenik</type>
+			<type key="collation" type="phonetic" draft="provisional">Fonetski poredak</type>
+			<type key="collation" type="pinyin">Pinjin sortiranje</type>
+			<type key="collation" type="reformed" draft="provisional">reformirano razvrstavanje</type>
+			<type key="collation" type="search">Općenito pretraživanje</type>
+			<type key="collation" type="searchjl" draft="provisional">Pretraživanje po početnom suglasniku hangula</type>
+			<type key="collation" type="standard">Standardno razvrstavanje</type>
+			<type key="collation" type="stroke">Sortiranje po broju crta</type>
+			<type key="collation" type="traditional">Tradicionalno sortiranje</type>
+			<type key="collation" type="unihan" draft="provisional">razvrstavanje prema korijenu i potezu</type>
+			<type key="collation" type="zhuyin" draft="provisional">zhuyin razvrstavanje</type>
+			<type key="colNormalization" type="no" draft="provisional">Poredaj bez normalizacije</type>
+			<type key="colNormalization" type="yes" draft="provisional">Poredaj unikod normalizirano</type>
+			<type key="colNumeric" type="no" draft="provisional">Poredaj znamenke pojedinačno</type>
+			<type key="colNumeric" type="yes" draft="provisional">Poredaj znamenke numerički</type>
+			<type key="colStrength" type="identical" draft="provisional">Poredaj sve</type>
+			<type key="colStrength" type="primary" draft="provisional">Poredaj samo po osnovnim slovima</type>
+			<type key="colStrength" type="quaternary" draft="provisional">Poredaj po naglascima/veličini/širini/pismu kana</type>
+			<type key="colStrength" type="secondary" draft="provisional">Poredaj po naglasku</type>
+			<type key="colStrength" type="tertiary" draft="provisional">Poredaj po naglascima/veličini/širini</type>
+			<type key="hc" type="h11">12-satni sistem (0-11)</type>
+			<type key="hc" type="h12">12-satni sistem (1-12)</type>
+			<type key="hc" type="h23">24- satni sistem (0-23)</type>
+			<type key="hc" type="h24">24-satni sistem (1-24)</type>
+			<type key="lb" type="loose">Opušteni stil završetka reda</type>
+			<type key="lb" type="normal">Normalni stil završetka reda</type>
+			<type key="lb" type="strict">Strogi stil završetka reda</type>
+			<type key="ms" type="metric">Metrički sistem</type>
+			<type key="ms" type="uksystem">Imperijalni mjerni sistem</type>
+			<type key="ms" type="ussystem">Američki mjerni sistem</type>
+			<type key="numbers" type="arab">arapsko-indijske brojke</type>
+			<type key="numbers" type="arabext">proširene arapsko-indijske brojke</type>
+			<type key="numbers" type="armn">jermenski brojevi</type>
+			<type key="numbers" type="armnlow">mali jermenski brojevi</type>
+			<type key="numbers" type="beng">brojke bengalskog pisma</type>
+			<type key="numbers" type="deva">brojke pisma devanagari</type>
+			<type key="numbers" type="ethi">etiopski brojevi</type>
+			<type key="numbers" type="finance" draft="provisional">Financijski brojevi</type>
+			<type key="numbers" type="fullwide">Široki brojevi</type>
+			<type key="numbers" type="geor">gruzijski brojevi</type>
+			<type key="numbers" type="grek">grčki brojevi</type>
+			<type key="numbers" type="greklow">mali grčki brojevi</type>
+			<type key="numbers" type="gujr">gudžaratske brojke</type>
+			<type key="numbers" type="guru">brojke pisma gurmuki</type>
+			<type key="numbers" type="hanidec">kineski decimalni brojevi</type>
+			<type key="numbers" type="hans">pojednostavljeni kineski brojevi</type>
+			<type key="numbers" type="hansfin">pojednostavljeni kineski finansijski brojevi</type>
+			<type key="numbers" type="hant">tradicionalni kineski brojevi</type>
+			<type key="numbers" type="hantfin">tradicionalni kineski finansijski brojevi</type>
+			<type key="numbers" type="hebr">hebrejski brojevi</type>
+			<type key="numbers" type="jpan">japanski brojevi</type>
+			<type key="numbers" type="jpanfin">japanski finansijski brojevi</type>
+			<type key="numbers" type="khmr">kmerske brojke</type>
+			<type key="numbers" type="knda">brojke pisma kanada</type>
+			<type key="numbers" type="laoo">laoske brojke</type>
+			<type key="numbers" type="latn">arapski brojevi</type>
+			<type key="numbers" type="mlym">malajalamske brojke</type>
+			<type key="numbers" type="mong" draft="provisional">Mongolske znamenke</type>
+			<type key="numbers" type="mymr">mijanmarske brojke</type>
+			<type key="numbers" type="native" draft="provisional">Izvorne znamenke</type>
+			<type key="numbers" type="orya">orijske brojke</type>
+			<type key="numbers" type="roman">rimski brojevi</type>
+			<type key="numbers" type="romanlow">mali rimski brojevi</type>
+			<type key="numbers" type="taml">tamilski brojevi</type>
+			<type key="numbers" type="tamldec">tamilske brojke</type>
+			<type key="numbers" type="telu">brojke teluškog pisma</type>
+			<type key="numbers" type="thai">tajlandske brojke</type>
+			<type key="numbers" type="tibt">tibetske brojke</type>
+			<type key="numbers" type="traditional" draft="provisional">Tradicionalni brojevi</type>
+			<type key="numbers" type="vaii" draft="provisional">Vai znamenke</type>
 		</types>
 		<transformNames>
 			<transformName type="BGN" draft="provisional">BGN</transformName>

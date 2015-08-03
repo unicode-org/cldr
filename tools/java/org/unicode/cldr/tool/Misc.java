@@ -24,13 +24,13 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TimezoneFormatter;
@@ -738,7 +738,7 @@ public class Misc {
             + CldrUtility.LINE_SEPARATOR + "|($privateuse)"
         );
     static String cleanedLangTagPattern = langTagPattern.replaceAll("[\\r\\t\\n\\s]", "");
-    static Matcher regexLanguageTagOld = Pattern.compile(cleanedLangTagPattern).matcher("");
+    static Matcher regexLanguageTagOld = PatternCache.get(cleanedLangTagPattern).matcher("");
 
     public static void getZoneData() {
         StandardCodes sc = StandardCodes.make();
@@ -1299,7 +1299,7 @@ public class Misc {
 
     void generateTransliterators() throws IOException {
         File translitSource = new File("C:\\ICU\\icu\\source\\data\\translit");
-        Matcher m = Pattern.compile(".*Hebrew.*").matcher("");
+        Matcher m = PatternCache.get(".*Hebrew.*").matcher("");
         File[] list = translitSource.listFiles();
         for (int i = 0; i < list.length; ++i) {
             File file = list[i];

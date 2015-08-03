@@ -25,6 +25,7 @@ import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -458,7 +459,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         private java.util.regex.Matcher matcher;
 
         public ObjectMatcher<String> set(String pattern) {
-            matcher = Pattern.compile(pattern).matcher("");
+            matcher = PatternCache.get(pattern).matcher("");
             return this;
         }
 

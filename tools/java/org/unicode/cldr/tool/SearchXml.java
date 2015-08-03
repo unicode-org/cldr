@@ -8,7 +8,6 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.Option.Options;
@@ -18,6 +17,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.BaseUrl;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLFileReader;
 
@@ -109,7 +109,7 @@ public class SearchXml {
 
         if (pathMatcher != null && valueMatcher != null) {
             valuePattern = valueMatcher.pattern().toString();
-            if (Pattern.compile("\\$\\d.*").matcher(valuePattern).find()) {
+            if (PatternCache.get("\\$\\d.*").matcher(valuePattern).find()) {
                 replaceValues = true;
             }
         }
@@ -391,7 +391,7 @@ public class SearchXml {
                         for (int i = 0; i <= pathMatcher.groupCount(); ++i) {
                             pattern = pattern.replace("$" + i, pathMatcher.group(i));
                         }
-                        valueMatcher = Pattern.compile(pattern).matcher("");
+                        valueMatcher = PatternCache.get(pattern).matcher("");
                     }
 
                     if (valueMatcher != null && valueExclude == valueMatcher.reset(value).find()) {

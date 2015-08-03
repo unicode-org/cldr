@@ -13,7 +13,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
@@ -24,6 +23,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.XMLFileReader;
 
 import com.google.common.base.Splitter;
@@ -108,7 +108,7 @@ public class ChartCollation extends Chart {
         Set<String> settings = new LinkedHashSet<>();
     }
     public void writeSubcharts(Anchors anchors) throws IOException {
-        Matcher settingsMatcher = Pattern.compile(
+        Matcher settingsMatcher = PatternCache.get(
             "//ldml/collations/collation"
                 + "\\[@type=\"([^\"]+)\"]"
                 + "(.*)?"

@@ -55,6 +55,7 @@ import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathUtilities;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
@@ -2189,7 +2190,7 @@ public class DataSection implements JSONString {
     private static Pattern mostPattern;
 
     private static int n = 0;
-    static final Pattern NAME_TYPE_PATTERN = Pattern.compile("[a-zA-Z0-9]+|.*exemplarCity.*");
+    static final Pattern NAME_TYPE_PATTERN = PatternCache.get("[a-zA-Z0-9]+|.*exemplarCity.*");
 
     //    private static final boolean NOINHERIT = true;
 
@@ -2243,18 +2244,18 @@ public class DataSection implements JSONString {
 
     private static synchronized void init() {
         if (!isInitted) {
-            typeReplacementPattern = Pattern.compile("\\[@(?:type|key)=['\"]([^'\"]*)['\"]\\]");
-            Pattern.compile("([^/]*)/(.*)");
+            typeReplacementPattern = PatternCache.get("\\[@(?:type|key)=['\"]([^'\"]*)['\"]\\]");
+            PatternCache.get("([^/]*)/(.*)");
 
             /* This one is only used with non-pageID use. */
-            mostPattern = Pattern.compile("^//ldml/localeDisplayNames.*|"
+            mostPattern = PatternCache.get("^//ldml/localeDisplayNames.*|"
                 + // these are excluded when 'misc' is chosen.
                 "^//ldml/characters/exemplarCharacters.*|" + "^//ldml/numbers.*|" + "^//ldml/units.*|"
                 + "^//ldml/references.*|" + "^//ldml/dates/timeZoneNames/zone.*|" + "^//ldml/dates/timeZoneNames/metazone.*|"
                 + "^//ldml/dates/calendar.*|" + "^//ldml/identity.*");
 
             /* Always excluded. Compare with PathHeader/Coverage. */
-            excludeAlways = Pattern.compile("^//ldml/segmentations.*|" + "^//ldml/measurement.*|" + ".*week/minDays.*|"
+            excludeAlways = PatternCache.get("^//ldml/segmentations.*|" + "^//ldml/measurement.*|" + ".*week/minDays.*|"
                 + ".*week/firstDay.*|" + ".*/usesMetazone.*|" + ".*week/weekendEnd.*|" + ".*week/weekendStart.*|" +
                 // "^//ldml/dates/.*localizedPatternChars.*|" +
                 "^//ldml/posix/messages/.*expr$|" + "^//ldml/dates/timeZoneNames/.*/GMT.*exemplarCity$|" // //ldml/dates/timeZoneNames/zone[@type="Etc/GMT+11"]/exemplarCity
@@ -2262,7 +2263,7 @@ public class DataSection implements JSONString {
 
             int pn;
             for (pn = 0; pn < fromto.length / 2; pn++) {
-                fromto_p[pn] = Pattern.compile(fromto[pn * 2]);
+                fromto_p[pn] = PatternCache.get(fromto[pn * 2]);
             }
 
         }

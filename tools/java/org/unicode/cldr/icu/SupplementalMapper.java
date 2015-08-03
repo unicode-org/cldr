@@ -19,6 +19,7 @@ import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.XMLFileReader;
@@ -36,7 +37,7 @@ import com.ibm.icu.util.TimeZone;
  * structure.
  */
 public class SupplementalMapper {
-    private static final Pattern ARRAY_INDEX = Pattern.compile("(/[^\\[]++)(?:\\[(\\d++)\\])?$");
+    private static final Pattern ARRAY_INDEX = PatternCache.get("(/[^\\[]++)(?:\\[(\\d++)\\])?$");
     private static final Map<String, String> enumMap = Builder.with(new HashMap<String, String>())
         .put("sun", "1").put("mon", "2").put("tues", "3").put("wed", "4")
         .put("thu", "5").put("fri", "6").put("sat", "7").get();
@@ -69,8 +70,8 @@ public class SupplementalMapper {
      * Comparator for sorting LDML supplementalData xpaths.
      */
     private static Comparator<String> supplementalComparator = new Comparator<String>() {
-        private final Pattern FROM_ATTRIBUTE = Pattern.compile("\\[@from=\"([^\"]++)\"]");
-        private final Pattern WEEKDATA = Pattern.compile(
+        private final Pattern FROM_ATTRIBUTE = PatternCache.get("\\[@from=\"([^\"]++)\"]");
+        private final Pattern WEEKDATA = PatternCache.get(
             "//supplementalData/weekData/(minDays|firstDay|weekendStart|weekendEnd).*");
 
         @Override

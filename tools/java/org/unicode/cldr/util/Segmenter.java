@@ -222,7 +222,7 @@ public class Segmenter {
             // COMMENTS allows whitespace
         }
 
-        // Matcher numberMatcher = Pattern.compile("[0-9]+").matcher("");
+        // Matcher numberMatcher = PatternCache.get("[0-9]+").matcher("");
 
         /**
          * Match the rule against text, at a position

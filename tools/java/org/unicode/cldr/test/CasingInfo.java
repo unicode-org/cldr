@@ -23,6 +23,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLFileReader;
@@ -244,7 +245,7 @@ public class CasingInfo {
      * XML handler for parsing casing files.
      */
     private class CasingHandler extends XMLFileReader.SimpleHandler {
-        private Pattern localePattern = Pattern.compile("//ldml/identity/language\\[@type=\"(\\w+)\"\\]");
+        private Pattern localePattern = PatternCache.get("//ldml/identity/language\\[@type=\"(\\w+)\"\\]");
         private String localeID;
         private Map<Category, CasingTypeAndErrFlag> caseMap = new EnumMap<Category, CasingTypeAndErrFlag>(Category.class);
         private Map<Category, CasingType> overrideMap = new EnumMap<Category, CasingType>(Category.class);

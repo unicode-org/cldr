@@ -5,10 +5,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.PatternCache;
 
 public class CheckQuotes extends CheckCLDR {
-    private static final Pattern ASCII_QUOTES = Pattern.compile("[\'\"]");
-    private static final Pattern UNITS = Pattern.compile("//ldml/units/.*");
+    private static final Pattern ASCII_QUOTES = PatternCache.get("[\'\"]");
+    private static final Pattern UNITS = PatternCache.get("//ldml/units/.*");
 
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,

@@ -11,6 +11,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PatternCache;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -58,7 +59,7 @@ public class TestCollators extends TestFmwk {
             return cldrFactory.getAvailable();
         }
 
-        static final Pattern TYPE = Pattern.compile("//ldml/collations/collation\\[@type=\"([^\"]+)\"\\].*/cr");
+        static final Pattern TYPE = PatternCache.get("//ldml/collations/collation\\[@type=\"([^\"]+)\"\\].*/cr");
         
         static public Set<String> getAvailableTypes(String locale) {
             CLDRFile cldrFile = cldrFactory.make(locale, false); // don't need resolved

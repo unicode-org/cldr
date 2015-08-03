@@ -23,6 +23,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StringId;
 
 import com.ibm.icu.dev.util.BagFormatter;
@@ -173,7 +174,7 @@ public class GenerateBirth {
         final Relation<Versions, String> birthToPaths;
         final Map<String, Row.R3<Versions, String, String>> pathToBirthCurrentPrevious;
         final String locale;
-        static final Pattern TYPE = Pattern.compile("\\[@type=\"([^\"]*)\"");
+        static final Pattern TYPE = PatternCache.get("\\[@type=\"([^\"]*)\"");
         final Matcher typeMatcher = TYPE.matcher("");
         Set<String> emptyPrevious = new HashSet<String>();
 

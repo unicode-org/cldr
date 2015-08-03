@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.ParsePosition;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.PatternCache;
+
 /**
  * Immutable class that allows people to fix regex pattern strings to be provide for internationalization support
  * (as per UTS 18 Unicode Regular Expressions). The chief problem with the internationalization of
@@ -128,7 +130,7 @@ public class PatternFixer {
     }
 
     public static Pattern compile(String regexPattern) {
-        return Pattern.compile(new PatternFixer(Target.JAVA).fix(regexPattern));
+        return PatternCache.get(new PatternFixer(Target.JAVA).fix(regexPattern));
     }
 
     // convenience functions

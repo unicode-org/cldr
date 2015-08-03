@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.FileCopier;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StringArrayToMap;
 
 import com.ibm.icu.dev.util.BagFormatter;
@@ -22,7 +23,7 @@ import com.ibm.icu.util.Calendar;
  * @author jchye
  */
 class Makefile {
-    private static final Pattern VARIABLE = Pattern.compile("\\$\\([\\w_]++\\)");
+    private static final Pattern VARIABLE = PatternCache.get("\\$\\([\\w_]++\\)");
 
     private String prefix;
     private List<MakefileEntry> entries = new ArrayList<MakefileEntry>();

@@ -26,6 +26,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InputStreamFactory;
 import org.unicode.cldr.util.PathDescription;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.SimpleXMLSource;
@@ -46,9 +47,9 @@ import org.xml.sax.XMLReader;
  * @author jchye@google.com (Jennifer Chye)
  */
 public class ConvertXTB {
-    private static final Pattern ID_PATTERN = Pattern.compile(
+    private static final Pattern ID_PATTERN = PatternCache.get(
         "\\[@id=\"(\\d++)\"]");
-    private static final Pattern PLURAL_MESSAGE_FORMAT = Pattern.compile(
+    private static final Pattern PLURAL_MESSAGE_FORMAT = PatternCache.get(
         "\\{[A-Z_]++,plural, (.*)}");
 
     private static PatternPlaceholders patternPlaceholders;

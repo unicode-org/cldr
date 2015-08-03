@@ -28,6 +28,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralSamples;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.StringId;
@@ -128,12 +129,12 @@ public class TestUtilities extends TestFmwk {
     }
 
     public void TestUrlEscape() {
-        Matcher byte1 = Pattern.compile("%[A-Za-z0-9]{2}").matcher("");
-        Matcher byte2 = Pattern.compile("%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}")
+        Matcher byte1 = PatternCache.get("%[A-Za-z0-9]{2}").matcher("");
+        Matcher byte2 = PatternCache.get("%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}")
             .matcher("");
-        Matcher byte3 = Pattern.compile(
+        Matcher byte3 = PatternCache.get(
             "%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}").matcher("");
-        Matcher byte4 = Pattern.compile(
+        Matcher byte4 = PatternCache.get(
             "%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}")
             .matcher("");
         for (int i = 1; i <= 0x10FFFF; i = i * 3 / 2 + 1) {

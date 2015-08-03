@@ -285,8 +285,8 @@ public class PathHeader implements Comparable<PathHeader> {
     private final int codeOrder;
     private final SubstringOrder codeSuborder;
 
-    static final Pattern SEMI = Pattern.compile("\\s*;\\s*");
-    static final Matcher ALT_MATCHER = Pattern.compile(
+    static final Pattern SEMI = PatternCache.get("\\s*;\\s*");
+    static final Matcher ALT_MATCHER = PatternCache.get(
         "\\[@alt=\"([^\"]*+)\"]")
         .matcher("");
 

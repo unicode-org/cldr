@@ -12,6 +12,8 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.PatternCache;
+
 /**
  * This class represents items which consist of multiple-choice attributes
  */
@@ -48,7 +50,7 @@ public class AttributeChoice {
 
             List<String> valueList = null;
             if (!allXpaths.containsKey(k)) {
-                allXpaths.put(k, Pattern.compile(k));
+                allXpaths.put(k, PatternCache.get(k));
                 valueList = new ArrayList<String>();
                 allValues.put(k, valueList);
             } else {

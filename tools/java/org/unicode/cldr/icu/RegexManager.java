@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.FileReaders;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.RegexLookup.Merger;
@@ -35,13 +36,13 @@ import com.ibm.icu.util.Output;
  * @author jchye
  */
 class RegexManager {
-    private static final Pattern SEMI = Pattern.compile("\\s*+;\\s*+");
-    private static final Pattern FUNCTION_PATTERN = Pattern.compile("\\&(\\w++)\\(([^\\)]++)\\)");
-    private static final Pattern QUOTES = Pattern.compile("\"([^\"]++)\"");
+    private static final Pattern SEMI = PatternCache.get("\\s*+;\\s*+");
+    private static final Pattern FUNCTION_PATTERN = PatternCache.get("\\&(\\w++)\\(([^\\)]++)\\)");
+    private static final Pattern QUOTES = PatternCache.get("\"([^\"]++)\"");
     private static final UnicodeSet SPACE_CHARACTERS = new UnicodeSet(
         "[\\u0000\\uFEFF[:pattern_whitespace:]]");
     // Matches arguments with or without enclosing quotes.
-    private static final Pattern ARGUMENT = Pattern.compile("[<\"]?\\$(\\d)[\">]?");
+    private static final Pattern ARGUMENT = PatternCache.get("[<\"]?\\$(\\d)[\">]?");
 
     private static Map<String, Function> functionMap = new HashMap<String, Function>();
 

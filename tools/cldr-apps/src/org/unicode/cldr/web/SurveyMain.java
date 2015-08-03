@@ -90,6 +90,7 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathUtilities;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SpecialLocales.Type;
@@ -5410,7 +5411,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         // if((zone == null)||(zone.length()==0)) {
         if (true) {
             // showPathList(ctx, DataSection.EXEMPLAR_PARENT,
-            // XPathMatcher.regex(Pattern.compile(".*exemplarCity.*")), null);
+            // XPathMatcher.regex(PatternCache.get(".*exemplarCity.*")), null);
             showPathList(ctx, DataSection.EXEMPLAR_PARENT, null, false);
             return;
         }
@@ -5551,7 +5552,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             ctx,
             canModify,
             XPathMatcher.regex(BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH, zoneXpath),
-                Pattern.compile(".*/((short)|(long))/.*")), true);
+                PatternCache.get(".*/((short)|(long))/.*")), true);
         printSectionTableClose(ctx, section, canModify);
         if (canModify && false) {
             ctx.println("<input  type='submit' value='" + getSaveButtonText() + "'>"); // style='float:right'
@@ -7216,7 +7217,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return new Date(Timestamp.valueOf(getVotesAfterString()).getTime());
     }
 
-    Pattern ALLOWED_EMPTY = Pattern.compile("//ldml/fallback(?![a-zA-Z])");
+    Pattern ALLOWED_EMPTY = PatternCache.get("//ldml/fallback(?![a-zA-Z])");
 
     // TODO move to central location
 

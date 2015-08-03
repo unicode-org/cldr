@@ -12,12 +12,12 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.unicode.cldr.util.XPathParts;
@@ -36,13 +36,13 @@ public class TestPathsModule extends TestFmwk {
         new TestPathsModule().run(args);
     }
 
-    private static final Matcher FILE_FILTER = Pattern.compile(
+    private static final Matcher FILE_FILTER = PatternCache.get(
         CldrUtility.getProperty("file", ".?")).matcher("");
-    private static final Matcher PATH_FILTER = Pattern.compile(
+    private static final Matcher PATH_FILTER = PatternCache.get(
         CldrUtility.getProperty("path", ".?")).matcher("");
-    private static final Matcher VALUE_FILTER = Pattern.compile(
+    private static final Matcher VALUE_FILTER = PatternCache.get(
         CldrUtility.getProperty("value", ".?")).matcher("");
-    private static final Matcher TEST_FILTER = Pattern.compile(
+    private static final Matcher TEST_FILTER = PatternCache.get(
         CldrUtility.getProperty("test", ".?")).matcher("");
 
     public void TestMain() throws IOException {

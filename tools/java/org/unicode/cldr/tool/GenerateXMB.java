@@ -39,6 +39,7 @@ import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PrettyPath;
@@ -124,7 +125,7 @@ public class GenerateXMB {
     static Relation<String, String> path2errors = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
 
     // enum Handling {SKIP};
-    static final Matcher datePatternMatcher = Pattern.compile("dates.*(pattern|available)").matcher("");
+    static final Matcher datePatternMatcher = PatternCache.get("dates.*(pattern|available)").matcher("");
 
     public static final boolean DEBUG = false;
 
@@ -152,9 +153,9 @@ public class GenerateXMB {
         option = myOptions.get("file");
         String fileMatcherString = option.getValue();
         option = myOptions.get("content");
-        Matcher contentMatcher = option.doesOccur() ? Pattern.compile(option.getValue()).matcher("") : null;
+        Matcher contentMatcher = option.doesOccur() ? PatternCache.get(option.getValue()).matcher("") : null;
         option = myOptions.get("path");
-        pathMatcher = option.doesOccur() ? Pattern.compile(option.getValue()).matcher("") : null;
+        pathMatcher = option.doesOccur() ? PatternCache.get(option.getValue()).matcher("") : null;
 
         String targetDir = myOptions.get("target").getValue();
         countFile = BagFormatter.openUTF8Writer(targetDir + "/log/", "counts.txt");
@@ -339,7 +340,7 @@ public class GenerateXMB {
     }
 
     static class SubmittedPathFixer {
-        private static final Pattern PATH_FIX = Pattern.compile("\\[@alt=\"" +
+        private static final Pattern PATH_FIX = PatternCache.get("\\[@alt=\"" +
             "(?:proposed|((?!proposed)[-a-zA-Z0-9]*)-proposed)" +
             "-u\\d+-implicit[0-9.]+" +
             "(?:-proposed-u\\d+-implicit[0-9.]+)?" + // NOTE: we allow duplicated alt values because of a generation
@@ -407,10 +408,10 @@ public class GenerateXMB {
         return best;
     }
 
-    static final Pattern COUNT_OR_ALT_ATTRIBUTE = Pattern.compile("\\[@(count)=\"([^\"]*)\"]");
+    static final Pattern COUNT_OR_ALT_ATTRIBUTE = PatternCache.get("\\[@(count)=\"([^\"]*)\"]");
     static final Pattern PLURAL_XPATH = Pattern
         .compile("//ldml/(units/unit|numbers/(decimal|currency)Formats).*\\[@count=\"\\w+\"].*");
-    static final Pattern SKIP_EXEMPLAR_TEST = Pattern.compile(
+    static final Pattern SKIP_EXEMPLAR_TEST = PatternCache.get(
         "/(currencySpacing"
             + "|hourFormat"
             + "|exemplarCharacters"
@@ -431,7 +432,7 @@ public class GenerateXMB {
     static final UnicodeSet ASCII_LATIN = new UnicodeSet("[A-Za-z]").freeze();
     static final UnicodeSet LATIN = new UnicodeSet("[:sc=Latn:]").freeze();
 
-    static final Matcher keepFromRoot = Pattern.compile("/(exemplarCity|currencies/currency.*/symbol)").matcher("");
+    static final Matcher keepFromRoot = PatternCache.get("/(exemplarCity|currencies/currency.*/symbol)").matcher("");
     static final Matcher currencyDisplayName = Pattern
         .compile("/currencies/currency\\[@type=\"([^\"]*)\"]/displayName").matcher("");
 
@@ -639,8 +640,8 @@ public class GenerateXMB {
         return exemplars;
     }
 
-    static final Pattern COUNT_ATTRIBUTE = Pattern.compile("\\[@count=\"([^\"]*)\"]");
-    static final Pattern PLURAL_NUMBER = Pattern.compile("(decimal|number)Format");
+    static final Pattern COUNT_ATTRIBUTE = PatternCache.get("\\[@count=\"([^\"]*)\"]");
+    static final Pattern PLURAL_NUMBER = PatternCache.get("(decimal|number)Format");
 
     private static Row.R2<Integer, Integer> writeCountPathInfo(PrintWriter out, PrintWriter out3, String locale,
         Relation<String, R2<PathInfo, String>> countItems, boolean isEnglish, boolean filter) {
@@ -844,7 +845,7 @@ public class GenerateXMB {
     }
 
     static class PathInfo implements Comparable<PathInfo> {
-        private static final Pattern PLACEHOLDER = Pattern.compile("\\{(\\d)}");
+        private static final Pattern PLACEHOLDER = PatternCache.get("\\{(\\d)}");
 
         private final String path;
         private final Long id;

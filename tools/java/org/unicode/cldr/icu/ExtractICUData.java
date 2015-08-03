@@ -23,11 +23,11 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 
 import com.ibm.icu.dev.util.BagFormatter;
@@ -80,7 +80,7 @@ public class ExtractICUData {
     }));
 
     static void generateTransliterators() throws IOException {
-        Matcher fileFilter = Pattern.compile(".*").matcher("");
+        Matcher fileFilter = PatternCache.get(".*").matcher("");
 
         CLDRFile accumulatedItems = SimpleFactory.makeSupplemental("allItems");
         getTranslitIndex(accumulatedItems);
@@ -344,8 +344,8 @@ public class ExtractICUData {
     }
 
     static String idPattern = "\\s*(\\p{L}+)(?:[_-](\\p{L}+))?(?:\\[_/](\\p{L}+))?";
-    static Matcher idMatcher = Pattern.compile(idPattern).matcher("");
-    static Matcher instanceMatcher = Pattern.compile("\\s*(\\[.*\\]\\s*)?(.*)").matcher("");
+    static Matcher idMatcher = PatternCache.get(idPattern).matcher("");
+    static Matcher instanceMatcher = PatternCache.get("\\s*(\\[.*\\]\\s*)?(.*)").matcher("");
 
     // private static String fixTransName(String name, String[] attributesOut, String separator) {
     // String[] pieces = name.split(separator);
@@ -362,8 +362,8 @@ public class ExtractICUData {
     // return source + (target == null ? "" : "-") + target + (variant == null ? "" : "/" + variant);
     // }
 
-    static Matcher privateFiles = Pattern.compile(".*(Spacedhan|InterIndic|ThaiLogical|ThaiSemi).*").matcher("");
-    static Matcher allowNames = Pattern.compile("(Fullwidth|Halfwidth|NumericPinyin|Publishing)").matcher("");
+    static Matcher privateFiles = PatternCache.get(".*(Spacedhan|InterIndic|ThaiLogical|ThaiSemi).*").matcher("");
+    static Matcher allowNames = PatternCache.get("(Fullwidth|Halfwidth|NumericPinyin|Publishing)").matcher("");
 
     static Set<String> collectedNames = new TreeSet<String>();
 

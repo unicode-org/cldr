@@ -22,6 +22,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.StandardCodes.LstrField;
@@ -279,8 +280,8 @@ public class GenerateSubdivisions {
             "municipality"
         };
 
-        static final Pattern CRUFT_PATTERN = Pattern.compile("(?i)\\b" + CollectionUtilities.join(CRUFT, "|") + "\\b");
-        static final Pattern BRACKETED = Pattern.compile("\\[.*\\]");
+        static final Pattern CRUFT_PATTERN = PatternCache.get("(?i)\\b" + CollectionUtilities.join(CRUFT, "|") + "\\b");
+        static final Pattern BRACKETED = PatternCache.get("\\[.*\\]");
         static String clean(String input) {
             if (input == null) {
                 return input;

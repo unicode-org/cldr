@@ -16,7 +16,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
@@ -33,6 +32,7 @@ import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -516,17 +516,17 @@ public class GenerateMaximalLocales {
         Log.setLogNoBOM(CLDRPaths.GEN_DIRECTORY + "/supplemental", "supplementalMetadata.xml");
         BufferedReader oldFile = BagFormatter.openUTF8Reader(CLDRPaths.SUPPLEMENTAL_DIRECTORY,
             "supplementalMetadata.xml");
-        CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*<defaultContent locales=\"\\s*"), Log.getLog(), false);
+        CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<defaultContent locales=\"\\s*"), Log.getLog(), false);
 
         String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t";
         String broken = CldrUtility.breakLines(CldrUtility.join(defaultLocaleContent, " "), sep,
-            Pattern.compile("(\\S)\\S*").matcher(""), 80);
+            PatternCache.get("(\\S)\\S*").matcher(""), 80);
 
         Log.println("\t\t<defaultContent locales=\"" + broken + "\"");
         Log.println("\t\t/>");
 
         // Log.println("</supplementalData>");
-        CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*/>\\s*(<!--.*)?"), null, true); // skip to matching >
+        CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*/>\\s*(<!--.*)?"), null, true); // skip to matching >
         CldrUtility.copyUpTo(oldFile, null, Log.getLog(), true); // copy the rest
 
         Log.close();

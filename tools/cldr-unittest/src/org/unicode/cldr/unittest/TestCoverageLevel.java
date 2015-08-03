@@ -22,6 +22,7 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LogicalGrouping;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexLookup;
@@ -297,9 +298,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
             "Dacca", "Aktyubinsk", "Turkey", "Urumqi", "Acre", "Almaty", "Anadyr", "Aqtau", "Aqtobe", "Kamchatka", "Macau", "Qyzylorda", "Samara",
             "Casey", "Guam", "Lanka", "North_Mariana");
 
-        final Pattern calendar100 = Pattern.compile("(coptic|ethiopic-amete-alem|islamic-(rgsa|tbla|umalqura))");
+        final Pattern calendar100 = PatternCache.get("(coptic|ethiopic-amete-alem|islamic-(rgsa|tbla|umalqura))");
 
-        final Pattern language100 = Pattern.compile("("
+        final Pattern language100 = PatternCache.get("("
             + "aa|ac[eh]|ad[ay]|aeb?|af[ah]|ain|ak[kz]|al[egnt]|an[gp]?|apa|ar[copqtwyz]|as[et]|ath|aus|avk?|awa|ay|"
             + "ba[dilnstx]|bar|bb[cj]|be[jrw]|bf[dq]|bho?|bkm|bi[kn]?|bjn|bla|bnt|bpy|bqi|br[ah]|bss|btk|bu[amg]|bxr|by[nv]|"
             + "ca[diruy]|cch|ce[bl]|ch[bgkmnopy]?|cmc|cop|cp[efps]|cr[hp]?|csb|cus?|"
@@ -327,7 +328,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             + "ya[opv]|ybb|yi|ypk|yrl|yue|"
             + "zap?|zbl|ze[an]|znd|zun|zza)");
 
-        final Pattern script100 = Pattern.compile("("
+        final Pattern script100 = PatternCache.get("("
             + "Afak|Aghb|Ahom|Armi|Avst|Bali|Bamu|Bass|Batk|Blis|Brah|Bugi|Buhd|Cakm|Cans|Cari|Cham|Cher|Cirt|Copt|Cprt|Cyrs|"
             + "Dsrt|Dupl|Egy[dhp]|Elba|Geok|Glag|Goth|Gran|Hatr|Hano|Hluw|Hmng|Hrkt|Hung|Inds|Ital|Java|Jurc|"
             + "Kali|Khar|Khoj|Kpel|Kthi|Kits|Lana|Lat[fg]|Lepc|Limb|Lin[ab]|Lisu|Loma|Ly[cd]i|Mahj|Man[di]|Maya|Mend|Mer[co]|Modi|Moon|Mroo|Mtei|Mult|"
@@ -335,14 +336,14 @@ public class TestCoverageLevel extends TestFmwkPlus {
             + "Rjng|Roro|Runr|Samr|Sar[ab]|Saur|Sgnw|Shaw|Shrd|Sidd|Sind|Sora|Sund|Sylo|Syr[cejn]|"
             + "Tagb|Takr|Tal[eu]|Tang|Tavt|Teng|Tfng|Tglg|Tirh|Ugar|Vaii|Visp|Wara|Wole|Xpeo|Xsux|Yiii|Zinh|Zmth)");
 
-        final Pattern keys100 = Pattern.compile("(col(Alternate|Backwards|CaseFirst|CaseLevel|HiraganaQuaternary|"
+        final Pattern keys100 = PatternCache.get("(col(Alternate|Backwards|CaseFirst|CaseLevel|HiraganaQuaternary|"
             + "Normalization|Numeric|Reorder|Strength)|kv|timezone|va|variableTop|x)");
 
-        final Pattern numberingSystem100 = Pattern.compile("("
+        final Pattern numberingSystem100 = PatternCache.get("("
             + "finance|native|traditional|bali|brah|cakm|cham|cyrl|hanidays|java|kali|lana(tham)?|lepc|limb|"
             + "math(bold|dbl|mono|san[bs])|mong|mtei|mymrshan|nkoo|olck|osma|saur|shrd|sora|sund|takr|talu|vaii)");
 
-        final Pattern collation100 = Pattern.compile("("
+        final Pattern collation100 = PatternCache.get("("
             + "big5han|compat|dictionary|emoji|eor|gb2312han|phonebook|phonetic|pinyin|reformed|searchjl|stroke|traditional|unihan|zhuyin)");
 
         SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();

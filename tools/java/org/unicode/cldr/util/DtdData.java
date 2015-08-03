@@ -37,7 +37,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private static final boolean USE_SYNTHESIZED = false;
 
     private static final boolean DEBUG = false;
-    private static final Pattern FILLER = Pattern.compile("[^-a-zA-Z0-9#_:]");
+    private static final Pattern FILLER = PatternCache.get("[^-a-zA-Z0-9#_:]");
 
     private final Relation<String, Attribute> nameToAttributes = Relation.of(new TreeMap<String, Set<Attribute>>(), LinkedHashSet.class);
     private Map<String, Element> nameToElement = new HashMap<String, Element>();
@@ -290,8 +290,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
         }
 
-        static final Pattern CLEANER1 = Pattern.compile("([,|(])(?=\\S)");
-        static final Pattern CLEANER2 = Pattern.compile("(?=\\S)([|)])");
+        static final Pattern CLEANER1 = PatternCache.get("([,|(])(?=\\S)");
+        static final Pattern CLEANER2 = PatternCache.get("(?=\\S)([|)])");
         private String clean(String model2) {
             // (x) -> ( x );
             // x,y -> x, y

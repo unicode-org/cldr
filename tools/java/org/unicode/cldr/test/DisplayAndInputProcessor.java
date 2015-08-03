@@ -21,6 +21,7 @@ import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.MyanmarZawgyiConverter;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
@@ -60,7 +61,7 @@ public class DisplayAndInputProcessor {
 
     public static final Pattern NUMBER_FORMAT_XPATH = Pattern
         .compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
-    private static final Pattern APOSTROPHE_SKIP_PATHS = Pattern.compile("//ldml/("
+    private static final Pattern APOSTROPHE_SKIP_PATHS = PatternCache.get("//ldml/("
         + "characters/.*|"
         + "delimiters/.*|"
         + "dates/.+/(pattern|intervalFormatItem|dateFormatItem).*|"
@@ -68,12 +69,12 @@ public class DisplayAndInputProcessor {
         + "units/.+/durationUnitPattern.*|"
         + "numbers/symbols.*|"
         + "numbers/(decimal|currency|percent|scientific)Formats.+/(decimal|currency|percent|scientific)Format.*)");
-    private static final Pattern INTERVAL_FORMAT_PATHS = Pattern.compile("//ldml/dates/.+/intervalFormatItem.*");
-    private static final Pattern NON_DECIMAL_PERIOD = Pattern.compile("(?<![0#'])\\.(?![0#'])");
-    private static final Pattern WHITESPACE_NO_NBSP_TO_NORMALIZE = Pattern.compile("\\s+"); // string of whitespace not
+    private static final Pattern INTERVAL_FORMAT_PATHS = PatternCache.get("//ldml/dates/.+/intervalFormatItem.*");
+    private static final Pattern NON_DECIMAL_PERIOD = PatternCache.get("(?<![0#'])\\.(?![0#'])");
+    private static final Pattern WHITESPACE_NO_NBSP_TO_NORMALIZE = PatternCache.get("\\s+"); // string of whitespace not
     // including NBSP, i.e. [
     // \t\n\r]+
-    private static final Pattern WHITESPACE_AND_NBSP_TO_NORMALIZE = Pattern.compile("[\\s\\u00A0]+"); // string of
+    private static final Pattern WHITESPACE_AND_NBSP_TO_NORMALIZE = PatternCache.get("[\\s\\u00A0]+"); // string of
     // whitespace
     // including NBSP,
     // i.e. [
@@ -614,7 +615,7 @@ public class DisplayAndInputProcessor {
         return value2;
     }
 
-    private static Pattern UNNORMALIZED_MALAYALAM = Pattern.compile(
+    private static Pattern UNNORMALIZED_MALAYALAM = PatternCache.get(
         "(\u0D23|\u0D28|\u0D30|\u0D32|\u0D33|\u0D15)\u0D4D\u200D");
 
     private static Map<Character, Character> NORMALIZING_MAP =
@@ -663,11 +664,11 @@ public class DisplayAndInputProcessor {
         return value;
     }
 
-    static Pattern REMOVE_QUOTE1 = Pattern.compile("(\\s)(\\\\[-\\}\\]\\&])()");
-    static Pattern REMOVE_QUOTE2 = Pattern.compile("(\\\\[\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
+    static Pattern REMOVE_QUOTE1 = PatternCache.get("(\\s)(\\\\[-\\}\\]\\&])()");
+    static Pattern REMOVE_QUOTE2 = PatternCache.get("(\\\\[\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
 
-    static Pattern NEEDS_QUOTE1 = Pattern.compile("(\\s|$)([-\\}\\]\\&])()");
-    static Pattern NEEDS_QUOTE2 = Pattern.compile("([^\\\\])([\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
+    static Pattern NEEDS_QUOTE1 = PatternCache.get("(\\s|$)([-\\}\\]\\&])()");
+    static Pattern NEEDS_QUOTE2 = PatternCache.get("([^\\\\])([\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
 
     public static String getCleanedUnicodeSet(UnicodeSet exemplar, PrettyPrinter prettyPrinter,
         ExemplarType exemplarType) {

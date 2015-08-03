@@ -9,6 +9,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.ApproximateWidth;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
@@ -36,7 +37,7 @@ public class CheckWidths extends CheckCLDR {
         NONE, QUOTES, PLACEHOLDERS, NUMBERSYMBOLS
     }
 
-    private static final Pattern PLACEHOLDER_PATTERN = Pattern.compile("\\{\\d\\}");
+    private static final Pattern PLACEHOLDER_PATTERN = PatternCache.get("\\{\\d\\}");
 
     private static class Limit {
         final double warningReference;

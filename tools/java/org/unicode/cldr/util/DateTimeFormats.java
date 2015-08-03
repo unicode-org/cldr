@@ -507,7 +507,7 @@ public class DateTimeFormats {
         return TransliteratorUtilities.toHTML.transform(example);
     }
 
-    static final Pattern RELATIVE_DATE = Pattern.compile("®([a-z]+(?:-[a-z]+)?)+(-[a-z]+)?([+-]?\\d+)([a-zA-Z]+)?");
+    static final Pattern RELATIVE_DATE = PatternCache.get("®([a-z]+(?:-[a-z]+)?)+(-[a-z]+)?([+-]?\\d+)([a-zA-Z]+)?");
 
     class RelativePattern {
         private static final String UNIT_PREFIX = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-";

@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
+import org.unicode.cldr.util.PatternCache;
 
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
@@ -68,7 +69,7 @@ public class DateOrder implements Comparable<DateOrder> {
         Status status = new Status();
         try {
             Map<String, Map<DateOrder, Set<String>>> type2order2set = new HashMap<String, Map<DateOrder, Set<String>>>();
-            Matcher typeMatcher = Pattern.compile("\\[@type=\"([^\"]*)\"]").matcher("");
+            Matcher typeMatcher = PatternCache.get("\\[@type=\"([^\"]*)\"]").matcher("");
             int[] soFar = new int[50];
             int lenSoFar = 0;
             for (String path : resolved) {
@@ -211,7 +212,7 @@ public class DateOrder implements Comparable<DateOrder> {
      */
     private enum FormatType {
         DATE(3), TIME(3), AVAILABLE(2), INTERVAL(1);
-        private static final Pattern DATETIME_PATTERN = Pattern.compile("/(date|time|available|interval)Formats");
+        private static final Pattern DATETIME_PATTERN = PatternCache.get("/(date|time|available|interval)Formats");
         // Types with a higher value have higher importance.
         private int importance;
 

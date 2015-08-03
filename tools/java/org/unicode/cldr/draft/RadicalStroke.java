@@ -10,16 +10,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.PatternCache;
 
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.text.UnicodeSet;
 
 public class RadicalStroke {
     // U+3433 kRSUnicode 9.3
-    private static Pattern RAD_STROKE = Pattern.compile("U\\+([A-Z0-9]+)\\s+kRSUnicode\\s+(.*)");
-    private static Pattern RAD_DATA = Pattern.compile("([0-9]{1,3}\\'?)\\.([0-9]{1,2})\\s*");
+    private static Pattern RAD_STROKE = PatternCache.get("U\\+([A-Z0-9]+)\\s+kRSUnicode\\s+(.*)");
+    private static Pattern RAD_DATA = PatternCache.get("([0-9]{1,3}\\'?)\\.([0-9]{1,2})\\s*");
 
-    private static Pattern IICORE = Pattern.compile("U\\+([A-Z0-9]+)\\s+kIICore\\s+(.*)");
+    private static Pattern IICORE = PatternCache.get("U\\+([A-Z0-9]+)\\s+kIICore\\s+(.*)");
 
     public static RadicalStroke SINGLETON = new RadicalStroke();
 

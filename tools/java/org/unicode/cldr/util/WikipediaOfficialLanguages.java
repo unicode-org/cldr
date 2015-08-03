@@ -86,8 +86,8 @@ public class WikipediaOfficialLanguages {
             }
         }
 
-        Matcher pagenote = Pattern.compile("\\[\\d+\\]").matcher("");
-        Pattern commentBreak = Pattern.compile("\\)\\s*\\(?|\\s*\\(");
+        Matcher pagenote = PatternCache.get("\\[\\d+\\]").matcher("");
+        Pattern commentBreak = PatternCache.get("\\)\\s*\\(?|\\s*\\(");
         int count = 0;
         try {
             BufferedReader input = BagFormatter.openUTF8Reader(CLDRPaths.UTIL_DATA_DIR, "WikipediaOfficialLanguages.txt");

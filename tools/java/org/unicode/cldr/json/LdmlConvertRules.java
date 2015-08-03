@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.PatternCache;
 
 class LdmlConvertRules {
 
@@ -303,7 +304,7 @@ class LdmlConvertRules {
      * Some elements in CLDR has multiple children of the same type of element.
      * We would like to treat them as array.
      */
-    public static final Pattern ARRAY_ITEM_PATTERN = Pattern.compile(
+    public static final Pattern ARRAY_ITEM_PATTERN = PatternCache.get(
         "(.*/collation[^/]*/rules[^/]*/" +
             "|.*/character-fallback[^/]*/character[^/]*/" +
             "|.*/dayPeriodRuleSet[^/]*/dayPeriodRules[^/]*/" +
@@ -352,7 +353,7 @@ class LdmlConvertRules {
         public String replacement;
 
         PathTransformSpec(String patternStr, String replacement) {
-            pattern = Pattern.compile(patternStr);
+            pattern = PatternCache.get(patternStr);
             this.replacement = replacement;
         }
     }

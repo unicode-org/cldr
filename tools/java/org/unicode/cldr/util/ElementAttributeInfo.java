@@ -134,7 +134,7 @@ public class ElementAttributeInfo {
         private static final boolean SHOW = false;
         private ElementAttributeInfo myData;
 
-        Matcher idmatcher = Pattern.compile("[a-zA-Z0-9][-_a-zA-Z0-9]*").matcher("");
+        Matcher idmatcher = PatternCache.get("[a-zA-Z0-9][-_a-zA-Z0-9]*").matcher("");
 
         public MyDeclHandler(ElementAttributeInfo indata) {
             myData = indata;

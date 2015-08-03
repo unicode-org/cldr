@@ -529,7 +529,7 @@ public class TimezoneFormatter extends UFormat {
     private static final String[] zoneTypes = { "\"]/long/generic", "\"]/short/generic", "\"]/long/standard",
         "\"]/short/standard", "\"]/long/daylight", "\"]/short/daylight" };
 
-    private transient Matcher m = Pattern.compile("([-+])([0-9][0-9])([0-9][0-9])").matcher("");
+    private transient Matcher m = PatternCache.get("([-+])([0-9][0-9])([0-9][0-9])").matcher("");
 
     private transient boolean parseInfoBuilt;
     private transient final Map<String, String> localizedCountry_countryCode = new HashMap<String, String>();

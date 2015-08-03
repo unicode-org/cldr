@@ -22,6 +22,7 @@ import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -87,7 +88,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     //private static final UnicodeSet DISALLOWED_IN_scriptRegionExemplarsWithParens = new UnicodeSet("[;,；，]").freeze();
 
     // Hack until cldrbug 6566 is fixed. TODO
-    private static final Pattern IGNORE_PLACEHOLDER_PARENTHESES = Pattern.compile("\\p{Ps}#\\p{Pe}");
+    private static final Pattern IGNORE_PLACEHOLDER_PARENTHESES = PatternCache.get("\\p{Ps}#\\p{Pe}");
 
     // private UnicodeSet currencySymbolExemplars;
     private boolean skip;
@@ -101,7 +102,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     private DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
     StringBuilder justText = new StringBuilder();
 
-    // public static final Pattern SUPPOSED_TO_BE_MESSAGE_FORMAT_PATTERN = Pattern.compile("/(" +
+    // public static final Pattern SUPPOSED_TO_BE_MESSAGE_FORMAT_PATTERN = PatternCache.get("/(" +
     // "codePattern" +
     // "|dateRangePattern" +
     // "|dateTimeFormat[^/]*?/pattern" +
@@ -120,7 +121,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     // ")");
     // private Matcher supposedToBeMessageFormat = SUPPOSED_TO_BE_MESSAGE_FORMAT_PATTERN.matcher("");
 
-    public static final Pattern LEAD_OR_TRAIL_WHITESPACE_OK = Pattern.compile("/(" +
+    public static final Pattern LEAD_OR_TRAIL_WHITESPACE_OK = PatternCache.get("/(" +
         "references/reference" +
         "|insertBetween" +
         ")");

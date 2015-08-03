@@ -19,7 +19,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -31,6 +30,7 @@ import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VariantFolder;
@@ -206,7 +206,7 @@ public class TestMisc {
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile en = cldrFactory.make("root", true);
         Status status = new Status();
-        Matcher m = Pattern.compile("gregorian.*dayPeriods").matcher("");
+        Matcher m = PatternCache.get("gregorian.*dayPeriods").matcher("");
         for (Iterator<String> it = en.iterator(null, en.getComparator()); it.hasNext();) {
             String path = it.next();
             if (!m.reset(path).find()) {
@@ -402,7 +402,7 @@ public class TestMisc {
     private static void testToRegex(UnicodeSet test) {
         String formatted = CldrUtility.toRegex(test);
         System.out.println(test + "\t->\t" + formatted);
-        Matcher newTest = Pattern.compile(formatted).matcher("");
+        Matcher newTest = PatternCache.get(formatted).matcher("");
         UnicodeSet failures = new UnicodeSet();
         for (UnicodeSetIterator it = new UnicodeSetIterator(test); it.next();) {
             if (!newTest.reset(it.getString()).matches()) {

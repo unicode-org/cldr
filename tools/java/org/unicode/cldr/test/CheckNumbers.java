@@ -16,6 +16,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -52,8 +53,8 @@ public class CheckNumbers extends FactoryCheckCLDR {
      */
     private static Random random = new Random();
 
-    private static Pattern ALLOWED_INTEGER = Pattern.compile("1(0+)");
-    private static Pattern COMMA_ABUSE = Pattern.compile(",[0#]([^0#]|$)");
+    private static Pattern ALLOWED_INTEGER = PatternCache.get("1(0+)");
+    private static Pattern COMMA_ABUSE = PatternCache.get(",[0#]([^0#]|$)");
 
     /**
      * A MessageFormat string. For display, anything variable that contains strings that might have BIDI

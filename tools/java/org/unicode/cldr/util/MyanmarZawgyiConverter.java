@@ -15,7 +15,7 @@ import com.ibm.icu.text.Transliterator;
 public class MyanmarZawgyiConverter {
     // For detecting if Myanmar text is encoded with Zawgyi vs. Unicode characters.
 
-    private static final Pattern ZAWGYI_DETECT_PATTERN = Pattern.compile(
+    private static final Pattern ZAWGYI_DETECT_PATTERN = PatternCache.get(
         // A regular expression matched if text is Zawgyi encoding.
         // Using the ranges 1033-1034 or 1060-1097 will report Shan, Karen,
         // etc. as Zawgyi.

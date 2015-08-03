@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -17,6 +16,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XPathParts;
 
@@ -32,7 +32,7 @@ public class PivotData {
             + CldrUtility.LINE_SEPARATOR +
             "These are Lang+Script+Region, then Lang+Region, then Lang+Script" + CldrUtility.LINE_SEPARATOR +
             "Inspect and check-in after each phase");
-        fileMatcher = Pattern.compile(CldrUtility.getProperty("FILE", ".*")).matcher("");
+        fileMatcher = PatternCache.get(CldrUtility.getProperty("FILE", ".*")).matcher("");
         int phase = Integer.parseInt(CldrUtility.getProperty("phase", null));
         Set<LocaleIDParser.Level> conditions = null;
         switch (phase) {

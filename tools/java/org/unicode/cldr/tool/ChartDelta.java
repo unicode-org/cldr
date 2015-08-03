@@ -34,6 +34,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLFileReader;
@@ -71,7 +72,7 @@ public class ChartDelta extends Chart {
 
     public static void main(String[] args) {
         myOptions.parse(MyOptions.fileFilter, args, true);
-        Matcher fileFilter = !MyOptions.fileFilter.option.doesOccur() ? null : Pattern.compile(MyOptions.fileFilter.option.getValue()).matcher("");
+        Matcher fileFilter = !MyOptions.fileFilter.option.doesOccur() ? null : PatternCache.get(MyOptions.fileFilter.option.getValue()).matcher("");
         boolean verbose = MyOptions.verbose.option.doesOccur();
         new ChartDelta(fileFilter, verbose).writeChart(null);
     }
@@ -79,7 +80,7 @@ public class ChartDelta extends Chart {
     private static final String SEP = "\u0001";
     private static final boolean DEBUG = false;
     private static final String DEBUG_FILE = "windowsZones.xml";
-    static Pattern fileMatcher = Pattern.compile(".*");
+    static Pattern fileMatcher = PatternCache.get(".*");
 
     private static final String LAST_ARCHIVE_DIRECTORY = "/Users/markdavis/Google Drive/workspace/cldr-archive/cldr-26.0/";
 

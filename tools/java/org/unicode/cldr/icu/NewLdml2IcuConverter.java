@@ -21,6 +21,7 @@ import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileReaders;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 /**
@@ -47,7 +48,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
 
     static final boolean DEBUG = true;
 
-    static final Pattern SEMI = Pattern.compile("\\s*+;\\s*+");
+    static final Pattern SEMI = PatternCache.get("\\s*+;\\s*+");
 
     /*
      * The type of file to be converted.

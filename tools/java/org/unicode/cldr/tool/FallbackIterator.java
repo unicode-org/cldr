@@ -10,7 +10,8 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+import org.unicode.cldr.util.PatternCache;
 
 public class FallbackIterator implements Iterator<String> {
     private static final boolean DEBUG = false;
@@ -26,7 +27,7 @@ public class FallbackIterator implements Iterator<String> {
             List<String> strings = new ArrayList<String>();
             for (String datum : data) {
                 if (first) {
-                    matcher = Pattern.compile(datum).matcher("");
+                    matcher = PatternCache.get(datum).matcher("");
                     first = false;
                 } else {
                     strings.add(datum);
@@ -281,7 +282,7 @@ public class FallbackIterator implements Iterator<String> {
         return this;
     }
 
-    // Matcher regularFallback = Pattern.compile("(.*)[-_][^-_]*").matcher("");
+    // Matcher regularFallback = PatternCache.get("(.*)[-_][^-_]*").matcher("");
 
     public void remove() {
         throw new UnsupportedOperationException();

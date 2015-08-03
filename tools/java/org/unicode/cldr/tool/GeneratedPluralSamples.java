@@ -14,12 +14,12 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.GeneratedPluralSamples.Info.Type;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -557,7 +557,7 @@ public class GeneratedPluralSamples {
         PluralRules test = PluralRules.parseDescription("one: n in 3,4 or f mod 5 in 3..4;");
         System.out.println(test);
 
-        Matcher localeMatcher = !MyOptions.filter.option.doesOccur() ? null : Pattern.compile(MyOptions.filter.option.getValue()).matcher("");
+        Matcher localeMatcher = !MyOptions.filter.option.doesOccur() ? null : PatternCache.get(MyOptions.filter.option.getValue()).matcher("");
         boolean fileFormat = MyOptions.xml.option.doesOccur();
         final boolean multiline = MyOptions.multiline.option.doesOccur();
         final boolean sortNew = MyOptions.sortNew.option.doesOccur();

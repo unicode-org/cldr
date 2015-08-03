@@ -48,7 +48,7 @@ public class Validity {
     }
 
     private Validity(String commonDirectory) {
-        Splitter space = Splitter.on(Pattern.compile("\\s+")).trimResults().omitEmptyStrings();
+        Splitter space = Splitter.on(PatternCache.get("\\s+")).trimResults().omitEmptyStrings();
         Map<LstrType, Map<Validity.Status, Set<String>>> data = new EnumMap<>(LstrType.class);
         final String basePath = commonDirectory + "validity/";
         for (String file : new File(basePath).list()) {

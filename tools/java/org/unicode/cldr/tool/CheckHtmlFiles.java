@@ -24,6 +24,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
@@ -45,8 +46,8 @@ public class CheckHtmlFiles {
 
     final static Options myOptions = new Options();
     final static Writer LOG = new OutputStreamWriter(System.out);
-    static Pattern WELLFORMED_HEADER = Pattern.compile("\\s*(\\d+(\\.\\d+)*\\s*).*");
-    static Pattern SUPPRESS_SECTION_NUMBER = Pattern.compile(
+    static Pattern WELLFORMED_HEADER = PatternCache.get("\\s*(\\d+(\\.\\d+)*\\s*).*");
+    static Pattern SUPPRESS_SECTION_NUMBER = PatternCache.get(
         "(Annex [A-Z]: .*)" +
             "|(Appendix [A-Z].*)" +
             "|(.*Migrati(on|ng).*)" +
@@ -58,8 +59,8 @@ public class CheckHtmlFiles {
             "|Rights to .*Images" +
             "|Modifications" +
         "|(Revision \\d+\\.?)");
-    static Pattern SUPPRESS_REVISION = Pattern.compile("Revision \\d+\\.?");
-    static Pattern SPACES = Pattern.compile("\\s+");
+    static Pattern SUPPRESS_REVISION = PatternCache.get("Revision \\d+\\.?");
+    static Pattern SPACES = PatternCache.get("\\s+");
 
     enum MyOptions {
 //        old(".*", Settings.OTHER_WORKSPACE_DIRECTORY + "cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
@@ -137,8 +138,8 @@ public class CheckHtmlFiles {
 //        System.out.println("Extra:\t" + extraCount);
     }
 
-    static Pattern WHITESPACE = Pattern.compile("[\\s]+");
-    static Pattern BADSECTION = Pattern.compile("^\\s*(\\d+\\s*)?Section\\s*\\d+\\s*[-:]\\s*");
+    static Pattern WHITESPACE = PatternCache.get("[\\s]+");
+    static Pattern BADSECTION = PatternCache.get("^\\s*(\\d+\\s*)?Section\\s*\\d+\\s*[-:]\\s*");
 
     static final Set<String> FORCEBREAK = new HashSet<String>(Arrays.asList(
         "table", "div", "blockquote",
@@ -542,7 +543,7 @@ public class CheckHtmlFiles {
                 throw new IllegalArgumentException("Can't find " + sourceDirectory);
             }
             String canonicalBase = sourceDirectory.getCanonicalPath();
-            Matcher m = Pattern.compile(canonicalBase + "/" + regex).matcher("");
+            Matcher m = PatternCache.get(canonicalBase + "/" + regex).matcher("");
             System.out.println("Matcher: " + m);
 
             return getSentences(sourceDirectory, m);

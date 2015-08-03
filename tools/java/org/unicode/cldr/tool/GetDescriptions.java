@@ -11,13 +11,14 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 
 import com.ibm.icu.dev.util.BagFormatter;
 
 public class GetDescriptions {
 
-    static Matcher matcher = Pattern.compile("([^,(]+)(,([^(]+))?(.*)").matcher("");
+    static Matcher matcher = PatternCache.get("([^,(]+)(,([^(]+))?(.*)").matcher("");
 
     static Map<String, String> items = new TreeMap<String, String>();
     static int allCount = 1;

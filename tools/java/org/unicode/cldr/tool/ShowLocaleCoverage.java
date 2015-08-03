@@ -16,7 +16,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
@@ -37,6 +36,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
@@ -106,7 +106,7 @@ public class ShowLocaleCoverage {
     public static void main(String[] args) throws IOException {
         myOptions.parse(MyOptions.filter, args, true);
 
-        Matcher matcher = Pattern.compile(MyOptions.filter.option.getValue()).matcher("");
+        Matcher matcher = PatternCache.get(MyOptions.filter.option.getValue()).matcher("");
 
         if (MyOptions.growth.option.doesOccur()) {
             try (PrintWriter out 
@@ -293,7 +293,7 @@ public class ShowLocaleCoverage {
     }
 
     public static void showCoverage(PrintWriter index) throws IOException {
-        showCoverage(index, Pattern.compile(".*").matcher(""), null, false);
+        showCoverage(index, PatternCache.get(".*").matcher(""), null, false);
     }
 
     public static void showCoverage(PrintWriter index, Matcher matcher, Set<String> locales, boolean useOrgLevel) throws IOException {

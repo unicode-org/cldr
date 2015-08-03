@@ -26,6 +26,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.Attributes;
@@ -277,7 +278,7 @@ public class GenerateAttributeList {
 
     class MyDeclHandler implements DeclHandler {
 
-        Matcher idmatcher = Pattern.compile("[a-zA-Z][-_a-zA-Z0-9]*").matcher("");
+        Matcher idmatcher = PatternCache.get("[a-zA-Z][-_a-zA-Z0-9]*").matcher("");
 
         public void attributeDecl(String eName, String aName, String type, String mode, String value)
             throws SAXException {

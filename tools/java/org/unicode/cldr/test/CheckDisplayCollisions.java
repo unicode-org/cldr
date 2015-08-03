@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRConfig;
@@ -18,6 +17,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
@@ -70,7 +70,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         private Type(String basePrefix, MatchType matchType, int index) {
             this.matchType = matchType;
             this.basePrefix = basePrefix;
-            this.baseMatcher = Pattern.compile("^"+basePrefix+".*").matcher("");
+            this.baseMatcher = PatternCache.get("^"+basePrefix+".*").matcher("");
         }
 
         /**
@@ -111,11 +111,11 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
     static final boolean SKIP_TYPE_CHECK = true;
 
-    private final Matcher exclusions = Pattern.compile("=\"narrow\"]").matcher(""); // no matches
-    private final Matcher typePattern = Pattern.compile("\\[@type=\"([^\"]*+)\"]").matcher("");
-    private final Matcher attributesToIgnore = Pattern.compile("\\[@(?:count|alt)=\"[^\"]*+\"]").matcher("");
-    private final Matcher compactNumberAttributesToIgnore = Pattern.compile("\\[@(?:alt)=\"[^\"]*+\"]").matcher("");
-    private final Matcher compoundUnitPatterns = Pattern.compile("compoundUnitPattern").matcher("");
+    private final Matcher exclusions = PatternCache.get("=\"narrow\"]").matcher(""); // no matches
+    private final Matcher typePattern = PatternCache.get("\\[@type=\"([^\"]*+)\"]").matcher("");
+    private final Matcher attributesToIgnore = PatternCache.get("\\[@(?:count|alt)=\"[^\"]*+\"]").matcher("");
+    private final Matcher compactNumberAttributesToIgnore = PatternCache.get("\\[@(?:alt)=\"[^\"]*+\"]").matcher("");
+    private final Matcher compoundUnitPatterns = PatternCache.get("compoundUnitPattern").matcher("");
 
     // map unique path fragment to set of unique fragments for other
     // paths with which it is OK to have a value collision
@@ -234,7 +234,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             XPathParts parts = new XPathParts().set(path);
             String type = parts.getAttributeValue(-1, "type");
             myPrefix = parts.removeElement(-1).toString();
-            matcher = Pattern.compile(myPrefix.replaceAll("\\[", "\\\\[") +
+            matcher = PatternCache.get(myPrefix.replaceAll("\\[", "\\\\[") +
                 "/pattern\\[@type=(?!\"" + type + "\")\"\\d+\"].*").matcher(path);
             currentAttributesToIgnore = compactNumberAttributesToIgnore;
             message = "Can't have same number pattern as {0}";

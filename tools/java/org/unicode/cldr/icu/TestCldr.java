@@ -36,6 +36,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.PatternCache;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -161,7 +162,7 @@ public class TestCldr extends TestFmwk {
         addLocales(DateFormat.getAvailableULocales(), s);
         addLocales(Collator.getAvailableULocales(), s);
 
-        Matcher m = Pattern.compile(MATCH).matcher("");
+        Matcher m = PatternCache.get(MATCH).matcher("");
         for (String locale : s) {
             if (!m.reset(locale).matches())
                 continue;

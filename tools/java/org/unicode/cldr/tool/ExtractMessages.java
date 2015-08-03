@@ -9,7 +9,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
@@ -17,6 +16,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLFileReader;
@@ -53,7 +53,7 @@ class ExtractMessages {
                 System.out.println("Need Source Directory! ");
                 return;
             }
-            fileMatcher = Pattern.compile(getProperty("FILE", ".*")).matcher("");
+            fileMatcher = PatternCache.get(getProperty("FILE", ".*")).matcher("");
 
             SKIPIFCLDR = getProperty("SKIPIFCLDR", null) != null;
 
@@ -160,7 +160,7 @@ class ExtractMessages {
     }
 
     private static Map<String, Pair<String, DataHandler>> numericId_Id = new TreeMap<String, Pair<String, DataHandler>>();
-    private static Matcher numericIdMatcher = Pattern.compile("\\[@id=\"([^\"]+)\"\\]").matcher("");
+    private static Matcher numericIdMatcher = PatternCache.get("\\[@id=\"([^\"]+)\"\\]").matcher("");
     private static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
     private static CLDRFile english = cldrFactory.make("en", true);
 
@@ -412,7 +412,7 @@ class ExtractMessages {
 
         DataHandler(Type type, String pattern) {
             this.type = type;
-            matcher = Pattern.compile(pattern).matcher("");
+            matcher = PatternCache.get(pattern).matcher("");
             switch (type) {
             case LANGUAGE:
                 for (String code : sc.getAvailableCodes("language")) {

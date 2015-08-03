@@ -1,7 +1,8 @@
 package org.unicode.cldr.draft;
 
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+import org.unicode.cldr.util.PatternCache;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;
@@ -101,7 +102,7 @@ public class FixArchaic {
             }
             Matcher m;
             try {
-                m = Pattern.compile(uset).matcher(stri);
+                m = PatternCache.get(uset).matcher(stri);
             } catch (Exception e) {
                 failed.add(i);
                 continue;

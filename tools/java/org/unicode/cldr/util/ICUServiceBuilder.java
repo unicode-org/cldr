@@ -430,7 +430,7 @@ public class ICUServiceBuilder {
         return result;
     }
 
-    static final Matcher gregorianMonthsMatcher = Pattern.compile(".*gregorian.*months.*").matcher("");
+    static final Matcher gregorianMonthsMatcher = PatternCache.get(".*gregorian.*months.*").matcher("");
 
     private List<String> getArray(String prefix, int firstIndex, String[] itemNames, String postfix, int minimumSize) {
         List<String> result = new ArrayList<String>();

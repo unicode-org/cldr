@@ -24,7 +24,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.ShowData.DataShower;
 import org.unicode.cldr.util.CLDRFile;
@@ -39,6 +38,7 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.SAXException;
@@ -159,7 +159,7 @@ public class GenerateSidewaysView {
         ToolUtilities.registerExtraTransliterators();
         UOption.parseArgs(args, options);
 
-        pathMatcher = options[PATH].value == null ? null : Pattern.compile(options[PATH].value).matcher("");
+        pathMatcher = options[PATH].value == null ? null : PatternCache.get(options[PATH].value).matcher("");
 
         Factory cldrFactory = Factory.make(options[SOURCEDIR].value, options[MATCH].value);
         english = cldrFactory.make("en", true);

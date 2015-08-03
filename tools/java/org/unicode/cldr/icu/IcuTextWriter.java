@@ -11,6 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.FileCopier;
+import org.unicode.cldr.util.PatternCache;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
@@ -27,10 +28,10 @@ public class IcuTextWriter {
      */
     private static final String TAB = "    ";
     // List of characters to escape in UnicodeSets.
-    private static final Pattern UNICODESET_ESCAPE = Pattern.compile("\\\\[\\\\\\[\\]\\{\\}\\-&:^=]");
+    private static final Pattern UNICODESET_ESCAPE = PatternCache.get("\\\\[\\\\\\[\\]\\{\\}\\-&:^=]");
     // Only escape \ and " from other strings.
-    private static final Pattern STRING_ESCAPE = Pattern.compile("(?!')\\\\\\\\(?!')");
-    private static final Pattern QUOTE_ESCAPE = Pattern.compile("\\\\?\"");
+    private static final Pattern STRING_ESCAPE = PatternCache.get("(?!')\\\\\\\\(?!')");
+    private static final Pattern QUOTE_ESCAPE = PatternCache.get("\\\\?\"");
 
     private static String headerText;
 

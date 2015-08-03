@@ -10,6 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.InputStreamFactory;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.XMLFileReader;
 import org.xml.sax.ContentHandler;
@@ -24,7 +25,7 @@ import org.xml.sax.XMLReader;
  * @author jchye
  */
 public class MapperUtils {
-    private static final Pattern VERSION_PATTERN = Pattern.compile("\\$Revision:\\s*([\\d.]+)\\s*\\$");
+    private static final Pattern VERSION_PATTERN = PatternCache.get("\\$Revision:\\s*([\\d.]+)\\s*\\$");
 
     /**
      * Parses an XML file.

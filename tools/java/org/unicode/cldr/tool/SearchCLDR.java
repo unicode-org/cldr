@@ -4,7 +4,6 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.Option.Options;
@@ -17,6 +16,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.BaseUrl;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -253,6 +253,6 @@ public class SearchCLDR {
             exclude.value = true;
             property = property.substring(1);
         }
-        return Pattern.compile(property).matcher("");
+        return PatternCache.get(property).matcher("");
     }
 }

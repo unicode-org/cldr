@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -28,8 +29,8 @@ public class BuildIcuCompactDecimalFormat {
     private static boolean DEBUG = false;
     static SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
     static final int MINIMUM_ARRAY_LENGTH = 15;
-    static final Pattern PATTERN = Pattern.compile("([^0,]*)([0]+)([.]0+)?([^0]*)");
-    static final Pattern TYPE = Pattern.compile("1([0]*)");
+    static final Pattern PATTERN = PatternCache.get("([^0,]*)([0]+)([.]0+)?([^0]*)");
+    static final Pattern TYPE = PatternCache.get("1([0]*)");
 
     public enum CurrencyStyle {
         PLAIN, CURRENCY, LONG_CURRENCY, ISO_CURRENCY, UNIT

@@ -283,7 +283,7 @@ public class Iso639Data {
             in.close();
 
             in = CldrUtility.getUTF8Data("iso-639-3.tab");
-            Pattern tabs = Pattern.compile("\\t");
+            Pattern tabs = PatternCache.get("\\t");
             toAlpha3 = new HashMap<String, String>();
             fromAlpha3 = new HashMap<String, String>();
             toBiblio3 = new HashMap<String, String>();
@@ -542,7 +542,7 @@ public class Iso639Data {
 
             in.close();
 
-            Pattern SPLIT_HEIRARCHY = Pattern.compile("\\s*:\\s*");
+            Pattern SPLIT_HEIRARCHY = PatternCache.get("\\s*:\\s*");
             toHeirarchy = new TreeMap<String, List<String>>();
             // for (String code : toHeirarchyTemp.keySet()) {
             // System.out.println(code + " => " + toHeirarchyTemp.get(code));

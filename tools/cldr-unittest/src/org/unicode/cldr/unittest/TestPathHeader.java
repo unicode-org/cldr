@@ -15,7 +15,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CoverageLevel2;
@@ -36,6 +35,7 @@ import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
@@ -617,7 +617,7 @@ public class TestPathHeader extends TestFmwkPlus {
     public void TestPathDescriptionCompleteness() {
         PathDescription pathDescription = new PathDescription(supplemental,
             english, null, null, PathDescription.ErrorHandling.CONTINUE);
-        Matcher normal = Pattern.compile(
+        Matcher normal = PatternCache.get(
             "http://cldr.org/translation/[a-zA-Z0-9]").matcher("");
         Set<String> alreadySeen = new HashSet<String>();
         PathStarrer starrer = new PathStarrer();

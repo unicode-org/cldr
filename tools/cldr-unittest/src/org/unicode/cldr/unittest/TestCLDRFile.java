@@ -25,6 +25,7 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -264,7 +265,7 @@ public class TestCLDRFile extends TestFmwk {
         // }
         // System.out.println("Already in " + locale);
         // for (Iterator<String> it =
-        // cldrFile.iterator(Pattern.compile(".*\\[@count=.*").matcher(""));
+        // cldrFile.iterator(PatternCache.get(".*\\[@count=.*").matcher(""));
         // it.hasNext();) {
         // String path = it.next();
         // System.out.println(path + " => " + cldrFile.getStringValue(path));
@@ -280,7 +281,7 @@ public class TestCLDRFile extends TestFmwk {
     // }
 
     public void checkLocale(CLDRFile cldr) {
-        Matcher m = Pattern.compile("gregorian.*eras").matcher("");
+        Matcher m = PatternCache.get("gregorian.*eras").matcher("");
         for (Iterator<String> it = cldr.iterator("",
             new UTF16.StringComparator()); it.hasNext();) {
             String path = it.next();

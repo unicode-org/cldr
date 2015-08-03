@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.With.SimpleIterator;
 
@@ -23,7 +24,7 @@ import com.ibm.icu.dev.util.BagFormatter;
 public final class FileUtilities {
 
     public static abstract class SemiFileReader extends FileProcessor {
-        public final static Pattern SPLIT = Pattern.compile("\\s*;\\s*");
+        public final static Pattern SPLIT = PatternCache.get("\\s*;\\s*");
 
         protected abstract boolean handleLine(int lineCount, int start, int end, String[] items);
 
@@ -389,7 +390,7 @@ public final class FileUtilities {
         return line.trim();
     }
 
-    public final static Pattern SEMI_SPLIT = Pattern.compile("\\s*;\\s*");
+    public final static Pattern SEMI_SPLIT = PatternCache.get("\\s*;\\s*");
     private static final boolean SHOW_SKIP = false;
 
     public static String[] cleanSemiFields(String line) {

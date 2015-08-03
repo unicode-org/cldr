@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
@@ -19,6 +18,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.XPathParts;
 
@@ -95,7 +95,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         return this;
     }
 
-    static final Matcher placeholder = Pattern.compile("\\{\\d+\\}").matcher("");
+    static final Matcher placeholder = PatternCache.get("\\{\\d+\\}").matcher("");
 
     /**
      * The casing type of a given string.

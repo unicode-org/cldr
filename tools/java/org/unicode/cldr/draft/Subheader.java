@@ -17,7 +17,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+import org.unicode.cldr.util.PatternCache;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -28,8 +29,8 @@ import com.ibm.icu.text.UnicodeSetIterator;
 
 class Subheader {
     Matcher isArchaic = GeneratePickerData.IS_ARCHAIC.matcher("");
-    Matcher subheadMatcher = Pattern.compile("(@+)\\s+(.*)").matcher("");
-    Matcher hexMatcher = Pattern.compile("([A-Z0-9]+).*").matcher("");
+    Matcher subheadMatcher = PatternCache.get("(@+)\\s+(.*)").matcher("");
+    Matcher hexMatcher = PatternCache.get("([A-Z0-9]+).*").matcher("");
     Map<Integer, String> codePoint2Subblock = new HashMap<Integer, String>();
     Map<String, UnicodeSet> subblock2UnicodeSet = new TreeMap<String, UnicodeSet>();
     Map<String, Set<String>> block2subblock = new TreeMap<String, Set<String>>();
@@ -214,7 +215,7 @@ class Subheader {
         }
 
         public void set(String regex) {
-            m = Pattern.compile(regex).matcher("");
+            m = PatternCache.get(regex).matcher("");
         }
     }
 

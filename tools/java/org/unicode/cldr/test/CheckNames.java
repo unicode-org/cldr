@@ -5,9 +5,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.PatternCache;
 
 public class CheckNames extends CheckCLDR {
-    private static final Pattern YEAR_PATTERN = Pattern.compile("\\d{3,4}");
+    private static final Pattern YEAR_PATTERN = PatternCache.get("\\d{3,4}");
     private static final Pattern YEARS_NOT_ALLOWED = Pattern
         .compile(
         "//ldml/localeDisplayNames/(languages|currencies|scripts|territories|measurementSystemNames|transformNames)/.*");

@@ -6,7 +6,6 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -14,6 +13,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.XPathParts;
 
@@ -24,7 +24,7 @@ public class DiffWithParent {
 
     public static void main(String[] args) throws IOException {
         try {
-            fileMatcher = Pattern.compile(CldrUtility.getProperty("FILE", ".*")).matcher(
+            fileMatcher = PatternCache.get(CldrUtility.getProperty("FILE", ".*")).matcher(
                 "");
             Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             CLDRFile english = cldrFactory.make("en", true);

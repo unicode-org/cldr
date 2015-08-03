@@ -104,7 +104,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     private static final boolean DEBUG = false;
 
-    public static final Pattern ALT_PROPOSED_PATTERN = Pattern.compile(".*\\[@alt=\"[^\"]*proposed[^\"]*\"].*");
+    public static final Pattern ALT_PROPOSED_PATTERN = PatternCache.get(".*\\[@alt=\"[^\"]*proposed[^\"]*\"].*");
 
 
     private static boolean LOG_PROGRESS = false;
@@ -840,7 +840,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     /**
      * Code should explicitly include CODE_FALLBACK
      */
-    public static final Pattern specialsToKeep = Pattern.compile(
+    public static final Pattern specialsToKeep = PatternCache.get(
         "/(" +
             "measurementSystemName" +
             "|codePattern" +
@@ -850,7 +850,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             "|pattern" +
         ")");
 
-    static public final Pattern specialsToPushFromRoot = Pattern.compile(
+    static public final Pattern specialsToPushFromRoot = PatternCache.get(
         "/(" +
             "calendar\\[\\@type\\=\"gregorian\"\\]/" +
             "(?!fields)" +
@@ -1590,7 +1590,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             "abbreviationFallback",
             "default", "mapping", "measurementSystem", "preferenceOrdering" }));
 
-        static final Pattern draftPattern = Pattern.compile("\\[@draft=\"([^\"]*)\"\\]");
+        static final Pattern draftPattern = PatternCache.get("\\[@draft=\"([^\"]*)\"\\]");
         Matcher draftMatcher = draftPattern.matcher("");
 
         /**
@@ -1665,7 +1665,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             justPopped = true;
         }
 
-        static Pattern WHITESPACE_WITH_LF = Pattern.compile("\\s*\\u000a\\s*");
+        static Pattern WHITESPACE_WITH_LF = PatternCache.get("\\s*\\u000a\\s*");
         Matcher whitespaceWithLf = WHITESPACE_WITH_LF.matcher("");
 
         /**
@@ -1994,7 +1994,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     // }
 
     // public Collection keySet(String regexPattern, Collection output) {
-    // return keySet(Pattern.compile(regexPattern).matcher(""), output);
+    // return keySet(PatternCache.get(regexPattern).matcher(""), output);
     // }
 
     /**
@@ -3343,7 +3343,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     // }
     // }
 
-    private Matcher typeValueMatcher = Pattern.compile("\\[@type=\"([^\"]*)\"\\]").matcher("");
+    private Matcher typeValueMatcher = PatternCache.get("\\[@type=\"([^\"]*)\"\\]").matcher("");
 
     public boolean isPathExcludedForSurvey(String distinguishedPath) {
         // for now, just zones

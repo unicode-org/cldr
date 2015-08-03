@@ -11,7 +11,7 @@ public enum DtdType {
     keyboard("keyboards/dtd/ldmlKeyboard.dtd"),
     platform("keyboards/dtd/ldmlPlatform.dtd");
 
-    static Pattern FIRST_ELEMENT = Pattern.compile("//([^/\\[]*)");
+    static Pattern FIRST_ELEMENT = PatternCache.get("//([^/\\[]*)");
 
     public final String dtdPath;
     public final DtdType rootType;

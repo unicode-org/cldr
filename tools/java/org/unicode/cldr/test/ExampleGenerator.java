@@ -35,6 +35,7 @@ import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralSamples;
 import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
@@ -145,7 +146,7 @@ public class ExampleGenerator {
 
     private static final String NONE = "\uFFFF";
 
-    // Matcher skipMatcher = Pattern.compile(
+    // Matcher skipMatcher = PatternCache.get(
     // "/localeDisplayNames(?!"
     // ).matcher("");
     private XPathParts parts = new XPathParts();
@@ -1607,9 +1608,9 @@ public class ExampleGenerator {
         return backgroundStartSymbol + input + backgroundEndSymbol;
     }
 
-    public static final Pattern PARAMETER = Pattern.compile("(\\{[0-9]\\})");
-    public static final Pattern PARAMETER_SKIP0 = Pattern.compile("(\\{[1-9]\\})");
-    public static final Pattern ALL_DIGITS = Pattern.compile("(\\p{Nd}+(.\\p{Nd}+)?)");
+    public static final Pattern PARAMETER = PatternCache.get("(\\{[0-9]\\})");
+    public static final Pattern PARAMETER_SKIP0 = PatternCache.get("(\\{[1-9]\\})");
+    public static final Pattern ALL_DIGITS = PatternCache.get("(\\p{Nd}+(.\\p{Nd}+)?)");
 
     /**
      * Utility to format using a gmtHourString, gmtFormat, and an integer hours. We only need the hours because that's
@@ -1757,12 +1758,12 @@ public class ExampleGenerator {
      * Private class to get the messages from a help file.
      */
     public static class HelpMessages {
-        private static final Matcher CLEANUP_BOOKMARK = Pattern.compile("[^a-zA-Z0-9]").matcher("");
+        private static final Matcher CLEANUP_BOOKMARK = PatternCache.get("[^a-zA-Z0-9]").matcher("");
 
         private static final MessageFormat DEFAULT_HEADER_PATTERN = new MessageFormat("<p>{0}</p>"
             + CldrUtility.LINE_SEPARATOR);
 
-        private static final Matcher HEADER_HTML = Pattern.compile("<h[0-9]>(.*)</h[0-9]>").matcher("");
+        private static final Matcher HEADER_HTML = PatternCache.get("<h[0-9]>(.*)</h[0-9]>").matcher("");
 
         List<Matcher> keys = new ArrayList<Matcher>();
 

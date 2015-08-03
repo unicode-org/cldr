@@ -188,7 +188,7 @@ public class SimpleXMLSource extends XMLSource {
         return valueToMatch;
     }
 
-    static final Pattern PLACEHOLDER = Pattern.compile("\\{\\d\\}");
+    static final Pattern PLACEHOLDER = PatternCache.get("\\{\\d\\}");
 
     public void setDtdVersionInfo(VersionInfo dtdVersionInfo) {
         this.dtdVersionInfo = dtdVersionInfo;

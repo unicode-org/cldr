@@ -14,7 +14,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
@@ -32,6 +31,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
@@ -51,7 +51,7 @@ public class TestInheritance extends TestFmwk {
 
     private static boolean DEBUG = CldrUtility.getProperty("DEBUG", false);
 
-    private static Matcher pathMatcher = Pattern.compile(
+    private static Matcher pathMatcher = PatternCache.get(
         CldrUtility.getProperty("XPATH", ".*")).matcher("");
 
     public static void main(String[] args) throws IOException {
@@ -320,7 +320,7 @@ public class TestInheritance extends TestFmwk {
     public void TestParentLocaleRelationships() {
         // Testing invariant relationships between locales - See
         // http://unicode.org/cldr/trac/ticket/5758
-        Matcher langScript = Pattern.compile("^[a-z]{2,3}_[A-Z][a-z]{3}$")
+        Matcher langScript = PatternCache.get("^[a-z]{2,3}_[A-Z][a-z]{3}$")
             .matcher("");
         for (String loc : availableLocales) {
             if (langScript.reset(loc).matches()) {
@@ -983,7 +983,7 @@ public class TestInheritance extends TestFmwk {
     // }
     // }
 
-    Matcher aliasMatcher = Pattern.compile("//ldml.*/alias.*").matcher("");
+    Matcher aliasMatcher = PatternCache.get("//ldml.*/alias.*").matcher("");
 
     private void checkAliasValues(CLDRFile cldrFileToCheck, Set<String> locales) {
         Set<String> aliasPaths = new TreeSet<String>();

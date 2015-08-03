@@ -10,13 +10,12 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.XPathParts;
@@ -60,7 +59,7 @@ public class ListUnits {
         int count = 0;
         XPathParts parts = new XPathParts();
         Splitter SEMI = Splitter.on(";").trimResults();
-        Matcher currencyMatcher = Pattern.compile("([^0#]*).*[0#]([^0#]*)").matcher("");
+        Matcher currencyMatcher = PatternCache.get("([^0#]*).*[0#]([^0#]*)").matcher("");
 
         for (String locale : items) {
             Type type = Type.fromString(locale);

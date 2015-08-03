@@ -345,7 +345,7 @@ public class WritePluralRulesSpreadsheets {
     //                File file = new File("/Users/markdavis/workspace/icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/plurals.txt");
     //                BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
     //                Map<String,String> localeToSamples = new TreeMap();
-    //                Matcher m = Pattern.compile("\\d+([.]\\d+)?").matcher("");
+    //                Matcher m = PatternCache.get("\\d+([.]\\d+)?").matcher("");
     //                int count = 0;
     //                while (true) {
     //                    String line = br.readLine();

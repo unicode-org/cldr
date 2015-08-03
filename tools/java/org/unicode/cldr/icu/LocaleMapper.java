@@ -22,10 +22,12 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.SupplementalDataInfo;
 //import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
+
 
 
 import com.ibm.icu.util.Output;
@@ -44,10 +46,10 @@ public class LocaleMapper extends Mapper {
         .put("no-change", "0")
         .freeze();
 
-    private static final Pattern DRAFT_PATTERN = Pattern.compile("\\[@draft=\"\\w+\"]");
-    private static final Pattern TERRITORY_XPATH = Pattern.compile(
+    private static final Pattern DRAFT_PATTERN = PatternCache.get("\\[@draft=\"\\w+\"]");
+    private static final Pattern TERRITORY_XPATH = PatternCache.get(
         "//ldml/localeDisplayNames/territories/territory\\[@type=\"(\\w+)\"]");
-    private static final Pattern RB_DATETIMEPATTERN = Pattern.compile(
+    private static final Pattern RB_DATETIMEPATTERN = PatternCache.get(
         "/calendar/(\\w++)/DateTimePatterns");
 
     private SupplementalDataInfo supplementalDataInfo;
@@ -66,15 +68,13 @@ public class LocaleMapper extends Mapper {
      * This is only important for the order of items in arrays.
      */
     private static Comparator<String> comparator = new Comparator<String>() {
-        private final Pattern CURRENCY_FORMAT = Pattern.compile(
+        private final Pattern CURRENCY_FORMAT = PatternCache.get(
             "//ldml/numbers/currencies/currency\\[@type=\"\\w++\"]/(.++)");
-        private final Pattern DATE_OR_TIME_FORMAT = Pattern.compile(
+        private final Pattern DATE_OR_TIME_FORMAT = PatternCache.get(
             "//ldml/dates/calendars/calendar\\[@type=\"\\w++\"]/(date|time)Formats/.*");
-        private final Pattern MONTH_PATTERN = Pattern
-            .compile(
+        private final Pattern MONTH_PATTERN = PatternCache.get(
             "//ldml/dates/calendars/calendar\\[@type=\"\\w++\"]/months/monthContext\\[@type=\"[\\w\\-]++\"]/monthWidth\\[@type=\"\\w++\"]/month\\[@type=\"\\d++\"](\\[@yeartype=\"leap\"])?");
-        private final Pattern CONTEXT_TRANSFORM = Pattern
-            .compile(
+        private final Pattern CONTEXT_TRANSFORM = PatternCache.get(
             "//ldml/contextTransforms/contextTransformUsage\\[@type=\"([^\"]++)\"]/contextTransform\\[@type=\"([^\"]++)\"]");
 
         private final String[] CURRENCY_ORDER = { "symbol", "displayName",

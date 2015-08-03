@@ -94,7 +94,7 @@ public class CLDRTransforms {
             files = getAvailableIds();
             ordered = r.dependencyOrder.getOrderedItems(files, null, true);
         } else {
-            Matcher filter = Pattern.compile(namesMatchingRegex).matcher("");
+            Matcher filter = PatternCache.get(namesMatchingRegex).matcher("");
             r.deregisterIcuTransliterators(filter);
             files = Arrays.asList(new File(TRANSFORM_DIR).list(new RegexFindFilenameFilter(filter)));
             ordered = r.dependencyOrder.getOrderedItems(files, filter, true);
@@ -176,7 +176,7 @@ public class CLDRTransforms {
         // }
 
         private void addDependency(String pattern, String... whatItDependsOn) {
-            dependsOn.putAll(Pattern.compile(pattern).matcher(""), Arrays.asList(whatItDependsOn));
+            dependsOn.putAll(PatternCache.get(pattern).matcher(""), Arrays.asList(whatItDependsOn));
         }
 
         public Set<String> getOrderedItems(Collection<String> rawInput, Matcher filter, boolean hasXmlSuffix) {
@@ -232,7 +232,7 @@ public class CLDRTransforms {
         return Transliterator.getInstance(id);
     }
 
-    public static Pattern TRANSFORM_ID_PATTERN = Pattern.compile("(.+)-([^/]+)(/(.*))?");
+    public static Pattern TRANSFORM_ID_PATTERN = PatternCache.get("(.+)-([^/]+)(/(.*))?");
 
     public Transliterator getReverseInstance(String id) {
         Matcher matcher = TRANSFORM_ID_PATTERN.matcher(id);
@@ -358,9 +358,9 @@ public class CLDRTransforms {
 
         deregisterIcuTransliterators((Matcher) null);
 
-        Matcher getId = Pattern.compile("\\s*(\\S*)\\s*\\{\\s*").matcher("");
-        Matcher getSource = Pattern.compile("\\s*(\\S*)\\s*\\{\\s*\\\"(.*)\\\".*").matcher("");
-        Matcher translitID = Pattern.compile("([^-]+)-([^/]+)+(?:[/](.+))?").matcher("");
+        Matcher getId = PatternCache.get("\\s*(\\S*)\\s*\\{\\s*").matcher("");
+        Matcher getSource = PatternCache.get("\\s*(\\S*)\\s*\\{\\s*\\\"(.*)\\\".*").matcher("");
+        Matcher translitID = PatternCache.get("([^-]+)-([^/]+)+(?:[/](.+))?").matcher("");
 
         Map<String, String> fixedIDs = new TreeMap<String, String>();
         Set<String> oddIDs = new TreeSet<String>();

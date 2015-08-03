@@ -241,7 +241,7 @@ public class SupplementalDataInfo {
         }
     }
 
-    static final Pattern WHITESPACE_PATTERN = Pattern.compile("\\s+");
+    static final Pattern WHITESPACE_PATTERN = PatternCache.get("\\s+");
 
     /**
      * Simple language/script/region information
@@ -739,7 +739,7 @@ public class SupplementalDataInfo {
         private Set<String> inTerritorySetInternal;
 
         public CoverageLevelInfo(String match, int value, String language, String script, String territory) {
-            this.inLanguage = language != null ? Pattern.compile(language) : null;
+            this.inLanguage = language != null ? PatternCache.get(language) : null;
             this.inScript = script;
             this.inTerritory = territory;
             this.inScriptSet = toSet(script);
@@ -748,7 +748,7 @@ public class SupplementalDataInfo {
             this.value = Level.fromLevel(value);
         }
 
-        public static final Pattern NON_ASCII_LETTER = Pattern.compile("[^A-Za-z]+");
+        public static final Pattern NON_ASCII_LETTER = PatternCache.get("[^A-Za-z]+");
 
         private Set<String> toSet(String source) {
             if (source == null) {
@@ -2349,7 +2349,7 @@ public class SupplementalDataInfo {
         if (coverageLookup == null) {
             RegexLookup<Level> lookup = new RegexLookup<Level>(RegexLookup.LookupType.STAR_PATTERN_LOOKUP);
 
-            Matcher variable = Pattern.compile("\\$\\{[A-Za-z][\\-A-Za-z]*\\}").matcher("");
+            Matcher variable = PatternCache.get("\\$\\{[A-Za-z][\\-A-Za-z]*\\}").matcher("");
 
             for (CoverageLevelInfo ci : getCoverageLevelInfo()) {
                 String pattern = ci.match.replace('\'', '"')
@@ -2632,7 +2632,7 @@ public class SupplementalDataInfo {
                 if (xpathMatch == null || xpathMatch.isEmpty() || xpathMatch.equals(STAR)) {
                     xpathMatcher = null;
                 } else {
-                    xpathMatcher = Pattern.compile(xpathMatch);
+                    xpathMatcher = PatternCache.get(xpathMatch);
                 }
             } else {
                 throw new RuntimeException("Unknown approval requirement: " + xpath);
@@ -2908,7 +2908,7 @@ public class SupplementalDataInfo {
         }
     }
 
-    static Pattern PARSE_TIME = Pattern.compile("(\\d\\d?):(\\d\\d)");
+    static Pattern PARSE_TIME = PatternCache.get("(\\d\\d?):(\\d\\d)");
 
     private int parseTime(String string) {
         Matcher matcher = PARSE_TIME.matcher(string);
@@ -3229,7 +3229,7 @@ public class SupplementalDataInfo {
             public static final List<Count> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         }
 
-        static final Pattern pluralPaths = Pattern.compile(".*pluralRule.*");
+        static final Pattern pluralPaths = PatternCache.get(".*pluralRule.*");
         static final int fractDecrement = 13;
         static final int fractStart = 20;
 

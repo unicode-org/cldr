@@ -5,15 +5,16 @@ import java.io.PrintWriter;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 //import org.unicode.cldr.util.XPathParts.Comments;
+
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -22,7 +23,7 @@ public class CLDRFormat {
     public static void main(String[] args) throws Exception {
         // TODO - make these parameters
         String filter = CldrUtility.getProperty("filter", ".*");
-        Matcher matcher = Pattern.compile(filter).matcher("");
+        Matcher matcher = PatternCache.get(filter).matcher("");
         File src = new File(CLDRPaths.COMMON_DIRECTORY);
         File dest = new File(CLDRPaths.BASE_DIRECTORY + "/common-test/");
         File dtd = new File(dest + "/main/" + "../../common/dtd/ldmlSupplemental.dtd");

@@ -27,6 +27,7 @@ import org.unicode.cldr.util.InputStreamFactory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLFileReader;
@@ -169,7 +170,7 @@ public class QuickCheck {
 //        }
     }
 
-    static Matcher skipPaths = Pattern.compile("/identity" + "|/alias" + "|\\[@alt=\"proposed").matcher("");
+    static Matcher skipPaths = PatternCache.get("/identity" + "|/alias" + "|\\[@alt=\"proposed").matcher("");
 
     private static boolean pretty;
 

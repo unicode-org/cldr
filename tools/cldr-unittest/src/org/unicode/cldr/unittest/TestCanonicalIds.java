@@ -12,6 +12,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -26,7 +27,7 @@ public class TestCanonicalIds extends TestFmwk {
     // TODO consider whether we can pull the $variable stuff from other
     // sources..
 
-    static final Pattern WHITESPACE_PATTERN = Pattern.compile("\\s+");
+    static final Pattern WHITESPACE_PATTERN = PatternCache.get("\\s+");
 
     static TestAll.TestInfo testInfo = TestAll.TestInfo.getInstance();
     static Map<String, Map<String, R2<List<String>, String>>> aliasInfo = testInfo
@@ -172,7 +173,7 @@ public class TestCanonicalIds extends TestFmwk {
                 errln("No deprecated info for " + value);
                 return false;
             }
-            Matcher m = Pattern.compile("(\\d{4})-(\\d{2})-(\\d{2})").matcher(
+            Matcher m = PatternCache.get("(\\d{4})-(\\d{2})-(\\d{2})").matcher(
                 deprecated);
             if (!m.matches()) {
                 errln("Bad deprecated date for " + value + ", " + deprecated);
@@ -196,7 +197,7 @@ public class TestCanonicalIds extends TestFmwk {
                 errln("No deprecated info for " + value);
                 return false;
             }
-            Matcher m = Pattern.compile("(\\d{4})-(\\d{2})-(\\d{2})").matcher(
+            Matcher m = PatternCache.get("(\\d{4})-(\\d{2})-(\\d{2})").matcher(
                 deprecated);
             if (!m.matches()) {
                 errln("Bad deprecated date for " + value + ", " + deprecated);
@@ -210,8 +211,5 @@ public class TestCanonicalIds extends TestFmwk {
             }
         }
         return false;
-    }
-
-    public void ZZZ() {
     }
 }

@@ -201,7 +201,7 @@ public class ZoneParser {
         throw new IllegalArgumentException("Can't find " + value + " in " + Arrays.asList(months));
     }
 
-    static Pattern dayPattern = Pattern.compile("([0-9]+)|(last)([a-z]+)|([a-z]+)([<=>]+)([0-9]+)");
+    static Pattern dayPattern = PatternCache.get("([0-9]+)|(last)([a-z]+)|([a-z]+)([<=>]+)([0-9]+)");
     static final String[] relations = { "<=", ">=" };
 
     public static class Day implements Comparable<Object> {
@@ -686,7 +686,7 @@ public class ZoneParser {
 
             // String deg = "([+-][0-9]+)";//
             String deg = "([+-])([0-9][0-9][0-9]?)([0-9][0-9])([0-9][0-9])?";//
-            Matcher m = Pattern.compile(deg + deg).matcher("");
+            Matcher m = PatternCache.get(deg + deg).matcher("");
             zoneData = new TreeMap<String, List<String>>();
             BufferedReader in = CldrUtility.getUTF8Data("zone.tab");
             while (true) {
@@ -751,7 +751,7 @@ public class ZoneParser {
             zoneData = CldrUtility.protectCollection(zoneData); // protect for later
 
             // now get links
-            Pattern whitespace = Pattern.compile("\\s+");
+            Pattern whitespace = PatternCache.get("\\s+");
             XEquivalenceClass<String, String> linkedItems = new XEquivalenceClass<String, String>("None");
             for (int i = 0; i < TZFiles.length; ++i) {
                 in = CldrUtility.getUTF8Data(TZFiles[i]);

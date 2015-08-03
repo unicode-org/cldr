@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.PatternCache;
+
 /**
  * Parse Locales, extended to BCP 47 and CLDR. Also normalizes the case of the results.
  * Only does syntactic parse: does not replace deprecated elements; does not check for validity.
@@ -49,7 +51,7 @@ class SimpleLocaleParser {
             "", Pattern.COMMENTS | Pattern.CASE_INSENSITIVE); // TODO change above to be lowercase, since source is
                                                               // already when we compare
     // Other regex patterns for splitting apart lists of items detected above.
-    private static final Pattern variantSeparatorPattern = Pattern.compile("[-_]");
+    private static final Pattern variantSeparatorPattern = PatternCache.get("[-_]");
     private static final Pattern extensionPattern = Pattern.compile(
         "([a-z]) [-_] ( [a-z 0-9]{2,8} (?:[-_] [a-z 0-9]{2,8})* )", Pattern.COMMENTS);
     private static final Pattern privateUsePattern = Pattern.compile(

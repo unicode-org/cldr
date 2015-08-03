@@ -431,7 +431,7 @@ public class SimpleFactory extends Factory {
         //
         this.sourceDirectories = sourceDirectories;
         this.minimalDraftStatus = minimalDraftStatus;
-        Matcher m = Pattern.compile(matchString).matcher("");
+        Matcher m = PatternCache.get(matchString).matcher("");
         this.localeList = CLDRFile.getMatchingXMLFiles(sourceDirectories, m);
         File goodSuppDir = null;
         for (File sourceDirectoryPossibility : sourceDirectories) {

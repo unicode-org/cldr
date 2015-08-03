@@ -36,6 +36,7 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -91,9 +92,9 @@ public class CheckDates extends FactoryCheckCLDR {
         ; // keep aligned with previous
 
     private static final String DECIMAL_XPATH = "//ldml/numbers/symbols[@numberSystem='latn']/decimal";
-    private static final Pattern HOUR_SYMBOL = Pattern.compile("H{1,2}");
-    private static final Pattern MINUTE_SYMBOL = Pattern.compile("mm");
-    private static final Pattern YEAR_FIELDS = Pattern.compile("(y|Y|u|U|r){1,5}");
+    private static final Pattern HOUR_SYMBOL = PatternCache.get("H{1,2}");
+    private static final Pattern MINUTE_SYMBOL = PatternCache.get("mm");
+    private static final Pattern YEAR_FIELDS = PatternCache.get("(y|Y|u|U|r){1,5}");
 
     static String[] calTypePathsToCheck = {
         "//ldml/dates/calendars/calendar[@type=\"buddhist\"]",
@@ -698,7 +699,7 @@ public class CheckDates extends FactoryCheckCLDR {
         return "{" + CollectionUtilities.join(results, "},{") + "}";
     }
 
-    static final Pattern HACK_CONFLICTING = Pattern.compile("Conflicting fields:\\s+M+,\\s+l");
+    static final Pattern HACK_CONFLICTING = PatternCache.get("Conflicting fields:\\s+M+,\\s+l");
 
     public CheckCLDR handleGetExamples(String path, String fullPath, String value, Options options, List<CheckStatus> result) {
         if (path.indexOf("/dates") < 0 || path.indexOf("gregorian") < 0) return this;
@@ -1140,18 +1141,18 @@ public class CheckDates extends FactoryCheckCLDR {
     // H or h (not k or K)
     // v (not z, Z, V)
     static final Pattern[] dateTimePatterns = {
-        Pattern.compile("(h|hh|H|HH)(m|mm)"), // time-short
-        Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)"), // time-medium
-        Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)(v+)"), // time-long
-        Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)(v+)"), // time-full
-        Pattern.compile("G*y{1,4}M{1,2}(d|dd)"), // date-short; allow yyy for Minguo/ROC calendar
-        Pattern.compile("G*y(yyy)?M{1,3}(d|dd)"), // date-medium
-        Pattern.compile("G*y(yyy)?M{1,4}(d|dd)"), // date-long
-        Pattern.compile("G*y(yyy)?M{1,4}E*(d|dd)"), // date-full
-        Pattern.compile(".*"), // datetime-short
-        Pattern.compile(".*"), // datetime-medium
-        Pattern.compile(".*"), // datetime-long
-        Pattern.compile(".*"), // datetime-full
+        PatternCache.get("(h|hh|H|HH)(m|mm)"), // time-short
+        PatternCache.get("(h|hh|H|HH)(m|mm)(s|ss)"), // time-medium
+        PatternCache.get("(h|hh|H|HH)(m|mm)(s|ss)(v+)"), // time-long
+        PatternCache.get("(h|hh|H|HH)(m|mm)(s|ss)(v+)"), // time-full
+        PatternCache.get("G*y{1,4}M{1,2}(d|dd)"), // date-short; allow yyy for Minguo/ROC calendar
+        PatternCache.get("G*y(yyy)?M{1,3}(d|dd)"), // date-medium
+        PatternCache.get("G*y(yyy)?M{1,4}(d|dd)"), // date-long
+        PatternCache.get("G*y(yyy)?M{1,4}E*(d|dd)"), // date-full
+        PatternCache.get(".*"), // datetime-short
+        PatternCache.get(".*"), // datetime-medium
+        PatternCache.get(".*"), // datetime-long
+        PatternCache.get(".*"), // datetime-full
     };
 
     static final String[] dateTimeMessage = {

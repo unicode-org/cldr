@@ -30,6 +30,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileProcessor;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
@@ -199,7 +200,7 @@ public class Ldml2JsonConverter {
                 if (hasSection && hasPath) {
                     JSONSection j = new JSONSection();
                     j.section = section;
-                    j.matcher = Pattern.compile(path).matcher("");
+                    j.matcher = PatternCache.get(path).matcher("");
                     if (hasPackage) {
                         j.packageName = packageName;
                     }
@@ -231,7 +232,7 @@ public class Ldml2JsonConverter {
         // Add a section at the end of the list that will match anything not already matched.
         JSONSection j = new JSONSection();
         j.section = "other";
-        j.matcher = Pattern.compile(".*").matcher("");
+        j.matcher = PatternCache.get(".*").matcher("");
         sections.add(j);
 
     }
@@ -358,7 +359,7 @@ public class Ldml2JsonConverter {
             }
         }
 
-        Matcher versionInfoMatcher = Pattern.compile(".*/(identity|version).*").matcher("");
+        Matcher versionInfoMatcher = PatternCache.get(".*/(identity|version).*").matcher("");
         // Automatically copy the version info to any sections that had real data in them.
         JSONSection otherSection = sections.get(sections.size() - 1);
         List<CldrItem> others = sectionItems.get(otherSection);
@@ -1093,7 +1094,7 @@ public class Ldml2JsonConverter {
     /**
      * Replacement pattern for escaping.
      */
-    private static final Pattern escapePattern = Pattern.compile("\\\\(?!u)");
+    private static final Pattern escapePattern = PatternCache.get("\\\\(?!u)");
 
     /**
      * Escape \ and " in value string.

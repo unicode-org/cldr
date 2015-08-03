@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
@@ -29,6 +28,7 @@ import org.unicode.cldr.util.DayPeriodInfo.Type;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
@@ -108,7 +108,7 @@ public class TestCheckCLDR extends TestFmwk {
         // given "?"
         // and that every non-pattern doesn't have an error in CheckCLDR for
         // patterns when given "?"
-        Matcher messagePlaceholder = Pattern.compile("\\{\\d+\\}").matcher("");
+        Matcher messagePlaceholder = PatternCache.get("\\{\\d+\\}").matcher("");
         PatternPlaceholders patternPlaceholders = PatternPlaceholders
             .getInstance();
 

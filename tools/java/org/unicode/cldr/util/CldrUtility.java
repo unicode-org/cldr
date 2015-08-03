@@ -66,7 +66,7 @@ public class CldrUtility {
     public static final boolean BETA = false;
 
     public static final String LINE_SEPARATOR = System.getProperty("line.separator");
-    public final static Pattern SEMI_SPLIT = Pattern.compile("\\s*;\\s*");
+    public final static Pattern SEMI_SPLIT = PatternCache.get("\\s*;\\s*");
 
     private static final boolean HANDLEFILE_SHOW_SKIP = false;
     // Constant for "∅∅∅". Indicates that a child locale has no value for a
@@ -233,7 +233,7 @@ public class CldrUtility {
             return LINES_DIFFERENT;
         }
 
-        // private Matcher dtdMatcher = Pattern.compile(
+        // private Matcher dtdMatcher = PatternCache.get(
         // "\\Q<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/\\E.*\\Q/ldml.dtd\">\\E").matcher("");
 
         private String[] CVS_TAGS = { "Revision", "Date" };
@@ -904,7 +904,7 @@ public class CldrUtility {
         private Matcher matcher;
 
         public MatcherFilter(String pattern) {
-            this.matcher = Pattern.compile(pattern).matcher("");
+            this.matcher = PatternCache.get(pattern).matcher("");
         }
 
         public MatcherFilter(Matcher matcher) {
@@ -917,7 +917,7 @@ public class CldrUtility {
         }
 
         public MatcherFilter<T> set(String pattern) {
-            this.matcher = Pattern.compile(pattern).matcher("");
+            this.matcher = PatternCache.get(pattern).matcher("");
             return this;
         }
 

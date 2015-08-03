@@ -459,7 +459,7 @@ public class TestUtilities {
         else
             b = (RuleBasedBreakIterator) BreakIterator.getCharacterInstance();
 
-        Matcher decimalEscapes = Pattern.compile("&#(x?)([0-9]+);").matcher(text);
+        Matcher decimalEscapes = PatternCache.get("&#(x?)([0-9]+);").matcher(text);
         // quick hack, since hex-any doesn't do decimal escapes
         int start = 0;
         StringBuffer result2 = new StringBuffer();

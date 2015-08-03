@@ -77,7 +77,7 @@ public class VettingViewer<T> {
     private static final boolean TESTING = CldrUtility.getProperty("TEST", false);
     private static final boolean SHOW_ALL = CldrUtility.getProperty("SHOW", true);
 
-    public static final Pattern ALT_PROPOSED = Pattern.compile("\\[@alt=\"[^\"]*proposed");
+    public static final Pattern ALT_PROPOSED = PatternCache.get("\\[@alt=\"[^\"]*proposed");
 
     public static Set<CheckCLDR.CheckStatus.Subtype> OK_IF_VOTED = EnumSet.of(Subtype.sameAsEnglishOrCode,
         Subtype.sameAsEnglishOrCode);
@@ -216,7 +216,7 @@ public class VettingViewer<T> {
     }
 
     static private PathHeader.Factory pathTransform;
-    static final Pattern breaks = Pattern.compile("\\|");
+    static final Pattern breaks = PatternCache.get("\\|");
     static final OutdatedPaths outdatedPaths = new OutdatedPaths();
 
 //    private static final UnicodeSet NEEDS_PERCENT_ESCAPED = new UnicodeSet("[[\\u0000-\\u009F]-[a-zA-z0-9]]");
@@ -516,7 +516,7 @@ public class VettingViewer<T> {
     // // each one will be marked with the choice that it triggered.
     //
     // CLDRFile sourceFile = cldrFactory.make(localeID, true);
-    // Matcher altProposed = Pattern.compile("\\[@alt=\"[^\"]*proposed").matcher("");
+    // Matcher altProposed = PatternCache.get("\\[@alt=\"[^\"]*proposed").matcher("");
     // EnumSet<Choice> problems = EnumSet.noneOf(Choice.class);
     //
     // // Initialize

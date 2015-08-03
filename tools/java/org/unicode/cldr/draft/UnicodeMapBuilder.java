@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.PatternCache;
+
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.text.UnicodeSet;
 
@@ -15,9 +17,9 @@ public class UnicodeMapBuilder<T> {
     UnicodeMap<T> result;
     Parser<T, String> parser;
     Leniency leniency;
-    Pattern semi = Pattern.compile("\\s+;\\s+");
+    Pattern semi = PatternCache.get("\\s+;\\s+");
 
-    // Matcher semi = Pattern.compile("\\s+;\\s+").matcher("");
+    // Matcher semi = PatternCache.get("\\s+;\\s+").matcher("");
 
     public UnicodeMapBuilder() {
     }

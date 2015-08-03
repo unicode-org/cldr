@@ -35,6 +35,7 @@ import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexFileParser;
 import org.unicode.cldr.util.RegexFileParser.RegexLineParser;
 import org.unicode.cldr.util.StandardCodes;
@@ -734,7 +735,7 @@ abstract public class CheckCLDR {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
             }
 
-            static Pattern TO_STRING = Pattern.compile("([A-Z])");
+            static Pattern TO_STRING = PatternCache.get("([A-Z])");
         };
  
         public static EnumSet<Subtype> crossCheckSubtypes = 
@@ -1368,8 +1369,8 @@ abstract public class CheckCLDR {
             public void parse(String line) {
                 String[] fields = line.split("\\s*;\\s*");
                 Subtype subtype = Subtype.valueOf(fields[0]);
-                Pattern locale = Pattern.compile(fields[1]);
-                Pattern xpathRegex = Pattern.compile(fields[2].replaceAll("\\[@", "\\\\[@"));
+                Pattern locale = PatternCache.get(fields[1]);
+                Pattern xpathRegex = PatternCache.get(fields[2].replaceAll("\\[@", "\\\\[@"));
                 allFilters.add(new R3<Pattern, Subtype, Pattern>(locale, subtype, xpathRegex));
             }
         });

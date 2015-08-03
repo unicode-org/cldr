@@ -28,7 +28,7 @@ public class PatternCache {
     /**
      * Variable that controls whether statistics are recorded for the caching.
      */
-    private final static boolean RECORD_STATISTICS = true;
+    private final static boolean RECORD_STATISTICS = false;
 
     /**
      * The cache object

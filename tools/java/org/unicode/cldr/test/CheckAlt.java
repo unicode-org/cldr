@@ -110,7 +110,7 @@ public class CheckAlt extends CheckCLDR {
         seenSoFar.clear();
         return this;
     }
-    // Matcher myLocalePlus = Pattern.compile(cldrFileToCheck.getLocaleID() + "_[^_]*").matcher("");
+    // Matcher myLocalePlus = PatternCache.get(cldrFileToCheck.getLocaleID() + "_[^_]*").matcher("");
     // Set children = cldrFileToCheck.getAvailableLocales();
     // List iChildren = new ArrayList();
     // for (Iterator it = children.iterator(); it.hasNext();) {

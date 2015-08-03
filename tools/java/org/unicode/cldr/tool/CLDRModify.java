@@ -23,7 +23,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
@@ -45,6 +44,7 @@ import org.unicode.cldr.util.FileProcessor;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
@@ -126,7 +126,7 @@ public class CLDRModify {
                     throw new IllegalArgumentException("Regex only allowed for old path/value.");
                 }
                 exactMatch = null;
-                regexMatch = Pattern.compile(match.substring(1, match.length() - 1)
+                regexMatch = PatternCache.get(match.substring(1, match.length() - 1)
                     .replace("[@", "\\[@")
                     ).matcher("");
                 action = null;
@@ -327,7 +327,7 @@ public class CLDRModify {
             dirSet.add("");
         } else {
             String[] subdirs = new File(sourceDirBase).list();
-            Matcher subdirMatch = Pattern.compile(recurseOnDirectories).matcher("");
+            Matcher subdirMatch = PatternCache.get(recurseOnDirectories).matcher("");
             for (String subdir : subdirs) {
                 if (!subdirMatch.reset(subdir).find()) continue;
                 dirSet.add(subdir + "/");
@@ -1049,7 +1049,7 @@ public class CLDRModify {
 
             public void handlePath(String xpath) {
                 if (m == null) {
-                    m = Pattern.compile(options[PATH].value).matcher("");
+                    m = PatternCache.get(options[PATH].value).matcher("");
                 }
                 //String v = cldrFileToFilter.getStringValue(xpath);
                 String fullXPath = cldrFileToFilter.getFullXPath(xpath);
@@ -1916,7 +1916,7 @@ public class CLDRModify {
         });
 
         fixList.add('q', "fix g-force", new CLDRFilter() {
-            Matcher m = Pattern.compile("(\\P{L}*)g(\\P{L}*)").matcher("");
+            Matcher m = PatternCache.get("(\\P{L}*)g(\\P{L}*)").matcher("");
 
             @Override
             public void handlePath(String xpath) {

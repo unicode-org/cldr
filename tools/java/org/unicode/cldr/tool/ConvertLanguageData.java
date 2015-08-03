@@ -20,7 +20,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
@@ -39,6 +38,7 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleIDParser.Level;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SpreadSheet;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -112,7 +112,7 @@ public class ConvertLanguageData {
             // Log.println("<supplementalData version=\"1.5\">");
 
             oldFile = BagFormatter.openUTF8Reader(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, "supplementalData.xml");
-            CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*<languageData>\\s*"), Log.getLog(), false);
+            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<languageData>\\s*"), Log.getLog(), false);
 
             Set<String> available = cldrFactory.getAvailable();
 
@@ -197,11 +197,11 @@ public class ConvertLanguageData {
 
             showFailures(failures);
 
-            CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*</territoryInfo>\\s*"), null, false);
-            CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*<references>\\s*"), Log.getLog(), false);
+            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</territoryInfo>\\s*"), null, false);
+            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<references>\\s*"), Log.getLog(), false);
             // generateIso639_2Data();
             references.printReferences();
-            CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*</references>\\s*"), null, false);
+            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</references>\\s*"), null, false);
             CldrUtility.copyUpTo(oldFile, null, Log.getLog(), false);
             // Log.println("</supplementalData>");
             Log.close();
@@ -1025,7 +1025,7 @@ public class ConvertLanguageData {
                 oldReferences_to_Rxxx.put(Rxxx_to_oldReferences.get(Rxxx), Rxxx);
             }
         }
-        Matcher URI = Pattern.compile("([a-z]+\\://[\\S]+)\\s?(.*)").matcher("");
+        Matcher URI = PatternCache.get("([a-z]+\\://[\\S]+)\\s?(.*)").matcher("");
 
         static int referenceStart = 1000;
 
@@ -1637,7 +1637,7 @@ public class ConvertLanguageData {
 
     // private static void printDefaultContent(Set<String> defaultLocaleContent) {
     // String sep = Utility.LINE_SEPARATOR + "\t\t\t";
-    // String broken = Utility.breakLines(join(defaultLocaleContent," "), sep, Pattern.compile("(\\S)\\S*").matcher(""),
+    // String broken = Utility.breakLines(join(defaultLocaleContent," "), sep, PatternCache.get("(\\S)\\S*").matcher(""),
     // 80);
     //
     // Log.println("\t\t<defaultContent locales=\"" + broken + "\"");

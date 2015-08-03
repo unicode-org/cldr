@@ -8,11 +8,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StringIterables;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -86,7 +86,7 @@ public class FixDelimiters {
     }
 
     static class Quotes {
-        static Matcher quotes = Pattern.compile("(.*)…(.*)").matcher("");
+        static Matcher quotes = PatternCache.get("(.*)…(.*)").matcher("");
         final String start;
         final String end;
 
@@ -105,7 +105,7 @@ public class FixDelimiters {
 
     static class Data {
         static Map<String, Row.R2<Quotes, Quotes>> locales2delimiters = new LinkedHashMap<String, Row.R2<Quotes, Quotes>>();
-        static Matcher localeString = Pattern.compile(".*\\((.*)\\)").matcher("");
+        static Matcher localeString = PatternCache.get(".*\\((.*)\\)").matcher("");
         static {
             final String instructionFile = "delimiterFixes.txt";
             System.out.println("Instruction file: " + instructionFile);

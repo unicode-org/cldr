@@ -12,6 +12,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PatternCache;
 
 import com.ibm.icu.util.Output;
 
@@ -96,7 +97,7 @@ public class GetChanges {
         System.out.println("Total:\t" + totalCount);
     }
 
-    static Pattern OLD_PATH = Pattern.compile("//ldml/units/unit\\[@type=\"([^\"]*)\"]/unitPattern\\[@count=\"([^\"]*)\"](\\[@alt=\"([^\"]*)\"])?");
+    static Pattern OLD_PATH = PatternCache.get("//ldml/units/unit\\[@type=\"([^\"]*)\"]/unitPattern\\[@count=\"([^\"]*)\"](\\[@alt=\"([^\"]*)\"])?");
     static Matcher OLD_PATH_MATCHER = OLD_PATH.matcher("");
 
     private static String fixOldPath(String xpath) {

@@ -114,7 +114,7 @@ public class PrettyPath {
         }
     }
 
-    private static Matcher sortingGorpRemoval = Pattern.compile("(?<=(^|[|]))([0-9]+-)?").matcher("");
+    private static Matcher sortingGorpRemoval = PatternCache.get("(?<=(^|[|]))([0-9]+-)?").matcher("");
 
     public boolean isShowErrors() {
         return showErrors;

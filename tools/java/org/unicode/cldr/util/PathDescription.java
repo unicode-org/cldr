@@ -32,7 +32,7 @@ public class PathDescription {
 
     private static final Pattern METAZONE_PATTERN = Pattern
         .compile("//ldml/dates/timeZoneNames/metazone\\[@type=\"([^\"]*)\"]/(.*)/(.*)");
-    private static final Pattern STAR_ATTRIBUTE_PATTERN = Pattern.compile("=\"([^\"]*)\"");
+    private static final Pattern STAR_ATTRIBUTE_PATTERN = PatternCache.get("=\"([^\"]*)\"");
 
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static Map<String, String> ZONE2COUNTRY = STANDARD_CODES.getZoneToCounty();

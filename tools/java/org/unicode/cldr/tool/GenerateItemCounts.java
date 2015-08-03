@@ -31,6 +31,7 @@ import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLFileReader;
@@ -92,8 +93,8 @@ public class GenerateItemCounts {
     public static void main(String[] args) throws IOException {
         myOptions.parse(MyOptions.directory, args, true);
 
-        DIR_FILE_MATCHER = Pattern.compile(MyOptions.directory.option.getValue()).matcher("");
-        RAW_FILE_MATCHER = Pattern.compile(MyOptions.rawfilter.option.getValue()).matcher("");
+        DIR_FILE_MATCHER = PatternCache.get(MyOptions.directory.option.getValue()).matcher("");
+        RAW_FILE_MATCHER = PatternCache.get(MyOptions.rawfilter.option.getValue()).matcher("");
         VERBOSE = MyOptions.verbose.option.doesOccur();
 
         if (MyOptions.summary.option.doesOccur()) {
@@ -104,7 +105,7 @@ public class GenerateItemCounts {
             // doChanges = true;
         } else {
         }
-        // Pattern dirPattern = dirPattern = Pattern.compile(arg);
+        // Pattern dirPattern = dirPattern = PatternCache.get(arg);
         GenerateItemCounts main = new GenerateItemCounts();
         try {
             Relation<String, String> oldPath2value = null;
@@ -334,7 +335,7 @@ public class GenerateItemCounts {
         }
     }
 
-    static Pattern prefix = Pattern.compile("([^/]+/[^/]+)(.*)");
+    static Pattern prefix = PatternCache.get("([^/]+/[^/]+)(.*)");
 
     static class Delta {
         Counter<String> newCount = new Counter<String>();
@@ -432,14 +433,14 @@ public class GenerateItemCounts {
         return result;
     }
 
-    final static Pattern LOCALE_PATTERN = Pattern.compile(
+    final static Pattern LOCALE_PATTERN = PatternCache.get(
         "([a-z]{2,3})(?:[_-]([A-Z][a-z]{3}))?(?:[_-]([a-zA-Z0-9]{2,3}))?([_-][a-zA-Z0-9]{1,8})*");
 
     public static void doSummary() throws IOException {
         Map<String, R4<Counter<String>, Counter<String>, Counter<String>, Counter<String>>> key_release_count = new TreeMap<String, R4<Counter<String>, Counter<String>, Counter<String>, Counter<String>>>();
         Matcher countryLocale = LOCALE_PATTERN.matcher("");
         List<String> releases = new ArrayList<String>();
-        Pattern releaseNumber = Pattern.compile("count_(?:.*-(\\d+(\\.\\d+)*)|trunk)\\.txt");
+        Pattern releaseNumber = PatternCache.get("count_(?:.*-(\\d+(\\.\\d+)*)|trunk)\\.txt");
         // int releaseCount = 1;
         Relation<String, String> release_keys = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Relation<String, String> localesToPaths = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
@@ -585,7 +586,7 @@ public class GenerateItemCounts {
 
     static final Set<String> ATTRIBUTES_TO_SKIP = Builder.with(new HashSet<String>())
         .addAll("version", "references", "standard", "draft").freeze();
-    static final Pattern skipPath = Pattern.compile("" +
+    static final Pattern skipPath = PatternCache.get("" +
         "\\[\\@alt=\"[^\"]*proposed" +
         "|^//" +
         "(ldml(\\[[^/]*)?/identity" +

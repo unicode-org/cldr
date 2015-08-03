@@ -41,7 +41,7 @@ public class AttributeValueValidity {
     public enum LocaleSpecific {pluralCardinal, pluralOrdinal, dayPeriodFormat, dayPeriodSelection}
 
     static final Splitter BAR = Splitter.on('|').trimResults().omitEmptyStrings();
-    static final Splitter SPACE = Splitter.on(Pattern.compile("\\s+")).trimResults().omitEmptyStrings();
+    static final Splitter SPACE = Splitter.on(PatternCache.get("\\s+")).trimResults().omitEmptyStrings();
 
     private static final Set<DtdType> ALL_DTDs = Collections.unmodifiableSet(EnumSet.allOf(DtdType.class));
 

@@ -48,6 +48,7 @@ import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
@@ -210,7 +211,7 @@ public class ConsoleCheckCLDR {
         EnumSet<Subtype> subtypeFilter = null;
         if (subtypeFilterString != null) {
             subtypeFilter = EnumSet.noneOf(Subtype.class);
-            Matcher m = Pattern.compile(subtypeFilterString).matcher("");
+            Matcher m = PatternCache.get(subtypeFilterString).matcher("");
             for (Subtype value : Subtype.values()) {
                 if (m.reset(value.toString()).find() || m.reset(value.name()).find()) {
                     subtypeFilter.add(value);
@@ -233,7 +234,7 @@ public class ConsoleCheckCLDR {
         String pathFilterString = options[PATH_FILTER].value;
         Matcher pathFilter = null;
         if (!pathFilterString.equals(".*")) {
-            pathFilter = Pattern.compile(pathFilterString).matcher("");
+            pathFilter = PatternCache.get(pathFilterString).matcher("");
         }
         boolean checkOnSubmit = options[CHECK_ON_SUBMIT].doesOccur;
         boolean noaliases = options[NO_ALIASES].doesOccur;
@@ -914,7 +915,7 @@ public class ConsoleCheckCLDR {
         return String.valueOf(item);
     }
 
-    static Matcher draftStatusMatcher = Pattern.compile("\\[@draft=\"(provisional|unconfirmed)\"]").matcher("");
+    static Matcher draftStatusMatcher = PatternCache.get("\\[@draft=\"(provisional|unconfirmed)\"]").matcher("");
 
     enum ErrorType {
         ok,
@@ -1449,7 +1450,7 @@ public class ConsoleCheckCLDR {
     private static ExampleGenerator englishExampleGenerator;
     private static Object lastLocaleID = null;
 
-    static Matcher coverageMatcher = Pattern.compile("meet ([a-z]*) coverage").matcher(""); // HACK TODO fix
+    static Matcher coverageMatcher = PatternCache.get("meet ([a-z]*) coverage").matcher(""); // HACK TODO fix
 
     private static void showHeaderLine() {
         if (SHOW_LOCALE) {

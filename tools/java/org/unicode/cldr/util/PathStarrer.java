@@ -17,7 +17,7 @@ import com.ibm.icu.text.Transform;
  */
 public class PathStarrer implements Transform<String, String> {
     static final String STAR_PATTERN = "([^\"]*+)";
-    static final Pattern ATTRIBUTE_PATTERN = Pattern.compile("=\"([^\"]*)\"");
+    static final Pattern ATTRIBUTE_PATTERN = PatternCache.get("=\"([^\"]*)\"");
 
     private String starredPathString;
     private final List<String> attributes = new ArrayList<String>();

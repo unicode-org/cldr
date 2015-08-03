@@ -836,7 +836,7 @@ public class LenientDateParser {
         return result;
     }
 
-    static final Pattern GMT_ZONE_MATCHER = Pattern.compile("Etc/GMT([-+])([0-9]{1,2})(?::([0-9]{2}))(?::([0-9]{2}))?");
+    static final Pattern GMT_ZONE_MATCHER = PatternCache.get("Etc/GMT([-+])([0-9]{1,2})(?::([0-9]{2}))(?::([0-9]{2}))?");
 
     private static TimeZone getTimeZone(String timezone) {
         // this really ought to be done in the inverse order: try the normal timezone, then if it fails try this.

@@ -1403,7 +1403,7 @@ public class StandardCodes {
         return idUsage != IdUsage.EXCLUSION && idUsage != IdUsage.UNKNOWN;
     }
 
-    static final Pattern whitespace = Pattern.compile("\\s+");
+    static final Pattern whitespace = PatternCache.get("\\s+");
     static Set<String> filteredCurrencies = null;
 
     public Set<String> getSurveyToolDisplayCodes(String type) {

@@ -49,7 +49,7 @@ public class TestSegments {
     private static final boolean SHOW_RULE_LIST = false;
     private static final int monkeyLimit = 1000, monkeyStringCount = 10;
 
-//    private static final Matcher flagItems = Pattern.compile(
+//    private static final Matcher flagItems = PatternCache.get(
 //        "[$](BK|CR|LF|CM|NL|WJ|ZW|GL|SP|CB)").matcher("");
 
     /**

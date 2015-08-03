@@ -316,7 +316,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         }
 
         // static final String ATTRIBUTE_PATTERN = "\\[@([^=]+)=\"([^\"]*)\"]";
-        static final Pattern MIDDLE_OF_ATTRIBUTE_VALUE = Pattern.compile("[^\"]*\"\\]");
+        static final Pattern MIDDLE_OF_ATTRIBUTE_VALUE = PatternCache.get("[^\"]*\"\\]");
 
         public static String stripLastElement(String oldPath) {
             int oldPos = oldPath.lastIndexOf('/');
@@ -652,7 +652,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      * for debugging only
      */
     public String toString(String regex) {
-        Matcher matcher = Pattern.compile(regex).matcher("");
+        Matcher matcher = PatternCache.get(regex).matcher("");
         StringBuffer result = new StringBuffer();
         for (Iterator<String> it = iterator(matcher); it.hasNext();) {
             String path = it.next();
@@ -928,7 +928,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             return fullStatus.localeWhereFound;
         }
 
-        static final Pattern COUNT_EQUALS = Pattern.compile("\\[@count=\"[^\"]*\"]");
+        static final Pattern COUNT_EQUALS = PatternCache.get("\\[@count=\"[^\"]*\"]");
 
         private AliasLocation getPathLocation(String xpath, boolean skipFirst) {
             for (XMLSource source : sources.values()) {
@@ -992,7 +992,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          */
         static final boolean TRACE_FILL = CldrUtility.getProperty("TRACE_FILL", false);
         static final String DEBUG_PATH_STRING = CldrUtility.getProperty("DEBUG_PATH", null);
-        static final Pattern DEBUG_PATH = DEBUG_PATH_STRING == null ? null : Pattern.compile(DEBUG_PATH_STRING);
+        static final Pattern DEBUG_PATH = DEBUG_PATH_STRING == null ? null : PatternCache.get(DEBUG_PATH_STRING);
         static final boolean SKIP_FALLBACKID = CldrUtility.getProperty("SKIP_FALLBACKID", false);;
 
         static final int MAX_LEVEL = 40; /* Throw an error if it goes past this. */

@@ -16,6 +16,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.FileProcessor;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.IsoRegionData;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
@@ -26,7 +27,7 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.Output;
 
 public class LocaleReplacements {
-    public static final Pattern WHITESPACE = Pattern.compile("\\s+");
+    public static final Pattern WHITESPACE = PatternCache.get("\\s+");
 
     /**
      * eg language, eng, <overlong,en>

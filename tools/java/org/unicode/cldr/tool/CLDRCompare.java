@@ -4,19 +4,19 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PatternCache;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class CLDRCompare {
     public static void main(String[] args) throws Exception {
         String filter = CldrUtility.getProperty("filter", ".*");
-        Matcher matcher = Pattern.compile(filter).matcher("");
+        Matcher matcher = PatternCache.get(filter).matcher("");
         File oldVersion = new File(CldrUtility.getProperty("old", new File(CLDRPaths.COMMON_DIRECTORY
             + "../../../common-cldr1.6").getCanonicalPath()));
         if (!oldVersion.exists()) {

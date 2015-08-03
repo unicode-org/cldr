@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.LineHandler;
 import org.unicode.cldr.util.Counter2;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 
 import com.ibm.icu.text.NumberFormat;
@@ -289,13 +290,13 @@ public class AddPopulationData {
     private static void loadFactbookLiteracy() throws IOException {
         final String filename = "external/factbook_literacy.html";
         CldrUtility.handleFile(filename, new LineHandler() {
-            Matcher m = Pattern.compile(
+            Matcher m = PatternCache.get(
                 "<strong>total population:</strong>\\s*(?:above\\s*)?(?:[0-9]+-)?([0-9]*\\.?[0-9]*)%.*").matcher("");
             // Matcher m =
-            // Pattern.compile("<i>total population:</i>\\s*(?:above\\s*)?(?:[0-9]+-)?([0-9]*\\.?[0-9]*)%.*").matcher("");
+            // PatternCache.get("<i>total population:</i>\\s*(?:above\\s*)?(?:[0-9]+-)?([0-9]*\\.?[0-9]*)%.*").matcher("");
             // Matcher codeMatcher =
-            // Pattern.compile("<a href=\"../geos/[^\\.]+.html\" class=\"CountryLink\">([^<]+)</a>").matcher("");
-            Matcher codeMatcher = Pattern.compile(">([^<]+)<").matcher("");
+            // PatternCache.get("<a href=\"../geos/[^\\.]+.html\" class=\"CountryLink\">([^<]+)</a>").matcher("");
+            Matcher codeMatcher = PatternCache.get(">([^<]+)<").matcher("");
             String code = null;
 
             public boolean handle(String line) throws ParseException {

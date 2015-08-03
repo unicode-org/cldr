@@ -476,7 +476,7 @@ public class LanguageTagParser {
         return this;
     }
 
-    static final Pattern EXTENSION_PATTERN = Pattern.compile("([0-9a-zA-Z]{2,8}(-[0-9a-zA-Z]{2,8})*)?");
+    static final Pattern EXTENSION_PATTERN = PatternCache.get("([0-9a-zA-Z]{2,8}(-[0-9a-zA-Z]{2,8})*)?");
 
     public LanguageTagParser setExtensions(Map<String, String> newExtensions) {
         for (Entry<String, String> entry : newExtensions.entrySet()) {

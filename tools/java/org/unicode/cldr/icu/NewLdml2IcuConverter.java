@@ -96,6 +96,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
     private Set<String> allDirs;
     private String sourceDir;
     private String destinationDir;
+    private String supplementalDir;
     private IcuDataSplitter splitter;
     private Filter filter;
     private boolean verbose = false;
@@ -155,7 +156,8 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             throw new IllegalArgumentException("Source directory must be specified.");
         }
         sourceDir = options.get("sourcedir").getValue();
-
+        supplementalDir = options.get("supplementaldir").getValue();
+        
         destinationDir = options.get("destdir").getValue();
         if (!options.get("type").doesOccur()) {
             throw new IllegalArgumentException("Type not specified: " + Arrays.asList(Type.values()));
@@ -235,8 +237,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             SupplementalDataInfo supplementalDataInfo = null;
             option = options.get("supplementaldir");
             if (option.doesOccur()) {
-                supplementalDataInfo = SupplementalDataInfo.getInstance(options.get("supplementaldir").getValue());
-            } else {
+                supplementalDataInfo = SupplementalDataInfo.getInstance(supplementalDir);
                 throw new IllegalArgumentException("Supplemental directory must be specified with -s");
             }
 
@@ -282,24 +283,26 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
 
     private void processSupplemental(Type type, String debugXPath) {
         IcuData icuData;
+        // Use the supplementaldir if explicitly specified , otherwise the source dir.
+        String dir = options.get("supplementaldir").doesOccur() ? supplementalDir : sourceDir;
         switch (type) {
         case plurals: {
-            PluralsMapper mapper = new PluralsMapper(sourceDir);
+            PluralsMapper mapper = new PluralsMapper(dir);
             icuData = mapper.fillFromCldr();
             break;
         }
         case pluralRanges: {
-            PluralRangesMapper mapper = new PluralRangesMapper(sourceDir);
+            PluralRangesMapper mapper = new PluralRangesMapper(dir);
             icuData = mapper.fillFromCldr();
             break;
         }
         case dayPeriods: {
-            DayPeriodsMapper mapper = new DayPeriodsMapper(sourceDir);
+            DayPeriodsMapper mapper = new DayPeriodsMapper(dir);
             icuData = mapper.fillFromCldr();
             break;
         }
         default: {
-            SupplementalMapper mapper = SupplementalMapper.create(sourceDir);
+            SupplementalMapper mapper = SupplementalMapper.create(dir);
             if (debugXPath != null) {
                 mapper.setDebugXPath(debugXPath);
             }

@@ -212,7 +212,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 }
             }
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             // e.printStackTrace();
             // use a StringBuilder to construct the message.
             StringBuilder sb = new StringBuilder("Cannot read the file '");

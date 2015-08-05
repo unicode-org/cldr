@@ -1241,7 +1241,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
     }
 
-    public static class IllegalByDtdException extends RuntimeException {
+    public class IllegalByDtdException extends RuntimeException {
+        private static final long serialVersionUID = 1L;
         public final String elementName;
         public final String attributeName;
         public final String attributeValue;
@@ -1252,7 +1253,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
         @Override
         public String getMessage() {
-            return "Dtd doesn’t allow "
+            return "Dtd " + dtdType
+                + " doesn’t allow "
                 + "element=" + elementName 
                 + (attributeName == null ? "" : ", attribute: " + attributeName)
                 + (attributeValue == null ? "" : ", attributeValue: " + attributeValue);

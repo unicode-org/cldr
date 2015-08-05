@@ -52,6 +52,7 @@ import com.ibm.icu.lang.UCharacter;
 
 public class ShowLocaleCoverage {
     private static final boolean DEBUG = false;
+    private static final char DEBUG_FILTER = 0; // use letter to only load locales starting with that letter
 
     private static final String LATEST = ToolConstants.CHART_VERSION;
     private static final double CORE_SIZE = (double) (CoreItems.values().length - CoreItems.ONLY_RECOMMENDED.size());
@@ -167,11 +168,25 @@ public class ShowLocaleCoverage {
             COMMON_LOCALES = factory.getAvailableLanguages();
         }
     }
-
+    
     private static void doGrowth(Matcher matcher, PrintWriter out) {
         TreeMap<String, List<Double>> growthData = new TreeMap<>(Ordering.natural().reverse()); // sort by version, descending
+        if (DEBUG) {
+            for (String dir : new File(CLDRPaths.ARCHIVE_DIRECTORY).list()) {
+                if (!dir.startsWith("cldr")) {
+                    continue;
+                }
+                String version = getNormalizedVersion(dir);
+                org.unicode.cldr.util.Factory newFactory = org.unicode.cldr.util.Factory.make(
+                    CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir + "/common/main/", ".*");
+                System.out.println("Reading: " + version);
+                Map<String, FoundAndTotal> currentData = addGrowth(newFactory, matcher);
+                System.out.println("Read: " + version + "\t" + currentData);
+                break;
+            }
+        }
         Map<String, FoundAndTotal> latestData = addGrowth(factory, matcher);
-        addCompletionList(LATEST, getCompletion(latestData, latestData), growthData);
+        addCompletionList(versionToYear.get(LATEST), getCompletion(latestData, latestData), growthData);
         if (DEBUG) System.out.println(latestData);
         //System.out.println(growthData);
         for (String dir : new File(CLDRPaths.ARCHIVE_DIRECTORY).list()) {
@@ -179,13 +194,17 @@ public class ShowLocaleCoverage {
                 continue;
             }
             String version = getNormalizedVersion(dir);
+            if (version == null) {
+                continue;
+            }
 //            if (version.compareTo("12") < 0) {
 //                continue;
 //            }
             org.unicode.cldr.util.Factory newFactory = org.unicode.cldr.util.Factory.make(
                 CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir + "/common/main/", ".*");
+            System.out.println("Reading: " + version);
             Map<String, FoundAndTotal> currentData = addGrowth(newFactory, matcher);
-            if (DEBUG) System.out.println(version + "\t" + currentData);
+            System.out.println("Read: " + version + "\t" + currentData);
             Counter2<String> completionData = getCompletion(latestData, currentData);
             //System.out.println(version + "\t" + completionData);
             addCompletionList(version, completionData, growthData);
@@ -204,6 +223,28 @@ public class ShowLocaleCoverage {
         }
     }
 
+    static final Map<String,String> versionToYear = new HashMap<>();
+    static {
+        int[][] mapping = {
+        {28, 2015},
+        {26, 2014},
+        {24, 2013},
+        {22, 2012},
+        {20, 2011},
+        {19, 2010},
+        {17, 2009},
+        {16, 2008},
+        {15, 2007},
+        {14, 2006},
+        {13, 2005},
+        {12, 2004},
+        {10, 2003},
+        };
+        for (int[] row : mapping) {
+            versionToYear.put(String.valueOf(row[0]), String.valueOf(row[1]));
+        }
+    }
+
     public static String getNormalizedVersion(String dir) {
         String rawVersion = dir.substring(dir.indexOf('-') + 1);
         int firstDot = rawVersion.indexOf('.');
@@ -213,7 +254,8 @@ public class ShowLocaleCoverage {
         } else {
             rawVersion = rawVersion.substring(0, firstDot);
         }
-        return rawVersion;
+        String result = versionToYear.get(rawVersion);
+        return result == null ? null : result.toString();
     }
 
     public static void addCompletionList(String version, Counter2<String> completionData, TreeMap<String, List<Double>> growthData) {
@@ -270,6 +312,7 @@ public class ShowLocaleCoverage {
 
     private static Map<String, FoundAndTotal> addGrowth(org.unicode.cldr.util.Factory newFactory, Matcher matcher) {
         Map<String, FoundAndTotal> data = new HashMap<>();
+        char c = 0;
         for (String locale : newFactory.getAvailableLanguages()) {
             if (!matcher.reset(locale).matches()) {
                 continue;
@@ -279,7 +322,14 @@ public class ShowLocaleCoverage {
                 || locale.equals("supplementalData")) {
                 continue;
             }
-            System.out.println("\t" + locale);
+            char nc = locale.charAt(0);
+            if (nc != c) {
+                System.out.println("\t" + locale);
+                c = nc;
+            }
+            if (DEBUG_FILTER != 0 && DEBUG_FILTER != nc) {
+                continue;
+            }
             final CLDRFile file = newFactory.make(locale, true);
             Counter<Level> foundCounter = new Counter<Level>();
             Counter<Level> unconfirmedCounter = new Counter<Level>();

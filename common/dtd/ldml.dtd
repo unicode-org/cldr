@@ -11,6 +11,9 @@ $Date$
 -->
 
 <!ELEMENT ldml ( identity, ( alias | ( fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, annotations?, metadata?, references?, special* ) ) ) >
+<!ATTLIST ldml version CDATA #IMPLIED >
+    <!--@METADATA-->
+    <!--@DEPRECATED -->
 <!ATTLIST ldml draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -18,6 +21,9 @@ $Date$
 <!-- ######################################################### -->
 
 <!ELEMENT identity ( alias | ( version, generation?, language, script?, territory?, variant?, special* ) ) >
+<!ATTLIST identity draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
+    <!--@DEPRECATED-->
 
 <!-- ######################################################### -->
 <!-- # These elements are common to almost all elements defined -->
@@ -39,11 +45,17 @@ $Date$
     <!--@METADATA-->
 <!ATTLIST version cldrVersion CDATA #FIXED "28" >
     <!--@METADATA-->
+<!ATTLIST version draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
+    <!--@DEPRECATED -->
 
 <!ELEMENT generation EMPTY >
     <!--@DEPRECATED-->
 <!ATTLIST generation date CDATA #REQUIRED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
+<!ATTLIST generation draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT language ( #PCDATA ) >

@@ -111,8 +111,6 @@ public class WritePluralRules {
             + "<supplementalData>\n"
             + "    <version number=\"$Revision" +
             "$\"/>\n"
-            + "    <generation date=\"$Date" +
-            "$\"/>\n"
             + "    <plurals type=\"" + type + "\">\n"
             + "        <!-- For a canonicalized list, use " + filename + " -->\n";
     }

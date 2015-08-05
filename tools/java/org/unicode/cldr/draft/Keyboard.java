@@ -149,12 +149,11 @@ public class Keyboard {
         }
     }
 
-    public Keyboard(String locale, String version, String platformVersion, String generation, Set<String> names,
+    public Keyboard(String locale, String version, String platformVersion, Set<String> names,
         Fallback fallback, Set<KeyMap> keyMaps, Map<TransformType, Transforms> transforms) {
         this.locale = locale;
         this.version = version;
         this.platformVersion = platformVersion;
-        this.generation = generation;
         this.fallback = fallback;
         this.names = Collections.unmodifiableSet(names);
         this.keyMaps = Collections.unmodifiableSet(keyMaps);
@@ -319,7 +318,6 @@ public class Keyboard {
     private final String locale;
     private final String version;
     private final String platformVersion;
-    private final String generation;
     private final Fallback fallback;
     private final Set<String> names;
     private final Set<KeyMap> keyMaps;
@@ -335,10 +333,6 @@ public class Keyboard {
 
     public String getPlatformVersion() {
         return platformVersion;
-    }
-
-    public String getGeneration() {
-        return generation;
     }
 
     public Fallback getFallback() {
@@ -426,7 +420,6 @@ public class Keyboard {
         String locale; // TODO
         String version; // TODO
         String platformVersion; // TODO
-        String generation; // TODO
 
         Set<String> names = new LinkedHashSet<String>();
         Fallback fallback = Fallback.BASE;
@@ -455,7 +448,7 @@ public class Keyboard {
             }
 //            errors.clear();
 //            errors.addAll(this.errors);
-            return new Keyboard(locale, version, platformVersion, generation, names, fallback, keyMaps, transformMap);
+            return new Keyboard(locale, version, platformVersion, names, fallback, keyMaps, transformMap);
         }
 
         public void handlePathValue(String path, String value) {
@@ -528,10 +521,6 @@ public class Keyboard {
                     // <version platform='0.17' number='$Revision$'/>
                     platformVersion = parts.getAttributeValue(1, "platform");
                     version = parts.getAttributeValue(1, "number");
-                } else if (element1.equals("generation")) {
-                    // <generation date='$Date$'/>
-                    generation = parts.getAttributeValue(1, "date");
-                    // ignore for now
                 } else if (element1.equals("names")) {
                     // <names> <name value='cs'/>
                     names.add(parts.getAttributeValue(2, "value"));

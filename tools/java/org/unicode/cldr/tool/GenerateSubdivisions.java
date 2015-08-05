@@ -310,7 +310,6 @@ public class GenerateSubdivisions {
                 + "<ldml>\n"
                 + "\t<identity>\n"
                 + "\t\t<version number=\"$Revision: 11611 $\"/>\n"
-                + "\t\t<generation date=\"$Date: 2015-05-06 07:02:59 -0700 (Wed, 06 May 2015) $\"/>\n"
                 + "\t\t<language type=\"en\"/>\n"
                 + "\t</identity>\n"
                 + "\t<localeDisplayNames>\n"
@@ -525,7 +524,6 @@ public class GenerateSubdivisions {
                 +"\n"
                 +"<supplementalData>\n"
                 +"    <version number='$Revision: 8268 $'/>\n"
-                +"    <generation date='$Date: 2013-03-01 15:26:02 +0100 (Fri, 01 Mar 2013) $'/>\n"
                 +"\t<subdivisionContainment>\n");
             printXml(output, BASE, 0);
             output.append("\t</subdivisionContainment>\n</supplementalData>\n");

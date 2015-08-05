@@ -448,7 +448,6 @@ class GeneratePickerData {
     private static void writeMainFile(String directory, String categoryTable) throws IOException, FileNotFoundException {
         PrintWriter out = getFileWriter(directory, "CharData.java");
         out.println("package org.unicode.cldr.draft.picker;");
-        out.println("// $Date$");
         out.println("public class CharData {");
         out.println("public static String[][] CHARACTERS_TO_NAME = {");
         out.println(buildNames());

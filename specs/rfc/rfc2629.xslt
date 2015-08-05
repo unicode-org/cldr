@@ -2937,9 +2937,6 @@ table.closedissue {
     <xsl:if test="contains('$Revision: 1.149 $',':')">
       <xsl:value-of select="concat('Revision ',normalize-space(translate(substring-after('$Revision: 1.149 $', 'Revision: '),'$','')),', ')" />
     </xsl:if>
-    <xsl:if test="contains('$Date: 2004/04/01 16:36:02 $',':')">
-      <xsl:value-of select="concat(normalize-space(translate(substring-after('$Date: 2004/04/01 16:36:02 $', 'Date: '),'$','')),', ')" />
-    </xsl:if>
     <xsl:value-of select="concat('XSLT vendor: ',system-property('xsl:vendor'),' ',system-property('xsl:vendor-url'))" />
   </xsl:variable>
   <xsl:value-of select="$gen" />

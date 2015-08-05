@@ -17,7 +17,7 @@ do
    if [ "x${ext}" = "xxml" ];
    then
       svn propset -q svn:eol-style native ${filename}
-      svn propset -q svn:keywords "Author Date Id Revision" ${filename}
+      svn propset -q svn:keywords "Author Id Revision" ${filename}
       svn propset -q svn:mime-type text/xml ${filename}
    fi
    if [ "x${ext}" = "xjava" ];

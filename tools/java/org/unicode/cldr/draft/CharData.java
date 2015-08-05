@@ -1,6 +1,5 @@
 package org.unicode.cldr.draft;
 
-// $Date Mon Mar 23 15:51:50 PDT 2009 $
 //@formatter:off
 public class CharData {
     static String[][] CHARACTERS_TO_NAME = {

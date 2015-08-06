@@ -68,8 +68,12 @@ public class DisplayAndInputProcessor {
         + "units/.+/unitPattern.*|"
         + "units/.+/durationUnitPattern.*|"
         + "numbers/symbols.*|"
+        + "numbers/miscPatterns.*|"
         + "numbers/(decimal|currency|percent|scientific)Formats.+/(decimal|currency|percent|scientific)Format.*)");
-    private static final Pattern INTERVAL_FORMAT_PATHS = PatternCache.get("//ldml/dates/.+/intervalFormatItem.*");
+    private static final Pattern HYPHEN_PATHS = PatternCache.get("//ldml/("
+        + "numbers/currencies.*|"
+        + "dates/calendars/calendar\\[@type=\"japanese\"]/eras.*)");
+   private static final Pattern INTERVAL_FORMAT_PATHS = PatternCache.get("//ldml/dates/.+/intervalFormatItem.*");
     private static final Pattern NON_DECIMAL_PERIOD = PatternCache.get("(?<![0#'])\\.(?![0#'])");
     private static final Pattern WHITESPACE_NO_NBSP_TO_NORMALIZE = PatternCache.get("\\s+"); // string of whitespace not
     // including NBSP, i.e. [
@@ -254,6 +258,8 @@ public class DisplayAndInputProcessor {
         }
         // Fix up hyphens, replacing with N-dash as appropriate
         if (INTERVAL_FORMAT_PATHS.matcher(path).matches()) {
+            value = normalizeIntervalHyphens(value);
+        } else {
             value = normalizeHyphens(value);
         }
         return value;
@@ -410,10 +416,14 @@ public class DisplayAndInputProcessor {
             if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
                 value = normalizeApostrophes(value);
             }
+            
             // Fix up hyphens, replacing with N-dash as appropriate
             if (INTERVAL_FORMAT_PATHS.matcher(path).matches()) {
+                value = normalizeIntervalHyphens(value);
+            } else {
                 value = normalizeHyphens(value);
             }
+            
             return value;
         } catch (RuntimeException e) {
             if (internalException != null) {
@@ -496,7 +506,7 @@ public class DisplayAndInputProcessor {
         }
     }
 
-    private String normalizeHyphens(String value) {
+    private String normalizeIntervalHyphens(String value) {
         DateTimePatternGenerator.FormatParser fp = new DateTimePatternGenerator.FormatParser();
         fp.set(DateIntervalInfo.genPatternInfo(value, false).getFirstPart());
         List<Object> items = fp.getItems();
@@ -513,6 +523,20 @@ public class DisplayAndInputProcessor {
                     return sb.toString();
                 }
             }
+        }
+        return value;
+    }
+
+    private String normalizeHyphens(String value) {
+        int hyphenLocation = value.indexOf("-");
+        if (hyphenLocation > 0 && 
+            Character.isDigit(value.charAt(hyphenLocation-1)) &&
+            Character.isDigit(value.charAt(hyphenLocation+1))) {
+            StringBuilder sb = new StringBuilder();            
+            sb.append(value.substring(0, hyphenLocation));
+            sb.append("\u2013");
+            sb.append(value.substring(hyphenLocation + 1));
+            return sb.toString();
         }
         return value;
     }

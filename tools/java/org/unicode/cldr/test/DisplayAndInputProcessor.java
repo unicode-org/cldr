@@ -70,9 +70,6 @@ public class DisplayAndInputProcessor {
         + "numbers/symbols.*|"
         + "numbers/miscPatterns.*|"
         + "numbers/(decimal|currency|percent|scientific)Formats.+/(decimal|currency|percent|scientific)Format.*)");
-    private static final Pattern HYPHEN_PATHS = PatternCache.get("//ldml/("
-        + "numbers/currencies.*|"
-        + "dates/calendars/calendar\\[@type=\"japanese\"]/eras.*)");
    private static final Pattern INTERVAL_FORMAT_PATHS = PatternCache.get("//ldml/dates/.+/intervalFormatItem.*");
     private static final Pattern NON_DECIMAL_PERIOD = PatternCache.get("(?<![0#'])\\.(?![0#'])");
     private static final Pattern WHITESPACE_NO_NBSP_TO_NORMALIZE = PatternCache.get("\\s+"); // string of whitespace not

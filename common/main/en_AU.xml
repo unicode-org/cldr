@@ -136,7 +136,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<dayPeriod type="night1">night</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="midnight">midninght</dayPeriod>
+							<dayPeriod type="midnight">midnight</dayPeriod>
 							<dayPeriod type="am">am</dayPeriod>
 							<dayPeriod type="noon">midday</dayPeriod>
 							<dayPeriod type="pm">pm</dayPeriod>
@@ -147,6 +147,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">am</dayPeriod>
+							<dayPeriod type="noon">midday</dayPeriod>
+							<dayPeriod type="pm">pm</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">am</dayPeriod>
 							<dayPeriod type="noon">midday</dayPeriod>

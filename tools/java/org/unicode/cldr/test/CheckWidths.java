@@ -149,6 +149,7 @@ public class CheckWidths extends CheckCLDR {
     static RegexLookup<Limit[]> lookup = new RegexLookup<Limit[]>()
         .setPatternTransform(RegexLookup.RegexFinderTransformPath)
         .addVariable("%A", "\"[^\"]+\"")
+        .addVariable("%P", "\"[ap]m\"")
         .add("//ldml/delimiters/(quotation|alternateQuotation)", new Limit[] {
             new Limit(1, 1, Measure.CODE_POINTS, LimitType.MAXIMUM, Special.NONE)
         })
@@ -199,6 +200,15 @@ public class CheckWidths extends CheckCLDR {
         })
         .add("//ldml/dates/calendars/calendar.*/eraAbbr/era[@type=%A]", new Limit[] {
             new Limit(3 * EM, 6 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
+        })
+        
+        // am/pm abbreviated
+        .add("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/.*/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=%P]", new Limit[] {
+            new Limit(4 * EM, 6 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
+        })
+        // am/pm wide
+        .add("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/.*/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=%P]", new Limit[] {
+            new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
         })
 
         // Narrow items

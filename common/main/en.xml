@@ -1949,6 +1949,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">midnight</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="am" alt="variant">am</dayPeriod>
+							<dayPeriod type="noon">noon</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="pm" alt="variant">pm</dayPeriod>
+							<dayPeriod type="morning1">in the morning</dayPeriod>
+							<dayPeriod type="afternoon1">in the afternoon</dayPeriod>
+							<dayPeriod type="evening1">in the evening</dayPeriod>
+							<dayPeriod type="night1">at night</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">mi</dayPeriod>
 							<dayPeriod type="am">a</dayPeriod>

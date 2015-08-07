@@ -1181,7 +1181,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 || elementName.equals("currency") && attribute.equals("iso4217")
                 || elementName.equals("territoryAlias") && attribute.equals("type")
                 || elementName.equals("territoryCodes") && attribute.equals("type")
-                || elementName.equals("group") && (attribute.equals("status") || attribute.equals("grouping"))
+                || elementName.equals("group") && (attribute.equals("status")) //  || attribute.equals("grouping")
                 || elementName.equals("plurals") && attribute.equals("type")
                 || elementName.equals("pluralRules") && attribute.equals("locales")
                 || elementName.equals("pluralRule") && attribute.equals("count")
@@ -1203,8 +1203,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 || elementName.equals("coverageVariable") && attribute.equals("key")
                 || elementName.equals("coverageLevel") 
                 && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
-                || elementName.equals("languageMatch") 
-                && (attribute.equals("desired") || attribute.equals("supported") || attribute.equals("oneway"))
+//                || elementName.equals("languageMatch") 
+//                && (attribute.equals("desired") || attribute.equals("supported") || attribute.equals("oneway"))
                 || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute.equals("variant")))
                 ;
 

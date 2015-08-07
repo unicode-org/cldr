@@ -461,8 +461,11 @@ public class Ldml2JsonConverter {
                 }
 
                 for (String outputDir : outputDirs) {
+                    List<CldrItem> theItems = sectionItems.get(js);
+                    if (theItems == null || theItems.size() == 0) {
+                        continue;
+                    }
                     PrintWriter outf = BagFormatter.openUTF8Writer(outputDir, outFilename);
-
                     JsonWriter out = new JsonWriter(outf);
                     out.setIndent("  ");
 
@@ -474,10 +477,6 @@ public class Ldml2JsonConverter {
                     String leadingArrayItemPath = "";
                     int valueCount = 0;
                     String previousIdentityPath = null;
-                    List<CldrItem> theItems = sectionItems.get(js);
-                    if (theItems == null || theItems.size() == 0) {
-                        continue;
-                    }
                     for (CldrItem item : theItems) {
 
                         // items in the identity section of a file should only ever contain the lowest level, even if using
@@ -588,7 +587,7 @@ public class Ldml2JsonConverter {
 
     public void writePackageJson(String outputDir, String packageName) throws IOException {
         PrintWriter outf = BagFormatter.openUTF8Writer(outputDir + "/" + packageName, "package.json");
-        System.out.println("Creating packaging file => " + outputDir + packageName + File.separator + "package.json");
+        System.out.println("Creating packaging file => " + outputDir + File.separator + packageName + File.separator + "package.json");
         JsonObject obj = new JsonObject();
         writeBasicInfo(obj, packageName, true);
 
@@ -624,7 +623,7 @@ public class Ldml2JsonConverter {
 
     public void writeBowerJson(String outputDir, String packageName) throws IOException {
         PrintWriter outf = BagFormatter.openUTF8Writer(outputDir + "/" + packageName, "bower.json");
-        System.out.println("Creating packaging file => " + outputDir + packageName + File.separator + "bower.json");
+        System.out.println("Creating packaging file => " + outputDir + File.separator + packageName + File.separator + "bower.json");
         JsonObject obj = new JsonObject();
         writeBasicInfo(obj, packageName, false);
         if (type == RunType.supplemental) {
@@ -855,7 +854,7 @@ public class Ldml2JsonConverter {
      * Close nodes that no longer appears in path.
      * 
      * @param out
-     *            The ArrayList to hold all output lines.
+     *            The JsonWriter to hold all output lines.
      * @param last
      *            The last node index in previous item.
      * @param firstDiff

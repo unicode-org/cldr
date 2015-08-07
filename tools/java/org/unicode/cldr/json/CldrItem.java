@@ -224,6 +224,7 @@ public class CldrItem implements Comparable<CldrItem> {
                 String[] words = null;
                 words = wordString.trim().split("\\s+");
                 XPathParts[] newparts = { newxpp, newfullxpp, untransformednewxpp, untransformednewfullxpp };
+                XPathParts[] trparts = { newxpp, newfullxpp };
                 for (String word : words) {
                     newxpp.set(xpp);
                     newfullxpp.set(fullxpp);
@@ -234,7 +235,7 @@ public class CldrItem implements Comparable<CldrItem> {
                     }
                     if (s.attrAsValueAfterSplit != null) {
                         String newValue = fullxpp.findAttributeValue(s.element, s.attrAsValueAfterSplit);
-                        for (XPathParts np : newparts) {
+                        for (XPathParts np : trparts) {
                             np.removeAttribute(s.element, s.attrAsValueAfterSplit);
                             np.removeAttribute(s.element, s.attribute);
                             np.addElement(word);
@@ -290,21 +291,13 @@ public class CldrItem implements Comparable<CldrItem> {
                 return result;
             }
         }
-        // Types are a special case, because you have to sort the key type ( i.e. numbers/calendar, etc.
-        // first before the type name.  So we have to sort based on transformed path.
-        if (thisxpp.containsElement("types") && otherxpp.containsElement("types")) {
-            return path.compareTo(otherItem.path);
-        }
-       DtdType fileDtdType;
-        switch (thisxpp.getElement(0)) {
-        case "supplementalData":
-            fileDtdType = DtdType.supplementalData;
-            break;
-        default:
-            fileDtdType = DtdType.ldml;
-            break;
-        }
 
+        DtdType fileDtdType;
+        if (thisxpp.getElement(0).equals("supplementalData")) {
+            fileDtdType = DtdType.supplementalData;
+        } else {
+            fileDtdType = DtdType.ldml;
+        }
         int result = DtdData.getInstance(fileDtdType).getDtdComparator(null).compare(untransformedPath, otherItem.untransformedPath);
         return result;
         //return CLDRFile.getLdmlComparator().compare(path, otherItem.path);

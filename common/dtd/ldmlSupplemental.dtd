@@ -99,6 +99,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST group contains NMTOKENS #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST group grouping (true | false) #IMPLIED >
+    <!--@VALUE-->
 <!ATTLIST group status (deprecated | grouping) #IMPLIED >
 <!ATTLIST group draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -816,10 +817,13 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT languageMatch EMPTY >
     <!--@ORDERED-->
 <!ATTLIST languageMatch desired CDATA #REQUIRED >
+    <!--@VALUE-->
 <!ATTLIST languageMatch oneway (true | false) #IMPLIED >
+    <!--@VALUE-->
 <!ATTLIST languageMatch percent NMTOKEN #REQUIRED >
     <!--@VALUE-->
 <!ATTLIST languageMatch supported CDATA #REQUIRED >
+    <!--@VALUE-->
 
 <!-- # Day Periods -->
 

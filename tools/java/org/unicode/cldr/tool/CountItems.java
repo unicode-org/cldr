@@ -594,16 +594,18 @@ public class CountItems {
     static final StandardCodes sc = StandardCodes.make();
 
     public static void getSubtagVariables() {
-        System.out.println("Validity variables");
-        System.out.println("Cut/paste into supplementalMetadata.xml under the line");
-        System.out.println("<!-- start of data generated with CountItems tool ...");
-        Map<String, String> variableSubstitutions = getVariables(VariableType.partial);
+//        This section no longer necessary, as it has been replaced by the new attributeValueValidity.xml
+//
+//        System.out.println("Validity variables");
+//        System.out.println("Cut/paste into supplementalMetadata.xml under the line");
+//        System.out.println("<!-- start of data generated with CountItems tool ...");
+//        Map<String, String> variableSubstitutions = getVariables(VariableType.partial);
 
-        for (Entry<String, String> type : variableSubstitutions.entrySet()) {
-            System.out.println(type.getValue());
-        }
-        System.out.println("<!-- end of Validity variables generated with CountItems tool ...");
-        System.out.println();
+//        for (Entry<String, String> type : variableSubstitutions.entrySet()) {
+//            System.out.println(type.getValue());
+//        }
+//        System.out.println("<!-- end of Validity variables generated with CountItems tool ...");
+//        System.out.println();
         System.out.println("Language aliases");
         System.out.println("Cut/paste into supplementalMetadata.xml under the line");
         System.out.println("<!-- start of data generated with CountItems tool ...");

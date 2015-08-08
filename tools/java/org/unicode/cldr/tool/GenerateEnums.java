@@ -26,8 +26,12 @@ import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
+import org.unicode.cldr.util.Validity;
+import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -342,22 +346,28 @@ public class GenerateEnums {
             macro_name.put(codeName, line);
         }
         codes.close();
-        String values = supplementalDataInfo.getValidityInfo().get("$territory").get1().trim();
-        String[] validTerritories = values.split("\\s+");
-        for (int i = 0; i < validTerritories.length; ++i) {
-            if (corrigendum.contains(validTerritories[i])) {
-                System.out.println("Skipping " + validTerritories[i] + "\t\t"
-                    + getEnglishName(validTerritories[i]));
+//        String values = supplementalDataInfo.getValidityInfo().get("$territory").get1().trim();
+        Map<LstrType, Map<Status, Set<String>>> v = Validity.getInstance().getData();
+        Map<Status, Set<String>> validRegions = v.get(LstrType.region);
+        Set<String> regions = new TreeSet<String>();
+        regions.addAll(validRegions.get(Status.regular));
+        regions.addAll(validRegions.get(Status.macroregion));
+//        String[] validTerritories = values.split("\\s+");
+//        for (int i = 0; i < validTerritories.length; ++i) {
+        for ( String region : regions ) {
+            if (corrigendum.contains(region)) {
+                System.out.println("Skipping " + region + "\t\t"
+                    + getEnglishName(region));
                 continue; // exception, corrigendum
             }
-            if (isPrivateUseRegion(validTerritories[i]))
+            if (isPrivateUseRegion(region))
                 continue;
-            if (validTerritories[i].charAt(0) < 'A') {// numeric
-                enum_UN.put(enumName(validTerritories[i]), validTerritories[i]);
-                cldrCodes.add(validTerritories[i]);
+            if (region.charAt(0) < 'A') {// numeric
+                enum_UN.put(enumName(region), region);
+                cldrCodes.add(region);
             } else {
-                if (enum_alpha3.get(validTerritories[i]) == null) {
-                    System.out.println("Missing alpha3 for: " + validTerritories[i]);
+                if (enum_alpha3.get(region) == null) {
+                    System.out.println("Missing alpha3 for: " + region);
                 }
             }
         }
@@ -810,6 +820,9 @@ public class GenerateEnums {
      * @return
      */
     public String getDeprecatedReplacement(String type, String cldrTypeValue) {
+        if (type.equals("currency")) {
+            return null;
+        }
         String path = supplementalMetadata.getFullXPath(
             "//supplementalData/metadata/alias/" + type + "Alias[@type=\""
                 + cldrTypeValue + "\"]", true);

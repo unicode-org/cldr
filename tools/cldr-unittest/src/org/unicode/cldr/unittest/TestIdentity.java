@@ -42,7 +42,12 @@ public class TestIdentity extends TestFmwk {
                 String fTerritory = ltp.getRegion().length() > 0 ? ltp
                     .getRegion() : "<missing>";
                 Set<String> fVariants = new HashSet<String>(ltp.getVariants());
-                CLDRFile localeData = factory.make(locale, false);
+                CLDRFile localeData;
+                if (factory.equals(testInfo.getFullCldrFactory())) {
+                    localeData = testInfo.getCLDRFile(locale, false);
+                } else {
+                    localeData = factory.make(locale, false);
+                }
                 String identity = localeData.getLocaleIDFromIdentity();
                 ltp.set(identity);
                 String iLanguage = ltp.getLanguage();

@@ -237,7 +237,7 @@ public class TestCheckCLDR extends TestFmwk {
 
     public void checkLocale(CheckCLDR test, String localeID, String dummyValue,
         Set<String> unique) {
-        checkLocale(test, factory.make(localeID, false), dummyValue, unique);
+        checkLocale(test, testInfo.getCLDRFile(localeID, false), dummyValue, unique);
     }
 
     public void checkLocale(CheckCLDR test, CLDRFile nativeFile,
@@ -342,7 +342,7 @@ public class TestCheckCLDR extends TestFmwk {
         CheckCLDR c = new CheckNew(testInfo.getCldrFactory());
         List<CheckStatus> result = new ArrayList<CheckStatus>();
         Map<String, String> options = new HashMap<String, String>();
-        c.setCldrFileToCheck(testInfo.getCldrFactory().make("fr", true),
+        c.setCldrFileToCheck(testInfo.getCLDRFile("fr", true),
             options, result);
         c.check(path, path, "foobar", options, result);
         for (CheckStatus status : result) {

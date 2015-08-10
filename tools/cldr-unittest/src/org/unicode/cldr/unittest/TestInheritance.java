@@ -65,13 +65,7 @@ public class TestInheritance extends TestFmwk {
 
     private static final boolean EXPECT_EQUALITY = false;
 
-    private static Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY,
-        ".*");
-    private static Factory factory2 = Factory.make(CLDRPaths.SEED_DIRECTORY,
-        ".*");
-    private static Set<String> availableLocales = Builder
-        .with(new TreeSet<String>()).addAll(factory.getAvailable())
-        .addAll(factory2.getAvailable()).freeze();
+    private static Set<String> availableLocales = testInfo.getFullCldrFactory().getAvailable();
 
     public void TestLocalesHaveOfficial() {
         // If we have a language, we have all the region locales where the
@@ -767,7 +761,7 @@ public class TestInheritance extends TestFmwk {
     public void TestCldrFileConsistency() {
         boolean haveErrors = false;
         for (String locale : testInfo.getCldrFactory().getAvailable()) {
-            CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale,
+            CLDRFile cldrFileToCheck = testInfo.getCLDRFile(locale,
                 false);
             int errors = 0;
             for (String path : cldrFileToCheck) {
@@ -1079,7 +1073,7 @@ public class TestInheritance extends TestFmwk {
 
     // TODO move this into central utilities
 
-    private static final StandardCodes STANDARD_CODES = StandardCodes.make();
+    private static final StandardCodes STANDARD_CODES = testInfo.getStandardCodes();
     private static final Map<String, Map<String, R2<List<String>, String>>> DEPRECATED_INFO = dataInfo
         .getLocaleAliasInfo();
 

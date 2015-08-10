@@ -670,7 +670,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 if (defaultScript != null) {
                     continue;
                 }
-                CLDRFile cldrFile = testInfo.getCldrFactory().make(locale,
+                CLDRFile cldrFile = testInfo.getCLDRFile(locale,
                     false);
                 UnicodeSet set = cldrFile.getExemplarSet("",
                     WinningChoice.NORMAL);
@@ -691,69 +691,6 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     + entry.getValue());
             }
         }
-    }
-
-    public void TestFormatsAgainstTimeData() {
-        Factory factory = CLDRConfig.getInstance().getCldrFactory();
-        LikelySubtags ls = new LikelySubtags(SUPPLEMENTAL);
-        LanguageTagParser ltp = new LanguageTagParser();
-        Map<String, PreferredAndAllowedHour> timeData = SUPPLEMENTAL.getTimeData();
-
-        Set<String> seenFull = new HashSet<>();
-        for (String locale : factory.getAvailable()) {
-            CLDRFile cldrFile = factory.make(locale, true);
-            String fullLocale;
-            String region;
-            if (locale.equals("root")) {
-                fullLocale = locale;
-                region = "001";
-            } else {
-                fullLocale = ls.maximize(locale);
-                region = ltp.set(fullLocale).getRegion();
-            }
-            if (seenFull.contains(fullLocale)) {
-                continue;
-            }
-            seenFull.add(fullLocale); // don't repeat
-
-            // don't worry about numeric regions - The real regions will get handled in the various locales
-            // fr_CA is an exception, since fr_CA uses 24 hr clock, but en_CA uses 12 hr.  Go figure....
-            if (region.matches("[0-9]{3}") || locale.equals("fr_CA")) {
-                continue;
-            }
-            PreferredAndAllowedHour localeTimeData = timeData.get(region);
-            if (localeTimeData == null) {
-                localeTimeData = timeData.get("001");
-            }
-            for (DateTimeLength len : DateTimeLength.values()) {
-                String timePattern = getStockPattern(cldrFile, "gregorian", DateTimeType.time, len);
-                // TODO use the parser. For now, just test for h/H/k/K
-                if (!assertTrue("\t" + locale + "\t → " + region + ":\tshould find «" + localeTimeData.preferred + "» in «" + timePattern + "»\t", 
-                    timePattern.contains(localeTimeData.preferred.toString()))) {
-                    break; // we only need to notify once
-                }
-            }
-        }
-    }
-
-    enum DateTimeType {
-        date, time
-    }
-    enum DateTimeLength {
-        full, _long, medium, _short;
-        public String toString() {
-            return name().startsWith("_") ? name().substring(1) : name();
-        }
-    }
-
-    private String getStockPattern(CLDRFile cldrFile, String calendar, DateTimeType type, DateTimeLength length) {
-        return cldrFile.getStringValue("//ldml/dates/calendars/calendar[@type=\""
-            + calendar
-            + "\"]/"
-            + type
-            + "Formats/" + type + "FormatLength[@type=\""
-            + length
-            + "\"]/" + type + "Format[@type=\"standard\"]/pattern[@type=\"standard\"]");
     }
 
     public void TestTimeData() {

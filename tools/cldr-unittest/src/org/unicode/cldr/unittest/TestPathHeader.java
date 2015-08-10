@@ -130,7 +130,7 @@ public class TestPathHeader extends TestFmwkPlus {
         Set<PathHeader> sorted = new TreeSet<PathHeader>();
         for (String locale : new String[] { "ru", "ar", "ja" }) {
             sorted.clear();
-            CLDRFile cldrFile = info.getCldrFactory().make(locale, true);
+            CLDRFile cldrFile = info.getCLDRFile(locale, true);
             CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
             for (String path : cldrFile.fullIterable()) {
                 if (!path.contains("@count")) {
@@ -205,7 +205,7 @@ public class TestPathHeader extends TestFmwkPlus {
         XPathParts parts = new XPathParts();
         for (String locale : new String[] { "af" }) {
             sorted.clear();
-            CLDRFile cldrFile = info.getCldrFactory().make(locale, true);
+            CLDRFile cldrFile = info.getCLDRFile(locale, true);
             CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
             for (String path : cldrFile.fullIterable()) {
                 // if (!path.contains("@count")) {
@@ -293,8 +293,7 @@ public class TestPathHeader extends TestFmwkPlus {
         verifyContains(PageId.C_Unknown, filePaths, "many", false);
 
         // check that Arabic does contain few and many
-        filePaths = pathHeaderFactory.pathsForFile(info.getCldrFactory().make(
-            "ar", true));
+        filePaths = pathHeaderFactory.pathsForFile(info.getCLDRFile("ar", true));
 
         verifyContains(PageId.Duration, filePaths, "few", true);
         verifyContains(PageId.C_NAmerica, filePaths, "many", true);
@@ -424,7 +423,7 @@ public class TestPathHeader extends TestFmwkPlus {
 
     public void TestMetazones() {
 
-        CLDRFile nativeFile = factory.make("en", true);
+        CLDRFile nativeFile = info.getEnglish();
         Set<PathHeader> pathHeaders = getPathHeaders(nativeFile);
         // String oldPage = "";
         String oldHeader = "";
@@ -484,7 +483,7 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestUniqueness() {
-        CLDRFile nativeFile = factory.make("en", true);
+        CLDRFile nativeFile = info.getEnglish();
         Map<PathHeader, String> headerToPath = new HashMap<PathHeader, String>();
         Map<String, String> headerVisibleToPath = new HashMap<String, String>();
         for (String path : nativeFile.fullIterable()) {
@@ -510,7 +509,7 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestStatus() {
-        CLDRFile nativeFile = factory.make("en", true);
+        CLDRFile nativeFile = info.getEnglish();
         PathStarrer starrer = new PathStarrer();
         EnumMap<SurveyToolStatus, Relation<String, String>> info2 = new EnumMap<SurveyToolStatus, Relation<String, String>>(
             SurveyToolStatus.class);
@@ -595,7 +594,7 @@ public class TestPathHeader extends TestFmwkPlus {
         Set<String> alreadySeen = new HashSet<String>(englishPaths);
 
         for (String locale : factory.getAvailable()) {
-            CLDRFile nativeFile = factory.make(locale, false);
+            CLDRFile nativeFile = info.getCLDRFile(locale, false);
             CoverageLevel2 coverageLevel2 = null;
             for (String path : nativeFile.fullIterable()) {
                 if (alreadySeen.contains(path) || path.contains("@count")) {
@@ -721,7 +720,7 @@ public class TestPathHeader extends TestFmwkPlus {
 
     public void check(String localeID, boolean resolved,
         Map<String, PathHeader> uniqueness, Set<String> alreadySeen) {
-        CLDRFile nativeFile = factory.make(localeID, resolved);
+        CLDRFile nativeFile = info.getCLDRFile(localeID, resolved);
         int count = 0;
         for (String path : nativeFile) {
             if (alreadySeen.contains(path)) {

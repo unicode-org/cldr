@@ -53,7 +53,7 @@ public class StandardCodesTest extends TestFmwk {
     }
 
     public void TestGetLocaleCoverageLocales() {
-        Factory cldrFactory = TestCLDRFile.getAllFactory();
+        Factory cldrFactory = testInfo.getFullCldrFactory();
         Set<String> availableLocales = cldrFactory.getAvailable();
         for (Organization org : Organization.values()) {
             Set<String> locs;

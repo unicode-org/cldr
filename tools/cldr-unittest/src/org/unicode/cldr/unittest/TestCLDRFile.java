@@ -47,23 +47,6 @@ public class TestCLDRFile extends TestFmwk {
         new TestCLDRFile().run(args);
     }
 
-    public static Factory getAllFactory() {
-        File mainDir = new File(CLDRPaths.MAIN_DIRECTORY);
-        if (!mainDir.isDirectory()) {
-            throw new IllegalArgumentException(
-                "MAIN_DIRECTORY is not a directory: "
-                    + CLDRPaths.MAIN_DIRECTORY);
-        }
-        File seedDir = new File(CLDRPaths.SEED_DIRECTORY);
-        if (!seedDir.isDirectory()) {
-            throw new IllegalArgumentException(
-                "SEED_DIRECTORY is not a directory: "
-                    + CLDRPaths.SEED_DIRECTORY);
-        }
-        File dirs[] = { mainDir, seedDir };
-        return SimpleFactory.make(dirs, ".*", DraftStatus.approved);
-    }
-
     // verify for all paths, if there is a count="other", then there is a
     // count="x", for all x in keywords
     public void testPlurals() {
@@ -76,7 +59,7 @@ public class TestCLDRFile extends TestFmwk {
         .compile("\\[@count=\"([^\"]+)\"]");
 
     private void checkPlurals(String locale) {
-        CLDRFile cldrFile = cldrFactory.make(locale, true);
+        CLDRFile cldrFile = testInfo.getCLDRFile(locale, true);
         Matcher m = COUNT_MATCHER.matcher("");
         Relation<String, String> skeletonToKeywords = Relation.of(
             new TreeMap<String, Set<String>>(cldrFile.getComparator()),
@@ -102,7 +85,7 @@ public class TestCLDRFile extends TestFmwk {
         }
     }
 
-    static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
+    static Factory cldrFactory = testInfo.getCldrFactory();
 
     static class LocaleInfo {
         final String locale;
@@ -111,7 +94,7 @@ public class TestCLDRFile extends TestFmwk {
 
         LocaleInfo(String locale) {
             this.locale = locale;
-            cldrFile = cldrFactory.make(locale, true);
+            cldrFile = testInfo.getCLDRFile(locale, true);
             for (String path : cldrFile.fullIterable()) {
                 Level level = sdi.getCoverageLevel(path, locale);
                 if (level.compareTo(Level.COMPREHENSIVE) > 0) {
@@ -311,8 +294,7 @@ public class TestCLDRFile extends TestFmwk {
 
     public void testSimple() {
         double deltaTime = System.currentTimeMillis();
-        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-        CLDRFile english = cldrFactory.make("en", true);
+        CLDRFile english = testInfo.getEnglish();
         deltaTime = System.currentTimeMillis() - deltaTime;
         logln("Creation: Elapsed: " + deltaTime / 1000.0 + " seconds");
 
@@ -370,8 +352,7 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     public void testResolution() {
-        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-        CLDRFile german = cldrFactory.make("de", true);
+        CLDRFile german = testInfo.getCLDRFile("de", true);
         // Test direct lookup.
         String xpath = "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator";
         String id = german.getSourceLocaleID(xpath, null);
@@ -414,15 +395,11 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     public void testGeorgeBailey() {
-        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-        PathHeader.Factory phf = PathHeader.getFactory(cldrFactory.make("en",
-            true));
+        PathHeader.Factory phf = PathHeader.getFactory(testInfo.getEnglish());
         for (String locale : Arrays.asList("de", "de_AT", "en", "nl")) {
-            CLDRFile cldrFile = cldrFactory.make(locale, true);
+            CLDRFile cldrFile = testInfo.getCLDRFile(locale, true);
 
-            // CLDRFile parentFile =
-            // cldrFactory.make(LocaleIDParser.getParent(locale), true);
-            CLDRFile cldrFileUnresolved = cldrFactory.make(locale, false);
+            CLDRFile cldrFileUnresolved = testInfo.getCLDRFile(locale, false);
             Status status = new Status();
             Output<String> localeWhereFound = new Output<String>();
             Output<String> pathWhereFound = new Output<String>();

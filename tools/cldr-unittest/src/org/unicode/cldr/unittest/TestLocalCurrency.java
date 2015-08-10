@@ -55,7 +55,7 @@ public class TestLocalCurrency extends TestFmwk {
             if (region == null || region.isEmpty() || region.length() != 2) {
                 continue;
             }
-            CLDRFile localeData = factory.make(locale, true);
+            CLDRFile localeData = testInfo.getCLDRFile(locale, true);
             String localCurrency = null;
             Set<CurrencyDateInfo> targetCurrencyInfo = supplementalDataInfo
                 .getCurrencyDateInfo(region);

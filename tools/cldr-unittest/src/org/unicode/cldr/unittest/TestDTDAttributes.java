@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdType;
@@ -19,14 +20,15 @@ import org.unicode.cldr.util.ElementAttributeInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 
-public class TestDTDAttributes extends TestFmwk {
+public class TestDTDAttributes extends TestFmwkPlus {
+
+    static TestInfo testInfo = TestInfo.getInstance();
 
     /**
      * Simple test that loads each file in the cldr directory, thus verifying
@@ -512,62 +514,55 @@ public class TestDTDAttributes extends TestFmwk {
 
         static Map<DtdType, NodeData> fullNodeData = new HashMap<DtdType, NodeData>();
         static {
-            File common = new File(CLDRPaths.COMMON_DIRECTORY);
             XPathParts parts = new XPathParts();
-            for (String dir : common.list()) {
-                Factory cldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY
-                    + "/" + dir, ".*");
-                Set<String> locales = new TreeSet<String>(
-                    cldrFactory.getAvailable());
-                for (String locale : locales) {
-                    CLDRFile file = (CLDRFile) cldrFactory.make(locale, false);
-                    NodeData nodeData = null;
-                    for (String xpath : file) {
-                        String value = file.getStringValue(xpath);
-                        String fullXpath = file.getFullXPath(xpath);
-                        parts.set(fullXpath);
+            for (String locale : testInfo.getCldrFactory().getAvailable()) {
+                CLDRFile file = testInfo.getCLDRFile(locale, false);
+                NodeData nodeData = null;
+                for (String xpath : file) {
+                    String value = file.getStringValue(xpath);
+                    String fullXpath = file.getFullXPath(xpath);
+                    parts.set(fullXpath);
+                    if (nodeData == null) {
+                        String root = parts.getElement(0);
+                        DtdType type = DtdType.valueOf(root);
+                        nodeData = fullNodeData.get(type);
                         if (nodeData == null) {
-                            String root = parts.getElement(0);
-                            DtdType type = DtdType.valueOf(root);
-                            nodeData = fullNodeData.get(type);
-                            if (nodeData == null) {
-                                fullNodeData.put(type, nodeData = new NodeData(
-                                    type));
+                            fullNodeData.put(type, nodeData = new NodeData(
+                                type));
+                        }
+                    }
+                    int last = parts.size() - 1;
+                    String element = null;
+                    for (int i = 0; i <= last; ++i) {
+                        element = parts.getElement(i);
+                        Collection<String> attributes = parts
+                            .getAttributeKeys(i);
+                        nodeData.elementToAttributes.putAll(element,
+                            attributes);
+                        Set<String> oldAlways = nodeData.elementToAttributesAlwaysFound
+                            .getAll(element);
+                        if (oldAlways == null) {
+                            nodeData.elementToAttributesAlwaysFound.putAll(
+                                element, attributes);
+                        } else {
+                            // need retainAll, removeAll
+                            for (String old : new TreeSet<String>(oldAlways)) {
+                                if (!attributes.contains(old)) {
+                                    nodeData.elementToAttributesAlwaysFound
+                                        .remove(element, old);
+                                }
                             }
                         }
-                        int last = parts.size() - 1;
-                        String element = null;
-                        for (int i = 0; i <= last; ++i) {
-                            element = parts.getElement(i);
-                            Collection<String> attributes = parts
-                                .getAttributeKeys(i);
-                            nodeData.elementToAttributes.putAll(element,
-                                attributes);
-                            Set<String> oldAlways = nodeData.elementToAttributesAlwaysFound
-                                .getAll(element);
-                            if (oldAlways == null) {
-                                nodeData.elementToAttributesAlwaysFound.putAll(
-                                    element, attributes);
+                        if (i != last) {
+                            putIfNew(nodeData.branchNodes, element, locale,
+                                xpath);
+                        } else {
+                            if (value.length() > 0) {
+                                putIfNew(nodeData.valueNodes, element,
+                                    value, locale, xpath);
                             } else {
-                                // need retainAll, removeAll
-                                for (String old : new TreeSet<String>(oldAlways)) {
-                                    if (!attributes.contains(old)) {
-                                        nodeData.elementToAttributesAlwaysFound
-                                            .remove(element, old);
-                                    }
-                                }
-                            }
-                            if (i != last) {
-                                putIfNew(nodeData.branchNodes, element, locale,
-                                    xpath);
-                            } else {
-                                if (value.length() > 0) {
-                                    putIfNew(nodeData.valueNodes, element,
-                                        value, locale, xpath);
-                                } else {
-                                    putIfNew(nodeData.valuelessNodes, element,
-                                        locale, xpath);
-                                }
+                                putIfNew(nodeData.valuelessNodes, element,
+                                    locale, xpath);
                             }
                         }
                     }

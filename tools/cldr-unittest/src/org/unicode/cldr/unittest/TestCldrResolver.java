@@ -12,13 +12,12 @@ import java.util.Set;
 import org.unicode.cldr.tool.resolver.CldrResolver;
 import org.unicode.cldr.tool.resolver.ResolutionType;
 import org.unicode.cldr.tool.resolver.ResolverUtils;
+import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
-
-import com.ibm.icu.dev.test.TestFmwk;
 
 /**
  * Runs all the CLDR Resolver Tool tests
@@ -26,7 +25,10 @@ import com.ibm.icu.dev.test.TestFmwk;
  * @author jchye@google.com (Jennifer Chye), ryanmentley@google.com (Ryan
  *         Mentley)
  */
-public class TestCldrResolver extends TestFmwk {
+public class TestCldrResolver extends TestFmwkPlus {
+
+    static TestInfo testInfo = TestInfo.getInstance();
+
     private static final String LOCALES_TO_TEST = ".*";
 
     public void TestSimpleResolution() {
@@ -106,7 +108,7 @@ public class TestCldrResolver extends TestFmwk {
         private CldrResolver resolver;
 
         public ResolverTest(ResolutionType resolutionType) {
-            factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
+            factory = testInfo.getCldrFactory();
             resolver = new CldrResolver(factory, resolutionType);
         }
 
@@ -118,7 +120,7 @@ public class TestCldrResolver extends TestFmwk {
 
             // Resolve with CLDR and check against CldrResolver output.
             for (String locale : locales) {
-                CLDRFile cldrResolved = factory.make(locale, true);
+                CLDRFile cldrResolved = testInfo.getCLDRFile(locale, true);
                 Set<String> cldrPaths = new HashSet<String>();
                 Map<String, String> toolResolved = loadToolDataFromResolver(locale);
                 // Check to make sure no paths from the CLDR-resolved version

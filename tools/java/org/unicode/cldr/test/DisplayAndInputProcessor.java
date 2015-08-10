@@ -528,6 +528,7 @@ public class DisplayAndInputProcessor {
         int hyphenLocation = value.indexOf("-");
         if (hyphenLocation > 0 && 
             Character.isDigit(value.charAt(hyphenLocation-1)) &&
+            hyphenLocation < value.length()-1 &&
             Character.isDigit(value.charAt(hyphenLocation+1))) {
             StringBuilder sb = new StringBuilder();            
             sb.append(value.substring(0, hyphenLocation));

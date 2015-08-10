@@ -36,6 +36,9 @@ import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
 
 public class TestScriptMetadata extends TestFmwkPlus {
+
+    static TestInfo testInfo = TestInfo.getInstance();
+
     public static void main(String[] args) {
         new TestScriptMetadata().run(args);
     }
@@ -151,9 +154,8 @@ public class TestScriptMetadata extends TestFmwkPlus {
 
     public void TestShowLanguages() {
         // lifted from ShowLanguages - this is what ShowLanguages tried to do.
-        StandardCodes sc = StandardCodes.make();
-        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-        CLDRFile english = cldrFactory.make("en", true);
+        StandardCodes sc = testInfo.getStandardCodes();
+        CLDRFile english = testInfo.getEnglish();
         Set<String> bads = new TreeSet<String>();
         UnicodeSet temp = new UnicodeSet();
         for (String s : getScriptsToShow(sc, english)) {
@@ -174,7 +176,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
     }
 
     public void TestGeographicGrouping() {
-        CLDRFile english = TestInfo.getInstance().getEnglish();
+        CLDRFile english = testInfo.getEnglish();
         Set<Row.R3<IdUsage, String, String>> lines = new TreeSet<Row.R3<IdUsage, String, String>>();
         Set<String> extras = ScriptMetadata.getExtras();
         for (Entry<String, Info> sc : ScriptMetadata.iterable()) {

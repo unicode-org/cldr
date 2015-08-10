@@ -51,7 +51,6 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
-import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.ErrorHandler;
@@ -114,13 +113,13 @@ public class TestBasic extends TestFmwkPlus {
         new TestBasic().run(args);
     }
 
-    private static final Set<String> skipAttributes = new HashSet<String>(
-        Arrays.asList("alt", "draft", "references"));
+    private static final ImmutableSet<String> skipAttributes = ImmutableSet.of(
+        "alt", "draft", "references");
 
-    private final String localeRegex = CldrUtility.getProperty("locale", ".*");
-    private final Set<String> eightPointLocales = new TreeSet<String>(Arrays.asList("ar ca cs da de el es fi fr he hi hr hu id it ja ko lt lv nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant".split(" ")));
-
-    private final String mainDirectory = CLDRPaths.MAIN_DIRECTORY;
+    private final ImmutableSet<String> eightPointLocales = ImmutableSet.of(
+        "ar", "ca", "cs", "da", "de", "el", "es", "fi", "fr", "he", "hi", "hr", "hu", "id",
+        "it", "ja", "ko", "lt", "lv", "nb", "nl", "pl", "pt", "pt_PT", "ro", "ru", "sk", "sl", "sr", "sv",
+        "th", "tr", "uk", "vi", "zh", "zh_Hant");
 
     // private final boolean showForceZoom = Utility.getProperty("forcezoom",
     // false);
@@ -361,8 +360,8 @@ public class TestBasic extends TestFmwkPlus {
 
     public void TestCurrencyFallback() {
         XPathParts parts = new XPathParts();
-        Factory cldrFactory = Factory.make(mainDirectory, localeRegex);
-        Set<String> currencies = StandardCodes.make().getAvailableCodes(
+        Factory cldrFactory = testInfo.getCldrFactory();
+        Set<String> currencies = testInfo.getStandardCodes().getAvailableCodes(
             "currency");
 
         final UnicodeSet CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS = (UnicodeSet) new UnicodeSet(
@@ -371,7 +370,7 @@ public class TestBasic extends TestFmwkPlus {
         CharacterFallbacks fallbacks = CharacterFallbacks.make();
 
         for (String locale : cldrFactory.getAvailable()) {
-            CLDRFile file = cldrFactory.make(locale, false);
+            CLDRFile file = testInfo.getCLDRFile(locale, false);
             if (file.isNonInheriting())
                 continue;
 
@@ -475,8 +474,8 @@ public class TestBasic extends TestFmwkPlus {
     }
 
     public void TestAbstractPaths() {
-        Factory cldrFactory = Factory.make(mainDirectory, localeRegex);
-        CLDRFile english = cldrFactory.make("en", true);
+        Factory cldrFactory = testInfo.getCldrFactory();
+        CLDRFile english = testInfo.getEnglish();
         Map<String, Counter<Level>> abstactPaths = new TreeMap<String, Counter<Level>>();
         RegexTransform abstractPathTransform = new RegexTransform(
             RegexTransform.Processing.ONE_PASS).add("//ldml/", "")
@@ -485,9 +484,7 @@ public class TestBasic extends TestFmwkPlus {
             .add("/", "\t");
 
         for (String locale : getInclusion() <= 5 ? eightPointLocales : cldrFactory.getAvailable()) {
-            // if (locale.equals("root") && !localeRegex.equals("root"))
-            // continue;
-            CLDRFile file = cldrFactory.make(locale, resolved);
+            CLDRFile file = testInfo.getCLDRFile(locale, resolved);
             if (file.isNonInheriting())
                 continue;
             logln(locale + "\t-\t" + english.getName(locale));
@@ -554,14 +551,14 @@ public class TestBasic extends TestFmwkPlus {
             new TreeMap<String, Set<String>>(), TreeSet.class);
         XPathParts parts = new XPathParts();
         Factory cldrFactory = testInfo.getCldrFactory();
-        CLDRFile english = cldrFactory.make("en", true);
+        CLDRFile english = testInfo.getEnglish();
 
         Relation<String, String> pathToLocale = Relation.of(
             new TreeMap<String, Set<String>>(CLDRFile
                 .getComparator(DtdType.ldml)), TreeSet.class, null);
         Set<String> localesToTest = getInclusion() <= 5 ? eightPointLocales : cldrFactory.getAvailable();
         for (String locale : localesToTest ) {
-            CLDRFile file = cldrFactory.make(locale, resolved);
+            CLDRFile file = testInfo.getCLDRFile(locale, resolved);
             DtdType dtdType = null;
             if (file.isNonInheriting())
                 continue;
@@ -730,7 +727,7 @@ public class TestBasic extends TestFmwkPlus {
         for (String locale : defaultContents) {
             CLDRFile cldrFile;
             try {
-                cldrFile = testInfo.getCldrFactory().make(locale, false);
+                cldrFile = testInfo.getCLDRFile(locale, false);
             } catch (RuntimeException e) {
                 logln("Can't open default content file:\t" + locale);
                 continue;
@@ -818,10 +815,9 @@ public class TestBasic extends TestFmwkPlus {
     }
 
     private void showDifferences(String locale) {
-        CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, false);
+        CLDRFile cldrFile = testInfo.getCLDRFile(locale, false);
         final String localeParent = LocaleIDParser.getParent(locale);
-        CLDRFile parentFile = testInfo.getCldrFactory()
-            .make(localeParent, true);
+        CLDRFile parentFile = testInfo.getCLDRFile(localeParent, true);
         int funnyCount = 0;
         for (Iterator<String> it = cldrFile.iterator("",
             cldrFile.getComparator()); it.hasNext();) {

@@ -249,7 +249,7 @@ public class TestExampleGenerator extends TestFmwk {
     private ExampleGenerator getExampleGenerator(String locale) {
         ExampleGenerator result = ExampleGeneratorCache.get(locale);
         if (result == null) {
-            final CLDRFile nativeCldrFile = info.getCldrFactory().make(locale,
+            final CLDRFile nativeCldrFile = info.getCLDRFile(locale,
                 true);
             result = new ExampleGenerator(nativeCldrFile, info.getEnglish(),
                 CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
@@ -295,7 +295,7 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestPaths() {
         showCldrFile(info.getEnglish());
-        showCldrFile(info.getCldrFactory().make("fr", true));
+        showCldrFile(info.getCLDRFile("fr", true));
     }
 
     public void TestMiscPatterns() {
@@ -533,7 +533,7 @@ public class TestExampleGenerator extends TestFmwk {
 
     private void checkCompactExampleFor(String localeID, Count many,
         String expected, String longVsShort, String decimalVsCurrency, String zeros) {
-        CLDRFile cldrFile = info.getCldrFactory().make(localeID, true);
+        CLDRFile cldrFile = info.getCLDRFile(localeID, true);
         ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile,
             info.getEnglish(), CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         String path = "//ldml/numbers/"
@@ -568,7 +568,7 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     private void checkDayPeriod(String localeId, String type, String dayPeriodCode, String expected) {
-        CLDRFile cldrFile = info.getCldrFactory().make(localeId, true);
+        CLDRFile cldrFile = info.getCLDRFile(localeId, true);
         ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish(), CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"";
         String suffix = "\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\""

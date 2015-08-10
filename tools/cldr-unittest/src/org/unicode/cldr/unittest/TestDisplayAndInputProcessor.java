@@ -22,12 +22,12 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
 
     public void TestAll() {
         showCldrFile(info.getEnglish());
-        showCldrFile(info.getCldrFactory().make("wae", true));
+        showCldrFile(info.getCLDRFile("wae", true));
     }
 
     public void TestTasawaq() {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info
-            .getCldrFactory().make("twq", true));
+            .getCLDRFile("twq", true));
         // time for data driven test
         final String input = "[Z \u017E ]";
         final String expect = "[z \u017E]"; // lower case
@@ -41,7 +41,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
 
     public void TestMalayalam() {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info
-            .getCldrFactory().make("ml", false));
+            .getCLDRFile("ml", false));
         String value = daip.processInput(
             "//ldml/localeDisplayNames/languages/language[@type=\"alg\"]",
             "അല്‍ഗോണ്‍ക്യന്‍ ഭാഷ", null);
@@ -53,7 +53,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
 
     public void TestRomanian() {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info
-            .getCldrFactory().make("ro", false));
+            .getCLDRFile("ro", false));
         String value = daip
             .processInput(
                 "//ldml/localeDisplayNames/types/type[@type=\"hant\"][@key=\"numbers\"]",
@@ -67,7 +67,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         // Check that the Zawgyi detector and Zawgyi->Unicode converter perform
         // correctly.
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info
-            .getCldrFactory().make("my", false));
+            .getCLDRFile("my", false));
         String z_mi = "ေမာင္းရီ (နယူးဇီလန္ကၽြန္းရွိ ပင္ရင္းတိုင္းရင္းသားလူမ်ိဳး)"; // language
                                                                                    // mi
                                                                                    // in

@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Locale;
@@ -13,6 +14,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.unicode.cldr.test.CheckCLDR.Phase;
 
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.TestLog;
 import com.ibm.icu.text.Collator;
@@ -59,16 +63,6 @@ public class CLDRConfig extends Properties {
      * Object used for synchronization in getCollator()
      */
     private static final Object GET_COLLATOR_SYNC = new Object();
-
-    /**
-     * Object to use for Synchronization in getRoot()
-     */
-    private static final Object GET_ROOT_SYNC = new Object();
-
-    /**
-     * Object to use for synchronization in getEnglish()
-     */
-    private static final Object GET_ENGLISH_SYNC = new Object();
 
     /**
      * Object used for synchronization in getStandardCodes()
@@ -147,11 +141,27 @@ public class CLDRConfig extends Properties {
     private Factory collationFactory;
     private Factory rbnfFactory;
     private Factory supplementalFactory;
-    private CLDRFile english;
-    private CLDRFile root;
     private RuleBasedCollator col;
     private Phase phase = null; // default
 
+    private LoadingCache<String, CLDRFile> cldrFileResolvedCache = CacheBuilder.newBuilder()
+        .maximumSize(200)
+        .build(
+            new CacheLoader<String, CLDRFile>() {
+              public CLDRFile load(String locale){
+                return getFullCldrFactory().make(locale,true);
+              }
+            });
+    
+    // Unresolved CLDRFiles are smaller than resolved, so we can cache more of them safely.
+    private LoadingCache<String, CLDRFile> cldrFileUnresolvedCache = CacheBuilder.newBuilder()
+        .maximumSize(1000)
+        .build(
+            new CacheLoader<String, CLDRFile>() {
+              public CLDRFile load(String locale){
+                return getFullCldrFactory().make(locale,false);
+              }
+            });
     private TestLog testLog = null;
 
     // base level
@@ -258,22 +268,18 @@ public class CLDRConfig extends Properties {
     }
 
     public CLDRFile getEnglish() {
-        synchronized (GET_ENGLISH_SYNC) {
+        return getCLDRFile("en", true);
+    }
 
-            if (english == null) {
-                english = getCldrFactory().make("en", true);
-            }
-        }
-        return english;
+    public CLDRFile getCLDRFile(String locale, boolean resolved) {
+
+        return resolved ? cldrFileResolvedCache.getUnchecked(locale) :
+                cldrFileUnresolvedCache.getUnchecked(locale);
+
     }
 
     public CLDRFile getRoot() {
-        synchronized (GET_ROOT_SYNC) {
-            if (root == null) {
-                root = getCldrFactory().make("root", true);
-            }
-        }
-        return root;
+        return getCLDRFile("root", true);
     }
 
     public Collator getCollator() {

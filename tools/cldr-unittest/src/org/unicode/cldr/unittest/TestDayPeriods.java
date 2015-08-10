@@ -67,7 +67,7 @@ public class TestDayPeriods extends TestFmwkPlus{
         for (String locale : factory.getAvailableLanguages()) {
             DayPeriodInfo periodInfo = SUPPLEMENTAL.getDayPeriods(Type.format, locale);
             List<DayPeriod> periods = periodInfo.getPeriods();
-            CLDRFile cldrFile = factory.make(locale, false);
+            CLDRFile cldrFile = CONFIG.getCLDRFile(locale, false);
             for (Iterator<String> it = cldrFile.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/"); it.hasNext();) {
                 String path = it.next();
                 if (path.endsWith("alias")) {

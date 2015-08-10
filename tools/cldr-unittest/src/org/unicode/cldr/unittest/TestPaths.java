@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -35,8 +34,8 @@ import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.impl.Row;
 
 public class TestPaths extends TestFmwkPlus {
     static TestInfo testInfo = TestInfo.getInstance();
@@ -47,7 +46,7 @@ public class TestPaths extends TestFmwkPlus {
 
     public void VerifyEnglishVsRoot() {
         Set<String> rootPaths = CollectionUtilities.addAll(testInfo
-            .getCldrFactory().make("root", true).iterator(),
+            .getRoot().iterator(),
             new HashSet<String>());
         Set<String> englishPaths = CollectionUtilities.addAll(testInfo
             .getEnglish().iterator(), new HashSet<String>());
@@ -59,9 +58,9 @@ public class TestPaths extends TestFmwkPlus {
         Status status = new Status();
         Set<PathHeader> suspiciousPaths = new TreeSet<PathHeader>();
         Set<PathHeader> errorPaths = new TreeSet<PathHeader>();
-        Set<String> SKIP_VARIANT = new HashSet<String>(Arrays.asList(
+        ImmutableSet<String> SKIP_VARIANT = ImmutableSet.of(
             "ps-variant", "ug-variant", "ky-variant", "az-short",
-            "Arab-variant", "am-variant", "pm-variant"));
+            "Arab-variant", "am-variant", "pm-variant");
         for (String path : englishPaths) {
             // skip aliases, other counts
             if (!status.pathWhereFound.equals(path)
@@ -104,7 +103,7 @@ public class TestPaths extends TestFmwkPlus {
         Status status = new Status();
 
         for (String locale : getLocalesToTest()) {
-            CLDRFile file = testInfo.getCldrFactory().make(locale, true);
+            CLDRFile file = testInfo.getCLDRFile(locale, true);
             logln(locale);
 
             for (Iterator<String> it = file.iterator(); it.hasNext();) {

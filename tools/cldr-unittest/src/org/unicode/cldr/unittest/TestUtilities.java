@@ -12,7 +12,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.ConvertLanguageData.InverseComparator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
@@ -41,12 +40,11 @@ import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
-public class TestUtilities extends TestFmwk {
+public class TestUtilities extends TestFmwkPlus {
     private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]");
     static TestInfo testInfo = TestInfo.getInstance();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo
@@ -849,7 +847,7 @@ public class TestUtilities extends TestFmwk {
         PathHeader ph = null;
         if (xpath != null) {
             sb.append(" XPath: " + xpath);
-            ph = PathHeader.getFactory(TestInfo.getInstance().getEnglish())
+            ph = PathHeader.getFactory(testInfo.getEnglish())
                 .fromPath(xpath);
         }
         resolver.setLocale(CLDRLocale.getInstance(locale), ph);

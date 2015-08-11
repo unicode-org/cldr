@@ -168,6 +168,7 @@ public class ShowLanguages {
         linfo.printAliases(pw);
 
         new ChartAnnotations().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+        new ChartSubdivisions().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         linfo.printCharacters(pw);
 
         pw.close();
@@ -856,6 +857,7 @@ public class ShowLanguages {
             localeAliasInfo.put("territory", new TreeMap<String, String>());
             localeAliasInfo.put("variant", new TreeMap<String, String>());
             localeAliasInfo.put("zone", new TreeMap<String, String>());
+            localeAliasInfo.put("subdivision", new TreeMap<String, String>());
 
             localeAliasInfo.get("language").put("no", "nb");
             localeAliasInfo.get("language").put("zh_CN", "zh_Hans_CN");

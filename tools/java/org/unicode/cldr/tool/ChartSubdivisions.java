@@ -46,11 +46,12 @@ public class ChartSubdivisions extends Chart {
     }
     @Override
     public String getTitle() {
-        return "Subdivisions";
+        return "Territory Subdivisions";
     }
     @Override
     public String getExplanation() {
-        return "<p>TODO<p>";
+        return "<p>Shows the subdivisions of territories, using the Unicode Subdivision Codes with the English names (and sort order). "
+            + "For more information see the LDML spec.<p>";
     }
 
     @Override

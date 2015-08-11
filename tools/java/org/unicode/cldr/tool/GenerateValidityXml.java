@@ -165,7 +165,7 @@ public class GenerateValidityXml {
         Set<String> skippedScripts = new TreeSet<>();
         for (Entry<LstrType, Map<String, Map<LstrField, String>>> entry : LSTREG.entrySet()) {
             LstrType type = entry.getKey();
-            if (!type.isLstr) {
+            if (!type.isLstr || !type.isUnicode) {
                 continue;
             }
             Info info = Info.getInfo(type.toString());

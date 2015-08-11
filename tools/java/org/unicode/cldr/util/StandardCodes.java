@@ -1007,29 +1007,31 @@ public class StandardCodes {
         script("Zzzz", "Zsym", "Zxxx", "Zmth"),
         region("ZZ"),
         variant(), 
-        extlang(), 
-        grandfathered(), 
-        redundant(),
+        extlang(true, false), 
+        grandfathered(true, false), 
+        redundant(true, false),
         /** specialized codes for validity; TODO: rename LstrType **/
-        currency(false,"XXX"),
-        subdivision(false),
-        unit(false);
+        currency(false, true,"XXX"),
+        subdivision(false, true),
+        unit(false, true);
         
         public final Set<String> specials;
         public final String unknown;
         public final boolean isLstr;
+        public final boolean isUnicode;
         
         private LstrType(String... unknownValue) {
-            this(true,unknownValue);
+            this(true, true, unknownValue);
         }
-        private LstrType(boolean b, String... unknownValue) {
+        private LstrType(boolean lstr, boolean unicode, String... unknownValue) {
             unknown = unknownValue.length == 0 ? null : unknownValue[0];
             LinkedHashSet<String> set = new LinkedHashSet<>(Arrays.asList(unknownValue));
             if (unknown != null) {
                 set.remove(unknown);
             }
             specials = Collections.unmodifiableSet(set);
-            isLstr = b;
+            isLstr = lstr;
+            isUnicode = unicode;
         }
     }
 

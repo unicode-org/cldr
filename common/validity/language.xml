@@ -242,7 +242,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			jle jls
 			jma~d jmi jml jmn jmr~s jmw~x
 			jna jnd jng jni~j jnl jns
-			job jod jor~s jow
+			job jod jog jor~s jow
 			jpa jpr jpx
 			jqr
 			jra~b jrr jrt~u
@@ -417,7 +417,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			rka~b rkh~i rkm rkt rkw
 			rm rma~i rmk~x rmz
 			rn rna rnd rng rnl rnn rnp rnr rnw
-			ro roa~g rol~m roo root rop ror rou row
+			ro roa~g rol~m roo~p ror rou row
 			rpn rpt
 			rri rro rrt
 			rsb rsi rsl
@@ -571,7 +571,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			yda yde ydg ydk yds
 			yea yec yee yei~j yel yen yer~v yey
 			yga ygi ygl~m ygp ygr~s ygu ygw
-			yha yhd yhl
+			yha yhd yhl yhs
 			yi yia yif~n yip~v yix~z
 			yka ykg yki ykk~o ykr ykt~u yky
 			yla~b yle ylg yli yll~o ylr ylu yly
@@ -613,8 +613,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</id>
 		<id type='language' idStatus='special'>
 			mis mul
-			und
+			root
 			zxx
+		</id>
+		<id type='language' idStatus='unknown'>
+			und
 		</id>
 		<id type='language' idStatus='deprecated'>
 			aju als arb ayr azj

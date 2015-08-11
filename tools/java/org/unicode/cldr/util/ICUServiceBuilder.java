@@ -736,12 +736,12 @@ public class ICUServiceBuilder {
         symbols.setExponentSeparator(getSymbolString("exponential", numberSystem));
         symbols.setGroupingSeparator(getSymbolCharacter("group", numberSystem));
         symbols.setInfinity(getSymbolString("infinity", numberSystem));
-        symbols.setMinusSign(getSymbolCharacter("minusSign", numberSystem));
+        symbols.setMinusSign(getHackSymbolCharacter("minusSign", numberSystem));
         symbols.setNaN(getSymbolString("nan", numberSystem));
         symbols.setPatternSeparator(getSymbolCharacter("list", numberSystem));
         symbols.setPercent(getSymbolCharacter("percentSign", numberSystem));
         symbols.setPerMill(getSymbolCharacter("perMille", numberSystem));
-        symbols.setPlusSign(getSymbolCharacter("plusSign", numberSystem));
+        symbols.setPlusSign(getHackSymbolCharacter("plusSign", numberSystem));
         // symbols.setZeroDigit(getSymbolCharacter("nativeZeroDigit", numberSystem));
         String digits = supplementalData.getDigits(numberSystem);
         if (digits != null && digits.length() == 10) {
@@ -777,6 +777,17 @@ public class ICUServiceBuilder {
     private char getSymbolCharacter(String key, String numsys) {
         // numsys should not be null (previously resolved to defaultNumberingSystem if necessary)
         return getSymbolString(key, numsys).charAt(0);
+    }
+    
+    // TODO fix once http://bugs.icu-project.org/trac/ticket/11837 is done.
+    private char getHackSymbolCharacter(String key, String numsys) {
+        String minusString = getSymbolString(key, numsys);
+        char minusSign = (minusString.length() > 1 && isBidiMark(minusString.charAt(0)))? minusString.charAt(1): minusString.charAt(0);
+        return minusSign;
+    }
+    
+    private static boolean isBidiMark(char c) {
+        return (c=='\u200E' || c=='\u200F' || c=='\u061C');
     }
 
     private String getSymbolString(String key, String numsys) {
@@ -883,5 +894,9 @@ public class ICUServiceBuilder {
         String formatted = df.format(timeInDay);
         String result = formatted.replace("\uE000", dayPeriodFormatString);
         return result;
+    }
+
+    public String getMinusSign(String numberSystem) {
+        return _getDecimalFormatSymbols(numberSystem).getMinusString();
     }
 }

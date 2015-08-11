@@ -23,12 +23,15 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Splitter;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class CheckNumbers extends FactoryCheckCLDR {
+    private static final Splitter SEMI_SPLITTER = Splitter.on(';');
+
     private static final UnicodeSet FORBIDDEN_NUMERIC_PATTERN_CHARS = new UnicodeSet("[[:n:]-[0]]");
 
     /**
@@ -160,24 +163,37 @@ public class CheckNumbers extends FactoryCheckCLDR {
         if (type == NumericType.NOT_NUMERIC) {
             return this; // skip
         }
+        XPathParts parts = XPathParts.getInstance(path); // can't be frozen because some of the following code modifies it!
 
-        // Make sure currency patterns contain a currency symbol
-        if (type == NumericType.CURRENCY || type == NumericType.CURRENCY_ABBREVIATED) {
-            String[] currencyPatterns = value.split(";", 2);
-            for (int i = 0; i < currencyPatterns.length; i++) {
-                if (currencyPatterns[i].indexOf("\u00a4") < 0)
+        boolean isPositive = true;
+        for (String patternPart : SEMI_SPLITTER.split(value)) {
+            if (!isPositive 
+                && !"accounting".equals(parts.getAttributeValue(-2, "type"))) {
+                // must contain the minus sign if not accounting.
+                String numberSystem = parts.getAttributeValue(2, "numberSystem");
+                String minusSign = icuServiceBuilder.getMinusSign(numberSystem == null ? "latn" : numberSystem);
+                if (patternPart.indexOf(minusSign) < 0)
+                    result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.missingOrInconsistentMinusSign)
+                        .setMessage("Negative format must contain minus sign (" + minusSign + ")."));
+ 
+            }
+            // Make sure currency patterns contain a currency symbol
+            if (type == NumericType.CURRENCY || type == NumericType.CURRENCY_ABBREVIATED) {
+                if (patternPart.indexOf("\u00a4") < 0)
                     result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                         .setSubtype(Subtype.currencyPatternMissingCurrencySymbol)
                         .setMessage("Currency formatting pattern must contain a currency symbol."));
             }
-        }
 
-        // Make sure percent formatting patterns contain a percent symbol
-        if (type == NumericType.PERCENT) {
-            if (value.indexOf("%") < 0)
-                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.percentPatternMissingPercentSymbol)
-                    .setMessage("Percentage formatting pattern must contain a % symbol."));
+            // Make sure percent formatting patterns contain a percent symbol, in each part
+            if (type == NumericType.PERCENT) {
+                if (patternPart.indexOf("%") < 0)
+                    result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.percentPatternMissingPercentSymbol)
+                        .setMessage("Percentage formatting pattern must contain a % symbol."));
+            }
+            isPositive = false;
         }
 
         // check all
@@ -193,7 +209,6 @@ public class CheckNumbers extends FactoryCheckCLDR {
         }
 
         // get the final type
-        XPathParts parts = new XPathParts().set(path);
         String lastType = parts.getAttributeValue(-1, "type");
         int zeroCount = 0;
         // it can only be null or an integer of the form 10+

@@ -20,6 +20,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
@@ -59,6 +60,10 @@ public class GenerateSubdivisions {
         Splitter semi = Splitter.on(';').trimResults();
         for (String s : FileUtilities.in(CLDRPaths.DATA_DIRECTORY + "iso/","en-subdivisions-corrections.txt")) {
             if (s.startsWith("#")) {
+                continue;
+            }
+            s = s.trim();
+            if (s.isEmpty()) {
                 continue;
             }
             List<String> parts = semi.splitToList(s);
@@ -163,7 +168,7 @@ public class GenerateSubdivisions {
         public static void printEnglishComp(Appendable output) throws IOException {
             Set<String> countEqual = new TreeSet<>();
             String lastCC = null;
-            output.append("Country\tMID\tSubdivision\tISO\tWikidata\tEqual\n");
+            output.append("Country\tMID\tSubdivision\tCLDR\tISO\tWikidata\tEqual\n");
             for (Entry<String, Set<String>> entry : SubdivisionNode.REGION_CONTAINS.keyValuesSet()) {
                 final String countryCode = entry.getKey();
                 if (!countryCode.equals(lastCC)) {
@@ -174,9 +179,9 @@ public class GenerateSubdivisions {
                     lastCC = countryCode;
                 }
                 for (String value : entry.getValue()) {
-                    NAME_CORRECTIONS.get(value);
-                    String wiki = clean(getWikiName(value));
-                    final String iso = clean(getIsoName(value));
+                    String cldrName = getBestName(value);
+                    String wiki = getWikiName(value);
+                    final String iso = getIsoName(value);
                     if (iso.equals(wiki)) {
                         countEqual.add(iso);
                         continue;
@@ -184,6 +189,7 @@ public class GenerateSubdivisions {
                     output.append(
                         ENGLISH.regionDisplayName(countryCode)
                         + "\t" + WIKIDATA_TO_MID.get(value)
+                        + "\t" + cldrName
                         + "\t" + value
                         + "\t" + iso
                         + "\t" + wiki
@@ -202,8 +208,9 @@ public class GenerateSubdivisions {
                 final String countryCode = entry.getKey();
                 for (String value : entry.getValue()) {
                     String cldrName = getBestName(value);
-                    String wiki = clean(getWikiName(value));
-                    final String iso = clean(getIsoName(value));
+                    //getBestName(value);
+                    String wiki = getWikiName(value);
+                    final String iso = getIsoName(value);
                     output.append(
                         ENGLISH.regionDisplayName(countryCode)
                         + "\t" + WIKIDATA_TO_MID.get(value)
@@ -405,17 +412,18 @@ public class GenerateSubdivisions {
         static  final Map<String, R2<List<String>, String>> subdivisionAliases = SDI.getLocaleAliasInfo().get("subdivision");
 
         private static String getBestName(String value) {
+            String cldrName = NAME_CORRECTIONS.get(value);
+            if (cldrName != null) {
+                return fixName(cldrName); 
+            }
             R2<List<String>, String> subdivisionAlias = subdivisionAliases.get(value);
             if (subdivisionAlias != null) {
                 String country = subdivisionAlias.get0().get(0);
-                String countryName = CLDRConfig.getInstance().getEnglish().getName(CLDRFile.TERRITORY_NAME, country);
-                return fixName(countryName);
+                cldrName = CLDRConfig.getInstance().getEnglish().getName(CLDRFile.TERRITORY_NAME, country);
+                return fixName(cldrName);
             }
-            String name = NAME_CORRECTIONS.get(value);
-            if (name == null) {
-                name = clean(getWikiName(value));
-            }
-            return fixName(name);
+            cldrName = CldrUtility.ifNull(NAME_CORRECTIONS.get(value), ChartSubdivisions.getSubdivisionName(value));
+            return fixName(cldrName);
         }
 
         private static String fixName(String name) {

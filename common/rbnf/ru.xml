@@ -21,7 +21,8 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-cardinal-masculine">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
+                <rbnfrule value="0.x">​→%%fractions-feminine→;</rbnfrule>
+                <rbnfrule value="x.x">←%spellout-cardinal-feminine← $(cardinal,one{целый}other{целых})$ →%%fractions-feminine→;</rbnfrule>
                 <rbnfrule value="0">ноль;</rbnfrule>
                 <rbnfrule value="1">один;</rbnfrule>
                 <rbnfrule value="2">два;</rbnfrule>
@@ -63,7 +64,8 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-cardinal-neuter">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
+                <rbnfrule value="0.x">​→%%fractions-feminine→;</rbnfrule>
+                <rbnfrule value="x.x">←%spellout-cardinal-feminine← $(cardinal,one{целая}other{целых})$ →%%fractions-feminine→;</rbnfrule>
                 <rbnfrule value="0">ноль;</rbnfrule>
                 <rbnfrule value="1">одно;</rbnfrule>
                 <rbnfrule value="2">=%spellout-cardinal-masculine=;</rbnfrule>
@@ -88,7 +90,8 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-cardinal-feminine">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
+                <rbnfrule value="0.x">​→%%fractions-feminine→;</rbnfrule>
+                <rbnfrule value="x.x">←← $(cardinal,one{целая}other{целых})$ →%%fractions-feminine→;</rbnfrule>
                 <rbnfrule value="0">ноль;</rbnfrule>
                 <rbnfrule value="1">одна;</rbnfrule>
                 <rbnfrule value="2">две;</rbnfrule>
@@ -138,9 +141,24 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{квадриллион}few{квадриллиона}other{квадриллионов})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
+            <ruleset type="fractions-feminine" access="private">
+                <rbnfrule value="10">←%spellout-cardinal-feminine← $(cardinal,one{десятая}other{десятых})$;</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-feminine← $(cardinal,one{сотая}other{сотых})$;</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine← $(cardinal,one{тысячная}other{тысячных})$;</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal-feminine← $(cardinal,one{десятитысячная}other{десятитысячных})$;</rbnfrule>
+                <rbnfrule value="100000">←%spellout-cardinal-feminine← $(cardinal,one{стотысячная}other{стотысячных})$;</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-feminine← $(cardinal,one{миллионная}other{миллионных})$;</rbnfrule>
+                <rbnfrule value="10000000">←%spellout-cardinal-feminine← $(cardinal,one{десятимиллионная}other{десятимиллионных})$;</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal-feminine← $(cardinal,one{стомиллионная}other{стомиллионных})$;</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-feminine← $(cardinal,one{миллиардная}other{миллиардных})$;</rbnfrule>
+                <rbnfrule value="10000000000">←%spellout-cardinal-feminine← $(cardinal,one{десятимиллиардная}other{десятимиллиардных})$;</rbnfrule>
+                <rbnfrule value="100000000000">←%spellout-cardinal-feminine← $(cardinal,one{стомиллиардная}other{стомиллиардных})$;</rbnfrule>
+                <rbnfrule value="1000000000000">←0←;</rbnfrule>
+            </ruleset>
             <ruleset type="spellout-cardinal-masculine-genitive">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
+                <rbnfrule value="0.x">​→%%fractions-feminine-genitive→;</rbnfrule>
+                <rbnfrule value="x.x">←%spellout-cardinal-feminine-genitive← $(cardinal,one{целой}other{целых})$ →%%fractions-feminine-genitive→;</rbnfrule>
                 <rbnfrule value="0">ноля;</rbnfrule>
                 <rbnfrule value="1">одного;</rbnfrule>
                 <rbnfrule value="2">двух;</rbnfrule>
@@ -183,7 +201,8 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-cardinal-feminine-genitive">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
+                <rbnfrule value="0.x">​→%%fractions-feminine-genitive→;</rbnfrule>
+                <rbnfrule value="x.x">←← $(cardinal,one{целой}other{целых})$ →%%fractions-feminine-genitive→;</rbnfrule>
                 <rbnfrule value="0">ноля;</rbnfrule>
                 <rbnfrule value="1">одной;</rbnfrule>
                 <rbnfrule value="2">=%spellout-cardinal-masculine-genitive=;</rbnfrule>
@@ -227,9 +246,24 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-genitive← $(cardinal,one{квадриллиона}other{квадриллионов})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
+            <ruleset type="fractions-feminine-genitive" access="private">
+                <rbnfrule value="10">←%spellout-cardinal-feminine-genitive← $(cardinal,one{десятой}other{десятых})$;</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-feminine-genitive← $(cardinal,one{сотой}other{сотых})$;</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-genitive← $(cardinal,one{тысячной}other{тысячных})$;</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal-feminine-genitive← $(cardinal,one{десятитысячной}other{десятитысячных})$;</rbnfrule>
+                <rbnfrule value="100000">←%spellout-cardinal-feminine-genitive← $(cardinal,one{стотысячной}other{стотысячных})$;</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-feminine-genitive← $(cardinal,one{миллионной}other{миллионных})$;</rbnfrule>
+                <rbnfrule value="10000000">←%spellout-cardinal-feminine-genitive← $(cardinal,one{десятимиллионной}other{десятимиллионных})$;</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal-feminine-genitive← $(cardinal,one{стомиллионной}other{стомиллионных})$;</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-feminine-genitive← $(cardinal,one{миллиардной}other{миллиардных})$;</rbnfrule>
+                <rbnfrule value="10000000000">←%spellout-cardinal-feminine-genitive← $(cardinal,one{десятимиллиардной}other{десятимиллиардных})$;</rbnfrule>
+                <rbnfrule value="100000000000">←%spellout-cardinal-feminine-genitive← $(cardinal,one{стомиллиардной}other{стомиллиардных})$;</rbnfrule>
+                <rbnfrule value="1000000000000">←0←;</rbnfrule>
+            </ruleset>
             <ruleset type="spellout-cardinal-masculine-dative">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
+                <rbnfrule value="0.x">​→%%fractions-feminine-dative→;</rbnfrule>
+                <rbnfrule value="x.x">←%spellout-cardinal-feminine-dative← $(cardinal,one{целой}other{целым})$ →%%fractions-feminine-dative→;</rbnfrule>
                 <rbnfrule value="0">нолю;</rbnfrule>
                 <rbnfrule value="1">одному;</rbnfrule>
                 <rbnfrule value="2">двум;</rbnfrule>
@@ -272,7 +306,8 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-cardinal-feminine-dative">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
+                <rbnfrule value="0.x">​→%%fractions-feminine-dative→;</rbnfrule>
+                <rbnfrule value="x.x">←← $(cardinal,one{целой}other{целым})$ →%%fractions-feminine-dative→;</rbnfrule>
                 <rbnfrule value="0">нолю;</rbnfrule>
                 <rbnfrule value="1">одной;</rbnfrule>
                 <rbnfrule value="2">=%spellout-cardinal-masculine-dative=;</rbnfrule>
@@ -316,9 +351,24 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-dative← $(cardinal,one{квадриллиону}other{квадриллионам})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
+            <ruleset type="fractions-feminine-dative" access="private">
+                <rbnfrule value="10">←%spellout-cardinal-feminine-dative← $(cardinal,one{десятой}other{десятым})$;</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-feminine-dative← $(cardinal,one{сотой}other{сотым})$;</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-dative← $(cardinal,one{тысячной}other{тысячным})$;</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal-feminine-dative← $(cardinal,one{десятитысячной}other{десятитысячным})$;</rbnfrule>
+                <rbnfrule value="100000">←%spellout-cardinal-feminine-dative← $(cardinal,one{стотысячной}other{стотысячным})$;</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-feminine-dative← $(cardinal,one{миллионной}other{миллионным})$;</rbnfrule>
+                <rbnfrule value="10000000">←%spellout-cardinal-feminine-dative← $(cardinal,one{десятимиллионной}other{десятимиллионным})$;</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal-feminine-dative← $(cardinal,one{стомиллионной}other{стомиллионным})$;</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-feminine-dative← $(cardinal,one{миллиардной}other{миллиардным})$;</rbnfrule>
+                <rbnfrule value="10000000000">←%spellout-cardinal-feminine-dative← $(cardinal,one{десятимиллиардной}other{десятимиллиардным})$;</rbnfrule>
+                <rbnfrule value="100000000000">←%spellout-cardinal-feminine-dative← $(cardinal,one{стомиллиардной}other{стомиллиардным})$;</rbnfrule>
+                <rbnfrule value="1000000000000">←0←;</rbnfrule>
+            </ruleset>
             <ruleset type="spellout-cardinal-masculine-accusative">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
+                <rbnfrule value="0.x">​→%%fractions-feminine-accusative→;</rbnfrule>
+                <rbnfrule value="x.x">←%spellout-cardinal-feminine-accusative← $(cardinal,one{целую}other{целых})$ →%%fractions-feminine-accusative→;</rbnfrule>
                 <rbnfrule value="0">ноль;</rbnfrule>
                 <rbnfrule value="1">один;</rbnfrule>
                 <rbnfrule value="2">два;</rbnfrule>
@@ -360,7 +410,8 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-cardinal-neuter-accusative">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
+                <rbnfrule value="0.x">​→%%fractions-feminine-accusative→;</rbnfrule>
+                <rbnfrule value="x.x">←%spellout-cardinal-feminine-accusative← $(cardinal,one{целую}other{целых})$ →%%fractions-feminine-accusative→;</rbnfrule>
                 <rbnfrule value="0">ноль;</rbnfrule>
                 <rbnfrule value="1">одно;</rbnfrule>
                 <rbnfrule value="2">=%spellout-cardinal-masculine-accusative=;</rbnfrule>
@@ -385,7 +436,8 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-cardinal-feminine-accusative">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
+                <rbnfrule value="0.x">​→%%fractions-feminine-accusative→;</rbnfrule>
+                <rbnfrule value="x.x">←%spellout-cardinal-feminine-accusative← $(cardinal,one{целую}other{целых})$ →%%fractions-feminine-accusative→;</rbnfrule>
                 <rbnfrule value="0">ноль;</rbnfrule>
                 <rbnfrule value="1">одну;</rbnfrule>
                 <rbnfrule value="2">две;</rbnfrule>
@@ -435,9 +487,24 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{квадриллион}few{квадриллиона}other{квадриллионов})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
+            <ruleset type="fractions-feminine-accusative" access="private">
+                <rbnfrule value="10">←%spellout-cardinal-feminine-accusative← $(cardinal,one{десятую}other{десятых})$;</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-feminine-accusative← $(cardinal,one{сотую}other{сотых})$;</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{тысячную}other{тысячных})$;</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{десятитысячную}other{десятитысячных})$;</rbnfrule>
+                <rbnfrule value="100000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{стотысячную}other{стотысячных})$;</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{миллионную}other{миллионных})$;</rbnfrule>
+                <rbnfrule value="10000000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{десятимиллионную}other{десятимиллионных})$;</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{стомиллионную}other{стомиллионных})$;</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{миллиардную}other{миллиардных})$;</rbnfrule>
+                <rbnfrule value="10000000000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{десятимиллиардную}other{десятимиллиардных})$;</rbnfrule>
+                <rbnfrule value="100000000000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{стомиллиардную}other{стомиллиардных})$;</rbnfrule>
+                <rbnfrule value="1000000000000">←0←;</rbnfrule>
+            </ruleset>
             <ruleset type="spellout-cardinal-masculine-locative">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
+                <rbnfrule value="0.x">​→%%fractions-feminine-locative→;</rbnfrule>
+                <rbnfrule value="x.x">←%spellout-cardinal-feminine-locative← $(cardinal,one{целой}other{целых})$ →%%fractions-feminine-locative→;</rbnfrule>
                 <rbnfrule value="0">нуле;</rbnfrule>
                 <rbnfrule value="1">одном;</rbnfrule>
                 <rbnfrule value="2">двух;</rbnfrule>
@@ -477,7 +544,8 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-cardinal-neuter-locative">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
+                <rbnfrule value="0.x">​→%%fractions-feminine-locative→;</rbnfrule>
+                <rbnfrule value="x.x">←%spellout-cardinal-feminine-locative← $(cardinal,one{целой}other{целых})$ →%%fractions-feminine-locative→;</rbnfrule>
                 <rbnfrule value="0">нуле;</rbnfrule>
                 <rbnfrule value="1">одном;</rbnfrule>
                 <rbnfrule value="2">=%spellout-cardinal-masculine-locative=;</rbnfrule>
@@ -500,7 +568,8 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-cardinal-feminine-locative">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
+                <rbnfrule value="0.x">​→%%fractions-feminine-locative→;</rbnfrule>
+                <rbnfrule value="x.x">←← $(cardinal,one{целой}other{целых})$ →%%fractions-feminine-locative→;</rbnfrule>
                 <rbnfrule value="0">нуле;</rbnfrule>
                 <rbnfrule value="1">одной;</rbnfrule>
                 <rbnfrule value="2">=%spellout-cardinal-masculine-locative=;</rbnfrule>
@@ -544,9 +613,24 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{квадриллионе}other{квадриллионах})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
+            <ruleset type="fractions-feminine-locative" access="private">
+                <rbnfrule value="10">←%spellout-cardinal-feminine-locative← $(cardinal,one{десятой}other{десятых})$;</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-feminine-locative← $(cardinal,one{сотой}other{сотых})$;</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-locative← $(cardinal,one{тысячной}other{тысячных})$;</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal-feminine-locative← $(cardinal,one{десятитысячной}other{десятитысячных})$;</rbnfrule>
+                <rbnfrule value="100000">←%spellout-cardinal-feminine-locative← $(cardinal,one{стотысячной}other{стотысячных})$;</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-feminine-locative← $(cardinal,one{миллионной}other{миллионных})$;</rbnfrule>
+                <rbnfrule value="10000000">←%spellout-cardinal-feminine-locative← $(cardinal,one{десятимиллионной}other{десятимиллионных})$;</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal-feminine-locative← $(cardinal,one{стомиллионной}other{стомиллионных})$;</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-feminine-locative← $(cardinal,one{миллиардной}other{миллиардных})$;</rbnfrule>
+                <rbnfrule value="10000000000">←%spellout-cardinal-feminine-locative← $(cardinal,one{десятимиллиардной}other{десятимиллиардных})$;</rbnfrule>
+                <rbnfrule value="100000000000">←%spellout-cardinal-feminine-locative← $(cardinal,one{стомиллиардной}other{стомиллиардных})$;</rbnfrule>
+                <rbnfrule value="1000000000000">←0←;</rbnfrule>
+            </ruleset>
             <ruleset type="spellout-cardinal-masculine-ablative">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
+                <rbnfrule value="0.x">​→%%fractions-feminine-ablative→;</rbnfrule>
+                <rbnfrule value="x.x">←%spellout-cardinal-feminine-ablative← $(cardinal,one{целой}other{целыми})$ →%%fractions-feminine-ablative→;</rbnfrule>
                 <rbnfrule value="0">нулем;</rbnfrule>
                 <rbnfrule value="1">одним;</rbnfrule>
                 <rbnfrule value="2">двумя;</rbnfrule>
@@ -589,7 +673,8 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-cardinal-feminine-ablative">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
+                <rbnfrule value="0.x">​→%%fractions-feminine-ablative→;</rbnfrule>
+                <rbnfrule value="x.x">←%spellout-cardinal-feminine-ablative← $(cardinal,one{целой}other{целыми})$ →%%fractions-feminine-ablative→;</rbnfrule>
                 <rbnfrule value="0">нулем;</rbnfrule>
                 <rbnfrule value="1">одной;</rbnfrule>
                 <rbnfrule value="2">=%spellout-cardinal-masculine-ablative=;</rbnfrule>
@@ -633,293 +718,67 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-ablative← $(cardinal,one{квадриллионом}other{квадриллионами})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
+            <ruleset type="fractions-feminine-ablative" access="private">
+                <rbnfrule value="10">←%spellout-cardinal-feminine-ablative← $(cardinal,one{десятой}other{десятыми})$;</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-feminine-ablative← $(cardinal,one{сотой}other{сотыми})$;</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{тысячной}other{тысячными})$;</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{десятитысячной}other{десятитысячными})$;</rbnfrule>
+                <rbnfrule value="100000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{стотысячной}other{стотысячными})$;</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{миллионной}other{миллионными})$;</rbnfrule>
+                <rbnfrule value="10000000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{десятимиллионной}other{десятимиллионными})$;</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{стомиллионной}other{стомиллионными})$;</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{миллиардной}other{миллиардными})$;</rbnfrule>
+                <rbnfrule value="10000000000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{десятимиллиардной}other{десятимиллиардными})$;</rbnfrule>
+                <rbnfrule value="100000000000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{стомиллиардной}other{стомиллиардными})$;</rbnfrule>
+                <rbnfrule value="1000000000000">←0←;</rbnfrule>
+            </ruleset>
             <ruleset type="yj" access="private">
                 <rbnfrule value="0">ный;</rbnfrule>
                 <rbnfrule value="1">'а =%spellout-ordinal-masculine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="lion-yj" access="private">
-                <rbnfrule value="0">ный;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-masculine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="i-yj" access="private">
-                <rbnfrule value="0">ный;</rbnfrule>
-                <rbnfrule value="1">'и =%spellout-ordinal-masculine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="a-yj" access="private">
-                <rbnfrule value="0">ный;</rbnfrule>
-                <rbnfrule value="1">'а =%spellout-ordinal-masculine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="x-yj" access="private">
-                <rbnfrule value="0">ный;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-masculine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ov-yj" access="private">
-                <rbnfrule value="0">ный;</rbnfrule>
-                <rbnfrule value="1">'ов =%spellout-ordinal-masculine=;</rbnfrule>
             </ruleset>
             <ruleset type="oe" access="private">
                 <rbnfrule value="0">ное;</rbnfrule>
                 <rbnfrule value="1">'а =%spellout-ordinal-neuter=;</rbnfrule>
             </ruleset>
-            <ruleset type="lion-oe" access="private">
-                <rbnfrule value="0">ное;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-neuter=;</rbnfrule>
-            </ruleset>
-            <ruleset type="i-oe" access="private">
-                <rbnfrule value="0">ное;</rbnfrule>
-                <rbnfrule value="1">'и =%spellout-ordinal-neuter=;</rbnfrule>
-            </ruleset>
-            <ruleset type="a-oe" access="private">
-                <rbnfrule value="0">ное;</rbnfrule>
-                <rbnfrule value="1">'а =%spellout-ordinal-neuter=;</rbnfrule>
-            </ruleset>
-            <ruleset type="x-oe" access="private">
-                <rbnfrule value="0">ное;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-neuter=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ov-oe" access="private">
-                <rbnfrule value="0">ное;</rbnfrule>
-                <rbnfrule value="1">'ов =%spellout-ordinal-neuter=;</rbnfrule>
-            </ruleset>
             <ruleset type="aja" access="private">
                 <rbnfrule value="0">ная;</rbnfrule>
                 <rbnfrule value="1">'а =%spellout-ordinal-feminine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="lion-aja" access="private">
-                <rbnfrule value="0">ная;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-feminine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="i-aja" access="private">
-                <rbnfrule value="0">ная;</rbnfrule>
-                <rbnfrule value="1">'и =%spellout-ordinal-feminine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="a-aja" access="private">
-                <rbnfrule value="0">ная;</rbnfrule>
-                <rbnfrule value="1">'а =%spellout-ordinal-feminine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="x-aja" access="private">
-                <rbnfrule value="0">ная;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-feminine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ov-aja" access="private">
-                <rbnfrule value="0">ная;</rbnfrule>
-                <rbnfrule value="1">'ов =%spellout-ordinal-feminine=;</rbnfrule>
             </ruleset>
             <ruleset type="omu" access="private">
                 <rbnfrule value="0">ному;</rbnfrule>
                 <rbnfrule value="1">'а =%spellout-ordinal-masculine-dative=;</rbnfrule>
             </ruleset>
-            <ruleset type="lion-omu" access="private">
-                <rbnfrule value="0">ному;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-masculine-dative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="i-omu" access="private">
-                <rbnfrule value="0">ному;</rbnfrule>
-                <rbnfrule value="1">'и =%spellout-ordinal-masculine-dative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="a-omu" access="private">
-                <rbnfrule value="0">ному;</rbnfrule>
-                <rbnfrule value="1">'а =%spellout-ordinal-masculine-dative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="x-omu" access="private">
-                <rbnfrule value="0">ному;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-masculine-dative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ov-omu" access="private">
-                <rbnfrule value="0">ному;</rbnfrule>
-                <rbnfrule value="1">'ов =%spellout-ordinal-masculine-dative=;</rbnfrule>
-            </ruleset>
             <ruleset type="oj" access="private">
                 <rbnfrule value="0">ной;</rbnfrule>
                 <rbnfrule value="1">'а =%spellout-ordinal-feminine-genitive=;</rbnfrule>
-            </ruleset>
-            <ruleset type="lion-oj" access="private">
-                <rbnfrule value="0">ной;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-feminine-genitive=;</rbnfrule>
-            </ruleset>
-            <ruleset type="i-oj" access="private">
-                <rbnfrule value="0">ной;</rbnfrule>
-                <rbnfrule value="1">'и =%spellout-ordinal-feminine-genitive=;</rbnfrule>
-            </ruleset>
-            <ruleset type="a-oj" access="private">
-                <rbnfrule value="0">ной;</rbnfrule>
-                <rbnfrule value="1">'а =%spellout-ordinal-feminine-genitive=;</rbnfrule>
-            </ruleset>
-            <ruleset type="x-oj" access="private">
-                <rbnfrule value="0">ной;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-feminine-genitive=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ov-oj" access="private">
-                <rbnfrule value="0">ной;</rbnfrule>
-                <rbnfrule value="1">'ов =%spellout-ordinal-feminine-genitive=;</rbnfrule>
             </ruleset>
             <ruleset type="ogo" access="private">
                 <rbnfrule value="0">ного;</rbnfrule>
                 <rbnfrule value="1">'а =%spellout-ordinal-masculine-genitive=;</rbnfrule>
             </ruleset>
-            <ruleset type="lion-ogo" access="private">
-                <rbnfrule value="0">ного;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-masculine-genitive=;</rbnfrule>
-            </ruleset>
-            <ruleset type="i-ogo" access="private">
-                <rbnfrule value="0">ного;</rbnfrule>
-                <rbnfrule value="1">'и =%spellout-ordinal-masculine-genitive=;</rbnfrule>
-            </ruleset>
-            <ruleset type="a-ogo" access="private">
-                <rbnfrule value="0">ного;</rbnfrule>
-                <rbnfrule value="1">'а =%spellout-ordinal-masculine-genitive=;</rbnfrule>
-            </ruleset>
-            <ruleset type="x-ogo" access="private">
-                <rbnfrule value="0">ного;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-masculine-genitive=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ov-ogo" access="private">
-                <rbnfrule value="0">ного;</rbnfrule>
-                <rbnfrule value="1">'ов =%spellout-ordinal-masculine-genitive=;</rbnfrule>
-            </ruleset>
             <ruleset type="uju" access="private">
                 <rbnfrule value="0">ную;</rbnfrule>
                 <rbnfrule value="1">'а =%spellout-ordinal-feminine-accusative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="lion-uju" access="private">
-                <rbnfrule value="0">ную;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-feminine-accusative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="i-uju" access="private">
-                <rbnfrule value="0">ную;</rbnfrule>
-                <rbnfrule value="1">'и =%spellout-ordinal-feminine-accusative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="a-uju" access="private">
-                <rbnfrule value="0">ную;</rbnfrule>
-                <rbnfrule value="1">'а =%spellout-ordinal-feminine-accusative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="x-uju" access="private">
-                <rbnfrule value="0">ную;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-feminine-accusative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ov-uju" access="private">
-                <rbnfrule value="0">ную;</rbnfrule>
-                <rbnfrule value="1">'ов =%spellout-ordinal-feminine-accusative=;</rbnfrule>
             </ruleset>
             <ruleset type="ym" access="private">
                 <rbnfrule value="0">ным;</rbnfrule>
                 <rbnfrule value="1">'а =%spellout-ordinal-masculine-ablative=;</rbnfrule>
             </ruleset>
-            <ruleset type="lion-ym" access="private">
-                <rbnfrule value="0">ным;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-masculine-ablative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="i-ym" access="private">
-                <rbnfrule value="0">ным;</rbnfrule>
-                <rbnfrule value="1">'и =%spellout-ordinal-masculine-ablative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="a-ym" access="private">
-                <rbnfrule value="0">ным;</rbnfrule>
-                <rbnfrule value="1">'а =%spellout-ordinal-masculine-ablative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="x-ym" access="private">
-                <rbnfrule value="0">ным;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-masculine-ablative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ov-ym" access="private">
-                <rbnfrule value="0">ным;</rbnfrule>
-                <rbnfrule value="1">'ов =%spellout-ordinal-masculine-ablative=;</rbnfrule>
-            </ruleset>
             <ruleset type="om" access="private">
                 <rbnfrule value="0">ном;</rbnfrule>
                 <rbnfrule value="1">'а =%spellout-ordinal-masculine-locative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="lion-om" access="private">
-                <rbnfrule value="0">ном;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-masculine-locative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="i-om" access="private">
-                <rbnfrule value="0">ном;</rbnfrule>
-                <rbnfrule value="1">'и =%spellout-ordinal-masculine-locative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="a-om" access="private">
-                <rbnfrule value="0">ном;</rbnfrule>
-                <rbnfrule value="1">'а =%spellout-ordinal-masculine-locative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="x-om" access="private">
-                <rbnfrule value="0">ном;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-masculine-locative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ov-om" access="private">
-                <rbnfrule value="0">ном;</rbnfrule>
-                <rbnfrule value="1">'ов =%spellout-ordinal-masculine-locative=;</rbnfrule>
             </ruleset>
             <ruleset type="ye" access="private">
                 <rbnfrule value="0">ные;</rbnfrule>
                 <rbnfrule value="1">'а =%spellout-ordinal-plural=;</rbnfrule>
             </ruleset>
-            <ruleset type="lion-ye" access="private">
-                <rbnfrule value="0">ные;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-plural=;</rbnfrule>
-            </ruleset>
-            <ruleset type="i-ye" access="private">
-                <rbnfrule value="0">ные;</rbnfrule>
-                <rbnfrule value="1">'и =%spellout-ordinal-plural=;</rbnfrule>
-            </ruleset>
-            <ruleset type="a-ye" access="private">
-                <rbnfrule value="0">ные;</rbnfrule>
-                <rbnfrule value="1">'а =%spellout-ordinal-plural=;</rbnfrule>
-            </ruleset>
-            <ruleset type="x-ye" access="private">
-                <rbnfrule value="0">ные;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-plural=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ov-ye" access="private">
-                <rbnfrule value="0">ные;</rbnfrule>
-                <rbnfrule value="1">'ов =%spellout-ordinal-plural=;</rbnfrule>
-            </ruleset>
             <ruleset type="yh" access="private">
                 <rbnfrule value="0">ных;</rbnfrule>
                 <rbnfrule value="1">'а =%spellout-ordinal-plural-genitive=;</rbnfrule>
             </ruleset>
-            <ruleset type="lion-yh" access="private">
-                <rbnfrule value="0">ных;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-plural-genitive=;</rbnfrule>
-            </ruleset>
-            <ruleset type="i-yh" access="private">
-                <rbnfrule value="0">ных;</rbnfrule>
-                <rbnfrule value="1">'и =%spellout-ordinal-plural-genitive=;</rbnfrule>
-            </ruleset>
-            <ruleset type="a-yh" access="private">
-                <rbnfrule value="0">ных;</rbnfrule>
-                <rbnfrule value="1">'а =%spellout-ordinal-plural-genitive=;</rbnfrule>
-            </ruleset>
-            <ruleset type="x-yh" access="private">
-                <rbnfrule value="0">ных;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-plural-genitive=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ov-yh" access="private">
-                <rbnfrule value="0">ных;</rbnfrule>
-                <rbnfrule value="1">'ов =%spellout-ordinal-plural-genitive=;</rbnfrule>
-            </ruleset>
             <ruleset type="ymi" access="private">
                 <rbnfrule value="0">ными;</rbnfrule>
                 <rbnfrule value="1">'а =%spellout-ordinal-plural-ablative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="lion-ymi" access="private">
-                <rbnfrule value="0">ными;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-plural-ablative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="i-ymi" access="private">
-                <rbnfrule value="0">ными;</rbnfrule>
-                <rbnfrule value="1">'и =%spellout-ordinal-plural-ablative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="a-ymi" access="private">
-                <rbnfrule value="0">ными;</rbnfrule>
-                <rbnfrule value="1">'а =%spellout-ordinal-plural-ablative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="x-ymi" access="private">
-                <rbnfrule value="0">ными;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-plural-ablative=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ov-ymi" access="private">
-                <rbnfrule value="0">ными;</rbnfrule>
-                <rbnfrule value="1">'ов =%spellout-ordinal-plural-ablative=;</rbnfrule>
             </ruleset>
             <ruleset type="thousandsprefixconjoined" access="private">
                 <rbnfrule value="0">=%spellout-cardinal-feminine-genitive=;</rbnfrule>

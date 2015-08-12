@@ -170,13 +170,13 @@ public class CheckNumbers extends FactoryCheckCLDR {
             if (!isPositive 
                 && !"accounting".equals(parts.getAttributeValue(-2, "type"))) {
                 // must contain the minus sign if not accounting.
-                String numberSystem = parts.getAttributeValue(2, "numberSystem");
-                String minusSign = icuServiceBuilder.getMinusSign(numberSystem == null ? "latn" : numberSystem);
-                if (patternPart.indexOf(minusSign) < 0)
+                // String numberSystem = parts.getAttributeValue(2, "numberSystem");
+                //String minusSign = "-"; // icuServiceBuilder.getMinusSign(numberSystem == null ? "latn" : numberSystem);
+                if (patternPart.indexOf('-') < 0)
                     result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                        .setSubtype(Subtype.missingOrInconsistentMinusSign)
-                        .setMessage("Negative format must contain minus sign (" + minusSign + ")."));
- 
+                        .setSubtype(Subtype.missingMinusSign)
+                        .setMessage("Negative format must contain ASCII minus sign (-)."));
+
             }
             // Make sure currency patterns contain a currency symbol
             if (type == NumericType.CURRENCY || type == NumericType.CURRENCY_ABBREVIATED) {

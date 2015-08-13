@@ -7672,31 +7672,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} Jh.</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName>Jahre</displayName>
+				<displayName>J</displayName>
 				<unitPattern count="one">{0} J</unitPattern>
 				<unitPattern count="other">{0} J</unitPattern>
-				<perUnitPattern>{0}/Jahr</perUnitPattern>
+				<perUnitPattern>{0}/J</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName>Monate</displayName>
-				<unitPattern count="one">{0} Mon</unitPattern>
-				<unitPattern count="other">{0} Mon</unitPattern>
+				<displayName>Mon.</displayName>
+				<unitPattern count="one">{0} Mon.</unitPattern>
+				<unitPattern count="other">{0} Mon.</unitPattern>
 				<perUnitPattern>{0}/M</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName>Wochen</displayName>
-				<unitPattern count="one">{0} W</unitPattern>
-				<unitPattern count="other">{0} W</unitPattern>
+				<displayName>Wo.</displayName>
+				<unitPattern count="one">{0} Wo.</unitPattern>
+				<unitPattern count="other">{0} Wo.</unitPattern>
 				<perUnitPattern>{0}/W</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
-				<displayName>Tage</displayName>
-				<unitPattern count="one">{0} T</unitPattern>
-				<unitPattern count="other">{0} T</unitPattern>
+				<displayName>Tg.</displayName>
+				<unitPattern count="one">{0} Tg.</unitPattern>
+				<unitPattern count="other">{0} Tg.</unitPattern>
 				<perUnitPattern>{0}/T</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName>Stunden</displayName>
+				<displayName>Std.</displayName>
 				<unitPattern count="one">{0} Std.</unitPattern>
 				<unitPattern count="other">{0} Std.</unitPattern>
 				<perUnitPattern>{0}/h</perUnitPattern>
@@ -7714,7 +7714,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<perUnitPattern>{0}/s</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName>Millisekunden</displayName>
+				<displayName>ms</displayName>
 				<unitPattern count="one">{0} ms</unitPattern>
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
@@ -7724,7 +7724,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} μs</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
-				<displayName>Nanosekunden</displayName>
+				<displayName>ns</displayName>
 				<unitPattern count="one">{0} ns</unitPattern>
 				<unitPattern count="other">{0} ns</unitPattern>
 			</unit>
@@ -8323,17 +8323,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<perUnitPattern draft="unconfirmed">{0}/Jahr</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName>Monat</displayName>
+				<displayName>M</displayName>
 				<unitPattern count="one">{0} M</unitPattern>
 				<unitPattern count="other">{0} M</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName>Woche</displayName>
+				<displayName>W</displayName>
 				<unitPattern count="one">{0} W</unitPattern>
 				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="duration-day">
-				<displayName>Tag</displayName>
+				<displayName>T</displayName>
 				<unitPattern count="one">{0} T</unitPattern>
 				<unitPattern count="other">{0} T</unitPattern>
 			</unit>
@@ -8353,7 +8353,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} s</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName>Millisekunden</displayName>
+				<displayName>ms</displayName>
 				<unitPattern count="one">{0} ms</unitPattern>
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>

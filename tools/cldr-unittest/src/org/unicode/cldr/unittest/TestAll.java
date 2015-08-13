@@ -220,6 +220,7 @@ public class TestAll extends TestGroup {
             "org.unicode.cldr.unittest.TestUtilities",
             "org.unicode.cldr.unittest.TestCLDRLocaleCoverage",
             "org.unicode.cldr.unittest.TestDayPeriods",
+            "org.unicode.cldr.unittest.TestSubdivisions",
 //            "org.unicode.cldr.unittest.TestCollators" See Ticket #8288
         },
             "All tests in CLDR");

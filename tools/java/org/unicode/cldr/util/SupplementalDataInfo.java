@@ -1624,10 +1624,11 @@ public class SupplementalDataInfo {
                 if (level3.equals("variable")) {
                     Map<String, String> attributes = parts.getAttributes(-1);
                     validityInfo.put(attributes.get("id"), Row.of(attributes.get("type"), value));
-                    if ("$language".equals(attributes.get("id")) && "choice".equals(attributes.get("type"))) {
+                    String idString = attributes.get("id");
+                    if (("$language".equals(idString) || "$languageExceptions".equals(attributes.get("id")))
+                        && "choice".equals(attributes.get("type"))) {
                         String[] validCodeArray = value.trim().split("\\s+");
-                        CLDRLanguageCodes = Collections.unmodifiableSet(new TreeSet<String>(Arrays
-                            .asList(validCodeArray)));
+                        CLDRLanguageCodes.addAll(Arrays.asList(validCodeArray));
                     }
 //                    if ("$script".equals(attributes.get("id")) && "choice".equals(attributes.get("type"))) {
 //                        String[] validCodeArray = value.trim().split("\\s+");
@@ -1920,7 +1921,7 @@ public class SupplementalDataInfo {
     private Set<String> defaultContentLocales;
     public Map<CLDRLocale, CLDRLocale> baseToDefaultContent; // wo -> wo_Arab_SN
     public Map<CLDRLocale, CLDRLocale> defaultContentToBase; // wo_Arab_SN -> wo
-    private Set<String> CLDRLanguageCodes;
+    private Set<String> CLDRLanguageCodes = new TreeSet<String>();;
     private Set<String> CLDRScriptCodes;
     private Map<String, String> baseLanguageToDefaultScript = new HashMap<String, String>();
 

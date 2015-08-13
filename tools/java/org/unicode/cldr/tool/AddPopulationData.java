@@ -42,6 +42,13 @@ public class AddPopulationData {
         }
     }
 
+    enum FBLiteracy {
+        Rank, Country, Percent;
+        String get(String[] pieces) {
+            return pieces[ordinal()];
+        }
+    }
+
     private static final String GCP = "NY.GNP.MKTP.PP.CD";
     private static final String POP = "SP.POP.TOTL";
     private static final String EMPTY = "..";
@@ -199,7 +206,7 @@ public class AddPopulationData {
                     || line.startsWith(" This file")) {
                     return false;
                 }
-                String[] pieces = line.split("\t");
+                String[] pieces = line.split("\\s{2,}");
                 String code = CountryCodeConverter.getCodeFromName(FBLine.Country.get(pieces));
                 if (code == null) {
                     return false;
@@ -288,70 +295,23 @@ public class AddPopulationData {
     static final UnicodeSet DIGITS = (UnicodeSet) new UnicodeSet("[:Nd:]").freeze();
 
     private static void loadFactbookLiteracy() throws IOException {
-        final String filename = "external/factbook_literacy.html";
+        final String filename = "external/factbook_literacy.txt";
         CldrUtility.handleFile(filename, new LineHandler() {
-            Matcher m = PatternCache.get(
-                "<strong>total population:</strong>\\s*(?:above\\s*)?(?:[0-9]+-)?([0-9]*\\.?[0-9]*)%.*").matcher("");
-            // Matcher m =
-            // PatternCache.get("<i>total population:</i>\\s*(?:above\\s*)?(?:[0-9]+-)?([0-9]*\\.?[0-9]*)%.*").matcher("");
-            // Matcher codeMatcher =
-            // PatternCache.get("<a href=\"../geos/[^\\.]+.html\" class=\"CountryLink\">([^<]+)</a>").matcher("");
-            Matcher codeMatcher = PatternCache.get(">([^<]+)<").matcher("");
-            String code = null;
-
-            public boolean handle(String line) throws ParseException {
-                // <i>total population:</i> 43.1%
-                line = line.trim();
-                if (line.contains("class=\"fl_region")) {
-                    if (!codeMatcher.reset(line).find()) {
-                        throw new IllegalArgumentException("bad regex match: file changed format");
-                    }
-                    String trialCode = codeMatcher.group(1);
-                    code = CountryCodeConverter.getCodeFromName(trialCode);
-                    if (code == null) {
-                        throw new IllegalArgumentException("bad country: change countryToCode()\t" + trialCode + "\t"
-                            + code);
-                    }
-                    return true;
-
-                }
-                // if (line.contains("CountryLink")) {
-                // if (!codeMatcher.reset(line).matches()) {
-                // throw new IllegalArgumentException("mismatched line: " + code);
-                // }
-                // code = countryToCode(codeMatcher.group(1));
-                // if (code == null) {
-                // throw new IllegalArgumentException("bad country");
-                // }
-                // return true;
-                // }
-                if (!line.contains("total population:")) {
-                    return true;
-                }
+            public boolean handle(String line) {
+                String[] pieces = line.split("\\t");
+                String code = CountryCodeConverter.getCodeFromName(FBLiteracy.Country.get(pieces));
                 if (code == null) {
-                    throw new IllegalArgumentException("Bad code: " + code);
+                    return false;
                 }
                 if (!StandardCodes.isCountry(code)) {
                     if (ADD_POP) {
-                        System.out.println("Skipping factbook info for: " + code);
+                        System.out.println("Skipping factbook literacy for: " + code);
                     }
                     return false;
                 }
-                if (!m.reset(line).matches()) {
-                    throw new IllegalArgumentException("mismatched line: " + code);
-                }
-                // <a href="../geos/al.html" class="CountryLink">Albania</a>
-                // AX Aland Islands www.aland.ax 26,200 $929,773,254
-                final String percentString = m.group(1);
-                final double percent = number.parse(percentString).doubleValue();
-                if (factbook_literacy.getCount(code) != 0) {
-                    if (code.equals("PS") || code.equals("RS")) {
-                        // skip message, special case
-                    } else {
-                        System.out.println("Duplicate literacy in FactBook: " + code);
-                    }
-                    return false;
-                }
+                code = code.toUpperCase(Locale.ENGLISH);
+                String valueString = FBLiteracy.Percent.get(pieces).trim();
+                double percent = Double.parseDouble(valueString);
                 factbook_literacy.add(code, percent);
                 if (ADD_POP) {
                     System.out.println("Factbook literacy:\t" + code + "\t" + percent);
@@ -361,7 +321,7 @@ public class AddPopulationData {
             }
         });
     }
-
+    
     private static void loadWorldBankInfo() throws IOException {
         final String filename = "external/world_bank_data.csv";
 

@@ -48,6 +48,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
 
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
@@ -89,6 +90,9 @@ public class ConvertLanguageData {
 
     private static final boolean SHOW_OLD_DEFAULT_CONTENTS = false;
 
+    private static final ImmutableSet<String> scriptAssumedLocales = ImmutableSet.of(
+        "bm_ML", "ha_GH", "ha_NE", "ha_NG", "kk_KZ", "ks_IN", "ky_KG", "mn_MN", "ms_MY", "ms_SG", "tk_TM", "tzm_MA", "ug_CN" );
+    
     static Map<String, String> defaultContent = new TreeMap<String, String>();
 
     static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
@@ -141,6 +145,9 @@ public class ConvertLanguageData {
                 if (!localesWithData.contains(locale)) {
                     CLDRFile locFile = cldrFactory.make(locale, false);
                     if (locFile.isAliasedAtTopLevel()) {
+                        continue;
+                    }
+                    if (scriptAssumedLocales.contains(locale)) {
                         continue;
                     }
                     languageTagParser.set(locale);

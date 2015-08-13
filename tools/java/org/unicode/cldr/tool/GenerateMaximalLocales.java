@@ -41,6 +41,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
@@ -656,35 +657,25 @@ public class GenerateMaximalLocales {
     private static final double UNOFFICIAL_SCALE_DOWN = 0.2;
 
     private static final List<String> KEEP_TARGETS = Arrays.asList("und_Arab_PK", "und_Latn_ET");
+    private static final ImmutableSet<String> deprecatedISONotInLST = ImmutableSet.of("scc", "scr");
     // Many of the overrides below can be removed once the language/pop/country data is updated.
     private static final Map<String, String> LANGUAGE_OVERRIDES = CldrUtility.asMap(new String[][] {
         { "eo", "eo_Latn_001" },
         { "eo_Latn", "eo_Latn_001" },
         { "es", "es_Latn_ES" },
         { "es_Latn", "es_Latn_ES" },
-        { "hif", "hif_Latn_FJ" },
-        { "hif_Latn", "hif_Latn_FJ" },
-        { "hif_FJ", "hif_Latn_FJ" },
-        { "hif_Deva", "hif_Deva_FJ" },
-        { "hsb", "hsb_Latn_DE" },
-        { "hsb_Latn", "hsb_Latn_DE" },
-        { "jgo", "jgo_Latn_CM" },
         { "ku_Arab", "ku_Arab_IQ" },
         { "man", "man_Latn_GM" },
         { "man_Latn", "man_Latn_GM" },
         { "mas", "mas_Latn_KE" },
         { "mas_Latn", "mas_Latn_KE" },
-        { "mgh", "mgh_Latn_MZ" },
-        { "mgo", "mgo_Latn_CM" },
         { "mn", "mn_Cyrl_MN" },
         { "mn_Cyrl", "mn_Cyrl_MN" },
         { "ms_Arab", "ms_Arab_MY" },
-        { "nus", "nus_Latn_SD" },
         { "pap", "pap_Latn_AW" },
         { "pap_Latn", "pap_Latn_AW" },
         { "prg", "prg_Latn_001" },
         { "prg_Latn", "prg_Latn_001" },
-        { "sbp", "sbp_Latn_TZ" },
         { "rif", "rif_Tfng_MA" },
         { "rif_Latn", "rif_Latn_MA" },
         { "rif_Tfng", "rif_Tfng_MA" },
@@ -702,6 +693,7 @@ public class GenerateMaximalLocales {
         { "und_Arab", "ar_Arab_EG" },
         { "und_Arab_PK", "ur_Arab_PK" },
         { "und_Bopo", "zh_Bopo_TW" },
+        { "und_Deva_FJ", "hif_Deva_FJ" },
         { "und_Hani", "zh_Hani_CN" },
         { "und_Hani_CN", "zh_Hani_CN" },
         { "und_Kana", "ja_Kana_JP" },
@@ -837,6 +829,9 @@ public class GenerateMaximalLocales {
 
             String badLanguage = str.getKey();
             if (badLanguage.contains("_")) {
+                continue;
+            }
+            if (deprecatedISONotInLST.contains(badLanguage)) {
                 continue;
             }
             Set<R3<Double, String, String>> goodLanguageData = maxData.languages.getAll(goodLanguage);

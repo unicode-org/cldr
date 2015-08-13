@@ -3,16 +3,26 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
+import org.unicode.cldr.util.Validity;
+import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
+import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row.R2;
 
@@ -75,6 +85,13 @@ public class ChartSubdivisions extends Chart {
 
         Map<String, R2<List<String>, String>> aliases = SDI.getLocaleAliasInfo().get("subdivision");
         
+        Set<String> remainder = new HashSet<>(Validity.getInstance().getData().get(LstrType.region).get(Status.regular));
+        Relation<String,String> inverseAliases = Relation.of(new HashMap(), TreeSet.class);
+        for (Entry<String, R2<List<String>, String>> entry : aliases.entrySet()) {
+            List<String> value = entry.getValue().get0();
+            inverseAliases.putAll(value, entry.getKey());
+        }
+
         for (String container : SDI.getContainersForSubdivisions()) {
             int pos = container.indexOf('-');
             String region = pos < 0 ? container : container.substring(0, pos);
@@ -106,8 +123,20 @@ public class ChartSubdivisions extends Chart {
                 .addCell(name2)
                 .addCell(s2)
                 .finishRow();
-
+                remainder.remove(region);
             }
+        }
+        for (String region : remainder) {
+            Set<String> regionAliases = inverseAliases.get(region);
+            tablePrinter.addRow()
+            .addCell(ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
+            .addCell(region)
+            .addCell(regionAliases == null ? "«none»" : "=" + CollectionUtilities.join(regionAliases, ", "))
+            //.addCell(type)
+            .addCell("")
+            .addCell("")
+            .addCell("")
+            .finishRow();
         }
         pw.write(tablePrinter.toTable());
     }

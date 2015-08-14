@@ -22,6 +22,7 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.base.MoreObjects;
+import com.google.common.collect.ImmutableList;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Utility;
 
@@ -71,7 +72,7 @@ public class ChartDtdDelta extends Chart {
 
         String last = null;
         for (String current : CLDR_VERSIONS) {
-            String currentName = current == null ? "trunk" : current;
+            String currentName = current;
             for (DtdType type : TYPES) {
                 String firstVersion = FIRST_VERSION.get(type);
                 if (firstVersion != null && current != null && current.compareTo(firstVersion) < 0) {
@@ -79,7 +80,7 @@ public class ChartDtdDelta extends Chart {
                 }
                 DtdData dtdCurrent = null;
                 try {
-                    dtdCurrent = DtdData.getInstance(type, current);
+                    dtdCurrent = DtdData.getInstance(type, current.endsWith("β") ? null : current);
                 } catch (Exception e) {
                     if (!(e.getCause() instanceof FileNotFoundException)) {
                         throw e;
@@ -119,7 +120,7 @@ public class ChartDtdDelta extends Chart {
     
     static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
 
-    static final List<String> CLDR_VERSIONS = Arrays.asList(
+    static final List<String> CLDR_VERSIONS = ImmutableList.of(
         "1.1.1",
         "1.2.0",
         "1.3.0",
@@ -137,8 +138,9 @@ public class ChartDtdDelta extends Chart {
         "25.0",
         "26.0",
         "27.0",
-        null
+        ToolConstants.CHART_DISPLAY_VERSION
         );
+    
     static Set<DtdType> TYPES = EnumSet.allOf(DtdType.class);
     static {
         TYPES.remove(DtdType.ldmlICU);

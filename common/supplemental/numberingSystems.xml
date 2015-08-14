@@ -14,8 +14,8 @@ For terms of use, see http://www.unicode.org/copyright.html
         <numberingSystem id="armnlow" type="algorithmic" rules="armenian-lower"/>
         <numberingSystem id="bali" type="numeric" digits="᭐᭑᭒᭓᭔᭕᭖᭗᭘᭙"/>
         <numberingSystem id="beng" type="numeric" digits="০১২৩৪৫৬৭৮৯"/>
-        <numberingSystem id="brah" type="numeric" digits="𑁦𑁧𑁨𑁩𑁪𑁫𑁬𑁭𑁮𑁯"/>
-        <numberingSystem id="cakm" type="numeric" digits="𑄶𑄷𑄸𑄹𑄺𑄻𑄼𑄽𑄾𑄿"/>
+        <numberingSystem id="brah" type="numeric" digits="&#x11066;&#x11067;&#x11068;&#x11069;&#x1106A;&#x1106B;&#x1106C;&#x1106D;&#x1106E;&#x1106F;"/>
+        <numberingSystem id="cakm" type="numeric" digits="&#x11136;&#x11137;&#x11138;&#x11139;&#x1113A;&#x1113B;&#x1113C;&#x1113D;&#x1113E;&#x1113F;"/>
         <numberingSystem id="cham" type="numeric" digits="꩐꩑꩒꩓꩔꩕꩖꩗꩘꩙"/>
         <numberingSystem id="cyrl" type="algorithmic" rules="cyrillic-lower"/>
         <numberingSystem id="deva" type="numeric" digits="०१२३४५६७८९"/>
@@ -45,11 +45,11 @@ For terms of use, see http://www.unicode.org/copyright.html
         <numberingSystem id="latn" type="numeric" digits="0123456789"/>
         <numberingSystem id="lepc" type="numeric" digits="᱀᱁᱂᱃᱄᱅᱆᱇᱈᱉"/>
         <numberingSystem id="limb" type="numeric" digits="᥆᥇᥈᥉᥊᥋᥌᥍᥎᥏"/>
-        <numberingSystem id="mathbold" type="numeric" digits="𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"/>
-        <numberingSystem id="mathdbl" type="numeric" digits="𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡"/>
-        <numberingSystem id="mathmono" type="numeric" digits="𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿"/>
-        <numberingSystem id="mathsanb" type="numeric" digits="𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵"/>
-        <numberingSystem id="mathsans" type="numeric" digits="𝟢𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫"/>
+        <numberingSystem id="mathbold" type="numeric" digits="&#x1D7CE;&#x1D7CF;&#x1D7D0;&#x1D7D1;&#x1D7D2;&#x1D7D3;&#x1D7D4;&#x1D7D5;&#x1D7D6;&#x1D7D7;"/>
+        <numberingSystem id="mathdbl" type="numeric" digits="&#x1D7D8;&#x1D7D9;&#x1D7DA;&#x1D7DB;&#x1D7DC;&#x1D7DD;&#x1D7DE;&#x1D7DF;&#x1D7E0;&#x1D7E1;"/>
+        <numberingSystem id="mathmono" type="numeric" digits="&#x1D7F6;&#x1D7F7;&#x1D7F8;&#x1D7F9;&#x1D7FA;&#x1D7FB;&#x1D7FC;&#x1D7FD;&#x1D7FE;&#x1D7FF;"/>
+        <numberingSystem id="mathsanb" type="numeric" digits="&#x1D7EC;&#x1D7ED;&#x1D7EE;&#x1D7EF;&#x1D7F0;&#x1D7F1;&#x1D7F2;&#x1D7F3;&#x1D7F4;&#x1D7F5;"/>
+        <numberingSystem id="mathsans" type="numeric" digits="&#x1D7E2;&#x1D7E3;&#x1D7E4;&#x1D7E5;&#x1D7E6;&#x1D7E7;&#x1D7E8;&#x1D7E9;&#x1D7EA;&#x1D7EB;"/>
         <numberingSystem id="mlym" type="numeric" digits="൦൧൨൩൪൫൬൭൮൯"/>
         <numberingSystem id="mong" type="numeric" digits="᠐᠑᠒᠓᠔᠕᠖᠗᠘᠙"/>
         <numberingSystem id="mtei" type="numeric" digits="꯰꯱꯲꯳꯴꯵꯶꯷꯸꯹"/>
@@ -58,14 +58,14 @@ For terms of use, see http://www.unicode.org/copyright.html
         <numberingSystem id="nkoo" type="numeric" digits="߀߁߂߃߄߅߆߇߈߉"/>
         <numberingSystem id="olck" type="numeric" digits="᱐᱑᱒᱓᱔᱕᱖᱗᱘᱙"/>
         <numberingSystem id="orya" type="numeric" digits="୦୧୨୩୪୫୬୭୮୯"/>
-        <numberingSystem id="osma" type="numeric" digits="𐒠𐒡𐒢𐒣𐒤𐒥𐒦𐒧𐒨𐒩"/>
+        <numberingSystem id="osma" type="numeric" digits="&#x104A0;&#x104A1;&#x104A2;&#x104A3;&#x104A4;&#x104A5;&#x104A6;&#x104A7;&#x104A8;&#x104A9;"/>
         <numberingSystem id="roman" type="algorithmic" rules="roman-upper"/>
         <numberingSystem id="romanlow" type="algorithmic" rules="roman-lower"/>
         <numberingSystem id="saur" type="numeric" digits="꣐꣑꣒꣓꣔꣕꣖꣗꣘꣙"/>
-        <numberingSystem id="shrd" type="numeric" digits="𑇐𑇑𑇒𑇓𑇔𑇕𑇖𑇗𑇘𑇙"/>
-        <numberingSystem id="sora" type="numeric" digits="𑃰𑃱𑃲𑃳𑃴𑃵𑃶𑃷𑃸𑃹"/>
+        <numberingSystem id="shrd" type="numeric" digits="&#x111D0;&#x111D1;&#x111D2;&#x111D3;&#x111D4;&#x111D5;&#x111D6;&#x111D7;&#x111D8;&#x111D9;"/>
+        <numberingSystem id="sora" type="numeric" digits="&#x110F0;&#x110F1;&#x110F2;&#x110F3;&#x110F4;&#x110F5;&#x110F6;&#x110F7;&#x110F8;&#x110F9;"/>
         <numberingSystem id="sund" type="numeric" digits="᮰᮱᮲᮳᮴᮵᮶᮷᮸᮹"/>
-        <numberingSystem id="takr" type="numeric" digits="𑛀𑛁𑛂𑛃𑛄𑛅𑛆𑛇𑛈𑛉"/>
+        <numberingSystem id="takr" type="numeric" digits="&#x116C0;&#x116C1;&#x116C2;&#x116C3;&#x116C4;&#x116C5;&#x116C6;&#x116C7;&#x116C8;&#x116C9;"/>
         <numberingSystem id="talu" type="numeric" digits="᧐᧑᧒᧓᧔᧕᧖᧗᧘᧙"/>
         <numberingSystem id="taml" type="algorithmic" rules="tamil"/>
         <numberingSystem id="tamldec" type="numeric" digits="௦௧௨௩௪௫௬௭௮௯"/>

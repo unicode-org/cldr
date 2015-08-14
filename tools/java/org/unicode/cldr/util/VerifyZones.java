@@ -32,12 +32,14 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 public class VerifyZones {
+    private static final String DIR = CLDRPaths.CHART_DIRECTORY + "verify/zones/";
+
     private static final boolean DEBUG = false;
 
     final static Options myOptions = new Options();
 
     enum MyOptions {
-        organization(".*", "Google", "organization"),
+        organization(".*", "CLDR", "organization"),
         filter(".*", ".*", "locale filter (regex)"),
         timezoneFilter(".*", null, "timezone filter (regex)"), ;
         // boilerplate
@@ -279,7 +281,7 @@ public class VerifyZones {
     public static void main(String[] args) throws IOException {
         myOptions.parse(MyOptions.organization, args, true);
 
-        // String organization = MyOptions.organization.option.getValue();
+        String organization = MyOptions.organization.option.getValue();
         String filter = MyOptions.filter.option.getValue();
         String timezoneFilterString = MyOptions.timezoneFilter.option.getValue();
         Matcher timezoneFilter = timezoneFilterString == null ? null : PatternCache.get(timezoneFilterString)
@@ -287,10 +289,18 @@ public class VerifyZones {
 
         Factory factory2 = Factory.make(CLDRPaths.MAIN_DIRECTORY, filter);
         CLDRFile englishCldrFile = factory2.make("en", true);
+        DateTimeFormats.writeCss(DIR);
+        PrintWriter index = DateTimeFormats.openIndex(DIR);
+        int oldFirst = 0;
+        final CLDRFile english = CLDRConfig.getInstance().getEnglish();
 
         for (String localeID : factory2.getAvailableLanguages()) {
+            Level level = StandardCodes.make().getLocaleCoverageLevel(organization, localeID);
+            if (Level.MODERN.compareTo(level) > 0) {
+                continue;
+            }
             CLDRFile cldrFile = factory2.make(localeID, true);
-            PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.TMP_DIRECTORY + "verify/zones/", localeID +
+            PrintWriter out = BagFormatter.openUTF8Writer(DIR, localeID +
                 ".html");
             String title = "Verify Time Zones: " + englishCldrFile.getName(localeID);
             out.println("<html><head>\n" +
@@ -303,7 +313,21 @@ public class VerifyZones {
 
             out.println("</body></html>");
             out.close();
+            
+            final String name = english.getName(localeID);
+            int first = name.codePointAt(0);
+            if (oldFirst != first) {
+                index.append("<hr>");
+                oldFirst = first;
+            } else {
+                index.append("  ");
+            }
+            index.append("<a href='").append(localeID + ".html").append("'>").append(name).append("</a>\n");
+            index.flush();
         }
+        index.println("</div></body></html>");
+        index.close();
+
 
         // Look at DateTimeFormats.java
 

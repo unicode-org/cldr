@@ -14,11 +14,14 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.tool.Option;
+import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.ICUServiceBuilder.Context;
 import org.unicode.cldr.util.ICUServiceBuilder.Width;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.VerifyCompactNumbers.MyOptions;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
@@ -40,8 +43,23 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 public class DateTimeFormats {
+    private static final String DIR = CLDRPaths.CHART_DIRECTORY + "/verify/dates/";
     private static SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
     private static Map<String, PreferredAndAllowedHour> timeData = sdi.getTimeData();
+
+    final static Options myOptions = new Options();
+
+    enum MyOptions {
+        organization(".*", "CLDR", "organization"),
+        filter(".*", ".*", "locale filter (regex)")
+        ;
+        // boilerplate
+        final Option option;
+
+        MyOptions(String argumentPattern, String defaultArgument, String helpText) {
+            option = myOptions.add(this, argumentPattern, defaultArgument, helpText);
+        }
+    }
 
     private static final String TIMES_24H_TITLE = "Times 24h";
     private static final boolean DEBUG = false;
@@ -787,7 +805,7 @@ public class DateTimeFormats {
     }
 
     private static final boolean RETIRE = false;
-    private static final String LOCALES = "da|zh|de";
+    private static final String LOCALES = ".*"; // "da|zh|de|ta";
 
     /**
      * Produce a set of static tables from the vxml data. Only a stopgap until the above is integrated into ST.
@@ -796,38 +814,28 @@ public class DateTimeFormats {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        Factory englishFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
+        myOptions.parse(MyOptions.organization, args, true);
+
+        String organization = MyOptions.organization.option.getValue();
+        String filter = MyOptions.filter.option.getValue();
+
+        Factory englishFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, filter);
         CLDRFile englishFile = englishFactory.make("en", true);
         String dateString = CldrUtility.isoFormat(new Date());
 
         Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, LOCALES);
         System.out.println("Total locales: " + factory.getAvailableLanguages().size());
         DateTimeFormats english = new DateTimeFormats().set(englishFile, "gregorian");
-        PrintWriter index = BagFormatter.openUTF8Writer(CLDRPaths.CHART_DIRECTORY + "dates/", "index.html");
-        index
-        .println(
-            "<html><head>\n"
-                +
-                "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n"
-                +
-                "<title>Date/Time Charts</title>\n"
-                +
-                "</head><body><h1>Date/Time Charts</h1>"
-                +
-                // "<p style='float:left; text-align:left'><a href='index.html'>Index</a></p>\n" +
-                "<p style='float:right; text-align:right'>"
-                + dateString
-                + "</p>\n"
-                +
-                "<p style='clear:both'><b>The charts have been incorporated into the Survey Tool, as Date/Time Review. </b></p>\n"
-                +
-                "<p>The following charts show typical usage of date and time formatting with the Gregorian calendar. " +
-            "Please review the chart for your locale(s).</p><div style='margin:2em'>");
+        PrintWriter index = openIndex(DIR);
 
         Map<String, String> sorted = new TreeMap<String, String>();
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
         Set<String> defaultContent = sdi.getDefaultContentLocales();
         for (String localeID : factory.getAvailableLanguages()) {
+            Level level = StandardCodes.make().getLocaleCoverageLevel(organization, localeID);
+            if (Level.MODERN.compareTo(level) > 0) {
+                continue;
+            }
             if (defaultContent.contains(localeID)) {
                 System.out.println("Skipping default content: " + localeID);
                 continue;
@@ -835,22 +843,8 @@ public class DateTimeFormats {
             sorted.put(englishFile.getName(localeID, true), localeID);
         }
 
-        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.CHART_DIRECTORY + "dates/", "index.css");
-        out.println(".dtf-table, .dtf-int {margin-left:auto; margin-right:auto; border-collapse:collapse;}\n"
-            +
-            ".dtf-table, .dtf-s, .dtf-nopad, .dtf-fix, .dtf-th, .dtf-h, .dtf-sep, .dtf-left, .dtf-int {border:1px solid gray;}\n"
-            +
-            ".dtf-th {background-color:#EEE; padding:4px}\n" +
-            ".dtf-s, .dtf-nopad, .dtf-fix {padding:3px; text-align:center}\n" +
-            ".dtf-sep {background-color:#EEF; text-align:center}\n" +
-            ".dtf-s {text-align:center;}\n" +
-            ".dtf-int {width:100%; height:100%}\n" +
-            ".dtf-fix {width:1px}\n" +
-            ".dtf-left {text-align:left;}\n" +
-            ".dtf-nopad {padding:0px; align:top}\n" +
-            ".dtf-gray {background-color:#EEF}\n"
-            );
-        out.close();
+        writeCss(DIR);
+        PrintWriter out;
         // http://st.unicode.org/cldr-apps/survey?_=LOCALE&x=r_datetime&calendar=gregorian
         int oldFirst = 0;
         for (Entry<String, String> nameAndLocale : sorted.entrySet()) {
@@ -858,7 +852,7 @@ public class DateTimeFormats {
             String localeID = nameAndLocale.getValue();
             DateTimeFormats formats = new DateTimeFormats().set(factory.make(localeID, true), "gregorian");
             String filename = localeID + ".html";
-            out = BagFormatter.openUTF8Writer(CLDRPaths.CHART_DIRECTORY + "dates/", filename);
+            out = BagFormatter.openUTF8Writer(DIR, filename);
             String redirect = "http://st.unicode.org/cldr-apps/survey?_=" + localeID
                 + "&x=r_datetime&calendar=gregorian";
             out.println(
@@ -917,6 +911,50 @@ public class DateTimeFormats {
         }
         index.println("</div></body></html>");
         index.close();
+    }
+
+    public static PrintWriter openIndex(String directory) throws IOException {
+        String dateString = CldrUtility.isoFormat(new Date());
+        PrintWriter index = BagFormatter.openUTF8Writer(directory, "index.html");
+        index
+        .println(
+            "<html><head>\n"
+                +
+                "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n"
+                +
+                "<title>Date/Time Charts</title>\n"
+                +
+                "</head><body><h1>Date/Time Charts</h1>"
+                +
+                // "<p style='float:left; text-align:left'><a href='index.html'>Index</a></p>\n" +
+                "<p style='float:right; text-align:right'>"
+                + dateString
+                + "</p>\n"
+                +
+                "<p style='clear:both'><b>The charts have been incorporated into the Survey Tool, as Date/Time Review. </b></p>\n"
+                +
+                "<p>The following charts show typical usage of date and time formatting with the Gregorian calendar. " +
+            "Please review the chart for your locale(s).</p><div style='margin:2em'>");
+        return index;
+    }
+
+    public static void writeCss(String directory) throws IOException {
+        PrintWriter out = BagFormatter.openUTF8Writer(directory, "index.css");
+        out.println(".dtf-table, .dtf-int {margin-left:auto; margin-right:auto; border-collapse:collapse;}\n"
+            +
+            ".dtf-table, .dtf-s, .dtf-nopad, .dtf-fix, .dtf-th, .dtf-h, .dtf-sep, .dtf-left, .dtf-int {border:1px solid gray;}\n"
+            +
+            ".dtf-th {background-color:#EEE; padding:4px}\n" +
+            ".dtf-s, .dtf-nopad, .dtf-fix {padding:3px; text-align:center}\n" +
+            ".dtf-sep {background-color:#EEF; text-align:center}\n" +
+            ".dtf-s {text-align:center;}\n" +
+            ".dtf-int {width:100%; height:100%}\n" +
+            ".dtf-fix {width:1px}\n" +
+            ".dtf-left {text-align:left;}\n" +
+            ".dtf-nopad {padding:0px; align:top}\n" +
+            ".dtf-gray {background-color:#EEF}\n"
+            );
+        out.close();
     }
 
     public void addDayPeriods(CLDRFile englishFile, Appendable output) {

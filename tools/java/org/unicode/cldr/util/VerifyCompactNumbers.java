@@ -29,10 +29,11 @@ import com.ibm.icu.util.ULocale;
 
 public class VerifyCompactNumbers {
 
+    private static final String DIR = CLDRPaths.CHART_DIRECTORY + "verify/numbers/";
     final static Options myOptions = new Options();
 
     enum MyOptions {
-        organization(".*", "Google", "organization"),
+        organization(".*", "CLDR", "organization"),
         filter(".*", ".*", "locale filter (regex)"),
         currency(".*", "EUR", "show currency"), ;
         // boilerplate
@@ -74,8 +75,11 @@ public class VerifyCompactNumbers {
             availableLanguages.add("pt_PT");
         }
 
-        PrintWriter plainText = BagFormatter.openUTF8Writer(CLDRPaths.TMP_DIRECTORY + "verify/numbers/",
-            "compactTestFile.txt");
+        PrintWriter plainText = BagFormatter.openUTF8Writer(DIR, "compactTestFile.txt");
+        DateTimeFormats.writeCss(DIR);
+        PrintWriter index = DateTimeFormats.openIndex(DIR);
+        int oldFirst = 0;
+        final CLDRFile english = CLDRConfig.getInstance().getEnglish();
 
         for (String locale : availableLanguages) {
             if (defaultContentLocales.contains(locale)) {
@@ -90,9 +94,7 @@ public class VerifyCompactNumbers {
                 continue;
             }
 
-            PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.TMP_DIRECTORY + "verify/numbers/",
-                locale +
-                    ".html");
+            PrintWriter out = BagFormatter.openUTF8Writer(DIR, locale + ".html");
             String title = "Verify Number Formats: " + englishCldrFile.getName(locale);
             out.println("<html><head>\n" +
                 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n" +
@@ -106,7 +108,21 @@ public class VerifyCompactNumbers {
 
             out.println("</body></html>");
             out.close();
+
+            final String name = english.getName(locale);
+            int first = name.codePointAt(0);
+            if (oldFirst != first) {
+                index.append("<hr>");
+                oldFirst = first;
+            } else {
+                index.append("  ");
+            }
+            index.append("<a href='").append(locale + ".html").append("'>").append(name).append("</a>\n");
+            index.flush();
         }
+        index.println("</div></body></html>");
+        index.close();
+
         plainText.close();
 
     }

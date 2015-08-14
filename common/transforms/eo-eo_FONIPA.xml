@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!-- Copyright © 1991-2015 Unicode, Inc., Google Inc. 
+	CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/) 
+	For terms of use, see http://www.unicode.org/copyright.html -->
+<supplementalData>
+	<version number="$Revision: 11914 $" />
+	<transforms>
+		<transform source="eo" target="eo_FONIPA" direction="forward" draft="contributed">
+			<comment># https://en.wikipedia.org/wiki/Esperanto_phonology</comment>
+			<tRule></tRule>
+			<tRule>::NFC;</tRule>
+			<tRule>::Lower;</tRule>
+			<tRule></tRule>
+			<tRule>[\-\'’] → ;  # eg. vorto-provizo, famili’</tRule>
+			<tRule>aj → ai̯;</tRule>
+			<tRule>aŭ → au̯;</tRule>
+			<tRule>á → a;</tRule>
+			<tRule>a → a;</tRule>
+			<tRule>b → b;</tRule>
+			<tRule>ĉ → t͡ʃ;</tRule>
+			<tRule>c → t͡s;</tRule>
+			<tRule>dz → d͡z;</tRule>
+			<tRule>d → d;</tRule>
+			<tRule>ej → ei̯;</tRule>
+			<tRule>eŭ → eu̯;</tRule>
+			<tRule>é → e;</tRule>
+			<tRule>e → e;</tRule>
+			<tRule>f → f;</tRule>
+			<tRule>ĝ → d͡ʒ;</tRule>
+			<tRule>g → ɡ;</tRule>
+			<tRule>ĥ → x;</tRule>
+			<tRule>h → h;</tRule>
+			<tRule>í → i;</tRule>
+			<tRule>i → i;</tRule>
+			<tRule>ĵ → ʒ;</tRule>
+			<tRule>j → j;</tRule>
+			<tRule>k → k;</tRule>
+			<tRule>l → l;</tRule>
+			<tRule>m → m;</tRule>
+			<tRule>n → n;</tRule>
+			<tRule>oj → oi̯;</tRule>
+			<tRule>ó → o;</tRule>
+			<tRule>o → o;</tRule>
+			<tRule>p → p;</tRule>
+			<tRule>r → r;</tRule>
+			<tRule>ŝ → ʃ;</tRule>
+			<tRule>s → s;</tRule>
+			<tRule>t → t;</tRule>
+			<tRule>uj → ui̯;</tRule>
+			<tRule>ŭ → v;  # eg. ŭa!</tRule>
+			<tRule>ú → u;</tRule>
+			<tRule>u → u;</tRule>
+			<tRule>v → v;</tRule>
+			<tRule>z → z;</tRule>
+			<tRule></tRule>
+			<tRule>::NFC;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

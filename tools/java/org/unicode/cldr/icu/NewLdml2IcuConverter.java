@@ -238,6 +238,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             option = options.get("supplementaldir");
             if (option.doesOccur()) {
                 supplementalDataInfo = SupplementalDataInfo.getInstance(supplementalDir);
+            } else {
                 throw new IllegalArgumentException("Supplemental directory must be specified with -s");
             }
 

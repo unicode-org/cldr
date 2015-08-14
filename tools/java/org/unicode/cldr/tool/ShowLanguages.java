@@ -122,6 +122,7 @@ public class ShowLanguages {
 
         new ChartDayPeriods().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         new ChartLanguageMatching().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+        new ChartDtdDelta().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         
         linfo.showCoverageGoals(pw);
 
@@ -173,7 +174,7 @@ public class ShowLanguages {
 
         pw.close();
 
-        String[] replacements = { "%date%", CldrUtility.isoFormat(new Date()), "%contents%", SUPPLEMENTAL_INDEX_ANCHORS.toString(), "%data%",
+        String[] replacements = { "%date%", CldrUtility.isoFormatDateOnly(new Date()), "%contents%", SUPPLEMENTAL_INDEX_ANCHORS.toString(), "%data%",
             sw.toString() };
         PrintWriter pw2 = BagFormatter.openUTF8Writer(FormattedFileWriter.CHART_TARGET_DIR, filename);
         FileUtilities.appendFile(CLDRPaths.BASE_DIRECTORY + java.io.File.separatorChar

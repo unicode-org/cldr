@@ -7,6 +7,11 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+/**
+ * To add a new chart, subclass this, and add the subclass to {@link ShowLanguages.printLanguageData()}. There isn't much
+ * documentation, so best to look at a simple subclass to see how it works.
+ * @author markdavis
+ */
 public abstract class Chart {
     public static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     public static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();

@@ -342,7 +342,7 @@ public class GenerateChangeChart {
             out.write("</div>");
             PrintWriter pw2 = BagFormatter.openUTF8Writer(dir, filename);
             String[] replacements = { "%header%", "", "%title%", title, "%version%", ToolConstants.CHART_DISPLAY_VERSION,
-                "%date%", CldrUtility.isoFormat(new Date()), "%body%", out.toString() };
+                "%date%", CldrUtility.isoFormatDateOnly(new Date()), "%body%", out.toString() };
             final String templateFileName = "chart-template.html";
             FileUtilities.appendBufferedReader(ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);
             pw2.close();

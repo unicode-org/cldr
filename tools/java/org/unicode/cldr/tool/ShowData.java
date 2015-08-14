@@ -68,10 +68,7 @@ public class ShowData {
     };
 
     public static String dateFooter() {
-        return "<!-- SVN: $" + // break these apart to prevent SVN replacement in code
-            "Date$, $" + // break these apart to prevent SVN replacement in code
-            "Revision: 4538 $ -->" + System.lineSeparator() +
-            "<p>Generation: " + CldrUtility.isoFormat(new java.util.Date()) + "</p>" +
+        return "<p>Generation: " + CldrUtility.isoFormatDateOnly(new java.util.Date()) + "</p>" +
             System.lineSeparator();
     }
 
@@ -698,7 +695,7 @@ public class ShowData {
             .add("%index%", "index.html")
             .add("%header%", header)
             .add("%version%", version)
-            .add("%date%", CldrUtility.isoFormat(new Date()));
+            .add("%date%", CldrUtility.isoFormatDateOnly(new Date()));
         if (indexTitle != null) {
             langTag
             .add("%index-title%", indexTitle)

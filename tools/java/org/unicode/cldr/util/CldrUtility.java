@@ -1299,13 +1299,21 @@ public class CldrUtility {
     }
 
     private static DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss 'GMT'");
+    private static DateFormat DATE_ONLY = new SimpleDateFormat("yyyy-MM-dd");
     static {
         df.setTimeZone(TimeZone.getTimeZone("GMT"));
+        DATE_ONLY.setTimeZone(TimeZone.getTimeZone("GMT"));
     }
 
     public static String isoFormat(Date date) {
         synchronized (df) {
             return df.format(date);
+        }
+    }
+
+    public static String isoFormatDateOnly(Date date) {
+        synchronized (DATE_ONLY) {
+            return DATE_ONLY.format(date);
         }
     }
 

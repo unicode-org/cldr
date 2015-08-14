@@ -129,7 +129,7 @@ public class FormattedFileWriter extends java.io.Writer {
             "%version%", ToolConstants.CHART_DISPLAY_VERSION,
             "%index%", indexLink, 
             "%index-title%", indexTitle, 
-            "%date%", CldrUtility.isoFormat(new Date()), 
+            "%date%", CldrUtility.isoFormatDateOnly(new Date()), 
             "%body%", contents };
         final String templateFileName = "chart-template.html";
         FileUtilities.appendBufferedReader(ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);

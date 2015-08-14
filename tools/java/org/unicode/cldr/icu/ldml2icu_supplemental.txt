@@ -70,7 +70,7 @@
 //supplementalData/territoryContainment/group[@type="(%W)"][@contains="(%A)"]; /territoryContainment/$1 ; values=$2
 
 //supplementalData/subdivisionContainment/subgroup[@type="(%W)"][@contains="(%A)"]; /subdivisionContainment/$1 ; values=$2
-//supplementalData/subdivisionContainment/subgroup[@type="(%W)"][@subtype="(%W)"][@contains="(%A)"]; /subdivisionContainment/$1-$2 ; values=$2
+//supplementalData/subdivisionContainment/subgroup[@type="(%W)"][@subtype="(%W)"][@contains="(%A)"]; /subdivisionContainment/$1-$2 ; values=$3
 
 //supplementalData/weekData/firstDay[@day="(%W)"][@territories="(%W)"]([@references="(%A)"])?[@alt="(%A)"] ; /weekData%$5/$2:intvector     ; values=$1 ; fallback=/weekData/001:intvector[0]
 

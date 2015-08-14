@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!-- Copyright © 1991-2015 Unicode, Inc., Google Inc. 
+	CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/) 
+	For terms of use, see http://www.unicode.org/copyright.html -->
+<supplementalData>
+	<version number="$Revision: 11914 $" />
+	<transforms>
+		<transform source="ky" target="ky_FONIPA" direction="forward" draft="contributed">
+			<comment># Transformation from Kyrgyz (ky) to its IPA transcription (ky_FONIPA).</comment>
+			<comment># http://en.wikipedia.org/wiki/Kyrgyz_alphabet#Correspondence_chart</comment>
+			<tRule></tRule>
+			<tRule>::Lower;</tRule>
+			<tRule>::NFC;</tRule>
+			<tRule></tRule>
+			<tRule>$consonant_sound = [bdfɡklmnŋpqrʁsʃtvzʒχ];</tRule>
+			<tRule></tRule>
+			<tRule>аа → ɑː;</tRule>
+			<tRule>а  → ɑ;</tRule>
+			<tRule>б  → b;</tRule>
+			<tRule>в  → v;</tRule>
+			<tRule>{г} [аоуы]  → ʁ;</tRule>
+			<tRule>г  → ɡ;</tRule>
+			<tRule>дж → d͡ʒ;  # eg. Джамадан</tRule>
+			<tRule>дд → dː;</tRule>
+			<tRule>д  → d;</tRule>
+			<tRule>[$] {е} → je;  # at the beginning of a word</tRule>
+			<tRule>е  → e;</tRule>
+			<tRule>ё  → jo;  # appears only in loanwords</tRule>
+			<tRule>ж  → d͡ʒ;</tRule>
+			<tRule>з  → z;</tRule>
+			<tRule>ии → iː;</tRule>
+			<tRule>и  → i;</tRule>
+			<tRule>й  → j;</tRule>
+			<tRule>кк → kː;</tRule>
+			<tRule>[$] {к} [еёиɵүю] → ɡ;    # eg. кирет, кишиден, келди</tRule>
+			<tRule>{к} [аоуы] → q;          # eg. чокусу, факультетин, нукура</tRule>
+			<tRule>[ɑouɯ] ː? {к} → q;       # eg. Исак, Бирок, Кутлук, Ферганалык</tRule>
+			<tRule>[y] $consonant_sound+ ː? {к} [$] → k; # eg. мүлк, түрк</tRule>
+			<tRule>$consonant_sound {к} [$] → q; # eg. даңк, калк, кырк</tRule>
+			<tRule>[ŋ] {к} → q;</tRule>
+			<tRule>к → k;</tRule>
+			<tRule></tRule>
+			<comment># TODO(sascha): Verify whether /lʲ/ is really phonemic in Kyrgyz;</comment>
+			<comment># is there really a minimal pair with /l/ versus /lʲ/?</comment>
+			<tRule>[eøy] ː? {л}к → lʲ;  # eg. мүлк, күлкү, өлкө, эзелки</tRule>
+			<tRule></tRule>
+			<tRule>лл → lː;</tRule>
+			<tRule>л  → l;</tRule>
+			<tRule>мм → mː;</tRule>
+			<tRule>м  → m;</tRule>
+			<tRule>нн → nː;</tRule>
+			<tRule>н  → n;</tRule>
+			<tRule>ң  → ŋ;</tRule>
+			<tRule>оо → oː;</tRule>
+			<tRule>о  → o;</tRule>
+			<tRule>өө → øː;</tRule>
+			<tRule>ө  → ø;</tRule>
+			<tRule>п  → p;</tRule>
+			<tRule>р  → r;</tRule>
+			<tRule>сс → sː;</tRule>
+			<tRule>с  → s;</tRule>
+			<tRule>тт → tː;</tRule>
+			<tRule>тч → t͡ʃ;    # eg. екетчилерден</tRule>
+			<tRule>т  → t;</tRule>
+			<tRule>уу → uː;</tRule>
+			<tRule>у  → u;</tRule>
+			<tRule>үү → yː;</tRule>
+			<tRule>ү  → y;</tRule>
+			<tRule>ф  → f;     # only in loanwords</tRule>
+			<tRule>х  → χ;</tRule>
+			<tRule>ц  → t͡s;    # only in loanwords</tRule>
+			<tRule>ч  → t͡ʃ;</tRule>
+			<tRule>ш  → ʃ;</tRule>
+			<tRule>щ  → ʃ t͡ʃ;  # only in loanwords</tRule>
+			<tRule>ъ  → ;      # no phonemic value; appears only in loanwords</tRule>
+			<tRule>ы  → ɯ;</tRule>
+			<tRule>ь  → ;      # no phonemic value; appears only in loanwords</tRule>
+			<tRule>ээ → eː;</tRule>
+			<tRule>э  → e;</tRule>
+			<tRule>ю  → ju;</tRule>
+			<tRule>я  → jɑ;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

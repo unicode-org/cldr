@@ -82,7 +82,8 @@ public class ChartDelta extends Chart {
     private static final String DEBUG_FILE = "windowsZones.xml";
     static Pattern fileMatcher = PatternCache.get(".*");
 
-    private static final String LAST_ARCHIVE_DIRECTORY = "/Users/markdavis/Google Drive/workspace/cldr-archive/cldr-26.0/";
+    private static final String LAST_ARCHIVE_DIRECTORY = "/Users/markdavis/Google Drive/workspace/cldr-archive/cldr-"
+        + ToolConstants.PREVIOUS_CHART_VERSION + "/";
 
     static String DIR =     CLDRPaths.CHART_DIRECTORY + "/delta/";
     static PathHeader.Factory phf = PathHeader.getFactory(ENGLISH);
@@ -175,7 +176,6 @@ public class ChartDelta extends Chart {
 
         Relation<PathHeader, String> diffAll = new Relation(new TreeMap(), TreeSet.class);
         XPathParts pathPlain = new XPathParts();
-
         for (Entry<String, Set<String>> baseNLocale : baseToLocales.keyValuesSet()) {
             String base = baseNLocale.getKey();
             int qCount = 0;
@@ -193,6 +193,9 @@ public class ChartDelta extends Chart {
                 for (String locale : baseNLocale.getValue()) {
                     String nameAndLocale = sourceDirLeaf + "/" + locale;
                     if (fileFilter != null && !fileFilter.reset(nameAndLocale).find()) {
+                        if (verbose) {
+                            System.out.println("SKIPPING: " + nameAndLocale);
+                        }
                         continue;
                     }
                     boolean isBase = locale.equals(base);

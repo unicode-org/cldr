@@ -209,6 +209,7 @@ public class SupplementalMapper {
                 "supplementalData",
                 "subdivisions",
                 "telephoneCodeData",
+                "/../validity/"
 //                "windowsZones", done elsewhere??
             };
             for (String cat : categories) {
@@ -262,6 +263,17 @@ public class SupplementalMapper {
      *            the output map
      */
     private void loadValues(String category, Map<String, CldrArray> pathValueMap) {
+        if (category.endsWith("/")) {
+            File dir = new File(inputDir + category);
+            for (File subfile : dir.listFiles()) {
+                String name = subfile.getName();
+                if (name.endsWith(".xml")) {
+                    name = name.substring(0,name.length()-4);
+                    loadValues(category + name, pathValueMap);
+                }
+            }
+            return;
+        }
         String inputFile = new File(inputDir, category + ".xml").getAbsolutePath();
         List<Pair<String, String>> contents = new ArrayList<Pair<String, String>>();
         XMLFileReader.loadPathValues(inputFile, contents, true);

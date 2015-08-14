@@ -172,3 +172,6 @@
 # Region codes used by ICU's Region class
 # Specify the value explicitly so that the LDMLConverter will split it.
 //supplementalData/metadata/validity/variable[@type="choice"][@id="\$territory"] ; /regionCodes ; values={value}
+
+# validity
+//supplementalData/idValidity/id[@type="(%A)"][@idStatus="(%A)"] ; /idValidity/$1/$2 ; values={value}

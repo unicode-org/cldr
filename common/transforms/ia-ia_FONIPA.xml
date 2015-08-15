@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!-- Copyright © 1991-2015 Unicode, Inc., Google Inc. 
+	CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/) 
+	For terms of use, see http://www.unicode.org/copyright.html -->
+<supplementalData>
+	<version number="$Revision$" />
+	<transforms>
+		<transform source="ia" target="ia_FONIPA" direction="forward" draft="contributed">
+			<comment># Transformation from Interlingua (ia) to its IPA transcription (ia_FONIPA).</comment>
+			<comment># http://en.wikipedia.org/wiki/Interlingua#Interlingua_alphabet</comment>
+			<comment># http://www.omniglot.com/writing/interlingua.htm</comment>
+			<tRule></tRule>
+			<tRule>::NFC;</tRule>
+			<tRule>::Lower;</tRule>
+			<tRule></tRule>
+			<comment># Interlinua has five falling diphthongs.</comment>
+			<comment># http://en.wikipedia.org/wiki/Interlingua#Orthography_and_pronunciation</comment>
+			<tRule>ai → ai̯;</tRule>
+			<tRule>au → au̯;</tRule>
+			<tRule>ei → ei̯;  # rare</tRule>
+			<tRule>eu → eu̯;</tRule>
+			<tRule>oi → oi̯;  # rare</tRule>
+			<tRule></tRule>
+			<comment># ‹g› is usually [ɡ], but it is [d͡ʒ] in -age, -agi-, and -egi-.</comment>
+			<comment># http://www.omniglot.com/writing/interlingua.htm</comment>
+			<tRule>$vowel = [aeiouy];</tRule>
+			<tRule>$end_of_word = [$ ];</tRule>
+			<tRule>{age} $end_of_word → ad͡ʒe;</tRule>
+			<tRule>{agi} $vowel → ad͡ʒ;  # viagiar → viad͡ʒar</tRule>
+			<tRule>agi → ad͡ʒi;</tRule>
+			<tRule>{egi} $vowel → ed͡ʒ;  # legier → led͡ʒer</tRule>
+			<tRule>egi → ed͡ʒi;</tRule>
+			<tRule>gg → ɡ;</tRule>
+			<tRule>g → ɡ;</tRule>
+			<tRule></tRule>
+			<comment># Omniglot: “The sounds of g and k assimilate a preceding n as in English.”</comment>
+			<tRule>{n} [gkqx] → ŋ;</tRule>
+			<tRule>nn → n;</tRule>
+			<tRule>n → n;</tRule>
+			<tRule></tRule>
+			<tRule>a → a;</tRule>
+			<tRule>bb → b;</tRule>
+			<tRule>b → b;</tRule>
+			<tRule>cc → k;</tRule>
+			<tRule>{c} [ei] → t͡s;</tRule>
+			<tRule>ch → k;</tRule>
+			<tRule>c → k;</tRule>
+			<tRule>dd → d;</tRule>
+			<tRule>d → d;</tRule>
+			<tRule>e → e;</tRule>
+			<tRule>ff → f;</tRule>
+			<tRule>f → f;</tRule>
+			<tRule>h → ;  # ‹h› is normally silent.</tRule>
+			<tRule>i → i;</tRule>
+			<tRule>j → ʒ;</tRule>
+			<tRule>kk → k;</tRule>
+			<tRule>k → k;</tRule>
+			<tRule>ll → l;</tRule>
+			<tRule>l → l;</tRule>
+			<tRule>mm → m;</tRule>
+			<tRule>m → m;</tRule>
+			<tRule>o → o;</tRule>
+			<tRule>ph → f;  # philosophos, physica</tRule>
+			<tRule>pp → p;</tRule>
+			<tRule>p → p;</tRule>
+			<tRule>que → ke;</tRule>
+			<tRule>qu → kw;</tRule>
+			<tRule>q → k;</tRule>
+			<tRule>rr → ɾ;</tRule>
+			<tRule>r → ɾ;</tRule>
+			<tRule>sh → ʃ;  # rare</tRule>
+			<tRule>ss → s;</tRule>
+			<tRule>s → s;</tRule>
+			<tRule>[^s] {ti} [aeiouy] → t͡sj;</tRule>
+			<tRule>tt → t;</tRule>
+			<tRule>t → t;</tRule>
+			<tRule>u → u;</tRule>
+			<tRule>v → v;</tRule>
+			<tRule>w → v;</tRule>
+			<tRule>x → ks;</tRule>
+			<tRule>y → i;</tRule>
+			<tRule>z → z;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

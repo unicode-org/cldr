@@ -68,6 +68,8 @@ import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UCharacterEnums;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
@@ -1598,7 +1600,32 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
         }
     }
+    public void TestNumberingSystemDigitCompleteness() {
+        List<Integer> unicodeDigits = new ArrayList<Integer>();
+        for ( int cp = UCharacter.MIN_CODE_POINT ; cp <= UCharacter.MAX_CODE_POINT ; cp++ ) {
+            if (UCharacter.getType(cp) == UCharacterEnums.ECharacterCategory.DECIMAL_DIGIT_NUMBER) {
+                unicodeDigits.add(Integer.valueOf(cp));    
+            }
+        }
 
+        for (String ns : SUPPLEMENTAL.getNumericNumberingSystems()) {
+            String digits = SUPPLEMENTAL.getDigits(ns);
+            int ch;
+
+            for (int i = 0; i < digits.length(); i += Character.charCount(ch)) {
+                ch = digits.codePointAt(i);
+                unicodeDigits.remove(Integer.valueOf(ch));
+            }
+        }
+        
+        if (unicodeDigits.size() > 0) {
+            for (Integer i : unicodeDigits) {
+                errln("Unicode digit: "+UCharacter.getName(i)+" is not in any numbering system. Script = "
+                    +UScript.getShortName(UScript.getScript(i)));
+            }
+        }
+    }
+    
     public void TestMetazones() {
         Date goalMin = new Date(70, 0, 1);
         Date goalMax = new Date(300, 0, 2);

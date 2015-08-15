@@ -1205,6 +1205,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         };
         private static final String[][] typeDisplayNames = {
             { "account", "cf" },
+            { "ahom", "numbers" },
             { "arab", "numbers" },
             { "arabext", "numbers" },
             { "armn", "numbers" },
@@ -1248,6 +1249,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             { "hantfin", "numbers" },
             { "hebr", "numbers" },
             { "hebrew", "calendar" },
+            { "hmng", "numbers" },
             { "indian", "calendar" },
             { "islamic", "calendar" },
             { "islamic-civil", "calendar" },
@@ -1276,10 +1278,13 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             { "mathsans", "numbers" },
             { "metric", "ms" },
             { "mlym", "numbers" },
+            { "modi", "numbers" },
             { "mong", "numbers" },
+            { "mroo", "numbers" },
             { "mtei", "numbers" },
             { "mymr", "numbers" },
             { "mymrshan", "numbers" },
+            { "mymrtlng", "numbers" },
             { "nkoo", "numbers" },
             { "normal", "lb" },
             { "olck", "numbers" },
@@ -1296,6 +1301,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             { "search", "collation" },
             { "searchjl", "collation" },
             { "shrd", "numbers" },
+            { "sind", "numbers" },
+            { "sinh", "numbers" },
             { "sora", "numbers" },
             { "standard", "cf" },
             { "standard", "collation" },
@@ -1309,11 +1316,13 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             { "telu", "numbers" },
             { "thai", "numbers" },
             { "tibt", "numbers" },
+            { "tirh", "numbers" },
             { "traditional", "collation" },
             { "unihan", "collation" },
             { "uksystem", "ms" },
             { "ussystem", "ms" },
             { "vaii", "numbers" },
+            { "wara", "numbers" },
             { "zhuyin", "collation" } };
 
         private static final boolean SKIP_SINGLEZONES = false;

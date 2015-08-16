@@ -10,5 +10,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="en"/>
 		<territory type="DE"/>
 	</identity>
+	<numbers>
+		<symbols numberSystem="latn">
+			<superscriptingExponent>·</superscriptingExponent>
+		</symbols>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#0 %</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+	</numbers>
 </ldml>
 

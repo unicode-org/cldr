@@ -37,6 +37,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 
         <!-- 2: few,other -->
 
+        <pluralRules locales="ga">
+            <pluralRule count="one">n = 1 @integer 3, 23, 33, 43, 53, 63, 73, 83, 103, 1003, …</pluralRule>
+            <pluralRule count="other"> @integer 0~2, 4~16, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
+        </pluralRules>
+        <pluralRules locales="be">
+            <pluralRule count="few">n % 10 = 2,3 and n % 100 != 12,13 @integer 3, 23, 33, 43, 53, 63, 73, 83, 103, 1003, …</pluralRule>
+            <pluralRule count="other"> @integer 0~2, 4~16, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
+        </pluralRules>
         <pluralRules locales="uk">
             <pluralRule count="few">n % 10 = 3 and n % 100 != 13 @integer 3, 23, 33, 43, 53, 63, 73, 83, 103, 1003, …</pluralRule>
             <pluralRule count="other"> @integer 0~2, 4~16, 100, 1000, 10000, 100000, 1000000, …</pluralRule>

@@ -45,6 +45,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.RegexLookup.Finder;
 
+import com.google.common.base.Splitter;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
@@ -1482,4 +1483,8 @@ public class CldrUtility {
         return true;
     }
 
+    public static String[] array(Splitter splitter, String source) {
+        List<String> list = splitter.splitToList(source);
+        return list.toArray(new String[list.size()]);
+    }
 }

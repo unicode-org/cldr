@@ -27,14 +27,10 @@ import org.unicode.cldr.tool.PluralRulesFactory;
 import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.DayPeriodInfo;
-import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
-import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.IsoCurrencyParser;
@@ -158,7 +154,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 if (!modernLocales.contains(locale)) {
                     logln("Missing plural ranges for " + locale);
                 } else {
-                    ignoreErrln("Missing plural ranges for " + locale);
+                    errOrLog(CoverageIssue.error, locale + "\tMissing plural ranges", "Cldrbug:7839", "Missing plural data for modern locales");
                 }
                 continue;
             }
@@ -184,7 +180,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
             // check empty range results
             if (found.isEmpty()) {
-                ignoreErrln("Empty range results for " + locale);
+                errOrLog(CoverageIssue.error, "Empty range results for " + locale, "Cldrbug:7839", "Missing plural data for modern locales");
             } else {
                 final SamplePatterns samplePatterns = prf
                     .getSamplePatterns(new ULocale(locale));
@@ -214,28 +210,17 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                         minSample, maxSample);
                     Count explicitValue = pluralRanges.getExplicit(start, end);
                     if (needsValue && explicitValue == null) {
-                        ignoreErrln(locale
-                            + "\tNeeds value, but has none: "
-                            + PluralRanges.showRange(start, end,
-                                Count.other) + ", eg: " + minSample
-                                + "–" + maxSample);
+                        errOrLog(CoverageIssue.error, locale + "\tNeeds value, but has none: "
+                        + PluralRanges.showRange(start, end,
+                            Count.other) + ", eg: " + minSample
+                            + "–" + maxSample, "Cldrbug:7839", "Missing plural data for modern locales");
                     } else if (!needsValue && explicitValue != null) {
-                        ignoreErrln(locale
-                            + "\tDoesn't need value, but has one: "
-                            + PluralRanges.showRange(start, end,
-                                explicitValue));
+                        errOrLog(CoverageIssue.error, locale + "\tDoesn't need value, but has one: "
+                        + PluralRanges.showRange(start, end,
+                            explicitValue), "Cldrbug:7839", "Missing plural data for modern locales");
                     }
                 }
             }
-        }
-    }
-
-    public void ignoreErrln(String s) {
-        if (logKnownIssue("Cldrbug:7839",
-            "Missing plural data for modern locales")) {
-            logln(s);
-        } else {
-            errln(s);
         }
     }
 
@@ -261,16 +246,14 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 PluralInfo rules = SUPPLEMENTAL.getPlurals(
                     SupplementalDataInfo.PluralType.fromStandardType(type),
                     locale.toString());
+                if (rules.getCounts().size() == 1) {
+                    continue; // don't require rules for unary cases
+                }
                 for (Count count : rules.getCounts()) {
                     String sample = samplePatterns.get(type, count);
                     if (sample == null) {
-                        if (type == PluralRules.PluralType.ORDINAL
-                            && logKnownIssue("cldrbug:7075",
-                                "Missing ordinal minimal pairs")) {
-                            continue;
-                        }
-                        assertNotNull("Missing sample for " + locale + ", "
-                            + type + ", " + count, sample);
+                        errOrLog(CoverageIssue.error, locale + "\t" + type + " \tmissing samples for " + count, "cldrbug:7075",
+                            "Missing ordinal minimal pairs");
                     } else {
                         PluralRules pRules = rules.getPluralRules();
                         double unique = pRules.getUniqueKeywordValue(count
@@ -1485,7 +1468,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         // HashSet<ULocale>(overrideCardinals.keySet());
 
         Set<String> testLocales = STANDARD_CODES.getLocaleCoverageLocales(
-            Organization.google, EnumSet.of(Level.MODERN, Level.MODERATE));
+            Organization.cldr, EnumSet.of(Level.MODERN));
         Set<String> allLocales = testInfo.getCldrFactory().getAvailable();
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : allLocales) {
@@ -1501,11 +1484,11 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             CoverageIssue needsCoverage = testLocales.contains(locale) 
                 ? CoverageIssue.error 
                     : CoverageIssue.log;
-            if (logKnownIssue("Cldrbug:8809", "Missing plural rules/samples be and ga locales")) {
-                if (locale.equals("be") || locale.equals("ga")) {
-                    needsCoverage = CoverageIssue.warn;
-                }
-            }
+//            if (logKnownIssue("Cldrbug:8809", "Missing plural rules/samples be and ga locales")) {
+//                if (locale.equals("be") || locale.equals("ga")) {
+//                    needsCoverage = CoverageIssue.warn;
+//                }
+//            }
             ULocale ulocale = new ULocale(locale);
             PluralRulesFactory prf = PluralRulesFactory
                 .getInstance(TestAll.TestInfo.getInstance()
@@ -1515,8 +1498,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(type, locale,
                     false);
                 if (pluralInfo == null) {
-                    errOrLog(needsCoverage, locale + ", missing plural " + type
-                        + " rules");
+                    errOrLog(needsCoverage, locale + "\t" + type + " \tmissing plural rules", "Cldrbug:7839", "Missing plural data for modern locales");
                     continue;
                 }
                 Set<Count> counts = pluralInfo.getCounts();
@@ -1541,32 +1523,41 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                             + pattern);
                     }
                 }
-                if (!countsWithNoSamples.isEmpty()
-                    && (type == PluralType.cardinal || !logKnownIssue(
-                        "cldrbug:7075", "Missing ordinal minimal pairs"))) {
-                    errOrLog(needsCoverage, ulocale + "\t" + type
-                        + "\t missing samples: " + countsWithNoSamples);
+                if (!countsWithNoSamples.isEmpty()) {
+                    errOrLog(needsCoverage, ulocale + "\t" + type + "\t missing samples:\t" + countsWithNoSamples, 
+                        "cldrbug:7075", "Missing ordinal minimal pairs");
                 }
                 for (Entry<String, Set<Count>> entry : samplesToCounts
                     .keyValuesSet()) {
-                    if (entry.getValue().size() != 1
-                        && !logKnownIssue("cldrbug:7119",
-                            "Some duplicate minimal pairs")) {
-                        errOrLog(needsCoverage, ulocale + "\t" + type
-                            + "\t duplicate samples: " + entry.getValue()
-                            + " => «" + entry.getKey() + "»");
+                    if (entry.getValue().size() != 1) {
+                        errOrLog(needsCoverage, ulocale + "\t" + type + "\t duplicate samples: " + entry.getValue()
+                            + " => «" + entry.getKey() + "»", "cldrbug:7119", "Some duplicate minimal pairs");
                     }
                 }
             }
         }
     }
 
-    public void errOrLog(CoverageIssue causeError, String message) {
-        switch(causeError) {
-        case error: errln(message); break;
-        case warn: warnln(message); break;
-        case log: logln(message); break;
+    public void errOrLog(CoverageIssue causeError, String message, String logTicket, String logComment) {
+        switch (causeError) {
+        case error:
+            if (logTicket == null) {
+                errln(message);
+                break;
+            }
+            logKnownIssue(logTicket, logComment);
+            // fall through
+        case warn:
+            warnln(message);
+            break;
+        case log:
+            logln(message);
+            break;
         }
+    }
+    
+    public void errOrLog(CoverageIssue causeError, String message) {
+        errOrLog(causeError, message, null, null);
     }
 
     public void TestNumberingSystemDigits() {

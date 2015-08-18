@@ -30,6 +30,10 @@
      ; /calendar/$1/AmPmMarkersNarrow:alias ; values=/LOCALE/calendar/$2/AmPmMarkersNarrow
      ; /calendar/$1/NoonMarker:alias ; values=/LOCALE/calendar/$2/NoonMarker
      ; /calendar/$1/NoonMarkerNarrow:alias ; values=/LOCALE/calendar/$2/NoonMarkerNarrow
+
+//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/alias[@source="locale"][@path="../dayPeriodWidth[@type='abbreviated']"] ; /calendar/gregorian/AmPmMarkers:alias ; values=/LOCALE/calendar/gregorian/AmPmMarkersAbbr
+//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/alias[@source="locale"][@path="../dayPeriodWidth[@type='abbreviated']"] ; /calendar/gregorian/AmPmMarkersNarrow:alias ; values=/LOCALE/calendar/gregorian/AmPmMarkersAbbr
+
 //ldml/dates/calendars/calendar[@type="(%A)"]/(eras|quarters|cyclicNameSets|monthPatterns)/alias[@source="locale"][@path="../../%W[@type='(%A)']/%W"] ; /calendar/$1/$2:alias ; values=/LOCALE/calendar/$3/$2
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/eras/eraNarrow/alias[@source="locale"][@path="../eraAbbr"] ; /calendar/$1/eras/narrow:alias ; values=/LOCALE/calendar/$1/eras/abbreviated

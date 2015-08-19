@@ -5659,7 +5659,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="other">0000</pattern>
+					<pattern type="1000" count="other">0</pattern>
 					<pattern type="10000" count="other">0만</pattern>
 					<pattern type="100000" count="other">00만</pattern>
 					<pattern type="1000000" count="other">000만</pattern>
@@ -5675,7 +5675,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="other">0000</pattern>
+					<pattern type="1000" count="other">0</pattern>
 					<pattern type="10000" count="other">0만</pattern>
 					<pattern type="100000" count="other">00만</pattern>
 					<pattern type="1000000" count="other">000만</pattern>
@@ -5715,7 +5715,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="other" draft="contributed">¤0000</pattern>
+					<pattern type="1000" count="other" draft="contributed">0</pattern>
 					<pattern type="10000" count="other" draft="contributed">¤0만</pattern>
 					<pattern type="100000" count="other" draft="contributed">¤00만</pattern>
 					<pattern type="1000000" count="other" draft="contributed">¤000만</pattern>

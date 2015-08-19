@@ -180,10 +180,14 @@ public class CheckNumbers extends FactoryCheckCLDR {
             }
             // Make sure currency patterns contain a currency symbol
             if (type == NumericType.CURRENCY || type == NumericType.CURRENCY_ABBREVIATED) {
-                if (patternPart.indexOf("\u00a4") < 0)
+                if (type == NumericType.CURRENCY_ABBREVIATED && value.equals("0")) {
+                    // do nothing, not problem
+                } else if (patternPart.indexOf("\u00a4") < 0) {
+                    // check for compact format
                     result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                         .setSubtype(Subtype.currencyPatternMissingCurrencySymbol)
                         .setMessage("Currency formatting pattern must contain a currency symbol."));
+                }
             }
 
             // Make sure percent formatting patterns contain a percent symbol, in each part

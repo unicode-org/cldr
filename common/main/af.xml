@@ -1646,8 +1646,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-short">
 				<displayName>d.</displayName>
+				<relative type="-2">eergister</relative>
 				<relative type="-1">gister</relative>
+				<relative type="0">vandag</relative>
 				<relative type="1">môre</relative>
+				<relative type="2">oormôre</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">oor {0} dag</relativeTimePattern>
 					<relativeTimePattern count="other">oor {0} dae</relativeTimePattern>
@@ -1659,8 +1662,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-narrow">
 				<displayName>d.</displayName>
+				<relative type="-2">eergister</relative>
 				<relative type="-1">gister</relative>
+				<relative type="0">vandag</relative>
 				<relative type="1">môre</relative>
+				<relative type="2">oormôre</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">oor {0} dag</relativeTimePattern>
 					<relativeTimePattern count="other">oor {0} dae</relativeTimePattern>

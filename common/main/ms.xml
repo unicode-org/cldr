@@ -1844,8 +1844,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-short">
 				<displayName>hari</displayName>
+				<relative type="-2">kelmarin</relative>
 				<relative type="-1">semlm</relative>
+				<relative type="0">hari ini</relative>
 				<relative type="1">esok</relative>
+				<relative type="2">lusa</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">dlm {0} hari</relativeTimePattern>
 				</relativeTime>
@@ -1855,8 +1858,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-narrow">
 				<displayName>hari</displayName>
+				<relative type="-2">kelmarin</relative>
 				<relative type="-1">semlm</relative>
+				<relative type="0">hari ini</relative>
 				<relative type="1">esok</relative>
+				<relative type="2">lusa</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">dlm {0} hari</relativeTimePattern>
 				</relativeTime>

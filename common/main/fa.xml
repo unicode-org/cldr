@@ -2283,7 +2283,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>سه‌ماهه</displayName>
 				<relative type="-1">سه‌ماههٔ گذشته</relative>
 				<relative type="0">سه‌ماههٔ کنونی</relative>
-				<relative type="1" draft="provisional">سه‌ماههٔ آینده</relative>
+				<relative type="1">سه‌ماههٔ آینده</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} سه‌ماههٔ بعد</relativeTimePattern>
 					<relativeTimePattern count="other">{0} سه‌ماههٔ بعد</relativeTimePattern>
@@ -2295,9 +2295,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="quarter-short">
 				<displayName>سه‌ماهه</displayName>
-				<relative type="-1" draft="provisional">سه‌ماههٔ گذشته</relative>
+				<relative type="-1">سه‌ماههٔ گذشته</relative>
 				<relative type="0">سه‌ماههٔ کنونی</relative>
-				<relative type="1" draft="provisional">سه‌ماههٔ آینده</relative>
+				<relative type="1">سه‌ماههٔ آینده</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} سه‌ماههٔ بعد</relativeTimePattern>
 					<relativeTimePattern count="other">{0} سه‌ماههٔ بعد</relativeTimePattern>
@@ -2309,9 +2309,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="quarter-narrow">
 				<displayName>سه‌ماهه</displayName>
-				<relative type="-1" draft="provisional">سه‌ماههٔ گذشته</relative>
+				<relative type="-1">سه‌ماههٔ گذشته</relative>
 				<relative type="0">سه‌ماههٔ کنونی</relative>
-				<relative type="1" draft="provisional">سه‌ماههٔ آینده</relative>
+				<relative type="1">سه‌ماههٔ آینده</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} سه‌ماههٔ بعد</relativeTimePattern>
 					<relativeTimePattern count="other">{0} سه‌ماههٔ بعد</relativeTimePattern>
@@ -2379,7 +2379,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="week-short">
 				<displayName>هفته</displayName>
+				<relative type="-1">هفتهٔ گذشته</relative>
 				<relative type="0">این هفته</relative>
+				<relative type="1">هفتهٔ آینده</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} هفته بعد</relativeTimePattern>
 					<relativeTimePattern count="other">{0} هفته بعد</relativeTimePattern>
@@ -2391,7 +2393,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="week-narrow">
 				<displayName>هفته</displayName>
+				<relative type="-1">هفتهٔ گذشته</relative>
 				<relative type="0">این هفته</relative>
+				<relative type="1">هفتهٔ آینده</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} هفته بعد</relativeTimePattern>
 					<relativeTimePattern count="other">{0} هفته بعد</relativeTimePattern>

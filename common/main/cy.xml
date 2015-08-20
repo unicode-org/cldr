@@ -1911,9 +1911,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-short">
 				<displayName>dydd</displayName>
+				<relative type="-2">echdoe</relative>
 				<relative type="-1">ddoe</relative>
 				<relative type="0">heddiw</relative>
 				<relative type="1">yfory</relative>
+				<relative type="2">drennydd</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="zero">ymhen {0} diwrnod</relativeTimePattern>
 					<relativeTimePattern count="one">ymhen diwrnod</relativeTimePattern>

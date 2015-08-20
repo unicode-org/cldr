@@ -2051,7 +2051,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year-short">
 				<displayName>წ.</displayName>
+				<relative type="-1">გასულ წელს</relative>
 				<relative type="0">ამ წელს</relative>
+				<relative type="1">მომავალ წელს</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} წელში</relativeTimePattern>
 					<relativeTimePattern count="other">{0} წელში</relativeTimePattern>
@@ -2063,7 +2065,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year-narrow">
 				<displayName>წ.</displayName>
+				<relative type="-1">გასულ წელს</relative>
 				<relative type="0">ამ წელს</relative>
+				<relative type="1">მომავალ წელს</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} წელში</relativeTimePattern>
 					<relativeTimePattern count="other">{0} წელში</relativeTimePattern>
@@ -2164,7 +2168,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="week-short">
 				<displayName>კვ.</displayName>
+				<relative type="-1">გასულ კვირაში</relative>
 				<relative type="0">ამ კვირაში</relative>
+				<relative type="1">მომავალ კვირაში</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} კვირაში</relativeTimePattern>
 					<relativeTimePattern count="other">{0} კვირაში</relativeTimePattern>
@@ -2176,7 +2182,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="week-narrow">
 				<displayName>კვ.</displayName>
+				<relative type="-1">გასულ კვირაში</relative>
 				<relative type="0">ამ კვირაში</relative>
+				<relative type="1">მომავალ კვირაში</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} კვირაში</relativeTimePattern>
 					<relativeTimePattern count="other">{0} კვირაში</relativeTimePattern>
@@ -2206,6 +2214,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>დღე</displayName>
 				<relative type="-2">გუშინწინ</relative>
 				<relative type="-1">გუშინ</relative>
+				<relative type="0">დღეს</relative>
 				<relative type="1">ხვალ</relative>
 				<relative type="2">ზეგ</relative>
 				<relativeTime type="future">
@@ -2221,6 +2230,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>დღე</displayName>
 				<relative type="-2">გუშინწინ</relative>
 				<relative type="-1">გუშინ</relative>
+				<relative type="0">დღეს</relative>
 				<relative type="1">ხვალ</relative>
 				<relative type="2">ზეგ</relative>
 				<relativeTime type="future">

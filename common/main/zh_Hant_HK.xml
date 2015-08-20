@@ -602,15 +602,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<fields>
 			<field type="year">
 				<relative type="-1">上年</relative>
+				<relative type="0">今年</relative>
 				<relative type="1">下年</relative>
 			</field>
 			<field type="year-short">
-				<relative type="-1" draft="contributed">上年</relative>
-				<relative type="1" draft="contributed">下年</relative>
+				<relative type="-1">上年</relative>
+				<relative type="0">今年</relative>
+				<relative type="1">下年</relative>
 			</field>
 			<field type="year-narrow">
-				<relative type="-1" draft="contributed">上年</relative>
-				<relative type="1" draft="contributed">下年</relative>
+				<relative type="-1">上年</relative>
+				<relative type="0">今年</relative>
+				<relative type="1">下年</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other" draft="contributed">{0}年後</relativeTimePattern>
 				</relativeTime>
@@ -619,7 +622,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="quarter">
+				<relative type="-1" draft="contributed">上一季</relative>
 				<relative type="0" draft="contributed">今季</relative>
+				<relative type="1" draft="contributed">下一季</relative>
 			</field>
 			<field type="quarter-short">
 				<relative type="-1" draft="contributed">上季</relative>
@@ -639,6 +644,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="month-narrow">
 				<relative type="-1" draft="contributed">上月</relative>
+				<relative type="0" draft="contributed">本月</relative>
 				<relative type="1" draft="contributed">下月</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other" draft="contributed">{0}個月後</relativeTimePattern>

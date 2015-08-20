@@ -13,11 +13,13 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.text.PluralRules;
 
 public class LogicalGrouping {
 
-    public static final String[] metazonesUsingDST = {
+    public static final ImmutableSet<String> metazonesDSTSet = ImmutableSet.of(
         "Acre", "Africa_Western", "Alaska", "Almaty", "Amazon",
         "America_Central", "America_Eastern", "America_Mountain", "America_Pacific", "Anadyr", "Apia",
         "Aqtau", "Aqtobe", "Arabian", "Argentina", "Argentina_Western", "Armenia",
@@ -31,15 +33,12 @@ public class LogicalGrouping {
         "New_Zealand", "Newfoundland", "Noronha", "Novosibirsk", "Omsk", "Pakistan", "Paraguay", "Peru", "Philippines",
         "Pierre_Miquelon", "Qyzylorda", "Sakhalin", "Samara", "Samoa",
         "Taipei", "Tonga", "Turkmenistan", "Uruguay", "Uzbekistan",
-        "Vanuatu", "Vladivostok", "Volgograd", "Yakutsk", "Yekaterinburg" };
+        "Vanuatu", "Vladivostok", "Volgograd", "Yakutsk", "Yekaterinburg" );
 
-    public static final Set<String> metazonesDSTSet = new HashSet<String>(Arrays.asList(metazonesUsingDST));
+    public static final ImmutableList<String> days = ImmutableList.of( "sun", "mon", "tue", "wed", "thu", "fri", "sat" );
 
-    public static final String[] days = { "sun", "mon", "tue", "wed", "thu", "fri", "sat" };
-    public static final List<String> daysList = Arrays.asList(days);
-
-    public static final Set<String> calendarsWith13Months = new HashSet<String>(Arrays.asList("coptic", "ethiopic", "hebrew"));
-    public static final Set<String> compactDecimalFormatLengths = new HashSet<String>(Arrays.asList("short", "long"));
+    public static final ImmutableSet<String> calendarsWith13Months = ImmutableSet.of("coptic", "ethiopic", "hebrew");
+    public static final ImmutableSet<String> compactDecimalFormatLengths = ImmutableSet.of("short", "long");
 
     /**
      * Return the set of paths that are in the same logical set as the given path
@@ -48,7 +47,7 @@ public class LogicalGrouping {
      *            - the distinguishing xpath
      */
     public static Set<String> getPaths(CLDRFile cldrFile, String path) {
-        String[] metazone_string_types = { "generic", "standard", "daylight" };
+        ImmutableSet<String> metazone_string_types = ImmutableSet.of( "generic", "standard", "daylight" );
 
         Set<String> result = new TreeSet<String>();
         if (path == null) return result;
@@ -56,9 +55,9 @@ public class LogicalGrouping {
         // Figure out the plurals forms, as we will probably need them.
 
         XPathParts parts = new XPathParts();
+        parts.set(path);
 
         if (path.indexOf("/metazone") > 0) {
-            parts.set(path);
             String metazoneName = parts.getAttributeValue(3, "type");
             if (metazonesDSTSet.contains(metazoneName)) {
                 for (String str : metazone_string_types) {
@@ -66,9 +65,8 @@ public class LogicalGrouping {
                 }
             }
         } else if (path.indexOf("/days") > 0) {
-            parts.set(path);
             String dayName = parts.size() > 7 ? parts.getAttributeValue(7, "type") : null;
-            if (dayName != null && daysList.contains(dayName)) { // This is just a quick check to make sure the path is
+            if (dayName != null && days.contains(dayName)) { // This is just a quick check to make sure the path is
                                                                  // good.
                 for (String str : days) {
                     parts.setAttribute("day", "type", str);
@@ -79,8 +77,6 @@ public class LogicalGrouping {
             if (path.endsWith("alias")) {
                 result.add(path);
             } else {
-                parts.set(path);
-
                 List<String> ampm = new ArrayList<String>(Arrays.asList("am", "pm"));
                 String dayPeriodType = parts.findAttributeValue("dayPeriod", "type");
 
@@ -105,7 +101,6 @@ public class LogicalGrouping {
                 }
             }
         } else if (path.indexOf("/quarters") > 0) {
-            parts.set(path);
             String quarterName = parts.size() > 7 ? parts.getAttributeValue(7, "type") : null;
             Integer quarter = quarterName == null ? 0 : Integer.valueOf(quarterName);
             if (quarter > 0 && quarter <= 4) { // This is just a quick check to make sure the path is good.
@@ -115,7 +110,6 @@ public class LogicalGrouping {
                 }
             }
         } else if (path.indexOf("/months") > 0) {
-            parts.set(path);
             String calType = parts.size() > 3 ? parts.getAttributeValue(3, "type") : null;
             String monthName = parts.size() > 7 ? parts.getAttributeValue(7, "type") : null;
             Integer month = monthName == null ? 0 : Integer.valueOf(monthName);
@@ -134,8 +128,16 @@ public class LogicalGrouping {
                     result.add(parts.toString());
                 }
             }
-        } else if (path.indexOf("/decimalFormatLength") > 0) {
-            parts.set(path);
+        } else if (parts.containsElement("relative")) {
+            String relativeType = parts.findAttributeValue("relative", "type");
+            Integer relativeValue = relativeType == null ? 999 : Integer.valueOf(relativeType);
+            if (relativeValue >= -3 && relativeValue <= 3) { // This is just a quick check to make sure the path is good.
+                for (Integer i = -1; i <= 1; i++) {
+                    parts.setAttribute("relative", "type", i.toString());
+                    result.add(parts.toString());
+                }
+            }
+       } else if (path.indexOf("/decimalFormatLength") > 0) {
             PluralInfo pluralInfo = getPluralInfo(cldrFile);
             Set<Count> pluralTypes = pluralInfo.getCounts();
             String decimalFormatLengthType = parts.size() > 3 ? parts.getAttributeValue(3, "type") : null;
@@ -154,7 +156,6 @@ public class LogicalGrouping {
                 }
             }
         } else if (path.indexOf("[@count=") > 0) {
-            parts.set(path);
             PluralInfo pluralInfo = getPluralInfo(cldrFile);
             Set<Count> pluralTypes = pluralInfo.getCounts();
             String lastElement = parts.getElement(-1);

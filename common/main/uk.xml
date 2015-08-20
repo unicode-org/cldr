@@ -2536,6 +2536,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="year-short">
 				<displayName>р.</displayName>
 				<relative type="-1">торік</relative>
+				<relative type="0">цього року</relative>
+				<relative type="1">наступного року</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">через {0} р.</relativeTimePattern>
 					<relativeTimePattern count="few">через {0} р.</relativeTimePattern>
@@ -2552,6 +2554,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="year-narrow">
 				<displayName>р.</displayName>
 				<relative type="-1">торік</relative>
+				<relative type="0">цього року</relative>
+				<relative type="1">наступного року</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} р.</relativeTimePattern>
 					<relativeTimePattern count="few">+{0} р.</relativeTimePattern>

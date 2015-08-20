@@ -306,7 +306,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</calendars>
 		<fields>
 			<field type="year">
-				<relative type="1" draft="contributed">el año próximo</relative>
+				<relative type="-1">el año pasado</relative>
+				<relative type="0">este año</relative>
+				<relative type="1">el año próximo</relative>
 			</field>
 			<field type="year-short">
 				<relativeTime type="future">
@@ -347,7 +349,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="month">
-				<relative type="1" draft="contributed">el mes próximo</relative>
+				<relative type="-1">el mes pasado</relative>
+				<relative type="0">este mes</relative>
+				<relative type="1">el mes próximo</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one" draft="contributed">en {0} mes</relativeTimePattern>
 					<relativeTimePattern count="other" draft="contributed">en {0} meses</relativeTimePattern>
@@ -370,7 +374,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="week">
-				<relative type="1" draft="contributed">la semana próxima</relative>
+				<relative type="-1">la semana pasada</relative>
+				<relative type="0">esta semana</relative>
+				<relative type="1">la semana próxima</relative>
 			</field>
 			<field type="week-short">
 				<relativeTime type="future">
@@ -412,16 +418,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 			<field type="sun">
-				<relative type="1" draft="contributed">el domingo próximo</relative>
+				<relative type="-1">el domingo pasado</relative>
+				<relative type="0">este domingo</relative>
+				<relative type="1">el domingo próximo</relative>
 			</field>
 			<field type="mon">
-				<relative type="1" draft="contributed">el lunes próximo</relative>
+				<relative type="-1">el lunes pasado</relative>
+				<relative type="0">este lunes</relative>
+				<relative type="1">el lunes próximo</relative>
 			</field>
 			<field type="tue">
-				<relative type="1" draft="contributed">el martes próximo</relative>
+				<relative type="-1">el martes pasado</relative>
+				<relative type="0">este martes</relative>
+				<relative type="1">el martes próximo</relative>
 			</field>
 			<field type="wed">
-				<relative type="1" draft="contributed">el miércoles próximo</relative>
+				<relative type="-1">el miércoles pasado</relative>
+				<relative type="0">este miércoles</relative>
+				<relative type="1">el miércoles próximo</relative>
 			</field>
 			<field type="wed-short">
 				<relative type="-1" draft="contributed">el miér. pasado</relative>
@@ -429,10 +443,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="1" draft="contributed">el próximo miér.</relative>
 			</field>
 			<field type="thu">
-				<relative type="1" draft="contributed">el jueves próximo</relative>
+				<relative type="-1">el jueves pasado</relative>
+				<relative type="0">este jueves</relative>
+				<relative type="1">el jueves próximo</relative>
 			</field>
 			<field type="fri">
-				<relative type="1" draft="contributed">el viernes próximo</relative>
+				<relative type="-1">el viernes pasado</relative>
+				<relative type="0">este viernes</relative>
+				<relative type="1">el viernes próximo</relative>
 			</field>
 			<field type="fri-short">
 				<relative type="-1" draft="contributed">el vier. pasado</relative>
@@ -440,7 +458,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="1" draft="contributed">el próximo vier.</relative>
 			</field>
 			<field type="sat">
-				<relative type="1" draft="contributed">el sábado próximo</relative>
+				<relative type="-1">el sábado pasado</relative>
+				<relative type="0">este sábado</relative>
+				<relative type="1">el sábado próximo</relative>
 			</field>
 			<field type="hour-short">
 				<relativeTime type="future">

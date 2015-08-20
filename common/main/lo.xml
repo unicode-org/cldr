@@ -3088,7 +3088,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-short">
 				<displayName>ມື້</displayName>
+				<relative type="-2">ມື້ກ່ອນ</relative>
+				<relative type="-1">ມື້ວານ</relative>
+				<relative type="0">ມື້ນີ້</relative>
 				<relative type="1">ມື້ອື່ນ</relative>
+				<relative type="2">ມື້ຮື</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ໃນອີກ {0} ມື້</relativeTimePattern>
 				</relativeTime>
@@ -3098,7 +3102,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-narrow">
 				<displayName>ມື້</displayName>
+				<relative type="-2">ມື້ກ່ອນ</relative>
+				<relative type="-1">ມື້ວານ</relative>
+				<relative type="0">ມື້ນີ້</relative>
 				<relative type="1">ມື້ອື່ນ</relative>
+				<relative type="2">ມື້ຮື</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ໃນອີກ {0} ມື້</relativeTimePattern>
 				</relativeTime>

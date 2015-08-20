@@ -123,7 +123,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</calendars>
 		<fields>
 			<field type="day">
-				<relative type="-2" draft="contributed">antes de ayer</relative>
+				<relative type="-2">antes de ayer</relative>
+				<relative type="-1">ayer</relative>
+				<relative type="0">hoy</relative>
+				<relative type="1">mañana</relative>
+				<relative type="2">pasado mañana</relative>
 			</field>
 			<field type="sun-narrow">
 				<relative type="-1" draft="contributed">el dom. pasado</relative>

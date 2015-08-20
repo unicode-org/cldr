@@ -5219,7 +5219,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="quarter">
 				<displayName>kvartal</displayName>
 				<relative type="-1">forrige kvartal</relative>
-				<relative type="0" draft="provisional">dette kvartal</relative>
+				<relative type="0">dette kvartal</relative>
 				<relative type="1">neste kvartal</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">om {0} kvartal</relativeTimePattern>
@@ -5361,6 +5361,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>dag</displayName>
 				<relative type="-2">i forgårs</relative>
+				<relative type="-1">i går</relative>
+				<relative type="0">i dag</relative>
+				<relative type="1">i morgen</relative>
 				<relative type="2">i overmorgen</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">om {0} d.</relativeTimePattern>

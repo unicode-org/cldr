@@ -2025,7 +2025,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year-short">
 				<displayName>a</displayName>
+				<relative type="-1">el año pasado</relative>
 				<relative type="0">este año</relative>
+				<relative type="1">el próximo año</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">dentro de {0} a</relativeTimePattern>
 					<relativeTimePattern count="other">dentro de {0} a</relativeTimePattern>
@@ -2037,7 +2039,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year-narrow">
 				<displayName>a</displayName>
+				<relative type="-1">el año pasado</relative>
 				<relative type="0">este año</relative>
+				<relative type="1">el próximo año</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">dentro de {0} a</relativeTimePattern>
 					<relativeTimePattern count="other">dentro de {0} a</relativeTimePattern>
@@ -2096,7 +2100,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="month-short">
 				<displayName>m</displayName>
+				<relative type="-1">el mes pasado</relative>
 				<relative type="0">este mes</relative>
+				<relative type="1">el próximo mes</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">dentro de {0} m</relativeTimePattern>
 					<relativeTimePattern count="other">dentro de {0} m</relativeTimePattern>
@@ -2108,7 +2114,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="month-narrow">
 				<displayName>m</displayName>
+				<relative type="-1">el mes pasado</relative>
 				<relative type="0">este mes</relative>
+				<relative type="1">el próximo mes</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">dentro de {0} m</relativeTimePattern>
 					<relativeTimePattern count="other">dentro de {0} m</relativeTimePattern>

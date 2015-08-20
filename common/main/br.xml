@@ -1595,6 +1595,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="month">
 				<displayName>miz</displayName>
+				<relative type="-1">ar miz diaraok</relative>
 				<relative type="0">ar miz-mañ</relative>
 				<relative type="1">ar miz a zeu</relative>
 				<relativeTime type="future">
@@ -1614,6 +1615,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="month-short">
 				<displayName>miz</displayName>
+				<relative type="-1">ar miz diaraok</relative>
 				<relative type="0">ar miz-mañ</relative>
 				<relative type="1">ar miz a zeu</relative>
 				<relativeTime type="future">
@@ -1633,7 +1635,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="month-narrow">
 				<displayName>miz</displayName>
-				<relative type="0">this month</relative>
+				<relative type="-1">ar miz diaraok</relative>
+				<relative type="0">ar miz-mañ</relative>
 				<relative type="1">ar miz a zeu</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} miz</relativeTimePattern>
@@ -1652,6 +1655,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="week">
 				<displayName>sizhun</displayName>
+				<relative type="-1">ar sizhun diaraok</relative>
 				<relative type="0">ar sizhun-mañ</relative>
 				<relative type="1">ar sizhun a zeu</relative>
 				<relativeTime type="future">

@@ -1939,7 +1939,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year-short">
 				<displayName>έτ.</displayName>
+				<relative type="-1">πέρσι</relative>
 				<relative type="0">φέτος</relative>
+				<relative type="1">επόμενο έτος</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">σε {0} έτος</relativeTimePattern>
 					<relativeTimePattern count="other">σε {0} έτη</relativeTimePattern>
@@ -1951,7 +1953,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year-narrow">
 				<displayName>έτ.</displayName>
+				<relative type="-1">πέρσι</relative>
 				<relative type="0">φέτος</relative>
+				<relative type="1">επόμενο έτος</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">σε {0} έτος</relativeTimePattern>
 					<relativeTimePattern count="other">σε {0} έτη</relativeTimePattern>

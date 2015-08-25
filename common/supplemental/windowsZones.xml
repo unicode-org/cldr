@@ -10,7 +10,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 
 	<windowsZones>
-		<mapTimezones otherVersion="7df0004" typeVersion="2015a">
+		<mapTimezones otherVersion="7df0005" typeVersion="2015f">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -176,10 +176,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="E. South America Standard Time" territory="001" type="America/Sao_Paulo"/>
 			<mapZone other="E. South America Standard Time" territory="BR" type="America/Sao_Paulo"/>
 
-			<!-- (UTC-03:00) Buenos Aires -->
-			<mapZone other="Argentina Standard Time" territory="001" type="America/Buenos_Aires"/>
-			<mapZone other="Argentina Standard Time" territory="AR" type="America/Buenos_Aires America/Argentina/La_Rioja America/Argentina/Rio_Gallegos America/Argentina/Salta America/Argentina/San_Juan America/Argentina/San_Luis America/Argentina/Tucuman America/Argentina/Ushuaia America/Catamarca America/Cordoba America/Jujuy America/Mendoza"/>
-
 			<!-- (UTC-03:00) Cayenne, Fortaleza -->
 			<mapZone other="SA Eastern Standard Time" territory="001" type="America/Cayenne"/>
 			<mapZone other="SA Eastern Standard Time" territory="AQ" type="Antarctica/Rothera"/>
@@ -188,6 +184,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="SA Eastern Standard Time" territory="GF" type="America/Cayenne"/>
 			<mapZone other="SA Eastern Standard Time" territory="SR" type="America/Paramaribo"/>
 			<mapZone other="SA Eastern Standard Time" territory="ZZ" type="Etc/GMT+3"/>
+
+			<!-- (UTC-03:00) City of Buenos Aires -->
+			<mapZone other="Argentina Standard Time" territory="001" type="America/Buenos_Aires"/>
+			<mapZone other="Argentina Standard Time" territory="AR" type="America/Buenos_Aires America/Argentina/La_Rioja America/Argentina/Rio_Gallegos America/Argentina/Salta America/Argentina/San_Juan America/Argentina/San_Luis America/Argentina/Tucuman America/Argentina/Ushuaia America/Catamarca America/Cordoba America/Jujuy America/Mendoza"/>
 
 			<!-- (UTC-03:00) Greenland -->
 			<mapZone other="Greenland Standard Time" territory="001" type="America/Godthab"/>

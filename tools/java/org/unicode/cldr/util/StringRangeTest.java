@@ -1,10 +1,19 @@
 package org.unicode.cldr.util;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
+import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.StringRange.Adder;
+import org.unicode.cldr.util.Validity.Status;
 
+import com.google.common.base.Splitter;
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class StringRangeTest extends TestFmwk {
@@ -41,22 +50,30 @@ public class StringRangeTest extends TestFmwk {
             {"ab", "ad", 
                 "{ab}{ac}{ad}", 
                 "{ab}-{ad}", 
+                "{ab}-d", 
+                "{ab}-{ad}", 
                 "{ab}-d"
             },
             {"ab", "cd", 
                 "{ab}{ac}{ad}{bb}{bc}{bd}{cb}{cc}{cd}", 
                 "{ab}-{ad} {bb}-{bd} {cb}-{cd}", 
-                "{ab}-d {bb}-d {cb}-d"
+                "{ab}-d {bb}-d {cb}-d", 
+                "{ab}-{cd}", 
+                "{ab}-{cd}"
             },
             {"👦🏻", "👦🏿", 
                 "{👦🏻}{👦🏼}{👦🏽}{👦🏾}{👦🏿}", 
+                "{👦🏻}-{👦🏿}", 
+                "{👦🏻}-🏿", 
                 "{👦🏻}-{👦🏿}", 
                 "{👦🏻}-🏿"
             },
             {"qax👦🏻", "cx👦🏿", 
                 "{qax👦🏻}{qax👦🏼}{qax👦🏽}{qax👦🏾}{qax👦🏿}{qbx👦🏻}{qbx👦🏼}{qbx👦🏽}{qbx👦🏾}{qbx👦🏿}{qcx👦🏻}{qcx👦🏼}{qcx👦🏽}{qcx👦🏾}{qcx👦🏿}", 
                 "{qax👦🏻}-{qax👦🏿} {qbx👦🏻}-{qbx👦🏿} {qcx👦🏻}-{qcx👦🏿}",
-                "{qax👦🏻}-🏿 {qbx👦🏻}-🏿 {qcx👦🏻}-🏿"
+                "{qax👦🏻}-🏿 {qbx👦🏻}-🏿 {qcx👦🏻}-🏿", 
+                "{qax👦🏻}-{qcx👦🏿}",
+                "{qax👦🏻}-{cx👦🏿}"
             },
         };
         final StringBuilder b = new StringBuilder();
@@ -79,8 +96,6 @@ public class StringRangeTest extends TestFmwk {
             final String start = test[0];
             final String end = test[1];
             String expectedExpand = test[2];
-            String expectedCompact = test[3];
-            String expectedMostCompact = test[4];
             try {
                 StringRange.expand(start, end, output);
                 assertEquals("Expand " + start + "-" + end, expectedExpand, show(output));
@@ -88,21 +103,74 @@ public class StringRangeTest extends TestFmwk {
                 assertEquals("Expand " + start + "-" + end, expectedExpand, e.getMessage());
                 continue;
             }
-            b.setLength(0);
-            try {
-                StringRange.compact(output, myAdder, false);
-                assertEquals("Compact " + output.toString() + "\n\t", expectedCompact, b.toString());
-            } catch (Exception e) {
-                assertEquals("Compact " + output.toString() + "\n\t", expectedCompact, e.getMessage());
-            }
-            b.setLength(0);
-            try {
-                StringRange.compact(output, myAdder, true);
-                assertEquals("Compact+ " + output.toString() + "\n\t", expectedMostCompact, b.toString());
-            } catch (Exception e) {
-                assertEquals("Compact+ " + output.toString() + "\n\t", expectedCompact, e.getMessage());
+            int expectedIndex = 3;
+            for (Boolean more : Arrays.asList(false, true)) {
+                for (Boolean shorterPairs : Arrays.asList(false, true)) {
+                    b.setLength(0);
+                    String expectedCompact = test[expectedIndex++];
+                    final String message = "Compact " + output.toString() + ", " + shorterPairs + ", " + more + "\n\t";
+                    try {
+                        StringRange.compact(output, myAdder, shorterPairs, more);
+                        assertEquals(message, expectedCompact, b.toString());
+                    } catch (Exception e) {
+                        assertEquals(message, null, e.getMessage());
+                    }
+                }
             }
         }
     }
 
+    static final Splitter ONSPACE = Splitter.on(' ').omitEmptyStrings();
+    static final Splitter ONTILDE = Splitter.on('~').omitEmptyStrings();
+
+    public void TestWithValidity() {
+        final StringBuilder b = new StringBuilder();
+        Adder myAdder = new Adder() { // for testing: doesn't do quoting, etc
+            @Override
+            public void add(String start, String end) {
+                if (b.length() != 0) {
+                    b.append(' ');
+                }
+                b.append(start);
+                if (end != null) {
+                    b.append('~');
+                    b.append(end);
+                }
+            }
+        };
+
+        Validity validity = Validity.getInstance();
+        Map<LstrType, Map<Status, Set<String>>> data = validity.getData();
+        for (Entry<LstrType, Map<Status, Set<String>>> entry : data.entrySet()) {
+            LstrType type = entry.getKey();
+            for (Entry<Status, Set<String>> entry2 : entry.getValue().entrySet()) {
+                for (Boolean more : Arrays.asList(false, true)) {
+                    for (Boolean shorterPairs : Arrays.asList(false, true)) {
+                        Status key = entry2.getKey();
+//                if (key != Status.deprecated) continue;
+                        Set<String> values = entry2.getValue();
+                        b.setLength(0);
+                        if (more) {
+                            StringRange.compact(values,myAdder,shorterPairs,true);
+                        } else {
+                            StringRange.compact(values, myAdder, shorterPairs);
+                        }
+                        String compacted2 = b.toString();
+                        logln(type + ":" + key + ":\t" + compacted2.length() + "\t" + compacted2);
+                        Set<String> restored = new HashSet<>();
+                        for (String part : ONSPACE.split(compacted2)) {
+                            Iterator<String> mini = ONTILDE.split(part).iterator();
+                            String main = mini.next();
+                            if (mini.hasNext()) {
+                                StringRange.expand(main, mini.next(), restored);
+                            } else {
+                                restored.add(main);
+                            }
+                        }
+                        assertEquals(type + ":" + key + "," + more + "," + shorterPairs, values, restored);
+                    }
+                }
+            }
+        }
+    }
 }

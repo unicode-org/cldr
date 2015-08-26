@@ -111,7 +111,7 @@ public class ShowLocaleCoverage {
 
         if (MyOptions.growth.option.doesOccur()) {
             try (PrintWriter out 
-                = BagFormatter.openUTF8Writer(MyOptions.targetDir.option.getValue(), 
+                = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/", 
                     "showLocaleGrowth.txt")) {
                 doGrowth(matcher, out);
                 return;
@@ -418,7 +418,7 @@ public class ShowLocaleCoverage {
 
         PrintWriter out;
         try {
-            out = BagFormatter.openUTF8Writer(MyOptions.targetDir.option.getValue(), "simpleCoverage.tsv");
+            out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/", "simpleCoverage.tsv");
         } catch (IOException e1) {
             throw new IllegalArgumentException(e1);
         }
@@ -440,7 +440,7 @@ public class ShowLocaleCoverage {
         }
         PrintWriter out2;
         try {
-            out2 = BagFormatter.openUTF8Writer(MyOptions.targetDir.option.getValue(), 
+            out2 = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/", 
                 "showLocaleCoverage.txt");
         } catch (IOException e1) {
             throw new IllegalArgumentException(e1);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2015 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -26,6 +26,10 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="one">n = 1 @integer 1</pluralRule>
             <pluralRule count="other"> @integer 0, 2~16, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
+        <pluralRules locales="ga">
+            <pluralRule count="one">n = 1 @integer 1</pluralRule>
+            <pluralRule count="other"> @integer 0, 2~16, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
+        </pluralRules>
         <pluralRules locales="hu">
             <pluralRule count="one">n = 1,5 @integer 1, 5</pluralRule>
             <pluralRule count="other"> @integer 0, 2~4, 6~17, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
@@ -37,13 +41,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 
         <!-- 2: few,other -->
 
-        <pluralRules locales="ga">
-            <pluralRule count="one">n = 1 @integer 3, 23, 33, 43, 53, 63, 73, 83, 103, 1003, …</pluralRule>
-            <pluralRule count="other"> @integer 0~2, 4~16, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
-        </pluralRules>
         <pluralRules locales="be">
-            <pluralRule count="few">n % 10 = 2,3 and n % 100 != 12,13 @integer 3, 23, 33, 43, 53, 63, 73, 83, 103, 1003, …</pluralRule>
-            <pluralRule count="other"> @integer 0~2, 4~16, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
+            <pluralRule count="few">n % 10 = 2,3 and n % 100 != 12,13 @integer 2, 3, 22, 23, 32, 33, 42, 43, 52, 53, 62, 63, 72, 73, 82, 83, 102, 1002, …</pluralRule>
+            <pluralRule count="other"> @integer 0, 1, 4~17, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
         <pluralRules locales="uk">
             <pluralRule count="few">n % 10 = 3 and n % 100 != 13 @integer 3, 23, 33, 43, 53, 63, 73, 83, 103, 1003, …</pluralRule>

@@ -539,9 +539,9 @@ public class GeneratedPluralSamples {
     private static boolean CHECK_VALUE = false;
 
     enum MyOptions {
-        output(".*", CLDRPaths.GEN_DIRECTORY + "picker/", "output data directory"),
+        output(".*", CLDRPaths.GEN_DIRECTORY + "plurals/", "output data directory"),
         filter(".*", null, "filter locales"),
-        xml(null, null, "xml file format"),
+        //xml(null, null, "xml file format"),
         multiline(null, null, "multiple lines in file"),
         sortNew(null, null, "sort without backwards compatible hack");
         // boilerplate
@@ -558,7 +558,7 @@ public class GeneratedPluralSamples {
         System.out.println(test);
 
         Matcher localeMatcher = !MyOptions.filter.option.doesOccur() ? null : PatternCache.get(MyOptions.filter.option.getValue()).matcher("");
-        boolean fileFormat = MyOptions.xml.option.doesOccur();
+        boolean fileFormat = true; //MyOptions.xml.option.doesOccur();
         final boolean multiline = MyOptions.multiline.option.doesOccur();
         final boolean sortNew = MyOptions.sortNew.option.doesOccur();
 
@@ -571,7 +571,7 @@ public class GeneratedPluralSamples {
 
         for (PluralType type : PluralType.values()) {
             if (fileFormat) {
-                out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/plurals/",
+                out = BagFormatter.openUTF8Writer(MyOptions.output.option.getValue(),
                     (type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml"));
                 out.print(WritePluralRules.formatPluralHeader(type, "GeneratedPluralSamples"));
             }
@@ -588,6 +588,7 @@ public class GeneratedPluralSamples {
                     continue;
                 }
                 PluralInfo pluralInfo = testInfo.getSupplementalDataInfo().getPlurals(type, locale);
+                //System.out.println(type + ", " + locale + "=>" + pluralInfo);
                 seenAlready.put(pluralInfo, locale);
             }
 

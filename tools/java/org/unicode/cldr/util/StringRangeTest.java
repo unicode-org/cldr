@@ -13,8 +13,10 @@ import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.StringRange.Adder;
 import org.unicode.cldr.util.Validity.Status;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.text.NumberFormat;
 
 public class StringRangeTest extends TestFmwk {
     public static void main(String[] args) {
@@ -141,14 +143,18 @@ public class StringRangeTest extends TestFmwk {
 
         Validity validity = Validity.getInstance();
         Map<LstrType, Map<Status, Set<String>>> data = validity.getData();
+        NumberFormat pf = NumberFormat.getPercentInstance();
+        
         for (Entry<LstrType, Map<Status, Set<String>>> entry : data.entrySet()) {
             LstrType type = entry.getKey();
             for (Entry<Status, Set<String>> entry2 : entry.getValue().entrySet()) {
+                Set<String> values = entry2.getValue();
+                String raw = Joiner.on(" ").join(values);
+                double rawsize = raw.length();
                 for (Boolean more : Arrays.asList(false, true)) {
                     for (Boolean shorterPairs : Arrays.asList(false, true)) {
                         Status key = entry2.getKey();
 //                if (key != Status.deprecated) continue;
-                        Set<String> values = entry2.getValue();
                         b.setLength(0);
                         if (more) {
                             StringRange.compact(values,myAdder,shorterPairs,true);
@@ -156,7 +162,7 @@ public class StringRangeTest extends TestFmwk {
                             StringRange.compact(values, myAdder, shorterPairs);
                         }
                         String compacted2 = b.toString();
-                        logln(type + ":" + key + ":\t" + compacted2.length() + "\t" + compacted2);
+                        logln(type + ":" + key + ":\t" + compacted2.length() + "/" + raw.length() + " = " + pf.format(compacted2.length()/rawsize - 1.00000000000001) + "\t" + compacted2);
                         Set<String> restored = new HashSet<>();
                         for (String part : ONSPACE.split(compacted2)) {
                             Iterator<String> mini = ONTILDE.split(part).iterator();

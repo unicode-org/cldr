@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2015 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -196,6 +196,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="22.02"> $ID × $IN </rule>
 				<rule id="22.03"> $IN × $IN </rule>
 				<rule id="22.04"> $NU × $IN </rule>
+				<rule id="22.05"> $EX × $IN </rule>
 				<!-- LB 23  Do not break within ‘a9’, ‘3a’, or ‘H%’. -->
 				<rule id="23.01"> $ID × $PO </rule>
 				<rule id="23.02"> ($AL | $HL) × $NU </rule>
@@ -277,7 +278,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- is between uppercase letters, or if the first following letter (optionally after certain punctuation) is lowercase. -->
 				<!-- For example, a period may be an abbreviation or numeric period, and not mark the end of a sentence. -->
 				<rule id="6"> $ATerm × $Numeric </rule>
-				<rule id="7"> $Upper $ATerm × $Upper </rule>
+				<rule id="7"> ($Upper | $Lower) $ATerm × $Upper </rule>
 				<rule id="8"> $ATerm $Close* $Sp* × $NotPreLower_* $Lower </rule>
 				<rule id="8.1"> ($STerm | $ATerm) $Close* $Sp* × ($SContinue | $STerm | $ATerm) </rule>
 				<!-- Break after sentence terminators, but include closing punctuation, trailing spaces, and (optionally) a paragraph separator. -->

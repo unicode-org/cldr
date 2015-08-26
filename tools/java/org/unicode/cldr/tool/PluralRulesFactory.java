@@ -703,7 +703,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         { "bs", "Skrenite na {0}. križanju desno.", "1" },
         { "ca", "Agafa el {0}r a la dreta.", "1" },
         { "ca", "Agafa el {0}n a la dreta.", "2" },
-        { "ca", "Agafa el {0}rt a la dreta.", "4" },
+        { "ca", "Agafa el {0}t a la dreta.", "4" },
         { "ca", "Agafa el {0}è a la dreta.", "5" },
         { "cs", "Na {0}. křižovatce odbočte vpravo.", "1" },
         { "da", "Tag den {0}. vej til højre.", "1" },

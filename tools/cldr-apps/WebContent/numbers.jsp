@@ -204,8 +204,12 @@ private static String getNumberStyle(String ruleName, double val, boolean isRTL)
     return "";
 }
 
+// We are doing this silliness because the Java compiler likes to hard code the string during initial compilation (javac).
+// This is a problem when the ICU4J jar is upgraded, and this JSP is not recompiled.
+static String ICU_RBNF_BASE_NAME = ICUResourceBundle.ICU_RBNF_BASE_NAME.replaceFirst("[0-9]+", Integer.toString(VersionInfo.ICU_VERSION.getMajor()));
+
 private static String getRules(ULocale selectedLocale, String ruleType) {
-    ICUResourceBundle rbnfBundle = (ICUResourceBundle)UResourceBundle.getBundleInstance(ICUResourceBundle.ICU_RBNF_BASE_NAME, selectedLocale);
+    ICUResourceBundle rbnfBundle = (ICUResourceBundle)UResourceBundle.getBundleInstance(ICU_RBNF_BASE_NAME, selectedLocale);
     UResourceBundle ruleTypeBundle;
     try {
         ruleTypeBundle = rbnfBundle.getWithFallback("RBNFRules/" + ruleType);
@@ -450,6 +454,6 @@ else {
         <div style="float: left;"><a href="http://www.unicode.org/">Unicode</a> | <a href="http://cldr.unicode.org/">CLDR</a>
         | <a href="http://unicode.org/cldr/trac/newticket?component=survey&amp;summary=Feedback+for+Number+Format+Tester+<%=type%>&amp;locale=<%=selectedLocale.toString()%>">Feedback or corrections to the displayed rules</a></div>
 <div style="float: right; font-size: 60%;"><span class="notselected">Powered by
-<a href="http://www.icu-project.org/">ICU</a> <%= trimVersion(com.ibm.icu.util.VersionInfo.ICU_VERSION.toString()) %></span></div>
+<a href="http://www.icu-project.org/">ICU</a> <%= trimVersion(VersionInfo.ICU_VERSION.toString()) %></span></div>
 </body>
 </html>

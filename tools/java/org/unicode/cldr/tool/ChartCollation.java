@@ -227,6 +227,11 @@ public class ChartCollation extends Chart {
         String title;
         String file;
         private Map<String, Data> data;
+        
+        @Override
+        public boolean getShowDate() {
+            return false;
+        }
 
         public Subchart(String title, String file, Map<String, Data> data2) {
             this.title = title;

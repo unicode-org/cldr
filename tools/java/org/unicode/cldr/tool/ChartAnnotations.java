@@ -219,6 +219,11 @@ public class ChartAnnotations extends Chart {
         String title;
         String file;
         private TablePrinter tablePrinter;
+        
+        @Override
+        public boolean getShowDate() {
+            return false;
+        }
 
         public Subchart(String title, String file, TablePrinter tablePrinter) {
             super();

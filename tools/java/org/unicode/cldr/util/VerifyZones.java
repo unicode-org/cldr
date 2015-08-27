@@ -32,6 +32,8 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 public class VerifyZones {
+    private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
+
     private static final String DIR = CLDRPaths.CHART_DIRECTORY + "verify/zones/";
 
     private static final boolean DEBUG = false;
@@ -290,9 +292,9 @@ public class VerifyZones {
         Factory factory2 = Factory.make(CLDRPaths.MAIN_DIRECTORY, filter);
         CLDRFile englishCldrFile = factory2.make("en", true);
         DateTimeFormats.writeCss(DIR);
-        PrintWriter index = DateTimeFormats.openIndex(DIR);
-        int oldFirst = 0;
-        final CLDRFile english = CLDRConfig.getInstance().getEnglish();
+        final CLDRFile english = CLDR_CONFIG.getEnglish();
+
+        Map<String,String> indexMap = new TreeMap<>(CLDR_CONFIG.getCollator());
 
         for (String localeID : factory2.getAvailableLanguages()) {
             Level level = StandardCodes.make().getLocaleCoverageLevel(organization, localeID);
@@ -307,26 +309,21 @@ public class VerifyZones {
                 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n" +
                 "<title>" + title + "</title>\n" +
                 "<link rel='stylesheet' type='text/css' href='index.css'>\n" +
-                "</head><body><h1>" + title + "</h1>");
+                "</head><body><h1>" + title + "</h1>\n"
+                + "<p><a href='index.html'>Index</a></p>\n"
+                );
+            
 
             showZones(timezoneFilter, englishCldrFile, cldrFile, out);
 
             out.println("</body></html>");
             out.close();
             
-            final String name = english.getName(localeID);
-            int first = name.codePointAt(0);
-            if (oldFirst != first) {
-                index.append("<hr>");
-                oldFirst = first;
-            } else {
-                index.append("  ");
-            }
-            index.append("<a href='").append(localeID + ".html").append("'>").append(name).append("</a>\n");
-            index.flush();
+            indexMap.put(english.getName(localeID), localeID + ".html");
         }
-        index.println("</div></body></html>");
-        index.close();
+        try (PrintWriter index = DateTimeFormats.openIndex(DIR, "Time Zones")) {
+            DateTimeFormats.writeIndexMap(indexMap, index);
+        }
 
 
         // Look at DateTimeFormats.java
@@ -498,7 +495,7 @@ public class VerifyZones {
         }
     }
 
-    private static String surveyUrl = CLDRConfig.getInstance().getProperty("CLDR_SURVEY_URL",
+    private static String surveyUrl = CLDR_CONFIG.getProperty("CLDR_SURVEY_URL",
         "http://st.unicode.org/cldr-apps/survey");
 
     static private String METAZONE_PREFIX = "//ldml/dates/timeZoneNames/metazone[@type=\"";

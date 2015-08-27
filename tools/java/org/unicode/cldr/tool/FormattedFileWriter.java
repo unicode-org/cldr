@@ -88,6 +88,7 @@ public class FormattedFileWriter extends java.io.Writer {
     private String indexTitle = "Index";
 
     private String explanation;
+    private boolean showDate = true;
 
     private StringWriter out = new StringWriter();
 
@@ -106,6 +107,11 @@ public class FormattedFileWriter extends java.io.Writer {
 
     public FormattedFileWriter setDirectory(String dir) {
         this.dir = dir;
+        return this;
+    }
+
+    public FormattedFileWriter setShowDate(boolean showDate) {
+        this.showDate = showDate;
         return this;
     }
 
@@ -129,11 +135,15 @@ public class FormattedFileWriter extends java.io.Writer {
             "%version%", ToolConstants.CHART_DISPLAY_VERSION,
             "%index%", indexLink, 
             "%index-title%", indexTitle, 
-            "%date%", CldrUtility.isoFormatDateOnly(new Date()), 
+            "%date%", getDateValue(), 
             "%body%", contents };
         final String templateFileName = "chart-template.html";
         FileUtilities.appendBufferedReader(ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);
         pw2.close();
+    }
+
+    private String getDateValue() {
+        return showDate ? CldrUtility.isoFormatDateOnly(new Date()) : "";
     }
 
     public void write(char[] cbuf, int off, int len) throws IOException {

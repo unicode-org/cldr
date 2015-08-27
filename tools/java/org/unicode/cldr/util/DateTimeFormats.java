@@ -821,12 +821,11 @@ public class DateTimeFormats {
 
         Factory englishFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, filter);
         CLDRFile englishFile = englishFactory.make("en", true);
-        String dateString = CldrUtility.isoFormat(new Date());
 
         Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, LOCALES);
         System.out.println("Total locales: " + factory.getAvailableLanguages().size());
         DateTimeFormats english = new DateTimeFormats().set(englishFile, "gregorian");
-        PrintWriter index = openIndex(DIR);
+        PrintWriter index = openIndex(DIR, "Date/Time");
 
         Map<String, String> sorted = new TreeMap<String, String>();
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
@@ -872,19 +871,7 @@ public class DateTimeFormats {
                     + name
                     + "</h1>"
                     +
-                    "<p style='float:left; text-align:left'><a href='index.html'>Index</a></p>\n"
-                    +
-                    "<p style='float:right; text-align:right'><i>Last Generated: "
-                    + dateString
-                    + "</i></p>\n"
-                    +
-                    "<p style='clear:both'><b>The charts have been incorporated into the Survey Tool, as Date/Time Review: "
-                    +
-                    "please go to <a href='"
-                    + redirect
-                    + "'>"
-                    + redirect
-                    + "</a></b>.</p>"
+                    "<p><a href='index.html'>Index</a></p>\n"
                     +
                     "<p>The following chart shows typical usage of date and time formatting with the Gregorian calendar. "
                     +
@@ -913,8 +900,8 @@ public class DateTimeFormats {
         index.close();
     }
 
-    public static PrintWriter openIndex(String directory) throws IOException {
-        String dateString = CldrUtility.isoFormat(new Date());
+    public static PrintWriter openIndex(String directory, String title) throws IOException {
+        String dateString = CldrUtility.isoFormatDateOnly(new Date());
         PrintWriter index = BagFormatter.openUTF8Writer(directory, "index.html");
         index
         .println(
@@ -922,19 +909,21 @@ public class DateTimeFormats {
                 +
                 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n"
                 +
-                "<title>Date/Time Charts</title>\n"
+                "<title>"
+                + title
+                + " Charts</title>\n"
                 +
-                "</head><body><h1>Date/Time Charts</h1>"
+                "</head><body><h1>"
+                + title
+                + " Charts</h1>"
+                +
+                "<p style='float:left; text-align:left'><a href='../index.html'>Index</a></p>\n"
                 +
                 // "<p style='float:left; text-align:left'><a href='index.html'>Index</a></p>\n" +
                 "<p style='float:right; text-align:right'>"
                 + dateString
                 + "</p>\n"
-                +
-                "<p style='clear:both'><b>The charts have been incorporated into the Survey Tool, as Date/Time Review. </b></p>\n"
-                +
-                "<p>The following charts show typical usage of date and time formatting with the Gregorian calendar. " +
-            "Please review the chart for your locale(s).</p><div style='margin:2em'>");
+                + "<div style='clear:both; margin:2em'>");
         return index;
     }
 
@@ -1069,5 +1058,23 @@ public class DateTimeFormats {
 
     private String hackDoubleLinked(String string) {
         return string;
+    }
+
+    static void writeIndexMap(Map<String, String> nameToFile, PrintWriter index) {
+        int oldFirst = 0;
+        for (Entry<String, String> entry : nameToFile.entrySet()) {
+            String name = entry.getKey();
+            String file = entry.getValue();
+            int first = name.codePointAt(0);
+            if (oldFirst != first) {
+                index.append("<hr>");
+                oldFirst = first;
+            } else {
+                index.append("  ");
+            }
+            index.append("<a href='").append(file).append("'>").append(name).append("</a>\n");
+            index.flush();
+        }
+        index.println("</div></body></html>");
     }
 }

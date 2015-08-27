@@ -330,7 +330,7 @@ public class GenerateTransformCharts {
         String[] headerAndFooter = new String[2];
         ShowData.getChartTemplate("Transliteration Charts",
             null, "",
-            headerAndFooter, "Main Charts Index");
+            headerAndFooter, "Main Charts Index", false);
 
         index = BagFormatter.openUTF8Writer(TRANSFORM_DIRECTORY, "index.html");
         index.println(headerAndFooter[0]);
@@ -583,7 +583,7 @@ public class GenerateTransformCharts {
             // "td.none { background-color: #FFCCCC }" + Utility.LINE_SEPARATOR +
             // "td.main { align: center; vertical-align: top; background-color: #DDDDDD }" + Utility.LINE_SEPARATOR +
             // "</style>",
-            headerAndFooter, null);
+            headerAndFooter, null, false);
         pw.println(headerAndFooter[0]);
 
         // pw.println("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");

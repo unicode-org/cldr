@@ -233,7 +233,7 @@ public class ShowData {
                         + "document.write('.xx {display:none}');" + System.lineSeparator()
                         + "document.write('</style>');" + System.lineSeparator() + "}" + System.lineSeparator()
                         + "</script>",
-                    headerAndFooter, locale.equals("root") ? "Main Charts Index" : null);
+                    headerAndFooter, locale.equals("root") ? "Main Charts Index" : null, false);
                 pw.println(headerAndFooter[0]);
                 showLinks(pw, locale);
                 showChildren(pw, locale);
@@ -363,7 +363,7 @@ public class ShowData {
                 "Locale Data Summary for ALL-CHANGED",
                 ToolConstants.CHART_DISPLAY_VERSION,
                 "",
-                headerAndFooter, null);
+                headerAndFooter, null, false);
             pw.println(headerAndFooter[0]);
             pw.println("<table border=\"1\" cellpadding=\"2\" cellspacing=\"0\">");
             pw.println("<tr>" +
@@ -684,7 +684,7 @@ public class ShowData {
     // ULocale.ENGLISH);
 
     static public void getChartTemplate(String title, String version,
-        String header, String[] headerAndFooter, String indexTitle) throws IOException {
+        String header, String[] headerAndFooter, String indexTitle, boolean showDate) throws IOException {
         if (version == null) {
             version = ToolConstants.CHART_DISPLAY_VERSION;
         }

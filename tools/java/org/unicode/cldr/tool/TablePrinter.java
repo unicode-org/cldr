@@ -380,7 +380,7 @@ public class TablePrinter {
         if (comparable == null) {
             return null;
         }
-        String s = comparable.toString();
+        String s = comparable.toString().replace("\n", "<br>");
         return BIDI.containsNone(s) ? s : RLE + s + PDF;
     }
 

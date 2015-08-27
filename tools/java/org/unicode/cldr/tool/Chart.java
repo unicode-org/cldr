@@ -26,12 +26,21 @@ public abstract class Chart {
         return null; 
     };
     /**
-     * Short explanation that will go just after the title/dates.
+     * Show Date?
      * @return
      */
     public String getExplanation() {
         return null;
     }
+    
+    /**
+     * Short explanation that will go just after the title/dates.
+     * @return
+     */
+    public boolean getShowDate() {
+        return true;
+    }
+
     /**
      * Directory for the file to go into.
      * @return
@@ -53,6 +62,7 @@ public abstract class Chart {
         try (
             FormattedFileWriter x = new FormattedFileWriter(getFileName(), getTitle(), getExplanation(), anchors);) {
             x.setDirectory(getDirectory());
+            x.setShowDate(getShowDate());
             writeContents(x);
         } catch (IOException e) {
             throw new IllegalArgumentException(e);

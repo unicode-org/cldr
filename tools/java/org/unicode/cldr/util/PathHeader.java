@@ -1045,7 +1045,13 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("dayPeriod", new Transform<String, String>() {
                 public String transform(String source) {
-                    order = dayPeriods.getNumericOrder(source);
+                    try {
+                        order = dayPeriods.getNumericOrder(source);
+                    } catch (Exception e) {
+                        // if an old item is tried, like "evening", this will fail. 
+                        // so that old data still works, hack this.
+                        order = Math.abs(source.hashCode() << 16);
+                    }
                     return source;
                 }
             });

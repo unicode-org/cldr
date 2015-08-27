@@ -1785,7 +1785,6 @@ public class ConvertLanguageData {
 
         // #Lcode LanguageName Status Scode ScriptName References
         List<List<String>> input = SpreadSheet.convert(CldrUtility.getUTF8Data("language_script_raw.txt"));
-        // /Users/markdavis/Documents/workspace/cldr-code/java/org/unicode/cldr/util/data/language_script_raw.txt
         System.out.println(CldrUtility.LINE_SEPARATOR + "Problems in language_script_raw.txt"
             + CldrUtility.LINE_SEPARATOR);
         //int count = -1;

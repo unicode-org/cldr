@@ -176,8 +176,6 @@ public class TestBasic extends TestFmwkPlus {
             } else if (name.endsWith(".xml")) {
                 data.add(check(fileName));
                 if (deepCheck // takes too long to do all the time
-                    // fileName.getCanonicalPath().compareTo("/Users/markdavis/workspace/cldr/common/supplemental")
-                    // >= 0
                     ) {
                     CLDRFile cldrfile = CLDRFile.loadFromFile(fileName, "temp",
                         DraftStatus.unconfirmed);

@@ -3,6 +3,7 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 
@@ -18,13 +19,13 @@ public class CompareHanTransliterators {
         XMLFileReader reader = new XMLFileReader();
         MyContentHandler handler = new MyContentHandler();
         reader.setHandler(handler);
-        reader.read("/Users/markdavis/Documents/workspace/cldr/common/transforms/Han-Latin.xml",
+        reader.read(CLDRPaths.COMMON_DIRECTORY + "transforms/Han-Latin.xml",
             XMLFileReader.CONTENT_HANDLER, false);
         UnicodeMap<String> trunk = handler.map;
 
         handler.map = new UnicodeMap<String>();
 
-        reader.read("/Users/markdavis/Documents/workspace/cldr-1.8.1/common/transforms/Han-Latin.xml",
+        reader.read(CLDRPaths.LAST_DIRECTORY + "/common/transforms/Han-Latin.xml",
             XMLFileReader.CONTENT_HANDLER, false);
         UnicodeMap<String> old = handler.map;
 

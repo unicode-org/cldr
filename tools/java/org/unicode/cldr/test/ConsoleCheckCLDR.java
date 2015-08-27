@@ -143,8 +143,6 @@ public class ConsoleCheckCLDR {
         UOption.create("bailey", 'b', UOption.NO_ARG)
         // UOption.create("vote resolution2", 'w', UOption.OPTIONAL_ARG).setDefault(Utility.BASE_DIRECTORY +
         // "incoming/vetted/main/votes/"),
-        // -v /Users/markdavis/Documents/workspace/cldr/src/incoming/vetted/main/usersa.xml
-        // -w /Users/markdavis/Documents/workspace/cldr/src/incoming/vetted/main/votes/
     };
     private static final Comparator<String> baseFirstCollator = new Comparator<String>() {
         LanguageTagParser languageTagParser1 = new LanguageTagParser();

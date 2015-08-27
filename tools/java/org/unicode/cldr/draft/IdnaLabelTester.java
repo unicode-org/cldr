@@ -19,6 +19,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 
 import com.ibm.icu.dev.util.BagFormatter;
@@ -220,7 +221,7 @@ public class IdnaLabelTester {
 
     public static XEquivalenceClass<String, String> getConfusables() throws IOException {
         XEquivalenceClass<String, String> result = new XEquivalenceClass<String, String>();
-        BufferedReader in = openFile("/Users/markdavis/Documents/workspace/draft/reports/tr39/data/confusables.txt");
+        BufferedReader in = openFile(CLDRPaths.UCD_DATA_DIRECTORY + "security/" + CLDRPaths.UNICODE_VERSION + "/confusables.txt");
         String original = null;
         try {
             while (true) {
@@ -427,7 +428,7 @@ public class IdnaLabelTester {
         System.out.println("γιατρός\t" + Punycode.encode(new StringBuffer("γιατρός"), null));
         System.out.println("weltfussball\t" + Punycode.encode(new StringBuffer("weltfussball"), null));
 
-        String dir = "tools/java/org/unicode/cldr/draft/";
+        String dir = CLDRPaths.BASE_DIRECTORY + "tools/java/org/unicode/cldr/draft/";
         IdnaLabelTester tester = new IdnaLabelTester(dir + "idnaContextRules.txt");
         BufferedReader in = openFile(dir + "idnaTestCases.txt");
         frequencyFile = org.unicode.cldr.util.CldrUtility.getProperty("frequency");

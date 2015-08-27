@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.XMLFileReader;
 
 public class ReadXMB {
@@ -72,8 +73,7 @@ public class ReadXMB {
     }
 
     public static void main(String[] args) {
-        Map<String, String> info = load(
-            "/Users/markdavis/Documents/workspace/cldr/tools/java/org/unicode/cldr/unittest/data/xmb/",
+        Map<String, String> info = load(CLDRPaths.BASE_DIRECTORY + "tools/java/org/unicode/cldr/unittest/data/xmb/",
             "en.xml");
         System.out.println("============");
         for (Entry<String, String> entry : info.entrySet()) {

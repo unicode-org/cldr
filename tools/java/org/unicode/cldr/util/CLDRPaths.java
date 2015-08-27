@@ -7,6 +7,8 @@ import java.util.Set;
 
 import org.unicode.cldr.tool.ToolConstants;
 
+import com.google.common.collect.ImmutableSet;
+
 /**
  * Constant paths (moved here from CldrUtility).
  * These must not be used by any code destined for the SurveyTool, as this class will not be included.
@@ -51,6 +53,7 @@ public class CLDRPaths {
         CldrUtility.getPath(EXTERNAL_DIRECTORY, "Generated/cldr/")));
     public static final String DATA_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_EXT_DATA_DIR",
         CldrUtility.getPath(GEN_DIRECTORY, "../../Data/")));
+    public static final String UCD_DATA_DIRECTORY = CldrUtility.getPath(EXTERNAL_DIRECTORY + "unicodetools/draft/");
     public static final String ICU_DATA_DIR = CldrUtility.getPath(CldrUtility.getProperty("ICU_DATA_DIR", null)); // eg
     public static final String BIRTH_DATA_DIR = CldrUtility.getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/births/");
     /**
@@ -74,7 +77,7 @@ public class CLDRPaths {
     public static final String UTIL_DATA_DIR = FileReaders.getRelativeFileName(
         CldrUtility.class, "data/");
 
-    public static final Set<String> LDML_DIRECTORIES = Collections.unmodifiableSet(new LinkedHashSet<>(Arrays.asList(
+    public static final Set<String> LDML_DIRECTORIES = ImmutableSet.of(
         "main", 
         "annotations",
         "casing", 
@@ -82,6 +85,6 @@ public class CLDRPaths {
         "rbnf", 
         "segments",
         "subdivisions"
-        )));
-
+        );
+    public static final String UNICODE_VERSION = "8.0.0";
 }

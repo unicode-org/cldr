@@ -181,9 +181,6 @@ class GeneratePickerData {
         renamingLog = getFileWriter(outputDirectory, "renamingLog.txt");
 
         renamer = new Renamer("GeneratePickerData.txt");
-        /*
-         * NamesList-5.1.0d8.txt /Users/markdavis/Documents/workspace/DATA/UCD/5.1.0-Update/Unihan.txt
-         */
 
         if (DEBUG)
             System.out.println("Whitespace? "

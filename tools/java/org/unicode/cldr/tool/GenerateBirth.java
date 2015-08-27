@@ -69,7 +69,6 @@ public class GenerateBirth {
 
         ArrayList<Factory> list = new ArrayList<Factory>();
         for (Versions version : VERSIONS) {
-            // /Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/cldr-archive
             Factory aFactory = Factory.make(
                 (version == Versions.trunk
                     ? CLDRPaths.BASE_DIRECTORY

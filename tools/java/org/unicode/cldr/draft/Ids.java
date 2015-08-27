@@ -479,7 +479,7 @@ public abstract class Ids implements Comparable<Ids> {
 
         // System.out.println(Ids.parse("⿱一⿰⿵冂丶⿵冂丶"));
         // System.out.println(Ids.parse("⿹&CDP-8BBF;一"));
-        String dirString = "/Users/markdavis/Documents/workspace/DATA/ids/";
+        String dirString = CLDRPaths.DATA_DIRECTORY + "ids/";
         File dir = new File(dirString);
         UnicodeMap<Ids> data = new UnicodeMap<Ids>();
         UnicodeSet mapsToSelf = new UnicodeSet();

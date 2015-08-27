@@ -773,8 +773,6 @@ public class GenerateSidewaysView {
             }
             continue;
         }
-        // <a href="patterns.labels.html">Labels</a>
-        // file:///Users/markdavis/Documents/indigo/cldr-tmp/charts/by_type/misc.exemplarCharacters.html
         return out.append("</td></tr>" + System.lineSeparator() + "</table>").toString();
     }
 

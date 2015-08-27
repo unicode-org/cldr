@@ -204,12 +204,10 @@ private static String getNumberStyle(String ruleName, double val, boolean isRTL)
     return "";
 }
 
-// We are doing this silliness because the Java compiler likes to hard code the string during initial compilation (javac).
-// This is a problem when the ICU4J jar is upgraded, and this JSP is not recompiled.
-static String ICU_RBNF_BASE_NAME = ICUResourceBundle.ICU_RBNF_BASE_NAME.replaceFirst("[0-9]+", Integer.toString(VersionInfo.ICU_VERSION.getMajor()));
-
 private static String getRules(ULocale selectedLocale, String ruleType) {
-    ICUResourceBundle rbnfBundle = (ICUResourceBundle)UResourceBundle.getBundleInstance(ICU_RBNF_BASE_NAME, selectedLocale);
+    // We are doing this silliness because the Java compiler likes to hard code the string during initial compilation (javac).
+    // This is a problem when the ICU4J jar is upgraded, and this JSP is not recompiled.
+    ICUResourceBundle rbnfBundle = (ICUResourceBundle)UResourceBundle.getBundleInstance(ICUResourceBundle.ICU_RBNF_BASE_NAME.replaceFirst("[0-9]+", Integer.toString(VersionInfo.ICU_VERSION.getMajor())), selectedLocale);
     UResourceBundle ruleTypeBundle;
     try {
         ruleTypeBundle = rbnfBundle.getWithFallback("RBNFRules/" + ruleType);

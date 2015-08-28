@@ -130,15 +130,22 @@ public class LanguageInfoTest extends TestFmwk {
     static final ULocale MUL = new ULocale("mul");
 
     public void testFallbacks() {
-        Set<String> skip =  !logKnownIssue("Cldrbug:8812", "Problems with LanguageInfoTest") 
-            ? (Set<String>) Collections.EMPTY_SET
-            : new HashSet<String>(Arrays.asList("az", "bn", "hy", "ka", "km", "kn", "lo", "ml", "my", "ne", "or", "pa", "ps", "sd", "si", "ta", "te", "ti", 
-                "tk", "tlh", "ur", "uz", "yi"));
+        Set<String> skip = Collections.<String>emptySet();
+//            !logKnownIssue("Cldrbug:8812", "Problems with LanguageInfoTest") 
+//            ? Collections.<String>emptySet()
+//            : new HashSet<String>(Arrays.asList("az", "bn", "hy", "ka", "km", "kn", "lo", "ml", "my", "ne", "or", 
+//                "pa", "ps", "sd", "si", "ta", "te", "ti", 
+//                "tk", "ur", "uz", "yi"));
             
         for (R4<String, String, Integer, Boolean> foo : testInfo.getSupplementalDataInfo().getLanguageMatcherData("written")) {
             String rawDesired = foo.get0();
             if (rawDesired.contains("*") || skip.contains(rawDesired)) {
                 continue;
+            }
+            if (rawDesired.equals("tlh")) {
+                if (!logKnownIssue("cldrbug:8919", "Hack until tlh has likely subtags")) {
+                    continue;
+                }
             }
             ULocale desired = new ULocale(rawDesired);
             ULocale supported = new ULocale(foo.get1());
@@ -150,13 +157,21 @@ public class LanguageInfoTest extends TestFmwk {
 
             // we put "mul" first in the list, to verify that the fallback works enough to be better than the default.
             
+            @SuppressWarnings("deprecation")
             final LocaleMatcher matcher = new LocaleMatcher(
                 LocalePriorityList
                 .add(MUL).add(supported)
                 .build(), data);
 
             ULocale bestMatch = matcher.getBestMatch(desired);
-            assertEquals("fallback for " + desired + ", " + score, supported, bestMatch);
+            if (!assertEquals("fallback for " + desired + ", " + score, supported, bestMatch)) {
+                ULocale max = ULocale.addLikelySubtags(desired);
+                warnln("Might be missing something like\n"
+                    + "<languageMatch desired=\"" 
+                    + desired.getLanguage() + "_" + max.getScript()
+                    + "\" supported=\"en_Latn\" percent=\"90\" oneway=\"true\" />");
+                bestMatch = matcher.getBestMatch(desired); // for debugging
+            }
         }
     }
 }

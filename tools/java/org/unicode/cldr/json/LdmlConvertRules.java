@@ -1,6 +1,5 @@
 package org.unicode.cldr.json;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
@@ -367,8 +366,8 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*/identity/version\\[@number=\"([^\"]*)\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
             + CLDRFile.GEN_VERSION + "\"\\]"),
         // Add cldrVersion attribute to supplemental data
-        new PathTransformSpec("(.*/supplementalData/version\\[@number=\"([^\"]*)\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
-            + CLDRFile.GEN_VERSION + "\"\\]"),
+        new PathTransformSpec("(.*/version\\[@number=\"([^\"]*)\")(\\])\\[@unicodeVersion=\"([^\"]*\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
+            + CLDRFile.GEN_VERSION + "\"\\]"+"\\[@unicodeVersion=\""+ "$4"+ "\\]"),
 
         // Transform underscore to hyphen-minus in language keys
         new PathTransformSpec("(.*/language\\[@type=\"[a-z]{2,3})_([^\"]*\"\\](\\[@alt=\"short\"])?)", "$1-$2"),

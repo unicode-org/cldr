@@ -2181,6 +2181,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>d</displayName>
 				<relative type="-2">anteayer</relative>
+				<relative type="-1">ayer</relative>
+				<relative type="0">hoy</relative>
+				<relative type="1">mañana</relative>
 				<relative type="2">pasado mañana</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">dentro de {0} día</relativeTimePattern>
@@ -2194,6 +2197,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>d</displayName>
 				<relative type="-2">anteayer</relative>
+				<relative type="-1">ayer</relative>
+				<relative type="0">hoy</relative>
+				<relative type="1">mañana</relative>
 				<relative type="2">pasado mañana</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">dentro de {0} día</relativeTimePattern>

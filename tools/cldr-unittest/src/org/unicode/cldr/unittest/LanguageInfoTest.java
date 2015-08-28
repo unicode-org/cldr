@@ -143,7 +143,7 @@ public class LanguageInfoTest extends TestFmwk {
                 continue;
             }
             if (rawDesired.equals("tlh")) {
-                if (!logKnownIssue("cldrbug:8919", "Hack until tlh has likely subtags")) {
+                if (logKnownIssue("cldrbug:8919", "Hack until tlh has likely subtags")) {
                     continue;
                 }
             }

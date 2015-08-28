@@ -924,9 +924,9 @@ h2, h3, h4, table {
 					<td>+</td>
 					<td>Exponent</td>
 					<td class="changed">plusSign</td>
-					<td>Prefix positive exponents with localized plus sign.<span class="removed"> <em>Need
-							not be quoted in prefix or suffix.</em></span>
-					</td>
+					<td>Prefix positive exponents with localized plus sign. <span class="changed">Used for explicit plus for numbers as well, as described in Section 3.2.1 <a href="#Explicit_Plus">Explicit Plus Signs</a>. <em><br>
+				    Need
+							not be quoted in prefix or suffix.</em></span></td>
 				</tr>
 				<tr valign="top">
 				  <td>%</td>
@@ -1168,13 +1168,12 @@ h2, h3, h4, table {
 				</ul>
 			</li>
 		</ul>
-		<h4>
-	    <span class="changed">3.3.1 <a name="Explicit_Plus" href="#Explicit_Plus">Formatting</a></span></h4>
+		<h4 class="changed">3.2.1 <a name="Explicit_Plus" href="#Explicit_Plus">Explicit Plus Signs</a></h4>
 		<p class="changed">An explicit &quot;plus&quot; format can be formed, so as to show a visible + sign when formatting a non-negative number. The displayed plus sign can be an ASCII plus or another character, such as ＋ 	U+FF0B FULLWIDTH PLUS SIGN or ➕ 	U+2795 HEAVY PLUS SIGN; it is taken from whatever is set for plusSign in <em>Section 2.3 <a href="#Number_Symbols">Number Symbols</a></em>.</p>
 		<ol>
-		  <li class="changed">Get the explicit negative subpattern.</li>
+		  <li class="changed">Get the  negative subpattern (explicit or implicit).</li>
 		  <li class="changed">Replace any unquoted ASCII minus sign by an ASCII plus sign.</li>
-		  <li class="changed">Use that for the  positive subpattern.</li>
+		  <li class="changed">If there are any replacements, use that for the  positive subpattern.</li>
       </ol>
 		<p class="changed">For an example, see <a href="#Sample_Patterns_and_Results">Sample Patterns and Results</a>.</p>
         		<h3>

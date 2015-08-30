@@ -155,13 +155,15 @@
 			<languageMatch desired="*_Hant" supported="*_Hans" percent="81" oneway="true"/>
 			<!-- Region Matches -->
 			<!-- MO and HK are close -->
-			<languageMatch desired="zh_Hant_HK" supported="zh_Hant_MO" percent="96"/>
+			<languageMatch desired="zh_Hant_HK" supported="zh_Hant_MO" percent="97"/>
 			<!-- Most pt countries are like pt-PT, so make BR further from everything -->
+			<languageMatch desired="pt_*_BR" supported="pt_*_US" percent="96"/> <!-- exception for US, should add other americas -->
+			<languageMatch desired="pt_*_US" supported="pt_*_*" percent="92"/>
 			<languageMatch desired="pt_*_BR" supported="pt_*_*" percent="92"/>
 			<languageMatch desired="pt_*_*" supported="pt_*_*" percent="96"/> <!-- and then them closer -->
 			<!-- Non-US Englishes are closer to GB. Managed by having en-US be further from everything. -->
 			<!-- Note: for a small list, US would be closer (AS, GU, MH, MP, PR, UM, VI), but we don't have the right structure to do that yet -->
-			<languageMatch desired="en_*_US" supported="en_*_*" percent="92"/>
+			<languageMatch desired="en_*_US" supported="en_*_*" percent="94"/>
 			<languageMatch desired="en_*_GB" supported="en_*_*" percent="96"/>
 			<languageMatch desired="en_*_001" supported="en_*_*" percent="96"/>
 			<languageMatch desired="en_*_*" supported="en_*_*" percent="95"/>
@@ -173,7 +175,7 @@
 			<!-- Fallbacks -->
 			<languageMatch desired="*" supported="*" percent="20"/>  <!-- [Default value - must be at end!] Normally there is no comprehension of different languages. -->
 			<languageMatch desired="*_*" supported="*_*" percent="60"/> <!-- [Default value - must be at end!] Normally there is little comprehension of different scripts. -->
-			<languageMatch desired="*_*_*" supported="*_*_*" percent="92"/> <!-- [Default value - must be at end!] Normally there are small differences across regions. -->
+			<languageMatch desired="*_*_*" supported="*_*_*" percent="96"/> <!-- [Default value - must be at end!] Normally there are small differences across regions. -->
 		</languageMatches>
 	</languageMatching>
 </supplementalData>

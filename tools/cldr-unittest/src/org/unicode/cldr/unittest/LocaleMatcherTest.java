@@ -322,7 +322,7 @@ public class LocaleMatcherTest extends TestFmwk {
         final LocaleMatcher matcher = newLocaleMatcher("en, de, fr, ja");
         // de maximizes to de_DE. Pick the exact match for the secondary
         // language instead.
-        assertEquals("fr", matcher.getBestMatch("de_CH, fr").toString());
+        assertEquals("de", matcher.getBestMatch("de_CH, fr").toString());
     }
 
     public void testBestMatchForTraditionalChinese() {
@@ -493,9 +493,9 @@ public class LocaleMatcherTest extends TestFmwk {
     // }
 
     public void testGetBestMatchForList_matchOnMaximized2() {
-        if (logKnownIssue("Cldrbug:8811", "Problems with LocaleMatcher test")) {
-            return;
-        }
+//        if (logKnownIssue("Cldrbug:8811", "Problems with LocaleMatcher test")) {
+//            return;
+//        }
         final LocaleMatcher matcher = newLocaleMatcher("fr, en-GB, ja, es-ES, es-MX");
         // ja-JP matches ja on likely subtags, and it's listed first, thus it wins over
         // thus it wins over the second preference en-GB.
@@ -507,9 +507,9 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testGetBestMatchForList_closeEnoughMatchOnMaximized() {
-        if (logKnownIssue("Cldrbug:8811", "Problems with LocaleMatcher test")) {
-            return;
-        }
+//        if (logKnownIssue("Cldrbug:8811", "Problems with LocaleMatcher test")) {
+//            return;
+//        }
         final LocaleMatcher matcher = newLocaleMatcher("en-GB, en, de, fr, ja");
         assertEquals("de", matcher.getBestMatch("de-CH, fr").toString());
         assertEquals("en", matcher.getBestMatch("en-US, ar, nl, de, ja").toString());
@@ -517,9 +517,9 @@ public class LocaleMatcherTest extends TestFmwk {
 
     public void testGetBestMatchForPortuguese() {
 
-        if (logKnownIssue("Cldrbug:8811", "Problems with LocaleMatcher test")) {
-            return;
-        }
+//        if (logKnownIssue("Cldrbug:8811", "Problems with LocaleMatcher test")) {
+//            return;
+//        }
 
         final LocaleMatcher withPTExplicit = newLocaleMatcher("pt_PT, pt_BR, es, es_419");
         final LocaleMatcher withPTImplicit = newLocaleMatcher("pt_PT, pt, es, es_419");
@@ -546,11 +546,20 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testVariantWithScriptMatch() {
-        if (logKnownIssue("Cldrbug:8811", "Problems with LocaleMatcher test")) {
-            return;
-        }
+//        if (logKnownIssue("Cldrbug:8811", "Problems with LocaleMatcher test")) {
+//            return;
+//        }
         final LocaleMatcher matcher = newLocaleMatcher("fr, en, sv");
         assertEquals("en", matcher.getBestMatch("en-GB").toString());
         assertEquals("en", matcher.getBestMatch("en-GB, sv").toString());
     }
+    
+    public void testVariantWithScriptMatch2() {
+//        if (logKnownIssue("Cldrbug:8811", "Problems with LocaleMatcher test")) {
+//            return;
+//        }
+        final LocaleMatcher matcher = newLocaleMatcher("en, sv");
+        assertEquals("en", matcher.getBestMatch("en-GB, sv").toString());
+    }
+
 }

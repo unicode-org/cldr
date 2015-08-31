@@ -424,7 +424,7 @@ public class Ldml2JsonConverter {
                         if (defaultContentLocales.contains(filename) &&
                             lp.getRegion().length() > 0) {
                             if (type == RunType.main) {
-                                skippedDefaultContentLocales.add(filename);
+                                skippedDefaultContentLocales.add(filename.replaceAll("_", "-"));
                             }
                             continue;
                         }
@@ -432,13 +432,13 @@ public class Ldml2JsonConverter {
                         if (localeCoverageLevel == Level.MODERN || filename.equals("root")) {
                             tier = "-modern";
                             if (type == RunType.main) {
-                                avl.modern.add(filename);
+                                avl.modern.add(filename.replaceAll("_", "-"));
                             }
                         } else {
                             tier = "-full";
                         }
                         if (type == RunType.main) {
-                            avl.full.add(filename);
+                            avl.full.add(filename.replaceAll("_", "-"));
                         }
                     }
                     if (js.packageName != null) {

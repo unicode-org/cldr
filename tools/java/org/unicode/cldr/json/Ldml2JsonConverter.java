@@ -278,7 +278,6 @@ public class Ldml2JsonConverter {
         throws IOException, ParseException {
 
         String locID = file.getLocaleID();
-
         Matcher noNumberingSystemMatcher = LdmlConvertRules.NO_NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher numberingSystemMatcher = LdmlConvertRules.NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher rootIdentityMatcher = LdmlConvertRules.ROOT_IDENTITY_PATTERN.matcher("");
@@ -302,6 +301,10 @@ public class Ldml2JsonConverter {
             String path = it.next();
             String fullPath = file.getFullXPath(path);
             String value = file.getWinningValue(path);
+            if (path.startsWith("//ldml/localeDisplayNames/languages") && 
+                file.getSourceLocaleID(path, null).equals("code-fallback")) {
+                value = file.getConstructedBaileyValue(path, null, null);
+            }
 
             if (fullPath == null) {
                 fullPath = path;
@@ -347,7 +350,7 @@ public class Ldml2JsonConverter {
             for (JSONSection js : sections) {
                 js.matcher.reset(transformedPath);
                 if (js.matcher.matches()) {
-                    CldrItem item = new CldrItem(transformedPath, transformedFullPath, path, fullPath, file.getWinningValue(path));
+                    CldrItem item = new CldrItem(transformedPath, transformedFullPath, path, fullPath, value);
                     List<CldrItem> cldrItems = sectionItems.get(js);
                     if (cldrItems == null) {
                         cldrItems = new ArrayList<CldrItem>();

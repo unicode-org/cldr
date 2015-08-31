@@ -486,10 +486,17 @@ public class Ldml2JsonConverter {
                         // resolving source, so if we have duplicates ( caused by attributes used as a value ) then suppress
                         // them here.
                         if (item.getPath().contains("/identity/")) {
+                            XPathParts xpp = new XPathParts();
                             String[] parts = item.getPath().split("\\[");
                             if (parts[0].equals(previousIdentityPath)) {
                                 continue;
                             } else {
+                                xpp.set(item.getPath());
+                                String territory = xpp.findAttributeValue("territory", "type");
+                                LocaleIDParser lp = new LocaleIDParser().set(filename);
+                                if (territory != null && territory.length() > 0 && !territory.equals(lp.getRegion())) {
+                                    continue;
+                                }
                                 previousIdentityPath = parts[0];
                             }
                         }

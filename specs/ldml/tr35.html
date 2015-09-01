@@ -737,29 +737,28 @@ h5 {
 						<a href="#unicode_language_id" name="unicode_language_id">unicode_language_id</a>
 					</code></td>
 				<td><code>
-						="root" <br> 
-						| <span class="changed">(</span>unicode_language_subtag <br>
-						     (sep unicode_script_subtag)? <br>
-   <span class="changed">| unicode_script_subtag)</span><br>
-						 (sep unicode_region_subtag)? <br>
-						(sep unicode_variant_subtag)* ;
+						="root" <br> | <span class="changed">(</span>unicode_language_subtag
+						<br>     (sep unicode_script_subtag)? <br>   <span
+							class="changed">| unicode_script_subtag)</span><br> (sep
+						unicode_region_subtag)? <br> (sep unicode_variant_subtag)* ;
 					</code></td>
 				<td><code>
-						="root" <br> 
-						/ <span class="changed">(</span>unicode_language_subtag <br> 
-						    [sep
-						unicode_script_subtag] <br>
-					      <span class="changed">/ unicode_script_subtag)</span><br>
-[sep unicode_region_subtag] <br>
-						*(sep unicode_variant_subtag)
+						="root" <br> / <span class="changed">(</span>unicode_language_subtag
+						<br>     [sep unicode_script_subtag] <br>   <span
+							class="changed">/ unicode_script_subtag)</span><br> [sep
+						unicode_region_subtag] <br> *(sep unicode_variant_subtag)
 					</code></td>
 			</tr>
 			<tr>
 				<td><code>
 						<a href="#unicode_language_subtag" name="unicode_language_subtag">unicode_language_subtag</a>
 					</code></td>
-				<td><code>= alpha{2,<span class="changed">3} | alpha{5,</span>8};</code></td>
-				<td><code>= 2*<span class="changed">3ALPHA / 5*</span>8ALPHA</code></td>
+				<td><code>
+						= alpha{2,<span class="changed">3} | alpha{5,</span>8};
+					</code></td>
+				<td><code>
+						= 2*<span class="changed">3ALPHA / 5*</span>8ALPHA
+					</code></td>
 				<td class='changed'><code>
 						<a href='#unicode_language_subtag_validity'>validity</a>
 					</code></td>
@@ -825,9 +824,28 @@ h5 {
 					Definitions</a>
 			</em>; there are also direct links from
 			<code>
-				<a href="#unicode_language_subtag">unicode_language_subtag</a></code>
-			, etc. While theoretically the <code><a href="#unicode_language_subtag">unicode_language_subtag</a> </code>may have more than 3 letters through <span class="changed">the IANA</span> registration process, in
-		practice that has not occurred. <span class="changed">The <code><a href="#unicode_language_subtag">unicode_language_subtag</a></code> &quot;und&quot; may be omitted when there is a <code><a href="#unicode_script_subtag" >unicode_script_subtag</a></code>; for that reason <code><a href="#unicode_language_subtag">unicode_language_subtag</a></code> values with 4 letters are not permitted. However, such <code><a href="#unicode_language_id" >unicode_language_id</a></code> values are not intended for general interchange, because they are not valid BCP47 tags. Instead, they are intended for certain protocols such as the identification of transliterators or font ScriptLangTag values.</span></p>
+				<a href="#unicode_language_subtag">unicode_language_subtag</a>
+			</code>
+			, etc. While theoretically the
+			<code>
+				<a href="#unicode_language_subtag">unicode_language_subtag</a>
+			</code>
+			may have more than 3 letters through <span class="changed">the
+				IANA</span> registration process, in practice that has not occurred. <span
+				class="changed">The <code>
+					<a href="#unicode_language_subtag">unicode_language_subtag</a>
+				</code> &quot;und&quot; may be omitted when there is a <code>
+					<a href="#unicode_script_subtag">unicode_script_subtag</a>
+				</code>; for that reason <code>
+					<a href="#unicode_language_subtag">unicode_language_subtag</a>
+				</code> values with 4 letters are not permitted. However, such <code>
+					<a href="#unicode_language_id">unicode_language_id</a>
+				</code> values are not intended for general interchange, because they are
+				not valid BCP47 tags. Instead, they are intended for certain
+				protocols such as the identification of transliterators or font
+				ScriptLangTag values.
+			</span>
+		</p>
 		<p>For example, &quot;en-US&quot; (American English),
 			&quot;en_GB&quot; (British English), &quot;es-419&quot; (Latin
 			American Spanish), and &quot;uz-Cyrl&quot; (Uzbek in Cyrillic) are
@@ -1520,10 +1538,10 @@ zh-Hant-HK</pre>
 				<td>Unknown or Invalid Time Zone</td>
 			</tr>
 			<tr class='changed'>
-			  <td>Subdivision</td>
-			  <td>ZZZZ</td>
-			  <td>Unknown or Invalid Subdivision</td>
-		  </tr>
+				<td>Subdivision</td>
+				<td>ZZZZ</td>
+				<td>Unknown or Invalid Subdivision</td>
+			</tr>
 		</table>
 		<p>When only the script or region are known, then a locale ID will
 			use &quot;und&quot; as the language subtag portion. Thus the locale
@@ -3075,8 +3093,8 @@ zh-Hant-HK</pre>
 			The list of subtags for each idStatus use a compact format as a
 			space-delimited list of StringRanges, as defined in <em>Section
 				<a href="#String_Range">5.3.4 String Range</a>.
-			</em>
-		The separator for each StringRange  is a &quot;~&quot;.</p>
+			</em> The separator for each StringRange is a &quot;~&quot;.
+		</p>
 		<h2>
 			<a name="Locale_Inheritance" href="#Locale_Inheritance">4 Locale
 				Inheritance and Matching</a>
@@ -3796,9 +3814,10 @@ root</pre>
 			<code>
 				&lt;ldml version=&quot;1.1&quot; draft=&quot;unconfirmed&quot;&gt;<br>
 				&nbsp;&lt;identity&gt;<br> &nbsp; &lt;version
-				number=&quot;1.1&quot; /&gt; <br>
-                <span class="removed">&nbsp;&lt;generation date=&quot;2004-06-04&quot; /&gt; <br></span>
-                &nbsp; &lt;language type=&quot;af&quot; /&gt; <br> &nbsp;&lt;/identity&gt;<br>
+				number=&quot;1.1&quot; /&gt; <br> <span class="removed">&nbsp;&lt;generation
+					date=&quot;2004-06-04&quot; /&gt; <br>
+				</span> &nbsp; &lt;language type=&quot;af&quot; /&gt; <br>
+				&nbsp;&lt;/identity&gt;<br>
 				&nbsp;&lt;characters&gt;...&lt;/characters&gt;<br>
 				&nbsp;&lt;localeDisplayNames&gt;...&lt;/localeDisplayNames&gt;<br>
 				&lt;/ldml&gt;
@@ -3816,11 +3835,10 @@ root</pre>
 			<code>
 				&lt;ldml version=&quot;1.1&quot; draft=&quot;unconfirmed&quot;&gt;<br>
 				&nbsp;&lt;identity&gt;<br> &nbsp; &lt;version
-				number=&quot;1.1&quot; /&gt; <br>
-				<span class="removed">&nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br></span>
-				&nbsp; &lt;language
-				type=&quot;af&quot; /&gt; <br> &nbsp;&lt;/identity&gt;<br>
-				&nbsp;&lt;characters
+				number=&quot;1.1&quot; /&gt; <br> <span class="removed">&nbsp;
+					&lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+				</span> &nbsp; &lt;language type=&quot;af&quot; /&gt; <br>
+				&nbsp;&lt;/identity&gt;<br> &nbsp;&lt;characters
 				draft=&quot;approved&quot;&gt;...&lt;/characters&gt;<br>
 				&nbsp;&lt;localeDisplayNames&gt;...&lt;/localeDisplayNames&gt;<br>
 				&nbsp;&lt;dates/&gt;<br> &nbsp;&lt;numbers/&gt;<br>
@@ -5525,14 +5543,19 @@ root</pre>
 				X <em>sep</em> Y<br>
 			</p>
 		</blockquote>
+		<p class='changed'>The separator and the format of strings X, Y
+			may vary depending on the domain. For example, for the validity files
+			the separator is ~, while for UnicodeString the separator is -, but
+			any multi-codepoint string is enclosed in {…}.</p>
 		<p class='changed'>
-		The separator and the format of strings X, Y may vary depending on the domain. For example, for the validity files the separator is ~, while for UnicodeString the separator is -, but any multi-codepoint string is enclosed in {…}.</p>
-		<p class='changed'><strong>Validity: <br>
-	    </strong>
-	  </p>
+			<strong>Validity: <br>
+			</strong>
+		</p>
 		<blockquote class='changed'>
-			<p>A string range X <em>sep</em> Y is valid iff len(X) ≥ len(Y) &gt; 0, where
-				len(X) is the length of X in code points.</p>
+			<p>
+				A string range X <em>sep</em> Y is valid iff len(X) ≥ len(Y) &gt; 0,
+				where len(X) is the length of X in code points.
+			</p>
 		</blockquote>
 		<p class='changed'>
 			<strong>Interpretation:<br>
@@ -5611,9 +5634,12 @@ root</pre>
 			&lt;generation date=&quot;<u>$</u>Date: 2007/07/17 23:41:16 <u>$</u>&quot;
 			/&gt;
 		</p>
-		<p>The generation element <span class="changed">is now deprecated. It was used to contain
-			the last modified date for the data. This could</span> be in two formats: ISO 8601 format, or CVS format
-			(illustrated by the example above).</p>
+		<p>
+			The generation element <span class="changed">is now
+				deprecated. It was used to contain the last modified date for the
+				data. This could</span> be in two formats: ISO 8601 format, or CVS format
+			(illustrated by the example above).
+		</p>
 		<p class="element2">
 			&lt;language type=&quot;<span style="color: blue">en</span>&quot;/&gt;
 		</p>
@@ -5653,8 +5679,12 @@ root</pre>
 			but not all, of this information could have been represented in XML
 			Schema or a DTD.) Most of this is primarily for internal tool use.</p>
 
-		<p><span class="changed">The &lt;elementOrder&gt and &lt;attributeOrder&gt elements are now deprecated, since the information
-			regarding element and attribute ordering is now contained in the DTD.</span></p>
+		<p>
+			<span class="changed">The &lt;elementOrder&gt and
+				&lt;attributeOrder&gt elements are now deprecated, since the
+				information regarding element and attribute ordering is now
+				contained in the DTD.</span>
+		</p>
 		<p>
 			<i>The suppress elements are those that are suppressed in
 				canonicalization.</i>
@@ -6366,9 +6396,10 @@ decimal?, group?, special*)) &gt;</pre>
 		<p>
 			<code>
 				&lt;ldml version=&quot;1.1&quot;&gt;<br> &nbsp;&lt;identity&gt;<br>
-				&nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
-				<span class="removed">&lt;generation date=&quot;2004-06-04&quot; /&gt; <br></span>
-				&nbsp; &lt;language type=&quot;de&quot; /&gt; <br> &nbsp;
+				&nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br> <span
+					class="removed">&lt;generation date=&quot;2004-06-04&quot;
+					/&gt; <br>
+				</span> &nbsp; &lt;language type=&quot;de&quot; /&gt; <br> &nbsp;
 				&lt;territory type=&quot;AT&quot; /&gt; <br>
 				&nbsp;&lt;/identity&gt;<br> &lt;/ldml&gt;
 			</code>
@@ -6383,9 +6414,10 @@ decimal?, group?, special*)) &gt;</pre>
 			<code>
 				&lt;ldml version=&quot;1.1&quot; validSubLocales=&quot;de_AT de_CH
 				de_DE&quot;&gt;<br> &nbsp;&lt;identity&gt;<br> &nbsp;
-				&lt;version number=&quot;1.1&quot; /&gt; <br> &nbsp;
-				<span class="removed">&lt;generation date=&quot;2004-06-04&quot; /&gt; <br></span>
-				&nbsp;&lt;language type=&quot;de&quot; /&gt; <br>
+				&lt;version number=&quot;1.1&quot; /&gt; <br> &nbsp; <span
+					class="removed">&lt;generation date=&quot;2004-06-04&quot;
+					/&gt; <br>
+				</span> &nbsp;&lt;language type=&quot;de&quot; /&gt; <br>
 				&nbsp;&lt;/identity&gt;<br> ...<br> &lt;/ldml&gt;
 			</code>
 		</p>
@@ -7619,20 +7651,26 @@ decimal?, group?, special*)) &gt;</pre>
 			<li>Proposed update for Version 28.</li>
 			<li><strong>Part 1: <a href="#Contents">Core</a></strong>
 				<ul>
-					<li><em>Section <i><a 
-				href="#Unicode_language_identifier">3.1 Unicode Language
-					Identifier</a></i></em>
-					  <ul>
-					    <li>Allow  the <code><a href="#unicode_language_subtag">unicode_language_subtag</a></code> &quot;und&quot; to be omitted when there is a <code><a href="#unicode_script_subtag" >unicode_script_subtag</a></code>, for certain protocols.</li>
-                        <li>Disallow <code><a href="#unicode_language_subtag">unicode_language_subtag</a></code> values of length 4.					</li>
-					  </ul>
-					</li>
-					<li><em>Section <a href="#Unicode_locale_identifier">3.2 Unicode
-					  Locale Identifier</a></em>
-					  <ul>
-					    <li>Added unicode_subdivision_subtag.</li>
-					    </ul>
-				  </li>
+					<li><em>Section <i><a
+								href="#Unicode_language_identifier">3.1 Unicode Language
+									Identifier</a></i></em>
+						<ul>
+							<li>Allow the <code>
+									<a href="#unicode_language_subtag">unicode_language_subtag</a>
+								</code> &quot;und&quot; to be omitted when there is a <code>
+									<a href="#unicode_script_subtag">unicode_script_subtag</a>
+								</code>, for certain protocols.
+							</li>
+							<li>Disallow <code>
+									<a href="#unicode_language_subtag">unicode_language_subtag</a>
+								</code> values of length 4.
+							</li>
+						</ul></li>
+					<li><em>Section <a href="#Unicode_locale_identifier">3.2
+								Unicode Locale Identifier</a></em>
+						<ul>
+							<li>Added unicode_subdivision_subtag.</li>
+						</ul></li>
 					<li><em>Section <a href="#Field_Definitions">3.4
 								Language Identifier Field Definitions </a></em>
 						<ul>
@@ -7642,15 +7680,13 @@ decimal?, group?, special*)) &gt;</pre>
 								and to point to the new <em>Section <a
 									href="#Validity_Data">3.11 Validity Data</a></em>.
 							</li>
-						</ul>
-					</li>
-					<li><em>Section <a 
-				href="#Unknown_or_Invalid_Identifiers">3.5.1 Unknown or Invalid
-				Identifiers</a> </em>
-					  <ul>
-					    <li>Added ZZZZ for unknown/invalid subdivision</li>
-				      </ul>
-				  </li>
+						</ul></li>
+					<li><em>Section <a href="#Unknown_or_Invalid_Identifiers">3.5.1
+								Unknown or Invalid Identifiers</a>
+					</em>
+						<ul>
+							<li>Added ZZZZ for unknown/invalid subdivision</li>
+						</ul></li>
 					<li><em>Section <a href="#Key_And_Type_Definitions_">3.6.1
 								Key And Type Definitions</a>
 					</em>
@@ -7665,32 +7701,35 @@ decimal?, group?, special*)) &gt;</pre>
 					<li>Added <em>Section <a href="#Validity_Data">3.11
 								Validity Data</a></em></li>
 					<li>Added <em>Section <a href="#String_Range">5.3.4
-					String Range</a></em></li>
-					<li><em>Section <a href="#Identity_Elements">5.4 Identity Elements</a></em>								
+								String Range</a></em></li>
+					<li><em>Section <a href="#Identity_Elements">5.4
+								Identity Elements</a></em>
 						<ul>
 							<li>Deprecated the generation element.[<a
 								href="http://unicode.org/cldr/trac/ticket/8242"
-								title="View ticket">#8242</a>]</li>
+								title="View ticket">#8242</a>]
+							</li>
 						</ul></li>
-					<li><em>Section <a href="#Valid_Attribute_Values">5.5 Valid Attribute Values</a></em>								
+					<li><em>Section <a href="#Valid_Attribute_Values">5.5
+								Valid Attribute Values</a></em>
 						<ul>
-							<li>Deprecated the elementOrder and attributeOrder elements.[<a
-								href="http://unicode.org/cldr/trac/ticket/8218"
-								title="View ticket">#8218</a>]</li>
-						</ul>
-					</li>
+							<li>Deprecated the elementOrder and attributeOrder
+								elements.[<a href="http://unicode.org/cldr/trac/ticket/8218"
+								title="View ticket">#8218</a>]
+							</li>
+						</ul></li>
 				</ul></li>
 			<li><strong>Part 3: <a
 					href="tr35-numbers.html#Contents">Numbers</a></strong>
-			  <ul>
-			    <li><em>Section 3.2 <a 
-				href="tr35-numbers.html#Special_Pattern_Characters">Special Pattern Characters</a></em>
-			      <ul>
-			        <li>Clarified the text, described how a format with an explicit + can be derived from the CLDR data.</li>
-		          </ul>
-			    </li>
-		      </ul>
-			</li>
+				<ul>
+					<li><em>Section 3.2 <a
+							href="tr35-numbers.html#Special_Pattern_Characters">Special
+								Pattern Characters</a></em>
+						<ul>
+							<li>Clarified the text, described how a format with an
+								explicit + can be derived from the CLDR data.</li>
+						</ul></li>
+				</ul></li>
 			<li><strong>Part 5: <a
 					href="tr35-collation.html#Contents">Collation</a></strong>
 				<ul>

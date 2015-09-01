@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2015-08-05</span></td>
+				<td><span class="changed">2015-09-01</span></td>
 			</tr>
 			<tr>
 				<td>This Version</td>
@@ -737,13 +737,20 @@ h5 {
 						<a href="#unicode_language_id" name="unicode_language_id">unicode_language_id</a>
 					</code></td>
 				<td><code>
-						="root" <br> | unicode_language_subtag <br> (sep
-						unicode_script_subtag)? <br> (sep unicode_region_subtag)? <br>
+						="root" <br> 
+						| <span class="changed">(</span>unicode_language_subtag <br>
+						     (sep unicode_script_subtag)? <br>
+   <span class="changed">| unicode_script_subtag)</span><br>
+						 (sep unicode_region_subtag)? <br>
 						(sep unicode_variant_subtag)* ;
 					</code></td>
 				<td><code>
-						="root" <br> / unicode_language_subtag <br> [sep
-						unicode_script_subtag] <br> [sep unicode_region_subtag] <br>
+						="root" <br> 
+						/ <span class="changed">(</span>unicode_language_subtag <br> 
+						    [sep
+						unicode_script_subtag] <br>
+					      <span class="changed">/ unicode_script_subtag)</span><br>
+[sep unicode_region_subtag] <br>
 						*(sep unicode_variant_subtag)
 					</code></td>
 			</tr>
@@ -751,8 +758,8 @@ h5 {
 				<td><code>
 						<a href="#unicode_language_subtag" name="unicode_language_subtag">unicode_language_subtag</a>
 					</code></td>
-				<td><code>= alpha{2,8} ;</code></td>
-				<td><code>= 2*8ALPHA</code></td>
+				<td><code>= alpha{2,<span class="changed">3} | alpha{5,</span>8};</code></td>
+				<td><code>= 2*<span class="changed">3ALPHA / 5*</span>8ALPHA</code></td>
 				<td class='changed'><code>
 						<a href='#unicode_language_subtag_validity'>validity</a>
 					</code></td>
@@ -816,15 +823,11 @@ h5 {
 			The semantics of the various subtags is explained in <em>Section
 				3.4 <a href="#Field_Definitions">Language Identifier Field
 					Definitions</a>
-			</em>; there are also direct linkes from
+			</em>; there are also direct links from
 			<code>
-				<a href="#unicode_language_subtag">unicode_language_subtag</a>
-			</code>
-			, etc. While theoretically the
-			<code>unicode_language_subtag</code>
-			may have more than 3 letters through a registration process, in
-			practice that has not occurred.
-		</p>
+				<a href="#unicode_language_subtag">unicode_language_subtag</a></code>
+			, etc. While theoretically the <code><a href="#unicode_language_subtag">unicode_language_subtag</a> </code>may have more than 3 letters through <span class="changed">the IANA</span> registration process, in
+		practice that has not occurred. <span class="changed">The <code><a href="#unicode_language_subtag">unicode_language_subtag</a></code> &quot;und&quot; may be omitted when there is a <code><a href="#unicode_script_subtag" >unicode_script_subtag</a></code>; for that reason <code><a href="#unicode_language_subtag">unicode_language_subtag</a></code> values with 4 letters are not permitted. However, such <code><a href="#unicode_language_id" >unicode_language_id</a></code> values are not intended for general interchange, because they are not valid BCP47 tags. Instead, they are intended for certain protocols such as the identification of transliterators or font ScriptLangTag values.</span></p>
 		<p>For example, &quot;en-US&quot; (American English),
 			&quot;en_GB&quot; (British English), &quot;es-419&quot; (Latin
 			American Spanish), and &quot;uz-Cyrl&quot; (Uzbek in Cyrillic) are
@@ -7616,11 +7619,20 @@ decimal?, group?, special*)) &gt;</pre>
 			<li>Proposed update for Version 28.</li>
 			<li><strong>Part 1: <a href="#Contents">Core</a></strong>
 				<ul>
+					<li><em>Section <i><a 
+				href="#Unicode_language_identifier">3.1 Unicode Language
+					Identifier</a></i></em>
+					  <ul>
+					    <li>Allow  the <code><a href="#unicode_language_subtag">unicode_language_subtag</a></code> &quot;und&quot; to be omitted when there is a <code><a href="#unicode_script_subtag" >unicode_script_subtag</a></code>, for certain protocols.</li>
+                        <li>Disallow <code><a href="#unicode_language_subtag">unicode_language_subtag</a></code> values of length 4.					</li>
+					  </ul>
+					</li>
 					<li><em>Section <a href="#Unicode_locale_identifier">3.2 Unicode
-								Locale Identifier</a></em>
-						<ul>
-							<li>Added unicode_subdivision_subtag.</li>
-						</ul></li>
+					  Locale Identifier</a></em>
+					  <ul>
+					    <li>Added unicode_subdivision_subtag.</li>
+					    </ul>
+				  </li>
 					<li><em>Section <a href="#Field_Definitions">3.4
 								Language Identifier Field Definitions </a></em>
 						<ul>

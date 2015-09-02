@@ -957,10 +957,8 @@ h5 {
 				<td class="changed"><code>
 						<a name="subdivision_attribute" href="#subdivision_attribute">subdivision_attribute</a>
 					</code></td>
-				<td class="changed"><code> = &quot;00&quot;
-						unicode_subdivision_subtag ;</code></td>
-				<td class="changed"><code>= &quot;00&quot;
-						unicode_subdivision_subtag</code></td>
+				<td class="changed"><code> = <a href="#unicode_region_subtag" >unicode_region_subtag</a> unicode_subdivision_subtag ;</code></td>
+				<td class="changed"><code>= <a href="#unicode_region_subtag" >unicode_region_subtag</a> unicode_subdivision_subtag</code></td>
 				<td class='changed'><code>
 						<a href='#unicode_subdivision_subtag_validity'>validity</a>
 					</code></td>
@@ -2104,12 +2102,15 @@ zh-Hant-HK</pre>
 			<tr class='changed'>
 				<td rowspan="2">"sd"</td>
 				<td rowspan="2">Regional Subdivision</td>
-				<td>&quot;00ca&quot;<br> <br></td>
-				<td rowspan="2">A subdivision_attribute, which is a <a
+				<td>&quot;gbsct&quot;<br> <br></td>
+				<td rowspan="2">A <a href="#subdivision_attribute">subdivision_attribute</a>, which is a <a
 					href="#unicode_subdivision_subtag">unicode_&#x200b;subdivision_&#x200b;subtag</a>
-					prefixed by "00".<br> <br> For example, “en-US-u-sd-00ca”
-					represents “English as used in California”.
-				</td>
+					prefixed by the associated <a href="#unicode_region_subtag" >unicode_region_subtag</a>.<br>
+					For example, “en-GB-u-sd-gbsct”
+					represents the language variant “English as used in Scotland”.
+				And both “en-u-sd-gbsct”
+and “en-CA-u-sd-gbsct”
+represent				  “English as used in California”.</td>
 			</tr>
 			<tr class='changed'>
 				<td>…</td>
@@ -2464,18 +2465,19 @@ zh-Hant-HK</pre>
 			deprecated) in CLDR. If an ICU 3166-2 code is reused (for the same
 			region), then CLDR will define a new equivalent code using these a
 			4-character sequence.</p>
-		<p class='changed'>
-			For use in a <a href='#unicode_locale_id'>unicode_locale_id</a>, the
+	  <p class='changed'>
+	  For use in a <a href='#unicode_locale_id'>unicode_locale_id</a>, the
 			subdivision code must be extended to be more than 2 characters. This
-			is done syntactically by always prefixing the code by “00”. For
-			example, “en-US-u-sd-00ca” represents “English as used in California,
-			USA”.
-		</p>
-		<p class='changed'>&nbsp;</p>
-		<p class='changed'>
-			A <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>
-			is valid for a <a href="#unicode_region_subtag">unicode_region_subtag</a>
-			only when the <strong>subdivisionContainment</strong> element
+			is done syntactically by always prefixing the code by the <a href="#unicode_region_subtag" >unicode_region_subtag</a>. It does not, however, contain an interior hyphen, unlike  ISO 3166-2. For
+			example, the following are valid, and mean “English as used in California,
+		USA”.</p>
+<ul class='changed'>
+  <li>en-u-sd-usca</li>
+  <li>en-US-u-sd-usca	</li>
+</ul>
+<p class='changed'>
+	  A <a href="#subdivision_attribute"></a> <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is valid for a <a href="#unicode_region_subtag">unicode_region_subtag</a>
+	  only when the <strong>subdivisionContainment</strong> element
 			contains a <strong>subgroup</strong> element where:
 		</p>
 		<ol class='changed'>
@@ -2498,12 +2500,21 @@ zh-Hant-HK</pre>
 				…&quot;/&gt;</code>
 		</p>
 		<p class="changed">
-			A <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>
+		A <a href="#subdivision_attribute">subdivision_attribute</a> is only valid when it consists of the concatenation of a <a href="#unicode_region_subtag">unicode_region_subtag</a> and a <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> which is valid for that <a href="#unicode_region_subtag">unicode_region_subtag</a>.</p>
+		<p class="changed">Thus the following is invalid:<br>
+        </p>
+		<ul class="changed">
+		  <li>ussct — there is no <strong>subdivisionContainment</strong> element &lt;subgroup type=&quot;US&quot; contains=&quot;… SCT …&quot;/&gt;		</li>
+	  </ul>
+		<p class="changed">A <a href="#subdivision_attribute">subdivision_attribute</a><a href="#unicode_subdivision_subtag"></a>
 			is only valid in a <a href='#unicode_locale_id'>unicode_locale_id</a>
-			if there is a valid <a href="#unicode_region_subtag">unicode_region_subtag</a>,
-			and the <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>
-			is valid for that <a href="#unicode_region_subtag">unicode_region_subtag</a>.
-		</p>
+		if the prefixed <a href="#unicode_region_subtag" >unicode_region_subtag</a> matches the <a href="#unicode_region_subtag" >unicode_region_subtag</a> in the <a href="#unicode_language_id" >unicode_language_id</a> (after adding likely subtags).        </p>
+		<p class="changed">Thus the following are invalid:<br>
+        </p>
+      <ul class="changed">
+          <li>en-<strong>CA</strong>-u-sd-<strong>gb</strong>sct — the region &quot;gb&quot; does not match &quot;CA&quot;</li>
+          <li>en-u-sd-<strong>gb</strong>sct — after adding likely subtags, this becomes en<strong>-Latn-US</strong>-u-sd-<strong>gb</strong>sct, where again the region &quot;gb&quot;  does not match &quot;CA&quot;</li>
+        </ul>
 		<h3>
 			<a name="BCP47_T_Extension" href="#BCP47_T_Extension">3.7 Unicode
 				BCP 47 T Extension</a><a name="t_Extension"></a>

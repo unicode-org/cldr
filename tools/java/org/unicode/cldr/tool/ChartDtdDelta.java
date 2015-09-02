@@ -23,6 +23,10 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Utility;
 
@@ -117,7 +121,7 @@ public class ChartDtdDelta extends Chart {
     }
 
     static final String NONE = " ";
-    
+
     static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     static final List<String> CLDR_VERSIONS = ImmutableList.of(
@@ -140,7 +144,7 @@ public class ChartDtdDelta extends Chart {
         "27.0",
         ToolConstants.CHART_DISPLAY_VERSION
         );
-    
+
     static Set<DtdType> TYPES = EnumSet.allOf(DtdType.class);
     static {
         TYPES.remove(DtdType.ldmlICU);
@@ -158,24 +162,36 @@ public class ChartDtdDelta extends Chart {
         checkNames(prefix, dtdCurrent, oldNameToElement, "/", dtdCurrent.ROOT, new HashSet<Element>());
     }
 
+    static final DtdType DEBUG_DTD = null; // set to enable
+    static final String DEBUG_ELEMENT = "lias";
+    static final boolean SHOW = false;
 
+    @SuppressWarnings("unused")
     private void checkNames(String version, DtdData dtdCurrent, Map<String, Element> oldNameToElement, String path, Element element, HashSet<Element> seen) {
         if (seen.contains(element)) {
             return;
         }
         seen.add(element);
         String name = element.getName();
+        if (SHOW && ToolConstants.CHART_DISPLAY_VERSION.equals(version)) {
+            System.out.println(dtdCurrent.dtdType + "\t" + name);
+        }
+        if (DEBUG_DTD == dtdCurrent.dtdType && name.contains(DEBUG_ELEMENT)) {
+            int debug = 0;
+        }
         if (SKIP_ELEMENTS.contains(name)) {
+            return;
+        }
+        if (SKIP_TYPE_ELEMENTS.containsEntry(dtdCurrent.dtdType, name)) {
             return;
         }
 
         if (isDeprecated(dtdCurrent.dtdType, name, "*")) { // SDI.isDeprecated(dtdCurrent.dtdType, name, "*", "*")) {
             return;
         }
+
         String newPath = path + "/" + element.name;
-        if (path.contains("subdivisions")) {
-            int debug = 0;
-        }
+
         if (!oldNameToElement.containsKey(name)) {
             Set<String> attributeNames = getAttributeNames(dtdCurrent, name, Collections.EMPTY_MAP, element.getAttributes());
             addData(dtdCurrent, "+" + name, version, newPath, attributeNames);
@@ -236,8 +252,10 @@ public class ChartDtdDelta extends Chart {
         data.add(item);
     }
 
-    static final Set<String> SKIP_ELEMENTS = new HashSet<>(Arrays.asList("generation", "identity", "alias", "special", "telephoneCodeData"));
-    static final Set<String> SKIP_ATTRIBUTES = new HashSet<>(Arrays.asList("references", "standard", "draft", "alt"));
+    static final Set<String> SKIP_ELEMENTS = ImmutableSet.of("generation", "identity", "special", "telephoneCodeData");
+    static final Multimap<DtdType, String> SKIP_TYPE_ELEMENTS = ImmutableMultimap.of(DtdType.ldml, "alias");
+
+    static final Set<String> SKIP_ATTRIBUTES = ImmutableSet.of("references", "standard", "draft", "alt");
 
     private static Set<String> getAttributeNames(DtdData dtdCurrent, String elementName, Map<Attribute, Integer> attributesOld, Map<Attribute, Integer> attributes) {
         Set<String> names = new LinkedHashSet<>();

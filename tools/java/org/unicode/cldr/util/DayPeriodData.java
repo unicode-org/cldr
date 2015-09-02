@@ -1,15 +1,11 @@
 package org.unicode.cldr.util;
 
-import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 import java.util.TreeMap;
 
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
-
-import com.ibm.icu.util.ULocale;
 
 public class DayPeriodData {
 

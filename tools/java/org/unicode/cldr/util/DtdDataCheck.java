@@ -15,7 +15,6 @@ import java.util.TreeSet;
 import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.AttributeType;
-import org.unicode.cldr.util.DtdData.AttributeValueComparator;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
 

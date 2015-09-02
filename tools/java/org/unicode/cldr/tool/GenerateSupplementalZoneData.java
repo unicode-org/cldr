@@ -9,7 +9,6 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PatternCache;

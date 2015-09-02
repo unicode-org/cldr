@@ -3,13 +3,12 @@ package org.unicode.cldr.unittest;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.StandardCodes.LstrType;
-import org.unicode.cldr.util.Validity.Status;
+import org.unicode.cldr.util.Validity;
 
 public class TestValidity extends TestFmwkPlus {
 

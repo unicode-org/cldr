@@ -1,6 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import java.io.File;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -14,10 +13,8 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.ElementAttributeInfo;
-import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.Relation;

@@ -7,8 +7,6 @@ import java.util.TreeMap;
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
 
 public class TestOutdatedPaths extends TestFmwkPlus {

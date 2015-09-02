@@ -28,8 +28,6 @@ import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.SupplementalDataInfo;
 //import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
 
-
-
 import com.ibm.icu.util.Output;
 
 /**

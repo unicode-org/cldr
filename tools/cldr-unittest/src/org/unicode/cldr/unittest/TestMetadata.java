@@ -2,15 +2,12 @@ package org.unicode.cldr.unittest;
 
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdData;
-import org.unicode.cldr.util.FindDTDOrder;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Differ;

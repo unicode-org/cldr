@@ -2,16 +2,13 @@ package org.unicode.cldr.util;
 
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.EnumMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
 import org.unicode.cldr.util.ChainedMap.M3;
 
-import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.util.ULocale;
 
 public enum LanguageGroup {

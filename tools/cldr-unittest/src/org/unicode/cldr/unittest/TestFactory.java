@@ -6,10 +6,10 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.CLDRFile.DraftStatus;
 
 public class TestFactory extends Factory {
     private Map<String, CLDRFile> resolved = new TreeMap<>();

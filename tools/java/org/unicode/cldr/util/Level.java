@@ -2,8 +2,6 @@ package org.unicode.cldr.util;
 
 import java.util.Locale;
 
-import com.ibm.icu.util.ULocale;
-
 /**
  * A simple class representing an enumeration of possible CLDR coverage levels. Levels may change in the future.
  * 

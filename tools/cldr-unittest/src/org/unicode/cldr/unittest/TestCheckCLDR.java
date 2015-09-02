@@ -30,12 +30,10 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
-import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
+import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StringId;
-import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.XMLSource.ResolvingSource;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.UnicodeSet;

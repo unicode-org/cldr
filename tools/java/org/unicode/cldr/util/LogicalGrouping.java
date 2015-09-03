@@ -1,7 +1,5 @@
 package org.unicode.cldr.util;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -39,6 +37,7 @@ public class LogicalGrouping {
 
     public static final ImmutableSet<String> calendarsWith13Months = ImmutableSet.of("coptic", "ethiopic", "hebrew");
     public static final ImmutableSet<String> compactDecimalFormatLengths = ImmutableSet.of("short", "long");
+    private static final ImmutableSet<String> ampm = ImmutableSet.of("am", "pm");
 
     /**
      * Return the set of paths that are in the same logical set as the given path
@@ -77,7 +76,6 @@ public class LogicalGrouping {
             if (path.endsWith("alias")) {
                 result.add(path);
             } else {
-                List<String> ampm = new ArrayList<String>(Arrays.asList("am", "pm"));
                 String dayPeriodType = parts.findAttributeValue("dayPeriod", "type");
 
                 if (ampm.contains(dayPeriodType)) {

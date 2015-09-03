@@ -35,6 +35,7 @@ class LdmlConvertRules {
         "numbers:miscPatterns:numberSystem",
         "territoryContainment:group:status",
         "decimalFormat:pattern:count",
+        "currencyFormat:pattern:count",
         "unit:unitPattern:count",
         "field:relative:type",
         "field:relativeTime:type",

@@ -868,63 +868,63 @@ h2, h3, h4, table {
 					<th align="left">Symbol</th>
 					<th align="left">Location</th>
 					<th align="left">Localized<span class="changed"> Replacement</span></th>
-					<th align="left">Meaning</th>
+					<th colspan="2" align="left">Meaning</th>
 				</tr>
 				<tr valign="top">
 					<td>0</td>
 					<td>Number</td>
 					<td class="changed">digit</td>
-					<td>Digit</td>
+					<td colspan="2">Digit</td>
 				</tr>
 				<tr valign="top" bgcolor="#eeeeff">
 					<td>1-9</td>
 					<td>Number</td>
 					<td class="changed">digit</td>
-					<td>&#39;1&#39; through &#39;9&#39; indicate rounding.</td>
+					<td colspan="2">&#39;1&#39; through &#39;9&#39; indicate rounding.</td>
 				</tr>
 				<tr valign="top">
 					<td>@</td>
 					<td>Number</td>
 					<td class="changed">digit</td>
-					<td>Significant digit</td>
+					<td colspan="2">Significant digit</td>
 				</tr>
 				<tr valign="top" bgcolor="#eeeeff">
 					<td>#</td>
 					<td>Number</td>
 					<td class="changed">digit, <em>nothing</em></td>
-					<td>Digit<span class="changed">, omitting leading/trailing zeros</span></td>
+					<td colspan="2">Digit<span class="changed">, omitting leading/trailing zeros</span></td>
 				</tr>
 				<tr valign="top">
 					<td>.</td>
 					<td>Number</td>
 					<td class="changed">decimal, currencyDecimal</td>
-					<td>Decimal separator or monetary decimal separator</td>
+					<td colspan="2">Decimal separator or monetary decimal separator</td>
 				</tr>
 				<tr valign="top" bgcolor="#eeeeff">
 					<td>-</td>
 					<td>Number</td>
 					<td class="changed">minusSign</td>
-					<td>Minus sign.</td>
+					<td colspan="2">Minus sign.</td>
 				</tr>
 				<tr valign="top">
 					<td>,</td>
 					<td>Number</td>
 					<td class="changed">group, currencyGroup</td>
-					<td>Grouping separator. May occur in both the integer part and
+					<td colspan="2">Grouping separator. May occur in both the integer part and
 						the fractional part. The position determines the grouping.</td>
 				</tr>
 				<tr valign="top" bgcolor="#eeeeff">
 					<td>E</td>
 					<td>Number</td>
 					<td class="changed">exponential, superscriptingExponent</td>
-					<td>Separates mantissa and exponent in scientific notation. <em>Need
+					<td colspan="2">Separates mantissa and exponent in scientific notation. <em>Need
 							not be quoted in prefix or suffix.</em></td>
 				</tr>
 				<tr valign="top">
 					<td>+</td>
 					<td>Exponent</td>
 					<td class="changed">plusSign</td>
-					<td>Prefix positive exponents with localized plus sign. <span class="changed">Used for explicit plus for numbers as well, as described in Section 3.2.1 <a href="#Explicit_Plus">Explicit Plus Signs</a>. <em><br>
+					<td colspan="2">Prefix positive exponents with localized plus sign. <span class="changed">Used for explicit plus for numbers as well, as described in Section 3.2.1 <a href="#Explicit_Plus">Explicit Plus Signs</a>. <em><br>
 				    Need
 							not be quoted in prefix or suffix.</em></span></td>
 				</tr>
@@ -932,47 +932,79 @@ h2, h3, h4, table {
 				  <td>%</td>
 				  <td>Prefix or suffix</td>
 				  <td class="changed">percentSign</td>
-				  <td>Multiply by 100 and show as percentage</td>
+				  <td colspan="2">Multiply by 100 and show as percentage</td>
 			  </tr>
 				<tr valign="top" bgcolor="#eeeeff">
 				  <td>‰<br>
 				    (U+2030) </td>
 				  <td>Prefix or suffix</td>
 				  <td class="changed">perMille</td>
-				  <td>Multiply by 1000 and show as per mille <span class="changed">(aka “basis points”)</span></td>
+				  <td colspan="2">Multiply by 1000 and show as per mille <span class="changed">(aka “basis points”)</span></td>
 			  </tr>
 				<tr valign="top" bgcolor="#eeeeff">
 					<td>;</td>
 					<td>Subpattern boundary</td>
 					<td class="changed"><em>syntax</em></td>
-					<td>Separates positive and negative subpatterns.<span class="changed"> When there is no explicit negative subpattern, an implicit negative subpattern is formed from the positive pattern with a prefixed - (ASCII U+002D HYPHEN-MINUS). </span></td>
+					<td colspan="2">Separates positive and negative subpatterns.<span class="changed"> When there is no explicit negative subpattern, an implicit negative subpattern is formed from the positive pattern with a prefixed - (ASCII U+002D HYPHEN-MINUS). </span></td>
 				</tr>
 				<tr valign="top">
-					<td>¤ (U+00A4)</td>
-					<td>Prefix or suffix</td>
-					<td class="changed"><em>currency symbol from currency specified in API</em></td>
-					<td>Currency sign, replaced by currency symbol for the currency being formatted. If
-							doubled, replaced by the international currency symbol (U+00A4).
-							If tripled, replaced by the appropriate currency display name for
-							the currency, based on the plural rules in effect for the locale.
-							(For example, "5.00 US Dollars"). Refer to the formatting in for
-							long display names, steps 2 and 4 in <a href="#Currencies">Currencies.</a>
-					If present in a pattern, the monetary decimal separator and
+					<td rowspan="11">¤ (U+00A4)</td>
+					<td rowspan="11">Prefix or suffix</td>
+					<td rowspan="11" class="changed"><em>currency symbol from currency specified in API</em></td>
+					<td colspan="2"><span class="changed">Any sequence is replaced by the </span>currency symbol for the currency being formatted<span class="changed">, as in the table below</span>. If present in a pattern, the monetary decimal separator and
 						grouping separators (if available) are used instead of the numeric
 						ones.
-					</td>
+					Refer to the formatting  for
+					long display names, steps 2 and 4 in <a href="#Currencies">Currencies</a>. </td>
 				</tr>
+				<tr class='changed' valign="top">
+				  <th>No.</th>
+				  <th>Replacement / Example</th>
+			  </tr>
+				<tr  class='changed'valign="top">
+				  <td rowspan="2">¤</td>
+				  <td>Standard currency symbol</td>
+			  </tr>
+				<tr  class='changed'valign="top">
+				  <td><em>C$12.00</em></td>
+			  </tr>
+				<tr  class='changed'valign="top">
+				  <td rowspan="2">¤¤</td>
+				  <td>ISO currency symbol</td>
+			  </tr>
+				<tr  class='changed'valign="top">
+				  <td><em>CAD 12.00</em></td>
+			  </tr>
+				<tr  class='changed'valign="top">
+				  <td rowspan="2">¤¤¤</td>
+				  <td>Appropriate currency display name for
+							the currency, based on the plural rules in effect for the locale</td>
+			  </tr>
+				<tr  class='changed'valign="top">
+				  <td><em>5.00 Canadian dollars</em></td>
+			  </tr>
+				<tr  class='changed'valign="top">
+				  <td rowspan="2">¤¤¤¤¤</td>
+				  <td>Narrow currency symbol</td>
+			  </tr>
+				<tr  class='changed' valign="top">
+				  <td><em>$12.00</em></td>
+			  </tr>
+				<tr class='changed' valign="top">
+				  <td><em>others</em></td>
+				  <td><em>Reserved for future specification</em></td>
+		      </tr>
 				<tr valign="top">
 				  <td>*</td>
 				  <td>Prefix or suffix boundary</td>
 				  <td class="changed"><em>padding character specified in API</em></td>
-				  <td>Pad escape, precedes pad character</td>
+				  <td colspan="2">Pad escape, precedes pad character</td>
 			  </tr>
 				<tr valign="top" bgcolor="#eeeeff">
 					<td>&#39;</td>
 					<td>Prefix or suffix</td>
 					<td class="changed"><em>syntax-only</em></td>
-					<td>Used to quote special characters in a prefix or suffix,
+					<td colspan="2">Used to quote special characters in a prefix or suffix,
 						for example, <code>&quot;&#39;#&#39;#&quot;</code> formats 123 to
 						<code>&quot;#123&quot;</code>. To create a single quote itself,
 						use two in a row: <code>&quot;# o&#39;&#39;clock&quot;</code>.

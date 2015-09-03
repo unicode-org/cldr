@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2015-09-01</span></td>
+				<td><span class="changed">2015-09-03</span></td>
 			</tr>
 			<tr>
 				<td>This Version</td>
@@ -942,8 +942,8 @@ h5 {
 			</tr>
 			<tr>
 				<td><code>type</code></td>
-				<td><code>= alphanum{3,8} (sep alphanum{3,8})* ;</code></td>
-				<td><code>= 3*8alphanum *(sep 3*8alphanum)</code></td>
+				<td><code>= alphanum{3,8}<br>  (sep alphanum{3,8})* ;</code></td>
+				<td><code>= 3*8alphanum<br>  *(sep 3*8alphanum)</code></td>
 				<td class='changed'><code>
 						<a href="#Key_Type_Definitions">validity</a>
 					</code></td>
@@ -957,13 +957,21 @@ h5 {
 				<td class="changed"><code>
 						<a name="subdivision_attribute" href="#subdivision_attribute">subdivision_attribute</a>
 					</code></td>
-				<td class="changed"><code> = <a href="#unicode_region_subtag" >unicode_region_subtag</a> unicode_subdivision_subtag ;</code></td>
-				<td class="changed"><code>= <a href="#unicode_region_subtag" >unicode_region_subtag</a> unicode_subdivision_subtag</code></td>
+				<td class="changed"><code> = alphanum{3,8}<br>
+			      (sep alphanum{3,8})* ;</code></td>
+				<td class="changed"><code>= 3*8alphanum<br>
+			      *(sep 3*8alphanum)</code></td>
 				<td class='changed'><code>
 						<a href='#unicode_subdivision_subtag_validity'>validity</a>
 					</code></td>
 
 			</tr>
+			<tr>
+			  <td class="changed"><code> <a name="unicode_measure_unit" href="#unicode_measure_unit">unicode_measure_unit</a> </code></td>
+			  <td class="changed"><code> = <a href="#unicode_region_subtag" >unicode_region_subtag</a> unicode_subdivision_subtag ;</code></td>
+			  <td class="changed"><code>= <a href="#unicode_region_subtag" >unicode_region_subtag</a> unicode_subdivision_subtag</code></td>
+			  <td class='changed'><code> <a href='#unicode_subdivision_subtag_validity'>validity</a> </code></td>
+		  </tr>
 			<tr>
 				<td><code>tlang</code></td>
 				<td><code>
@@ -1240,7 +1248,8 @@ h5 {
 					</p></td>
 				<td class="removed">ASCII letters</td>
 				<td><span class="changed">Subtags in the language.xml
-						file (see <em>Section XX, Validity Files</em>). These are based on
+						file (see <em>Section 3.11 <a href="#Validity_Data">Validity
+							Data</a></em>). These are based on
 				</span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						language</b>
 					<p>ISO 639-3 introduces the notion of
@@ -1315,10 +1324,10 @@ h5 {
 					</p></td>
 				<td class="removed">ASCII letters</td>
 				<td><span class="changed">Subtags in the script.xml file
-						(see <em>Section XX, Validity Files</em>). These are based on
-				</span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
+						(see <em>Section 3.11 <a href="#Validity_Data">Validity
+							Data</a></em>). These are based on </span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						script</b>
-					<p>In most cases the script is not necessary, since the
+					        <p>In most cases the script is not necessary, since the
 						language is only customarily written in a single script. Examples
 						of cases where it is used are:</p>
 					<table border="1" cellspacing="0" cellpadding="2"
@@ -1382,10 +1391,10 @@ h5 {
 					</p></td>
 				<td class="removed">ASCII letters and digits</td>
 				<td><span class="changed">Subtags in the region.xml file
-						(see <em>Section XX, Validity Files</em>). These are based on
-				</span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
+						(see<em> Section 3.11 <a href="#Validity_Data">Validity
+							Data</a></em>). These are based on </span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						region</b>
-					<p>Unicode identifiers give specific semantics to the following
+					        <p>Unicode identifiers give specific semantics to the following
 						subtags:</p>
 					<table border="1" cellspacing="0" cellpadding="2">
 						<tr>
@@ -1455,10 +1464,10 @@ h5 {
 					</p></td>
 				<td class="removed">ASCII letters</td>
 				<td><span class="changed">Subtags in the variant.xml
-						file (see <em>Section XX, Validity Files</em>). These are based on
-				</span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
+						file (see<em> Section 3.11 <a href="#Validity_Data">Validity
+							Data</a></em>). These are based on </span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						variant</b>
-					<p>
+					        <p>
 						CLDR provides data for normalizing variant codes. About handling
 						of the "POSIX" variant see <i>Section 3.8.2, <a
 							href="#Legacy_Variants">Legacy Variants</a></i>.
@@ -2477,35 +2486,23 @@ represent				  “English as used in California”.</td>
 </ul>
 <p class='changed'>
 	  A <a href="#subdivision_attribute"></a> <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is valid for a <a href="#unicode_region_subtag">unicode_region_subtag</a>
-	  only when the <strong>subdivisionContainment</strong> element
-			contains a <strong>subgroup</strong> element where:
-		</p>
-		<ol class='changed'>
-			<li>the <strong>type</strong> attribute value is that <a
-				href="#unicode_region_subtag">unicode_region_subtag</a>, and
-			</li>
-			<li>the <strong>contains</strong> attribute value contains the <a
-				href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>.
-				<ul>
-					<li>The <strong>contains</strong> attribute value is a
-						space-delimited set, and compared case-insensitively.
-					</li>
-				</ul>
-			</li>
-		</ol>
-		<p class='changed'>For example, the subdivision “ca” (and “CA”) is
-			valid for the region “US” because of the following element:</p>
+	  only when combination of the two, with an intervening hyphen, is present in the subdivision.xml file as described in  <em>Section 3.11 <a href="#Validity_Data">Validity
+	  Data</a></em>.</p>
+<p class='changed'>For example, the subdivision “ca” (and “CA”) is
+	valid for the region “US” because of the following element:</p>
 		<p align="center" class='changed'>
-			<code>&lt;subgroup type=&quot;US&quot; contains=&quot;… CA
-				…&quot;/&gt;</code>
+			<code>&lt;id type="subdivision"…&gt;… US-CA
+				…&lt;/id&gt;</code>
 		</p>
 		<p class="changed">
-		A <a href="#subdivision_attribute">subdivision_attribute</a> is only valid when it consists of the concatenation of a <a href="#unicode_region_subtag">unicode_region_subtag</a> and a <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> which is valid for that <a href="#unicode_region_subtag">unicode_region_subtag</a>.</p>
+		The data is in a compressed form, and thus needs to be expanded before such a test is made.</p>
+		<p class="changed">A <a href="#subdivision_attribute">subdivision_attribute</a> is only valid when it consists of the concatenation of a <a href="#unicode_region_subtag">unicode_region_subtag</a> and a <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> which is valid for that <a href="#unicode_region_subtag">unicode_region_subtag</a>.</p>
 		<p class="changed">Thus the following is invalid:<br>
         </p>
 		<ul class="changed">
-		  <li>ussct — there is no <strong>subdivisionContainment</strong> element &lt;subgroup type=&quot;US&quot; contains=&quot;… SCT …&quot;/&gt;		</li>
-	  </ul>
+		  <li>ussct — there is no <strong>subdivisionContainment</strong> element <code>&lt;id type="subdivision"…&gt;… US-SCT
+          …&lt;/id&gt;</code></li>
+      </ul>
 		<p class="changed">A <a href="#subdivision_attribute">subdivision_attribute</a><a href="#unicode_subdivision_subtag"></a>
 			is only valid in a <a href='#unicode_locale_id'>unicode_locale_id</a>
 		if the prefixed <a href="#unicode_region_subtag" >unicode_region_subtag</a> matches the <a href="#unicode_region_subtag" >unicode_region_subtag</a> in the <a href="#unicode_language_id" >unicode_language_id</a> (after adding likely subtags).        </p>
@@ -3069,7 +3066,7 @@ represent				  “English as used in California”.</td>
 			The directory <a
 				href='http://unicode.org/repos/cldr/tags/latest/common/validity/'>common/validity</a>
 			contains machine-readable data for validating the language, region,
-			script, and variant subtags. Each file contains a number of subtags
+			script, and variant subtags, as well as currency, subdivisions and measure units. Each file contains a number of subtags
 			with the following idStatus values:
 		</p>
 		<ul class='changed'>
@@ -3106,6 +3103,8 @@ represent				  “English as used in California”.</td>
 				<a href="#String_Range">5.3.4 String Range</a>.
 			</em> The separator for each StringRange is a &quot;~&quot;.
 		</p>
+		<p class='changed'>Each measure unit is a sequence of subtags, such as “angle-arc-minute”. The first subtag provides a general “category” of the unit.</p>
+		<p class='changed'>The subdivisions in the validity files use the ISO format, with a hyphen separating two components. This hyphen is not used in the <a href="#subdivision_attribute">subdivision_attribute</a>.</p>
 		<h2>
 			<a name="Locale_Inheritance" href="#Locale_Inheritance">4 Locale
 				Inheritance and Matching</a>

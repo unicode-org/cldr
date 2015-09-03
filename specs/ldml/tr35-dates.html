@@ -3587,7 +3587,8 @@ h2, h3, h4, table {
 				<td class="changed" rowspan="3"><strong>AM, PM<br>
 				</strong>May be upper or lowercase depending on the locale and other options. The wide form may be the same as the short form if
 					the “real” long form (eg <em>ante meridiem</em>) is not customarily
-				 used. The narrow form must be unique, unlike some other fields. </td>
+				 used. The narrow form must be unique, unlike some other fields. See also Section 9 <a href="#Parsing_Dates_Times">Parsing
+				Dates and Times</a>.</td>
 			</tr>
 			<tr>
 			  <td style="text-align: center">4</td>
@@ -4108,7 +4109,7 @@ h2, h3, h4, table {
 				first. This is the only way to disambiguate 03/07 (March 2007, a
 				credit card expiration date) from 03/07 (March 7, a birthday).</li>
 			<li>Attempt to match fields and literals against those in the
-				format string, using loose matching of the tokens.</li>
+				format string, using loose matching of the tokens. <span class="changed">In particular, Unicode normalization and case variants should be accepted. Alternate symbols  can also be accepted where unambiguous: for example, “11.30 am”.</span></li>
 			<li>When matching symbols, try the narrow, abbreviated, and
 				full-width forms, including standalone forms if they are unique. You
 				may want to allow prefix matches too, or diacritic-insensitive,
@@ -4126,6 +4127,7 @@ h2, h3, h4, table {
 						of an ambiguous formatted date string may produce a result that
 						differs from the date originally used to create the formatted
 						string.</li>
+					<li class="changed">For day periods, ASCII variants for AM/PM such as “am”, “a.m.”, “am.” (and their case variants) should be accepted, since they are widely used as alternates to native formats.</li>
 				</ul>
 			</li>
 			<li>When a field or literal is encountered that is not

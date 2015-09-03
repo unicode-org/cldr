@@ -5284,11 +5284,11 @@ root</pre>
 			of all code points from the start to end, inclusive, in Unicode
 			order. For example, <b>[a c d-f m]</b> is equivalent to <b>[a c d
 				e f m]</b>. Whitespace can be freely used for clarity, as <b>[a c
-				d-f m]</b> means the same as <b>[acd-fm]</b>. A string with multiple
+			d-f m]</b> means the same as <b>[acd-fm]</b>. </p>
+		<p>A string with multiple
 			code points is represented in a list by being surrounded by curly
-			braces, such as in <strong>[a-z {ch}]</strong>. It cannot be used
-			with the range notation.
-		</p>
+			braces, such as in <strong>[a-z {ch}]</strong>. It <span class="changed">can</span> be used
+			with the range notation<span class="changed">, as described in  <em>Section <a  href="#String_Range">5.3.4 String Range</a></em>. There is an additional restriction on string ranges in a UnicodeSet: the number of codepoints in the first string of the range must be identical to the number in the second. Thus [{ab}-{c}] and [{ab}-c] are invalid.</span></p>
 		<p>In UnicodeSets, there are two ways to quote syntax code points:
 		</p>
 		<p>
@@ -5492,12 +5492,12 @@ root</pre>
 				<td>The set containing &#39;a&#39; alone</td>
 			</tr>
 			<tr>
-				<td nowrap>[a-z]</td>
-				<td>The set containing &#39;a&#39; through &#39;z&#39; and all
-					letters in between, in Unicode order.<br> Thus it is the same
-					as [\u0061-\u007A].
-				</td>
-			</tr>
+			  <td nowrap>[a-z]</td>
+			  <td>The set containing &#39;a&#39; through &#39;z&#39; and all
+			    letters in between, in Unicode order.<br>
+			    Thus it is the same
+			    as [\u0061-\u007A]. </td>
+		  </tr>
 			<tr>
 				<td nowrap>[^a-z]</td>
 				<td>The set containing all code points but &#39;a&#39; through
@@ -5523,6 +5523,10 @@ root</pre>
 				<td>The code point &#39;a&#39; and the multi-code point strings
 					&quot;ab&quot; and &quot;ac&quot;</td>
 			</tr>
+			<tr class='changed'>
+			  <td nowrap>[{ax}-{bz}]</td>
+			  <td>The set containing [{ax} {ay} {az} {bx} {by} {bz}], using the range syntax to get all the strings from {ax} to {bz} as described in <em>Section <a  href="#String_Range">5.3.4 String Range</a></em>.</td>
+		  </tr>
 			<tr>
 				<td nowrap>[:Lu:]</td>
 				<td>The set of code points with a given property value, as
@@ -7707,15 +7711,22 @@ decimal?, group?, special*)) &gt;</pre>
 							</li>
 						</ul></li>
 					<li>Added <em>Section <a
-							href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes.</a></em></li>
+							href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></em></li>
 					<li>Added <em>Section <a href="#Validity_Data">3.11
 								Validity Data</a></em></li>
+					<li><em>Section <a href="#Unicode_Sets">5.3.3 Unicode Sets</a></em>
+					  <ul>
+					    <li>Added string ranges for UnicodeSets. [<a
+								href="http://unicode.org/cldr/trac/ticket/8616"
+								title="View ticket">#8616</a>] </li>
+				      </ul>
+					</li>
 					<li>Added <em>Section <a href="#String_Range">5.3.4
 								String Range</a></em></li>
 					<li><em>Section <a href="#Identity_Elements">5.4
 								Identity Elements</a></em>
 						<ul>
-							<li>Deprecated the generation element.[<a
+							<li>Deprecated the generation element. [<a
 								href="http://unicode.org/cldr/trac/ticket/8242"
 								title="View ticket">#8242</a>]
 							</li>

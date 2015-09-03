@@ -122,6 +122,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%numberingSystem100" value="(finance|native|traditional|bali|brah|cakm|cham|hanidays|java|kali|lana(tham)?|lepc|limb|mong|mtei|mymrshan|nkoo|olck|osma|saur|shrd|sora|sund|takr|talu|vaii)"/>
 		<coverageVariable key="%persianCalendarTerritories" value="(AF|IR)"/>
 		<coverageVariable key="%phonebookCollationLanguages" value="(de|fi)"/>
+		<coverageVariable key="%ptVariants" value="(ABL1943|AO1990|COLB1945)"/>
 		<coverageVariable key="%quarterTypes" value="([1-4])"/>
 		<coverageVariable key="%regionFormatTypes" value="(daylight|standard)"/>
 		<coverageVariable key="%relativeTimeTypes" value="(year|year-short|year-narrow|quarter|quarter-short|quarter-narrow|month|month-short|month-narrow|week|week-short|week-narrow|day|day-short|day-narrow|hour|hour-short|hour-narrow|minute|minute-short|minute-narrow|second|second-short|second-narrow)"/>
@@ -439,6 +440,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="localeDisplayNames/territories/territory[@type='%territory60'][@alt='%shortVariant']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/territories/territory[@type='%territory80'][@alt='%shortVariant']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/keys/key[@type='%keys80']"/>
+		<coverageLevel inLanguage="pt" value="modern" match="localeDisplayNames/variants/variant[@type='%ptVariants']"/>		
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='collation'][@type='%collationType80']"/>
 		<coverageLevel inLanguage="%collationType80TopLangs" value="modern" match="localeDisplayNames/types/type[@key='collation'][@type='%collationType80ForTopLangs']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='numbers'][@type='%numberingSystem80']"/>

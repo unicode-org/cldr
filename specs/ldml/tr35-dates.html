@@ -1715,17 +1715,16 @@ h2, h3, h4, table {
 		<p>
 			Each locale can have a set of day period rules, which determine the
 			periods during a day if used with a 12 hour format. If locales are
-			not listed, dayPeriods fallback to AM/PM. There
-				are two kinds of dayPeriodRuleSets, based on the type.
-		</p>
+			not do not have <span class="changed">dayPeriodRules, the computation of dayPeriods </span>fallback to AM/PM. There
+		are two kinds of dayPeriodRuleSets, based on the type. </p>
 
-		<p>The default type (with no value) is used in
+		<p><span class="changed">The <strong><em>format</em></strong> type is</span> used in
 			conjunction with times, such as to express &quot;3:00 in the
 			afternoon&quot;, or &quot;12:00 noon&quot;. Many languages do not
 			normally use terms that match AM/PM for such times, instead breaking
 			up the day into more periods.</p>
 
-		<p>If the type is “selection”, then it is used for
+		<p><span class="changed">The <strong>stand-alone</strong> type is</span> used for
 			selecting a period of the day for a general time associated with an
 			event. For example, it can be used to select a message like:</p>
 
@@ -1738,10 +1737,10 @@ h2, h3, h4, table {
 			}<br> &lt;/msg&gt;
 		</p>
 
+		<p class="changed">The translated values for the selection (<strong>stand-alone</strong>) day periods are intended for use in designating a time of day, without an hour value.</p>
 		<p>These are relative times within a single day.
 			If the event can occur on multiple days, then that needs to be
-			handled at a higher level.</p>
-
+			handled at a higher level.		</p>
 		<p>As with plurals, the exact set of periods used
 			for any language may be different. It is the responsibility of any
 			translation software to pick the relevant day periods for the locale
@@ -1752,62 +1751,55 @@ h2, h3, h4, table {
 				Period Rules</a>
 		</h4>
 
-		<p>Here are the requirements for a rule set:</p>
+	  <p>Here are the requirements for a rule set.</p>
+		<h5 class="changed">Fixed periods</h5>
+		<span class="changed">        There are 4 dayPeriods that are fixed; am/pm are always defined, and always have the same meaning and definition for every locale. Midnight and noon are optional, however if they are defined, they have the same meaning and definition as in all other locales where they are defined.
+		</span>
+		<pre class="changed">&lt;dayPeriodRule type="midnight" at="0:00"/&gt;
+&lt;dayPeriodRule type="am" from="0:00" before="12:00" /&gt;
+&lt;dayPeriodRule type="noon" at="12:00"/&gt;
+&lt;dayPeriodRule type="pm" from="12:00" before="24:00" /&gt;
+</pre>
+	  <p class="changed">Note that midnight and am can overlap, as can noon and pm.<br>
+	  </p>
+		<p class="changed">All locales must support am/pm, but not all support noon or midnight; they are only supported if they meet the above definitions. For example, German has no unique term that means exactly 12:00 noon; the closest is Mittag, but that can extend before or after 12 noon.<br>
+      </p>
+		<h5><span class="changed">Variable periods</span><br>
+      </h5>
 		<ol>
-			<li>"from" and "to" are closed intervals (inclusive).</li>
-			<li>"after" and "before" are open intervals (exclusive).</li>
-			<li>"at" means starting time and end time are the same.</li>
-			<li>There must be exactly one of {at, from, after} and exactly
-				one of {at, to, before} for each dayPeriodRule.</li>
-			<li>The set of dayPeriodRules need to completely cover the 24
+		  <li>The set of dayPeriodRules need to completely cover the 24
 				hours in a day (from 0:00 before 24:00), with <strong>no</strong> overlaps
-				between each dayPeriodRule.
-			</li>
-			<li>Both hh:mm [period name] and hh [period name] can be parsed
+		  between any dayPeriodRules.<span class="changed"> They may overlap with the <strong>Fixed Periods</strong>.</span></li>
+		  <li>"from" and "to" are closed intervals (inclusive).  <em class="changed">(&quot;to&quot; is deprecated)</em></li>
+			<li>"after" and "before" are open intervals (exclusive). <em class="changed">(&quot;after&quot; is deprecated)</em></li>
+			<li>"at" means starting time and end time are the same.<span class="changed"> <em>(&quot;at&quot; is deprecated except when used for the fixed periods)</em></span></li>
+			<li>There must be exactly one of {at, from, after} and exactly
+			  one of {at, to, before} for each dayPeriodRule.</li>
+            <li class="changed">Use of non-zero minutes or seconds is deprecated.</li>
+			<li><span class="changed">The dayPeriodRules for format must allow that </span>hh:mm [period name] and hh [period name] can be parsed
 				uniquely to HH:mm [period name].
-				<ol>
-					<li>For example, you can't have &lt;dayPeriod type = "morning"
-						from="0:00" to="12:00"/&gt; because "12 {morning}" would be
-						ambiguous.</li>
-				</ol>
-			</li>
-			<li>One dayPeriodRule can cross midnight. For example:
-				<ol>
-					<li>&lt;dayPeriodRule type="night" from="20:00"
-						before="5:00"/&gt;</li>
-					<li>However, this should be avoided unless the alternative is
-						awkward, because of ambiguities. While the use of the dayPeriods
-						without hours is not recommended, they can be used. And if the
-						user sees "Tuesday night" they may not think that that includes
-						1:00 am Tuesday.</li>
-				</ol>
-			</li>
-			<li>dayPeriodRules with the same type are only allowed if they
-				are not adjacent. Example:
-				<ul>
-					<li>&lt;dayPeriod type = "twilight" from="5:00" to="7:00"/&gt;</li>
-					<li>&lt;dayPeriod type = "twilight" from="17:00"
-						to="19:00"/&gt;</li>
+<ol>
+	    <li>For example, you can't have &lt;dayPeriod type = "morning"
+				    from="0:00" to="13:00"/&gt; because "12:30 {morning}" would be
+			      ambiguous.</li>
+			  </ol>
+		  </li>
+			<li>dayPeriodRules with the same type <span class="changed">must not be adjacent, except when they meet at 24:00/00:00. Example: </span>
+			  <ul>
+				  <li class="changed">&lt;dayPeriod type = "night1" from="00:00" to="5:00"/&gt;</li>
+				  <li class="changed">&lt;dayPeriod type = "night1" from="21:00"
+					to="24:00"/&gt;</li>
 				</ul>
 			</li>
-			<li>24:00 is <em>only</em> allowed in <em>before</em>="24:00". A
-				term for midnight should be avoided in the rules, because of
-				ambiguity problems in most languages.
-				<ol>
-					<li><em>"Tuesday midnight" generally means at the end of
-							the day on Tuesday (24:00)</em></li>
-					<li><em>Most software does not format anything for 24:00,
-							only for 00:00. And you don't want 00:00 Tuesday (the start of
-							the day) to be formatted as midnight, meaning the end of the day.</em></li>
-				</ol>
-			</li>
-			<li>When parsing, if the hour is present the dayperiod is
-				checked for consistency. If there is no hour, the center of the
-				first matching dayPeriodRule is chosen (starting from 0:00).</li>
+			<li>24:00 is <em>only</em> allowed in <em>before</em>="24:00".			</li>
+			<li>When parsing, if the hour is present <span class="changed">with a strict parse</span> the dayperiod is
+				checked for consistency<span class="changed"> with the hour</span>. If there is no hour, the center of the
+				first matching dayPeriodRule <span class="changed">can be</span> chosen (starting from 0:00).</li>
 			<li>If rounding is done—including the rounding done by the time
 				format—then it needs to be done before the dayperiod is computed, so
 				that the correct format is shown.</li>
 		</ol>
+		<p class="changed">For examples, see <a href="http://www.unicode.org/cldr/charts/latest/supplemental/day_periods.html">Day Periods Chart</a>.</p>
 
 		<h2>
 			5 <a name="Time_Zone_Names" href="#Time_Zone_Names">Time Zone

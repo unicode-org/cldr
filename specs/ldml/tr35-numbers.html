@@ -951,11 +951,10 @@ h2, h3, h4, table {
 					<td rowspan="11">¤ (U+00A4)</td>
 					<td rowspan="11">Prefix or suffix</td>
 					<td rowspan="11" class="changed"><em>currency symbol/name from currency specified in API</em></td>
-					<td colspan="2"><span class="changed">Any sequence is replaced by the </span>currency symbol for the currency being formatted<span class="changed">, as in the table below</span>. If present in a pattern, the monetary decimal separator and
+					<td colspan="2"><span class="changed">Any sequence is replaced by the localized</span>currency symbol for the currency being formatted<span class="changed">, as in the table below</span>. If present in a pattern, the monetary decimal separator and
 						grouping separators (if available) are used instead of the numeric
 						ones.
-					Refer to the formatting  for
-					long display names, steps 2 and 4 in <a href="#Currencies">Currencies</a>. </td>
+				    <span class="changed">If data is unavailable for a given sequence in a given locale, the display may fall back to ¤ or ¤¤. See also</span> the formatting  for <span class="changed">currency</span> display names, steps 2 and 4 in <a href="#Currencies">Currencies</a>. </td>
 				</tr>
 				<tr class='changed' valign="top">
 				  <th>No.</th>
@@ -970,7 +969,7 @@ h2, h3, h4, table {
 			  </tr>
 				<tr  class='changed'valign="top">
 				  <td rowspan="2">¤¤</td>
-				  <td>ISO currency symbol</td>
+				  <td>ISO currency symbol (constant)</td>
 			  </tr>
 				<tr  class='changed'valign="top">
 				  <td><em>CAD 12.00</em></td>
@@ -985,7 +984,7 @@ h2, h3, h4, table {
 			  </tr>
 				<tr  class='changed'valign="top">
 				  <td rowspan="2" nowrap>¤¤¤¤¤</td>
-				  <td>Narrow currency symbol</td>
+				  <td>Narrow currency symbol. The same symbols may be used for multiple currencies. Thus this is be ambiguous, and should only be used where the context is clear.</td>
 			  </tr>
 				<tr  class='changed' valign="top">
 				  <td><em>$12.00</em></td>

@@ -263,8 +263,10 @@ h2, h3, h4, table {
 			the locale hierarchy. It is not localizable, nor is it overridden by
 			locale data. The current CLDR data can be viewed in the <a
 				href="http://www.unicode.org/cldr/data/charts/supplemental/index.html">Supplemental
-				Charts</a>.
-		</p>
+				Charts</a>.</p>
+		<p class="dtd">
+		  <!--td {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}-->
+        <span class="changed">&lt;!ELEMENT supplementalData (version,generation?,cldrVersion?,currencyData?,territoryContainment?,subdivisionContainment?, languageData?,territoryInfo?,postalCodeData?,calendarData?,calendarPreferenceData?,weekData?, timeData?,measurementData?,timezoneData?,characters?,transforms?,metadata?,codeMappings?, parentLocales?,likelySubtags?,metazoneInfo?,plurals?,telephoneCodeData?,numberingSystems?, bcp47KeywordMappings?,gender?,references?,languageMatching?,dayPeriodRuleSet*,metaZones?, primaryZones?,windowsZones?,coverageLevels?,idValidity?) &gt;</span></p>
 		<p>
 			The data in CLDR is presently split into multiple files:
 			supplementalData.xml, supplementalMetadata.xml, characters.xml,
@@ -1143,9 +1145,8 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 				Information</a>
 		</h3>
 
-		<p class="dtd">
-			&lt;!ELEMENT alias ( languageAlias*, scriptAlias*, territoryAlias*,
-			variantAlias*, zoneAlias* ) &gt;<br> <br> <em>The
+		<p class="dtd">&lt;!ELEMENT alias (languageAlias*,scriptAlias*,territoryAlias*,<span class="changed">subdivisionAlias*,</span>variantAlias*,zoneAlias*) &gt;<br> 
+		  <br> <em>The
 				following are common attributes for subelements of &lt;alias&gt;:</em><br>
 			&lt;!ELEMENT *Alias EMPTY &gt;<br> &lt;!ATTLIST *Alias type
 			NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST *Alias replacement
@@ -1154,7 +1155,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 				languageAlias has additional reasons</em><br> &lt;!ATTLIST
 			languageAlias reason ( deprecated | overlong | macrolanguage | legacy
 			| bibliographic ) #IMPLIED&gt;
-		</p>
+	  </p>
 		<p>
 			This element provides information as to parts of locale IDs that
 			should be substituted when accessing CLDR data. This logical

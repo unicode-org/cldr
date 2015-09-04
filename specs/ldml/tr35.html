@@ -4733,12 +4733,10 @@ root</pre>
 		</p>
 		<p>To start with, the root element is &lt;ldml&gt;, with the
 			following DTD entry:</p>
-		<span class="dtd">&lt;!ELEMENT ldml (identity, (alias
-			|(fallback*, localeDisplayNames?, layout?, </span>contextTransforms?, <span
-			class="dtd">characters?, delimiters?, measurement?, dates?,
-			numbers?, units?, listPatterns?, collations?, posix?, segmentations?,
-			rbnf?, </span>metadata?, <span class="dtd">references?, special*)))
-			&gt;</span>
+		<p class='dtd'>
+		  <span class="changed">&lt;!ELEMENT ldml (identity,(alias|(fallback*,localeDisplayNames?,layout?,contextTransforms?,characters?,<br>
+		  delimiters?,measurement?,dates?,numbers?,units?,listPatterns?,collations?,posix?,<br>
+		  segmentations?,rbnf?,annotations?,metadata?,references?,special*)))&gt;</span></p>
 
 		<p>The XML structure is stable over releases. Elements and
 			attributes may be deprecated: they are retained in the DTD but their
@@ -7817,8 +7815,19 @@ decimal?, group?, special*)) &gt;</pre>
 								elements.[<a href="http://unicode.org/cldr/trac/ticket/8218"
 								title="View ticket">#8218</a>]
 							</li>
-						</ul></li>
+						</ul>
+					</li>
 				</ul></li>
+			<li><strong>Part 2: <a href="tr35-general.html#Contents">General</a></strong>
+			  <ul>
+			    <li><em>Section 1 <a  href="tr35-general.html#Display_Name_Elements">Display
+				Name Elements</a></em>
+			      <ul>
+			        <li>Documented the subdivision element. [<a href="http://unicode.org/cldr/trac/ticket/8953">#8953</a>]</li>
+		          </ul>
+			    </li>
+		      </ul>
+			</li>
 			<li><strong>Part 3: <a
 					href="tr35-numbers.html#Contents">Numbers</a></strong>
 				<ul>
@@ -7912,8 +7921,17 @@ decimal?, group?, special*)) &gt;</pre>
 					</em>[<a href="http://unicode.org/cldr/trac/ticket/8953">#8953</a>]
 						<ul>
 							<li>Added a description of the new containment elements.</li>
-						</ul></li>
+						</ul>
+					</li>
+					<li><em>Section 9.1 <a 
+				href="tr35-info.html#Supplemental_Alias_Information">Supplemental Alias
+				Information</a></em><a 
+				href="tr35-info.html#Supplemental_Alias_Information"></a> 
+				<ul>
+				  <li>Added subdivisionAlias [<a href="http://unicode.org/cldr/trac/ticket/8953">#8953</a>]</li>
 				</ul></li>
+				</ul>
+			</li>
 		</ul>
 
 		<h3>Revision 39</h3>

@@ -287,8 +287,9 @@ h2, h3, h4, table {
 			1 <a name="Display_Name_Elements" href="#Display_Name_Elements">Display
 				Name Elements</a>
 		</h2>
-		<p>
-			Display names for scripts, languages, countries, currencies, and
+		<p class="dtd"><span class="changed">&lt;!ELEMENT localeDisplayNames ( alias | ( localeDisplayPattern?, languages?, scripts?, territories?, subdivisions?, variants?, keys?, types?, transformNames?, measurementSystemNames?, codePatterns?, special* ) )&gt;</span>
+		</p>
+		<p>Display names for scripts, languages, countries, currencies, and
 			variants in this locale are supplied by this element. They supply
 			localized names for these items for use in user-interfaces for
 			various purposes such as displaying menu lists, displaying a language
@@ -607,6 +608,16 @@ h2, h3, h4, table {
 					style="color: blue">Language: {0}</span>&lt;/type&gt;
 </pre>
 		</blockquote>
+		<p class="dtd"><span class="changed">&lt;!ELEMENT subdivisions ( alias | ( subdivision | special )* ) &gt;<br>
+	    &lt;!ELEMENT subdivision ( #PCDATA )&gt;</span></p>
+	  <p class="changed">Note that the subdivision names are in separate files, in the subdivisions/ directory. The type values are the fully qualified subdivsion names. For example:</p>
+		<p class="xmlExample changed"> &lt;subdivision type=&quot;AL-04&quot;&gt;Fier County&lt;/subdivision&gt;<br>		  
+		  &lt;subdivision type=&quot;AL-FR&quot;&gt;Fier&lt;/subdivision&gt;	&lt;!-- in AL-04 : Fier County --&gt;<br>
+&lt;subdivision type=&quot;AL-LU&quot;&gt;Lushnjë&lt;/subdivision&gt;	&lt;!-- in AL-04 : Fier County --&gt;<br>
+&lt;subdivision type=&quot;AL-MK&quot;&gt;Mallakastër&lt;/subdivision&gt;	&lt;!-- in AL-04 : Fier County --&gt;</p>
+		<p class="changed">See also <strong>Part 6</strong> <em>Section 2.1.1 <a
+							href="tr35-info.html#Subdivision_Containment">Subdivision
+		Containment</a></em>.</p>
 
 
 		<h2>

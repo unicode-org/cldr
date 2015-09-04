@@ -1366,31 +1366,34 @@ h2, h3, h4, table {
 		</h2>
 
 
-		<p class="dtd">&lt;!ELEMENT units (alias | (unit*, unitLength*,
-			durationUnit*, special*)) &gt;<br><br>
-			&lt;!ELEMENT unitLength (alias|(compoundUnit*,unit*,<span class="changed">coordinateUnit*,</span>special*)) &gt;<br> &lt;!ATTLIST unitLength type ( long | short | narrow )
-			#REQUIRED &gt;
-		<br><br>
-			&lt;!ELEMENT compoundUnit (alias | (compoundUnitPattern*, special*))
-			&gt;<br> &lt;!ATTLIST compoundUnit type NMTOKEN #REQUIRED &gt;
-		<br><br>
-			&lt;!ELEMENT unit (alias | (displayName*, unitPattern*,
-			perUnitPattern*, special*)) &gt;<br> &lt;!ATTLIST unit type
-			NMTOKEN #REQUIRED &gt;
-		<br><br>
-			&lt;!ELEMENT durationUnit (alias | (durationUnitPattern*, special*))
-			&gt;<br> &lt;!ATTLIST durationUnit type NMTOKEN #REQUIRED &gt;
-		<br><br>
-			&lt;!ELEMENT unitPattern ( #PCDATA ) &gt;<br> &lt;!ATTLIST
-			unitPattern count (0 | 1 | zero | one | two | few | many | other)
-			#REQUIRED &gt;
-		<br><br>
-			&lt;!ELEMENT compoundUnitPattern ( #PCDATA ) &gt;<br>
+		<p class="dtd">
+			&lt;!ELEMENT units (alias | (unit*, unitLength*, durationUnit*,
+			special*)) &gt;<br>
+			<br> &lt;!ELEMENT unitLength (alias|(compoundUnit*,unit*,<span
+				class="changed">coordinateUnit*,</span>special*)) &gt;<br>
+			&lt;!ATTLIST unitLength type ( long | short | narrow ) #REQUIRED &gt;
 			<br>
-	      <span class="changed">&lt;!ELEMENT coordinateUnit ( alias | ( coordinateUnitPattern*, special* ) ) &gt;<br>&lt;!ELEMENT coordinateUnitPattern ( #PCDATA ) &gt;<br>
-		  &lt;!ATTLIST coordinateUnitPattern type (north | east | south | west) #REQUIRED &gt;</span><br><br>
-		  &lt;!ELEMENT durationUnitPattern ( #PCDATA ) &gt;<br>
-	  </p>
+			<br> &lt;!ELEMENT compoundUnit (alias | (compoundUnitPattern*,
+			special*)) &gt;<br> &lt;!ATTLIST compoundUnit type NMTOKEN
+			#REQUIRED &gt; <br>
+			<br> &lt;!ELEMENT unit (alias | (displayName*, unitPattern*,
+			perUnitPattern*, special*)) &gt;<br> &lt;!ATTLIST unit type
+			NMTOKEN #REQUIRED &gt; <br>
+			<br> &lt;!ELEMENT durationUnit (alias | (durationUnitPattern*,
+			special*)) &gt;<br> &lt;!ATTLIST durationUnit type NMTOKEN
+			#REQUIRED &gt; <br>
+			<br> &lt;!ELEMENT unitPattern ( #PCDATA ) &gt;<br>
+			&lt;!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many
+			| other) #REQUIRED &gt; <br>
+			<br> &lt;!ELEMENT compoundUnitPattern ( #PCDATA ) &gt;<br>
+			<br> <span class="changed">&lt;!ELEMENT coordinateUnit (
+				alias | ( coordinateUnitPattern*, special* ) ) &gt;<br>&lt;!ELEMENT
+				coordinateUnitPattern ( #PCDATA ) &gt;<br> &lt;!ATTLIST
+				coordinateUnitPattern type (north | east | south | west) #REQUIRED
+				&gt;
+			</span><br>
+			<br> &lt;!ELEMENT durationUnitPattern ( #PCDATA ) &gt;<br>
+		</p>
 
 		<p>These elements specify the localized way of formatting
 			quantities of units such as years, months, days, hours, minutes and
@@ -1436,8 +1439,12 @@ h2, h3, h4, table {
 		<p class="xmlExample">&lt;unit
 			type=&quot;acceleration-g-force&quot;&gt;</p>
 		<p>​</p>
-		<p>Examples of these include<span class="changed"> the following. The complete list is in the validity data: see  <em>Section <a href="tr35.html#Validity_Data">3.11
-		Validity Data</a></em>.</span></p>
+		<p>
+			Examples of these include<span class="changed"> the following.
+				The complete list is in the validity data: see <em>Section <a
+					href="tr35.html#Validity_Data">3.11 Validity Data</a></em>.
+			</span>
+		</p>
 		<table>
 			<tr>
 				<td><strong>Type</strong></td>
@@ -2035,14 +2042,31 @@ h2, h3, h4, table {
 			for minutes, and 's' for sections. These are the same symbols used in
 			availableFormats, except that there is no need to distinguish
 			different forms of the hour.</p>
-		<h3 class="changed">6.4 <a name="coordinateUnit" href="#coordinateUnit">coordinateUnit</a> </h3>
-        <p class="changed">The <strong>coordinateUnitPattern</strong> is a special type of pattern used for composing degrees of latitude and longitude, with an indicator of the quadrant. There are exactly 4 type values. An angle is composed using the appropriate combination of the <strong>angle-degrees</strong>, <strong>angle-arc-minute</strong> and <strong>angle-arc-second</strong> values. It is then substituted for the placeholder field {0} in the appropriate <strong>coordinateUnit</strong> pattern.</p>
-        <p class="xmlExample"> <span class="changed">&lt;coordinateUnitPattern type=&quot;east&quot;&gt;{0}E&lt;/coordinateUnitPattern&gt;<br>
-&lt;coordinateUnitPattern type=&quot;north&quot;&gt;{0}N&lt;/coordinateUnitPattern&gt;<br>
-&lt;coordinateUnitPattern type=&quot;south&quot;&gt;{0}S&lt;/coordinateUnitPattern&gt;<br>
-&lt;coordinateUnitPattern type=&quot;west&quot;&gt;{0}W&lt;/coordinateUnitPattern&gt;</span></p>
+		<h3 class="changed">
+			6.4 <a name="coordinateUnit" href="#coordinateUnit">coordinateUnit</a>
+		</h3>
+		<p class="changed">
+			The <strong>coordinateUnitPattern</strong> is a special type of
+			pattern used for composing degrees of latitude and longitude, with an
+			indicator of the quadrant. There are exactly 4 type values. An angle
+			is composed using the appropriate combination of the <strong>angle-degrees</strong>,
+			<strong>angle-arc-minute</strong> and <strong>angle-arc-second</strong>
+			values. It is then substituted for the placeholder field {0} in the
+			appropriate <strong>coordinateUnit</strong> pattern.
+		</p>
+		<p class="xmlExample">
+			<span class="changed">&lt;coordinateUnitPattern
+				type=&quot;east&quot;&gt;{0}E&lt;/coordinateUnitPattern&gt;<br>
+				&lt;coordinateUnitPattern
+				type=&quot;north&quot;&gt;{0}N&lt;/coordinateUnitPattern&gt;<br>
+				&lt;coordinateUnitPattern
+				type=&quot;south&quot;&gt;{0}S&lt;/coordinateUnitPattern&gt;<br>
+				&lt;coordinateUnitPattern
+				type=&quot;west&quot;&gt;{0}W&lt;/coordinateUnitPattern&gt;
+			</span>
+		</p>
 		<h2>
-		  7 <a name="POSIX_Elements" href="#POSIX_Elements">POSIX Elements</a>
+			7 <a name="POSIX_Elements" href="#POSIX_Elements">POSIX Elements</a>
 		</h2>
 
 

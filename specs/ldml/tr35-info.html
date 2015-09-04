@@ -392,32 +392,31 @@ h2, h3, h4, table {
 			figures for the literate, functional population for each language in
 			each territory: that is, the population that is able to read and
 			write each language, and is comfortable enough to use it with
-			computers.</p>
-		<p>The GDP and Literacy figures are taken from the World Bank
-			where available, otherwise supplemented by FactBook data and other
-			sources. Much of the per-language data is taken from the Ethnologue,
-			but is supplemented and processed using many other sources, including
-			per-country census data. (The focus of the Ethnologue is native
-			speakers, which includes people who are not literate, and excludes
-			people who are functional second-language users.)</p>
-		<p>The percentages may add up to more than 100% due to
-			multilingual populations, or may be less than 100% due to illiteracy
-			or because the data has not yet been gathered or processed. Languages
-			with a small population may be omitted.</p>
+			computers.	<span class="changed">For	a chart of this data, see <a href='http://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html'>Territory-Language Information</a>.</span></p>
 		<p class='changed'><em>Example</em></p>
-		<pre class='changed'>&lt;territory type=&quot;AD&quot; gdp=&quot;3163000000&quot; literacyPercent=&quot;100&quot; population=&quot;85458&quot;&gt;&lt;!--Andorra--&gt;
-  &lt;languagePopulation type=&quot;ca&quot; populationPercent=&quot;51&quot; officialStatus=&quot;official&quot;/&gt; &lt;!--Catalan--&gt;
-  &lt;languagePopulation type=&quot;es&quot; populationPercent=&quot;43&quot;/&gt; &lt;!--Spanish--&gt;
-  &lt;languagePopulation type=&quot;fr&quot; populationPercent=&quot;6.8&quot;/&gt; &lt;!--French--&gt;
+		<pre class='changed' style='font-size:70%'>&lt;territory type=&quot;AO&quot; gdp=&quot;175500000000&quot; literacyPercent=&quot;70.4&quot; population=&quot;19088100&quot;&gt; &lt;!--Angola--&gt;
+ &lt;languagePopulation type=&quot;pt&quot; populationPercent=&quot;67&quot; officialStatus=&quot;official&quot;/&gt; &lt;!--Portuguese--&gt;
+ &lt;languagePopulation type=&quot;umb&quot; populationPercent=&quot;29&quot;/&gt; &lt;!--Umbundu--&gt; 
+ &lt;languagePopulation type=&quot;kmb&quot; writingPercent=&quot;10&quot; populationPercent=&quot;25&quot; references=&quot;R1034&quot;/&gt; &lt;!--Kimbundu--&gt; 
+ &lt;languagePopulation type=&quot;ln&quot; populationPercent=&quot;0.67&quot; references=&quot;R1010&quot;/&gt; &lt;!--Lingala--&gt; 
 &lt;/territory&gt;</pre>
-		<p class="changed">The following describes the meaning of of some of these terms in more detail:</p>
-		<p class="changed"><em><a name="literacy_percent" href="#literacy_percent">literacy percent</a></em> —  the percentage of the country's population that is literate, based on literacy information from the World Bank, CIA Factbook, and others.</p>
-	  <p class="changed"><a name="language_population_percent" href="#language_population_percent">language population percent</a> — the number of people fluent in that language in that country, including both first and second language speakers. The level of fluency is that necessary to use a UI on a computer, smartphone, or similar devices. Reliable information is difficult to obtain; the information in CLDR is an estimate culled from different sources.</p>
-		<p class="changed"><a name="writing_percent" href="#writing_percent">writing percent</a> — an estimate of the percentage of the country’s population fluent in that language who regularly read or write a significant amount in that language. Ideally, the regularity would be measured as "7-day actives". Reliable information is difficult to obtain, however; the information in CLDR is a best estimate culled from different sources. If it is known that the language is not widely or commonly written, but there are no solid figures, the value is typically given 1%-5%.		</p>
-		<p class="changed"><a name="official_language" href="#official_language">official language</a> — as used in CLDR, a language that can generally be used in all communications with a central government. That is, people can expect that essentially all communication from the government is available in that language (ballots, information pamphlets, legal documents, …) and that they can use that language in communicating to the central government (petitions, forms, filing lawsuits,…).</p>
-		<p class="changed">Official languages for a country in this sense are not necessarily the same as those with official legal status in the country. For example, Irish is declared to be an official language in Ireland, but English has no such formal status in the United States. Languages such as the latter are called <em>de facto</em> official languages. As another example, German has legal status in Italy, but cannot be used in all communications with the central government, and is thus not an official language of Italy for CLDR purposes. Such languages are <em>official regional</em> or <em>official minority languages</em>.</p>
-		<p class="changed"><a name="official_regional_language" href="#official_regional_language">official regional language</a> — a language that is official (de jure or de facto) in a major region within a country, but does not qualify as an official language of the country as a whole. For example, it can be used in an official petition to a provincial government, but not the central government. The term "major" is meant to distinguish from smaller-scale usage, such as for a town or village.</p>
-		<p class="changed"><a name="official_minority_language" href="#official_minority_language">official minority language</a> — a language that has some official governmental status, but is not an official language of the country or of a substantial region.</p>
+		<p><span class="changed">Note that reliable information is difficult to obtain; the information in CLDR is an estimate culled from different sources, including the World Bank, CIA Factbook, and others. </span>The GDP and <span class="changed">country</span> literacy figures are taken from the World Bank
+  where available, otherwise supplemented by FactBook data and other
+  sources. <span class="changed">The GDP figures are “PPP (constant 2000 international $)”.</span> Much of the per-language data is taken from the Ethnologue,
+  but is supplemented and processed using many other sources, including
+  per-country census data. (The focus of the Ethnologue is native
+  speakers, which includes people who are not literate, and excludes
+  people who are functional second-language users.) <span class="changed"> Some references are marked in the XML files,  with attributes such as <code>references=&quot;R1010&quot;</code>.</span></p>
+<p>The percentages may add up to more than 100% due to
+  multilingual populations, or may be less than 100% due to illiteracy
+  or because the data has not yet been gathered or processed. Languages <span class="changed">with smaller populations might not be included</span>. <span class="changed">The literacy rate may be discounted to reflect the actual usage of the written form in normal daily life. Thus languages that are typically not written, such as Swiss German, will be given a low literacy rate, even though nearly the whole native germanophone population <em>could </em>write in Swiss German.</span></p>
+<p class="changed">The following describes the meaning of  some of these terms—as used in CLDR—in more detail. </p>
+		<p class="changed"><em><a name="literacy_percent" href="#literacy_percent">literacy percent</a></em> —  an estimate of the percentage of the country's population that is functionally literate.</p>
+	  <p class="changed"><a name="language_population_percent" href="#language_population_percent">language population percent</a> — an estimate of the number of people who are functional in that language in that country, including both first and second language speakers. The level of fluency is that necessary to use a UI on a computer, smartphone, or similar devices, rather than complete fluency.</p>
+		<p class="changed"><a name="writing_percent" href="#writing_percent">writing percent</a> — an estimate of the percentage of the country’s population fluent in that language who regularly read or write a significant amount in that language. Ideally, the regularity would be measured as "7-day actives". If it is known that the language is not widely or commonly written, but there are no solid figures, the value is typically given 1%-5%.	Where this figure is missing, a common technique is to approximate it with the country’s <a href="#literacy_percent">literacy percent</a> times the <a  href="#language_population_percent">language population percent</a>. Because the literacy rate can vary widely across languages within a country, this is only an approximation.</p>
+		<p class="changed"><a name="official_language" href="#official_language">official language</a> — as used in CLDR, a language that can generally be used in all communications with a central government. That is, people can expect that essentially all communication from the government is available in that language (ballots, information pamphlets, legal documents, …) and that they can use that language in any communication to the central government (petitions, forms, filing lawsuits,…).</p>
+		<p class="changed">Official languages for a country in this sense are not necessarily the same as those with official legal status in the country. For example, Irish is declared to be an official language in Ireland, but English has no such formal status in the United States. Languages such as the latter are called <em>de facto</em> official languages. As another example, German has legal status in Italy, but cannot be used in all communications with the central government, and is thus not an official language <em>of Italy</em> for CLDR purposes. It is, however, an <em>official regional language</em>. Other languages are declared to be official, but can’t actually be used for all communication with any major governmental entity in the country. There is no intention to mark such nominally official languages as “official” in the CLDR data.</p>
+		<p class="changed"><a name="official_regional_language" href="#official_regional_language">official regional language</a> — a language that is official (<em>de jure</em> or <em>de facto</em>) in a major region within a country, but does not qualify as an official language of the country as a whole. For example, it can be used in an official petition to a provincial government, but not the central government. The term “major” is meant to distinguish from smaller-scale usage, such as for a town or village.</p>
 		<h2>
 			3 <a name="Supplemental_Language_Data"
 				href="#Supplemental_Language_Data">Supplemental Language Data</a>

@@ -3107,14 +3107,16 @@ zh-Hant-HK</pre>
 		<h3 class='changed'>
 			<a name="Validity_Data" href="#Validity_Data">3.11 Validity Data</a>
 		</h3>
-		<p class='changed'>
-			The directory <a
+		<p class='dtd'>&lt;!ELEMENT idValidity (id*) &gt;<br>
+	    &lt;!ELEMENT id ( #PCDATA ) &gt;<br>
+	    &lt;!ATTLIST id type NMTOKEN #REQUIRED &gt; <br>
+	    &lt;!ATTLIST id idStatus NMTOKEN #REQUIRED &gt;</p>
+		<p class='changed'>The directory <a
 				href='http://unicode.org/repos/cldr/tags/latest/common/validity/'>common/validity</a>
 			contains machine-readable data for validating the language, region,
 			script, and variant subtags, as well as currency, subdivisions and
 			measure units. Each file contains a number of subtags with the
-			following idStatus values:
-		</p>
+		following <strong>idStatus</strong> values: </p>
 		<ul class='changed'>
 			<li><strong>regular</strong> — the standard codes used for the
 				specific type of subtag</li>
@@ -3124,16 +3126,16 @@ zh-Hant-HK</pre>
 					href="#Unknown_or_Invalid_Identifiers">Unknown or Invalid
 						Identifiers</a></em>.</li>
 			<li><strong>macroregion</strong> — the standard codes that are
-				macroregions (for regions only).
-				<ul>
-					<li>Note that some two-letter region codes are macroregions,
+				macroregions<em> (for regions only).</em>
+<ul>
+		  <li>Note that some two-letter region codes are macroregions,
 						and (in the future) some three-digit codes may be regular codes.</li>
 					<li>For details as to which regions are contained within which
-						macroregions, see the &lt;containment&gt; element of the
+						macroregions, see the <strong>&lt;containment&gt;</strong> element of the
 						supplemental data.</li>
 				</ul></li>
 			<li><strong>deprecated</strong> — codes that should not be used.
-				The &lt;alias&gt; element in the supplementalMeta file contains more
+				The <strong>&lt;alias&gt;</strong> element in the supplementalMeta file contains more
 				information about these codes, and which codes should be used
 				instead.</li>
 			<li><strong>private_use</strong> — codes that, for CLDR, are
@@ -7727,6 +7729,7 @@ decimal?, group?, special*)) &gt;</pre>
 
 		<ul class="changed">
 			<li>Proposed update for Version 28.</li>
+			<li>Misc. clarifications and copyedits.</li>
 			<li><strong>Part 1: <a href="#Contents">Core</a></strong>
 				<ul>
 					<li><em>Section <i><a
@@ -7769,7 +7772,7 @@ decimal?, group?, special*)) &gt;</pre>
 								Key And Type Definitions</a>
 					</em>
 						<ul>
-							<li>Added new key and types for subdivsions, and pointed to
+							<li>Added new key and types for subdivisions, and pointed to
 								the validity criteria in <em>Section <a
 									href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></em>
 							</li>
@@ -7777,7 +7780,11 @@ decimal?, group?, special*)) &gt;</pre>
 					<li>Added <em>Section <a
 							href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></em></li>
 					<li>Added <em>Section <a href="#Validity_Data">3.11
-								Validity Data</a></em></li>
+								Validity Data</a></em> [<a
+								href="http://unicode.org/cldr/trac/ticket/8954"
+								title="View ticket">#8954</a>]  [<a
+								href="http://unicode.org/cldr/trac/ticket/8448"
+								title="View ticket">#8448</a>] </li>
 					<li><em>Section <a href="#Unicode_Sets">5.3.3 Unicode
 								Sets</a></em>
 						<ul>
@@ -7787,7 +7794,9 @@ decimal?, group?, special*)) &gt;</pre>
 							</li>
 						</ul></li>
 					<li>Added <em>Section <a href="#String_Range">5.3.4
-								String Range</a></em></li>
+								String Range</a></em> [<a
+								href="http://unicode.org/cldr/trac/ticket/8448"
+								title="View ticket">#8448</a>] </li>
 					<li><em>Section <a href="#Identity_Elements">5.4
 								Identity Elements</a></em>
 						<ul>

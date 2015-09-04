@@ -134,6 +134,38 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return element.name + ":" + name;
         }
 
+        public StringBuilder appendDtdString(StringBuilder b) {
+            Attribute a = this;
+            b.append("<!ATTLIST " + element.name + " " + a.name);
+            boolean first;
+            if (a.type == AttributeType.ENUMERATED_TYPE) {
+                b.append(" (");
+                first = true;
+                for (String s : a.values.keySet()) {
+                    if (deprecatedValues.contains(s)) {
+                        continue;
+                    }
+                    if (first) {
+                        first = false;
+                    } else {
+                        b.append(" | ");
+                    }
+                    b.append(s);
+                }
+                b.append(")");
+            } else {
+                b.append(' ').append(a.type);
+            }
+            if (a.mode != Mode.NULL) {
+                b.append(" ").append(a.mode.source);
+            }
+            if (a.defaultValue != null) {
+                b.append(" \"").append(a.defaultValue).append('"');
+            }
+            b.append(" >");
+            return b;
+        }
+
         public String features() {
             return (type == AttributeType.ENUMERATED_TYPE ? values.keySet().toString() : type.toString())
                 + (mode == Mode.NULL ? "" : ", mode=" + mode)
@@ -252,6 +284,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     public static class Element implements Named {
         public final String name;
+        private String rawModel;
         private ElementType type;
         private final Map<Element, Integer> children = new LinkedHashMap<Element, Integer>();
         private final Map<Attribute, Integer> attributes = new LinkedHashMap<Attribute, Integer>();
@@ -267,6 +300,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         private void setChildren(DtdData dtdData, String model, Set<String> precomments) {
             this.commentsPre = precomments;
+            rawModel = model;
             this.model = clean(model);
             if (model.equals("EMPTY")) {
                 type = ElementType.EMPTY;
@@ -315,6 +349,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         @Override
         public String toString() {
             return name;
+        }
+
+        public String toDtdString() {
+            return "<!ELEMENT " + name + " " + getRawModel() + " >";
         }
 
         public ElementType getType() {
@@ -404,6 +442,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public boolean isDeprecated() {
             return isDeprecatedElement;
+        }
+
+        /**
+         * @return the rawModel
+         */
+        public String getRawModel() {
+            return rawModel;
         }
     }
 

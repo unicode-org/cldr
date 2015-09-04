@@ -596,5 +596,4 @@ public class LocaleMatcherTest extends TestFmwk {
             + (comparisonTime > 0 ? (delta * 100 / comparisonTime - 100) + "% longer" : ""));
         return delta;
     }
-
 }

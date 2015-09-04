@@ -9,28 +9,45 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.Stack;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
+import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdData.Attribute;
+import org.unicode.cldr.util.DtdData.Element;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Table;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
+import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
@@ -81,6 +98,7 @@ public class CheckHtmlFiles {
 
     static boolean verbose;
     static boolean doContents;
+    static boolean isLdml;
 
     public static void main(String[] args) throws IOException {
         System.out.println("First do a replace of <a\\s+name=\"([^\"]*)\"\\s*> by <a name=\"$1\" href=\"#$1\">");
@@ -91,6 +109,9 @@ public class CheckHtmlFiles {
         verbose = MyOptions.verbose.option.doesOccur();
 
         String targetString = MyOptions.target.option.getValue();
+        if (targetString.contains("ldml")) {
+            isLdml = true;
+        }
         if (targetString.equalsIgnoreCase("ucd")) {
             targetString = CLDRPaths.BASE_DIRECTORY + "../unicode-draft/reports/tr(\\d+)/tr(\\d+).html";
         } else if (targetString.equalsIgnoreCase("security")) {
@@ -99,15 +120,20 @@ public class CheckHtmlFiles {
         Data target = new Data().getSentences(targetString);
         if (target.count == 0) {
             throw new IllegalArgumentException("No files matched with " + targetString);
-        } else {
-            System.out.println("*TOTAL COUNTS*  files:" + target.count + ", fatal errors:" + target.totalFatalCount + ", nonfatal errors:"
-                + target.totalErrorCount);
-            if (target.totalFatalCount > 0 || target.totalErrorCount > 0) {
-                System.exit(1); // give an error status
-            } else {
-                System.exit(0);
-            }
         }
+
+        if (isLdml) {
+            checkForDtd(target);
+        }
+
+        System.out.println("*TOTAL COUNTS*  files:" + target.count + ", fatal errors:" + target.totalFatalCount + ", nonfatal errors:"
+            + target.totalErrorCount);
+        if (target.totalFatalCount > 0 || target.totalErrorCount > 0) {
+            System.exit(1); // give an error status
+        }
+
+        System.exit(0);
+
 //        Data source = new Data().getSentences(MyOptions.old.option.getValue());
 //        String file = MyOptions.target.option.getValue();
 //
@@ -137,6 +163,57 @@ public class CheckHtmlFiles {
 //        System.out.println("Missing:\t" + missingCount);
 //        System.out.println("Extra:\t" + extraCount);
     }
+
+    private static void checkForDtd(Data target) {
+        Multimap<String,DtdType> typeToElements = TreeMultimap.create();
+        for (DtdType type : DtdType.values()) {
+            if (type == DtdType.ldmlICU) continue;
+            DtdData dtdData = DtdData.getInstance(type);
+            Set<Element> elements = dtdData.getElements();
+            for (Element element : elements) {
+                if (element.isDeprecated() 
+                    || element.equals(dtdData.PCDATA)
+                    || element.equals(dtdData.ANY)
+                    ) continue;
+                typeToElements.put(element.toDtdString(), type);
+            }
+            Set<Attribute> attributes = dtdData.getAttributes();
+            for (Attribute attribute : attributes) {
+                if (attribute.isDeprecated()) continue;
+                typeToElements.put(attribute.appendDtdString(new StringBuilder()).toString(), type);
+            }
+        }
+        final Map<String,String> skeletonToInFile = new HashMap<>();
+        Set<String> extra = new LinkedHashSet<>(target.dtdItems.keySet());
+        for (String item : extra) {
+            skeletonToInFile.put(item.replace(" ", ""), item);
+        }
+        ChainedMap.M3<String,DtdType,Comparison> status = ChainedMap.of(new TreeMap(), new TreeMap(), Comparison.class);
+        for (Entry<String, DtdType> entry : typeToElements.entries()) {
+            final String key = entry.getKey();
+            final DtdType dtdType = entry.getValue();
+            String spaceless = key.replace(" ", "");
+            String realKey = skeletonToInFile.get(spaceless);
+            if (realKey == null) {
+                status.put(key, dtdType, Comparison.missing); 
+            } else {
+                boolean found = extra.remove(realKey);
+                if (!found) {
+                    status.put(key, dtdType, Comparison.no_rem); 
+                }
+            }
+        }
+        for (String extraItem : extra) {
+            status.put(extraItem, DtdType.ldmlICU, Comparison.extra); 
+        }
+        for (R3<String, DtdType, Comparison> missingItem : status.rows()) {
+            System.out.println(missingItem.get2() 
+                + "\t" + CldrUtility.ifSame(missingItem.get1(), DtdType.ldmlICU, "")
+                + "\t" + missingItem.get0());
+        }
+    }
+    
+    enum Comparison {missing, extra, no_rem}
 
     static Pattern WHITESPACE = PatternCache.get("[\\s]+");
     static Pattern BADSECTION = PatternCache.get("^\\s*(\\d+\\s*)?Section\\s*\\d+\\s*[-:]\\s*");
@@ -516,6 +593,7 @@ public class CheckHtmlFiles {
 
     static class Data implements Iterable<String> {
         List<String> sentences = new ArrayList<String>();
+        Counter<String> dtdItems = new Counter<String>();
         Counter<String> hashedSentences = new Counter<String>();
         int count = 0;
         int totalErrorCount = 0;
@@ -615,7 +693,7 @@ public class CheckHtmlFiles {
                     if (contentString.equalsIgnoreCase("nocaption")) {
                         pushedTable = false;
                     }
-                        break;
+                    break;
                 case ATTRIBUTE:
                     contentString = content.toString().toLowerCase(Locale.ENGLISH);
                     if (inHeading && (contentString.equals("name") || contentString.equals("id"))) {
@@ -719,6 +797,11 @@ public class CheckHtmlFiles {
                 }
             }
 
+            // get DTD elements
+            Matcher m = Pattern.compile("<!(ELEMENT|ATTLIST)[^>]*>").matcher(buffer);
+            while (m.find()) {
+                dtdItems.add(m.group(), 1);
+            }
             BreakIterator sentenceBreak = BreakIterator.getSentenceInstance(ULocale.ENGLISH);
             String bufferString = normalizeWhitespace(buffer);
             sentenceBreak.setText(bufferString);

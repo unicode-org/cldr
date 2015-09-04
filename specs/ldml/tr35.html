@@ -942,8 +942,12 @@ h5 {
 			</tr>
 			<tr>
 				<td><code>type</code></td>
-				<td><code>= alphanum{3,8}<br>  (sep alphanum{3,8})* ;</code></td>
-				<td><code>= 3*8alphanum<br>  *(sep 3*8alphanum)</code></td>
+				<td><code>
+						= alphanum{3,8}<br>  (sep alphanum{3,8})* ;
+					</code></td>
+				<td><code>
+						= 3*8alphanum<br>  *(sep 3*8alphanum)
+					</code></td>
 				<td class='changed'><code>
 						<a href="#Key_Type_Definitions">validity</a>
 					</code></td>
@@ -957,21 +961,33 @@ h5 {
 				<td class="changed"><code>
 						<a name="subdivision_attribute" href="#subdivision_attribute">subdivision_attribute</a>
 					</code></td>
-				<td class="changed"><code>= <a href="#unicode_region_subtag" >unicode_region_subtag</a> unicode_subdivision_subtag ;</code></td>
-				<td class="changed"><code>= <a href="#unicode_region_subtag" >unicode_region_subtag</a> unicode_subdivision_subtag</code></td>
+				<td class="changed"><code>
+						= <a href="#unicode_region_subtag">unicode_region_subtag</a>
+						unicode_subdivision_subtag ;
+					</code></td>
+				<td class="changed"><code>
+						= <a href="#unicode_region_subtag">unicode_region_subtag</a>
+						unicode_subdivision_subtag
+					</code></td>
 				<td class='changed'><code>
 						<a href='#unicode_subdivision_subtag_validity'>validity</a>
 					</code></td>
 
 			</tr>
 			<tr>
-			  <td class="changed"><code> <a name="unicode_measure_unit" href="#unicode_measure_unit">unicode_measure_unit</a> </code></td>
-			  <td class="changed"><code> = alphanum{3,8}<br>
-  (sep alphanum{3,8})* ;</code></td>
-			  <td class="changed"><code>= 3*8alphanum<br>
-  *(sep 3*8alphanum)</code></td>
-			  <td class='changed'><code> <a href='#Validity_Data'>validity</a> </code></td>
-		  </tr>
+				<td class="changed"><code>
+						<a name="unicode_measure_unit" href="#unicode_measure_unit">unicode_measure_unit</a>
+					</code></td>
+				<td class="changed"><code>
+						= alphanum{3,8}<br>   (sep alphanum{3,8})* ;
+					</code></td>
+				<td class="changed"><code>
+						= 3*8alphanum<br>   *(sep 3*8alphanum)
+					</code></td>
+				<td class='changed'><code>
+						<a href='#Validity_Data'>validity</a>
+					</code></td>
+			</tr>
 			<tr>
 				<td><code>tlang</code></td>
 				<td><code>
@@ -1249,7 +1265,7 @@ h5 {
 				<td class="removed">ASCII letters</td>
 				<td><span class="changed">Subtags in the language.xml
 						file (see <em>Section 3.11 <a href="#Validity_Data">Validity
-							Data</a></em>). These are based on
+								Data</a></em>). These are based on
 				</span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						language</b>
 					<p>ISO 639-3 introduces the notion of
@@ -1325,9 +1341,10 @@ h5 {
 				<td class="removed">ASCII letters</td>
 				<td><span class="changed">Subtags in the script.xml file
 						(see <em>Section 3.11 <a href="#Validity_Data">Validity
-							Data</a></em>). These are based on </span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
+								Data</a></em>). These are based on
+				</span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						script</b>
-					        <p>In most cases the script is not necessary, since the
+					<p>In most cases the script is not necessary, since the
 						language is only customarily written in a single script. Examples
 						of cases where it is used are:</p>
 					<table border="1" cellspacing="0" cellpadding="2"
@@ -1392,9 +1409,10 @@ h5 {
 				<td class="removed">ASCII letters and digits</td>
 				<td><span class="changed">Subtags in the region.xml file
 						(see<em> Section 3.11 <a href="#Validity_Data">Validity
-							Data</a></em>). These are based on </span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
+								Data</a></em>). These are based on
+				</span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						region</b>
-					        <p>Unicode identifiers give specific semantics to the following
+					<p>Unicode identifiers give specific semantics to the following
 						subtags:</p>
 					<table border="1" cellspacing="0" cellpadding="2">
 						<tr>
@@ -1465,9 +1483,10 @@ h5 {
 				<td class="removed">ASCII letters</td>
 				<td><span class="changed">Subtags in the variant.xml
 						file (see<em> Section 3.11 <a href="#Validity_Data">Validity
-							Data</a></em>). These are based on </span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
+								Data</a></em>). These are based on
+				</span>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type:
 						variant</b>
-					        <p>
+					<p>
 						CLDR provides data for normalizing variant codes. About handling
 						of the "POSIX" variant see <i>Section 3.8.2, <a
 							href="#Legacy_Variants">Legacy Variants</a></i>.
@@ -2112,14 +2131,13 @@ zh-Hant-HK</pre>
 				<td rowspan="2">"sd"</td>
 				<td rowspan="2">Regional Subdivision</td>
 				<td>&quot;gbsct&quot;<br> <br></td>
-				<td rowspan="2">A <a href="#subdivision_attribute">subdivision_attribute</a>, which is a <a
-					href="#unicode_subdivision_subtag">unicode_&#x200b;subdivision_&#x200b;subtag</a>
-					prefixed by the associated <a href="#unicode_region_subtag" >unicode_region_subtag</a>.<br>
-					For example, “en-GB-u-sd-gbsct”
-					represents the language variant “English as used in Scotland”.
-				And both “en-u-sd-gbsct”
-and “en-CA-u-sd-gbsct”
-represent				  “English as used in California”.</td>
+				<td rowspan="2">A <a href="#subdivision_attribute">subdivision_attribute</a>,
+					which is a <a href="#unicode_subdivision_subtag">unicode_&#x200b;subdivision_&#x200b;subtag</a>
+					prefixed by the associated <a href="#unicode_region_subtag">unicode_region_subtag</a>.<br>
+					For example, “en-GB-u-sd-gbsct” represents the language variant
+					“English as used in Scotland”. And both “en-u-sd-gbsct” and
+					“en-CA-u-sd-gbsct” represent “English as used in California”.
+				</td>
 			</tr>
 			<tr class='changed'>
 				<td>…</td>
@@ -2474,44 +2492,71 @@ represent				  “English as used in California”.</td>
 			deprecated) in CLDR. If an ICU 3166-2 code is reused (for the same
 			region), then CLDR will define a new equivalent code using these a
 			4-character sequence.</p>
-	  <p class='changed'>
-	  For use in a <a href='#unicode_locale_id'>unicode_locale_id</a>, the
+		<p class='changed'>
+			For use in a <a href='#unicode_locale_id'>unicode_locale_id</a>, the
 			subdivision code must be extended to be more than 2 characters. This
-			is done syntactically by always prefixing the code by the <a href="#unicode_region_subtag" >unicode_region_subtag</a>. It does not, however, contain an interior hyphen, unlike  ISO 3166-2. For
-			example, the following are valid, and mean “English as used in California,
-		USA”.</p>
-<ul class='changed'>
-  <li>en-u-sd-usca</li>
-  <li>en-US-u-sd-usca	</li>
-</ul>
-<p class='changed'>
-	  A <a href="#subdivision_attribute"></a> <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is valid for a <a href="#unicode_region_subtag">unicode_region_subtag</a>
-	  only when combination of the two, with an intervening hyphen, is present in the subdivision.xml file as described in  <em>Section 3.11 <a href="#Validity_Data">Validity
-	  Data</a></em>.</p>
-<p class='changed'>For example, the subdivision “ca” (and “CA”) is
-	valid for the region “US” because of the following element:</p>
+			is done syntactically by always prefixing the code by the <a
+				href="#unicode_region_subtag">unicode_region_subtag</a>. It does
+			not, however, contain an interior hyphen, unlike ISO 3166-2. For
+			example, the following are valid, and mean “English as used in
+			California, USA”.
+		</p>
+		<ul class='changed'>
+			<li>en-u-sd-usca</li>
+			<li>en-US-u-sd-usca</li>
+		</ul>
+		<p class='changed'>
+			A <a href="#subdivision_attribute"></a> <a
+				href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> is
+			valid for a <a href="#unicode_region_subtag">unicode_region_subtag</a>
+			only when combination of the two, with an intervening hyphen, is
+			present in the subdivision.xml file as described in <em>Section
+				3.11 <a href="#Validity_Data">Validity Data</a>
+			</em>.
+		</p>
+		<p class='changed'>For example, the subdivision “ca” (and “CA”) is
+			valid for the region “US” because of the following element:</p>
 		<p align="center" class='changed'>
-			<code>&lt;id type="subdivision"…&gt;… US-CA
-				…&lt;/id&gt;</code>
+			<code>&lt;id type="subdivision"…&gt;… US-CA …&lt;/id&gt;</code>
+		</p>
+		<p class="changed">The data is in a compressed form, and thus
+			needs to be expanded before such a test is made.</p>
+		<p class="changed">
+			A <a href="#subdivision_attribute">subdivision_attribute</a> is only
+			valid when it consists of the concatenation of a <a
+				href="#unicode_region_subtag">unicode_region_subtag</a> and a <a
+				href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a>
+			which is valid for that <a href="#unicode_region_subtag">unicode_region_subtag</a>.
 		</p>
 		<p class="changed">
-		The data is in a compressed form, and thus needs to be expanded before such a test is made.</p>
-		<p class="changed">A <a href="#subdivision_attribute">subdivision_attribute</a> is only valid when it consists of the concatenation of a <a href="#unicode_region_subtag">unicode_region_subtag</a> and a <a href="#unicode_subdivision_subtag">unicode_subdivision_subtag</a> which is valid for that <a href="#unicode_region_subtag">unicode_region_subtag</a>.</p>
-		<p class="changed">Thus the following is invalid:<br>
-        </p>
+			Thus the following is invalid:<br>
+		</p>
 		<ul class="changed">
-		  <li>ussct — there is no <strong>subdivisionContainment</strong> element <code>&lt;id type="subdivision"…&gt;… US-SCT
-          …&lt;/id&gt;</code></li>
-      </ul>
-		<p class="changed">A <a href="#subdivision_attribute">subdivision_attribute</a><a href="#unicode_subdivision_subtag"></a>
-			is only valid in a <a href='#unicode_locale_id'>unicode_locale_id</a>
-		if the prefixed <a href="#unicode_region_subtag" >unicode_region_subtag</a> matches the <a href="#unicode_region_subtag" >unicode_region_subtag</a> in the <a href="#unicode_language_id" >unicode_language_id</a> (after adding likely subtags).        </p>
-		<p class="changed">Thus the following are invalid:<br>
-        </p>
-      <ul class="changed">
-          <li>en-<strong>CA</strong>-u-sd-<strong>gb</strong>sct — the region &quot;gb&quot; does not match &quot;CA&quot;</li>
-          <li>en-u-sd-<strong>gb</strong>sct — after adding likely subtags, this becomes en<strong>-Latn-US</strong>-u-sd-<strong>gb</strong>sct, where again the region &quot;gb&quot;  does not match &quot;CA&quot;</li>
-        </ul>
+			<li>ussct — there is no <strong>subdivisionContainment</strong>
+				element <code>&lt;id type="subdivision"…&gt;… US-SCT
+					…&lt;/id&gt;</code></li>
+		</ul>
+		<p class="changed">
+			A <a href="#subdivision_attribute">subdivision_attribute</a><a
+				href="#unicode_subdivision_subtag"></a> is only valid in a <a
+				href='#unicode_locale_id'>unicode_locale_id</a> if the prefixed <a
+				href="#unicode_region_subtag">unicode_region_subtag</a> matches the
+			<a href="#unicode_region_subtag">unicode_region_subtag</a> in the <a
+				href="#unicode_language_id">unicode_language_id</a> (after adding
+			likely subtags).
+		</p>
+		<p class="changed">
+			Thus the following are invalid:<br>
+		</p>
+		<ul class="changed">
+			<li>en-<strong>CA</strong>-u-sd-<strong>gb</strong>sct — the
+				region &quot;gb&quot; does not match &quot;CA&quot;
+			</li>
+			<li>en-u-sd-<strong>gb</strong>sct — after adding likely
+				subtags, this becomes en<strong>-Latn-US</strong>-u-sd-<strong>gb</strong>sct,
+				where again the region &quot;gb&quot; does not match &quot;CA&quot;
+			</li>
+		</ul>
 		<h3>
 			<a name="BCP47_T_Extension" href="#BCP47_T_Extension">3.7 Unicode
 				BCP 47 T Extension</a><a name="t_Extension"></a>
@@ -3066,8 +3111,9 @@ represent				  “English as used in California”.</td>
 			The directory <a
 				href='http://unicode.org/repos/cldr/tags/latest/common/validity/'>common/validity</a>
 			contains machine-readable data for validating the language, region,
-			script, and variant subtags, as well as currency, subdivisions and measure units. Each file contains a number of subtags
-			with the following idStatus values:
+			script, and variant subtags, as well as currency, subdivisions and
+			measure units. Each file contains a number of subtags with the
+			following idStatus values:
 		</p>
 		<ul class='changed'>
 			<li><strong>regular</strong> — the standard codes used for the
@@ -3103,8 +3149,14 @@ represent				  “English as used in California”.</td>
 				<a href="#String_Range">5.3.4 String Range</a>.
 			</em> The separator for each StringRange is a &quot;~&quot;.
 		</p>
-		<p class='changed'>Each measure unit is a sequence of subtags, such as “angle-arc-minute”. The first subtag provides a general “category” of the unit.</p>
-		<p class='changed'>The subdivisions in the validity files use the ISO format, with a hyphen separating two components. This hyphen is not used in the <a href="#subdivision_attribute">subdivision_attribute</a>.</p>
+		<p class='changed'>Each measure unit is a sequence of subtags,
+			such as “angle-arc-minute”. The first subtag provides a general
+			“category” of the unit.</p>
+		<p class='changed'>
+			The subdivisions in the validity files use the ISO format, with a
+			hyphen separating two components. This hyphen is not used in the <a
+				href="#subdivision_attribute">subdivision_attribute</a>.
+		</p>
 		<h2>
 			<a name="Locale_Inheritance" href="#Locale_Inheritance">4 Locale
 				Inheritance and Matching</a>
@@ -5284,11 +5336,19 @@ root</pre>
 			of all code points from the start to end, inclusive, in Unicode
 			order. For example, <b>[a c d-f m]</b> is equivalent to <b>[a c d
 				e f m]</b>. Whitespace can be freely used for clarity, as <b>[a c
-			d-f m]</b> means the same as <b>[acd-fm]</b>. </p>
-		<p>A string with multiple
-			code points is represented in a list by being surrounded by curly
-			braces, such as in <strong>[a-z {ch}]</strong>. It <span class="changed">can</span> be used
-			with the range notation<span class="changed">, as described in  <em>Section <a  href="#String_Range">5.3.4 String Range</a></em>. There is an additional restriction on string ranges in a UnicodeSet: the number of codepoints in the first string of the range must be identical to the number in the second. Thus [{ab}-{c}] and [{ab}-c] are invalid.</span></p>
+				d-f m]</b> means the same as <b>[acd-fm]</b>.
+		</p>
+		<p>
+			A string with multiple code points is represented in a list by being
+			surrounded by curly braces, such as in <strong>[a-z {ch}]</strong>.
+			It <span class="changed">can</span> be used with the range notation<span
+				class="changed">, as described in <em>Section <a
+					href="#String_Range">5.3.4 String Range</a></em>. There is an additional
+				restriction on string ranges in a UnicodeSet: the number of
+				codepoints in the first string of the range must be identical to the
+				number in the second. Thus [{ab}-{c}] and [{ab}-c] are invalid.
+			</span>
+		</p>
 		<p>In UnicodeSets, there are two ways to quote syntax code points:
 		</p>
 		<p>
@@ -5492,12 +5552,12 @@ root</pre>
 				<td>The set containing &#39;a&#39; alone</td>
 			</tr>
 			<tr>
-			  <td nowrap>[a-z]</td>
-			  <td>The set containing &#39;a&#39; through &#39;z&#39; and all
-			    letters in between, in Unicode order.<br>
-			    Thus it is the same
-			    as [\u0061-\u007A]. </td>
-		  </tr>
+				<td nowrap>[a-z]</td>
+				<td>The set containing &#39;a&#39; through &#39;z&#39; and all
+					letters in between, in Unicode order.<br> Thus it is the same
+					as [\u0061-\u007A].
+				</td>
+			</tr>
 			<tr>
 				<td nowrap>[^a-z]</td>
 				<td>The set containing all code points but &#39;a&#39; through
@@ -5524,9 +5584,13 @@ root</pre>
 					&quot;ab&quot; and &quot;ac&quot;</td>
 			</tr>
 			<tr class='changed'>
-			  <td nowrap>[{ax}-{bz}]</td>
-			  <td>The set containing [{ax} {ay} {az} {bx} {by} {bz}], using the range syntax to get all the strings from {ax} to {bz} as described in <em>Section <a  href="#String_Range">5.3.4 String Range</a></em>.</td>
-		  </tr>
+				<td nowrap>[{ax}-{bz}]</td>
+				<td>The set containing [{ax} {ay} {az} {bx} {by} {bz}], using
+					the range syntax to get all the strings from {ax} to {bz} as
+					described in <em>Section <a href="#String_Range">5.3.4
+							String Range</a></em>.
+				</td>
+			</tr>
 			<tr>
 				<td nowrap>[:Lu:]</td>
 				<td>The set of code points with a given property value, as
@@ -7714,13 +7778,14 @@ decimal?, group?, special*)) &gt;</pre>
 							href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></em></li>
 					<li>Added <em>Section <a href="#Validity_Data">3.11
 								Validity Data</a></em></li>
-					<li><em>Section <a href="#Unicode_Sets">5.3.3 Unicode Sets</a></em>
-					  <ul>
-					    <li>Added string ranges for UnicodeSets. [<a
+					<li><em>Section <a href="#Unicode_Sets">5.3.3 Unicode
+								Sets</a></em>
+						<ul>
+							<li>Added string ranges for UnicodeSets. [<a
 								href="http://unicode.org/cldr/trac/ticket/8616"
-								title="View ticket">#8616</a>] </li>
-				      </ul>
-					</li>
+								title="View ticket">#8616</a>]
+							</li>
+						</ul></li>
 					<li>Added <em>Section <a href="#String_Range">5.3.4
 								String Range</a></em></li>
 					<li><em>Section <a href="#Identity_Elements">5.4
@@ -7750,75 +7815,84 @@ decimal?, group?, special*)) &gt;</pre>
 							<li>Clarified the text, described how a format with an
 								explicit + can be derived from the CLDR data.</li>
 							<li>Clarified the use of sequences of ¤ characters.</li>
+						</ul></li>
+				</ul></li>
+			<li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong>
+				<ul>
+					<li><em>Section 2.6.2 <a
+							href="tr35-dates.html#availableFormats_appendItems">Elements
+								availableFormats, appendItems</a>
+					</em>
+						<ul>
+							<li>Clarified the matching process. [<a
+								href="http://unicode.org/cldr/trac/ticket/8720"
+								title="View ticket">#8720</a>]
+							</li>
+						</ul></li>
+					<li><em>Section 4.5 <a href="#Day_Period_Rule_Sets">Day
+								Period Rule Sets</a></em> [<a
+						href="http://unicode.org/cldr/trac/ticket/8387"
+						title="View ticket">#8387</a>]
+						<ul>
+							<li>Deprecated at (except for fixed periods), after, and to.</li>
+							<li>Deprecated the use of non-zero minutes/seconds</li>
+							<li>Added clarifications.</li>
+						</ul></li>
+					<li><em>Section 8 <a
+							href="tr35-dates.html#Date_Format_Patterns">Date Format
+								Patterns</a></em>
+						<ul>
+							<li>Added new day-period symbols b, B, and C to <a
+								href="tr35-dates.html#Date_Field_Symbol_Table">Date Field
+									Symbol Table</a>.
+							</li>
+						</ul></li>
+					<li><em>Section 9 <a
+							href="tr35-dates.html#Parsing_Dates_Times">Parsing Dates and
+								Times</a>
+					</em>
+						<ul>
+							<li>Added more examples of lenient parsing, such as “a.m.”
+								vs “AM”. [<a href="http://unicode.org/cldr/trac/ticket/8643"
+								title="View ticket">#8643</a>]
+							</li>
+						</ul></li>
+				</ul></li>
+			<li><strong>Part 5: <a
+					href="tr35-collation.html#Contents">Collation</a></strong>
+				<ul>
+					<li><em>Section 3.3 <a
+							href="tr35-collation.html#Collation_Element">Collation
+								Element</a></em>
+						<ul>
+							<li>The sub-elements import, settings,
+								suppress_contractions, and optimize are deprecated. Use
+								equivalent ICU syntax inside &lt;cr&gt; elements instead. [<a
+								href="http://unicode.org/cldr/trac/ticket/8289">#8289</a>]
+							</li>
+						</ul></li>
+				</ul></li>
+			<li><strong>Part 6: <a href="tr35-info.html#Contents">Supplemental</a></strong><a
+				href="tr35-info.html#Contents"></a>
+				<ul>
+					<li>Section 2.2 <a
+						href="tr35-info.html#Supplemental_Territory_Information">Supplemental
+							Territory Information</a>
+						<ul>
+							<li>Added descriptions of CLDR usage of the terms: <a
+								href="tr35-info.html#literacy_percent">literacy percent</a><em></em>,
+								<a href="tr35-info.html#language_population_percent">language
+									population percent</a>, <a href="tr35-info.html#writing_percent">writing
+									percent</a>, <a href="tr35-info.html#official_language">official
+									language</a>, and <a
+								href="tr35-info.html#official_regional_language">official
+									regional language</a>, taken from the site <a
+								href='http://cldr.unicode.org/index/cldr-spec/definitions'>definitions</a>.
+								[<a href="http://unicode.org/cldr/trac/ticket/8443">#8443</a>]
+							</li>
 						</ul>
 					</li>
 				</ul></li>
-			<li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong>
-			  <ul>
-			    <li><em>Section 
-			2.6.2 <a 
-				href="tr35-dates.html#availableFormats_appendItems">Elements availableFormats,
-				appendItems</a> </em>
-			      <ul>
-			        <li>Clarified the matching process.
-[<a href="http://unicode.org/cldr/trac/ticket/8720"
-								title="View ticket">#8720</a>]</li>
-		          </ul>
-			    </li>
-			    <li><em>Section 4.5 <a href="#Day_Period_Rule_Sets">Day Period Rule
-				Sets</a></em>
-[<a href="http://unicode.org/cldr/trac/ticket/8387"
-								title="View ticket">#8387</a>]
-<ul>
-	        <li>Deprecated at (except for fixed periods), after, and to.</li>
-	        <li>Deprecated the use of non-zero minutes/seconds</li>
-	        <li>Added clarifications.</li>
-            </ul>
-			    </li>
-			    <li><em>Section 8 <a href="tr35-dates.html#Date_Format_Patterns">Date Format Patterns</a></em>
-			      <ul>
-		          <li>Added  new day-period symbols b, B, and C to <a href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol Table</a>.</li>
-		          </ul>
-			    </li>
-			    <li><em>Section 9 <a  href="tr35-dates.html#Parsing_Dates_Times">Parsing
-				Dates and Times</a> </em>
-			      <ul>
-			        <li>Added more examples of lenient parsing, such as “a.m.” vs “AM”.
-[<a href="http://unicode.org/cldr/trac/ticket/8643"
-								title="View ticket">#8643</a>]</li>
-		          </ul>
-			    </li>
-		      </ul>
-			</li>
-			<li><strong>Part 5: <a
-					href="tr35-collation.html#Contents">Collation</a></strong>
-			  <ul>
-			    <li><em>Section 3.3 <a
-							href="tr35-collation.html#Collation_Element">Collation
-			      Element</a></em>
-			      <ul>
-			        <li>The sub-elements import, settings,
-			          suppress_contractions, and optimize are deprecated. Use
-			          equivalent ICU syntax inside &lt;cr&gt; elements instead. [<a
-								href="http://unicode.org/cldr/trac/ticket/8289">#8289</a>]
-		            </li>
-		          </ul>
-			    </li>
-		      </ul>
-		  </li>
-			<li><strong>Part 6: <a href="tr35-info.html#Contents">Supplemental</a></strong><a
-				href="tr35-info.html#Contents"></a>
-			  <ul>
-			    <li>Section 2.2 <a 
-				href="tr35-info.html#Supplemental_Territory_Information">Supplemental
-				Territory Information</a> 
-			      <ul>
-			        <li>Added descriptions of CLDR usage of the terms: <a href="tr35-info.html#literacy_percent">literacy percent</a></em>, <a  href="tr35-info.html#language_population_percent">language population percent</a>, <a  href="tr35-info.html#writing_percent">writing percent</a>, <a  href="tr35-info.html#official_language">official language</a>, and <a  href="tr35-info.html#official_regional_language">official regional language</a>, taken from the site <a href='http://cldr.unicode.org/index/cldr-spec/definitions'>definitions</a>.  [<a
-								href="http://unicode.org/cldr/trac/ticket/8443">#8443</a>] </li>
-			      </ul>
-			    </li>
-			  </ul>
-			</li>
 		</ul>
 
 		<h3>Revision 39</h3>

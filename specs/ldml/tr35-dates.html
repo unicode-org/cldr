@@ -1174,25 +1174,6 @@ h2, h3, h4, table {
 			<li>The &#39;a&#39; field is not allowed in the skeleton.</li>
 		</ul>
 
-		<p>It is not necessary to supply dateFormatItems with skeletons
-			for every field length; in many cases fields in the skeleton and
-			pattern can be expanded in parallel to handle a request. Consider the
-			following dateFormatItem:</p>
-		<pre>    &lt;dateFormatItem id="yMMMd"&gt;<span
-				style="color: blue">d MMM y</span>&lt;/dateFormatItem&gt;
-</pre>
-		<p>
-			If the request is for yMMMMd, the above item can be automatically
-			expanded to produce the pattern "d MMMM y" in response to the
-			request. Of course, if the desired behavior is that a request for
-			yMMMMd should produce something <i>other</i> than "d MMMM y", a
-			separate dateFormatItem must be added, for example:
-		</p>
-		<pre>    &lt;dateFormatItem id="yMMMMd"&gt;<span
-				style="color: blue">d 'de' MMMM 'de' y</span>&lt;/dateFormatItem&gt;
-</pre>
-
-
 		<p>In order to support user overrides of default locale behavior,
 			data should be supplied for both 12-hour-cycle time formats (using h
 			or K) and 24-hour-cycle time formats (using H or k), even if one of
@@ -1201,16 +1182,66 @@ h2, h3, h4, table {
 			used in the locale's standard short time format. Thus skeletons using
 			h or K should have patterns that only use h or K for hours, while
 			skeletons using H or k should have patterns that only use H or k for
-			hours.</p>
+		hours.</p>
+	  <p class="changed">The dateFormatItems inherit from their parent locale, so the inherited items need to be considered when processing.</p>
+		<h5 class="changed">Matching Skeletons</h5>
+		<p>It is not necessary to supply dateFormatItems with skeletons
+			for every field length; fields in the skeleton and
+			pattern <span class="changed">are expected to</span> be expanded in parallel to handle a request. </p>
+		<p class="changed">Typically a “best match” is found using a closest distance match, such as:</p>
+		<ol class="changed">
+		  <li>Symbols requesting a best choice for the locale are replaced.
+		    <ul>
+		    <li>j → one of {H, k, h, K}; C → one of {a, b, B}</li>
+	      </ul></li>
+		  <li>For fields with symbols representing the same type (year, month, day, etc):
+		    <ol>
+		  <li>Most symbols have a small distance from each other.
+            <ul>
+    <li>M ≅ L; E ≅ c; a ≅ b ≅ B; H ≅ k ≅ h ≅ K; ...</li>
+  </ul>
+	      </li>		  <li>Width differences among fields, other than those marking text vs numeric, are given small distance from each other.
+		    <ul>
+		    <li>MMM ≅ MMMM</li>
+		    <li>MM ≅ M</li>
+	        </ul>
+		  </li><li>Numeric and text fields are given a larger distance from each other.
+		    <ul>
+		    <li>MMM ≈ MM</li>
+	      </ul></li>
+          		  <li>Symbols representing substantial differences (week of year vs week of month) are given much larger a  distances from each other.
+                    <ul>
+    <li>d ≋ D; ...</li>
+  </ul>
+	      </li>
 
+		  
+
+</ol></li>
+   		  <li>Missing or extra fields cause a match to fail.	(But	see <strong>Missing Skeleton Fields</strong>).</li>
+      </ol>
+		<p><span class="changed">Once a skeleton match is found, the corresponding pattern is used, but with adjustments. </span>Consider the
+			following dateFormatItem:</p>
+		<pre>    &lt;dateFormatItem id="yMMMd"&gt;<span
+				style="color: blue">d MMM y</span>&lt;/dateFormatItem&gt;
+</pre>
+		<p>
+			If <span class="changed">this is the best match</span> for yMMMMd,  <span class="changed">pattern is</span> automatically
+			expanded to produce the pattern "d MMMM y" in response to the
+			request. Of course, if the desired behavior is that a request for
+			yMMMMd should produce something <i>other</i> than "d MMMM y", a
+		separate dateFormatItem must be <span class="changed">present</span>, for example: </p>
+		<pre>    &lt;dateFormatItem id="yMMMMd"&gt;<span
+				style="color: blue">d 'de' MMMM 'de' y</span>&lt;/dateFormatItem&gt;</pre>
+		<h5 class="changed">Missing Skeleton Fields</h5>
 		<p>If a client-requested set of fields includes both date and time
 			fields, and if the availableFormats data does not include a
 			dateFormatItem whose skeleton matches the same set of fields, then
 			the request should be handled as follows:</p>
 		<ol>
 			<li>Divide the request into a date fields part and a time fields
-				part</li>
-			<li>For each part, find the matching dateFormatItem</li>
+				part.</li>
+			<li>For each part, find the matching dateFormatItem<span class="changed">, and expand the pattern as above</span>.</li>
 			<li>Combine the patterns for the two dateFormatItems using the
 				appropriate dateTimeFormat pattern, determined as follows from the
 				requested date fields:

@@ -750,7 +750,7 @@ $Revision$
     <!--@DEPRECATED-->
 
 <!ELEMENT calendars ( alias | ( default*, calendar*, special* ) ) >
-    <!-- use calendarPreferenceData instead -->
+    <!-- use calendarPreferenceData instead of default element -->
 <!ATTLIST calendars draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -776,6 +776,7 @@ $Revision$
     <!--@DEPRECATED-->
 
 <!ELEMENT calendar ( alias | ( months?, monthNames?, monthAbbr?, monthPatterns?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*, dayPeriods?, eras?, cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special* ) ) >
+    <!-- use of fields is deprecated here -->
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
 <!ATTLIST calendar alt NMTOKENS #IMPLIED >
 <!ATTLIST calendar draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
@@ -1052,6 +1053,7 @@ $Revision$
     <!--@DEPRECATED-->
 
 <!ELEMENT weekendStart ( special* ) >
+    <!-- use supplemental data -->
     <!--@DEPRECATED-->
 <!ATTLIST weekendStart day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >
     <!--@VALUE-->

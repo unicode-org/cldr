@@ -83,7 +83,8 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical Standard #35
+			<span class="changed">Proposed Update </span>Unicode Technical
+			Standard #35
 		</h2>
 		<h1>
 			Unicode Locale Data Markup Language (LDML)<br>Part 6:
@@ -367,24 +368,48 @@ h2, h3, h4, table {
 			groupings you can drop this containment. In the example above, EU is
 			a grouping, and contained in 150.</p>
 		<h3 class="changed">
-		2.1.1 <a name="Subdivision_Containment"
-				href="#Subdivision_Containment">Subdivision Containment</a></h3>
-		<p class="dtd"><span class="changed">&lt;!ELEMENT subdivisionContainment ( subgroup* ) &gt;<br>
-		  <br>
-		  &lt;!ELEMENT subgroup EMPTY &gt;<br>
-  &lt;!ATTLIST subgroup type NMTOKEN #REQUIRED &gt;<br>
-  &lt;!ATTLIST subgroup subtype NMTOKEN #IMPLIED &gt;<br>
-  &lt;!ATTLIST subgroup contains NMTOKENS #IMPLIED &gt;</span></p>
-      <p class="changed">The subdivision containment data is similar to the territory containment. It is based on ISO 3166-2 data, but may diverge from it in the future.</p>
-        <p class="xmlExample changed"> &lt;subgroup type=&quot;AL&quot; contains=&quot;04 11 12 03 09 01 02 08 10 05 06 07&quot;/&gt;<br>
-&lt;subgroup type=&quot;AL&quot; subtype=&quot;04&quot; contains=&quot;FR MK LU&quot;/&gt;</p>
-<p class="changed">The <strong>type</strong> is a <code><a href="tr35.html#unicode_region_subtag">unicode_region_subtag</a></code> (territory) identifier. The <strong>contains</strong> value is a space-delimited list of one or more <code><a href="tr35.html#unicode_subdivision_subtag">unicode_subdivision_subtag</a></code>
-values. Wherever there are multiple levels of containment, the <strong>subtype</strong> is used to indicate that. In such a case, its value is a containing <code><a href="tr35.html#unicode_subdivision_subtag">unicode_subdivision_subtag</a></code>. In the example above, subdivision 04 contains other subdivisions FR, MK, and LU.</p>
-<h3>
-	  2.2 <a name="Supplemental_Territory_Information"
+			2.1.1 <a name="Subdivision_Containment"
+				href="#Subdivision_Containment">Subdivision Containment</a>
+		</h3>
+		<p class="dtd">
+			<span class="changed">&lt;!ELEMENT subdivisionContainment (
+				subgroup* ) &gt;<br> <br> &lt;!ELEMENT subgroup EMPTY &gt;<br>
+				&lt;!ATTLIST subgroup type NMTOKEN #REQUIRED &gt;<br>
+				&lt;!ATTLIST subgroup subtype NMTOKEN #IMPLIED &gt;<br>
+				&lt;!ATTLIST subgroup contains NMTOKENS #IMPLIED &gt;
+			</span>
+		</p>
+		<p class="changed">The subdivision containment data is similar to
+			the territory containment. It is based on ISO 3166-2 data, but may
+			diverge from it in the future.</p>
+		<p class="xmlExample changed">
+			&lt;subgroup type=&quot;AL&quot; contains=&quot;04 11 12 03 09 01 02
+			08 10 05 06 07&quot;/&gt;<br> &lt;subgroup type=&quot;AL&quot;
+			subtype=&quot;04&quot; contains=&quot;FR MK LU&quot;/&gt;
+		</p>
+		<p class="changed">
+			The <strong>type</strong> is a
+			<code>
+				<a href="tr35.html#unicode_region_subtag">unicode_region_subtag</a>
+			</code>
+			(territory) identifier. The <strong>contains</strong> value is a
+			space-delimited list of one or more
+			<code>
+				<a href="tr35.html#unicode_subdivision_subtag">unicode_subdivision_subtag</a>
+			</code>
+			values. Wherever there are multiple levels of containment, the <strong>subtype</strong>
+			is used to indicate that. In such a case, its value is a containing
+			<code>
+				<a href="tr35.html#unicode_subdivision_subtag">unicode_subdivision_subtag</a>
+			</code>
+			. In the example above, subdivision 04 contains other subdivisions
+			FR, MK, and LU.
+		</p>
+		<h3>
+			2.2 <a name="Supplemental_Territory_Information"
 				href="#Supplemental_Territory_Information">Supplemental
 				Territory Information</a>
-	</h3>
+		</h3>
 
 		<p class="dtd">
 			&lt;!ELEMENT territory ( languagePopulation* ) &gt;<br>
@@ -400,36 +425,120 @@ values. Wherever there are multiple levels of containment, the <strong>subtype</
 			(de_facto_official | official | official_regional |
 			official_minority) #IMPLIED &gt;
 		</p>
-		<p>This data provides testing information for language and
-			territory populations. The main goal is to provide approximate
-			figures for the literate, functional population for each language in
-			each territory: that is, the population that is able to read and
-			write each language, and is comfortable enough to use it with
-			computers.	<span class="changed">For	a chart of this data, see <a href='http://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html'>Territory-Language Information</a>.</span></p>
-		<p class='changed'><em>Example</em></p>
-		<pre class='changed' style='font-size:70%'>&lt;territory type=&quot;AO&quot; gdp=&quot;175500000000&quot; literacyPercent=&quot;70.4&quot; population=&quot;19088100&quot;&gt; &lt;!--Angola--&gt;
+		<p>
+			This data provides testing information for language and territory
+			populations. The main goal is to provide approximate figures for the
+			literate, functional population for each language in each territory:
+			that is, the population that is able to read and write each language,
+			and is comfortable enough to use it with computers. <span
+				class="changed">For a chart of this data, see <a
+				href='http://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html'>Territory-Language
+					Information</a>.
+			</span>
+		</p>
+		<p class='changed'>
+			<em>Example</em>
+		</p>
+		<pre class='changed' style='font-size: 70%'>&lt;territory type=&quot;AO&quot; gdp=&quot;175500000000&quot; literacyPercent=&quot;70.4&quot; population=&quot;19088100&quot;&gt; &lt;!--Angola--&gt;
  &lt;languagePopulation type=&quot;pt&quot; populationPercent=&quot;67&quot; officialStatus=&quot;official&quot;/&gt; &lt;!--Portuguese--&gt;
  &lt;languagePopulation type=&quot;umb&quot; populationPercent=&quot;29&quot;/&gt; &lt;!--Umbundu--&gt; 
  &lt;languagePopulation type=&quot;kmb&quot; writingPercent=&quot;10&quot; populationPercent=&quot;25&quot; references=&quot;R1034&quot;/&gt; &lt;!--Kimbundu--&gt; 
  &lt;languagePopulation type=&quot;ln&quot; populationPercent=&quot;0.67&quot; references=&quot;R1010&quot;/&gt; &lt;!--Lingala--&gt; 
 &lt;/territory&gt;</pre>
-		<p><span class="changed">Note that reliable information is difficult to obtain; the information in CLDR is an estimate culled from different sources, including the World Bank, CIA Factbook, and others. </span>The GDP and <span class="changed">country</span> literacy figures are taken from the World Bank
-  where available, otherwise supplemented by FactBook data and other
-  sources. <span class="changed">The GDP figures are “PPP (constant 2000 international $)”.</span> Much of the per-language data is taken from the Ethnologue,
-  but is supplemented and processed using many other sources, including
-  per-country census data. (The focus of the Ethnologue is native
-  speakers, which includes people who are not literate, and excludes
-  people who are functional second-language users.) <span class="changed"> Some references are marked in the XML files,  with attributes such as <code>references=&quot;R1010&quot;</code>.</span></p>
-<p>The percentages may add up to more than 100% due to
-  multilingual populations, or may be less than 100% due to illiteracy
-  or because the data has not yet been gathered or processed. Languages <span class="changed">with smaller populations might not be included</span>. <span class="changed">The literacy rate may be discounted to reflect the actual usage of the written form in normal daily life. Thus languages that are typically not written, such as Swiss German, will be given a low literacy rate, even though nearly the whole native germanophone population <em>could </em>write in Swiss German.</span></p>
-<p class="changed">The following describes the meaning of  some of these terms—as used in CLDR—in more detail. </p>
-		<p class="changed"><em><a name="literacy_percent" href="#literacy_percent">literacy percent</a></em> —  an estimate of the percentage of the country's population that is functionally literate.</p>
-	  <p class="changed"><a name="language_population_percent" href="#language_population_percent">language population percent</a> — an estimate of the number of people who are functional in that language in that country, including both first and second language speakers. The level of fluency is that necessary to use a UI on a computer, smartphone, or similar devices, rather than complete fluency.</p>
-		<p class="changed"><a name="writing_percent" href="#writing_percent">writing percent</a> — an estimate of the percentage of the country’s population fluent in that language who regularly read or write a significant amount in that language. Ideally, the regularity would be measured as "7-day actives". If it is known that the language is not widely or commonly written, but there are no solid figures, the value is typically given 1%-5%.	Where this figure is missing, a common technique is to approximate it with the country’s <a href="#literacy_percent">literacy percent</a> times the <a  href="#language_population_percent">language population percent</a>. Because the literacy rate can vary widely across languages within a country, this is only an approximation.</p>
-		<p class="changed"><a name="official_language" href="#official_language">official language</a> — as used in CLDR, a language that can generally be used in all communications with a central government. That is, people can expect that essentially all communication from the government is available in that language (ballots, information pamphlets, legal documents, …) and that they can use that language in any communication to the central government (petitions, forms, filing lawsuits,…).</p>
-		<p class="changed">Official languages for a country in this sense are not necessarily the same as those with official legal status in the country. For example, Irish is declared to be an official language in Ireland, but English has no such formal status in the United States. Languages such as the latter are called <em>de facto</em> official languages. As another example, German has legal status in Italy, but cannot be used in all communications with the central government, and is thus not an official language <em>of Italy</em> for CLDR purposes. It is, however, an <em>official regional language</em>. Other languages are declared to be official, but can’t actually be used for all communication with any major governmental entity in the country. There is no intention to mark such nominally official languages as “official” in the CLDR data.</p>
-		<p class="changed"><a name="official_regional_language" href="#official_regional_language">official regional language</a> — a language that is official (<em>de jure</em> or <em>de facto</em>) in a major region within a country, but does not qualify as an official language of the country as a whole. For example, it can be used in an official petition to a provincial government, but not the central government. The term “major” is meant to distinguish from smaller-scale usage, such as for a town or village.</p>
+		<p>
+			<span class="changed">Note that reliable information is
+				difficult to obtain; the information in CLDR is an estimate culled
+				from different sources, including the World Bank, CIA Factbook, and
+				others. </span>The GDP and <span class="changed">country</span> literacy
+			figures are taken from the World Bank where available, otherwise
+			supplemented by FactBook data and other sources. <span
+				class="changed">The GDP figures are “PPP (constant 2000
+				international $)”.</span> Much of the per-language data is taken from the
+			Ethnologue, but is supplemented and processed using many other
+			sources, including per-country census data. (The focus of the
+			Ethnologue is native speakers, which includes people who are not
+			literate, and excludes people who are functional second-language
+			users.) <span class="changed"> Some references are marked in
+				the XML files, with attributes such as <code>references=&quot;R1010&quot;</code>.
+			</span>
+		</p>
+		<p>
+			The percentages may add up to more than 100% due to multilingual
+			populations, or may be less than 100% due to illiteracy or because
+			the data has not yet been gathered or processed. Languages <span
+				class="changed">with smaller populations might not be
+				included</span>. <span class="changed">The literacy rate may be
+				discounted to reflect the actual usage of the written form in normal
+				daily life. Thus languages that are typically not written, such as
+				Swiss German, will be given a low literacy rate, even though nearly
+				the whole native germanophone population <em>could </em>write in
+				Swiss German.
+			</span>
+		</p>
+		<p class="changed">The following describes the meaning of some of
+			these terms—as used in CLDR—in more detail.</p>
+		<p class="changed">
+			<em><a name="literacy_percent" href="#literacy_percent">literacy
+					percent</a></em> — an estimate of the percentage of the country's population
+			that is functionally literate.
+		</p>
+		<p class="changed">
+			<a name="language_population_percent"
+				href="#language_population_percent">language population percent</a> —
+			an estimate of the number of people who are functional in that
+			language in that country, including both first and second language
+			speakers. The level of fluency is that necessary to use a UI on a
+			computer, smartphone, or similar devices, rather than complete
+			fluency.
+		</p>
+		<p class="changed">
+			<a name="writing_percent" href="#writing_percent">writing percent</a>
+			— an estimate of the percentage of the country’s population fluent in
+			that language who regularly read or write a significant amount in
+			that language. Ideally, the regularity would be measured as "7-day
+			actives". If it is known that the language is not widely or commonly
+			written, but there are no solid figures, the value is typically given
+			1%-5%. Where this figure is missing, a common technique is to
+			approximate it with the country’s <a href="#literacy_percent">literacy
+				percent</a> times the <a href="#language_population_percent">language
+				population percent</a>. Because the literacy rate can vary widely across
+			languages within a country, this is only an approximation.
+		</p>
+		<p class="changed">
+			<a name="official_language" href="#official_language">official
+				language</a> — as used in CLDR, a language that can generally be used in
+			all communications with a central government. That is, people can
+			expect that essentially all communication from the government is
+			available in that language (ballots, information pamphlets, legal
+			documents, …) and that they can use that language in any
+			communication to the central government (petitions, forms, filing
+			lawsuits,…).
+		</p>
+		<p class="changed">
+			Official languages for a country in this sense are not necessarily
+			the same as those with official legal status in the country. For
+			example, Irish is declared to be an official language in Ireland, but
+			English has no such formal status in the United States. Languages
+			such as the latter are called <em>de facto</em> official languages.
+			As another example, German has legal status in Italy, but cannot be
+			used in all communications with the central government, and is thus
+			not an official language <em>of Italy</em> for CLDR purposes. It is,
+			however, an <em>official regional language</em>. Other languages are
+			declared to be official, but can’t actually be used for all
+			communication with any major governmental entity in the country.
+			There is no intention to mark such nominally official languages as
+			“official” in the CLDR data.
+		</p>
+		<p class="changed">
+			<a name="official_regional_language"
+				href="#official_regional_language">official regional language</a> —
+			a language that is official (<em>de jure</em> or <em>de facto</em>)
+			in a major region within a country, but does not qualify as an
+			official language of the country as a whole. For example, it can be
+			used in an official petition to a provincial government, but not the
+			central government. The term “major” is meant to distinguish from
+			smaller-scale usage, such as for a town or village.
+		</p>
 		<h2>
 			3 <a name="Supplemental_Language_Data"
 				href="#Supplemental_Language_Data">Supplemental Language Data</a>
@@ -448,9 +557,11 @@ values. Wherever there are multiple levels of containment, the <strong>subtype</
 			The language data is used for consistency checking and testing. It
 			provides a list of which languages are used with which scripts and in
 			which countries. To a large extent, however, the territory list has
-			been superseded by the <span class="changed">data in<em> Section 2.2 <a 
-				href="#Supplemental_Territory_Information">Supplemental
-				Territory Information</a></em></span>.</p>
+			been superseded by the <span class="changed">data in<em>
+					Section 2.2 <a href="#Supplemental_Territory_Information">Supplemental
+						Territory Information</a>
+			</em></span>.
+		</p>
 		<pre>	&lt;languageData&gt;
 		&lt;language type=&quot;af&quot; scripts=&quot;Latn&quot; territories=&quot;ZA&quot;/&gt;
 		&lt;language type=&quot;am&quot; scripts=&quot;Ethi&quot; territories=&quot;ET&quot;/&gt;
@@ -586,16 +697,12 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			6 <a name="Postal_Code_Validation" href="#Postal_Code_Validation">Postal
 				Code Validation (Deprecated)</a>
 		</h2>
-		<p>
-			Deprecated in v27. Please see other
-				services that are kept up to date, such as:
-		</p>
+		<p>Deprecated in v27. Please see other services that are kept up
+			to date, such as:</p>
 		<ul>
 
-			<li><a
-				href="http://i18napis.appspot.com/address/data/US">http://i18napis.appspot.com/address/data/US</a></li>
-			<li><a
-				href="http://i18napis.appspot.com/address/data/CH">http://i18napis.appspot.com/address/data/CH</a></li>
+			<li><a href="http://i18napis.appspot.com/address/data/US">http://i18napis.appspot.com/address/data/US</a></li>
+			<li><a href="http://i18napis.appspot.com/address/data/CH">http://i18napis.appspot.com/address/data/CH</a></li>
 			<li>...<br></li>
 		</ul>
 		<p class="dtd">
@@ -1275,12 +1382,12 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 				href="http://cldr.unicode.org/index/downloads"> CLDR
 				Releases/Downloads</a>
 		</p>
-		<p>The &lt;unicodeVersion&gt; attribute defines
-			the version of the Unicode standard that is used to interpret data.
-			Specifically, some data elements such as exemplar characters are
-			expressed in terms of UnicodeSets. Since UnicodeSets can be expressed
-			in terms of Unicode properties, their meaning depend on the Unicode
-			version from which property values are derived.</p>
+		<p>The &lt;unicodeVersion&gt; attribute defines the version of the
+			Unicode standard that is used to interpret data. Specifically, some
+			data elements such as exemplar characters are expressed in terms of
+			UnicodeSets. Since UnicodeSets can be expressed in terms of Unicode
+			properties, their meaning depend on the Unicode version from which
+			property values are derived.</p>
 		<!-- end section Version Information metadta element -->
 
 		<h2>
@@ -1294,14 +1401,13 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–2015 Unicode, Inc. All
-			Rights Reserved. The Unicode Consortium makes no expressed or implied
-			warranty of any kind, and assumes no liability for errors or
-			omissions. No liability is assumed for incidental and consequential
-			damages in connection with or arising out of the use of the
-			information or programs contained or accompanying this technical
-			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
-				of Use</a> apply.
+			Copyright © 2001–2015 Unicode, Inc. All Rights Reserved. The Unicode
+			Consortium makes no expressed or implied warranty of any kind, and
+			assumes no liability for errors or omissions. No liability is assumed
+			for incidental and consequential damages in connection with or
+			arising out of the use of the information or programs contained or
+			accompanying this technical report. The Unicode <a
+				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
 		</p>
 		<p class="copyright">Unicode and the Unicode logo are trademarks
 			of Unicode, Inc., and are registered in some jurisdictions.</p>

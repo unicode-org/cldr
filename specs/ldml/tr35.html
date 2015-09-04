@@ -2554,7 +2554,8 @@ zh-Hant-HK</pre>
 			</li>
 			<li>en-u-sd-<strong>gb</strong>sct — after adding likely
 				subtags, this becomes en<strong>-Latn-US</strong>-u-sd-<strong>gb</strong>sct,
-			where again the region &quot;gb&quot; does not match &quot;CA&quot;</li>
+				where again the region &quot;gb&quot; does not match &quot;CA&quot;
+			</li>
 		</ul>
 		<h3>
 			<a name="BCP47_T_Extension" href="#BCP47_T_Extension">3.7 Unicode
@@ -3106,16 +3107,19 @@ zh-Hant-HK</pre>
 		<h3 class='changed'>
 			<a name="Validity_Data" href="#Validity_Data">3.11 Validity Data</a>
 		</h3>
-		<p class='dtd'>&lt;!ELEMENT idValidity (id*) &gt;<br>
-	    &lt;!ELEMENT id ( #PCDATA ) &gt;<br>
-	    &lt;!ATTLIST id type NMTOKEN #REQUIRED &gt; <br>
-	    &lt;!ATTLIST id idStatus NMTOKEN #REQUIRED &gt;</p>
-		<p class='changed'>The directory <a
+		<p class='dtd'>
+			&lt;!ELEMENT idValidity (id*) &gt;<br> &lt;!ELEMENT id ( #PCDATA
+			) &gt;<br> &lt;!ATTLIST id type NMTOKEN #REQUIRED &gt; <br>
+			&lt;!ATTLIST id idStatus NMTOKEN #REQUIRED &gt;
+		</p>
+		<p class='changed'>
+			The directory <a
 				href='http://unicode.org/repos/cldr/tags/latest/common/validity/'>common/validity</a>
 			contains machine-readable data for validating the language, region,
 			script, and variant subtags, as well as currency, subdivisions and
 			measure units. Each file contains a number of subtags with the
-		following <strong>idStatus</strong> values: </p>
+			following <strong>idStatus</strong> values:
+		</p>
 		<ul class='changed'>
 			<li><strong>regular</strong> — the standard codes used for the
 				specific type of subtag</li>
@@ -3126,17 +3130,18 @@ zh-Hant-HK</pre>
 						Identifiers</a></em>.</li>
 			<li><strong>macroregion</strong> — the standard codes that are
 				macroregions<em> (for regions only).</em>
-<ul>
-		  <li>Note that some two-letter region codes are macroregions,
+				<ul>
+					<li>Note that some two-letter region codes are macroregions,
 						and (in the future) some three-digit codes may be regular codes.</li>
 					<li>For details as to which regions are contained within which
-						macroregions, see the <strong>&lt;containment&gt;</strong> element of the
-						supplemental data.</li>
+						macroregions, see the <strong>&lt;containment&gt;</strong> element
+						of the supplemental data.
+					</li>
 				</ul></li>
 			<li><strong>deprecated</strong> — codes that should not be used.
-				The <strong>&lt;alias&gt;</strong> element in the supplementalMeta file contains more
-				information about these codes, and which codes should be used
-				instead.</li>
+				The <strong>&lt;alias&gt;</strong> element in the supplementalMeta
+				file contains more information about these codes, and which codes
+				should be used instead.</li>
 			<li><strong>private_use</strong> — codes that, for CLDR, are
 				considered private use. Note that some BCP47 private-use codes have
 				defined CLDR semantics, and are considered regular codes. For more
@@ -7780,10 +7785,11 @@ decimal?, group?, special*)) &gt;</pre>
 							href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></em></li>
 					<li>Added <em>Section <a href="#Validity_Data">3.11
 								Validity Data</a></em> [<a
-								href="http://unicode.org/cldr/trac/ticket/8954"
-								title="View ticket">#8954</a>]  [<a
-								href="http://unicode.org/cldr/trac/ticket/8448"
-								title="View ticket">#8448</a>] </li>
+						href="http://unicode.org/cldr/trac/ticket/8954"
+						title="View ticket">#8954</a>] [<a
+						href="http://unicode.org/cldr/trac/ticket/8448"
+						title="View ticket">#8448</a>]
+					</li>
 					<li><em>Section <a href="#Unicode_Sets">5.3.3 Unicode
 								Sets</a></em>
 						<ul>
@@ -7793,9 +7799,9 @@ decimal?, group?, special*)) &gt;</pre>
 							</li>
 						</ul></li>
 					<li>Added <em>Section <a href="#String_Range">5.3.4
-								String Range</a></em> [<a
-								href="http://unicode.org/cldr/trac/ticket/8448"
-								title="View ticket">#8448</a>] </li>
+								String Range</a></em> [<a href="http://unicode.org/cldr/trac/ticket/8448"
+						title="View ticket">#8448</a>]
+					</li>
 					<li><em>Section <a href="#Identity_Elements">5.4
 								Identity Elements</a></em>
 						<ul>
@@ -7884,11 +7890,11 @@ decimal?, group?, special*)) &gt;</pre>
 				href="tr35-info.html#Contents"></a>
 				<ul>
 					<li><em>Section 2.2 <a
-						href="tr35-info.html#Supplemental_Territory_Information">Supplemental
-							Territory Information</a>
-					  </em>
-					  <ul>
-						  <li>Added descriptions of CLDR usage of the terms: <a
+							href="tr35-info.html#Supplemental_Territory_Information">Supplemental
+								Territory Information</a>
+					</em>
+						<ul>
+							<li>Added descriptions of CLDR usage of the terms: <a
 								href="tr35-info.html#literacy_percent">literacy percent</a><em></em>,
 								<a href="tr35-info.html#language_population_percent">language
 									population percent</a>, <a href="tr35-info.html#writing_percent">writing
@@ -7899,17 +7905,15 @@ decimal?, group?, special*)) &gt;</pre>
 								href='http://cldr.unicode.org/index/cldr-spec/definitions'>definitions</a>.
 								[<a href="http://unicode.org/cldr/trac/ticket/8443">#8443</a>]
 							</li>
-						</ul>
-					</li>
-					<li><em>Section 
-					  2.1.1 <a 
-				href="tr35-info.html#Subdivision_Containment">Subdivision Containment</a> </em>[<a href="http://unicode.org/cldr/trac/ticket/8953">#8953</a>]
-					  <ul>
-					    <li>Added a description of the new containment elements.</li>
-				      </ul>
-				  </li>
-				</ul>
-			</li>
+						</ul></li>
+					<li><em>Section 2.1.1 <a
+							href="tr35-info.html#Subdivision_Containment">Subdivision
+								Containment</a>
+					</em>[<a href="http://unicode.org/cldr/trac/ticket/8953">#8953</a>]
+						<ul>
+							<li>Added a description of the new containment elements.</li>
+						</ul></li>
+				</ul></li>
 		</ul>
 
 		<h3>Revision 39</h3>

@@ -957,10 +957,8 @@ h5 {
 				<td class="changed"><code>
 						<a name="subdivision_attribute" href="#subdivision_attribute">subdivision_attribute</a>
 					</code></td>
-				<td class="changed"><code> = alphanum{3,8}<br>
-			      (sep alphanum{3,8})* ;</code></td>
-				<td class="changed"><code>= 3*8alphanum<br>
-			      *(sep 3*8alphanum)</code></td>
+				<td class="changed"><code>= <a href="#unicode_region_subtag" >unicode_region_subtag</a> unicode_subdivision_subtag ;</code></td>
+				<td class="changed"><code>= <a href="#unicode_region_subtag" >unicode_region_subtag</a> unicode_subdivision_subtag</code></td>
 				<td class='changed'><code>
 						<a href='#unicode_subdivision_subtag_validity'>validity</a>
 					</code></td>
@@ -968,9 +966,11 @@ h5 {
 			</tr>
 			<tr>
 			  <td class="changed"><code> <a name="unicode_measure_unit" href="#unicode_measure_unit">unicode_measure_unit</a> </code></td>
-			  <td class="changed"><code> = <a href="#unicode_region_subtag" >unicode_region_subtag</a> unicode_subdivision_subtag ;</code></td>
-			  <td class="changed"><code>= <a href="#unicode_region_subtag" >unicode_region_subtag</a> unicode_subdivision_subtag</code></td>
-			  <td class='changed'><code> <a href='#unicode_subdivision_subtag_validity'>validity</a> </code></td>
+			  <td class="changed"><code> = alphanum{3,8}<br>
+  (sep alphanum{3,8})* ;</code></td>
+			  <td class="changed"><code>= 3*8alphanum<br>
+  *(sep 3*8alphanum)</code></td>
+			  <td class='changed'><code> <a href='#Validity_Data'>validity</a> </code></td>
 		  </tr>
 			<tr>
 				<td><code>tlang</code></td>

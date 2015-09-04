@@ -84,7 +84,8 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical Standard #35
+			<span class="changed">Proposed Update </span>Unicode Technical
+			Standard #35
 		</h2>
 		<h1 style="text-align: center">
 			Unicode Locale Data Markup Language (LDML)<br> Part 3: Numbers
@@ -375,17 +376,15 @@ h2, h3, h4, table {
 			<dt>
 				<b>native</b>
 			</dt>
-			<dd>
-				Defines the numbering system used for the native digits, usually
-				defined as a part of the script used to write the language. The
-				native numbering system can only be a numeric positional
+			<dd>Defines the numbering system used for the native digits,
+				usually defined as a part of the script used to write the language.
+				The native numbering system can only be a numeric positional
 				decimal-digit numbering system, using digits with
-				General_Category=Decimal_Number. Note:
-					In locales where the native numbering system is the default, it is
-					assumed that the numbering system "latn" ( Western Digits 0-9 ) is
-					always acceptable, and can be selected using the -nu keyword as
-					part of a Unicode locale identifier.
-			</dd>
+				General_Category=Decimal_Number. Note: In locales where the native
+				numbering system is the default, it is assumed that the numbering
+				system "latn" ( Western Digits 0-9 ) is always acceptable, and can
+				be selected using the -nu keyword as part of a Unicode locale
+				identifier.</dd>
 			<dt>
 				<b>traditional</b>
 			</dt>
@@ -415,8 +414,8 @@ h2, h3, h4, table {
 				numerals, use locale ID: "zh-u-nu-finance".</li>
 			<li>To select Tamil language using the traditional Tamil
 				numerals, use locale ID: "ta-u-nu-traditio".</li>
-			<li>To select Arabic language using
-					western digits 0-9, use locale ID: "ar-u-nu-latn".</li>
+			<li>To select Arabic language using western digits 0-9, use
+				locale ID: "ar-u-nu-latn".</li>
 		</ul>
 		<p>
 			For more information on numbering systems and their definitions, see
@@ -488,7 +487,15 @@ h2, h3, h4, table {
 			<dt>
 				<b>plusSign</b>
 			</dt>
-			<dd>- Symbol used to denote positive value.<span class="changed"> &nbsp;It can be used to produce modified patterns, so that 3.12 is formatted as "+3.12", for example. The standard number patterns (except for type="accounting") will contain the minusSign, explicitly or implicitly. In the explicit pattern, the value of the plusSign can be substituted the value of the minusSign to produce a pattern that has an explicit plus sign</span>.</dd>
+			<dd>
+				- Symbol used to denote positive value.<span class="changed">
+					&nbsp;It can be used to produce modified patterns, so that 3.12 is
+					formatted as "+3.12", for example. The standard number patterns
+					(except for type="accounting") will contain the minusSign,
+					explicitly or implicitly. In the explicit pattern, the value of the
+					plusSign can be substituted the value of the minusSign to produce a
+					pattern that has an explicit plus sign</span>.
+			</dd>
 			<dt>
 				<b>exponential</b>
 			</dt>
@@ -844,21 +851,30 @@ h2, h3, h4, table {
 			3.2 <a name="Special_Pattern_Characters"
 				href="#Special_Pattern_Characters">Special Pattern Characters</a>
 		</h3>
-		<p>Many characters in a pattern are taken literally; they are
-			matched during parsing and output unchanged during formatting.
-			Special characters, on the other hand, stand for other characters,
-			strings, or classes of characters. For example, the &#39;#&#39;
-			character is replaced by a localized digit<span class="changed"> for the chosen numberSystem</span>. Often the replacement
-			character is the same as the pattern character; in the U.S. locale,
-			the &#39;,&#39; grouping character is replaced by &#39;,&#39;.
-			However, the replacement is still happening, and if the symbols are
-			modified, the grouping character changes. Some special characters
-			affect the behavior of the formatter by their presence; for example,
-			if the percent character is seen, then the value is multiplied by 100
-			before being displayed.</p>
-		<p>To insert a special character in a pattern as a literal, that
-			is, without any special meaning, the character must be quoted. There
-			are some exceptions to this which are noted below.<span class="changed"> The Localized Replacement column shows the replacement from <em>Section 2.3 <a href="#Number_Symbols">Number Symbols</a></em> or the numberSystem's digits: <em>italic</em> indicates a special function.</span></p>
+		<p>
+			Many characters in a pattern are taken literally; they are matched
+			during parsing and output unchanged during formatting. Special
+			characters, on the other hand, stand for other characters, strings,
+			or classes of characters. For example, the &#39;#&#39; character is
+			replaced by a localized digit<span class="changed"> for the
+				chosen numberSystem</span>. Often the replacement character is the same as
+			the pattern character; in the U.S. locale, the &#39;,&#39; grouping
+			character is replaced by &#39;,&#39;. However, the replacement is
+			still happening, and if the symbols are modified, the grouping
+			character changes. Some special characters affect the behavior of the
+			formatter by their presence; for example, if the percent character is
+			seen, then the value is multiplied by 100 before being displayed.
+		</p>
+		<p>
+			To insert a special character in a pattern as a literal, that is,
+			without any special meaning, the character must be quoted. There are
+			some exceptions to this which are noted below.<span class="changed">
+				The Localized Replacement column shows the replacement from <em>Section
+					2.3 <a href="#Number_Symbols">Number Symbols</a>
+			</em> or the numberSystem's digits: <em>italic</em> indicates a special
+				function.
+			</span>
+		</p>
 		<blockquote>
 			<table cellspacing="3" cellpadding="0"
 				summary="Chart showing symbol,
@@ -867,7 +883,8 @@ h2, h3, h4, table {
 				<tr bgcolor="#ccccff">
 					<th align="left">Symbol</th>
 					<th align="left">Location</th>
-					<th align="left">Localized<span class="changed"> Replacement</span></th>
+					<th align="left">Localized<span class="changed">
+							Replacement</span></th>
 					<th colspan="2" align="left">Meaning</th>
 				</tr>
 				<tr valign="top">
@@ -880,7 +897,8 @@ h2, h3, h4, table {
 					<td>1-9</td>
 					<td>Number</td>
 					<td class="changed">digit</td>
-					<td colspan="2">&#39;1&#39; through &#39;9&#39; indicate rounding.</td>
+					<td colspan="2">&#39;1&#39; through &#39;9&#39; indicate
+						rounding.</td>
 				</tr>
 				<tr valign="top">
 					<td>@</td>
@@ -892,13 +910,15 @@ h2, h3, h4, table {
 					<td>#</td>
 					<td>Number</td>
 					<td class="changed">digit, <em>nothing</em></td>
-					<td colspan="2">Digit<span class="changed">, omitting leading/trailing zeros</span></td>
+					<td colspan="2">Digit<span class="changed">, omitting
+							leading/trailing zeros</span></td>
 				</tr>
 				<tr valign="top">
 					<td>.</td>
 					<td>Number</td>
 					<td class="changed">decimal, currencyDecimal</td>
-					<td colspan="2">Decimal separator or monetary decimal separator</td>
+					<td colspan="2">Decimal separator or monetary decimal
+						separator</td>
 				</tr>
 				<tr valign="top" bgcolor="#eeeeff">
 					<td>-</td>
@@ -910,178 +930,214 @@ h2, h3, h4, table {
 					<td>,</td>
 					<td>Number</td>
 					<td class="changed">group, currencyGroup</td>
-					<td colspan="2">Grouping separator. May occur in both the integer part and
-						the fractional part. The position determines the grouping.</td>
+					<td colspan="2">Grouping separator. May occur in both the
+						integer part and the fractional part. The position determines the
+						grouping.</td>
 				</tr>
 				<tr valign="top" bgcolor="#eeeeff">
 					<td>E</td>
 					<td>Number</td>
 					<td class="changed">exponential, superscriptingExponent</td>
-					<td colspan="2">Separates mantissa and exponent in scientific notation. <em>Need
-							not be quoted in prefix or suffix.</em></td>
+					<td colspan="2">Separates mantissa and exponent in scientific
+						notation. <em>Need not be quoted in prefix or suffix.</em>
+					</td>
 				</tr>
 				<tr valign="top">
 					<td>+</td>
 					<td>Exponent</td>
 					<td class="changed">plusSign</td>
-					<td colspan="2">Prefix positive exponents with localized plus sign. <span class="changed">Used for explicit plus for numbers as well, as described in Section 3.2.1 <a href="#Explicit_Plus">Explicit Plus Signs</a>. <em><br>
-				    Need
-							not be quoted in prefix or suffix.</em></span></td>
+					<td colspan="2">Prefix positive exponents with localized plus
+						sign. <span class="changed">Used for explicit plus for
+							numbers as well, as described in Section 3.2.1 <a
+							href="#Explicit_Plus">Explicit Plus Signs</a>. <em><br>
+								Need not be quoted in prefix or suffix.</em>
+					</span>
+					</td>
 				</tr>
 				<tr valign="top">
-				  <td>%</td>
-				  <td>Prefix or suffix</td>
-				  <td class="changed">percentSign</td>
-				  <td colspan="2">Multiply by 100 and show as percentage</td>
-			  </tr>
+					<td>%</td>
+					<td>Prefix or suffix</td>
+					<td class="changed">percentSign</td>
+					<td colspan="2">Multiply by 100 and show as percentage</td>
+				</tr>
 				<tr valign="top" bgcolor="#eeeeff">
-				  <td>‰<br>
-				    (U+2030) </td>
-				  <td>Prefix or suffix</td>
-				  <td class="changed">perMille</td>
-				  <td colspan="2">Multiply by 1000 and show as per mille <span class="changed">(aka “basis points”)</span></td>
-			  </tr>
+					<td>‰<br> (U+2030)
+					</td>
+					<td>Prefix or suffix</td>
+					<td class="changed">perMille</td>
+					<td colspan="2">Multiply by 1000 and show as per mille <span
+						class="changed">(aka “basis points”)</span></td>
+				</tr>
 				<tr valign="top" bgcolor="#eeeeff">
 					<td>;</td>
 					<td>Subpattern boundary</td>
 					<td class="changed"><em>syntax</em></td>
-					<td colspan="2">Separates positive and negative subpatterns.<span class="changed"> When there is no explicit negative subpattern, an implicit negative subpattern is formed from the positive pattern with a prefixed - (ASCII U+002D HYPHEN-MINUS). </span></td>
+					<td colspan="2">Separates positive and negative subpatterns.<span
+						class="changed"> When there is no explicit negative
+							subpattern, an implicit negative subpattern is formed from the
+							positive pattern with a prefixed - (ASCII U+002D HYPHEN-MINUS). </span></td>
 				</tr>
 				<tr valign="top">
 					<td rowspan="11">¤ (U+00A4)</td>
 					<td rowspan="11">Prefix or suffix</td>
-					<td rowspan="11" class="changed"><em>currency symbol/name from currency specified in API</em></td>
-					<td colspan="2"><span class="changed">Any sequence is replaced by the localized</span>currency symbol for the currency being formatted<span class="changed">, as in the table below</span>. If present in a pattern, the monetary decimal separator and
-						grouping separators (if available) are used instead of the numeric
-						ones.
-				    <span class="changed">If data is unavailable for a given sequence in a given locale, the display may fall back to ¤ or ¤¤. See also</span> the formatting  for <span class="changed">currency</span> display names, steps 2 and 4 in <a href="#Currencies">Currencies</a>. </td>
+					<td rowspan="11" class="changed"><em>currency symbol/name
+							from currency specified in API</em></td>
+					<td colspan="2"><span class="changed">Any sequence is
+							replaced by the localized</span>currency symbol for the currency being
+						formatted<span class="changed">, as in the table below</span>. If
+						present in a pattern, the monetary decimal separator and grouping
+						separators (if available) are used instead of the numeric ones. <span
+						class="changed">If data is unavailable for a given sequence
+							in a given locale, the display may fall back to ¤ or ¤¤. See also</span>
+						the formatting for <span class="changed">currency</span> display
+						names, steps 2 and 4 in <a href="#Currencies">Currencies</a>.</td>
 				</tr>
 				<tr class='changed' valign="top">
-				  <th>No.</th>
-				  <th>Replacement / Example</th>
-			  </tr>
-				<tr  class='changed'valign="top">
-				  <td rowspan="2">¤</td>
-				  <td>Standard currency symbol</td>
-			  </tr>
-				<tr  class='changed'valign="top">
-				  <td><em>C$12.00</em></td>
-			  </tr>
-				<tr  class='changed'valign="top">
-				  <td rowspan="2">¤¤</td>
-				  <td>ISO currency symbol (constant)</td>
-			  </tr>
-				<tr  class='changed'valign="top">
-				  <td><em>CAD 12.00</em></td>
-			  </tr>
-				<tr  class='changed'valign="top">
-				  <td rowspan="2">¤¤¤</td>
-				  <td>Appropriate currency display name for
-							the currency, based on the plural rules in effect for the locale</td>
-			  </tr>
-				<tr  class='changed'valign="top">
-				  <td><em>5.00 Canadian dollars</em></td>
-			  </tr>
-				<tr  class='changed'valign="top">
-				  <td rowspan="2" nowrap>¤¤¤¤¤</td>
-				  <td>Narrow currency symbol. The same symbols may be used for multiple currencies. Thus this is be ambiguous, and should only be used where the context is clear.</td>
-			  </tr>
-				<tr  class='changed' valign="top">
-				  <td><em>$12.00</em></td>
-			  </tr>
+					<th>No.</th>
+					<th>Replacement / Example</th>
+				</tr>
 				<tr class='changed' valign="top">
-				  <td><em>others</em></td>
-				  <td><em>Reserved for future specification</em></td>
-		      </tr>
+					<td rowspan="2">¤</td>
+					<td>Standard currency symbol</td>
+				</tr>
+				<tr class='changed' valign="top">
+					<td><em>C$12.00</em></td>
+				</tr>
+				<tr class='changed' valign="top">
+					<td rowspan="2">¤¤</td>
+					<td>ISO currency symbol (constant)</td>
+				</tr>
+				<tr class='changed' valign="top">
+					<td><em>CAD 12.00</em></td>
+				</tr>
+				<tr class='changed' valign="top">
+					<td rowspan="2">¤¤¤</td>
+					<td>Appropriate currency display name for the currency, based
+						on the plural rules in effect for the locale</td>
+				</tr>
+				<tr class='changed' valign="top">
+					<td><em>5.00 Canadian dollars</em></td>
+				</tr>
+				<tr class='changed' valign="top">
+					<td rowspan="2" nowrap>¤¤¤¤¤</td>
+					<td>Narrow currency symbol. The same symbols may be used for
+						multiple currencies. Thus this is be ambiguous, and should only be
+						used where the context is clear.</td>
+				</tr>
+				<tr class='changed' valign="top">
+					<td><em>$12.00</em></td>
+				</tr>
+				<tr class='changed' valign="top">
+					<td><em>others</em></td>
+					<td><em>Reserved for future specification</em></td>
+				</tr>
 				<tr valign="top">
-				  <td>*</td>
-				  <td>Prefix or suffix boundary</td>
-				  <td class="changed"><em>padding character specified in API</em></td>
-				  <td colspan="2">Pad escape, precedes pad character</td>
-			  </tr>
+					<td>*</td>
+					<td>Prefix or suffix boundary</td>
+					<td class="changed"><em>padding character specified in
+							API</em></td>
+					<td colspan="2">Pad escape, precedes pad character</td>
+				</tr>
 				<tr valign="top" bgcolor="#eeeeff">
 					<td>&#39;</td>
 					<td>Prefix or suffix</td>
 					<td class="changed"><em>syntax-only</em></td>
-					<td colspan="2">Used to quote special characters in a prefix or suffix,
-						for example, <code>&quot;&#39;#&#39;#&quot;</code> formats 123 to
-						<code>&quot;#123&quot;</code>. To create a single quote itself,
-						use two in a row: <code>&quot;# o&#39;&#39;clock&quot;</code>.
+					<td colspan="2">Used to quote special characters in a prefix
+						or suffix, for example, <code>&quot;&#39;#&#39;#&quot;</code>
+						formats 123 to <code>&quot;#123&quot;</code>. To create a single
+						quote itself, use two in a row: <code>&quot;#
+							o&#39;&#39;clock&quot;</code>.
 					</td>
 				</tr>
 			</table>
 		</blockquote>
-		<p>A pattern contains a positive <span class="changed">subpattern</span> and may contain a negative
-			subpattern, for example, &quot;#,##0.00;(#,##0.00)&quot;. Each
-			subpattern has a prefix, a numeric part, and a suffix. If there is no
-			explicit negative subpattern, the <span class="changed">implicit</span> negative subpattern is the <span class="changed">ASCII</span> minus sign (-) prefixed to the positive subpattern. That is,
-			&quot;0.00&quot; alone is equivalent to &quot;0.00;-0.00&quot;. <span class="changed">(The data in CLDR is normalized to remove an explicit subpattern where it would be identical to the explicit form.)</span> If
-			there is an explicit negative subpattern, it serves only to specify
-			the negative prefix and suffix; the number of digits, minimal digits,
-			and other characteristics are ignored in the negative subpattern.
-			That means that &quot;#,##0.0#;(#)&quot; has precisely the same
-			result as &quot;#,##0.0#;(#,##0.0#)&quot;. <span class="changed">However in the CLDR data, the format is normalized so that the other characteristics are preserved, just for readability.</span>		</p>
+		<p>
+			A pattern contains a positive <span class="changed">subpattern</span>
+			and may contain a negative subpattern, for example,
+			&quot;#,##0.00;(#,##0.00)&quot;. Each subpattern has a prefix, a
+			numeric part, and a suffix. If there is no explicit negative
+			subpattern, the <span class="changed">implicit</span> negative
+			subpattern is the <span class="changed">ASCII</span> minus sign (-)
+			prefixed to the positive subpattern. That is, &quot;0.00&quot; alone
+			is equivalent to &quot;0.00;-0.00&quot;. <span class="changed">(The
+				data in CLDR is normalized to remove an explicit subpattern where it
+				would be identical to the explicit form.)</span> If there is an explicit
+			negative subpattern, it serves only to specify the negative prefix
+			and suffix; the number of digits, minimal digits, and other
+			characteristics are ignored in the negative subpattern. That means
+			that &quot;#,##0.0#;(#)&quot; has precisely the same result as
+			&quot;#,##0.0#;(#,##0.0#)&quot;. <span class="changed">However
+				in the CLDR data, the format is normalized so that the other
+				characteristics are preserved, just for readability.</span>
+		</p>
 		<blockquote>
 			<p>
-				<b>Note: </b>The thousands separator and decimal separator in 
-				<span class="changed">patterns</span> are always <span class="changed">ASCII</span> &#39;,&#39; and &#39;.&#39;. They are substituted
-				by the code with the correct local values according to other fields
-			in CLDR.<span class="changed"> The same is true of the - (ASCII minus sign) and other special characters listed above.</span></p>
+				<b>Note: </b>The thousands separator and decimal separator in <span
+					class="changed">patterns</span> are always <span class="changed">ASCII</span>
+				&#39;,&#39; and &#39;.&#39;. They are substituted by the code with
+				the correct local values according to other fields in CLDR.<span
+					class="changed"> The same is true of the - (ASCII minus
+					sign) and other special characters listed above.</span>
+			</p>
 		</blockquote>
-	  <p class='changed'>Below is a sample of patterns, special characters, and results:</p>
-			<div class='changed' align="center">
-			  <table
-				border="0" cellpadding="0" cellspacing="3"
-				>
-			    <caption>
-			    <a name='Sample_Patterns_and_Results' href='#Sample_Patterns_and_Results'>Sample Patterns and Results</a>
-			    </caption>
-			    <tr valign="top">
-			      <th><div align="right">explicit pattern:</div></th>
-			      <td colspan="2"><div align="center">0.00;-0.00</div></td>
-			      <td colspan="2"><div align="center">0.00;0.00-</div></td>
-			      <td colspan="2"><div align="center">0.00+;0.00-</div></td>
-		        </tr>
-			    <tr valign="top">
-			      <th><div align="right">decimalSign:</div></th>
-			      <td colspan="2"><div align="center">,</div></td>
-			      <td colspan="2"><div align="center">,</div></td>
-			      <td colspan="2"><div align="center">,</div></td>
-		        </tr>
-			    <tr valign="top">
-			      <th><div align="right">minusSign:</div></th>
-			      <td colspan="2"><div align="center">∸</div></td>
-			      <td colspan="2"><div align="center">∸</div></td>
-			      <td colspan="2"><div align="center">∸</div></td>
-		        </tr>
-			    <tr valign="top">
-			      <th><div align="right">plusSign:</div></th>
-			      <td colspan="2"><div align="center">∔</div></td>
-			      <td colspan="2"><div align="center">∔</div></td>
-			      <td colspan="2"><div align="center">∔</div></td>
-		        </tr>
-			    <tr valign="top">
-			      <th><div align="right">number:</div></th>
-			      <td><div align="center">3.1415</div></td>
-			      <td><div align="center">-3.1415</div></td>
-			      <td><div align="center">3.1415</div></td>
-			      <td><div align="center">-3.1415</div></td>
-			      <td><div align="center">3.1415</div></td>
-			      <td><div align="center">-3.1415</div></td>
-		        </tr>
-			    <tr valign="top">
-			      <th><div align="right">formatted:</div></th>
-			      <td><div align="center">3,14</div></td>
-			      <td><div align="center">∸3,14</div></td>
-			      <td><div align="center">3,14</div></td>
-			      <td><div align="center">3,14∸</div></td>
-			      <td><div align="center">3,14∔</div></td>
-			      <td><div align="center">3,14∸</div></td>
-		        </tr>
-		      </table>
-		<p><em>In the above table, ∸ 	= U+2238 DOT MINUS and  ∔ 	= U+2214 DOT PLUS are used for illustration.</em></p>
-	  </div>
-	    <p>
+		<p class='changed'>Below is a sample of patterns, special
+			characters, and results:</p>
+		<div class='changed' align="center">
+			<table border="0" cellpadding="0" cellspacing="3">
+				<caption>
+					<a name='Sample_Patterns_and_Results'
+						href='#Sample_Patterns_and_Results'>Sample Patterns and
+						Results</a>
+				</caption>
+				<tr valign="top">
+					<th><div align="right">explicit pattern:</div></th>
+					<td colspan="2"><div align="center">0.00;-0.00</div></td>
+					<td colspan="2"><div align="center">0.00;0.00-</div></td>
+					<td colspan="2"><div align="center">0.00+;0.00-</div></td>
+				</tr>
+				<tr valign="top">
+					<th><div align="right">decimalSign:</div></th>
+					<td colspan="2"><div align="center">,</div></td>
+					<td colspan="2"><div align="center">,</div></td>
+					<td colspan="2"><div align="center">,</div></td>
+				</tr>
+				<tr valign="top">
+					<th><div align="right">minusSign:</div></th>
+					<td colspan="2"><div align="center">∸</div></td>
+					<td colspan="2"><div align="center">∸</div></td>
+					<td colspan="2"><div align="center">∸</div></td>
+				</tr>
+				<tr valign="top">
+					<th><div align="right">plusSign:</div></th>
+					<td colspan="2"><div align="center">∔</div></td>
+					<td colspan="2"><div align="center">∔</div></td>
+					<td colspan="2"><div align="center">∔</div></td>
+				</tr>
+				<tr valign="top">
+					<th><div align="right">number:</div></th>
+					<td><div align="center">3.1415</div></td>
+					<td><div align="center">-3.1415</div></td>
+					<td><div align="center">3.1415</div></td>
+					<td><div align="center">-3.1415</div></td>
+					<td><div align="center">3.1415</div></td>
+					<td><div align="center">-3.1415</div></td>
+				</tr>
+				<tr valign="top">
+					<th><div align="right">formatted:</div></th>
+					<td><div align="center">3,14</div></td>
+					<td><div align="center">∸3,14</div></td>
+					<td><div align="center">3,14</div></td>
+					<td><div align="center">3,14∸</div></td>
+					<td><div align="center">3,14∔</div></td>
+					<td><div align="center">3,14∸</div></td>
+				</tr>
+			</table>
+			<p>
+				<em>In the above table, ∸ = U+2238 DOT MINUS and ∔ = U+2214 DOT
+					PLUS are used for illustration.</em>
+			</p>
+		</div>
+		<p>
 			The prefixes, suffixes, and various symbols used for infinity,
 			digits, thousands separators, decimal separators, and so on may be
 			set to arbitrary values, and they will appear properly during
@@ -1121,7 +1177,10 @@ h2, h3, h4, table {
 				href="http://physics.nist.gov/cuu/Units/checklist.html ">physics.nist.gov/cuu/Units/checklist.html</a>.
 		</p>
 
-		<p>For consistency in the CLDR data, the following conventions<span class="changed"> are observed:</span></p>
+		<p>
+			For consistency in the CLDR data, the following conventions<span
+				class="changed"> are observed:</span>
+		</p>
 		<ul>
 			<li>All number patterns should be minimal: there should be no
 				leading # marks except to specify the position of the grouping
@@ -1134,7 +1193,9 @@ h2, h3, h4, table {
 				position (for example, ¤ #,##0.00).
 				<ul>
 					<li>The exact number of decimals is overridden with the
-						decimal count in supplementary data<span class="changed"> or by API settings</span>.</li>
+						decimal count in supplementary data<span class="changed">
+							or by API settings</span>.
+					</li>
 				</ul>
 			</li>
 			<li>The only time two thousands separators needs to be used is
@@ -1199,15 +1260,31 @@ h2, h3, h4, table {
 				</ul>
 			</li>
 		</ul>
-		<h4 class="changed">3.2.1 <a name="Explicit_Plus" href="#Explicit_Plus">Explicit Plus Signs</a></h4>
-		<p class="changed">An explicit &quot;plus&quot; format can be formed, so as to show a visible + sign when formatting a non-negative number. The displayed plus sign can be an ASCII plus or another character, such as ＋ 	U+FF0B FULLWIDTH PLUS SIGN or ➕ 	U+2795 HEAVY PLUS SIGN; it is taken from whatever is set for plusSign in <em>Section 2.3 <a href="#Number_Symbols">Number Symbols</a></em>.</p>
+		<h4 class="changed">
+			3.2.1 <a name="Explicit_Plus" href="#Explicit_Plus">Explicit Plus
+				Signs</a>
+		</h4>
+		<p class="changed">
+			An explicit &quot;plus&quot; format can be formed, so as to show a
+			visible + sign when formatting a non-negative number. The displayed
+			plus sign can be an ASCII plus or another character, such as ＋ U+FF0B
+			FULLWIDTH PLUS SIGN or ➕ U+2795 HEAVY PLUS SIGN; it is taken from
+			whatever is set for plusSign in <em>Section 2.3 <a
+				href="#Number_Symbols">Number Symbols</a></em>.
+		</p>
 		<ol>
-		  <li class="changed">Get the  negative subpattern (explicit or implicit).</li>
-		  <li class="changed">Replace any unquoted ASCII minus sign by an ASCII plus sign.</li>
-		  <li class="changed">If there are any replacements, use that for the  positive subpattern.</li>
-      </ol>
-		<p class="changed">For an example, see <a href="#Sample_Patterns_and_Results">Sample Patterns and Results</a>.</p>
-        		<h3>
+			<li class="changed">Get the negative subpattern (explicit or
+				implicit).</li>
+			<li class="changed">Replace any unquoted ASCII minus sign by an
+				ASCII plus sign.</li>
+			<li class="changed">If there are any replacements, use that for
+				the positive subpattern.</li>
+		</ol>
+		<p class="changed">
+			For an example, see <a href="#Sample_Patterns_and_Results">Sample
+				Patterns and Results</a>.
+		</p>
+		<h3>
 			3.3 <a name="Formatting" href="#Formatting">Formatting</a>
 		</h3>
 		<p>
@@ -1560,8 +1637,7 @@ h2, h3, h4, table {
 &lt;/currency&gt;</pre>
 		<p>
 			To format a particular currency value &quot;ZWD&quot; for a
-			particular numeric value <em>n</em>
-				using the (long) display name:
+			particular numeric value <em>n</em> using the (long) display name:
 		</p>
 		<ol>
 			<li>First see if there is a count with an explicit number (0 or
@@ -1604,22 +1680,20 @@ h2, h3, h4, table {
 						itself (for example, &quot;ZWD&quot;).</li>
 				</ol>
 			</li>
-			<li>Format the
-				numeric value according to the locale. Use
-					the locale’s &lt;decimalFormats ...&gt; pattern, not the
-					&lt;currencyFormats&gt; pattern that is used with the symbol (eg,
-					Z$). As when formatting symbol currency values, reset the number of
-					decimals according to the supplemental &lt;currencyData&gt; and use
-					the currencyDecimal symbol if different from the decimal symbol.
+			<li>Format the numeric value according to the locale. Use the
+				locale’s &lt;decimalFormats ...&gt; pattern, not the
+				&lt;currencyFormats&gt; pattern that is used with the symbol (eg,
+				Z$). As when formatting symbol currency values, reset the number of
+				decimals according to the supplemental &lt;currencyData&gt; and use
+				the currencyDecimal symbol if different from the decimal symbol.
 				<ol>
-					<li>The number of decimals should be
-						overridable in an API, so that clients can choose between “2 US
-						dollars” and “2.00 US dollars”.</li>
+					<li>The number of decimals should be overridable in an API, so
+						that clients can choose between “2 US dollars” and “2.00 US
+						dollars”.</li>
 				</ol>
 			</li>
-			<li>Substitute the formatted numeric value for
-				the {0} in the unitPattern, and the currency display name for the
-				{1}.</li>
+			<li>Substitute the formatted numeric value for the {0} in the
+				unitPattern, and the currency display name for the {1}.</li>
 		</ol>
 		<p>While for English this may seem overly complex, for some other
 			languages different plural forms are used for different unit types;
@@ -1787,11 +1861,11 @@ h2, h3, h4, table {
 				question. If a particular currency does not occur in the fractions
 				list, then it is given the defaults listed for the next two
 				attributes.</li>
-			<li><b>digits: </b>the minimum and
-					maximum number of decimal digits normally formatted. The default
-				is 2. For example, in the en_US locale
-					with the default value of 2 digits, the value 1 USD would format as
-					"$1.00", and the value 1.123 USD would format as → "$1.12". </li>
+			<li><b>digits: </b>the minimum and maximum number of decimal
+				digits normally formatted. The default is 2. For example, in the
+				en_US locale with the default value of 2 digits, the value 1 USD
+				would format as "$1.00", and the value 1.123 USD would format as →
+				"$1.12".</li>
 			<li><b>rounding: </b>the rounding increment, in units of 10<sup>-digits</sup>.
 				The default is 0, which means no rounding is to be done. Therefore,
 				rounding=0 and rounding=1 have identical behavior. Thus with
@@ -2589,14 +2663,13 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–2015 Unicode, Inc. All
-			Rights Reserved. The Unicode Consortium makes no expressed or implied
-			warranty of any kind, and assumes no liability for errors or
-			omissions. No liability is assumed for incidental and consequential
-			damages in connection with or arising out of the use of the
-			information or programs contained or accompanying this technical
-			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
-				of Use</a> apply.
+			Copyright © 2001–2015 Unicode, Inc. All Rights Reserved. The Unicode
+			Consortium makes no expressed or implied warranty of any kind, and
+			assumes no liability for errors or omissions. No liability is assumed
+			for incidental and consequential damages in connection with or
+			arising out of the use of the information or programs contained or
+			accompanying this technical report. The Unicode <a
+				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
 		</p>
 		<p class="copyright">Unicode and the Unicode logo are trademarks
 			of Unicode, Inc., and are registered in some jurisdictions.</p>

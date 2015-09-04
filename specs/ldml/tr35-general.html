@@ -83,7 +83,8 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical Standard #35
+			<span class="changed">Proposed Update </span>Unicode Technical
+			Standard #35
 		</h2>
 		<h1 style="text-align: center">
 			Unicode Locale Data Markup Language (LDML)<br> Part 2: General
@@ -287,9 +288,14 @@ h2, h3, h4, table {
 			1 <a name="Display_Name_Elements" href="#Display_Name_Elements">Display
 				Name Elements</a>
 		</h2>
-		<p class="dtd"><span class="changed">&lt;!ELEMENT localeDisplayNames ( alias | ( localeDisplayPattern?, languages?, scripts?, territories?, subdivisions?, variants?, keys?, types?, transformNames?, measurementSystemNames?, codePatterns?, special* ) )&gt;</span>
+		<p class="dtd">
+			<span class="changed">&lt;!ELEMENT localeDisplayNames ( alias
+				| ( localeDisplayPattern?, languages?, scripts?, territories?,
+				subdivisions?, variants?, keys?, types?, transformNames?,
+				measurementSystemNames?, codePatterns?, special* ) )&gt;</span>
 		</p>
-		<p>Display names for scripts, languages, countries, currencies, and
+		<p>
+			Display names for scripts, languages, countries, currencies, and
 			variants in this locale are supplied by this element. They supply
 			localized names for these items for use in user-interfaces for
 			various purposes such as displaying menu lists, displaying a language
@@ -608,16 +614,30 @@ h2, h3, h4, table {
 					style="color: blue">Language: {0}</span>&lt;/type&gt;
 </pre>
 		</blockquote>
-		<p class="dtd"><span class="changed">&lt;!ELEMENT subdivisions ( alias | ( subdivision | special )* ) &gt;<br>
-	    &lt;!ELEMENT subdivision ( #PCDATA )&gt;</span></p>
-	  <p class="changed">Note that the subdivision names are in separate files, in the subdivisions/ directory. The type values are the fully qualified subdivsion names. For example:</p>
-		<p class="xmlExample changed"> &lt;subdivision type=&quot;AL-04&quot;&gt;Fier County&lt;/subdivision&gt;<br>		  
-		  &lt;subdivision type=&quot;AL-FR&quot;&gt;Fier&lt;/subdivision&gt;	&lt;!-- in AL-04 : Fier County --&gt;<br>
-&lt;subdivision type=&quot;AL-LU&quot;&gt;Lushnjë&lt;/subdivision&gt;	&lt;!-- in AL-04 : Fier County --&gt;<br>
-&lt;subdivision type=&quot;AL-MK&quot;&gt;Mallakastër&lt;/subdivision&gt;	&lt;!-- in AL-04 : Fier County --&gt;</p>
-		<p class="changed">See also <strong>Part 6</strong> <em>Section 2.1.1 <a
-							href="tr35-info.html#Subdivision_Containment">Subdivision
-		Containment</a></em>.</p>
+		<p class="dtd">
+			<span class="changed">&lt;!ELEMENT subdivisions ( alias | (
+				subdivision | special )* ) &gt;<br> &lt;!ELEMENT subdivision (
+				#PCDATA )&gt;
+			</span>
+		</p>
+		<p class="changed">Note that the subdivision names are in separate
+			files, in the subdivisions/ directory. The type values are the fully
+			qualified subdivsion names. For example:</p>
+		<p class="xmlExample changed">
+			&lt;subdivision type=&quot;AL-04&quot;&gt;Fier
+			County&lt;/subdivision&gt;<br> &lt;subdivision
+			type=&quot;AL-FR&quot;&gt;Fier&lt;/subdivision&gt; &lt;!-- in AL-04 :
+			Fier County --&gt;<br> &lt;subdivision
+			type=&quot;AL-LU&quot;&gt;Lushnjë&lt;/subdivision&gt; &lt;!-- in
+			AL-04 : Fier County --&gt;<br> &lt;subdivision
+			type=&quot;AL-MK&quot;&gt;Mallakastër&lt;/subdivision&gt; &lt;!-- in
+			AL-04 : Fier County --&gt;
+		</p>
+		<p class="changed">
+			See also <strong>Part 6</strong> <em>Section 2.1.1 <a
+				href="tr35-info.html#Subdivision_Containment">Subdivision
+					Containment</a></em>.
+		</p>
 
 
 		<h2>
@@ -1266,12 +1286,12 @@ h2, h3, h4, table {
 			&lt;!ELEMENT measurementData ( measurementSystem*, paperSize* ) &gt;<br>
 			<br> &lt;!ELEMENT measurementSystem EMPTY &gt;<br>
 			&lt;!ATTLIST measurementSystem type ( metric | US | UK ) #REQUIRED
-			&gt;<br> &lt;!ATTLIST
-				measurementSystem category ( temperature ) #IMPLIED &gt;<br>&lt;!ATTLIST
-			measurementSystem territories NMTOKENS #REQUIRED &gt;<br> <br>
-			&lt;!ELEMENT paperSize EMPTY &gt;<br> &lt;!ATTLIST paperSize
-			type ( A4 | US-Letter ) #REQUIRED &gt;<br> &lt;!ATTLIST
-			paperSize territories NMTOKENS #REQUIRED &gt;
+			&gt;<br> &lt;!ATTLIST measurementSystem category ( temperature )
+			#IMPLIED &gt;<br>&lt;!ATTLIST measurementSystem territories
+			NMTOKENS #REQUIRED &gt;<br> <br> &lt;!ELEMENT paperSize
+			EMPTY &gt;<br> &lt;!ATTLIST paperSize type ( A4 | US-Letter )
+			#REQUIRED &gt;<br> &lt;!ATTLIST paperSize territories NMTOKENS
+			#REQUIRED &gt;
 		</p>
 
 		<p>The measurement system is the normal measurement system in
@@ -1299,17 +1319,16 @@ h2, h3, h4, table {
 				as used in the United States: feet, inches, pints, quarts, degrees
 				Fahrenheit, and so on.</li>
 			<li>The "UK" value indicates the customary system of measurement
-				as was used in the United Kingdom:
-				feet, inches, pints, quarts, and so on. It is also called the <em>Imperial
-					system</em>: the pint, quart, and so on are different sizes than in
-				"US".
+				as was used in the United Kingdom: feet, inches, pints, quarts, and
+				so on. It is also called the <em>Imperial system</em>: the pint,
+				quart, and so on are different sizes than in "US".
 			</li>
 		</ul>
-		<p>In some cases, it may be common to use
-			different measurement systems for different categories of
-			measurements. For example, the following indicates that for the
-			category of temperature, in the regions LR and MM, it is more common
-			to use metric units than US units.</p>
+		<p>In some cases, it may be common to use different measurement
+			systems for different categories of measurements. For example, the
+			following indicates that for the category of temperature, in the
+			regions LR and MM, it is more common to use metric units than US
+			units.</p>
 
 		<pre>
 			&lt;measurementSystem type=&quot;metric&quot; category=&quot;temperature&quot; territories=&quot;LR MM&quot;/&gt;
@@ -1412,12 +1431,9 @@ h2, h3, h4, table {
 			</tr>
 		</table>
 		<p>&nbsp;</p>
-		<p>
-			The units in CLDR are not comprehensive; it is anticipated that more
-			will be added over time. The codes
-				currently supported are found in the root.xml file, in items of the
-				type:
-		</p>
+		<p>The units in CLDR are not comprehensive; it is anticipated that
+			more will be added over time. The codes currently supported are found
+			in the root.xml file, in items of the type:</p>
 		<p class="xmlExample">&lt;unit type=&quot;X-Y&quot;&gt;</p>
 		<p>
 			The characters up to the first hyphen are the <strong>type</strong>,
@@ -2760,12 +2776,9 @@ h2, h3, h4, table {
 			</tr>
 		</table>
 
-		<p>
-			The “\u” and “\x” hex notations can be
-			used instead of any letter. For instance, instead of using the Greek
-			π, one could write either of the
-			following:
-		</p>
+		<p>The “\u” and “\x” hex notations can be used instead of any
+			letter. For instance, instead of using the Greek π, one could write
+			either of the following:</p>
 
 		<table cellspacing="0" cellpadding="8" border="1">
 			<tr>
@@ -2812,32 +2825,28 @@ h2, h3, h4, table {
 			10.3.2 <a name="Context" href="#Context">Context</a>
 		</h4>
 
-		<p>
-			Context can be used to have the results of a transformation be
+		<p>Context can be used to have the results of a transformation be
 			different depending on the characters before or after. The following
 			rule removes hyphens, but only when they follow lowercase characters:
 		</p>
 
 		<table cellspacing="0" cellpadding="8" border="1">
 			<tr>
-				<td valign="top" bgcolor="#eeeeee"><code>
-						[:Lowercase:] {
-						'-' → ;
-					</code></td>
+				<td valign="top" bgcolor="#eeeeee"><code> [:Lowercase:]
+						{ '-' → ; </code></td>
 			</tr>
 		</table>
 
-		<p>Contexts can be before or after or both, such
-			as in a rule to remove hyphens between lowercase and uppercase
-			letters:</p>
+		<p>Contexts can be before or after or both, such as in a rule to
+			remove hyphens between lowercase and uppercase letters:</p>
 		<table cellspacing="0" cellpadding="8" border="1">
 			<tr>
-				<td valign="top" bgcolor="#eeeeee"><code>[:Lowercase:]
-						{ '-' } [:Uppercase:] → ;</code></td>
+				<td valign="top" bgcolor="#eeeeee"><code>[:Lowercase:] {
+						'-' } [:Uppercase:] → ;</code></td>
 			</tr>
 		</table>
-		<p>Each context is optional and may be empty; the
-			following two rules are equivalent:</p>
+		<p>Each context is optional and may be empty; the following two
+			rules are equivalent:</p>
 		<table cellspacing="0" cellpadding="8" border="1">
 			<tr>
 				<td valign="top" bgcolor="#eeeeee"><code>
@@ -2847,9 +2856,7 @@ h2, h3, h4, table {
 		</table>
 		<p>
 			The context itself ([:
-			<code>
-				Lowercase
-			</code>
+			<code> Lowercase </code>
 			:]) is unaffected by the replacement; only the text within braces is
 			changed.
 		</p>
@@ -2880,8 +2887,7 @@ h2, h3, h4, table {
 						{'-' → ;</code></td>
 			</tr>
 		</table>
-		<p>It will thus convert “-B A-B a-b” to “B AB
-			a-b”.</p>
+		<p>It will thus convert “-B A-B a-b” to “B AB a-b”.</p>
 		<h4>
 			10.3.3 <a name="Revisiting" href="#Revisiting">Revisiting</a>
 		</h4>
@@ -2947,8 +2953,7 @@ h2, h3, h4, table {
 					</code></td>
 			</tr>
 		</table>
-		<p>There is an online demo where the rules can be
-			tested, at:</p>
+		<p>There is an online demo where the rules can be tested, at:</p>
 		<p>
 			<a target="demo" href="http://unicode.org/cldr/utility/transform.jsp">http://unicode.org/cldr/utility/transform.jsp</a>
 		</p>
@@ -3487,25 +3492,21 @@ h2, h3, h4, table {
 			a category of data from the table below; the element includes one or
 			more &lt;contextTransform&gt; elements that specify how to perform
 			capitalization of this category of data in different contexts. The
-			&lt;contextTransform&gt; elements are needed
-				primarily for cases in which the capitalization is other than the
-			default form used in the middle of running text. However, it is also useful to mark cases in
-				which it is <em>known</em> that no transformation from this default
-				form is needed; this may be necessary, for example, to override the
-				transformation specified by a parent locale. The following values
-				are
+			&lt;contextTransform&gt; elements are needed primarily for cases in
+			which the capitalization is other than the default form used in the
+			middle of running text. However, it is also useful to mark cases in
+			which it is <em>known</em> that no transformation from this default
+			form is needed; this may be necessary, for example, to override the
+			transformation specified by a parent locale. The following values are
 			currently defined for the &lt;contextTransform&gt; element:
 		</p>
 
 		<ul>
-			<li>"titlecase-firstword" designates
-			the case in which raw CLDR text that is
-				in middle-of-sentence form, typically
-					lowercase, needs to have its first word titlecased.
-			</li>
-			<li>"no-change" designates the case in which it
-				is known that no change from the raw CLDR text (middle-of-sentence
-				form) is needed.</li>
+			<li>"titlecase-firstword" designates the case in which raw CLDR
+				text that is in middle-of-sentence form, typically lowercase, needs
+				to have its first word titlecased.</li>
+			<li>"no-change" designates the case in which it is known that no
+				change from the raw CLDR text (middle-of-sentence form) is needed.</li>
 		</ul>
 
 		<p>Four contexts for capitalization behavior are currently
@@ -3756,48 +3757,36 @@ h2, h3, h4, table {
 		<h2>
 			14 <a name="Annotations" href="#Annotations">Annotations</a>
 		</h2>
-		<p>Annotations provide information about
-			characters, typically used in input. For example, on a mobile
-			keyboard they can be used to do completion. They are typically used
-			for symbols, especially emoji characters.</p>
+		<p>Annotations provide information about characters, typically
+			used in input. For example, on a mobile keyboard they can be used to
+			do completion. They are typically used for symbols, especially emoji
+			characters.</p>
 
-		<p class="dtd">
-			&lt;!ELEMENT annotations ( annotation* )
-				&gt;
-		</p>
-		<p class="dtd">
-			&lt;!ELEMENT annotation ( #PCDATA ) &gt;
-		</p>
-		<p class="dtd">
-			&lt;!ATTLIST annotation cp CDATA
-				#REQUIRED &gt;
-		</p>
-		<p class="dtd">
-			&lt;!ATTLIST annotation tts CDATA
-				#IMPLIED &gt;
-		</p>
+		<p class="dtd">&lt;!ELEMENT annotations ( annotation* ) &gt;</p>
+		<p class="dtd">&lt;!ELEMENT annotation ( #PCDATA ) &gt;</p>
+		<p class="dtd">&lt;!ATTLIST annotation cp CDATA #REQUIRED &gt;</p>
+		<p class="dtd">&lt;!ATTLIST annotation tts CDATA #IMPLIED &gt;</p>
 
-		<p>The value of an annotation element is a
-			semicolon-delimited list, such as the following for English and
-			German respectively.</p>
+		<p>The value of an annotation element is a semicolon-delimited
+			list, such as the following for English and German respectively.</p>
 
 		<pre class="example">
 			&lt;annotation cp='[👎]'&gt;-1; thumbs down&lt;/annotation&gt;
 &lt;annotation cp='[👎]' tts='Daumen runter'&gt;Hand; Daumen&lt;/annotation&gt;
 		</pre>
 
-		<p>The values do not have to match between
-			different languages; they should be the most common values that
-			people using that language would associated with those characters.
-			The tts attribute value, if present, is a value that can be used for
-			text-to-speech, when reading text. It should be treated as one of the
-			element values for other purposes. The Unicode character name can be
-			used for English, when the tts value is not present.</p>
+		<p>The values do not have to match between different languages;
+			they should be the most common values that people using that language
+			would associated with those characters. The tts attribute value, if
+			present, is a value that can be used for text-to-speech, when reading
+			text. It should be treated as one of the element values for other
+			purposes. The Unicode character name can be used for English, when
+			the tts value is not present.</p>
 
-		<p>The cp attribute value is a UnicodeSet, and can
-			thus contain multiple code points. A code point can occur in multiple
-			annotation element cp values, such as the following, which also
-			contains the &quot;thumbs down&quot; character.</p>
+		<p>The cp attribute value is a UnicodeSet, and can thus contain
+			multiple code points. A code point can occur in multiple annotation
+			element cp values, such as the following, which also contains the
+			&quot;thumbs down&quot; character.</p>
 
 		<pre class="example">
 			&lt;annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]'&gt;hand&lt;/annotation&gt;
@@ -3810,14 +3799,13 @@ h2, h3, h4, table {
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–2015 Unicode, Inc. All
-			Rights Reserved. The Unicode Consortium makes no expressed or implied
-			warranty of any kind, and assumes no liability for errors or
-			omissions. No liability is assumed for incidental and consequential
-			damages in connection with or arising out of the use of the
-			information or programs contained or accompanying this technical
-			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
-				of Use</a> apply.
+			Copyright © 2001–2015 Unicode, Inc. All Rights Reserved. The Unicode
+			Consortium makes no expressed or implied warranty of any kind, and
+			assumes no liability for errors or omissions. No liability is assumed
+			for incidental and consequential damages in connection with or
+			arising out of the use of the information or programs contained or
+			accompanying this technical report. The Unicode <a
+				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
 		</p>
 		<p class="copyright">Unicode and the Unicode logo are trademarks
 			of Unicode, Inc., and are registered in some jurisdictions.</p>

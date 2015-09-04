@@ -366,12 +366,25 @@ h2, h3, h4, table {
 		<p>That is, the type value isn’t a grouping, but if you filter out
 			groupings you can drop this containment. In the example above, EU is
 			a grouping, and contained in 150.</p>
-
-		<h3>
-			2.2 <a name="Supplemental_Territory_Information"
+		<h3 class="changed">
+		2.1.1 <a name="Subdivision_Containment"
+				href="#Subdivision_Containment">Subdivision Containment</a></h3>
+		<p class="dtd"><span class="changed">&lt;!ELEMENT subdivisionContainment ( subgroup* ) &gt;<br>
+		  <br>
+		  &lt;!ELEMENT subgroup EMPTY &gt;<br>
+  &lt;!ATTLIST subgroup type NMTOKEN #REQUIRED &gt;<br>
+  &lt;!ATTLIST subgroup subtype NMTOKEN #IMPLIED &gt;<br>
+  &lt;!ATTLIST subgroup contains NMTOKENS #IMPLIED &gt;</span></p>
+      <p class="changed">The subdivision containment data is similar to the territory containment. It is based on ISO 3166-2 data, but may diverge from it in the future.</p>
+        <p class="xmlExample changed"> &lt;subgroup type=&quot;AL&quot; contains=&quot;04 11 12 03 09 01 02 08 10 05 06 07&quot;/&gt;<br>
+&lt;subgroup type=&quot;AL&quot; subtype=&quot;04&quot; contains=&quot;FR MK LU&quot;/&gt;</p>
+<p class="changed">The <strong>type</strong> is a <code><a href="tr35.html#unicode_region_subtag">unicode_region_subtag</a></code> (territory) identifier. The <strong>contains</strong> value is a space-delimited list of one or more <code><a href="tr35.html#unicode_subdivision_subtag">unicode_subdivision_subtag</a></code>
+values. Wherever there are multiple levels of containment, the <strong>subtype</strong> is used to indicate that. In such a case, its value is a containing <code><a href="tr35.html#unicode_subdivision_subtag">unicode_subdivision_subtag</a></code>. In the example above, subdivision 04 contains other subdivisions FR, MK, and LU.</p>
+<h3>
+	  2.2 <a name="Supplemental_Territory_Information"
 				href="#Supplemental_Territory_Information">Supplemental
 				Territory Information</a>
-		</h3>
+	</h3>
 
 		<p class="dtd">
 			&lt;!ELEMENT territory ( languagePopulation* ) &gt;<br>

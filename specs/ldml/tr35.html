@@ -2532,7 +2532,7 @@ zh-Hant-HK</pre>
 			Thus the following is invalid:<br>
 		</p>
 		<ul class="changed">
-			<li>ussct — there is no <strong>subdivisionContainment</strong>
+			<li><strong>ussct</strong> — there is no <strong>id</strong>
 				element <code>&lt;id type="subdivision"…&gt;… US-SCT
 					…&lt;/id&gt;</code></li>
 		</ul>
@@ -2554,8 +2554,7 @@ zh-Hant-HK</pre>
 			</li>
 			<li>en-u-sd-<strong>gb</strong>sct — after adding likely
 				subtags, this becomes en<strong>-Latn-US</strong>-u-sd-<strong>gb</strong>sct,
-				where again the region &quot;gb&quot; does not match &quot;CA&quot;
-			</li>
+			where again the region &quot;gb&quot; does not match &quot;CA&quot;</li>
 		</ul>
 		<h3>
 			<a name="BCP47_T_Extension" href="#BCP47_T_Extension">3.7 Unicode
@@ -7884,11 +7883,12 @@ decimal?, group?, special*)) &gt;</pre>
 			<li><strong>Part 6: <a href="tr35-info.html#Contents">Supplemental</a></strong><a
 				href="tr35-info.html#Contents"></a>
 				<ul>
-					<li>Section 2.2 <a
+					<li><em>Section 2.2 <a
 						href="tr35-info.html#Supplemental_Territory_Information">Supplemental
 							Territory Information</a>
-						<ul>
-							<li>Added descriptions of CLDR usage of the terms: <a
+					  </em>
+					  <ul>
+						  <li>Added descriptions of CLDR usage of the terms: <a
 								href="tr35-info.html#literacy_percent">literacy percent</a><em></em>,
 								<a href="tr35-info.html#language_population_percent">language
 									population percent</a>, <a href="tr35-info.html#writing_percent">writing
@@ -7901,7 +7901,15 @@ decimal?, group?, special*)) &gt;</pre>
 							</li>
 						</ul>
 					</li>
-				</ul></li>
+					<li><em>Section 
+					  2.1.1 <a 
+				href="tr35-info.html#Subdivision_Containment">Subdivision Containment</a> </em>[<a href="http://unicode.org/cldr/trac/ticket/8953">#8953</a>]
+					  <ul>
+					    <li>Added a description of the new containment elements.</li>
+				      </ul>
+				  </li>
+				</ul>
+			</li>
 		</ul>
 
 		<h3>Revision 39</h3>

@@ -8,10 +8,12 @@ import java.io.Reader;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
@@ -28,6 +30,7 @@ import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdData;
@@ -46,8 +49,10 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Table;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
@@ -164,8 +169,10 @@ public class CheckHtmlFiles {
 //        System.out.println("Extra:\t" + extraCount);
     }
 
+    private static final Set<String> SKIP_ATTR = ImmutableSet.of("draft", "alt", "references", "cldrVersion", "unicodeVersion");
+
     private static void checkForDtd(Data target) {
-        Multimap<String,DtdType> typeToElements = TreeMultimap.create();
+        M4<String,String,DtdType,Boolean> typeToElements = ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), Boolean.class);
         for (DtdType type : DtdType.values()) {
             if (type == DtdType.ldmlICU) continue;
             DtdData dtdData = DtdData.getInstance(type);
@@ -175,44 +182,62 @@ public class CheckHtmlFiles {
                     || element.equals(dtdData.PCDATA)
                     || element.equals(dtdData.ANY)
                     ) continue;
-                typeToElements.put(element.toDtdString(), type);
+                typeToElements.put(element.name, element.toDtdString(), type, Boolean.TRUE);
             }
             Set<Attribute> attributes = dtdData.getAttributes();
             for (Attribute attribute : attributes) {
                 if (attribute.isDeprecated()) continue;
-                typeToElements.put(attribute.appendDtdString(new StringBuilder()).toString(), type);
+                if (SKIP_ATTR.contains(attribute.name)) {
+                    continue;
+                }
+                typeToElements.put(attribute.element.name, attribute.appendDtdString(new StringBuilder()).toString(), type, Boolean.TRUE);
             }
         }
         final Map<String,String> skeletonToInFile = new HashMap<>();
-        Set<String> extra = new LinkedHashSet<>(target.dtdItems.keySet());
-        for (String item : extra) {
+        Relation<String,String> extra = new Relation(new TreeMap(), TreeSet.class);
+        for (Entry<String, String> elementItem : target.dtdItems.entrySet()) {
+            String element = elementItem.getKey();
+            String item = elementItem.getValue();
+            extra.put(element, item);
             skeletonToInFile.put(item.replace(" ", ""), item);
         }
-        ChainedMap.M3<String,DtdType,Comparison> status = ChainedMap.of(new TreeMap(), new TreeMap(), Comparison.class);
-        for (Entry<String, DtdType> entry : typeToElements.entries()) {
-            final String key = entry.getKey();
-            final DtdType dtdType = entry.getValue();
+        ChainedMap.M4<String, String, DtdType, Comparison> status = ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), Comparison.class);
+        for (R4<String, String, DtdType, Boolean> entry : typeToElements.rows()) {
+            final String element = entry.get0();
+            final String key = entry.get1();
+            final DtdType dtdType = entry.get2();
             String spaceless = key.replace(" ", "");
             String realKey = skeletonToInFile.get(spaceless);
             if (realKey == null) {
-                status.put(key, dtdType, Comparison.missing); 
+                status.put(element, key, dtdType, Comparison.missing); 
             } else {
-                boolean found = extra.remove(realKey);
+                boolean found = extra.remove(element, realKey);
                 if (!found) {
-                    status.put(key, dtdType, Comparison.no_rem); 
+                    status.put(element, key, dtdType, Comparison.no_rem); 
                 }
             }
         }
-        for (String extraItem : extra) {
-            status.put(extraItem, DtdType.ldmlICU, Comparison.extra); 
+        for (Entry<String, String> extraItem : extra.entrySet()) {
+            status.put(extraItem.getKey(), extraItem.getValue(), DtdType.ldmlICU, Comparison.extra); 
         }
-        for (R3<String, DtdType, Comparison> missingItem : status.rows()) {
-            System.out.println(missingItem.get2() 
-                + "\t" + CldrUtility.ifSame(missingItem.get1(), DtdType.ldmlICU, "")
-                + "\t" + missingItem.get0());
+        TreeSet<String> reverse = new TreeSet<>(Collections.reverseOrder());
+        for (Entry<String, Map<String, Map<DtdType, Comparison>>> entry1 : status) {
+            String element = entry1.getKey();
+            reverse.clear();
+            final Map<String, Map<DtdType, Comparison>> itemToDtdTypeToComparison = entry1.getValue();
+            reverse.addAll(itemToDtdTypeToComparison.keySet());
+            for (String item : reverse) {
+                Map<DtdType, Comparison> typeToComparison = itemToDtdTypeToComparison.get(item);
+                for (Entry<DtdType, Comparison> entry2 : typeToComparison.entrySet()) {
+                System.out.println(element 
+                    + "\t" + entry2.getValue() 
+                    + "\t" + CldrUtility.ifSame(entry2.getKey(), DtdType.ldmlICU, "")
+                    + "\t" + item);
+                }
+            }
         }
     }
-    
+
     enum Comparison {missing, extra, no_rem}
 
     static Pattern WHITESPACE = PatternCache.get("[\\s]+");
@@ -592,8 +617,9 @@ public class CheckHtmlFiles {
     }
 
     static class Data implements Iterable<String> {
+        private static final Pattern ELEMENT_ATTLIST = Pattern.compile("<!(ELEMENT|ATTLIST)\\s+(\\S+)[^>]*>");
         List<String> sentences = new ArrayList<String>();
-        Counter<String> dtdItems = new Counter<String>();
+        Relation<String,String> dtdItems = Relation.of(new TreeMap(), TreeSet.class);
         Counter<String> hashedSentences = new Counter<String>();
         int count = 0;
         int totalErrorCount = 0;
@@ -798,9 +824,9 @@ public class CheckHtmlFiles {
             }
 
             // get DTD elements
-            Matcher m = Pattern.compile("<!(ELEMENT|ATTLIST)[^>]*>").matcher(buffer);
+            Matcher m = ELEMENT_ATTLIST.matcher(buffer);
             while (m.find()) {
-                dtdItems.add(m.group(), 1);
+                dtdItems.put(m.group(2), m.group());
             }
             BreakIterator sentenceBreak = BreakIterator.getSentenceInstance(ULocale.ENGLISH);
             String bufferString = normalizeWhitespace(buffer);

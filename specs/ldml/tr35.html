@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2015-09-03</span></td>
+				<td><span class="changed">2015-09-05</span></td>
 			</tr>
 			<tr>
 				<td>This Version</td>
@@ -7843,6 +7843,16 @@ decimal?, group?, special*)) &gt;</pre>
 			<li><strong>Part 3: <a
 					href="tr35-numbers.html#Contents">Numbers</a></strong>
 				<ul>
+					<li><em>Section 2.3 <a
+							href="tr35-numbers.html#Number_Symbols">Number
+								Symbols</a></em>
+						<ul>
+							<li>Withdraw COLON as the pattern character designating
+								the timeSeparator symbol; note that currently there is
+								no pattern character for timeSeparator. [<a
+								href="http://unicode.org/cldr/trac/ticket/8905"
+								title="View ticket">#8905</a>]</li>
+						</ul></li>
 					<li><em>Section 3.2 <a
 							href="tr35-numbers.html#Special_Pattern_Characters">Special
 								Pattern Characters</a></em>
@@ -7879,8 +7889,13 @@ decimal?, group?, special*)) &gt;</pre>
 						<ul>
 							<li>Added new day-period symbols b, B, and C to <a
 								href="tr35-dates.html#Date_Field_Symbol_Table">Date Field
-									Symbol Table</a>.
-							</li>
+									Symbol Table</a>.</li>
+							<li>In the <a href="tr35-dates.html#Date_Field_Symbol_Table">Date
+								Field Symbol Table</a>, remove COLON as the pattern
+								character designating timeSeparator; note that currently
+								there is no pattern character for timeSeparator. [<a
+								href="http://unicode.org/cldr/trac/ticket/8905"
+								title="View ticket">#8905</a>]</li>
 						</ul></li>
 					<li><em>Section 9 <a
 							href="tr35-dates.html#Parsing_Dates_Times">Parsing Dates and

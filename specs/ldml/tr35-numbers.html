@@ -543,11 +543,23 @@ h2, h3, h4, table {
 			<dt>
 				<b>timeSeparator</b>
 			</dt>
-			<dd>- This replaces any use of &quot;:&quot; in a date-time
-				format pattern. This allows the same time format to be used for
-				multiple number systems. For example, the time format for Arabic
-				should be : when using the Latin numbering system (0, 1, 2, …), but
-				a comma when the Arabic numbering system is used (٠‎ - ١‎ - ٢‎ …)</dd>
+			<dd>- This replaces any use of <span class="changed">the timeSeparator
+				pattern character </span>in a date-time format pattern <span class="changed">(no
+				timeSeparator pattern character is currently defined, see note below)</span>.
+				This allows the same time format to be used for multiple number
+				systems <span class="changed">when the time separator depends on the number
+				system</span>. For example, the time format for Arabic should be
+				COLON when using the Latin numbering system (0, 1, 2, …), but
+				<span class="removed">comma </span>when the Arabic numbering system is
+				used (٠‎ - ١‎ - ٢‎ …)<span class="changed">, the traditional time separator
+				in older print styles was often ARABIC COMMA</span>.
+				<p class="note"><span class="changed"><b>Note: </b>In CLDR 26 the
+				timeSeparator pattern character was specified to be COLON. This was
+				withdrawn in CLDR 28 due to backward compatibility issues, and no
+				timeSeparator pattern character is currently defined. No CLDR locales
+				are known to have a need to specify timeSeparator symbols that depend on
+				number system; if this changes in the future a different timeSeparator
+				pattern character will be defined.</span></p></dd>
 		</dl>
 		<p>Example:</p>
 		<pre>&lt;symbols&gt;

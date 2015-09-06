@@ -3866,13 +3866,20 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<th>sep.</th>
-				<td>:</td>
-				<td colspan="4">Time separator. Like the use of "," in number
-					formats, this is a variable that can be replaced, depending on the
+				<td><span class="changed">(none def., see note)</span></td>
+				<td style="text-align: center"><span class="changed">1</span></td>
+				<td></td>
+				<td colspan="2">Time separator. Like the use of "," in number
+					formats, this <span class="changed">character in a date pattern is
+					replaced with the corresponding number symbol which may depend on the </span>
 					numbering system. For more information, see <em><strong>Part
 							3: <a href="tr35-numbers.html#Contents">Numbers</a>
 					</strong>, Section 2.3 <a href="tr35-numbers.html#Number_Symbols">Number
 							Symbols</a></em>.
+					<p class="note"><span class="changed"><b>Note: </b>In CLDR 26 the
+					time separator pattern character was specified to be COLON. This was
+					withdrawn in CLDR 28 due to backward compatibility issues, and no
+					time separator pattern character is currently defined.</span></p>
 				</td>
 			</tr>
 			<tr>

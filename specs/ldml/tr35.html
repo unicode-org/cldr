@@ -709,7 +709,7 @@ h5 {
 		</p>
 		<p>
 			The BCP47 extensions (-u- and -t-) are described in <em>Section
-				3.6 <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47
+				3.6 <a href="#u_Extension">Unicode BCP 47
 					U Extension</a>
 			</em> and <em>Section 3.7 <a href="#BCP47_T_Extension">Unicode
 					BCP 47 T Extension</a></em>.
@@ -859,7 +859,7 @@ h5 {
 			identifier plus (optional) locale extensions (U and T). It has the
 			following structure. The semantics of the U and T extensions are
 			explained in <em>Section 3.6 <a
-				href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 U
+				href="#u_Extension">Unicode BCP 47 U
 					Extension</a>
 			</em> and <em>Section 3.7 <a href="#BCP47_T_Extension">Unicode
 					BCP 47 T Extension</a></em>. <span class="changed"> The following
@@ -1713,8 +1713,9 @@ zh-Hant-HK</pre>
 		</p>
 		<p></p>
 		<h3>
+			<a name="Locale_Extension_Key_and_Type_Data"></a>
 			<a name="u_Extension" href="#u_Extension">3.6 Unicode BCP 47 U
-				Extension</a><a name="Locale_Extension_Key_and_Type_Data"></a>
+				Extension</a>
 		</h3>
 		<p>
 			[<a href="#BCP47">BCP47</a>] Language Tags provides a mechanism for
@@ -1794,8 +1795,8 @@ zh-Hant-HK</pre>
 			in the bcp47 directory.</p>
 		<p>
 			For the complete list of valid keys and types defined for Unicode
-			locale extensions, see <a href="#Locale_Extension_Key_and_Type_Data">Section
-				3.7 Unicode BCP 47 Extension Data</a>. For information on the process
+			locale extensions, see <a href="#Unicode_Locale_Extension_Data_Files"><span class="changed">Section
+				3.6.4 U Extension Data Files</span></a>. For information on the process
 			for adding new <i>key</i>/<i>type</i>, see [<a href="#localeProject">LocaleProject</a>].
 		</p>
 		<p>
@@ -1831,7 +1832,7 @@ zh-Hant-HK</pre>
 						href="#UnicodeCalendarIdentifier" name="UnicodeCalendarIdentifier">Unicode
 							Calendar Identifier</a> defines a type of calendar. The valid values
 						are those <em>name</em> attribute values in the <em>type</em>
-						elements of bcp47/<a target="_blank"
+						elements of <span class="changed">key name="ca" in </span>bcp47/<a target="_blank"
 						href="http://www.unicode.org/repos/cldr/tags/latest/common/bcp47/calendar.xml">calendar.xml</a></strong>.</td>
 			</tr>
 			<tr>
@@ -1887,6 +1888,27 @@ zh-Hant-HK</pre>
 						formatting data for all Islamic calendar types, including
 						"islamic-civil" and "islamic-umalqura".</i></td>
 			</tr>
+
+			<tr class="changed">
+				<td colspan="4"><strong>A <a
+						href="#UnicodeCurrencyFormatIdentifier"
+						name="UnicodeCurrencyFormatIdentifier">Unicode Currency Format Identifier</a>
+						defines a style for currency formatting. The valid values are
+						those <em>name</em> attribute values in the <em>type</em> elements
+						of key name="cf" in bcp47/<a target="_blank"
+						href="http://www.unicode.org/repos/cldr/tags/latest/common/bcp47/currency.xml">currency.xml</a></strong>.</td>
+			</tr>
+			<tr class="changed">
+				<td rowspan="2">"cf"</td>
+				<td rowspan="2">Currency Format style</td>
+				<td>"standard"</td>
+				<td>Negative numbers use the minusSign symbol (the default).</td>
+			</tr>
+			<tr class="changed">
+				<td>"account"</td>
+				<td>Negative numbers use parentheses or equivalent.</td>
+			</tr>
+
 			<tr>
 				<td colspan="4"><strong>A <a
 						href="#UnicodeCollationIdentifier"
@@ -1995,7 +2017,7 @@ zh-Hant-HK</pre>
 						href="#UnicodeCurrencyIdentifier" name="UnicodeCurrencyIdentifier">Unicode
 							Currency Identifier</a> defines a type of currency. The valid values
 						are those <em>name</em> attribute values in the <em>type</em>
-						elements of bcp47/<a target="_blank"
+						elements of <span class="changed">key name="cu" in </span>bcp47/<a target="_blank"
 						href="http://www.unicode.org/repos/cldr/tags/latest/common/bcp47/currency.xml">currency.xml</a>.
 				</strong></td>
 			</tr>
@@ -2020,6 +2042,151 @@ zh-Hant-HK</pre>
 							or Invalid Currency</em>.
 					</p></td>
 			</tr>
+
+			<tr class="changed">
+				<td colspan="4"><strong>A <a
+						href="#UnicodeFirstDayIdentifier"
+						name="UnicodeFirstDayIdentifier">Unicode First Day Identifier</a>
+						defines the preferred first day of the week for calendar display.
+						Specifying "fw" in a locale identifier overrides the default value
+						specified by supplemental week data (see Part 4 Dates, section 4.3
+						<a href="tr35-dates.html#Week_Data">Week Data</a>).
+						The valid values are those <em>name</em> attribute values in the
+						<em>type</em> elements of key name="fw" in bcp47/<a target="_blank"
+						href="http://www.unicode.org/repos/cldr/tags/latest/common/bcp47/calendar.xml">calendar.xml</a></strong>.</td>
+			</tr>
+			<tr class="changed">
+				<td rowspan="4">"fw"</td>
+				<td rowspan="4">First day of week</td>
+				<td>"sun"</td>
+				<td>Sunday</td>
+			</tr>
+			<tr class="changed">
+				<td>"mon"</td>
+				<td>Monday</td>
+			</tr>
+			<tr class="changed">
+				<td colspan="2">…</td>
+			</tr>
+			<tr class="changed">
+				<td>"sat"</td>
+				<td>Saturday</td>
+			</tr>
+
+			<tr class="changed">
+				<td colspan="4"><strong>A <a
+						href="#UnicodeFirstDayIdentifier"
+						name="UnicodeFirstDayIdentifier">Unicode Hour Cycle Identifier</a>
+						defines the preferred time cycle. Specifying "hc" in a locale
+						identifier overrides the the default value specified by
+						supplemental time data (see Part 4 Dates, section 4.4
+						<a href="tr35-dates.html#Time_Data">Time Data</a>).
+						The valid values are those <em>name</em> attribute values in the
+						<em>type</em> elements of key name="hc" in bcp47/<a target="_blank"
+						href="http://www.unicode.org/repos/cldr/tags/latest/common/bcp47/calendar.xml">calendar.xml</a></strong>.</td>
+			</tr>
+			<tr class="changed">
+				<td rowspan="4">"hc"</td>
+				<td rowspan="4">Hour cycle</td>
+				<td>"h12"</td>
+				<td>Hour system using 1–12; corresponds to 'h' in patterns</td>
+			</tr>
+			<tr class="changed">
+				<td>"h23"</td>
+				<td>Hour system using 0–23; corresponds to 'H' in patterns</td>
+			</tr>
+			<tr class="changed">
+				<td>"h11"</td>
+				<td>Hour system using 0–11; corresponds to 'K' in patterns</td>
+			</tr>
+			<tr class="changed">
+				<td>"h24"</td>
+				<td>Hour system using 1–24; corresponds to 'k' in pattern</td>
+			</tr>
+
+			<tr class="changed">
+				<td colspan="4"><strong>A <a
+						href="#UnicodeLineBreakStyleIdentifier"
+						name="UnicodeLineBreakStyleIdentifier">Unicode Line Break Style
+						Identifier</a> defines a preferred line break style corresponding
+						to the CSS level 3
+						<a href="https://drafts.csswg.org/css-text/#line-break-property">line-break
+						option</a>. Specifying "lb" in a locale identifier overrides the
+						locale‘s default style (which may correspond to "normal" or "strict").
+						The valid values are those <em>name</em> attribute values in the
+						<em>type</em> elements of key name="lb" in bcp47/<a target="_blank"
+						href="http://www.unicode.org/repos/cldr/tags/latest/common/bcp47/segmentation.xml">segmentation.xml</a></strong>.</td>
+			</tr>
+			<tr class="changed">
+				<td rowspan="3">"lb"</td>
+				<td rowspan="3">Line break style</td>
+				<td>"strict"</td>
+				<td>CSS level 3 line-break=strict, e.g. treat CJ as NS</td>
+			</tr>
+			<tr class="changed">
+				<td>"normal"</td>
+				<td>CSS level 3 line-break=normal, e.g. treat CJ as ID, break before hyphens for ja,zh</td>
+			</tr>
+			<tr class="changed">
+				<td>"loose"</td>
+				<td>CSS lev 3 line-break=loose</td>
+			</tr>
+
+			<tr class="changed">
+				<td colspan="4"><strong>A <a
+						href="#UnicodeLineBreakWordIdentifier"
+						name="UnicodeLineBreakWordIdentifier">Unicode Line Break Word
+						Identifier</a> defines preferred line break word handling
+						behavior corresponding to the CSS level 3
+						<a href="https://drafts.csswg.org/css-text/#word-break-property">word-break
+						option</a>.
+						The valid values are those <em>name</em> attribute values in the
+						<em>type</em> elements of key name="lw" in bcp47/<a target="_blank"
+						href="http://www.unicode.org/repos/cldr/tags/latest/common/bcp47/segmentation.xml">segmentation.xml</a></strong>.</td>
+			</tr>
+			<tr class="changed">
+				<td rowspan="3">"lw"</td>
+				<td rowspan="3">Line break word handling</td>
+				<td>"normal"</td>
+				<td>CSS level 3 word-break=normal, normal script/language behavior for midword breaks</td>
+			</tr>
+			<tr class="changed">
+				<td>"breakall"</td>
+				<td>CSS level 3 word-break=break-all, allow midword breaks unless forbidden by lb setting</td>
+			</tr>
+			<tr class="changed">
+				<td>"keepall"</td>
+				<td>CSS level 3 word-break=keep-all, prohibit midword breaks except for dictionary breaks</td>
+			</tr>
+
+			<tr class="changed">
+				<td colspan="4"><strong>A <a
+						href="#UnicodeMeasurementSystemIdentifier"
+						name="UnicodeMeasurementSystemIdentifier">Unicode Measurement System Identifier</a>
+						defines a preferred measurement system. Specifying "ms" in a
+						locale identifier overrides the default value specified by
+						supplemental measurement system data (see Part 2 General, section 5
+						<a href="tr35-general.html#Measurement_System_Data">Measurement
+						System Data</a>).
+						The valid values are those <em>name</em> attribute values in the
+						<em>type</em> elements of key name="ms" in bcp47/<a target="_blank"
+						href="http://www.unicode.org/repos/cldr/tags/latest/common/bcp47/measure.xml">measure.xml</a></strong>.</td>
+			</tr>
+			<tr class="changed">
+				<td rowspan="3">"ms"</td>
+				<td rowspan="3">Measurement system</td>
+				<td>"metric"</td>
+				<td>Metric System</td>
+			</tr>
+			<tr class="changed">
+				<td>"ussystem"</td>
+				<td>US System of measurement: feet, pints, etc.; pints are 16oz</td>
+			</tr>
+			<tr class="changed">
+				<td>"uksystem"</td>
+				<td>UK System of measurement: feet, pints, etc.; pints are 20oz</td>
+			</tr>
+
 			<tr>
 				<td colspan="4"><strong>A <a
 						href="#UnicodeNumberSystemIdentifier"
@@ -2073,6 +2240,56 @@ zh-Hant-HK</pre>
 				<td>"tamldec"</td>
 				<td>Modern Tamil decimal digits</td>
 			</tr>
+
+			<tr class='changed'>
+				<td colspan="4"><strong>A <a
+						href="#UnicodeSubdivisionIdentifier"
+						name="UnicodeSubdivisionIdentifier">Unicode Subdivision
+							Identifier</a><a name="unicode_subdivision_subtag_validity"></a>
+						defines a regional subdivision used for locales. The valid values
+						are based on the <em>subdivisionContainment</em> element as
+						described in <em>Section <a href="#Unicode_Subdivision_Codes">3.6.5
+								Subdivision Codes</a></em>.
+				</strong></td>
+			</tr>
+			<tr class='changed'>
+				<td rowspan="2">"sd"</td>
+				<td rowspan="2">Regional Subdivision</td>
+				<td>&quot;gbsct&quot;<br> <br></td>
+				<td rowspan="2">A <a href="#subdivision_attribute">subdivision_attribute</a>,
+					which is a <a href="#unicode_subdivision_subtag">unicode_&#x200b;subdivision_&#x200b;subtag</a>
+					prefixed by the associated <a href="#unicode_region_subtag">unicode_region_subtag</a>.<br>
+					For example, “en-GB-u-sd-gbsct” represents the language variant
+					“English as used in Scotland”. And both “en-u-sd-gbsct” and
+					“en-CA-u-sd-gbsct” represent “English as used in California”.
+				</td>
+			</tr>
+			<tr class='changed'>
+				<td>…</td>
+			</tr>
+
+			<tr class="changed">
+				<td colspan="4"><strong>A <a
+						href="#UnicodeSentenceBreakSuppressionsIdentifier"
+						name="UnicodeSentenceBreakSuppressionsIdentifier">Unicode
+						Sentence Break Suppressions Identifier</a> defines a set
+						of data to be used for suppressing certain sentence breaks
+						that would otherwise be found by UAX #14 rules.
+						The valid values are those <em>name</em> attribute values
+						in the <em>type</em> elements of key name="ss" in bcp47/<a target="_blank"
+						href="http://www.unicode.org/repos/cldr/tags/latest/common/bcp47/segmentation.xml">segmentation.xml</a></strong>.</td>
+			</tr>
+			<tr class="changed">
+				<td rowspan="2">"ss"</td>
+				<td rowspan="2">Sentence break suppressions</td>
+				<td>"none"</td>
+				<td>Don’t use sentence break suppressions data (the default).</td>
+			</tr>
+			<tr class="changed">
+				<td>"standard"</td>
+				<td>Use sentence break suppressions data of type "standard"</td>
+			</tr>
+
 			<tr>
 				<td colspan="4"><strong>A <a
 						href="#UnicodeTimezoneIdentifier" name="UnicodeTimezoneIdentifier">Unicode
@@ -2116,37 +2333,11 @@ zh-Hant-HK</pre>
 							Variants</a></i>.
 				</td>
 			</tr>
-			<tr class='changed'>
-				<td colspan="4"><strong>A <a
-						href="#UnicodeSubdivisionIdentifier"
-						name="UnicodeSubdivisionIdentifier">Unicode Subdivision
-							Identifier</a><a name="unicode_subdivision_subtag_validity"></a>
-						defines a regional subdivision used for locales. The valid values
-						are based on the <em>subdivisionContainment</em> element as
-						described in <em>Section <a href="#Unicode_Subdivision_Codes">3.6.5
-								Subdivision Codes</a></em>.
-				</strong></td>
-			</tr>
-			<tr class='changed'>
-				<td rowspan="2">"sd"</td>
-				<td rowspan="2">Regional Subdivision</td>
-				<td>&quot;gbsct&quot;<br> <br></td>
-				<td rowspan="2">A <a href="#subdivision_attribute">subdivision_attribute</a>,
-					which is a <a href="#unicode_subdivision_subtag">unicode_&#x200b;subdivision_&#x200b;subtag</a>
-					prefixed by the associated <a href="#unicode_region_subtag">unicode_region_subtag</a>.<br>
-					For example, “en-GB-u-sd-gbsct” represents the language variant
-					“English as used in Scotland”. And both “en-u-sd-gbsct” and
-					“en-CA-u-sd-gbsct” represent “English as used in California”.
-				</td>
-			</tr>
-			<tr class='changed'>
-				<td>…</td>
-			</tr>
 		</table>
 		<p>
 			For more information on the allowed keys and types, see the specific
-			elements below, and <a href="#Locale_Extension_Key_and_Type_Data">Section
-				3.7 Locale Extension Key and Type Data</a>.
+			elements below, and <a href="#Unicode_Locale_Extension_Data_Files"><span class="changed">Section
+				3.6.4 U Extension Data Files</span></a>.
 		</p>
 		<p>Additional keys or types might be added in future versions.
 			Implementations of LDML should be robust to handle any syntactically
@@ -2251,8 +2442,8 @@ zh-Hant-HK</pre>
 			common/bcp47 directory in CLDR. Each file contains the locale
 			extension key/type values and their backward compatibility mappings
 			appropriate for a particular domain. <a
-				href="http://unicode.org/repos/cldr/tags/latest/common/bcp47/collation.xml">common/bcp47/collation.xml</a>contains
-			key/type values for collation, including optional collation
+				href="http://unicode.org/repos/cldr/tags/latest/common/bcp47/collation.xml">common/bcp47/collation.xml</a>
+			contains key/type values for collation, including optional collation
 			parameters and valid type values for each key.
 		</p>
 		<p>
@@ -2558,6 +2749,7 @@ zh-Hant-HK</pre>
 			</li>
 		</ul>
 		<h3>
+			<a name="t_Extension"></a>
 			<a name="BCP47_T_Extension" href="#BCP47_T_Extension">3.7 Unicode
 				BCP 47 T Extension</a><a name="t_Extension"></a>
 		</h3>
@@ -6127,8 +6319,8 @@ decimal?, group?, special*)) &gt;</pre>
 
 		<p>
 			<b>Note:</b> <i>This structure is deprecated and replaced with <a
-				href="#Locale_Extension_Key_and_Type_Data">Section 3.7 Unicode
-					BCP 47 Extension Data</a>.
+				href="#Unicode_Locale_Extension_Data_Files"><span class="changed">Section
+					3.6.4 U Extension Data Files</span></a>.
 			</i>
 		</p>
 
@@ -6146,8 +6338,8 @@ decimal?, group?, special*)) &gt;</pre>
 			This section defines mappings between old Unicode locale identifier
 			key/type values and their BCP 47 'u' extension subtag
 			representations. The 'u' extension syntax described in <a
-				href="#Locale_Extension_Key_and_Type_Data">Section 3.7 Unicode
-				BCP 47 Extension Data</a> restricts a key to two ASCII alphanumerics and
+				href="#u_Extension"><span class="changed">Section 3.6 Unicode
+			BCP 47 U Extension</span></a> restricts a key to two ASCII alphanumerics and
 			a type to three to eight ASCII alphanumerics. A key or a type which
 			does not meet that syntax requirement is converted according to the
 			mapping data defined by the mapKeys or mapTypes elements. For
@@ -7780,6 +7972,8 @@ decimal?, group?, special*)) &gt;</pre>
 							<li>Added new key and types for subdivisions, and pointed to
 								the validity criteria in <em>Section <a
 									href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></em>
+							</li>
+							<li>Added new keys cf,fw,hc,lb,lw,ms,ss and corresponding values.
 							</li>
 						</ul></li>
 					<li>Added <em>Section <a

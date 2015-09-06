@@ -1368,19 +1368,19 @@ h2, h3, h4, table {
 
 		<p class="dtd">
 			&lt;!ELEMENT units (alias | (unit*, unitLength*, durationUnit*,
-			special*)) &gt;<br>
-			<br> &lt;!ELEMENT unitLength (alias|(compoundUnit*,unit*,<span
-				class="changed">coordinateUnit*,</span>special*)) &gt;<br>
-			&lt;!ATTLIST unitLength type ( long | short | narrow ) #REQUIRED &gt;
+			special*) ) &gt;<br>
+			<br> &lt;!ELEMENT unitLength (alias | (compoundUnit*, unit*, <span
+				class="changed">coordinateUnit*, </span>special*) ) &gt;<br>
+			&lt;!ATTLIST unitLength type (long | short | narrow) #REQUIRED &gt;
 			<br>
 			<br> &lt;!ELEMENT compoundUnit (alias | (compoundUnitPattern*,
-			special*)) &gt;<br> &lt;!ATTLIST compoundUnit type NMTOKEN
+			special*) ) &gt;<br> &lt;!ATTLIST compoundUnit type NMTOKEN
 			#REQUIRED &gt; <br>
 			<br> &lt;!ELEMENT unit (alias | (displayName*, unitPattern*,
-			perUnitPattern*, special*)) &gt;<br> &lt;!ATTLIST unit type
+			perUnitPattern*, special*) ) &gt;<br> &lt;!ATTLIST unit type
 			NMTOKEN #REQUIRED &gt; <br>
 			<br> &lt;!ELEMENT durationUnit (alias | (durationUnitPattern*,
-			special*)) &gt;<br> &lt;!ATTLIST durationUnit type NMTOKEN
+			special*) ) &gt;<br> &lt;!ATTLIST durationUnit type NMTOKEN
 			#REQUIRED &gt; <br>
 			<br> &lt;!ELEMENT unitPattern ( #PCDATA ) &gt;<br>
 			&lt;!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many
@@ -1461,6 +1461,11 @@ h2, h3, h4, table {
 				<td>meter-per-second-squared</td>
 				<td>{0} m/s²</td>
 			</tr>
+			<tr class="changed">
+				<td><em>angle</em></td>
+				<td>revolution</td>
+				<td>{0} rev</td>
+			</tr>
 			<tr>
 				<td><em>angle</em></td>
 				<td>arc-minute</td>
@@ -1521,6 +1526,11 @@ h2, h3, h4, table {
 				<td>liter-per-kilometer</td>
 				<td>{0} L/km</td>
 			</tr>
+			<tr class="changed">
+				<td><em>consumption</em></td>
+				<td>liter-per-100kilometers</td>
+				<td>{0} L/100km</td>
+			</tr>
 			<tr>
 				<td><em>consumption</em></td>
 				<td>mile-per-gallon</td>
@@ -1565,6 +1575,11 @@ h2, h3, h4, table {
 				<td><em>digital</em></td>
 				<td>megabyte</td>
 				<td>{0} MB</td>
+			</tr>
+			<tr class="changed">
+				<td><em>duration</em></td>
+				<td>century</td>
+				<td>{0} c</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
@@ -1726,6 +1741,11 @@ h2, h3, h4, table {
 				<td>yard</td>
 				<td>{0} yd</td>
 			</tr>
+			<tr class="changed">
+				<td><em>length</em></td>
+				<td>mile-scandinavian</td>
+				<td>{0} smi</td>
+			</tr>
 			<tr>
 				<td><em>light</em></td>
 				<td>lux</td>
@@ -1841,6 +1861,11 @@ h2, h3, h4, table {
 				<td>mile-per-hour</td>
 				<td>{0} mi/h</td>
 			</tr>
+			<tr class="changed">
+				<td><em>speed</em></td>
+				<td>knot</td>
+				<td>{0} kn</td>
+			</tr>
 			<tr>
 				<td><em>temperature</em></td>
 				<td>celsius</td>
@@ -1910,6 +1935,16 @@ h2, h3, h4, table {
 				<td><em>volume</em></td>
 				<td>milliliter</td>
 				<td>{0} mL</td>
+			</tr>
+			<tr class="changed">
+				<td><em>volume</em></td>
+				<td>pint-metric</td>
+				<td>{0} mpt</td>
+			</tr>
+			<tr class="changed">
+				<td><em>volume</em></td>
+				<td>cup-metric</td>
+				<td>{0} mc</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>

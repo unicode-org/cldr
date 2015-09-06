@@ -1586,6 +1586,11 @@ h2, h3, h4, table {
 				<td>day</td>
 				<td>{0} d</td>
 			</tr>
+			<tr class="changed">
+				<td><em>duration</em></td>
+				<td>day-person</td>
+				<td>{0} d</td>
+			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>hour</td>
@@ -1606,6 +1611,11 @@ h2, h3, h4, table {
 				<td>month</td>
 				<td>{0} m</td>
 			</tr>
+			<tr class="changed">
+				<td><em>duration</em></td>
+				<td>month-person</td>
+				<td>{0} m</td>
+			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>second</td>
@@ -1616,9 +1626,19 @@ h2, h3, h4, table {
 				<td>week</td>
 				<td>{0} w</td>
 			</tr>
+			<tr class="changed">
+				<td><em>duration</em></td>
+				<td>week-person</td>
+				<td>{0} w</td>
+			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>year</td>
+				<td>{0} y</td>
+			</tr>
+			<tr class="changed">
+				<td><em>duration</em></td>
+				<td>year-person</td>
 				<td>{0} y</td>
 			</tr>
 			<tr>
@@ -1983,9 +2003,15 @@ h2, h3, h4, table {
 			or inches in Germany. This is to account for use by travelers and
 			specialized domains, such as the German “̌Fernseher von 32 bis 55
 			Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.</p>
-		<p>There is a special unit &lt;unit
+		<p><span class="changed">For temperature, t</span>here is a special unit &lt;unit
 			type=&quot;temperature-generic&quot;&gt;, which is used when it is
 			clear from context whether Celcius or Fahrenheit is implied.</p>
+		<p class="changed">For duration, there are special units such as &lt;unit
+			type=&quot;duration-year-person&quot;&gt; and &lt;unit
+			type=&quot;duration-year-week&quot;&gt; for indicating the age of a person,
+			which requires special forms in some languages. For example, in "zh",
+			references to a person being 3 days old or 30 years old would use the forms
+			“他3天大” and “他30岁” respectively.</p>
 		<h3>
 			6.1 <a name="perUnitPatterns" href="#perUnitPatterns">per Unit
 				patterns</a><a name="compoundUnitPattern" href="#compoundUnitPattern"></a>

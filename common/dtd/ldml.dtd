@@ -2389,7 +2389,8 @@ $Revision$
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
-<!ELEMENT import EMPTY > <!-- deprecated, see CLDR ticket #8289 -->
+<!ELEMENT import EMPTY >
+    <!-- deprecated, see CLDR ticket #8289 -->
     <!--@DEPRECATED-->
 <!ATTLIST import source CDATA #REQUIRED >
     <!--@VALUE-->
@@ -2399,7 +2400,8 @@ $Revision$
 <!ATTLIST import references CDATA #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT settings ( special* ) > <!-- deprecated, see CLDR ticket #8289 -->
+<!ELEMENT settings ( special* ) >
+    <!-- deprecated, see CLDR ticket #8289 -->
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 <!ATTLIST settings strength (primary | secondary | tertiary | quaternary | identical) #IMPLIED >
@@ -2434,7 +2436,8 @@ $Revision$
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
-<!ELEMENT optimize ( #PCDATA | cp )* > <!-- deprecated, see CLDR ticket #8289 -->
+<!ELEMENT optimize ( #PCDATA | cp )* >
+    <!-- deprecated, see CLDR ticket #8289 -->
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 

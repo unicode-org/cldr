@@ -1347,11 +1347,15 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 
 
 		<p class="dtd">
-			&lt;!ELEMENT metadata (casingData?) &gt;<br> &lt;!ELEMENT
-			casingData (casingItem*) &gt;<br> &lt;!ELEMENT casingItem (
-			#PCDATA ) &gt;<br> &lt;!ATTLIST casingItem type CDATA #REQUIRED
-			&gt;<br> &lt;!ATTLIST casingItem override (true | false)
-			#IMPLIED &gt;<br>
+			&lt;!ELEMENT metadata (<span class="changed"> alias | (
+			</span>casingData?<span class="changed">, special* ) </span>) &gt;<br>
+			&lt;!ELEMENT casingData (<span class="changed"> alias | (
+			</span>casingItem*<span class="changed">, special* ) </span>) &gt;<br>
+			&lt;!ELEMENT casingItem ( #PCDATA ) &gt;<br> &lt;!ATTLIST casingItem
+			type CDATA #REQUIRED &gt;<br>
+			&lt;!ATTLIST casingItem override (true | false) #IMPLIED &gt;<br>
+			<span class="changed">&lt;!ATTLIST casingItem forceError (true | false)
+			#IMPLIED &gt;</span><br>
 		</p>
 		<p>The &lt;metadata&gt; element contains metadata about the locale
 			for use by the Survey Tool or other tools in checking locale data;
@@ -1371,7 +1375,12 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			data available in CLDR. In cases where the generated casing
 			information is incorrect and needs to be manually edited, the
 			override attribute is set to "true" so that the tool will not
-			override the manual edits.</p>
+			override the manual edits.<span class="changed"> When the casing
+			information is known to be both correct and  something that
+			should apply to all elements of the specified type in a given
+			locale, the forceErr attribute may be set to "true" to force an
+			error instead of a warning for items that do not match the casing
+			information.</span></p>
 		<!-- end section Info-A metadta element -->
 
 		<!-- begin section 11 Version Information -->

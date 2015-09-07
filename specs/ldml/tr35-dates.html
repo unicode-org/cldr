@@ -447,10 +447,34 @@ h2, h3, h4, table {
 
 		<p>
 			Month, day, and quarter names may vary along two axes: the width and
-			the context. The context is either <i>format</i> (the default), the
-			form used within a date format string (such as &quot;Saturday,
-			November 12<sup>th</sup>&quot;, or <i>stand-alone</i>, the form used
-			independently, such as in calendar headers. The width can be <i>wide</i>
+			the context.
+		</p>
+		<p>
+			The context is either <i>format</i> (the default), the form used within
+			a <span class="changed">complete</span>date format string (such as
+			&quot;Saturday, November 12<span class="removed"><sup>th</sup></span>&quot;,
+			or <i>stand-alone</i>, the form <span class="changed">for date
+			elements</span>used independently, such as in calendar headers.
+			<span class="changed">The most important distinction between format and
+			stand-alone forms is a grammatical distinction, for languages that
+			require it. For example, many languages require that a month name without an
+			associated day number (i.e. an independent form) be in the basic
+			<i>nominative</i> form, while a month name with an associated day number
+			(as in a complete date format) should be in a different grammatical form:
+			<i>genitive</i>, <i>partitive</i>, etc. In past versions of CLDR, the
+			distinction between format and stand-alone forms was also used to control
+			capitalization (with stand-alone forms using titlecase); however, this
+			can be controlled separately and more precisely using the
+			&lt;contextTransforms&gt; element as described in
+			<i><a href="tr35-general.html#Context_Transform_Elements">ContextTransform
+			Elements</a></i>, so stand-alone forms should generally use
+			middle-of-sentence capitalization. However, if in a given language,
+			certain context/width combinations are always used in a titlecase form
+			— for example, stand-alone narrow forms for months or weekdays — then
+			these should be provided in that form.</span>
+		</p>
+		<p>
+			The width can be <i>wide</i>
 			(the default), <i>abbreviated</i>, or <i>narrow</i>; for days only,
 			the width can also be <i>short,</i> which is ideally between the
 			abbreviated and narrow widths, but must be no longer than abbreviated
@@ -482,7 +506,7 @@ h2, h3, h4, table {
 			and they are more likely to be used in a format that requires
 			parsing.</p>
 
-		<p>
+		<p class="removed">
 			The most important distinction to make between format and stand-alone
 			forms is a grammatical distinction, for languages that require it.
 			For example, many languages require that a month name without an

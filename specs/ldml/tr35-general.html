@@ -1052,7 +1052,8 @@ h2, h3, h4, table {
 		<h3>
 			3.2 <a name="Character_Mapping" href="#Character_Mapping">Mapping</a>
 		</h3>
-
+		
+		<p class="changed"><b>This element has been deprecated.</b></p>
 
 		<p class="element2">
 			&lt;mapping registry="<span style="color: blue">iana</span>" type="<span
@@ -1103,8 +1104,9 @@ h2, h3, h4, table {
 			3.3 <a name="IndexLabels" href="#IndexLabels">Index Labels</a>
 		</h3>
 
+		<p class="changed"><b>This element and its subelements have been deprecated.</b></p>
 
-		<p>
+		<p class="removed">
 			<em>The elements described in this section are not currently
 				used in CLDR data nor in CLDR implementations. These elements should
 				be considered as "beta" and implementers should not depend on them
@@ -1468,6 +1470,16 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>angle</em></td>
+				<td>radian</td>
+				<td>{0} rad</td>
+			</tr>
+			<tr>
+				<td><em>angle</em></td>
+				<td>degree</td>
+				<td>{0}°</td>
+			</tr>
+			<tr>
+				<td><em>angle</em></td>
 				<td>arc-minute</td>
 				<td>{0}′</td>
 			</tr>
@@ -1477,19 +1489,9 @@ h2, h3, h4, table {
 				<td>{0}″</td>
 			</tr>
 			<tr>
-				<td><em>angle</em></td>
-				<td>degree</td>
-				<td>{0}°</td>
-			</tr>
-			<tr>
-				<td><em>angle</em></td>
-				<td>radian</td>
-				<td>{0} rad</td>
-			</tr>
-			<tr>
 				<td><em>area</em></td>
-				<td>acre</td>
-				<td>{0} ac</td>
+				<td>square-kilometer</td>
+				<td>{0} km²</td>
 			</tr>
 			<tr>
 				<td><em>area</em></td>
@@ -1498,28 +1500,38 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>area</em></td>
+				<td>square-meter</td>
+				<td>{0} m²</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
 				<td>square-centimeter</td>
 				<td>{0} cm²</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>square-mile</td>
+				<td>{0} mi²</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>acre</td>
+				<td>{0} ac</td>
+			</tr>
+			<tr class="changed">
+				<td><em>area</em></td>
+				<td>square-yard</td>
+				<td>{0} yd²</td>
 			</tr>
 			<tr>
 				<td><em>area</em></td>
 				<td>square-foot</td>
 				<td>{0} ft²</td>
 			</tr>
-			<tr>
+			<tr class="changed">
 				<td><em>area</em></td>
-				<td>square-kilometer</td>
-				<td>{0} km²</td>
-			</tr>
-			<tr>
-				<td><em>area</em></td>
-				<td>square-meter</td>
-				<td>{0} m²</td>
-			</tr>
-			<tr>
-				<td><em>area</em></td>
-				<td>square-mile</td>
-				<td>{0} mi²</td>
+				<td>square-inch</td>
+				<td>{0} in²</td>
 			</tr>
 			<tr>
 				<td><em>consumption</em></td>
@@ -1536,20 +1548,15 @@ h2, h3, h4, table {
 				<td>mile-per-gallon</td>
 				<td>{0} mpg</td>
 			</tr>
-			<tr>
+			<tr class="changed">
 				<td><em>digital</em></td>
-				<td>bit</td>
-				<td>{0} bit</td>
+				<td>terabyte</td>
+				<td>{0} TB</td>
 			</tr>
-			<tr>
+			<tr class="changed">
 				<td><em>digital</em></td>
-				<td>byte</td>
-				<td>{0} byte</td>
-			</tr>
-			<tr>
-				<td><em>digital</em></td>
-				<td>gigabit</td>
-				<td>{0} Gb</td>
+				<td>terabit</td>
+				<td>{0} Tb</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
@@ -1558,13 +1565,13 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
-				<td>kilobit</td>
-				<td>{0} kb</td>
+				<td>gigabit</td>
+				<td>{0} Gb</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
-				<td>kilobyte</td>
-				<td>{0} kB</td>
+				<td>megabyte</td>
+				<td>{0} MB</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
@@ -1573,13 +1580,58 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
-				<td>megabyte</td>
-				<td>{0} MB</td>
+				<td>kilobyte</td>
+				<td>{0} kB</td>
+			</tr>
+			<tr>
+				<td><em>digital</em></td>
+				<td>kilobit</td>
+				<td>{0} kb</td>
+			</tr>
+			<tr>
+				<td><em>digital</em></td>
+				<td>byte</td>
+				<td>{0} byte</td>
+			</tr>
+			<tr>
+				<td><em>digital</em></td>
+				<td>bit</td>
+				<td>{0} bit</td>
 			</tr>
 			<tr class="changed">
 				<td><em>duration</em></td>
 				<td>century</td>
 				<td>{0} c</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>year</td>
+				<td>{0} y</td>
+			</tr>
+			<tr class="changed">
+				<td><em>duration</em></td>
+				<td>year-person</td>
+				<td>{0} y</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>month</td>
+				<td>{0} m</td>
+			</tr>
+			<tr class="changed">
+				<td><em>duration</em></td>
+				<td>month-person</td>
+				<td>{0} m</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>week</td>
+				<td>{0} w</td>
+			</tr>
+			<tr class="changed">
+				<td><em>duration</em></td>
+				<td>week-person</td>
+				<td>{0} w</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
@@ -1598,23 +1650,8 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
-				<td>millisecond</td>
-				<td>{0} ms</td>
-			</tr>
-			<tr>
-				<td><em>duration</em></td>
 				<td>minute</td>
 				<td>{0} min</td>
-			</tr>
-			<tr>
-				<td><em>duration</em></td>
-				<td>month</td>
-				<td>{0} m</td>
-			</tr>
-			<tr class="changed">
-				<td><em>duration</em></td>
-				<td>month-person</td>
-				<td>{0} m</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
@@ -1623,23 +1660,18 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
-				<td>week</td>
-				<td>{0} w</td>
+				<td>millisecond</td>
+				<td>{0} ms</td>
 			</tr>
 			<tr class="changed">
 				<td><em>duration</em></td>
-				<td>week-person</td>
-				<td>{0} w</td>
-			</tr>
-			<tr>
-				<td><em>duration</em></td>
-				<td>year</td>
-				<td>{0} y</td>
+				<td>microsecond</td>
+				<td>{0} μs</td>
 			</tr>
 			<tr class="changed">
 				<td><em>duration</em></td>
-				<td>year-person</td>
-				<td>{0} y</td>
+				<td>nanosecond</td>
+				<td>{0} ns</td>
 			</tr>
 			<tr>
 				<td><em>electric</em></td>
@@ -1663,6 +1695,11 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>energy</em></td>
+				<td>kilocalorie</td>
+				<td>{0} kcal</td>
+			</tr>
+			<tr>
+				<td><em>energy</em></td>
 				<td>calorie</td>
 				<td>{0} cal</td>
 			</tr>
@@ -1673,18 +1710,13 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>energy</em></td>
-				<td>joule</td>
-				<td>{0} J</td>
-			</tr>
-			<tr>
-				<td><em>energy</em></td>
-				<td>kilocalorie</td>
-				<td>{0} kcal</td>
-			</tr>
-			<tr>
-				<td><em>energy</em></td>
 				<td>kilojoule</td>
 				<td>{0} kJ</td>
+			</tr>
+			<tr>
+				<td><em>energy</em></td>
+				<td>joule</td>
+				<td>{0} J</td>
 			</tr>
 			<tr>
 				<td><em>energy</em></td>
@@ -1698,8 +1730,8 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>frequency</em></td>
-				<td>hertz</td>
-				<td>{0} Hz</td>
+				<td>megahertz</td>
+				<td>{0} MHz</td>
 			</tr>
 			<tr>
 				<td><em>frequency</em></td>
@@ -1708,13 +1740,58 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>frequency</em></td>
-				<td>megahertz</td>
-				<td>{0} MHz</td>
+				<td>hertz</td>
+				<td>{0} Hz</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>kilometer</td>
+				<td>{0} km</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>meter</td>
+				<td>{0} m</td>
+			</tr>
+			<tr class="changed">
+				<td><em>length</em></td>
+				<td>decimeter</td>
+				<td>{0} dm</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>centimeter</td>
 				<td>{0} cm</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>millimeter</td>
+				<td>{0} mm</td>
+			</tr>
+			<tr class="changed">
+				<td><em>length</em></td>
+				<td>micrometer</td>
+				<td>{0} µm</td>
+			</tr>
+			<tr class="changed">
+				<td><em>length</em></td>
+				<td>nanometer</td>
+				<td>{0} nm</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>picometer</td>
+				<td>{0} pm</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>mile</td>
+				<td>{0} mi</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>yard</td>
+				<td>{0} yd</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
@@ -1726,40 +1803,35 @@ h2, h3, h4, table {
 				<td>inch</td>
 				<td>{0} in</td>
 			</tr>
-			<tr>
+			<tr class="changed">
 				<td><em>length</em></td>
-				<td>kilometer</td>
-				<td>{0} km</td>
+				<td>parsec</td>
+				<td>{0} pc</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>light-year</td>
 				<td>{0} ly</td>
 			</tr>
-			<tr>
+			<tr class="changed">
 				<td><em>length</em></td>
-				<td>meter</td>
-				<td>{0} m</td>
+				<td>astronomical-unit</td>
+				<td>{0} au</td>
 			</tr>
-			<tr>
+			<tr class="changed">
 				<td><em>length</em></td>
-				<td>mile</td>
-				<td>{0} mi</td>
+				<td>furlong</td>
+				<td>{0} fur</td>
 			</tr>
-			<tr>
+			<tr class="changed">
 				<td><em>length</em></td>
-				<td>millimeter</td>
-				<td>{0} mm</td>
+				<td>fathom</td>
+				<td>{0} fm</td>
 			</tr>
-			<tr>
+			<tr class="changed">
 				<td><em>length</em></td>
-				<td>picometer</td>
-				<td>{0} pm</td>
-			</tr>
-			<tr>
-				<td><em>length</em></td>
-				<td>yard</td>
-				<td>{0} yd</td>
+				<td>nautical-mile</td>
+				<td>{0} nmi</td>
 			</tr>
 			<tr class="changed">
 				<td><em>length</em></td>
@@ -1773,13 +1845,8 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
-				<td>carat</td>
-				<td>{0} CD</td>
-			</tr>
-			<tr>
-				<td><em>mass</em></td>
-				<td>gram</td>
-				<td>{0} g</td>
+				<td>metric-ton</td>
+				<td>{0} t</td>
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
@@ -1788,23 +1855,23 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
-				<td>metric-ton</td>
-				<td>{0} t</td>
+				<td>gram</td>
+				<td>{0} g</td>
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
 				<td>milligram</td>
 				<td>{0} mg</td>
 			</tr>
-			<tr>
+			<tr class="changed">
 				<td><em>mass</em></td>
-				<td>ounce</td>
-				<td>{0} oz</td>
+				<td>microgram</td>
+				<td>{0} µg</td>
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
-				<td>pound</td>
-				<td>{0} lb</td>
+				<td>ton</td>
+				<td>{0} tn</td>
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
@@ -1813,18 +1880,28 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
-				<td>ton</td>
-				<td>{0} tn</td>
+				<td>pound</td>
+				<td>{0} lb</td>
 			</tr>
 			<tr>
-				<td><em>power</em></td>
-				<td>horsepower</td>
-				<td>{0} hp</td>
+				<td><em>mass</em></td>
+				<td>ounce</td>
+				<td>{0} oz</td>
+			</tr>
+			<tr class="changed">
+				<td><em>mass</em></td>
+				<td>ounce-troy</td>
+				<td>{0} oz t</td>
 			</tr>
 			<tr>
+				<td><em>mass</em></td>
+				<td>carat</td>
+				<td>{0} CD</td>
+			</tr>
+			<tr class="changed">
 				<td><em>power</em></td>
-				<td>kilowatt</td>
-				<td>{0} kW</td>
+				<td>gigawatt</td>
+				<td>{0} GW</td>
 			</tr>
 			<tr>
 				<td><em>power</em></td>
@@ -1833,8 +1910,8 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>power</em></td>
-				<td>milliwatt</td>
-				<td>{0} mW</td>
+				<td>kilowatt</td>
+				<td>{0} kW</td>
 			</tr>
 			<tr>
 				<td><em>power</em></td>
@@ -1842,9 +1919,29 @@ h2, h3, h4, table {
 				<td>{0} W</td>
 			</tr>
 			<tr>
+				<td><em>power</em></td>
+				<td>milliwatt</td>
+				<td>{0} mW</td>
+			</tr>
+			<tr>
+				<td><em>power</em></td>
+				<td>horsepower</td>
+				<td>{0} hp</td>
+			</tr>
+			<tr>
 				<td><em>pressure</em></td>
 				<td>hectopascal</td>
 				<td>{0} hPa</td>
+			</tr>
+			<tr>
+				<td><em>pressure</em></td>
+				<td>millimeter-of-mercury</td>
+				<td>{0} mm Hg</td>
+			</tr>
+			<tr class="changed">
+				<td><em>pressure</em></td>
+				<td>pound-per-square-inch</td>
+				<td>{0} psi</td>
 			</tr>
 			<tr>
 				<td><em>pressure</em></td>
@@ -1855,11 +1952,6 @@ h2, h3, h4, table {
 				<td><em>pressure</em></td>
 				<td>millibar</td>
 				<td>{0} mbar</td>
-			</tr>
-			<tr>
-				<td><em>pressure</em></td>
-				<td>millimeter-of-mercury</td>
-				<td>{0} mm Hg</td>
 			</tr>
 			<tr>
 				<td><em>proportion</em></td>
@@ -1888,6 +1980,11 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>temperature</em></td>
+				<td>generic</td>
+				<td>{0}°</td>
+			</tr>
+			<tr>
+				<td><em>temperature</em></td>
 				<td>celsius</td>
 				<td>{0}°C</td>
 			</tr>
@@ -1896,25 +1993,10 @@ h2, h3, h4, table {
 				<td>fahrenheit</td>
 				<td>{0}°F</td>
 			</tr>
-			<tr>
+			<tr class="changed">
 				<td><em>temperature</em></td>
-				<td>generic</td>
-				<td>{0}°</td>
-			</tr>
-			<tr>
-				<td><em>volume</em></td>
-				<td>acre-foot</td>
-				<td>{0} ac ft</td>
-			</tr>
-			<tr>
-				<td><em>volume</em></td>
-				<td>cubic-centimeter</td>
-				<td>{0} cm³</td>
-			</tr>
-			<tr>
-				<td><em>volume</em></td>
-				<td>cubic-inch</td>
-				<td>{0} in³</td>
+				<td>kelvin</td>
+				<td>{0} K</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
@@ -1928,28 +2010,53 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
+				<td>cubic-centimeter</td>
+				<td>{0} cm³</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
 				<td>cubic-mile</td>
 				<td>{0} mi³</td>
 			</tr>
-			<tr>
+			<tr class="changed">
 				<td><em>volume</em></td>
-				<td>cup</td>
-				<td>{0} c</td>
+				<td>cubic-yard</td>
+				<td>{0} yd³</td>
+			</tr>
+			<tr class="changed">
+				<td><em>volume</em></td>
+				<td>cubic-foot</td>
+				<td>{0} ft³</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
-				<td>fluid-ounce</td>
-				<td>{0} fl oz</td>
+				<td>cubic-inch</td>
+				<td>{0} in³</td>
 			</tr>
-			<tr>
+			<tr class="changed">
 				<td><em>volume</em></td>
-				<td>gallon</td>
-				<td>{0} gal</td>
+				<td>megaliter</td>
+				<td>{0} ML</td>
+			</tr>
+			<tr class="changed">
+				<td><em>volume</em></td>
+				<td>hectoliter</td>
+				<td>{0} hL</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>liter</td>
-				<td>{0} l</td>
+				<td>{0} <span class="changed">L</span></td>
+			</tr>
+			<tr class="changed">
+				<td><em>volume</em></td>
+				<td>deciliter</td>
+				<td>{0} dL</td>
+			</tr>
+			<tr class="changed">
+				<td><em>volume</em></td>
+				<td>centiliter</td>
+				<td>{0} cL</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
@@ -1968,8 +2075,38 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
+				<td>acre-foot</td>
+				<td>{0} ac ft</td>
+			</tr>
+			<tr class="changed">
+				<td><em>volume</em></td>
+				<td>bushel</td>
+				<td>{0} bu</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>gallon</td>
+				<td>{0} gal</td>
+			</tr>
+			<tr class="changed">
+				<td><em>volume</em></td>
+				<td>quart</td>
+				<td>{0} qt</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
 				<td>pint</td>
 				<td>{0} pt</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>cup</td>
+				<td>{0} c</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>fluid-ounce</td>
+				<td>{0} fl oz</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>

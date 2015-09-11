@@ -2579,13 +2579,16 @@ h2, h3, h4, table {
 
 
 		<p>
-			<b>ISO 8601 time zone formats:</b> The formats based on the ISO 8601
-			local time difference from UTC, or the UTC indicator (&quot;Z&quot; -
-			only when the local time offset is 0 and the specifier X* is used).
-			The ISO 8601 basic format does not use a separator character between
-			hours and minutes field, while the extended format uses colon (':')
-			as the separator. The ISO 8601 basic format with hours and minutes
-			fields is equivalent to RFC 822 zone format.
+			<b>ISO 8601 time zone formats:</b> The formats based on the <span
+				class="changed">[<a href="tr35.html#ISO8601">ISO 8601</a>]
+			</span><span class="removed">ISO 8601</span> local time difference from UTC
+			<span class="changed">("+" sign is used when local time offset
+				is 0)</span>, or the UTC indicator (&quot;Z&quot; - only when the local
+			time offset is 0 and the specifier X* is used). The ISO 8601 basic
+			format does not use a separator character between hours and minutes
+			field, while the extended format uses colon (':') as the separator.
+			The ISO 8601 basic format with hours and minutes fields is equivalent
+			to RFC 822 zone format.
 		</p>
 		<ul>
 			<li>&quot;-0800&quot; (basic)</li>
@@ -4077,7 +4080,7 @@ h2, h3, h4, table {
 			<tr>
 				<td rowspan="5" style="text-align: center">x</td>
 				<td style="text-align: center">1</td>
-				<td>-08<br> +0530
+				<td>-08<br>+0530<span class="changed"><br>+00</span>
 				</td>
 				<td colspan="2">The <i>ISO8601 basic format</i> with hours
 					field and optional minutes field. (The same as X, minus "Z".)
@@ -4085,21 +4088,21 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td style="text-align: center">2</td>
-				<td>-0800</td>
+				<td>-0800<span class="changed"><br>+0000</span></td>
 				<td colspan="2">The <i>ISO8601 basic format</i> with hours and
 					minutes fields. (The same as XX, minus "Z".)
 				</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">3</td>
-				<td>-08:00</td>
+				<td>-08:00<span class="changed"><br>+00:00</span></td>
 				<td colspan="2">The <i>ISO8601 extended format</i> with hours
 					and minutes fields. (The same as XXX, minus "Z".)
 				</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">4</td>
-				<td>-0800<br> -075258
+				<td>-0800<br>-075258<span class="changed"><br>+0000</span>
 				</td>
 				<td colspan="2">The <i>ISO8601 basic format</i> with hours,
 					minutes and optional seconds fields. (The same as XXXX, minus "Z".)<br>
@@ -4108,7 +4111,7 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td style="text-align: center">5</td>
-				<td>-08:00<br> -07:52:58
+				<td>-08:00<br>-07:52:58<span class="changed"><br>+00:00</span>
 				</td>
 				<td colspan="2">The <i>ISO8601 extended format</i> with hours,
 					minutes and optional seconds fields. (The same as XXXXX, minus

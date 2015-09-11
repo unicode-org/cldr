@@ -2882,6 +2882,21 @@ zh-Hant-HK</pre>
 			(old type "traditional" is mapped to new type "trad" for collation
 			and "traditio" for numbering system), and this relationship will be
 			maintained in the future versions unless otherwise noted.</p>
+        <p class="changed">
+            The new specification introduced a new field
+            <code>attribute</code>
+            in addition to key/type pairs in the Unicode locale extension. When
+            it is necessary to map a new Unicode locale identifier with
+            <code>attribute</code>
+            field to a well-formed old locale identifier, a special key name <i>attribute</i>
+            with the value of entire
+            <code>attribute</code>
+            subtags in the new identifier is used. For example, a new identifier
+            <code>ja-u-xxx-yyy-ca-japanese</code>
+            is mapped to an old identifier
+            <code>ja@attribute=xxx-yyy;calendar=japanese</code>
+            .
+        </p>
 		<p>The chart below shows some example mappings between the new
 			syntax and the old syntax.</p>
 
@@ -7984,6 +7999,15 @@ decimal?, group?, special*)) &gt;</pre>
 							href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></em> [<a
 						href="http://unicode.org/cldr/trac/ticket/8423"
 						title="View ticket">#8423</a>] </li>
+					<li><em>Section <a href="#Old_Locale_Extension_Syntax">3.8.1
+								Old Locale Extension Syntax</a></em>
+						<ul>
+							<li>Documented compatibility mapping for attribute field in
+								Unicode locale extension. [<a
+								href="http://unicode.org/cldr/trac/ticket/7857"
+								title="View ticket">#7857</a>]
+							</li>
+						</ul></li>
 					<li>Added <em>Section <a href="#Validity_Data">3.11
 								Validity Data</a></em> [<a
 						href="http://unicode.org/cldr/trac/ticket/8954"

@@ -1789,11 +1789,12 @@ h2, h3, h4, table {
 
 		<p>
 			Each locale can have a set of day period rules, which determine the
-			periods during a day if used with a 12 hour format. If locales do
+			periods during a day for use in time formats  like "10:00 at night", or 
+			to select statements like "Your email arrived last night."
+			If locales do
 			not have <span class="changed">dayPeriodRules, the computation of
-			dayPeriods falls back </span>to AM/PM. There are two kinds of
-			dayPeriodRuleSets, based on the type.
-		</p>
+			dayPeriods falls back </span>to AM/PM.</p>
+	    <p>There are two kinds of dayPeriodRuleSets, based on the type:</p>
 
 		<p>
 			<span class="changed">The <strong><em>format</em></strong>

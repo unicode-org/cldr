@@ -10,11 +10,7 @@ package org.unicode.cldr.unittest;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.SupplementalDataInfo;
-
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.util.LocaleMatcher;
 import com.ibm.icu.util.LocaleMatcher.LanguageMatcherData;
 import com.ibm.icu.util.LocalePriorityList;
@@ -28,20 +24,9 @@ import com.ibm.icu.util.ULocale;
 @SuppressWarnings("deprecation")
 public class LocaleMatcherTest extends TestFmwk {
 
-    private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
-
-    static final SupplementalDataInfo INFO = CONFIG.getSupplementalDataInfo();
-
     private static final ULocale ZH_MO = new ULocale("zh_MO");
     private static final ULocale ZH_HK = new ULocale("zh_HK");
-    static LanguageMatcherData LANGUAGE_MATCHER_DATA = new LanguageMatcherData();
-
-    static {
-        for (R4<String, String, Integer, Boolean> foo : INFO.getLanguageMatcherData("written")) {
-            LANGUAGE_MATCHER_DATA.addDistance(foo.get0(), foo.get1(), foo.get2(), foo.get3());
-        }
-        LANGUAGE_MATCHER_DATA.freeze();
-    }
+    static LanguageMatcherData LANGUAGE_MATCHER_DATA = LocaleMatcherShim.load();
 
     private LocaleMatcher newLocaleMatcher(LocalePriorityList build) {
         return new LocaleMatcher(build, LANGUAGE_MATCHER_DATA);

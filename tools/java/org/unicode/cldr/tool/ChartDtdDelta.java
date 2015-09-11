@@ -61,6 +61,7 @@ public class ChartDtdDelta extends Chart {
         TablePrinter tablePrinter = new TablePrinter()
         .addColumn("Version", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
         .setSortPriority(1)
+        .setSortAscending(false)
         .setBreakSpans(true)
         .addColumn("Dtd Type", "class='source'", null, "class='source'", true)
         .setSortPriority(2)

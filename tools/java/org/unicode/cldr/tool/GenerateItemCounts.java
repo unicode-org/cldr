@@ -60,7 +60,7 @@ public class GenerateItemCounts {
         // MUST be oldest first!
         // "cldr-archive/cldr-21.0",
         // "cldr-24.0",
-        "cldr-25.0",
+        "cldr-27.0",
         "trunk"
     };
 

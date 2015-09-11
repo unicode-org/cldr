@@ -485,8 +485,10 @@ h2, h3, h4, table {
 				<b>patternDigit</b>
 			</dt>
 			<dd>- <span class="changed">Deprecated. This was formerly used to provide the
-				localized pattern character corresponding to '#'; localized pattern
-				characters are no longer supported.</span></dd>
+				localized pattern character corresponding to '#', but localization of the
+				pattern characters themselves has been deprecated for some time (determining
+				the locale-specific <em>replacements</em> for pattern characters is of
+				course not deprecated and is part of normal number formatting).</span></dd>
 			<dt>
 				<b>minusSign</b>
 			</dt>
@@ -545,8 +547,9 @@ h2, h3, h4, table {
 				<b>currencyGroup</b>
 			</dt>
 			<dd>- <span class="changed">Deprecated. This was formerly used to indicate
-				the grouping separator in currency formatting/parsing, instead of
-				the regular grouping separator.</span></dd>
+				an optional grouping separator for currency formatting/parsing that was
+				distinct from the regular grouping separator. However, there was no
+				evidence that it was actually needed in any locale.</span></dd>
 			<dt>
 				<b>timeSeparator</b>
 			</dt>

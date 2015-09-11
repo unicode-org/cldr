@@ -1054,15 +1054,19 @@ h2, h3, h4, table {
 			3.2 <a name="Character_Mapping" href="#Character_Mapping">Mapping</a>
 		</h3>
 		
-		<p class="changed"><b>This element has been deprecated.</b></p>
+		<p class="changed"><b>This element has been deprecated.</b> For information
+			on its structure and how it was used to specify locale-specific preferred
+			encodings for various purposes (e-mail, web), see the <a
+				href="http://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#Character_Mapping">Mapping</a>
+			section from the CLDR 27 version of the LDML Specification.</p>
 
-		<p class="element2">
+		<p class="element2 removed">
 			&lt;mapping registry="<span style="color: blue">iana</span>" type="<span
 				style="color: blue">iso-2022-jp utf-8</span>" alt="<span
 				style="color: blue">email</span>"/&gt;
 		</p>
 
-		<p>The mapping element describes character conversion mapping
+		<p class="removed">The mapping element describes character conversion mapping
 			tables that are commonly used to encode data in the language of this
 			locale for a particular purpose. Each encoding is identified by a
 			name from the specified registry. If more than one encoding is used
@@ -1072,12 +1076,12 @@ h2, h3, h4, table {
 			if it is absent, then the encoding(s) may be used for all purposes
 			not explicitly specified.</p>
 
-		<p>Each locale may have at most one mapping element tagged with a
+		<p class="removed">Each locale may have at most one mapping element tagged with a
 			particular purpose, and at most one general-purpose mapping element.
 			Inheritance is on an element basis; an element in a sub-locale
 			overrides an inherited element with the same purpose.</p>
 
-		<p>For email usage (alt="email") the list begins with encodings
+		<p class="removed">For email usage (alt="email") the list begins with encodings
 			that should be tried for outgoing mail; these encodings should be
 			tried in order until one is found that can represent the message
 			text. Typically, this section of the encoding list terminates with
@@ -1086,14 +1090,14 @@ h2, h3, h4, table {
 			with the encodings in the first section) and should be handled for
 			incoming messages, but should not be used for outgoing messages.</p>
 
-		<p>
+		<p class="removed">
 			Currently the only registry that can be used is "iana", which
 			specifies use of&nbsp; an <a
 				href="http://www.iana.org/assignments/character-sets">IANA name</a>.
 		</p>
 
 		<blockquote>
-			<p>
+			<p class="removed">
 				<b>Note:</b> While IANA names are not precise for conversion (see <i>UTS
 					#22: Character Mapping Tables</i> [<a
 					href="http://www.unicode.org/reports/tr41/#UTS22">UTS22</a>]), they
@@ -1105,7 +1109,12 @@ h2, h3, h4, table {
 			3.3 <a name="IndexLabels" href="#IndexLabels">Index Labels</a>
 		</h3>
 
-		<p class="changed"><b>This element and its subelements have been deprecated.</b></p>
+		<p class="changed"><b>This element and its subelements have been
+			deprecated.</b> For information on its structure and how it was used to
+			indicate how index exemplar characters can be compressed where display
+			space it limited, see the <a
+				href="http://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#IndexLabels">Index
+			Labels</a> section from the CLDR 27 version of the LDML Specification.</p>
 
 		<p class="removed">
 			<em>The elements described in this section are not currently
@@ -1114,28 +1123,28 @@ h2, h3, h4, table {
 				yet.</em>
 		</p>
 
-		<p class="dtd">&lt;!ELEMENT indexLabels (indexSeparator*,
+		<p class="dtd removed">&lt;!ELEMENT indexLabels (indexSeparator*,
 			compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*,
 			indexLabelAfter*, indexLabel*) &gt;</p>
 
-		<p class="dtd">&lt;!ELEMENT indexSeparator ( #PCDATA ) &gt;</p>
+		<p class="dtd removed">&lt;!ELEMENT indexSeparator ( #PCDATA ) &gt;</p>
 
-		<p class="dtd">&lt;!ELEMENT compressedIndexSeparator ( #PCDATA )
+		<p class="dtd removed">&lt;!ELEMENT compressedIndexSeparator ( #PCDATA )
 			&gt;</p>
 
-		<p class="dtd">&lt;!ELEMENT indexRangePattern ( #PCDATA ) &gt;</p>
+		<p class="dtd removed">&lt;!ELEMENT indexRangePattern ( #PCDATA ) &gt;</p>
 
-		<p class="dtd">&lt;!ELEMENT indexLabelBefore ( #PCDATA ) &gt;</p>
+		<p class="dtd removed">&lt;!ELEMENT indexLabelBefore ( #PCDATA ) &gt;</p>
 
-		<p class="dtd">&lt;!ELEMENT indexLabelAfter ( #PCDATA ) &gt;</p>
+		<p class="dtd removed">&lt;!ELEMENT indexLabelAfter ( #PCDATA ) &gt;</p>
 
-		<p class="dtd">
+		<p class="dtd removed">
 			&lt;!ELEMENT indexLabel ( #PCDATA ) &gt;<br> &lt;!ATTLIST
 			indexLabel indexSource CDATA #IMPLIED &gt;<br> &lt;!ATTLIST
 			indexLabel priority ( 1 | 2 | 3 ) #IMPLIED &gt;
 		</p>
 
-		<p>
+		<p class="removed">
 			The index label elements provide information for modifying the index
 			exemplar characters in display. In particular, they are used to
 			indicate how index exemplar characters can be compressed where screen
@@ -1144,13 +1153,13 @@ h2, h3, h4, table {
 			as <span class="example">A • E • I • N • S • Z</span>.
 		</p>
 
-		<p>The indexSeparator can be used to separate the index characters
+		<p class="removed">The indexSeparator can be used to separate the index characters
 			if they occur in free flowing text (instead of, say, on buttons or in
 			cells). The default (root) is a space. Where the index is compressed
 			(by omitting values &mdash; see the priority attribute below), the
 			compressedIndexSeparator can be used instead.</p>
 
-		<p>The indexRangePattern is used for dynamic configuration. That
+		<p class="removed">The indexRangePattern is used for dynamic configuration. That
 			is, if there are few items in X, Y, and Z, they can be grouped into a
 			single bucket with
 			&lt;indexRangePattern&gt;{0}-{1}&lt;/separator&gt;, giving "X-Z". The
@@ -1158,15 +1167,15 @@ h2, h3, h4, table {
 			exemplars, or to the result of an indexRangePattern; so the localizer
 			can turn "X-Z" into "XYZ" if desired.</p>
 
-		<p>The indexLabelBefore and indexLabelAfter are used before and
+		<p class="removed">The indexLabelBefore and indexLabelAfter are used before and
 			after a list. The default (root) value is an ellipsis, as in the
 			example at the top.</p>
 
-		<p>When displaying index characters with multiple scripts, the
+		<p class="removed">When displaying index characters with multiple scripts, the
 			main language can be used for all characters from the main script.
 			For other scripts there are two possibilities:</p>
 
-		<ol>
+		<ol class="removed">
 			<li>Use the primary characters from the UCA. This has the
 				disadvantage that many very uncommon characters show up.</li>
 			<li>Use the likely-subtags language for each scripts. For
@@ -1175,14 +1184,14 @@ h2, h3, h4, table {
 				(derived by looking up "und-Cyrl").</li>
 		</ol>
 
-		<p>
+		<p class="removed">
 			The indexLabel is used to display characters (if it is available).
 			That is, when displaying index characters, if there is an indexLabel
 			with non-empty text contents, display that text instead. For example,
 			for Hungarian, we could have A =&gt; "<strong>A, Á</strong>".
 		</p>
 
-		<p>The priority is used where not all of the index characters can
+		<p class="removed">The priority is used where not all of the index characters can
 			be displayed. In that case, only the higher priorities (lower
 			numbers) would be displayed.</p>
 

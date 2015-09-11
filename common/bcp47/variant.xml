@@ -11,7 +11,7 @@
 		</key>
 		<key name="sd" description="Region subdivision">
 			<type name="SUBDIVISION_CODE"
-				description="Valid unicode_subdivision_subtag for the region subtag as specified in LDML, based on subdivisionContainment data in supplementalData, prefixed by '00'." />
+				description="Valid unicode_subdivision_subtag for the region subtag as specified in LDML, based on subdivisionContainment data in supplementalData, prefixed by the associated unicode_region_subtag" />
 		</key>
 	</keyword>
 </ldmlBCP47>

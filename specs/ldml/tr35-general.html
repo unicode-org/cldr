@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">28</span></td>
+				<td>28</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -130,7 +130,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -140,8 +140,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -149,7 +149,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -231,7 +231,7 @@ h2, h3, h4, table {
 					<li>6.1 <a href="#perUnitPatterns">per Unit patterns</a></li>
 					<li>6.2 <a href="#Unit_Sequences">Unit Sequences</a></li>
 					<li>6.3 <a href="#durationUnit">durationUnit</a></li>
-					<li class="changed">6.4 <a href="#coordinateUnit">coordinateUnit</a></li>
+					<li>6.4 <a href="#coordinateUnit">coordinateUnit</a></li>
 				</ul>
 			</li>
 			<li>7 <a href="#POSIX_Elements">POSIX Elements</a></li>
@@ -290,10 +290,10 @@ h2, h3, h4, table {
 				Name Elements</a>
 		</h2>
 		<p class="dtd">
-			<span class="changed">&lt;!ELEMENT localeDisplayNames ( alias
+			&lt;!ELEMENT localeDisplayNames ( alias
 				| ( localeDisplayPattern?, languages?, scripts?, territories?,
 				subdivisions?, variants?, keys?, types?, transformNames?,
-				measurementSystemNames?, codePatterns?, special* ) )&gt;</span>
+				measurementSystemNames?, codePatterns?, special* ) )&gt;
 		</p>
 		<p>
 			Display names for scripts, languages, countries, currencies, and
@@ -616,15 +616,14 @@ h2, h3, h4, table {
 </pre>
 		</blockquote>
 		<p class="dtd">
-			<span class="changed">&lt;!ELEMENT subdivisions ( alias | (
+			&lt;!ELEMENT subdivisions ( alias | (
 				subdivision | special )* ) &gt;<br> &lt;!ELEMENT subdivision (
 				#PCDATA )&gt;
-			</span>
 		</p>
-		<p class="changed">Note that the subdivision names are in separate
+		<p>Note that the subdivision names are in separate
 			files, in the subdivisions/ directory. The type values are the fully
 			qualified subdivsion names. For example:</p>
-		<p class="xmlExample changed">
+		<p class="xmlExample">
 			&lt;subdivision type=&quot;AL-04&quot;&gt;Fier
 			County&lt;/subdivision&gt;<br> &lt;subdivision
 			type=&quot;AL-FR&quot;&gt;Fier&lt;/subdivision&gt; &lt;!-- in AL-04 :
@@ -634,7 +633,7 @@ h2, h3, h4, table {
 			type=&quot;AL-MK&quot;&gt;Mallakastër&lt;/subdivision&gt; &lt;!-- in
 			AL-04 : Fier County --&gt;
 		</p>
-		<p class="changed">
+		<p>
 			See also <strong>Part 6</strong> <em>Section 2.1.1 <a
 				href="tr35-info.html#Subdivision_Containment">Subdivision
 					Containment</a></em>.
@@ -1054,146 +1053,27 @@ h2, h3, h4, table {
 			3.2 <a name="Character_Mapping" href="#Character_Mapping">Mapping</a>
 		</h3>
 		
-		<p class="changed"><b>This element has been deprecated.</b> For information
+		<p><b>This element has been deprecated.</b> For information
 			on its structure and how it was intended to specify locale-specific
 			preferred encodings for various purposes (e-mail, web), see the <a
 				href="http://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#Character_Mapping">Mapping</a>
 			section from the CLDR 27 version of the LDML Specification.</p>
 
-		<p class="element2 removed">
-			&lt;mapping registry="<span style="color: blue">iana</span>" type="<span
-				style="color: blue">iso-2022-jp utf-8</span>" alt="<span
-				style="color: blue">email</span>"/&gt;
-		</p>
-
-		<p class="removed">The mapping element describes character conversion mapping
-			tables that are commonly used to encode data in the language of this
-			locale for a particular purpose. Each encoding is identified by a
-			name from the specified registry. If more than one encoding is used
-			for a particular purpose, the encodings are listed in the type
-			attribute in order, from most preferred to least. An alt tag is used
-			to indicate the purpose ("email" or "www" being the most frequent);
-			if it is absent, then the encoding(s) may be used for all purposes
-			not explicitly specified.</p>
-
-		<p class="removed">Each locale may have at most one mapping element tagged with a
-			particular purpose, and at most one general-purpose mapping element.
-			Inheritance is on an element basis; an element in a sub-locale
-			overrides an inherited element with the same purpose.</p>
-
-		<p class="removed">For email usage (alt="email") the list begins with encodings
-			that should be tried for outgoing mail; these encodings should be
-			tried in order until one is found that can represent the message
-			text. Typically, this section of the encoding list terminates with
-			encoding "utf-8", which can represent any message text. Any encodings
-			listed after "utf-8" may be encountered in incoming messages (along
-			with the encodings in the first section) and should be handled for
-			incoming messages, but should not be used for outgoing messages.</p>
-
-		<p class="removed">
-			Currently the only registry that can be used is "iana", which
-			specifies use of&nbsp; an <a
-				href="http://www.iana.org/assignments/character-sets">IANA name</a>.
-		</p>
-
-		<blockquote>
-			<p class="removed">
-				<b>Note:</b> While IANA names are not precise for conversion (see <i>UTS
-					#22: Character Mapping Tables</i> [<a
-					href="http://www.unicode.org/reports/tr41/#UTS22">UTS22</a>]), they
-				are sufficient for this purpose.
-			</p>
-		</blockquote>
 
 		<h3>
 			3.3 <a name="IndexLabels" href="#IndexLabels">Index Labels</a>
 		</h3>
 
-		<p class="changed"><b>This element and its subelements have been
+		<p><b>This element and its subelements have been
 			deprecated.</b> For information on its structure and how it was intended
 			to provide data for a compressed display of index exemplar characters
 			where space is limited, see the <a
 				href="http://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#IndexLabels">Index
 			Labels</a> section from the CLDR 27 version of the LDML Specification.</p>
 
-		<p class="removed">
-			<em>The elements described in this section are not currently
-				used in CLDR data nor in CLDR implementations. These elements should
-				be considered as "beta" and implementers should not depend on them
-				yet.</em>
-		</p>
-
 		<p class="dtd">&lt;!ELEMENT indexLabels (indexSeparator*,
 			compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*,
-			indexLabelAfter*, indexLabel*) &gt;</p>
-
-		<p class="dtd removed">&lt;!ELEMENT indexSeparator ( #PCDATA ) &gt;</p>
-
-		<p class="dtd removed">&lt;!ELEMENT compressedIndexSeparator ( #PCDATA )
-			&gt;</p>
-
-		<p class="dtd removed">&lt;!ELEMENT indexRangePattern ( #PCDATA ) &gt;</p>
-
-		<p class="dtd removed">&lt;!ELEMENT indexLabelBefore ( #PCDATA ) &gt;</p>
-
-		<p class="dtd removed">&lt;!ELEMENT indexLabelAfter ( #PCDATA ) &gt;</p>
-
-		<p class="dtd removed">
-			&lt;!ELEMENT indexLabel ( #PCDATA ) &gt;<br> &lt;!ATTLIST
-			indexLabel indexSource CDATA #IMPLIED &gt;<br> &lt;!ATTLIST
-			indexLabel priority ( 1 | 2 | 3 ) #IMPLIED &gt;
-		</p>
-
-		<p class="removed">
-			The index label elements provide information for modifying the index
-			exemplar characters in display. In particular, they are used to
-			indicate how index exemplar characters can be compressed where screen
-			real estate is limited. For example, <span class="example">A B
-				C D E F G H I J K L M N O P Q R S T U V W X Y Z</span> can be represented
-			as <span class="example">A • E • I • N • S • Z</span>.
-		</p>
-
-		<p class="removed">The indexSeparator can be used to separate the index characters
-			if they occur in free flowing text (instead of, say, on buttons or in
-			cells). The default (root) is a space. Where the index is compressed
-			(by omitting values &mdash; see the priority attribute below), the
-			compressedIndexSeparator can be used instead.</p>
-
-		<p class="removed">The indexRangePattern is used for dynamic configuration. That
-			is, if there are few items in X, Y, and Z, they can be grouped into a
-			single bucket with
-			&lt;indexRangePattern&gt;{0}-{1}&lt;/separator&gt;, giving "X-Z". The
-			indexLabel can either be applied to a single string from the
-			exemplars, or to the result of an indexRangePattern; so the localizer
-			can turn "X-Z" into "XYZ" if desired.</p>
-
-		<p class="removed">The indexLabelBefore and indexLabelAfter are used before and
-			after a list. The default (root) value is an ellipsis, as in the
-			example at the top.</p>
-
-		<p class="removed">When displaying index characters with multiple scripts, the
-			main language can be used for all characters from the main script.
-			For other scripts there are two possibilities:</p>
-
-		<ol class="removed">
-			<li>Use the primary characters from the UCA. This has the
-				disadvantage that many very uncommon characters show up.</li>
-			<li>Use the likely-subtags language for each scripts. For
-				example, if the main language is French, and Cyrillic characters are
-				present, then the likely subtags language for Cyrillic is "ru"
-				(derived by looking up "und-Cyrl").</li>
-		</ol>
-
-		<p class="removed">
-			The indexLabel is used to display characters (if it is available).
-			That is, when displaying index characters, if there is an indexLabel
-			with non-empty text contents, display that text instead. For example,
-			for Hungarian, we could have A =&gt; "<strong>A, Á</strong>".
-		</p>
-
-		<p class="removed">The priority is used where not all of the index characters can
-			be displayed. In that case, only the higher priorities (lower
-			numbers) would be displayed.</p>
+			indexLabelAfter*, indexLabel*) &gt; </p>
 
 
 		<h3>
@@ -1381,8 +1261,7 @@ h2, h3, h4, table {
 		<p class="dtd">
 			&lt;!ELEMENT units (alias | (unit*, unitLength*, durationUnit*,
 			special*) ) &gt;<br>
-			<br> &lt;!ELEMENT unitLength (alias | (compoundUnit*, unit*, <span
-				class="changed">coordinateUnit*, </span>special*) ) &gt;<br>
+			<br> &lt;!ELEMENT unitLength (alias | (compoundUnit*, unit*, coordinateUnit*, special*) ) &gt;<br>
 			&lt;!ATTLIST unitLength type (long | short | narrow) #REQUIRED &gt;
 			<br>
 			<br> &lt;!ELEMENT compoundUnit (alias | (compoundUnitPattern*,
@@ -1398,12 +1277,12 @@ h2, h3, h4, table {
 			&lt;!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many
 			| other) #REQUIRED &gt; <br>
 			<br> &lt;!ELEMENT compoundUnitPattern ( #PCDATA ) &gt;<br>
-			<br> <span class="changed">&lt;!ELEMENT coordinateUnit (
+			<br> &lt;!ELEMENT coordinateUnit (
 				alias | ( coordinateUnitPattern*, special* ) ) &gt;<br>&lt;!ELEMENT
 				coordinateUnitPattern ( #PCDATA ) &gt;<br> &lt;!ATTLIST
 				coordinateUnitPattern type (north | east | south | west) #REQUIRED
 				&gt;
-			</span><br>
+			<br>
 			<br> &lt;!ELEMENT durationUnitPattern ( #PCDATA ) &gt;<br>
 		</p>
 
@@ -1452,11 +1331,10 @@ h2, h3, h4, table {
 			type=&quot;acceleration-g-force&quot;&gt;</p>
 		<p>​</p>
 		<p>
-			Examples of these include<span class="changed"> the following.
+			Examples of these include the following.
 				The complete list is in the validity data: see <em>Section <a
 					href="tr35.html#Validity_Data">3.11 Validity Data</a></em>.
-			</span>
-		</p>
+			</p>
 		<table>
 			<tr>
 				<td><strong>Type</strong></td>
@@ -1473,7 +1351,7 @@ h2, h3, h4, table {
 				<td>meter-per-second-squared</td>
 				<td>{0} m/s²</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>angle</em></td>
 				<td>revolution</td>
 				<td>{0} rev</td>
@@ -1528,7 +1406,7 @@ h2, h3, h4, table {
 				<td>acre</td>
 				<td>{0} ac</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>area</em></td>
 				<td>square-yard</td>
 				<td>{0} yd²</td>
@@ -1538,7 +1416,7 @@ h2, h3, h4, table {
 				<td>square-foot</td>
 				<td>{0} ft²</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>area</em></td>
 				<td>square-inch</td>
 				<td>{0} in²</td>
@@ -1548,7 +1426,7 @@ h2, h3, h4, table {
 				<td>liter-per-kilometer</td>
 				<td>{0} L/km</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>consumption</em></td>
 				<td>liter-per-100kilometers</td>
 				<td>{0} L/100km</td>
@@ -1558,12 +1436,12 @@ h2, h3, h4, table {
 				<td>mile-per-gallon</td>
 				<td>{0} mpg</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>digital</em></td>
 				<td>terabyte</td>
 				<td>{0} TB</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>digital</em></td>
 				<td>terabit</td>
 				<td>{0} Tb</td>
@@ -1608,7 +1486,7 @@ h2, h3, h4, table {
 				<td>bit</td>
 				<td>{0} bit</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>duration</em></td>
 				<td>century</td>
 				<td>{0} c</td>
@@ -1618,7 +1496,7 @@ h2, h3, h4, table {
 				<td>year</td>
 				<td>{0} y</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>duration</em></td>
 				<td>year-person</td>
 				<td>{0} y</td>
@@ -1628,7 +1506,7 @@ h2, h3, h4, table {
 				<td>month</td>
 				<td>{0} m</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>duration</em></td>
 				<td>month-person</td>
 				<td>{0} m</td>
@@ -1638,7 +1516,7 @@ h2, h3, h4, table {
 				<td>week</td>
 				<td>{0} w</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>duration</em></td>
 				<td>week-person</td>
 				<td>{0} w</td>
@@ -1648,7 +1526,7 @@ h2, h3, h4, table {
 				<td>day</td>
 				<td>{0} d</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>duration</em></td>
 				<td>day-person</td>
 				<td>{0} d</td>
@@ -1673,12 +1551,12 @@ h2, h3, h4, table {
 				<td>millisecond</td>
 				<td>{0} ms</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>duration</em></td>
 				<td>microsecond</td>
 				<td>{0} μs</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>duration</em></td>
 				<td>nanosecond</td>
 				<td>{0} ns</td>
@@ -1763,7 +1641,7 @@ h2, h3, h4, table {
 				<td>meter</td>
 				<td>{0} m</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>length</em></td>
 				<td>decimeter</td>
 				<td>{0} dm</td>
@@ -1778,12 +1656,12 @@ h2, h3, h4, table {
 				<td>millimeter</td>
 				<td>{0} mm</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>length</em></td>
 				<td>micrometer</td>
 				<td>{0} µm</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>length</em></td>
 				<td>nanometer</td>
 				<td>{0} nm</td>
@@ -1813,7 +1691,7 @@ h2, h3, h4, table {
 				<td>inch</td>
 				<td>{0} in</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>length</em></td>
 				<td>parsec</td>
 				<td>{0} pc</td>
@@ -1823,27 +1701,27 @@ h2, h3, h4, table {
 				<td>light-year</td>
 				<td>{0} ly</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>length</em></td>
 				<td>astronomical-unit</td>
 				<td>{0} au</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>length</em></td>
 				<td>furlong</td>
 				<td>{0} fur</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>length</em></td>
 				<td>fathom</td>
 				<td>{0} fm</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>length</em></td>
 				<td>nautical-mile</td>
 				<td>{0} nmi</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>length</em></td>
 				<td>mile-scandinavian</td>
 				<td>{0} smi</td>
@@ -1873,7 +1751,7 @@ h2, h3, h4, table {
 				<td>milligram</td>
 				<td>{0} mg</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>mass</em></td>
 				<td>microgram</td>
 				<td>{0} µg</td>
@@ -1898,7 +1776,7 @@ h2, h3, h4, table {
 				<td>ounce</td>
 				<td>{0} oz</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>mass</em></td>
 				<td>ounce-troy</td>
 				<td>{0} oz t</td>
@@ -1908,7 +1786,7 @@ h2, h3, h4, table {
 				<td>carat</td>
 				<td>{0} CD</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>power</em></td>
 				<td>gigawatt</td>
 				<td>{0} GW</td>
@@ -1948,7 +1826,7 @@ h2, h3, h4, table {
 				<td>millimeter-of-mercury</td>
 				<td>{0} mm Hg</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>pressure</em></td>
 				<td>pound-per-square-inch</td>
 				<td>{0} psi</td>
@@ -1983,7 +1861,7 @@ h2, h3, h4, table {
 				<td>mile-per-hour</td>
 				<td>{0} mi/h</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>speed</em></td>
 				<td>knot</td>
 				<td>{0} kn</td>
@@ -2003,7 +1881,7 @@ h2, h3, h4, table {
 				<td>fahrenheit</td>
 				<td>{0}°F</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>temperature</em></td>
 				<td>kelvin</td>
 				<td>{0} K</td>
@@ -2028,12 +1906,12 @@ h2, h3, h4, table {
 				<td>cubic-mile</td>
 				<td>{0} mi³</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>volume</em></td>
 				<td>cubic-yard</td>
 				<td>{0} yd³</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>volume</em></td>
 				<td>cubic-foot</td>
 				<td>{0} ft³</td>
@@ -2043,12 +1921,12 @@ h2, h3, h4, table {
 				<td>cubic-inch</td>
 				<td>{0} in³</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>volume</em></td>
 				<td>megaliter</td>
 				<td>{0} ML</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>volume</em></td>
 				<td>hectoliter</td>
 				<td>{0} hL</td>
@@ -2056,14 +1934,14 @@ h2, h3, h4, table {
 			<tr>
 				<td><em>volume</em></td>
 				<td>liter</td>
-				<td>{0} <span class="changed">L</span></td>
+				<td>{0} L</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>volume</em></td>
 				<td>deciliter</td>
 				<td>{0} dL</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>volume</em></td>
 				<td>centiliter</td>
 				<td>{0} cL</td>
@@ -2073,12 +1951,12 @@ h2, h3, h4, table {
 				<td>milliliter</td>
 				<td>{0} mL</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>volume</em></td>
 				<td>pint-metric</td>
 				<td>{0} mpt</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>volume</em></td>
 				<td>cup-metric</td>
 				<td>{0} mc</td>
@@ -2088,7 +1966,7 @@ h2, h3, h4, table {
 				<td>acre-foot</td>
 				<td>{0} ac ft</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>volume</em></td>
 				<td>bushel</td>
 				<td>{0} bu</td>
@@ -2098,7 +1976,7 @@ h2, h3, h4, table {
 				<td>gallon</td>
 				<td>{0} gal</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>volume</em></td>
 				<td>quart</td>
 				<td>{0} qt</td>
@@ -2150,10 +2028,10 @@ h2, h3, h4, table {
 			or inches in Germany. This is to account for use by travelers and
 			specialized domains, such as the German “̌Fernseher von 32 bis 55
 			Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.</p>
-		<p><span class="changed">For temperature, t</span>here is a special unit &lt;unit
+		<p>For temperature, there is a special unit &lt;unit
 			type=&quot;temperature-generic&quot;&gt;, which is used when it is
 			clear from context whether Celcius or Fahrenheit is implied.</p>
-		<p class="changed">For duration, there are special units such as &lt;unit
+		<p>For duration, there are special units such as &lt;unit
 			type=&quot;duration-year-person&quot;&gt; and &lt;unit
 			type=&quot;duration-year-week&quot;&gt; for indicating the age of a person,
 			which requires special forms in some languages. For example, in "zh",
@@ -2251,10 +2129,10 @@ h2, h3, h4, table {
 			availableFormats, except that there is no need to distinguish
 			different forms of the hour.</p>
 
-		<h3 class="changed">
+		<h3>
 			6.4 <a name="coordinateUnit" href="#coordinateUnit">coordinateUnit</a>
 		</h3>
-		<p class="changed">
+		<p>
 			The <strong>coordinateUnitPattern</strong> is a special type of
 			pattern used for composing degrees of latitude and longitude, with an
 			indicator of the quadrant. There are exactly 4 type values. An angle
@@ -2264,7 +2142,7 @@ h2, h3, h4, table {
 			appropriate <strong>coordinateUnit</strong> pattern.
 		</p>
 		<p class="xmlExample">
-			<span class="changed">&lt;coordinateUnitPattern
+			&lt;coordinateUnitPattern
 				type=&quot;east&quot;&gt;{0}E&lt;/coordinateUnitPattern&gt;<br>
 				&lt;coordinateUnitPattern
 				type=&quot;north&quot;&gt;{0}N&lt;/coordinateUnitPattern&gt;<br>
@@ -2272,8 +2150,7 @@ h2, h3, h4, table {
 				type=&quot;south&quot;&gt;{0}S&lt;/coordinateUnitPattern&gt;<br>
 				&lt;coordinateUnitPattern
 				type=&quot;west&quot;&gt;{0}W&lt;/coordinateUnitPattern&gt;
-			</span>
-		</p>
+			</p>
 		<h2>
 			7 <a name="POSIX_Elements" href="#POSIX_Elements">POSIX Elements</a>
 		</h2>

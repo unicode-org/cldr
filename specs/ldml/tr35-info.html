@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1>
@@ -95,7 +95,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">28</span></td>
+				<td>28</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -131,7 +131,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -141,8 +141,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -150,7 +150,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -267,13 +267,13 @@ h2, h3, h4, table {
 		</p>
 		<p class="dtd">
 			<!--td {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}-->
-			<span class="changed">&lt;!ELEMENT supplementalData
+			&lt;!ELEMENT supplementalData
 				(version,generation?,cldrVersion?,currencyData?,territoryContainment?,subdivisionContainment?,
 				languageData?,territoryInfo?,postalCodeData?,calendarData?,calendarPreferenceData?,weekData?,
 				timeData?,measurementData?,timezoneData?,characters?,transforms?,metadata?,codeMappings?,
 				parentLocales?,likelySubtags?,metazoneInfo?,plurals?,telephoneCodeData?,numberingSystems?,
 				bcp47KeywordMappings?,gender?,references?,languageMatching?,dayPeriodRuleSet*,metaZones?,
-				primaryZones?,windowsZones?,coverageLevels?,idValidity?) &gt;</span>
+				primaryZones?,windowsZones?,coverageLevels?,idValidity?) &gt;
 		</p>
 		<p>
 			The data in CLDR is presently split into multiple files:
@@ -377,27 +377,26 @@ h2, h3, h4, table {
 		<p>That is, the type value isn’t a grouping, but if you filter out
 			groupings you can drop this containment. In the example above, EU is
 			a grouping, and contained in 150.</p>
-		<h3 class="changed">
+		<h3>
 			2.1.1 <a name="Subdivision_Containment"
 				href="#Subdivision_Containment">Subdivision Containment</a>
 		</h3>
 		<p class="dtd">
-			<span class="changed">&lt;!ELEMENT subdivisionContainment (
+			&lt;!ELEMENT subdivisionContainment (
 				subgroup* ) &gt;<br> <br> &lt;!ELEMENT subgroup EMPTY &gt;<br>
 				&lt;!ATTLIST subgroup type NMTOKEN #REQUIRED &gt;<br>
 				&lt;!ATTLIST subgroup subtype NMTOKEN #IMPLIED &gt;<br>
 				&lt;!ATTLIST subgroup contains NMTOKENS #IMPLIED &gt;
-			</span>
 		</p>
-		<p class="changed">The subdivision containment data is similar to
+		<p>The subdivision containment data is similar to
 			the territory containment. It is based on ISO 3166-2 data, but may
 			diverge from it in the future.</p>
-		<p class="xmlExample changed">
+		<p class="xmlExample">
 			&lt;subgroup type=&quot;AL&quot; contains=&quot;04 11 12 03 09 01 02
 			08 10 05 06 07&quot;/&gt;<br> &lt;subgroup type=&quot;AL&quot;
 			subtype=&quot;04&quot; contains=&quot;FR MK LU&quot;/&gt;
 		</p>
-		<p class="changed">
+		<p>
 			The <strong>type</strong> is a
 			<code>
 				<a href="tr35.html#unicode_region_subtag">unicode_region_subtag</a>
@@ -440,59 +439,53 @@ h2, h3, h4, table {
 			populations. The main goal is to provide approximate figures for the
 			literate, functional population for each language in each territory:
 			that is, the population that is able to read and write each language,
-			and is comfortable enough to use it with computers. <span
-				class="changed">For a chart of this data, see <a
+			and is comfortable enough to use it with computers. For a chart of this data, see <a
 				href='http://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html'>Territory-Language
 					Information</a>.
-			</span>
-		</p>
-		<p class='changed'>
+			</p>
+		<p>
 			<em>Example</em>
 		</p>
-		<pre class='changed' style='font-size: 70%'>&lt;territory type=&quot;AO&quot; gdp=&quot;175500000000&quot; literacyPercent=&quot;70.4&quot; population=&quot;19088100&quot;&gt; &lt;!--Angola--&gt;
+		<pre style='font-size: 70%'>&lt;territory type=&quot;AO&quot; gdp=&quot;175500000000&quot; literacyPercent=&quot;70.4&quot; population=&quot;19088100&quot;&gt; &lt;!--Angola--&gt;
  &lt;languagePopulation type=&quot;pt&quot; populationPercent=&quot;67&quot; officialStatus=&quot;official&quot;/&gt; &lt;!--Portuguese--&gt;
  &lt;languagePopulation type=&quot;umb&quot; populationPercent=&quot;29&quot;/&gt; &lt;!--Umbundu--&gt; 
  &lt;languagePopulation type=&quot;kmb&quot; writingPercent=&quot;10&quot; populationPercent=&quot;25&quot; references=&quot;R1034&quot;/&gt; &lt;!--Kimbundu--&gt; 
  &lt;languagePopulation type=&quot;ln&quot; populationPercent=&quot;0.67&quot; references=&quot;R1010&quot;/&gt; &lt;!--Lingala--&gt; 
 &lt;/territory&gt;</pre>
 		<p>
-			<span class="changed">Note that reliable information is
+			Note that reliable information is
 				difficult to obtain; the information in CLDR is an estimate culled
 				from different sources, including the World Bank, CIA Factbook, and
-				others. </span>The GDP and <span class="changed">country</span> literacy
+				others. The GDP and country literacy
 			figures are taken from the World Bank where available, otherwise
-			supplemented by FactBook data and other sources. <span
-				class="changed">The GDP figures are “PPP (constant 2000
-				international $)”.</span> Much of the per-language data is taken from the
+			supplemented by FactBook data and other sources. The GDP figures are “PPP (constant 2000
+				international $)”. Much of the per-language data is taken from the
 			Ethnologue, but is supplemented and processed using many other
 			sources, including per-country census data. (The focus of the
 			Ethnologue is native speakers, which includes people who are not
 			literate, and excludes people who are functional second-language
-			users.) <span class="changed"> Some references are marked in
+			users.) Some references are marked in
 				the XML files, with attributes such as <code>references=&quot;R1010&quot;</code>.
-			</span>
 		</p>
 		<p>
 			The percentages may add up to more than 100% due to multilingual
 			populations, or may be less than 100% due to illiteracy or because
-			the data has not yet been gathered or processed. Languages <span
-				class="changed">with smaller populations might not be
-				included</span>. <span class="changed">The literacy rate may be
+			the data has not yet been gathered or processed. Languages with smaller populations might not be
+				included. The literacy rate may be
 				discounted to reflect the actual usage of the written form in normal
 				daily life. Thus languages that are typically not written, such as
 				Swiss German, will be given a low literacy rate, even though nearly
 				the whole native germanophone population <em>could </em>write in
 				Swiss German.
-			</span>
 		</p>
-		<p class="changed">The following describes the meaning of some of
+		<p>The following describes the meaning of some of
 			these terms—as used in CLDR—in more detail.</p>
-		<p class="changed">
+		<p>
 			<em><a name="literacy_percent" href="#literacy_percent">literacy
 					percent</a></em> — an estimate of the percentage of the country's population
 			that is functionally literate.
 		</p>
-		<p class="changed">
+		<p>
 			<a name="language_population_percent"
 				href="#language_population_percent">language population percent</a> —
 			an estimate of the number of people who are functional in that
@@ -501,7 +494,7 @@ h2, h3, h4, table {
 			computer, smartphone, or similar devices, rather than complete
 			fluency.
 		</p>
-		<p class="changed">
+		<p>
 			<a name="writing_percent" href="#writing_percent">writing percent</a>
 			— an estimate of the percentage of the country’s population fluent in
 			that language who regularly read or write a significant amount in
@@ -514,7 +507,7 @@ h2, h3, h4, table {
 				population percent</a>. Because the literacy rate can vary widely across
 			languages within a country, this is only an approximation.
 		</p>
-		<p class="changed">
+		<p>
 			<a name="official_language" href="#official_language">official
 				language</a> — as used in CLDR, a language that can generally be used in
 			all communications with a central government. That is, people can
@@ -524,7 +517,7 @@ h2, h3, h4, table {
 			communication to the central government (petitions, forms, filing
 			lawsuits,…).
 		</p>
-		<p class="changed">
+		<p>
 			Official languages for a country in this sense are not necessarily
 			the same as those with official legal status in the country. For
 			example, Irish is declared to be an official language in Ireland, but
@@ -539,7 +532,7 @@ h2, h3, h4, table {
 			There is no intention to mark such nominally official languages as
 			“official” in the CLDR data.
 		</p>
-		<p class="changed">
+		<p>
 			<a name="official_regional_language"
 				href="#official_regional_language">official regional language</a> —
 			a language that is official (<em>de jure</em> or <em>de facto</em>)
@@ -567,10 +560,10 @@ h2, h3, h4, table {
 			The language data is used for consistency checking and testing. It
 			provides a list of which languages are used with which scripts and in
 			which countries. To a large extent, however, the territory list has
-			been superseded by the <span class="changed">data in<em>
+			been superseded by the data in<em>
 					Section 2.2 <a href="#Supplemental_Territory_Information">Supplemental
 						Territory Information</a>
-			</em></span>.
+			</em>.
 		</p>
 		<pre>	&lt;languageData&gt;
 		&lt;language type=&quot;af&quot; scripts=&quot;Latn&quot; territories=&quot;ZA&quot;/&gt;
@@ -1154,8 +1147,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 		</h3>
 
 		<p class="dtd">
-			&lt;!ELEMENT alias (languageAlias*,scriptAlias*,territoryAlias*,<span
-				class="changed">subdivisionAlias*,</span>variantAlias*,zoneAlias*)
+			&lt;!ELEMENT alias (languageAlias*,scriptAlias*,territoryAlias*,subdivisionAlias*,variantAlias*,zoneAlias*)
 			&gt;<br> <br> <em>The following are common attributes
 				for subelements of &lt;alias&gt;:</em><br> &lt;!ELEMENT *Alias EMPTY
 			&gt;<br> &lt;!ATTLIST *Alias type NMTOKEN #IMPLIED &gt;<br>
@@ -1347,15 +1339,15 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 
 
 		<p class="dtd">
-			&lt;!ELEMENT metadata (<span class="changed"> alias | (
-			</span>casingData?<span class="changed">, special* ) </span>) &gt;<br>
-			&lt;!ELEMENT casingData (<span class="changed"> alias | (
-			</span>casingItem*<span class="changed">, special* ) </span>) &gt;<br>
+			&lt;!ELEMENT metadata ( alias | (
+			casingData?, special* ) ) &gt;<br>
+			&lt;!ELEMENT casingData ( alias | (
+			casingItem*, special* ) ) &gt;<br>
 			&lt;!ELEMENT casingItem ( #PCDATA ) &gt;<br> &lt;!ATTLIST casingItem
 			type CDATA #REQUIRED &gt;<br>
 			&lt;!ATTLIST casingItem override (true | false) #IMPLIED &gt;<br>
-			<span class="changed">&lt;!ATTLIST casingItem forceError (true | false)
-			#IMPLIED &gt;</span><br>
+			&lt;!ATTLIST casingItem forceError (true | false)
+			#IMPLIED &gt;<br>
 		</p>
 		<p>The &lt;metadata&gt; element contains metadata about the locale
 			for use by the Survey Tool or other tools in checking locale data;
@@ -1375,12 +1367,12 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			data available in CLDR. In cases where the generated casing
 			information is incorrect and needs to be manually edited, the
 			override attribute is set to "true" so that the tool will not
-			override the manual edits.<span class="changed"> When the casing
+			override the manual edits. When the casing
 			information is known to be both correct and  something that
 			should apply to all elements of the specified type in a given
 			locale, the forceErr attribute may be set to "true" to force an
 			error instead of a warning for items that do not match the casing
-			information.</span></p>
+			information.</p>
 		<!-- end section Info-A metadta element -->
 
 		<!-- begin section 11 Version Information -->

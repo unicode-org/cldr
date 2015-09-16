@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1>
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">28</span></td>
+				<td>28</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -132,7 +132,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -142,8 +142,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -151,7 +151,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -1354,8 +1354,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				Element</a>
 		</h3>
 		<p class="dtd">
-			&lt;!ELEMENT collation (alias | (<span class="removed">import*,
-				settings?, suppress_contractions?, optimize?,</span> cr*, special*)) &gt;
+			&lt;!ELEMENT collation (alias | (cr*, special*)) &gt;
 		</p>
 		<p>
 			The tailoring syntax is designed to be independent of the actual
@@ -1365,9 +1364,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				class="element">collation</span>:
 		</p>
 		<pre>&lt;collation type="phonebook"&gt;
-  <span class="removed">&lt;settings caseLevel=&quot;on&quot;/&gt;</span>
   &lt;cr&gt;&lt;![CDATA[
-    <span class="changed">[caseLevel on]</span>
+    [caseLevel on]
     &amp;c &lt; k
   ]]&gt;&lt;/cr&gt;
 &lt;/collation&gt;</pre>
@@ -1376,13 +1374,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			3.4 <a name="Setting_Options" href="#Setting_Options">Setting
 				Options</a>
 		</h3>
-		<p class="removed">
-			The following parametric settings are attributes of &lt;settings&gt;.
-			For example, &lt;settings strength=&quot;secondary&quot;&gt; will
-			only compare strings based on their primary and secondary weights. In
-			rule syntax, these are of the form [<em>keyword</em> <em>value</em>].
-		</p>
-		<p class="changed">
+		<p>
 			Parametric settings can be specified in language tags or in rule
 			syntax (in the form
 			<code>[keyword value]</code>
@@ -1394,27 +1386,14 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			weights.
 		</p>
 		<p>
-			If <span class="removed">the attribute</span> <span class="changed">a
-				setting</span> is not present, the CLDR default (or the default for the
+			If a
+				setting is not present, the CLDR default (or the default for the
 			locale, if there is one) is used. That default is listed in bold
 			italics. Where there is a UCA default that is different, it is listed
 			in bold with (<strong>UCA default</strong>). Note that the default
-			value for a locale may be different than the <span class="changed">normal</span>
-			default value for the <span class="removed">attribute</span> <span
-				class="changed">setting</span><span class="removed">, so the
-				defaults here are <em>not</em> defaults for the corresponding
-				keywords
-			</span>.
+			value for a locale may be different than the normal
+			default value for the setting.
 		</p>
-		<p class="removed">
-			The Example cells include an LDML settings attribute example followed
-			by the same example in ICU rule syntax. In LDML files, parametric
-			settings should be specified via <span class="element">settings</span>
-			attributes, rather than in the rules.
-		</p>
-		<p class="reviewnote">Attribute/Options/Example columns merged
-			into one for Rule Syntax. XML syntax removed. These changes in this
-			table are not individually marked.</p>
 
 		<table>
 			<caption>
@@ -1424,7 +1403,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<tr>
 				<th>BCP47 Key</th>
 				<th>BCP47 Value</th>
-				<th class="changed">Rule Syntax</th>
+				<th>Rule Syntax</th>
 				<th>Description</th>
 			</tr>
 			<tr>
@@ -1468,8 +1447,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					comparison. <em>The default for LDML is different than it is
 						in the UCA. In LDML, the default for alternate handling is <strong>non-ignorable</strong>,
 						while in UCA it is <strong>shifted</strong>. In addition, in LDML
-						only whitespace and punctuation are variable <span class="changed">by
-							default</span>.
+						only whitespace and punctuation are variable by
+							default.
 				</em>
 				</td>
 			</tr>
@@ -1637,17 +1616,15 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</tr>
 			<tr>
 				<td>vt</td>
-				<td>See <span class="changed"><i>Part 1 Section 3.6.4, <a
+				<td>See <i>Part 1 Section 3.6.4, <a
 						href="tr35.html#Unicode_Locale_Extension_Data_Files">U Extension
-							Data Files</a></i></span>.<br>
+							Data Files</a></i>.<br>
 					<i><strong>Deprecated:</strong></i> Use maxVariable instead.
 				</td>
 				<td><code>&amp;\u00XX\uYYYY &lt; [variable top]</code><br>
 				<br> (the default is set to the highest punctuation, thus
 					including spaces and punctuation, but not symbols)</td>
-				<td><p class="removed">The Option value is an encoded
-						Unicode string, with code points in hex, leading zeros removed,
-						and &#39;u&#39; inserted between successive elements.</p>
+				<td>
 					<p>
 						The BCP47 value is described in <i>Appendix Q: <a
 							href="tr35.html#Locale_Extension_Key_and_Type_Data">Locale
@@ -1670,9 +1647,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				<td><em>n/a</em></td>
 				<td><em>n/a</em></td>
 				<td><em>n/a</em></td>
-				<td><span class="changed">match-boundaries: <em><strong>none</strong></em>
+				<td>match-boundaries: <em><strong>none</strong></em>
 						| whole-character | whole-word
-				</span><br> Defined by <em>Section 8, <a
+				<br> Defined by <em>Section 8, <a
 						href="http://www.unicode.org/reports/tr10/#Searching">Searching
 							and Matching</a></em> of [<a
 					href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
@@ -1681,9 +1658,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				<td><em>n/a</em></td>
 				<td><em>n/a</em></td>
 				<td><em>n/a</em></td>
-				<td><span class="changed">match-style: <em><strong>minimal</strong></em>
+				<td>match-style: <em><strong>minimal</strong></em>
 						| medial | maximal
-				</span><br> Defined by <em>Section 8, <a
+				<br> Defined by <em>Section 8, <a
 						href="http://www.unicode.org/reports/tr10/#Searching">Searching
 							and Matching</a></em> of [<a
 					href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
@@ -1787,9 +1764,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			then they would have to change with every version, parallel with the
 			root collation. Instead, for tailorings, mappings are added and
 			modified relative to the root collation. (There is no syntax to <i>remove</i>
-			mappings, except via <a href="#Special_Purpose_Commands">special
-				<span class="removed">&lt;suppress_contractions&gt;</span> <span
-				class="changed">[suppressContractions [...]]</span>
+			mappings, except via <a href="#Special_Purpose_Commands">special [suppressContractions [...]]
 			</a>.)
 		</p>
 
@@ -2442,36 +2417,18 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			3.12 <a name="Special_Purpose_Commands"
 				href="#Special_Purpose_Commands">Special-Purpose Commands</a>
 		</h3>
-		<p class="dtd removed">
-			&lt;!ELEMENT import EMPTY &gt;<br> &lt;!ATTLIST import source
-			CDATA #REQUIRED &gt;<br> &lt;!ATTLIST import type CDATA #IMPLIED
-			&gt;
-		</p>
 		<p>
 			The import command imports rules from another collation. This allows
 			for better maintenance and smaller rule sizes. The source is a BCP 47
-			language tag <span class="removed">(without extensions)</span> <span
-				class="changed">with an optional collation type but without
-				other extensions</span>. <span class="removed">It is required even
-				when it refers to the same locale as the importing tailoring itself.</span>
-			The <span class="changed">collation</span> type is the BCP 47 form of
-			the collation type in the source; it defaults to "standard". <span
-				class="removed"><code>(source)-u-co-(type)</code> must be a
-				valid BCP 47 language tag.</span>
+			language tag with an optional collation type but without
+				other extensions. 
+			The collation type is the BCP 47 form of
+			the collation type in the source; it defaults to "standard". 
 		</p>
 		<p>
 			<em>Examples: </em>
 		</p>
-		<ul class="removed">
-			<li><code> &lt;import source="de" type="phonebk"/&gt; </code>
-				&nbsp; (not type="phonebook")</li>
-			<li><code>&lt;import source="und" type="search"/&gt;</code>
-				&nbsp; (not source="root")</li>
-			<li><code>&lt;import source="ja" type="private-kana"/&gt;</code>
-				&nbsp; (source="ja" required even when this import itself is in
-				another "ja" tailoring.)</li>
-		</ul>
-		<ul class="changed">
+		<ul>
 			<li><code>[import de-u-co-phonebk]</code> &nbsp; (not
 				"...-co-phonebook")</li>
 			<li><code>[import und-u-co-search]</code> &nbsp; (not
@@ -2488,19 +2445,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</caption>
 			<tr>
 				<th>Rule Syntax</th>
-				<th class="removed">Sub-Element of <span class="element">collation</span>
-					(preferred)
-				</th>
 			</tr>
 			<tr>
 				<td>[suppressContractions [Љ-ґ]]</td>
-				<td class="removed"><code>&lt;suppress_contractions&gt;</code><span
-					style="color: blue">[Љ-ґ]</span> <code>&lt;/suppress_contractions&gt;</code></td>
 			</tr>
 			<tr>
 				<td>[optimize [Ά-ώ]]</td>
-				<td class="removed"><code>&lt;optimize&gt;</code><span
-					style="color: blue">[Ά-ώ]</span> <code>&lt;/optimize&gt;</code></td>
 			</tr>
 		</table>
 		<p>
@@ -2545,10 +2495,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			(type=&quot;phonebook&quot;) are particularly illustrative.
 		</p>
 		<pre>&lt;collation&gt;
-  <span class="removed">&lt;settings caseLevel=&quot;<span
-				style="color: blue">on</span>&quot;/&gt;</span>
   &lt;cr&gt;&lt;![CDATA[
-    <span class="changed">[caseLevel <span style="color: blue">on</span>]</span>
+    [caseLevel on]
     &amp;Z
     &lt; æ &lt;&lt;&lt; Æ
     &lt; å &lt;&lt;&lt; Å &lt;&lt;&lt; aa &lt;&lt;&lt; aA &lt;&lt;&lt; Aa &lt;&lt;&lt; AA
@@ -2580,15 +2528,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<table>
 			<tr>
 				<th>Rule Syntax</th>
-				<th class="removed">Sub-Element of <span class="element">collation</span>
-					(preferred)
-				</th>
 				<th>Locale Identifier</th>
 			</tr>
 			<tr>
 				<td><code>[reorder Grek Latn digit]</code></td>
-				<td class="removed"><code>&lt;settings reorder="Grek
-						Latn digit"/&gt;</code></td>
 				<td><code>en-u-kr-grek-latn-digit</code></td>
 			</tr>
 		</table>

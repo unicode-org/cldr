@@ -124,7 +124,7 @@ public class DtdDataCheck {
                     }
                     String special = "";
                     boolean allDeprecated = false;
-                    if (SUPPLEMENTAL.isDeprecated(dtdData.dtdType, element.name, a.name, null)) {
+                    if (SUPPLEMENTAL.isDeprecated(dtdData.dtdType, element.name, a.name, "*")) {
                         special += "\t#DEPRECATED#";
                         allDeprecated = true;
                         DEPRECATED.add(Row.of(dtdData.dtdType, element.name, a.name, "*"));

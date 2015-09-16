@@ -44,7 +44,7 @@ public class CLDRPaths {
     public static final String EXTERNAL_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("UCD_DIR", BASE_DIRECTORY) + "/../");
     public static final String ARCHIVE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("ARCHIVE", BASE_DIRECTORY));
     public static final String LAST_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-" +
-        ToolConstants.LAST_CHART_VERSION +
+        ToolConstants.PREVIOUS_CHART_VERSION +
         "/";
     public static final String GEN_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_GEN_DIR",
         CldrUtility.getPath(EXTERNAL_DIRECTORY, "Generated/cldr/")));

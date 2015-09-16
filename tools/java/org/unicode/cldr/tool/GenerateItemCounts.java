@@ -217,7 +217,7 @@ public class GenerateItemCounts {
                 final Set<DtdType> possible = x.getValue();
                 Set<DtdType> deprecated = new TreeSet();
                 for (DtdType dtdType : possible) {
-                    if (SUPPLEMENTAL_DATA_INFO.isDeprecated(dtdType, element, null, null)) {
+                    if (SUPPLEMENTAL_DATA_INFO.isDeprecated(dtdType, element, "*", "*")) {
                         deprecated.add(dtdType);
                     }
                 }
@@ -258,7 +258,7 @@ public class GenerateItemCounts {
                 for (R2<DtdType, String> s : possible) {
                     final DtdType dtdType = s.get0();
                     final String element = s.get1();
-                    if (SUPPLEMENTAL_DATA_INFO.isDeprecated(dtdType, element, attribute, null)) {
+                    if (SUPPLEMENTAL_DATA_INFO.isDeprecated(dtdType, element, attribute, "*")) {
                         deprecated.add(s);
                     }
                 }

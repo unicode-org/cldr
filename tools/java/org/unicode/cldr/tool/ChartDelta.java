@@ -26,6 +26,7 @@ import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -48,6 +49,7 @@ import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.OutputInt;
 
 public class ChartDelta extends Chart {
@@ -78,7 +80,23 @@ public class ChartDelta extends Chart {
         myOptions.parse(MyOptions.fileFilter, args, true);
         Matcher fileFilter = !MyOptions.fileFilter.option.doesOccur() ? null : PatternCache.get(MyOptions.fileFilter.option.getValue()).matcher("");
         boolean verbose = MyOptions.verbose.option.doesOccur();
-        new ChartDelta(fileFilter, verbose).writeChart(null);
+        ChartDelta temp = new ChartDelta(fileFilter, verbose);
+        temp.writeChart(null);
+        showTotals(temp);
+    }
+
+    private static void showTotals(ChartDelta temp) {
+        long total = temp.counter.getCount(ChangeType.totalItems);
+        NumberFormat pf = NumberFormat.getPercentInstance();
+        pf.setMinimumFractionDigits(2);
+        long same = total;
+        for (ChangeType item : ChangeType.values()) {
+            final long current = temp.counter.getCount(item);
+            final long numerator = item == ChangeType.totalItems ? same : current;
+            String title = item == ChangeType.totalItems ? "unchanged" : item.toString();
+            System.out.println(title + "\t" + pf.format(numerator/(double)total));
+            same -= current;
+        }
     }
 
     private static final String SEP = "\u0001";
@@ -132,7 +150,23 @@ public class ChartDelta extends Chart {
 
     static final CLDRFile EMPTY_CLDR = new CLDRFile(new SimpleXMLSource("und").freeze());
 
+    enum ChangeType {
+        newItems, 
+        deletedItems, 
+        changedItems,
+        totalItems;
+
+        public static ChangeType get(String oldValue, String currentValue) {
+            return oldValue == null ? newItems 
+                : currentValue == null ? deletedItems 
+                    : changedItems;
+        }
+    }
+    
+    Counter<ChangeType> counter = new Counter<>();
+
     public void writeSubcharts(Anchors anchors) {
+        counter.clear();
         writeLdml(anchors);  
         writeNonLdmlPlain(anchors, getDirectory());
     }
@@ -327,6 +361,7 @@ public class ChartDelta extends Chart {
             for (String attribute : fullAttributes) {
                 String attributeValueOld = pathOld.getAttributeValue(elementIndex, attribute);
                 String attributeValueCurrent = pathCurrent.getAttributeValue(elementIndex, attribute);
+                counter.add(ChangeType.totalItems, 1);
                 if (Objects.equals(attributeValueOld, attributeValueCurrent)) {
                     continue;
                 }
@@ -341,6 +376,7 @@ public class ChartDelta extends Chart {
 
     private void addValueDiff(String valueOld, String valueCurrent, String locale, PathHeader ph, Set<PathDiff> diff, Relation<PathHeader, String> diffAll) {
         String path = ph.getOriginalPath();
+        counter.add(ChangeType.totalItems, 1);
 
         if (!Objects.equals(valueCurrent, valueOld)) {
             PathDiff row = new PathDiff(locale, new PathHeaderSegment(ph, -1, ""), valueOld, valueCurrent);
@@ -427,6 +463,8 @@ public class ChartDelta extends Chart {
             Level coverageLevel = SUPPLEMENTAL_DATA_INFO.getCoverageLevel(ph.getOriginalPath(), locale);
             String fixedOldValue = oldValue == null ? "▷missing◁" : TransliteratorUtilities.toHTML.transform(oldValue);
             String fixedNewValue = currentValue == null ? "▷removed◁" : TransliteratorUtilities.toHTML.transform(currentValue);
+            
+            counter.add(ChangeType.get(oldValue, currentValue), 1);
 
             tablePrinter.addRow()
             .addCell(ph.getSectionId())
@@ -536,6 +574,8 @@ public class ChartDelta extends Chart {
                 for (String key : keys) {
                     String set1 = contents1.get(key);
                     String set2 = contents2.get(key);
+                    counter.add(ChangeType.totalItems, 1);
+
                     if (Objects.equals(set1, set2)) {
                         if (file.equals(DEBUG_FILE)) { // for debugging
                             System.out.println("**Same: " + key + "\t" + set1);
@@ -543,6 +583,8 @@ public class ChartDelta extends Chart {
                         continue;
                     }
                     String combinedValue = CldrUtility.ifNull(set1, "▷missing◁") + SEP + CldrUtility.ifNull(set2, "▷removed◁");
+                    counter.add(ChangeType.get(set1, set2), 1);
+
                     if (key.startsWith("//supplementalData")) {
                         if (key.contains("/transforms/")) {
                             Map<String, String> baseMap = transform.get(base);
@@ -574,23 +616,28 @@ public class ChartDelta extends Chart {
         // eo-eo_FONIPA
         // Latin-ASCII
         int i = 0;
-        StringBuilder sb = new StringBuilder();
-        for (String part : ONHYPHEN.split(key)) {
-            lparser.set(part);
-            String base = lparser.getLanguage();
-            int script = UScript.getCodeFromName(base);
-            if (script != UScript.INVALID_CODE) {
-                part = UScript.getName(script);
-            } else if (regularLanguage.contains(base)) {
-                part = ENGLISH.getName(part);
+        try {
+            StringBuilder sb = new StringBuilder();
+            for (String part : ONHYPHEN.split(key)) {
+                lparser.set(part);
+                String base = lparser.getLanguage();
+                int script = UScript.getCodeFromName(base);
+                if (script != UScript.INVALID_CODE) {
+                    part = UScript.getName(script);
+                } else if (regularLanguage.contains(base)) {
+                    part = ENGLISH.getName(part);
+                }
+                if (i != 0) {
+                    sb.append('-');
+                }
+                sb.append(part);
+                ++i;
             }
-            if (i != 0) {
-                sb.append('-');
-            }
-            sb.append(part);
-            ++i;
+            return sb.toString();
+        } catch (Exception e) {
+            // TODO fix this to handle all cases
+            return key;
         }
-        return sb.toString();
     }
 
     private String removeStart(String key, String... string) {

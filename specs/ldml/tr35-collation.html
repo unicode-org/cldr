@@ -1727,14 +1727,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			example, someone could want to restrict the Variable characters to
 			just include space marks. In that case, maxVariable would be set to
 			"space". (In CLDR 24 and earlier, the now-deprecated variableTop
-			would be set to U+1680, see <a
-				href="http://unicode.org/charts/collation/chart_Variable.html">UCA
-				Variable chart</a>). Alternatively, someone could want more of the
+			would be set to U+1680, see the “Whitespace” <a
+				href="http://unicode.org/charts/collation/">UCA
+				collation chart</a>). Alternatively, someone could want more of the
 			Common characters in them, and include characters up to (but not
 			including) '0', by setting maxVariable to "currency". (In CLDR 24 and
-			earlier, the now-deprecated variableTop would be set to U+20BA, see <a
-				href="http://unicode.org/charts/collation/chart_Common.html">UCA
-				Common chart</a>).
+			earlier, the now-deprecated variableTop would be set to U+20BA,
+			see the “Currency-Symbol” collation chart).
 		</p>
 		<p>The effect of these settings is to customize to ignore
 			different sets of characters when comparing strings. For example, the

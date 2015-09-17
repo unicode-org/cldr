@@ -77,7 +77,8 @@ public class ChartDtdDelta extends Chart {
 
         String last = null;
         for (String current : CLDR_VERSIONS) {
-            String currentName = current;
+            final boolean finalVersion = current.equals(ToolConstants.LAST_CHART_VERSION);
+            String currentName = finalVersion ? ToolConstants.CHART_DISPLAY_VERSION : current;
             for (DtdType type : TYPES) {
                 String firstVersion = FIRST_VERSION.get(type);
                 if (firstVersion != null && current != null && current.compareTo(firstVersion) < 0) {
@@ -85,7 +86,8 @@ public class ChartDtdDelta extends Chart {
                 }
                 DtdData dtdCurrent = null;
                 try {
-                    dtdCurrent = DtdData.getInstance(type, current.endsWith("β") ? null : current);
+                    dtdCurrent = DtdData.getInstance(type, 
+                        finalVersion && ToolConstants.CHART_STATUS != ToolConstants.ChartStatus.release ? null : current);
                 } catch (Exception e) {
                     if (!(e.getCause() instanceof FileNotFoundException)) {
                         throw e;
@@ -143,7 +145,7 @@ public class ChartDtdDelta extends Chart {
         "25.0",
         "26.0",
         "27.0",
-        ToolConstants.CHART_DISPLAY_VERSION
+        "28.0"
         );
 
     static Set<DtdType> TYPES = EnumSet.allOf(DtdType.class);

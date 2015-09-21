@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.util.ICUException;
 

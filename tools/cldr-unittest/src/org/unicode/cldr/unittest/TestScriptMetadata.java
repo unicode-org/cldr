@@ -27,7 +27,7 @@ import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;

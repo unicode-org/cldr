@@ -30,7 +30,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.base.Objects;
 import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.UnicodeSet;
 
 public class ShowRegionalVariants {

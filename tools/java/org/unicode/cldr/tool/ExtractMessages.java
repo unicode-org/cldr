@@ -22,7 +22,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLFileReader;
 
 import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;

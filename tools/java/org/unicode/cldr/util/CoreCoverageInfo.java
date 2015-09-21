@@ -15,7 +15,7 @@ import org.unicode.cldr.draft.ScriptMetadata.Trinary;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UCharacterDirection;
 import com.ibm.icu.lang.UScript;

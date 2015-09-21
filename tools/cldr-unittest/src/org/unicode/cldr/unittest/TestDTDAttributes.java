@@ -17,7 +17,7 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.ElementAttributeInfo;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;

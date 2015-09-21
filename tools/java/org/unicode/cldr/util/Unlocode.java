@@ -21,7 +21,7 @@ import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.ChainedMap.M3;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.util.Output;

@@ -16,7 +16,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 
 public class CheckEnglishCurrencyNames {
     static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo

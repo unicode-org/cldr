@@ -5,7 +5,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UExtension;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 
 public class TestUExtension extends TestFmwk {
 

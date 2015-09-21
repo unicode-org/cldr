@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SemiFileReader;
 
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;

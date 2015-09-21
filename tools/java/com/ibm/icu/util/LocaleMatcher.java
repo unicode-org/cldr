@@ -17,7 +17,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.ICUResourceBundle;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;

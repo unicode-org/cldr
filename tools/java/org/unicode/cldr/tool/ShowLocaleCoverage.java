@@ -47,7 +47,7 @@ import org.unicode.cldr.util.VettingViewer.MissingStatus;
 import com.google.common.collect.Ordering;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 
 public class ShowLocaleCoverage {

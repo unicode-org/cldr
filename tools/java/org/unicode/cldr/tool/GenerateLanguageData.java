@@ -24,7 +24,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
 import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.MessageFormat;
 
 @CLDRTool(alias = "langdata", description = "Generate a list of ISO639 language data. Use '--en' to build en.xml.")

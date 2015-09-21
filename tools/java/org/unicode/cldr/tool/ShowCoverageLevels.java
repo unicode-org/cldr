@@ -8,7 +8,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Level;
 
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 
 public class ShowCoverageLevels {
     private static CLDRConfig testInfo = ToolConfig.getToolInstance();

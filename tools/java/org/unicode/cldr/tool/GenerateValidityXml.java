@@ -26,7 +26,7 @@ import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Joiner;
 import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ICUUncheckedIOException;
 

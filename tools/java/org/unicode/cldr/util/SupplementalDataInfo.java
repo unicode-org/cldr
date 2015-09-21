@@ -42,9 +42,9 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.XEquivalenceClass;
 import com.ibm.icu.impl.IterableComparator;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;

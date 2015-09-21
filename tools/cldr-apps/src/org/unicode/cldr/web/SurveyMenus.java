@@ -24,7 +24,7 @@ import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.web.SurveyMenus.Section.Page;
 
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 
 public class SurveyMenus implements Iterable<SurveyMenus.Section> {
     PathHeader.Factory phf;

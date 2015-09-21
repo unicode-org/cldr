@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 
 /**
  * Take mappings to IPA and interleave them.

@@ -20,7 +20,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 
 /**
  * To update, copy the list from http://en.wikipedia.org/wiki/List_of_official_languages_by_state into WikipediaOfficialLanguages.txt

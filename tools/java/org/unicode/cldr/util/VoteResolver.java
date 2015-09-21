@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.ULocale;
 

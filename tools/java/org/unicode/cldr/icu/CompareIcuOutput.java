@@ -19,6 +19,7 @@ import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.UCharacterProperty;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UForwardCharacterIterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -504,7 +505,7 @@ public class CompareIcuOutput {
             if (UTF16.isLeadSurrogate((char) ch1)) {
                 int bufferedChar = next();
                 if (UTF16.isTrailSurrogate((char) bufferedChar)) {
-                    return UCharacterProperty.getRawSupplementary((char) ch1,
+                    return UCharacter.getCodePoint((char) ch1,
                         (char) bufferedChar);
                 }
             }

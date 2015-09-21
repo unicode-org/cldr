@@ -17,7 +17,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SemiFileReader;
 import org.unicode.cldr.util.StandardCodes;
 
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
 
 public class ScriptMetadata {

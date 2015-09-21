@@ -61,7 +61,7 @@ import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.dev.util.PrettyPrinter;
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;

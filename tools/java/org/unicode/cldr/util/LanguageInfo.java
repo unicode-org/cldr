@@ -11,7 +11,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 
 public class LanguageInfo {
     static final StandardCodes sc = StandardCodes.make();

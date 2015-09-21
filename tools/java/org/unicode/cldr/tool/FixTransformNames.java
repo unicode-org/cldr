@@ -21,7 +21,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.With;
 
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Transliterator;
 

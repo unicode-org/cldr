@@ -30,7 +30,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.TestTransforms;
 
 import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeFilter;
 

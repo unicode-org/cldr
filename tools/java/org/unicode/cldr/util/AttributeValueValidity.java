@@ -22,7 +22,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.ComparisonChain;
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;

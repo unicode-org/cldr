@@ -59,7 +59,7 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;

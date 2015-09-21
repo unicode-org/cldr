@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.XPathParts.Comments;
 
-import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.VersionInfo;

@@ -625,7 +625,11 @@ public class TestSTFactory extends TestFmwk {
                     break;
                 case "echo":
                 case "warn":
-                    logln("*** " + elem + "  \"" + value.trim() + "\"");
+                    if (value == null) {
+                        logln("*** " + elem + "  \"" + "null" + "\"");
+                    } else {
+                        logln("*** " + elem + "  \"" + value.trim() + "\"");
+                    }
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown test element type " + elem);

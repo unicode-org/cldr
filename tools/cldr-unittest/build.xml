@@ -85,7 +85,7 @@
             additionalparam="${doc.params}"
             link="http://docs.oracle.com/javase/7/docs/api"
             bottom="&lt;font size=-1>&lt;a  target='_top' href='http://www.unicode.org/copyright.html'>Copyright &amp;copy; 2004-${current.year} Unicode, Inc. All Rights Reserved.&lt;/a>&lt;/font>"
-            source="1.7" />
+            source="1.8" />
     </target>
 
     <target name="build" depends="init" description="build web classes">
@@ -95,8 +95,8 @@
         	includes="org/unicode/cldr/unittest/*.java"
             destdir="${build.dir}"
             classpathref="project.class.path"
-            source="1.7"
-            target="1.7"
+            source="1.8"
+            target="1.8"
             debug="on" deprecation="off"
             includeantruntime="false"
             encoding="UTF-8"/>

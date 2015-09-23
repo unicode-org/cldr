@@ -213,6 +213,13 @@ public class TestTransforms extends TestFmwkPlus {
         }
     }
 
+    public void Test8921() {
+        register();
+        Transliterator trans = Transliterator.getInstance("Latin-ASCII");
+        assertEquals("Test8921", "Kornil'ev Kirill",
+                     trans.transliterate("Kornilʹev Kirill"));
+    }
+
     public void TestData() {
         register();
         try {

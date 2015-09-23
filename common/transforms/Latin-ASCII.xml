@@ -593,6 +593,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<comment>#</comment>
 			<comment># Quotes, apostrophes</comment>
 			<comment>#</comment>
+			<tRule>ʹ → \' ; # 02B9;MODIFIER LETTER PRIME</tRule>
+			<tRule>ʺ → \" ; # 02BA;MODIFIER LETTER DOBULE PRIME</tRule>
+			<tRule>ʻ → \' ; # 02BB;MODIFIER LETTER TURNED COMMA</tRule>
+			<tRule>ʼ → \' ; # 02BC;MODIFIER LETTER APOSTROPHE</tRule>
+			<tRule>ʽ → \' ; # 02BD;MODIFIER LETTER REVERSED COMMA</tRule>
+			<tRule>ˈ → \' ; # 02C8;MODIFIER LETTER VERTICAL LINE</tRule>
+			<tRule>ˋ → '`' ; # 02CB;MODIFIER LETTER GRAVE ACCENT</tRule>
 			<tRule>‘ → \' ; # 2018;LEFT SINGLE QUOTATION MARK (from ‹character-fallback›)</tRule>
 			<tRule>’ → \' ; # 2019;RIGHT SINGLE QUOTATION MARK (from ‹character-fallback›)</tRule>
 			<tRule>‚ → ',' ; # 201A;SINGLE LOW-9 QUOTATION MARK (from ‹character-fallback›)</tRule>
@@ -629,6 +636,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<comment>#</comment>
 			<comment># Other misc punctuation and symbols</comment>
 			<comment>#</comment>
+			<tRule>˂ → '&lt;' ; # 02C2;MODIFIER LETTER LEFT ARROWHEAD</tRule>
+			<tRule>˃ → '&gt;' ; # 02C3;MODIFIER LETTER RIGHT ARROWHEAD</tRule>
+			<tRule>˄ → '^' ; # 02C4;MODIFIER LETTER UP ARROWHEAD</tRule>
+			<tRule>ˆ → '^' ; # 02C6;MODIFIER LETTER CIRCUMFLEX ACCENT</tRule>
+			<tRule>ː → ':' ; # 02D0;MODIFIER LETTER TRIANGULAR COLON</tRule>
+			<tRule>˜ → '~' ; # 02DC;SMALL TILDE</tRule>
 			<tRule>‖ → '||' ; # 2016;DOUBLE VERTICAL LINE</tRule>
 			<tRule>․ → '.' ; # 2024;ONE DOT LEADER (compat)</tRule>
 			<tRule>‥ → '..' ; # 2025;TWO DOT LEADER (compat)</tRule>
@@ -739,6 +752,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<comment>#</comment>
 			<tRule>× → '*' ; # 00D7;MULTIPLICATION SIGN</tRule>
 			<tRule>÷ → '/' ; # 00F7;DIVISION SIGN</tRule>
+			<tRule>˖ → '+' ; # 02D6;MODIFIER LETTER PLUS SIGN</tRule>
+			<tRule>˗ → '-' ; # 02D7;MODIFIER LETTER MINUS SIGN</tRule>
 			<tRule>− → '-' ; # 2212;MINUS SIGN (from ‹character-fallback›)</tRule>
 			<tRule>∕ → '/' ; # 2215;DIVISION SLASH (from ‹character-fallback›)</tRule>
 			<tRule>∖ → '\' ; # 2216;SET MINUS (from ‹character-fallback›)</tRule>

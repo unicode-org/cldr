@@ -628,7 +628,7 @@ public class TestSTFactory extends TestFmwk {
                     if (value == null) {
                         logln("*** " + elem + "  \"" + "null" + "\"");
                     } else {
-                        // logln("*** " + elem + "  \"" + value.trim() + "\"");
+                        logln("*** " + elem + "  \"" + value.trim() + "\"");
                     }
                     break;
                 default:

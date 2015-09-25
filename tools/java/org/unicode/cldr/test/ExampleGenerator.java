@@ -280,12 +280,12 @@ public class ExampleGenerator {
             // "real" value to generate from.
             if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
                 if (type.equals(ExampleType.ENGLISH)) {
-                    value = englishFile.getConstructedBaileyValue(xpath, null, null);                  
+                    value = englishFile.getConstructedBaileyValue(xpath, null, null);
                 } else {
                     value = cldrFile.getConstructedBaileyValue(xpath, null, null);
                 }
             }
-            
+
             // result is null at this point. Get the real value if we can.
             parts.set(xpath);
             if (parts.contains("dateRangePattern")) { // {0} - {1}
@@ -371,12 +371,12 @@ public class ExampleGenerator {
     }
 
     private String handleDayPeriod(String xpath, String value, ExampleContext context, ExampleType type) {
-      //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]
-      //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]
+        //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]
+        //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]
         List<String> examples = new ArrayList<>();
         final String dayPeriodType = parts.getAttributeValue(5, "type");
         org.unicode.cldr.util.DayPeriodInfo.Type aType = dayPeriodType.equals("format") ? DayPeriodInfo.Type.format : DayPeriodInfo.Type.selection;
-        DayPeriodInfo dayPeriodInfo = supplementalDataInfo.getDayPeriods(aType , cldrFile.getLocaleID());
+        DayPeriodInfo dayPeriodInfo = supplementalDataInfo.getDayPeriods(aType, cldrFile.getLocaleID());
         String periodString = parts.getAttributeValue(-1, "type");
 
         DayPeriod dayPeriod = DayPeriod.valueOf(periodString);
@@ -654,7 +654,7 @@ public class ExampleGenerator {
         String valuePatternType, String value) {
         return valuePatternType.equals(pathPatternType) ?
             setBackground(value) :
-                getValueFromFormat(pathFormat, pathPatternType);
+            getValueFromFormat(pathFormat, pathPatternType);
     }
 
     private String getValueFromFormat(String format, Object... arguments) {
@@ -839,54 +839,54 @@ public class ExampleGenerator {
         Set<FixedDecimal> examplesSeen = new HashSet<FixedDecimal>();
         int maxCount = 2;
         main:
-            // If we are a currency, we will try to see if we can set the decimals to match.
-            // but if nothing works, we will just use a plain sample.
-            for (int phase = 0; phase < 2; ++phase) {
-                int check = 0;
-                for (FixedDecimal example : exampleCount) {
-                    // we have to first see whether we have a currency. If so, we have to see if the count works.
+        // If we are a currency, we will try to see if we can set the decimals to match.
+        // but if nothing works, we will just use a plain sample.
+        for (int phase = 0; phase < 2; ++phase) {
+            int check = 0;
+            for (FixedDecimal example : exampleCount) {
+                // we have to first see whether we have a currency. If so, we have to see if the count works.
 
-                    if (isCurrency && phase == 0) {
-                        example = new FixedDecimal(example.source, decimalCount);
-                    }
-                    // skip if we've done before (can happen because of the currency reset)
-                    if (examplesSeen.contains(example)) {
-                        continue;
-                    }
-                    examplesSeen.add(example);
-                    // skip if the count isn't appropriate
-                    if (!pluralRules.select(example).equals(count.toString())) {
-                        continue;
-                    }
+                if (isCurrency && phase == 0) {
+                    example = new FixedDecimal(example.source, decimalCount);
+                }
+                // skip if we've done before (can happen because of the currency reset)
+                if (examplesSeen.contains(example)) {
+                    continue;
+                }
+                examplesSeen.add(example);
+                // skip if the count isn't appropriate
+                if (!pluralRules.select(example).equals(count.toString())) {
+                    continue;
+                }
 
-                    if (value == null) {
-                        String fallbackPath = cldrFile.getCountPathWithFallback(xpath, count, true);
-                        value = cldrFile.getStringValue(fallbackPath);
-                    }
-                    String resultItem;
+                if (value == null) {
+                    String fallbackPath = cldrFile.getCountPathWithFallback(xpath, count, true);
+                    value = cldrFile.getStringValue(fallbackPath);
+                }
+                String resultItem;
 
-                    resultItem = formatCurrency(value, type, unitType, isPattern, isCurrency, count, example);
+                resultItem = formatCurrency(value, type, unitType, isPattern, isCurrency, count, example);
+                // now add to list
+                result = addExampleResult(resultItem, result);
+                if (isPattern) {
+                    String territory = getDefaultTerritory(type);
+                    String currency = supplementalDataInfo.getDefaultCurrency(territory);
+                    if (currency.equals(unitType)) {
+                        currency = "EUR";
+                        if (currency.equals(unitType)) {
+                            currency = "JAY";
+                        }
+                    }
+                    resultItem = formatCurrency(value, type, currency, isPattern, isCurrency, count, example);
                     // now add to list
                     result = addExampleResult(resultItem, result);
-                    if (isPattern) {
-                        String territory = getDefaultTerritory(type);
-                        String currency = supplementalDataInfo.getDefaultCurrency(territory);
-                        if (currency.equals(unitType)) {
-                            currency = "EUR";
-                            if (currency.equals(unitType)) {
-                                currency = "JAY";
-                            }
-                        }
-                        resultItem = formatCurrency(value, type, currency, isPattern, isCurrency, count, example);
-                        // now add to list
-                        result = addExampleResult(resultItem, result);
 
-                    }
-                    if (--maxCount < 1) {
-                        break main;
-                    }
+                }
+                if (--maxCount < 1) {
+                    break main;
                 }
             }
+        }
         return result.isEmpty() ? null : result;
     }
 
@@ -955,8 +955,8 @@ public class ExampleGenerator {
         String unitPattern;
         String unitPatternPath = cldrFile.getCountPathWithFallback(isCurrency
             ? "//ldml/numbers/currencyFormats/unitPattern"
-                : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
-                count, true);
+            : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
+            count, true);
         unitPattern = cldrFile.getWinningValue(unitPatternPath);
         return unitPattern;
     }
@@ -964,8 +964,8 @@ public class ExampleGenerator {
     private String getUnitName(String unitType, final boolean isCurrency, Count count) {
         String unitNamePath = cldrFile.getCountPathWithFallback(isCurrency
             ? "//ldml/numbers/currencies/currency[@type=\"" + unitType + "\"]/displayName"
-                : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
-                count, true);
+            : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
+            count, true);
         return cldrFile.getWinningValue(unitNamePath);
     }
 
@@ -1177,7 +1177,7 @@ public class ExampleGenerator {
                 SimpleDateFormat sdf = icuServiceBuilder.getDateFormat(calendar, value, numbersOverride);
                 sdf.setTimeZone(ZONE_SAMPLE);
                 String defaultNumberingSystem = cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
-                String timeSeparator = cldrFile.getWinningValue("//ldml/numbers/symbols[@numberSystem='"+defaultNumberingSystem+"']/timeSeparator");
+                String timeSeparator = cldrFile.getWinningValue("//ldml/numbers/symbols[@numberSystem='" + defaultNumberingSystem + "']/timeSeparator");
                 DateFormatSymbols dfs = sdf.getDateFormatSymbols();
                 dfs.setTimeSeparatorString(timeSeparator);
                 sdf.setDateFormatSymbols(dfs);
@@ -1581,19 +1581,19 @@ public class ExampleGenerator {
     private String finalizeBackground(String input) {
         return input == null
             ? input
-                : exampleStart +
+            : exampleStart +
                 TransliteratorUtilities.toHTML.transliterate(input)
-                .replace(backgroundStartSymbol + backgroundEndSymbol, "")
-                // remove null runs
-                .replace(backgroundEndSymbol + backgroundStartSymbol, "")
-                // remove null runs
-                .replace(backgroundStartSymbol, backgroundStart)
-                .replace(backgroundEndSymbol, backgroundEnd)
-                .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
-                .replace(startItalicSymbol, startItalic)
-                .replace(endItalicSymbol, endItalic)
-                .replace(startSupSymbol, startSup)
-                .replace(endSupSymbol, endSup)
+                    .replace(backgroundStartSymbol + backgroundEndSymbol, "")
+                    // remove null runs
+                    .replace(backgroundEndSymbol + backgroundStartSymbol, "")
+                    // remove null runs
+                    .replace(backgroundStartSymbol, backgroundStart)
+                    .replace(backgroundEndSymbol, backgroundEnd)
+                    .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
+                    .replace(startItalicSymbol, startItalic)
+                    .replace(endItalicSymbol, endItalic)
+                    .replace(startSupSymbol, startSup)
+                    .replace(endSupSymbol, endSup)
                 + exampleEnd;
     }
 
@@ -1708,12 +1708,12 @@ public class ExampleGenerator {
         while (URLMatcher.reset(description).find(start)) {
             final String url = URLMatcher.group();
             buffer
-            .append(TransliteratorUtilities.toHTML.transliterate(description.substring(start, URLMatcher.start())))
-            .append("<a target='CLDR-ST-DOCS' href='")
-            .append(url)
-            .append("'>")
-            .append(url)
-            .append("</a>");
+                .append(TransliteratorUtilities.toHTML.transliterate(description.substring(start, URLMatcher.start())))
+                .append("<a target='CLDR-ST-DOCS' href='")
+                .append(url)
+                .append("'>")
+                .append(url)
+                .append("</a>");
             start = URLMatcher.end();
         }
         buffer.append(TransliteratorUtilities.toHTML.transliterate(description.substring(start)));
@@ -1746,10 +1746,10 @@ public class ExampleGenerator {
                 .replace("", "❬")
                 .replace("", "❭") + "〗"
                 : exampleHtml
-                .replace("<div class='cldr_example'>", "〖")
-                .replace("</div>", "〗")
-                .replace("<span class='cldr_substituted'>", "❬")
-                .replace("</span>", "❭");
+                    .replace("<div class='cldr_example'>", "〖")
+                    .replace("</div>", "〗")
+                    .replace("<span class='cldr_substituted'>", "❬")
+                    .replace("</span>", "❭");
     }
 
     HelpMessages helpMessages;

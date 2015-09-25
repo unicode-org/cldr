@@ -22,7 +22,7 @@ import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class ShowDtdDiffs {
     static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
-    
+
     static final List<String> CLDR_VERSIONS = Arrays.asList(
         "1.1.1",
         "1.2.0",
@@ -41,14 +41,15 @@ public class ShowDtdDiffs {
         "25.0",
         "26.0",
         "27.0",
+        "28.0",
         null
         );
     static Set<DtdType> TYPES = EnumSet.allOf(DtdType.class);
     static {
         TYPES.remove(DtdType.ldmlICU);
     }
-    
-    static final Map<DtdType,String> FIRST_VERSION = new EnumMap<>(DtdType.class);
+
+    static final Map<DtdType, String> FIRST_VERSION = new EnumMap<>(DtdType.class);
     static {
         FIRST_VERSION.put(DtdType.ldmlBCP47, "1.7.2");
         FIRST_VERSION.put(DtdType.keyboard, "22.1");
@@ -89,7 +90,7 @@ public class ShowDtdDiffs {
             last = current;
         }
     }
-    
+
     private static void diff(String prefix, DtdData dtdLast, DtdData dtdCurrent) {
         Map<String, Element> oldNameToElement = dtdLast == null ? Collections.EMPTY_MAP : dtdLast.getElementFromName();
         checkNames(prefix, dtdCurrent, oldNameToElement, "/", dtdCurrent.ROOT, new HashSet<Element>());
@@ -104,7 +105,7 @@ public class ShowDtdDiffs {
         if (SKIP_ELEMENTS.contains(name)) {
             return;
         }
-        
+
         if (isDeprecated(dtdCurrent.dtdType, name, "*")) { // SDI.isDeprecated(dtdCurrent.dtdType, name, "*", "*")) {
             return;
         }
@@ -123,7 +124,7 @@ public class ShowDtdDiffs {
             checkNames(prefix, dtdCurrent, oldNameToElement, newPath, child, seen);
         }
     }
-    
+
 //    static class Parents {
 //        final DtdData dtd;
 //        final Relation<String,String> childToParents = Relation.of(new HashMap(), HashSet.class);
@@ -155,25 +156,24 @@ public class ShowDtdDiffs {
 
     static final Set<String> SKIP_ELEMENTS = new HashSet<>(Arrays.asList("generation", "identity", "alias", "special", "telephoneCodeData"));
     static final Set<String> SKIP_ATTRIBUTES = new HashSet<>(Arrays.asList("references", "standard", "draft", "alt"));
-    
+
     private static String getAttributeNames(DtdData dtdCurrent, String elementName, Map<Attribute, Integer> attributesOld, Map<Attribute, Integer> attributes) {
         Set<String> names = new LinkedHashSet<>();
-        main:
-            for (Attribute attribute : attributes.keySet()) {
-                String name = attribute.getName();
-                if (SKIP_ATTRIBUTES.contains(name)) {
-                    continue;
-                }
-                if (isDeprecated(dtdCurrent.dtdType, elementName, name)) { // SDI.isDeprecated(dtdCurrent, elementName, name, "*")) {
-                    continue;
-                }
-                for (Attribute attributeOld : attributesOld.keySet()) {
-                    if (attributeOld.name.equals(name)) {
-                        continue main;
-                    }
-                }
-                names.add(name);
+        main: for (Attribute attribute : attributes.keySet()) {
+            String name = attribute.getName();
+            if (SKIP_ATTRIBUTES.contains(name)) {
+                continue;
             }
+            if (isDeprecated(dtdCurrent.dtdType, elementName, name)) { // SDI.isDeprecated(dtdCurrent, elementName, name, "*")) {
+                continue;
+            }
+            for (Attribute attributeOld : attributesOld.keySet()) {
+                if (attributeOld.name.equals(name)) {
+                    continue main;
+                }
+            }
+            names.add(name);
+        }
         return names.isEmpty() ? "" : CollectionUtilities.join(names, ", ");
     }
 

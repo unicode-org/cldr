@@ -301,7 +301,7 @@ public class Ldml2JsonConverter {
             String path = it.next();
             String fullPath = file.getFullXPath(path);
             String value = file.getWinningValue(path);
-            if (path.startsWith("//ldml/localeDisplayNames/languages") && 
+            if (path.startsWith("//ldml/localeDisplayNames/languages") &&
                 file.getSourceLocaleID(path, null).equals("code-fallback")) {
                 value = file.getConstructedBaileyValue(path, null, null);
             }

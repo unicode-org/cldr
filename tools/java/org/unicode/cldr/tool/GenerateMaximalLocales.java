@@ -487,7 +487,6 @@ public class GenerateMaximalLocales {
                 toChildren.removeAll(locale, toRemove);
             }
         }
-        
 
         // we add a child as a default locale if it has the same maximization
         main: for (String locale : toChildren.keySet()) {

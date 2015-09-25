@@ -87,8 +87,8 @@ public class RBNFWriter {
             sdf.applyPattern("yyyy");
             out.println("<!--");
             out.println("Copyright © 1991-" + sdf.format(now) + " Unicode, Inc.\n" +
-                    "CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)\n" +
-                    "For terms of use, see http://www.unicode.org/copyright.html");
+                "CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)\n" +
+                "For terms of use, see http://www.unicode.org/copyright.html");
             out.println("-->");
             sdf.applyPattern("yyyy/MM/dd HH:mm:ss");
 

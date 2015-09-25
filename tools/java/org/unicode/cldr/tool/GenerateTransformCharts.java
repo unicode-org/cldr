@@ -340,7 +340,7 @@ public class GenerateTransformCharts {
         // index.println("<h1>Transliteration Charts</h1>");
         index.println("<p>The following illustrates some of the CLDR transliterations to/from the Latin script.</p>");
         index.println("<blockquote>"
-            +"<b>Note:</b> "
+            + "<b>Note:</b> "
             + "These charts do not show the available script and language transliterations that are not to/from Latin. "
             + "It also does not show other transforms that are available in CLDR, such as the casing transformations, "
             + "full-width and half-width transformations, and specialized transformations such as IPA-XSampa. "

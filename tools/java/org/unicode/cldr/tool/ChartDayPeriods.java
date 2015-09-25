@@ -24,10 +24,12 @@ public class ChartDayPeriods extends Chart {
     public String getDirectory() {
         return FormattedFileWriter.CHART_TARGET_DIR;
     }
+
     @Override
     public String getTitle() {
         return "Day Periods";
     }
+
     @Override
     public String getExplanation() {
         return "<p>Day Periods indicate roughly how the day is broken up in different languages. "
@@ -41,24 +43,23 @@ public class ChartDayPeriods extends Chart {
 
     @Override
     public void writeContents(FormattedFileWriter pw) throws IOException {
-        
+
         TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Locale Group", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-        .addColumn("Locale Name", "class='source'", null, "class='source'", true)
-        .setSortPriority(1)
-        .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-        .setSortPriority(2)
-        .setBreakSpans(true)
-        //.addColumn("Type", "class='source'", null, "class='source'", true)
-        //.setSortPriority(3)
-        .addColumn("Start Time", "class='target'", null, "class='target'", true)
-        .addColumn("Day Period Code", "class='target'", null, "class='target'", true)
-        .addColumn("Example", "class='target'", null, "class='target'", true)
-        ;
-        
+            .addColumn("Locale Group", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .addColumn("Locale Name", "class='source'", null, "class='source'", true)
+            .setSortPriority(1)
+            .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .setSortPriority(2)
+            .setBreakSpans(true)
+            //.addColumn("Type", "class='source'", null, "class='source'", true)
+            //.setSortPriority(3)
+            .addColumn("Start Time", "class='target'", null, "class='target'", true)
+            .addColumn("Day Period Code", "class='target'", null, "class='target'", true)
+            .addColumn("Example", "class='target'", null, "class='target'", true);
+
         DateFormat df = DateFormat.getPatternInstance("HH:mm", ULocale.ENGLISH);
         df.setTimeZone(TimeZone.GMT_ZONE);
-        
+
         for (Type type : Type.values()) {
             if (type != Type.selection) { // skip until in better shape
                 continue;
@@ -73,20 +74,20 @@ public class ChartDayPeriods extends Chart {
                 for (int i = 0; i < dayPeriodInfo.getPeriodCount(); ++i) {
                     R3<Integer, Boolean, DayPeriod> data = dayPeriodInfo.getPeriod(i);
                     Integer time = data.get0();
-                    
+
                     String name = DayPeriodData.getName(locale, data.get2());
                     if (name == null) {
                         name = "missing";
                     }
                     tablePrinter.addRow()
-                    .addCell(group)
-                    .addCell(ENGLISH.getName(locale))
-                    .addCell(locale)
-                    //.addCell(type)
-                    .addCell(df.format(time))
-                    .addCell(data.get2())
-                    .addCell(name)
-                    .finishRow();
+                        .addCell(group)
+                        .addCell(ENGLISH.getName(locale))
+                        .addCell(locale)
+                        //.addCell(type)
+                        .addCell(df.format(time))
+                        .addCell(data.get2())
+                        .addCell(name)
+                        .finishRow();
                 }
             }
         }

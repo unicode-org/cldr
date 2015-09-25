@@ -42,8 +42,8 @@ import com.ibm.icu.text.UnicodeSet;
 public class CheckAttributeValues extends FactoryCheckCLDR {
 
     private static final ObjectMatcher<String> NOT_DONE_YET = new RegexMatcher().set(".*", Pattern.COMMENTS);
-    private static final boolean FIND_MISSING = CldrUtility.getProperty("FIND_MISSING_ATTRIBUTE_TESTS", false);        // turn on to show <attributeValues> that are missing.
-    private static final boolean SHOW_UNNECESSARY = false;      // turn on to show <attributeValues> we should delete.
+    private static final boolean FIND_MISSING = CldrUtility.getProperty("FIND_MISSING_ATTRIBUTE_TESTS", false); // turn on to show <attributeValues> that are missing.
+    private static final boolean SHOW_UNNECESSARY = false; // turn on to show <attributeValues> we should delete.
 
     static LinkedHashSet<String> elementOrder = new LinkedHashSet<String>();
     static LinkedHashSet<String> attributeOrder = new LinkedHashSet<String>();
@@ -61,7 +61,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
 
     boolean isEnglish;
     PluralInfo pluralInfo;
-    Relation<String,String> missingTests = Relation.of(new TreeMap(), TreeSet.class);
+    Relation<String, String> missingTests = Relation.of(new TreeMap(), TreeSet.class);
 
     XPathParts parts = new XPathParts(null, null);
     static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
@@ -75,6 +75,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             System.out.println("Missing element: " + entry.getKey() + ", attributes: " + entry.getValue());
         }
     }
+
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
@@ -106,9 +107,9 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                     Set<String> typeValues = BCP47_KEY_VALUES.get(attributes.get("key"));
                     if (!typeValues.contains(attributeValue)) {
                         result.add(new CheckStatus()
-                        .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.unexpectedAttributeValue)
-                        .setMessage("Unexpected Attribute Value {0}={1}: expected: {2}",
-                            new Object[] { attribute, attributeValue, typeValues }));
+                            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.unexpectedAttributeValue)
+                            .setMessage("Unexpected Attribute Value {0}={1}: expected: {2}",
+                                new Object[] { attribute, attributeValue, typeValues }));
                     }
                     continue;
                 }
@@ -130,9 +131,9 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                         if (!pluralInfo.getCounts().contains(countValue)
                             && !isPluralException(countValue, locale)) {
                             result.add(new CheckStatus()
-                            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalPlural)
-                            .setMessage("Illegal plural value {0}; must be one of: {1}",
-                                new Object[] { countValue, pluralInfo.getCounts() }));
+                                .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalPlural)
+                                .setMessage("Illegal plural value {0}; must be one of: {1}",
+                                    new Object[] { countValue, pluralInfo.getCounts() }));
                         }
                     }
                 }
@@ -200,24 +201,24 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             }
             if (replacement.length() == 0) {
                 result.add(new CheckStatus()
-                .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.deprecatedAttribute)
-                .setMessage("Deprecated Attribute Value {0}={1}. Consider removing.",
-                    new Object[] { attribute, attributeValue }));
+                    .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.deprecatedAttribute)
+                    .setMessage("Deprecated Attribute Value {0}={1}. Consider removing.",
+                        new Object[] { attribute, attributeValue }));
             } else {
                 result
-                .add(new CheckStatus()
-                .setCause(this)
-                .setMainType(CheckStatus.warningType)
-                .setSubtype(Subtype.deprecatedAttributeWithReplacement)
-                .setMessage(
-                    "Deprecated Attribute Value {0}={1}. Consider removing, and possibly modifying the related value for {2}.",
-                    new Object[] { attribute, attributeValue, replacement }));
+                    .add(new CheckStatus()
+                        .setCause(this)
+                        .setMainType(CheckStatus.warningType)
+                        .setSubtype(Subtype.deprecatedAttributeWithReplacement)
+                        .setMessage(
+                            "Deprecated Attribute Value {0}={1}. Consider removing, and possibly modifying the related value for {2}.",
+                            new Object[] { attribute, attributeValue, replacement }));
             }
         } else {
             result.add(new CheckStatus()
-            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.unexpectedAttributeValue)
-            .setMessage("Unexpected Attribute Value {0}={1}: expected: {2}",
-                new Object[] { attribute, attributeValue, matcherPattern.pattern }));
+                .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.unexpectedAttributeValue)
+                .setMessage("Unexpected Attribute Value {0}={1}: expected: {2}",
+                    new Object[] { attribute, attributeValue, matcherPattern.pattern }));
         }
         return true;
     }
@@ -261,9 +262,9 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         }
         if (!localeMatcher.matches(cldrFileToCheck.getLocaleID())) {
             possibleErrors.add(new CheckStatus()
-            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.invalidLocale)
-            .setMessage("Invalid Locale {0}",
-                new Object[] { cldrFileToCheck.getLocaleID() }));
+                .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.invalidLocale)
+                .setMessage("Invalid Locale {0}",
+                    new Object[] { cldrFileToCheck.getLocaleID() }));
 
         }
         return this;
@@ -322,7 +323,8 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                                 System.out.println("Illegal <attributeValues>, attribute not valid: element: " + element + ", attribute: " + attribute);
                             } else if (!attributeInfo.values.isEmpty()) {
                                 if (SHOW_UNNECESSARY) {
-                                    System.out.println("Unnecessary <attributeValues …>, the DTD has specific list: element: " + element + ", attribute: " + attribute + ", " + attributeInfo.values);
+                                    System.out.println("Unnecessary <attributeValues …>, the DTD has specific list: element: " + element + ", attribute: "
+                                        + attribute + ", " + attributeInfo.values);
                                 }
                             }
                         }
@@ -417,7 +419,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         result.value = value;
         if ("choice".equals(typeAttribute)) {
             result.matcher = new CollectionMatcher()
-            .set(new HashSet<String>(Arrays.asList(value.trim().split("\\s+"))));
+                .set(new HashSet<String>(Arrays.asList(value.trim().split("\\s+"))));
         } else if ("bcp47".equals(typeAttribute)) {
             result = getBcp47MatcherPattern(value);
         } else if ("regex".equals(typeAttribute)) {
@@ -432,7 +434,6 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         }
         return result;
     }
-
 
     private void addAttributes(Set<String> attributes, Map<String, MatcherPattern> attribute_validity, MatcherPattern mp) {
         for (String attribute : attributes) {

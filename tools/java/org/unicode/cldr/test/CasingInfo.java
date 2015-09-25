@@ -48,6 +48,7 @@ public class CasingInfo {
             "generates a summary of the casing for all locales that had casing generated for this run");
     private Map<String, Map<Category, CasingTypeAndErrFlag>> casing;
     private List<File> casingDirs;
+
     public CasingInfo(Factory factory) {
         casingDirs = new ArrayList<File>();
         for (File f : factory.getSourceDirectories()) {
@@ -258,7 +259,7 @@ public class CasingInfo {
                 Category category = Category.valueOf(parts.getAttributeValue(-1, "type").replace('-', '_'));
                 CasingType casingType = CasingType.valueOf(value);
                 boolean errFlag = Boolean.parseBoolean(parts.getAttributeValue(-1, "forceError"));
-                for (CasingTypeAndErrFlag typeAndFlag: CasingTypeAndErrFlag.values()) {
+                for (CasingTypeAndErrFlag typeAndFlag : CasingTypeAndErrFlag.values()) {
                     if (casingType == typeAndFlag.type() && errFlag == typeAndFlag.flag()) {
                         caseMap.put(category, typeAndFlag);
                         break;

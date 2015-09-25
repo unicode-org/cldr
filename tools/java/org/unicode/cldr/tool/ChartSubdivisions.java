@@ -27,7 +27,7 @@ import com.ibm.icu.impl.Row.R2;
 
 public class ChartSubdivisions extends Chart {
 
-    static final Map<String,String> subdivisionToName = new HashMap<>();
+    static final Map<String, String> subdivisionToName = new HashMap<>();
     static {
         List<Pair<String, String>> data = new ArrayList<>();
         XMLFileReader.loadPathValues(CLDRPaths.COMMON_DIRECTORY + "subdivisions/en.xml", data, true);
@@ -41,6 +41,7 @@ public class ChartSubdivisions extends Chart {
             subdivisionToName.put(path.getAttributeValue(-1, "type"), name);
         }
     }
+
     public static String getSubdivisionName(String subdivision) {
         return subdivisionToName.get(subdivision);
     }
@@ -53,10 +54,12 @@ public class ChartSubdivisions extends Chart {
     public String getDirectory() {
         return FormattedFileWriter.CHART_TARGET_DIR;
     }
+
     @Override
     public String getTitle() {
         return "Territory Subdivisions";
     }
+
     @Override
     public String getExplanation() {
         return "<p>Shows the subdivisions of territories, using the Unicode Subdivision Codes with the English names (and sort order). "
@@ -67,25 +70,24 @@ public class ChartSubdivisions extends Chart {
     public void writeContents(FormattedFileWriter pw) throws IOException {
 
         TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Region", "class='source'", null, "class='source'", true)
-        .setSortPriority(1)
-        .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-        .setBreakSpans(true)
+            .addColumn("Region", "class='source'", null, "class='source'", true)
+            .setSortPriority(1)
+            .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .setBreakSpans(true)
 
-        .addColumn("Subdivision1", "class='target'", null, "class='target'", true)
-        .setSortPriority(2)
-        .addColumn("Code", "class='target'", CldrUtility.getDoubleLinkMsg(), "class='target'", true)
-        .setBreakSpans(true)
+            .addColumn("Subdivision1", "class='target'", null, "class='target'", true)
+            .setSortPriority(2)
+            .addColumn("Code", "class='target'", CldrUtility.getDoubleLinkMsg(), "class='target'", true)
+            .setBreakSpans(true)
 
-        .addColumn("Subdivision2", "class='target'", null, "class='target'", true)
-        .setSortPriority(3)
-        .addColumn("Code", "class='target'", CldrUtility.getDoubleLinkMsg(), "class='target'", true)
-        ;
+            .addColumn("Subdivision2", "class='target'", null, "class='target'", true)
+            .setSortPriority(3)
+            .addColumn("Code", "class='target'", CldrUtility.getDoubleLinkMsg(), "class='target'", true);
 
         Map<String, R2<List<String>, String>> aliases = SDI.getLocaleAliasInfo().get("subdivision");
-        
+
         Set<String> remainder = new HashSet<>(Validity.getInstance().getData().get(LstrType.region).get(Status.regular));
-        Relation<String,String> inverseAliases = Relation.of(new HashMap(), TreeSet.class);
+        Relation<String, String> inverseAliases = Relation.of(new HashMap(), TreeSet.class);
         for (Entry<String, R2<List<String>, String>> entry : aliases.entrySet()) {
             List<String> value = entry.getValue().get0();
             inverseAliases.putAll(value, entry.getKey());
@@ -103,7 +105,7 @@ public class ChartSubdivisions extends Chart {
 
                 String name1 = getName(s1);
                 String name2 = getName(s2);
-                
+
                 // mark aliases
                 R2<List<String>, String> a1 = aliases.get(s1);
                 if (a1 != null) {
@@ -114,28 +116,28 @@ public class ChartSubdivisions extends Chart {
                     name2 = "= " + a2.get0().get(0) + " (" + name2 + ")";
                 }
                 tablePrinter.addRow()
-                .addCell(ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
-                .addCell(region)
-                .addCell(name1)
-                //.addCell(type)
-                .addCell(s1)
-                .addCell(name2)
-                .addCell(s2)
-                .finishRow();
+                    .addCell(ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
+                    .addCell(region)
+                    .addCell(name1)
+                    //.addCell(type)
+                    .addCell(s1)
+                    .addCell(name2)
+                    .addCell(s2)
+                    .finishRow();
                 remainder.remove(region);
             }
         }
         for (String region : remainder) {
             Set<String> regionAliases = inverseAliases.get(region);
             tablePrinter.addRow()
-            .addCell(ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
-            .addCell(region)
-            .addCell(regionAliases == null ? "«none»" : "=" + CollectionUtilities.join(regionAliases, ", "))
-            //.addCell(type)
-            .addCell("")
-            .addCell("")
-            .addCell("")
-            .finishRow();
+                .addCell(ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
+                .addCell(region)
+                .addCell(regionAliases == null ? "«none»" : "=" + CollectionUtilities.join(regionAliases, ", "))
+                //.addCell(type)
+                .addCell("")
+                .addCell("")
+                .addCell("")
+                .finishRow();
         }
         pw.write(tablePrinter.toTable());
     }
@@ -143,5 +145,5 @@ public class ChartSubdivisions extends Chart {
     private static String getName(String s1) {
         return s1.isEmpty() ? "" : TransliteratorUtilities.toHTML.transform(subdivisionToName.get(s1));
     }
-    
+
 }

@@ -110,8 +110,8 @@ public class ShowLocaleCoverage {
         Matcher matcher = PatternCache.get(MyOptions.filter.option.getValue()).matcher("");
 
         if (MyOptions.growth.option.doesOccur()) {
-            try (PrintWriter out 
-                = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/", 
+            try (PrintWriter out
+                = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/",
                     "showLocaleGrowth.txt")) {
                 doGrowth(matcher, out);
                 return;
@@ -168,7 +168,7 @@ public class ShowLocaleCoverage {
             COMMON_LOCALES = factory.getAvailableLanguages();
         }
     }
-    
+
     private static void doGrowth(Matcher matcher, PrintWriter out) {
         TreeMap<String, List<Double>> growthData = new TreeMap<>(Ordering.natural().reverse()); // sort by version, descending
         if (DEBUG) {
@@ -223,22 +223,22 @@ public class ShowLocaleCoverage {
         }
     }
 
-    static final Map<String,String> versionToYear = new HashMap<>();
+    static final Map<String, String> versionToYear = new HashMap<>();
     static {
         int[][] mapping = {
-        {28, 2015},
-        {26, 2014},
-        {24, 2013},
-        {22, 2012},
-        {20, 2011},
-        {19, 2010},
-        {17, 2009},
-        {16, 2008},
-        {15, 2007},
-        {14, 2006},
-        {13, 2005},
-        {12, 2004},
-        {10, 2003},
+            { 28, 2015 },
+            { 26, 2014 },
+            { 24, 2013 },
+            { 22, 2012 },
+            { 20, 2011 },
+            { 19, 2010 },
+            { 17, 2009 },
+            { 16, 2008 },
+            { 15, 2007 },
+            { 14, 2006 },
+            { 13, 2005 },
+            { 12, 2004 },
+            { 10, 2003 },
         };
         for (int[] row : mapping) {
             versionToYear.put(String.valueOf(row[0]), String.valueOf(row[1]));
@@ -440,7 +440,7 @@ public class ShowLocaleCoverage {
         }
         PrintWriter out2;
         try {
-            out2 = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/", 
+            out2 = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/",
                 "showLocaleCoverage.txt");
         } catch (IOException e1) {
             throw new IllegalArgumentException(e1);
@@ -455,36 +455,36 @@ public class ShowLocaleCoverage {
         int localeCount = 0;
 
         final TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true).setBreakSpans(true)
-        .addColumn("English Name", "class='source'", null, "class='source'", true).setBreakSpans(true)
-        .addColumn("Native Name", "class='source'", null, "class='source'", true).setBreakSpans(true)
-        .addColumn("Script", "class='source'", null, "class='source'", true).setBreakSpans(true)
-        .addColumn("CLDR target", "class='source'", null, "class='source'", true).setBreakSpans(true)
-        .addColumn("Sublocales", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
-        .setCellPattern("{0,number}")
-        .addColumn("Confirmed Fields", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
-        .setCellPattern("{0,number}")
+            .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true).setBreakSpans(true)
+            .addColumn("English Name", "class='source'", null, "class='source'", true).setBreakSpans(true)
+            .addColumn("Native Name", "class='source'", null, "class='source'", true).setBreakSpans(true)
+            .addColumn("Script", "class='source'", null, "class='source'", true).setBreakSpans(true)
+            .addColumn("CLDR target", "class='source'", null, "class='source'", true).setBreakSpans(true)
+            .addColumn("Sublocales", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
+            .setCellPattern("{0,number}")
+            .addColumn("Confirmed Fields", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
+            .setCellPattern("{0,number}")
         //.addColumn("Target Level", "class='target'", null, "class='target'", true).setBreakSpans(true)
         ;
 
         for (Level level : reversedLevels) {
             String titleLevel = level.toString();
             tablePrinter
-            .addColumn(UCharacter.toTitleCase(titleLevel, null) + "%", "class='target'", null, "class='targetRight'", true)
-            .setCellPattern("{0,number,0%}")
-            .setBreakSpans(true);
+                .addColumn(UCharacter.toTitleCase(titleLevel, null) + "%", "class='target'", null, "class='targetRight'", true)
+                .setCellPattern("{0,number,0%}")
+                .setBreakSpans(true);
             if (level == Level.MODERN) {
                 tablePrinter.setSortPriority(0).setSortAscending(false);
             }
             tablePrinter
-            .addColumn(UCharacter.toTitleCase(titleLevel, null) + " UC%", "class='target'", null, "class='targetRight'", true)
-            .setCellPattern("{0,number,0%}")
-            .setBreakSpans(true);
+                .addColumn(UCharacter.toTitleCase(titleLevel, null) + " UC%", "class='target'", null, "class='targetRight'", true)
+                .setCellPattern("{0,number,0%}")
+                .setBreakSpans(true);
         }
         tablePrinter
-        .addColumn("Core", "class='target'", null, "class='targetRight'", true)
-        .setCellPattern("{0,number,0%}")
-        .setBreakSpans(true);
+            .addColumn("Core", "class='target'", null, "class='targetRight'", true)
+            .setCellPattern("{0,number,0%}")
+            .setBreakSpans(true);
 
         long start = System.currentTimeMillis();
         LikelySubtags likelySubtags = new LikelySubtags();
@@ -558,22 +558,22 @@ public class ShowLocaleCoverage {
 //                List s = Lists.newArrayList(file.fullIterable());
 
                 tablePrinter
-                .addRow()
-                .addCell(language)
-                .addCell(ENGLISH.getName(language))
-                .addCell(file.getName(language))
-                .addCell(script)
-                .addCell(currentLevel)
-                .addCell(sublocales.size());
+                    .addRow()
+                    .addCell(language)
+                    .addCell(ENGLISH.getName(language))
+                    .addCell(file.getName(language))
+                    .addCell(script)
+                    .addCell(currentLevel)
+                    .addCell(sublocales.size());
                 String header =
                     language
-                    + "\t" + isCommonLocale
-                    + "\t" + ENGLISH.getName(language)
-                    + "\t" + file.getName(language)
-                    + "\t" + script
-                    + "\t" + sublocales.size()
-                    //+ "\t" + currentLevel
-                    ;
+                        + "\t" + isCommonLocale
+                        + "\t" + ENGLISH.getName(language)
+                        + "\t" + file.getName(language)
+                        + "\t" + script
+                        + "\t" + sublocales.size()
+                //+ "\t" + currentLevel
+                ;
 
                 int sumFound = 0;
                 int sumMissing = 0;
@@ -600,7 +600,7 @@ public class ShowLocaleCoverage {
                 double modernConfirmed = confirmed.get(Level.MODERN);
 
                 tablePrinter
-                .addCell(sumFound);
+                    .addCell(sumFound);
 
                 header += "\t" + sumFound;
 
@@ -615,8 +615,8 @@ public class ShowLocaleCoverage {
                     double total = totals.get(level);
 
                     tablePrinter
-                    .addCell(confirmedCoverage / total)
-                    .addCell(unconfirmedCoverage / total);
+                        .addCell(confirmedCoverage / total)
+                        .addCell(unconfirmedCoverage / total);
 
                     if (RAW_DATA) {
                         header += "\t" + confirmedCoverage / total
@@ -637,8 +637,8 @@ public class ShowLocaleCoverage {
 
                 double coreValue = coverage.size() / CORE_SIZE;
                 tablePrinter
-                .addCell(coreValue)
-                .finishRow();
+                    .addCell(coreValue)
+                    .finishRow();
 
                 out2.println(header + "\t" + coreValue + "\t" + CollectionUtilities.join(missing, ", "));
 

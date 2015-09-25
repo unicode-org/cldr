@@ -13,7 +13,7 @@ import com.google.common.collect.ImmutableSet;
 class LdmlConvertRules {
 
     /** File sets that will not be processed in JSON transformation. */
-    public static final ImmutableSet<String> IGNORE_FILE_SET = 
+    public static final ImmutableSet<String> IGNORE_FILE_SET =
         ImmutableSet.of("attributeValueValidity", "coverageLevels", "dayPeriods", "postalCodeData", "pluralRanges", "subdivisions");
 
     /**
@@ -21,8 +21,8 @@ class LdmlConvertRules {
      * name-(attribute)-(value).
      * [parent_element]:[element]:[attribute]
      */
-        // common/main
-        static final ImmutableSet<String> NAME_PART_DISTINGUISHING_ATTR_SET = ImmutableSet.of(
+    // common/main
+    static final ImmutableSet<String> NAME_PART_DISTINGUISHING_ATTR_SET = ImmutableSet.of(
         "monthWidth:month:yeartype",
         "dateFormat:pattern:numbers",
         "currencyFormats:unitPattern:count",
@@ -368,7 +368,7 @@ class LdmlConvertRules {
             + CLDRFile.GEN_VERSION + "\"\\]"),
         // Add cldrVersion attribute to supplemental data
         new PathTransformSpec("(.*/version\\[@number=\"([^\"]*)\")(\\])\\[@unicodeVersion=\"([^\"]*\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
-            + CLDRFile.GEN_VERSION + "\"\\]"+"\\[@unicodeVersion=\""+ "$4"+ "\\]"),
+            + CLDRFile.GEN_VERSION + "\"\\]" + "\\[@unicodeVersion=\"" + "$4" + "\\]"),
 
         // Transform underscore to hyphen-minus in language keys
         new PathTransformSpec("(.*/language\\[@type=\"[a-z]{2,3})_([^\"]*\"\\](\\[@alt=\"short\"])?)", "$1-$2"),

@@ -479,6 +479,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     public boolean isLanguageLocale() {
         return this.equals(getLanguageLocale());
     }
+
     /**
      * Return the region
      * 

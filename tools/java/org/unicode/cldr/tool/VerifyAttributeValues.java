@@ -45,8 +45,7 @@ public class VerifyAttributeValues extends SimpleHandler {
     public final static class Errors {
 
         @SuppressWarnings({ "unchecked", "rawtypes" })
-        final ChainedMap.M3<String, AttributeValueSpec, String> file_element_attribute
-        = ChainedMap.of(new TreeMap(), new TreeMap(), String.class);
+        final ChainedMap.M3<String, AttributeValueSpec, String> file_element_attribute = ChainedMap.of(new TreeMap(), new TreeMap(), String.class);
 
         public void put(String file, DtdType dtdType, String element, String attribute, String attributeValue, String problem) {
             file_element_attribute.put(file, new AttributeValueSpec(dtdType, element, attribute, attributeValue), problem);
@@ -60,7 +59,7 @@ public class VerifyAttributeValues extends SimpleHandler {
     private DtdData dtdData; // set from first element read
     private final Errors file_element_attribute;
     private final String file;
-    private final EnumMap<LocaleSpecific,Set<String>> localeSpecific = new EnumMap<>(LocaleSpecific.class);
+    private final EnumMap<LocaleSpecific, Set<String>> localeSpecific = new EnumMap<>(LocaleSpecific.class);
     private final Set<AttributeValueSpec> missing;
 
     private VerifyAttributeValues(String fileName, Errors file_element_attribute, Set<AttributeValueSpec> missing) {
@@ -79,8 +78,8 @@ public class VerifyAttributeValues extends SimpleHandler {
         try {
             final VerifyAttributeValues platformHandler = new VerifyAttributeValues(fileName, errors, missing);
             new XMLFileReader()
-            .setHandler(platformHandler)
-            .read(fileName, -1, true);
+                .setHandler(platformHandler)
+                .read(fileName, -1, true);
         } catch (Exception e) {
             throw new IllegalArgumentException(fileName, e);
         }
@@ -92,7 +91,7 @@ public class VerifyAttributeValues extends SimpleHandler {
             dtdData = DtdData.getInstance(DtdType.valueOf(parts.getElement(0)));
             if (dtdData.dtdType == DtdType.ldml) {
                 String name = file;
-                String locale = name.substring(name.lastIndexOf('/')+1, name.lastIndexOf('.'));
+                String locale = name.substring(name.lastIndexOf('/') + 1, name.lastIndexOf('.'));
                 localeSpecific.put(LocaleSpecific.pluralCardinal, supplementalData.getPlurals(PluralType.cardinal, locale).getPluralRules().getKeywords());
                 localeSpecific.put(LocaleSpecific.pluralOrdinal, supplementalData.getPlurals(PluralType.ordinal, locale).getPluralRules().getKeywords());
                 localeSpecific.put(LocaleSpecific.dayPeriodFormat, getPeriods(Type.format, locale));
@@ -126,10 +125,10 @@ public class VerifyAttributeValues extends SimpleHandler {
 
                 Output<String> reason = new Output<>();
                 Status haveTest = AttributeValueValidity.check(dtdData, element, attribute, attributeValue, reason);
-                switch(haveTest) {
+                switch (haveTest) {
                 case ok:
                     break;
-                case deprecated: 
+                case deprecated:
                 case illegal:
                     file_element_attribute.put(file, dtdData.dtdType, element, attribute, attributeValue, reason.value);
                     break;
@@ -146,7 +145,8 @@ public class VerifyAttributeValues extends SimpleHandler {
         final DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(Type.format, locale);
         for (DayPeriod period : dayPeriods.getPeriods()) {
             result.add(period.toString());
-        };
+        }
+        ;
         result.add("am");
         result.add("pm");
         return new LinkedHashSet<>(result);
@@ -154,20 +154,19 @@ public class VerifyAttributeValues extends SimpleHandler {
 
     public static int findAttributeValues(File file, int max, Matcher fileMatcher, Errors errors, Set<AttributeValueSpec> allMissing, PrintWriter out) {
         final String name = file.getName();
-        if (file.isDirectory() 
-            && !name.equals("specs") 
+        if (file.isDirectory()
+            && !name.equals("specs")
             && !name.equals("tools")
             && !file.toString().contains(".svn")
-            // && !name.equals("keyboards") // TODO reenable keyboards
-            ) {
+        // && !name.equals("keyboards") // TODO reenable keyboards
+        ) {
             int processed = 0;
             int count = max;
             for (File subfile : file.listFiles()) {
                 final String subname = subfile.getName();
-                if (--count < 0 
+                if (--count < 0
                     && !"en.xml".equals(subname)
-                    && !"root.xml".equals(subname)
-                    ) {
+                    && !"root.xml".equals(subname)) {
                     continue;
                 }
                 processed += findAttributeValues(subfile, max, fileMatcher, errors, allMissing, out);
@@ -178,7 +177,7 @@ public class VerifyAttributeValues extends SimpleHandler {
             }
             return processed;
         } else if (name.endsWith(".xml")) {
-            if (fileMatcher == null || fileMatcher.reset(name.substring(0, name.length()-4)).matches()) {
+            if (fileMatcher == null || fileMatcher.reset(name.substring(0, name.length() - 4)).matches()) {
                 check(file.toString(), errors, allMissing);
                 return 1;
             }

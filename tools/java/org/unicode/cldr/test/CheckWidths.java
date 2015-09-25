@@ -143,7 +143,7 @@ public class CheckWidths extends CheckCLDR {
         "|speed-kilometer-per-hour" +
         "|speed-meter-per-second" +
         ")";
-    
+
     static final String ALLOW_LONGEST = "consumption-liter-per-100kilometers";
 
     static RegexLookup<Limit[]> lookup = new RegexLookup<Limit[]>()
@@ -202,7 +202,7 @@ public class CheckWidths extends CheckCLDR {
         .add("//ldml/dates/calendars/calendar.*/eraAbbr/era[@type=%A]", new Limit[] {
             new Limit(3 * EM, 6 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
         })
-        
+
         // am/pm abbreviated
         .add("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/.*/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=%P]", new Limit[] {
             new Limit(4 * EM, 6 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)

@@ -41,33 +41,33 @@ public class IcuTextWriter {
      */
     public static final Comparator<String> PATH_COMPARATOR =
         new Comparator<String>() {
-        @Override
-        public int compare(String arg0, String arg1) {
-            int min = Math.min(arg0.length(), arg1.length());
-            for (int i = 0; i < min; ++i) {
-                int ch0 = arg0.charAt(i);
-                int ch1 = arg1.charAt(i);
-                int diff = ch0 - ch1;
-                if (diff == 0) {
-                    continue;
+            @Override
+            public int compare(String arg0, String arg1) {
+                int min = Math.min(arg0.length(), arg1.length());
+                for (int i = 0; i < min; ++i) {
+                    int ch0 = arg0.charAt(i);
+                    int ch1 = arg1.charAt(i);
+                    int diff = ch0 - ch1;
+                    if (diff == 0) {
+                        continue;
+                    }
+                    if (ch0 == '/') {
+                        return -1;
+                    } else if (ch1 == '/') {
+                        return 1;
+                    }
+                    // make * greater than everything, because of languageMatch
+                    // while it is a pain to have it be unordered, this fix is sufficient to put all the *'s after anything else
+                    if (ch0 == '*') {
+                        return 1;
+                    } else if (ch1 == '*') {
+                        return -1;
+                    }
+                    return diff;
                 }
-                if (ch0 == '/') {
-                    return -1;
-                } else if (ch1 == '/') {
-                    return 1;
-                }
-                // make * greater than everything, because of languageMatch
-                // while it is a pain to have it be unordered, this fix is sufficient to put all the *'s after anything else
-                if (ch0 == '*') {
-                    return 1;
-                } else if (ch1 == '*') {
-                    return -1;
-                }
-                return diff;
+                return arg0.length() - arg1.length();
             }
-            return arg0.length() - arg1.length();
-        }
-    };
+        };
 
     private static String getHeader() {
         if (headerText != null) {
@@ -237,7 +237,7 @@ public class IcuTextWriter {
         // System.out.println(name + "\t" + rbPath);
         if (topValues) {
             return (rbPath.startsWith("/rules/set")
-                && name.equals("pluralRanges"));
+            && name.equals("pluralRanges"));
         }
         return rbPath.equals("/LocaleScript")
             || (rbPath.contains("/eras/") && !rbPath.endsWith(":alias"))

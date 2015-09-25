@@ -15,7 +15,7 @@ public class GenerateDtd {
     public static void main(String[] args) throws IOException {
         //System.setProperty("show_all", "true");
         for (DtdType type : DtdType.values()) {
-            if (type == DtdType.ldmlICU){
+            if (type == DtdType.ldmlICU) {
                 continue;
             }
             DtdData data = DtdData.getInstance(type);
@@ -23,7 +23,7 @@ public class GenerateDtd {
             if (!name.startsWith("ldml")) {
                 name = "ldml" + UCharacter.toTitleFirst(ULocale.ENGLISH, name);
                 if (name.endsWith("Data")) {
-                    name = name.substring(0,name.length()-4);
+                    name = name.substring(0, name.length() - 4);
                 }
             }
             try (PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "dtd/", name + ".dtd")) {

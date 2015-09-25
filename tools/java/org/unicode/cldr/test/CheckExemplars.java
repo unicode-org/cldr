@@ -28,7 +28,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         "quotationStart", "quotationEnd",
         "alternateQuotationStart", "alternateQuotationEnd" };
     static final SupplementalDataInfo SUP = CLDRConfig.getInstance().getSupplementalDataInfo();
-    
+
     Collator col;
     Collator spaceCol;
     boolean isRoot;
@@ -141,7 +141,6 @@ public class CheckExemplars extends FactoryCheckCLDR {
         }
         return this;
     }
-
 
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {

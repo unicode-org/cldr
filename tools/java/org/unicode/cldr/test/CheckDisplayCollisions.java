@@ -46,20 +46,21 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     private static enum MatchType {
         PREFIX, REGEX
     }
+
     private static enum Type {
         LANGUAGE("//ldml/localeDisplayNames/languages/language", MatchType.PREFIX, 0),
         SCRIPT("//ldml/localeDisplayNames/scripts/script", MatchType.PREFIX, 1),
-        TERRITORY("//ldml/localeDisplayNames/territories/territory", MatchType.PREFIX,2),
-        VARIANT("//ldml/localeDisplayNames/variants/variant", MatchType.PREFIX,3),
+        TERRITORY("//ldml/localeDisplayNames/territories/territory", MatchType.PREFIX, 2),
+        VARIANT("//ldml/localeDisplayNames/variants/variant", MatchType.PREFIX, 3),
         CURRENCY("//ldml/numbers/currencies/currency", MatchType.PREFIX, 4),
-        ZONE("//ldml/dates/timeZoneNames/zone", MatchType.PREFIX,5),
-        METAZONE("//ldml/dates/timeZoneNames/metazone", MatchType.PREFIX,6),
-        DECIMAL_FORMAT("//ldml/numbers/decimalFormats", MatchType.PREFIX,7),
-        UNITS_COMPOUND_LONG("//ldml/units/unitLength[@type=\"long\"]/compoundUnit", MatchType.PREFIX,8),
-        UNITS_COMPOUND_SHORT("//ldml/units/unitLength[@type=\"short\"]/compoundUnit", MatchType.PREFIX,9),
-        UNITS_COORDINATE("//ldml/units/unitLength\\[@type=\".*\"\\]/coordinateUnit/", MatchType.REGEX,10),
-        UNITS_IGNORE("//ldml/units/unitLength[@type=\"narrow\"]", MatchType.PREFIX,11),
-        UNITS("//ldml/units/unitLength", MatchType.PREFIX,12),
+        ZONE("//ldml/dates/timeZoneNames/zone", MatchType.PREFIX, 5),
+        METAZONE("//ldml/dates/timeZoneNames/metazone", MatchType.PREFIX, 6),
+        DECIMAL_FORMAT("//ldml/numbers/decimalFormats", MatchType.PREFIX, 7),
+        UNITS_COMPOUND_LONG("//ldml/units/unitLength[@type=\"long\"]/compoundUnit", MatchType.PREFIX, 8),
+        UNITS_COMPOUND_SHORT("//ldml/units/unitLength[@type=\"short\"]/compoundUnit", MatchType.PREFIX, 9),
+        UNITS_COORDINATE("//ldml/units/unitLength\\[@type=\".*\"\\]/coordinateUnit/", MatchType.REGEX, 10),
+        UNITS_IGNORE("//ldml/units/unitLength[@type=\"narrow\"]", MatchType.PREFIX, 11),
+        UNITS("//ldml/units/unitLength", MatchType.PREFIX, 12),
         FIELDS_NARROW("//ldml/dates/fields/field\\[@type=\"(sun|mon|tue|wed|thu|fri|sat)-narrow\"\\]/relative", MatchType.REGEX, 13),
         FIELDS_RELATIVE("//ldml/dates/fields/field\\[@type=\".*\"\\]/relative\\[@type=\"(-1|0|1)\"\\]", MatchType.REGEX, 14);
 
@@ -70,7 +71,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         private Type(String basePrefix, MatchType matchType, int index) {
             this.matchType = matchType;
             this.basePrefix = basePrefix;
-            this.baseMatcher = PatternCache.get("^"+basePrefix+".*").matcher("");
+            this.baseMatcher = PatternCache.get("^" + basePrefix + ".*").matcher("");
         }
 
         /**
@@ -79,6 +80,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         public String getPrefix() {
             return basePrefix;
         }
+
         /**
          * @return the regex that matches all XPaths of this type
          */
@@ -94,11 +96,11 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         public static Type getType(String path) {
             for (Type type : values()) {
                 if (type.matchType == MatchType.PREFIX) {
-                    if ( path.startsWith(type.getPrefix())) {
+                    if (path.startsWith(type.getPrefix())) {
                         return type;
                     }
                 }
-                 
+
                 Matcher m = type.getMatcher();
                 m.reset(path);
                 if (m.matches()) {
@@ -326,7 +328,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             }
         }
         // Collisions between different lengths and counts of the same field are allowed
-        if (myType == Type.FIELDS_RELATIVE ) {
+        if (myType == Type.FIELDS_RELATIVE) {
             XPathParts parts = new XPathParts().set(path);
             String myFieldType = parts.getAttributeValue(3, "type").split("-")[0];
             Iterator<String> iterator = paths.iterator();
@@ -341,7 +343,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             }
         }
         // Collisions between different lengths of the same field are allowed
-        if (myType == Type.UNITS_COORDINATE ) {
+        if (myType == Type.UNITS_COORDINATE) {
             XPathParts parts = new XPathParts().set(path);
             String myFieldType = parts.findAttributeValue("coordinateUnitPattern", "type");
             Iterator<String> iterator = paths.iterator();
@@ -475,10 +477,10 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         ) {
 
         Set<String> retrievedPaths = new HashSet<String>();
-        if ( myType.matchType == MatchType.PREFIX) {
+        if (myType.matchType == MatchType.PREFIX) {
             file.getPathsWithValue(value, myPrefix, matcher, retrievedPaths);
         } else {
-            file.getPathsWithValue(value, "//ldml", myType.getMatcher(), retrievedPaths);            
+            file.getPathsWithValue(value, "//ldml", myType.getMatcher(), retrievedPaths);
         }
 
         String normValue = null;
@@ -499,7 +501,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             // then it can't be a collision we care about.
             if (myType != thisPathType) {
                 continue;
-            };            
+            }
+            ;
             if (exclusions.reset(pathName).find() && thisPathType != Type.UNITS_COORDINATE) {
                 continue;
             }

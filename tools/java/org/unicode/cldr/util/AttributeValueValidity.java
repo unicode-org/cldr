@@ -32,8 +32,13 @@ import com.ibm.icu.util.Output;
 
 public class AttributeValueValidity {
 
-    public enum Status {ok, deprecated, illegal, noTest}
-    public enum LocaleSpecific {pluralCardinal, pluralOrdinal, dayPeriodFormat, dayPeriodSelection}
+    public enum Status {
+        ok, deprecated, illegal, noTest
+    }
+
+    public enum LocaleSpecific {
+        pluralCardinal, pluralOrdinal, dayPeriodFormat, dayPeriodSelection
+    }
 
     static final Splitter BAR = Splitter.on('|').trimResults().omitEmptyStrings();
     static final Splitter SPACE = Splitter.on(PatternCache.get("\\s+")).trimResults().omitEmptyStrings();
@@ -42,7 +47,7 @@ public class AttributeValueValidity {
 
     private static final SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
 
-    private static Map<DtdType,Map<String, Map<String, MatcherPattern>>> dtd_element_attribute_validity = new EnumMap<>(DtdType.class);
+    private static Map<DtdType, Map<String, Map<String, MatcherPattern>>> dtd_element_attribute_validity = new EnumMap<>(DtdType.class);
     private static Map<String, MatcherPattern> common_attribute_validity = new LinkedHashMap<String, MatcherPattern>();
     private static Map<String, MatcherPattern> variables = new LinkedHashMap<String, MatcherPattern>();
     private static final RegexMatcher NOT_DONE_YET = new RegexMatcher(".*", Pattern.COMMENTS);
@@ -98,7 +103,7 @@ public class AttributeValueValidity {
         Validity validity = Validity.getInstance();
         for (Entry<LstrType, Map<Validity.Status, Set<String>>> item1 : validity.getData().entrySet()) {
             LstrType key = item1.getKey();
-            String keyName = "$_"+key;
+            String keyName = "$_" + key;
             Set<String> all = new LinkedHashSet<>();
             Set<String> prefix = new LinkedHashSet<>();
             Set<String> suffix = new LinkedHashSet<>();
@@ -123,16 +128,16 @@ public class AttributeValueValidity {
                 if (status == Validity.Status.regular || status == Validity.Status.special || status == Validity.Status.unknown) {
                     regularAndUnknown.addAll(validItems);
                 }
-                addCollectionVariable(keyName+"_"+status, validItems);
+                addCollectionVariable(keyName + "_" + status, validItems);
 //                MatcherPattern m = new MatcherPattern(key.toString(), validItems.toString(), new CollectionMatcher(validItems));
 //                variables.put(keyName+"_"+status, m);
             }
             if (key == LstrType.subdivision) {
-                addCollectionVariable(keyName+"_prefix", prefix);
-                addCollectionVariable(keyName+"_suffix", suffix);
+                addCollectionVariable(keyName + "_prefix", prefix);
+                addCollectionVariable(keyName + "_suffix", suffix);
             }
             addCollectionVariable(keyName, all);
-            addCollectionVariable(keyName+"_plus", regularAndUnknown);
+            addCollectionVariable(keyName + "_plus", regularAndUnknown);
 
 //            MatcherPattern m = new MatcherPattern(key.toString(), all.toString(), new CollectionMatcher(all));
 //            variables.put(keyName, m);
@@ -147,7 +152,7 @@ public class AttributeValueValidity {
         final LocaleIDParser lip = new LocaleIDParser();
 
         for (String language : LanguageInfo.getAvailable()) {
-            LanguageInfo info =  LanguageInfo.get(language);
+            LanguageInfo info = LanguageInfo.get(language);
             CldrDir cldrDir = info.getCldrDir();
             String base = lip.set(language).getLanguage();
             if (cldrDir == CldrDir.main || cldrDir == CldrDir.base) {
@@ -168,7 +173,7 @@ public class AttributeValueValidity {
         cldrLang.addAll(large_official);
         addCollectionVariable("$_language_cldr", large_official);
         // System.out.println("\ncldrLang:\n" + Joiner.on(' ').join(cldrLang));
-        
+
         Map<String, R2<String, String>> rawVariables = supplementalData.getValidityInfo();
         for (Entry<String, R2<String, String>> item : rawVariables.entrySet()) {
             String id = item.getKey();
@@ -219,10 +224,9 @@ public class AttributeValueValidity {
                         DtdData.Element elementInfo = data.getElementFromName().get(element);
                         if (elementInfo == null) {
                             throw new ICUException(
-                                "Illegal <attributeValues>, element not valid: " 
+                                "Illegal <attributeValues>, element not valid: "
                                     + dtdType
-                                    + ", element: " + element
-                                );
+                                    + ", element: " + element);
                         } else {
                             for (String attribute : attributeList) {
                                 DtdData.Attribute attributeInfo = elementInfo.getAttributeNamed(attribute);
@@ -304,7 +308,7 @@ public class AttributeValueValidity {
     }
 
     public static Relation<String, String> getAllPossibleMissing(DtdType dtdType) {
-        Relation<String,String> missing = Relation.of(new TreeMap<String,Set<String>>(), LinkedHashSet.class);
+        Relation<String, String> missing = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
 
         if (dtdType == DtdType.ldmlICU) {
             return missing;
@@ -312,8 +316,8 @@ public class AttributeValueValidity {
 
         DtdData dtdData2 = DtdData.getInstance(dtdType);
         Map<String, Map<String, MatcherPattern>> element_attribute_validity = CldrUtility.ifNull(
-            dtd_element_attribute_validity.get(dtdType), 
-            Collections.<String, Map<String, MatcherPattern>>emptyMap());
+            dtd_element_attribute_validity.get(dtdType),
+            Collections.<String, Map<String, MatcherPattern>> emptyMap());
 
         for (DtdData.Element element : dtdData2.getElements()) {
             if (element.isDeprecated()) {
@@ -321,7 +325,7 @@ public class AttributeValueValidity {
             }
             Map<String, MatcherPattern> attribute_validity = CldrUtility.ifNull(
                 element_attribute_validity.get(element.name),
-                Collections.<String, MatcherPattern>emptyMap());
+                Collections.<String, MatcherPattern> emptyMap());
             for (DtdData.Attribute attribute : element.getAttributes().keySet()) {
                 if (attribute.isDeprecated()) {
                     continue;
@@ -335,7 +339,7 @@ public class AttributeValueValidity {
                 }
                 //            <attributeValues attributes="alt" type="choice">$alt</attributeValues>
                 //             <attributeValues dtds="supplementalData" elements="character" attributes="value" type="regex">.</attributeValues>
-                missing.put(attribute.name, 
+                missing.put(attribute.name,
                     new AttributeValueSpec(dtdType, element.name, attribute.name, "$xxx").toString());
             }
         }
@@ -345,10 +349,12 @@ public class AttributeValueValidity {
     public static abstract class MatcherPattern {
 
         public abstract boolean matches(String value, Output<String> reason);
+
         public String getPattern() {
             String temp = _getPattern();
-            return temp.length() <= MAX_STRING ? temp : temp.substring(0,MAX_STRING) + "…";
+            return temp.length() <= MAX_STRING ? temp : temp.substring(0, MAX_STRING) + "…";
         }
+
         public abstract String _getPattern();
 
         public String toString() {
@@ -399,7 +405,7 @@ public class AttributeValueValidity {
 
         MatcherPattern result;
 
-        switch(matcherType) {
+        switch (matcherType) {
         case single:
             result = new CollectionMatcher(Collections.singleton(value.trim()));
             break;
@@ -432,7 +438,6 @@ public class AttributeValueValidity {
 
         return result;
     }
-
 
     private static MatcherPattern getVariable(final MatcherTypes matcherType, String value) {
         List<String> values = BAR.splitToList(value); //value.trim().split("|");
@@ -532,6 +537,7 @@ public class AttributeValueValidity {
         public CollectionMatcher(Collection<String> collection) {
             this.collection = Collections.unmodifiableCollection(new LinkedHashSet<>(collection));
         }
+
         @Override
         public boolean matches(String value, Output<String> reason) {
             boolean result = collection.contains(value);
@@ -540,6 +546,7 @@ public class AttributeValueValidity {
             }
             return result;
         }
+
         @Override
         public String _getPattern() {
             return collection.toString();
@@ -552,6 +559,7 @@ public class AttributeValueValidity {
         public UnicodeSetMatcher(UnicodeSet collection) {
             this.collection = collection.freeze();
         }
+
         @Override
         public boolean matches(String value, Output<String> reason) {
             final UnicodeSet valueSet = new UnicodeSet(value);
@@ -561,6 +569,7 @@ public class AttributeValueValidity {
             }
             return result;
         }
+
         @Override
         public String _getPattern() {
             return collection.toPattern(false);
@@ -624,7 +633,7 @@ public class AttributeValueValidity {
             for (String valueItem : values) {
                 if (!other.matches(valueItem, reason)) {
                     if (reason != null) {
-                        reason.value = "«" +valueItem + "» ∉ " + other.getPattern();
+                        reason.value = "«" + valueItem + "» ∉ " + other.getPattern();
                     }
                     return false;
                 }
@@ -666,14 +675,14 @@ public class AttributeValueValidity {
                 return false;
             }
             field = lip.getScript();
-            if (field.length() != 0 && !script.matches(field, reason))  {
+            if (field.length() != 0 && !script.matches(field, reason)) {
                 if (reason != null) {
                     reason.value = "invalid script";
                 }
                 return false;
             }
             field = lip.getRegion();
-            if (field.length() != 0 && !territory.matches(field, reason))  {
+            if (field.length() != 0 && !territory.matches(field, reason)) {
                 if (reason != null) {
                     reason.value = "invalid region";
                 }
@@ -681,7 +690,7 @@ public class AttributeValueValidity {
             }
             String[] fields = lip.getVariants();
             for (int i = 0; i < fields.length; ++i) {
-                if (!variant.matches(fields[i], reason))  {
+                if (!variant.matches(fields[i], reason)) {
                     if (reason != null) {
                         reason.value = "invalid variant";
                     }
@@ -695,33 +704,37 @@ public class AttributeValueValidity {
         public String _getPattern() {
             return "Unicode_Language_Subtag";
         }
-    } 
+    }
 
-    public static final class AttributeValueSpec implements Comparable<AttributeValueSpec>{
+    public static final class AttributeValueSpec implements Comparable<AttributeValueSpec> {
         public AttributeValueSpec(DtdType type, String element, String attribute, String attributeValue) {
             this.type = type;
             this.element = element;
             this.attribute = attribute;
             this.attributeValue = attributeValue;
         }
+
         public final DtdType type;
         public final String element;
         public final String attribute;
         public final String attributeValue;
+
         @Override
         public int hashCode() {
             return Objects.hash(type, element, attribute, attributeValue);
         }
+
         @Override
         public boolean equals(Object obj) {
             AttributeValueSpec other = (AttributeValueSpec) obj;
             return CldrUtility.deepEquals(
-                type, other.type, 
-                element, other.element, 
+                type, other.type,
+                element, other.element,
                 attribute, other.attribute,
                 attributeValue, other.attributeValue
                 );
         }
+
         @Override
         public int compareTo(AttributeValueSpec other) {
             return ComparisonChain.start()
@@ -731,12 +744,13 @@ public class AttributeValueValidity {
                 .compare(attributeValue, other.attributeValue)
                 .result();
         }
+
         @Override
         public String toString() {
             return "<attributeValues"
-                + " dtds='" + type + "\'" 
-                + " elements='" + element + "\'" 
-                + " attributes='" + attribute + "\'" 
+                + " dtds='" + type + "\'"
+                + " elements='" + element + "\'"
+                + " attributes='" + attribute + "\'"
                 + " type='TODO\'>"
                 + attributeValue
                 + "</attributeValues>";
@@ -751,7 +765,7 @@ public class AttributeValueValidity {
      * @param result
      * @return
      */
-    private static Status check(Map<String, MatcherPattern> attribute_validity, 
+    private static Status check(Map<String, MatcherPattern> attribute_validity,
         String element, String attribute, String attributeValue,
         Output<String> reason) {
 
@@ -791,7 +805,7 @@ public class AttributeValueValidity {
     }
 
     public static Set<R3<DtdType, String, String>> getTodoTests() {
-        Set<Row.R3<DtdType,String,String>> result = new LinkedHashSet<>();
+        Set<Row.R3<DtdType, String, String>> result = new LinkedHashSet<>();
         for (Entry<DtdType, Map<String, Map<String, MatcherPattern>>> entry1 : dtd_element_attribute_validity.entrySet()) {
             for (Entry<String, Map<String, MatcherPattern>> entry2 : entry1.getValue().entrySet()) {
                 for (Entry<String, MatcherPattern> entry3 : entry2.getValue().entrySet()) {
@@ -809,7 +823,7 @@ public class AttributeValueValidity {
     }
 
     public static MatcherPattern getMatcherPattern(String variable) {
-        return variables.get(variable);        
+        return variables.get(variable);
     }
 
     private static MatcherPattern getNonNullVariable(String variable) {
@@ -821,6 +835,6 @@ public class AttributeValueValidity {
     }
 
     public static Set<String> getMatcherPatternIds() {
-        return Collections.unmodifiableSet(variables.keySet());        
+        return Collections.unmodifiableSet(variables.keySet());
     }
 }

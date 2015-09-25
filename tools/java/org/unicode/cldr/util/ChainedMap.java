@@ -118,7 +118,7 @@ public class ChainedMap {
             return (Set<K3>) super.mapBase.keySet();
         }
     }
-    
+
     public static class M5<K4, K3, K2, K1, V> extends ChainedMap implements Iterable<Map.Entry<K4, Map<K3, Map<K2, Map<K1, V>>>>> {
         @SuppressWarnings("unchecked")
         private M5(Map<K4, Object> map4, Map<K3, Object> map3, Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
@@ -132,7 +132,7 @@ public class ChainedMap {
 
         public M4<K3, K2, K1, V> get(K4 key4) {
             final Map<?, ?> submap = (Map<?, ?>) super.handleGet(key4);
-            return submap == null ? null 
+            return submap == null ? null
                 : new M4<K3, K2, K1, V>(submap, super.mapConstructors, super.indexStart + 2);
         }
 
@@ -154,9 +154,9 @@ public class ChainedMap {
                 for (Entry<Object, Object> entry1 : ((Map<Object, Object>) entry0.getValue()).entrySet()) {
                     for (Entry<Object, Object> entry2 : ((Map<Object, Object>) entry1.getValue()).entrySet()) {
                         for (Entry<Object, Object> entry3 : ((Map<Object, Object>) entry2.getValue()).entrySet()) {
-                        R5<K4, K3, K2, K1, V> item = (R5<K4, K3, K2, K1, V>) Row.of(
-                            entry0.getKey(), entry1.getKey(), entry2.getKey(), entry3.getKey(), entry3.getValue());
-                        result.add(item);
+                            R5<K4, K3, K2, K1, V> item = (R5<K4, K3, K2, K1, V>) Row.of(
+                                entry0.getKey(), entry1.getKey(), entry2.getKey(), entry3.getKey(), entry3.getValue());
+                            result.add(item);
                         }
                     }
                 }
@@ -169,7 +169,6 @@ public class ChainedMap {
             return (Set<K4>) super.mapBase.keySet();
         }
     }
-
 
     private final Map<Object, Object> mapBase;
     private final Constructor<Map<Object, Object>>[] mapConstructors;
@@ -189,9 +188,9 @@ public class ChainedMap {
 
     @SuppressWarnings("unchecked")
     private static Constructor<Map<Object, Object>>[] constructorList(Map<? extends Object, ? extends Object>... maps) {
-        Constructor<Map<Object, Object>>[] tempMapConstructors = new Constructor[maps.length-1];
+        Constructor<Map<Object, Object>>[] tempMapConstructors = new Constructor[maps.length - 1];
         items: for (int i = 0; i < maps.length - 1; ++i) {
-            for (Constructor<?> constructor : maps[i+1].getClass().getConstructors()) {
+            for (Constructor<?> constructor : maps[i + 1].getClass().getConstructors()) {
                 if (constructor.getParameterTypes().length == 0) {
                     tempMapConstructors[i] = (Constructor<Map<Object, Object>>) constructor;
                     continue items;
@@ -267,20 +266,20 @@ public class ChainedMap {
 
     public static void main(String[] args) {
         M5<Boolean, Byte, String, Integer, Double> foo = ChainedMap.of(
-            new TreeMap<Boolean, Object>(), 
-            new HashMap<Byte, Object>(), 
-            new TreeMap<String, Object>(), 
-            new TreeMap<Integer, Object>(), 
+            new TreeMap<Boolean, Object>(),
+            new HashMap<Byte, Object>(),
+            new TreeMap<String, Object>(),
+            new TreeMap<Integer, Object>(),
             Double.class);
-        
-        System.out.println(foo.put(true, (byte)0, "abc", 3, 1.5));
-        System.out.println(foo.get(true, (byte)0, "abc", 3));
 
-        System.out.println(foo.put(false, (byte)0, "Def", 3, 1.5));
-        System.out.println(foo.put(true, (byte)-1, "ghi", 3, 2.0));
-        System.out.println(foo.put(true, (byte)0, "ghi", 3, 3.0));
-        System.out.println(foo.put(true, (byte)0, "abc", 4, 1.5));
-        
+        System.out.println(foo.put(true, (byte) 0, "abc", 3, 1.5));
+        System.out.println(foo.get(true, (byte) 0, "abc", 3));
+
+        System.out.println(foo.put(false, (byte) 0, "Def", 3, 1.5));
+        System.out.println(foo.put(true, (byte) -1, "ghi", 3, 2.0));
+        System.out.println(foo.put(true, (byte) 0, "ghi", 3, 3.0));
+        System.out.println(foo.put(true, (byte) 0, "abc", 4, 1.5));
+
         for (Entry<Boolean, Map<Byte, Map<String, Map<Integer, Double>>>> entry : foo) {
             System.out.println("entries: " + entry);
         }

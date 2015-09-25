@@ -23,8 +23,9 @@ public abstract class Chart {
      * @return
      */
     public String getFileName() {
-        return null; 
+        return null;
     };
+
     /**
      * Show Date?
      * @return
@@ -32,7 +33,7 @@ public abstract class Chart {
     public String getExplanation() {
         return null;
     }
-    
+
     /**
      * Short explanation that will go just after the title/dates.
      * @return
@@ -46,11 +47,13 @@ public abstract class Chart {
      * @return
      */
     public abstract String getDirectory();
+
     /**
      * Short title for page. Will appear at the top, and in the window title, and in the index.
      * @return
      */
     public abstract String getTitle();
+
     /**
      * Work
      * @param pw

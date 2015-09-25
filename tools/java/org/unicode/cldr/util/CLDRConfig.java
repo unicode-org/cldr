@@ -147,19 +147,19 @@ public class CLDRConfig extends Properties {
         .maximumSize(200)
         .build(
             new CacheLoader<String, CLDRFile>() {
-              public CLDRFile load(String locale){
-                return getFullCldrFactory().make(locale,true);
-              }
+                public CLDRFile load(String locale) {
+                    return getFullCldrFactory().make(locale, true);
+                }
             });
-    
+
     // Unresolved CLDRFiles are smaller than resolved, so we can cache more of them safely.
     private LoadingCache<String, CLDRFile> cldrFileUnresolvedCache = CacheBuilder.newBuilder()
         .maximumSize(1000)
         .build(
             new CacheLoader<String, CLDRFile>() {
-              public CLDRFile load(String locale){
-                return getFullCldrFactory().make(locale,false);
-              }
+                public CLDRFile load(String locale) {
+                    return getFullCldrFactory().make(locale, false);
+                }
             });
     private TestLog testLog = null;
 
@@ -273,7 +273,7 @@ public class CLDRConfig extends Properties {
     public CLDRFile getCLDRFile(String locale, boolean resolved) {
 
         return resolved ? cldrFileResolvedCache.getUnchecked(locale) :
-                cldrFileUnresolvedCache.getUnchecked(locale);
+            cldrFileUnresolvedCache.getUnchecked(locale);
 
     }
 

@@ -311,7 +311,7 @@ abstract public class CheckCLDR {
             if (previous == ValueStatus.ERROR || value == null) {
                 return previous;
             }
-            
+
             for (CheckStatus item : value.getCheckStatusList()) {
                 CheckStatus.Type type = item.getType();
                 if (type.equals(CheckStatus.Type.Error)) {
@@ -626,7 +626,6 @@ abstract public class CheckCLDR {
      * [refs][hide] Ref: [Zoom...]
      */
 
-
     /**
      * Get the CLDRFile.
      * 
@@ -738,8 +737,8 @@ abstract public class CheckCLDR {
 
             static Pattern TO_STRING = PatternCache.get("([A-Z])");
         };
- 
-        public static EnumSet<Subtype> crossCheckSubtypes = 
+
+        public static EnumSet<Subtype> crossCheckSubtypes =
             EnumSet.of(
                 Subtype.dateSymbolCollision,
                 Subtype.displayCollision,
@@ -749,7 +748,6 @@ abstract public class CheckCLDR {
                 Subtype.abbreviatedDateFieldTooWide,
                 Subtype.narrowDateFieldTooWide,
                 Subtype.coverageLevel);
-
 
         private Type type;
         private Subtype subtype = Subtype.none;
@@ -1178,7 +1176,8 @@ abstract public class CheckCLDR {
     /**
      * Only for use in ConsoleCheck, for debugging
      */
-    public void handleFinish() {}
+    public void handleFinish() {
+    }
 
     /**
      * Internal class used to bundle up a number of Checks.

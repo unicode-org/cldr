@@ -353,7 +353,7 @@ public class GenerateEnums {
         regions.addAll(validRegions.get(Status.macroregion));
 //        String[] validTerritories = values.split("\\s+");
 //        for (int i = 0; i < validTerritories.length; ++i) {
-        for ( String region : regions ) {
+        for (String region : regions) {
             if (corrigendum.contains(region)) {
                 System.out.println("Skipping " + region + "\t\t"
                     + getEnglishName(region));

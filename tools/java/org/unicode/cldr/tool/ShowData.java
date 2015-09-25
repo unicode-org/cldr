@@ -697,8 +697,8 @@ public class ShowData {
             .add("%date%", CldrUtility.isoFormatDateOnly(new Date()));
         if (indexTitle != null) {
             langTag
-            .add("%index-title%", indexTitle)
-            .add("%index%", "../index.html");
+                .add("%index-title%", indexTitle)
+                .add("%index%", "../index.html");
         }
         // "$" //
         // + "Date" //

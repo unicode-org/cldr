@@ -80,7 +80,7 @@ public class CheckHtmlFiles {
             "|Acknowledge?ments" +
             "|Rights to .*Images" +
             "|Modifications" +
-        "|(Revision \\d+\\.?)");
+            "|(Revision \\d+\\.?)");
     static Pattern SUPPRESS_REVISION = PatternCache.get("Revision \\d+\\.?");
     static Pattern SPACES = PatternCache.get("\\s+");
 
@@ -88,10 +88,10 @@ public class CheckHtmlFiles {
 //        old(".*", Settings.OTHER_WORKSPACE_DIRECTORY + "cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
         target(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "target data (regex); ucd for Unicode docs; "
             + "for others use the format -t ${workspace_loc}/unicode-draft/reports/tr51/tr51.html"),
-            verbose(null, null, "verbose debugging messages"),
+        verbose(null, null, "verbose debugging messages"),
 //        contents(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
-            // /cldr-archive
-            ;
+        // /cldr-archive
+        ;
 
         // boilerplate
         final Option option;
@@ -172,16 +172,15 @@ public class CheckHtmlFiles {
     private static final Set<String> SKIP_ATTR = ImmutableSet.of("draft", "alt", "references", "cldrVersion", "unicodeVersion");
 
     private static void checkForDtd(Data target) {
-        M4<String,String,DtdType,Boolean> typeToElements = ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), Boolean.class);
+        M4<String, String, DtdType, Boolean> typeToElements = ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), Boolean.class);
         for (DtdType type : DtdType.values()) {
             if (type == DtdType.ldmlICU) continue;
             DtdData dtdData = DtdData.getInstance(type);
             Set<Element> elements = dtdData.getElements();
             for (Element element : elements) {
-                if (element.isDeprecated() 
+                if (element.isDeprecated()
                     || element.equals(dtdData.PCDATA)
-                    || element.equals(dtdData.ANY)
-                    ) continue;
+                    || element.equals(dtdData.ANY)) continue;
                 typeToElements.put(element.name, element.toDtdString(), type, Boolean.TRUE);
             }
             Set<Attribute> attributes = dtdData.getAttributes();
@@ -193,8 +192,8 @@ public class CheckHtmlFiles {
                 typeToElements.put(attribute.element.name, attribute.appendDtdString(new StringBuilder()).toString(), type, Boolean.TRUE);
             }
         }
-        final Map<String,String> skeletonToInFile = new HashMap<>();
-        Relation<String,String> extra = new Relation(new TreeMap(), TreeSet.class);
+        final Map<String, String> skeletonToInFile = new HashMap<>();
+        Relation<String, String> extra = new Relation(new TreeMap(), TreeSet.class);
         for (Entry<String, String> elementItem : target.dtdItems.entrySet()) {
             String element = elementItem.getKey();
             String item = elementItem.getValue();
@@ -209,16 +208,16 @@ public class CheckHtmlFiles {
             String spaceless = key.replace(" ", "");
             String realKey = skeletonToInFile.get(spaceless);
             if (realKey == null) {
-                status.put(element, key, dtdType, Comparison.missing); 
+                status.put(element, key, dtdType, Comparison.missing);
             } else {
                 boolean found = extra.remove(element, realKey);
                 if (!found) {
-                    status.put(element, key, dtdType, Comparison.no_rem); 
+                    status.put(element, key, dtdType, Comparison.no_rem);
                 }
             }
         }
         for (Entry<String, String> extraItem : extra.entrySet()) {
-            status.put(extraItem.getKey(), extraItem.getValue(), DtdType.ldmlICU, Comparison.extra); 
+            status.put(extraItem.getKey(), extraItem.getValue(), DtdType.ldmlICU, Comparison.extra);
         }
         TreeSet<String> reverse = new TreeSet<>(Collections.reverseOrder());
         for (Entry<String, Map<String, Map<DtdType, Comparison>>> entry1 : status) {
@@ -229,16 +228,18 @@ public class CheckHtmlFiles {
             for (String item : reverse) {
                 Map<DtdType, Comparison> typeToComparison = itemToDtdTypeToComparison.get(item);
                 for (Entry<DtdType, Comparison> entry2 : typeToComparison.entrySet()) {
-                System.out.println(element 
-                    + "\t" + entry2.getValue() 
-                    + "\t" + CldrUtility.ifSame(entry2.getKey(), DtdType.ldmlICU, "")
-                    + "\t" + item);
+                    System.out.println(element
+                        + "\t" + entry2.getValue()
+                        + "\t" + CldrUtility.ifSame(entry2.getKey(), DtdType.ldmlICU, "")
+                        + "\t" + item);
                 }
             }
         }
     }
 
-    enum Comparison {missing, extra, no_rem}
+    enum Comparison {
+        missing, extra, no_rem
+    }
 
     static Pattern WHITESPACE = PatternCache.get("[\\s]+");
     static Pattern BADSECTION = PatternCache.get("^\\s*(\\d+\\s*)?Section\\s*\\d+\\s*[-:]\\s*");
@@ -619,7 +620,7 @@ public class CheckHtmlFiles {
     static class Data implements Iterable<String> {
         private static final Pattern ELEMENT_ATTLIST = Pattern.compile("<!(ELEMENT|ATTLIST)\\s+(\\S+)[^>]*>");
         List<String> sentences = new ArrayList<String>();
-        Relation<String,String> dtdItems = Relation.of(new TreeMap(), TreeSet.class);
+        Relation<String, String> dtdItems = Relation.of(new TreeMap(), TreeSet.class);
         Counter<String> hashedSentences = new Counter<String>();
         int count = 0;
         int totalErrorCount = 0;
@@ -765,7 +766,7 @@ public class CheckHtmlFiles {
                         elementStack.push(contentString);
                         pushedTable = checkCaption && "table".equals(contentString);
                         if (!checkCaption && "h3".equals(contentString)) { // h3 around Summary in standard format
-                            checkCaption = true; 
+                            checkCaption = true;
                         }
                     }
                     if (verbose) {
@@ -811,7 +812,7 @@ public class CheckHtmlFiles {
                     contentString = wsMatcher.reset(content).replaceAll(" ").replace("&nbsp;", " ");
                     buffer.append(contentString.indexOf('&') >= 0
                         ? TransliteratorUtilities.fromHTML.transform(contentString)
-                            : contentString);
+                        : contentString);
                     if (inHeading) {
                         heading.addText(contentString);
                     }

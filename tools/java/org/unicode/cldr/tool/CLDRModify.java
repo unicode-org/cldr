@@ -83,6 +83,7 @@ public class CLDRModify {
     static final UnicodeSet whitespace = (UnicodeSet) new UnicodeSet("[:whitespace:]").freeze();
     static final UnicodeSet HEX = new UnicodeSet("[a-fA-F0-9]").freeze();
     private static final DtdData dtdData = DtdData.getInstance(DtdType.ldml);
+
     // TODO make this into input option.
 
     enum ConfigKeys {
@@ -606,7 +607,8 @@ public class CLDRModify {
                 return Retention.RETAIN;
             }
             String localeId = file.getSourceLocaleID(path, status);
-            if ((c.isLanguageLocale() || c.equals(CLDRLocale.getInstance("pt_PT"))) && (XMLSource.ROOT_ID.equals(localeId) || XMLSource.CODE_FALLBACK_ID.equals(localeId))) {
+            if ((c.isLanguageLocale() || c.equals(CLDRLocale.getInstance("pt_PT")))
+                && (XMLSource.ROOT_ID.equals(localeId) || XMLSource.CODE_FALLBACK_ID.equals(localeId))) {
                 return Retention.RETAIN;
             }
             return Retention.RETAIN_IF_DIFFERENT;
@@ -949,7 +951,7 @@ public class CLDRModify {
             }
 
             public boolean isDeprecated(DtdType type, String path) {
-                
+
                 XPathParts parts = XPathParts.getInstance(path);
                 for (int i = 0; i < parts.size(); ++i) {
                     String element = parts.getElement(i);
@@ -966,24 +968,25 @@ public class CLDRModify {
                 }
                 return false;
             }
+
             @Override
             public void handlePath(String xpath) {
-                 String fullPath = cldrFileToFilter.getFullXPath(xpath);
-                 XPathParts parts = XPathParts.getInstance(fullPath);
-                 for (int i = 0; i < parts.size(); ++i) {
-                     String element = parts.getElement(i);
-                     if (dtdData.isDeprecated(element, "*", "*")) {
-                         remove(fullPath, "Deprecated element");
-                         return;
-                     }
-                     for (Entry<String, String> entry : parts.getAttributes(i).entrySet()) {
-                         String attribute = entry.getKey();
-                         String value = entry.getValue();
-                         if (dtdData.isDeprecated(element, attribute, value)) {
-                             remove(fullPath, "Element with deprecated attribute(s)");
-                         }
-                     }
-                 }
+                String fullPath = cldrFileToFilter.getFullXPath(xpath);
+                XPathParts parts = XPathParts.getInstance(fullPath);
+                for (int i = 0; i < parts.size(); ++i) {
+                    String element = parts.getElement(i);
+                    if (dtdData.isDeprecated(element, "*", "*")) {
+                        remove(fullPath, "Deprecated element");
+                        return;
+                    }
+                    for (Entry<String, String> entry : parts.getAttributes(i).entrySet()) {
+                        String attribute = entry.getKey();
+                        String value = entry.getValue();
+                        if (dtdData.isDeprecated(element, attribute, value)) {
+                            remove(fullPath, "Element with deprecated attribute(s)");
+                        }
+                    }
+                }
             }
         });
 

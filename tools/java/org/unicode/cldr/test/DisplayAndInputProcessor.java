@@ -50,14 +50,14 @@ public class DisplayAndInputProcessor {
     public static final boolean DEBUG_DAIP = CldrUtility.getProperty("DEBUG_DAIP", false);
 
     public static final UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]")
-    .freeze();
+        .freeze();
 
     public static final UnicodeSet TO_QUOTE = (UnicodeSet) new UnicodeSet(
         "[[:Cn:]" +
             "[:Default_Ignorable_Code_Point:]" +
             "[:patternwhitespace:]" +
             "[:Me:][:Mn:]]" // add non-spacing marks
-        ).freeze();
+    ).freeze();
 
     public static final Pattern NUMBER_FORMAT_XPATH = Pattern
         .compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
@@ -70,7 +70,7 @@ public class DisplayAndInputProcessor {
         + "numbers/symbols.*|"
         + "numbers/miscPatterns.*|"
         + "numbers/(decimal|currency|percent|scientific)Formats.+/(decimal|currency|percent|scientific)Format.*)");
-   private static final Pattern INTERVAL_FORMAT_PATHS = PatternCache.get("//ldml/dates/.+/intervalFormatItem.*");
+    private static final Pattern INTERVAL_FORMAT_PATHS = PatternCache.get("//ldml/dates/.+/intervalFormatItem.*");
     private static final Pattern NON_DECIMAL_PERIOD = PatternCache.get("(?<![0#'])\\.(?![0#'])");
     private static final Pattern WHITESPACE_NO_NBSP_TO_NORMALIZE = PatternCache.get("\\s+"); // string of whitespace not
     // including NBSP, i.e. [
@@ -413,14 +413,14 @@ public class DisplayAndInputProcessor {
             if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
                 value = normalizeApostrophes(value);
             }
-            
+
             // Fix up hyphens, replacing with N-dash as appropriate
             if (INTERVAL_FORMAT_PATHS.matcher(path).matches()) {
                 value = normalizeIntervalHyphens(value);
             } else {
                 value = normalizeHyphens(value);
             }
-            
+
             return value;
         } catch (RuntimeException e) {
             if (internalException != null) {
@@ -526,11 +526,11 @@ public class DisplayAndInputProcessor {
 
     private String normalizeHyphens(String value) {
         int hyphenLocation = value.indexOf("-");
-        if (hyphenLocation > 0 && 
-            Character.isDigit(value.charAt(hyphenLocation-1)) &&
-            hyphenLocation < value.length()-1 &&
-            Character.isDigit(value.charAt(hyphenLocation+1))) {
-            StringBuilder sb = new StringBuilder();            
+        if (hyphenLocation > 0 &&
+            Character.isDigit(value.charAt(hyphenLocation - 1)) &&
+            hyphenLocation < value.length() - 1 &&
+            Character.isDigit(value.charAt(hyphenLocation + 1))) {
+            StringBuilder sb = new StringBuilder();
             sb.append(value.substring(0, hyphenLocation));
             sb.append("\u2013");
             sb.append(value.substring(hyphenLocation + 1));
@@ -584,7 +584,7 @@ public class DisplayAndInputProcessor {
             }
             if (convertedSaltillo &&
                 ((i > 0 && i < charArray.length - 1 && Character.isUpperCase(charArray[i - 1]) && Character.isUpperCase(charArray[i + 1])) ||
-                    (i > 1 && Character.isUpperCase(charArray[i - 1]) && Character.isUpperCase(charArray[i - 2])))) {
+                (i > 1 && Character.isUpperCase(charArray[i - 1]) && Character.isUpperCase(charArray[i - 2])))) {
                 c = '\uA78B'; // UPPER CASE SALTILLO
             }
             builder.append(c);
@@ -642,9 +642,9 @@ public class DisplayAndInputProcessor {
 
     private static Map<Character, Character> NORMALIZING_MAP =
         Builder.with(new HashMap<Character, Character>())
-        .put('\u0D23', '\u0D7A').put('\u0D28', '\u0D7B')
-        .put('\u0D30', '\u0D7C').put('\u0D32', '\u0D7D')
-        .put('\u0D33', '\u0D7E').put('\u0D15', '\u0D7F').get();
+            .put('\u0D23', '\u0D7A').put('\u0D28', '\u0D7B')
+            .put('\u0D30', '\u0D7C').put('\u0D32', '\u0D7D')
+            .put('\u0D33', '\u0D7E').put('\u0D15', '\u0D7F').get();
 
     /**
      * Normalizes the Malayalam characters in the specified input.
@@ -747,7 +747,7 @@ public class DisplayAndInputProcessor {
      */
     public static String getCanonicalPattern(String inpattern, NumericType type, boolean isPOSIX) {
         // TODO fix later to properly handle quoted ;
-        
+
         DecimalFormat df = new DecimalFormat(inpattern);
         if (type == NumericType.DECIMAL_ABBREVIATED || type == NumericType.CURRENCY_ABBREVIATED
             || CldrUtility.INHERITANCE_MARKER.equals(inpattern)) {

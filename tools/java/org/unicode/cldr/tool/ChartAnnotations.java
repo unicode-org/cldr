@@ -43,10 +43,12 @@ public class ChartAnnotations extends Chart {
     public String getDirectory() {
         return DIR;
     }
+
     @Override
     public String getTitle() {
         return "Annotation Charts";
     }
+
     @Override
     public String getFileName() {
         return "index";
@@ -63,7 +65,7 @@ public class ChartAnnotations extends Chart {
             + "<a href='http://unicode.org/repos/cldr/tags/latest/common/annotations/'>annotations/</a>.</p>";
     }
 
-    public void writeContents(FormattedFileWriter pw) throws IOException{
+    public void writeContents(FormattedFileWriter pw) throws IOException {
         FileCopier.copy(Chart.class, "index.css", DIR);
 
         FormattedFileWriter.Anchors anchors = new FormattedFileWriter.Anchors();
@@ -80,9 +82,9 @@ public class ChartAnnotations extends Chart {
 
         // set up right order for columns
 
-        Map<String, String> nameToCode = new LinkedHashMap<String,String>();
-        Relation<LanguageGroup, Pair<String,String>> groupToNameAndCodeSorted = Relation.of(
-            new EnumMap<LanguageGroup,Set<Pair<String,String>>>(LanguageGroup.class),
+        Map<String, String> nameToCode = new LinkedHashMap<String, String>();
+        Relation<LanguageGroup, Pair<String, String>> groupToNameAndCodeSorted = Relation.of(
+            new EnumMap<LanguageGroup, Set<Pair<String, String>>>(LanguageGroup.class),
             TreeSet.class);
 
         for (String locale : locales) {
@@ -92,7 +94,7 @@ public class ChartAnnotations extends Chart {
             if (locale.equals("en")) { // make first
                 continue;
             }
-            String name = ENGLISH.getName(locale,true);
+            String name = ENGLISH.getName(locale, true);
             int baseEnd = locale.indexOf('_');
             ULocale loc = new ULocale(baseEnd < 0 ? locale : locale.substring(0, baseEnd));
             LanguageGroup group = LanguageGroup.get(loc);
@@ -101,10 +103,9 @@ public class ChartAnnotations extends Chart {
 
         for (Entry<LanguageGroup, Set<Pair<String, String>>> groupPairs : groupToNameAndCodeSorted.keyValuesSet()) {
             LanguageGroup group = groupPairs.getKey();
-            String ename = ENGLISH.getName("en",true);
+            String ename = ENGLISH.getName("en", true);
             nameToCode.clear();
             nameToCode.put(ename, "en"); // always have english firt
-
 
             for (Pair<String, String> pair : groupPairs.getValue()) {
                 String name = pair.getFirst();
@@ -116,11 +117,11 @@ public class ChartAnnotations extends Chart {
             // now build table with right order for columns
             double width = 99.0 / (locales.size() + 1);
             //String widthString = "class='source' width='"+ width + "%'";
-            String widthStringTarget = "class='target' width='"+ width + "%'";
+            String widthStringTarget = "class='target' width='" + width + "%'";
 
             TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Char", "class='source' width='1%'", null, "class='source-image'", true)
-            .addColumn("Char", "class='source' width='"+ width + "%'", null, "class='source'", true);
+                .addColumn("Char", "class='source' width='1%'", null, "class='source-image'", true)
+                .addColumn("Char", "class='source' width='" + width + "%'", null, "class='source'", true);
 
             for (Entry<String, String> entry : nameToCode.entrySet()) {
                 String name = entry.getKey();
@@ -131,16 +132,16 @@ public class ChartAnnotations extends Chart {
 
             for (String cp : s.addAllTo(sorted)) {
                 tablePrinter
-                .addRow()
-                .addCell(cp)
-                .addCell(getName(cp));
+                    .addRow()
+                    .addCell(cp)
+                    .addCell(getName(cp));
                 for (Entry<String, String> nameAndLocale : nameToCode.entrySet()) {
                     String name = nameAndLocale.getKey();
                     String locale = nameAndLocale.getValue();
                     Annotations annotations = Annotations.make(locale);
                     Set<String> values = annotations.values.get(cp);
                     if (DEBUG) System.out.println(name + ":" + values);
-                    tablePrinter.addCell(values == null ? "" : CollectionUtilities.join(values,"; "));
+                    tablePrinter.addCell(values == null ? "" : CollectionUtilities.join(values, "; "));
                 }
                 tablePrinter.finishRow();
             }
@@ -159,56 +160,56 @@ public class ChartAnnotations extends Chart {
         int ri1 = getRegionalIndicator(cp.codePointAt(0));
         if (ri1 >= 0) {
             int ri2 = getRegionalIndicator(cp.codePointAt(2));
-            return ENGLISH.getName(CLDRFile.TERRITORY_NAME, String.valueOf((char)ri1) + String.valueOf((char)ri2));
+            return ENGLISH.getName(CLDRFile.TERRITORY_NAME, String.valueOf((char) ri1) + String.valueOf((char) ri2));
         }
         String result = NAMES80.get(cp);
-        return result != null ? result : UCharacter.getName(cp,", ");
+        return result != null ? result : UCharacter.getName(cp, ", ");
     }
 
     static UnicodeMap<String> NAMES80 = new UnicodeMap<>();
     static {
         String[][] data = {
-            {"🏻",  "EMOJI MODIFIER FITZPATRICK TYPE-1-2"},
-            {"🏼",  "EMOJI MODIFIER FITZPATRICK TYPE-3"},
-            {"🏽",  "EMOJI MODIFIER FITZPATRICK TYPE-4"},
-            {"🏾",  "EMOJI MODIFIER FITZPATRICK TYPE-5"},
-            {"🏿",  "EMOJI MODIFIER FITZPATRICK TYPE-6"},
-            {"🤐",  "ZIPPER-MOUTH FACE"},
-            {"🤑",  "MONEY-MOUTH FACE"},
-            {"🤒",  "FACE WITH THERMOMETER"},
-            {"🤓",  "NERD FACE"},
-            {"🤔",  "THINKING FACE"},
-            {"🙄",  "FACE WITH ROLLING EYES"},
-            {"🙃",  "UPSIDE-DOWN FACE"},
-            {"🤕",  "FACE WITH HEAD-BANDAGE"},
-            {"🤖",  "ROBOT FACE"},
-            {"🤗",  "HUGGING FACE"},
-            {"🤘",  "SIGN OF THE HORNS"},
-            {"🦀",  "CRAB (also Cancer)"},
-            {"🦂",  "SCORPION (also Scorpio)"},
-            {"🦁",  "LION FACE (also Leo)"},
-            {"🏹",  "BOW AND ARROW (also Sagittarius)"},
-            {"🏺",  "AMPHORA (also Aquarius)"},
-            {"🛐",  "PLACE OF WORSHIP"},
-            {"🕋",  "KAABA"},
-            {"🕌",  "MOSQUE"},
-            {"🕍",  "SYNAGOGUE"},
-            {"🕎",  "MENORAH WITH NINE BRANCHES"},
-            {"📿",  "PRAYER BEADS"},
-            {"🌭",  "HOT DOG"},
-            {"🌮",  "TACO"},
-            {"🌯",  "BURRITO"},
-            {"🧀",  "CHEESE WEDGE"},
-            {"🍿",  "POPCORN"},
-            {"🍾",  "BOTTLE WITH POPPING CORK"},
-            {"🦃",  "TURKEY"},
-            {"🦄",  "UNICORN FACE"},
-            {"🏏",  "CRICKET BAT AND BALL"},
-            {"🏐",  "VOLLEYBALL"},
-            {"🏑",  "FIELD HOCKEY STICK AND BALL"},
-            {"🏒",  "ICE HOCKEY STICK AND PUCK"},
-            {"🏓",  "TABLE TENNIS PADDLE AND BALL"},
-            {"🏸",  "BADMINTON RACQUET AND SHUTTLECOCK"}};
+            { "🏻", "EMOJI MODIFIER FITZPATRICK TYPE-1-2" },
+            { "🏼", "EMOJI MODIFIER FITZPATRICK TYPE-3" },
+            { "🏽", "EMOJI MODIFIER FITZPATRICK TYPE-4" },
+            { "🏾", "EMOJI MODIFIER FITZPATRICK TYPE-5" },
+            { "🏿", "EMOJI MODIFIER FITZPATRICK TYPE-6" },
+            { "🤐", "ZIPPER-MOUTH FACE" },
+            { "🤑", "MONEY-MOUTH FACE" },
+            { "🤒", "FACE WITH THERMOMETER" },
+            { "🤓", "NERD FACE" },
+            { "🤔", "THINKING FACE" },
+            { "🙄", "FACE WITH ROLLING EYES" },
+            { "🙃", "UPSIDE-DOWN FACE" },
+            { "🤕", "FACE WITH HEAD-BANDAGE" },
+            { "🤖", "ROBOT FACE" },
+            { "🤗", "HUGGING FACE" },
+            { "🤘", "SIGN OF THE HORNS" },
+            { "🦀", "CRAB (also Cancer)" },
+            { "🦂", "SCORPION (also Scorpio)" },
+            { "🦁", "LION FACE (also Leo)" },
+            { "🏹", "BOW AND ARROW (also Sagittarius)" },
+            { "🏺", "AMPHORA (also Aquarius)" },
+            { "🛐", "PLACE OF WORSHIP" },
+            { "🕋", "KAABA" },
+            { "🕌", "MOSQUE" },
+            { "🕍", "SYNAGOGUE" },
+            { "🕎", "MENORAH WITH NINE BRANCHES" },
+            { "📿", "PRAYER BEADS" },
+            { "🌭", "HOT DOG" },
+            { "🌮", "TACO" },
+            { "🌯", "BURRITO" },
+            { "🧀", "CHEESE WEDGE" },
+            { "🍿", "POPCORN" },
+            { "🍾", "BOTTLE WITH POPPING CORK" },
+            { "🦃", "TURKEY" },
+            { "🦄", "UNICORN FACE" },
+            { "🏏", "CRICKET BAT AND BALL" },
+            { "🏐", "VOLLEYBALL" },
+            { "🏑", "FIELD HOCKEY STICK AND BALL" },
+            { "🏒", "ICE HOCKEY STICK AND PUCK" },
+            { "🏓", "TABLE TENNIS PADDLE AND BALL" },
+            { "🏸", "BADMINTON RACQUET AND SHUTTLECOCK" } };
         for (String[] pair : data) {
             NAMES80.put(pair[0], pair[1]);
         }
@@ -219,7 +220,7 @@ public class ChartAnnotations extends Chart {
         String title;
         String file;
         private TablePrinter tablePrinter;
-        
+
         @Override
         public boolean getShowDate() {
             return false;
@@ -231,24 +232,29 @@ public class ChartAnnotations extends Chart {
             this.file = file;
             this.tablePrinter = tablePrinter;
         }
+
         @Override
         public String getDirectory() {
             return DIR;
         }
+
         @Override
         public String getTitle() {
             return title;
         }
+
         @Override
         public String getFileName() {
             return file;
         }
+
         @Override
         public String getExplanation() {
             return "<p>Annotations provide labels for Unicode characters. The current data is provisional, "
                 + "and only covers a limited number of languages. Feedback is welcome.</p>"
                 + "<p>This table shows the annotations for a group of related languages (plus English) for easier comparison.<p>";
         }
+
         @Override
         public void writeContents(FormattedFileWriter pw) throws IOException {
             pw.write(tablePrinter.toTable());
@@ -273,9 +279,9 @@ public class ChartAnnotations extends Chart {
     }
 
     static final Set<String> ENGLISH_LABELS = new LinkedHashSet<>(Arrays.asList(
-        "flag", "nature", "objects", "people", "places", "symbols", "travel", "animal", 
-        "office", "sign", "word", "time", "food", "person", "weather", "activity", 
-        "vehicle", "restaurant", "communication", "emotion", "geometric", "mark", 
+        "flag", "nature", "objects", "people", "places", "symbols", "travel", "animal",
+        "office", "sign", "word", "time", "food", "person", "weather", "activity",
+        "vehicle", "restaurant", "communication", "emotion", "geometric", "mark",
         "education", "gesture", "japanese", "symbol", "congratulation", "body", "clothing"));
 
     static class Annotations {
@@ -287,6 +293,7 @@ public class ChartAnnotations extends Chart {
         static Set<String> getAvailableLocales() {
             return cldrFactory.getAvailable();
         }
+
         static Map<String, Annotations> cache = new ConcurrentHashMap<>();
 
         static synchronized Annotations make(String locale) {

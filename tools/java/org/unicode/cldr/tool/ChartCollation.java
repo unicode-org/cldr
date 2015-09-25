@@ -63,6 +63,7 @@ public class ChartCollation extends Chart {
     private static final Factory CLDR_FACTORY = CLDRConfig.getInstance().getCldrFactory();
     private static final boolean DEBUG = false;
     private static final String DIR = CLDRPaths.CHART_DIRECTORY + "collation/";
+
     //static Factory cldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "collation/", ".*");
 
     public static void main(String[] args) {
@@ -73,10 +74,12 @@ public class ChartCollation extends Chart {
     public String getDirectory() {
         return DIR;
     }
+
     @Override
     public String getTitle() {
         return "Collation Charts";
     }
+
     @Override
     public String getFileName() {
         return "index";
@@ -94,7 +97,7 @@ public class ChartCollation extends Chart {
             + "<a target='_blank' href='" + ToolConstants.CHART_SOURCE + "common/collation/'>collation/</a>.</p>" + LS;
     }
 
-    public void writeContents(FormattedFileWriter pw) throws IOException{
+    public void writeContents(FormattedFileWriter pw) throws IOException {
         FileCopier.copy(Chart.class, "index.css", DIR);
 
         FormattedFileWriter.Anchors anchors = new FormattedFileWriter.Anchors();
@@ -107,6 +110,7 @@ public class ChartCollation extends Chart {
         RuleBasedCollator collator;
         Set<String> settings = new LinkedHashSet<>();
     }
+
     public void writeSubcharts(Anchors anchors) throws IOException {
         Matcher settingsMatcher = PatternCache.get(
             "//ldml/collations/collation"
@@ -130,7 +134,7 @@ public class ChartCollation extends Chart {
             if (!xmlName.endsWith(".xml")) {
                 continue;
             }
-            String locale = xmlName.substring(0,xmlName.length()-4);
+            String locale = xmlName.substring(0, xmlName.length() - 4);
             if (!mainAvailable.contains(locale)) {
                 System.out.println("Skipping locale not in main: " + locale);
                 continue;
@@ -138,7 +142,7 @@ public class ChartCollation extends Chart {
 
             pathValueList.clear();
             XMLFileReader.loadPathValues(CLDRPaths.COMMON_DIRECTORY + "collation/" + xmlName, pathValueList, true);
-            Map<String,Data> data = new TreeMap<>();
+            Map<String, Data> data = new TreeMap<>();
 
             for (Pair<String, String> entry : pathValueList) {
                 String path = entry.getFirst();
@@ -193,7 +197,7 @@ public class ChartCollation extends Chart {
             if (!data.containsKey("standard")) {
                 addCollator(data, "standard", (RuleBasedCollator) null);
             }
-            new Subchart(ENGLISH.getName(locale,true,CLDRFile.SHORT_ALTS), locale, data).writeChart(anchors);
+            new Subchart(ENGLISH.getName(locale, true, CLDRFile.SHORT_ALTS), locale, data).writeChart(anchors);
         }
     }
 
@@ -221,13 +225,12 @@ public class ChartCollation extends Chart {
 
     //RuleBasedCollator ROOT = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
 
-
     private class Subchart extends Chart {
         private static final String HIGH_COLLATION_PRIMARY = "\uFFFF";
         String title;
         String file;
         private Map<String, Data> data;
-        
+
         @Override
         public boolean getShowDate() {
             return false;
@@ -238,18 +241,22 @@ public class ChartCollation extends Chart {
             this.file = file;
             this.data = data2;
         }
+
         @Override
         public String getDirectory() {
             return DIR;
         }
+
         @Override
         public String getTitle() {
             return title;
         }
+
         @Override
         public String getFileName() {
             return file;
         }
+
         @Override
         public String getExplanation() {
             return "<p>This is a <i>preliminary</i> chart for the " + title
@@ -258,6 +265,7 @@ public class ChartCollation extends Chart {
                 + "<a target='_blank' href='" + ToolConstants.CHART_SOURCE + "common/collation/" + file + ".xml'>" + file + ".xml</a>.</p>"
                 + KNOWN_PROBLEMS;
         }
+
         @Override
         public void writeContents(FormattedFileWriter pw) throws IOException {
 
@@ -268,7 +276,7 @@ public class ChartCollation extends Chart {
             UnicodeSet exemplars_auxiliary = cldrFile.getExemplarSet("auxiliary", WinningChoice.WINNING);
             UnicodeSet exemplars_punctuation = cldrFile.getExemplarSet("punctuation", WinningChoice.WINNING);
             exemplars_all.addAll(exemplars_auxiliary)
-            .addAll(exemplars_punctuation);
+                .addAll(exemplars_punctuation);
 
             for (NumberingSystem system : NumberingSystem.values()) {
                 UnicodeSet exemplars_numeric = cldrFile.getExemplarsNumeric(system);
@@ -280,8 +288,8 @@ public class ChartCollation extends Chart {
             exemplars_all.freeze();
 
             TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Type", "class='source'", null, "class='source'", true)
-            .addColumn("Ordering", "class='target'", null, "class='target_nofont'", true);
+                .addColumn("Type", "class='source'", null, "class='source'", true)
+                .addColumn("Ordering", "class='target'", null, "class='target_nofont'", true);
 
             for (Entry<String, Data> entry : data.entrySet()) {
                 // sort the characters
@@ -299,7 +307,7 @@ public class ChartCollation extends Chart {
                 if (col == null) {
                     list.append("<i>CLDR default character order</i>");
                 } else {
-                    UnicodeSet tailored = new UnicodeSet(col.getTailoredSet());                    
+                    UnicodeSet tailored = new UnicodeSet(col.getTailoredSet());
                     Set<String> sorted = new TreeSet<>(col);
                     exemplars.addAllTo(sorted);
                     tailored.addAllTo(sorted);
@@ -316,7 +324,7 @@ public class ChartCollation extends Chart {
                         }
                         if (s.startsWith("\uFDD0")) { // special CJK markers
                             int len = list.length();
-                            if (len > 4 && list.substring(len-4, len).equals("<br>")) {
+                            if (len > 4 && list.substring(len - 4, len).equals("<br>")) {
                                 list.append("<br>");
                             }
                             continue;
@@ -331,9 +339,9 @@ public class ChartCollation extends Chart {
                     }
                 }
                 tablePrinter
-                .addRow()
-                .addCell(type)
-                .addCell(list.toString());
+                    .addRow()
+                    .addCell(type)
+                    .addCell(list.toString());
                 tablePrinter.finishRow();
             }
             pw.write(tablePrinter.toTable());

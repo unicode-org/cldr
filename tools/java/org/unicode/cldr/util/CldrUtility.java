@@ -77,6 +77,7 @@ public class CldrUtility {
     // Constant for "↑↑↑". Indicates a "passthru" vote to the parent locale. If CLDRFile ever
     // finds this value in a data field, writing of the field should be suppressed.
     public static final String INHERITANCE_MARKER = new String(new char[] { 0x2191, 0x2191, 0x2191 });
+
     /**
      * Very simple class, used to replace variables in a string. For example
      * <p>
@@ -137,7 +138,7 @@ public class CldrUtility {
             return null;
         }
         final File file = filename == null ? new File(path)
-        : new File(path, filename);
+            : new File(path, filename);
         try {
             return file.getCanonicalPath() + File.separatorChar;
         } catch (IOException e) {
@@ -480,7 +481,8 @@ public class CldrUtility {
         // TODO - exclude UnmodifiableMap, Set, ...
         if (isImmutable(source)) {
             return source;
-        } if (source instanceof Map) {
+        }
+        if (source instanceof Map) {
             Map sourceMap = (Map) source;
             // recurse
             LinkedHashMap tempMap = new LinkedHashMap<>(sourceMap); // copy contents
@@ -515,13 +517,12 @@ public class CldrUtility {
     private static final Set<Object> KNOWN_IMMUTABLES = new HashSet<Object>(Arrays.asList(
         String.class
         ));
-    
+
     public static boolean isImmutable(Object source) {
-        return source == null 
+        return source == null
             || source instanceof Enum
             || source instanceof Number
-            || KNOWN_IMMUTABLES.contains(source.getClass())
-            ;
+            || KNOWN_IMMUTABLES.contains(source.getClass());
     }
 
     /**
@@ -537,11 +538,13 @@ public class CldrUtility {
         try {
             final Method declaredMethod = class1.getDeclaredMethod("clone", (Class<?>) null);
             return (T) declaredMethod.invoke(source, (Object) null);
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        }
         try {
-            final Constructor<? extends Object> declaredMethod = class1.getConstructor((Class<?>)null);
-            return (T) declaredMethod.newInstance((Object)null);
-        } catch (Exception e) {}
+            final Constructor<? extends Object> declaredMethod = class1.getConstructor((Class<?>) null);
+            return (T) declaredMethod.newInstance((Object) null);
+        } catch (Exception e) {
+        }
         return null; // uncloneable
     }
 
@@ -649,8 +652,8 @@ public class CldrUtility {
     private static final Transliterator DEFAULT_REGEX_ESCAPER = Transliterator.createFromRules(
         "foo",
         "([ \\- \\\\ \\[ \\] ]) > '\\' $1 ;"
-        // + " ([:c:]) > &hex($1);"
-        + " ([[:control:][[:z:]&[:ascii:]]]) > &hex($1);",
+            // + " ([:c:]) > &hex($1);"
+            + " ([[:control:][[:z:]&[:ascii:]]]) > &hex($1);",
         Transliterator.FORWARD);
 
     /**
@@ -755,7 +758,7 @@ public class CldrUtility {
             for (UnicodeSet last : lastToFirst.keySet()) {
                 ++alternateCount;
                 alternates.append('|').append(toRegex(lastToFirst.get(last), escaper, onlyBmp))
-                .append(toRegex(last, escaper, onlyBmp));
+                    .append(toRegex(last, escaper, onlyBmp));
             }
         }
         // Return the output. We separate cases in order to get the minimal extra apparatus
@@ -934,7 +937,7 @@ public class CldrUtility {
     // }
     // }
 
-    public static final class PairComparator<K extends Comparable<K>, V extends Comparable<V>> implements java.util.Comparator<Pair<K,V>> {
+    public static final class PairComparator<K extends Comparable<K>, V extends Comparable<V>> implements java.util.Comparator<Pair<K, V>> {
 
         private Comparator<K> comp1;
         private Comparator<V> comp2;
@@ -943,24 +946,25 @@ public class CldrUtility {
             this.comp1 = comp1;
             this.comp2 = comp2;
         }
+
         @Override
-        public int compare(Pair<K,V> o1, Pair<K,V> o2) {
+        public int compare(Pair<K, V> o1, Pair<K, V> o2) {
             {
                 K o1First = o1.getFirst();
                 K o2First = o2.getFirst();
                 int diff = o1First == null ? (o2First == null ? 0 : -1)
                     : o2First == null ? 1
-                        : comp1 == null ? o1First.compareTo(o2First) 
+                        : comp1 == null ? o1First.compareTo(o2First)
                             : comp1.compare(o1First, o2First);
-                        if (diff != 0) {
-                            return diff;
-                        }
+                if (diff != 0) {
+                    return diff;
+                }
             }
             V o1Second = o1.getSecond();
             V o2Second = o2.getSecond();
             return o1Second == null ? (o2Second == null ? 0 : -1)
                 : o2Second == null ? 1
-                    : comp2 == null ? o1Second.compareTo(o2Second) 
+                    : comp2 == null ? o1Second.compareTo(o2Second)
                         : comp2.compare(o1Second, o2Second);
         }
 
@@ -1094,7 +1098,7 @@ public class CldrUtility {
             return rules;
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't open " + dir + ", " + filename)
-            .initCause(e);
+                .initCause(e);
         }
     }
 
@@ -1356,11 +1360,11 @@ public class CldrUtility {
     public static String getCopyrightString() {
         // now do the rest
         return "Copyright \u00A9 1991-"
-        + Calendar.getInstance().get(Calendar.YEAR)
-        + " Unicode, Inc." + CldrUtility.LINE_SEPARATOR
-        + "CLDR data files are interpreted according to the LDML specification "
-        + "(http://unicode.org/reports/tr35/)" + CldrUtility.LINE_SEPARATOR
-        + "For terms of use, see http://www.unicode.org/copyright.html";
+            + Calendar.getInstance().get(Calendar.YEAR)
+            + " Unicode, Inc." + CldrUtility.LINE_SEPARATOR
+            + "CLDR data files are interpreted according to the LDML specification "
+            + "(http://unicode.org/reports/tr35/)" + CldrUtility.LINE_SEPARATOR
+            + "For terms of use, see http://www.unicode.org/copyright.html";
     }
 
     // TODO Move to collection utilities
@@ -1431,7 +1435,7 @@ public class CldrUtility {
                     }
                 } catch (Exception e) {
                     throw (RuntimeException) new IllegalArgumentException("Problem with line: " + line)
-                    .initCause(e);
+                        .initCause(e);
                 }
             }
         }
@@ -1478,7 +1482,7 @@ public class CldrUtility {
         for (int item = 0; item < pairs.length;) {
             if (!Objects.deepEquals(pairs[item++], pairs[item++])) {
                 return false;
-            }  
+            }
         }
         return true;
     }

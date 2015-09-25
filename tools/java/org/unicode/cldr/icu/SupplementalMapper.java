@@ -194,12 +194,12 @@ public class SupplementalMapper {
         String category = outputName;
         if (outputName.equals("supplementalData")) {
             String[] categories = {
-//                "characters", explicitly skipped
+                //                "characters", explicitly skipped
 //                "coverageLevels", explicitly skipped
 //                "dayPeriods", done in processSupplemental
 //                "genderList", done elsewhere??
                 "languageInfo",
-//                "likelySubtags", done elsewhere??
+                //                "likelySubtags", done elsewhere??
 //                "metaZones", done elsewhere??
 //                "numberingSystems", done elsewhere??
 //                "ordinals", done in processSupplemental
@@ -210,7 +210,7 @@ public class SupplementalMapper {
                 "subdivisions",
                 "telephoneCodeData",
                 "/../validity/"
-//                "windowsZones", done elsewhere??
+                //                "windowsZones", done elsewhere??
             };
             for (String cat : categories) {
                 loadValues(cat, pathValueMap);
@@ -268,7 +268,7 @@ public class SupplementalMapper {
             for (File subfile : dir.listFiles()) {
                 String name = subfile.getName();
                 if (name.endsWith(".xml")) {
-                    name = name.substring(0,name.length()-4);
+                    name = name.substring(0, name.length() - 4);
                     loadValues(category + name, pathValueMap);
                 }
             }

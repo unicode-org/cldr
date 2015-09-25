@@ -18,7 +18,7 @@ public class CLDRInfo {
         Collection<? extends CandidateInfo> getValues();
 
         CandidateInfo getCurrentItem();
-        
+
         String getLastReleaseValue();
 
         Level getCoverageLevel(); // OK

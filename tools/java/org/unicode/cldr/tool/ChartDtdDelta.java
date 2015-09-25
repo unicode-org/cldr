@@ -44,10 +44,12 @@ public class ChartDtdDelta extends Chart {
     public String getDirectory() {
         return FormattedFileWriter.CHART_TARGET_DIR;
     }
+
     @Override
     public String getTitle() {
         return "DTD Deltas";
     }
+
     @Override
     public String getExplanation() {
         return "<p>Shows additions to the LDML dtds over time. New elements or attributes are indicated with a + sign. "
@@ -59,21 +61,20 @@ public class ChartDtdDelta extends Chart {
     public void writeContents(FormattedFileWriter pw) throws IOException {
 
         TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Version", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-        .setSortPriority(1)
-        .setSortAscending(false)
-        .setBreakSpans(true)
-        .addColumn("Dtd Type", "class='source'", null, "class='source'", true)
-        .setSortPriority(2)
+            .addColumn("Version", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .setSortPriority(1)
+            .setSortAscending(false)
+            .setBreakSpans(true)
+            .addColumn("Dtd Type", "class='source'", null, "class='source'", true)
+            .setSortPriority(2)
 
-        .addColumn("Intermediate Path", "class='source'", null, "class='target'", true)
-        .setSortPriority(3)
+            .addColumn("Intermediate Path", "class='source'", null, "class='target'", true)
+            .setSortPriority(3)
 
-        .addColumn("Element", "class='target'", null, "class='target'", true)
-        .setSpanRows(false)
-        .addColumn("Attributes", "class='target'", null, "class='target'", true)
-        .setSpanRows(false)
-        ;
+            .addColumn("Element", "class='target'", null, "class='target'", true)
+            .setSpanRows(false)
+            .addColumn("Attributes", "class='target'", null, "class='target'", true)
+            .setSpanRows(false);
 
         String last = null;
         for (String current : CLDR_VERSIONS) {
@@ -86,7 +87,7 @@ public class ChartDtdDelta extends Chart {
                 }
                 DtdData dtdCurrent = null;
                 try {
-                    dtdCurrent = DtdData.getInstance(type, 
+                    dtdCurrent = DtdData.getInstance(type,
                         finalVersion && ToolConstants.CHART_STATUS != ToolConstants.ChartStatus.release ? null : current);
                 } catch (Exception e) {
                     if (!(e.getCause() instanceof FileNotFoundException)) {
@@ -112,12 +113,12 @@ public class ChartDtdDelta extends Chart {
 
         for (DiffElement datum : data) {
             tablePrinter.addRow()
-            .addCell(datum.version)
-            .addCell(datum.dtdType)
-            .addCell(datum.newPath)
-            .addCell(datum.newElement)
-            .addCell(datum.attributeNames)
-            .finishRow();
+                .addCell(datum.version)
+                .addCell(datum.dtdType)
+                .addCell(datum.newPath)
+                .addCell(datum.newElement)
+                .addCell(datum.attributeNames)
+                .finishRow();
         }
         pw.write(tablePrinter.toTable());
         pw.write(Utility.repeat("<br>", 50));
@@ -153,7 +154,7 @@ public class ChartDtdDelta extends Chart {
         TYPES.remove(DtdType.ldmlICU);
     }
 
-    static final Map<DtdType,String> FIRST_VERSION = new EnumMap<>(DtdType.class);
+    static final Map<DtdType, String> FIRST_VERSION = new EnumMap<>(DtdType.class);
     static {
         FIRST_VERSION.put(DtdType.ldmlBCP47, "1.7.2");
         FIRST_VERSION.put(DtdType.keyboard, "22.1");
@@ -210,7 +211,9 @@ public class ChartDtdDelta extends Chart {
         }
     }
 
-    enum DiffType {Element, Attribute, AttributeValue}
+    enum DiffType {
+        Element, Attribute, AttributeValue
+    }
 
     private static class DiffElement {
 
@@ -236,6 +239,7 @@ public class ChartDtdDelta extends Chart {
             substring = substring.substring(base, last);
             return substring.replace("/", "\u200B/") + "/";
         }
+
         @Override
         public String toString() {
             return MoreObjects.toStringHelper(this)
@@ -260,24 +264,24 @@ public class ChartDtdDelta extends Chart {
 
     static final Set<String> SKIP_ATTRIBUTES = ImmutableSet.of("references", "standard", "draft", "alt");
 
-    private static Set<String> getAttributeNames(DtdData dtdCurrent, String elementName, Map<Attribute, Integer> attributesOld, Map<Attribute, Integer> attributes) {
+    private static Set<String> getAttributeNames(DtdData dtdCurrent, String elementName, Map<Attribute, Integer> attributesOld,
+        Map<Attribute, Integer> attributes) {
         Set<String> names = new LinkedHashSet<>();
-        main:
-            for (Attribute attribute : attributes.keySet()) {
-                String name = attribute.getName();
-                if (SKIP_ATTRIBUTES.contains(name)) {
-                    continue;
-                }
-                if (isDeprecated(dtdCurrent.dtdType, elementName, name)) { // SDI.isDeprecated(dtdCurrent, elementName, name, "*")) {
-                    continue;
-                }
-                for (Attribute attributeOld : attributesOld.keySet()) {
-                    if (attributeOld.name.equals(name)) {
-                        continue main;
-                    }
-                }
-                names.add(name);
+        main: for (Attribute attribute : attributes.keySet()) {
+            String name = attribute.getName();
+            if (SKIP_ATTRIBUTES.contains(name)) {
+                continue;
             }
+            if (isDeprecated(dtdCurrent.dtdType, elementName, name)) { // SDI.isDeprecated(dtdCurrent, elementName, name, "*")) {
+                continue;
+            }
+            for (Attribute attributeOld : attributesOld.keySet()) {
+                if (attributeOld.name.equals(name)) {
+                    continue main;
+                }
+            }
+            names.add(name);
+        }
         return names;
     }
 

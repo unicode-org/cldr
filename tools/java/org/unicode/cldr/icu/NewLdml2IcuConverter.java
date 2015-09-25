@@ -157,7 +157,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         }
         sourceDir = options.get("sourcedir").getValue();
         supplementalDir = options.get("supplementaldir").getValue();
-        
+
         destinationDir = options.get("destdir").getValue();
         if (!options.get("type").doesOccur()) {
             throw new IllegalArgumentException("Type not specified: " + Arrays.asList(Type.values()));

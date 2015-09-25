@@ -318,7 +318,7 @@ public class AddPopulationData {
             }
         });
     }
-    
+
     private static void loadWorldBankInfo() throws IOException {
         final String filename = "external/world_bank_data.csv";
 

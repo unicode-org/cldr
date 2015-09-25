@@ -75,11 +75,11 @@ public class CLDRPaths {
         CldrUtility.class, "data/");
 
     public static final Set<String> LDML_DIRECTORIES = ImmutableSet.of(
-        "main", 
+        "main",
         "annotations",
-        "casing", 
+        "casing",
         "collation",
-        "rbnf", 
+        "rbnf",
         "segments",
         "subdivisions"
         );

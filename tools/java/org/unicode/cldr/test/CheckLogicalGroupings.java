@@ -80,45 +80,45 @@ public class CheckLogicalGroupings extends CheckCLDR {
         //}
 
         //if (Phase.FINAL_TESTING.equals(this.getPhase())) {
-            Factory factory = PathHeader.getFactory(CheckCLDR.getDisplayInformation());
-            DraftStatus myStatus = null;
-            EnumMap<DraftStatus, PathHeader> draftStatuses = new EnumMap<DraftStatus, PathHeader>(DraftStatus.class);
-            for (String apath : paths) {
-                String fPath = getCldrFileToCheck().getFullXPath(apath);
-                if (fPath == null) {
-                    continue;
-                }
-                parts.set(fPath);
-                DraftStatus draftStatus = DraftStatus.forString(parts.findFirstAttributeValue("draft"));
-
-                // anything at or above the minimum is ok.
-
-                if (draftStatus.compareTo(MIMIMUM_DRAFT_STATUS) >= 0) {
-                    draftStatus = DraftStatus.approved;
-                }
-                if (apath.equals(path)) { // record what this path has, for later.
-                    myStatus = draftStatus;
-                }
-                PathHeader old = draftStatuses.get(draftStatus);
-                if (old == null) { // take first or path itself
-                    draftStatuses.put(draftStatus, factory.fromPath(apath));
-                }
+        Factory factory = PathHeader.getFactory(CheckCLDR.getDisplayInformation());
+        DraftStatus myStatus = null;
+        EnumMap<DraftStatus, PathHeader> draftStatuses = new EnumMap<DraftStatus, PathHeader>(DraftStatus.class);
+        for (String apath : paths) {
+            String fPath = getCldrFileToCheck().getFullXPath(apath);
+            if (fPath == null) {
+                continue;
             }
-            if (draftStatuses.size() > 1 && myStatus != DraftStatus.approved) { // only show errors for the items that
-                                                                                // have insufficient status
-                if (myStatus != null) { // remove my status from the list
-                    draftStatuses.remove(myStatus);
-                }
-                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.inconsistentDraftStatus) // typically warningType or errorType
-                    .setMessage("Inconsistent draft status within a logical group: {0}", draftStatuses.values())); // the
-                                                                                                                   // message;
-                                                                                                                   // can
-                                                                                                                   // be
-                                                                                                                   // MessageFormat
-                                                                                                                   // with
-                                                                                                                   // arguments
+            parts.set(fPath);
+            DraftStatus draftStatus = DraftStatus.forString(parts.findFirstAttributeValue("draft"));
+
+            // anything at or above the minimum is ok.
+
+            if (draftStatus.compareTo(MIMIMUM_DRAFT_STATUS) >= 0) {
+                draftStatus = DraftStatus.approved;
             }
+            if (apath.equals(path)) { // record what this path has, for later.
+                myStatus = draftStatus;
+            }
+            PathHeader old = draftStatuses.get(draftStatus);
+            if (old == null) { // take first or path itself
+                draftStatuses.put(draftStatus, factory.fromPath(apath));
+            }
+        }
+        if (draftStatuses.size() > 1 && myStatus != DraftStatus.approved) { // only show errors for the items that
+                                                                            // have insufficient status
+            if (myStatus != null) { // remove my status from the list
+                draftStatuses.remove(myStatus);
+            }
+            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                .setSubtype(Subtype.inconsistentDraftStatus) // typically warningType or errorType
+                .setMessage("Inconsistent draft status within a logical group: {0}", draftStatuses.values())); // the
+                                                                                                               // message;
+                                                                                                               // can
+                                                                                                               // be
+                                                                                                               // MessageFormat
+                                                                                                               // with
+                                                                                                               // arguments
+        }
         // }
         return this;
     }

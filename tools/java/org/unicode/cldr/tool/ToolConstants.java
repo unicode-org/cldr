@@ -29,7 +29,7 @@ public class ToolConstants {
     // allows overriding with -D
     public static final String CHART_VERSION = CldrUtility.getProperty("CHART_VERSION", DEFAULT_CHART_VERSION);
     public static final ChartStatus CHART_STATUS = ChartStatus.valueOf(CldrUtility.getProperty("CHART_STATUS", DEFAULT_CHART_STATUS.toString()));
-    
+
     // build from the above
     public static final boolean BETA = CHART_STATUS == ChartStatus.beta;
     public static final String LAST_CHART_VERSION = Integer.parseInt(CHART_VERSION) + ".0"; // must have 1 decimal

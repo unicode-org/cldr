@@ -36,8 +36,8 @@ public class FormattedFileWriter extends java.io.Writer {
                 + "<table>" + Chart.LS); // 
             ArrayList<String[]> anchorList = new ArrayList<>(anchors); // flatten
             int columns = hasExplanations ? 2 : 4;
-            int rows = 1 + (anchorList.size() - 1)/columns;
-            String td = "<td class='plain' style='width:" + (100/columns) + "%'>";
+            int rows = 1 + (anchorList.size() - 1) / columns;
+            String td = "<td class='plain' style='width:" + (100 / columns) + "%'>";
             for (int row = 0; row < rows; ++row) {
                 contents.append("<tr>" + Chart.LS);
                 for (int column = 0; column < columns; ++column) {
@@ -65,7 +65,7 @@ public class FormattedFileWriter extends java.io.Writer {
         }
 
         public void add(String title, String fileName, String explanation) {
-            anchors.add(new String[]{title, fileName, explanation});
+            anchors.add(new String[] { title, fileName, explanation });
             if (explanation != null) {
                 hasExplanations = true;
             }
@@ -125,12 +125,12 @@ public class FormattedFileWriter extends java.io.Writer {
             localeAnchors.add(title, filename + ".html", null);
         }
         PrintWriter pw2 = BagFormatter.openUTF8Writer(dir, filename + ".html");
-        String[] replacements = { "%header%", "", 
-            "%title%", title, 
+        String[] replacements = { "%header%", "",
+            "%title%", title,
             "%version%", ToolConstants.CHART_DISPLAY_VERSION,
-            "%index%", indexLink, 
-            "%index-title%", indexTitle, 
-            "%date%", getDateValue(), 
+            "%index%", indexLink,
+            "%index-title%", indexTitle,
+            "%date%", getDateValue(),
             "%body%", contents };
         final String templateFileName = "chart-template.html";
         FileUtilities.appendBufferedReader(ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);

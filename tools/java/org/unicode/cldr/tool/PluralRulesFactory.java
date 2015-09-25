@@ -420,10 +420,10 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         { "az", "other", "Alış-veriş kartınızda {0} X var. Almaq istəyirsiniz?" },
         { "ast", "one", "{0} día" },
         { "ast", "other", "{0} díes" },
-        { "be", "one", "з {0} кнігі за {0} дзень"},
-        { "be", "few", "з {0} кніг за {0} дні"},
-        { "be", "many", "з {0} кніг за {0} дзён"},
-        { "be", "other", "з {0} кніги за {0} дні"},
+        { "be", "one", "з {0} кнігі за {0} дзень" },
+        { "be", "few", "з {0} кніг за {0} дні" },
+        { "be", "many", "з {0} кніг за {0} дзён" },
+        { "be", "other", "з {0} кніги за {0} дні" },
         { "bg", "one", "{0} ден" },
         { "bg", "other", "{0} дена" },
         { "bn", "one", "সসে {0}টি আপেল খেল" },
@@ -600,7 +600,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         { "en", "other", "{0} days" }, // added from spreadsheet   
         { "zu", "one", "{0} usuku" }, // added from spreadsheet
         { "zu", "other", "{0} izinsuku" }, // added from spreadsheet
-        
+
         { "ga", "one", "{0} ci, {0} gath" },
         { "ga", "two", "{0} gi, {0} gath" },
         { "ga", "few", "{0} chi, {0} cath" },

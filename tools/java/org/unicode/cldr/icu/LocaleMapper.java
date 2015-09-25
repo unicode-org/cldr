@@ -70,7 +70,8 @@ public class LocaleMapper extends Mapper {
             "//ldml/numbers/currencies/currency\\[@type=\"\\w++\"]/(.++)");
         private final Pattern DATE_OR_TIME_FORMAT = PatternCache.get(
             "//ldml/dates/calendars/calendar\\[@type=\"\\w++\"]/(date|time)Formats/.*");
-        private final Pattern MONTH_PATTERN = PatternCache.get(
+        private final Pattern MONTH_PATTERN = PatternCache
+            .get(
             "//ldml/dates/calendars/calendar\\[@type=\"\\w++\"]/months/monthContext\\[@type=\"[\\w\\-]++\"]/monthWidth\\[@type=\"\\w++\"]/month\\[@type=\"\\d++\"](\\[@yeartype=\"leap\"])?");
         private final Pattern CONTEXT_TRANSFORM = PatternCache.get(
             "//ldml/contextTransforms/contextTransformUsage\\[@type=\"([^\"]++)\"]/contextTransform\\[@type=\"([^\"]++)\"]");

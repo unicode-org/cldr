@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!-- Copyright © 1991-2015 Unicode, Inc.
+	CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/) 
+	For terms of use, see http://www.unicode.org/copyright.html -->
+<supplementalData>
+	<version number="$Revision$" />
+	<transforms>
+		<transform source="hy" target="hy_FONIPA" direction="forward" draft="contributed">
+			<comment># https://en.wikipedia.org/wiki/Armenian_language#Phonology</comment>
+			<tRule></tRule>
+			<tRule>::lower();</tRule>
+			<tRule></tRule>
+			<tRule>$wordBoundary = [^[:L:][:M:][:N:]];</tRule>
+			<tRule>$vowel = [աեէըիոևօւ];</tRule>
+			<tRule></tRule>
+			<comment># Special cases</comment>
+			<tRule>ով → ov;</tRule>
+			<tRule></tRule>
+			<tRule>մ → m;</tRule>
+			<tRule>ն → n;</tRule>
+			<tRule></tRule>
+			<tRule>պ → p;</tRule>
+			<tRule>տ → t;</tRule>
+			<tRule>կ → k;</tRule>
+			<tRule></tRule>
+			<tRule>բ → b;</tRule>
+			<tRule>դ → d;</tRule>
+			<tRule>գ → ɡ;</tRule>
+			<tRule></tRule>
+			<tRule>փ → pʰ;</tRule>
+			<tRule>թ → tʰ;</tRule>
+			<tRule>ք → kʰ;</tRule>
+			<tRule></tRule>
+			<tRule>ծ → t͡s;</tRule>
+			<tRule>ճ → t͡ʃ;</tRule>
+			<tRule>ձ → d͡z;</tRule>
+			<tRule></tRule>
+			<tRule>ջ → d͡ʒ;</tRule>
+			<tRule>ց → t͡sʰ;</tRule>
+			<tRule>չ → t͡ʃʰ;</tRule>
+			<tRule></tRule>
+			<tRule>ֆ → f;</tRule>
+			<tRule>ս → s;</tRule>
+			<tRule>շ → ʃ;</tRule>
+			<tRule>խ → x;</tRule>
+			<tRule>հ → h;</tRule>
+			<tRule></tRule>
+			<tRule>վ → v;</tRule>
+			<tRule>ւ → v;</tRule>
+			<tRule>զ → z;</tRule>
+			<tRule>ժ → ʒ;</tRule>
+			<tRule>ղ → ɣ;</tRule>
+			<tRule></tRule>
+			<tRule>լ → l;</tRule>
+			<tRule>յ → j;</tRule>
+			<tRule></tRule>
+			<tRule>ռ → r;</tRule>
+			<tRule>ր → ɾ;</tRule>
+			<tRule></tRule>
+			<tRule>ի → i;</tRule>
+			<tRule></tRule>
+			<tRule>ու → u;</tRule>
+			<tRule>$wordBoundary {ո} → vo;</tRule>
+			<tRule>ո → o;</tRule>
+			<tRule></tRule>
+			<tRule>$vowel {ե} → jɛ;</tRule>
+			<tRule>$wordBoundary {ե} → jɛ;</tRule>
+			<tRule>ե → ɛ;</tRule>
+			<tRule></tRule>
+			<tRule>$wordBoundary {և}  → jɛv;</tRule>
+			<tRule>և  → ɛv;</tRule>
+			<tRule></tRule>
+			<tRule>է → ɛ;</tRule>
+			<tRule>ը → ə;</tRule>
+			<tRule>օ → o;</tRule>
+			<tRule>ա → a;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

@@ -6,7 +6,7 @@ package org.unicode.cldr.web;
 
 /**
  * @author srl
- * 
+ *
  *         This would be Generic except generic arrays are UGLY.
  *         http://stackoverflow
  *         .com/questions/529085/java-how-to-generic-array-creation

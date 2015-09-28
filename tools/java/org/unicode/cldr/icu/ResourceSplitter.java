@@ -368,7 +368,7 @@ public class ResourceSplitter {
         /**
          * Removes this single child resource from parent, leaving other children
          * of parent undisturbed.
-         * 
+         *
          * @return the child resource (with no siblings)
          */
         private Resource removeChildFromParent(Resource child, Resource parent) {

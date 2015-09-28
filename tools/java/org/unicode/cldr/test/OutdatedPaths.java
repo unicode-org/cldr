@@ -51,7 +51,7 @@ public class OutdatedPaths {
 
     /**
      * Creates a new OutdatedPaths, using the data file "outdated.data" in the same directory as this class.
-     * 
+     *
      * @param version
      */
     public OutdatedPaths() {
@@ -60,7 +60,7 @@ public class OutdatedPaths {
 
     /**
      * Loads the data from the specified directory, using the data file "outdated.data".
-     * 
+     *
      * @param directory
      */
     public OutdatedPaths(String directory) {
@@ -135,16 +135,16 @@ public class OutdatedPaths {
         String dataFileName = filename;
         InputStream fileInputStream = directory == null
             ? CldrUtility.getInputStream(OUTDATED_DIR + dataFileName) :
-            //: new FileInputStream(new File(directory, dataFileName));
-            InputStreamFactory.createInputStream(new File(directory, dataFileName));
-        DataInputStream dataIn = new DataInputStream(fileInputStream);
-        return dataIn;
+                //: new FileInputStream(new File(directory, dataFileName));
+                InputStreamFactory.createInputStream(new File(directory, dataFileName));
+            DataInputStream dataIn = new DataInputStream(fileInputStream);
+            return dataIn;
     }
 
     /**
      * Returns true if the value for the path is outdated in trunk. See class
      * description for more info.
-     * 
+     *
      * @param distinguishedPath
      * @return true if the string is outdated
      */
@@ -167,7 +167,7 @@ public class OutdatedPaths {
 
     /**
      * The same as isOutdated, but also returns paths that aren't skipped.
-     * 
+     *
      * @param locale
      * @param distinguishedPath
      * @return
@@ -183,7 +183,7 @@ public class OutdatedPaths {
 
     /**
      * Is this path to be skipped? (because the English is normally irrelevant).
-     * 
+     *
      * @param distinguishedPath
      * @return
      */
@@ -194,7 +194,7 @@ public class OutdatedPaths {
     /**
      * Returns true if the value for the path is outdated in trunk. See class
      * description for more info.
-     * 
+     *
      * @param distinguishedPath
      * @return true if the string is outdated
      */
@@ -218,7 +218,7 @@ public class OutdatedPaths {
 
     /**
      * Returns the number of outdated paths.
-     * 
+     *
      * @param locale
      * @return number of outdated paths.
      */

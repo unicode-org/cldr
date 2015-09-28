@@ -58,12 +58,12 @@ public class ScriptPopulations {
             OfficialStatus officialStatus = bestStatus.get(lang);
             System.out.println(
                 baseLanguage + "\t" + script
-                    + "\t" + langScriptLitPop.getCount(lang)
-                    + "\t" + english.getName(baseLanguage)
-                    + "\t" + english.getName(CLDRFile.SCRIPT_NAME, script)
-                    + "\t" + officialStatus
-                    + "\t" + officialStatus.ordinal()
-                    + "\t" + scriptLitPop.getCount(script)
+                + "\t" + langScriptLitPop.getCount(lang)
+                + "\t" + english.getName(baseLanguage)
+                + "\t" + english.getName(CLDRFile.SCRIPT_NAME, script)
+                + "\t" + officialStatus
+                + "\t" + officialStatus.ordinal()
+                + "\t" + scriptLitPop.getCount(script)
                 );
         }
     }

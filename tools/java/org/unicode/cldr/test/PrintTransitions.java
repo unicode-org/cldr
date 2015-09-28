@@ -14,8 +14,8 @@ import com.ibm.icu.util.TimeZoneTransition;
 /**
  * Verify that all zones in a metazone have the same behavior within the
  * specified period.
- * 
- * 
+ *
+ *
  */
 public class PrintTransitions {
 

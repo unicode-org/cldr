@@ -38,7 +38,7 @@ public class DictionaryStringByteConverter extends StringByteConverter {
             Entry<CharSequence, String> entry = m.next();
             // System.out.println("** " + key + "\t\t" + value);
             int bytesPerChar = entry.getValue().length() * byteMaker.getMaxBytesPerChar(); // all bytes are generated
-                                                                                           // from last char
+            // from last char
             if (mBytesPerChar < bytesPerChar) {
                 mBytesPerChar = bytesPerChar;
             }

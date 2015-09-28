@@ -22,12 +22,14 @@ public class DayPeriodInfo {
     public static final int DAY_LIMIT = 24 * HOUR;
 
     public enum Type {
-        format("format"), 
+        format("format"),
         selection("stand-alone");
         public final String pathValue;
+
         private Type(String _pathValue) {
             pathValue = _pathValue;
         }
+
         public static Type fromString(String source) {
             return selection.pathValue.equals(source) ? selection : Type.valueOf(source);
         }
@@ -45,6 +47,7 @@ public class DayPeriodInfo {
             this.includesEnd = start == end;
             this.dayPeriod = dayPeriod;
         }
+
         @Override
         public int compareTo(Span o) {
             int diff = start - o.start;
@@ -58,9 +61,11 @@ public class DayPeriodInfo {
             // because includesEnd is determined by the above, we're done
             return 0;
         }
+
         public boolean contains(int millisInDay) {
             return start <= millisInDay && (millisInDay < end || millisInDay == end && includesEnd);
         }
+
         /**
          * Returns end, but if not includesEnd, adjusted down by one.
          * @return
@@ -68,20 +73,24 @@ public class DayPeriodInfo {
         public int getAdjustedEnd() {
             return includesEnd ? end : end - 1;
         }
+
         @Override
         public boolean equals(Object obj) {
             Span other = (Span) obj;
             return start == other.start && end == other.end;
             // because includesEnd is determined by the above, we're done
         }
+
         @Override
         public int hashCode() {
             return start * 37 + end;
         }
+
         @Override
         public String toString() {
             return dayPeriod + ":" + toStringPlain();
         }
+
         public String toStringPlain() {
             return formatTime(start) + " – " + formatTime(end) + (includesEnd ? "" : "⁻");
         }
@@ -89,9 +98,9 @@ public class DayPeriodInfo {
 
     public enum DayPeriod {
         // fixed
-        midnight(MIDNIGHT, MIDNIGHT), 
-        am(MIDNIGHT, NOON), 
-        noon(NOON, NOON), 
+        midnight(MIDNIGHT, MIDNIGHT),
+        am(MIDNIGHT, NOON),
+        noon(NOON, NOON),
         pm(NOON, DAY_LIMIT),
         // flexible
         morning1, morning2, afternoon1, afternoon2, evening1, evening2, night1, night2;
@@ -99,7 +108,7 @@ public class DayPeriodInfo {
         public final Span span;
 
         private DayPeriod(int start, int end) {
-            span = new Span(start,end, this);
+            span = new Span(start, end, this);
         }
 
         private DayPeriod() {
@@ -119,15 +128,16 @@ public class DayPeriodInfo {
     // each of these will have the same length, and correspond.
     final private Span[] spans;
     final private DayPeriodInfo.DayPeriod[] dayPeriods;
-    final Relation<DayPeriod, Span> dayPeriodsToSpans = Relation.of(new EnumMap<DayPeriod,Set<Span>>(DayPeriod.class), LinkedHashSet.class);
+    final Relation<DayPeriod, Span> dayPeriodsToSpans = Relation.of(new EnumMap<DayPeriod, Set<Span>>(DayPeriod.class), LinkedHashSet.class);
 
     public static class Builder {
         TreeSet<Span> info = new TreeSet<>();
+
         // TODO add rule test that they can't span same 12 hour time.
 
         public DayPeriodInfo.Builder add(DayPeriodInfo.DayPeriod dayPeriod, int start, boolean includesStart, int end,
             boolean includesEnd) {
-            if (dayPeriod == null || start < 0 || start > end || end > DAY_LIMIT 
+            if (dayPeriod == null || start < 0 || start > end || end > DAY_LIMIT
                 || end - start > NOON) { // the span can't exceed 12 hours
                 throw new IllegalArgumentException("Bad data");
             }
@@ -201,7 +211,7 @@ public class DayPeriodInfo {
 
     /**
      * Return the start (in millis) of the first matching day period, or -1 if no match,
-     * 
+     *
      * @param dayPeriod
      * @return seconds in day
      */
@@ -216,7 +226,7 @@ public class DayPeriodInfo {
 
     /**
      * Return the start, end, and whether the start is included.
-     * 
+     *
      * @param dayPeriod
      * @return start,end,includesStart,period
      */
@@ -227,8 +237,10 @@ public class DayPeriodInfo {
 
     public Span getFirstDayPeriodSpan(DayPeriodInfo.DayPeriod dayPeriod) {
         switch (dayPeriod) {
-        case am: return DayPeriod.am.span;
-        case pm: return DayPeriod.pm.span;
+        case am:
+            return DayPeriod.am.span;
+        case pm:
+            return DayPeriod.pm.span;
         default:
             Set<Span> spanList = dayPeriodsToSpans.get(dayPeriod);
             return spanList == null ? null : dayPeriodsToSpans.get(dayPeriod).iterator().next();
@@ -237,7 +249,7 @@ public class DayPeriodInfo {
 
     /**
      * Returns the day period for the time.
-     * 
+     *
      * @param millisInDay
      *            If not (millisInDay > 0 && The millisInDay < DAY_LIMIT) throws exception.
      * @return corresponding day period
@@ -258,7 +270,7 @@ public class DayPeriodInfo {
 
     /**
      * Returns the number of periods in the day
-     * 
+     *
      * @return
      */
     public int getPeriodCount() {
@@ -267,7 +279,7 @@ public class DayPeriodInfo {
 
     /**
      * For the nth period in the day, returns the start, whether the start is included, and the period ID.
-     * 
+     *
      * @param index
      * @return data
      */
@@ -290,11 +302,16 @@ public class DayPeriodInfo {
 
     public String toString(DayPeriod dayPeriod) {
         switch (dayPeriod) {
-        case midnight: return "00:00";
-        case noon: return "12:00";
-        case am: return "00:00 – 12:00⁻";
-        case pm: return "12:00 – 24:00⁻";
-        default: break;
+        case midnight:
+            return "00:00";
+        case noon:
+            return "12:00";
+        case am:
+            return "00:00 – 12:00⁻";
+        case pm:
+            return "12:00 – 24:00⁻";
+        default:
+            break;
         }
         StringBuilder result = new StringBuilder();
         for (Span span : dayPeriodsToSpans.get(dayPeriod)) {
@@ -314,8 +331,8 @@ public class DayPeriodInfo {
     }
 
     // Day periods that are allowed to collide
-    private static final EnumMap<DayPeriod,EnumSet<DayPeriod>> allowableCollisions = 
-        new EnumMap<DayPeriod,EnumSet<DayPeriod>>(DayPeriod.class);   
+    private static final EnumMap<DayPeriod, EnumSet<DayPeriod>> allowableCollisions =
+        new EnumMap<DayPeriod, EnumSet<DayPeriod>>(DayPeriod.class);
     static {
         allowableCollisions.put(DayPeriod.am, EnumSet.of(DayPeriod.morning1, DayPeriod.morning2));
         allowableCollisions.put(DayPeriod.pm, EnumSet.of(DayPeriod.afternoon1, DayPeriod.afternoon2, DayPeriod.evening1, DayPeriod.evening2));
@@ -330,16 +347,16 @@ public class DayPeriodInfo {
      * @param sampleError TODO
      * @return
      */
-    public boolean collisionIsError(DayPeriodInfo.Type type1, DayPeriod dayPeriod1, Type type2, DayPeriod dayPeriod2, 
+    public boolean collisionIsError(DayPeriodInfo.Type type1, DayPeriod dayPeriod1, Type type2, DayPeriod dayPeriod2,
         Output<Integer> sampleError) {
         if (dayPeriod1 == dayPeriod2) {
             return false;
         }
-        if ( (allowableCollisions.containsKey(dayPeriod1) && allowableCollisions.get(dayPeriod1).contains(dayPeriod2)) || 
-             (allowableCollisions.containsKey(dayPeriod2) && allowableCollisions.get(dayPeriod2).contains(dayPeriod1))) {
+        if ((allowableCollisions.containsKey(dayPeriod1) && allowableCollisions.get(dayPeriod1).contains(dayPeriod2)) ||
+            (allowableCollisions.containsKey(dayPeriod2) && allowableCollisions.get(dayPeriod2).contains(dayPeriod1))) {
             return false;
         }
- 
+
         // we use the more lenient if they are mixed types
         if (type2 == Type.format) {
             type1 = Type.format;
@@ -394,13 +411,14 @@ public class DayPeriodInfo {
                 }
             }
             break;
-        }}
+        }
+        }
         return false; // no bad collision
     }
 
-    // Formatting has looser collision rules, because it is always paired with a time. 
+    // Formatting has looser collision rules, because it is always paired with a time.
     // That is, it is not a problem if two items collide,
-    // if it doesn't cause a collision when paired with a time. 
+    // if it doesn't cause a collision when paired with a time.
     // But if 11:00 has the same format (eg 11 X) as 23:00, there IS a collision.
     // So we see if there is an overlap mod 12.
     private boolean collisionIsErrorFormat(DayPeriod dayPeriod, Span other, Output<Integer> sampleError) {
@@ -419,7 +437,7 @@ public class DayPeriodInfo {
         return false;
     }
 
-    // Selection has stricter collision rules, because is is used to select different messages. 
+    // Selection has stricter collision rules, because is is used to select different messages.
     // So two types with the same localization do collide unless they have exactly the same rules.
     private boolean collisionIsErrorSelection(DayPeriod dayPeriod, Span other, Output<Integer> sampleError) {
         int otherStart = other.start;

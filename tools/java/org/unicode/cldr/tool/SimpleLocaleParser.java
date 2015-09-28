@@ -16,7 +16,7 @@ import org.unicode.cldr.util.PatternCache;
  * Parse Locales, extended to BCP 47 and CLDR. Also normalizes the case of the results.
  * Only does syntactic parse: does not replace deprecated elements; does not check for validity.
  * Will throw IllegalArgumentException for duplicate variants and extensions.
- * 
+ *
  * @author markdavis
  */
 class SimpleLocaleParser {
@@ -47,9 +47,9 @@ class SimpleLocaleParser {
             "   | sgn [-_] (?: BE [-_] (?: fr | nl) | CH [-_] de )" +
             "   | zh [-_] (?: cmn (?: [-_] Hans | [-_] Hant )? | gan | min (?: [-_] nan)? | wuu | yue ) ) )" +
             " (?: \\@ ((?: [a-z 0-9]+ \\= [a-z 0-9]+) (?: \\; (?: [a-z 0-9]+ \\= [a-z 0-9]+))*))?" + // CLDR/ICU
-                                                                                                     // keywords
+            // keywords
             "", Pattern.COMMENTS | Pattern.CASE_INSENSITIVE); // TODO change above to be lowercase, since source is
-                                                              // already when we compare
+    // already when we compare
     // Other regex patterns for splitting apart lists of items detected above.
     private static final Pattern variantSeparatorPattern = PatternCache.get("[-_]");
     private static final Pattern extensionPattern = Pattern.compile(
@@ -71,12 +71,12 @@ class SimpleLocaleParser {
      * Set the object to the source.
      * <p>
      * Example (artificially complicated):
-     * 
+     *
      * <pre>
      * myParser.set(&quot;zh-Hans-HK-SCOUSE-a-foobar-x-a-en@collation=phonebook;calendar=islamic&quot;);
      * String language = myParser.getLanguage();
      * </pre>
-     * 
+     *
      * @param source
      * @return
      */
@@ -163,7 +163,7 @@ class SimpleLocaleParser {
      * <td>{language=und, script=, country=, variants=[], keywords={x=foobar, abc=def}}</td>
      * </tr>
      * </table>
-     * 
+     *
      * @return language subtag, lowercased.
      */
     public String getLanguage() {
@@ -172,7 +172,7 @@ class SimpleLocaleParser {
 
     /**
      * Return BCP 47 script subtag (may be ISO or UN)
-     * 
+     *
      * @return script subtag, titlecased.
      */
     public String getScript() {
@@ -181,7 +181,7 @@ class SimpleLocaleParser {
 
     /**
      * Return BCP 47 region subtag (may be ISO or UN)
-     * 
+     *
      * @return country (region) subtag, uppercased.
      */
     public String getCountry() {
@@ -190,7 +190,7 @@ class SimpleLocaleParser {
 
     /**
      * Return immutable list of BCP 47 variants
-     * 
+     *
      * @return list of uppercased variants.
      */
     public List<String> getVariants() {
@@ -199,7 +199,7 @@ class SimpleLocaleParser {
 
     /**
      * Return the first variant, for compatibility
-     * 
+     *
      * @return first (uppercased) variant
      */
     public String getVariant() {
@@ -223,7 +223,7 @@ class SimpleLocaleParser {
      * calendar=islamic}}</td>
      * </tr>
      * </table>
-     * 
+     *
      * @return map of key/value pairs, lowercased.
      */
     public Map<String, String> getExtensions() {

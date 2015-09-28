@@ -63,8 +63,8 @@ public class ZoneParser {
     }
 
     /**
-    * 
-    */
+     *
+     */
     private void make_zone_to_country() {
         zone_to_country = new TreeMap<String, String>(TZIDComparator);
         country_to_zoneSet = new TreeMap<String, Set<String>>();
@@ -99,10 +99,10 @@ public class ZoneParser {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * private Map bogusZones = null;
-     * 
+     *
      * private Map getAliasMap() { if (bogusZones == null) { try { bogusZones =
      * new TreeMap(); BufferedReader in =
      * Utility.getUTF8Data"TimeZoneAliases.txt"); while (true) { String line =
@@ -245,20 +245,20 @@ public class ZoneParser {
     }
 
     /**
-     * 
+     *
      A rule line has the form
-     * 
+     *
      * Rule NAME FROM TO TYPE IN ON AT SAVE LETTER/S
-     * 
+     *
      * For example:
-     * 
+     *
      * Rule US 1967 1973 - Apr lastSun 2:00 1:00 D
-     * 
+     *
      * The fields that make up a rule line are:
-     * 
+     *
      * NAME Gives the (arbitrary) name of the set of rules this
      * rule is part of.
-     * 
+     *
      * FROM Gives the first year in which the rule applies. Any
      * integer year can be supplied; the Gregorian calendar
      * is assumed. The word minimum (or an abbreviation)
@@ -269,12 +269,12 @@ public class ZoneParser {
      * values, with the unrepresentable times ignored; this
      * allows rules to be portable among hosts with
      * differing time value types.
-     * 
+     *
      * TO Gives the final year in which the rule applies. In
      * addition to minimum and maximum (as above), the word
      * only (or an abbreviation) may be used to repeat the
      * value of the FROM field.
-     * 
+     *
      * TYPE Gives the type of year in which the rule applies.
      * If TYPE is - then the rule applies in all years
      * between FROM and TO inclusive. If TYPE is something
@@ -284,32 +284,32 @@ public class ZoneParser {
      * is taken to mean that the year is of the given type;
      * an exit status of one is taken to mean that the year
      * is not of the given type.
-     * 
+     *
      * IN Names the month in which the rule takes effect.
      * Month names may be abbreviated.
-     * 
+     *
      * ON Gives the day on which the rule takes effect.
      * Recognized forms include:
-     * 
+     *
      * 5 the fifth of the month
      * lastSun the last Sunday in the month
      * lastMon the last Monday in the month
      * Sun>=8 first Sunday on or after the eighth
      * Sun<=25 last Sunday on or before the 25th
-     * 
+     *
      * Names of days of the week may be abbreviated or
      * spelled out in full. Note that there must be no
      * spaces within the ON field.
-     * 
+     *
      * AT Gives the time of day at which the rule takes
      * effect. Recognized forms include:
-     * 
+     *
      * 2 time in hours
      * 2:00 time in hours and minutes
      * 15:00 24-hour format time (for times after noon)
      * 1:28:14 time in hours, minutes, and seconds
      * - equivalent to 0
-     * 
+     *
      * where hour 0 is midnight at the start of the day,
      * and hour 24 is midnight at the end of the day. Any
      * of these forms may be followed by the letter w if
@@ -318,21 +318,21 @@ public class ZoneParser {
      * z) if the given time is universal time; in the
      * absence of an indicator, wall clock time is assumed.
      *** cannot be negative
-     * 
+     *
      * SAVE Gives the amount of time to be added to local
      * standard time when the rule is in effect. This
      * field has the same format as the AT field (although,
      * of course, the w and s suffixes are not used).
      *** can be positive or negative
-     * 
+     *
      * LETTER/S
      * Gives the "variable part" (for example, the "S" or
      * "D" in "EST" or "EDT") of time zone abbreviations to
      * be used when this rule is in effect. If this field
      * is -, the variable part is null.
-     * 
-     * 
-     * 
+     *
+     *
+     *
      */
 
     public static class RuleLine {
@@ -380,38 +380,38 @@ public class ZoneParser {
 
     /**
      * A zone line has the form
-     * 
+     *
      * Zone NAME GMTOFF RULES/SAVE FORMAT [UNTIL]
-     * 
+     *
      * For example:
-     * 
+     *
      * Zone Australia/Adelaide 9:30 Aus CST 1971 Oct 31 2:00
-     * 
+     *
      * The fields that make up a zone line are:
-     * 
+     *
      * NAME The name of the time zone. This is the name used in
      * creating the time conversion information file for the
      * zone.
-     * 
+     *
      * GMTOFF
      * The amount of time to add to UTC to get standard time
      * in this zone. This field has the same format as the
      * AT and SAVE fields of rule lines; begin the field with
      * a minus sign if time must be subtracted from UTC.
-     * 
+     *
      * RULES/SAVE
      * The name of the rule(s) that apply in the time zone
      * or, alternately, an amount of time to add to local
      * standard time. If this field is - then standard time
      * always applies in the time zone.
-     * 
+     *
      * FORMAT
      * The format for time zone abbreviations in this time
      * zone. The pair of characters %s is used to show where
      * the "variable part" of the time zone abbreviation
      * goes. Alternately, a slash (/) separates standard and
      * daylight abbreviations.
-     * 
+     *
      * UNTIL The time at which the UTC offset or the rule(s) change
      * for a location. It is specified as a year, a month, a
      * day, and a time of day. If this is specified, the
@@ -421,7 +421,7 @@ public class ZoneParser {
      * the IN, ON, and AT columns of a rule; trailing columns
      * can be omitted, and default to the earliest possible
      * value for the missing columns.
-     * 
+     *
      * The next line must be a "continuation" line; this has
      * the same form as a zone line except that the string
      * "Zone" and the name are omitted, as the continuation
@@ -671,8 +671,8 @@ public class ZoneParser {
     }
 
     /**
-    * 
-    */
+     *
+     */
     private void makeZoneData() {
         try {
             // get version
@@ -871,16 +871,16 @@ public class ZoneParser {
                     if (DEBUG) {
                         System.out.println("Too many canonicals in: " + equivalents);
                         System.out
-                            .println("\t*Don't* put these into the same equivalence class: "
-                                + canonicals);
+                        .println("\t*Don't* put these into the same equivalence class: "
+                            + canonicals);
                     }
                     Set<String> remainder = new TreeSet<String>(equivalents);
                     remainder.removeAll(isCanonical);
                     if (remainder.size() != 0) {
                         if (DEBUG) {
                             System.out
-                                .println("\tThe following should be equivalent to others: "
-                                    + remainder);
+                            .println("\tThe following should be equivalent to others: "
+                                + remainder);
                         }
                     }
                 }
@@ -917,7 +917,7 @@ public class ZoneParser {
              * linkold_new.keySet().iterator(); it.hasNext();) { Object oldItem =
              * it.next(); if (!isCanonical.contains(oldItem)) continue; Object newItem =
              * linkold_new.get(oldItem); }
-             * 
+             *
              * // fix unstable TZIDs Set itemsToRemove = new HashSet(); Map
              * itemsToAdd = new HashMap(); for (Iterator it =
              * linkold_new.keySet().iterator(); it.hasNext();) { Object oldItem =

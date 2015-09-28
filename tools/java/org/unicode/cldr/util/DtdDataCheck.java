@@ -341,7 +341,7 @@ public class DtdDataCheck {
     //                        int stockCompare = comp.compare(lastAttributeValue, value);
     //                        if (stockCompare >= 0) {
     //                            errors.add("Failure with "
-    //                                    + element.name 
+    //                                    + element.name
     //                                    + ":" + attribute.name
     //                                    + " values:\t" + lastAttributeValue + " ≥ " + value);
     //                        }

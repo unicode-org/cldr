@@ -32,7 +32,7 @@ import com.ibm.icu.text.UnicodeSet;
  * TODO doesn't yet handle supplementaries. It looks like even Java 5 won't help, since it doesn't have syntax for them.
  * Will have to change [...X-Y] into ([...] | X1 [Y1-\uDFFF] | [X2-X3][\uDC00-\uDFFF] | X4[\uD800-Y2)
  * where the X1,Y1 is the first surrogate pair, and X4,Y2 is the last (2nd and 3rd ranges are only if X4 != X2).
- * 
+ *
  * @author davis
  */
 
@@ -54,7 +54,7 @@ public class TestSegments {
 
     /**
      * Quick test of features for debugging
-     * 
+     *
      * @param args
      *            unused
      * @throws IOException
@@ -240,11 +240,11 @@ public class TestSegments {
             {
                 ".*" + new UnicodeSet("[\\p{Grapheme_Cluster_Break=LVT}]").complement().complement(),
                 "\u001E\uC237\u1123\n\uC91B"
-        }, {
-            "(?<=a)b", "ab"
-        }, {
-            "[$]\\p{Alpha}\\p{Alnum}*", "$Letter"
-        } };
+            }, {
+                "(?<=a)b", "ab"
+            }, {
+                "[$]\\p{Alpha}\\p{Alnum}*", "$Letter"
+            } };
         for (int i = 0; i < rtests.length; ++i) {
             Matcher m = Pattern.compile(rtests[i][0], Segmenter.REGEX_FLAGS).matcher("");
             m.reset(rtests[i][1]);
@@ -262,7 +262,7 @@ public class TestSegments {
             "0.5) a \u00D7",
             "test",
             "abcbdb"
-    },
+        },
         {
             "QuickCheck2",
             "$Letter=\\p{Alphabetic}",
@@ -271,32 +271,32 @@ public class TestSegments {
             "2) $Letter \u00D7 $Letter",
             "test",
             "The quick 100 brown foxes."
-    },
+        },
         {
             "GraphemeClusterBreak",
             "test",
             "The qui\u0300ck 100 brown foxes.",
             "compareGrapheme"
-    },
+        },
         {
             "LineBreak",
             "test",
             "\uCD40\u1185",
             "http://www.cs.tut.fi/%7Ejkorpela/html/nobr.html?abcd=high&hijk=low#anchor",
             "T\u0300he qui\u0300ck 100.1 brown" + CldrUtility.LINE_SEPARATOR
-                + "\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
+            + "\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
             "compareLine"
-    },
+        },
         {
             "SentenceBreak",
             "test",
             "T\u0300he qui\u0300ck 100.1 brown" + CldrUtility.LINE_SEPARATOR
-                + "\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
+            + "\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
             "compareSentence"
-    }, {
-        "WordBreak",
-        "test",
-        "T\u0300he qui\u0300ck 100.1 brown" + CldrUtility.LINE_SEPARATOR + "\u0300foxes.",
-        "compareWord"
-    } };
+        }, {
+            "WordBreak",
+            "test",
+            "T\u0300he qui\u0300ck 100.1 brown" + CldrUtility.LINE_SEPARATOR + "\u0300foxes.",
+            "compareWord"
+        } };
 }

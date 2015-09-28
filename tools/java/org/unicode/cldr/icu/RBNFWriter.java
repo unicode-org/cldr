@@ -25,19 +25,19 @@ import com.ibm.icu.util.Calendar;
 
 /**
  * Class to generate CLDR's RBNF rules from existing ICU RBNF text files.
- * 
+ *
  * @author John C. Emmons
  */
 
 public class RBNFWriter {
 
     private static final int
-        SOURCEDIR = 2,
-        DESTDIR = 3,
-        FROMFILE = 4,
-        TOFILE = 5,
-        SPEC = 6,
-        COPYRIGHT = 7;
+    SOURCEDIR = 2,
+    DESTDIR = 3,
+    FROMFILE = 4,
+    TOFILE = 5,
+    SPEC = 6,
+    COPYRIGHT = 7;
 
     private static final UOption[] options = {
         UOption.HELP_H(),

@@ -45,7 +45,7 @@ public class FileCopier {
 
     /**
      * Copy the resource srcFile to the Writer out, using a Reader with the charset specified; Reader will be closed, Writer will be
-     * flushed and left open. The replacements as specified in the Map will be performed. 
+     * flushed and left open. The replacements as specified in the Map will be performed.
      * @param cls
      * @param srcFile
      * @param charSet
@@ -59,7 +59,7 @@ public class FileCopier {
     }
 
     /**
-     * Append all the lines read from the Reader to the writer. Will close the reader, but leave the 
+     * Append all the lines read from the Reader to the writer. Will close the reader, but leave the
      * writer open, flushing it
      * @param rdr
      * @param wr
@@ -78,7 +78,7 @@ public class FileCopier {
     }
 
     /***
-     * Copy all the contents of the reader to the writer, performing line-by-line replacements, as specified by the map. Closes the 
+     * Copy all the contents of the reader to the writer, performing line-by-line replacements, as specified by the map. Closes the
      * reader, and flushes the writer, but leaves it open.
      * @param rdr
      * @param wr
@@ -122,7 +122,7 @@ public class FileCopier {
     }
 
     /**
-     * Writes the resource named sourceFile to the Writer, leaving the writer open, but flushing it. UTF-8 will be used as a charSet 
+     * Writes the resource named sourceFile to the Writer, leaving the writer open, but flushing it. UTF-8 will be used as a charSet
      * @param cls
      * @param sourceFile
      * @param out

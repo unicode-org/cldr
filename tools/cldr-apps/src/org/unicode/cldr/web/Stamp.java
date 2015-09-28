@@ -45,7 +45,7 @@ public class Stamp implements Comparable<Stamp> {
 
     /**
      * Get the stamp's current value
-     * 
+     *
      * @return
      */
     public long current() {

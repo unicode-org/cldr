@@ -37,7 +37,7 @@ public class GetLanguageData {
                     + "\t" + languageToGdp.getCount(language) //
                     + "\t" + (status.getFirst().isOfficial() ? status.getFirst() : "") //
                     + "\t" + status.getSecond() //
-                );
+                    );
             }
             System.out.println();
         }
@@ -69,7 +69,7 @@ public class GetLanguageData {
                     + "\t" + territoryPop //
                     + "\t" + langPop //
                     + "\t" + gdp //
-                );
+                    );
                 scale = 1 + missing / officialLangPop;
                 // scale up the official so that
                 // official + non-official = 70% of total

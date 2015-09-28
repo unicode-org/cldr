@@ -126,7 +126,7 @@ public class TestComparisonBuilder extends TestFmwk {
             try {
                 Set<String> items = new TreeSet<String>(comp);
                 items.addAll(eaInfo.keySet()); // we'll get exception if it
-                                               // fails
+                // fails
             } catch (Exception e) {
                 Set<String> missing = new LinkedHashSet<String>(eaInfo.keySet());
                 missing.removeAll(comp.getOrdering());

@@ -11,7 +11,7 @@ public class CheckNames extends CheckCLDR {
     private static final Pattern YEAR_PATTERN = PatternCache.get("\\d{3,4}");
     private static final Pattern YEARS_NOT_ALLOWED = Pattern
         .compile(
-        "//ldml/localeDisplayNames/(languages|currencies|scripts|territories|measurementSystemNames|transformNames)/.*");
+            "//ldml/localeDisplayNames/(languages|currencies|scripts|territories|measurementSystemNames|transformNames)/.*");
 
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
@@ -33,7 +33,7 @@ public class CheckNames extends CheckCLDR {
             // Allow years in currencies if enclosed by brackets.
             if (path.startsWith("//ldml/localeDisplayNames/currencies") &&
                 (isEnclosedByBraces(matcher, value, '(', ')') ||
-                isEnclosedByBraces(matcher, value, '[', ']'))) {
+                    isEnclosedByBraces(matcher, value, '[', ']'))) {
                 // no errors
             } else {
                 result.add(new CheckStatus().setCause(this)

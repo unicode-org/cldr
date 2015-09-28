@@ -137,7 +137,7 @@ public class TestUtilities extends TestFmwkPlus {
             .matcher("");
         for (int i = 1; i <= 0x10FFFF; i = i * 3 / 2 + 1) {
             String escaped = EscapingUtilities.urlEscape(new StringBuilder()
-                .appendCodePoint(i).toString());
+            .appendCodePoint(i).toString());
             logln(Integer.toHexString(i) + " => " + escaped);
             if (EscapingUtilities.OK_TO_NOT_QUOTE.contains(i)) {
                 assertTrue("Should be unquoted", escaped.length() == 1);
@@ -569,39 +569,39 @@ public class TestUtilities extends TestFmwkPlus {
                 801,
                 new VoterInfo(Organization.guest, Level.street,
                     "guestS") },
-            {
-                701,
-                new VoterInfo(Organization.gnome, Level.street,
-                    "gnomeS") },
-            {
-                404,
-                new VoterInfo(Organization.google, Level.vetter,
-                    "googleV") },
-            {
-                411,
-                new VoterInfo(Organization.google, Level.street,
-                    "googleS") },
-            {
-                424,
-                new VoterInfo(Organization.google, Level.vetter,
-                    "googleV2") },
-            {
-                304,
-                new VoterInfo(Organization.apple, Level.vetter,
-                    "appleV") },
-            {
-                208,
-                new VoterInfo(Organization.adobe, Level.expert,
-                    "adobeE") },
-            {
-                101,
-                new VoterInfo(Organization.ibm, Level.street,
-                    "ibmS") },
-            {
-                118,
-                new VoterInfo(Organization.ibm, Level.expert,
-                    "ibmE") },
-            { 129, new VoterInfo(Organization.ibm, Level.tc, "ibmT") }, });
+                    {
+                        701,
+                        new VoterInfo(Organization.gnome, Level.street,
+                            "gnomeS") },
+                            {
+                                404,
+                                new VoterInfo(Organization.google, Level.vetter,
+                                    "googleV") },
+                                    {
+                                        411,
+                                        new VoterInfo(Organization.google, Level.street,
+                                            "googleS") },
+                                            {
+                                                424,
+                                                new VoterInfo(Organization.google, Level.vetter,
+                                                    "googleV2") },
+                                                    {
+                                                        304,
+                                                        new VoterInfo(Organization.apple, Level.vetter,
+                                                            "appleV") },
+                                                            {
+                                                                208,
+                                                                new VoterInfo(Organization.adobe, Level.expert,
+                                                                    "adobeE") },
+                                                                    {
+                                                                        101,
+                                                                        new VoterInfo(Organization.ibm, Level.street,
+                                                                            "ibmS") },
+                                                                            {
+                                                                                118,
+                                                                                new VoterInfo(Organization.ibm, Level.expert,
+                                                                                    "ibmE") },
+                                                                                    { 129, new VoterInfo(Organization.ibm, Level.tc, "ibmT") }, });
 
     private int toVoterId(String s) {
         for (Entry<Integer, VoterInfo> entry : testdata.entrySet()) {
@@ -637,7 +637,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setLastRelease(jgo21, oldStatus); // seed/jgo.xml from 21
         logln("Last release: " + jgo21 + ", " + oldStatus);
         resolver.setTrunk(jgo22trunk, Status.approved); // seed/jgo.xml from 22
-                                                        // trunk
+        // trunk
         logln("SVN: " + jgo22trunk);
         logln(resolver.toString());
         assertEquals("Winning Value", jgo22trunk, resolver.getWinningValue());
@@ -751,8 +751,8 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.add("aardvark", toVoterId("adobeE"));
         resolver.add("zebra", toVoterId("ibmT"));
         assertEquals("", "zebra", resolver.getWinningValue()); // TC vote of 20
-                                                               // beats
-                                                               // expert's 8
+        // beats
+        // expert's 8
         assertEquals("", Status.approved, resolver.getWinningStatus());
 
         resolver.clear();
@@ -762,10 +762,10 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.add("zebra", toVoterId("ibmT"));
         resolver.add("aardvark", toVoterId("ibmE"));
         assertEquals("", "zebra", resolver.getWinningValue()); // TC vote of 20
-                                                               // beats
-                                                               // expert's 8
-                                                               // and its own
-                                                               // expert's 8
+        // beats
+        // expert's 8
+        // and its own
+        // expert's 8
         assertEquals("", Status.approved, resolver.getWinningStatus());
 
         resolver.clear();
@@ -773,16 +773,16 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setLastRelease("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
         resolver.add("zebra", toVoterId("ibmT"), Level.vetter.getVotes()); // NOTE:
-                                                                           // reduced
-                                                                           // votes:
-                                                                           // as
-                                                                           // vetter.
+        // reduced
+        // votes:
+        // as
+        // vetter.
         resolver.add("aardvark", toVoterId("ibmE"));
         assertEquals("", "aardvark", resolver.getWinningValue()); // Now
-                                                                  // aardvark
-                                                                  // wins -
-                                                                  // experts
-                                                                  // win out.
+        // aardvark
+        // wins -
+        // experts
+        // win out.
         assertEquals("", Status.approved, resolver.getWinningStatus());
 
         resolver.clear();
@@ -790,15 +790,15 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setLastRelease("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
         resolver.add("zebra", toVoterId("ibmT"), Level.vetter.getVotes()); // NOTE:
-                                                                           // reduced
-                                                                           // votes:
-                                                                           // as
-                                                                           // vetter.
+        // reduced
+        // votes:
+        // as
+        // vetter.
         assertEquals("", "aardvark", resolver.getWinningValue()); // Now
-                                                                  // aardvark
-                                                                  // wins -
-                                                                  // experts
-                                                                  // win out.
+        // aardvark
+        // wins -
+        // experts
+        // win out.
         assertEquals("", Status.approved, resolver.getWinningStatus());
     }
 
@@ -1142,7 +1142,7 @@ public class TestUtilities extends TestFmwkPlus {
             "locales list",
             "http://st.unicode.org/cldr-apps/v#locales///",
             CLDRConfig.getInstance().urls()
-                .forSpecial(CLDRURLS.Special.Locales));
+            .forSpecial(CLDRURLS.Special.Locales));
         assertEquals("maltese", "http://st.unicode.org/cldr-apps/v#/mt//",
             CLDRConfig.getInstance().urls().forLocale(maltese));
         assertEquals("korean in maltese",
@@ -1155,7 +1155,7 @@ public class TestUtilities extends TestFmwkPlus {
                 .urls().forXpathHexId(maltese, KOREAN_LANGUAGE_STRID));
         assertEquals("south east asia in maltese",
             "http://st.unicode.org/cldr-apps/v#/mt/C_SEAsia/", CLDRConfig
-                .getInstance().urls().forPage(maltese, PageId.C_SEAsia));
+            .getInstance().urls().forPage(maltese, PageId.C_SEAsia));
         try {
             String ret = CLDRConfig.getInstance().urls()
                 .forXpathHexId(maltese, KOREAN_LANGUAGE);

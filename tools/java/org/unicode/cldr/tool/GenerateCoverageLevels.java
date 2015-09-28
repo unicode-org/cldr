@@ -45,11 +45,11 @@ public class GenerateCoverageLevels {
     private static int SHOW_EXAMPLES = 5;
     private static final String FILES = ".*";
     private static final String MAIN_DIRECTORY = CLDRPaths.MAIN_DIRECTORY;// CldrUtility.SUPPLEMENTAL_DIRECTORY;
-                                                                          // //CldrUtility.MAIN_DIRECTORY;
+    // //CldrUtility.MAIN_DIRECTORY;
     private static final String COLLATION_DIRECTORY = CLDRPaths.COMMON_DIRECTORY + "/collation/";// CldrUtility.SUPPLEMENTAL_DIRECTORY;
-                                                                                                 // //CldrUtility.MAIN_DIRECTORY;
+    // //CldrUtility.MAIN_DIRECTORY;
     private static final String RBNF_DIRECTORY = CLDRPaths.COMMON_DIRECTORY + "/rbnf/";// CldrUtility.SUPPLEMENTAL_DIRECTORY;
-                                                                                       // //CldrUtility.MAIN_DIRECTORY;
+    // //CldrUtility.MAIN_DIRECTORY;
     private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/coverage/"; // CldrUtility.MAIN_DIRECTORY;
     private static final Factory cldrFactory = Factory.make(MAIN_DIRECTORY, FILES);
     private static final Comparator<String> attributeComparator = CLDRFile.getAttributeOrdering();
@@ -145,7 +145,7 @@ public class GenerateCoverageLevels {
                     Relation<String, String> attr_values = types.get(key);
                     for (String attr : attr_values.keySet()) {
                         resultString.append("\t").append(key + ":\u200b" + attr).append("=\u200b")
-                            .append(attr_values.getAll(attr));
+                        .append(attr_values.getAll(attr));
                     }
                 }
                 out.println(lastLevel.ordinal()
@@ -354,9 +354,9 @@ public class GenerateCoverageLevels {
             Relation<Level, R2<String, String>> samples = levelData.samples;
             StringBuilder countLine = new StringBuilder(
                 script
-                    + "\t" + english.getName(CLDRFile.SCRIPT_NAME, script)
-                    + "\t" + lang
-                    + "\t" + english.getName(CLDRFile.LANGUAGE_NAME, lang)
+                + "\t" + english.getName(CLDRFile.SCRIPT_NAME, script)
+                + "\t" + lang
+                + "\t" + english.getName(CLDRFile.LANGUAGE_NAME, lang)
                 );
             if (header != null) {
                 header.append("Code\tScript\tCode\tLocale");
@@ -560,7 +560,7 @@ public class GenerateCoverageLevels {
             String source = cldrFile.getSourceLocaleID(path, status);
             Inheritance inherited = !source.equals(locale) || skipUnconfirmed(path)
                 ? Inheritance.inherited
-                : Inheritance.actual;
+                    : Inheritance.actual;
 
 //            Level level = sdi.getCoverageLevel(fullPath, locale);
             Level level = coverageInfo.getCoverageLevel(fullPath, locale);

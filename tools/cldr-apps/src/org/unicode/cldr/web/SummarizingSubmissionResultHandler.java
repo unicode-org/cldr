@@ -125,7 +125,7 @@ public class SummarizingSubmissionResultHandler implements DataSubmissionResultH
 
         /**
          * Record a proposed value.
-         * 
+         *
          * @param v
          */
         public void setProposed(String v) {

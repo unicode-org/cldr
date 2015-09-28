@@ -31,9 +31,9 @@ import com.ibm.icu.util.ULocale;
 
 /**
  * Should be in the package usertest, but it's a pain to rename files in CVS.
- * 
+ *
  * @author markdavis
- * 
+ *
  * @param <T>
  */
 public class TestStateDictionaryBuilder<T> {
@@ -355,7 +355,7 @@ public class TestStateDictionaryBuilder<T> {
 
     /**
      * Check that the words all match against themselves.
-     * 
+     *
      * @param matcher
      * @param data
      */

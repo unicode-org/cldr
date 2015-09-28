@@ -30,7 +30,7 @@ import java.util.Iterator;
  * This provides static methods to convert an XML text into a JSONArray or
  * JSONObject, and to covert a JSONArray or JSONObject into an XML text using
  * the JsonML transform.
- * 
+ *
  * @author JSON.org
  * @version 2010-02-12
  */
@@ -38,7 +38,7 @@ public class JSONML {
 
     /**
      * Parse XML values and store them in a JSONArray.
-     * 
+     *
      * @param x
      *            The XMLTokener containing the source string.
      * @param arrayForm
@@ -232,7 +232,7 @@ public class JSONML {
      * name/value pairs. If the tag contains children, then strings and
      * JSONArrays will represent the child tags. Comments, prologs, DTDs, and
      * <code>&lt;[ [ ]]></code> are ignored.
-     * 
+     *
      * @param string
      *            The source string.
      * @return A JSONArray containing the structured data from the XML string.
@@ -250,7 +250,7 @@ public class JSONML {
      * name/value pairs. If the tag contains children, then strings and
      * JSONArrays will represent the child content and tags. Comments, prologs,
      * DTDs, and <code>&lt;[ [ ]]></code> are ignored.
-     * 
+     *
      * @param x
      *            An XMLTokener.
      * @return A JSONArray containing the structured data from the XML string.
@@ -267,9 +267,9 @@ public class JSONML {
      * attributes will be in the JSONObject as properties. If the tag contains
      * children, the object will have a "childNodes" property which will be an
      * array of strings and JsonML JSONObjects.
-     * 
+     *
      * Comments, prologs, DTDs, and <code>&lt;[ [ ]]></code> are ignored.
-     * 
+     *
      * @param x
      *            An XMLTokener of the XML source text.
      * @return A JSONObject containing the structured data from the XML string.
@@ -286,9 +286,9 @@ public class JSONML {
      * attributes will be in the JSONObject as properties. If the tag contains
      * children, the object will have a "childNodes" property which will be an
      * array of strings and JsonML JSONObjects.
-     * 
+     *
      * Comments, prologs, DTDs, and <code>&lt;[ [ ]]></code> are ignored.
-     * 
+     *
      * @param string
      *            The XML source text.
      * @return A JSONObject containing the structured data from the XML string.
@@ -300,7 +300,7 @@ public class JSONML {
 
     /**
      * Reverse the JSONML transformation, making an XML text from a JSONArray.
-     * 
+     *
      * @param ja
      *            A JSONArray.
      * @return An XML string.
@@ -384,7 +384,7 @@ public class JSONML {
      * The JSONObject must contain a "tagName" property. If it has children,
      * then it must have a "childNodes" property containing an array of objects.
      * The other properties are attributes with string values.
-     * 
+     *
      * @param jo
      *            A JSONObject.
      * @return An XML string.

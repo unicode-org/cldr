@@ -13,7 +13,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
  * ICU data with. It might be possible for PluralsMapper and LdmlLocaleMapper to
  * share a parent class, but there isn't currently a need for that so they're
  * kept separate for the time being.
- * 
+ *
  * @author markdavis
  * Based on PluralsMapper
  */
@@ -28,7 +28,7 @@ public class PluralRangesMapper {
      * supplemental directory because the supplemental data parsing is already
      * done for us. The RegexLookup method used by LdmlLocaleMapper wouldn't
      * work well, since there would only be one regex.
-     * 
+     *
      * @param supplementalDataInfo
      */
     public PluralRangesMapper(String supplementalDir) {

@@ -171,11 +171,11 @@ public class POSIX_LCTime {
             nlldate = "";
             String SearchLocations[] = {
                 "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='yyyyMMMdd']",
-                "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='yyyyMMMd']" };
+            "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='yyyyMMMd']" };
             for (int i = 0; i < SearchLocations.length; i++)
             {
                 nlldate = doc.getWinningValue(SearchLocation); // throws exception if only alt nodes found, returns null
-                                                               // if nothing found
+                // if nothing found
                 if (nlldate != null) break;
             }
 

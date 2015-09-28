@@ -17,6 +17,7 @@ public class LocaleMatcherShim {
         }
         LANGUAGE_MATCHER_DATA.freeze();
     }
+
     public static LanguageMatcherData load() {
         return LANGUAGE_MATCHER_DATA;
     }

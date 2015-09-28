@@ -65,7 +65,7 @@ public class GenerateBcp47Text {
      * Added: 2005-10-16
      * Suppress-Script: Cyrl
      * %%
-     * 
+     *
      * @param key
      * @param string
      */

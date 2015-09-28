@@ -21,7 +21,7 @@ import java.util.TreeSet;
  * the integer can be used to get the object. All objects are immutable, and
  * created with a corresponding factory object. The integers have no relation to
  * the order in the original set. The integers may not be compact (eg 0..n).
- * 
+ *
  * @param <T>
  */
 public abstract class IntMap<T> {
@@ -85,7 +85,7 @@ public abstract class IntMap<T> {
      * Stores short strings (255 or less) in compacted fashion. The number of
      * strings is also limited: in the worst case to 2^24 / total number of UTF-8
      * bytes
-     * 
+     *
      * @author markdavis
      */
     public static class CompactStringIntMap extends IntMap<String> {

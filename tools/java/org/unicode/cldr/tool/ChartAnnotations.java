@@ -23,8 +23,8 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.impl.Relation;
 import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.UnicodeSet;
@@ -120,8 +120,8 @@ public class ChartAnnotations extends Chart {
             String widthStringTarget = "class='target' width='" + width + "%'";
 
             TablePrinter tablePrinter = new TablePrinter()
-                .addColumn("Char", "class='source' width='1%'", null, "class='source-image'", true)
-                .addColumn("Char", "class='source' width='" + width + "%'", null, "class='source'", true);
+            .addColumn("Char", "class='source' width='1%'", null, "class='source-image'", true)
+            .addColumn("Char", "class='source' width='" + width + "%'", null, "class='source'", true);
 
             for (Entry<String, String> entry : nameToCode.entrySet()) {
                 String name = entry.getKey();
@@ -132,9 +132,9 @@ public class ChartAnnotations extends Chart {
 
             for (String cp : s.addAllTo(sorted)) {
                 tablePrinter
-                    .addRow()
-                    .addCell(cp)
-                    .addCell(getName(cp));
+                .addRow()
+                .addCell(cp)
+                .addCell(getName(cp));
                 for (Entry<String, String> nameAndLocale : nameToCode.entrySet()) {
                     String name = nameAndLocale.getKey();
                     String locale = nameAndLocale.getValue();

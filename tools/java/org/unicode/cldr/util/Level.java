@@ -4,9 +4,9 @@ import java.util.Locale;
 
 /**
  * A simple class representing an enumeration of possible CLDR coverage levels. Levels may change in the future.
- * 
+ *
  * @author davis
- * 
+ *
  */
 public enum Level {
     UNDETERMINED(0, "none", 0),
@@ -18,7 +18,7 @@ public enum Level {
     MODERN(80, "G1", 50),
     COMPREHENSIVE(100, "G0", 2);
     //OPTIONAL(101, "optional", 1);
-    
+
     public static final Level POSIX = BASIC;
     public static final Level MINIMAL = BASIC;
     public static final Level OPTIONAL = COMPREHENSIVE;
@@ -26,12 +26,12 @@ public enum Level {
     private final byte level;
     private final String altName;
     private final int value;
-    
+
     private static final Level[] VALUES = values();
 
     /**
      * returns value ranging from 100 (core) to 1 (optional). Most clients want getLevel instead.
-     * 
+     *
      * @return
      */
     public int getValue() {
@@ -85,7 +85,7 @@ public enum Level {
 
     /**
      * This is the numeric value used in the coverage level XML.
-     * 
+     *
      * @return range from 10 (core) to 100 (comprehensive).
      */
     public byte getLevel() {
@@ -108,7 +108,7 @@ public enum Level {
         }
         throw new IllegalArgumentException(String.valueOf(level));
     }
-    
+
     public static Level fromString(String source) {
         return Level.get(source);
     }

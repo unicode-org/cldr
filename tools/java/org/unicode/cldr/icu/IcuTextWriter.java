@@ -19,7 +19,7 @@ import com.ibm.icu.util.Calendar;
 
 /**
  * Writes an IcuData object to a text file.
- * 
+ *
  * @author jchye
  */
 public class IcuTextWriter {
@@ -41,33 +41,33 @@ public class IcuTextWriter {
      */
     public static final Comparator<String> PATH_COMPARATOR =
         new Comparator<String>() {
-            @Override
-            public int compare(String arg0, String arg1) {
-                int min = Math.min(arg0.length(), arg1.length());
-                for (int i = 0; i < min; ++i) {
-                    int ch0 = arg0.charAt(i);
-                    int ch1 = arg1.charAt(i);
-                    int diff = ch0 - ch1;
-                    if (diff == 0) {
-                        continue;
-                    }
-                    if (ch0 == '/') {
-                        return -1;
-                    } else if (ch1 == '/') {
-                        return 1;
-                    }
-                    // make * greater than everything, because of languageMatch
-                    // while it is a pain to have it be unordered, this fix is sufficient to put all the *'s after anything else
-                    if (ch0 == '*') {
-                        return 1;
-                    } else if (ch1 == '*') {
-                        return -1;
-                    }
-                    return diff;
+        @Override
+        public int compare(String arg0, String arg1) {
+            int min = Math.min(arg0.length(), arg1.length());
+            for (int i = 0; i < min; ++i) {
+                int ch0 = arg0.charAt(i);
+                int ch1 = arg1.charAt(i);
+                int diff = ch0 - ch1;
+                if (diff == 0) {
+                    continue;
                 }
-                return arg0.length() - arg1.length();
+                if (ch0 == '/') {
+                    return -1;
+                } else if (ch1 == '/') {
+                    return 1;
+                }
+                // make * greater than everything, because of languageMatch
+                // while it is a pain to have it be unordered, this fix is sufficient to put all the *'s after anything else
+                if (ch0 == '*') {
+                    return 1;
+                } else if (ch1 == '*') {
+                    return -1;
+                }
+                return diff;
             }
-        };
+            return arg0.length() - arg1.length();
+        }
+    };
 
     private static String getHeader() {
         if (headerText != null) {
@@ -86,7 +86,7 @@ public class IcuTextWriter {
     /**
      * Write a file in ICU format. LDML2ICUConverter currently has some
      * funny formatting in a few cases; don't try to match everything.
-     * 
+     *
      * @param icuData
      *            the icu data structure to be written
      * @param dirPath
@@ -226,7 +226,7 @@ public class IcuTextWriter {
     /**
      * Wrapper for a hack to determine if the given rb path should always
      * present its values as an array. This hack is required for an ICU data test to pass.
-     * 
+     *
      * @param topValues
      * @param name
      * @param rbPath
@@ -237,7 +237,7 @@ public class IcuTextWriter {
         // System.out.println(name + "\t" + rbPath);
         if (topValues) {
             return (rbPath.startsWith("/rules/set")
-            && name.equals("pluralRanges"));
+                && name.equals("pluralRanges"));
         }
         return rbPath.equals("/LocaleScript")
             || (rbPath.contains("/eras/") && !rbPath.endsWith(":alias"))
@@ -268,7 +268,7 @@ public class IcuTextWriter {
 
     /**
      * Can a string be broken here? If not, backup until we can.
-     * 
+     *
      * @param quoted
      * @param end
      * @return
@@ -298,7 +298,7 @@ public class IcuTextWriter {
 
     /**
      * Fix characters inside strings.
-     * 
+     *
      * @param item
      * @return
      */
@@ -330,7 +330,7 @@ public class IcuTextWriter {
 
     /**
      * find the initial labels (from a path) that are identical.
-     * 
+     *
      * @param item
      * @return
      */

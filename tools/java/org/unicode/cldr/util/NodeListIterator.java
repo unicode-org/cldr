@@ -6,11 +6,11 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
- * NodeLists as returned by DOM do not support Iterators; they can be accessed by index. 
+ * NodeLists as returned by DOM do not support Iterators; they can be accessed by index.
  * This is a small helper class that wraps a NodeList and makes it support the Iterator interface.
  *
  * The iterator does not support item removal.
- * 
+ *
  * @author ribnitz
  *
  */

@@ -12,7 +12,7 @@ import com.ibm.icu.util.ULocale;
 /**
  * Immutable class for formatting a list, using data from CLDR (or supplied
  * separately). The class is not subclassable.
- * 
+ *
  * @author markdavis
  * @internal
  */
@@ -25,7 +25,7 @@ final public class ListFormat {
     /**
      * Create a ListFormatter from component strings, with definitions as in
      * LDML.
-     * 
+     *
      * @param two
      *            string for two items, containing {0} for the first, and {1}
      *            for the second.
@@ -49,7 +49,7 @@ final public class ListFormat {
 
     /**
      * Create a list formatter that is appropriate for a locale.
-     * 
+     *
      * @param locale
      *            the locale in question.
      * @return ListFormatter
@@ -72,7 +72,7 @@ final public class ListFormat {
 
     /**
      * Create a list formatter that is appropriate for a locale.
-     * 
+     *
      * @param locale
      *            the locale in question.
      * @return ListFormatter
@@ -84,7 +84,7 @@ final public class ListFormat {
 
     /**
      * Format a list of objects.
-     * 
+     *
      * @param items
      *            items to format. The toString() method is called on each.
      * @return items formatted into a string
@@ -96,7 +96,7 @@ final public class ListFormat {
 
     /**
      * Format a collation of objects. The toString() method is called on each.
-     * 
+     *
      * @param items
      *            items to format. The toString() method is called on each.
      * @return items formatted into a string

@@ -35,7 +35,7 @@ public class GeneratePluralConfirmation {
     public static void main(String[] args) {
         Set<String> testLocales = new TreeSet(Arrays.asList(
             "az cy hy ka kk km ky lo mk mn my ne pa si sq uz eu my si sq vi zu"
-                .split(" ")));
+            .split(" ")));
         // STANDARD_CODES.getLocaleCoverageLocales("google");
         System.out.println(testLocales);
         LanguageTagParser ltp = new LanguageTagParser();

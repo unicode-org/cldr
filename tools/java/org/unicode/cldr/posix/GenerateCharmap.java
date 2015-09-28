@@ -28,16 +28,16 @@ import com.ibm.icu.text.UnicodeSetIterator;
 
 /**
  * Class to generate POSIX format charmap
- * 
+ *
  * @author John C. Emmons
  */
 
 public class GenerateCharmap {
 
     private static final int
-        DESTDIR = 2,
-        UNICODESET = 3,
-        CHARSET = 4;
+    DESTDIR = 2,
+    UNICODESET = 3,
+    CHARSET = 4;
 
     private static final UOption[] options = {
         UOption.HELP_H(),

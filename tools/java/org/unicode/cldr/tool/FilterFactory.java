@@ -35,7 +35,7 @@ import com.ibm.icu.util.Output;
 /**
  * Factory for filtering CLDRFiles by organization and replacing certain values.
  * Organization coverage data is in org/unicode/cldr/util/data/Locales.txt.
- * 
+ *
  * @author jchye
  */
 public class FilterFactory extends Factory {
@@ -55,7 +55,7 @@ public class FilterFactory extends Factory {
 
     /**
      * Creates a new Factory for filtering CLDRFiles.
-     * 
+     *
      * @param rawFactory
      *            the factory to be filtered
      * @param organization
@@ -110,7 +110,7 @@ public class FilterFactory extends Factory {
 
     /**
      * Replaces the value for certain XPaths with their alternate value.
-     * 
+     *
      * @param rawFile
      */
     private void filterAltValues(CLDRFile rawFile) {
@@ -126,7 +126,7 @@ public class FilterFactory extends Factory {
 
     /**
      * Filters a CLDRFile according to the specified organization's coverage level.
-     * 
+     *
      * @param rawFile
      */
     private void filterCoverage(CLDRFile rawFile) {
@@ -245,7 +245,7 @@ public class FilterFactory extends Factory {
         }
 
         /**
-         * 
+         *
          * @param filter
          */
         public void addModifierEntry(ModifierEntry entry) {
@@ -429,7 +429,7 @@ public class FilterFactory extends Factory {
 
     /**
      * Converts an xpath into a proper regex pattern.
-     * 
+     *
      * @param path
      * @return
      */
@@ -439,14 +439,14 @@ public class FilterFactory extends Factory {
 
     private static final Options options = new Options(
         "Filters CLDR XML files according to orgnizational coverage levels and an " +
-            "input file of replacement values/xpaths.")
-        //        .add("org", 'o', ".*", "google", "The organization that the filtering is for. If set, also removes duplicate paths.")
-        .add("org", 'o', ".*", Organization.cldr.name(), "The organization that the filtering is for. If set, also removes duplicate paths.")
-        .add("locales", 'l', ".*", ".*", "A regular expression indicating the locales to be filtered");
+        "input file of replacement values/xpaths.")
+    //        .add("org", 'o', ".*", "google", "The organization that the filtering is for. If set, also removes duplicate paths.")
+    .add("org", 'o', ".*", Organization.cldr.name(), "The organization that the filtering is for. If set, also removes duplicate paths.")
+    .add("locales", 'l', ".*", ".*", "A regular expression indicating the locales to be filtered");
 
     /**
      * Run FilterFactory for a specific organization.
-     * 
+     *
      * @param args
      * @throws Exception
      */

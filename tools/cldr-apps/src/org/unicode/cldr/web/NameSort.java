@@ -13,7 +13,7 @@ import com.ibm.icu.text.Collator;
 
 /**
  * @author srl
- * 
+ *
  */
 public class NameSort extends SortMode {
 
@@ -21,7 +21,7 @@ public class NameSort extends SortMode {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.web.SortMode#getName()
      */
     @Override
@@ -32,7 +32,7 @@ public class NameSort extends SortMode {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.web.SortMode#memberships()
      */
     @Override
@@ -43,7 +43,7 @@ public class NameSort extends SortMode {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.web.SortMode#createComparator()
      */
     @Override

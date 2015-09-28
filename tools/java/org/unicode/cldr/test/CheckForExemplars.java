@@ -142,9 +142,9 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     /**
      * Adapted from GenerateXMB.MapTransform
-     * 
+     *
      * @author jchye
-     * 
+     *
      */
     static class PlaceholderTransform implements Transform<String, Set<String>> {
         @Override
@@ -211,9 +211,9 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         skip = false;
         prettyPrint = new PrettyPrinter()
-            .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-            .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
-                .setStrength2(Collator.PRIMARY))
+        .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
+        .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
+            .setStrength2(Collator.PRIMARY))
             .setCompressRanges(true);
         return this;
     }
@@ -232,8 +232,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             ok[0] = true;
         } catch (IllegalArgumentException iae) {
             possibleErrors.add(new CheckStatus()
-                .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.couldNotAccessExemplars)
-                .setMessage("Could not get exemplar set: " + iae.toString()));
+            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.couldNotAccessExemplars)
+            .setMessage("Could not get exemplar set: " + iae.toString()));
             ok[0] = false;
         }
         return result;
@@ -338,13 +338,13 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         } else if (matchList.size() > 0 && placeholderStatus == PlaceholderStatus.DISALLOWED) { // non-message field has
             // placeholder values
             result
-                .add(new CheckStatus()
-                    .setCause(this)
-                    .setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.shouldntHavePlaceholders)
-                    .setMessage(
-                        "This field is not a message pattern, and should not have '{0}, {1},' etc. See the English for an example.",
-                        new Object[] {}));
+            .add(new CheckStatus()
+            .setCause(this)
+            .setMainType(CheckStatus.errorType)
+            .setSubtype(Subtype.shouldntHavePlaceholders)
+            .setMessage(
+                "This field is not a message pattern, and should not have '{0}, {1},' etc. See the English for an example.",
+                new Object[] {}));
             // end checks for patterns
         }
         // Now handle date patterns.
@@ -490,7 +490,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 if (localeID == null) {
                     throw new IllegalArgumentException(
                         "A likely subtag for " + parser.getLanguage() +
-                            " is required to get its script.");
+                        " is required to get its script.");
                 }
             }
             script = parser.set(localeID).getScript();
@@ -604,22 +604,22 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             scriptString.append("}");
         }
         result
-            .add(new CheckStatus()
-                .setCause(this)
-                .setMainType(warningVsError)
-                .setSubtype(ASCII.containsAll(missing) ? subtypeAscii : subtype)
-                .setMessage(
-                    "The characters \u200E{0}\u200E {1} {2}. "
-                        +
-                        "For what to do, see <i>Handling Warnings</i> in <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/characters#TOC-Handing-Warnings'>Characters</a>.",
-                    new Object[] { fixedMissing, scriptString, qualifier }));
+        .add(new CheckStatus()
+        .setCause(this)
+        .setMainType(warningVsError)
+        .setSubtype(ASCII.containsAll(missing) ? subtypeAscii : subtype)
+        .setMessage(
+            "The characters \u200E{0}\u200E {1} {2}. "
+                +
+                "For what to do, see <i>Handling Warnings</i> in <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/characters#TOC-Handing-Warnings'>Characters</a>.",
+                new Object[] { fixedMissing, scriptString, qualifier }));
     }
 
     static final Normalizer2 NFC = Normalizer2.getInstance(null, "nfc", Normalizer2.Mode.COMPOSE);
 
     /**
      * Return null if ok, otherwise UnicodeSet of bad characters
-     * 
+     *
      * @param exemplarSet
      * @param value
      * @return

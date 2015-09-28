@@ -33,7 +33,7 @@ public class LikelySubtags {
 
     /**
      * Create the likely subtags.
-     * 
+     *
      * @param toMaximized
      */
     public LikelySubtags(Map<String, String> toMaximized) {
@@ -42,7 +42,7 @@ public class LikelySubtags {
 
     /**
      * Create the likely subtags.
-     * 
+     *
      * @param toMaximized
      */
     public LikelySubtags(SupplementalDataInfo supplementalDataInfo) {
@@ -51,7 +51,7 @@ public class LikelySubtags {
 
     /**
      * Create the likely subtags.
-     * 
+     *
      * @param toMaximized
      */
     public LikelySubtags(SupplementalDataInfo supplementalDataInfo, Map<String, String> toMaximized) {
@@ -85,7 +85,7 @@ public class LikelySubtags {
 
     /**
      * Create the likely subtags.
-     * 
+     *
      * @param toMaximized
      */
     public LikelySubtags() {
@@ -162,7 +162,7 @@ public class LikelySubtags {
         boolean noScript = script.isEmpty();
         boolean noRegion = region.isEmpty();
 
-        // not efficient, but simple to match spec.        
+        // not efficient, but simple to match spec.
         for (String region2 : noRegion ? Arrays.asList(region) : Arrays.asList(region, "")) {
             ltp.setRegion(region2);
             for (String script2 : noScript ? Arrays.asList(script) : Arrays.asList(script, "")) {
@@ -285,8 +285,8 @@ public class LikelySubtags {
 
     static final Map<String, String> EXTRA_SCRIPTS =
         Builder.with(new HashMap<String, String>())
-            .on("crs", "pcm", "tlh").put("Latn")
-            .freeze();
+        .on("crs", "pcm", "tlh").put("Latn")
+        .freeze();
 
     public String getLikelyScript(String code) {
         String max = this.maximize(code);

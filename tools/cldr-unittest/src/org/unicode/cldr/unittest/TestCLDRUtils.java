@@ -32,12 +32,12 @@ import com.ibm.icu.util.ULocale;
 
 /**
  * @author srl
- * 
+ *
  */
 public class TestCLDRUtils extends TestFmwk {
 
     /**
-     * 
+     *
      */
     public TestCLDRUtils() {
         // TODO Auto-generated constructor stub
@@ -84,7 +84,7 @@ public class TestCLDRUtils extends TestFmwk {
     }
 
     /**
-     * 
+     *
      * @param french
      * @param locale
      * @param combinedLong
@@ -121,7 +121,7 @@ public class TestCLDRUtils extends TestFmwk {
             logln(aloc.getBaseName()
                 + ".xml: "
                 + outStream.toString().replaceAll("\n", "\\\\n")
-                    .replaceAll("\t", "\\\\t"));
+                .replaceAll("\t", "\\\\t"));
         }
         if (outStream.toString().length() == 0) {
             errln("Error: empty CLDRFile of " + aloc
@@ -132,7 +132,7 @@ public class TestCLDRUtils extends TestFmwk {
     public void TestCLDRLocaleFormatNoFile() {
         logln("Tests for CLDRLocale:");
         CLDRLocale
-            .setDefaultFormatter(new CLDRFormatter(FormatBehavior.replace));
+        .setDefaultFormatter(new CLDRFormatter(FormatBehavior.replace));
         String tests_str[] = { "", "root", "el__POLYTON", "el_POLYTON",
             "__UND", "en", "en_GB", "en_Shav", "en_Shav_GB",
             "en_Latn_GB_POLYTON", "nnh", "sq_XK" };
@@ -180,7 +180,7 @@ public class TestCLDRUtils extends TestFmwk {
                         .get("combined"));
                     Transform<String, String> picker = attrs.get("alt")
                         .equalsIgnoreCase("short") ? SHORT_ALT_PICKER
-                        : null;
+                            : null;
                     if (type.equals("region")) {
                         result = locale.getDisplayCountry(engFormat);
                     } else if (type.equals("all")) {
@@ -217,7 +217,7 @@ public class TestCLDRUtils extends TestFmwk {
         logln("Reading" + fileName);
         myReader.read(TestCLDRUtils.class.getResource("data/" + fileName)
             .toString(), FileReaders.openFile(TestCLDRUtils.class, "data/"
-            + fileName), -1, true);
+                + fileName), -1, true);
     }
 
     public void TestCLDRLocaleInheritance() {
@@ -228,7 +228,7 @@ public class TestCLDRUtils extends TestFmwk {
 
         logln("Testing descendants of " + ml + " " + ml.getDisplayName());
         CLDRLocale areSub[][] = { // isChild returns true for i!=0
-        { ml, ml_IN, ml_Mlym, ml_Mlym_IN }, { ml_Mlym, ml_Mlym_IN }, };
+            { ml, ml_IN, ml_Mlym, ml_Mlym_IN }, { ml_Mlym, ml_Mlym_IN }, };
         for (CLDRLocale[] row : areSub) {
             CLDRLocale parent = row[0];
             for (CLDRLocale child : row) {
@@ -241,7 +241,7 @@ public class TestCLDRUtils extends TestFmwk {
             }
         }
         CLDRLocale notSub[] = { // isChild returns false
-        CLDRLocale.getInstance("mli"), CLDRLocale.getInstance("root"),
+            CLDRLocale.getInstance("mli"), CLDRLocale.getInstance("root"),
             CLDRLocale.ROOT };
         for (CLDRLocale child : notSub) {
             checkChild(ml, child, false);

@@ -28,9 +28,9 @@ import org.w3c.dom.Node;
  * for all the xpaths in the file that they are currently processing and at
  * every leaf node should verify if an XPath is convertible or not. Please see
  * {@link org.unicode.cldr.icu.LDML2ICUConverter#isNodeNotConvertible(Node, StringBuilder)}.
- * 
+ *
  * @author ram
- * 
+ *
  */
 public abstract class CLDRConverterTool {
     /**
@@ -65,9 +65,9 @@ public abstract class CLDRConverterTool {
     /**
      * Object that holds information about aliases on the
      * <alias from="in" to="id" /> elements.
-     * 
+     *
      * @author ram
-     * 
+     *
      */
     public static class Alias {
         public final String from;
@@ -100,7 +100,7 @@ public abstract class CLDRConverterTool {
 
     /**
      * Process the arguments
-     * 
+     *
      * @param args
      */
     public abstract void processArgs(String[] args);
@@ -121,7 +121,7 @@ public abstract class CLDRConverterTool {
     }
 
     /**
-     * 
+     *
      * @param map
      */
     public void setLocalesMap(Map<String, String> map) {
@@ -135,10 +135,10 @@ public abstract class CLDRConverterTool {
     /**
      * Sets the list of objects that contain information in
      * include and exclude elements
-     * 
+     *
      * <include xpath="//ldml/.* /dateTimeElements/.*" draft=".*"/>
      * <exclude xpath="//ldml/.* /language.*" preferAlt="proposed" draft=".*"/>
-     * 
+     *
      * @param list
      */
     public void setPathList(List<Task> list) {
@@ -169,7 +169,7 @@ public abstract class CLDRConverterTool {
     /**
      * Computes the convertible xpaths by walking through the xpathList given and applying the rules
      * in children of <path> elements.
-     * 
+     *
      * @param xpathList
      *            A sorted list of all xpaths for the current run
      * @param localeName

@@ -43,7 +43,7 @@ import org.xml.sax.XMLReader;
 /**
  * A command-line tool for converting XTB files to the CLDR format and checking
  * them against current CLDR data.
- * 
+ *
  * @author jchye@google.com (Jennifer Chye)
  */
 public class ConvertXTB {
@@ -66,7 +66,7 @@ public class ConvertXTB {
 
     /***
      * Constructor. The input directory must have the following format:
-     * 
+     *
      * <pre>
      * inputDir/
      *   ar/
@@ -79,7 +79,7 @@ public class ConvertXTB {
      *     ca.xtb
      *     ...
      * </pre>
-     * 
+     *
      * @param inputDir
      *            the directory to read the wsb and xtb files from
      * @param outputDir
@@ -101,7 +101,7 @@ public class ConvertXTB {
     /**
      * Sets the PrintStream that any errors will be sent to. System.out is used
      * by default.
-     * 
+     *
      * @param out
      */
     private void setErrorOutput(PrintStream out) {
@@ -202,7 +202,7 @@ public class ConvertXTB {
 
         /**
          * Add the specified xpath and value to the output.
-         * 
+         *
          * @param xpath
          * @param value
          */
@@ -220,7 +220,7 @@ public class ConvertXTB {
 
         /**
          * Processes a plural value and xpath and adds them to the output.
-         * 
+         *
          * @param xpath
          * @param value
          */
@@ -363,7 +363,7 @@ public class ConvertXTB {
     }
 
     /**
-     * 
+     *
      * @param xpath
      *            the xpath that the placeholder belongs to
      * @param name
@@ -401,7 +401,7 @@ public class ConvertXTB {
 
     /**
      * Loads the contents of an XTB file into memory.
-     * 
+     *
      * @param locale
      *            the locale of the XTB file to be loaded
      * @return
@@ -447,7 +447,7 @@ public class ConvertXTB {
 
     /**
      * Loads the set of messages that were previously translated.
-     * 
+     *
      * @param locale
      *            the locale of the messages to be retrieved
      * @return
@@ -466,7 +466,7 @@ public class ConvertXTB {
     /**
      * Processes all XTB files in the input directory that match the specified
      * regex.
-     * 
+     *
      * @param regexFilter
      */
     private void processAll(String regexFilter) {
@@ -485,7 +485,7 @@ public class ConvertXTB {
 
     /**
      * Checks the contents of the XTB file against the existing CLDR data.
-     * 
+     *
      * @param xtbInfo
      *            the contents of the XTB to be checked
      */
@@ -515,7 +515,7 @@ public class ConvertXTB {
 
     /**
      * Displays any errors that occurred when checking the specified xpath
-     * 
+     *
      * @param locale
      *            the locale of the xpath being checked
      * @param id
@@ -547,7 +547,7 @@ public class ConvertXTB {
 
     /**
      * Writes the contents of the XTB file to an XML file in CLDR format.
-     * 
+     *
      * @param xtbInfo
      */
     private void writeXml(XtbInfo xtbInfo) {
@@ -579,11 +579,11 @@ public class ConvertXTB {
     }
 
     private static final Options options = new Options()
-        .add("source_dir", ".*", "The source directory containing the xtb and wsb files to be read")
-        .add("destination_dir", ".*", "The destination directory to write the XML files to")
-        .add("locale_filter", ".*", ".*", "A regex filter for (Google) locales to be processed")
-        .add("test_filter", ".*", ".*", "A regex filter for CheckCLDR tests")
-        .add("error_file", ".*", "./errors.tsv", "The file that checking results should be written to");
+    .add("source_dir", ".*", "The source directory containing the xtb and wsb files to be read")
+    .add("destination_dir", ".*", "The destination directory to write the XML files to")
+    .add("locale_filter", ".*", ".*", "A regex filter for (Google) locales to be processed")
+    .add("test_filter", ".*", ".*", "A regex filter for CheckCLDR tests")
+    .add("error_file", ".*", "./errors.tsv", "The file that checking results should be written to");
 
     /**
      * @param args

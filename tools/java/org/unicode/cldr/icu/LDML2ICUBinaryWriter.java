@@ -20,9 +20,9 @@ import com.ibm.icu.text.UTF16;
 /**
  * The LDML2ICUBinaryWriter class is a set of methods which can be used
  * to generate Binary (.res) files in the ICU Binary format.
- * 
+ *
  * @author Brian Rower - June 2008
- * 
+ *
  */
 public class LDML2ICUBinaryWriter
 {
@@ -78,7 +78,7 @@ public class LDML2ICUBinaryWriter
 
     /**
      * Numeric constants for types of resource items.
-     * 
+     *
      * @see ures_getType
      * @stable ICU 2.0
      */
@@ -102,7 +102,7 @@ public class LDML2ICUBinaryWriter
      * internally stores a string which identifies the actual resource
      * storing the data (can be in a different resource bundle).
      * Resolved internally before delivering the actual resource through the API.
-     * 
+     *
      * @stable ICU 2.6
      */
     public static final int URES_ALIAS = 3;
@@ -111,7 +111,7 @@ public class LDML2ICUBinaryWriter
      * Internal use only.
      * Alternative resource type constant for tables of key-value pairs.
      * Never returned by ures_getType().
-     * 
+     *
      * @internal
      */
     public static final int URES_TABLE32 = 4;
@@ -119,7 +119,7 @@ public class LDML2ICUBinaryWriter
     /**
      * Resource type constant for a single 28-bit integer, interpreted as
      * signed or unsigned by the ures_getInt() or ures_getUInt() function.
-     * 
+     *
      * @see ures_getInt
      * @see ures_getUInt
      * @stable ICU 2.6
@@ -131,7 +131,7 @@ public class LDML2ICUBinaryWriter
 
     /**
      * Resource type constant for vectors of 32-bit integers.
-     * 
+     *
      * @see ures_getIntVector
      * @stable ICU 2.6
      */
@@ -141,7 +141,7 @@ public class LDML2ICUBinaryWriter
 
     /*
      * The enum below is ported from C. See uresdata.h
-     * 
+     *
      * It is used as index references for the array which will be written.
      */
     /* [0] contains URES_INDEX_TOP==the length of indexes[] */
@@ -170,7 +170,7 @@ public class LDML2ICUBinaryWriter
     /**
      * This method is called upon the top of an ICUResourceWriter.Resource
      * in order to write the whole Resource tree into binary format.
-     * 
+     *
      * @param resTop
      *            The top of the resource tree that you would like written to file. This
      *            object should be a ICUResourceWriter.ResourceTable.
@@ -327,10 +327,10 @@ public class LDML2ICUBinaryWriter
     }
 
     /**
-     * 
+     *
      * Goes through the resource tree recursively and looks for a table named
      * CollationElements, collations, dependency, or transliterator and adds the appropriate data
-     * 
+     *
      * @param top
      *            The top of the Resource Tree
      */
@@ -572,7 +572,7 @@ public class LDML2ICUBinaryWriter
                                 // set the current character to this character
                                 curChar = tempChar;
                                 currentIndex += 4; // the 4 numbers...will add one more for the u, already did one for
-                                                   // the slash
+                                // the slash
                                 if (temp.length() > 1)
                                 {
                                     curChar2 = temp.charAt(1);
@@ -728,7 +728,7 @@ public class LDML2ICUBinaryWriter
      * -Two "magic numbers" each 1 byte in size.<br>
      * -The UDataInfo structure
      * -The null terminated copyright string (if it should be written)
-     * 
+     *
      * @param out
      * @param info
      * @param copyright
@@ -803,7 +803,7 @@ public class LDML2ICUBinaryWriter
      * terminated strings. Each string pertains to a certain resource. This method also modifies the resources in
      * 'resTop' by setting the keyStringOffset variable. The keyStringOffset variable is the number of bytes from
      * the start of the key string that the resources key starts. For example:
-     * 
+     *
      * <p>
      * In the 'en_PK' locale, you may have a Table resource with the key "Version." The Table contains a string resource
      * with the key "1.31."
@@ -811,16 +811,16 @@ public class LDML2ICUBinaryWriter
      * <p>
      * If this were the whole of the locale data, the key string would be an encoded version of this:
      * </p>
-     * 
+     *
      * "Version\01.31\0"
-     * 
+     *
      * <br>
      * <br>
      * In UTF-16 encoding, each character will take 2 bytes. <br>
      * keyStringOffset for the table object would be 0. <br>
      * keyStringOffset for the string resource would be = "Version".length() + 2 = 16
-     * 
-     * 
+     *
+     *
      * @param out
      *            The output stream to write this to.
      * @param resTop
@@ -890,45 +890,45 @@ public class LDML2ICUBinaryWriter
 
         indexes[URES_INDEX_LENGTH] = URES_INDEX_TOP;
         indexes[URES_INDEX_STRINGS_TOP] = usedOffset >>> 2;
-        indexes[URES_INDEX_RESOURCES_TOP] = (end) >> 2;
-        indexes[URES_INDEX_BUNDLE_TOP] = indexes[URES_INDEX_RESOURCES_TOP];
-        indexes[URES_INDEX_MAX_TABLE_LENGTH] = ICUResourceWriter.maxTableLength;
+                indexes[URES_INDEX_RESOURCES_TOP] = (end) >> 2;
+                        indexes[URES_INDEX_BUNDLE_TOP] = indexes[URES_INDEX_RESOURCES_TOP];
+                        indexes[URES_INDEX_MAX_TABLE_LENGTH] = ICUResourceWriter.maxTableLength;
 
-        indexBytes = intArrayToBytes(indexes);
+                        indexBytes = intArrayToBytes(indexes);
 
-        try
-        {
-            // write the "root" object
-            out.write(rootBytes);
-            written += rootBytes.length;
+                        try
+                        {
+                            // write the "root" object
+                            out.write(rootBytes);
+                            written += rootBytes.length;
 
-            // write the indexes array
-            out.write(indexBytes);
-            written += indexBytes.length;
+                            // write the indexes array
+                            out.write(indexBytes);
+                            written += indexBytes.length;
 
-            // write the keyList and padding if nessicary
-            keyBytes = keyList.getBytes(CHARSET8);
-            out.write(keyBytes);
-            written += keyBytes.length;
+                            // write the keyList and padding if nessicary
+                            keyBytes = keyList.getBytes(CHARSET8);
+                            out.write(keyBytes);
+                            written += keyBytes.length;
 
-            if (padding != null)
-            {
-                out.write(padding);
-                written += padding.length;
-            }
-        } catch (IOException e)
-        {
-            printError("Could not write key string to file. " + e.getMessage());
-            System.exit(1);
-        }
+                            if (padding != null)
+                            {
+                                out.write(padding);
+                                written += padding.length;
+                            }
+                        } catch (IOException e)
+                        {
+                            printError("Could not write key string to file. " + e.getMessage());
+                            System.exit(1);
+                        }
 
-        return usedOffset;
+                        return usedOffset;
     }
 
     /**
      * Recursively go through the whole tree and continue to add to the keyList. As this is done,
      * set the keyStringOffset, numChildren, sizeOfChildren, and size variables.
-     * 
+     *
      * @param keyList
      *            The current string of keys.
      * @param resTop
@@ -989,13 +989,13 @@ public class LDML2ICUBinaryWriter
         byte[] b = new byte[2];
         b[1] = (byte) (x); // bitwise AND with the lower byte
         b[0] = (byte) (x >>> 8); // shift four bits to the right and fill with zeros, and then bitwise and with the
-                                 // lower byte
+        // lower byte
         return b;
     }
 
     /**
      * Takes a 32 bit integer and returns an array of 4 bytes.
-     * 
+     *
      */
     private static byte[] intToBytes(int x)
     {
@@ -1016,7 +1016,7 @@ public class LDML2ICUBinaryWriter
 
     /**
      * Takes an array of integers and returns a byte array of the memory representation.
-     * 
+     *
      * @param x
      * @return
      */
@@ -1039,7 +1039,7 @@ public class LDML2ICUBinaryWriter
 
     /**
      * calculate the padding to make things align with 32 bits (aka 4 bytes)
-     * 
+     *
      * @param x
      * @return
      */

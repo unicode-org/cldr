@@ -63,21 +63,21 @@ public class Misc {
     // WARNING: this file needs a serious cleanup
 
     private static final int
-        HELP1 = 0,
-        HELP2 = 1,
-        SOURCEDIR = 2,
-        DESTDIR = 3,
-        MATCH = 4,
-        TO_LOCALIZE = 5,
-        CURRENT = 6,
-        WINDOWS = 7,
-        OBSOLETES = 8,
-        ALIASES = 9,
-        INFO = 10,
-        ZONES = 11,
-        LANGUAGE_TAGS = 12,
-        FUNCTION = 13
-        ;
+    HELP1 = 0,
+    HELP2 = 1,
+    SOURCEDIR = 2,
+    DESTDIR = 3,
+    MATCH = 4,
+    TO_LOCALIZE = 5,
+    CURRENT = 6,
+    WINDOWS = 7,
+    OBSOLETES = 8,
+    ALIASES = 9,
+    INFO = 10,
+    ZONES = 11,
+    LANGUAGE_TAGS = 12,
+    FUNCTION = 13
+    ;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -113,7 +113,7 @@ public class Misc {
 
     /**
      * Picks options and executes. Use -h to see options.
-     * 
+     *
      * @throws ClassNotFoundException
      */
     public static void main(String[] args) throws Exception {
@@ -235,7 +235,7 @@ public class Misc {
     // }
 
     /**
-     * 
+     *
      */
     private static void showLanguageTagCount() {
         StandardCodes sc = StandardCodes.make();
@@ -487,7 +487,7 @@ public class Misc {
         for (int i = 0; i < ZONE_MAP.length; i += 3) {
             System.out.println("\t\t\t<mapZone other=\"" + ZONE_MAP[i + 1]
                 + "\" type=\"" + ZONE_MAP[i]
-                + "\"/> <!-- " + ZONE_MAP[i + 2] + "-->");
+                    + "\"/> <!-- " + ZONE_MAP[i + 2] + "-->");
         }
         System.out.println("\t\t</mapTimezones>");
         System.out.println("\t</timezoneData>");
@@ -498,9 +498,9 @@ public class Misc {
             System.out.println(
                 ZONE_MAP[i]
                     + "\t" + ZONE_MAP[i + 1]
-                    + "\t" + ZONE_MAP[i + 2].substring(0, p1)
-                    + "\t" + ZONE_MAP[i + 2].substring(p1 + 1, p2)
-                    + "\t" + ZONE_MAP[i + 2].substring(p2 + 1)
+                        + "\t" + ZONE_MAP[i + 2].substring(0, p1)
+                        + "\t" + ZONE_MAP[i + 2].substring(p1 + 1, p2)
+                        + "\t" + ZONE_MAP[i + 2].substring(p2 + 1)
                 );
         }
 
@@ -618,7 +618,7 @@ public class Misc {
 
     /**
      * @throws IOException
-     * 
+     *
      */
     private static void printCurrentTimezoneLocalizations(PrintWriter log, String locale) throws IOException {
         StandardCodes sc = StandardCodes.make();
@@ -709,15 +709,15 @@ public class Misc {
     }
 
     static CldrUtility.VariableReplacer langTag = new CldrUtility.VariableReplacer()
-        .add("$alpha", "[a-zA-Z]")
-        .add("$digit", "[0-9]")
-        .add("$alphanum", "[a-zA-Z0-9]")
-        .add("$x", "[xX]")
-        .add("$grandfathered", "en-GB-oed" +
-            "|i-(?:ami|bnn|default|enochian|hak|klingon|lux|mingo|navajo|pwn|tao|tay|tsu)" +
-            "|no-(?:bok|nyn)" +
-            "|sgn-(?:BE-(?:fr|nl)|CH-de)" +
-            "|zh-(?:gan|min(?:-nan)?|wuu|yue)")
+    .add("$alpha", "[a-zA-Z]")
+    .add("$digit", "[0-9]")
+    .add("$alphanum", "[a-zA-Z0-9]")
+    .add("$x", "[xX]")
+    .add("$grandfathered", "en-GB-oed" +
+        "|i-(?:ami|bnn|default|enochian|hak|klingon|lux|mingo|navajo|pwn|tao|tay|tsu)" +
+        "|no-(?:bok|nyn)" +
+        "|sgn-(?:BE-(?:fr|nl)|CH-de)" +
+        "|zh-(?:gan|min(?:-nan)?|wuu|yue)")
         .add("$lang", "$alpha{2,8}")
         .add("$extlang", "(?:-$alpha{3})") // *3("-" 3ALPHA)
         .add("$script", "(?:-$alpha{4})") // ["-" script], 4ALPHA
@@ -1031,7 +1031,7 @@ public class Misc {
     private static void printSupplementalData(String locale) throws IOException {
 
         PrintWriter log = null; // BagFormatter.openUTF8Writer(options[DESTDIR].value + "", locale +
-                                // "_timezonelist.xml");
+        // "_timezonelist.xml");
         CLDRFile desiredLocaleFile = (CLDRFile) cldrFactory.make(locale, true).cloneAsThawed();
         desiredLocaleFile.removeDuplicates(resolvedRoot, false, null, null);
 

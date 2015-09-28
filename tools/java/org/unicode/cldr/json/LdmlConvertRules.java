@@ -181,10 +181,10 @@ class LdmlConvertRules {
 
     /**
      * Check if the attribute should be suppressed.
-     * 
+     *
      * Right now only "_q" is suppressed. In most cases array is used and there
      * is no need for this information. In other cases, order is irrelevant.
-     * 
+     *
      * @return True if the attribute should be suppressed.
      */
     public static boolean IsSuppresedAttr(String attr) {
@@ -267,20 +267,20 @@ class LdmlConvertRules {
      */
     public static final Set<String> TIMEZONE_ELEMENT_NAME_SET =
         Builder.with(new HashSet<String>())
-            .add("zone").add("timezone")
-            .add("zoneItem").add("typeMap").freeze();
+        .add("zone").add("timezone")
+        .add("zoneItem").add("typeMap").freeze();
 
     /**
      * There are a handful of attribute values that are more properly represented as an array of strings rather than
-     * as a single string.  
+     * as a single string.
      */
     public static final Set<String> ATTRVALUE_AS_ARRAY_SET =
         Builder.with(new HashSet<String>())
-            .add("territories").add("scripts").add("contains").freeze();
+        .add("territories").add("scripts").add("contains").freeze();
 
     /**
      * Following is the list of elements that need to be sorted before output.
-     * 
+     *
      * Time zone item is split to multiple level, and each level should be
      * grouped together. The locale list in "dayPeriodRule" could be split to
      * multiple items, and items for each locale should be grouped together.
@@ -312,12 +312,12 @@ class LdmlConvertRules {
             "|.*/metadata[^/]*/validity[^/]*/" +
             "|.*/metadata[^/]*/suppress[^/]*/" +
             "|.*/metadata[^/]*/deprecated[^/]*/" +
-            ")(.*)");
+        ")(.*)");
 
     /**
-      * Number elements without a numbering system are there only for compatibility purposes.
-      * We automatically suppress generation of JSON objects for them.
-      */
+     * Number elements without a numbering system are there only for compatibility purposes.
+     * We automatically suppress generation of JSON objects for them.
+     */
     public static final Pattern NO_NUMBERING_SYSTEM_PATTERN = Pattern
         .compile("//ldml/numbers/(symbols|(decimal|percent|scientific|currency)Formats)/.*");
     public static final Pattern NUMBERING_SYSTEM_PATTERN = Pattern
@@ -361,66 +361,66 @@ class LdmlConvertRules {
         // is none, and separate them to two layers.
         new PathTransformSpec(
             "(.*ldml/exemplarCharacters)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
-        new PathTransformSpec("(.*ldml/exemplarCharacters)(.*)$", "$1/standard$2"),
+            new PathTransformSpec("(.*ldml/exemplarCharacters)(.*)$", "$1/standard$2"),
 
-        // Add cldrVersion attribute
-        new PathTransformSpec("(.*/identity/version\\[@number=\"([^\"]*)\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
-            + CLDRFile.GEN_VERSION + "\"\\]"),
-        // Add cldrVersion attribute to supplemental data
-        new PathTransformSpec("(.*/version\\[@number=\"([^\"]*)\")(\\])\\[@unicodeVersion=\"([^\"]*\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
-            + CLDRFile.GEN_VERSION + "\"\\]" + "\\[@unicodeVersion=\"" + "$4" + "\\]"),
+            // Add cldrVersion attribute
+            new PathTransformSpec("(.*/identity/version\\[@number=\"([^\"]*)\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
+                + CLDRFile.GEN_VERSION + "\"\\]"),
+                // Add cldrVersion attribute to supplemental data
+                new PathTransformSpec("(.*/version\\[@number=\"([^\"]*)\")(\\])\\[@unicodeVersion=\"([^\"]*\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
+                    + CLDRFile.GEN_VERSION + "\"\\]" + "\\[@unicodeVersion=\"" + "$4" + "\\]"),
 
-        // Transform underscore to hyphen-minus in language keys
-        new PathTransformSpec("(.*/language\\[@type=\"[a-z]{2,3})_([^\"]*\"\\](\\[@alt=\"short\"])?)", "$1-$2"),
+                    // Transform underscore to hyphen-minus in language keys
+                    new PathTransformSpec("(.*/language\\[@type=\"[a-z]{2,3})_([^\"]*\"\\](\\[@alt=\"short\"])?)", "$1-$2"),
 
-        // Separate "ellipsis" from its type as another layer.
-        new PathTransformSpec("(.*/ellipsis)\\[@type=\"([^\"]*)\"\\](.*)$",
-            "$1/$2$3"),
+                    // Separate "ellipsis" from its type as another layer.
+                    new PathTransformSpec("(.*/ellipsis)\\[@type=\"([^\"]*)\"\\](.*)$",
+                        "$1/$2$3"),
 
-        // Remove unnecessary dateFormat/pattern
-        new PathTransformSpec(
-            "(.*/calendars)/calendar\\[@type=\"([^\"]*)\"\\](.*)Length\\[@type=\"([^\"]*)\"\\]/(date|time|dateTime)Format\\[@type=\"([^\"]*)\"\\]/pattern\\[@type=\"([^\"]*)\"\\](.*)",
-            "$1/$2/$5Formats/$4$8"),
+                        // Remove unnecessary dateFormat/pattern
+                        new PathTransformSpec(
+                            "(.*/calendars)/calendar\\[@type=\"([^\"]*)\"\\](.*)Length\\[@type=\"([^\"]*)\"\\]/(date|time|dateTime)Format\\[@type=\"([^\"]*)\"\\]/pattern\\[@type=\"([^\"]*)\"\\](.*)",
+                            "$1/$2/$5Formats/$4$8"),
 
-        // Separate calendar type
-        new PathTransformSpec("(.*/calendars)/calendar\\[@type=\"([^\"]*)\"\\](.*)$",
-            "$1/$2$3"),
+                            // Separate calendar type
+                            new PathTransformSpec("(.*/calendars)/calendar\\[@type=\"([^\"]*)\"\\](.*)$",
+                                "$1/$2$3"),
 
-        // Separate "metazone" from its type as another layer.
-        new PathTransformSpec("(.*/metazone)\\[@type=\"([^\"]*)\"\\]/(.*)$", "$1/$2/$3"),
+                                // Separate "metazone" from its type as another layer.
+                                new PathTransformSpec("(.*/metazone)\\[@type=\"([^\"]*)\"\\]/(.*)$", "$1/$2/$3"),
 
-        // Split out types into its various fields
-        new PathTransformSpec("(.*)/types/type\\[@key=\"([^\"]*)\"\\]\\[@type=\"([^\"]*)\"\\](.*)$",
-            "$1/types/$2/$3$4"),
+                                // Split out types into its various fields
+                                new PathTransformSpec("(.*)/types/type\\[@key=\"([^\"]*)\"\\]\\[@type=\"([^\"]*)\"\\](.*)$",
+                                    "$1/types/$2/$3$4"),
 
-        new PathTransformSpec(
-            "(.*/numbers/(decimal|scientific|percent|currency)Formats\\[@numberSystem=\"([^\"]*)\"\\])/(decimal|scientific|percent|currency)FormatLength/(decimal|scientific|percent|currency)Format\\[@type=\"standard\"]/pattern.*$",
-            "$1/standard"),
+                                    new PathTransformSpec(
+                                        "(.*/numbers/(decimal|scientific|percent|currency)Formats\\[@numberSystem=\"([^\"]*)\"\\])/(decimal|scientific|percent|currency)FormatLength/(decimal|scientific|percent|currency)Format\\[@type=\"standard\"]/pattern.*$",
+                                        "$1/standard"),
 
-        new PathTransformSpec(
-            "(.*/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"\\])/currencyFormatLength/currencyFormat\\[@type=\"accounting\"]/pattern.*$",
-            "$1/accounting"),
-        // Add "type" attribute with value "standard" if there is no "type" in
-        // "decimalFormatLength".
-        new PathTransformSpec(
-            "(.*/numbers/(decimal|scientific|percent)Formats\\[@numberSystem=\"([^\"]*)\"\\]/(decimal|scientific|percent)FormatLength)/(.*)$",
-            "$1[@type=\"standard\"]/$5"),
+                                        new PathTransformSpec(
+                                            "(.*/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"\\])/currencyFormatLength/currencyFormat\\[@type=\"accounting\"]/pattern.*$",
+                                            "$1/accounting"),
+                                            // Add "type" attribute with value "standard" if there is no "type" in
+                                            // "decimalFormatLength".
+                                            new PathTransformSpec(
+                                                "(.*/numbers/(decimal|scientific|percent)Formats\\[@numberSystem=\"([^\"]*)\"\\]/(decimal|scientific|percent)FormatLength)/(.*)$",
+                                                "$1[@type=\"standard\"]/$5"),
 
-        new PathTransformSpec(
-            "(.*/listPattern)/(.*)$", "$1[@type=\"standard\"]/$2"),
+                                                new PathTransformSpec(
+                                                    "(.*/listPattern)/(.*)$", "$1[@type=\"standard\"]/$2"),
 
-        new PathTransformSpec("(.*/languagePopulation)\\[@type=\"([^\"]*)\"\\](.*)",
-            "$1/$2$3"),
+                                                    new PathTransformSpec("(.*/languagePopulation)\\[@type=\"([^\"]*)\"\\](.*)",
+                                                        "$1/$2$3"),
 
-        new PathTransformSpec("(.*/languageAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
-        new PathTransformSpec("(.*/scriptAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
-        new PathTransformSpec("(.*/territoryAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
-        new PathTransformSpec("(.*/variantAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
-        new PathTransformSpec("(.*/zoneAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
-        new PathTransformSpec("(.*/alias)(.*)", "$1/alias$2"),
+                                                        new PathTransformSpec("(.*/languageAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
+                                                        new PathTransformSpec("(.*/scriptAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
+                                                        new PathTransformSpec("(.*/territoryAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
+                                                        new PathTransformSpec("(.*/variantAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
+                                                        new PathTransformSpec("(.*/zoneAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
+                                                        new PathTransformSpec("(.*/alias)(.*)", "$1/alias$2"),
 
-        new PathTransformSpec("(.*currencyData/region)(.*)", "$1/region$2"),
+                                                        new PathTransformSpec("(.*currencyData/region)(.*)", "$1/region$2"),
 
-        new PathTransformSpec("(.*/transforms/transform[^/]*)/(.*)", "$1/tRules/$2"),
+                                                        new PathTransformSpec("(.*/transforms/transform[^/]*)/(.*)", "$1/tRules/$2"),
     };
 }

@@ -12,7 +12,7 @@ import org.unicode.cldr.web.UserRegistry.User;
 /**
  * This class represents a particular item that can be voted for, a single
  * "contest" if you will.
- * 
+ *
  * It is currently a wrapper on the BallotBox interface.
  */
 public class Race {

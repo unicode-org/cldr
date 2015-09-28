@@ -19,9 +19,9 @@ package org.unicode.cldr.util;
  * attempt to access data or offsets before that point will cause an exception.
  * <li>To see
  * </ul>
- * 
+ *
  * @author markdavis
- * 
+ *
  */
 public interface CharSource {
     /**
@@ -33,7 +33,7 @@ public interface CharSource {
      * <li>replace index == x.length() also with !x.hasCharAt(index) <b> [whenever we are iterating index upwards]</b>
      * </ul>
      * Throws an exception if index < 0.
-     * 
+     *
      * @param index
      * @return
      */
@@ -52,7 +52,7 @@ public interface CharSource {
      * CharSequence or String Java. It will grow the internal source if possible to get to the index.
      * This will throw an exception if the index is
      * greater than or equal to the length, or if it is less than the last.
-     * 
+     *
      * @param index
      * @return
      */
@@ -61,7 +61,7 @@ public interface CharSource {
     /**
      * Get the index from the source offset; the reverse of the toSourceOffset method. It will not grow the source,
      * however.
-     * 
+     *
      * @param index
      * @return
      */
@@ -70,7 +70,7 @@ public interface CharSource {
     /**
      * Corresponds to subSequence or subString. May grow the charlist if needed to
      * get the char before end.
-     * 
+     *
      * @param start
      * @param end
      * @return
@@ -80,7 +80,7 @@ public interface CharSource {
     /**
      * Corresponds to subSequence or subString. May grow the charlist if needed to
      * get the char before end.
-     * 
+     *
      * @param start
      * @param end
      * @return
@@ -90,7 +90,7 @@ public interface CharSource {
     /**
      * Returns a CharList that starts at the given point, and extends further.
      * Operations on either one may affect the other.
-     * 
+     *
      * @param start
      * @param end
      * @return
@@ -100,7 +100,7 @@ public interface CharSource {
     /**
      * Return the length known so far. If hasCharAt(getKnownLength()) == false,
      * then it is the real length.
-     * 
+     *
      * @return
      */
     public int getKnownLength();

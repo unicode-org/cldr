@@ -27,7 +27,7 @@ import com.ibm.icu.text.Transform;
 /**
  * Tests the parts of the Ldml2IcuConverter that uses RegexLookups to convert
  * values to ICU. Data that is converted using other methods isn't tested here.
- * 
+ *
  * @author jchye
  */
 public class TestLdml2ICU extends TestFmwk {
@@ -174,7 +174,7 @@ public class TestLdml2ICU extends TestFmwk {
 
     /**
      * Checks conversion of XML files in the supplemental directory.
-     * 
+     *
      * @param name
      *            the name of the XML file to be converted (minus the extension)
      */
@@ -228,7 +228,7 @@ public class TestLdml2ICU extends TestFmwk {
 
     /**
      * Checks conversion of XML locale files.
-     * 
+     *
      * @param name
      *            the name of the XML file to be converted (minus the extension)
      */

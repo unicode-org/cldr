@@ -395,7 +395,7 @@ public class ICUServiceBuilder {
     /**
      * @param calendar
      *            TODO
-     * 
+     *
      */
     private String getDateTimePattern(String calendar, String dateOrTime, String type) {
         type = "[@type=\"" + type + "\"]";
@@ -490,25 +490,25 @@ public class ICUServiceBuilder {
                 : nameStyle == 1 ? getCurrencyCode()
                     : nameStyle == 2 ? displayName
                         : null;
-                if (result == null) throw new IllegalArgumentException();
-                // snagged from currency
-                isChoiceFormat[0] = false;
-                int i = 0;
-                while (i < result.length() && result.charAt(i) == '=' && i < 2) {
-                    ++i;
-                }
-                isChoiceFormat[0] = (i == 1);
-                if (i != 0) {
-                    // Skip over first mark
-                    result = result.substring(1);
-                }
-                return result;
+            if (result == null) throw new IllegalArgumentException();
+            // snagged from currency
+            isChoiceFormat[0] = false;
+            int i = 0;
+            while (i < result.length() && result.charAt(i) == '=' && i < 2) {
+                ++i;
+            }
+            isChoiceFormat[0] = (i == 1);
+            if (i != 0) {
+                // Skip over first mark
+                result = result.substring(1);
+            }
+            return result;
         }
 
         /**
          * Returns the rounding increment for this currency, or 0.0 if no
          * rounding is done by this currency.
-         * 
+         *
          * @return the non-negative rounding increment, or 0.0 if none
          * @stable ICU 2.2
          */
@@ -777,16 +777,16 @@ public class ICUServiceBuilder {
         // numsys should not be null (previously resolved to defaultNumberingSystem if necessary)
         return getSymbolString(key, numsys).charAt(0);
     }
-    
+
     // TODO fix once http://bugs.icu-project.org/trac/ticket/11837 is done.
     private char getHackSymbolCharacter(String key, String numsys) {
         String minusString = getSymbolString(key, numsys);
-        char minusSign = (minusString.length() > 1 && isBidiMark(minusString.charAt(0)))? minusString.charAt(1): minusString.charAt(0);
+        char minusSign = (minusString.length() > 1 && isBidiMark(minusString.charAt(0))) ? minusString.charAt(1) : minusString.charAt(0);
         return minusSign;
     }
-    
+
     private static boolean isBidiMark(char c) {
-        return (c=='\u200E' || c=='\u200F' || c=='\u061C');
+        return (c == '\u200E' || c == '\u200F' || c == '\u061C');
     }
 
     private String getSymbolString(String key, String numsys) {
@@ -829,14 +829,15 @@ public class ICUServiceBuilder {
     }
 
     public enum Width {
-        wide, 
-        abbreviated, 
-        narrow}
+        wide,
+        abbreviated,
+        narrow
+    }
 
     public enum Context {
-        format, 
+        format,
         stand_alone;
-        public String toString() { 
+        public String toString() {
             return name().replace('_', '-');
         }
     }

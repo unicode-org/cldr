@@ -25,7 +25,8 @@ public enum LanguageGroup {
     }
 
     static final Map<ULocale, LanguageGroup> LANGUAGE_GROUP;
-    static final M3<LanguageGroup, ULocale, Integer> GROUP_LANGUAGE = ChainedMap.of(new TreeMap<LanguageGroup, Object>(), new LinkedHashMap<ULocale, Object>(), Integer.class);
+    static final M3<LanguageGroup, ULocale, Integer> GROUP_LANGUAGE = ChainedMap.of(new TreeMap<LanguageGroup, Object>(), new LinkedHashMap<ULocale, Object>(),
+        Integer.class);
 
     private static void add(Map<ULocale, LanguageGroup> map, LanguageGroup group, String... baseLanguages) {
         int count = 0;
@@ -90,7 +91,7 @@ public enum LanguageGroup {
     public static Set<ULocale> getLocales(LanguageGroup group) {
         return Collections.unmodifiableSet(GROUP_LANGUAGE.get(group).keySet());
     }
-    
+
     /**
      * return position in group, or -1 if in no group
      * @param locale

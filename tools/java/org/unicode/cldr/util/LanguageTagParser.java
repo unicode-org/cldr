@@ -139,7 +139,7 @@ public class LanguageTagParser {
      * If a private-use field is found, it is returned as the last extension.<br>
      * This only checks for well-formedness (syntax), not for validity (subtags in registry). For the latter, see
      * isValid.
-     * 
+     *
      * @param languageTag
      * @return
      */
@@ -247,7 +247,7 @@ public class LanguageTagParser {
     }
 
     /**
-     * 
+     *
      * @return true iff the language tag validates
      */
     public boolean isValid() {
@@ -322,7 +322,7 @@ public class LanguageTagParser {
 
     /**
      * Internal method
-     * 
+     *
      * @param minLength
      *            TODO
      */

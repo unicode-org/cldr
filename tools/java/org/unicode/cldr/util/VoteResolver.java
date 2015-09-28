@@ -26,7 +26,7 @@ import com.ibm.icu.util.ULocale;
 /**
  * This class implements the vote resolution process agreed to by the CLDR
  * committee. Here is an example of usage:
- * 
+ *
  * <pre>
  * // before doing anything, initialize the voter data (who are the voters at what levels) with setVoterToInfo.
  * // We assume this doesn't change often
@@ -38,20 +38,20 @@ import com.ibm.icu.util.ULocale;
  *     { 333, new VoterInfo(Organization.apple, Level.vetter, &quot;A. Mutton&quot;) },
  *     { 222, new VoterInfo(Organization.adobe, Level.expert, &quot;A. Aldus&quot;) },
  *     { 111, new VoterInfo(Organization.ibm, Level.street, &quot;J. Henry&quot;) }, }));
- * 
+ *
  * // you can create a resolver and keep it around. It isn't thread-safe, so either have a separate one per thread (they
  * // are small), or synchronize.
  * VoteResolver resolver = new VoteResolver();
- * 
+ *
  * // For any particular base path, set the values
  * // set the 1.5 status (if we're working on 1.6). This &lt;b&gt;must&lt;/b&gt; be done for each new base path
  * resolver.newPath(oldValue, oldStatus);
- * 
+ *
  * // now add some values, with who voted for them
  * resolver.add(value1, voter1);
  * resolver.add(value1, voter2);
  * resolver.add(value2, voter3);
- * 
+ *
  * // Once you've done that, you can get the results for the base path
  * winner = resolver.getWinningValue();
  * status = resolver.getWinningStatus();
@@ -107,7 +107,7 @@ public class VoteResolver<T> {
 
         /**
          * Find the Level, given ST Level
-         * 
+         *
          * @param stlevel
          * @return
          */
@@ -122,7 +122,7 @@ public class VoteResolver<T> {
 
         /**
          * Policy: can this user manage the "other" user's settings?
-         * 
+         *
          * @param myOrg
          *            the current organization
          * @param otherLevel
@@ -138,7 +138,7 @@ public class VoteResolver<T> {
 
         /**
          * Policy: Can this user manage any users?
-         * 
+         *
          * @return
          */
         public boolean canManageSomeUsers() {
@@ -163,7 +163,7 @@ public class VoteResolver<T> {
         public boolean canCreateOrSetLevelTo(Level otherLevel) {
             return (this == admin) || // admin can set any level
                 (otherLevel != expert && // expert can't be set by any users but admin
-                    canManageSomeUsers() && // must be some sort of manager
+                canManageSomeUsers() && // must be some sort of manager
                 otherLevel.getSTLevel() >= getSTLevel()); // can't gain higher privs
         }
 
@@ -241,9 +241,9 @@ public class VoteResolver<T> {
 
     /**
      * MaxCounter: make sure that we are always only getting the maximum of the values.
-     * 
+     *
      * @author markdavis
-     * 
+     *
      * @param <T>
      */
     static class MaxCounter<T> extends Counter<T> {
@@ -300,7 +300,7 @@ public class VoteResolver<T> {
 
         /**
          * Returns value of voted item, in case there is exactly 1.
-         * 
+         *
          * @return
          */
         public T getSingleVotedItem() {
@@ -309,7 +309,7 @@ public class VoteResolver<T> {
 
         /**
          * Call this to add votes
-         * 
+         *
          * @param value
          * @param voter
          * @param withVotes optionally, vote at a reduced voting level. May not exceed voter's typical level. null = use default level.
@@ -330,7 +330,7 @@ public class VoteResolver<T> {
 
         /**
          * Called by add(T,int,Integer) to actually add a value.
-         * 
+         *
          * @param value
          * @param voter
          * @param info
@@ -433,12 +433,12 @@ public class VoteResolver<T> {
             }
             EnumSet<Organization> conflicted = EnumSet.noneOf(Organization.class);
             return "{orgToVotes: " + orgToVotesString + ", totals: " + getTotals(conflicted) + ", conflicted: "
-                + conflicted + "}";
+            + conflicted + "}";
         }
 
         /**
          * This is now deprecated, since the organization may have multiple votes.
-         * 
+         *
          * @param org
          * @return
          * @deprecated
@@ -497,7 +497,7 @@ public class VoteResolver<T> {
     /**
      * Call this method first, for a new path. You'll then call add for each value
      * associated with that path
-     * 
+     *
      * @param valueToVoter
      * @param lastReleaseValue
      * @param lastReleaseStatus
@@ -532,10 +532,10 @@ public class VoteResolver<T> {
     /**
      * You must call this locale whenever you are using a VoteResolver with a new locale.
      * More efficient to call the CLDRLocale version.
-     * 
+     *
      * @param locale
      * @return
-     * @deprecated need to use the other version to get path-based voting requirements right. 
+     * @deprecated need to use the other version to get path-based voting requirements right.
      */
     @Deprecated
     public VoteResolver<T> setLocale(String locale) {
@@ -545,7 +545,7 @@ public class VoteResolver<T> {
 
     /**
      * You must call this locale whenever you are using a VoteResolver with a new locale or a new Pathheader
-     * 
+     *
      * @param locale
      * @return
      */
@@ -589,7 +589,7 @@ public class VoteResolver<T> {
 
     /**
      * Call once for each voter for a value. If there are no voters for an item, then call add(value);
-     * 
+     *
      * @param value
      * @param voter
      * @param withVotes override to lower the user's voting permission. May be null for default.
@@ -604,7 +604,7 @@ public class VoteResolver<T> {
 
     /**
      * Call once for each voter for a value. If there are no voters for an item, then call add(value);
-     * 
+     *
      * @param value
      * @param voter
      */
@@ -614,7 +614,7 @@ public class VoteResolver<T> {
 
     /**
      * Call if a value has no voters. It is safe to also call this if there is a voter, just unnecessary.
-     * 
+     *
      * @param value
      * @param voter
      */
@@ -707,11 +707,11 @@ public class VoteResolver<T> {
         int orgCount = organizationToValueAndVote.getOrgCount(winningValue);
         return weight1 > weight2 &&
             (weight1 >= requiredVotes) ? Status.approved
-            : weight1 > weight2 &&
+                : weight1 > weight2 &&
                 (weight1 >= 4 && Status.contributed.compareTo(oldStatus) > 0
                 || weight1 >= 2 && orgCount >= 2) ? Status.contributed
-                : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
-                    : Status.unconfirmed;
+                    : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
+                        : Status.unconfirmed;
     }
 
     public Status getPossibleWinningStatus() {
@@ -725,7 +725,7 @@ public class VoteResolver<T> {
     /**
      * If the winning item is not approved, and if all the people who voted had voted for the winning item,
      * would it have made contributed or approved?
-     * 
+     *
      * @return
      */
     public boolean isDisputed() {
@@ -752,7 +752,7 @@ public class VoteResolver<T> {
     /**
      * Returns O Value as described in http://cldr.unicode.org/index/process#TOC-Voting-Process.
      * Not always the same as the Winning Value.
-     * 
+     *
      * @return
      */
     public T getOValue() {
@@ -765,7 +765,7 @@ public class VoteResolver<T> {
     /**
      * Returns N Value as described in http://cldr.unicode.org/index/process#TOC-Voting-Process.
      * Not always the same as the Winning Value.
-     * 
+     *
      * @return
      */
     public T getNValue() {
@@ -785,7 +785,7 @@ public class VoteResolver<T> {
     /**
      * Returns Winning Value as described in http://cldr.unicode.org/index/process#TOC-Voting-Process.
      * Not always the same as the O Value.
-     * 
+     *
      * @return
      */
     public T getWinningValue() {
@@ -811,7 +811,7 @@ public class VoteResolver<T> {
 
     /**
      * What value did this organization vote for?
-     * 
+     *
      * @param org
      * @return
      */
@@ -935,7 +935,7 @@ public class VoteResolver<T> {
      * //users[@host="sarasvati.unicode.org"]/user[@id="286"][@email="mike.tardif@adobe.com"]/org
      * Adobe
      * //users[@host="sarasvati.unicode.org"]/user[@id="286"][@email="mike.tardif@adobe.com"]/locales[@type="edit"]
-     * 
+     *
      * Steven's new format:
      * //users[@generated="Wed May 07 15:57:15 PDT 2008"][@host="tintin"][@obscured="true"]
      * /user[@id="286"][@email="?@??.??"]
@@ -1156,7 +1156,7 @@ public class VoteResolver<T> {
 
     public static class UnknownVoterException extends RuntimeException {
         /**
-         * 
+         *
          */
         private static final long serialVersionUID = 3430877787936678609L;
         int voter;
@@ -1190,7 +1190,7 @@ public class VoteResolver<T> {
      * Returns a map from value to resolved vote count, in descending order.
      * If the winning item is not there, insert at the front.
      * If the last-release item is not there, insert at the end.
-     * 
+     *
      * @return
      */
     public Map<T, Long> getResolvedVoteCounts() {

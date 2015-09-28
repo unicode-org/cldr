@@ -48,7 +48,7 @@ import com.ibm.icu.util.UniversalTimeScale;
 
 /**
  * @author davis
- * 
+ *
  *         TODO To change the template for this generated type comment go to Window -
  *         Preferences - Java - Code Style - Code Templates
  */
@@ -113,7 +113,7 @@ public class TestUtilities {
         CLDRFile english = mainCldrFactory.make("en", true);
         CLDRFile french = mainCldrFactory.make("fr", true);
         String[] tests = { "en", "en_AU", "de_CH", "de_Arab_CH", "gsw", "gsw_Arab", "zh_Hans", "zh_Hans_US",
-            "zh_Hans_US_SAAHO" };
+        "zh_Hans_US_SAAHO" };
         for (String test : tests) {
             System.out.println(test + "\t" + english.getName(test) + "\t" + french.getName(test));
         }
@@ -266,7 +266,7 @@ public class TestUtilities {
         String reverse = TransliteratorUtilities.fromHTML.transliterate(html);
         if (!reverse.equals(string))
             System.out
-                .println(string + "\t=>\t" + html + "\t=>\t" + reverse + (!reverse.equals(string) ? " FAIL" : ""));
+            .println(string + "\t=>\t" + html + "\t=>\t" + reverse + (!reverse.equals(string) ? " FAIL" : ""));
         String htmlAscii = TransliteratorUtilities.toHTMLAscii.transliterate(string);
         String reverseAscii = TransliteratorUtilities.fromHTML.transliterate(htmlAscii);
         if (!reverseAscii.equals(string))
@@ -331,15 +331,15 @@ public class TestUtilities {
             "last_primary_ignorable", "first_non_ignorable", "last_non_ignorable", "first_trailing", "last_trailing" };
         meta.add(prefix + "serialElements", CollectionUtilities.join(serialElements, " "));
         /*
-         * 
+         *
          * <attributeValues elements="weekendStart weekendEnd" attributes="day"
          * order="given"> sun mon tue wed thu fri sat</attributeValues>
-         * 
+         *
          * if (attribute.equals("day")) { // && (element.startsWith("weekend") comp =
          * dayValueOrder; } else if (attribute.equals("type")) {
-         * 
+         *
          * else if (element.equals("day")) comp = dayValueOrder;
-         * 
+         *
          * else if (element.equals("zone")) comp = zoneOrder;
          */
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
@@ -357,7 +357,7 @@ public class TestUtilities {
                 for (int i = 0; i < 2; ++i) {
                     meta.add(prefix + "valid/attributeValues" + "[@elements=\"" + element + "\"]" + "[@attributes=\""
                         + attribute + "\"]" + (i == 1 ? "[@x=\"true\"]" : ""), CollectionUtilities.join(
-                        valueSets[i], " "));
+                            valueSets[i], " "));
                 }
             }
         }
@@ -597,7 +597,7 @@ public class TestUtilities {
             }
             String allCodeString = CollectionUtilities.join(allCodes, " ");
             System.out
-                .println("\t\t\t<variable id=\"$" + oldType + "\" type=\"list\">" + allCodeString + "</variable>");
+            .println("\t\t\t<variable id=\"$" + oldType + "\" type=\"list\">" + allCodeString + "</variable>");
         }
     }
 
@@ -638,7 +638,7 @@ public class TestUtilities {
 
     /**
      * @throws IOException
-     * 
+     *
      */
     private static void printCountries() throws IOException {
         Factory mainCldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "main" + File.separator, ".*");
@@ -663,7 +663,7 @@ public class TestUtilities {
     }
 
     /**
-     * 
+     *
      */
     private static void printCurrencies() {
         StandardCodes sc = StandardCodes.make();
@@ -679,11 +679,11 @@ public class TestUtilities {
     /**
      * @throws IOException
      * @throws ParseException
-     * 
+     *
      */
     private static void printZoneSamples() throws Exception {
         String[] locales = { "en", "en_GB", "de", "zh", "hi", "bg", "ru", "ja", "as" // picked
-        // deliberately
+            // deliberately
             // because
             // it
             // has
@@ -692,7 +692,7 @@ public class TestUtilities {
         };
         String[] zones = { "America/Los_Angeles", "America/Argentina/Buenos_Aires", "America/Buenos_Aires",
             "America/Havana", "Australia/ACT", "Australia/Sydney", "Europe/London", "Europe/Moscow",
-            "Etc/GMT+3" };
+        "Etc/GMT+3" };
         String[][] fields = { { "2004-01-15T00:00:00Z", "Z", "ZZZZ", "z", "zzzz" },
             { "2004-07-15T00:00:00Z", "Z", "ZZZZ", "z", "zzzz", "v", "vvvv" } };
         Factory mainCldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "main" + File.separator, ".*");
@@ -740,7 +740,7 @@ public class TestUtilities {
             sign = "-";
         }
         return sign + String.valueOf(offsetMillis / 60) + ":"
-            + String.valueOf(100 + (offsetMillis % 60)).substring(1, 3);
+        + String.valueOf(100 + (offsetMillis % 60)).substring(1, 3);
     }
 
     private static final String[][] language_territory_hack = { { "af", "ZA" }, { "am", "ET" }, { "ar", "SA" },

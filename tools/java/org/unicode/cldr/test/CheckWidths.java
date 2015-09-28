@@ -59,13 +59,13 @@ public class CheckWidths extends CheckCLDR {
             switch (limit) {
             case MINIMUM:
                 this.message = measure == Measure.CODE_POINTS
-                    ? "Expected no fewer than {0} character(s), but was {1}."
+                ? "Expected no fewer than {0} character(s), but was {1}."
                     : "Too narrow by about {2}% (with common fonts).";
                 this.subtype = Subtype.valueTooNarrow;
                 break;
             case MAXIMUM:
                 this.message = measure == Measure.CODE_POINTS
-                    ? "Expected no more than {0} character(s), but was {1}."
+                ? "Expected no more than {0} character(s), but was {1}."
                     : "Too wide by about {2}% (with common fonts).";
                 this.subtype = Subtype.valueTooWide;
                 break;
@@ -232,7 +232,7 @@ public class CheckWidths extends CheckCLDR {
         .add("//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=%A]/pattern[@type=\"1",
             new Limit[] {
             new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.QUOTES)
-            })
+        })
         // Catch -future/past Narrow units  and allow much wider values
         .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"[^\"]+-(future|past)\"]/unitPattern", new Limit[] {
             new Limit(10 * EM, 15 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)

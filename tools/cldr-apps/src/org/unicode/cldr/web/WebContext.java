@@ -88,7 +88,7 @@ public class WebContext implements Cloneable, Appendable {
     HttpServletResponse response;
 
     /**
-     * 
+     *
      * @return the output PrintWriter
      */
     public PrintWriter getOut() {
@@ -98,7 +98,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Flush output content. This is useful when JSPs are mixed in with servlet
      * code.
-     * 
+     *
      * @see java.io.PrintWriter#flush()
      */
     public void flush() {
@@ -107,7 +107,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Return the parameter map of the underlying request.
-     * 
+     *
      * @return {@link ServletRequest#getParameterMap()}
      */
     public Map<?, ?> getParameterMap() {
@@ -118,7 +118,7 @@ public class WebContext implements Cloneable, Appendable {
      * Construct a new WebContext from the servlet request and response. This is
      * the normal constructor to use when a top level servlet or JSP spins up.
      * Embedded JSPs should use fromRequest.
-     * 
+     *
      * @see #fromRequest(ServletRequest, ServletResponse, Writer)
      */
     public WebContext(HttpServletRequest irq, HttpServletResponse irs) throws IOException {
@@ -129,7 +129,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Internal function to setup the WebContext to point at a servlet req/resp.
      * Also registers the WebContext with the Request.
-     * 
+     *
      * @param irq
      * @param irs
      * @throws IOException
@@ -147,7 +147,7 @@ public class WebContext implements Cloneable, Appendable {
      * Change the output stream to a different writer. If it isn't a
      * PrintWriter, it will be wrapped in one. The WebContext will assume it
      * does not own the stream, and will not close it when done.
-     * 
+     *
      * @param w
      */
     protected void setStream(Writer w) {
@@ -165,7 +165,7 @@ public class WebContext implements Cloneable, Appendable {
      * a .jsp which is embedded in survey tool to extract the WebContext object.
      * The WebContext will have its output stream set to point to the request
      * and response, so you can mix write calls from the JSP with ST calls.
-     * 
+     *
      * @param request
      * @param response
      * @param out
@@ -179,11 +179,11 @@ public class WebContext implements Cloneable, Appendable {
             throw new InternalError("WebContext: could not load fromRequest. Are you trying to load a JSP directly?");
         }
         JspWebContext subCtx = new JspWebContext(ctx); // clone the important
-                                                       // fields..
+        // fields..
         subCtx.setRequestResponse((HttpServletRequest) request, // but use the
-                                                                // req/resp of
-                                                                // the current
-                                                                // situation
+            // req/resp of
+            // the current
+            // situation
             (HttpServletResponse) response);
         subCtx.setStream(out);
         return subCtx;
@@ -192,7 +192,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Construct a new, fake WebContext - for testing purposes. Writes all
      * output to stdout.
-     * 
+     *
      * @param fake
      *            ignored
      */
@@ -205,7 +205,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Construct a new, fake WebContext - for testing purposes. Writes all
      * output to stdout.
-     * 
+     *
      * @param fake
      *            ignored
      */
@@ -219,7 +219,7 @@ public class WebContext implements Cloneable, Appendable {
      * Copy one WebContext to another. This is useful when you wish to create a
      * sub-context which has a different base URL (such as for processing a
      * certain form or widget).
-     * 
+     *
      * @param other
      *            the other WebContext to copy from
      */
@@ -237,7 +237,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * get a field's value as a boolean
-     * 
+     *
      * @param x
      *            field name
      * @param def
@@ -258,7 +258,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * get a field's value as an integer, or -1 if not found
-     * 
+     *
      * @param x
      *            field name
      * @return the field's value as an integer, or -1 if it was not found
@@ -269,7 +269,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * get a field's value, or the default
-     * 
+     *
      * @param x
      *            field name
      * @param def
@@ -292,9 +292,9 @@ public class WebContext implements Cloneable, Appendable {
 
     /*
      * get a field's value as a long, or -1
-     * 
+     *
      * @param x field name
-     * 
+     *
      * @return the field's value as a long, or -1 value if the field was not
      * found.
      */
@@ -304,7 +304,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * get a field's value, or the default
-     * 
+     *
      * @param x
      *            field name
      * @param def
@@ -327,7 +327,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Return true if the field is present
-     * 
+     *
      * @param x
      *            field name
      * @return true if the field is present
@@ -338,7 +338,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * return a field's value, else ""
-     * 
+     *
      * @param x
      *            field name
      * @return the field value, or else ""
@@ -349,7 +349,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * return a field's values, or a 0-length array if none
-     * 
+     *
      * @param x
      *            field name
      */
@@ -369,7 +369,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * return a field's value, else default
-     * 
+     *
      * @param x
      *            field name
      * @param def
@@ -390,9 +390,9 @@ public class WebContext implements Cloneable, Appendable {
 
     /*
      * Decode a single string from URL format into Unicode
-     * 
+     *
      * @param res UTF-8 'encoded' bytes (expanded to a string)
-     * 
+     *
      * @return Unicode string (will return 'res' if no high bits were detected)
      */
     public static String decodeFieldString(String res) {
@@ -425,7 +425,7 @@ public class WebContext implements Cloneable, Appendable {
     // preference api
     /**
      * get a preference's value as a boolean. defaults to false.
-     * 
+     *
      * @param x
      *            pref name
      * @return preference value (or false)
@@ -436,7 +436,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get a preference's value as an integer. Defaults to 'def'
-     * 
+     *
      * @param x
      *            field name
      * @param def
@@ -458,7 +458,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get a preference's value as an integer, or else -1
-     * 
+     *
      * @param x
      *            field name
      * @return preference value or -1
@@ -471,7 +471,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Special preference: Number of codes to show on a single page
-     * 
+     *
      * @return The preferred value (minimum: 5)
      * @see SurveyMain#CODES_PER_PAGE
      */
@@ -485,7 +485,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * get a preference's value as a boolean. defaults to defVal.
-     * 
+     *
      * @param x
      *            preference name
      * @param defVal
@@ -503,7 +503,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * get a pref that is a string,
-     * 
+     *
      * @param x
      *            the field name and pref name
      * @return string preference value or "" if otherwise not found.
@@ -514,7 +514,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * get a pref that is a string,
-     * 
+     *
      * @param x
      *            the field name and pref name
      * @param def
@@ -534,7 +534,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get the target keyword and value for an 'a href' HTML tag
-     * 
+     *
      * @param target
      *            the target name to use
      * @return the 'target=...' string - may be blank if the user has requested
@@ -551,7 +551,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Get the target keyword and value for an 'a href' HTML tag on
      * TARGET_ZOOMED
-     * 
+     *
      * @return the 'target=...' string - may be blank if the user has requested
      *         no popups
      * @see #TARGET_ZOOMED
@@ -562,7 +562,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Add a parameter to the output URL
-     * 
+     *
      * @param k
      *            key
      * @param v
@@ -588,7 +588,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Add a boolean parameter to the output URL as 't' or 'f'
-     * 
+     *
      * @param k
      *            key
      * @param v
@@ -600,7 +600,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Set a parameter on the output URL, replacing an existing value if any
-     * 
+     *
      * @param k
      *            key
      * @param v
@@ -624,7 +624,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Set a query from an integer
-     * 
+     *
      * @param k
      * @param v
      */
@@ -635,7 +635,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Remove the specified key from the query. Has no effect if the field
      * doesn't exist.
-     * 
+     *
      * @param k
      *            key
      */
@@ -655,7 +655,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Return the output URL
-     * 
+     *
      * @return the output URL
      */
     public String url() {
@@ -677,7 +677,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Returns the string that must be appended to the URL to start the next
      * parameter - either ? or &amp;
-     * 
+     *
      * @return the connecting string
      */
     public final String urlConnector() {
@@ -686,7 +686,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get the base URL (servlet path)
-     * 
+     *
      * @return the servlet path in context
      */
     public String base() {
@@ -752,7 +752,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get the base URL for some request
-     * 
+     *
      * @param request
      * @return base URL
      */
@@ -771,7 +771,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get the context path
-     * 
+     *
      * @return the context path
      */
     public String context() {
@@ -780,7 +780,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get the context path for a certain resource
-     * 
+     *
      * @param s
      *            resource URL
      * @return the context path for the specified resource
@@ -793,7 +793,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get the context path for a certain resource
-     * 
+     *
      * @param s
      *            resource URL
      * @return the context path for the specified resource
@@ -806,7 +806,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get a link (HTML URL) to a JSP
-     * 
+     *
      * @param s
      *            resource to link to
      * @return the URL suitable for HTML
@@ -818,7 +818,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get a link (Text URL) to a JSP
-     * 
+     *
      * @param s
      *            resource to link to
      * @return the URL suitable for Text
@@ -842,7 +842,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * return the IP of the remote user. If they are behind a proxy, return the
      * actual original URL.
-     * 
+     *
      * @return a URL
      */
     String userIP() {
@@ -852,7 +852,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * return the IP of the remote user given a request. If they are behind a
      * proxy, return the actual original URL.
-     * 
+     *
      * @param request
      *            the request to use
      * @return a URL
@@ -867,7 +867,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * return the hostname of the web server
-     * 
+     *
      * @return the Server Name
      */
     String serverName() {
@@ -876,7 +876,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * return the hostname of the web server given a request
-     * 
+     *
      * @return the Server name
      */
     static String serverName(HttpServletRequest request) {
@@ -885,7 +885,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Returns the host:port of the server
-     * 
+     *
      * @return the "host:port:
      */
     String serverHostport() {
@@ -894,7 +894,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Returns the host:port of the server
-     * 
+     *
      * @param request
      *            a specific request
      * @return the "host:port:
@@ -913,7 +913,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Returns the scheme://host:port
-     * 
+     *
      * @return the "scheme://host:port"
      */
     String schemeHostPort() {
@@ -922,7 +922,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Returns the scheme://host:port
-     * 
+     *
      * @return the "scheme://host:port"
      * @param request
      *            the request portion
@@ -933,7 +933,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Print out a line
-     * 
+     *
      * @param s
      *            line to print
      * @see PrintWriter#println(String)
@@ -952,7 +952,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Print out a Throwable as HTML.
-     * 
+     *
      * @param t
      *            throwable to print
      */
@@ -971,7 +971,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Send the user to another URL. Won't work if there was already some
      * output.
-     * 
+     *
      * @param where
      * @see HttpServletResponse#sendRedirect(String)
      */
@@ -988,7 +988,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Close the stream. Normally not called directly, except in outermost
      * processor.
-     * 
+     *
      * @throws IOException
      */
     void close() throws IOException {
@@ -1004,14 +1004,14 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * the current processor
-     * 
+     *
      * @see DisplayAndInputProcessor
      */
     public DisplayAndInputProcessor processor = null;
 
     /**
      * Set this context to be handling a certain locale
-     * 
+     *
      * @param l
      *            locale to set
      */
@@ -1040,7 +1040,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Return the HTML direction of this locale, ltr or rtl. Returns ltr by
      * default. TODO: should return display locale's directionality by default.
-     * 
+     *
      * @return directionality
      */
     public HTMLDirection getDirectionForLocale() {
@@ -1057,7 +1057,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Return the current locale as a string. Deprecated, please use getLocale
      * instead.
-     * 
+     *
      * @deprecated use getLocale().toString() -
      * @see #getLocale()
      */
@@ -1070,7 +1070,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get an object out of the session data
-     * 
+     *
      * @param key
      * @param aLocale
      *            locale to fetch
@@ -1082,7 +1082,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Put an object into the session data
-     * 
+     *
      * @param key
      * @param locale
      * @param value
@@ -1094,7 +1094,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Remove an object from the session data
-     * 
+     *
      * @param key
      * @param aLocale
      */
@@ -1104,7 +1104,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Remove an object from the current locale's session data
-     * 
+     *
      * @param key
      */
     public final void removeByLocale(String key) {
@@ -1113,7 +1113,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Put an object into the current locale's session data
-     * 
+     *
      * @param key
      * @param value
      */
@@ -1123,7 +1123,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get an object from the current locale's session data
-     * 
+     *
      * @param key
      * @return the object
      */
@@ -1136,7 +1136,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Debugging: print a Reference object
-     * 
+     *
      * @param o
      * @return number of sub-objects including this object
      */
@@ -1151,7 +1151,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Debugging: print a DataPod object
-     * 
+     *
      * @param o
      * @return number of sub-objects including this object
      */
@@ -1163,7 +1163,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Debugging: print an Object object
-     * 
+     *
      * @param o
      * @return number of sub-objects including this object
      */
@@ -1189,7 +1189,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Debugging: print a Hashtable object
-     * 
+     *
      * @param o
      * @return number of sub-objects including this object
      */
@@ -1210,7 +1210,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Debugging: print a String object
-     * 
+     *
      * @param o
      * @return number of sub-objects including this object
      */
@@ -1222,7 +1222,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Debugging: print a Boolean object
-     * 
+     *
      * @param o
      * @return number of sub-objects including this object
      */
@@ -1234,7 +1234,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Debugging: print out all static objects
-     * 
+     *
      * @return the number of sub items
      */
     public final int staticInfo() {
@@ -1247,7 +1247,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Put an object into the current locale's static store
-     * 
+     *
      * @param key
      * @param value
      */
@@ -1257,7 +1257,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get an object from the current locale's static store
-     * 
+     *
      * @param key
      * @return the object
      */
@@ -1279,7 +1279,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Put an object into the current locale's static stuff
-     * 
+     *
      * @param key
      * @param locale
      * @param value
@@ -1376,7 +1376,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Is it an organization that participates in coverage?
-     * 
+     *
      * @param org
      * @return
      */
@@ -1386,7 +1386,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get a list of all locale types
-     * 
+     *
      * @return a list of locale types
      * @see StandardCodes#getLocaleCoverageOrganizations()
      */
@@ -1396,7 +1396,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * User's organization or null.
-     * 
+     *
      * @return
      */
     public String getUserOrg() {
@@ -1405,7 +1405,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Append the WebContext Options map to the specified map
-     * 
+     *
      * @return the map
      */
     public CheckCLDR.Options getOptionsMap() {
@@ -1438,7 +1438,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Get the DataSection for the given xpath prefix and default ptype, even if
      * it may be no longer valid. May be null.
-     * 
+     *
      * @param prefix
      *            the xpath prefix
      * @return the existing data section or null if it is invalid
@@ -1450,7 +1450,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Get the DataSection for the given xpath prefix and default ptype, even if
      * it may be no longer valid. May be null.
-     * 
+     *
      * @param prefix
      *            the xpath prefix
      * @param ptype
@@ -1475,7 +1475,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Get a currently valid DataSection.. creating it if need be. prints
      * informative notes to the ctx in case of a long delay.
-     * 
+     *
      * @param prefix
      */
     DataSection getSection(String prefix) {
@@ -1489,7 +1489,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Get a currently valid DataSection for the specified ptype.. creating it
      * if need be. prints informative notes to the ctx in case of a long delay.
-     * 
+     *
      * @param prefix
      * @deprecated Use
      *             {@link #getSection(String,XPathMatcher,String,LoadingShow)}
@@ -1501,7 +1501,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Recommended entrypoint for pageid
-     * 
+     *
      * @param pageId
      * @param ptype
      * @param options
@@ -1514,7 +1514,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Get a currently valid DataSection for the specified ptype.. creating it
      * if need be. prints informative notes to the ctx in case of a long delay.
-     * 
+     *
      * @param prefix
      * @param matcher
      *            TODO
@@ -1641,7 +1641,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Open a Writer in the specified encoding
-     * 
+     *
      * @param out
      * @param encoding
      * @return
@@ -1662,7 +1662,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Get help on a certain xpath in html. The HTML help given is independent
      * of locale.
-     * 
+     *
      * @param xpath
      * @see HelpMessages
      */
@@ -1676,7 +1676,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Print a link to help with the title 'Help'
-     * 
+     *
      * @param what
      * @see #printHelpLink(String, String)
      */
@@ -1686,7 +1686,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Print a link to help with a specified title
-     * 
+     *
      * @param what
      *            the help to link to
      * @param title
@@ -1730,7 +1730,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get HTML for the 'modify' thing, with the hand icon
-     * 
+     *
      * @param message
      * @see #iconHtml(String, String)
      * @return HTML for the message
@@ -1741,7 +1741,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * get HTML for an icon with a certain message
-     * 
+     *
      * @param icon
      * @param message
      * @return the HTML for the icon and message
@@ -1760,7 +1760,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Clone (copy construct) the context
-     * 
+     *
      * @see #WebContext(WebContext)
      */
     public Object clone() {
@@ -1801,7 +1801,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Include a template fragment from /WEB-INF/tmpl
-     * 
+     *
      * @param filename
      */
     public void includeFragment(String filename) {
@@ -1820,7 +1820,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Include a template fragment from /WEB-INF/tmpl
-     * 
+     *
      * @param request
      * @param response
      * @param filename
@@ -1836,7 +1836,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Put something into the temporary (context, non session data) store
-     * 
+     *
      * @param string
      * @param object
      */
@@ -1850,7 +1850,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get something from the temporary (context, non session data) store
-     * 
+     *
      * @param string
      * @return the object
      */
@@ -1889,7 +1889,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * A direction, suitable for html 'dir=...'
-     * 
+     *
      * @author srl
      * @see getDirectionForLocale
      */
@@ -1908,7 +1908,7 @@ public class WebContext implements Cloneable, Appendable {
 
         /**
          * Convert a CLDR direction to an enum
-         * 
+         *
          * @param dir
          *            CLDR direction string
          * @return HTML direction enum
@@ -1928,7 +1928,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Return true if the user can modify this locale
-     * 
+     *
      * @return true if the user can modify this locale
      */
     public Boolean canModify() {
@@ -1946,7 +1946,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Set the zoomed-in state of this context
-     * 
+     *
      * @param zoomedIn
      *            true if this context is in 'zoomed-in' state
      * @see #zoomedIn()
@@ -2004,7 +2004,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get the user settings.
-     * 
+     *
      * @return
      */
     UserSettings settings() {
@@ -2024,7 +2024,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Return the ID of this user, or -1 (UserRegistry.NO_USER)
-     * 
+     *
      * @return user's id, or -1 (UserRegistry.NO_USER) if not found/not set
      */
     public int userId() {
@@ -2045,7 +2045,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get a certain cookie
-     * 
+     *
      * @param id
      * @return
      */
@@ -2068,7 +2068,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Get a cookie value or null
-     * 
+     *
      * @param id
      * @return
      */
@@ -2082,7 +2082,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Set a cookie
-     * 
+     *
      * @param id
      * @param value
      * @param expiry
@@ -2257,7 +2257,7 @@ public class WebContext implements Cloneable, Appendable {
             if (session != null) {
                 if (null == CookieSession.retrieve(session.id)) { // double check- is the session still valid?
                     session = null; // don't allow dead sessions to show up
-                                    // via the user list.
+                    // via the user list.
                 }
             }
         }
@@ -2310,7 +2310,7 @@ public class WebContext implements Cloneable, Appendable {
         // guest?
         if (letmein || (user != null && UserRegistry.userIsTC(user))) {
             // allow in administrator or TC.
-        } else if ((user != null) && (session == null)) { // user trying to log in- 
+        } else if ((user != null) && (session == null)) { // user trying to log in-
             if (CookieSession.tooManyUsers()) {
                 System.err.println("Refused login for " + email + " from " + userIP() + " - too many users ( " + CookieSession.getUserCount() + ")");
                 return "We are swamped with about " + CookieSession.getUserCount()
@@ -2442,7 +2442,7 @@ public class WebContext implements Cloneable, Appendable {
 
     /**
      * Show a 'report' template (r_)
-     * 
+     *
      * @param which
      *            current section
      */

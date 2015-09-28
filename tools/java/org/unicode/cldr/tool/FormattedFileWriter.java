@@ -33,7 +33,7 @@ public class FormattedFileWriter extends java.io.Writer {
         public String toString() {
 
             StringBuffer contents = new StringBuffer("<div align='center'>" + Chart.LS
-                + "<table>" + Chart.LS); // 
+                + "<table>" + Chart.LS); //
             ArrayList<String[]> anchorList = new ArrayList<>(anchors); // flatten
             int columns = hasExplanations ? 2 : 4;
             int rows = 1 + (anchorList.size() - 1) / columns;

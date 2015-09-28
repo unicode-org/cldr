@@ -85,9 +85,9 @@ public class DataSection implements JSONString {
     /**
      * This class represents a "row" of data - a single distinguishing xpath
      * This class was formerly (and unfortunately) named "Pea"
-     * 
+     *
      * @author srl
-     * 
+     *
      */
     public class DataRow implements JSONString, PathValueInfo {
 
@@ -136,8 +136,8 @@ public class DataSection implements JSONString {
                     return null;
                 try {
                     return getProcessor().processForDisplay(xpath, value);
-                } catch(Throwable t) {
-                    if(SurveyLog.DEBUG) SurveyLog.logException(t, "While processing " + xpath + ":"+value);
+                } catch (Throwable t) {
+                    if (SurveyLog.DEBUG) SurveyLog.logException(t, "While processing " + xpath + ":" + value);
                     return value;
                 }
             }
@@ -173,11 +173,11 @@ public class DataSection implements JSONString {
                 if (uvotes == null)
                     return Collections.emptySet();
                 TreeSet<UserInfo> ts = new TreeSet<UserInfo>(uvotes); // TODO:
-                                                                      // change
-                                                                      // return
-                                                                      // type
-                                                                      // for
-                                                                      // perf?
+                // change
+                // return
+                // type
+                // for
+                // perf?
                 return ts;
             }
 
@@ -205,7 +205,7 @@ public class DataSection implements JSONString {
              * with NULL if there isn't a proposed item for this slot. it will
              * be called once in the 'main' row, and once for any extra rows
              * needed for proposed items
-             * 
+             *
              * @param ctx
              *            TODO
              * @param ourVote
@@ -234,7 +234,7 @@ public class DataSection implements JSONString {
              * with NULL if there isn't a proposed item for this slot. it will
              * be called once in the 'main' row, and once for any extra rows
              * needed for proposed items
-             * 
+             *
              * @param ctx
              *            TODO
              * @param ourVote
@@ -352,8 +352,8 @@ public class DataSection implements JSONString {
                         }
                         if (zoomedIn) {
                             if (processed != null && /*
-                                                      * direction.equals("rtl")&&
-                                                      */SurveyMain.CallOut.containsSome(processed)) {
+                                                     * direction.equals("rtl")&&
+                                                     */SurveyMain.CallOut.containsSome(processed)) {
                                 String altProcessed = processed.replaceAll("\u200F", "\u200F<b dir=rtl>RLM</b>\u200F")
                                     .replaceAll("\u200E", "\u200E<b>LRM</b>\u200E");
                                 ctx.print("<br><span class=marks>" + altProcessed + "</span>");
@@ -453,29 +453,29 @@ public class DataSection implements JSONString {
                         pClass = "winner"; // was missing- doesn't matter
                     } else {
                         pClass = "winner"; // class='winner'
-                                           // title='"+confirmStatus+"' ";
+                        // title='"+confirmStatus+"' ";
                     }
                 } else if (pathWhereFound != null) {
                     pClass = "alias"; // class='alias' title='alias from
-                                      // " + sm.xpt.getPrettyPath(pathWhereFound) + "'";
+                    // " + sm.xpt.getPrettyPath(pathWhereFound) + "'";
                 } else if (isFallback || (inheritFrom != null)) {
                     if (inheritFrom != null && XMLSource.CODE_FALLBACK_ID.equals(inheritFrom.getBaseName())) {
                         pClass = "fallback_code"; // class='fallback_code'
-                                                  // title='Untranslated Code'";
+                        // title='Untranslated Code'";
                     } else if (inheritFrom == CLDRLocale.ROOT) {
                         pClass = "fallback_root"; // class='fallback_root'
-                                                  // title='Fallback from
-                                                  // Root'";
+                        // title='Fallback from
+                        // Root'";
                     } else {
                         pClass = "fallback"; // class='fallback'
-                                             // title='Translated in "
+                        // title='Translated in "
                         // + ((inheritFrom==null)?"(unknown)":
                         // CLDRLocale.getDefaultFormatter().getDisplayName(inheritFrom))
                         // + " and inherited here.'";
                     }
                 } else if (altProposed != null) {
                     pClass = "loser"; // class='loser' title='proposed, losing
-                                      // item'";
+                    // item'";
                     /*
                      * } else if(p.inheritFrom != null) { pClass =
                      * "class='missing'";
@@ -504,10 +504,10 @@ public class DataSection implements JSONString {
                          * ExampleEntry(this,p,myItem,status)));
                          */
                     } else /*
-                            * if (!(isCodeFallback && (status.getCause()
-                            * instanceof
-                            * org.unicode.cldr.test.CheckForExemplars)))
-                            */{
+                           * if (!(isCodeFallback && (status.getCause()
+                           * instanceof
+                           * org.unicode.cldr.test.CheckForExemplars)))
+                           */{
                         // skip codefallback exemplar complaints (i.e. 'JPY'
                         // isn't in exemplars).. they'll show up in missing
                         if (DEBUG)
@@ -558,7 +558,7 @@ public class DataSection implements JSONString {
 
             /**
              * Did any voters in my org vote for it?
-             * 
+             *
              * @param me
              */
             public boolean votesByMyOrg(User me) {
@@ -679,7 +679,7 @@ public class DataSection implements JSONString {
 
         boolean hasWarnings = false;
         public CandidateItem inheritedValue = null; // vetted value inherited
-                                                    // from
+        // from
         // parent
 
         private CandidateItem winningItem = null;
@@ -801,7 +801,7 @@ public class DataSection implements JSONString {
 
         /**
          * Returns the winning (current) item.
-         * 
+         *
          * @return
          */
         public CandidateItem getCurrentItem() {
@@ -903,7 +903,7 @@ public class DataSection implements JSONString {
 
         /**
          * Get a list of proposed items, if any.
-         * 
+         *
          * @deprecated use getValues() instead
          * @see #getValues()
          */
@@ -948,25 +948,25 @@ public class DataSection implements JSONString {
 
         /**
          * Return the CandidateItem for a particular user ID
-         * 
+         *
          * @param userId
          * @return
          */
         public CandidateItem getVotesForUser(int userId) {
             UserRegistry.User infoForUser = sm.reg.getInfo(userId); /*
-                                                                     * see
-                                                                     * gatherVotes
-                                                                     * -
-                                                                     * getVotes
-                                                                     * () is
-                                                                     * populated
-                                                                     * with a
-                                                                     * set drawn
-                                                                     * from the
-                                                                     * getInfo()
-                                                                     * singletons
-                                                                     * .
-                                                                     */
+                                                                    * see
+                                                                    * gatherVotes
+                                                                    * -
+                                                                    * getVotes
+                                                                    * () is
+                                                                    * populated
+                                                                    * with a
+                                                                    * set drawn
+                                                                    * from the
+                                                                    * getInfo()
+                                                                    * singletons
+                                                                    * .
+                                                                    */
             if (infoForUser == null)
                 return null;
             for (CandidateItem item : getItems()) {
@@ -1017,7 +1017,7 @@ public class DataSection implements JSONString {
         /**
          * Print empty cells. Not the equivalent of printCells(..., null), which
          * will still print an example.
-         * 
+         *
          * @param ctx
          * @param ourAlign
          *            TODO
@@ -1068,7 +1068,7 @@ public class DataSection implements JSONString {
         /**
          * A Shim is a candidate item which does not correspond to actual XML
          * data, but is synthesized.
-         * 
+         *
          * @param base_xpath
          * @param base_xpath_string
          * @param checkCldr
@@ -1104,7 +1104,7 @@ public class DataSection implements JSONString {
 
         /**
          * Show a single row
-         * 
+         *
          * @param ctx
          *            TODO
          * @param uf
@@ -1487,9 +1487,9 @@ public class DataSection implements JSONString {
             if (hasErrors) {
                 statusIcon = ctx.iconHtml("stop", "Errors - please zoom in");
             } else if (hasWarnings /*
-                                    * && confirmStatus !=
-                                    * Vetting.Status.INDETERMINATE
-                                    */) {
+                                   * && confirmStatus !=
+                                   * Vetting.Status.INDETERMINATE
+                                   */) {
                 statusIcon = ctx.iconHtml("warn", "Warnings - please zoom in");
             }
             return statusIcon;
@@ -1505,9 +1505,9 @@ public class DataSection implements JSONString {
             if (hasErrors) {
                 rclass = "error";
             } else if (hasWarnings /*
-                                    * && confirmStatus !=
-                                    * Vetting.Status.INDETERMINATE
-                                    */) {
+                                   * && confirmStatus !=
+                                   * Vetting.Status.INDETERMINATE
+                                   */) {
                 rclass = "warning";
             }
             return rclass;
@@ -1552,7 +1552,7 @@ public class DataSection implements JSONString {
 
         /**
          * Show a row of limited data.
-         * 
+         *
          * @param ctx
          */
         void showDataRowShort(WebContext ctx) {
@@ -1583,7 +1583,7 @@ public class DataSection implements JSONString {
         /**
          * Calculate the item from the vetted parent locale, possibly including
          * tests
-         * 
+         *
          * @param vettedParent
          *            CLDRFile for the parent locale, resolved with vetting on ( really just the current )
          * @param checkCldr
@@ -1653,7 +1653,7 @@ public class DataSection implements JSONString {
                     otherItem.isBailey = true;
                     otherItem.isFallback = true;
                     inheritedValue = otherItem;
-                   // throw new InternalError("could not get inherited value: "
+                    // throw new InternalError("could not get inherited value: "
                     // + xpath);
                 }
             }
@@ -1679,7 +1679,7 @@ public class DataSection implements JSONString {
 
         /**
          * Returns true if a user has voted or not.
-         * 
+         *
          * @param userId
          * @return true if user has voted at all, false otherwise. Will return
          *         false if user changes their vote back to no opinion.
@@ -1842,7 +1842,7 @@ public class DataSection implements JSONString {
         SortMode sortMode = null;
 
         /**
-         * 
+         *
          * @param myRows
          *            the original rows
          * @param myDisplayRows
@@ -1930,24 +1930,24 @@ public class DataSection implements JSONString {
                     ctx.print("<p class='hang'>");
                     if (skip <= 0) {
                         ctx.print("<span class='pagerl_inactive'>\u2190&nbsp;prev"/*
-                                                                                   * +
-                                                                                   * ctx
-                                                                                   * .
-                                                                                   * prefCodesPerPage
-                                                                                   * (
-                                                                                   * )
-                                                                                   */
+                                                                                  * +
+                                                                                  * ctx
+                                                                                  * .
+                                                                                  * prefCodesPerPage
+                                                                                  * (
+                                                                                  * )
+                                                                                  */
                             + "" + "</span>&nbsp;");
                     } else {
                         ctx.print("<a class='pagerl_active' href=\"" + ctx.url() + ctx.urlConnector() + "skip="
                             + new Integer(prevSkip) + "\">" + "\u2190&nbsp;prev"/*
-                                                                                 * +
-                                                                                 * ctx
-                                                                                 * .
-                                                                                 * prefCodesPerPage
-                                                                                 * (
-                                                                                 * )
-                                                                                 */
+                                                                                * +
+                                                                                * ctx
+                                                                                * .
+                                                                                * prefCodesPerPage
+                                                                                * (
+                                                                                * )
+                                                                                */
                             + "");
                         ctx.print("</a>&nbsp;");
                     }
@@ -1956,25 +1956,25 @@ public class DataSection implements JSONString {
                         nextSkip = -1;
                         if (total >= (ctx.prefCodesPerPage())) {
                             ctx.println(" <span class='pagerl_inactive' >" + "next&nbsp;"/*
-                                                                                          * +
-                                                                                          * ctx
-                                                                                          * .
-                                                                                          * prefCodesPerPage
-                                                                                          * (
-                                                                                          * )
-                                                                                          */
+                                                                                         * +
+                                                                                         * ctx
+                                                                                         * .
+                                                                                         * prefCodesPerPage
+                                                                                         * (
+                                                                                         * )
+                                                                                         */
                                 + "\u2192" + "</span>");
                         }
                     } else {
                         ctx.println(" <a class='pagerl_active' href=\"" + ctx.url() + ctx.urlConnector() + "skip="
                             + new Integer(nextSkip) + "\">" + "next&nbsp;"/*
-                                                                           * +
-                                                                           * ctx
-                                                                           * .
-                                                                           * prefCodesPerPage
-                                                                           * (
-                                                                           * )
-                                                                           */
+                                                                          * +
+                                                                          * ctx
+                                                                          * .
+                                                                          * prefCodesPerPage
+                                                                          * (
+                                                                          * )
+                                                                          */
                             + "\u2192" + "</a>");
                     }
                     ctx.print("</p>");
@@ -2145,9 +2145,9 @@ public class DataSection implements JSONString {
                 // item,
                 // status..
                 p.fullFieldHash(); /*
-                                    * fieldHash ensures that we don't get
-                                    * the wrong field..
-                                    */
+                                   * fieldHash ensures that we don't get
+                                   * the wrong field..
+                                   */
         }
     }
 
@@ -2295,7 +2295,7 @@ public class DataSection implements JSONString {
     /**
      * Create, populate, and complete a DataSection given the specified locale
      * and prefix
-     * 
+     *
      * @param ctx
      *            context to use (contains CLDRDBSource, etc.)
      * @param locale
@@ -2484,7 +2484,7 @@ public class DataSection implements JSONString {
     // examples
 
     private String sectionHash; // prefix string used for calculating html
-                                // fields
+    // fields
 
     public boolean hasExamples = false;
     public String intgroup;
@@ -2511,7 +2511,7 @@ public class DataSection implements JSONString {
     // of
     // type->Row
     public int skippedDueToCoverage = 0; // How many were skipped due to
-                                         // coverage?
+    // coverage?
 
     private SurveyMain sm;
     long touchTime = -1; // when has this pod been hit?
@@ -2569,7 +2569,7 @@ public class DataSection implements JSONString {
 
     /**
      * Makes sure this pod contains the rows we'd like to see.
-     * 
+     *
      * @obsolete not called anymore
      */
     private void ensureComplete(CLDRFile ourSrc, TestResultBundle checkCldr, Map<String, String> options,
@@ -2776,7 +2776,7 @@ public class DataSection implements JSONString {
 
     /**
      * Linear search for matching item.
-     * 
+     *
      * @param xpath
      * @return the matching DatRow
      */
@@ -3054,10 +3054,10 @@ public class DataSection implements JSONString {
                     if (!avalue.equals(value)) {
                         CandidateItem item2 = p.addItem(avalue);
                         if (avalue != null && (checkCldr != null)/*
-                                                                  * &&(
-                                                                  * altProposed
-                                                                  * == null)
-                                                                  */) {
+                                                                 * &&(
+                                                                 * altProposed
+                                                                 * == null)
+                                                                 */) {
                             List<CheckStatus> item2Result = new ArrayList<CheckStatus>();
                             checkCldr.check(xpath, item2Result, avalue);
                             // checkCldr.getExamples(xpath, isExtraPath ?
@@ -3181,7 +3181,7 @@ public class DataSection implements JSONString {
                     System.err.println("n07.2  (check) " + (System.currentTimeMillis() - nextTime));
                 checkCldr.getExamples(xpath, isExtraPath ? null : value, examplesResult);
             }
-            
+
             if (value != null && value.length() > 0) {
                 DataSection.DataRow.CandidateItem myItem = null;
 
@@ -3249,10 +3249,10 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * 
+     *
      * Call this function to show a DataSection to the user. Caller must hold
      * session sync.
-     * 
+     *
      * @param ctx
      *            the context to show
      * @param canModify
@@ -3265,7 +3265,7 @@ public class DataSection implements JSONString {
      *            show in zoomed-in mode
      * @param only_base_path
      *            only show this base xpath
-     * 
+     *
      * @deprecated use a custom XPathmatcher
      */
     @Deprecated
@@ -3275,7 +3275,7 @@ public class DataSection implements JSONString {
 
     /**
      * Show a single item, in a very limited view.
-     * 
+     *
      * @param ctx
      * @param item_xpath
      *            xpath of the one item to show
@@ -3343,12 +3343,12 @@ public class DataSection implements JSONString {
                 }
                 if (moveSkip != -1) {
                     oskip = (moveSkip / ctx.prefCodesPerPage()) * ctx.prefCodesPerPage(); // make
-                                                                                          // it
-                                                                                          // fall
-                                                                                          // on
-                                                                                          // a
-                                                                                          // page
-                                                                                          // boundary
+                    // it
+                    // fall
+                    // on
+                    // a
+                    // page
+                    // boundary
                 }
             }
             // -----
@@ -3544,7 +3544,7 @@ public class DataSection implements JSONString {
         if (zoomedIn) {
             table_width += 2;
             itemColSpan = 2; // When zoomed in, Proposed and Other takes up 2
-                             // columns
+            // columns
         } else {
             itemColSpan = 1;
         }
@@ -3628,7 +3628,7 @@ public class DataSection implements JSONString {
                 } catch (JSONException ex) {
                     SurveyLog.logException(ex, "JSON serialization error for row: " + d.xpath + " : Full row is: " + d.toString());
                     throw new JSONException(ex);
-              }
+                }
             }
             // String x = itemList.toString();
             // System.out.println("rows: " + x);

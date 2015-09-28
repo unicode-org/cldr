@@ -8,31 +8,31 @@ import java.io.Reader;
  * DONE is returned.
  * <p>
  * Element content will be returned in the following sequence:
- * 
+ *
  * <pre>
- *  ELEMENT_START  
+ *  ELEMENT_START
  *  ELEMENT strong
- *  ELEMENT_END 
+ *  ELEMENT_END
  *  ELEMENT_CONTENT Alphabetic code
- *  ELEMENT_START 
- *  ELEMENT_POP 
+ *  ELEMENT_START
+ *  ELEMENT_POP
  *  ELEMENT strong
  *  ELEMENT_END
  * </pre>
- * 
+ *
  * while attributes will be returned as:
- * 
+ *
  * <pre>
- *  ELEMENT_START 
+ *  ELEMENT_START
  *  ELEMENT div
  *  ATTRIBUTE id
  *  ATTRIBUTE_CONTENT mainContent
  *  ELEMENT_END
  * </pre>
- * 
- * 
+ *
+ *
  * @author markdavis
- * 
+ *
  */
 public class SimpleHtmlParser {
     public enum Type {

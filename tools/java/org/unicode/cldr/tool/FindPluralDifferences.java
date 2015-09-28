@@ -22,16 +22,16 @@ public class FindPluralDifferences {
 
     public static void diff() {
         String[] versions = {
-            //"1.4.1", 
-            //"1.5.1", 
-            //            "1.6.1", 
-            //            "1.7.2", 
-            //            "1.8.1", 
-            //            "1.9.1", 
-            //            "2.0.1", 
-            //            "21.0", 
-            //            "22.1", 
-            //            "23.1", 
+            //"1.4.1",
+            //"1.5.1",
+            //            "1.6.1",
+            //            "1.7.2",
+            //            "1.8.1",
+            //            "1.9.1",
+            //            "2.0.1",
+            //            "21.0",
+            //            "22.1",
+            //            "23.1",
             //              "24.0",
             "27.0",
             "trunk"
@@ -155,7 +155,7 @@ public class FindPluralDifferences {
                 result.append(start);
                 if (end != start) {
                     result.append("–")
-                        .append(end);
+                    .append(end);
                 }
                 start = limit;
             }

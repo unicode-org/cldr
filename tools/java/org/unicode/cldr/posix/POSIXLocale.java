@@ -25,7 +25,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
 
 /**
  * Class to generate POSIX format from CLDR.
- * 
+ *
  * @author jcemmons
  */
 
@@ -57,7 +57,7 @@ public class POSIXLocale {
         CLDRFile collrules = collFactory.makeWithFallback(locale_name);
 
         if (repertoire.isEmpty() && codeset.equals("UTF-8")) // Generate default repertoire set from exemplar
-                                                             // characters;
+            // characters;
         {
             String SearchLocation = "//ldml/characters/exemplarCharacters";
             UnicodeSet ExemplarCharacters = new UnicodeSet(doc.getStringValue(SearchLocation));

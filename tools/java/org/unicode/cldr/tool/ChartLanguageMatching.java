@@ -47,14 +47,14 @@ public class ChartLanguageMatching extends Chart {
     @Override
     public void writeContents(FormattedFileWriter pw) throws IOException {
         TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Desired", "class='source'", null, "class='source'", true)
-            .addColumn("Supported", "class='source'", null, "class='source'", true)
-            .addColumn("D. Code", "class='source'", null, "class='source'", true)
-            .setBreakSpans(true)
-            .addColumn("S. Code", "class='source'", null, "class='source'", true)
-            .setBreakSpans(true)
-            .addColumn("Distance", "class='target'", null, "class='target'", true)
-            .addColumn("Sym?", "class='target'", null, "class='target'", true);
+        .addColumn("Desired", "class='source'", null, "class='source'", true)
+        .addColumn("Supported", "class='source'", null, "class='source'", true)
+        .addColumn("D. Code", "class='source'", null, "class='source'", true)
+        .setBreakSpans(true)
+        .addColumn("S. Code", "class='source'", null, "class='source'", true)
+        .setBreakSpans(true)
+        .addColumn("Distance", "class='target'", null, "class='target'", true)
+        .addColumn("Sym?", "class='target'", null, "class='target'", true);
 
         for (String type : SDI.getLanguageMatcherKeys()) {
             pw.write("<h2>Type=" + type + "</h2>");
@@ -63,14 +63,14 @@ public class ChartLanguageMatching extends Chart {
                 // <languageMatch desired="gsw" supported="de" percent="96" oneway="true" /> <!-- All Swiss speakers can read High German -->
 
                 tablePrinter.addRow()
-                    //.addCell(ENGLISH.getName(locale))
-                    .addCell(getName(row.get0(), true))
-                    .addCell(getName(row.get1(), false))
-                    .addCell(row.get0())
-                    .addCell(row.get1())
-                    .addCell((100 - row.get2()))
-                    .addCell(row.get3() ? "→" : "⬌")
-                    .finishRow();
+                //.addCell(ENGLISH.getName(locale))
+                .addCell(getName(row.get0(), true))
+                .addCell(getName(row.get1(), false))
+                .addCell(row.get0())
+                .addCell(row.get1())
+                .addCell((100 - row.get2()))
+                .addCell(row.get3() ? "→" : "⬌")
+                .finishRow();
             }
             pw.write(tablePrinter.toTable());
             tablePrinter.clearRows();

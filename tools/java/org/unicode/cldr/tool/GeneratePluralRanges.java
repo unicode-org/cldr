@@ -333,8 +333,8 @@ public class GeneratePluralRanges {
             for (Count end : pluralInfo.getCounts()) {
                 Count r = matrix.endSame(end);
                 if (r != null
-                //&& r != Count.other
-                ) {
+                    //&& r != Count.other
+                    ) {
                     result.add("<pluralRange" +
                         "              \t\tend=\"" + end
                         + "\"\tresult=\"" + r + "\"/>"
@@ -346,8 +346,8 @@ public class GeneratePluralRanges {
             for (Count start : pluralInfo.getCounts()) {
                 Count r = matrix.startSame(start, endDone, emit);
                 if (r != null
-                // && r != Count.other
-                ) {
+                    // && r != Count.other
+                    ) {
                     if (emit.value) {
                         result.add("<pluralRange" +
                             "\tstart=\"" + start
@@ -369,8 +369,8 @@ public class GeneratePluralRanges {
                 }
                 Count r = matrix.get(start, end);
                 if (r != null
-                //&& !(MINIMAL && r == Count.other)
-                ) {
+                    //&& !(MINIMAL && r == Count.other)
+                    ) {
                     result.add(PluralRanges.showRange(start, end, r)
                         );
                 } else {

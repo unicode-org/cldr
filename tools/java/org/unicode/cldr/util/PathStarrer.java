@@ -12,7 +12,7 @@ import com.ibm.icu.text.Transform;
 
 /**
  * Transforms a path by replacing attributes with .*
- * 
+ *
  * @author markdavis
  */
 public class PathStarrer implements Transform<String, String> {

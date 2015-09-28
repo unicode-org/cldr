@@ -96,9 +96,9 @@ public class ShowStarredCoverage {
                 System.out.println(count
                     + "\t" + level
                     + "\t" + starredStatus[0]
-                    + "\t" + starredStatus[1]
-                    + "\t" + starredStatus[2]
-                    + "\t" + CollectionUtilities.join(attributes.keySet(), ", "));
+                        + "\t" + starredStatus[1]
+                            + "\t" + starredStatus[2]
+                                + "\t" + CollectionUtilities.join(attributes.keySet(), ", "));
             }
         }
         Counter<String> pageCount = new Counter<>();

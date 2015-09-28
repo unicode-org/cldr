@@ -78,7 +78,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     /**
      * Adds all the path,value pairs in tempMap.
      * The paths must be Full Paths.
-     * 
+     *
      * @param tempMap
      * @param conflict_resolution
      */
@@ -92,7 +92,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
     /**
      * Adds all the path, value pairs in otherSource.
-     * 
+     *
      * @param otherSource
      * @param conflict_resolution
      */
@@ -114,7 +114,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     /**
      * Removes all the paths in the collection.
      * WARNING: must be distinguishedPaths
-     * 
+     *
      * @param xpaths
      */
     public void removeAll(Collection<String> xpaths) {
@@ -125,7 +125,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
     /**
      * Tests whether the full path for this dpath is draft or now.
-     * 
+     *
      * @param path
      * @return
      */
@@ -142,7 +142,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
     /**
      * Adds the path,value pair. The path must be full path.
-     * 
+     *
      * @param xpath
      * @param value
      */
@@ -173,7 +173,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     public static interface Listener {
         /**
          * Called whenever the source being listened to has a data change.
-         * 
+         *
          * @param xpath
          *            The xpath that had its value changed.
          * @param source
@@ -292,9 +292,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          * 2. Also assumes that there are no extra /'s in the relative or old path.
          * 3. If we verified that the relative paths always used " in place of ',
          * we could also save a step.
-         * 
+         *
          * Maybe we could clean up #2 and #3 when reading in a CLDRFile the first time?
-         * 
+         *
          * @param oldPath
          * @param relativePath
          * @return
@@ -333,8 +333,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
         public String toString() {
             return
-            // "oldLocaleID: " + oldLocaleID + ", " +
-            "newLocaleID: " + newLocaleID + ",\t"
+                // "oldLocaleID: " + oldLocaleID + ", " +
+                "newLocaleID: " + newLocaleID + ",\t"
                 +
                 "oldPath: " + oldPath + ",\n\t"
                 +
@@ -344,7 +344,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         /**
          * This function is called on the full path, when we know the distinguishing path matches the oldPath.
          * So we just want to modify the base of the path
-         * 
+         *
          * @param oldPath
          * @param newPath
          * @param result
@@ -423,7 +423,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
     /**
      * This method should be overridden.
-     * 
+     *
      * @return a mapping of paths to their aliases. Note that since root is the
      *         only locale to have aliases, all other locales will have no mappings.
      */
@@ -477,7 +477,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     /**
      * Return the localeID of the XMLSource where the path was found
      * SUBCLASSING: must be overridden in a resolving locale
-     * 
+     *
      * @param path
      * @param status
      *            TODO
@@ -493,7 +493,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     /**
      * Remove the value.
      * SUBCLASSING: must be overridden in a resolving locale
-     * 
+     *
      * @param xpath
      */
     public void removeValueAtPath(String xpath) {
@@ -505,7 +505,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     /**
      * Get the value.
      * SUBCLASSING: must be overridden in a resolving locale
-     * 
+     *
      * @param xpath
      * @return
      */
@@ -516,7 +516,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     /**
      * Get the full path for a distinguishing path
      * SUBCLASSING: must be overridden in a resolving locale
-     * 
+     *
      * @param xpath
      * @return
      */
@@ -681,9 +681,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
     /**
      * Internal class for doing resolution
-     * 
+     *
      * @author davis
-     * 
+     *
      */
     public static class ResolvingSource extends XMLSource implements Listener {
         private XMLSource currentSource;
@@ -950,7 +950,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             String aliasedPath = aliases.get(xpath);
 
             // counts are special; they act like there is a root alias to 'other'
-            // and in the special case of currencies, other => null 
+            // and in the special case of currencies, other => null
             // //ldml/numbers/currencies/currency[@type="BRZ"]/displayName[@count="other"] => //ldml/numbers/currencies/currency[@type="BRZ"]/displayName
             if (aliasedPath == null && xpath.contains("[@count=")) {
                 aliasedPath = COUNT_EQUALS.matcher(xpath).replaceAll("[@count=\"other\"]");
@@ -1033,7 +1033,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         /**
          * Creates the set of resolved paths for this ResolvingSource while
          * ignoring aliasing.
-         * 
+         *
          * @return
          */
         private Set<String> findNonAliasedPaths() {
@@ -1057,7 +1057,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         /**
          * Takes in a list of xpaths and returns a new set of paths that alias
          * directly to those existing xpaths.
-         * 
+         *
          * @param paths
          *            a sorted list of xpaths
          * @param reverseAliases
@@ -1166,7 +1166,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
         /**
          * Creates a new ResolvingSource with the given locale resolution chain.
-         * 
+         *
          * @param sourceList
          *            the list of XMLSources to look in during resolution,
          *            ordered from the current locale up to root.
@@ -1411,14 +1411,14 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 constructedItems.putValueAtPath(
                     "//ldml/localeDisplayNames/keys/key" +
                         "[@type=\"" + keyDisplayNames[i] + "\"]",
-                    keyDisplayNames[i]);
+                        keyDisplayNames[i]);
             }
             for (int i = 0; i < typeDisplayNames.length; ++i) {
                 constructedItems.putValueAtPath(
                     "//ldml/localeDisplayNames/types/type"
                         + "[@key=\"" + typeDisplayNames[i][1] + "\"]"
                         + "[@type=\"" + typeDisplayNames[i][0] + "\"]",
-                    typeDisplayNames[i][0]);
+                        typeDisplayNames[i][0]);
             }
             //            String[][] relativeValues = {
             //                // {"Three days ago", "-3"},
@@ -1540,7 +1540,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
     /**
      * See CLDRFile isWinningPath for documentation
-     * 
+     *
      * @param path
      * @return
      */
@@ -1551,7 +1551,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     /**
      * See CLDRFile getWinningPath for documentation.
      * Default implementation is that it removes draft and [@alt="...proposed..." if possible
-     * 
+     *
      * @param path
      * @return
      */
@@ -1578,7 +1578,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      * called by the XMLSource being updated after any change
      * (usually in putValueAtDPath() and removeValueAtDPath()).
      * This should only be called by XMLSource / CLDRFile
-     * 
+     *
      * @param xpath
      *            the xpath where the change occurred.
      */
@@ -1599,7 +1599,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      * return true if the path in this file (without resolution). Default implementation is to just see if the path has
      * a value.
      * The resolved source must just test the top level.
-     * 
+     *
      * @param path
      * @return
      */
@@ -1609,7 +1609,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
     /**
      * Find all the distinguished paths having values matching valueToMatch, and add them to result.
-     * 
+     *
      * @param valueToMatch
      * @param pathPrefix
      * @param result

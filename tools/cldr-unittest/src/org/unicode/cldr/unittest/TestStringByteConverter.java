@@ -121,8 +121,8 @@ public class TestStringByteConverter {
                 + test);
         }
         StringByteConverter byteString = type == Type.utf8 ? new Utf8StringByteConverter()
-            : type == Type.normal ? new CompactStringByteConverter(false)
-                : new CompactStringByteConverter(true);
+        : type == Type.normal ? new CompactStringByteConverter(false)
+        : new CompactStringByteConverter(true);
         int byteLen = byteString.toBytes(test, bytes, 0);
 
         // verify that incremental gets the same results
@@ -215,12 +215,12 @@ public class TestStringByteConverter {
         ioBytePosition[0] = 0;
         int retest = unsigned ? CompactStringByteConverter.readUnsignedInt(
             bytes, ioBytePosition) : CompactStringByteConverter.readInt(
-            bytes, ioBytePosition);
-        int lengthRead = ioBytePosition[0];
-        if (test != retest)
-            throw new IllegalArgumentException();
-        if (len != lengthRead)
-            throw new IllegalArgumentException();
+                bytes, ioBytePosition);
+            int lengthRead = ioBytePosition[0];
+            if (test != retest)
+                throw new IllegalArgumentException();
+            if (len != lengthRead)
+                throw new IllegalArgumentException();
     }
 
     private static String hex(byte[] bytes, int start, int end, String separator) {

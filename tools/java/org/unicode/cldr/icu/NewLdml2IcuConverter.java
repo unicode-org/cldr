@@ -28,19 +28,19 @@ import org.unicode.cldr.util.SupplementalDataInfo;
  * Simpler mechanism for converting CLDR data to ICU Resource Bundles, intended
  * to replace LDML2ICUConverter. The format is almost entirely data-driven
  * instead of having lots of special-case code.
- * 
+ *
  * The flags used to specify the data to be generated are copied directly from
  * LDML2ICUConverter.
- * 
+ *
  * Unlike the instructions in CLDRConverterTool, this converter does not invoke
  * computeConvertibleXPaths to check if each xpath is convertible because the
  * xpaths that are convertible have already been filtered out by the regex lookups.
  * It may make more sense down the road to refactor CLDRConverterTool such that
  * this class doesn't inherit unnecessary functionality.
- * 
+ *
  * A rough overview of the new converter is available at
  * https://sites.google.com/site/cldr/development/coding-cldr-tools/newldml2icuconverter
- * 
+ *
  * @author jchye
  */
 public class NewLdml2IcuConverter extends CLDRConverterTool {
@@ -74,20 +74,20 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         "Usage: LDML2ICUConverter [OPTIONS] [FILES]\n" +
             "This program is used to convert LDML files to ICU data text files.\n" +
             "Please refer to the following options. Options are not case sensitive.\n" +
-            "\texample: org.unicode.cldr.icu.Ldml2IcuConverter -s xxx -d yyy en")
-        .add("sourcedir", ".*", "Source directory for CLDR files")
-        .add("destdir", ".*", ".", "Destination directory for output files, defaults to the current directory")
-        .add("specialsdir", 'p', ".*", null, "Source directory for files containing special data, if any")
-        .add("supplementaldir", 'm', ".*", null, "The supplemental data directory")
-        .add("keeptogether", 'k', null, null,
-            "Write locale data to one file instead of splitting into separate directories. For debugging")
+        "\texample: org.unicode.cldr.icu.Ldml2IcuConverter -s xxx -d yyy en")
+    .add("sourcedir", ".*", "Source directory for CLDR files")
+    .add("destdir", ".*", ".", "Destination directory for output files, defaults to the current directory")
+    .add("specialsdir", 'p', ".*", null, "Source directory for files containing special data, if any")
+    .add("supplementaldir", 'm', ".*", null, "The supplemental data directory")
+    .add("keeptogether", 'k', null, null,
+        "Write locale data to one file instead of splitting into separate directories. For debugging")
         .add("type", 't', "\\w+", null, "The type of file to be generated")
         .add("xpath", 'x', ".*", null, "An optional xpath to debug the regexes with")
         .add("filter", 'f', null, null, "Perform filtering on the locale data to be converted.")
         .add("organization", 'o', ".*", null, "The organization to filter the data for")
         .add("makefile", 'g', ".*", null, "If set, generates makefiles and alias files for the specified type. " +
             "The value to set should be the name of the makefile.")
-        .add("verbose", 'v', null, null, "Debugging aids");
+            .add("verbose", 'v', null, null, "Debugging aids");
 
     private static final String LOCALES_DIR = "locales";
 
@@ -315,7 +315,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
 
     /**
      * Writes the given IcuData object to file.
-     * 
+     *
      * @param icuData
      *            the IcuData object to be written
      * @param outputDir

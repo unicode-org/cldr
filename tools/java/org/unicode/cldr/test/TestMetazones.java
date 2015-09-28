@@ -34,9 +34,9 @@ import com.ibm.icu.util.TimeZoneTransition;
 /**
  * Verify that all zones in a metazone have the same behavior within the
  * specified period.
- * 
+ *
  * @author markdavis
- * 
+ *
  */
 public class TestMetazones {
     public static boolean DEBUG = false;
@@ -268,7 +268,7 @@ public class TestMetazones {
     /**
      * Returns a list of pairs. The delta timezone offsets for both zones should be identical between each of the points
      * in the pair
-     * 
+     *
      * @param zone1
      * @param zone2
      * @param overlap
@@ -332,7 +332,7 @@ public class TestMetazones {
 
     /**
      * My own private version so I can suppress daylight.
-     * 
+     *
      * @param zone1
      * @param point
      * @return
@@ -404,7 +404,7 @@ public class TestMetazones {
 
         errorLog.println();
         errorLog
-            .println("*** Verify that every metazone has at least one zone that is always in that metazone, over the span of the metazone's existance.");
+        .println("*** Verify that every metazone has at least one zone that is always in that metazone, over the span of the metazone's existance.");
         errorLog.println();
 
         // get the best exemplars
@@ -528,9 +528,9 @@ public class TestMetazones {
 
     /**
      * Stores a range and a zone. The zone might be a timezone or metazone.
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     static class DateRangeAndZone implements Comparable<DateRangeAndZone> {
         DateRange range;
@@ -628,7 +628,7 @@ public class TestMetazones {
 
         /**
          * includes cases where they touch.
-         * 
+         *
          * @param otherRange
          * @return
          */
@@ -638,7 +638,7 @@ public class TestMetazones {
 
         /**
          * includes cases where they touch.
-         * 
+         *
          * @param otherRange
          * @return
          */
@@ -734,7 +734,7 @@ public class TestMetazones {
 
         public static String format(Date date) {
             return (// date.equals(MIN_DATE) ? "-∞" : date.equals(MAX_DATE) ? "+∞" :
-            iso1.format(date));
+                iso1.format(date));
         }
 
         public static String format(long date) {

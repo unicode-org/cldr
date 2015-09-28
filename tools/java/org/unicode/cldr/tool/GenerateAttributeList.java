@@ -82,8 +82,8 @@ public class GenerateAttributeList {
     }
 
     /**
-    * 
-    */
+     *
+     */
     private void addFromStandardCodes() {
         StandardCodes sc = StandardCodes.make();
         addFromStandardCodes(sc, "language");
@@ -95,8 +95,8 @@ public class GenerateAttributeList {
     }
 
     /**
-    * 
-    */
+     *
+     */
     private void addFromStandardCodes(StandardCodes sc, String cat) {
         Collection<String> c = sc.getGoodAvailableCodes(cat);
         String target = cat.equals("tzid") ? "zone" : cat;
@@ -108,7 +108,7 @@ public class GenerateAttributeList {
 
     /**
      * @throws IOException
-     * 
+     *
      */
     private void addFromDTD(String filename) throws IOException {
         // StringBufferInputStream fis = new StringBufferInputStream(
@@ -252,8 +252,8 @@ public class GenerateAttributeList {
     }
 
     /**
-    * 
-    */
+     *
+     */
     private String toString(Collection<String> source, String defaultKey) {
         StringBuffer result = new StringBuffer();
         boolean first = true;
@@ -294,7 +294,7 @@ public class GenerateAttributeList {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ext.DeclHandler#elementDecl(java.lang.String, java.lang.String)
          */
         public void elementDecl(String name, String model) throws SAXException {
@@ -304,7 +304,7 @@ public class GenerateAttributeList {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ext.DeclHandler#internalEntityDecl(java.lang.String, java.lang.String)
          */
         public void internalEntityDecl(String name, String value) throws SAXException {
@@ -314,7 +314,7 @@ public class GenerateAttributeList {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ext.DeclHandler#externalEntityDecl(java.lang.String, java.lang.String, java.lang.String)
          */
         public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
@@ -327,7 +327,7 @@ public class GenerateAttributeList {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ContentHandler#endDocument()
          */
         public void endDocument() throws SAXException {
@@ -337,7 +337,7 @@ public class GenerateAttributeList {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ContentHandler#startDocument()
          */
         public void startDocument() throws SAXException {
@@ -347,7 +347,7 @@ public class GenerateAttributeList {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ContentHandler#characters(char[], int, int)
          */
         public void characters(char[] ch, int start, int length) throws SAXException {
@@ -357,7 +357,7 @@ public class GenerateAttributeList {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ContentHandler#ignorableWhitespace(char[], int, int)
          */
         public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
@@ -367,7 +367,7 @@ public class GenerateAttributeList {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ContentHandler#endPrefixMapping(java.lang.String)
          */
         public void endPrefixMapping(String prefix) throws SAXException {
@@ -377,7 +377,7 @@ public class GenerateAttributeList {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ContentHandler#skippedEntity(java.lang.String)
          */
         public void skippedEntity(String name) throws SAXException {
@@ -387,7 +387,7 @@ public class GenerateAttributeList {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ContentHandler#setDocumentLocator(org.xml.sax.Locator)
          */
         public void setDocumentLocator(Locator locator) {
@@ -397,7 +397,7 @@ public class GenerateAttributeList {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ContentHandler#processingInstruction(java.lang.String, java.lang.String)
          */
         public void processingInstruction(String target, String data) throws SAXException {
@@ -407,7 +407,7 @@ public class GenerateAttributeList {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ContentHandler#startPrefixMapping(java.lang.String, java.lang.String)
          */
         public void startPrefixMapping(String prefix, String uri) throws SAXException {
@@ -417,7 +417,7 @@ public class GenerateAttributeList {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ContentHandler#endElement(java.lang.String, java.lang.String, java.lang.String)
          */
         public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
@@ -427,7 +427,7 @@ public class GenerateAttributeList {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ContentHandler#startElement(java.lang.String, java.lang.String, java.lang.String,
          * org.xml.sax.Attributes)
          */

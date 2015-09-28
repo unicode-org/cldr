@@ -50,12 +50,12 @@ public class ShowZoneEquivalences {
             .split("[,]?\\s+")));
         Set<String> singleCountries = new TreeSet<String>(
             Arrays
-                .asList("Africa/Bamako America/Godthab America/Santiago America/Guayaquil     Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur Europe/Madrid Europe/Lisbon Europe/London Pacific/Auckland Pacific/Tahiti"
-                    .split("\\s")));
+            .asList("Africa/Bamako America/Godthab America/Santiago America/Guayaquil     Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur Europe/Madrid Europe/Lisbon Europe/London Pacific/Auckland Pacific/Tahiti"
+                .split("\\s")));
         Set<String> defaultItems = new TreeSet<String>(
             Arrays
-                .asList("Antarctica/McMurdo America/Buenos_Aires Australia/Sydney America/Sao_Paulo America/Toronto Africa/Kinshasa America/Santiago Asia/Shanghai America/Guayaquil Europe/Madrid Europe/London America/Godthab Asia/Jakarta Africa/Bamako America/Mexico_City Asia/Kuala_Lumpur Pacific/Auckland Europe/Lisbon Europe/Moscow Europe/Kiev America/New_York Asia/Tashkent Pacific/Tahiti Pacific/Kosrae Pacific/Tarawa Asia/Almaty Pacific/Majuro Asia/Ulaanbaatar Arctic/Longyearbyen Pacific/Midway"
-                    .split("\\s")));
+            .asList("Antarctica/McMurdo America/Buenos_Aires Australia/Sydney America/Sao_Paulo America/Toronto Africa/Kinshasa America/Santiago Asia/Shanghai America/Guayaquil Europe/Madrid Europe/London America/Godthab Asia/Jakarta Africa/Bamako America/Mexico_City Asia/Kuala_Lumpur Pacific/Auckland Europe/Lisbon Europe/Moscow Europe/Kiev America/New_York Asia/Tashkent Pacific/Tahiti Pacific/Kosrae Pacific/Tarawa Asia/Almaty Pacific/Majuro Asia/Ulaanbaatar Arctic/Longyearbyen Pacific/Midway"
+                .split("\\s")));
 
         StandardCodes sc = StandardCodes.make();
         Collection<String> codes = sc.getGoodAvailableCodes("tzid");
@@ -118,12 +118,12 @@ public class ShowZoneEquivalences {
         out.println("td.top,td.topr { background-color: #EEEEFF }");
         out.println("td.r,td.topr { text-align:right }");
         out
-            .println("td.gap { font-weight:bold; border-top: 3px solid #0000FF; border-bottom: 3px solid #0000FF; background-color: #CCCCCC }");
+        .println("td.gap { font-weight:bold; border-top: 3px solid #0000FF; border-bottom: 3px solid #0000FF; background-color: #CCCCCC }");
         out
-            .println("</style>"
-                + "</head>"
-                + "<body>"
-                + "<table border='1' cellspacing='0' cellpadding='2' style='border-collapse: collapse'>");
+        .println("</style>"
+            + "</head>"
+            + "<body>"
+            + "<table border='1' cellspacing='0' cellpadding='2' style='border-collapse: collapse'>");
         Tabber.HTMLTabber tabber1 = new Tabber.HTMLTabber();
         tabber1.setParameters(4, "class='r'");
         tabber1.setParameters(5, "class='r'");
@@ -145,7 +145,7 @@ public class ShowZoneEquivalences {
         long minimumDate = ICUServiceBuilder.isoDateParse("2000-1-1T00:00:00Z")
             .getTime();
         out
-            .println("<h1>Modern Equivalent Timezones: <a target='_blank' href='instructions.html'>Instructions</a></h1>");
+        .println("<h1>Modern Equivalent Timezones: <a target='_blank' href='instructions.html'>Instructions</a></h1>");
         out.println(ShowData.dateFooter());
         out.println("<p>Zones identical after: "
             + ICUServiceBuilder.isoDateFormat(minimumDate) + "</p>");

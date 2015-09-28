@@ -146,7 +146,7 @@ public class StandardCodes {
 
     /**
      * Get at the language registry values, as a Map from label to value.
-     * 
+     *
      * @param type
      * @param code
      * @return
@@ -164,7 +164,7 @@ public class StandardCodes {
 
     /**
      * Return a replacement code, if available. If not, return null.
-     * 
+     *
      */
     public String getReplacement(String type, String code) {
         if (type.equals("currency"))
@@ -185,7 +185,7 @@ public class StandardCodes {
     /**
      * Return the list of codes that have the same data. For example, returns all
      * currency codes for a country. If there is a preferred one, it is first.
-     * 
+     *
      * @param type
      * @param data
      * @return
@@ -226,7 +226,7 @@ public class StandardCodes {
 
     /**
      * Get all the available codes for a given type
-     * 
+     *
      * @param type
      * @return
      */
@@ -236,7 +236,7 @@ public class StandardCodes {
 
     /**
      * Get all the available codes for a given type
-     * 
+     *
      * @param type
      * @return
      */
@@ -253,7 +253,7 @@ public class StandardCodes {
      * Get all the available "real" codes for a given type, excluding private use,
      * but including some deprecated codes. Use SupplementalDataInfo getLocaleAliases to
      * exclude others.
-     * 
+     *
      * @param type
      * @return
      */
@@ -337,7 +337,7 @@ public class StandardCodes {
 
     /**
      * Get rid of this
-     * 
+     *
      * @param type
      * @return
      * @throws IOException
@@ -364,7 +364,7 @@ public class StandardCodes {
     /**
      * Returns locales according to status. It returns a Map of Maps, key 1 is
      * either IBM or Java (perhaps more later), key 2 is the Level.
-     * 
+     *
      * @deprecated
      */
     public Map<Organization, Map<String, Level>> getLocaleTypes() {
@@ -379,6 +379,7 @@ public class StandardCodes {
     public Level getLocaleCoverageLevel(String organization, String desiredLocale) {
         return getLocaleCoverageLevel(Organization.fromString(organization), desiredLocale);
     }
+
     public Level getLocaleCoverageLevel(Organization organization, String desiredLocale) {
         return getLocaleCoverageLevel(organization, desiredLocale, new Output<LocaleCoverageType>());
     }
@@ -438,7 +439,7 @@ public class StandardCodes {
         }
         return platform_locale_level.keySet();
     }
-    
+
     public Set<String> getLocaleCoverageOrganizationStrings() {
         synchronized (StandardCodes.class) {
             if (platform_locale_level == null) {
@@ -451,7 +452,7 @@ public class StandardCodes {
     public Set<String> getLocaleCoverageLocales(String organization) {
         return getLocaleCoverageLocales(Organization.fromString(organization));
     }
-    
+
     public Set<String> getLocaleCoverageLocales(Organization organization) {
         synchronized (StandardCodes.class) {
             if (platform_locale_level == null) {
@@ -612,7 +613,7 @@ public class StandardCodes {
     /**
      * Ascertain that the given locale in in the given group specified by the
      * organization
-     * 
+     *
      * @param locale
      * @param group
      * @param org
@@ -623,16 +624,16 @@ public class StandardCodes {
     }
 
     public boolean isLocaleInGroup(String locale, String group, String org) {
-        return isLocaleInGroup(locale,group,Organization.fromString(org));
+        return isLocaleInGroup(locale, group, Organization.fromString(org));
     }
 
     public String getGroup(String locale, String org) {
         return getGroup(locale, Organization.fromString(org));
     }
-    
+
     /**
      * Gets the coverage group given a locale and org
-     * 
+     *
      * @param locale
      * @param org
      * @return group if availble, null if not
@@ -748,7 +749,7 @@ public class StandardCodes {
                     + " may be a corrupted UTF-8 file. Please check.");
                 throw (IllegalArgumentException) new IllegalArgumentException(
                     "Can't read " + files[fileIndex] + "\t" + originalLine)
-                    .initCause(e);
+                .initCause(e);
             }
             country_modernCurrency = CldrUtility.protectCollection(country_modernCurrency);
         }
@@ -1003,26 +1004,27 @@ public class StandardCodes {
     static final String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
 
     public enum LstrType {
-        language("und", "zxx", "mul", "mis", "root"), 
+        language("und", "zxx", "mul", "mis", "root"),
         script("Zzzz", "Zsym", "Zxxx", "Zmth"),
         region("ZZ"),
-        variant(), 
-        extlang(true, false), 
-        grandfathered(true, false), 
+        variant(),
+        extlang(true, false),
+        grandfathered(true, false),
         redundant(true, false),
         /** specialized codes for validity; TODO: rename LstrType **/
-        currency(false, true,"XXX"),
+        currency(false, true, "XXX"),
         subdivision(false, true),
         unit(false, true);
-        
+
         public final Set<String> specials;
         public final String unknown;
         public final boolean isLstr;
         public final boolean isUnicode;
-        
+
         private LstrType(String... unknownValue) {
             this(true, true, unknownValue);
         }
+
         private LstrType(boolean lstr, boolean unicode, String... unknownValue) {
             unknown = unknownValue.length == 0 ? null : unknownValue[0];
             LinkedHashSet<String> set = new LinkedHashSet<>(Arrays.asList(unknownValue));
@@ -1051,7 +1053,7 @@ public class StandardCodes {
      * Returns a map like {extlang={aao={Added=2009-07-29, Description=Algerian Saharan Arabic, ...<br>
      * That is, type => subtype => map<tag,value>. Descriptions are concatenated together, separated by
      * DESCRIPTION_SEPARATOR.
-     * 
+     *
      * @return
      */
     public static Map<String, Map<String, Map<String, String>>> getLStreg() {
@@ -1065,7 +1067,7 @@ public class StandardCodes {
      * Returns a map like {extlang={aao={Added=2009-07-29, Description=Algerian Saharan Arabic, ...<br>
      * That is, type => subtype => map<tag,value>. Descriptions are concatenated together, separated by
      * DESCRIPTION_SEPARATOR.
-     * 
+     *
      * @return
      */
     public static Map<LstrType, Map<String, Map<LstrField, String>>> getEnumLstreg() {

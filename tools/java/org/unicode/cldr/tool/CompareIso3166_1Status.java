@@ -88,7 +88,7 @@ public class CompareIso3166_1Status {
                 + "\t" + cldrStatus.get(regionCode)
                 + "\t" + bcp47Status.get(regionCode)
                 + "\t" + isoStatus2
-                //+ "\t" + description 
+                //+ "\t" + description
                 + "\t" + bcp47Data
                 );
             seen.add(regionCode);

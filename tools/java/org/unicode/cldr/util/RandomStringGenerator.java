@@ -45,7 +45,7 @@ public class RandomStringGenerator {
         boolean addGCStuff) {
         this(factory, factory.getProperty(propertyName).getUnicodeMap(),
             useShortName ? ICUPropertyFactory.make().getProperty(propertyName).getUnicodeMap(true) : null,
-            addGCStuff);
+                addGCStuff);
     }
 
     RandomStringGenerator(UnicodeProperty.Factory factory, UnicodeMap longNameMap, UnicodeMap shortNameMap,

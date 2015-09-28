@@ -549,7 +549,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
         // if (ELEMENT_SKIP_LIST.contains(name)) return;
         if (name.indexOf("contractions") >= 0
             || model
-                .indexOf("[alias, base, settings, suppress, contractions, optimize, rules, special]") >= 0) {
+            .indexOf("[alias, base, settings, suppress, contractions, optimize, rules, special]") >= 0) {
         }
         allDefinedElements.add(name);
         if (SHOW_PROGRESS) {
@@ -663,7 +663,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.xml.sax.ContentHandler#endDocument()
      */
     public void endDocument() throws SAXException {
@@ -673,7 +673,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.xml.sax.ContentHandler#startDocument()
      */
     public void startDocument() throws SAXException {
@@ -683,7 +683,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.xml.sax.ContentHandler#characters(char[], int, int)
      */
     public void characters(char[] ch, int start, int length) throws SAXException {
@@ -693,7 +693,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.xml.sax.ContentHandler#ignorableWhitespace(char[], int, int)
      */
     public void ignorableWhitespace(char[] ch, int start, int length)
@@ -704,7 +704,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.xml.sax.ContentHandler#endPrefixMapping(java.lang.String)
      */
     public void endPrefixMapping(String prefix) throws SAXException {
@@ -714,7 +714,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.xml.sax.ContentHandler#skippedEntity(java.lang.String)
      */
     public void skippedEntity(String name) throws SAXException {
@@ -724,7 +724,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.xml.sax.ContentHandler#setDocumentLocator(org.xml.sax.Locator)
      */
     public void setDocumentLocator(Locator locator) {
@@ -734,7 +734,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.xml.sax.ContentHandler#processingInstruction(java.lang.String,
      * java.lang.String)
      */
@@ -746,7 +746,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.xml.sax.ContentHandler#startPrefixMapping(java.lang.String,
      * java.lang.String)
      */
@@ -757,7 +757,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.xml.sax.ContentHandler#endElement(java.lang.String,
      * java.lang.String, java.lang.String)
      */
@@ -769,7 +769,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.xml.sax.ContentHandler#startElement(java.lang.String,
      * java.lang.String, java.lang.String, org.xml.sax.Attributes)
      */
@@ -781,7 +781,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.xml.sax.ErrorHandler#error(org.xml.sax.SAXParseException)
      */
     public void error(SAXParseException exception) throws SAXException {
@@ -792,7 +792,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.xml.sax.ErrorHandler#fatalError(org.xml.sax.SAXParseException)
      */
     public void fatalError(SAXParseException exception) throws SAXException {
@@ -803,7 +803,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.xml.sax.ErrorHandler#warning(org.xml.sax.SAXParseException)
      */
     public void warning(SAXParseException exception) throws SAXException {

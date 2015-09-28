@@ -67,7 +67,7 @@ public class TestRangeAbbreviator {
                         String range = rangeAbbreviator.abbreviate(formatted1,
                             formatted2);
                         rangeAbbreviator.abbreviate(formatted1, formatted2); // for
-                                                                             // debugging
+                        // debugging
                         if (range.equals(formatted1 + separator1 + formatted2)) {
                             continue; // no shortening
                         }
@@ -82,5 +82,5 @@ public class TestRangeAbbreviator {
     }
 
     static final String[] STYLE_NAMES = { "None", "Full", "Long", "Medium",
-        "Short" };
+    "Short" };
 }

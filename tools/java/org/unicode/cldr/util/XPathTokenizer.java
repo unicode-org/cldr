@@ -118,7 +118,7 @@ public class XPathTokenizer {
      * xpath.
      * TODO: The method will only resolve relative tokens in the begining
      * of the string. Try to handle embedded ".."
-     * 
+     *
      * @param xpath
      * @param fullPath
      * @return

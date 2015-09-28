@@ -34,13 +34,13 @@ public enum DtdType {
 
     public String header() {
         return "<?xml version='1.0' encoding='UTF-8' ?>\n"
-            +"<!DOCTYPE " + this // supplementalData
+            + "<!DOCTYPE " + this // supplementalData
             + " SYSTEM '../../" + dtdPath + "'>\n" // "common/dtd/ldmlSupplemental.dtd"
-            +"<!--\n"
-            +"Copyright © 1991-2013 Unicode, Inc.\n"
-            +"CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)\n"
-            +"For terms of use, see http://www.unicode.org/copyright.html\n"
-            +"-->\n"
-            +"<" + this + ">\n";
+            + "<!--\n"
+            + "Copyright © 1991-2013 Unicode, Inc.\n"
+            + "CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)\n"
+            + "For terms of use, see http://www.unicode.org/copyright.html\n"
+            + "-->\n"
+            + "<" + this + ">\n";
     }
 }

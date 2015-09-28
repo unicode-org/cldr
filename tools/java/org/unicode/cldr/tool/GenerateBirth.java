@@ -46,17 +46,17 @@ public class GenerateBirth {
     static final Factory[] factories = new Factory[VERSIONS.length];
 
     final static Options myOptions = new Options()
-        .add("target", ".*", CLDRPaths.BIRTH_DATA_DIR,
-            "The target directory for building the text files that show the results.")
+    .add("target", ".*", CLDRPaths.BIRTH_DATA_DIR,
+        "The target directory for building the text files that show the results.")
         .add("log", ".*", CLDRPaths.TMP_DIRECTORY + "dropbox/births/",
             "The target directory for building the text files that show the results.")
-        .add(
-            "file",
-            ".*",
-            ".*",
-            "Filter the information based on file name, using a regex argument. The '.xml' is removed from the file before filtering")
-        .add("previous", "Stop after writing the English previous data.")
-        .add("debug", "Debug");
+            .add(
+                "file",
+                ".*",
+                ".*",
+                "Filter the information based on file name, using a regex argument. The '.xml' is removed from the file before filtering")
+                .add("previous", "Stop after writing the English previous data.")
+                .add("debug", "Debug");
 
     public static void main(String[] args) throws IOException {
         myOptions.parse(args, true);
@@ -71,9 +71,9 @@ public class GenerateBirth {
         for (Versions version : VERSIONS) {
             Factory aFactory = Factory.make(
                 (version == Versions.trunk
-                    ? CLDRPaths.BASE_DIRECTORY
+                ? CLDRPaths.BASE_DIRECTORY
                     : CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + version + "/") + "common/main/",
-                filePattern
+                    filePattern
                 );
             list.add(aFactory);
         }

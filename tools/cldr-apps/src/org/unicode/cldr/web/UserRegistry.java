@@ -53,7 +53,7 @@ import com.ibm.icu.util.ULocale;
 /**
  * This class represents the list of all registered users. It contains an inner
  * class, UserRegistry.User, which represents an individual user.
- * 
+ *
  * @see UserRegistry.User
  * @see OldUserRegistry
  **/
@@ -77,7 +77,7 @@ public class UserRegistry {
     public class LogoutException extends Exception {
 
         /**
-         * 
+         *
          */
         private static final long serialVersionUID = 8960959307439428532L;
 
@@ -270,7 +270,7 @@ public class UserRegistry {
 
         /**
          * Get a settings object for use with this user.
-         * 
+         *
          * @return
          */
         public UserSettings settings() {
@@ -330,7 +330,7 @@ public class UserRegistry {
 
         /**
          * List of interest groups the user is interested in.
-         * 
+         *
          * @return list of locales, or null for ALL locales, or a 0-length list
          *         for NO locales.
          */
@@ -394,7 +394,7 @@ public class UserRegistry {
 
         /**
          * Return the value of this voter info, out of the cache
-         * 
+         *
          * @deprecated use getVoterInfo
          * @see #getVoterInfo
          */
@@ -440,7 +440,7 @@ public class UserRegistry {
 
         /**
          * Is this user an administrator 'over' this user?
-         * 
+         *
          * @param other
          * @see VoteResolver.Level.isAdminFor()
          * @deprecated
@@ -456,7 +456,7 @@ public class UserRegistry {
         /**
          * Is this user an administrator 'over' this user? Always true if admin,
          * orif TC in same org.
-         * 
+         *
          * @param other
          */
         public boolean isAdminForOrg(String org) {
@@ -535,7 +535,7 @@ public class UserRegistry {
 
     /**
      * Called by SM to create the reg
-     * 
+     *
      * @param xlogger
      *            the logger to use
      * @param ourConn
@@ -634,13 +634,13 @@ public class UserRegistry {
             // "prefs varchar(1024) , " + /* deprecated Dec 2010. Not used
             // anywhere */
             "intlocs varchar(1024) , " + // added apr 2006: ALTER table
-                                         // CLDR_USERS ADD COLUMN intlocs
-                                         // VARCHAR(1024)
+            // CLDR_USERS ADD COLUMN intlocs
+            // VARCHAR(1024)
             "lastlogin " + DBUtils.DB_SQL_TIMESTAMP0 + // added may 2006:
-                                                       // alter table
-                                                       // CLDR_USERS ADD
-                                                       // COLUMN lastlogin
-                                                       // TIMESTAMP
+            // alter table
+            // CLDR_USERS ADD
+            // COLUMN lastlogin
+            // TIMESTAMP
             (!DBUtils.db_Mysql ? ",primary key(id)" : "") + ")");
         s.execute(sql);
         sql = ("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " + "VALUES(" + ADMIN + "," + "'admin',"
@@ -676,7 +676,7 @@ public class UserRegistry {
 
     /**
      * Mark user as modified
-     * 
+     *
      * @param id
      */
     void userModified(int id) {
@@ -692,7 +692,7 @@ public class UserRegistry {
 
     /**
      * Mark the UserRegistry as changed, purging the VoterInfo map
-     * 
+     *
      * @see #getVoterToInfo()
      */
     private void userModified() {
@@ -701,7 +701,7 @@ public class UserRegistry {
 
     /**
      * Get the singleton user for this ID.
-     * 
+     *
      * @param id
      * @return singleton, or null if not found/invalid
      */
@@ -941,7 +941,8 @@ public class UserRegistry {
     }
 
     static SurveyMain sm = null; // static for static checking of
-                                 // defaultContent..
+
+    // defaultContent..
 
     private UserRegistry(java.util.logging.Logger xlogger) {
         logger = xlogger;
@@ -1026,7 +1027,7 @@ public class UserRegistry {
     }
 
     /**
-     * validate an interest locale list. 
+     * validate an interest locale list.
      * @param list
      * @return
      */
@@ -1530,7 +1531,7 @@ public class UserRegistry {
             insertStmt = conn.prepareStatement(SQL_insertStmt);
             insertStmt.setInt(1, u.userlevel);
             DBUtils.setStringUTF8(insertStmt, 2, u.name); // insertStmt.setString(2,
-                                                          // u.name);
+            // u.name);
             insertStmt.setString(3, u.org);
             insertStmt.setString(4, u.email);
             insertStmt.setString(5, u.password);
@@ -1541,7 +1542,7 @@ public class UserRegistry {
                 if (ctx != null)
                     ctx.println("<p>Added user.<p>");
                 User newu = get(u.password, u.email, FOR_ADDING); // throw away
-                                                                  // old user
+                // old user
                 updateIntLocs(newu.id, conn);
                 resetOrgList(); // update with new org spelling.
                 notify(newu);
@@ -1608,7 +1609,7 @@ public class UserRegistry {
 
     @Deprecated
     /**
-     * 
+     *
      * @param u
      * @param requestedLevel
      * @return
@@ -1794,7 +1795,7 @@ public class UserRegistry {
         if (userIsTC(u))
             return null; // TC can modify all
         if (locale.getLanguage().equals("und")) { // all user accounts can write
-                                                  // to und.
+            // to und.
             return null;
         }
         if ((u.locales == null) && userIsExpert(u))
@@ -1806,8 +1807,8 @@ public class UserRegistry {
         }
         String localeArray[] = tokenizeLocale(u.locales);
         final CLDRLocale languageLocale = locale.getLanguageLocale();
-        for(final CLDRLocale l : stringArrayToLocaleArray(localeArray)) {
-            if(l.getLanguageLocale() == languageLocale) {
+        for (final CLDRLocale l : stringArrayToLocaleArray(localeArray)) {
+            if (l.getLanguageLocale() == languageLocale) {
                 return null;
             }
         }
@@ -1819,45 +1820,45 @@ public class UserRegistry {
     }
 
     public static final ModifyDenial countUserVoteForLocaleWhy(User u, CLDRLocale locale) {
-        // must not have a null user                                                                                                                                                                                                            
+        // must not have a null user
         if (u == null)
             return ModifyDenial.DENY_NULL_USER;
 
-        // can't vote in a readonly locale                                                                                                                                                                                                  
+        // can't vote in a readonly locale
         if (STFactory.isReadOnlyLocale(locale))
             return ModifyDenial.DENY_LOCALE_READONLY;
 
-        // user must have street level perms                                                                                                                                                                                                
+        // user must have street level perms
         if (!userIsStreet(u))
-            return ModifyDenial.DENY_NO_RIGHTS; // at least street level                                                                                                                                                                    
+            return ModifyDenial.DENY_NO_RIGHTS; // at least street level
 
-        // locales that are aliases can't be modified.                                                                                                                                                                                      
+        // locales that are aliases can't be modified.
         if (sm.isLocaleAliased(locale) != null) {
             return ModifyDenial.DENY_ALIASLOCALE;
         }
 
-        // locales that are default content parents can't be modified.                                                                                                                                                                      
+        // locales that are default content parents can't be modified.
         CLDRLocale dcParent = sm.getSupplementalDataInfo().getBaseFromDefaultContent(locale);
         if (dcParent != null) {
-            return ModifyDenial.DENY_DEFAULTCONTENT; // it's a defaultcontent                                                                                                                                                               
-                                                     // locale or a pure alias.                                                                                                                                                             
+            return ModifyDenial.DENY_DEFAULTCONTENT; // it's a defaultcontent
+            // locale or a pure alias.
         }
-        // admin, TC, and manager can always modify.                                                                                                                                                                                        
+        // admin, TC, and manager can always modify.
         if (userIsAdmin(u) ||
             userIsTC(u) ||
             userIsExactlyManager(u))
             return null;
 
-        // the 'und' locale and sublocales can always be modified                                                                                                                                                                           
+        // the 'und' locale and sublocales can always be modified
         if (locale.getLanguage().equals("und")) {
             return null;
         }
 
-        // unrestricted experts can modify all                                                                                                                                                                                              
+        // unrestricted experts can modify all
         if ((u.locales == null || isAllLocales(u.locales)) && userIsExpert(u))
-            return null; // empty = ALL                                                                                                                                                                                                     
+            return null; // empty = ALL
 
-        // User has a wildcard (*) - can modify all.                                                                                                                                                                                        
+        // User has a wildcard (*) - can modify all.
         if (isAllLocales(u.locales)) {
             return null;
         }
@@ -1873,18 +1874,18 @@ public class UserRegistry {
     public static final ModifyDenial userCanModifyLocaleWhy(User u, CLDRLocale locale) {
         final ModifyDenial denyCountVote = countUserVoteForLocaleWhy(u, locale);
 
-        // If we don't count the votes, modify is prohibited.                                                                                                                                                                               
+        // If we don't count the votes, modify is prohibited.
         if (denyCountVote != null) {
             return denyCountVote;
         }
 
-        // We add more restrictions                                                                                                                                                                                                         
+        // We add more restrictions
 
-        // Admin and TC users can always modify, even in closed state.                                                                                                                                                                      
+        // Admin and TC users can always modify, even in closed state.
         if (userIsAdmin(u) || userIsTC(u))
             return null;
 
-        // Otherwise, if closed, deny                                                                                                                                                                                                       
+        // Otherwise, if closed, deny
         if (SurveyMain.isPhaseClosed())
             return ModifyDenial.DENY_PHASE_CLOSED;
         if (SurveyMain.isPhaseReadonly())
@@ -1988,7 +1989,7 @@ public class UserRegistry {
 
     /**
      * Tokenize a string, but return an array of CLDRLocales
-     * 
+     *
      * @param localeList
      * @return
      */
@@ -2011,7 +2012,7 @@ public class UserRegistry {
 
     /**
      * Tokenize a list, and validate it against actual locales
-     * 
+     *
      * @param localeList
      * @return
      */
@@ -2188,7 +2189,7 @@ public class UserRegistry {
     // Interface for VoteResolver interface
     /**
      * Fetch the user map in VoterInfo format.
-     * 
+     *
      * @see #userModified()
      */
     public synchronized Map<Integer, VoterInfo> getVoterToInfo() {
@@ -2245,7 +2246,7 @@ public class UserRegistry {
 
     /**
      * Not yet implemented.
-     * 
+     *
      * @return
      */
     private static String[] orgList = new String[0];
@@ -2284,9 +2285,9 @@ public class UserRegistry {
             }
         } catch (SQLException se) {
             /* logger.severe */System.err.println(/*
-                                                       * java.util.logging.Level.SEVERE
-                                                       * ,
-                                                       */"UserRegistry: SQL error trying to get orgs resultset for: VI " + " - "
+                                                         * java.util.logging.Level.SEVERE
+                                                         * ,
+                                                         */"UserRegistry: SQL error trying to get orgs resultset for: VI " + " - "
                 + DBUtils.unchainSqlException(se)/* ,se */);
         } finally {
             // close out the RS
@@ -2299,9 +2300,9 @@ public class UserRegistry {
                 }
             } catch (SQLException se) {
                 /* logger.severe */System.err.println(/*
-                                                           * java.util.logging.Level.
-                                                           * SEVERE,
-                                                           */"UserRegistry: SQL error trying to close out: "
+                                                             * java.util.logging.Level.
+                                                             * SEVERE,
+                                                             */"UserRegistry: SQL error trying to close out: "
                     + DBUtils.unchainSqlException(se)/* ,se */);
             }
         } // end try
@@ -2327,7 +2328,7 @@ public class UserRegistry {
 
     /**
      * Read back an XML file
-     * 
+     *
      * @param sm
      * @param inFile
      * @return
@@ -2394,7 +2395,7 @@ public class UserRegistry {
                                 return; // skip user 1
 
                             while (id > maxUserId) { // loop, until we get to
-                                                     // that ID.
+                                // that ID.
                                 ++maxUserId;
                                 // userlevel,name,org,email,password,locales,lastlogin
                                 myAdder.setInt(1, LOCKED);
@@ -2463,15 +2464,15 @@ public class UserRegistry {
     /*
      * <user id="460" email="?@??.??"> > <level n="5"/> > <org>IBM</org> >
      * <locales type="edit"> > <locale id="sq"/> > </locales> > </user>
-     * 
+     *
      * It's probably better to just give VETTER, seems more portable than '5'.
-     * 
+     *
      * > If it is real info, make it an element. If not (and I think not, for >
      * "ibm"), omit it.
-     * 
+     *
      * In the comments are the VoteResolver enum value. I'll probably just use
      * that value.
-     * 
+     *
      * > 5. More issues with that. The structure is inconsistent, with some >
      * info in attributes and some in elements. Should be one or the other. > >
      * all attributes: > > <user id="460" email="?@??.??" level="5" org="IBM"

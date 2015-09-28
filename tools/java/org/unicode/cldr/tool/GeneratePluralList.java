@@ -30,13 +30,13 @@ public class GeneratePluralList {
     static final String stock = "km|lo|ne|br|dz|nl|si|en|ar|de|es|fr|it|ja|ko|nl|pl|ru|th|tr|pt|zh|zh_Hant|bg|ca|cs|da|el|fa|fi|fil|hi|hr|hu|id|lt|lv|ro|sk|sl|sr|sv|uk|vi|he|nb|et|ms|am|bn|gu|is|kn|ml|mr|sw|ta|te|ur|eu|gl|af|zu|en_GB|es_419|pt_PT|fr_CA|zh_Hant_HK";
     private static final Map<String, Integer> keywordIndex =
         Builder.with(new HashMap<String, Integer>())
-            .put("zero", 0)
-            .put("one", 1)
-            .put("two", 2)
-            .put("few", 3)
-            .put("many", 4)
-            .put("other", 5)
-            .get();
+        .put("zero", 0)
+        .put("one", 1)
+        .put("two", 2)
+        .put("few", 3)
+        .put("many", 4)
+        .put("other", 5)
+        .get();
 
     private DecimalFormat format = new DecimalFormat();
     private PrintWriter out;

@@ -13,9 +13,9 @@ import java.util.TreeSet;
 
 /**
  * List of locale IDs which are somehow 'special'. Parses SpecialLocales.txt
- * 
+ *
  * @author srl
- * 
+ *
  */
 public class SpecialLocales {
     private static final String INCLUDE_SUBLOCALES = "*";
@@ -33,7 +33,7 @@ public class SpecialLocales {
 
     /**
      * Get the type of this locale
-     * 
+     *
      * @param l
      * @return a Type or null
      */
@@ -43,7 +43,7 @@ public class SpecialLocales {
 
     /**
      * Get all CLDRLocales matching this type. Does not include wildcard (*) sublocales.
-     * 
+     *
      * @param t
      * @return a set, or null if none found
      */
@@ -53,7 +53,7 @@ public class SpecialLocales {
 
     /**
      * Get the comment on this locale. Strip out @ text.
-     * 
+     *
      * @param l
      * @return string or null
      */
@@ -63,7 +63,7 @@ public class SpecialLocales {
 
     /**
      * Get the comment on this locale. Include "@locale" markers.
-     * 
+     *
      * @param l
      * @return string or null
      */

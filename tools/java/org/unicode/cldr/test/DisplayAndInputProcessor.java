@@ -50,14 +50,14 @@ public class DisplayAndInputProcessor {
     public static final boolean DEBUG_DAIP = CldrUtility.getProperty("DEBUG_DAIP", false);
 
     public static final UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]")
-        .freeze();
+    .freeze();
 
     public static final UnicodeSet TO_QUOTE = (UnicodeSet) new UnicodeSet(
         "[[:Cn:]" +
             "[:Default_Ignorable_Code_Point:]" +
             "[:patternwhitespace:]" +
             "[:Me:][:Mn:]]" // add non-spacing marks
-    ).freeze();
+        ).freeze();
 
     public static final Pattern NUMBER_FORMAT_XPATH = Pattern
         .compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
@@ -130,7 +130,7 @@ public class DisplayAndInputProcessor {
 
     /**
      * Constructor, taking cldrFile.
-     * 
+     *
      * @param cldrFileToCheck
      */
     public DisplayAndInputProcessor(CLDRFile cldrFileToCheck, boolean needsCollator) {
@@ -176,7 +176,7 @@ public class DisplayAndInputProcessor {
 
     /**
      * Constructor, taking locale.
-     * 
+     *
      * @param locale
      */
     public DisplayAndInputProcessor(ULocale locale, boolean needsCollator) {
@@ -185,7 +185,7 @@ public class DisplayAndInputProcessor {
 
     /**
      * Constructor, taking locale.
-     * 
+     *
      * @param locale
      */
     public DisplayAndInputProcessor(ULocale locale) {
@@ -194,7 +194,7 @@ public class DisplayAndInputProcessor {
 
     /**
      * Constructor, taking locale.
-     * 
+     *
      * @param locale
      */
     public DisplayAndInputProcessor(CLDRLocale locale, boolean needsCollator) {
@@ -203,7 +203,7 @@ public class DisplayAndInputProcessor {
 
     /**
      * Constructor, taking locale.
-     * 
+     *
      * @param locale
      */
     public DisplayAndInputProcessor(CLDRLocale locale) {
@@ -213,7 +213,7 @@ public class DisplayAndInputProcessor {
     /**
      * Process the value for display. The result is a string for display in the
      * Survey tool or similar program.
-     * 
+     *
      * @param path
      * @param value
      * @param fullPath
@@ -270,7 +270,7 @@ public class DisplayAndInputProcessor {
      * an exemplar set is modified to be in the normal format, and any missing [ ]
      * are added (a common omission on entry). If there are any failures then the
      * original value is returned, so that the proper error message can be given.
-     * 
+     *
      * @param path
      * @param value
      * @param internalException
@@ -584,7 +584,7 @@ public class DisplayAndInputProcessor {
             }
             if (convertedSaltillo &&
                 ((i > 0 && i < charArray.length - 1 && Character.isUpperCase(charArray[i - 1]) && Character.isUpperCase(charArray[i + 1])) ||
-                (i > 1 && Character.isUpperCase(charArray[i - 1]) && Character.isUpperCase(charArray[i - 2])))) {
+                    (i > 1 && Character.isUpperCase(charArray[i - 1]) && Character.isUpperCase(charArray[i - 2])))) {
                 c = '\uA78B'; // UPPER CASE SALTILLO
             }
             builder.append(c);
@@ -642,13 +642,13 @@ public class DisplayAndInputProcessor {
 
     private static Map<Character, Character> NORMALIZING_MAP =
         Builder.with(new HashMap<Character, Character>())
-            .put('\u0D23', '\u0D7A').put('\u0D28', '\u0D7B')
-            .put('\u0D30', '\u0D7C').put('\u0D32', '\u0D7D')
-            .put('\u0D33', '\u0D7E').put('\u0D15', '\u0D7F').get();
+        .put('\u0D23', '\u0D7A').put('\u0D28', '\u0D7B')
+        .put('\u0D30', '\u0D7C').put('\u0D32', '\u0D7D')
+        .put('\u0D33', '\u0D7E').put('\u0D15', '\u0D7F').get();
 
     /**
      * Normalizes the Malayalam characters in the specified input.
-     * 
+     *
      * @param value
      *            the input to be normalized
      * @return
@@ -676,7 +676,7 @@ public class DisplayAndInputProcessor {
 
     /**
      * Normalizes the Arabic presentation forms characters in the specified input.
-     * 
+     *
      * @param value
      *            the input to be normalized
      * @return

@@ -102,7 +102,7 @@ public class PivotData {
      * Move all of the contents in the localeID to the parent. Maintain, however,
      * the same nominal contents by moving all the replaced contents (inherited or
      * not) to the other children.
-     * 
+     *
      * @param localeID
      *            to modify
      * @return Return list of locale IDs written out
@@ -253,8 +253,8 @@ public class PivotData {
     SimpleLineComparator lineComparer = new SimpleLineComparator(
         // SimpleLineComparator.SKIP_SPACES +
         SimpleLineComparator.TRIM +
-            SimpleLineComparator.SKIP_EMPTY +
-            SimpleLineComparator.SKIP_CVS_TAGS);
+        SimpleLineComparator.SKIP_EMPTY +
+        SimpleLineComparator.SKIP_CVS_TAGS);
 
     private void writeFile(CLDRFile newFile) throws IOException {
         String id = newFile.getLocaleID();

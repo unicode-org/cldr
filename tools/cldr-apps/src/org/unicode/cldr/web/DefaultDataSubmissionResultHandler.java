@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.unicode.cldr.web;
 
@@ -9,7 +9,7 @@ import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 
 /**
  * @author srl
- * 
+ *
  */
 public class DefaultDataSubmissionResultHandler implements DataSubmissionResultHandler {
     WebContext ctx;

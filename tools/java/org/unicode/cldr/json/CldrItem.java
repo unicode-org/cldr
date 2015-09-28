@@ -18,7 +18,7 @@ public class CldrItem implements Comparable<CldrItem> {
 
     /**
      * Split the path to an array of string, each string represent a segment.
-     * 
+     *
      * @param path
      *            The path of XML element.
      * @return array of segments.
@@ -61,14 +61,14 @@ public class CldrItem implements Comparable<CldrItem> {
 
     /**
      * The full path of a CLDR item.
-     * 
+     *
      * Comparing to path, this full contains non-distinguishable attributes.
      */
     private String fullPath;
 
     /**
      * The resolution path of a CLDR item.
-     * 
+     *
      * This path only contains distinguishable attributes that are necessary to
      * identify a CLDR XML item in the CLDR tree.
      */
@@ -76,14 +76,14 @@ public class CldrItem implements Comparable<CldrItem> {
 
     /**
      * The full path of a CLDR item.
-     * 
+     *
      * Comparing to path, this full contains non-distinguishable attributes.
      */
     private String untransformedFullPath;
 
     /**
      * The resolution path of a CLDR item.
-     * 
+     *
      * This path only contains distinguishable attributes that are necessary to
      * identify a CLDR XML item in the CLDR tree.
      */
@@ -126,7 +126,7 @@ public class CldrItem implements Comparable<CldrItem> {
 
     /**
      * Obtain the sortKey string, construct it if not yet.
-     * 
+     *
      * @return sort key string.
      */
 
@@ -143,11 +143,11 @@ public class CldrItem implements Comparable<CldrItem> {
 
     /**
      * This function create a node list from a CLDR path.
-     * 
+     *
      * Mostly, the node has one-to-one correspondence with path segment. But there
      * are special cases where one segment can be split to multiple nodes. If
      * necessary, several segments can also be combined to one node.
-     * 
+     *
      * @return A list of node in strict parent-to-child order.
      * @throws ParseException
      */
@@ -201,7 +201,7 @@ public class CldrItem implements Comparable<CldrItem> {
      * should really be treated as 2 separate items:
      * <calendarPreference territories="CN" ordering="gregorian chinese"/>
      * <calendarPreference territories="CX" ordering="gregorian chinese"/>
-     * 
+     *
      * @return Array of CldrItem if it can be split, otherwise null.
      */
     public CldrItem[] split() {
@@ -255,7 +255,7 @@ public class CldrItem implements Comparable<CldrItem> {
 
     /**
      * Check if the element path contains any item that need to be sorted first.
-     * 
+     *
      * @return True if the element need to be sorted before further process.
      */
     public boolean needsSort() {

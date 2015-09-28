@@ -119,8 +119,8 @@ public class DayPeriodsCheck {
             case "html":
                 html = true;
                 System.out
-                    .println("<table border=\"1\" bordercolor=\"#888\" cellspacing=\"0\" style=\"border-collapse: collapse; border-color: rgb(136, 136, 136); border-width: 1px;\">\n"
-                        + "<tbody>");
+                .println("<table border=\"1\" bordercolor=\"#888\" cellspacing=\"0\" style=\"border-collapse: collapse; border-color: rgb(136, 136, 136); border-width: 1px;\">\n"
+                    + "<tbody>");
             case "list":
                 localesToCheck.addAll(DayPeriods.getAvailable());
                 for (ULocale locale : localesToCheck) {

@@ -71,7 +71,7 @@ public enum Organization {
             for (String name : x.names) {
                 OrganizationNameMap.put(name.toLowerCase().replace('-', '_').replace('.', '_'), x);
             }
-            OrganizationNameMap.put(x.name().toLowerCase().replace('-', '_').replace('.', '_'), x);        
+            OrganizationNameMap.put(x.name().toLowerCase().replace('-', '_').replace('.', '_'), x);
         }
     }
 

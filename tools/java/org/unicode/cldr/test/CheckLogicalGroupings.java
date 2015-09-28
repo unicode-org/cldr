@@ -50,7 +50,7 @@ public class CheckLogicalGroupings extends CheckCLDR {
         // Special test during vetting phase to allow changes in a logical group when another item in the group
         // contains an error or warning.  See http://unicode.org/cldr/trac/ticket/4943.
         // I added the option lgWarningCheck so that we don't loop back on ourselves forever.
-        // JCE: 2015-04-13: I don't think we need this any more, since we implemented 
+        // JCE: 2015-04-13: I don't think we need this any more, since we implemented
         // http://unicode.org/cldr/trac/ticket/6480, and it really slows things down.
         // I'll just comment it out until we get through a whole release without it.
         // TODO: Remove it completely if we really don't need it.
@@ -105,19 +105,19 @@ public class CheckLogicalGroupings extends CheckCLDR {
             }
         }
         if (draftStatuses.size() > 1 && myStatus != DraftStatus.approved) { // only show errors for the items that
-                                                                            // have insufficient status
+            // have insufficient status
             if (myStatus != null) { // remove my status from the list
                 draftStatuses.remove(myStatus);
             }
             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.inconsistentDraftStatus) // typically warningType or errorType
                 .setMessage("Inconsistent draft status within a logical group: {0}", draftStatuses.values())); // the
-                                                                                                               // message;
-                                                                                                               // can
-                                                                                                               // be
-                                                                                                               // MessageFormat
-                                                                                                               // with
-                                                                                                               // arguments
+            // message;
+            // can
+            // be
+            // MessageFormat
+            // with
+            // arguments
         }
         // }
         return this;

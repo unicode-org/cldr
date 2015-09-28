@@ -81,7 +81,7 @@ public class CldrUtility {
     /**
      * Very simple class, used to replace variables in a string. For example
      * <p>
-     * 
+     *
      * <pre>
      * static VariableReplacer langTag = new VariableReplacer()
      * 			.add("$alpha", "[a-zA-Z]")
@@ -124,11 +124,11 @@ public class CldrUtility {
     }
 
     public interface LineHandler {
-        /** 
-         * Return false if line was skipped 
-         *  
-         * @param line 
-         * @return 
+        /**
+         * Return false if line was skipped
+         *
+         * @param line
+         * @return
          */
         boolean handle(String line) throws Exception;
     }
@@ -138,7 +138,7 @@ public class CldrUtility {
             return null;
         }
         final File file = filename == null ? new File(path)
-            : new File(path, filename);
+        : new File(path, filename);
         try {
             return file.getCanonicalPath() + File.separatorChar;
         } catch (IOException e) {
@@ -170,7 +170,7 @@ public class CldrUtility {
 
         /**
          * Returns LINES_DIFFERENT, LINES_SAME, or if one of the lines is ignorable, SKIP_FIRST or SKIP_SECOND
-         * 
+         *
          * @param line1
          * @param line2
          * @return
@@ -260,7 +260,7 @@ public class CldrUtility {
     }
 
     /**
-     * 
+     *
      * @param file1
      * @param file2
      * @param failureLines
@@ -359,20 +359,20 @@ public class CldrUtility {
     }
 
     public static String[] splitCommaSeparated(String line) {
-        // items are separated by ',' 
-        // each item is of the form abc... 
-        // or "..." (required if a comma or quote is contained) 
-        // " in a field is represented by "" 
+        // items are separated by ','
+        // each item is of the form abc...
+        // or "..." (required if a comma or quote is contained)
+        // " in a field is represented by ""
         List<String> result = new ArrayList<String>();
         StringBuilder item = new StringBuilder();
         boolean inQuote = false;
         for (int i = 0; i < line.length(); ++i) {
-            char ch = line.charAt(i); // don't worry about supplementaries 
+            char ch = line.charAt(i); // don't worry about supplementaries
             switch (ch) {
             case '"':
                 inQuote = !inQuote;
-                // at start or end, that's enough 
-                // if get a quote when we are not in a quote, and not at start, then add it and return to inQuote 
+                // at start or end, that's enough
+                // if get a quote when we are not in a quote, and not at start, then add it and return to inQuote
                 if (inQuote && item.length() != 0) {
                     item.append('"');
                     inQuote = true;
@@ -527,7 +527,7 @@ public class CldrUtility {
 
     /**
      * Clones T if we can; otherwise returns null.
-     * 
+     *
      * @param <T>
      * @param source
      * @return
@@ -638,7 +638,7 @@ public class CldrUtility {
     /**
      * Convert a UnicodeSet into a string that can be embedded into a Regex. Handles strings that are in the UnicodeSet,
      * Supplementary ranges, and escaping
-     * 
+     *
      * @param source
      *            The source set
      * @param escaper
@@ -652,15 +652,15 @@ public class CldrUtility {
     private static final Transliterator DEFAULT_REGEX_ESCAPER = Transliterator.createFromRules(
         "foo",
         "([ \\- \\\\ \\[ \\] ]) > '\\' $1 ;"
-            // + " ([:c:]) > &hex($1);"
-            + " ([[:control:][[:z:]&[:ascii:]]]) > &hex($1);",
+        // + " ([:c:]) > &hex($1);"
+        + " ([[:control:][[:z:]&[:ascii:]]]) > &hex($1);",
         Transliterator.FORWARD);
 
     /**
      * Convert a UnicodeSet into a string that can be embedded into a Regex.
      * Handles strings that are in the UnicodeSet, Supplementary ranges, and
      * escaping
-     * 
+     *
      * @param source
      *            The source set
      * @param escaper
@@ -675,28 +675,28 @@ public class CldrUtility {
      *            case, ranges of supplementary characters are converted to lists of
      *            ranges. For example, [\uFFF0-\U0010000F \U0010100F-\U0010300F]
      *            converts into:
-     * 
+     *
      *            <pre>
      *          [\uD800][\uDC00-\uDFFF]
      *          [\uD801-\uDBBF][\uDC00-\uDFFF]
      *          [\uDBC0][\uDC00-\uDC0F]
      * </pre>
-     * 
+     *
      *            and
-     * 
+     *
      *            <pre>
      *          [\uDBC4][\uDC0F-\uDFFF]
      *          [\uDBC5-\uDBCB][\uDC00-\uDFFF]
      *          [\uDBCC][\uDC00-\uDC0F]
      * </pre>
-     * 
+     *
      *            These are then coalesced into a list of alternatives by sharing
      *            parts where feasible. For example, the above turns into 3 pairs of ranges:
-     * 
+     *
      *            <pre>
      *          [\uDBC0\uDBCC][\uDC00-\uDC0F]|\uDBC4[\uDC0F-\uDFFF]|[\uD800-\uDBBF\uDBC5-\uDBCB][\uDC00-\uDFFF]
      * </pre>
-     * 
+     *
      * @return escaped string. Something like [a-z] or (?:[a-m]|{zh}) if there is
      *         a string zh in the set, or a more complicated case for
      *         supplementaries. <br>
@@ -758,7 +758,7 @@ public class CldrUtility {
             for (UnicodeSet last : lastToFirst.keySet()) {
                 ++alternateCount;
                 alternates.append('|').append(toRegex(lastToFirst.get(last), escaper, onlyBmp))
-                    .append(toRegex(last, escaper, onlyBmp));
+                .append(toRegex(last, escaper, onlyBmp));
             }
         }
         // Return the output. We separate cases in order to get the minimal extra apparatus
@@ -956,9 +956,9 @@ public class CldrUtility {
                     : o2First == null ? 1
                         : comp1 == null ? o1First.compareTo(o2First)
                             : comp1.compare(o1First, o2First);
-                if (diff != 0) {
-                    return diff;
-                }
+                        if (diff != 0) {
+                            return diff;
+                        }
             }
             V o1Second = o1.getSecond();
             V o2Second = o2.getSecond();
@@ -972,7 +972,7 @@ public class CldrUtility {
 
     /**
      * Fetch data from jar
-     * 
+     *
      * @param name
      *            a name residing in the org/unicode/cldr/util/data/ directory, or loading from a jar will break.
      */
@@ -988,7 +988,7 @@ public class CldrUtility {
 
     /**
      * Fetch data from jar
-     * 
+     *
      * @param name
      *            a name residing in the org/unicode/cldr/util/data/ directory, or loading from a jar will break.
      */
@@ -1010,7 +1010,7 @@ public class CldrUtility {
 
     /**
      * Takes a Map that goes from Object to Set, and fills in the transpose
-     * 
+     *
      * @param source_key_valueSet
      * @param output_value_key
      */
@@ -1098,7 +1098,7 @@ public class CldrUtility {
             return rules;
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't open " + dir + ", " + filename)
-                .initCause(e);
+            .initCause(e);
         }
     }
 
@@ -1141,7 +1141,7 @@ public class CldrUtility {
 
     /**
      * Breaks lines if they are too long, or if matcher.group(1) != last. Only breaks just before matcher.
-     * 
+     *
      * @param input
      * @param separator
      * @param matcher
@@ -1191,7 +1191,7 @@ public class CldrUtility {
     /**
      * Get a property value, returning the value if there is one (eg -Dkey=value),
      * otherwise the default value (for either empty or null).
-     * 
+     *
      * @param key
      * @param valueIfNull
      * @param valueIfEmpty
@@ -1212,7 +1212,7 @@ public class CldrUtility {
      * Get a property value, returning the value if there is one (eg -Dkey=value),
      * the valueIfEmpty if there is one with no value (eg -Dkey) and the valueIfNull
      * if there is no property.
-     * 
+     *
      * @param key
      * @param valueIfNull
      * @param valueIfEmpty
@@ -1269,7 +1269,7 @@ public class CldrUtility {
 
     /**
      * Copy up to matching line (not included). If output is null, then just skip until.
-     * 
+     *
      * @param oldFile
      *            file to copy
      * @param readUntilPattern
@@ -1360,11 +1360,11 @@ public class CldrUtility {
     public static String getCopyrightString() {
         // now do the rest
         return "Copyright \u00A9 1991-"
-            + Calendar.getInstance().get(Calendar.YEAR)
-            + " Unicode, Inc." + CldrUtility.LINE_SEPARATOR
-            + "CLDR data files are interpreted according to the LDML specification "
-            + "(http://unicode.org/reports/tr35/)" + CldrUtility.LINE_SEPARATOR
-            + "For terms of use, see http://www.unicode.org/copyright.html";
+        + Calendar.getInstance().get(Calendar.YEAR)
+        + " Unicode, Inc." + CldrUtility.LINE_SEPARATOR
+        + "CLDR data files are interpreted according to the LDML specification "
+        + "(http://unicode.org/reports/tr35/)" + CldrUtility.LINE_SEPARATOR
+        + "For terms of use, see http://www.unicode.org/copyright.html";
     }
 
     // TODO Move to collection utilities
@@ -1423,10 +1423,10 @@ public class CldrUtility {
         try (BufferedReader in = getUTF8Data(filename);) {
             String line = null;
             while ((line = in.readLine()) != null) {
-                //                String line = in.readLine(); 
-                //                if (line == null) { 
-                //                    break; 
-                //                } 
+                //                String line = in.readLine();
+                //                if (line == null) {
+                //                    break;
+                //                }
                 try {
                     if (!handler.handle(line)) {
                         if (HANDLEFILE_SHOW_SKIP) {
@@ -1435,11 +1435,11 @@ public class CldrUtility {
                     }
                 } catch (Exception e) {
                     throw (RuntimeException) new IllegalArgumentException("Problem with line: " + line)
-                        .initCause(e);
+                    .initCause(e);
                 }
             }
         }
-        //        in.close(); 
+        //        in.close();
     }
 
     public static <T> T ifNull(T x, T y) {

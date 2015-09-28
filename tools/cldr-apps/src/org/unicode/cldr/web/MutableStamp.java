@@ -18,7 +18,7 @@ public class MutableStamp extends Stamp {
 
     /**
      * Update the stamp to the next stamp
-     * 
+     *
      * @return
      */
     public long next() {

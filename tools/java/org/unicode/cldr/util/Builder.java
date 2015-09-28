@@ -26,11 +26,11 @@ import com.ibm.icu.text.Transform;
  * item2, item3).get();</li>
  * <li>Map<String, Integer> map = Builder.with(new TreeMap<String, Integer>()).put("one",2).putAll(otherMap).freeze();
  * </ul>
- * 
+ *
  * <p>
  * The builder allows some options that the normal collections don't have, with the EqualAction. If none it specified,
  * then it behaves like Java collections.
- * 
+ *
  * <pre>
  * Operations: A is current contents, B is new collection, x indicates the results
  * A-B   A&B    B-A   Name
@@ -43,7 +43,7 @@ import com.ibm.icu.text.Transform;
  * x             x    xor(B)
  * x      x      x    addAll(B)
  * </pre>
- * 
+ *
  * @author markdavis
  */
 public final class Builder {

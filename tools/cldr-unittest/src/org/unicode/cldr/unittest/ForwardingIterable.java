@@ -5,12 +5,12 @@ import java.util.Iterator;
 /**
  * Small helper class that wraps an Iterator, and returns it, which is useful
  * for extended loops, which may now get initialized:
- * 
+ *
  * for (Foo foo: new ForwardingIterable<Foo>(initializeFooIterator(bar))) { ...
  * }
- * 
+ *
  * @author ribnitz
- * 
+ *
  * @param <E>
  */
 public class ForwardingIterable<E> implements Iterable<E> {
@@ -22,7 +22,7 @@ public class ForwardingIterable<E> implements Iterable<E> {
 
     /**
      * Construct using the iterator provided
-     * 
+     *
      * @param anIterator
      */
     public ForwardingIterable(Iterator<E> anIterator) {

@@ -17,9 +17,9 @@ public class StringIterables {
      * for (String s : FileUtilities.in(directory,name)) {
      * ...
      * }
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     public static Iterable<String> in(Class<?> class1, String file) {
         return With.in(new FileLines(FileReaders.openFile(class1, file, CldrUtility.UTF8)));
@@ -30,9 +30,9 @@ public class StringIterables {
      * for (String s : FileUtilities.in(directory,name)) {
      * ...
      * }
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     public static Iterable<String> in(Class<?> class1, String file, Charset charset) {
         return With.in(new FileLines(FileReaders.openFile(class1, file, charset)));
@@ -43,9 +43,9 @@ public class StringIterables {
      * for (String s : FileUtilities.in(directory,name)) {
      * ...
      * }
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     public static Iterable<String> in(String directory, String file) {
         return With.in(new FileLines(FileReaders.openFile(directory, file, CldrUtility.UTF8)));
@@ -56,9 +56,9 @@ public class StringIterables {
      * for (String s : FileUtilities.in(directory,name)) {
      * ...
      * }
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     public static Iterable<String> in(BufferedReader reader) {
         return With.in(new FileLines(reader));
@@ -69,9 +69,9 @@ public class StringIterables {
      * for (String s : FileUtilities.in(directory,name)) {
      * ...
      * }
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     public static Iterable<String> in(String directory, String file, Charset charset) {
         return With.in(new FileLines(FileReaders.openFile(directory, file, charset)));

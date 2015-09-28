@@ -22,7 +22,7 @@ import org.unicode.cldr.util.StateDictionary.Row.Uniqueness;
 
 /**
  * A simple state-table based dictionary builder.
- * 
+ *
  * @author markdavis
  * @param <T>
  *            the return type for the dictionary
@@ -43,14 +43,14 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
     private int builtMaxByteLength;
 
     private StringByteConverter byteConverter = new CompactStringByteConverter(true); // new StringUtf8Converter(); //
-                                                                                      // new ByteString(false); // new
-                                                                                      // ByteString(true); //
+    // new ByteString(false); // new
+    // ByteString(true); //
 
     private IntMapFactory<T> intMapFactory = new BasicIntMapFactory<T>();
 
     /**
      * Get/set the IntMapFactory used to store the values for T. The default is BasicIntMapFactory.
-     * 
+     *
      * @return
      */
     public IntMapFactory<T> getIntMapFactory() {
@@ -65,7 +65,7 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
     /**
      * Get/Set the StringByteConverter used to convert strings to bytes and back. The default is a compacted form:
      * ByteString(true).
-     * 
+     *
      * @return
      */
     public StringByteConverter getByteConverter() {
@@ -81,7 +81,7 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
      * Create a new simple StateDictionary. This format is relatively fast to
      * produce, and has a fair amount of compaction. The Map must be sorted
      * according to Dictionary.CHAR_SEQUENCE_COMPARATOR. It must not contain the key "".
-     * 
+     *
      * @param source
      * @return
      */
@@ -194,7 +194,7 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
      * Follow all the path values, and determine whether all possible results from
      * a row (when following bytes) are the same. If so, set the flag on the row.
      * The return value
-     * 
+     *
      * @param savedMatchValue
      *            TODO
      * @return true if unique

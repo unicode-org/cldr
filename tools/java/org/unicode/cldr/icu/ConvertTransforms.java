@@ -26,27 +26,27 @@ import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.Transliterator;
 
 /**
- * 
+ *
  * Utility to generate the Tansliteration resource bundle files.
- * 
+ *
  * @author ???
  * @author Brian Rower - IBM - 2008 - Updated to produce a .res file directly without having to create all the txt files
  *         first
- * 
+ *
  */
 public class ConvertTransforms extends CLDRConverterTool {
 
     private static final int
-        HELP1 = 0,
-        HELP2 = 1,
-        SOURCEDIR = 2,
-        DESTDIR = 3,
-        MATCH = 4,
-        SKIP_COMMENTS = 5,
-        WRITE_INDEX = 6,
-        VERBOSE = 7,
-        WRITE_BINARY = 8,
-        WRITE_TXT_TOO = 9;
+    HELP1 = 0,
+    HELP2 = 1,
+    SOURCEDIR = 2,
+    DESTDIR = 3,
+    MATCH = 4,
+    SKIP_COMMENTS = 5,
+    WRITE_INDEX = 6,
+    VERBOSE = 7,
+    WRITE_BINARY = 8,
+    WRITE_TXT_TOO = 9;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -69,8 +69,8 @@ public class ConvertTransforms extends CLDRConverterTool {
         + "-" + options[DESTDIR].shortName + "\t destination directory. Default = -d"
         + CldrUtility.getCanonicalName(CLDRPaths.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
         + "-m<regex>\t to restrict the files to what matches <regex>" + XPathParts.NEWLINE
-    // "--writeIndex / -x   to write the index (trnsfiles.mk)"+ XPathParts.NEWLINE
-    ;
+        // "--writeIndex / -x   to write the index (trnsfiles.mk)"+ XPathParts.NEWLINE
+        ;
 
     // TODO add options to set input and output directories, matching pattern
     public static void main(String[] args) throws Exception {
@@ -249,7 +249,7 @@ public class ConvertTransforms extends CLDRConverterTool {
      * so this method adds them to the given hash table instead. This hash table is then given to
      * the LDML2ICUBinaryWriter (in a somewhat poor fashion...:-\ ). The file names that they WOULD have had
      * are used as the keys to the Hashtable.
-     * 
+     *
      */
     public String buildfileString(Hashtable<String, String> hash, ICUResourceWriter.ResourceTable RBTIDs,
         Factory cldrFactory, String id)

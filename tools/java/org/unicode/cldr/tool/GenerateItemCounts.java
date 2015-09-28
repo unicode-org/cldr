@@ -76,8 +76,8 @@ public class GenerateItemCounts {
         summary(null, null, "if present, summarizes data already collected. Run once with, once without."),
         directory(".*", ".*",
             "if summary, creates filtered version (eg -d main): does a find in the name, which is of the form dir/file"),
-        verbose(null, null, "verbose debugging messages"),
-        rawfilter(".*", ".*", "filter the raw files (non-summary, mostly for debugging)"), ;
+            verbose(null, null, "verbose debugging messages"),
+            rawfilter(".*", ".*", "filter the raw files (non-summary, mostly for debugging)"), ;
         // boilerplate
         final Option option;
 
@@ -552,7 +552,7 @@ public class GenerateItemCounts {
         }
         PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY,
             (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "summary" +
-                ".txt");
+            ".txt");
         for (String file : releases) {
             summary.print("\t" + file + "\tlen");
         }
@@ -574,7 +574,7 @@ public class GenerateItemCounts {
         summary.close();
         PrintWriter summary2 = BagFormatter.openUTF8Writer(OUT_DIRECTORY,
             (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "locales" +
-                ".txt");
+            ".txt");
         summary2.println("#Languages (inc. script):\t" + writtenLanguages.size());
         summary2.println("#Countries:\t" + countries.size());
         summary2.println("#Locales:\t" + localesToPaths.size());

@@ -19,7 +19,7 @@ import com.ibm.icu.dev.test.TestFmwk;
 
 /**
  * @author srl
- * 
+ *
  */
 public class TestXPathTable extends TestFmwk {
     public static void main(String[] args) {

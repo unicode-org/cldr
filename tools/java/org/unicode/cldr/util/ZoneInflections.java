@@ -37,11 +37,11 @@ public class ZoneInflections implements Comparable<ZoneInflections> {
     static private final long DAY = 24 * HOUR;
 
     static private final long GROSS_PERIOD = 15 * DAY; // assumption is that no
-                                                       // zones shift is less
-                                                       // than this period
+    // zones shift is less
+    // than this period
 
     static private final long EPSILON = 15 * MINUTE; // smallest interval we test
-                                                     // to
+    // to
     static private final int currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
     static private final long endDate = getDateLong(currentYear + 5, 1, 1);
@@ -254,7 +254,7 @@ public class ZoneInflections implements Comparable<ZoneInflections> {
     /**
      * Return the inflection points during a given period. The points are copies
      * of what is in the data, so it is safe to modify them
-     * 
+     *
      * @param inflections2
      * @param time
      * @param time2

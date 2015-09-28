@@ -26,7 +26,7 @@ public class CompactStringByteConverter extends StringByteConverter {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.util.StringByteConverter#clear()
      */
     public void clear() {
@@ -35,7 +35,7 @@ public class CompactStringByteConverter extends StringByteConverter {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.util.StringByteConverter#toBytes(char, byte[])
      */
     public int toBytes(char cp, byte[] output, int bytePosition) {
@@ -53,7 +53,7 @@ public class CompactStringByteConverter extends StringByteConverter {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.util.StringByteConverter#toBytes(java.lang.CharSequence, int, byte[])
      */
     public int toBytes(CharSequence source, byte[] output, int bytePosition) {
@@ -78,7 +78,7 @@ public class CompactStringByteConverter extends StringByteConverter {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.util.StringByteConverter#fromBytes(byte[], int, int, java.lang.Appendable)
      */
     public Appendable fromBytes(byte[] input, int byteStart, int byteLength, Appendable result) {

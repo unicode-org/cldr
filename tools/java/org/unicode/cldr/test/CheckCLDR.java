@@ -62,7 +62,7 @@ import com.ibm.icu.text.Transliterator;
  * <p>
  * Some errors/warnings will be explicitly filtered out when calling CheckCLDR's check() method.
  * The full list of filters can be found in org/unicode/cldr/util/data/CheckCLDR-exceptions.txt.
- * 
+ *
  * @author davis
  */
 abstract public class CheckCLDR {
@@ -165,7 +165,7 @@ abstract public class CheckCLDR {
 
         /**
          * Return whether or not to show a row, and if so, how.
-         * 
+         *
          * @param pathValueInfo
          * @param inputMethod
          * @param status
@@ -178,7 +178,7 @@ abstract public class CheckCLDR {
             InputMethod inputMethod,
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
-        ) {
+            ) {
 
             // always forbid deprecated items - don't show.
             if (status == SurveyToolStatus.DEPRECATED) {
@@ -211,7 +211,7 @@ abstract public class CheckCLDR {
             if (this == Phase.SUBMISSION) {
                 return (status == SurveyToolStatus.READ_WRITE || status == SurveyToolStatus.LTR_ALWAYS)
                     ? StatusAction.ALLOW
-                    : StatusAction.ALLOW_VOTING_AND_TICKET;
+                        : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
 
             // We are not in submission.
@@ -225,7 +225,7 @@ abstract public class CheckCLDR {
             if (valueStatus != ValueStatus.NONE) {
                 return (status == SurveyToolStatus.READ_WRITE || status == SurveyToolStatus.LTR_ALWAYS)
                     ? StatusAction.ALLOW
-                    : StatusAction.ALLOW_VOTING_AND_TICKET;
+                        : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
 //            }
 
@@ -236,7 +236,7 @@ abstract public class CheckCLDR {
         /**
          * getAcceptNewItemAction. MUST only be called if getShowRowAction(...).canShow()
          * TODO Consider moving Phase, StatusAction, etc into CLDRInfo.
-         * 
+         *
          * @param enteredValue
          *            If null, means an abstention.
          *            If voting for an existing value, pathValueInfo.getValues().contains(enteredValue) MUST be true
@@ -252,7 +252,7 @@ abstract public class CheckCLDR {
             InputMethod inputMethod,
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
-        ) {
+            ) {
             if (status != SurveyToolStatus.READ_WRITE && status != SurveyToolStatus.LTR_ALWAYS) {
                 return StatusAction.FORBID_READONLY; // not writable.
             }
@@ -359,7 +359,7 @@ abstract public class CheckCLDR {
         String options[] = new String[Option.values().length];
         CLDRLocale locale = null;
 
-        private final String key; // for fast compare 
+        private final String key; // for fast compare
 
         /**
          * Adopt some other map
@@ -541,9 +541,9 @@ abstract public class CheckCLDR {
             for (Option o : Option.values()) {
                 if (options[o.ordinal()] != null) {
                     sb.append(o)
-                        .append('=')
-                        .append(options[o.ordinal()])
-                        .append(' ');
+                    .append('=')
+                    .append(options[o.ordinal()])
+                    .append(' ');
                 }
             }
             return sb.toString();
@@ -561,7 +561,7 @@ abstract public class CheckCLDR {
 
     /**
      * Here is where the list of all checks is found.
-     * 
+     *
      * @param nameMatcher
      *            Regex pattern that determines which checks are run,
      *            based on their class name (such as .* for all checks, .*Collisions.* for CheckDisplayCollisions, etc.)
@@ -569,36 +569,36 @@ abstract public class CheckCLDR {
      */
     public static CompoundCheckCLDR getCheckAll(Factory factory, String nameMatcher) {
         return new CompoundCheckCLDR()
-            .setFilter(Pattern.compile(nameMatcher, Pattern.CASE_INSENSITIVE).matcher(""))
-            //.add(new CheckAttributeValues(factory))
-            .add(new CheckChildren(factory))
-            .add(new CheckCoverage(factory))
-            .add(new CheckDates(factory))
-            .add(new CheckForCopy(factory))
-            .add(new CheckDisplayCollisions(factory))
-            .add(new CheckExemplars(factory))
-            .add(new CheckForExemplars(factory))
-            .add(new CheckForInheritanceMarkers())
-            .add(new CheckNames())
-            .add(new CheckNumbers(factory))
-            // .add(new CheckZones()) // this doesn't work; many spurious errors that user can't correct
-            .add(new CheckMetazones())
-            .add(new CheckLogicalGroupings())
-            .add(new CheckAlt())
-            .add(new CheckCurrencies())
-            .add(new CheckCasing())
-            .add(new CheckConsistentCasing(factory)) // this doesn't work; many spurious errors that user can't correct
-            .add(new CheckQuotes())
-            .add(new CheckWidths())
-            .add(new CheckPlaceHolders())
-            .add(new CheckNew(factory)) // this is at the end; it will check for other certain other errors and warnings and
+        .setFilter(Pattern.compile(nameMatcher, Pattern.CASE_INSENSITIVE).matcher(""))
+        //.add(new CheckAttributeValues(factory))
+        .add(new CheckChildren(factory))
+        .add(new CheckCoverage(factory))
+        .add(new CheckDates(factory))
+        .add(new CheckForCopy(factory))
+        .add(new CheckDisplayCollisions(factory))
+        .add(new CheckExemplars(factory))
+        .add(new CheckForExemplars(factory))
+        .add(new CheckForInheritanceMarkers())
+        .add(new CheckNames())
+        .add(new CheckNumbers(factory))
+        // .add(new CheckZones()) // this doesn't work; many spurious errors that user can't correct
+        .add(new CheckMetazones())
+        .add(new CheckLogicalGroupings())
+        .add(new CheckAlt())
+        .add(new CheckCurrencies())
+        .add(new CheckCasing())
+        .add(new CheckConsistentCasing(factory)) // this doesn't work; many spurious errors that user can't correct
+        .add(new CheckQuotes())
+        .add(new CheckWidths())
+        .add(new CheckPlaceHolders())
+        .add(new CheckNew(factory)) // this is at the end; it will check for other certain other errors and warnings and
         // not add a message if there are any.
         ;
     }
 
     /**
      * These determine what language is used to display information. Must be set before use.
-     * 
+     *
      * @param locale
      * @return
      */
@@ -628,7 +628,7 @@ abstract public class CheckCLDR {
 
     /**
      * Get the CLDRFile.
-     * 
+     *
      * @param cldrFileToCheck
      */
     public final CLDRFile getCldrFileToCheck() {
@@ -654,7 +654,7 @@ abstract public class CheckCLDR {
      * if (cldrFileToCheck == null) return this;
      * super.setCldrFileToCheck(cldrFileToCheck);
      * do stuff
-     * 
+     *
      * @param cldrFileToCheck
      * @param options (not currently used)
      * @param possibleErrors
@@ -685,11 +685,11 @@ abstract public class CheckCLDR {
      */
     public static class CheckStatus {
         public static final Type
-            alertType = Type.Comment,
-            warningType = Type.Warning,
-            errorType = Type.Error,
-            exampleType = Type.Example,
-            demoType = Type.Demo;
+        alertType = Type.Comment,
+        warningType = Type.Warning,
+        errorType = Type.Error,
+        exampleType = Type.Example,
+        demoType = Type.Demo;
 
         public enum Type {
             Comment, Warning, Error, Example, Demo
@@ -852,7 +852,7 @@ abstract public class CheckCLDR {
 
         /**
          * Returns any Exception parameters in the status, or null if there are none.
-         * 
+         *
          * @return
          */
         public Exception[] getExceptionParameters() {
@@ -907,7 +907,7 @@ abstract public class CheckCLDR {
 
         /**
          * Convenience function: return true if any items in this list are of errorType
-         * 
+         *
          * @param result
          *            the list to check (could be null for empty)
          * @return true if any items in result are of errorType
@@ -918,7 +918,7 @@ abstract public class CheckCLDR {
 
         /**
          * Convenience function: return true if any items in this list are of errorType
-         * 
+         *
          * @param result
          *            the list to check (could be null for empty)
          * @return true if any items in result are of errorType
@@ -956,7 +956,7 @@ abstract public class CheckCLDR {
          * THIS IS ONLY FOR COMPATIBILITY: you can call this, then the non-postArguments form of getHTML; or better,
          * call
          * getHTML with the postArguments.
-         * 
+         *
          * @param postArguments
          *            A read-write map containing post-style arguments. eg TEXTBOX=abcd, etc.
          * @return true if the map has been changed
@@ -1010,16 +1010,16 @@ abstract public class CheckCLDR {
         public static void appendLine(StringBuffer htmlMessage, String pattern, String input, String formatted,
             String reparsed) {
             htmlMessage.append("<tr><td><input type='text' name='pattern' value='")
-                .append(TransliteratorUtilities.toXML.transliterate(pattern))
-                .append("'></td><td><input type='text' name='input' value='")
-                .append(TransliteratorUtilities.toXML.transliterate(input))
-                .append("'></td><td>")
-                .append("<input type='submit' value='Test' name='Test'>")
-                .append("</td><td>" + "<input type='text' name='formatted' value='")
-                .append(TransliteratorUtilities.toXML.transliterate(formatted))
-                .append("'></td><td>" + "<input type='text' name='reparsed' value='")
-                .append(TransliteratorUtilities.toXML.transliterate(reparsed))
-                .append("'></td></tr>");
+            .append(TransliteratorUtilities.toXML.transliterate(pattern))
+            .append("'></td><td><input type='text' name='input' value='")
+            .append(TransliteratorUtilities.toXML.transliterate(input))
+            .append("'></td><td>")
+            .append("<input type='submit' value='Test' name='Test'>")
+            .append("</td><td>" + "<input type='text' name='formatted' value='")
+            .append(TransliteratorUtilities.toXML.transliterate(formatted))
+            .append("'></td><td>" + "<input type='text' name='reparsed' value='")
+            .append(TransliteratorUtilities.toXML.transliterate(reparsed))
+            .append("'></td></tr>");
         }
 
         /**
@@ -1067,7 +1067,7 @@ abstract public class CheckCLDR {
     /**
      * Checks the path/value in the cldrFileToCheck for correctness, according to some criterion.
      * If the path is relevant to the check, there is an alert or warning, then a CheckStatus is added to List.
-     * 
+     *
      * @param path
      *            Must be a distinguished path, such as what comes out of CLDRFile.iterator()
      * @param fullPath
@@ -1160,13 +1160,13 @@ abstract public class CheckCLDR {
      * in the future.
      * <p>
      * The code to add the CheckStatus will look something like::
-     * 
+     *
      * <pre>
      * result.add(new CheckStatus()
      *     .setType(CheckStatus.errorType)
      *     .setMessage(&quot;Value should be {0}&quot;, new Object[] { pattern }));
      * </pre>
-     * 
+     *
      * @param options
      *            TODO
      */
@@ -1181,9 +1181,9 @@ abstract public class CheckCLDR {
 
     /**
      * Internal class used to bundle up a number of Checks.
-     * 
+     *
      * @author davis
-     * 
+     *
      */
     static class CompoundCheckCLDR extends CheckCLDR {
         private Matcher filter;
@@ -1256,13 +1256,13 @@ abstract public class CheckCLDR {
 
         private void addError(List<CheckStatus> result, CheckCLDR item, Exception e) {
             result.add(new CheckStatus()
-                .setCause(this)
-                .setMainType(CheckStatus.errorType)
-                .setSubtype(Subtype.internalError)
-                .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}",
-                    new Object[] { item.getClass().getName(), e.getClass().getName(), e,
-                        Arrays.asList(e.getStackTrace())
-                    }));
+            .setCause(this)
+            .setMainType(CheckStatus.errorType)
+            .setSubtype(Subtype.internalError)
+            .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}",
+                new Object[] { item.getClass().getName(), e.getClass().getName(), e,
+                Arrays.asList(e.getStackTrace())
+            }));
         }
 
         public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
@@ -1340,7 +1340,7 @@ abstract public class CheckCLDR {
             return Transliterator.createFromRules(ID, input.toString(), Transliterator.FORWARD);
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't open transliterator file " + file)
-                .initCause(e);
+            .initCause(e);
         }
     }
 

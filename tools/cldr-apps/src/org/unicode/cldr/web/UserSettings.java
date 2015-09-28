@@ -5,7 +5,7 @@ package org.unicode.cldr.web;
 public abstract class UserSettings implements Comparable<UserSettings> {
     /**
      * Get a string, or the default
-     * 
+     *
      * @param name
      *            name of setting to get
      * @param defaultValue
@@ -16,7 +16,7 @@ public abstract class UserSettings implements Comparable<UserSettings> {
 
     /**
      * Set a string
-     * 
+     *
      * @param name
      *            should be ASCII
      * @param value
@@ -26,7 +26,7 @@ public abstract class UserSettings implements Comparable<UserSettings> {
 
     /**
      * Get an integer.
-     * 
+     *
      * @param name
      * @param defaultValue
      *            default value to return
@@ -43,7 +43,7 @@ public abstract class UserSettings implements Comparable<UserSettings> {
 
     /**
      * Set an integer
-     * 
+     *
      * @param name
      *            should be ASCII
      * @param value

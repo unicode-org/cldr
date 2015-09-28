@@ -52,7 +52,7 @@ public class VerifyCompactNumbers {
 
     /**
      * Produce a set of static tables from the vxml data. Only a stopgap until the above is integrated into ST.
-     * 
+     *
      * @param args
      * @throws IOException
      */
@@ -80,8 +80,8 @@ public class VerifyCompactNumbers {
         PrintWriter plainText = BagFormatter.openUTF8Writer(DIR, "compactTestFile.txt");
         DateTimeFormats.writeCss(DIR);
         final CLDRFile english = CLDR_CONFIG.getEnglish();
-        
-        Map<String,String> indexMap = new TreeMap<>(CLDR_CONFIG.getCollator());
+
+        Map<String, String> indexMap = new TreeMap<>(CLDR_CONFIG.getCollator());
 
         for (String locale : availableLanguages) {
             if (defaultContentLocales.contains(locale)) {
@@ -112,7 +112,7 @@ public class VerifyCompactNumbers {
             out.println("</body></html>");
             out.close();
             indexMap.put(english.getName(locale), locale + ".html");
-            
+
         }
         try (PrintWriter index = DateTimeFormats.openIndex(DIR, "Numbers")) {
             DateTimeFormats.writeIndexMap(indexMap, index);
@@ -130,25 +130,25 @@ public class VerifyCompactNumbers {
             String locale = cldrFile.getLocaleID();
 
             TablePrinter tablePrinter1 = new TablePrinter()
-                // .setCaption("Timezone Formats")
-                .setTableAttributes("class='dtf-table'")
-                .addColumn("Numeric Format").setHeaderCell(true).setHeaderAttributes("class='dtf-th'")
-                  .setCellAttributes("class='dtf-s'")
-                .addColumn("Compact-Short").setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
-                .addColumn("Compact-Long").setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'");
+            // .setCaption("Timezone Formats")
+            .setTableAttributes("class='dtf-table'")
+            .addColumn("Numeric Format").setHeaderCell(true).setHeaderAttributes("class='dtf-th'")
+                .setCellAttributes("class='dtf-s'")
+            .addColumn("Compact-Short").setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
+            .addColumn("Compact-Long").setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'");
             if (showCurrency) {
                 tablePrinter1
-                    .addColumn("Compact-Short<br>+Currency")
-                      .setHeaderAttributes("class='dtf-th'")
-                      .setCellAttributes("class='dtf-s'")
+                .addColumn("Compact-Short<br>+Currency")
+                    .setHeaderAttributes("class='dtf-th'")
+                    .setCellAttributes("class='dtf-s'")
 //                    .addColumn("Compact-Short<br>+Unit")
 //                    .setHeaderAttributes("class='dtf-th'")
 //                    .setCellAttributes("class='dtf-s'")
-                    // .addColumn("Compact-Long<br>+Currency")
-                    // .addColumn("Compact-Long<br>+Currency-Long")
+                // .addColumn("Compact-Long<br>+Currency")
+                // .addColumn("Compact-Long<br>+Currency-Long")
 //                    .addColumn("Numeric Format").setHeaderCell(true).setHeaderAttributes("class='dtf-th'")
 //                      .setCellAttributes("class='dtf-s'")
-                      ;
+                ;
             }
             //            tablePrinter1.addColumn("View").setHeaderCell(true).setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'");
 
@@ -238,25 +238,25 @@ public class VerifyCompactNumbers {
                     // + "\t__" + compactLongFormattedNumber
                     // );
                     tablePrinter1.addRow()
-                        .addCell(formattedNumber)
-                        .addCell(compactFormattedNumber)
-                        .addCell(compactLongFormattedNumber);
+                    .addCell(formattedNumber)
+                    .addCell(compactFormattedNumber)
+                    .addCell(compactLongFormattedNumber);
                     if (showCurrency) {
                         tablePrinter1
-                            .addCell(cdfCurr.format(source))
+                        .addCell(cdfCurr.format(source))
 //                            .addCell(cdfU.format(source))
 //                             .addCell(cdfsCurr.format(source))
-                            // .addCell(cdfsCurrLong.format(source))
-                            // .addCell(cdfsCurrLong.format(source))
-                            //.addCell(formattedNumber)
-                            ;
+                        // .addCell(cdfsCurrLong.format(source))
+                        // .addCell(cdfsCurrLong.format(source))
+                        //.addCell(formattedNumber)
+                        ;
                     }
                     //                    String view = PathHeader.getLinkedView(surveyUrl, cldrFile, METAZONE_PREFIX + metazone + METAZONE_SUFFIX);
-                    //                    tablePrinter1.addCell(view == null 
-                    //                            ? "" 
+                    //                    tablePrinter1.addCell(view == null
+                    //                            ? ""
                     //                                    : view);
                     tablePrinter1
-                        .finishRow();
+                    .finishRow();
                 }
             } catch (Exception e) {
                 e.printStackTrace();

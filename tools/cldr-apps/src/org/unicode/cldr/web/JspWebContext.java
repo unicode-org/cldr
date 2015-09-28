@@ -16,12 +16,12 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 
 /**
  * This class has routines on it helpful for JSPs.
- * 
+ *
  * See this URL for documentation about the Easy Steps system:
  * http://cldr.unicode.org/development/coding-cldr-tools/easy-steps
- * 
+ *
  * @author srl
- * 
+ *
  */
 public class JspWebContext extends WebContext {
 
@@ -43,7 +43,7 @@ public class JspWebContext extends WebContext {
 
     /**
      * Create a JspContext from a raw HTTP connection.
-     * 
+     *
      * @param irq
      * @param irs
      * @throws IOException
@@ -55,7 +55,7 @@ public class JspWebContext extends WebContext {
     /**
      * For creating a JspContext from another WebContext. Slicing is fine here
      * (for now), as there isn't any extra state in a JspWebContext
-     * 
+     *
      * @param other
      */
     public JspWebContext(WebContext other) {
@@ -91,7 +91,7 @@ public class JspWebContext extends WebContext {
 
     /**
      * Is JSP debugging on?
-     * 
+     *
      * @return true if the 'JSP debugging' switch is on
      */
     public boolean debugJsp() {
@@ -100,7 +100,7 @@ public class JspWebContext extends WebContext {
 
     /**
      * Process data, without any hint.
-     * 
+     *
      * @return the result handler for the operation
      */
     public SummarizingSubmissionResultHandler processDataSubmission() {
@@ -109,7 +109,7 @@ public class JspWebContext extends WebContext {
 
     /**
      * Process data.
-     * 
+     *
      * @param xpathHint
      *            base xpath to identify which fields ar ebeing submitted.
      */
@@ -143,7 +143,7 @@ public class JspWebContext extends WebContext {
 
     /**
      * This adds a base to the list of paths to process/
-     * 
+     *
      * @param base
      *            base xpath to add
      * @see #doneWithXpaths()
@@ -203,7 +203,7 @@ public class JspWebContext extends WebContext {
 
     /**
      * Open a table with a 'code' column.
-     * 
+     *
      * @see #closeTable()
      */
     public void openTable() {
@@ -214,7 +214,7 @@ public class JspWebContext extends WebContext {
 
     /**
      * Open a table, but without the 'code' column.
-     * 
+     *
      * @see #closeTableNoCode()
      */
     public void openTableNoCode() {
@@ -225,7 +225,7 @@ public class JspWebContext extends WebContext {
 
     /**
      * Show a single xpath's data to the user for submission/vetting.
-     * 
+     *
      * @param xpath
      *            path to show
      * @see #doneWithXpaths()
@@ -238,7 +238,7 @@ public class JspWebContext extends WebContext {
 
     /**
      * Show a list of xpaths. This is the same as calling showXpath repeatedly.
-     * 
+     *
      * @param xpaths
      *            list of xpaths to show.
      */
@@ -250,7 +250,7 @@ public class JspWebContext extends WebContext {
 
     /**
      * Close the table.
-     * 
+     *
      * @see #openTable()
      */
     public void closeTable() {
@@ -259,7 +259,7 @@ public class JspWebContext extends WebContext {
 
     /**
      * Close the table without a 'code' column.
-     * 
+     *
      * @see #openTableNoCode()
      */
     public void closeTableNoCode() {
@@ -268,7 +268,7 @@ public class JspWebContext extends WebContext {
 
     /**
      * This should be called after all calls to showXpath are done.
-     * 
+     *
      * @see #showXpath(String)
      */
     public void doneWithXpaths() {
@@ -321,7 +321,7 @@ public class JspWebContext extends WebContext {
 
     /**
      * URL to a particular section in a particular locale
-     * 
+     *
      * @param locale
      * @param sectionName
      * @see DataSection#xpathToSectionBase(String)

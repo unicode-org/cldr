@@ -6,16 +6,16 @@ import com.ibm.icu.text.MessageFormat;
 
 /**
  * Class for holding error reports
- * 
+ *
  * @author ribnitz
- * 
+ *
  */
 public class CheckResult {
     /**
      * The status of a CheckResult
-     * 
+     *
      * @author ribnitz
-     * 
+     *
      */
     public enum ResultStatus {
         error, warning;
@@ -69,7 +69,7 @@ public class CheckResult {
      * Factory method, initialize with (status,locale,path); depending on the
      * result of pred, use ether (msgSuccess,objSuccess) or (msgFail,objFail) to
      * construct the message.
-     * 
+     *
      * @param status
      * @param locale
      * @param path

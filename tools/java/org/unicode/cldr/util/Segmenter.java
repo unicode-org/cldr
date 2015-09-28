@@ -3,7 +3,7 @@
  * Copyright (C) 2004-2005, International Business Machines Corporation and        *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
- * 
+ *
  */
 
 package org.unicode.cldr.util;
@@ -45,9 +45,9 @@ public class Segmenter {
      * If not null, masks off the character properties so the UnicodeSets are easier to use when debugging.
      */
     public static UnicodeSet DEBUG_REDUCE_SET_SIZE = null; // new
-                                                           // UnicodeSet("[\\u0000-\\u00FF\\u0300-\\u03FF\\u2000-\\u20FF]");
-                                                           // // new UnicodeSet("[\\u0000-\\u00FF\\u2000-\\u20FF]"); //
-                                                           // or null
+    // UnicodeSet("[\\u0000-\\u00FF\\u0300-\\u03FF\\u2000-\\u20FF]");
+    // // new UnicodeSet("[\\u0000-\\u00FF\\u2000-\\u20FF]"); //
+    // or null
     private static final boolean SHOW_VAR_CONTENTS = false;
     static boolean SHOW_SAMPLES = false;
     private static final String DEBUG_AT_STRING = "\u0009\u0308\u00A0"; // null to turn off
@@ -69,7 +69,7 @@ public class Segmenter {
                         b.addLine(cannedRule);
                     } catch (RuntimeException e) {
                         throw (RuntimeException) new IllegalArgumentException("Failure with line: " + cannedRule)
-                            .initCause(e);
+                        .initCause(e);
                     }
                 }
                 return b;
@@ -93,7 +93,7 @@ public class Segmenter {
     /**
      * Does the rule list give a break at this point?
      * Also sets the rule number that matches, for return by getBreakRule.
-     * 
+     *
      * @param text
      * @param position
      * @return
@@ -137,7 +137,7 @@ public class Segmenter {
 
     /**
      * Add a numbered rule.
-     * 
+     *
      * @param order
      * @param rule
      */
@@ -154,7 +154,7 @@ public class Segmenter {
 
     /**
      * Gets the rule number that matched at the point. Only valid after calling breaksAt
-     * 
+     *
      * @return
      */
     public double getBreakRule() {
@@ -210,11 +210,11 @@ public class Segmenter {
                 throw (RuntimeException) new IllegalArgumentException("On <" + line + ">, Can't parse: "
                     + parsing.substring(0, index)
                     + "<<<>>>" + parsing.substring(index))
-                    .initCause(e);
+                .initCause(e);
             } catch (RuntimeException e) {
                 // Unclosed character class near index 927
                 throw (RuntimeException) new IllegalArgumentException("On <" + line + ">, Can't parse: " + parsing)
-                    .initCause(e);
+                .initCause(e);
             }
             name = line;
             resolved = Utility.escape(before) + (result == Breaks.NO_BREAK ? " \u00D7 " : " \u00F7 ")
@@ -226,7 +226,7 @@ public class Segmenter {
 
         /**
          * Match the rule against text, at a position
-         * 
+         *
          * @param text
          * @param position
          * @return break status
@@ -360,7 +360,7 @@ public class Segmenter {
          * Otherwise, is of the form nn) rule, where nn is the number of the rule.
          * For now, pretty lame parsing, because we can't easily determine whether =, etc is part of the regex or not.
          * So any 'real' =, etc in a regex must be expressed with unicode escapes, \\u....
-         * 
+         *
          * @param line
          * @return
          */
@@ -408,7 +408,7 @@ public class Segmenter {
 
         /**
          * Add a variable and value. Resolves the internal references in the value.
-         * 
+         *
          * @param name
          * @param value
          * @return
@@ -490,7 +490,7 @@ public class Segmenter {
 
         /**
          * Add a numbered rule, already broken into the parts before and after.
-         * 
+         *
          * @param order
          * @param before
          * @param breaks
@@ -525,8 +525,7 @@ public class Segmenter {
             }
             if (htmlRules.containsKey(order)
                 || xmlRules.containsKey(order)
-                || rules.containsKey(order)
-                ) {
+                || rules.containsKey(order)) {
                 throw new IllegalArgumentException("Duplicate numbers for rules: " + order);
             }
             htmlRules.put(order, TransliteratorUtilities.toHTML.transliterate(line));
@@ -542,7 +541,7 @@ public class Segmenter {
 
         /**
          * Return a RuleList from what we have currently.
-         * 
+         *
          * @return
          */
         public Segmenter make() {
@@ -556,9 +555,9 @@ public class Segmenter {
 
         // ============== internals ===================
         private Map<String, String> variables = new TreeMap<String, String>(LONGEST_STRING_FIRST); // sorted by length,
-                                                                                                   // longest first, to
-                                                                                                   // make substitution
-                                                                                                   // easy
+        // longest first, to
+        // make substitution
+        // easy
         private Map<Double, Rule> rules = new TreeMap<Double, Rule>();
 
         /**
@@ -566,7 +565,7 @@ public class Segmenter {
          * Flags an error if anything of that form is not a variable.
          * Since we are using Java regex, the properties support
          * are extremely week. So replace them by literals.
-         * 
+         *
          * @param input
          * @return
          */
@@ -607,7 +606,7 @@ public class Segmenter {
 
         /**
          * Transform a unicode pattern into stuff we can use in Java.
-         * 
+         *
          * @param temp
          * @return
          */
@@ -959,7 +958,7 @@ public class Segmenter {
             "$STerm=($STerm $FE*)",
             "$Close=($Close $FE*)",
             "$SContinue=($SContinue $FE*)",
-            
+
             // macros
             "$ParaSep = ($Sep | $CR | $LF)",
             "$SATerm = ($STerm | $ATerm)",
@@ -1032,12 +1031,12 @@ public class Segmenter {
             "$Hebrew_Letter=($Hebrew_Letter $FE*)",
             "$Double_Quote=($Double_Quote $FE*)",
             "$Single_Quote=($Single_Quote $FE*)",
-            
+
             // macros
-            
+
             "$AHLetter=($ALetter | $Hebrew_Letter)",
             "$MidNumLetQ=($MidNumLet | $Single_Quote)",
-            
+
             // "# Do not break within CRLF",
             "3) $CR  	\u00D7  	$LF",
             "3.1) ($Newline | $CR | $LF)	\u00F7",
@@ -1068,10 +1067,10 @@ public class Segmenter {
             "13.1)($AHLetter | $Numeric | $Katakana | $ExtendNumLet) 	\u00D7 	$ExtendNumLet",
             "13.2)$ExtendNumLet 	\u00D7 	($AHLetter | $Numeric | $Katakana)",
             "13.3) $Regional_Indicator \u00D7 $Regional_Indicator",
-        // "#15.1,100)$ALetter \u00F7",
-        // "#15.1,100)$Numeric \u00F7",
-        // "#15.1,100)$Katakana \u00F7",
-        // "#15.1,100)$Ideographic \u00F7",
+            // "#15.1,100)$ALetter \u00F7",
+            // "#15.1,100)$Numeric \u00F7",
+            // "#15.1,100)$Katakana \u00F7",
+            // "#15.1,100)$Ideographic \u00F7",
 
         } };
 }

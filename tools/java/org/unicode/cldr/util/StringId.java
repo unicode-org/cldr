@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * of collision are so low that the ID can be used as a proxy for the
  * original string. The ID is non-negative. The algorithm uses SHA-1 over the
  * UTF-8 bytes in the string. Also provides lookup for long previously generated for string.
- * 
+ *
  * @author markdavis
  */
 public final class StringId {
@@ -29,7 +29,7 @@ public final class StringId {
 
     /**
      * Get the ID for a string.
-     * 
+     *
      * @param string
      *            input string.
      * @return a value from 0 to 0x7FFFFFFFFFFFFFFFL.
@@ -66,7 +66,7 @@ public final class StringId {
 
     /**
      * Get the hex ID for a string.
-     * 
+     *
      * @param string
      *            input string.
      * @return a string with the hex value
@@ -77,7 +77,7 @@ public final class StringId {
 
     /**
      * Get the hex ID for a string.
-     * 
+     *
      * @param string
      *            input string.
      * @return a string with the hex value

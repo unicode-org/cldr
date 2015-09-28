@@ -31,14 +31,14 @@ public class CheckCurrencies extends CheckCLDR {
             // return this;
             // }
             if (!getCldrFileToCheck().getSourceLocaleID(path, null).equals(getCldrFileToCheck().getLocaleID())) { // skip
-                                                                                                                  // if
-                                                                                                                  // inherited
-                                                                                                                  // --
-                                                                                                                  // we
-                                                                                                                  // only
-                                                                                                                  // need
-                                                                                                                  // parent
-                                                                                                                  // instance
+                // if
+                // inherited
+                // --
+                // we
+                // only
+                // need
+                // parent
+                // instance
                 return this;
             }
             // Don't include Cf format chars in length test

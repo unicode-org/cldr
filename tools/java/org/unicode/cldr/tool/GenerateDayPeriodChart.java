@@ -144,8 +144,8 @@ public class GenerateDayPeriodChart {
 
     public static DayPeriodInfo getFixedDayPeriodInfo(Type type, String locale) {
         return SUP.getDayPeriods(type, locale);
-//        DayPeriodInfo result = locale.equals("en") || locale.startsWith("en_") 
-//            ? ENGLISH_DAY_INFO 
+//        DayPeriodInfo result = locale.equals("en") || locale.startsWith("en_")
+//            ? ENGLISH_DAY_INFO
 //                : SUP.getDayPeriods(type, locale);
 //        return result == ROOT_DAY_INFO ? null : result;
     }

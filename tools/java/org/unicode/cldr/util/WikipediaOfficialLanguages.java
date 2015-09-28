@@ -63,9 +63,9 @@ public class WikipediaOfficialLanguages {
             REPLACE_REGIONS.put(s, "SKIP");
         }
         for (String s : Arrays.asList(
-            //"Akrotiri and Dhekelia", 
+            //"Akrotiri and Dhekelia",
             "Anguilla", "Bermuda",
-            //"British Antarctic Territory", 
+            //"British Antarctic Territory",
             "British Indian Ocean Territory", "British Virgin Islands", "Cayman Islands", "Falkland Islands", "Gibraltar",
             "Montserrat", "Pitcairn Islands", "Saint Helena", "Ascension Island", "Tristan da Cunha")) {
             String region = CountryCodeConverter.getCodeFromName(s);

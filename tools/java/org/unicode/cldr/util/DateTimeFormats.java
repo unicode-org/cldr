@@ -49,8 +49,7 @@ public class DateTimeFormats {
 
     enum MyOptions {
         organization(".*", "CLDR", "organization"),
-        filter(".*", ".*", "locale filter (regex)")
-        ;
+        filter(".*", ".*", "locale filter (regex)");
         // boilerplate
         final Option option;
 
@@ -109,7 +108,7 @@ public class DateTimeFormats {
 
     /**
      * Set a CLDRFile and calendar. Must be done before calling addTable.
-     * 
+     *
      * @param file
      * @param calendarID
      * @return
@@ -120,7 +119,7 @@ public class DateTimeFormats {
 
     /**
      * Set a CLDRFile and calendar. Must be done before calling addTable.
-     * 
+     *
      * @param file
      * @param calendarID
      * @return
@@ -223,7 +222,7 @@ public class DateTimeFormats {
         }
 
         generator
-        .setDateTimeFormat(Calendar.getDateTimePattern(Calendar.getInstance(locale), locale, DateFormat.MEDIUM));
+            .setDateTimeFormat(Calendar.getDateTimePattern(Calendar.getInstance(locale), locale, DateFormat.MEDIUM));
 
         // ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMMMEd\"]/greatestDifference[@id=\"d\"]
         for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID
@@ -432,7 +431,7 @@ public class DateTimeFormats {
 
     /**
      * Generate a table of date examples.
-     * 
+     *
      * @param comparison
      * @param output
      */
@@ -489,7 +488,7 @@ public class DateTimeFormats {
 
     /**
      * Get an example from the "enhanced" skeleton.
-     * 
+     *
      * @param skeleton
      * @return
      */
@@ -619,7 +618,7 @@ public class DateTimeFormats {
 
     /**
      * Show a single row
-     * 
+     *
      * @param output
      * @param rowStyle
      * @param name
@@ -631,14 +630,14 @@ public class DateTimeFormats {
      */
     private void showRow(Appendable output, RowStyle rowStyle, String name, String skeleton, String english,
         String example, boolean isPresent)
-            throws IOException {
+        throws IOException {
         output.append("<tr>");
         switch (rowStyle) {
         case separator:
             String link = name.replace(' ', '_');
             output.append("<th colSpan='3' class='dtf-sep'>")
-            .append(hackDoubleLinked(link, name))
-            .append("</th>");
+                .append(hackDoubleLinked(link, name))
+                .append("</th>");
             break;
         case header:
         case normal:
@@ -656,7 +655,7 @@ public class DateTimeFormats {
             }
             // .append(startCell).append(skeleton).append(endCell)
             output.append(startCell).append(english).append(endCell)
-            .append(startCell).append(example).append(endCell)
+                .append(startCell).append(example).append(endCell)
             //.append(startCell).append(isPresent ? " " : "c").append(endCell)
             ;
             if (rowStyle != RowStyle.header) {
@@ -718,7 +717,7 @@ public class DateTimeFormats {
 
     /**
      * Add a table of date comparisons
-     * 
+     *
      * @param english
      * @param output
      */
@@ -747,18 +746,18 @@ public class DateTimeFormats {
 
     //    private void add24HourInfo() {
     //        PreferredAndAllowedHour timeInfo = timeData.get(locale);
-    //        
+    //
     //        for (String loc : fac)
     //    }
 
     private void addDateSubtable(String path, CLDRFile english, Appendable output, String... types) throws IOException {
         path = path.replace("CALENDAR", calendarID);
         output
-        .append("<table class='dtf-table'>\n"
-            +
-            "<tr><th class='dtf-th'>English</th><th class='dtf-th'>Wide</th><th class='dtf-th'>Abbr.</th><th class='dtf-th'>Narrow</th></tr>"
-            +
-            "\n");
+            .append("<table class='dtf-table'>\n"
+                +
+                "<tr><th class='dtf-th'>English</th><th class='dtf-th'>Wide</th><th class='dtf-th'>Abbr.</th><th class='dtf-th'>Narrow</th></tr>"
+                +
+                "\n");
         for (String type : types) {
             String path1 = path.replace("TYPE", type);
             output.append("<tr>");
@@ -772,7 +771,7 @@ public class DateTimeFormats {
                     if (first) {
                         String value = english.getStringValue(path3);
                         output.append("<th class='dtf-left'>").append(TransliteratorUtilities.toHTML.transform(value))
-                        .append("</th>");
+                            .append("</th>");
                         first = false;
                     }
                     String value = file.getStringValue(path3);
@@ -807,7 +806,7 @@ public class DateTimeFormats {
 
     /**
      * Produce a set of static tables from the vxml data. Only a stopgap until the above is integrated into ST.
-     * 
+     *
      * @param args
      * @throws IOException
      */
@@ -875,7 +874,7 @@ public class DateTimeFormats {
                     +
                     "<i>There is important information on <a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/date-time-review'>Date/Time Review</a>, "
                     +
-                "so please read that page before starting!</i></p>\n");
+                    "so please read that page before starting!</i></p>\n");
             formats.addTable(english, out);
             formats.addDateTable(englishFile, out);
             formats.addDayPeriods(englishFile, out);
@@ -902,7 +901,7 @@ public class DateTimeFormats {
         String dateString = CldrUtility.isoFormatDateOnly(new Date());
         PrintWriter index = BagFormatter.openUTF8Writer(directory, "index.html");
         index
-        .println(
+            .println(
             "<html><head>\n"
                 +
                 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n"
@@ -946,90 +945,92 @@ public class DateTimeFormats {
 
     public void addDayPeriods(CLDRFile englishFile, Appendable output) {
         try {
-        output.append("<h2>" + hackDoubleLinked("Day Periods") + "</h2>\n");
-        output.append("<p>Please review these and correct if needed. The Wide fields are the most important. "
-            + "To correct them, go to "
-            + getFixFromPath(ICUServiceBuilder.getDayPeriodPath(DayPeriodInfo.DayPeriod.am, Context.format, Width.wide)) + " and following. "
-            + "<b>Note: </b>Day Periods can be a bit tricky; "
-            + "for more information, see <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/date-time-names#TOC-Day-Periods-AM-and-PM-'>Day Periods</a>.</p>\n");        
-        output
-        .append("<table class='dtf-table'>\n"
-            +"<tr>"
-            + "<th class='dtf-th' rowSpan='3'>DayPeriodID</th>"
-            + "<th class='dtf-th' rowSpan='3'>Time Span(s)</th>"
-            + "<th class='dtf-th' colSpan='4'>Format</th>"
-            + "<th class='dtf-th' colSpan='4'>Standalone</th>"
+            output.append("<h2>" + hackDoubleLinked("Day Periods") + "</h2>\n");
+            output
+                .append("<p>Please review these and correct if needed. The Wide fields are the most important. "
+                    + "To correct them, go to "
+                    + getFixFromPath(ICUServiceBuilder.getDayPeriodPath(DayPeriodInfo.DayPeriod.am, Context.format, Width.wide))
+                    + " and following. "
+                    + "<b>Note: </b>Day Periods can be a bit tricky; "
+                    + "for more information, see <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/date-time-names#TOC-Day-Periods-AM-and-PM-'>Day Periods</a>.</p>\n");
+            output
+                .append("<table class='dtf-table'>\n"
+                    + "<tr>"
+                    + "<th class='dtf-th' rowSpan='3'>DayPeriodID</th>"
+                    + "<th class='dtf-th' rowSpan='3'>Time Span(s)</th>"
+                    + "<th class='dtf-th' colSpan='4'>Format</th>"
+                    + "<th class='dtf-th' colSpan='4'>Standalone</th>"
 
-            + "</tr>\n"
-            +"<tr>"
-            + "<th class='dtf-th' colSpan='2'>Wide</th>"
-            + "<th class='dtf-th'>Abbreviated</th>"
-            + "<th class='dtf-th'>Narrow</th>"
-            + "<th class='dtf-th' colSpan='2'>Wide</th>"
-            + "<th class='dtf-th'>Abbreviated</th>"
-            + "<th class='dtf-th'>Narrow</th>"
-            + "</tr>\n"
-            +"<tr>"
-            + "<th class='dtf-th'>English</th>"
-            + "<th class='dtf-th'>Native</th>"
-            + "<th class='dtf-th'>Native</th>"
-            + "<th class='dtf-th'>Native</th>"
-            + "<th class='dtf-th'>English</th>"
-            + "<th class='dtf-th'>Native</th>"
-            + "<th class='dtf-th'>Native</th>"
-            + "<th class='dtf-th'>Native</th>"
-            + "</tr>\n"
-            );
-        DayPeriodInfo dayPeriodInfo = sdi.getDayPeriods(DayPeriodInfo.Type.format, file.getLocaleID());
-        Set<DayPeriodInfo.DayPeriod> dayPeriods = new LinkedHashSet<>(dayPeriodInfo.getPeriods());
-        DayPeriodInfo dayPeriodInfo2 = sdi.getDayPeriods(DayPeriodInfo.Type.format, "en");
-        Set<DayPeriodInfo.DayPeriod> eDayPeriods = EnumSet.copyOf(dayPeriodInfo2.getPeriods());
-        Output<Boolean> real = new Output<>();
-        Output<Boolean> realEnglish = new Output<>();
+                    + "</tr>\n"
+                    + "<tr>"
+                    + "<th class='dtf-th' colSpan='2'>Wide</th>"
+                    + "<th class='dtf-th'>Abbreviated</th>"
+                    + "<th class='dtf-th'>Narrow</th>"
+                    + "<th class='dtf-th' colSpan='2'>Wide</th>"
+                    + "<th class='dtf-th'>Abbreviated</th>"
+                    + "<th class='dtf-th'>Narrow</th>"
+                    + "</tr>\n"
+                    + "<tr>"
+                    + "<th class='dtf-th'>English</th>"
+                    + "<th class='dtf-th'>Native</th>"
+                    + "<th class='dtf-th'>Native</th>"
+                    + "<th class='dtf-th'>Native</th>"
+                    + "<th class='dtf-th'>English</th>"
+                    + "<th class='dtf-th'>Native</th>"
+                    + "<th class='dtf-th'>Native</th>"
+                    + "<th class='dtf-th'>Native</th>"
+                    + "</tr>\n"
+                );
+            DayPeriodInfo dayPeriodInfo = sdi.getDayPeriods(DayPeriodInfo.Type.format, file.getLocaleID());
+            Set<DayPeriodInfo.DayPeriod> dayPeriods = new LinkedHashSet<>(dayPeriodInfo.getPeriods());
+            DayPeriodInfo dayPeriodInfo2 = sdi.getDayPeriods(DayPeriodInfo.Type.format, "en");
+            Set<DayPeriodInfo.DayPeriod> eDayPeriods = EnumSet.copyOf(dayPeriodInfo2.getPeriods());
+            Output<Boolean> real = new Output<>();
+            Output<Boolean> realEnglish = new Output<>();
 
-        for (DayPeriodInfo.DayPeriod period : dayPeriods) {
-            R3<Integer, Integer, Boolean> first = dayPeriodInfo.getFirstDayPeriodInfo(period);
-            int midPoint = (first.get0() + first.get1()) / 2;
-            output.append("<tr>");
-            output.append("<th class='dtf-left'>").append(TransliteratorUtilities.toHTML.transform(period.toString()))
-            .append("</th>\n");
-            String periods = dayPeriodInfo.toString(period);
-            output.append("<th class='dtf-left'>").append(TransliteratorUtilities.toHTML.transform(periods))
-            .append("</th>\n");
-            for (Context context : Context.values()) {
-                for (Width width : Width.values()) {
-                    final String dayPeriodPath = ICUServiceBuilder.getDayPeriodPath(period, context, width);
-                    if (width == Width.wide) {
-                        String englishValue;
-                        if (context == Context.format) {
-                            englishValue = icuServiceBuilderEnglish.formatDayPeriod(midPoint, context, width);
-                            realEnglish.value = true;
-                        } else {
-                            englishValue = icuServiceBuilderEnglish.getDayPeriodValue(dayPeriodPath, null, realEnglish);
+            for (DayPeriodInfo.DayPeriod period : dayPeriods) {
+                R3<Integer, Integer, Boolean> first = dayPeriodInfo.getFirstDayPeriodInfo(period);
+                int midPoint = (first.get0() + first.get1()) / 2;
+                output.append("<tr>");
+                output.append("<th class='dtf-left'>").append(TransliteratorUtilities.toHTML.transform(period.toString()))
+                    .append("</th>\n");
+                String periods = dayPeriodInfo.toString(period);
+                output.append("<th class='dtf-left'>").append(TransliteratorUtilities.toHTML.transform(periods))
+                    .append("</th>\n");
+                for (Context context : Context.values()) {
+                    for (Width width : Width.values()) {
+                        final String dayPeriodPath = ICUServiceBuilder.getDayPeriodPath(period, context, width);
+                        if (width == Width.wide) {
+                            String englishValue;
+                            if (context == Context.format) {
+                                englishValue = icuServiceBuilderEnglish.formatDayPeriod(midPoint, context, width);
+                                realEnglish.value = true;
+                            } else {
+                                englishValue = icuServiceBuilderEnglish.getDayPeriodValue(dayPeriodPath, null, realEnglish);
+                            }
+                            output.append("<th class='dtf-left" + (realEnglish.value ? "" : " dtf-gray") + "'" + ">")
+                                .append(getCleanValue(englishValue, width, "<i>unused</i>"))
+                                .append("</th>\n");
                         }
-                        output.append("<th class='dtf-left" + (realEnglish.value ? "" : " dtf-gray") + "'" + ">")
-                        .append(getCleanValue(englishValue, width, "<i>unused</i>"))
-                        .append("</th>\n");
+                        String nativeValue = icuServiceBuilder.getDayPeriodValue(dayPeriodPath, "�", real);
+                        if (context == Context.format) {
+                            nativeValue = icuServiceBuilder.formatDayPeriod(midPoint, nativeValue);
+                        }
+                        output.append("<td class='dtf-left" + (real.value ? "" : " dtf-gray") + "'>")
+                            .append(getCleanValue(nativeValue, width, "<i>missing</i>"))
+                            .append("</td>\n");
                     }
-                    String nativeValue = icuServiceBuilder.getDayPeriodValue(dayPeriodPath, "�", real);
-                    if (context == Context.format) {
-                        nativeValue = icuServiceBuilder.formatDayPeriod(midPoint, nativeValue);
-                    }
-                    output.append("<td class='dtf-left" + (real.value ? "" : " dtf-gray") + "'>")
-                    .append(getCleanValue(nativeValue, width, "<i>missing</i>"))
-                    .append("</td>\n");
                 }
+                output.append("</tr>\n");
             }
-            output.append("</tr>\n");
-        }
-        output.append("</table>\n");
+            output.append("</table>\n");
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
         }
     }
 
     private String getCleanValue(String evalue, Width width, String fallback) {
-        String replacement = width == Width.wide  ? fallback : "<i>optional</i>";
+        String replacement = width == Width.wide ? fallback : "<i>optional</i>";
         String qevalue = evalue != null ? TransliteratorUtilities.toHTML.transform(evalue) : replacement;
         return qevalue.replace("�", replacement);
     }
@@ -1049,7 +1050,7 @@ public class DateTimeFormats {
 //        String result = formatted.replace("\uE000", evalue);
 //        return result;
 //    }
-    
+
     private String hackDoubleLinked(String link, String name) {
         return name;
     }

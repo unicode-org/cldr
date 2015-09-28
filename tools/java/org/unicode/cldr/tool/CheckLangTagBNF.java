@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.unicode.cldr.tool;
 
@@ -31,9 +31,9 @@ import com.ibm.icu.util.ULocale;
  * <p>
  * Use -Dbnf=xxx for the source regex definition file, and -Dtest=yyy for the test file Example:
  * -Dbnf=/Users/markdavis/Documents/workspace/cldr-code/java/org/unicode/cldr/util/data/langtagRegex.txt
- * 
+ *
  * @author markdavis
- * 
+ *
  */
 class CheckLangTagBNF {
     private static final String LANGUAGE_TAG_TEST_FILE = CldrUtility.getProperty("test");
@@ -51,7 +51,7 @@ class CheckLangTagBNF {
 
     /**
      * Set the regex to use for testing, based on the contents of a file.
-     * 
+     *
      * @param filename
      * @return
      * @throws IOException
@@ -137,9 +137,9 @@ class CheckLangTagBNF {
     public BNF getBnf() {
         if (bnf != null) return bnf;
         bnf = new BNF(new Random(2), new Quoter.RuleQuoter())
-            .setMaxRepeat(5)
-            .addRules(generationRules)
-            .complete();
+        .setMaxRepeat(5)
+        .addRules(generationRules)
+        .complete();
         return bnf;
     }
 
@@ -159,7 +159,7 @@ class CheckLangTagBNF {
      * Tests a file for correctness.
      * There are two special lines in the file: WELL-FORMED and ILL-FORMED,
      * that signal the start of each section.
-     * 
+     *
      * @param args
      * @throws IOException
      */
@@ -199,11 +199,11 @@ class CheckLangTagBNF {
         // TODO make all numeric and all alpha more common
         System.out.println("*** ILL-FORMED ***");
         BNF invalidBNF = new BNF(new Random(0), new Quoter.RuleQuoter())
-            .setMaxRepeat(5)
-            .addRules("$tag = ([A-Z a-z 0-9]{1,8} 50% 20% 10% 5% 5% 5% 5%);")
-            .addRules("$s = [-_] ;")
-            .addRules("$root = $tag ($s $tag){0,7} 10% 10% 10% 10% 10% 10% 10% 10% ; ")
-            .complete();
+        .setMaxRepeat(5)
+        .addRules("$tag = ([A-Z a-z 0-9]{1,8} 50% 20% 10% 5% 5% 5% 5%);")
+        .addRules("$s = [-_] ;")
+        .addRules("$root = $tag ($s $tag){0,7} 10% 10% 10% 10% 10% 10% 10% 10% ; ")
+        .complete();
 
         for (int i = 0; i < 100; ++i) {
             String trial = invalidBNF.next();

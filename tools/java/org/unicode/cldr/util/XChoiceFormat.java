@@ -76,7 +76,7 @@ public class XChoiceFormat {
     /**
      * "There {countOfBooks,C0:are no files|C1:is one file|Cn:are #0 files} in
      * {directory}."
-     * 
+     *
      * @param pattern
      */
     public void applyPattern(String pattern) {
@@ -95,8 +95,8 @@ public class XChoiceFormat {
             String numberPattern = item.substring(semiPosition + 1);
             results[i] = numberPattern.contains("#")
                 ? new DecimalFormat(numberPattern, new DecimalFormatSymbols(locale))
-                : numberPattern;
-            ++i;
+            : numberPattern;
+                ++i;
         }
         if (conditions[i - 1] != Condition.N) {
             throw new IllegalArgumentException("final condition must be CN");
@@ -148,9 +148,9 @@ public class XChoiceFormat {
     /*
      * zeroHours oneHour twoHours threeToFourItems oneItemRussian
      * twoToFourItemsRussian otherHours
-     * 
+     *
      * Do the same for zeroMinutes, zeroSeconds, etc.
-     * 
+     *
      * For a given locale, for a given field type (hour, minute, second), the code
      * will fetch each of the corresponding strings, and do the following
      * pseudocode, given a number x. // special checks for certain slavic

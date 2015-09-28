@@ -104,7 +104,7 @@ public class OutputFileManager {
 
     /**
      * Are SVN commits active? If not, why not.
-     * 
+     *
      * @return null if active, otherwise reason.
      */
     public String getTryCommitWhyNot() {
@@ -286,7 +286,7 @@ public class OutputFileManager {
 
     /**
      * Write out the specified file.
-     * 
+     *
      * @param loc
      * @param kind
      * @return
@@ -408,12 +408,12 @@ public class OutputFileManager {
         FileNotFoundException {
         PrintWriter u8out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF8"));
 
-        Map<String,Object> options = CldrUtility.asMap(new Object[][] {
-            { "SUPPRESS_IM" , true }});
-        
+        Map<String, Object> options = CldrUtility.asMap(new Object[][] {
+            { "SUPPRESS_IM", true } });
+
         if (!isFlat) {
             if (kind.equals("vxml") || kind.equals("rxml")) {
-                file.write(u8out,options);                
+                file.write(u8out, options);
             } else {
                 file.write(u8out);
             }
@@ -438,10 +438,10 @@ public class OutputFileManager {
         ctx.println("raw not supported currently. ");
         /*
          * CLDRFile file = (CLDRFile)ctx.getByLocale(USER_FILE);
-         * 
+         *
          * ctx.println("<h3>Raw output of the locale's CLDRFile</h3>");
          * ctx.println("<pre style='border: 2px solid olive; margin: 1em;'>");
-         * 
+         *
          * StringWriter sw = new StringWriter(); PrintWriter pw = new
          * PrintWriter(sw); file.write(pw); String asString = sw.toString(); //
          * fullBody = fullBody + "-------------" + "\n" + k + ".xml - " +
@@ -872,7 +872,7 @@ public class OutputFileManager {
 
     /**
      * Get the output file, creating if needed. Uses a temp Connection
-     * 
+     *
      * @param surveyMain
      *            TODO
      * @param loc
@@ -893,7 +893,7 @@ public class OutputFileManager {
 
     /**
      * Get and write the file
-     * 
+     *
      * @param conn
      * @param loc
      * @param kind
@@ -960,7 +960,7 @@ public class OutputFileManager {
     }
 
     /**
-     * 
+     *
      * @param loc
      * @param kind
      * @return
@@ -1019,12 +1019,13 @@ public class OutputFileManager {
         System.err.println("addPeriodicTask... updater");
         final ScheduledFuture<?> myTask = SurveyMain.addPeriodicTask(new Runnable() {
             int spinner = (int) Math.round(Math.random() * (double) SurveyMain.getLocales().length); // Start
-                                                                                                     // on
-                                                                                                     // a
-                                                                                                     // different
-                                                                                                     // locale
-                                                                                                     // each
-                                                                                                     // time.
+
+            // on
+            // a
+            // different
+            // locale
+            // each
+            // time.
 
             @Override
             public void run() {
@@ -1053,41 +1054,41 @@ public class OutputFileManager {
                     CLDRLocale loc = null;
 
                     for (int wrtl = 1; wrtl < locs.length; wrtl++) { // keep
-                                                                     // going
-                                                                     // while
-                                                                     // not busy
+                        // going
+                        // while
+                        // not busy
 
                         for (int j = 0; j < locs.length; j++) { // Try 16
-                                                                // locales
-                                                                // looking for
-                                                                // one that
-                                                                // doesn't
-                                                                // exist. No
-                                                                // more, due to
-                                                                // load.
+                            // locales
+                            // looking for
+                            // one that
+                            // doesn't
+                            // exist. No
+                            // more, due to
+                            // load.
                             loc = CLDR_OUTPUT_ONLY != null ? CLDRLocale.getInstance(CLDR_OUTPUT_ONLY) // DEBUGGING
                                 : locs[(spinner++) % locs.length]; // A new
-                                                                   // one
-                                                                   // each
-                                                                   // time.
-                                                                   // (normal
-                                                                   // case
+                            // one
+                            // each
+                            // time.
+                            // (normal
+                            // case
                             // SurveyLog.debug("Updater: Considering: " +loc );
 
                             Timestamp localeTime = getLocaleTime(conn, loc);
                             SurveyLog.debug("Updater: Considering: " + loc + " - " + localeTime);
                             if (!fileNeedsUpdate(localeTime, loc, "vxml") /*
-                                                                           * &&
-                                                                           * !
-                                                                           * fileNeedsUpdate
-                                                                           * (
-                                                                           * localeTime
-                                                                           * ,
-                                                                           * loc
-                                                                           * ,
-                                                                           * "xml"
-                                                                           * )
-                                                                           */) {
+                                                                          * &&
+                                                                          * !
+                                                                          * fileNeedsUpdate
+                                                                          * (
+                                                                          * localeTime
+                                                                          * ,
+                                                                          * loc
+                                                                          * ,
+                                                                          * "xml"
+                                                                          * )
+                                                                          */) {
                                 loc = null;
                                 // progress.update(0, "Still looking.");
                             } else {

@@ -1,7 +1,7 @@
 /*
  * *********************************************************************
  * Copyright (c) 2002-2004, International Business Machines Corporation and others. All Rights Reserved.
- * ********************************************************************* 
+ * *********************************************************************
  * Author: Mark Davis
  * *********************************************************************
  */
@@ -40,15 +40,15 @@ import com.ibm.icu.util.TimeZoneTransition;
 /**
  * TimezoneFormatter. Class that uses CLDR data directly to parse / format timezone names according to the specification
  * in TR#35. Note: there are some areas where the spec needs fixing.
- * 
- * 
+ *
+ *
  * @author davis
  */
 
 public class TimezoneFormatter extends UFormat {
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -506645087792499122L;
     private static final long TIME = new Date().getTime();
@@ -123,7 +123,7 @@ public class TimezoneFormatter extends UFormat {
     private transient SimpleDateFormat hourFormatPlus = new SimpleDateFormat();
     private transient SimpleDateFormat hourFormatMinus = new SimpleDateFormat();
     private transient MessageFormat gmtFormat, regionFormat,
-        regionFormatStandard, regionFormatDaylight, fallbackFormat;
+    regionFormatStandard, regionFormatDaylight, fallbackFormat;
     //private transient String abbreviationFallback, preferenceOrdering;
     private transient Set<String> singleCountriesSet;
 
@@ -152,7 +152,7 @@ public class TimezoneFormatter extends UFormat {
 
     /**
      * Create from a cldrFactory and a locale id.
-     * 
+     *
      * @see CLDRFile
      */
     public TimezoneFormatter(CLDRFile resolvedLocaleFile) {
@@ -184,7 +184,7 @@ public class TimezoneFormatter extends UFormat {
     }
 
     /**
-     * 
+     *
      */
     private String getStringValue(String cleanPath) {
         checkForDraft(cleanPath);
@@ -230,7 +230,7 @@ public class TimezoneFormatter extends UFormat {
     /**
      * Low-level routine for formatting based on zone, broken-out features, plus special settings (which are usually
      * computed from the date, but are here for specific access.)
-     * 
+     *
      * @param inputZoneid
      * @param location
      * @param type
@@ -381,7 +381,7 @@ public class TimezoneFormatter extends UFormat {
                 if (zoneid.equals(preferredZonesCountrysZone)) {
                     String countryName = getLocalizedCountryName(zoneIdsCountry);
                     return fallbackFormat.format(new Object[] { countryName, metaZoneName }); // UGLY, should be able to
-                                                                                              // just list
+                    // just list
                 }
 
                 // If all else fails, use metazone generic format + (city).

@@ -104,7 +104,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
             if (info != null) {
                 map.put(info.idUsage,
                     UScript.getName(i) + "\t(" + UScript.getShortName(i)
-                        + ")\t" + info);
+                    + ")\t" + info);
             } else {
                 // There are many script codes that are not "real"; there are no
                 // Unicode characters for them.
@@ -191,9 +191,9 @@ public class TestScriptMetadata extends TestFmwkPlus {
                 info.idUsage,
                 english.getName(CLDRFile.TERRITORY_NAME, continent),
                 info.idUsage
-                    + "\t"
-                    + english.getName(CLDRFile.TERRITORY_NAME,
-                        container) + "\t" + scriptCode + "\t"
+                + "\t"
+                + english.getName(CLDRFile.TERRITORY_NAME,
+                    container) + "\t" + scriptCode + "\t"
                     + english.getName(CLDRFile.SCRIPT_NAME, scriptCode)));
         }
         for (Row.R3<IdUsage, String, String> s : lines) {

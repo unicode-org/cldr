@@ -213,7 +213,7 @@ public class GetDescriptions {
                 +
                 "|Highland|Isthmus|Low|Lower|Lowland|Middle|Northeastern|Northwestern|Old|Plains|Southeastern|Southwestern|Straits|Upper|Valley"
                 +
-                "|Written)\\s+(.+)").matcher("");
+            "|Written)\\s+(.+)").matcher("");
 
     private static void checkInversion(PrintWriter commas, String type, String code, String[] parts) {
         Set<String> items = new TreeSet<String>(Arrays.asList(parts));

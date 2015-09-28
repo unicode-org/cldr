@@ -77,7 +77,7 @@ import com.ibm.icu.util.VersionInfo;
  * change it to having the key be an object that contains the full xpath, but then sorts as if it were clean.
  * <p>
  * Each instance also contains a set of associated comments for each xpath.
- * 
+ *
  * @author medavis
  */
 
@@ -92,9 +92,9 @@ import com.ibm.icu.util.VersionInfo;
 public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
-     * Variable to control whether File reads are buffered; this will about halve the time spent in 
-     * loadFromFile() and Factory.make() from about 20 % to about 10 %. It will also noticeably improve the different 
-     * unit tests take in the TestAll fixture. 
+     * Variable to control whether File reads are buffered; this will about halve the time spent in
+     * loadFromFile() and Factory.make() from about 20 % to about 10 %. It will also noticeably improve the different
+     * unit tests take in the TestAll fixture.
      *  TRUE - use buffering (default)
      *  FALSE - do not use buffering
      */
@@ -168,7 +168,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Construct a new CLDRFile.
-     * 
+     *
      * @param dataSource
      *            must not be null
      */
@@ -224,7 +224,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Produce a CLDRFile from a localeName, given a directory. (Normally a Factory is used to create CLDRFiles.)
-     * 
+     *
      * @param localeName
      * @param dir
      *            directory
@@ -239,7 +239,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Load a CLDRFile from a file input stream.
-     * 
+     *
      * @param localeName
      * @param fis
      */
@@ -287,7 +287,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Clone the object. Produces unlocked version
-     * 
+     *
      * @see com.ibm.icu.dev.test.util.Freezeble
      */
     public CLDRFile cloneAsThawed() {
@@ -303,7 +303,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Prints the contents of the file (the xpaths/values) to the console.
-     * 
+     *
      */
     public CLDRFile show() {
         for (Iterator<String> it2 = iterator(); it2.hasNext();) {
@@ -328,7 +328,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * Write the corresponding XML file out, with the normal formatting and indentation.
      * Will update the identity element, including version, and other items.
      * If the CLDRFile is empty, the DTD type will be //ldml.
-     * 
+     *
      * @param pw
      *            writer to print to
      * @param options
@@ -496,7 +496,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     /**
-     * Get GeorgeBailey value: that is, what the value would be if it were not directly contained in the file. 
+     * Get GeorgeBailey value: that is, what the value would be if it were not directly contained in the file.
      * A non-resolving CLDRFile will always return null.
      */
     public String getBaileyValue(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
@@ -554,7 +554,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * Only call if xpath doesn't exist in the current file.
      * <p>
      * For now, just handle counts: see getCountPath Also handle extraPaths
-     * 
+     *
      * @param xpath
      * @param winning
      *            TODO
@@ -600,7 +600,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     /**
      * Find out where the value was found (for resolving locales). Returns code-fallback as the location if nothing is
      * found
-     * 
+     *
      * @param distinguishedXPath
      *            path (must be distinguished!)
      * @param status
@@ -622,7 +622,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * return true if the path in this file (without resolution)
-     * 
+     *
      * @param path
      * @return
      */
@@ -632,7 +632,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Add a new element to a CLDRFile.
-     * 
+     *
      * @param currentFullXPath
      * @param value
      */
@@ -667,16 +667,16 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     // TODO Change into enum, update docs
     static final public int
-        MERGE_KEEP_MINE = 0,
-        MERGE_REPLACE_MINE = 1,
-        MERGE_ADD_ALTERNATE = 2,
-        MERGE_REPLACE_MY_DRAFT = 3;
+    MERGE_KEEP_MINE = 0,
+    MERGE_REPLACE_MINE = 1,
+    MERGE_ADD_ALTERNATE = 2,
+    MERGE_REPLACE_MY_DRAFT = 3;
 
     /**
      * Merges elements from another CLDR file. Note: when both have the same xpath key,
      * the keepMine determines whether "my" values are kept
      * or the other files values are kept.
-     * 
+     *
      * @param other
      * @param keepMine
      *            if true, keep my values in case of conflict; otherwise keep the other's values.
@@ -774,7 +774,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     /**
-     * 
+     *
      */
     private String addReferencesIfNeeded(String newFullPath, String fullXPath) {
         if (fullXPath == null || fullXPath.indexOf("[@references=") < 0) return newFullPath;
@@ -845,7 +845,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             "|numbers/symbols/(decimal/group)" +
             "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
             "|pattern" +
-            ")");
+        ")");
 
     static public final Pattern specialsToPushFromRoot = PatternCache.get(
         "/(" +
@@ -856,7 +856,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             "(?!.*\\[@type=\"stand-alone\"].*\\[@type=\"(abbreviated|wide)\"])" +
             "|numbers/symbols/(decimal/group)" +
             "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
-            ")");
+        ")");
 
     private static final boolean MINIMIZE_ALT_PROPOSED = false;
 
@@ -870,7 +870,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Removes all items with same value
-     * 
+     *
      * @param keepIfMatches
      *            TODO
      * @param removedItems
@@ -1096,7 +1096,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
         dataSource.getXpathComments().setFinalComment(
             CldrUtility
-                .joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE, comment));
+            .joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE, comment));
         return this;
     }
 
@@ -1160,11 +1160,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public Iterator<String> iterator(String prefix, Comparator<String> comparator) {
         Iterator<String> it = (prefix == null || prefix.length() == 0)
             ? dataSource.iterator()
-            : dataSource.iterator(prefix);
-        if (comparator == null) return it;
-        Set<String> orderedSet = new TreeSet<String>(comparator);
-        CollectionUtilities.addAll(it, orderedSet);
-        return orderedSet.iterator();
+                : dataSource.iterator(prefix);
+            if (comparator == null) return it;
+            Set<String> orderedSet = new TreeSet<String>(comparator);
+            CollectionUtilities.addAll(it, orderedSet);
+            return orderedSet.iterator();
     }
 
     public Iterable<String> fullIterable() {
@@ -1293,7 +1293,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Determine if an attribute is a distinguishing attribute.
-     * 
+     *
      * @param elementName
      * @param attribute
      * @return
@@ -1326,9 +1326,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             try {
                 result = (testList[i].length() != 0)
                     ? XMLReaderFactory.createXMLReader(testList[i])
-                    : XMLReaderFactory.createXMLReader();
-                result.setFeature("http://xml.org/sax/features/validation", validating);
-                break;
+                        : XMLReaderFactory.createXMLReader();
+                    result.setFeature("http://xml.org/sax/features/validation", validating);
+                    break;
             } catch (SAXException e1) {
             }
         }
@@ -1338,8 +1338,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             result.setEntityResolver(new CachingEntityResolver());
         } catch (Throwable e) {
             System.err
-                .println("WARNING: Can't set caching entity resolver  -  error "
-                    + e.toString());
+            .println("WARNING: Can't set caching entity resolver  -  error "
+                + e.toString());
             e.printStackTrace();
         }
         return result;
@@ -1366,7 +1366,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Convenience function to return a list of XML files in the Supplemental directory.
-     * 
+     *
      * @return all files ending in ".xml"
      * @see #getSupplementalDirectory()
      */
@@ -1380,7 +1380,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Convenience function to return a specific supplemental file
-     * 
+     *
      * @param filename
      *            the file to return
      * @return the file (may not exist)
@@ -1402,42 +1402,42 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     // "gb2312han"};
 
     /*    *//**
-             * Value that contains a node. WARNING: this is not done yet, and may change.
-             * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
-             */
+              * Value that contains a node. WARNING: this is not done yet, and may change.
+              * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
+              */
     /*
      * static public class NodeValue extends Value {
      * private Node nodeValue;
      *//**
-       * Creation. WARNING, may change.
-       * 
-       * @param value
-       * @param currentFullXPath
-       */
+     * Creation. WARNING, may change.
+     *
+     * @param value
+     * @param currentFullXPath
+     */
     /*
      * public NodeValue(Node value, String currentFullXPath) {
      * super(currentFullXPath);
      * this.nodeValue = value;
      * }
      *//**
-       * boilerplate
-       */
+     * boilerplate
+     */
     /*
      * public boolean hasSameValue(Object other) {
      * if (super.hasSameValue(other)) return false;
      * return nodeValue.equals(((NodeValue)other).nodeValue);
      * }
      *//**
-       * boilerplate
-       */
+     * boilerplate
+     */
     /*
      * public String getStringValue() {
      * return nodeValue.toString();
      * }
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.util.CLDRFile.Value#changePath(java.lang.String)
-     * 
+     *
      * public Value changePath(String string) {
      * return new NodeValue(nodeValue, string);
      * }
@@ -1592,7 +1592,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         /**
          * Adds a parsed XPath to the CLDRFile.
-         * 
+         *
          * @param fullXPath
          * @param value
          */
@@ -1667,7 +1667,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         /**
          * Trim leading whitespace if there is a linefeed among them, then the same with trailing.
-         * 
+         *
          * @param source
          * @return
          */
@@ -1745,7 +1745,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             String localName,
             String qName,
             Attributes attributes)
-            throws SAXException {
+                throws SAXException {
             Log.logln(LOG_PROGRESS || SHOW_START_END, "startElement uri\t" + uri
                 + "\tlocalName " + localName
                 + "\tqName " + qName
@@ -1756,7 +1756,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     attributeOrder = new TreeMap<String, String>(
                         // HACK for ldmlIcu
                         dtdData.dtdType == DtdType.ldml
-                            ? CLDRFile.getAttributeOrdering() :
+                        ? CLDRFile.getAttributeOrdering() :
                             dtdData.getAttributeComparator()
                         );
                     isSupplemental = target.dtdType == DtdType.ldml ? 0 : 1;
@@ -1931,7 +1931,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ErrorHandler#error(org.xml.sax.SAXParseException)
          */
         public void error(SAXParseException exception) throws SAXException {
@@ -1941,7 +1941,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ErrorHandler#fatalError(org.xml.sax.SAXParseException)
          */
         public void fatalError(SAXParseException exception) throws SAXException {
@@ -1951,7 +1951,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ErrorHandler#warning(org.xml.sax.SAXParseException)
          */
         public void warning(SAXParseException exception) throws SAXException {
@@ -1997,7 +1997,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     /**
      * Gets the type of a given xpath, eg script, territory, ...
      * TODO move to separate class
-     * 
+     *
      * @param xpath
      * @return
      */
@@ -2105,7 +2105,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Utility for getting the name, given a code.
-     * 
+     *
      * @param type
      * @param code
      * @param codeToAlt - if not null, is called on the code. If the result is not null, then that is used for an alt value.
@@ -2179,7 +2179,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     /**
      * Returns the name of the given bcp47 identifier. Note that extensions must
      * be specified using the old "\@key=type" syntax.
-     * 
+     *
      * @param localeOrTZID
      * @return
      */
@@ -2368,7 +2368,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Get standard ordering for elements.
-     * 
+     *
      * @return ordered collection with items.
      * @deprecated
      */
@@ -2378,7 +2378,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Get standard ordering for attributes.
-     * 
+     *
      * @return ordered collection with items.
      */
     public static List<String> getAttributeOrder() {
@@ -2387,7 +2387,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
 //    /**
 //     * Get standard ordering for attribute values.
-//     * 
+//     *
 //     * @return ordered collection with items.
 //     */
 //    public static Collection<String> getValueOrder() {
@@ -2556,7 +2556,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     /**
      * @param draftStatus
      *            TODO
-     * 
+     *
      */
     public CLDRFile makeDraft(DraftStatus draftStatus) {
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
@@ -2577,7 +2577,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     static final UnicodeSet HACK_CASE_CLOSURE_SET = new UnicodeSet(
         "[ſẛﬀẞ{i̇}\u1F71\u1F73\u1F75\u1F77\u1F79\u1F7B\u1F7D\u1FBB\u1FBE\u1FC9\u1FCB\u1FD3\u1FDB\u1FE3\u1FEB\u1FF9\u1FFB\u2126\u212A\u212B]")
-        .freeze();
+    .freeze();
 
     public UnicodeSet getExemplarSet(String type, WinningChoice winningChoice, int option) {
         if (type.length() != 0) type = "[@type=\"" + type + "\"]";
@@ -2913,7 +2913,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Return true if this item is the "winner" in the survey tool
-     * 
+     *
      * @param path
      * @return
      */
@@ -2929,7 +2929,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * always returned if there is a valid path, and the returned value is always
      * a valid path <i>in the resolved file</i>; that is, it may be valid in the
      * parent, or valid because of aliasing.
-     * 
+     *
      * @param path
      * @return path, perhaps with an alt proposed added.
      */
@@ -2939,7 +2939,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Shortcut for getting the string value for the winning path
-     * 
+     *
      * @param path
      * @return
      */
@@ -2952,7 +2952,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * Shortcut for getting the string value for the winning path.
      * If the winning value is an INHERITANCE_MARKER (used in survey
      * tool), then the Bailey value is returned.
-     * 
+     *
      * @param path
      * @return
      */
@@ -2970,7 +2970,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * Shortcut for getting the string value for a path.
      * If the string value is an INHERITANCE_MARKER (used in survey
      * tool), then the Bailey value is returned.
-     * 
+     *
      * @param path
      * @return
      */
@@ -2988,7 +2988,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * Return the distinguished paths that have the specified value. The pathPrefix and pathMatcher
      * can be used to restrict the returned paths to those matching.
      * The pathMatcher can be null (equals .*).
-     * 
+     *
      * @param valueToMatch
      * @param pathPrefix
      * @return
@@ -3013,7 +3013,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     /**
      * Return the distinguished paths that match the pathPrefix and pathMatcher
      * The pathMatcher can be null (equals .*).
-     * 
+     *
      * @param valueToMatch
      * @param pathPrefix
      * @return
@@ -3038,9 +3038,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Used in TestUser to get the "winning" path. Simple implementation just for testing.
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     static class WinningComparator implements Comparator<String> {
         String user;
@@ -3068,9 +3068,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * This is a test class used to simulate what the survey tool would do.
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     public static class TestUser extends CLDRFile {
 
@@ -3113,7 +3113,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Returns the extra paths, skipping those that are already represented in the locale.
-     * 
+     *
      * @return
      */
     public Collection<String> getExtraPaths() {
@@ -3129,7 +3129,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         //        showStars(getLocaleID() + " getExtraPaths", toAddTo);
         //        for (String path : getRawExtraPaths()) {
         //            // don't use getStringValue, since it recurses.
-        //            if (!dataSource.hasValueAtDPath(path)) { 
+        //            if (!dataSource.hasValueAtDPath(path)) {
         //                toAddTo.add(path);
         //            } else {
         //                if (path.contains("compoundUnit")) {
@@ -3149,7 +3149,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * Returns the extra paths, skipping those that are already represented in the locale.
-     * 
+     *
      * @return
      */
     public Collection<String> getExtraPaths(String prefix, Collection<String> toAddTo) {
@@ -3166,7 +3166,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     // It requires filtering in those cases where we don't want duplicate paths.
     /**
      * Returns the raw extra paths, irrespective of what paths are already represented in the locale.
-     * 
+     *
      * @return
      */
     public Collection<String> getRawExtraPaths() {
@@ -3379,7 +3379,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * For others, falls back to Count.one, then no count.
      * <p>
      * The fallback acts like an alias in root.
-     * 
+     *
      * @param xpath
      * @param count
      *            Count may be null. Returns null if nothing is found.
@@ -3459,7 +3459,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * the empty field will fill in "Donnerstag" from [de].
      * <li>Otherwise don't fill in anything, and return null.
      * </ul>
-     * 
+     *
      * @return
      */
     public String getFillInValue(String distinguishedPath) {
@@ -3479,7 +3479,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     /**
      * returns true if the source of the path exists, and is neither root nor code-fallback
-     * 
+     *
      * @param distinguishedPath
      * @return
      */

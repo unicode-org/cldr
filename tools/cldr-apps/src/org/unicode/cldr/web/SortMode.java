@@ -15,9 +15,9 @@ import org.unicode.cldr.web.Partition.Membership;
 
 /**
  * This class represents a mode of sorting: i.e., by code, etc.
- * 
+ *
  * @author srl
- * 
+ *
  */
 
 public abstract class SortMode {
@@ -68,7 +68,7 @@ public abstract class SortMode {
 
     /**
      * For subclasses
-     * 
+     *
      * @param p
      * @param memberships
      * @return
@@ -85,7 +85,7 @@ public abstract class SortMode {
 
     /**
      * Name of this mode.
-     * 
+     *
      * @return
      */
     abstract String getName();
@@ -93,13 +93,13 @@ public abstract class SortMode {
     abstract String getDisplayName();
 
     /**
-     * 
+     *
      * @return
      */
     abstract Partition.Membership[] memberships();
 
     /**
-     * 
+     *
      * @return
      */
     abstract Comparator<DataRow> createComparator();
@@ -149,7 +149,7 @@ public abstract class SortMode {
 
     /**
      * Create partitions based on the membership in the rows
-     * 
+     *
      * @param memberships
      * @param rows
      * @return
@@ -183,7 +183,7 @@ public abstract class SortMode {
             // catch the last item
             if ((testPartitions[lastGood].start != -1) && (testPartitions[lastGood].limit == -1)) {
                 testPartitions[lastGood].limit = rows.length; // limit = off the
-                                                              // end.
+                // end.
             }
 
             for (int j = 0; j < testPartitions.length; j++) {
@@ -204,7 +204,7 @@ public abstract class SortMode {
 
     /**
      * Create empty partitions
-     * 
+     *
      * @param memberships
      * @return
      */

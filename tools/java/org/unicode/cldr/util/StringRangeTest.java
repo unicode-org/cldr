@@ -40,42 +40,42 @@ public class StringRangeTest extends TestFmwk {
 
     public void TestSimple() {
         String[][] tests = {
-            {"a", "cd", 
-                "Must have start-length ≥ end-length", 
+            { "a", "cd",
+                "Must have start-length ≥ end-length",
                 "", ""
-            },
-            {"a", "", 
-                "Must have end-length > 0", 
+        },
+            { "a", "",
+                "Must have end-length > 0",
                 "", ""
-            },
-            {"ab", "ad", 
-                "{ab}{ac}{ad}", 
-                "{ab}-{ad}", 
-                "{ab}-d", 
-                "{ab}-{ad}", 
+        },
+            { "ab", "ad",
+                "{ab}{ac}{ad}",
+                "{ab}-{ad}",
+                "{ab}-d",
+                "{ab}-{ad}",
                 "{ab}-d"
-            },
-            {"ab", "cd", 
-                "{ab}{ac}{ad}{bb}{bc}{bd}{cb}{cc}{cd}", 
-                "{ab}-{ad} {bb}-{bd} {cb}-{cd}", 
-                "{ab}-d {bb}-d {cb}-d", 
-                "{ab}-{cd}", 
+        },
+            { "ab", "cd",
+                "{ab}{ac}{ad}{bb}{bc}{bd}{cb}{cc}{cd}",
+                "{ab}-{ad} {bb}-{bd} {cb}-{cd}",
+                "{ab}-d {bb}-d {cb}-d",
+                "{ab}-{cd}",
                 "{ab}-{cd}"
-            },
-            {"👦🏻", "👦🏿", 
-                "{👦🏻}{👦🏼}{👦🏽}{👦🏾}{👦🏿}", 
-                "{👦🏻}-{👦🏿}", 
-                "{👦🏻}-🏿", 
-                "{👦🏻}-{👦🏿}", 
+        },
+            { "👦🏻", "👦🏿",
+                "{👦🏻}{👦🏼}{👦🏽}{👦🏾}{👦🏿}",
+                "{👦🏻}-{👦🏿}",
+                "{👦🏻}-🏿",
+                "{👦🏻}-{👦🏿}",
                 "{👦🏻}-🏿"
-            },
-            {"qax👦🏻", "cx👦🏿", 
-                "{qax👦🏻}{qax👦🏼}{qax👦🏽}{qax👦🏾}{qax👦🏿}{qbx👦🏻}{qbx👦🏼}{qbx👦🏽}{qbx👦🏾}{qbx👦🏿}{qcx👦🏻}{qcx👦🏼}{qcx👦🏽}{qcx👦🏾}{qcx👦🏿}", 
+        },
+            { "qax👦🏻", "cx👦🏿",
+                "{qax👦🏻}{qax👦🏼}{qax👦🏽}{qax👦🏾}{qax👦🏿}{qbx👦🏻}{qbx👦🏼}{qbx👦🏽}{qbx👦🏾}{qbx👦🏿}{qcx👦🏻}{qcx👦🏼}{qcx👦🏽}{qcx👦🏾}{qcx👦🏿}",
                 "{qax👦🏻}-{qax👦🏿} {qbx👦🏻}-{qbx👦🏿} {qcx👦🏻}-{qcx👦🏿}",
-                "{qax👦🏻}-🏿 {qbx👦🏻}-🏿 {qcx👦🏻}-🏿", 
+                "{qax👦🏻}-🏿 {qbx👦🏻}-🏿 {qcx👦🏻}-🏿",
                 "{qax👦🏻}-{qcx👦🏿}",
                 "{qax👦🏻}-{cx👦🏿}"
-            },
+        },
         };
         final StringBuilder b = new StringBuilder();
         Adder myAdder = new Adder() { // for testing: doesn't do quoting, etc
@@ -143,7 +143,7 @@ public class StringRangeTest extends TestFmwk {
         Validity validity = Validity.getInstance();
         Map<LstrType, Map<Status, Set<String>>> data = validity.getData();
         NumberFormat pf = NumberFormat.getPercentInstance();
-        
+
         for (Entry<LstrType, Map<Status, Set<String>>> entry : data.entrySet()) {
             LstrType type = entry.getKey();
             for (Entry<Status, Set<String>> entry2 : entry.getValue().entrySet()) {
@@ -156,12 +156,13 @@ public class StringRangeTest extends TestFmwk {
 //                if (key != Status.deprecated) continue;
                         b.setLength(0);
                         if (more) {
-                            StringRange.compact(values,myAdder,shorterPairs,true);
+                            StringRange.compact(values, myAdder, shorterPairs, true);
                         } else {
                             StringRange.compact(values, myAdder, shorterPairs);
                         }
                         String compacted2 = b.toString();
-                        logln(type + ":" + key + ":\t" + compacted2.length() + "/" + raw.length() + " = " + pf.format(compacted2.length()/rawsize - 1.00000000000001) + "\t" + compacted2);
+                        logln(type + ":" + key + ":\t" + compacted2.length() + "/" + raw.length() + " = "
+                            + pf.format(compacted2.length() / rawsize - 1.00000000000001) + "\t" + compacted2);
                         Set<String> restored = new HashSet<>();
                         for (String part : ONSPACE.split(compacted2)) {
                             Iterator<String> mini = ONTILDE.split(part).iterator();

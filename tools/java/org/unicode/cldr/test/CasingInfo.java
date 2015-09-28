@@ -37,15 +37,15 @@ import com.ibm.icu.text.UnicodeSet;
  * Calculates, reads, writes and returns casing information about locales for
  * CheckConsistentCasing.
  * Run main() to generate the casing information files which will be stored in common/casing.
- * 
+ *
  * @author jchye
  */
 public class CasingInfo {
     private static final Options options = new Options(
         "This program is used to generate casing files for locales.")
-        .add("locales", ".*", ".*", "A regex of the locales to generate casing information for")
-        .add("summary", null,
-            "generates a summary of the casing for all locales that had casing generated for this run");
+    .add("locales", ".*", ".*", "A regex of the locales to generate casing information for")
+    .add("summary", null,
+        "generates a summary of the casing for all locales that had casing generated for this run");
     private Map<String, Map<Category, CasingTypeAndErrFlag>> casing;
     private List<File> casingDirs;
 
@@ -68,7 +68,7 @@ public class CasingInfo {
 
     /**
      * Returns casing information to be used for a specified locale.
-     * 
+     *
      * @param localeID
      * @return
      */
@@ -98,7 +98,7 @@ public class CasingInfo {
     /**
      * Loads casing information about a specified locale from the casing XML,
      * if it exists.
-     * 
+     *
      * @param localeID
      */
     private CasingHandler loadFromXml(String localeID) {
@@ -152,7 +152,7 @@ public class CasingInfo {
 
     /**
      * Creates a CSV summary of casing information over all locales for verification.
-     * 
+     *
      * @param outputFile
      */
     private void createCasingSummary(String outputFile, Map<String, Boolean> localeUsesCasing) {
@@ -201,36 +201,36 @@ public class CasingInfo {
         CasingHandler handler = loadFromXml(localeID);
         Map<Category, CasingType> overrides = handler == null ?
             new EnumMap<Category, CasingType>(Category.class) : handler.getOverrides();
-        localeCasing.putAll(overrides);
+            localeCasing.putAll(overrides);
 
-        XMLSource source = new SimpleXMLSource(localeID);
-        for (Category category : Category.values()) {
-            if (category == Category.NOT_USED) continue;
-            CasingType type = localeCasing.get(category);
-            if (overrides.containsKey(category)) {
-                String path = MessageFormat.format("//ldml/metadata/casingData/casingItem[@type=\"{0}\"][@override=\"true\"]", category);
-                source.putValueAtPath(path, type.toString());
-            } else if (type != CasingType.other) {
-                String path = "//ldml/metadata/casingData/casingItem[@type=\"" + category + "\"]";
-                source.putValueAtPath(path, type.toString());
+            XMLSource source = new SimpleXMLSource(localeID);
+            for (Category category : Category.values()) {
+                if (category == Category.NOT_USED) continue;
+                CasingType type = localeCasing.get(category);
+                if (overrides.containsKey(category)) {
+                    String path = MessageFormat.format("//ldml/metadata/casingData/casingItem[@type=\"{0}\"][@override=\"true\"]", category);
+                    source.putValueAtPath(path, type.toString());
+                } else if (type != CasingType.other) {
+                    String path = "//ldml/metadata/casingData/casingItem[@type=\"" + category + "\"]";
+                    source.putValueAtPath(path, type.toString());
+                }
             }
-        }
-        CLDRFile cldrFile = new CLDRFile(source);
-        File casingFile = new File(CLDRPaths.GEN_DIRECTORY + "/casing", localeID + ".xml");
+            CLDRFile cldrFile = new CLDRFile(source);
+            File casingFile = new File(CLDRPaths.GEN_DIRECTORY + "/casing", localeID + ".xml");
 
-        try {
-            PrintWriter out = new PrintWriter(casingFile);
-            cldrFile.write(out);
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            try {
+                PrintWriter out = new PrintWriter(casingFile);
+                cldrFile.write(out);
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
     }
 
     /**
      * Generates all the casing information and writes it to XML.
      * A CSV summary of casing information is written to file if a filename argument is provided.
-     * 
+     *
      * @param args
      */
     public static void main(String[] args) {

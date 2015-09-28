@@ -3,15 +3,15 @@
  * Copyright (C) 2004-2005, International Business Machines Corporation and        *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
- * 
+ *
  * in shell:  (such as .cldrrc)
  *   export CWDEBUG="-DCLDR_DTD_CACHE=/tmp/cldrdtd/"
  *   export CWDEFS="-DCLDR_DTD_CACHE_DEBUG=y ${CWDEBUG}"
  *
- * 
+ *
  * in code:
  *   docBuilder.setEntityResolver(new CachingEntityResolver());
- * 
+ *
  */
 package org.unicode.cldr.util;
 

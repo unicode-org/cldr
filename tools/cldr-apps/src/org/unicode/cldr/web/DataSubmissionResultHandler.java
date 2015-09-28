@@ -7,15 +7,15 @@ import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 /**
  * Callback interface for handling the results of user input changes to survey
  * tool data. The survey tool will call these functions to record changes.
- * 
+ *
  * @author srl
- * 
+ *
  */
 public interface DataSubmissionResultHandler {
 
     /**
      * If nonzero, some results were updated.
-     * 
+     *
      * @param resultCount
      *            number of results which were updated.
      */
@@ -23,7 +23,7 @@ public interface DataSubmissionResultHandler {
 
     /**
      * Items were removed from a row.
-     * 
+     *
      * @param row
      *            which row
      * @param item
@@ -35,7 +35,7 @@ public interface DataSubmissionResultHandler {
 
     /**
      * Failure: You didn't have permission to do this operation
-     * 
+     *
      * @param p
      *            Row in question
      * @param optionalItem
@@ -47,7 +47,7 @@ public interface DataSubmissionResultHandler {
 
     /**
      * A vote was removed
-     * 
+     *
      * @param p
      *            which row
      * @param voter
@@ -59,7 +59,7 @@ public interface DataSubmissionResultHandler {
 
     /**
      * An requested change was empty.
-     * 
+     *
      * @param p
      *            row
      */
@@ -67,7 +67,7 @@ public interface DataSubmissionResultHandler {
 
     /**
      * User was already voting for this item
-     * 
+     *
      * @param p
      *            row
      * @param item
@@ -77,7 +77,7 @@ public interface DataSubmissionResultHandler {
 
     /**
      * User voted for an extant item, it was accepted as a vote for that item
-     * 
+     *
      * @param p
      *            row
      * @param item
@@ -87,7 +87,7 @@ public interface DataSubmissionResultHandler {
 
     /**
      * A new value was accepted
-     * 
+     *
      * @param p
      *            row
      * @param choice_v
@@ -99,7 +99,7 @@ public interface DataSubmissionResultHandler {
 
     /**
      * Error when adding/changing value.
-     * 
+     *
      * @param p
      *            row
      * @param status
@@ -111,14 +111,14 @@ public interface DataSubmissionResultHandler {
 
     /**
      * Item was removed
-     * 
+     *
      * @param p
      */
     void handleRemoved(DataRow p);
 
     /**
      * Vote was accepted
-     * 
+     *
      * @param p
      * @param oldVote
      * @param value
@@ -127,7 +127,7 @@ public interface DataSubmissionResultHandler {
 
     /**
      * Internal error, an unknown choice was made.
-     * 
+     *
      * @param p
      * @param choice
      */
@@ -142,7 +142,7 @@ public interface DataSubmissionResultHandler {
     /**
      * Note that an item was proposed as an option. Used for UI, to get back the
      * user's previous request.
-     * 
+     *
      * @param p
      * @param choice_v
      */

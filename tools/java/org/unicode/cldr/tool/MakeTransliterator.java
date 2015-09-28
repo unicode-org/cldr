@@ -30,7 +30,7 @@ import com.ibm.icu.util.ULocale;
 /**
  * Takes a list of mappings (tab delimited) from source to target and produces a
  * transliterator
- * 
+ *
  * @author markdavis
  *         http://en.wikipedia.org/wiki/English_phonology
  */
@@ -112,7 +112,7 @@ public class MakeTransliterator {
             "[[:Letter:]\u2019]").freeze();
         allowedTargetCharacters = (UnicodeSet) new UnicodeSet(
             "[\u00E6 \u0251 b d\u00F0 e \u0259 \u025B f-i \u026A j-n \u014B o p r s \u0283 t u \u028A v w z \u0292 \u03B8]")
-            .freeze();
+        .freeze();
         countSkipped = 0;
         totalFrequency = 0;
         skippedFrequency = 0;
@@ -417,7 +417,7 @@ public class MakeTransliterator {
                 + source
                 + "\t"
                 + new UnicodeSet().addAll(source)
-                    .removeAll(allowedSourceCharacters).toPattern(false));
+                .removeAll(allowedSourceCharacters).toPattern(false));
             countSkipped++;
             skippedFrequency += frequency;
             return;
@@ -428,7 +428,7 @@ public class MakeTransliterator {
                 + target
                 + "\t"
                 + new UnicodeSet().addAll(target)
-                    .removeAll(allowedTargetCharacters).toPattern(false));
+                .removeAll(allowedTargetCharacters).toPattern(false));
             countSkipped++;
             skippedFrequency += frequency;
             return;
@@ -460,11 +460,11 @@ public class MakeTransliterator {
         buffer.setLength(0);
         buffer.append(
             "# Author: M Davis" + CldrUtility.LINE_SEPARATOR +
-                "# Email: mark.davis@icu-project.org" + CldrUtility.LINE_SEPARATOR +
-                "# Description: English to IPA" + CldrUtility.LINE_SEPARATOR +
-                // "$nletter {([A-Z]+)} $nletter > &en-IPA/spellout($1) ; " + Utility.LINE_SEPARATOR +
-                ":: lower(); " + CldrUtility.LINE_SEPARATOR +
-                "$x = [:^letter:] ;" + CldrUtility.LINE_SEPARATOR);
+            "# Email: mark.davis@icu-project.org" + CldrUtility.LINE_SEPARATOR +
+            "# Description: English to IPA" + CldrUtility.LINE_SEPARATOR +
+            // "$nletter {([A-Z]+)} $nletter > &en-IPA/spellout($1) ; " + Utility.LINE_SEPARATOR +
+            ":: lower(); " + CldrUtility.LINE_SEPARATOR +
+            "$x = [:^letter:] ;" + CldrUtility.LINE_SEPARATOR);
         for (int i = newRules.size() - 1; i >= 0; --i) {
             buffer.append(newRules.get(i));
         }
@@ -489,7 +489,7 @@ public class MakeTransliterator {
     /**
      * Return true if the strings are essentially the same.
      * Differences between schwas and short vowels are counted in certain cases
-     * 
+     *
      * @param targetDir
      * @param targetUsingCore
      * @param targetUsingCore2
@@ -502,7 +502,7 @@ public class MakeTransliterator {
         "ɑʊ > â ;" +
             "ɑɪ > î ;" +
             "oɪ > ô ;",
-        Transliterator.FORWARD);
+            Transliterator.FORWARD);
 
     private static int distance(String source, String target, String targetUsingCore) {
         if (target.equals(targetUsingCore)) return 0;
@@ -544,7 +544,7 @@ public class MakeTransliterator {
             "ɛr > er ;" +
             "ɪr > ir ;" +
             "ʊr > ur ;",
-        Transliterator.FORWARD);
+            Transliterator.FORWARD);
 
     private static boolean mostlyEqual(String inSource, String inTarget, String inTargetUsingCore) {
 
@@ -599,7 +599,7 @@ public class MakeTransliterator {
             + "x > ɛks ;"
             + "y > wɑɪ ;"
             + "z > zi ;",
-        Transliterator.FORWARD);
+            Transliterator.FORWARD);
 
     /**
      * Returns items sorted alphabetically, shortest first

@@ -551,7 +551,7 @@ public class TestPathHeader extends TestFmwkPlus {
             }
 
             // check against deprecated
-            boolean isDeprecated = supplemental.isDeprecated(DtdType.ldml,path);
+            boolean isDeprecated = supplemental.isDeprecated(DtdType.ldml, path);
             if (isDeprecated != (surveyToolStatus == SurveyToolStatus.DEPRECATED)) {
                 if (!deprecatedStar.contains(starred)) {
                     errln("Different from DtdData deprecated:\t"
@@ -947,11 +947,11 @@ public class TestPathHeader extends TestFmwkPlus {
         }
 
     }
-    
+
     public void Test8414() {
         PathDescription pathDescription = new PathDescription(supplemental,
             english, null, null, PathDescription.ErrorHandling.CONTINUE);
-        
+
         String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"";
         String suffix = "\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"morning1\"]";
 

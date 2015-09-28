@@ -9,10 +9,10 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheStats;
 
 /**
- * Simple class for caching Patterns, possibly avoiding the cost of 
+ * Simple class for caching Patterns, possibly avoiding the cost of
  * compilation if they are in the cache.
  *
- * 
+ *
  * @author ribnitz
  *
  */
@@ -20,7 +20,7 @@ public class PatternCache {
     private final static int INITIAL_CAPACITY = 30;
     private final static int MAX_CAPACITY = 1000;
 
-    /** 
+    /**
      * Variable to control whether patterns are cached (true);
      *  or whether they are created all the time */
     private final static boolean USE_CACHE = true;
@@ -35,9 +35,9 @@ public class PatternCache {
      */
     private final static Cache<String, Pattern> cache;
 
-    /* 
+    /*
      * A static initialization block is used to be able to cleanly handle the three different cases:
-     * 
+     *
      * 1) no caching
      * 2) caching without statistics collection
      * 3) caching with statistics collection
@@ -62,7 +62,7 @@ public class PatternCache {
 
     /**
      * Obtain a compiled Pattern from the String given; results of the lookup are cached, a cached result will be returned if
-     * possible. 
+     * possible.
      * @param patternStr the string to use for compilation
      * @throws IllegalArgumentException The string provided was null or empty, or there was a problem compiling the Pattern from the String
      */
@@ -105,7 +105,7 @@ public class PatternCache {
     /**
      * Return true if caching is enabled; in the case it isn't this class acts like a Factory
      * for compiled Patterns
-     * 
+     *
      * @return
      */
     public static boolean isCachingEnabled() {

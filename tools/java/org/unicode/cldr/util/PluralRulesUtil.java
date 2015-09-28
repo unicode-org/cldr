@@ -36,7 +36,7 @@ public class PluralRulesUtil {
 
     /**
      * Find the status for the keyword, given a certain set of explicit values.
-     * 
+     *
      * @param rules
      *            the PluralRules
      * @param keyword

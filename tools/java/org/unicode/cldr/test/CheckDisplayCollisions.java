@@ -126,66 +126,66 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     private static Map<String, Set<String>> createMapPathPartsToSets() {
         Map<String, Set<String>> mapPathPartsToSets = new HashMap<String, Set<String>>();
 
-        // Add OK collisions for /unit[@type=\"energy-calorie\"]     
+        // Add OK collisions for /unit[@type=\"energy-calorie\"]
         Set<String> set1 = new HashSet<String>();
         set1.add("/unit[@type=\"energy-foodcalorie\"]");
         mapPathPartsToSets.put("/unit[@type=\"energy-calorie\"]", set1);
 
-        // Add OK collisions for /unit[@type=\"energy-foodcalorie\"]   
+        // Add OK collisions for /unit[@type=\"energy-foodcalorie\"]
         Set<String> set2 = new HashSet<String>();
         set2.add("/unit[@type=\"energy-calorie\"]");
         set2.add("/unit[@type=\"energy-kilocalorie\"]");
         mapPathPartsToSets.put("/unit[@type=\"energy-foodcalorie\"]", set2);
 
-        // Add OK collisions for /unit[@type=\"energy-kilocalorie\"]     
+        // Add OK collisions for /unit[@type=\"energy-kilocalorie\"]
         Set<String> set3 = new HashSet<String>();
         set3.add("/unit[@type=\"energy-foodcalorie\"]");
         mapPathPartsToSets.put("/unit[@type=\"energy-kilocalorie\"]", set3);
 
-        // Add OK collisions for /unit[@type=\"mass-carat\"]      
+        // Add OK collisions for /unit[@type=\"mass-carat\"]
         Set<String> set4 = new HashSet<String>();
         set4.add("/unit[@type=\"proportion-karat\"]");
         mapPathPartsToSets.put("/unit[@type=\"mass-carat\"]", set4);
 
-        // Add OK collisions for /unit[@type=\"proportion-karat\"]     
+        // Add OK collisions for /unit[@type=\"proportion-karat\"]
         Set<String> set5 = new HashSet<String>();
         set5.add("/unit[@type=\"mass-carat\"]");
         set5.add("/unit[@type=\"temperature-kelvin\"]");
         mapPathPartsToSets.put("/unit[@type=\"proportion-karat\"]", set5);
 
-        // Add OK collisions for /unit[@type=\"digital-byte\"]     
+        // Add OK collisions for /unit[@type=\"digital-byte\"]
         Set<String> set6 = new HashSet<String>();
         set6.add("/unit[@type=\"mass-metric-ton\"]");
         mapPathPartsToSets.put("/unit[@type=\"digital-byte\"]", set6);
 
-        // Add OK collisions for /unit[@type=\"mass-metric-ton\"]     
+        // Add OK collisions for /unit[@type=\"mass-metric-ton\"]
         Set<String> set7 = new HashSet<String>();
         set7.add("/unit[@type=\"digital-byte\"]");
         mapPathPartsToSets.put("/unit[@type=\"mass-metric-ton\"]", set7);
 
         // delete the exceptions allowing acceleration-g-force and mass-gram to have the same symbol, see #7561
 
-        // Add OK collisions for /unit[@type=\"length-foot\"]     
+        // Add OK collisions for /unit[@type=\"length-foot\"]
         Set<String> set10 = new HashSet<String>();
         set10.add("/unit[@type=\"angle-arc-minute\"]");
         mapPathPartsToSets.put("/unit[@type=\"length-foot\"]", set10);
 
-        // Add OK collisions for /unit[@type=\"angle-arc-minute\"]     
+        // Add OK collisions for /unit[@type=\"angle-arc-minute\"]
         Set<String> set11 = new HashSet<String>();
         set11.add("/unit[@type=\"length-foot\"]");
         mapPathPartsToSets.put("/unit[@type=\"angle-arc-minute\"]", set11);
 
-        // Add OK collisions for /unit[@type=\"temperature-kelvin\"]     
+        // Add OK collisions for /unit[@type=\"temperature-kelvin\"]
         Set<String> set12 = new HashSet<String>();
         set12.add("/unit[@type=\"proportion-karat\"]");
         mapPathPartsToSets.put("/unit[@type=\"temperature-kelvin\"]", set12);
 
-        // Add OK collisions for /unit[@type=\"temperature-generic\"]     
+        // Add OK collisions for /unit[@type=\"temperature-generic\"]
         Set<String> set13 = new HashSet<String>();
         set13.add("/unit[@type=\"temperature-generic\"]");
         mapPathPartsToSets.put("/unit[@type=\"angle-degree\"]", set13);
 
-        // Add OK collisions for /unit[@type=\"angle-degree\"]     
+        // Add OK collisions for /unit[@type=\"angle-degree\"]
         Set<String> set14 = new HashSet<String>();
         set14.add("/unit[@type=\"angle-degree\"]");
         mapPathPartsToSets.put("/unit[@type=\"temperature-generic\"]", set14);
@@ -570,7 +570,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     /**
      * Checks if the specified region code has any exceptions to the requirement
      * that all exemplar cities and territory names have to be unique.
-     * 
+     *
      * @param regionCode
      *            the region code to be checked
      * @return the corresponding region code that can have a value identical to

@@ -57,7 +57,7 @@ import com.ibm.icu.util.ULocale;
 /**
  * This is a file that runs the CLDR tests for ICU4J, to verify that ICU4J implements them
  * correctly. It has gotten out of sync with the format, so needs to be fixed.
- * 
+ *
  * @author medavis
  */
 public class TestCldr extends TestFmwk {
@@ -476,8 +476,8 @@ public class TestCldr extends TestFmwk {
             }
 
             /**
-            * 
-            */
+             *
+             */
             private SimpleDateFormat getDateFormat(ULocale locale, int dateFormat,
                 int timeFormat) {
                 if (DEBUG)

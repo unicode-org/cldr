@@ -42,7 +42,7 @@ public class LanguageInfoTest extends TestFmwk {
     //	}
 
     public void testGetData() {
-        Set<Pair<String,String>> alreadySeen = new HashSet<>();
+        Set<Pair<String, String>> alreadySeen = new HashSet<>();
         for (R4<String, String, Integer, Boolean> foo : testInfo.getSupplementalDataInfo().getLanguageMatcherData("written")) {
             //            assertTrue("check bounds", foo.get2() >= 0 && foo.get2() <= 100);
 
@@ -52,7 +52,7 @@ public class LanguageInfoTest extends TestFmwk {
             Boolean oneway = foo.get3();
             assertEquals("Same number of fields", count('_', desired), count('_', supported));
 
-            Pair<String,String> source = Pair.of(desired, supported);
+            Pair<String, String> source = Pair.of(desired, supported);
             if (alreadySeen.contains(source)) {
                 errln("Duplicate entry for " + source);
                 continue;
@@ -61,8 +61,7 @@ public class LanguageInfoTest extends TestFmwk {
             logln(score
                 + "\t" + desired + "\t" + getName(desired)
                 + "\t" + supported + "\t" + getName(supported)
-                + "\t" + oneway
-                );
+                + "\t" + oneway);
         }
     }
 
@@ -71,7 +70,7 @@ public class LanguageInfoTest extends TestFmwk {
         int pos = string.indexOf(c);
         while (pos >= 0) {
             ++count;
-            pos = string.indexOf(c,pos+1);
+            pos = string.indexOf(c, pos + 1);
         }
         return count;
     }
@@ -129,13 +128,13 @@ public class LanguageInfoTest extends TestFmwk {
     static final ULocale MUL = new ULocale("mul");
 
     public void testFallbacks() {
-        Set<String> skip = Collections.<String>emptySet();
-//            !logKnownIssue("Cldrbug:8812", "Problems with LanguageInfoTest") 
+        Set<String> skip = Collections.<String> emptySet();
+//            !logKnownIssue("Cldrbug:8812", "Problems with LanguageInfoTest")
 //            ? Collections.<String>emptySet()
-//            : new HashSet<String>(Arrays.asList("az", "bn", "hy", "ka", "km", "kn", "lo", "ml", "my", "ne", "or", 
-//                "pa", "ps", "sd", "si", "ta", "te", "ti", 
+//            : new HashSet<String>(Arrays.asList("az", "bn", "hy", "ka", "km", "kn", "lo", "ml", "my", "ne", "or",
+//                "pa", "ps", "sd", "si", "ta", "te", "ti",
 //                "tk", "ur", "uz", "yi"));
-            
+
         for (R4<String, String, Integer, Boolean> foo : testInfo.getSupplementalDataInfo().getLanguageMatcherData("written")) {
             String rawDesired = foo.get0();
             if (rawDesired.contains("*") || skip.contains(rawDesired)) {
@@ -155,18 +154,18 @@ public class LanguageInfoTest extends TestFmwk {
             }
 
             // we put "mul" first in the list, to verify that the fallback works enough to be better than the default.
-            
+
             @SuppressWarnings("deprecation")
             final LocaleMatcher matcher = new LocaleMatcher(
                 LocalePriorityList
-                .add(MUL).add(supported)
-                .build(), data);
+                    .add(MUL).add(supported)
+                    .build(), data);
 
             ULocale bestMatch = matcher.getBestMatch(desired);
             if (!assertEquals("fallback for " + desired + ", " + score, supported, bestMatch)) {
                 ULocale max = ULocale.addLikelySubtags(desired);
                 warnln("Might be missing something like\n"
-                    + "<languageMatch desired=\"" 
+                    + "<languageMatch desired=\""
                     + desired.getLanguage() + "_" + max.getScript()
                     + "\" supported=\"en_Latn\" percent=\"90\" oneway=\"true\" />");
                 bestMatch = matcher.getBestMatch(desired); // for debugging

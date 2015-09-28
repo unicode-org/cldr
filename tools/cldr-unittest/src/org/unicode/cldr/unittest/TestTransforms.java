@@ -83,7 +83,7 @@ public class TestTransforms extends TestFmwkPlus {
                     cyrillicToLatin, s + e);
             }
             for (String s : Arrays.asList(" ", "")) { // start of string,
-                                                      // non-letter
+                // non-letter
                 String expected = getPrefix(cyrillicToLatin, s, ysuffix);
                 assertTransformsTo("Uzbek to Latin ye", expected,
                     cyrillicToLatin, s + e);
@@ -178,7 +178,7 @@ public class TestTransforms extends TestFmwkPlus {
         String[][] tests = {
             { "transliterator=", "Katakana-Latin" },
             { "\u30CF \u30CF\uFF70 \u30CF\uFF9E \u30CF\uFF9F",
-                "ha hā ba pa" }, { "transliterator=", "Hangul-Latin" },
+            "ha hā ba pa" }, { "transliterator=", "Hangul-Latin" },
             { "roundtrip=", "true" }, { "갗", "gach" }, { "느", "neu" }, };
 
         Transliterator transform = null;
@@ -192,15 +192,15 @@ public class TestTransforms extends TestFmwkPlus {
                 switch (Options.valueOf(source
                     .substring(0, source.length() - 1).toLowerCase(
                         Locale.ENGLISH))) {
-                case transliterator:
-                    id = target;
-                    transform = Transliterator.getInstance(id);
-                    inverse = Transliterator.getInstance(id,
-                        Transliterator.REVERSE);
-                    break;
-                case roundtrip:
-                    roundtrip = target.toLowerCase(Locale.ENGLISH).charAt(0) == 't';
-                    break;
+                        case transliterator:
+                            id = target;
+                            transform = Transliterator.getInstance(id);
+                            inverse = Transliterator.getInstance(id,
+                                Transliterator.REVERSE);
+                            break;
+                        case roundtrip:
+                            roundtrip = target.toLowerCase(Locale.ENGLISH).charAt(0) == 't';
+                            break;
                 }
                 continue;
             }
@@ -217,7 +217,7 @@ public class TestTransforms extends TestFmwkPlus {
         register();
         Transliterator trans = Transliterator.getInstance("Latin-ASCII");
         assertEquals("Test8921", "Kornil'ev Kirill",
-                     trans.transliterate("Kornilʹev Kirill"));
+            trans.transliterate("Kornilʹev Kirill"));
     }
 
     public void TestData() {
@@ -232,11 +232,11 @@ public class TestTransforms extends TestFmwkPlus {
             File fileDirectory = new File(name
                 + "/../unittest/data/transformtest/");
             String fileDirectoryName = fileDirectory.getCanonicalPath(); // TODO:
-                                                                         // use
-                                                                         // resource,
-                                                                         // not
-                                                                         // raw
-                                                                         // file
+            // use
+            // resource,
+            // not
+            // raw
+            // file
             logln("Testing files in: " + fileDirectoryName);
 
             for (String file : fileDirectory.list()) {
@@ -338,10 +338,10 @@ public class TestTransforms extends TestFmwkPlus {
         ULocale ulocale = new ULocale(locale);
         String specialCasing;
         Normalizer2 normNFC = Normalizer2.getNFCInstance(); // UCharacter.toXxxCase
-                                                            // doesn't
-                                                            // normalize,
-                                                            // Transliterator
-                                                            // does
+        // doesn't
+        // normalize,
+        // Transliterator
+        // does
         switch (casing) {
         case Upper:
             specialCasing = normNFC.normalize(UCharacter.toUpperCase(ulocale,

@@ -12,7 +12,7 @@ import org.unicode.cldr.util.CLDRTool;
  * Implement a 'main' for the CLDR jar.
  */
 @CLDRTool(alias = "main", description = "The 'main' class invoked when java -jar or doubleclicking the jar.", hidden = "Hidden so as not to list itself",
-    url = Main.TOOLSURL)
+url = Main.TOOLSURL)
 class Main {
     private static final String CLASS_SUFFIX = ".class";
     private static final String MAIN = "main";

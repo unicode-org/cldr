@@ -5,9 +5,9 @@ import org.unicode.cldr.util.CLDRLocale;
 /**
  * TODO: this object exists just to capture the following code from the
  * being-removed Vetting object.
- * 
+ *
  * @author srl
- * 
+ *
  */
 public class DisputePageManager {
     static void doDisputed(WebContext ctx) {
@@ -38,11 +38,11 @@ public class DisputePageManager {
     /**
      * mailBucket: mail waiting to go out. Hashmap: Integer(userid) -> String
      * body-of-mail-to-send
-     * 
+     *
      * This way, users only get one mail per service.
-     * 
+     *
      * this function sends out mail waiting in the buckets.
-     * 
+     *
      * @param vetting
      *            TODO
      * @param mailBucket

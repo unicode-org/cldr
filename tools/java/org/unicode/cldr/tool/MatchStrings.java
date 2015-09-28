@@ -64,7 +64,7 @@ public class MatchStrings {
 
     /**
      * Insert the IPA in after the string, such as baitt + /bet/ => b{b}ai{e}t{t}
-     * 
+     *
      * @param english
      * @param ipa
      * @return
@@ -92,7 +92,7 @@ public class MatchStrings {
     /**
      * Recursively match the string. Right now, we just take the matches in order;
      * later we could try a weighted fit
-     * 
+     *
      * @param english
      * @param englishPosition
      * @param ipa
@@ -184,7 +184,7 @@ public class MatchStrings {
     /**
      * Does ipaPart match ipa at the position, ignoring stress marks in ipa?
      * Returns how far it got.
-     * 
+     *
      * @param ipaPosition
      * @param ipaPart
      * @return
@@ -206,7 +206,7 @@ public class MatchStrings {
 
     /**
      * Fix the IPA in a string
-     * 
+     *
      * @param english
      * @param ipa
      * @return

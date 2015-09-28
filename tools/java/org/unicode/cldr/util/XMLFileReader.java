@@ -35,7 +35,7 @@ import org.xml.sax.helpers.XMLReaderFactory;
  * This is meant for XML data files, so the contents of elements must either be all other elements, or
  * just text. It is thus not suitable for XML files with MIXED content;
  * all text content in a mixed element is discarded.
- * 
+ *
  * @author davis
  */
 public class XMLFileReader {
@@ -76,7 +76,7 @@ public class XMLFileReader {
     /**
      * Read an XML file. Return a list of alternating items, where the even items are the paths,
      * and the odd ones are values. The order of the elements matches what was in the file.
-     * 
+     *
      * @param fileName
      *            file to open
      * @param handlers
@@ -317,7 +317,7 @@ public class XMLFileReader {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ErrorHandler#error(org.xml.sax.SAXParseException)
          */
         public void error(SAXParseException exception) throws SAXException {
@@ -327,7 +327,7 @@ public class XMLFileReader {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ErrorHandler#fatalError(org.xml.sax.SAXParseException)
          */
         public void fatalError(SAXParseException exception) throws SAXException {
@@ -337,7 +337,7 @@ public class XMLFileReader {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.xml.sax.ErrorHandler#warning(org.xml.sax.SAXParseException)
          */
         public void warning(SAXParseException exception) throws SAXException {
@@ -379,9 +379,9 @@ public class XMLFileReader {
             try {
                 result = (testList[i].length() != 0)
                     ? XMLReaderFactory.createXMLReader(testList[i])
-                    : XMLReaderFactory.createXMLReader();
-                result.setFeature("http://xml.org/sax/features/validation", validating);
-                break;
+                        : XMLReaderFactory.createXMLReader();
+                    result.setFeature("http://xml.org/sax/features/validation", validating);
+                    break;
             } catch (SAXException e1) {
             }
         }
@@ -391,8 +391,8 @@ public class XMLFileReader {
             result.setEntityResolver(new CachingEntityResolver());
         } catch (Throwable e) {
             System.err
-                .println("WARNING: Can't set caching entity resolver  -  error "
-                    + e.toString());
+            .println("WARNING: Can't set caching entity resolver  -  error "
+                + e.toString());
             e.printStackTrace();
         }
         return result;
@@ -451,8 +451,8 @@ public class XMLFileReader {
     public static List<Pair<String, String>> loadPathValues(String filename, List<Pair<String, String>> data, boolean validating) {
         try {
             new XMLFileReader()
-                .setHandler(new PathValueListHandler(data))
-                .read(filename, -1, validating);
+            .setHandler(new PathValueListHandler(data))
+            .read(filename, -1, validating);
             return data;
         } catch (Exception e) {
             throw new IllegalArgumentException(filename, e);

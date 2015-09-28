@@ -5,17 +5,17 @@ import java.util.Map;
 
 /**
  * A Map that keeps a fixed number of key-value pairs and kicks pairs out in least-recently-used order.
- * 
+ *
  * @deprecated This class has been deprecated; the project now includes GUAVA. which  offer Cache implementations
  * that can be used instead
- * 
+ *
  * @author jchye
- * 
+ *
  * @param <K>
  *            the key type
  * @param <V>
  *            the value type
- *   
+ *
  */
 @Deprecated
 public class LruMap<K, V> extends LinkedHashMap<K, V> {

@@ -28,9 +28,9 @@ import org.unicode.cldr.util.XMLSource;
  * you want to skip the non-language locales, since they don't typically add,
  * just replace. See CheckCLDR for an example.
  * CoverageLevel.localeType=organization to override the organization.
- * 
+ *
  * @author davis
- * 
+ *
  */
 public class CheckCoverage extends FactoryCheckCLDR {
     static final boolean DEBUG = false;
@@ -108,9 +108,9 @@ public class CheckCoverage extends FactoryCheckCLDR {
             PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal, localeID);
             if (pluralInfo == supplementalData.getPlurals(PluralType.cardinal, "root")) {
                 possibleErrors.add(new CheckStatus()
-                    .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.missingPluralInfo)
-                    .setMessage("Missing Plural Information - see supplemental plural charts to file bug.",
-                        new Object[] {}));
+                .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.missingPluralInfo)
+                .setMessage("Missing Plural Information - see supplemental plural charts to file bug.",
+                    new Object[] {}));
             }
         }
 

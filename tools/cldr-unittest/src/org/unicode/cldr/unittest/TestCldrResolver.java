@@ -20,7 +20,7 @@ import org.unicode.cldr.util.LocaleIDParser;
 
 /**
  * Runs all the CLDR Resolver Tool tests
- * 
+ *
  * @author jchye@google.com (Jennifer Chye), ryanmentley@google.com (Ryan
  *         Mentley)
  */
@@ -49,14 +49,14 @@ public class TestCldrResolver extends TestFmwkPlus {
                 CLDRFile file) {
                 return super.shouldIgnorePath(distinguishedPath, file)
                     || file.getSourceLocaleID(distinguishedPath, null)
-                        .equals(CldrResolver.CODE_FALLBACK);
+                    .equals(CldrResolver.CODE_FALLBACK);
             }
         }.testResolution();
     }
 
     /**
      * Main method that runs all CLDR Resolver tests
-     * 
+     *
      * @param args
      *            Command-line arguments
      */
@@ -66,13 +66,13 @@ public class TestCldrResolver extends TestFmwkPlus {
 
     /**
      * A superclass for all Resolver tests to encompass common functionality
-     * 
+     *
      * @author ryanmentley@google.com (Ryan Mentley)
      */
     private class ResolverTest {
         /**
          * Gets the fully-resolved data for the locale.
-         * 
+         *
          * @param locale
          *            the locale for which to get the map
          * @return an immutable Map from distinguished path to string value
@@ -89,7 +89,7 @@ public class TestCldrResolver extends TestFmwkPlus {
 
         /**
          * Determines whether an XPath should be ignored for testing purposes
-         * 
+         *
          * @param distinguishedPath
          *            a distinguished XPath
          * @param file
@@ -159,10 +159,10 @@ public class TestCldrResolver extends TestFmwkPlus {
                                 + " is present in tool resolved file for locale "
                                 + locale
                                 + " but not in CLDR resolved file.",
-                            cldrPaths.contains(canonicalPath)
+                                cldrPaths.contains(canonicalPath)
                                 || toolResolved
-                                    .get(canonicalPath)
-                                    .equals(CldrUtility.NO_INHERITANCE_MARKER));
+                                .get(canonicalPath)
+                                .equals(CldrUtility.NO_INHERITANCE_MARKER));
                     }
                 }
             }
@@ -200,7 +200,7 @@ public class TestCldrResolver extends TestFmwkPlus {
                                 + ") should not contain values that are the same in the truncation parent locale ("
                                 + parent + ") at path '"
                                 + distinguishedPath + "'.", childValue,
-                            parentValue);
+                                parentValue);
                     }
                     // Overwrite the parent value
                     resolvedChild.put(distinguishedPath, childValue);

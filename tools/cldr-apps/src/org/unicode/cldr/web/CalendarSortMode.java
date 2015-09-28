@@ -10,14 +10,14 @@ import org.unicode.cldr.web.DataSection.DataRow;
 
 /**
  * @author srl
- * 
+ *
  */
 public class CalendarSortMode extends SortMode {
     public static String name = SurveyMain.PREF_SORTMODE_CODE_CALENDAR;
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.web.SortMode#getName()
      */
     @Override

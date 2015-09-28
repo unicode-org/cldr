@@ -53,7 +53,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         locale = cldrFileToCheck.getLocaleID();
-        // get info about casing; note that this is done in two steps since 
+        // get info about casing; note that this is done in two steps since
         // ScriptMetadata.getInfo() returns null, in some instances.
         // OLD: Info localeInfo = ScriptMetadata.getInfo(locale);
         String script = new LikelySubtags().getLikelyScript(locale);
@@ -63,7 +63,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
             // this script has casing info, so we can request it here
             types = casingInfo.getLocaleCasing(locale);
         } else {
-            // no casing info - since the types Map is global, and null checks aren't done, 
+            // no casing info - since the types Map is global, and null checks aren't done,
             // we are better off  with an empty map here
             types = Collections.emptyMap();
         }
@@ -209,10 +209,10 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         .add("//ldml/numbers/currencies/currency.*/displayName", Category.currencyName)
         .add("//ldml/units/unit.*/unitPattern.*(past|future)", Category.relative)
         .add("//ldml/units/unit.*/unitPattern", Category.unit_pattern)
-    // ldml/localeDisplayNames/keys/key[@type=".*"]
-    // ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=".*"]
-    // ldml/localeDisplayNames/transformNames/transformName[@type=".*"]
-    ;
+        // ldml/localeDisplayNames/keys/key[@type=".*"]
+        // ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=".*"]
+        // ldml/localeDisplayNames/transformNames/transformName[@type=".*"]
+        ;
 
     Map<Category, CasingTypeAndErrFlag> types = new EnumMap<Category, CasingTypeAndErrFlag>(Category.class);
 
@@ -242,7 +242,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
 
     /**
      * Calculates casing information using data from the specified CLDRFile.
-     * 
+     *
      * @param resolved
      *            the resolved CLDRFile to calculate casing information from
      * @return

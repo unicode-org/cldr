@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.unicode.cldr.test;
 
@@ -18,7 +18,7 @@ import com.google.common.cache.CacheBuilder;
 
 /**
  * @author srl
- * 
+ *
  *         Factory must implement CLDRLocale.SublocaleProvider
  */
 public class SimpleTestCache extends TestCache {
@@ -26,7 +26,7 @@ public class SimpleTestCache extends TestCache {
 
     /**
      * Hash the options map
-     * 
+     *
      * @param o
      * @return
      */
@@ -35,7 +35,7 @@ public class SimpleTestCache extends TestCache {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.test.TestCache#notifyChange(org.unicode.cldr.util.CLDRLocale, java.lang.String)
      */
     @Override

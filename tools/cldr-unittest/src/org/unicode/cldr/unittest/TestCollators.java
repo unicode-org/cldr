@@ -38,10 +38,10 @@ public class TestCollators extends TestFmwk {
 
     static class CollatorSource {
         static Factory cldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "collation/", ".*");
-        
+
         static M3<String, String, String> localeToTypeToPath = ChainedMap.of(
-            new LinkedHashMap<String,Object>(), 
-            new LinkedHashMap<String,Object>(), 
+            new LinkedHashMap<String, Object>(),
+            new LinkedHashMap<String, Object>(),
             String.class);
 
         static RuleBasedCollator build(String locale, String type) {
@@ -60,7 +60,7 @@ public class TestCollators extends TestFmwk {
         }
 
         static final Pattern TYPE = PatternCache.get("//ldml/collations/collation\\[@type=\"([^\"]+)\"\\].*/cr");
-        
+
         static public Set<String> getAvailableTypes(String locale) {
             CLDRFile cldrFile = cldrFactory.make(locale, false); // don't need resolved
             Set<String> results = new LinkedHashSet<>();

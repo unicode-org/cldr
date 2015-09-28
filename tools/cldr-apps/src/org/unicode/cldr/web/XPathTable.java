@@ -39,15 +39,15 @@ import com.ibm.icu.dev.util.ElapsedTimer;
  * This class maps between full and partial xpaths, and the small integers (xpids) which
  * are actually stored in the database. It keeps an in-memory cache which is
  * populated as ids are requested.
- * 
- * 
+ *
+ *
  * Definitions:
  *    xpath:        an XPath, such as "//ldml/shoeSize"
- *    xpid / int:   an integer 'token' value, such as 123. 
- *                   This is old and deprecated.  
- *                   Specific to this instance of SurveyTool. 
+ *    xpid / int:   an integer 'token' value, such as 123.
+ *                   This is old and deprecated.
+ *                   Specific to this instance of SurveyTool.
  *                   This is usually what is meant by "int xpath" in code or in the database.
- *    strid / hex:  a hexadecimal "hash" of the full xpath such as "b1dfb436c841a73". 
+ *    strid / hex:  a hexadecimal "hash" of the full xpath such as "b1dfb436c841a73".
  *                   This is the preferred method of condensing of xpaths.
  *                   Note that you can't calculate the xpath from this without a look-up table.
  *    "long" StringID:    this is the "long" form of the hex id.  Not used within the SurveyTool, some CLDR tools use it.
@@ -58,7 +58,7 @@ public class XPathTable {
 
     /**
      * Called by SM to create the reg
-     * 
+     *
      * @param ourConn
      *            the conn to use
      */
@@ -91,7 +91,7 @@ public class XPathTable {
 
     private void loadXPaths(Connection conn) throws SQLException {
         if (stringToId.size() != 0) { // Only load the entire stringToId map
-                                      // once.
+            // once.
             return;
         }
         ElapsedTimer et = new ElapsedTimer("XPathTable: load all xpaths");
@@ -113,7 +113,7 @@ public class XPathTable {
 
     /**
      * Called by SM to shutdown
-     * 
+     *
      * @deprecated unneeded
      */
     public void shutdownDB() throws SQLException {
@@ -223,7 +223,7 @@ public class XPathTable {
 
     /**
      * Add a set of xpaths to the database.
-     * 
+     *
      * @param xpaths
      * @param conn
      * @throws SQLException
@@ -363,7 +363,7 @@ public class XPathTable {
     /**
      * Adds an xpathid-xpath value pair to the XPathTable. This method is used
      * by classes to cache the values obtained by using their own queries.
-     * 
+     *
      * @param id
      * @param xpath
      */
@@ -374,7 +374,7 @@ public class XPathTable {
 
     /**
      * get an xpath id by value, add it if not found
-     * 
+     *
      * @param xpath
      *            string string to add
      * @return the id for the specified path
@@ -390,7 +390,7 @@ public class XPathTable {
 
     /**
      * Look up xpath id by value. Return -1 if not found
-     * 
+     *
      * @param xpath
      * @return id, or -1 if not found
      */
@@ -405,7 +405,7 @@ public class XPathTable {
 
     /**
      * get an xpath id by value, add it if not found
-     * 
+     *
      * @param xpath
      *            string string to add
      * @return the id for the specified path
@@ -421,7 +421,7 @@ public class XPathTable {
 
     /**
      * Look up xpath id by value. Return -1 if not found
-     * 
+     *
      * @param xpath
      * @return id, or -1 if not found
      */
@@ -446,7 +446,7 @@ public class XPathTable {
      * remove the 'draft=' and 'alt=*proposed' from the XPath. Makes the path
      * almost distinguishing, except that certain attributes, such as numbers=,
      * will be left.
-     * 
+     *
      * @param path
      * @return
      */
@@ -480,11 +480,11 @@ public class XPathTable {
         if (undistinguishingAttributes == null) {
             Set<String> s = new HashSet<String>();
             // sm.getSupplementalDataInfo().getElementOrder()); // all
-                                                                                                 // elements.
-                                                                                                 // We
-                                                                                                 // assume.
+            // elements.
+            // We
+            // assume.
             DtdData d = DtdData.getInstance(DtdType.ldml);
-            for ( DtdData.Attribute a : d.getAttributes()) {
+            for (DtdData.Attribute a : d.getAttributes()) {
                 s.add(a.name);
             }
             Collection<String> distinguishing = sm.getSupplementalDataInfo().getDistinguishingAttributes();
@@ -552,7 +552,7 @@ public class XPathTable {
 
     /**
      * note does not remove draft. expects a dpath.
-     * 
+     *
      * @param xpath
      */
     public static String xpathToBaseXpath(String xpath) {
@@ -682,7 +682,7 @@ public class XPathTable {
     /**
      * Gets sortable form of the pretty path, and caches the mapping for faster
      * later mapping.
-     * 
+     *
      * @param path
      * @deprecated PrettyPath is deprecated.
      */
@@ -712,7 +712,7 @@ public class XPathTable {
     /**
      * Get original path. ONLY works if getPrettyPath was called with the
      * original!
-     * 
+     *
      * @param prettyPath
      * @return original path
      * @deprecated PrettyPath
@@ -726,7 +726,7 @@ public class XPathTable {
 
     /**
      * How much is inside?
-     * 
+     *
      * @return Number of xpaths in the table
      */
     public int count() {

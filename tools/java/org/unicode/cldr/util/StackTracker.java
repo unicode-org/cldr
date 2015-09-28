@@ -13,22 +13,22 @@ import java.util.Map;
 
 /**
  * Debugging utility.
- * 
+ *
  * A StackTracker tracks which stack frame various objects were created from.
  * For example, call add() and remove() alongside some cache, and then StackTracker's toString() will
  * print out the stack frame of all adds() not balanced by remove().
- * 
+ *
  * Objects must be Comparable.
- * 
+ *
  * Example use is in the main() at the bottom. Outputs:
- * 
+ *
  * "{StackTracker:
  * Held Obj #1/2: the
  * org.unicode.cldr.util.StackTracker.currentStack(StackTracker.java:92)
  * org.unicode.cldr.util.StackTracker.add(StackTracker.java:34)
  * org.unicode.cldr.util.StackTracker.main(StackTracker.java:118)
  * ...}"
- * 
+ *
  * @author srl
  */
 @CLDRTool(alias = "test.stacktracker", description = "Test for StackTracker", hidden = "test")
@@ -37,7 +37,7 @@ public class StackTracker implements Iterable<Object> {
 
     /**
      * Add object (i.e. added to cache)
-     * 
+     *
      * @param o
      */
     public void add(Object o) {
@@ -47,7 +47,7 @@ public class StackTracker implements Iterable<Object> {
 
     /**
      * remove obj (i.e. removed from cache)
-     * 
+     *
      * @param o
      */
     public void remove(Object o) {
@@ -56,7 +56,7 @@ public class StackTracker implements Iterable<Object> {
 
     /**
      * internal - convert a stack to string
-     * 
+     *
      * @param stackTrace
      * @param skip
      *            start at this index (skip the top stuff)
@@ -99,7 +99,7 @@ public class StackTracker implements Iterable<Object> {
 
     /**
      * Convenience function, gets the current stack trace.
-     * 
+     *
      * @return current stack trace
      */
     public static String currentStack() {
@@ -108,7 +108,7 @@ public class StackTracker implements Iterable<Object> {
 
     /**
      * Convenience function, gets the current element
-     * 
+     *
      * @param stacks
      *            to skip - 0 for immediate caller, 1, etc
      */
@@ -117,7 +117,7 @@ public class StackTracker implements Iterable<Object> {
     }
 
     /**
-     * 
+     *
      * @return true if there are no held objects
      */
     public boolean isEmpty() {
@@ -134,7 +134,7 @@ public class StackTracker implements Iterable<Object> {
 
     /**
      * Example use.
-     * 
+     *
      * @param args
      *            ignored
      */

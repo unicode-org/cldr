@@ -43,7 +43,7 @@ import com.ibm.icu.util.ULocale;
 
 /**
  * Immutable class that will parse dates and times for a particular ULocale.
- * 
+ *
  * @author markdavis
  */
 public class LenientDateParser {
@@ -369,7 +369,7 @@ public class LenientDateParser {
         /**
          * Sets the 100-year period 2-digit years will be interpreted as being in
          * to begin on the date the user specifies.
-         * 
+         *
          * @param startDate
          *            During parsing, two digit years will be placed in the range <code>startDate</code> to
          *            <code>startDate + 100 years</code>.
@@ -441,9 +441,9 @@ public class LenientDateParser {
 
     /**
      * Tokens can be integers, separator strings, or date elements (Timezones, Months, Days, Eras)
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     static class Token {
 
@@ -1230,10 +1230,10 @@ public class LenientDateParser {
     }
 
     /*
-     * 
+     *
      * Parsing "-1100" gets AMBIGUOUS:5 {001:Etc/GMT+11, AS:Pacific/Pago_Pago, NU:Pacific/Niue, UM:Pacific/Midway,
      * WS:Pacific/Apia}
-     * 
+     *
      * Parsing "+0530" gets AMBIGUOUS:2 {IN:Asia/Calcutta, LK:Asia/Colombo}
      * Parsing "+0630" gets AMBIGUOUS:2 {CC:Indian/Cocos, MM:Asia/Rangoon}
      * Parsing "+0930" gets AMBIGUOUS:3 {AU:Australia/Adelaide, AU:Australia/Broken_Hill, AU:Australia/Darwin}

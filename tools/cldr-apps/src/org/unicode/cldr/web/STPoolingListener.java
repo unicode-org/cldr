@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 
 /**
  * Pooled (data source) listener. Disabled by default.
- * 
+ *
  * @author srl
  * @see SurveyMain#doStartupDB
  */
@@ -25,7 +25,7 @@ public class STPoolingListener implements ServletContextListener {
     private static final String ST_DATABASE = "jdbc/SurveyTool";
 
     /**
-     * 
+     *
      */
     public STPoolingListener() {
         // TODO Auto-generated constructor stub
@@ -33,7 +33,7 @@ public class STPoolingListener implements ServletContextListener {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see javax.servlet.ServletContextListener#contextDestroyed(javax.servlet.
      * ServletContextEvent)
      */
@@ -45,7 +45,7 @@ public class STPoolingListener implements ServletContextListener {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * javax.servlet.ServletContextListener#contextInitialized(javax.servlet
      * .ServletContextEvent)

@@ -109,7 +109,7 @@ public class SupplementalMapper {
 
     /**
      * SupplementalMapper constructor.
-     * 
+     *
      * @param inputDir
      *            the directory that the input files are in
      */
@@ -184,7 +184,7 @@ public class SupplementalMapper {
 
     /**
      * Loads an IcuData object of the specified type.
-     * 
+     *
      * @param outputName
      *            the type of data to be converted
      * @return an IcuData object
@@ -257,7 +257,7 @@ public class SupplementalMapper {
 
     /**
      * Loads values for the specified category from CLDR.
-     * 
+     *
      * @param category
      * @param pathValueMap
      *            the output map
@@ -333,7 +333,7 @@ public class SupplementalMapper {
 
     /**
      * Processes values to be added to the ICU data structure
-     * 
+     *
      * @param xpath
      *            the CLDR path that the values came from
      * @param rbPath
@@ -357,7 +357,7 @@ public class SupplementalMapper {
 
     /**
      * Converts a date string to a pair of millisecond values.
-     * 
+     *
      * @param dateStr
      * @return
      */
@@ -388,7 +388,7 @@ public class SupplementalMapper {
     /**
      * Parses a string date and normalizes it depending on what type of date it
      * is.
-     * 
+     *
      * @param dateStr
      * @param type
      *            whether the date is a from or a to
@@ -433,7 +433,7 @@ public class SupplementalMapper {
 
     /**
      * Counts the number of hyphens in a string.
-     * 
+     *
      * @param str
      * @return
      */

@@ -8,7 +8,7 @@ import java.util.Locale;
 
 /**
  * Types of CLDR resolution
- * 
+ *
  * @author ryanmentley@google.com (Ryan Mentley)
  */
 public enum ResolutionType {
@@ -38,7 +38,7 @@ public enum ResolutionType {
 
     /**
      * Gets a ResolutionType corresponding to a given string
-     * 
+     *
      * @param str the string to resolve to a ResolutionType
      * @throws IllegalArgumentException if str does not correspond to any known
      *         resolution type

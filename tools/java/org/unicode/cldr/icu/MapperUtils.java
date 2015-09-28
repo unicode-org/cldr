@@ -21,7 +21,7 @@ import org.xml.sax.XMLReader;
 
 /**
  * Utility class for NewLdml2IcuConverter mappers.
- * 
+ *
  * @author jchye
  */
 public class MapperUtils {
@@ -29,7 +29,7 @@ public class MapperUtils {
 
     /**
      * Parses an XML file.
-     * 
+     *
      * @param inputFile
      *            the file to be parsed
      * @param handler
@@ -83,9 +83,9 @@ public class MapperUtils {
 
     /**
      * Empty convenience superclass for all XML parsers used in mappers.
-     * 
+     *
      * @author jchye
-     * 
+     *
      */
     public static abstract class EmptyHandler implements ContentHandler {
         @Override

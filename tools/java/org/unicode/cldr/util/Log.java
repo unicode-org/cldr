@@ -3,15 +3,15 @@
  * Copyright (C) 2004, International Business Machines Corporation and        *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
- * 
+ *
  * in shell:  (such as .cldrrc)
  *   export CWDEBUG="-DCLDR_DTD_CACHE=/tmp/cldrdtd/"
  *   export CWDEFS="-DCLDR_DTD_CACHE_DEBUG=y ${CWDEBUG}"
  *
- * 
+ *
  * in code:
  *   docBuilder.setEntityResolver(new CachingEntityResolver());
- * 
+ *
  */
 
 package org.unicode.cldr.util;
@@ -90,7 +90,7 @@ public class Log {
 
     /**
      * format a line and print, in 80 character pieces. A bit dumb right now: doesn't handle strings.
-     * 
+     *
      * @param format
      * @param args
      */

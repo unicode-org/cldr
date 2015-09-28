@@ -192,7 +192,7 @@ public class Unlocode {
     }
 
     /* http://www.unece.org/fileadmin/DAM/cefact/locode/unlocode_manual.pdf
-    // 
+    //
      * 0 ,
      * 1 "AD",
      * 2 "SJL",
@@ -204,16 +204,16 @@ public class Unlocode {
      * 8 "1101",
      * 9 ,
      * 10 "4228N 00130E",""
-            0 Column Change 
-            X Marked for deletion in the next issue 
+            0 Column Change
+            X Marked for deletion in the next issue
             1 Country code
                     "XZ" - no country
             2 Column LOCODE
-            3 Column Name 
+            3 Column Name
             4 Column Name Without Diacritics
-            5 Column Subdivision 
-            6 Column Function 
-            7 Column Status 
+            5 Column Subdivision
+            6 Column Function
+            7 Column Status
             8 Column Date
             9 Column IATA
             10 Latitude/Longitude
@@ -294,7 +294,7 @@ public class Unlocode {
 
     public static void load(int file) throws IOException {
         BufferedReader br =
-            //CldrUtility.getUTF8Data( 
+            //CldrUtility.getUTF8Data(
             FileReaders.openFile(CldrUtility.class,
                 "data/external/2013-1_UNLOCODE_CodeListPart" + file + ".csv",
                 LATIN1);
@@ -413,8 +413,8 @@ public class Unlocode {
             }
             name = paren2 == name.length()
                 ? name.substring(0, paren).trim()
-                : (name.substring(0, paren) + name.substring(paren2 + 1)).replace("  ", " ").trim();
-            //System.out.println("«" + orginal + "» => «" + name + "», «" + tempOutput.value + "»");
+                    : (name.substring(0, paren) + name.substring(paren2 + 1)).replace("  ", " ").trim();
+                //System.out.println("«" + orginal + "» => «" + name + "», «" + tempOutput.value + "»");
         }
         return name;
     }
@@ -527,7 +527,7 @@ public class Unlocode {
         }
 
         //        Set<String> KNOWN_ERRORS = new HashSet<String>(Arrays.asList("AR-LA", "DE-BR"));
-        //        
+        //
         //        for (Entry<String, Set<String>> s : getLoadErrors().keyValuesSet()) {
         //            String key = s.getKey();
         //            Set<String> values = s.getValue();

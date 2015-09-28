@@ -21,7 +21,7 @@ import com.google.common.cache.CacheBuilder;
 public class SimpleFactory extends Factory {
 
     /**
-     * Variable to control the behaviour of the class. 
+     * Variable to control the behaviour of the class.
      *  TRUE -  use a (non-static) array of Maps, indexed by locale String (old behaviour)
      *  FALSE - use a single static map, indexed with a more elaborate key.
      */
@@ -29,7 +29,7 @@ public class SimpleFactory extends Factory {
 
     /**
      * Variable that customizes the caching of the results of SimpleFactory.make
-     * 
+     *
      */
     private static final boolean CACHE_SIMPLE_FACTORIES = false;
 
@@ -269,7 +269,7 @@ public class SimpleFactory extends Factory {
         public String toString() {
             StringBuilder builder = new StringBuilder();
             builder.append("SimpleFactoryCacheKey [sourceDirectories=").append(sourceDirectories).append(", matchString=").append(matchString)
-                .append(", mimimalDraftStatus=").append(mimimalDraftStatus).append("]");
+            .append(", mimimalDraftStatus=").append(mimimalDraftStatus).append("]");
             return builder.toString();
         }
 
@@ -359,7 +359,7 @@ public class SimpleFactory extends Factory {
 
     /**
      * Create a factory from a source directory list
-     * 
+     *
      * @param sourceDirectory
      * @param matchString
      * @param minimalDraftStatus
@@ -424,7 +424,7 @@ public class SimpleFactory extends Factory {
                 resolvedCache[i] = Collections.synchronizedMap(new LruMap<String, CLDRFile>(CACHE_LIMIT));
             }
         } else {
-            // combinedCache=  Collections.synchronizedMap(new LruMap<CLDRCacheKey, CLDRFile>(CACHE_LIMIT)); 
+            // combinedCache=  Collections.synchronizedMap(new LruMap<CLDRCacheKey, CLDRFile>(CACHE_LIMIT));
             combinedCache = CacheBuilder.newBuilder().maximumSize(CACHE_LIMIT).build();
         }
         //
@@ -448,7 +448,7 @@ public class SimpleFactory extends Factory {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("{" + getClass().getName())
-            .append(" dirs=");
+        .append(" dirs=");
         for (File f : sourceDirectories) {
             sb.append(f.getPath()).append(' ');
         }
@@ -470,7 +470,7 @@ public class SimpleFactory extends Factory {
         final Map mapToSynchronizeOn;
         final File parentDir = getSourceDirectoryForLocale(localeName);
         /*
-         *  Parameter check: parentDir being null means the source directory could not be found - throw exception here 
+         *  Parameter check: parentDir being null means the source directory could not be found - throw exception here
          *  rather than running into a  NullPointerException when trying to create/store the cache key further down.
          */
         if (parentDir == null) {
@@ -481,10 +481,10 @@ public class SimpleFactory extends Factory {
         if (USE_OLD_HANDLEMAKE_CODE) {
             final Map<String, CLDRFile> cache = resolved ?
                 resolvedCache[minimalDraftStatus.ordinal()] :
-                mainCache[minimalDraftStatus.ordinal()];
-            mapToSynchronizeOn = cache;
-            cacheKey = localeName;
-            result = cache.get(localeName);
+                    mainCache[minimalDraftStatus.ordinal()];
+                mapToSynchronizeOn = cache;
+                cacheKey = localeName;
+                result = cache.get(localeName);
         } else {
             // Use double-check idiom
             cacheKey = new CLDRCacheKey(localeName, resolved, minimalDraftStatus, parentDir);
@@ -544,7 +544,7 @@ public class SimpleFactory extends Factory {
 
     /**
      * Produce a CLDRFile from a localeName, given a directory.
-     * 
+     *
      * @param localeName
      * @param dir
      *            directory
@@ -560,7 +560,7 @@ public class SimpleFactory extends Factory {
 
     /**
      * Create a CLDRFile for the given localename.
-     * 
+     *
      * @param localeName
      */
     public static CLDRFile makeSupplemental(String localeName) {
@@ -572,7 +572,7 @@ public class SimpleFactory extends Factory {
 
     /**
      * CLDRFile from a file input stream. Set the locale ID from the same input stream.
-     * 
+     *
      * @param fileName
      * @param fis
      * @param minimalDraftStatus
@@ -585,7 +585,7 @@ public class SimpleFactory extends Factory {
 
     /**
      * Produce a CLDRFile from a file input stream.
-     * 
+     *
      * @param localeName
      * @param fis
      */
@@ -615,7 +615,7 @@ public class SimpleFactory extends Factory {
     /**
      * Create a CLDRFile for the given localename.
      * SimpleXMLSource will be used as the source.
-     * 
+     *
      * @param localeName
      */
     public static CLDRFile makeFile(String localeName) {
@@ -625,7 +625,7 @@ public class SimpleFactory extends Factory {
 
     /**
      * Produce a CLDRFile from a localeName and filename, given a directory.
-     * 
+     *
      * @param localeName
      * @param dir
      *            directory

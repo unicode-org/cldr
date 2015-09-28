@@ -53,11 +53,11 @@ import com.ibm.icu.text.UnicodeSet;
  */
 public class DBUtils {
     private static final boolean DEBUG = false;// CldrUtility.getProperty("TEST",
-                                               // false);
+    // false);
     private static final boolean DEBUG_QUICKLY = false;// CldrUtility.getProperty("TEST",
-                                                       // false);
+    // false);
 
-    private static final boolean DEBUG_SQL = false; // show "all" SQL 
+    private static final boolean DEBUG_SQL = false; // show "all" SQL
     private static DBUtils instance = null;
     private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
     private static DataSource datasource = null;
@@ -102,7 +102,7 @@ public class DBUtils {
     public static String DB_SQL_MIDTEXT = "VARCHAR(1024)";
     public static String DB_SQL_BIGTEXT = "VARCHAR(16384)";
     public static String DB_SQL_UNICODE = "VARCHAR(16384)"; // unicode type
-                                                            // string
+    // string
     public static String DB_SQL_LAST_MOD_TYPE = "TIMESTAMP";
     public static String DB_SQL_LAST_MOD = " last_mod TIMESTAMP NOT NULL WITH DEFAULT CURRENT_TIMESTAMP  ";
     public static String DB_SQL_ALLTABLES = "select tablename from SYS.SYSTABLES where tabletype='T'";
@@ -111,18 +111,19 @@ public class DBUtils {
     public static int db_number_open = 0;
     public static int db_number_used = 0;
     private static int db_UnicodeType = java.sql.Types.VARCHAR; /*
-                                                                 * for setNull -
-                                                                 * see
-                                                                 * java.sql.Types
-                                                                 */
+                                                                * for setNull -
+                                                                * see
+                                                                * java.sql.Types
+                                                                */
     private static final StackTracker tracker = DEBUG ? new StackTracker() : null; // new
-                                                                                   // StackTracker();
-                                                                                   // -
-                                                                                   // enable,
-                                                                                   // to
-                                                                                   // track
-                                                                                   // unclosed
-                                                                                   // connections
+
+    // StackTracker();
+    // -
+    // enable,
+    // to
+    // track
+    // unclosed
+    // connections
 
     public Appendable stats(Appendable output) throws IOException {
         return output.append("DBUtils: currently open: " + db_number_open).append(", max open: " + db_max_open)
@@ -757,10 +758,10 @@ public class DBUtils {
             if (DEBUG) {
                 long now = System.currentTimeMillis();
                 if (now - lastMsg > (DEBUG_QUICKLY ? 6000 : 3600000) /*
-                                                                      * || (
-                                                                      * db_number_used
-                                                                      * ==5000)
-                                                                      */) {
+                                                                     * || (
+                                                                     * db_number_used
+                                                                     * ==5000)
+                                                                     */) {
                     lastMsg = now;
                     System.err.println("DBUtils: " + db_number_open + " open, " + db_max_open + " max,  " + db_number_used
                         + " used. " + StackTracker.currentStack());
@@ -1005,9 +1006,9 @@ public class DBUtils {
                 } else if (o instanceof java.sql.Timestamp) {
                     ps.setTimestamp(i + 1, (java.sql.Timestamp) o);
                 } else if (o instanceof CLDRLocale) { /*
-                                                       * toString compatible
-                                                       * things
-                                                       */
+                                                      * toString compatible
+                                                      * things
+                                                      */
                     ps.setString(i + 1, ((CLDRLocale) o).getBaseName());
                 } else {
                     System.err.println("DBUtils: Warning: using toString for unknown object " + o.getClass().getName());
@@ -1148,7 +1149,7 @@ public class DBUtils {
      * @param sb
      * @param forVersion
      * @param isBeta
-     * @return 
+     * @return
      */
     public static StringBuilder appendVersionString(StringBuilder sb, String forVersion, Boolean isBeta) {
         if (forVersion != null) {
@@ -1268,7 +1269,7 @@ public class DBUtils {
             String colname = rsm.getColumnName(i).toUpperCase();
             final int columnType = rsm.getColumnType(i);
             if (colname.equals("XPATH") &&
-                    (columnType == java.sql.Types.INTEGER)  ) {
+                (columnType == java.sql.Types.INTEGER)) {
                 hasxpath = i;
             }
             if (colname.equals("LOCALE"))
@@ -1335,11 +1336,11 @@ public class DBUtils {
             }
             if (hasxpath >= 0 && xpath != null) {
                 final String xpathString = CookieSession.sm.xpt.getById(xpath);
-                item.put(xpathString!=null? xpathString : ""); // XPATH_STRING
-                item.put(xpathString!=null? (XPathTable.getStringIDString(xpathString)) : ""); // add
-                                                               // XPATH_STRHASH
-                                                               // column
-                if(xpathString == null || xpathString.isEmpty()) {
+                item.put(xpathString != null ? xpathString : ""); // XPATH_STRING
+                item.put(xpathString != null ? (XPathTable.getStringIDString(xpathString)) : ""); // add
+                // XPATH_STRHASH
+                // column
+                if (xpathString == null || xpathString.isEmpty()) {
                     item.put("");
                 } else {
                     final PathHeader ph = stFactory.getPathHeader(xpathString);
@@ -1568,7 +1569,7 @@ public class DBUtils {
         REVIEW_POST;
 
         /**
-         * 
+         *
          * @param isVersioned
          * @param hasBeta
          */
@@ -1611,7 +1612,7 @@ public class DBUtils {
     static boolean tryUpdates = true;
 
     /**
-     * 
+     *
      * @param rs
      * @param string
      * @param sqlnow

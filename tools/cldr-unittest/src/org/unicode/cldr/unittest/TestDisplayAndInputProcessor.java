@@ -69,14 +69,14 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info
             .getCLDRFile("my", false));
         String z_mi = "ေမာင္းရီ (နယူးဇီလန္ကၽြန္းရွိ ပင္ရင္းတိုင္းရင္းသားလူမ်ိဳး)"; // language
-                                                                                   // mi
-                                                                                   // in
-                                                                                   // CLDR
-                                                                                   // 24
+        // mi
+        // in
+        // CLDR
+        // 24
         String u_mi = "မောင်းရီ (နယူးဇီလန်ကျွန်းရှိ ပင်ရင်းတိုင်းရင်းသားလူမျိုး)"; // mi
-                                                                                   // converted
-                                                                                   // to
-                                                                                   // Unicode
+        // converted
+        // to
+        // Unicode
 
         // Check that z_mi is detected as Zawgyi, and converted to u_mi.
         // Check that the converted version is detected as Unicode.
@@ -114,7 +114,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         }
 
         String z0 = "\u1000\u1005\u102C\u1038\u101E\u1019\u102C\u1038"; // Test
-                                                                        // #0
+        // #0
         String converted_0 = daip.processInput("", z0, null);
         if (!converted_0.equals(z0)) {
             errln("Myanmar #0 (Unicode) was changed: " + z0 + " to "
@@ -199,9 +199,9 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             info.getEnglish(), false);
         String xpath = "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
         String value = daip.processInput(xpath, "¤ #,##0.00", null); // breaking
-                                                                     // space
+        // space
         assertEquals("Breaking space not replaced", "¤ #,##0.00", value); // non-breaking
-                                                                          // space
+        // space
     }
 
     private Boolean usesModifierApostrophe(CLDRFile testFile) {
@@ -213,7 +213,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         while (usi.next()) {
             if (usi.codepoint == MODIFIER_LETTER_APOSTROPHE
                 || (usi.codepoint == UnicodeSetIterator.IS_STRING && usi
-                    .getString().indexOf(MODIFIER_LETTER_APOSTROPHE) >= 0)) {
+                .getString().indexOf(MODIFIER_LETTER_APOSTROPHE) >= 0)) {
                 return true;
             }
         }
@@ -248,9 +248,9 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             info.getEnglish(), false);
         String xpath = "//ldml/units/unitLength[@type=\"narrow\"]/unitPattern[@count=\"one\"]";
         String value = daip.processInput(xpath, "{0}''", null); // breaking
-                                                                // space
+        // space
         assertEquals("Quotes not normalized", "{0}″", value); // non-breaking
-                                                              // space
+        // space
     }
 
     private void showCldrFile(final CLDRFile cldrFile) {
@@ -275,9 +275,9 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                     + diff
                     + (internalException[0] != null ? ">\n\texcep<"
                         + internalException[0] : "") + ">\n\tpath<"
-                    + path + ">");
+                        + path + ">");
                 daip.processInput(path, value, internalException); // for
-                                                                   // debugging
+                // debugging
             } else if (!CharSequences.equals(value, display)
                 || !CharSequences.equals(value, input)
                 || internalException[0] != null) {
@@ -292,7 +292,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                     + diff
                     + (internalException[0] != null ? ">\n\texcep<"
                         + internalException[0] : "") + ">\n\tpath<"
-                    + path + ">");
+                        + path + ">");
             }
         }
     }

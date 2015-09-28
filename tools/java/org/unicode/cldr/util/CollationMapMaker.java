@@ -43,9 +43,9 @@ public class CollationMapMaker {
 
     /**
      * Used to pick the "best" sample from a set for using as the canonical form.
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     static class ExemplarComparator implements java.util.Comparator {
         Comparator comp;
@@ -163,7 +163,7 @@ public class CollationMapMaker {
 
         /**
          * Re
-         * 
+         *
          * @param toRemove
          * @param addIdentity
          *            TODO
@@ -210,18 +210,18 @@ public class CollationMapMaker {
     static final RuleBasedCollator uca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
     static final UnicodeSet filteredChars = (UnicodeSet) new UnicodeSet(
         "[{ss}[^[:Co:][:Cf:][:Cc:][:Cn:][:Cs:][:script=Han:][:script=Hangul:]-[:nfkcquickcheck=no:]]]").freeze(); // skip
-                                                                                                                  // a
-                                                                                                                  // bunch
-                                                                                                                  // of
-                                                                                                                  // stuff,
-                                                                                                                  // but
-                                                                                                                  // include
-                                                                                                                  // the
-                                                                                                                  // items
-                                                                                                                  // that
-                                                                                                                  // are
-                                                                                                                  // not
-                                                                                                                  // nfkc
+    // a
+    // bunch
+    // of
+    // stuff,
+    // but
+    // include
+    // the
+    // items
+    // that
+    // are
+    // not
+    // nfkc
 
     RuleBasedCollator equivalenceClassCollator;
     Comparator exemplarComparator;
@@ -472,7 +472,7 @@ public class CollationMapMaker {
 
     /**
      * Adds items, looking for all canonically equivalent strings as well.
-     * 
+     *
      * @param item
      */
     private void addItems(String item) {
@@ -489,7 +489,7 @@ public class CollationMapMaker {
 
     /**
      * Adds items, looking for all case-equivalent strings as well.
-     * 
+     *
      * @param item
      * @param original
      */
@@ -532,7 +532,7 @@ public class CollationMapMaker {
 
     /**
      * Return the minimal NFKD string that has the same uca key
-     * 
+     *
      * @param item
      * @param k
      * @param ucaWeak

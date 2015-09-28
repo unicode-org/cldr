@@ -77,7 +77,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
         }
         return this;
     }
-    
+
     public Integer getNumericOrder(K object) {
         return ordering.get(object);
     }
@@ -183,7 +183,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.ibm.icu.dev.test.util.Freezeble
      */
     public boolean isFrozen() {
@@ -192,7 +192,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.ibm.icu.dev.test.util.Freezeble
      */
     public MapComparator<K> freeze() {
@@ -202,7 +202,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.ibm.icu.dev.test.util.Freezeble
      */
     @SuppressWarnings("unchecked")

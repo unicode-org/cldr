@@ -74,7 +74,7 @@ class BreakIteratorMapper extends Mapper {
                     source = dictSource;
                 } else {
                     System.err
-                        .println("WARNING: brkiter: in " + locale + ".xml (ICU specials): Ignoring path (unknown element: " + element2 + "): " + fullPath);
+                    .println("WARNING: brkiter: in " + locale + ".xml (ICU specials): Ignoring path (unknown element: " + element2 + "): " + fullPath);
                     continue;
                 }
                 final String filename = xpp.getAttributeValue(-1, "icu:dependency");

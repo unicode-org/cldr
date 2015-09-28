@@ -7,7 +7,7 @@ import org.unicode.cldr.util.Factory;
 
 /**
  * Subclass of CheckCLDR that requires a factory during checking.
- * 
+ *
  * @author jchye
  */
 abstract class FactoryCheckCLDR extends CheckCLDR {

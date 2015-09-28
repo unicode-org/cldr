@@ -16,7 +16,7 @@ import com.ibm.icu.text.NumberFormat;
 
 /**
  * @author srl
- * 
+ *
  */
 public class SurveyProgressManager implements CLDRProgressIndicator {
     private static final boolean DEBUG_PROGRESS = true;
@@ -67,7 +67,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
 
         /**
          * Update the sub-progress without moving the count
-         * 
+         *
          * @param what
          */
         public void update(String what) {
@@ -86,7 +86,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
 
         /**
          * What's the most recent time that anything happened?
-         * 
+         *
          * @return
          */
         public long recentTime() {
@@ -137,7 +137,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * org.unicode.cldr.web.CLDRProgressIndicator#openProgress(java.lang.String)
      */
@@ -181,7 +181,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * org.unicode.cldr.web.CLDRProgressIndicator#openProgress(java.lang.String,
      * int)

@@ -25,7 +25,7 @@ public class CheckLanguageCodeConverter {
     public static void main(String[] args) {
         CLDRFile english = TestInfo.getInstance().getEnglish();
         System.out
-            .println("Input Name" + "\t" + "Std Code" + "\t" + "Std Name");
+        .println("Input Name" + "\t" + "Std Code" + "\t" + "Std Name");
         Set<LanguageName> names = new TreeSet<LanguageName>();
         for (Entry<String, String> codeName : LanguageCodeConverter
             .getLanguageNameToCode().entrySet()) {
@@ -175,7 +175,7 @@ public class CheckLanguageCodeConverter {
     }
 
     private static class LanguageLine extends
-        R5<String, String, String, String, String> {
+    R5<String, String, String, String, String> {
         public LanguageLine(String a, String b, String c, String d) {
             super(LanguageCodeConverter.toHyphenLocale(a), b,
                 LanguageCodeConverter.toUnderbarLocale(a), c, d);

@@ -42,7 +42,7 @@ public class StateDictionary<T> extends Dictionary<T> {
 
     /**
      * Only should be called by StateDictionaryBuilder
-     * 
+     *
      * @param builtBaseRow2
      * @param builtRows2
      * @param builtResults2
@@ -103,14 +103,14 @@ public class StateDictionary<T> extends Dictionary<T> {
      * used to successively map {state, byte, result} to {newstate, newresult,
      * isReturn}. A state is represented by a Row, which is a mapping from byte to
      * a Cell, where each cell has the {nextRow, delta result, returns flag}.
-     * 
+     *
      * <pre>
      *  state = next state (row)
      *  result += delta result
      *  if (returns) return the result
      *  &lt;pre&gt;
      * However, the result and state are preserved for the next call on next().
-     * 
+     *
      */
 
     static class Row implements Comparable {
@@ -278,7 +278,7 @@ public class StateDictionary<T> extends Dictionary<T> {
         private static final boolean SHOW_DEBUG = false;
 
         final private byte[] matchByteBuffer = new byte[byteString
-            .getMaxBytesPerChar()];
+                                                        .getMaxBytesPerChar()];
 
         private int matchByteStringIndex;
 
@@ -386,7 +386,7 @@ public class StateDictionary<T> extends Dictionary<T> {
         /**
          * Returns NONE if we cannot go any farther, MATCH if there was a match, and PARTIAL otherwise.
          * If we couldn't go any farther, then the currentRow is left alone.
-         * 
+         *
          * @param chunk
          * @return
          */
@@ -526,7 +526,7 @@ public class StateDictionary<T> extends Dictionary<T> {
                 .getKeysetSortedByKey()) {
                 debugTreeView.append("cells in row=\t").append(item).append(
                     "\trows with count=\t").append(debugCounter.getCount(item)).append(
-                    CldrUtility.LINE_SEPARATOR);
+                        CldrUtility.LINE_SEPARATOR);
             }
             return debugTreeView.toString();
         }
@@ -566,7 +566,7 @@ public class StateDictionary<T> extends Dictionary<T> {
                         }
                     }
                     debugTreeView.append("\t<").append(key2).append(">\t<")
-                        .append(value2).append(">" + CldrUtility.LINE_SEPARATOR);
+                    .append(value2).append(">" + CldrUtility.LINE_SEPARATOR);
                 }
                 if (cell.nextRow != null) {
                     getDebugWords(byteLength + 1, currentValue, cell.nextRow,
@@ -601,8 +601,8 @@ public class StateDictionary<T> extends Dictionary<T> {
 
     /**
      * Just for testing flattening.
-     * 
-     * 
+     *
+     *
      */
     public void flatten() {
         TreeSet<Row> s = new TreeSet<Row>(builtRows);

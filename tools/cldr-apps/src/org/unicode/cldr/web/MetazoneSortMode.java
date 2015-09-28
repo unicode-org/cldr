@@ -10,14 +10,14 @@ import org.unicode.cldr.web.DataSection.DataRow;
 
 /**
  * @author jce
- * 
+ *
  */
 public class MetazoneSortMode extends SortMode {
     public static String name = SurveyMain.PREF_SORTMODE_METAZONE;
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.web.SortMode#getName()
      */
     @Override

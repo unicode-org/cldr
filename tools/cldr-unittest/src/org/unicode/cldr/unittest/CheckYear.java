@@ -102,10 +102,10 @@ public class CheckYear {
                 .get(coreBase);
             if (basePatterns2Info == null) {
                 base2BasePatterns2Info
-                    .put(coreBase,
-                        basePatterns2Info = Relation
-                            .of(new TreeMap<String, Set<Row.R2<String, String>>>(),
-                                TreeSet.class));
+                .put(coreBase,
+                    basePatterns2Info = Relation
+                    .of(new TreeMap<String, Set<Row.R2<String, String>>>(),
+                        TreeSet.class));
             }
             // adjust the pattern to correspond to the base fields
             // String coreSkeleton = getCoreSkeleton(skeleton);
@@ -249,8 +249,8 @@ public class CheckYear {
                         + "$$"
                         + normalized.substring(endFirstPart,
                             startSecondPart) + "$$"
-                        + normalized.substring(startSecondPart) + "\t=>\t"
-                        + result);
+                            + normalized.substring(startSecondPart) + "\t=>\t"
+                            + result);
             }
             return result.toString();
         }
@@ -480,7 +480,7 @@ public class CheckYear {
             Organization.google.toString(), localeId) == Level.MODERN
             || STANDARD_CODES.getLocaleCoverageLevel(
                 Organization.apple.toString(), localeId) == Level.MODERN
-            || STANDARD_CODES.getLocaleCoverageLevel(
-                Organization.ibm.toString(), localeId) == Level.MODERN;
+                || STANDARD_CODES.getLocaleCoverageLevel(
+                    Organization.ibm.toString(), localeId) == Level.MODERN;
     }
 }

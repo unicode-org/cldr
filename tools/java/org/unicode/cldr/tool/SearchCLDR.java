@@ -60,19 +60,19 @@ public class SearchCLDR {
     // ;
 
     final static Options myOptions = new Options()
-        .add("source", ".*", CLDRPaths.MAIN_DIRECTORY, "source directory")
-        .add("file", ".*", ".*", "regex to filter files/locales.")
-        .add("path", ".*", null, "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
-        .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
-        .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
-        .add("count", null, null, "only count items")
-        .add("organization", ".*", null, "show level for organization")
-        .add("z-showPath", null, null, "show paths")
-        .add("resolved", null, null, "use resolved locales")
-        .add("q-showParent", null, null, "show parent value")
-        .add("english", null, null, "show english value")
-        .add("Verbose", null, null, "verbose output")
-        .add("PathHeader", null, null, "show path header and string ID");
+    .add("source", ".*", CLDRPaths.MAIN_DIRECTORY, "source directory")
+    .add("file", ".*", ".*", "regex to filter files/locales.")
+    .add("path", ".*", null, "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
+    .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
+    .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
+    .add("count", null, null, "only count items")
+    .add("organization", ".*", null, "show level for organization")
+    .add("z-showPath", null, null, "show paths")
+    .add("resolved", null, null, "use resolved locales")
+    .add("q-showParent", null, null, "show parent value")
+    .add("english", null, null, "show english value")
+    .add("Verbose", null, null, "verbose output")
+    .add("PathHeader", null, null, "show path header and string ID");
 
     private static String fileMatcher;
     private static Matcher pathMatcher;
@@ -199,14 +199,14 @@ public class SearchCLDR {
                 String cleanShort = pathHeader.toString().replace('\t', '|');
                 final String resolvedSource = !resolved ? null
                     : file.getSourceLocaleID(path, status)
-                        + (path.equals(status.pathWhereFound) ? "\t≣" : "\t" + status);
+                    + (path.equals(status.pathWhereFound) ? "\t≣" : "\t" + status);
                 showLine(showPath, showParent, showEnglish, resolved, locale,
                     path, fullPath, value,
                     cleanShort,
                     !showParent ? null : english.getBaileyValue(path, null, null),
-                    english == null ? null : english.getStringValue(path),
-                    resolvedSource,
-                    Objects.toString(pathLevel));
+                        english == null ? null : english.getStringValue(path),
+                            resolvedSource,
+                            Objects.toString(pathLevel));
             }
             if (countOnly) {
                 System.out.print(locale);
@@ -218,7 +218,7 @@ public class SearchCLDR {
             System.out.flush();
         }
         System.out
-            .println("Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime) / 60000.0) + " minutes");
+        .println("Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime) / 60000.0) + " minutes");
     }
 
     private static void showLine(boolean showPath, boolean showParent, boolean showEnglish,

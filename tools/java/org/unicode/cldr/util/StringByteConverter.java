@@ -14,9 +14,9 @@ import java.io.IOException;
  * UTF-8, since they are meant to only be used serially. In particular, the only
  * restriction is that the transition between serialized characters must be discoverable by
  * looking at either the last byte of the first character or the first byte of the second character.
- * 
+ *
  * @author markdavis
- * 
+ *
  */
 public abstract class StringByteConverter {
 
@@ -26,7 +26,7 @@ public abstract class StringByteConverter {
 
     /**
      * Return the maximum number of bytes per char.
-     * 
+     *
      * @return
      */
     public abstract int getMaxBytesPerChar();
@@ -34,7 +34,7 @@ public abstract class StringByteConverter {
     /**
      * Converts char of source to output. Result may depend on previous context.
      * Call clear() before first character, and call toBytes(output, bytePosition) after done.
-     * 
+     *
      * @param output
      *            buffer to fill
      * @return new byte position
@@ -44,7 +44,7 @@ public abstract class StringByteConverter {
     /**
      * Converts final state, if any, to output. Result may depend on previous context.
      * Call clear() before first character, and call toBytes(output, bytePosition) after done.
-     * 
+     *
      * @param output
      *            buffer to fill
      * @return new byte position
@@ -59,7 +59,7 @@ public abstract class StringByteConverter {
      * overrun. It will always terminate at byteLength. The results are not
      * guaranteed to be the same as would be gotten from inverting toBytes -- that
      * will happen if multiple strings map to the same bytes.
-     * 
+     *
      * @param input
      *            byte array to read from
      * @param byteStart
@@ -76,7 +76,7 @@ public abstract class StringByteConverter {
 
     /**
      * Write a string to a byte array.
-     * 
+     *
      * @param source
      *            string to write
      * @param output

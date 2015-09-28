@@ -18,7 +18,10 @@ public class LanguageInfo {
     static final CLDRConfig config = CLDRConfig.getInstance();
     static final SupplementalDataInfo SDI = config.getSupplementalDataInfo();
 
-    public enum CldrDir {base, main, seed};
+    public enum CldrDir {
+        base, main, seed
+    };
+
     private int literatePopulation;
     private Relation<OfficialStatus, String> statusToRegions = Relation.of(new EnumMap<OfficialStatus, Set<String>>(OfficialStatus.class), TreeSet.class);
     private Level level;
@@ -50,21 +53,22 @@ public class LanguageInfo {
     public static LanguageInfo get(String languageCode) {
         return languageCodeToInfo.get(languageCode);
     }
+
     public static Set<String> getAvailable() {
         return languageCodeToInfo.keySet();
     }
 
     @Override
     public String toString() {
-        return literatePopulation 
-            + "\t" + CldrUtility.ifNull(cldrDir, "") 
-            + "\t" + CldrUtility.ifSame(level, Level.UNDETERMINED, "") 
+        return literatePopulation
+            + "\t" + CldrUtility.ifNull(cldrDir, "")
+            + "\t" + CldrUtility.ifSame(level, Level.UNDETERMINED, "")
             + "\t" + (statusToRegions.isEmpty() ? "" : statusToRegions.toString());
     }
 
     static final Map<String, LanguageInfo> languageCodeToInfo;
     static {
-        TreeMap<String, LanguageInfo> temp = new TreeMap<String,LanguageInfo>();
+        TreeMap<String, LanguageInfo> temp = new TreeMap<String, LanguageInfo>();
         // get population/official status
         LanguageTagParser ltp = new LanguageTagParser();
         for (String territory : SDI.getTerritoriesWithPopulationData()) {
@@ -99,6 +103,7 @@ public class LanguageInfo {
         }
         languageCodeToInfo = Collections.unmodifiableMap(temp);
     }
+
     private static LanguageInfo getRaw(TreeMap<String, LanguageInfo> temp, String language) {
         LanguageInfo foo = temp.get(language);
         if (foo == null) {

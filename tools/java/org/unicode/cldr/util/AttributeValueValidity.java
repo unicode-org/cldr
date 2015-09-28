@@ -260,7 +260,7 @@ public class AttributeValueValidity {
 //            DtdData dtdData2 = DtdData.getInstance(dtdType);
 //            for (Element element : dtdData2.getElements()) {
 //                Set<Attribute> attributes = element.getAttributes().keySet();
-//                
+//
 //            }
 //            for (Entry<String, Map<String, MatcherPattern>> entry2 : entry1.getValue().entrySet()) {
 //                for (Entry<String, MatcherPattern> entry3 : entry2.getValue().entrySet()) {

@@ -13,7 +13,7 @@ import com.ibm.icu.dev.test.TestFmwk;
 
 /**
  * @author srl
- * 
+ *
  */
 public class TestMisc extends TestFmwk {
     public static void main(String[] args) {

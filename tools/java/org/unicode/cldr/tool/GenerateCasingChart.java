@@ -181,8 +181,8 @@ public class GenerateCasingChart {
         LocaleDisplayNames localeDisplayNames = LocaleDisplayNames.getInstance(locale, DisplayContext.CAPITALIZATION_FOR_UI_LIST_OR_MENU);
         System.out.println(
             locale.getDisplayName(ULocale.ENGLISH)
-                + "\t" + locale.getDisplayName(locale)
-                + "\t" + localeDisplayNames.localeDisplayName(locale)
+            + "\t" + locale.getDisplayName(locale)
+            + "\t" + localeDisplayNames.localeDisplayName(locale)
             );
     }
 

@@ -13,7 +13,7 @@ public class Test {
 
     /**
      * Entry point.
-     * 
+     *
      * @param args
      */
     public static void main(String args[]) {

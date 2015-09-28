@@ -54,7 +54,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private Set<String> preCommentCache;
     private DtdComparator dtdComparator;
 
-    public enum AttributeStatus {distinguished, value, metadata}
+    public enum AttributeStatus {
+        distinguished, value, metadata
+    }
 
     public enum Mode {
         REQUIRED("#REQUIRED"),
@@ -182,14 +184,14 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public void addComment(String commentIn) {
             if (commentIn.startsWith("@")) {
                 // there are exactly 2 cases: deprecated and ordered
-                switch(commentIn) {
-                case "@METADATA": 
+                switch (commentIn) {
+                case "@METADATA":
                     attributeStatus = AttributeStatus.metadata;
                     break;
-                case "@VALUE": 
+                case "@VALUE":
                     attributeStatus = AttributeStatus.value;
                     break;
-                case "@DEPRECATED": 
+                case "@DEPRECATED":
                     isDeprecatedAttribute = true;
                     break;
                 default:
@@ -215,13 +217,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             Attribute that = (Attribute) obj;
             return name.equals(that.name)
                 && element.name.equals(that.element.name) // don't use plain element: circularity
-                // not relevant to identity
-                //                && Objects.equals(comment, that.comment)
-                //                && mode.equals(that.mode)
-                //                && Objects.equals(defaultValue, that.defaultValue)
-                //                && type.equals(that.type)
-                //                && values.equals(that.values)
-                ;
+            // not relevant to identity
+            //                && Objects.equals(comment, that.comment)
+            //                && mode.equals(that.mode)
+            //                && Objects.equals(defaultValue, that.defaultValue)
+            //                && type.equals(that.type)
+            //                && values.equals(that.values)
+            ;
         }
 
         /**
@@ -231,13 +233,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public int hashCode() {
             return name.hashCode() * 37
                 + element.name.hashCode() // don't use plain element: circularity
-                // not relevant to identity
-                //                ) * 37 + Objects.hashCode(comment)) * 37
-                //                + mode.hashCode()) * 37
-                //                + Objects.hashCode(defaultValue)) * 37
-                //                + type.hashCode()) * 37
-                //                + values.hashCode()
-                ;
+            // not relevant to identity
+            //                ) * 37 + Objects.hashCode(comment)) * 37
+            //                + mode.hashCode()) * 37
+            //                + Objects.hashCode(defaultValue)) * 37
+            //                + type.hashCode()) * 37
+            //                + values.hashCode()
+            ;
         }
 
         public boolean isDeprecated() {
@@ -326,15 +328,16 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         static final Pattern CLEANER1 = PatternCache.get("([,|(])(?=\\S)");
         static final Pattern CLEANER2 = PatternCache.get("(?=\\S)([|)])");
+
         private String clean(String model2) {
             // (x) -> ( x );
             // x,y -> x, y
             // x|y -> x | y
             String result = CLEANER1.matcher(model2).replaceAll("$1 ");
             result = CLEANER2.matcher(result).replaceAll(" $1");
-            return result.equals(model2) 
+            return result.equals(model2)
                 ? model2
-                    : result; // for debugging
+                : result; // for debugging
         }
 
         public boolean containsAttribute(String string) {
@@ -393,11 +396,11 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public void addComment(String addition) {
             if (addition.startsWith("@")) {
                 // there are exactly 2 cases: deprecated and ordered
-                switch(addition) {
-                case "@ORDERED": 
+                switch (addition) {
+                case "@ORDERED":
                     isOrderedElement = true;
                     break;
-                case "@DEPRECATED": 
+                case "@DEPRECATED":
                     isDeprecatedElement = true;
                     break;
                 default:
@@ -418,12 +421,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
             Element that = (Element) obj;
             return name.equals(that.name)
-                // not relevant to the identity of the object
-                //                && Objects.equals(comment, that.comment)
-                //                && type == that.type
-                //                && attributes.equals(that.attributes)
-                //                && children.equals(that.children)
-                ;
+            // not relevant to the identity of the object
+            //                && Objects.equals(comment, that.comment)
+            //                && type == that.type
+            //                && attributes.equals(that.attributes)
+            //                && children.equals(that.children)
+            ;
         }
 
         /**
@@ -432,12 +435,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         @Override
         public int hashCode() {
             return name.hashCode()
-                // not relevant to the identity of the object
-                // * 37 + Objects.hashCode(comment)
-                //) * 37 + Objects.hashCode(type)
-                //                ) * 37 + attributes.hashCode()
-                //                ) * 37 + children.hashCode()
-                ;
+            // not relevant to the identity of the object
+            // * 37 + Objects.hashCode(comment)
+            //) * 37 + Objects.hashCode(type)
+            //                ) * 37 + attributes.hashCode()
+            //                ) * 37 + children.hashCode()
+            ;
         }
 
         public boolean isDeprecated() {
@@ -647,13 +650,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             "coverageLevel", // needed for supplemental/coverageLevel.xml
             "coverageVariable", // needed for supplemental/coverageLevel.xml
             "substitute" // needed for characters.xml
-            )));
+        )));
 
     public static boolean isOrderedOld(String element, DtdType type) {
         return orderedElements.contains(element);
     }
 
-    /** 
+    /**
      * Normal version of DtdData
      * Note that it always gets the trunk version
      */
@@ -661,7 +664,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return CACHE.get(type);
     }
 
-    /** 
+    /**
      * Special form using version, used only by tests, etc.
      */
     public static DtdData getInstance(DtdType type, String version) {
@@ -776,7 +779,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     public Comparator<String> getDtdComparator(AttributeValueComparator avc) {
         return dtdComparator;
     }
-    
+
     private class DtdComparator implements Comparator<String> {
         @Override
         public int compare(String path1, String path2) {
@@ -887,7 +890,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     //        private String path;
     //        private int position; // at the start of the next element, or at the end of the string
     //        private Node node = new Node();
-    //        
+    //
     //        public void set(String path) {
     //            if (!path.startsWith("//")) {
     //                throw new IllegalArgumentException();
@@ -958,10 +961,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             toString(e, b, seen);
         }
         if (currentEnd != b.length()) {
-            b.insert(currentEnd, 
-                System.lineSeparator() + System.lineSeparator() 
-                + "<!-- Elements not reachable from root! -->" 
-                + System.lineSeparator());
+            b.insert(currentEnd,
+                System.lineSeparator() + System.lineSeparator()
+                    + "<!-- Elements not reachable from root! -->"
+                    + System.lineSeparator());
         }
         return b.toString();
     }
@@ -1044,7 +1047,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
             b.append(">");
         }
-        showComments(b,  current.commentsPost, false);
+        showComments(b, current.commentsPost, false);
         if (isOrdered(current.name)) {
             b.append(COMMENT_PREFIX + "<!--@ORDERED-->");
         }
@@ -1090,7 +1093,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 b.append(" \"").append(a.defaultValue).append('"');
             }
             b.append(" >");
-            showComments(b,  a.commentsPost, false);
+            showComments(b, a.commentsPost, false);
 //            if (attributeDeprecated != deprecatedComment) {
 //                System.out.println("*** BAD DEPRECATION ***" + a);
 //            }
@@ -1103,7 +1106,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 if (attributeDeprecated) {
                     b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
                 } else if (!deprecatedValues.isEmpty()) {
-                    b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + CollectionUtilities.join(deprecatedValues, ", ")+ "-->");
+                    b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + CollectionUtilities.join(deprecatedValues, ", ") + "-->");
                 }
             }
         }
@@ -1121,17 +1124,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         if (separate && b.length() != 0) {
             b.append(System.lineSeparator());
         }
-        for (String c : comments){ 
+        for (String c : comments) {
             boolean deprecatedComment = SHOW_STR && c.toLowerCase(Locale.ENGLISH).contains("deprecat");
             if (!deprecatedComment) {
                 if (separate) {
                     // special handling for very first comment
                     if (b.length() == 0) {
                         b.append("<!--")
-                        .append(System.lineSeparator())
-                        .append(c)
-                        .append(System.lineSeparator())
-                        .append("-->");
+                            .append(System.lineSeparator())
+                            .append(c)
+                            .append(System.lineSeparator())
+                            .append("-->");
                         continue;
                     }
                     b.append(System.lineSeparator());
@@ -1207,51 +1210,86 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 || attribute.equals("idStatus")
                 || elementName.equals("deprecatedItems")
                 && (attribute.equals("type") || attribute.equals("elements") || attribute.equals("attributes") || attribute.equals("values"))
-                || elementName.equals("character") && attribute.equals("value")
-                || elementName.equals("dayPeriodRules") && attribute.equals("locales")
-                || elementName.equals("dayPeriodRule") 
-                && (attribute.equals("type") || attribute.equals("at") || attribute.equals("after") || attribute.equals("before") || attribute.equals("from") || attribute.equals("to"))
+                || elementName.equals("character")
+                && attribute.equals("value")
+                || elementName.equals("dayPeriodRules")
+                && attribute.equals("locales")
+                || elementName.equals("dayPeriodRule")
+                && (attribute.equals("type") || attribute.equals("at") || attribute.equals("after") || attribute.equals("before") || attribute.equals("from") || attribute
+                    .equals("to"))
                 || elementName.equals("metazones") && attribute.equals("type")
                 || elementName.equals("subgroup") && attribute.equals("subtype")
-                || elementName.equals("mapZone") && (attribute.equals("other") || attribute.equals("territory"))
-                || elementName.equals("postCodeRegex") && attribute.equals("territoryId")
-                || elementName.equals("calendarPreference") && attribute.equals("territories")
-                || elementName.equals("minDays") && attribute.equals("count")
-                || elementName.equals("firstDay") && attribute.equals("day")
-                || elementName.equals("weekendStart") && attribute.equals("day")
-                || elementName.equals("weekendEnd") && attribute.equals("day")
-                || elementName.equals("measurementSystem") && attribute.equals("category")
-                || elementName.equals("distinguishingItems") && attribute.equals("attributes")
-                || elementName.equals("codesByTerritory") && attribute.equals("territory")
-                || elementName.equals("currency") && attribute.equals("iso4217")
-                || elementName.equals("territoryAlias") && attribute.equals("type")
-                || elementName.equals("territoryCodes") && attribute.equals("type")
-                || elementName.equals("group") && (attribute.equals("status")) //  || attribute.equals("grouping")
-                || elementName.equals("plurals") && attribute.equals("type")
-                || elementName.equals("pluralRules") && attribute.equals("locales")
-                || elementName.equals("pluralRule") && attribute.equals("count")
-                || elementName.equals("pluralRanges") && attribute.equals("locales")
-                || elementName.equals("pluralRange") && (attribute.equals("start") || attribute.equals("end"))
-                || elementName.equals("hours") && attribute.equals("regions")
+                || elementName.equals("mapZone")
+                && (attribute.equals("other") || attribute.equals("territory"))
+                || elementName.equals("postCodeRegex")
+                && attribute.equals("territoryId")
+                || elementName.equals("calendarPreference")
+                && attribute.equals("territories")
+                || elementName.equals("minDays")
+                && attribute.equals("count")
+                || elementName.equals("firstDay")
+                && attribute.equals("day")
+                || elementName.equals("weekendStart")
+                && attribute.equals("day")
+                || elementName.equals("weekendEnd")
+                && attribute.equals("day")
+                || elementName.equals("measurementSystem")
+                && attribute.equals("category")
+                || elementName.equals("distinguishingItems")
+                && attribute.equals("attributes")
+                || elementName.equals("codesByTerritory")
+                && attribute.equals("territory")
+                || elementName.equals("currency")
+                && attribute.equals("iso4217")
+                || elementName.equals("territoryAlias")
+                && attribute.equals("type")
+                || elementName.equals("territoryCodes")
+                && attribute.equals("type")
+                || elementName.equals("group")
+                && (attribute.equals("status")) //  || attribute.equals("grouping")
+                || elementName.equals("plurals")
+                && attribute.equals("type")
+                || elementName.equals("pluralRules")
+                && attribute.equals("locales")
+                || elementName.equals("pluralRule")
+                && attribute.equals("count")
+                || elementName.equals("pluralRanges")
+                && attribute.equals("locales")
+                || elementName.equals("pluralRange")
+                && (attribute.equals("start") || attribute.equals("end"))
+                || elementName.equals("hours")
+                && attribute.equals("regions")
                 //|| elementName.equals("personList") && attribute.equals("type")
-                || elementName.equals("likelySubtag") && attribute.equals("from")
-                || elementName.equals("timezone") && attribute.equals("type")
-                || elementName.equals("usesMetazone") && (attribute.equals("to") || attribute.equals("from")) // attribute.equals("mzone") || 
-                || elementName.equals("numberingSystem") && attribute.equals("id")
-                || elementName.equals("group") && attribute.equals("type")
-                || elementName.equals("currency") && attribute.equals("from")
-                || elementName.equals("currency") && attribute.equals("to")
-                || elementName.equals("currency") && attribute.equals("iso4217")
-                || elementName.equals("parentLocale") && attribute.equals("parent")
-                || elementName.equals("currencyCodes") && attribute.equals("type")
-                || elementName.equals("approvalRequirement") && (attribute.equals("locales") || attribute.equals("paths"))
-                || elementName.equals("coverageVariable") && attribute.equals("key")
-                || elementName.equals("coverageLevel") 
+                || elementName.equals("likelySubtag")
+                && attribute.equals("from")
+                || elementName.equals("timezone")
+                && attribute.equals("type")
+                || elementName.equals("usesMetazone")
+                && (attribute.equals("to") || attribute.equals("from")) // attribute.equals("mzone") ||
+                || elementName.equals("numberingSystem")
+                && attribute.equals("id")
+                || elementName.equals("group")
+                && attribute.equals("type")
+                || elementName.equals("currency")
+                && attribute.equals("from")
+                || elementName.equals("currency")
+                && attribute.equals("to")
+                || elementName.equals("currency")
+                && attribute.equals("iso4217")
+                || elementName.equals("parentLocale")
+                && attribute.equals("parent")
+                || elementName.equals("currencyCodes")
+                && attribute.equals("type")
+                || elementName.equals("approvalRequirement")
+                && (attribute.equals("locales") || attribute.equals("paths"))
+                || elementName.equals("coverageVariable")
+                && attribute.equals("key")
+                || elementName.equals("coverageLevel")
                 && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
-//                || elementName.equals("languageMatch") 
+//                || elementName.equals("languageMatch")
 //                && (attribute.equals("desired") || attribute.equals("supported") || attribute.equals("oneway"))
-                || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute.equals("variant")))
-                ;
+                || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute
+                    .equals("variant")));
 
         case keyboard:
             return attribute.equals("_q")
@@ -1266,7 +1304,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 || elementName.equals("map") && attribute.equals("keycode");
         case ldmlICU:
             return false;
-        default: 
+        default:
             throw new IllegalArgumentException("Type is wrong: " + dtdType);
         }
         // if (result != matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true)) {
@@ -1274,6 +1312,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         // throw new IllegalArgumentException("Failed: " + elementName + ", " + attribute);
         // }
     }
+
     static final Set<String> METADATA = new HashSet<>(Arrays.asList("references", "standard", "draft"));
 
     static final Set<String> addUnmodifiable(Set<String> comment, String addition) {
@@ -1291,16 +1330,18 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public final String elementName;
         public final String attributeName;
         public final String attributeValue;
+
         public IllegalByDtdException(String elementName, String attributeName, String attributeValue) {
             this.elementName = elementName;
             this.attributeName = attributeName;
             this.attributeValue = attributeValue;
         }
+
         @Override
         public String getMessage() {
             return "Dtd " + dtdType
                 + " doesn’t allow "
-                + "element=" + elementName 
+                + "element=" + elementName
                 + (attributeName == null ? "" : ", attribute: " + attributeName)
                 + (attributeValue == null ? "" : ", attributeValue: " + attributeValue);
         }
@@ -1342,7 +1383,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return AttributeStatus.distinguished; // special case
         }
         if ("#PCDATA".equals(elementName)) {
-            int debug=1;
+            int debug = 1;
         }
         Element element = nameToElement.get(elementName);
         if (element == null) {
@@ -1369,14 +1410,14 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     public static Set<String> getSerialElements() {
         return orderedElements;
     }
-    
+
     // The default is a map comparator, which compares numbers as numbers, and strings with UCA
     private static MapComparator<String> valueOrdering = new MapComparator<String>().setErrorOnMissing(false).freeze();
 
     static MapComparator<String> dayValueOrder = new MapComparator<String>().add(
         "sun", "mon", "tue", "wed", "thu", "fri", "sat").freeze();
     static MapComparator<String> dayPeriodOrder = new MapComparator<String>().add(
-        "midnight", "am", "noon", "pm", 
+        "midnight", "am", "noon", "pm",
         "morning1", "morning2", "afternoon1", "afternoon2", "evening1", "evening2", "night1", "night2",
         // The ones on the following line are no longer used actively. Can be removed later?
         "earlyMorning", "morning", "midDay", "afternoon", "evening", "night", "weeHours").freeze();
@@ -1405,14 +1446,14 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "zone").freeze();
     static MapComparator<String> unitOrder = new MapComparator<String>().add(
         "acceleration-g-force", "acceleration-meter-per-second-squared",
-        "angle-revolution", "angle-radian", "angle-degree", "angle-arc-minute", "angle-arc-second",  
+        "angle-revolution", "angle-radian", "angle-degree", "angle-arc-minute", "angle-arc-second",
         "area-square-kilometer", "area-hectare", "area-square-meter", "area-square-centimeter",
         "area-square-mile", "area-acre", "area-square-yard", "area-square-foot", "area-square-inch",
-        "consumption-liter-per-kilometer", "consumption-liter-per-100kilometers", 
+        "consumption-liter-per-kilometer", "consumption-liter-per-100kilometers",
         "consumption-mile-per-gallon",
         "digital-terabyte", "digital-terabit", "digital-gigabyte", "digital-gigabit",
         "digital-megabyte", "digital-megabit", "digital-kilobyte", "digital-kilobit",
-        "digital-byte", "digital-bit",          
+        "digital-byte", "digital-bit",
         "duration-century",
         "duration-year", "duration-year-person",
         "duration-month", "duration-month-person",
@@ -1421,22 +1462,22 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "duration-hour", "duration-minute", "duration-second",
         "duration-millisecond", "duration-microsecond", "duration-nanosecond",
         "electric-ampere", "electric-milliampere", "electric-ohm", "electric-volt",
-        "energy-kilocalorie", "energy-calorie", "energy-foodcalorie", "energy-kilojoule", "energy-joule", "energy-kilowatt-hour",         
-        "frequency-gigahertz", "frequency-megahertz", "frequency-kilohertz", "frequency-hertz",         
+        "energy-kilocalorie", "energy-calorie", "energy-foodcalorie", "energy-kilojoule", "energy-joule", "energy-kilowatt-hour",
+        "frequency-gigahertz", "frequency-megahertz", "frequency-kilohertz", "frequency-hertz",
         "length-kilometer", "length-meter", "length-decimeter", "length-centimeter",
         "length-millimeter", "length-micrometer", "length-nanometer", "length-picometer",
         "length-mile", "length-yard", "length-foot", "length-inch",
         "length-parsec", "length-light-year", "length-astronomical-unit",
         "length-furlong", "length-fathom",
-        "length-nautical-mile", "length-mile-scandinavian",           
+        "length-nautical-mile", "length-mile-scandinavian",
         "light-lux",
-        "mass-metric-ton", "mass-kilogram", "mass-gram", "mass-milligram", "mass-microgram",  
+        "mass-metric-ton", "mass-kilogram", "mass-gram", "mass-milligram", "mass-microgram",
         "mass-ton", "mass-stone", "mass-pound", "mass-ounce",
-        "mass-ounce-troy", "mass-carat",   
+        "mass-ounce-troy", "mass-carat",
         "power-gigawatt", "power-megawatt", "power-kilowatt", "power-watt", "power-milliwatt",
         "power-horsepower",
-        "pressure-hectopascal", "pressure-millimeter-of-mercury", 
-        "pressure-pound-per-square-inch", "pressure-inch-hg", "pressure-millibar",       
+        "pressure-hectopascal", "pressure-millimeter-of-mercury",
+        "pressure-pound-per-square-inch", "pressure-inch-hg", "pressure-millibar",
         "proportion-karat",
         "speed-kilometer-per-hour", "speed-meter-per-second", "speed-mile-per-hour", "speed-knot",
         "temperature-generic", "temperature-celsius", "temperature-fahrenheit", "temperature-kelvin",
@@ -1445,9 +1486,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "volume-megaliter", "volume-hectoliter", "volume-liter", "volume-deciliter", "volume-centiliter", "volume-milliliter",
         "volume-pint-metric", "volume-cup-metric",
         "volume-acre-foot",
-        "volume-bushel", "volume-gallon", "volume-quart", "volume-pint", "volume-cup", 
+        "volume-bushel", "volume-gallon", "volume-quart", "volume-pint", "volume-cup",
         "volume-fluid-ounce", "volume-tablespoon", "volume-teaspoon").freeze();
-    
+
     static MapComparator<String> countValueOrder = new MapComparator<String>().add(
         "0", "1", "zero", "one", "two", "few", "many", "other").freeze();
     static MapComparator<String> unitLengthOrder = new MapComparator<String>().add(
@@ -1506,7 +1547,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return comp.compare(value1, value2);
         }
     };
-    
+
     // ALWAYS KEEP AT END, FOR STATIC INIT ORDER
     private static final Map<DtdType, DtdData> CACHE;
     static {

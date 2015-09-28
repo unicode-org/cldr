@@ -7,9 +7,9 @@ import com.ibm.icu.text.Transform;
 
 /**
  * Provides transforming iterator and iterable for convenience operations.
- * 
+ *
  * @author markdavis
- * 
+ *
  * @param <S>
  * @param <V>
  */

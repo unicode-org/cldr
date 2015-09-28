@@ -3,7 +3,6 @@ package org.unicode.cldr.tool;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.EnumSet;
@@ -23,7 +22,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
@@ -61,20 +59,20 @@ public class ChartDtdDelta extends Chart {
     public void writeContents(FormattedFileWriter pw) throws IOException {
 
         TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Version", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .setSortPriority(1)
-            .setSortAscending(false)
-            .setBreakSpans(true)
-            .addColumn("Dtd Type", "class='source'", null, "class='source'", true)
-            .setSortPriority(2)
+        .addColumn("Version", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+        .setSortPriority(1)
+        .setSortAscending(false)
+        .setBreakSpans(true)
+        .addColumn("Dtd Type", "class='source'", null, "class='source'", true)
+        .setSortPriority(2)
 
-            .addColumn("Intermediate Path", "class='source'", null, "class='target'", true)
-            .setSortPriority(3)
+        .addColumn("Intermediate Path", "class='source'", null, "class='target'", true)
+        .setSortPriority(3)
 
-            .addColumn("Element", "class='target'", null, "class='target'", true)
-            .setSpanRows(false)
-            .addColumn("Attributes", "class='target'", null, "class='target'", true)
-            .setSpanRows(false);
+        .addColumn("Element", "class='target'", null, "class='target'", true)
+        .setSpanRows(false)
+        .addColumn("Attributes", "class='target'", null, "class='target'", true)
+        .setSpanRows(false);
 
         String last = null;
         for (String current : CLDR_VERSIONS) {
@@ -113,12 +111,12 @@ public class ChartDtdDelta extends Chart {
 
         for (DiffElement datum : data) {
             tablePrinter.addRow()
-                .addCell(datum.version)
-                .addCell(datum.dtdType)
-                .addCell(datum.newPath)
-                .addCell(datum.newElement)
-                .addCell(datum.attributeNames)
-                .finishRow();
+            .addCell(datum.version)
+            .addCell(datum.dtdType)
+            .addCell(datum.newPath)
+            .addCell(datum.newElement)
+            .addCell(datum.attributeNames)
+            .finishRow();
         }
         pw.write(tablePrinter.toTable());
         pw.write(Utility.repeat("<br>", 50));

@@ -22,7 +22,7 @@ import com.ibm.icu.text.Normalizer;
 
 /**
  * Tool to help determine if
- * 
+ *
  * @author John C. Emmons
  */
 

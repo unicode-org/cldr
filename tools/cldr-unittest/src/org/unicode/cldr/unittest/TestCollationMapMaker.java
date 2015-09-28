@@ -52,8 +52,8 @@ public class TestCollationMapMaker {
         UnicodeSet unicodeSet = new UnicodeSet();
         PrettyPrinter pretty = new PrettyPrinter().setOrdering(
             Collator.getInstance(ULocale.ROOT)).setSpaceComparator(
-            Collator.getInstance(ULocale.ROOT).setStrength2(
-                RuleBasedCollator.PRIMARY));
+                Collator.getInstance(ULocale.ROOT).setStrength2(
+                    RuleBasedCollator.PRIMARY));
         for (String target : inverse.keySet()) {
             unicodeSet.clear();
             unicodeSet.addAll(inverse.getAll(target));

@@ -177,13 +177,13 @@ public class TestPerf extends TestFmwkPlus {
         assertRelation("DtdComparator-check", true, failures.value, LEQ, 0);
         double newSeconds = checkCost(sortedArray, comp, iterations, failures);
         assertRelation("DtdComparator", true, newSeconds, LEQ, seconds * .5); // new
-                                                                              // code
-                                                                              // needs
-                                                                              // to
-                                                                              // be
-                                                                              // twice
-                                                                              // as
-                                                                              // fast
+        // code
+        // needs
+        // to
+        // be
+        // twice
+        // as
+        // fast
     }
 
     private double checkCost(String[] sortedArray, Comparator<String> comp,

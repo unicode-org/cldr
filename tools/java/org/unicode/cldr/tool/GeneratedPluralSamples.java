@@ -330,9 +330,9 @@ public class GeneratedPluralSamples {
                 }
                 if (bounded != isKnownBounded) {
                     Type infoType = Info.Type.Error;
-                    //                        noTrailing.size() == 0 && keyword.equals("other") || 
+                    //                        noTrailing.size() == 0 && keyword.equals("other") ||
                     //                        keyword.equals("many") && noTrailing.contains(CELTIC_SPECIAL)
-                    //                        ? Info.Type.Warning 
+                    //                        ? Info.Type.Warning
                     //                                : Info.Type.Error;
                     INFO.add(infoType, sampleType.toString().toLowerCase(Locale.ENGLISH)
                         + " computation from rule ≠ from items"
@@ -411,7 +411,7 @@ public class GeneratedPluralSamples {
     //                decBounded |= (operand == 'v' || operand == 'w' || operand == 'f' || operand == 't')
     //                        && remainder.equals("is 0");
     //                // if f and t cannot be zero, then this rule is empty for integers (and thus bounded)
-    //                intBounded |= (operand == 'f' || operand == 't') 
+    //                intBounded |= (operand == 'f' || operand == 't')
     //                        && (remainder.equals("is 1") || remainder.equals("is not 0")); // should flesh out with parser
     //
     //                if(!atomicRule.contains("mod") && !atomicRule.contains("not")&& !atomicRule.contains("!")) {
@@ -595,7 +595,7 @@ public class GeneratedPluralSamples {
             // sort if necessary
             Set<Entry<PluralInfo, Set<String>>> sorted = sortNew ? new LinkedHashSet<Entry<PluralInfo, Set<String>>>()
                 : new TreeSet<Entry<PluralInfo, Set<String>>>(new HackComparator(type == PluralType.cardinal
-                    ? WritePluralRules.HACK_ORDER_PLURALS : WritePluralRules.HACK_ORDER_ORDINALS));
+                ? WritePluralRules.HACK_ORDER_PLURALS : WritePluralRules.HACK_ORDER_ORDINALS));
             for (Entry<PluralInfo, Set<String>> entry : seenAlready.keyValuesSet()) {
                 sorted.add(entry);
             }

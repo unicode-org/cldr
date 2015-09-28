@@ -18,19 +18,19 @@ import com.ibm.icu.text.UnicodeSet;
 
 /**
  * Class to generate POSIX format from CLDR.
- * 
+ *
  * @author jcemmons/medavis
  */
 public class GeneratePOSIX {
 
     private static final int
-        HELP1 = 0,
-        HELP2 = 1,
-        DESTDIR = 2,
-        MATCH = 3,
-        UNICODESET = 4,
-        COLLATESET = 5,
-        CHARSET = 6;
+    HELP1 = 0,
+    HELP2 = 1,
+    DESTDIR = 2,
+    MATCH = 3,
+    UNICODESET = 4,
+    COLLATESET = 5,
+    CHARSET = 6;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -72,7 +72,7 @@ public class GeneratePOSIX {
         if ((!codeset.equals("UTF-8")) && (options[COLLATESET].doesOccur || options[UNICODESET].doesOccur))
         {
             System.out
-                .println("Error: Specifying a non-UTF-8 codeset and repertoire or collation overrides are mutually exclusive.");
+            .println("Error: Specifying a non-UTF-8 codeset and repertoire or collation overrides are mutually exclusive.");
             Usage();
         }
 

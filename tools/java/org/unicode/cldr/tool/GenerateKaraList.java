@@ -54,7 +54,7 @@ public class GenerateKaraList {
      * {"//ldml/numbers/currencies/currency[@type=\"", "\"]/displayName", "currency"},
      * {"//ldml/numbers/currencies/currency[@type=\"", "\"]/symbol", "currency-symbol"}
      * };
-     * 
+     *
      * private static String getName(CLDRFile english, int choice, String type, boolean skipDraft) {
      * Value v = english.getValue(NameTable[choice][0] + type + NameTable[choice][1]);
      * if (v == null || v.isDraft()) return null;
@@ -81,9 +81,9 @@ public class GenerateKaraList {
      * <trans>deutsche mark</trans>
      * <tabbr>DEM</tabbr>
      * </target>
-     * 
+     *
      * ...... additional <target> blocks for each language
-     * 
+     *
      * </sense>
      * </hom>
      * </entry>
@@ -107,7 +107,7 @@ public class GenerateKaraList {
             log.println("\t<entry>");
             log.println("\t\t<hdterm>" + TransliteratorUtilities.toXML.transliterate(ename) + "</hdterm>\t<!-- "
                 + TransliteratorUtilities.toXML.transliterate(CLDRFile.getNameName(choice)) + ": " + id + " -->"); // English
-                                                                                                                   // name
+            // name
             log.println("\t\t<hom>");
             log.println("\t\t\t<epos>n</epos>"); // this is the part of speech value. It is fixed.
             log.println("\t\t\t<sense>");
@@ -127,21 +127,21 @@ public class GenerateKaraList {
                     // String etrans = getName(english, "languages/language", locale, true);
                     log.println("\t\t\t\t\t<tlanguage>" + locale + "</tlanguage>\t<!-- "
                         + TransliteratorUtilities.toXML.transliterate(english.getName(locale)) + " -->"); // We do use
-                                                                                                          // non-ISO
-                                                                                                          // values but
-                                                                                                          // you can
-                                                                                                          // populate
-                                                                                                          // this with
-                                                                                                          // the 2
-                                                                                                          // character
-                                                                                                          // code from
-                                                                                                          // the top of
-                                                                                                          // each xml
-                                                                                                          // file and we
-                                                                                                          // will do
-                                                                                                          // necessary
-                                                                                                          // mapping
-                                                                                                          // afterwards.
+                    // non-ISO
+                    // values but
+                    // you can
+                    // populate
+                    // this with
+                    // the 2
+                    // character
+                    // code from
+                    // the top of
+                    // each xml
+                    // file and we
+                    // will do
+                    // necessary
+                    // mapping
+                    // afterwards.
                     log.println("\t\t\t\t\t<trans>" + TransliteratorUtilities.toXML.transliterate(trans) + "</trans>");
                     if (hasAbbreviation) {
                         String aename = cldrfile.getName(CLDRFile.CURRENCY_SYMBOL, id);

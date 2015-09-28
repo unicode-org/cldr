@@ -14,7 +14,7 @@ import org.w3c.dom.Node;
 /**
  * Small helper class; given a file with a specified syntax, extract variables and paths,
  * with associated information
- * 
+ *
  * @author ribnitz
  *
  */
@@ -45,7 +45,7 @@ public class VariableAndPathParser<E, F> {
     public static interface ExtractablePath<E, F> {
         /**
          * Given a DOM Node, extract the information contained therein, and return it as a Key-Value pair
-         * 
+         *
          * @param aNode the DOM Node to extract from
          * @return a Key/Value pair with the key and the data
          */
@@ -113,7 +113,7 @@ public class VariableAndPathParser<E, F> {
     }
 
     /**
-     * Assemble a list of paths starting from the given position 
+     * Assemble a list of paths starting from the given position
      * @param pathsXPath
      * @return
      */

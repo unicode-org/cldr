@@ -111,7 +111,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 + "\t"
                 + (maxLevelCount == 1 ? "all" : localesWithUniqueLevels
                     .size() == 0 ? "none" : CollectionUtilities.join(
-                    localesWithUniqueLevels, ", ")));
+                        localesWithUniqueLevels, ", ")));
         }
     }
 
@@ -225,15 +225,15 @@ public class TestCoverageLevel extends TestFmwkPlus {
             switch (field) {
             case CLDRFile.LANGUAGE_NAME:
                 dep = SDI.getLocaleAliasInfo()
-                    .get("language");
+                .get("language");
                 break;
             case CLDRFile.TERRITORY_NAME:
                 dep = SDI.getLocaleAliasInfo()
-                    .get("territory");
+                .get("territory");
                 break;
             case CLDRFile.SCRIPT_NAME:
                 dep = SDI.getLocaleAliasInfo()
-                    .get("script");
+                .get("script");
                 break;
             default:
                 dep = null;
@@ -264,10 +264,10 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     RegexLookup<Level> exceptions = RegexLookup.of(null,
         new Transform<String, Level>() {
-            public Level transform(String source) {
-                return Level.fromLevel(Integer.parseInt(source));
-            }
-        }, null).loadFromFile(TestCoverageLevel.class,
+        public Level transform(String source) {
+            return Level.fromLevel(Integer.parseInt(source));
+        }
+    }, null).loadFromFile(TestCoverageLevel.class,
         "TestCoverageLevel.txt");
 
     public void TestExceptions() {

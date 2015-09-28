@@ -10,7 +10,7 @@ import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 /**
- * Utility class for returning the plural category for a range of numbers, such as 1–5, so that appropriate messages can be chosen. 
+ * Utility class for returning the plural category for a range of numbers, such as 1–5, so that appropriate messages can be chosen.
  * The rules for determining this value vary widely across locales.
  * @author markdavis
  */
@@ -153,7 +153,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
     private boolean[] explicit = new boolean[Count.LENGTH];
 
     /**
-     * Returns a 
+     * Returns a
      * @return
      */
     public static PluralRanges getInstance(ULocale locale) {
@@ -207,7 +207,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
             + " end=\"" + end + "\"" + Utility.repeat(" ", 5 - end.toString().length());
         return result == null
             ? "<!--         " + startEnd + " result=? -->"
-            : "<pluralRange " + startEnd + " result=\"" + result + "\"/>";
+                : "<pluralRange " + startEnd + " result=\"" + result + "\"/>";
     }
 
     /**

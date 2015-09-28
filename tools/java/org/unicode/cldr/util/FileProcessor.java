@@ -15,7 +15,7 @@ public class FileProcessor {
 
     /**
      * Return false to abort
-     * 
+     *
      * @param lineCount
      * @param line
      * @return

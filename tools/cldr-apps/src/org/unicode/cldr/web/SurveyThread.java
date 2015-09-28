@@ -7,7 +7,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * @author srl
- * 
+ *
  *         A worker thread that performs various SurveyTool tasks, starting with
  *         booting.
  */
@@ -54,11 +54,11 @@ public class SurveyThread extends Thread {
     /**
      * @author srl A SurveyTask is a unit of work that can be done by the
      *         SurveyThread.
-     * 
+     *
      *         Usage: startupThread.addTask(new
      *         SurveyThread.SurveyTask("startup") { public void run() throws
      *         Throwable { doStartup(); } });
-     * 
+     *
      */
     public static abstract class SurveyTask implements CLDRProgressIndicator {
         /**
@@ -88,7 +88,7 @@ public class SurveyThread extends Thread {
 
         /**
          * Is this task still running? Check this periodically.
-         * 
+         *
          * @return true if the task is running
          */
         public boolean running() {
@@ -99,7 +99,7 @@ public class SurveyThread extends Thread {
 
         /**
          * C'tor. The name is the initial name of the task.
-         * 
+         *
          * @param taskName
          */
         public SurveyTask(String taskName) {
@@ -131,7 +131,7 @@ public class SurveyThread extends Thread {
 
         /**
          * Do the work.
-         * 
+         *
          * @throws Throwable
          *             - any exception will be noted.
          */
@@ -161,7 +161,7 @@ public class SurveyThread extends Thread {
 
     /**
      * How many tasks are remaining? 0 if none.
-     * 
+     *
      * @return Number of tasks remaining (0 if none)
      */
     public int tasksRemaining() {
@@ -256,7 +256,7 @@ public class SurveyThread extends Thread {
 
     /**
      * Add a task to the thread list
-     * 
+     *
      * @param name
      *            a name to override the standard name
      * @param t
@@ -270,7 +270,7 @@ public class SurveyThread extends Thread {
     /**
      * Add a task, use the default name. Throws an internal error if for some
      * reason it couldn't be added.
-     * 
+     *
      * @param t
      */
     public void addTask(SurveyTask t) {
@@ -299,7 +299,7 @@ public class SurveyThread extends Thread {
     }
 
     /**
-     * 
+     *
      */
     public void interruptStop() {
         surveyThreadIsRunning = false;
@@ -308,7 +308,7 @@ public class SurveyThread extends Thread {
 
     /**
      * Construct the thread. Needs a pointer to the SurveyTool..
-     * 
+     *
      * @param sm
      */
     SurveyThread(SurveyMain sm) {

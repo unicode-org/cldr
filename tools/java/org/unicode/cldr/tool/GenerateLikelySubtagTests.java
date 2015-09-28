@@ -85,11 +85,11 @@ public class GenerateLikelySubtagTests {
         if (OUTPUT_STYLE == OutputStyle.C) {
             out.print(
                 "  {"
-                    // + SEPARATOR + "    // " + comment
-                    + SEPARATOR + "    " + getItem(from) + ","
-                    + SEPARATOR + "    " + getItem(maxFrom) + ","
-                    + SEPARATOR + "    " + getItem(minFrom) // +","
-                    + CldrUtility.LINE_SEPARATOR + "  },");
+                // + SEPARATOR + "    // " + comment
+                + SEPARATOR + "    " + getItem(from) + ","
+                + SEPARATOR + "    " + getItem(maxFrom) + ","
+                + SEPARATOR + "    " + getItem(minFrom) // +","
+                + CldrUtility.LINE_SEPARATOR + "  },");
         } else {
             out.println("    <!-- " + printNameOrError(from) + " \u2192 " +
                 printNameOrError(maxFrom) + " \u2192 " +

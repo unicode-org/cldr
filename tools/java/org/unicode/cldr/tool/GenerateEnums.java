@@ -151,12 +151,12 @@ public class GenerateEnums {
             }
             Set<String> regions = unlimitedCurrencyCodes.getAll(code);
             System.out
-                .println(code
-                    + "\t"
-                    + englishName
-                    + "\t"
-                    + (validCurrencyCodes.contains(code) ? currencyCodes
-                        .contains(code) ? "" : "valid-only" : "supp-only") + "\t"
+            .println(code
+                + "\t"
+                + englishName
+                + "\t"
+                + (validCurrencyCodes.contains(code) ? currencyCodes
+                    .contains(code) ? "" : "valid-only" : "supp-only") + "\t"
                     + (regions != null ? regions : "unused"));
         }
     }
@@ -589,7 +589,7 @@ public class GenerateEnums {
 
     /**
      * Get the RegionCode Enum
-     * 
+     *
      * @throws IOException
      */
     private void showRegionCodeInfo() throws IOException {
@@ -815,7 +815,7 @@ public class GenerateEnums {
     /**
      * Returns null if not deprecated, otherwise "" if there is no replacement,
      * otherwise the replacement.
-     * 
+     *
      * @return
      */
     public String getDeprecatedReplacement(String type, String cldrTypeValue) {
@@ -848,35 +848,35 @@ public class GenerateEnums {
 
         String resolvedEnglishName = englishName != null ? englishName : type
             .equals("territory") ? getEnglishName(codeName) : type
-            .equals("currency") ? getName(codeName) : english.getName(CLDRFile.SCRIPT_NAME, codeName);
-        resolvedEnglishName = doFallbacks.transliterate(resolvedEnglishName);
+                .equals("currency") ? getName(codeName) : english.getName(CLDRFile.SCRIPT_NAME, codeName);
+                resolvedEnglishName = doFallbacks.transliterate(resolvedEnglishName);
 
-        String prefix = CODE_INDENT + "/** " + resolvedEnglishName; // + " - " +
-        // threeDigit.format(numeric);
-        String printedCodeName = codeName;
-        if (replacement != null) {
-            code_replacements.put(codeName, replacement);
-            out.println(prefix);
-            prefix = CODE_INDENT + " * @deprecated"
-                + (replacement.length() == 0 ? "" : " see " + replacement);
-            printedCodeName = "@Deprecated " + printedCodeName;
-        }
-        prefix += " */";
+                String prefix = CODE_INDENT + "/** " + resolvedEnglishName; // + " - " +
+                // threeDigit.format(numeric);
+                String printedCodeName = codeName;
+                if (replacement != null) {
+                    code_replacements.put(codeName, replacement);
+                    out.println(prefix);
+                    prefix = CODE_INDENT + " * @deprecated"
+                        + (replacement.length() == 0 ? "" : " see " + replacement);
+                    printedCodeName = "@Deprecated " + printedCodeName;
+                }
+                prefix += " */";
 
-        if (codeName.equals("UN001")) {
-            out.println();
-        }
-        if (prefix.length() > lineLength - (printedCodeName.length() + 1)) {
-            // break at last space
-            int lastFit = prefix.lastIndexOf(' ', lineLength
-                - (printedCodeName.length() + 1) - 2);
-            out.println(prefix.substring(0, lastFit));
-            prefix = CODE_INDENT + " *" + prefix.substring(lastFit);
-        }
-        out.print(prefix);
-        out.print(Utility.repeat(" ", (lineLength
-            - (prefix.length() + printedCodeName.length() + 1))));
-        out.println(printedCodeName + ",");
+                if (codeName.equals("UN001")) {
+                    out.println();
+                }
+                if (prefix.length() > lineLength - (printedCodeName.length() + 1)) {
+                    // break at last space
+                    int lastFit = prefix.lastIndexOf(' ', lineLength
+                        - (printedCodeName.length() + 1) - 2);
+                    out.println(prefix.substring(0, lastFit));
+                    prefix = CODE_INDENT + " *" + prefix.substring(lastFit);
+                }
+                out.print(prefix);
+                out.print(Utility.repeat(" ", (lineLength
+                    - (prefix.length() + printedCodeName.length() + 1))));
+                out.println(printedCodeName + ",");
     }
 
     private String getEnglishName(String codeName) {
@@ -926,17 +926,17 @@ public class GenerateEnums {
     /*
      * <reset before="tertiary">ウ</reset> <x><context>ウ</context><t>ヽ</t></x>
      * <x><context>ｳ</context><i>ヽ</i></x>
-     * 
+     *
      * <x><context>う</context><i>ゝ</i></x> <x><context>ゥ</context><i>ヽ</i></x>
      * <x><context>ｩ</context><i>ヽ</i></x> <x><context>ぅ</context><i>ゝ</i></x>
      * <x><context>ヴ</context><i>ヽ</i></x>
-     * 
+     *
      * <x><context>ゔ</context><i>ゝ</i></x> <x><context>ウ</context><i>ヾ</i><extend>゙</extend></x>
      * <x><context>ｳ</context><i>ヾ</i><extend>゙</extend></x> <x><context>う</context><i>ゞ</i><extend>゙</extend></x>
-     * 
+     *
      * <x><context>ゥ</context><i>ヾ</i><extend>゙</extend></x> <x><context>ｩ</context><i>ヾ</i><extend>゙</extend></x>
      * <x><context>ぅ</context><i>ゞ</i><extend>゙</extend></x> <x><context>ヴ</context><i>ヾ</i><extend>゙</extend></x>
-     * 
+     *
      * <x><context>ゔ</context><i>ゞ</i><extend>゙</extend></x>
      */
 }

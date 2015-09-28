@@ -69,7 +69,7 @@ class RegexManager {
 
         /**
          * Processes a comma-delimited list of arguments.
-         * 
+         *
          * @param arg
          * @return
          */
@@ -84,7 +84,7 @@ class RegexManager {
 
         /**
          * Runs the function on a list of arguments.
-         * 
+         *
          * @return the resultant string
          */
         abstract String run(String... args);
@@ -368,7 +368,7 @@ class RegexManager {
 
     /**
      * Checks if two strings match a specified pattern.
-     * 
+     *
      * @param pattern
      *            the pattern to be matched against
      * @param arg0
@@ -432,7 +432,7 @@ class RegexManager {
         /**
          * Takes in arguments obtained from a RegexLookup on a RB path and fleshes
          * it out for the corresponding xpath.
-         * 
+         *
          * @param arguments
          * @return
          */
@@ -475,7 +475,7 @@ class RegexManager {
 
     /**
      * All child classes should call this constructor.
-     * 
+     *
      * @param converterFile
      */
     RegexManager(String converterFile) {
@@ -625,7 +625,7 @@ class RegexManager {
 
     /**
      * Adds an entry to the fallback converter.
-     * 
+     *
      * @param xpathMatcher
      *            the xpath matcher that determines if a fallback value
      *            is necessary
@@ -695,7 +695,7 @@ class RegexManager {
     /**
      * Checks if any fallback values are required and adds them to the specified
      * map.
-     * 
+     *
      * @param pathValueMap
      */
     void addFallbackValues(CLDRFile cldrFile, Map<String, CldrArray> pathValueMap) {

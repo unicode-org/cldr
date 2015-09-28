@@ -112,7 +112,7 @@ public class TestBCP47 extends TestFmwk {
     private String getTypeTranslation(String key, String type) {
         return testInfo.getEnglish().getStringValue(
             "//ldml/localeDisplayNames/types/type[@type=\"" + type
-                + "\"][@key=\"" + key + "\"]");
+            + "\"][@key=\"" + key + "\"]");
     }
 
 }

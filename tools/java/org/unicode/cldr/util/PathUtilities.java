@@ -124,7 +124,7 @@ public class PathUtilities {
     private static Map<String, String> getMetazoneToContinentMap() {
         if (mzToContinentMap == null) {
             System.err
-                .println("PathUtilities.java getMetazoneToContinentMap(): TODO: Get this data from supplemental data! http://unicode.org/cldr/trac/ticket/3761");
+            .println("PathUtilities.java getMetazoneToContinentMap(): TODO: Get this data from supplemental data! http://unicode.org/cldr/trac/ticket/3761");
             HashMap<String, String> newMap = new HashMap<String, String>();
             for (int i = 0; i < mzToContinentStatic.length; i += 2) {
                 newMap.put(mzToContinentStatic[i + 0], mzToContinentStatic[i + 1]);

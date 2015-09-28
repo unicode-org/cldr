@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentMap;
 /**
  * Helper class: Provide a way to associate a String with an Object that can be used for locking.
  * Different instances of the same String will return the same Object
- * 
+ *
  * @author ribnitz
  *
  */
@@ -28,12 +28,12 @@ public class LockSupportMap<E> {
     public Object getItemLock(E item) {
         /*
          * The putIfAbsent needs an object to insert, if it none is there,
-         * the "cheapest" object that can be created is Object.  
+         * the "cheapest" object that can be created is Object.
          */
         Object oldLock = new Object();
         Object newLock = locks.putIfAbsent(item, oldLock);
         /*
-         * PutIfAbsent has returned the previous value, if one was there 
+         * PutIfAbsent has returned the previous value, if one was there
          * So, the oldLock needs is the value to return if newLock is null.
          */
         Object sync = newLock == null ? oldLock : newLock;

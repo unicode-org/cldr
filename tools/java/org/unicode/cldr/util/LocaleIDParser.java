@@ -189,7 +189,7 @@ public class LocaleIDParser {
 
     /**
      * Returns an int mask indicating the level
-     * 
+     *
      * @return (2 if script is present) + (4 if region is present) + (8 if region is present)
      */
     public Set<Level> getLevels() {

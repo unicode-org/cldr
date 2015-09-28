@@ -40,7 +40,8 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class TestCheckCLDR extends TestFmwk {
     static TestInfo testInfo = TestInfo.getInstance();
-    private final Set<String> eightPointLocales = new TreeSet<String>(Arrays.asList("ar ca cs da de el es fi fr he hi hr hu id it ja ko lt lv nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant".split(" ")));
+    private final Set<String> eightPointLocales = new TreeSet<String>(
+        Arrays.asList("ar ca cs da de el es fi fr he hi hr hu id it ja ko lt lv nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant".split(" ")));
 
     public static void main(String[] args) {
         new TestCheckCLDR().run(args);
@@ -52,11 +53,11 @@ public class TestCheckCLDR extends TestFmwk {
                 throw new IllegalArgumentException("hi");
             } catch (Exception e) {
                 return new CheckStatus()
-                .setCause(this)
-                .setMainType(CheckStatus.warningType)
-                .setSubtype(Subtype.abbreviatedDateFieldTooWide)
-                .setMessage("An exception {0}, and a number {1}", e,
-                    1.5);
+                    .setCause(this)
+                    .setMainType(CheckStatus.warningType)
+                    .setSubtype(Subtype.abbreviatedDateFieldTooWide)
+                    .setMessage("An exception {0}, and a number {1}", e,
+                        1.5);
             }
         }
 
@@ -265,27 +266,27 @@ public class TestCheckCLDR extends TestFmwk {
             // override.overridePath = path;
             final String resolvedValue = dummyValue == null ? patched
                 .getStringValue(path) : dummyValue;
-                test.handleCheck(path, patched.getFullXPath(path), resolvedValue,
-                    options, result);
-                if (result.size() != 0) {
-                    for (CheckStatus item : result) {
-                        addExemplars(item, missingCurrencyExemplars,
-                            missingExemplars);
-                        final String mainMessage = StringId.getId(path) + "\t"
-                            + pathHeader + "\t" + english.getStringValue(path)
-                            + "\t" + item.getType() + "\t" + item.getSubtype();
-                        if (unique != null) {
-                            if (unique.contains(mainMessage)) {
-                                continue;
-                            } else {
-                                unique.add(mainMessage);
-                            }
+            test.handleCheck(path, patched.getFullXPath(path), resolvedValue,
+                options, result);
+            if (result.size() != 0) {
+                for (CheckStatus item : result) {
+                    addExemplars(item, missingCurrencyExemplars,
+                        missingExemplars);
+                    final String mainMessage = StringId.getId(path) + "\t"
+                        + pathHeader + "\t" + english.getStringValue(path)
+                        + "\t" + item.getType() + "\t" + item.getSubtype();
+                    if (unique != null) {
+                        if (unique.contains(mainMessage)) {
+                            continue;
+                        } else {
+                            unique.add(mainMessage);
                         }
-                        logln(localeID + "\t" + mainMessage + "\t" + resolvedValue
-                            + "\t" + item.getMessage() + "\t"
-                            + pathHeader.getOriginalPath());
                     }
+                    logln(localeID + "\t" + mainMessage + "\t" + resolvedValue
+                        + "\t" + item.getMessage() + "\t"
+                        + pathHeader.getOriginalPath());
                 }
+            }
         }
         if (missingCurrencyExemplars.size() != 0) {
             logln(localeID + "\tMissing Exemplars (Currency):\t"
@@ -361,54 +362,54 @@ public class TestCheckCLDR extends TestFmwk {
         String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"";
         String infix = "\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"";
         String suffix = "\"]";
-        
+
         TestFactory testFactory = new TestFactory();
 
         List<CheckStatus> result = new ArrayList<CheckStatus>();
         Options options = new Options();
         final String collidingValue = "foobar";
 
-        // Selection has stricter collision rules, because is is used to select different messages. 
+        // Selection has stricter collision rules, because is is used to select different messages.
         // So two types with the same localization do collide unless they have exactly the same rules.
-        
+
         Object[][] tests = {
-            {"en"}, // set locale
-            
+            { "en" }, // set locale
+
             // nothing collides with itself
-            {Type.format, DayPeriod.night1, Type.format, DayPeriod.night1, Subtype.none},
-            {Type.format, DayPeriod.morning1, Type.format, DayPeriod.morning1, Subtype.none},
-            {Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.afternoon1, Subtype.none},
-            {Type.format, DayPeriod.evening1, Type.format, DayPeriod.evening1, Subtype.none},
-            
-            {Type.format, DayPeriod.am, Type.format, DayPeriod.am, Subtype.none},
-            {Type.format, DayPeriod.pm, Type.format, DayPeriod.pm, Subtype.none},
-            {Type.format, DayPeriod.noon, Type.format, DayPeriod.noon, Subtype.none},
-            {Type.format, DayPeriod.midnight, Type.format, DayPeriod.midnight, Subtype.none},
+            { Type.format, DayPeriod.night1, Type.format, DayPeriod.night1, Subtype.none },
+            { Type.format, DayPeriod.morning1, Type.format, DayPeriod.morning1, Subtype.none },
+            { Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.afternoon1, Subtype.none },
+            { Type.format, DayPeriod.evening1, Type.format, DayPeriod.evening1, Subtype.none },
 
-            {Type.selection, DayPeriod.night1, Type.selection, DayPeriod.night1, Subtype.none},
-            {Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.morning1, Subtype.none},
-            {Type.selection, DayPeriod.afternoon1, Type.selection, DayPeriod.afternoon1, Subtype.none},
-            {Type.selection, DayPeriod.evening1, Type.selection, DayPeriod.evening1, Subtype.none},
+            { Type.format, DayPeriod.am, Type.format, DayPeriod.am, Subtype.none },
+            { Type.format, DayPeriod.pm, Type.format, DayPeriod.pm, Subtype.none },
+            { Type.format, DayPeriod.noon, Type.format, DayPeriod.noon, Subtype.none },
+            { Type.format, DayPeriod.midnight, Type.format, DayPeriod.midnight, Subtype.none },
 
-            {Type.selection, DayPeriod.am, Type.selection, DayPeriod.am, Subtype.none},
-            {Type.selection, DayPeriod.pm, Type.selection, DayPeriod.pm, Subtype.none},
-            {Type.selection, DayPeriod.noon, Type.selection, DayPeriod.noon, Subtype.none},
-            {Type.selection, DayPeriod.midnight, Type.selection, DayPeriod.midnight, Subtype.none},
-            
+            { Type.selection, DayPeriod.night1, Type.selection, DayPeriod.night1, Subtype.none },
+            { Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.morning1, Subtype.none },
+            { Type.selection, DayPeriod.afternoon1, Type.selection, DayPeriod.afternoon1, Subtype.none },
+            { Type.selection, DayPeriod.evening1, Type.selection, DayPeriod.evening1, Subtype.none },
+
+            { Type.selection, DayPeriod.am, Type.selection, DayPeriod.am, Subtype.none },
+            { Type.selection, DayPeriod.pm, Type.selection, DayPeriod.pm, Subtype.none },
+            { Type.selection, DayPeriod.noon, Type.selection, DayPeriod.noon, Subtype.none },
+            { Type.selection, DayPeriod.midnight, Type.selection, DayPeriod.midnight, Subtype.none },
+
             // fixed classes always collide
-            {Type.format, DayPeriod.am, Type.format, DayPeriod.pm, Subtype.dateSymbolCollision},
-            {Type.format, DayPeriod.am, Type.format, DayPeriod.noon, Subtype.dateSymbolCollision},
-            {Type.format, DayPeriod.am, Type.format, DayPeriod.midnight, Subtype.dateSymbolCollision},
-            {Type.format, DayPeriod.pm, Type.format, DayPeriod.noon, Subtype.dateSymbolCollision},
-            {Type.format, DayPeriod.pm, Type.format, DayPeriod.midnight, Subtype.dateSymbolCollision},
-            {Type.format, DayPeriod.noon, Type.format, DayPeriod.midnight, Subtype.dateSymbolCollision},
+            { Type.format, DayPeriod.am, Type.format, DayPeriod.pm, Subtype.dateSymbolCollision },
+            { Type.format, DayPeriod.am, Type.format, DayPeriod.noon, Subtype.dateSymbolCollision },
+            { Type.format, DayPeriod.am, Type.format, DayPeriod.midnight, Subtype.dateSymbolCollision },
+            { Type.format, DayPeriod.pm, Type.format, DayPeriod.noon, Subtype.dateSymbolCollision },
+            { Type.format, DayPeriod.pm, Type.format, DayPeriod.midnight, Subtype.dateSymbolCollision },
+            { Type.format, DayPeriod.noon, Type.format, DayPeriod.midnight, Subtype.dateSymbolCollision },
 
-            {Type.selection, DayPeriod.am, Type.selection, DayPeriod.pm, Subtype.dateSymbolCollision},
-            {Type.selection, DayPeriod.am, Type.selection, DayPeriod.noon, Subtype.dateSymbolCollision},
-            {Type.selection, DayPeriod.am, Type.selection, DayPeriod.midnight, Subtype.dateSymbolCollision},
-            {Type.selection, DayPeriod.pm, Type.selection, DayPeriod.noon, Subtype.dateSymbolCollision},
-            {Type.selection, DayPeriod.pm, Type.selection, DayPeriod.midnight, Subtype.dateSymbolCollision},
-            {Type.selection, DayPeriod.noon, Type.selection, DayPeriod.midnight, Subtype.dateSymbolCollision},
+            { Type.selection, DayPeriod.am, Type.selection, DayPeriod.pm, Subtype.dateSymbolCollision },
+            { Type.selection, DayPeriod.am, Type.selection, DayPeriod.noon, Subtype.dateSymbolCollision },
+            { Type.selection, DayPeriod.am, Type.selection, DayPeriod.midnight, Subtype.dateSymbolCollision },
+            { Type.selection, DayPeriod.pm, Type.selection, DayPeriod.noon, Subtype.dateSymbolCollision },
+            { Type.selection, DayPeriod.pm, Type.selection, DayPeriod.midnight, Subtype.dateSymbolCollision },
+            { Type.selection, DayPeriod.noon, Type.selection, DayPeriod.midnight, Subtype.dateSymbolCollision },
 
             // 00-06 night1
             // 06-12 morning1
@@ -422,38 +423,38 @@ public class TestCheckCLDR extends TestFmwk {
             //  n  n  n  n  n  n  m  m  m  m  m  m
             //  a  a  a  a  a  a  e  e  e  n  n  n
 
-            // Formatting has looser collision rules, because it is always paired with a time. 
+            // Formatting has looser collision rules, because it is always paired with a time.
             // That is, it is not a problem if two items collide,
-            // if it doesn't cause a collision when paired with a time. 
+            // if it doesn't cause a collision when paired with a time.
             // But if 11:00 has the same format (eg 11 X) as 23:00, there IS a collision.
             // So we see if there is an overlap mod 12.
-            
-            {Type.format, DayPeriod.night1, Type.format, DayPeriod.morning1, Subtype.dateSymbolCollision},
-            {Type.format, DayPeriod.night1, Type.format, DayPeriod.afternoon1, Subtype.dateSymbolCollision},
-            {Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none},
-            
-            {Type.format, DayPeriod.morning1, Type.format, DayPeriod.afternoon1, Subtype.none},
-            {Type.format, DayPeriod.morning1, Type.format, DayPeriod.evening1, Subtype.dateSymbolCollision},
 
-            {Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.evening1, Subtype.none},
+            { Type.format, DayPeriod.night1, Type.format, DayPeriod.morning1, Subtype.dateSymbolCollision },
+            { Type.format, DayPeriod.night1, Type.format, DayPeriod.afternoon1, Subtype.dateSymbolCollision },
+            { Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none },
 
-            // Selection has stricter collision rules, because is is used to select different messages. 
+            { Type.format, DayPeriod.morning1, Type.format, DayPeriod.afternoon1, Subtype.none },
+            { Type.format, DayPeriod.morning1, Type.format, DayPeriod.evening1, Subtype.dateSymbolCollision },
+
+            { Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.evening1, Subtype.none },
+
+            // Selection has stricter collision rules, because is is used to select different messages.
             // So two types with the same localization do collide unless they have exactly the same rules.
             // We use chr to test the "unless they have exactly the same rules" below.
-            
-            {Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.night1, Subtype.dateSymbolCollision},
-            {Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.afternoon1, Subtype.dateSymbolCollision},
 
-            {Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.am, Subtype.none}, // morning1 and am is allowable
-            {Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.pm, Subtype.dateSymbolCollision},
+            { Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.night1, Subtype.dateSymbolCollision },
+            { Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.afternoon1, Subtype.dateSymbolCollision },
 
-            {"fr"},
-            
+            { Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.am, Subtype.none }, // morning1 and am is allowable
+            { Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.pm, Subtype.dateSymbolCollision },
+
+            { "fr" },
+
             // nothing collides with itself
-            {Type.format, DayPeriod.night1, Type.format, DayPeriod.night1, Subtype.none},
-            {Type.format, DayPeriod.morning1, Type.format, DayPeriod.morning1, Subtype.none},
-            {Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.afternoon1, Subtype.none},
-            {Type.format, DayPeriod.evening1, Type.format, DayPeriod.evening1, Subtype.none},
+            { Type.format, DayPeriod.night1, Type.format, DayPeriod.night1, Subtype.none },
+            { Type.format, DayPeriod.morning1, Type.format, DayPeriod.morning1, Subtype.none },
+            { Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.afternoon1, Subtype.none },
+            { Type.format, DayPeriod.evening1, Type.format, DayPeriod.evening1, Subtype.none },
 
             // French has different rules
             // 00-04   night1
@@ -467,22 +468,22 @@ public class TestCheckCLDR extends TestFmwk {
             //  n  n  n  n  m  m  m  m  m  m  m  m
             //  a  a  a  a  a  a  e  e  e  e  e  e
 
-            {Type.format, DayPeriod.night1, Type.format, DayPeriod.morning1, Subtype.none},
-            {Type.format, DayPeriod.night1, Type.format, DayPeriod.afternoon1, Subtype.dateSymbolCollision},
-            {Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none},
-            
-            {Type.format, DayPeriod.morning1, Type.format, DayPeriod.afternoon1, Subtype.dateSymbolCollision},
-            {Type.format, DayPeriod.morning1, Type.format, DayPeriod.evening1, Subtype.dateSymbolCollision},
+            { Type.format, DayPeriod.night1, Type.format, DayPeriod.morning1, Subtype.none },
+            { Type.format, DayPeriod.night1, Type.format, DayPeriod.afternoon1, Subtype.dateSymbolCollision },
+            { Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none },
 
-            {Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.evening1, Subtype.none},
-            
-            {"chr"},
+            { Type.format, DayPeriod.morning1, Type.format, DayPeriod.afternoon1, Subtype.dateSymbolCollision },
+            { Type.format, DayPeriod.morning1, Type.format, DayPeriod.evening1, Subtype.dateSymbolCollision },
+
+            { Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.evening1, Subtype.none },
+
+            { "chr" },
             // Chr lets use test that same rules don't collide in selection
             // <dayPeriodRule type="morning1" from="0:00" before="12:00" />
             // <dayPeriodRule type="noon" at="12:00" />
             // <dayPeriodRule type="afternoon1" after="12:00" before="24:00" />
-            {Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.am, Subtype.none},
-            {Type.selection, DayPeriod.afternoon1, Type.selection, DayPeriod.pm, Subtype.none},
+            { Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.am, Subtype.none },
+            { Type.selection, DayPeriod.afternoon1, Type.selection, DayPeriod.pm, Subtype.none },
         };
         CLDRFile testFile = null;
         for (Object[] test : tests) {
@@ -491,7 +492,7 @@ public class TestCheckCLDR extends TestFmwk {
                 if (testFile != null) {
                     logln("");
                 }
-                testFile = new CLDRFile(new SimpleXMLSource((String)test[0]));
+                testFile = new CLDRFile(new SimpleXMLSource((String) test[0]));
                 testFactory.addFile(testFile);
                 continue;
             }
@@ -503,7 +504,7 @@ public class TestCheckCLDR extends TestFmwk {
 
             final String path1 = prefix + type1.pathValue + infix + period1 + suffix;
             final String path2 = prefix + type2.pathValue + infix + period2 + suffix;
-            
+
             testFile.add(path1, collidingValue);
             testFile.add(path2, collidingValue);
 
@@ -519,7 +520,7 @@ public class TestCheckCLDR extends TestFmwk {
                 message = status.getMessage();
                 break;
             }
-            assertEquals(testFile.getLocaleID() + " " + type1 + "/" + period1 + " vs " + type2 + "/" + period2 
+            assertEquals(testFile.getLocaleID() + " " + type1 + "/" + period1 + " vs " + type2 + "/" + period2
                 + (message == null ? "" : " [" + message + "]"), expectedSubtype, actualSubtype);
 
             testFile.remove(path1);

@@ -4,10 +4,10 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 
 /**
- * Shim for CLDRConfig. It shouldn't be called outside of tool (command line) usage. 
- * 
+ * Shim for CLDRConfig. It shouldn't be called outside of tool (command line) usage.
+ *
  * Formerly: unittest.TestAll.TestInfo
- * 
+ *
  */
 public class ToolConfig {
 

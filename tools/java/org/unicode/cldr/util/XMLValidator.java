@@ -102,18 +102,18 @@ public class XMLValidator {
 
     /**
      * Utility method to translate a String filename to URL.
-     * 
+     *
      * Note: This method is not necessarily proven to get the correct URL for
      * every possible kind of filename; it should be improved. It handles the
      * most common cases that we've encountered when running Conformance tests
      * on Xalan. Also note, this method does not handle other non-file: flavors
      * of URLs at all.
-     * 
+     *
      * If the name is null, return null. If the name starts with a common URI
      * scheme (namely the ones found in the examples of RFC2396), then simply
      * return the name as-is (the assumption is that it's already a URL)
      * Otherwise we attempt (cheaply) to convert to a file:/// URL.
-     * 
+     *
      * @param filename
      *            a local path/filename of a file
      * @return a file:/// URL, the same string if it appears to already be a

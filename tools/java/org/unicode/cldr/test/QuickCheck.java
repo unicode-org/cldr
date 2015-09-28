@@ -45,7 +45,7 @@ import com.ibm.icu.util.ULocale;
 /**
  * Simple test that loads each file in the cldr directory, thus verifying that
  * the DTD works, and also checks that the PrettyPaths work.
- * 
+ *
  * @author markdavis
  */
 public class QuickCheck {

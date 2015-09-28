@@ -65,7 +65,7 @@ public class TestCLDRTests extends TestFmwk {
     }
 
     /**
-     * 
+     *
      */
     private void closeLog() {
         log.close();
@@ -306,12 +306,12 @@ public class TestCLDRTests extends TestFmwk {
                 DateFormat dt = dateFormat == -1 ? DateFormat.getTimeInstance(timeFormat, oLocale)
                     : timeFormat == -1 ? DateFormat.getDateInstance(dateFormat, oLocale)
                         : DateFormat.getDateTimeInstance(dateFormat, timeFormat, oLocale);
-                dt.setTimeZone(utc);
-                String temp = dt.format(date).trim();
-                result = result.trim(); // HACK because of SAX
-                if (!temp.equals(result)) {
-                    myerrln("Mismatched DateTime: CLDR: <" + result + ">, Host: <" + temp + ">");
-                }
+                    dt.setTimeZone(utc);
+                    String temp = dt.format(date).trim();
+                    result = result.trim(); // HACK because of SAX
+                    if (!temp.equals(result)) {
+                        myerrln("Mismatched DateTime: CLDR: <" + result + ">, Host: <" + temp + ">");
+                    }
             }
         });
 
@@ -339,7 +339,7 @@ public class TestCLDRTests extends TestFmwk {
             String localName,
             String qName,
             Attributes attributes)
-            throws SAXException {
+                throws SAXException {
             // data.put(new ContextStack(contextStack), lastChars);
             // lastChars = "";
             try {
@@ -414,7 +414,7 @@ public class TestCLDRTests extends TestFmwk {
 
         public void unparsedEntityDecl(String name, String publicId,
             String systemId, String notationName)
-            throws SAXException {
+                throws SAXException {
             System.out.println("unparsedEntityDecl: " + name
                 + ", " + publicId
                 + ", " + systemId

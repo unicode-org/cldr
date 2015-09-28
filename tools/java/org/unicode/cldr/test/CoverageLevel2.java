@@ -50,9 +50,9 @@ public class CoverageLevel2 {
      * We define a regex finder for use in the lookup. It has extra tests based on the ci value and the cvi value,
      * duplicating
      * what was in SupplementalDataInfo. It uses the sets instead of converting to regex strings.
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     public static class MyRegexFinder extends RegexFinder {
         final private SetMatchType additionalMatch;
@@ -112,7 +112,7 @@ public class CoverageLevel2 {
                     // ([@count='${Target-Plurals}'])?
                 case Target_Plurals:
                     return (groupMatch == null ||
-                        groupMatch.length() == 0 || localeSpecificInfo.cvi.targetPlurals.contains(groupMatch));
+                    groupMatch.length() == 0 || localeSpecificInfo.cvi.targetPlurals.contains(groupMatch));
                 case Calendar_List:
                     return localeSpecificInfo.cvi.calendars.contains(groupMatch);
                 }
@@ -135,7 +135,7 @@ public class CoverageLevel2 {
 
     /**
      * get an instance, using CldrUtility.SUPPLEMENTAL_DIRECTORY
-     * 
+     *
      * @param locale
      * @return
      * @deprecated Don't use this. call the version which takes a SupplementalDataInfo as an argument.

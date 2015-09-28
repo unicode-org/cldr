@@ -18,7 +18,7 @@ public class GenerateBcp47Bits {
 
     /**
      * Generate the data, throwing an exception if anything goes wrong.
-     * 
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -50,7 +50,7 @@ public class GenerateBcp47Bits {
 
     /**
      * Utility for writing compression. Work is done in writeBits
-     * 
+     *
      * @param element
      * @param codes
      * @param transform
@@ -66,7 +66,7 @@ public class GenerateBcp47Bits {
 
     /**
      * Write out the bits in the source, using the transform.
-     * 
+     *
      * @param source
      * @param transform
      * @param indent
@@ -154,20 +154,20 @@ public class GenerateBcp47Bits {
 
         public Bits set(int bit) {
             final int index = bit >> SHIFT;
-            final int remainder = bit & MASK;
-            //int restore = (index << SHIFT) | remainder;
-            final long mask = 1L << remainder;
-            bits[index] |= mask;
-            return this;
+        final int remainder = bit & MASK;
+        //int restore = (index << SHIFT) | remainder;
+        final long mask = 1L << remainder;
+        bits[index] |= mask;
+        return this;
         }
 
         public boolean get(int bit) {
             final int index = bit >> SHIFT;
-            final int remainder = bit & MASK;
-            //int restore = (index << SHIFT) | remainder;
-            final long mask = 1L << remainder;
-            final long masked = bits[index] & mask;
-            return 0 != masked;
+        final int remainder = bit & MASK;
+        //int restore = (index << SHIFT) | remainder;
+        final long mask = 1L << remainder;
+        final long masked = bits[index] & mask;
+        return 0 != masked;
         }
 
         public String toString(int radix, String indent, int perLineMax) {
@@ -321,7 +321,7 @@ public class GenerateBcp47Bits {
             }
             if (bit < 26 * 26) {
                 result.appendCodePoint('a' + bit / 26)
-                    .appendCodePoint('a' + bit % 26);
+                .appendCodePoint('a' + bit % 26);
             } else {
                 bit -= 26 * 26;
                 if (type == Type.LANGUAGE) {
@@ -331,7 +331,7 @@ public class GenerateBcp47Bits {
                     result.appendCodePoint('a' + bit / (26 * 26));
                     bit %= (26 * 26);
                     result.appendCodePoint('a' + bit / 26)
-                        .appendCodePoint('a' + bit % 26);
+                    .appendCodePoint('a' + bit % 26);
                 } else {
                     if (bit >= 26 * 26 + 1000) {
                         throw new IllegalArgumentException(String.valueOf(bit));
@@ -339,7 +339,7 @@ public class GenerateBcp47Bits {
                     result.append(bit / (10 * 10));
                     bit %= (10 * 10);
                     result.append(bit / 10)
-                        .append(bit % 10);
+                    .append(bit % 10);
 
                 }
             }

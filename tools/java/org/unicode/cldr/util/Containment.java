@@ -29,8 +29,8 @@ public class Containment {
     static final Relation<String, String> containedToContainer = (Relation<String, String>) Relation
         .of(new HashMap<String, Set<String>>(),
             HashSet.class)
-        .addAllInverted(containmentFull)
-        .freeze();
+            .addAllInverted(containmentFull)
+            .freeze();
 
     static final Relation<String, String> leavesToContainers;
     static {
@@ -53,8 +53,8 @@ public class Containment {
     static final Relation<String, String> containedToContainerCore = (Relation<String, String>) Relation
         .of(new HashMap<String, Set<String>>(),
             HashSet.class)
-        .addAllInverted(containmentCore)
-        .freeze();
+            .addAllInverted(containmentCore)
+            .freeze();
     static final Map<String, Integer> toOrder = new LinkedHashMap<String, Integer>();
     static int level = 0;
     static int order;
@@ -101,8 +101,8 @@ public class Containment {
         }
         String container = containers != null
             ? containers.iterator().next()
-            : territory.equals("001") ? "001" : "ZZ";
-        return container;
+                : territory.equals("001") ? "001" : "ZZ";
+            return container;
     }
 
     /**
@@ -116,7 +116,7 @@ public class Containment {
 
     /**
      * Return the Continent containing the territory, or 001 if the territory is 001, otherwise ZZ
-     * 
+     *
      * @param territory
      */
     public static String getContinent(String territory) {
@@ -138,7 +138,7 @@ public class Containment {
     /**
      * Return the Subcontinent containing the territory, or the continent if it is a continent, or
      * 001 if it is 001, otherwise ZZ.
-     * 
+     *
      * @param territory
      */
     public static String getSubcontinent(String territory) {

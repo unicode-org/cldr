@@ -11,7 +11,7 @@ import org.unicode.cldr.util.XMLSource;
 /**
  * Caches tests
  * Call XMLSource.addListener() on the instance to notify it of changes to the XMLSource.
- * 
+ *
  * @author srl
  * @see XMLSource#addListener(org.unicode.cldr.util.XMLSource.Listener)
  */
@@ -54,7 +54,7 @@ public abstract class TestCache implements XMLSource.Listener {
 
     /**
      * Set up the basic info needed for tests
-     * 
+     *
      * @param factory
      * @param nameMatcher
      * @param displayInformation

@@ -534,8 +534,8 @@ public class RegexLogger {
     private static class RegexLoggerImpl extends AbstractRegexLogger {
 
         /*
-          * Each has more than 1m hits, together they account for about 14m (of the 26m total)
-          */
+         * Each has more than 1m hits, together they account for about 14m (of the 26m total)
+         */
         private static final Set<String> exactMatchSet = new HashSet<>(Arrays.asList(new String[] {
             "^//ldml.*",
             "^//ldml/dates.*",

@@ -81,30 +81,29 @@ public class TestBasic extends TestFmwkPlus {
 
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo
         .getSupplementalDataInfo();
-    
-    private static final ImmutableSet<Pair<String,String>> knownElementExceptions = 
-        ImmutableSet.of(
-            Pair.of("ldml","usesMetazone"),
-            Pair.of("ldmlICU","usesMetazone"));
 
-    private static final ImmutableSet<Pair<String,String>> knownAttributeExceptions = 
+    private static final ImmutableSet<Pair<String, String>> knownElementExceptions =
         ImmutableSet.of(
-            Pair.of( "ldml", "version" ),
-            Pair.of( "supplementalData", "version" ),
-            Pair.of( "ldmlICU", "version" ),
-            Pair.of( "layout", "standard" ));
+            Pair.of("ldml", "usesMetazone"),
+            Pair.of("ldmlICU", "usesMetazone"));
 
-    private static final ImmutableSet<Pair<String,String>> knownChildExceptions = 
+    private static final ImmutableSet<Pair<String, String>> knownAttributeExceptions =
         ImmutableSet.of(
-            Pair.of( "abbreviationFallback", "special" ),
-            Pair.of( "inList", "special" ),
-            Pair.of( "preferenceOrdering", "special" ));
-   
+            Pair.of("ldml", "version"),
+            Pair.of("supplementalData", "version"),
+            Pair.of("ldmlICU", "version"),
+            Pair.of("layout", "standard"));
+
+    private static final ImmutableSet<Pair<String, String>> knownChildExceptions =
+        ImmutableSet.of(
+            Pair.of("abbreviationFallback", "special"),
+            Pair.of("inList", "special"),
+            Pair.of("preferenceOrdering", "special"));
 
     /**
      * Simple test that loads each file in the cldr directory, thus verifying
      * that the DTD works, and also checks that the PrettyPaths work.
-     * 
+     *
      * @author markdavis
      */
 
@@ -175,7 +174,7 @@ public class TestBasic extends TestFmwkPlus {
             } else if (name.endsWith(".xml")) {
                 data.add(check(fileName));
                 if (deepCheck // takes too long to do all the time
-                    ) {
+                ) {
                     CLDRFile cldrfile = CLDRFile.loadFromFile(fileName, "temp",
                         DraftStatus.unconfirmed);
                     for (String xpath : cldrfile) {
@@ -258,9 +257,9 @@ public class TestBasic extends TestFmwkPlus {
             logln(header
                 + siftDeprecated(type, element, usedAttributes,
                     attributesToTypeElementUsed, true)
-                    + "\t"
-                    + siftDeprecated(type, element, unusedAttributes,
-                        attributesToTypeElementUsed, false));
+                + "\t"
+                + siftDeprecated(type, element, unusedAttributes,
+                    attributesToTypeElementUsed, false));
         }
 
         logln("Undeprecated Attributes\t");
@@ -441,7 +440,7 @@ public class TestBasic extends TestFmwkPlus {
                                             + it2.getString()
                                             + "\t"
                                             + UCharacter
-                                            .getName(fishyCodepoint));
+                                                .getName(fishyCodepoint));
                                     }
                                     if (fallback == null) {
                                         fallback = fb;
@@ -524,7 +523,7 @@ public class TestBasic extends TestFmwkPlus {
                 result.append(' ');
             }
             result.append("L").append(level.ordinal()).append("=")
-            .append(counter.get(level));
+                .append(counter.get(level));
         }
         return result;
     }
@@ -554,7 +553,7 @@ public class TestBasic extends TestFmwkPlus {
             new TreeMap<String, Set<String>>(CLDRFile
                 .getComparator(DtdType.ldml)), TreeSet.class, null);
         Set<String> localesToTest = getInclusion() <= 5 ? eightPointLocales : cldrFactory.getAvailable();
-        for (String locale : localesToTest ) {
+        for (String locale : localesToTest) {
             CLDRFile file = testInfo.getCLDRFile(locale, resolved);
             DtdType dtdType = null;
             if (file.isNonInheriting())
@@ -972,8 +971,8 @@ public class TestBasic extends TestFmwkPlus {
                 for (Element e : elements) {
                     if (!descendents.contains(e) && !e.equals(dtdData.PCDATA)
                         && !e.equals(dtdData.ANY)) {
-                            errln(type + ": Element " + e
-                                + " not contained in descendents of ROOT.");
+                        errln(type + ": Element " + e
+                            + " not contained in descendents of ROOT.");
                     }
                 }
                 for (Element e : descendents) {
@@ -997,7 +996,7 @@ public class TestBasic extends TestFmwkPlus {
     public void TestBasicDTDCompatibility() {
 
         // Only run the rest in exhaustive mode, since it requires CLDR_ARCHIVE_DIRECTORY
-        if (getInclusion() <= 5) { 
+        if (getInclusion() <= 5) {
             return;
         }
 
@@ -1008,7 +1007,7 @@ public class TestBasic extends TestFmwkPlus {
             Arrays.asList(new String[] { "version", "languageCoverage",
                 "scriptCoverage", "territoryCoverage",
                 "currencyCoverage", "timezoneCoverage",
-            "skipDefaultLocale" }));
+                "skipDefaultLocale" }));
         Set<String> PCDATA = new HashSet<String>();
         PCDATA.add("PCDATA");
         Set<String> EMPTY = new HashSet<String>();
@@ -1124,7 +1123,7 @@ public class TestBasic extends TestFmwkPlus {
     }
 
     public void TestDtdCompatibility() {
-        
+
         for (DtdType type : DtdType.values()) {
             DtdData dtdData = DtdData.getInstance(type);
             Map<String, Element> currentElementFromName = dtdData
@@ -1179,14 +1178,14 @@ public class TestBasic extends TestFmwkPlus {
                 Collections.EMPTY_SET, elementsWithoutAlias);
             assertEquals(
                 type
-                + " DTD elements with children must have 'special' elements",
+                    + " DTD elements with children must have 'special' elements",
                 Collections.EMPTY_SET, elementsWithoutSpecial);
 
             // Only run the rest in exhaustive mode, since it requires CLDR_ARCHIVE_DIRECTORY
-            if (getInclusion() <= 5) { 
+            if (getInclusion() <= 5) {
                 return;
             }
-            
+
             for (Versions version : Versions.values()) {
                 if (version == Versions.trunk) {
                     continue;
@@ -1225,7 +1224,7 @@ public class TestBasic extends TestFmwkPlus {
                     Element oldElement = entry.getValue();
                     Element newElement = currentElementFromName.get(entry
                         .getKey());
-                    if ( knownElementExceptions.contains(Pair.of(type.toString(),oldElement.getName()))) {
+                    if (knownElementExceptions.contains(Pair.of(type.toString(), oldElement.getName()))) {
                         continue;
                     }
                     if (assertNotNull(type
@@ -1241,7 +1240,7 @@ public class TestBasic extends TestFmwkPlus {
                             Element newChild = newElement
                                 .getChildNamed(oldChild.getName());
 
-                            if ( knownChildExceptions.contains(Pair.of(newElement.getName(), oldChild.getName()))) {
+                            if (knownChildExceptions.contains(Pair.of(newElement.getName(), oldChild.getName()))) {
                                 continue;
                             }
                             assertNotNull(
@@ -1250,23 +1249,23 @@ public class TestBasic extends TestFmwkPlus {
                                     + "» must be superset of v"
                                     + version + ", and must contain «"
                                     + oldChild.getName() + "»",
-                                    newChild);
+                                newChild);
                         }
                         for (Attribute oldAttribute : oldElement
                             .getAttributes().keySet()) {
                             Attribute newAttribute = newElement
                                 .getAttributeNamed(oldAttribute.getName());
 
-                            if ( knownAttributeExceptions.contains(Pair.of(newElement.getName(),oldAttribute.getName()))) {
+                            if (knownAttributeExceptions.contains(Pair.of(newElement.getName(), oldAttribute.getName()))) {
                                 continue;
                             }
-                           assertNotNull(
+                            assertNotNull(
                                 type + " DTD - Attributes of «"
                                     + newElement.getName()
                                     + "» must be superset of v"
                                     + version + ", and must contain «"
                                     + oldAttribute.getName() + "»",
-                                    newAttribute);
+                                newAttribute);
 
                         }
                     }
@@ -1289,7 +1288,7 @@ public class TestBasic extends TestFmwkPlus {
         sortPaths(
             DtdData.getInstance(DtdType.supplementalData).getDtdComparator(
                 null),
-                "//supplementalData/territoryContainment/group[@type=\"419\"][@contains=\"013 029 005\"][@grouping=\"true\"]",
+            "//supplementalData/territoryContainment/group[@type=\"419\"][@contains=\"013 029 005\"][@grouping=\"true\"]",
             "//supplementalData/territoryContainment/group[@type=\"003\"][@contains=\"021 013 029\"][@grouping=\"true\"]");
 
         checkDtdComparatorForResource("TestBasic_ja.xml", DtdType.ldmlICU);

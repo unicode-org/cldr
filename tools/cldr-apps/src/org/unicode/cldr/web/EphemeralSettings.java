@@ -7,23 +7,23 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * a UserSettings object that simply stores its settings in memory
- * 
+ *
  * @author srl
- * 
+ *
  */
 public class EphemeralSettings extends UserSettings {
 
     private ConcurrentHashMap<String, String> hash = new ConcurrentHashMap<String, String>();
 
     /**
-     * 
+     *
      */
     public EphemeralSettings() {
     }
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Comparable#compareTo(java.lang.Object)
      */
     @Override
@@ -37,7 +37,7 @@ public class EphemeralSettings extends UserSettings {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.web.UserSettings#get(java.lang.String,
      * java.lang.String)
      */
@@ -53,7 +53,7 @@ public class EphemeralSettings extends UserSettings {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.web.UserSettings#set(java.lang.String,
      * java.lang.String)
      */

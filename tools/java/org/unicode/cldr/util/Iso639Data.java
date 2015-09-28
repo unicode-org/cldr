@@ -60,7 +60,7 @@ public class Iso639Data {
      * macrolanguage must be very closely related, and there must be some domain in which only a single language
      * identity is recognized.
      * </p>
-     * 
+     *
      * <h3><a NAME="C">Collections</a> of languages</h3>
      * <p>
      * A collective language code element is an identifier that represents a group of individual languages that are not
@@ -100,7 +100,7 @@ public class Iso639Data {
      * A language is listed as <i>living</i> when there are people still living who learned it as a first language.
      * </p>
      * <h3><a NAME="E"></a>Extinct languages</h3>
-     * 
+     *
      * <p>
      * A language is listed as <i>extinct</i> if it has gone extinct in recent times. (e.g. in the last few centuries).
      * </p>
@@ -113,7 +113,7 @@ public class Iso639Data {
      * A language is listed as <i>historic</i> when it is considered to be distinct from any modern languages that are
      * descended from it; for instance, Old English and Middle English.
      * </p>
-     * 
+     *
      * <h3><a NAME="C"></a>Constructed languages</h3>
      * <p>
      * Artificial languages are those like Esperanto: it excludes programming languages.
@@ -129,9 +129,9 @@ public class Iso639Data {
 
     /**
      * This indicates the source of the language subtag.
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     public enum Source {
         ISO_639_1, ISO_639_2, ISO_639_3, BCP47, CLDR
@@ -259,7 +259,7 @@ public class Iso639Data {
      * I(ndividual), M(acrolanguage), S(pecial) Type char(1) NOT NULL, --
      * A(ncient), C(onstructed), -- E(xtinct), H(istorical), L(iving), S(pecial)
      * Ref_Name varchar(150) NOT NULL) -- Reference language name
-     * 
+     *
      * @throws IOException
      */
     enum IsoColumn {
@@ -494,7 +494,7 @@ public class Iso639Data {
                      * <th scope="col">639-2</th>
                      * <th scope="col">Hierarchy<br />Hiérarchie</th>
                      * <th scope="col">Notes<br />Notes</th>
-                     * 
+                     *
                      * <td scope="row">apa</td>
                      * <td>Apache languages</td>
                      * <td>apaches, langues</td>

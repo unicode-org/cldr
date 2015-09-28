@@ -14,7 +14,7 @@ import com.ibm.icu.text.RuleBasedCollator;
 
 /**
  * @author srl
- * 
+ *
  */
 public class CodeSortMode extends SortMode {
 
@@ -22,7 +22,7 @@ public class CodeSortMode extends SortMode {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.web.SortMode#getName()
      */
     @Override

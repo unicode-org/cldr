@@ -237,7 +237,7 @@ public class TestCollationStringByteConverter {
                         testLocale)).toPattern()
                         + " "
                         + ((SimpleDateFormat) dateInstance).toPattern(),
-                    testLocale);
+                        testLocale);
                 simpleDateFormat.setTimeZone(testTimeZone);
                 tests.add(simpleDateFormat);
                 // tests.put(DateFormat.getTimeInstance(style,
@@ -311,11 +311,11 @@ public class TestCollationStringByteConverter {
 
     private static boolean areEqual(Calendar calendar, Calendar calendar2) {
         if (calendar.getTimeInMillis() == calendar2.getTimeInMillis()) { // &&
-                                                                         // calendar.getTimeZone().equals(calendar2.getTimeZone())
-                                                                         // until
-                                                                         // ICU
-                                                                         // gets
-                                                                         // fixed
+            // calendar.getTimeZone().equals(calendar2.getTimeZone())
+            // until
+            // ICU
+            // gets
+            // fixed
             return true;
         }
         return false; // separate for debugging
@@ -337,7 +337,7 @@ public class TestCollationStringByteConverter {
         col.setAlternateHandlingShifted(true);
         CollationStringByteConverter converter = new CollationStringByteConverter(
             col, new Utf8StringByteConverter()); // new
-                                                 // ByteString(true)
+        // ByteString(true)
         Matcher<String> matcher = converter.getDictionary().getMatcher();
         // if (true) {
         // Iterator<Entry<CharSequence, String>> x =
@@ -358,7 +358,7 @@ public class TestCollationStringByteConverter {
                 .setText(
                     new DictionaryCharList<String>(converter
                         .getDictionary(), test))
-                .convert(new StringBuffer()).toString();
+                        .convert(new StringBuffer()).toString();
             System.out.println(test + "\t=>\t" + result);
             int len = converter.toBytes(test, output, 0);
             String result2 = converter.fromBytes(output, 0, len,

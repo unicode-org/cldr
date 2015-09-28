@@ -13,7 +13,7 @@ import org.unicode.cldr.util.CLDRLocale;
 
 /**
  * This class implements a class that tracks changes to locale-based data.
- * 
+ *
  * @see Registerable
  */
 public class LocaleChangeRegistry {
@@ -25,7 +25,7 @@ public class LocaleChangeRegistry {
 
     /**
      * mint a new key for use with the registry
-     * 
+     *
      * @return key string
      */
     public synchronized static final String newKey() {
@@ -39,7 +39,7 @@ public class LocaleChangeRegistry {
 
     /**
      * fetch the appropriate hash table. Private, assumes lock.
-     * 
+     *
      * @param locale
      *            locale to hash for
      * @return the hash table, new if needed
@@ -55,7 +55,7 @@ public class LocaleChangeRegistry {
 
     /**
      * register an object
-     * 
+     *
      * @param locale
      *            - the locale to register. Note, parent locales will
      *            automatically be registered.
@@ -75,7 +75,7 @@ public class LocaleChangeRegistry {
 
     /**
      * Is the object still valid under this key?
-     * 
+     *
      * @param locale
      *            - locale and all parents will be checked
      * @param key
@@ -96,7 +96,7 @@ public class LocaleChangeRegistry {
 
     /**
      * invalidate a locale - does NOT invalidate parents or children.
-     * 
+     *
      * @param locale
      *            locale to invalidate
      */

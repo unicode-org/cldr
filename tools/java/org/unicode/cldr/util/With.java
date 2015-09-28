@@ -13,23 +13,23 @@ import com.ibm.icu.text.UTF16;
 /**
  * Simple cover class for converting iterators, lists of items, arrays, and
  * CharSequences into forms usable with for loops. Example:
- * 
+ *
  * <pre>
  * for (String s : With.in(someIterator)) {
  *     doSomethingWith(s);
  * }
- * 
+ *
  * for (int codePoint : With.codePointArray(&quot;abc\uD800\uDC00&quot;)) {
  *     doSomethingWith(codePoint);
  * }
- * 
+ *
  * for (int integer : With.array(1, 99, 3, 42)) {
  *     doSomethingWith(integer);
  * }
  * </pre>
- * 
+ *
  * @author markdavis
- * 
+ *
  * @param <V>
  */
 public final class With<V> implements Iterable<V>, Iterator<V> {
@@ -40,15 +40,15 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
      * Interface for an iterator that is simpler to implement, without 'look-ahead'.
      * Using With.in(), this can be transformed into a regular Java iterator.
      * The one restriction is that elements cannot be null, since that signals end of the sequence.
-     * 
+     *
      * @author markdavis
-     * 
+     *
      * @param <T>
      */
     public interface SimpleIterator<T> {
         /**
          * Returns null when done
-         * 
+         *
          * @return object, or null when done.
          */
         public T next();
@@ -83,7 +83,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     /**
      * Create a collection from whatever is left in the iterator. For example, myCollection =
      * With.in(anIterator).toList();
-     * 
+     *
      * @return
      */
     public List<V> toList() {
@@ -93,7 +93,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     /**
      * Create a collection from whatever is left in the iterator. For example, myCollection =
      * With.in(anIterator).toList();
-     * 
+     *
      * @return
      */
     public <C extends Collection<V>> C toCollection(C output) {
@@ -106,7 +106,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     /**
      * Create a collection from whatever is left in the iterator. For example, myCollection =
      * With.in(anIterator).toList();
-     * 
+     *
      * @return
      */
     public <C extends Collection<V>> C toUnmodifiableCollection(C output) {
@@ -119,7 +119,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     /**
      * Create a collection from whatever is left in the iterator. For example, myCollection =
      * With.in(anIterator).toList();
-     * 
+     *
      * @return
      */
     public <W, C extends Collection<W>> C toCollection(Transform<V, W> filter, C output) {
@@ -135,7 +135,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     /**
      * Create an immutable collection from whatever is left in the iterator. For example, myCollection =
      * With.in(anIterator).toList();
-     * 
+     *
      * @return
      */
     public <W, C extends Collection<W>> C toUnmodifiableCollection(Transform<V, W> filter, C output) {
@@ -144,13 +144,13 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
 
     /**
      * Create a simple object for use in for loops. Example:
-     * 
+     *
      * <pre>
      * for (int integer : With.in(1, 99, 3, 42)) {
      *     doSomethingWith(integer);
      * }
      * </pre>
-     * 
+     *
      * @param <V>
      * @param iterator
      * @return Iterable, for use in for loops, etc.
@@ -163,15 +163,15 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     /**
      * Create a simple object for use in for loops, handling code points
      * properly. Example:
-     * 
+     *
      * <pre>
      * for (int codePoint : With.in(&quot;abc\uD800\uDC00&quot;)) {
      *     doSomethingWith(codePoint);
      * }
      * </pre>
-     * 
+     *
      * Actually returns an array, which avoids boxing/unboxing costs.
-     * 
+     *
      * @param iterator
      * @return Iterable, for use in for loops, etc.
      */
@@ -183,7 +183,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
      * An alterative to With.in(CharSequence) that is better when it is likely that only a portion of the text will be
      * looked at,
      * such as when an iterator over codepoints is aborted partway.
-     * 
+     *
      * @param old
      * @return
      */
@@ -193,13 +193,13 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
 
     /**
      * Create a simple object for use in for loops. Example:
-     * 
+     *
      * <pre>
      * for (String s : With.in(someIterator)) {
      *     doSomethingWith(s);
      * }
      * </pre>
-     * 
+     *
      * @param <V>
      * @param iterator
      * @return Iterable, for use in for loops, etc.
@@ -211,13 +211,13 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
 
     /**
      * Create a simple object for use in for loops. Example:
-     * 
+     *
      * <pre>
      * for (String s : With.in(someIterator)) {
      *     doSomethingWith(s);
      * }
      * </pre>
-     * 
+     *
      * @param <V>
      * @param iterator
      * @return Iterable, for use in for loops, etc.
@@ -229,13 +229,13 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
 
     /**
      * Create a simple object for use in for loops. Example:
-     * 
+     *
      * <pre>
      * for (String s : With.in(someIterator)) {
      *     doSomethingWith(s);
      * }
      * </pre>
-     * 
+     *
      * @param <V>
      * @param iterator
      * @return Iterable, for use in for loops, etc.
@@ -247,7 +247,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
 
     /**
      * Creates an iterable from a simple iterator.
-     * 
+     *
      * @param <T>
      * @param old
      * @return
@@ -291,14 +291,14 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
 
     /**
      * Will fail if V is not a CharSequence.
-     * 
+     *
      * @param sources
      * @return
      */
     public With<V> andCodePoints(CharSequence... sources) {
         for (CharSequence charSequence : sources) {
             this.iterators
-                .add((Iterator<V>) new ToIterator<CharSequence>(new CharSequenceSimpleIterator(charSequence)));
+            .add((Iterator<V>) new ToIterator<CharSequence>(new CharSequenceSimpleIterator(charSequence)));
         }
         return this;
     }

@@ -327,7 +327,7 @@ public class MailSender implements Runnable {
         return env;
     }
 
-    private int lastIdProcessed = -1; // spinner 
+    private int lastIdProcessed = -1; // spinner
 
     public void run() {
         if (DBUtils.db_Derby) {
@@ -346,11 +346,11 @@ public class MailSender implements Runnable {
             int countLeft = DBUtils.sqlCount(COUNTLEFTSQL);
             Thread.currentThread().setName("SurveyTool MailSender: waiting count=" + countLeft);
 //            if (SurveyMain.isUnofficial()) {
-                if (countLeft > 0) {
-                    if (DEBUG) System.err.println("MailSender: waiting mails: " + countLeft);
-                } else {
-                    //if(DEBUG) System.err.println("Countleft: 0");
-                }
+            if (countLeft > 0) {
+                if (DEBUG) System.err.println("MailSender: waiting mails: " + countLeft);
+            } else {
+                //if(DEBUG) System.err.println("Countleft: 0");
+            }
 //            }
 
             Connection conn = null;
@@ -398,7 +398,7 @@ public class MailSender implements Runnable {
                     UserRegistry.User fromUser = getUser(from);
 
                     String all_from = env.getProperty("CLDR_FROM", "set_CLDR_FROM_in_cldr.properties@example.com");
-                    
+
                     if (false && from > 1) { // ticket:6334 - don't use individualized From: messages
                         ourMessage.setFrom(new InternetAddress(fromUser.email, fromUser.name + " (SurveyTool)"));
                     } else {
@@ -408,18 +408,18 @@ public class MailSender implements Runnable {
                     // date
                     final Timestamp queue_date = rs.getTimestamp("queue_date");
                     ourMessage.setSentDate(queue_date); // slices
-                    
+
                     // to
                     Integer to = rs.getInt("user");
                     UserRegistry.User toUser = getUser(to);
-                    if(toUser == null) {
+                    if (toUser == null) {
                         String why;
                         int badCount;
                         UserRegistry.User u = CookieSession.sm.reg.getInfo(to);
-                        if(u != null && UserRegistry.userIsLocked(u)) {
-                            why = "user "+ u +" is locked";
+                        if (u != null && UserRegistry.userIsLocked(u)) {
+                            why = "user " + u + " is locked";
                         } else {
-                            why = "user (#"+to+") does not exist";
+                            why = "user (#" + to + ") does not exist";
                         }
                         rs.updateInt("try_count", (badCount = (rs.getInt("try_count") + 999))); // Don't retry.
                         rs.updateString("audit", why);
@@ -472,10 +472,10 @@ public class MailSender implements Runnable {
                     if (DEBUG) System.out.println("Mail: do updated: #id " + lastIdProcessed + " to " + toUser);
                     conn.commit();
                     if (DEBUG) System.out.println("Mail: committed: #id " + lastIdProcessed + " to " + toUser);
-                    
+
                     // do more?
                     countLeft = DBUtils.sqlCount(COUNTLEFTSQL);
-                    if(countLeft > 0) {
+                    if (countLeft > 0) {
                         processMail();
                     }
                 } catch (MessagingException mx) {

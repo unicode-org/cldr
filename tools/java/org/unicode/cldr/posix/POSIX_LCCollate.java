@@ -86,7 +86,7 @@ public class POSIX_LCCollate {
             {
                 if (it.codepoint != UnicodeSetIterator.IS_STRING && UCharacter.isBMP(it.codepoint) &&
                     (!UCharacter.isLowSurrogate((char) it.codepoint) &&
-                    !UCharacter.isHighSurrogate((char) it.codepoint)))
+                        !UCharacter.isHighSurrogate((char) it.codepoint)))
                     chars.add(it.codepoint);
             }
         }
@@ -170,10 +170,10 @@ public class POSIX_LCCollate {
             buffer.setLength(0);
             String s = (String) o;
             buffer.append("collating-element ")
-                .append(POSIXUtilities.POSIXContraction(s))
-                .append(" from \"")
-                .append(POSIXUtilities.POSIXCharName(s))
-                .append("\"");
+            .append(POSIXUtilities.POSIXContraction(s))
+            .append(" from \"")
+            .append(POSIXUtilities.POSIXCharName(s))
+            .append("\"");
             out.println(buffer.toString());
         }
     }
@@ -240,11 +240,11 @@ public class POSIX_LCCollate {
         // gather data
         Weights w = stringToWeights.get(string);
         result.append(w.primaries)
-            .append(";")
-            .append(w.secondaries)
-            .append(";")
-            .append(w.tertiaries)
-            .append(";");
+        .append(";")
+        .append(w.secondaries)
+        .append(";")
+        .append(w.tertiaries)
+        .append(";");
 
         if (nonUniqueWeights.contains(w))
         {

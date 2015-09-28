@@ -178,6 +178,6 @@ public class WritePluralRules {
         PluralRules override = null; // PluralRulesFactory.getPluralOverrides().get(new ULocale(locale));
         return override != null
             ? override
-            : sInfo.getPlurals(locale).getPluralRules();
+                : sInfo.getPlurals(locale).getPluralRules();
     }
 }

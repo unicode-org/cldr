@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author srl
- * 
+ *
  *         Class to encapsulate matching an xpath.
  */
 public abstract class XPathMatcher implements Comparable<XPathMatcher> {
@@ -19,7 +19,7 @@ public abstract class XPathMatcher implements Comparable<XPathMatcher> {
 
     /**
      * If this matcher matches a single xpath by number, return it.
-     * 
+     *
      * @return
      */
     public int getXPath() {
@@ -28,7 +28,7 @@ public abstract class XPathMatcher implements Comparable<XPathMatcher> {
 
     /**
      * Return the prefix which is matched. Defaults to all.
-     * 
+     *
      * @return
      */
     public String getPrefix() {
@@ -37,7 +37,7 @@ public abstract class XPathMatcher implements Comparable<XPathMatcher> {
 
     /**
      * Get a name that can be used to compare objects.
-     * 
+     *
      * @return
      */
     public abstract String getName();
@@ -63,7 +63,7 @@ public abstract class XPathMatcher implements Comparable<XPathMatcher> {
 
     /**
      * Is this xpath matched?
-     * 
+     *
      * @param xpath
      *            string to match
      * @param xpid
@@ -73,7 +73,7 @@ public abstract class XPathMatcher implements Comparable<XPathMatcher> {
 
     /**
      * Create a new matcher that matches the intersection of a and b
-     * 
+     *
      * @param a
      * @param b
      * @return a new matcher
@@ -127,7 +127,7 @@ public abstract class XPathMatcher implements Comparable<XPathMatcher> {
 
     /**
      * Create a new matcher that matches a regex-limited subset of a
-     * 
+     *
      * @param pattern
      *            regex pattern to use
      * @return
@@ -172,8 +172,8 @@ public abstract class XPathMatcher implements Comparable<XPathMatcher> {
         if (str.contains(DataSection.CONTINENT_DIVIDER)) {
             return BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH,
                 str.substring(0, str.indexOf(DataSection.CONTINENT_DIVIDER))); // just
-                                                                               // return
-                                                                               // prefix
+            // return
+            // prefix
             // } else if(str.equals(DataSection.EXEMPLAR_PARENT)) {
             //
         } else {

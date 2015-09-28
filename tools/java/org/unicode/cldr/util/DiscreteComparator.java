@@ -18,12 +18,12 @@ import com.ibm.icu.impl.Utility;
 
 /**
  * A comparator that can be built from a series of 'less than' relations.
- * 
+ *
  * <pre>
  * DiscreteComparator<String> comp = new Builder<String>(order).add("c", "d", "b", "a").add("m", "n", "d").get();
  * if (comp.compare("a", "m")) ...
  * </pre>
- * 
+ *
  * @author markdavis
  * @param <T>
  *            any class
@@ -52,7 +52,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
      * Compare the items. If there was a backup comparator, it will be used for
      * items not specified explicitly. However, all explicit items will always
      * come before all others, to preserve transitivity.
-     * 
+     *
      * @param o1
      *            first item
      * @param o2
@@ -88,7 +88,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
 
     /**
      * Get a list of the explicit items.
-     * 
+     *
      * @return a list
      */
     public List<T> getOrdering() {
@@ -102,7 +102,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
 
     /**
      * Builder for DiscreteComparator
-     * 
+     *
      * @param <T>
      *            any class
      */
@@ -116,7 +116,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
 
         /**
          * Pass the order you want for the results.
-         * 
+         *
          * @param order
          */
         public Builder(Ordering order) {
@@ -128,7 +128,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
 
         /**
          * If there is a backup comparator, specify it here.
-         * 
+         *
          * @param backupOrdering
          * @return this, for chaining
          */
@@ -139,7 +139,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
 
         /**
          * Add explicitly ordered items, from least to greatest
-         * 
+         *
          * @param items
          * @return this, for chaining
          */
@@ -168,7 +168,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
 
         /**
          * Add explicitly ordered items, from least to greatest
-         * 
+         *
          * @param items
          * @return this, for chaining
          */
@@ -197,7 +197,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
 
         /**
          * Add explicitly ordered items
-         * 
+         *
          * @param a
          *            lesser
          * @param b
@@ -226,7 +226,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
         /**
          * Get the comparator you've been building. After this call, the builder is
          * reset (if there is no error).
-         * 
+         *
          * @return comparator
          * @exception CycleException
          *                throwing if there is (at least one) cycle, like a > b > c >
@@ -250,7 +250,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
 
         /**
          * Call only after getting a CycleException
-         * 
+         *
          * @return list of items that form a cycle, in order from least to greatest
          */
         public List<T> getCycle() {
@@ -299,7 +299,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
                 : order == Ordering.NATURAL ? new TreeSet<Node<T>>()
                     : new HashSet<Node<T>>();
 
-            me = a;
+                me = a;
         }
 
         private void visit(Map<T, Integer> resultOrdering) {

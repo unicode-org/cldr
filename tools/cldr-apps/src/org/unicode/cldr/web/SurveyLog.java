@@ -22,7 +22,7 @@ import org.unicode.cldr.util.StackTracker;
 
 /**
  * @author srl
- * 
+ *
  */
 public class SurveyLog {
     static boolean DEBUG = false;
@@ -72,7 +72,7 @@ public class SurveyLog {
 
     /**
      * Set the logging to happen inside the ST dir
-     * 
+     *
      * @param homeFile
      */
     public static void setDir(File homeFile) {

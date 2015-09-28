@@ -17,7 +17,6 @@ import org.unicode.cldr.tool.Option.Options;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.UCharacterProperty;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UForwardCharacterIterator;
@@ -26,9 +25,9 @@ import com.ibm.icu.text.UnicodeSet;
 
 /**
  * Compares the contents of ICU data output while ignoring comments.
- * 
+ *
  * @author markdavis, jchye
- * 
+ *
  */
 public class CompareIcuOutput {
     private static final boolean DEBUG = false;
@@ -36,8 +35,8 @@ public class CompareIcuOutput {
     private static final Options options = new Options(
         "Usage: RBChecker [OPTIONS] DIR1 DIR2 FILE_REGEX\n" +
             "This program is used to compare the RB text files in two different directories.\n" +
-            "  Example: org.unicode.cldr.icu.RBChecker olddatadir newdatadir .*")
-        .add("sort", 's', null, null, "Sort values for comparison");
+        "  Example: org.unicode.cldr.icu.RBChecker olddatadir newdatadir .*")
+    .add("sort", 's', null, null, "Sort values for comparison");
 
     private static final Comparator<String[]> comparator = new Comparator<String[]>() {
         @Override
@@ -64,7 +63,7 @@ public class CompareIcuOutput {
 
     /**
      * Parses and compares two ICU textfiles.
-     * 
+     *
      * @param dir1
      * @param dir2
      * @param regex
@@ -110,7 +109,7 @@ public class CompareIcuOutput {
 
     /**
      * Computes lists of all differences between two sets of IcuData.
-     * 
+     *
      * @param oldData
      * @param newData
      */
@@ -205,7 +204,7 @@ public class CompareIcuOutput {
 
     /**
      * Parse an ICU resource bundle into key,value items
-     * 
+     *
      * @param filename
      * @param output
      * @param comments
@@ -340,9 +339,9 @@ public class CompareIcuOutput {
     /**
      * Reads in tokens from an ICU data file reader.
      * Replace by updated PatternTokenizer someday
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     static class MyTokenizer {
         enum Type {
@@ -479,7 +478,7 @@ public class CompareIcuOutput {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see com.ibm.icu.text.UForwardCharacterIterator#next()
          */
         public int next() {
@@ -497,7 +496,7 @@ public class CompareIcuOutput {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see com.ibm.icu.text.UForwardCharacterIterator#nextCodePoint()
          */
         public int nextCodePoint() {

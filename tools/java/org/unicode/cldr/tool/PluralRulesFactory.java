@@ -112,10 +112,10 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         public PluralRules forLocale(ULocale locale, PluralType ordinal) {
             PluralRules override = ordinal != PluralType.CARDINAL
                 ? null
-                : getPluralOverrides().get(locale);
+                    : getPluralOverrides().get(locale);
             return override != null
                 ? override
-                : PluralRules.forLocale(locale, ordinal);
+                    : PluralRules.forLocale(locale, ordinal);
         }
 
         @Override
@@ -499,10 +499,10 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         { "it", "one", "{0} giorno" },
         { "it", "other", "{0} giorni" },
         { "ja", "other", "{0}日" },
-        { "ka", "one", "კალათში {0} X-ია. შეიძენთ მას?" }, // 
-        { "ka", "other", "კალათში {0} X-ია. შეიძენთ მათ?" }, // 
-        { "kk", "one", "Cебетте {0} Х бар. Ол сіздікі ме?" }, // 
-        { "kk", "other", "Себетте {0} Х бар. Олар сіздікі ме?" }, // 
+        { "ka", "one", "კალათში {0} X-ია. შეიძენთ მას?" }, //
+        { "ka", "other", "კალათში {0} X-ია. შეიძენთ მათ?" }, //
+        { "kk", "one", "Cебетте {0} Х бар. Ол сіздікі ме?" }, //
+        { "kk", "other", "Себетте {0} Х бар. Олар сіздікі ме?" }, //
         { "kl", "one", "{0} Ulloq" },
         { "kl", "other", "{0} Ullut" },
         { "km", "other", "{0} ថ្ងៃ" },
@@ -596,8 +596,8 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         { "vi", "other", "{0} ngày" },
         { "zh", "other", "{0} 天" },
         { "zh_Hant", "other", "{0} 日" },
-        { "en", "one", "{0} day" }, // added from spreadsheet  
-        { "en", "other", "{0} days" }, // added from spreadsheet   
+        { "en", "one", "{0} day" }, // added from spreadsheet
+        { "en", "other", "{0} days" }, // added from spreadsheet
         { "zu", "one", "{0} usuku" }, // added from spreadsheet
         { "zu", "other", "{0} izinsuku" }, // added from spreadsheet
 
@@ -637,7 +637,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
             " or v is 2 and f mod 100 in 11..19;" +
             "one: n mod 10 is 1 and n mod 100 is not 11" +
             " or v is 2 and f mod 10 is 1 and f mod 100 is not 11" +
-            " or v is not 2 and f mod 10 is 1" },
+        " or v is not 2 and f mod 10 is 1" },
         //                    {"lv", "zero: n mod 10 is 0" +
         //                            " or n mod 10 in 11..19" +
         //                            " or v in 1..6 and f is not 0 and f mod 10 is 0" +
@@ -647,7 +647,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         //                            " or v not in 0..6 and f mod 10 is 1"},
         {
             "pl",
-            "one: j is 1;  few: j mod 10 in 2..4 and j mod 100 not in 12..14;  many: j is not 1 and j mod 10 in 0..1 or j mod 10 in 5..9 or j mod 100 in 12..14" },
+        "one: j is 1;  few: j mod 10 in 2..4 and j mod 100 not in 12..14;  many: j is not 1 and j mod 10 in 0..1 or j mod 10 in 5..9 or j mod 100 in 12..14" },
         { "sl", "one: j mod 100 is 1;  two: j mod 100 is 2;  few: j mod 100 in 3..4 or v is not 0" },
         //                    {"sr", "one: j mod 10 is 1 and j mod 100 is not 11" +
         //                            " or v in 1..6 and f mod 10 is 1 and f mod 100 is not 11" +
@@ -672,17 +672,17 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         { "mo,ro", "one: j is 1; few: v is not 0 or n is 0 or n is not 1 and n mod 100 in 1..19" },
         { "ru", "one: j mod 10 is 1 and j mod 100 is not 11;" +
             " many: j mod 10 is 0 or j mod 10 in 5..9 or j mod 100 in 11..14"
-        //                            + "; many: j mod 10 is 0 or j mod 10 in 5..9 or j mod 100 in 11..14"
+            //                            + "; many: j mod 10 is 0 or j mod 10 in 5..9 or j mod 100 in 11..14"
         },
         { "uk", "one: j mod 10 is 1 and j mod 100 is not 11;  " +
             "few: j mod 10 in 2..4 and j mod 100 not in 12..14;  " +
-            "many: j mod 10 is 0 or j mod 10 in 5..9 or j mod 100 in 11..14" },
+        "many: j mod 10 is 0 or j mod 10 in 5..9 or j mod 100 in 11..14" },
         { "zu", "one: n within 0..1" },
         { "mk", "one: j mod 10 is 1 or f mod 10 is 1" },
         { "pa", "one: n in 0..1" },
         { "lt", "one: n mod 10 is 1 and n mod 100 not in 11..19; " +
             "few: n mod 10 in 2..9 and n mod 100 not in 11..19; " +
-            "many: f is not 0" },
+        "many: f is not 0" },
     };
     static String[][] ORDINAL_SAMPLES = {
         { "af", "Neem die {0}e afdraai na regs.", "1" },

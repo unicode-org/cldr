@@ -3,14 +3,14 @@ package org.unicode.cldr.icu;
 /**
  * This Class is the Java representation of the ICU4C structure UDataInfo which can
  * be found in <I>$icu4c_root</I>/source/common/unicode/udata.h
- * 
+ *
  * <p>
  * This class is used by LDML2ICUBinaryWriter to store information that must be written in the ICU Binary format.
- * 
+ *
  * Note that if this data structure ever grows, the getSize() method must be updated.
- * 
+ *
  * @author Brian Rower - June 2008
- * 
+ *
  */
 public class UDataInfo
 {
@@ -94,7 +94,7 @@ public class UDataInfo
     class IncorrectArrayLengthException extends Exception
     {
         /**
-         * 
+         *
          */
         private static final long serialVersionUID = -3238261375903639881L;
 
@@ -106,7 +106,7 @@ public class UDataInfo
 
     public UDataInfo(short size, short reservedWord, byte isBigEndian, byte charsetFamily, byte sizeofUChar,
         byte reservedByte, byte[] dataFormat, byte[] formatVersion, byte[] dataVersion)
-        throws IncorrectArrayLengthException
+            throws IncorrectArrayLengthException
     {
         if (dataFormat.length != 4)
         {
@@ -140,7 +140,7 @@ public class UDataInfo
      * float = 4 bytes<Br>
      * double = 8 bytes<br>
      * char = 2 bytes<br>
-     * 
+     *
      * @return The number of bytes that UDataInfo occupies
      */
     public static short getSize()
@@ -156,7 +156,7 @@ public class UDataInfo
 
     /**
      * Returns a byte array representing the UDataStructure so that it can be written byte by byte.
-     * 
+     *
      * @returns a byte array of the contents of this UDataStructure.
      */
     public byte[] getByteArray()
@@ -218,7 +218,7 @@ public class UDataInfo
         byte mask = (byte) 0xFF;
         b[1] = (byte) (x & mask); // bitwise and with the lower byte
         b[0] = (byte) ((x >>> 8) & mask); // shift four bits to the right and fill with zeros, and then bitwise and with
-                                          // the lower byte
+        // the lower byte
         return b;
     }
 }

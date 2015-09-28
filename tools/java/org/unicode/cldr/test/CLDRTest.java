@@ -293,7 +293,7 @@ public class CLDRTest extends TestFmwk {
     static final long disableDate = getDateTimeinMillis(2005, 6 - 1, 3);
 
     /**
-     * 
+     *
      */
     private boolean disableUntilLater(String string) {
         if (new Date().getTime() >= disableDate) return false;
@@ -416,7 +416,7 @@ public class CLDRTest extends TestFmwk {
     /**
      * Make sure we are only using attribute values that are in RFC3066bis, the Olson database (with aliases removed)
      * or ISO 4217
-     * 
+     *
      * @throws IOException
      */
     public void TestForIllegalAttributeValues() {
@@ -456,7 +456,7 @@ public class CLDRTest extends TestFmwk {
     /**
      * Tests whether the display names have any collisions, e.g. if in the fully resolved
      * locale $ is used for both USD and UAD.
-     * 
+     *
      */
     public void TestDisplayNameCollisions() {
         if (disableUntilLater("TestDisplayNameCollisions")) return;
@@ -495,7 +495,7 @@ public class CLDRTest extends TestFmwk {
     /**
      * Checks the validity of attributes, based on StandardCodes.
      * The invalid codes are added to badCodes, and the failing xpaths are added to xpathFailures.
-     * 
+     *
      * @param item
      * @param badCodes
      * @param xpathFailures
@@ -558,7 +558,7 @@ public class CLDRTest extends TestFmwk {
 
     /**
      * Internal function
-     * 
+     *
      * @param checkReplacements
      *            TODO
      */
@@ -580,7 +580,7 @@ public class CLDRTest extends TestFmwk {
 
     /**
      * Verify that a small set of locales (currently just English) has everything translated.
-     * 
+     *
      * @throws IOException
      */
     public void TestCompleteLocales() {
@@ -828,9 +828,9 @@ public class CLDRTest extends TestFmwk {
     private String getDateKey(String monthOrDay, String width, String code) {
         // String context = width.equals("narrow") ? "format" : "stand-alone";
         return "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/"
-            + monthOrDay + "s/" + monthOrDay + "Context[@type=\"format\"]/"
-            + monthOrDay + "Width[@type=\"" + width + "\"]/" + monthOrDay
-            + "[@type=\"" + code + "\"]";
+        + monthOrDay + "s/" + monthOrDay + "Context[@type=\"format\"]/"
+        + monthOrDay + "Width[@type=\"" + width + "\"]/" + monthOrDay
+        + "[@type=\"" + code + "\"]";
     }
 
     /**
@@ -916,7 +916,7 @@ public class CLDRTest extends TestFmwk {
 
     /**
      * Tests that the supplemental data is well-formed.
-     * 
+     *
      */
     public void TestSupplementalData() {
         Map<String, Set<String>> language_scripts = new TreeMap<String, Set<String>>();
@@ -1070,7 +1070,7 @@ public class CLDRTest extends TestFmwk {
     }
 
     /**
-     * 
+     *
      */
     private void checkEqual(String title, Map map1, Map map2) {
         Set foo = new TreeSet(map1.keySet());
@@ -1092,7 +1092,7 @@ public class CLDRTest extends TestFmwk {
 
     /**
      * Test that the zone ids are well-formed.
-     * 
+     *
      */
     public void TestZones() {
         StandardCodes sc = StandardCodes.make();
@@ -1222,7 +1222,7 @@ public class CLDRTest extends TestFmwk {
  * SHOW_DTD = 8,
  * TRANSLIT = 9;
  * options[SOURCEDIR].value
- * 
+ *
  * private static final UOption[] options = {
  * UOption.HELP_H(),
  * UOption.HELP_QUESTION_MARK(),
@@ -1235,10 +1235,10 @@ public class CLDRTest extends TestFmwk {
  * UOption.create("nonvalidating", 'n', UOption.NO_ARG),
  * UOption.create("dtd", 'w', UOption.NO_ARG),
  * UOption.create("transliterate", 'y', UOption.NO_ARG), };
- * 
+ *
  * private static String timeZoneAliasDir = null;
  * /
- * 
+ *
  * public static void main(String[] args) throws SAXException, IOException {
  * UOption.parseArgs(args, options);
  * localeList = getMatchingXMLFiles(options[SOURCEDIR].value, options[MATCH].value);
@@ -1250,19 +1250,19 @@ public class CLDRTest extends TestFmwk {
  * for (int i = 0; i <= 1; ++i) {
  * boolean resolved = i == 1;
  * CLDRKey key = make(name, resolved);
- * 
+ *
  * PrintWriter pw = BagFormatter.openUTF8Writer(options[DESTDIR].value, name + (resolved ? "_r" : "") + ".txt");
  * write(pw, key);
  * pw.close();
- * 
+ *
  * }
  * }
  * } finally {
  * log.close();
  * System.out.println("Done");
  * }
- * 
- * 
+ *
+ *
  * <language type="in">Indonesian</language>
  * <language type="iw">Hebrew</language>
  * <script type="Bali">Balinese</script>
@@ -1369,8 +1369,8 @@ public class CLDRTest extends TestFmwk {
  * <variant type="rozaj">Resian</variant>
  * <variant type="scouse">Scouse</variant>
  * <variant type="xiang">Xiang or Hunanese</variant>
- * 
- * 
+ *
+ *
  * <currency type="CFP"><displayName>???</displayName></currency>
  * <currency type="DDR"><displayName>???</displayName></currency>
  * <currency type="EQE"><displayName>???</displayName></currency>

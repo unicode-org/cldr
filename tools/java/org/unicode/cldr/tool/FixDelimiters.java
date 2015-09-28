@@ -23,9 +23,9 @@ import com.ibm.icu.impl.Row.R2;
 
 /**
  * One-time class to fix delimiters
- * 
+ *
  * @author markdavis
- * 
+ *
  */
 public class FixDelimiters {
 

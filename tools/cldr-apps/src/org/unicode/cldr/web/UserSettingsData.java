@@ -17,7 +17,7 @@ import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
 /**
  * @author srl
- * 
+ *
  */
 public class UserSettingsData {
     public static final String SET_KINDS = "set_kinds";
@@ -60,7 +60,7 @@ public class UserSettingsData {
 
         /**
          * Get a string, or the default
-         * 
+         *
          * @param name
          *            name of setting to get
          * @param defaultValue
@@ -89,7 +89,7 @@ public class UserSettingsData {
 
         /**
          * Set a string
-         * 
+         *
          * @param name
          *            should be ASCII
          * @param value
@@ -300,7 +300,7 @@ public class UserSettingsData {
 
     /**
      * New up a UserSettingsData object.
-     * 
+     *
      * @param sm
      *            progress indicator (such as SurveyMain ) - can be null for no
      *            progress indication.

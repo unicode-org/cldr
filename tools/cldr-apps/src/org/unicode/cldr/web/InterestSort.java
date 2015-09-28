@@ -16,7 +16,7 @@ import com.ibm.icu.text.Collator;
 
 /**
  * @author srl
- * 
+ *
  */
 public class InterestSort extends SortMode {
 
@@ -24,7 +24,7 @@ public class InterestSort extends SortMode {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.web.SortMode#getName()
      */
     @Override
@@ -34,7 +34,7 @@ public class InterestSort extends SortMode {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.web.SortMode#memberships()
      */
     @Override
@@ -46,7 +46,7 @@ public class InterestSort extends SortMode {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.web.SortMode#createComparator()
      */
     @Override
@@ -76,8 +76,8 @@ public class InterestSort extends SortMode {
                 final boolean p1IsName = p1.isName();
                 final boolean p2IsName = p2.isName();
                 if (p1IsName != p2IsName) { // do this for transitivity, so that
-                                            // names sort first if there are
-                                            // mixtures
+                    // names sort first if there are
+                    // mixtures
                     return p1IsName ? -1 : 1;
                 } else if (p1IsName) {
                     return nameComparator.compare(p1, p2);
@@ -168,10 +168,10 @@ public class InterestSort extends SortMode {
                 // return "root".equals(p.aliasFromLocale) ||
                 // XMLSource.CODE_FALLBACK_ID.equals(p.aliasFromLocale);
                 return p.inheritedValue != null && // found inherited item
-                                                   // (extrapaths and some
-                                                   // special paths may not
-                                                   // have an inherited
-                                                   // item)
+                    // (extrapaths and some
+                    // special paths may not
+                    // have an inherited
+                    // item)
                     (CLDRLocale.ROOT == p.inheritedValue.inheritFrom || XMLSource.CODE_FALLBACK_ID
                         .equals(p.inheritedValue.inheritFrom.getBaseName()));
                 /*

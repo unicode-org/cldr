@@ -74,7 +74,7 @@ public class CoverageInfo {
     /**
      * Used to get the coverage value for a path. This is generally the most
      * efficient way for tools to get coverage.
-     * 
+     *
      * @param xpath
      * @param loc
      * @return
@@ -108,7 +108,7 @@ public class CoverageInfo {
     /**
      * Used to get the coverage value for a path. Note, it is more efficient to create
      * a CoverageLevel2 for a language, and keep it around.
-     * 
+     *
      * @param xpath
      * @param loc
      * @return

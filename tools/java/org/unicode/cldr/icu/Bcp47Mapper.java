@@ -10,7 +10,7 @@ import org.xml.sax.SAXException;
 
 /**
  * A mapper that converts BCP 47 data from CLDR to the ICU data structure.
- * 
+ *
  * @author jchye
  */
 public class Bcp47Mapper {
@@ -71,7 +71,7 @@ public class Bcp47Mapper {
 
         /**
          * KeywordHandler constructor.
-         * 
+         *
          * @param icuData
          *            the IcuData object to store the parsed data
          * @param keyMap

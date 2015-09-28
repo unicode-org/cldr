@@ -151,7 +151,7 @@ public class LikelySubtagsTest extends TestFmwk {
 
     /**
      * Return false if we should skip the language
-     * 
+     *
      * @param source
      * @return
      */
@@ -298,9 +298,9 @@ public class LikelySubtagsTest extends TestFmwk {
             metadataScripts.remove(shortName);
         }
         metadataScripts
-            .removeAll(Arrays.asList("Hans", "Hant", "Jpan", "Kore")); // remove
-                                                                       // "combo"
-                                                                       // scripts
+        .removeAll(Arrays.asList("Hans", "Hant", "Jpan", "Kore")); // remove
+        // "combo"
+        // scripts
         if (!metadataScripts.isEmpty()) {
             // Warning, not error, so that we can add scripts to the script metadata
             // and later update to the Unicode version that has characters for those scripts.
@@ -340,7 +340,7 @@ public class LikelySubtagsTest extends TestFmwk {
             if (likelyExpansion == null) {
                 if (region.equals("ZZ") || region.equals("001")
                     || SUPPLEMENTAL_DATA_INFO.getContained(region) == null) { // not
-                                                                              // container
+                    // container
                     String likelyTag = LikelySubtags.maximize("und_" + region,
                         likely);
                     if (likelyTag == null || !likelyTag.startsWith("en_Latn_")) {

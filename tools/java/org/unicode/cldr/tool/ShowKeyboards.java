@@ -232,7 +232,7 @@ public class ShowKeyboards {
             "",
             headerAndFooter, "Keyboard Index", false);
         index
-            .println(headerAndFooter[0] + ABOUT_KEYBOARD_CHARTS);
+        .println(headerAndFooter[0] + ABOUT_KEYBOARD_CHARTS);
         // printTop("Keyboard Layout Index", index);
         index.println("<ol>");
         for (Entry<String, String> entry : localeIndex.entrySet()) {
@@ -403,8 +403,8 @@ public class ShowKeyboards {
                 final V value = entry.getValue();
                 String valueString = value instanceof Collection
                     ? CollectionUtilities.join((Collection) value, " ")
-                    : value.toString();
-                hover.append(TransliteratorUtilities.toHTML.transform(keyString)).append("→")
+                        : value.toString();
+                    hover.append(TransliteratorUtilities.toHTML.transform(keyString)).append("→")
                     .append(TransliteratorUtilities.toHTML.transform(valueString));
             }
         }
@@ -437,14 +437,14 @@ public class ShowKeyboards {
         Relation<String, Id> locale2ids) {
 
         TablePrinter t = new TablePrinter()
-            .addColumn("Name").setSpanRows(true).setBreakSpans(true).setSortPriority(0)
-            .setCellAttributes("class='cell'")
-            .addColumn("Locale").setSpanRows(true).setBreakSpans(true).setCellAttributes("class='cell'")
-            .addColumn("Platform").setSpanRows(true).setCellAttributes("class='cell'")
-            .addColumn("Variant").setCellAttributes("class='cell'")
-            .addColumn("Script").setCellAttributes("class='cell'")
-            .addColumn("Statistics").setCellAttributes("class='cell'")
-            .addColumn("Characters").setSpanRows(true).setCellAttributes("class='cell'");
+        .addColumn("Name").setSpanRows(true).setBreakSpans(true).setSortPriority(0)
+        .setCellAttributes("class='cell'")
+        .addColumn("Locale").setSpanRows(true).setBreakSpans(true).setCellAttributes("class='cell'")
+        .addColumn("Platform").setSpanRows(true).setCellAttributes("class='cell'")
+        .addColumn("Variant").setCellAttributes("class='cell'")
+        .addColumn("Script").setCellAttributes("class='cell'")
+        .addColumn("Statistics").setCellAttributes("class='cell'")
+        .addColumn("Characters").setSpanRows(true).setCellAttributes("class='cell'");
 
         Map<String, UnicodeSet> commonSets = new HashMap<String, UnicodeSet>();
         Counter<String> commonCount = new Counter<String>();
@@ -494,14 +494,14 @@ public class ShowKeyboards {
                 }
                 common.freeze();
                 t.addRow()
-                    .addCell(linkedLocaleName) // name
-                    .addCell(key) // locale
-                    .addCell("ALL") // platform
-                    .addCell("COMMON") // variant
-                    .addCell(likelyScript) // script
-                    .addCell(getInfo(null, common, cldrFile)) // stats
-                    .addCell(safeUnicodeSet(common)) // characters
-                    .finishRow();
+                .addCell(linkedLocaleName) // name
+                .addCell(key) // locale
+                .addCell("ALL") // platform
+                .addCell("COMMON") // variant
+                .addCell(likelyScript) // script
+                .addCell(getInfo(null, common, cldrFile)) // stats
+                .addCell(safeUnicodeSet(common)) // characters
+                .finishRow();
 
                 // System.out.println(
                 // locale + "\tCOMMON\t\t-"
@@ -522,30 +522,30 @@ public class ShowKeyboards {
                         platformCommon.removeAll(common).freeze();
                         commonSets.put(keyboardId.platform, platformCommon);
                         t.addRow()
-                            .addCell(linkedLocaleName) // name
-                            .addCell(key) // locale
-                            .addCell(keyboardId.platform) // platform
-                            .addCell("COMMON") // variant
-                            .addCell(likelyScript) // script
-                            .addCell(stats) // stats
-                            .addCell(safeUnicodeSet(platformCommon)) // characters
-                            .finishRow();
+                        .addCell(linkedLocaleName) // name
+                        .addCell(key) // locale
+                        .addCell(keyboardId.platform) // platform
+                        .addCell("COMMON") // variant
+                        .addCell(likelyScript) // script
+                        .addCell(stats) // stats
+                        .addCell(safeUnicodeSet(platformCommon)) // characters
+                        .finishRow();
                     }
                 }
                 final UnicodeSet current2 = id2unicodeset.get(keyboardId);
                 final UnicodeSet remainder = new UnicodeSet(current2)
-                    .removeAll(common)
-                    .removeAll(platformCommon);
+                .removeAll(common)
+                .removeAll(platformCommon);
 
                 t.addRow()
-                    .addCell(linkedLocaleName) // name
-                    .addCell(key) // locale
-                    .addCell(keyboardId.platform) // platform
-                    .addCell(keyboardId.variant) // variant
-                    .addCell(likelyScript) // script
-                    .addCell(getInfo(keyboardId, current2, cldrFile)) // stats
-                    .addCell(safeUnicodeSet(remainder)) // characters
-                    .finishRow();
+                .addCell(linkedLocaleName) // name
+                .addCell(key) // locale
+                .addCell(keyboardId.platform) // platform
+                .addCell(keyboardId.variant) // variant
+                .addCell(likelyScript) // script
+                .addCell(getInfo(keyboardId, current2, cldrFile)) // stats
+                .addCell(safeUnicodeSet(remainder)) // characters
+                .finishRow();
                 // System.out.println(
                 // keyboardId.toString().replace('/','\t')
                 // + "\t" + keyboardId.platformVersion
@@ -557,8 +557,8 @@ public class ShowKeyboards {
     }
 
     static PrettyPrinter prettyPrinter = new PrettyPrinter()
-        .setOrdering(Collator.getInstance(ULocale.ROOT))
-        .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY)
+    .setOrdering(Collator.getInstance(ULocale.ROOT))
+    .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY)
         );
 
     public static String safeUnicodeSet(UnicodeSet unicodeSet) {
@@ -639,11 +639,11 @@ public class ShowKeyboards {
         public void print(PrintWriter pw) {
 
             TablePrinter t = new TablePrinter()
-                .addColumn("Script").setSpanRows(true).setCellAttributes("class='s'")
-                .addColumn("Char").setCellAttributes("class='ch'")
-                .addColumn("Code").setCellAttributes("class='c'")
-                .addColumn("Name").setCellAttributes("class='n'")
-                .addColumn("Keyboards").setSpanRows(true).setCellAttributes("class='k'");
+            .addColumn("Script").setSpanRows(true).setCellAttributes("class='s'")
+            .addColumn("Char").setCellAttributes("class='ch'")
+            .addColumn("Code").setCellAttributes("class='c'")
+            .addColumn("Name").setCellAttributes("class='n'")
+            .addColumn("Keyboards").setSpanRows(true).setCellAttributes("class='k'");
             Set<String> missingScripts = new TreeSet<String>();
             UnicodeSet notNFKC = new UnicodeSet("[:nfkcqc=n:]");
             UnicodeSet COMMONINHERITED = new UnicodeSet("[[:sc=common:][:sc=inherited:]]");
@@ -692,10 +692,10 @@ public class ShowKeyboards {
                         }
                         String ch = s.equals("\u0F39") ? "\uFFFD" : s;
                         t.addRow()
-                            .addCell(linkedScriptName)
-                            .addCell((SHOW_BACKGROUND ? "<span class='ybg'>" : "") +
-                                TransliteratorUtilities.toHTML.transform(ch)
-                                + (SHOW_BACKGROUND ? "</span>" : ""))
+                        .addCell(linkedScriptName)
+                        .addCell((SHOW_BACKGROUND ? "<span class='ybg'>" : "") +
+                            TransliteratorUtilities.toHTML.transform(ch)
+                            + (SHOW_BACKGROUND ? "</span>" : ""))
                             .addCell(Utility.hex(s, 4, " + "))
                             .addCell(name)
                             .addCell(keyboardsString)
@@ -713,21 +713,21 @@ public class ShowKeyboards {
                     // fullScript.toPattern(false) + "]");
                     // }
                     t.addRow()
-                        .addCell(linkedScriptName)
-                        .addCell("")
-                        .addCell(String.valueOf(inScript.size()))
-                        .addCell("missing (NFKC)!")
-                        .addCell(safeUnicodeSet(inScript))
-                        .finishRow();
+                    .addCell(linkedScriptName)
+                    .addCell("")
+                    .addCell(String.valueOf(inScript.size()))
+                    .addCell("missing (NFKC)!")
+                    .addCell(safeUnicodeSet(inScript))
+                    .finishRow();
                 }
             }
             t.addRow()
-                .addCell("")
-                .addCell("")
-                .addCell(String.valueOf(missingScripts.size()))
-                .addCell("missing scripts!")
-                .addCell(missingScripts.toString())
-                .finishRow();
+            .addCell("")
+            .addCell("")
+            .addCell(String.valueOf(missingScripts.size()))
+            .addCell("missing scripts!")
+            .addCell(missingScripts.toString())
+            .finishRow();
             pw.println(t.toTable());
         }
     }

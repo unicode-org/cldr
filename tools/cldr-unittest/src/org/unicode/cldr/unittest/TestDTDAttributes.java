@@ -30,7 +30,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
     /**
      * Simple test that loads each file in the cldr directory, thus verifying
      * that the DTD works, and also checks that the PrettyPaths work.
-     * 
+     *
      * @author markdavis
      */
 
@@ -39,7 +39,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
     }
 
     public void TestOrdering() { // Not deemed to be a useful test at this time
-                                 // - JCE
+        // - JCE
         return;
         // for (DtdType type : DtdType.values()) {
         // checkOrdering(type);
@@ -136,7 +136,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
                     distinguishingAttributeToElements.put(attribute, element);
                 } else {
                     nondistinguishingAttributeToElements
-                        .put(attribute, element);
+                    .put(attribute, element);
                 }
             }
         }
@@ -240,7 +240,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
     }
 
     public void TestElements() { // Not deemed to be a useful test at this time
-                                 // - JCE
+        // - JCE
         // checkElements(DtdType.ldml, DtdType.supplementalData);
         // checkElements(DtdType.ldml, DtdType.ldmlBCP47);
         // checkElements(DtdType.ldmlBCP47, DtdType.supplementalData);
@@ -282,7 +282,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
     }
 
     public void TestEmpty() { // not deemed to be a useful test at this time -
-                              // JCE
+        // JCE
         // for (DtdType type : DtdType.values()) {
         // checkEmpty(type);
         // }
@@ -324,7 +324,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
     }
 
     public void TestLeaf() { // Not deemed to be a useful test at this time -
-                             // JCE
+        // JCE
         // for (DtdType type : DtdType.values()) {
         // checkLeaf(type, "PCDATA");
         // }
@@ -359,7 +359,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
     }
 
     public void TestZNodeData() { // Not deemed to be a useful test at this time
-                                  // - JCE
+        // - JCE
         // for (DtdType type : DtdType.values()) {
         // checkNodeData(type);
         // }
@@ -546,7 +546,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
                             for (String old : new TreeSet<String>(oldAlways)) {
                                 if (!attributes.contains(old)) {
                                     nodeData.elementToAttributesAlwaysFound
-                                        .remove(element, old);
+                                    .remove(element, old);
                                 }
                             }
                         }

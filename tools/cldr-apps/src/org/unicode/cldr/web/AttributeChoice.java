@@ -21,18 +21,18 @@ import org.unicode.cldr.util.PatternCache;
 public class AttributeChoice {
 
     static Hashtable<String, Pattern> allXpaths = new Hashtable<String, Pattern>(); // String
-                                                                                    // ->
-                                                                                    // matcher
+    // ->
+    // matcher
     static Hashtable<String, List<String>> allValues = new Hashtable<String, List<String>>(); // String
-                                                                                              // ->
-                                                                                              // {
-                                                                                              // true,
-                                                                                              // false,
-                                                                                              // ...
-                                                                                              // }
+    // ->
+    // {
+    // true,
+    // false,
+    // ...
+    // }
     static Hashtable<String, String> allAttributes = new Hashtable<String, String>(); // commonyUsed
-                                                                                      // ->
-                                                                                      // used
+    // ->
+    // used
 
     public static final String COMMONLY_USED = "//ldml/dates/timeZoneNames/metazone.*/commonlyUsed.*";
     public static final String INLIST = "//ldml/layout/inList.*";

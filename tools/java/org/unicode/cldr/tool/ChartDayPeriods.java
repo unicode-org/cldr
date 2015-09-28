@@ -45,17 +45,17 @@ public class ChartDayPeriods extends Chart {
     public void writeContents(FormattedFileWriter pw) throws IOException {
 
         TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Locale Group", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .addColumn("Locale Name", "class='source'", null, "class='source'", true)
-            .setSortPriority(1)
-            .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .setSortPriority(2)
-            .setBreakSpans(true)
-            //.addColumn("Type", "class='source'", null, "class='source'", true)
-            //.setSortPriority(3)
-            .addColumn("Start Time", "class='target'", null, "class='target'", true)
-            .addColumn("Day Period Code", "class='target'", null, "class='target'", true)
-            .addColumn("Example", "class='target'", null, "class='target'", true);
+        .addColumn("Locale Group", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+        .addColumn("Locale Name", "class='source'", null, "class='source'", true)
+        .setSortPriority(1)
+        .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+        .setSortPriority(2)
+        .setBreakSpans(true)
+        //.addColumn("Type", "class='source'", null, "class='source'", true)
+        //.setSortPriority(3)
+        .addColumn("Start Time", "class='target'", null, "class='target'", true)
+        .addColumn("Day Period Code", "class='target'", null, "class='target'", true)
+        .addColumn("Example", "class='target'", null, "class='target'", true);
 
         DateFormat df = DateFormat.getPatternInstance("HH:mm", ULocale.ENGLISH);
         df.setTimeZone(TimeZone.GMT_ZONE);
@@ -80,14 +80,14 @@ public class ChartDayPeriods extends Chart {
                         name = "missing";
                     }
                     tablePrinter.addRow()
-                        .addCell(group)
-                        .addCell(ENGLISH.getName(locale))
-                        .addCell(locale)
-                        //.addCell(type)
-                        .addCell(df.format(time))
-                        .addCell(data.get2())
-                        .addCell(name)
-                        .finishRow();
+                    .addCell(group)
+                    .addCell(ENGLISH.getName(locale))
+                    .addCell(locale)
+                    //.addCell(type)
+                    .addCell(df.format(time))
+                    .addCell(data.get2())
+                    .addCell(name)
+                    .finishRow();
                 }
             }
         }

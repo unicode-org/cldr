@@ -11,22 +11,22 @@ import java.util.List;
 /**
  * Class that reads in a file, and that provides an Iterable over its contents.
  * Encoding is assumed to be UTF8
- * 
+ *
  * @author ribnitz
- * 
+ *
  */
 class TextFileReader<E> {
     /**
      * General purpose interface, used by TestFileReader;
-     * 
+     *
      * @author ribnitz
-     * 
+     *
      * @param <E>
      */
     static interface ProcessableLine<E> {
         /**
          * Return true if the line needs to be processed
-         * 
+         *
          * @param line
          * @return
          */
@@ -35,7 +35,7 @@ class TextFileReader<E> {
         /**
          * Process the line, returning a result; Implementing classes should
          * also handle updating the old values
-         * 
+         *
          * @param line
          * @param oldValues
          * @return
@@ -44,7 +44,7 @@ class TextFileReader<E> {
 
         /**
          * Return the old values
-         * 
+         *
          * @return
          */
         E getOldValues();
@@ -55,7 +55,7 @@ class TextFileReader<E> {
     /**
      * Initialize using the filename given, file encoding is assumed to be in
      * UTF8.
-     * 
+     *
      * @param file
      * @throws IOException
      */
@@ -65,7 +65,7 @@ class TextFileReader<E> {
 
     /**
      * Initialize using the Reader given, encoding is assumed to be in UTF8.
-     * 
+     *
      * @param rdr
      * @param cs
      * @throws IOException
@@ -91,7 +91,7 @@ class TextFileReader<E> {
     /**
      * Provide an Iterable; calling proc.lineNeedsProcessing, and
      * proc.processLine for all lines.
-     * 
+     *
      * @param proc
      * @return
      * @throws IOException

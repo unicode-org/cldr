@@ -70,19 +70,19 @@ public class ChartSubdivisions extends Chart {
     public void writeContents(FormattedFileWriter pw) throws IOException {
 
         TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Region", "class='source'", null, "class='source'", true)
-            .setSortPriority(1)
-            .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .setBreakSpans(true)
+        .addColumn("Region", "class='source'", null, "class='source'", true)
+        .setSortPriority(1)
+        .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+        .setBreakSpans(true)
 
-            .addColumn("Subdivision1", "class='target'", null, "class='target'", true)
-            .setSortPriority(2)
-            .addColumn("Code", "class='target'", CldrUtility.getDoubleLinkMsg(), "class='target'", true)
-            .setBreakSpans(true)
+        .addColumn("Subdivision1", "class='target'", null, "class='target'", true)
+        .setSortPriority(2)
+        .addColumn("Code", "class='target'", CldrUtility.getDoubleLinkMsg(), "class='target'", true)
+        .setBreakSpans(true)
 
-            .addColumn("Subdivision2", "class='target'", null, "class='target'", true)
-            .setSortPriority(3)
-            .addColumn("Code", "class='target'", CldrUtility.getDoubleLinkMsg(), "class='target'", true);
+        .addColumn("Subdivision2", "class='target'", null, "class='target'", true)
+        .setSortPriority(3)
+        .addColumn("Code", "class='target'", CldrUtility.getDoubleLinkMsg(), "class='target'", true);
 
         Map<String, R2<List<String>, String>> aliases = SDI.getLocaleAliasInfo().get("subdivision");
 
@@ -116,28 +116,28 @@ public class ChartSubdivisions extends Chart {
                     name2 = "= " + a2.get0().get(0) + " (" + name2 + ")";
                 }
                 tablePrinter.addRow()
-                    .addCell(ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
-                    .addCell(region)
-                    .addCell(name1)
-                    //.addCell(type)
-                    .addCell(s1)
-                    .addCell(name2)
-                    .addCell(s2)
-                    .finishRow();
+                .addCell(ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
+                .addCell(region)
+                .addCell(name1)
+                //.addCell(type)
+                .addCell(s1)
+                .addCell(name2)
+                .addCell(s2)
+                .finishRow();
                 remainder.remove(region);
             }
         }
         for (String region : remainder) {
             Set<String> regionAliases = inverseAliases.get(region);
             tablePrinter.addRow()
-                .addCell(ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
-                .addCell(region)
-                .addCell(regionAliases == null ? "«none»" : "=" + CollectionUtilities.join(regionAliases, ", "))
-                //.addCell(type)
-                .addCell("")
-                .addCell("")
-                .addCell("")
-                .finishRow();
+            .addCell(ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
+            .addCell(region)
+            .addCell(regionAliases == null ? "«none»" : "=" + CollectionUtilities.join(regionAliases, ", "))
+            //.addCell(type)
+            .addCell("")
+            .addCell("")
+            .addCell("")
+            .finishRow();
         }
         pw.write(tablePrinter.toTable());
     }

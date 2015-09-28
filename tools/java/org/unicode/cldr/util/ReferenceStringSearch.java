@@ -24,7 +24,7 @@ import com.ibm.icu.util.ULocale;
  * <p>
  * The key is that there is a match for a key string in a target text at positions <a,b> iff collator.compare(key,
  * target.substring(a,b)) == 0.
- * 
+ *
  * @author markdavis
  */
 public class ReferenceStringSearch {
@@ -229,7 +229,7 @@ public class ReferenceStringSearch {
     /**
      * We keep the circular buffer as start + length instead of start + limit so
      * we can distinguish the 0 case.
-     * 
+     *
      * @return
      */
     private boolean shiftBuffer() {
@@ -265,16 +265,16 @@ public class ReferenceStringSearch {
      * Find the next match, and set the min/maxStart/Limit. Return false if not
      * found. Here is an example, where [...] is the maximal match, and {..} the
      * minimal.
-     * 
+     *
      * <pre>
      *  Raw Positions of 'eß' in ' ess eß ESS̀ '
      *    '[ {ess} ]eß ESS̀ '
      *    ' ess[ {eß} ]ESS̀ '
      *    ' ess eß[ {ESS}̀ ]'
      * </pre>
-     * 
+     *
      * Matches may overlap. Thus
-     * 
+     *
      * <pre>
      *  Raw Positions of 'a!a' in 'b.a.a.a.b'
      *    'b[.{a.a}.]a.b'
@@ -336,20 +336,20 @@ public class ReferenceStringSearch {
      * This is the main public interface for searching. It filters out anything
      * that doesn't match the breaker, and adjusts the boundaries to the max/min
      * permitted. Examples:
-     * 
+     *
      * <pre>
      *  Positions of 'eß' in ' ess eß ESS̀ '
      *    ' [ess] eß ESS̀ '
      *    ' ess [eß] ESS̀ '
      *    ' ess eß [ESS̀] '
      *    Count: 3
-     * 
+     *
      * Positions of 'a!a' in 'b.a.a.a.b'
      *    'b.[a.a].a.b'
      *    'b.a.[a.a].b'
      *    Count: 2
      * </pre>
-     * 
+     *
      * @param position
      * @return
      */
@@ -429,7 +429,7 @@ public class ReferenceStringSearch {
          * calls to nextProcessed would be [CE1, 5, 5] then [CE1, 5,8].
          * <p>
          * previousProcessed would do similar things, backwards.
-         * 
+         *
          */
         int nextProcessed() {
             while (true) {
@@ -484,7 +484,7 @@ public class ReferenceStringSearch {
 
     /**
      * Utility
-     * 
+     *
      * @param keyBufferList
      * @return
      */
@@ -503,7 +503,7 @@ public class ReferenceStringSearch {
      * greatest controls whether we pick the least or the greatest possible offset that works according to the breaker.
      * <p>
      * Returns -1 if there is no valid offset according to the breaker.
-     * 
+     *
      * @param minBoundary
      * @param maxBoundary
      * @param greatest

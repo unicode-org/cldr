@@ -46,7 +46,7 @@ import com.ibm.icu.dev.util.BagFormatter;
 /**
  * Utility methods to extract data from CLDR repository and export it in JSON
  * format.
- * 
+ *
  * @author shanjian / emmons
  */
 @CLDRTool(alias = "ldml2json", description = "Convert CLDR data to JSON")
@@ -72,30 +72,30 @@ public class Ldml2JsonConverter {
         "Usage: LDML2JsonConverter [OPTIONS] [FILES]\n" +
             "This program converts CLDR data to the JSON format.\n" +
             "Please refer to the following options. \n" +
-            "\texample: org.unicode.cldr.json.Ldml2JsonConverter -c xxx -d yyy")
-        .add("commondir", 'c', ".*", CLDRPaths.COMMON_DIRECTORY,
-            "Common directory for CLDR files, defaults to CldrUtility.COMMON_DIRECTORY")
+        "\texample: org.unicode.cldr.json.Ldml2JsonConverter -c xxx -d yyy")
+    .add("commondir", 'c', ".*", CLDRPaths.COMMON_DIRECTORY,
+        "Common directory for CLDR files, defaults to CldrUtility.COMMON_DIRECTORY")
         .add("destdir", 'd', ".*", CLDRPaths.GEN_DIRECTORY,
             "Destination directory for output files, defaults to CldrUtility.GEN_DIRECTORY")
-        .add("match", 'm', ".*", ".*",
-            "Regular expression to define only specific locales or files to be generated")
-        .add("type", 't', "(main|supplemental|segments)", "main",
-            "Type of CLDR data being generated, main, supplemental, or segments.")
-        .add("resolved", 'r', "(true|false)", "false",
-            "Whether the output JSON for the main directory should be based on resolved or unresolved data")
-        .add("draftstatus", 's', "(approved|contributed|provisional|unconfirmed)", "unconfirmed",
-            "The minimum draft status of the output data")
-        .add("coverage", 'l', "(minimal|basic|moderate|modern|comprehensive|optional)", "optional",
-            "The maximum coverage level of the output data")
-        .add("fullnumbers", 'n', "(true|false)", "false",
-            "Whether the output JSON should output data for all numbering systems, even those not used in the locale")
-        .add("other", 'o', "(true|false)", "false",
-            "Whether to write out the 'other' section, which contains any unmatched paths")
-        .add("packages", 'p', "(true|false)", "false",
-            "Whether to group data files into installable packages")
-        .add("identity", 'i', "(true|false)", "true",
-            "Whether to copy the identity info into all sections containing data")
-        .add("konfig", 'k', ".*", null, "LDML to JSON configuration file");
+            .add("match", 'm', ".*", ".*",
+                "Regular expression to define only specific locales or files to be generated")
+                .add("type", 't', "(main|supplemental|segments)", "main",
+                    "Type of CLDR data being generated, main, supplemental, or segments.")
+                    .add("resolved", 'r', "(true|false)", "false",
+                        "Whether the output JSON for the main directory should be based on resolved or unresolved data")
+                        .add("draftstatus", 's', "(approved|contributed|provisional|unconfirmed)", "unconfirmed",
+                            "The minimum draft status of the output data")
+                            .add("coverage", 'l', "(minimal|basic|moderate|modern|comprehensive|optional)", "optional",
+                                "The maximum coverage level of the output data")
+                                .add("fullnumbers", 'n', "(true|false)", "false",
+                                    "Whether the output JSON should output data for all numbering systems, even those not used in the locale")
+                                    .add("other", 'o', "(true|false)", "false",
+                                        "Whether to write out the 'other' section, which contains any unmatched paths")
+                                        .add("packages", 'p', "(true|false)", "false",
+                                            "Whether to group data files into installable packages")
+                                            .add("identity", 'i', "(true|false)", "true",
+                                                "Whether to copy the identity info into all sections containing data")
+                                                .add("konfig", 'k', ".*", null, "LDML to JSON configuration file");
 
     public static void main(String[] args) throws Exception {
         options.parse(args, true);
@@ -239,7 +239,7 @@ public class Ldml2JsonConverter {
 
     /**
      * Transform the path by applying PATH_TRANSFORMATIONS rules.
-     * 
+     *
      * @param pathStr
      *            The path string being transformed.
      * @return The transformed path.
@@ -396,7 +396,7 @@ public class Ldml2JsonConverter {
 
     /**
      * Convert CLDR's XML data to JSON format.
-     * 
+     *
      * @param file
      *            CLDRFile object.
      * @param outFilename
@@ -556,10 +556,10 @@ public class Ldml2JsonConverter {
 
     /**
      * Creates the packaging files ( i.e. package.json ) for a particular package
-     * 
+     *
      * @param packageName
      *            The name of the installable package
-    */
+     */
     public void writePackagingFiles(String outputDir, String packageName) throws IOException {
         writePackageJson(outputDir, packageName);
         writeBowerJson(outputDir, packageName);
@@ -675,7 +675,7 @@ public class Ldml2JsonConverter {
 
     /**
      * Process the pending sorting items.
-     * 
+     *
      * @param out
      *            The ArrayList to hold all output lines.
      * @param nodesForLastItem
@@ -688,7 +688,7 @@ public class Ldml2JsonConverter {
     private void resolveSortingItems(JsonWriter out,
         ArrayList<CldrNode> nodesForLastItem,
         ArrayList<CldrItem> sortingItems)
-        throws IOException, ParseException {
+            throws IOException, ParseException {
         ArrayList<CldrItem> arrayItems = new ArrayList<CldrItem>();
         String lastLeadingArrayItemPath = null;
 
@@ -716,7 +716,7 @@ public class Ldml2JsonConverter {
 
     /**
      * Process the pending array items.
-     * 
+     *
      * @param out
      *            The ArrayList to hold all output lines.
      * @param nodesForLastItem
@@ -729,7 +729,7 @@ public class Ldml2JsonConverter {
     private void resolveArrayItems(JsonWriter out,
         ArrayList<CldrNode> nodesForLastItem,
         ArrayList<CldrItem> arrayItems)
-        throws IOException, ParseException {
+            throws IOException, ParseException {
         if (!arrayItems.isEmpty()) {
             CldrItem firstItem = arrayItems.get(0);
             if (firstItem.needsSort()) {
@@ -764,7 +764,7 @@ public class Ldml2JsonConverter {
 
     /**
      * Find the indent level on which array should be inserted.
-     * 
+     *
      * @param item
      *            The CldrItem being examined.
      * @return The array indent level.
@@ -785,7 +785,7 @@ public class Ldml2JsonConverter {
 
     /**
      * Write the start of an array.
-     * 
+     *
      * @param out
      *            The ArrayList to hold all output lines.
      * @param nodesForLastItem
@@ -799,7 +799,7 @@ public class Ldml2JsonConverter {
      */
     private void outputStartArray(JsonWriter out,
         ArrayList<CldrNode> nodesForLastItem, CldrItem item, int arrayLevel)
-        throws IOException, ParseException {
+            throws IOException, ParseException {
 
         ArrayList<CldrNode> nodesInPath = item.getNodesInPath();
 
@@ -819,10 +819,10 @@ public class Ldml2JsonConverter {
 
     /**
      * Write a CLDR item to file.
-     * 
+     *
      * "usesMetazone" will be checked to see if it is current. Those non-current
      * item will be dropped.
-     * 
+     *
      * @param out
      *            The ArrayList to hold all output lines.
      * @param nodesForLastItem
@@ -833,7 +833,7 @@ public class Ldml2JsonConverter {
      */
     private void outputCldrItem(JsonWriter out,
         ArrayList<CldrNode> nodesForLastItem, CldrItem item)
-        throws IOException, ParseException {
+            throws IOException, ParseException {
         // alias has been resolved, no need to keep it.
         if (item.isAliasItem()) {
             return;
@@ -862,7 +862,7 @@ public class Ldml2JsonConverter {
 
     /**
      * Close nodes that no longer appears in path.
-     * 
+     *
      * @param out
      *            The JsonWriter to hold all output lines.
      * @param last
@@ -884,7 +884,7 @@ public class Ldml2JsonConverter {
 
     /**
      * Start a non-leaf node, write out its attributes.
-     * 
+     *
      * @param out
      *            The ArrayList to hold all output lines.
      * @param node
@@ -919,10 +919,10 @@ public class Ldml2JsonConverter {
 
     /**
      * Write a CLDR item to file.
-     * 
+     *
      * "usesMetazone" will be checked to see if it is current. Those non-current
      * item will be dropped.
-     * 
+     *
      * @param out
      *            The ArrayList to hold all output lines.
      * @param item
@@ -936,7 +936,7 @@ public class Ldml2JsonConverter {
      */
     private void outputArrayItem(JsonWriter out, CldrItem item,
         ArrayList<CldrNode> nodesForLastItem, int arrayLevel)
-        throws IOException, ParseException {
+            throws IOException, ParseException {
 
         // This method is more complicated that outputCldrItem because it needs to
         // handle 3 different cases.
@@ -1029,7 +1029,7 @@ public class Ldml2JsonConverter {
     /**
      * Compare two nodes list, find first index that the two list have different
      * nodes and return it.
-     * 
+     *
      * @param nodesForLastItem
      *            Nodes from last item.
      * @param nodesInPath
@@ -1051,7 +1051,7 @@ public class Ldml2JsonConverter {
 
     /**
      * Process files in a directory of CLDR file tree.
-     * 
+     *
      * @param dirName
      *            The directory in which xml file will be transformed.
      * @param minimalDraftStatus
@@ -1111,7 +1111,7 @@ public class Ldml2JsonConverter {
      * " should be replaced by \"
      * In following code, \\\\ represent one \, because java compiler and
      * regular expression compiler each do one round of escape.
-     * 
+     *
      * @param value
      *            Input string.
      * @return escaped string.
@@ -1124,7 +1124,7 @@ public class Ldml2JsonConverter {
 
     /**
      * Write the value to output.
-     * 
+     *
      * @param out
      *            The ArrayList to hold all output lines.
      * @param node
@@ -1145,7 +1145,7 @@ public class Ldml2JsonConverter {
 
     /**
      * Write the value to output.
-     * 
+     *
      * @param out
      *            The ArrayList to hold all output lines.
      * @param objName
@@ -1160,7 +1160,7 @@ public class Ldml2JsonConverter {
      */
     private void writeLeafNode(JsonWriter out, String objName,
         Map<String, String> attrAsValueMap, String value, int level)
-        throws IOException {
+            throws IOException {
         if (objName == null) {
             return;
         }

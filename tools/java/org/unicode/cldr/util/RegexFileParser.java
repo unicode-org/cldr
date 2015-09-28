@@ -7,7 +7,7 @@ import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 /**
  * Parses a file of regexes for use in RegexLookup or any other class that requires
  * a list of regexes.
- * 
+ *
  * @author jchye
  */
 public class RegexFileParser {
@@ -55,7 +55,7 @@ public class RegexFileParser {
 
     /**
      * Parses the specified text file.
-     * 
+     *
      * @param a
      *            class relative to filename
      * @param filename

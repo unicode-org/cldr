@@ -48,7 +48,7 @@ public class TestDateOrder extends TestFmwk {
         source.putValueAtPath(fullDate, "EEEE, y MMMM dd");
         order = DateOrder.getOrderingInfo(cldrFile, cldrFile, fp);
         values = new HashSet<String>(order.get(fullDate).values()); // filter
-                                                                    // duplicates
+        // duplicates
         assertEquals("There should be a conflict with other date values", 1,
             values.size());
         assertTrue("No conflict with long date", values.contains(longDate));

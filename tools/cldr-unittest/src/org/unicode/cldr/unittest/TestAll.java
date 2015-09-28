@@ -27,9 +27,9 @@ public class TestAll extends TestGroup {
 
     /**
      * NullObject, to suppress Timestamp printing
-     * 
+     *
      * @author ribnitz
-     * 
+     *
      */
     private static class NullFormatableDate implements FormattableDate {
 
@@ -41,9 +41,9 @@ public class TestAll extends TestGroup {
 
     /**
      * Simplistic approach at formatting a Date (using Date and Time)
-     * 
+     *
      * @author ribnitz
-     * 
+     *
      */
     private static class SimpleFormattableDate implements FormattableDate {
         private final DateFormat df;
@@ -61,9 +61,9 @@ public class TestAll extends TestGroup {
 
     /**
      * Class putting a timestamp at the end of each line output
-     * 
+     *
      * @author ribnitz
-     * 
+     *
      */
     private static class TimeStampingPrintWriter extends PrintWriter {
         protected FormattableDate df = new SimpleFormattableDate();
@@ -113,9 +113,9 @@ public class TestAll extends TestGroup {
 
     /**
      * Helper class to convert milliseconds into hours/minuy
-     * 
+     *
      * @author ribnitz
-     * 
+     *
      */
     private static class DateDisplayBean {
         public final int hours;
@@ -221,7 +221,7 @@ public class TestAll extends TestGroup {
             "org.unicode.cldr.unittest.TestCLDRLocaleCoverage",
             "org.unicode.cldr.unittest.TestDayPeriods",
             "org.unicode.cldr.unittest.TestSubdivisions",
-//            "org.unicode.cldr.unittest.TestCollators" See Ticket #8288
+            //            "org.unicode.cldr.unittest.TestCollators" See Ticket #8288
         },
             "All tests in CLDR");
     }

@@ -43,15 +43,15 @@ import com.ibm.icu.util.UResourceBundle;
 /**
  * Extract ICU transform data and convert to CLDR format.<br>
  * With the option -Dfile=xxxx, will convert a single file. For example:<br>
- * 
+ *
  * <pre>
  * -DSHOW_FILES -Dfile=c:/downloads/zh_Hans-zh_Hant.txt
  * </pre>
- * 
+ *
  * The option -Dtarget=yyy will specify an output directory; otherwise it is Utility.GEN_DIRECTORY + "/translit/gen/"
- * 
+ *
  * @author markdavis
- * 
+ *
  */
 public class ExtractICUData {
     public static void main(String[] args) throws Exception {

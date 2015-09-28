@@ -85,7 +85,7 @@ public final class XPathParts implements Freezable<XPathParts> {
      * Write out the difference form this xpath and the last, putting the value in the right place. Closes up the
      * elements
      * that were not closed, and opens up the new.
-     * 
+     *
      * @param pw
      * @param filteredXPath
      *            TODO
@@ -323,7 +323,7 @@ public final class XPathParts implements Freezable<XPathParts> {
      * Checks if the new xpath given is like the this one.
      * The only diffrence may be extra alt and draft attributes but the
      * value of type attribute is the same
-     * 
+     *
      * @param last
      * @return
      */
@@ -406,7 +406,7 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     /**
      * return non-modifiable collection
-     * 
+     *
      * @param elementIndex
      * @return
      */
@@ -505,7 +505,7 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     /**
      * Parse out an xpath, and pull in the elements and attributes.
-     * 
+     *
      * @param xPath
      * @return
      */
@@ -526,7 +526,7 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     /**
      * Set an xpath, but ONLY if 'this' is clear (size = 0)
-     * 
+     *
      * @param xPath
      * @return
      */
@@ -800,8 +800,8 @@ public final class XPathParts implements Freezable<XPathParts> {
                 }
                 try {
                     result.append(prefix).append(attribute).append("=\"")
-                        .append(removeLDMLExtras ? TransliteratorUtilities.toHTML.transliterate(value) : value)
-                        .append(postfix);
+                    .append(removeLDMLExtras ? TransliteratorUtilities.toHTML.transliterate(value) : value)
+                    .append(postfix);
                 } catch (RuntimeException e) {
                     throw e; // for debugging
                 }
@@ -831,8 +831,8 @@ public final class XPathParts implements Freezable<XPathParts> {
                 // == check is ok since we intern elements
                 return element == that.element
                     && (attributes == null ? that.attributes == null
-                        : that.attributes == null ? attributes == null
-                            : attributes.equals(that.attributes));
+                    : that.attributes == null ? attributes == null
+                    : attributes.equals(that.attributes));
             } catch (ClassCastException e) {
                 return false;
             }
@@ -913,7 +913,7 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     /**
      * Search for an element within the path.
-     * 
+     *
      * @param elementName
      *            the element to look for
      * @return element number if found, else -1 if not found
@@ -935,7 +935,7 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     /**
      * Determines if an elementName is contained in the path.
-     * 
+     *
      * @param elementName
      * @return
      */
@@ -994,7 +994,7 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     /**
      * Replace up to i with parts
-     * 
+     *
      * @param i
      * @param parts
      */
@@ -1013,7 +1013,7 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     /**
      * Utility to write a comment.
-     * 
+     *
      * @param pw
      * @param blockComment
      *            TODO
@@ -1068,7 +1068,7 @@ public final class XPathParts implements Freezable<XPathParts> {
     /**
      * Utility to determine if this a language locale?
      * Note: a script is included with the language, if there is one.
-     * 
+     *
      * @param in
      * @return
      */

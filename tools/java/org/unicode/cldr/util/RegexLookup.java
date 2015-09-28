@@ -26,7 +26,7 @@ import com.ibm.icu.util.Output;
 /**
  * Lookup items according to a set of regex patterns. Returns the value according to the first pattern that matches. Not
  * thread-safe.
- * 
+ *
  * @param <T>
  */
 public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
@@ -49,7 +49,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
 
     /*
      * STAR_PATTERN_LOOKUP
-     * 
+     *
      * When true, RegexLookup can match regex's even faster than the OPTIMIZED_DIRECTORY_PATTERN_LOOKUP below.
      * It requires some additional structure, such that the only regular expression constructs such as (a|b) occur
      * in attributes, so that the star pattern for a given path can match the star pattern of a given regular expression,
@@ -58,11 +58,11 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
 
     /*
      * OPTIMIZED_DIRECTORY_PATTERN_LOOKUP
-     * 
-     * When true, RegexLookup can match regex's in O(log(n)) time, where n is the number of regex's stored. 
+     *
+     * When true, RegexLookup can match regex's in O(log(n)) time, where n is the number of regex's stored.
      * This is provided that all regex patterns follow a directory based format and all directories are separated by a forward slash '/'
      * for example: ^//ldml/dates/calendars/calendar[@type="([^"']++)"]/alias[@source="locale"][@path="../calendar[@type='([^"']++)']"]
-     * 
+     *
      * When false, RegexLookup will match regex's in O(n) time, where n is the number of regex's stored.
      * However regex's no longer need to follow any specific format (Slower but more versatile).
      */
@@ -126,8 +126,8 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
         }
 
         /**
-         * Call Matches on the pattern, returning additional information in the Info field, 
-         * if it is non null 
+         * Call Matches on the pattern, returning additional information in the Info field,
+         * if it is non null
          */
         public boolean matches(String item, Object context, Info info) {
             synchronized (matcher) {
@@ -654,7 +654,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
 
     /**
      * The basic class of an information node, featuring a Finder, a value and an Info
-     * 
+     *
      * @author ribnitz
      *
      * @param <T>
@@ -685,13 +685,13 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             final String newSource = source.replace("[@", "\\[@");
             return new RegexFinder(newSource.startsWith("//")
                 ? "^" + newSource
-                : newSource);
+                    : newSource);
         }
     };
 
     /**
      * Allows for merging items of the same type.
-     * 
+     *
      * @param <T>
      */
     public interface Merger<T> {
@@ -700,7 +700,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
 
     /**
      * Returns the result of a regex lookup.
-     * 
+     *
      * @param source
      * @return
      */
@@ -710,7 +710,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
 
     /**
      * Returns the result of a regex lookup, with the group arguments that matched.
-     * 
+     *
      * @param source
      * @param context
      *            TODO
@@ -723,7 +723,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
     /**
      * Returns the result of a regex lookup, with the group arguments that matched. Supplies failure cases for
      * debugging.
-     * 
+     *
      * @param source
      * @param context
      * @return
@@ -807,7 +807,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
     /**
      * Returns all results of a regex lookup, with the group arguments that matched. Supplies failure cases for
      * debugging.
-     * 
+     *
      * @param source
      * @param context
      *            TODO
@@ -881,7 +881,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
     /**
      * Find the patterns that haven't been matched. Requires the caller to collect the patterns that have, using
      * matcherFound.
-     * 
+     *
      * @return outputUnmatched
      */
     public Map<String, T> getUnmatchedPatterns(Set<String> matched, Map<String, T> outputUnmatched) {
@@ -914,7 +914,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
     /**
      * Create a RegexLookup. It will take a list of key/value pairs, where the key is a regex pattern and the value is
      * what gets returned.
-     * 
+     *
      * @param patternTransform
      *            Used to transform string patterns into a Pattern. Can be used to process replacements (like
      *            variables).
@@ -1001,7 +1001,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
 
     /**
      * Add a pattern/value pair.
-     * 
+     *
      * @param stringPattern
      * @param target
      * @return this, for chaining
@@ -1016,7 +1016,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
 
     /**
      * Add a pattern/value pair.
-     * 
+     *
      * @param pattern
      * @param target
      * @return this, for chaining

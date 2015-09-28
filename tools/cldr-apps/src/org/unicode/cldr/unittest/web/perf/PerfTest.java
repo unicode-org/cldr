@@ -30,26 +30,26 @@ import com.ibm.icu.impl.LocaleUtility;
  * Base class for performance testing framework. To use, the subclass can simply
  * define one or more instance methods with names beginning with "test" (case
  * ignored). The prototype of the method is
- * 
+ *
  * PerfTest.Function testTheName()
- * 
+ *
  * The actual performance test will execute on the returned Commond object
  * (refer to Command Pattern). To call a test from command line, the 'test'
  * prefix of the test method name can be ignored/removed.
- * 
+ *
  * In addition, the subclass should define a main() method that calls
  * PerfTest.run() as defined here.
- * 
+ *
  * If the subclasses uses any command line arguments (beyond those handled
  * automatically by this calss) then it should override PerfTest.setup() to
  * handle its arguments. If the subclasse needs more sophisticated management
  * for controlling finding/calling test method, it can replace the default
  * implementation for PerfTest.testProvider before calling PerfTest.run().
- * 
+ *
  * Example invocation: java -cp classes -verbose:gc
  * com.ibm.icu.dev.test.perf.UnicodeSetPerf --gc --passes 4 --iterations 100
  * UnicodeSetAdd [[:l:][:c:]]
- * 
+ *
  * Example output: [GC 511K->192K(1984K), 0.0086170 secs] [GC 704K->353K(1984K),
  * 0.0059619 secs] [Full GC 618K->371K(1984K), 0.0242779 secs] [Full GC
  * 371K->371K(1984K), 0.0228649 secs] = testUnicodeSetAdd begin 100 =
@@ -57,9 +57,9 @@ import com.ibm.icu.impl.LocaleUtility;
  * testUnicodeSetAdd end 12047 1109044 = testUnicodeSetAdd begin 100 =
  * testUnicodeSetAdd end 11987 1109044 = testUnicodeSetAdd begin 100 =
  * testUnicodeSetAdd end 11978 1109044
- * 
+ *
  * The [] lines are emitted by the JVM as a result of the -verbose:gc switch.
- * 
+ *
  * Lines beginning with '=' are emitted by PerfTest: = testUnicodeSetAdd begin
  * 100 A 'begin' statement contains the name of the setup method, which
  * determines what test function is measures, and the number of iterations that
@@ -68,9 +68,9 @@ import com.ibm.icu.impl.LocaleUtility;
  * total elapsed time in milliseconds, and the second is the number of events
  * per iteration. In this example, the time per event is 12047 / (100 * 1109044)
  * or 108.6 ns/event.
- * 
+ *
  * Raw times are given as integer ms, because this is what the system measures.
- * 
+ *
  * @author Alan Liu
  * @since ICU 2.4
  */
@@ -554,7 +554,7 @@ public abstract class PerfTest {
 
     /**
      * Translate '-t time' to iterations (or just return '-i iteration')
-     * 
+     *
      * @param meth
      * @param fn
      * @return rt
@@ -808,7 +808,7 @@ public abstract class PerfTest {
         /**
          * Creates a new reader, skipping a BOM associated with the given
          * encoding. Equivalent to BOMFreeReader(in, null).
-         * 
+         *
          * @param in
          *            The input stream.
          * @throws IOException
@@ -822,7 +822,7 @@ public abstract class PerfTest {
          * Creates a new reader, skipping a BOM associated with the given
          * encoding. If encoding is null, attempts to detect the encoding by the
          * BOM.
-         * 
+         *
          * @param in
          *            The input stream.
          * @param encoding
@@ -850,7 +850,7 @@ public abstract class PerfTest {
          * start is at least a length 5 array. If encoding is null, the check
          * will not be encoding specific and it will set the encoding of this
          * BOMFreeReader.
-         * 
+         *
          * @param start
          *            The starting bytes.
          * @param encoding

@@ -2,7 +2,7 @@ package org.unicode.cldr.web;
 
 /**
  * @author srl
- * 
+ *
  */
 public interface CLDRProgressIndicator {
     public interface CLDRProgressTask extends java.lang.AutoCloseable {
@@ -14,7 +14,7 @@ public interface CLDRProgressIndicator {
 
         /**
          * Update on the progress
-         * 
+         *
          * @param count
          *            current count - up to Max
          */
@@ -22,7 +22,7 @@ public interface CLDRProgressIndicator {
 
         /**
          * Update the progress
-         * 
+         *
          * @param count
          *            - up to max
          * @param what
@@ -32,14 +32,14 @@ public interface CLDRProgressIndicator {
 
         /**
          * Update the sub-progress without moving the count
-         * 
+         *
          * @param what
          */
         public abstract void update(String what);
 
         /**
          * The start time of the entire task
-         * 
+         *
          * @return
          */
         public abstract long startTime();
@@ -48,7 +48,7 @@ public interface CLDRProgressIndicator {
     /**
      * Initialize a progress that will not show the actual count, but treat the
      * count as a number from 0-100
-     * 
+     *
      * @param what
      *            the user-visible string
      */
@@ -56,7 +56,7 @@ public interface CLDRProgressIndicator {
 
     /**
      * Initialize a Progress.
-     * 
+     *
      * @param what
      *            what is progressing
      * @param max

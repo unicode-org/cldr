@@ -13,7 +13,7 @@ import java.util.Map.Entry;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-//save hidden line 
+//save hidden line
 public class ReviewHide {
 
     private HashMap<String, List<Integer>> hiddenField;

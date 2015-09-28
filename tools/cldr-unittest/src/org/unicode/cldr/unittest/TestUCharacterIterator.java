@@ -9,9 +9,9 @@ public class TestUCharacterIterator {
 
     /**
      * Test class that traverses HTML.
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     static class Utf8Iterator extends UCharacterIterator {
         char[] buffer;

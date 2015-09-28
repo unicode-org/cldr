@@ -64,20 +64,20 @@ public class SearchXml {
     private static PathHeader.Factory PATH_HEADER_FACTORY = null;
 
     final static Options myOptions = new Options()
-        .add("source", ".*", CLDRPaths.MAIN_DIRECTORY, "source directory")
-        .add("file", ".*", null, "regex to filter files. ! in front selects items that don't match.")
-        .add("path", ".*", null, "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
-        .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
-        .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
-        .add("count", null, null, "only count items")
-        .add("kount", null, null, "count regex group matches in pattern")
-        .add("other", ".+", null, "compare against other directory")
-        .add("unique", null, null, "only unique lines")
-        .add("groups", null, null, "only retain capturing groups in path/value, eg in -p @modifiers=\\\"([^\\\"]*+)\\\", output the part in (...)")
-        .add("Verbose", null, null, "verbose output")
-        .add("recursive", null, null, "recurse directories")
-        .add("Star", null, null, "get statistics on starred paths")
-        .add("PathHeader", null, null, "show path header and string ID");
+    .add("source", ".*", CLDRPaths.MAIN_DIRECTORY, "source directory")
+    .add("file", ".*", null, "regex to filter files. ! in front selects items that don't match.")
+    .add("path", ".*", null, "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
+    .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
+    .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
+    .add("count", null, null, "only count items")
+    .add("kount", null, null, "count regex group matches in pattern")
+    .add("other", ".+", null, "compare against other directory")
+    .add("unique", null, null, "only unique lines")
+    .add("groups", null, null, "only retain capturing groups in path/value, eg in -p @modifiers=\\\"([^\\\"]*+)\\\", output the part in (...)")
+    .add("Verbose", null, null, "verbose output")
+    .add("recursive", null, null, "recurse directories")
+    .add("Star", null, null, "get statistics on starred paths")
+    .add("PathHeader", null, null, "show path header and string ID");
 
     public static void main(String[] args) throws IOException {
         double startTime = System.currentTimeMillis();
@@ -306,7 +306,7 @@ public class SearchXml {
      * @author markdavis
      * @param fileName
      * @param canonicalFile
-     * 
+     *
      */
     private static void checkFiles(
         String filePath,
@@ -414,24 +414,24 @@ public class SearchXml {
                     if (!countOnly) {
                         String data = groups
                             ? group(value, valueMatcher) + "\t" + group(path, pathMatcher)
-                            : value + "\t" + path;
-                        if (!unique) {
-                            String pathHeaderInfo = "";
-                            if (PATH_HEADER_FACTORY != null) {
-                                PathHeader pathHeader = PATH_HEADER_FACTORY.fromPath(path);
-                                if (pathHeader != null) {
-                                    pathHeaderInfo = "\n\t" + pathHeader
-                                        + "\n\t" + pathHeader.getUrl(BaseUrl.PRODUCTION, coreName);
+                                : value + "\t" + path;
+                            if (!unique) {
+                                String pathHeaderInfo = "";
+                                if (PATH_HEADER_FACTORY != null) {
+                                    PathHeader pathHeader = PATH_HEADER_FACTORY.fromPath(path);
+                                    if (pathHeader != null) {
+                                        pathHeaderInfo = "\n\t" + pathHeader
+                                            + "\n\t" + pathHeader.getUrl(BaseUrl.PRODUCTION, coreName);
+                                    }
                                 }
-                            }
-                            // http://st.unicode.org/cldr-apps/v#/en/Fields/59d8178ec2fe04ae
-                            System.out.println(
-                                (recursive ? filePath + "\t" : "")
+                                // http://st.unicode.org/cldr-apps/v#/en/Fields/59d8178ec2fe04ae
+                                System.out.println(
+                                    (recursive ? filePath + "\t" : "")
                                     + file + "\t" + data
                                     + pathHeaderInfo);
-                        } else {
-                            uniqueData.add(data, 1);
-                        }
+                            } else {
+                                uniqueData.add(data, 1);
+                            }
                     }
                 }
             }

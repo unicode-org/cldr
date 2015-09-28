@@ -107,7 +107,7 @@ public class TestMetazoneTransitions {
         /**
          * Return the one with the smaller offset, or if equal then the smallest
          * time
-         * 
+         *
          * @param o
          * @return
          */
@@ -282,10 +282,10 @@ public class TestMetazoneTransitions {
 
         System.out.println();
         System.out
-            .println("=====================================================");
+        .println("=====================================================");
         System.out.println("*** Non-Daylight Partition");
         System.out
-            .println("=====================================================");
+        .println("=====================================================");
         System.out.println();
 
         count = 0;
@@ -334,15 +334,15 @@ public class TestMetazoneTransitions {
         }
         System.out.println();
         System.out
-            .println("*** Non-Daylight Partitions with no canonical meta");
+        .println("*** Non-Daylight Partitions with no canonical meta");
         System.out.println("\t"
             + CldrUtility.join(noMeta, CldrUtility.LINE_SEPARATOR + "\t"));
         System.out.println();
         System.out
-            .println("*** Non-Daylight Partitions with more than one canonical meta");
+        .println("*** Non-Daylight Partitions with more than one canonical meta");
         System.out.println("\t"
             + CldrUtility
-                .join(multiMeta, CldrUtility.LINE_SEPARATOR + "\t"));
+            .join(multiMeta, CldrUtility.LINE_SEPARATOR + "\t"));
         System.out.println();
         System.out.println("*** Stable Non-Daylight Partitions");
         System.out.println("\t"
@@ -357,10 +357,10 @@ public class TestMetazoneTransitions {
 
         System.out.println();
         System.out
-            .println("=====================================================");
+        .println("=====================================================");
         System.out.println("*** Daylight Partition");
         System.out
-            .println("=====================================================");
+        .println("=====================================================");
         System.out.println();
 
         ZoneTransitions lastTransitions = null;
@@ -400,7 +400,7 @@ public class TestMetazoneTransitions {
      * Return the next point in time after date when the zone has a different
      * offset than what it has on date. If there are no later transitions,
      * returns Long.MAX_VALUE.
-     * 
+     *
      * @param zone
      *            input zone -- should be method of TimeZone
      * @param date
@@ -418,7 +418,7 @@ public class TestMetazoneTransitions {
 
     /**
      * Return true if the zone is in daylight savings on the date.
-     * 
+     *
      * @param zone
      *            input zone -- should be method of TimeZone
      * @param date
@@ -430,7 +430,7 @@ public class TestMetazoneTransitions {
 
     /**
      * Return the daylight savings offset on the given date.
-     * 
+     *
      * @param zone
      *            input zone -- should be method of TimeZone
      * @param date

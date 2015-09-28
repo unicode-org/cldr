@@ -22,12 +22,12 @@ import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.lang.UCharacter;
 
 /**
- * 
+ *
  * @author pn153353
- * 
+ *
  *         class will lower case data specified by an xpath and output the modified data only to a destination folder
  *         then use CLDRModify to merge this output with the originasl data, thereby lower casing the CLDR source
- * 
+ *
  *         TODO : handling of multiple xpaths not fully working - where elements have same parents - too amny parent
  *         elements get written
  */
@@ -48,13 +48,13 @@ public class ModifyCase
     }
 
     private static final int
-        HELP1 = 0,
-        HELP2 = 1,
-        DESTDIR = 2,
-        LOCALES = 3,
-        SOURCEDIR = 4,
-        XPATHS = 5
-        ;
+    HELP1 = 0,
+    HELP2 = 1,
+    DESTDIR = 2,
+    LOCALES = 3,
+    SOURCEDIR = 4,
+    XPATHS = 5
+    ;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -99,13 +99,13 @@ public class ModifyCase
     {
         System.err.println("org.unicode.cldr.tool.ModifyCase allows the casing of the first letter to be changed");
         System.err
-            .println("The output is just the data category which has changed. Run CLDRModify to merge with source");
+        .println("The output is just the data category which has changed. Run CLDRModify to merge with source");
         System.err.println("-d : specify dest dir (must exist) where resulting modified data is written");
         System.err.println("-l : specify comma separated list of LDML locales to be changed");
         System.err.println("-s : specify src dir of LDML data to be modified");
         System.err.println("-x : specify comma separated list of xpaths to data to be modified");
         System.err
-            .println("Example : ModifyCase -d /dest -s /cldr/comon/main -l bg,en,it,fr -x //ldml/localeDisplayNames/languages/language");
+        .println("Example : ModifyCase -d /dest -s /cldr/comon/main -l bg,en,it,fr -x //ldml/localeDisplayNames/languages/language");
     }
 
     private static boolean processArgs()

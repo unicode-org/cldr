@@ -69,9 +69,9 @@ import com.ibm.icu.util.ULocale;
 
 /**
  * Class to generate examples and help messages for the Survey tool (or console version).
- * 
+ *
  * @author markdavis
- * 
+ *
  */
 public class ExampleGenerator {
     private static final String ALT_STAND_ALONE = "[@alt=\"stand-alone\"]";
@@ -161,7 +161,7 @@ public class ExampleGenerator {
      * For getting the end of the "background" style. Default is "</span>". It is
      * used in composing patterns, so it can show the part that corresponds to the
      * value.
-     * 
+     *
      * @return
      */
     public String getBackgroundEnd() {
@@ -172,7 +172,7 @@ public class ExampleGenerator {
      * For setting the end of the "background" style. Default is "</span>". It is
      * used in composing patterns, so it can show the part that corresponds to the
      * value.
-     * 
+     *
      * @return
      */
     public void setBackgroundEnd(String backgroundEnd) {
@@ -183,7 +183,7 @@ public class ExampleGenerator {
      * For getting the "background" style. Default is "<span
      * style='background-color: gray'>". It is used in composing patterns, so it
      * can show the part that corresponds to the value.
-     * 
+     *
      * @return
      */
     public String getBackgroundStart() {
@@ -194,7 +194,7 @@ public class ExampleGenerator {
      * For setting the "background" style. Default is "<span
      * style='background-color: gray'>". It is used in composing patterns, so it
      * can show the part that corresponds to the value.
-     * 
+     *
      * @return
      */
     public void setBackgroundStart(String backgroundStart) {
@@ -212,7 +212,7 @@ public class ExampleGenerator {
 
     /**
      * Create an Example Generator. If this is shared across threads, it must be synchronized.
-     * 
+     *
      * @param resolvedCldrFile
      * @param supplementalDataDirectory
      */
@@ -258,7 +258,7 @@ public class ExampleGenerator {
      * have a path that Engish doesn't, but you want to return the best English
      * example. <br>
      * The result is valid HTML.
-     * 
+     *
      * @param xpath
      * @return
      */
@@ -643,7 +643,7 @@ public class ExampleGenerator {
     /**
      * Helper method for handleListPatterns. Returns the pattern to be used for
      * a specified pattern type.
-     * 
+     *
      * @param pathFormat
      * @param pathPatternType
      * @param valuePatternType
@@ -654,7 +654,7 @@ public class ExampleGenerator {
         String valuePatternType, String value) {
         return valuePatternType.equals(pathPatternType) ?
             setBackground(value) :
-            getValueFromFormat(pathFormat, pathPatternType);
+                getValueFromFormat(pathFormat, pathPatternType);
     }
 
     private String getValueFromFormat(String format, Object... arguments) {
@@ -696,7 +696,7 @@ public class ExampleGenerator {
 
     /**
      * Handle miscellaneous calendar patterns.
-     * 
+     *
      * @param parts
      * @param value
      * @return
@@ -839,54 +839,54 @@ public class ExampleGenerator {
         Set<FixedDecimal> examplesSeen = new HashSet<FixedDecimal>();
         int maxCount = 2;
         main:
-        // If we are a currency, we will try to see if we can set the decimals to match.
-        // but if nothing works, we will just use a plain sample.
-        for (int phase = 0; phase < 2; ++phase) {
-            int check = 0;
-            for (FixedDecimal example : exampleCount) {
-                // we have to first see whether we have a currency. If so, we have to see if the count works.
+            // If we are a currency, we will try to see if we can set the decimals to match.
+            // but if nothing works, we will just use a plain sample.
+            for (int phase = 0; phase < 2; ++phase) {
+                int check = 0;
+                for (FixedDecimal example : exampleCount) {
+                    // we have to first see whether we have a currency. If so, we have to see if the count works.
 
-                if (isCurrency && phase == 0) {
-                    example = new FixedDecimal(example.source, decimalCount);
-                }
-                // skip if we've done before (can happen because of the currency reset)
-                if (examplesSeen.contains(example)) {
-                    continue;
-                }
-                examplesSeen.add(example);
-                // skip if the count isn't appropriate
-                if (!pluralRules.select(example).equals(count.toString())) {
-                    continue;
-                }
-
-                if (value == null) {
-                    String fallbackPath = cldrFile.getCountPathWithFallback(xpath, count, true);
-                    value = cldrFile.getStringValue(fallbackPath);
-                }
-                String resultItem;
-
-                resultItem = formatCurrency(value, type, unitType, isPattern, isCurrency, count, example);
-                // now add to list
-                result = addExampleResult(resultItem, result);
-                if (isPattern) {
-                    String territory = getDefaultTerritory(type);
-                    String currency = supplementalDataInfo.getDefaultCurrency(territory);
-                    if (currency.equals(unitType)) {
-                        currency = "EUR";
-                        if (currency.equals(unitType)) {
-                            currency = "JAY";
-                        }
+                    if (isCurrency && phase == 0) {
+                        example = new FixedDecimal(example.source, decimalCount);
                     }
-                    resultItem = formatCurrency(value, type, currency, isPattern, isCurrency, count, example);
+                    // skip if we've done before (can happen because of the currency reset)
+                    if (examplesSeen.contains(example)) {
+                        continue;
+                    }
+                    examplesSeen.add(example);
+                    // skip if the count isn't appropriate
+                    if (!pluralRules.select(example).equals(count.toString())) {
+                        continue;
+                    }
+
+                    if (value == null) {
+                        String fallbackPath = cldrFile.getCountPathWithFallback(xpath, count, true);
+                        value = cldrFile.getStringValue(fallbackPath);
+                    }
+                    String resultItem;
+
+                    resultItem = formatCurrency(value, type, unitType, isPattern, isCurrency, count, example);
                     // now add to list
                     result = addExampleResult(resultItem, result);
+                    if (isPattern) {
+                        String territory = getDefaultTerritory(type);
+                        String currency = supplementalDataInfo.getDefaultCurrency(territory);
+                        if (currency.equals(unitType)) {
+                            currency = "EUR";
+                            if (currency.equals(unitType)) {
+                                currency = "JAY";
+                            }
+                        }
+                        resultItem = formatCurrency(value, type, currency, isPattern, isCurrency, count, example);
+                        // now add to list
+                        result = addExampleResult(resultItem, result);
 
-                }
-                if (--maxCount < 1) {
-                    break main;
+                    }
+                    if (--maxCount < 1) {
+                        break main;
+                    }
                 }
             }
-        }
         return result.isEmpty() ? null : result;
     }
 
@@ -955,8 +955,8 @@ public class ExampleGenerator {
         String unitPattern;
         String unitPatternPath = cldrFile.getCountPathWithFallback(isCurrency
             ? "//ldml/numbers/currencyFormats/unitPattern"
-            : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
-            count, true);
+                : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
+                count, true);
         unitPattern = cldrFile.getWinningValue(unitPatternPath);
         return unitPattern;
     }
@@ -964,8 +964,8 @@ public class ExampleGenerator {
     private String getUnitName(String unitType, final boolean isCurrency, Count count) {
         String unitNamePath = cldrFile.getCountPathWithFallback(isCurrency
             ? "//ldml/numbers/currencies/currency[@type=\"" + unitType + "\"]/displayName"
-            : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
-            count, true);
+                : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
+                count, true);
         return cldrFile.getWinningValue(unitNamePath);
     }
 
@@ -1188,7 +1188,7 @@ public class ExampleGenerator {
 
     /**
      * Creates examples for currency formats.
-     * 
+     *
      * @param value
      * @return
      */
@@ -1235,7 +1235,7 @@ public class ExampleGenerator {
 
     /**
      * Creates examples for decimal formats.
-     * 
+     *
      * @param value
      * @return
      */
@@ -1287,7 +1287,7 @@ public class ExampleGenerator {
     /**
      * Calculates a numerical example to use for the specified pattern using
      * brute force (TODO: there should be a more elegant way to do this).
-     * 
+     *
      * @param format
      * @param count
      * @return
@@ -1501,7 +1501,7 @@ public class ExampleGenerator {
 
     /**
      * Put a background on an item, skipping enclosed patterns.
-     * 
+     *
      * @param sampleTerritory
      * @return
      */
@@ -1513,11 +1513,11 @@ public class ExampleGenerator {
 
     /**
      * Put a background on an item, skipping enclosed patterns, except for {0}
-     * 
+     *
      * @param patternToEmbed
      *            TODO
      * @param sampleTerritory
-     * 
+     *
      * @return
      */
     private String setBackgroundExceptMatch(String input, Pattern patternToEmbed) {
@@ -1528,11 +1528,11 @@ public class ExampleGenerator {
 
     /**
      * Put a background on an item, skipping enclosed patterns, except for {0}
-     * 
+     *
      * @param patternToEmbed
      *            TODO
      * @param sampleTerritory
-     * 
+     *
      * @return
      */
     private String setBackgroundOnMatch(String inputPattern, Pattern patternToEmbed) {
@@ -1542,7 +1542,7 @@ public class ExampleGenerator {
 
     /**
      * This adds the transliteration of a result in case it has one (i.e. sr_Cyrl -> sr_Latn).
-     * 
+     *
      * @param input
      *            string with special characters from setBackground.
      * @param value
@@ -1571,7 +1571,7 @@ public class ExampleGenerator {
 
     /**
      * This is called just before we return a result. It fixes the special characters that were added by setBackground.
-     * 
+     *
      * @param input
      *            string with special characters from setBackground.
      * @param invert
@@ -1581,19 +1581,19 @@ public class ExampleGenerator {
     private String finalizeBackground(String input) {
         return input == null
             ? input
-            : exampleStart +
+                : exampleStart +
                 TransliteratorUtilities.toHTML.transliterate(input)
-                    .replace(backgroundStartSymbol + backgroundEndSymbol, "")
-                    // remove null runs
-                    .replace(backgroundEndSymbol + backgroundStartSymbol, "")
-                    // remove null runs
-                    .replace(backgroundStartSymbol, backgroundStart)
-                    .replace(backgroundEndSymbol, backgroundEnd)
-                    .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
-                    .replace(startItalicSymbol, startItalic)
-                    .replace(endItalicSymbol, endItalic)
-                    .replace(startSupSymbol, startSup)
-                    .replace(endSupSymbol, endSup)
+                .replace(backgroundStartSymbol + backgroundEndSymbol, "")
+                // remove null runs
+                .replace(backgroundEndSymbol + backgroundStartSymbol, "")
+                // remove null runs
+                .replace(backgroundStartSymbol, backgroundStart)
+                .replace(backgroundEndSymbol, backgroundEnd)
+                .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
+                .replace(startItalicSymbol, startItalic)
+                .replace(endItalicSymbol, endItalic)
+                .replace(startSupSymbol, startSup)
+                .replace(endSupSymbol, endSup)
                 + exampleEnd;
     }
 
@@ -1616,7 +1616,7 @@ public class ExampleGenerator {
      * Utility to format using a gmtHourString, gmtFormat, and an integer hours. We only need the hours because that's
      * all
      * the TZDB IDs need. Should merge this eventually into TimeZoneFormatter and call there.
-     * 
+     *
      * @param gmtHourString
      * @param gmtFormat
      * @param hours
@@ -1674,7 +1674,7 @@ public class ExampleGenerator {
      * HTML-formatted table of all placeholders required in the value.<br>
      * TODO: add more help, and modify to get from property or xml file for easy
      * modification.
-     * 
+     *
      * @return null if none available.
      */
     public synchronized String getHelpHtml(String xpath, String value, boolean listPlaceholders) {
@@ -1708,12 +1708,12 @@ public class ExampleGenerator {
         while (URLMatcher.reset(description).find(start)) {
             final String url = URLMatcher.group();
             buffer
-                .append(TransliteratorUtilities.toHTML.transliterate(description.substring(start, URLMatcher.start())))
-                .append("<a target='CLDR-ST-DOCS' href='")
-                .append(url)
-                .append("'>")
-                .append(url)
-                .append("</a>");
+            .append(TransliteratorUtilities.toHTML.transliterate(description.substring(start, URLMatcher.start())))
+            .append("<a target='CLDR-ST-DOCS' href='")
+            .append(url)
+            .append("'>")
+            .append(url)
+            .append("</a>");
             start = URLMatcher.end();
         }
         buffer.append(TransliteratorUtilities.toHTML.transliterate(description.substring(start)));
@@ -1746,10 +1746,10 @@ public class ExampleGenerator {
                 .replace("", "❬")
                 .replace("", "❭") + "〗"
                 : exampleHtml
-                    .replace("<div class='cldr_example'>", "〖")
-                    .replace("</div>", "〗")
-                    .replace("<span class='cldr_substituted'>", "❬")
-                    .replace("</span>", "❭");
+                .replace("<div class='cldr_example'>", "〖")
+                .replace("</div>", "〗")
+                .replace("<span class='cldr_substituted'>", "❬")
+                .replace("</span>", "❭");
     }
 
     HelpMessages helpMessages;
@@ -1787,7 +1787,7 @@ public class ExampleGenerator {
          * <p>
          * {@link http://unicode.org/cldr/data/tools/java/org/unicode/cldr/util/data/test_help_messages.html} is used
          * for help messages in the survey tool, where the key is an xpath.
-         * 
+         *
          * @param filename
          */
         public HelpMessages(String filename) {
@@ -1857,7 +1857,7 @@ public class ExampleGenerator {
          * For many files, the key will be an xpath, but it doesn't have to be.
          * Note that <i>all</i> of pairs of <keyRegex,htmlText> where the key matches keyRegex
          * will be concatenated together in order to get the result.
-         * 
+         *
          * @param key
          * @return
          */
@@ -1870,7 +1870,7 @@ public class ExampleGenerator {
          * For many files, the key will be an xpath, but it doesn't have to be.
          * Note that <i>all</i> of pairs of <keyRegex,htmlText> where the key matches keyRegex
          * will be concatenated together in order to get the result.
-         * 
+         *
          * @param key
          * @param addHeader
          *            true if you want a header formed by looking at all the hN elements.

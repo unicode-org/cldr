@@ -16,12 +16,12 @@ public class TablePrinter {
     public static void main(String[] args) {
         // quick test;
         TablePrinter tablePrinter = new TablePrinter()
-            .setTableAttributes("style='border-collapse: collapse' border='1'")
-            .addColumn("Language").setSpanRows(true).setSortPriority(0).setBreakSpans(true)
-            .addColumn("Junk").setSpanRows(true)
-            .addColumn("Territory").setHeaderAttributes("bgcolor='green'").setCellAttributes("align='right'")
-            .setSpanRows(true)
-            .setSortPriority(1).setSortAscending(false);
+        .setTableAttributes("style='border-collapse: collapse' border='1'")
+        .addColumn("Language").setSpanRows(true).setSortPriority(0).setBreakSpans(true)
+        .addColumn("Junk").setSpanRows(true)
+        .addColumn("Territory").setHeaderAttributes("bgcolor='green'").setCellAttributes("align='right'")
+        .setSpanRows(true)
+        .setSortPriority(1).setSortAscending(false);
         Comparable<?>[][] data = {
             { "German", 1.3d, 3 },
             { "French", 1.3d, 2 },
@@ -402,7 +402,7 @@ public class TablePrinter {
 
     /**
      * Return 0 if the item is the same as in the row above, otherwise the rowSpan (of equal items)
-     * 
+     *
      * @param sortedFlat
      * @param rowIndex
      * @param colIndex
@@ -431,9 +431,9 @@ public class TablePrinter {
 
     /**
      * Only called with rowIndex > 0
-     * 
+     *
      * @param rowIndex
-     * @param colIndex2 
+     * @param colIndex2
      * @return
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
@@ -483,7 +483,7 @@ public class TablePrinter {
      * .redbar { border-style: solid; border-width: 1px; padding: 0; background-color:red; border-collapse: collapse}
      * -->
      * </style>
-     * 
+     *
      * @param color
      * @return
      */

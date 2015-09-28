@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.unicode.cldr.util;
 
@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
  * This annotation is used to mark CLDR Tools that are runnable by users.
  * All CLDR Tools should be so annotated.
  * Running "java -jar cldr.jar" will list all annotated tools.
- * 
+ *
  * @author srl
  */
 @Target({ ElementType.TYPE })

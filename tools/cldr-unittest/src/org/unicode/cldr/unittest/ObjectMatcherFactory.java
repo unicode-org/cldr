@@ -12,14 +12,14 @@ import com.ibm.icu.dev.util.CollectionUtilities.ObjectMatcher;
 
 /**
  * Factory for ObjectMatchers that are not tightly coupled
- * 
+ *
  * @author ribnitz
- * 
+ *
  */
 class ObjectMatcherFactory {
     /**
      * Create a RegexMatcher
-     * 
+     *
      * @param pattern
      * @return
      */
@@ -29,7 +29,7 @@ class ObjectMatcherFactory {
 
     /**
      * Create a RegexMatcher
-     * 
+     *
      * @param pattern
      * @param flags
      * @return
@@ -41,7 +41,7 @@ class ObjectMatcherFactory {
 
     /**
      * Create a CollectionMatcher
-     * 
+     *
      * @param col
      * @return
      */
@@ -62,7 +62,7 @@ class ObjectMatcherFactory {
 
     /**
      * Create a Matcher that will always return the value provided
-     * 
+     *
      * @return
      */
     public static ObjectMatcher<String> createDefaultingMatcher(boolean retVal) {
@@ -72,7 +72,7 @@ class ObjectMatcherFactory {
     /**
      * Create a matcher based on the value accessible with key, in the map; if
      * there is no key, use a DefaultingMatcher to return valueIfAbsent
-     * 
+     *
      * @param m
      * @param key
      * @param valueIfAbsent
@@ -87,7 +87,7 @@ class ObjectMatcherFactory {
     /***
      * Create a matcher that will return true, if the String provided is
      * matched; comparison is done using equals()
-     * 
+     *
      * @param toMatch
      * @return
      */
@@ -187,7 +187,7 @@ class ObjectMatcherFactory {
             String key, boolean defaultVal) {
             ObjectMatcherFactory.MatcherPattern mpTemp = col.get(key);
             matcher = mpTemp == null ? new DefaultingMatcher(defaultVal)
-                : mpTemp.matcher;
+            : mpTemp.matcher;
         }
 
         @Override

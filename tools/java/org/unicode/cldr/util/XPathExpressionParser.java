@@ -27,7 +27,7 @@ import org.xml.sax.SAXException;
 /**
  * Class that offers different methods of "evaluating" an XPath expression against a document provided and of
  * iterating through the result of the evaluation
- * 
+ *
  * @author ribnitz
  *
  * @param <E>
@@ -133,7 +133,7 @@ public class XPathExpressionParser {
      * @param xPathString
      * @param expectedResult
      * @param handler
-     * @throws XPathException 
+     * @throws XPathException
      */
     public void evaluate(String xPathString, QName expectedResult, SimpleContentHandlingInterface<?> handler) throws XPathException {
         evaluateWithXPathFixture(xPathString, expectedResult, false, handler);
@@ -143,18 +143,18 @@ public class XPathExpressionParser {
      * Evaluate this xPathString, and feed the result to the handler. The result is assumed to be a Node.
      * @param xPathString
      * @param handler
-     * @throws XPathException 
+     * @throws XPathException
      */
     public void evaluateToNode(String xPathString, NodeHandlingInterface handler) throws XPathException {
         iterate(xPathString, XPathConstants.NODE, handler);
     }
 
     /**
-     * Internal method that gets the ResultSet identified by the xPathString, and that calls the 
-     * handler for each node. 
+     * Internal method that gets the ResultSet identified by the xPathString, and that calls the
+     * handler for each node.
      * @param xPathString
      * @param handler
-     * @throws XPathException 
+     * @throws XPathException
      */
     public void iterate(String xPathString, QName expectedReturnType, NodeHandlingInterface handler) throws XPathException {
         evaluateWithXPathFixture(xPathString, expectedReturnType, true, handler);
@@ -163,10 +163,10 @@ public class XPathExpressionParser {
     /**
      * Evaluate the expression which is expected to return a NodeSet and iterate through the result
      * the handler will be called for each Node encountered.
-     * 
+     *
      * @param xPathExpression
      * @param handler
-     * @throws XPathException 
+     * @throws XPathException
      */
     public void iterateThroughNodeSet(String xPathExpression, NodeHandlingInterface handler) throws XPathException {
         iterate(xPathExpression, XPathConstants.NODESET, handler);

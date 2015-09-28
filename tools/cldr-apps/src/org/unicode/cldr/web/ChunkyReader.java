@@ -31,14 +31,14 @@ import com.ibm.icu.text.CompactDecimalFormat;
 
 /**
  * Reads 'chunked' format as follows:
- * 
+ *
  * <RECORDSEP>record header\n <fieldsep><fieldname1>field1 ...\n ... \n
  * <fieldsep><fieldname2>field2 ...\n ... \n <fieldsep><fieldname3>field3\n
  * <RECORDSEP>record header\n ...
- * 
- * 
+ *
+ *
  * @author srl
- * 
+ *
  */
 public class ChunkyReader implements Runnable {
     private String recordSep;

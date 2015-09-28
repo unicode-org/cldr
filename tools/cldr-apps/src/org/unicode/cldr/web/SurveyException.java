@@ -11,7 +11,7 @@ import org.unicode.cldr.web.SurveyAjax.JSONWriter;
  */
 public class SurveyException extends Exception {
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -3666193665068094456L;
 

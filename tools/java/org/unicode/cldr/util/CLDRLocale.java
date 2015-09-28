@@ -19,7 +19,7 @@ import com.ibm.icu.util.ULocale;
  * This class implements a CLDR UTS#35 compliant locale.
  * It differs from ICU and Java locales in that it is singleton based, and that it is Comparable.
  * It uses LocaleIDParser to do the heavy lifting of parsing.
- * 
+ *
  * @author srl
  * @see LocaleIDParser
  * @see ULocale
@@ -115,7 +115,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     /**
      * @author srl
-     * 
+     *
      * This formatter will delegate to CLDRFile.getName if a CLDRFile is given, otherwise StandardCodes
      */
     public static class CLDRFormatter extends SimpleFormatter {
@@ -261,7 +261,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     /**
      * Construct a CLDRLocale from a string with the full locale ID.
      * Internal, called by the factory function.
-     * 
+     *
      * @param str
      */
     private CLDRLocale(String str) {
@@ -270,7 +270,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     /**
      * Initialize a CLDRLocale from a ULocale
-     * 
+     *
      * @param loc
      */
     private void init(ULocale loc) {
@@ -280,7 +280,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     /**
      * Initialize a CLDRLocale from a string.
-     * 
+     *
      * @param str
      */
     private void init(String str) {
@@ -319,7 +319,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     /**
      * Return the base locale name, in CLDR format, without any @keywords
-     * 
+     *
      * @return
      */
     public String getBaseName() {
@@ -328,7 +328,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     /**
      * internal: process a string from ICU to CLDR form. For now, just collapse double underscores.
-     * 
+     *
      * @param baseName
      * @return
      * @internal
@@ -355,7 +355,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     /**
      * Convert to an ICU compatible ULocale.
-     * 
+     *
      * @return
      */
     public ULocale toULocale() {
@@ -364,7 +364,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     /**
      * Allocate a CLDRLocale (could be a singleton). If null is passed in, null will be returned.
-     * 
+     *
      * @param s
      * @return
      */
@@ -381,7 +381,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     /**
      * Public factory function. Allocate a CLDRLocale (could be a singleton). If null is passed in, null will be
      * returned.
-     * 
+     *
      * @param u
      * @return
      */
@@ -408,7 +408,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     /**
      * Return the parent locale of this item. Null if no parent (root has no parent)
-     * 
+     *
      * @return
      */
     public CLDRLocale getParent() {
@@ -427,7 +427,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     /**
      * Return an iterator that will iterate over locale, parent, parent etc, finally reaching root.
-     * 
+     *
      * @return
      */
     public Iterable<CLDRLocale> getParentIterator() {
@@ -482,7 +482,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     /**
      * Return the region
-     * 
+     *
      * @return
      */
     public String getCountry() {
@@ -491,7 +491,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     /**
      * Return "the" variant.
-     * 
+     *
      * @return
      */
     public String getVariant() {
@@ -531,7 +531,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     /**
      * These functions wrap calls to the displayLocale, but are provided to supply an interface that looks similar to
      * ULocale.getDisplay___(displayLocale)
-     * 
+     *
      * @param displayLocale
      * @return
      */
@@ -583,7 +583,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     /**
      * These functions wrap calls to the displayLocale, but are provided to supply an interface that looks similar to
      * ULocale.getDisplay___(displayLocale)
-     * 
+     *
      * @param displayLocale
      * @return
      */
@@ -595,7 +595,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     /**
      * These functions wrap calls to the displayLocale, but are provided to supply an interface that looks similar to
      * ULocale.getDisplay___(displayLocale)
-     * 
+     *
      * @param displayLocale
      * @return
      */
@@ -606,7 +606,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     /**
      * Construct an instance from an array
-     * 
+     *
      * @param available
      * @return
      */

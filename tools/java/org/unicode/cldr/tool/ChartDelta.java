@@ -94,7 +94,7 @@ public class ChartDelta extends Chart {
             final long current = temp.counter.getCount(item);
             final long numerator = item == ChangeType.totalItems ? same : current;
             String title = item == ChangeType.totalItems ? "unchanged" : item.toString();
-            System.out.println(title + "\t" + pf.format(numerator/(double)total));
+            System.out.println(title + "\t" + pf.format(numerator / (double) total));
             same -= current;
         }
     }
@@ -106,7 +106,7 @@ public class ChartDelta extends Chart {
 
     private static final String LAST_ARCHIVE_DIRECTORY = CLDRPaths.LAST_DIRECTORY;
 
-    static String DIR =     CLDRPaths.CHART_DIRECTORY + "/delta/";
+    static String DIR = CLDRPaths.CHART_DIRECTORY + "/delta/";
     static PathHeader.Factory phf = PathHeader.getFactory(ENGLISH);
     static final Set<String> DONT_CARE = new HashSet<>(Arrays.asList("draft", "standard", "reference"));
 
@@ -114,22 +114,26 @@ public class ChartDelta extends Chart {
     public String getDirectory() {
         return DIR;
     }
+
     @Override
     public String getTitle() {
         return "Delta Charts";
     }
+
     @Override
     public String getFileName() {
         return "index";
     }
+
     @Override
     public String getExplanation() {
         return "<p>Charts showing the differences from the last version. "
             + "Titles prefixed by ¤ are special: either the locale data summary or supplemental data. "
             + "Not all changed data is charted yet. For details see each chart.</p>";
     }
+
     @Override
-    public void writeContents(FormattedFileWriter pw) throws IOException{
+    public void writeContents(FormattedFileWriter pw) throws IOException {
         FormattedFileWriter.Anchors anchors = new FormattedFileWriter.Anchors();
         writeSubcharts(anchors);
         pw.setIndex("Main Chart Index", "../index.html");
@@ -151,23 +155,23 @@ public class ChartDelta extends Chart {
     static final CLDRFile EMPTY_CLDR = new CLDRFile(new SimpleXMLSource("und").freeze());
 
     enum ChangeType {
-        newItems, 
-        deletedItems, 
+        newItems,
+        deletedItems,
         changedItems,
         totalItems;
 
         public static ChangeType get(String oldValue, String currentValue) {
-            return oldValue == null ? newItems 
-                : currentValue == null ? deletedItems 
+            return oldValue == null ? newItems
+                : currentValue == null ? deletedItems
                     : changedItems;
         }
     }
-    
+
     Counter<ChangeType> counter = new Counter<>();
 
     public void writeSubcharts(Anchors anchors) {
         counter.clear();
-        writeLdml(anchors);  
+        writeLdml(anchors);
         writeNonLdmlPlain(anchors, getDirectory());
     }
 
@@ -189,7 +193,7 @@ public class ChartDelta extends Chart {
 
         // get a list of all the locales to cycle over
 
-        Relation<String,String> baseToLocales = Relation.of(new TreeMap(), HashSet.class);
+        Relation<String, String> baseToLocales = Relation.of(new TreeMap(), HashSet.class);
         Matcher m = fileMatcher.matcher("");
         Set<String> defaultContents = SDI.getDefaultContentLocales();
         LanguageTagParser ltp = new LanguageTagParser();
@@ -258,7 +262,7 @@ public class ChartDelta extends Chart {
                             || path.startsWith("//ldml/segmentations") // do later
                             || path.startsWith("//ldml/annotations") // do later
                             || path.startsWith("//ldml/rbnf") // do later
-                            ) {
+                        ) {
                             continue;
                         }
 
@@ -302,7 +306,7 @@ public class ChartDelta extends Chart {
                     }
                 }
             }
-            writeDiffs(anchors, base, diff);  
+            writeDiffs(anchors, base, diff);
             diff.clear();
         }
         writeDiffs(anchors, diffAll);
@@ -365,7 +369,7 @@ public class ChartDelta extends Chart {
                 if (Objects.equals(attributeValueOld, attributeValueCurrent)) {
                     continue;
                 }
-                PathDiff row = new PathDiff(locale, new PathHeaderSegment(ph, size-elementIndex-1, attribute), attributeValueOld, attributeValueCurrent);
+                PathDiff row = new PathDiff(locale, new PathHeaderSegment(ph, size - elementIndex - 1, attribute), attributeValueOld, attributeValueCurrent);
                 if (DEBUG) {
                     System.out.println(row);
                 }
@@ -387,20 +391,19 @@ public class ChartDelta extends Chart {
 
     private void writeDiffs(Anchors anchors, String directory, String file, String title, Map<String, String> bcp) {
         TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Path", "class='source'", null, "class='source'", true)
-        .setBreakSpans(true)
-        .addColumn("Old", "class='target'", null, "class='target'", true)
-        .addColumn("New", "class='target'", null, "class='target'", true)
-        ;
+            .addColumn("Path", "class='source'", null, "class='source'", true)
+            .setBreakSpans(true)
+            .addColumn("Old", "class='target'", null, "class='target'", true)
+            .addColumn("New", "class='target'", null, "class='target'", true);
         for (Entry<String, String> entry : bcp.entrySet()) {
             String[] oldNew = entry.getValue().split(SEP);
             String shortKey = removeStart(entry.getKey(), "//supplementalData", "//ldmlBCP47");
 
             tablePrinter.addRow()
-            .addCell(shortKey)
-            .addCell(oldNew[0])
-            .addCell(oldNew[1])
-            .finishRow();
+                .addCell(shortKey)
+                .addCell(oldNew[0])
+                .addCell(oldNew[1])
+                .finishRow();
             //System.out.println(entry.getKey() + "\t" + entry.getValue());
         }
         writeTable(anchors, file, tablePrinter, title);
@@ -408,40 +411,37 @@ public class ChartDelta extends Chart {
 
     private void writeDiffs(Anchors anchors, Relation<PathHeader, String> diffAll) {
         TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Section", "class='source'", null, "class='source'", true)
-        .addColumn("Page", "class='source'", null, "class='source'", true)
-        .addColumn("Header", "class='source'", null, "class='source'", true)
-        .addColumn("Code", "class='source'", null, "class='source'", true)
-        .addColumn("Locales where different", "class='target'", null, "class='target'", true)
-        ;
+            .addColumn("Section", "class='source'", null, "class='source'", true)
+            .addColumn("Page", "class='source'", null, "class='source'", true)
+            .addColumn("Header", "class='source'", null, "class='source'", true)
+            .addColumn("Code", "class='source'", null, "class='source'", true)
+            .addColumn("Locales where different", "class='target'", null, "class='target'", true);
         for (Entry<PathHeader, Set<String>> row : diffAll.keyValuesSet()) {
             PathHeader ph = row.getKey();
             Set<String> locales = row.getValue();
             tablePrinter.addRow()
-            .addCell(ph.getSectionId())
-            .addCell(ph.getPageId())
-            .addCell(ph.getHeader())
-            .addCell(ph.getCode())
-            .addCell(CollectionUtilities.join(locales, " "))
-            .finishRow();
+                .addCell(ph.getSectionId())
+                .addCell(ph.getPageId())
+                .addCell(ph.getHeader())
+                .addCell(ph.getCode())
+                .addCell(CollectionUtilities.join(locales, " "))
+                .finishRow();
         }
     }
-
 
     private void writeDiffs(Anchors anchors, String file, Set<PathDiff> diff) {
         if (diff.isEmpty()) {
             return;
         }
         TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Section", "class='source'", null, "class='source'", true)
-        .addColumn("Page", "class='source'", null, "class='source'", true)
-        .addColumn("Header", "class='source'", null, "class='source'", true)
-        .addColumn("Code", "class='source'", null, "class='source'", true)
-        .addColumn("Locale", "class='source'", null, "class='source'", true)
-        .addColumn("Old", "class='target' width='20%'", null, "class='target'", true)
-        .addColumn("New", "class='target' width='20%'", null, "class='target'", true)
-        .addColumn("Level", "class='target'", null, "class='target'", true)
-        ;
+            .addColumn("Section", "class='source'", null, "class='source'", true)
+            .addColumn("Page", "class='source'", null, "class='source'", true)
+            .addColumn("Header", "class='source'", null, "class='source'", true)
+            .addColumn("Code", "class='source'", null, "class='source'", true)
+            .addColumn("Locale", "class='source'", null, "class='source'", true)
+            .addColumn("Old", "class='target' width='20%'", null, "class='target'", true)
+            .addColumn("New", "class='target' width='20%'", null, "class='target'", true)
+            .addColumn("Level", "class='target'", null, "class='target'", true);
 
         for (PathDiff row : diff) {
             PathHeaderSegment phs = row.get0();
@@ -463,19 +463,19 @@ public class ChartDelta extends Chart {
             Level coverageLevel = SUPPLEMENTAL_DATA_INFO.getCoverageLevel(ph.getOriginalPath(), locale);
             String fixedOldValue = oldValue == null ? "▷missing◁" : TransliteratorUtilities.toHTML.transform(oldValue);
             String fixedNewValue = currentValue == null ? "▷removed◁" : TransliteratorUtilities.toHTML.transform(currentValue);
-            
+
             counter.add(ChangeType.get(oldValue, currentValue), 1);
 
             tablePrinter.addRow()
-            .addCell(ph.getSectionId())
-            .addCell(ph.getPageId())
-            .addCell(ph.getHeader())
-            .addCell(specialCode)
-            .addCell(locale)
-            .addCell(fixedOldValue)
-            .addCell(fixedNewValue)
-            .addCell(coverageLevel)
-            .finishRow();
+                .addCell(ph.getSectionId())
+                .addCell(ph.getPageId())
+                .addCell(ph.getHeader())
+                .addCell(specialCode)
+                .addCell(locale)
+                .addCell(fixedOldValue)
+                .addCell(fixedNewValue)
+                .addCell(coverageLevel)
+                .finishRow();
         }
         writeTable(anchors, file, tablePrinter, ENGLISH.getName(file) + " Delta");
         diff.clear();
@@ -492,22 +492,27 @@ public class ChartDelta extends Chart {
             this.file = file;
             this.tablePrinter = tablePrinter;
         }
+
         @Override
         public String getDirectory() {
             return DIR;
         }
+
         @Override
         public boolean getShowDate() {
             return false;
         }
+
         @Override
         public String getTitle() {
             return title;
         }
+
         @Override
         public String getFileName() {
             return file;
         }
+
         @Override
         public String getExplanation() {
             return "<p>Lists data fields that differ from the last version."
@@ -515,6 +520,7 @@ public class ChartDelta extends Chart {
                 + " The collations and metadata still have a raw format."
                 + " The rbnf, segmentations, and annotations are not yet included.<p>";
         }
+
         @Override
         public void writeContents(FormattedFileWriter pw) throws IOException {
             pw.write(tablePrinter.toTable());
@@ -526,17 +532,17 @@ public class ChartDelta extends Chart {
     }
 
     public void writeNonLdmlPlain(Anchors anchors, String directory) {
-        Map<String,String> bcp = new TreeMap<>(CLDRFile.getComparator(DtdType.ldmlBCP47));
-        Map<String,String> supplemental = new TreeMap<>(CLDRFile.getComparator(DtdType.supplementalData));
-        Map<String,Map<String,String>> transform = new TreeMap<>();
+        Map<String, String> bcp = new TreeMap<>(CLDRFile.getComparator(DtdType.ldmlBCP47));
+        Map<String, String> supplemental = new TreeMap<>(CLDRFile.getComparator(DtdType.supplementalData));
+        Map<String, Map<String, String>> transform = new TreeMap<>();
 
         for (String dir : new File(CLDRPaths.BASE_DIRECTORY + "common/").list()) {
-            if (CLDRPaths.LDML_DIRECTORIES.contains(dir) 
-                || dir.equals(".DS_Store") 
-                || dir.equals("dtd")  // TODO as flat files
+            if (CLDRPaths.LDML_DIRECTORIES.contains(dir)
+                || dir.equals(".DS_Store")
+                || dir.equals("dtd") // TODO as flat files
                 || dir.equals("properties") // TODO as flat files
                 || dir.equals("uca") // TODO as flat files
-                ) {
+            ) {
                 continue;
             }
             File dir1 = new File(LAST_ARCHIVE_DIRECTORY + "common/" + dir);
@@ -546,7 +552,7 @@ public class ChartDelta extends Chart {
                 if (!file.endsWith(".xml")) {
                     continue;
                 }
-                String base = file.substring(0,file.length()-4);
+                String base = file.substring(0, file.length() - 4);
                 if (fileFilter != null && !fileFilter.reset(dir + "/" + base).find()) {
                     continue;
                 }
@@ -569,8 +575,8 @@ public class ChartDelta extends Chart {
 //                    contents2 = Collections.emptyMap();
 //                }
 
-                Set<String> keys = new TreeSet<String>(CldrUtility.ifNull(contents1.keySet(), Collections.<String>emptySet()));
-                keys.addAll(CldrUtility.ifNull(contents2.keySet(), Collections.<String>emptySet()));
+                Set<String> keys = new TreeSet<String>(CldrUtility.ifNull(contents1.keySet(), Collections.<String> emptySet()));
+                keys.addAll(CldrUtility.ifNull(contents2.keySet(), Collections.<String> emptySet()));
                 for (String key : keys) {
                     String set1 = contents1.get(key);
                     String set2 = contents2.get(key);
@@ -591,9 +597,9 @@ public class ChartDelta extends Chart {
                             if (baseMap == null) {
                                 transform.put(base, baseMap = new TreeMap<>(CLDRFile.getComparator(DtdType.supplementalData)));
                             }
-                            baseMap.put(key,combinedValue);
+                            baseMap.put(key, combinedValue);
                         }
-                        supplemental.put(key,combinedValue);
+                        supplemental.put(key, combinedValue);
                     } else {
                         bcp.put(key, combinedValue);
                     }
@@ -650,7 +656,7 @@ public class ChartDelta extends Chart {
     }
 
     private static Map<String, String> fillData(String directory, String file) {
-        Map<String,String> contentsA = Collections.emptyMap();
+        Map<String, String> contentsA = Collections.emptyMap();
 
         List<Pair<String, String>> contents1;
         try {
@@ -660,7 +666,7 @@ public class ChartDelta extends Chart {
         }
         XPathParts parts = new XPathParts();
         DtdType dtdType = null;
-        Map<String,String> nonDistinguishing = null;
+        Map<String, String> nonDistinguishing = null;
         int qCount = 0;
         boolean debug = file.equals(DEBUG_FILE);
         OutputInt q = new OutputInt();
@@ -673,8 +679,7 @@ public class ChartDelta extends Chart {
                 || first.startsWith("//supplementalData/metadata/validity")
                 || first.startsWith("//ldmlBCP47/generation")
                 || first.startsWith("//ldmlBCP47/version")
-                || first.startsWith("//supplementalData/transforms/") && first.endsWith("/comment")
-                ) {
+                || first.startsWith("//supplementalData/transforms/") && first.endsWith("/comment")) {
                 continue;
             }
             if (debug) {
@@ -714,14 +719,14 @@ public class ChartDelta extends Chart {
                 for (String key : nonDistinguishing.keySet()) {
                     parts.removeAttribute(i, key);
                 }
-                // 
+                //
                 for (String key : attributeKeys) {
                     if (SKIP_ATTRIBUTE.contains(key)) {
                         parts.removeAttribute(i, key);
                     }
                 }
 
-                String cleanedPartialPath = parts.toString(i+1);
+                String cleanedPartialPath = parts.toString(i + 1);
                 for (Entry<String, String> entry : nonDistinguishing.entrySet()) {
                     checkedPut(contentsA, cleanedPartialPath + "/_" + entry.getKey(), entry.getValue());
                 }
@@ -749,13 +754,13 @@ public class ChartDelta extends Chart {
     }
 
     static final ChainedMap.M4<DtdType, String, String, Boolean> FIXED_DISTINGUISHING = ChainedMap.of(
-        new HashMap<DtdType, Object>(), 
+        new HashMap<DtdType, Object>(),
         new HashMap<String, Object>(),
         new HashMap<String, Object>(),
         Boolean.class);
 
     static final ChainedMap.M3<DtdType, String, Boolean> FIXED_ORDERING = ChainedMap.of(
-        new HashMap<DtdType, Object>(), 
+        new HashMap<DtdType, Object>(),
         new HashMap<String, Object>(),
         Boolean.class);
 
@@ -810,7 +815,6 @@ public class ChartDelta extends Chart {
         FIXED_DISTINGUISHING.put(DtdType.supplementalData, "usesMetazone", "to", true);
         FIXED_DISTINGUISHING.put(DtdType.supplementalData, "usesMetazone", "mzone", false);
 
-
 //        <!ATTLIST numberingSystem type ( numeric | algorithmic ) #REQUIRED >
 //        <!ATTLIST numberingSystem id NMTOKEN #REQUIRED >
 //        <!ATTLIST numberingSystem radix NMTOKEN #IMPLIED >
@@ -846,6 +850,7 @@ public class ChartDelta extends Chart {
 
         // FIXED_ORDERING.freeze(); Add to ChainedMap?
     }
+
     private static boolean isFixedDistinguishing(DtdType dtdType, String element, String key) {
         Boolean override = FIXED_DISTINGUISHING.get(dtdType, element, key);
         if (override != null) {

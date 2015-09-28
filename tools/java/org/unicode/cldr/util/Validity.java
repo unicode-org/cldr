@@ -14,7 +14,7 @@ import org.unicode.cldr.util.StandardCodes.LstrType;
 import com.google.common.base.Splitter;
 
 public class Validity {
-    
+
     public enum Status {
         regular,
         special,
@@ -32,7 +32,7 @@ public class Validity {
     public static Validity getInstance() {
         return getInstance(CLDRPaths.COMMON_DIRECTORY);
     }
-    
+
     public static Validity getInstance(String commonDirectory) {
         Validity result = cache.get(commonDirectory);
         if (result == null) {
@@ -55,11 +55,11 @@ public class Validity {
             }
             LstrType type = null;
             try {
-                type = LstrType.valueOf(file.substring(0,file.length()-4));
+                type = LstrType.valueOf(file.substring(0, file.length() - 4));
             } catch (Exception e) {
                 continue;
             }
-            List<Pair<String,String>> lineData = new ArrayList<>();
+            List<Pair<String, String>> lineData = new ArrayList<>();
             Map<Validity.Status, Set<String>> submap = data.get(type);
             if (submap == null) {
                 data.put(type, submap = new EnumMap<>(Validity.Status.class));
@@ -85,7 +85,7 @@ public class Validity {
                     if (dashPos < 0) {
                         set.add(value);
                     } else {
-                        StringRange.expand(value.substring(0,dashPos), value.substring(dashPos+1), set);
+                        StringRange.expand(value.substring(0, dashPos), value.substring(dashPos + 1), set);
                     }
                 }
             }

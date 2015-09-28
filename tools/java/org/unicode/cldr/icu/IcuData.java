@@ -22,7 +22,7 @@ public class IcuData implements Iterable<String> {
 
     /**
      * IcuData constructor.
-     * 
+     *
      * @param sourceFile
      *            the source file of the IcuData object, displayed in
      *            comments in the file
@@ -39,7 +39,7 @@ public class IcuData implements Iterable<String> {
 
     /**
      * IcuData constructor.
-     * 
+     *
      * @param sourceFile
      *            the source file of the IcuData object, displayed in
      *            comments in the file
@@ -71,7 +71,7 @@ public class IcuData implements Iterable<String> {
     /**
      * Returns the the relative path of the source file used to generate the
      * ICU data. Used when writing the data to file.
-     * 
+     *
      * @return
      */
     public String getSourceFile() {
@@ -100,7 +100,7 @@ public class IcuData implements Iterable<String> {
     /**
      * The RB path,value pair actually has an array as the value. So when we
      * add to it, add to a list.
-     * 
+     *
      * @param path
      * @param value
      * @return
@@ -116,7 +116,7 @@ public class IcuData implements Iterable<String> {
     /**
      * The RB path,value pair actually has an array as the value. So when we
      * add to it, add to a list.
-     * 
+     *
      * @param path
      * @param value
      * @return
@@ -154,7 +154,7 @@ public class IcuData implements Iterable<String> {
 
     /**
      * Get items
-     * 
+     *
      * @return
      */
     public Set<Entry<String, List<String[]>>> entrySet() {
@@ -163,7 +163,7 @@ public class IcuData implements Iterable<String> {
 
     /**
      * Get items
-     * 
+     *
      * @return
      */
     public Set<String> keySet() {

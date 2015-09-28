@@ -138,7 +138,7 @@ public class GenerateValidityXml {
         }
         info.statusMap.put(Status.unknown, LstrType.currency.unknown);
         // make sure we don't overlap.
-        // we want to keep any code that is valid in any territory, so 
+        // we want to keep any code that is valid in any territory, so
         info.statusMap.removeAll(Status.deprecated, info.statusMap.get(Status.regular));
         info.statusMap.remove(Status.deprecated, "XXX");
         info.statusMap.remove(Status.regular, "XXX");

@@ -24,7 +24,7 @@ public class IcuDataSplitter {
 
     /**
      * Splits the
-     * 
+     *
      * @param splitInfos
      */
     private IcuDataSplitter(List<SplitInfo> splitInfos) {
@@ -35,7 +35,7 @@ public class IcuDataSplitter {
     /**
      * Creates a new IcuDataSplitter and creates directories for the split files
      * if they do not already exist.
-     * 
+     *
      * @param mainDirPath
      *            the main directory that other directories will be relative to.
      * @param splitInfos
@@ -81,7 +81,7 @@ public class IcuDataSplitter {
 
     /**
      * Splits an IcuData object for writing to different directories.
-     * 
+     *
      * @param data
      * @return
      */

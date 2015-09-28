@@ -27,7 +27,7 @@ package org.json;
 /**
  * Convert a web browser cookie specification to a JSONObject and back. JSON and
  * Cookies are both notations for name/value pairs.
- * 
+ *
  * @author JSON.org
  * @version 2008-09-18
  */
@@ -42,7 +42,7 @@ public class Cookie {
      * convention, not a standard. Often, cookies are expected to have encoded
      * values. We encode '=' and ';' because we must. We encode '%' and '+'
      * because they are meta characters in URL encoding.
-     * 
+     *
      * @param string
      *            The source string.
      * @return The escaped result.
@@ -74,7 +74,7 @@ public class Cookie {
      * be stored under the key "name", and the value will be stored under the
      * key "value". This method does not do checking or validation of the
      * parameters. It only converts the cookie string into a JSONObject.
-     * 
+     *
      * @param string
      *            The cookie specification string.
      * @return A JSONObject containing "name", "value", and possibly other
@@ -112,7 +112,7 @@ public class Cookie {
      * must contain "name" and "value" members. If the JSONObject contains
      * "expires", "domain", "path", or "secure" members, they will be appended
      * to the cookie specification string. All other members are ignored.
-     * 
+     *
      * @param o
      *            A JSONObject
      * @return A cookie specification string
@@ -145,7 +145,7 @@ public class Cookie {
     /**
      * Convert <code>%</code><i>hh</i> sequences to single characters, and
      * convert plus to space.
-     * 
+     *
      * @param s
      *            A string that may contain <code>+</code>
      *            &nbsp;<small>(plus)</small> and <code>%</code><i>hh</i>

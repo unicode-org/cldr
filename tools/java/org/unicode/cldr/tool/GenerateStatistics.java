@@ -35,7 +35,7 @@ import com.ibm.icu.util.ULocale;
 
 /**
  * @throws IOException
- * 
+ *
  */
 class GenerateStatistics {
     static final boolean HACK = true;
@@ -93,7 +93,7 @@ class GenerateStatistics {
         }
         logHtml.println("<html><head>");
         logHtml
-            .println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
+        .println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
         logHtml.println("</head><body>");
         logHtml.println("<p><b>Locales (" + localeCount + "):</b>");
         logHtml.println("<p><b>Languages (" + languages.size() + "):</b>");
@@ -113,7 +113,7 @@ class GenerateStatistics {
     }
 
     /**
-     * 
+     *
      */
     private static Set<String> removeSingleLanguagesWhereWeHaveScripts(Set<String> contents) {
         StandardCodes sc = StandardCodes.make();
@@ -271,9 +271,9 @@ class GenerateStatistics {
             }
 
             result.append(before)
-                .append(
-                    TransliteratorUtilities.toHTML.transliterate(englishName
-                        + qualifiers)).append(after);
+            .append(
+                TransliteratorUtilities.toHTML.transliterate(englishName
+                    + qualifiers)).append(after);
         }
         return result.toString();
     }
@@ -370,7 +370,7 @@ class GenerateStatistics {
      */
 
     /**
-     * 
+     *
      */
     private static String getFixedLanguageName(String localeID, String lang) {
         if (HACK) {

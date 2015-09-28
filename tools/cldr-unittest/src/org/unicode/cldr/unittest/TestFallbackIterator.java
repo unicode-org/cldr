@@ -30,7 +30,7 @@ public class TestFallbackIterator extends TestFmwk {
             "no-NO, nb-NO, nb, no",
             "nb-NO, no-NO, nb, no",
             "no-bok, nb, no", // note, "nb-bok" is not legal, but doesn't
-                              // hurt
+            // hurt
             "no-YU, nb-CS, no-CS, nb-YU, nb, no",
             "sh-CS, sh-YU, sr-Latn-CS, sr-Latn-YU, sr-Latn, sr",
             "sh-Cyrl-CS, sh-Cyrl-YU, sr-Cyrl-CS, sr-Cyrl-YU, sr-Cyrl, sr",

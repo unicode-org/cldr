@@ -62,7 +62,7 @@ public class VariantFolder {
          * "XAbY", "XaBY", "XABY"}.
          * <p>
          * The caller must never modify the set.
-         * 
+         *
          * @param item
          * @return
          */
@@ -126,7 +126,7 @@ public class VariantFolder {
     /**
      * The class is designed to be immutable, at least as far as Java allows. That is, if the alternateFetcher is, then
      * it will be.
-     * 
+     *
      * @param alternateFetcher
      */
     public VariantFolder(AlternateFetcher alternateFetcher) {
@@ -167,7 +167,7 @@ public class VariantFolder {
                 // then we add the cross product of shorter strings
                 for (int breakPoint = start + 1; breakPoint < limit; ++breakPoint) {
                     addCrossProduct(combos[breakPoint - start - 1][start], combos[limit
-                        - breakPoint - 1][breakPoint], current);
+                                                                                  - breakPoint - 1][breakPoint], current);
                 }
             }
         }

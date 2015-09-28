@@ -69,7 +69,7 @@ import com.ibm.icu.util.ULocale;
  * same element chain, and thus presents a "sideways" view of the data, in files called
  * by_type/X.html, where X is a type. X may be the concatenation of more than more than
  * one element, where the file would otherwise be too large.
- * 
+ *
  * @author medavis
  */
 /*
@@ -90,17 +90,17 @@ public class GenerateSidewaysView {
     static final boolean FIX_ZONE_ALIASES = true;
 
     private static final int
-        HELP1 = 0,
-        HELP2 = 1,
-        SOURCEDIR = 2,
-        DESTDIR = 3,
-        MATCH = 4,
-        SKIP = 5,
-        TZADIR = 6,
-        NONVALIDATING = 7,
-        SHOW_DTD = 8,
-        TRANSLIT = 9,
-        PATH = 10;
+    HELP1 = 0,
+    HELP2 = 1,
+    SOURCEDIR = 2,
+    DESTDIR = 3,
+    MATCH = 4,
+    SKIP = 5,
+    TZADIR = 6,
+    NONVALIDATING = 7,
+    SHOW_DTD = 8,
+    TRANSLIT = 9,
+    PATH = 10;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -111,10 +111,10 @@ public class GenerateSidewaysView {
         UOption.create("skip", 'z', UOption.REQUIRES_ARG).setDefault("zh_(C|S|HK|M).*"),
         UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault(
             "C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
-        UOption.create("nonvalidating", 'n', UOption.NO_ARG),
-        UOption.create("dtd", 'w', UOption.NO_ARG),
-        UOption.create("transliterate", 'y', UOption.NO_ARG),
-        UOption.create("path", 'p', UOption.REQUIRES_ARG),
+            UOption.create("nonvalidating", 'n', UOption.NO_ARG),
+            UOption.create("dtd", 'w', UOption.NO_ARG),
+            UOption.create("transliterate", 'y', UOption.NO_ARG),
+            UOption.create("path", 'p', UOption.REQUIRES_ARG),
     };
 
     private static final Matcher altProposedMatcher = CLDRFile.ALT_PROPOSED_PATTERN.matcher("");
@@ -275,7 +275,7 @@ public class GenerateSidewaysView {
         }
         finish(out);
         System.out.println("Done in " + new RuleBasedNumberFormat(new ULocale("en"), RuleBasedNumberFormat.DURATION)
-            .format((System.currentTimeMillis() - startTime) / 1000.0));
+        .format((System.currentTimeMillis() - startTime) / 1000.0));
     }
 
     // static Comparator UCA;
@@ -453,7 +453,7 @@ public class GenerateSidewaysView {
         return ("title='U+" +
             toHTML.transform(
                 Utility.hex(item, 4, ", U+", true, new StringBuilder())
-                    + " " + UCharacter.getName(item, ", ")) + "'");
+                + " " + UCharacter.getName(item, ", ")) + "'");
     }
 
     private static void exemplarHeader(PrintWriter out, Set<String> allChars) {
@@ -655,7 +655,7 @@ public class GenerateSidewaysView {
 
     // static org.unicode.cldr.util.PrettyPath prettyPath = new org.unicode.cldr.util.PrettyPath();
     /**
-     * 
+     *
      */
     private static PathHeader fixPath(String path, String[] localePrefix) {
         if (localePrefix != null) localePrefix[0] = "";
@@ -674,7 +674,7 @@ public class GenerateSidewaysView {
     }
 
     /**
-     * 
+     *
      */
     private static void removeAttributes(XPathParts parts, Set<String> skipAttributes) {
         for (int i = 0; i < parts.size(); ++i) {
@@ -692,7 +692,7 @@ public class GenerateSidewaysView {
     static Status status = new Status();
 
     /**
-     * 
+     *
      */
     private static String getValue(CLDRFile cldrFile, String path, String fullPath) {
         String value = cldrFile.getStringValue(path);
@@ -733,7 +733,7 @@ public class GenerateSidewaysView {
 
     /**
      * @param path2
-     * 
+     *
      */
     private static PrintWriter start(PrintWriter out, String main, String headerString, String title)
         throws IOException {
@@ -793,7 +793,7 @@ public class GenerateSidewaysView {
     }
 
     /**
-     * 
+     *
      */
     private static void finish(PrintWriter out) {
         if (out == null) return;

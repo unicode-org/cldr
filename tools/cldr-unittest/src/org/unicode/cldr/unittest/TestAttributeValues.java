@@ -43,7 +43,7 @@ public class TestAttributeValues extends TestFmwk {
     public void TestA() {
         MatcherPattern mp = AttributeValueValidity.getMatcherPattern("$language");
         for (String language : LanguageInfo.getAvailable()) {
-            if (mp.matches(language, null) ) {
+            if (mp.matches(language, null)) {
                 LanguageInfo languageInfo = LanguageInfo.get(language);
                 show(language, languageInfo);
             }
@@ -51,10 +51,9 @@ public class TestAttributeValues extends TestFmwk {
     }
 
     private void show(String language, LanguageInfo languageInfo) {
-        logln(language 
+        logln(language
             + "\t" + config.getEnglish().getName(CLDRFile.LANGUAGE_NAME, language)
-            + "\t" + languageInfo
-            );
+            + "\t" + languageInfo);
     }
 
     public void TestAttributeValueValidity() {
@@ -83,7 +82,7 @@ public class TestAttributeValues extends TestFmwk {
             errln("Missing Tests: " + entry1);
         }
         for (R3<String, AttributeValueSpec, String> item : errors.getRows()) {
-            errln(item.get0()+ "; \t" + item.get2() + "; \t" + item.get1());
+            errln(item.get0() + "; \t" + item.get2() + "; \t" + item.get1());
         }
     }
 
@@ -112,27 +111,27 @@ public class TestAttributeValues extends TestFmwk {
         count = 0;
         for (R3<String, AttributeValueSpec, String> item : errors.getRows()) {
             if ("deprecated".equals(item.get2()))
-                errln("Deprecated: " + ++count 
+                errln("Deprecated: " + ++count
                     + "; \t" + item.get0()
                     + "; \t" + item.get1().type
                     + "; \t" + item.get1().element
                     + "; \t" + item.get1().attribute
                     + "; \t" + item.get1().attributeValue
                     + "; \t" + item.get2()
-                    );
+                );
         }
 
         count = 0;
         for (R3<String, AttributeValueSpec, String> item : errors.getRows()) {
             if (!"deprecated".equals(item.get2()))
-                errln("Invalid: " + ++count 
+                errln("Invalid: " + ++count
                     + "; \t" + item.get0()
                     + "; \t" + item.get1().type
                     + "; \t" + item.get1().element
                     + "; \t" + item.get1().attribute
                     + "; \t" + item.get1().attributeValue
                     + "; \t" + item.get2()
-                    );
+                );
         }
     }
 }

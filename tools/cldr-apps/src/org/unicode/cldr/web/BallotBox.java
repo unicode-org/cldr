@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.unicode.cldr.web;
 
@@ -25,7 +25,7 @@ public interface BallotBox<T> {
      */
     public class InvalidXPathException extends SurveyException {
         /**
-         * 
+         *
          */
         private static final long serialVersionUID = 1310604068301637651L;
         public String xpath;
@@ -38,11 +38,11 @@ public interface BallotBox<T> {
 
     /**
      * @author srl
-     * 
+     *
      */
     public class VoteNotAcceptedException extends SurveyException {
         /**
-         * 
+         *
          */
         private static final long serialVersionUID = 1462132656348262950L;
 
@@ -62,7 +62,7 @@ public interface BallotBox<T> {
     /**
      * Record a vote for an item. Will (eventually) throw a number of
      * exceptions.
-     * 
+     *
      * @param user
      *            voter's object
      * @param distinguishingXpath
@@ -70,8 +70,8 @@ public interface BallotBox<T> {
      * @param value
      *            new string value to vote for, or null for "unvote"
      * @return the full xpath of the user's vote, or null if not applicable.
-     * @throws InvalidXPathException 
-     * @throws VoteNotAcceptedException 
+     * @throws InvalidXPathException
+     * @throws VoteNotAcceptedException
      */
     public void voteForValue(T user, String distinguishingXpath, String value, Integer withVote) throws InvalidXPathException, VoteNotAcceptedException;
 
@@ -80,7 +80,7 @@ public interface BallotBox<T> {
     /**
      * Delete an item. Will (eventually) throw a number of
      * exceptions.
-     * 
+     *
      * @param user
      *            voter's object
      * @param distinguishingXpath
@@ -93,7 +93,7 @@ public interface BallotBox<T> {
 
     /**
      * Return a vote for a value, as a string
-     * 
+     *
      * @param user
      *            user id who
      * @param distinguishingXpath
@@ -103,7 +103,7 @@ public interface BallotBox<T> {
 
     /**
      * Get all of the voters for this xpath which are for a certain value.
-     * 
+     *
      * @param xpath
      * @param value
      * @return
@@ -119,7 +119,7 @@ public interface BallotBox<T> {
 
     /**
      * Get the possible user values at this path. Could be null.
-     * 
+     *
      * @param xpath
      * @return
      */
@@ -127,7 +127,7 @@ public interface BallotBox<T> {
 
     /**
      * Get the vote resolver for this path.
-     * 
+     *
      * @param path
      * @return
      */
@@ -136,7 +136,7 @@ public interface BallotBox<T> {
     /**
      * Whether the user voted at all. Returns false if user voted for null (no
      * opinion).
-     * 
+     *
      * @param myUser
      * @param somePath
      * @return
@@ -145,7 +145,7 @@ public interface BallotBox<T> {
 
     /**
      * Were there any votes some-time this release?
-     * 
+     *
      * @see org.unicode.cldr.util.CLDRInfo.PathValueInfo#hadVotesSometimeThisRelease()
      * @return
      */
@@ -155,7 +155,7 @@ public interface BallotBox<T> {
      * remove vote. same as voting for null
      * @param user
      * @param xpath
-     * @throws VoteNotAcceptedException 
+     * @throws VoteNotAcceptedException
      */
     public void unvoteFor(User user, String xpath) throws InvalidXPathException, VoteNotAcceptedException;
 

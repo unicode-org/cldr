@@ -30,12 +30,12 @@ import com.google.common.cache.CacheBuilder;
 /**
  * Class designed for the resolution of CLDR XML Files (e.g., removing aliases
  * but leaving the inheritance structure intact).
- * 
+ *
  * Instances of this class are not thread-safe. Any attempts to use an object of
  * this class in multiple threads must be externally synchronized.
- * 
+ *
  * @author ryanmentley@google.com (Ryan Mentley), jchye@google.com (Jennifer Chye)
- * 
+ *
  */
 public class CldrResolver {
     /**
@@ -52,15 +52,15 @@ public class CldrResolver {
     private static final Options options = new Options(
         "This program is used to convert CLDR XML files into their resolved versions.\n" +
             "Please refer to the following options. Options are not case sensitive.\n" +
-            "\texample: org.unicode.cldr.tool.resolver.CldrResolver -s xxx -d yyy -l en")
-        .add("locale", 'l', ".*", ".*", "The locales to generate resolved files for")
-        .add("sourcedir", ".*", "Source directory for CLDR files")
-        .add("destdir", ".*", "Destination directory for output files")
-        .add("resolutiontype", 'r', "\\w+", "simple", "The resolution type to be used")
-        .add("mindraftstatus", 'm', ".*", "unconfirmed", "The minimum draft status")
-        .add("verbosity", 'v', "\\d", "2", "The verbosity level for comments during generation")
-        .add("usealtvalues", 'a', null, null, "Use alternate values in FilterFactory for the locale data to be resolved.")
-        .add("organization", 'o', ".*", null, "Filter by this organization's coverage level");
+        "\texample: org.unicode.cldr.tool.resolver.CldrResolver -s xxx -d yyy -l en")
+    .add("locale", 'l', ".*", ".*", "The locales to generate resolved files for")
+    .add("sourcedir", ".*", "Source directory for CLDR files")
+    .add("destdir", ".*", "Destination directory for output files")
+    .add("resolutiontype", 'r', "\\w+", "simple", "The resolution type to be used")
+    .add("mindraftstatus", 'm', ".*", "unconfirmed", "The minimum draft status")
+    .add("verbosity", 'v', "\\d", "2", "The verbosity level for comments during generation")
+    .add("usealtvalues", 'a', null, null, "Use alternate values in FilterFactory for the locale data to be resolved.")
+    .add("organization", 'o', ".*", null, "Filter by this organization's coverage level");
 
     /* Private instance variables */
     private Factory cldrFactory;
@@ -139,7 +139,7 @@ public class CldrResolver {
     /**
      * Constructs a CLDR partial resolver given the path to a directory of XML
      * files.
-     * 
+     *
      * @param factory the factory containing the files to be resolved
      * @param resolutionType the resolution type of the resolver.
      */
@@ -155,7 +155,7 @@ public class CldrResolver {
     /**
      * Resolves all locales that match the given regular expression and outputs
      * their XML files to the given directory.
-     * 
+     *
      * @param localeRegex a regular expression that will be matched against the
      *        names of locales
      * @param outputDir the directory to which to output the partially-resolved
@@ -182,7 +182,7 @@ public class CldrResolver {
     /**
      * Returns the locale names from the resolver that match a given regular
      * expression.
-     * 
+     *
      * @param localeRegex a regular expression to match against
      * @return all of the locales that will be resolved by a call to resolve()
      *         with the same localeRegex
@@ -208,7 +208,7 @@ public class CldrResolver {
 
     /**
      * Resolves a locale to a {@link CLDRFile} object
-     * 
+     *
      * @param locale the name of the locale to resolve
      * @param resolutionType the type of resolution to perform
      * @return a {@link CLDRFile} containing the resolved data
@@ -307,7 +307,7 @@ public class CldrResolver {
     /**
      * Resolves all locales that match the given regular expression and outputs
      * their XML files to the given directory.
-     * 
+     *
      * @param localeRegex a regular expression that will be matched against the
      *        names of locales
      * @param outputDir the directory to which to output the partially-resolved
@@ -321,7 +321,7 @@ public class CldrResolver {
 
     /**
      * Writes out the given CLDRFile in XML form to the given directory
-     * 
+     *
      * @param cldrFile the CLDRFile to print to XML
      * @param directory the directory to which to add the file
      */
@@ -348,7 +348,7 @@ public class CldrResolver {
 
     /**
      * Convenience method to compare objects that works with nulls
-     * 
+     *
      * @param o1 the first object
      * @param o2 the second object
      * @return true if objects o1 == o2 or o1.equals(o2); false otherwise

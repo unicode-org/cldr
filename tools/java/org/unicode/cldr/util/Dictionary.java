@@ -24,7 +24,7 @@ import org.unicode.cldr.util.Dictionary.Matcher.Status;
  * Map&lt;String,Object&gt; You set the offset you are concerned about, then
  * call next() until it doesn't return MATCH. Along the way, you will get
  * results. For example, here is some sample code and results.
- * 
+ *
  * <pre>
  * System.out.println(&quot;Using dictionary: &quot; + dictionary.getMapping());
  * System.out.println(&quot;Searching in: {&quot; + sampleText + &quot;}&quot;);
@@ -51,21 +51,21 @@ import org.unicode.cldr.util.Dictionary.Matcher.Status;
  *         + &quot;  \t{&quot; + matcher.getMatchValue() + &quot;}\t&quot; + unique);
  * }
  * </pre>
- * 
+ *
  * Output:
- * 
+ *
  * <pre>
  *   Using dictionary: {any=All, man=Woman, many=Few}
  *   Searching in: {many manners ma}
- *   {[[[man]]]y manners ma} MATCH   {Woman} 
- *   {[[[many]]] manners ma} MATCH   {Few} 
- *   {m[[[any]]] manners ma} MATCH   {All} 
- *   {many [[[man]]]ners ma} MATCH   {Woman} 
+ *   {[[[man]]]y manners ma} MATCH   {Woman}
+ *   {[[[many]]] manners ma} MATCH   {Few}
+ *   {m[[[any]]] manners ma} MATCH   {All}
+ *   {many [[[man]]]ners ma} MATCH   {Woman}
  *   {many [[[man]]]ners ma} PARTIAL   {Few}   Unique
  *   {many m[[[an]]]ners ma} PARTIAL   {All}   Unique
  *   {many manners [[[ma]]]} PARTIAL   {Woman}   Not Unique
  * </pre>
- * 
+ *
  * When you get a PARTIAL status, the match value is undefined. Often people
  * will just treat PARTIAL matches as if they were NONE. However, sometimes
  * people may be interested in finding out whether the text in question is the
@@ -80,16 +80,16 @@ import org.unicode.cldr.util.Dictionary.Matcher.Status;
  * value is returned, it is only for one of the possible words ("June" and "July") so (for this application) we can
  * decide that the parse fails since the month isn't sufficiently distinguished.</li>
  * </ol>
- * 
+ *
  * @author markdavis
- * 
+ *
  */
 public abstract class Dictionary<T> {
 
     /**
      * Get the strings from the dictionary. The Map is either read-only or a copy;
      * that is, modifications do not affect the builder.
-     * 
+     *
      * @return
      */
     public abstract Iterator<Entry<CharSequence, T>> getMapping();
@@ -97,7 +97,7 @@ public abstract class Dictionary<T> {
     /**
      * Interface for building a new simple StateDictionary. The Map must be sorted
      * according to Dictionary.CHAR_SEQUENCE_COMPARATOR. It must not contain the key "".
-     * 
+     *
      * @param old
      * @return
      */
@@ -107,7 +107,7 @@ public abstract class Dictionary<T> {
 
     /**
      * Return more comprehensive debug info if available.
-     * 
+     *
      * @return
      */
     public String debugShow() {
@@ -148,7 +148,7 @@ public abstract class Dictionary<T> {
 
         /**
          * Set the target text to match within; also resets the offset to zero, calling setOffset().
-         * 
+         *
          * @param text
          * @return
          */
@@ -159,7 +159,7 @@ public abstract class Dictionary<T> {
 
         /**
          * Set the target text to match within; also resets the offset to zero, calling setOffset().
-         * 
+         *
          * @param text
          * @return
          */
@@ -170,7 +170,7 @@ public abstract class Dictionary<T> {
 
         /**
          * Retrieve the target text to match within.
-         * 
+         *
          * @return
          */
         public CharSource getText() {
@@ -180,7 +180,7 @@ public abstract class Dictionary<T> {
         /**
          * Set the position in the target text to match from. Matches only go forwards
          * in the string.
-         * 
+         *
          * @param offset
          * @return
          */
@@ -192,7 +192,7 @@ public abstract class Dictionary<T> {
 
         /**
          * Get the offset from which we are matching.
-         * 
+         *
          * @return
          */
         public int getOffset() {
@@ -201,7 +201,7 @@ public abstract class Dictionary<T> {
 
         /**
          * Get the latest match value after calling next(); see next() for more information.
-         * 
+         *
          * @return
          */
         public T getMatchValue() {
@@ -210,7 +210,7 @@ public abstract class Dictionary<T> {
 
         /**
          * Get the latest match end (that is, how far we matched); see next() for more information.
-         * 
+         *
          * @return
          */
         public int getMatchEnd() {
@@ -219,7 +219,7 @@ public abstract class Dictionary<T> {
 
         /**
          * Get the text that we are matching in..
-         * 
+         *
          * @return
          */
         public CharSource getMatchText() {
@@ -258,7 +258,7 @@ public abstract class Dictionary<T> {
          * nextPartial().</li>
          * <li>NONE: the matchValue and matchEnd are undefined.</li>
          * </ul>
-         * 
+         *
          * @return MATCH if there is a match.
          */
         public abstract Status next();
@@ -305,7 +305,7 @@ public abstract class Dictionary<T> {
          * </ul>
          * Question: should we make the name more explicit, like nextAtOffset? Because
          * this iterates through the matches <i>at</i> an offset, not through offsets.
-         * 
+         *
          * @return MATCH if there is a match.
          */
         public Status next(Filter filter) {
@@ -327,8 +327,8 @@ public abstract class Dictionary<T> {
                 } else if (status == Status.MATCH
                     || (status == Status.PARTIAL
                     && (filter == Filter.LONGEST
-                        || filter == Filter.LONGEST_UNIQUE && nextUniquePartial()
-                        || filter == Filter.LONGEST_WITH_FINAL_PARTIAL && !text.hasCharAt(matchEnd)))) {
+                    || filter == Filter.LONGEST_UNIQUE && nextUniquePartial()
+                    || filter == Filter.LONGEST_WITH_FINAL_PARTIAL && !text.hasCharAt(matchEnd)))) {
                     if (filter == Filter.MATCHES) {
                         return status;
                     }
@@ -351,7 +351,7 @@ public abstract class Dictionary<T> {
          * This must only be called immediatedly following a PARTIAL result from next().
          * <p>
          * QUESTION: would it be useful to be able to get all the partial matches??
-         * 
+         *
          * @return true if the partial match is singular, false if it is plural.
          */
         public abstract boolean nextUniquePartial();
@@ -399,7 +399,7 @@ public abstract class Dictionary<T> {
          * Convert the remaining text (after offset) to the target. Any substring with a MATCH is replaced by the
          * value.toString(); other characters are copied. Converts to first (shortest) match..
          * TODO add parameter to pick between shortest and longest.
-         * 
+         *
          * @param target
          */
         public Appendable convert(Appendable target) {
@@ -436,7 +436,7 @@ public abstract class Dictionary<T> {
 
         /**
          * The offset is not yet at the end.
-         * 
+         *
          * @return
          */
         public boolean hasMore() {

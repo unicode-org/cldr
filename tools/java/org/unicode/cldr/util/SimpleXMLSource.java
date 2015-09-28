@@ -29,7 +29,7 @@ public class SimpleXMLSource extends XMLSource {
 
     /**
      * Create a shallow, locked copy of another XMLSource.
-     * 
+     *
      * @param copyAsLockedFrom
      */
     protected SimpleXMLSource(SimpleXMLSource copyAsLockedFrom) {

@@ -26,11 +26,11 @@ public class LocaleTree {
     // TODO: object
     /**
      * TreeMap of all locales.
-     * 
+     *
      * localeListMap = TreeMap [ (String langScriptDisplayName) , (String
      * localecode) ] subLocales = Hashtable [ localecode, TreeMap ] --> TreeMap
      * [ langScriptDisplayName, String localeCode ] example
-     * 
+     *
      * localeListMap English -> en Serbian -> sr Serbian (Cyrillic) -> sr_Cyrl
      * sublocales en -> [ "English (US)" -> en_US ], [ "English (Australia)" ->
      * en_AU ] ... sr -> "Serbian (Yugoslavia)" -> sr_YU

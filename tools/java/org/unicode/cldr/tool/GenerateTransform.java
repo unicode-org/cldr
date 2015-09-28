@@ -25,9 +25,9 @@ import com.ibm.icu.util.ULocale;
 
 /**
  * Take a list of pairs, and generate a bidirectional transform.
- * 
+ *
  * @author markdavis
- * 
+ *
  */
 // TODO handle casing
 public class GenerateTransform {
@@ -152,8 +152,8 @@ public class GenerateTransform {
             for (UnicodeSet[] pair : items) {
                 // ← x {·} Y ;
                 result
-                    .append(" ← " + show(pair[0]) + " {‧} " + show(pair[1]) + " ;"
-                        + CldrUtility.LINE_SEPARATOR);
+                .append(" ← " + show(pair[0]) + " {‧} " + show(pair[1]) + " ;"
+                    + CldrUtility.LINE_SEPARATOR);
             }
         }
 

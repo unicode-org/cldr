@@ -37,8 +37,8 @@ public class DiffWithParent {
                     CLDRFile file = cldrFactory.make(locale, false);
                     String parentLocale = LocaleIDParser.getParent(locale);
                     CLDRFile parent = cldrFactory.make(parentLocale, true); // use
-                                                                            // resolved
-                                                                            // parent
+                    // resolved
+                    // parent
                     for (Iterator<String> it = file.iterator(); it.hasNext();) {
                         String path = it.next();
                         String value = file.getStringValue(path);
@@ -48,7 +48,7 @@ public class DiffWithParent {
                         if (!value.equals(pvalue) || !fullPath.equals(pfullPath)) {
                             String pathName = pp.getPrettyPath(path);
                             table.addRow().addCell(pathName).addCell(locale).addCell(value)
-                                .addCell(showDistinguishingAttributes(fullPath)).finishRow();
+                            .addCell(showDistinguishingAttributes(fullPath)).finishRow();
                             if (pvalue == null) {
                                 pvalue = "<i>none</i>";
                             }
@@ -66,11 +66,11 @@ public class DiffWithParent {
                     String title = locale + " " + english.getName(locale)
                         + " Diff with Parent";
                     out
-                        .println("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>"
-                            + title + "</title></head><body>");
+                    .println("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>"
+                        + title + "</title></head><body>");
                     out.println("<h1>" + title + "</h1>");
                     out
-                        .println("<table  border='1' style='border-collapse: collapse' bordercolor='blue'>");
+                    .println("<table  border='1' style='border-collapse: collapse' bordercolor='blue'>");
                     out.println(table.toString());
                     out.println("</table>");
                     out.println(CldrUtility.ANALYTICS);

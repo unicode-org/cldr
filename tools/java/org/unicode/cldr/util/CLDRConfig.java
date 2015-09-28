@@ -566,7 +566,7 @@ public class CLDRConfig extends Properties {
     }
 
     /**
-     * Get the debug settings (whether debugging is enabled for the calling class; This will look for a property corresponding 
+     * Get the debug settings (whether debugging is enabled for the calling class; This will look for a property corresponding
      * to the canonical classname +".debug"; if that property cannot be found, the default value will be returned.
      * @param callingClass
      * @param defaultValue

@@ -126,7 +126,7 @@ public class CookieSession {
     /**
      * Fetch a specific session. 'touch' it (mark it as recently active) if
      * found.
-     * 
+     *
      * @return session or null
      * @param sessionid
      *            id to fetch
@@ -142,7 +142,7 @@ public class CookieSession {
     /**
      * fetch a session if it exists. Don't touch it as recently active. Useful
      * for administratively retrieving a session
-     * 
+     *
      * @param sessionid
      *            session ID
      * @return session or null
@@ -157,7 +157,7 @@ public class CookieSession {
 
     /**
      * Retrieve a user's session. Don't touch it (mark it active) if found.
-     * 
+     *
      * @param email
      *            user's email
      * @return session or null
@@ -171,7 +171,7 @@ public class CookieSession {
 
     /**
      * Retrieve a user's session. Touch it (mark it active) if found.
-     * 
+     *
      * @param email
      *            user's email
      * @return session or null
@@ -188,7 +188,7 @@ public class CookieSession {
 
     /**
      * Associate this session with a user
-     * 
+     *
      * @param u
      *            user
      */
@@ -197,13 +197,13 @@ public class CookieSession {
         settings = null;
         synchronized (gHash) {
             uHash.put(user.email, this); // replaces any existing session by
-                                         // this user.
+            // this user.
         }
     }
 
     /**
      * Create a new session.
-     * 
+     *
      * @param isGuest
      *            True if the user is a guest.
      */
@@ -275,7 +275,7 @@ public class CookieSession {
 
     /**
      * How old is this session? (last time we heard from their browser, at all)
-     * 
+     *
      * @return age of this session, in millis
      */
     protected long age() {
@@ -284,7 +284,7 @@ public class CookieSession {
 
     /**
      * How old is this session's last active action? (last voted, viewed a page, etc)
-     * 
+     *
      * @return age of this session, in millis
      */
     protected long userActionAge() {
@@ -298,7 +298,7 @@ public class CookieSession {
 
     /**
      * Generate a new ID.
-     * 
+     *
      * @param isGuest
      *            true if user is a guest. The guest namespace is separate from
      *            the nonguest.
@@ -322,7 +322,7 @@ public class CookieSession {
 
     /**
      * Get some object out of the session
-     * 
+     *
      * @param key
      *            the key to load
      */
@@ -334,7 +334,7 @@ public class CookieSession {
 
     /**
      * Store an object in the session
-     * 
+     *
      * @param key
      *            the key to set
      * @param value
@@ -348,7 +348,7 @@ public class CookieSession {
 
     /**
      * Fetch a named boolean from the preferences string
-     * 
+     *
      * @param key
      *            parameter to look at
      * @return boolean result, or false as default
@@ -359,7 +359,7 @@ public class CookieSession {
 
     /**
      * Fetch a named boolean from the preferences string
-     * 
+     *
      * @param key
      *            parameter to look at
      * @param defVal
@@ -377,7 +377,7 @@ public class CookieSession {
 
     /**
      * Get a string preference
-     * 
+     *
      * @param key
      *            the key to load
      * @return named pref, or null as default
@@ -393,7 +393,7 @@ public class CookieSession {
 
     /**
      * Store a boolean preference value
-     * 
+     *
      * @param key
      *            the pref to put
      * @param value
@@ -405,7 +405,7 @@ public class CookieSession {
 
     /**
      * Store a string preference value
-     * 
+     *
      * @param key
      *            the pref to put
      * @param value
@@ -418,7 +418,7 @@ public class CookieSession {
     /**
      * Fetch a hashtable of per-locale session data. Will create one if it
      * wasn't already there.
-     * 
+     *
      * @return the locale hashtable
      */
     public Hashtable<String, Hashtable<String, Object>> getLocales() {
@@ -434,7 +434,7 @@ public class CookieSession {
 
     /**
      * Pull an object out of the session according to key and locale
-     * 
+     *
      * @param key
      *            key to use
      * @param aLocale
@@ -454,7 +454,7 @@ public class CookieSession {
 
     /**
      * Store an object into the session according to key and locale
-     * 
+     *
      * @param key
      *            key to use
      * @param aLocale
@@ -475,7 +475,7 @@ public class CookieSession {
 
     /**
      * remove an object from the session according to key and locale
-     * 
+     *
      * @param key
      *            key to use
      * @param aLocale
@@ -494,7 +494,7 @@ public class CookieSession {
      * utility function for doing an encoding of a long. Creates a base26 (a-z)
      * representation of the number, plus a leading '-' if negative. TODO:
      * shrink? base64?
-     * 
+     *
      * @param l
      *            some number
      * @return string
@@ -521,7 +521,7 @@ public class CookieSession {
     /**
      * utility function for doing a base64 of some bytes. URL safe, converts
      * '=/+' to ',._' respectively.
-     * 
+     *
      * @param b
      *            some data in bytes
      * @return string
@@ -577,7 +577,7 @@ public class CookieSession {
 
     /**
      * Set these from cldr.properties.
-     * 
+     *
      * @author srl
      *
      */
@@ -859,7 +859,7 @@ public class CookieSession {
 
     /**
      * User's organization or null.
-     * 
+     *
      * @return
      */
     public String getUserOrg() {

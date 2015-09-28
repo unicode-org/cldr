@@ -8,7 +8,7 @@ import org.unicode.cldr.util.XPathParts;
 // Notes:
 // - xpp.set (currently) resets the entire state of the xpp, so there are no side effects
 // of these calls.
-// - This is not used in a multi-threaded environment, so a static instance is ok.  If 
+// - This is not used in a multi-threaded environment, so a static instance is ok.  If
 // this turns out not to be true, make thread-local.
 
 public class XPPUtil {

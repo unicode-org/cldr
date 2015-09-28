@@ -20,7 +20,7 @@ import com.ibm.icu.text.UnicodeSet;
 
 /**
  * Transforms the contents of a CLDRFile.
- * 
+ *
  * @author jchye
  */
 public class CLDRFileTransformer {
@@ -116,7 +116,7 @@ public class CLDRFileTransformer {
 
     /**
      * NOTE: This method does not currently handle nested transliterators.
-     * 
+     *
      * @param input
      * @return
      */

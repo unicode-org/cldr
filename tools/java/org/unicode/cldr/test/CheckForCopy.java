@@ -56,8 +56,8 @@ public class CheckForCopy extends FactoryCheckCLDR {
             "|unitLength\\[@type=\"(short|narrow)\"\\]/unit\\[@type=\"[^\"]++\"\\]/unitPattern\\[@count=\"[^\"]++\"\\]" +
             "|unitLength\\[@type=\"(short|narrow)\"\\]/unit\\[@type=\"[^\"]++\"\\]/perUnitPattern" +
             ")", true)
-        .add("^//ldml/dates/calendars/calendar\\[@type=\"gregorian\"]", false)
-        .add("^//ldml/dates/calendars/calendar", true);
+            .add("^//ldml/dates/calendars/calendar\\[@type=\"gregorian\"]", false)
+            .add("^//ldml/dates/calendars/calendar", true);
 
     static Set<String> SKIP_TYPES = Builder
         .with(new HashSet<String>())
@@ -138,7 +138,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
             "TO", // Tonga
             "wae", // Walser
             "metric"
-        ).freeze();
+            ).freeze();
 
     static UnicodeSet ASCII_LETTER = new UnicodeSet("[a-zA-Z]");
 
@@ -198,25 +198,25 @@ public class CheckForCopy extends FactoryCheckCLDR {
         switch (failure) {
         case same_as_english:
             result
-                .add(new CheckStatus()
-                    .setCause(this)
-                    .setMainType(CheckStatus.warningType)
-                    .setSubtype(Subtype.sameAsEnglishOrCode)
-                    .setCheckOnSubmit(false)
-                    .setMessage(
-                        "The value is the same as in English: see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.",
-                        new Object[] {}));
+            .add(new CheckStatus()
+            .setCause(this)
+            .setMainType(CheckStatus.warningType)
+            .setSubtype(Subtype.sameAsEnglishOrCode)
+            .setCheckOnSubmit(false)
+            .setMessage(
+                "The value is the same as in English: see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.",
+                new Object[] {}));
             break;
         case same_as_code:
             result
-                .add(new CheckStatus()
-                    .setCause(this)
-                    .setMainType(CheckStatus.warningType)
-                    .setSubtype(Subtype.sameAsEnglishOrCode)
-                    .setCheckOnSubmit(false)
-                    .setMessage(
-                        "The value is the same as the 'code': see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.",
-                        new Object[] {}));
+            .add(new CheckStatus()
+            .setCause(this)
+            .setMainType(CheckStatus.warningType)
+            .setSubtype(Subtype.sameAsEnglishOrCode)
+            .setCheckOnSubmit(false)
+            .setMessage(
+                "The value is the same as the 'code': see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.",
+                new Object[] {}));
             break;
         }
         return this;
@@ -232,13 +232,13 @@ public class CheckForCopy extends FactoryCheckCLDR {
         String lang = ltp.getLanguage();
         UnicodeSet exemplars = cldrFileToCheck.getExemplarSet("main", CLDRFile.WinningChoice.WINNING);
         if (lang.equals("en") || lang.equals("root") || exemplars != null && ASCII_LETTER.containsNone(exemplars)) { // skip
-                                                                                                                     // non-Latin,
-                                                                                                                     // because
-                                                                                                                     // the
-                                                                                                                     // exemplar
-                                                                                                                     // set
-                                                                                                                     // will
-                                                                                                                     // check
+            // non-Latin,
+            // because
+            // the
+            // exemplar
+            // set
+            // will
+            // check
             setSkipTest(true);
             if (DEBUG) System.out.println("CheckForCopy: Skipping: " + localeID);
             return this;

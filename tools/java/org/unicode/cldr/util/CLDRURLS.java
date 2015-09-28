@@ -3,7 +3,7 @@ package org.unicode.cldr.util;
 /**
  * Generate URLs to parts of CLDR and the SurveyTool.
  * You can change the urls used with for example,  -DCLDR_SURVEY_BASE=http://st.unicode.org/smoketest
- * 
+ *
  * @author srl
  *
  */

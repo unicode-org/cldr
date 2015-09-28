@@ -35,7 +35,7 @@ public class ToolUtilities {
 //        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Syriac-Latin");
 //        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Canadian_Aboriginal-Latin");
 //        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Georgian-Latin");
-//    
+//
 //        // do nothing, too complicated to do quickly
 //        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Tibetan-Latin"); // needed
 //        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Khmer-Latin"); // needed

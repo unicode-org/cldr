@@ -27,7 +27,7 @@ package org.json;
 /**
  * The HTTPTokener extends the JSONTokener to provide additional methods for the
  * parsing of HTTP headers.
- * 
+ *
  * @author JSON.org
  * @version 2008-09-18
  */
@@ -35,7 +35,7 @@ public class HTTPTokener extends JSONTokener {
 
     /**
      * Construct an HTTPTokener from a string.
-     * 
+     *
      * @param s
      *            A source string.
      */
@@ -45,7 +45,7 @@ public class HTTPTokener extends JSONTokener {
 
     /**
      * Get the next token or string. This is used in parsing HTTP headers.
-     * 
+     *
      * @throws JSONException
      * @return A String.
      */

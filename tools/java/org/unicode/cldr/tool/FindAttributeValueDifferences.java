@@ -2,8 +2,8 @@ package org.unicode.cldr.tool;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Map.Entry;
 import java.util.EnumSet;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -12,13 +12,13 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.ChainedMap.M3;
+import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.ChainedMap.M3;
-import org.unicode.cldr.util.ChainedMap.M4;
-import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Objects;

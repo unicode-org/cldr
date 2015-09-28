@@ -11,7 +11,7 @@ import com.ibm.icu.dev.test.TestFmwk;
 
 /**
  * @author rwainman@google.com (Raymond Wainman)
- * 
+ *
  */
 public class TestKeyboardModifierSet extends TestFmwk {
     public static void main(String[] args) {

@@ -34,7 +34,7 @@ public class PrettyPath {
     /**
      * Gets sortable form of the pretty path, and caches the mapping for faster later mapping; see the two argument
      * form.
-     * 
+     *
      * @param path
      * @return pretty path
      */
@@ -45,7 +45,7 @@ public class PrettyPath {
     /**
      * Gets the pretty path, and caches the mapping for faster later mapping. If you use the sortable form, then later
      * you will want to call getOutputForm.
-     * 
+     *
      * @param path
      * @param sortable
      *            true if you want the sortable form
@@ -91,7 +91,7 @@ public class PrettyPath {
 
     /**
      * Get original path. ONLY works if getPrettyPath was called with the original!
-     * 
+     *
      * @param prettyPath
      * @return
      */
@@ -101,7 +101,7 @@ public class PrettyPath {
 
     /**
      * Return the pretty path with the sorting gorp removed. This is the form that should be displayed to the user.
-     * 
+     *
      * @param prettyPath
      * @return cleaned pretty path
      */

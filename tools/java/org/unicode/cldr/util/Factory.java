@@ -27,7 +27,7 @@ public abstract class Factory implements SublocaleProvider {
 
     /**
      * Note, the source director(ies) may be a list (seed/common). Therefore, this function is deprecated
-     * 
+     *
      * @deprecated
      * @return the first directory
      */
@@ -37,14 +37,14 @@ public abstract class Factory implements SublocaleProvider {
 
     /**
      * Note, the source director(ies) may be a list (seed/common).
-     * 
+     *
      * @return the first directory
      */
     public abstract File[] getSourceDirectories();
 
     /**
      * Which source directory does this particular localeID belong to?
-     * 
+     *
      * @param localeID
      * @return
      */
@@ -52,9 +52,9 @@ public abstract class Factory implements SublocaleProvider {
 
     /**
      * Classify the tree according to type (maturity)
-     * 
+     *
      * @author srl
-     * 
+     *
      */
     public enum SourceTreeType {
         common, seed, other
@@ -62,7 +62,7 @@ public abstract class Factory implements SublocaleProvider {
 
     /**
      * Returns the source tree type of either an XML file or its parent directory.
-     * 
+     *
      * @param fileOrDir
      * @return
      */
@@ -132,7 +132,7 @@ public abstract class Factory implements SublocaleProvider {
     /**
      * Temporary wrapper for creating an XMLSource. This is a hack and should
      * only be used in the Survey Tool for now.
-     * 
+     *
      * @param localeID
      * @return
      */
@@ -142,7 +142,7 @@ public abstract class Factory implements SublocaleProvider {
 
     /**
      * Creates a resolving source for the given locale ID.
-     * 
+     *
      * @param localeID
      * @param madeWithMinimalDraftStatus
      * @return
@@ -170,7 +170,7 @@ public abstract class Factory implements SublocaleProvider {
 
     /**
      * Convenience static
-     * 
+     *
      * @param path
      * @param string
      * @return
@@ -185,7 +185,7 @@ public abstract class Factory implements SublocaleProvider {
 
     /**
      * Convenience static
-     * 
+     *
      * @param mainDirectory
      * @param string
      * @param approved
@@ -218,7 +218,7 @@ public abstract class Factory implements SublocaleProvider {
 
     /**
      * Get a set of the locales that have the given parent (according to isSubLocale())
-     * 
+     *
      * @param isProper
      *            if false, then parent itself will match
      */
@@ -240,7 +240,7 @@ public abstract class Factory implements SublocaleProvider {
     /**
      * Sets the supplemental directory to be used by this Factory and CLDRFiles
      * created by this Factory.
-     * 
+     *
      * @param supplementalDirectory
      * @return
      */
@@ -275,7 +275,7 @@ public abstract class Factory implements SublocaleProvider {
 
     /**
      * Helper function.
-     * 
+     *
      * @return
      */
     public Set<CLDRLocale> getAvailableCLDRLocales() {
@@ -284,7 +284,7 @@ public abstract class Factory implements SublocaleProvider {
 
     /**
      * Helper function. Does not cache.
-     * 
+     *
      * @param locale
      * @param available
      * @return

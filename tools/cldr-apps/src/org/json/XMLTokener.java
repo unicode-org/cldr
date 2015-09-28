@@ -27,7 +27,7 @@ package org.json;
 /**
  * The XMLTokener extends the JSONTokener to provide additional methods for the
  * parsing of XML texts.
- * 
+ *
  * @author JSON.org
  * @version 2010-01-30
  */
@@ -50,7 +50,7 @@ public class XMLTokener extends JSONTokener {
 
     /**
      * Construct an XMLTokener from a string.
-     * 
+     *
      * @param s
      *            A source string.
      */
@@ -60,7 +60,7 @@ public class XMLTokener extends JSONTokener {
 
     /**
      * Get the text in the CDATA block.
-     * 
+     *
      * @return The string up to the <code>]]&gt;</code>.
      * @throws JSONException
      *             If the <code>]]&gt;</code> is not found.
@@ -84,14 +84,14 @@ public class XMLTokener extends JSONTokener {
     }
 
     /**
-         * Get the next XML outer token, trimming whitespace. There are two kinds
-         * of tokens: the '<' character which begins a markup tag, and the content
-         * text between markup tags.
-         *
-         * @return  A string, or a '<' Character, or null if there is no more
-         * source text.
-         * @throws JSONException
-         */
+     * Get the next XML outer token, trimming whitespace. There are two kinds
+     * of tokens: the '<' character which begins a markup tag, and the content
+     * text between markup tags.
+     *
+     * @return  A string, or a '<' Character, or null if there is no more
+     * source text.
+     * @throws JSONException
+     */
     public Object nextContent() throws JSONException {
         char c;
         StringBuffer sb;
@@ -122,7 +122,7 @@ public class XMLTokener extends JSONTokener {
     /**
      * Return the next entity. These entities are translated to Characters:
      * <code>&amp;  &apos;  &gt;  &lt;  &quot;</code>.
-     * 
+     *
      * @param a
      *            An ampersand character.
      * @return A Character or an entity String if the entity is not recognized.
@@ -149,7 +149,7 @@ public class XMLTokener extends JSONTokener {
     /**
      * Returns the next XML meta token. This is used for skipping over <!...>
      * and <?...?> structures.
-     * 
+     *
      * @return Syntax characters (<code>< > / = ! ?</code>) are returned as
      *         Character, and strings and names are returned as Boolean. We
      *         don't care what the values actually are.
@@ -217,7 +217,7 @@ public class XMLTokener extends JSONTokener {
      * Get the next XML Token. These tokens are found inside of angle brackets.
      * It may be one of these characters: <code>/ > = ! ?</code> or it may be a
      * string wrapped in single quotes or double quotes, or it may be a name.
-     * 
+     *
      * @return a String or a Character.
      * @throws JSONException
      *             If the XML is not well formed.
@@ -300,7 +300,7 @@ public class XMLTokener extends JSONTokener {
     /**
      * Skip characters until past the requested string. If it is not found, we
      * are left at the end of the source with a result of false.
-     * 
+     *
      * @param to
      *            A string to skip past.
      * @throws JSONException

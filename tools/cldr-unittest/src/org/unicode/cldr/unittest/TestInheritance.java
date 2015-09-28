@@ -254,7 +254,7 @@ public class TestInheritance extends TestFmwk {
         Relation<String, String> base2locales = Relation.of(
             new TreeMap<String, Set<String>>(), TreeSet.class);
 
-        Set<String> knownMultiScriptLanguages = new HashSet<String>(Arrays.asList("bm","ha"));
+        Set<String> knownMultiScriptLanguages = new HashSet<String>(Arrays.asList("bm", "ha"));
         // get multiscript locales
         for (String localeID : availableLocales) {
             String script = ltp.set(localeID).getScript();
@@ -349,13 +349,13 @@ public class TestInheritance extends TestFmwk {
             if (parentLocale != null) {
                 if (!"root".equals(parentLocale)
                     && !lp.set(loc).getLanguage()
-                        .equals(lp.set(parentLocale).getLanguage())) {
+                    .equals(lp.set(parentLocale).getLanguage())) {
                     errln("Parent locale [" + parentLocale + "] for locale ["
                         + loc + "] cannot be a different language code.");
                 }
                 if (!"root".equals(parentLocale)
                     && !lp.set(loc).getScript()
-                        .equals(lp.set(parentLocale).getScript())) {
+                    .equals(lp.set(parentLocale).getScript())) {
                     errln("Parent locale [" + parentLocale + "] for locale ["
                         + loc + "] cannot be a different script code.");
                 }
@@ -394,7 +394,7 @@ public class TestInheritance extends TestFmwk {
         Set<String> skip = Builder.with(new HashSet<String>())
             .addAll("root", "und")
             .freeze();
-        Set<String> languagesWithOneOrLessLocaleScriptInCommon = new HashSet<String>(Arrays.asList("bm","ha","ms","iu","mn"));
+        Set<String> languagesWithOneOrLessLocaleScriptInCommon = new HashSet<String>(Arrays.asList("bm", "ha", "ms", "iu", "mn"));
         // for each base we have to have,
         // if multiscript, we have default contents for base+script,
         // base+script+region;
@@ -618,7 +618,7 @@ public class TestInheritance extends TestFmwk {
 
     /**
      * Suggest a likely subtag
-     * 
+     *
      * @param base
      * @return
      */
@@ -629,12 +629,12 @@ public class TestInheritance extends TestFmwk {
 
         if (!loc.getLanguage().equals(base)) {
             return " (no suggestion- not a simple language locale)"; // no
-                                                                     // suggestion
-                                                                     // unless
-                                                                     // just
-                                                                     // a
-                                                                     // language
-                                                                     // locale.
+            // suggestion
+            // unless
+            // just
+            // a
+            // language
+            // locale.
         }
         Set<BasicLanguageData> basicData = sdi.getBasicLanguageData(base);
 
@@ -681,7 +681,7 @@ public class TestInheritance extends TestFmwk {
     public void TestLanguageTagCanonicalizer() {
         String[][] tests = {
             { "en-POLYTONI-WHATEVER-ANYTHING-AALAND",
-                "en_AX_ANYTHING_POLYTON_WHATEVER" },
+            "en_AX_ANYTHING_POLYTON_WHATEVER" },
             { "eng-840", "en" }, { "sh_ba", "sr_Latn_BA" },
             { "iw-arab-010", "he_Arab_AQ" }, { "und", "und" },
             { "und_us", "und_US" }, { "und_su", "und_RU" }, };
@@ -1063,7 +1063,7 @@ public class TestInheritance extends TestFmwk {
             return codePoint == string.charAt(0);
         case 2:
             return codePoint >= 0x10000
-                && codePoint == Character.codePointAt(string, 0);
+            && codePoint == Character.codePointAt(string, 0);
         default:
             return false;
         }
@@ -1158,16 +1158,16 @@ public class TestInheritance extends TestFmwk {
         for (K key : keys) {
             if (!a.containsKey(key)) {
                 result.append(key).append("→‹").append(a.get(key))
-                    .append("›,∅; ");
+                .append("›,∅; ");
             } else if (!b.containsKey(key)) {
                 result.append(key).append("→∅,‹").append(b.get(key))
-                    .append("›; ");
+                .append("›; ");
             } else {
                 V aKey = a.get(key);
                 V bKey = b.get(key);
                 if (!equals(aKey, bKey)) {
                     result.append(key).append("→‹").append(a.get(key))
-                        .append("›,‹").append(b.get(key)).append("›; ");
+                    .append("›,‹").append(b.get(key)).append("›; ");
                 }
             }
         }

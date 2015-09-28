@@ -9,7 +9,7 @@ import org.xml.sax.SAXException;
  * Class for converting CLDR dayPeriods data into a format suitable for writing
  * to ICU data. The regex-mapping method can't be used here because the special
  * handling of sets.
- * 
+ *
  * @author jchye
  */
 public class DayPeriodsMapper {

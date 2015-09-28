@@ -49,7 +49,7 @@ import org.xml.sax.SAXParseException;
 
 /**
  * @author ram
- * 
+ *
  *         TODO To change the template for this generated type comment go to
  *         Window - Preferences - Java - Code Generation - Code and Comments
  */
@@ -61,7 +61,7 @@ public class LDMLUtilities {
 
     /**
      * Creates a fully resolved locale starting with root and
-     * 
+     *
      * @param sourceDir
      * @param locale
      * @return
@@ -91,7 +91,7 @@ public class LDMLUtilities {
             full = parse(sourceDir + File.separator + "root.xml", ignoreRoot);
             /*
              * Debugging
-             * 
+             *
              * Node[] list = getNodeArray(full, LDMLConstants.ALIAS);
              * if(list.length>0){
              * System.err.println("Aliases not resolved!. list.getLength() returned "+ list.length);
@@ -146,7 +146,7 @@ public class LDMLUtilities {
 
                 /*
                  * Debugging
-                 * 
+                 *
                  * Node[] list = getNodeArray(doc, LDMLConstants.ALIAS);
                  * if(list.length>0){
                  * System.err.println("Aliases not resolved!. list.getLength() returned "+ list.length);
@@ -172,7 +172,7 @@ public class LDMLUtilities {
                 }
                 /*
                  * debugging
-                 * 
+                 *
                  * Node ec = getNode(full, "//ldml/characters/exemplarCharacters");
                  * if(ec==null){
                  * System.err.println("Could not find exemplarCharacters");
@@ -574,7 +574,7 @@ public class LDMLUtilities {
     }
 
     /**
-     * 
+     *
      * @param token
      *            XPath token fragment
      * @param attrib
@@ -625,7 +625,7 @@ public class LDMLUtilities {
      * </p>
      * <ol>
      * <li>Let Result be an empty LDML file.</li>
-     * 
+     *
      * <li>For each Li in the locale chain for L
      * <ol>
      * <li>For each element pair P in the LDML file for Li:
@@ -635,14 +635,14 @@ public class LDMLUtilities {
      * </ol>
      * </li>
      * </ol>
-     * 
+     *
      * </li>
      * </ol>
      * <p>
      * Note: when adding an element pair to a result, it has to go in the right order for it to be valid according to
      * the DTD.
      * </p>
-     * 
+     *
      * @param source
      * @param override
      * @return the merged document
@@ -770,7 +770,7 @@ public class LDMLUtilities {
 
     /**
      * Utility to create abosolute Xpath from 1.1 style alias element
-     * 
+     *
      * @param node
      * @param type
      * @return
@@ -801,7 +801,7 @@ public class LDMLUtilities {
     }
 
     /**
-     * 
+     *
      * @param n1
      * @param n2
      *            preferred list
@@ -841,7 +841,7 @@ public class LDMLUtilities {
     }
 
     /**
-     * 
+     *
      * @param fullyResolvedDoc
      * @param sourceDir
      * @param thisLocale
@@ -1158,7 +1158,7 @@ public class LDMLUtilities {
     /**
      * Appends the attribute values that make differentiate 2 siblings
      * in LDML
-     * 
+     *
      * @param node
      * @param xpath
      * @deprecated - use version that takes StringBuilder instead
@@ -1281,7 +1281,7 @@ public class LDMLUtilities {
     /**
      * Ascertains if the children of the given node are element
      * nodes.
-     * 
+     *
      * @param node
      * @return
      */
@@ -1363,7 +1363,7 @@ public class LDMLUtilities {
 
     /**
      * Fetches the list of nodes that match the given xpath
-     * 
+     *
      * @param doc
      * @param xpath
      * @return
@@ -1427,7 +1427,7 @@ public class LDMLUtilities {
      * Fetches the node from the document that matches the given xpath.
      * The context namespace node is required if the xpath contains
      * namespace elments
-     * 
+     *
      * @param doc
      * @param xpath
      * @param namespaceNode
@@ -1472,7 +1472,7 @@ public class LDMLUtilities {
 
     /**
      * Fetches the node from the document which matches the xpath
-     * 
+     *
      * @param node
      * @param xpath
      * @return
@@ -1606,7 +1606,7 @@ public class LDMLUtilities {
     }
 
     /**
-     * 
+     *
      * @param context
      * @param resToFetch
      * @param fullyResolved
@@ -1625,7 +1625,7 @@ public class LDMLUtilities {
     }
 
     /**
-     * 
+     *
      * @param context
      * @param resToFetch
      * @return
@@ -1640,7 +1640,7 @@ public class LDMLUtilities {
      * Fetches the node from the document that matches the given xpath.
      * The context namespace node is required if the xpath contains
      * namespace elments
-     * 
+     *
      * @param doc
      * @param xpath
      * @param namespaceNode
@@ -1661,7 +1661,7 @@ public class LDMLUtilities {
 
     /**
      * Fetches the node from the document which matches the xpath
-     * 
+     *
      * @param node
      * @param xpath
      * @return
@@ -1681,7 +1681,7 @@ public class LDMLUtilities {
 
     /**
      * Fetches node list from the children of the context node.
-     * 
+     *
      * @param context
      * @param resToFetch
      * @param fullyResolved
@@ -1701,7 +1701,7 @@ public class LDMLUtilities {
 
     /**
      * Decide if the node is text, and so must be handled specially
-     * 
+     *
      * @param n
      * @return
      */
@@ -1716,7 +1716,7 @@ public class LDMLUtilities {
     /**
      * Utility method to fetch the attribute value from the given
      * element node
-     * 
+     *
      * @param sNode
      * @param attribName
      * @return
@@ -1736,7 +1736,7 @@ public class LDMLUtilities {
     /**
      * Utility method to set the attribute value on the given
      * element node
-     * 
+     *
      * @param sNode
      * @param attribName
      * @param val
@@ -1755,7 +1755,7 @@ public class LDMLUtilities {
 
     /**
      * Utility method to fetch the value of the element node
-     * 
+     *
      * @param node
      * @return
      */
@@ -1809,13 +1809,13 @@ public class LDMLUtilities {
 
     /**
      * Simple worker method to parse filename to a Document.
-     * 
+     *
      * Attempts XML parse, then HTML parse (when parser available),
      * then just parses as text and sticks into a text node.
-     * 
+     *
      * @param filename
      *            to parse as a local path
-     * 
+     *
      * @return Document object with contents of the file;
      *         otherwise throws an unchecked RuntimeException if there
      *         is any fatal problem
@@ -1835,7 +1835,7 @@ public class LDMLUtilities {
             }
             /*
              * Debugging
-             * 
+             *
              * Node[] list = getNodeArray(full, LDMLConstants.ALIAS);
              * if(list.length>0){
              * System.err.println("Aliases not resolved!. list.getLength() returned "+ list.length);
@@ -1934,14 +1934,14 @@ public class LDMLUtilities {
 
     /*
      * Utility method to translate a String filename to URL.
-     * 
+     *
      * Note: This method is not necessarily proven to get the
      * correct URL for every possible kind of filename; it should
      * be improved. It handles the most common cases that we've
      * encountered when running Conformance tests on Xalan.
      * Also note, this method does not handle other non-file:
      * flavors of URLs at all.
-     * 
+     *
      * If the name is null, return null.
      * If the name starts with a common URI scheme (namely the ones
      * found in the examples of RFC2396), then simply return the
@@ -1995,7 +1995,7 @@ public class LDMLUtilities {
     /**
      * Debugging method for printing out the DOM Tree
      * Prints the specified node, recursively.
-     * 
+     *
      * @param node
      * @param out
      * @throws IOException
@@ -2044,7 +2044,7 @@ public class LDMLUtilities {
 
     /**
      * Load the revision from CVS or from the Identity element.
-     * 
+     *
      * @param fileName
      * @return
      */
@@ -2065,7 +2065,7 @@ public class LDMLUtilities {
 
     /**
      * Load the revision from CVS or from the Identity element.
-     * 
+     *
      * @param sourceDir
      * @param fileName
      * @return
@@ -2209,7 +2209,7 @@ public class LDMLUtilities {
      * etc.
      * Piece 1: 'proposed type'. If non-null, this is a string beginning with 'proposed' and containing arbitrary other
      * text.
-     * 
+     *
      * STRING 0 1
      * -------------------------------
      * ""/null null null
@@ -2218,8 +2218,8 @@ public class LDMLUtilities {
      * something-proposed3 something proposed3
      * proposed null proposed
      * somethingproposed somethingproposed null
-     * 
-     * 
+     *
+     *
      * @param alt
      *            the alt tag to parse
      * @return a 2-element array containing piece 0 and piece 1
@@ -2258,7 +2258,7 @@ public class LDMLUtilities {
 
     /**
      * Format aan alt string from components.
-     * 
+     *
      * @param altType
      *            optional alternate type (i.e. 'alternate' or 'colloquial').
      * @param proposedType
@@ -2286,7 +2286,7 @@ public class LDMLUtilities {
 
     /**
      * Compatibility.
-     * 
+     *
      * @param node
      * @param xpath
      * @return

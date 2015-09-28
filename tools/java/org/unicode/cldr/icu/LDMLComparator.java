@@ -102,7 +102,7 @@ public class LDMLComparator {
         "-d",
         "-" + DIFF, // PN added, indicates that only differing elements/attributes to be written to html
         "-" + DIFF_REF_COMMON, // PN added, same as diff only common is excluded from diff but gets printed to html for
-                               // reference purposes
+        // reference purposes
         "-" + BULK, // do a bulk comparison of folder contents
         "-" + CASE_SENSITIVE, // do case sensitive matching (by default it's not case sensitive)
         "-" + VETTING // go into Vetting mode. (show draft, etc)
@@ -142,13 +142,13 @@ public class LDMLComparator {
     // PN added
     private Vector<String> m_PlatformVect = new Vector<String>(); // holds names of platforms
     private Vector<String> m_PlatformFolderVect = new Vector<String>(); // holds names of folders containing locale data
-                                                                        // for each platform
+    // for each platform
     private int m_iOptions;
     private Map<String, AccumulatedResults> m_AccumulatedResultsMap = new TreeMap<String, AccumulatedResults>();
     private int m_iTotalConflictingElements = 0;
     private int m_iTotalNonConflictingElements = 0;
     private Map<String, SummaryData> m_LocaleSummaryDataMap = new TreeMap<String, SummaryData>(); // key = localename,
-                                                                                                  // data = summary info
+    // data = summary info
     private boolean m_Vetting = false;
 
     private int m_totalCount = 0;
@@ -886,7 +886,7 @@ public class LDMLComparator {
         Document doc = LDMLUtilities.getFullyResolvedLDML(sourceDir, locale, true, true, true, true);
         /*
          * debugging code
-         * 
+         *
          * try{
          * OutputStreamWriter writer = new OutputStreamWriter(new
          * FileOutputStream(destFolder+File.separator+localeName+"_debug.xml"),encoding);
@@ -1457,15 +1457,15 @@ public class LDMLComparator {
                         if (fileList[k].compareTo(localeFile) == 0) // test for 2 matching xml filenames
                         {
                             String key = (String) m_PlatformVect.elementAt(j); // should use hashtable to link
-                                                                               // m_PlatformVect and
-                                                                               // m_PlatformFolderVect
+                            // m_PlatformVect and
+                            // m_PlatformFolderVect
                             String xmlFileName = localeDir + "/" + localeArray[i];
                             // System.out.println(i + " " + j + " " + k + " adding " + xmlFileName +
                             // " to compareMap at key " + key);
                             addToCompareMap(xmlFileName, key);
 
                             if (!(((m_iOptions & OPT_DIFF_REF_COMMON) != 0)
-                            && (key.compareTo(COMMON) == 0)))
+                                && (key.compareTo(COMMON) == 0)))
                             {
                                 platforms_with_this_locale += key;
                                 platforms_with_this_locale += ",  ";
@@ -1533,14 +1533,14 @@ public class LDMLComparator {
             || ((m_iOptions & OPT_DIFF) != 0))
         {
             writer
-                .print("        <p>locale elements where there is a difference between at least two platforms are shown. \n"
-                    +
-                    "If a locale element is the same across all platforms it is not shown </p>");
+            .print("        <p>locale elements where there is a difference between at least two platforms are shown. \n"
+                +
+                "If a locale element is the same across all platforms it is not shown </p>");
         }
 
         if ((m_iOptions & OPT_DIFF_REF_COMMON) != 0)
             writer
-                .print("<p>   Common data is shown for reference purposes only and is not part of the comparison</p>\n");
+            .print("<p>   Common data is shown for reference purposes only and is not part of the comparison</p>\n");
 
     }
 
@@ -1564,22 +1564,22 @@ public class LDMLComparator {
 
         writer.print("          <p><b>Platforms compared : " + platforms + "</b></p>");
         writer
-            .print("          <p><b>Total Number of locales audited : "
-                + iTotalNumLocales
-                + "</b></p>"
-                +
-                "           <p><b>Total Number of conflicting locale data across all locales : "
-                + serialNumber
-                + "</b></p>"
-                +
-                "           <p><b>Number of locale elements where a conflict was found for at least one locale : "
-                + m_iTotalConflictingElements
-                + "</b></p>"
-                +
-                "           <p><b>Number of locale elements where no conflicts were found for any locale having this element : "
-                + m_iTotalNonConflictingElements + "</b></p>" +
-                "    </body>\n" +
-                "</html>\n");
+        .print("          <p><b>Total Number of locales audited : "
+            + iTotalNumLocales
+            + "</b></p>"
+            +
+            "           <p><b>Total Number of conflicting locale data across all locales : "
+            + serialNumber
+            + "</b></p>"
+            +
+            "           <p><b>Number of locale elements where a conflict was found for at least one locale : "
+            + m_iTotalConflictingElements
+            + "</b></p>"
+            +
+            "           <p><b>Number of locale elements where no conflicts were found for any locale having this element : "
+            + m_iTotalNonConflictingElements + "</b></p>" +
+            "    </body>\n" +
+            "</html>\n");
         writer.flush();
 
         writer.flush();
@@ -1603,13 +1603,13 @@ public class LDMLComparator {
 
         writer.print(
             "        <p><b>" + iLocaleCounter + "&nbsp;&nbsp;&nbsp;" + displayName +
-                // "<a href=\"http://oss.software.ibm.com/cgi-bin/icu/lx/en/?_="+localeStr+"\">Demo</a>, "+
-                // "<a href=\"../comparison_charts.html\">Cover Page</a>, "+
-                // "<a href=\"./index.html\">Index</a>, "+
-                // "<a href=\"../collation_diff/"+localeStr+"_collation.html\">Collation</a> "+
-                "</b>" +
-                "<b>&nbsp;&nbsp;&nbsp; platforms with this locale : " + platforms_with_this_locale + "</b></p>\n" +
-                "        <table>\n");
+            // "<a href=\"http://oss.software.ibm.com/cgi-bin/icu/lx/en/?_="+localeStr+"\">Demo</a>, "+
+            // "<a href=\"../comparison_charts.html\">Cover Page</a>, "+
+            // "<a href=\"./index.html\">Index</a>, "+
+            // "<a href=\"../collation_diff/"+localeStr+"_collation.html\">Collation</a> "+
+            "</b>" +
+            "<b>&nbsp;&nbsp;&nbsp; platforms with this locale : " + platforms_with_this_locale + "</b></p>\n" +
+            "        <table>\n");
     }
 
     // added by PN
@@ -1697,7 +1697,7 @@ public class LDMLComparator {
             if ((!ad.index.equals(element.index)) ||
                 (!ad.node.equals(element.node)) ||
                 (!ad.parentNode.equals(element.parentNode))) // ||
-            // (!ad.type.equals(element.type))) type can be null so don't ceck its value
+                // (!ad.type.equals(element.type))) type can be null so don't ceck its value
             {
                 throw new RuntimeException(
                     "The retrieved AccumulatedResults is not the same as the one trying to be saved - " + id);
@@ -1717,9 +1717,9 @@ public class LDMLComparator {
         writer.print("<p>&nbsp;</p>");
         writer.print("<p>&nbsp;</p>");
         writer
-            .print("<p><b>Table below shows the number of locales where conflicts did and didn't occur on a per locale element basis");
+        .print("<p><b>Table below shows the number of locales where conflicts did and didn't occur on a per locale element basis");
         writer
-            .print("&nbsp;&nbsp; (For brevity, locale elements where no conflicts were detected for any locale are not shown) </b></p>");
+        .print("&nbsp;&nbsp; (For brevity, locale elements where no conflicts were detected for any locale are not shown) </b></p>");
         writer.print("<p></p>");
         writer.print("      <table width=\"700\">\n");
         writer.print("            <tr>\n" +

@@ -21,7 +21,7 @@ class StripUTF8BOMInputStream extends InputStream {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.io.InputStream#read()
      */
     public int read() throws IOException {

@@ -147,7 +147,7 @@ public class ICUResourceWriter {
          * Append to a basic list.
          * Usage:
          * Resource list = null; list = Resource.addAfter(list, res1); list = Resource.addAfter(list,res2); ...
-         * 
+         *
          * @param list
          *            the list to append to (could be null)
          * @param res
@@ -168,7 +168,7 @@ public class ICUResourceWriter {
 
         /**
          * Appends 'res' to the end of 'this' (next sibling chain)
-         * 
+         *
          * @param res
          *            the item (or items) to be added
          * @return the new beginning of the chain (this)
@@ -179,7 +179,7 @@ public class ICUResourceWriter {
 
         /**
          * Replace the contents (first) of this object with the parameter
-         * 
+         *
          * @param res
          *            The object to be replaced
          * @return the old contents
@@ -192,7 +192,7 @@ public class ICUResourceWriter {
 
         /**
          * Append the contents (first) of this object with the parameter
-         * 
+         *
          * @param res
          *            the object to be added to the contents
          * @return the end of the contents chain
@@ -208,7 +208,7 @@ public class ICUResourceWriter {
 
         /**
          * Check whether this item has contents
-         * 
+         *
          * @return true if this item is empty (first==null)
          */
         public boolean isEmpty() {
@@ -375,7 +375,7 @@ public class ICUResourceWriter {
         /**
          * Writes this object to the provided output stream in binary format. Copies formating from Genrb (in ICU4C
          * tools.
-         * 
+         *
          * @param out
          *            A File output stream which has already been set up to write to.
          */
@@ -1289,7 +1289,7 @@ public class ICUResourceWriter {
     /* Helper methods. *************************************************************************** */
     /**
      * Convenience function
-     * 
+     *
      * @param name
      * @param val
      * @return new ResourceString
@@ -1325,7 +1325,7 @@ public class ICUResourceWriter {
 
     /**
      * Takes a 32 bit integer and returns an array of 4 bytes.
-     * 
+     *
      */
     private static byte[] intToBytes(int x)
     {
@@ -1346,7 +1346,7 @@ public class ICUResourceWriter {
 
     /**
      * Takes an array of integers and returns a byte array of the memory representation.
-     * 
+     *
      * @param x
      * @return
      */
@@ -1389,7 +1389,7 @@ public class ICUResourceWriter {
         byte[] b = new byte[2];
         b[1] = (byte) (x); // bitwise AND with the lower byte
         b[0] = (byte) (x >>> 8); // shift four bits to the right and fill with zeros, and then bitwise and with the
-                                 // lower byte
+        // lower byte
         return b;
     }
 

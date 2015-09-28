@@ -150,10 +150,10 @@ public class CheckNumbers extends FactoryCheckCLDR {
         if (path.indexOf("defaultNumberingSystem") >= 0 || path.indexOf("otherNumberingSystems") >= 0) {
             if (!validNumberingSystems.contains(value)) {
                 result.add(new CheckStatus()
-                    .setCause(this)
-                    .setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.illegalNumberingSystem)
-                    .setMessage("Invalid numbering system: " + value));
+                .setCause(this)
+                .setMainType(CheckStatus.errorType)
+                .setSubtype(Subtype.illegalNumberingSystem)
+                .setMessage("Invalid numbering system: " + value));
 
             }
         }
@@ -205,11 +205,11 @@ public class CheckNumbers extends FactoryCheckCLDR {
             UnicodeSet chars = new UnicodeSet().addAll(value);
             chars.retainAll(FORBIDDEN_NUMERIC_PATTERN_CHARS);
             result.add(new CheckStatus()
-                .setCause(this)
-                .setMainType(CheckStatus.errorType)
-                .setSubtype(Subtype.illegalCharactersInNumberPattern)
-                .setMessage("Pattern contains forbidden characters: \u200E{0}\u200E",
-                    new Object[] { chars.toPattern(false) }));
+            .setCause(this)
+            .setMainType(CheckStatus.errorType)
+            .setSubtype(Subtype.illegalCharactersInNumberPattern)
+            .setMessage("Pattern contains forbidden characters: \u200E{0}\u200E",
+                new Object[] { chars.toPattern(false) }));
         }
 
         // get the final type
@@ -252,20 +252,20 @@ public class CheckNumbers extends FactoryCheckCLDR {
             // Check for sane usage of grouping separators.
             if (COMMA_ABUSE.matcher(value).find()) {
                 result
-                    .add(new CheckStatus()
-                        .setCause(this)
-                        .setMainType(CheckStatus.errorType)
-                        .setSubtype(Subtype.tooManyGroupingSeparators)
-                        .setMessage(
-                            "Grouping separator (,) should not be used to group tens. Check if a decimal symbol (.) should have been used instead."));
+                .add(new CheckStatus()
+                .setCause(this)
+                .setMainType(CheckStatus.errorType)
+                .setSubtype(Subtype.tooManyGroupingSeparators)
+                .setMessage(
+                    "Grouping separator (,) should not be used to group tens. Check if a decimal symbol (.) should have been used instead."));
             } else {
                 // check that we have a canonical pattern
                 String pattern = getCanonicalPattern(value, type, zeroCount, isPOSIX);
                 if (!pattern.equals(value)) {
                     result.add(new CheckStatus()
-                        .setCause(this).setMainType(CheckStatus.errorType)
-                        .setSubtype(Subtype.numberPatternNotCanonical)
-                        .setMessage("Value should be \u200E{0}\u200E", new Object[] { pattern }));
+                    .setCause(this).setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.numberPatternNotCanonical)
+                    .setMessage("Value should be \u200E{0}\u200E", new Object[] { pattern }));
                 }
             }
 
@@ -446,8 +446,8 @@ public class CheckNumbers extends FactoryCheckCLDR {
         // }
         if (generateExamples) {
             result.add(new MyCheckStatus()
-                .setFormat(x, context)
-                .setCause(this).setMainType(CheckStatus.demoType));
+            .setFormat(x, context)
+            .setCause(this).setMainType(CheckStatus.demoType));
         }
     }
 
@@ -484,7 +484,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
 
     /**
      * Produce a canonical pattern, which will vary according to type and whether it is posix or not.
-     * 
+     *
      * @param path
      */
     public static String getCanonicalPattern(String inpattern, NumericType type, int zeroCount, boolean isPOSIX) {

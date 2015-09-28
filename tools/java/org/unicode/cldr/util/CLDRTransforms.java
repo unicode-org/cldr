@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.unicode.cldr.util;
 
@@ -70,7 +70,7 @@ public class CLDRTransforms {
     };
 
     /**
-     * 
+     *
      * @param dir
      *            TODO
      * @param namesMatchingRegex
@@ -265,7 +265,7 @@ public class CLDRTransforms {
 
     /**
      * Return Icu rules, and the direction info
-     * 
+     *
      * @param dir
      *            TODO
      * @param cldrFileName
@@ -440,7 +440,7 @@ public class CLDRTransforms {
                         filename = null;
                     } catch (RuntimeException e) {
                         throw (RuntimeException) new IllegalArgumentException("Failed with " + filename + ", " + source)
-                            .initCause(e);
+                        .initCause(e);
                     }
                 } else {
                     append(dir + "root.txt unhandled line:" + line);
@@ -724,7 +724,7 @@ public class CLDRTransforms {
 
     /**
      * Verify that if the transliterator exists, it has a null filter
-     * 
+     *
      * @param id
      */
     public static void verifyNullFilter(String id) {

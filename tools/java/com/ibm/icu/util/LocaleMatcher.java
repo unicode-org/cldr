@@ -17,8 +17,8 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.ICUResourceBundle;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
@@ -27,14 +27,14 @@ import com.ibm.icu.impl.Utility;
  * Provides a way to match the languages (locales) supported by a product to the
  * languages (locales) acceptable to a user, and get the best match. For
  * example:
- * 
+ *
  * <pre>
  * LocaleMatcher matcher = new LocaleMatcher("fr, en-GB, en");
- * 
+ *
  * // afterwards:
  * matcher.getBestMatch("en-US").toLanguageTag() => "en"
  * </pre>
- * 
+ *
  * It takes into account when languages are close to one another, such as fil
  * and tl, and when language regional variants are close, like en-GB and en-AU.
  * It also handles scripts, like zh-Hant vs zh-TW. For examples, see the test
@@ -43,7 +43,7 @@ import com.ibm.icu.impl.Utility;
  * product will just need one static instance, built with the languages
  * that it supports. However, it may want multiple instances with different
  * default languages based on additional information, such as the domain.
- * 
+ *
  * @author markdavis@google.com
  * @stable ICU 4.4
  */
@@ -75,7 +75,7 @@ public class LocaleMatcher {
      * threshold, that default language is chosen. Typically the default is English,
      * but it could be different based on additional information, such as the domain
      * of the page.
-     * 
+     *
      * @param languagePriorityList weighted list
      * @stable ICU 4.4
      */
@@ -86,7 +86,7 @@ public class LocaleMatcher {
     /**
      * Create a new language matcher from a String form. The highest-weighted
      * language is the default.
-     * 
+     *
      * @param languagePriorityListString String form of LanguagePriorityList
      * @stable ICU 4.4
      */
@@ -160,15 +160,15 @@ public class LocaleMatcher {
         if (lang2 != null || script2 != null || region2 != null) {
             return new ULocale(
                 lang2 == null ? lang : lang2,
-                script2 == null ? script : script2,
-                region2 == null ? region : region2);
+                    script2 == null ? script : script2,
+                        region2 == null ? region : region2);
         }
         return ulocale;
     }
 
     /**
      * Get the best match for a LanguagePriorityList
-     * 
+     *
      * @param languageList list to match
      * @return best matching language code
      * @stable ICU 4.4
@@ -195,7 +195,7 @@ public class LocaleMatcher {
 
     /**
      * Convenience method: Get the best match for a LanguagePriorityList
-     * 
+     *
      * @param languageList String form of language priority list
      * @return best matching language code
      * @stable ICU 4.4
@@ -206,7 +206,7 @@ public class LocaleMatcher {
 
     /**
      * Get the best match for an individual language code.
-     * 
+     *
      * @param ulocale locale/language code to match
      * @return best matching language code
      * @stable ICU 4.4
@@ -238,7 +238,7 @@ public class LocaleMatcher {
 
     /**
      * Get the best match for an individual language code.
-     * 
+     *
      * @param languageCode
      * @return best matching language code and weight (as per
      *         {@link #match(ULocale, ULocale)})
@@ -294,7 +294,7 @@ public class LocaleMatcher {
     }
 
     /**
-     * We preprocess the data to get just the possible matches for each desired base language. 
+     * We preprocess the data to get just the possible matches for each desired base language.
      */
     private void processMapping() {
         for (Entry<String, Set<String>> desiredToMatchingLanguages : matcherData.matchingLanguages().keyValuesSet()) {
@@ -738,7 +738,7 @@ public class LocaleMatcher {
             return this;
         }
 
-        /** 
+        /**
          * {@inheritDoc}
          * @internal
          * @deprecated This API is ICU internal only.
@@ -758,7 +758,7 @@ public class LocaleMatcher {
             }
         }
 
-        /** 
+        /**
          * {@inheritDoc}
          * @internal
          * @deprecated This API is ICU internal only.
@@ -773,7 +773,7 @@ public class LocaleMatcher {
             return this;
         }
 
-        /** 
+        /**
          * {@inheritDoc}
          * @internal
          * @deprecated This API is ICU internal only.

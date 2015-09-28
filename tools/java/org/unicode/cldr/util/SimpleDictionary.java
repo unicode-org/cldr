@@ -20,7 +20,7 @@ import org.unicode.cldr.util.Dictionary.Matcher.Status;
 /**
  * This is a simple dictionary class used for testing. Should be in the package usertest, but it's a pain to rename
  * files in CVS.
- * 
+ *
  * @author markdavis
  */
 public class SimpleDictionary<T> extends Dictionary<T> {
@@ -98,7 +98,7 @@ public class SimpleDictionary<T> extends Dictionary<T> {
 
         /**
          * Dumb implementation.
-         * 
+         *
          */
         @Override
         public Status next() {
@@ -176,7 +176,7 @@ public class SimpleDictionary<T> extends Dictionary<T> {
         /**
          * Returns the first matching item, if there is one, and
          * filters the rest of the list to those that match the probe.
-         * 
+         *
          * @param probe
          * @return
          */

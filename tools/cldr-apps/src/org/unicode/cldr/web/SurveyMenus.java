@@ -56,7 +56,7 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
             }
             Section newSection = new Section(q);
             if (!newSection.isEmpty()) { // empty sections have no read/write
-                                         // component
+                // component
                 sections.add(newSection);
             }
         }

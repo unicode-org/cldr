@@ -31,8 +31,8 @@ public class ElementAttributeInfo {
     private Relation<String, String> element2attributes = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
 
     static Map<String, Map<DtdType, ElementAttributeInfo>> cache = new HashMap<String, Map<DtdType, ElementAttributeInfo>>(); // new
-                                                                                                                              // HashMap<DtdType,
-                                                                                                                              // Data>();
+    // HashMap<DtdType,
+    // Data>();
 
     public static final ElementAttributeInfo getInstance(DtdType dtdType) {
         return getInstance(CLDRPaths.COMMON_DIRECTORY, dtdType);

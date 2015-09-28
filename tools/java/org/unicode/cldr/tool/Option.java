@@ -11,7 +11,7 @@ import org.unicode.cldr.util.CLDRTool;
 
 /**
  * Simpler mechanism for handling options, where everything can be defined in one place.
- * 
+ *
  * @author markdavis
  */
 public class Option {
@@ -166,7 +166,7 @@ public class Option {
             }
             Option option = new Option(optionEnumValue, string, flag,
                 argumentPattern == null ? null : Pattern.compile(argumentPattern, Pattern.COMMENTS),
-                defaultArgument, helpText);
+                    defaultArgument, helpText);
             stringToValues.put(string, option);
             enumToValues.put(optionEnumValue, option);
             charToValues.put(flag, option);
@@ -296,11 +296,11 @@ public class Option {
     }
 
     final static Options myOptions = new Options()
-        .add("file", ".*", "Filter the information based on file name, using a regex argument")
-        .add("path", ".*", "default-path", "Filter the information based on path name, using a regex argument")
-        .add("content", ".*", "Filter the information based on content name, using a regex argument")
-        .add("gorp", null, null, "Gorp")
-        .add("regex", "a*", null, "Gorp");
+    .add("file", ".*", "Filter the information based on file name, using a regex argument")
+    .add("path", ".*", "default-path", "Filter the information based on path name, using a regex argument")
+    .add("content", ".*", "Filter the information based on content name, using a regex argument")
+    .add("gorp", null, null, "Gorp")
+    .add("regex", "a*", null, "Gorp");
 
     public static void main(String[] args) {
         if (args.length == 0) {

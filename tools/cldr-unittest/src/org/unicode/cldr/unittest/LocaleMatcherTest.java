@@ -18,7 +18,7 @@ import com.ibm.icu.util.ULocale;
 
 /**
  * Test the LocaleMatcher.
- * 
+ *
  * @author markdavis
  */
 @SuppressWarnings("deprecation")
@@ -135,16 +135,16 @@ public class LocaleMatcherTest extends TestFmwk {
     public void testOverrideData() {
         double threshold = 0.05;
         LanguageMatcherData localeMatcherData = new LanguageMatcherData()
-        .addDistance("br", "fr", 10, true)
-        .addDistance("es", "cy", 10, true);
+            .addDistance("br", "fr", 10, true)
+            .addDistance("es", "cy", 10, true);
         logln(localeMatcherData.toString());
 
         final LocaleMatcher matcher = newLocaleMatcher(
             LocalePriorityList
-            .add(ULocale.ENGLISH)
-            .add(ULocale.FRENCH)
-            .add(ULocale.UK)
-            .build(), localeMatcherData, threshold);
+                .add(ULocale.ENGLISH)
+                .add(ULocale.FRENCH)
+                .add(ULocale.UK)
+                .build(), localeMatcherData, threshold);
         logln(matcher.toString());
 
         assertEquals(ULocale.FRENCH, matcher.getBestMatch(new ULocale("br")));
@@ -570,7 +570,7 @@ public class LocaleMatcherTest extends TestFmwk {
         }
     }
 
-    private long timeLocaleMatcher(String title, String desired, LocaleMatcher matcher, 
+    private long timeLocaleMatcher(String title, String desired, LocaleMatcher matcher,
         boolean showmessage, int iterations, long comparisonTime) {
         long start = System.nanoTime();
         for (int i = iterations; i > 0; --i) {

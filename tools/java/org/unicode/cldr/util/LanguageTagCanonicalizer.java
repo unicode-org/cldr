@@ -122,7 +122,7 @@ public class LanguageTagCanonicalizer implements StringTransform {
 
     /**
      * Copy fields from one language tag into another.
-     * 
+     *
      * @param otherField
      * @param mainField
      *            - for this field, force a copy. For other fields, only copy if target is empty

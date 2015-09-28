@@ -29,9 +29,9 @@ import com.ibm.icu.text.DateTimePatternGenerator.PatternInfo;
 
 /**
  * Temporary class while refactoring.
- * 
+ *
  * @author markdavis
- * 
+ *
  */
 class FlexibleDateFromCLDR {
     DateTimePatternGenerator gen = DateTimePatternGenerator.getEmptyInstance();
@@ -82,7 +82,7 @@ class FlexibleDateFromCLDR {
     }
 
     /**
-     * 
+     *
      */
     public void showFlexibles() {
         Map<String, String> items = gen.getSkeletons(new LinkedHashMap<String, String>());

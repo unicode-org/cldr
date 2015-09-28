@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.unicode.cldr.web;
 
@@ -61,7 +61,7 @@ import com.ibm.icu.util.VersionInfo;
 
 /**
  * @author srl
- * 
+ *
  */
 public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.User>, UserRegistry.UserChangedListener {
     /**
@@ -148,7 +148,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see com.ibm.icu.util.Freezable#freeze()
          */
         @Override
@@ -159,7 +159,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see
          * org.unicode.cldr.util.XMLSource#getFullPathAtDPath(java.lang.String)
          */
@@ -177,7 +177,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see
          * org.unicode.cldr.util.XMLSource#getValueAtDPath(java.lang.String)
          */
@@ -193,7 +193,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /**
          * This is the bottleneck for processing values.
-         * 
+         *
          * @param path
          * @param resolver
          * @return
@@ -214,16 +214,16 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 String diskFullPath = ballotBox.diskData.getFullPathAtDPath(path);
                 if (diskFullPath == null) {
                     diskFullPath = path; // if the disk didn't have a full path,
-                                         // just use the inbound path.
+                    // just use the inbound path.
                 }
                 String baseXPath = XPathTable.removeDraftAltProposed(diskFullPath); // Remove
-                                                                                    // JUST
-                                                                                    // draft
-                                                                                    // alt
-                                                                                    // proposed.
-                                                                                    // Leave
-                                                                                    // 'numbers='
-                                                                                    // etc.
+                // JUST
+                // draft
+                // alt
+                // proposed.
+                // Leave
+                // 'numbers='
+                // etc.
 
                 Status win = resolver.getWinningStatus();
                 if (win == Status.approved) {
@@ -237,9 +237,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             // SurveyLog.logger.info(path+"="+res+", by resolver.");
             if (res != null) {
                 delegate.removeValueAtDPath(path); // TODO: needed to clear
-                                                   // fullpath? Otherwise,
-                                                   // fullpath may be ignored if
-                                                   // value is extant.
+                // fullpath? Otherwise,
+                // fullpath may be ignored if
+                // value is extant.
                 delegate.putValueAtPath(fullPath, res);
             } else {
                 delegate.removeValueAtDPath(path);
@@ -250,7 +250,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.unicode.cldr.util.XMLSource#getXpathComments()
          */
         @Override
@@ -260,7 +260,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.unicode.cldr.util.XMLSource#iterator()
          */
         @Override
@@ -276,7 +276,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see
          * org.unicode.cldr.util.XMLSource#putFullPathAtDPath(java.lang.String,
          * java.lang.String)
@@ -288,7 +288,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see
          * org.unicode.cldr.util.XMLSource#putValueAtDPath(java.lang.String,
          * java.lang.String)
@@ -300,7 +300,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see
          * org.unicode.cldr.util.XMLSource#removeValueAtDPath(java.lang.String)
          */
@@ -311,7 +311,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see
          * org.unicode.cldr.util.XMLSource#setXpathComments(org.unicode.cldr
          * .util.XPathParts.Comments)
@@ -358,9 +358,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     /**
      * the STFactory maintains exactly one instance of this class per locale it
      * is working with. It contains the XMLSource, Example Generator, etc..
-     * 
+     *
      * @author srl
-     * 
+     *
      */
     private final class PerLocaleData implements Comparable<PerLocaleData>, BallotBox<User> {
         private CLDRFile file = null, rFile = null;
@@ -601,8 +601,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 String fullXPath = anOldFile.getFullXPath(path);
                 if (fullXPath == null)
                     fullXPath = path; // throw new
-                                      // InternalError("null full xpath for " +
-                                      // path);
+                // InternalError("null full xpath for " +
+                // path);
                 xpp.set(fullXPath);
                 String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
                 lastStatus = draft == null ? Status.approved : VoteResolver.Status.fromString(draft);
@@ -618,14 +618,14 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         /**
-         * 
+         *
          * @param user
          *            - The user voting on the path
          * @param xpath
          *            - The xpath being voted on.
          * @return true - If pathHeader and coverage would indicate a value that
          *         the user should have been able to vote on.
-         * 
+         *
          */
         private boolean isValidSurveyToolVote(UserRegistry.User user, String xpath) {
             PathHeader ph = getPathHeader(xpath);
@@ -647,14 +647,14 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /**
          * Load internal data , push into source.
-         * 
+         *
          * @param dataBackedSource
          * @return
          */
         private DataBackedSource loadVoteValues(DataBackedSource dataBackedSource) {
             if (!readonly) {
                 VoteResolver<String> resolver = null; // save recalculating
-                                                      // this.
+                // this.
                 Set<String> hitXpaths = new HashSet<String>();
                 ElapsedTimer et = (SurveyLog.DEBUG) ? new ElapsedTimer("Loading PLD for " + locale) : null;
                 Connection conn = null;
@@ -853,7 +853,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /**
          * Create or update a VoteResolver for this item
-         * 
+         *
          * @param perXPathData
          *            map of users to vote values
          * @param path
@@ -880,7 +880,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             CLDRFile anOldFile = getOldFile();
             if (anOldFile == null)
                 anOldFile = diskFile; // use 'current' for 'previous' if
-                                      // previous is missing.
+            // previous is missing.
 
             // set prior release (if present)
             final String lastValue = anOldFile.getStringValue(path);
@@ -1050,17 +1050,17 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
             SurveyLog.debug("V4v: " + locale + " " + distinguishingXpath + " : " + user + " voting for '" + value + "'");
             ModifyDenial denial = UserRegistry.userCanModifyLocaleWhy(user, locale); // this
-                                                                                     // has
-                                                                                     // to
-                                                                                     // do
-                                                                                     // with
-                                                                                     // changing
-                                                                                     // a
-                                                                                     // vote
-                                                                                     // -
-                                                                                     // not
-                                                                                     // counting
-                                                                                     // it.
+            // has
+            // to
+            // do
+            // with
+            // changing
+            // a
+            // vote
+            // -
+            // not
+            // counting
+            // it.
             if (denial != null) {
                 throw new VoteNotAcceptedException(ErrorCode.E_NO_PERMISSION, "User " + user + " cannot modify " + locale + " " + denial);
             }
@@ -1092,7 +1092,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 Connection conn = null;
                 PreparedStatement saveOld = null; // save off old value
                 PreparedStatement ps = null; // all for mysql, or 1st step for
-                                             // derby
+                // derby
                 PreparedStatement ps2 = null; // 2nd step for derby
                 ResultSet rs = null;
                 int xpathId = sm.xpt.getByXpath(distinguishingXpath);
@@ -1202,7 +1202,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * @param distinguishingXpath
          * @param value
          * @param source
-         * @param when 
+         * @param when
          * @return
          */
         private final VoteResolver<String> internalSetVoteForValue(User user, String distinguishingXpath, String value,
@@ -1230,17 +1230,17 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
             SurveyLog.debug("V4v: " + locale + " " + distinguishingXpath + " : " + user + " deleting '" + value + "'");
             ModifyDenial denial = UserRegistry.userCanModifyLocaleWhy(user, locale); // this
-                                                                                     // has
-                                                                                     // to
-                                                                                     // do
-                                                                                     // with
-                                                                                     // changing
-                                                                                     // a
-                                                                                     // vote
-                                                                                     // -
-                                                                                     // not
-                                                                                     // counting
-                                                                                     // it.
+            // has
+            // to
+            // do
+            // with
+            // changing
+            // a
+            // vote
+            // -
+            // not
+            // counting
+            // it.
             if (denial != null) {
                 throw new IllegalArgumentException("User " + user + " cannot modify " + locale + " " + denial);
             }
@@ -1356,7 +1356,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /**
      * @author srl
-     * 
+     *
      */
     public class DelegateXMLSource extends XMLSource {
         protected XMLSource delegate;
@@ -1374,7 +1374,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see com.ibm.icu.util.Freezable#freeze()
          */
         @Override
@@ -1385,7 +1385,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see
          * org.unicode.cldr.util.XMLSource#getFullPathAtDPath(java.lang.String)
          */
@@ -1396,7 +1396,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see
          * org.unicode.cldr.util.XMLSource#getValueAtDPath(java.lang.String)
          */
@@ -1410,7 +1410,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.unicode.cldr.util.XMLSource#getXpathComments()
          */
         @Override
@@ -1420,7 +1420,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.unicode.cldr.util.XMLSource#iterator()
          */
         @Override
@@ -1430,7 +1430,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see
          * org.unicode.cldr.util.XMLSource#putFullPathAtDPath(java.lang.String,
          * java.lang.String)
@@ -1442,7 +1442,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see
          * org.unicode.cldr.util.XMLSource#putValueAtDPath(java.lang.String,
          * java.lang.String)
@@ -1454,7 +1454,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see
          * org.unicode.cldr.util.XMLSource#removeValueAtDPath(java.lang.String)
          */
@@ -1465,7 +1465,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see
          * org.unicode.cldr.util.XMLSource#setXpathComments(org.unicode.cldr
          * .util.XPathParts.Comments)
@@ -1515,7 +1515,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /**
      * Is this a locale that can't be modified?
-     * 
+     *
      * @param loc
      * @return
      */
@@ -1525,7 +1525,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /**
      * Is this a locale that can't be modified?
-     * 
+     *
      * @param loc
      * @return
      */
@@ -1618,7 +1618,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /**
      * Peek at the stamp (changetime) for a locale. May be null, meaning we don't know what the stamp is.
-     * If the locale has gone out of scope (GC) it will return the old stamp, rather than 
+     * If the locale has gone out of scope (GC) it will return the old stamp, rather than
      * @param loc
      * @return
      */
@@ -1628,7 +1628,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     }
 
     /**
-     * Return changetime. 
+     * Return changetime.
      * @param locale
      * @return
      */
@@ -1652,7 +1652,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /**
      * Fetch a locale from the per locale data, create if not there.
-     * 
+     *
      * @param locale
      * @return
      */
@@ -1704,7 +1704,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.util.Factory#getMinimalDraftStatus()
      */
     @Override
@@ -1714,7 +1714,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.util.Factory#getSourceDirectory()
      */
     @Override
@@ -1729,7 +1729,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.util.Factory#handleGetAvailable()
      */
     @Override
@@ -1764,7 +1764,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.unicode.cldr.util.Factory#handleMake(java.lang.String, boolean,
      * org.unicode.cldr.util.CLDRFile.DraftStatus)
      */
@@ -1785,7 +1785,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /**
      * Prepare statement. Args: locale Result: xpath,submitter,value
-     * 
+     *
      * @param conn
      * @return
      * @throws SQLException
@@ -1810,7 +1810,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 /*
                  * CREATE TABLE cldr_votevalue ( locale VARCHAR(20), xpath INT
                  * NOT NULL, submitter INT NOT NULL, value BLOB );
-                 * 
+                 *
                  * CREATE UNIQUE INDEX cldr_votevalue_unique ON cldr_votevalue
                  * (locale,xpath,submitter);
                  */
@@ -1990,7 +1990,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /**
      * Close and re-open the factory. For testing only!
-     * 
+     *
      * @return
      */
     public STFactory TESTING_shutdownAndRestart() {
@@ -2026,7 +2026,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /**
      * Resolving old file, or null if none.
-     * 
+     *
      * @param locale
      * @return
      */
@@ -2036,7 +2036,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /**
      * Resolving disk file, or null if none.
-     * 
+     *
      * @param locale
      * @return
      */
@@ -2072,7 +2072,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 //
 //    /**
 //     * Load the 'cldr_v22submission' table.
-//     * 
+//     *
 //     * @param forLocale
 //     * @return
 //     */
@@ -2116,16 +2116,16 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /*
      * votes sometime table
-     * 
+     *
      * DERBY create table cldr_v22submission ( xpath integer not null, locale
      * varchar(20) ); create unique index cldr_v22submission_uq on
      * cldr_v22submission ( xpath, locale );
-     * 
+     *
      * insert into cldr_v22submission select distinct
      * cldr_votevalue.xpath,cldr_votevalue.locale from cldr_votevalue where
      * cldr_votevalue.value is not null;
-     * 
-     * 
+     *
+     *
      * MYSQL drop table if exists cldr_v22submission; create table
      * cldr_v22submission ( primary key(xpath,locale),key(locale) ) select
      * distinct cldr_votevalue.xpath,cldr_votevalue.locale from cldr_votevalue
@@ -2169,12 +2169,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 sb.append("\"]");
 
                 sxs.putValueAtPath(sb.toString(), DBUtils.getStringUTF8(rs, 3)); // value
-                                                                                 // is
-                                                                                 // never
-                                                                                 // null,
-                                                                                 // due
-                                                                                 // to
-                                                                                 // SQL
+                // is
+                // never
+                // null,
+                // due
+                // to
+                // SQL
             }
 
             CLDRFile f = new CLDRFile(sxs);
@@ -2190,7 +2190,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /**
      * Read back a dir full of pxml files
-     * 
+     *
      * @param sm
      * @param inFile
      *            dir containing pxmls
@@ -2304,12 +2304,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
     }
 
-    
     /**
-     * Return the table for old votes 
+     * Return the table for old votes
      */
     public static final String getLastVoteTable() {
-        final String dbName =  DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getLastVoteVersion(), false).toString();
+        final String dbName = DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getLastVoteVersion(), false).toString();
         return dbName;
     }
 }

@@ -73,7 +73,7 @@ public class SurveyForum {
     public static String DB_READERS = "sf_readers"; //
 
     public static String DB_LOC2FORUM = "sf_loc2forum"; // locale -> forum.. for
-                                                        // selects.
+    // selects.
 
     /* --------- FORUM ------------- */
     static final String F_FORUM = "forum";
@@ -396,8 +396,8 @@ public class SurveyForum {
         String prettyPath = sm.xpt.getPrettyPath(base_xpath);
         if (prettyPath != null) {
             sm.printHeader(ctx, prettyPath.replaceAll("\\|", " | ")); // TODO:
-                                                                      // pretty
-                                                                      // path?
+            // pretty
+            // path?
         } else {
             sm.printHeader(ctx, "Forum");
         }
@@ -420,13 +420,13 @@ public class SurveyForum {
 
     /**
      * Called when user has permission to modify and is zoomed in.
-     * 
+     *
      * @param ctx
      * @param forum
      * @param forumNumber
      * @param base_xpath
      * @throws IOException
-     * @throws SurveyException 
+     * @throws SurveyException
      */
     void doXpathPost(WebContext ctx, String forum, int forumNumber, int base_xpath) throws IOException, SurveyException {
         String fieldStr = ctx.field("replyto", null);
@@ -721,7 +721,7 @@ public class SurveyForum {
      * @param user
      * @param postId
      * @return
-     * @throws SurveyException 
+     * @throws SurveyException
      */
     public Integer doPostInternal(int base_xpath, int replyTo, final CLDRLocale locale, String subj, String text, final boolean couldFlagOnLosing,
         final UserRegistry.User user) throws SurveyException {
@@ -740,11 +740,11 @@ public class SurveyForum {
                 pAdd.setInt(4, forumNumber);
                 pAdd.setInt(5, replyTo); // record parent
                 pAdd.setString(6, locale.toString()); // real
-                                                      // locale
-                                                      // of
-                                                      // item,
-                                                      // not
-                                                      // furm #
+                // locale
+                // of
+                // item,
+                // not
+                // furm #
                 pAdd.setInt(7, base_xpath);
 
                 int n = pAdd.executeUpdate();
@@ -821,7 +821,7 @@ public class SurveyForum {
     }
 
     /**
-     * 
+     *
      * @param ctx
      *            the current web context
      * @param baseXpath
@@ -834,7 +834,7 @@ public class SurveyForum {
     }
 
     /**
-     * 
+     *
      * @param ctx
      *            the current web context
      * @param baseXpath
@@ -1212,7 +1212,7 @@ public class SurveyForum {
             }
             ctx.println("<span class='reply'><a href='" + forumItemUrl(ctx, loc, xpath) + "'>View Item</a></span> * ");
         }
-        if (!old) { // don't reply to old posts  
+        if (!old) { // don't reply to old posts
             ctx.println("<span class='reply'><a href='" + forumUrl(ctx, forum) + ((loc != null) ? ("&_=" + loc) : "") + "&" + F_DO
                 + "=" + F_REPLY + "&replyto=" + id + "#replyto'>Reply</a></span>");
         }
@@ -1236,10 +1236,10 @@ public class SurveyForum {
         theU = sm.reg.getInfo(uid);
         String aLink = null;
         if ((theU != null) && (me != null) && ((uid == me.id) || // if it's us
-                                                                 // or..
+            // or..
             (UserRegistry.userIsTC(me) || // or TC..
             (UserRegistry.userIsVetter(me) && (true || // approved vetter or
-                                                       // ..
+            // ..
             me.org.equals(theU.org)))))) { // vetter&same org
             if ((me == null) || (me.org == null)) {
                 throw new InternalError("null: c.s.u.o");
@@ -1263,10 +1263,10 @@ public class SurveyForum {
         theU = sm.reg.getInfo(uid);
         String aLink = null;
         if ((theU != null) && (me != null) && ((uid == me.id) || // if it's us
-                                                                 // or..
+            // or..
             (UserRegistry.userIsTC(me) || // or TC..
             (UserRegistry.userIsVetter(me) && (true || // approved vetter or
-                                                       // ..
+            // ..
             me.org.equals(theU.org)))))) { // vetter&same org
             if ((me == null) || (me.org == null)) {
                 throw new InternalError("null: c.s.u.o");
@@ -1295,7 +1295,7 @@ public class SurveyForum {
 
     /**
      * Called by SM to create the reg
-     * 
+     *
      * @param xlogger
      *            the logger to use
      * @param ourConn
@@ -1320,7 +1320,7 @@ public class SurveyForum {
 
     /**
      * Called by SM to shutdown
-     * 
+     *
      * @deprecated unneeded
      */
     public void shutdownDB() throws SQLException {
@@ -1829,7 +1829,7 @@ public class SurveyForum {
                             String subj = DBUtils.getStringUTF8(rs, 2);
                             String text = DBUtils.getStringUTF8(rs, 3);
                             java.sql.Timestamp lastDate = rs.getTimestamp(4); // TODO:
-                                                                              // timestamp
+                            // timestamp
 
                             subj = validateForXML(subj);
                             text = validateForXML(text);
@@ -1896,7 +1896,7 @@ public class SurveyForum {
     }
 
     /**
-     * Make sure the string is valid XML. 
+     * Make sure the string is valid XML.
      * @param str
      * @return
      */
@@ -1957,29 +1957,29 @@ public class SurveyForum {
                 + ctx.session.user.password + "&amp;");
 
         return " <a href='" + feedUrl + "&feed=rss_2.0" + "'>" + ctx.iconHtml("feed", "RSS 2.0") + "<!-- Forum&nbsp;rss --></a>"; /*
-                                                                                                                                   * |
-                                                                                                                                   * "
-                                                                                                                                   * +
-                                                                                                                                   * "<a href='"
-                                                                                                                                   * +
-                                                                                                                                   * feedUrl
-                                                                                                                                   * +
-                                                                                                                                   * "&feed=rss_2.0"
-                                                                                                                                   * +
-                                                                                                                                   * "'>"
-                                                                                                                                   * +
-                                                                                                                                   * ctx
-                                                                                                                                   * .
-                                                                                                                                   * iconHtml
-                                                                                                                                   * (
-                                                                                                                                   * "feed"
-                                                                                                                                   * ,
-                                                                                                                                   * "RSS 1.0"
-                                                                                                                                   * )
-                                                                                                                                   * +
-                                                                                                                                   * "RSS 1.0</a>"
-                                                                                                                                   * ;
-                                                                                                                                   */
+                                                                                                                                  * |
+                                                                                                                                  * "
+                                                                                                                                  * +
+                                                                                                                                  * "<a href='"
+                                                                                                                                  * +
+                                                                                                                                  * feedUrl
+                                                                                                                                  * +
+                                                                                                                                  * "&feed=rss_2.0"
+                                                                                                                                  * +
+                                                                                                                                  * "'>"
+                                                                                                                                  * +
+                                                                                                                                  * ctx
+                                                                                                                                  * .
+                                                                                                                                  * iconHtml
+                                                                                                                                  * (
+                                                                                                                                  * "feed"
+                                                                                                                                  * ,
+                                                                                                                                  * "RSS 1.0"
+                                                                                                                                  * )
+                                                                                                                                  * +
+                                                                                                                                  * "RSS 1.0</a>"
+                                                                                                                                  * ;
+                                                                                                                                  */
 
     }
 
@@ -2003,29 +2003,29 @@ public class SurveyForum {
             + ("/feed?email=" + ctx.session.user.email + "&amp;pw=" + ctx.session.user.password + "&amp;");
 
         return "<a href='" + feedUrl + "&feed=rss_2.0" + "'>" + ctx.iconHtml("feed", "RSS 2.0") + "RSS 2.0</a>"; /*
-                                                                                                                  * |
-                                                                                                                  * "
-                                                                                                                  * +
-                                                                                                                  * "<a href='"
-                                                                                                                  * +
-                                                                                                                  * feedUrl
-                                                                                                                  * +
-                                                                                                                  * "&feed=rss_2.0"
-                                                                                                                  * +
-                                                                                                                  * "'>"
-                                                                                                                  * +
-                                                                                                                  * ctx
-                                                                                                                  * .
-                                                                                                                  * iconHtml
-                                                                                                                  * (
-                                                                                                                  * "feed"
-                                                                                                                  * ,
-                                                                                                                  * "RSS 1.0"
-                                                                                                                  * )
-                                                                                                                  * +
-                                                                                                                  * "RSS 1.0</a>"
-                                                                                                                  * ;
-                                                                                                                  */
+                                                                                                                 * |
+                                                                                                                 * "
+                                                                                                                 * +
+                                                                                                                 * "<a href='"
+                                                                                                                 * +
+                                                                                                                 * feedUrl
+                                                                                                                 * +
+                                                                                                                 * "&feed=rss_2.0"
+                                                                                                                 * +
+                                                                                                                 * "'>"
+                                                                                                                 * +
+                                                                                                                 * ctx
+                                                                                                                 * .
+                                                                                                                 * iconHtml
+                                                                                                                 * (
+                                                                                                                 * "feed"
+                                                                                                                 * ,
+                                                                                                                 * "RSS 1.0"
+                                                                                                                 * )
+                                                                                                                 * +
+                                                                                                                 * "RSS 1.0</a>"
+                                                                                                                 * ;
+                                                                                                                 */
 
     }
 
@@ -2054,14 +2054,14 @@ public class SurveyForum {
     }
 
     /**
-     * 
+     *
      * @param session
-     * @param locale 
+     * @param locale
      * @param base_xpath Base XPath of the item being viewed, if positive
      * @param ident If nonzero - select only this item. If zero, select all items.
      * @return
      * @throws JSONException
-     * @throws SurveyException 
+     * @throws SurveyException
      */
     public JSONArray toJSON(CookieSession session, CLDRLocale locale, int base_xpath, int ident) throws JSONException, SurveyException {
         assertCanAccessForum(session, locale);
@@ -2184,7 +2184,7 @@ public class SurveyForum {
     }
 
     /**
-     * 
+     *
      * @param mySession
      * @param xpath of the form "stringid" or "#1234"
      * @param l

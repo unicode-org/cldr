@@ -40,7 +40,7 @@ package org.json;
  * A comma delimited list can be converted into a JSONArray of JSONObjects. The
  * names for the elements in the JSONObjects can be taken from the names in the
  * first row.
- * 
+ *
  * @author JSON.org
  * @version 2009-09-11
  */
@@ -49,7 +49,7 @@ public class CDL {
     /**
      * Get the next value. The value can be wrapped in quotes. The value can be
      * empty.
-     * 
+     *
      * @param x
      *            A JSONTokener of the source text.
      * @return The value string, or null if empty.
@@ -92,7 +92,7 @@ public class CDL {
 
     /**
      * Produce a JSONArray of strings from a row of comma delimited values.
-     * 
+     *
      * @param x
      *            A JSONTokener of the source text.
      * @return A JSONArray of strings.
@@ -125,7 +125,7 @@ public class CDL {
     /**
      * Produce a JSONObject from a row of comma delimited text, using a parallel
      * JSONArray of strings to provides the names of the elements.
-     * 
+     *
      * @param names
      *            A JSONArray of names. This is commonly obtained from the first
      *            row of a comma delimited text file using the rowToJSONArray
@@ -143,7 +143,7 @@ public class CDL {
     /**
      * Produce a JSONArray of JSONObjects from a comma delimited text string,
      * using the first row as a source of names.
-     * 
+     *
      * @param string
      *            The comma delimited text.
      * @return A JSONArray of JSONObjects.
@@ -156,7 +156,7 @@ public class CDL {
     /**
      * Produce a JSONArray of JSONObjects from a comma delimited text string,
      * using the first row as a source of names.
-     * 
+     *
      * @param x
      *            The JSONTokener containing the comma delimited text.
      * @return A JSONArray of JSONObjects.
@@ -169,7 +169,7 @@ public class CDL {
     /**
      * Produce a JSONArray of JSONObjects from a comma delimited text string
      * using a supplied JSONArray as the source of element names.
-     * 
+     *
      * @param names
      *            A JSONArray of strings.
      * @param string
@@ -184,7 +184,7 @@ public class CDL {
     /**
      * Produce a JSONArray of JSONObjects from a comma delimited text string
      * using a supplied JSONArray as the source of element names.
-     * 
+     *
      * @param names
      *            A JSONArray of strings.
      * @param x
@@ -214,7 +214,7 @@ public class CDL {
      * Produce a comma delimited text row from a JSONArray. Values containing
      * the comma character will be quoted. Troublesome characters may be
      * removed.
-     * 
+     *
      * @param ja
      *            A JSONArray of strings.
      * @return A string ending in NEWLINE.
@@ -230,7 +230,7 @@ public class CDL {
                 String s = o.toString();
                 if (s.length() > 0
                     && (s.indexOf(',') >= 0 || s.indexOf('\n') >= 0 || s.indexOf('\r') >= 0 || s.indexOf(0) >= 0 || s
-                        .charAt(0) == '"')) {
+                    .charAt(0) == '"')) {
                     sb.append('"');
                     int length = s.length();
                     for (int j = 0; j < length; j += 1) {
@@ -252,7 +252,7 @@ public class CDL {
     /**
      * Produce a comma delimited text from a JSONArray of JSONObjects. The first
      * row will be a list of names obtained by inspecting the first JSONObject.
-     * 
+     *
      * @param ja
      *            A JSONArray of JSONObjects.
      * @return A comma delimited text.
@@ -272,7 +272,7 @@ public class CDL {
     /**
      * Produce a comma delimited text from a JSONArray of JSONObjects using a
      * provided list of names. The list of names is not included in the output.
-     * 
+     *
      * @param names
      *            A JSONArray of strings.
      * @param ja

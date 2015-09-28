@@ -23,21 +23,21 @@ public class CheckMetazones extends CheckCLDR {
         // we're simply going to test to make sure that metazone values don't contain any digits
         if (value.matches(".*\\p{Nd}.*")) {
             if (!getCldrFileToCheck().getSourceLocaleID(path, null).equals(getCldrFileToCheck().getLocaleID())) { // skip
-                                                                                                                  // if
-                                                                                                                  // inherited
-                                                                                                                  // --
-                                                                                                                  // we
-                                                                                                                  // only
-                                                                                                                  // need
-                                                                                                                  // parent
-                                                                                                                  // instance
+                // if
+                // inherited
+                // --
+                // we
+                // only
+                // need
+                // parent
+                // instance
                 return this;
             }
             // the following is how you signal an error or warning (or add a demo....)
             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.metazoneContainsDigit) // typically warningType or errorType
                 .setMessage("Metazone name contains digits - translate only the name")); // the message; can be
-                                                                                         // MessageFormat with arguments
+            // MessageFormat with arguments
         }
 
         if (path.indexOf("/long") >= 0) {
@@ -47,12 +47,12 @@ public class CheckMetazones extends CheckCLDR {
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                     .setSubtype(Subtype.extraMetazoneString) // typically warningType or errorType
                     .setMessage("Extra metazone string - should only contain standard value for a non-DST metazone")); // the
-                                                                                                                       // message;
-                                                                                                                       // can
-                                                                                                                       // be
-                                                                                                                       // MessageFormat
-                                                                                                                       // with
-                                                                                                                       // arguments
+                // message;
+                // can
+                // be
+                // MessageFormat
+                // with
+                // arguments
             }
         }
         return this;

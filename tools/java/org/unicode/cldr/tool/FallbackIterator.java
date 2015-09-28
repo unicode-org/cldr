@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.unicode.cldr.tool;
 

@@ -43,7 +43,6 @@ import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.SpecialLocales;
@@ -64,16 +63,16 @@ import com.ibm.icu.util.Output;
 
 /**
  * Servlet implementation class SurveyAjax
- * 
+ *
  * URL/JSON Usage: get/set prefs
- * 
+ *
  * to get a preference:
  * http://...../SurveyAjax?s=YOURSESSIONID&what=pref&pref=dummy will reply with
  * JSON of {... "pref":"dummy","_v":"true" ...} to set a preference:
  * http://...../SurveyAjax?s=YOURSESSIONID&what=pref&pref=dummy&_v=true ( can
  * also use a POST instead of the _v parameter ) Note, add the preference to the
  * settablePrefsList
- * 
+ *
  */
 public class SurveyAjax extends HttpServlet {
     public static final String E_NO_ACCESS = ErrorCode.E_NO_PERMISSION.name();
@@ -82,9 +81,9 @@ public class SurveyAjax extends HttpServlet {
 
     /**
      * Consolidate my JSONify functions here.
-     * 
+     *
      * @author srl
-     * 
+     *
      */
     public static final class JSONWriter {
         private final JSONObject j = new JSONObject();
@@ -251,11 +250,11 @@ public class SurveyAjax extends HttpServlet {
 
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
         "oldVoteRemind", "dummy" }; // list
-                                    // of
-                                    // prefs
-                                    // OK
-                                    // to
-                                    // get/set
+    // of
+    // prefs
+    // OK
+    // to
+    // get/set
 
     private Set<String> prefsList = new HashSet<String>();
 
@@ -349,7 +348,8 @@ public class SurveyAjax extends HttpServlet {
                 send(r, out);
             } else if (what.equals(WHAT_FLAGGED)) {
                 JSONWriter r = newJSONStatus(sm);
-                JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 1000, "select * from "+ DBUtils.Table.VOTE_FLAGGED +"  order by locale asc, last_mod desc");
+                JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 1000, "select * from " + DBUtils.Table.VOTE_FLAGGED
+                    + "  order by locale asc, last_mod desc");
                 r.put(what, query);
                 send(r, out);
             } else if (what.equals(WHAT_STATS_BYDAYUSERLOC)) {
@@ -445,7 +445,8 @@ public class SurveyAjax extends HttpServlet {
                 } catch (Throwable t) {
                     limit = 15;
                 }
-                String q1 = "select " + DBUtils.Table.VOTE_VALUE + ".locale,"+DBUtils.Table.VOTE_VALUE + ".xpath,cldr_users.org, " + DBUtils.Table.VOTE_VALUE + ".value, "
+                String q1 = "select " + DBUtils.Table.VOTE_VALUE + ".locale," + DBUtils.Table.VOTE_VALUE + ".xpath,cldr_users.org, " + DBUtils.Table.VOTE_VALUE
+                    + ".value, "
                     + DBUtils.Table.VOTE_VALUE + ".last_mod  from " + DBUtils.Table.VOTE_VALUE + ",cldr_users  where ";
                 String q2 = " cldr_users.id=" + DBUtils.Table.VOTE_VALUE + ".submitter"
                     + "  order by " + DBUtils.Table.VOTE_VALUE + ".last_mod desc ";
@@ -522,7 +523,7 @@ public class SurveyAjax extends HttpServlet {
                 this.send(postJson, out);
             }
             else if (sess != null && !sess.isEmpty()) { // this and following:
-                                                        // session needed
+                // session needed
                 CookieSession.checkForExpiredSessions();
                 mySession = CookieSession.retrieve(sess);
                 if (mySession == null) {
@@ -673,7 +674,7 @@ public class SurveyAjax extends HttpServlet {
                                             ci = null; // abstention
                                         } else {
                                             ci = pvi.getItem(candVal); // existing
-                                                                       // item?
+                                            // item?
                                             if (ci == null) { // no, new item
                                                 ci = new CandidateInfo() {
                                                     @Override
@@ -684,10 +685,10 @@ public class SurveyAjax extends HttpServlet {
                                                     @Override
                                                     public Collection<UserInfo> getUsersVotingOn() {
                                                         return Collections.emptyList(); // No
-                                                                                        // users
-                                                                                        // voting
-                                                                                        // -
-                                                                                        // yet.
+                                                        // users
+                                                        // voting
+                                                        // -
+                                                        // yet.
                                                     }
 
                                                     @Override
@@ -1017,7 +1018,7 @@ public class SurveyAjax extends HttpServlet {
                         r.put("what", what);
 
                         final String oldVotesTable = STFactory.getLastVoteTable();
-                        SurveyLog.warnOnce("old votes table is " + oldVotesTable );
+                        SurveyLog.warnOnce("old votes table is " + oldVotesTable);
                         if (mySession.user == null) {
                             r.put("err", "Must be logged in");
                             r.put("err_code", ErrorCode.E_NOT_LOGGED_IN);
@@ -1094,7 +1095,7 @@ public class SurveyAjax extends HttpServlet {
                                         String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
                                             " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
                                             + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath "
-                                                + "and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter and " + newVotesTable
+                                            + "and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter and " + newVotesTable
                                             + ".value is not null)";
                                         Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
                                         //                                        System.out.println("Running >> " + sqlStr + " -> " + rows.length);
@@ -1115,16 +1116,16 @@ public class SurveyAjax extends HttpServlet {
 //                                                    box.voteForValue(mySession.user, xpathString, value); // auto vote for uncontested
 //                                                    uncontested++;
 //                                                } else {
-                                                    String strid = sm.xpt.getStringIDString(xp);
-                                                    if (deleteSet.contains(strid)) {
-                                                        box.unvoteFor(mySession.user, xpathString);
-                                                        deletions++;
-                                                    } else if (confirmSet.contains(strid)) {
-                                                        box.voteForValue(mySession.user, xpathString, value);
-                                                        confirmations++;
-                                                    } else {
-                                                        //System.err.println("SAJ: Ignoring non mentioned strid " + xpathString + " for loc " + locale + " in user "  +mySession.user);
-                                                    }
+                                                String strid = sm.xpt.getStringIDString(xp);
+                                                if (deleteSet.contains(strid)) {
+                                                    box.unvoteFor(mySession.user, xpathString);
+                                                    deletions++;
+                                                } else if (confirmSet.contains(strid)) {
+                                                    box.voteForValue(mySession.user, xpathString, value);
+                                                    confirmations++;
+                                                } else {
+                                                    //System.err.println("SAJ: Ignoring non mentioned strid " + xpathString + " for loc " + locale + " in user "  +mySession.user);
+                                                }
 //                                                }
                                             } catch (InvalidXPathException ix) {
                                                 SurveyLog.logException(ix, "Bad XPath: Trying to vote for " + xpathString);
@@ -1146,8 +1147,8 @@ public class SurveyAjax extends HttpServlet {
                                     String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
                                         " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
                                         + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath  "
-                                            + " and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter "
-                                                + " and " + newVotesTable + ".value is not null)";
+                                        + " and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter "
+                                        + " and " + newVotesTable + ".value is not null)";
                                     Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
                                     //                                    System.out.println("Running >> " + sqlStr + " -> " + rows.length);
 
@@ -1289,26 +1290,24 @@ public class SurveyAjax extends HttpServlet {
                         r.put(what, query);
                         addGeneralStats(r);
                         send(r, out);
-                    } else if(mySession.user != null) {
+                    } else if (mySession.user != null) {
                         mySession.userDidAction();
-                        switch(what) {
-                        case WHAT_USER_INFO:
-                        {
+                        switch (what) {
+                        case WHAT_USER_INFO: {
                             String u = request.getParameter("u");
-                            if(u == null)    throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter 'u'");
+                            if (u == null) throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter 'u'");
                             Integer userid = Integer.parseInt(u);
-                            
+
                             final JSONWriter r = newJSONStatusQuick(sm);
                             r.put("what", what);
                             r.put("id", userid);
                             JSONObject userPerms = new JSONObject();
 
                             UserRegistry.User them = sm.reg.getInfo(userid);
-                            if( (them.id == mySession.user.id) || // it's me
-                                UserRegistry.userIsTC(mySession.user)  ||
-                                (UserRegistry.userIsExactlyManager(mySession.user) && 
-                                    (them.getOrganization() == mySession.user.getOrganization()))
-                             ) {
+                            if ((them.id == mySession.user.id) || // it's me
+                                UserRegistry.userIsTC(mySession.user) ||
+                                (UserRegistry.userIsExactlyManager(mySession.user) &&
+                                    (them.getOrganization() == mySession.user.getOrganization()))) {
                                 r.put("user", JSONWriter.wrap(them));
                             } else {
                                 r.put("err", "No permission to view this user's info");
@@ -1317,19 +1316,18 @@ public class SurveyAjax extends HttpServlet {
                             send(r, out);
                         }
                         break;
-                        case WHAT_USER_LIST:
-                        {
-                            if(mySession.user.isAdminForOrg(mySession.user.org)) { // for now- only admin can do these
+                        case WHAT_USER_LIST: {
+                            if (mySession.user.isAdminForOrg(mySession.user.org)) { // for now- only admin can do these
                                 try {
                                     Connection conn = null;
                                     ResultSet rs = null;
                                     JSONArray users = new JSONArray();
-                                    final String forOrg = (UserRegistry.userIsAdmin(mySession.user))?null:mySession.user.org;
+                                    final String forOrg = (UserRegistry.userIsAdmin(mySession.user)) ? null : mySession.user.org;
                                     try {
                                         conn = DBUtils.getInstance().getDBConnection();
                                         rs = sm.reg.list(forOrg, conn);
                                         // id,userlevel,name,email,org,locales,intlocs,lastlogin
-                                        while(rs.next()) {
+                                        while (rs.next()) {
                                             int id = rs.getInt("id");
                                             UserRegistry.User them = sm.reg.getInfo(id);
                                             users.put(JSONWriter.wrap(them)
@@ -1347,21 +1345,21 @@ public class SurveyAjax extends HttpServlet {
                                     JSONObject userPerms = new JSONObject();
                                     final boolean userCanCreateUsers = sm.reg.userCanCreateUsers(mySession.user);
                                     userPerms.put("canCreateUsers", userCanCreateUsers);
-                                    if(userCanCreateUsers) {
+                                    if (userCanCreateUsers) {
                                         final org.unicode.cldr.util.VoteResolver.Level myLevel = mySession.user.getLevel();
                                         final Organization myOrganization = mySession.user.getOrganization();
-                                        JSONObject forLevel = new JSONObject();  
-                                        for(VoteResolver.Level v : VoteResolver.Level.values()) {
-                                            JSONObject jo = new JSONObject();  
+                                        JSONObject forLevel = new JSONObject();
+                                        for (VoteResolver.Level v : VoteResolver.Level.values()) {
+                                            JSONObject jo = new JSONObject();
                                             jo.put("canCreateOrSetLevelTo", myLevel.canCreateOrSetLevelTo(v));
                                             jo.put("isManagerFor", myLevel.isManagerFor(myOrganization, v, myOrganization));
                                             forLevel.put(v.name(), jo);
                                         }
-                                        userPerms.put("forLevel",forLevel);
+                                        userPerms.put("forLevel", forLevel);
                                     }
                                     r.put("userPerms", userPerms);
-                                    send(r, out);                                    
-                                } catch(SQLException e) {
+                                    send(r, out);
+                                } catch (SQLException e) {
                                     SurveyLog.logException(e, "listing users for " + mySession.user.toString());
                                     throw new SurveyException(ErrorCode.E_INTERNAL, "Internal error listing users: " + e.toString());
                                 }
@@ -1370,50 +1368,52 @@ public class SurveyAjax extends HttpServlet {
                             }
                         }
                         break;
-                        case WHAT_USER_OLDVOTES:
-                        {
+                        case WHAT_USER_OLDVOTES: {
                             String u = request.getParameter("old_user_id");
-                            if(u == null)    throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter 'u'");
+                            if (u == null) throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter 'u'");
                             Integer userid = Integer.parseInt(u);
 
-                            if(mySession.user.isAdminForOrg(mySession.user.org) && mySession.user.isAdminFor(sm.reg.getInfo(userid))) {
+                            if (mySession.user.isAdminForOrg(mySession.user.org) && mySession.user.isAdminFor(sm.reg.getInfo(userid))) {
                                 final String lastVoteTable = sm.getSTFactory().getLastVoteTable();
-                                JSONObject o = DBUtils.queryToJSON("select COUNT(xpath), locale from " + lastVoteTable + " where submitter=? group by locale order by locale", userid); 
+                                JSONObject o = DBUtils.queryToJSON("select COUNT(xpath), locale from " + lastVoteTable
+                                    + " where submitter=? group by locale order by locale", userid);
                                 final JSONWriter r = newJSONStatusQuick(sm);
                                 r.put("user_oldvotes", o);
                                 r.put("old_user_id", userid);
                                 r.put("lastVoteTable", lastVoteTable);
-                                send(r, out);                                    
+                                send(r, out);
                             } else {
                                 throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to list users.");
                             }
                         }
                         break;
-                        case WHAT_USER_XFEROLDVOTES:
-                        {
+                        case WHAT_USER_XFEROLDVOTES: {
                             // // what=user_xferoldvotes&from_user_id=182&from_locale=de&to_user_id=105&to_locale=de_CH"
                             Integer from_user_id = getIntParameter(request, "from_user_id");
                             Integer to_user_id = getIntParameter(request, "to_user_id");
                             String from_locale = request.getParameter("from_locale");
                             String to_locale = request.getParameter("to_locale");
-                            if(from_user_id == null || to_user_id == null || from_locale == null || to_locale == null)    throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter");
+                            if (from_user_id == null || to_user_id == null || from_locale == null || to_locale == null)
+                                throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter");
                             final User toUser = sm.reg.getInfo(to_user_id);
                             final User fromUser = sm.reg.getInfo(from_user_id);
-                            if(toUser==null || fromUser == null)   throw new SurveyException(ErrorCode.E_INTERNAL, "Invalid user parameter");
-                            if(mySession.user.isAdminForOrg(mySession.user.org) && mySession.user.isAdminFor(sm.reg.getInfo(to_user_id))) {
+                            if (toUser == null || fromUser == null) throw new SurveyException(ErrorCode.E_INTERNAL, "Invalid user parameter");
+                            if (mySession.user.isAdminForOrg(mySession.user.org) && mySession.user.isAdminFor(sm.reg.getInfo(to_user_id))) {
                                 final String lastVoteTable = sm.getSTFactory().getLastVoteTable();
                                 Connection conn = null;
                                 PreparedStatement ps = null;
                                 try {
                                     conn = DBUtils.getInstance().getDBConnection();
-                                    ps = DBUtils.prepareStatementWithArgs(conn, "INSERT INTO " + lastVoteTable + " (locale, xpath, submitter, value, last_mod) " +
-                                            " SELECT ? as locale, "+lastVoteTable+".xpath as xpath, ? as submitter, "+lastVoteTable+".value as value, "+lastVoteTable+".last_mod as last_mod "+
-                                        "FROM "+lastVoteTable+" WHERE ?="+lastVoteTable+".submitter AND "+lastVoteTable+".locale=?",
-                                        to_locale, to_user_id, from_user_id,from_locale);
+                                    ps = DBUtils.prepareStatementWithArgs(conn, "INSERT INTO " + lastVoteTable
+                                        + " (locale, xpath, submitter, value, last_mod) " +
+                                        " SELECT ? as locale, " + lastVoteTable + ".xpath as xpath, ? as submitter, " + lastVoteTable + ".value as value, "
+                                        + lastVoteTable + ".last_mod as last_mod " +
+                                        "FROM " + lastVoteTable + " WHERE ?=" + lastVoteTable + ".submitter AND " + lastVoteTable + ".locale=?",
+                                        to_locale, to_user_id, from_user_id, from_locale);
                                     int rv = ps.executeUpdate();
                                     conn.commit();
                                     // remind the user again to look at their votes.
-                                    toUser.settings().set(getOldVotesPref(), (String)null);
+                                    toUser.settings().set(getOldVotesPref(), (String) null);
                                     final JSONWriter r = newJSONStatusQuick(sm);
                                     final JSONObject o = new JSONObject();
                                     o.put("from_user_id", from_user_id);
@@ -1423,7 +1423,7 @@ public class SurveyAjax extends HttpServlet {
                                     o.put("result_count", rv);
                                     o.put("lastVoteTable", lastVoteTable);
                                     r.put(WHAT_USER_XFEROLDVOTES, o);
-                                    send(r, out);                                    
+                                    send(r, out);
                                 } finally {
                                     DBUtils.close(ps, conn);
                                 }
@@ -1432,7 +1432,7 @@ public class SurveyAjax extends HttpServlet {
                             }
                         }
                         break;
-                        default: 
+                        default:
                             sendError(out, "Unknown User Session-based Request: " + what, ErrorCode.E_INTERNAL);
                         }
                     } else {
@@ -1665,7 +1665,7 @@ public class SurveyAjax extends HttpServlet {
      * @param out
      * @param loc
      * @return
-     * @throws IOException 
+     * @throws IOException
      */
     public static CLDRLocale validateLocale(PrintWriter out, String loc) throws IOException {
         CLDRLocale ret;
@@ -1861,6 +1861,7 @@ public class SurveyAjax extends HttpServlet {
         r.put("err_code", errCode);
         send(r, out);
     }
+
     private void sendError(PrintWriter out, SurveyException e) throws IOException {
         JSONWriter r = newJSON();
         r.put("SurveyOK", "0");
@@ -1870,7 +1871,7 @@ public class SurveyAjax extends HttpServlet {
             e.addDataTo(r);
         } catch (JSONException e1) {
             SurveyLog.logException(e1, "While processing " + e.toString());
-            r.put("err", e.getMessage()+ " - and JSON error " + e1.toString());
+            r.put("err", e.getMessage() + " - and JSON error " + e1.toString());
         }
         send(r, out);
     }

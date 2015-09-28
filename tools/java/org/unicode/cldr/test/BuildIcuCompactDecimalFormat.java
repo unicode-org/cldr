@@ -38,7 +38,7 @@ public class BuildIcuCompactDecimalFormat {
 
     /**
      * JUST FOR DEVELOPMENT
-     * 
+     *
      * @param currencyStyle
      * @param currencyCode
      */
@@ -227,14 +227,14 @@ public class BuildIcuCompactDecimalFormat {
             divisor, affixes, unitPrefixes,
             debugCreationErrors);
         /*
-         *                 divisor, prefixes, suffixes, 
+         *                 divisor, prefixes, suffixes,
             unitPrefixes, unitSuffixes,
             currencyAffixes, new CompactDecimalFormatTest.MyCurrencySymbolDisplay(resolvedCldrFile),
             debugCreationErrors
 
          */
         //        CompactDecimalFormat cdf = new CompactDecimalFormat(
-        //                "#,###.00", 
+        //                "#,###.00",
         //                DecimalFormatSymbols.getInstance(new ULocale("fr")),
         //                CompactStyle.SHORT, PluralRules.createRules("one: j is 1 or f is 1"),
         //                divisors, affixes, null,
@@ -259,7 +259,7 @@ public class BuildIcuCompactDecimalFormat {
             it = resolvedCldrFile.iterator(
                 "//ldml/numbers/currencies/currency[@type=\"" +
                     currencyCode +
-                    "\"]/displayName");
+                "\"]/displayName");
             // //ldml/numbers/currencies/currency[@type="SRD"]/symbol
             while (it.hasNext()) {
                 String path = it.next();

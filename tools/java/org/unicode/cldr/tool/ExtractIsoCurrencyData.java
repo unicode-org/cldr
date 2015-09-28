@@ -17,7 +17,7 @@ import com.ibm.icu.dev.util.BagFormatter;
 /**
  * Run this code to extract the ISO currency data from a file.
  * Use -Dinput=xxx for the input file, and -Doutput=xxx for the output file
- * 
+ *
  * @author markdavis
  */
 public class ExtractIsoCurrencyData {
@@ -155,7 +155,7 @@ public class ExtractIsoCurrencyData {
 
     /**
      * Was code to check when we moved from flat file to html to alert on differences. Not necessary any more.
-     * 
+     *
      * @throws IOException
      */
     // public void CheckISOCurrencyParser() throws IOException {

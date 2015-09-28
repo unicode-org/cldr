@@ -3,22 +3,22 @@
  * Copyright (C) 2004-2005, International Business Machines Corporation and        *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
- * 
+ *
  * in shell:  (such as .cldrrc)
  *   export CWDEBUG="-DCLDR_DTD_CACHE=/tmp/cldrdtd/"
  *   export CWDEFS="-DCLDR_DTD_CACHE_DEBUG=y ${CWDEBUG}"
  *
- * 
+ *
  * in code:
  *   docBuilder.setEntityResolver(new CachingEntityResolver());
- * 
+ *
  */
 
 package org.unicode.cldr.util;
 
 /**
  * @author Steven R Loomis
- * 
+ *
  * Caching entity resolver
  */
 import java.io.BufferedReader;
@@ -175,8 +175,8 @@ public class CachingEntityResolver implements EntityResolver {
             if (!aDir.exists() || !aDir.isDirectory()) {
                 // doesn't exist or isn't a directory:
                 System.err
-                    .println("CachingEntityResolver: Warning:  Cache not used, Directory doesn't exist, Check the value of  property "
-                        + CLDR_DTD_CACHE + " :  " + theCache);
+                .println("CachingEntityResolver: Warning:  Cache not used, Directory doesn't exist, Check the value of  property "
+                    + CLDR_DTD_CACHE + " :  " + theCache);
                 return null;
             }
 

@@ -36,7 +36,7 @@ public class TestIntMap {
         checkSamples(factories, samples);
         UnicodeSet testSet = new UnicodeSet(
             "[[:assigned:] - [:ideographic:] - [:Co:] - [:Cs:] - [:script=Hang:]]"); // &
-                                                                                     // [\\u0000-\\u0FFF]
+        // [\\u0000-\\u0FFF]
 
         samples.clear();
         for (UnicodeSetIterator it = new UnicodeSetIterator(testSet); it.next();) {

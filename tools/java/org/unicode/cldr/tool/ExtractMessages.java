@@ -22,8 +22,8 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLFileReader;
 
 import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.impl.Relation;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormatSymbols;
@@ -284,21 +284,21 @@ class ExtractMessages {
     /*
      * Language
      * -DXMLPATH=".*form of language.*"
-     * 
+     *
      * Country
      * -DXMLPATH=".*the country or region.*"
-     * 
+     *
      * Currency
      * -DXMLPATH=".*currency name.*"
-     * 
+     *
      * Month Long/Short
      * -DXMLPATH=".*Name of the month of .*"
      * -DXMLPATH=".*3 letter abbreviation for name of Month.*"
-     * 
+     *
      * Week Long/Short
      * -DXMLPATH=".*day in week.*"
      * -DXMLPATH=".*Short Version of .*"
-     * 
+     *
      * Timezone
      * DXMLPATH=".*is a display name for a timezone.*"
      */

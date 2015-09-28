@@ -90,8 +90,8 @@ class GenerateCldrDateTimeTests {
     /*
      * Equator DateEquator = new Equator() {
      *//**
-       * Must both be ULocales
-       */
+     * Must both be ULocales
+     */
     /*
      * public boolean equals(Object o1, Object o2) {
      * ULocale loc1 = (ULocale) o1;
@@ -120,7 +120,7 @@ class GenerateCldrDateTimeTests {
 
     /*
      * Equator ZoneEquator = new Equator() {
-     * 
+     *
      * public boolean equals(Object o1, Object o2) {
      * ULocale loc1 = (ULocale) o1;
      * ULocale loc2 = (ULocale) o2;
@@ -179,8 +179,8 @@ class GenerateCldrDateTimeTests {
     /*
      * Equator NumberEquator = new Equator() {
      *//**
-       * Must both be ULocales
-       */
+     * Must both be ULocales
+     */
     /*
      * public boolean equals(Object o1, Object o2) {
      * ULocale loc1 = (ULocale) o1;
@@ -199,7 +199,7 @@ class GenerateCldrDateTimeTests {
      */
 
     /**
-     * 
+     *
      */
     public ICUServiceBuilder getICUServiceBuilder() {
         return icuServiceBuilder;

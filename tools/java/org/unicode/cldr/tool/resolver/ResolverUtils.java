@@ -12,7 +12,7 @@ import org.unicode.cldr.util.CLDRFile;
 
 /**
  * Utility methods for the CLDR Resolver tool
- * 
+ *
  * @author ryanmentley@google.com (Ryan Mentley)
  */
 public class ResolverUtils {
@@ -31,7 +31,7 @@ public class ResolverUtils {
     /**
      * Get the set of paths with non-null values from a CLDR file (including all
      * extra paths).
-     * 
+     *
      * @param file the CLDRFile from which to extract paths
      * @return a Set containing all the paths returned by
      *         {@link CLDRFile#iterator()}, plus those from
@@ -56,7 +56,7 @@ public class ResolverUtils {
     /**
      * Debugging method used to make null and empty strings more obvious in
      * printouts
-     * 
+     *
      * @param str the string
      * @return "[null]" if str==null, "[empty]" if str is the empty string, str
      *         otherwise
@@ -73,7 +73,7 @@ public class ResolverUtils {
 
     /**
      * Debugging method to print things based on verbosity.
-     * 
+     *
      * @param str The string to print
      * @param msgVerbosity The minimum verbosity level at which to print this message
      */
@@ -85,7 +85,7 @@ public class ResolverUtils {
 
     /**
      * Debugging method to print things based on verbosity.
-     * 
+     *
      * @param str The string to print
      * @param msgVerbosity The minimum verbosity level at which to print this message
      */

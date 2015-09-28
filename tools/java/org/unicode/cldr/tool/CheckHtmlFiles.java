@@ -13,7 +13,6 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
@@ -43,15 +42,10 @@ import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 
-import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Table;
-import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.util.Output;
@@ -80,7 +74,7 @@ public class CheckHtmlFiles {
             "|Acknowledge?ments" +
             "|Rights to .*Images" +
             "|Modifications" +
-            "|(Revision \\d+\\.?)");
+        "|(Revision \\d+\\.?)");
     static Pattern SUPPRESS_REVISION = PatternCache.get("Revision \\d+\\.?");
     static Pattern SPACES = PatternCache.get("\\s+");
 
@@ -88,10 +82,10 @@ public class CheckHtmlFiles {
 //        old(".*", Settings.OTHER_WORKSPACE_DIRECTORY + "cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
         target(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "target data (regex); ucd for Unicode docs; "
             + "for others use the format -t ${workspace_loc}/unicode-draft/reports/tr51/tr51.html"),
-        verbose(null, null, "verbose debugging messages"),
+            verbose(null, null, "verbose debugging messages"),
 //        contents(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
-        // /cldr-archive
-        ;
+            // /cldr-archive
+            ;
 
         // boilerplate
         final Option option;
@@ -812,7 +806,7 @@ public class CheckHtmlFiles {
                     contentString = wsMatcher.reset(content).replaceAll(" ").replace("&nbsp;", " ");
                     buffer.append(contentString.indexOf('&') >= 0
                         ? TransliteratorUtilities.fromHTML.transform(contentString)
-                        : contentString);
+                            : contentString);
                     if (inHeading) {
                         heading.addText(contentString);
                     }
@@ -893,7 +887,7 @@ public class CheckHtmlFiles {
         }
 
         /**
-         * Return string after collapsing multiple whitespace containing '\\n' to '\\n', 
+         * Return string after collapsing multiple whitespace containing '\\n' to '\\n',
          * and otherwise 'space'.
          * @param input
          * @return

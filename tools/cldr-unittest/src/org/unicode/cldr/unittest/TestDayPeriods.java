@@ -20,22 +20,22 @@ import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 
-public class TestDayPeriods extends TestFmwkPlus{
-    
+public class TestDayPeriods extends TestFmwkPlus {
+
     CLDRConfig CONFIG = CLDRConfig.getInstance();
     SupplementalDataInfo SUPPLEMENTAL = CONFIG.getSupplementalDataInfo();
 
     public static void main(String[] args) {
         new TestDayPeriods().run(args);
     }
-    
+
     @SuppressWarnings("unchecked")
     public void TestBasicDayPeriods() {
         int count = 0;
         for (String locale : SUPPLEMENTAL.getDayPeriodLocales(DayPeriodInfo.Type.format)) {
             DayPeriodInfo dayPeriodFormat = SUPPLEMENTAL.getDayPeriods(DayPeriodInfo.Type.format, locale);
             DayPeriodInfo dayPeriodSelection = SUPPLEMENTAL.getDayPeriods(DayPeriodInfo.Type.selection, locale);
-            
+
             Set<R2<Integer, DayPeriod>> sortedFormat = getSet(dayPeriodFormat);
             Set<R2<Integer, DayPeriod>> sortedSelection = getSet(dayPeriodSelection);
 
@@ -46,19 +46,18 @@ public class TestDayPeriods extends TestFmwkPlus{
         assertTrue("At least some day periods exist", count > 5);
     }
 
-
     private Set<R2<Integer, DayPeriod>> getSet(DayPeriodInfo dayPeriodInfo) {
         Set<R2<Integer, DayPeriod>> sorted = new TreeSet<>();
         for (int i = 0; i < dayPeriodInfo.getPeriodCount(); ++i) {
             R3<Integer, Boolean, DayPeriod> info = dayPeriodInfo.getPeriod(i);
             int start = info.get0();
-            assertEquals("Time is even hours", (int)(start/DayPeriodInfo.HOUR)*DayPeriodInfo.HOUR, (int)start);
+            assertEquals("Time is even hours", (int) (start / DayPeriodInfo.HOUR) * DayPeriodInfo.HOUR, (int) start);
             R2<Integer, DayPeriod> row = Row.of(start, info.get2());
             sorted.add(row);
         }
         return sorted;
     }
-    
+
     @SuppressWarnings("unchecked")
     public void TestAttributes() {
         Factory factory = CONFIG.getCldrFactory();

@@ -168,33 +168,33 @@ public class GenerateChangeChart {
 
         {
             this
-                .addColumn("Min Votes", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-                .setSpanRows(true)
-                .setSortPriority(0)
-                .setSortAscending(false)
-                .setBreakSpans(true)
-                .addColumn("Locale Name", "class='source'", null, "class='source'", true)
-                //            .setSpanRows(true)
-                .setSortPriority(1)
-                .setBreakSpans(true)
-                .addColumn("Locale ID", "class='source'", null, "class='source'", true)
-                //            .setSpanRows(true)
-                //.setBreakSpans(true)
-                .addColumn("PageHeader", "class='source'", null, "class='source'", true)
-                .setSortPriority(3)
-                .setHidden(true)
-                .addColumn("Page", "class='source'", null, "class='source'", true)
-                .setSpanRows(true)
-                .setBreakSpans(true)
-                .addColumn("Header", "class='source'", null, "class='source'", true)
-                .setSpanRows(true)
-                .setBreakSpans(true)
-                .addColumn("Code", "class='source'", null, "class='source'", true)
-                .addColumn("Eng Value", "class='source'", null, "class='source'", true)
-                .setSpanRows(true)
-                .addColumn("Old Value", "class='target'", null, "class='target'", true)
-                .addColumn("", "class='target'", null, "class='target'", true)
-                .addColumn("New Value", "class='target'", null, "class='target'", true);
+            .addColumn("Min Votes", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .setSpanRows(true)
+            .setSortPriority(0)
+            .setSortAscending(false)
+            .setBreakSpans(true)
+            .addColumn("Locale Name", "class='source'", null, "class='source'", true)
+            //            .setSpanRows(true)
+            .setSortPriority(1)
+            .setBreakSpans(true)
+            .addColumn("Locale ID", "class='source'", null, "class='source'", true)
+            //            .setSpanRows(true)
+            //.setBreakSpans(true)
+            .addColumn("PageHeader", "class='source'", null, "class='source'", true)
+            .setSortPriority(3)
+            .setHidden(true)
+            .addColumn("Page", "class='source'", null, "class='source'", true)
+            .setSpanRows(true)
+            .setBreakSpans(true)
+            .addColumn("Header", "class='source'", null, "class='source'", true)
+            .setSpanRows(true)
+            .setBreakSpans(true)
+            .addColumn("Code", "class='source'", null, "class='source'", true)
+            .addColumn("Eng Value", "class='source'", null, "class='source'", true)
+            .setSpanRows(true)
+            .addColumn("Old Value", "class='target'", null, "class='target'", true)
+            .addColumn("", "class='target'", null, "class='target'", true)
+            .addColumn("New Value", "class='target'", null, "class='target'", true);
         }
 
         void add(final PathHeader pathHeader, CLDRLocale locale,
@@ -204,18 +204,18 @@ public class GenerateChangeChart {
             String header = pathHeader.getHeader();
             String code = pathHeader.getCode();
             addRow()
-                .addCell(votes)
-                .addCell(name)
-                .addCell(locale)
-                .addCell(pathHeader) // hidden field
-                .addCell(pageId)
-                .addCell(header == null ? "" : header)
-                .addCell(code)
-                .addCell(engValue == null ? "∅" : engValue)
-                .addCell(oldValue)
-                .addCell("→")
-                .addCell(newValue == null ? "∅" : newValue)
-                .finishRow();
+            .addCell(votes)
+            .addCell(name)
+            .addCell(locale)
+            .addCell(pathHeader) // hidden field
+            .addCell(pageId)
+            .addCell(header == null ? "" : header)
+            .addCell(code)
+            .addCell(engValue == null ? "∅" : engValue)
+            .addCell(oldValue)
+            .addCell("→")
+            .addCell(newValue == null ? "∅" : newValue)
+            .finishRow();
         }
     }
 
@@ -226,31 +226,31 @@ public class GenerateChangeChart {
 
         {
             this
-                //.setBreakSpans(true)
-                .addColumn("PageHeader", "class='source'", null, "class='source'", true)
-                .setSortPriority(0)
-                .setHidden(true)
-                .addColumn("Page", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-                .setSpanRows(true)
-                .setBreakSpans(true)
-                .addColumn("Header", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-                .setSpanRows(true)
-                .setBreakSpans(true)
-                .addColumn("Code", "class='source'", null, "class='source'", true)
-                .addColumn("Eng Value", "class='source'", null, "class='source'", true)
-                .setSpanRows(true)
-                .addColumn("Min Votes", "class='source'", null, "class='source'", true)
-                .setSpanRows(true)
-                .setSortPriority(1)
-                .setSortAscending(false)
-                .setBreakSpans(true)
-                .addColumn("Locale Name", "class='source'", null, "class='source'", true)
-                .setSortPriority(2)
-                .setBreakSpans(true)
-                .addColumn("Locale ID", "class='source'", null, "class='source'", true)
-                .addColumn("Old Value", "class='target'", null, "class='target'", true)
-                .addColumn("", "class='target'", null, "class='target'", true)
-                .addColumn("New Value", "class='target'", null, "class='target'", true);
+            //.setBreakSpans(true)
+            .addColumn("PageHeader", "class='source'", null, "class='source'", true)
+            .setSortPriority(0)
+            .setHidden(true)
+            .addColumn("Page", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .setSpanRows(true)
+            .setBreakSpans(true)
+            .addColumn("Header", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .setSpanRows(true)
+            .setBreakSpans(true)
+            .addColumn("Code", "class='source'", null, "class='source'", true)
+            .addColumn("Eng Value", "class='source'", null, "class='source'", true)
+            .setSpanRows(true)
+            .addColumn("Min Votes", "class='source'", null, "class='source'", true)
+            .setSpanRows(true)
+            .setSortPriority(1)
+            .setSortAscending(false)
+            .setBreakSpans(true)
+            .addColumn("Locale Name", "class='source'", null, "class='source'", true)
+            .setSortPriority(2)
+            .setBreakSpans(true)
+            .addColumn("Locale ID", "class='source'", null, "class='source'", true)
+            .addColumn("Old Value", "class='target'", null, "class='target'", true)
+            .addColumn("", "class='target'", null, "class='target'", true)
+            .addColumn("New Value", "class='target'", null, "class='target'", true);
         }
 
         void add(final PathHeader pathHeader, CLDRLocale locale,
@@ -260,18 +260,18 @@ public class GenerateChangeChart {
             String header = pathHeader.getHeader();
             String code = pathHeader.getCode();
             addRow()
-                .addCell(pathHeader) // hidden field
-                .addCell(pageId)
-                .addCell(header == null ? "" : header)
-                .addCell(code)
-                .addCell(engValue == null ? "∅" : engValue)
-                .addCell(votes)
-                .addCell(name)
-                .addCell(locale)
-                .addCell(oldValue)
-                .addCell("→")
-                .addCell(newValue == null ? "∅" : newValue)
-                .finishRow();
+            .addCell(pathHeader) // hidden field
+            .addCell(pageId)
+            .addCell(header == null ? "" : header)
+            .addCell(code)
+            .addCell(engValue == null ? "∅" : engValue)
+            .addCell(votes)
+            .addCell(name)
+            .addCell(locale)
+            .addCell(oldValue)
+            .addCell("→")
+            .addCell(newValue == null ? "∅" : newValue)
+            .finishRow();
         }
     }
 

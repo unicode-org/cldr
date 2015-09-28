@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.unicode.cldr.web;
 
@@ -41,8 +41,8 @@ import org.unicode.cldr.util.VettingViewer.WritingInfo;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
-import com.ibm.icu.impl.Relation;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
@@ -52,7 +52,7 @@ import com.ibm.icu.util.ULocale;
 
 /**
  * @author srl
- * 
+ *
  */
 public class VettingViewerQueue {
 
@@ -64,7 +64,7 @@ public class VettingViewerQueue {
 
     /**
      * Get the singleton instance of the queue
-     * 
+     *
      * @return
      */
     public static VettingViewerQueue getInstance() {
@@ -75,7 +75,7 @@ public class VettingViewerQueue {
 
     /**
      * Count the # of paths in this CLDRFile
-     * 
+     *
      * @param file
      * @return
      */
@@ -90,7 +90,7 @@ public class VettingViewerQueue {
 
     /**
      * Get the max expected items in a CLDRFile
-     * 
+     *
      * @param f
      * @return
      */
@@ -108,9 +108,9 @@ public class VettingViewerQueue {
 
     /**
      * Status of a Task
-     * 
+     *
      * @author srl
-     * 
+     *
      */
     public enum Status {
         /** Waiting on other users/tasks */
@@ -125,9 +125,9 @@ public class VettingViewerQueue {
 
     /**
      * What policy should be used when querying the queue?
-     * 
+     *
      * @author srl
-     * 
+     *
      */
     public enum LoadingPolicy {
         /** (Default) - start if not started */
@@ -182,7 +182,8 @@ public class VettingViewerQueue {
         final Organization usersOrg;
         String status = "(Waiting my spot in line)";
         public Status statusCode = Status.WAITING; // Need to start out as
-                                                   // waiting.
+
+        // waiting.
 
         void setStatus(String status) {
             this.status = status;
@@ -387,10 +388,10 @@ public class VettingViewerQueue {
          * organization
          */
         final Organization vr_org = UserRegistry.computeVROrganization(st_org); /*
-                                                                                                      * VoteResolver
-                                                                                                      * organization
-                                                                                                      * name
-                                                                                                      */
+                                                                                * VoteResolver
+                                                                                * organization
+                                                                                * name
+                                                                                */
         final Set<Organization> covOrgs = StandardCodes.make().getLocaleCoverageOrganizations();
 
         final Set<String> aLocs = new HashSet<String>();
@@ -447,7 +448,7 @@ public class VettingViewerQueue {
     /**
      * Same as getVettingViewerOutput except that the status message, if
      * present, will be written to the output
-     * 
+     *
      * @see #getVettingViewerOutput(WebContext, CookieSession, CLDRLocale,
      *      Status[], LoadingPolicy, Appendable, JSONObject)
      * @param ctx
@@ -457,7 +458,7 @@ public class VettingViewerQueue {
      * @param forceRestart
      * @param output
      * @throws IOException
-     * @throws JSONException 
+     * @throws JSONException
      */
     public void writeVettingViewerOutput(WebContext ctx, CookieSession sess, CLDRLocale locale, Status[] status,
         LoadingPolicy forceRestart, Appendable output) throws IOException, JSONException {
@@ -603,7 +604,7 @@ public class VettingViewerQueue {
                 JSONObject header = pages.getJSONObject(pageName);
 
                 JSONArray allContent = new JSONArray();
-                //real info 
+                //real info
                 for (WritingInfo info : entry.getValue()) {
                     JSONObject content = new JSONObject();
                     String code = info.codeOutput.getCode();
@@ -659,7 +660,7 @@ public class VettingViewerQueue {
             }
             reviewInfo.put("allNotifications", allNotifications);
 
-            //hidden info 
+            //hidden info
             ReviewHide review = new ReviewHide();
             reviewInfo.put("hidden", review.getHiddenField(ctx.userId(), ctx.getLocale().toString()));
             reviewInfo.put("direction", ctx.getDirectionForLocale());
@@ -735,7 +736,7 @@ public class VettingViewerQueue {
     /**
      * Return the status of the vetting viewer output request. If a different
      * locale is requested, the previous request will be cancelled.
-     * 
+     *
      * @param ctx
      * @param locale
      * @param output
@@ -744,7 +745,7 @@ public class VettingViewerQueue {
      * @param jsonStatus TODO
      * @return status message
      * @throws IOException
-     * @throws JSONException 
+     * @throws JSONException
      */
     public synchronized String getVettingViewerOutput(WebContext ctx, CookieSession sess, CLDRLocale locale, Status[] status,
         LoadingPolicy forceRestart, Appendable output, JSONObject jStatus) throws IOException, JSONException {

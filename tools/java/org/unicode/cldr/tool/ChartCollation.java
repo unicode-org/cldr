@@ -276,7 +276,7 @@ public class ChartCollation extends Chart {
             UnicodeSet exemplars_auxiliary = cldrFile.getExemplarSet("auxiliary", WinningChoice.WINNING);
             UnicodeSet exemplars_punctuation = cldrFile.getExemplarSet("punctuation", WinningChoice.WINNING);
             exemplars_all.addAll(exemplars_auxiliary)
-                .addAll(exemplars_punctuation);
+            .addAll(exemplars_punctuation);
 
             for (NumberingSystem system : NumberingSystem.values()) {
                 UnicodeSet exemplars_numeric = cldrFile.getExemplarsNumeric(system);
@@ -288,8 +288,8 @@ public class ChartCollation extends Chart {
             exemplars_all.freeze();
 
             TablePrinter tablePrinter = new TablePrinter()
-                .addColumn("Type", "class='source'", null, "class='source'", true)
-                .addColumn("Ordering", "class='target'", null, "class='target_nofont'", true);
+            .addColumn("Type", "class='source'", null, "class='source'", true)
+            .addColumn("Ordering", "class='target'", null, "class='target_nofont'", true);
 
             for (Entry<String, Data> entry : data.entrySet()) {
                 // sort the characters
@@ -339,9 +339,9 @@ public class ChartCollation extends Chart {
                     }
                 }
                 tablePrinter
-                    .addRow()
-                    .addCell(type)
-                    .addCell(list.toString());
+                .addRow()
+                .addCell(type)
+                .addCell(list.toString());
                 tablePrinter.finishRow();
             }
             pw.write(tablePrinter.toTable());

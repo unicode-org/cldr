@@ -132,7 +132,7 @@ public class WritePluralRulesSpreadsheets {
     //
     //        // TODO use options
     //        public static final String TARGETDIR = Settings.OTHER_WORKSPACE_DIRECTORY + "Generated/icu/plural-verification/";
-    //    
+    //
     //        public static void main(String[] args) throws Exception {
     //            if (args.length == 0) {
     //                args = new String[] {"verify"};
@@ -157,14 +157,14 @@ public class WritePluralRulesSpreadsheets {
     //                }
     //            }
     //        }
-    //    
+    //
     //        /**
     //         * @param normal
     //         */
     //        private static void generateRanges(PluralRulesFactory normal) {
     //            Map<ULocale, SamplePatterns> patternMap = PluralRulesFactory.getLocaleToSamplePatterns();
     //            NumberFormat enf = NumberFormat.getInstance(ULocale.ENGLISH);
-    //    
+    //
     //            for (String localeString : FOCUS_LOCALES) {
     //                ULocale locale = new ULocale(localeString);
     //                PluralRules pr = normal.forLocale(locale);
@@ -176,11 +176,11 @@ public class WritePluralRulesSpreadsheets {
     //                System.out.println();
     //                NumberFormat nf = NumberFormat.getInstance(new ULocale(localeString + "@numbers=latn"));
     //                Map<String, FixedDecimal[]> samples = getSampleRanges(pr);
-    //                
+    //
     //                Set<String> keywords = pr.getKeywords();
     //                for (String keyword1 : keywords) {
     //                    FixedDecimal sample1 = samples.get(keyword1)[0];
-    //                    
+    //
     //                    for (String keyword2 : keywords) {
     //                        FixedDecimal sample2 = samples.get(keyword2)[1];
     //                        if (sample2.source <= sample1.source) {
@@ -198,20 +198,20 @@ public class WritePluralRulesSpreadsheets {
     //                        System.out.println(locale + "\t"
     //                                + eformattedRange + " items\t"
     //                                + keyword1 + "\t" + keyword2 + "\t"
-    //                                + result 
+    //                                + result
     //                                );
     //                    }
     //                }
     //            }
     //        }
-    //    
+    //
     //        private static String format(NumberFormat nf, FixedDecimal sample1) {
     //            nf.setMaximumFractionDigits(sample1.getVisibleDecimalDigitCount());
     //            nf.setMinimumFractionDigits(sample1.getVisibleDecimalDigitCount());
     //            String format = nf.format(sample1.source);
     //            return format;
     //        }
-    //    
+    //
     //        /**
     //         * @param pr
     //         * @return
@@ -229,7 +229,7 @@ public class WritePluralRulesSpreadsheets {
     //            }
     //            return result;
     //        }
-    //    
+    //
     //        private static void addRangeMaybe(Map<String, FixedDecimal[]> result, double i, String keyword) {
     //            FixedDecimal[] range = result.get(keyword);
     //            if (range == null) {
@@ -244,7 +244,7 @@ public class WritePluralRulesSpreadsheets {
     //                range[1] = new FixedDecimal(i);
     //            }
     //        }
-    //    
+    //
     //        /**
     //         * @param samples
     //         * @return
@@ -258,12 +258,12 @@ public class WritePluralRulesSpreadsheets {
     //            }
     //            return result;
     //        }
-    //    
+    //
     //        static final String[] FOCUS_LOCALES = ("af,am,ar,az,bg,bn,ca,cs,cy,da,de,el,en,es,et,eu,fa,fi,fil,fr,gl,gu," +
     //                "hi,hr,hu,hy,id,is,it,he,ja,ka,kk,km,kn,ko,ky,lo,lt,lv,mk,ml,mn,mr,ms,my,ne,nl,nb," +
     //                "pa,pl,pt,ro,ru,si,sk,sl,sq,sr,sv,sw,ta,te,th,tr,uk,ur,uz,vi,zh,zu").split("\\s*,\\s*");
-    //    
-    //    
+    //
+    //
     //        static final String[][] ORIGINAL_SAMPLES = {
     //            {"af", "0, 0.00, 0.000, 0.001, 0.002, 0.01, 0.010, 0.011, 0.02, 0.1, 0.10, 0.11, 0.2, 1.0, 1.00, 1.000, 1.002, 1.010, 1.011, 1.02, 1.10, 1.11, 1.2, 2.0, 2.00, 2.000, 2.001, 2.01, 2.1"},
     //            {"am", "0.0, 0.00, 0.000, 0.001, 0.002, 0.01, 0.010, 0.011, 0.02, 0.1, 0.10, 0.11, 0.2, 2, 1.0, 1.00, 1.000, 1.002, 1.010, 1.011, 1.02, 1.10, 1.11, 1.2, 2.0, 2.00, 2.000, 2.001, 2.01, 2.1"},
@@ -339,7 +339,7 @@ public class WritePluralRulesSpreadsheets {
     //                LOCALE_TO_ORIGINALS.put(new ULocale(pair[0]), row);
     //            }
     //        }
-    //    
+    //
     //        public static void getOriginalSamples() {
     //            try {
     //                File file = new File("/Users/markdavis/workspace/icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/plurals.txt");
@@ -363,8 +363,8 @@ public class WritePluralRulesSpreadsheets {
     //                        if (parts.length != 2 || !found) {
     //                            throw new ArrayIndexOutOfBoundsException();
     //                        }
-    //                        String sample = found 
-    //                                ? m.group() 
+    //                        String sample = found
+    //                                ? m.group()
     //                                        : "-1";
     //                                String samples = localeToSamples.get(locale);
     //                                localeToSamples.put(locale, samples == null ? sample : samples + ", " + sample);
@@ -380,7 +380,7 @@ public class WritePluralRulesSpreadsheets {
     //                throw new RuntimeException(e);
     //            }
     //        }
-    //    
+    //
     //        public static void generateLOCALE_SNAPSHOT(PluralRulesFactory pluralRulesFactory) {
     //            StringBuilder builder = new StringBuilder();
     //            Map<Set<SupplementalDataInfo.PluralInfo.Count>, Relation<String, ULocale>> keywordsToData = new TreeMap();
@@ -434,7 +434,7 @@ public class WritePluralRulesSpreadsheets {
     //                            System.out.println("**" + locales + " doesn't contain " + base);
     //                        }
     //                    }
-    //    
+    //
     //                    System.out.println(
     //                            "        \"" + CollectionUtilities.join(locales, ",")
     //                            + ";\t" + samplesAndLocales.getKey() + "\",");
@@ -442,16 +442,16 @@ public class WritePluralRulesSpreadsheets {
     //            }
     //            System.out.println("    };");
     //        }
-    //    
+    //
     //        private static class OldNewData extends Row.R5<String, String, String, String, String> {
     //            public OldNewData(String oldRules, String oldSamples, String newRules, String newSamples, String intDiff) {
     //                super(oldRules, oldSamples, newRules, newSamples, intDiff);
     //            }
     //        }
-    //    
+    //
     //        public static void showRules() throws IOException {
     //            BufferedWriter writer = getWriter("all-" + SampleStyle.rules + ".tsv");
-    //    
+    //
     //            if (true) {
     //                // for debugging
     //                PluralRules rules = PluralRulesFactory.ALTERNATE.forLocale(new ULocale("lv"));
@@ -476,9 +476,9 @@ public class WritePluralRulesSpreadsheets {
     //                for (String keyword : keywords) {
     //                    Collection<FixedDecimal> oldFractionSamples = oldRules.getFractionSamples(keyword);
     //                    Collection<FixedDecimal> newFractionSamples = newRules == null ? null : newRules.getFractionSamples(keyword);
-    //    
+    //
     //                    // add extra samples if we have some, or if the rules differ
-    //    
+    //
     //                    if (newRules != null) {
     //                        oldFractionSamples = oldFractionSamples == null ? new TreeSet()
     //                        : new TreeSet(oldFractionSamples);
@@ -494,7 +494,7 @@ public class WritePluralRulesSpreadsheets {
     //                        //                            }
     //                        //                        }
     //                        //                    }
-    //    
+    //
     //                        // if the rules differ, then add samples from each to the other
     //                        if (newRules != null) {
     //                            for (FixedDecimal sample : oldRules.getFractionSamples()) {
@@ -509,9 +509,9 @@ public class WritePluralRulesSpreadsheets {
     //                            }
     //                        }
     //                    }
-    //    
+    //
     //                    String intDiff = newRules == null ? "" : getDiffs(oldFractionSamples, newFractionSamples);
-    //    
+    //
     //                    String oldRulesString = rulesForDisplay(oldRules, keyword);
     //                    if (oldRulesString == null) {
     //                        oldRulesString = "";
@@ -526,9 +526,9 @@ public class WritePluralRulesSpreadsheets {
     //                        newRulesString = "<NEW MERGES>";
     //                    }
     //                    temp.put(keyword, new OldNewData(
-    //                            oldRulesString, 
+    //                            oldRulesString,
     //                            oldFractionSamples == null ? "" : "'" + CollectionUtilities.join(oldFractionSamples, ", "),
-    //                                    newRulesString, 
+    //                                    newRulesString,
     //                                    newFractionSamples == null ? "" : "'" + CollectionUtilities.join(newFractionSamples, ", "),
     //                                            intDiff.length() == 0 ? "" : "'" + intDiff
     //                            ));
@@ -552,7 +552,7 @@ public class WritePluralRulesSpreadsheets {
     //                    localeList = "";
     //                }
     //            }
-    //    
+    //
     //            if (false) {
     //                System.out.println("\n\nOld Rules for Locales");
     //                for (String localeString : FOCUS_LOCALES) {
@@ -563,17 +563,17 @@ public class WritePluralRulesSpreadsheets {
     //            }
     //            writer.close();
     //        }
-    //    
+    //
     //        /**
     //         * @param oldFractionSamples
     //         * @param newFractionSamples
     //         * @return
     //         */
-    //        private static String getDiffs(Collection<FixedDecimal> oldFractionSamples, 
+    //        private static String getDiffs(Collection<FixedDecimal> oldFractionSamples,
     //                Collection<FixedDecimal> newFractionSamples) {
     //            oldFractionSamples = oldFractionSamples == null ? Collections.EMPTY_SET : oldFractionSamples;
     //            newFractionSamples = newFractionSamples == null ? Collections.EMPTY_SET : newFractionSamples;
-    //    
+    //
     //            TreeSet<FixedDecimal> additions = new TreeSet(newFractionSamples);
     //            additions.removeAll(oldFractionSamples);
     //            TreeSet<FixedDecimal> removals = new TreeSet(oldFractionSamples);
@@ -583,7 +583,7 @@ public class WritePluralRulesSpreadsheets {
     //            addInts(removals, "-", result);
     //            return result.toString();
     //        }
-    //    
+    //
     //        private static void addInts(TreeSet<FixedDecimal> additions, String title, StringBuffer result) {
     //            for (FixedDecimal n : additions) {
     //                if (n.getVisibleDecimalDigitCount() == 0) {
@@ -594,12 +594,12 @@ public class WritePluralRulesSpreadsheets {
     //                }
     //            }
     //        }
-    //    
+    //
     //        static final Set<String> NEW_LOCALES = new HashSet(Arrays.asList("az,ka,kk,ky,mk,mn,my,pa,sq,uz".split("\\s*,\\s*")));
-    //    
-    //    
+    //
+    //
     //        enum SampleStyle {original, samples, rules, verify}
-    //    
+    //
     //        static void generateSamples(SampleStyle sampleStyle) throws IOException {
     //            LinkedHashSet<ULocale> skippedLocales = new LinkedHashSet<ULocale>();
     //            BufferedWriter writer = null;
@@ -608,26 +608,26 @@ public class WritePluralRulesSpreadsheets {
     //                //writer.write("Plural Category\tEnglish Number\tFormatted Sample\tAcceptable?\tReplacement\n");
     //                writer.write("Locale\tPC\tPattern\tSamples\tRules\tErrors (" + sampleStyle + ")\n");
     //            }
-    //    
+    //
     //            for (String localeString : FOCUS_LOCALES) {
     //                ULocale locale = new ULocale(localeString);
     //                if (sampleStyle == SampleStyle.verify) {
     //                    writer = getWriter("fraction-" + locale + ".tsv");
     //                    writer.write("Plural Category\tEnglish Number\tFormatted Sample\tAcceptable?\tReplacement\n");
     //                }
-    //    
+    //
     //                NumberFormat nf = NumberFormat.getInstance(new ULocale(locale.toString()+"@numbers=latn"));
     //                PluralRules newRules = PluralRulesFactory.ALTERNATE.forLocale(locale);
     //                SamplePatterns samplePatterns = PluralRulesFactory.getLocaleToSamplePatterns().get(locale);
     //                if (samplePatterns == null) {
     //                    samplePatterns = PluralRulesFactory.getLocaleToSamplePatterns().get(new ULocale("und"));
     //                }
-    //    
+    //
     //                //            if (samplePatterns == null && NEW_LOCALES.contains(localeString)) {
     //                //                skippedLocales.add(locale);
     //                //                continue;
     //                //            }
-    //                // check for errors. 
+    //                // check for errors.
     //                samplePatterns.checkErrors(newRules.getKeywords());
     //                // now print.
     //                for (String keyword : newRules.getKeywords()) {
@@ -691,7 +691,7 @@ public class WritePluralRulesSpreadsheets {
     //                writer.close();
     //            }
     //        }
-    //    
+    //
     //        private static BufferedWriter getWriter(String filename) {
     //            try {
     //                BufferedWriter writer;
@@ -707,7 +707,7 @@ public class WritePluralRulesSpreadsheets {
     //                throw new IllegalArgumentException(e);
     //            }
     //        }
-    //    
+    //
     //        private static Collection<FixedDecimal> getSamples(PluralRules newRules, String keyword, ULocale locale, SampleStyle sampleStyle) {
     //            Collection<FixedDecimal> result = new TreeSet();
     //            Collection<FixedDecimal> extras;
@@ -742,30 +742,30 @@ public class WritePluralRulesSpreadsheets {
     //            result.addAll(newRules..getgetFractionSamples(keyword));
     //            return result;
     //        }
-    //    
+    //
     //        private static String rulesForDisplay(PluralRules newRules, String keyword) {
     //            String rule;
     //            rule = newRules.getRules(keyword);
     //            rule = rule != null ? rule.replace(" ", "\u00A0").replace("\u00A0or", " or")
-    //                    : keyword.equals("other") ? "<all else>" 
+    //                    : keyword.equals("other") ? "<all else>"
     //                            : "";
     //            return rule;
     //        }
-    //    
+    //
     //        private static String format(String pattern, NumberFormat nf, FixedDecimal x) {
     //            nf.setMaximumFractionDigits(x.getVisibleDecimalDigitCount());
     //            nf.setMinimumFractionDigits(x.getVisibleDecimalDigitCount());
     //            String str = nf.format(x.source);
     //            return pattern.replace("{0}", str);
     //        }
-    //    
+    //
     //        /**
-    //         * 
+    //         *
     //         */
     //        private static void generateVerificationSamples() {
     //            // TODO Auto-generated method stub
-    //    
+    //
     //        }
-    //    
+    //
 
 }

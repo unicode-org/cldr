@@ -54,7 +54,7 @@ public class TestLocale extends TestFmwkPlus {
 
     public void TestLanguageRegions() {
         Set<String> missingLanguageRegion = new LinkedHashSet<String>();
-        Set<String> knownMultiScriptLanguages = new HashSet<String>(Arrays.asList("az","bs","pa","shi","sr","vai","uz","zh"));
+        Set<String> knownMultiScriptLanguages = new HashSet<String>(Arrays.asList("az", "bs", "pa", "shi", "sr", "vai", "uz", "zh"));
         Set<String> available = testInfo.getCldrFactory().getAvailable();
         LanguageTagParser ltp = new LanguageTagParser();
         Set<String> defaultContents = testInfo.getSupplementalDataInfo()
@@ -71,7 +71,7 @@ public class TestLocale extends TestFmwkPlus {
             if (!knownMultiScriptLanguages.contains(base)) {
                 assertFalse("Should NOT have " + locale,
                     defaultContents.contains(baseScript));
-            }           
+            }
             if (region.isEmpty()) {
                 continue;
             }
@@ -92,7 +92,7 @@ public class TestLocale extends TestFmwkPlus {
     /**
      * Determine whether the file should be checked for aliases; this is
      * currently not done for Keyboard definitions or DTD's
-     * 
+     *
      * @param f
      *            the file to check
      * @return
@@ -110,7 +110,7 @@ public class TestLocale extends TestFmwkPlus {
     /**
      * Check a single file for aliases, on a content level, the only check that
      * is done is that the one for readability.
-     * 
+     *
      * @param localeName
      *            - the localename
      * @param file
@@ -126,23 +126,23 @@ public class TestLocale extends TestFmwkPlus {
                 parser.iterateThroughNodeSet(XPATH_ALIAS_STRING,
                     new XPathExpressionParser.NodeHandlingInterface() {
 
-                        // Handle gets called for every node of the node set
-                        @Override
-                        public void handle(Node result) {
-                            if (result instanceof Element) {
-                                Element el = (Element) result;
-                                // this node likely has an attribute source
-                                if (el.hasAttributes()) {
-                                    String sourceAttr = el
-                                        .getAttribute("source");
-                                    if (sourceAttr != null
-                                        && !sourceAttr.isEmpty()) {
-                                        localesWithAliases.add(localeName);
-                                    }
+                    // Handle gets called for every node of the node set
+                    @Override
+                    public void handle(Node result) {
+                        if (result instanceof Element) {
+                            Element el = (Element) result;
+                            // this node likely has an attribute source
+                            if (el.hasAttributes()) {
+                                String sourceAttr = el
+                                    .getAttribute("source");
+                                if (sourceAttr != null
+                                    && !sourceAttr.isEmpty()) {
+                                    localesWithAliases.add(localeName);
                                 }
                             }
                         }
-                    });
+                    }
+                });
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -163,16 +163,15 @@ public class TestLocale extends TestFmwkPlus {
         for (File file : CLDRConfig.getInstance().getAllCLDRFilesEndingWith(
             ".xml")) {
             String parent = file.getParent();
-            if (parent.contains("transform") 
+            if (parent.contains("transform")
                 || parent.contains("bcp47")
                 || parent.contains("supplemental")
-                || parent.contains("validity")
-                ) {
+                || parent.contains("validity")) {
                 continue;
             }
             String localeName = file.getName();
             localeName = localeName.substring(0, localeName.length() - 4); // remove
-                                                                           // .xml
+            // .xml
             if (localeName.equals("root") || localeName.equals("_platform")) {
                 continue;
             }
@@ -231,6 +230,7 @@ public class TestLocale extends TestFmwkPlus {
     }
 
     final MatcherPattern SCRIPT_NON_UNICODE = AttributeValueValidity.getMatcherPattern("$scriptNonUnicode");
+
     public void checkScript(String file, String script) {
         if (!script.isEmpty()) {
             if (!ALLOWED_SCRIPTS.contains(script) && SCRIPT_NON_UNICODE.matches(script, null)) {
@@ -335,28 +335,28 @@ public class TestLocale extends TestFmwkPlus {
                 "Anglish (abc)",
                 "en",
                 "Anglish [abc]",
-                "〖?Anglish [abc]?❬ (U.S. [ghi])❭〗〖?Anglish [abc]?❬ (Latine [def])❭〗〖?Anglish [abc]?❬ (Latine [def], U.S. [ghi])❭〗〖❬Langue: ❭?Anglish (abc)?〗" },
+            "〖?Anglish [abc]?❬ (U.S. [ghi])❭〗〖?Anglish [abc]?❬ (Latine [def])❭〗〖?Anglish [abc]?❬ (Latine [def], U.S. [ghi])❭〗〖❬Langue: ❭?Anglish (abc)?〗" },
             {
                 "script",
                 "Latn",
                 "Latine (def)",
                 "en_Latn",
                 "Anglish [abc] (Latine [def])",
-                "〖❬Anglish [abc] (❭?Latine [def]?❬)❭〗〖❬Anglish [abc] (❭?Latine [def]?❬, U.S. [ghi])❭〗〖❬Scripte: ❭?Latine (def)?〗" },
+            "〖❬Anglish [abc] (❭?Latine [def]?❬)❭〗〖❬Anglish [abc] (❭?Latine [def]?❬, U.S. [ghi])❭〗〖❬Scripte: ❭?Latine (def)?〗" },
             {
                 "territory",
                 "US",
                 "U.S. (ghi)",
                 "en_Latn_US",
                 "Anglish [abc] (Latine [def], U.S. [ghi])",
-                "〖❬Anglish [abc] (❭?U.S. [ghi]?❬)❭〗〖❬Anglish [abc] (Latine [def], ❭?U.S. [ghi]?❬)❭〗〖❬Territorie: ❭?U.S. (ghi)?〗" },
+            "〖❬Anglish [abc] (❭?U.S. [ghi]?❬)❭〗〖❬Anglish [abc] (Latine [def], ❭?U.S. [ghi]?❬)❭〗〖❬Territorie: ❭?U.S. (ghi)?〗" },
             { null, null, null, "en_US", "Anglish [abc] (U.S. [ghi])", null },
             { "variant", "foobar", "foo (jkl)", "en_foobar",
                 "Anglish [abc] (foo [jkl])", null },
-            { "key", "co", "sort (mno)", "en_foobar@co=FOO",
-                "Anglish [abc] (foo [jkl], sort [mno]=FOO)", null },
-            { "key|type", "co|FII", "sortfii (mno)", "en_foobar@co=FII",
-                "Anglish [abc] (foo [jkl], sortfii [mno])", null }, };
+                { "key", "co", "sort (mno)", "en_foobar@co=FOO",
+                    "Anglish [abc] (foo [jkl], sort [mno]=FOO)", null },
+                    { "key|type", "co|FII", "sortfii (mno)", "en_foobar@co=FII",
+                        "Anglish [abc] (foo [jkl], sortfii [mno])", null }, };
         // load up a dummy source
         SimpleXMLSource dxs = new SimpleXMLSource("xx");
         for (String[] row : tests) {
@@ -425,7 +425,7 @@ public class TestLocale extends TestFmwkPlus {
             testInfo.getEnglish().getName("zh_Hans"));
         assertEquals("Extended language translation",
             "Simplified Chinese (Singapore)", testInfo.getEnglish()
-                .getName("zh_Hans_SG"));
+            .getName("zh_Hans_SG"));
         assertEquals("Extended language translation", "American English",
             testInfo.getEnglish().getName("en-US"));
         assertEquals("Extended language translation",

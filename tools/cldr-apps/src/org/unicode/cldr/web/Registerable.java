@@ -36,7 +36,7 @@ public class Registerable {
 
     /**
      * protected constructor. Does not register, call register()
-     * 
+     *
      * @param lcr
      *            the LCR to eventually register with
      * @param locale
@@ -104,7 +104,7 @@ public class Registerable {
 
     /**
      * convert this item to a string..
-     * 
+     *
      * @return this item as a string
      */
     public String toString() {

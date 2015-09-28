@@ -119,8 +119,8 @@ public class TestSTFactory extends TestFmwk {
             originalValue = expect(somePath, ANY, false, mt, box);
 
             changedTo = "The main pump fixing screws with the correct strength class"; // as
-                                                                                       // per
-                                                                                       // ticket:2260
+            // per
+            // ticket:2260
 
             if (originalValue.equals(changedTo)) {
                 errln("for " + locale + " value " + somePath + " winner is already= " + originalValue);
@@ -327,7 +327,7 @@ public class TestSTFactory extends TestFmwk {
             box.voteForValue(getMyUser(), somePath2, null);
 
             expect(somePath2, null, false, mt_MT, box); // Expect null - no one
-                                                        // has voted.
+            // has voted.
         }
         fac = resetFactory();
         {
@@ -557,7 +557,7 @@ public class TestSTFactory extends TestFmwk {
 
                         if (statusFromXpathBack == null) {
                             statusFromXpathBack = "approved"; // no draft =
-                                                              // approved
+                            // approved
                         }
                         xpathStatusBack = Status.fromString(statusFromXpathBack);
                     }
@@ -719,10 +719,10 @@ public class TestSTFactory extends TestFmwk {
             box.voteForValue(getMyUser(), somePath2, null);
 
             expect(somePath2, originalValue2, false, mt_MT, box); // Expect
-                                                                  // original
-                                                                  // value - no
-                                                                  // one has
-                                                                  // voted.
+            // original
+            // value - no
+            // one has
+            // voted.
 
             String fullPath2 = mt_MT.getFullXPath(somePath2);
             if (!fullPath2.contains("numbers=")) {
@@ -735,8 +735,8 @@ public class TestSTFactory extends TestFmwk {
             BallotBox<User> box = fac.ballotBoxForLocale(locale2);
 
             expect(somePath2, originalValue2, false, mt_MT, box); // still
-                                                                  // original
-                                                                  // value
+            // original
+            // value
 
             // vote for ____2
             changedTo2 = changedTo2 + "__";
@@ -771,8 +771,8 @@ public class TestSTFactory extends TestFmwk {
     }
 
     /*
-     * 
-     * !!! Can't work this way.. 
+     *
+     * !!! Can't work this way..
         public void TestVotingAge() throws SQLException, IOException, InterruptedException, JSONException, InvalidXPathException {
             CLDRConfig config = CLDRConfig.getInstance();
             // "Old" version

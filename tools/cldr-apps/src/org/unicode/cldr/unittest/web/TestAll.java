@@ -129,7 +129,7 @@ public class TestAll extends TestGroup {
     public static final String CLASS_TARGET_NAME = "CLDR.Web";
 
     /**
-     * 
+     *
      * @author srl
      * @see TestInfo
      */
@@ -308,7 +308,7 @@ public class TestAll extends TestGroup {
 
     /**
      * null = inmemory.
-     * 
+     *
      * @param theDir
      * @return
      */
@@ -382,7 +382,7 @@ public class TestAll extends TestGroup {
 
     /**
      * Fetch data from jar
-     * 
+     *
      * @param name
      *            name of thing to load
      *            (org.unicode.cldr.unittest.web.data.name)

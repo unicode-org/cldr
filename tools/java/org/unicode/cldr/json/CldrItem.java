@@ -298,7 +298,18 @@ public class CldrItem implements Comparable<CldrItem> {
         } else {
             fileDtdType = DtdType.ldml;
         }
-        int result = DtdData.getInstance(fileDtdType).getDtdComparator(null).compare(untransformedPath, otherItem.untransformedPath);
+        int result = 0;
+        if (thisxpp.getElement(1).equals("weekData") && thisxpp.getElement(2).equals(otherxpp.getElement(2))) {
+            String thisTerritory = thisxpp.findFirstAttributeValue("territories");
+            String otherTerritory = otherxpp.findFirstAttributeValue("territories");
+            if (thisTerritory != null && otherTerritory != null) {
+                result = thisTerritory.compareTo(otherTerritory);
+            }
+            if (result != 0) {
+                return result;
+            }
+        }
+        result = DtdData.getInstance(fileDtdType).getDtdComparator(null).compare(untransformedPath, otherItem.untransformedPath);
         return result;
         //return CLDRFile.getLdmlComparator().compare(path, otherItem.path);
         //return path.compareTo(otherItem.path);

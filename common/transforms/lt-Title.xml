@@ -6,23 +6,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="lt" target="Title" direction="forward">
-			<comment># Copyright (C) 2011-2014, Google, Inc.; Unicode, Inc.; and others. All Rights Reserved.</comment>
-			<comment># Make any string of letters after a cased letter be lower</comment>
-			<tRule>::NFD();</tRule>
-			<tRule>[:cased:] [:case-ignorable:]* {I } [^[:ccc=Not_Reordered:][:ccc=Above:]]* [:ccc=Above:] → i \u0307;</tRule> 
-			<tRule>[:cased:] [:case-ignorable:]* {J } [^[:ccc=Not_Reordered:][:ccc=Above:]]* [:ccc=Above:] → j \u0307;</tRule> 
-			<tRule>[:cased:] [:case-ignorable:]* {I \u0328 } [^[:ccc=Not_Reordered:][:ccc=Above:]]* [:ccc=Above:] → i \u0328 \u0307;</tRule> 
-			<tRule>[:cased:] [:case-ignorable:]* {I \u0300 → i \u0307 \u0300;</tRule> 
-			<tRule>[:cased:] [:case-ignorable:]* {I \u0301 → i \u0307 \u0301;</tRule> 
-			<tRule>[:cased:] [:case-ignorable:]* {I \u0303 → i \u0307 \u0303;</tRule> 
-			<tRule>[:cased:] [:case-ignorable:]* { (.) → &amp;Any-Lower($1) ;</tRule>
-			<comment># Otherwise all lowercase go to upper (titlecase stay as is)</comment>
-			<tRule>[:Soft_Dotted:] [^[:ccc=Not_Reordered:][:ccc=Above:]]* { \u0307 → ;</tRule>
-			<tRule>([:Lowercase:]) → &amp;Any-Upper($1) ;</tRule>
-			<tRule>::NFC();</tRule>
+			<tRule>
+# Copyright (C) 2011-2014, Google, Inc.; Unicode, Inc.; and others. All Rights Reserved.
+# Make any string of letters after a cased letter be lower
+::NFD();
+[:cased:] [:case-ignorable:]* {I } [^[:ccc=Not_Reordered:][:ccc=Above:]]* [:ccc=Above:] → i \u0307;
+[:cased:] [:case-ignorable:]* {J } [^[:ccc=Not_Reordered:][:ccc=Above:]]* [:ccc=Above:] → j \u0307;
+[:cased:] [:case-ignorable:]* {I \u0328 } [^[:ccc=Not_Reordered:][:ccc=Above:]]* [:ccc=Above:] → i \u0328 \u0307;
+[:cased:] [:case-ignorable:]* {I \u0300 → i \u0307 \u0300;
+[:cased:] [:case-ignorable:]* {I \u0301 → i \u0307 \u0301;
+[:cased:] [:case-ignorable:]* {I \u0303 → i \u0307 \u0303;
+[:cased:] [:case-ignorable:]* { (.) → &amp;Any-Lower($1) ;
+# Otherwise all lowercase go to upper (titlecase stay as is)
+[:Soft_Dotted:] [^[:ccc=Not_Reordered:][:ccc=Above:]]* { \u0307 → ;
+([:Lowercase:]) → &amp;Any-Upper($1) ;
+::NFC();
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

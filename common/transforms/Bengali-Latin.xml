@@ -6,15 +6,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Bengali" target="Latin" direction="forward">
-			<tRule>::[[:script=bengali:][।-॥ঁ-ঃঅ-ঌএ-ঐও-নপ-রলশ-হ়-ৄে-ৈো-্ৗড়-ঢ়য়-ৣ০-৺ৎ]];</tRule>
-			<tRule>::NFD;</tRule>
-			<tRule>::Bengali-InterIndic;</tRule>
-			<tRule>::InterIndic-Latin;</tRule>
-			<tRule>::NFC;</tRule>
+			<tRule>
+::[[:script=bengali:][।-॥ঁ-ঃঅ-ঌএ-ঐও-নপ-রলশ-হ়-ৄে-ৈো-্ৗড়-ঢ়য়-ৣ০-৺ৎ]];
+::NFD;
+::Bengali-InterIndic;
+::InterIndic-Latin;
+::NFC;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>
-

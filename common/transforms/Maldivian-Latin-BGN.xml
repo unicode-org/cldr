@@ -6,142 +6,144 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Maldivian" target="Latin" direction="forward" variant="BGN" draft="provisional">
-			<comment>
-			########################################################################
-			# BGN/PCGN 1988 System
-			#
-			# This romanization system supersedes the one which was approved by
-			# the BGN and the PCGN in 1972. This official system was submitted
-			# to the PCGN by the Maldivian government in 1987. Its application
-			# to date has been limited because of the paucity of geographic
-			# names source materials in Maldivian script.
-			#
-			# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
-			########################################################################
-			#
-			# MINIMAL FILTER: Maldivian-Latin
-			#
-			</comment>
-			<tRule>:: [ހށނރބޅކއވމފދތލގޏސޑޒޓޔޕޖޗަާިީުޫެޭޮޯް];</tRule>
-			<tRule>:: NFD (NFC) ;</tRule>
-			<comment>
-			#
-			########################################################################
-			</comment>
+			<tRule>
+#
+########################################################################
+# BGN/PCGN 1988 System
+#
+# This romanization system supersedes the one which was approved by
+# the BGN and the PCGN in 1972. This official system was submitted
+# to the PCGN by the Maldivian government in 1987. Its application
+# to date has been limited because of the paucity of geographic
+# names source materials in Maldivian script.
+#
+# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
+########################################################################
+#
+# MINIMAL FILTER: Maldivian-Latin
+#
 
-			<comment>
-			########################################################################
-			#
-			# Rules moved to front to avoid masking
-			#
-			########################################################################
-			</comment>
+:: [ހށނރބޅކއވމފދތލގޏސޑޒޓޔޕޖޗަާިީުޫެޭޮޯް];
+:: NFD (NFC) ;
+#
+#
+########################################################################
 
-			<comment>
-			########################################################################
-			#
-			# BGN Page 71 Rule 3:
-			#
-			# The character އ is not romanized. If it bears a vowel character, that
-			# vowel character alone is romanized. If it does not bear a vowel
-			# character, the romanized value of the following consonant character
-			# is doubled. 
-			#
-			########################################################################
-			#
-			</comment>
-			<tRule>އަ → a ; # THAANA LETTER ALIFU + ABAFILI</tRule>
-			<tRule>އާ → aa ; # THAANA LETTER ALIFU + AABAAFILI</tRule>
-			<tRule>އި → i ; # THAANA LETTER ALIFU + IBIFILI</tRule>
-			<tRule>އީ → ee ; # THAANA LETTER ALIFU + EEBEEFILI</tRule>
-			<tRule>އު → u ; # THAANA LETTER ALIFU + UBUFILI</tRule>
-			<tRule>އޫ → oo ; # THAANA LETTER ALIFU + OOBOOFILI</tRule>
-			<tRule>އެ → e ; # THAANA LETTER ALIFU + EBEFILI</tRule>
-			<tRule>އޭ → ey ; # THAANA LETTER ALIFU + EYBEYFILI</tRule>
-			<tRule>އޮ → o ; # THAANA LETTER ALIFU + OBOFILI</tRule>
-			<tRule>އޯ → oa ; # THAANA LETTER ALIFU + OABOAFILI</tRule>
 
-			<tRule>އހ → hh ; # THAANA LETTER ALIFU + HAA</tRule>
-			<tRule>އށ → shsh ; # THAANA LETTER ALIFU + SHAVIYANI </tRule>
-			<tRule>އނ → nn ; # THAANA LETTER ALIFU + NOONU</tRule>
-			<tRule>އރ → rr ; # THAANA LETTER ALIFU + RAA</tRule>
-			<tRule>އބ → bb ; # THAANA LETTER ALIFU + BAA</tRule>
-			<tRule>އޅ → lhlh ; # THAANA LETTER ALIFU + LHAVIYANI</tRule>
-			<tRule>އކ → kk ; # THAANA LETTER ALIFU + KAAFU</tRule>
-			<tRule>އވ → vv ; # THAANA LETTER ALIFU + VAAVU</tRule>
-			<tRule>އމ → mm ; # THAANA LETTER ALIFU + MEEMU</tRule>
-			<tRule>އފ → ff ; # THAANA LETTER ALIFU + FAAFU</tRule>
-			<tRule>އދ → dhdh ; # THAANA LETTER ALIFU + DHAALU</tRule>
-			<tRule>އތ → thth ; # THAANA LETTER ALIFU + THAA</tRule>
-			<tRule>އލ → ll ; # THAANA LETTER ALIFU + LAAMU</tRule>
-			<tRule>އގ → gg ; # THAANA LETTER ALIFU + GAAFU</tRule>
-			<tRule>އޏ → gngn ; # THAANA LETTER ALIFU + GNAVIYANI</tRule>
-			<tRule>އސ → ss ; # THAANA LETTER ALIFU + SEENU</tRule>
-			<tRule>އޑ → dd ; # THAANA LETTER ALIFU + DAVIYANI</tRule>
-			<tRule>އޒ → zz ; # THAANA LETTER ALIFU + ZAVIYANI</tRule>
-			<tRule>އޓ → tt ; # THAANA LETTER ALIFU + TAVIYANI</tRule>
-			<tRule>އޔ → yy ; # THAANA LETTER ALIFU + YAA</tRule>
-			<tRule>އޕ → pp ; # THAANA LETTER ALIFU + PAVIYANI</tRule>
-			<tRule>އޖ → jj ; # THAANA LETTER ALIFU + JAVIYANI</tRule>
-			<tRule>އޗ → chch ; # THAANA LETTER ALIFU + CHAVIYANI</tRule>
-			<comment>
-			#
-			########################################################################
-			#
-			# End of Rule 3
-			#
-			########################################################################
-			</comment>
+#
+########################################################################
+#
+# Rules moved to front to avoid masking
+#
+########################################################################
 
-			<comment>
-			########################################################################
-			#
-			# Start of Transformations
-			#
-			########################################################################
-			</comment>
 
-			<tRule>ހ → h ; # THAANA LETTER HAA</tRule>
-			<tRule>ށ → sh ; # THAANA LETTER SHAVIYANI</tRule>
-			<tRule>ނ → n ; # THAANA LETTER NOONU</tRule>
-			<tRule>ރ → r ; # THAANA LETTER RAA</tRule>
-			<tRule>ބ → b ; # THAANA LETTER BAA</tRule>
-			<tRule>ޅ → lh ; # THAANA LETTER LHAVIYANI</tRule>
-			<tRule>ކ → k ; # THAANA LETTER KAAFU</tRule>
-			<tRule>ވ → v ; # THAANA LETTER VAAVU</tRule>
-			<tRule>މ → m ; # THAANA LETTER MEEMU</tRule>
-			<tRule>ފ → f ; # THAANA LETTER FAAFU</tRule>
-			<tRule>ދ → dh ; # THAANA LETTER DHAALU</tRule>
-			<tRule>ތ → th ; # THAANA LETTER THAA</tRule>
-			<tRule>ލ → l ; # THAANA LETTER LAAMU</tRule>
-			<tRule>ގ → g ; # THAANA LETTER GAAFU</tRule>
-			<tRule>ޏ → gn ; # THAANA LETTER GNAVIYANI</tRule>
-			<tRule>ސ → s ; # THAANA LETTER SEENU</tRule>
-			<tRule>ޑ → d ; # THAANA LETTER DAVIYANI</tRule>
-			<tRule>ޒ → z ; # THAANA LETTER ZAVIYANI</tRule>
-			<tRule>ޓ → t ; # THAANA LETTER TAVIYANI</tRule>
-			<tRule>ޔ → y ; # THAANA LETTER YAA</tRule>
-			<tRule>ޕ → p ; # THAANA LETTER PAVIYANI</tRule>
-			<tRule>ޖ → j ; # THAANA LETTER JAVIYANI</tRule>
-			<tRule>ޗ → ch ; # THAANA LETTER CHAVIYANI</tRule>
-			<tRule>ަ → a ; # THAANA ABAFILI</tRule>
-			<tRule>ާ → aa ; # THAANA AABAAFILI</tRule>
-			<tRule>ި → i ; # THAANA IBIFILI</tRule>
-			<tRule>ީ → ee ; # THAANA EEBEEFILI</tRule>
-			<tRule>ު → u ; # THAANA UBUFILI</tRule>
-			<tRule>ޫ → oo ; # THAANA OOBOOFILI</tRule>
-			<tRule>ެ → e ; # THAANA EBEFILI</tRule>
-			<tRule>ޭ → ey ; # THAANA EYBEYFILI</tRule>
-			<tRule>ޮ → o ; # THAANA OBOFILI</tRule>
-			<tRule>ޯ → oa ; # THAANA OABOAFILI</tRule>
-			<tRule>ް → ; # THAANA SUKUUN</tRule>
-			<comment>
-			#
-			########################################################################
-			</comment>
+#
+########################################################################
+#
+# BGN Page 71 Rule 3:
+#
+# The character އ is not romanized. If it bears a vowel character, that
+# vowel character alone is romanized. If it does not bear a vowel
+# character, the romanized value of the following consonant character
+# is doubled.
+#
+########################################################################
+#
+
+އަ → a ; # THAANA LETTER ALIFU + ABAFILI
+އާ → aa ; # THAANA LETTER ALIFU + AABAAFILI
+އި → i ; # THAANA LETTER ALIFU + IBIFILI
+އީ → ee ; # THAANA LETTER ALIFU + EEBEEFILI
+އު → u ; # THAANA LETTER ALIFU + UBUFILI
+އޫ → oo ; # THAANA LETTER ALIFU + OOBOOFILI
+އެ → e ; # THAANA LETTER ALIFU + EBEFILI
+އޭ → ey ; # THAANA LETTER ALIFU + EYBEYFILI
+އޮ → o ; # THAANA LETTER ALIFU + OBOFILI
+އޯ → oa ; # THAANA LETTER ALIFU + OABOAFILI
+
+އހ → hh ; # THAANA LETTER ALIFU + HAA
+އށ → shsh ; # THAANA LETTER ALIFU + SHAVIYANI
+އނ → nn ; # THAANA LETTER ALIFU + NOONU
+އރ → rr ; # THAANA LETTER ALIFU + RAA
+އބ → bb ; # THAANA LETTER ALIFU + BAA
+އޅ → lhlh ; # THAANA LETTER ALIFU + LHAVIYANI
+އކ → kk ; # THAANA LETTER ALIFU + KAAFU
+އވ → vv ; # THAANA LETTER ALIFU + VAAVU
+އމ → mm ; # THAANA LETTER ALIFU + MEEMU
+އފ → ff ; # THAANA LETTER ALIFU + FAAFU
+އދ → dhdh ; # THAANA LETTER ALIFU + DHAALU
+އތ → thth ; # THAANA LETTER ALIFU + THAA
+އލ → ll ; # THAANA LETTER ALIFU + LAAMU
+އގ → gg ; # THAANA LETTER ALIFU + GAAFU
+އޏ → gngn ; # THAANA LETTER ALIFU + GNAVIYANI
+އސ → ss ; # THAANA LETTER ALIFU + SEENU
+އޑ → dd ; # THAANA LETTER ALIFU + DAVIYANI
+އޒ → zz ; # THAANA LETTER ALIFU + ZAVIYANI
+އޓ → tt ; # THAANA LETTER ALIFU + TAVIYANI
+އޔ → yy ; # THAANA LETTER ALIFU + YAA
+އޕ → pp ; # THAANA LETTER ALIFU + PAVIYANI
+އޖ → jj ; # THAANA LETTER ALIFU + JAVIYANI
+އޗ → chch ; # THAANA LETTER ALIFU + CHAVIYANI
+#
+#
+########################################################################
+#
+# End of Rule 3
+#
+########################################################################
+
+
+#
+########################################################################
+#
+# Start of Transformations
+#
+########################################################################
+
+
+ހ → h ; # THAANA LETTER HAA
+ށ → sh ; # THAANA LETTER SHAVIYANI
+ނ → n ; # THAANA LETTER NOONU
+ރ → r ; # THAANA LETTER RAA
+ބ → b ; # THAANA LETTER BAA
+ޅ → lh ; # THAANA LETTER LHAVIYANI
+ކ → k ; # THAANA LETTER KAAFU
+ވ → v ; # THAANA LETTER VAAVU
+މ → m ; # THAANA LETTER MEEMU
+ފ → f ; # THAANA LETTER FAAFU
+ދ → dh ; # THAANA LETTER DHAALU
+ތ → th ; # THAANA LETTER THAA
+ލ → l ; # THAANA LETTER LAAMU
+ގ → g ; # THAANA LETTER GAAFU
+ޏ → gn ; # THAANA LETTER GNAVIYANI
+ސ → s ; # THAANA LETTER SEENU
+ޑ → d ; # THAANA LETTER DAVIYANI
+ޒ → z ; # THAANA LETTER ZAVIYANI
+ޓ → t ; # THAANA LETTER TAVIYANI
+ޔ → y ; # THAANA LETTER YAA
+ޕ → p ; # THAANA LETTER PAVIYANI
+ޖ → j ; # THAANA LETTER JAVIYANI
+ޗ → ch ; # THAANA LETTER CHAVIYANI
+ަ → a ; # THAANA ABAFILI
+ާ → aa ; # THAANA AABAAFILI
+ި → i ; # THAANA IBIFILI
+ީ → ee ; # THAANA EEBEEFILI
+ު → u ; # THAANA UBUFILI
+ޫ → oo ; # THAANA OOBOOFILI
+ެ → e ; # THAANA EBEFILI
+ޭ → ey ; # THAANA EYBEYFILI
+ޮ → o ; # THAANA OBOFILI
+ޯ → oa ; # THAANA OABOAFILI
+ް → ; # THAANA SUKUUN
+#
+#
+########################################################################
+
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

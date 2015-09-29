@@ -6,17 +6,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Thai" target="Latin" direction="forward">
-			<tRule>::[[:thai:] ก-ฺเ-๛];</tRule>
-			<tRule>::NFD;</tRule>
-			<tRule>::Thai-ThaiSemi;</tRule>
-			<tRule>::Any-BreakInternal;</tRule>
-			<tRule>::Thai-ThaiLogical;</tRule>
-			<tRule>::ThaiLogical-Latin;</tRule>
-			<tRule>::NFC;</tRule>
+			<tRule>
+::[[:thai:] ก-ฺเ-๛];
+::NFD;
+::Thai-ThaiSemi;
+::Any-BreakInternal;
+::Thai-ThaiLogical;
+::ThaiLogical-Latin;
+::NFC;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>
-

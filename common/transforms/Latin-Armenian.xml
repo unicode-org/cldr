@@ -6,92 +6,93 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Latin" target="Armenian" direction="both">
-			<tRule>::NFD(NFC);</tRule>
-			<tRule>ev ↔ և ;</tRule>
-			<tRule>tʻ ↔ թ ;</tRule>
-			<tRule>čʻ ↔ չ ;</tRule>
-			<tRule>cʻ ↔ ց ;</tRule>
-			<tRule>pʻ ↔ փ ;</tRule>
-			<tRule>kʻ ↔ ք ;</tRule>
-			<tRule>u ↔ ու ;</tRule>
-			<tRule>a ↔ ա ;</tRule>
-			<tRule>b ↔ բ ;</tRule>
-			<tRule>g ↔ գ ;</tRule>
-			<tRule>d ↔ դ ;</tRule>
-			<tRule>e ↔ ե ;</tRule>
-			<tRule>z ↔ զ ;</tRule>
-			<tRule>ē ↔ է ;</tRule>
-			<tRule>ə ↔ ը ;</tRule>
-			<tRule>ž ↔ ժ ;</tRule>
-			<tRule>i ↔ ի ;</tRule>
-			<tRule>l ↔ լ ;</tRule>
-			<tRule>x ↔ խ ;</tRule>
-			<tRule>c ↔ ծ ;</tRule>
-			<tRule>k ↔ կ ;</tRule>
-			<tRule>h ↔ հ ;</tRule>
-			<tRule>j ↔ ձ ;</tRule>
-			<tRule>ġ ↔ ղ ;</tRule>
-			<tRule>č ↔ ճ ;</tRule>
-			<tRule>m ↔ մ ;</tRule>
-			<tRule>y ↔ յ ;</tRule>
-			<tRule>n ↔ ն ;</tRule>
-			<tRule>š ↔ շ ;</tRule>
-			<tRule>o ↔ ո ;</tRule>
-			<tRule>p ↔ պ ;</tRule>
-			<tRule>ǰ ↔ ջ ;</tRule>
-			<tRule>ṙ ↔ ռ ;</tRule>
-			<tRule>s ↔ ս ;</tRule>
-			<tRule>v ↔ վ ;</tRule>
-			<tRule>t ↔ տ ;</tRule>
-			<tRule>r ↔ ր ;</tRule>
-			<tRule>w ↔ ւ ;</tRule>
-			<tRule>ō ↔ օ ;</tRule>
-			<tRule>f ↔ ֆ ;</tRule>
-			<tRule>U ↔ ՈՒ ;</tRule>
-			<tRule>EV ↔ ԵՒ ;</tRule>
-			<tRule>J̌ ↔ Ջ ;</tRule>
-			<tRule>Pʻ ↔ Փ ;</tRule>
-			<tRule>Kʻ ↔ Ք ;</tRule>
-			<tRule>Tʻ ↔ Թ ;</tRule>
-			<tRule>Čʻ ↔ Չ ;</tRule>
-			<tRule>Cʻ ↔ Ց ;</tRule>
-			<tRule>A ↔ Ա ;</tRule>
-			<tRule>B ↔ Բ ;</tRule>
-			<tRule>G ↔ Գ ;</tRule>
-			<tRule>D ↔ Դ ;</tRule>
-			<tRule>E ↔ Ե ;</tRule>
-			<tRule>Z ↔ Զ ;</tRule>
-			<tRule>Ē ↔ Է ;</tRule>
-			<tRule>Ə ↔ Ը ;</tRule>
-			<tRule>Ž ↔ Ժ ;</tRule>
-			<tRule>I ↔ Ի ;</tRule>
-			<tRule>L ↔ Լ ;</tRule>
-			<tRule>X ↔ Խ ;</tRule>
-			<tRule>C ↔ Ծ ;</tRule>
-			<tRule>K ↔ Կ ;</tRule>
-			<tRule>H ↔ Հ ;</tRule>
-			<tRule>J ↔ Ձ ;</tRule>
-			<tRule>Ġ ↔ Ղ ;</tRule>
-			<tRule>Č ↔ Ճ ;</tRule>
-			<tRule>M ↔ Մ ;</tRule>
-			<tRule>Y ↔ Յ ;</tRule>
-			<tRule>N ↔ Ն ;</tRule>
-			<tRule>Š ↔ Շ ;</tRule>
-			<tRule>O ↔ Ո ;</tRule>
-			<tRule>P ↔ Պ ;</tRule>
-			<tRule>Ṙ ↔ Ռ ;</tRule>
-			<tRule>S ↔ Ս ;</tRule>
-			<tRule>V ↔ Վ ;</tRule>
-			<tRule>T ↔ Տ ;</tRule>
-			<tRule>R ↔ Ր ;</tRule>
-			<tRule>W ↔ Ւ ;</tRule>
-			<tRule>Ō ↔ Օ ;</tRule>
-			<tRule>F ↔ Ֆ ;</tRule>
-			<tRule>::NFC(NFD);</tRule>
+			<tRule>
+::NFD(NFC);
+ev ↔ և ;
+tʻ ↔ թ ;
+čʻ ↔ չ ;
+cʻ ↔ ց ;
+pʻ ↔ փ ;
+kʻ ↔ ք ;
+u ↔ ու ;
+a ↔ ա ;
+b ↔ բ ;
+g ↔ գ ;
+d ↔ դ ;
+e ↔ ե ;
+z ↔ զ ;
+ē ↔ է ;
+ə ↔ ը ;
+ž ↔ ժ ;
+i ↔ ի ;
+l ↔ լ ;
+x ↔ խ ;
+c ↔ ծ ;
+k ↔ կ ;
+h ↔ հ ;
+j ↔ ձ ;
+ġ ↔ ղ ;
+č ↔ ճ ;
+m ↔ մ ;
+y ↔ յ ;
+n ↔ ն ;
+š ↔ շ ;
+o ↔ ո ;
+p ↔ պ ;
+ǰ ↔ ջ ;
+ṙ ↔ ռ ;
+s ↔ ս ;
+v ↔ վ ;
+t ↔ տ ;
+r ↔ ր ;
+w ↔ ւ ;
+ō ↔ օ ;
+f ↔ ֆ ;
+U ↔ ՈՒ ;
+EV ↔ ԵՒ ;
+J̌ ↔ Ջ ;
+Pʻ ↔ Փ ;
+Kʻ ↔ Ք ;
+Tʻ ↔ Թ ;
+Čʻ ↔ Չ ;
+Cʻ ↔ Ց ;
+A ↔ Ա ;
+B ↔ Բ ;
+G ↔ Գ ;
+D ↔ Դ ;
+E ↔ Ե ;
+Z ↔ Զ ;
+Ē ↔ Է ;
+Ə ↔ Ը ;
+Ž ↔ Ժ ;
+I ↔ Ի ;
+L ↔ Լ ;
+X ↔ Խ ;
+C ↔ Ծ ;
+K ↔ Կ ;
+H ↔ Հ ;
+J ↔ Ձ ;
+Ġ ↔ Ղ ;
+Č ↔ Ճ ;
+M ↔ Մ ;
+Y ↔ Յ ;
+N ↔ Ն ;
+Š ↔ Շ ;
+O ↔ Ո ;
+P ↔ Պ ;
+Ṙ ↔ Ռ ;
+S ↔ Ս ;
+V ↔ Վ ;
+T ↔ Տ ;
+R ↔ Ր ;
+W ↔ Ւ ;
+Ō ↔ Օ ;
+F ↔ Ֆ ;
+::NFC(NFD);
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>
-

@@ -6,48 +6,50 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="yo" target="yo_BJ" direction="forward" draft="provisional">
-			<comment>
-			########################################################################
-			#
-			# Latin Characters that must be changed:
-			#
-			#   ẸỌṢ
-			#   ẹọṣ
-			#
-			# Originally prepared by Jonathan Lai ( jali01@ca.ibm.com )
-			########################################################################
-			#
-			# MINIMAL FILTER: yo-yo-BJ
-			#
-			</comment>
-			<tRule>:: [ẸỌṢẹọṣ] ;</tRule>
-			<tRule>:: NFC ;</tRule>
-			<comment>
-			#
-			########################################################################
-			</comment>
+			<tRule>
+#
+########################################################################
+#
+# Latin Characters that must be changed:
+#
+#   ẸỌṢ
+#   ẹọṣ
+#
+# Originally prepared by Jonathan Lai ( jali01@ca.ibm.com )
+########################################################################
+#
+# MINIMAL FILTER: yo-yo-BJ
+#
 
-			<comment>
-			########################################################################
-			#
-			# Start of Alphabetic Transformations
-			#
-			########################################################################
-			#
-			</comment>
-			<tRule>Ẹ→Ɛ;# LATIN CAPITAL LETTER E WITH DOT BELOW</tRule>
-			<tRule>ẹ→ɛ;# LATIN SMALL LETTER E WITH DOT BELOW</tRule>
-			<tRule>Ọ→Ɔ ;# LATIN CAPITAL LETTER O WITH DOT BELOW</tRule>
-			<tRule>ọ→ɔ;# LATIN SMALL LETTER O WITH DOT BELOW</tRule>
-			<tRule>Ṣ→Sh;# LATIN CAPITAL LETTER S WITH DOT BELOW</tRule>
-			<tRule>ṣ→sh;# LATIN SMALL LETTER S WITH DOT BELOW</tRule>
-			<comment>
-			#
-			########################################################################
-			</comment>
+:: [ẸỌṢẹọṣ] ;
+:: NFC ;
+#
+#
+########################################################################
+
+
+#
+########################################################################
+#
+# Start of Alphabetic Transformations
+#
+########################################################################
+#
+
+Ẹ→Ɛ;# LATIN CAPITAL LETTER E WITH DOT BELOW
+ẹ→ɛ;# LATIN SMALL LETTER E WITH DOT BELOW
+Ọ→Ɔ ;# LATIN CAPITAL LETTER O WITH DOT BELOW
+ọ→ɔ;# LATIN SMALL LETTER O WITH DOT BELOW
+Ṣ→Sh;# LATIN CAPITAL LETTER S WITH DOT BELOW
+ṣ→sh;# LATIN SMALL LETTER S WITH DOT BELOW
+#
+#
+########################################################################
+
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

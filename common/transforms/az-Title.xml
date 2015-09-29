@@ -6,19 +6,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="az" target="Title" direction="forward">
-			<comment># Copyright (C) 2011-2013, Google, Inc.; Unicode, Inc.; and others. All Rights Reserved.</comment>
-			<comment># I and i-dotless; I-dot and i are case pairs in Turkish and Azeri</comment>
-			<comment># Make any string of letters after a cased letter be lower, with rules for i</comment>
-			<tRule>[:cased:] [:case-ignorable:]* { İ → i;</tRule>
-			<tRule>[:cased:] [:case-ignorable:]* { I → ı;</tRule>
-			<tRule>[:cased:] [:case-ignorable:]* { (.) → &amp;Any-Lower($1) ;</tRule>
-			<comment># Otherwise all lowercase go to upper (titlecase stay as is)</comment>
-			<tRule>i→İ ;</tRule>
-			<tRule>([:Lowercase:]) → &amp;Any-Upper($1) ;</tRule>
-			<comment># do later I([^[:ccc=Not_Reordered:][:ccc=Above:]]*)\u0307 → i$1 ;</comment>
+			<tRule>
+# Copyright (C) 2011-2013, Google, Inc.; Unicode, Inc.; and others. All Rights Reserved.
+# I and i-dotless; I-dot and i are case pairs in Turkish and Azeri
+# Make any string of letters after a cased letter be lower, with rules for i
+[:cased:] [:case-ignorable:]* { İ → i;
+[:cased:] [:case-ignorable:]* { I → ı;
+[:cased:] [:case-ignorable:]* { (.) → &amp;Any-Lower($1) ;
+# Otherwise all lowercase go to upper (titlecase stay as is)
+i→İ ;
+([:Lowercase:]) → &amp;Any-Upper($1) ;
+# do later I([^[:ccc=Not_Reordered:][:ccc=Above:]]*)\u0307 → i$1 ;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

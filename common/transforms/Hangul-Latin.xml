@@ -6,14 +6,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Hangul" target="Latin" direction="forward">
-			<tRule>::['ᄀ-하-ᅵᆨ-ᇂㄱ-ㄿㅁ-ㅃㅅ-ㅣ㈀-㈜㉠-㉻가-힣＇ﾡ-ﾯﾱ-ﾳﾵ-ﾾￂ-ￇￊ-ￏￒ-ￗￚ-ￜ];</tRule>
-			<tRule>::NFKD;</tRule>
-			<tRule>::ConjoiningJamo-Latin;</tRule>
-			<tRule>::NFC;</tRule>
+			<tRule>
+::['ᄀ-하-ᅵᆨ-ᇂㄱ-ㄿㅁ-ㅃㅅ-ㅣ㈀-㈜㉠-㉻가-힣＇ﾡ-ﾯﾱ-ﾳﾵ-ﾾￂ-ￇￊ-ￏￒ-ￗￚ-ￜ];
+::NFKD;
+::ConjoiningJamo-Latin;
+::NFC;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>
-

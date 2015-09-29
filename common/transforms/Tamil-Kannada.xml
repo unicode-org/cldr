@@ -6,15 +6,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Tamil" target="Kannada" direction="forward">
-			<tRule>::[\u0BE6ஂ-ஃஅ-ஊஎ-ஐஒ-கங-சஜஞ-டண-தந-பம-வஷ-ஹா-ூெ-ைொ-்ௗ௧-௲ஶ];</tRule>
-			<tRule>::NFD;</tRule>
-			<tRule>::Tamil-InterIndic;</tRule>
-			<tRule>::InterIndic-Kannada;</tRule>
-			<tRule>::NFC;</tRule>
+			<tRule>
+::[\u0BE6ஂ-ஃஅ-ஊஎ-ஐஒ-கங-சஜஞ-டண-தந-பம-வஷ-ஹா-ூெ-ைொ-்ௗ௧-௲ஶ];
+::NFD;
+::Tamil-InterIndic;
+::InterIndic-Kannada;
+::NFC;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>
-

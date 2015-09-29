@@ -6,441 +6,442 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Latin" target="Thaana" direction="both">
-			<tRule>tta ↔ ޘަ ;</tRule>
-			<tRule>ḥa ↔ ޙަ ;</tRule>
-			<tRule>kha ↔ ޚަ ;</tRule>
-			<tRule>dha ↔ ޛަ ;</tRule>
-			<tRule>ša ← ޝަ ;</tRule>
-			<tRule>ṣa ↔ ޞަ ;</tRule>
-			<tRule>ḏa ↔ ޟަ ;</tRule>
-			<tRule>t̤a ↔ ޠަ ;</tRule>
-			<tRule>ʿa ↔ ޢަ ;</tRule>
-			<tRule>ǧa ↔ ޣަ ;</tRule>
-			<tRule>qa ↔ ޤަ ;</tRule>
-			<tRule>ha ↔ ހަ ;</tRule>
-			<tRule>ša ↔ ށަ ;</tRule>
-			<tRule>na ↔ ނަ ;</tRule>
-			<tRule>ra ↔ ރަ ;</tRule>
-			<tRule>ba ↔ ބަ ;</tRule>
-			<tRule>ḷa ↔ ޅަ ;</tRule>
-			<tRule>ka ↔ ކަ ;</tRule>
-			<tRule>‘a ↔ އަ ;</tRule>
-			<tRule>va ↔ ވަ ;</tRule>
-			<tRule>ma ↔ މަ ;</tRule>
-			<tRule>fa ↔ ފަ ;</tRule>
-			<tRule>da ↔ ދަ ;</tRule>
-			<tRule>ta ↔ ތަ ;</tRule>
-			<tRule>la ↔ ލަ ;</tRule>
-			<tRule>ga ↔ ގަ ;</tRule>
-			<tRule>ña ↔ ޏަ ;</tRule>
-			<tRule>sa ↔ ސަ ;</tRule>
-			<tRule>ḍa ↔ ޑަ ;</tRule>
-			<tRule>ja ↔ ޖަ ;</tRule>
-			<tRule>ča ↔ ޗަ ;</tRule>
-			<tRule>za ↔ ޒަ ;</tRule>
-			<tRule>ṭa ↔ ޓަ ;</tRule>
-			<tRule>pa ↔ ޕަ ;</tRule>
-			<tRule>ya ↔ ޔަ ;</tRule>
-			<tRule>ttā ↔ ޘާ ;</tRule>
-			<tRule>ḥā ↔ ޙާ ;</tRule>
-			<tRule>khā ↔ ޚާ ;</tRule>
-			<tRule>dhā ↔ ޛާ ;</tRule>
-			<tRule>šā ← ޝާ ;</tRule>
-			<tRule>ṣā ↔ ޞާ ;</tRule>
-			<tRule>ḏā ↔ ޟާ ;</tRule>
-			<tRule>t̤ā ↔ ޠާ ;</tRule>
-			<tRule>ʿā ↔ ޢާ ;</tRule>
-			<tRule>ǧā ↔ ޣާ ;</tRule>
-			<tRule>qā ↔ ޤާ ;</tRule>
-			<tRule>hā ↔ ހާ ;</tRule>
-			<tRule>šā ↔ ށާ ;</tRule>
-			<tRule>nā ↔ ނާ ;</tRule>
-			<tRule>rā ↔ ރާ ;</tRule>
-			<tRule>bā ↔ ބާ ;</tRule>
-			<tRule>ḷā ↔ ޅާ ;</tRule>
-			<tRule>kā ↔ ކާ ;</tRule>
-			<tRule>‘ā ↔ އާ ;</tRule>
-			<tRule>vā ↔ ވާ ;</tRule>
-			<tRule>mā ↔ މާ ;</tRule>
-			<tRule>fā ↔ ފާ ;</tRule>
-			<tRule>dā ↔ ދާ ;</tRule>
-			<tRule>tā ↔ ތާ ;</tRule>
-			<tRule>lā ↔ ލާ ;</tRule>
-			<tRule>gā ↔ ގާ ;</tRule>
-			<tRule>ñā ↔ ޏާ ;</tRule>
-			<tRule>sā ↔ ސާ ;</tRule>
-			<tRule>ḍā ↔ ޑާ ;</tRule>
-			<tRule>jā ↔ ޖާ ;</tRule>
-			<tRule>čā ↔ ޗާ ;</tRule>
-			<tRule>zā ↔ ޒާ ;</tRule>
-			<tRule>ṭā ↔ ޓާ ;</tRule>
-			<tRule>pā ↔ ޕާ ;</tRule>
-			<tRule>yā ↔ ޔާ ;</tRule>
-			<tRule>tti ↔ ޘި ;</tRule>
-			<tRule>ḥi ↔ ޙި ;</tRule>
-			<tRule>khi ↔ ޚި ;</tRule>
-			<tRule>dhi ↔ ޛި ;</tRule>
-			<tRule>ši ← ޝި ;</tRule>
-			<tRule>ṣi ↔ ޞި ;</tRule>
-			<tRule>ḏi ↔ ޟި ;</tRule>
-			<tRule>t̤i ↔ ޠި ;</tRule>
-			<tRule>ʿi ↔ ޢި ;</tRule>
-			<tRule>ǧi ↔ ޣި ;</tRule>
-			<tRule>qi ↔ ޤި ;</tRule>
-			<tRule>hi ↔ ހި ;</tRule>
-			<tRule>ši ↔ ށި ;</tRule>
-			<tRule>ni ↔ ނި ;</tRule>
-			<tRule>ri ↔ ރި ;</tRule>
-			<tRule>bi ↔ ބި ;</tRule>
-			<tRule>ḷi ↔ ޅި ;</tRule>
-			<tRule>ki ↔ ކި ;</tRule>
-			<tRule>‘i ↔ އި ;</tRule>
-			<tRule>vi ↔ ވި ;</tRule>
-			<tRule>mi ↔ މި ;</tRule>
-			<tRule>fi ↔ ފި ;</tRule>
-			<tRule>di ↔ ދި ;</tRule>
-			<tRule>ti ↔ ތި ;</tRule>
-			<tRule>li ↔ ލި ;</tRule>
-			<tRule>gi ↔ ގި ;</tRule>
-			<tRule>ñi ↔ ޏި ;</tRule>
-			<tRule>si ↔ ސި ;</tRule>
-			<tRule>ḍi ↔ ޑި ;</tRule>
-			<tRule>ji ↔ ޖި ;</tRule>
-			<tRule>či ↔ ޗި ;</tRule>
-			<tRule>zi ↔ ޒި ;</tRule>
-			<tRule>ṭi ↔ ޓި ;</tRule>
-			<tRule>pi ↔ ޕި ;</tRule>
-			<tRule>yi ↔ ޔި ;</tRule>
-			<tRule>ttī ↔ ޘީ ;</tRule>
-			<tRule>ḥī ↔ ޙީ ;</tRule>
-			<tRule>khī ↔ ޚީ ;</tRule>
-			<tRule>dhī ↔ ޛީ ;</tRule>
-			<tRule>šī ← ޝީ ;</tRule>
-			<tRule>ṣī ↔ ޞީ ;</tRule>
-			<tRule>ḏī ↔ ޟީ ;</tRule>
-			<tRule>t̤ī ↔ ޠީ ;</tRule>
-			<tRule>ʿī ↔ ޢީ ;</tRule>
-			<tRule>ǧī ↔ ޣީ ;</tRule>
-			<tRule>qī ↔ ޤީ ;</tRule>
-			<tRule>hī ↔ ހީ ;</tRule>
-			<tRule>šī ↔ ށީ ;</tRule>
-			<tRule>nī ↔ ނީ ;</tRule>
-			<tRule>rī ↔ ރީ ;</tRule>
-			<tRule>bī ↔ ބީ ;</tRule>
-			<tRule>ḷī ↔ ޅީ ;</tRule>
-			<tRule>kī ↔ ކީ ;</tRule>
-			<tRule>‘ī ↔ އީ ;</tRule>
-			<tRule>vī ↔ ވީ ;</tRule>
-			<tRule>mī ↔ މީ ;</tRule>
-			<tRule>fī ↔ ފީ ;</tRule>
-			<tRule>dī ↔ ދީ ;</tRule>
-			<tRule>tī ↔ ތީ ;</tRule>
-			<tRule>lī ↔ ލީ ;</tRule>
-			<tRule>gī ↔ ގީ ;</tRule>
-			<tRule>ñī ↔ ޏީ ;</tRule>
-			<tRule>sī ↔ ސީ ;</tRule>
-			<tRule>ḍī ↔ ޑީ ;</tRule>
-			<tRule>jī ↔ ޖީ ;</tRule>
-			<tRule>čī ↔ ޗީ ;</tRule>
-			<tRule>zī ↔ ޒީ ;</tRule>
-			<tRule>ṭī ↔ ޓީ ;</tRule>
-			<tRule>pī ↔ ޕީ ;</tRule>
-			<tRule>yī ↔ ޔީ ;</tRule>
-			<tRule>ttu ↔ ޘު ;</tRule>
-			<tRule>ḥu ↔ ޙު ;</tRule>
-			<tRule>khu ↔ ޚު ;</tRule>
-			<tRule>dhu ↔ ޛު ;</tRule>
-			<tRule>šu ← ޝު ;</tRule>
-			<tRule>ṣu ↔ ޞު ;</tRule>
-			<tRule>ḏu ↔ ޟު ;</tRule>
-			<tRule>t̤u ↔ ޠު ;</tRule>
-			<tRule>ʿu ↔ ޢު ;</tRule>
-			<tRule>ǧu ↔ ޣު ;</tRule>
-			<tRule>qu ↔ ޤު ;</tRule>
-			<tRule>hu ↔ ހު ;</tRule>
-			<tRule>šu ↔ ށު ;</tRule>
-			<tRule>nu ↔ ނު ;</tRule>
-			<tRule>ru ↔ ރު ;</tRule>
-			<tRule>bu ↔ ބު ;</tRule>
-			<tRule>ḷu ↔ ޅު ;</tRule>
-			<tRule>ku ↔ ކު ;</tRule>
-			<tRule>‘u ↔ އު ;</tRule>
-			<tRule>vu ↔ ވު ;</tRule>
-			<tRule>mu ↔ މު ;</tRule>
-			<tRule>fu ↔ ފު ;</tRule>
-			<tRule>du ↔ ދު ;</tRule>
-			<tRule>tu ↔ ތު ;</tRule>
-			<tRule>lu ↔ ލު ;</tRule>
-			<tRule>gu ↔ ގު ;</tRule>
-			<tRule>ñu ↔ ޏު ;</tRule>
-			<tRule>su ↔ ސު ;</tRule>
-			<tRule>ḍu ↔ ޑު ;</tRule>
-			<tRule>ju ↔ ޖު ;</tRule>
-			<tRule>ču ↔ ޗު ;</tRule>
-			<tRule>zu ↔ ޒު ;</tRule>
-			<tRule>ṭu ↔ ޓު ;</tRule>
-			<tRule>pu ↔ ޕު ;</tRule>
-			<tRule>yu ↔ ޔު ;</tRule>
-			<tRule>ttū ↔ ޘޫ ;</tRule>
-			<tRule>ḥū ↔ ޙޫ ;</tRule>
-			<tRule>khū ↔ ޚޫ ;</tRule>
-			<tRule>dhū ↔ ޛޫ ;</tRule>
-			<tRule>šū ← ޝޫ ;</tRule>
-			<tRule>ṣū ↔ ޞޫ ;</tRule>
-			<tRule>ḏū ↔ ޟޫ ;</tRule>
-			<tRule>t̤ū ↔ ޠޫ ;</tRule>
-			<tRule>ʿū ↔ ޢޫ ;</tRule>
-			<tRule>ǧū ↔ ޣޫ ;</tRule>
-			<tRule>qū ↔ ޤޫ ;</tRule>
-			<tRule>hū ↔ ހޫ ;</tRule>
-			<tRule>šū ↔ ށޫ ;</tRule>
-			<tRule>nū ↔ ނޫ ;</tRule>
-			<tRule>rū ↔ ރޫ ;</tRule>
-			<tRule>bū ↔ ބޫ ;</tRule>
-			<tRule>ḷū ↔ ޅޫ ;</tRule>
-			<tRule>kū ↔ ކޫ ;</tRule>
-			<tRule>‘ū ↔ އޫ ;</tRule>
-			<tRule>vū ↔ ވޫ ;</tRule>
-			<tRule>mū ↔ މޫ ;</tRule>
-			<tRule>fū ↔ ފޫ ;</tRule>
-			<tRule>dū ↔ ދޫ ;</tRule>
-			<tRule>tū ↔ ތޫ ;</tRule>
-			<tRule>lū ↔ ލޫ ;</tRule>
-			<tRule>gū ↔ ގޫ ;</tRule>
-			<tRule>ñū ↔ ޏޫ ;</tRule>
-			<tRule>sū ↔ ސޫ ;</tRule>
-			<tRule>ḍū ↔ ޑޫ ;</tRule>
-			<tRule>jū ↔ ޖޫ ;</tRule>
-			<tRule>čū ↔ ޗޫ ;</tRule>
-			<tRule>zū ↔ ޒޫ ;</tRule>
-			<tRule>ṭū ↔ ޓޫ ;</tRule>
-			<tRule>pū ↔ ޕޫ ;</tRule>
-			<tRule>yū ↔ ޔޫ ;</tRule>
-			<tRule>tte ↔ ޘެ ;</tRule>
-			<tRule>ḥe ↔ ޙެ ;</tRule>
-			<tRule>khe ↔ ޚެ ;</tRule>
-			<tRule>dhe ↔ ޛެ ;</tRule>
-			<tRule>še ← ޝެ ;</tRule>
-			<tRule>ṣe ↔ ޞެ ;</tRule>
-			<tRule>ḏe ↔ ޟެ ;</tRule>
-			<tRule>t̤e ↔ ޠެ ;</tRule>
-			<tRule>ʿe ↔ ޢެ ;</tRule>
-			<tRule>ǧe ↔ ޣެ ;</tRule>
-			<tRule>qe ↔ ޤެ ;</tRule>
-			<tRule>he ↔ ހެ ;</tRule>
-			<tRule>še ↔ ށެ ;</tRule>
-			<tRule>ne ↔ ނެ ;</tRule>
-			<tRule>re ↔ ރެ ;</tRule>
-			<tRule>be ↔ ބެ ;</tRule>
-			<tRule>ḷe ↔ ޅެ ;</tRule>
-			<tRule>ke ↔ ކެ ;</tRule>
-			<tRule>‘e ↔ އެ ;</tRule>
-			<tRule>ve ↔ ވެ ;</tRule>
-			<tRule>me ↔ މެ ;</tRule>
-			<tRule>fe ↔ ފެ ;</tRule>
-			<tRule>de ↔ ދެ ;</tRule>
-			<tRule>te ↔ ތެ ;</tRule>
-			<tRule>le ↔ ލެ ;</tRule>
-			<tRule>ge ↔ ގެ ;</tRule>
-			<tRule>ñe ↔ ޏެ ;</tRule>
-			<tRule>se ↔ ސެ ;</tRule>
-			<tRule>ḍe ↔ ޑެ ;</tRule>
-			<tRule>je ↔ ޖެ ;</tRule>
-			<tRule>če ↔ ޗެ ;</tRule>
-			<tRule>ze ↔ ޒެ ;</tRule>
-			<tRule>ṭe ↔ ޓެ ;</tRule>
-			<tRule>pe ↔ ޕެ ;</tRule>
-			<tRule>ye ↔ ޔެ ;</tRule>
-			<tRule>ttē ↔ ޘޭ ;</tRule>
-			<tRule>ḥē ↔ ޙޭ ;</tRule>
-			<tRule>khē ↔ ޚޭ ;</tRule>
-			<tRule>dhē ↔ ޛޭ ;</tRule>
-			<tRule>šē ← ޝޭ ;</tRule>
-			<tRule>ṣē ↔ ޞޭ ;</tRule>
-			<tRule>ḏē ↔ ޟޭ ;</tRule>
-			<tRule>t̤ē ↔ ޠޭ ;</tRule>
-			<tRule>ʿē ↔ ޢޭ ;</tRule>
-			<tRule>ǧē ↔ ޣޭ ;</tRule>
-			<tRule>qē ↔ ޤޭ ;</tRule>
-			<tRule>hē ↔ ހޭ ;</tRule>
-			<tRule>šē ↔ ށޭ ;</tRule>
-			<tRule>nē ↔ ނޭ ;</tRule>
-			<tRule>rē ↔ ރޭ ;</tRule>
-			<tRule>bē ↔ ބޭ ;</tRule>
-			<tRule>ḷē ↔ ޅޭ ;</tRule>
-			<tRule>kē ↔ ކޭ ;</tRule>
-			<tRule>‘ē ↔ އޭ ;</tRule>
-			<tRule>vē ↔ ވޭ ;</tRule>
-			<tRule>mē ↔ މޭ ;</tRule>
-			<tRule>fē ↔ ފޭ ;</tRule>
-			<tRule>dē ↔ ދޭ ;</tRule>
-			<tRule>tē ↔ ތޭ ;</tRule>
-			<tRule>lē ↔ ލޭ ;</tRule>
-			<tRule>gē ↔ ގޭ ;</tRule>
-			<tRule>ñē ↔ ޏޭ ;</tRule>
-			<tRule>sē ↔ ސޭ ;</tRule>
-			<tRule>ḍē ↔ ޑޭ ;</tRule>
-			<tRule>jē ↔ ޖޭ ;</tRule>
-			<tRule>čē ↔ ޗޭ ;</tRule>
-			<tRule>zē ↔ ޒޭ ;</tRule>
-			<tRule>ṭē ↔ ޓޭ ;</tRule>
-			<tRule>pē ↔ ޕޭ ;</tRule>
-			<tRule>yē ↔ ޔޭ ;</tRule>
-			<tRule>tto ↔ ޘޮ ;</tRule>
-			<tRule>ḥo ↔ ޙޮ ;</tRule>
-			<tRule>kho ↔ ޚޮ ;</tRule>
-			<tRule>dho ↔ ޛޮ ;</tRule>
-			<tRule>šo ← ޝޮ ;</tRule>
-			<tRule>ṣo ↔ ޞޮ ;</tRule>
-			<tRule>ḏo ↔ ޟޮ ;</tRule>
-			<tRule>t̤o ↔ ޠޮ ;</tRule>
-			<tRule>ʿo ↔ ޢޮ ;</tRule>
-			<tRule>ǧo ↔ ޣޮ ;</tRule>
-			<tRule>qo ↔ ޤޮ ;</tRule>
-			<tRule>ho ↔ ހޮ ;</tRule>
-			<tRule>šo ↔ ށޮ ;</tRule>
-			<tRule>no ↔ ނޮ ;</tRule>
-			<tRule>ro ↔ ރޮ ;</tRule>
-			<tRule>bo ↔ ބޮ ;</tRule>
-			<tRule>ḷo ↔ ޅޮ ;</tRule>
-			<tRule>ko ↔ ކޮ ;</tRule>
-			<tRule>‘o ↔ އޮ ;</tRule>
-			<tRule>vo ↔ ވޮ ;</tRule>
-			<tRule>mo ↔ މޮ ;</tRule>
-			<tRule>fo ↔ ފޮ ;</tRule>
-			<tRule>do ↔ ދޮ ;</tRule>
-			<tRule>to ↔ ތޮ ;</tRule>
-			<tRule>lo ↔ ލޮ ;</tRule>
-			<tRule>go ↔ ގޮ ;</tRule>
-			<tRule>ño ↔ ޏޮ ;</tRule>
-			<tRule>so ↔ ސޮ ;</tRule>
-			<tRule>ḍo ↔ ޑޮ ;</tRule>
-			<tRule>jo ↔ ޖޮ ;</tRule>
-			<tRule>čo ↔ ޗޮ ;</tRule>
-			<tRule>zo ↔ ޒޮ ;</tRule>
-			<tRule>ṭo ↔ ޓޮ ;</tRule>
-			<tRule>po ↔ ޕޮ ;</tRule>
-			<tRule>yo ↔ ޔޮ ;</tRule>
-			<tRule>ttō ↔ ޘޯ ;</tRule>
-			<tRule>ḥō ↔ ޙޯ ;</tRule>
-			<tRule>khō ↔ ޚޯ ;</tRule>
-			<tRule>dhō ↔ ޛޯ ;</tRule>
-			<tRule>šō ← ޝޯ ;</tRule>
-			<tRule>ṣō ↔ ޞޯ ;</tRule>
-			<tRule>ḏō ↔ ޟޯ ;</tRule>
-			<tRule>t̤ō ↔ ޠޯ ;</tRule>
-			<tRule>ʿō ↔ ޢޯ ;</tRule>
-			<tRule>ǧō ↔ ޣޯ ;</tRule>
-			<tRule>qō ↔ ޤޯ ;</tRule>
-			<tRule>hō ↔ ހޯ ;</tRule>
-			<tRule>šō ↔ ށޯ ;</tRule>
-			<tRule>nō ↔ ނޯ ;</tRule>
-			<tRule>rō ↔ ރޯ ;</tRule>
-			<tRule>bō ↔ ބޯ ;</tRule>
-			<tRule>ḷō ↔ ޅޯ ;</tRule>
-			<tRule>kō ↔ ކޯ ;</tRule>
-			<tRule>‘ō ↔ އޯ ;</tRule>
-			<tRule>vō ↔ ވޯ ;</tRule>
-			<tRule>mō ↔ މޯ ;</tRule>
-			<tRule>fō ↔ ފޯ ;</tRule>
-			<tRule>dō ↔ ދޯ ;</tRule>
-			<tRule>tō ↔ ތޯ ;</tRule>
-			<tRule>lō ↔ ލޯ ;</tRule>
-			<tRule>gō ↔ ގޯ ;</tRule>
-			<tRule>ñō ↔ ޏޯ ;</tRule>
-			<tRule>sō ↔ ސޯ ;</tRule>
-			<tRule>ḍō ↔ ޑޯ ;</tRule>
-			<tRule>jō ↔ ޖޯ ;</tRule>
-			<tRule>čō ↔ ޗޯ ;</tRule>
-			<tRule>zō ↔ ޒޯ ;</tRule>
-			<tRule>ṭō ↔ ޓޯ ;</tRule>
-			<tRule>pō ↔ ޕޯ ;</tRule>
-			<tRule>yō ↔ ޔޯ ;</tRule>
-			<tRule>tt ↔ ޘް ;</tRule>
-			<tRule>ḥ ↔ ޙް ;</tRule>
-			<tRule>kh ↔ ޚް ;</tRule>
-			<tRule>dh ↔ ޛް ;</tRule>
-			<tRule>š ← ޝް ;</tRule>
-			<tRule>ṣ ↔ ޞް ;</tRule>
-			<tRule>ḏ ↔ ޟް ;</tRule>
-			<tRule>t̤ ↔ ޠް ;</tRule>
-			<tRule>ʿ ↔ ޢް ;</tRule>
-			<tRule>ǧ ↔ ޣް ;</tRule>
-			<tRule>q ↔ ޤް ;</tRule>
-			<tRule>h ↔ ހް ;</tRule>
-			<tRule>š ↔ ށް ;</tRule>
-			<tRule>n ↔ ން ;</tRule>
-			<tRule>r ↔ ރް ;</tRule>
-			<tRule>b ↔ ބް ;</tRule>
-			<tRule>ḷ ↔ ޅް ;</tRule>
-			<tRule>k ↔ ކް ;</tRule>
-			<tRule>‘ ↔ އް ;</tRule>
-			<tRule>v ↔ ވް ;</tRule>
-			<tRule>m ↔ މް ;</tRule>
-			<tRule>f ↔ ފް ;</tRule>
-			<tRule>d ↔ ދް ;</tRule>
-			<tRule>t ↔ ތް ;</tRule>
-			<tRule>l ↔ ލް ;</tRule>
-			<tRule>g ↔ ގް ;</tRule>
-			<tRule>ñ ↔ ޏް ;</tRule>
-			<tRule>s ↔ ސް ;</tRule>
-			<tRule>ḍ ↔ ޑް ;</tRule>
-			<tRule>j ↔ ޖް ;</tRule>
-			<tRule>č ↔ ޗް ;</tRule>
-			<tRule>z ↔ ޒް ;</tRule>
-			<tRule>ṭ ↔ ޓް ;</tRule>
-			<tRule>p ↔ ޕް ;</tRule>
-			<tRule>y ↔ ޔް ;</tRule>
-			<tRule>h ← ހ ;</tRule>
-			<tRule>š ← ށ ;</tRule>
-			<tRule>n ← ނ ;</tRule>
-			<tRule>r ← ރ ;</tRule>
-			<tRule>b ← ބ ;</tRule>
-			<tRule>ḷ ← ޅ ;</tRule>
-			<tRule>k ← ކ ;</tRule>
-			<tRule>‘ ← އ ;</tRule>
-			<tRule>v ← ވ ;</tRule>
-			<tRule>m ← މ ;</tRule>
-			<tRule>f ← ފ ;</tRule>
-			<tRule>d ← ދ ;</tRule>
-			<tRule>t ← ތ ;</tRule>
-			<tRule>l ← ލ ;</tRule>
-			<tRule>g ← ގ ;</tRule>
-			<tRule>ñ ← ޏ ;</tRule>
-			<tRule>s ← ސ ;</tRule>
-			<tRule>ḍ ← ޑ ;</tRule>
-			<tRule>j ← ޖ ;</tRule>
-			<tRule>č ← ޗ ;</tRule>
-			<tRule>z ← ޒ ;</tRule>
-			<tRule>ṭ ← ޓ ;</tRule>
-			<tRule>p ← ޕ ;</tRule>
-			<tRule>y ← ޔ ;</tRule>
-			<tRule>tt ← ޘ ;</tRule>
-			<tRule>ḥ ← ޙ ;</tRule>
-			<tRule>kh ← ޚ ;</tRule>
-			<tRule>dh ← ޛ ;</tRule>
-			<tRule>š ← ޝ ;</tRule>
-			<tRule>ṣ ← ޞ ;</tRule>
-			<tRule>ḏ ← ޟ ;</tRule>
-			<tRule>t̤ ← ޠ ;</tRule>
-			<tRule>ʿ ← ޢ ;</tRule>
-			<tRule>ǧ ← ޣ ;</tRule>
-			<tRule>q ← ޤ ;</tRule>
-			<tRule>a ↔ ަ ;</tRule>
-			<tRule>ā ↔ ާ ;</tRule>
-			<tRule>i ↔ ި ;</tRule>
-			<tRule>ī ↔ ީ ;</tRule>
-			<tRule>u ↔ ު ;</tRule>
-			<tRule>ū ↔ ޫ ;</tRule>
-			<tRule>e ↔ ެ ;</tRule>
-			<tRule>ē ↔ ޭ ;</tRule>
-			<tRule>o ↔ ޮ ;</tRule>
-			<tRule>ō ↔ ޯ ;</tRule>
-			<tRule>← ް ;</tRule>
+			<tRule>
+tta ↔ ޘަ ;
+ḥa ↔ ޙަ ;
+kha ↔ ޚަ ;
+dha ↔ ޛަ ;
+ša ← ޝަ ;
+ṣa ↔ ޞަ ;
+ḏa ↔ ޟަ ;
+t̤a ↔ ޠަ ;
+ʿa ↔ ޢަ ;
+ǧa ↔ ޣަ ;
+qa ↔ ޤަ ;
+ha ↔ ހަ ;
+ša ↔ ށަ ;
+na ↔ ނަ ;
+ra ↔ ރަ ;
+ba ↔ ބަ ;
+ḷa ↔ ޅަ ;
+ka ↔ ކަ ;
+‘a ↔ އަ ;
+va ↔ ވަ ;
+ma ↔ މަ ;
+fa ↔ ފަ ;
+da ↔ ދަ ;
+ta ↔ ތަ ;
+la ↔ ލަ ;
+ga ↔ ގަ ;
+ña ↔ ޏަ ;
+sa ↔ ސަ ;
+ḍa ↔ ޑަ ;
+ja ↔ ޖަ ;
+ča ↔ ޗަ ;
+za ↔ ޒަ ;
+ṭa ↔ ޓަ ;
+pa ↔ ޕަ ;
+ya ↔ ޔަ ;
+ttā ↔ ޘާ ;
+ḥā ↔ ޙާ ;
+khā ↔ ޚާ ;
+dhā ↔ ޛާ ;
+šā ← ޝާ ;
+ṣā ↔ ޞާ ;
+ḏā ↔ ޟާ ;
+t̤ā ↔ ޠާ ;
+ʿā ↔ ޢާ ;
+ǧā ↔ ޣާ ;
+qā ↔ ޤާ ;
+hā ↔ ހާ ;
+šā ↔ ށާ ;
+nā ↔ ނާ ;
+rā ↔ ރާ ;
+bā ↔ ބާ ;
+ḷā ↔ ޅާ ;
+kā ↔ ކާ ;
+‘ā ↔ އާ ;
+vā ↔ ވާ ;
+mā ↔ މާ ;
+fā ↔ ފާ ;
+dā ↔ ދާ ;
+tā ↔ ތާ ;
+lā ↔ ލާ ;
+gā ↔ ގާ ;
+ñā ↔ ޏާ ;
+sā ↔ ސާ ;
+ḍā ↔ ޑާ ;
+jā ↔ ޖާ ;
+čā ↔ ޗާ ;
+zā ↔ ޒާ ;
+ṭā ↔ ޓާ ;
+pā ↔ ޕާ ;
+yā ↔ ޔާ ;
+tti ↔ ޘި ;
+ḥi ↔ ޙި ;
+khi ↔ ޚި ;
+dhi ↔ ޛި ;
+ši ← ޝި ;
+ṣi ↔ ޞި ;
+ḏi ↔ ޟި ;
+t̤i ↔ ޠި ;
+ʿi ↔ ޢި ;
+ǧi ↔ ޣި ;
+qi ↔ ޤި ;
+hi ↔ ހި ;
+ši ↔ ށި ;
+ni ↔ ނި ;
+ri ↔ ރި ;
+bi ↔ ބި ;
+ḷi ↔ ޅި ;
+ki ↔ ކި ;
+‘i ↔ އި ;
+vi ↔ ވި ;
+mi ↔ މި ;
+fi ↔ ފި ;
+di ↔ ދި ;
+ti ↔ ތި ;
+li ↔ ލި ;
+gi ↔ ގި ;
+ñi ↔ ޏި ;
+si ↔ ސި ;
+ḍi ↔ ޑި ;
+ji ↔ ޖި ;
+či ↔ ޗި ;
+zi ↔ ޒި ;
+ṭi ↔ ޓި ;
+pi ↔ ޕި ;
+yi ↔ ޔި ;
+ttī ↔ ޘީ ;
+ḥī ↔ ޙީ ;
+khī ↔ ޚީ ;
+dhī ↔ ޛީ ;
+šī ← ޝީ ;
+ṣī ↔ ޞީ ;
+ḏī ↔ ޟީ ;
+t̤ī ↔ ޠީ ;
+ʿī ↔ ޢީ ;
+ǧī ↔ ޣީ ;
+qī ↔ ޤީ ;
+hī ↔ ހީ ;
+šī ↔ ށީ ;
+nī ↔ ނީ ;
+rī ↔ ރީ ;
+bī ↔ ބީ ;
+ḷī ↔ ޅީ ;
+kī ↔ ކީ ;
+‘ī ↔ އީ ;
+vī ↔ ވީ ;
+mī ↔ މީ ;
+fī ↔ ފީ ;
+dī ↔ ދީ ;
+tī ↔ ތީ ;
+lī ↔ ލީ ;
+gī ↔ ގީ ;
+ñī ↔ ޏީ ;
+sī ↔ ސީ ;
+ḍī ↔ ޑީ ;
+jī ↔ ޖީ ;
+čī ↔ ޗީ ;
+zī ↔ ޒީ ;
+ṭī ↔ ޓީ ;
+pī ↔ ޕީ ;
+yī ↔ ޔީ ;
+ttu ↔ ޘު ;
+ḥu ↔ ޙު ;
+khu ↔ ޚު ;
+dhu ↔ ޛު ;
+šu ← ޝު ;
+ṣu ↔ ޞު ;
+ḏu ↔ ޟު ;
+t̤u ↔ ޠު ;
+ʿu ↔ ޢު ;
+ǧu ↔ ޣު ;
+qu ↔ ޤު ;
+hu ↔ ހު ;
+šu ↔ ށު ;
+nu ↔ ނު ;
+ru ↔ ރު ;
+bu ↔ ބު ;
+ḷu ↔ ޅު ;
+ku ↔ ކު ;
+‘u ↔ އު ;
+vu ↔ ވު ;
+mu ↔ މު ;
+fu ↔ ފު ;
+du ↔ ދު ;
+tu ↔ ތު ;
+lu ↔ ލު ;
+gu ↔ ގު ;
+ñu ↔ ޏު ;
+su ↔ ސު ;
+ḍu ↔ ޑު ;
+ju ↔ ޖު ;
+ču ↔ ޗު ;
+zu ↔ ޒު ;
+ṭu ↔ ޓު ;
+pu ↔ ޕު ;
+yu ↔ ޔު ;
+ttū ↔ ޘޫ ;
+ḥū ↔ ޙޫ ;
+khū ↔ ޚޫ ;
+dhū ↔ ޛޫ ;
+šū ← ޝޫ ;
+ṣū ↔ ޞޫ ;
+ḏū ↔ ޟޫ ;
+t̤ū ↔ ޠޫ ;
+ʿū ↔ ޢޫ ;
+ǧū ↔ ޣޫ ;
+qū ↔ ޤޫ ;
+hū ↔ ހޫ ;
+šū ↔ ށޫ ;
+nū ↔ ނޫ ;
+rū ↔ ރޫ ;
+bū ↔ ބޫ ;
+ḷū ↔ ޅޫ ;
+kū ↔ ކޫ ;
+‘ū ↔ އޫ ;
+vū ↔ ވޫ ;
+mū ↔ މޫ ;
+fū ↔ ފޫ ;
+dū ↔ ދޫ ;
+tū ↔ ތޫ ;
+lū ↔ ލޫ ;
+gū ↔ ގޫ ;
+ñū ↔ ޏޫ ;
+sū ↔ ސޫ ;
+ḍū ↔ ޑޫ ;
+jū ↔ ޖޫ ;
+čū ↔ ޗޫ ;
+zū ↔ ޒޫ ;
+ṭū ↔ ޓޫ ;
+pū ↔ ޕޫ ;
+yū ↔ ޔޫ ;
+tte ↔ ޘެ ;
+ḥe ↔ ޙެ ;
+khe ↔ ޚެ ;
+dhe ↔ ޛެ ;
+še ← ޝެ ;
+ṣe ↔ ޞެ ;
+ḏe ↔ ޟެ ;
+t̤e ↔ ޠެ ;
+ʿe ↔ ޢެ ;
+ǧe ↔ ޣެ ;
+qe ↔ ޤެ ;
+he ↔ ހެ ;
+še ↔ ށެ ;
+ne ↔ ނެ ;
+re ↔ ރެ ;
+be ↔ ބެ ;
+ḷe ↔ ޅެ ;
+ke ↔ ކެ ;
+‘e ↔ އެ ;
+ve ↔ ވެ ;
+me ↔ މެ ;
+fe ↔ ފެ ;
+de ↔ ދެ ;
+te ↔ ތެ ;
+le ↔ ލެ ;
+ge ↔ ގެ ;
+ñe ↔ ޏެ ;
+se ↔ ސެ ;
+ḍe ↔ ޑެ ;
+je ↔ ޖެ ;
+če ↔ ޗެ ;
+ze ↔ ޒެ ;
+ṭe ↔ ޓެ ;
+pe ↔ ޕެ ;
+ye ↔ ޔެ ;
+ttē ↔ ޘޭ ;
+ḥē ↔ ޙޭ ;
+khē ↔ ޚޭ ;
+dhē ↔ ޛޭ ;
+šē ← ޝޭ ;
+ṣē ↔ ޞޭ ;
+ḏē ↔ ޟޭ ;
+t̤ē ↔ ޠޭ ;
+ʿē ↔ ޢޭ ;
+ǧē ↔ ޣޭ ;
+qē ↔ ޤޭ ;
+hē ↔ ހޭ ;
+šē ↔ ށޭ ;
+nē ↔ ނޭ ;
+rē ↔ ރޭ ;
+bē ↔ ބޭ ;
+ḷē ↔ ޅޭ ;
+kē ↔ ކޭ ;
+‘ē ↔ އޭ ;
+vē ↔ ވޭ ;
+mē ↔ މޭ ;
+fē ↔ ފޭ ;
+dē ↔ ދޭ ;
+tē ↔ ތޭ ;
+lē ↔ ލޭ ;
+gē ↔ ގޭ ;
+ñē ↔ ޏޭ ;
+sē ↔ ސޭ ;
+ḍē ↔ ޑޭ ;
+jē ↔ ޖޭ ;
+čē ↔ ޗޭ ;
+zē ↔ ޒޭ ;
+ṭē ↔ ޓޭ ;
+pē ↔ ޕޭ ;
+yē ↔ ޔޭ ;
+tto ↔ ޘޮ ;
+ḥo ↔ ޙޮ ;
+kho ↔ ޚޮ ;
+dho ↔ ޛޮ ;
+šo ← ޝޮ ;
+ṣo ↔ ޞޮ ;
+ḏo ↔ ޟޮ ;
+t̤o ↔ ޠޮ ;
+ʿo ↔ ޢޮ ;
+ǧo ↔ ޣޮ ;
+qo ↔ ޤޮ ;
+ho ↔ ހޮ ;
+šo ↔ ށޮ ;
+no ↔ ނޮ ;
+ro ↔ ރޮ ;
+bo ↔ ބޮ ;
+ḷo ↔ ޅޮ ;
+ko ↔ ކޮ ;
+‘o ↔ އޮ ;
+vo ↔ ވޮ ;
+mo ↔ މޮ ;
+fo ↔ ފޮ ;
+do ↔ ދޮ ;
+to ↔ ތޮ ;
+lo ↔ ލޮ ;
+go ↔ ގޮ ;
+ño ↔ ޏޮ ;
+so ↔ ސޮ ;
+ḍo ↔ ޑޮ ;
+jo ↔ ޖޮ ;
+čo ↔ ޗޮ ;
+zo ↔ ޒޮ ;
+ṭo ↔ ޓޮ ;
+po ↔ ޕޮ ;
+yo ↔ ޔޮ ;
+ttō ↔ ޘޯ ;
+ḥō ↔ ޙޯ ;
+khō ↔ ޚޯ ;
+dhō ↔ ޛޯ ;
+šō ← ޝޯ ;
+ṣō ↔ ޞޯ ;
+ḏō ↔ ޟޯ ;
+t̤ō ↔ ޠޯ ;
+ʿō ↔ ޢޯ ;
+ǧō ↔ ޣޯ ;
+qō ↔ ޤޯ ;
+hō ↔ ހޯ ;
+šō ↔ ށޯ ;
+nō ↔ ނޯ ;
+rō ↔ ރޯ ;
+bō ↔ ބޯ ;
+ḷō ↔ ޅޯ ;
+kō ↔ ކޯ ;
+‘ō ↔ އޯ ;
+vō ↔ ވޯ ;
+mō ↔ މޯ ;
+fō ↔ ފޯ ;
+dō ↔ ދޯ ;
+tō ↔ ތޯ ;
+lō ↔ ލޯ ;
+gō ↔ ގޯ ;
+ñō ↔ ޏޯ ;
+sō ↔ ސޯ ;
+ḍō ↔ ޑޯ ;
+jō ↔ ޖޯ ;
+čō ↔ ޗޯ ;
+zō ↔ ޒޯ ;
+ṭō ↔ ޓޯ ;
+pō ↔ ޕޯ ;
+yō ↔ ޔޯ ;
+tt ↔ ޘް ;
+ḥ ↔ ޙް ;
+kh ↔ ޚް ;
+dh ↔ ޛް ;
+š ← ޝް ;
+ṣ ↔ ޞް ;
+ḏ ↔ ޟް ;
+t̤ ↔ ޠް ;
+ʿ ↔ ޢް ;
+ǧ ↔ ޣް ;
+q ↔ ޤް ;
+h ↔ ހް ;
+š ↔ ށް ;
+n ↔ ން ;
+r ↔ ރް ;
+b ↔ ބް ;
+ḷ ↔ ޅް ;
+k ↔ ކް ;
+‘ ↔ އް ;
+v ↔ ވް ;
+m ↔ މް ;
+f ↔ ފް ;
+d ↔ ދް ;
+t ↔ ތް ;
+l ↔ ލް ;
+g ↔ ގް ;
+ñ ↔ ޏް ;
+s ↔ ސް ;
+ḍ ↔ ޑް ;
+j ↔ ޖް ;
+č ↔ ޗް ;
+z ↔ ޒް ;
+ṭ ↔ ޓް ;
+p ↔ ޕް ;
+y ↔ ޔް ;
+h ← ހ ;
+š ← ށ ;
+n ← ނ ;
+r ← ރ ;
+b ← ބ ;
+ḷ ← ޅ ;
+k ← ކ ;
+‘ ← އ ;
+v ← ވ ;
+m ← މ ;
+f ← ފ ;
+d ← ދ ;
+t ← ތ ;
+l ← ލ ;
+g ← ގ ;
+ñ ← ޏ ;
+s ← ސ ;
+ḍ ← ޑ ;
+j ← ޖ ;
+č ← ޗ ;
+z ← ޒ ;
+ṭ ← ޓ ;
+p ← ޕ ;
+y ← ޔ ;
+tt ← ޘ ;
+ḥ ← ޙ ;
+kh ← ޚ ;
+dh ← ޛ ;
+š ← ޝ ;
+ṣ ← ޞ ;
+ḏ ← ޟ ;
+t̤ ← ޠ ;
+ʿ ← ޢ ;
+ǧ ← ޣ ;
+q ← ޤ ;
+a ↔ ަ ;
+ā ↔ ާ ;
+i ↔ ި ;
+ī ↔ ީ ;
+u ↔ ު ;
+ū ↔ ޫ ;
+e ↔ ެ ;
+ē ↔ ޭ ;
+o ↔ ޮ ;
+ō ↔ ޯ ;
+← ް ;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>
-

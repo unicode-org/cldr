@@ -1,99 +1,101 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc., Google Inc. 
-	CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/) 
-	For terms of use, see http://www.unicode.org/copyright.html -->
+<!-- Copyright © 1991-2013 Unicode, Inc., Google Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html -->
 <supplementalData>
 	<version number="$Revision$" />
 	<transforms>
 		<transform source="ch" target="ch_FONIPA" direction="forward" draft="contributed">
-			<comment># Author: sascha@google.com (Sascha Brawer)</comment>
-			<comment>#</comment>
-			<comment># Transformation from Chamorro (ch) to its IPA transcription (ch_FONIPA).</comment>
-			<comment>#</comment>
-			<comment># http://en.wikipedia.org/wiki/Chamorro_language#Orthography</comment>
-			<comment># http://www.omniglot.com/writing/chamorro.htm</comment>
-			<comment># http://guampedia.com/chamorro-orthography-rules/</comment>
-			<comment># http://finochamoru.blogspot.com/2009/04/leksion-chamoru-pronunsiasion.html</comment>
-			<comment>#</comment>
-			<comment># Recorded sound samples: http://www.chamorro.com/fino/fino.html</comment>
-			<comment>#</comment>
-			<comment># http://guampedia.com/chamorro-orthography-rules/ lists in section 3.b)</comment>
-			<comment># graphemes that would be used for loanwords/proper names. Most examples</comment>
-			<comment># are Spanish. Our rules thus generate the Spanish sounds [θ], [x], [β]</comment>
-			<comment># and [w] even though these sounds are not used by the Chamorro language.</comment>
-			<tRule></tRule>
-			<tRule>::Lower;</tRule>
-			<tRule>::NFC;</tRule>
-			<tRule></tRule>
-			<tRule>\' → ʔ;</tRule>
-			<tRule>’ → ʔ;</tRule>
-			<tRule></tRule>
-			<comment># The IPA chart from Omniglot appears to be mixing up [æ] and [ɑ] when</comment>
-			<comment># explaining how to pronounce ‹a› and ‹å›. The language course on</comment>
-			<comment># finochamoru.blogspot.com copies the pronunciation chart from Omniglot,</comment>
-			<comment># but then explains that ‹å› gets prounounced like in English ‹father›,</comment>
-			<comment># which would be [ɑ]. Also, the sound samples on www.chamorro.com pronounce</comment>
-			<comment># ‹a› as [æ] and ‹å› as [ɑ].</comment>
-			<tRule>a → æ;</tRule>
-			<tRule>å → ɑ;</tRule>
-			<tRule></tRule>
-			<tRule>b → b;</tRule>
-			<tRule>ch → t͡s;</tRule>
-			<tRule>{c} [eéií] → θ; # loanwords</tRule>
-			<tRule>c → k; # loanwords</tRule>
-			<tRule>d → d;</tRule>
-			<tRule>e → e;</tRule>
-			<tRule>f → f;</tRule>
-			<tRule>gu → ɡʷ;</tRule>
-			<tRule>g → ɡ;</tRule>
-			<tRule>h → h;</tRule>
-			<tRule>i → i;</tRule>
-			<tRule>j → x ; # loanwords</tRule>
-			<tRule>k → k;</tRule>
-			<tRule>l → l;</tRule>
-			<tRule>m → m;</tRule>
-			<tRule>ng → ŋ;</tRule>
-			<tRule>ñ → ɲ;</tRule>
-			<tRule>n → n;</tRule>
-			<tRule>o → o;</tRule>
-			<tRule>p → p;</tRule>
-			<tRule>{qu} [eéiíy] → k; # loanwords</tRule>
-			<tRule>q → k; # loanwords</tRule>
-			<tRule>rr → r;</tRule>
-			<tRule>r → ɾ;</tRule>
-			<tRule>s → s;</tRule>
-			<tRule>t → t;</tRule>
-			<tRule>u → u;</tRule>
-			<tRule>v → β; # loanwords</tRule>
-			<tRule>w → w; # loanwords</tRule>
-			<tRule>{x} h?[aáåeéiíoóuú$] → ks; # loanwords</tRule>
-			<tRule>{x} [^aáåeéiíoóuú$] → s; # loanwords</tRule>
-			<tRule>x → ks ; # loanwords</tRule>
-			<tRule></tRule>
-			<comment># Wikipedia [http://en.wikipedia.org/wiki/Chamorro_language#Orthography]</comment>
-			<comment># writes that ‹y› gets pronounced as [d͡z], while Omniglot says [d͡ʒ].</comment>
-			<tRule>y → d͡z;</tRule>
-			<tRule></tRule>
-			<tRule>\- → \.; # hyphen is a syllable boundary, eg ‹sena-ta›</tRule>
-			<tRule></tRule>
-			<comment># Handle geminated consonants.</comment>
-			<tRule>::Null;</tRule>
-			<tRule>bb → bː;</tRule>
-			<tRule>dd → dː;</tRule>
-			<tRule>ff → fː;</tRule>
-			<tRule>ɡɡ → ɡː;</tRule>
-			<tRule>hh → hː;</tRule>
-			<tRule>kk → kː;</tRule>
-			<tRule>ll → lː;</tRule>
-			<tRule>mm → mː;</tRule>
-			<tRule>nn → nː;</tRule>
-			<tRule>pp → pː;</tRule>
-			<tRule>rr → rː;</tRule>
-			<tRule>ss → sː;</tRule>
-			<tRule>tt → tː;</tRule>
-			<tRule></tRule>
-			<tRule>::NFC;</tRule>
+			<tRule>
+# Author: sascha@google.com (Sascha Brawer)
+#
+# Transformation from Chamorro (ch) to its IPA transcription (ch_FONIPA).
+#
+# http://en.wikipedia.org/wiki/Chamorro_language#Orthography
+# http://www.omniglot.com/writing/chamorro.htm
+# http://guampedia.com/chamorro-orthography-rules/
+# http://finochamoru.blogspot.com/2009/04/leksion-chamoru-pronunsiasion.html
+#
+# Recorded sound samples: http://www.chamorro.com/fino/fino.html
+#
+# http://guampedia.com/chamorro-orthography-rules/ lists in section 3.b)
+# graphemes that would be used for loanwords/proper names. Most examples
+# are Spanish. Our rules thus generate the Spanish sounds [θ], [x], [β]
+# and [w] even though these sounds are not used by the Chamorro language.
+
+::Lower;
+::NFC;
+
+\' → ʔ;
+’ → ʔ;
+
+# The IPA chart from Omniglot appears to be mixing up [æ] and [ɑ] when
+# explaining how to pronounce ‹a› and ‹å›. The language course on
+# finochamoru.blogspot.com copies the pronunciation chart from Omniglot,
+# but then explains that ‹å› gets prounounced like in English ‹father›,
+# which would be [ɑ]. Also, the sound samples on www.chamorro.com pronounce
+# ‹a› as [æ] and ‹å› as [ɑ].
+a → æ;
+å → ɑ;
+
+b → b;
+ch → t͡s;
+{c} [eéií] → θ; # loanwords
+c → k; # loanwords
+d → d;
+e → e;
+f → f;
+gu → ɡʷ;
+g → ɡ;
+h → h;
+i → i;
+j → x ; # loanwords
+k → k;
+l → l;
+m → m;
+ng → ŋ;
+ñ → ɲ;
+n → n;
+o → o;
+p → p;
+{qu} [eéiíy] → k; # loanwords
+q → k; # loanwords
+rr → r;
+r → ɾ;
+s → s;
+t → t;
+u → u;
+v → β; # loanwords
+w → w; # loanwords
+{x} h?[aáåeéiíoóuú$] → ks; # loanwords
+{x} [^aáåeéiíoóuú$] → s; # loanwords
+x → ks ; # loanwords
+
+# Wikipedia [http://en.wikipedia.org/wiki/Chamorro_language#Orthography]
+# writes that ‹y› gets pronounced as [d͡z], while Omniglot says [d͡ʒ].
+y → d͡z;
+
+\- → \.; # hyphen is a syllable boundary, eg ‹sena-ta›
+
+# Handle geminated consonants.
+::Null;
+bb → bː;
+dd → dː;
+ff → fː;
+ɡɡ → ɡː;
+hh → hː;
+kk → kː;
+ll → lː;
+mm → mː;
+nn → nː;
+pp → pː;
+rr → rː;
+ss → sː;
+tt → tː;
+
+::NFC;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

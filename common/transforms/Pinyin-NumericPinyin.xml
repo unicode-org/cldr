@@ -6,16 +6,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Pinyin" target="NumericPinyin" direction="both">
-			<comment># Only intended for internal use</comment>
-			<tRule>̄ ↔ 1;</tRule>
-			<tRule>́ ↔ 2;</tRule>
-			<tRule>̌ ↔ 3;</tRule>
-			<tRule>̀ ↔ 4;</tRule>
-			<tRule>← 5;</tRule>
+			<tRule>
+# Only intended for internal use
+̄ ↔ 1;
+́ ↔ 2;
+̌ ↔ 3;
+̀ ↔ 4;
+← 5;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>
-

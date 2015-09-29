@@ -6,20 +6,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="el" target="Title" direction="forward">
-			<comment># Copyright (C) 2011-2013, Google Inc. and others. All Rights Reserved.</comment>
-			<tRule>::NFD();</tRule>
-			<comment># Remove \0301 following Greek, with possible intervening 0308 marks.</comment>
-			<comment># [[:Greek:] &amp; [:Ll:]] [\u0308]? { \u0301 → ;</comment>
-			<comment># Make any string of letters after a cased letter be lower, with rules for sigma</comment>
-			<tRule>[:cased:] [:case-ignorable:]* { Σ } [:case-ignorable:]* [:cased:] → σ;</tRule>
-			<tRule>[:cased:] [:case-ignorable:]* { Σ → ς;</tRule>
-			<tRule>[:cased:] [:case-ignorable:]* { (.) → &amp;Any-Lower($1) ;</tRule>
-			<comment># Otherwise all lowercase go to upper (titlecase stay as is)</comment>
-			<tRule>([:Lowercase:]) → &amp;Any-Title($1) ;</tRule>
-			<tRule>::NFC();</tRule>
+			<tRule>
+# Copyright (C) 2011-2013, Google Inc. and others. All Rights Reserved.
+::NFD();
+# Remove \0301 following Greek, with possible intervening 0308 marks.
+# [[:Greek:] &amp; [:Ll:]] [\u0308]? { \u0301 → ;
+# Make any string of letters after a cased letter be lower, with rules for sigma
+[:cased:] [:case-ignorable:]* { Σ } [:case-ignorable:]* [:cased:] → σ;
+[:cased:] [:case-ignorable:]* { Σ → ς;
+[:cased:] [:case-ignorable:]* { (.) → &amp;Any-Lower($1) ;
+# Otherwise all lowercase go to upper (titlecase stay as is)
+([:Lowercase:]) → &amp;Any-Title($1) ;
+::NFC();
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

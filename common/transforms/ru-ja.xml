@@ -6,460 +6,462 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="ru" target="ja" direction="forward">
-			<comment>
-			# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
-			# Author: takenaka@google.com (Hiroshi Takenaka)
-			# Transliteration from Russian into Japanese (Katakana).
-			#
-			</comment>
-			<tRule>$word_boundary = [-\ $];</tRule>
-			<tRule>$vowel = [аеийоуыьэюяёъ];</tRule>
-			<tRule>$not_vowel = [^$vowel];</tRule>
-			<comment>
-			#
-			</comment>
-			<tRule>::NFC;</tRule>
-			<tRule>::Lower;</tRule>
-			<comment>
-			#
-			</comment>
-			<tRule>$vowel { го } $word_boundary → во;</tRule>
-			<tRule>::Null;</tRule>
-			<comment>
-			#
-			</comment>
-			<tRule>а → ア ;</tRule>
-			<tRule>ба → バ ;</tRule>
-			<tRule>бе → ベ ;</tRule>
-			<tRule>бий → ビー ;</tRule>
-			<tRule>би → ビ ;</tRule>
-			<tRule>бо → ボ ;</tRule>
-			<tRule>бу → ブ ;</tRule>
-			<tRule>бы → ビ ;</tRule>
-			<tRule>бь → ビ ;</tRule>
-			<tRule>бэ → ベ ;</tRule>
-			<tRule>бю → ビュ ;</tRule>
-			<tRule>бя → ビャ ;</tRule>
-			<tRule>бё → ビョ ;</tRule>
-			<tRule>б → ブ ;</tRule>
-			<tRule>ва → ヴァ ;</tRule>
-			<tRule>ве → ヴェ ;</tRule>
-			<tRule>вий → ヴィ ;</tRule>
-			<tRule>ви → ヴィ ;</tRule>
-			<tRule>во → ヴォ ;</tRule>
-			<tRule>ву → ヴ ;</tRule>
-			<tRule>вый → ヴィ ;</tRule>
-			<tRule>вы → ヴィ ;</tRule>
-			<tRule>вь → ヴィ ;</tRule>
-			<tRule>вэ → ヴェ ;</tRule>
-			<tRule>вю → ヴュ ;</tRule>
-			<tRule>вя → ヴャ ;</tRule>
-			<tRule>вё → ヴョ ;</tRule>
-			<tRule>въ → ヴィ;</tRule>
-			<tRule>в } [линр] → ヴ ;</tRule>
-			<tRule>в → フ ;</tRule>
-			<tRule>га → ガ ;</tRule>
-			<tRule>ге → ゲ ;</tRule>
-			<tRule>гий → ギ ;</tRule>
-			<tRule>ги → ギ ;</tRule>
-			<tRule>го → ゴ ;</tRule>
-			<tRule>гу → グ ;</tRule>
-			<tRule>гый → ギ ;</tRule>
-			<tRule>гы → ギ ;</tRule>
-			<tRule>гь → ギ ;</tRule>
-			<tRule>гъ → ギ ;</tRule>
-			<tRule>гэ → ゲ ;</tRule>
-			<tRule>гю → ギュ ;</tRule>
-			<tRule>гя → ギャ ;</tRule>
-			<tRule>гё → ギョ ;</tRule>
-			<tRule>г } г → ッ ;</tRule>
-			<tRule>г → グ ;</tRule>
-			<tRule>да → ダ ;</tRule>
-			<tRule>де → デ ;</tRule>
-			<tRule>джа → ジャ ;</tRule>
-			<tRule>дже → ジェ ;</tRule>
-			<tRule>джий → ジ ;</tRule>
-			<tRule>джи → ジ ;</tRule>
-			<tRule>джо → ジョ ;</tRule>
-			<tRule>джу → ジュ ;</tRule>
-			<tRule>джый → ギ ;</tRule>
-			<tRule>джы → ジ ;</tRule>
-			<tRule>джь → ギ ;</tRule>
-			<tRule>джэ → ジェ ;</tRule>
-			<tRule>джю → ジュ ;</tRule>
-			<tRule>джя → ジャ ;</tRule>
-			<tRule>джё → ジョ ;</tRule>
-			<tRule>дж → ジ ;</tRule>
-			<tRule>дза → ザ ;</tRule>
-			<tRule>дзе → ゼ ;</tRule>
-			<tRule>дзий → ドジ ;</tRule>
-			<tRule>дзи → ドジ ;</tRule>
-			<tRule>дзо → ゾ ;</tRule>
-			<tRule>дзу → ズ ;</tRule>
-			<tRule>дзый → ドジ ;</tRule>
-			<tRule>дзы → ドジ ;</tRule>
-			<tRule>дзь → ドジ ;</tRule>
-			<tRule>дзэ → ゼ ;</tRule>
-			<tRule>дзю → ジュ ;</tRule>
-			<tRule>дзя → ジャ ;</tRule>
-			<tRule>дзё → ドジョ ;</tRule>
-			<tRule>дз → ドゼ ;</tRule>
-			<tRule>дий → ジ ;</tRule>
-			<tRule>ди → ジ ;</tRule>
-			<tRule>до → ド ;</tRule>
-			<tRule>дса → ツァ ;</tRule>
-			<tRule>дсе → ツェ ;</tRule>
-			<tRule>дсий → ツィ ;</tRule>
-			<tRule>дси → ツィ ;</tRule>
-			<tRule>дсо → ツォ ;</tRule>
-			<tRule>дсу → チュ ;</tRule>
-			<tRule>дсый → ツィ ;</tRule>
-			<tRule>дсы → ツィ ;</tRule>
-			<tRule>дсь → ツィ ;</tRule>
-			<tRule>дсэ → ツェ ;</tRule>
-			<tRule>дсю → チュ ;</tRule>
-			<tRule>дся → ツィア ;</tRule>
-			<tRule>дс → ツ ;</tRule>
-			<tRule>ду → ドゥ ;</tRule>
-			<tRule>дца → ツァ ;</tRule>
-			<tRule>дце → ツェ ;</tRule>
-			<tRule>дций → ツィ ;</tRule>
-			<tRule>дци → ツィ ;</tRule>
-			<tRule>дцо → ツォ ;</tRule>
-			<tRule>дцу → チュ ;</tRule>
-			<tRule>дцый → ツィ ;</tRule>
-			<tRule>дцы → ツィ ;</tRule>
-			<tRule>дць → ツィ ;</tRule>
-			<tRule>дцэ → ツェ ;</tRule>
-			<tRule>дцю → チュ ;</tRule>
-			<tRule>дця → ツィア ;</tRule>
-			<tRule>дц → ツ ;</tRule>
-			<tRule>дча → チャ ;</tRule>
-			<tRule>дче → チェ ;</tRule>
-			<tRule>дчий → チ ;</tRule>
-			<tRule>дчи → チ ;</tRule>
-			<tRule>дчо → チョ ;</tRule>
-			<tRule>дчу → チュ ;</tRule>
-			<tRule>дчый → チ ;</tRule>
-			<tRule>дчы → チ ;</tRule>
-			<tRule>дчь → チ ;</tRule>
-			<tRule>дчэ → チェ ;</tRule>
-			<tRule>дчё → チョ ;</tRule>
-			<tRule>дч → チ ;</tRule>
-			<tRule>дый → ド ;</tRule>
-			<tRule>ды → ディ ;</tRule>
-			<tRule>дью → ジュ ;</tRule>
-			<tRule>дь → ジ ;</tRule>
-			<tRule>дэ → デ ;</tRule>
-			<tRule>дю → ジュ ;</tRule>
-			<tRule>дя → ジャ ;</tRule>
-			<tRule>дё → ジョ ;</tRule>
-			<tRule>д → ド ;</tRule>
-			<tRule>е → エ ;</tRule>
-			<tRule>жа → ジャ ;</tRule>
-			<tRule>же → ジェ ;</tRule>
-			<tRule>жий → ジ ;</tRule>
-			<tRule>жи → ジュ ;</tRule>
-			<tRule>жо → ジョ ;</tRule>
-			<tRule>жу → ジュ ;</tRule>
-			<tRule>жый → ジュ ;</tRule>
-			<tRule>жы → ジ ;</tRule>
-			<tRule>жь → ジ ;</tRule>
-			<tRule>жэ → ジェ ;</tRule>
-			<tRule>жю → ジュ ;</tRule>
-			<tRule>жя → ジャ ;</tRule>
-			<tRule>жё → ジョ ;</tRule>
-			<tRule>ж → シュ ;</tRule>
-			<tRule>за → ザ ;</tRule>
-			<tRule>зе → ゼ ;</tRule>
-			<tRule>зий → ジ ;</tRule>
-			<tRule>зи → ジ ;</tRule>
-			<tRule>зо → ゾ ;</tRule>
-			<tRule>зу → ズ ;</tRule>
-			<tRule>зый → ジ ;</tRule>
-			<tRule>зы → ジ ;</tRule>
-			<tRule>зь → ジ ;</tRule>
-			<tRule>зэ → ゼ ;</tRule>
-			<tRule>зю → ジュ ;</tRule>
-			<tRule>зя → ジャ ;</tRule>
-			<tRule>зё → ジョ ;</tRule>
-			<tRule>з → ス ;</tRule>
-			<tRule>ий → イ ;</tRule>
-			<tRule>и → イ ;</tRule>
-			<tRule>й → イ ;</tRule>
-			<tRule>ка → カ ;</tRule>
-			<tRule>ке → ケ ;</tRule>
-			<tRule>кий → キー ;</tRule>
-			<tRule>ки → キ ;</tRule>
-			<tRule>ко → コ ;</tRule>
-			<tRule>ку → ク ;</tRule>
-			<tRule>кы → キ ;</tRule>
-			<tRule>кь → キ ;</tRule>
-			<tRule>кэ → ケ ;</tRule>
-			<tRule>кю → キュ ;</tRule>
-			<tRule>кя → キャ ;</tRule>
-			<tRule>кё → キョ ;</tRule>
-			<tRule>къ → キ ;</tRule>
-			<tRule>к → ク ;</tRule>
-			<tRule>ла → ラ ;</tRule>
-			<tRule>ле → レ ;</tRule>
-			<tRule>лий → リ ;</tRule>
-			<tRule>ли → リ ;</tRule>
-			<tRule>лй → リ ;</tRule>
-			<tRule>ло → ロ ;</tRule>
-			<tRule>лу → ル ;</tRule>
-			<tRule>лый → リ ;</tRule>
-			<tRule>лы → リ ;</tRule>
-			<tRule>ль → リ ;</tRule>
-			<tRule>лэ → レ ;</tRule>
-			<tRule>лю → リュ ;</tRule>
-			<tRule>ля → リャ ;</tRule>
-			<tRule>лё → リョ ;</tRule>
-			<tRule>л → ル ;</tRule>
-			<tRule>ма → マ ;</tRule>
-			<tRule>ме → メ ;</tRule>
-			<tRule>ми → ミ ;</tRule>
-			<tRule>мо → モ ;</tRule>
-			<tRule>му → ム ;</tRule>
-			<tRule>мый → ミ ;</tRule>
-			<tRule>мы → ミ ;</tRule>
-			<tRule>мь → ミ ;</tRule>
-			<tRule>мъ → ミ ;</tRule>
-			<tRule>мэ → メ ;</tRule>
-			<tRule>мю → ミュ ;</tRule>
-			<tRule>мя → ミャ ;</tRule>
-			<tRule>мё → ミョ ;</tRule>
-			<tRule>м → ム ;</tRule>
-			<tRule>на → ナ ;</tRule>
-			<tRule>не → ネ ;</tRule>
-			<tRule>ний → ニー ;</tRule>
-			<tRule>ни → ニ ;</tRule>
-			<tRule>нй → ニ ;</tRule>
-			<tRule>но → ノ ;</tRule>
-			<tRule>ну → ヌ ;</tRule>
-			<tRule>ный → ニ ;</tRule>
-			<tRule>ны → ニ ;</tRule>
-			<tRule>нь → ニ ;</tRule>
-			<tRule>нэ → ネ ;</tRule>
-			<tRule>ню → ニュ ;</tRule>
-			<tRule>ня → ニャ ;</tRule>
-			<tRule>нё → ニョ ;</tRule>
-			<tRule>нъ → ニ ;</tRule>
-			<tRule>н } $not_vowel → ン ;</tRule>
-			<tRule>о → オ ;</tRule>
-			<tRule>па → パ ;</tRule>
-			<tRule>пе → ペ ;</tRule>
-			<tRule>пий → ピ ;</tRule>
-			<tRule>пи → ピ ;</tRule>
-			<tRule>по → ポ ;</tRule>
-			<tRule>пу → プ ;</tRule>
-			<tRule>пый → ピ ;</tRule>
-			<tRule>пы → ピ ;</tRule>
-			<tRule>пь → ピ ;</tRule>
-			<tRule>пэ → ペ ;</tRule>
-			<tRule>пю → ピュ ;</tRule>
-			<tRule>пя → ピャ ;</tRule>
-			<tRule>пё → ピョ ;</tRule>
-			<tRule>пъ → ピ ;</tRule>
-			<tRule>п } п → ッ ;</tRule>
-			<tRule>п → プ ;</tRule>
-			<tRule>ра → ラ ;</tRule>
-			<tRule>ре → レ ;</tRule>
-			<tRule>рий → リ ;</tRule>
-			<tRule>ри → リ ;</tRule>
-			<tRule>рй → リ ;</tRule>
-			<tRule>ро → ロ ;</tRule>
-			<tRule>ру → ル ;</tRule>
-			<tRule>рый → リ ;</tRule>
-			<tRule>ры → リ ;</tRule>
-			<tRule>рь → リ ;</tRule>
-			<tRule>ръ → リ ;</tRule>
-			<tRule>рэ → レ ;</tRule>
-			<tRule>рю → リュ ;</tRule>
-			<tRule>ря → リャ ;</tRule>
-			<tRule>рё → リョ ;</tRule>
-			<tRule>р → ル ;</tRule>
-			<tRule>са → サ ;</tRule>
-			<tRule>се → セ ;</tRule>
-			<tRule>сий → シー ;</tRule>
-			<tRule>си → シ ;</tRule>
-			<tRule>со → ソ ;</tRule>
-			<tRule>су → ス ;</tRule>
-			<tRule>счий → チ ;</tRule>
-			<tRule>счи → チ ;</tRule>
-			<tRule>счо → チョ ;</tRule>
-			<tRule>счу → チュ ;</tRule>
-			<tRule>счь → チ ;</tRule>
-			<tRule>счю → チュ ;</tRule>
-			<tRule>счё → チョ ;</tRule>
-			<tRule>сый → シ ;</tRule>
-			<tRule>сы → シ ;</tRule>
-			<tRule>сь → シ ;</tRule>
-			<tRule>сэ → セ ;</tRule>
-			<tRule>сю → シュ ;</tRule>
-			<tRule>ся → シャ ;</tRule>
-			<tRule>сё → ショ ;</tRule>
-			<tRule>съ → シ ;</tRule>
-			<tRule>с } с → ッ ;</tRule>
-			<tRule>с → ス ;</tRule>
-			<tRule>та → タ ;</tRule>
-			<tRule>те → テ ;</tRule>
-			<tRule>тий → チ ;</tRule>
-			<tRule>ти → チ ;</tRule>
-			<tRule>то → ト ;</tRule>
-			<tRule>тса → ツァ ;</tRule>
-			<tRule>тсе → ツェ ;</tRule>
-			<tRule>тсий → ツィ ;</tRule>
-			<tRule>тси → ツィ ;</tRule>
-			<tRule>тсо → ツォ ;</tRule>
-			<tRule>тсу → チュ ;</tRule>
-			<tRule>тсый → ツィ ;</tRule>
-			<tRule>тсы → ツィ ;</tRule>
-			<tRule>тсь → ツィ ;</tRule>
-			<tRule>тсэ → ツェ ;</tRule>
-			<tRule>тсю → チュ ;</tRule>
-			<tRule>тся → ツィア ;</tRule>
-			<tRule>тс → ツ ;</tRule>
-			<tRule>ту → トゥ ;</tRule>
-			<tRule>тца → ッツァ ;</tRule>
-			<tRule>тце → ツェ ;</tRule>
-			<tRule>тций → ツィ ;</tRule>
-			<tRule>тци → ツィ ;</tRule>
-			<tRule>тцо → ツォ ;</tRule>
-			<tRule>тцу → チュ ;</tRule>
-			<tRule>тцый → ツィ ;</tRule>
-			<tRule>тцы → ツィ ;</tRule>
-			<tRule>тць → ツィ ;</tRule>
-			<tRule>тцэ → ツェ ;</tRule>
-			<tRule>тцю → チュ ;</tRule>
-			<tRule>тця → ツィア ;</tRule>
-			<tRule>тц → ツ ;</tRule>
-			<tRule>тча → チャ ;</tRule>
-			<tRule>тче → チェ ;</tRule>
-			<tRule>тчий → チ ;</tRule>
-			<tRule>тчи → チ ;</tRule>
-			<tRule>тчо → チョ ;</tRule>
-			<tRule>тчу → チュ ;</tRule>
-			<tRule>тчый → チ ;</tRule>
-			<tRule>тчы → チ ;</tRule>
-			<tRule>тчь → チ ;</tRule>
-			<tRule>тчэ → チェ ;</tRule>
-			<tRule>тч → チ ;</tRule>
-			<tRule>тый → ティ ;</tRule>
-			<tRule>ты → ティ ;</tRule>
-			<tRule>ть → チ ;</tRule>
-			<tRule>тъ → チ ;</tRule>
-			<tRule>тэ → チェ ;</tRule>
-			<tRule>тю → チュ ;</tRule>
-			<tRule>тя → チャ ;</tRule>
-			<tRule>тё → チョ ;</tRule>
-			<tRule>т } [тд] → ッ;</tRule>
-			<tRule>т → ト ;</tRule>
-			<tRule>у → ウ ;</tRule>
-			<tRule>фа → ファ ;</tRule>
-			<tRule>фе → フェ ;</tRule>
-			<tRule>фий → フィ ;</tRule>
-			<tRule>фи → フィ ;</tRule>
-			<tRule>фо → フォ ;</tRule>
-			<tRule>фу → フ ;</tRule>
-			<tRule>фый → フィ ;</tRule>
-			<tRule>фы → フィ ;</tRule>
-			<tRule>фь → フィ ;</tRule>
-			<tRule>фэ → フェ ;</tRule>
-			<tRule>фю → フュ ;</tRule>
-			<tRule>фя → フャ ;</tRule>
-			<tRule>фё → フョ ;</tRule>
-			<tRule>ф → フ ;</tRule>
-			<tRule>ха → ハ ;</tRule>
-			<tRule>хе → ヘ ;</tRule>
-			<tRule>хий → ヒー ;</tRule>
-			<tRule>хи → ヒ ;</tRule>
-			<tRule>хо → ホ ;</tRule>
-			<tRule>ху → フ ;</tRule>
-			<tRule>хый → ヒ ;</tRule>
-			<tRule>хы → ヒ ;</tRule>
-			<tRule>хь → ヒ ;</tRule>
-			<tRule>хэ → ヘ ;</tRule>
-			<tRule>хю → ヒュ ;</tRule>
-			<tRule>хя → ヒャ ;</tRule>
-			<tRule>х → フ ;</tRule>
-			<tRule>ца → ツァ ;</tRule>
-			<tRule>це → ツェ ;</tRule>
-			<tRule>ций → ツィ ;</tRule>
-			<tRule>ци → ツィ ;</tRule>
-			<tRule>цо → ツォ ;</tRule>
-			<tRule>цса → ツァ ;</tRule>
-			<tRule>цсе → ツェ ;</tRule>
-			<tRule>цсий → ツィ ;</tRule>
-			<tRule>цси → ツィ ;</tRule>
-			<tRule>цсо → ツォ ;</tRule>
-			<tRule>цсу → チュ ;</tRule>
-			<tRule>цсый → ツィ ;</tRule>
-			<tRule>цсы → ツィ ;</tRule>
-			<tRule>цсь → ツィ ;</tRule>
-			<tRule>цсэ → ツェ ;</tRule>
-			<tRule>цсю → チュ ;</tRule>
-			<tRule>цся → ツィア ;</tRule>
-			<tRule>цс → ツ ;</tRule>
-			<tRule>цу → チュ ;</tRule>
-			<tRule>цый → ツィ ;</tRule>
-			<tRule>цы → ツィ ;</tRule>
-			<tRule>ць → ツィ ;</tRule>
-			<tRule>цэ → ツェ ;</tRule>
-			<tRule>цю → チュ ;</tRule>
-			<tRule>ця → ツァ ;</tRule>
-			<tRule>ц → ツ ;</tRule>
-			<tRule>ча → チャ ;</tRule>
-			<tRule>че → チェ ;</tRule>
-			<tRule>чий → チー ;</tRule>
-			<tRule>чи → チ ;</tRule>
-			<tRule>чо → チョ ;</tRule>
-			<tRule>чу → チュ ;</tRule>
-			<tRule>чый → チ ;</tRule>
-			<tRule>чы → チ ;</tRule>
-			<tRule>чь → チ ;</tRule>
-			<tRule>чэ → チェ ;</tRule>
-			<tRule>чё → チョ ;</tRule>
-			<tRule>ч → チ ;</tRule>
-			<tRule>ша → シャ ;</tRule>
-			<tRule>ше → シェ ;</tRule>
-			<tRule>ший → シー ;</tRule>
-			<tRule>ши → シ ;</tRule>
-			<tRule>шо → ショ ;</tRule>
-			<tRule>шу → シュ ;</tRule>
-			<tRule>шый → シ ;</tRule>
-			<tRule>шы → シ ;</tRule>
-			<tRule>шь → シ ;</tRule>
-			<tRule>шэ → シェ ;</tRule>
-			<tRule>шю → シュ ;</tRule>
-			<tRule>шя → シャ ;</tRule>
-			<tRule>шё → ショ ;</tRule>
-			<tRule>ш → シュ ;</tRule>
-			<tRule>ща → シャ ;</tRule>
-			<tRule>ще → シェ ;</tRule>
-			<tRule>щий → シー ;</tRule>
-			<tRule>щи → シ ;</tRule>
-			<tRule>що → ショ ;</tRule>
-			<tRule>щу → シュ ;</tRule>
-			<tRule>щь → シ ;</tRule>
-			<tRule>щю → シュ ;</tRule>
-			<tRule>щё → ショ ;</tRule>
-			<tRule>щ → シ ;</tRule>
-			<tRule>ъ → ;</tRule>
-			<tRule>ый → イ ;</tRule>
-			<tRule>ы → ウィ ;</tRule>
-			<tRule>ь → イ ;</tRule>
-			<tRule>э → エ ;</tRule>
-			<tRule>ю → ユ ;</tRule>
-			<tRule>я → ヤ ;</tRule>
-			<tRule>ё → ョ ;</tRule>
-			<comment>
-			#
-			</comment>
-			<tRule>::NFC;</tRule>
+			<tRule>
+#
+# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
+# Author: takenaka@google.com (Hiroshi Takenaka)
+# Transliteration from Russian into Japanese (Katakana).
+#
+
+$word_boundary = [-\ $];
+$vowel = [аеийоуыьэюяёъ];
+$not_vowel = [^$vowel];
+#
+#
+
+::NFC;
+::Lower;
+#
+#
+
+$vowel { го } $word_boundary → во;
+::Null;
+#
+#
+
+а → ア ;
+ба → バ ;
+бе → ベ ;
+бий → ビー ;
+би → ビ ;
+бо → ボ ;
+бу → ブ ;
+бы → ビ ;
+бь → ビ ;
+бэ → ベ ;
+бю → ビュ ;
+бя → ビャ ;
+бё → ビョ ;
+б → ブ ;
+ва → ヴァ ;
+ве → ヴェ ;
+вий → ヴィ ;
+ви → ヴィ ;
+во → ヴォ ;
+ву → ヴ ;
+вый → ヴィ ;
+вы → ヴィ ;
+вь → ヴィ ;
+вэ → ヴェ ;
+вю → ヴュ ;
+вя → ヴャ ;
+вё → ヴョ ;
+въ → ヴィ;
+в } [линр] → ヴ ;
+в → フ ;
+га → ガ ;
+ге → ゲ ;
+гий → ギ ;
+ги → ギ ;
+го → ゴ ;
+гу → グ ;
+гый → ギ ;
+гы → ギ ;
+гь → ギ ;
+гъ → ギ ;
+гэ → ゲ ;
+гю → ギュ ;
+гя → ギャ ;
+гё → ギョ ;
+г } г → ッ ;
+г → グ ;
+да → ダ ;
+де → デ ;
+джа → ジャ ;
+дже → ジェ ;
+джий → ジ ;
+джи → ジ ;
+джо → ジョ ;
+джу → ジュ ;
+джый → ギ ;
+джы → ジ ;
+джь → ギ ;
+джэ → ジェ ;
+джю → ジュ ;
+джя → ジャ ;
+джё → ジョ ;
+дж → ジ ;
+дза → ザ ;
+дзе → ゼ ;
+дзий → ドジ ;
+дзи → ドジ ;
+дзо → ゾ ;
+дзу → ズ ;
+дзый → ドジ ;
+дзы → ドジ ;
+дзь → ドジ ;
+дзэ → ゼ ;
+дзю → ジュ ;
+дзя → ジャ ;
+дзё → ドジョ ;
+дз → ドゼ ;
+дий → ジ ;
+ди → ジ ;
+до → ド ;
+дса → ツァ ;
+дсе → ツェ ;
+дсий → ツィ ;
+дси → ツィ ;
+дсо → ツォ ;
+дсу → チュ ;
+дсый → ツィ ;
+дсы → ツィ ;
+дсь → ツィ ;
+дсэ → ツェ ;
+дсю → チュ ;
+дся → ツィア ;
+дс → ツ ;
+ду → ドゥ ;
+дца → ツァ ;
+дце → ツェ ;
+дций → ツィ ;
+дци → ツィ ;
+дцо → ツォ ;
+дцу → チュ ;
+дцый → ツィ ;
+дцы → ツィ ;
+дць → ツィ ;
+дцэ → ツェ ;
+дцю → チュ ;
+дця → ツィア ;
+дц → ツ ;
+дча → チャ ;
+дче → チェ ;
+дчий → チ ;
+дчи → チ ;
+дчо → チョ ;
+дчу → チュ ;
+дчый → チ ;
+дчы → チ ;
+дчь → チ ;
+дчэ → チェ ;
+дчё → チョ ;
+дч → チ ;
+дый → ド ;
+ды → ディ ;
+дью → ジュ ;
+дь → ジ ;
+дэ → デ ;
+дю → ジュ ;
+дя → ジャ ;
+дё → ジョ ;
+д → ド ;
+е → エ ;
+жа → ジャ ;
+же → ジェ ;
+жий → ジ ;
+жи → ジュ ;
+жо → ジョ ;
+жу → ジュ ;
+жый → ジュ ;
+жы → ジ ;
+жь → ジ ;
+жэ → ジェ ;
+жю → ジュ ;
+жя → ジャ ;
+жё → ジョ ;
+ж → シュ ;
+за → ザ ;
+зе → ゼ ;
+зий → ジ ;
+зи → ジ ;
+зо → ゾ ;
+зу → ズ ;
+зый → ジ ;
+зы → ジ ;
+зь → ジ ;
+зэ → ゼ ;
+зю → ジュ ;
+зя → ジャ ;
+зё → ジョ ;
+з → ス ;
+ий → イ ;
+и → イ ;
+й → イ ;
+ка → カ ;
+ке → ケ ;
+кий → キー ;
+ки → キ ;
+ко → コ ;
+ку → ク ;
+кы → キ ;
+кь → キ ;
+кэ → ケ ;
+кю → キュ ;
+кя → キャ ;
+кё → キョ ;
+къ → キ ;
+к → ク ;
+ла → ラ ;
+ле → レ ;
+лий → リ ;
+ли → リ ;
+лй → リ ;
+ло → ロ ;
+лу → ル ;
+лый → リ ;
+лы → リ ;
+ль → リ ;
+лэ → レ ;
+лю → リュ ;
+ля → リャ ;
+лё → リョ ;
+л → ル ;
+ма → マ ;
+ме → メ ;
+ми → ミ ;
+мо → モ ;
+му → ム ;
+мый → ミ ;
+мы → ミ ;
+мь → ミ ;
+мъ → ミ ;
+мэ → メ ;
+мю → ミュ ;
+мя → ミャ ;
+мё → ミョ ;
+м → ム ;
+на → ナ ;
+не → ネ ;
+ний → ニー ;
+ни → ニ ;
+нй → ニ ;
+но → ノ ;
+ну → ヌ ;
+ный → ニ ;
+ны → ニ ;
+нь → ニ ;
+нэ → ネ ;
+ню → ニュ ;
+ня → ニャ ;
+нё → ニョ ;
+нъ → ニ ;
+н } $not_vowel → ン ;
+о → オ ;
+па → パ ;
+пе → ペ ;
+пий → ピ ;
+пи → ピ ;
+по → ポ ;
+пу → プ ;
+пый → ピ ;
+пы → ピ ;
+пь → ピ ;
+пэ → ペ ;
+пю → ピュ ;
+пя → ピャ ;
+пё → ピョ ;
+пъ → ピ ;
+п } п → ッ ;
+п → プ ;
+ра → ラ ;
+ре → レ ;
+рий → リ ;
+ри → リ ;
+рй → リ ;
+ро → ロ ;
+ру → ル ;
+рый → リ ;
+ры → リ ;
+рь → リ ;
+ръ → リ ;
+рэ → レ ;
+рю → リュ ;
+ря → リャ ;
+рё → リョ ;
+р → ル ;
+са → サ ;
+се → セ ;
+сий → シー ;
+си → シ ;
+со → ソ ;
+су → ス ;
+счий → チ ;
+счи → チ ;
+счо → チョ ;
+счу → チュ ;
+счь → チ ;
+счю → チュ ;
+счё → チョ ;
+сый → シ ;
+сы → シ ;
+сь → シ ;
+сэ → セ ;
+сю → シュ ;
+ся → シャ ;
+сё → ショ ;
+съ → シ ;
+с } с → ッ ;
+с → ス ;
+та → タ ;
+те → テ ;
+тий → チ ;
+ти → チ ;
+то → ト ;
+тса → ツァ ;
+тсе → ツェ ;
+тсий → ツィ ;
+тси → ツィ ;
+тсо → ツォ ;
+тсу → チュ ;
+тсый → ツィ ;
+тсы → ツィ ;
+тсь → ツィ ;
+тсэ → ツェ ;
+тсю → チュ ;
+тся → ツィア ;
+тс → ツ ;
+ту → トゥ ;
+тца → ッツァ ;
+тце → ツェ ;
+тций → ツィ ;
+тци → ツィ ;
+тцо → ツォ ;
+тцу → チュ ;
+тцый → ツィ ;
+тцы → ツィ ;
+тць → ツィ ;
+тцэ → ツェ ;
+тцю → チュ ;
+тця → ツィア ;
+тц → ツ ;
+тча → チャ ;
+тче → チェ ;
+тчий → チ ;
+тчи → チ ;
+тчо → チョ ;
+тчу → チュ ;
+тчый → チ ;
+тчы → チ ;
+тчь → チ ;
+тчэ → チェ ;
+тч → チ ;
+тый → ティ ;
+ты → ティ ;
+ть → チ ;
+тъ → チ ;
+тэ → チェ ;
+тю → チュ ;
+тя → チャ ;
+тё → チョ ;
+т } [тд] → ッ;
+т → ト ;
+у → ウ ;
+фа → ファ ;
+фе → フェ ;
+фий → フィ ;
+фи → フィ ;
+фо → フォ ;
+фу → フ ;
+фый → フィ ;
+фы → フィ ;
+фь → フィ ;
+фэ → フェ ;
+фю → フュ ;
+фя → フャ ;
+фё → フョ ;
+ф → フ ;
+ха → ハ ;
+хе → ヘ ;
+хий → ヒー ;
+хи → ヒ ;
+хо → ホ ;
+ху → フ ;
+хый → ヒ ;
+хы → ヒ ;
+хь → ヒ ;
+хэ → ヘ ;
+хю → ヒュ ;
+хя → ヒャ ;
+х → フ ;
+ца → ツァ ;
+це → ツェ ;
+ций → ツィ ;
+ци → ツィ ;
+цо → ツォ ;
+цса → ツァ ;
+цсе → ツェ ;
+цсий → ツィ ;
+цси → ツィ ;
+цсо → ツォ ;
+цсу → チュ ;
+цсый → ツィ ;
+цсы → ツィ ;
+цсь → ツィ ;
+цсэ → ツェ ;
+цсю → チュ ;
+цся → ツィア ;
+цс → ツ ;
+цу → チュ ;
+цый → ツィ ;
+цы → ツィ ;
+ць → ツィ ;
+цэ → ツェ ;
+цю → チュ ;
+ця → ツァ ;
+ц → ツ ;
+ча → チャ ;
+че → チェ ;
+чий → チー ;
+чи → チ ;
+чо → チョ ;
+чу → チュ ;
+чый → チ ;
+чы → チ ;
+чь → チ ;
+чэ → チェ ;
+чё → チョ ;
+ч → チ ;
+ша → シャ ;
+ше → シェ ;
+ший → シー ;
+ши → シ ;
+шо → ショ ;
+шу → シュ ;
+шый → シ ;
+шы → シ ;
+шь → シ ;
+шэ → シェ ;
+шю → シュ ;
+шя → シャ ;
+шё → ショ ;
+ш → シュ ;
+ща → シャ ;
+ще → シェ ;
+щий → シー ;
+щи → シ ;
+що → ショ ;
+щу → シュ ;
+щь → シ ;
+щю → シュ ;
+щё → ショ ;
+щ → シ ;
+ъ → ;
+ый → イ ;
+ы → ウィ ;
+ь → イ ;
+э → エ ;
+ю → ユ ;
+я → ヤ ;
+ё → ョ ;
+#
+#
+
+::NFC;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

@@ -6,168 +6,170 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="zh_Latn_PINYIN" target="ru" direction="forward">
-			<comment>
-			# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
-			# Author: mjansche@google.com (Martin Jansche)
-			#
-			# Cyrillization of Mandarin Chinese from Pinyin into Russian (Palladius system).
-			#
-			# References:
-			#   http://ru.wikipedia.org/wiki/Транскрипционная_система_Палладия
-			#   http://www.omniglot.com/writing/mandarin_pts.htm
-			#   http://www.pinyin.info/romanization/russian/index.html
-			# These differ in the treatment of some syllables (e.g. &lt;jue&gt;) from the rules
-			# below.
-			#
-			# Further commentary:
-			#   http://languagelog.ldc.upenn.edu/nll/?p=604
-			#
-			# Remove tone marks.
-			</comment>
-			<tRule>:: NFD (NFC);</tRule>
-			<tRule>[\u0304\u0301\u030C\u0300\u0306] → ;</tRule>
-			<tRule>:: NFC (NFD);</tRule>
-			<comment>
-			#
-			# Syllabify. Add apostrophes to disambiguate whether &lt;n&gt; and &lt;g&gt; belong to the
-			# coda or onset of a syllable.
-			</comment>
-			<tRule>:: Null ();</tRule>
-			<tRule>ng } [aeou] → n\'g;</tRule>
-			<tRule>ng → ng\';</tRule>
-			<tRule>n } [aeiouü] → \'n;</tRule>
-			<tRule>n → n\';</tRule>
-			<comment>
-			#
-			# Main pass.
-			</comment>
-			<tRule>:: Null ();</tRule>
-			<comment>
-			#
-			</comment>
-			<tRule>Ai → Ай;</tRule>
-			<tRule>A  → А;</tRule>
-			<tRule>B  → Б;</tRule>
-			<tRule>Ch → Ч;</tRule>
-			<tRule>Ci → Цы;</tRule>
-			<tRule>C  → Ц;</tRule>
-			<tRule>D  → Д;</tRule>
-			<tRule>E  → Э;</tRule>
-			<tRule>F  → Ф;</tRule>
-			<tRule>G  → Г;</tRule>
-			<tRule>H  → Х;</tRule>
-			<tRule>Ju → Цз | ü;</tRule>
-			<tRule>J  → Цз;</tRule>
-			<tRule>K  → К;</tRule>
-			<tRule>L  → Л;</tRule>
-			<tRule>M  → М;</tRule>
-			<tRule>N  → Н;</tRule>
-			<tRule>O  → О;</tRule>
-			<tRule>P  → П;</tRule>
-			<tRule>Qu → Ц | ü;</tRule>
-			<tRule>Q  → Ц;</tRule>
-			<tRule>R  → Ж;</tRule>
-			<tRule>Sh → Ш;</tRule>
-			<tRule>Si → Сы;</tRule>
-			<tRule>S  → С;</tRule>
-			<tRule>T  → Т;</tRule>
-			<tRule>Wu → У;</tRule>
-			<tRule>W  → В;</tRule>
-			<tRule>Xu → С | ü;</tRule>
-			<tRule>X  → С;</tRule>
-			<tRule>Yai → Яй;</tRule>
-			<tRule>Ya → Я;</tRule>
-			<tRule>Ye → Е;</tRule>
-			<tRule>Yi → И;</tRule>
-			<tRule>You → Ю;</tRule>
-			<tRule>Yo } ng → Ю;</tRule>
-			<tRule>Yo → Ё;</tRule>
-			<tRule>Yu → Ю | v;</tRule>
-			<tRule>Zh → Чж;</tRule>
-			<tRule>Zi → Цзы;</tRule>
-			<tRule>Z  → Цз;</tRule>
-			<comment>
-			#
-			</comment>
-			<tRule>[$] { n → н;</tRule>
-			<tRule>\'n → н;</tRule>
-			<tRule>\'  → ;</tRule>
-			<comment>
-			#
-			</comment>
-			<tRule>ai → ай;</tRule>
-			<tRule>a  → а;</tRule>
-			<tRule>b  → б;</tRule>
-			<tRule>ch → ч;</tRule>
-			<tRule>ci → цы;</tRule>
-			<tRule>c  → ц;</tRule>
-			<tRule>d  → д;</tRule>
-			<tRule>ei → эй;</tRule>
-			<tRule>e  → э;</tRule>
-			<tRule>f  → ф;</tRule>
-			<tRule>g  → г;</tRule>
-			<tRule>h  → х;</tRule>
-			<tRule>ia → я;</tRule>
-			<tRule>ie → е;</tRule>
-			<tRule>io } ng → ю;</tRule>
-			<tRule>iu → ю;</tRule>
-			<tRule>i  → и;</tRule>
-			<tRule>ju → цз | ü;</tRule>
-			<tRule>j  → цз;</tRule>
-			<tRule>k  → к;</tRule>
-			<tRule>l  → л;</tRule>
-			<tRule>m  → м;</tRule>
-			<tRule>ng → н;</tRule>
-			<tRule>n  → нь;</tRule>
-			<tRule>o } ng → у;</tRule>
-			<tRule>o  → о;</tRule>
-			<tRule>p  → п;</tRule>
-			<tRule>qu → ц | ü;</tRule>
-			<tRule>q  → ц;</tRule>
-			<tRule>r } [^aeiou] → р;</tRule>
-			<tRule>r  → ж;</tRule>
-			<tRule>sh → ш;</tRule>
-			<tRule>si → сы;</tRule>
-			<tRule>s  → с;</tRule>
-			<tRule>t  → т;</tRule>
-			<tRule>[Хх] { ui → уэй;  # special exception</tRule>
-			<tRule>ui → уй;</tRule>
-			<tRule>uo → о;</tRule>
-			<tRule>u  → у;</tRule>
-			<tRule>ü  → ю | v;</tRule>
-			<comment>
-			# We use the dummy symbol &lt;v&gt; to signal that an &lt;ü&gt; or equivalent character has
-			# just been processed.
-			</comment>
-			<tRule>ve → э;</tRule>
-			<comment>
-			#alternative: ve → е;
-			</comment>
-			<tRule>v } [an] → ;</tRule>
-			<tRule>v  → й;</tRule>
-			<tRule>wu → у;</tRule>
-			<tRule>w  → в;</tRule>
-			<tRule>xu → с | ü;</tRule>
-			<tRule>x  → с;</tRule>
-			<tRule>yai → яй;</tRule>
-			<tRule>ya → я;</tRule>
-			<tRule>ye → е;</tRule>
-			<tRule>yi → и;</tRule>
-			<tRule>you → ю;</tRule>
-			<tRule>yo } ng → ю;</tRule>
-			<tRule>yo → ё;</tRule>
-			<tRule>yu → ю | v;</tRule>
-			<tRule>zh → чж;</tRule>
-			<tRule>zi → цзы;</tRule>
-			<tRule>z  → цз;</tRule>
-			<comment>
-			#
-			# Final pass: Make sure that the output consists entirely of Cyrillic letters.
-			</comment>
-			<tRule>:: NFC ();</tRule>
+			<tRule>
+#
+# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
+# Author: mjansche@google.com (Martin Jansche)
+#
+# Cyrillization of Mandarin Chinese from Pinyin into Russian (Palladius system).
+#
+# References:
+#   http://ru.wikipedia.org/wiki/Транскрипционная_система_Палладия
+#   http://www.omniglot.com/writing/mandarin_pts.htm
+#   http://www.pinyin.info/romanization/russian/index.html
+# These differ in the treatment of some syllables (e.g. &lt;jue&gt;) from the rules
+# below.
+#
+# Further commentary:
+#   http://languagelog.ldc.upenn.edu/nll/?p=604
+#
+# Remove tone marks.
+
+:: NFD (NFC);
+[\u0304\u0301\u030C\u0300\u0306] → ;
+:: NFC (NFD);
+#
+#
+# Syllabify. Add apostrophes to disambiguate whether &lt;n&gt; and &lt;g&gt; belong to the
+# coda or onset of a syllable.
+
+:: Null ();
+ng } [aeou] → n\'g;
+ng → ng\';
+n } [aeiouü] → \'n;
+n → n\';
+#
+#
+# Main pass.
+
+:: Null ();
+#
+#
+
+Ai → Ай;
+A  → А;
+B  → Б;
+Ch → Ч;
+Ci → Цы;
+C  → Ц;
+D  → Д;
+E  → Э;
+F  → Ф;
+G  → Г;
+H  → Х;
+Ju → Цз | ü;
+J  → Цз;
+K  → К;
+L  → Л;
+M  → М;
+N  → Н;
+O  → О;
+P  → П;
+Qu → Ц | ü;
+Q  → Ц;
+R  → Ж;
+Sh → Ш;
+Si → Сы;
+S  → С;
+T  → Т;
+Wu → У;
+W  → В;
+Xu → С | ü;
+X  → С;
+Yai → Яй;
+Ya → Я;
+Ye → Е;
+Yi → И;
+You → Ю;
+Yo } ng → Ю;
+Yo → Ё;
+Yu → Ю | v;
+Zh → Чж;
+Zi → Цзы;
+Z  → Цз;
+#
+#
+
+[$] { n → н;
+\'n → н;
+\'  → ;
+#
+#
+
+ai → ай;
+a  → а;
+b  → б;
+ch → ч;
+ci → цы;
+c  → ц;
+d  → д;
+ei → эй;
+e  → э;
+f  → ф;
+g  → г;
+h  → х;
+ia → я;
+ie → е;
+io } ng → ю;
+iu → ю;
+i  → и;
+ju → цз | ü;
+j  → цз;
+k  → к;
+l  → л;
+m  → м;
+ng → н;
+n  → нь;
+o } ng → у;
+o  → о;
+p  → п;
+qu → ц | ü;
+q  → ц;
+r } [^aeiou] → р;
+r  → ж;
+sh → ш;
+si → сы;
+s  → с;
+t  → т;
+[Хх] { ui → уэй;  # special exception
+ui → уй;
+uo → о;
+u  → у;
+ü  → ю | v;
+#
+# We use the dummy symbol &lt;v&gt; to signal that an &lt;ü&gt; or equivalent character has
+# just been processed.
+
+ve → э;
+#
+#alternative: ve → е;
+
+v } [an] → ;
+v  → й;
+wu → у;
+w  → в;
+xu → с | ü;
+x  → с;
+yai → яй;
+ya → я;
+ye → е;
+yi → и;
+you → ю;
+yo } ng → ю;
+yo → ё;
+yu → ю | v;
+zh → чж;
+zi → цзы;
+z  → цз;
+#
+#
+# Final pass: Make sure that the output consists entirely of Cyrillic letters.
+
+:: NFC ();
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

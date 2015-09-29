@@ -6,14 +6,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Thai" target="ThaiSemi" direction="both" visibility="internal">
-			<comment># The rules that convert space into semicolon are in this file;</comment>
-			<comment># since they have to come BEFORE the break iterator.</comment>
-			<tRule>$thai = [[:thai:] ก-ฺเ-๛] ;</tRule>
-			<tRule>$thai { ' ' } $thai → '; ' ;</tRule>
+			<tRule>
+# The rules that convert space into semicolon are in this file;
+# since they have to come BEFORE the break iterator.
+$thai = [[:thai:] ก-ฺเ-๛] ;
+$thai { ' ' } $thai → '; ' ;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>
-

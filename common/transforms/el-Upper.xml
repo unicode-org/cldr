@@ -6,18 +6,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="el" target="Upper" direction="forward">
-			<comment># Copyright (C) 2011-2013, Apple Inc. and others. All Rights Reserved.</comment>
-			<comment># Remove \0301 following Greek, with possible intervening 0308 marks.</comment>
-			<tRule>::NFD();</tRule>
-			<comment># For uppercasing (not titlecasing!) remove all greek accents from greek letters.</comment>
-			<comment># This is done in two groups, to account for canonical ordering.</comment>
-			<tRule>[:Greek:] [^[:ccc=Not_Reordered:][:ccc=Above:]]*? { [\u0313\u0314\u0301\u0300\u0306\u0342\u0308\u0304] → ;</tRule>
-			<tRule>[:Greek:] [^[:ccc=Not_Reordered:][:ccc=Iota_Subscript:]]*? { \u0345 → ;</tRule>
-			<tRule>::NFC();</tRule>
-			<tRule>::Any-Upper();</tRule>
+			<tRule>
+# Copyright (C) 2011-2013, Apple Inc. and others. All Rights Reserved.
+# Remove \0301 following Greek, with possible intervening 0308 marks.
+::NFD();
+# For uppercasing (not titlecasing!) remove all greek accents from greek letters.
+# This is done in two groups, to account for canonical ordering.
+[:Greek:] [^[:ccc=Not_Reordered:][:ccc=Above:]]*? { [\u0313\u0314\u0301\u0300\u0306\u0342\u0308\u0304] → ;
+[:Greek:] [^[:ccc=Not_Reordered:][:ccc=Iota_Subscript:]]*? { \u0345 → ;
+::NFC();
+::Any-Upper();
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

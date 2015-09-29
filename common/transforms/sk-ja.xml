@@ -6,16 +6,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="sk" target="ja" direction="forward">
-			<comment>
-			# Copyright (C) 2010 Google, Inc.  All Rights Reserved.
-			# Author: sascha@google.com (Sascha Brawer)
-			#
-			</comment>
-			<tRule>::sk-sk_FONIPA;</tRule>
-			<tRule>::sk_FONIPA-ja;</tRule>
+			<tRule>
+#
+# Copyright (C) 2010 Google, Inc.  All Rights Reserved.
+# Author: sascha@google.com (Sascha Brawer)
+#
+
+::sk-sk_FONIPA;
+::sk_FONIPA-ja;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

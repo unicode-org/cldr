@@ -9,441 +9,443 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Katakana" target="Latin" direction="forward" variant="BGN" draft="provisional">
-			<comment>
-			########################################################################
-			# BGN/PCGN Agreement
-			#
-			# The modified Hepburn system for the romanization of Japanese has been
-			# in use by the U.S. Board on Geographic Names since about 1930 and has
-			# been used extensively in the romanization of Japanese geographic names.
-			# The system is well adapted to the general needs of speakers of English
-			# and is the most widely used system for the romanization of Japanese.
-			#
-			# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
-			########################################################################
-			#
-			# MINIMAL FILTER: Japanese-Latin
-			#
-			</comment>
-			<tRule>:: [あいうえおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろわゐゑをんゔアイウエオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロワヰヱヲンヴ] ;</tRule>
-			<tRule>:: NFD (NFC) ;</tRule>
-			<comment>
-			#
-			########################################################################
-			</comment>
+			<tRule>
+#
+########################################################################
+# BGN/PCGN Agreement
+#
+# The modified Hepburn system for the romanization of Japanese has been
+# in use by the U.S. Board on Geographic Names since about 1930 and has
+# been used extensively in the romanization of Japanese geographic names.
+# The system is well adapted to the general needs of speakers of English
+# and is the most widely used system for the romanization of Japanese.
+#
+# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
+########################################################################
+#
+# MINIMAL FILTER: Japanese-Latin
+#
 
-			<comment>
-			########################################################################
-			#
-			# Define All Transformation Variables
-			#
-			########################################################################
-			</comment>
-
-			<tRule>$apostrophe  = ’;</tRule>
-
-			<comment>
-			# Use this $wordBoundary until bug 2034 is fixed in ICU:
-			# http://bugs.icu-project.org/cgi-bin/icu-bugs/transliterate?id=2034;expression=boundary;user=guest
-			#
-			</comment>
-			<tRule>$wordBoundary =  [^[:L:][:M:][:N:]] ;</tRule>
+:: [あいうえおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろわゐゑをんゔアイウエオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロワヰヱヲンヴ] ;
+:: NFD (NFC) ;
+#
+#
+########################################################################
 
 
-			<comment>
-			########################################################################
-			#
-			# Rules moved to front to avoid masking
-			#
-			########################################################################
-			</comment>
+#
+########################################################################
+#
+# Define All Transformation Variables
+#
+########################################################################
 
-			<comment>
-			########################################################################
-			#
-			# BGN Page 45 Rule 2:
-			#
-			# A small-script tsu form (ッ or っ) is inserted between kana symbols
-			# to indicate a double consonant and is romanized as k before k;
-			# as s before s or sh; as t before t, ts, or ch; and as p before p.
-			#
-			########################################################################
-			#
-			</comment>
-			<tRule>ッ}[カキクケコ] → k ; # KATAKANA LETTER SMALL TU</tRule>
-			<tRule>っ}[かきくけこ] → k ; # HIRAGANA LETTER SMALL TU</tRule>
-			<tRule>ッ}[サシスセソ] → s ; # KATAKANA LETTER SMALL TU</tRule>
-			<tRule>っ}[さしすせそ] → s ; # HIRAGANA LETTER SMALL TU</tRule>
-			<tRule>ッ}[タチツテト] → t ; # KATAKANA LETTER SMALL TU</tRule>
-			<tRule>っ}[たちつてと] → t ; # HIRAGANA LETTER SMALL TU</tRule>
-			<tRule>ッ}[パピプペポ] → p ; # KATAKANA LETTER SMALL TU</tRule>
-			<tRule>っ}[ぱぴぷぺぽ] → p ; # HIRAGANA LETTER SMALL TU</tRule>
-			<comment>
-			#
-			########################################################################
-			#
-			# End of Rule 2
-			#
-			########################################################################
-			</comment>
 
-			<comment>
-			########################################################################
-			#
-			# Start of Syllabic Transformations
-			#
-			########################################################################
-			#
-			</comment>
-			<tRule>ア → a ; # KATAKANA LETTER A</tRule>
-			<tRule>イ → i ; # KATAKANA LETTER I</tRule>
-			<tRule>ウ → u ; # KATAKANA LETTER U</tRule>
-			<tRule>エ → e ; # KATAKANA LETTER E</tRule>
-			<tRule>オウ → ō ; # KATAKANA LETTER O + U</tRule>
-			<tRule>オ → o ; # KATAKANA LETTER O</tRule>
+$apostrophe  = ’;
 
-			<tRule>カ → ka ; # KATAKANA LETTER KA</tRule>
-			<tRule>キョウ → kyō ; # KATAKANA LETTER KI + SMALL YO + U</tRule>
-			<tRule>キュウ → kyū ; # KATAKANA LETTER KI + SMALL YU + U</tRule>
-			<tRule>キャ → kya ; # KATAKANA LETTER KI + SMALL YA</tRule>
-			<tRule>キョ → kyo ; # KATAKANA LETTER KI + SMALL YO</tRule>
-			<tRule>キュ → kyu ; # KATAKANA LETTER KI + SMALL YU</tRule>
-			<tRule>キ → ki ; # KATAKANA LETTER KI</tRule>
-			<tRule>ク → ku ; # KATAKANA LETTER KU</tRule>
-			<tRule>ケ → ke ; # KATAKANA LETTER KE</tRule>
-			<tRule>コウ → kō ; # KATAKANA LETTER KO + U</tRule>
-			<tRule>コ → ko ; # KATAKANA LETTER KO</tRule>
+#
+# Use this $wordBoundary until bug 2034 is fixed in ICU:
+# http://bugs.icu-project.org/cgi-bin/icu-bugs/transliterate?id=2034;expression=boundary;user=guest
+#
 
-			<tRule>サ → sa ; # KATAKANA LETTER SA</tRule>
-			<tRule>ショウ → shō ; # KATAKANA LETTER SI + SMALL YO + U</tRule>
-			<tRule>シュウ → shū ; # KATAKANA LETTER SI + SMALL YU + U</tRule>
-			<tRule>シャ → sha ; # KATAKANA LETTER SI + SMALL YA</tRule>
-			<tRule>ショ → sho ; # KATAKANA LETTER SI + SMALL YO</tRule>
-			<tRule>シュ → shu ; # KATAKANA LETTER SI + SMALL YU</tRule>
-			<tRule>シ → shi ; # KATAKANA LETTER SI</tRule>
-			<tRule>ス → su ; # KATAKANA LETTER SU</tRule>
-			<tRule>セ → se ; # KATAKANA LETTER SE</tRule>
-			<tRule>ソウ → sō ; # KATAKANA LETTER SO + U</tRule>
-			<tRule>ソ → so ; # KATAKANA LETTER SO</tRule>
+$wordBoundary =  [^[:L:][:M:][:N:]] ;
 
-			<tRule>タ → ta ; # KATAKANA LETTER TA</tRule>
-			<tRule>チョウ → chō ; # KATAKANA LETTER TI + SMALL YO + U</tRule>
-			<tRule>チュウ → chū ; # KATAKANA LETTER TI + SMALL YU + U</tRule>
-			<tRule>チャ → cha ; # KATAKANA LETTER TI + SMALL YA</tRule>
-			<tRule>チョ → cho ; # KATAKANA LETTER TI + SMALL YO</tRule>
-			<tRule>チュ → chu ; # KATAKANA LETTER TI + SMALL YU</tRule>
-			<tRule>チ → chi ; # KATAKANA LETTER TI</tRule>
-			<tRule>ツ → tsu ; # KATAKANA LETTER TU</tRule>
-			<tRule>テ → te ; # KATAKANA LETTER TE</tRule>
-			<tRule>トウ → tō ; # KATAKANA LETTER TO + U</tRule>
-			<tRule>ト → to ; # KATAKANA LETTER TO</tRule>
 
-			<tRule>ナ → na ; # KATAKANA LETTER NA</tRule>
-			<tRule>ニョウ → nyō ; # KATAKANA LETTER NI + SMALL YO + U</tRule>
-			<tRule>ニュウ → nyū ; # KATAKANA LETTER NI + SMALL YU + U</tRule>
-			<tRule>ニャ → nya ; # KATAKANA LETTER NI + SMALL YA</tRule>
-			<tRule>ニョ → nyo ; # KATAKANA LETTER NI + SMALL YO</tRule>
-			<tRule>ニュ → nyu ; # KATAKANA LETTER NI + SMALL YU</tRule>
-			<tRule>ニ → ni ; # KATAKANA LETTER NI</tRule>
-			<tRule>ヌ → nu ; # KATAKANA LETTER NU</tRule>
-			<tRule>ネ → ne ; # KATAKANA LETTER NE</tRule>
-			<tRule>ノウ → nō ; # KATAKANA LETTER NO + U</tRule>
-			<tRule>ノ → no ; # KATAKANA LETTER NO</tRule>
+#
+########################################################################
+#
+# Rules moved to front to avoid masking
+#
+########################################################################
 
-			<tRule>ハ → ha ; # KATAKANA LETTER HA</tRule>
-			<tRule>ヒョウ → hyō ; # KATAKANA LETTER HI + SMALL YO + U</tRule>
-			<tRule>ヒュウ → hyū ; # KATAKANA LETTER HI + SMALL YU + U</tRule>
-			<tRule>ヒャ → hya ; # KATAKANA LETTER HI + SMALL YA</tRule>
-			<tRule>ヒョ → hyo ; # KATAKANA LETTER HI + SMALL YO</tRule>
-			<tRule>ヒュ → hyu ; # KATAKANA LETTER HI + SMALL YU</tRule>
-			<tRule>ヒ → hi ; # KATAKANA LETTER HI</tRule>
-			<tRule>フ → fu ; # KATAKANA LETTER HU</tRule>
-			<tRule>ヘ → he ; # KATAKANA LETTER HE</tRule>
-			<tRule>ホウ → hō ; # KATAKANA LETTER HO + U</tRule>
-			<tRule>ホ → ho ; # KATAKANA LETTER HO</tRule>
 
-			<tRule>マ → ma ; # KATAKANA LETTER MA</tRule>
-			<tRule>ミョウ → hyō ; # KATAKANA LETTER MI + SMALL YO + U</tRule>
-			<tRule>ミュウ → hyū ; # KATAKANA LETTER MI + SMALL YU + U</tRule>
-			<tRule>ミャ → hya ; # KATAKANA LETTER MI + SMALL YA</tRule>
-			<tRule>ミョ → hyo ; # KATAKANA LETTER MI + SMALL YO</tRule>
-			<tRule>ミュ → hyu ; # KATAKANA LETTER MI + SMALL YU</tRule>
-			<tRule>ミ → mi ; # KATAKANA LETTER MI</tRule>
-			<tRule>ム → mu ; # KATAKANA LETTER MU</tRule>
-			<tRule>メ → me ; # KATAKANA LETTER ME</tRule>
-			<tRule>モウ → mō ; # KATAKANA LETTER MO + U</tRule>
-			<tRule>モ → mo ; # KATAKANA LETTER MO</tRule>
+#
+########################################################################
+#
+# BGN Page 45 Rule 2:
+#
+# A small-script tsu form (ッ or っ) is inserted between kana symbols
+# to indicate a double consonant and is romanized as k before k;
+# as s before s or sh; as t before t, ts, or ch; and as p before p.
+#
+########################################################################
+#
 
-			<tRule>ヤ → ya ; # KATAKANA LETTER YA</tRule>
-			<tRule>ユ → yu ; # KATAKANA LETTER YU</tRule>
-			<tRule>ヨウ → yō ; # KATAKANA LETTER YO + U</tRule>
-			<tRule>ヨ → yo ; # KATAKANA LETTER YO</tRule>
+ッ}[カキクケコ] → k ; # KATAKANA LETTER SMALL TU
+っ}[かきくけこ] → k ; # HIRAGANA LETTER SMALL TU
+ッ}[サシスセソ] → s ; # KATAKANA LETTER SMALL TU
+っ}[さしすせそ] → s ; # HIRAGANA LETTER SMALL TU
+ッ}[タチツテト] → t ; # KATAKANA LETTER SMALL TU
+っ}[たちつてと] → t ; # HIRAGANA LETTER SMALL TU
+ッ}[パピプペポ] → p ; # KATAKANA LETTER SMALL TU
+っ}[ぱぴぷぺぽ] → p ; # HIRAGANA LETTER SMALL TU
+#
+#
+########################################################################
+#
+# End of Rule 2
+#
+########################################################################
 
-			<tRule>ラ → ra ; # KATAKANA LETTER RA</tRule>
-			<tRule>リョウ → ryō ; # KATAKANA LETTER RI + SMALL YO + U</tRule>
-			<tRule>リュウ → ryū ; # KATAKANA LETTER RI + SMALL YU + U</tRule>
-			<tRule>リャ → rya ; # KATAKANA LETTER RI + SMALL YA</tRule>
-			<tRule>リョ → ryo ; # KATAKANA LETTER RI + SMALL YO</tRule>
-			<tRule>リュ → ryu ; # KATAKANA LETTER RI + SMALL YU</tRule>
-			<tRule>リ → ri ; # KATAKANA LETTER RI</tRule>
-			<tRule>ル → ru ; # KATAKANA LETTER RU</tRule>
-			<tRule>レ → re ; # KATAKANA LETTER RE</tRule>
-			<tRule>ロウ → rō ; # KATAKANA LETTER RO + U</tRule>
-			<tRule>ロ → ro ; # KATAKANA LETTER RO</tRule>
 
-			<tRule>ワ → wa ; # KATAKANA LETTER WA</tRule>
-			<tRule>ヰ → i ; # KATAKANA LETTER WI</tRule>
-			<tRule>ヱ → e ; # KATAKANA LETTER WE</tRule>
-			<tRule>ヲ → o ; # KATAKANA LETTER WO</tRule>
-			<comment>
-			#
-			########################################################################
-			#
-			# BGN Page 45 Rule 3:
-			#
-			# The character ン should be romanized m before b, p, or m.
-			# The character ん should be romanized m before b, p, or m.
-			# The character ン should be romanized n’ before y or a vowel letter.
-			# The character ん should be romanized n’ before y or a vowel letter.
-			#
-			########################################################################
-			#
-			</comment>
-			<tRule>ン}[バビブベボパピプペポマミムメモ] → m ; # KATAKANA LETTER N</tRule>
-			<tRule>ん}[ばびぶべぼぱぴぷぺぽまみむめも] → m ; # HIRAGANA LETTER N</tRule>
-			<tRule>ン}[ヤユヨアイウエオ] → n $apostrophe ; # KATAKANA LETTER N</tRule>
-			<tRule>ん}[やゆよあいうえお] → n $apostrophe ; # HIRAGANA LETTER N</tRule>
-			<comment>
-			#
-			########################################################################
-			#
-			# End of Rule 3
-			#
-			########################################################################
-			#
-			</comment>
-			<tRule>ン → n ; # KATAKANA LETTER N</tRule>
+#
+########################################################################
+#
+# Start of Syllabic Transformations
+#
+########################################################################
+#
 
-			<tRule>ガ → ga ; # KATAKANA LETTER GA</tRule>
-			<tRule>ギョウ → gyō ; # KATAKANA LETTER GI + SMALL YO + U</tRule>
-			<tRule>ギュウ → gyū ; # KATAKANA LETTER GI + SMALL YU + U</tRule>
-			<tRule>ギャ → gya ; # KATAKANA LETTER GI + SMALL YA</tRule>
-			<tRule>ギョ → gyo ; # KATAKANA LETTER GI + SMALL YO</tRule>
-			<tRule>ギュ → gyu ; # KATAKANA LETTER GI + SMALL YU</tRule>
-			<tRule>ギ → gi ; # KATAKANA LETTER GI</tRule>
-			<tRule>グ → gu ; # KATAKANA LETTER GU</tRule>
-			<tRule>ゲ → ge ; # KATAKANA LETTER GE</tRule>
-			<tRule>ゴウ → gō ; # KATAKANA LETTER GO + U</tRule>
-			<tRule>ゴ → go ; # KATAKANA LETTER GO</tRule>
+ア → a ; # KATAKANA LETTER A
+イ → i ; # KATAKANA LETTER I
+ウ → u ; # KATAKANA LETTER U
+エ → e ; # KATAKANA LETTER E
+オウ → ō ; # KATAKANA LETTER O + U
+オ → o ; # KATAKANA LETTER O
 
-			<tRule>ザ → za ; # KATAKANA LETTER ZA</tRule>
-			<tRule>ジョウ → jō ; # KATAKANA LETTER ZI + SMALL YO + U</tRule>
-			<tRule>ジュウ → jū ; # KATAKANA LETTER ZI + SMALL YU + U</tRule>
-			<tRule>ジャ → ja ; # KATAKANA LETTER ZI + SMALL YA</tRule>
-			<tRule>ジョ → jo ; # KATAKANA LETTER ZI + SMALL YO</tRule>
-			<tRule>ジュ → ju ; # KATAKANA LETTER ZI + SMALL YU</tRule>
-			<tRule>ジ → ji ; # KATAKANA LETTER ZI</tRule>
-			<tRule>ズ → zu ; # KATAKANA LETTER ZU</tRule>
-			<tRule>ゼ → ze ; # KATAKANA LETTER ZE</tRule>
-			<tRule>ゾウ → zō ; # KATAKANA LETTER ZO + U</tRule>
-			<tRule>ゾ → zo ; # KATAKANA LETTER ZO</tRule>
+カ → ka ; # KATAKANA LETTER KA
+キョウ → kyō ; # KATAKANA LETTER KI + SMALL YO + U
+キュウ → kyū ; # KATAKANA LETTER KI + SMALL YU + U
+キャ → kya ; # KATAKANA LETTER KI + SMALL YA
+キョ → kyo ; # KATAKANA LETTER KI + SMALL YO
+キュ → kyu ; # KATAKANA LETTER KI + SMALL YU
+キ → ki ; # KATAKANA LETTER KI
+ク → ku ; # KATAKANA LETTER KU
+ケ → ke ; # KATAKANA LETTER KE
+コウ → kō ; # KATAKANA LETTER KO + U
+コ → ko ; # KATAKANA LETTER KO
 
-			<tRule>ダ → da ; # KATAKANA LETTER DA</tRule>
-			<tRule>ヂ → ji ; # KATAKANA LETTER DI</tRule>
-			<tRule>ヅ → zu ; # KATAKANA LETTER DU</tRule>
-			<tRule>デ → de ; # KATAKANA LETTER DE</tRule>
-			<tRule>ドウ → dō ; # KATAKANA LETTER DO + U</tRule>
-			<tRule>ド → do ; # KATAKANA LETTER DO</tRule>
+サ → sa ; # KATAKANA LETTER SA
+ショウ → shō ; # KATAKANA LETTER SI + SMALL YO + U
+シュウ → shū ; # KATAKANA LETTER SI + SMALL YU + U
+シャ → sha ; # KATAKANA LETTER SI + SMALL YA
+ショ → sho ; # KATAKANA LETTER SI + SMALL YO
+シュ → shu ; # KATAKANA LETTER SI + SMALL YU
+シ → shi ; # KATAKANA LETTER SI
+ス → su ; # KATAKANA LETTER SU
+セ → se ; # KATAKANA LETTER SE
+ソウ → sō ; # KATAKANA LETTER SO + U
+ソ → so ; # KATAKANA LETTER SO
 
-			<tRule>バ → ba ; # KATAKANA LETTER BA</tRule>
-			<tRule>ビョウ → byō ; # KATAKANA LETTER BI + SMALL YO + U</tRule>
-			<tRule>ビュウ → byū ; # KATAKANA LETTER BI + SMALL YU + U</tRule>
-			<tRule>ビャ → bya ; # KATAKANA LETTER BI + SMALL YA</tRule>
-			<tRule>ビョ → byo ; # KATAKANA LETTER BI + SMALL YO</tRule>
-			<tRule>ビュ → byu ; # KATAKANA LETTER BI + SMALL YU</tRule>
-			<tRule>ビ → bi ; # KATAKANA LETTER BI</tRule>
-			<tRule>ブ → bu ; # KATAKANA LETTER BU</tRule>
-			<tRule>ベ → be ; # KATAKANA LETTER BE</tRule>
-			<tRule>ボウ → bō ; # KATAKANA LETTER BO + U</tRule>
-			<tRule>ボ → bo ; # KATAKANA LETTER BO</tRule>
+タ → ta ; # KATAKANA LETTER TA
+チョウ → chō ; # KATAKANA LETTER TI + SMALL YO + U
+チュウ → chū ; # KATAKANA LETTER TI + SMALL YU + U
+チャ → cha ; # KATAKANA LETTER TI + SMALL YA
+チョ → cho ; # KATAKANA LETTER TI + SMALL YO
+チュ → chu ; # KATAKANA LETTER TI + SMALL YU
+チ → chi ; # KATAKANA LETTER TI
+ツ → tsu ; # KATAKANA LETTER TU
+テ → te ; # KATAKANA LETTER TE
+トウ → tō ; # KATAKANA LETTER TO + U
+ト → to ; # KATAKANA LETTER TO
 
-			<tRule>パ → pa ; # KATAKANA LETTER PA</tRule>
-			<tRule>ピョウ → pyō ; # KATAKANA LETTER PI + SMALL YO + U</tRule>
-			<tRule>ピュウ → pyū ; # KATAKANA LETTER PI + SMALL YU + U</tRule>
-			<tRule>ピャ → pya ; # KATAKANA LETTER PI + SMALL YA</tRule>
-			<tRule>ピョ → pyo ; # KATAKANA LETTER PI + SMALL YO</tRule>
-			<tRule>ピュ → pyu ; # KATAKANA LETTER PI + SMALL YU</tRule>
-			<tRule>ピ → pi ; # KATAKANA LETTER PI</tRule>
-			<tRule>プ → pu ; # KATAKANA LETTER PU</tRule>
-			<tRule>ペ → pe ; # KATAKANA LETTER PE</tRule>
-			<tRule>ポウ → pō ; # KATAKANA LETTER PO + U</tRule>
-			<tRule>ポ → po ; # KATAKANA LETTER PO</tRule>
+ナ → na ; # KATAKANA LETTER NA
+ニョウ → nyō ; # KATAKANA LETTER NI + SMALL YO + U
+ニュウ → nyū ; # KATAKANA LETTER NI + SMALL YU + U
+ニャ → nya ; # KATAKANA LETTER NI + SMALL YA
+ニョ → nyo ; # KATAKANA LETTER NI + SMALL YO
+ニュ → nyu ; # KATAKANA LETTER NI + SMALL YU
+ニ → ni ; # KATAKANA LETTER NI
+ヌ → nu ; # KATAKANA LETTER NU
+ネ → ne ; # KATAKANA LETTER NE
+ノウ → nō ; # KATAKANA LETTER NO + U
+ノ → no ; # KATAKANA LETTER NO
 
-			<tRule>ヴ → v ; # KATAKANA LETTER VU</tRule>
+ハ → ha ; # KATAKANA LETTER HA
+ヒョウ → hyō ; # KATAKANA LETTER HI + SMALL YO + U
+ヒュウ → hyū ; # KATAKANA LETTER HI + SMALL YU + U
+ヒャ → hya ; # KATAKANA LETTER HI + SMALL YA
+ヒョ → hyo ; # KATAKANA LETTER HI + SMALL YO
+ヒュ → hyu ; # KATAKANA LETTER HI + SMALL YU
+ヒ → hi ; # KATAKANA LETTER HI
+フ → fu ; # KATAKANA LETTER HU
+ヘ → he ; # KATAKANA LETTER HE
+ホウ → hō ; # KATAKANA LETTER HO + U
+ホ → ho ; # KATAKANA LETTER HO
 
-			<tRule>あ → a ; # HIRAGANA LETTER A</tRule>
-			<tRule>い → i ; # HIRAGANA LETTER I</tRule>
-			<tRule>う → u ; # HIRAGANA LETTER U</tRule>
-			<tRule>え → e ; # HIRAGANA LETTER E</tRule>
-			<tRule>おう → ō ; # HIRAGANA LETTER O + U</tRule>
-			<tRule>お → o ; # HIRAGANA LETTER O</tRule>
+マ → ma ; # KATAKANA LETTER MA
+ミョウ → hyō ; # KATAKANA LETTER MI + SMALL YO + U
+ミュウ → hyū ; # KATAKANA LETTER MI + SMALL YU + U
+ミャ → hya ; # KATAKANA LETTER MI + SMALL YA
+ミョ → hyo ; # KATAKANA LETTER MI + SMALL YO
+ミュ → hyu ; # KATAKANA LETTER MI + SMALL YU
+ミ → mi ; # KATAKANA LETTER MI
+ム → mu ; # KATAKANA LETTER MU
+メ → me ; # KATAKANA LETTER ME
+モウ → mō ; # KATAKANA LETTER MO + U
+モ → mo ; # KATAKANA LETTER MO
 
-			<tRule>か → ka ; # HIRAGANA LETTER KA</tRule>
-			<tRule>きょう → kyō ; # HIRAGANA LETTER KI + SMALL YO + U</tRule>
-			<tRule>きゅう → kyū ; # HIRAGANA LETTER KI + SMALL YU + U</tRule>
-			<tRule>きゃ → kya ; # HIRAGANA LETTER KI + SMALL YA</tRule>
-			<tRule>きょ → kyo ; # HIRAGANA LETTER KI + SMALL YO</tRule>
-			<tRule>きゅ → kyu ; # HIRAGANA LETTER KI + SMALL YU</tRule>
-			<tRule>き → ki ; # HIRAGANA LETTER KI</tRule>
-			<tRule>く → ku ; # HIRAGANA LETTER KU</tRule>
-			<tRule>け → ke ; # HIRAGANA LETTER KE</tRule>
-			<tRule>こう → kō ; # HIRAGANA LETTER KO + U</tRule>
-			<tRule>こ → ko ; # HIRAGANA LETTER KO</tRule>
+ヤ → ya ; # KATAKANA LETTER YA
+ユ → yu ; # KATAKANA LETTER YU
+ヨウ → yō ; # KATAKANA LETTER YO + U
+ヨ → yo ; # KATAKANA LETTER YO
 
-			<tRule>さ → sa ; # HIRAGANA LETTER SA</tRule>
-			<tRule>しょう → shō ; # HIRAGANA LETTER SI + SMALL YO + U</tRule>
-			<tRule>しゅう → shū ; # HIRAGANA LETTER SI + SMALL YU + U</tRule>
-			<tRule>しゃ → sha ; # HIRAGANA LETTER SI + SMALL YA</tRule>
-			<tRule>しょ → sho ; # HIRAGANA LETTER SI + SMALL YO</tRule>
-			<tRule>しゅ → shu ; # HIRAGANA LETTER SI + SMALL YU</tRule>
-			<tRule>し → shi ; # HIRAGANA LETTER SI</tRule>
-			<tRule>す → su ; # HIRAGANA LETTER SU</tRule>
-			<tRule>せ → se ; # HIRAGANA LETTER SE</tRule>
-			<tRule>そう → sō ; # HIRAGANA LETTER SO + U</tRule>
-			<tRule>そ → so ; # HIRAGANA LETTER SO</tRule>
+ラ → ra ; # KATAKANA LETTER RA
+リョウ → ryō ; # KATAKANA LETTER RI + SMALL YO + U
+リュウ → ryū ; # KATAKANA LETTER RI + SMALL YU + U
+リャ → rya ; # KATAKANA LETTER RI + SMALL YA
+リョ → ryo ; # KATAKANA LETTER RI + SMALL YO
+リュ → ryu ; # KATAKANA LETTER RI + SMALL YU
+リ → ri ; # KATAKANA LETTER RI
+ル → ru ; # KATAKANA LETTER RU
+レ → re ; # KATAKANA LETTER RE
+ロウ → rō ; # KATAKANA LETTER RO + U
+ロ → ro ; # KATAKANA LETTER RO
 
-			<tRule>た → ta ; # HIRAGANA LETTER TA</tRule>
-			<tRule>ちょう → chō ; # HIRAGANA LETTER TI + SMALL YO + U</tRule>
-			<tRule>ちゅう → chū ; # HIRAGANA LETTER TI + SMALL YU + U</tRule>
-			<tRule>ちゃ → cha ; # HIRAGANA LETTER TI + SMALL YA</tRule>
-			<tRule>ちょ → cho ; # HIRAGANA LETTER TI + SMALL YO</tRule>
-			<tRule>ちゅ → chu ; # HIRAGANA LETTER TI + SMALL YU</tRule>
-			<tRule>ち → chi ; # HIRAGANA LETTER TI</tRule>
-			<tRule>つ → tsu ; # HIRAGANA LETTER TU</tRule>
-			<tRule>て → te ; # HIRAGANA LETTER TE</tRule>
-			<tRule>とう → tō ; # HIRAGANA LETTER TO + U</tRule>
-			<tRule>と → to ; # HIRAGANA LETTER TO</tRule>
+ワ → wa ; # KATAKANA LETTER WA
+ヰ → i ; # KATAKANA LETTER WI
+ヱ → e ; # KATAKANA LETTER WE
+ヲ → o ; # KATAKANA LETTER WO
+#
+#
+########################################################################
+#
+# BGN Page 45 Rule 3:
+#
+# The character ン should be romanized m before b, p, or m.
+# The character ん should be romanized m before b, p, or m.
+# The character ン should be romanized n’ before y or a vowel letter.
+# The character ん should be romanized n’ before y or a vowel letter.
+#
+########################################################################
+#
 
-			<tRule>な → na ; # HIRAGANA LETTER NA</tRule>
-			<tRule>にょう → nyō ; # HIRAGANA LETTER NI + SMALL YO + U</tRule>
-			<tRule>にゅう → nyū ; # HIRAGANA LETTER NI + SMALL YU + U</tRule>
-			<tRule>にゃ → nya ; # HIRAGANA LETTER NI + SMALL YA</tRule>
-			<tRule>にょ → nyo ; # HIRAGANA LETTER NI + SMALL YO</tRule>
-			<tRule>にゅ → nyu ; # HIRAGANA LETTER NI + SMALL YU</tRule>
-			<tRule>に → ni ; # HIRAGANA LETTER NI</tRule>
-			<tRule>ぬ → nu ; # HIRAGANA LETTER NU</tRule>
-			<tRule>ね → ne ; # HIRAGANA LETTER NE</tRule>
-			<tRule>のう → nō ; # HIRAGANA LETTER NO + U</tRule>
-			<tRule>の → no ; # HIRAGANA LETTER NO</tRule>
+ン}[バビブベボパピプペポマミムメモ] → m ; # KATAKANA LETTER N
+ん}[ばびぶべぼぱぴぷぺぽまみむめも] → m ; # HIRAGANA LETTER N
+ン}[ヤユヨアイウエオ] → n $apostrophe ; # KATAKANA LETTER N
+ん}[やゆよあいうえお] → n $apostrophe ; # HIRAGANA LETTER N
+#
+#
+########################################################################
+#
+# End of Rule 3
+#
+########################################################################
+#
 
-			<tRule>は → ha ; # HIRAGANA LETTER HA</tRule>
-			<tRule>ひょう → hyō ; # HIRAGANA LETTER HI + SMALL YO + U</tRule>
-			<tRule>ひゅう → hyū ; # HIRAGANA LETTER HI + SMALL YU + U</tRule>
-			<tRule>ひゃ → hya ; # HIRAGANA LETTER HI + SMALL YA</tRule>
-			<tRule>ひょ → hyo ; # HIRAGANA LETTER HI + SMALL YO</tRule>
-			<tRule>ひゅ → hyu ; # HIRAGANA LETTER HI + SMALL YU</tRule>
-			<tRule>ひ → hi ; # HIRAGANA LETTER HI</tRule>
-			<tRule>ふ → fu ; # HIRAGANA LETTER HU</tRule>
-			<tRule>へ → he ; # HIRAGANA LETTER HE</tRule>
-			<tRule>ほう → hō ; # HIRAGANA LETTER HO + U</tRule>
-			<tRule>ほ → ho ; # HIRAGANA LETTER HO</tRule>
+ン → n ; # KATAKANA LETTER N
 
-			<tRule>ま → ma ; # HIRAGANA LETTER MA</tRule>
-			<tRule>みょう → hyō ; # HIRAGANA LETTER MI + SMALL YO + U</tRule>
-			<tRule>みゅう → hyū ; # HIRAGANA LETTER MI + SMALL YU + U</tRule>
-			<tRule>みゃ → hya ; # HIRAGANA LETTER MI + SMALL YA</tRule>
-			<tRule>みょ → hyo ; # HIRAGANA LETTER MI + SMALL YO</tRule>
-			<tRule>みゅ → hyu ; # HIRAGANA LETTER MI + SMALL YU</tRule>
-			<tRule>み → mi ; # HIRAGANA LETTER MI</tRule>
-			<tRule>む → mu ; # HIRAGANA LETTER MU</tRule>
-			<tRule>め → me ; # HIRAGANA LETTER ME</tRule>
-			<tRule>もう → mō ; # HIRAGANA LETTER MO + U</tRule>
-			<tRule>も → mo ; # HIRAGANA LETTER MO</tRule>
+ガ → ga ; # KATAKANA LETTER GA
+ギョウ → gyō ; # KATAKANA LETTER GI + SMALL YO + U
+ギュウ → gyū ; # KATAKANA LETTER GI + SMALL YU + U
+ギャ → gya ; # KATAKANA LETTER GI + SMALL YA
+ギョ → gyo ; # KATAKANA LETTER GI + SMALL YO
+ギュ → gyu ; # KATAKANA LETTER GI + SMALL YU
+ギ → gi ; # KATAKANA LETTER GI
+グ → gu ; # KATAKANA LETTER GU
+ゲ → ge ; # KATAKANA LETTER GE
+ゴウ → gō ; # KATAKANA LETTER GO + U
+ゴ → go ; # KATAKANA LETTER GO
 
-			<tRule>や → ya ; # HIRAGANA LETTER YA</tRule>
-			<tRule>ゆ → yu ; # HIRAGANA LETTER YU</tRule>
-			<tRule>よう → yō ; # HIRAGANA LETTER YO + U</tRule>
-			<tRule>よ → yo ; # HIRAGANA LETTER YO</tRule>
+ザ → za ; # KATAKANA LETTER ZA
+ジョウ → jō ; # KATAKANA LETTER ZI + SMALL YO + U
+ジュウ → jū ; # KATAKANA LETTER ZI + SMALL YU + U
+ジャ → ja ; # KATAKANA LETTER ZI + SMALL YA
+ジョ → jo ; # KATAKANA LETTER ZI + SMALL YO
+ジュ → ju ; # KATAKANA LETTER ZI + SMALL YU
+ジ → ji ; # KATAKANA LETTER ZI
+ズ → zu ; # KATAKANA LETTER ZU
+ゼ → ze ; # KATAKANA LETTER ZE
+ゾウ → zō ; # KATAKANA LETTER ZO + U
+ゾ → zo ; # KATAKANA LETTER ZO
 
-			<tRule>ら → ra ; # HIRAGANA LETTER RA</tRule>
-			<tRule>りょう → ryō ; # HIRAGANA LETTER RI + SMALL YO + U</tRule>
-			<tRule>りゅう → ryū ; # HIRAGANA LETTER RI + SMALL YU + U</tRule>
-			<tRule>りゃ → rya ; # HIRAGANA LETTER RI + SMALL YA</tRule>
-			<tRule>りょ → ryo ; # HIRAGANA LETTER RI + SMALL YO</tRule>
-			<tRule>りゅ → ryu ; # HIRAGANA LETTER RI + SMALL YU</tRule>
-			<tRule>り → ri ; # HIRAGANA LETTER RI</tRule>
-			<tRule>る → ru ; # HIRAGANA LETTER RU</tRule>
-			<tRule>れ → re ; # HIRAGANA LETTER RE</tRule>
-			<tRule>ろう → rō ; # HIRAGANA LETTER RO + U</tRule>
-			<tRule>ろ → ro ; # HIRAGANA LETTER RO</tRule>
+ダ → da ; # KATAKANA LETTER DA
+ヂ → ji ; # KATAKANA LETTER DI
+ヅ → zu ; # KATAKANA LETTER DU
+デ → de ; # KATAKANA LETTER DE
+ドウ → dō ; # KATAKANA LETTER DO + U
+ド → do ; # KATAKANA LETTER DO
 
-			<tRule>わ → wa ; # HIRAGANA LETTER WA</tRule>
-			<tRule>ゐ → i ; # HIRAGANA LETTER WI</tRule>
-			<tRule>ゑ → e ; # HIRAGANA LETTER WE</tRule>
-			<tRule>を → o ; # HIRAGANA LETTER WO</tRule>
+バ → ba ; # KATAKANA LETTER BA
+ビョウ → byō ; # KATAKANA LETTER BI + SMALL YO + U
+ビュウ → byū ; # KATAKANA LETTER BI + SMALL YU + U
+ビャ → bya ; # KATAKANA LETTER BI + SMALL YA
+ビョ → byo ; # KATAKANA LETTER BI + SMALL YO
+ビュ → byu ; # KATAKANA LETTER BI + SMALL YU
+ビ → bi ; # KATAKANA LETTER BI
+ブ → bu ; # KATAKANA LETTER BU
+ベ → be ; # KATAKANA LETTER BE
+ボウ → bō ; # KATAKANA LETTER BO + U
+ボ → bo ; # KATAKANA LETTER BO
 
-			<tRule>ん → n ; # HIRAGANA LETTER N</tRule>
+パ → pa ; # KATAKANA LETTER PA
+ピョウ → pyō ; # KATAKANA LETTER PI + SMALL YO + U
+ピュウ → pyū ; # KATAKANA LETTER PI + SMALL YU + U
+ピャ → pya ; # KATAKANA LETTER PI + SMALL YA
+ピョ → pyo ; # KATAKANA LETTER PI + SMALL YO
+ピュ → pyu ; # KATAKANA LETTER PI + SMALL YU
+ピ → pi ; # KATAKANA LETTER PI
+プ → pu ; # KATAKANA LETTER PU
+ペ → pe ; # KATAKANA LETTER PE
+ポウ → pō ; # KATAKANA LETTER PO + U
+ポ → po ; # KATAKANA LETTER PO
 
-			<tRule>が → ga ; # HIRAGANA LETTER GA</tRule>
-			<tRule>ぎょう → gyō ; # HIRAGANA LETTER GI + SMALL YO + U</tRule>
-			<tRule>ぎゅう → gyū ; # HIRAGANA LETTER GI + SMALL YU + U</tRule>
-			<tRule>ぎゃ → gya ; # HIRAGANA LETTER GI + SMALL YA</tRule>
-			<tRule>ぎょ → gyo ; # HIRAGANA LETTER GI + SMALL YO</tRule>
-			<tRule>ぎゅ → gyu ; # HIRAGANA LETTER GI + SMALL YU</tRule>
-			<tRule>ぎ → gi ; # HIRAGANA LETTER GI</tRule>
-			<tRule>ぐ → gu ; # HIRAGANA LETTER GU</tRule>
-			<tRule>げ → ge ; # HIRAGANA LETTER GE</tRule>
-			<tRule>ごう → gō ; # HIRAGANA LETTER GO + U</tRule>
-			<tRule>ご → go ; # HIRAGANA LETTER GO</tRule>
+ヴ → v ; # KATAKANA LETTER VU
 
-			<tRule>ざ → za ; # HIRAGANA LETTER ZA</tRule>
-			<tRule>じょう → jō ; # HIRAGANA LETTER ZI + SMALL YO + U</tRule>
-			<tRule>じゅう → jū ; # HIRAGANA LETTER ZI + SMALL YU + U</tRule>
-			<tRule>じゃ → ja ; # HIRAGANA LETTER ZI + SMALL YA</tRule>
-			<tRule>じょ → jo ; # HIRAGANA LETTER ZI + SMALL YO</tRule>
-			<tRule>じゅ → ju ; # HIRAGANA LETTER ZI + SMALL YU</tRule>
-			<tRule>じ → ji ; # HIRAGANA LETTER ZI</tRule>
-			<tRule>ず → zu ; # HIRAGANA LETTER ZU</tRule>
-			<tRule>ぜ → ze ; # HIRAGANA LETTER ZE</tRule>
-			<tRule>ぞう → zō ; # HIRAGANA LETTER ZO + U</tRule>
-			<tRule>ぞ → zo ; # HIRAGANA LETTER ZO</tRule>
+あ → a ; # HIRAGANA LETTER A
+い → i ; # HIRAGANA LETTER I
+う → u ; # HIRAGANA LETTER U
+え → e ; # HIRAGANA LETTER E
+おう → ō ; # HIRAGANA LETTER O + U
+お → o ; # HIRAGANA LETTER O
 
-			<tRule>だ → da ; # HIRAGANA LETTER DA</tRule>
-			<tRule>ぢ → ji ; # HIRAGANA LETTER DI</tRule>
-			<tRule>づ → zu ; # HIRAGANA LETTER DU</tRule>
-			<tRule>で → de ; # HIRAGANA LETTER DE</tRule>
-			<tRule>どう → dō ; # HIRAGANA LETTER DO + U</tRule>
-			<tRule>ど → do ; # HIRAGANA LETTER DO</tRule>
+か → ka ; # HIRAGANA LETTER KA
+きょう → kyō ; # HIRAGANA LETTER KI + SMALL YO + U
+きゅう → kyū ; # HIRAGANA LETTER KI + SMALL YU + U
+きゃ → kya ; # HIRAGANA LETTER KI + SMALL YA
+きょ → kyo ; # HIRAGANA LETTER KI + SMALL YO
+きゅ → kyu ; # HIRAGANA LETTER KI + SMALL YU
+き → ki ; # HIRAGANA LETTER KI
+く → ku ; # HIRAGANA LETTER KU
+け → ke ; # HIRAGANA LETTER KE
+こう → kō ; # HIRAGANA LETTER KO + U
+こ → ko ; # HIRAGANA LETTER KO
 
-			<tRule>ば → ba ; # HIRAGANA LETTER BA</tRule>
-			<tRule>びょう → byō ; # HIRAGANA LETTER BI + SMALL YO + U</tRule>
-			<tRule>びゅう → byū ; # HIRAGANA LETTER BI + SMALL YU + U</tRule>
-			<tRule>びゃ → bya ; # HIRAGANA LETTER BI + SMALL YA</tRule>
-			<tRule>びょ → byo ; # HIRAGANA LETTER BI + SMALL YO</tRule>
-			<tRule>びゅ → byu ; # HIRAGANA LETTER BI + SMALL YU</tRule>
-			<tRule>び → bi ; # HIRAGANA LETTER BI</tRule>
-			<tRule>ぶ → bu ; # HIRAGANA LETTER BU</tRule>
-			<tRule>べ → be ; # HIRAGANA LETTER BE</tRule>
-			<tRule>ぼう → bō ; # HIRAGANA LETTER BO + U</tRule>
-			<tRule>ぼ → bo ; # HIRAGANA LETTER BO</tRule>
+さ → sa ; # HIRAGANA LETTER SA
+しょう → shō ; # HIRAGANA LETTER SI + SMALL YO + U
+しゅう → shū ; # HIRAGANA LETTER SI + SMALL YU + U
+しゃ → sha ; # HIRAGANA LETTER SI + SMALL YA
+しょ → sho ; # HIRAGANA LETTER SI + SMALL YO
+しゅ → shu ; # HIRAGANA LETTER SI + SMALL YU
+し → shi ; # HIRAGANA LETTER SI
+す → su ; # HIRAGANA LETTER SU
+せ → se ; # HIRAGANA LETTER SE
+そう → sō ; # HIRAGANA LETTER SO + U
+そ → so ; # HIRAGANA LETTER SO
 
-			<tRule>ぱ → pa ; # HIRAGANA LETTER PA</tRule>
-			<tRule>ぴょう → pyō ; # HIRAGANA LETTER PI + SMALL YO + U</tRule>
-			<tRule>ぴゅう → pyū ; # HIRAGANA LETTER PI + SMALL YU + U</tRule>
-			<tRule>ぴゃ → pya ; # HIRAGANA LETTER PI + SMALL YA</tRule>
-			<tRule>ぴょ → pyo ; # HIRAGANA LETTER PI + SMALL YO</tRule>
-			<tRule>ぴゅ → pyu ; # HIRAGANA LETTER PI + SMALL YU</tRule>
-			<tRule>ぴ → pi ; # HIRAGANA LETTER PI</tRule>
-			<tRule>ぷ → pu ; # HIRAGANA LETTER PU</tRule>
-			<tRule>ぺ → pe ; # HIRAGANA LETTER PE</tRule>
-			<tRule>ぽう → pō ; # HIRAGANA LETTER PO + U</tRule>
-			<tRule>ぽ → po ; # HIRAGANA LETTER PO</tRule>
+た → ta ; # HIRAGANA LETTER TA
+ちょう → chō ; # HIRAGANA LETTER TI + SMALL YO + U
+ちゅう → chū ; # HIRAGANA LETTER TI + SMALL YU + U
+ちゃ → cha ; # HIRAGANA LETTER TI + SMALL YA
+ちょ → cho ; # HIRAGANA LETTER TI + SMALL YO
+ちゅ → chu ; # HIRAGANA LETTER TI + SMALL YU
+ち → chi ; # HIRAGANA LETTER TI
+つ → tsu ; # HIRAGANA LETTER TU
+て → te ; # HIRAGANA LETTER TE
+とう → tō ; # HIRAGANA LETTER TO + U
+と → to ; # HIRAGANA LETTER TO
 
-			<tRule>ゔ → v ; # HIRAGANA LETTER VU</tRule>
-			<comment>
-			#
-			########################################################################
-			</comment>
+な → na ; # HIRAGANA LETTER NA
+にょう → nyō ; # HIRAGANA LETTER NI + SMALL YO + U
+にゅう → nyū ; # HIRAGANA LETTER NI + SMALL YU + U
+にゃ → nya ; # HIRAGANA LETTER NI + SMALL YA
+にょ → nyo ; # HIRAGANA LETTER NI + SMALL YO
+にゅ → nyu ; # HIRAGANA LETTER NI + SMALL YU
+に → ni ; # HIRAGANA LETTER NI
+ぬ → nu ; # HIRAGANA LETTER NU
+ね → ne ; # HIRAGANA LETTER NE
+のう → nō ; # HIRAGANA LETTER NO + U
+の → no ; # HIRAGANA LETTER NO
+
+は → ha ; # HIRAGANA LETTER HA
+ひょう → hyō ; # HIRAGANA LETTER HI + SMALL YO + U
+ひゅう → hyū ; # HIRAGANA LETTER HI + SMALL YU + U
+ひゃ → hya ; # HIRAGANA LETTER HI + SMALL YA
+ひょ → hyo ; # HIRAGANA LETTER HI + SMALL YO
+ひゅ → hyu ; # HIRAGANA LETTER HI + SMALL YU
+ひ → hi ; # HIRAGANA LETTER HI
+ふ → fu ; # HIRAGANA LETTER HU
+へ → he ; # HIRAGANA LETTER HE
+ほう → hō ; # HIRAGANA LETTER HO + U
+ほ → ho ; # HIRAGANA LETTER HO
+
+ま → ma ; # HIRAGANA LETTER MA
+みょう → hyō ; # HIRAGANA LETTER MI + SMALL YO + U
+みゅう → hyū ; # HIRAGANA LETTER MI + SMALL YU + U
+みゃ → hya ; # HIRAGANA LETTER MI + SMALL YA
+みょ → hyo ; # HIRAGANA LETTER MI + SMALL YO
+みゅ → hyu ; # HIRAGANA LETTER MI + SMALL YU
+み → mi ; # HIRAGANA LETTER MI
+む → mu ; # HIRAGANA LETTER MU
+め → me ; # HIRAGANA LETTER ME
+もう → mō ; # HIRAGANA LETTER MO + U
+も → mo ; # HIRAGANA LETTER MO
+
+や → ya ; # HIRAGANA LETTER YA
+ゆ → yu ; # HIRAGANA LETTER YU
+よう → yō ; # HIRAGANA LETTER YO + U
+よ → yo ; # HIRAGANA LETTER YO
+
+ら → ra ; # HIRAGANA LETTER RA
+りょう → ryō ; # HIRAGANA LETTER RI + SMALL YO + U
+りゅう → ryū ; # HIRAGANA LETTER RI + SMALL YU + U
+りゃ → rya ; # HIRAGANA LETTER RI + SMALL YA
+りょ → ryo ; # HIRAGANA LETTER RI + SMALL YO
+りゅ → ryu ; # HIRAGANA LETTER RI + SMALL YU
+り → ri ; # HIRAGANA LETTER RI
+る → ru ; # HIRAGANA LETTER RU
+れ → re ; # HIRAGANA LETTER RE
+ろう → rō ; # HIRAGANA LETTER RO + U
+ろ → ro ; # HIRAGANA LETTER RO
+
+わ → wa ; # HIRAGANA LETTER WA
+ゐ → i ; # HIRAGANA LETTER WI
+ゑ → e ; # HIRAGANA LETTER WE
+を → o ; # HIRAGANA LETTER WO
+
+ん → n ; # HIRAGANA LETTER N
+
+が → ga ; # HIRAGANA LETTER GA
+ぎょう → gyō ; # HIRAGANA LETTER GI + SMALL YO + U
+ぎゅう → gyū ; # HIRAGANA LETTER GI + SMALL YU + U
+ぎゃ → gya ; # HIRAGANA LETTER GI + SMALL YA
+ぎょ → gyo ; # HIRAGANA LETTER GI + SMALL YO
+ぎゅ → gyu ; # HIRAGANA LETTER GI + SMALL YU
+ぎ → gi ; # HIRAGANA LETTER GI
+ぐ → gu ; # HIRAGANA LETTER GU
+げ → ge ; # HIRAGANA LETTER GE
+ごう → gō ; # HIRAGANA LETTER GO + U
+ご → go ; # HIRAGANA LETTER GO
+
+ざ → za ; # HIRAGANA LETTER ZA
+じょう → jō ; # HIRAGANA LETTER ZI + SMALL YO + U
+じゅう → jū ; # HIRAGANA LETTER ZI + SMALL YU + U
+じゃ → ja ; # HIRAGANA LETTER ZI + SMALL YA
+じょ → jo ; # HIRAGANA LETTER ZI + SMALL YO
+じゅ → ju ; # HIRAGANA LETTER ZI + SMALL YU
+じ → ji ; # HIRAGANA LETTER ZI
+ず → zu ; # HIRAGANA LETTER ZU
+ぜ → ze ; # HIRAGANA LETTER ZE
+ぞう → zō ; # HIRAGANA LETTER ZO + U
+ぞ → zo ; # HIRAGANA LETTER ZO
+
+だ → da ; # HIRAGANA LETTER DA
+ぢ → ji ; # HIRAGANA LETTER DI
+づ → zu ; # HIRAGANA LETTER DU
+で → de ; # HIRAGANA LETTER DE
+どう → dō ; # HIRAGANA LETTER DO + U
+ど → do ; # HIRAGANA LETTER DO
+
+ば → ba ; # HIRAGANA LETTER BA
+びょう → byō ; # HIRAGANA LETTER BI + SMALL YO + U
+びゅう → byū ; # HIRAGANA LETTER BI + SMALL YU + U
+びゃ → bya ; # HIRAGANA LETTER BI + SMALL YA
+びょ → byo ; # HIRAGANA LETTER BI + SMALL YO
+びゅ → byu ; # HIRAGANA LETTER BI + SMALL YU
+び → bi ; # HIRAGANA LETTER BI
+ぶ → bu ; # HIRAGANA LETTER BU
+べ → be ; # HIRAGANA LETTER BE
+ぼう → bō ; # HIRAGANA LETTER BO + U
+ぼ → bo ; # HIRAGANA LETTER BO
+
+ぱ → pa ; # HIRAGANA LETTER PA
+ぴょう → pyō ; # HIRAGANA LETTER PI + SMALL YO + U
+ぴゅう → pyū ; # HIRAGANA LETTER PI + SMALL YU + U
+ぴゃ → pya ; # HIRAGANA LETTER PI + SMALL YA
+ぴょ → pyo ; # HIRAGANA LETTER PI + SMALL YO
+ぴゅ → pyu ; # HIRAGANA LETTER PI + SMALL YU
+ぴ → pi ; # HIRAGANA LETTER PI
+ぷ → pu ; # HIRAGANA LETTER PU
+ぺ → pe ; # HIRAGANA LETTER PE
+ぽう → pō ; # HIRAGANA LETTER PO + U
+ぽ → po ; # HIRAGANA LETTER PO
+
+ゔ → v ; # HIRAGANA LETTER VU
+#
+#
+########################################################################
+
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

@@ -6,19 +6,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="es_FONIPA" target="es_419_FONIPA" direction="forward">
-			<comment>
-			# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
-			# Author: mjansche@google.com (Martin Jansche)
-			#
-			# Conflate sounds of Castilian Spanish to produce Latin American Spanish.
-			# This operates on a phonemic IPA transcription of Spanish (es_FONIPA).
-			#
-			</comment>
-			<tRule>ʎ → ʝ;</tRule>
-			<tRule>[sθ]+ → s;</tRule>
+			<tRule>
+#
+# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
+# Author: mjansche@google.com (Martin Jansche)
+#
+# Conflate sounds of Castilian Spanish to produce Latin American Spanish.
+# This operates on a phonemic IPA transcription of Spanish (es_FONIPA).
+#
+
+ʎ → ʝ;
+[sθ]+ → s;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

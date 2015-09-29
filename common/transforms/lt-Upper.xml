@@ -6,15 +6,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="lt" target="Upper" direction="forward">
-			<comment># Copyright (C) 2011-2013, Apple Inc.; Unicode, Inc.; and others. All Rights Reserved.</comment>
-			<comment># Remove \u0307 following soft-dotteds (i, j, and the like), with possible intervening non-230 marks.</comment>
-			<tRule>::NFD();</tRule>
-			<tRule>[:Soft_Dotted:] [^[:ccc=Not_Reordered:][:ccc=Above:]]* { \u0307 → ;</tRule>
-			<tRule>::Any-Upper();</tRule>
-			<tRule>::NFC();</tRule>
+			<tRule>
+# Copyright (C) 2011-2013, Apple Inc.; Unicode, Inc.; and others. All Rights Reserved.
+# Remove \u0307 following soft-dotteds (i, j, and the like), with possible intervening non-230 marks.
+::NFD();
+[:Soft_Dotted:] [^[:ccc=Not_Reordered:][:ccc=Above:]]* { \u0307 → ;
+::Any-Upper();
+::NFC();
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

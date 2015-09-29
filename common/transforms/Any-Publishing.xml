@@ -6,30 +6,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Any" target="Publishing" direction="both">
-			<comment># Test case</comment>
-			<comment># &quot;The&quot; &quot;(quick)&quot; ('brown') `fox' ` jumped --     &quot;over?&quot;</comment>
-			<comment># Variables</comment>
-			<tRule>$single = \' ;</tRule>
-			<tRule>$space = ' ' ;</tRule>
-			<tRule>$double = \&quot; ;</tRule>
-			<tRule>$back = \` ;</tRule>
-			<tRule>$tab = \u0008 ;</tRule>
-			<tRule>$makeRight = [[:Z:][:Ps:][:Pi:]$] ;</tRule>
-			<comment># fix UNIX quotes</comment>
-			<tRule>$back $back → “ ;</tRule>
-			<tRule>$back → ‘ ;</tRule>
-			<comment># fix typewriter quotes, by context</comment>
-			<tRule>$makeRight {$double} ↔ “ ;</tRule>
-			<tRule>$double ↔ ” ;</tRule>
-			<tRule>$makeRight {$single} ↔ ‘ ;</tRule>
-			<tRule>$single ↔ ’;</tRule>
-			<comment># fix multiple spaces and hyphens</comment>
-			<tRule>$space {$space} → ;</tRule>
-			<tRule>'--' ↔ — ;</tRule>
+			<tRule>
+# Test case
+# &quot;The&quot; &quot;(quick)&quot; ('brown') `fox' ` jumped --     &quot;over?&quot;
+# Variables
+$single = \' ;
+$space = ' ' ;
+$double = \&quot; ;
+$back = \` ;
+$tab = \u0008 ;
+$makeRight = [[:Z:][:Ps:][:Pi:]$] ;
+# fix UNIX quotes
+$back $back → “ ;
+$back → ‘ ;
+# fix typewriter quotes, by context
+$makeRight {$double} ↔ “ ;
+$double ↔ ” ;
+$makeRight {$single} ↔ ‘ ;
+$single ↔ ’;
+# fix multiple spaces and hyphens
+$space {$space} → ;
+'--' ↔ — ;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>
-

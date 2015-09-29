@@ -6,14 +6,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="nl" target="Title" direction="forward">
-			<comment># Copyright (C) 2011-2013, Apple Inc. and others. All Rights Reserved.</comment>
-			<comment># Special titlecasing for Dutch initial "ij".</comment>
-			<tRule>::Any-Title();</tRule>
-			<comment># Fix up Ij at the beginning of a "word" (per Any-Title, notUAX #29)</comment>
-			<tRule>[:^WB=ALetter:] [:WB=Extend:]* [[:WB=MidLetter:][:WB=MidNumLet:]]? { Ij } → IJ ;</tRule>
+			<tRule>
+# Copyright (C) 2011-2013, Apple Inc. and others. All Rights Reserved.
+# Special titlecasing for Dutch initial "ij".
+::Any-Title();
+# Fix up Ij at the beginning of a "word" (per Any-Title, notUAX #29)
+[:^WB=ALetter:] [:WB=Extend:]* [[:WB=MidLetter:][:WB=MidNumLet:]]? { Ij } → IJ ;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

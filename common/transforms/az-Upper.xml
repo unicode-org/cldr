@@ -6,12 +6,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="az" target="Upper" direction="forward">
-			<comment># Copyright (C) 2011-2013, Apple Inc.; Unicode, Inc.; and others. All Rights Reserved.</comment>
-			<tRule>i→İ;</tRule>
-			<tRule>::Any-Upper();</tRule>
+			<tRule>
+# Copyright (C) 2011-2013, Apple Inc.; Unicode, Inc.; and others. All Rights Reserved.
+i→İ;
+::Any-Upper();
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

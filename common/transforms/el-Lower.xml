@@ -6,20 +6,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="el" target="Lower" direction="forward">
-			<comment># Copyright (C) 2011-2013, Google Inc. and others. All Rights Reserved.</comment>
-			<comment># Special case for final form of sigma.</comment>
-			<tRule>::NFD();</tRule>
-			<comment># C is preceded by a sequence consisting of a cased letter and then zero or more case-ignorable characters,</comment>
-			<comment># and C is not followed by a sequence consisting of zero or more case-ignorable characters and then a cased letter.</comment>
-			<comment># 03A3; 03C2; 03A3; 03A3; Final_Sigma; # GREEK CAPITAL LETTER SIGMA</comment>
-			<comment># With translit rules, easiest is to handle the negative condition first, mapping in that case to the regular sigma.</comment>
-			<tRule>Σ } [:case-ignorable:]* [:cased:] → σ;</tRule>
-			<tRule>[:cased:] [:case-ignorable:]* { Σ → ς;</tRule>
-			<tRule>::Any-Lower;</tRule>
-			<tRule>::NFC();</tRule>
+			<tRule>
+# Copyright (C) 2011-2013, Google Inc. and others. All Rights Reserved.
+# Special case for final form of sigma.
+::NFD();
+# C is preceded by a sequence consisting of a cased letter and then zero or more case-ignorable characters,
+# and C is not followed by a sequence consisting of zero or more case-ignorable characters and then a cased letter.
+# 03A3; 03C2; 03A3; 03A3; Final_Sigma; # GREEK CAPITAL LETTER SIGMA
+# With translit rules, easiest is to handle the negative condition first, mapping in that case to the regular sigma.
+Σ } [:case-ignorable:]* [:cased:] → σ;
+[:cased:] [:case-ignorable:]* { Σ → ς;
+::Any-Lower;
+::NFC();
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

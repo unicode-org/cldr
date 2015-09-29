@@ -6,15 +6,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Oriya" target="Gurmukhi" direction="forward">
-			<tRule>::[ଁ-ଃଅ-ଌଏ-ଐଓ-ନପ-ରଲ-ଳଵ-ହ଼-ୃେ-ୈୋ-୍ୖ-ୗଡ଼-ଢ଼ୟ-ୡ୦-ୱ];</tRule>
-			<tRule>::NFD;</tRule>
-			<tRule>::Oriya-InterIndic;</tRule>
-			<tRule>::InterIndic-Gurmukhi;</tRule>
-			<tRule>::NFC;</tRule>
+			<tRule>
+::[ଁ-ଃଅ-ଌଏ-ଐଓ-ନପ-ରଲ-ଳଵ-ହ଼-ୃେ-ୈୋ-୍ୖ-ୗଡ଼-ଢ଼ୟ-ୡ୦-ୱ];
+::NFD;
+::Oriya-InterIndic;
+::InterIndic-Gurmukhi;
+::NFC;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>
-

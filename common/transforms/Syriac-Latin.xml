@@ -6,60 +6,61 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <supplementalData>
-  <version number="$Revision$"/>
+	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Syriac" target="Latin" direction="both" draft="unconfirmed">
-			<comment># Consonants</comment>
-			<tRule>ܫ ↔ sh;</tRule>
-			<tRule>ܞ → yh;</tRule>
-			<tRule>ܖ ↔ dr;</tRule>
-			<tRule>ܐ ↔ ʾ;</tRule>
-			<tRule>ܑ  → ʾ;</tRule>
-			<tRule>ܒ ↔ b;</tRule>
-			<tRule>ܓ ↔ g;</tRule>
-			<tRule>ܔ → g;</tRule>
-			<tRule>ܕ ↔ d;</tRule>
-			<tRule>ܗ ↔ h;</tRule>
-			<tRule>ܘ ↔ w;</tRule>
-			<tRule>ܙ ↔ z;</tRule>
-			<tRule>ܚ ↔ ḥ;</tRule>
-			<tRule>ܛ ↔ ṭ;</tRule>
-			<tRule>ܜ → ṭ;</tRule>
-			<tRule>ܝ ↔ y;</tRule>
-			<tRule>ܟ ↔ k;</tRule>
-			<tRule>ܠ ↔ l;</tRule>
-			<tRule>ܡ ↔ m;</tRule>
-			<tRule>ܢ ↔ n;</tRule>
-			<tRule>ܣ ↔ s;</tRule>
-			<tRule>ܤ → s;</tRule>
-			<tRule>ܥ → ʿ;</tRule>
-			<tRule>ܦ ↔ p;</tRule>
-			<tRule>ܧ → p;</tRule>
-			<tRule>ܨ ↔ ṣ;</tRule>
-			<tRule>ܩ ↔ q;</tRule>
-			<tRule>ܪ ↔ r;</tRule>
-			<tRule>ܬ ↔ t;</tRule>
-			<comment># Vowels</comment>
-			<tRule>ܰ → a;</tRule>
-			<tRule>ܱ → a;</tRule>
-			<tRule>ܲ ↔ a;</tRule>
-			<tRule>ܳ → o;</tRule>
-			<tRule>ܴ → o;</tRule>
-			<tRule>ܵ → a;</tRule>
-			<tRule>ܶ → e;</tRule>
-			<tRule>ܷ → e;</tRule>
-			<tRule>ܸ ↔ e;</tRule>
-			<tRule>ܹ ↔ ē;</tRule>
-			<tRule>ܺ → i;</tRule>
-			<tRule>ܻ → i;</tRule>
-			<tRule>݂ ↔ i;</tRule>
-			<tRule>ܽ → u;</tRule>
-			<tRule>ܾ → u;</tRule>
-			<tRule>ܼ ↔ u;</tRule>
-			<tRule>ܿ ↔ o;</tRule>
-			<comment># Punctuation</comment>
-			<tRule>܍ → \*;</tRule>
+			<tRule>
+# Consonants
+ܫ ↔ sh;
+ܞ → yh;
+ܖ ↔ dr;
+ܐ ↔ ʾ;
+ܑ  → ʾ;
+ܒ ↔ b;
+ܓ ↔ g;
+ܔ → g;
+ܕ ↔ d;
+ܗ ↔ h;
+ܘ ↔ w;
+ܙ ↔ z;
+ܚ ↔ ḥ;
+ܛ ↔ ṭ;
+ܜ → ṭ;
+ܝ ↔ y;
+ܟ ↔ k;
+ܠ ↔ l;
+ܡ ↔ m;
+ܢ ↔ n;
+ܣ ↔ s;
+ܤ → s;
+ܥ → ʿ;
+ܦ ↔ p;
+ܧ → p;
+ܨ ↔ ṣ;
+ܩ ↔ q;
+ܪ ↔ r;
+ܬ ↔ t;
+# Vowels
+ܰ → a;
+ܱ → a;
+ܲ ↔ a;
+ܳ → o;
+ܴ → o;
+ܵ → a;
+ܶ → e;
+ܷ → e;
+ܸ ↔ e;
+ܹ ↔ ē;
+ܺ → i;
+ܻ → i;
+݂ ↔ i;
+ܽ → u;
+ܾ → u;
+ܼ ↔ u;
+ܿ ↔ o;
+# Punctuation
+܍ → \*;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>
-

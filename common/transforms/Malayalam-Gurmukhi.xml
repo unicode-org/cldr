@@ -9,12 +9,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Malayalam" target="Gurmukhi" direction="forward">
-			<tRule>::[ം-ഃഅ-ഌഎ-ഐഒ-നപ-ഹാ-ൃെ-ൈൊ-്ൗൠ-ൡ൦-൯];</tRule>
-			<tRule>::NFD;</tRule>
-			<tRule>::Malayalam-InterIndic;</tRule>
-			<tRule>::InterIndic-Gurmukhi;</tRule>
-			<tRule>::NFC;</tRule>
+			<tRule>
+::[ം-ഃഅ-ഌഎ-ഐഒ-നപ-ഹാ-ൃെ-ൈൊ-്ൗൠ-ൡ൦-൯];
+::NFD;
+::Malayalam-InterIndic;
+::InterIndic-Gurmukhi;
+::NFC;
+			</tRule>
 		</transform>
 	</transforms>
 </supplementalData>
-

@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Greek" target="Latin" direction="both">
-			<tRule>
+			<tRule><![CDATA[
 # Rules are predicated on running NFD first, and NFC afterwards
 # :: [\u0000-\u007F \u0370-Ͽ [:Greek:] [:nonspacing mark:]] ;
 # MINIMAL FILTER GENERATED FOR: Greek-Latin
@@ -24,13 +24,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 # ὨΣ ὩΣ ὪΣ ὫΣ
 # Ạ, ạ, Ẹ, ẹ, Ọ, ọ
 # Useful variables
-$lower = [[:latin:][:greek:] &amp; [:Ll:]];
-$glower = [[:greek:] &amp; [:Ll:]];
-$upper = [[:latin:][:greek:] &amp; [:Lu:]] ;
+$lower = [[:latin:][:greek:] & [:Ll:]];
+$glower = [[:greek:] & [:Ll:]];
+$upper = [[:latin:][:greek:] & [:Lu:]] ;
 $accent = [:M:] ;
-# NOTE: restrict to just the Greek &amp; Latin accents that we care about
+# NOTE: restrict to just the Greek & Latin accents that we care about
 # TODO: broaden out once interation is fixed
-$accentMinus = [ [̀-ͅ] &amp; [:M:] - [̸]] ;
+$accentMinus = [ [̀-ͅ] & [:M:] - [̸]] ;
 $macron = ̄ ;
 $ddot = ̈ ;
 $ddotmac = [$ddot$macron];
@@ -101,7 +101,7 @@ $iotasub → i ;
 | $1 $rough ← H ([AEIOUY] $ddot? $evowel2 $macron?) ;
 | $1 $rough ← H ([AEIOUY] $macron? $ddot?) ;
 # titlecase, have to fix individually
-# in the future, we should add &amp;uppercase() to make this easier
+# in the future, we should add &uppercase() to make this easier
 | A $1 $rough ← H a ($macron  $ddot? $evowel2_i $macron?) ;
 | E $1 $rough ← H e ($macron  $ddot? $evowel2_i $macron?) ;
 | I $1 $rough ← H i ($macron  $ddot? $evowel2_i $macron?) ;
@@ -258,7 +258,7 @@ $rough ↔ h ;
 # ([\u0000-\u007F · [:Latin:] [:nonspacing mark:]]) ;
 # MINIMAL FILTER GENERATED FOR: Latin-Greek BACKWARD
 :: ( [':?A-Za-zÀ-ÅÇ-ÏÑ-ÖÙ-Ýà-åç-ïñ-öù-ýÿ-ďĒ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǰǴ-ǵǸ-țȞ-ȟȦ-ȳ̀-̷̹-ͅ΅-ΆΈ-ΊΌΎ-ΐΪ-ΰϊ-ώϓ-ϔЀ-ЁЃЇЌ-ЎЙйѐ-ёѓїќ-ўѶ-ѷӁ-ӂӐ-ӓӖ-ӗӚ-ӟӢ-ӧӪ-ӵӸ-ӹḀ-ẙẛẠ-ỹἀ-ἕἘ-Ἕἠ-ὅὈ-Ὅὐ-ὗὙὛὝὟ-ώᾀ-ᾴᾶ-ᾼ῁-ῄῆ-ΐῖ-Ί῝-΅ῲ-ῴῶ-ῼK-Å] ) ;
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

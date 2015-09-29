@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Latin" target="ASCII" direction="both">
-			<tRule>
+			<tRule><![CDATA[
 # This handles only Latin, Common, and IDEOGRAPHIC NUMBER ZERO (Han).
 #
 :: [[:Latin:][:Common:][:Inherited:][〇]] ;
@@ -615,10 +615,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 〞 → \" ; # 301E;DOUBLE PRIME QUOTATION MARK
 ＂ → \" ; # FF02;FULLWIDTH QUOTATION MARK (compat)
 ＇ → \' ; # FF07;FULLWIDTH APOSTROPHE (compat)
-« → '&lt;&lt;' ; # 00AB;LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (from ‹character-fallback›)
-» → '&gt;&gt;' ; # 00BB;RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (from ‹character-fallback›)
-‹ → '&lt;' ; # 2039;SINGLE LEFT-POINTING ANGLE QUOTATION MARK
-› → '&gt;' ; # 203A;SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
+« → '<<' ; # 00AB;LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (from ‹character-fallback›)
+» → '>>' ; # 00BB;RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (from ‹character-fallback›)
+‹ → '<' ; # 2039;SINGLE LEFT-POINTING ANGLE QUOTATION MARK
+› → '>' ; # 203A;SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
 #
 # Dashes, hyphens...
 #
@@ -637,8 +637,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 #
 # Other misc punctuation and symbols
 #
-˂ → '&lt;' ; # 02C2;MODIFIER LETTER LEFT ARROWHEAD
-˃ → '&gt;' ; # 02C3;MODIFIER LETTER RIGHT ARROWHEAD
+˂ → '<' ; # 02C2;MODIFIER LETTER LEFT ARROWHEAD
+˃ → '>' ; # 02C3;MODIFIER LETTER RIGHT ARROWHEAD
 ˄ → '^' ; # 02C4;MODIFIER LETTER UP ARROWHEAD
 ˆ → '^' ; # 02C6;MODIFIER LETTER CIRCUMFLEX ACCENT
 ː → ':' ; # 02D0;MODIFIER LETTER TRIANGULAR COLON
@@ -658,10 +658,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 # CJK
 、 → ',' ; # 3001;IDEOGRAPHIC COMMA
 。 → '.' ; # 3002;IDEOGRAPHIC FULL STOP
-〈 → '&lt;' ; # 3008;LEFT ANGLE BRACKET
-〉 → '&gt;' ; # 3009;RIGHT ANGLE BRACKET
-《 → '&lt;&lt;' ; # 300A;LEFT DOUBLE ANGLE BRACKET
-》 → '&gt;&gt;' ; # 300B;RIGHT DOUBLE ANGLE BRACKET
+〈 → '<' ; # 3008;LEFT ANGLE BRACKET
+〉 → '>' ; # 3009;RIGHT ANGLE BRACKET
+《 → '<<' ; # 300A;LEFT DOUBLE ANGLE BRACKET
+》 → '>>' ; # 300B;RIGHT DOUBLE ANGLE BRACKET
 〔 → '[' ; # 3014;LEFT TORTOISE SHELL BRACKET
 〕 → ']' ; # 3015;RIGHT TORTOISE SHELL BRACKET
 〘 → '[' ; # 3018;LEFT WHITE TORTOISE SHELL BRACKET
@@ -684,10 +684,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 ︸ → '}' ; # FE38;PRESENTATION FORM FOR VERTICAL RIGHT CURLY BRACKET (compat)
 ︹ → '[' ; # FE39;PRESENTATION FORM FOR VERTICAL LEFT TORTOISE SHELL BRACKET (compat)
 ︺ → ']' ; # FE3A;PRESENTATION FORM FOR VERTICAL RIGHT TORTOISE SHELL BRACKET (compat)
-︽ → '&lt;&lt;' ; # FE3D;PRESENTATION FORM FOR VERTICAL LEFT DOUBLE ANGLE BRACKET (compat)
-︾ → '&gt;&gt;' ; # FE3E;PRESENTATION FORM FOR VERTICAL RIGHT DOUBLE ANGLE BRACKET (compat)
-︿ → '&lt;' ; # FE3F;PRESENTATION FORM FOR VERTICAL LEFT ANGLE BRACKET (compat)
-﹀ → '&gt;' ; # FE40;PRESENTATION FORM FOR VERTICAL RIGHT ANGLE BRACKET (compat)
+︽ → '<<' ; # FE3D;PRESENTATION FORM FOR VERTICAL LEFT DOUBLE ANGLE BRACKET (compat)
+︾ → '>>' ; # FE3E;PRESENTATION FORM FOR VERTICAL RIGHT DOUBLE ANGLE BRACKET (compat)
+︿ → '<' ; # FE3F;PRESENTATION FORM FOR VERTICAL LEFT ANGLE BRACKET (compat)
+﹀ → '>' ; # FE40;PRESENTATION FORM FOR VERTICAL RIGHT ANGLE BRACKET (compat)
 ﹇ → '[' ; # FE47;PRESENTATION FORM FOR VERTICAL LEFT SQUARE BRACKET (compat)
 ﹈ → ']' ; # FE48;PRESENTATION FORM FOR VERTICAL RIGHT SQUARE BRACKET (compat)
 ﹐ → ',' ; # FE50;SMALL COMMA (compat)
@@ -704,11 +704,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 ﹝ → '[' ; # FE5D;SMALL LEFT TORTOISE SHELL BRACKET (compat)
 ﹞ → ']' ; # FE5E;SMALL RIGHT TORTOISE SHELL BRACKET (compat)
 ﹟ → '#' ; # FE5F;SMALL NUMBER SIGN (compat)
-﹠ → '&amp;' ; # FE60;SMALL AMPERSAND (compat)
+﹠ → '&' ; # FE60;SMALL AMPERSAND (compat)
 ﹡ → '*' ; # FE61;SMALL ASTERISK (compat)
 ﹢ → '+' ; # FE62;SMALL PLUS SIGN (compat)
-﹤ → '&lt;' ; # FE64;SMALL LESS-THAN SIGN (compat)
-﹥ → '&gt;' ; # FE65;SMALL GREATER-THAN SIGN (compat)
+﹤ → '<' ; # FE64;SMALL LESS-THAN SIGN (compat)
+﹥ → '>' ; # FE65;SMALL GREATER-THAN SIGN (compat)
 ﹦ → '=' ; # FE66;SMALL EQUALS SIGN (compat)
 ﹨ → '\' ; # FE68;SMALL REVERSE SOLIDUS (compat)
 ﹩ → '$' ; # FE69;SMALL DOLLAR SIGN (compat)
@@ -719,7 +719,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 ＃ → '#' ; # FF03;FULLWIDTH NUMBER SIGN (compat)
 ＄ → '$' ; # FF04;FULLWIDTH DOLLAR SIGN (compat)
 ％ → '%' ; # FF05;FULLWIDTH PERCENT SIGN (compat)
-＆ → '&amp;' ; # FF06;FULLWIDTH AMPERSAND (compat)
+＆ → '&' ; # FF06;FULLWIDTH AMPERSAND (compat)
 （ → '(' ; # FF08;FULLWIDTH LEFT PARENTHESIS (compat)
 ） → ')' ; # FF09;FULLWIDTH RIGHT PARENTHESIS (compat)
 ＊ → '*' ; # FF0A;FULLWIDTH ASTERISK (compat)
@@ -729,9 +729,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 ／ → '/' ; # FF0F;FULLWIDTH SOLIDUS (compat)
 ： → ':' ; # FF1A;FULLWIDTH COLON (compat)
 ； → ';' ; # FF1B;FULLWIDTH SEMICOLON (compat)
-＜ → '&lt;' ; # FF1C;FULLWIDTH LESS-THAN SIGN (compat)
+＜ → '<' ; # FF1C;FULLWIDTH LESS-THAN SIGN (compat)
 ＝ → '=' ; # FF1D;FULLWIDTH EQUALS SIGN (compat)
-＞ → '&gt;' ; # FF1E;FULLWIDTH GREATER-THAN SIGN (compat)
+＞ → '>' ; # FF1E;FULLWIDTH GREATER-THAN SIGN (compat)
 ？ → '?' ; # FF1F;FULLWIDTH QUESTION MARK (compat)
 ＠ → '@' ; # FF20;FULLWIDTH COMMERCIAL AT (compat)
 ［ → '[' ; # FF3B;FULLWIDTH LEFT SQUARE BRACKET (compat)
@@ -760,14 +760,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 ∖ → '\' ; # 2216;SET MINUS (from ‹character-fallback›)
 ∣ → '|' ; # 2223;DIVIDES (from ‹character-fallback›)
 ∥ → '||' ; # 2225;PARALLEL TO (from ‹character-fallback›)
-≪ → '&lt;&lt;' ; # 226A;MUCH LESS-THAN
-≫ → '&gt;&gt;' ; # 226B;MUCH GREATER-THAN
+≪ → '<<' ; # 226A;MUCH LESS-THAN
+≫ → '>>' ; # 226B;MUCH GREATER-THAN
 ⦅ → '((' ; # 2985;LEFT WHITE PARENTHESIS
 ⦆ → '))' ; # 2986;RIGHT WHITE PARENTHESIS
 ⩴ → '::=' ; # 2A74;DOUBLE COLON EQUAL (compat)
 ⩵ → '==' ; # 2A75;TWO CONSECUTIVE EQUALS SIGNS (compat)
 ⩶ → '===' ; # 2A76;THREE CONSECUTIVE EQUALS SIGNS (compat)
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

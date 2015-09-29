@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Fullwidth" target="Halfwidth" direction="both">
-			<tRule>
+			<tRule><![CDATA[
 # Fullwidth-Halfwidth
 # Mechanically generated from Unicode Character Database
 # IDEOGRAPHIC SPACE then added, and
@@ -45,11 +45,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 ヺ↔ｦﾞ; # to KATAKANA LETTER VO
 # single character
 ！↔'!'; # from FULLWIDTH EXCLAMATION MARK
-＂↔'&quot;'; # from FULLWIDTH QUOTATION MARK
+＂↔'"'; # from FULLWIDTH QUOTATION MARK
 ＃↔'#'; # from FULLWIDTH NUMBER SIGN
 ＄↔'$'; # from FULLWIDTH DOLLAR SIGN
 ％↔'%'; # from FULLWIDTH PERCENT SIGN
-＆↔'&amp;'; # from FULLWIDTH AMPERSAND
+＆↔'&'; # from FULLWIDTH AMPERSAND
 ＇↔''; # from FULLWIDTH APOSTROPHE
 （↔'('; # from FULLWIDTH LEFT PARENTHESIS
 ）↔')'; # from FULLWIDTH RIGHT PARENTHESIS
@@ -71,9 +71,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 ９↔'9'; # from FULLWIDTH DIGIT NINE
 ：↔':'; # from FULLWIDTH COLON
 ；↔';'; # from FULLWIDTH SEMICOLON
-＜↔'&lt;'; # from FULLWIDTH LESS-THAN SIGN
+＜↔'<'; # from FULLWIDTH LESS-THAN SIGN
 ＝↔'='; # from FULLWIDTH EQUALS SIGN
-＞↔'&gt;'; # from FULLWIDTH GREATER-THAN SIGN
+＞↔'>'; # from FULLWIDTH GREATER-THAN SIGN
 ？↔'?'; # from FULLWIDTH QUESTION MARK
 ＠↔'@'; # from FULLWIDTH COMMERCIAL AT
 Ａ↔A; # from FULLWIDTH LATIN CAPITAL LETTER A
@@ -269,7 +269,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 ■↔￭; # to HALFWIDTH BLACK SQUARE
 ○↔￮; # to HALFWIDTH WHITE CIRCLE
 # eof
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

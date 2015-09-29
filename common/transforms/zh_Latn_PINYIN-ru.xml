@@ -9,8 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="zh_Latn_PINYIN" target="ru" direction="forward">
-			<tRule>
-#
+			<tRule><![CDATA[
 # Copyright (C) 2009 Google, Inc.  All Rights Reserved.
 # Author: mjansche@google.com (Martin Jansche)
 #
@@ -20,7 +19,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 #   http://ru.wikipedia.org/wiki/Транскрипционная_система_Палладия
 #   http://www.omniglot.com/writing/mandarin_pts.htm
 #   http://www.pinyin.info/romanization/russian/index.html
-# These differ in the treatment of some syllables (e.g. &lt;jue&gt;) from the rules
+# These differ in the treatment of some syllables (e.g. <jue>) from the rules
 # below.
 #
 # Further commentary:
@@ -33,7 +32,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 :: NFC (NFD);
 #
 #
-# Syllabify. Add apostrophes to disambiguate whether &lt;n&gt; and &lt;g&gt; belong to the
+# Syllabify. Add apostrophes to disambiguate whether <n> and <g> belong to the
 # coda or onset of a syllable.
 
 :: Null ();
@@ -140,7 +139,7 @@ uo → о;
 u  → у;
 ü  → ю | v;
 #
-# We use the dummy symbol &lt;v&gt; to signal that an &lt;ü&gt; or equivalent character has
+# We use the dummy symbol <v> to signal that an <ü> or equivalent character has
 # just been processed.
 
 ve → э;
@@ -169,7 +168,7 @@ z  → цз;
 # Final pass: Make sure that the output consists entirely of Cyrillic letters.
 
 :: NFC ();
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

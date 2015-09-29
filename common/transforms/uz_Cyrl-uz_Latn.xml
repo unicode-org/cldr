@@ -7,12 +7,12 @@ terms of use, see http://www.unicode.org/copyright.html -->
 	<version number="$Revision$" />
 	<transforms>
 		<transform source="uz_Cyrl" target="uz_Latn" direction="both">
-			<tRule>
+			<tRule><![CDATA[
 # Rules are predicated on running NFD first, and NFC afterwards
 :: NFD (NFC) ;
-$letters = [[:sc=Latn:][:sc=Cyrl:] &amp; [:L:]] ;
+$letters = [[:sc=Latn:][:sc=Cyrl:] & [:L:]] ;
 $latinVowel = [AEIOUaeiouĬĭʼËë{oʻ}{Oʻ}] ;
-$lower = [$letters &amp; [:Ll:]] ;
+$lower = [$letters & [:Ll:]] ;
 
 у \u0306 ↔ oʻ ;
 У \u0306 ↔ Oʻ ;
@@ -117,7 +117,7 @@ $latinVowel { Е → YE ;
 ь → ;
 Ь → ;
 ::NFC (NFD) ;
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

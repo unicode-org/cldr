@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Pashto" target="Latin" direction="forward" variant="BGN" draft="provisional">
-			<tRule>
+			<tRule><![CDATA[
 #
 ########################################################################
 # BGN/PCGN 1968 System
@@ -19,7 +19,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 # romanized in accordance with the Romanization System for Persian
 # (BGN/PCGN 1958 System), shown on pages 87-92).
 #
-# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
+# Originally prepared by Michael Everson <everson@evertype.com>
 ########################################################################
 #
 # MINIMAL FILTER: Pashto-Latin
@@ -264,7 +264,7 @@ $wordBoundary{ا →  ; # ARABIC LETTER ALEF
 #
 ########################################################################
 
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

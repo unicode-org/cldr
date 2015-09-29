@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Arabic" target="Latin" direction="both">
-			<tRule>
+			<tRule><![CDATA[
 # Generally follows UNGEGN
 #     http://www.eki.ee/wgrs/rom1_ar.pdf
 # Occasionally deviates in the direction of ISO 233
@@ -19,8 +19,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 #    since those are explicitly in Unicode for transliteration.
 # c) with extra non-Arabic-language letters, like PEH
 #
-# Does *not* do assimilation of &quot;al&quot;, nor hyphenation.
-# While it could be done, we need to determine whether a prefix &quot;al&quot; could
+# Does *not* do assimilation of "al", nor hyphenation.
+# While it could be done, we need to determine whether a prefix "al" could
 # occur other than as the definite article (since no space is used).
 :: [[:Arabic:][:block=ARABIC:][‎ⁿ،؛؟ـً-ٕ٠-٬۰-۹﷼ښ]] ;
 :: NFKD (NFC);
@@ -28,7 +28,7 @@ $disambig =  ̱ ;
 $disambig2 =  ̰ ;
 $under =  ̣ ;
 $descender = ˌ;
-$notAbove = [[:^ccc=0:]&amp;[:^ccc=230:]];
+$notAbove = [[:^ccc=0:] & [:^ccc=230:]];
 
 # non-letters
 [:Nd:]{٫}[:Nd:] ↔ [:Nd:]{','}[:Nd:] ; # ARABIC DECIMAL SEPARATOR
@@ -147,7 +147,7 @@ $notAbove = [[:^ccc=0:]&amp;[:^ccc=230:]];
 :: (lower) ;
 ::NFC (NFD);
 :: ( [[:Latin:] [%,.0-9;?ʾ-ʿ̂-̄̈-̣̰̊-̱̹;ˌ]] );
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

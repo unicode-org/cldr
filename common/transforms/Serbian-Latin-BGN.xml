@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Serbian" target="Latin" direction="forward" variant="BGN" draft="provisional">
-			<tRule>
+			<tRule><![CDATA[
 #
 ########################################################################
 # BGN/PCGN Agreemente
@@ -21,7 +21,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 #   АБВГДЂЕЖЗИЈКЛЉМНЊОПРСТЋУФХЦЧЏШ
 #   абвгдђежзијклљмнњопрстћуфхцчџш
 #
-# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
+# Originally prepared by Michael Everson <everson@evertype.com>
 ########################################################################
 #
 # MINIMAL FILTER: Serbian-Latin
@@ -138,7 +138,7 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 #
 ########################################################################
 
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

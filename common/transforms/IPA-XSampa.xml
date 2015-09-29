@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="IPA" target="XSampa" direction="both">
-			<tRule>
+			<tRule><![CDATA[
 
 # Conversion between IPA and X-SAMPA phonetic transcription.
 #
@@ -58,8 +58,8 @@ n\u033C\u030A ← 'n_N_0';
 # 4-character X-SAMPA representations
 
 ǁ ↔ '|\|\';       # LATIN LETTER LATERAL CLICK
-ʄ ↔ 'J\_&lt;';    # LATIN SMALL LETTER DOTLESS J WITH STROKE AND HOOK
-ʛ ↔ 'G\_&lt;';    # LATIN LETTER SMALL CAPITAL G WITH HOOK
+ʄ ↔ 'J\_<';    # LATIN SMALL LETTER DOTLESS J WITH STROKE AND HOOK
+ʛ ↔ 'G\_<';    # LATIN LETTER SMALL CAPITAL G WITH HOOK
 ʮ ↔ 'z_w=';       # LATIN SMALL LETTER TURNED H WITH FISHHOOK
 \u1DC4 ↔ '_H_T';  # COMBINING MACRON-ACUTE
 \u1DC5 ↔ '_B_L';  # COMBINING GRAVE-MACRON
@@ -74,12 +74,12 @@ n\u033C\u030A ← 'n_N_0';
 
 # 3-character X-SAMPA representations
 
-ɓ ↔ 'b_&lt;';     # LATIN SMALL LETTER B WITH HOOK
-ɗ ↔ 'd_&lt;';     # LATIN SMALL LETTER D WITH HOOK
-ɠ ↔ 'g_&lt;';     # LATIN SMALL LETTER G WITH HOOK
+ɓ ↔ 'b_<';     # LATIN SMALL LETTER B WITH HOOK
+ɗ ↔ 'd_<';     # LATIN SMALL LETTER D WITH HOOK
+ɠ ↔ 'g_<';     # LATIN SMALL LETTER G WITH HOOK
 ɻ ↔ 'r\`';        # LATIN SMALL LETTER TURNED R WITH HOOK
-↗ ↔ '&lt;R&gt;';  # NORTH EAST ARROW
-↘ ↔ '&lt;F&gt;';  # SOUTH EAST ARROW
+↗ ↔ '<R>';  # NORTH EAST ARROW
+↘ ↔ '<F>';  # SOUTH EAST ARROW
 
 # Alternative 3-character X-SAMPA representations
 
@@ -125,8 +125,8 @@ j\u030A ← 'j_0';
 ʜ ↔ 'H\';      # LATIN LETTER SMALL CAPITAL H
 ʝ ↔ 'j\';      # LATIN SMALL LETTER J WITH CROSSED-TAIL
 ʟ ↔ 'L\';      # LATIN LETTER SMALL CAPITAL L
-ʡ ↔ '&gt;\';   # LATIN LETTER GLOTTAL STOP WITH STROKE
-ʢ ↔ '&lt;\';   # LATIN LETTER REVERSED GLOTTAL STOP WITH STROKE
+ʡ ↔ '>\';      # LATIN LETTER GLOTTAL STOP WITH STROKE
+ʢ ↔ '<\';      # LATIN LETTER REVERSED GLOTTAL STOP WITH STROKE
 ʰ ↔ '_h';      # MODIFIER LETTER SMALL H
 ʷ ↔ '_w';      # MODIFIER LETTER SMALL W
 ʼ ↔ '_>';      # MODIFIER LETTER APOSTROPHE
@@ -203,7 +203,7 @@ c\u0327 ↔ C;      # LATIN SMALL LETTER C WITH CEDILLA (decomposed)
 ɱ ↔ F;            # LATIN SMALL LETTER M WITH HOOK
 ɲ ↔ J;            # LATIN SMALL LETTER N WITH LEFT HOOK
 ɵ ↔ 8;            # LATIN SMALL LETTER BARRED O
-ɶ ↔ '&amp;';      # LATIN LETTER SMALL CAPITAL OE
+ɶ ↔ '&';          # LATIN LETTER SMALL CAPITAL OE
 ɾ ↔ 4;            # LATIN SMALL LETTER R WITH FISHHOOK
 ʁ ↔ R;            # LATIN LETTER SMALL CAPITAL INVERTED R
 ʃ ↔ S;            # LATIN SMALL LETTER ESH
@@ -245,7 +245,7 @@ g → g;            # LATIN SMALL LETTER G (redundant, for additional clarity)
 ʖ → '|\|\';       # LATIN LETTER INVERTED GLOTTAL STOP
 ʗ → '!\';         # LATIN LETTER STRETCHED C
 ʚ → '3\';         # LATIN SMALL LETTER CLOSED OPEN E
-ʠ → 'G\_&lt;_0';  # LATIN SMALL LETTER Q WITH HOOK
+ʠ → 'G\_<_0';  # LATIN SMALL LETTER Q WITH HOOK
 ʣ → d $t z;       # LATIN SMALL LETTER DZ DIGRAPH
 ʤ → d $t Z;       # LATIN SMALL LETTER DEZH DIGRAPH
 ʥ → d $t 'z\';    # LATIN SMALL LETTER DZ DIGRAPH WITH CURL
@@ -260,7 +260,7 @@ g → g;            # LATIN SMALL LETTER G (redundant, for additional clarity)
 
 ::NFC(NFD);
 
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

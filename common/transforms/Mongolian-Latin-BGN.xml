@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Mongolian" target="Latin" direction="forward" variant="BGN" draft="provisional">
-			<tRule>
+			<tRule><![CDATA[
 #
 ########################################################################
 # BGN/PCGN 1964 System
@@ -29,7 +29,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 #   АБВГДЕЁЖЗИЙКЛМНОӨПРСТУҮФХЦЧШЩЪЫЬЭЮЯ
 #   абвгдеёжзийклмноөпрстуүфхцчшщъыьэюя
 #
-# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
+# Originally prepared by Michael Everson <everson@evertype.com>
 ########################################################################
 #
 # MINIMAL FILTER: Mongolian-Latin
@@ -211,7 +211,7 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 #
 ########################################################################
 
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

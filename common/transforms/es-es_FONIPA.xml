@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="es" target="es_FONIPA" direction="forward">
-			<tRule>
+			<tRule><![CDATA[
 #
 # Copyright (C) 2009 Google, Inc.  All Rights Reserved.
 # Author: mjansche@google.com (Martin Jansche)
@@ -166,7 +166,7 @@ n } [gɣk] → ŋ ;
 #
 
 ::NFC;
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

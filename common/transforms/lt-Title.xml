@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="lt" target="Title" direction="forward">
-			<tRule>
+			<tRule><![CDATA[
 # Copyright (C) 2011-2014, Google, Inc.; Unicode, Inc.; and others. All Rights Reserved.
 # Make any string of letters after a cased letter be lower
 ::NFD();
@@ -19,12 +19,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 [:cased:] [:case-ignorable:]* {I \u0300 → i \u0307 \u0300;
 [:cased:] [:case-ignorable:]* {I \u0301 → i \u0307 \u0301;
 [:cased:] [:case-ignorable:]* {I \u0303 → i \u0307 \u0303;
-[:cased:] [:case-ignorable:]* { (.) → &amp;Any-Lower($1) ;
+[:cased:] [:case-ignorable:]* { (.) → &Any-Lower($1) ;
 # Otherwise all lowercase go to upper (titlecase stay as is)
 [:Soft_Dotted:] [^[:ccc=Not_Reordered:][:ccc=Above:]]* { \u0307 → ;
-([:Lowercase:]) → &amp;Any-Upper($1) ;
+([:Lowercase:]) → &Any-Upper($1) ;
 ::NFC();
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

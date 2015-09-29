@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Georgian" target="Latin" direction="both">
-			<tRule>
+			<tRule><![CDATA[
 # long items moved up
 წ ↔ tsʼ ;
 კ ↔ kʼ ;
@@ -61,7 +61,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 ჰ ↔ h ;
 #ჳ ↔ ŭi ;
 ჴ ↔ q ;
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

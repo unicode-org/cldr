@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Bulgarian" target="Latin" direction="forward" variant="BGN" draft="provisional">
-			<tRule>
+			<tRule><![CDATA[
 #
 ########################################################################
 # BGN/PCGN 1952 System
@@ -25,7 +25,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 #   АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯѪѢ
 #   абвгдежзийклмнопрстуфхцчшщъьюяѫѣ
 #
-# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
+# Originally prepared by Michael Everson <everson@evertype.com>
 ########################################################################
 #
 # MINIMAL FILTER: Bulgarian-Latin
@@ -273,7 +273,7 @@ $bulgarian { [Ъъ]  } $wordBoundary > ;
 #
 ########################################################################
 
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Uzbek" target="Latin" direction="forward" variant="BGN" draft="provisional">
-			<tRule>
+			<tRule><![CDATA[
 #
 ########################################################################
 # BGN/PCGN 1979 System
@@ -24,7 +24,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 #   АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЪЬЭЮЯЎҚҒҲ
 #   абвгдеёжзийклмнопрстуфхцчшъьэюяўқғҳ
 #
-# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
+# Originally prepared by Michael Everson <everson@evertype.com>
 ########################################################################
 #
 # MINIMAL FILTER: Uzbek-Latin
@@ -292,7 +292,7 @@ $wordBoundary{е → ye ; # CYRILLIC SMALL LETTER IE
 #
 ########################################################################
 
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

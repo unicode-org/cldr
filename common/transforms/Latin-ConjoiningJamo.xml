@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Latin" target="ConjoiningJamo" direction="both" visibility="internal">
-			<tRule>
+			<tRule><![CDATA[
 # Follows the Ministry of Culture and Tourism romanization: see http://www.korea.net/korea/kor_loca.asp?code=A020303
 # http://www.unicode.org/cldr/transliteration_guidelines.html#Korean
 #- N.B. DO NOT put any filters, NFD, etc. here -- those are aliased in
@@ -33,7 +33,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 # conform to Korean syllable structure.  These are the null initial
 # consonant 110B (IEUNG) and the null vowel 1173 (EU).  In Latin text,
 # we will use the separator in order to disambiguate strings,
-# e.g. &quot;kan-ggan&quot; (initial GG) vs. &quot;kanggan&quot; (final NG + initial G).
+# e.g. "kan-ggan" (initial GG) vs. "kanggan" (final NG + initial G).
 # We will not use all of the characters in the jamo block.  We will
 # only use the 19 initials, 21 medials, and 27 finals possessing a
 # jamo short name as defined in section 4.4 of the Unicode book.
@@ -166,9 +166,9 @@ $sep = \-;
 #
 # The main issue with Jamo-Latin is when to insert separators.
 # Separators are inserted to obtain correct round trip behavior.  For
-# example, the sequence Ki A Gf Gi E, if transliterated to &quot;kagge&quot;,
+# example, the sequence Ki A Gf Gi E, if transliterated to "kagge",
 # would then round trip to Ki A GGi E.  To prevent this, we insert a
-# separator: &quot;kag-ge&quot;.  IMPORTANT: The need for separators depends
+# separator: "kag-ge".  IMPORTANT: The need for separators depends
 # very specifically on the behavior of the Latin-Jamo rules.  A change
 # in the Latin-Jamo behavior can completely change the way the
 # separator insertion must be done.
@@ -181,18 +181,18 @@ $sep = \-;
 # this rule.
 $sep $sep ↔ $sep;
 
-# Triple consonants.  For three consonants &quot;axxx&quot; we insert a
-# separator between the first and second &quot;x&quot; if XXf, Xf, and Xi all
+# Triple consonants.  For three consonants "axxx" we insert a
+# separator between the first and second "x" if XXf, Xf, and Xi all
 # exist, and we have A Xf XXi.  This prevents the reverse
 # transliteration to A XXf Xi.
 
 $sep ← $latinMedialEnd s {} $SSi;
 
-# For vowels the rule is similar.  If there is a vowel &quot;ae&quot; such that
-# &quot;a&quot; by itself and &quot;e&quot; by itself are vowels, then we want to map A E
-# to &quot;a-e&quot; so as not to round trip to AE.  However, in the text Ki EO
-# IEUNG E we don't need to map to &quot;keo-e&quot;.  &quot;keoe&quot; suffices.  For
-# vowels of the form &quot;aei&quot;, both &quot;ae&quot; + &quot;i&quot; and &quot;a&quot; + &quot;ei&quot; must be
+# For vowels the rule is similar.  If there is a vowel "ae" such that
+# "a" by itself and "e" by itself are vowels, then we want to map A E
+# to "a-e" so as not to round trip to AE.  However, in the text Ki EO
+# IEUNG E we don't need to map to "keo-e".  "keoe" suffices.  For
+# vowels of the form "aei", both "ae" + "i" and "a" + "ei" must be
 # tested.  NOTE: These rules used to have a left context of
 # $latinInitial instead of [^$latinMedial].  The problem with this is
 # sequences where an initial IEUNG is transliterated away:
@@ -227,7 +227,7 @@ $sep ← [^$latinMedial] [o a] {} $IEUNG [$E $EO $EU];
 $sep ← [^$latinMedial] [w y] a {} $IEUNG [$E $EO $EU];
 
 # Single finals followed by IEUNG.  The jamo sequence A Xf IEUNG E,
-# where Xi also exists, must be transliterated as &quot;ax-e&quot; to prevent
+# where Xi also exists, must be transliterated as "ax-e" to prevent
 # the round trip conversion to A Xi E.
 $sep ← $latinMedialEnd b {} $IEUNG $jamoMedial;
 $sep ← $latinMedialEnd d {} $IEUNG $jamoMedial;
@@ -263,7 +263,7 @@ $sep ← $latinMedialEnd s s {} $IEUNG $jamoMedial;
 $sep ← $latinMedialEnd ch {} $IEUNG $jamoMedial;
 
 # Split doubles.  Text of the form A Xi Xf E, where XXi also occurs,
-# we transliterate as &quot;ax-xe&quot; to prevent round trip transliteration as
+# we transliterate as "ax-xe" to prevent round trip transliteration as
 # A XXi E.
 
 $sep ← $latinMedialEnd j {} $Ji $jamoMedial;
@@ -271,9 +271,9 @@ $sep ← $latinMedialEnd k {} $Ki $jamoMedial;
 $sep ← $latinMedialEnd s {} $Si $jamoMedial;
 
 # XYY.  This corresponds to the XYY rule in Latin-Jamo.  By default
-# Latin-Jamo maps &quot;xyy&quot; to Xf YYi, to keep YY together.  As a result,
-# &quot;xyy&quot; forms that correspond to XYf Yi must be transliterated as
-# &quot;xy-y&quot;.
+# Latin-Jamo maps "xyy" to Xf YYi, to keep YY together.  As a result,
+# "xyy" forms that correspond to XYf Yi must be transliterated as
+# "xy-y".
 $sep ← $latinMedialEnd b s {} [$Si $SSi];
 $sep ← $latinMedialEnd g s {} [$Si $SSi];
 $sep ← $latinMedialEnd l b {} [$Bi];
@@ -281,8 +281,8 @@ $sep ← $latinMedialEnd l g {} [$Gi];
 $sep ← $latinMedialEnd l s {} [$Si $SSi];
 $sep ← $latinMedialEnd n g {} [$Gi];
 $sep ← $latinMedialEnd n j {} [$Ji $JJi];
-<!-- $sep ← $latinMedialEnd l  {} [$PPi]; -->
-<!-- $sep ← $latinMedialEnd l  {} [$TTi]; -->
+# $sep ← $latinMedialEnd l  {} [$PPi];
+# $sep ← $latinMedialEnd l  {} [$TTi];
 $sep ← $latinMedialEnd l p {} [$Pi];
 $sep ← $latinMedialEnd l t {} [$Ti];
 $sep ← $latinMedialEnd k {} [$KKi $Ki];
@@ -298,7 +298,7 @@ $sep ← $latinMedialEnd c {} [$Hi];
 # Split digraphs: Text of the form 'axye', where 'xy' is a final
 # digraph, 'x' is a final (by itself), 'y' is an initial, and 'a' and
 # 'e' are medials, we want to transliterate this as A Xf Yi E rather
-# than A XYf IEUNG E.  We do NOT include text of the form &quot;axxe&quot;,
+# than A XYf IEUNG E.  We do NOT include text of the form "axxe",
 # since that is handled differently below.  These rules are generated
 # programmatically from the jamo data.
 $jamoMedial {b s} $latinMedial → $Bf $Si;
@@ -331,7 +331,7 @@ $jamoMedial {s} $latinMedial → $Si;
 $jamoMedial {t} $latinMedial → $Ti;
 $jamoMedial {l} $latinMedial → $Li;
 
-# Doubled initials.  The sequence &quot;axxe&quot;, where XX exists as an initial
+# Doubled initials.  The sequence "axxe", where XX exists as an initial
 # (XXi), and also Xi and Xf exist (true of all digraphs XX), we want
 # to transliterate as A XXi E, rather than split to A Xf Xi E.
 $jamoMedial {p p} $latinMedial → $PPi;
@@ -341,7 +341,7 @@ $jamoMedial {k k} $latinMedial → $KKi;
 $jamoMedial {s s} $latinMedial → $SSi;
 
 # XYY.  Because doubled consonants bind more strongly than XY
-# consonants, we must handle the sequence &quot;axyy&quot; specially.  Here XYf
+# consonants, we must handle the sequence "axyy" specially.  Here XYf
 # and YYi must exist.  In these cases, we map to Xf YYi rather than
 # XYf.
 # However, there are two special cases.
@@ -422,7 +422,7 @@ $jamoMedial {t} ↔ $Tf;
 # 'r' jamo (the glyphs are the same), we try to provide the same
 # equivalency in Latin-Jamo.  The 'l' to 'r' conversion is handled
 # below.  If we see an 'r' in an apparent final position, treat it
-# like 'l'.  For example, &quot;karka&quot; =→ Ki A R EU Ki A without this rule.
+# like 'l'.  For example, "karka" =→ Ki A R EU Ki A without this rule.
 # Instead, we want Ki A L Ki A.
 
 # Initial + Final: If we match the next rule, we have initial then
@@ -452,9 +452,9 @@ ch → $CHi $EU;
 # the above rules.  'bs' splits into Bi EU Sf.  Similar for 'gs' 'ng'
 # 'nh' 'nj'.  The only problem is 'l' and digraphs starting with 'l'.
 # For this isolated case, we could add a null initial and medial,
-# which would give &quot;la&quot; =→ IEUNG EU L IEUNG A, for example.  A more
-# economical solution is to transliterate isolated &quot;l&quot; (that is,
-# initial &quot;l&quot;) to &quot;r&quot;.  (Other similar conversions of consonants that
+# which would give "la" =→ IEUNG EU L IEUNG A, for example.  A more
+# economical solution is to transliterate isolated "l" (that is,
+# initial "l") to "r".  (Other similar conversions of consonants that
 # occur neither as initials nor as finals are handled below.)
 l → | r;
 
@@ -529,7 +529,7 @@ $sep → ;
 #- instantiated.  It is used as a part of Latin-Jamo, Latin-Hangul, or
 #- inverses thereof.
 # eof
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

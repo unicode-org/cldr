@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Hebrew" target="Latin" direction="forward" variant="BGN" draft="provisional">
-			<tRule>
+			<tRule><![CDATA[
 #
 ########################################################################
 # BGN/PCGN 1981 System
@@ -24,7 +24,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 #
 # אבגדהוזחטיכךלמםנןסעפףצץקרששת
 #
-# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
+# Originally prepared by Michael Everson <everson@evertype.com>
 ########################################################################
 #
 # MINIMAL FILTER: Hebrew-Latin
@@ -134,7 +134,7 @@ $wordBoundary = [^[:L:][:M:][:N:]] ;
 #
 ########################################################################
 
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

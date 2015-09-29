@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Maldivian" target="Latin" direction="forward" variant="BGN" draft="provisional">
-			<tRule>
+			<tRule><![CDATA[
 #
 ########################################################################
 # BGN/PCGN 1988 System
@@ -20,7 +20,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 # to date has been limited because of the paucity of geographic
 # names source materials in Maldivian script.
 #
-# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
+# Originally prepared by Michael Everson <everson@evertype.com>
 ########################################################################
 #
 # MINIMAL FILTER: Maldivian-Latin
@@ -143,7 +143,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 #
 ########################################################################
 
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

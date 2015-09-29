@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Hebrew" target="Latin" direction="both">
-			<tRule>
+			<tRule><![CDATA[
 # Transliteration table for Hebrew
 # Based on the UNGEGN table at:
 #   http://www.eki.ee/wgrs/rom1_he.pdf
@@ -27,7 +27,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 # Use hebrew-latin/XXX for Output 1, and (Inverse) for Output 2
 # Paste in hebrew text in Input, and hit Transliterate.
 #
-# For more information, see&quot;
+# For more information, see:
 #   http://icu.sourceforge.net/userguide/Transform.html
 :: [[:Hebrew:] [:^ccc=0:] [ְ-ֹֻ-ּׁ-ׂℵ-ℸֿ̄] - [ֽ]] ;
 :: nfkd (nfc) ;
@@ -96,7 +96,7 @@ $above = [^[:ccc=0:][:ccc=230:]]*;
 :: (lower);
 :: nfc (nfd) ;
 :: ([[:Latin:] [:^ccc=0:] [ʻ-ʼ̀-̧̱̂̇̌̀-́    ̄ ]]);
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Greek" target="Latin" direction="both" variant="UNGEGN">
-			<tRule>
+			<tRule><![CDATA[
 # For modern Greek, based on UNGEGN rules.
 # Rules are predicated on running NFD first, and NFC afterwards
 # MINIMAL FILTER GENERATED FOR: Greek-Latin/UNGEGN
@@ -18,8 +18,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 :: [[[:Greek:][:Mn:][:Me:]] [\:-;?·;·]] ;
 ::NFD (NFC) ;
 # Useful variables
-$lower = [[:latin:][:greek:] &amp; [:Ll:]] ;
-$upper = [[:latin:][:greek:] &amp; [:Lu:]] ;
+$lower = [[:latin:][:greek:] & [:Ll:]] ;
+$upper = [[:latin:][:greek:] & [:Lu:]] ;
 $accent = [[:Mn:][:Me:]] ;
 $macron = ̄ ;
 $ddot = ̈ ;
@@ -187,7 +187,8 @@ $afterLetter { ς ↔ $afterLetter { s ;
 ::NFC (NFD) ;
 # MINIMAL FILTER GENERATED FOR: Latin-Greek/UNGEGN BACKWARD
 :: ([[[:Latin:][:Mn:][:Me:]] ['\:?]]) ;
-			</tRule>
+
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

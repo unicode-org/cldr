@@ -1,5 +1,5 @@
 @import url("http://fonts.googleapis.com/css?family=Noto+Sans:400italic,700italic,400,700");
-@import url("http://fonts.googleapis.com/css?family=Noto+Serif:400italic,700italic,400,700");
+@import url("http://fonts.googleapis.com/css?family=Noto+Sans+Symbols:400italic,700italic,400,700");
 /* @override 
 	http://naf:8080/cldr-apps/css/redesign.css */
 
@@ -11,7 +11,11 @@
 body {
 	min-width:1390px;
 	font-family: "Noto Sans",
-				 "Noto Serif Armenian",
+	             "Noto Sans Symbols",
+/* The rest of the individual scripts should be looked at later.  The best solution would be to
+   load the appropriate font based on the language being rendered. But we don't want to load
+   everything, as that would be painfully slow. 
+				 "Noto Sans Armenian",
 				 "Noto Naskh Arabic",
 				 "Noto Sans Bengali",
 				 "Noto Sans Canadian Aboriginal",
@@ -39,7 +43,7 @@ body {
 				 "Noto Serif Thai",
 				 "Noto Sans Tibetan",
 				 "Noto Sans Tifinagh",
-				 "Noto Sans Vai",
+				 "Noto Sans Vai", */
 				 sans-serif;
 }
 

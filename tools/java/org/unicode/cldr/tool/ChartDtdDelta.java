@@ -21,7 +21,6 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
@@ -75,11 +74,11 @@ public class ChartDtdDelta extends Chart {
         .setSpanRows(false);
 
         String last = null;
-        for (String current : CLDR_VERSIONS) {
+        for (String current : ToolConstants.CLDR_VERSIONS) {
             final boolean finalVersion = current.equals(ToolConstants.LAST_CHART_VERSION);
             String currentName = finalVersion ? ToolConstants.CHART_DISPLAY_VERSION : current;
             for (DtdType type : TYPES) {
-                String firstVersion = FIRST_VERSION.get(type);
+                String firstVersion = type.firstVersion; // FIRST_VERSION.get(type);
                 if (firstVersion != null && current != null && current.compareTo(firstVersion) < 0) {
                     continue;
                 }
@@ -125,27 +124,6 @@ public class ChartDtdDelta extends Chart {
     static final String NONE = " ";
 
     static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
-
-    static final List<String> CLDR_VERSIONS = ImmutableList.of(
-        "1.1.1",
-        "1.2.0",
-        "1.3.0",
-        "1.4.1",
-        "1.5.1",
-        "1.6.1",
-        "1.7.2",
-        "1.8.1",
-        "1.9.1",
-        "2.0.1",
-        "21.0",
-        "22.1",
-        "23.1",
-        "24.0",
-        "25.0",
-        "26.0",
-        "27.0",
-        "28.0"
-        );
 
     static Set<DtdType> TYPES = EnumSet.allOf(DtdType.class);
     static {

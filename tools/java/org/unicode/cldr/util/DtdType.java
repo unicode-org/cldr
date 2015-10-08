@@ -7,23 +7,32 @@ public enum DtdType {
     ldml("common/dtd/ldml.dtd"),
     ldmlICU("common/dtd/ldmlICU.dtd", ldml),
     supplementalData("common/dtd/ldmlSupplemental.dtd"),
-    ldmlBCP47("common/dtd/ldmlBCP47.dtd"),
-    keyboard("keyboards/dtd/ldmlKeyboard.dtd"),
-    platform("keyboards/dtd/ldmlPlatform.dtd");
-
+    ldmlBCP47("common/dtd/ldmlBCP47.dtd", "1.7.2"),
+    keyboard("keyboards/dtd/ldmlKeyboard.dtd", "22.1"),
+    platform("keyboards/dtd/ldmlPlatform.dtd", "22.1");
+    
     static Pattern FIRST_ELEMENT = PatternCache.get("//([^/\\[]*)");
 
     public final String dtdPath;
     public final DtdType rootType;
+    public final String firstVersion;
 
     private DtdType(String dtdPath) {
         this.dtdPath = dtdPath;
         this.rootType = this;
+        this.firstVersion = null;
     }
 
     private DtdType(String dtdPath, DtdType realType) {
         this.dtdPath = dtdPath;
         this.rootType = realType;
+        this.firstVersion = null;
+    }
+
+    private DtdType(String dtdPath, String firstVersion) {
+        this.dtdPath = dtdPath;
+        this.rootType = this;
+        this.firstVersion = firstVersion;
     }
 
     public static DtdType fromPath(String elementOrPath) {

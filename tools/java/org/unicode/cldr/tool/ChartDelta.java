@@ -18,6 +18,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
@@ -55,6 +56,10 @@ import com.ibm.icu.util.OutputInt;
 public class ChartDelta extends Chart {
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = CLDRConfig.getInstance().getSupplementalDataInfo();
 
+    private static final String LAST_ARCHIVE_DIRECTORY = CLDRPaths.LAST_DIRECTORY;
+    private static final String CURRENT_DIRECTORY = CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" +
+        ToolConstants.LAST_CHART_VERSION + "/";
+
     final static Options myOptions = new Options();
 
     enum MyOptions {
@@ -77,6 +82,7 @@ public class ChartDelta extends Chart {
     }
 
     public static void main(String[] args) {
+        System.out.println("use -DCHART_VERSION=28 to generate version 28.");
         myOptions.parse(MyOptions.fileFilter, args, true);
         Matcher fileFilter = !MyOptions.fileFilter.option.doesOccur() ? null : PatternCache.get(MyOptions.fileFilter.option.getValue()).matcher("");
         boolean verbose = MyOptions.verbose.option.doesOccur();
@@ -103,8 +109,6 @@ public class ChartDelta extends Chart {
     private static final boolean DEBUG = false;
     private static final String DEBUG_FILE = null; // "windowsZones.xml";
     static Pattern fileMatcher = PatternCache.get(".*");
-
-    private static final String LAST_ARCHIVE_DIRECTORY = CLDRPaths.LAST_DIRECTORY;
 
     static String DIR = CLDRPaths.CHART_DIRECTORY + "/delta/";
     static PathHeader.Factory phf = PathHeader.getFactory(ENGLISH);
@@ -170,6 +174,7 @@ public class ChartDelta extends Chart {
     Counter<ChangeType> counter = new Counter<>();
 
     public void writeSubcharts(Anchors anchors) {
+        FileUtilities.copyFile(ChartDelta.class, "index.css", getDirectory());
         counter.clear();
         writeLdml(anchors);
         writeNonLdmlPlain(anchors, getDirectory());
@@ -183,12 +188,22 @@ public class ChartDelta extends Chart {
 //        oldFactories.add(Factory.make(LAST_ARCHIVE_DIRECTORY + "common/" + "main", ".*"));
 
         for (String dir : CLDRPaths.LDML_DIRECTORIES) {
-            factories.add(Factory.make(CLDRPaths.BASE_DIRECTORY + "common/" + dir, ".*"));
+            String current = (ToolConstants.CLDR_VERSIONS.contains(ToolConstants.LAST_CHART_VERSION) 
+                ? CURRENT_DIRECTORY : CLDRPaths.BASE_DIRECTORY) + "common/" + dir;
+            String past = LAST_ARCHIVE_DIRECTORY + "common/" + dir;
             try {
-                oldFactories.add(Factory.make(LAST_ARCHIVE_DIRECTORY + "common/" + dir, ".*"));
+                factories.add(Factory.make(current, ".*"));
+            } catch (Exception e1) {
+                System.out.println("Skipping: " + dir);
+                continue; // skip where the directories don't exist in old versions
+            }
+            try {
+                oldFactories.add(Factory.make(past, ".*"));
             } catch (Exception e) {
+                past = null;
                 oldFactories.add(null);
             }
+            System.out.println("Adding: " + dir + "\t\t" + current + "\t\t" + past);
         }
 
         // get a list of all the locales to cycle over

@@ -1,9 +1,12 @@
 package org.unicode.cldr.util;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 import org.unicode.cldr.tool.ToolConstants;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 
 /**
@@ -74,6 +77,40 @@ public class CLDRPaths {
     public static final String UTIL_DATA_DIR = FileReaders.getRelativeFileName(
         CldrUtility.class, "data/");
 
+    public enum DIRECTORIES {
+        common_dtd,
+        common_properties,
+        common_uca,
+        
+        common_bcp47(DtdType.ldmlBCP47),
+        
+        common_annotations(DtdType.ldml),
+        common_casing(DtdType.ldml),
+        common_collation(DtdType.ldml),
+        common_main(DtdType.ldml),
+        common_rbnf(DtdType.ldml),
+        common_segments(DtdType.ldml),
+        common_subdivisions(DtdType.ldml),
+        
+        common_supplemental(DtdType.supplementalData),
+        common_transforms(DtdType.supplementalData),
+        common_validity(DtdType.supplementalData),
+        
+        keyboards_android(DtdType.keyboard, DtdType.platform),
+        keyboards_chromeos(DtdType.keyboard, DtdType.platform),
+        keyboards_dtd(DtdType.keyboard, DtdType.platform),
+        keyboards_osx(DtdType.keyboard, DtdType.platform),
+        keyboards_und(DtdType.keyboard, DtdType.platform),
+        keyboards_windows(DtdType.keyboard, DtdType.platform),
+        ;
+        
+        public final List<DtdType> dtdType;
+        
+        private DIRECTORIES(DtdType... dtdType) {
+            this.dtdType = ImmutableList.copyOf(dtdType);
+        }
+    }
+    
     public static final Set<String> LDML_DIRECTORIES = ImmutableSet.of(
         "main",
         "annotations",

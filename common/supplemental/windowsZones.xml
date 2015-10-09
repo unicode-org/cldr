@@ -10,7 +10,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 
 	<windowsZones>
-		<mapTimezones otherVersion="7df0005" typeVersion="2015f">
+		<mapTimezones otherVersion="7df0005" typeVersion="2015g">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -48,7 +48,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC-07:00) Arizona -->
 			<mapZone other="US Mountain Standard Time" territory="001" type="America/Phoenix"/>
-			<mapZone other="US Mountain Standard Time" territory="CA" type="America/Dawson_Creek America/Creston"/>
+			<mapZone other="US Mountain Standard Time" territory="CA" type="America/Dawson_Creek America/Creston America/Fort_Nelson"/>
 			<mapZone other="US Mountain Standard Time" territory="MX" type="America/Hermosillo"/>
 			<mapZone other="US Mountain Standard Time" territory="US" type="America/Phoenix"/>
 			<mapZone other="US Mountain Standard Time" territory="ZZ" type="Etc/GMT+7"/>
@@ -629,6 +629,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Central Pacific Standard Time" territory="AU" type="Antarctica/Macquarie"/>
 			<mapZone other="Central Pacific Standard Time" territory="FM" type="Pacific/Ponape Pacific/Kosrae"/>
 			<mapZone other="Central Pacific Standard Time" territory="NC" type="Pacific/Noumea"/>
+			<mapZone other="Central Pacific Standard Time" territory="NF" type="Pacific/Norfolk"/>
 			<mapZone other="Central Pacific Standard Time" territory="PG" type="Pacific/Bougainville"/>
 			<mapZone other="Central Pacific Standard Time" territory="SB" type="Pacific/Guadalcanal"/>
 			<mapZone other="Central Pacific Standard Time" territory="VU" type="Pacific/Efate"/>

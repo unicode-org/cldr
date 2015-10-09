@@ -379,6 +379,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="America/El_Salvador">
 				<usesMetazone mzone="America_Central"/>
 			</timezone>
+			<timezone type="America/Fort_Nelson">
+				<usesMetazone to="2015-03-08 10:00" mzone="America_Pacific"/>
+				<usesMetazone from="2015-03-08 10:00" mzone="America_Mountain"/>
+			</timezone>
 			<timezone type="America/Fortaleza">
 				<usesMetazone mzone="Brasilia"/>
 			</timezone>

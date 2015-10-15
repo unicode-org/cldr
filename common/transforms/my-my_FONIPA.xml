@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!-- Copyright © 1991-2015 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html -->
+<supplementalData>
+	<version number="$Revision: 11914 $" />
+	<transforms>
+		<transform source="my" target="my_FONIPA" direction="forward">
+			<tRule><![CDATA[
+# Pronunciation rules for Burmese.
+#
+# The following rules are lexical and heuristic: lexical in the sense
+# that they generate phoneme strings which may further undergo
+# post-lexical phonological processes, in particular voicing, to
+# result in actual surface forms; heuristic in the sense that they try
+# to resolve ambiguities, especially around reduced vowels, in a
+# systematic way that may be incorrect in many situations. Vowel
+# reduction depends on factors, such as morphemic structure, which are
+# not available here.
+
+# Preprocessing
+::NFC;
+
+# Replace U+102B TALL AA with U+102C AA. Their pronunciation is identical.
+\u102B → \u102C;
+
+# Unstack kinzi (င် plus U+1039 VIRAMA) into plain င်.
+# Hmm, what would happen if the syllable ending in kinzi had non-low tone?
+င် \u1039 → င်;
+
+# Unstack everything else, i.e. replace U+1039 VIRAMA with U+103A ASAT.
+\u1039 → \u103A;
+
+# Insert a syllable boundary marker /./ before every independent letter.
+::Null;
+[^.$] { } [\u1000-\u102A\u103F] ([\u1037\u103B-\u103E])* [^\u103A] → \.;
+
+# Insert default inherent vowel: /a̰/ at the end, /ə/ everywhere else.
+::Null;
+([\u1000-\u1021\u103F] [\u103B-\u103E]*) } [$] → $1 a̰;
+([\u1000-\u1021\u103F] [\u103B-\u103E]*) } \.  → $1 ə;
+
+# Rhymes
+::Null;
+က် → ɛʔ;
+င့် → ɪ̰ɴ;
+င်း → ɪ́ɴ;
+င် → ɪ̀ɴ;
+စ် → ɪʔ;  # maybe sometimes /eɪ̯ʔ/
+ဉ့် → ɪ̰ɴ;
+ဉ်း → ɪ́ɴ;
+ဉ် → ɪ̀ɴ;
+ည့် → ɛ̰;
+ည်း → ɛ́;
+ည် → ɛ̀;
+ဏ့် → a̰ɴ;
+ဏ်း → áɴ;
+ဏ် → àɴ;
+တ် → aʔ;
+န့် → a̰ɴ;
+န်း → áɴ;
+န် → àɴ;
+ပ် → aʔ;
+မ့် → a̰ɴ;
+မ်း → áɴ;
+မ် → àɴ;
+ယ် → ɛ̀;
+ာတ် → aʔ;
+ာန့် → a̰ɴ;
+ာန်း → áɴ;
+ာန် → àɴ;
+ာ့ → a̰;  # redundant creaky tone
+ား → á;
+ာ → à;
+ိတ် → eɪ̯ʔ;
+ိန့် → ḛɪ̯ɴ;
+ိန်း → éɪ̯ɴ;
+ိန် → èɪ̯ɴ;
+ိပ် → eɪ̯ʔ;
+ိမ့် → ḛɪ̯ɴ;
+ိမ်း → éɪ̯ɴ;
+ိမ် → èɪ̯ɴ;
+ိုက် → aɪ̯ʔ;
+ိုင့် → a̰ɪ̯ɴ;
+ိုင်း → áɪ̯ɴ;
+ိုင် → àɪ̯ɴ;
+ိုယ့် → o̰;
+ိုယ်း → ó;
+ိုယ် → ò;  # in ကိုယ် /kò/
+ို့ → o̰;
+ိုး → ó;
+ို → ò;
+ိံ့ → ḛɪ̯ɴ;
+ိံး → éɪ̯ɴ;
+ိံ → èɪ̯ɴ;
+ိ → ḭ;
+ီ့ → ḭ;  # this does not usually occur
+ီး → í;
+ီ → ì;
+ုဏ့် → o̰ʊ̯ɴ;
+ုဏ်း → óʊ̯ɴ;
+ုဏ် → òʊ̯ɴ;
+ုတ် → oʊ̯ʔ;
+ုန့် → o̰ʊ̯ɴ;
+ုန်း → óʊ̯ɴ;
+ုန် → òʊ̯ɴ;
+ုပ် → oʊ̯ʔ;
+ုမ့် → o̰ʊ̯ɴ;
+ုမ်း → óʊ̯ɴ;
+ုမ် → òʊ̯ɴ;
+ုံ့ → o̰ʊ̯ɴ;
+ုံး → óʊ̯ɴ;
+ုံ → òʊ̯ɴ;
+ု → ṵ;
+ူ့ → ṵ;  # this does not usually occur
+ူး → ú;
+ူ → ù;
+ောက် → aʊ̯ʔ;
+ောင့် → a̰ʊ̯ɴ;
+ောင်း → áʊ̯ɴ;
+ောင် → àʊ̯ɴ;
+ော့ → ɔ̰;
+ေား → ɔ́;  # redundant high tone; this does not usually occur
+ော် → ɔ̀;
+ော → ɔ́;
+ေ့ → ḛ;
+ေး → é;
+ေ → è;
+ဲ့ → ɛ̰;
+ဲး → ɛ́;  # redundant high tone; this does not usually occur
+ဲ → ɛ́;
+ံ့ → a̰ɴ;
+ံး → áɴ;
+ံ → àɴ;
+ွတ် → ʊʔ;
+ွန့် → ʊ̰ɴ;
+ွန်း → ʊ́ɴ;
+ွန် → ʊ̀ɴ;
+ွပ် → ʊʔ;
+ွမ့် → ʊ̰ɴ;
+ွမ်း → ʊ́ɴ;
+ွမ် → ʊ̀ɴ;
+
+# Medials
+::Null;
+
+# Palatalization of the velar stops before MEDIAL YA and MEDIAL RA:
+# velar + /j/ ==> modern palatals.
+ကျ → t͡ɕ;
+ချ → t͡ɕʰ;
+ဂျ → d͡ʑ;
+ဃျ → d͡ʑ;
+ကြ → t͡ɕ;
+ခြ → t͡ɕʰ;
+ဂြ → d͡ʑ;
+ဃြ → d͡ʑ;
+
+# Reorder the medials so that U+103E SIGN MEDIAL HA comes before any
+# other medials.
+# First, push U+103E MEDIAL HA before U+103D MEDIAL WA.
+\u103D \u103E → \u103E \u103D;
+::Null;
+
+# Now MEDIAL WA comes last.
+# Produce the palatal ʃ from (SA|LA)+YA+HA.
+သျှ → ʃ;
+လျှ → ʃ;
+
+# Second, push U+103E MEDIAL HA before U+103C MEDIAL RA.
+\u103C \u103E → \u103E \u103C;
+::Null;
+
+# Finally, push U+103E MEDIAL HA before U+103B MEDIAL YA.
+\u103B \u103E → \u103E \u103B;
+::Null;
+
+# Consume MEDIAL HA and apply devoicing.
+ငှ → ŋ̊;
+ဉှ → ɲ̥;
+ညှ → ɲ̥;
+ဏှ → n̥;
+နှ → n̥;
+မှ → m̥;
+ယှ → ʃ;
+ရှ → ʃ;
+လှ → l̥;
+ဝှ → w̥;
+ဠှ → l̥;
+
+# Drop any remaining U+103E MEDIAL HA.
+\u103E → ;
+
+# Simplify medial cluster /jw/ to /w/, i.e. drop U+103B MEDIAL YA and
+# U+103C MEDIAL RA before U+103D MEDIAL WA.
+\u103B } \u103D → ;
+\u103C } \u103D → ;
+\u103B → j;
+\u103C → j;
+\u103D → w;
+
+# Initials
+#
+# Velars
+က → k;
+ခ → kʰ;
+ဂ → ɡ;
+ဃ → ɡ;
+င → ŋ;
+
+# Historic palatals
+စ → s;
+ဆ → sʰ;
+ဇ → z;
+ဈ → z;
+ဉ → ɲ;
+ည → ɲ;
+
+# Alveolars
+ဋ → t;
+ဌ → tʰ;
+ဍ → d;
+ဎ → d;
+ဏ → n;
+
+# Historic dentals ==> alveolars
+တ → t;
+ထ → tʰ;
+ဒ → d;
+ဓ → d;
+န → n;
+
+# Labials
+ပ → p;
+ဖ → pʰ;
+ဗ → b;
+ဘ → b;
+မ → m;
+
+# Other letters
+ယ → j;
+ရ → j;  # historic /r/
+လ် → ;  # final, typically not pronounced in native words
+လ → l;
+ဝ → w;
+သ → θ;  # historic /s/ ==> modern dental
+ဟ → h;
+ဠ → l;
+အ → ʔ;
+
+# Independent vowels
+ဣ့ → ʔḭ;  # redundant creaky tone; this does not usually occur
+ဣး → ʔí;  # this does not usually occur
+ဣ → ʔḭ;
+ဤ့ → ʔḭ;  # this does not usually occur
+ဤး → ʔí;  # this does not usually occur
+ဤ → ʔì;
+ဥ့ → ʔṵ;  # redundant creaky tone; this does not usually occur
+ဥး → ʔú;  # this does not usually occur
+ဥ → ʔṵ;
+ဦ့ → ʔṵ;  # this does not usually occur
+ဦး → ʔú;
+ဦ → ʔù;
+ဧ့ → ʔḛ;  # this does not usually occur
+ဧး → ʔé; # this does not usually occur
+ဧ → ʔè;
+ဩ့ → ʔɔ̰;  # this does not usually occur
+ဩး → ʔɔ́;  # redundant high tone; this does not usually occur
+ဩ → ʔɔ́;
+ဪ့ → ʔɔ̰;  # this does not usually occur
+ဪး → ʔɔ́;  # this does not usually occur
+ဪ → ʔɔ̀;
+
+# Various signs
+၌ → n̥aɪ̯ʔ;
+၍ → jwḛ;
+၏ → ʔḭ;
+
+# Postprocessing
+#
+# Delete any remaining U+103A ASAT.
+\u103A → ;
+::NFC;
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

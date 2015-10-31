@@ -116,7 +116,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         System.err.println(CLDRConfigImpl.class.getName() + ".init(), cldrHome=" + cldrHome);
         if (cldrHome == null) {
             String homeParent = null;
-            String props[] = { "cldr.home", "catalina.home", "catalina.base", "websphere.base", "websphere.home", "user.dir" };
+            String props[] = { "cldr.home", "catalina.base", "websphere.base", "catalina.home", "websphere.home", "user.dir" };
             for (String prop : props) {
                 if (homeParent == null) {
                     homeParent = System.getProperty(prop);

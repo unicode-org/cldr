@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2015 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -19,7 +19,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
                 <rbnfrule value="1010" radix="100">←← →%%2d-year→;</rbnfrule>
                 <rbnfrule value="1100" radix="100">←← →%%2d-year→;</rbnfrule>
@@ -50,14 +50,22 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="Inf">infinity;</rbnfrule>
+                <rbnfrule value="NaN">not a number;</rbnfrule>
                 <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering-verbose">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="Inf">infinity;</rbnfrule>
+                <rbnfrule value="NaN">not a number;</rbnfrule>
                 <rbnfrule value="0">=%spellout-cardinal-verbose=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">←← point →→;</rbnfrule>
+                <rbnfrule value="Inf">infinite;</rbnfrule>
+                <rbnfrule value="NaN">not a number;</rbnfrule>
                 <rbnfrule value="0">zero;</rbnfrule>
                 <rbnfrule value="1">one;</rbnfrule>
                 <rbnfrule value="2">two;</rbnfrule>
@@ -107,6 +115,8 @@ For terms of use, see http://www.unicode.org/copyright.html
             <ruleset type="spellout-cardinal-verbose">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">←← point →→;</rbnfrule>
+                <rbnfrule value="Inf">infinite;</rbnfrule>
+                <rbnfrule value="NaN">not a number;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
                 <rbnfrule value="100">←← hundred[→%%and→];</rbnfrule>
                 <rbnfrule value="1000">←← thousand[→%%and→];</rbnfrule>
@@ -128,6 +138,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <ruleset type="spellout-ordinal">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="Inf">infinitieth;</rbnfrule>
                 <rbnfrule value="0">zeroth;</rbnfrule>
                 <rbnfrule value="1">first;</rbnfrule>
                 <rbnfrule value="2">second;</rbnfrule>
@@ -173,6 +184,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <ruleset type="spellout-ordinal-verbose">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="Inf">infinitieth;</rbnfrule>
                 <rbnfrule value="0">=%spellout-ordinal=;</rbnfrule>
                 <rbnfrule value="100">←%spellout-numbering-verbose← hundred→%%and-o→;</rbnfrule>
                 <rbnfrule value="1000">←%spellout-numbering-verbose← thousand→%%and-o→;</rbnfrule>

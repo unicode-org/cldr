@@ -154,7 +154,9 @@ public class RBNFWriter {
                     } else {
                         numberString = parts[0];
                         ruleString = parts[1];
-                        if (numberString.contains("x") || numberString.contains(">")) {
+                        if (numberString.contains("x") || numberString.contains(">")
+                                || numberString.equals("Inf") || numberString.equals("NaN"))
+                        {
                             currentRuleValue = new BigInteger("-1");
                             numberString = numberString.replace('>', RARROW).replaceAll(",", "");
                         } else {

@@ -141,9 +141,17 @@ private static void printSkipLine(JspWriter out, RuleBasedNumberFormat rbnf) thr
 private static String formatNumber(double num) {
     long longVal = (long)num;
     String numStr;
-    if (longVal != num) {
+    if (Double.isInfinite(num)) {
+        if (num < 0) {
+            numStr = "-Inf";
+        }
+        else {
+            numStr = "Inf";
+        }
+    }
+    else if (longVal != num) {
         NumberFormat fmt = NumberFormat.getInstance(ULocale.US);
-        fmt.setMaximumFractionDigits(4);
+        fmt.setMaximumFractionDigits(9);
         fmt.setMinimumFractionDigits(1);
         fmt.setGroupingUsed(false);
         numStr = fmt.format(num);
@@ -161,7 +169,7 @@ private static void printLine(JspWriter out, RuleBasedNumberFormat rbnf, double 
     for (String name : rbnf.getRuleSetNames()) {
         String result = rbnf.format(num, name);
         String errorMsg = "";
-        if (PARSE_CHECK && !isUnparseable(name)) {
+        if (PARSE_CHECK && !isUnparseable(name) && !Double.isNaN(num)) {
             // Even when it's an irrelevant value, we want to parse to make
             // sure that there is no exception being thrown.
             try {
@@ -225,7 +233,25 @@ private static String getRules(ULocale selectedLocale, String ruleType) {
     return sb.toString();
 }
 
-private static final Pattern NUMBER_PAIR = Pattern.compile("(-?[0-9,.]+)(?:-(-?[0-9,.]+))?");
+private static double parseNumber(String str) {
+    try {
+        return Double.valueOf(str).doubleValue();
+    }
+    catch (NumberFormatException nfe) {
+        if ("Inf".equals(str)) {
+            return Double.POSITIVE_INFINITY;
+        }
+        else if ("-Inf".equals(str)) {
+            return Double.NEGATIVE_INFINITY;
+        }
+        else if ("NaN".equals(str)) {
+            return Double.NaN;
+        }
+        throw nfe;
+    }
+}
+
+private static final Pattern NUMBER_PAIR = Pattern.compile("(-?[0-9,.]+|-?Inf|NaN)(?:-(-?[0-9,.]+))?");
 
 private static double[][] getNumberRanges(String numbers) {
     String []numberLines = numbers.split("[;\\r\\n]");
@@ -239,9 +265,9 @@ private static double[][] getNumberRanges(String numbers) {
         try {
             Matcher numberPair = NUMBER_PAIR.matcher(line);
             numberPair.find();
-            range[0] = Double.valueOf(numberPair.group(1)).doubleValue();
+            range[0] = parseNumber(numberPair.group(1));
             if (numberPair.group(2) != null) {
-                range[1] = Double.valueOf(numberPair.group(2)).doubleValue();
+                range[1] = parseNumber(numberPair.group(2));
             }
             else {
                 range[1] = range[0];
@@ -434,11 +460,17 @@ else {
             if (end == (long)end && rangeIdx != 0) {
                 printSkipLine(out, rbnf);
             }
-            for (double num = ranges[rangeIdx][0]; num <= end; num++) {
-                if (lineCount++ >= MAX_LINE_COUNT) {
-                    throw new Exception("Too many numbers to format.");
-                }
+            double num = ranges[rangeIdx][0];
+            if (Double.isInfinite(num) || Double.isNaN(num)) {
                 printLine(out, rbnf, num, isRTL);
+            }
+            else {
+                for (; num <= end; num++) {
+                    if (lineCount++ >= MAX_LINE_COUNT) {
+                        throw new Exception("Too many numbers to format.");
+                    }
+                    printLine(out, rbnf, num, isRTL);
+                }
             }
         }
     }

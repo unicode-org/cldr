@@ -7,6 +7,9 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.regex.MatchResult;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
@@ -239,14 +242,32 @@ public class TestTransforms extends TestFmwkPlus {
             // file
             logln("Testing files in: " + fileDirectoryName);
 
+            Pattern rfc6497Pattern =
+                Pattern.compile("([a-zA-Z0-9-]+)-t-([a-zA-Z0-9-]+)(?:-m0-([a-zA-Z0-9-]+))?");
             for (String file : fileDirectory.list()) {
                 if (!file.endsWith(".txt")) {
                     continue;
                 }
                 logln("Testing file: " + file);
                 String transName = file.substring(0, file.length() - 4);
-                Transliterator trans = Transliterator.getInstance(transName);
 
+                // TODO: Pass unmodified transform name to ICU, once
+                // ICU can handle transform identifiers according to
+                // BCP47 Extension T (RFC 6497). The rewriting below
+                // is just a temporary workaround, allowing us to use
+                // BCP47 identifiers for naming test data files.
+                Matcher rfc6497Matcher = rfc6497Pattern.matcher(transName);
+                if (rfc6497Matcher.matches()) {
+                    String targetLanguage = rfc6497Matcher.group(1).replace('-', '_');
+                    String originalLanguage = rfc6497Matcher.group(2).replace('-', '_');
+                    String mechanism = rfc6497Matcher.group(3);
+                    transName = originalLanguage + "-" + targetLanguage;
+                    if (mechanism != null && !mechanism.isEmpty()) {
+                        transName += "/" + mechanism.replace('-', '_');
+                    }
+                }
+
+                Transliterator trans = Transliterator.getInstance(transName);
                 BufferedReader in = BagFormatter.openUTF8Reader(
                     fileDirectoryName, file);
                 int counter = 0;

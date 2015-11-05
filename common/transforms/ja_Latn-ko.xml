@@ -10,22 +10,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="ja_Latn" target="ko" direction="forward">
 			<tRule>
-#
-# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
-# Author: mjansche@google.com (Martin Jansche)
-#
 # Japanese (Rōmaji) to Korean (Hangul) transliteration table for ICU.
 # Can be run in sequence after e.g. Katakana-Latin.
 #
 # Based on 문교부 고시 제85-11호 (1986. 1. 7.) 외래어 표기법
 # For background info, see http://ko.wikisource.org/wiki/문교부_고시_제85-11호
 # and http://ko.wikipedia.org/wiki/외래어_표기법 (外來語表記法)
-#
 
 ::NFD(NFC);
 ::[:Latin:] Lower();
-#
-#
 
 $consonant = [ᄀᄁᄂᄃᄄᄅᄆᄇᄈᄉᄊᄋᄌᄍᄎᄏᄐᄑᄒ];
 $lengthMarker = [̂̄];

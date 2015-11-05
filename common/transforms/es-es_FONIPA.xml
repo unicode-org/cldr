@@ -10,10 +10,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="es" target="es_FONIPA" direction="forward">
 			<tRule><![CDATA[
-#
-# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
-# Author: mjansche@google.com (Martin Jansche)
-#
 # Tranformation from Spanish to Spanish in IPA transcription (es_FONIPA).
 # Not fully phonemic, since we mark up allophonic variants of voiced stops,
 # e.g. we break down /b/ into [b] and [β].

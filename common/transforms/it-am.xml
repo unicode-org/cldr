@@ -10,11 +10,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="it" target="am" direction="forward">
 			<tRule>
-#
-# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
-# Italian to Amharic Transliteration Table for ICU.
-# Author: sascha@google.com (Sascha Brawer)
-#
+# Italian to Amharic Transliteration
 
 ::NFD(NFC);
 ::Lower();

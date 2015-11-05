@@ -10,7 +10,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="el" target="Title" direction="forward">
 			<tRule><![CDATA[
-# Copyright (C) 2011-2013, Google Inc. and others. All Rights Reserved.
 ::NFD();
 # Remove \0301 following Greek, with possible intervening 0308 marks.
 # [[:Greek:] & [:Ll:]] [\u0308]? { \u0301 → ;

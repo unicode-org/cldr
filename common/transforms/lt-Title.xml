@@ -10,7 +10,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="lt" target="Title" direction="forward">
 			<tRule><![CDATA[
-# Copyright (C) 2011-2014, Google, Inc.; Unicode, Inc.; and others. All Rights Reserved.
 # Make any string of letters after a cased letter be lower
 ::NFD();
 [:cased:] [:case-ignorable:]* {I } [^[:ccc=Not_Reordered:][:ccc=Above:]]* [:ccc=Above:] → i \u0307;

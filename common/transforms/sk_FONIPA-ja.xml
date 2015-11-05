@@ -10,12 +10,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="sk_FONIPA" target="ja" direction="forward">
 			<tRule>
-#
-# Copyright (C) 2010 Google, Inc.  All Rights Reserved.
-# Author: takenaka@google.com (Hiroshi Takenaka)
-#
 # Phonemic transcription of Slovak into Katakana.
-#
 
 $vowel = [aeiouw] ;       # Vowels and glides
 $not_vowel = [^$vowel] ;

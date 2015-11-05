@@ -10,15 +10,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="ru" target="zh" direction="forward">
 			<tRule>
-#
-# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
-# Author: mjansche@google.com (Martin Jansche)
-#
 # Transliteration of Russian into Mandarin written in simplified Chinese.
 #
 # TODO(mjansche): Implement exception rules from GB/T 17693.4-2009 section 5.3.
 # TODO(anyone): Simplify.
-#
 
 $bow = [-\ $];  # Word boundary.
 $vowel = [аеийоуыьэюяё];

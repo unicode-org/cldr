@@ -10,11 +10,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="ru" target="ja" direction="forward">
 			<tRule>
-#
-# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
-# Author: takenaka@google.com (Hiroshi Takenaka)
 # Transliteration from Russian into Japanese (Katakana).
-#
 
 $word_boundary = [-\ $];
 $vowel = [аеийоуыьэюяёъ];

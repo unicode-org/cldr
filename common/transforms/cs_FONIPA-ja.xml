@@ -10,12 +10,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="cs_FONIPA" target="ja" direction="forward">
 			<tRule>
-#
-# Copyright (C) 2010 Google, Inc.  All Rights Reserved.
-# Author: takenaka@google.com (Hiroshi Takenaka)
-#
 # Transforms a Phonemic IPA transcription of Czech (cs_FONIPA) to Katakana.
-#
 
 $word_boundary = [-\ $] ;
 $vowel = [aeiouw] ;       # Vowels and glides

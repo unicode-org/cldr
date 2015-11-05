@@ -10,7 +10,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="az" target="Title" direction="forward">
 			<tRule><![CDATA[
-# Copyright (C) 2011-2013, Google, Inc.; Unicode, Inc.; and others. All Rights Reserved.
 # I and i-dotless; I-dot and i are case pairs in Turkish and Azeri
 # Make any string of letters after a cased letter be lower, with rules for i
 [:cased:] [:case-ignorable:]* { İ → i;

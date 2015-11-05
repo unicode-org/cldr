@@ -10,12 +10,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="es_FONIPA" target="ja" direction="forward">
 			<tRule>
-#
-# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
-# Author: takenaka@google.com (Hiroshi Takenaka)
-#
 # Phonemic transcription of Spanish into Katakana.
-#
 
 $word_boundary = [-\ $] ;
 $vowel = [aeijouw] ;       # Vowels and glides

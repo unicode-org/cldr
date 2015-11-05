@@ -10,13 +10,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="es_FONIPA" target="es_419_FONIPA" direction="forward">
 			<tRule>
-#
-# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
-# Author: mjansche@google.com (Martin Jansche)
-#
 # Conflate sounds of Castilian Spanish to produce Latin American Spanish.
 # This operates on a phonemic IPA transcription of Spanish (es_FONIPA).
-#
 
 ʎ → ʝ;
 [sθ]+ → s;

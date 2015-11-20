@@ -20,7 +20,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal">
-                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="-x">negatif →→;</rbnfrule>
                 <rbnfrule value="x.x">←← titik →→;</rbnfrule>
                 <rbnfrule value="0">kosong;</rbnfrule>
                 <rbnfrule value="1">satu;</rbnfrule>
@@ -47,6 +47,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal">
+                <rbnfrule value="-x">negatif →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">ke=%spellout-cardinal=;</rbnfrule>
             </ruleset>

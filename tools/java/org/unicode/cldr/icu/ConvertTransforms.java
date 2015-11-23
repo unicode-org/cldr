@@ -586,17 +586,16 @@ public class ConvertTransforms extends CLDRConverterTool {
     private void doHeader(PrintWriter output, String quoteSymbol, String filename) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
         output.print('\uFEFF');
-        output.println(quoteSymbol + " ***************************************************************************");
-        output.println(quoteSymbol + " *");
-        output.println(quoteSymbol + " *  Copyright (C) 2004-" + sdf.format(new Date())
-            + ", International Business Machines");
-        output.println(quoteSymbol + " *  Corporation; Unicode, Inc.; and others.  All Rights Reserved.");
-        output.println(quoteSymbol + " *");
-        output.println(quoteSymbol + " ***************************************************************************");
+        output.println(quoteSymbol + " ************************************************************");
+        output.println(quoteSymbol + " Copyright © 1991-" + sdf.format(new Date())
+            + " Unicode, Inc.");
+        output.println(quoteSymbol + " CLDR data files are interpreted according to the LDML");
+        output.println(quoteSymbol + " specification (http://unicode.org/reports/tr35/)");
+        output.println(quoteSymbol + " For terms of use, see http://www.unicode.org/copyright.html");
+        output.println(quoteSymbol + " ************************************************************");
         output.println(quoteSymbol + " File: " + filename);
-        output.println(quoteSymbol + " Generated from CLDR ");
-        output.println(quoteSymbol + "");
-
+        output.println(quoteSymbol + " Generated from Unicode CLDR");
+        output.println(quoteSymbol);
     }
 
     public void processArgs(String[] args) {

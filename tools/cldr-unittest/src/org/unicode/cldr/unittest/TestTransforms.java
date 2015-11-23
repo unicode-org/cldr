@@ -243,7 +243,7 @@ public class TestTransforms extends TestFmwkPlus {
             logln("Testing files in: " + fileDirectoryName);
 
             Pattern rfc6497Pattern =
-                Pattern.compile("([a-zA-Z0-9-]+)-t-([a-zA-Z0-9-]+)(?:-m0-([a-zA-Z0-9-]+))?");
+                Pattern.compile("([a-zA-Z0-9-]+)-t-([a-zA-Z0-9-]+?)(?:-m0-([a-zA-Z0-9-]+))?");
             for (String file : fileDirectory.list()) {
                 if (!file.endsWith(".txt")) {
                     continue;

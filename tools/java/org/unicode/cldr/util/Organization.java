@@ -22,6 +22,7 @@ public enum Organization {
     breton("Office of Breton Lang"),
     cherokee("Cherokee Nation"),
     cldr("Cldr"),
+    facebook("Facebook"),
     gaeilge("Foras na Gaeilge"),
     georgia_isi("Georgia ISI"),
     gnome("Gnome Foundation"),

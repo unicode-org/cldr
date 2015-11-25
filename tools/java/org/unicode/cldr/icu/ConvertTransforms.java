@@ -243,6 +243,8 @@ public class ConvertTransforms extends CLDRConverterTool {
         String target = attributes.get("target");
         String variant = attributes.get("variant");
         String direction = attributes.get("direction");
+        String alias = attributes.get("alias");
+        String backwardAlias = attributes.get("backwardAlias");
         String visibility = attributes.get("visibility");
 
         String status = "internal".equals(visibility) ? "internal" : "file";
@@ -258,9 +260,15 @@ public class ConvertTransforms extends CLDRConverterTool {
             filename += "_" + variant;
         }
         filename += ".txt";
+
         if (direction.equals("both") || direction.equals("forward")) {
             if (verbose) {
                 System.out.println("    " + id + "    " + filename + "    " + "FORWARD");
+            }
+            if (alias != null) {
+                for (String ali : alias.trim().split("\\s+")) {
+                    addAlias(index, ali, id);
+                }
             }
             index.println("        " + id + " {");
             index.println("            " + status + " {");
@@ -272,6 +280,11 @@ public class ConvertTransforms extends CLDRConverterTool {
         if (direction.equals("both") || direction.equals("backward")) {
             if (verbose) {
                 System.out.println("    " + rid + "    " + filename + "    " + "REVERSE");
+            }
+            if (backwardAlias != null) {
+                for (String bali : backwardAlias.trim().split("\\s+")) {
+                    addAlias(index, bali, rid);
+                }
             }
             index.println("        " + rid + " {");
             index.println("            " + status + " {");

@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="IPA" target="XSampa" direction="both">
+		<transform source="und_FONIPA" target="und_FONXSAMP" direction="both" alias="IPA-XSampa" backwardAlias="XSampa-IPA">
 			<tRule><![CDATA[
 
 # Conversion between IPA and X-SAMPA phonetic transcription.

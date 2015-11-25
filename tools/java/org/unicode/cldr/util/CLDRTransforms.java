@@ -257,9 +257,15 @@ public class CLDRTransforms {
         }
         if (directionInfo.getDirection() == Direction.both || directionInfo.getDirection() == Direction.forward) {
             internalRegister(directionInfo.getId(), ruleString, Transliterator.FORWARD);
+            for (String alias : directionInfo.getAliases()) {
+                Transliterator.registerAlias(alias, directionInfo.getId());
+            }
         }
         if (directionInfo.getDirection() == Direction.both || directionInfo.getDirection() == Direction.backward) {
             internalRegister(directionInfo.getId(), ruleString, Transliterator.REVERSE);
+            for (String alias : directionInfo.getBackwardAliases()) {
+                Transliterator.registerAlias(alias, directionInfo.getBackwardId());
+            }
         }
     }
 
@@ -611,6 +617,8 @@ public class CLDRTransforms {
         public String source = "Any";
         public String target = "Any";
         public String variant;
+        protected String[] aliases = {};
+        protected String[] backwardAliases = {};
         protected Direction direction = null;
         protected Visibility visibility;
 
@@ -713,6 +721,22 @@ public class CLDRTransforms {
             return new ParsedTransformID().set(id).getBackwardId();
         }
 
+        public void setAliases(String[] aliases) {
+            this.aliases = aliases;
+        }
+
+        public String[] getAliases() {
+            return aliases;
+        }
+
+        public void setBackwardAliases(String[] backwardAliases) {
+            this.backwardAliases = backwardAliases;
+        }
+
+        public String[] getBackwardAliases() {
+            return backwardAliases;
+        }
+
         protected void setVisibility(String string) {
             visibility = Visibility.valueOf(string);
         }
@@ -775,6 +799,17 @@ public class CLDRTransforms {
                 directionInfo.setTarget((String) attributes.get("target"));
                 directionInfo.setVariant((String) attributes.get("variant"));
                 directionInfo.setDirection(Direction.valueOf(attributes.get("direction").toLowerCase(Locale.ENGLISH)));
+
+                String alias = (String) attributes.get("alias");
+                if (alias != null) {
+                    directionInfo.setAliases(alias.trim().split("\\s+"));
+                }
+
+                String backwardAlias = (String) attributes.get("backwardAlias");
+                if (backwardAlias != null) {
+                    directionInfo.setBackwardAliases(backwardAlias.trim().split("\\s+"));
+                }
+
                 directionInfo.setVisibility((String) attributes.get("visibility"));
                 first = false;
             }

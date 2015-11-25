@@ -387,6 +387,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST transform target CDATA #IMPLIED >
 <!ATTLIST transform variant CDATA #IMPLIED >
 <!ATTLIST transform direction (forward | backward | both) "both" >
+<!ATTLIST transform alias CDATA #IMPLIED >
+<!ATTLIST transform backwardAlias CDATA #IMPLIED >
 <!ATTLIST transform visibility (internal | external) "external" >
     <!--@VALUE-->
 <!ATTLIST transform draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >

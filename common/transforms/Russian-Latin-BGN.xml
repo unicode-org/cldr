@@ -9,123 +9,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="ru" target="ru_Latn" direction="forward" variant="BGN" alias="Russian-Latin/BGN" draft="provisional">
-			<tRule>
+			<tRule><![CDATA[
+# BGN/PCGN 1947 System
 #
-########################################################################
-# BGN/PCGN 1947 System # # The BGN/PCGN system for Russian was
-# adopted by the BGN in 1944 and by # the PCGN in 1947 for use in
-# romanizing names written in the Russian # Cyrillic alphabet. # #
-# The Russian Alphabet as defined by the BGN (Page 93): # #
-# АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ #
-# абвгдеёжзийклмнопрстуфхцчшщъыьэюя # # Originally prepared by
-# Michael Everson everson@evertype.com
+# The BGN/PCGN system for Russian was adopted by the BGN in 1944 and
+# by the PCGN in 1947 for use in romanizing names written in the
+# Russian Cyrillic alphabet.
+#
+# The Russian Alphabet as defined by the BGN (Page 93):
+#     АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ
+#     абвгдеёжзийклмнопрстуфхцчшщъыьэюя
+#
+# Originally prepared by Michael Everson everson@evertype.com
 # Fixed by Frank Yung-Fong Tang ftang@google.com
 #
 # Test Data from http://en.wikipedia.org/wiki/BGN/PCGN_romanization_of_Russian
 # Since the use of · is optional, we do NOT implement here.
-# Азов    Azov
-# Тамбов  Tambov
-# Барнаул Barnaul
-# Кубань  Kubanʹ
-# Владимир        Vladimir
-# Ульяновск       Ulʹyanovsk
-# Грозный Groznyy
-# Волгодонск      Volgodonsk
-# Дзержинский     Dzerzhinskiy
-# Нелидово        Nelidovo
-# Елизово Yelizovo
-# Чапаевск        Chapayevsk
-# Майер   Mayyer
-# Юрьев   Yurʹyev
-# Съезд   Sʺyezd
-# Белкин  Belkin
-# Ёлкин   Yëlkin
-# Остриё  Ostriyë
-## Йёнчёпинг       Y·ënchëping
-# Йёнчёпинг       Yënchëping
-# Громадьё        Gromadʹyë
-# Подъёмный       Podʺyëmnyy
-# Жуков   Zhukov
-# Лужники Luzhniki
-# Звенигород      Zvenigorod
-# Вязьма  Vyazʹma
-# Иркутск Irkutsk
-# Апатиты Apatity
-## Кайафа  Kay·afa
-# Кайафа  Kayafa
-# Йошкар-Ола      Yoshkar-Ola
-# Бийск   Biysk
-# Киров   Kirov
-# Енисейск        Yeniseysk
-# Ломоносов       Lomonosov
-# Нелидово        Nelidovo
-# Менделеев       Mendeleyev
-# Каменка Kamenka
-# Новосибирск     Novosibirsk
-# Кандалакша      Kandalaksha
-# Омск    Omsk
-# Красноярск      Krasnoyarsk
-# Петрозаводск    Petrozavodsk
-# Серпухов        Serpukhov
-# Ростов  Rostov
-# Северобайкальск Severobaykalʹsk
-# Сковородино     Skovorodino
-# Чайковский      Chaykovskiy
-# Тамбов  Tambov
-# Мытищи  Mytishchi
-# Углич   Uglich
-# Дудинка Dudinka
-# Фурманов        Furmanov
-# Уфа     Ufa
-# Хабаровск       Khabarovsk
-# Прохладный      Prokhladnyy
-# Цимлянск        Tsimlyansk
-# Ельцин  Yelʹtsin
-# Чебоксары       Cheboksary
-# Печора  Pechora
-# Шахтёрск        Shakhtërsk
-# Мышкин  Myshkin
-# Щёлково Shchëlkovo
-# Ртищево Rtishchevo
-# Подъездной      Podʺyezdnoy
-## Выудить Vy·uditʹ
-# Выудить Vyuditʹ
-## Суык-Су Su·yk-Su
-# Суык-Су Suyk-Su
-# Ыттык-Кёль      Yttyk-Këlʹ
-# Тында   Tynda
-# Тюмень  Tyumenʹ
-## Двухэлементный  Dvukh·elementnyy
-# Двухэлементный  Dvukhelementnyy
-# Электрогорск    Elektrogorsk
-# Радиоэлектроника        Radioelektronika
-# Юбилейный       Yubileynyy
-# Ключевская      Klyuchevskaya
-# Якутск  Yakutsk
-# Брянск  Bryansk
-## Соответствие    Sootvet·stviye
-# Соответствие    Sootvetstviye
-## Веснушчатый     Vesnush·chatyy
-# Веснушчатый     Vesnushchatyy
-#
+
 ########################################################################
-# # MINIMAL FILTER: Russian-Latin #
+# MINIMAL FILTER: Russian-Latin
 
 ::[АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя];
-#
+
 # BUG(ftang) remove the following line. Otherwise the rule for
 # Й й Ё ё will break since the rule is written in NFC but
 # the line decomposes the text.
 # :: NFD (NFC) ;
-#
-########################################################################
 
 
-#
 ########################################################################
-# Define All Transformation Variables #
+# Define All Transformation Variables
 ########################################################################
-#
 
 $prime = ʹ ;
 $doublePrime = ʺ ;
@@ -138,23 +52,17 @@ $lowerVowels = [аеёэиоуыюя] ;
 $vowels = [$upperVowels $lowerVowels] ;
 $lower = [$lowerConsonants $lowerVowels] ;
 $upper = [$upperConsonants $upperVowels] ;
-#
-#
-########################################################################
 
 
-#
 ########################################################################
-# Rules moved to front to avoid masking #
+# Rules moved to front to avoid masking
 ########################################################################
 #
 # REMOVEOPTIONAL(ftang) The following two rules for · option is commented out.
 #$lowerVowels { ы → ·y ;
 #$upperVowels { [Ыы] → ·Y ;
-########################################################################
-#
 
-#
+
 # REMOVEOPTIONAL(ftang) The following two rules for · option is commented out.
 #[$consonants - [Йй]]{Э → ·E ;
 #[$consonants - [Йй]]{э → ·e ;
@@ -165,18 +73,17 @@ $upper = [$upperConsonants $upperVowels] ;
 [$upperVowels [ЙЪЬ]] { Ё } $upper → YË ; # CYRILLIC CAPITAL LETTER IO
 [$upperVowels [ЙЪЬ]] { Ё → Yë ; # CYRILLIC CAPITAL LETTER IO
 [$upperVowels $lowerVowels [ЙйЪъЬь]] { ё → yë ; # CYRILLIC SMALL LETTER IO
-#
+
 # Since in the above rule we look use the context before the characters,
 # we have to perform them in a separate pass before we change the vowels
 # the ::Null forces a separate pass.
 
 ::Null;
-#
-#
+
+
 ########################################################################
-# Start of Alphabetic Transformations #
+# Start of Alphabetic Transformations
 ########################################################################
-#
 
 А → A ; # CYRILLIC CAPITAL LETTER A
 а → a ; # CYRILLIC SMALL LETTER A
@@ -188,8 +95,8 @@ $upper = [$upperConsonants $upperVowels] ;
 г → g ; # CYRILLIC SMALL LETTER GHE
 Д → D ; # CYRILLIC CAPITAL LETTER DE
 д → d ; # CYRILLIC SMALL LETTER DE
-#
-#
+
+
 ########################################################################
 # BGN Page 94 Rule 1:
 # # The character e should be romanized ye
@@ -198,7 +105,7 @@ $upper = [$upperConsonants $upperVowels] ;
 # In all other instances, it should
 # be romanized e.
 ########################################################################
-#
+
 # BUG(ftang)- the following two lines said BEFORE the vowels, instead of AFTER
 # Е}[$upperVowels [ЙЪЬ]] → YE ; # CYRILLIC CAPITAL LETTER IE
 # Е}[$lowerVowels [йъь]] → Ye ; # CYRILLIC CAPITAL LETTER IE
@@ -212,21 +119,24 @@ $wordBoundary{Е → Ye ; # CYRILLIC CAPITAL LETTER IE
 
 $wordBoundary{е → ye ; # CYRILLIC SMALL LETTER IE
 е → e ; # CYRILLIC SMALL LETTER IE
-#
-#
+
+
 ########################################################################
 # End of Rule 1
 ########################################################################
 
 ########################################################################
-# BGN Page 94 Rule 2: # # The character ё is not considered a
-# separate character of the Russian # alphabet and the dieresis is
-# generally not shown. When the dieresis is # shown, the character
-# should be romanized yë initially, after the vowel # characters a,
-# e, ё, и, о, у, ы, э, ю, and я, and after й, ъ, and ь, In # all
-# other instances, it should be romanized ё. When the dieresis is not
-# shown, the character may still be romanized in the preceding
-# manner or, # alternatively, in accordance with note 1. #
+# BGN Page 94 Rule 2:
+#
+# The character ё is not considered a separate character of the
+# Russian alphabet and the dieresis is generally not shown. When the
+# dieresis is shown, the character should be romanized yë initially,
+# after the vowel characters a, e, ё, и, о, у, ы, э, ю, and я, and
+# after й, ъ, and ь, In all other instances, it should be romanized
+# ё. When the dieresis is not shown, the character may still be
+# romanized in the preceding manner or, alternatively, in accordance
+# with note 1.
+
 ########################################################################
 # BUG(ftang)- the following two lines said BEFORE the vowels, instead of AFTER
 # Ё}[$upperVowels [ЙЪЬ]] → YË ; # CYRILLIC CAPITAL LETTER IO
@@ -235,55 +145,54 @@ $wordBoundary{е → ye ; # CYRILLIC SMALL LETTER IE
 $wordBoundary {Ё} $upper → YË ; # CYRILLIC CAPITAL LETTER IO
 $wordBoundary {Ё} $lower → Yë ; # CYRILLIC CAPITAL LETTER IO
 Ё → Ë ; # CYRILLIC CAPITAL LETTER IO
-#
+
 # BUG(ftang)- the following line said BEFORE the vowels, instead of AFTER
 # ё}[$upperVowels $lowerVowels [ЙйЪъЬь]] → yë ; # CYRILLIC SMALL LETTER IO
 
 $wordBoundary{ё → yë ; # CYRILLIC SMALL LETTER IO
 ё → ë ; # CYRILLIC SMALL LETTER IO
-#
-#
+
+
 ########################################################################
-# End of Rule 2 #
+# End of Rule 2
 ########################################################################
-#
 
 Ж} $lower → Zh ; # CYRILLIC CAPITAL LETTER ZHE
 Ж → ZH ; # CYRILLIC CAPITAL LETTER ZHE
 ж → zh ; # CYRILLIC SMALL LETTER ZHE
-#
-#
+
+
 ########################################################################
 # BGN Page 94 Rule 3.4
 # э after any consonant character except
 # й becomes ·е
 ########################################################################
-#
 
 З → Z ; # CYRILLIC CAPITAL LETTER ZE
 з → z ; # CYRILLIC SMALL LETTER ZE
-#
+
 # BUG(ftang) The following two lines said those consonant becomes ·е
 # [$consonants - [Йй]]}Э → ·Е ;
 # [$consonants - [Йй]]}э → ·е ;
-#
+
 ########################################################################
-# End of Rule 3.4 #
+# End of Rule 3.4
 ########################################################################
-#
 
 И → I ; # CYRILLIC CAPITAL LETTER I
 и → i ; # CYRILLIC SMALL LETTER I
-#
-#
+
+
 ########################################################################
 # BGN Page 94 Rule 3:
-# Unusual Russian character sequences
-# occurring primarily in non-Russian-language names may be
-# romanized as shown below in order to provide differentiation from
-# regularly-occurring digraphs and # character sequences.
+#
+# Unusual Russian character sequences occurring primarily in
+# non-Russian-language names may be romanized as shown below in order
+# to provide differentiation from regularly-occurring digraphs and
+# character sequences.
+#
 # BGN Page 94 Rule 3.1
-# й before а, у, ы, or э becomes у· #
+# й before а, у, ы, or э becomes у·
 ########################################################################
 #
 # REMOVEOPTIONAL(ftang) The following two rules for · option is commented out.
@@ -292,12 +201,11 @@ $wordBoundary{ё → yë ; # CYRILLIC SMALL LETTER IO
 
 Й → Y ; # CYRILLIC CAPITAL LETTER I
 й → y ; # CYRILLIC SMALL LETTER I
-#
-#
+
+
 ########################################################################
-# End Rule 3.1 #
+# End Rule 3.1
 ########################################################################
-#
 
 К → K ; # CYRILLIC CAPITAL LETTER KA
 к → k ; # CYRILLIC SMALL LETTER KA
@@ -315,10 +223,12 @@ $wordBoundary{ё → yë ; # CYRILLIC SMALL LETTER IO
 р → r ; # CYRILLIC SMALL LETTER ER
 С → S ; # CYRILLIC CAPITAL LETTER ES
 с → s ; # CYRILLIC SMALL LETTER ES
-#
-#
+
+
 ########################################################################
-# BGN Page 94 Rule 3.5 # # тс becomes t·s #
+# BGN Page 94 Rule 3.5
+#
+# тс becomes t·s
 ########################################################################
 #
 # REMOVEOPTIONAL(ftang) The following three rules for · option is commented out
@@ -332,12 +242,11 @@ $wordBoundary{ё → yë ; # CYRILLIC SMALL LETTER IO
 тс → ts ; # CYRILLIC SMALL LETTER TE
 Т → T ; # CYRILLIC CAPITAL LETTER TE
 т → t ; # CYRILLIC SMALL LETTER TE
-#
-#
+
+
 ########################################################################
-# End Rule 3.5 #
+# End Rule 3.5
 ########################################################################
-#
 
 У → U ; # CYRILLIC CAPITAL LETTER U
 у → u ; # CYRILLIC SMALL LETTER U
@@ -352,10 +261,12 @@ $wordBoundary{ё → yë ; # CYRILLIC SMALL LETTER IO
 Ч} $lower → Ch ; # CYRILLIC CAPITAL LETTER CHE
 Ч → CH ; # CYRILLIC CAPITAL LETTER CHE
 ч → ch ; # CYRILLIC SMALL LETTER CHE
-#
-#
+
+
 ########################################################################
-# BGN Page 94 Rule 3.6 # # шч becomes sh·ch #
+# BGN Page 94 Rule 3.6
+#
+# шч becomes sh·ch
 ########################################################################
 #
 # REMOVEOPTIONAL(ftang) The following three rules for · option is commented out
@@ -373,20 +284,22 @@ $wordBoundary{ё → yë ; # CYRILLIC SMALL LETTER IO
 Щ} $lower → Shch ; # CYRILLIC CAPITAL LETTER SHCHA
 Щ → SHCH ; # CYRILLIC CAPITAL LETTER SHCHA
 щ → shch ; # CYRILLIC SMALL LETTER SHCHA
-#
-#
+
+
 ########################################################################
-# End Rule 3.6 #
+# End Rule 3.6
 ########################################################################
-#
 
 Ъ → $doublePrime ; # CYRILLIC CAPITAL LETTER HARD SIGN
 ъ → $doublePrime ; # CYRILLIC SMALL LETTER HARD SIGN
-#
-#
+
+
 ########################################################################
-# BGN Page 94 Rule 3.2 # # ы before а, у, ы, or э becomes у·
-# BGN Page 94 Rule 3.3 # # ы after any vowel character becomes ·у
+# BGN Page 94 Rule 3.2
+# ы before а, у, ы, or э becomes у·
+#
+# BGN Page 94 Rule 3.3
+# ы after any vowel character becomes ·у
 ########################################################################
 #
 # BUG(ftang) the following line said the vowels will change
@@ -398,12 +311,11 @@ $wordBoundary{ё → yë ; # CYRILLIC SMALL LETTER IO
 
 Ы → Y ; # CYRILLIC CAPITAL LETTER YERU
 ы → y ; # CYRILLIC SMALL LETTER YERU
-#
-#
+
+
 ########################################################################
-# End Rule 3.2 and 3.3 #
+# End Rule 3.2 and 3.3
 ########################################################################
-#
 
 Ь → $prime ; # CYRILLIC CAPITAL LETTER SOFT SIGN
 ь → $prime ; # CYRILLIC SMALL LETTER SOFT SIGN
@@ -415,7 +327,7 @@ $wordBoundary{ё → yë ; # CYRILLIC SMALL LETTER IO
 Я} $lower → Ya ; # CYRILLIC CAPITAL LETTER YA
 Я → YA ; # CYRILLIC CAPITAL LETTER YA
 я → ya ; # CYRILLIC SMALL LETTER YA
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

@@ -20,57 +20,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 # groups are pronounced alike in modern Amharic and are therefore
 # romanized identically for use in geographic names.
 #
-# The Amharic syllabary as defined by the BGN (Page 1):
-#
-#   ሀሁሂሃሄህሆለሉሊላሌልሎሏሐሑሒሓሔሕሖመሙሚማሜምሞሟፘሠሡሢሣሤሥሦረሩሪራሬርሮሯፙሰሱሲሳሴስሶሸሹሺሻሼሽሾሿ
-#   ቀቁቂቃቄቅቆቈቍቋቌቊበቡቢባቤብቦቧቨቩቪቫቬቭቮተቱቲታቴትቶቷቸቹቺቻቼችቾቿኀኁኂኃኄኅኆኈኊኋኌኍነኑኒናኔንኖኗ
-#   ኘኙኚኛኜኝኞኟአኡኢኣኤእኦኧከኩኪካኬክኮኰኲኳኴኵኸኹኺኻኼኽኾወዉዊዋዌውዎዐዑዒዓዔዕዖዘዙዚዛዜዝዞዟዠዡዢዣዤዥዦዧ
-#   የዩዪያዬይዮደዱዲዳዴድዶዷጀጁጂጃጄጅጆጇገጉጊጋጌግጎጐጕጒጓጐጠጡጢጣጤጥጦጧጨጩጪጬጭጮጯጰጱጲጳጴጵጶጸጹጺጻጼጽጾጿ
-#   ፀፁፂፃፄፅፆፈፉፊፋፌፍፎፏፚፐፑፒፓፔፕፖ፩፪፫፬፭፮፯፰፱፲፳፴፵፶፷፸፹፺፻
+# https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/320088/Amharic_Romanization.pdf
 #
 # Originally prepared by Michael Everson <everson@evertype.com>
 ########################################################################
-#
-# MINIMAL FILTER: Amharic-Latin
-#
 
+# MINIMAL FILTER: Amharic-Latin
 :: [ሀ-᎙] ;
 :: NFD (NFC) ;
-#
-#
-########################################################################
 
-
-#
-########################################################################
-#
-# Define All Transformation Variables
-#
-########################################################################
-#
 
 $ejective = ’;
 $glottal  = ’;
 $pharyngeal = ‘;
-#
-#
+
+
 # Use this $wordBoundary until bug 2034 is fixed in ICU:
-# http://bugs.icu-project.org/cgi-bin/icu-bugs/transliterate?id=2034;expression=boundary;user=guest
-#
-
+# http://bugs.icu-project.org/trac/ticket/2034
 $wordBoundary =  [^[:L:][:M:][:N:]] ;
-#
-#
-########################################################################
 
 
-#
 ########################################################################
-#
 # Start of Syllabic Transformations
-#
 ########################################################################
-#
 
 ሀ → hā ; # ETHIOPIC SYLLABLE HA
 ሁ → hu ; # ETHIOPIC SYLLABLE HU
@@ -88,17 +60,15 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 ል → li ; # ETHIOPIC SYLLABLE LE
 ሎ → lo ; # ETHIOPIC SYLLABLE LO
 ሏ → lwa ; # ETHIOPIC SYLLABLE LWA
-#
-#
+
+
 ########################################################################
-#
 # BGN Page 3 Rule 2:
 #
 # For documentation purposes the characters romanized with h in rows
 # 1, 3, 13 and 18 may be romanized with h, ḥ, ḫ, and ẖ, respectively.
-#
 ########################################################################
-#
+
 
 ሐ → ḥā ; # ETHIOPIC SYLLABLE HHA
 ሑ → ḥu ; # ETHIOPIC SYLLABLE HHU
@@ -107,14 +77,11 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 ሔ → ḥē ; # ETHIOPIC SYLLABLE HHEE
 ሕ → ḥi ; # ETHIOPIC SYLLABLE HHE
 ሖ → ḥo ; # ETHIOPIC SYLLABLE HHO
-#
-#
+
+
 ########################################################################
-#
 # End of Rule 2
-#
 ########################################################################
-#
 
 መ → me ; # ETHIOPIC SYLLABLE MA
 ሙ → mu ; # ETHIOPIC SYLLABLE MU
@@ -124,19 +91,16 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 ም → mi ; # ETHIOPIC SYLLABLE ME
 ሞ → mo ; # ETHIOPIC SYLLABLE MO
 ሟ → mwa ; # ETHIOPIC SYLLABLE MWA
-#
-#
+
+
 ########################################################################
-#
 # BGN Page 3 Rule 2:
 #
 # The characters romanized with s in rows 5 and 7 may, instead, be
-# romanized with š and s, respectively; and the chracters romanized
+# romanized with š and s, respectively; and the characters romanized
 # with ts’ in rows 30 and 31 may, instead, be romanized with ts’ and
 # t͟s’ respectively.
-#
 ########################################################################
-#
 
 ሠ → še ; # ETHIOPIC SYLLABLE SZA
 ሡ → šu ; # ETHIOPIC SYLLABLE SZU
@@ -145,14 +109,11 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 ሤ → šē ; # ETHIOPIC SYLLABLE SZEE
 ሥ → ši ; # ETHIOPIC SYLLABLE SZE
 ሦ → šo ; # ETHIOPIC SYLLABLE SZO
-#
-#
+
+
 ########################################################################
-#
 # End of Rule 2
-#
 ########################################################################
-#
 
 ረ → re ; # ETHIOPIC SYLLABLE RA
 ሩ → ru ; # ETHIOPIC SYLLABLE RU
@@ -197,18 +158,15 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 ቋ → k $ejective wa ; # ETHIOPIC SYLLABLE QWAA
 ቌ → k $ejective wē ; # ETHIOPIC SYLLABLE QWEE
 ቊ → k $ejective wī ; # ETHIOPIC SYLLABLE QWI
-#
-#
+
+
 ########################################################################
-#
 # BGN Page 3 Rule 3:
 #
 # The character ቐ which occurs only in the writing system of the Tigre
 # and # Tigrinya languages, should be romanized with k’ in geographic
 # names but may be romanized with ḵ in documentation.
-#
 ########################################################################
-#
 
 ቐ → ḵ $ejective e ; # ETHIOPIC SYLLABLE QHA
 ቑ → ḵ $ejective u ; # ETHIOPIC SYLLABLE QHU
@@ -223,14 +181,11 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 ቛ → ḵ $ejective wa ; # ETHIOPIC SYLLABLE QHWAA
 ቜ → ḵ $ejective wē ; # ETHIOPIC SYLLABLE QHWEE
 ቝ → ḵ $ejective wi ; # ETHIOPIC SYLLABLE QHWE
-#
-#
+
+
 ########################################################################
-#
 # End of Rule 3
-#
 ########################################################################
-#
 
 በ → be ; # ETHIOPIC SYLLABLE BA
 ቡ → bu ; # ETHIOPIC SYLLABLE BU
@@ -258,17 +213,14 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 ች → chi ; # ETHIOPIC SYLLABLE CE
 ቾ → cho ; # ETHIOPIC SYLLABLE CO
 ቿ → chwa ; # ETHIOPIC SYLLABLE CWA
-#
-#
+
+
 ########################################################################
-#
 # BGN Page 3 Rule 2:
 #
 # For documentation purposes the characters romanized with h in rows
 # 1, 3, 13 and 18 may be romanized with h, ḥ, ḫ, and ẖ, respectively.
-#
 ########################################################################
-#
 
 ኀ → ḫā ; # ETHIOPIC SYLLABLE XA
 ኁ → ḫu ; # ETHIOPIC SYLLABLE XU
@@ -277,7 +229,7 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 ኄ → ḫē ; # ETHIOPIC SYLLABLE XEE
 ኅ → ḫi ; # ETHIOPIC SYLLABLE XE
 ኆ → ḫo ; # ETHIOPIC SYLLABLE XO
-#
+
 # No rule yet for ኇ U+1287 ETHIOPIC SYLLABLE XOA
 
 ኈ → ḫo; # ETHIOPIC SYLLABLE XWA
@@ -286,14 +238,11 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 ኋ → ḫwa ; # ETHIOPIC SYLLABLE XWAA
 ኌ → ḫwē ; # ETHIOPIC SYLLABLE XWEE
 ኍ → ḫwi ; # ETHIOPIC SYLLABLE XWE
-#
-#
+
+
 ########################################################################
-#
 # End of Rule 2
-#
 ########################################################################
-#
 
 ነ → ne ; # ETHIOPIC SYLLABLE NA
 ኑ → nu ; # ETHIOPIC SYLLABLE NU
@@ -312,18 +261,15 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 ኝ → nyi ; # ETHIOPIC SYLLABLE NYE
 ኞ → nyo ; # ETHIOPIC SYLLABLE NYO
 ኟ → nywa ; # ETHIOPIC SYLLABLE NYWA
-#
-#
+
+
 ########################################################################
-#
 # BGN Page 3 Rule 5:
 #
 # The vowel characters in row 16 should be Romanized ā, u, ī, a, ē, i,
 # and o initially and ’ā, ’u, ’ī, ’a, ’ē, ’i, and ’o in all other
-# postitions.
-#
+# positions.
 ########################################################################
-#
 
 $wordBoundary{አ → ā ; # ETHIOPIC SYLLABLE GLOTTAL A
 $wordBoundary{ኡ → u ; # ETHIOPIC SYLLABLE GLOTTAL U
@@ -342,14 +288,11 @@ $wordBoundary{ኧ → e ; # ETHIOPIC SYLLABLE GLOTTAL WA
 እ → $glottal i ; # ETHIOPIC SYLLABLE GLOTTAL E
 ኦ → $glottal o ; # ETHIOPIC SYLLABLE GLOTTAL O
 ኧ → $glottal e ; # ETHIOPIC SYLLABLE GLOTTAL WA
-#
-#
+
+
 ########################################################################
-#
 # End of Rule 5
-#
 ########################################################################
-#
 
 ከ → ke ; # ETHIOPIC SYLLABLE KA
 ኩ → ku ; # ETHIOPIC SYLLABLE KU
@@ -358,7 +301,7 @@ $wordBoundary{ኧ → e ; # ETHIOPIC SYLLABLE GLOTTAL WA
 ኬ → kē ; # ETHIOPIC SYLLABLE KEE
 ክ → ki ; # ETHIOPIC SYLLABLE KE
 ኮ → ko ; # ETHIOPIC SYLLABLE KO
-#
+
 # No rule yet for ኯ U+12AF ETHIOPIC SYLLABLE KOA
 
 ኰ → ko ; # ETHIOPIC SYLLABLE KWA
@@ -367,17 +310,14 @@ $wordBoundary{ኧ → e ; # ETHIOPIC SYLLABLE GLOTTAL WA
 ኳ → kwa ; # ETHIOPIC SYLLABLE KWAA
 ኴ → kwē ; # ETHIOPIC SYLLABLE KWEE
 ኵ → kwi ; # ETHIOPIC SYLLABLE KWE
-#
-#
+
+
 ########################################################################
-#
 # BGN Page 3 Rule 2:
 #
 # For documentation purposes the characters romanized with h in rows
 # 1, 3, 13 and 18 may be romanized with h, ḥ, ḫ, and ẖ, respectively.
-#
 ########################################################################
-#
 
 ኸ → ẖe ; # ETHIOPIC SYLLABLE KXA
 ኹ → ẖu ; # ETHIOPIC SYLLABLE KXU
@@ -386,21 +326,16 @@ $wordBoundary{ኧ → e ; # ETHIOPIC SYLLABLE GLOTTAL WA
 ኼ → ẖē ; # ETHIOPIC SYLLABLE KXEE
 ኽ → ẖi ; # ETHIOPIC SYLLABLE KXE
 ኾ → ẖo ; # ETHIOPIC SYLLABLE KXO
-#
+
 # No rule yet for ዀ U+12C0 ETHIOPIC SYLLABLE KXWA
 # No rule yet for ዂ U+12C2 ETHIOPIC SYLLABLE KXWI
 # No rule yet for ዃ U+12C3 ETHIOPIC SYLLABLE KXWAA
 # No rule yet for ዄ U+12C4 ETHIOPIC SYLLABLE KXWEE
 # No rule yet for ዅ U+12C5 ETHIOPIC SYLLABLE KXWE
 
-#
-#
 ########################################################################
-#
 # End of Rule 2
-#
 ########################################################################
-#
 
 ወ → we ; # ETHIOPIC SYLLABLE WA
 ዉ → wu ; # ETHIOPIC SYLLABLE WU
@@ -409,7 +344,7 @@ $wordBoundary{ኧ → e ; # ETHIOPIC SYLLABLE GLOTTAL WA
 ዌ → wē ; # ETHIOPIC SYLLABLE WEE
 ው → wi ; # ETHIOPIC SYLLABLE WE
 ዎ → wo ; # ETHIOPIC SYLLABLE WO
-#
+
 # No rule yet for ዏ U+12CF ETHIOPIC SYLLABLE WOA
 
 
@@ -456,7 +391,6 @@ $wordBoundary{ኧ → e ; # ETHIOPIC SYLLABLE GLOTTAL WA
 ዶ → do ; # ETHIOPIC SYLLABLE DO
 ዷ → dwa ; # ETHIOPIC SYLLABLE DWA
 
-#
 # No rule yet for ዸ U+12F8 ETHIOPIC SYLLABLE DDA ...
 
 
@@ -476,7 +410,7 @@ $wordBoundary{ኧ → e ; # ETHIOPIC SYLLABLE GLOTTAL WA
 ጌ → gē ; # ETHIOPIC SYLLABLE GEE
 ግ → gi ; # ETHIOPIC SYLLABLE GE
 ጎ → go ; # ETHIOPIC SYLLABLE GO
-#
+
 # No rule yet for ጏ U+130F ETHIOPIC SYLLABLE GOA
 
 ጐ → go ; # ETHIOPIC SYLLABLE GWA
@@ -486,7 +420,7 @@ $wordBoundary{ኧ → e ; # ETHIOPIC SYLLABLE GLOTTAL WA
 ጔ → gwē ; # ETHIOPIC SYLLABLE GWEE
 ጕ → gwi ; # ETHIOPIC SYLLABLE GWE
 
-#
+
 # No rule yet for ጘ U+1318 ETHIOPIC SYLLABLE GGA
 # ...ጙጚጛጜጝጞ...
 # No rule yet for ጟ U+131F ETHIOPIC SYLLABLE GGWAA
@@ -518,19 +452,16 @@ $wordBoundary{ኧ → e ; # ETHIOPIC SYLLABLE GLOTTAL WA
 ጵ → p $ejective i ; # ETHIOPIC SYLLABLE PHE
 ጶ → p $ejective o ; # ETHIOPIC SYLLABLE PHO
 ጷ → p $ejective wa ; # ETHIOPIC SYLLABLE PHWA
-#
-#
+
+
 ########################################################################
-#
 # BGN Page 3 Rule 2:
 #
 # The characters romanized with s in rows 5 and 7 may, instead, be
-# romanized with š and s, respectively; and the chracters romanized
+# romanized with š and s, respectively; and the characters romanized
 # with ts’ in rows 30 and 31 may, instead, be romanized with ts’ and
 # t͟s’ respectively.
-#
 ########################################################################
-#
 
 ጸ → ts $ejective e ; # ETHIOPIC SYLLABLE TSA
 ጹ → ts $ejective u ; # ETHIOPIC SYLLABLE TSU
@@ -549,18 +480,12 @@ $wordBoundary{ኧ → e ; # ETHIOPIC SYLLABLE GLOTTAL WA
 ፅ → t͟s $ejective i ; # ETHIOPIC SYLLABLE TZE
 ፆ → t͟s $ejective o ; # ETHIOPIC SYLLABLE TZO
 
-#
 # No rule yet for ፇ U+1347 ETHIOPIC SYLLABLE TZOA
 
 
-#
-#
 ########################################################################
-#
 # End of Rule 2
-#
 ########################################################################
-#
 
 ፈ → fe ; # ETHIOPIC SYLLABLE FA
 ፉ → fu ; # ETHIOPIC SYLLABLE FU
@@ -584,7 +509,6 @@ $wordBoundary{ኧ → e ; # ETHIOPIC SYLLABLE GLOTTAL WA
 ፙ → mya ; # ETHIOPIC SYLLABLE MYA
 ፚ → fya ; # ETHIOPIC SYLLABLE FYA
 
-#
 # No rule yet for ፚ U+135A ETHIOPIC SYLLABLE FYA
 
 
@@ -596,16 +520,13 @@ $wordBoundary{ኧ → e ; # ETHIOPIC SYLLABLE GLOTTAL WA
 ቭ → vi ; # ETHIOPIC SYLLABLE VE
 ቮ → vo ; # ETHIOPIC SYLLABLE VO
 ቯ → vwa ; # ETHIOPIC SYLLABLE VWA
-#
-#
+
+
 ########################################################################
-#
 # Start of Numeric Transformations
 #
 # The BGN table on page 3 does not include ፼.
-#
 ########################################################################
-#
 
 ፩ → 1 ; # ETHIOPIC DIGIT ONE
 ፪ → 2 ; # ETHIOPIC DIGIT TWO
@@ -626,10 +547,6 @@ $wordBoundary{ኧ → e ; # ETHIOPIC SYLLABLE GLOTTAL WA
 ፹ → 80 ; # ETHIOPIC NUMBER EIGHTY
 ፺ → 90 ; # ETHIOPIC NUMBER NINETY
 ፻ → 100 ; # ETHIOPIC NUMBER HUNDRED
-#
-#
-########################################################################
-
 			]]></tRule>
 		</transform>
 	</transforms>

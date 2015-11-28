@@ -11,11 +11,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<transform source="rm_SURSILV" target="rm_FONIPA_SURSILV" direction="forward">
 			<tRule><![CDATA[
 # Transforms Rumantsch Sursilvan (rm-sursilv) to IPA (rm-fonipa-sursilv).
-
-# References:
 #
+# References
+# ----------
 # [1] https://als.wikipedia.org/wiki/Surselvisch#Orthographi
 #     with links to sound recordings on Wikimedia Commons
+#
+# Output
+# ------
+# m n ɲ
+# p b t d c ɟ k ɡ
+# f v s z ʃ ʒ h
+# t͡ʃ t͡s
+# r l j ʎ
+# w
+# i u e ʊ ɛ ɔ a
+# ɪa̯ ɪa̯ʊ̯ ɪʊ̯ ɪɛ̯ u ʊa̯ ʊa̯ʊ̯ ʊɛ̯ ʊɛ̯ɪ̯ ʊɔ̯
+# ɛɪ̯ ɛʊ̯ aɪ̯ aʊ̯
+
 
 ::Lower;
 

@@ -10,6 +10,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="sat_Olck" target="sat_FONIPA" direction="forward">
 			<tRule><![CDATA[
+# Santali (Ol Chiki) → Santali (International Phonetic Alphabet)
+
+
+# Output
+# ------
+# m mː n nː ɳ ɳː ɲ ɲː ŋ ŋː
+# p pʰ pʼ b bʰ t tʰ tʼ d dʰ ʈ ʈʰ ɖ ɖʰ c cʰ cʼ k kʰ kʼ ɡ ʔ
+# s sː h
+# d͡ʒ
+# ɽ r
+# l lː
+# w wː w̃ w̃ː
+#
+# i iː ĩ ĩː u uː ũ ũː
+# e eː ẽ ẽː ə əː ə̃ ə̃ː o oː õ õː
+# ɛ ɛː ɛ̃ ɛ̃ː ɔ ɔː ɔ̃ ɔ̃ː
+# a aː ã ãː
+
 
 # References
 # ----------
@@ -20,7 +38,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 # [2] George L. Campbell: Compendium of the World's Languages.
 #     Volume 2: Ladakhi to Zuni. ISBN 0-415-20297-3.  Taylor & Francis, 2000.
 #     Pages 1454 to 1458.
-#
+
+
 # Notes
 # -----
 # According to [1] (page 3), ᱽ can only follow the four ejective

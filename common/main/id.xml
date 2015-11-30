@@ -553,9 +553,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="zbl">Blissymbol</language>
 			<language type="zen">Zenaga</language>
 			<language type="zgh">Tamazight Maroko Standar</language>
-			<language type="zh">China</language>
-			<language type="zh_Hans">China (Aksara Sederhana)</language>
-			<language type="zh_Hant">China (Aksara Tradisional)</language>
+			<language type="zh">Tionghoa</language>
+			<language type="zh_Hans">Tionghoa (Aksara Sederhana)</language>
+			<language type="zh_Hant">Tionghoa (Aksara Tradisional)</language>
 			<language type="zu">Zulu</language>
 			<language type="zun">Zuni</language>
 			<language type="zxx">Tidak ada konten linguistik</language>
@@ -809,7 +809,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="CK">Kepulauan Cook</territory>
 			<territory type="CL">Cile</territory>
 			<territory type="CM">Kamerun</territory>
-			<territory type="CN">China</territory>
+			<territory type="CN">Tiongkok</territory>
 			<territory type="CO">Kolombia</territory>
 			<territory type="CP">Pulau Clipperton</territory>
 			<territory type="CR">Kosta Rika</territory>
@@ -862,7 +862,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="GU">Guam</territory>
 			<territory type="GW">Guinea-Bissau</territory>
 			<territory type="GY">Guyana</territory>
-			<territory type="HK">Hong Kong SAR China</territory>
+			<territory type="HK">Hong Kong SAR Tiongkok</territory>
 			<territory type="HK" alt="short">Hong Kong</territory>
 			<territory type="HM">Pulau Heard dan Kepulauan McDonald</territory>
 			<territory type="HN">Honduras</territory>
@@ -918,7 +918,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="ML">Mali</territory>
 			<territory type="MM">Myanmar (Burma)</territory>
 			<territory type="MN">Mongolia</territory>
-			<territory type="MO">Makau SAR China</territory>
+			<territory type="MO">Makau SAR Tiongkok</territory>
 			<territory type="MO" alt="short">Makau</territory>
 			<territory type="MP">Kepulauan Mariana Utara</territory>
 			<territory type="MQ">Martinik</territory>
@@ -1110,7 +1110,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">Kalender Buddha</type>
-			<type key="calendar" type="chinese">Kalender China</type>
+			<type key="calendar" type="chinese">Kalender Tionghoa</type>
 			<type key="calendar" type="coptic">Kalender Koptik</type>
 			<type key="calendar" type="dangi">Kalender Dangi</type>
 			<type key="calendar" type="ethiopic">Kalender Etiopia</type>
@@ -1136,11 +1136,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseLevel" type="yes">Sortir Peka Huruf Besar</type>
 			<type key="colHiraganaQuaternary" type="no">Sortir Kana Secara Terpisah</type>
 			<type key="colHiraganaQuaternary" type="yes">Sortir Kana Secara Berbeda</type>
-			<type key="collation" type="big5han">Urutan Sortir China Tradisional - Big5</type>
+			<type key="collation" type="big5han">Urutan Sortir Tionghoa Tradisional - Big5</type>
 			<type key="collation" type="dictionary">Urutan Sortir Kamus</type>
 			<type key="collation" type="ducet">Aturan Pengurutan Unicode Default</type>
 			<type key="collation" type="eor">Aturan Pengurutan Eropa</type>
-			<type key="collation" type="gb2312han">Urutan Sortir China Aks. Sederhana - GB2312</type>
+			<type key="collation" type="gb2312han">Urutan Sortir Tionghoa Aks. Sederhana - GB2312</type>
 			<type key="collation" type="phonebook">Urutan Sortir Buku Telepon</type>
 			<type key="collation" type="phonetic">Urutan Sortir Fonetik</type>
 			<type key="collation" type="pinyin">Urutan Sortir Pinyin</type>
@@ -1186,11 +1186,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="greklow">Angka Yunani Huruf Kecil</type>
 			<type key="numbers" type="gujr">Angka Gujarati</type>
 			<type key="numbers" type="guru">Angka Gurmukhi</type>
-			<type key="numbers" type="hanidec">Angka Desimal China</type>
-			<type key="numbers" type="hans">Angka China Sederhana</type>
-			<type key="numbers" type="hansfin">Angka Keuangan China Sederhana</type>
-			<type key="numbers" type="hant">Angka China Tradisional</type>
-			<type key="numbers" type="hantfin">Angka Keuangan China Tradisional</type>
+			<type key="numbers" type="hanidec">Angka Desimal Tionghoa</type>
+			<type key="numbers" type="hans">Angka Tionghoa Sederhana</type>
+			<type key="numbers" type="hansfin">Angka Keuangan Tionghoa Sederhana</type>
+			<type key="numbers" type="hant">Angka Tionghoa Tradisional</type>
+			<type key="numbers" type="hantfin">Angka Keuangan Tionghoa Tradisional</type>
 			<type key="numbers" type="hebr">Angka Ibrani</type>
 			<type key="numbers" type="java">Angka Jawa</type>
 			<type key="numbers" type="jpan">Angka Jepang</type>
@@ -5110,9 +5110,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="China">
 				<long>
-					<generic>Waktu China</generic>
-					<standard>Waktu Standar China</standard>
-					<daylight>Waktu Terang China</daylight>
+					<generic>Waktu Tiongkok</generic>
+					<standard>Waktu Standar Tiongkok</standard>
+					<daylight>Waktu Terang Tiongkok</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
@@ -6246,8 +6246,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CNY">
-				<displayName>Yuan China</displayName>
-				<displayName count="other">Yuan China</displayName>
+				<displayName>Yuan Tiongkok</displayName>
+				<displayName count="other">Yuan Tiongkok</displayName>
 				<symbol>CN¥</symbol>
 				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>

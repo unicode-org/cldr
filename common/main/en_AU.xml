@@ -39,7 +39,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">E, d MMM – E, d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d MMM – E, dMMM, y G</greatestDifference>
+							<greatestDifference id="d">E, d MMM – E, d MMM y G</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -167,12 +167,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateFormats>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>dMMMM,y</pattern>
+							<pattern>d MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>dMMM,y</pattern>
+							<pattern>d MMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -184,7 +184,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="M">LL</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, d MMM,y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E, d MMM y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

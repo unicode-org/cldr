@@ -47,6 +47,7 @@ public class MailSender implements Runnable {
     private static final String COUNTLEFTSQL = "select count(*) from " + CLDR_MAIL + " where sent_date is NULL and try_count < 3";
 
     public final boolean DEBUG = CLDRConfig.getInstance().getProperty("CLDR_DEBUG_MAIL", false) || (SurveyMain.isUnofficial() && SurveyLog.isDebug());
+    public final boolean CLDR_SENDMAIL = CLDRConfig.getInstance().getProperty("CLDR_SENDMAIL", true);
 
     private UserRegistry.User getUser(int user) {
         if (user < 1) user = 1;
@@ -164,7 +165,9 @@ public class MailSender implements Runnable {
                 System.out.println("MailSender:  reaped " + countDeleted + " expired messages");
             }
 
-            if (DBUtils.db_Derby) {
+            if (!CLDR_SENDMAIL) {
+                SurveyLog.warnOnce("*** Mail processing disabled per cldr.properties. To enable, set CLDR_SENDMAIL=true ***");
+            } else if (DBUtils.db_Derby) {
                 SurveyLog.warnOnce("************* mail processing disabled for derby. Sorry. **************");
             } else {
                 int firstTime = SurveyMain.isUnofficial() ? 5 : 60; // for official use, give some time for ST to settle before starting on mail s ending.
@@ -330,6 +333,11 @@ public class MailSender implements Runnable {
     private int lastIdProcessed = -1; // spinner
 
     public void run() {
+        if (!CLDR_SENDMAIL) {
+            SurveyLog.warnOnce("*** Mail processing disabled per cldr.properties. To enable, set CLDR_SENDMAIL=true ***");
+            return;
+        }
+
         if (DBUtils.db_Derby) {
             SurveyLog.warnOnce("************* mail processing disabled for derby. Sorry. **************");
             return;

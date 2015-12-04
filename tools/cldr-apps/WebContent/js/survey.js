@@ -11,7 +11,6 @@
 // TODO: replace with AMD [?] loading
 dojo.require("dojo.i18n");
 dojo.require("dojo.string");
-dojo.requireLocalization("surveyTool", "stui");
 window.haveDialog = false;
 
 /**
@@ -544,6 +543,9 @@ var stui = {
 		disconnected: "Disconnected", 
 		startup: "Starting up...",
 		ari_sessiondisconnect_message: "Your session has been disconnected.",
+		str : function(x) { if(stui[x]) return stui[x]; else return ""; },
+		sub : function(x,y) { return dojo.string.substitute(stui.str(x), y);}
+
 };
 
 var stuidebug_enabled=(window.location.search.indexOf('&stui_debug=')>-1);
@@ -555,8 +557,8 @@ if(!stuidebug_enabled) {
 	 * @method stui_str
 	 */
 	stui_str = function(x) {
-	    if(stui && stui[x]) {
-	    	return stui[x];
+	    if(stui) {
+	    	return stui.str(x);
 	    } else {
 	    	return x;
 	    }
@@ -3909,9 +3911,9 @@ function insertRows(theDiv,xpath,session,json) {
 
 function loadStui(loc) {
 	if(!stui.ready) {
-		stui  = dojo.i18n.getLocalization("surveyTool", "stui");
+		require(["dojo/i18n!./surveyTool/nls/stui.js"], function(stuibundle){
 		if(!stuidebug_enabled) {
-			stui.str = function(x) { if(stui[x]) return stui[x]; else return x; };
+			stui.str = function(x) { if(stuibundle[x]) return stuibundle[x]; else return x; };
 			stui.sub = function(x,y) { return dojo.string.substitute(stui.str(x), y);};
 		} else {
 			stui.str = stui_str; // debug
@@ -3919,6 +3921,7 @@ function loadStui(loc) {
 		}
 		stui.htmlbaseline = BASELINE_LANGUAGE_NAME;
 		stui.ready=true;
+		});
 	}
 	return stui;
 }

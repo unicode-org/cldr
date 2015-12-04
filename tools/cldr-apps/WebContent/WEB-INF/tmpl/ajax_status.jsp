@@ -2,7 +2,7 @@
 <%@ page import="org.unicode.cldr.web.*" %>
 <%@ page import="org.unicode.cldr.util.*" %>
 <!--  begin ajax_status.jsp -->
-<link rel="stylesheet" href="<%= request.getContextPath() %>/dojoroot/dijit/themes/claro/claro.css" />
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css" />
 
 <!-- Bootstrap core test CSS -->
 <link href="<%= request.getContextPath() %>/css/bootstrap.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
 dojoConfig = {
 		parseOnLoad: true,
 		};</script>
-<script type='text/javascript' src='<%= request.getContextPath()+"/dojoroot/dojo/dojo.js" %>'></script>
+<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
 <script type='text/javascript'>
 require(["dojo/parser", "dijit/layout/ContentPane", "dijit/layout/BorderContainer"]);
 </script>

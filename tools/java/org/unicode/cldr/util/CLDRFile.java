@@ -3369,7 +3369,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
     }
 
-    static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
 
     /**
      * Get the path with the given count.
@@ -3393,7 +3392,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         boolean isDisplayName = parts.contains("displayName");
 
         String intCount = parts.getAttributeValue(-1, "count");
-        if (intCount != null && DIGITS.containsAll(intCount)) {
+        if (intCount != null && CldrUtility.DIGITS.containsAll(intCount)) {
             try {
                 int item = Integer.parseInt(intCount);
                 String locale = getLocaleID();

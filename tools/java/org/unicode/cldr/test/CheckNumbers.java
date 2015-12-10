@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.PathHeader;
@@ -33,7 +34,6 @@ public class CheckNumbers extends FactoryCheckCLDR {
     private static final Splitter SEMI_SPLITTER = Splitter.on(';');
 
     private static final UnicodeSet FORBIDDEN_NUMERIC_PATTERN_CHARS = new UnicodeSet("[[:n:]-[0]]");
-    private static final Pattern ASCII_Digits = Pattern.compile("\\d+");
     
     /**
      * If you are going to use ICU services, then ICUServiceBuilder will allow you to create
@@ -122,7 +122,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
         if (path.indexOf("/minimumGroupingDigits") >= 0) {
             try {
                 int mgd = Integer.valueOf(value);
-                if (!ASCII_Digits.matcher(value).matches()) {
+                if (!CldrUtility.DIGITS.contains(value)) {
                     result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                         .setSubtype(Subtype.badMinimumGroupingDigits)
                         .setMessage("Minimum grouping digits can only contain Western digits [0-9]."));

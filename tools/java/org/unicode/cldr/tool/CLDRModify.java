@@ -1099,8 +1099,8 @@ public class CLDRModify {
                 if (!xpath.contains("/language")) return;
                 String languageCode = parts.set(xpath).findAttributeValue("language", "type");
                 String v = resolved.getStringValue(xpath);
-                if (!languageCode.equals("mo")) return;
-                parts.setAttribute("language", "type", "ro_MD");
+                if (!languageCode.equals("swc")) return;
+                parts.setAttribute("language", "type", "sw_CD");
                 replace(xpath, parts.toString(), v);
             }
         });

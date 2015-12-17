@@ -1370,6 +1370,7 @@ public class SupplementalDataInfo {
             String keyAlias = parts.getAttributeValue(2, "alias");
             String keyDescription = parts.getAttributeValue(2, "description");
             String extension = parts.getAttributeValue(2, "extension");
+            String deprecated = parts.getAttributeValue(2, "deprecated");
             if (extension == null) {
                 extension = "u";
             }
@@ -1385,16 +1386,24 @@ public class SupplementalDataInfo {
             if (keyDescription != null) {
                 bcp47Descriptions.put(key_empty, keyDescription);
             }
+            if (deprecated != null && deprecated.equals("true")) {
+                bcp47Deprecated.put(key_empty, deprecated); 
+            }
 
             if (parts.size() > 3) { // for parts with no subtype: //ldmlBCP47/keyword/key[@extension="t"][@name="x0"]
 
                 // have subtype
                 String subtype = parts.getAttributeValue(3, "name");
                 String subtypeAlias = parts.getAttributeValue(3, "alias");
-                String subtypeDescription = parts.getAttributeValue(3, "description");
+                String subtypeDescription = parts.getAttributeValue(3, "description").replaceAll("\\s+", " ");
                 String subtypeSince = parts.getAttributeValue(3, "since");
                 String subtypePreferred = parts.getAttributeValue(3, "preferred");
                 String subtypeDeprecated = parts.getAttributeValue(3, "deprecated");
+                
+                Set<String> set = bcp47Key2Subtypes.get(key);
+                if (set != null && set.contains(key)) {
+                    throw new IllegalArgumentException("Collision with bcp47 key-value: " + key + "," + subtype);
+                }
                 bcp47Key2Subtypes.put(key, subtype);
 
                 final R2<String, String> key_subtype = (R2<String, String>) Row.of(key, subtype).freeze();
@@ -1403,7 +1412,7 @@ public class SupplementalDataInfo {
                     bcp47Aliases.putAll(key_subtype, Arrays.asList(subtypeAlias.trim().split("\\s+")));
                 }
                 if (subtypeDescription != null) {
-                    bcp47Descriptions.put(key_subtype, subtypeDescription);
+                    bcp47Descriptions.put(key_subtype, subtypeDescription.replaceAll("\\s+", " "));
                 }
                 if (subtypeDescription != null) {
                     bcp47Since.put(key_subtype, subtypeSince);

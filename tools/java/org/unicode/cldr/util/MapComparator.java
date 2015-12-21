@@ -32,6 +32,8 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
     private List<K> rankToName = new ArrayList<K>();
     private boolean errorOnMissing = true;
     private volatile boolean locked = false;
+    private int before = 1;
+    private boolean fallback = true;
 
     /**
      * @return Returns the errorOnMissing.
@@ -49,6 +51,27 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
         this.errorOnMissing = errorOnMissing;
         return this;
     }
+
+    public boolean isSortBeforeOthers() {
+        return before == 1;
+    }
+
+    public MapComparator<K> setSortBeforeOthers(boolean sortBeforeOthers) {
+        if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+        this.before = sortBeforeOthers ? 1 : -1;
+        return this;
+    }
+
+    public boolean isDoFallback() {
+        return fallback;
+    }
+
+    public MapComparator<K> setDoFallback(boolean doNumeric) {
+        if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+        this.fallback = doNumeric;
+        return this;
+    }
+
 
     /**
      * @return Returns the rankToName.
@@ -116,10 +139,13 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
         }
         // must handle halfway case, otherwise we are not transitive!!!
         if (aa == null && bb != null) {
-            return 1;
+            return before ;
         }
         if (aa != null && bb == null) {
-            return -1;
+            return -before;
+        }
+        if (!fallback) {
+            return 0;
         }
         // do numeric
         // first we do a quick check, then parse.

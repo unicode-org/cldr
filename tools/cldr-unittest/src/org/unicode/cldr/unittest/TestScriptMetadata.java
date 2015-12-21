@@ -29,12 +29,15 @@ import org.unicode.cldr.util.XPathParts;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.VersionInfo;
 
 public class TestScriptMetadata extends TestFmwkPlus {
-
+    private static final VersionInfo ICU_UNICODE_VERSION = UCharacter.getUnicodeVersion();
     static TestInfo testInfo = TestInfo.getInstance();
 
     public static void main(String[] args) {
@@ -50,13 +53,15 @@ public class TestScriptMetadata extends TestFmwkPlus {
         BitSet bitset = new BitSet();
         for (String script : new TreeSet<String>(ScriptMetadata.getScripts())) {
             Info info0 = ScriptMetadata.getInfo(script);
-            int codePointCount = info0.sampleChar.codePointCount(0,
-                info0.sampleChar.length());
+            int codePointCount = UTF16.countCodePoint(info0.sampleChar);
             assertEquals("Sample must be single character", 1, codePointCount);
-            int scriptCode = UScript.getScriptExtensions(
-                info0.sampleChar.codePointAt(0), bitset);
-            assertTrue("Must have single, valid script " + scriptCode,
-                scriptCode >= 0);
+            if (ICU_UNICODE_VERSION.compareTo(info0.age) >= 0) {
+                int scriptCode = UScript.getScriptExtensions(
+                    info0.sampleChar.codePointAt(0), bitset);
+                assertTrue(script + ": The sample character must have a " +
+                    "single, valid script, no ScriptExtensions: " + scriptCode,
+                    scriptCode >= 0);
+            }
         }
     }
 
@@ -240,13 +245,13 @@ public class TestScriptMetadata extends TestFmwkPlus {
         //
     }
 
-    private void assertEqualsX(Groupings aRaw, Set<String> bRaw) {
-        assertEqualsX(aRaw.toString(), aRaw.scripts, bRaw);
-    }
+//    private void assertEqualsX(Groupings aRaw, Set<String> bRaw) {
+//        assertEqualsX(aRaw.toString(), aRaw.scripts, bRaw);
+//    }
 
     public void assertEqualsX(String title, Set<String> a, Set<String> bRaw) {
-        TreeSet b = With.in(bRaw).toCollection(
-            ScriptCategories.TO_SHORT_SCRIPT, new TreeSet());
+        TreeSet<String> b = With.in(bRaw).toCollection(
+            ScriptCategories.TO_SHORT_SCRIPT, new TreeSet<String>());
 
         Set<String> a_b = new TreeSet<String>(a);
         a_b.removeAll(b);

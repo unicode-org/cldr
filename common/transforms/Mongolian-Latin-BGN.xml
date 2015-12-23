@@ -10,7 +10,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="mn" target="mn_Latn" direction="forward" variant="BGN" alias="Mongolian-Latin/BGN" draft="provisional">
 			<tRule><![CDATA[
-#
 ########################################################################
 # BGN/PCGN 1964 System
 #
@@ -32,17 +31,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 # Originally prepared by Michael Everson <everson@evertype.com>
 ########################################################################
 #
-# MINIMAL FILTER: Mongolian-Latin
-#
-
-:: [АБВГДЕЁЖЗИЙКЛМНОӨПРСТУҮФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмноөпрстуүфхцчшщъыьэюя] ;
-:: NFD (NFC) ;
-#
-#
-########################################################################
+# MINIMAL FILTER: Mongolian-Latin, works both in NFC and NFD
 
 
-#
+::[АБВГДЕЁЖЗИЙКЛМНОӨПРСТУҮФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмноөпрстуүфхцчшщъыьэюя\u0308];
+::NFC;
+
+
 ########################################################################
 #
 # Define All Transformation Variables
@@ -61,25 +56,18 @@ $lowerVowels = [аеёэиоуыюя] ;
 $vowels = [$upperVowels $lowerVowels] ;
 
 $lower = [$lowerConsonants $lowerVowels] ;
-#
-#
+
+
 # Use this $wordBoundary until bug 2034 is fixed in ICU:
 # http://bugs.icu-project.org/cgi-bin/icu-bugs/transliterate?id=2034;expression=boundary;user=guest
-#
+
 
 $wordBoundary =  [^[:L:][:M:][:N:]] ;
-#
-#
-########################################################################
 
 
-#
 ########################################################################
-#
 # Start of Alphabetic Transformations
-#
 ########################################################################
-#
 
 А → A ; # CYRILLIC CAPITAL LETTER A
 а → a ; # CYRILLIC SMALL LETTER A
@@ -140,16 +128,12 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 Ч} $lower → Ch ; # CYRILLIC CAPITAL LETTER CHE
 Ч → CH ; # CYRILLIC CAPITAL LETTER CHE
 ч → ch ; # CYRILLIC SMALL LETTER CHE
-#
-#
+
+
 ########################################################################
-#
 # Implied rule from BGN Russian-Latin transliteration (Page 94 Note 3.6).
-#
 # шч becomes sh·ch
-#
 ########################################################################
-#
 
 ШЧ → SH·CH ; # CYRILLIC CAPITAL LETTER SHA
 Шч → Sh·ch ; # CYRILLIC CAPITAL LETTER SHA
@@ -160,14 +144,11 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 Щ} $lower → Shch ; # CYRILLIC CAPITAL LETTER SHCHA
 Щ → SHCH ; # CYRILLIC CAPITAL LETTER SHCHA
 щ → shch ; # CYRILLIC SMALL LETTER SHCHA
-#
-#
+
+
 ########################################################################
-#
 # End Implied rule
-#
 ########################################################################
-#
 
 Ъ → $prime ; # CYRILLIC CAPITAL LETTER HARD SIGN
 ъ → $prime ; # CYRILLIC SMALL LETTER HARD SIGN
@@ -177,8 +158,8 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 ь → ĭ ; # CYRILLIC SMALL LETTER SOFT SIGN
 Э → E ; # CYRILLIC CAPITAL LETTER E
 э → e ; # CYRILLIC SMALL LETTER E
-#
-#
+
+
 ########################################################################
 #
 # BGN Page 74 Rule 7
@@ -190,27 +171,20 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 # This rule is lexical and has not been implemented in this file.
 #
 ########################################################################
-#
 
 Ю} $lower → Yu ; # CYRILLIC CAPITAL LETTER YU
 Ю → YU ; # CYRILLIC CAPITAL LETTER YU
 ю → yu ; # CYRILLIC SMALL LETTER YU
-#
-#
+
 ########################################################################
 #
 # End Rule 7
 #
 ########################################################################
-#
 
 Я} $lower → Ya ; # CYRILLIC CAPITAL LETTER YA
 Я → YA ; # CYRILLIC CAPITAL LETTER YA
 я → ya ; # CYRILLIC SMALL LETTER YA
-#
-#
-########################################################################
-
 			]]></tRule>
 		</transform>
 	</transforms>

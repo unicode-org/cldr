@@ -24,7 +24,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 # Fixed by Frank Yung-Fong Tang ftang@google.com
 #
 # Test Data from http://en.wikipedia.org/wiki/BGN/PCGN_romanization_of_Russian
-# Since the use of · is optional, we do NOT implement here.
 
 ########################################################################
 # MINIMAL FILTER: Russian-Latin
@@ -57,15 +56,13 @@ $upper = [$upperConsonants $upperVowels] ;
 ########################################################################
 # Rules moved to front to avoid masking
 ########################################################################
-#
-# REMOVEOPTIONAL(ftang) The following two rules for · option is commented out.
-#$lowerVowels { ы → ·y ;
-#$upperVowels { [Ыы] → ·Y ;
+
+$lowerVowels { ы → ·y ;
+$upperVowels { [Ыы] → ·Y ;
 
 
-# REMOVEOPTIONAL(ftang) The following two rules for · option is commented out.
-#[$consonants - [Йй]]{Э → ·E ;
-#[$consonants - [Йй]]{э → ·e ;
+[$consonants - [Йй]]{Э → ·E ;
+[$consonants - [Йй]]{э → ·e ;
 
 [$upperVowels [ЙЪЬ]] { Е } $upper → YE ; # CYRILLIC CAPITAL LETTER IE
 [$upperVowels [ЙЪЬ]] { Е → Ye ; # CYRILLIC CAPITAL LETTER IE
@@ -194,10 +191,9 @@ $wordBoundary{ё → yë ; # CYRILLIC SMALL LETTER IO
 # BGN Page 94 Rule 3.1
 # й before а, у, ы, or э becomes у·
 ########################################################################
-#
-# REMOVEOPTIONAL(ftang) The following two rules for · option is commented out.
-# Й}[АаУуЫыЭэ] → Y· ; # CYRILLIC CAPITAL LETTER I
-# й}[АаУуЫыЭэ] → y· ; # CYRILLIC SMALL LETTER I
+
+Й}[АаУуЫыЭэ] → Y· ; # CYRILLIC CAPITAL LETTER I
+й}[АаУуЫыЭэ] → y· ; # CYRILLIC SMALL LETTER I
 
 Й → Y ; # CYRILLIC CAPITAL LETTER I
 й → y ; # CYRILLIC SMALL LETTER I
@@ -227,19 +223,13 @@ $wordBoundary{ё → yë ; # CYRILLIC SMALL LETTER IO
 
 ########################################################################
 # BGN Page 94 Rule 3.5
-#
 # тс becomes t·s
 ########################################################################
-#
-# REMOVEOPTIONAL(ftang) The following three rules for · option is commented out
-# and change to the version without ·
-# ТС → T·S ; # CYRILLIC CAPITAL LETTER TE
-# Тс → T·s ; # CYRILLIC CAPITAL LETTER TE
-# тс → t·s ; # CYRILLIC SMALL LETTER TE
 
-ТС → TS ; # CYRILLIC CAPITAL LETTER TE
-Тс → Ts ; # CYRILLIC CAPITAL LETTER TE
-тс → ts ; # CYRILLIC SMALL LETTER TE
+ТС → T·S ; # CYRILLIC CAPITAL LETTER TE
+Тс → T·s ; # CYRILLIC CAPITAL LETTER TE
+тс → t·s ; # CYRILLIC SMALL LETTER TE
+
 Т → T ; # CYRILLIC CAPITAL LETTER TE
 т → t ; # CYRILLIC SMALL LETTER TE
 
@@ -265,19 +255,13 @@ $wordBoundary{ё → yë ; # CYRILLIC SMALL LETTER IO
 
 ########################################################################
 # BGN Page 94 Rule 3.6
-#
 # шч becomes sh·ch
 ########################################################################
-#
-# REMOVEOPTIONAL(ftang) The following three rules for · option is commented out
-# and change to the version without ·
-# ШЧ → SH·CH ; # CYRILLIC CAPITAL LETTER SHA
-# Шч → Sh·ch ; # CYRILLIC CAPITAL LETTER SHA
-# шч → sh·ch ; # CYRILLIC SMALL LETTER SHA
 
-ШЧ → SHCH ; # CYRILLIC CAPITAL LETTER SHA
-Шч → Shch ; # CYRILLIC CAPITAL LETTER SHA
-шч → shch ; # CYRILLIC SMALL LETTER SHA
+ШЧ → SH·CH ; # CYRILLIC CAPITAL LETTER SHA
+Шч → Sh·ch ; # CYRILLIC CAPITAL LETTER SHA
+шч → sh·ch ; # CYRILLIC SMALL LETTER SHA
+
 Ш} $lower → Sh ; # CYRILLIC CAPITAL LETTER SHA
 Ш → SH ; # CYRILLIC CAPITAL LETTER SHA
 ш → sh ; # CYRILLIC SMALL LETTER SHA
@@ -305,9 +289,9 @@ $wordBoundary{ё → yë ; # CYRILLIC SMALL LETTER IO
 # BUG(ftang) the following line said the vowels will change
 # $vowels}Ы → ·Y ; # CYRILLIC CAPITAL LETTER I
 # $vowels}ы → ·y ; # CYRILLIC CAPITAL LETTER I
-# REMOVEOPTIONAL(ftang) The following two rules for · option is commented out.
-#Ы}[АаУуЫыЭэ] → Y· ; # CYRILLIC CAPITAL LETTER YERU
-#ы}[ауыэ] → y· ; # CYRILLIC SMALL LETTER YERU
+
+Ы}[АаУуЫыЭэ] → Y· ; # CYRILLIC CAPITAL LETTER YERU
+ы}[ауыэ] → y· ; # CYRILLIC SMALL LETTER YERU
 
 Ы → Y ; # CYRILLIC CAPITAL LETTER YERU
 ы → y ; # CYRILLIC SMALL LETTER YERU

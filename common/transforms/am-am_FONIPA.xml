@@ -10,6 +10,14 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 			<tRule>
 # Transforms Amharic (am) to Amharic in phonemic IPA transcription (am_FONIPA).
 #
+# Long vowels, long/geminated consonants:
+#     In the direction from am_FONIPA to am, we emit Ethiopic gemination
+#     and vowel length markers (U+135D, U+135E, U+135F) although
+#     they are rarely written in Amharic text. Exceptions include
+#     school books and textbooks for non-native speakers.
+#     Clients who do not want these markers can easily strip them off
+#     in a post-processing step.
+#
 # Labialization:
 #     Amharic speakers will usually say ሟ as [mʷa] instead of [mwa];
 #     labializing [m] instead of saying [m] followed by a separate [w].
@@ -26,6 +34,9 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 #     Other than most online sources, this report uses correct IPA notation
 #     with the exception of /j/, which it consistently (but wrongly)
 #     writes as */y/.
+
+$IPA_VOWEL = [aeəiɨou];
+$IPA_CONSONANT = [mnɲ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvszʃʒh lr {t͡ʃ}{d͡ʒ}];
 
 # TODO(sascha): Implement these, instead of stripping them away.
 \u135D → '';  # U+135D ETHIOPIC COMBINING GEMINATION AND VOWEL LENGTH MARK
@@ -601,7 +612,19 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 {ə} [[:L:]] → ə \.;
 {a} [[:L:]] → a \.;
 
-← [ːˈˌ\.];
+# Transform IPA length markers to one of these:
+# U+135D ETHIOPIC COMBINING GEMINATION AND VOWEL LENGTH MARK
+# U+135E ETHIOPIC COMBINING VOWEL LENGTH MARK
+# U+135F ETHIOPIC COMBINING GEMINATION MARK
+#::(null);
+← ː ;  # Strip off any remaining IPA length markers.
+::(null);
+$1 \u135D ← ($IPA_CONSONANT ː [jw]? $IPA_VOWEL ː);
+$1 \u135E ← ($IPA_CONSONANT [jw]? $IPA_VOWEL ː);
+$1 \u135F ← ($IPA_CONSONANT ː [jw]? $IPA_VOWEL?);
+
+::(null);
+← [ˈˌ\.];
 
 aj ← ai;     # Nairobi /nairobi/ ናይሮቢ, Cairo /kairo/ ካይሮ
 aw ← au;     # Bissau /bisːau/ ቢሳው

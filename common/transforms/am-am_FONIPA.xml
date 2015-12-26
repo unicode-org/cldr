@@ -38,11 +38,6 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 $IPA_VOWEL = [aeəiɨou];
 $IPA_CONSONANT = [mnɲ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvszʃʒh lr {t͡ʃ}{d͡ʒ}];
 
-# TODO(sascha): Implement these, instead of stripping them away.
-\u135D → '';  # U+135D ETHIOPIC COMBINING GEMINATION AND VOWEL LENGTH MARK
-\u135E → '';  # U+135E ETHIOPIC COMBINING VOWEL LENGTH MARK
-\u135F → '';  # U+135F ETHIOPIC COMBINING GEMINATION MARK
-
 # Appendix B of [1] transcribes ሀ as /hə/. However, according to
 # an Amharic-speaking person, there is no /hə/ sequence
 # in Amharic; instead, it gets pronounced as /ha/.
@@ -602,26 +597,25 @@ $IPA_CONSONANT = [mnɲ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvszʃʒh lr {t͡ʃ}{d͡ʒ}];
 ፻ → ' ';  # U+137B ETHIOPIC NUMBER HUNDRED
 ፼ → ' ';  # U+137C ETHIOPIC NUMBER TEN THOUSAND
 
-# Insert syllable markers in a separate pass.
-::NULL;
-{i} [[:L:]] → i \.;
-{ɨ} [[:L:]] → ɨ \.;
-{u} [[:L:]] → u \.;
-{e} [[:L:]] → e \.;
-{o} [[:L:]] → o \.;
-{ə} [[:L:]] → ə \.;
-{a} [[:L:]] → a \.;
-
 # Transform IPA length markers to one of these:
 # U+135D ETHIOPIC COMBINING GEMINATION AND VOWEL LENGTH MARK
 # U+135E ETHIOPIC COMBINING VOWEL LENGTH MARK
 # U+135F ETHIOPIC COMBINING GEMINATION MARK
-#::(null);
+::null;
 ← ː ;  # Strip off any remaining IPA length markers.
 ::(null);
+($IPA_CONSONANT) ([jw]? $IPA_VOWEL) \u135D → $1 ː $2 ː;
+($IPA_CONSONANT) ([jw]? $IPA_VOWEL) \u135E → $1 $2 ː;
+($IPA_CONSONANT) ([jw]? $IPA_VOWEL?) \u135F → $1 ː $2;
+[\u135D \u135E \u135F] → ;  # Strip off any remaining length markers.
+
 $1 \u135D ← ($IPA_CONSONANT ː [jw]? $IPA_VOWEL ː);
 $1 \u135E ← ($IPA_CONSONANT [jw]? $IPA_VOWEL ː);
 $1 \u135F ← ($IPA_CONSONANT ː [jw]? $IPA_VOWEL?);
+
+# Insert syllable markers in a separate pass.
+::null;
+{($IPA_VOWEL ː?)} [[:L:]] → $1 \.;
 
 ::(null);
 ← [ˈˌ\.];

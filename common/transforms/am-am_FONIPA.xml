@@ -36,7 +36,7 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 #     writes as */y/.
 
 $IPA_VOWEL = [aeəiɨou];
-$IPA_CONSONANT = [mnɲ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvszʃʒh lr {t͡ʃ}{d͡ʒ}];
+$IPA_CONSONANT = [mnɲ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvs{sʼ}zʃʒh lr {t͡ʃ}{t͡ʃʼ}{d͡ʒ}];
 
 # Appendix B of [1] transcribes ሀ as /hə/. However, according to
 # an Amharic-speaking person, there is no /hə/ sequence
@@ -609,6 +609,11 @@ $IPA_CONSONANT = [mnɲ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvszʃʒh lr {t͡ʃ}{d͡ʒ}];
 ($IPA_CONSONANT) ([jw]? $IPA_VOWEL?) \u135F → $1 ː $2;
 [\u135D \u135E \u135F] → ;  # Strip off any remaining length markers.
 
+$1 \u135E ← ($IPA_VOWEL ː);
+$1 \u135E ← (w $IPA_VOWEL ː);
+$1 \u135D ← (jː $IPA_VOWEL ː);
+$1 \u135E ← (j $IPA_VOWEL ː);
+$1 \u135F ← (jː $IPA_VOWEL?);
 $1 \u135D ← ($IPA_CONSONANT ː [jw]? $IPA_VOWEL ː);
 $1 \u135E ← ($IPA_CONSONANT [jw]? $IPA_VOWEL ː);
 $1 \u135F ← ($IPA_CONSONANT ː [jw]? $IPA_VOWEL?);
@@ -651,6 +656,8 @@ t͡ʃ ← ʧ;
 ɡ ← g;
 o ← ɔ;
 w ← ʷ;
+ʼː ← ːʼ;  # /pʼː/ ← /pːʼ/; /sʼː/ ← /sːʼ/; etc.
+
 			</tRule>
 		</transform>
 	</transforms>

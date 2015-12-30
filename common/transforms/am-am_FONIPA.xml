@@ -623,7 +623,7 @@ $1 \u135F ← ($IPA_CONSONANT ː [jw]? $IPA_VOWEL?);
 {($IPA_VOWEL ː?)} [[:L:]] → $1 \.;
 
 ::(null);
-← [ˈˌ\.];
+← [ˈˌ\. ̯];
 
 aj ← ai;     # Nairobi /nairobi/ ናይሮቢ, Cairo /kairo/ ካይሮ
 aw ← au;     # Bissau /bisːau/ ቢሳው
@@ -649,6 +649,7 @@ uwe ← ue;    # Lithuania /lituenia/ ሊቱዌኒያ, Venezuela /venɨzuela/ �
 ʔe ← \. e;
 ʔɨ ← \. ɨ;
 ʔo ← \. o;
+$1 w ← {($IPA_VOWEL ː?) ̯} $IPA_VOWEL;  # /ewowa/ ← /e̯o̯a/
 
 ::(null);
 t͡s ← ʦ;
@@ -657,7 +658,6 @@ t͡ʃ ← ʧ;
 o ← ɔ;
 w ← ʷ;
 ʼː ← ːʼ;  # /pʼː/ ← /pːʼ/; /sʼː/ ← /sːʼ/; etc.
-
 			</tRule>
 		</transform>
 	</transforms>

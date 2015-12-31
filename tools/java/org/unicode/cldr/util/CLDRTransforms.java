@@ -160,6 +160,7 @@ public class CLDRTransforms {
             addDependency("pl-ja", "pl-pl_FONIPA", "pl_FONIPA-ja");
             addDependency("ro-am", "ro-ro_FONIPA", "am_FONIPA-am");
             addDependency("ro-ja", "ro-ro_FONIPA", "ro_FONIPA-ja");
+            addDependency("sk-am", "sk-sk_FONIPA", "am_FONIPA-am");
             addDependency("sk-ja", "sk-sk_FONIPA", "sk_FONIPA-ja");
             addDependency("Latin-Bopomofo", "Latin-NumericPinyin");
 

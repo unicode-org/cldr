@@ -36,7 +36,8 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 #     writes as */y/.
 
 $IPA_VOWEL = [aeəiɨou];
-$IPA_CONSONANT = [mnɲ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvs{sʼ}zʃʒh lr {t͡ʃ}{t͡ʃʼ}{d͡ʒ}];
+$IPA_VOWEL_WITHOUT_A = [eəiɨou];
+$IPA_CONSONANT = [mnɲɴ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvs{sʼ}zʃʒh lr {t͡ʃ}{t͡ʃʼ}{d͡ʒ}];
 
 # Appendix B of [1] transcribes ሀ as /hə/. However, according to
 # an Amharic-speaking person, there is no /hə/ sequence
@@ -396,11 +397,11 @@ $IPA_CONSONANT = [mnɲ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvs{sʼ}zʃʒh lr {t͡ʃ}{t͡�
 ጔ ↔ ɡwe;
 ግ ← ɡ;
 
-# In Awngi, Blin, Qimant, and Xamtanga, ጘ is spoken as voiced velar nasal /ŋ/.
+# In Awngi, Blin, Qimant, and Xamtanga, ጘ is spoken as voiced velar nasal [ŋ].
 # Source: [1], Appendix C. While /ŋ/ is not an Amharic phoneme, Amharic speakers
-# still can pronounce it according to our source.
-# When transliterating foreign words with /ŋ/, Amharic uses the sequence ንግ /nɡ/.
-# For example, the Amharic transliteration of Washington /waʃiŋtən/ is ዋሺንግተን.
+# still can pronounce it according to our source. However, when transliterating
+# foreign words with [ŋ], Amharic uses the sequence ንግ /nɡ/. For example,
+# the Amharic transliteration of Washington /waʃiŋtən/ is ዋሺንግተን.
 ጘ → ŋə;
 ጙ → ŋu;
 ጚ → ŋi;
@@ -413,6 +414,16 @@ $IPA_CONSONANT = [mnɲ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvs{sʼ}zʃʒh lr {t͡ʃ}{t͡�
 ⶔ → ŋwi;
 ጟ → ŋwa;
 ⶕ → ŋwe;
+
+# Since there is no uvular nasal [ɴ] in Amharic, we use the velar nasal [ŋ].
+ጘ ← ɴə;
+ጙ ← ɴu;
+ጚ ← ɴi;
+ጛ ← ɴa;
+ጜ ← ɴe;
+ጝ ← ɴɨ;
+ጞ ← ɴo;
+ጝ ← ɴ;
 
 # In Sebatbeit, ⷘ is spoken as palatalized voiced velar stop /ɡj/ ([1], Appendix H).
 # Amharic speakers pronounce it as voiced velar stop /ɡ/ without palatalization.
@@ -609,6 +620,10 @@ $IPA_CONSONANT = [mnɲ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvs{sʼ}zʃʒh lr {t͡ʃ}{t͡�
 ($IPA_CONSONANT) ([jw]? $IPA_VOWEL?) \u135F → $1 ː $2;
 [\u135D \u135E \u135F] → ;  # Strip off any remaining length markers.
 
+# Handle ኧፕ፟ወ፞ ← əpːʷəː, but without catching apːʷaː.
+$1 \u135F $2 \u135E ← ([p] ʼ?) ː ([jw] $IPA_VOWEL_WITHOUT_A) ː;
+$1 \u135F $2 ← {([p] ʼ?) ː ([jw] $IPA_VOWEL_WITHOUT_A?)} [^a];
+
 $1 \u135E ← ($IPA_VOWEL ː);
 $1 \u135E ← (w $IPA_VOWEL ː);
 $1 \u135D ← (jː $IPA_VOWEL ː);
@@ -652,6 +667,11 @@ uwe ← ue;    # Lithuania /lituenia/ ሊቱዌኒያ, Venezuela /venɨzuela/ �
 $1 w ← {($IPA_VOWEL ː?) ̯} $IPA_VOWEL;  # /ewowa/ ← /e̯o̯a/
 
 ::(null);
+n ← [n {n̼} {n̼̊} {m̺} {n̊} {n̥}];
+m ← [ɱ {m̥} {m̪}];
+ɲ ← [{ɳ̊} {ɳ̥} ɳ {ɲ̊} {ɲ̥} ɲ];
+ŋ ← [{ŋ̊} {ŋ̥} ŋ];
+ɴ ← [{ɴ̊} {ɴ̥} ɴ];
 t͡s ← ʦ;
 t͡ʃ ← [ʧ c];
 ə ← [ɛ æ];
@@ -660,7 +680,7 @@ h ← [ɦ x ç];
 ɨ ← ɪ;
 j ← [ʝ ʲ];
 lj ← ʎ [iɪɨ]? [jʝʲ]?;
-m ← ɱ;
+
 o ← ɔ;
 rʒ ← r̝;
 ʃ ← [ʂ ɕ];
@@ -668,6 +688,10 @@ rʒ ← r̝;
 d͡ʒ ← [ʤ ʥ {d͡z} {d͡ɕ} {d͡ʑ} ɟ];
 w ← ʷ;
 ʼː ← ːʼ;  # /pʼː/ ← /pːʼ/; /sʼː/ ← /sːʼ/; etc.
+
+::(null);
+ʼ ← ʰ;
+
 			</tRule>
 		</transform>
 	</transforms>

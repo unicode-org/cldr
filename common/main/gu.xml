@@ -2006,6 +2006,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>દિ.</displayName>
 				<relative type="-2">ગયા પરમદિવસે</relative>
+				<relative type="-1">ગઈકાલે</relative>
+				<relative type="0">આજે</relative>
+				<relative type="1">આવતીકાલે</relative>
 				<relative type="2">પરમદિવસે</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} દિવસમાં</relativeTimePattern>
@@ -2019,6 +2022,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>દિવસ</displayName>
 				<relative type="-2">ગયા પરમદિવસે</relative>
+				<relative type="-1">ગઈકાલે</relative>
+				<relative type="0">આજે</relative>
+				<relative type="1">આવતીકાલે</relative>
 				<relative type="2">પરમદિવસે</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} દિવસ</relativeTimePattern>

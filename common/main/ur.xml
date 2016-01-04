@@ -1673,6 +1673,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>دن</displayName>
 				<relative type="-2">گزشتہ پرسوں</relative>
+				<relative type="-1">گزشتہ کل</relative>
+				<relative type="0">آج</relative>
+				<relative type="1">آئندہ کل</relative>
 				<relative type="2">آنے والا پرسوں</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} دن میں</relativeTimePattern>
@@ -1686,6 +1689,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>دن</displayName>
 				<relative type="-2">گزشتہ پرسوں</relative>
+				<relative type="-1">گزشتہ کل</relative>
+				<relative type="0">آج</relative>
+				<relative type="1">آئندہ کل</relative>
 				<relative type="2">آنے والا پرسوں</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} دنوں میں</relativeTimePattern>

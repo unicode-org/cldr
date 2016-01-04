@@ -458,7 +458,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="am" draft="contributed">a.m.</dayPeriod>
-							<dayPeriod type="noon">meio-dia</dayPeriod>
 							<dayPeriod type="pm" draft="contributed">p.m.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
@@ -473,11 +472,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">da manhã</dayPeriod>
-							<dayPeriod type="noon">meio-dia</dayPeriod>
 							<dayPeriod type="pm">da tarde</dayPeriod>
-							<dayPeriod type="morning1">da manhã</dayPeriod>
-							<dayPeriod type="afternoon1">da tarde</dayPeriod>
-							<dayPeriod type="evening1">da noite</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
@@ -488,8 +483,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">a.m.</dayPeriod>
 							<dayPeriod type="pm">p.m.</dayPeriod>
-							<dayPeriod type="morning1">manhã</dayPeriod>
-							<dayPeriod type="afternoon1">tarde</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">manhã</dayPeriod>
@@ -748,6 +741,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="1">próxima quinta</relative>
 			</field>
 			<field type="thu-narrow">
+				<relative type="-1">qui. passada</relative>
+				<relative type="0">esta qui.</relative>
 				<relative type="1">próxima qui.</relative>
 			</field>
 			<field type="fri-short">
@@ -2538,6 +2533,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="contributed">{0} litros por 100 quilómetros</unitPattern>
 			</unit>
 			<unit type="duration-century">
+				<unitPattern count="one">{0} século</unitPattern>
 				<unitPattern count="other">{0} séculos</unitPattern>
 			</unit>
 			<unit type="duration-hour">
@@ -2591,6 +2587,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} quilómetros por hora</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
+				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
@@ -2683,6 +2680,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} nmi</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
+				<unitPattern count="one">{0} smi</unitPattern>
 				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
 			<unit type="mass-ton">

@@ -3913,6 +3913,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>วัน</displayName>
 				<relative type="-2">เมื่อวานซืน</relative>
+				<relative type="-1">เมื่อวาน</relative>
+				<relative type="0">วันนี้</relative>
+				<relative type="1">พรุ่งนี้</relative>
 				<relative type="2">มะรืนนี้</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ใน {0} วัน</relativeTimePattern>
@@ -3924,6 +3927,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>วัน</displayName>
 				<relative type="-2">เมื่อวานซืน</relative>
+				<relative type="-1">เมื่อวาน</relative>
+				<relative type="0">วันนี้</relative>
+				<relative type="1">พรุ่งนี้</relative>
 				<relative type="2">มะรืนนี้</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ใน {0} วัน</relativeTimePattern>

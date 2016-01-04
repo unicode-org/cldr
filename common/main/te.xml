@@ -2026,6 +2026,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>దినం</displayName>
 				<relative type="-2">మొన్న</relative>
+				<relative type="-1">నిన్న</relative>
+				<relative type="0">ఈ రోజు</relative>
+				<relative type="1">రేపు</relative>
 				<relative type="2">ఎల్లుండి</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} రోజులో</relativeTimePattern>
@@ -2039,6 +2042,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>ది</displayName>
 				<relative type="-2">మొన్న</relative>
+				<relative type="-1">నిన్న</relative>
+				<relative type="0">ఈ రోజు</relative>
+				<relative type="1">రేపు</relative>
 				<relative type="2">ఎల్లుండి</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} రోజు</relativeTimePattern>

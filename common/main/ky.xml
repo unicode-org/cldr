@@ -1555,6 +1555,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>күн</displayName>
 				<relative type="-2">мурдагы күнү</relative>
+				<relative type="-1">кечээ</relative>
+				<relative type="0">бүгүн</relative>
+				<relative type="1">эртеӊ</relative>
 				<relative type="2">бүрсүгүнү</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} күндөн кийин</relativeTimePattern>
@@ -1568,6 +1571,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>күн</displayName>
 				<relative type="-2">мурдагы күнү</relative>
+				<relative type="-1">кечээ</relative>
+				<relative type="0">бүгүн</relative>
+				<relative type="1">эртеӊ</relative>
 				<relative type="2">бүрсүгүнү</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} күн</relativeTimePattern>

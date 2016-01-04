@@ -1569,6 +1569,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>күн</displayName>
 				<relative type="-2">алдыңғы күні</relative>
+				<relative type="-1">кеше</relative>
+				<relative type="0">бүгін</relative>
+				<relative type="1">ертең</relative>
+				<relative type="2">бүрсігүні</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} күннен кейін</relativeTimePattern>
 					<relativeTimePattern count="other">{0} күннен кейін</relativeTimePattern>
@@ -1580,6 +1584,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-narrow">
 				<displayName>күн</displayName>
+				<relative type="-2">алдыңғы күні</relative>
+				<relative type="-1">кеше</relative>
+				<relative type="0">бүгін</relative>
+				<relative type="1">ертең</relative>
+				<relative type="2">бүрсігүні</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} күннен кейін</relativeTimePattern>
 					<relativeTimePattern count="other">{0} күннен кейін</relativeTimePattern>

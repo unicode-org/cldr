@@ -2079,6 +2079,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>ден</displayName>
 				<relative type="-2">завчера</relative>
+				<relative type="-1">вчера</relative>
+				<relative type="0">денес</relative>
+				<relative type="1">утре</relative>
 				<relative type="2">задутре</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">за {0} ден</relativeTimePattern>
@@ -2092,6 +2095,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>ден</displayName>
 				<relative type="-2">завчера</relative>
+				<relative type="-1">вчера</relative>
+				<relative type="0">денес</relative>
+				<relative type="1">утре</relative>
 				<relative type="2">задутре</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">за {0} ден</relativeTimePattern>

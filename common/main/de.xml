@@ -2344,6 +2344,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>Tag</displayName>
 				<relative type="-2">vorgestern</relative>
+				<relative type="-1">gestern</relative>
+				<relative type="0">heute</relative>
+				<relative type="1">morgen</relative>
 				<relative type="2">übermorgen</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Tag</relativeTimePattern>
@@ -2357,6 +2360,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>Tag</displayName>
 				<relative type="-2">vorgestern</relative>
+				<relative type="-1">gestern</relative>
+				<relative type="0">heute</relative>
+				<relative type="1">morgen</relative>
 				<relative type="2">übermorgen</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Tag</relativeTimePattern>

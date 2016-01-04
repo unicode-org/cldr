@@ -2066,6 +2066,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>দিন</displayName>
 				<relative type="-2">গত পরশু</relative>
+				<relative type="-1">গতকাল</relative>
+				<relative type="0">আজ</relative>
+				<relative type="1">আগামীকাল</relative>
 				<relative type="2">আগামী পরশু</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} দিনের মধ্যে</relativeTimePattern>
@@ -2079,6 +2082,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>দিন</displayName>
 				<relative type="-2">গত পরশু</relative>
+				<relative type="-1">গতকাল</relative>
+				<relative type="0">আজ</relative>
+				<relative type="1">আগামীকাল</relative>
 				<relative type="2">আগামী পরশু</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} দিনের মধ্যে</relativeTimePattern>

@@ -43,6 +43,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="narrow">
+							<dayPeriod type="noon">mediodía</dayPeriod>
 							<dayPeriod type="morning1" draft="contributed">día</dayPeriod>
 							<dayPeriod type="morning2" draft="contributed">mañana</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">tarde</dayPeriod>
@@ -183,9 +184,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</unitLength>
 		<unitLength type="narrow">
 			<unit type="duration-month">
+				<unitPattern count="one" draft="contributed">{0}m.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}m.</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<unitPattern count="one" draft="contributed">{0}d.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}d.</unitPattern>
 			</unit>
 		</unitLength>

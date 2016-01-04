@@ -52,6 +52,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="2">Feb.</month>
 							<month type="3">Mar.</month>
 							<month type="4">Apr.</month>
+							<month type="5">May</month>
 							<month type="6">Jun.</month>
 							<month type="7">Jul.</month>
 							<month type="8">Aug.</month>
@@ -62,9 +63,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="5">May</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">Jan.</month>
 							<month type="2">Feb.</month>
@@ -119,6 +117,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight">midnight</dayPeriod>
 							<dayPeriod type="am">am</dayPeriod>
+							<dayPeriod type="noon">midday</dayPeriod>
 							<dayPeriod type="pm">pm</dayPeriod>
 							<dayPeriod type="morning1">morning</dayPeriod>
 							<dayPeriod type="afternoon1">afternoon</dayPeriod>
@@ -198,46 +197,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</calendar>
 		</calendars>
 		<fields>
-			<field type="year-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="other">in {0} yr.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} yr. ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="quarter-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="other">in {0} qtrs.</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="month-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="other">in {0} mo.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} mo. ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="day-narrow">
-				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
-				</relativeTime>
-			</field>
 			<field type="dayperiod">
 				<displayName>am/pm</displayName>
 			</field>
 			<field type="hour-short">
 				<displayName>h</displayName>
-			</field>
-			<field type="hour-narrow">
-				<displayName>h</displayName>
-				<relativeTime type="future">
-					<relativeTimePattern count="other">in {0} hr.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} hr. ago</relativeTimePattern>
-				</relativeTime>
 			</field>
 		</fields>
 		<timeZoneNames>
@@ -256,6 +220,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Australia_Central">
 				<long>
 					<generic>Australian Central Time</generic>
+					<standard>Australian Central Standard Time</standard>
+					<daylight>Australian Central Daylight Time</daylight>
 				</long>
 				<short>
 					<generic>ACT</generic>
@@ -273,6 +239,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Australia_Eastern">
 				<long>
 					<generic>Australian Eastern Time</generic>
+					<standard>Australian Eastern Standard Time</standard>
+					<daylight>Australian Eastern Daylight Time</daylight>
 				</long>
 				<short>
 					<generic>AET</generic>
@@ -283,6 +251,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Australia_Western">
 				<long>
 					<generic>Australian Western Time</generic>
+					<standard>Australian Western Standard Time</standard>
+					<daylight>Australian Western Daylight Time</daylight>
 				</long>
 				<short>
 					<generic>AWT</generic>
@@ -299,12 +269,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Japan">
 				<long>
+					<generic>Japan Time</generic>
+					<standard>Japan Standard Time</standard>
 					<daylight>Japan Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Korea">
 				<long>
 					<generic>Korea Time</generic>
+					<standard>Korean Standard Time</standard>
 					<daylight>Korean Summer Time</daylight>
 				</long>
 			</metazone>
@@ -317,6 +290,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Moscow">
 				<long>
+					<generic>Moscow Time</generic>
+					<standard>Moscow Standard Time</standard>
 					<daylight>Moscow Daylight Time</daylight>
 				</long>
 			</metazone>
@@ -329,11 +304,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Samoa">
 				<long>
+					<generic>Samoa Time</generic>
+					<standard>Samoa Standard Time</standard>
 					<daylight>Samoa Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Taipei">
 				<long>
+					<generic>Taipei Time</generic>
+					<standard>Taipei Standard Time</standard>
 					<daylight>Taipei Summer Time</daylight>
 				</long>
 			</metazone>
@@ -355,6 +334,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="BAM">
 				<displayName>Bosnia-Herzegovina Convertible Marka</displayName>
 				<displayName count="one">Bosnia-Herzegovina convertible marka</displayName>
+				<displayName count="other">Bosnia-Herzegovina convertible marka</displayName>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbados Dollar</displayName>
@@ -399,6 +379,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol draft="contributed">GBP</symbol>
 			</currency>
 			<currency type="GEL">
+				<displayName count="one">Georgian lari</displayName>
 				<displayName count="other">Georgian lari</displayName>
 				<symbol alt="variant" draft="contributed">GEL</symbol>
 			</currency>
@@ -424,12 +405,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol draft="contributed">KRW</symbol>
 			</currency>
 			<currency type="KZT">
+				<displayName count="one">Kazakhstani tenge</displayName>
 				<displayName count="other">Kazakhstani tenge</displayName>
 			</currency>
 			<currency type="LAK">
+				<displayName count="one">Laotian kip</displayName>
 				<displayName count="other">Laotian kip</displayName>
 			</currency>
 			<currency type="MKD">
+				<displayName count="one">Macedonian denar</displayName>
 				<displayName count="other">Macedonian denar</displayName>
 			</currency>
 			<currency type="MXN">
@@ -439,6 +423,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol draft="contributed">NZD</symbol>
 			</currency>
 			<currency type="PGK">
+				<displayName count="one">Papua New Guinean kina</displayName>
 				<displayName count="other">Papua New Guinean kinas</displayName>
 			</currency>
 			<currency type="PYG">
@@ -461,6 +446,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">Suriname dollars</displayName>
 			</currency>
 			<currency type="TRY">
+				<displayName count="one">Turkish lira</displayName>
 				<displayName count="other">Turkish lire</displayName>
 				<symbol alt="variant" draft="contributed">TRY</symbol>
 			</currency>
@@ -475,13 +461,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol alt="narrow" draft="contributed">$U</symbol>
 			</currency>
 			<currency type="UZS">
+				<displayName count="one">Uzbekistani som</displayName>
 				<displayName count="other">Uzbekistani soms</displayName>
 			</currency>
 			<currency type="VND">
+				<displayName count="one">Vietnamese dong</displayName>
 				<displayName count="other">Vietnamese dongs</displayName>
 				<symbol draft="contributed">VND</symbol>
 			</currency>
 			<currency type="WST">
+				<displayName count="one">Samoan tala</displayName>
 				<displayName count="other">Samoan talas</displayName>
 			</currency>
 			<currency type="XAF">
@@ -617,6 +606,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} fm</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<unitPattern count="one">{0} lb</unitPattern>
 				<unitPattern count="other">{0} lb</unitPattern>
 			</unit>
 			<unit type="mass-carat">

@@ -2127,6 +2127,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>நாள்</displayName>
 				<relative type="-2">நேற்று முன் தினம்</relative>
+				<relative type="-1">நேற்று</relative>
+				<relative type="0">இன்று</relative>
+				<relative type="1">நாளை</relative>
 				<relative type="2">நாளை மறுநாள்</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} நாளில்</relativeTimePattern>
@@ -2140,6 +2143,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>நா.</displayName>
 				<relative type="-2">நேற்று முன் தினம்</relative>
+				<relative type="-1">நேற்று</relative>
+				<relative type="0">இன்று</relative>
+				<relative type="1">நாளை</relative>
 				<relative type="2">நாளை மறுநாள்</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} நா.</relativeTimePattern>

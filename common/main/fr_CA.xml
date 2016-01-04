@@ -102,8 +102,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">min.</dayPeriod>
 							<dayPeriod type="noon">midi</dayPeriod>
+							<dayPeriod type="morning1">mat.</dayPeriod>
 							<dayPeriod type="afternoon1">après-midi</dayPeriod>
+							<dayPeriod type="evening1">soir</dayPeriod>
 							<dayPeriod type="night1">du matin</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
@@ -111,10 +114,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<dayPeriod type="am">a</dayPeriod>
 							<dayPeriod type="noon">midi</dayPeriod>
 							<dayPeriod type="pm">p</dayPeriod>
+							<dayPeriod type="morning1">mat.</dayPeriod>
 							<dayPeriod type="afternoon1">après-midi</dayPeriod>
+							<dayPeriod type="evening1">soir</dayPeriod>
 							<dayPeriod type="night1">nuit</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight">minuit</dayPeriod>
 							<dayPeriod type="noon">midi</dayPeriod>
 							<dayPeriod type="morning1">du matin</dayPeriod>
 							<dayPeriod type="afternoon1">de l’après-midi</dayPeriod>
@@ -195,6 +201,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<monthWidth type="wide">
 							<month type="1">mouharram</month>
 							<month type="2">safar</month>
+							<month type="3">rabia al awal</month>
 							<month type="4">rabia ath-thani</month>
 							<month type="5">joumada al oula</month>
 							<month type="6">joumada ath-thania</month>
@@ -363,6 +370,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Amazon">
 				<long>
+					<generic>heure de l’Amazonie</generic>
 					<standard>heure normale de l’Amazonie</standard>
 					<daylight>heure avancée de l’Amazonie</daylight>
 				</long>
@@ -452,6 +460,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Argentina">
 				<long>
+					<generic>heure de l’Argentine</generic>
 					<standard>heure normale d’Argentine</standard>
 					<daylight>heure avancée de l’Argentine</daylight>
 				</long>
@@ -1053,9 +1062,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="GBP">
 				<symbol draft="contributed">£</symbol>
 			</currency>
-			<currency type="GEL">
-				<displayName count="one">lari géorgien</displayName>
-			</currency>
 			<currency type="GIP">
 				<symbol draft="contributed">GIP</symbol>
 			</currency>
@@ -1266,9 +1272,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="proportion-karat">
 				<displayName>carats</displayName>
-			</unit>
-			<unit type="temperature-generic">
-				<unitPattern count="one">{0}°</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
 				<displayName draft="contributed">vg³</displayName>

@@ -1974,6 +1974,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>dagur</displayName>
 				<relative type="-2">í fyrradag</relative>
+				<relative type="-1">í gær</relative>
+				<relative type="0">í dag</relative>
+				<relative type="1">á morgun</relative>
 				<relative type="2">eftir tvo daga</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">eftir {0} dag</relativeTimePattern>
@@ -1987,6 +1990,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>d.</displayName>
 				<relative type="-2">í fyrradag</relative>
+				<relative type="-1">í gær</relative>
+				<relative type="0">í dag</relative>
+				<relative type="1">á morgun</relative>
 				<relative type="2">eftir tvo daga</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} dag</relativeTimePattern>

@@ -2386,6 +2386,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>gün</displayName>
 				<relative type="-2">evvelsi gün</relative>
+				<relative type="-1">dün</relative>
+				<relative type="0">bugün</relative>
+				<relative type="1">yarın</relative>
 				<relative type="2">öbür gün</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} gün sonra</relativeTimePattern>
@@ -2399,6 +2402,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>gün</displayName>
 				<relative type="-2">evvelsi gün</relative>
+				<relative type="-1">dün</relative>
+				<relative type="0">bugün</relative>
+				<relative type="1">yarın</relative>
 				<relative type="2">öbür gün</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} gün sonra</relativeTimePattern>

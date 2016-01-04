@@ -2125,6 +2125,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>ദിവസം</displayName>
 				<relative type="-2">മിനിഞ്ഞാന്ന്</relative>
+				<relative type="-1">ഇന്നലെ</relative>
+				<relative type="0">ഇന്ന്</relative>
+				<relative type="1">നാളെ</relative>
 				<relative type="2">മറ്റന്നാൾ</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} ദിവസത്തിൽ</relativeTimePattern>
@@ -2138,6 +2141,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>ദിവസം</displayName>
 				<relative type="-2">മിനിഞ്ഞാന്ന്</relative>
+				<relative type="-1">ഇന്നലെ</relative>
+				<relative type="0">ഇന്ന്</relative>
+				<relative type="1">നാളെ</relative>
 				<relative type="2">മറ്റന്നാൾ</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} ദിവസത്തിൽ</relativeTimePattern>

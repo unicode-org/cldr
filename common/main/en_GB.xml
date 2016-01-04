@@ -29,22 +29,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="am">am</dayPeriod>
-							<dayPeriod type="noon">noon</dayPeriod>
 							<dayPeriod type="pm">pm</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="noon">n</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">am</dayPeriod>
-							<dayPeriod type="noon">noon</dayPeriod>
 							<dayPeriod type="pm">pm</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">a</dayPeriod>
-							<dayPeriod type="noon">n</dayPeriod>
 							<dayPeriod type="pm">p</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
@@ -92,9 +86,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="year-narrow">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} yr</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} yr</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} yr ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} yr ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter-short">
@@ -112,9 +108,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>qtr</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} qtr</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} qtr</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} qtr ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} qtr ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month-short">
@@ -132,9 +130,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mo</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} mo</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} mo</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} mo ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} mo ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="week-short">
@@ -152,6 +152,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>wk</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} wk</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} wk</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} wk ago</relativeTimePattern>

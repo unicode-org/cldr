@@ -2951,6 +2951,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>d.</displayName>
 				<relative type="-2">prekjučer</relative>
+				<relative type="-1">jučer</relative>
+				<relative type="0">danas</relative>
+				<relative type="1">sutra</relative>
 				<relative type="2">prekosutra</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} dan</relativeTimePattern>
@@ -2966,6 +2969,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>d.</displayName>
 				<relative type="-2">prekjučer</relative>
+				<relative type="-1">jučer</relative>
+				<relative type="0">danas</relative>
+				<relative type="1">sutra</relative>
 				<relative type="2">prekosutra</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} d</relativeTimePattern>

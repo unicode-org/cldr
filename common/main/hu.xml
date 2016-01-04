@@ -2590,6 +2590,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>nap</displayName>
 				<relative type="-2">tegnapelőtt</relative>
+				<relative type="-1">tegnap</relative>
+				<relative type="0">ma</relative>
+				<relative type="1">holnap</relative>
 				<relative type="2">holnapután</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} nap múlva</relativeTimePattern>
@@ -2603,6 +2606,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>nap</displayName>
 				<relative type="-2">tegnapelőtt</relative>
+				<relative type="-1">tegnap</relative>
+				<relative type="0">ma</relative>
+				<relative type="1">holnap</relative>
 				<relative type="2">holnapután</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} nap múlva</relativeTimePattern>

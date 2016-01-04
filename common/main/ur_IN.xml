@@ -114,6 +114,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="week">
 				<relative type="-1">گزشتہ ہفتہ</relative>
+				<relative type="0">اس ہفتہ</relative>
+				<relative type="1">اگلے ہفتہ</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} ہفتہ میں</relativeTimePattern>
 					<relativeTimePattern count="other">{0} ہفتوں میں</relativeTimePattern>
@@ -149,18 +151,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="mon">
 				<relative type="-1">پچھلے سوموار</relative>
+				<relative type="0">اس سوموار</relative>
+				<relative type="1">اگلے سوموار</relative>
 			</field>
 			<field type="tue">
 				<relative type="-1">پچھلے منگل</relative>
+				<relative type="0">اس منگل</relative>
+				<relative type="1">اگلے منگل</relative>
 			</field>
 			<field type="wed">
 				<relative type="-1">پچھلے بدھ</relative>
+				<relative type="0">اس بدھ</relative>
+				<relative type="1">اگلے بدھ</relative>
 			</field>
 			<field type="thu">
 				<relative type="-1">پچھلے جمعرات</relative>
+				<relative type="0">اس جمعرات</relative>
+				<relative type="1">اگلے جمعرات</relative>
 			</field>
 			<field type="fri">
 				<relative type="-1">پچھلے جمعہ</relative>
+				<relative type="0">اس جمعہ</relative>
+				<relative type="1">اگلے جمعہ</relative>
 			</field>
 			<field type="hour-short">
 				<relativeTime type="past">

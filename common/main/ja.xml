@@ -4170,6 +4170,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>日</displayName>
 				<relative type="-2">一昨日</relative>
+				<relative type="-1">昨日</relative>
+				<relative type="0">今日</relative>
+				<relative type="1">明日</relative>
 				<relative type="2">明後日</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 日後</relativeTimePattern>
@@ -4181,6 +4184,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>日</displayName>
 				<relative type="-2">一昨日</relative>
+				<relative type="-1">昨日</relative>
+				<relative type="0">今日</relative>
+				<relative type="1">明日</relative>
 				<relative type="2">明後日</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 日後</relativeTimePattern>

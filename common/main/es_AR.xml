@@ -101,10 +101,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="noon">m.</dayPeriod>
-							<dayPeriod type="evening1">tarde</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="evening1">tarde</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -340,6 +336,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</unitLength>
 		<unitLength type="narrow">
 			<unit type="duration-year">
+				<unitPattern count="one" draft="contributed">{0}a.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}a.</unitPattern>
 			</unit>
 			<unit type="duration-second">

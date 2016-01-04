@@ -54,6 +54,11 @@ public class CLDRConfig extends Properties {
     private static final Object RBNF_FACTORY_SYNC = new Object();
 
     /**
+     * Object to use for synchronization when interacting with Factory
+     */
+    private static final Object ANNOTATIONS_FACTORY_SYNC = new Object();
+
+    /**
      * Object used for synchronization when interacting with SupplementalData
      */
     private static final Object SUPPLEMENTAL_DATA_SYNC = new Object();
@@ -139,6 +144,7 @@ public class CLDRConfig extends Properties {
     private Factory exemplarsFactory;
     private Factory collationFactory;
     private Factory rbnfFactory;
+    private Factory annotationsFactory;
     private Factory supplementalFactory;
     private RuleBasedCollator col;
     private Phase phase = null; // default
@@ -245,6 +251,15 @@ public class CLDRConfig extends Properties {
             }
         }
         return rbnfFactory;
+    }
+
+    public Factory getAnnotationsFactory() {
+        synchronized (ANNOTATIONS_FACTORY_SYNC) {
+            if (annotationsFactory == null) {
+                annotationsFactory = Factory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
+            }
+        }
+        return annotationsFactory;
     }
 
     public Factory getFullCldrFactory() {

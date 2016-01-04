@@ -36,7 +36,6 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 #     writes as */y/.
 
 $IPA_VOWEL = [aeəiɨou];
-$IPA_VOWEL_WITHOUT_A = [eəiɨou];
 $IPA_CONSONANT = [mnɲɴ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvs{sʼ}zʃʒh lr {t͡ʃ}{t͡ʃʼ}{d͡ʒ}];
 
 # Appendix B of [1] transcribes ሀ as /hə/. However, according to
@@ -612,7 +611,7 @@ $IPA_CONSONANT = [mnɲɴ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvs{sʼ}zʃʒh lr {t͡ʃ}{t�
 # U+135D ETHIOPIC COMBINING GEMINATION AND VOWEL LENGTH MARK
 # U+135E ETHIOPIC COMBINING VOWEL LENGTH MARK
 # U+135F ETHIOPIC COMBINING GEMINATION MARK
-::null;
+::null();
 ← ː ;  # Strip off any remaining IPA length markers.
 ::(null);
 ($IPA_CONSONANT) ([jw]? $IPA_VOWEL) \u135D → $1 ː $2 ː;
@@ -620,18 +619,20 @@ $IPA_CONSONANT = [mnɲɴ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvs{sʼ}zʃʒh lr {t͡ʃ}{t�
 ($IPA_CONSONANT) ([jw]? $IPA_VOWEL?) \u135F → $1 ː $2;
 [\u135D \u135E \u135F] → ;  # Strip off any remaining length markers.
 
-# Handle ኧፕ፟ወ፞ ← əpːʷəː, but without catching apːʷaː.
-$1 \u135F $2 \u135E ← ([p] ʼ?) ː ([jw] $IPA_VOWEL_WITHOUT_A) ː;
-$1 \u135F $2 ← {([p] ʼ?) ː ([jw] $IPA_VOWEL_WITHOUT_A?)} [^a];
+$1 wa \u135D ← ([pt]ʼ?) ː waː;  # ቷ፝ ← [tːʷaː]
+$1 wa \u135E ← ([pt]ʼ?)   waː;  # ቷ፞ ← [tʷaː]
+$1 wa \u135F ← ([pt]ʼ?) ː wa;   # አቷ፟ ← [tːʷa]
+
+$1 \u135F $2 \u135E ← ([pbt] ʼ?) ː ([jw] $IPA_VOWEL) ː;
+$1 \u135F $2 ← {([pbt] ʼ?) ː ([jw] $IPA_VOWEL?)};
 
 $1 \u135E ← ($IPA_VOWEL ː);
-$1 \u135E ← (w $IPA_VOWEL ː);
 $1 \u135D ← (jː $IPA_VOWEL ː);
-$1 \u135E ← (j $IPA_VOWEL ː);
+$1 \u135E ← ([jw] $IPA_VOWEL ː);
 $1 \u135F ← (jː $IPA_VOWEL?);
-$1 \u135D ← ($IPA_CONSONANT ː [jw]? $IPA_VOWEL ː);
-$1 \u135E ← ($IPA_CONSONANT [jw]? $IPA_VOWEL ː);
-$1 \u135F ← ($IPA_CONSONANT ː [jw]? $IPA_VOWEL?);
+$1 \u135D ← ($IPA_CONSONANT ː [w]? $IPA_VOWEL ː);
+$1 \u135E ← ($IPA_CONSONANT [w]? $IPA_VOWEL ː);
+$1 \u135F ← ($IPA_CONSONANT ː [w]? $IPA_VOWEL?);
 
 # Insert syllable markers in a separate pass.
 ::null;
@@ -667,15 +668,27 @@ uwe ← ue;    # Lithuania /lituenia/ ሊቱዌኒያ, Venezuela /venɨzuela/ �
 $1 w ← {($IPA_VOWEL ː?) ̯} $IPA_VOWEL;  # /ewowa/ ← /e̯o̯a/
 
 ::(null);
+
 n ← [n {n̼} {n̼̊} {m̺} {n̊} {n̥}];
 m ← [ɱ {m̥} {m̪}];
 ɲ ← [{ɳ̊} {ɳ̥} ɳ {ɲ̊} {ɲ̥} ɲ];
 ŋ ← [{ŋ̊} {ŋ̥} ŋ];
 ɴ ← [{ɴ̊} {ɴ̥} ɴ];
-t͡s ← ʦ;
+
+p ← [{t̼} {p̺}];
+b ← [{d̼} {b̺} {ɾ̼}];
+t ← [{t̪} ʈ];
+d ← ɖ;
+k ← q;
+ɡ ← [g ɢ ɣ];
+ʔ ← ʡ;
+
+sʼ ← [{t͡s} {t͜s} ʦ];
+pf ← [{p̪} {p͆} ȹ {p͡f} {p̪f} {p̪͜f}];
+bv ← [{b̪} {b͆} ȸ {b͡v} {b̪͡v}];
+
 t͡ʃ ← [ʧ c];
 ə ← [ɛ æ];
-ɡ ← [g ɣ];
 h ← [ɦ x ç];
 ɨ ← ɪ;
 j ← [ʝ ʲ];
@@ -691,7 +704,9 @@ w ← ʷ;
 
 ::(null);
 ʼ ← ʰ;
-
+← [ʱ];
+$1ːʲ ← ([pbtd])ʲː;  # [bːʲeː] ← [bʲːeː]
+$1ːʷ ← ([pbtd])ʷː;  # [bːʷeː] ← [bʷːeː]
 			</tRule>
 		</transform>
 	</transforms>

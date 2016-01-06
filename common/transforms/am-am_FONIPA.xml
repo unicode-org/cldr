@@ -38,6 +38,12 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 $IPA_VOWEL = [aeəiɨou];
 $IPA_CONSONANT = [mnɲɴ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvs{sʼ}zʃʒh lr {t͡ʃ}{t͡ʃʼ}{d͡ʒ}];
 
+# Some consonants have a special syllable when labialized, such as ፗ ↔ /pʷa/.
+# Amharic restricts this mostly to /a/ syllables. While the Ethiopic script
+# does offer labialized syllables for other vowels, these are typically
+# not written in Amharic.
+$LABIALIZABLE_BEFORE_A = [p{pʼ}t{tʼ} {t͡ʃ}{t͡ʃʼ}{d͡ʒ}{d͡ʒʼ} s{sʼ}zʃʒ fv r];
+
 # Appendix B of [1] transcribes ሀ as /hə/. However, according to
 # an Amharic-speaking person, there is no /hə/ sequence
 # in Amharic; instead, it gets pronounced as /ha/.
@@ -619,12 +625,12 @@ $IPA_CONSONANT = [mnɲɴ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvs{sʼ}zʃʒh lr {t͡ʃ}{t�
 ($IPA_CONSONANT) ([jw]? $IPA_VOWEL?) \u135F → $1 ː $2;
 [\u135D \u135E \u135F] → ;  # Strip off any remaining length markers.
 
-$1 wa \u135D ← ([pt]ʼ?) ː waː;  # ቷ፝ ← [tːʷaː]
-$1 wa \u135E ← ([pt]ʼ?)   waː;  # ቷ፞ ← [tʷaː]
-$1 wa \u135F ← ([pt]ʼ?) ː wa;   # አቷ፟ ← [tːʷa]
+$1 wa \u135D ← ($LABIALIZABLE_BEFORE_A) ː waː;  # ቷ፝ ← [tːʷaː]
+$1 wa \u135E ← ($LABIALIZABLE_BEFORE_A)   waː;  # ቷ፞ ← [tʷaː]
+$1 wa \u135F ← ($LABIALIZABLE_BEFORE_A) ː wa;   # አቷ፟ ← [tːʷa]
 
-$1 \u135F $2 \u135E ← ([pbt] ʼ?) ː ([jw] $IPA_VOWEL) ː;
-$1 \u135F $2 ← {([pbt] ʼ?) ː ([jw] $IPA_VOWEL?)};
+$1 \u135F $2 \u135E ← ([b $LABIALIZABLE_BEFORE_A]) ː ([jw] $IPA_VOWEL) ː;
+$1 \u135F $2 ← {([b $LABIALIZABLE_BEFORE_A]) ː ([jw] $IPA_VOWEL?)};
 
 $1 \u135E ← ($IPA_VOWEL ː);
 $1 \u135D ← (jː $IPA_VOWEL ː);
@@ -684,25 +690,31 @@ k ← q;
 ʔ ← ʡ;
 
 sʼ ← [{t͡s} {t͜s} ʦ];
+t͡ʃ ← [{t͜ʃ} ʧ {t͡ɕ} {t͜ɕ} ʨ {ʈ͡ʂ} c];
+d͡ʒ ← [ʤ ʣ {d͡z} {d͜z} {d͡ɕ} ʥ {d͡ʑ} {d͜ʑ} {ɖ͡ʐ} {d͡ʐ} ɟ];
 pf ← [{p̪} {p͆} ȹ {p͡f} {p̪f} {p̪͜f}];
 bv ← [{b̪} {b͆} ȸ {b͡v} {b̪͡v}];
 
-t͡ʃ ← [ʧ c];
-ə ← [ɛ æ];
+ʃ ← [ʂ ɕ];
+ʒ ← [ʐ ʑ];
+r ← [ɾ ɽ];
+rːʒ ← r̝ː;
+rʒ ← r̝;
+
+ʕ ← ʕ̝;
 h ← [ɦ x ç];
+
+ə ← [ɛ æ];
 ɨ ← ɪ;
 j ← [ʝ ʲ];
 lj ← ʎ [iɪɨ]? [jʝʲ]?;
 
-o ← ɔ;
-rʒ ← r̝;
-ʃ ← [ʂ ɕ];
-ʒ ← [ʐ ʑ];
-d͡ʒ ← [ʤ ʥ {d͡z} {d͡ɕ} {d͡ʑ} ɟ];
+w ← {u̯} $IPA_VOWEL;
 w ← ʷ;
 ʼː ← ːʼ;  # /pʼː/ ← /pːʼ/; /sʼː/ ← /sːʼ/; etc.
 
 ::(null);
+o ← ɔ;
 ʼ ← ʰ;
 ← [ʱ];
 $1ːʲ ← ([pbtd])ʲː;  # [bːʲeː] ← [bʲːeː]

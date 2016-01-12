@@ -16,6 +16,8 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.ScriptMetadata;
+import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -42,6 +44,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.stream.JsonWriter;
 import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.dev.util.CollectionUtilities;
 
 /**
  * Utility methods to extract data from CLDR repository and export it in JSON
@@ -672,6 +675,25 @@ public class Ldml2JsonConverter {
         outf.println(gson.toJson(obj));
         outf.close();
     }
+    
+    public void writeScriptMetadata(String outputDir) throws IOException {
+        PrintWriter outf = BagFormatter.openUTF8Writer(outputDir + "/cldr-core", "scriptMetadata.json");
+        System.out.println("Creating script metadata file => " + outputDir + File.separator +"cldr-core" + File.separator + "scriptMetadata.json");
+        Map<String,Info> scriptInfo = new TreeMap<String,Info>();
+        for (String script : ScriptMetadata.getScripts()) {
+            Info i = ScriptMetadata.getInfo(script);
+            scriptInfo.put(script,i);
+        }
+        if (ScriptMetadata.errors.size() > 0) {
+            System.err.println(CollectionUtilities.join(ScriptMetadata.errors, "\n\t"));
+            //throw new IllegalArgumentException();
+        }
+
+        JsonObject obj = new JsonObject();
+        obj.add("scriptMetadata", gson.toJsonTree(scriptInfo));
+        outf.println(gson.toJson(obj));
+        outf.close();
+    }
 
     /**
      * Process the pending sorting items.
@@ -1096,6 +1118,8 @@ public class Ldml2JsonConverter {
             if (type == RunType.main) {
                 writeDefaultContent(outputDir);
                 writeAvailableLocales(outputDir);
+            } else if (type == RunType.supplemental) {
+                writeScriptMetadata(outputDir);
             }
         }
     }

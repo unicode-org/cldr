@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Latin" target="Armenian" direction="both">
+		<transform source="Latn" target="Armn" direction="both" alias="Latin-Armenian" backwardAlias="Armenian-Latin">
 			<tRule>
 ::NFD(NFC);
 ev ↔ և ;

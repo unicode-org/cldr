@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Cyrillic" target="Latin" direction="both">
+		<transform source="Cyrl" target="Latn" direction="both" alias="Cyrillic-Latin" backwardAlias="Latin-Cyrillic">
 			<tRule>
 # TODO: add remaining characters
 # Should add variants for Russian-English, Russian-German

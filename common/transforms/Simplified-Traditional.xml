@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Simplified" target="Traditional" direction="both">
+		<transform source="Hans" target="Hant" direction="both" alias="Simplified-Traditional" backwardAlias="Traditional-Simplified">
 			<tRule>
 # Copyright (c) 2005-2007,2010 Apple Inc., Unicode Inc.,
 # and others. All Rights Reserved.

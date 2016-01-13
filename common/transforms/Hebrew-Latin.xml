@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Hebrew" target="Latin" direction="both">
+		<transform source="Hebr" target="Latn" direction="both" alias="Hebrew-Latin" backwardAlias="Latin-Hebrew">
 			<tRule><![CDATA[
 # Transliteration table for Hebrew
 # Based on the UNGEGN table at:

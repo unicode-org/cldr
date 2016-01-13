@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Arabic" target="Latin" direction="both">
+		<transform source="Arab" target="Latn" direction="both" alias="Arabic-Latin" backwardAlias="Latin-Arabic">
 			<tRule><![CDATA[
 # Generally follows UNGEGN
 #     http://www.eki.ee/wgrs/rom1_ar.pdf

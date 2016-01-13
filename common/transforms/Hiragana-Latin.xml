@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Hiragana" target="Latin" direction="both">
+		<transform source="Hira" target="Latn" direction="both" alias="Hiragana-Latin" backwardAlias="Latin-Hiragana">
 			<tRule>
 :: [ぁ-ゔ゙ゝ-ゞガギグゲゴザジズゼゾダヂヅデドバビブベボヴヷ-ヺーヾ] ;
 :: NFD ;

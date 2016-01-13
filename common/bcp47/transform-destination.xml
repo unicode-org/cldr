@@ -7,10 +7,12 @@
 <ldmlBCP47>
 	<version number="$Revision: 12151 $"/>
 	<keyword>
-		<key extension="t" name="d0" description="Transform destination, for non-languages/scripts. The from subtag is for indicating the source instead of the destination" since="29">
+		<key extension="t" name="d0" description="Transform type for non-languages/scripts. The ‘from’ subtag is for indicating the source instead of the destination" since="29">
 			<type name="ascii" description="map as many characters to the closest ASCII character as possible" since="29"/>
 			<type name="accents" description="map base + punctuation, etc to accented characters" since="29"/>
+			<type name="from-accents" description="map base + punctuation, etc to accented characters" since="29"/>
 			<type name="publish" description="map to preferred forms for publishing, such as “, ”, —" since="29" alias="publishing"/>
+			<type name="from-publish" description="from preferred forms for publishing, such as “, ”, —" since="29" alias="publishing"/>
 			<type name="casefold" description="apply Unicode case folding" since="29"/>
 			<type name="lower" description="apply Unicode full lowercase mapping" since="29"/>
 			<type name="upper" description="apply Unicode full uppercase mapping" since="29"/>
@@ -19,32 +21,37 @@
 			<type name="fwidth" description="map characters to their fullwidth equivalents" since="29" alias="fullwidth"/>
 			<type name="hwidth" description="map characters to their halfwidth equivalents" since="29" alias="halfwidth"/>
 			<type name="hex" description="map characters to hex equivalents, eg 'a' to '0061'" since="29"/>
-			<type name="hex-c11" description="hex, with the C11 syntax" since="29" alias="hex-c"/>
-			<type name="hex-java" description="hex, with the Java syntax" since="29"/>
-			<type name="hex-plain" description="???" since="29"/>
-			<type name="hex-perl" description="hex, with the perl syntax: \x{61}" since="29"/>
-			<type name="hex-unicode" description="hex with the Unicode syntax: U+0061" since="29"/>
-			<type name="hex-xml" description="hex with the xml syntax: &#x61;" since="29"/>
-			<type name="hex-xml10" description="hex with the xml decimal syntax: &#x97;" since="29"/>
-			<type name="from-hex" description="map from hex to characters, trying all formats" since="29" alias="from-hex-c"/>
-			<type name="from-hex-c11" description="from hex to characters, with the C11 syntax" since="29"/>
-			<type name="from-hex-java" description="from hex to characters, with the Java syntax" since="29"/>
-			<type name="from-hex-plain" description="from hex to characters, ???" since="29"/>
-			<type name="from-hex-perl" description="from hex to characters, with the perl syntax: \x{61}" since="29"/>
-			<type name="from-hex-unicode" description="from hex to characters with the Unicode syntax: U+0061" since="29"/>
-			<type name="from-hex-xml" description="from hex to characters with the xml syntax: &#x61;" since="29"/>
-			<type name="from-hex-xml10" description="from hex to characters with the xml decimal syntax: &#x97;" since="29"/>
+			<type name="from-hex" description="map from hex, trying all formats" since="29" alias="from-hex-c"/>
+			<type name="hex-c11" description="to hex, with the C11 syntax: \u0061\U0001F4D6" since="29" alias="hex-c"/>
+			<type name="from-hex-c11" description="from hex, with the C11 syntax: \u0061\U0001F4D6" since="29"/>
+			<type name="hex-css" description="to hex, with the CSS syntax: \61 \01F4D6" since="29"/>
+			<type name="from-hex-css" description="from hex, with the CSS syntax: \61 \01F4D6" since="29"/>
+			<type name="hex-java" description="to hex, with the Java syntax: \u0061\uD83D\uDCD6" since="29"/>
+			<type name="from-hex-java" description="from hex, with the Java syntax: \u0061\uD83D\uDCD6" since="29"/>
+			<type name="hex-percent" description="to hex, with the percent syntax: %61%F0%9F%93%96" since="29"/>
+			<type name="from-hex-percent" description="from hex, with the percent syntax: %61%F0%9F%93%96" since="29"/>
+			<type name="hex-perl" description="to hex, with the perl syntax: \x{61}\x{1F4D6}" since="29"/>
+			<type name="from-hex-perl" description="from hex, with the perl syntax: \x{61}\x{1F4D6}" since="29"/>
+			<type name="hex-plain" description="to hex, with no surrounding syntax: 0061 1F4D6" since="29"/>
+			<type name="from-hex-plain" description="from hex, with no surrounding syntax: 0061 1F4D6" since="29"/>
+			<type name="hex-unicode" description="to hex with the Unicode syntax: U+0061 U+1F4D6" since="29"/>
+			<type name="from-hex-unicode" description="from hex with the Unicode syntax: U+0061 U+1F4D6" since="29"/>
+			<type name="hex-xml" description="to hex with the xml syntax: &#x61;&#x1F4D6;" since="29"/>
+			<type name="from-hex-xml" description="from hex with the xml syntax: &#x61;&#x1F4D6;" since="29"/>
+			<type name="hex-xml10" description="to hex with the xml decimal syntax: &#97;&#128214;" since="29"/>
+			<type name="from-hex-xml10" description="from hex with the xml decimal syntax: &#97;&#128214;" since="29"/>
 			<type name="nfc" description="map string to the Unicode NFC format" since="29"/>
 			<type name="nfd" description="map string to the Unicode NFD format" since="29"/>
-			<type name="fcd" description="map string to the FCD format" since="29"/>
 			<type name="nfkc" description="map string to the Unicode NFKC format" since="29"/>
 			<type name="nfkd" description="map string to the Unicode NFKD format" since="29"/>
+			<type name="fcd" description="map string to the FCD format; http://unicode.org/notes/tn5" since="29"/>
+			<type name="fcc" description="map string to the FCC format; http://unicode.org/notes/tn5" since="29"/>
 			<type name="charname" description="map each character to its Unicode name" since="29" alias="name"/>
-			<type name="null" description="make no change in the string" since="29"/>
-			<type name="remove" description="remove every character in the string" since="29"/>
 			<type name="npinyin" description="map pinyin written with tones to the numeric form" since="29" alias="numericPinyin"/>
 			<type name="from-npinyin" description="map the numeric form of pinyin to the tone format" since="29" alias="from-numericPinyin"/>
 			<type name="prprname" description="transform variant for proper names" since="29" alias="names"/>
+			<type name="null" description="make no change in the string" since="29"/>
+			<type name="remove" description="remove every character in the string" since="29"/>
 		</key>
 	</keyword>
 </ldmlBCP47>

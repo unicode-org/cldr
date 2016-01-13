@@ -1,12 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
-<!-- Copyright © 1991-2013 Unicode, Inc. DRAFT emoji-annotations.txt For 
+<!-- Copyright © 1991-2015 Unicode®, Inc. emoji-annotations.txt For 
  details about the format and other information, see /../../../reports/tr51/index.html#Data_Files. 
  http://unicode.org/cldr/trac/ticket/8019 CLDR data files are interpreted 
  according to the LDML specification (http://unicode.org/reports/tr35/) For 
  terms of use, see http://www.unicode.org/copyright.html 
- This is still under development, and will be refined before changing the draft status from 'provisional'. 
- In particular, the annotations like 'people-apple' are only present during development, and will be withdrawn for the release.
  -->
 <ldml>
 	<identity>
@@ -14,1287 +12,1030 @@
 		<language type='en'/>
 	</identity>
 	<annotations>
-		<annotation cp='[{0⃣}]' draft='provisional'>0; zero</annotation>
-		<annotation cp='[🕐-🕛]' draft='provisional'>00; o’clock</annotation>
-		<annotation cp='[👎]' draft='provisional'>-1; thumbs down</annotation>
-		<annotation cp='[👍]' draft='provisional'>+1; thumbs up</annotation>
-		<annotation cp='[🕐🕜{1⃣}]' draft='provisional'>1; one</annotation>
-		<annotation cp='[🔟🕙🕥]' draft='provisional'>10; ten</annotation>
-		<annotation cp='[🕐]' draft='provisional'>1:00</annotation>
-		<annotation cp='[💯]' draft='provisional'>100; hundred</annotation>
-		<annotation cp='[🕙]' draft='provisional'>10:00</annotation>
-		<annotation cp='[🕥]' draft='provisional'>10:30</annotation>
-		<annotation cp='[🕚🕦]' draft='provisional'>11; eleven</annotation>
-		<annotation cp='[🕚]' draft='provisional'>11:00</annotation>
-		<annotation cp='[🕦]' draft='provisional'>11:30</annotation>
-		<annotation cp='[🕛🕧]' draft='provisional'>12; twelve</annotation>
-		<annotation cp='[🕛]' draft='provisional'>12:00</annotation>
-		<annotation cp='[🕧]' draft='provisional'>12:30</annotation>
-		<annotation cp='[🔢]' draft='provisional'>1234; numbers</annotation>
-		<annotation cp='[🕜]' draft='provisional'>1:30</annotation>
-		<annotation cp='[🔞]' draft='provisional'>18; age restriction; eighteen; underage</annotation>
-		<annotation cp='[🕑🕝{2⃣}]' draft='provisional'>2; two</annotation>
-		<annotation cp='[🕑]' draft='provisional'>2:00</annotation>
-		<annotation cp='[🕝]' draft='provisional'>2:30</annotation>
-		<annotation cp='[🔊🕒🕞🖱{3⃣}]' draft='provisional'>3; three</annotation>
-		<annotation cp='[🕜-🕧]' draft='provisional'>30; thirty</annotation>
-		<annotation cp='[🕒]' draft='provisional'>3:00</annotation>
-		<annotation cp='[🕞]' draft='provisional'>3:30</annotation>
-		<annotation cp='[🍀🕓🕟{4⃣}]' draft='provisional'>4; four</annotation>
-		<annotation cp='[🕓]' draft='provisional'>4:00</annotation>
-		<annotation cp='[🕟]' draft='provisional'>4:30</annotation>
-		<annotation cp='[🕔🕠{5⃣}]' draft='provisional'>5; five</annotation>
-		<annotation cp='[🕔]' draft='provisional'>5:00</annotation>
-		<annotation cp='[🕠]' draft='provisional'>5:30</annotation>
-		<annotation cp='[🕕🕡{6⃣}]' draft='provisional'>6; six</annotation>
-		<annotation cp='[🕕]' draft='provisional'>6:00</annotation>
-		<annotation cp='[🕡]' draft='provisional'>6:30</annotation>
-		<annotation cp='[🕖🕢{7⃣}]' draft='provisional'>7; seven</annotation>
-		<annotation cp='[🕖]' draft='provisional'>7:00</annotation>
-		<annotation cp='[🕢]' draft='provisional'>7:30</annotation>
-		<annotation cp='[🎱🕗🕣{8⃣}]' draft='provisional'>8; eight</annotation>
-		<annotation cp='[🕗]' draft='provisional'>8:00</annotation>
-		<annotation cp='[🕣]' draft='provisional'>8:30</annotation>
-		<annotation cp='[🎱]' draft='provisional'>8 ball; billiard</annotation>
-		<annotation cp='[🕘🕤{9⃣}]' draft='provisional'>9; nine</annotation>
-		<annotation cp='[🕘]' draft='provisional'>9:00</annotation>
-		<annotation cp='[🕤]' draft='provisional'>9:30</annotation>
-		<annotation cp='[🅰]' draft='provisional'>a</annotation>
-		<annotation cp='[🆎]' draft='provisional'>ab</annotation>
-		<annotation cp='[🔤]' draft='provisional'>abc; alphabet</annotation>
-		<annotation cp='[🔡]' draft='provisional'>abcd; lowercase</annotation>
-		<annotation cp='[♿]' draft='provisional'>access; wheelchair</annotation>
-		<annotation cp='[🌠🎃-🎓🎠-🎢🎤-🎭🎯🎰🎴-🎼💒🚬]' draft='provisional'>activity</annotation>
-		<annotation cp='[🎟🎫]' draft='provisional'>admission; ticket</annotation>
-		<annotation cp='[🚡]' draft='provisional'>aerial; ropeway; tramway</annotation>
-		<annotation cp='[{🇦🇫}]' draft='provisional'>afghanistan</annotation>
-		<annotation cp='[🌍]' draft='provisional'>africa; europe</annotation>
-		<annotation cp='[⛑]' draft='provisional'>aid; helmet</annotation>
-		<annotation cp='[✈🛩🛫🛬]' draft='provisional'>airplane</annotation>
-		<annotation cp='[{🇦🇽}]' draft='provisional'>åland</annotation>
-		<annotation cp='[⏰]' draft='provisional'>alarm</annotation>
-		<annotation cp='[{🇦🇱}]' draft='provisional'>albania</annotation>
-		<annotation cp='[⚗]' draft='provisional'>alembic; chemistry</annotation>
-		<annotation cp='[{🇩🇿}]' draft='provisional'>algeria</annotation>
-		<annotation cp='[👽👾]' draft='provisional'>alien; extraterrestrial; ufo</annotation>
-		<annotation cp='[🚑]' draft='provisional'>ambulance</annotation>
-		<annotation cp='[{🇺🇲}{🇺🇸}{🇻🇮}]' draft='provisional'>america; united states</annotation>
-		<annotation cp='[🏈{🇦🇸}{🇻🇮}]' draft='provisional'>american</annotation>
-		<annotation cp='[🌎]' draft='provisional'>americas</annotation>
-		<annotation cp='[🏺]' draft='provisional'>amphora; jug</annotation>
-		<annotation cp='[🎡🎢]' draft='provisional'>amusement park</annotation>
-		<annotation cp='[⚓🔱]' draft='provisional'>anchor</annotation>
-		<annotation cp='[{🇦🇩}]' draft='provisional'>andorra</annotation>
-		<annotation cp='[👼😇]' draft='provisional'>angel</annotation>
-		<annotation cp='[{🇦🇴}]' draft='provisional'>angola</annotation>
-		<annotation cp='[💢🗯😠😡]' draft='provisional'>angry; mad</annotation>
-		<annotation cp='[{🇦🇮}]' draft='provisional'>anguilla</annotation>
-		<annotation cp='[😧]' draft='provisional'>anguished</annotation>
-		<annotation cp='[🐀-🐿👽👾🕊🕷🕸😸-🙀🙈-🙊🦀-🦄]' draft='provisional'>animal</annotation>
-		<annotation cp='[🐜]' draft='provisional'>ant</annotation>
-		<annotation cp='[{🇹🇫}]' draft='provisional'>antarctic</annotation>
-		<annotation cp='[{🇦🇶}]' draft='provisional'>antarctica</annotation>
-		<annotation cp='[📡📶]' draft='provisional'>antenna</annotation>
-		<annotation cp='[🔄]' draft='provisional'>anticlockwise; counterclockwise; withershins</annotation>
-		<annotation cp='[{🇦🇬}]' draft='provisional'>antigua; barbuda</annotation>
-		<annotation cp='[{🇨🇼}]' draft='provisional'>antilles; curacao; curaçao</annotation>
-		<annotation cp='[🙇]' draft='provisional'>apology; sorry</annotation>
-		<annotation cp='[🍎🍏]' draft='provisional'>apple</annotation>
-		<annotation cp='[♒🏺]' draft='provisional'>aquarius</annotation>
-		<annotation cp='[♐🏹]' draft='provisional'>archer; archery; sagittarius</annotation>
-		<annotation cp='[{🇦🇷}]' draft='provisional'>argentina</annotation>
-		<annotation cp='[♈🐏]' draft='provisional'>aries; ram</annotation>
-		<annotation cp='[{🇦🇲}]' draft='provisional'>armenia</annotation>
-		<annotation cp='[🛬]' draft='provisional'>arrivals; arriving; landing</annotation>
-		<annotation cp='[↔-↙↩↪⏩-⏯▶◀➡⤴⤵⬅-⬇🏹💘📩📲🔀-🔄🔙-🔝🔼🔽]' draft='provisional'>arrow</annotation>
-		<annotation cp='[🎨🎭🖼]' draft='provisional'>art</annotation>
-		<annotation cp='[{🇦🇼}]' draft='provisional'>aruba</annotation>
-		<annotation cp='[{🇦🇨}]' draft='provisional'>ascension</annotation>
-		<annotation cp='[🌏]' draft='provisional'>asia</annotation>
-		<annotation cp='[🙏]' draft='provisional'>ask; folded; please; pray; thanks</annotation>
-		<annotation cp='[✳{*⃣}]' draft='provisional'>asterisk</annotation>
-		<annotation cp='[😲]' draft='provisional'>astonished; shocked; totally</annotation>
-		<annotation cp='[⚛]' draft='provisional'>atheist; atom</annotation>
-		<annotation cp='[👟]' draft='provisional'>athletic; sneaker</annotation>
-		<annotation cp='[🏧]' draft='provisional'>atm; automated; teller</annotation>
-		<annotation cp='[🍆]' draft='provisional'>aubergine; eggplant</annotation>
-		<annotation cp='[🌏{🇦🇺}]' draft='provisional'>australia</annotation>
-		<annotation cp='[{🇦🇹}]' draft='provisional'>austria</annotation>
-		<annotation cp='[🚗🚘]' draft='provisional'>automobile</annotation>
-		<annotation cp='[{🇦🇿}]' draft='provisional'>azerbaijan</annotation>
-		<annotation cp='[🅱]' draft='provisional'>b</annotation>
-		<annotation cp='[🍼🐣-🐥👶👼🚼]' draft='provisional'>baby</annotation>
-		<annotation cp='[🔙]' draft='provisional'>back</annotation>
-		<annotation cp='[👆-👉]' draft='provisional'>backhand</annotation>
-		<annotation cp='[🐫]' draft='provisional'>bactrian</annotation>
-		<annotation cp='[📛]' draft='provisional'>badge; name</annotation>
-		<annotation cp='[🏸]' draft='provisional'>badminton; birdie; shuttlecock</annotation>
-		<annotation cp='[🎒👜👝💰🛍]' draft='provisional'>bag</annotation>
-		<annotation cp='[🛄🛅]' draft='provisional'>baggage</annotation>
-		<annotation cp='[{🇧🇸}]' draft='provisional'>bahamas</annotation>
-		<annotation cp='[{🇧🇭}]' draft='provisional'>bahrain</annotation>
-		<annotation cp='[♎⚖]' draft='provisional'>balance; justice; libra; scales</annotation>
-		<annotation cp='[⚽⚾⛹🍙🎊🎱🎳🎾🏀🏈🏉🏌🏏-🏑🏓🔮]' draft='provisional'>ball</annotation>
-		<annotation cp='[🎈💬💭🗯]' draft='provisional'>balloon</annotation>
-		<annotation cp='[☑🗳]' draft='provisional'>ballot</annotation>
-		<annotation cp='[🖊]' draft='provisional'>ballpoint</annotation>
-		<annotation cp='[🎍]' draft='provisional'>bamboo; pine</annotation>
-		<annotation cp='[🍌]' draft='provisional'>banana</annotation>
-		<annotation cp='[🤕]' draft='provisional'>bandage; hurt; injury</annotation>
-		<annotation cp='[‼]' draft='provisional'>bangbang</annotation>
-		<annotation cp='[{🇧🇩}]' draft='provisional'>bangladesh</annotation>
-		<annotation cp='[🏦🏧💱💳-💹]' draft='provisional'>bank</annotation>
-		<annotation cp='[💴-💸]' draft='provisional'>banknote; bill</annotation>
-		<annotation cp='[🎋]' draft='provisional'>banner</annotation>
-		<annotation cp='[⏸🍫🍶-🍻🍾🏮📊📶]' draft='provisional'>bar</annotation>
-		<annotation cp='[{🇧🇧}]' draft='provisional'>barbados</annotation>
-		<annotation cp='[💇💈]' draft='provisional'>barber; haircut</annotation>
-		<annotation cp='[🚧]' draft='provisional'>barrier</annotation>
-		<annotation cp='[{🇧🇱}]' draft='provisional'>barthelemy; barthélemy</annotation>
-		<annotation cp='[⚾]' draft='provisional'>baseball</annotation>
-		<annotation cp='[🏀]' draft='provisional'>basketball; hoop</annotation>
-		<annotation cp='[🏏🏓]' draft='provisional'>bat</annotation>
-		<annotation cp='[🛀🛁]' draft='provisional'>bath; bathtub</annotation>
-		<annotation cp='[🔋]' draft='provisional'>battery</annotation>
-		<annotation cp='[🏖]' draft='provisional'>beach</annotation>
-		<annotation cp='[🚨]' draft='provisional'>beacon</annotation>
-		<annotation cp='[📿]' draft='provisional'>beads; necklace; prayer</annotation>
-		<annotation cp='[🐨🐻]' draft='provisional'>bear</annotation>
-		<annotation cp='[♒⛎🐍]' draft='provisional'>bearer</annotation>
-		<annotation cp='[💓]' draft='provisional'>beating; heartbeat; pulsating</annotation>
-		<annotation cp='[💇]' draft='provisional'>beauty; parlor</annotation>
-		<annotation cp='[🛏]' draft='provisional'>bed</annotation>
-		<annotation cp='[🐝]' draft='provisional'>bee; honeybee</annotation>
-		<annotation cp='[🍺🍻]' draft='provisional'>beer; mug</annotation>
-		<annotation cp='[🐞]' draft='provisional'>beetle; lady beetle; ladybird; ladybug</annotation>
-		<annotation cp='[🔰]' draft='provisional'>beginner; chevron</annotation>
-		<annotation cp='[{🇧🇾}]' draft='provisional'>belarus</annotation>
-		<annotation cp='[{🇧🇪}]' draft='provisional'>belgium</annotation>
-		<annotation cp='[{🇧🇿}]' draft='provisional'>belize</annotation>
-		<annotation cp='[🎐🔔🔕🛎]' draft='provisional'>bell</annotation>
-		<annotation cp='[🛎]' draft='provisional'>bellhop</annotation>
-		<annotation cp='[{🇧🇯}]' draft='provisional'>benin</annotation>
-		<annotation cp='[🍱]' draft='provisional'>bento</annotation>
-		<annotation cp='[{🇧🇲}]' draft='provisional'>bermuda</annotation>
-		<annotation cp='[🍓]' draft='provisional'>berry; strawberry</annotation>
-		<annotation cp='[☕🍵-🍷]' draft='provisional'>beverage</annotation>
-		<annotation cp='[{🇧🇹}]' draft='provisional'>bhutan</annotation>
-		<annotation cp='[💪]' draft='provisional'>biceps; flex; muscle</annotation>
-		<annotation cp='[🚲-🚵]' draft='provisional'>bicycle; bike</annotation>
-		<annotation cp='[🚴🚵]' draft='provisional'>bicyclist; cyclist</annotation>
-		<annotation cp='[👙]' draft='provisional'>bikini</annotation>
-		<annotation cp='[☣]' draft='provisional'>biohazard</annotation>
-		<annotation cp='[🐦🕊]' draft='provisional'>bird</annotation>
-		<annotation cp='[🎂]' draft='provisional'>birthday</annotation>
-		<annotation cp='[{🇬🇼}]' draft='provisional'>bissau</annotation>
-		<annotation cp='[👱]' draft='provisional'>blond</annotation>
-		<annotation cp='[🅰🅱🅾🆎]' draft='provisional'>blood</annotation>
-		<annotation cp='[🌸🌼]' draft='provisional'>blossom</annotation>
-		<annotation cp='[🌬🍃]' draft='provisional'>blow</annotation>
-		<annotation cp='[🐡]' draft='provisional'>blowfish</annotation>
-		<annotation cp='[💙📘🔵🔷🔹😰]' draft='provisional'>blue</annotation>
-		<annotation cp='[💿]' draft='provisional'>blu-ray; cd</annotation>
-		<annotation cp='[😊]' draft='provisional'>blush</annotation>
-		<annotation cp='[🐗]' draft='provisional'>boar</annotation>
-		<annotation cp='[⛴⛵🚣🚤🛥]' draft='provisional'>boat</annotation>
-		<annotation cp='[☝☠✊-✍👀-👐👣💀💅💪🖐🖕🖖🙌🙏🤘]' draft='provisional'>body</annotation>
-		<annotation cp='[{🇧🇴}]' draft='provisional'>bolivia</annotation>
-		<annotation cp='[🔩]' draft='provisional'>bolt; nut</annotation>
-		<annotation cp='[💣]' draft='provisional'>bomb</annotation>
-		<annotation cp='[{🇧🇶}]' draft='provisional'>bonaire; caribbean; eustatius; saba</annotation>
-		<annotation cp='[🍖🍗]' draft='provisional'>bone</annotation>
-		<annotation cp='[📔-📚]' draft='provisional'>book</annotation>
-		<annotation cp='[📑🔖]' draft='provisional'>bookmark</annotation>
-		<annotation cp='[📚]' draft='provisional'>books</annotation>
-		<annotation cp='[💥]' draft='provisional'>boom; collision</annotation>
-		<annotation cp='[👢]' draft='provisional'>boot</annotation>
-		<annotation cp='[{🇧🇦}]' draft='provisional'>bosnia; herzegovina</annotation>
-		<annotation cp='[{🇧🇼}]' draft='provisional'>botswana</annotation>
-		<annotation cp='[🍶🍼🍾]' draft='provisional'>bottle</annotation>
-		<annotation cp='[💐]' draft='provisional'>bouquet</annotation>
-		<annotation cp='[{🇧🇻}]' draft='provisional'>bouvet</annotation>
-		<annotation cp='[🏹🙇🙏]' draft='provisional'>bow</annotation>
-		<annotation cp='[🍜]' draft='provisional'>bowl; noodle; ramen</annotation>
-		<annotation cp='[🎳]' draft='provisional'>bowling</annotation>
-		<annotation cp='[☑🍱🎁📤-📦🗃🗳]' draft='provisional'>box</annotation>
-		<annotation cp='[👦]' draft='provisional'>boy</annotation>
-		<annotation cp='[{🇧🇷}]' draft='provisional'>brazil</annotation>
-		<annotation cp='[{🇨🇬}]' draft='provisional'>brazzaville; congo republic; congo-brazzaville; republic of the congo</annotation>
-		<annotation cp='[🍞]' draft='provisional'>bread; loaf</annotation>
-		<annotation cp='[💔]' draft='provisional'>break; broken</annotation>
-		<annotation cp='[👰]' draft='provisional'>bride; veil</annotation>
-		<annotation cp='[🌉]' draft='provisional'>bridge</annotation>
-		<annotation cp='[💼]' draft='provisional'>briefcase</annotation>
-		<annotation cp='[☀🌝🌞🔆😎]' draft='provisional'>bright</annotation>
-		<annotation cp='[🔅🔆]' draft='provisional'>brightness</annotation>
-		<annotation cp='[{🇬🇧}]' draft='provisional'>britain; cornwall; england; great britain; northern ireland; scotland; uk; union jack; united kingdom; wales</annotation>
-		<annotation cp='[{🇬🇧}{🇮🇴}{🇻🇬}]' draft='provisional'>british</annotation>
-		<annotation cp='[{🇧🇳}]' draft='provisional'>brunei; darussalam</annotation>
-		<annotation cp='[💬💭🗯]' draft='provisional'>bubble</annotation>
-		<annotation cp='[☸]' draft='provisional'>buddhist; dharma</annotation>
-		<annotation cp='[🐃]' draft='provisional'>buffalo</annotation>
-		<annotation cp='[🐛]' draft='provisional'>bug</annotation>
-		<annotation cp='[⛪🌆🌇🏗-🏛🏠-🏦🏨-🏭🏯🏰]' draft='provisional'>building</annotation>
-		<annotation cp='[💡]' draft='provisional'>bulb; idea</annotation>
-		<annotation cp='[{🇧🇬}]' draft='provisional'>bulgaria</annotation>
-		<annotation cp='[♉🎯🐂]' draft='provisional'>bull</annotation>
-		<annotation cp='[🚅]' draft='provisional'>bullet</annotation>
-		<annotation cp='[🎯]' draft='provisional'>bullseye; dart; hit; target</annotation>
-		<annotation cp='[🐇🐰👯]' draft='provisional'>bunny</annotation>
-		<annotation cp='[🍔]' draft='provisional'>burger; hamburger</annotation>
-		<annotation cp='[{🇧🇫}]' draft='provisional'>burkina faso</annotation>
-		<annotation cp='[{🇲🇲}]' draft='provisional'>burma; myanmar</annotation>
-		<annotation cp='[🌯]' draft='provisional'>burrito</annotation>
-		<annotation cp='[{🇧🇮}]' draft='provisional'>burundi</annotation>
-		<annotation cp='[🚌-🚐]' draft='provisional'>bus</annotation>
-		<annotation cp='[🕴]' draft='provisional'>business</annotation>
-		<annotation cp='[🚏]' draft='provisional'>busstop</annotation>
-		<annotation cp='[👤👥]' draft='provisional'>bust</annotation>
-		<annotation cp='[🔘🔲🔳🔼🔽🖱]' draft='provisional'>button</annotation>
-		<annotation cp='[🗄]' draft='provisional'>cabinet</annotation>
-		<annotation cp='[🚠🚡]' draft='provisional'>cable; gondola</annotation>
-		<annotation cp='[{🇨🇻}]' draft='provisional'>cabo; cape; verde</annotation>
-		<annotation cp='[🌵]' draft='provisional'>cactus</annotation>
-		<annotation cp='[{🇹🇨}]' draft='provisional'>caicos; turks</annotation>
-		<annotation cp='[🍥🍰🎂]' draft='provisional'>cake; pastry</annotation>
-		<annotation cp='[📅📆🗓]' draft='provisional'>calendar</annotation>
-		<annotation cp='[📲]' draft='provisional'>call</annotation>
-		<annotation cp='[{🇰🇭}]' draft='provisional'>cambodia</annotation>
-		<annotation cp='[🐪🐫]' draft='provisional'>camel; hump</annotation>
-		<annotation cp='[🎥🎦📷-📹]' draft='provisional'>camera</annotation>
-		<annotation cp='[{🇨🇲}]' draft='provisional'>cameroon</annotation>
-		<annotation cp='[⛺🏕]' draft='provisional'>camping</annotation>
-		<annotation cp='[{🇨🇦}]' draft='provisional'>canada</annotation>
-		<annotation cp='[{🇮🇨}]' draft='provisional'>canary</annotation>
-		<annotation cp='[✖❌]' draft='provisional'>cancel; multiplication; multiply; x</annotation>
-		<annotation cp='[♋🦀]' draft='provisional'>cancer; crab</annotation>
-		<annotation cp='[🕎]' draft='provisional'>candelabrum; candlestick; menorah</annotation>
-		<annotation cp='[🕯]' draft='provisional'>candle</annotation>
-		<annotation cp='[🍬🍭]' draft='provisional'>candy</annotation>
-		<annotation cp='[🎓]' draft='provisional'>cap; graduation</annotation>
-		<annotation cp='[♑🐐]' draft='provisional'>capricorn; goat</annotation>
-		<annotation cp='[🏎🚃🚋🚓🚔🚗🚘🚞🚡🚨]' draft='provisional'>car</annotation>
-		<annotation cp='[♠♣♥♦🃏🎴💳📇🗂🗃]' draft='provisional'>card</annotation>
-		<annotation cp='[➡⬅-⬇]' draft='provisional'>cardinal</annotation>
-		<annotation cp='[💅]' draft='provisional'>care; manicure; nail; polish</annotation>
-		<annotation cp='[🎠]' draft='provisional'>carousel</annotation>
-		<annotation cp='[🎏]' draft='provisional'>carp; streamer</annotation>
-		<annotation cp='[🏯🏰]' draft='provisional'>castle</annotation>
-		<annotation cp='[🐈🐱😸-🙀]' draft='provisional'>cat</annotation>
-		<annotation cp='[{🇰🇾}]' draft='provisional'>cayman</annotation>
-		<annotation cp='[🎀-🎑🎓🎖🎗🙌]' draft='provisional'>celebration</annotation>
-		<annotation cp='[📱-📵]' draft='provisional'>cell</annotation>
-		<annotation cp='[{🇨🇫}]' draft='provisional'>central african republic</annotation>
-		<annotation cp='[🎑]' draft='provisional'>ceremony</annotation>
-		<annotation cp='[{🇪🇦}]' draft='provisional'>ceuta; melilla</annotation>
-		<annotation cp='[{🇹🇩}]' draft='provisional'>chad</annotation>
-		<annotation cp='[{🇮🇴}]' draft='provisional'>chagos; indian ocean</annotation>
-		<annotation cp='[⛓]' draft='provisional'>chain</annotation>
-		<annotation cp='[💺]' draft='provisional'>chair; seat; ticketed seat</annotation>
-		<annotation cp='[🚼]' draft='provisional'>changing</annotation>
-		<annotation cp='[💒]' draft='provisional'>chapel</annotation>
-		<annotation cp='[💹📈-📊]' draft='provisional'>chart; graph</annotation>
-		<annotation cp='[☑✅✔]' draft='provisional'>check</annotation>
-		<annotation cp='[🏁]' draft='provisional'>checkered; chequered</annotation>
-		<annotation cp='[🛫]' draft='provisional'>check-in; departure; departures</annotation>
-		<annotation cp='[📣]' draft='provisional'>cheering; megaphone</annotation>
-		<annotation cp='[🧀]' draft='provisional'>cheese</annotation>
-		<annotation cp='[🌸🍒]' draft='provisional'>cherry</annotation>
-		<annotation cp='[🌰]' draft='provisional'>chestnut</annotation>
-		<annotation cp='[🐣-🐥]' draft='provisional'>chick</annotation>
-		<annotation cp='[🍗🐔]' draft='provisional'>chicken</annotation>
-		<annotation cp='[👪🚸]' draft='provisional'>child</annotation>
-		<annotation cp='[{🇨🇱}]' draft='provisional'>chile</annotation>
-		<annotation cp='[🎐]' draft='provisional'>chime</annotation>
-		<annotation cp='[{🇨🇳}{🇭🇰}{🇲🇴}{🇹🇼}]' draft='provisional'>china</annotation>
-		<annotation cp='[🈳-🈵🈸🈺🉑]' draft='provisional'>chinese</annotation>
-		<annotation cp='[🐿]' draft='provisional'>chipmunk</annotation>
-		<annotation cp='[🍫]' draft='provisional'>chocolate</annotation>
-		<annotation cp='[☦⛪✝]' draft='provisional'>christian</annotation>
-		<annotation cp='[🎄🎅{🇨🇽}]' draft='provisional'>christmas</annotation>
-		<annotation cp='[⛪]' draft='provisional'>church</annotation>
-		<annotation cp='[🎞🎥🎦📽]' draft='provisional'>cinema</annotation>
-		<annotation cp='[⏺Ⓜ⚪⚫⭕🔴🔵]' draft='provisional'>circle</annotation>
-		<annotation cp='[🎪]' draft='provisional'>circus</annotation>
-		<annotation cp='[🍋]' draft='provisional'>citrus; lemon</annotation>
-		<annotation cp='[🌆🏙]' draft='provisional'>city</annotation>
-		<annotation cp='[🆑]' draft='provisional'>cl</annotation>
-		<annotation cp='[🛄]' draft='provisional'>claim</annotation>
-		<annotation cp='[👏]' draft='provisional'>clap</annotation>
-		<annotation cp='[🎬]' draft='provisional'>clapper</annotation>
-		<annotation cp='[🏛]' draft='provisional'>classical</annotation>
-		<annotation cp='[✊👊]' draft='provisional'>clenched; fist; punch</annotation>
-		<annotation cp='[🍻]' draft='provisional'>clink</annotation>
-		<annotation cp='[📋]' draft='provisional'>clipboard</annotation>
-		<annotation cp='[{🇨🇵}]' draft='provisional'>clipperton</annotation>
-		<annotation cp='[⌚⏰-⏲🕐-🕧🕰]' draft='provisional'>clock</annotation>
-		<annotation cp='[🔁-🔃]' draft='provisional'>clockwise</annotation>
-		<annotation cp='[📕📪📫🔐🔒😚]' draft='provisional'>closed</annotation>
-		<annotation cp='[🚾]' draft='provisional'>closet</annotation>
-		<annotation cp='[👑-👣📿]' draft='provisional'>clothing</annotation>
-		<annotation cp='[☁⛅⛈🌤-🌬]' draft='provisional'>cloud</annotation>
-		<annotation cp='[🍀]' draft='provisional'>clover</annotation>
-		<annotation cp='[♣]' draft='provisional'>club; clubs</annotation>
-		<annotation cp='[🗝]' draft='provisional'>clue</annotation>
-		<annotation cp='[🎢]' draft='provisional'>coaster; roller</annotation>
-		<annotation cp='[🍸]' draft='provisional'>cocktail</annotation>
-		<annotation cp='[{🇨🇨}]' draft='provisional'>cocos; keeling</annotation>
-		<annotation cp='[☕]' draft='provisional'>coffee</annotation>
-		<annotation cp='[⚰]' draft='provisional'>coffin</annotation>
-		<annotation cp='[👛]' draft='provisional'>coin; purse</annotation>
-		<annotation cp='[☃⛄❄🌨🏔💧😅😓😰😷]' draft='provisional'>cold</annotation>
-		<annotation cp='[{🇨🇴}]' draft='provisional'>colombia</annotation>
-		<annotation cp='[☄]' draft='provisional'>comet</annotation>
-		<annotation cp='[💠-💭]' draft='provisional'>comic</annotation>
-		<annotation cp='[📝-📶🖇🖊-🖍]' draft='provisional'>communication</annotation>
-		<annotation cp='[{🇰🇲}]' draft='provisional'>comoros</annotation>
-		<annotation cp='[🗜]' draft='provisional'>compression; vice</annotation>
-		<annotation cp='[⌨💻💽-📀🖥🖨🖱🖲]' draft='provisional'>computer</annotation>
-		<annotation cp='[🎊]' draft='provisional'>confetti</annotation>
-		<annotation cp='[😖]' draft='provisional'>confounded</annotation>
-		<annotation cp='[😕]' draft='provisional'>confused</annotation>
-		<annotation cp='[{🇨🇩}{🇨🇬}]' draft='provisional'>congo</annotation>
-		<annotation cp='[{🇨🇩}]' draft='provisional'>congo-kinshasa; democratic republic of congo; drc; kinshasa</annotation>
-		<annotation cp='[㊗]' draft='provisional'>congratulation; congratulations</annotation>
-		<annotation cp='[🏗👷🚧]' draft='provisional'>construction</annotation>
-		<annotation cp='[🎛🛂]' draft='provisional'>control</annotation>
-		<annotation cp='[🎮]' draft='provisional'>controller</annotation>
-		<annotation cp='[🏪]' draft='provisional'>convenience</annotation>
-		<annotation cp='[{🇨🇰}]' draft='provisional'>cook</annotation>
-		<annotation cp='[🍚]' draft='provisional'>cooked</annotation>
-		<annotation cp='[🍪]' draft='provisional'>cookie</annotation>
-		<annotation cp='[🍳🍴🍽🏺🔪]' draft='provisional'>cooking</annotation>
-		<annotation cp='[🆒😎]' draft='provisional'>cool</annotation>
-		<annotation cp='[👮]' draft='provisional'>cop; officer</annotation>
-		<annotation cp='[©]' draft='provisional'>copyright</annotation>
-		<annotation cp='[🍾]' draft='provisional'>cork; popping</annotation>
-		<annotation cp='[🌽]' draft='provisional'>corn; maize; maze</annotation>
-		<annotation cp='[💄💅]' draft='provisional'>cosmetics</annotation>
-		<annotation cp='[{🇨🇷}]' draft='provisional'>costa rica</annotation>
-		<annotation cp='[{🇨🇮}]' draft='provisional'>cote ivoire; côte ivoire; ivory coast</annotation>
-		<annotation cp='[🛋]' draft='provisional'>couch; lamp</annotation>
-		<annotation cp='[👫-👭💏💑]' draft='provisional'>couple</annotation>
-		<annotation cp='[📔]' draft='provisional'>cover; decorated</annotation>
-		<annotation cp='[🐄🐮]' draft='provisional'>cow</annotation>
-		<annotation cp='[🍘]' draft='provisional'>cracker</annotation>
-		<annotation cp='[🖍]' draft='provisional'>crayon</annotation>
-		<annotation cp='[🍦🍨]' draft='provisional'>cream</annotation>
-		<annotation cp='[👹-👻👽👾]' draft='provisional'>creature</annotation>
-		<annotation cp='[💳]' draft='provisional'>credit</annotation>
-		<annotation cp='[🌒🌘🌙]' draft='provisional'>crescent</annotation>
-		<annotation cp='[🏏]' draft='provisional'>cricket</annotation>
-		<annotation cp='[{🇭🇷}]' draft='provisional'>croatia</annotation>
-		<annotation cp='[🐊]' draft='provisional'>crocodile</annotation>
-		<annotation cp='[☦⛑⛪✝🎌]' draft='provisional'>cross</annotation>
-		<annotation cp='[☠]' draft='provisional'>crossbones</annotation>
-		<annotation cp='[⚔🎌🔀]' draft='provisional'>crossed</annotation>
-		<annotation cp='[🚸]' draft='provisional'>crossing</annotation>
-		<annotation cp='[👑]' draft='provisional'>crown; king; queen</annotation>
-		<annotation cp='[😢😭😿]' draft='provisional'>cry; sad</annotation>
-		<annotation cp='[🔮]' draft='provisional'>crystal</annotation>
-		<annotation cp='[{🇨🇺}]' draft='provisional'>cuba</annotation>
-		<annotation cp='[🍵🍶]' draft='provisional'>cup</annotation>
-		<annotation cp='[💘]' draft='provisional'>cupid</annotation>
-		<annotation cp='[➰➿📃]' draft='provisional'>curl</annotation>
-		<annotation cp='[💱💲💴-💷💹]' draft='provisional'>currency</annotation>
-		<annotation cp='[🍛]' draft='provisional'>curry</annotation>
-		<annotation cp='[🍮]' draft='provisional'>custard; pudding</annotation>
-		<annotation cp='[🛃]' draft='provisional'>customs</annotation>
-		<annotation cp='[🌀]' draft='provisional'>cyclone; twister; typhoon</annotation>
-		<annotation cp='[{🇨🇾}]' draft='provisional'>cyprus</annotation>
-		<annotation cp='[{🇨🇿}]' draft='provisional'>czech republic</annotation>
-		<annotation cp='[🗡]' draft='provisional'>dagger</annotation>
-		<annotation cp='[👯💃]' draft='provisional'>dancer</annotation>
-		<annotation cp='[⚡]' draft='provisional'>danger; voltage; zap</annotation>
-		<annotation cp='[🍡]' draft='provisional'>dango</annotation>
-		<annotation cp='[🌑🕶]' draft='provisional'>dark</annotation>
-		<annotation cp='[〰💨]' draft='provisional'>dash</annotation>
-		<annotation cp='[📅]' draft='provisional'>date</annotation>
-		<annotation cp='[✡]' draft='provisional'>david</annotation>
-		<annotation cp='[😳]' draft='provisional'>dazed; flushed; embarrassed</annotation>
-		<annotation cp='[😐]' draft='provisional'>deadpan; neutral</annotation>
-		<annotation cp='[☠⚰⚱💀]' draft='provisional'>death</annotation>
-		<annotation cp='[🌳]' draft='provisional'>deciduous; shedding</annotation>
-		<annotation cp='[😔]' draft='provisional'>dejected; pensive</annotation>
-		<annotation cp='[😋]' draft='provisional'>delicious; savouring; um; yum</annotation>
-		<annotation cp='[🚚]' draft='provisional'>delivery</annotation>
-		<annotation cp='[{🇩🇰}]' draft='provisional'>denmark</annotation>
-		<annotation cp='[🏬]' draft='provisional'>department</annotation>
-		<annotation cp='[🏚]' draft='provisional'>derelict</annotation>
-		<annotation cp='[🏜🏝]' draft='provisional'>desert</annotation>
-		<annotation cp='[🖥]' draft='provisional'>desktop</annotation>
-		<annotation cp='[🍡🍦-🍮🍰🎂]' draft='provisional'>dessert</annotation>
-		<annotation cp='[👿]' draft='provisional'>devil; imp</annotation>
-		<annotation cp='[💬]' draft='provisional'>dialog; speech</annotation>
-		<annotation cp='[♦💍💎💠🔶-🔹]' draft='provisional'>diamond</annotation>
-		<annotation cp='[♦]' draft='provisional'>diamonds</annotation>
-		<annotation cp='[🎲]' draft='provisional'>dice; die</annotation>
-		<annotation cp='[{🇩🇬}]' draft='provisional'>diego garcia</annotation>
-		<annotation cp='[🔅]' draft='provisional'>dim</annotation>
-		<annotation cp='[↖-↙➡⬅-⬇]' draft='provisional'>direction</annotation>
-		<annotation cp='[😞😥]' draft='provisional'>disappointed</annotation>
-		<annotation cp='[💽-📀]' draft='provisional'>disc</annotation>
-		<annotation cp='[📡]' draft='provisional'>dish</annotation>
-		<annotation cp='[💾]' draft='provisional'>disk; floppy</annotation>
-		<annotation cp='[🗂]' draft='provisional'>dividers</annotation>
-		<annotation cp='[➗]' draft='provisional'>division</annotation>
-		<annotation cp='[🌀💫😵]' draft='provisional'>dizzy</annotation>
-		<annotation cp='[{🇩🇯}]' draft='provisional'>djibouti</annotation>
-		<annotation cp='[🏥💉💊😷]' draft='provisional'>doctor; medicine</annotation>
-		<annotation cp='[📃📄]' draft='provisional'>document; page</annotation>
-		<annotation cp='[🐕🐩🐶]' draft='provisional'>dog</annotation>
-		<annotation cp='[🎎]' draft='provisional'>doll; festival</annotation>
-		<annotation cp='[💰💲💵💸]' draft='provisional'>dollar</annotation>
-		<annotation cp='[🐬]' draft='provisional'>dolphin; flipper</annotation>
-		<annotation cp='[{🇩🇲}]' draft='provisional'>dominica</annotation>
-		<annotation cp='[{🇩🇴}]' draft='provisional'>dominican republic</annotation>
-		<annotation cp='[🍩]' draft='provisional'>donut; doughnut</annotation>
-		<annotation cp='[🚪]' draft='provisional'>door</annotation>
-		<annotation cp='[⏩-⏬⏸➿]' draft='provisional'>double</annotation>
-		<annotation cp='[🕊]' draft='provisional'>dove</annotation>
-		<annotation cp='[⏬⤵⬇👇👎📉📩🔻🔽]' draft='provisional'>down</annotation>
-		<annotation cp='[🐉🐲]' draft='provisional'>dragon</annotation>
-		<annotation cp='[👗]' draft='provisional'>dress</annotation>
-		<annotation cp='[☕🍵-🍼🍾🏺🚰🚱]' draft='provisional'>drink</annotation>
-		<annotation cp='[🐪]' draft='provisional'>dromedary</annotation>
-		<annotation cp='[☔💧]' draft='provisional'>drop</annotation>
-		<annotation cp='[🛢]' draft='provisional'>drum; oil</annotation>
-		<annotation cp='[💩]' draft='provisional'>dung; poo; poop</annotation>
-		<annotation cp='[🌆🌇]' draft='provisional'>dusk; sunset</annotation>
-		<annotation cp='[💿📀]' draft='provisional'>dvd</annotation>
-		<annotation cp='[🌽🌾👂👯]' draft='provisional'>ear</annotation>
-		<annotation cp='[🎧]' draft='provisional'>earbud; headphone</annotation>
-		<annotation cp='[🌍-🌐]' draft='provisional'>earth; globe</annotation>
-		<annotation cp='[➡{🇹🇱}]' draft='provisional'>east</annotation>
-		<annotation cp='[{🇹🇱}]' draft='provisional'>east timor; timor-leste</annotation>
-		<annotation cp='[{🇪🇨}]' draft='provisional'>ecuador</annotation>
-		<annotation cp='[✍🎒🎓🏫📔-📚]' draft='provisional'>education</annotation>
-		<annotation cp='[🍳]' draft='provisional'>egg; frying; pan</annotation>
-		<annotation cp='[{🇪🇬}]' draft='provisional'>egypt</annotation>
-		<annotation cp='[⏏]' draft='provisional'>eject</annotation>
-		<annotation cp='[⚡💡🔌🔦🚃]' draft='provisional'>electric</annotation>
-		<annotation cp='[⚡🔌]' draft='provisional'>electricity</annotation>
-		<annotation cp='[🐘]' draft='provisional'>elephant</annotation>
-		<annotation cp='[{🇸🇻}]' draft='provisional'>el salvador</annotation>
-		<annotation cp='[✉📧-📩]' draft='provisional'>e-mail; email</annotation>
-		<annotation cp='[🔱]' draft='provisional'>emblem; trident</annotation>
-		<annotation cp='[{🇦🇪}]' draft='provisional'>emirates; uae</annotation>
-		<annotation cp='[🏻-🏿]' draft='provisional'>emoji modifier; fitzpatrick; skin; tone</annotation>
-		<annotation cp='[♥❣❤💋💌💓-💠💢-💨💫-💭🗯]' draft='provisional'>emotion</annotation>
-		<annotation cp='[🔚]' draft='provisional'>end</annotation>
-		<annotation cp='[🚂🚒]' draft='provisional'>engine</annotation>
-		<annotation cp='[🎞-🎮📺📽🕹]' draft='provisional'>entertainment</annotation>
-		<annotation cp='[⛔🚫]' draft='provisional'>entry</annotation>
-		<annotation cp='[✉📨📩]' draft='provisional'>envelope</annotation>
-		<annotation cp='[{🇬🇶}]' draft='provisional'>equatorial guinea</annotation>
-		<annotation cp='[{🇪🇷}]' draft='provisional'>eritrea</annotation>
-		<annotation cp='[🌋]' draft='provisional'>eruption; volcano</annotation>
-		<annotation cp='[{🇪🇪}]' draft='provisional'>estonia</annotation>
-		<annotation cp='[{🇪🇹}]' draft='provisional'>ethiopia</annotation>
-		<annotation cp='[💶]' draft='provisional'>euro</annotation>
-		<annotation cp='[🏤🏰]' draft='provisional'>european</annotation>
-		<annotation cp='[{🇪🇺}]' draft='provisional'>european union</annotation>
-		<annotation cp='[🌆]' draft='provisional'>evening; landscape</annotation>
-		<annotation cp='[🌲]' draft='provisional'>evergreen</annotation>
-		<annotation cp='[🙈-🙊]' draft='provisional'>evil</annotation>
-		<annotation cp='[🐑]' draft='provisional'>ewe</annotation>
-		<annotation cp='[💱]' draft='provisional'>exchange</annotation>
-		<annotation cp='[💖💗]' draft='provisional'>excited</annotation>
-		<annotation cp='[‼⁉❕❗❣]' draft='provisional'>exclamation</annotation>
-		<annotation cp='[😑]' draft='provisional'>expressionless; inexpressive; unexpressive</annotation>
-		<annotation cp='[🎯👀👁👓🕶😁😄😊😍😎😙😚😜😝😸😻😽]' draft='provisional'>eye</annotation>
-		<annotation cp='[👓]' draft='provisional'>eyeglasses</annotation>
-		<annotation cp='[🙄]' draft='provisional'>eyes; rolling</annotation>
-		<annotation cp='[👓🕶😎]' draft='provisional'>eyewear; glasses</annotation>
-		<annotation cp='[☠☹☺🌚-🌞🌬🎭🐭-🐽👀👹-💀💆🕐-🕧🗣🗿-🙆🙈-🙊🙎🤐-🤗🦁🦄]' draft='provisional'>face</annotation>
-		<annotation cp='[🏭]' draft='provisional'>factory</annotation>
-		<annotation cp='[🎅🐉🐲👸-💀🔮😇😈]' draft='provisional'>fairy tale</annotation>
-		<annotation cp='[{🇫🇰}]' draft='provisional'>falkland; falklands; islas; malvinas</annotation>
-		<annotation cp='[🌠🍁🍂]' draft='provisional'>falling</annotation>
-		<annotation cp='[👪]' draft='provisional'>family; mother</annotation>
-		<annotation cp='[🎅👸-👿🔮😇😈]' draft='provisional'>fantasy</annotation>
-		<annotation cp='[{🇫🇴}]' draft='provisional'>faroe</annotation>
-		<annotation cp='[⏩]' draft='provisional'>fast; forward</annotation>
-		<annotation cp='[🎅👪]' draft='provisional'>father</annotation>
-		<annotation cp='[📠]' draft='provisional'>fax</annotation>
-		<annotation cp='[😨😱]' draft='provisional'>fear; fearful; scared</annotation>
-		<annotation cp='[🐾]' draft='provisional'>feet; paw</annotation>
-		<annotation cp='[🎡]' draft='provisional'>ferris</annotation>
-		<annotation cp='[⛴]' draft='provisional'>ferry</annotation>
-		<annotation cp='[🏑]' draft='provisional'>field</annotation>
-		<annotation cp='[{🇫🇯}]' draft='provisional'>fiji</annotation>
-		<annotation cp='[📁📂🗃🗄]' draft='provisional'>file</annotation>
-		<annotation cp='[🎞🎦📽]' draft='provisional'>film</annotation>
-		<annotation cp='[☝👆-👉🖐🖕🖖🤘]' draft='provisional'>finger</annotation>
-		<annotation cp='[{🇫🇮}]' draft='provisional'>finland</annotation>
-		<annotation cp='[🔥🚒]' draft='provisional'>fire</annotation>
-		<annotation cp='[🎆🎇]' draft='provisional'>fireworks</annotation>
-		<annotation cp='[♓🍥🎣🐟-🐡]' draft='provisional'>fish</annotation>
-		<annotation cp='[🔥]' draft='provisional'>flame</annotation>
-		<annotation cp='[📸]' draft='provisional'>flash</annotation>
-		<annotation cp='[🔦]' draft='provisional'>flashlight; torch</annotation>
-		<annotation cp='[⚜]' draft='provisional'>fleur-de-lis</annotation>
-		<annotation cp='[🌷-🌼🎴💐💮]' draft='provisional'>flower</annotation>
-		<annotation cp='[🍃]' draft='provisional'>flutter</annotation>
-		<annotation cp='[💸🕊]' draft='provisional'>fly</annotation>
-		<annotation cp='[🌁🌫]' draft='provisional'>fog</annotation>
-		<annotation cp='[📁📂]' draft='provisional'>folder</annotation>
-		<annotation cp='[🌭-🌯🌶🍅-🍲🍿🎂😋🧀]' draft='provisional'>food</annotation>
-		<annotation cp='[🏈🏉]' draft='provisional'>football</annotation>
-		<annotation cp='[👣]' draft='provisional'>footprint</annotation>
-		<annotation cp='[⛔📵🔕🔞🙅🙈-🙊🚫🚭🚯🚱🚳🚷]' draft='provisional'>forbidden; no; not; prohibited</annotation>
-		<annotation cp='[🍴🍽]' draft='provisional'>fork</annotation>
-		<annotation cp='[🔮🔯]' draft='provisional'>fortune</annotation>
-		<annotation cp='[⛲🖋]' draft='provisional'>fountain</annotation>
-		<annotation cp='[🖼]' draft='provisional'>frame; picture</annotation>
-		<annotation cp='[🎞]' draft='provisional'>frames</annotation>
-		<annotation cp='[{🇫🇷}]' draft='provisional'>france</annotation>
-		<annotation cp='[🌭]' draft='provisional'>frankfurter; hot dog; hotdog; sausage</annotation>
-		<annotation cp='[🆓]' draft='provisional'>free</annotation>
-		<annotation cp='[🍟{🇬🇫}{🇲🇫}{🇵🇫}{🇹🇫}]' draft='provisional'>french</annotation>
-		<annotation cp='[🍤]' draft='provisional'>fried; prawn; shrimp; tempura</annotation>
-		<annotation cp='[🍟]' draft='provisional'>fries</annotation>
-		<annotation cp='[🐸]' draft='provisional'>frog</annotation>
-		<annotation cp='[☹😦🙁🙍]' draft='provisional'>frown</annotation>
-		<annotation cp='[🍇-🍓]' draft='provisional'>fruit</annotation>
-		<annotation cp='[⛽]' draft='provisional'>fuel; fuelpump; gas; pump</annotation>
-		<annotation cp='[🗻]' draft='provisional'>fuji</annotation>
-		<annotation cp='[🌕🌝💯]' draft='provisional'>full</annotation>
-		<annotation cp='[⚱]' draft='provisional'>funeral; urn</annotation>
-		<annotation cp='[{🇼🇫}]' draft='provisional'>futuna; wallis</annotation>
-		<annotation cp='[{🇬🇦}]' draft='provisional'>gabon</annotation>
-		<annotation cp='[{🇬🇲}]' draft='provisional'>gambia</annotation>
-		<annotation cp='[♠♣♥♦🀄🃏🎮-🎴🏏-🏓🏸🕹]' draft='provisional'>game</annotation>
-		<annotation cp='[🏡]' draft='provisional'>garden</annotation>
-		<annotation cp='[⚙]' draft='provisional'>gear</annotation>
-		<annotation cp='[🤓]' draft='provisional'>geek; nerd</annotation>
-		<annotation cp='[💎]' draft='provisional'>gem; jewel</annotation>
-		<annotation cp='[♊👬]' draft='provisional'>gemini; twins</annotation>
-		<annotation cp='[▪▫◻-◾⚪⚫⬛⬜💠🔘🔲-🔻]' draft='provisional'>geometric</annotation>
-		<annotation cp='[{🇬🇪}{🇬🇸}]' draft='provisional'>georgia</annotation>
-		<annotation cp='[{🇩🇪}]' draft='provisional'>germany</annotation>
-		<annotation cp='[🙅-🙏]' draft='provisional'>gesture</annotation>
-		<annotation cp='[🙅]' draft='provisional'>no deal; not ok</annotation>
-		<annotation cp='[{🇬🇭}]' draft='provisional'>ghana</annotation>
-		<annotation cp='[👻]' draft='provisional'>ghost</annotation>
-		<annotation cp='[🌔🌖]' draft='provisional'>gibbous</annotation>
-		<annotation cp='[{🇬🇮}]' draft='provisional'>gibraltar</annotation>
-		<annotation cp='[🎁]' draft='provisional'>gift; present; wrapped</annotation>
-		<annotation cp='[👧👯]' draft='provisional'>girl</annotation>
-		<annotation cp='[🍷🍸🔍🔎]' draft='provisional'>glass</annotation>
-		<annotation cp='[🌟]' draft='provisional'>glittery; glow; shining</annotation>
-		<annotation cp='[👺]' draft='provisional'>goblin</annotation>
-		<annotation cp='[⛳🏌]' draft='provisional'>golf</annotation>
-		<annotation cp='[🍇]' draft='provisional'>grape</annotation>
-		<annotation cp='[{🇬🇷}]' draft='provisional'>greece</annotation>
-		<annotation cp='[🍏💚📗🔰]' draft='provisional'>green</annotation>
-		<annotation cp='[{🇬🇱}]' draft='provisional'>greenland</annotation>
-		<annotation cp='[{🇬🇩}]' draft='provisional'>grenada</annotation>
-		<annotation cp='[{🇻🇨}]' draft='provisional'>grenadines; vincent</annotation>
-		<annotation cp='[😬]' draft='provisional'>grimace</annotation>
-		<annotation cp='[😀😁😸]' draft='provisional'>grin</annotation>
-		<annotation cp='[💗]' draft='provisional'>growing; heartpulse; nervous</annotation>
-		<annotation cp='[💹📈]' draft='provisional'>growth; upward</annotation>
-		<annotation cp='[{🇬🇵}]' draft='provisional'>guadeloupe</annotation>
-		<annotation cp='[{🇬🇺}]' draft='provisional'>guam</annotation>
-		<annotation cp='[👲]' draft='provisional'>gua pi mao</annotation>
-		<annotation cp='[💂]' draft='provisional'>guard; guardsman</annotation>
-		<annotation cp='[{🇬🇹}]' draft='provisional'>guatemala</annotation>
-		<annotation cp='[{🇬🇬}]' draft='provisional'>guernsey</annotation>
-		<annotation cp='[{🇬🇫}]' draft='provisional'>guiana</annotation>
-		<annotation cp='[{🇬🇳}{🇬🇶}{🇬🇼}{🇵🇬}]' draft='provisional'>guinea</annotation>
-		<annotation cp='[🎸]' draft='provisional'>guitar</annotation>
-		<annotation cp='[🔫]' draft='provisional'>gun; pistol; revolver; handgun</annotation>
-		<annotation cp='[{🇬🇾}]' draft='provisional'>guyana</annotation>
-		<annotation cp='[{🇭🇹}]' draft='provisional'>haiti</annotation>
-		<annotation cp='[🎃]' draft='provisional'>halloween; jack</annotation>
-		<annotation cp='[😇]' draft='provisional'>halo; innocent</annotation>
-		<annotation cp='[⚒🔨🛠]' draft='provisional'>hammer</annotation>
-		<annotation cp='[🐹]' draft='provisional'>hamster</annotation>
-		<annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]' draft='provisional'>hand</annotation>
-		<annotation cp='[👜]' draft='provisional'>handbag</annotation>
-		<annotation cp='[🙋]' draft='provisional'>happy</annotation>
-		<annotation cp='[{#⃣}]' draft='provisional'>hash</annotation>
-		<annotation cp='[⛑🎓🎩👒👲👷]' draft='provisional'>hat</annotation>
-		<annotation cp='[🐣]' draft='provisional'>hatching</annotation>
-		<annotation cp='[🗣]' draft='provisional'>head; speaking</annotation>
-		<annotation cp='[🙉]' draft='provisional'>hear</annotation>
-		<annotation cp='[{🇭🇲}]' draft='provisional'>heard; mcdonald</annotation>
-		<annotation cp='[♥❣❤💋💌💑💓-💟😍😘😻]' draft='provisional'>heart</annotation>
-		<annotation cp='[♥]' draft='provisional'>hearts</annotation>
-		<annotation cp='[👠]' draft='provisional'>heel</annotation>
-		<annotation cp='[{🇸🇭}]' draft='provisional'>helena</annotation>
-		<annotation cp='[🚁]' draft='provisional'>helicopter</annotation>
-		<annotation cp='[🆘💁]' draft='provisional'>help</annotation>
-		<annotation cp='[🌿]' draft='provisional'>herb</annotation>
-		<annotation cp='[🌺]' draft='provisional'>hibiscus</annotation>
-		<annotation cp='[🔊]' draft='provisional'>high</annotation>
-		<annotation cp='[🛣]' draft='provisional'>highway; motorway; road</annotation>
-		<annotation cp='[🚶]' draft='provisional'>hike; walk; walking</annotation>
-		<annotation cp='[🕉]' draft='provisional'>hindu; om</annotation>
-		<annotation cp='[🔪]' draft='provisional'>hocho</annotation>
-		<annotation cp='[🏑🏒]' draft='provisional'>hockey</annotation>
-		<annotation cp='[👫-👭]' draft='provisional'>hold</annotation>
-		<annotation cp='[⛳🕳]' draft='provisional'>hole</annotation>
-		<annotation cp='[🏠🏡]' draft='provisional'>home</annotation>
-		<annotation cp='[{🇭🇳}]' draft='provisional'>honduras</annotation>
-		<annotation cp='[🍯]' draft='provisional'>honey; honeypot</annotation>
-		<annotation cp='[{🇭🇰}]' draft='provisional'>hong kong</annotation>
-		<annotation cp='[🙌]' draft='provisional'>hooray</annotation>
-		<annotation cp='[📯]' draft='provisional'>horn; postal</annotation>
-		<annotation cp='[😈🤘]' draft='provisional'>horns</annotation>
-		<annotation cp='[😝]' draft='provisional'>horrible; taste</annotation>
-		<annotation cp='[🎠🏇🐎🐴]' draft='provisional'>horse; equestrian</annotation>
-		<annotation cp='[🏥]' draft='provisional'>hospital</annotation>
-		<annotation cp='[☕♨🌶]' draft='provisional'>hot</annotation>
-		<annotation cp='[🏨🏩🛋-🛏]' draft='provisional'>hotel</annotation>
-		<annotation cp='[♨]' draft='provisional'>hotsprings; springs</annotation>
-		<annotation cp='[⌛⏳]' draft='provisional'>hourglass; sand</annotation>
-		<annotation cp='[🏘🏚🏠🏡]' draft='provisional'>house</annotation>
-		<annotation cp='[🤗]' draft='provisional'>hug; hugging</annotation>
-		<annotation cp='[{🇭🇺}]' draft='provisional'>hungary</annotation>
-		<annotation cp='[😯]' draft='provisional'>hushed; stunned</annotation>
-		<annotation cp='[ℹ]' draft='provisional'>i</annotation>
-		<annotation cp='[⛸🍦-🍨🏒]' draft='provisional'>ice</annotation>
-		<annotation cp='[🍦]' draft='provisional'>icecream; soft</annotation>
-		<annotation cp='[{🇮🇸}]' draft='provisional'>iceland</annotation>
-		<annotation cp='[🆔]' draft='provisional'>id; identity</annotation>
-		<annotation cp='[㊗㊙]' draft='provisional'>ideograph</annotation>
-		<annotation cp='[🤒]' draft='provisional'>ill</annotation>
-		<annotation cp='[📥]' draft='provisional'>inbox</annotation>
-		<annotation cp='[📨]' draft='provisional'>incoming</annotation>
-		<annotation cp='[☝👆-👉📇🗂]' draft='provisional'>index</annotation>
-		<annotation cp='[{🇮🇳}]' draft='provisional'>india</annotation>
-		<annotation cp='[{🇮🇩}]' draft='provisional'>indonesia</annotation>
-		<annotation cp='[ℹ💁]' draft='provisional'>information</annotation>
-		<annotation cp='[🔏]' draft='provisional'>ink; privacy</annotation>
-		<annotation cp='[🔠-🔤]' draft='provisional'>input</annotation>
-		<annotation cp='[🐛-🐞🕷]' draft='provisional'>insect</annotation>
-		<annotation cp='[💠]' draft='provisional'>inside</annotation>
-		<annotation cp='[🎷-🎻]' draft='provisional'>instrument</annotation>
-		<annotation cp='[↖-↙]' draft='provisional'>intercardinal</annotation>
-		<annotation cp='[⁉]' draft='provisional'>interrobang</annotation>
-		<annotation cp='[{🇮🇷}]' draft='provisional'>iran</annotation>
-		<annotation cp='[{🇮🇶}]' draft='provisional'>iraq</annotation>
-		<annotation cp='[{🇬🇧}{🇮🇪}]' draft='provisional'>ireland</annotation>
-		<annotation cp='[😼]' draft='provisional'>ironic; wry</annotation>
-		<annotation cp='[☪🕋🕌]' draft='provisional'>islam; muslim</annotation>
-		<annotation cp='[🏝{🇦🇨}{🇧🇻}{🇨🇨}{🇨🇰}{🇨🇵}{🇨🇽}{🇫🇰}{🇫🇴}{🇬🇸}{🇭🇲}{🇮🇨}{🇮🇴}{🇰🇾}{🇲🇭}{🇲🇵}{🇳🇫}{🇵🇳}{🇸🇧}{🇹🇨}{🇺🇲}{🇻🇬}{🇻🇮}]' draft='provisional'>island</annotation>
-		<annotation cp='[{🇮🇲}]' draft='provisional'>isle of man</annotation>
-		<annotation cp='[{🇮🇱}]' draft='provisional'>israel</annotation>
-		<annotation cp='[{🇮🇹}]' draft='provisional'>italy</annotation>
-		<annotation cp='[{🇯🇲}]' draft='provisional'>jamaica</annotation>
-		<annotation cp='[{🇸🇯}]' draft='provisional'>jan mayen; svalbard</annotation>
-		<annotation cp='[🗾{🇯🇵}]' draft='provisional'>japan</annotation>
-		<annotation cp='[🈁🈂🈚🈯🈲🈶🈷🈹🉐🍙🍡🎋-🎎🎴🏣🏮🏯👹👺🔰]' draft='provisional'>japanese</annotation>
-		<annotation cp='[👖]' draft='provisional'>jeans; pants; trousers</annotation>
-		<annotation cp='[{🇯🇪}]' draft='provisional'>jersey</annotation>
-		<annotation cp='[✡🕍]' draft='provisional'>jew; jewish</annotation>
-		<annotation cp='[🏇]' draft='provisional'>jockey</annotation>
-		<annotation cp='[😜]' draft='provisional'>joke</annotation>
-		<annotation cp='[🃏]' draft='provisional'>joker</annotation>
-		<annotation cp='[{🇯🇴}]' draft='provisional'>jordan</annotation>
-		<annotation cp='[😂😹]' draft='provisional'>joy</annotation>
-		<annotation cp='[🕹]' draft='provisional'>joystick</annotation>
-		<annotation cp='[🕋]' draft='provisional'>kaaba</annotation>
-		<annotation cp='[🎤]' draft='provisional'>karaoke</annotation>
-		<annotation cp='[{🇰🇿}]' draft='provisional'>kazakhstan</annotation>
-		<annotation cp='[🍢]' draft='provisional'>kebab; oden; seafood</annotation>
-		<annotation cp='[{🇰🇪}]' draft='provisional'>kenya</annotation>
-		<annotation cp='[🔐🔑🗝]' draft='provisional'>key</annotation>
-		<annotation cp='[⌨🎹]' draft='provisional'>keyboard</annotation>
-		<annotation cp='[🔟{#⃣}{*⃣}{0⃣}{1⃣}{2⃣}{3⃣}{4⃣}{5⃣}{6⃣}{7⃣}{8⃣}{9⃣}]' draft='provisional'>keycap</annotation>
-		<annotation cp='[👘]' draft='provisional'>kimono</annotation>
-		<annotation cp='[{🇰🇮}]' draft='provisional'>kiribati</annotation>
-		<annotation cp='[💋💏😗-😚😽]' draft='provisional'>kiss</annotation>
-		<annotation cp='[{🇰🇳}]' draft='provisional'>kitts; nevis</annotation>
-		<annotation cp='[🍴🍽🔪🗡]' draft='provisional'>knife</annotation>
-		<annotation cp='[🎛]' draft='provisional'>knobs</annotation>
-		<annotation cp='[🐨]' draft='provisional'>koala</annotation>
-		<annotation cp='[{🇰🇵}{🇰🇷}]' draft='provisional'>korea</annotation>
-		<annotation cp='[{🇽🇰}]' draft='provisional'>kosovo</annotation>
-		<annotation cp='[{🇰🇼}]' draft='provisional'>kuwait</annotation>
-		<annotation cp='[{🇰🇬}]' draft='provisional'>kyrgyzstan</annotation>
-		<annotation cp='[🏷]' draft='provisional'>label</annotation>
-		<annotation cp='[🎃🏮]' draft='provisional'>lantern</annotation>
-		<annotation cp='[{🇱🇦}]' draft='provisional'>laos</annotation>
-		<annotation cp='[🔠🔡🔤]' draft='provisional'>latin; letters</annotation>
-		<annotation cp='[{🇱🇻}]' draft='provisional'>latvia</annotation>
-		<annotation cp='[😆]' draft='provisional'>laugh; satisfied</annotation>
-		<annotation cp='[🚹-🚻🚾]' draft='provisional'>lavatory; restroom; wc</annotation>
-		<annotation cp='[🌿-🍃🔰]' draft='provisional'>leaf</annotation>
-		<annotation cp='[{🇱🇧}]' draft='provisional'>lebanon</annotation>
-		<annotation cp='[📒]' draft='provisional'>ledger</annotation>
-		<annotation cp='[◀]' draft='provisional'>left; reverse</annotation>
-		<annotation cp='[🛅]' draft='provisional'>left luggage; locker; luggage</annotation>
-		<annotation cp='[🍗]' draft='provisional'>leg; poultry</annotation>
-		<annotation cp='[♌🦁]' draft='provisional'>leo; lion</annotation>
-		<annotation cp='[🐆]' draft='provisional'>leopard</annotation>
-		<annotation cp='[{🇱🇸}]' draft='provisional'>lesotho</annotation>
-		<annotation cp='[💌📤📥📧-📩]' draft='provisional'>letter</annotation>
-		<annotation cp='[🎚]' draft='provisional'>level; slider</annotation>
-		<annotation cp='[{🇱🇷}]' draft='provisional'>liberia</annotation>
-		<annotation cp='[🗽]' draft='provisional'>liberty</annotation>
-		<annotation cp='[{🇱🇾}]' draft='provisional'>libya</annotation>
-		<annotation cp='[{🇱🇮}]' draft='provisional'>liechtenstein</annotation>
-		<annotation cp='[🏋]' draft='provisional'>lifter</annotation>
-		<annotation cp='[🏮💡🔦🕯🚥🚦🚨]' draft='provisional'>light</annotation>
-		<annotation cp='[⚡🌩]' draft='provisional'>lightning</annotation>
-		<annotation cp='[🔗🖇]' draft='provisional'>link</annotation>
-		<annotation cp='[👄💋]' draft='provisional'>lips</annotation>
-		<annotation cp='[💄]' draft='provisional'>lipstick; makeup</annotation>
-		<annotation cp='[{🇱🇹}]' draft='provisional'>lithuania</annotation>
-		<annotation cp='[🚮🚯]' draft='provisional'>litter</annotation>
-		<annotation cp='[🚮]' draft='provisional'>litterbox</annotation>
-		<annotation cp='[🔏-🔓🗝]' draft='provisional'>lock</annotation>
-		<annotation cp='[🚂]' draft='provisional'>locomotive; steam</annotation>
-		<annotation cp='[🍭]' draft='provisional'>lollipop</annotation>
-		<annotation cp='[➰➿]' draft='provisional'>loop</annotation>
-		<annotation cp='[🚛]' draft='provisional'>lorry; semi</annotation>
-		<annotation cp='[📢🔊]' draft='provisional'>loud</annotation>
-		<annotation cp='[📢]' draft='provisional'>loudspeaker; public address</annotation>
-		<annotation cp='[🏩💌💑💕😍😻]' draft='provisional'>love</annotation>
-		<annotation cp='[🔅🔉]' draft='provisional'>low</annotation>
-		<annotation cp='[📪📭]' draft='provisional'>lowered</annotation>
-		<annotation cp='[{🇱🇨}]' draft='provisional'>lucia</annotation>
-		<annotation cp='[{🇱🇺}]' draft='provisional'>luxembourg</annotation>
-		<annotation cp='[Ⓜ]' draft='provisional'>m</annotation>
-		<annotation cp='[{🇸🇽}]' draft='provisional'>maarten</annotation>
-		<annotation cp='[{🇲🇴}]' draft='provisional'>macao; macau</annotation>
-		<annotation cp='[{🇲🇰}]' draft='provisional'>macedonia</annotation>
-		<annotation cp='[{🇲🇬}]' draft='provisional'>madagascar</annotation>
-		<annotation cp='[🔍🔎]' draft='provisional'>magnifying; search</annotation>
-		<annotation cp='[🀄]' draft='provisional'>mahjong</annotation>
-		<annotation cp='[♍👧]' draft='provisional'>maiden; virgo</annotation>
-		<annotation cp='[💌📤📥📧-📮]' draft='provisional'>mail</annotation>
-		<annotation cp='[📪-📮]' draft='provisional'>mailbox; postbox</annotation>
-		<annotation cp='[{🇲🇼}]' draft='provisional'>malawi</annotation>
-		<annotation cp='[{🇲🇾}]' draft='provisional'>malaysia</annotation>
-		<annotation cp='[{🇲🇻}]' draft='provisional'>maldives</annotation>
-		<annotation cp='[{🇲🇱}]' draft='provisional'>mali</annotation>
-		<annotation cp='[{🇲🇹}]' draft='provisional'>malta</annotation>
-		<annotation cp='[👞👨👫👬👲-👴🕴🚹]' draft='provisional'>man</annotation>
-		<annotation cp='[🗺🗾]' draft='provisional'>map</annotation>
-		<annotation cp='[🍁]' draft='provisional'>maple</annotation>
-		<annotation cp='[🏃]' draft='provisional'>marathon; runner</annotation>
-		<annotation cp='[{🇲🇵}]' draft='provisional'>mariana; northern mariana</annotation>
-		<annotation cp='[‼⁉™✅✔❌❎❓-❕❗❣〽🆙💋📑🔖🔛]' draft='provisional'>mark</annotation>
-		<annotation cp='[📑]' draft='provisional'>marker; tabs</annotation>
-		<annotation cp='[💹]' draft='provisional'>market; rise</annotation>
-		<annotation cp='[{🇲🇭}]' draft='provisional'>marshall</annotation>
-		<annotation cp='[{🇲🇫}]' draft='provisional'>martin</annotation>
-		<annotation cp='[{🇲🇶}]' draft='provisional'>martinique</annotation>
-		<annotation cp='[🎭😷]' draft='provisional'>mask</annotation>
-		<annotation cp='[💆]' draft='provisional'>massage; salon</annotation>
-		<annotation cp='[➕-➗]' draft='provisional'>math</annotation>
-		<annotation cp='[{🇲🇷}]' draft='provisional'>mauritania</annotation>
-		<annotation cp='[{🇲🇺}]' draft='provisional'>mauritius</annotation>
-		<annotation cp='[{🇾🇹}]' draft='provisional'>mayotte</annotation>
-		<annotation cp='[🍖]' draft='provisional'>meat</annotation>
-		<annotation cp='[🎖🏅]' draft='provisional'>medal</annotation>
-		<annotation cp='[🍈]' draft='provisional'>melon</annotation>
-		<annotation cp='[📝]' draft='provisional'>memo</annotation>
-		<annotation cp='[🌐]' draft='provisional'>meridians</annotation>
-		<annotation cp='[🚇]' draft='provisional'>metro; subway</annotation>
-		<annotation cp='[🌮🌯]' draft='provisional'>mexican</annotation>
-		<annotation cp='[{🇲🇽}]' draft='provisional'>mexico</annotation>
-		<annotation cp='[🎙🎤]' draft='provisional'>mic; microphone</annotation>
-		<annotation cp='[{🇫🇲}]' draft='provisional'>micronesia</annotation>
-		<annotation cp='[🔬]' draft='provisional'>microscope</annotation>
-		<annotation cp='[🖕]' draft='provisional'>middle finger</annotation>
-		<annotation cp='[🎖]' draft='provisional'>military</annotation>
-		<annotation cp='[🍼]' draft='provisional'>milk</annotation>
-		<annotation cp='[🌌]' draft='provisional'>milky way</annotation>
-		<annotation cp='[🚐]' draft='provisional'>minibus</annotation>
-		<annotation cp='[💽]' draft='provisional'>minidisc</annotation>
-		<annotation cp='[⛏]' draft='provisional'>mining</annotation>
-		<annotation cp='[{🇺🇲}]' draft='provisional'>minor outlying</annotation>
-		<annotation cp='[➖]' draft='provisional'>minus</annotation>
-		<annotation cp='[{🇵🇲}]' draft='provisional'>miquelon; pierre</annotation>
-		<annotation cp='[📱-📶]' draft='provisional'>mobile</annotation>
-		<annotation cp='[📳]' draft='provisional'>mode; vibration</annotation>
-		<annotation cp='[{🇲🇩}]' draft='provisional'>moldova</annotation>
-		<annotation cp='[{🇲🇨}]' draft='provisional'>monaco</annotation>
-		<annotation cp='[💰-💹🤑]' draft='provisional'>money</annotation>
-		<annotation cp='[💰]' draft='provisional'>moneybag</annotation>
-		<annotation cp='[{🇲🇳}]' draft='provisional'>mongolia</annotation>
-		<annotation cp='[🐒🐵🙈-🙊]' draft='provisional'>monkey</annotation>
-		<annotation cp='[🚝]' draft='provisional'>monorail</annotation>
-		<annotation cp='[☠👹-👻👽👾💀💩🤖]' draft='provisional'>monster</annotation>
-		<annotation cp='[{🇲🇪}]' draft='provisional'>montenegro</annotation>
-		<annotation cp='[{🇲🇸}]' draft='provisional'>montserrat</annotation>
-		<annotation cp='[🌑-🌝🎑]' draft='provisional'>moon</annotation>
-		<annotation cp='[🌄🌅]' draft='provisional'>morning; sunrise</annotation>
-		<annotation cp='[{🇲🇦}]' draft='provisional'>morocco</annotation>
-		<annotation cp='[🕌]' draft='provisional'>mosque</annotation>
-		<annotation cp='[🛥]' draft='provisional'>motorboat</annotation>
-		<annotation cp='[🏍]' draft='provisional'>motorcycle</annotation>
-		<annotation cp='[⛰🌄🌋🏔🗻🚞🚠🚵]' draft='provisional'>mountain</annotation>
-		<annotation cp='[🐁🐭🖱]' draft='provisional'>mouse</annotation>
-		<annotation cp='[👄😃😄😆😦😮😰😶😺🤐🤑]' draft='provisional'>mouth</annotation>
-		<annotation cp='[🎞🎥🎦🎬📽]' draft='provisional'>movie</annotation>
-		<annotation cp='[🗿]' draft='provisional'>moyai</annotation>
-		<annotation cp='[{🇲🇿}]' draft='provisional'>mozambique</annotation>
-		<annotation cp='[😱]' draft='provisional'>munch; scream</annotation>
-		<annotation cp='[🎨🖼]' draft='provisional'>museum</annotation>
-		<annotation cp='[🍄]' draft='provisional'>mushroom</annotation>
-		<annotation cp='[🎙-🎛🎵-🎼]' draft='provisional'>music</annotation>
-		<annotation cp='[🔇🔕]' draft='provisional'>mute</annotation>
-		<annotation cp='[{🇳🇦}]' draft='provisional'>namibia</annotation>
-		<annotation cp='[🏞]' draft='provisional'>national park; park</annotation>
-		<annotation cp='[{🇳🇷}]' draft='provisional'>nauru</annotation>
-		<annotation cp='[👔]' draft='provisional'>necktie</annotation>
-		<annotation cp='[💉]' draft='provisional'>needle; shot; syringe</annotation>
-		<annotation cp='[{🇳🇵}]' draft='provisional'>nepal</annotation>
-		<annotation cp='[{🇧🇶}{🇳🇱}]' draft='provisional'>netherlands</annotation>
-		<annotation cp='[🆕{🇳🇨}{🇳🇿}{🇵🇬}]' draft='provisional'>new</annotation>
-		<annotation cp='[{🇳🇨}]' draft='provisional'>new caledonia</annotation>
-		<annotation cp='[📰🗞]' draft='provisional'>news; newspaper</annotation>
-		<annotation cp='[{🇳🇿}]' draft='provisional'>new zealand</annotation>
-		<annotation cp='[⏭]' draft='provisional'>next scene; next track</annotation>
-		<annotation cp='[🆖]' draft='provisional'>ng</annotation>
-		<annotation cp='[✒🔏]' draft='provisional'>nib</annotation>
-		<annotation cp='[{🇳🇮}]' draft='provisional'>nicaragua</annotation>
-		<annotation cp='[{🇳🇪}]' draft='provisional'>niger</annotation>
-		<annotation cp='[{🇳🇬}]' draft='provisional'>nigeria</annotation>
-		<annotation cp='[🌃🌉]' draft='provisional'>night</annotation>
-		<annotation cp='[{🇳🇺}]' draft='provisional'>niue</annotation>
-		<annotation cp='[{🇳🇫}]' draft='provisional'>norfolk</annotation>
-		<annotation cp='[⬆{🇰🇵}{🇲🇵}]' draft='provisional'>north</annotation>
-		<annotation cp='[↗]' draft='provisional'>northeast</annotation>
-		<annotation cp='[{🇰🇵}]' draft='provisional'>north korea</annotation>
-		<annotation cp='[↖]' draft='provisional'>northwest</annotation>
-		<annotation cp='[{🇳🇴}]' draft='provisional'>norway</annotation>
-		<annotation cp='[🐽👃]' draft='provisional'>nose</annotation>
-		<annotation cp='[🎵🎶💴-💸🗒]' draft='provisional'>note</annotation>
-		<annotation cp='[📒-📔]' draft='provisional'>notebook</annotation>
-		<annotation cp='[🎶]' draft='provisional'>notes</annotation>
-		<annotation cp='[⭕🅾]' draft='provisional'>o</annotation>
-		<annotation cp='[📿🕎]' draft='provisional'>object</annotation>
-		<annotation cp='[🌊]' draft='provisional'>ocean</annotation>
-		<annotation cp='[🐙]' draft='provisional'>octopus</annotation>
-		<annotation cp='[📴]' draft='provisional'>off</annotation>
-		<annotation cp='[☎✂✉✏✒🏢-🏤💯-📝📟-📡📤-📮🖇🖊-🖍🖥🖨🖱🖲🖼🗂-🗄🗑-🗓]' draft='provisional'>office</annotation>
-		<annotation cp='[👹]' draft='provisional'>ogre</annotation>
-		<annotation cp='[🙀]' draft='provisional'>oh</annotation>
-		<annotation cp='[🆗👌🙆]' draft='provisional'>ok</annotation>
-		<annotation cp='[👴👵🗝]' draft='provisional'>old</annotation>
-		<annotation cp='[{🇴🇲}]' draft='provisional'>oman</annotation>
-		<annotation cp='[🔛]' draft='provisional'>on</annotation>
-		<annotation cp='[🔂]' draft='provisional'>once</annotation>
-		<annotation cp='[🚍🚔🚖🚘]' draft='provisional'>oncoming</annotation>
-		<annotation cp='[👐📂📖📬📭🔓😃-😆😦😮😰😺]' draft='provisional'>open</annotation>
-		<annotation cp='[⛎🐍]' draft='provisional'>ophiuchus; serpent; snake</annotation>
-		<annotation cp='[💽💿📀]' draft='provisional'>optical</annotation>
-		<annotation cp='[🍊📙🔶🔸]' draft='provisional'>orange</annotation>
-		<annotation cp='[📤]' draft='provisional'>outbox</annotation>
-		<annotation cp='[📩]' draft='provisional'>outgoing</annotation>
-		<annotation cp='[☺❔❕🔳]' draft='provisional'>outlined</annotation>
-		<annotation cp='[♉🐂]' draft='provisional'>ox; taurus</annotation>
-		<annotation cp='[📦]' draft='provisional'>package; parcel</annotation>
-		<annotation cp='[🗒🗓]' draft='provisional'>pad</annotation>
-		<annotation cp='[🏓]' draft='provisional'>paddle; table tennis</annotation>
-		<annotation cp='[📟]' draft='provisional'>pager</annotation>
-		<annotation cp='[🖌]' draft='provisional'>paintbrush</annotation>
-		<annotation cp='[🎨🖌🖼]' draft='provisional'>painting</annotation>
-		<annotation cp='[{🇵🇰}]' draft='provisional'>pakistan</annotation>
-		<annotation cp='[{🇵🇼}]' draft='provisional'>palau</annotation>
-		<annotation cp='[{🇵🇸}]' draft='provisional'>palestine</annotation>
-		<annotation cp='[🎨]' draft='provisional'>palette</annotation>
-		<annotation cp='[🌴]' draft='provisional'>palm</annotation>
-		<annotation cp='[{🇵🇦}]' draft='provisional'>panama</annotation>
-		<annotation cp='[🐼]' draft='provisional'>panda</annotation>
-		<annotation cp='[📜📰🗞]' draft='provisional'>paper</annotation>
-		<annotation cp='[📎🖇]' draft='provisional'>paperclip</annotation>
-		<annotation cp='[{🇵🇬}]' draft='provisional'>papua new guinea</annotation>
-		<annotation cp='[{🇵🇾}]' draft='provisional'>paraguay</annotation>
-		<annotation cp='[🅿]' draft='provisional'>parking</annotation>
-		<annotation cp='[〽]' draft='provisional'>part</annotation>
-		<annotation cp='[🎉]' draft='provisional'>party; popper; tada</annotation>
-		<annotation cp='[🛳]' draft='provisional'>passenger</annotation>
-		<annotation cp='[🛂]' draft='provisional'>passport</annotation>
-		<annotation cp='[🔑]' draft='provisional'>password</annotation>
-		<annotation cp='[🍝]' draft='provisional'>pasta; spaghetti</annotation>
-		<annotation cp='[🚓]' draft='provisional'>patrol</annotation>
-		<annotation cp='[⏯⏸]' draft='provisional'>pause</annotation>
-		<annotation cp='[💻]' draft='provisional'>pc; personal</annotation>
-		<annotation cp='[☮🕊]' draft='provisional'>peace</annotation>
-		<annotation cp='[🍑]' draft='provisional'>peach</annotation>
-		<annotation cp='[🍐]' draft='provisional'>pear</annotation>
-		<annotation cp='[🚶-🚸]' draft='provisional'>pedestrian</annotation>
-		<annotation cp='[✒🔏🖊🖋]' draft='provisional'>pen</annotation>
-		<annotation cp='[✏📝]' draft='provisional'>pencil</annotation>
-		<annotation cp='[🐧]' draft='provisional'>penguin</annotation>
-		<annotation cp='[🌶]' draft='provisional'>pepper</annotation>
-		<annotation cp='[🎭]' draft='provisional'>performing; theater; theatre</annotation>
-		<annotation cp='[😣]' draft='provisional'>persevere</annotation>
-		<annotation cp='[⛷⛹🎅🏂-🏄🏇🏊-🏍👤-👸💁-💃💆💇💏💑🕴🕵🗣🙅-🙇🙋-🙏🚴-🚶]' draft='provisional'>person</annotation>
-		<annotation cp='[{🇵🇪}]' draft='provisional'>peru</annotation>
-		<annotation cp='[🐇🐈🐕🐰🐱🐶🐹]' draft='provisional'>pet</annotation>
-		<annotation cp='[{🇵🇭}]' draft='provisional'>philippines</annotation>
-		<annotation cp='[☎📞📱-📶]' draft='provisional'>phone</annotation>
-		<annotation cp='[🎹]' draft='provisional'>piano</annotation>
-		<annotation cp='[⚒⛏]' draft='provisional'>pick</annotation>
-		<annotation cp='[🐖🐗🐷🐽]' draft='provisional'>pig</annotation>
-		<annotation cp='[💊]' draft='provisional'>pill</annotation>
-		<annotation cp='[📌📍]' draft='provisional'>pin; pushpin</annotation>
-		<annotation cp='[🍍]' draft='provisional'>pineapple</annotation>
-		<annotation cp='[♓🐟]' draft='provisional'>pisces</annotation>
-		<annotation cp='[{🇵🇳}]' draft='provisional'>pitcairn</annotation>
-		<annotation cp='[🍕]' draft='provisional'>pizza</annotation>
-		<annotation cp='[🕋-🕍🛐]' draft='provisional'>place</annotation>
-		<annotation cp='[☘🌰-🍓🎍]' draft='provisional'>plant</annotation>
-		<annotation cp='[🍽]' draft='provisional'>plate</annotation>
-		<annotation cp='[⏯▶]' draft='provisional'>play; right</annotation>
-		<annotation cp='[🃏🎴]' draft='provisional'>playing</annotation>
-		<annotation cp='[🔌]' draft='provisional'>plug</annotation>
-		<annotation cp='[➕]' draft='provisional'>plus</annotation>
-		<annotation cp='[☝👆-👉]' draft='provisional'>point</annotation>
-		<annotation cp='[{🇵🇱}]' draft='provisional'>poland</annotation>
-		<annotation cp='[🎣💈]' draft='provisional'>pole</annotation>
-		<annotation cp='[👮🚓🚔🚨]' draft='provisional'>police</annotation>
-		<annotation cp='[{🇵🇫}]' draft='provisional'>polynesia</annotation>
-		<annotation cp='[🐩]' draft='provisional'>poodle</annotation>
-		<annotation cp='[🍿]' draft='provisional'>popcorn</annotation>
-		<annotation cp='[{🇵🇹}]' draft='provisional'>portugal</annotation>
-		<annotation cp='[🏣🏤📯🚩]' draft='provisional'>post</annotation>
-		<annotation cp='[🍯🍲]' draft='provisional'>pot</annotation>
-		<annotation cp='[🚰🚱]' draft='provisional'>potable</annotation>
-		<annotation cp='[🍠]' draft='provisional'>potato; roasted</annotation>
-		<annotation cp='[👝]' draft='provisional'>pouch</annotation>
-		<annotation cp='[💷{#⃣}]' draft='provisional'>pound</annotation>
-		<annotation cp='[😡😾🙎]' draft='provisional'>pouting</annotation>
-		<annotation cp='[⏮]' draft='provisional'>previous scene; previous track</annotation>
-		<annotation cp='[👸]' draft='provisional'>princess</annotation>
-		<annotation cp='[{🇸🇹}]' draft='provisional'>principe; príncipe; sao tome; são tomé</annotation>
-		<annotation cp='[🐾👣]' draft='provisional'>print</annotation>
-		<annotation cp='[🖨]' draft='provisional'>printer</annotation>
-		<annotation cp='[🏆]' draft='provisional'>prize; trophy</annotation>
-		<annotation cp='[📽]' draft='provisional'>projector</annotation>
-		<annotation cp='[🏒]' draft='provisional'>puck</annotation>
-		<annotation cp='[{🇵🇷}]' draft='provisional'>puerto rico</annotation>
-		<annotation cp='[‼⁉❓-❕❗❣〰]' draft='provisional'>punctuation</annotation>
-		<annotation cp='[💜]' draft='provisional'>purple</annotation>
-		<annotation cp='[{🇶🇦}]' draft='provisional'>qatar</annotation>
-		<annotation cp='[🌓🌗🌛🌜]' draft='provisional'>quarter</annotation>
-		<annotation cp='[⁉❓❔]' draft='provisional'>question</annotation>
-		<annotation cp='[🔇🔕😶]' draft='provisional'>quiet; silent</annotation>
-		<annotation cp='[🐇🐰]' draft='provisional'>rabbit</annotation>
-		<annotation cp='[🏇🐎]' draft='provisional'>racehorse</annotation>
-		<annotation cp='[🏁🏇🏍🏎🐎]' draft='provisional'>racing</annotation>
-		<annotation cp='[🎾🏸]' draft='provisional'>racquet</annotation>
-		<annotation cp='[📻🔘]' draft='provisional'>radio</annotation>
-		<annotation cp='[☢]' draft='provisional'>radioactive</annotation>
-		<annotation cp='[😡]' draft='provisional'>rage</annotation>
-		<annotation cp='[🚂-🚆🚈🚉🚞🚟🛤]' draft='provisional'>railway</annotation>
-		<annotation cp='[☂☔⛈⛱🌂🌈🌦🌧]' draft='provisional'>rain</annotation>
-		<annotation cp='[🌈]' draft='provisional'>rainbow</annotation>
-		<annotation cp='[🙋🙌]' draft='provisional'>raised</annotation>
-		<annotation cp='[🐀]' draft='provisional'>rat</annotation>
-		<annotation cp='[☀]' draft='provisional'>rays; sunny</annotation>
-		<annotation cp='[📥📨📲]' draft='provisional'>receive</annotation>
-		<annotation cp='[📞]' draft='provisional'>receiver</annotation>
-		<annotation cp='[⏺]' draft='provisional'>record</annotation>
-		<annotation cp='[🚙]' draft='provisional'>recreational; rv</annotation>
-		<annotation cp='[♻]' draft='provisional'>recycle</annotation>
-		<annotation cp='[🀄🍎🏮🔴🔺-🔽😡]' draft='provisional'>red</annotation>
-		<annotation cp='[®]' draft='provisional'>registered</annotation>
-		<annotation cp='[☺]' draft='provisional'>relaxed</annotation>
-		<annotation cp='[😌😥]' draft='provisional'>relieved</annotation>
-		<annotation cp='[☦☪☯☸⛩⛪✝✡📿🕉🕋-🕎🛐]' draft='provisional'>religion</annotation>
-		<annotation cp='[🔃]' draft='provisional'>reload</annotation>
-		<annotation cp='[🎗]' draft='provisional'>reminder</annotation>
-		<annotation cp='[🔁]' draft='provisional'>repeat</annotation>
-		<annotation cp='[{🇨🇩}{🇨🇫}{🇨🇬}]' draft='provisional'>republic</annotation>
-		<annotation cp='[⛵]' draft='provisional'>resort; sailboat; sea; yacht</annotation>
-		<annotation cp='[🍔-🍴🍶-🍻🍽🏮]' draft='provisional'>restaurant</annotation>
-		<annotation cp='[{🇷🇪}]' draft='provisional'>reunion; réunion</annotation>
-		<annotation cp='[💞🚨]' draft='provisional'>revolving</annotation>
-		<annotation cp='[⏪]' draft='provisional'>rewind</annotation>
-		<annotation cp='[🎀🎗💝]' draft='provisional'>ribbon</annotation>
-		<annotation cp='[🌾🍘-🍛]' draft='provisional'>rice</annotation>
-		<annotation cp='[💍]' draft='provisional'>ring</annotation>
-		<annotation cp='[🤖]' draft='provisional'>robot</annotation>
-		<annotation cp='[🚀]' draft='provisional'>rocket</annotation>
-		<annotation cp='[🤘]' draft='provisional'>rock-on</annotation>
-		<annotation cp='[🗞]' draft='provisional'>rolled</annotation>
-		<annotation cp='[📇]' draft='provisional'>rolodex</annotation>
-		<annotation cp='[💋-💒💘]' draft='provisional'>romance</annotation>
-		<annotation cp='[{🇷🇴}]' draft='provisional'>romania</annotation>
-		<annotation cp='[🐓]' draft='provisional'>rooster</annotation>
-		<annotation cp='[🌹]' draft='provisional'>rose</annotation>
-		<annotation cp='[🏵]' draft='provisional'>rosette</annotation>
-		<annotation cp='[🚣]' draft='provisional'>rowboat</annotation>
-		<annotation cp='[🏉]' draft='provisional'>rugby</annotation>
-		<annotation cp='[📏📐]' draft='provisional'>ruler</annotation>
-		<annotation cp='[🎽🏃💨]' draft='provisional'>running</annotation>
-		<annotation cp='[😰]' draft='provisional'>rushed</annotation>
-		<annotation cp='[{🇷🇺}]' draft='provisional'>russia</annotation>
-		<annotation cp='[{🇷🇼}]' draft='provisional'>rwanda</annotation>
-		<annotation cp='[{🇪🇭}]' draft='provisional'>sahara; western sahara</annotation>
-		<annotation cp='[{🇧🇱}{🇰🇳}{🇱🇨}{🇲🇫}{🇵🇲}{🇸🇭}{🇻🇨}]' draft='provisional'>saint</annotation>
-		<annotation cp='[🍶]' draft='provisional'>sake</annotation>
-		<annotation cp='[{🇦🇸}{🇼🇸}]' draft='provisional'>samoa</annotation>
-		<annotation cp='[👡]' draft='provisional'>sandal</annotation>
-		<annotation cp='[{🇸🇲}]' draft='provisional'>san marino</annotation>
-		<annotation cp='[🎅]' draft='provisional'>santa</annotation>
-		<annotation cp='[🎽]' draft='provisional'>athletics</annotation>
-		<annotation cp='[💁]' draft='provisional'>sassy; carefree</annotation>
-		<annotation cp='[🎒]' draft='provisional'>satchel</annotation>
-		<annotation cp='[📡🛰]' draft='provisional'>satellite</annotation>
-		<annotation cp='[{🇸🇦}]' draft='provisional'>saudi arabia</annotation>
-		<annotation cp='[🎷]' draft='provisional'>sax; saxophone</annotation>
-		<annotation cp='[🎒🏫]' draft='provisional'>school</annotation>
-		<annotation cp='[✂]' draft='provisional'>scissors</annotation>
-		<annotation cp='[🎼💯]' draft='provisional'>score</annotation>
-		<annotation cp='[♏🦂]' draft='provisional'>scorpio; scorpion; scorpius</annotation>
-		<annotation cp='[📜]' draft='provisional'>scroll</annotation>
-		<annotation cp='[㊙]' draft='provisional'>secret</annotation>
-		<annotation cp='[🔐]' draft='provisional'>secure</annotation>
-		<annotation cp='[🙈]' draft='provisional'>see</annotation>
-		<annotation cp='[🌱]' draft='provisional'>seedling; young</annotation>
-		<annotation cp='[{🇸🇳}]' draft='provisional'>senegal</annotation>
-		<annotation cp='[📤📩]' draft='provisional'>sent</annotation>
-		<annotation cp='[{🇷🇸}]' draft='provisional'>serbia</annotation>
-		<annotation cp='[📐]' draft='provisional'>set</annotation>
-		<annotation cp='[{🇸🇨}]' draft='provisional'>seychelles</annotation>
-		<annotation cp='[☘]' draft='provisional'>shamrock</annotation>
-		<annotation cp='[🍧]' draft='provisional'>shaved</annotation>
-		<annotation cp='[🐏🐑]' draft='provisional'>sheep</annotation>
-		<annotation cp='[🐚]' draft='provisional'>shell</annotation>
-		<annotation cp='[🛡]' draft='provisional'>shield</annotation>
-		<annotation cp='[🚄🚅]' draft='provisional'>shinkansen; speed</annotation>
-		<annotation cp='[⛩]' draft='provisional'>shinto; shrine</annotation>
-		<annotation cp='[⚓🔱🚢🛳]' draft='provisional'>ship</annotation>
-		<annotation cp='[🎽👕]' draft='provisional'>shirt</annotation>
-		<annotation cp='[👞-👢]' draft='provisional'>shoe</annotation>
-		<annotation cp='[🌠]' draft='provisional'>shooting</annotation>
-		<annotation cp='[🛍]' draft='provisional'>shopping</annotation>
-		<annotation cp='[🍰]' draft='provisional'>shortcake</annotation>
-		<annotation cp='[🚿]' draft='provisional'>shower</annotation>
-		<annotation cp='[💉💊😷🤒]' draft='provisional'>sick</annotation>
-		<annotation cp='[{🇸🇱}]' draft='provisional'>sierra leone</annotation>
-		<annotation cp='[⌨▪▫◻-◾☑☢☣☮☯♻♿⚪⚫✅✔✖✨✳✴❇❌❎➕-➗➰➿⬛⬜〽🅿🏧💠🔅🔆🔘🔲-🔻🚭🚯-🚱🚳🚷-🚼🚾🛂-🛅]' draft='provisional'>sign</annotation>
-		<annotation cp='[📶🚥🚦]' draft='provisional'>signal</annotation>
-		<annotation cp='[👤👥🗣]' draft='provisional'>silhouette</annotation>
-		<annotation cp='[{🇸🇬}]' draft='provisional'>singapore</annotation>
-		<annotation cp='[{🇧🇶}{🇸🇽}]' draft='provisional'>sint</annotation>
-		<annotation cp='[⛸]' draft='provisional'>skate</annotation>
-		<annotation cp='[🍡🍢]' draft='provisional'>skewer</annotation>
-		<annotation cp='[⛷🎿🏂]' draft='provisional'>ski</annotation>
-		<annotation cp='[☠💀]' draft='provisional'>skull</annotation>
-		<annotation cp='[💤😪😴🛌🛏]' draft='provisional'>sleep</annotation>
-		<annotation cp='[🕵]' draft='provisional'>sleuth; spy</annotation>
-		<annotation cp='[🍕🍰]' draft='provisional'>slice</annotation>
-		<annotation cp='[🎰]' draft='provisional'>slot</annotation>
-		<annotation cp='[{🇸🇰}]' draft='provisional'>slovakia</annotation>
-		<annotation cp='[{🇸🇮}]' draft='provisional'>slovenia</annotation>
-		<annotation cp='[☺😁😃-😈😊😋😍😎😙😸😺-😼🙂]' draft='provisional'>smile</annotation>
-		<annotation cp='[😏]' draft='provisional'>smirk</annotation>
-		<annotation cp='[🚬🚭]' draft='provisional'>smoking</annotation>
-		<annotation cp='[🐌]' draft='provisional'>snail</annotation>
-		<annotation cp='[☃⛄⛷❄🌨🎿🏂🏔]' draft='provisional'>snow</annotation>
-		<annotation cp='[🏂]' draft='provisional'>snowboard</annotation>
-		<annotation cp='[❄]' draft='provisional'>snowflake</annotation>
-		<annotation cp='[☃⛄]' draft='provisional'>snowman</annotation>
-		<annotation cp='[😭]' draft='provisional'>sob</annotation>
-		<annotation cp='[⚽]' draft='provisional'>soccer</annotation>
-		<annotation cp='[{🇸🇧}]' draft='provisional'>solomon</annotation>
-		<annotation cp='[{🇸🇴}]' draft='provisional'>somalia</annotation>
-		<annotation cp='[🔜]' draft='provisional'>soon</annotation>
-		<annotation cp='[🆘]' draft='provisional'>sos</annotation>
-		<annotation cp='[⏏⏩-⏯⏸-⏺▶◀☎〰🎙-🎛🎤🎧🎵-🎼📞📢📣📯🔇-🔊🔔🔕]' draft='provisional'>sound</annotation>
-		<annotation cp='[⬇{🇬🇸}{🇰🇷}{🇸🇸}{🇿🇦}]' draft='provisional'>south</annotation>
-		<annotation cp='[{🇿🇦}]' draft='provisional'>south africa</annotation>
-		<annotation cp='[↘]' draft='provisional'>southeast</annotation>
-		<annotation cp='[{🇬🇸}]' draft='provisional'>south georgia; south sandwich</annotation>
-		<annotation cp='[{🇰🇷}]' draft='provisional'>south korea</annotation>
-		<annotation cp='[{🇸🇸}]' draft='provisional'>south sudan</annotation>
-		<annotation cp='[↙]' draft='provisional'>southwest</annotation>
-		<annotation cp='[🐖]' draft='provisional'>sow</annotation>
-		<annotation cp='[☀☄🌌🌑-🌞🌠👽👾🚀🛰]' draft='provisional'>space</annotation>
-		<annotation cp='[♠]' draft='provisional'>spade</annotation>
-		<annotation cp='[{🇪🇸}]' draft='provisional'>spain</annotation>
-		<annotation cp='[✨❇🌟🎇💖]' draft='provisional'>sparkle</annotation>
-		<annotation cp='[🗣🙊]' draft='provisional'>speak</annotation>
-		<annotation cp='[🔇-🔊]' draft='provisional'>speaker; volume</annotation>
-		<annotation cp='[🚤]' draft='provisional'>speedboat</annotation>
-		<annotation cp='[🕷🕸]' draft='provisional'>spider</annotation>
-		<annotation cp='[🐚🗒🗓]' draft='provisional'>spiral</annotation>
-		<annotation cp='[💦]' draft='provisional'>splashing</annotation>
-		<annotation cp='[🖐]' draft='provisional'>splayed</annotation>
-		<annotation cp='[🖖]' draft='provisional'>spock; vulcan</annotation>
-		<annotation cp='[⚽⚾⛳⛷-⛹🎣🎱🎳🎽-🏓🏸🏹🚲-🚵]' draft='provisional'>sport</annotation>
-		<annotation cp='[🐳]' draft='provisional'>spouting</annotation>
-		<annotation cp='[⏹▪▫◻-◾❎⬛⬜🔲🔳]' draft='provisional'>square</annotation>
-		<annotation cp='[{🇱🇰}]' draft='provisional'>sri lanka</annotation>
-		<annotation cp='[🏟]' draft='provisional'>stadium</annotation>
-		<annotation cp='[✡✨✴⭐🌃🌟🌠💫🔯{*⃣}]' draft='provisional'>star</annotation>
-		<annotation cp='[{🇺🇸}]' draft='provisional'>stars and stripes</annotation>
-		<annotation cp='[⛽🚉]' draft='provisional'>station</annotation>
-		<annotation cp='[🗽🗿]' draft='provisional'>statue</annotation>
-		<annotation cp='[☕♨🍜]' draft='provisional'>steaming</annotation>
-		<annotation cp='[🍲]' draft='provisional'>stew</annotation>
-		<annotation cp='[🍡🍢🏑🏒]' draft='provisional'>stick</annotation>
-		<annotation cp='[⏹🚏]' draft='provisional'>stop</annotation>
-		<annotation cp='[⏱]' draft='provisional'>stopwatch</annotation>
-		<annotation cp='[🏪🏬]' draft='provisional'>store</annotation>
-		<annotation cp='[📏]' draft='provisional'>straight edge</annotation>
-		<annotation cp='[🎙]' draft='provisional'>studio</annotation>
-		<annotation cp='[{🇸🇩}{🇸🇸}]' draft='provisional'>sudan</annotation>
-		<annotation cp='[♠♣♥♦🕴]' draft='provisional'>suit</annotation>
-		<annotation cp='[☀⛅⛱🌄-🌇🌞🌤-🌦🌻😎]' draft='provisional'>sun</annotation>
-		<annotation cp='[🌻]' draft='provisional'>sunflower</annotation>
-		<annotation cp='[🕶😎]' draft='provisional'>sunglasses</annotation>
-		<annotation cp='[🏄]' draft='provisional'>surfer; surfing</annotation>
-		<annotation cp='[{🇸🇷}]' draft='provisional'>suriname</annotation>
-		<annotation cp='[😯🙀]' draft='provisional'>surprised</annotation>
-		<annotation cp='[🍣]' draft='provisional'>sushi</annotation>
-		<annotation cp='[🚟]' draft='provisional'>suspension</annotation>
-		<annotation cp='[{🇸🇿}]' draft='provisional'>swaziland</annotation>
-		<annotation cp='[💦💧😅😓😰]' draft='provisional'>sweat</annotation>
-		<annotation cp='[{🇸🇪}]' draft='provisional'>sweden</annotation>
-		<annotation cp='[🍠🍡🍦-🍰🎂]' draft='provisional'>sweet</annotation>
-		<annotation cp='[🏊👙]' draft='provisional'>swim</annotation>
-		<annotation cp='[🏊]' draft='provisional'>swimmer</annotation>
-		<annotation cp='[🍥]' draft='provisional'>swirl</annotation>
-		<annotation cp='[{🇨🇭}]' draft='provisional'>switzerland</annotation>
-		<annotation cp='[⚔]' draft='provisional'>swords</annotation>
-		<annotation cp='[©®™]' draft='provisional'>symbol</annotation>
-		<annotation cp='[😮]' draft='provisional'>sympathy</annotation>
-		<annotation cp='[🕍]' draft='provisional'>synagogue; temple</annotation>
-		<annotation cp='[{🇸🇾}]' draft='provisional'>syria</annotation>
-		<annotation cp='[🌮]' draft='provisional'>taco</annotation>
-		<annotation cp='[{🇹🇼}]' draft='provisional'>taiwan</annotation>
-		<annotation cp='[{🇹🇯}]' draft='provisional'>tajikistan</annotation>
-		<annotation cp='[🍊]' draft='provisional'>tangerine</annotation>
-		<annotation cp='[{🇹🇿}]' draft='provisional'>tanzania</annotation>
-		<annotation cp='[☯]' draft='provisional'>tao; taoist; yang; yin</annotation>
-		<annotation cp='[📼]' draft='provisional'>tape; vhs; videocassette</annotation>
-		<annotation cp='[🚕🚖]' draft='provisional'>taxi</annotation>
-		<annotation cp='[☕🍵]' draft='provisional'>tea</annotation>
-		<annotation cp='[🍵]' draft='provisional'>teacup</annotation>
-		<annotation cp='[😂😢😭😹😿]' draft='provisional'>tear</annotation>
-		<annotation cp='[☎📞]' draft='provisional'>telephone</annotation>
-		<annotation cp='[🔭]' draft='provisional'>telescope</annotation>
-		<annotation cp='[📺]' draft='provisional'>television; tv</annotation>
-		<annotation cp='[🎾]' draft='provisional'>tennis</annotation>
-		<annotation cp='[⛺🎪]' draft='provisional'>tent</annotation>
-		<annotation cp='[{🇹🇭}]' draft='provisional'>thailand</annotation>
-		<annotation cp='[🌡🤒]' draft='provisional'>thermometer</annotation>
-		<annotation cp='[🤔]' draft='provisional'>thinking</annotation>
-		<annotation cp='[💭]' draft='provisional'>thought</annotation>
-		<annotation cp='[👍👎]' draft='provisional'>thumb</annotation>
-		<annotation cp='[⛈]' draft='provisional'>thunder</annotation>
-		<annotation cp='[🐅🐯]' draft='provisional'>tiger</annotation>
-		<annotation cp='[⌚⌛⏰-⏳♈-♓🌄-🌇🌑-🌚🕐-🕧]' draft='provisional'>time</annotation>
-		<annotation cp='[⌛⏲⏳]' draft='provisional'>timer</annotation>
-		<annotation cp='[😩😫]' draft='provisional'>tired</annotation>
-		<annotation cp='[™]' draft='provisional'>tm; trademark</annotation>
-		<annotation cp='[{🇹🇹}]' draft='provisional'>tobago; trinidad</annotation>
-		<annotation cp='[{🇹🇬}]' draft='provisional'>togo</annotation>
-		<annotation cp='[🚽]' draft='provisional'>toilet</annotation>
-		<annotation cp='[{🇹🇰}]' draft='provisional'>tokelau</annotation>
-		<annotation cp='[🗼]' draft='provisional'>tokyo; tower</annotation>
-		<annotation cp='[🍅]' draft='provisional'>tomato</annotation>
-		<annotation cp='[{🇹🇴}]' draft='provisional'>tonga</annotation>
-		<annotation cp='[👅😛-😝]' draft='provisional'>tongue</annotation>
-		<annotation cp='[⚒⚓⚖⚗⚙⛏✂🏹🏺💉🔍🔎🔥-🔮🔰🔱🗜🛠]' draft='provisional'>tool</annotation>
-		<annotation cp='[🎩🔝]' draft='provisional'>top</annotation>
-		<annotation cp='[🎩]' draft='provisional'>tophat</annotation>
-		<annotation cp='[🌪]' draft='provisional'>tornado</annotation>
-		<annotation cp='[🖲]' draft='provisional'>trackball</annotation>
-		<annotation cp='[🚜]' draft='provisional'>tractor</annotation>
-		<annotation cp='[⛔🚥🚦🚸]' draft='provisional'>traffic</annotation>
-		<annotation cp='[🚂-🚆🚉🛤]' draft='provisional'>train</annotation>
-		<annotation cp='[🚃🚊🚋🚎]' draft='provisional'>tram; trolleybus</annotation>
-		<annotation cp='[♨♻♿⚓⚠⚡⛏⛑⛓⛔⛱⛳-⛵⛷-⛹⛽✈⭕🏇🏊🏍🏎💺🗿🚀-🛅🛣-🛥🛩🛫🛬🛳]' draft='provisional'>travel</annotation>
-		<annotation cp='[📤📥]' draft='provisional'>tray</annotation>
-		<annotation cp='[🌲-🌴🎄🎋]' draft='provisional'>tree</annotation>
-		<annotation cp='[💹📈📉]' draft='provisional'>trend</annotation>
-		<annotation cp='[⏭-⏯▶◀📐]' draft='provisional'>triangle</annotation>
-		<annotation cp='[{🇹🇦}]' draft='provisional'>tristan da cunha</annotation>
-		<annotation cp='[😤]' draft='provisional'>triumph; won</annotation>
-		<annotation cp='[🚎]' draft='provisional'>trolley</annotation>
-		<annotation cp='[🍹🐠]' draft='provisional'>tropical</annotation>
-		<annotation cp='[🚒🚚🚛]' draft='provisional'>truck</annotation>
-		<annotation cp='[🎺]' draft='provisional'>trumpet</annotation>
-		<annotation cp='[👕]' draft='provisional'>tshirt</annotation>
-		<annotation cp='[🌷]' draft='provisional'>tulip</annotation>
-		<annotation cp='[{🇹🇳}]' draft='provisional'>tunisia</annotation>
-		<annotation cp='[👳]' draft='provisional'>turban</annotation>
-		<annotation cp='[🦃{🇹🇷}]' draft='provisional'>turkey</annotation>
-		<annotation cp='[{🇹🇲}]' draft='provisional'>turkmenistan</annotation>
-		<annotation cp='[🐢]' draft='provisional'>turtle; tortoise; terrapin</annotation>
-		<annotation cp='[{🇹🇻}]' draft='provisional'>tuvalu</annotation>
-		<annotation cp='[{🇺🇬}]' draft='provisional'>uganda</annotation>
-		<annotation cp='[{🇺🇦}]' draft='provisional'>ukraine</annotation>
-		<annotation cp='[☂☔⛱🌂🏖]' draft='provisional'>umbrella</annotation>
-		<annotation cp='[😒]' draft='provisional'>unamused; unhappy</annotation>
-		<annotation cp='[🦄]' draft='provisional'>unicorn</annotation>
-		<annotation cp='[{🇦🇪}{🇬🇧}{🇺🇲}{🇺🇸}{🇻🇮}]' draft='provisional'>united</annotation>
-		<annotation cp='[🔓]' draft='provisional'>unlock</annotation>
-		<annotation cp='[☝🆙👆👍🔝]' draft='provisional'>up</annotation>
-		<annotation cp='[🔠]' draft='provisional'>uppercase</annotation>
-		<annotation cp='[🙃]' draft='provisional'>upside-down</annotation>
-		<annotation cp='[{🇺🇾}]' draft='provisional'>uruguay</annotation>
-		<annotation cp='[{🇺🇲}{🇻🇮}]' draft='provisional'>us; usa</annotation>
-		<annotation cp='[{🇺🇿}]' draft='provisional'>uzbekistan</annotation>
-		<annotation cp='[✌]' draft='provisional'>v; victory</annotation>
-		<annotation cp='[💝]' draft='provisional'>valentine</annotation>
-		<annotation cp='[{🇻🇺}]' draft='provisional'>vanuatu</annotation>
-		<annotation cp='[{🇻🇦}]' draft='provisional'>vatican</annotation>
-		<annotation cp='[🍅🍆]' draft='provisional'>vegetable</annotation>
-		<annotation cp='[🚀-🚎🚐-🚤🚲🚳🛥🛩🛫🛬🛰🛳]' draft='provisional'>vehicle</annotation>
-		<annotation cp='[{🇻🇪}]' draft='provisional'>venezuela</annotation>
-		<annotation cp='[🆚]' draft='provisional'>versus; vs</annotation>
-		<annotation cp='[⏸]' draft='provisional'>vertical</annotation>
-		<annotation cp='[📷-📽]' draft='provisional'>video</annotation>
-		<annotation cp='[🎮🕹]' draft='provisional'>video game</annotation>
-		<annotation cp='[{🇻🇳}]' draft='provisional'>viet nam; vietnam</annotation>
-		<annotation cp='[🎻]' draft='provisional'>violin</annotation>
-		<annotation cp='[♍👧{🇻🇬}{🇻🇮}]' draft='provisional'>virgin</annotation>
-		<annotation cp='[🏐]' draft='provisional'>volleyball</annotation>
-		<annotation cp='[🌖🌘]' draft='provisional'>waning</annotation>
-		<annotation cp='[⚠]' draft='provisional'>warning</annotation>
-		<annotation cp='[🗑]' draft='provisional'>wastebasket</annotation>
-		<annotation cp='[⌚]' draft='provisional'>watch</annotation>
-		<annotation cp='[♒🌊🐃🚰🚱🚾🚿]' draft='provisional'>water</annotation>
-		<annotation cp='[🍉]' draft='provisional'>watermelon</annotation>
-		<annotation cp='[🌊👋🔉]' draft='provisional'>wave</annotation>
-		<annotation cp='[🏳🏴👋]' draft='provisional'>waving</annotation>
-		<annotation cp='[〰]' draft='provisional'>wavy</annotation>
-		<annotation cp='[🌒🌔]' draft='provisional'>waxing</annotation>
-		<annotation cp='[⚔🏹🏺🔪🔫🗡🛡]' draft='provisional'>weapon</annotation>
-		<annotation cp='[😩🙀]' draft='provisional'>weary</annotation>
-		<annotation cp='[☀-☃☔⛄⛅⛈⛱❄🌀-🌌🌑-🌞🌡🌤-🌬💧😎]' draft='provisional'>weather</annotation>
-		<annotation cp='[🕸]' draft='provisional'>web</annotation>
-		<annotation cp='[👰💒]' draft='provisional'>wedding</annotation>
-		<annotation cp='[⚖🏋]' draft='provisional'>weight</annotation>
-		<annotation cp='[⬅{🇪🇭}]' draft='provisional'>west</annotation>
-		<annotation cp='[🐋🐳]' draft='provisional'>whale</annotation>
-		<annotation cp='[☸🎡]' draft='provisional'>wheel</annotation>
-		<annotation cp='[😥]' draft='provisional'>whew</annotation>
-		<annotation cp='[🌬🍃🎐]' draft='provisional'>wind</annotation>
-		<annotation cp='[🍷]' draft='provisional'>wine</annotation>
-		<annotation cp='[💸]' draft='provisional'>wings</annotation>
-		<annotation cp='[😉😜]' draft='provisional'>wink</annotation>
-		<annotation cp='[🐺]' draft='provisional'>wolf</annotation>
-		<annotation cp='[👒👚👠-👢👩👫👭👯👵🚺]' draft='provisional'>woman</annotation>
-		<annotation cp='[©®‼⁉™ℹⓂ❓-❕❗㊗㊙🅰🅱🅾🅿🆎🆑-🆚🈁🈂🈚🈯🈲-🈺🉐🉑💤🔞-🔤{#⃣}{0⃣}{1⃣}{2⃣}{3⃣}{4⃣}{5⃣}{6⃣}{7⃣}{8⃣}{9⃣}]' draft='provisional'>word</annotation>
-		<annotation cp='[👷]' draft='provisional'>worker</annotation>
-		<annotation cp='[🌍-🌐🗺]' draft='provisional'>world</annotation>
-		<annotation cp='[😟]' draft='provisional'>worried</annotation>
-		<annotation cp='[🛐]' draft='provisional'>worship</annotation>
-		<annotation cp='[🔧🛠]' draft='provisional'>wrench</annotation>
-		<annotation cp='[✍]' draft='provisional'>write</annotation>
-		<annotation cp='[💛🔰]' draft='provisional'>yellow</annotation>
-		<annotation cp='[{🇾🇪}]' draft='provisional'>yemen</annotation>
-		<annotation cp='[💴💹]' draft='provisional'>yen</annotation>
-		<annotation cp='[{🇿🇲}]' draft='provisional'>zambia</annotation>
-		<annotation cp='[{🇿🇼}]' draft='provisional'>zimbabwe</annotation>
-		<annotation cp='[🤐]' draft='provisional'>zipper</annotation>
-		<annotation cp='[♈-♓⚖⛎🏹🏺🐂🐍🐏🐐🐟👧👬🦀-🦂]' draft='provisional'>zodiac</annotation>
-		<annotation cp='[💤]' draft='provisional'>zzz</annotation>
+		<annotation cp='[😀]' tts='grinning face'>face; grin</annotation>
+		<annotation cp='[😁]' tts='grinning face with smiling eyes'>eye; face; grin; smile</annotation>
+		<annotation cp='[😂]' tts='face with tears of joy'>face; joy; laugh; tear</annotation>
+		<annotation cp='[😃]' tts='smiling face with open mouth'>face; mouth; open; smile</annotation>
+		<annotation cp='[😄]' tts='smiling face with open mouth and smiling eyes'>eye; face; mouth; open; smile</annotation>
+		<annotation cp='[😅]' tts='smiling face with open mouth and cold sweat'>cold; face; open; smile; sweat</annotation>
+		<annotation cp='[😆]' tts='smiling face with open mouth and tightly-closed eyes'>face; laugh; mouth; open; satisfied; smile</annotation>
+		<annotation cp='[😉]' tts='winking face'>face; wink</annotation>
+		<annotation cp='[😊]' tts='smiling face with smiling eyes'>blush; eye; face; smile</annotation>
+		<annotation cp='[😋]' tts='face savouring delicious food'>delicious; face; savouring; smile; um; yum</annotation>
+		<annotation cp='[😎]' tts='smiling face with sunglasses'>bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather</annotation>
+		<annotation cp='[😍]' tts='smiling face with heart-shaped eyes'>eye; face; heart; love; smile</annotation>
+		<annotation cp='[😘]' tts='face throwing a kiss'>face; heart; kiss</annotation>
+		<annotation cp='[😗]' tts='kissing face'>face; kiss</annotation>
+		<annotation cp='[😙]' tts='kissing face with smiling eyes'>eye; face; kiss; smile</annotation>
+		<annotation cp='[😚]' tts='kissing face with closed eyes'>closed; eye; face; kiss</annotation>
+		<annotation cp='[☺]' tts='smiling face'>face; outlined; relaxed; smile</annotation>
+		<annotation cp='[🙂]' tts='slightly smiling face'>face; smile</annotation>
+		<annotation cp='[🤗]' tts='hugging face'>face; hug; hugging</annotation>
+		<annotation cp='[😇]' tts='smiling face with halo'>angel; face; fairy tale; fantasy; halo; innocent; smile</annotation>
+		<annotation cp='[🤔]' tts='thinking face'>face; thinking</annotation>
+		<annotation cp='[😐]' tts='neutral face'>deadpan; face; neutral</annotation>
+		<annotation cp='[😑]' tts='expressionless face'>expressionless; face; inexpressive; unexpressive</annotation>
+		<annotation cp='[😶]' tts='face without mouth'>face; mouth; quiet; silent</annotation>
+		<annotation cp='[🙄]' tts='face with rolling eyes'>eyes; face; rolling</annotation>
+		<annotation cp='[😏]' tts='smirking face'>face; smirk</annotation>
+		<annotation cp='[😣]' tts='persevering face'>face; persevere</annotation>
+		<annotation cp='[😥]' tts='disappointed but relieved face'>disappointed; face; relieved; whew</annotation>
+		<annotation cp='[😮]' tts='face with open mouth'>face; mouth; open; sympathy</annotation>
+		<annotation cp='[🤐]' tts='zipper-mouth face'>face; mouth; zipper</annotation>
+		<annotation cp='[😯]' tts='hushed face'>face; hushed; stunned; surprised</annotation>
+		<annotation cp='[😪]' tts='sleepy face'>face; sleep</annotation>
+		<annotation cp='[😫]' tts='tired face'>face; tired</annotation>
+		<annotation cp='[😴]' tts='sleeping face'>face; sleep; zzz</annotation>
+		<annotation cp='[😌]' tts='relieved face'>face; relieved</annotation>
+		<annotation cp='[🤓]' tts='nerd face'>face; geek; nerd</annotation>
+		<annotation cp='[😛]' tts='face with stuck-out tongue'>face; tongue</annotation>
+		<annotation cp='[😜]' tts='face with stuck-out tongue and winking eye'>eye; face; joke; tongue; wink</annotation>
+		<annotation cp='[😝]' tts='face with stuck-out tongue and tightly-closed eyes'>eye; face; horrible; taste; tongue</annotation>
+		<annotation cp='[☹]' tts='frowning face'>face; frown</annotation>
+		<annotation cp='[🙁]' tts='slightly frowning face'>face; frown</annotation>
+		<annotation cp='[😒]' tts='unamused face'>face; unamused; unhappy</annotation>
+		<annotation cp='[😓]' tts='face with cold sweat'>cold; face; sweat</annotation>
+		<annotation cp='[😔]' tts='pensive face'>dejected; face; pensive</annotation>
+		<annotation cp='[😕]' tts='confused face'>confused; face</annotation>
+		<annotation cp='[😖]' tts='confounded face'>confounded; face</annotation>
+		<annotation cp='[🙃]' tts='upside-down face'>face; upside-down</annotation>
+		<annotation cp='[😷]' tts='face with medical mask'>cold; doctor; face; mask; medicine; sick</annotation>
+		<annotation cp='[🤒]' tts='face with thermometer'>face; ill; sick; thermometer</annotation>
+		<annotation cp='[🤕]' tts='face with head-bandage'>bandage; face; hurt; injury</annotation>
+		<annotation cp='[🤑]' tts='money-mouth face'>face; money; mouth</annotation>
+		<annotation cp='[😲]' tts='astonished face'>astonished; face; shocked; totally</annotation>
+		<annotation cp='[😞]' tts='disappointed face'>disappointed; face</annotation>
+		<annotation cp='[😟]' tts='worried face'>face; worried</annotation>
+		<annotation cp='[😤]' tts='face with steam from nose'>face; triumph; won</annotation>
+		<annotation cp='[😢]' tts='crying face'>cry; face; sad; tear</annotation>
+		<annotation cp='[😭]' tts='loudly crying face'>cry; face; sad; sob; tear</annotation>
+		<annotation cp='[😦]' tts='frowning face with open mouth'>face; frown; mouth; open</annotation>
+		<annotation cp='[😧]' tts='anguished face'>anguished; face</annotation>
+		<annotation cp='[😨]' tts='fearful face'>face; fear; fearful; scared</annotation>
+		<annotation cp='[😩]' tts='weary face'>face; tired; weary</annotation>
+		<annotation cp='[😬]' tts='grimacing face'>face; grimace</annotation>
+		<annotation cp='[😰]' tts='face with open mouth and cold sweat'>blue; cold; face; mouth; open; rushed; sweat</annotation>
+		<annotation cp='[😱]' tts='face screaming in fear'>face; fear; fearful; munch; scared; scream</annotation>
+		<annotation cp='[😳]' tts='flushed face'>dazed; face; flushed</annotation>
+		<annotation cp='[😵]' tts='dizzy face'>dizzy; face</annotation>
+		<annotation cp='[😡]' tts='pouting face'>angry; face; mad; pouting; rage; red</annotation>
+		<annotation cp='[😠]' tts='angry face'>angry; face; mad</annotation>
+		<annotation cp='[😈]' tts='smiling face with horns'>face; fairy tale; fantasy; horns; smile</annotation>
+		<annotation cp='[👿]' tts='imp'>demon; devil; face; fairy tale; fantasy</annotation>
+		<annotation cp='[👹]' tts='ogre'>creature; face; fairy tale; fantasy; japanese; monster</annotation>
+		<annotation cp='[👺]' tts='goblin'>creature; face; fairy tale; fantasy; japanese; monster</annotation>
+		<annotation cp='[💀]' tts='skull'>body; death; face; fairy tale; monster</annotation>
+		<annotation cp='[☠]' tts='skull and crossbones'>body; crossbones; death; face; monster; skull</annotation>
+		<annotation cp='[👻]' tts='ghost'>creature; face; fairy tale; fantasy; monster</annotation>
+		<annotation cp='[👽]' tts='alien'>creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo</annotation>
+		<annotation cp='[👾]' tts='alien monster'>alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo</annotation>
+		<annotation cp='[🤖]' tts='robot face'>face; monster; robot</annotation>
+		<annotation cp='[💩]' tts='pile of poo'>comic; dung; face; monster; poo; poop</annotation>
+		<annotation cp='[😺]' tts='smiling cat face with open mouth'>cat; face; mouth; open; smile</annotation>
+		<annotation cp='[😸]' tts='grinning cat face with smiling eyes'>cat; eye; face; grin; smile</annotation>
+		<annotation cp='[😹]' tts='cat face with tears of joy'>cat; face; joy; tear</annotation>
+		<annotation cp='[😻]' tts='smiling cat face with heart-shaped eyes'>cat; eye; face; heart; love; smile</annotation>
+		<annotation cp='[😼]' tts='cat face with wry smile'>cat; face; ironic; smile; wry</annotation>
+		<annotation cp='[😽]' tts='kissing cat face with closed eyes'>cat; eye; face; kiss</annotation>
+		<annotation cp='[🙀]' tts='weary cat face'>cat; face; oh; surprised; weary</annotation>
+		<annotation cp='[😿]' tts='crying cat face'>cat; cry; face; sad; tear</annotation>
+		<annotation cp='[😾]' tts='pouting cat face'>cat; face; pouting</annotation>
+		<annotation cp='[🙈]' tts='see-no-evil'>evil; face; forbidden; gesture; monkey; no; not; prohibited; see</annotation>
+		<annotation cp='[🙉]' tts='hear-no-evil'>evil; face; forbidden; gesture; hear; monkey; no; not; prohibited</annotation>
+		<annotation cp='[🙊]' tts='speak-no-evil'>evil; face; forbidden; gesture; monkey; no; not; prohibited; speak</annotation>
+		<annotation cp='[👦]' tts='boy'>boy</annotation>
+		<annotation cp='[👧]' tts='girl'>maiden; virgin; virgo; zodiac</annotation>
+		<annotation cp='[👨]' tts='man'>man</annotation>
+		<annotation cp='[👩]' tts='woman'>woman</annotation>
+		<annotation cp='[👴]' tts='old man'>man; old</annotation>
+		<annotation cp='[👵]' tts='old woman'>old; woman</annotation>
+		<annotation cp='[👶]' tts='baby'>baby</annotation>
+		<annotation cp='[👱]' tts='person with blond hair'>blond</annotation>
+		<annotation cp='[👮]' tts='police officer'>cop; officer; police</annotation>
+		<annotation cp='[👲]' tts='man with chinese cap'>gua pi mao; hat; man</annotation>
+		<annotation cp='[👳]' tts='man with turban'>man; turban</annotation>
+		<annotation cp='[👷]' tts='construction worker'>construction; hat; worker</annotation>
+		<annotation cp='[⛑]' tts='helmet with white cross'>aid; cross; face; hat; helmet</annotation>
+		<annotation cp='[👸]' tts='princess'>fairy tale; fantasy</annotation>
+		<annotation cp='[💂]' tts='guardsman'>guard</annotation>
+		<annotation cp='[🕵]' tts='detective'>sleuth; spy</annotation>
+		<annotation cp='[🎅]' tts='santa claus'>celebration; christmas; fairy tale; fantasy; father; santa</annotation>
+		<annotation cp='[👼]' tts='baby angel'>angel; baby; face; fairy tale; fantasy</annotation>
+		<annotation cp='[💆]' tts='face massage'>massage; salon</annotation>
+		<annotation cp='[💇]' tts='haircut'>barber; beauty; parlor</annotation>
+		<annotation cp='[👰]' tts='bride with veil'>bride; veil; wedding</annotation>
+		<annotation cp='[🙍]' tts='person frowning'>frown; gesture</annotation>
+		<annotation cp='[🙎]' tts='person pouting'>gesture; pouting</annotation>
+		<annotation cp='[🙅]' tts='gesturing no'>forbidden; gesture; hand; no; not; prohibited</annotation>
+		<annotation cp='[🙆]' tts='gesturing ok'>gesture; hand; ok</annotation>
+		<annotation cp='[💁]' tts='information desk person'>hand; help; information; sassy</annotation>
+		<annotation cp='[🙋]' tts='happy person raising hand'>gesture; hand; happy; raised</annotation>
+		<annotation cp='[🙇]' tts='person bowing'>apology; bow; gesture; sorry</annotation>
+		<annotation cp='[🙌]' tts='person raising hands'>body; celebration; gesture; hand; hooray; raised</annotation>
+		<annotation cp='[🙏]' tts='folded hands'>ask; body; bow; folded; gesture; hand; please; pray; thanks</annotation>
+		<annotation cp='[🗣]' tts='speaking head'>face; head; silhouette; speak; speaking</annotation>
+		<annotation cp='[👤]' tts='bust in silhouette'>bust; silhouette</annotation>
+		<annotation cp='[👥]' tts='busts in silhouette'>bust; silhouette</annotation>
+		<annotation cp='[🚶]' tts='pedestrian'>hike; walk; walking</annotation>
+		<annotation cp='[🏃]' tts='runner'>marathon; running</annotation>
+		<annotation cp='[👯]' tts='women partying'>bunny; dancer; ear; girl; woman</annotation>
+		<annotation cp='[💃]' tts='dancer'>dancer</annotation>
+		<annotation cp='[🕴]' tts='man in business suit levitating'>business; man; suit</annotation>
+		<annotation cp='[💏]' tts='kiss'>couple; romance</annotation>
+		<annotation cp='[💑]' tts='couple with heart'>couple; heart; love; romance</annotation>
+		<annotation cp='[👪]' tts='family'>child; father; mother</annotation>
+		<annotation cp='[👫]' tts='man and woman holding hands'>couple; hand; hold; man; woman</annotation>
+		<annotation cp='[👬]' tts='two men holding hands'>couple; gemini; hand; hold; man; twins; zodiac</annotation>
+		<annotation cp='[👭]' tts='two women holding hands'>couple; hand; hold; woman</annotation>
+		<annotation cp='[🏻]' tts='skin type-1-2'>emoji modifier; fitzpatrick; skin; tone</annotation>
+		<annotation cp='[🏼]' tts='skin type-3'>emoji modifier; fitzpatrick; skin; tone</annotation>
+		<annotation cp='[🏽]' tts='skin type-4'>emoji modifier; fitzpatrick; skin; tone</annotation>
+		<annotation cp='[🏾]' tts='skin type-5'>emoji modifier; fitzpatrick; skin; tone</annotation>
+		<annotation cp='[🏿]' tts='skin type-6'>emoji modifier; fitzpatrick; skin; tone</annotation>
+		<annotation cp='[💪]' tts='flexed biceps'>biceps; body; comic; flex; muscle</annotation>
+		<annotation cp='[👈]' tts='backhand index pointing left'>backhand; body; finger; hand; index; point</annotation>
+		<annotation cp='[👉]' tts='backhand index pointing right'>backhand; body; finger; hand; index; point</annotation>
+		<annotation cp='[☝]' tts='index pointing up'>body; finger; hand; index; point; up</annotation>
+		<annotation cp='[👆]' tts='backhand index pointing up'>backhand; body; finger; hand; index; point; up</annotation>
+		<annotation cp='[🖕]' tts='middle finger'>body; finger; hand</annotation>
+		<annotation cp='[👇]' tts='backhand index pointing down'>backhand; body; down; finger; hand; index; point</annotation>
+		<annotation cp='[✌]' tts='victory hand'>body; hand; v; victory</annotation>
+		<annotation cp='[🖖]' tts='vulcan salute'>body; finger; hand; spock; vulcan</annotation>
+		<annotation cp='[🤘]' tts='sign of the horns'>body; finger; hand; horns; rock-on</annotation>
+		<annotation cp='[🖐]' tts='raised hand with fingers splayed'>body; finger; hand; splayed</annotation>
+		<annotation cp='[✋]' tts='raised hand'>body; hand</annotation>
+		<annotation cp='[👌]' tts='ok hand'>body; hand; ok</annotation>
+		<annotation cp='[👍]' tts='thumbs up'>+1; body; hand; thumb; up</annotation>
+		<annotation cp='[👎]' tts='thumbs down'>-1; body; down; hand; thumb</annotation>
+		<annotation cp='[✊]' tts='raised fist'>body; clenched; fist; hand; punch</annotation>
+		<annotation cp='[👊]' tts='oncoming fist'>body; clenched; fist; hand; punch</annotation>
+		<annotation cp='[👋]' tts='waving hand'>body; hand; wave; waving</annotation>
+		<annotation cp='[👏]' tts='clapping hands'>body; clap; hand</annotation>
+		<annotation cp='[👐]' tts='open hands'>body; hand; open</annotation>
+		<annotation cp='[✍]' tts='writing hand'>body; hand; write</annotation>
+		<annotation cp='[💅]' tts='nail polish'>body; care; cosmetics; manicure; nail; polish</annotation>
+		<annotation cp='[👂]' tts='ear'>body</annotation>
+		<annotation cp='[👃]' tts='nose'>body</annotation>
+		<annotation cp='[👣]' tts='footprints'>body; clothing; footprint; print</annotation>
+		<annotation cp='[👀]' tts='eyes'>body; eye; face</annotation>
+		<annotation cp='[👁]' tts='eye'>body</annotation>
+		<annotation cp='[👅]' tts='tongue'>body</annotation>
+		<annotation cp='[👄]' tts='mouth'>body; lips</annotation>
+		<annotation cp='[💋]' tts='kiss mark'>heart; kiss; lips; mark; romance</annotation>
+		<annotation cp='[💘]' tts='heart with arrow'>arrow; cupid; heart; romance</annotation>
+		<annotation cp='[❤]' tts='red heart'>heart</annotation>
+		<annotation cp='[💓]' tts='beating heart'>beating; heart; heartbeat; pulsating</annotation>
+		<annotation cp='[💔]' tts='broken heart'>break; broken; heart</annotation>
+		<annotation cp='[💕]' tts='two hearts'>heart; love</annotation>
+		<annotation cp='[💖]' tts='sparkling heart'>excited; heart; sparkle</annotation>
+		<annotation cp='[💗]' tts='growing heart'>excited; growing; heart; heartpulse; nervous</annotation>
+		<annotation cp='[💙]' tts='blue heart'>blue; heart</annotation>
+		<annotation cp='[💚]' tts='green heart'>green; heart</annotation>
+		<annotation cp='[💛]' tts='yellow heart'>heart; yellow</annotation>
+		<annotation cp='[💜]' tts='purple heart'>heart; purple</annotation>
+		<annotation cp='[💝]' tts='heart with ribbon'>heart; ribbon; valentine</annotation>
+		<annotation cp='[💞]' tts='revolving hearts'>heart; revolving</annotation>
+		<annotation cp='[💟]' tts='heart decoration'>heart</annotation>
+		<annotation cp='[❣]' tts='heavy heart exclamation mark ornament'>exclamation; heart; mark; punctuation</annotation>
+		<annotation cp='[💌]' tts='love letter'>heart; letter; love; mail; romance</annotation>
+		<annotation cp='[💤]' tts='zzz'>comic; sleep</annotation>
+		<annotation cp='[💢]' tts='anger symbol'>angry; comic; mad</annotation>
+		<annotation cp='[💣]' tts='bomb'>comic</annotation>
+		<annotation cp='[💥]' tts='collision'>boom; comic</annotation>
+		<annotation cp='[💦]' tts='sweat droplets'>comic; splashing; sweat</annotation>
+		<annotation cp='[💨]' tts='dashing'>comic; dash; running</annotation>
+		<annotation cp='[💫]' tts='dizzy'>comic; star</annotation>
+		<annotation cp='[💬]' tts='speech balloon'>balloon; bubble; comic; dialog; speech</annotation>
+		<annotation cp='[🗨]' tts='left speech bubble'>dialog; speech</annotation>
+		<annotation cp='[🗯]' tts='right anger bubble'>angry; balloon; bubble; mad</annotation>
+		<annotation cp='[💭]' tts='thought balloon'>balloon; bubble; comic; thought</annotation>
+		<annotation cp='[🕳]' tts='hole'>hole</annotation>
+		<annotation cp='[👓]' tts='glasses'>clothing; eye; eyeglasses; eyewear</annotation>
+		<annotation cp='[🕶]' tts='sunglasses'>dark; eye; eyewear; glasses</annotation>
+		<annotation cp='[👔]' tts='necktie'>clothing</annotation>
+		<annotation cp='[👕]' tts='t-shirt'>clothing; shirt; tshirt</annotation>
+		<annotation cp='[👖]' tts='jeans'>clothing; pants; trousers</annotation>
+		<annotation cp='[👗]' tts='dress'>clothing</annotation>
+		<annotation cp='[👘]' tts='kimono'>clothing</annotation>
+		<annotation cp='[👙]' tts='bikini'>clothing; swim</annotation>
+		<annotation cp='[👚]' tts='woman’s clothes'>clothing; woman</annotation>
+		<annotation cp='[👛]' tts='purse'>clothing; coin</annotation>
+		<annotation cp='[👜]' tts='handbag'>bag; clothing</annotation>
+		<annotation cp='[👝]' tts='pouch'>bag; clothing</annotation>
+		<annotation cp='[🛍]' tts='shopping bags'>bag; hotel; shopping</annotation>
+		<annotation cp='[🎒]' tts='school backpack'>bag; satchel; school</annotation>
+		<annotation cp='[👞]' tts='man’s shoe'>clothing; man; shoe</annotation>
+		<annotation cp='[👟]' tts='running shoe'>athletic; clothing; shoe; sneaker</annotation>
+		<annotation cp='[👠]' tts='high-heeled shoe'>clothing; heel; shoe; woman</annotation>
+		<annotation cp='[👡]' tts='woman’s sandal'>clothing; sandal; shoe; woman</annotation>
+		<annotation cp='[👢]' tts='woman’s boot'>boot; clothing; shoe; woman</annotation>
+		<annotation cp='[👑]' tts='crown'>clothing; king; queen</annotation>
+		<annotation cp='[👒]' tts='woman’s hat'>clothing; hat; woman</annotation>
+		<annotation cp='[🎩]' tts='top hat'>clothing; hat; top; tophat</annotation>
+		<annotation cp='[🎓]' tts='graduation cap'>cap; celebration; clothing; graduation; hat</annotation>
+		<annotation cp='[📿]' tts='prayer beads'>beads; clothing; necklace; prayer; religion</annotation>
+		<annotation cp='[💄]' tts='lipstick'>cosmetics; makeup</annotation>
+		<annotation cp='[💍]' tts='ring'>diamond; romance</annotation>
+		<annotation cp='[💎]' tts='gem stone'>diamond; gem; jewel; romance</annotation>
+		<annotation cp='[🐵]' tts='monkey face'>face; monkey</annotation>
+		<annotation cp='[🐒]' tts='monkey'>monkey</annotation>
+		<annotation cp='[🐶]' tts='dog face'>dog; face; pet</annotation>
+		<annotation cp='[🐕]' tts='dog'>pet</annotation>
+		<annotation cp='[🐩]' tts='poodle'>dog</annotation>
+		<annotation cp='[🐺]' tts='wolf face'>face; wolf</annotation>
+		<annotation cp='[🐱]' tts='cat face'>cat; face; pet</annotation>
+		<annotation cp='[🐈]' tts='cat'>pet</annotation>
+		<annotation cp='[🦁]' tts='lion face'>face; leo; lion; zodiac</annotation>
+		<annotation cp='[🐯]' tts='tiger face'>face; tiger</annotation>
+		<annotation cp='[🐅]' tts='tiger'>tiger</annotation>
+		<annotation cp='[🐆]' tts='leopard'>leopard</annotation>
+		<annotation cp='[🐴]' tts='horse face'>face; horse</annotation>
+		<annotation cp='[🐎]' tts='horse'>racehorse; racing</annotation>
+		<annotation cp='[🦄]' tts='unicorn face'>face; unicorn</annotation>
+		<annotation cp='[🐮]' tts='cow face'>cow; face</annotation>
+		<annotation cp='[🐂]' tts='ox'>bull; taurus; zodiac</annotation>
+		<annotation cp='[🐃]' tts='water buffalo'>buffalo; water</annotation>
+		<annotation cp='[🐄]' tts='cow'>cow</annotation>
+		<annotation cp='[🐷]' tts='pig face'>face; pig</annotation>
+		<annotation cp='[🐖]' tts='pig'>sow</annotation>
+		<annotation cp='[🐗]' tts='boar'>pig</annotation>
+		<annotation cp='[🐽]' tts='pig nose'>face; nose; pig</annotation>
+		<annotation cp='[🐏]' tts='ram'>aries; sheep; zodiac</annotation>
+		<annotation cp='[🐑]' tts='sheep'>ewe</annotation>
+		<annotation cp='[🐐]' tts='goat'>capricorn; zodiac</annotation>
+		<annotation cp='[🐪]' tts='camel'>dromedary; hump</annotation>
+		<annotation cp='[🐫]' tts='two-hump camel'>bactrian; camel; hump</annotation>
+		<annotation cp='[🐘]' tts='elephant'>elephant</annotation>
+		<annotation cp='[🐭]' tts='mouse face'>face; mouse</annotation>
+		<annotation cp='[🐁]' tts='mouse'>mouse</annotation>
+		<annotation cp='[🐀]' tts='rat'>rat</annotation>
+		<annotation cp='[🐹]' tts='hamster face'>face; hamster; pet</annotation>
+		<annotation cp='[🐰]' tts='rabbit face'>bunny; face; pet; rabbit</annotation>
+		<annotation cp='[🐇]' tts='rabbit'>bunny; pet</annotation>
+		<annotation cp='[🐿]' tts='chipmunk'>chipmunk</annotation>
+		<annotation cp='[🐻]' tts='bear face'>bear; face</annotation>
+		<annotation cp='[🐨]' tts='koala'>bear</annotation>
+		<annotation cp='[🐼]' tts='panda face'>face; panda</annotation>
+		<annotation cp='[🐾]' tts='paw prints'>feet; paw; print</annotation>
+		<annotation cp='[🦃]' tts='turkey'>turkey</annotation>
+		<annotation cp='[🐔]' tts='chicken'>chicken</annotation>
+		<annotation cp='[🐓]' tts='rooster'>rooster</annotation>
+		<annotation cp='[🐣]' tts='hatching chick'>baby; chick; hatching</annotation>
+		<annotation cp='[🐤]' tts='baby chick'>baby; chick</annotation>
+		<annotation cp='[🐥]' tts='front-facing baby chick'>baby; chick</annotation>
+		<annotation cp='[🐦]' tts='bird'>bird</annotation>
+		<annotation cp='[🐧]' tts='penguin'>penguin</annotation>
+		<annotation cp='[🕊]' tts='dove'>bird; fly; peace</annotation>
+		<annotation cp='[🐸]' tts='frog face'>face; frog</annotation>
+		<annotation cp='[🐊]' tts='crocodile'>crocodile</annotation>
+		<annotation cp='[🐢]' tts='turtle'>turtle</annotation>
+		<annotation cp='[🐍]' tts='snake'>bearer; ophiuchus; serpent; zodiac</annotation>
+		<annotation cp='[🐲]' tts='dragon face'>dragon; face; fairy tale</annotation>
+		<annotation cp='[🐉]' tts='dragon'>fairy tale</annotation>
+		<annotation cp='[🐳]' tts='spouting whale'>face; spouting; whale</annotation>
+		<annotation cp='[🐋]' tts='whale'>whale</annotation>
+		<annotation cp='[🐬]' tts='dolphin'>flipper</annotation>
+		<annotation cp='[🐟]' tts='fish'>pisces; zodiac</annotation>
+		<annotation cp='[🐠]' tts='tropical fish'>fish; tropical</annotation>
+		<annotation cp='[🐡]' tts='blowfish'>fish</annotation>
+		<annotation cp='[🐙]' tts='octopus'>octopus</annotation>
+		<annotation cp='[🐚]' tts='spiral shell'>shell; spiral</annotation>
+		<annotation cp='[🦀]' tts='crab'>cancer; zodiac</annotation>
+		<annotation cp='[🐌]' tts='snail'>snail</annotation>
+		<annotation cp='[🐛]' tts='bug'>insect</annotation>
+		<annotation cp='[🐜]' tts='ant'>insect</annotation>
+		<annotation cp='[🐝]' tts='honeybee'>bee; insect</annotation>
+		<annotation cp='[🐞]' tts='lady beetle'>beetle; insect; ladybird; ladybug</annotation>
+		<annotation cp='[🕷]' tts='spider'>insect</annotation>
+		<annotation cp='[🕸]' tts='spider web'>spider; web</annotation>
+		<annotation cp='[🦂]' tts='scorpion'>scorpio; scorpius; zodiac</annotation>
+		<annotation cp='[💐]' tts='bouquet'>flower; plant; romance</annotation>
+		<annotation cp='[🌸]' tts='cherry blossom'>blossom; cherry; flower; plant</annotation>
+		<annotation cp='[💮]' tts='white flower'>flower</annotation>
+		<annotation cp='[🏵]' tts='rosette'>plant</annotation>
+		<annotation cp='[🌹]' tts='rose'>flower; plant</annotation>
+		<annotation cp='[🌺]' tts='hibiscus'>flower; plant</annotation>
+		<annotation cp='[🌻]' tts='sunflower'>flower; plant; sun</annotation>
+		<annotation cp='[🌼]' tts='blossom'>flower; plant</annotation>
+		<annotation cp='[🌷]' tts='tulip'>flower; plant</annotation>
+		<annotation cp='[🌱]' tts='seedling'>plant; young</annotation>
+		<annotation cp='[🌲]' tts='evergreen'>plant; tree</annotation>
+		<annotation cp='[🌳]' tts='deciduous tree'>deciduous; plant; shedding; tree</annotation>
+		<annotation cp='[🌴]' tts='palm tree'>palm; plant; tree</annotation>
+		<annotation cp='[🌵]' tts='cactus'>plant</annotation>
+		<annotation cp='[🌾]' tts='sheaf of rice'>ear; plant; rice</annotation>
+		<annotation cp='[🌿]' tts='herb'>leaf; plant</annotation>
+		<annotation cp='[☘]' tts='shamrock'>plant</annotation>
+		<annotation cp='[🍀]' tts='four leaf clover'>4; clover; four; leaf; plant</annotation>
+		<annotation cp='[🍁]' tts='maple leaf'>falling; leaf; maple; plant</annotation>
+		<annotation cp='[🍂]' tts='fallen leaf'>falling; leaf; plant</annotation>
+		<annotation cp='[🍃]' tts='leaf fluttering in wind'>blow; flutter; leaf; plant; wind</annotation>
+		<annotation cp='[🍇]' tts='grapes'>fruit; grape; plant</annotation>
+		<annotation cp='[🍈]' tts='melon'>fruit; plant</annotation>
+		<annotation cp='[🍉]' tts='watermelon'>fruit; plant</annotation>
+		<annotation cp='[🍊]' tts='tangerine'>fruit; orange; plant</annotation>
+		<annotation cp='[🍋]' tts='lemon'>citrus; fruit; plant</annotation>
+		<annotation cp='[🍌]' tts='banana'>fruit; plant</annotation>
+		<annotation cp='[🍍]' tts='pineapple'>fruit; plant</annotation>
+		<annotation cp='[🍎]' tts='red apple'>apple; fruit; plant; red</annotation>
+		<annotation cp='[🍏]' tts='green apple'>apple; fruit; green; plant</annotation>
+		<annotation cp='[🍐]' tts='pear'>fruit; plant</annotation>
+		<annotation cp='[🍑]' tts='peach'>fruit; plant</annotation>
+		<annotation cp='[🍒]' tts='cherries'>cherry; fruit; plant</annotation>
+		<annotation cp='[🍓]' tts='strawberry'>berry; fruit; plant</annotation>
+		<annotation cp='[🍅]' tts='tomato'>plant; vegetable</annotation>
+		<annotation cp='[🍆]' tts='eggplant'>aubergine; plant; vegetable</annotation>
+		<annotation cp='[🌽]' tts='ear of corn'>corn; ear; maize; maze; plant</annotation>
+		<annotation cp='[🌶]' tts='hot pepper'>hot; pepper; plant</annotation>
+		<annotation cp='[🍄]' tts='mushroom'>plant</annotation>
+		<annotation cp='[🌰]' tts='chestnut'>plant</annotation>
+		<annotation cp='[🍞]' tts='bread'>loaf</annotation>
+		<annotation cp='[🧀]' tts='cheese wedge'>cheese</annotation>
+		<annotation cp='[🍖]' tts='meat on bone'>bone; meat</annotation>
+		<annotation cp='[🍗]' tts='poultry leg'>bone; chicken; leg; poultry</annotation>
+		<annotation cp='[🍔]' tts='hamburger'>burger</annotation>
+		<annotation cp='[🍟]' tts='french fries'>french; fries</annotation>
+		<annotation cp='[🍕]' tts='pizza'>cheese; slice</annotation>
+		<annotation cp='[🌭]' tts='hot dog'>frankfurter; hotdog; sausage</annotation>
+		<annotation cp='[🌮]' tts='taco'>mexican</annotation>
+		<annotation cp='[🌯]' tts='burrito'>mexican</annotation>
+		<annotation cp='[🍿]' tts='popcorn'>popcorn</annotation>
+		<annotation cp='[🍲]' tts='pot of food'>pot; stew</annotation>
+		<annotation cp='[🍱]' tts='bento box'>bento; box</annotation>
+		<annotation cp='[🍘]' tts='rice cracker'>cracker; rice</annotation>
+		<annotation cp='[🍙]' tts='rice ball'>ball; japanese; rice</annotation>
+		<annotation cp='[🍚]' tts='cooked rice'>cooked; rice</annotation>
+		<annotation cp='[🍛]' tts='curry rice'>curry; rice</annotation>
+		<annotation cp='[🍜]' tts='steaming bowl'>bowl; noodle; ramen; steaming</annotation>
+		<annotation cp='[🍝]' tts='spaghetti'>pasta</annotation>
+		<annotation cp='[🍠]' tts='roasted sweet potato'>potato; roasted; sweet</annotation>
+		<annotation cp='[🍢]' tts='oden'>kebab; seafood; skewer; stick</annotation>
+		<annotation cp='[🍣]' tts='sushi'>sushi</annotation>
+		<annotation cp='[🍤]' tts='fried shrimp'>fried; prawn; shrimp; tempura</annotation>
+		<annotation cp='[🍥]' tts='fish cake with swirl'>cake; fish; pastry; swirl</annotation>
+		<annotation cp='[🍡]' tts='dango'>dessert; japanese; skewer; stick; sweet</annotation>
+		<annotation cp='[🍦]' tts='soft ice cream'>cream; dessert; ice; icecream; soft; sweet</annotation>
+		<annotation cp='[🍧]' tts='shaved ice'>dessert; ice; shaved; sweet</annotation>
+		<annotation cp='[🍨]' tts='ice cream'>cream; dessert; ice; sweet</annotation>
+		<annotation cp='[🍩]' tts='doughnut'>dessert; donut; sweet</annotation>
+		<annotation cp='[🍪]' tts='cookie'>dessert; sweet</annotation>
+		<annotation cp='[🎂]' tts='birthday cake'>birthday; cake; celebration; dessert; pastry; sweet</annotation>
+		<annotation cp='[🍰]' tts='shortcake'>cake; dessert; pastry; slice; sweet</annotation>
+		<annotation cp='[🍫]' tts='chocolate bar'>bar; chocolate; dessert; sweet</annotation>
+		<annotation cp='[🍬]' tts='candy'>dessert; sweet</annotation>
+		<annotation cp='[🍭]' tts='lollipop'>candy; dessert; sweet</annotation>
+		<annotation cp='[🍮]' tts='custard'>dessert; pudding; sweet</annotation>
+		<annotation cp='[🍯]' tts='honey pot'>honey; honeypot; pot; sweet</annotation>
+		<annotation cp='[🍼]' tts='baby bottle'>baby; bottle; drink; milk</annotation>
+		<annotation cp='[☕]' tts='hot beverage'>beverage; coffee; drink; hot; steaming; tea</annotation>
+		<annotation cp='[🍵]' tts='teacup without handle'>beverage; cup; drink; tea; teacup</annotation>
+		<annotation cp='[🍶]' tts='sake'>bar; beverage; bottle; cup; drink</annotation>
+		<annotation cp='[🍾]' tts='bottle with popping cork'>bar; bottle; cork; drink; popping</annotation>
+		<annotation cp='[🍷]' tts='wine glass'>bar; beverage; drink; glass; wine</annotation>
+		<annotation cp='[🍸]' tts='cocktail glass'>bar; cocktail; drink; glass</annotation>
+		<annotation cp='[🍹]' tts='tropical drink'>bar; drink; tropical</annotation>
+		<annotation cp='[🍺]' tts='beer mug'>bar; beer; drink; mug</annotation>
+		<annotation cp='[🍻]' tts='clinking beer mugs'>bar; beer; clink; drink; mug</annotation>
+		<annotation cp='[🍽]' tts='fork and knife with plate'>cooking; fork; knife; plate</annotation>
+		<annotation cp='[🍴]' tts='fork and knife'>cooking; fork; knife</annotation>
+		<annotation cp='[🍳]' tts='cooking'>egg; frying; pan</annotation>
+		<annotation cp='[🏺]' tts='amphora'>aquarius; cooking; drink; jug; tool; weapon; zodiac</annotation>
+		<annotation cp='[🌍]' tts='globe showing europe-africa'>africa; earth; europe; globe; world</annotation>
+		<annotation cp='[🌎]' tts='globe showing americas'>americas; earth; globe; world</annotation>
+		<annotation cp='[🌏]' tts='globe showing asia-australia'>asia; australia; earth; globe; world</annotation>
+		<annotation cp='[🌐]' tts='globe with meridians'>earth; globe; meridians; world</annotation>
+		<annotation cp='[🗺]' tts='world map'>map; world</annotation>
+		<annotation cp='[🏔]' tts='snow-capped mountain'>cold; mountain; snow</annotation>
+		<annotation cp='[⛰]' tts='mountain'>mountain</annotation>
+		<annotation cp='[🌋]' tts='volcano'>eruption; mountain; weather</annotation>
+		<annotation cp='[🗻]' tts='mount fuji'>fuji; mountain</annotation>
+		<annotation cp='[🏕]' tts='camping'>camping</annotation>
+		<annotation cp='[🏖]' tts='beach with umbrella'>beach; umbrella</annotation>
+		<annotation cp='[🏜]' tts='desert'>desert</annotation>
+		<annotation cp='[🏝]' tts='desert island'>desert; island</annotation>
+		<annotation cp='[🏞]' tts='national park'>park</annotation>
+		<annotation cp='[🏟]' tts='stadium'>stadium</annotation>
+		<annotation cp='[🏛]' tts='classical building'>building; classical</annotation>
+		<annotation cp='[🏗]' tts='building construction'>building; construction</annotation>
+		<annotation cp='[🏘]' tts='house buildings'>building; house</annotation>
+		<annotation cp='[🏙]' tts='cityscape'>building; city</annotation>
+		<annotation cp='[🏚]' tts='derelict house building'>building; derelict; house</annotation>
+		<annotation cp='[🏠]' tts='house building'>building; home; house</annotation>
+		<annotation cp='[🏡]' tts='house with garden'>building; garden; home; house</annotation>
+		<annotation cp='[⛪]' tts='church'>building; christian; cross; religion</annotation>
+		<annotation cp='[🕋]' tts='kaaba'>islam; muslim; religion</annotation>
+		<annotation cp='[🕌]' tts='mosque'>islam; muslim; religion</annotation>
+		<annotation cp='[🕍]' tts='synagogue'>jew; jewish; religion; temple</annotation>
+		<annotation cp='[⛩]' tts='shinto shrine'>religion; shinto; shrine</annotation>
+		<annotation cp='[🏢]' tts='office building'>building</annotation>
+		<annotation cp='[🏣]' tts='japanese post office'>building; japanese; post</annotation>
+		<annotation cp='[🏤]' tts='post office'>building; european; post</annotation>
+		<annotation cp='[🏥]' tts='hospital'>building; doctor; medicine</annotation>
+		<annotation cp='[🏦]' tts='bank'>building</annotation>
+		<annotation cp='[🏨]' tts='hotel'>building</annotation>
+		<annotation cp='[🏩]' tts='love hotel'>building; hotel; love</annotation>
+		<annotation cp='[🏪]' tts='convenience store'>building; convenience; store</annotation>
+		<annotation cp='[🏫]' tts='school'>building</annotation>
+		<annotation cp='[🏬]' tts='department store'>building; department; store</annotation>
+		<annotation cp='[🏭]' tts='factory'>building</annotation>
+		<annotation cp='[🏯]' tts='japanese castle'>building; castle; japanese</annotation>
+		<annotation cp='[🏰]' tts='castle'>building; european</annotation>
+		<annotation cp='[💒]' tts='wedding'>chapel; romance</annotation>
+		<annotation cp='[🗼]' tts='tokyo tower'>tokyo; tower</annotation>
+		<annotation cp='[🗽]' tts='statue of liberty'>liberty; statue</annotation>
+		<annotation cp='[🗾]' tts='map of japan'>japan; map</annotation>
+		<annotation cp='[⛲]' tts='fountain'>fountain</annotation>
+		<annotation cp='[⛺]' tts='tent'>camping</annotation>
+		<annotation cp='[🌁]' tts='foggy'>fog; weather</annotation>
+		<annotation cp='[🌃]' tts='night with stars'>night; star; weather</annotation>
+		<annotation cp='[🌄]' tts='sunrise over mountains'>morning; mountain; sun; sunrise; weather</annotation>
+		<annotation cp='[🌅]' tts='sunrise'>morning; sun; weather</annotation>
+		<annotation cp='[🌆]' tts='cityscape at dusk'>building; city; dusk; evening; landscape; sun; sunset; weather</annotation>
+		<annotation cp='[🌇]' tts='sunset'>building; dusk; sun; weather</annotation>
+		<annotation cp='[🌉]' tts='bridge at night'>bridge; night; weather</annotation>
+		<annotation cp='[♨]' tts='hot springs'>hot; hotsprings; springs; steaming</annotation>
+		<annotation cp='[🌌]' tts='milky way'>space; weather</annotation>
+		<annotation cp='[🎠]' tts='carousel horse'>carousel; horse</annotation>
+		<annotation cp='[🎡]' tts='ferris wheel'>amusement park; ferris; wheel</annotation>
+		<annotation cp='[🎢]' tts='roller coaster'>amusement park; coaster; roller</annotation>
+		<annotation cp='[💈]' tts='barber pole'>barber; haircut; pole</annotation>
+		<annotation cp='[🎪]' tts='circus tent'>circus; tent</annotation>
+		<annotation cp='[🎭]' tts='performing arts'>art; mask; performing; theater; theatre</annotation>
+		<annotation cp='[🖼]' tts='frame with picture'>art; frame; museum; painting; picture</annotation>
+		<annotation cp='[🎨]' tts='artist palette'>art; museum; painting; palette</annotation>
+		<annotation cp='[🎰]' tts='slot machine'>game; slot</annotation>
+		<annotation cp='[🚂]' tts='locomotive'>engine; railway; steam; train; vehicle</annotation>
+		<annotation cp='[🚃]' tts='railway car'>car; electric; railway; train; tram; trolleybus; vehicle</annotation>
+		<annotation cp='[🚄]' tts='high-speed train'>railway; shinkansen; speed; train; vehicle</annotation>
+		<annotation cp='[🚅]' tts='high-speed train with bullet nose'>bullet; railway; shinkansen; speed; train; vehicle</annotation>
+		<annotation cp='[🚆]' tts='train'>railway; vehicle</annotation>
+		<annotation cp='[🚇]' tts='metro'>subway; vehicle</annotation>
+		<annotation cp='[🚈]' tts='light rail'>railway; vehicle</annotation>
+		<annotation cp='[🚉]' tts='station'>railway; train; vehicle</annotation>
+		<annotation cp='[🚊]' tts='tram'>trolleybus; vehicle</annotation>
+		<annotation cp='[🚝]' tts='monorail'>vehicle</annotation>
+		<annotation cp='[🚞]' tts='mountain railway'>car; mountain; railway; vehicle</annotation>
+		<annotation cp='[🚋]' tts='tram car'>car; tram; trolleybus; vehicle</annotation>
+		<annotation cp='[🚌]' tts='bus'>vehicle</annotation>
+		<annotation cp='[🚍]' tts='oncoming bus'>bus; oncoming; vehicle</annotation>
+		<annotation cp='[🚎]' tts='trolleybus'>bus; tram; trolley; vehicle</annotation>
+		<annotation cp='[🚏]' tts='bus stop'>bus; busstop; stop</annotation>
+		<annotation cp='[🚐]' tts='minibus'>bus; vehicle</annotation>
+		<annotation cp='[🚑]' tts='ambulance'>vehicle</annotation>
+		<annotation cp='[🚒]' tts='fire engine'>engine; fire; truck; vehicle</annotation>
+		<annotation cp='[🚓]' tts='police car'>car; patrol; police; vehicle</annotation>
+		<annotation cp='[🚔]' tts='oncoming police car'>car; oncoming; police; vehicle</annotation>
+		<annotation cp='[🚕]' tts='taxi'>vehicle</annotation>
+		<annotation cp='[🚖]' tts='oncoming taxi'>oncoming; taxi; vehicle</annotation>
+		<annotation cp='[🚗]' tts='automobile'>car; vehicle</annotation>
+		<annotation cp='[🚘]' tts='oncoming automobile'>automobile; car; oncoming; vehicle</annotation>
+		<annotation cp='[🚙]' tts='recreational vehicle'>recreational; rv; vehicle</annotation>
+		<annotation cp='[🚚]' tts='delivery truck'>delivery; truck; vehicle</annotation>
+		<annotation cp='[🚛]' tts='articulated lorry'>lorry; semi; truck; vehicle</annotation>
+		<annotation cp='[🚜]' tts='tractor'>vehicle</annotation>
+		<annotation cp='[🚲]' tts='bicycle'>bike; vehicle</annotation>
+		<annotation cp='[⛽]' tts='fuel pump'>fuel; fuelpump; gas; pump; station</annotation>
+		<annotation cp='[🛣]' tts='motorway'>highway; road</annotation>
+		<annotation cp='[🛤]' tts='railway track'>railway; train</annotation>
+		<annotation cp='[🚨]' tts='police car’s light'>beacon; car; light; police; revolving; vehicle</annotation>
+		<annotation cp='[🚥]' tts='horizontal traffic light'>light; signal; traffic</annotation>
+		<annotation cp='[🚦]' tts='vertical traffic light'>light; signal; traffic</annotation>
+		<annotation cp='[🚧]' tts='construction'>barrier</annotation>
+		<annotation cp='[⚓]' tts='anchor'>ship; tool</annotation>
+		<annotation cp='[⛵]' tts='sailboat'>boat; resort; sea; vehicle; yacht</annotation>
+		<annotation cp='[🚣]' tts='rowboat'>boat; vehicle</annotation>
+		<annotation cp='[🚤]' tts='speedboat'>boat; vehicle</annotation>
+		<annotation cp='[🛳]' tts='passenger ship'>passenger; ship; vehicle</annotation>
+		<annotation cp='[⛴]' tts='ferry'>boat</annotation>
+		<annotation cp='[🛥]' tts='motor boat'>boat; motorboat; vehicle</annotation>
+		<annotation cp='[🚢]' tts='ship'>vehicle</annotation>
+		<annotation cp='[✈]' tts='airplane'>vehicle</annotation>
+		<annotation cp='[🛩]' tts='small airplane'>airplane; vehicle</annotation>
+		<annotation cp='[🛫]' tts='airplane departure'>airplane; check-in; departure; departures; vehicle</annotation>
+		<annotation cp='[🛬]' tts='airplane arrival'>airplane; arrivals; arriving; landing; vehicle</annotation>
+		<annotation cp='[💺]' tts='seat'>chair</annotation>
+		<annotation cp='[🚁]' tts='helicopter'>vehicle</annotation>
+		<annotation cp='[🚟]' tts='suspension railway'>railway; suspension; vehicle</annotation>
+		<annotation cp='[🚠]' tts='mountain cableway'>cable; gondola; mountain; vehicle</annotation>
+		<annotation cp='[🚡]' tts='aerial tramway'>aerial; cable; car; gondola; ropeway; tramway; vehicle</annotation>
+		<annotation cp='[🚀]' tts='rocket'>space; vehicle</annotation>
+		<annotation cp='[🛰]' tts='satellite'>space; vehicle</annotation>
+		<annotation cp='[🛎]' tts='bellhop bell'>bell; bellhop; hotel</annotation>
+		<annotation cp='[🚪]' tts='door'>door</annotation>
+		<annotation cp='[🛌]' tts='person in bed'>hotel; sleep</annotation>
+		<annotation cp='[🛏]' tts='bed'>hotel; sleep</annotation>
+		<annotation cp='[🛋]' tts='couch and lamp'>couch; hotel; lamp</annotation>
+		<annotation cp='[🚽]' tts='toilet'>toilet</annotation>
+		<annotation cp='[🚿]' tts='shower'>water</annotation>
+		<annotation cp='[🛀]' tts='person taking bath'>bathtub; bath</annotation>
+		<annotation cp='[🛁]' tts='bathtub'>bath</annotation>
+		<annotation cp='[⌛]' tts='hourglass'>sand; timer</annotation>
+		<annotation cp='[⏳]' tts='hourglass with flowing sand'>hourglass; sand; timer</annotation>
+		<annotation cp='[⌚]' tts='watch'>clock</annotation>
+		<annotation cp='[⏰]' tts='alarm clock'>alarm; clock</annotation>
+		<annotation cp='[⏱]' tts='stopwatch'>clock</annotation>
+		<annotation cp='[⏲]' tts='timer clock'>clock; timer</annotation>
+		<annotation cp='[🕰]' tts='mantelpiece clock'>clock</annotation>
+		<annotation cp='[🕛]' tts='twelve o’clock'>00; 12; 12:00; clock; o’clock; twelve</annotation>
+		<annotation cp='[🕧]' tts='twelve-thirty'>12; 12:30; 30; clock; thirty; twelve</annotation>
+		<annotation cp='[🕐]' tts='one o’clock'>00; 1; 1:00; clock; o’clock; one</annotation>
+		<annotation cp='[🕜]' tts='one-thirty'>1; 1:30; 30; clock; one; thirty</annotation>
+		<annotation cp='[🕑]' tts='two o’clock'>00; 2; 2:00; clock; o’clock; two</annotation>
+		<annotation cp='[🕝]' tts='two-thirty'>2; 2:30; 30; clock; thirty; two</annotation>
+		<annotation cp='[🕒]' tts='three o’clock'>00; 3; 3:00; clock; o’clock; three</annotation>
+		<annotation cp='[🕞]' tts='three-thirty'>3; 3:30; 30; clock; thirty; three</annotation>
+		<annotation cp='[🕓]' tts='four o’clock'>00; 4; 4:00; clock; four; o’clock</annotation>
+		<annotation cp='[🕟]' tts='four-thirty'>30; 4; 4:30; clock; four; thirty</annotation>
+		<annotation cp='[🕔]' tts='five o’clock'>00; 5; 5:00; clock; five; o’clock</annotation>
+		<annotation cp='[🕠]' tts='five-thirty'>30; 5; 5:30; clock; five; thirty</annotation>
+		<annotation cp='[🕕]' tts='six o’clock'>00; 6; 6:00; clock; o’clock; six</annotation>
+		<annotation cp='[🕡]' tts='six-thirty'>30; 6; 6:30; clock; six; thirty</annotation>
+		<annotation cp='[🕖]' tts='seven o’clock'>00; 7; 7:00; clock; o’clock; seven</annotation>
+		<annotation cp='[🕢]' tts='seven-thirty'>30; 7; 7:30; clock; seven; thirty</annotation>
+		<annotation cp='[🕗]' tts='eight o’clock'>00; 8; 8:00; clock; eight; o’clock</annotation>
+		<annotation cp='[🕣]' tts='eight-thirty'>30; 8; 8:30; clock; eight; thirty</annotation>
+		<annotation cp='[🕘]' tts='nine o’clock'>00; 9; 9:00; clock; nine; o’clock</annotation>
+		<annotation cp='[🕤]' tts='nine-thirty'>30; 9; 9:30; clock; nine; thirty</annotation>
+		<annotation cp='[🕙]' tts='ten o’clock'>00; 10; 10:00; clock; o’clock; ten</annotation>
+		<annotation cp='[🕥]' tts='ten-thirty'>10; 10:30; 30; clock; ten; thirty</annotation>
+		<annotation cp='[🕚]' tts='eleven o’clock'>00; 11; 11:00; clock; eleven; o’clock</annotation>
+		<annotation cp='[🕦]' tts='eleven-thirty'>11; 11:30; 30; clock; eleven; thirty</annotation>
+		<annotation cp='[🌑]' tts='new moon'>dark; moon; space; weather</annotation>
+		<annotation cp='[🌒]' tts='waxing crescent moon'>crescent; moon; space; waxing; weather</annotation>
+		<annotation cp='[🌓]' tts='first quarter moon'>moon; quarter; space; weather</annotation>
+		<annotation cp='[🌔]' tts='waxing gibbous moon'>gibbous; moon; space; waxing; weather</annotation>
+		<annotation cp='[🌕]' tts='full moon'>full; moon; space; weather</annotation>
+		<annotation cp='[🌖]' tts='waning gibbous moon'>gibbous; moon; space; waning; weather</annotation>
+		<annotation cp='[🌗]' tts='last quarter moon'>moon; quarter; space; weather</annotation>
+		<annotation cp='[🌘]' tts='waning crescent moon'>crescent; moon; space; waning; weather</annotation>
+		<annotation cp='[🌙]' tts='crescent moon'>crescent; moon; space; weather</annotation>
+		<annotation cp='[🌚]' tts='new moon face'>face; moon; space; weather</annotation>
+		<annotation cp='[🌛]' tts='first quarter moon with face'>face; moon; quarter; space; weather</annotation>
+		<annotation cp='[🌜]' tts='last quarter moon with face'>face; moon; quarter; space; weather</annotation>
+		<annotation cp='[🌡]' tts='thermometer'>weather</annotation>
+		<annotation cp='[☀]' tts='sun'>bright; rays; space; sunny; weather</annotation>
+		<annotation cp='[🌝]' tts='full moon with face'>bright; face; full; moon; space; weather</annotation>
+		<annotation cp='[🌞]' tts='sun with face'>bright; face; space; sun; weather</annotation>
+		<annotation cp='[⭐]' tts='white medium star'>star</annotation>
+		<annotation cp='[🌟]' tts='glowing star'>glittery; glow; shining; sparkle; star</annotation>
+		<annotation cp='[🌠]' tts='shooting star'>falling; shooting; space; star</annotation>
+		<annotation cp='[☁]' tts='cloud'>weather</annotation>
+		<annotation cp='[⛅]' tts='sun behind cloud'>cloud; sun; weather</annotation>
+		<annotation cp='[⛈]' tts='cloud with lightning and rain'>cloud; rain; thunder; weather</annotation>
+		<annotation cp='[🌤]' tts='sun behind small cloud'>cloud; sun; weather</annotation>
+		<annotation cp='[🌥]' tts='sun behind large cloud'>cloud; sun; weather</annotation>
+		<annotation cp='[🌦]' tts='sun behind cloud with rain'>cloud; rain; sun; weather</annotation>
+		<annotation cp='[🌧]' tts='cloud with rain'>cloud; rain; weather</annotation>
+		<annotation cp='[🌨]' tts='cloud with snow'>cloud; cold; snow; weather</annotation>
+		<annotation cp='[🌩]' tts='cloud with lightning'>cloud; lightning; weather</annotation>
+		<annotation cp='[🌪]' tts='tornado'>cloud; weather; whirlwind</annotation>
+		<annotation cp='[🌫]' tts='fog'>cloud; weather</annotation>
+		<annotation cp='[🌬]' tts='wind face'>blow; cloud; face; weather; wind</annotation>
+		<annotation cp='[🌀]' tts='cyclone'>dizzy; twister; typhoon; weather</annotation>
+		<annotation cp='[🌈]' tts='rainbow'>rain; weather</annotation>
+		<annotation cp='[🌂]' tts='closed umbrella'>clothing; rain; umbrella; weather</annotation>
+		<annotation cp='[☂]' tts='umbrella'>clothing; rain; weather</annotation>
+		<annotation cp='[☔]' tts='umbrella with rain drops'>clothing; drop; rain; umbrella; weather</annotation>
+		<annotation cp='[⛱]' tts='umbrella on ground'>rain; sun; umbrella; weather</annotation>
+		<annotation cp='[⚡]' tts='high voltage'>danger; electric; electricity; lightning; voltage; zap</annotation>
+		<annotation cp='[❄]' tts='snowflake'>cold; snow; weather</annotation>
+		<annotation cp='[☃]' tts='snowman'>cold; snow; weather</annotation>
+		<annotation cp='[⛄]' tts='snowman without snow'>cold; snow; snowman; weather</annotation>
+		<annotation cp='[☄]' tts='comet'>space</annotation>
+		<annotation cp='[🔥]' tts='fire'>flame; tool</annotation>
+		<annotation cp='[💧]' tts='droplet'>cold; comic; drop; sweat; weather</annotation>
+		<annotation cp='[🌊]' tts='water wave'>ocean; water; wave; weather</annotation>
+		<annotation cp='[🎃]' tts='jack-o-lantern'>celebration; halloween; jack; lantern</annotation>
+		<annotation cp='[🎄]' tts='christmas tree'>celebration; christmas; tree</annotation>
+		<annotation cp='[🎆]' tts='fireworks'>celebration</annotation>
+		<annotation cp='[🎇]' tts='sparkler'>celebration; fireworks; sparkle</annotation>
+		<annotation cp='[✨]' tts='sparkles'>sparkle; star</annotation>
+		<annotation cp='[🎈]' tts='balloon'>celebration</annotation>
+		<annotation cp='[🎉]' tts='party popper'>celebration; party; popper; tada</annotation>
+		<annotation cp='[🎊]' tts='confetti ball'>ball; celebration; confetti</annotation>
+		<annotation cp='[🎋]' tts='tanabata tree'>banner; celebration; japanese; tree</annotation>
+		<annotation cp='[🎌]' tts='crossed flags'>celebration; cross; crossed; japanese</annotation>
+		<annotation cp='[🎍]' tts='pine decoration'>bamboo; celebration; japanese; pine; plant</annotation>
+		<annotation cp='[🎎]' tts='japanese dolls'>celebration; doll; festival; japanese</annotation>
+		<annotation cp='[🎏]' tts='carp streamer'>carp; celebration; streamer</annotation>
+		<annotation cp='[🎐]' tts='wind chime'>bell; celebration; chime; wind</annotation>
+		<annotation cp='[🎑]' tts='moon ceremony'>celebration; ceremony; moon</annotation>
+		<annotation cp='[🎀]' tts='ribbon'>celebration</annotation>
+		<annotation cp='[🎁]' tts='wrapped present'>box; celebration; gift; present; wrapped</annotation>
+		<annotation cp='[🎖]' tts='military medal'>celebration; medal; military</annotation>
+		<annotation cp='[🎗]' tts='reminder ribbon'>celebration; reminder; ribbon</annotation>
+		<annotation cp='[🎞]' tts='film frames'>cinema; film; frames; movie</annotation>
+		<annotation cp='[🎟]' tts='admission tickets'>admission; ticket</annotation>
+		<annotation cp='[🎫]' tts='ticket'>admission</annotation>
+		<annotation cp='[🏷]' tts='label'>label</annotation>
+		<annotation cp='[⚽]' tts='soccer ball'>ball; soccer</annotation>
+		<annotation cp='[⚾]' tts='baseball'>ball</annotation>
+		<annotation cp='[🏀]' tts='basketball'>ball; hoop</annotation>
+		<annotation cp='[🏈]' tts='american football'>american; ball; football</annotation>
+		<annotation cp='[🏉]' tts='rugby football'>ball; football; rugby</annotation>
+		<annotation cp='[🎾]' tts='tennis'>ball; racquet</annotation>
+		<annotation cp='[🎱]' tts='billiards'>8; 8 ball; ball; billiard; eight; game</annotation>
+		<annotation cp='[🎳]' tts='bowling'>ball; game</annotation>
+		<annotation cp='[⛳]' tts='flag in hole'>golf; hole</annotation>
+		<annotation cp='[🏌]' tts='golfer'>ball; golf</annotation>
+		<annotation cp='[⛸]' tts='ice skate'>ice; skate</annotation>
+		<annotation cp='[🎣]' tts='fishing pole'>fish; pole</annotation>
+		<annotation cp='[🎽]' tts='running shirt'>running; sash; shirt</annotation>
+		<annotation cp='[🎿]' tts='skis'>ski; snow</annotation>
+		<annotation cp='[⛷]' tts='skier'>ski; snow</annotation>
+		<annotation cp='[🏂]' tts='snowboarder'>ski; snow; snowboard</annotation>
+		<annotation cp='[🏄]' tts='surfer'>surfing</annotation>
+		<annotation cp='[🏇]' tts='horse racing'>horse; jockey; racehorse; racing</annotation>
+		<annotation cp='[🏊]' tts='swimmer'>swim</annotation>
+		<annotation cp='[⛹]' tts='person with ball'>ball</annotation>
+		<annotation cp='[🏋]' tts='weight lifter'>lifter; weight</annotation>
+		<annotation cp='[🚴]' tts='bicyclist'>bicycle; bike; cyclist</annotation>
+		<annotation cp='[🚵]' tts='mountain biker'>bicycle; bicyclist; bike; cyclist; mountain</annotation>
+		<annotation cp='[🏎]' tts='racing car'>car; racing</annotation>
+		<annotation cp='[🏍]' tts='motorcycle'>racing</annotation>
+		<annotation cp='[🏅]' tts='sports medal'>medal</annotation>
+		<annotation cp='[🏆]' tts='trophy'>prize</annotation>
+		<annotation cp='[🏏]' tts='cricket'>ball; bat; game</annotation>
+		<annotation cp='[🏐]' tts='volleyball'>ball; game</annotation>
+		<annotation cp='[🏑]' tts='field hockey'>ball; field; game; hockey; stick</annotation>
+		<annotation cp='[🏒]' tts='ice hockey stick and puck'>game; hockey; ice; puck; stick</annotation>
+		<annotation cp='[🏓]' tts='ping pong'>ball; bat; game; paddle; table tennis</annotation>
+		<annotation cp='[🏸]' tts='badminton'>birdie; game; racquet; shuttlecock</annotation>
+		<annotation cp='[🎯]' tts='direct hit'>bull; bullseye; dart; eye; game; hit; target</annotation>
+		<annotation cp='[🎮]' tts='video game'>controller; game</annotation>
+		<annotation cp='[🕹]' tts='joystick'>game; video game</annotation>
+		<annotation cp='[🎲]' tts='game die'>dice; die; game</annotation>
+		<annotation cp='[♠]' tts='spade suit'>card; game; spade; suit</annotation>
+		<annotation cp='[♥]' tts='heart suit'>card; game; heart; hearts; suit</annotation>
+		<annotation cp='[♦]' tts='diamond suit'>card; diamond; diamonds; game; suit</annotation>
+		<annotation cp='[♣]' tts='club suit'>card; club; clubs; game; suit</annotation>
+		<annotation cp='[🃏]' tts='joker'>card; game; playing</annotation>
+		<annotation cp='[🀄]' tts='mahjong red dragon'>game; mahjong; red</annotation>
+		<annotation cp='[🎴]' tts='flower playing cards'>card; flower; game; japanese; playing</annotation>
+		<annotation cp='[🔇]' tts='speaker off'>mute; quiet; silent; speaker; volume</annotation>
+		<annotation cp='[🔈]' tts='speaker'>volume</annotation>
+		<annotation cp='[🔉]' tts='speaker on'>low; speaker; volume; wave</annotation>
+		<annotation cp='[🔊]' tts='speaker loud'>3; high; loud; speaker; three; volume</annotation>
+		<annotation cp='[📢]' tts='loudspeaker'>loud; public address</annotation>
+		<annotation cp='[📣]' tts='megaphone'>cheering</annotation>
+		<annotation cp='[📯]' tts='postal horn'>horn; post; postal</annotation>
+		<annotation cp='[🔔]' tts='bell'>bell</annotation>
+		<annotation cp='[🔕]' tts='bell with slash'>bell; forbidden; mute; no; not; prohibited; quiet; silent</annotation>
+		<annotation cp='[🎼]' tts='musical score'>music; score</annotation>
+		<annotation cp='[🎵]' tts='musical note'>music; note</annotation>
+		<annotation cp='[🎶]' tts='musical notes'>music; note; notes</annotation>
+		<annotation cp='[🎙]' tts='studio microphone'>mic; microphone; music; studio</annotation>
+		<annotation cp='[🎚]' tts='level slider'>level; music; slider</annotation>
+		<annotation cp='[🎛]' tts='control knobs'>control; knobs; music</annotation>
+		<annotation cp='[🎤]' tts='microphone'>karaoke; mic</annotation>
+		<annotation cp='[🎧]' tts='headphone'>earbud</annotation>
+		<annotation cp='[🎷]' tts='saxophone'>instrument; music; sax</annotation>
+		<annotation cp='[🎸]' tts='guitar'>instrument; music</annotation>
+		<annotation cp='[🎹]' tts='musical keyboard'>instrument; keyboard; music; piano</annotation>
+		<annotation cp='[🎺]' tts='trumpet'>instrument; music</annotation>
+		<annotation cp='[🎻]' tts='violin'>instrument; music</annotation>
+		<annotation cp='[📻]' tts='radio'>video</annotation>
+		<annotation cp='[📱]' tts='mobile phone'>cell; mobile; phone; telephone</annotation>
+		<annotation cp='[📲]' tts='mobile phone with arrow'>arrow; call; cell; mobile; phone; receive; telephone</annotation>
+		<annotation cp='[☎]' tts='telephone'>phone</annotation>
+		<annotation cp='[📞]' tts='telephone receiver'>phone; receiver; telephone</annotation>
+		<annotation cp='[📟]' tts='pager'>pager</annotation>
+		<annotation cp='[📠]' tts='fax machine'>fax</annotation>
+		<annotation cp='[🔋]' tts='battery'>battery</annotation>
+		<annotation cp='[🔌]' tts='electric plug'>electric; electricity; plug</annotation>
+		<annotation cp='[💻]' tts='laptop computer'>computer; pc; personal</annotation>
+		<annotation cp='[🖥]' tts='desktop computer'>computer; desktop</annotation>
+		<annotation cp='[🖨]' tts='printer'>computer</annotation>
+		<annotation cp='[⌨]' tts='keyboard'>computer</annotation>
+		<annotation cp='[🖱]' tts='computer mouse'>3; button; computer; mouse; three</annotation>
+		<annotation cp='[🖲]' tts='trackball'>computer</annotation>
+		<annotation cp='[💽]' tts='minidisc'>computer; disk; minidisk; optical</annotation>
+		<annotation cp='[💾]' tts='floppy disk'>computer; disk; floppy</annotation>
+		<annotation cp='[💿]' tts='optical disc'>dvd; blu-ray; cd; computer; disk; optical</annotation>
+		<annotation cp='[📀]' tts='dvd'>blu-ray; cd; computer; disk; optical</annotation>
+		<annotation cp='[🎥]' tts='movie camera'>camera; cinema; movie</annotation>
+		<annotation cp='[🎬]' tts='clapper board'>clapper; movie</annotation>
+		<annotation cp='[📽]' tts='film projector'>cinema; film; movie; projector; video</annotation>
+		<annotation cp='[📺]' tts='television'>tv; video</annotation>
+		<annotation cp='[📷]' tts='camera'>video</annotation>
+		<annotation cp='[📸]' tts='camera with flash'>camera; flash; video</annotation>
+		<annotation cp='[📹]' tts='video camera'>camera; video</annotation>
+		<annotation cp='[📼]' tts='videocassette'>tape; vhs; video</annotation>
+		<annotation cp='[🔍]' tts='left-pointing magnifying glass'>glass; magnifying; search; tool</annotation>
+		<annotation cp='[🔎]' tts='right-pointing magnifying glass'>glass; magnifying; search; tool</annotation>
+		<annotation cp='[🔬]' tts='microscope'>tool</annotation>
+		<annotation cp='[🔭]' tts='telescope'>tool</annotation>
+		<annotation cp='[📡]' tts='satellite antenna'>antenna; dish; satellite</annotation>
+		<annotation cp='[🕯]' tts='candle'>light</annotation>
+		<annotation cp='[💡]' tts='light bulb'>bulb; comic; electric; idea; light</annotation>
+		<annotation cp='[🔦]' tts='flashlight'>electric; light; tool; torch</annotation>
+		<annotation cp='[🏮]' tts='red paper lantern'>bar; japanese; lantern; light; red</annotation>
+		<annotation cp='[📔]' tts='notebook with decorative cover'>book; cover; decorated; notebook</annotation>
+		<annotation cp='[📕]' tts='closed book'>book; closed</annotation>
+		<annotation cp='[📖]' tts='open book'>book; open</annotation>
+		<annotation cp='[📗]' tts='green book'>book; green</annotation>
+		<annotation cp='[📘]' tts='blue book'>blue; book</annotation>
+		<annotation cp='[📙]' tts='orange book'>book; orange</annotation>
+		<annotation cp='[📚]' tts='books'>book</annotation>
+		<annotation cp='[📓]' tts='notebook'>notebook</annotation>
+		<annotation cp='[📒]' tts='ledger'>notebook</annotation>
+		<annotation cp='[📃]' tts='page with curl'>curl; document; page</annotation>
+		<annotation cp='[📜]' tts='scroll'>paper</annotation>
+		<annotation cp='[📄]' tts='page facing up'>document; page</annotation>
+		<annotation cp='[📰]' tts='newspaper'>news; paper</annotation>
+		<annotation cp='[🗞]' tts='rolled-up newspaper'>news; newspaper; paper; rolled</annotation>
+		<annotation cp='[📑]' tts='bookmark tabs'>bookmark; mark; marker; tabs</annotation>
+		<annotation cp='[🔖]' tts='bookmark'>mark</annotation>
+		<annotation cp='[💰]' tts='money bag'>bag; dollar; money; moneybag</annotation>
+		<annotation cp='[💴]' tts='yen banknote'>bank; banknote; bill; currency; money; note; yen</annotation>
+		<annotation cp='[💵]' tts='dollar banknote'>bank; banknote; bill; currency; dollar; money; note</annotation>
+		<annotation cp='[💶]' tts='euro banknote'>bank; banknote; bill; currency; euro; money; note</annotation>
+		<annotation cp='[💷]' tts='pound banknote'>bank; banknote; bill; currency; money; note; pound</annotation>
+		<annotation cp='[💸]' tts='money with wings'>bank; banknote; bill; dollar; fly; money; note; wings</annotation>
+		<annotation cp='[💳]' tts='credit card'>bank; card; credit; money</annotation>
+		<annotation cp='[💹]' tts='chart increasing with yen'>bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen</annotation>
+		<annotation cp='[✉]' tts='envelope'>e-mail; email</annotation>
+		<annotation cp='[📧]' tts='e-mail'>email; letter; mail</annotation>
+		<annotation cp='[📨]' tts='incoming envelope'>e-mail; email; envelope; incoming; letter; mail; receive</annotation>
+		<annotation cp='[📩]' tts='envelope with arrow'>arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent</annotation>
+		<annotation cp='[📤]' tts='outbox tray'>box; letter; mail; outbox; sent; tray</annotation>
+		<annotation cp='[📥]' tts='inbox tray'>box; inbox; letter; mail; receive; tray</annotation>
+		<annotation cp='[📦]' tts='package'>box; parcel</annotation>
+		<annotation cp='[📫]' tts='closed mailbox with raised flag'>closed; mail; mailbox; postbox</annotation>
+		<annotation cp='[📪]' tts='closed mailbox with lowered flag'>closed; lowered; mail; mailbox; postbox</annotation>
+		<annotation cp='[📬]' tts='open mailbox with raised flag'>mail; mailbox; open; postbox</annotation>
+		<annotation cp='[📭]' tts='open mailbox with lowered flag'>lowered; mail; mailbox; open; postbox</annotation>
+		<annotation cp='[📮]' tts='postbox'>mail; mailbox</annotation>
+		<annotation cp='[🗳]' tts='ballot box with ballot'>ballot; box</annotation>
+		<annotation cp='[✏]' tts='pencil'>pencil</annotation>
+		<annotation cp='[✒]' tts='black nib'>nib; pen</annotation>
+		<annotation cp='[🖋]' tts='fountain pen'>fountain; pen</annotation>
+		<annotation cp='[🖊]' tts='pen'>ballpoint</annotation>
+		<annotation cp='[🖌]' tts='paintbrush'>painting</annotation>
+		<annotation cp='[🖍]' tts='crayon'>crayon</annotation>
+		<annotation cp='[📝]' tts='memo'>pencil</annotation>
+		<annotation cp='[💼]' tts='briefcase'>briefcase</annotation>
+		<annotation cp='[📁]' tts='file folder'>file; folder</annotation>
+		<annotation cp='[📂]' tts='open file folder'>file; folder; open</annotation>
+		<annotation cp='[🗂]' tts='card index dividers'>card; dividers; index</annotation>
+		<annotation cp='[📅]' tts='calendar'>date</annotation>
+		<annotation cp='[📆]' tts='tear-off calendar'>calendar</annotation>
+		<annotation cp='[🗒]' tts='spiral notepad'>note; pad; spiral</annotation>
+		<annotation cp='[🗓]' tts='spiral calendar'>calendar; pad; spiral</annotation>
+		<annotation cp='[📇]' tts='card index'>card; index; rolodex</annotation>
+		<annotation cp='[📈]' tts='chart increasing'>chart; graph; growth; trend; upward</annotation>
+		<annotation cp='[📉]' tts='chart decreasing'>chart; down; graph; trend</annotation>
+		<annotation cp='[📊]' tts='bar chart'>bar; chart; graph</annotation>
+		<annotation cp='[📋]' tts='clipboard'>clipboard</annotation>
+		<annotation cp='[📌]' tts='pushpin'>pin</annotation>
+		<annotation cp='[📍]' tts='round pushpin'>pin; pushpin</annotation>
+		<annotation cp='[📎]' tts='paperclip'>paperclip</annotation>
+		<annotation cp='[🖇]' tts='linked paperclips'>link; paperclip</annotation>
+		<annotation cp='[📏]' tts='straight ruler'>ruler; straight edge</annotation>
+		<annotation cp='[📐]' tts='triangular ruler'>ruler; set; triangle</annotation>
+		<annotation cp='[✂]' tts='scissors'>tool</annotation>
+		<annotation cp='[🗃]' tts='card file box'>box; card; file</annotation>
+		<annotation cp='[🗄]' tts='file cabinet'>cabinet; file</annotation>
+		<annotation cp='[🗑]' tts='wastebasket'>wastebasket</annotation>
+		<annotation cp='[🔒]' tts='lock'>closed</annotation>
+		<annotation cp='[🔓]' tts='open lock'>lock; open; unlock</annotation>
+		<annotation cp='[🔏]' tts='lock with pen'>ink; lock; nib; pen; privacy</annotation>
+		<annotation cp='[🔐]' tts='closed lock with key'>closed; key; lock; secure</annotation>
+		<annotation cp='[🔑]' tts='key'>lock; password</annotation>
+		<annotation cp='[🗝]' tts='old key'>clue; key; lock; old</annotation>
+		<annotation cp='[🔨]' tts='hammer'>tool</annotation>
+		<annotation cp='[⛏]' tts='pick'>mining; tool</annotation>
+		<annotation cp='[⚒]' tts='hammer and pick'>hammer; pick; tool</annotation>
+		<annotation cp='[🛠]' tts='hammer and wrench'>hammer; tool; wrench</annotation>
+		<annotation cp='[🔧]' tts='wrench'>tool</annotation>
+		<annotation cp='[🔩]' tts='nut and bolt'>bolt; nut; tool</annotation>
+		<annotation cp='[⚙]' tts='gear'>tool</annotation>
+		<annotation cp='[🗜]' tts='compression'>tool; vice</annotation>
+		<annotation cp='[⚗]' tts='alembic'>chemistry; tool</annotation>
+		<annotation cp='[⚖]' tts='balance scale'>balance; justice; libra; scales; tool; weight; zodiac</annotation>
+		<annotation cp='[🔗]' tts='link'>link</annotation>
+		<annotation cp='[⛓]' tts='chains'>chain</annotation>
+		<annotation cp='[💉]' tts='syringe'>doctor; medicine; needle; shot; sick; tool</annotation>
+		<annotation cp='[💊]' tts='pill'>doctor; medicine; sick</annotation>
+		<annotation cp='[🗡]' tts='dagger'>knife; weapon</annotation>
+		<annotation cp='[🔪]' tts='kitchen knife'>cooking; hocho; knife; tool; weapon</annotation>
+		<annotation cp='[⚔]' tts='crossed swords'>crossed; swords; weapon</annotation>
+		<annotation cp='[🔫]' tts='pistol'>gun; revolver; tool; weapon</annotation>
+		<annotation cp='[🛡]' tts='shield'>weapon</annotation>
+		<annotation cp='[🏹]' tts='bow and arrow'>archer; arrow; bow; sagittarius; tool; weapon; zodiac</annotation>
+		<annotation cp='[🏁]' tts='chequered flag'>checkered; chequered; racing</annotation>
+		<annotation cp='[🏳]' tts='waving white flag'>waving</annotation>
+		<annotation cp='[🏴]' tts='waving black flag'>waving</annotation>
+		<annotation cp='[🚩]' tts='triangular flag'>post</annotation>
+		<annotation cp='[🚬]' tts='smoking'>smoking</annotation>
+		<annotation cp='[⚰]' tts='coffin'>death</annotation>
+		<annotation cp='[⚱]' tts='funeral urn'>death; funeral; urn</annotation>
+		<annotation cp='[🗿]' tts='moai'>face; moyai; statue</annotation>
+		<annotation cp='[🛢]' tts='oil drum'>drum; oil</annotation>
+		<annotation cp='[🔮]' tts='crystal ball'>ball; crystal; fairy tale; fantasy; fortune; tool</annotation>
+		<annotation cp='[🏧]' tts='ATM sign'>atm; automated; bank; teller</annotation>
+		<annotation cp='[🚮]' tts='litter in bin sign'>litter; litterbox</annotation>
+		<annotation cp='[🚰]' tts='potable water'>drink; potable; water</annotation>
+		<annotation cp='[♿]' tts='wheelchair'>access</annotation>
+		<annotation cp='[🚹]' tts='men’s room'>lavatory; man; restroom; wc</annotation>
+		<annotation cp='[🚺]' tts='women’s room'>lavatory; restroom; wc; woman</annotation>
+		<annotation cp='[🚻]' tts='restroom'>lavatory; wc</annotation>
+		<annotation cp='[🚼]' tts='baby symbol'>baby; changing</annotation>
+		<annotation cp='[🚾]' tts='water closet'>closet; lavatory; restroom; water; wc</annotation>
+		<annotation cp='[🛂]' tts='passport control'>control; passport</annotation>
+		<annotation cp='[🛃]' tts='customs'>customs</annotation>
+		<annotation cp='[🛄]' tts='baggage claim'>baggage; claim</annotation>
+		<annotation cp='[🛅]' tts='left luggage'>baggage; locker; luggage</annotation>
+		<annotation cp='[⚠]' tts='warning'>warning</annotation>
+		<annotation cp='[🚸]' tts='children crossing'>child; crossing; pedestrian; traffic</annotation>
+		<annotation cp='[⛔]' tts='no entry'>entry; forbidden; no; not; prohibited; traffic</annotation>
+		<annotation cp='[🚫]' tts='prohibited'>entry; forbidden; no; not</annotation>
+		<annotation cp='[🚳]' tts='no bicycles'>bicycle; bike; forbidden; no; not; prohibited; vehicle</annotation>
+		<annotation cp='[🚭]' tts='no smoking'>forbidden; no; not; prohibited; smoking</annotation>
+		<annotation cp='[🚯]' tts='no littering'>forbidden; litter; no; not; prohibited</annotation>
+		<annotation cp='[🚱]' tts='non-potable water'>drink; forbidden; no; not; potable; prohibited; water</annotation>
+		<annotation cp='[🚷]' tts='no pedestrians'>forbidden; no; not; pedestrian; prohibited</annotation>
+		<annotation cp='[☢]' tts='radioactive'>radioactive</annotation>
+		<annotation cp='[☣]' tts='biohazard'>biohazard</annotation>
+		<annotation cp='[⬆]' tts='up arrow'>arrow; cardinal; direction; north</annotation>
+		<annotation cp='[↗]' tts='up-right arrow'>arrow; direction; intercardinal; northeast</annotation>
+		<annotation cp='[➡]' tts='right arrow'>arrow; cardinal; direction; east</annotation>
+		<annotation cp='[↘]' tts='down-right arrow'>arrow; direction; intercardinal; southeast</annotation>
+		<annotation cp='[⬇]' tts='down arrow'>arrow; cardinal; direction; down; south</annotation>
+		<annotation cp='[↙]' tts='down-left arrow'>arrow; direction; intercardinal; southwest</annotation>
+		<annotation cp='[⬅]' tts='left arrow'>arrow; cardinal; direction; west</annotation>
+		<annotation cp='[↖]' tts='up-left arrow'>arrow; direction; intercardinal; northwest</annotation>
+		<annotation cp='[↕]' tts='up-down arrow'>arrow</annotation>
+		<annotation cp='[↔]' tts='left-right arrow'>arrow</annotation>
+		<annotation cp='[↩]' tts='right arrow curving left'>arrow</annotation>
+		<annotation cp='[↪]' tts='left arrow curving right'>arrow</annotation>
+		<annotation cp='[⤴]' tts='right arrow curving up'>arrow</annotation>
+		<annotation cp='[⤵]' tts='right arrow curving down'>arrow; down</annotation>
+		<annotation cp='[🔃]' tts='clockwise vertical arrows'>arrow; clockwise; reload</annotation>
+		<annotation cp='[🔄]' tts='anticlockwise arrows button'>anticlockwise; arrow; counterclockwise; withershins</annotation>
+		<annotation cp='[🔙]' tts='back arrow'>arrow; back</annotation>
+		<annotation cp='[🔚]' tts='end arrow'>arrow; end</annotation>
+		<annotation cp='[🔛]' tts='on! arrow'>arrow; mark; on</annotation>
+		<annotation cp='[🔜]' tts='soon arrow'>arrow; soon</annotation>
+		<annotation cp='[🔝]' tts='top arrow'>arrow; top; up</annotation>
+		<annotation cp='[🛐]' tts='place of worship'>religion; worship</annotation>
+		<annotation cp='[⚛]' tts='atom symbol'>atheist; atom</annotation>
+		<annotation cp='[🕉]' tts='om'>hindu; religion</annotation>
+		<annotation cp='[✡]' tts='star of david'>david; jew; jewish; religion; star</annotation>
+		<annotation cp='[☸]' tts='wheel of dharma'>buddhist; dharma; religion; wheel</annotation>
+		<annotation cp='[☯]' tts='yin yang'>religion; tao; taoist; yang; yin</annotation>
+		<annotation cp='[✝]' tts='latin cross'>christian; cross; religion</annotation>
+		<annotation cp='[☦]' tts='orthodox cross'>christian; cross; religion</annotation>
+		<annotation cp='[☪]' tts='star and crescent'>islam; muslim; religion</annotation>
+		<annotation cp='[☮]' tts='peace symbol'>peace</annotation>
+		<annotation cp='[🕎]' tts='menorah'>candelabrum; candlestick; religion</annotation>
+		<annotation cp='[🔯]' tts='dotted six-pointed star'>fortune; star</annotation>
+		<annotation cp='[♻]' tts='recycling symbol'>recycle</annotation>
+		<annotation cp='[📛]' tts='name badge'>badge; name</annotation>
+		<annotation cp='[⚜]' tts='fleur-de-lis'>fleur-de-lis</annotation>
+		<annotation cp='[🔰]' tts='japanese symbol for beginner'>beginner; chevron; green; japanese; leaf; tool; yellow</annotation>
+		<annotation cp='[🔱]' tts='trident emblem'>anchor; emblem; ship; tool; trident</annotation>
+		<annotation cp='[⭕]' tts='heavy large circle'>circle; o</annotation>
+		<annotation cp='[✅]' tts='white heavy check mark'>check; mark</annotation>
+		<annotation cp='[☑]' tts='ballot box with check'>ballot; box; check</annotation>
+		<annotation cp='[✔]' tts='heavy check mark'>check; mark</annotation>
+		<annotation cp='[✖]' tts='heavy multiplication x'>cancel; multiplication; multiply; x</annotation>
+		<annotation cp='[❌]' tts='cross mark'>cancel; mark; multiplication; multiply; x</annotation>
+		<annotation cp='[❎]' tts='cross mark button'>mark; square</annotation>
+		<annotation cp='[➕]' tts='heavy plus sign'>math; plus</annotation>
+		<annotation cp='[➖]' tts='heavy minus sign'>math; minus</annotation>
+		<annotation cp='[➗]' tts='heavy division sign'>division; math</annotation>
+		<annotation cp='[➰]' tts='curly loop'>curl; loop</annotation>
+		<annotation cp='[➿]' tts='double curly loop'>curl; double; loop</annotation>
+		<annotation cp='[〽]' tts='part alternation mark'>mark; part</annotation>
+		<annotation cp='[✳]' tts='eight-spoked asterisk'>asterisk</annotation>
+		<annotation cp='[✴]' tts='eight-pointed star'>star</annotation>
+		<annotation cp='[❇]' tts='sparkle'>sparkle</annotation>
+		<annotation cp='[💱]' tts='currency exchange'>bank; currency; exchange; money</annotation>
+		<annotation cp='[💲]' tts='heavy dollar sign'>currency; dollar; money</annotation>
+		<annotation cp='[‼]' tts='double exclamation mark'>bangbang; exclamation; mark; punctuation</annotation>
+		<annotation cp='[⁉]' tts='exclamation question mark'>exclamation; interrobang; mark; punctuation; question</annotation>
+		<annotation cp='[❓]' tts='question mark'>mark; punctuation; question</annotation>
+		<annotation cp='[❔]' tts='white question mark'>mark; outlined; punctuation; question</annotation>
+		<annotation cp='[❕]' tts='white exclamation mark'>exclamation; mark; outlined; punctuation</annotation>
+		<annotation cp='[❗]' tts='exclamation mark'>exclamation; mark; punctuation</annotation>
+		<annotation cp='[〰]' tts='wavy dash'>dash; punctuation; wavy</annotation>
+		<annotation cp='[©]' tts='copyright'>copyright</annotation>
+		<annotation cp='[®]' tts='registered'>registered</annotation>
+		<annotation cp='[™]' tts='trade mark'>mark; tm; trademark</annotation>
+		<annotation cp='[♈]' tts='aries'>ram; zodiac</annotation>
+		<annotation cp='[♉]' tts='taurus'>bull; ox; zodiac</annotation>
+		<annotation cp='[♊]' tts='gemini'>twins; zodiac</annotation>
+		<annotation cp='[♋]' tts='cancer'>crab; zodiac</annotation>
+		<annotation cp='[♌]' tts='leo'>lion; zodiac</annotation>
+		<annotation cp='[♍]' tts='virgo'>maiden; virgin; zodiac</annotation>
+		<annotation cp='[♎]' tts='libra'>balance; justice; scales; zodiac</annotation>
+		<annotation cp='[♏]' tts='scorpius'>scorpio; scorpion; zodiac</annotation>
+		<annotation cp='[♐]' tts='sagittarius'>archer; zodiac</annotation>
+		<annotation cp='[♑]' tts='capricorn'>goat; zodiac</annotation>
+		<annotation cp='[♒]' tts='aquarius'>bearer; water; zodiac</annotation>
+		<annotation cp='[♓]' tts='pisces'>fish; zodiac</annotation>
+		<annotation cp='[⛎]' tts='ophiuchus'>bearer; serpent; snake; zodiac</annotation>
+		<annotation cp='[🔀]' tts='shuffle tracks button'>arrow; crossed</annotation>
+		<annotation cp='[🔁]' tts='repeat button'>arrow; clockwise; repeat</annotation>
+		<annotation cp='[🔂]' tts='repeat single button'>arrow; clockwise; once</annotation>
+		<annotation cp='[▶]' tts='play button'>arrow; play; right; triangle</annotation>
+		<annotation cp='[⏩]' tts='fast-forword button'>arrow; double; fast; forward</annotation>
+		<annotation cp='[⏭]' tts='next track button'>arrow; next scene; next track; triangle</annotation>
+		<annotation cp='[⏯]' tts='play or pause button'>arrow; pause; play; right; triangle</annotation>
+		<annotation cp='[◀]' tts='reverse button'>arrow; left; reverse; triangle</annotation>
+		<annotation cp='[⏪]' tts='fast reverse button'>arrow; double; rewind</annotation>
+		<annotation cp='[⏮]' tts='last track button'>arrow; previous scene; previous track; triangle</annotation>
+		<annotation cp='[🔼]' tts='up button'>arrow; button; red</annotation>
+		<annotation cp='[⏫]' tts='fast up button'>arrow; double</annotation>
+		<annotation cp='[🔽]' tts='down button'>arrow; button; down; red</annotation>
+		<annotation cp='[⏬]' tts='fast down button'>arrow; double; down</annotation>
+		<annotation cp='[⏸]' tts='pause button'>bar; double; pause; vertical</annotation>
+		<annotation cp='[⏹]' tts='stop button'>square; stop</annotation>
+		<annotation cp='[⏺]' tts='record button'>circle; record</annotation>
+		<annotation cp='[⏏]' tts='eject button'>eject</annotation>
+		<annotation cp='[🎦]' tts='cinema'>camera; film; movie</annotation>
+		<annotation cp='[🔅]' tts='dim button'>brightness; dim; low</annotation>
+		<annotation cp='[🔆]' tts='bright button'>bright; brightness</annotation>
+		<annotation cp='[📶]' tts='antenna bars'>antenna; bar; cell; mobile; phone; signal; telephone</annotation>
+		<annotation cp='[📵]' tts='no mobile phones'>cell; forbidden; mobile; no; not; phone; prohibited; telephone</annotation>
+		<annotation cp='[📳]' tts='vibration mode'>cell; mobile; mode; phone; telephone; vibration</annotation>
+		<annotation cp='[📴]' tts='mobile phone off'>cell; mobile; off; phone; telephone</annotation>
+		<annotation cp='[{#⃣}]' tts='keycap number'>hash; keycap; pound</annotation>
+		<annotation cp='[{*⃣}]' tts='keycap asterisk'>asterisk; keycap; star</annotation>
+		<annotation cp='[{0⃣}]' tts='keycap digit zero'>0; keycap; zero</annotation>
+		<annotation cp='[{1⃣}]' tts='keycap digit one'>1; keycap; one</annotation>
+		<annotation cp='[{2⃣}]' tts='keycap digit two'>2; keycap; two</annotation>
+		<annotation cp='[{3⃣}]' tts='keycap digit three'>3; keycap; three</annotation>
+		<annotation cp='[{4⃣}]' tts='keycap digit four'>4; four; keycap</annotation>
+		<annotation cp='[{5⃣}]' tts='keycap digit five'>5; five; keycap</annotation>
+		<annotation cp='[{6⃣}]' tts='keycap digit six'>6; keycap; six</annotation>
+		<annotation cp='[{7⃣}]' tts='keycap digit seven'>7; keycap; seven</annotation>
+		<annotation cp='[{8⃣}]' tts='keycap digit eight'>8; eight; keycap</annotation>
+		<annotation cp='[{9⃣}]' tts='keycap digit nine'>9; keycap; nine</annotation>
+		<annotation cp='[🔟]' tts='keycap ten'>10; keycap; ten</annotation>
+		<annotation cp='[💯]' tts='hundred points'>100; full; hundred; score</annotation>
+		<annotation cp='[🔞]' tts='no one under eighteen'>18; age restriction; eighteen; forbidden; no; not; prohibited; underage</annotation>
+		<annotation cp='[🔠]' tts='input latin uppercase'>input; latin; letters; uppercase</annotation>
+		<annotation cp='[🔡]' tts='input latin lowercase'>abcd; input; latin; letters; lowercase</annotation>
+		<annotation cp='[🔢]' tts='input numbers'>1234; input; numbers</annotation>
+		<annotation cp='[🔣]' tts='input symbols'>input</annotation>
+		<annotation cp='[🔤]' tts='input latin letters'>abc; alphabet; input; latin; letters</annotation>
+		<annotation cp='[🅰]' tts='a button'>a; blood</annotation>
+		<annotation cp='[🆎]' tts='ab button'>ab; blood</annotation>
+		<annotation cp='[🅱]' tts='b button'>b; blood</annotation>
+		<annotation cp='[🆑]' tts='squared cl'>cl</annotation>
+		<annotation cp='[🆒]' tts='squared cool'>cool</annotation>
+		<annotation cp='[🆓]' tts='squared free'>free</annotation>
+		<annotation cp='[ℹ]' tts='information source'>i; information</annotation>
+		<annotation cp='[🆔]' tts='squared id'>id; identity</annotation>
+		<annotation cp='[Ⓜ]' tts='circled letter m'>circle; m</annotation>
+		<annotation cp='[🆕]' tts='squared new'>new</annotation>
+		<annotation cp='[🆖]' tts='squared ng'>ng</annotation>
+		<annotation cp='[🅾]' tts='o button'>blood; o</annotation>
+		<annotation cp='[🆗]' tts='squared ok'>ok</annotation>
+		<annotation cp='[🅿]' tts='p button'>parking</annotation>
+		<annotation cp='[🆘]' tts='squared sos'>help; sos</annotation>
+		<annotation cp='[🆙]' tts='up! button'>mark; up</annotation>
+		<annotation cp='[🆚]' tts='squared vs'>versus; vs</annotation>
+		<annotation cp='[🈁]' tts='squared katakana koko'>japanese</annotation>
+		<annotation cp='[🈂]' tts='squared katakana sa'>japanese</annotation>
+		<annotation cp='[🈷]' tts='squared moon ideograph'>japanese</annotation>
+		<annotation cp='[🈶]' tts='squared exist ideograph'>japanese</annotation>
+		<annotation cp='[🈯]' tts='squared finger ideograph'>japanese</annotation>
+		<annotation cp='[🉐]' tts='circled advantage ideograph'>japanese</annotation>
+		<annotation cp='[🈹]' tts='squared divide ideograph'>japanese</annotation>
+		<annotation cp='[🈚]' tts='squared negation ideograph'>japanese</annotation>
+		<annotation cp='[🈲]' tts='squared prohibit ideograph'>japanese</annotation>
+		<annotation cp='[🉑]' tts='circled accept ideograph'>chinese</annotation>
+		<annotation cp='[🈸]' tts='squared apply ideograph'>chinese</annotation>
+		<annotation cp='[🈴]' tts='squared together ideograph'>chinese</annotation>
+		<annotation cp='[🈳]' tts='squared empty ideograph'>chinese</annotation>
+		<annotation cp='[㊗]' tts='circled congratulate ideograph'>chinese; congratulation; congratulations; ideograph</annotation>
+		<annotation cp='[㊙]' tts='circled secret ideograph'>chinese; ideograph; secret</annotation>
+		<annotation cp='[🈺]' tts='squared operating ideograph'>chinese</annotation>
+		<annotation cp='[🈵]' tts='squared fullness ideograph'>chinese</annotation>
+		<annotation cp='[▪]' tts='black small square'>geometric; square</annotation>
+		<annotation cp='[▫]' tts='white small square'>geometric; square</annotation>
+		<annotation cp='[◻]' tts='white medium square'>geometric; square</annotation>
+		<annotation cp='[◼]' tts='black medium square'>geometric; square</annotation>
+		<annotation cp='[◽]' tts='white medium-small square'>geometric; square</annotation>
+		<annotation cp='[◾]' tts='black medium-small square'>geometric; square</annotation>
+		<annotation cp='[⬛]' tts='black large square'>geometric; square</annotation>
+		<annotation cp='[⬜]' tts='white large square'>geometric; square</annotation>
+		<annotation cp='[🔶]' tts='large orange diamond'>diamond; geometric; orange</annotation>
+		<annotation cp='[🔷]' tts='large blue diamond'>blue; diamond; geometric</annotation>
+		<annotation cp='[🔸]' tts='small orange diamond'>diamond; geometric; orange</annotation>
+		<annotation cp='[🔹]' tts='small blue diamond'>blue; diamond; geometric</annotation>
+		<annotation cp='[🔺]' tts='red triangle pointed up'>geometric; red</annotation>
+		<annotation cp='[🔻]' tts='red triangle pointed down'>down; geometric; red</annotation>
+		<annotation cp='[💠]' tts='diamond with a dot'>comic; diamond; geometric; inside</annotation>
+		<annotation cp='[🔘]' tts='radio button'>button; geometric; radio</annotation>
+		<annotation cp='[🔲]' tts='black square button'>button; geometric; square</annotation>
+		<annotation cp='[🔳]' tts='white square button'>button; geometric; outlined; square</annotation>
+		<annotation cp='[⚪]' tts='white circle'>circle; geometric</annotation>
+		<annotation cp='[⚫]' tts='black circle'>circle; geometric</annotation>
+		<annotation cp='[🔴]' tts='red circle'>circle; geometric; red</annotation>
+		<annotation cp='[🔵]' tts='blue circle'>blue; circle; geometric</annotation>
 	</annotations>
 </ldml>

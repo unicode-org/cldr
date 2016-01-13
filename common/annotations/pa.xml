@@ -1,0 +1,2311 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- Copyright © 1991-2015 Unicode®, Inc. emoji-annotations.txt For 
+ details about the format and other information, see /../../../reports/tr51/index.html#Data_Files. 
+ http://unicode.org/cldr/trac/ticket/8019 CLDR data files are interpreted 
+ according to the LDML specification (http://unicode.org/reports/tr35/) For 
+ terms of use, see http://www.unicode.org/copyright.html 
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<language type='pa'/>
+	</identity>
+	<annotations>
+
+		<!-- grinning face; face; grin -->
+		<annotation cp='[😀]' draft='provisional'>ਮੁਸਕਾਨ; ਮੁਸਕਰਾਉਣਾ; ਮੁਸਕਰਾਉਂਦਾ ਚਿਹਰਾ; ਸਮਾਈਲੀ; ਚਿਹਰਾ; ਹਸਣਾ; ਲੋਲ; ਹਸਾਉਣੇ</annotation>
+
+		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
+		<annotation cp='[😁]' draft='provisional'>ਮੁਸਕਾਨ; ਮੁੁਸਕਰਾਉਂਦੀਆਂ ਅੱਖਾਂ; ਮੁਸਕਰਾਉਣਾ; ਸਮਾਈਲੀ; ਮੁਸਕਰਾਉਂਦੀਆਂ ਅੱਖਾਂ ਨਾਲ ਹਸਦਾ ਚਿਹਰਾ; ਚਿਹਰਾ; ਹਸਣਾ; ਲੋਲ; ਹਸਾਉਣੇ</annotation>
+
+		<!-- face with tears of joy; face; joy; laugh; tear -->
+		<annotation cp='[😂]' draft='provisional'>ਖੁਸ਼ੀ ਦੇ ਹੰਝੁ; ਖੁਸ਼ੀ; ਹੰਝੂ; ਖੁਸ਼ੀ ਦੇ ਹੰਝੂਆਂ ਨਾਲ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- smiling face with open mouth; face; mouth; open; smile -->
+		<annotation cp='[😃]' draft='provisional'>ਖੁੱਲ੍ਹੇ ਮੁੰਹ ਨਾਲ ਹਾਸਾ; ਹਸਣਾ; ਸਮਾਈਲੀ; ਖੁੱਲ੍ਹੇ ਮੁੰਹ ਨਾਲ ਹਸਦਾ ਚਿਹਰਾ; ਹਾਸਾ; ਲੋਲ; ਹਸਾਉਣੇ</annotation>
+
+		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
+		<annotation cp='[😄]' draft='provisional'>ਖੁੱਲ੍ਹੇ ਮੁੰਹ ਨਾਲ ਹਾਸਾ; ਹੱਸਣਾ; ਸਮਾਈਲੀ; ਖੁੱਲ੍ਹਾ ਮੁੰਹ; ਹਸਦੀਆਂ ਅੱਖਾਂ; ਹਾਸਾ; ਲੋਲ; ਹਸਾਉਣੇ</annotation>
+
+		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
+		<annotation cp='[😅]' draft='provisional'>ਠੰਡਾ ਮੁੜ੍ਹਕਾ ਮੁਸਕਾਨ; ਮੁਸਕਾਨ ਪਰ ਠੰਡੇ ਮੁੜ੍ਹਕੇ ਨਾਲ; ਠੰਡਾ ਮੁੜ੍ਹਕਾ</annotation>
+
+		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
+		<annotation cp='[😆]' draft='provisional'>ਖੁੱਲ੍ਹੇ ਮੁੰਹ ਨਾਲ ਹਾਸਾ; ਅੱਖਾਂ ਬੰਦ ਨਾਲ ਮੁਸਕਾਨ; ਖੁੱਲ੍ਹਾ ਮੁੰਹ; ਬੰਦ ਅੱਖਾਂ; ਚਿਹਰਾ</annotation>
+
+		<!-- winking face; face; wink -->
+		<annotation cp='[😉]' draft='provisional'>ਝਪਕਣਾ ਚਿਹਰਾ; ਝਪਕਣਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
+		<annotation cp='[😊]' draft='provisional'>ਮੁਸਕਾਨ; ਮੁਸਕਰਾਉਂਦੀਆਂ ਅੱਖਾਂ; ਮੁਸਕਰਾਉਂਦਾ ਚਿਹਰਾ ਅਤੇ ਅੱਖਾਂ; ਮੁਸਕਰਾਉਂਦਾ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
+		<annotation cp='[😋]' draft='provisional'>ਸੁਆਦੀ ਚਿਹਰਾ; ਸੁਆਦੀ; ਸੁਆਦੀ ਚੰਗਾ; ਮੁਸਕਰਾਉਂਦਾ ਚਿਹਰਾ; ਸੁਆਦੀ ਖਾਣਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
+		<annotation cp='[😎]' draft='provisional'>ਠੰਡਾ; joe ਠੰਡਾ; ਐਨਕਾਂ ਨਾਲ ਮੁਸਕਰਾਉਂਦਾ; ਮੁਸਕਰਾਉਂਦਾ; ਧੁੱਪ ਦੀਆਂ ਐਨਕਾਂ; ਚਿਹਰਾ</annotation>
+
+		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' draft='provisional'>ਮੁਸਕਰਾਉਂਦਾ ਚਿਹਰਾ; ਦਿਲ ਵਰਗੀਆਂ ਅੱਖਾਂ; ਪਿਆਰ; ਬਹੁਤ ਪਿਆਰ; ਦਿਲ; ਅੱਖਾਂ; ਚਿਹਰਾ</annotation>
+
+		<!-- face throwing a kiss; face; heart; kiss -->
+		<annotation cp='[😘]' draft='provisional'>ਚੁੰੰਮੀ ਸੁੱਟਣਾ; ਚੁੰਮੀਆਂ ਸੁੱਟਦਾ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- kissing face; face; kiss -->
+		<annotation cp='[😗]' draft='provisional'>ਚੁੰਮ ਚਿਹਰਾ; ਚਿਹਰਾ ਚੁੰਮਣਾ; ਚੁੰਮੀ; ਚਿਹਰਾ</annotation>
+
+		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
+		<annotation cp='[😙]' draft='provisional'>ਚੁੰਮੀ ਅਤੇ ਮੁਸਕਰਾਹਟ; ਮੁਸਕਰਾਹਟ ਨਾਲ ਚੁੰਮਦਾ ਚਿਹਰਾ; ਚਿਹਰਾ; ਮੁਸਕਰਾਹਟ; ਮੁਸਕਰਾਉਂਦੀਆਂ ਅੱਖਾਂ</annotation>
+
+		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
+		<annotation cp='[😚]' draft='provisional'>ਚੁੰਮਣਾ; ਅੱਖਾਂ ਬੰਦ ਕਰਕੇ ਚੁੰਮਣਾ; ਬੰਦ ਅੱਖਾਂ; ਚਿਹਰਾ</annotation>
+
+		<!-- smiling face; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' draft='provisional'>ਹੱਸਦਾ ਚਿਹਰਾ; ਸਮਾਇਲੀ; ਖ਼ਾਲੀ ਸਮਾਇਲੀ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
+		<annotation cp='[😇]' draft='provisional'>ਹਾਲੋ ਨਾਲ ਮੁਸਕਾਨ; ਮੁਸਕਾਨ; ਹਾਲੋ; ਚਿਹਰਾ</annotation>
+
+		<!-- neutral face; deadpan; face; neutral -->
+		<annotation cp='[😐]' draft='provisional'>ਮੁਰਝਾਇਆ ਚਿਹਰਾ; ਨਿਰਪੱਖ ਚਿਹਰਾ; ਮੁਰਝਾਇਆ; ਨਿਰਪੱਖ; ਚਿਹਰਾ; ਕੋਈ ਟਿੱਪਣੀ ਨਹੀਂ</annotation>
+
+		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' draft='provisional'>ਬਿਨਾਂ ਹਾਵ-ਭਾਵ; ਬਿਨਾਂ ਹਾਵ-ਭਾਵ ਚਿਹਰਾ; ਚਿਹਰਾ; ਕੋਈ ਟਿੱਪਣੀ ਨਹੀਂ</annotation>
+
+		<!-- face without mouth; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' draft='provisional'>ਬਿਨਾਂ ਮੂੰਹ ਚਿਹਰਾ; ਮੂੰਹ ਨਹੀਂ; ਚਿਹਰਾ</annotation>
+
+		<!-- smirking face; face; smirk -->
+		<annotation cp='[😏]' draft='provisional'>ਮੁੂੂਰਖਤਾ; ਮੂਰਖ ਚਿਹਰਾ; ਮੂਰਖਤਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- persevering face; face; persevere -->
+		<annotation cp='[😣]' draft='provisional'>ਉਡਾ ਦਿਓ; ਮੈਂ ਉਡਾ ਦਿੱਤਾ ਚਿਹਰਾ; ਸੁਰੱਖਿਅਾ ਚਿਹਰਾ; ਸੁਰੱਖਿਅਤ; ਚਿਹਰਾ</annotation>
+
+		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' draft='provisional'>ਓ ਹੋ; ਨਿਰਾਸ਼ ਪਰ ਰਾਹਤ; ਰਾਹਤ; ਉਦਾਸ; ਚਿਹਰਾ</annotation>
+
+		<!-- face with open mouth; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' draft='provisional'>ਖੁੱਲਿਆ ਮੂੰਹ ਚਿਹਰਾ; ਖੁੱਲਾ ਮੂੰਹ; ਮੂੰਹ; ਚਿਹਰਾ</annotation>
+
+		<!-- hushed face; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' draft='provisional'>ਸਾਂਤ ਚਿਹਰਾ; ਹੈਰਾਨ; ਚਿਹਰਾ</annotation>
+
+		<!-- sleepy face; face; sleep -->
+		<annotation cp='[😪]' draft='provisional'>ਨੀਂਦਰਾ; ਨੀਂਦਰਾ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- tired face; face; tired -->
+		<annotation cp='[😫]' draft='provisional'>ਥੱਕਿਆ; ਥੱੱਕਿਆ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- sleeping face; face; sleep; zzz -->
+		<annotation cp='[😴]' draft='provisional'>ਸੌਣਾ; ਸੁੱਤਾ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- relieved face; face; relieved -->
+		<annotation cp='[😌]' draft='provisional'>ਰਾਹਤ ਚਿਹਰਾ; ਰਾਹਤ; ਚਿਹਰਾ</annotation>
+
+		<!-- face with stuck-out tongue; face; tongue -->
+		<annotation cp='[😛]' draft='provisional'>ਜੀਭ ਨਿਕਲੀ; ਬਾਹਰ ਨਿਕਲੀ ਜੀਭ; ਬਾਹਰ ਨਿਕਲੀ ਜੀਭ ਨਾਲ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' draft='provisional'>ਜੀਭ ਨਿਕਲੀ; ਤਾੜ ਰਿਹਾ; ਝਪਕੀ ਨਾਲ ਜੀਭ ਨਿਕਲੀ; ਝਪਕਣਾ; ਚੁਟਕਲਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' draft='provisional'>ਗੰਦਾ; ਅੱਖਾਂ ਬੰਦ ਨਾਲ ਜੀਭ ਨਿਕਲੀ; ਭਿਆਨਕ; ਜੀਭ ਬਾਹਰ ਨਿਕਲੀ; ਅੱਖਾਂ ਬੰਦ; ਚਿਹਰਾ</annotation>
+
+		<!-- unamused face; face; unamused; unhappy -->
+		<annotation cp='[😒]' draft='provisional'>ਨਾ-ਖੁਸ਼; ਨਾ-ਖੁਸ਼ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- face with cold sweat; cold; face; sweat -->
+		<annotation cp='[😓]' draft='provisional'>ਡਰਿਆ ਹੋਇਆ; ਡਰਿਆ ਹੋਇਆ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- pensive face; dejected; face; pensive -->
+		<annotation cp='[😔]' draft='provisional'>ਵਿਚਾਰਸ਼ੀਲ ਚਿਹਰਾ; ਵਿਚਾਰਸ਼ੀਲ; ਚਿਹਰਾ</annotation>
+
+		<!-- confused face; confused; face -->
+		<annotation cp='[😕]' draft='provisional'>ਉਲਝਣ ਚਿਹਰਾ; ਉਲਝਣ; ਚਿਹਰਾ</annotation>
+
+		<!-- confounded face; confounded; face -->
+		<annotation cp='[😖]' draft='provisional'>ਸ਼ਰਮਸਾਰ ਚਿਹਰਾ; ਸ਼ਰਮਸਾਰ; ਚਿਹਰਾ</annotation>
+
+		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' draft='provisional'>ਨਕਾਬ ਨਾਲ ਚਿਹਰਾ; ਠੰਡਾ; ਮੌਸਮ ਅਧੀਨ; ਮੈਡੀਕਲ ਨਕਾਬ; ਚਿਹਰਾ</annotation>
+
+		<!-- astonished face; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' draft='provisional'>ਹੈਰਾਨ ਚਿਹਰਾ; ਹੈਰਾਨੀ; ਪੂਰੀ ਤਰ੍ਹਾਂ ਹੈਰਾਨ; ਹੈਰਾਨ; ਚਿਹਰਾ</annotation>
+
+		<!-- disappointed face; disappointed; face -->
+		<annotation cp='[😞]' draft='provisional'>ਨਿਰਾਸ਼; ਨਿਰਾਸ਼ਾ; ਨਿਰਾਸ਼ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- worried face; face; worried -->
+		<annotation cp='[😟]' draft='provisional'>ਚਿੰਤਤ; ਚਿੰਤਤ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- face with steam from nose; face; triumph; won -->
+		<annotation cp='[😤]' draft='provisional'>ਜਿੱਤ ਲਈ; ਮੈਂ ਇਹ ਜਿੱਤ ਲਿਆ ਚਿਹਰਾ; ਮੈਂ ਜਿੱਤਿਆ; ਜਿੱਤ; ਚਿਹਰਾ</annotation>
+
+		<!-- crying face; cry; face; sad; tear -->
+		<annotation cp='[😢]' draft='provisional'>ਰੋਣਾ; ਰੋਂਦਾ ਚਿਹਰਾ; ਉਦਾਸ; ਹੰਝੂ; ਚਿਹਰਾ</annotation>
+
+		<!-- loudly crying face; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' draft='provisional'>ਉੱਚੀ ਉੱਚੀ ਰੋਣਾ; ਹੰਝੂ; ਰੋਣਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- frowning face with open mouth; face; frown; mouth; open -->
+		<annotation cp='[😦]' draft='provisional'>ਨਰਾਾਜ਼ ਚਿਹਰਾ; ਖੁੱਲੇ ਮੂੰਹ ਨਾਲ ਨਰਾਜ਼ ਚਿਹਰਾ; ਨਰਾਜ਼ ਹੋਣਾ; ਖੁੱਲਿਆ ਮੂੰਹ; ਚਿਹਰਾ</annotation>
+
+		<!-- anguished face; anguished; face -->
+		<annotation cp='[😧]' draft='provisional'>ਦੁੱਖੀ; ਦੁੱਖੀ ਚਿਹਰਾ; ਦੁੱਖ ਹੋ ਰਿਹਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- fearful face; face; fear; fearful; scared -->
+		<annotation cp='[😨]' draft='provisional'>ਡਰਾਵਣਾ; ਡਰਾਵਣਾ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- weary face; face; tired; weary -->
+		<annotation cp='[😩]' draft='provisional'>ਥੱਕਿਆ; ਥੱਕਿਆ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- grimacing face; face; grimace -->
+		<annotation cp='[😬]' draft='provisional'>ਬਦਸੂਰਤ; ਬਦਸੂਰਤ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' draft='provisional'>ਕਾਹਲਾ ਚਿਹਰਾ; ਠੰਡੇ ਪਸੀੇਨੇ ਨਾਲ ਨੀਲਾ ਚਿਹਰਾ; ਮੂੰਹ ਖੁੱਲਿਆ; ਠੰਡਾ ਪਸੀਨਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' draft='provisional'>ਡਰਿਆ ਚਿਹਰਾ; ਡਰ ਨਾਲ ਚੀਖਣਾ; ਡਰ ਨਾਲ ਚੀਖ ਰਿਹਾ ਚਿਹਰਾ; ਡਰ; ਡਰਿਆ; ਡਰਾਉਣਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- flushed face; dazed; face; flushed -->
+		<annotation cp='[😳]' draft='provisional'>ਭਖਿਆ; ਭਖਿਆ ਚਿਹਰਾ; ਉਲਝਣ ਵਿੱਚ; ਬੇਚਾਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- dizzy face; dizzy; face -->
+		<annotation cp='[😵]' draft='provisional'>ਚੱਕਰ; ਚੱਕਰਾਉਂਦਾ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- pouting face; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' draft='provisional'>ਨਰਾਜ਼ਗੀ; ਗੁੱਸਾ; ਪਾਗਲ; ਲਾਲ ਨਰਾਜ਼ਗੀ ਚਿਹਰਾ; ਲਾਲ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- angry face; angry; face; mad -->
+		<annotation cp='[😠]' draft='provisional'>ਗੁੱਸੇ; ਪਾਗਲ; ਗੁੱਸਾ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' draft='provisional'>ਸਿੰਗਾਂ ਨਾਲ ਮੁਸਕਾਨ; ਮੁਸਕਾਨ; ਸਿੰਗਾਂ; ਚਿਹਰਾ</annotation>
+
+		<!-- imp; demon; devil; face; fairy tale; fantasy -->
+		<annotation cp='[👿]' draft='provisional'>ਆਈਐਮਪੀ; ਛੋਟਾ ਸ਼ਤਾਨ; ਸ਼ਤਾਨ; ਚਿਹਰਾ</annotation>
+
+		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👹]' draft='provisional'>ਰਾਖਸ਼; ਦੈਂਤ; ਪਰੀ ਕਹਾਣੀ; ਜਾਪਾਨੀ ਰਾਖਸ਼; ਚਿਹਰਾ</annotation>
+
+		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👺]' draft='provisional'>ਭੂਤ; ਦੈਂਤ; ਪਰੀ ਕਹਾਣੀ; ਜਾਪਾਨੀ ਭੂਤ; ਚਿਹਰਾ</annotation>
+
+		<!-- skull; body; death; face; fairy tale; monster -->
+		<annotation cp='[💀]' draft='provisional'>ਖੋਪੜੀ; ਪਰੀ ਕਹਾਣੀ; ਸਰੀਰ; ਚਿਹਰਾ</annotation>
+
+		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
+		<annotation cp='[👻]' draft='provisional'>ਭੂਤ; ਪਰੀ ਕਹਾਣੀ; ਚਿਹਰਾ</annotation>
+
+		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' draft='provisional'>ਏਲਿਅਨ; ਬਾਹਰੀ ਦੁਨੀਆਂ  ਯੂ ਏਫ ਓ; ਪਰੀ ਕਹਾਣੀ; ਚਿਹਰਾ</annotation>
+
+		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' draft='provisional'>ਏਲਿਅਨ ਭੂਤ; ਭੂਤ; ਯੂ ਏਫ ਓ; ਪਰੀ ਕਹਾਣੀ; ਚਿਹਰਾ</annotation>
+
+		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
+		<annotation cp='[💩]' draft='provisional'>ਗੰਦਗੀ; ਗੰਦਗੀ ਦਾ ਢੇਰ; ਗੋਹਾ; ਢੇਰ</annotation>
+
+		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
+		<annotation cp='[😺]' draft='provisional'>ਮੁੁਸਕਰਾਉਂਦੀ ਬਿੱਲੀ ਚਿਹਰਾ; ਮੁਸਕਰਾਉਂਦੀ ਬਿੱਲੀ ਚਿਹਰਾ ਨਾਲ ਖੁੱਲਿਆ ਮੂੰਹ; ਬਿੱਲੀ; ਚਿਹਰਾ</annotation>
+
+		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
+		<annotation cp='[😸]' draft='provisional'>ਮੁਸਕਰਾਉਂਦੀ ਬਿੱਲੀ ਚਿਹਰਾ; ਮੁਸਕਰਾਉਣਾ; ਵੱਡੀ ਮੁਸਕਾਨ ਬਿੱਲੀ ਅਤੇ ਹੱਸਦੀਆਂ ਅੱਖਾਂ; ਬਿੱਲੀ ਚਿਹਰਾ; ਚਿਹਰਾ</annotation>
+
+		<!-- cat face with tears of joy; cat; face; joy; tear -->
+		<annotation cp='[😹]' draft='provisional'>ਖੁਸ਼ੀ ਦੇ ਹੰਝੂ; ਖੁਸ਼ੀ ਦੇ ਹੰਝੂਆਂ ਨਾਲ ਬਿੱਲੀ ਚਿਹਰਾ; ਬਿੱਲੀ; ਚਿਹਰਾ</annotation>
+
+		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
+		<annotation cp='[😻]' draft='provisional'>ਮੁੁਸਕਰਾਉਂਦੀ ਬਿੱਲੀ ਚਿਹਰਾ; ਦਿਲ ਵਰਗੀਆਂ ਅੱਖਾਂ ਨਾਲ ਮੁਸਕਰਾਉਂਦੀ ਬਿੱਲੀ; ਪਿਆਰ ਵਿੱਚ; ਦਿਲ; ਅੱਖਾਂ; ਬਿੱਲੀ ਚਿਹਰਾ; ਬਿੱਲੀ; ਚਿਹਰਾ</annotation>
+
+		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
+		<annotation cp='[😼]' draft='provisional'>ਮੁਸਕਰਾਉਂਂਦੀ ਬਿੱਲੀ ਚਿਹਰਾ; ਮ਼ੰਦਭਾਗੀ ਮੁਸਕਰਾਹਟ; ਬਿੱਲੀ ਚਿਹਰਾ; ਬਿੱਲੀ; ਚਿਹਰਾ</annotation>
+
+		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
+		<annotation cp='[😽]' draft='provisional'>ਚੁੰਮਦੀ ਬਿੱਲੀ; ਅੱਖਾਂ ਬੰਦ; ਚੁੰਮਣਾ; ਚੁੰਮੀ; ਅੱਖਾਂ; ਬੰਦ; ਬਿੱਲੀ; ਚਿਹਰਾ</annotation>
+
+		<!-- weary cat face; cat; face; oh; surprised; weary -->
+		<annotation cp='[🙀]' draft='provisional'>ਥੱਕਿਆ ਹੋਇਆ ਚਿਹਰਾ; ਹਾਏ ਓਏ ਰੱਬਾ; ਅਸਲ ਹੈਰਾਨ; ਬਿੱਲੀ; ਚਿਹਰਾ</annotation>
+
+		<!-- crying cat face; cat; cry; face; sad; tear -->
+		<annotation cp='[😿]' draft='provisional'>ਰੋਂਦੀ ਬਿੱਲੀ ਚਿਹਰਾ; ਹਾਏ ਓਏ ਰੱਬਾ; ਰੋਣਾ; ਬਿੱਲੀ ਚਿਹਰਾ; ਬਿੱਲੀ; ਚਿਹਰਾ</annotation>
+
+		<!-- pouting cat face; cat; face; pouting -->
+		<annotation cp='[😾]' draft='provisional'>ਨਰਾਜ਼ ਬਿੱਲੀ ਚਿਹਰਾ; ਨਰਾਜ਼; ਬਿੱਲੀ ਚਿਹਰਾ; ਬਿੱਲੀ; ਚਿਹਰਾ</annotation>
+
+		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' draft='provisional'>ਬੁਰਾ ਨਾ ਵੇਖੋ; ਬੁਰਾ ਨਾ ਵੇਖੋ ਬਾਂਦਰ; ਬਾਂਦਰ</annotation>
+
+		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' draft='provisional'>ਬੁਰਾ ਨਾ ਸੁਣੋ; ਬੁਰਾ ਨਾ ਸੁਣੋ ਬਾਂਦਰ; ਬਾਂਦਰ</annotation>
+
+		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' draft='provisional'>ਬੁੁਰਾ ਨਾ ਬੋਲੋ; ਬੁਰਾ ਨਾ ਬੋਲੋ ਬਾਂਦਰ; ਬਾਂਦਰ</annotation>
+
+		<!-- boy -->
+		<annotation cp='[👦]' draft='provisional'>ਮੁੰਡਾ; ਲੋਕ</annotation>
+
+		<!-- girl; maiden; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' draft='provisional'>ਕੁੜੀ; ਲੋਕ</annotation>
+
+		<!-- man -->
+		<annotation cp='[👨]' draft='provisional'>ਬੰਦਾ; ਲੋਕ</annotation>
+
+		<!-- woman -->
+		<annotation cp='[👩]' draft='provisional'>ਜ਼ਨਾਨੀ; ਲੋਕ</annotation>
+
+		<!-- old man; man; old -->
+		<annotation cp='[👴]' draft='provisional'>ਵੱਡੀ ਉਮਰ ਦਾ ਬੰਦਾ; ਬੰਦਾ; ਵੱਡਾ; ਲੋਕ</annotation>
+
+		<!-- old woman; old; woman -->
+		<annotation cp='[👵]' draft='provisional'>ਵੱਡੀ ਉਮਰ ਦੀ ਜ਼ਨਾਨੀ; ਜ਼ਨਾਨੀ; ਵੱਡੀ; ਲੋਕ</annotation>
+
+		<!-- baby -->
+		<annotation cp='[👶]' draft='provisional'>ਬੱਚਾ; ਲੋਕ</annotation>
+
+		<!-- person with blond hair; blond -->
+		<annotation cp='[👱]' draft='provisional'>ਸੁਨਹਿਰੀ ਬੰਦਾ; ਸੁਨਹਿਰੀ; ਲੋਕ</annotation>
+
+		<!-- police officer; cop; officer; police -->
+		<annotation cp='[👮]' draft='provisional'>ਪੁਲਿਸ ਅਫਸਰ; ਪੁਲਿਸ; ਅਫਸਰ; ਲੋਕ</annotation>
+
+		<!-- man with chinese cap; gua pi mao; hat; man -->
+		<annotation cp='[👲]' draft='provisional'>ਬੰਦਾ; ਗੁਆ ਪਿ ਮਾਓ ਨਾਲ ਬੰਦਾ; ਗੁਆ ਪਿ ਮਾਓ; ਲੋਕ</annotation>
+
+		<!-- man with turban; man; turban -->
+		<annotation cp='[👳]' draft='provisional'>ਬੰਦਾ; ਦਸਤਾਰ ਨਾਲ ਬੰਦਾ; ਦਸਤਾਰ; ਲੋਕ</annotation>
+
+		<!-- construction worker; construction; hat; worker -->
+		<annotation cp='[👷]' draft='provisional'>ਉਸਾਰੀ ਮਜ਼ਦੂਰ; ਉਸਾਰੀ; ਮਜ਼ਦੂਰ; ਲੋਕ</annotation>
+
+		<!-- princess; fairy tale; fantasy -->
+		<annotation cp='[👸]' draft='provisional'>ਰਾਜਕੁਮਾਰੀ; ਪਰੀ ਕਹਾਣੀ; ਲੋਕ</annotation>
+
+		<!-- guardsman; guard -->
+		<annotation cp='[💂]' draft='provisional'>ਚੌਕੀਦਾਰ ਬੰਦਾ; ਚੌਕੀਦਾਰ; ਲੋਕ</annotation>
+
+		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
+		<annotation cp='[🎅]' draft='provisional'>ਸੈਂਟਾ; ਸੈਂਟਾ ਕ੍ਲਾਜ਼; ਪਿਤਾ ਕ੍ਰਿਸਮਸ; ਕ੍ਰਿਸਮਸ; ਜਸ਼ਨ</annotation>
+
+		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
+		<annotation cp='[👼]' draft='provisional'>ਦੇਵਦੂਤ ਬੱਚਾ; ਦੇਵਦੂਤ; ਪਰੀ ਕਹਾਣੀ; ਚਿਹਰਾ</annotation>
+
+		<!-- face massage; massage; salon -->
+		<annotation cp='[💆]' draft='provisional'>ਚਿਹਰੇ ਦੀ ਮਾਲਸ਼; ਮਾਲਸ਼; ਸੈਲੂਨ</annotation>
+
+		<!-- haircut; barber; beauty; parlor -->
+		<annotation cp='[💇]' draft='provisional'>ਬਾਲ ਕਟਾਉਣਾ; ਬਿਉਟੀ ਪਾਰਲਰ; ਸੁੰਦਰਤਾ; ਪਾਰਲਰ</annotation>
+
+		<!-- bride with veil; bride; veil; wedding -->
+		<annotation cp='[👰]' draft='provisional'>ਲਾੜੀ; ਘੁੰਡ ਵਿੱਚ ਲਾੜੀ; ਘੁੰਡ; ਵਿਆਹ; ਲੋਕ</annotation>
+
+		<!-- person frowning; frown; gesture -->
+		<annotation cp='[🙍]' draft='provisional'>ਨਰਾਜ਼ਗੀ; ਨਰਾਜ਼ ਵਿਅਕਤੀ; ਵਿਅਕਤੀ; ਸੰਕੇਤ</annotation>
+
+		<!-- person pouting; gesture; pouting -->
+		<annotation cp='[🙎]' draft='provisional'>ਨਰਾਜ਼਼ਗੀ; ਵਿਅਕਤੀ ਨਰਾਜ਼ ਹੋ ਰਿਹਾ; ਵਿਅਕਤੀ; ਸੰਕੇਤ</annotation>
+
+		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
+		<annotation cp='[🙅]' draft='provisional'>ਚੰਗਾ ਨਹੀਂ ਸੰਕੇਤ; ਚੰਗਾ ਨਹੀਂ; ਨਹੀਂ; ਮਨ੍ਹਾਹੀ; ਸੰਕੇਤ; ਚਿਹਰਾ</annotation>
+
+		<!-- gesturing ok; gesture; hand; ok -->
+		<annotation cp='[🙆]' draft='provisional'>OK ਸੰਕੇਤ; ਸੱਭ ਵਧੀਆ; ਸੰਕੇਤ; ਚਿਹਰਾ</annotation>
+
+		<!-- information desk person; hand; help; information; sassy -->
+		<annotation cp='[💁]' draft='provisional'>ਜਾਣਕਾਰੀ ਡੈਸਕ; ਮਦਦ; ਜਾਣਕਾਰੀ; ਲੋਕ</annotation>
+
+		<!-- happy person raising hand; gesture; hand; happy; raised -->
+		<annotation cp='[🙋]' draft='provisional'>ਖੁਸ਼ ਵਿਅਕਤੀ; ਹੱਥ ਚੁੱਕ ਰਿਹਾ; ਵਿਅਕਤੀ ਰੱਥ ਚੁੱਕ ਰਿਹਾ; ਖੁਸ਼; ਵਿਅਕਤੀ; ਸੰਕੇਤ</annotation>
+
+		<!-- person bowing; apology; bow; gesture; sorry -->
+		<annotation cp='[🙇]' draft='provisional'>ਮੈਨੂੰ ਮਾਫ ਕਰੋ; ਬਹੁਤ ਝੁਕਾਅ; ਮੁਆਫੀ; ਝੁੱਕਣਾ; ਸੰਕੇਤ; ਵਿਅਕਤੀ</annotation>
+
+		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
+		<annotation cp='[🙌]' draft='provisional'>ਖੁੁਸ਼ੀ; ਜਸ਼ਨ ਵਿੱਚ ਦੋਵੇ ਹੱਥ ਉੱਤੇ ਚੁੱਕ ਰਿਹ; ਦੋਵੇ ਹੱਥ; ਜਸ਼ਨ</annotation>
+
+		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
+		<annotation cp='[🙏]' draft='provisional'>ਜੁੜੇ ਹੋਏ ਹੱਥ; ਅਰਦਾਸ; ਅਰਦਾਸ ਕਰਨਾ; ਹੱਥ; ਸੰਕੇਤ</annotation>
+
+		<!-- bust in silhouette; bust; silhouette -->
+		<annotation cp='[👤]' draft='provisional'>ਛਾਤੀ ਤੱਕ ਬਣਤਰ; ਛਾਤੀ; ਬਣਤਰ; ਲੋਕ</annotation>
+
+		<!-- busts in silhouette; bust; silhouette -->
+		<annotation cp='[👥]' draft='provisional'>ਛਾਤੀਆਂ ਤੱਕ ਬਣਤਰ; ਛਾਤੀ; ਬਣਤਰ; ਲੋਕ</annotation>
+
+		<!-- pedestrian; hike; walk; walking -->
+		<annotation cp='[🚶]' draft='provisional'>ਪੈਦਲ</annotation>
+
+		<!-- runner; marathon; running -->
+		<annotation cp='[🏃]' draft='provisional'>ਦੌੜਾਕ; ਦੌੜਨਾ; ਮੈਰਾਥਨ; ਖੇਡ</annotation>
+
+		<!-- women partying; bunny; dancer; ear; girl; woman -->
+		<annotation cp='[👯]' draft='provisional'>ਖਰਗੋਸ਼ ਕੁੜੀ; ਖਰਗੋਸ਼ ਦੇ ਕੰਨ; ਕੁੜੀ; ਜ਼ਨਾਨੀ; ਲੋਕ</annotation>
+
+		<!-- dancer -->
+		<annotation cp='[💃]' draft='provisional'>ਡਾਂਸਰ; ਨਾਚ; ਲੋਕ</annotation>
+
+		<!-- kiss; couple; romance -->
+		<annotation cp='[💏]' draft='provisional'>ਚੁੰਮੀ; ਚੁੰਮੀ ਲੈਣਾ; ਲੋਕ; ਪਿਆਰ</annotation>
+
+		<!-- couple with heart; couple; heart; love; romance -->
+		<annotation cp='[💑]' draft='provisional'>ਜੋੜਾ; ਦਿਲ ਨਾਲ ਜੋੜਾ; ਦਿਲ; ਲੋਕ; ਪਿਆਰ</annotation>
+
+		<!-- family; child; father; mother -->
+		<annotation cp='[👪]' draft='provisional'>ਪਰਿਵਾਰ; ਪਿਓ; ਮਾਂ; ਬੱਚਾ; ਲੋਕ</annotation>
+
+		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
+		<annotation cp='[👫]' draft='provisional'>ਬੰਦਾ ਅਤੇ ਜ਼ਨਾਨੀ; ਜੋੜਾ; ਹੱਥ ਫੜੇ ਹੋਏ ਬੰਦਾ ਅਤੇ ਜ਼ਨਾਨੀ; ਬੰਦਾ; ਜ਼ਨਾਨੀ; ਹੱਥ ਫੜੇ ਹੋਏ; ਲੋਕ</annotation>
+
+		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
+		<annotation cp='[👬]' draft='provisional'>ਦੋ ਬੰਦੇ; ਜੋੜਾ; ਹੱਥ ਫੜੇ ਹੋਏ ਦੋ ਬੰਦੇ; ਬੰਦਾ; ਹੱਥ ਫੜੇ ਹੋਏ; ਲੋਕ</annotation>
+
+		<!-- two women holding hands; couple; hand; hold; woman -->
+		<annotation cp='[👭]' draft='provisional'>ਦੋ ਜ਼ਨਾਨੀਆਂ; ਜੋੜਾ; ਹੱਥ ਫੜੇ ਹੋਏ ਦੋ ਜ਼ਨਾਨੀਆਂ; ਜ਼ਨਾਨੀਆਂ; ਹੱਥ ਫੜੇ ਹੋਏ; ਲੋਕ</annotation>
+
+		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
+		<annotation cp='[💪]' draft='provisional'>ਬਾਇਸੇਪਸ; ਲਚੀਲੀ ਮਾਸਪੇਸ਼ੀ; ਮਾਸਪੇਸ਼ੀ; ਮਜ਼ਬੂਤ; ਲਚੀਲੀ; ਕਾਮਿਕ</annotation>
+
+		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' draft='provisional'>ਖੱਬੀ ਉਂਗਲ; ਖੱਬੇ ਇਸ਼ਾਰਾ ਉਂਗਲ; ਇੰਡੈਕਸ ਉਂਗਲ; ਹੱਥ ਪਿਛਲਾ ਪਾਸਾ; ਉਂਗਲ</annotation>
+
+		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' draft='provisional'>ਇੰਡੈਕਸ ਉਂਗਲ</annotation>
+
+		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' draft='provisional'>ਇੰਡੈਕਸ ਉਂਗਲ; ਉੱਪਰ ਇਸ਼ਾਰਾ ਉਂਗਲ; ਹੱਥ ਪਿਛਲਾ ਪਾਸਾ; ਉਂਗਲ</annotation>
+
+		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' draft='provisional'>ਥੱਲੇ ਉਂਗਲ; ਥੱਲੇ ਇਸ਼ਾਰਾ ਉਂਗਲ; ਇੰਡੈਕਸ ਉਂਗਲ; ਹੱਥ ਪਿਛਲਾ ਪਾਸਾ; ਉਂਗਲ</annotation>
+
+		<!-- victory hand; body; hand; v; victory -->
+		<annotation cp='[✌]' draft='provisional'>ਕੈਂਚੀ; ਜਿੱਤ ਹੱਥ; ਜਿੱਤ; ਹਾਂ</annotation>
+
+		<!-- raised hand; body; hand -->
+		<annotation cp='[✋]' draft='provisional'>ਕਾਗਜ਼; ਉੱਠਿਆ ਹੱਥ</annotation>
+
+		<!-- ok hand; body; hand; ok -->
+		<annotation cp='[👌]' draft='provisional'>OKਨਿਸ਼ਾਨ; OK ਹੱਥ ਦਾ ਨਿਸ਼ਾਨ; OK; ਹੱਥ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- thumbs up; +1; body; hand; thumb; up -->
+		<annotation cp='[👍]' draft='provisional'>ਅੰਗੂਠਾ ਉੱਪਰ; ਅੰਗੂਠਾ; ਉੱਪਰ; ਹੱਥ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- thumbs down; -1; body; down; hand; thumb -->
+		<annotation cp='[👎]' draft='provisional'>ਅੰਗੂੂਠਾ ਥੱਲੇ; ਅੰਗੂਠੇ; ਥੱਲੇ; ਹੱਥ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- raised fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' draft='provisional'>ਚਟਾਨ; ਉੱਠੀ ਮੁੱਠੀ</annotation>
+
+		<!-- oncoming fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' draft='provisional'>ਬੰਦ ਮੁੱਠੀ; ਮੁੱਠੀ; ਹੱਥ</annotation>
+
+		<!-- waving hand; body; hand; wave; waving -->
+		<annotation cp='[👋]' draft='provisional'>ਹੱਥ ਲਹਿਰਾਉਣਾ; ਹੱਥ; ਲਹਿਰਾਉਣਾ</annotation>
+
+		<!-- clapping hands; body; clap; hand -->
+		<annotation cp='[👏]' draft='provisional'>ਹੱਥ ਤਾੜੀ; ਹੱਥ; ਤਾੜੀ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- open hands; body; hand; open -->
+		<annotation cp='[👐]' draft='provisional'>ਖੁੱਲ੍ਹੇ ਹੱਥ; ਖੁੱਲ੍ਹੇ ਹੱਥ ਦਾ ਨਿਸ਼ਾਨ; ਹੱਥ; ਖੁੱਲ੍ਹਾ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' draft='provisional'>ਨਹੁੰ ਦੀ ਦੇਖਭਾਲ; ਮੈਨੀਕਿਓਰ; ਨਹੁੰ ਪਾਲਸ਼; ਸ਼ਿੰਗਾਰ ਸਮਾਨ</annotation>
+
+		<!-- ear; body -->
+		<annotation cp='[👂]' draft='provisional'>ਕੰਨ; ਸਰੀਰ</annotation>
+
+		<!-- nose; body -->
+		<annotation cp='[👃]' draft='provisional'>ਨੱਕ; ਚਿਹਰਾ; ਸਰੀਰ</annotation>
+
+		<!-- footprints; body; clothing; footprint; print -->
+		<annotation cp='[👣]' draft='provisional'>ਪੈੜਾਂ ਦੇ ਨਿਸ਼ਾਨ; ਪੈੜਾਂ; ਨਿਸ਼ਾਨ; ਸਰੀਰ</annotation>
+
+		<!-- eyes; body; eye; face -->
+		<annotation cp='[👀]' draft='provisional'>ਅੱਖਾਂ; ਚਿਹਰਾ</annotation>
+
+		<!-- tongue; body -->
+		<annotation cp='[👅]' draft='provisional'>ਜੀਭ; ਚਿਹਰਾ; ਸਰੀਰ</annotation>
+
+		<!-- mouth; body; lips -->
+		<annotation cp='[👄]' draft='provisional'>ਮੁੰਹ; ਬੁੱਲ੍ਹ; ਚਿਹਰਾ; </annotation>
+
+		<!-- kiss mark; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' draft='provisional'>ਚੁੰਮੀ ਦਾ ਨਿਸ਼ਾਨ; ਬੁੱਲ੍ਹ; ਚੁੰਮੀ; ਪਿਆਰ</annotation>
+
+		<!-- heart with arrow; arrow; cupid; heart; romance -->
+		<annotation cp='[💘]' draft='provisional'>ਦਿਲ ਅਤੇ ਤੀਰ; ਦਿਲ; ਤੀਰ; ਪਿਆਰ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- beating heart; beating; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' draft='provisional'>ਧੜਕਦਾ ਦਿਲ; ਧੜਕਦਾ; ਧੜਕਣਾ; ਦਿਲ; ਪਿਆਰ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- broken heart; break; broken; heart -->
+		<annotation cp='[💔]' draft='provisional'>ਦਿਲ ਤੋੜਨਾ; ਟੁੱਟਿਆ ਹੋਇਆ ਦਿਲ; ਟੁੱਟਣਾ; ਦਿਲ ਟੁਟਿਆ ਹੋਇਆ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- two hearts; heart; love -->
+		<annotation cp='[💕]' draft='provisional'>ਦੋ ਦਿਲ; ਪ੍ਰੇਮੀ; ਪਿਆਰ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- sparkling heart; excited; heart; sparkle -->
+		<annotation cp='[💖]' draft='provisional'>ਚਮਕਦਾ ਦਿਲ; ਉਤਸ਼ਾਹਿਤ; ਚਮਕਦਾ; ਪਿਆਰ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' draft='provisional'>ਵਧਦਾ ਦਿਲ; ਬੇਚੈਨ; ਉਤਸ਼ਾਹਿਤ; ਦਿਲ; ਪਿਆਰ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- blue heart; blue; heart -->
+		<annotation cp='[💙]' draft='provisional'>ਨੀਲਾ ਦਿਲ; ਨੀਲਾ; ਦਿਲ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- green heart; green; heart -->
+		<annotation cp='[💚]' draft='provisional'>ਹਰਾ ਦਿਲ; ਹਰਾ; ਦਿਲ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- yellow heart; heart; yellow -->
+		<annotation cp='[💛]' draft='provisional'>ਪੀਲਾ ਦਿਲ; ਪੀਲਾ; ਦਿਲ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- purple heart; heart; purple -->
+		<annotation cp='[💜]' draft='provisional'>ਜਾਮਨੀ ਦਿਲ; ਜਾਮਨੀ; ਦਿਲ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- heart with ribbon; heart; ribbon; valentine -->
+		<annotation cp='[💝]' draft='provisional'>ਰਿਬਨ ਨਾਲ ਦਿਲ; ਦਿਲ; ਰਿਬਨ; ਵੈਲੇਨਟਾਈਨ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- revolving hearts; heart; revolving -->
+		<annotation cp='[💞]' draft='provisional'>ਘੁਮਦੇ ਦਿਲ; ਦਿਲ; ਘੁਮਦਾ; ਸੋਹਣਾ; ਕਾਵਾਈ; ਪਿਆਰ; ਸਤਿਕਾਰਯੋਗ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- heart decoration; heart -->
+		<annotation cp='[💟]' draft='provisional'>ਦਿਲ ਦੀ ਸਜਾਵਟ; ਦਿਲ</annotation>
+
+		<!-- love letter; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' draft='provisional'>ਪਿਆਰ ਦਾ ਖੱਤ; ਦਿਲ ਨਾਲ ਚਿੱਠੀ; ਖੱਤ; ਦਿਲ; ਪਿਆਰ</annotation>
+
+		<!-- zzz; comic; sleep -->
+		<annotation cp='[💤]' draft='provisional'>ਸੁਸਤ; Zzz; ਸੌਣਾ; ਕਰਾੜੇ; ਕਾਮਿਕ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- anger symbol; angry; comic; mad -->
+		<annotation cp='[💢]' draft='provisional'>ਗੁੱਸਾ; ਗੁੱਸੇ ਦਾ ਨਿਸ਼ਾਨ; ਗੁੱਸੇ; ਕਾਮਿਕ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- bomb; comic -->
+		<annotation cp='[💣]' draft='provisional'>ਬੰਬ; ਕਾਮਿਕ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- collision; boom; comic -->
+		<annotation cp='[💥]' draft='provisional'>ਟੱਕਰ; ਟੱਕਰ ਦੀ ਨਿਸ਼ਾਨ; ਕਾਮਿਕ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- sweat droplets; comic; splashing; sweat -->
+		<annotation cp='[💦]' draft='provisional'>ਮੁੜ੍ਹਕਾ ਛਿੜਕਣਾ; ਮੁੜ੍ਹਕਾ; ਪਸੀਨਾ; ਕਾਮਿਕ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- dashing; comic; dash; running -->
+		<annotation cp='[💨]' draft='provisional'>ਚਲਦਾ ਡੈਸ਼; ਭਜ ਜਾਣਾ; ਚਲਣਾ; ਕਾਮਿਕ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- dizzy; comic; star -->
+		<annotation cp='[💫]' draft='provisional'>ਚੱਕਰ; ਤਾਰੇ ਦੇਖਣਾ; ਤਾਰੇ; ਕਾਮਿਕ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
+		<annotation cp='[💬]' draft='provisional'>ਭਾਸ਼ਣ ਗੁਬਾਰਾ; ਭਾਸ਼ਣ ਬੁਲਬੁਲਾ; ਗੱਲ-ਬਾਤ ਬੁਲਬੁਲਾ; ਗੁਬਾਰਾ; ਬੁਲਬੁਲਾ; ਗੱਲ-ਬਾਤ; ਕਾਮਿਕ</annotation>
+
+		<!-- thought balloon; balloon; bubble; comic; thought -->
+		<annotation cp='[💭]' draft='provisional'>ਵਿਚਾਰ ਗੁਬਾਰਾ; ਵਿਚਾਰ ਬੁਲਬੁਲਾ; ਵਿਚਾਰ; ਬੁਲਬੁਲਾ; ਕਾਮਿਕ</annotation>
+
+		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
+		<annotation cp='[👓]' draft='provisional'>ਐਨਕ; ਲਿਬਾਸ</annotation>
+
+		<!-- necktie; clothing -->
+		<annotation cp='[👔]' draft='provisional'>ਟਾਈ; ਲਿਬਾਸ</annotation>
+
+		<!-- t-shirt; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' draft='provisional'>ਟੀ-ਸ਼ਰਟ; ਕਮੀਜ਼; ਲਿਬਾਸ</annotation>
+
+		<!-- jeans; clothing; pants; trousers -->
+		<annotation cp='[👖]' draft='provisional'>ਪਜਾਮਾ; ਜੀਨ; ਪੈਂਟ; ਲਿਬਾਸ</annotation>
+
+		<!-- dress; clothing -->
+		<annotation cp='[👗]' draft='provisional'>ਪਹਿਰਾਵਾ; ਇੱਕ; ਲਿਬਾਸ</annotation>
+
+		<!-- kimono; clothing -->
+		<annotation cp='[👘]' draft='provisional'>ਕਿਮੋਨੋ; ਪਹਿਰਾਵਾ; ਲਿਬਾਸ</annotation>
+
+		<!-- bikini; clothing; swim -->
+		<annotation cp='[👙]' draft='provisional'>ਬਿਕਨੀ; ਬਾਥਿੰਗ ਸੂਟ; ਲਿਬਾਸ</annotation>
+
+		<!-- woman’s clothes; clothing; woman -->
+		<annotation cp='[👚]' draft='provisional'>ਔਰਤਾਂ ਦੇ ਕੱਪੜੇ; ਕੱਪੜੇ; ਲਿਬਾਸ</annotation>
+
+		<!-- purse; clothing; coin -->
+		<annotation cp='[👛]' draft='provisional'>ਪਰਸ; ਸਿੱਕੇ ਲਈ ਪਰਸ; ਸਿੱਕਾ; ਲਿਬਾਸ</annotation>
+
+		<!-- handbag; bag; clothing -->
+		<annotation cp='[👜]' draft='provisional'>ਹੱਥ ਬੈਗ; ਬੈਗ; ਲਿਬਾਸ</annotation>
+
+		<!-- pouch; bag; clothing -->
+		<annotation cp='[👝]' draft='provisional'>ਥੈਲੀ; ਬੈਗ; ਲਿਬਾਸ</annotation>
+
+		<!-- school backpack; bag; satchel; school -->
+		<annotation cp='[🎒]' draft='provisional'>ਸਕੂਲ ਬੈਗ; ਬੈਗ; ਸਕੂਲ</annotation>
+
+		<!-- man’s shoe; clothing; man; shoe -->
+		<annotation cp='[👞]' draft='provisional'>ਆਦਮੀ ਲਈ ਬੂਟ; ਬੂਟ; ਲਿਬਾਸ</annotation>
+
+		<!-- running shoe; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' draft='provisional'>ਅਥਲੈਟਿਕ ਬੂਟ; ਸਨੀਕਰ ਬੂਟ; ਲਿਬਾਸ</annotation>
+
+		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' draft='provisional'>ਉੱਚ-ਅੱਡੀ; ਬੂਟ; ਲਿਬਾਸ</annotation>
+
+		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' draft='provisional'>ਔਰਤ ਲਈ ਸੈਂਡਲ; ਸੈਂਡਲ; ਔਰਤ; ਲਿਬਾਸ</annotation>
+
+		<!-- woman’s boot; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' draft='provisional'>ਔਰਤਾਂ ਲਈ ਬੂਟ; ਬੂਟ; ਔਰਤ; ਲਿਬਾਸ</annotation>
+
+		<!-- crown; clothing; king; queen -->
+		<annotation cp='[👑]' draft='provisional'>ਤਾਜ; ਲਿਬਾਸ</annotation>
+
+		<!-- woman’s hat; clothing; hat; woman -->
+		<annotation cp='[👒]' draft='provisional'>ਔਰਤਾਂ ਦੀ ਟੋਪੀ; ਟੋਪੀ; ਲਿਬਾਸ</annotation>
+
+		<!-- top hat; clothing; hat; top; tophat -->
+		<annotation cp='[🎩]' draft='provisional'>ਟੋਪੀ; ਮਨੋਰੰਜਨ</annotation>
+
+		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
+		<annotation cp='[🎓]' draft='provisional'>ਗ੍ਰੈਜੂਏਸ਼ਨ ਕੈਪ; ਕੈਪ; ਗ੍ਰੈਜੂਏਸ਼ਨ; ਜਸ਼ਨ</annotation>
+
+		<!-- lipstick; cosmetics; makeup -->
+		<annotation cp='[💄]' draft='provisional'>ਸੁਰਖੀ; ਸ਼ਿੰਗਾਰ; ਸ਼ਿੰਗਾਰ ਸਮਾਨ</annotation>
+
+		<!-- ring; diamond; romance -->
+		<annotation cp='[💍]' draft='provisional'>ਮੁੰਦਰੀ; ਪਿਆਰ</annotation>
+
+		<!-- gem stone; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' draft='provisional'>ਹੀਰਾ; ਹੀਰਾ ਪੱਥਰ; ਹੀਰ; ਪਿਆਰ</annotation>
+
+		<!-- monkey face; face; monkey -->
+		<annotation cp='[🐵]' draft='provisional'>ਬਾਂਦਰ ਦਾ ਚਿਹਰਾ; ਬਾਂਦਰ; ਚਿਹਰਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- monkey -->
+		<annotation cp='[🐒]' draft='provisional'>ਬਾਂਦਰ; ਜਾਨਵਰ</annotation>
+
+		<!-- dog face; dog; face; pet -->
+		<annotation cp='[🐶]' draft='provisional'>ਕੁੱਤੇ ਦਾ ਚਿਹਰਾ; ਕੁੱਤਾ; ਚਿਹਰਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- dog; pet -->
+		<annotation cp='[🐕]' draft='provisional'>ਕੁੱਤਾ; ਗੁਲਰ; ਜਾਨਵਰ</annotation>
+
+		<!-- poodle; dog -->
+		<annotation cp='[🐩]' draft='provisional'>ਪੂਡਲ; ਕੁੱਤਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- wolf face; face; wolf -->
+		<annotation cp='[🐺]' draft='provisional'>ਬਘਿਆੜ ਦਾ ਚਿਹਰਾ; ਬਘਿਆੜ; ਚਿਹਰਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- cat face; cat; face; pet -->
+		<annotation cp='[🐱]' draft='provisional'>ਬਿੱਲੀ ਦਾ ਚਿਹਰਾ; ਬਿੱਲੀ; ਚਿਹਰਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- cat; pet -->
+		<annotation cp='[🐈]' draft='provisional'>ਬਿੱਲੀ; ਜਾਨਵਰ</annotation>
+
+		<!-- tiger face; face; tiger -->
+		<annotation cp='[🐯]' draft='provisional'>ਚੀਤੇ ਦਾ ਚਿਹਰਾ; ਚੀਤਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- tiger -->
+		<annotation cp='[🐅]' draft='provisional'>ਚੀਤਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- leopard -->
+		<annotation cp='[🐆]' draft='provisional'>ਤੇਂਦੁਆ; ਜਾਨਵਰ</annotation>
+
+		<!-- horse face; face; horse -->
+		<annotation cp='[🐴]' draft='provisional'>ਘੋੜੇ ਦਾ ਚਿਹਰਾ; ਘੋੜਾ; ਚਿਹਰਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- horse; racehorse; racing -->
+		<annotation cp='[🐎]' draft='provisional'>ਘੋੜਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- cow face; cow; face -->
+		<annotation cp='[🐮]' draft='provisional'>ਗਾਂ ਦਾ ਚਿਹਰਾ; ਗਾਂ; ਚਿਹਰਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- ox; bull; taurus; zodiac -->
+		<annotation cp='[🐂]' draft='provisional'>ਬਲਦ; ਜਾਨਵਰ</annotation>
+
+		<!-- water buffalo; buffalo; water -->
+		<annotation cp='[🐃]' draft='provisional'>ਪਾਣੀ ਵਾਲੀ ਮੱਝ; ਪਾਣੀ; ਮੱਝ; ਜਾਨਵਰ</annotation>
+
+		<!-- cow -->
+		<annotation cp='[🐄]' draft='provisional'>ਗਾਂ; ਜਾਨਵਰ</annotation>
+
+		<!-- pig face; face; pig -->
+		<annotation cp='[🐷]' draft='provisional'>ਸੂਰ ਦਾ ਚਿਹਰਾ; ਸੂਰ; ਚਿਹਰਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- pig; sow -->
+		<annotation cp='[🐖]' draft='provisional'>ਸੂਰ; ਜਾਨਵਰ</annotation>
+
+		<!-- boar; pig -->
+		<annotation cp='[🐗]' draft='provisional'>ਸੂਰ; ਜਾਨਵਰ</annotation>
+
+		<!-- pig nose; face; nose; pig -->
+		<annotation cp='[🐽]' draft='provisional'>ਸੂਰ ਦਾ ਨੱਕ; ਨੱਕ; ਸੂਰ; ਚਿਹਰਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- ram; aries; sheep; zodiac -->
+		<annotation cp='[🐏]' draft='provisional'>ਰਾਮ; ਜਾਨਵਰ</annotation>
+
+		<!-- sheep; ewe -->
+		<annotation cp='[🐑]' draft='provisional'>ਭੇਡ; ਜਾਨਵਰ</annotation>
+
+		<!-- goat; capricorn; zodiac -->
+		<annotation cp='[🐐]' draft='provisional'>ਬੱਕਰੀ; ਜਾਨਵਰ</annotation>
+
+		<!-- camel; dromedary; hump -->
+		<annotation cp='[🐪]' draft='provisional'>ਇੱਕ ਕੁੱਬਾ ਵਾਲਾ ਉੱਠ; ਕੁੱਬ; ਉੱਠ; ਜਾਨਵਰ</annotation>
+
+		<!-- two-hump camel; bactrian; camel; hump -->
+		<annotation cp='[🐫]' draft='provisional'>ਦੋ ਕੁੱਬ ਵਾਲਾ ਉੱਠ; ਉੱਠ; ਜਾਨਵਰ</annotation>
+
+		<!-- elephant -->
+		<annotation cp='[🐘]' draft='provisional'>ਹਾਥੀ; ਜਾਨਵਰ</annotation>
+
+		<!-- mouse face; face; mouse -->
+		<annotation cp='[🐭]' draft='provisional'>ਚੂਹੇ ਦਾ ਚਿਹਰਾ; ਚੂਹਾ; ਚਿਹਰਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- mouse -->
+		<annotation cp='[🐁]' draft='provisional'>ਚੂਹਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- rat -->
+		<annotation cp='[🐀]' draft='provisional'>ਚੂਹਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- hamster face; face; hamster; pet -->
+		<annotation cp='[🐹]' draft='provisional'>ਚੂਹੇ ਦਾ ਚਿਹਰਾ; ਚੂਹਾ; ਚਿਹਰਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- rabbit face; bunny; face; pet; rabbit -->
+		<annotation cp='[🐰]' draft='provisional'>ਖਰਗੋਸ਼ ਦਾ ਚਿਹਰਾ; ਚਿਹਰਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- rabbit; bunny; pet -->
+		<annotation cp='[🐇]' draft='provisional'>ਖਰਗੋਸ਼; ਜਾਨਵਰ</annotation>
+
+		<!-- bear face; bear; face -->
+		<annotation cp='[🐻]' draft='provisional'>ਭਾਲੂ ਦਾ ਚਿਹਰਾ; ਭਾਲੂ; ਚਿਹਰਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- koala; bear -->
+		<annotation cp='[🐨]' draft='provisional'>ਭਾਲੂ; ਜਾਨਵਰ</annotation>
+
+		<!-- panda face; face; panda -->
+		<annotation cp='[🐼]' draft='provisional'>ਪਾਂਡੇ ਦਾ ਚਿਹਰਾ; ਪਾਂਡਾ; ਚਿਹਰਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- paw prints; feet; paw; print -->
+		<annotation cp='[🐾]' draft='provisional'>ਪਹੁੰਚਾ; ਪਹੁੰਚੇ ਦੀ ਛਾਪ; ਛਾਪ; ਜਾਨਵਰ</annotation>
+
+		<!-- chicken -->
+		<annotation cp='[🐔]' draft='provisional'>ਚੂਚਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- rooster -->
+		<annotation cp='[🐓]' draft='provisional'>ਕੁੱਕੜ; ਜਾਨਵਰ</annotation>
+
+		<!-- hatching chick; baby; chick; hatching -->
+		<annotation cp='[🐣]' draft='provisional'>ਅਾਂਡੇ ਵਿੱਚੋਂ ਨਿਕਲਦਾ ਚੂਚਾ; ਚੂਚਾ; ਅਾਂਡੇ ਵਿੱਚੋਂ ਨਿਕਲਨਾ; ਬੱਚਾ; ਮੀਟ; ਜਾਨਵਰ</annotation>
+
+		<!-- baby chick; baby; chick -->
+		<annotation cp='[🐤]' draft='provisional'>ਚੂਚਾ; ਬੱਚਾ; ਮੀਟ; ਜਾਨਵਰ</annotation>
+
+		<!-- front-facing baby chick; baby; chick -->
+		<annotation cp='[🐥]' draft='provisional'>ਚੂਚਾ; ਤੁਹਾਡੇ ਵੱਲ ਦੇਖਦਾ ਚੂਚਾ; ਬੱਚਾ; ਮੀਟ; ਜਾਨਵਰ</annotation>
+
+		<!-- bird -->
+		<annotation cp='[🐦]' draft='provisional'>ਪੰਛੀ; ਜਾਨਵਰ</annotation>
+
+		<!-- penguin -->
+		<annotation cp='[🐧]' draft='provisional'>ਪੈਂਗੂਇਨ; ਜਾਨਵਰ</annotation>
+
+		<!-- frog face; face; frog -->
+		<annotation cp='[🐸]' draft='provisional'>ਡੱਡੂ ਦਾ ਚਿਹਰਾ; ਡੱਡੂ; ਚਿਹਰਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- crocodile -->
+		<annotation cp='[🐊]' draft='provisional'>ਮਗਰਮੱਛ; ਜਾਨਵਰ</annotation>
+
+		<!-- turtle -->
+		<annotation cp='[🐢]' draft='provisional'>ਕੱਛੂਕੰਮਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- snake; bearer; ophiuchus; serpent; zodiac -->
+		<annotation cp='[🐍]' draft='provisional'>ਸੱਪ; ਜਾਨਵਰ</annotation>
+
+		<!-- dragon face; dragon; face; fairy tale -->
+		<annotation cp='[🐲]' draft='provisional'>ਡ੍ਰੈਗਨ ਦਾ ਚਿਹਰਾ; ਡ੍ਰੈਗਨ; ਚਿਹਰਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- dragon; fairy tale -->
+		<annotation cp='[🐉]' draft='provisional'>ਡ੍ਰੈਗਨ; ਜਾਨਵਰ</annotation>
+
+		<!-- spouting whale; face; spouting; whale -->
+		<annotation cp='[🐳]' draft='provisional'>ਸਪਾਉਟਿੰਗ ਵੇਲ੍ਹ; ਸਪਾਉਟਿੰਗ; ਵੇਲ੍ਹ; ਜਾਨਵਰ</annotation>
+
+		<!-- whale -->
+		<annotation cp='[🐋]' draft='provisional'>ਵੇਲ੍ਹ; ਜਾਨਵਰ</annotation>
+
+		<!-- dolphin; flipper -->
+		<annotation cp='[🐬]' draft='provisional'>ਡਾਲਫਿਨ; ਜਾਨਵਰ</annotation>
+
+		<!-- fish; pisces; zodiac -->
+		<annotation cp='[🐟]' draft='provisional'>ਮੱਛੀ; ਜਾਨਵਰ</annotation>
+
+		<!-- tropical fish; fish; tropical -->
+		<annotation cp='[🐠]' draft='provisional'>ਮੱਛੀ; ਜਾਨਵਰ</annotation>
+
+		<!-- blowfish; fish -->
+		<annotation cp='[🐡]' draft='provisional'>ਬਲੋਫਿਸ਼; ਮੱਛੀ; ਜਾਨਵਰ</annotation>
+
+		<!-- octopus -->
+		<annotation cp='[🐙]' draft='provisional'>ਆਕਟੋਪਸ; ਜਾਨਵਰ</annotation>
+
+		<!-- spiral shell; shell; spiral -->
+		<annotation cp='[🐚]' draft='provisional'>ਘੋਗਾ; ਚੂੜੀਦਾਰ ਘੋਗਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- snail -->
+		<annotation cp='[🐌]' draft='provisional'>ਘੋਗਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- bug; insect -->
+		<annotation cp='[🐛]' draft='provisional'>ਖਘਮਲ; ਕੰਨਖਜੂਰਾ; ਸੁੰਡੀ; ਜਾਨਵਰ</annotation>
+
+		<!-- ant; insect -->
+		<annotation cp='[🐜]' draft='provisional'>ਕੀੜੀ; ਜਾਨਵਰ</annotation>
+
+		<!-- honeybee; bee; insect -->
+		<annotation cp='[🐝]' draft='provisional'>ਮਖਿਆਲ ਮੱਖੀ; ਮੱਖੀ; ਜਾਨਵਰ</annotation>
+
+		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
+		<annotation cp='[🐞]' draft='provisional'>ਭੂੰਡੀ; ਮਾਦਾ ਖਟਮਲ; ਮਾਦਾ; ਜਾਨਵਰ</annotation>
+
+		<!-- bouquet; flower; plant; romance -->
+		<annotation cp='[💐]' draft='provisional'>ਗੁਲਦਸਤਾ; ਫੁੱਲ; ਪਿਆਰ</annotation>
+
+		<!-- cherry blossom; blossom; cherry; flower; plant -->
+		<annotation cp='[🌸]' draft='provisional'>ਚੈਰੀ ਫੁੱਲ; ਚੈਰੀ; ਫੁੱਲ ਦੇਖਣਾ; ਫੁੱਲ</annotation>
+
+		<!-- white flower; flower -->
+		<annotation cp='[💮]' draft='provisional'>ਫੁੱਲ ਮੋਹਰ; ਵਧੀਆ ਮੋਹਰ; ਫੁੱਲ; ਮੋਹਰ</annotation>
+
+		<!-- rose; flower; plant -->
+		<annotation cp='[🌹]' draft='provisional'>ਗੁਲਾਬ; ਫੁੱਲ</annotation>
+
+		<!-- hibiscus; flower; plant -->
+		<annotation cp='[🌺]' draft='provisional'>ਗੁੁੜਹਲ; ਫੁੱਲ</annotation>
+
+		<!-- sunflower; flower; plant; sun -->
+		<annotation cp='[🌻]' draft='provisional'>ਸੂਰਜਮੁਖੀ; ਫੁੱਲ</annotation>
+
+		<!-- blossom; flower; plant -->
+		<annotation cp='[🌼]' draft='provisional'>ਖਿੜਨਾ; ਫੁੱਲ</annotation>
+
+		<!-- tulip; flower; plant -->
+		<annotation cp='[🌷]' draft='provisional'>ਟਯੂਲਿਪ; ਫੁੱਲ</annotation>
+
+		<!-- seedling; plant; young -->
+		<annotation cp='[🌱]' draft='provisional'>ਜਵਾਨ ਬੂਟਾ; ਜਵਾਨ; ਬੂਟਾ</annotation>
+
+		<!-- evergreen; plant; tree -->
+		<annotation cp='[🌲]' draft='provisional'>ਸਦਾਬਹਾਰ ਰੁੱਖ; ਸਦਾਬਹਾਰ; ਰੁੱਖ</annotation>
+
+		<!-- deciduous tree; deciduous; plant; shedding; tree -->
+		<annotation cp='[🌳]' draft='provisional'>ਝਾੜ ਦੇ ਰੁੱਖ; ਝਾੜ; ਰੁੱਖ</annotation>
+
+		<!-- palm tree; palm; plant; tree -->
+		<annotation cp='[🌴]' draft='provisional'>ਪਾਮ ਦੇ ਰੁੱਖ; ਪਾਮ; ਰੁੱਖ</annotation>
+
+		<!-- cactus; plant -->
+		<annotation cp='[🌵]' draft='provisional'>ਨਾਗਫਨੀ; ਬੂਟਾ</annotation>
+
+		<!-- sheaf of rice; ear; plant; rice -->
+		<annotation cp='[🌾]' draft='provisional'>ਚੌਲ ਦਾ ਬੂਟਾ; ਚੌਲ ਦਾ ਸਿੱਟਾ; ਚੌਲ; ਸਿੱਟਾ</annotation>
+
+		<!-- herb; leaf; plant -->
+		<annotation cp='[🌿]' draft='provisional'>ਬੂਟੀ; ਪੱਤਾ</annotation>
+
+		<!-- four leaf clover; 4; clover; four; leaf; plant -->
+		<annotation cp='[🍀]' draft='provisional'>ਚਾਰ ਪੱਤਾ ਲੌਂਗ; ਚਾਰ; ਪੱਤਾ; ਲੌਂਗ; ਸੁਭਾਗਾ</annotation>
+
+		<!-- maple leaf; falling; leaf; maple; plant -->
+		<annotation cp='[🍁]' draft='provisional'>ਚਿਨਾਰ ਪੱਤਾ; ਪੱਤਾ ਡਿੱਗਣਾ; ਪੱਤਾ</annotation>
+
+		<!-- fallen leaf; falling; leaf; plant -->
+		<annotation cp='[🍂]' draft='provisional'>ਪੱਤੇ ਝੜਨਾ; ਪੱਤੇ ਡਿੱਗਣਾ; ਝੜਨਾ; ਡਿਗਣਾ; ਪੱਤਾ; ਪੱਤੇ</annotation>
+
+		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
+		<annotation cp='[🍃]' draft='provisional'>ਹਵਾ ਵਿੱਚ ਪੱਤਾ; ਹਵਾ ਵਗਣਾ; ਪੱਤਾ; ਹਵਾ; ਵਗਣਾ</annotation>
+
+		<!-- grapes; fruit; grape; plant -->
+		<annotation cp='[🍇]' draft='provisional'>ਅੰਗੂਰ; ਫਲ</annotation>
+
+		<!-- melon; fruit; plant -->
+		<annotation cp='[🍈]' draft='provisional'>ਤਰਬੂਜ; ਫਲ</annotation>
+
+		<!-- watermelon; fruit; plant -->
+		<annotation cp='[🍉]' draft='provisional'>ਤਰਬੂਜ; ਫਲ</annotation>
+
+		<!-- tangerine; fruit; orange; plant -->
+		<annotation cp='[🍊]' draft='provisional'>ਕੀਨੂ; ਸੰਤਰਾ; ਫਲ</annotation>
+
+		<!-- lemon; citrus; fruit; plant -->
+		<annotation cp='[🍋]' draft='provisional'>ਨਿੰਬੂ; ਫਲ</annotation>
+
+		<!-- banana; fruit; plant -->
+		<annotation cp='[🍌]' draft='provisional'>ਕੇਲਾ; ਫਲ</annotation>
+
+		<!-- pineapple; fruit; plant -->
+		<annotation cp='[🍍]' draft='provisional'>ਅਨਾਨਾਸ; ਫਲ</annotation>
+
+		<!-- red apple; apple; fruit; plant; red -->
+		<annotation cp='[🍎]' draft='provisional'>ਲਾਲ ਸੇਬ; ਸੇਬ; ਲਾਲ; ਫਲ</annotation>
+
+		<!-- green apple; apple; fruit; green; plant -->
+		<annotation cp='[🍏]' draft='provisional'>ਹਰਾ ਸੇਬ; ਸੇਬ; ਹਰਾ; ਫਲ</annotation>
+
+		<!-- pear; fruit; plant -->
+		<annotation cp='[🍐]' draft='provisional'>ਨਾਸ਼ਪਾਤੀ; ਫਲ</annotation>
+
+		<!-- peach; fruit; plant -->
+		<annotation cp='[🍑]' draft='provisional'>ਆੜੂ; ਫਲ</annotation>
+
+		<!-- cherries; cherry; fruit; plant -->
+		<annotation cp='[🍒]' draft='provisional'>ਚੈਰੀ; ਫਲ</annotation>
+
+		<!-- strawberry; berry; fruit; plant -->
+		<annotation cp='[🍓]' draft='provisional'>ਸਟ੍ਰਾਬੇਰੀ; ਬੇਰੀ; ਫਲ</annotation>
+
+		<!-- tomato; plant; vegetable -->
+		<annotation cp='[🍅]' draft='provisional'>ਟਮਾਟਰ; ਸਬਜ਼ੀ</annotation>
+
+		<!-- eggplant; aubergine; plant; vegetable -->
+		<annotation cp='[🍆]' draft='provisional'>ਬੈਂਗਣ ਦਾ ਬੂਟਾ; ਬੈਂਗਣ; ਸਬਜ਼ੀ</annotation>
+
+		<!-- ear of corn; corn; ear; maize; maze; plant -->
+		<annotation cp='[🌽]' draft='provisional'>ਮੱਕੀ; ਸਿੱਟਾ</annotation>
+
+		<!-- mushroom; plant -->
+		<annotation cp='[🍄]' draft='provisional'>ਖੁੰਭ</annotation>
+
+		<!-- chestnut; plant -->
+		<annotation cp='[🌰]' draft='provisional'>ਚੈਸਟਨਟ</annotation>
+
+		<!-- bread; loaf -->
+		<annotation cp='[🍞]' draft='provisional'>ਰੋਟੀ; ਨਾਨ; ਹੋਟਲ</annotation>
+
+		<!-- meat on bone; bone; meat -->
+		<annotation cp='[🍖]' draft='provisional'>ਮੀਟ; ਹੱਡੀ &apos;ਤੇ ਮੀਟ; ਹੋਟਲ</annotation>
+
+		<!-- poultry leg; bone; chicken; leg; poultry -->
+		<annotation cp='[🍗]' draft='provisional'>ਮੁਰਗੇ ਦੀ ਲੱਤ; ਪੋਲਟਰੀ; ਲੱਤ; ਹੋਟਲ</annotation>
+
+		<!-- hamburger; burger -->
+		<annotation cp='[🍔]' draft='provisional'>ਹੈਮਬਰਗਰ; ਬਰਗਰ; ਹੋਟਲ</annotation>
+
+		<!-- french fries; french; fries -->
+		<annotation cp='[🍟]' draft='provisional'>ਤੜਕਾ; ਫ੍ਰੈਂਚ ਤੜਕਾ; ਹੋਟਲ</annotation>
+
+		<!-- pizza; cheese; slice -->
+		<annotation cp='[🍕]' draft='provisional'>ਪੀਜ਼ਾ ਟੁਕੜਾ; ਪੀਜ਼ਾ; ਟੁਕੜਾ; ਹੋਟਲ</annotation>
+
+		<!-- pot of food; pot; stew -->
+		<annotation cp='[🍲]' draft='provisional'>ਸਟੀਉ; ਬਰਤਨ ਭੋਜਨ; ਹੋਟਲ</annotation>
+
+		<!-- bento box; bento; box -->
+		<annotation cp='[🍱]' draft='provisional'>ਬੇਂਟੋ; ਬੇਂਟੋ ਬਾਕਸ; ਬਾਕਸ; ਹੋਟਲ</annotation>
+
+		<!-- rice cracker; cracker; rice -->
+		<annotation cp='[🍘]' draft='provisional'>ਚੌਲਾਂ ਤੋਂ ਬਣੀ ਚੀਜ਼; ਚੌਲ</annotation>
+
+		<!-- rice ball; ball; japanese; rice -->
+		<annotation cp='[🍙]' draft='provisional'>ਚੌਲਾਂਂ ਦੀ ਪਿੰਨੀ; ਚੌਲ; ਹੋਟਲ</annotation>
+
+		<!-- cooked rice; cooked; rice -->
+		<annotation cp='[🍚]' draft='provisional'>ਬਣੇ ਹੋਏ ਚੌਲ; ਚੌਲ; ਹੋਟਲ</annotation>
+
+		<!-- curry rice; curry; rice -->
+		<annotation cp='[🍛]' draft='provisional'>ਕੜ੍ਹੀ ਅਤੇ ਚੌਲ; ਕੜ੍ਹੀ; ਚੌਲ; ਹੋਟਲ</annotation>
+
+		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
+		<annotation cp='[🍜]' draft='provisional'>ਨੂਡਲਜ਼; ਨੂਡਲਜ਼ ਦਾ ਬਾਟਾ; ਨੂਡਲ; ਪਕਾਉਣਾ; ਬਾਟਾ; ਹੋਟਲ</annotation>
+
+		<!-- spaghetti; pasta -->
+		<annotation cp='[🍝]' draft='provisional'>ਸਪੈਗੇਟੀ; ਪਾਸਤਾ; ਹੋਟਲ</annotation>
+
+		<!-- roasted sweet potato; potato; roasted; sweet -->
+		<annotation cp='[🍠]' draft='provisional'>ਭੁਨਿਆ ਆਲੂ; ਮਿੱਠਾ ਆਲੂ; ਭੁਨਿਆ ਮਿੱਠਾ ਆਲੂ; ਮਿੱਠਾ; ਭੁਨਿਆ; ਹੋਟਲ</annotation>
+
+		<!-- oden; kebab; seafood; skewer; stick -->
+		<annotation cp='[🍢]' draft='provisional'>ਓਡੇਨ; ਸਮੰਦਰੀ ਭੋਜਨ ਡੰਡੀ ਤੇ; ਸਮੰਦਰੀ ਭੋਜਨ; ਡੰਡੀ; ਹੋਟਲ</annotation>
+
+		<!-- sushi -->
+		<annotation cp='[🍣]' draft='provisional'>ਸੁਸ਼ੀ; ਹੋਟਲ</annotation>
+
+		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
+		<annotation cp='[🍤]' draft='provisional'>ਤੜਕਿਆ ਸ਼ਰਿੰਪ; ਸ਼ਰਿੰਪ; ਹੋਟਲ</annotation>
+
+		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
+		<annotation cp='[🍥]' draft='provisional'>ਮੱਛੀ ਕੇਕ; ਗੋਲ ਮੱਛੀ ਕੇਕ; ਮੱਛੀ; ਹੋਟਲ</annotation>
+
+		<!-- dango; dessert; japanese; skewer; stick; sweet -->
+		<annotation cp='[🍡]' draft='provisional'>ਮੋਚੀ; ਮੋਚੀ ਗੋਲਾ; ਮੋਚੀ ਗੋਲਾ ਡੰਡੀ ਤੇ; ਡੈਂਗੋ; ਹੋਟਲ</annotation>
+
+		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
+		<annotation cp='[🍦]' draft='provisional'>ਨਰਮ ਆਇਸ ਕਰੀਮ; ਆਇਸ ਕਰੀਮ; ਨਰਮ ਸੋਵਾ; ਕਰੀਮ; ਹੋਟਲ</annotation>
+
+		<!-- shaved ice; dessert; ice; shaved; sweet -->
+		<annotation cp='[🍧]' draft='provisional'>ਡਿਜ਼ਾਈਨਦਾਰ ਆਇਸ; ਆਇਸ; ਹੋਟਲ</annotation>
+
+		<!-- ice cream; cream; dessert; ice; sweet -->
+		<annotation cp='[🍨]' draft='provisional'>ਆਇਸ ਕਰੀਮ; ਆਇਸ; ਕਰੀਮ; ਹੋਟਲ</annotation>
+
+		<!-- doughnut; dessert; donut; sweet -->
+		<annotation cp='[🍩]' draft='provisional'>ਡੋਨਟ; ਡੋਹਨਟ; ਹੋਟਲ</annotation>
+
+		<!-- cookie; dessert; sweet -->
+		<annotation cp='[🍪]' draft='provisional'>ਬਿਸਕੁਟ; ਹੋਟਲ</annotation>
+
+		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
+		<annotation cp='[🎂]' draft='provisional'>ਜਨਮ ਦਿਨ ਕੇਕ; ਜਨਮ ਦਿਨ; ਕੇਕ; ਜਸ਼ਨ</annotation>
+
+		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
+		<annotation cp='[🍰]' draft='provisional'>ਛੋਟਾ ਕੇਕ; ਕੱਟਿਆ ਕੇਕ; ਕੇਕ; ਹੋਟਲ</annotation>
+
+		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
+		<annotation cp='[🍫]' draft='provisional'>ਚਾਕਲੇਟ; ਚਾਕਲੇਟ ਬਾਰ; ਬਾਰ; ਹੋਟਲ</annotation>
+
+		<!-- candy; dessert; sweet -->
+		<annotation cp='[🍬]' draft='provisional'>ਟੌਫੀ; ਹੋਟਥ</annotation>
+
+		<!-- lollipop; candy; dessert; sweet -->
+		<annotation cp='[🍭]' draft='provisional'>ਲੋਲੀਪੋਪ; ਟੌਫੀ; ਹੋਟਲ</annotation>
+
+		<!-- custard; dessert; pudding; sweet -->
+		<annotation cp='[🍮]' draft='provisional'>ਕਸਟਰਡ; ਪੁਡਿੰਗ; ਹੋਟਲ</annotation>
+
+		<!-- honey pot; honey; honeypot; pot; sweet -->
+		<annotation cp='[🍯]' draft='provisional'>ਸ਼ਹਿਦ ਬਰਤਨ; ਸ਼ਹਿਦ; ਬਰਤਨ; ਹੋਟਲ</annotation>
+
+		<!-- baby bottle; baby; bottle; drink; milk -->
+		<annotation cp='[🍼]' draft='provisional'>ਬੱਚੇ ਦੀ ਬੋਤਲ; ਦੁੱਧ; ਬੋਤਲ; ਪੀਣਾ</annotation>
+
+		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' draft='provisional'>ਚਾਹ ਪਿਆਲਾ; ਚਾਹ ਦਾ ਪਿਆਲਾ; ਚਾਹ; ਪੀਣਾ</annotation>
+
+		<!-- sake; bar; beverage; bottle; cup; drink -->
+		<annotation cp='[🍶]' draft='provisional'>ਸੇਕ; ਸੇਕ ਬੋਤਲ ਅਤੇ ਪਿਆਲਾ; ਪਿਆਲਾ; ਬੋਤਲ; ਪੀਣਾ; ਹੋਟਲ; ਬਾਰ</annotation>
+
+		<!-- wine glass; bar; beverage; drink; glass; wine -->
+		<annotation cp='[🍷]' draft='provisional'>ਵਾਈਨ; ਵਾਈਨ ਦਾ ਗਲਾਸ; ਵਾਈਨ ਗਲਾਸ; ਗਲਾਸ; ਪੀਣਾ; ਹੋਟਲ; ਬਾਰ</annotation>
+
+		<!-- cocktail glass; bar; cocktail; drink; glass -->
+		<annotation cp='[🍸]' draft='provisional'>ਕੋਕਟੇਲ; ਕੋਕਟੇਲ ਗਲਾਸ; ਹੋਟਲ; ਬਾਰ</annotation>
+
+		<!-- tropical drink; bar; drink; tropical -->
+		<annotation cp='[🍹]' draft='provisional'>ਸਦਾਬਹਾਰ ਡ੍ਰਿੰਕ; ਸਦਾਬਹਾਰ; ਪੀਣਾ; ਹੋਟਲ; ਬਾਰ</annotation>
+
+		<!-- beer mug; bar; beer; drink; mug -->
+		<annotation cp='[🍺]' draft='provisional'>ਬੀਅਰ; ਬੀਅਰ ਪਿਆਲਾ; ਪਿਆਲਾ; ਹੋਟਲ; ਬਾਰ</annotation>
+
+		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
+		<annotation cp='[🍻]' draft='provisional'>ਬੀਅਰ ਪਿਆਲੇ; ਬੀਅਰ; ਪਿਆਲੇ; ਪਿਆਲਾ; ਹੋਟਲ; ਬਾਰ</annotation>
+
+		<!-- fork and knife; cooking; fork; knife -->
+		<annotation cp='[🍴]' draft='provisional'>ਕਾਂਟਾ ਅਤੇ ਚਾਕੂ; ਕਾਂਟਾ; ਚਾਕੂ; ਹੋਟਲ</annotation>
+
+		<!-- cooking; egg; frying; pan -->
+		<annotation cp='[🍳]' draft='provisional'>ਤਲਣ ਲਈ ਬਰਤਨ; ਖਾਣਾ ਪਕਾਉਣਾ; ਹੋਟਲ</annotation>
+
+		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
+		<annotation cp='[🌍]' draft='provisional'>ਸੰਸਾਰ; ਧਰਤੀ; ਯੂਰੋਪ; ਅਢਰੀਕਾ</annotation>
+
+		<!-- globe showing americas; americas; earth; globe; world -->
+		<annotation cp='[🌎]' draft='provisional'>ਸੰਸਾਰ; ਧਰਤੀ; ਅਮਰੀਕਾ</annotation>
+
+		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
+		<annotation cp='[🌏]' draft='provisional'>ਸੰਸਾਰ; ਧਰਤੀ; ਏਸ਼ੀਆ; ਆਸਟਰੇਲੀਆ</annotation>
+
+		<!-- globe with meridians; earth; globe; meridians; world -->
+		<annotation cp='[🌐]' draft='provisional'>ਸੰਸਾਰ; ਮੈਰੀਡੀਅਨਸ</annotation>
+
+		<!-- volcano; eruption; mountain; weather -->
+		<annotation cp='[🌋]' draft='provisional'>ਜਵਾਲਾਮੁਖੀ; ਜਵਾਲਾਮੁਖੀ ਫੱਟਣਾ</annotation>
+
+		<!-- mount fuji; fuji; mountain -->
+		<annotation cp='[🗻]' draft='provisional'>Mt. Fuji; ਪਹਾੜੀ</annotation>
+
+		<!-- house building; building; home; house -->
+		<annotation cp='[🏠]' draft='provisional'>ਘਰ; ਇਮਾਰਤ</annotation>
+
+		<!-- house with garden; building; garden; home; house -->
+		<annotation cp='[🏡]' draft='provisional'>ਘਰ; ਬਗੀਚੇ ਨਾਲ ਘਰ; ਬਗੀਚਾ; ਇਮਾਰਤ</annotation>
+
+		<!-- church; building; christian; cross; religion -->
+		<annotation cp='[⛪]' draft='provisional'>ਗਿਰਜਾ ਘਰ; ਬਿਲਡਿੰਗ</annotation>
+
+		<!-- office building; building -->
+		<annotation cp='[🏢]' draft='provisional'>ਦਫ਼ਤਰ ਦੀ ਇਮਾਰਤ; ਦਫ਼ਤਰ; ਇਮਾਰਤ</annotation>
+
+		<!-- japanese post office; building; japanese; post -->
+		<annotation cp='[🏣]' draft='provisional'>ਡਾਕ ਘਰ; ਜਾਪਾਨੀ ਡਾਕ ਘਰ; ਜਾਪਾਨੀ; ਡਾਕ; ਇਮਾਰਤ</annotation>
+
+		<!-- post office; building; european; post -->
+		<annotation cp='[🏤]' draft='provisional'>ਡਾਕ ਘਰ; ਯੂਰਪੀਅਨ ਡਾਕ ਘਰ; ਯੂਰਪੀਅਨ; ਡਾਕ; ਇਮਾਰਤ</annotation>
+
+		<!-- hospital; building; doctor; medicine -->
+		<annotation cp='[🏥]' draft='provisional'>ਹਸਪਤਾਲ; ਇਮਾਰਤ</annotation>
+
+		<!-- bank; building -->
+		<annotation cp='[🏦]' draft='provisional'>ਬੈਂਕ; ਇਮਾਰਤ</annotation>
+
+		<!-- hotel; building -->
+		<annotation cp='[🏨]' draft='provisional'>ਹੋਟਲ; ਇਮਾਰਤ</annotation>
+
+		<!-- love hotel; building; hotel; love -->
+		<annotation cp='[🏩]' draft='provisional'>ਪਿਆਰ ਹੋਟਲ; ਪਿਆਰ; ਹੋਟਲ; ਇਮਾਰਤ</annotation>
+
+		<!-- convenience store; building; convenience; store -->
+		<annotation cp='[🏪]' draft='provisional'>ਸਹੂਲਤ ਭੰਡਾਰ; ਸਹੂਲਤ; ਭੰਡਾਰ; ਇਮਾਰਤ</annotation>
+
+		<!-- school; building -->
+		<annotation cp='[🏫]' draft='provisional'>ਸਕੂਲ; ਸਕੂਲ ਇਮਾਰਤ; ਇਮਾਰਤ</annotation>
+
+		<!-- department store; building; department; store -->
+		<annotation cp='[🏬]' draft='provisional'>ਵਿਭਾਗ ਭੰਡਾਰ; ਵਿਭਾਗ; ਭੰਡਾਰ</annotation>
+
+		<!-- factory; building -->
+		<annotation cp='[🏭]' draft='provisional'>ਫੈਕਟਰੀ; ਇਮਾਰਤ</annotation>
+
+		<!-- japanese castle; building; castle; japanese -->
+		<annotation cp='[🏯]' draft='provisional'>ਜਾਪਾਨੀ ਭਵਨ; ਭਵਨ; ਇਮਾਰਤ</annotation>
+
+		<!-- castle; building; european -->
+		<annotation cp='[🏰]' draft='provisional'>ਯੂਰਪੀਅਨ ਭਵਨ; ਭਵਨ; ਇਮਾਰਤ</annotation>
+
+		<!-- wedding; chapel; romance -->
+		<annotation cp='[💒]' draft='provisional'>ਵਿਆਹ ਕਰਨ ਲਈ ਚੈਪਲ; ਵਿਆਹ; ਚੈਪਲ; ਪਿਆਰ</annotation>
+
+		<!-- tokyo tower; tokyo; tower -->
+		<annotation cp='[🗼]' draft='provisional'>ਟੋਕੀਓ ਟਾਵਰ; ਟੋਕੀਓ; ਟਾਵਰ</annotation>
+
+		<!-- statue of liberty; liberty; statue -->
+		<annotation cp='[🗽]' draft='provisional'>ਸਟੈਚੂ ਆਫ਼ ਲਿਬਰਟੀ; ਬੁੱਤ; ਆਜ਼ਾਦੀ</annotation>
+
+		<!-- map of japan; japan; map -->
+		<annotation cp='[🗾]' draft='provisional'>ਜਾਪਾਰ ਦਾ ਨਕਸ਼ਾ; ਨਕਸ਼ਾ; ਜਾਪਾਨ</annotation>
+
+		<!-- fountain -->
+		<annotation cp='[⛲]' draft='provisional'>ਝਰਨਾ</annotation>
+
+		<!-- tent; camping -->
+		<annotation cp='[⛺]' draft='provisional'>ਟੈਂਟ; ਕੈਂਪਿੰਗ</annotation>
+
+		<!-- foggy; fog; weather -->
+		<annotation cp='[🌁]' draft='provisional'>ਧੁੰਦਲਾ; ਧੁੰਦ</annotation>
+
+		<!-- night with stars; night; star; weather -->
+		<annotation cp='[🌃]' draft='provisional'>ਰਾਤੀ ਤਾਰੇ; ਤਾਰੇ; ਰਾਤ</annotation>
+
+		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
+		<annotation cp='[🌄]' draft='provisional'>ਸਵੇਰ; ਸਵੇਰੇ ਸੂਰਜ; ਪਹਾੜਾਂ ਦੀ ਸਵੇਰ; ਪਹਾੜ</annotation>
+
+		<!-- sunrise; morning; sun; weather -->
+		<annotation cp='[🌅]' draft='provisional'>ਸਵੇਰ; ਸਵੇਰੇ ਸੂਰਜ</annotation>
+
+		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
+		<annotation cp='[🌆]' draft='provisional'>ਸ਼ਹਿਰ ਦੀ ਸ਼ਾਮ; ਸ਼ਹਿਰ; ਇਮਾਰਤ; ਸ਼ਾਮ ਦਾ ਨਜ਼ਾਰਾ</annotation>
+
+		<!-- sunset; building; dusk; sun; weather -->
+		<annotation cp='[🌇]' draft='provisional'>ਸ਼ਾਮ; ਇਮਾਰਤਾਂ ਤੇ ਸ਼ਾਮ; ਇਮਾਰਤ</annotation>
+
+		<!-- bridge at night; bridge; night; weather -->
+		<annotation cp='[🌉]' draft='provisional'>ਰਾਤ ਪੁੱਲ; ਪੁੱਲ ਤੇ ਰਾਤ; ਰਾਤ</annotation>
+
+		<!-- milky way; space; weather -->
+		<annotation cp='[🌌]' draft='provisional'>ਆਕਾਸ਼ਗੰਗਾ; ਚਿੱਟੀ</annotation>
+
+		<!-- carousel horse; carousel; horse -->
+		<annotation cp='[🎠]' draft='provisional'>ਝੂਲਾ; ਝੂਲਾ ਘੋੜਾ; ਘੋੜਾ; ਮਨੋਰੰਜਨ</annotation>
+
+		<!-- ferris wheel; amusement park; ferris; wheel -->
+		<annotation cp='[🎡]' draft='provisional'>ਫੇਰੀਸ ਚੱਕਰ; ਫੇਰੀਸ; ਚੱਕਰ; ਮਨੋਰੰਜਨ ਪਾਰਕ; ਮਨੋਰੰਜਨ</annotation>
+
+		<!-- roller coaster; amusement park; coaster; roller -->
+		<annotation cp='[🎢]' draft='provisional'>ਰੋਲਰ ਕੋਸਟਰ; ਰੋਲਰ; ਕੰਢਾ; ਮਨੋਰੰਜਨ ਪਾਰਕ; ਮਨੋਰੰਜਨ</annotation>
+
+		<!-- barber pole; barber; haircut; pole -->
+		<annotation cp='[💈]' draft='provisional'>ਨਾਈ ਦੀ ਦੁਕਾਨ; ਬਾਰਬਰ ਪੋਲ; ਨਾਈ; ਪੋਲ</annotation>
+
+		<!-- circus tent; circus; tent -->
+		<annotation cp='[🎪]' draft='provisional'>ਸਰਕਸ; ਸਰਕਸ ਤੰਬੂ; ਤੰਬੂ; ਮਨੋਰੰਜਨ</annotation>
+
+		<!-- performing arts; art; mask; performing; theater; theatre -->
+		<annotation cp='[🎭]' draft='provisional'>ਚਿਹਰਾ ਮਾਸਕ; ਅਭਿਨੈ ਕਲਾ; ਕਲਾ; ਮਨੋਰੰਜਨ; ਅਭਿਨੈ</annotation>
+
+		<!-- artist palette; art; museum; painting; palette -->
+		<annotation cp='[🎨]' draft='provisional'>ਰੰਗ ਪੈਲਅਟ; ਕਲਾਕਾਰ ਪੈਲਅਟ; ਪੈਲਅਟ; ਕਲਾਕਾਰ; ਰੰਗ; ਕਲਾ</annotation>
+
+		<!-- slot machine; game; slot -->
+		<annotation cp='[🎰]' draft='provisional'>ਨੰਬਰ ਮਸ਼ੀਨ; ਨੰਬਰ; ਖੇਡ</annotation>
+
+		<!-- locomotive; engine; railway; steam; train; vehicle -->
+		<annotation cp='[🚂]' draft='provisional'>ਸਟੀਮ ਲੋਕੋਮੋਟਿਵ; ਲੋਕੋਮੋਟਿਵ; ਰੇਲ ਗੱਡੀ; ਵਾਹਨ</annotation>
+
+		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
+		<annotation cp='[🚃]' draft='provisional'>ਰੇਲ ਗੱਡੀ; ਇਲੈਕਟ੍ਰਿਕ ਰੇਲ ਗੱਡੀ; ਰੇਲਵੇ ਕਾਰ; ਇਲੈਕਟ੍ਰਿਕ; ਰੇਲਵੇ; ਟ੍ਰੈਮ; ਵਾਹਨ</annotation>
+
+		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚄]' draft='provisional'>ਤੇਜ਼-ਰਫਤਾਰ ਰੇਲ ਗੱਡੀ; ਸਿਨਕਾਨਸੈਨ; ਰੇਲ ਗੱਡੀ; ਵਾਹਨ</annotation>
+
+		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚅]' draft='provisional'>ਤੇੇਜ਼ ਰਫਤਾਰ ਰੇਲ ਗੱਡੀ; ਬੁਲੇਟ ਨੋਜ; ਬੁਲੇਟ ਨੋਜ ਨਾਲ ਸਿਨਕਾਨਸੈਨ; ਸਿਨਕਾਨਸੈਨ; ਰੇਲ ਗੱਡੀ; ਵਾਹਨ</annotation>
+
+		<!-- train; railway; vehicle -->
+		<annotation cp='[🚆]' draft='provisional'>ਰੇਲ ਗੱੱਡੀ; ਰੇਲਵੇ; ਵਾਹਨ</annotation>
+
+		<!-- metro; subway; vehicle -->
+		<annotation cp='[🚇]' draft='provisional'>ਸਬਵੇ; ਮੈਟਰੋ; ਵਾਹਨ</annotation>
+
+		<!-- light rail; railway; vehicle -->
+		<annotation cp='[🚈]' draft='provisional'>ਲਾਈਟ ਰੇਲ; ਰੇਲ; ਵਾਹਨ</annotation>
+
+		<!-- station; railway; train; vehicle -->
+		<annotation cp='[🚉]' draft='provisional'>ਰੇਲ ਗੱਡੀ ਸਟੇਸ਼ਨ; ਰੇਲ ਗੱਡੀ; ਸਟੇਸ਼ਨ</annotation>
+
+		<!-- tram; trolleybus; vehicle -->
+		<annotation cp='[🚊]' draft='provisional'>ਟ੍ਰੈਮ; ਵਾਹਨ</annotation>
+
+		<!-- monorail; vehicle -->
+		<annotation cp='[🚝]' draft='provisional'>ਮੋਨੋਰੇਲ; ਵਾਹਨ</annotation>
+
+		<!-- mountain railway; car; mountain; railway; vehicle -->
+		<annotation cp='[🚞]' draft='provisional'>ਪਹਾੜੀ ਰੇਲਵੇ; ਪਹਾੜੀ ਕੇਬਲ ਕਾਰ; ਪਹਾੜ; ਰੇਲਵੇ; ਕਾਰ; ਵਾਹਨ</annotation>
+
+		<!-- tram car; car; tram; trolleybus; vehicle -->
+		<annotation cp='[🚋]' draft='provisional'>ਟ੍ਰੈਮ ਕਾਰ; ਟ੍ਰੈਮ; ਕਾਰ; ਵਾਹਨ</annotation>
+
+		<!-- bus; vehicle -->
+		<annotation cp='[🚌]' draft='provisional'>ਬੱਸ; ਵਾਹਨ</annotation>
+
+		<!-- oncoming bus; bus; oncoming; vehicle -->
+		<annotation cp='[🚍]' draft='provisional'>ਆ ਰਹੀ ਬੱਸ; ਬੱਸ; ਆ ਰਹੀ; ਵਾਹਨ</annotation>
+
+		<!-- trolleybus; bus; tram; trolley; vehicle -->
+		<annotation cp='[🚎]' draft='provisional'>ਟਰਾਲੀ ਬੱਸ; ਬੱਸ; ਟਰਾਲੀ; ਵਾਹਨ</annotation>
+
+		<!-- bus stop; bus; busstop; stop -->
+		<annotation cp='[🚏]' draft='provisional'>ਬੱੱਸ ਸਟਾਪ; ਰੁਕੋ; ਬੱਸ</annotation>
+
+		<!-- minibus; bus; vehicle -->
+		<annotation cp='[🚐]' draft='provisional'>ਮਿੰਨੀ ਬੱਸ; ਬੱਸ; ਵਾਹਨ</annotation>
+
+		<!-- ambulance; vehicle -->
+		<annotation cp='[🚑]' draft='provisional'>ਐਬੂਲੇਂਸ; ਵਾਹਨ</annotation>
+
+		<!-- fire engine; engine; fire; truck; vehicle -->
+		<annotation cp='[🚒]' draft='provisional'>ਫਾਇਰ ਇੰਜਣ; ਫਾਇਰ ਟਰੱਕ; ਅੱਗ; ਇੰਜਣ; ਵਾਹਨ</annotation>
+
+		<!-- police car; car; patrol; police; vehicle -->
+		<annotation cp='[🚓]' draft='provisional'>ਪੁਲਿਸ ਕਾਰ; ਗਸ਼ਤ ਕਾਰ; ਪੁਲਿਸ; ਵਾਹਨ</annotation>
+
+		<!-- oncoming police car; car; oncoming; police; vehicle -->
+		<annotation cp='[🚔]' draft='provisional'>ਆ ਰਹੀ ਪੁਲਿਸ ਕਾਰ; ਪੁਲਿਸ ਕਾਰ; ਪੁਲਿਸ; ਵਾਹਨ</annotation>
+
+		<!-- taxi; vehicle -->
+		<annotation cp='[🚕]' draft='provisional'>ਟੈਕਸੀ; ਵਾਹਨ</annotation>
+
+		<!-- oncoming taxi; oncoming; taxi; vehicle -->
+		<annotation cp='[🚖]' draft='provisional'>ਆ ਰਹੀ ਟੈਕਸੀ; ਟੈਕਸੀ; ਵਾਹਨ</annotation>
+
+		<!-- automobile; car; vehicle -->
+		<annotation cp='[🚗]' draft='provisional'>ਕਾਰ; ਆਟੋਮੋਬਾਈਲ; ਵਾਹਨ</annotation>
+
+		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
+		<annotation cp='[🚘]' draft='provisional'>ਆਉਣ ਵਾਲੇ ਕਾਰ; ਆਉਣ ਵਾਲੇ ਆਟੋਮੋਬਾਈਲ; ਕਾਰ; ਆਟੋਮੋਬਾਈਲ; ਆਉਣ ਵਾਲੇ; ਵਾਹਨ</annotation>
+
+		<!-- recreational vehicle; recreational; rv; vehicle -->
+		<annotation cp='[🚙]' draft='provisional'>RV; ਮਨੋਰੰਜਕ ਵਾਹਨ; ਕਾਰ; ਵਾਹਨ</annotation>
+
+		<!-- delivery truck; delivery; truck; vehicle -->
+		<annotation cp='[🚚]' draft='provisional'>ਡਿਲੀਵਰੀ ਟਰੱਕ; ਟਰੱਕ; ਵਾਹਨ</annotation>
+
+		<!-- articulated lorry; lorry; semi; truck; vehicle -->
+		<annotation cp='[🚛]' draft='provisional'>ਲਾਰੀ; ਅੱਧ; ਵਿਅਕਤ ਲਾਰੀ; ਟਰੱਕ; ਟ੍ਰੇਲਰ; ਵਾਹਨ</annotation>
+
+		<!-- tractor; vehicle -->
+		<annotation cp='[🚜]' draft='provisional'>ਟਰੈਕਟਰ; ਵਾਹਨ</annotation>
+
+		<!-- bicycle; bike; vehicle -->
+		<annotation cp='[🚲]' draft='provisional'>ਬਾਈਕ; ਸਾਈਕਲ; ਵਾਹਨ</annotation>
+
+		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
+		<annotation cp='[⛽]' draft='provisional'>ਗੈਸ ਸਟੇਸ਼ਨ; ਤੇਲ ਪੰਪ; ਬਾਲਣ; ਗੈਸ; ਸਟੇਸ਼ਨ</annotation>
+
+		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
+		<annotation cp='[🚨]' draft='provisional'>ਘੁੰਮਦੀ ਲਾਈਟ; ਪੁਲਿਸ ਲਾਈਟ; ਪੁਲਿਸ ਬੱਤੀ; ਪੁਲਿਸ ਕਾਰ</annotation>
+
+		<!-- horizontal traffic light; light; signal; traffic -->
+		<annotation cp='[🚥]' draft='provisional'>ਟ੍ਰੈਫਿਕ ਲਾਈਟਾਂ; ਸਮਤਲ ਟ੍ਰੈਫਿਕ ਲਾਈਟ; ਟ੍ਰੈਫਿਕ ਸਿਗਨਲ; ਲਾਈਟ; ਟ੍ਰੈਫਿਕ</annotation>
+
+		<!-- vertical traffic light; light; signal; traffic -->
+		<annotation cp='[🚦]' draft='provisional'>ਟ੍ਰੈਫਿਕ ਲਾਈਟਾਂ; ਪੱਟੀ ਟ੍ਰੈਫਿਕ ਲਾਈਟ; ਟ੍ਰੈਫਿਕ ਸਿਗਨਲ; ਲਾਈਟ; ਟ੍ਰੈਫਿਕ</annotation>
+
+		<!-- construction; barrier -->
+		<annotation cp='[🚧]' draft='provisional'>ਨਿਰਮਾਣ ਅਧੀਨ; ਨਿਰਮਾਣ ਨਿਸ਼ਾਨ; ਨਿਰਮਾਣ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- anchor; ship; tool -->
+		<annotation cp='[⚓]' draft='provisional'>ਲੰਗਰ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
+		<annotation cp='[⛵]' draft='provisional'>ਬੇੜਾ; ਕਿਸ਼ਤੀ; ਹੈੱਟੀ; ਸਮੁੰਦਰ ਰਿਜਾਰਟ; ਰਿਜਾਰਟ</annotation>
+
+		<!-- rowboat; boat; vehicle -->
+		<annotation cp='[🚣]' draft='provisional'>ਕਿਸ਼ਤੀ; ਵਾਹਨ</annotation>
+
+		<!-- speedboat; boat; vehicle -->
+		<annotation cp='[🚤]' draft='provisional'>ਗਤੀ ਕਿਸ਼ਤੀ; ਕਿਸ਼ਤੀ; ਵਾਹਨ</annotation>
+
+		<!-- ship; vehicle -->
+		<annotation cp='[🚢]' draft='provisional'>ਜਹਾਜ਼; ਵਾਹਨ</annotation>
+
+		<!-- seat; chair -->
+		<annotation cp='[💺]' draft='provisional'>ਆਸਣ; ਕੁਰਸੀ</annotation>
+
+		<!-- helicopter; vehicle -->
+		<annotation cp='[🚁]' draft='provisional'>ਹੈਲੀਕਾਪਟਰ; ਵਾਹਨ</annotation>
+
+		<!-- suspension railway; railway; suspension; vehicle -->
+		<annotation cp='[🚟]' draft='provisional'>ਸਸਪੈਨਸ਼ਨ ਰੇਲਵੇ; ਰੇਲਵੇ; ਸਸਪੈਨਸ਼ਨ; ਵਾਹਨ</annotation>
+
+		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
+		<annotation cp='[🚠]' draft='provisional'>ਪਹਾੜੀ ਕੇਬਲਵੇ; ਪਹਾੜੀ ਕੇਬਲ ਕਾਰ; ਕੇਬਲ; ਕਾਰ; ਪਹਾੜ; ਵਾਹਨ</annotation>
+
+		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
+		<annotation cp='[🚡]' draft='provisional'>ਕੇਬਲ ਕਾਰ; ਏਰੀਅਲ ਟ੍ਰੈਮਵੇ; ਰੋਪਵੇ; ਏਰੀਅਲ; ਟ੍ਰੈਮਵੇ; ਗੋਨਡੋਲਾ; ਵਾਹਨ</annotation>
+
+		<!-- rocket; space; vehicle -->
+		<annotation cp='[🚀]' draft='provisional'>ਰਾਕੇਟ; ਵਾਹਨ</annotation>
+
+		<!-- door -->
+		<annotation cp='[🚪]' draft='provisional'>ਦਰਵਾਜਾ</annotation>
+
+		<!-- toilet -->
+		<annotation cp='[🚽]' draft='provisional'>ਟਾਇਲਟ</annotation>
+
+		<!-- shower; water -->
+		<annotation cp='[🚿]' draft='provisional'>ਫੁਹਾਰਾ</annotation>
+
+		<!-- person taking bath; bathtub; bath -->
+		<annotation cp='[🛀]' draft='provisional'>ਨਹਾਉਣਾ</annotation>
+
+		<!-- bathtub; bath -->
+		<annotation cp='[🛁]' draft='provisional'>ਬਾਥਟਬ</annotation>
+
+		<!-- hourglass; sand; timer -->
+		<annotation cp='[⌛]' draft='provisional'>ਘੜੀ; ਰੇਤ</annotation>
+
+		<!-- hourglass with flowing sand; hourglass; sand; timer -->
+		<annotation cp='[⏳]' draft='provisional'>ਰੇਤ ਘੜੀ; ਘੜੀ</annotation>
+
+		<!-- watch; clock -->
+		<annotation cp='[⌚]' draft='provisional'>ਘੜੀ</annotation>
+
+		<!-- alarm clock; alarm; clock -->
+		<annotation cp='[⏰]' draft='provisional'>ਅਲਾਰਮ ਘੜੀ; ਅਲਾਰਮ; ਘੜੀ</annotation>
+
+		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
+		<annotation cp='[🕛]' draft='provisional'>12 ਵਜੇ; ਘੜੀ; ਬਾਰ੍ਹਾਂ; 12:00</annotation>
+
+		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
+		<annotation cp='[🕧]' draft='provisional'>ਬਾਰ੍ਹਾਂ-ਤੀਹ; ਘੜੀ; 12:30</annotation>
+
+		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
+		<annotation cp='[🕐]' draft='provisional'>1 ਵਜਿਆ; ਘੜੀ; ਇੱਕ; 1:00</annotation>
+
+		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
+		<annotation cp='[🕜]' draft='provisional'>ਇੱਕ-ਤੀਹ; ; ਘੜੀ; 1:30</annotation>
+
+		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
+		<annotation cp='[🕑]' draft='provisional'>2 ਵਜੇ; ਘੜੀ; ਦੋ; 2:00</annotation>
+
+		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
+		<annotation cp='[🕝]' draft='provisional'>ਦੋ-ਤੀਹ; ਘੜੀ; 2:30</annotation>
+
+		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
+		<annotation cp='[🕒]' draft='provisional'>3 ਵਜੇ; ਘੜੀ; ਤਿੰਨ; 3:00</annotation>
+
+		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
+		<annotation cp='[🕞]' draft='provisional'>ਤਿੰਨ-ਤੀਹ; ਘੜੀ; 3:30</annotation>
+
+		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
+		<annotation cp='[🕓]' draft='provisional'>4 ਵਜੇ; ਘੜੀ; ਚਾਰ; 4:00</annotation>
+
+		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
+		<annotation cp='[🕟]' draft='provisional'>ਚਾਰ-ਤੀਹ; ਘੜੀ; 4:30</annotation>
+
+		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
+		<annotation cp='[🕔]' draft='provisional'>5 ਵਜੇ; ਘੜੀ; ਪੰਜ; 5:00</annotation>
+
+		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
+		<annotation cp='[🕠]' draft='provisional'>ਪੰਜ-ਤੀਹ; ਘੜੀ; 5:30</annotation>
+
+		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
+		<annotation cp='[🕕]' draft='provisional'>6 ਵਜੇ; ਘੜੀ; ਛੇ; 6:00</annotation>
+
+		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
+		<annotation cp='[🕡]' draft='provisional'>ਛੇ-ਤੀਹ; ਘੜੀ; 6:30</annotation>
+
+		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
+		<annotation cp='[🕖]' draft='provisional'>7 ਵਜੇ; ਘੜੀ; ਸੱਤ; 7:00</annotation>
+
+		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
+		<annotation cp='[🕢]' draft='provisional'>ਸੱਤ-ਤੀਹ; ਘੜੀ; 7:30</annotation>
+
+		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
+		<annotation cp='[🕗]' draft='provisional'>8 ਵਜੇ; ਘੜੀ; ਅੱਠ; 8:00</annotation>
+
+		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
+		<annotation cp='[🕣]' draft='provisional'>ਅੱਠ-ਤੀਹ; ਘੜੀ; 8:30</annotation>
+
+		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
+		<annotation cp='[🕘]' draft='provisional'>9 ਵਜੇ; ਘੜੀ; ਨੌਂ; 9:00</annotation>
+
+		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
+		<annotation cp='[🕤]' draft='provisional'>ਨੌਂ-ਤੀਹ; ਘੜੀ; 9:30</annotation>
+
+		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
+		<annotation cp='[🕙]' draft='provisional'>10 ਵਜੇ; ਘੜੀ; ਦਸ; 10:00</annotation>
+
+		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
+		<annotation cp='[🕥]' draft='provisional'>ਦਸ-ਤੀਹ; ਘੜੀ; 10:30</annotation>
+
+		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
+		<annotation cp='[🕚]' draft='provisional'>11 ਵਜੇ; ਘੜੀ; ਗਿਆਰਾਂ; 11:00</annotation>
+
+		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
+		<annotation cp='[🕦]' draft='provisional'>ਗਿਆਰਾਂ-ਤੀਹ; ਘੜੀ; 11:30</annotation>
+
+		<!-- new moon; dark; moon; space; weather -->
+		<annotation cp='[🌑]' draft='provisional'>ਨਵਾਂ ਚੰਦ; ਹਨੇਰਾ ਚੰਦ; ਹਨੇਰਾ; ਨਵਾਂ; ਚੰਦ</annotation>
+
+		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
+		<annotation cp='[🌒]' draft='provisional'>ਅੱਧਾ ਚੰਦ; ਅੱਧਾ; ਵੱਧਦਾ ਚੰਦ; ਵੱਧਦਾ; ਚੰਦ</annotation>
+
+		<!-- first quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌓]' draft='provisional'>ਤਿਮਾਹੀ ਚੰਦ; ਪਹਿਲੀ ਤਿਮਾਹੀ ਚੰਦ; ਚੰਦ; ਤਿਮਾਹੀ</annotation>
+
+		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
+		<annotation cp='[🌔]' draft='provisional'>ਵੱਧਦਾ ਚੰਦ; ਵੱਧਦਾ; ਨੌਮਾਹੀ ਚੰਦ; ਨੌਮਾਹੀ; ਚੰਦ</annotation>
+
+		<!-- full moon; full; moon; space; weather -->
+		<annotation cp='[🌕]' draft='provisional'>ਪੂਰਾ ਚੰਦ; ਪੂਰਾ; ਚਮਕਦਾ ਚੰਦ; ਚਮਕਦਾ; ਚੰਦ</annotation>
+
+		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
+		<annotation cp='[🌖]' draft='provisional'>ਘੱਟਦਾ ਚੰਦ; ਘੱਟਦਾ; ਵੱਧਦਾ ਚੰਦ; ਵੱਧਦਾ; ਚੰਦ</annotation>
+
+		<!-- last quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌗]' draft='provisional'>ਤਿਮਾਹੀ ਚੰਦ; ਤਿਮਾਹੀ; ਪਿਛਲਾ ਤਿਮਾਹੀ ਚੰਦ; ਚੰਦ</annotation>
+
+		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
+		<annotation cp='[🌘]' draft='provisional'>ਅੱਧਾ ਚੰੰਦ; ਅੱਧਾ; ਘੱਟਦਾ ਚੰਦ; ਘੱਟਦਾ; ਚੰਦ</annotation>
+
+		<!-- crescent moon; crescent; moon; space; weather -->
+		<annotation cp='[🌙]' draft='provisional'>ਅੱਧਾ ਚੰੰਦ; ਅੱਧਾ; ਚੰਦ</annotation>
+
+		<!-- new moon face; face; moon; space; weather -->
+		<annotation cp='[🌚]' draft='provisional'>ਚੰਦ ਦਾ ਨਵਾਂ ਚਿਹਰਾ; ਨਵਾਂ ਚੰਦ; ਨਵੇਂ ਚੰਦ ਦਾ ਚਿਹਰਾ; ਚੰਦ; ਚਿਹਰਾ</annotation>
+
+		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌛]' draft='provisional'>ਤਿਮਾਹੀ ਚੰਦ ਦਾ ਚਿਹਰਾ; ਚਿਹਰੇ ਨਾਲ ਤਿਮਾਹੀ ਚੰਦ; ਚੰਦ ਦਾ ਚਿਹਰਾ; ਪਹਿਲਾ ਤਿਮਾਹੀ ਚੰਦ; ਤਿਮਾਹੀ ਚੰਦ; ਚੰਦ; ਚਿਹਰਾ</annotation>
+
+		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌜]' draft='provisional'>ਤਿਮਾਹੀ ਚੰਦ ਦਾ ਚਿਹਰਾ; ਚਿਹਰੇ ਨਾਲ ਤਿਮਾਹੀ ਚੰਦ; ਚੰਦ ਦਾ ਚਿਹਰਾ; ਪਿਛਲਾ ਤਿਮਾਹੀ ਚੰਦ; ਤਿਮਾਹੀ ਚੰਦ; ਚੰਦ; ਚਿਹਰਾ</annotation>
+
+		<!-- full moon with face; bright; face; full; moon; space; weather -->
+		<annotation cp='[🌝]' draft='provisional'>ਪੂਰੇ ਚੰਦ ਦਾ ਚਿਹਰਾ; ਚਿਹਰੇ ਨਾਲ ਪੂਰਾ ਚੰਦ; ਚਿਹਰੇ ਨਾਲ ਚੰਦ; ਪੂਰਾ ਚੰਦਾ; ਪੂਰਾ; ਚੰਦ; ਚਿਹਰਾ</annotation>
+
+		<!-- sun with face; bright; face; space; sun; weather -->
+		<annotation cp='[🌞]' draft='provisional'>ਸੂਰਜ ਦਾ ਚਿਹਰਾ; ਸੂਰਜ; ਚਿਹਰਾ</annotation>
+
+		<!-- glowing star; glittery; glow; shining; sparkle; star -->
+		<annotation cp='[🌟]' draft='provisional'>ਜਗਮਗਉਂਦਾ ਤਾਰਾ; ਚਮਕਦਾ; ਝਿਲਮਿਲਾਉਂਦਾ; ਦਮਕਦਾ; ਤਾਰਾ</annotation>
+
+		<!-- shooting star; falling; shooting; space; star -->
+		<annotation cp='[🌠]' draft='provisional'>ਤਾਰਾ ਟੁੱਟਣਾ; ਟੁੱਟਣਾ; ਡਿੱਗਣਾ; ਤਾਰਾ</annotation>
+
+		<!-- cloud; weather -->
+		<annotation cp='[☁]' draft='provisional'>ਬੱਦਲ; ਮੌਸਮ</annotation>
+
+		<!-- sun behind cloud; cloud; sun; weather -->
+		<annotation cp='[⛅]' draft='provisional'>ਬੱਦਲਾਂ ਪਿੱਛੇ ਸੂਰਜ; ਬੱਦਲਾਂ ਨਾਲ ਸੂਰਜ; ਸੂਰਜ; ਬੱਦਲ</annotation>
+
+		<!-- cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' draft='provisional'>ਝੱਖੜ; ਤੂਫ਼ਾਨ; ਟਵਿਸਟਰ; ਧੁੰਦਲਾ; ਬੇਹੋਸ਼ੀ</annotation>
+
+		<!-- rainbow; rain; weather -->
+		<annotation cp='[🌈]' draft='provisional'>ਸਤਰੰਗੀ ਪੀਂਘ</annotation>
+
+		<!-- closed umbrella; clothing; rain; umbrella; weather -->
+		<annotation cp='[🌂]' draft='provisional'>ਛੱਤਰੀ; ਬਾਰਿਸ਼; ਬਰਸਾਤੀ</annotation>
+
+		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
+		<annotation cp='[⚡]' draft='provisional'>ਹਾਈ ਵੋਲਟੇਜ; ਹਾਈ ਵੋਲਟੇਜ ਖਤਰਾ; ਹਾਈ ਵੋਲਟੇਜ ਨਿਸ਼ਾਨ; ਹਾਈ; ਵੋਲਟੇਜ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- snowman without snow; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' draft='provisional'>ਸਨੋਮੈਨ; ਸਨੋਮੈਨ ਬਿਨਾਂ ਬਰਫ਼; ਬਰਫ਼</annotation>
+
+		<!-- fire; flame; tool -->
+		<annotation cp='[🔥]' draft='provisional'>ਅੱਗ; ਲਾਟ</annotation>
+
+		<!-- droplet; cold; comic; drop; sweat; weather -->
+		<annotation cp='[💧]' draft='provisional'>ਠੰਡਾ ਮੁੜ੍ਹਕਾ; ਮੁੜ੍ਹਕਾ; ਪਸੀਨਾ; ਕਾਮਿਕ</annotation>
+
+		<!-- water wave; ocean; water; wave; weather -->
+		<annotation cp='[🌊]' draft='provisional'>ਲਹਿਰ; ਸਾਗਰ ਦੀ ਲਹਿਰ; ਪਾਣੀ ਦੀ ਲਹਿਰ</annotation>
+
+		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' draft='provisional'>ਜੈਕ-ਓ-ਲੈਂਟਰਨ; ਜੈਕ; ਲੈਂਟਰਨ; ਹੇਲੋਵੀਨ; ਪੇਠਾ; ਜਸ਼ਨ</annotation>
+
+		<!-- christmas tree; celebration; christmas; tree -->
+		<annotation cp='[🎄]' draft='provisional'>ਕ੍ਰਿਸਮਸ ਰੁੱਖ; ਰੁੱਖ; ਜਸ਼ਨ</annotation>
+
+		<!-- fireworks; celebration -->
+		<annotation cp='[🎆]' draft='provisional'>ਅੱਗ ਦਾ ਕੰਮ; ਜਸ਼ਨ</annotation>
+
+		<!-- sparkler; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' draft='provisional'>ਚਮਕ; ਅੱਗ ਦਾ ਕੰਮ; ਚਮਕੀਲਾ ਅੱਗ ਦਾ ਕੰਮ; ਜਸ਼ਨ</annotation>
+
+		<!-- sparkles; sparkle; star -->
+		<annotation cp='[✨]' draft='provisional'>ਚਮਕਣਾ; ਚਮਕਦੇ ਤਾਰੇ; ਫੁੱਲਝੜੀ; ਤਾਰੇ</annotation>
+
+		<!-- balloon; celebration -->
+		<annotation cp='[🎈]' draft='provisional'>ਗੁਬਾਰਾ; ਜਸ਼ਨ</annotation>
+
+		<!-- party popper; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' draft='provisional'>ਪਾਰਟੀ ਪੋਪਰ; ਪਾਰਟੀ; ਪੋਪਰ; ਜਸ਼ਨ</annotation>
+
+		<!-- confetti ball; ball; celebration; confetti -->
+		<annotation cp='[🎊]' draft='provisional'>ਕੋਨਫੇਟੀ; ਕੋਨਫੇਟੀ ਗੇਂਦ; ਗੇਂਦ; ਜਸ਼ਨ</annotation>
+
+		<!-- tanabata tree; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' draft='provisional'>ਰੁੱਖ ਅਤੇ ਕਾਗਜ਼ ਟੁਕੜੇ; ਤਾਰਾ ਤਿਉਹਾਰ; ਰੁੱਖ; ਕਾਗਜ਼ ਟੁਕੜੇ; ਜਸ਼ਨ</annotation>
+
+		<!-- crossed flags; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' draft='provisional'>ਪਾਰ ਝੰਡੇ; ਜਾਪਾਨ ਦੇ ਪਾਰ ਝੰਡੇ; ਪਾਰ; ਝੰਡੇ; ਜਸ਼ਨ</annotation>
+
+		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' draft='provisional'>ਪਿਨ ਸਜਾਵਟ; ਨਵਾਂ ਸਾਲ; ਜਾਪਾਨੀ; ਪਿਨ; ਜਸ਼ਨ</annotation>
+
+		<!-- japanese dolls; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' draft='provisional'>ਗੁੱਡੀਆਂ; ਗੁੱਡੀਆਂ ਤਿਉਹਾਰ; ਤਿਉਹਾਰ; ਜਾਪਾਨੀ; ਜਸ਼ਨ</annotation>
+
+		<!-- carp streamer; carp; celebration; streamer -->
+		<annotation cp='[🎏]' draft='provisional'>ਕਾਰਪ ਝੰਡੀ; ਝੰਡੀ; ਜਸ਼ਨ</annotation>
+
+		<!-- wind chime; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' draft='provisional'>ਹਵਾ ਵੱਜਣਾ; ਵੱਜਣਾ</annotation>
+
+		<!-- moon ceremony; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' draft='provisional'>ਚੰਨ ਵੇਖਣ; ਚੰਨ ਵੇਖਣ ਦੀ ਰਸਮ; ਚੰਨ; ਵੇਖਣ; ਜਸ਼ਨ</annotation>
+
+		<!-- ribbon; celebration -->
+		<annotation cp='[🎀]' draft='provisional'>ਰਿਬਨ; ਜਸ਼ਨ</annotation>
+
+		<!-- wrapped present; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' draft='provisional'>ਤੋਹਫ਼ਾ; ਲਪੇਟਿਆ ਉਪਹਾਰ; ਲਪੇਟਿਆ; ਜਸ਼ਨ</annotation>
+
+		<!-- ticket; admission -->
+		<annotation cp='[🎫]' draft='provisional'>ਟਿਕਟ; ਮਨੋਰੰਜਨ</annotation>
+
+		<!-- soccer ball; ball; soccer -->
+		<annotation cp='[⚽]' draft='provisional'>ਫੁੱਟਬਾਲ ਬਾਲ; ਫੁੱਟਬਾਲ; ਬਾਲ</annotation>
+
+		<!-- baseball; ball -->
+		<annotation cp='[⚾]' draft='provisional'>ਬੇਸਬਾਲ</annotation>
+
+		<!-- basketball; ball; hoop -->
+		<annotation cp='[🏀]' draft='provisional'>ਬਾਸਕਟਬਾਲ; ਬਾਸਕਟਬਾਲ ਕੜਾ; ਗੇਂਦ; ਕੜਾ; ਖੇਡ</annotation>
+
+		<!-- american football; american; ball; football -->
+		<annotation cp='[🏈]' draft='provisional'>ਅਮਰੀਕਨ ਫੁੱਟਬਾਲ; ਅਮਰੀਕਨ; ਗੇਂਦ; ਖੇਡ</annotation>
+
+		<!-- rugby football; ball; football; rugby -->
+		<annotation cp='[🏉]' draft='provisional'>ਫੁੱਟਬਾਲ; ਫੁੱਟਬਾਲ ਗੇਂਦ; ਗੇਂਦ; ਖੇਡ</annotation>
+
+		<!-- tennis; ball; racquet -->
+		<annotation cp='[🎾]' draft='provisional'>ਟੈਨਿਸ; ਟੈਨਿਸ ਗੇਂਦ; ਟੈਨਿਸ ਰੈਕੇਟ ਅਤੇ ਗੇਂਦ; ਗੇਂਦ; ਖੇਡ</annotation>
+
+		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
+		<annotation cp='[🎱]' draft='provisional'>ਬਿਲਿਅਰਡ; ਅੱਠ ਗੇਂਦਾਂ; ਖੇਡ</annotation>
+
+		<!-- bowling; ball; game -->
+		<annotation cp='[🎳]' draft='provisional'>ਬੌਲਿੰਗ; ਬੌਲਿੰਗ ਗੇਂਦ; ਗੇਂਦ; ਖੇਡ</annotation>
+
+		<!-- flag in hole; golf; hole -->
+		<annotation cp='[⛳]' draft='provisional'>ਮੋਰੀ ਵਿੱਚ ਝੰਡਾ; ਗੋਲਫ; ਗੋਲਫ ਝੰਡਾ; ਮੋਰੀ</annotation>
+
+		<!-- fishing pole; fish; pole -->
+		<annotation cp='[🎣]' draft='provisional'>ਮੱਛੀ ਫੜਨਾ; ਮੱਛੀ ਅਤੇ ਮੱਛੀ ਫੜਨ ਲਈ ਖੰਬਾ; ਮੱਛੀ; ਖੰਬਾ; ਮਨੋਰੰਜਨ</annotation>
+
+		<!-- running shirt; running; sash; shirt -->
+		<annotation cp='[🎽]' draft='provisional'>ਦੌੜਨ ਲਈ ਕਮੀਜ਼; ਪੇਟੀ ਦੇ ਨਾਲ ਦੌੜਨ ਲਈ ਕਮੀਜ਼; ਦੌੜਨਾ; ਕਮੀਜ਼; ਪੇਟੀ; ਖੇਡ</annotation>
+
+		<!-- skis; ski; snow -->
+		<annotation cp='[🎿]' draft='provisional'>ਸਕੀ; ਸਕੀ ਅਤੇ ਬੂਟ; ਬੂਟ; ਖੇਡ</annotation>
+
+		<!-- snowboarder; ski; snow; snowboard -->
+		<annotation cp='[🏂]' draft='provisional'>ਸਨੋਬੋਰਡਰ; ਸਨੋਬੋਰਡਿੰਗ; ਸਨੋਬੋਰਡ; ਖੇਡ</annotation>
+
+		<!-- surfer; surfing -->
+		<annotation cp='[🏄]' draft='provisional'>ਸਰਫ਼ਿੰਗ; ਸਰਫ਼ਰ; ਖੇਡ</annotation>
+
+		<!-- horse racing; horse; jockey; racehorse; racing -->
+		<annotation cp='[🏇]' draft='provisional'>ਘੋੜ ਦੌੜ; ਦੌੜਾਕ ਘੋੜਾ; ਘੁਰਸਵਾਰ; ਦੌੜ; ਘੋੜਾ; ਖੇਡ</annotation>
+
+		<!-- swimmer; swim -->
+		<annotation cp='[🏊]' draft='provisional'>ਤੈਰਾਕ; ਤੈਰਾਕੀ; ਤੈਰਨਾ; ਖੇਡ</annotation>
+
+		<!-- bicyclist; bicycle; bike; cyclist -->
+		<annotation cp='[🚴]' draft='provisional'>ਸਾਈਕਲ ਸਵਾਰ; ਬਾਈਕ</annotation>
+
+		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
+		<annotation cp='[🚵]' draft='provisional'>ਪਹਾੜੀ ਸਾਈਕਲ ਸਵਾਰ; ਬਾਈਕ; ਸਾਈਕਲ ਸਵਾਰ; ਪਹਾੜ</annotation>
+
+		<!-- trophy; prize -->
+		<annotation cp='[🏆]' draft='provisional'>ਟਰਾਫੀ; ਇਨਾਮ</annotation>
+
+		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' draft='provisional'>ਬਲਦ ਦੀ ਅੱਖ; ਸਿੱਧਾ ਮਾਰਨਾ; ਸਹੀ ਟੀਚੇ ਤੇ; ਟੀਚਾ; ਮਾਰਨਾ; ਖੇਡ</annotation>
+
+		<!-- video game; controller; game -->
+		<annotation cp='[🎮]' draft='provisional'>ਵੀਡੀਓ ਖੇਡ; ਖੇਡ ਕੰਟਰੋਲਰ; ਕੰਟਰੋਲਰ; ਖੇਡ</annotation>
+
+		<!-- game die; dice; die; game -->
+		<annotation cp='[🎲]' draft='provisional'>ਖੇਡ ਖ਼ਤਮ; ਖ਼ਤਮ; ਗੀਟਾ; ਖੇਡ</annotation>
+
+		<!-- joker; card; game; playing -->
+		<annotation cp='[🃏]' draft='provisional'>ਜੋਕਰ ਕਾਰਡ; ਜੋਕਰ; ਤਾਸ਼ ਖੇਡਣਾ; ਕਾਰਡ</annotation>
+
+		<!-- mahjong red dragon; game; mahjong; red -->
+		<annotation cp='[🀄]' draft='provisional'>Mahjong ਟਾਈਲ; ਲਾਲ ਡ੍ਰੈਗਨ; ਡ੍ਰੈਗਨ; mahjong; ਟਾਈਲ</annotation>
+
+		<!-- flower playing cards; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' draft='provisional'>ਖੇਡ ਕਾਰਡ; ਫੁੱਲ ਕਾਰਡ; ਫੁੱਲ; ਕਾਰਡ ਖੇਡ; ਕਾਰਡ; ਖੇਡ; ਹਾਨਾਫੰਡਾ</annotation>
+
+		<!-- speaker off; mute; quiet; silent; speaker; volume -->
+		<annotation cp='[🔇]' draft='provisional'>ਬੋਲੋ ਨਾ; ਕਿਰਪਾ ਸ਼ਾਂਤ; ਸ਼ਾਂਤ; ਰੱਦ ਕਰਨ ਦੇ ਨਿਸ਼ਾਨ ਨਾਲ ਸਪੀਕਰ</annotation>
+
+		<!-- speaker; volume -->
+		<annotation cp='[🔈]' draft='provisional'>ਸਪੀਕਰ; ਲਾਉਡਸਪੀਕਰ</annotation>
+
+		<!-- speaker on; low; speaker; volume; wave -->
+		<annotation cp='[🔉]' draft='provisional'>ਸਪੀਕਰ; ਘੱਟ ਆਵਾਜ਼; ਘੱਟ; ਘੱਟ ਅਾਵਾਜ਼ ਨਾਲ ਸਪੀਕਰ</annotation>
+
+		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
+		<annotation cp='[🔊]' draft='provisional'>ਸਪੀਕਰ; ਵੱਧ ਆਵਾਜ਼; ਵੱਧ; ਵੱਧ ਆਵਾਜ਼ ਨਾਲ ਸਪੀਕਰ</annotation>
+
+		<!-- loudspeaker; loud; public address -->
+		<annotation cp='[📢]' draft='provisional'>ਲਾਊਡਸਪੀਕਰ; ਜਨਤਕ ਪਤਾ; ਹੱਥ ਸਪੀਕਰ; ਸੰਚਾਰ</annotation>
+
+		<!-- megaphone; cheering -->
+		<annotation cp='[📣]' draft='provisional'>ਮੈਗਾਫੋਨ; ਉਤਸ਼ਾਹ ਵਧਾਉਣਾ; ਸੰਚਾਰ</annotation>
+
+		<!-- postal horn; horn; post; postal -->
+		<annotation cp='[📯]' draft='provisional'>ਡਾਕ ਹਾਰਨ; ਡਾਕ; ਹਾਰਨ</annotation>
+
+		<!-- bell -->
+		<annotation cp='[🔔]' draft='provisional'>ਘੰਟੀ; ਚੈਪਲ</annotation>
+
+		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
+		<annotation cp='[🔕]' draft='provisional'>ਘੰਟੀ ਨਹੀਂ; ਅਾਵਾਜ਼ ਨਹੀਂ; ਰੱਦ ਕਰਨ ਦੇ ਨਿਸ਼ਾਨ ਨਾਲ ਘੰਟੀ; ਘੰਟੀ</annotation>
+
+		<!-- musical score; music; score -->
+		<annotation cp='[🎼]' draft='provisional'>ਸੰਗੀਤ ਸਕੋਰ; ਸੰਗੀਤ; ਸਕੋਰ</annotation>
+
+		<!-- musical note; music; note -->
+		<annotation cp='[🎵]' draft='provisional'>ਸੰਗੀਤ ਨੋਟ; ਸੰਗੀਤ; ਨੋਟ</annotation>
+
+		<!-- musical notes; music; note; notes -->
+		<annotation cp='[🎶]' draft='provisional'>ਸੰਗੀਤ ਨੋਟ; ਸੰਗੀਤ; ਨੋਟ</annotation>
+
+		<!-- microphone; karaoke; mic -->
+		<annotation cp='[🎤]' draft='provisional'>ਮਾਈਕ; ਮਾਈਕਰੋਫੋਨ; ਕਾਰਾਓਕੇ; ਮਨੋਰੰਜਨ</annotation>
+
+		<!-- headphone; earbud -->
+		<annotation cp='[🎧]' draft='provisional'>ਹੈਡਫੋਨ; ਮਨੋਰੰਜਨ</annotation>
+
+		<!-- saxophone; instrument; music; sax -->
+		<annotation cp='[🎷]' draft='provisional'>ਸੈਕਸ; ਸੈਕਸੋੋਫੋਨ; ਸੰਗੀਤ ਸਾਜ਼; ਸੰਗੀਤ; ਸਾਜ਼</annotation>
+
+		<!-- guitar; instrument; music -->
+		<annotation cp='[🎸]' draft='provisional'>ਗਿਟਾਰ; ਸੰਗੀਤ ਸਾਜ਼; ਸੰਗੀਤ; ਸਾਜ਼</annotation>
+
+		<!-- musical keyboard; instrument; keyboard; music; piano -->
+		<annotation cp='[🎹]' draft='provisional'>ਪਿਆਨੋ; ਸੰਗੀਤ ਕੀਬੋਰਡ; ਕੀਬੋਰਡ; ਸੰਗੀਤ ਸਾਜ਼; ਸੰਗੀਤ; ਸਾਜ਼</annotation>
+
+		<!-- trumpet; instrument; music -->
+		<annotation cp='[🎺]' draft='provisional'>ਤੁਰਹੀ; ਸੰਗੀਤ ਸਾਜ਼; ਸੰਗੀਤ; ਸਾਜ਼</annotation>
+
+		<!-- violin; instrument; music -->
+		<annotation cp='[🎻]' draft='provisional'>ਵਾਇਲਨ; ਸੰਗੀਤ ਸਾਜ਼; ਸੰਗੀਤ; ਸਾਜ਼</annotation>
+
+		<!-- radio; video -->
+		<annotation cp='[📻]' draft='provisional'>ਰੋਡੀਓ</annotation>
+
+		<!-- mobile phone; cell; mobile; phone; telephone -->
+		<annotation cp='[📱]' draft='provisional'>ਸੈਲ ਫੋਨ; ਮੋਬਾਇਲ ਫੋਨ; ਫੋਨ</annotation>
+
+		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
+		<annotation cp='[📲]' draft='provisional'>ਸੈਲ ਫੋੋਨ ਤੀਰ ਨਾਲ; ਇੱਕ ਕਾਲ ਕਰੋ; ਮੋਬਾਇਲ ਫੋਨ</annotation>
+
+		<!-- telephone receiver; phone; receiver; telephone -->
+		<annotation cp='[📞]' draft='provisional'>ਫੋਨ; ਟੇਲੀਫੋਨ; ਫੋਨ ਰਸੀਵਰ; ਸੰਚਾਰ</annotation>
+
+		<!-- pager -->
+		<annotation cp='[📟]' draft='provisional'>ਪੇਜ਼ਰ; ਸੰਚਾਰ</annotation>
+
+		<!-- fax machine; fax -->
+		<annotation cp='[📠]' draft='provisional'>ਫੈਕਸ; ਫੈਕਸ ਮਸ਼ੀਨ; ਸੰੰਚਾਰ</annotation>
+
+		<!-- battery -->
+		<annotation cp='[🔋]' draft='provisional'>ਬੈਟਰੀ</annotation>
+
+		<!-- electric plug; electric; electricity; plug -->
+		<annotation cp='[🔌]' draft='provisional'>ਬਿਜਲੀ ਪਲੱਗ; ਬਿਜਲੀ</annotation>
+
+		<!-- laptop computer; computer; pc; personal -->
+		<annotation cp='[💻]' draft='provisional'>ਪੀਸੀ; ਪਰਸਨਲ ਕੰਪਿਉਟਰ; ਕੰਪਿਉਟਰ; ਪਰਸਨਲ</annotation>
+
+		<!-- minidisc; computer; disk; minidisk; optical -->
+		<annotation cp='[💽]' draft='provisional'>ਏਮਡੀ; ਮਿਨੀ ਡਿਸਕ; ਡਿਸਕ</annotation>
+
+		<!-- floppy disk; computer; disk; floppy -->
+		<annotation cp='[💾]' draft='provisional'>ਫਲੌਪੀ ਡਿਸਕ; ਫਲੌਪੀ; ਡਿਸਕ</annotation>
+
+		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[💿]' draft='provisional'>ਬਲੂ-ਰੇ; ਡੀਵੀਡੀ; ਸੀਡੀ; ਆਪਟੀਕਲ ਡਿਸਕ; ਡਿਸਕ</annotation>
+
+		<!-- dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[📀]' draft='provisional'>ਡੀਵੀਡੀ; ਡੀਵੀਡੀ ਡਿਸਕ; ਡਿਸਕ</annotation>
+
+		<!-- movie camera; camera; cinema; movie -->
+		<annotation cp='[🎥]' draft='provisional'>ਫਿਲਮ ਕੈਮਰਾ; ਫਿਲਮ; ਸਿਨੇਮਾ; ਮਨੋਰੰਜਨ</annotation>
+
+		<!-- clapper board; clapper; movie -->
+		<annotation cp='[🎬]' draft='provisional'>ਕਲੈਪਰ ਬੋਰਡ; ਕਲੈਪਰ; ਫਿਲਮ; ਮਨੋਰੰਜਨ</annotation>
+
+		<!-- television; tv; video -->
+		<annotation cp='[📺]' draft='provisional'>ਟੀਵੀ; ਟੈਲੀਵਿਜ਼ਨ</annotation>
+
+		<!-- camera; video -->
+		<annotation cp='[📷]' draft='provisional'>ਕੈਮਰਾ</annotation>
+
+		<!-- video camera; camera; video -->
+		<annotation cp='[📹]' draft='provisional'>ਵੀਡੀਓ ਕੈਮ; ਕੈਮਰਾ; ਵੀਡੀਓ</annotation>
+
+		<!-- videocassette; tape; vhs; video -->
+		<annotation cp='[📼]' draft='provisional'>ਵੀਡੀਓ ਟੇਪ; ਵੀਡੀਓ; ਟੇਪ</annotation>
+
+		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔍]' draft='provisional'>ਮੈਗਨੀਫਾਇੰਗ ਗਲਾਸ; ਖੋਜ; ਖੱਬੇ ਪਾਇੰਟ ਤੋਂ ਮੈਗਨੀਫਾਇੰਗ ਗਲਾਸ; ਖੱਬਾ ਪਾਇੰਟ; ਗਲਾਸ</annotation>
+
+		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔎]' draft='provisional'>ਮੈਗਨੀਫਾਇੰਗ ਗਲਾਸ; ਖੋਜ; ਸੱਜੇ ਪਾਇੰਟ ਤੋਂ ਮੈਗਨੀਫਾਇੰਗ ਗਲਾਸ; ਸੋਜਾ ਪਾਇੰਟ; ਗਲਾਸ</annotation>
+
+		<!-- microscope; tool -->
+		<annotation cp='[🔬]' draft='provisional'>ਮਾਈਕਰੋਸਕੋਪ</annotation>
+
+		<!-- telescope; tool -->
+		<annotation cp='[🔭]' draft='provisional'>ਟੈਲੀਸਕੋਪ</annotation>
+
+		<!-- satellite antenna; antenna; dish; satellite -->
+		<annotation cp='[📡]' draft='provisional'>ਸੈਟਲਾਈਟ ਡਿਸ਼; ਸੈਟਲਾਈਟ ਅੰਟੀਨਾ; ਅੰਟੀਨਾ; ਡਿਸ਼; ਸੈਟਲਾਈਟ; ਸੰਚਾਰ</annotation>
+
+		<!-- light bulb; bulb; comic; electric; idea; light -->
+		<annotation cp='[💡]' draft='provisional'>ਚਾਨਣ ਬੱਲਬ; ਇੱਕ ਵਿਚਾਰ ਮਿਲਿਆ; ਬਿਜਲੀ; ਚਾਨਣ; ਬੱਲਬ; ਕਾਮਿਕ</annotation>
+
+		<!-- flashlight; electric; light; tool; torch -->
+		<annotation cp='[🔦]' draft='provisional'>ਫਲੈਸ਼ ਲਾਈਟ; ਚਾਨਣ; ਟਾਰਚ; ਬਿਜਲੀ</annotation>
+
+		<!-- red paper lantern; bar; japanese; lantern; light; red -->
+		<annotation cp='[🏮]' draft='provisional'>ਲਾਲ ਬੱਤੀ; ਲਾਲ; ਬੱਤੀ; ਇਜ਼ਾਕਾਯਾ; ਬਾਰ; ਹੋਟਲ</annotation>
+
+		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
+		<annotation cp='[📔]' draft='provisional'>ਸਜਾਇਆ ਨੋਟਬੁੱਕ; ਸਜਾਵਟ ਨਾਲ ਨੋਟਬੁੱਕ; ਨੋਟਬੁੱਕ; ਕਵਰ</annotation>
+
+		<!-- closed book; book; closed -->
+		<annotation cp='[📕]' draft='provisional'>ਬੰਦ ਕਿਤਾਬ; ਕਿਤਾਬ</annotation>
+
+		<!-- open book; book; open -->
+		<annotation cp='[📖]' draft='provisional'>ਖੁੱਲ੍ਹੀ ਕਿਤਬ; ਕਿਤਾਬ</annotation>
+
+		<!-- green book; book; green -->
+		<annotation cp='[📗]' draft='provisional'>ਹਰੀ ਕਿਤਾਬ; ਕਿਤਾਬ</annotation>
+
+		<!-- blue book; blue; book -->
+		<annotation cp='[📘]' draft='provisional'>ਕਿਤਾਬ; ਨੀਲੀ ਕਿਤਾਬ</annotation>
+
+		<!-- orange book; book; orange -->
+		<annotation cp='[📙]' draft='provisional'>ਸੰਤਰੀ ਕਿਤਾਬ; ਕਿਤਾਬ</annotation>
+
+		<!-- books; book -->
+		<annotation cp='[📚]' draft='provisional'>ਕਿਤਾਬਾਂ; ਕਿਤਾਬ</annotation>
+
+		<!-- notebook -->
+		<annotation cp='[📓]' draft='provisional'>ਨੋਟਬੁੱਕ</annotation>
+
+		<!-- ledger; notebook -->
+		<annotation cp='[📒]' draft='provisional'>ਬਹੀ; ਨੋਟਬੁੱਕ</annotation>
+
+		<!-- page with curl; curl; document; page -->
+		<annotation cp='[📃]' draft='provisional'>ਦਸਤਾਵੇਜ਼; ਕਰਲ ਨਾਲ ਪੰਨਾ; ਪੰਨਾ</annotation>
+
+		<!-- scroll; paper -->
+		<annotation cp='[📜]' draft='provisional'>ਸਕਰੋਲ; ਸਕਰੋਲ ਪੰਨਾ</annotation>
+
+		<!-- page facing up; document; page -->
+		<annotation cp='[📄]' draft='provisional'>ਦਸਤਾਵੇਜ਼; ਪੰਨੇ ਦਾ ਉੱਤਲਾ ਹਿੱਸਾ; ਉੱਤਲਾ ਹਿੱਸਾ; ਪੰਨਾ</annotation>
+
+		<!-- newspaper; news; paper -->
+		<annotation cp='[📰]' draft='provisional'>ਅਖਬਾਰ; ਖਬਰਾਂ; ਪੰਨਾ</annotation>
+
+		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
+		<annotation cp='[📑]' draft='provisional'>ਬੁੱਕਮਾਰਕ ਟੈਬ; ਮਾਰਕਰ; ਟੈਬ; ਬੁੱਕਮਾਰਕ</annotation>
+
+		<!-- bookmark; mark -->
+		<annotation cp='[🔖]' draft='provisional'>ਬੁੱਕਮਾਰਕ</annotation>
+
+		<!-- money bag; bag; dollar; money; moneybag -->
+		<annotation cp='[💰]' draft='provisional'>ਪੈਸੇ ਵਾਲਾ ਬੈਗ; ਡਾਲਰ ਬੈਗ; ਪੈਸਾ; ਬੈਗ</annotation>
+
+		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
+		<annotation cp='[💴]' draft='provisional'>ਯੇਨ ਨੋਟ; ਬੈੱਕ ਨੋਟ; ਯੇਨ; ਪੈਸਾ; ਬਿਲ; ਨੋਟ</annotation>
+
+		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
+		<annotation cp='[💵]' draft='provisional'>ਡਾਲਰ ਨੋਟ; ਬੈੱਕ ਨੋਟ; ਡਾਲਰ; ਪੈਸਾ; ਬਿਲ; ਨੋਟ</annotation>
+
+		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
+		<annotation cp='[💶]' draft='provisional'>ਯੂਰੋ ਨੋਟ; ਯੂਰੋ; ਬੈੱਕ ਨੋਟ; ਪੈਸਾ; ਬਿਲ; ਨੋਟ</annotation>
+
+		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
+		<annotation cp='[💷]' draft='provisional'>ਪੌਂਡ ਨੋਟ; ਪੌਂਡ; ਬੈੱਕ ਨੋਟ; ਪੈਸਾ</annotation>
+
+		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
+		<annotation cp='[💸]' draft='provisional'>ਉੜਦੇ ਪੈਸੇ; ਖੰਬਾ ਨਾਲ ਪੈਸੇ; ਉੜਦਾ ਬੈਂਕ ਨੋਟ; ਬੈਂਕ; ਨੋਟ; ਪੈਸਾ</annotation>
+
+		<!-- credit card; bank; card; credit; money -->
+		<annotation cp='[💳]' draft='provisional'>ਕ੍ਰੈਡਿਟ ਕਾਰਡ; ਕਾਰਡ; ਕ੍ਰੈਡਿਟ</annotation>
+
+		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
+		<annotation cp='[💹]' draft='provisional'>ਚੜ੍ਹਦਾ ਬਾਜ਼ਾਰ; ਉੱਪਰ ਚਾਰਟ; ਉੱਪਰ; ਚਾਰਟ; ਬਾਜ਼ਾਰ</annotation>
+
+		<!-- e-mail; email; letter; mail -->
+		<annotation cp='[📧]' draft='provisional'>ਈ-ਮੇਲ; ਮੇਲ; ਖੱਤ; ਸੰਚਾਰ</annotation>
+
+		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
+		<annotation cp='[📨]' draft='provisional'>ਮੇਲ ਆਉਣਾ; ਪ੍ਰਾਪਤ ਕੀਤਾ ਮੇਲ; ਆਉਣਾ; ਈ-ਮੇਲ; ਮੇਲ; ਖੱਤ; ਲਿਫਾਫਾ; ਸੰਚਾਰ</annotation>
+
+		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
+		<annotation cp='[📩]' draft='provisional'>ਭੇਜੀ ਜਾਣ ਵਾਲੀ ਮੇਲ; ਭੇਜਿਆ ਮੇਲ; ਬਾਹਰ ਜਾਣਾ; ਈ-ਮੇਲ; ਮੇਲ; ਖੱਤ; ਲਿਫਾਫਾ; ਸੰਚਾਰ</annotation>
+
+		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
+		<annotation cp='[📤]' draft='provisional'>ਭੇਜਿਆ ਮੇਲ; ਭੇਜਿਆ ਬਾਕਸ; ਮੇਲ; ਭੇਜਣਾ; ਬਾਕਸ; ਆਉਟਬਾਕਸ; ਟ੍ਰੇ; ਸੰਚਾਰ</annotation>
+
+		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
+		<annotation cp='[📥]' draft='provisional'>ਇਨਬਾਕਸ; ਮੇਲ ਮਿਲੀ; ਮੇਲ; ਮਿਲੀ; ਬਾਕਸ; ਟ੍ਰੇ; ਸੰਚਾਰ</annotation>
+
+		<!-- package; box; parcel -->
+		<annotation cp='[📦]' draft='provisional'>ਪੈਕੇਜ; ਪਾਰਸਲ; ਬਾਕਸ</annotation>
+
+		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
+		<annotation cp='[📫]' draft='provisional'>ਮੇਲ ਬਾਕਸ; ਬੰਦ; ਮੇਲ ਬਾਕਸ ਚੜ੍ਹਦੇ ਝੰਡੇ ਨਾਲ; ਮੇਲ; ਝੰਡਾ</annotation>
+
+		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
+		<annotation cp='[📪]' draft='provisional'>ਮੇਲ ਬਾਕਸ; ਬੰਦ; ਮੇਲ ਬਾਕਸ ਝੁਕਦੇ ਝੰਡੇ ਨਾਲ; ਮੇਲ; ਝੰਡਾ</annotation>
+
+		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
+		<annotation cp='[📬]' draft='provisional'>ਮੇਲ ਬਾਕਸ; ਖੇਲ੍ਹਣਾ; ਚੜ੍ਹਦੇ ਝੰਡੇ ਨਾਲ  ਮੇਲ ਬਾਕਸ; ਮੇਲ; ਝੰਡਾ</annotation>
+
+		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
+		<annotation cp='[📭]' draft='provisional'>ਮੇਲ ਬਾਕਸ; ਖੇਲ੍ਹਣਾ; ਝੁਕਦੇ ਝੰਡੇ ਨਾਲ  ਮੇਲ ਬਾਕਸ; ਮੇਲ; ਝੰਡਾ</annotation>
+
+		<!-- postbox; mail; mailbox -->
+		<annotation cp='[📮]' draft='provisional'>ਪੋਸਟ ਬਾਕਸ</annotation>
+
+		<!-- memo; pencil -->
+		<annotation cp='[📝]' draft='provisional'>ਮੇਮੋ; ਮੇਮੋ ਕਿਤਾਬ; ਸੰਚਾਰ</annotation>
+
+		<!-- briefcase -->
+		<annotation cp='[💼]' draft='provisional'>ਬ੍ਰੀਫਕੇਸ</annotation>
+
+		<!-- file folder; file; folder -->
+		<annotation cp='[📁]' draft='provisional'>ਫਾਇਲ ਫੋਲਡਰ; ਫਾਇਲ; ਫੋਲਡਰ</annotation>
+
+		<!-- open file folder; file; folder; open -->
+		<annotation cp='[📂]' draft='provisional'>ਫੋਲਡਰ ਖੋਲ੍ਹੋ; ਫਾਇਲ ਫੋਲਡਰ ਖੋਲ੍ਹੋ; ਖੋਲ੍ਹੋ; ਫਾਇਲ; ਫੋਲਡਰ</annotation>
+
+		<!-- calendar; date -->
+		<annotation cp='[📅]' draft='provisional'>ਕੈਲੰਡਰ</annotation>
+
+		<!-- tear-off calendar; calendar -->
+		<annotation cp='[📆]' draft='provisional'>ਫਟਿਆ ਹੋਇਆ ਕੈਲੰਡਰ; ਕੈਲੰਡਰ</annotation>
+
+		<!-- card index; card; index; rolodex -->
+		<annotation cp='[📇]' draft='provisional'>ਕਾਰਡ ਇੰਡੈਕਸ; ਰੋਲੋਡੈਕਸ ਇੰਡੈਕਸ</annotation>
+
+		<!-- chart increasing; chart; graph; growth; trend; upward -->
+		<annotation cp='[📈]' draft='provisional'>ਵਧਦਾ ਰੁਝਾਨ; ਵਧਦਾ ਰੁਝਾਨ ਚਾਰਟ; ਚਾਰਟ; ਗਰਾਫ; ਵਧਦਾ</annotation>
+
+		<!-- chart decreasing; chart; down; graph; trend -->
+		<annotation cp='[📉]' draft='provisional'>ਘੱਟਦਾ ਰੁਝਾਨ; ਘੱਟਦਾ ਰੁਝਾਨ ਚਾਰਟ; ਚਾਰਟ; ਗਰਾਫ; ਘੱਟਦਾ</annotation>
+
+		<!-- bar chart; bar; chart; graph -->
+		<annotation cp='[📊]' draft='provisional'>ਬਾਰ ਗਰਾਫ; ਬਾਰ ਚਾਰਟ; ਚਾਰਟ</annotation>
+
+		<!-- clipboard -->
+		<annotation cp='[📋]' draft='provisional'>ਕਲਿੱਪਬੋਰਡ</annotation>
+
+		<!-- pushpin; pin -->
+		<annotation cp='[📌]' draft='provisional'>ਪੁਸ਼ ਪਿੰਨ; ਪਿੰਨ</annotation>
+
+		<!-- round pushpin; pin; pushpin -->
+		<annotation cp='[📍]' draft='provisional'>ਗੋਲ ਪੁਸ਼ ਪਿੰਨ; ਪੁਸ਼ ਪਿੰਨ; ਪਿੰਨ</annotation>
+
+		<!-- paperclip -->
+		<annotation cp='[📎]' draft='provisional'>ਪੇਪਰ ਕਲਿੱਪ; ਕਲਿੱਪ</annotation>
+
+		<!-- straight ruler; ruler; straight edge -->
+		<annotation cp='[📏]' draft='provisional'>ਸਿੱਧਾ ਰੂਲਰ; ਰੂਲਰ</annotation>
+
+		<!-- triangular ruler; ruler; set; triangle -->
+		<annotation cp='[📐]' draft='provisional'>ਤਿਕੋਣਾ ਰੂਲਰ; ਤਿਕੋਣਾ; ਸੈੱਟ ਵਰਗ; ਰੂਲਰ</annotation>
+
+		<!-- lock; closed -->
+		<annotation cp='[🔒]' draft='provisional'>ਲਾਕ; ਲਾਕ ਬੰਦ</annotation>
+
+		<!-- open lock; lock; open; unlock -->
+		<annotation cp='[🔓]' draft='provisional'>ਲਾਕ; ਖੁਲ੍ਹਾ ਲਾਕ</annotation>
+
+		<!-- lock with pen; ink; lock; nib; pen; privacy -->
+		<annotation cp='[🔏]' draft='provisional'>ਲਾਕ; ਪਰਦੇਦਾਰੀ; ਇੱਕ ਸਿਆਹੀ ਕਲਮ ਨਾਲ ਲਾਕ; ਸਿਆਹੀ ਕਲਮ</annotation>
+
+		<!-- closed lock with key; closed; key; lock; secure -->
+		<annotation cp='[🔐]' draft='provisional'>ਬੰਦ ਲਾਕ; ਇੱਕ ਕੁੰਜੀ ਨਾਲ ਲਾਕ; ਸੁਰੱਖਿਅਤ</annotation>
+
+		<!-- key; lock; password -->
+		<annotation cp='[🔑]' draft='provisional'>ਕੁੰਜੀ ਪਾਸਵਰਡ</annotation>
+
+		<!-- hammer; tool -->
+		<annotation cp='[🔨]' draft='provisional'>ਹਥੌੜਾ; ਟੂਲ</annotation>
+
+		<!-- wrench; tool -->
+		<annotation cp='[🔧]' draft='provisional'>ਚਾਬੀ; ਟੂਲ</annotation>
+
+		<!-- nut and bolt; bolt; nut; tool -->
+		<annotation cp='[🔩]' draft='provisional'>ਨੱਟ ਅਤੇ ਬੋਲਟ; ਨੱਟ; ਬੋਲਟ; ਟੂਲ</annotation>
+
+		<!-- link -->
+		<annotation cp='[🔗]' draft='provisional'>ਲਿੰਕ ਨਿਸ਼ਾਨ; ਲਿੰਕ; ਦੋ ਕੜੇ</annotation>
+
+		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
+		<annotation cp='[💉]' draft='provisional'>ਸ਼ਾਟ; ਸਰਿੰਜ; ਸੂਈ; ਦਵਾਈ; ਡਾਕਟਰ</annotation>
+
+		<!-- pill; doctor; medicine; sick -->
+		<annotation cp='[💊]' draft='provisional'>ਗੋਲੀ; ਦਵਾਈ; ਡਾਕਟਰ</annotation>
+
+		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' draft='provisional'>ਖਾਣਾ ਪਕਾਉਣ ਚਾਕੂ; ਚਾਕੂ</annotation>
+
+		<!-- pistol; gun; revolver; tool; weapon -->
+		<annotation cp='[🔫]' draft='provisional'>ਬੰਦੂਕ; ਪਿਸਤੌਲ; ਰਿਵਾਲਵਰ</annotation>
+
+		<!-- chequered flag; checkered; chequered; racing -->
+		<annotation cp='[🏁]' draft='provisional'>ਡੱਬੀਦਾਰ ਝੰਡਾ; ਝੰਡਾ; ਡੱਬੀਦਾਰ; ਦੌੜ; ਖੇਡ</annotation>
+
+		<!-- triangular flag; post -->
+		<annotation cp='[🚩]' draft='provisional'>ਸਥਿਤੀ ਝੰਡਾ; ਸਥਿਤੀ ਜਾਣਕਾਰੀ ਝੰਡਾ; ਤਿਕੋਨੀ ਸਥਿਤੀ ਝੰਡਾ; ਤਿਕੋਨਾ ਝੰਡਾ; ਝੰਡਾ; ਸਥਿਤੀ</annotation>
+
+		<!-- smoking -->
+		<annotation cp='[🚬]' draft='provisional'>ਸਮੋਕਿੰਗ ਨਿਸ਼ਾਨ; ਸਮੋਕਿੰਗ ਦੀ ਇਜ਼ਾਜਤ; ਸਮੋਕਿੰਗ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- moai; face; moyai; statue -->
+		<annotation cp='[🗿]' draft='provisional'>ਮੋਯਾਈ ਸਟੈਚੂ; ਬੁੱਤ; ਮੋਯਾਈ</annotation>
+
+		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' draft='provisional'>ਸ਼ੀਸ਼ਾ ਗੇਂਦ; ਕਿਸਮਤ ਦੱਸਣਾ; ਸ਼ੀਸ਼ਾ; ਗੇਂਦ; ਕਿਸਮਤ</annotation>
+
+		<!-- ATM sign; atm; automated; bank; teller -->
+		<annotation cp='[🏧]' draft='provisional'>ਏਟੀਐਮ; ਸਵੈ-ਚਲਤ ਗਿਣਤੀ; ਸਵੈ-ਚਲਤ; ਗਿਣਨਾ</annotation>
+
+		<!-- litter in bin sign; litter; litterbox -->
+		<annotation cp='[🚮]' draft='provisional'>ਕੂੜਾ ਬਾਕਸ; ਕੂੜੇ ਨੂੰ ਉਸ ਦੀ ਥਾਂ ਤੇ ਸੁੱਟੋ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- potable water; drink; potable; water -->
+		<annotation cp='[🚰]' draft='provisional'>ਪੀਣ ਵਾਲਾ ਪਾਣੀ; ਪੀਣ ਵਾਲਾ ਪਾਣੀ ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- wheelchair; access -->
+		<annotation cp='[♿]' draft='provisional'>ਪਹੀਆ ਕੁਰਸੀ ਪਹੁੰਚ; ਪਹੀਆ ਕੁਰਸੀ; ਪਹੁੰਚ; ਪਹੀਆ ਕੁਰਸੀ ਪ੍ਰਤੀਕ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- men’s room; lavatory; man; restroom; wc -->
+		<annotation cp='[🚹]' draft='provisional'>ਬੰਦੇ ਨਿਸ਼ਾਨ; ਬੰਦਿਆਂ ਦਾ ਕਮਰਾ; ਬੰਦਿਆਂ ਦਾ ਪ੍ਰਤੀਕ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- women’s room; lavatory; restroom; wc; woman -->
+		<annotation cp='[🚺]' draft='provisional'>ਔਰਤਾਂ ਨਿਸ਼ਾਨ; ਔਰਤਾਂ ਦਾ ਕਮਰਾ; ਔਰਤਾਂ ਦਾ ਪ੍ਰਤੀਕ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- restroom; lavatory; wc -->
+		<annotation cp='[🚻]' draft='provisional'>ਆਰਾਮ ਕਮਰਾ ਨਿਸ਼ਾਨ; ਆਰਾਮ ਕਮਰਾ; ਟਾਇਲਟ; wc</annotation>
+
+		<!-- baby symbol; baby; changing -->
+		<annotation cp='[🚼]' draft='provisional'>ਬੱਚਾ ਨਿਸ਼ਾਨ; ਬੋਰਡ ਤੇ ਬੱਚਾ; ਬੱਚਾ ਸਟੇਸ਼ਨ ਬਦਲ ਰਿਹਾ; ਬੱਚਾ</annotation>
+
+		<!-- water closet; closet; lavatory; restroom; water; wc -->
+		<annotation cp='[🚾]' draft='provisional'>ਫਲੱਸ਼; WC; ਆਰਾਮਕਮਰਾ; ਟਾਇਲਟ</annotation>
+
+		<!-- passport control; control; passport -->
+		<annotation cp='[🛂]' draft='provisional'>ਪਾਸਪੋਰਟ ਕੰਟਰੋਲ; ਪਾਸਪੋਰਟ; ਕੰਟਰੋਲ</annotation>
+
+		<!-- customs -->
+		<annotation cp='[🛃]' draft='provisional'>ਕਸਟਮ</annotation>
+
+		<!-- baggage claim; baggage; claim -->
+		<annotation cp='[🛄]' draft='provisional'>ਸਾਮਾਨ ਤੇ ਦਾਅਵਾ; ਸਾਮਾਨ</annotation>
+
+		<!-- left luggage; baggage; locker; luggage -->
+		<annotation cp='[🛅]' draft='provisional'>ਛੱਡਿਆ ਸਾਮਾਨ; ਸਾਮਾਨ ਸੇਵਾ; ਸਾਮਾਨ</annotation>
+
+		<!-- warning -->
+		<annotation cp='[⚠]' draft='provisional'>ਚਿਤਾਵਨੀ ਨਿਸ਼ਾਨ; ਚਿਤਾਵਨੀ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- children crossing; child; crossing; pedestrian; traffic -->
+		<annotation cp='[🚸]' draft='provisional'>ਬੱਚੇ ਲੰਘ ਰਹੇ; ਬੱਚੇ; ਲੰਘਣਾ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
+		<annotation cp='[⛔]' draft='provisional'>ਦਾਖਲਾ ਮਨ੍ਹਾ ਨਿਸ਼ਾਨ; ਦਾਖਲਾ ਮਨ੍ਹਾ; ਮਨ੍ਹਾ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- prohibited; entry; forbidden; no; not -->
+		<annotation cp='[🚫]' draft='provisional'>ਦਾਖਲਾ ਨਹੀਂ ਨਿਸ਼ਾਨ; ਦਾਖਲਾ ਨਹੀਂ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
+		<annotation cp='[🚳]' draft='provisional'>ਬਾਈਕ ਨਹੀਂ; ਸਾਈਕਲ ਨਹੀਂ; ਸਾਈਕਲ ਮਨਜ਼ੂਰ ਨਹੀਂ; ਬਾਈਕ; ਵਾਹਨ</annotation>
+
+		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
+		<annotation cp='[🚭]' draft='provisional'>ਸਿਗਰੇਟ ਨਹੀਂ ਨਿਸ਼ਾਨ; ਸਿਗਰੇਟ ਨਹੀਂ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- no littering; forbidden; litter; no; not; prohibited -->
+		<annotation cp='[🚯]' draft='provisional'>ਕੂੜਾ ਨਾ ਸੁੱਟੋ ਨਿਸ਼ਾਨ; ਕੂੜਾ ਨਾ ਸੁੱਟੋ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
+		<annotation cp='[🚱]' draft='provisional'>ਪਾਣੀ ਪੀਣਯੋਗ ਨਹੀਂ; ਪਾਣੀ; ਪੀਣਯੋਗ ਨਹੀਂ</annotation>
+
+		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
+		<annotation cp='[🚷]' draft='provisional'>ਪੈਦਲ ਨਹੀਂ; ਪੈਦਲ ਲੋਕਾਂ ਦੀ ਮਨਜ਼ੂਰੀ ਨਹੀਂ; ਪੈਦਲ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' draft='provisional'>ਰੀਲੋਡ; ਰੀਲੋਡ ਨਿਸ਼ਾਨ; ਲੰਬਕਾਰੀ ਘੜੀ ਦੀ ਦਿਸ਼ਾ ਵਿੱਚ ਤੀਰ; ਤੀਰ</annotation>
+
+		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' draft='provisional'>ਘੜੀ ਦੀ ਉਲਟ ਦਿਸ਼ਾ ਵਿੱਚ ਤੀਰ; ਘੜੀ ਦੀ ਉਲਟ ਦਿਸ਼ਾ; ਤੀਰ</annotation>
+
+		<!-- back arrow; arrow; back -->
+		<annotation cp='[🔙]' draft='provisional'>ਪਿੱਛੇ; ਪਿੱਛੇ ਤੀਰ; ਖੱਬੇ ਤੀਰ ਨਾਲ ਪਿੱਛੇ; ਖੱਬਾ ਤੀਰ; ਤੀਰ</annotation>
+
+		<!-- end arrow; arrow; end -->
+		<annotation cp='[🔚]' draft='provisional'>ਸਮਾਪਤ; ਸਮਾਪਤ ਤੀਰ; ਖੱਬੇ ਤੀਰ ਨਾਲ ਸਮਾਪਤ; ਖੱਬਾ ਤੀਰ; ਤੀਰ</annotation>
+
+		<!-- on! arrow; arrow; mark; on -->
+		<annotation cp='[🔛]' draft='provisional'>ON ਤੀਰ; ON ਹੈਰਾਨੀਵਾਚਕ ਨਿਸ਼ਾਨ ਨਾਲ ਅਤੇ ਤੀਰ; ਤੀਰ; ਹੈਰਾਨੀਵਾਚਕ ਨਿਸ਼ਾਨ; ਹੈਰਾਨੀਵਾਚਕ</annotation>
+
+		<!-- soon arrow; arrow; soon -->
+		<annotation cp='[🔜]' draft='provisional'>ਜਲਦੀ ਨਿਸ਼ਾਨ; ਜਲਦੀ; ਜਲਦੀ ਨਿਸ਼ਾਨ ਸੱਜੇ ਤੀਰ ਨਾਲ; ਤੀਰ</annotation>
+
+		<!-- top arrow; arrow; top; up -->
+		<annotation cp='[🔝]' draft='provisional'>ਉੱਪਰ ਦਾ ਨਿਸ਼ਾਨ; ਉੱਪਰ; ਉੱਤੇ ਤੀਰ ਨਾਲ ਉੱਪਰ; ਉੱਤੇ ਤੀਰ; ਉੱਤੇ</annotation>
+
+		<!-- dotted six-pointed star; fortune; star -->
+		<annotation cp='[🔯]' draft='provisional'>ਛੇ-ਬਿੰਦੂ ਤਾਰਾ; ਕਿਸਮਤ ਦਸਣਾ; ਛੇ-ਬਿੰਦੂ; ਤਾਰਾ; ਕਿਸਮਤ</annotation>
+
+		<!-- recycling symbol; recycle -->
+		<annotation cp='[♻]' draft='provisional'>ਰੀਸਾਈਕਲ ਪ੍ਰਤੀਕ; ਸਾਲੀਡ ਯੂਨੀਵਰਸਲ ਰੀਸਾਈਕਲਿੰਗ ਪ੍ਰਤੀਕ; ਰੀਸਾਈਕਲਿੰਗ; ਯੂਨੀਵਰਸਲ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- name badge; badge; name -->
+		<annotation cp='[📛]' draft='provisional'>ਨਾਂ ਬੈਜ਼; ਬੈਜ਼; ਨਾਂ</annotation>
+
+		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' draft='provisional'>ਹਰਾ ਅਤੇ ਪੀਲਾ ਪੱਤਾ; ਹਰਾ ਅਤੇ ਪੀਲਾ; ਸ਼ੂਰੁਆਤੀ; ਜਾਪਾਨੀ</annotation>
+
+		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' draft='provisional'>ਤਿ੍ਰਸ਼ੂਲ ਨਿਸ਼ਾਨ; ਲੰਗਰ; ਤਿ੍ਰਸ਼ੂਲ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- white heavy check mark; check; mark -->
+		<annotation cp='[✅]' draft='provisional'>ਠੀਕ ਚਿੰਨ੍ਹ; ਠੀਕ; ਭਾਰੀ ਠੀਕ ਚਿੰਨ੍ਹ</annotation>
+
+		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
+		<annotation cp='[❌]' draft='provisional'>ਕਰਾਸ ਚਿੰਨ੍ਹ; “X”</annotation>
+
+		<!-- cross mark button; mark; square -->
+		<annotation cp='[❎]' draft='provisional'>ਕਰਾਸ ਚਿੰਨ੍ਹ; ਖ਼ਾਨੇ ਵਿੱਚ “X”</annotation>
+
+		<!-- heavy plus sign; math; plus -->
+		<annotation cp='[➕]' draft='provisional'>ਜਮਾਂ; ਭਾਰੀ ਜਮਾਂ ਨਿਸ਼ਾਨ; ਜਮਾਂ ਨਿਸ਼ਾਨ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- heavy minus sign; math; minus -->
+		<annotation cp='[➖]' draft='provisional'>ਘਟਾਓ; ਭਾਰੀ ਘਟਾਓ ਨਿਸ਼ਾਨ; ਘਟਾਓ ਨਿਸ਼ਾਨ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- heavy division sign; division; math -->
+		<annotation cp='[➗]' draft='provisional'>ਵੰਡ; ਭਾਰੀ ਵੰਡ ਨਿਸ਼ਾਨ; ਵੰਡ ਨਿਸ਼ਾਨ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- curly loop; curl; loop -->
+		<annotation cp='[➰]' draft='provisional'>ਕਰਲੀ ਲੂਪ; ਮੋੜ; ਲੂਪ</annotation>
+
+		<!-- double curly loop; curl; double; loop -->
+		<annotation cp='[➿]' draft='provisional'>ਡਬਲ ਕਰਲੀ ਲੂਪ; ਕਰਲੀ ਲੂਪ; ਜਾਪਾਨ; ਫ੍ਰੀ ਡਾਇਲ</annotation>
+
+		<!-- currency exchange; bank; currency; exchange; money -->
+		<annotation cp='[💱]' draft='provisional'>ਮੁੱਦਰਾ ਬਦਲੀ; ਮੁੱਦਰਾ; ਪੈਸਾ; ਬਦਲਣਾ</annotation>
+
+		<!-- heavy dollar sign; currency; dollar; money -->
+		<annotation cp='[💲]' draft='provisional'>ਡਾਲਰ ਨਿਸ਼ਾਨ; ਗੁੜ੍ਹਾ ਡਾਲਰ ਨਿਸ਼ਾਨ; ਡਾਲਰ; ਪੈਸਾ</annotation>
+
+		<!-- question mark; mark; punctuation; question -->
+		<annotation cp='[❓]' draft='provisional'>ਸਵਾਲ ਚਿੰਨ੍ਹ; ਸਵਾਲ</annotation>
+
+		<!-- white question mark; mark; outlined; punctuation; question -->
+		<annotation cp='[❔]' draft='provisional'>ਸਵਾਲ ਚਿੰਨ੍ਹ; ਸਵਾਲ</annotation>
+
+		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
+		<annotation cp='[❕]' draft='provisional'>ਵਿਸਮੁਕ ਚਿੰਨ੍ਹ; ਵਿਸਮੁਕ</annotation>
+
+		<!-- wavy dash; dash; punctuation; wavy -->
+		<annotation cp='[〰]' draft='provisional'>ਲਹਿਰ ਡੈਸ; ਲੰਮੀ ਆਵਾਜ਼ ਨਿਸ਼ਾਨ; ਲਹਿਰ; ਡੈਸ</annotation>
+
+		<!-- copyright -->
+		<annotation cp='[©]' draft='provisional'>ਕਾਪੀਰਾਈਟ ਪ੍ਰਤੀਕ; ਕਾਪੀਰਾਈਟ</annotation>
+
+		<!-- registered -->
+		<annotation cp='[®]' draft='provisional'>ਰਜਿਸਟਰਡ ਪ੍ਰਤੀਕ; ਰਜਿਸਟਰਡ</annotation>
+
+		<!-- trade mark; mark; tm; trademark -->
+		<annotation cp='[™]' draft='provisional'>ਟ੍ਰੇਡਮਾਰਕ ਨਿਸ਼ਾਨ; ਟ੍ਰੇਡਮਾਰਕ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- aries; ram; zodiac -->
+		<annotation cp='[♈]' draft='provisional'>ਮੇਖ; ਰਾਸ਼ੀ</annotation>
+
+		<!-- taurus; bull; ox; zodiac -->
+		<annotation cp='[♉]' draft='provisional'>ਵ੍ਰਸ਼; ਰਾਸ਼ੀ</annotation>
+
+		<!-- gemini; twins; zodiac -->
+		<annotation cp='[♊]' draft='provisional'>ਮਿਥੁਨ; ਰਾਸ਼ੀ</annotation>
+
+		<!-- cancer; crab; zodiac -->
+		<annotation cp='[♋]' draft='provisional'>ਕਰਕ; ਰਾਸ਼ੀ</annotation>
+
+		<!-- leo; lion; zodiac -->
+		<annotation cp='[♌]' draft='provisional'>ਸਿਂਂਹ; ਰਾਸ਼ੀ</annotation>
+
+		<!-- virgo; maiden; virgin; zodiac -->
+		<annotation cp='[♍]' draft='provisional'>ਕੰਨਿਆ; ਰਾਸ਼ੀ</annotation>
+
+		<!-- libra; balance; justice; scales; zodiac -->
+		<annotation cp='[♎]' draft='provisional'>ਤੱਕੜੀ; ਰਾਸ਼ੀ</annotation>
+
+		<!-- scorpius; scorpio; scorpion; zodiac -->
+		<annotation cp='[♏]' draft='provisional'>ਵ੍ਰਿਸ਼ਚਕ; ਰਾਸ਼ੀ</annotation>
+
+		<!-- sagittarius; archer; zodiac -->
+		<annotation cp='[♐]' draft='provisional'>ਧਨੁ; ਰਾਸ਼ੀ</annotation>
+
+		<!-- capricorn; goat; zodiac -->
+		<annotation cp='[♑]' draft='provisional'>ਮੱਕਰ; ਰਾਸ਼ੀ</annotation>
+
+		<!-- aquarius; bearer; water; zodiac -->
+		<annotation cp='[♒]' draft='provisional'>ਕੁੰਭ; ਰਾਸ਼ੀ</annotation>
+
+		<!-- pisces; fish; zodiac -->
+		<annotation cp='[♓]' draft='provisional'>ਮੀਨ; ਰਾਸ਼ੀ</annotation>
+
+		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
+		<annotation cp='[⛎]' draft='provisional'>ਓਪੀਊਚਸ; ਰਾਸ਼ੀ</annotation>
+
+		<!-- shuffle tracks button; arrow; crossed -->
+		<annotation cp='[🔀]' draft='provisional'>ਆਰ-ਪਾਰ ਤੀਰ; ਠੀਕ ਆਰ-ਪਾਰ ਤੀਰ; ਤੀਰ</annotation>
+
+		<!-- repeat button; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' draft='provisional'>ਘੜੀ ਦੀ ਦਿਸ਼ਾ ਵਿੱਚ ਤੀਰ; ਘੜੀ ਦੀ ਦਿਸ਼ਾ; ਤੀਰ</annotation>
+
+		<!-- repeat single button; arrow; clockwise; once -->
+		<annotation cp='[🔂]' draft='provisional'>ਘੜੀ ਦੀ ਦਿਸ਼ਾ ਵਿੱਚ ਤੀਰ; ਨੰਬਰ 1 ਨਾਲ ਘੜੀ ਦੀ ਦਿਸ਼ਾ ਵਿੱਚ ਤੀਰ; ਘੜੀ ਦੀ ਦਿਸ਼ਾ; ਤੀਰ; ਨੰਬਰ 1</annotation>
+
+		<!-- fast-forword button; arrow; double; fast; forward -->
+		<annotation cp='[⏩]' draft='provisional'>ਤੇਜ਼ੀ ਨਾਲ ਅੱਗੇ; ਸੱਜੇ ਦੋ ਤੀਰ; ਸੱਜੇ; ਤੀਰ</annotation>
+
+		<!-- fast reverse button; arrow; double; rewind -->
+		<annotation cp='[⏪]' draft='provisional'>ਮੋੜਣਾ; ਖੱਬੇ ਦੋ ਤੀਰ; ਖੱਬੇ; ਤੀਰ</annotation>
+
+		<!-- up button; arrow; button; red -->
+		<annotation cp='[🔼]' draft='provisional'>ਉੱਤੇ ਵੱਲ ਤਿਕੋਣਾ; ਤਿਕੋਣਾ ਬਟਨ ਉੱਤੇ ਵੱਲ; ਤਿਕੱਣਾ; ਬਟਨ</annotation>
+
+		<!-- fast up button; arrow; double -->
+		<annotation cp='[⏫]' draft='provisional'>ਉੱਪਰ ਤੀਰ; ਉੱਪਰ ਦੋ ਤੀਰ; ਉੱਪਰ; ਤੀਰ</annotation>
+
+		<!-- down button; arrow; button; down; red -->
+		<annotation cp='[🔽]' draft='provisional'>ਥੱਲੇ ਵੱਲ ਤਿਕੋਣਾ; ਤਿਕੋਣਾ ਬਟਨ ਥੱਲੇ ਵੱਲ; ਤਿਕੱਣਾ; ਬਟਨ</annotation>
+
+		<!-- fast down button; arrow; double; down -->
+		<annotation cp='[⏬]' draft='provisional'>ਥੱਲੇ ਤੀਰ; ਥੱਲੇ ਦੋ ਤੀਰ; ਥੱਲੇ; ਤੀਰ</annotation>
+
+		<!-- cinema; camera; film; movie -->
+		<annotation cp='[🎦]' draft='provisional'>ਫਿਲਮ; ਸਿਨੇਮਾ; ਫਿਲਮ ਨਿਸ਼ਾਨ; ਮਨੋਰੰਜਨ</annotation>
+
+		<!-- dim button; brightness; dim; low -->
+		<annotation cp='[🔅]' draft='provisional'>ਘੱਟ ਚਮਕ; ਘੱਟ; ਕਮਜ਼ੋਰ; ਘੱਟ ਚਮਕ ਨਿਸ਼ਾਨ; ਚਮਕ</annotation>
+
+		<!-- bright button; bright; brightness -->
+		<annotation cp='[🔆]' draft='provisional'>ਵੱਧ ਚਮਕ; ਚਮਕਦਾਰ; ਵੱਧ; ਵੱਧ ਚਮਕ ਨਿਸ਼ਾਨ; ਚਮਕ</annotation>
+
+		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
+		<annotation cp='[📶]' draft='provisional'>ਮੋਬਾਇਲ ਸਿਗਨਲਸ; ਬਾਰ ਨਾਲ ਅੰਟੀਨਾ; ਸਿਗਨਲ ਤਾਕਤ; ਸਿਗਨਲ; ਅੰਟੀਨਾ; ਮੋਬਾਇਲ; ਫੋਨ</annotation>
+
+		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
+		<annotation cp='[📵]' draft='provisional'>ਸੈਲ ਫੋਨ ਨਹੀਂ; ਕਾਲ ਨਹੀਂ; ਮੋਬਾਇਲ; ਫੋਨ</annotation>
+
+		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
+		<annotation cp='[📳]' draft='provisional'>ਕੰਬਣੀ ਮੋਡ; ਸੈਲ ਫੋਨ; ਮੋਬਾਇਲ; ਫੋਨ; ਮੋਡ</annotation>
+
+		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
+		<annotation cp='[📴]' draft='provisional'>ਫੋਨ ਬੰਦ; ਸੈਲ ਫੋਨ ਬੰਦ; ਸੈਲ ਫੋਨ; ਮੋਬਾਇਲ ਫੋਨ; ਫੋਨ; ਬੰਦ</annotation>
+
+		<!-- keycap ten; 10; keycap; ten -->
+		<annotation cp='[🔟]' draft='provisional'>ਕੀਕੈਪ ਦਸ; 10</annotation>
+
+		<!-- hundred points; 100; full; hundred; score -->
+		<annotation cp='[💯]' draft='provisional'>ਪੂਰੇ ਸਕੋਰ; 100 ਅੰਕ; 100; ਸਕੋਰ</annotation>
+
+		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
+		<annotation cp='[🔞]' draft='provisional'>ਕੋਈ 18 ਤੋਂ ਥੱਲੇ ਨਹੀਂ; 18 ਤੋਂ ਥੱਲੇ ਮਨਾਹੀ; 18 ਤੋਂ ਥੱਲੇ; 18</annotation>
+
+		<!-- input latin uppercase; input; latin; letters; uppercase -->
+		<annotation cp='[🔠]' draft='provisional'>ਵੱਡੇ ਅੱਖਰ; ਵੱਡੇ ਲੇਟਿਨ ਇਨਪੁੱਟ; ਵੱਡੇ ਲੇਟਿਨ; ਵੱਡੇ; ਲੇਟਿਨ</annotation>
+
+		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
+		<annotation cp='[🔡]' draft='provisional'>ਛੋਟੇ ਅੱਖਰ; ਛੋਟੇ ਲੇਟਿਨ ਇਨਪੁੱਟ; ਛੋਟੇ ਲੇਟਿਨ; ਛੋਟੇ; ਲੇਟਿਨ</annotation>
+
+		<!-- input numbers; 1234; input; numbers -->
+		<annotation cp='[🔢]' draft='provisional'>ਨੰਬਰ; ਇਨਪੁੱਟ ਨੰਬਰ</annotation>
+
+		<!-- input symbols; input -->
+		<annotation cp='[🔣]' draft='provisional'>ਨਿਸ਼ਾਨ; ਇਨਪੁੱਟ ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- input latin letters; abc; alphabet; input; latin; letters -->
+		<annotation cp='[🔤]' draft='provisional'>ਲੇਟਿਨ ਅੱਖਰ; ਇਨਪੁੱਟ ਲੇਟਿਨ ਅੱਖਰ; ਲੇਟਿਨ ਅੰਗਰੇਜ਼ੀ; ਏਬੀਸੀ</annotation>
+
+		<!-- a button; a; blood -->
+		<annotation cp='[🅰]' draft='provisional'>ਖੂਨ ਕਿਸਮ A; ਕਿਸਮ A; ਖੂਨ ਕਿਸਮ; ਖੂਨ; A</annotation>
+
+		<!-- ab button; ab; blood -->
+		<annotation cp='[🆎]' draft='provisional'>ਖੂਨ ਕਿਸਮ AB; ਕਿਸਮ AB; ਖੂਨ ਕਿਸਮ; ਖੂਨ; AB</annotation>
+
+		<!-- b button; b; blood -->
+		<annotation cp='[🅱]' draft='provisional'>ਖੂਨ ਕਿਸਮ B; ਕਿਸਮ B; ਖੂਨ ਕਿਸਮ; ਖੂਨ; B</annotation>
+
+		<!-- squared cl; cl -->
+		<annotation cp='[🆑]' draft='provisional'>CL; ਸਾਫ; CL ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- squared cool; cool -->
+		<annotation cp='[🆒]' draft='provisional'>ਸ਼ਾਂਤ; ਸ਼ਾਂਤੀ ਦਾ ਪ੍ਰਤੀਕ</annotation>
+
+		<!-- squared free; free -->
+		<annotation cp='[🆓]' draft='provisional'>ਮੁਫ਼ਤ; ਮੁਫ਼ਤ ਦਾ ਨਿਸ਼ਾਨ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- squared id; id; identity -->
+		<annotation cp='[🆔]' draft='provisional'>ID; ID ਨਿਸ਼ਾਨ; ਪਛਾਣ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- squared new; new -->
+		<annotation cp='[🆕]' draft='provisional'>ਨਵਾਂ; ਨਵਾਂ ਨਿਸ਼ਾਨ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- squared ng; ng -->
+		<annotation cp='[🆖]' draft='provisional'>NG; NG ਨਿਸ਼ਾਨ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- o button; blood; o -->
+		<annotation cp='[🅾]' draft='provisional'>ਖੂਨ ਕਿਸਮ O; ਕਿਸਮ O; ਖੂਨ ਕਿਸਮ; ਖੂਨ; O</annotation>
+
+		<!-- squared ok; ok -->
+		<annotation cp='[🆗]' draft='provisional'>ਠੀਕ; ਚੰਗਾ; ਠੀਕ ਦਾ ਪ੍ਰਤੀਕ</annotation>
+
+		<!-- p button; parking -->
+		<annotation cp='[🅿]' draft='provisional'>ਪਾਰਕਿੰਗ</annotation>
+
+		<!-- squared sos; help; sos -->
+		<annotation cp='[🆘]' draft='provisional'>SOS; SOS ਨਿਸ਼ਾਨ; ਸਹਾਇਤਾ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- up! button; mark; up -->
+		<annotation cp='[🆙]' draft='provisional'>UPI; UPI ਨਿਸ਼ਾਨ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- squared vs; versus; vs -->
+		<annotation cp='[🆚]' draft='provisional'>ਬਨਾਮ; vs; vs ਨਿਸ਼ਾਨ; ਨਿਸ਼ਾਨ</annotation>
+
+		<!-- squared katakana koko; japanese -->
+		<annotation cp='[🈁]' draft='provisional'>ਜਾਪਾਨੀ ਸ਼ਬਦ</annotation>
+
+		<!-- squared katakana sa; japanese -->
+		<annotation cp='[🈂]' draft='provisional'>ਜਾਪਾਨੀ ਸ਼ਬਦ</annotation>
+
+		<!-- squared moon ideograph; japanese -->
+		<annotation cp='[🈷]' draft='provisional'>ਜਾਪਾਨੀ ਸ਼ਬਦ</annotation>
+
+		<!-- squared exist ideograph; japanese -->
+		<annotation cp='[🈶]' draft='provisional'>ਜਾਪਾਨੀ ਸ਼ਬਦ</annotation>
+
+		<!-- squared finger ideograph; japanese -->
+		<annotation cp='[🈯]' draft='provisional'>ਜਾਪਾਨੀ ਸ਼ਬਦ</annotation>
+
+		<!-- circled advantage ideograph; japanese -->
+		<annotation cp='[🉐]' draft='provisional'>ਜਾਪਾਨੀ ਸ਼ਬਦ</annotation>
+
+		<!-- squared divide ideograph; japanese -->
+		<annotation cp='[🈹]' draft='provisional'>ਜਾਪਾਨੀ ਸ਼ਬਦ</annotation>
+
+		<!-- squared negation ideograph; japanese -->
+		<annotation cp='[🈚]' draft='provisional'>ਜਾਪਾਨੀ ਸ਼ਬਦ</annotation>
+
+		<!-- squared prohibit ideograph; japanese -->
+		<annotation cp='[🈲]' draft='provisional'>ਜਾਪਾਨੀ ਸ਼ਬਦ</annotation>
+
+		<!-- circled accept ideograph; chinese -->
+		<annotation cp='[🉑]' draft='provisional'>ਚੀਨੀ ਸ਼ਬਦ</annotation>
+
+		<!-- squared apply ideograph; chinese -->
+		<annotation cp='[🈸]' draft='provisional'>ਚੀਨੀ ਸ਼ਬਦ</annotation>
+
+		<!-- squared together ideograph; chinese -->
+		<annotation cp='[🈴]' draft='provisional'>ਚੀਨੀ ਸ਼ਬਦ</annotation>
+
+		<!-- squared empty ideograph; chinese -->
+		<annotation cp='[🈳]' draft='provisional'>ਚੀਨੀ ਸ਼ਬਦ</annotation>
+
+		<!-- squared operating ideograph; chinese -->
+		<annotation cp='[🈺]' draft='provisional'>ਚੀਨੀ ਸ਼ਬਦ</annotation>
+
+		<!-- squared fullness ideograph; chinese -->
+		<annotation cp='[🈵]' draft='provisional'>ਚੀਨੀ ਸ਼ਬਦ</annotation>
+
+		<!-- large orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔶]' draft='provisional'>ਵੱਡਾ ਹੀਰਾ; ਵੱਡਾ ਸੰਤਰਾ ਹੀਰਾ; ਸੰਤਰੀ; ਹੀਰਾ</annotation>
+
+		<!-- large blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔷]' draft='provisional'>ਵੱਡਾ ਹੀਰਾ; ਵੱਡਾ ਨੀਲਾ ਹੀਰਾ; ਨੀਲਾ; ਹੀਰਾ</annotation>
+
+		<!-- small orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔸]' draft='provisional'>ਛੇੋਟਾ ਹੀਰਾ; ਛੋਟਾ ਸੰਤਰੀ ਹੀਰਾ; ਸੰਤਰੀ; ਹੀਰਾ</annotation>
+
+		<!-- small blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔹]' draft='provisional'>ਛੇੋਟਾ ਹੀਰਾ; ਛੋਟਾ ਨੀਲਾ ਹੀਰਾ; ਨੀਲਾ; ਹੀਰਾ</annotation>
+
+		<!-- red triangle pointed up; geometric; red -->
+		<annotation cp='[🔺]' draft='provisional'>ਉੱਤੇ ਵੱਲ ਤਿਕੋਣਾ; ਲਾਲ ਤਿਕੋਣਾ ਉੱਤੇ ਵੱਲ; ਲਾਲ; ਤਿਕੱਣਾ</annotation>
+
+		<!-- red triangle pointed down; down; geometric; red -->
+		<annotation cp='[🔻]' draft='provisional'>ਥੱਲੇ ਵੱਲ ਤਿਕੋਣਾ; ਲਾਲ ਤਿਕੋਣਾ ਥੱਲੇ ਵੱਲ; ਲਾਲ; ਤਿਕੱਣਾ</annotation>
+
+		<!-- diamond with a dot; comic; diamond; geometric; inside -->
+		<annotation cp='[💠]' draft='provisional'>ਫੁੱਲ ਪੱਤੀ; ਸੋਹਣਾ; ਫੁੱਲ; ਹੀਰੇ ਦਾ ਅਕਾਰ; ਹੀਰਾ; ਜਜ਼ਬਾਤ</annotation>
+
+		<!-- radio button; button; geometric; radio -->
+		<annotation cp='[🔘]' draft='provisional'>ਰੇਡੀਓ ਬਟਨ; ਬਟਨ; ਰੇਡੀਓ</annotation>
+
+		<!-- black square button; button; geometric; square -->
+		<annotation cp='[🔲]' draft='provisional'>ਵਰਗ ਬਟਨ; ਵਰਗ; ਬਟਨ</annotation>
+
+		<!-- white square button; button; geometric; outlined; square -->
+		<annotation cp='[🔳]' draft='provisional'>ਵਰਗ ਬਟਨ; ਵਰਗ; ਬਟਨ</annotation>
+
+		<!-- red circle; circle; geometric; red -->
+		<annotation cp='[🔴]' draft='provisional'>ਵੱਡਾ ਘੇਰਾ; ਵੱਡਾ ਲਾਲ ਘੇਰਾ; ਲਾਲ; ਘੇਰਾ</annotation>
+
+		<!-- blue circle; blue; circle; geometric -->
+		<annotation cp='[🔵]' draft='provisional'>ਵੱਡਾ ਘੇਰਾ; ਵੱਡਾ ਨੀਲਾ ਘੇਰਾ; ਨੀਲਾ; ਘੇਰਾ</annotation>
+	</annotations>
+</ldml>

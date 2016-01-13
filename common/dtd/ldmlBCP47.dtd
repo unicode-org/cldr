@@ -42,6 +42,8 @@ $Revision$
     <!--@VALUE-->
 <!ATTLIST key alias NMTOKEN #IMPLIED >
     <!--@VALUE-->
+<!ATTLIST key valueType (single | multiple | incremental | any) #IMPLIED >
+    <!--@VALUE-->
 <!ATTLIST key since CDATA #IMPLIED >
     <!--@METADATA-->
 

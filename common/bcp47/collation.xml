@@ -67,7 +67,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="false" description="No special handling for numeric ordering" alias="no"/>
         </key>
 
-        <key name="kr" description="Collation reorder codes" alias="colReorder" since="21">
+        <key name="kr" description="Collation reorder codes" valueType="multiple" alias="colReorder" since="21">
             <type name="REORDER_CODE" description="One or more collation reorder codes, see LDML Part 5: Collation" since="21"/>
         </key>
 
@@ -85,7 +85,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="symbol" description="Spaces, punctuation and symbols except for currency symbols are affected by ka-shifted (UCA default)" since="25"/>
             <type name="currency" description="Spaces, punctuation and all symbols are affected by ka-shifted" since="25"/>
         </key>
-        <key name="vt" deprecated="true" description="Collation parameter key for variable top" alias="variableTop">
+        <key name="vt" deprecated="true" description="Collation parameter key for variable top" valueType="multiple" alias="variableTop">
             <type name="CODEPOINTS" description="The variable top (one or more Unicode code points: LDML Appendix Q)"/>
         </key>
     </keyword>

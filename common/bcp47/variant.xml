@@ -13,5 +13,10 @@
 			<type name="SUBDIVISION_CODE"
 				description="Valid unicode_subdivision_subtag for the region subtag as specified in LDML, based on subdivisionContainment data in supplementalData, prefixed by the associated unicode_region_subtag" />
 		</key>
+		<key name="em" description="requested emoji presentation">
+			<type name="emoji" description="use an emoji presentation for emoji characters if possible"/>
+			<type name="text" description="use a text presentation for emoji characters if possible"/>
+			<type name="default" description="use the default presentation as specified in UTR #51"/>
+		</key>
 	</keyword>
 </ldmlBCP47>

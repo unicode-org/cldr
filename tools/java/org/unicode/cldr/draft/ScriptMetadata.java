@@ -12,12 +12,10 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.unicode.cldr.tool.CountryCodeConverter;
-import org.unicode.cldr.tool.LanguageCodeConverter;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SemiFileReader;
 import org.unicode.cldr.util.StandardCodes;
 
-import com.google.common.base.Objects;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
@@ -44,7 +42,6 @@ public class ScriptMetadata {
         IME("IME?"),
         ORIGIN_COUNTRY("Origin Country"),
         DENSITY("~Density"),
-        LIKELY_LANGUAGE("Likely Language"),
         LANG_CODE,
         HAS_CASE("Has Case?");
 
@@ -180,25 +177,11 @@ public class ScriptMetadata {
             }
             originCountry = country == null ? "ZZ" : country;
 
-            final String likelyLanguageRaw = Column.LIKELY_LANGUAGE.getItem(items);
-            String language = LanguageCodeConverter.getCodeForName(likelyLanguageRaw);
-            if (language == null && !likelyLanguageRaw.equals("n/a")) {
-                errors.add("Can't map " + likelyLanguageRaw + " to language");
-                LanguageCodeConverter.getCodeForName(likelyLanguageRaw); // for debugging
-            }
             String langCode = Column.LANG_CODE.getItem(items);
             if (langCode.equals("n/a")) {
                 langCode = null;
             }
-            // TODO: Fix language codes in the spreadsheet, then change this file
-            // to use langCode and stop reading Column.LIKELY_LANGUAGE.
-            // http://unicode.org/cldr/trac/ticket/9138
-            if (!Objects.equal(langCode, language)) {
-                System.out.println("explicit language code: '" + langCode +
-                        "' vs. code '" + language +
-                        "' from language name: " + likelyLanguageRaw);
-            }
-            likelyLanguage = language == null ? "und" : language;
+            likelyLanguage = langCode == null ? "und" : langCode;
         }
 
         public Info(Info other, String string) {

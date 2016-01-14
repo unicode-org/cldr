@@ -298,7 +298,7 @@ public class DisplayAndInputProcessor {
                 value = standardizeNgomba(value);
             } else if (locale.childOf(KWASIO) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
                 value = standardizeKwasio(value);
-            } else if (locale.childOf(HEBREW) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
+            } else if (locale.childOf(HEBREW) && !APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
                 value = standardizeHebrew(value);
             } else if ((locale.childOf(SWISS_GERMAN) || locale.childOf(GERMAN_SWITZERLAND)) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
                 value = standardizeSwissGerman(value);

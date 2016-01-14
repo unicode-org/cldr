@@ -731,7 +731,8 @@ abstract public class CheckCLDR {
             badMinimumGroupingDigits,
             inconsistentPeriods,
             inheritanceMarkerNotAllowed,
-            invalidDurationUnitPattern;
+            invalidDurationUnitPattern,
+            invalidDelimiter;
 
             public String toString() {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();

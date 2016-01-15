@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Hira" target="Kana" direction="both" alias="Hiragana-Katakana und-Kana-t-und-Hira" backwardAlias="Hiragana-Katakana und-Kana-t-und-Hira">
+		<transform source="Hira" target="Kana" direction="both" alias="Hiragana-Katakana und-Kana-t-und-Hira" backwardAlias="Katakana-Hiragana und-Hira-t-und-Kana">
 			<tRule>
 # note: a global filter is more efficient, but MUST include all source chars
 :: [\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟー[:Hiragana:] [:Katakana:] [:nonspacing mark:]] ;

@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Grek" target="Latn" direction="both" alias="Greek-Latin und-Latn-t-und-Grek" backwardAlias="Greek-Latin und-Latn-t-und-Grek">
+		<transform source="Grek" target="Latn" direction="both" alias="Greek-Latin und-Latn-t-und-Grek" backwardAlias="Latin-Greek und-Grek-t-und-Latn">
 			<tRule><![CDATA[
 # Rules are predicated on running NFD first, and NFC afterwards
 # :: [\u0000-\u007F \u0370-Ͽ [:Greek:] [:nonspacing mark:]] ;

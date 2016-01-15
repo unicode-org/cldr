@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="es" target="es_FONIPA" direction="forward">
+		<transform source="es" target="es_FONIPA" direction="forward" alias="es-fonipa-t-es">
 			<tRule><![CDATA[
 # Tranformation from Spanish to Spanish in IPA transcription (es_FONIPA).
 # Not fully phonemic, since we mark up allophonic variants of voiced stops,

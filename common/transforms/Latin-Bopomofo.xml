@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Latn" target="Bopo" direction="both" alias="Latin-Bopomofo" backwardAlias="Bopomofo-Latin">
+		<transform source="Latn" target="Bopo" direction="both" alias="Latin-Bopomofo und-Bopo-t-und-Latn" backwardAlias="Latin-Bopomofo und-Bopo-t-und-Latn">
 			<tRule>
 #--- forward filter, transforms ----
 # currently in reverse it only goes back to Latin with numeric tones (not sure why); ok but would rather have marks.

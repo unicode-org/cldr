@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="es_FONIPA" target="es_419_FONIPA" direction="forward">
+		<transform source="es_FONIPA" target="es_419_FONIPA" direction="forward" alias="es-419-fonipa-t-es-fonipa">
 			<tRule>
 # Conflate sounds of Castilian Spanish to produce Latin American Spanish.
 # This operates on a phonemic IPA transcription of Spanish (es_FONIPA).

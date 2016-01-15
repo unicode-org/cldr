@@ -6,7 +6,7 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 <supplementalData>
 	<version number="$Revision: 11914 $" />
 	<transforms>
-		<transform source="am" target="am_FONIPA" direction="both">
+		<transform source="am" target="am_FONIPA" direction="both" alias="am-fonipa-t-am" backwardAlias="am-fonipa-t-am">
 			<tRule>
 # Transforms Amharic (am) to Amharic in phonemic IPA transcription (am_FONIPA).
 #

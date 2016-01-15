@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="ja_Latn" target="ko" direction="forward">
+		<transform source="ja_Latn" target="ko" direction="forward" alias="ko-t-ja-Latn">
 			<tRule>
 # Japanese (Rōmaji) to Korean (Hangul) transliteration table for ICU.
 # Can be run in sequence after e.g. Katakana-Latin.

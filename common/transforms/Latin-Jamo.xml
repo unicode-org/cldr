@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Latin" target="Jamo" direction="forward">
+		<transform source="Latn" target="Qaaj" direction="forward" alias="Latin-Jamo und-Qaaj-t-und-Latn">
 			<tRule>
 ::[[:script=Latin:][:M:]-];
 ::NFD;

@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Latin" target="NumericPinyin" direction="both">
+		<transform source="Latin" target="NumericPinyin" direction="both" alias="und-pinyin-t-d0-npinyin" backwardAlias="und-pinyin-t-s0-npinyin">
 			<tRule><![CDATA[
 # According to the pinyin definitions I've been able to find:
 # 'a', 'e' are the preferred bases

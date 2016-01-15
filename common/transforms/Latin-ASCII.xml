@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Latin" target="ASCII" direction="forward">
+		<transform source="Latin" target="ASCII" direction="forward" alias="und-t-d0-ascii">
 			<tRule><![CDATA[
 # This handles only Latin, Common, and IDEOGRAPHIC NUMBER ZERO (Han).
 #

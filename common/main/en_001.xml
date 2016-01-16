@@ -411,6 +411,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} litre per 100 kilometres</unitPattern>
 				<unitPattern count="other">{0} litres per 100 kilometres</unitPattern>
 			</unit>
+			<unit type="consumption-mile-per-gallon">
+				<displayName>miles per US gallon</displayName>
+				<unitPattern count="one">{0} mile per US gallon</unitPattern>
+				<unitPattern count="other">{0} miles per US gallon</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>miles per gallon</displayName>
+				<unitPattern count="one">{0} mile per gallon</unitPattern>
+				<unitPattern count="other">{0} miles per gallon</unitPattern>
+			</unit>
 			<unit type="length-kilometer">
 				<displayName>kilometres</displayName>
 				<unitPattern count="one">{0} kilometre</unitPattern>
@@ -542,6 +552,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} l/100 km</unitPattern>
 				<unitPattern count="other">{0} l/100 km</unitPattern>
 			</unit>
+			<unit type="consumption-mile-per-gallon">
+				<displayName>miles/gal US</displayName>
+				<unitPattern count="one">{0} US</unitPattern>
+				<unitPattern count="other">{0} mpg US</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>miles/gal</displayName>
+				<unitPattern count="one">{0} mpg</unitPattern>
+				<unitPattern count="other">{0} mpg</unitPattern>
+			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} hr</unitPattern>
 				<unitPattern count="other">{0} hrs</unitPattern>
@@ -614,6 +634,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>l/100km</displayName>
 				<unitPattern count="one">{0}l/100km</unitPattern>
 				<unitPattern count="other">{0}l/100km</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon">
+				<displayName>mpg US</displayName>
+				<unitPattern count="one">{0}mpg US</unitPattern>
+				<unitPattern count="other">{0}mpg US</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>mpg</displayName>
+				<unitPattern count="one">{0}mpg</unitPattern>
+				<unitPattern count="other">{0}mpg</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="one">{0}lb</unitPattern>

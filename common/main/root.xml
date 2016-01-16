@@ -3976,8 +3976,12 @@
 				<unitPattern count="other">{0} L/100km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName>mpg</displayName>
-				<unitPattern count="other">{0} mpg</unitPattern>
+				<displayName>mpg US</displayName>
+				<unitPattern count="other">{0} mpg US</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>mpg Imp.</displayName>
+				<unitPattern count="other">{0} mpg Imp.</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -4423,9 +4427,14 @@
 				<unitPattern count="other">{0} bu</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>gal</displayName>
-				<unitPattern count="other">{0} gal</unitPattern>
-				<perUnitPattern>{0}/gal</perUnitPattern>
+				<displayName>US gal</displayName>
+				<unitPattern count="other">{0} gal US</unitPattern>
+				<perUnitPattern>{0}/gal US</perUnitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName>Imp. gal</displayName>
+				<unitPattern count="other">{0} gal Imp.</unitPattern>
+				<perUnitPattern>{0}/gal Imp.</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>qt</displayName>

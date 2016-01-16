@@ -1452,7 +1452,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "concentration-milligram-per-deciliter", "concentration-millimole-per-liter",
         "concentration-part-per-million",
         "consumption-liter-per-kilometer", "consumption-liter-per-100kilometers",
-        "consumption-mile-per-gallon",
+        "consumption-mile-per-gallon", "consumption-mile-per-gallon-imperial",
         "digital-terabyte", "digital-terabit", "digital-gigabyte", "digital-gigabit",
         "digital-megabyte", "digital-megabit", "digital-kilobyte", "digital-kilobit",
         "digital-byte", "digital-bit",
@@ -1488,7 +1488,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "volume-megaliter", "volume-hectoliter", "volume-liter", "volume-deciliter", "volume-centiliter", "volume-milliliter",
         "volume-pint-metric", "volume-cup-metric",
         "volume-acre-foot",
-        "volume-bushel", "volume-gallon", "volume-quart", "volume-pint", "volume-cup",
+        "volume-bushel", "volume-gallon", "volume-gallon-imperial", "volume-quart", "volume-pint", "volume-cup",
         "volume-fluid-ounce", "volume-tablespoon", "volume-teaspoon").freeze();
 
     static MapComparator<String> countValueOrder = new MapComparator<String>().add(

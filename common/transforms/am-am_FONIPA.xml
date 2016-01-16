@@ -261,6 +261,36 @@ $LABIALIZABLE_BEFORE_A = [p{pʼ}t{tʼ} {t͡ʃ}{t͡ʃʼ}{d͡ʒ}{d͡ʒʼ} s{sʼ}z�
 ኟ ↔ ɲwa;
 ኝ ← ɲ;
 
+# Amharic speakers pronounce ኸ as [h] because Amharic has no [x] sound.
+# However, in transliterations of foreign (eg. Spanish) words with [x],
+# several Amharic speakers have confirmed that they prefer ኻ over ሃ.
+ዀ → hwə;
+ዂ → hwi;
+ዃ → hwa;
+ዄ → hwe;
+ዅ → hwɨ;
+ኸ → hə;
+ኹ → hu;
+ኺ → hi;
+ኻ → ha;
+ኼ → he;
+ኽ → hɨ;
+ኾ → ho;
+ዀ ← xwə;
+ዂ ← xwi;
+ዃ ← xwa;
+ዄ ← xwe;
+ዅ ← xwɨ;
+ዅ ← xw;
+ኸ ← xə;
+ኹ ← xu;
+ኺ ← xi;
+ኻ ← xa;
+ኼ ← xe;
+ኽ ← xɨ;
+ኾ ← xo;
+ኽ ← x;
+
 አ ↔ ʔə;
 ኡ ↔ ʔu;
 ኢ ↔ ʔi;
@@ -698,25 +728,25 @@ bv ← [{b̪} {b͆} ȸ {b͡v} {b̪͡v}];
 
 ʃ ← [ʂ ɕ];
 ʒ ← [ʐ ʑ];
-r ← [ɾ ɽ];
+r ← [ɾ ɽ ʁ];
 rːʒ ← r̝ː;
 rʒ ← r̝;
 
+h ← [ç x χ];  # TODO: Use x instead.
 ʕ ← ʕ̝;
-h ← [ɦ x ç];
-
-ə ← [ɛ æ];
-ɨ ← ɪ;
+h ← ɦ;
 j ← [ʝ ʲ];
-lj ← ʎ [iɪɨ]? [jʝʲ]?;
+lj ← ʎ [iɨ]? [jʝʲ]?;
 
 w ← {u̯} $IPA_VOWEL;
 w ← ʷ;
 ʼː ← ːʼ;  # /pʼː/ ← /pːʼ/; /sʼː/ ← /sːʼ/; etc.
 
 ::(null);
-ə ← æ;
+ə ← [ɛ æ];
 o ← ɔ;
+ɨ ← ɪ;
+a ← ɑ;
 ʼ ← ʰ;
 ← [ʱ];
 $1ːʲ ← ([pbtd])ʲː;  # [bːʲeː] ← [bʲːeː]

@@ -9,7 +9,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 <ldmlBCP47>
 	<version number="$Revision$" />
 	<keyword>
-		<key extension="t" name="m0" description="Transform extension mechanism" since="21">
+		<key extension="t" name="m0" description="Transform extension mechanism:
+			to reference an authority or rules for a type of transformation" since="21">
 			<type name="alaloc" description="American Library Association-Library of Congress" since="21"/>
 			<type name="bgn" description="US Board on Geographic Names" since="21"/>
 			<type name="buckwalt" description="Buckwalter Arabic transliteration system" since="22.1"/>
@@ -29,6 +30,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type name="unicode" description="to hex with the Unicode syntax: U+0061 U+1F4D6, spacing where necessary" since="29"/>
 			<type name="xml" description="for hex transforms, using the xml syntax: &amp;#x61;&amp;#x1F4D6;" since="29"/>
 			<type name="xml10" description="for hex transforms, using the xml decimal syntax: &amp;#97;&amp;#128214;" since="29"/>
+			<type name="prprname" description="transform variant for proper names" since="29" alias="names"/>
 		</key>
 	</keyword>
 </ldmlBCP47>

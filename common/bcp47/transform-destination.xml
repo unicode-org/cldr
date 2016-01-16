@@ -27,7 +27,6 @@
 			<type name="fcc" description="map string to the FCC format; http://unicode.org/notes/tn5" since="29"/>
 			<type name="charname" description="map each character to its Unicode name" since="29" alias="name"/>
 			<type name="npinyin" description="map pinyin written with tones to the numeric form" since="29" alias="numericPinyin"/>
-			<type name="prprname" description="transform variant for proper names" since="29" alias="names"/>
 			<type name="null" description="make no change in the string" since="29"/>
 			<type name="remove" description="remove every character in the string" since="29"/>
 		</key>

@@ -412,6 +412,7 @@ public class GenerateSubdivisions {
 
         static final Map<String, R2<List<String>, String>> subdivisionAliases = SDI.getLocaleAliasInfo().get("subdivision");
 
+
         private static String getBestName(String value) {
             String cldrName = NAME_CORRECTIONS.get(value);
             if (cldrName != null) {
@@ -434,7 +435,7 @@ public class GenerateSubdivisions {
         final String code;
         final int level;
         final SubdivisionNode parent;
-        final Map<String, SubdivisionNode> children = new LinkedHashMap<>();
+        final Map<String, SubdivisionNode> children = new TreeMap<>(ROOT_COL);
 
         public SubdivisionNode(String code, SubdivisionNode parent) {
             this.code = code;

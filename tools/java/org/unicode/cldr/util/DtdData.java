@@ -1449,6 +1449,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "angle-revolution", "angle-radian", "angle-degree", "angle-arc-minute", "angle-arc-second",
         "area-square-kilometer", "area-hectare", "area-square-meter", "area-square-centimeter",
         "area-square-mile", "area-acre", "area-square-yard", "area-square-foot", "area-square-inch",
+        "concentration-milligram-per-deciliter", "concentration-millimole-per-liter",
+        "concentration-part-per-million",
         "consumption-liter-per-kilometer", "consumption-liter-per-100kilometers",
         "consumption-mile-per-gallon",
         "digital-terabyte", "digital-terabit", "digital-gigabyte", "digital-gigabit",

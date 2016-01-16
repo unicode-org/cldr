@@ -156,10 +156,12 @@ public class CLDRTransforms {
 
             addDependency("Han-Latin-Names", "Han-Latin");
 
+            addDependency("hy-am", "hy-hy_FONIPA", "am-am_FONIPA");
             addDependency("pl-am", "pl-pl_FONIPA", "am-am_FONIPA");
             addDependency("pl-ja", "pl-pl_FONIPA", "pl_FONIPA-ja");
             addDependency("ro-am", "ro-ro_FONIPA", "am-am_FONIPA");
             addDependency("ro-ja", "ro-ro_FONIPA", "ro_FONIPA-ja");
+            addDependency("si-am", "si-si_FONIPA", "am-am_FONIPA");
             addDependency("sk-am", "sk-sk_FONIPA", "am-am_FONIPA");
             addDependency("sk-ja", "sk-sk_FONIPA", "sk_FONIPA-ja");
             addDependency("Latin-Bopomofo", "Latin-NumericPinyin");

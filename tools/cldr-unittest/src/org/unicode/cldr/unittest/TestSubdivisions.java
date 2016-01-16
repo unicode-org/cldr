@@ -31,16 +31,20 @@ public class TestSubdivisions extends TestFmwkPlus {
         Set<String> containers = SDI.getContainersForSubdivisions();
         assertNotNull("subdivision containers", containers);
         Set<String> states = SDI.getContainedSubdivisions("US");
+        
         assertRelation("US contains CA", true, states, TestFmwkPlus.CONTAINS, "US-CA");
 
-        // <subgroup type="NZ" contains="S N CIT"/>
-        assertEquals("NZ",
-            new HashSet<String>(Arrays.asList("NZ-S", "NZ-N", "NZ-CIT")),
-            SDI.getContainedSubdivisions("NZ"));
-        // <subgroup type="NZ" subtype="S" contains="TAS MBH STL OTA CAN NSN WTC"/>
-        assertEquals("NZ",
-            new HashSet<String>(Arrays.asList("NZ-TAS", "NZ-MBH", "NZ-STL", "NZ-OTA", "NZ-CAN", "NZ-NSN", "NZ-WTC")),
-            SDI.getContainedSubdivisions("NZ-S"));
+        /*
+         * <subgroup type="BE" contains="WAL BRU VLG"/>
+         * <subgroup type="BE" subtype="WAL" contains="WLX WNA WHT WBR WLG"/>
+         * <subgroup type="BE" subtype="VLG" contains="VBR VWV VAN VLI VOV"/>
+         */
+        assertEquals("BE",
+            new HashSet<String>(Arrays.asList("BE-WAL", "BE-BRU", "BE-VLG")),
+            SDI.getContainedSubdivisions("BE"));
+        assertEquals("BE",
+            new HashSet<String>(Arrays.asList("BE-WLX", "BE-WNA", "BE-WHT", "BE-WBR", "BE-WLG")),
+            SDI.getContainedSubdivisions("BE-WAL"));
     }
 
     public void TestEnglishNames() {

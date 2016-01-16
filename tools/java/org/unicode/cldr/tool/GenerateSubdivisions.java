@@ -313,7 +313,8 @@ public class GenerateSubdivisions {
             // <subdivisions>
             // <subdivisiontype="NZ-AUK">Auckland</territory>
             output.append(
-                header(DtdType.ldml)
+                //header(DtdType.ldml)
+                DtdType.ldml.header("GenerateSubdivisions")
                 + "<ldml>\n"
                 + "\t<identity>\n"
                 + "\t\t<version number=\"$Revision: 11611 $\"/>\n"
@@ -427,7 +428,7 @@ public class GenerateSubdivisions {
         }
 
         private static String fixName(String name) {
-            return nfc.normalize(name.replace('\'', '’').replace("  ", " ").trim());
+            return name == null ? null : nfc.normalize(name.replace('\'', '’').replace("  ", " ").trim());
         }
 
         final String code;
@@ -532,25 +533,25 @@ public class GenerateSubdivisions {
             </subdivisionContainment>
              */
             output.append(
-                header(DtdType.supplementalData)
-                + "\n"
-                + "<supplementalData>\n"
+                DtdType.supplementalData.header("GenerateSubdivisions")
+                //+ "\n"
+                //+ "<supplementalData>\n"
                 + "    <version number='$Revision: 8268 $'/>\n"
                 + "\t<subdivisionContainment>\n");
             printXml(output, BASE, 0);
             output.append("\t</subdivisionContainment>\n</supplementalData>\n");
         }
 
-        private static String header(DtdType type) {
-            return "<?xml version='1.0' encoding='UTF-8' ?>\n"
-                + "<!DOCTYPE " + type // supplementalData
-                + " SYSTEM '../../" + type.dtdPath + "'>\n" // "common/dtd/ldmlSupplemental.dtd"
-                + "<!--\n"
-                + "Copyright © 1991-2013 Unicode, Inc.\n"
-                + "CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)\n"
-                + "For terms of use, see http://www.unicode.org/copyright.html\n"
-                + "-->\n";
-        }
+//        private static String header(DtdType type) {
+//            return "<?xml version='1.0' encoding='UTF-8' ?>\n"
+//                + "<!DOCTYPE " + type // supplementalData
+//                + " SYSTEM '../../" + type.dtdPath + "'>\n" // "common/dtd/ldmlSupplemental.dtd"
+//                + "<!--\n"
+//                + "Copyright © 1991-2013 Unicode, Inc.\n"
+//                + "CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)\n"
+//                + "For terms of use, see http://www.unicode.org/copyright.html\n"
+//                + "-->\n";
+//        }
 
         private static void printAliases(Appendable output) throws IOException {
             for (Entry<String, String> entry : TO_COUNTRY_CODE.entrySet()) {

@@ -36,7 +36,7 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 #     writes as */y/.
 
 $IPA_VOWEL = [aeəiɨou];
-$IPA_CONSONANT = [mnɲɴ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvs{sʼ}zʃʒh lr {t͡ʃ}{t͡ʃʼ}{d͡ʒ}];
+$IPA_CONSONANT = [mnɲɴ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvs{sʼ}zʃʒxh lr {t͡ʃ}{t͡ʃʼ}{d͡ʒ}];
 
 # Some consonants have a special syllable when labialized, such as ፗ ↔ /pʷa/.
 # Amharic restricts this mostly to /a/ syllables. While the Ethiopic script
@@ -732,7 +732,7 @@ r ← [ɾ ɽ ʁ];
 rːʒ ← r̝ː;
 rʒ ← r̝;
 
-h ← [ç x χ];  # TODO: Use x instead.
+x ← [ç x χ];
 ʕ ← ʕ̝;
 h ← ɦ;
 j ← [ʝ ʲ];

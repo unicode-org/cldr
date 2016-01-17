@@ -10,7 +10,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     $Revision$
 -->
 
-<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?) >
+<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?) >
 
 <!ELEMENT version EMPTY >
 <!ATTLIST version number CDATA #REQUIRED >
@@ -302,6 +302,21 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST paperSize references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST paperSize alt NMTOKENS #IMPLIED >
+
+<!ELEMENT unitPreferenceData ( unitPreferences* ) >
+
+<!ELEMENT unitPreferences ( unitPreference* ) >
+<!ATTLIST unitPreferences category NMTOKEN #REQUIRED >
+<!ATTLIST unitPreferences usage NMTOKENS #REQUIRED >
+<!ATTLIST unitPreferences scope (small) #IMPLIED >
+
+<!ELEMENT unitPreference  ( #PCDATA ) >
+<!ATTLIST unitPreference regions NMTOKENS #REQUIRED >
+<!ATTLIST unitPreference draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST unitPreference references CDATA #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST unitPreference alt NMTOKENS #IMPLIED >
 
 <!ELEMENT timezoneData ( mapTimezones*, zoneFormatting* ) >
     <!--@DEPRECATED-->

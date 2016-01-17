@@ -4709,6 +4709,131 @@ XXX Code for transations where no currency is involved
           <paperSize type="US-Letter"  territories="BZ CA CL CO CR GT MX NI PA PH PR SV US VE"/>
     </measurementData>
 
+	<unitPreferenceData>
+		<unitPreferences category="area" usage="land-agricultural">
+			<unitPreference regions="001">hectare</unitPreference>
+			<unitPreference regions="GB US">acre</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="area" usage="land-commercial">
+			<unitPreference regions="001">hectare</unitPreference>
+			<unitPreference regions="GB US">acre</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="area" usage="land-residential">
+			<unitPreference regions="001">hectare</unitPreference>
+			<unitPreference regions="GB US">acre</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="concentration" usage="blood-glucose">
+			<!-- About 60% of regions use mg/dL, the rest mmol/L, some show both; does not follow metric vs imperial -->
+			<unitPreference regions="001">milligram-per-deciliter</unitPreference>
+			<unitPreference regions="AG AI AO AU BA BG BH BM BN BW BY CA CH CM CN CZ DK DM EE FI FJ GB GD HK HR HU IE IM IS KE KN KW KZ LC LI LT LU LV ME MG MK MO MS MT MU MY MZ NA NL NO NZ OM PG RS RU SE SG SI SK TC TO UA UG VC VG VN VU ZA">millimole-per-liter</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="consumption" usage="vehicle-fuel">
+			<unitPreference regions="001">liter-per-100kilometers</unitPreference>
+			<unitPreference regions="BR IT JP KR MX MY TH TR">liter-per-kilometer</unitPreference>
+			<unitPreference regions="CA GB" alt="informal">mile-per-gallon-imperial</unitPreference>
+			<unitPreference regions="NL" alt="informal">liter-per-kilometer</unitPreference>
+			<!--<unitPreference regions="NO SE" alt="informal">liter-per-mile-scandinavian</unitPreference>-->
+			<unitPreference regions="US">mile-per-gallon</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="duration" usage="music-track">
+			<unitPreference regions="001">minute second</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="duration" usage="person-age">
+			<unitPreference regions="001">year-person month-person</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="duration" usage="tv-program">
+			<unitPreference regions="001">minute second</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="energy" usage="food">
+			<unitPreference regions="001">foodcalorie</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="energy" usage="person-usage">
+			<unitPreference regions="001">kilocalorie</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="length" usage="person">
+			<unitPreference regions="001">centimeter</unitPreference>
+			<unitPreference regions="BR CN DE DK MX NL NO PL PT RU" alt="informal">meter centimeter</unitPreference>
+			<unitPreference regions="DZ EG ES FR HK IT JO SA SE TR">meter centimeter</unitPreference>
+			<unitPreference regions="GB US" alt="informal">foot inch</unitPreference>
+			<unitPreference regions="US">inch</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="length" usage="person" scope="small">
+			<unitPreference regions="001">centimeter</unitPreference>
+			<unitPreference regions="GB" alt="informal">inch</unitPreference>
+			<unitPreference regions="US">inch</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="length" usage="rainfall">
+			<unitPreference regions="001">millimeter</unitPreference>
+			<unitPreference regions="BR">centimeter</unitPreference>
+			<unitPreference regions="US">inch</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="length" usage="road">
+			<unitPreference regions="001">kilometer</unitPreference>
+			<unitPreference regions="GB US">mile</unitPreference>
+			<unitPreference regions="SE" alt="informal">mile-scandinavian</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="length" usage="road" scope="small">
+			<unitPreference regions="001">meter</unitPreference>
+			<unitPreference regions="GB">yard</unitPreference>
+			<unitPreference regions="US">foot</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="length" usage="snowfall">
+			<unitPreference regions="001">centimeter</unitPreference>
+			<unitPreference regions="US">inch</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="length" usage="vehicle">
+			<unitPreference regions="001">meter</unitPreference>
+			<unitPreference regions="GB US">foot inch</unitPreference>
+			<unitPreference regions="MX">meter centimeter</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="length" usage="visibility">
+			<unitPreference regions="001">kilometer</unitPreference>
+			<unitPreference regions="DE NL">meter</unitPreference>
+			<unitPreference regions="US">mile</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="length" usage="visibility" scope="small">
+			<unitPreference regions="001">meter</unitPreference>
+			<unitPreference regions="US">foot</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="mass" usage="person">
+			<unitPreference regions="001">kilogram</unitPreference>
+			<unitPreference regions="GB">stone pound</unitPreference>
+			<unitPreference regions="US">pound</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="mass" usage="person" scope="small">
+			<unitPreference regions="001">gram</unitPreference>
+			<unitPreference regions="DZ EG ES JO SA">kilogram gram</unitPreference>
+			<unitPreference regions="GB HK US">pound ounce</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="pressure" usage="barometric">
+			<unitPreference regions="001">hectopascal</unitPreference>
+			<unitPreference regions="EG TH">millibar</unitPreference>
+			<unitPreference regions="MX RU">millimeter-of-mercury</unitPreference>
+			<unitPreference regions="US">inch-hg</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="speed" usage="road-travel">
+			<unitPreference regions="001">kilometer-per-hour</unitPreference>
+			<unitPreference regions="GB US">mile-per-hour</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="speed" usage="wind">
+			<unitPreference regions="001">kilometer-per-hour</unitPreference>
+			<unitPreference regions="FI KR NO PL RU SE">meter-per-second</unitPreference>
+			<unitPreference regions="US">mile-per-hour</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="temperature" usage="person">
+			<unitPreference regions="001">celsius</unitPreference>
+			<unitPreference regions="US">fahrenheit</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="temperature" usage="weather">
+			<unitPreference regions="001">celsius</unitPreference>
+			<unitPreference regions="BS BZ KY PR PW US">fahrenheit</unitPreference>
+		</unitPreferences>
+		<unitPreferences category="volume" usage="vehicle-fuel">
+			<unitPreference regions="001">liter</unitPreference>
+			<unitPreference regions="US">gallon</unitPreference>
+		</unitPreferences>
+	</unitPreferenceData>
+
     <!-- start of data generated with CountItems tool per http://sites.google.com/site/cldr/development/updating-codes/update-languagescriptregion-subtags -->
     <codeMappings>
         <territoryCodes type="AA" numeric="958" alpha3="AAA"/>

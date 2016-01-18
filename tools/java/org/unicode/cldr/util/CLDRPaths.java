@@ -51,6 +51,10 @@ public class CLDRPaths {
     public static final String LAST_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-" +
         ToolConstants.PREVIOUS_CHART_VERSION +
         "/";
+    public static final String LAST_COMMON_DIRECTORY =
+	CldrUtility.getPath(CLDRPaths.LAST_DIRECTORY, "common/");
+    public static final String LAST_TRANSFORMS_DIRECTORY =
+	CldrUtility.getPath(CLDRPaths.LAST_COMMON_DIRECTORY, "transforms/");
     public static final String GEN_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_GEN_DIR",
         CldrUtility.getPath(EXTERNAL_DIRECTORY, "Generated/cldr/")));
     public static final String DATA_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_EXT_DATA_DIR",

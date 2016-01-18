@@ -5,8 +5,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.MatchResult;
@@ -181,23 +184,78 @@ public class TestTransforms extends TestFmwkPlus {
         transliterator, roundtrip
     };
 
-    private void checkTransformIDs(String path, String aliases) {
-        if (aliases != null) {
-            for (String id : aliases.split("\\s+")) {
-		if (id.indexOf("-t-") > 0) {
-		    String expected = ULocale.forLanguageTag(id).toLanguageTag();		    
-		    if (!id.equals(expected)) {
-			errln(path + ": BCP47-T identifier \"" +
-			      id + "\" should be \"" + expected + "\"");			
-		    }
-		}
+    private String makeLegacyTransformID(String source, String target, String variant) {
+	if (variant != null) {
+	    return source + "-" + target + "/" + variant;
+	} else {
+	    return source + "-" + target;
+	}
+    }
+
+    private void checkTransformID(String id, File file) {
+	if (id.indexOf("-t-") > 0) {
+	    String expected = ULocale.forLanguageTag(id).toLanguageTag();
+	    if (!id.equals(expected)) {
+		errln(file.getName() + ": BCP47-T identifier \"" +
+		      id + "\" should be \"" + expected + "\"");			
 	    }
         }
     }
 
-    public void TestTransformIDs() {
-	final File transformsDir = new File(CLDRPaths.TRANSFORMS_DIRECTORY);
-	for (File file : transformsDir.listFiles()) {
+    private void addTransformID(String id, File file, Map<String, File> ids) {
+	File oldFile = ids.get(id);
+	if (oldFile == null || oldFile.equals(file)) {
+	    ids.put(id, file);
+	} else {
+	    errln(file.getName() + ": Transform \"" + id +
+		  "\" already defined in " + oldFile.getName());
+	}
+    }
+
+    private void addTransformIDs(File file, XPathParts parts, int element, Map<String, File> ids) {
+	String source = parts.getAttributeValue(element, "source");
+	String target = parts.getAttributeValue(element, "target");
+	String variant = parts.getAttributeValue(element, "variant");
+	String direction = parts.getAttributeValue(element, "direction");
+
+	if (source != null && target != null) {
+	    if ("forward".equals(direction)) {
+		addTransformID(makeLegacyTransformID(source, target, variant), file, ids);
+	    } else if ("both".equals(direction)) {
+		addTransformID(makeLegacyTransformID(source, target, variant), file, ids);
+		addTransformID(makeLegacyTransformID(target, source, variant), file, ids);
+	    }
+	}
+
+	String alias = parts.getAttributeValue(element, "alias");
+	if (alias != null) {
+	    for (String id : alias.split("\\s+")) {
+		addTransformID(id, file, ids);
+	    }
+	}
+
+	String backwardAlias = parts.getAttributeValue(element, "backwardAlias");
+	if (backwardAlias != null) {
+	    if (!"both".equals(direction)) {
+		errln(file.getName() + ": Expected direction=\"both\" " +
+		      "when backwardAlias is present");
+	    }
+
+	    for (String id : backwardAlias.split("\\s+")) {
+		addTransformID(id, file, ids);
+	    }
+	}
+    }
+
+    private Map<String, File> getTransformIDs(String transformsDirectoryPath) {
+	Map<String, File> ids = new HashMap<String, File>();
+	File dir = new File(transformsDirectoryPath);
+	if (!dir.exists()) {
+	    errln("Cannot find transforms directory at " + transformsDirectoryPath);
+	    return ids;
+	}
+
+	for (File file : dir.listFiles()) {
 	    if (!file.getName().endsWith(".xml")) {
 		continue;
 	    }
@@ -208,17 +266,34 @@ public class TestTransforms extends TestFmwkPlus {
 		if (xpath.startsWith("//supplementalData/transforms/transform[")) {
 		    String fileName = file.getName();
 		    XPathParts parts = XPathParts.getFrozenInstance(xpath);
-		    String alias = parts.getAttributeValue(2, "alias");
-		    String backwardAlias = parts.getAttributeValue(2, "backwardAlias");
-		    String direction = parts.getAttributeValue(2, "direction");
-		    checkTransformIDs(fileName, alias);
-		    checkTransformIDs(fileName, backwardAlias);
-		    if ((backwardAlias != null) && !"both".equals(direction)) {
-			errln(fileName + ": Expected direction=\"both\" " +
-			      "when backwardAlias is present");
-		    }
-		    break;
+		    addTransformIDs(file, parts, 2, ids);
 		}
+	    }
+	}
+	return ids;
+    }
+
+    public void TestTransformIDs() {
+        Map<String, File> transforms = getTransformIDs(CLDRPaths.TRANSFORMS_DIRECTORY);
+        for (Map.Entry<String, File> entry : transforms.entrySet()) {
+	    checkTransformID(entry.getKey(), entry.getValue());
+        }
+
+ 	// Only run the rest in exhaustive mode since it requires CLDR_ARCHIVE_DIRECTORY.
+        if (getInclusion() <= 5) {
+            return;
+        }
+
+	Set<String> removedTransforms = new HashSet<String>();
+	removedTransforms.add("ASCII-Latin");  // http://unicode.org/cldr/trac/ticket/9163
+
+        Map<String, File> oldTransforms = getTransformIDs(CLDRPaths.LAST_TRANSFORMS_DIRECTORY);
+        for (Map.Entry<String, File> entry : oldTransforms.entrySet()) {
+	    String id = entry.getKey();
+	    if (!transforms.containsKey(id) && !removedTransforms.contains(id)) {
+		File oldFile = entry.getValue();
+		errln("Missing transform \"" + id +
+		      "\"; the previous CLDR release had defined it in " + oldFile.getName());
 	    }
 	}
     }

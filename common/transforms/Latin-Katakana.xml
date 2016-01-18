@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Latn" target="Kana" direction="both" alias="Latin-Katakana und-Kana-t-und-Latn" backwardAlias="Katakana-Latin und-Latn-t-und-Kana">
+		<transform source="Latn" target="Kana" direction="both" alias="Latin-Katakana und-Kana-t-und-latn" backwardAlias="Katakana-Latin und-Latn-t-und-kana">
 			<tRule>
 # note: a global filter is more efficient, but MUST include all source chars
 #:: [\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟ [:Latin:][:Katakana:] [:nonspacing mark:]] ;

@@ -6,7 +6,7 @@ terms of use, see http://www.unicode.org/copyright.html -->
 <supplementalData>
 	<version number="$Revision$" />
 	<transforms>
-		<transform source="uz_Cyrl" target="uz_Latn" direction="both" alias="uz-Latn-t-uz-Cyrl" backwardAlias="uz-Cyrl-t-uz-Latn">
+		<transform source="uz_Cyrl" target="uz_Latn" direction="both" alias="uz-Latn-t-uz-cyrl" backwardAlias="uz-Cyrl-t-uz-latn">
 			<tRule><![CDATA[
 # Rules are predicated on running NFD first, and NFC afterwards
 :: NFD (NFC) ;

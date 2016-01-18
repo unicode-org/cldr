@@ -186,7 +186,6 @@ public class GenerateValidityXml {
         // add them as deprecated
         Map<Status, Set<String>> subdivisionData = VALIDITY.getData().get(LstrType.subdivision);
         TreeSet<String> missing = new TreeSet<>();
-        TreeSet<String> newCodes = new TreeSet<>();
         for (Entry<Status, Set<String>> entry : subdivisionData.entrySet()) {
             missing.addAll(entry.getValue());
         }
@@ -241,7 +240,7 @@ public class GenerateValidityXml {
                     }
                     if (subtype == Status.regular) {
                         Info subInfo = Info.getInfo("subdivision");
-                        subInfo.statusMap.put(Status.special, code + "-" + "ZZZZ");
+                        subInfo.statusMap.put(Status.unknown, code + "-" + "ZZZZ");
                     }
                     break;
                 case script:

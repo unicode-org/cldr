@@ -12,9 +12,12 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
@@ -47,8 +50,11 @@ public class TestSubdivisions extends TestFmwkPlus {
             SDI.getContainedSubdivisions("BE-WAL"));
     }
 
+
     public void TestEnglishNames() {
         final Map<String, R2<List<String>, String>> subdivisionAliases = SDI.getLocaleAliasInfo().get("subdivision");
+        final Validity VALIDITY = Validity.getInstance();
+        Set<String> deprecated = VALIDITY.getData().get(LstrType.subdivision).get(Status.deprecated);
 
         // <subdivision type="AL-DI">Dibër</subdivision>   <!-- in AL-09 : Dibër -->
 
@@ -62,6 +68,9 @@ public class TestSubdivisions extends TestFmwkPlus {
             }
             String value = entry.getSecond();
             final String subdivision = parts.getAttributeValue(-1, "type");
+            if (deprecated.contains(subdivision)) {
+                continue; // skip deprecated names
+            }
             R2<List<String>, String> subdivisionAlias = subdivisionAliases.get(subdivision);
             if (subdivisionAlias != null) {
                 String country = subdivisionAlias.get0().get(0);

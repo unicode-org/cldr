@@ -1399,7 +1399,7 @@ public class SupplementalDataInfo {
                 String subtypeSince = parts.getAttributeValue(3, "since");
                 String subtypePreferred = parts.getAttributeValue(3, "preferred");
                 String subtypeDeprecated = parts.getAttributeValue(3, "deprecated");
-                
+
                 Set<String> set = bcp47Key2Subtypes.get(key);
                 if (set != null && set.contains(key)) {
                     throw new IllegalArgumentException("Collision with bcp47 key-value: " + key + "," + subtype);
@@ -1621,9 +1621,12 @@ public class SupplementalDataInfo {
                         tagToReplacement = new TreeMap<String, R2<List<String>, String>>());
                 }
                 final String replacement = parts.getAttributeValue(3, "replacement");
+                List<String> replacementList = null;
+                if (replacement != null) {
+                    String cleaned = "subdivision".equals(level3) ? replacement : replacement.replace("-", "_");
+                    replacementList = Arrays.asList(cleaned.split("\\s+"));
+                }
                 final String reason = parts.getAttributeValue(3, "reason");
-                List<String> replacementList = replacement == null ? null : Arrays.asList(replacement.replace("-", "_")
-                    .split("\\s+"));
                 String cleanTag = parts.getAttributeValue(3, "type");
                 tagToReplacement.put(cleanTag, (R2<List<String>, String>) Row.of(replacementList, reason).freeze());
                 return true;

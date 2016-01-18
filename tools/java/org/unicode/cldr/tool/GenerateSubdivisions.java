@@ -3,6 +3,8 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -26,8 +28,10 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
@@ -48,11 +52,21 @@ import com.ibm.icu.util.ULocale;
 
 public class GenerateSubdivisions {
 
-    static final RuleBasedCollator ROOT_COL = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+    static final Comparator<String> ROOT_COL;
     static {
-        ROOT_COL.setNumericCollation(true);
-        ROOT_COL.freeze();
+        RuleBasedCollator _ROOT_COL = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+        _ROOT_COL.setNumericCollation(true);
+        _ROOT_COL.freeze();
+        ROOT_COL = (Comparator<String>) (Comparator) _ROOT_COL;
     }
+    
+    private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
+    private static final CLDRFile ENGLISH_CLDR = CLDR_CONFIG.getEnglish();
+    private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
+    
+    private static final Validity VALIDITY_FORMER = Validity.getInstance();
+    private static final Map<String, R2<List<String>, String>> SUBDIVISION_ALIASES_FORMER = SDI.getLocaleAliasInfo().get("subdivision");
+    private static final SubdivisionNames SUBDIVISION_NAMES_ENGLISH_FORMER = new SubdivisionNames("en");
 
     static Map<String, String> NAME_CORRECTIONS = new HashMap<>();
     static {
@@ -101,11 +115,6 @@ public class GenerateSubdivisions {
     static final Map<String, SubdivisionNode> ID_TO_NODE = new HashMap<>();
 
     static class SubdivisionNode {
-        private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
-
-        private static final CLDRFile ENGLISH_CLDR = CLDR_CONFIG.getEnglish();
-
-        private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
 
         static LocaleDisplayNames ENGLISH_ICU = LocaleDisplayNames.getInstance(ULocale.ENGLISH);
 
@@ -316,6 +325,20 @@ public class GenerateSubdivisions {
         }
 
         public static void printEnglish(Appendable output) throws IOException {
+            Map<Status, Set<String>> oldSubdivisionData = VALIDITY_FORMER.getData().get(LstrType.subdivision);
+            Relation<String,String> regionToOld = Relation.of(new HashMap<String,Set<String>>(), TreeSet.class, ROOT_COL);
+            for (Entry<Status, Set<String>> e : oldSubdivisionData.entrySet()) {
+                final Status status = e.getKey();
+                if (status != Status.unknown) { // special is a hack
+                    for (String sdCode : e.getValue()) {
+                        int pos = sdCode.indexOf('-');
+                        if (pos > 0) {
+                            regionToOld.put(sdCode.substring(0,pos), sdCode);
+                        }
+                    }
+                }
+            }
+
             // <subdivisions>
             // <subdivisiontype="NZ-AUK">Auckland</territory>
             output.append(
@@ -327,7 +350,6 @@ public class GenerateSubdivisions {
                 + "\t</identity>\n"
                 + "\t<localeDisplayNames>\n"
                 + "\t\t<subdivisions>\n");
-            Set<String> missing = new LinkedHashSet<>();
             Set<String> skipped = new LinkedHashSet<>();
 
             for (String regionCode : codeToData.keySet()) {
@@ -337,6 +359,10 @@ public class GenerateSubdivisions {
                     }
                     continue;
                 }
+                Set<String> codesIncluded = new HashSet<>(); // record the ones we did, so we can add others
+                Set<String> remainder = regionToOld.get(regionCode);
+                remainder = remainder == null ? Collections.EMPTY_SET : new LinkedHashSet<>(remainder);
+                
                 SubdivisionNode regionNode = ID_TO_NODE.get(regionCode);
                 output.append("\t\t<!-- ")
                 .append(regionCode).append(" : ")
@@ -351,7 +377,8 @@ public class GenerateSubdivisions {
                 addChildren(ordered, regionNode.children);
 
                 for (SubdivisionNode node : ordered) {
-                    String name = getBestName(node.code, true);
+                    final String sdCode = node.code;
+                    String name = getBestName(sdCode, true);
                     String upper = UCharacter.toUpperCase(name);
                     @SuppressWarnings("deprecation")
                     String title = UCharacter.toTitleFirst(ULocale.ROOT, name);
@@ -359,15 +386,16 @@ public class GenerateSubdivisions {
                         System.out.println("Suspicious name: " + name);
                     }
 
-                    SubdivisionNode sd = ID_TO_NODE.get(node.code);
+                    SubdivisionNode sd = ID_TO_NODE.get(sdCode);
 
                     String level = sd.level == 1 ? "" : "\t<!-- in " + sd.parent.code
                         + " : " + TransliteratorUtilities.toXML.transform(getBestName(sd.parent.code, true)) + " -->";
-                    output.append("\t\t\t<subdivision type=\"").append(node.code).append("\">")
-                    .append(TransliteratorUtilities.toXML.transform(name))
-                    .append("</subdivision>")
-                    .append(level)
-                    .append('\n');
+                    appendName(output, sdCode, name, level);
+                    remainder.remove(sdCode);
+                }
+                for (String sdCode : remainder) {
+                    String name = getBestName(sdCode, true);
+                    appendName(output, sdCode, name, "\t<!-- deprecated -->");
                 }
             }
             output.append(
@@ -378,6 +406,18 @@ public class GenerateSubdivisions {
 //            if (!missing.isEmpty()) {
 //                throw new IllegalArgumentException("No name for: " + missing.size() + ", " + missing);
 //            }
+        }
+
+        private static void appendName(Appendable output, final String sdCode, String name, String level) throws IOException {
+            if (name == null) {
+                getBestName(sdCode, true);
+                name = "NAME-UNAVAILABLE";
+            }
+            output.append("\t\t\t<subdivision type=\"").append(sdCode).append("\">")
+            .append(TransliteratorUtilities.toXML.transform(name))
+            .append("</subdivision>")
+            .append(level)
+            .append('\n');
         }
 
         static Map<String, R2<List<String>, String>> territoryAliases = SDI.getLocaleAliasInfo().get("territory");
@@ -411,23 +451,23 @@ public class GenerateSubdivisions {
             }
         }
 
-        static final Map<String, R2<List<String>, String>> subdivisionAliases = SDI.getLocaleAliasInfo().get("subdivision");
 
-        static final SubdivisionNames EN = new SubdivisionNames("en");
 
         private static String getBestName(String value, boolean useIso) {
             String cldrName = null;
-            R2<List<String>, String> subdivisionAlias = subdivisionAliases.get(value);
-            if (subdivisionAlias != null) {
-                String country = subdivisionAlias.get0().get(0);
-                cldrName = ENGLISH_CLDR.getName(CLDRFile.TERRITORY_NAME, country);
-                return fixName(cldrName);
-            }
             cldrName = NAME_CORRECTIONS.get(value);
             if (cldrName != null) {
                 return fixName(cldrName);
             }
-            cldrName = EN.get(value);
+            R2<List<String>, String> subdivisionAlias = SUBDIVISION_ALIASES_FORMER.get(value);
+            if (subdivisionAlias != null) {
+                String country = subdivisionAlias.get0().get(0);
+                cldrName = ENGLISH_CLDR.getName(CLDRFile.TERRITORY_NAME, country);
+                if (cldrName != null) {
+                    return fixName(cldrName);
+                }
+            }
+            cldrName = SUBDIVISION_NAMES_ENGLISH_FORMER.get(value);
             if (cldrName != null) {
                 return fixName(cldrName);
             }
@@ -569,13 +609,75 @@ public class GenerateSubdivisions {
 //        }
 
         private static void printAliases(Appendable output) throws IOException {
-            for (Entry<String, String> entry : TO_COUNTRY_CODE.entrySet()) {
-                // <languageAlias type="art_lojban" replacement="jbo" reason="deprecated"/> <!-- Lojban -->
-                output.append("<subdivisionAlias"
-                    + " type=\"" + entry.getKey() + "\""
-                    + " replacement=\"" + entry.getValue() + "\""
-                    + " reason=\"" + "overlong" + "\"/>\n");
+            addAliases(output, TO_COUNTRY_CODE.keySet());
+
+            // Get the old validity data
+            Map<Status, Set<String>> oldSubdivisionData = VALIDITY_FORMER.getData().get(LstrType.subdivision);
+            Set<String> missing = new TreeSet<>(ROOT_COL);
+            missing.addAll(TO_COUNTRY_CODE.keySet());
+            Set<String> nowValid = ID_TO_NODE.keySet();
+            for (Entry<Status, Set<String>> e : oldSubdivisionData.entrySet()) {
+                Status v = e.getKey();
+                if (v == Status.unknown) {
+                    continue;
+                }
+                Set<String> set = e.getValue();
+                for (String sdcode : set) {
+                    if (!nowValid.contains(sdcode)) {
+                        missing.add(sdcode);
+                    }
+                }
             }
+            missing.removeAll(TO_COUNTRY_CODE.keySet());
+            addAliases(output, missing);
+        }
+
+        private static void addAliases(Appendable output, Set<String> missing) throws IOException {
+            for (String toReplace : missing) {
+                List<String> replaceBy = null;
+                String reason = "deprecated";
+                R2<List<String>, String> aliasInfo = SUBDIVISION_ALIASES_FORMER.get(toReplace);
+                if (aliasInfo != null) {
+                    replaceBy = aliasInfo.get0(); //  == null ? null : CollectionUtilities.join(aliasInfo.get0(), " ");
+                    reason = aliasInfo.get1();
+                } else {
+                    String replacement = TO_COUNTRY_CODE.get(toReplace);
+                    if (replacement != null) {
+                        replaceBy = Collections.singletonList(replacement);
+                        reason = "overlong";
+                    }
+                }
+                addAlias(output, toReplace, replaceBy, reason);
+            }
+        }
+
+        private static void addAlias(Appendable output, final String toReplace, final List<String> replaceBy, final String reason) throws IOException {
+            // <languageAlias type="art_lojban" replacement="jbo" reason="deprecated"/> <!-- Lojban -->
+            output.append("\t\t\t");
+            if (replaceBy == null) {
+                output.append("<!-- ");
+            }
+            output.append("<subdivisionAlias"
+                + " type=\"" + toReplace + "\""
+                + " replacement=\"" + (replaceBy == null ? "??" : CollectionUtilities.join(replaceBy, " ")) + "\""
+                + " reason=\"" + reason + "\"/>"
+                + " <!-- " + getBestName(toReplace, true) + " => " + (replaceBy == null ? "??" : getBestName(replaceBy, true)) + " -->"
+                + "\n");
+        }
+
+        private static String getBestName(List<String> replaceBy, boolean useIso) {
+            StringBuilder result = new StringBuilder();
+            for (String s : replaceBy) {
+                if (result.length() != 0) {
+                    result.append(", ");
+                }
+                if (!s.contains("-")) {
+                    result.append(ENGLISH_CLDR.getName(CLDRFile.TERRITORY_NAME, s));
+                } else {
+                    result.append(getBestName(s, useIso));
+                }
+            }
+            return result.toString();
         }
 
         private static void printXml(Appendable output, SubdivisionNode base2, int indent) throws IOException {

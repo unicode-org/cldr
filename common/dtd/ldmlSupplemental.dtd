@@ -516,7 +516,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT subdivisionAlias EMPTY >
 <!ATTLIST subdivisionAlias type NMTOKEN #REQUIRED >
-<!ATTLIST subdivisionAlias replacement NMTOKEN #REQUIRED >
+<!ATTLIST subdivisionAlias replacement NMTOKENS #REQUIRED >
     <!--@VALUE-->
 <!ATTLIST subdivisionAlias reason (deprecated | overlong) #IMPLIED >
     <!--@VALUE-->

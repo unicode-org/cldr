@@ -37,6 +37,7 @@ public class CLDRPaths {
     public static final String SEED_CASING_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../casing/");
     public static final String EXEMPLARS_DIRECTORY = CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "exemplars/main/");
     public static final String RBNF_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "rbnf/");
+    public static final String TRANSFORMS_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "transforms/");
     public static final String ANNOTATIONS_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "annotations/");
     public static final String TMP_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
         CldrUtility.getPath(BASE_DIRECTORY, "../cldr-tmp/")));

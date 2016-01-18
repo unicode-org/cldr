@@ -3,7 +3,9 @@ package org.unicode.cldr.unittest;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.TreeSet;
@@ -13,8 +15,12 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.XMLFileReader;
+import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -174,6 +180,48 @@ public class TestTransforms extends TestFmwkPlus {
     enum Options {
         transliterator, roundtrip
     };
+
+    private void checkTransformIDs(String path, String aliases) {
+        if (aliases != null) {
+            for (String id : aliases.split("\\s+")) {
+		if (id.indexOf("-t-") > 0) {
+		    String expected = ULocale.forLanguageTag(id).toLanguageTag();		    
+		    if (!id.equals(expected)) {
+			errln(path + ": BCP47-T identifier \"" +
+			      id + "\" should be \"" + expected + "\"");			
+		    }
+		}
+	    }
+        }
+    }
+
+    public void TestTransformIDs() {
+	final File transformsDir = new File(CLDRPaths.TRANSFORMS_DIRECTORY);
+	for (File file : transformsDir.listFiles()) {
+	    if (!file.getName().endsWith(".xml")) {
+		continue;
+	    }
+	    List<Pair<String, String>> data = new ArrayList<>();
+	    XMLFileReader.loadPathValues(file.getPath(), data, true);
+	    for (Pair<String, String> entry : data) {
+		final String xpath = entry.getFirst();
+		if (xpath.startsWith("//supplementalData/transforms/transform[")) {
+		    String fileName = file.getName();
+		    XPathParts parts = XPathParts.getFrozenInstance(xpath);
+		    String alias = parts.getAttributeValue(2, "alias");
+		    String backwardAlias = parts.getAttributeValue(2, "backwardAlias");
+		    String direction = parts.getAttributeValue(2, "direction");
+		    checkTransformIDs(fileName, alias);
+		    checkTransformIDs(fileName, backwardAlias);
+		    if ((backwardAlias != null) && !"both".equals(direction)) {
+			errln(fileName + ": Expected direction=\"both\" " +
+			      "when backwardAlias is present");
+		    }
+		    break;
+		}
+	    }
+	}
+    }
 
     public void Test1461() {
         register();

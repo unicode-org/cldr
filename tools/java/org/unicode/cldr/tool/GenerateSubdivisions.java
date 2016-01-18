@@ -101,14 +101,20 @@ public class GenerateSubdivisions {
     static final Map<String, SubdivisionNode> ID_TO_NODE = new HashMap<>();
 
     static class SubdivisionNode {
+        private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
+
+        private static final CLDRFile ENGLISH_CLDR = CLDR_CONFIG.getEnglish();
+
         private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
 
-        static LocaleDisplayNames ENGLISH = LocaleDisplayNames.getInstance(ULocale.ENGLISH);
+        static LocaleDisplayNames ENGLISH_ICU = LocaleDisplayNames.getInstance(ULocale.ENGLISH);
+
         static final M3<String, String, String> NAMES = ChainedMap.of(
             new TreeMap<String, Object>(),
             new TreeMap<String, Object>(),
             String.class
             );
+
         static final Map<String, String> TO_COUNTRY_CODE = new TreeMap<String, String>();
         static final Relation<String, String> ID_SAMPLE = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         static final Map<String, String> SUB_TO_CAT = new TreeMap<>();
@@ -152,7 +158,7 @@ public class GenerateSubdivisions {
                 String cat = SUB_TO_CAT.get(subCode);
                 String catName = getIsoName(cat);
                 pw.append(
-                    ENGLISH.regionDisplayName(countryCode)
+                    ENGLISH_ICU.regionDisplayName(countryCode)
                     + "\t" + mid
                     + "\t" + subCode
                     + "\t" + catName
@@ -171,14 +177,14 @@ public class GenerateSubdivisions {
                 final String countryCode = entry.getKey();
                 if (!countryCode.equals(lastCC)) {
                     if (lastCC != null && countEqual.size() != 0) {
-                        output.append(ENGLISH.regionDisplayName(lastCC) + "\t\t\tEquals:\t" + countEqual.size() + "\t" + countEqual + "\n");
+                        output.append(ENGLISH_ICU.regionDisplayName(lastCC) + "\t\t\tEquals:\t" + countEqual.size() + "\t" + countEqual + "\n");
                     }
                     countEqual.clear();
                     ;
                     lastCC = countryCode;
                 }
                 for (String value : entry.getValue()) {
-                    String cldrName = getBestName(value);
+                    String cldrName = getBestName(value, false);
                     String wiki = getWikiName(value);
                     final String iso = getIsoName(value);
                     if (iso.equals(wiki)) {
@@ -186,7 +192,7 @@ public class GenerateSubdivisions {
                         continue;
                     }
                     output.append(
-                        ENGLISH.regionDisplayName(countryCode)
+                        ENGLISH_ICU.regionDisplayName(countryCode)
                         + "\t" + WIKIDATA_TO_MID.get(value)
                         + "\t" + cldrName
                         + "\t" + value
@@ -197,7 +203,7 @@ public class GenerateSubdivisions {
                 }
             }
             if (countEqual.size() != 0) {
-                output.append(ENGLISH.regionDisplayName(lastCC) + "\t\t\tEquals:\t" + countEqual.size() + "\t" + countEqual + "\n");
+                output.append(ENGLISH_ICU.regionDisplayName(lastCC) + "\t\t\tEquals:\t" + countEqual.size() + "\t" + countEqual + "\n");
             }
         }
 
@@ -206,12 +212,12 @@ public class GenerateSubdivisions {
             for (Entry<String, Set<String>> entry : SubdivisionNode.REGION_CONTAINS.keyValuesSet()) {
                 final String countryCode = entry.getKey();
                 for (String value : entry.getValue()) {
-                    String cldrName = getBestName(value);
+                    String cldrName = getBestName(value, false);
                     //getBestName(value);
                     String wiki = getWikiName(value);
                     final String iso = getIsoName(value);
                     output.append(
-                        ENGLISH.regionDisplayName(countryCode)
+                        ENGLISH_ICU.regionDisplayName(countryCode)
                         + "\t" + WIKIDATA_TO_MID.get(value)
                         + "\t" + value
                         + "\t" + cldrName
@@ -315,9 +321,8 @@ public class GenerateSubdivisions {
             output.append(
                 //header(DtdType.ldml)
                 DtdType.ldml.header("GenerateSubdivisions")
-                + "<ldml>\n"
                 + "\t<identity>\n"
-                + "\t\t<version number=\"$Revision: 11611 $\"/>\n"
+                + "\t\t<version number=\"$Revision: 1 $\"/>\n"
                 + "\t\t<language type=\"en\"/>\n"
                 + "\t</identity>\n"
                 + "\t<localeDisplayNames>\n"
@@ -335,7 +340,7 @@ public class GenerateSubdivisions {
                 SubdivisionNode regionNode = ID_TO_NODE.get(regionCode);
                 output.append("\t\t<!-- ")
                 .append(regionCode).append(" : ")
-                .append(TransliteratorUtilities.toXML.transform(ENGLISH.regionDisplayName(regionCode)));
+                .append(TransliteratorUtilities.toXML.transform(ENGLISH_ICU.regionDisplayName(regionCode)));
                 if (regionNode == null) {
                     output.append(" : NO SUBDIVISIONS -->\n");
                     continue;
@@ -346,11 +351,7 @@ public class GenerateSubdivisions {
                 addChildren(ordered, regionNode.children);
 
                 for (SubdivisionNode node : ordered) {
-                    String name = getBestName(node.code);
-                    if (name == null) {
-                        missing.add(node.code + ": " + getIsoName(node.code));
-                        continue;
-                    }
+                    String name = getBestName(node.code, true);
                     String upper = UCharacter.toUpperCase(name);
                     @SuppressWarnings("deprecation")
                     String title = UCharacter.toTitleFirst(ULocale.ROOT, name);
@@ -361,7 +362,7 @@ public class GenerateSubdivisions {
                     SubdivisionNode sd = ID_TO_NODE.get(node.code);
 
                     String level = sd.level == 1 ? "" : "\t<!-- in " + sd.parent.code
-                        + " : " + TransliteratorUtilities.toXML.transform(getBestName(sd.parent.code)) + " -->";
+                        + " : " + TransliteratorUtilities.toXML.transform(getBestName(sd.parent.code, true)) + " -->";
                     output.append("\t\t\t<subdivision type=\"").append(node.code).append("\">")
                     .append(TransliteratorUtilities.toXML.transform(name))
                     .append("</subdivision>")
@@ -374,9 +375,9 @@ public class GenerateSubdivisions {
                     + "\t</localeDisplayNames>\n"
                     + "</ldml>");
             System.out.println("Skipping: " + skipped);
-            if (!missing.isEmpty()) {
-                throw new IllegalArgumentException("No name for: " + missing.size() + ", " + missing);
-            }
+//            if (!missing.isEmpty()) {
+//                throw new IllegalArgumentException("No name for: " + missing.size() + ", " + missing);
+//            }
         }
 
         static Map<String, R2<List<String>, String>> territoryAliases = SDI.getLocaleAliasInfo().get("territory");
@@ -412,20 +413,33 @@ public class GenerateSubdivisions {
 
         static final Map<String, R2<List<String>, String>> subdivisionAliases = SDI.getLocaleAliasInfo().get("subdivision");
 
+        static final SubdivisionNames EN = new SubdivisionNames("en");
 
-        private static String getBestName(String value) {
-            String cldrName = NAME_CORRECTIONS.get(value);
-            if (cldrName != null) {
-                return fixName(cldrName);
-            }
+        private static String getBestName(String value, boolean useIso) {
+            String cldrName = null;
             R2<List<String>, String> subdivisionAlias = subdivisionAliases.get(value);
             if (subdivisionAlias != null) {
                 String country = subdivisionAlias.get0().get(0);
-                cldrName = CLDRConfig.getInstance().getEnglish().getName(CLDRFile.TERRITORY_NAME, country);
+                cldrName = ENGLISH_CLDR.getName(CLDRFile.TERRITORY_NAME, country);
                 return fixName(cldrName);
             }
-            cldrName = CldrUtility.ifNull(NAME_CORRECTIONS.get(value), ChartSubdivisions.getSubdivisionName(value));
-            return fixName(cldrName);
+            cldrName = NAME_CORRECTIONS.get(value);
+            if (cldrName != null) {
+                return fixName(cldrName);
+            }
+            cldrName = EN.get(value);
+            if (cldrName != null) {
+                return fixName(cldrName);
+            }
+            if (useIso) {
+                cldrName = getIsoName(value);
+                if (cldrName == null) {
+                    cldrName = "UNKNOWN";
+                    //throw new IllegalArgumentException("Failed to find name: " + value);
+                }
+                return fixName(cldrName);
+            }
+            return null;
         }
 
         private static String fixName(String name) {
@@ -456,7 +470,7 @@ public class GenerateSubdivisions {
             if (lastSubdivision == null) {
                 lastSubdivision = BASE.children.get(region);
                 if (lastSubdivision == null) {
-                    lastSubdivision = new SubdivisionNode(region, BASE).addName("en", ENGLISH.regionDisplayName(region));
+                    lastSubdivision = new SubdivisionNode(region, BASE).addName("en", ENGLISH_ICU.regionDisplayName(region));
                     BASE.children.put(region, lastSubdivision);
                 }
                 return add(lastSubdivision, subdivision);
@@ -617,7 +631,7 @@ public class GenerateSubdivisions {
                         continue;
                     }
                     seen.add(region);
-                    pw.append(";\t" + ENGLISH.regionDisplayName(region) + ": " + getIsoName(sample)
+                    pw.append(";\t" + ENGLISH_ICU.regionDisplayName(region) + ": " + getIsoName(sample)
                         + " (" + sample + ")");
                     //if (--max < 0) break;
                 }

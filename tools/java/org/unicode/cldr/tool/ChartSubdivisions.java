@@ -27,25 +27,8 @@ import com.ibm.icu.impl.Row.R2;
 
 public class ChartSubdivisions extends Chart {
 
-    static final Map<String, String> subdivisionToName = new HashMap<>();
-    static {
-        List<Pair<String, String>> data = new ArrayList<>();
-        XMLFileReader.loadPathValues(CLDRPaths.COMMON_DIRECTORY + "subdivisions/en.xml", data, true);
-        for (Pair<String, String> pair : data) {
-            // <subdivision type="AD-02">Canillo</subdivision>
-            XPathParts path = XPathParts.getFrozenInstance(pair.getFirst());
-            if (!"subdivision".equals(path.getElement(-1))) {
-                continue;
-            }
-            String name = pair.getSecond();
-            subdivisionToName.put(path.getAttributeValue(-1, "type"), name);
-        }
-    }
-
-    public static String getSubdivisionName(String subdivision) {
-        return subdivisionToName.get(subdivision);
-    }
-
+    static SubdivisionNames EN = new SubdivisionNames("en");
+    
     public static void main(String[] args) {
         new ChartSubdivisions().writeChart(null);
     }
@@ -143,7 +126,7 @@ public class ChartSubdivisions extends Chart {
     }
 
     private static String getName(String s1) {
-        return s1.isEmpty() ? "" : TransliteratorUtilities.toHTML.transform(subdivisionToName.get(s1));
+        return s1.isEmpty() ? "" : TransliteratorUtilities.toHTML.transform(CldrUtility.ifNull(EN.get(s1),""));
     }
 
 }

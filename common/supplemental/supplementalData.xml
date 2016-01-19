@@ -4753,13 +4753,13 @@ XXX Code for transations where no currency is involved
 		<unitPreferences category="length" usage="person">
 			<unitPreference regions="001">centimeter</unitPreference>
 			<unitPreference regions="BR CN DE DK MX NL NO PL PT RU" alt="informal">meter centimeter</unitPreference>
-			<unitPreference regions="DZ EG ES FR HK IT JO SA SE TR">meter centimeter</unitPreference>
-			<unitPreference regions="GB US" alt="informal">foot inch</unitPreference>
+			<unitPreference regions="AT BE DZ EG ES FR HK ID IL IT JO MY SA SE TR VN">meter centimeter</unitPreference>
+			<unitPreference regions="CA GB IN US" alt="informal">foot inch</unitPreference>
 			<unitPreference regions="US">inch</unitPreference>
 		</unitPreferences>
 		<unitPreferences category="length" usage="person" scope="small">
 			<unitPreference regions="001">centimeter</unitPreference>
-			<unitPreference regions="GB" alt="informal">inch</unitPreference>
+			<unitPreference regions="CA GB IN" alt="informal">inch</unitPreference>
 			<unitPreference regions="US">inch</unitPreference>
 		</unitPreferences>
 		<unitPreferences category="length" usage="rainfall">
@@ -4789,11 +4789,11 @@ XXX Code for transations where no currency is involved
 		<unitPreferences category="length" usage="visibility">
 			<unitPreference regions="001">kilometer</unitPreference>
 			<unitPreference regions="DE NL">meter</unitPreference>
-			<unitPreference regions="US">mile</unitPreference>
+			<unitPreference regions="GB US">mile</unitPreference>
 		</unitPreferences>
 		<unitPreferences category="length" usage="visibility" scope="small">
 			<unitPreference regions="001">meter</unitPreference>
-			<unitPreference regions="US">foot</unitPreference>
+			<unitPreference regions="GB US">foot</unitPreference>
 		</unitPreferences>
 		<unitPreferences category="mass" usage="person">
 			<unitPreference regions="001">kilogram</unitPreference>
@@ -4807,9 +4807,9 @@ XXX Code for transations where no currency is involved
 		</unitPreferences>
 		<unitPreferences category="pressure" usage="barometric">
 			<unitPreference regions="001">hectopascal</unitPreference>
-			<unitPreference regions="EG TH">millibar</unitPreference>
+			<unitPreference regions="BR EG GB IL TH">millibar</unitPreference>
 			<unitPreference regions="MX RU">millimeter-of-mercury</unitPreference>
-			<unitPreference regions="US">inch-hg</unitPreference>
+			<unitPreference regions="IN US">inch-hg</unitPreference>
 		</unitPreferences>
 		<unitPreferences category="speed" usage="road-travel">
 			<unitPreference regions="001">kilometer-per-hour</unitPreference>

@@ -4,9 +4,12 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
+
+import com.google.common.collect.ImmutableSet;
 
 /**
  * A mapper that converts BCP 47 data from CLDR to the ICU data structure.
@@ -14,9 +17,9 @@ import org.xml.sax.SAXException;
  * @author jchye
  */
 public class Bcp47Mapper {
-    private static final String[] KEYTYPE_FILES = {
-        "calendar", "collation", "currency", "number", "variant"
-    };
+//    private static final String[] KEYTYPE_FILES = {
+//        "calendar", "collation", "currency", "number", "variant"
+//    };
     private String sourceDir;
 
     public Bcp47Mapper(String bcp47Dir) {
@@ -34,13 +37,21 @@ public class Bcp47Mapper {
 
         // Process the rest of the data.
         IcuData keyTypeData = new IcuData("common/bcp47/*.xml", "keyTypeData", false);
-        for (String filename : KEYTYPE_FILES) {
-            fillFromFile(filename, keyTypeData, keyMap);
+        for (File file : new File(sourceDir).listFiles()) {
+            final String filenameXml = file.getName();
+            if (filenameXml.endsWith(".xml") && !filenameXml.equals("timezone.xml")) {
+                fillFromFile(filenameXml.substring(0,filenameXml.length()-4), 
+                    keyTypeData, keyMap);
+            }
         }
         // Add all the keyMap values into the IcuData file.
         for (Entry<String, String> kmData : keyMap.entrySet()) {
             String bcpKey = kmData.getKey();
             String key = kmData.getValue();
+            if (bcpKey.startsWith("@")) {
+                keyTypeData.add("/" + bcpKey.substring(1), key);
+                continue;
+            }
             if (bcpKey.equals(key)) {
                 // empty value to indicate the BCP47 key is same with the legacy key
                 bcpKey = "";
@@ -58,6 +69,11 @@ public class Bcp47Mapper {
         KeywordHandler handler = new KeywordHandler(icuData, keyMap);
         MapperUtils.parseFile(new File(sourceDir, filename + ".xml"), handler);
     }
+
+    static final Set<String> SKIP_KEY_ATTRIBUTES = ImmutableSet.of(
+        "name", "alias", "description", "since", "extension");
+    static final Set<String> SKIP_TYPE_ATTRIBUTES = ImmutableSet.of(
+        "name", "alias", "description", "since", "preferred");
 
     /**
      * XML parser for BCP47 data.
@@ -102,8 +118,8 @@ public class Bcp47Mapper {
                 String keyAlias = attr.getValue("alias");
                 if (keyAlias == null) {
                     keyAlias = keyName;
-                    System.err.println(Bcp47Mapper.class.getSimpleName() + " Info: BCP47 key " + keyName
-                        + " didn't have the optional alias= value, mapping " + keyName + "->" + keyName);
+//                    System.err.println(Bcp47Mapper.class.getSimpleName() + " Info: BCP47 key " + keyName
+//                        + " didn't have the optional alias= value, mapping " + keyName + "->" + keyName);
                 }
 
                 keyName = keyName.toLowerCase();
@@ -113,6 +129,8 @@ public class Bcp47Mapper {
                 typeMapPrefix = "/typeMap/" + keyAlias + '/';
                 keyMap.put(keyName, keyAlias);
                 bcpTypeAliasPrefix = "/bcpTypeAlias/" + keyName + '/';
+
+                addOtherInfo(qName, attr, keyName, SKIP_KEY_ATTRIBUTES);
             } else if (qName.equals("type")) {
                 String typeName = attr.getValue("name");
                 if (typeName == null) {
@@ -140,6 +158,19 @@ public class Bcp47Mapper {
                         icuData.add(typeAliasPrefix + formatName(aliases[i]), mainAlias);
                     }
                 }
+                addOtherInfo(qName, attr, typeName, SKIP_KEY_ATTRIBUTES);
+            }
+        }
+
+        private void addOtherInfo(String qName, Attributes attr, String typeName, Set<String> excludedAttributes) {
+            for (int i = 0; i < attr.getLength(); ++i) {
+                String name = attr.getQName(i);
+                String value = attr.getValue(i);
+                if (excludedAttributes.contains(name)
+                    || name.equals("deprecated") && value.equals("false")) {
+                    continue;
+                }
+                keyMap.put("@" + qName + "Info/" + name + "/" + typeName, value);
             }
         }
 

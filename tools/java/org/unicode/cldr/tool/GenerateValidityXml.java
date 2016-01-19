@@ -234,6 +234,11 @@ public class GenerateValidityXml {
                     subtype = Validity.Status.private_use;
                 }
                 switch (type) {
+                case language:
+                    if (code.equals("root")) {
+                        continue;
+                    }
+                    break;
                 case region:
                     if (containment.contains(code)) {
                         subtype = Validity.Status.macroregion;

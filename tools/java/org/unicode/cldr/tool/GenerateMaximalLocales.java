@@ -65,7 +65,6 @@ import com.ibm.icu.util.ULocale;
  * @author markdavis
  *
  */
-@SuppressWarnings("unchecked")
 public class GenerateMaximalLocales {
 
     private static final String DEBUG_ADD_KEY = "und_Latn_ZA";
@@ -95,7 +94,8 @@ public class GenerateMaximalLocales {
         .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
     private static StandardCodes standardCodes = StandardCodes.make();
     private static CLDRFile english = factory.make("en", false);
-    static Relation<String, String> cldrContainerToLanguages = Relation.of(new HashMap(), HashSet.class);
+    static Relation<String, String> cldrContainerToLanguages =
+            Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
     static {
         for (CLDRLocale locale : ToolConfig.getToolInstance().getCldrFactory().getAvailableCLDRLocales()) {
             String region = locale.getCountry();
@@ -587,7 +587,7 @@ public class GenerateMaximalLocales {
         Map<String, Counter<String>> regionsToLanguages = new TreeMap<String, Counter<String>>();
         Map<String, Counter<String>> regionsToScripts = new TreeMap<String, Counter<String>>();
 
-        Map<String, Counter<Row.R2<String, String>>> containersToLanguage = new TreeMap();
+        Map<String, Counter<Row.R2<String, String>>> containersToLanguage = new TreeMap<String, Counter<Row.R2<String, String>>>();
         Relation<String, Row.R4<Double, String, String, String>> containersToLangRegion = Relation.of(
             new TreeMap<String, Set<Row.R4<Double, String, String, String>>>(), TreeSet.class);
 
@@ -1373,8 +1373,6 @@ public class GenerateMaximalLocales {
             + "<supplementalData>" + CldrUtility.LINE_SEPARATOR
             + "    <version number=\"$" +
             "Revision$\"/>" + CldrUtility.LINE_SEPARATOR
-            + "    <generation date=\"$" + // separate
-            "Date$\"/>" + CldrUtility.LINE_SEPARATOR
             + "    <likelySubtags>";
         String footer = OUTPUT_STYLE != OutputStyle.XML ? SEPARATOR + "};"
             : "    </likelySubtags>" + CldrUtility.LINE_SEPARATOR
@@ -1851,7 +1849,7 @@ public class GenerateMaximalLocales {
         { "ja", "Jpan" }, // Tahitian (French Polynesia)
         { "und", "Latn" }, // Tahitian (French Polynesia)
     };
-    private static Map<String, String> localeToScriptCache = new TreeMap();
+    private static Map<String, String> localeToScriptCache = new TreeMap<String, String>();
     static {
         for (String[] pair : SpecialScripts) {
             localeToScriptCache.put(pair[0], pair[1]);

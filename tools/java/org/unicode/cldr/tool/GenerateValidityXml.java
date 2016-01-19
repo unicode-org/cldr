@@ -220,6 +220,10 @@ public class GenerateValidityXml {
             }
             // gather data
             info.statusMap.clear();
+            if (type == LstrType.script) {
+                // HACK for now
+                info.statusMap.put(Status.special, "Zsye");
+            }
             for (Entry<String, Map<LstrField, String>> entry2 : entry.getValue().entrySet()) {
                 String code = entry2.getKey();
                 Map<LstrField, String> data = entry2.getValue();
@@ -260,7 +264,6 @@ public class GenerateValidityXml {
                 }
                 info.statusMap.put(subtype, code);
             }
-
         }
         System.out.println("Skipping non-Unicode scripts: " + Joiner.on(' ').join(skippedScripts));
     }

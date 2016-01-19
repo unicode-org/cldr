@@ -1,13 +1,16 @@
 package org.unicode.cldr.unittest;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
 import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
@@ -25,20 +28,46 @@ public class TestValidity extends TestFmwkPlus {
     public void TestBasicValidity() {
         Object[][] tests = {
             { LstrType.language, Validity.Status.regular, true, "aa", "en" },
-            { LstrType.language, Validity.Status.regular, false, "eng" },
-            { LstrType.language, Validity.Status.special, true, "root" },
+            { LstrType.language, null, false, "eng" }, // null means never found under any status
+            { LstrType.language, null, false, "root" },
+            { LstrType.language, Validity.Status.special, true, "mul" },
+            { LstrType.language, Validity.Status.deprecated, true, "aju" },
+            { LstrType.language, Validity.Status.private_use, true, "qaa" },
+            { LstrType.language, Validity.Status.unknown, true, "und" },
+
+            { LstrType.script, Validity.Status.regular, true, "Zyyy" },
+            { LstrType.script, Validity.Status.special, true, "Zsye" },
+            { LstrType.script, Validity.Status.regular, true, "Zyyy" },
+            { LstrType.script, Validity.Status.unknown, true, "Zzzz" },
+
+            { LstrType.region, Validity.Status.deprecated, true, "QU" },
+            { LstrType.region, Validity.Status.macroregion, true, "EU" },
+            { LstrType.region, Validity.Status.regular, true, "XK" },
+            { LstrType.region, Validity.Status.macroregion, true, "001" },
+            { LstrType.region, Validity.Status.private_use, true, "AA" },
             { LstrType.region, Validity.Status.unknown, true, "ZZ" },
-            { LstrType.subdivision, Validity.Status.unknown, true, "KZ-ZZZZ" },
             
+            { LstrType.subdivision, Validity.Status.unknown, true, "KZ-ZZZZ" },
+            { LstrType.subdivision, Validity.Status.regular, true, "US-CA" },
+            { LstrType.subdivision, Validity.Status.deprecated, true, "AL-BR" },
+            
+            { LstrType.currency, Validity.Status.regular, true, "USD" },
+            { LstrType.currency, Validity.Status.unknown, true, "XXX" },
+            { LstrType.currency, Validity.Status.deprecated, true, "ADP" },
+            
+            { LstrType.unit, Validity.Status.regular, true, "area-acre"},
         };
         for (Object[] test : tests) {
             LstrType lstr = (LstrType) test[0];
-            Validity.Status subtype = (Validity.Status) test[1];
+            Validity.Status subtypeRaw = (Validity.Status) test[1];
             Boolean desired = (Boolean) test[2];
             for (int i = 3; i < test.length; ++i) {
                 String code = (String) test[i];
-                Set<String> actual = validity.getData().get(lstr).get(subtype);
-                assertRelation("Validity", desired, actual, TestFmwkPlus.CONTAINS, code);
+                List<Status> subtypes = subtypeRaw == null ? Arrays.asList(Status.values()) : Collections.singletonList(subtypeRaw);
+                for (Status subtype : subtypes) {
+                    Set<String> actual = validity.getData().get(lstr).get(subtype);
+                    assertRelation("Validity", desired, CldrUtility.ifNull(actual,Collections.EMPTY_SET), TestFmwkPlus.CONTAINS, code);
+                }
             }
         }
         if (isVerbose()) {
@@ -53,7 +82,8 @@ public class TestValidity extends TestFmwkPlus {
     }
 
     static final Set<String> ALLOWED_UNDELETIONS = ImmutableSet.of("NL-BQ1", "NL-BQ2", "NL-BQ3", "NO-21", "NO-22");
-    
+    static final Set<String> ALLOWED_MISSING = ImmutableSet.of("root");
+
     public void TestCompatibility() {
         // Only run the rest in exhaustive mode, since it requires CLDR_ARCHIVE_DIRECTORY
         if (getInclusion() <= 5) {
@@ -71,7 +101,7 @@ public class TestValidity extends TestFmwkPlus {
                     if (oldStatus == newStatus) {
                         continue;
                     }
-                    if (newStatus == null) {
+                    if (newStatus == null && !ALLOWED_MISSING.contains(code)) {
                         errln(type + ":" + code + ":" + oldStatus + " — missing in new data");
                     } 
                     if (oldStatus == Status.deprecated && !ALLOWED_UNDELETIONS.contains(code)) {

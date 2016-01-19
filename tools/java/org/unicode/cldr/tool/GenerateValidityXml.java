@@ -122,9 +122,9 @@ public class GenerateValidityXml {
                     StringRange.compact(set, adder, true);
                     output.append("\n\t\t</id>\n");
                 }
-                if (!info.newCodes.isEmpty()) {
-                    output.append("\t\t<!-- Codes added this release:\n\t\t\t" + showCodes(info.newCodes, "\n\t\t\t") + "\n\t\t-->\n");
-                }
+//                if (!info.newCodes.isEmpty()) {
+//                    output.append("\t\t<!-- Codes added this release:\n\t\t\t" + showCodes(info.newCodes, "\n\t\t\t") + "\n\t\t-->\n");
+//                }
                 output.append("\t</idValidity>\n</supplementalData>\n");
             }
         }

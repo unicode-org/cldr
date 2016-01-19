@@ -59,11 +59,11 @@ public class GenerateSubdivisions {
         _ROOT_COL.freeze();
         ROOT_COL = (Comparator<String>) (Comparator) _ROOT_COL;
     }
-    
+
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final CLDRFile ENGLISH_CLDR = CLDR_CONFIG.getEnglish();
     private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
-    
+
     private static final Validity VALIDITY_FORMER = Validity.getInstance();
     private static final Map<String, R2<List<String>, String>> SUBDIVISION_ALIASES_FORMER = SDI.getLocaleAliasInfo().get("subdivision");
     private static final SubdivisionNames SUBDIVISION_NAMES_ENGLISH_FORMER = new SubdivisionNames("en");
@@ -141,13 +141,14 @@ public class GenerateSubdivisions {
                 Error: (TestSubdivisions.java:66) : country SJ = subdivisionNO-22: expected "Svalbard & Jan Mayen", got "Jan Mayen"
                  */
                 String paren = value.substring(value.length() - 3, value.length() - 1);
-                if (!paren.equals("BQ") && !paren.equals("SJ")) {
-                    String old = TO_COUNTRY_CODE.get(code);
-                    if (old != null) {
-                        System.err.println("Duplicate: " + code + "\t" + old + "\t" + paren);
-                    }
-                    TO_COUNTRY_CODE.put(code, paren);
-                }
+                // OLD code to guess country from comment
+//                if (!paren.equals("BQ") && !paren.equals("SJ")) {
+//                    String old = TO_COUNTRY_CODE.get(code);
+//                    if (old != null) {
+//                        System.err.println("Duplicate: " + code + "\t" + old + "\t" + paren);
+//                    }
+//                    TO_COUNTRY_CODE.put(code, paren);
+//                }
                 value = value.substring(0, parenPos).trim();
             }
             value = value.replace("*", "");
@@ -362,7 +363,7 @@ public class GenerateSubdivisions {
                 Set<String> codesIncluded = new HashSet<>(); // record the ones we did, so we can add others
                 Set<String> remainder = regionToOld.get(regionCode);
                 remainder = remainder == null ? Collections.EMPTY_SET : new LinkedHashSet<>(remainder);
-                
+
                 SubdivisionNode regionNode = ID_TO_NODE.get(regionCode);
                 output.append("\t\t<!-- ")
                 .append(regionCode).append(" : ")
@@ -634,6 +635,9 @@ public class GenerateSubdivisions {
 
         private static void addAliases(Appendable output, Set<String> missing) throws IOException {
             for (String toReplace : missing) {
+                if (toReplace.startsWith("NL-")) {
+                    int debug = 0;
+                }
                 List<String> replaceBy = null;
                 String reason = "deprecated";
                 R2<List<String>, String> aliasInfo = SUBDIVISION_ALIASES_FORMER.get(toReplace);
@@ -648,6 +652,7 @@ public class GenerateSubdivisions {
                     }
                 }
                 addAlias(output, toReplace, replaceBy, reason);
+                System.out.println("Adding alias: " + toReplace + " => " + replaceBy);
             }
         }
 
@@ -661,7 +666,8 @@ public class GenerateSubdivisions {
                 + " type=\"" + toReplace + "\""
                 + " replacement=\"" + (replaceBy == null ? "??" : CollectionUtilities.join(replaceBy, " ")) + "\""
                 + " reason=\"" + reason + "\"/>"
-                + " <!-- " + getBestName(toReplace, true) + " => " + (replaceBy == null ? "??" : getBestName(replaceBy, true)) + " -->"
+                + (replaceBy == null ? " <!- - " : " <!-- ")
+                + getBestName(toReplace, true) + " => " + (replaceBy == null ? "??" : getBestName(replaceBy, true)) + " -->"
                 + "\n");
         }
 
@@ -768,24 +774,45 @@ public class GenerateSubdivisions {
         int maxIndent = 0;
         SubdivisionNode lastNode = null;
         String lastCode = null;
+        Set<String> conflictingTargetCountries = new HashSet<>();
 
         for (Pair<String, String> pair : pathValues) {
             String path = pair.getFirst();
             boolean code = path.contains("/subdivision-code");
             boolean name = path.contains("/subdivision-locale-name");
             boolean nameCat = path.contains("/category-name");
+            boolean relatedCountry = path.contains("/subdivision-related-country");
 
             //    <country id="AD" version="16">
             //       <category id="262">
             //  <category-name lang3code="fra" xml:lang="fr">paroisse</category-name>
             //  <category-name lang3code="eng" xml:lang="en">parish</category-name>
             // also languages in region...
-            if (!code && !name && !nameCat) {
+
+            // new XML from ISO, so we don't have to guess the country code:
+//            <subdivision-code footnote="*">NL-BQ1</subdivision-code>
+//            <subdivision-related-country country-id="BQ" xml:lang="en">BONAIRE, SINT EUSTATIUS AND SABA</subdivision-related-country>
+
+            if (!code && !name && !nameCat && !relatedCountry) {
                 continue;
             }
             parts.set(path);
             String value = pair.getSecond();
-            if (name) {
+            if (relatedCountry) {
+                String target = parts.getAttributeValue(-1, "country-id");
+                // remove conflicting target countries
+                for (Entry<String, String> entry : SubdivisionNode.TO_COUNTRY_CODE.entrySet()) {
+                    if (entry.getValue().equals(target)) {
+                        conflictingTargetCountries.add(target);
+                        SubdivisionNode.TO_COUNTRY_CODE.remove(entry.getKey(), target); // there can be at most one
+                        break;
+                    }
+                }
+                if (!conflictingTargetCountries.contains(target)) {
+                    SubdivisionNode.TO_COUNTRY_CODE.put(lastCode, target);
+                    System.out.println(lastCode + " => " + target);
+                }
+            } else if (name) {
                 int elementNum = -2;
                 String lang = parts.getAttributeValue(elementNum, "xml:lang");
                 if (lang == null) {

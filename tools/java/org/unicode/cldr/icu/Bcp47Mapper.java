@@ -82,6 +82,7 @@ public class Bcp47Mapper {
         private String typeAliasPrefix;
         private String typeMapPrefix;
         private String bcpTypeAliasPrefix;
+        private String lastKeyName;
         private IcuData icuData;
         private Map<String, String> keyMap;
 
@@ -129,7 +130,7 @@ public class Bcp47Mapper {
                 typeMapPrefix = "/typeMap/" + keyAlias + '/';
                 keyMap.put(keyName, keyAlias);
                 bcpTypeAliasPrefix = "/bcpTypeAlias/" + keyName + '/';
-
+                lastKeyName = keyName;
                 addOtherInfo(qName, attr, keyName, SKIP_KEY_ATTRIBUTES);
             } else if (qName.equals("type")) {
                 String typeName = attr.getValue("name");
@@ -158,7 +159,7 @@ public class Bcp47Mapper {
                         icuData.add(typeAliasPrefix + formatName(aliases[i]), mainAlias);
                     }
                 }
-                addOtherInfo(qName, attr, typeName, SKIP_KEY_ATTRIBUTES);
+                addOtherInfo(qName, attr, lastKeyName+"/"+typeName, SKIP_KEY_ATTRIBUTES);
             }
         }
 

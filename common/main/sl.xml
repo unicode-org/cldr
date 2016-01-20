@@ -6522,6 +6522,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="contributed">{0} in²</unitPattern>
 				<perUnitPattern>{0} na kvadratni palec</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName draft="contributed">karat</displayName>
+				<unitPattern count="one" draft="contributed">{0} karat</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} karata</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} karati</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} karatov</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName draft="contributed">litrov na kilometer</displayName>
 				<unitPattern count="one" draft="contributed">{0} liter na kilometer</unitPattern>
@@ -7077,13 +7084,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} mbar</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mbar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName draft="contributed">karat</displayName>
-				<unitPattern count="one" draft="contributed">{0} karat</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} karata</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} karati</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} karatov</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="contributed">kilometri na uro</displayName>
 				<unitPattern count="one">{0} kilometer na uro</unitPattern>
@@ -7430,6 +7430,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} in²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} in²</unitPattern>
 				<perUnitPattern>{0} na in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName draft="contributed">kt</displayName>
+				<unitPattern count="one" draft="contributed">{0} kt</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} kt</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} kt</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName draft="contributed">L/km</displayName>
@@ -7985,13 +7992,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} mbar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} mbar</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName draft="contributed">kt</displayName>
-				<unitPattern count="one" draft="contributed">{0} kt</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} kt</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} kt</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="contributed">km/h</displayName>

@@ -5725,6 +5725,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಚದರ ಅಂಗುಲಗಳು</unitPattern>
 				<perUnitPattern>{0} ಚದರ ಅಂಗುಲಕ್ಕೆ</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>ಕಾರಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಕಾರಟ್‌</unitPattern>
+				<unitPattern count="other">{0} ಕಾರಟ್‌ಗಳು</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ಲೀಟರ್ ಪ್ರತಿ ಕಿಲೋಮೀಟರ್‌ಗೆ</displayName>
 				<unitPattern count="one">{0} ಲೀಟರ್ ಪ್ರತಿ ಕಿಲೋಮೀಟರ್‌ಗೆ</unitPattern>
@@ -6126,11 +6131,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಮಿಲಿಬಾರ್</unitPattern>
 				<unitPattern count="other">{0} ಮಿಲಿಬಾರ್‌ಗಳು</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>ಕಾರಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಕಾರಟ್‌</unitPattern>
-				<unitPattern count="other">{0} ಕಾರಟ್‌ಗಳು</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ಗಂಟೆಗೆ ಕಿಲೋಮೀಟರ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಕಿಲೋಮಿಟರ್ ಪ್ರತಿ ಗಂಟೆಗೆ</unitPattern>
@@ -6383,6 +6383,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಅಂ²</unitPattern>
 				<unitPattern count="other">{0} ಅಂ²</unitPattern>
 				<perUnitPattern>{0}/ಅಂ²ಕ್ಕೆ</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>ಕಾರ.</displayName>
+				<unitPattern count="one">{0} ಕಾರ.</unitPattern>
+				<unitPattern count="other">{0} ಕಾರ.</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ಲೀ/ಕಿ.ಮೀ</displayName>
@@ -6784,11 +6789,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ಮಿ.ಬಾರ್‌</displayName>
 				<unitPattern count="one">{0} ಮಿ.ಬಾರ್</unitPattern>
 				<unitPattern count="other">{0} ಮಿ.ಬಾರ್</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>ಕಾರ.</displayName>
-				<unitPattern count="one">{0} ಕಾರ.</unitPattern>
-				<unitPattern count="other">{0} ಕಾರ.</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ಕಿ.ಮೀ/ಗಂ</displayName>

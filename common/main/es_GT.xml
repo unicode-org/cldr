@@ -263,6 +263,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="concentr-karat">
+				<unitPattern count="one" draft="contributed">{0} ct</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ct</unitPattern>
+			</unit>
 			<unit type="electric-volt">
 				<displayName draft="contributed">voltios</displayName>
 			</unit>
@@ -271,10 +275,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="power-watt">
 				<displayName draft="contributed">vatios</displayName>
-			</unit>
-			<unit type="proportion-karat">
-				<unitPattern count="one" draft="contributed">{0} ct</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ct</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName draft="contributed">acre pie</displayName>

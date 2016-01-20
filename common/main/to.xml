@@ -4778,6 +4778,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">ʻinisi sikuea ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} ki he ʻinisi sikuea</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>kalati</displayName>
+				<unitPattern count="other">kalati ʻe {0}</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>lita he kilomita</displayName>
 				<unitPattern count="other">lita ʻe {0} he kilomita</unitPattern>
@@ -5110,10 +5114,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>milipā</displayName>
 				<unitPattern count="other">milipā ʻe {0}</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>kalati</displayName>
-				<unitPattern count="other">kalati ʻe {0}</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilomita he houa</displayName>
 				<unitPattern count="other">kilomita he houa ʻe {0}</unitPattern>
@@ -5323,6 +5323,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>in²</displayName>
 				<unitPattern count="other">in² ʻe {0}</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>kt</displayName>
+				<unitPattern count="other">kt ʻe {0}</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -5656,10 +5660,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mpā</displayName>
 				<unitPattern count="other">mpā ʻe {0}</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>kt</displayName>
-				<unitPattern count="other">kt ʻe {0}</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="other">km/h ʻe {0}</unitPattern>
@@ -5869,6 +5869,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>in²</displayName>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} /in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>kt</displayName>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -6200,10 +6204,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="pressure-millibar">
 				<displayName>mpā</displayName>
 				<unitPattern count="other">{0} mpā</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>kt</displayName>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

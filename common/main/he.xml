@@ -6694,6 +6694,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} אינץ׳ רבוע</unitPattern>
 				<perUnitPattern>{0}/אינץ׳ רבוע</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>קראט</displayName>
+				<unitPattern count="one">קראט אחד</unitPattern>
+				<unitPattern count="two">{0} קראט</unitPattern>
+				<unitPattern count="many">{0} קראט</unitPattern>
+				<unitPattern count="other">{0} קראט</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ליטרים/קילומטר</displayName>
 				<unitPattern count="one">{0} ליטר/קילומטר</unitPattern>
@@ -7249,13 +7256,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} מיליבר</unitPattern>
 				<unitPattern count="other">{0} מיליבר</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>קראט</displayName>
-				<unitPattern count="one">קראט אחד</unitPattern>
-				<unitPattern count="two">{0} קראט</unitPattern>
-				<unitPattern count="many">{0} קראט</unitPattern>
-				<unitPattern count="other">{0} קראט</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>קילומטר לשעה</displayName>
 				<unitPattern count="one">{0} קילומטר לשעה</unitPattern>
@@ -7602,6 +7602,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName draft="contributed">kt</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="two">{0} kt</unitPattern>
+				<unitPattern count="many">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ליטרים/ק״מ</displayName>
@@ -8157,13 +8164,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two">{0} מיליבר</unitPattern>
 				<unitPattern count="many">{0} מ״ב</unitPattern>
 				<unitPattern count="other">{0} מ״ב</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName draft="contributed">kt</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="two">{0} kt</unitPattern>
-				<unitPattern count="many">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>קמ״ש</displayName>

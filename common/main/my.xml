@@ -4858,6 +4858,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}စတုရန်းလက်မ</unitPattern>
 				<perUnitPattern>{0}တစ်စတုရန်းလက်မလျှင်</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>ကရက်</displayName>
+				<unitPattern count="other">{0} ကရက်</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>လီတာ/ကီလိုမီတာ</displayName>
 				<unitPattern count="other">၁ကီလိုမီတာ {0}လီတာနှုန်း</unitPattern>
@@ -5182,10 +5186,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>မီလီဘား</displayName>
 				<unitPattern count="other">{0}မီလီဘား</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>ကရက်</displayName>
-				<unitPattern count="other">{0} ကရက်</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ကီလိုမီတာ/နာရီ</displayName>
 				<unitPattern count="other">တစ်နာရီလျှင်{0}ကီလိုမီတာနှုန်း</unitPattern>
@@ -5391,6 +5391,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>စတုရန်းလက်မ</displayName>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>ကရက်</displayName>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>လီတာ/ကီလိုမီတာ</displayName>
@@ -5715,10 +5719,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="pressure-millibar">
 				<displayName>မီလီဘား</displayName>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>ကရက်</displayName>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ကီလိုမီတာ/နာရီ</displayName>

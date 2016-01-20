@@ -6571,6 +6571,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} de inchi pătrați</unitPattern>
 				<perUnitPattern>{0} pe inchi pătrat</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>karate</displayName>
+				<unitPattern count="one">{0} karată</unitPattern>
+				<unitPattern count="few">{0} karate</unitPattern>
+				<unitPattern count="other">{0} de karate</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litri pe kilometru</displayName>
 				<unitPattern count="one">{0} litru pe kilometru</unitPattern>
@@ -7049,12 +7055,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} milibari</unitPattern>
 				<unitPattern count="other">{0} de milibari</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karate</displayName>
-				<unitPattern count="one">{0} karată</unitPattern>
-				<unitPattern count="few">{0} karate</unitPattern>
-				<unitPattern count="other">{0} de karate</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometri pe oră</displayName>
 				<unitPattern count="one">{0} kilometru pe oră</unitPattern>
@@ -7354,6 +7354,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>kt</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="few">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -7832,12 +7838,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="few">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>kt</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="few">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

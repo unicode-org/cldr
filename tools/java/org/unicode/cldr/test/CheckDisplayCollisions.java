@@ -144,14 +144,14 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
         // Add OK collisions for /unit[@type=\"mass-carat\"]
         Set<String> set4 = new HashSet<String>();
-        set4.add("/unit[@type=\"proportion-karat\"]");
+        set4.add("/unit[@type=\"concentr-karat\"]");
         mapPathPartsToSets.put("/unit[@type=\"mass-carat\"]", set4);
 
-        // Add OK collisions for /unit[@type=\"proportion-karat\"]
+        // Add OK collisions for /unit[@type=\"concentr-karat\"]
         Set<String> set5 = new HashSet<String>();
         set5.add("/unit[@type=\"mass-carat\"]");
         set5.add("/unit[@type=\"temperature-kelvin\"]");
-        mapPathPartsToSets.put("/unit[@type=\"proportion-karat\"]", set5);
+        mapPathPartsToSets.put("/unit[@type=\"concentr-karat\"]", set5);
 
         // Add OK collisions for /unit[@type=\"digital-byte\"]
         Set<String> set6 = new HashSet<String>();
@@ -177,7 +177,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
         // Add OK collisions for /unit[@type=\"temperature-kelvin\"]
         Set<String> set12 = new HashSet<String>();
-        set12.add("/unit[@type=\"proportion-karat\"]");
+        set12.add("/unit[@type=\"concentr-karat\"]");
         mapPathPartsToSets.put("/unit[@type=\"temperature-kelvin\"]", set12);
 
         // Add OK collisions for /unit[@type=\"temperature-generic\"]

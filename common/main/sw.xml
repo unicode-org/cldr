@@ -5376,6 +5376,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">inchi {0} za mraba</unitPattern>
 				<perUnitPattern>{0} kwa kila inchi ya mraba</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>karati</displayName>
+				<unitPattern count="one">karati {0}</unitPattern>
+				<unitPattern count="other">karati {0}</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>lita kwa kila kilomita</displayName>
 				<unitPattern count="one">lita {0} kwa kilomita</unitPattern>
@@ -5777,11 +5782,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">kipimo cha milibari {0}</unitPattern>
 				<unitPattern count="other">kipimo cha milibari {0}</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karati</displayName>
-				<unitPattern count="one">karati {0}</unitPattern>
-				<unitPattern count="other">karati {0}</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilomita kwa saa</displayName>
 				<unitPattern count="one">kilomita {0} kwa saa</unitPattern>
@@ -6034,6 +6034,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">in² {0}</unitPattern>
 				<unitPattern count="other">in² {0}</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>karati</displayName>
+				<unitPattern count="one">karati {0}</unitPattern>
+				<unitPattern count="other">karati {0}</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>lita kwa kila kilomita</displayName>
@@ -6435,11 +6440,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kipimo cha milibari</displayName>
 				<unitPattern count="one">mbar {0}</unitPattern>
 				<unitPattern count="other">mbar {0}</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>karati</displayName>
-				<unitPattern count="one">karati {0}</unitPattern>
-				<unitPattern count="other">karati {0}</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilomita kwa saa</displayName>

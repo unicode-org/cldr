@@ -5226,6 +5226,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} шаршы дюйм</unitPattern>
 				<perUnitPattern>{0}/дюйм²</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>карат</displayName>
+				<unitPattern count="one">{0} карат</unitPattern>
+				<unitPattern count="other">{0} карат</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>литр/километр</displayName>
 				<unitPattern count="one">{0} литр/километр</unitPattern>
@@ -5627,11 +5632,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} миллибар</unitPattern>
 				<unitPattern count="other">{0} миллибар</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>карат</displayName>
-				<unitPattern count="one">{0} карат</unitPattern>
-				<unitPattern count="other">{0} карат</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>километр/сағат</displayName>
 				<unitPattern count="one">{0} километр/сағат</unitPattern>
@@ -5884,6 +5884,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} дюйм²</unitPattern>
 				<unitPattern count="other">{0} дюйм²</unitPattern>
 				<perUnitPattern>{0}/дюйм²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>карат</displayName>
+				<unitPattern count="one">{0} КТ</unitPattern>
+				<unitPattern count="other">{0} КТ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>литр/км</displayName>
@@ -6285,11 +6290,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>мбар</displayName>
 				<unitPattern count="one">{0} мб</unitPattern>
 				<unitPattern count="other">{0} мб</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>карат</displayName>
-				<unitPattern count="one">{0} КТ</unitPattern>
-				<unitPattern count="other">{0} КТ</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>км/сағ</displayName>

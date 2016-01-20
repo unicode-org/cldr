@@ -7601,6 +7601,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} квадратного дюйма</unitPattern>
 				<perUnitPattern>{0} на квадратный дюйм</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>караты</displayName>
+				<unitPattern count="one">{0} карат</unitPattern>
+				<unitPattern count="few">{0} карата</unitPattern>
+				<unitPattern count="many">{0} карат</unitPattern>
+				<unitPattern count="other">{0} карата</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>литры на километр</displayName>
 				<unitPattern count="one">{0} литр на километр</unitPattern>
@@ -8156,13 +8163,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} миллибар</unitPattern>
 				<unitPattern count="other">{0} миллибара</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>караты</displayName>
-				<unitPattern count="one">{0} карат</unitPattern>
-				<unitPattern count="few">{0} карата</unitPattern>
-				<unitPattern count="many">{0} карат</unitPattern>
-				<unitPattern count="other">{0} карата</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>километры в час</displayName>
 				<unitPattern count="one">{0} километр в час</unitPattern>
@@ -8509,6 +8509,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} кв. дюйм.</unitPattern>
 				<unitPattern count="other">{0} кв. дюйм.</unitPattern>
 				<perUnitPattern>{0}/дюйм²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>кар</displayName>
+				<unitPattern count="one">{0} кар</unitPattern>
+				<unitPattern count="few">{0} кар</unitPattern>
+				<unitPattern count="many">{0} кар</unitPattern>
+				<unitPattern count="other">{0} кар</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>л/км</displayName>
@@ -9064,13 +9071,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} мбар</unitPattern>
 				<unitPattern count="many">{0} мбар</unitPattern>
 				<unitPattern count="other">{0} мбар</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>кар</displayName>
-				<unitPattern count="one">{0} кар</unitPattern>
-				<unitPattern count="few">{0} кар</unitPattern>
-				<unitPattern count="many">{0} кар</unitPattern>
-				<unitPattern count="other">{0} кар</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>км/ч</displayName>

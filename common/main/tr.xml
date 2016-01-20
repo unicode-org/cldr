@@ -6860,6 +6860,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} inç kare</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>ayar</displayName>
+				<unitPattern count="one">{0} ayar</unitPattern>
+				<unitPattern count="other">{0} ayar</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litre/kilometre</displayName>
 				<unitPattern count="one">{0} litre/kilometre</unitPattern>
@@ -7276,11 +7281,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} milibar</unitPattern>
 				<unitPattern count="other">{0} milibar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>ayar</displayName>
-				<unitPattern count="one">{0} ayar</unitPattern>
-				<unitPattern count="other">{0} ayar</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometre/saat</displayName>
 				<unitPattern count="one">{0} kilometre/saat</unitPattern>
@@ -7538,6 +7538,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>ayar</displayName>
+				<unitPattern count="one">{0} ayar</unitPattern>
+				<unitPattern count="other">{0} ayar</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -7955,11 +7960,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>ayar</displayName>
-				<unitPattern count="one">{0} ayar</unitPattern>
-				<unitPattern count="other">{0} ayar</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/sa</displayName>
 				<unitPattern count="one">{0} km/sa</unitPattern>
@@ -8194,6 +8194,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-inch">
 				<unitPattern count="one" draft="contributed">{0} in²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} in²</unitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<unitPattern count="one" draft="contributed">{0} ayar</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ayar</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<unitPattern count="one" draft="contributed">{0} l/km</unitPattern>
@@ -8524,10 +8528,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="pressure-millibar">
 				<unitPattern count="one" draft="contributed">{0} mb</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mb</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<unitPattern count="one" draft="contributed">{0} ayar</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ayar</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/sa</displayName>

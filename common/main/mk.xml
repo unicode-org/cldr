@@ -5976,6 +5976,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} квадратни инчи</unitPattern>
 				<perUnitPattern>{0} по квадратен инч</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>карат</displayName>
+				<unitPattern count="one">{0} карат</unitPattern>
+				<unitPattern count="other">{0} карати</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>литри на километар</displayName>
 				<unitPattern count="one">{0} литар на километар</unitPattern>
@@ -6392,11 +6397,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} милибар</unitPattern>
 				<unitPattern count="other">{0} милибари</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>карат</displayName>
-				<unitPattern count="one">{0} карат</unitPattern>
-				<unitPattern count="other">{0} карати</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>километри на час</displayName>
 				<unitPattern count="one">{0} километар на час</unitPattern>
@@ -6659,6 +6659,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>литри/км</displayName>
 				<unitPattern count="one">{0} L/km</unitPattern>
 				<unitPattern count="other">{0} L/km</unitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>карати</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100km</displayName>
@@ -7071,11 +7076,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} мбар</unitPattern>
 				<unitPattern count="other">{0} мб.</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>карати</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>км/час</displayName>
 				<unitPattern count="one">{0} к/ч</unitPattern>
@@ -7308,6 +7308,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-inch">
 				<unitPattern count="one">{0} ин²</unitPattern>
 				<unitPattern count="other">{0} ин²</unitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<unitPattern count="one">{0} кт</unitPattern>
+				<unitPattern count="other">{0} кт</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<unitPattern count="one">{0} л/км</unitPattern>
@@ -7574,10 +7578,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>мбар</displayName>
 				<unitPattern count="one">{0} мб</unitPattern>
 				<unitPattern count="other">{0} мб</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<unitPattern count="one">{0} кт</unitPattern>
-				<unitPattern count="other">{0} кт</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>км/ч</displayName>

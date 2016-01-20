@@ -9059,6 +9059,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} kvadratinių colių</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>karatai</displayName>
+				<unitPattern count="one">{0} karatas</unitPattern>
+				<unitPattern count="few">{0} karatai</unitPattern>
+				<unitPattern count="many">{0} karato</unitPattern>
+				<unitPattern count="other">{0} karatų</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litrai kilometrui</displayName>
 				<unitPattern count="one">{0} litras kilometrui</unitPattern>
@@ -9635,13 +9642,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} milibaro</unitPattern>
 				<unitPattern count="other">{0} milibarų</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karatai</displayName>
-				<unitPattern count="one">{0} karatas</unitPattern>
-				<unitPattern count="few">{0} karatai</unitPattern>
-				<unitPattern count="many">{0} karato</unitPattern>
-				<unitPattern count="other">{0} karatų</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometrai per valandą</displayName>
 				<unitPattern count="one">{0} kilometras per valandą</unitPattern>
@@ -9995,6 +9995,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>kt</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="few">{0} kt</unitPattern>
+				<unitPattern count="many">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -10571,13 +10578,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} mbar</unitPattern>
 				<unitPattern count="many">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>kt</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="few">{0} kt</unitPattern>
-				<unitPattern count="many">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/val.</displayName>

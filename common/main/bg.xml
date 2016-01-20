@@ -6210,6 +6210,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} квадратни инча</unitPattern>
 				<perUnitPattern>{0} на квадратен инч</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>карати</displayName>
+				<unitPattern count="one">{0} карат</unitPattern>
+				<unitPattern count="other">{0} карата</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>литри на километър</displayName>
 				<unitPattern count="one">{0} литър на километър</unitPattern>
@@ -6609,11 +6614,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} милибар</unitPattern>
 				<unitPattern count="other">{0} милибара</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>карати</displayName>
-				<unitPattern count="one">{0} карат</unitPattern>
-				<unitPattern count="other">{0} карата</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>километри в час</displayName>
 				<unitPattern count="one">{0} километър в час</unitPattern>
@@ -6866,6 +6866,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} кв. инч</unitPattern>
 				<unitPattern count="other">{0} кв. инча</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>К</displayName>
+				<unitPattern count="one">{0} карат</unitPattern>
+				<unitPattern count="other">{0} карата</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -7267,11 +7272,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mbar</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>К</displayName>
-				<unitPattern count="one">{0} карат</unitPattern>
-				<unitPattern count="other">{0} карата</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

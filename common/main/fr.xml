@@ -8646,6 +8646,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} pouces carrés</unitPattern>
 				<perUnitPattern>{0} par pouce carré</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>carats</displayName>
+				<unitPattern count="one">{0} carat</unitPattern>
+				<unitPattern count="other">{0} carats</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litres au kilomètre</displayName>
 				<unitPattern count="one">{0} litre au kilomètre</unitPattern>
@@ -9062,11 +9067,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} millibar</unitPattern>
 				<unitPattern count="other">{0} millibars</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>carats</displayName>
-				<unitPattern count="one">{0} carat</unitPattern>
-				<unitPattern count="other">{0} carats</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilomètres par heure</displayName>
 				<unitPattern count="one">{0} kilomètre par heure</unitPattern>
@@ -9324,6 +9324,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} po²</unitPattern>
 				<unitPattern count="other">{0} po²</unitPattern>
 				<perUnitPattern>{0}/po²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>ct</displayName>
+				<unitPattern count="one">{0} ct</unitPattern>
+				<unitPattern count="other">{0} ct</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -9740,11 +9745,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mbar</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>ct</displayName>
-				<unitPattern count="one">{0} ct</unitPattern>
-				<unitPattern count="other">{0} ct</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

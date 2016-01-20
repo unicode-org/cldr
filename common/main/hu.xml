@@ -6777,6 +6777,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} négyzethüvelyk</unitPattern>
 				<perUnitPattern>{0}/négyzethüvelyk</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>karát</displayName>
+				<unitPattern count="one">{0} karát</unitPattern>
+				<unitPattern count="other">{0} karát</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liter per kilométer</displayName>
 				<unitPattern count="one">{0} liter per kilométer</unitPattern>
@@ -7178,11 +7183,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} millibar</unitPattern>
 				<unitPattern count="other">{0} millibar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karát</displayName>
-				<unitPattern count="one">{0} karát</unitPattern>
-				<unitPattern count="other">{0} karát</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilométer per óra</displayName>
 				<unitPattern count="one">{0} kilométer per óra</unitPattern>
@@ -7435,6 +7435,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>kt</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -7836,11 +7841,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mbar</displayName>
 				<unitPattern count="one">{0} mb</unitPattern>
 				<unitPattern count="other">{0} mb</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>kt</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

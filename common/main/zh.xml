@@ -7638,6 +7638,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}平方英寸</unitPattern>
 				<perUnitPattern draft="contributed">每平方英寸{0}</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>克拉</displayName>
+				<unitPattern count="other">{0}克拉</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>升每公里</displayName>
 				<unitPattern count="other">每公里{0}升</unitPattern>
@@ -7962,10 +7966,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>毫巴</displayName>
 				<unitPattern count="other">{0}毫巴</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>克拉</displayName>
-				<unitPattern count="other">{0}克拉</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>千米每小时</displayName>
 				<unitPattern count="other">每小时{0}公里</unitPattern>
@@ -8171,6 +8171,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>平方英寸</displayName>
 				<unitPattern count="other">{0}平方英寸</unitPattern>
 				<perUnitPattern draft="contributed">{0}/平方英寸</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>克拉</displayName>
+				<unitPattern count="other">{0}克拉</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>升/公里</displayName>
@@ -8495,10 +8499,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="pressure-millibar">
 				<displayName>毫巴</displayName>
 				<unitPattern count="other">{0}毫巴</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>克拉</displayName>
-				<unitPattern count="other">{0}克拉</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>千米/小时</displayName>

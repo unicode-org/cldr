@@ -5779,6 +5779,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} చదరపు అంగుళాలు</unitPattern>
 				<perUnitPattern>{0}/చదరపు అంగుళాలు</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>కేరట్లు</displayName>
+				<unitPattern count="one">{0} కేరట్</unitPattern>
+				<unitPattern count="other">{0} కేరట్లు</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>లీటర్లు/కిలోమీటరు</displayName>
 				<unitPattern count="one">{0} లీటరు/కిలోమీటరు</unitPattern>
@@ -6185,11 +6190,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} మిల్లీబార్</unitPattern>
 				<unitPattern count="other">{0} మిల్లీబార్‌లు</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>కేరట్లు</displayName>
-				<unitPattern count="one">{0} కేరట్</unitPattern>
-				<unitPattern count="other">{0} కేరట్లు</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>కిలోమీటర్లు/గంట</displayName>
 				<unitPattern count="one">{0} కిలోమీటరు/గంట</unitPattern>
@@ -6442,6 +6442,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} అం²</unitPattern>
 				<unitPattern count="other">{0} అం²</unitPattern>
 				<perUnitPattern>{0}/అం²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>కేరట్లు</displayName>
+				<unitPattern count="one">{0} కేర.</unitPattern>
+				<unitPattern count="other">{0} కేర.</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>లీటర్లు/కి.మీ</displayName>
@@ -6846,11 +6851,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>మి.బార్</displayName>
 				<unitPattern count="one">{0} మి.బార్</unitPattern>
 				<unitPattern count="other">{0} మి.బార్</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>కేరట్లు</displayName>
-				<unitPattern count="one">{0} కేర.</unitPattern>
-				<unitPattern count="other">{0} కేర.</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>కి.మీ/గంట</displayName>

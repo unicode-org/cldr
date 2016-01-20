@@ -6079,6 +6079,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} კვადრატული დუიმი</unitPattern>
 				<perUnitPattern>{0} კვადრატულ დუიმში</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>კარატი</displayName>
+				<unitPattern count="one">{0} კარატი</unitPattern>
+				<unitPattern count="other">{0} კარატი</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ლიტრი კილომეტრზე</displayName>
 				<unitPattern count="one">{0} ლიტრი კილომეტრზე</unitPattern>
@@ -6480,11 +6485,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} მილიბარი</unitPattern>
 				<unitPattern count="other">{0} მილიბარი</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>კარატი</displayName>
-				<unitPattern count="one">{0} კარატი</unitPattern>
-				<unitPattern count="other">{0} კარატი</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>კილომეტრი საათში</displayName>
 				<unitPattern count="one">{0} კილომეტრი საათში</unitPattern>
@@ -6737,6 +6737,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} დუიმი²</unitPattern>
 				<unitPattern count="other">{0} დუიმი²</unitPattern>
 				<perUnitPattern>{0}/დუიმი²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>კარატი</displayName>
+				<unitPattern count="one">{0} კარ.</unitPattern>
+				<unitPattern count="other">{0} კარ.</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ლიტრი/კმ</displayName>
@@ -7138,11 +7143,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>მბარი</displayName>
 				<unitPattern count="one">{0} მბარი</unitPattern>
 				<unitPattern count="other">{0} მბარი</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>კარატი</displayName>
-				<unitPattern count="one">{0} კარ.</unitPattern>
-				<unitPattern count="other">{0} კარ.</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>კმ/სთ</displayName>

@@ -5544,6 +5544,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ਵਰਗ ਇੰਚ</unitPattern>
 				<perUnitPattern>{0} ਪ੍ਰਤੀ ਵਰਗ ਇੰਚ</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>ਕੇਰਟ</displayName>
+				<unitPattern count="one">{0} ਕੇਰਟ</unitPattern>
+				<unitPattern count="other">{0} ਕੇਰਟ</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ਲਿਟਰ ਪ੍ਰਤੀ ਕਿਲੋਮੀਟਰ</displayName>
 				<unitPattern count="one">{0} ਲਿਟਰ ਪ੍ਰਤੀ ਕਿਲੋਮੀਟਰ</unitPattern>
@@ -5960,11 +5965,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ਮਿਲੀਬਾਰ</unitPattern>
 				<unitPattern count="other">{0} ਮਿਲੀਬਾਰ</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>ਕੇਰਟ</displayName>
-				<unitPattern count="one">{0} ਕੇਰਟ</unitPattern>
-				<unitPattern count="other">{0} ਕੇਰਟ</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ਕਿਲੋਮੀਟਰ ਪ੍ਰਤੀ ਘੰਟਾ</displayName>
 				<unitPattern count="one">{0} ਕਿਲੋਮੀਟਰ ਪ੍ਰਤੀ ਘੰਟਾ</unitPattern>
@@ -6222,6 +6222,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ਇੰਚ²</unitPattern>
 				<unitPattern count="other">{0} ਇੰਚ²</unitPattern>
 				<perUnitPattern>{0} ਪ੍ਰਤੀ ਇੰਚ²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>ਕੇਰਟ</displayName>
+				<unitPattern count="one">{0} ਕੇਰਟ</unitPattern>
+				<unitPattern count="other">{0} ਕੇਰਟ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ਲਿਟਰ/ਕਿ.ਮੀ.</displayName>
@@ -6639,11 +6644,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ਮਿਲੀਬਾਰ</unitPattern>
 				<unitPattern count="other">{0} ਮਿਲੀਬਾਰ</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>ਕੇਰਟ</displayName>
-				<unitPattern count="one">{0} ਕੇਰਟ</unitPattern>
-				<unitPattern count="other">{0} ਕੇਰਟ</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ਕਿ.ਮੀ./ਘੰਟਾ</displayName>
 				<unitPattern count="one">{0} ਕਿ.ਪ੍ਰ.ਘੰ.</unitPattern>
@@ -6878,6 +6878,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-inch">
 				<unitPattern count="one">{0}ਇੰਚ²</unitPattern>
 				<unitPattern count="other">{0}ਇੰਚ²</unitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<unitPattern count="one">{0} ਕੇਰਟ</unitPattern>
+				<unitPattern count="other">{0} ਕੇਰਟ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<unitPattern count="one">{0}ਲਿ./ਕਿ.ਮੀ.</unitPattern>
@@ -7192,10 +7196,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="pressure-millibar">
 				<unitPattern count="one">{0} ਮਿ.ਬਾ.</unitPattern>
 				<unitPattern count="other">{0} ਮਿ.ਬਾ.</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<unitPattern count="one">{0} ਕੇਰਟ</unitPattern>
-				<unitPattern count="other">{0} ਕੇਰਟ</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ਕਿ.ਮੀ./ਘੰਟਾ</displayName>

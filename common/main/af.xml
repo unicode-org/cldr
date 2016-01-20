@@ -5358,6 +5358,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} vierkante duim</unitPattern>
 				<perUnitPattern>{0} per vierkante duim</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>karat</displayName>
+				<unitPattern count="one">{0} karat</unitPattern>
+				<unitPattern count="other">{0} karat</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liter per kilometer</displayName>
 				<unitPattern count="one">{0} liter per kilometer</unitPattern>
@@ -5759,11 +5764,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} millibar</unitPattern>
 				<unitPattern count="other">{0} millibar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karat</displayName>
-				<unitPattern count="one">{0} karat</unitPattern>
-				<unitPattern count="other">{0} karat</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometer per uur</displayName>
 				<unitPattern count="one">{0} kilometer per uur</unitPattern>
@@ -6016,6 +6016,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} dm.²</unitPattern>
 				<unitPattern count="other">{0} dm.²</unitPattern>
 				<perUnitPattern>{0}/dm.²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>karat</displayName>
+				<unitPattern count="one">{0} kar.</unitPattern>
+				<unitPattern count="other">{0} kar.</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liter/km</displayName>
@@ -6417,11 +6422,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>millibar</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>karat</displayName>
-				<unitPattern count="one">{0} kar.</unitPattern>
-				<unitPattern count="other">{0} kar.</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/uur</displayName>

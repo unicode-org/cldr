@@ -6406,6 +6406,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ചതുരശ്ര ഇഞ്ച്</unitPattern>
 				<perUnitPattern>{0} / ചതുരശ്ര ഇഞ്ച്</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>ക്യാരറ്റ്</displayName>
+				<unitPattern count="one">{0} ക്യാരറ്റ്</unitPattern>
+				<unitPattern count="other">{0} ക്യാരറ്റ്</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ലിറ്റർ/കിലോമീറ്റർ</displayName>
 				<unitPattern count="one">{0} ലിറ്റർ/കിലോമീറ്റർ</unitPattern>
@@ -6807,11 +6812,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} മില്ലിബാർ</unitPattern>
 				<unitPattern count="other">{0} മില്ലിബാർ</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>ക്യാരറ്റ്</displayName>
-				<unitPattern count="one">{0} ക്യാരറ്റ്</unitPattern>
-				<unitPattern count="other">{0} ക്യാരറ്റ്</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>കിലോമീറ്റർ/മണിക്കൂർ</displayName>
 				<unitPattern count="one">{0} കിലോമീറ്റർ/മണിക്കൂർ</unitPattern>
@@ -7064,6 +7064,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ഇഞ്ച്²</unitPattern>
 				<unitPattern count="other">{0} ഇഞ്ച്²</unitPattern>
 				<perUnitPattern>{0}/ഇഞ്ച്²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>ക്യാരറ്റ്</displayName>
+				<unitPattern count="one">{0} ക്യാ.</unitPattern>
+				<unitPattern count="other">{0} ക്യാ.</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ലിറ്റർ/കി.മീ.</displayName>
@@ -7465,11 +7470,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>മി.ബാ</displayName>
 				<unitPattern count="one">{0} മി.ബാ</unitPattern>
 				<unitPattern count="other">{0} മി.ബാ</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>ക്യാരറ്റ്</displayName>
-				<unitPattern count="one">{0} ക്യാ.</unitPattern>
-				<unitPattern count="other">{0} ക്യാ.</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>കി.മീ/മ.</displayName>

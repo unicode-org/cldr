@@ -1,19 +1,21 @@
 package org.unicode.cldr.util;
 
+import java.util.Collections;
 import java.util.EnumSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import com.google.common.base.Splitter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 
 public final class PreferredAndAllowedHour implements Comparable<PreferredAndAllowedHour> {
 
     public enum HourStyle {
-        h, H, k, K;
-        public static boolean isHourCharacter(char c) {
+        h, H, k, K, hb, hB, Hb, HB;
+        public static boolean isHourCharacter(String c) {
             try {
-                HourStyle.valueOf(String.valueOf(c));
+                HourStyle.valueOf(c);
                 return true;
             } catch (Exception e) {
                 return false;
@@ -28,6 +30,23 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
         this(HourStyle.valueOf(String.valueOf(preferred)), mungeSet(allowed));
     }
 
+    public PreferredAndAllowedHour(HourStyle preferred, Set<HourStyle> allowed) {
+        if (preferred == null) {
+            throw new NullPointerException();
+        }
+        if (!allowed.contains(preferred)) {
+            throw new IllegalArgumentException("Allowed (" + allowed +
+                ") must contain preferred(" + preferred +
+                ")");
+        }
+        this.preferred = preferred;
+        this.allowed = Collections.unmodifiableSet(new LinkedHashSet<>(allowed));
+    }
+    
+    public PreferredAndAllowedHour(String preferred2, String allowedString) {
+        this(HourStyle.valueOf(preferred2), mungeOperands(allowedString));
+    }
+
     private static EnumSet<HourStyle> mungeSet(Set<Character> allowed) {
         EnumSet<HourStyle> temp = EnumSet.noneOf(HourStyle.class);
         for (char c : allowed) {
@@ -36,40 +55,14 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
         return temp;
     }
 
-    public PreferredAndAllowedHour(HourStyle preferred, Set<HourStyle> allowed) {
-        this.preferred = preferred;
-        if (preferred == null) {
-            throw new NullPointerException();
+    static final Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults();
+    
+    private static LinkedHashSet<HourStyle> mungeOperands(String allowedString) {
+        LinkedHashSet<HourStyle> allowed = new LinkedHashSet<>();
+        for (String s : SPACE_SPLITTER.split(allowedString)) {
+            allowed.add(HourStyle.valueOf(s));
         }
-        this.allowed = allowed;
-        if (!this.allowed.contains(this.preferred)) {
-            throw new IllegalArgumentException("Allowed (" + allowed +
-                ") must contain preferred(" + preferred +
-                ")");
-        }
-    }
-
-    public PreferredAndAllowedHour(String preferred2, String allowedString) {
-        this(mungeOperands(preferred2, allowedString));
-    }
-
-    private static Object[] mungeOperands(String preferred2, String allowedString) {
-        if (preferred2.length() != 1) {
-            throw new IllegalArgumentException("Preferred be one character: " + preferred2);
-        }
-        LinkedHashSet<Character> allowed2 = new LinkedHashSet<Character>();
-        for (int i = 0; i < allowedString.length(); ++i) {
-            char c = allowedString.charAt(i);
-            if (UCharacter.isWhitespace(c)) {
-                continue;
-            }
-            allowed2.add(c);
-        }
-        return new Object[] { preferred2.charAt(0), allowed2 };
-    }
-
-    private PreferredAndAllowedHour(Object[] mungedOperands) {
-        this((Character) mungedOperands[0], (Set<Character>) mungedOperands[1]);
+        return allowed;
     }
 
     @Override

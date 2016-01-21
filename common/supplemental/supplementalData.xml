@@ -2335,7 +2335,7 @@ XXX Code for transations where no currency is involved
 		<language type="yrk" scripts="Cyrl"/>
 		<language type="yrl" scripts="Latn"/>
 		<language type="yua" scripts="Latn"/>
-		<language type="yue" scripts="Hans"/>
+		<language type="yue" scripts="Hant Hans"/> <!-- temporary -->
 		<language type="za" scripts="Latn"/>
 		<language type="za" scripts="Hans" territories="CN" alt="secondary"/>
 		<language type="zag" scripts="Latn"/>
@@ -2694,6 +2694,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="vi" populationPercent="0.0005"/>	<!--Vietnamese-->
 			<languagePopulation type="uz_Cyrl" populationPercent="0.0004"/>	<!--Uzbek (Cyrillic)-->
 			<languagePopulation type="lzh" populationPercent="0" references="R1150"/>	<!--Literary Chinese-->
+			<languagePopulation type="yue_Hans" populationPercent="1"/>	<!-- Temporary fix until Rick's data comes in. -->
 		</territory>
 		<territory type="CO" gdp="642700000000" literacyPercent="93.6" population="46245300">	<!--Colombia-->
 			<languagePopulation type="es" populationPercent="93" officialStatus="official" references="R1014"/>	<!--Spanish-->
@@ -2999,6 +3000,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="HK" gdp="400600000000" literacyPercent="93.5" population="7112690">	<!--Hong Kong SAR China-->
 			<languagePopulation type="zh_Hant" populationPercent="95" officialStatus="official"/>	<!--Chinese (Traditional)-->
+			<languagePopulation type="yue_Hant" populationPercent="95" officialStatus="official"/>	<!-- Temporary fix until Rick's data comes in. -->
 			<languagePopulation type="en" populationPercent="51" officialStatus="official"/>	<!--English-->
 			<languagePopulation type="zh_Hans" populationPercent="5" references="R1143"/>	<!--Chinese (Simplified)-->
 		</territory>
@@ -5328,7 +5330,7 @@ XXX Code for transations where no currency is involved
     </codeMappings>
 
 	<parentLocales>
-		<parentLocale parent="root" locales="az_Arab az_Cyrl bm_Nkoo bs_Cyrl en_Dsrt en_Shaw ha_Arab iu_Latn mn_Mong ms_Arab pa_Arab shi_Latn sr_Latn uz_Arab uz_Cyrl vai_Latn zh_Hant"/>
+		<parentLocale parent="root" locales="az_Arab az_Cyrl bm_Nkoo bs_Cyrl en_Dsrt en_Shaw ha_Arab iu_Latn mn_Mong ms_Arab pa_Arab shi_Latn sr_Latn uz_Arab uz_Cyrl vai_Latn zh_Hant yue_Hans"/>
 		<parentLocale parent="en_001" locales="en_150 en_AG en_AI en_AU en_BB en_BE en_BM en_BS en_BW en_BZ en_CA en_CC en_CK en_CM en_CX en_CY en_DG en_DM en_ER en_FJ en_FK en_FM en_GB en_GD en_GG en_GH en_GI en_GM en_GY en_HK en_IE en_IL en_IM en_IN en_IO en_JE en_JM en_KE en_KI en_KN en_KY en_LC en_LR en_LS en_MG en_MO en_MS en_MT en_MU en_MW en_MY en_NA en_NF en_NG en_NR en_NU en_NZ en_PG en_PH en_PK en_PN en_PW en_RW en_SB en_SC en_SD en_SG en_SH en_SL en_SS en_SX en_SZ en_TC en_TK en_TO en_TT en_TV en_TZ en_UG en_VC en_VG en_VU en_WS en_ZA en_ZM en_ZW"/>
 		<parentLocale parent="en_150" locales="en_AT en_CH en_DE en_DK en_FI en_NL en_SE en_SI"/>
 		<parentLocale parent="es_419" locales="es_AR es_BO es_CL es_CO es_CR es_CU es_DO es_EC es_GT es_HN es_MX es_NI es_PA es_PE es_PR es_PY es_SV es_US es_UY es_VE"/>

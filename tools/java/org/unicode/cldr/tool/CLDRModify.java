@@ -276,8 +276,6 @@ public class CLDRModify {
         + XPathParts.NEWLINE
         + "-p\t set path for -fx"
         + XPathParts.NEWLINE
-        + "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)"
-        + XPathParts.NEWLINE
         + "-u\t set user for -fb"
         + XPathParts.NEWLINE
         + "-a\t pattern: recurse over all subdirectories that match pattern"
@@ -287,6 +285,8 @@ public class CLDRModify {
         + "-k\t config_file\twith -fk perform modifications according to what is in the config file. For format details, see:"
         + XPathParts.NEWLINE
         + "\t\thttp://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config."
+        + XPathParts.NEWLINE
+        + "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)"
         + XPathParts.NEWLINE;
 
     static final String HELP_TEXT2 = "Note: A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results."

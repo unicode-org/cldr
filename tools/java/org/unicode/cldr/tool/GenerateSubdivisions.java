@@ -2,6 +2,7 @@ package org.unicode.cldr.tool;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -343,10 +344,9 @@ public class GenerateSubdivisions {
             // <subdivisions>
             // <subdivisiontype="NZ-AUK">Auckland</territory>
             output.append(
-                //header(DtdType.ldml)
-                DtdType.ldml.header("GenerateSubdivisions")
+                DtdType.ldml.header(MethodHandles.lookup().lookupClass())
                 + "\t<identity>\n"
-                + "\t\t<version number=\"$Revision: 1 $\"/>\n"
+                + "\t\t<version number=\"$Revision" /*hack to stop SVN changing this*/ + "$\"/>\n"
                 + "\t\t<language type=\"en\"/>\n"
                 + "\t</identity>\n"
                 + "\t<localeDisplayNames>\n"
@@ -589,10 +589,8 @@ public class GenerateSubdivisions {
             </subdivisionContainment>
              */
             output.append(
-                DtdType.supplementalData.header("GenerateSubdivisions")
-                //+ "\n"
-                //+ "<supplementalData>\n"
-                + "    <version number='$Revision: 8268 $'/>\n"
+                DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
+                + "\t<version number=\"$Revision" /*hack to stop SVN changing this*/ + "$\"/>\n"
                 + "\t<subdivisionContainment>\n");
             printXml(output, BASE, 0);
             output.append("\t</subdivisionContainment>\n</supplementalData>\n");

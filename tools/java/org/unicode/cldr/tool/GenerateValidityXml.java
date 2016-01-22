@@ -2,6 +2,7 @@ package org.unicode.cldr.tool;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.invoke.MethodHandles;
 import java.util.Date;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
@@ -106,9 +107,8 @@ public class GenerateValidityXml {
             Relation<Status, String> subtypeMap = info.statusMap;
             try (PrintWriter output = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "validity/" + type + ".xml")) {
                 adder.target = output;
-                output.append(DtdType.supplementalData.header("GenerateValidityXml")
-                    + "\t<version number='$"
-                    + "Revision$'/>\n"
+                output.append(DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
+                    + "\t\t<version number=\"$Revision" /*hack to stop SVN changing this*/ + "$\"/>\n"
                     + "\t\t<idValidity>\n");
                 for (Entry<Validity.Status, Set<String>> entry2 : subtypeMap.keyValuesSet()) {
                     Validity.Status subtype = entry2.getKey();
